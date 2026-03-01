@@ -24,9 +24,7 @@ features.
 
 ###### Topics
 
-- [Step 1: Set up an AWS account and create a
-  User](setting-up.md "setting-up.md")
+- [Step 1: Set up an AWS account and create a User](setting-up.md "setting-up.md")
 - [Step 2: Set up the AWS CLI and AWS SDKs](setup-awscli-sdk.md "setup-awscli-sdk.md")
-- [Step 3: Getting started using the AWS CLI and AWS
-  SDK API](get-started-exercise.md "get-started-exercise.md")
+- [Step 3: Getting started using the AWS CLI and AWS SDK API](get-started-exercise.md "get-started-exercise.md")
 - [Step 4: Getting started using the Amazon Rekognition console](getting-started-console.md "getting-started-console.md")

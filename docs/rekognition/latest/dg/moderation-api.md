@@ -4,9 +4,7 @@ In the Amazon Rekognition Image API, you can detect inappropriate, unwanted, or 
 synchronously using [DetectModerationLabels](../APIReference/API_DetectModerationLabels.md "../APIReference/API_DetectModerationLabels.md") and asynchronously using [StartMediaAnalysisJob](../APIReference/API_StartMediaAnalysisJob.md "../APIReference/API_StartMediaAnalysisJob.md") and [GetMediaAnalysisJob](../APIReference/API_GetMediaAnalysisJob.md "../APIReference/API_GetMediaAnalysisJob.md") operations. You can use the Amazon Rekognition Video API to detect such
 content asynchronously by using the [StartContentModeration](../APIReference/API_StartContentModeration.md "../APIReference/API_StartContentModeration.md") and [GetContentModeration](../APIReference/API_GetContentModeration.md "../APIReference/API_GetContentModeration.md") operations.
 
-##
-
-Label Categories
+## Label Categories
 
 Amazon Rekognition uses a three-level hierarchical taxonomy to label
 categories of inappropriate, unwanted, or offensive content. Each label with Taxonomy Level 1 (L1) has
@@ -88,9 +86,7 @@ The API can also identify animated or illustrated content type, and the content 
 - Animated content includes video game and animation (e.g., cartoon, comics, manga, anime).
 - Illustrated content includes drawing, painting, and sketches.
 
-##
-
-Confidence
+## Confidence
 
 You can set the confidence threshold that Amazon Rekognition uses to detect inappropriate content by
 specifying the `MinConfidence` input parameter. Labels aren't returned for
@@ -113,16 +109,12 @@ might be enough for your filtering needs. However, if it's necessary, you can us
 confidence score of a second-level label (such as "Graphic Male Nudity") to obtain more
 granular filtering. For an example, see [Detecting inappropriate images](procedure-moderate-images.md "procedure-moderate-images.md").
 
-##
-
-Versioning
+## Versioning
 
 Amazon Rekognition Image and Amazon Rekognition Video both return the version of the moderation detection model that is
 used to detect inappropriate content (`ModerationModelVersion`).
 
-##
-
-Sorting and Aggregating
+## Sorting and Aggregating
 
 When retrieving results with GetContentModeration, you can sort and aggregate your
 results.

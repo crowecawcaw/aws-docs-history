@@ -14,6 +14,5 @@ Use the following topics to learn how to secure your Amazon Rekognition resource
 - [Compliance validation for Amazon Rekognition](rekognition-compliance.md "rekognition-compliance.md")
 - [Resilience in Amazon Rekognition](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Configuration and vulnerability analysis in Amazon Rekognition](vulnerability-analysis-and-management.md "vulnerability-analysis-and-management.md")
-- [Cross-service confused deputy
-  prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
 - [Infrastructure security in Amazon Rekognition](infrastructure-security.md "infrastructure-security.md")

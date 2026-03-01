@@ -1,8 +1,7 @@
 # Understanding Rekognition's types of analysis
 
 The following are the types of analysis that the Amazon Rekognition Image API and Amazon Rekognition Video API can
-perform. For information about the APIs, see [Understanding Rekognition's image
-and video operations](how-it-works-operations-intro.md "how-it-works-operations-intro.md").
+perform. For information about the APIs, see [Understanding Rekognition's image and video operations](how-it-works-operations-intro.md "how-it-works-operations-intro.md").
 
 The following table lists the operations you need to use with respect to the type of
 media you're working with and your use case:
@@ -184,8 +183,7 @@ using the verified predictions to determine which labels would benefit from crea
 an adapter.
 
 Currently you can use adapters with the [DetectModerationLabels](../APIReference/API_DetectModerationLabels.md "../APIReference/API_DetectModerationLabels.md"). For more information on creating and using
-adapters, see [Enhancing accuracy with Custom
-Moderation](moderation-custom-moderation.md "moderation-custom-moderation.md").
+adapters, see [Enhancing accuracy with Custom Moderation](moderation-custom-moderation.md "moderation-custom-moderation.md").
 
 ## Bulk analysis
 

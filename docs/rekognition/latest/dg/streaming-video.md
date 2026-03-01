@@ -38,5 +38,4 @@ For an example, see [PutMedia
 API Example](../../../kinesisvideostreams/latest/dg/examples-putmedia.md "../../../kinesisvideostreams/latest/dg/examples-putmedia.md").
 
 For information about how your application can consume Amazon Rekognition Video analysis results from a face search stream processor, see
-[Reading streaming video analysis
-results](streaming-video-kinesis-output.md "streaming-video-kinesis-output.md").
+[Reading streaming video analysis results](streaming-video-kinesis-output.md "streaming-video-kinesis-output.md").

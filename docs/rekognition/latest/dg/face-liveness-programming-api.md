@@ -1,6 +1,4 @@
-# Programming the Amazon Rekognition Face Liveness
-
-APIs
+# Programming the Amazon Rekognition Face Liveness APIs
 
 To use the Amazon Rekognition Face Liveness API, you must create a backend that
 carries out the following steps:
@@ -20,9 +18,7 @@ carries out the following steps:
    `CreateFaceLivenessSession`. See the [Prerequisites](face-liveness-prerequisites.md "face-liveness-prerequisites.md")
    section for more information.
 
-## Step 1:
-
-CreateFaceLivenessSession
+## Step 1: CreateFaceLivenessSession
 
 CreateFaceLivenessSession API operation creates a Face Liveness session and
 returns a unique `SessionId`.
@@ -76,16 +72,13 @@ but can be set to FaceMovementChallenge.
 }
 ```
 
-## Step 2:
-
-StartFaceLivenessSession
+## Step 2: StartFaceLivenessSession
 
 When the CreateFaceLivenessSession API operation finishes, the AWS Amplify
 component performs the StartFaceLivenessSession API operation. The user is prompted
 to capture a video selfie. For a successful check, the user must position their face
 within the onscreen oval while maintaining good lighting. For more information, see
-[Recommendations for Usage of Face
-Liveness](recommendations-liveness.md "recommendations-liveness.md").
+[Recommendations for Usage of Face Liveness](recommendations-liveness.md "recommendations-liveness.md").
 
 This API operation requires the video captured during the Face Liveness session,
 the sessionId obtained from the CreateFaceLivenessSession API operation, and an
@@ -97,9 +90,7 @@ Note that this step is performed by the AWS Amplify FaceLivenessDetector compone
 on the client application. You do not need to do additional setup to call
 `StartFaceLivenessSession`.
 
-## Step 3:
-
-GetFaceLivenessSessionResults
+## Step 3: GetFaceLivenessSessionResults
 
 The GetFaceLivenessSessionResults API operation retrieves the results of a
 specific Face Liveness session. It requires the sessionId as input and returns the
@@ -149,9 +140,7 @@ boxes. The Face Liveness confidence score ranges from 0–100.
 
 ```
 
-## Step 4: Respond to
-
-results
+## Step 4: Respond to results
 
 After the Face Liveness session, compare the check's confidence score against the
 specified threshold. If the score is higher than the threshold, the user can go to

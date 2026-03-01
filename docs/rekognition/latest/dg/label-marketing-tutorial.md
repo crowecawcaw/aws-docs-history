@@ -1,6 +1,4 @@
-# Using Amazon Rekognition (REK) to detect labels for
-
-marketing applications
+# Using Amazon Rekognition (REK) to detect labels for marketing applications
 
 This tutorial guides you through building a sample Python application that could be used to
 send emails to people, based on on images uploaded to a website. The sample application is

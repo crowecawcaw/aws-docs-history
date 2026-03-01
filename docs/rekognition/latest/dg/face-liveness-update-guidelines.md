@@ -1,6 +1,4 @@
-# Face Liveness update
-
-guidelines
+# Face Liveness update guidelines
 
 AWS regularly updates Face Liveness AWS SDKs (used in customer backend) and
 FaceLivenessDetector components of AWS Amplify SDKs (used in client applications) to
@@ -12,9 +10,7 @@ be blocked for maintainability and security reasons.
 Face Liveness requires that you use the FaceLivenessDetector component, included in
 the AWS Amplify SDKs (React, iOS, Android).
 
-## Versioning and
-
-time-frames
+## Versioning and time-frames
 
 We are versioning the following key components of the Face Liveness feature. We
 follow a semantic versioning format. For example, a version format of X.Y.Z where X
@@ -48,9 +44,7 @@ The versioning time window (120 days for major and 180 days for minor) applies t
 updating the SDK in your app, uploading your app to the app store or website, and
 users downloading the latest version of the app.
 
-## Version release and
-
-compatiblity matrix
+## Version release and compatiblity matrix
 
 The release of a major version for FaceLivenessDetector component or user
 challenge often coincide. To help you keep a track of version dependencies, see the
@@ -71,9 +65,7 @@ resources linked in the following tables.
 | FaceMovementAndLightChallenge | v1.0.0  | 4/10/2023    | N/A         |
 | FaceMovementChallenge         | v1.0.0  | 4/30/2025    | N/A         |
 
-## Communication of new
-
-releases
+## Communication of new releases
 
 AWS communicates new releases through the following channels:
 

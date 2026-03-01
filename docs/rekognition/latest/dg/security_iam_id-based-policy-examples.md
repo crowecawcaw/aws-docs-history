@@ -1,6 +1,4 @@
-# Examples of using Amazon Rekognition identity-based
-
-policy examples
+# Examples of using Amazon Rekognition identity-based policy examples
 
 By default, users and roles don't have permission to create or modify
 Amazon Rekognition resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or
@@ -18,8 +16,7 @@ _IAM User Guide_.
 - [Example Amazon Rekognition Custom Labels policies](#security_iam_id-based-policy-examples-custom-labels "#security_iam_id-based-policy-examples-custom-labels")
 - [Example 1: Allow a user read-only access to resources](#security_iam_id-based-policy-examples-read-only "#security_iam_id-based-policy-examples-read-only")
 - [Example 2: Allow a user full access to resources](#security_iam_id-based-policy-examples-full-acess "#security_iam_id-based-policy-examples-full-acess")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
 
 ## Example Amazon Rekognition Custom Labels policies
 
@@ -99,9 +96,7 @@ JSON
 
 ```
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.

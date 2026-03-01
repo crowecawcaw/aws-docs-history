@@ -1,14 +1,11 @@
-# Displaying Rekognition results
-
-with Kinesis Video Streams locally
+# Displaying Rekognition results with Kinesis Video Streams locally
 
 You can see the results of Amazon Rekognition Video displayed in your feed from Amazon Kinesis Video Streams
 using the Amazon Kinesis Video Streams Parser Library’s example tests provided at [KinesisVideo - Rekognition Examples](https://github.com/aws/amazon-kinesis-video-streams-parser-library#kinesisvideo---rekognition-examples "https://github.com/aws/amazon-kinesis-video-streams-parser-library#kinesisvideo---rekognition-examples"). The
 `KinesisVideoRekognitionIntegrationExample` displays bounding boxes
 over detected faces and renders the video locally through JFrame. This process
 assumes you have successfully connected a media input from a device camera to a
-Kinesis video stream and started an Amazon Rekognition Stream Processor. For more information, see [Streaming using a GStreamer
-plugin](streaming-using-gstreamer-plugin.md "streaming-using-gstreamer-plugin.md").
+Kinesis video stream and started an Amazon Rekognition Stream Processor. For more information, see [Streaming using a GStreamer plugin](streaming-using-gstreamer-plugin.md "streaming-using-gstreamer-plugin.md").
 
 ## Step 1: Installing Kinesis Video Streams Parser Library
 
@@ -25,14 +22,11 @@ clean installation:
 $ mvn clean install
 ```
 
-## Step 2: Configuring the
-
-Kinesis Video Streams and Rekognition integration example test
+## Step 2: Configuring the Kinesis Video Streams and Rekognition integration example test
 
 Open the `KinesisVideoRekognitionIntegrationExampleTest.java` file. Remove the `@Ignore` right after the class header.
 Populate the data fields with the information from your Amazon Kinesis and Amazon Rekognition resources.
-For more information, see [Setting
-up your Amazon Rekognition Video and Amazon Kinesis resources](setting-up-your-amazon-rekognition-streaming-video-resources.md "setting-up-your-amazon-rekognition-streaming-video-resources.md").
+For more information, see [Setting up your Amazon Rekognition Video and Amazon Kinesis resources](setting-up-your-amazon-rekognition-streaming-video-resources.md "setting-up-your-amazon-rekognition-streaming-video-resources.md").
 If you are streaming video to your Kinesis video stream, remove the `inputStream` parameter.
 
 See the following code example:
@@ -63,9 +57,7 @@ KinesisVideoRekognitionIntegrationExample example = KinesisVideoRekognitionInteg
 
 ```
 
-## Step 3: Running the Kinesis Video Streams and
-
-Rekognition integration example test
+## Step 3: Running the Kinesis Video Streams and Rekognition integration example test
 
 Ensure that your Kinesis video stream is receiving media input if you are streaming to it and
 start analyzing your stream with an Amazon Rekognition Video Stream Processor running. For more

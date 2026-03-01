@@ -1,6 +1,4 @@
-# Setting
-
-up your Amazon Rekognition Video and Amazon Kinesis resources
+# Setting up your Amazon Rekognition Video and Amazon Kinesis resources
 
 The following procedures describe the steps you take to provision the Kinesis video stream and
 other resources that are used to recognize faces in a streaming
@@ -20,8 +18,7 @@ Guide_.
    to your
    Kinesis
    video streams and your Kinesis data streams. Note the ARN. For
-   more information, see [Giving access to streams
-   using AmazonRekognitionServiceRole](api-streaming-video-roles.md#api-streaming-video-roles-all-stream "api-streaming-video-roles.md#api-streaming-video-roles-all-stream").
+   more information, see [Giving access to streams using AmazonRekognitionServiceRole](api-streaming-video-roles.md#api-streaming-video-roles-all-stream "api-streaming-video-roles.md#api-streaming-video-roles-all-stream").
 2. [Create a collection](create-collection-procedure.md "create-collection-procedure.md") and
    note the collection identifier you used.
 3. [Index the faces](add-faces-to-collection-procedure.md "add-faces-to-collection-procedure.md") you
@@ -58,5 +55,4 @@ Example](../../../kinesisvideostreams/latest/dg/examples-putmedia.md "../../../k
   [PutMedia](../../../kinesisvideostreams/latest/dg/API_dataplane_PutMedia.md "../../../kinesisvideostreams/latest/dg/API_dataplane_PutMedia.md") operation to stream the source video into the Kinesis video stream
   that you created. For more information, see [PutMedia API
   Example](../../../kinesisvideostreams/latest/dg/examples-putmedia.md "../../../kinesisvideostreams/latest/dg/examples-putmedia.md").
-- If you are streaming from a device camera, see [Streaming using a GStreamer
-  plugin](streaming-using-gstreamer-plugin.md "streaming-using-gstreamer-plugin.md").
+- If you are streaming from a device camera, see [Streaming using a GStreamer plugin](streaming-using-gstreamer-plugin.md "streaming-using-gstreamer-plugin.md").

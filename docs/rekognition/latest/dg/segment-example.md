@@ -5,14 +5,12 @@ segments in a video stored in an Amazon S3 bucket. The procedure also shows how 
 detected segments based on the confidence that Amazon Rekognition Video has in the accuracy of the
 detection.
 
-The example expands on the code in [Analyzing a video stored in an Amazon S3
-bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md") which uses an Amazon Simple Queue Service queue to get the
+The example expands on the code in [Analyzing a video stored in an Amazon S3 bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md") which uses an Amazon Simple Queue Service queue to get the
 completion status of a video analysis request.
 
 ###### To detect segments in a video stored in an Amazon S3 bucket (SDK)
 
-1. Perform [Analyzing a video stored in an Amazon S3
-   bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md").
+1. Perform [Analyzing a video stored in an Amazon S3 bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md").
 2. Add the following to the code that you used in step 1.
 
 Java
@@ -479,7 +477,6 @@ Python
 
 ###### Note
 
-If you've already run a video example other than [Analyzing a video stored in an Amazon S3
-bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md"), the code to replace might be
+If you've already run a video example other than [Analyzing a video stored in an Amazon S3 bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md"), the code to replace might be
 different. 3. Run the code. Information about the segments detected in the input video are
 displayed.

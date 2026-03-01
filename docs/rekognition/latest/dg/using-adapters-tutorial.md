@@ -1,8 +1,7 @@
 # Custom Moderation adapter tutorial
 
 This tutorial shows you how to create, train, evaluate, use, and manage adapters using
-the Rekognition Console. To create, use, and manage adapters with the AWS SDK, see [Managing adapters with the AWS CLI and
-SDKs](managing-adapters.md "managing-adapters.md").
+the Rekognition Console. To create, use, and manage adapters with the AWS SDK, see [Managing adapters with the AWS CLI and SDKs](managing-adapters.md "managing-adapters.md").
 
 Adapters let you enhance the accuracy of Rekognition’s API operations, customizing the
 model’s behavior to fit your own needs and use cases. After you create an adapter with
@@ -24,14 +23,12 @@ Before completing this tutorial it’s recommended that you read through [Creati
 
 To create an adapter, you can use the Rekognition Console tool to create a project,
 upload and annotate your own images, and then train an adapter on these images.
-See [Creating a project and training
-an adapter](#using-adapters-tutorial-annotation "#using-adapters-tutorial-annotation") to get started.
+See [Creating a project and training an adapter](#using-adapters-tutorial-annotation "#using-adapters-tutorial-annotation") to get started.
 
 Alternatively, you can use Rekognition’s Console or API to retrieve predictions
 for images and then verify the predictions before training an adapter on these
 predictions. See
-[Bulk
-analysis, prediction verification, and training an adapter](#using-adapters-tuorial-annotation-bulk-analysis "#using-adapters-tuorial-annotation-bulk-analysis") to get started.
+[Bulk analysis, prediction verification, and training an adapter](#using-adapters-tuorial-annotation-bulk-analysis "#using-adapters-tuorial-annotation-bulk-analysis") to get started.
 
 ## Image annotation
 
@@ -41,14 +38,10 @@ labeled. Choose one of the topics below to get started.
 
 ###### Topics
 
-- [Creating a project and training
-  an adapter](#using-adapters-tutorial-annotation "#using-adapters-tutorial-annotation")
-- [Bulk
-  analysis, prediction verification, and training an adapter](#using-adapters-tuorial-annotation-bulk-analysis "#using-adapters-tuorial-annotation-bulk-analysis")
+- [Creating a project and training an adapter](#using-adapters-tutorial-annotation "#using-adapters-tutorial-annotation")
+- [Bulk analysis, prediction verification, and training an adapter](#using-adapters-tuorial-annotation-bulk-analysis "#using-adapters-tuorial-annotation-bulk-analysis")
 
-### Creating a project and training
-
-an adapter
+### Creating a project and training an adapter
 
 Complete the following steps to train your adapter by annotating images using the Rekognition console.
 
@@ -109,9 +102,7 @@ you’ll receive a notification that your adapter has finished being created.
 
 Once the status of your adapter is “Training completed” you can review your adapter’s metrics
 
-### Bulk
-
-analysis, prediction verification, and training an adapter
+### Bulk analysis, prediction verification, and training an adapter
 
 Complete the following steps to train your adapter by verifying bulk analysis predictions from
 Rekognition’s Content Moderation model.
@@ -289,9 +280,7 @@ adapter for to see more code samples, setup instructions, and a sample JSON.
 
 ![Interface showing locations for test data, training data, and output data with corresponding S3 URL fields. Options to use an adapter, view training images and tags, and access adapter details including its ID and code samples for AWS CLI and Python to use the trained adapter.](images/adapters-12-use-adapter.png)
 
-## Deleting your adapter
-
-and project
+## Deleting your adapter and project
 
 You can delete individual adapters, or delete your project. You must delete
 each adapter associated with your project before you can delete the project

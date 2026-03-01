@@ -1,6 +1,4 @@
-# Understanding Rekognition's image
-
-and video operations
+# Understanding Rekognition's image and video operations
 
 Amazon Rekognition offers two primary API sets for image and video analysis:
 
@@ -64,9 +62,7 @@ Amazon Rekognition operations are grouped into the following categories.
   search the persisted face information for face matches. For more
   information, see [Storage-based API operations](how-it-works-storage-non-storage.md#how-it-works-storage-based "how-it-works-storage-non-storage.md#how-it-works-storage-based").
 
-## Using the AWS SDK or HTTP to call Amazon Rekognition API
-
-operations
+## Using the AWS SDK or HTTP to call Amazon Rekognition API operations
 
 You can call Amazon Rekognition API operations using either the AWS SDK or directly by
 using HTTP. Unless you have a good reason not to, you should always use the AWS SDK.

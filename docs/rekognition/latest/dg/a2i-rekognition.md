@@ -1,6 +1,4 @@
-# Reviewing inappropriate content with Amazon Augmented
-
-AI
+# Reviewing inappropriate content with Amazon Augmented AI
 
 Amazon Augmented AI (Amazon A2I) enables you to build the workflows that are required for
 human review of machine learning predictions.
@@ -35,9 +33,7 @@ SageMaker Notebook Instance with Amazon A2I Jupyter Notebook](../../../sagemaker
 [Amazon Augmented AI (Amazon A2I) integration with Amazon Rekognition [Example]](<https://github.com/aws-samples/amazon-a2i-sample-jupyter-notebooks/blob/master/Amazon%20Augmented%20AI%20(A2I)%20and%20Rekognition%20DetectModerationLabels.ipynb> "https://github.com/aws-samples/amazon-a2i-sample-jupyter-notebooks/blob/master/Amazon%20Augmented%20AI%20(A2I)%20and%20Rekognition%20DetectModerationLabels.ipynb") in
 a SageMaker AI notebook instance.
 
-###### Running DetectModerationLabels with Amazon
-
-A2I
+###### Running DetectModerationLabels with Amazon A2I
 
 ###### Note
 

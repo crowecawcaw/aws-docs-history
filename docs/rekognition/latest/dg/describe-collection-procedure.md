@@ -13,8 +13,7 @@ collection:
 
 1. If you haven't already:
    1. Create or update a user with `AmazonRekognitionFullAccess`
-      permissions. For more information, see [Step 1: Set up an AWS account and create a
-      User](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam").
+      permissions. For more information, see [Step 1: Set up an AWS account and create a User](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam").
    2. Install and configure the AWS CLI and the AWS SDKs. For more
       information, see [Step 2: Set up the AWS CLI and AWS SDKs](setup-awscli-sdk.md "setup-awscli-sdk.md").
 
@@ -279,9 +278,7 @@ const describeCollection = async (collectionName) => {
 describeCollection(collection_name)
 ```
 
-## DescribeCollection operation
-
-request
+## DescribeCollection operation request
 
 The input to `DescribeCollection` is the ID of the desired collection,
 as shown in the following JSON example.
@@ -292,9 +289,7 @@ as shown in the following JSON example.
 }
 ```
 
-## DescribeCollection
-
-operation response
+## DescribeCollection operation response
 
 The response includes:
 

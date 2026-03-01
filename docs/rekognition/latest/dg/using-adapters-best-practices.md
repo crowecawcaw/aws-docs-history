@@ -1,6 +1,4 @@
-# Best practices for training
-
-adapters
+# Best practices for training adapters
 
 It's suggested you abide by the dollowing best practices when creating, training, and
 using your adapters:

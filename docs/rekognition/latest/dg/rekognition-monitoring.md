@@ -10,8 +10,7 @@ the number of faces that have been detected. You can also see metrics for the nu
 times a specific Rekognition operation has succeeded. To see metrics, you can use [Amazon CloudWatch](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/"), [Amazon AWS Command Line Interface](../../../AmazonCloudWatch/latest/cli.md "../../../AmazonCloudWatch/latest/cli.md"), or the [CloudWatch API](../../../AmazonCloudWatch/latest/APIReference.md "../../../AmazonCloudWatch/latest/APIReference.md").
 
 You can also see aggregated metrics, for a chosen period of time, by using the Rekognition console.
-For more information, see [Exercise 4: See aggregated metrics
-(console)](aggregated-metrics.md "aggregated-metrics.md").
+For more information, see [Exercise 4: See aggregated metrics (console)](aggregated-metrics.md "aggregated-metrics.md").
 
 ## Using CloudWatch metrics for Rekognition
 
@@ -57,9 +56,7 @@ see [Authentication and Access Control for Amazon CloudWatch](../../../AmazonClo
 The following examples show how to access Rekognition metrics using the CloudWatch console, the AWS CLI, and the CloudWatch
 API.
 
-###### To view metrics
-
-(console)
+###### To view metrics (console)
 
 1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch "https://console.aws.amazon.com/cloudwatch").
 2. Choose **Metrics**, choose the **All
@@ -71,9 +68,7 @@ API.
 For example, choose the **DetectedFace** metric to measure how many faces have been detected. 4. Choose a value for the date range. The metric count displayed in the
 graph.
 
-###### To view metrics successful `DetectFaces` operation calls have been made over a period of
-
-time (CLI).
+###### To view metrics successful `DetectFaces` operation calls have been made over a period of time (CLI).
 
 - Open the AWS CLI and enter the following command:
 
@@ -161,15 +156,12 @@ For more information, see [put-metric-alarm](../../../cli/latest/reference/put-m
 - Call `PutMetricAlarm`. For more information, see
   _[Amazon CloudWatch API Reference](../../../AmazonCloudWatch/latest/APIReference.md "../../../AmazonCloudWatch/latest/APIReference.md")_.
 
-## CloudWatch
-
-metrics for Rekognition
+## CloudWatch metrics for Rekognition
 
 This section contains information about the Amazon CloudWatch metrics and the _Operation_ dimension available for Amazon Rekognition.
 
 You can also see an aggregate view of Rekognition metrics from the Rekognition console. For more information, see
-[Exercise 4: See aggregated metrics
-(console)](aggregated-metrics.md "aggregated-metrics.md").
+[Exercise 4: See aggregated metrics (console)](aggregated-metrics.md "aggregated-metrics.md").
 
 ### CloudWatch metrics for Rekognition
 
@@ -211,9 +203,7 @@ and provide an operation dimension.
 For more information about dimensions, see [Dimensions](../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md#Dimension "../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md#Dimension") in the
 _Amazon CloudWatch User Guide_.
 
-### CloudWatch dimension for Rekognition Custom
-
-Labels
+### CloudWatch dimension for Rekognition Custom Labels
 
 The following table displays the CloudWatch dimensions available for use with
 Rekognition Custom Labels:

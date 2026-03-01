@@ -7,21 +7,17 @@ This section shows you how to use a subset of Amazon Rekognition's capabilities 
 scene detection, facial analysis, and face comparison in a set of images. For more
 information, see [How Amazon Rekognition works](how-it-works.md "how-it-works.md"). You can also
 use the Amazon Rekognition API or AWS CLI to detect objects and scenes, detect faces, and compare and search
-faces. For more information, see [Step 3: Getting started using the AWS CLI and AWS
-SDK API](get-started-exercise.md "get-started-exercise.md").
+faces. For more information, see [Step 3: Getting started using the AWS CLI and AWS SDK API](get-started-exercise.md "get-started-exercise.md").
 
 This section also shows you how to see aggregated Amazon CloudWatch metrics for Rekognition by using the Rekognition console.
 
 ###### Topics
 
 - [Set up console permissions](#rekognition-console-permissions "#rekognition-console-permissions")
-- [Exercise 1: Detect objects and scenes
-  (Console)](detect-labels-console.md "detect-labels-console.md")
-- [Exercise 2: Analyze faces in an image
-  (console)](detect-faces-console.md "detect-faces-console.md")
+- [Exercise 1: Detect objects and scenes (Console)](detect-labels-console.md "detect-labels-console.md")
+- [Exercise 2: Analyze faces in an image (console)](detect-faces-console.md "detect-faces-console.md")
 - [Exercise 3: Compare faces in images (console)](compare-faces-console.md "compare-faces-console.md")
-- [Exercise 4: See aggregated metrics
-  (console)](aggregated-metrics.md "aggregated-metrics.md")
+- [Exercise 4: See aggregated metrics (console)](aggregated-metrics.md "aggregated-metrics.md")
 
 ![Amazon Rekognition deep learning-based image analysis product page with "Try Demo" and "Download SDKs" buttons.](images/amazon-rekognition-start-page.png)
 
@@ -32,9 +28,7 @@ For some operations, Rekognition will automatically create an Amazon S3 bucket t
 If you want to store your training files in a bucket other than this console bucket,
 you will need additional permissions.
 
-###
-
-Allowing console access
+### Allowing console access
 
 To use the Rekognition console, you can use an IAM policy like the following one, which covers Amazon S3
 and the Rekognition console. For information about assigning permissions,
@@ -132,9 +126,7 @@ JSON
 
 ```
 
-###
-
-Accesssing external Amazon S3 buckets
+### Accesssing external Amazon S3 buckets
 
 When you first open the Rekognition console in a new AWS Region,
 Rekognition creates a bucket (console bucket) that's used to store project files.
@@ -163,9 +155,7 @@ file to the console. To use an external bucket, add the following policy block t
 
 ```
 
-###
-
-Assigning permissions
+### Assigning permissions
 
 To provide access, add permissions to your users, groups, or roles:
 

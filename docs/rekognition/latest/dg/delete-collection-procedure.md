@@ -8,8 +8,7 @@ For more information, see [Managing a collection](managing-face-collections.md#m
 
 1. If you haven't already:
    1. Create or update a user with `AmazonRekognitionFullAccess`
-      permissions. For more information, see [Step 1: Set up an AWS account and create a
-      User](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam").
+      permissions. For more information, see [Step 1: Set up an AWS account and create a User](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam").
    2. Install and configure the AWS CLI and the AWS SDKs. For more
       information, see [Step 2: Set up the AWS CLI and AWS SDKs](setup-awscli-sdk.md "setup-awscli-sdk.md").
 
@@ -263,9 +262,7 @@ const deleteCollection = async (collectionName) => {
 deleteCollection(collection_name)
 ```
 
-## DeleteCollection operation
-
-request
+## DeleteCollection operation request
 
 The input to `DeleteCollection` is the ID of the collection to be
 deleted, as shown in the following JSON example.
@@ -276,9 +273,7 @@ deleted, as shown in the following JSON example.
 }
 ```
 
-## DeleteCollection operation
-
-response
+## DeleteCollection operation response
 
 The `DeleteCollection` response contains an HTTP status code that
 indicates the success or failure of the operation. `200` is returned if

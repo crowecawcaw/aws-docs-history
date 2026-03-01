@@ -3,9 +3,7 @@
 The following covers troubleshooting information for working with Amazon Rekognition Video and stored
 videos.
 
-## I never receive the completion status that's
-
-sent to the Amazon SNS topic
+## I never receive the completion status that's sent to the Amazon SNS topic
 
 Amazon Rekognition Video publishes status information to an Amazon SNS topic when video analysis
 completes. Typically, you get the completion status message by subscribing to the
@@ -40,8 +38,7 @@ following:
        specifies the user's role credentials and restricts the service
        role's permissions to just the resources you are using (for more
        information on securely limiting the scope of a service role's
-       permissions, see [Cross-service confused deputy
-       prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")):
+       permissions, see [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")):
       + Assume the role: `aws sts assume-role --role-arn
        arn:`Role ARN` --role-session-name
        `SessionName` --profile
@@ -62,14 +59,12 @@ following:
 - Check that you're using the correct Amazon SNS topic:
   - If you use an IAM service role to give Amazon Rekognition Video access to a
     single Amazon SNS topic, check that you've given permissions to the
-    correct Amazon SNS topic. For more information, see [Giving access to an existing Amazon SNS
-    topic](api-video-roles.md#api-video-roles-single-topics "api-video-roles.md#api-video-roles-single-topics").
+    correct Amazon SNS topic. For more information, see [Giving access to an existing Amazon SNS topic](api-video-roles.md#api-video-roles-single-topics "api-video-roles.md#api-video-roles-single-topics").
   - If you use an IAM service role to give Amazon Rekognition Video access to
     multiple SNS topics, verify that you're using the correct topic and
     that the topic name is prepended with
     _AmazonRekognition_. For more information,
-    see [Giving access to multiple Amazon SNS
-    topics](api-video-roles.md#api-video-roles-all-topics "api-video-roles.md#api-video-roles-all-topics").
+    see [Giving access to multiple Amazon SNS topics](api-video-roles.md#api-video-roles-all-topics "api-video-roles.md#api-video-roles-all-topics").
   - If you use an AWS Lambda function, confirm that your Lambda function
     is subscribed to the correct Amazon SNS topic. For more information, see
     [Fanout to Lambda functions](../../../sns/latest/dg/sns-lambda.md "../../../sns/latest/dg/sns-lambda.md").

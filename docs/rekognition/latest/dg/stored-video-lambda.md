@@ -1,6 +1,4 @@
-# Creating an Amazon Rekognition Lambda
-
-function
+# Creating an Amazon Rekognition Lambda function
 
 This tutorial shows how to get the results of a video analysis operation for label
 detection by using a Java Lambda function.
@@ -61,8 +59,7 @@ Amazon Rekognition Video access to your Amazon SNS topics. For more information,
 
 1. If you haven't already, create an IAM service role to give Amazon Rekognition Video
    access to your Amazon SNS topics. Note the Amazon Resource Name (ARN). For more
-   information, see [Giving access to multiple Amazon SNS
-   topics](api-video-roles.md#api-video-roles-all-topics "api-video-roles.md#api-video-roles-all-topics").
+   information, see [Giving access to multiple Amazon SNS topics](api-video-roles.md#api-video-roles-all-topics "api-video-roles.md#api-video-roles-all-topics").
 2. [Create an Amazon SNS topic](../../../sns/latest/dg/CreateTopic.md "../../../sns/latest/dg/CreateTopic.md") by
    using the [Amazon SNS
    console](https://console.aws.amazon.com/sns/v2/home "https://console.aws.amazon.com/sns/v2/home").You only need to specifiy the topic name. Prepend the topic name with
@@ -142,10 +139,7 @@ access the Amazon SNS topic.
 13. In **Name\***, type a name for the policy.
 14. Choose **Create policy**.
 
-## Create
-
-the
-AWS Toolkit for Eclipse Lambda project
+## Create the AWS Toolkit for Eclipse Lambda project
 
 When the Lambda function is triggered, the following code gets the completion
 status from the Amazon SNS topic, and calls [GetLabelDetection](../APIReference/API_GetLabelDetection.md "../APIReference/API_GetLabelDetection.md") to

@@ -4,18 +4,13 @@ This topic provides troubleshooting information for using Amazon Rekognition Vid
 
 ###### Topics
 
-- [I
-  don't know if my stream processor was successfully created](#ts-streaming-video-create-sp "#ts-streaming-video-create-sp")
-- [I don't know if I've configured my stream
-  processor correctly](#ts-configured-sp "#ts-configured-sp")
-- [My stream processor isn't
-  returning results](#ts-streaming-video-no-results-from-sp "#ts-streaming-video-no-results-from-sp")
+- [I don't know if my stream processor was successfully created](#ts-streaming-video-create-sp "#ts-streaming-video-create-sp")
+- [I don't know if I've configured my stream processor correctly](#ts-configured-sp "#ts-configured-sp")
+- [My stream processor isn't returning results](#ts-streaming-video-no-results-from-sp "#ts-streaming-video-no-results-from-sp")
 - [The state of my stream processor is FAILED](#ts-failed-state "#ts-failed-state")
 - [My stream processor isn't returning the expected results](#w2aac27c79c27c15 "#w2aac27c79c27c15")
 
-## I
-
-don't know if my stream processor was successfully created
+## I don't know if my stream processor was successfully created
 
 Use the following AWS CLI command to get a list of stream processors and their current status.
 
@@ -30,9 +25,7 @@ of the required stream processor.
 aws rekognition describe-stream-processor --name `stream-processor-name`
 ```
 
-## I don't know if I've configured my stream
-
-processor correctly
+## I don't know if I've configured my stream processor correctly
 
 If your code isn't outputting the analysis results from Amazon Rekognition Video, your stream
 processor might not be configured correctly. Do the following to confirm that your
@@ -44,8 +37,7 @@ stream processor is configured correctly and able to produce results.
    Change `stream-processor-name` to the name of your stream
    processor. The stream processor is running if the value of
    `Status` is `RUNNING`. If the status is
-   `RUNNING` and you aren't getting results, see [My stream processor isn't
-   returning results](#ts-streaming-video-no-results-from-sp "#ts-streaming-video-no-results-from-sp"). If the status
+   `RUNNING` and you aren't getting results, see [My stream processor isn't returning results](#ts-streaming-video-no-results-from-sp "#ts-streaming-video-no-results-from-sp"). If the status
    is `FAILED`, see [The state of my stream processor is FAILED](#ts-failed-state "#ts-failed-state").
 
 ```
@@ -73,8 +65,7 @@ aws kinesis get-records --shard-iterator ((aws kinesis get-shard-iterator --shar
    information, see [Step 3: Get the Record](../../../streams/latest/dev/fundamental-stream.md#get-records "../../../streams/latest/dev/fundamental-stream.md#get-records").
 4. If the commands work and you see face detection results in the Kinesis data stream, then your
    solution is properly configured. If the command fails, check the other
-   troubleshooting suggestions and see [Giving Amazon Rekognition Video access to your
-   resources](api-streaming-video-roles.md "api-streaming-video-roles.md").
+   troubleshooting suggestions and see [Giving Amazon Rekognition Video access to your resources](api-streaming-video-roles.md "api-streaming-video-roles.md").
 
 Alternatively, you can use the "kinesis-process-record" AWS Lambda blueprint to log
 messages from the Kinesis data stream to CloudWatch for
@@ -82,19 +73,14 @@ continuous
 visualization. This incurs additional costs for AWS Lambda and
 CloudWatch.
 
-## My stream processor isn't
-
-returning results
+## My stream processor isn't returning results
 
 Your stream processor might not return results for several reasons.
 
-### Reason
-
-1: Your stream processor isn't configured correctly
+### Reason 1: Your stream processor isn't configured correctly
 
 Your stream processor might not be configured correctly. For more information, see
-[I don't know if I've configured my stream
-processor correctly](#ts-configured-sp "#ts-configured-sp").
+[I don't know if I've configured my stream processor correctly](#ts-configured-sp "#ts-configured-sp").
 
 ### Reason 2: Your stream processor isn't in the RUNNING state
 
@@ -125,14 +111,9 @@ aws rekognition start-stream-processor --name `stream-processor-name`
    2. Create a new stream processor with the same configuration. For more information, see [Working with streaming video events](streaming-video.md "streaming-video.md").
    3. If you're still having problems, contact AWS Support.
 
-5. If the value of `Status` is `RUNNING`, see [Reason 3: There isn't active data
-   in
-   the Kinesis video stream](#ts-no-data "#ts-no-data").
+5. If the value of `Status` is `RUNNING`, see [Reason 3: There isn't active data in the Kinesis video stream](#ts-no-data "#ts-no-data").
 
-### Reason 3: There isn't active data
-
-in
-the Kinesis video stream
+### Reason 3: There isn't active data in the Kinesis video stream
 
 ###### To check if there's active data in the Kinesis video stream
 
@@ -153,10 +134,7 @@ aws rekognition describe-stream-processor --name `stream-processor-name`
 
 If the value of Status is FAILED, check the troubleshooting information for the following error messages.
 
-### Error:
-
-"Access
-denied to Role"
+### Error: "Access denied to Role"
 
 The IAM role that's used by the stream processor doesn't exist or Amazon Rekognition Video
 doesn't have permission to assume the role.
@@ -168,17 +146,14 @@ doesn't have permission to assume the role.
    **Roles**and
    confirm that the role exists.
 3. If the role exists, check that the role has the _AmazonRekognitionServiceRole_ permissions policy.
-4. If the role doesn't exist or doesn't have the right permissions, see [Giving Amazon Rekognition Video access to your
-   resources](api-streaming-video-roles.md "api-streaming-video-roles.md").
+4. If the role doesn't exist or doesn't have the right permissions, see [Giving Amazon Rekognition Video access to your resources](api-streaming-video-roles.md "api-streaming-video-roles.md").
 5. Start the stream processor with the following AWS CLI command.
 
 ```
 aws rekognition start-stream-processor --name `stream-processor-name`
 ```
 
-### Error: "Access denied to Kinesis Video _or_ Access denied to Kinesis
-
-Data"
+### Error: "Access denied to Kinesis Video _or_ Access denied to Kinesis Data"
 
 The role doesn't have access to the Kinesis Video Streams API operations `GetMedia`
 and `GetDataEndpoint`. It also might not have access to the Kinesis Data Streams API
@@ -189,14 +164,9 @@ operations `PutRecord` and `PutRecords`.
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. Open the role and make sure that it has the following permissions policy attached.
 3. If any of the permissions are missing, update the policy.
-   For more information, see [Giving Amazon Rekognition Video access to your
-   resources](api-streaming-video-roles.md "api-streaming-video-roles.md").
+   For more information, see [Giving Amazon Rekognition Video access to your resources](api-streaming-video-roles.md "api-streaming-video-roles.md").
 
-### Error:
-
-"Stream
-`input-video-stream-name` doesn't
-exist"
+### Error: "Stream `input-video-stream-name` doesn't exist"
 
 The Kinesis video stream input to the stream processor doesn't exist or isn't configured
 correctly.
@@ -221,12 +191,9 @@ aws rekognition delete-stream-processor --name `stream-processor-name`
 ```
 
 3. Create a new stream processor with the intended Kinesis video stream. For more information,
-   see [Creating the Amazon Rekognition Video face search
-   stream processor](rekognition-video-stream-processor-search-faces.md#streaming-video-creating-stream-processor "rekognition-video-stream-processor-search-faces.md#streaming-video-creating-stream-processor").
+   see [Creating the Amazon Rekognition Video face search stream processor](rekognition-video-stream-processor-search-faces.md#streaming-video-creating-stream-processor "rekognition-video-stream-processor-search-faces.md#streaming-video-creating-stream-processor").
 
-### Error:
-
-"Collection not found"
+### Error: "Collection not found"
 
 The Amazon Rekognition collection that's used by the stream processor to match faces
 doesn't exist, or the wrong collection is being used.
@@ -249,10 +216,7 @@ input parameter is correct. 3. Start the stream processor with the following AWS
 aws rekognition start-stream-processor --name `stream-processor-name`
 ```
 
-### Error:
-
-"Stream `output-kinesis-data-stream-name` under
-account `account-id` not found"
+### Error: "Stream `output-kinesis-data-stream-name` under account `account-id` not found"
 
 The output Kinesis data stream that's used by the stream processor doesn't
 exist in your AWS account or isn't in the same AWS Region as your stream
@@ -287,5 +251,4 @@ If your stream processor isn't returning the expected face matches, use the
 following information.
 
 - [Searching faces in a collection](collections.md "collections.md")
-- [Recommendations for camera
-  setup (streaming video)](recommendations-camera-streaming-video.md "recommendations-camera-streaming-video.md")
+- [Recommendations for camera setup (streaming video)](recommendations-camera-streaming-video.md "recommendations-camera-streaming-video.md")

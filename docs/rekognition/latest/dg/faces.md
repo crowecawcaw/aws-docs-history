@@ -33,8 +33,7 @@ more information, see the [Amazon Rekognition Custom Labels Developer Guide](../
 
 ###### Topics
 
-- [Overview of face detection and face
-  comparison](face-feature-differences.md "face-feature-differences.md")
+- [Overview of face detection and face comparison](face-feature-differences.md "face-feature-differences.md")
 - [Guidelines on face attributes](guidance-face-attributes.md "guidance-face-attributes.md")
 - [Detecting faces in an image](faces-detect-images.md "faces-detect-images.md")
 - [Comparing faces in images](faces-comparefaces.md "faces-comparefaces.md")

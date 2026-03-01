@@ -1,6 +1,4 @@
-# Step 1: Set up an AWS account and create a
-
-User
+# Step 1: Set up an AWS account and create a User
 
 Before you use Amazon Rekognition for the first time, you must complete the following tasks:
 

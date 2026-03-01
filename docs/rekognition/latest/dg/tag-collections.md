@@ -10,8 +10,7 @@ using resource tags](../../../IAM/latest/UserGuide/access_tags.md "../../../IAM/
 ###### Topics
 
 - [Add tags to a new collection](#add-tag-new-collection "#add-tag-new-collection")
-- [Add tags to an existing
-  collection](#add-tag-existing-collection "#add-tag-existing-collection")
+- [Add tags to an existing collection](#add-tag-existing-collection "#add-tag-existing-collection")
 - [List tags in a collection](#list-tags-collection "#list-tags-collection")
 - [Delete tags from a collection](#delete-tag-collection "#delete-tag-collection")
 
@@ -62,9 +61,7 @@ if __name__ == "__main__":
     main()
 ```
 
-## Add tags to an existing
-
-collection
+## Add tags to an existing collection
 
 To add one or more tags to an existing collection, use the
 `TagResource` operation. Specify the collection's Amazon Resource

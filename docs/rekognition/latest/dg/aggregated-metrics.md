@@ -1,6 +1,4 @@
-# Exercise 4: See aggregated metrics
-
-(console)
+# Exercise 4: See aggregated metrics (console)
 
 The Amazon Rekognition metrics pane shows activity graphs for an aggregate of individual Rekognition
 metrics over a specified period of time. For example, the
@@ -8,8 +6,7 @@ metrics over a specified period of time. For example, the
 successful requests to all Rekognition API operations over the last seven days.
 
 The following table lists the graphs displayed in the Rekognition metrics pane and the
-corresponding Rekognition metric. For more information, see [CloudWatch
-metrics for Rekognition](rekognition-monitoring.md#cloudwatch-metricsdim "rekognition-monitoring.md#cloudwatch-metricsdim").
+corresponding Rekognition metric. For more information, see [CloudWatch metrics for Rekognition](rekognition-monitoring.md#cloudwatch-metricsdim "rekognition-monitoring.md#cloudwatch-metricsdim").
 
 | Graph            | Aggregated Metric      |
 | ---------------- | ---------------------- |

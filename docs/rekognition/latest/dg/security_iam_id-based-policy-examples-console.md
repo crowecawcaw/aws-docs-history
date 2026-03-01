@@ -1,6 +1,4 @@
-# Using the
-
-Amazon Rekognition console
+# Using the Amazon Rekognition console
 
 With the exception of the Amazon Rekognition Custom Labels feature, Amazon Rekognition doesn't require
 any addition permissions when using the Amazon Rekognition console. For information about

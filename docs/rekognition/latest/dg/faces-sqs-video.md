@@ -14,14 +14,12 @@ information such as:
   call [GetFaceDetection](../APIReference/API_GetFaceDetection.md "../APIReference/API_GetFaceDetection.md") to get the results of the video analysis. For more
   information about starting video analysis and getting the results, see [Calling Amazon Rekognition Video operations](api-video.md "api-video.md").
 
-This procedure expands on the code in [Analyzing a video stored in an Amazon S3
-bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md"), which uses an Amazon Simple Queue Service (Amazon SQS) queue to
+This procedure expands on the code in [Analyzing a video stored in an Amazon S3 bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md"), which uses an Amazon Simple Queue Service (Amazon SQS) queue to
 get the completion status of a video analysis request.
 
 ###### To detect faces in a video stored in an Amazon S3 bucket (SDK)
 
-1. Perform [Analyzing a video stored in an Amazon S3
-   bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md").
+1. Perform [Analyzing a video stored in an Amazon S3 bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md").
 2. Add the following code to the class `VideoDetect` that you created
    in step 1.
 
@@ -374,14 +372,11 @@ with:
 
 ###### Note
 
-If you've already run a video example other than [Analyzing a video stored in an Amazon S3
-bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md"), the function name to replace
+If you've already run a video example other than [Analyzing a video stored in an Amazon S3 bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md"), the function name to replace
 is different. 3. Run the code. Information about the faces that were detected in the video is
 shown.
 
-## GetFaceDetection operation
-
-response
+## GetFaceDetection operation response
 
 `GetFaceDetection` returns an array (`Faces`) that contains
 information about the faces detected in the video. An array element, [FaceDetection](../APIReference/API_FaceDetection.md "../APIReference/API_FaceDetection.md"), exists for each time a face is detected in the video.

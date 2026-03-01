@@ -41,8 +41,7 @@ operation response, see [DetectLabels response](labels-detect-labels-image.md#de
 1. If you haven't already:
    1. Create or update a user with `AmazonRekognitionFullAccess` and
       `AmazonS3ReadOnlyAccess` permissions. For more
-      information, see [Step 1: Set up an AWS account and create a
-      User](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam").
+      information, see [Step 1: Set up an AWS account and create a User](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam").
    2. Install and configure the AWS CLI and the AWS SDKs. For more information, see [Step 2: Set up the AWS CLI and AWS SDKs](setup-awscli-sdk.md "setup-awscli-sdk.md").
       Ensure that you have given the user calling the API operations the
       proper permissions for programmatic access, see [Grant programmatic access](sdk-programmatic-access.md "sdk-programmatic-access.md")

@@ -1,6 +1,4 @@
-# Creating a project
-
-version
+# Creating a project version
 
 You can train an adapter for deployment by using the [CreateProjectVersion](../APIReference/API_CreateProjectVersion.md "../APIReference/API_CreateProjectVersion.md") operation.
 CreateProjectVersion first creates a new version of an adapter associated with a project and

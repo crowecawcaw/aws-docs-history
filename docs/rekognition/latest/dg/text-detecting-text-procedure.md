@@ -4,16 +4,13 @@ You can provide an input image as an image byte array (base64-encoded image byte
 as an Amazon S3 object. In this procedure, you upload a JPEG or PNG image to your S3 bucket
 and specify the file name.
 
-###### To
-
-detect text in an image (API)
+###### To detect text in an image (API)
 
 1. If you haven't already, complete the following prerequisites.
    1. Create or update a user with
       `AmazonRekognitionFullAccess` and
       `AmazonS3ReadOnlyAccess` permissions. For more
-      information, see [Step 1: Set up an AWS account and create a
-      User](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam").
+      information, see [Step 1: Set up an AWS account and create a User](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam").
    2. Install and configure the AWS Command Line Interface and the AWS SDKs. For more
       information, see [Step 2: Set up the AWS CLI and AWS SDKs](setup-awscli-sdk.md "setup-awscli-sdk.md").
 

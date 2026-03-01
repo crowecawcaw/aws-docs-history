@@ -1,6 +1,4 @@
-# Step 3: Getting started using the AWS CLI and AWS
-
-SDK API
+# Step 3: Getting started using the AWS CLI and AWS SDK API
 
 After you've set up the AWS CLI and AWS SDKs that you want to use, you can build
 applications that use Amazon Rekognition. Most interactions with Amazon Rekognition happen by using the

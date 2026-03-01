@@ -98,13 +98,11 @@ labels and aliases are returned as primary labels.
 
 If you need to transform the current response from the DetectLabels API (for label
 detection in images) into the previous response structure, see the code example in
-[Transforming the DetectLabels
-response](labels-detect-labels-image.md#detectlabels-transform-response "labels-detect-labels-image.md#detectlabels-transform-response").
+[Transforming the DetectLabels response](labels-detect-labels-image.md#detectlabels-transform-response "labels-detect-labels-image.md#detectlabels-transform-response").
 
 If you need to transform the current response from the GetLabelDetection API (for
 label detection in stored videos) into the previous response structure, see the code
-example in [Transforming the
-GetLabelDetection Response](labels-detecting-labels-video.md#getlabeldetection-transform-response "labels-detecting-labels-video.md#getlabeldetection-transform-response").
+example in [Transforming the GetLabelDetection Response](labels-detecting-labels-video.md#getlabeldetection-transform-response "labels-detecting-labels-video.md#getlabeldetection-transform-response").
 
 ### Image Properties
 

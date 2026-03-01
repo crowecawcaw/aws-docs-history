@@ -1,13 +1,9 @@
-# Using similarity thresholds for
-
-associating and matching faces
+# Using similarity thresholds for associating and matching faces
 
 Similarity thresholds are used for both associating and matching faces. What follows
 is guidance for using similarity thresholds for both use cases.
 
-## Using similarity thresholds for
-
-associating faces
+## Using similarity thresholds for associating faces
 
 When associating faces using the [AssociateFaces](../APIReference/API_AssociateFaces.md "../APIReference/API_AssociateFaces.md") operation, it’s important to ensure that faces being
 associated with a user are all from the same person. To help, the
@@ -17,9 +13,7 @@ containing at least one `FaceID` already. This helps ensures that the
 `FaceIds` are associated with the right `UserID`. The
 value ranges from 0-100 and the default value is 75.
 
-## Using similarity thresholds to match
-
-faces
+## Using similarity thresholds to match faces
 
 We allow you to control the results of all search operations ([CompareFaces](../APIReference/API_CompareFaces.md "../APIReference/API_CompareFaces.md"), [SearchFaces](../APIReference/API_SearchFaces.md "../APIReference/API_SearchFaces.md"),
 [SearchFacesByImage](../APIReference/API_SearchFacesByImage.md "../APIReference/API_SearchFacesByImage.md"), [SearchUsers](../APIReference/API_SearchUsers.md "../APIReference/API_SearchUsers.md"),

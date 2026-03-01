@@ -25,6 +25,5 @@ To use Amazon Rekognition Video with streaming video, your application requires 
 
 ###### Topics
 
-- [Setting
-  up your Amazon Rekognition Video and Amazon Kinesis resources](streaming-labels-setting-up.md "streaming-labels-setting-up.md")
+- [Setting up your Amazon Rekognition Video and Amazon Kinesis resources](streaming-labels-setting-up.md "streaming-labels-setting-up.md")
 - [Calling label detection operations for streaming video events](streaming-labels-detection.md "streaming-labels-detection.md")

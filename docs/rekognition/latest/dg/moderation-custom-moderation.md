@@ -1,6 +1,4 @@
-# Enhancing accuracy with Custom
-
-Moderation
+# Enhancing accuracy with Custom Moderation
 
 Amazon Rekognition’s [DetectModerationLabels](../APIReference/API_DetectModerationLabels.md "../APIReference/API_DetectModerationLabels.md") API lets you detect content that is inappropriate,
 unwanted, or offensive. The Rekognition Custom Moderation feature allows you to enhance the

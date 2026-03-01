@@ -38,8 +38,7 @@ For a client-side JavaScript example, see [Using JavaScript](image-bytes-javascr
 1. If you haven't already:
    1. Create or update a user with `AmazonRekognitionFullAccess` and
       `AmazonS3ReadOnlyAccess` permissions. For more
-      information, see [Step 1: Set up an AWS account and create a
-      User](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam").
+      information, see [Step 1: Set up an AWS account and create a User](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam").
    2. Install and configure the AWS CLI and the AWS SDKs. For more information, see
       [Step 2: Set up the AWS CLI and AWS SDKs](setup-awscli-sdk.md "setup-awscli-sdk.md").
 

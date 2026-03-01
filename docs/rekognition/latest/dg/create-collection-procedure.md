@@ -8,8 +8,7 @@ For more information, see [Managing a collection](managing-face-collections.md#m
 
 1. If you haven't already:
    1. Create or update a user with `AmazonRekognitionFullAccess`
-      permissions. For more information, see [Step 1: Set up an AWS account and create a
-      User](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam").
+      permissions. For more information, see [Step 1: Set up an AWS account and create a User](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam").
    2. Install and configure the AWS CLI and the AWS SDKs. For more
       information, see [Step 2: Set up the AWS CLI and AWS SDKs](setup-awscli-sdk.md "setup-awscli-sdk.md").
 
@@ -266,9 +265,7 @@ const createCollection = async (collectionName) => {
  createCollection(collectionName)
 ```
 
-## CreateCollection operation
-
-request
+## CreateCollection operation request
 
 The input to `CreationCollection` is the name of the collection that
 you want to create.
@@ -279,9 +276,7 @@ you want to create.
 }
 ```
 
-## CreateCollection operation
-
-response
+## CreateCollection operation response
 
 Amazon Rekognition creates the collection and returns the Amazon Resource Name (ARN) of the
 newly created collection.

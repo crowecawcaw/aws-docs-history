@@ -1,6 +1,4 @@
-# Testing Content Moderation
-
-version 7 and transforming the API response
+# Testing Content Moderation version 7 and transforming the API response
 
 Rekognition updated the machine learning model for the image video
 components of Content Moderation label detection feature from version 6.1 to 7. This
@@ -10,8 +8,7 @@ modifying others.
 If you are a current video user of version 6.1, we recommend you to take the
 following actions to seamlessly transition to version 7:
 
-1. Download and use an AWS private SDK (see the [AWS SDK and Usage Guide for
-   Content Moderation version 7](moderation-labels-update-sdk.md "moderation-labels-update-sdk.md") ) to call the
+1. Download and use an AWS private SDK (see the [AWS SDK and Usage Guide for Content Moderation version 7](moderation-labels-update-sdk.md "moderation-labels-update-sdk.md")) to call the
    StartContentModeration API.
 2. Review the updated list of labels and confidence scores returned in the
    API response or console. Adjust your application post-processing logic
@@ -21,9 +18,7 @@ following actions to seamlessly transition to version 7:
    We can extend your account to remain on version 6.1 until June 10, 2024. If we do not hear from you by April
    30, 2024, your account will be automatically migrated to version 7.0 starting May 13, 2024.
 
-##
-
-Label mappings for Versions 6.1 to 7
+## Label mappings for Versions 6.1 to 7
 
 Content moderation version 7 added new label categories and modified
 previously existing label names. Reference the taxonomy table found at [Label Categories](moderation-api.md#moderation-api-categories "moderation-api.md#moderation-api-categories") when deciding how to map 6.1 labels to

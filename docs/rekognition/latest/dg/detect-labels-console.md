@@ -1,6 +1,4 @@
-# Exercise 1: Detect objects and scenes
-
-(Console)
+# Exercise 1: Detect objects and scenes (Console)
 
 This section shows how, at a very high level, Amazon Rekognition's objects and scenes detection
 capability works. When you specify an image as input, the service detects the objects
@@ -194,9 +192,7 @@ Response
 
 For more information, see [How Amazon Rekognition works](how-it-works.md "how-it-works.md").
 
-## Detect objects and scenes in an image you
-
-provide
+## Detect objects and scenes in an image you provide
 
 You can upload an image that you own or provide the URL to an image as input in
 the Amazon Rekognition console. Amazon Rekognition returns the object and scenes, confidence scores

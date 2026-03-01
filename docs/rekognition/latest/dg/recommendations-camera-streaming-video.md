@@ -1,9 +1,6 @@
-# Recommendations for camera
+# Recommendations for camera setup (streaming video)
 
-setup (streaming video)
-
-The following recommendation is in addition to [Recommendations for
-camera setup (stored and streaming video)](recommendations-camera-stored-streaming-video.md "recommendations-camera-stored-streaming-video.md").
+The following recommendation is in addition to [Recommendations for camera setup (stored and streaming video)](recommendations-camera-stored-streaming-video.md "recommendations-camera-stored-streaming-video.md").
 
 An additional constraint with streaming applications is internet bandwidth. For live
 video, Amazon Rekognition only accepts Amazon Kinesis Video Streams as an input. You should

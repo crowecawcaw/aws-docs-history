@@ -54,8 +54,6 @@ Rekognition in the AWS console.
 ###### Topics
 
 - [Understanding Rekognition's types of analysis](how-it-works-types.md "how-it-works-types.md")
-- [Understanding Rekognition's image
-  and video operations](how-it-works-operations-intro.md "how-it-works-operations-intro.md")
-- [Understanding non-storage and storage
-  API operations](how-it-works-storage-non-storage.md "how-it-works-storage-non-storage.md")
+- [Understanding Rekognition's image and video operations](how-it-works-operations-intro.md "how-it-works-operations-intro.md")
+- [Understanding non-storage and storage API operations](how-it-works-storage-non-storage.md "how-it-works-storage-non-storage.md")
 - [Understanding model versioning](face-detection-model.md "face-detection-model.md")

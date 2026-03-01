@@ -1,6 +1,4 @@
-# Recommendations for facial
-
-comparison input images
+# Recommendations for facial comparison input images
 
 The models used for face comparison operations are designed to work for a wide variety
 of poses, facial expressions, age ranges, rotations, lighting conditions, and sizes. We
@@ -8,9 +6,7 @@ recommend that you use the following guidelines when choosing reference photos f
 [CompareFaces](../APIReference/API_CompareFaces.md "../APIReference/API_CompareFaces.md") or
 for adding faces to a collection using [IndexFaces](../APIReference/API_IndexFaces.md "../APIReference/API_IndexFaces.md").
 
-## General
-
-recommendations for input images for face operations
+## General recommendations for input images for face operations
 
 - Use images that are bright and sharp. Avoid using images that may be
   blurry due to subject and camera motion as much as possible. [DetectFaces](../APIReference/API_DetectFaces.md "../APIReference/API_DetectFaces.md") can be used to determine the brightness and

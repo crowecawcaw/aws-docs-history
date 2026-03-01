@@ -1,6 +1,4 @@
-# Setting
-
-up your Amazon Rekognition Video and Amazon Kinesis resources
+# Setting up your Amazon Rekognition Video and Amazon Kinesis resources
 
 The following procedures describe the steps that you take to provision the Kinesis video stream
 and other resources that are used to detect labels in a streaming video.

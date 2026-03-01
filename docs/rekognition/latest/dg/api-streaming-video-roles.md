@@ -1,6 +1,4 @@
-# Giving Amazon Rekognition Video access to your
-
-resources
+# Giving Amazon Rekognition Video access to your resources
 
 You use an AWS Identity and Access Management (IAM) service role to give Amazon Rekognition Video read access to Kinesis
 video streams. If you are using a face search stream processor, you use an IAM
@@ -33,9 +31,7 @@ Kinesis video streams and Kinesis data streams.
 3. Note the ARN of the service role. You need it to start video analysis
    operations.
 
-## Giving access to streams
-
-using AmazonRekognitionServiceRole
+## Giving access to streams using AmazonRekognitionServiceRole
 
 As an alternative option for setting up access to Kinesis video streams and data
 streams, you can use the `AmazonRekognitionServiceRole` permissions
@@ -64,7 +60,6 @@ _AmazonRekognition_—for example,
 2. To ensure your AWS account is secure, limit the scope of Rekognition's access to
    just the resources you are using. This can be done by attaching a trust
    policy to your IAM service role. For information on how to do this,
-   see [Cross-service confused deputy
-   prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md").
+   see [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md").
 3. Note the Amazon Resource Name (ARN) of the service role. You need it
    to start video analysis operations.

@@ -1,9 +1,6 @@
-# Recommendations for camera setup
+# Recommendations for camera setup (image and video)
 
-(image and video)
-
-The following recommendations are in addition to [Recommendations for facial
-comparison input images](recommendations-facial-input-images.md "recommendations-facial-input-images.md").
+The following recommendations are in addition to [Recommendations for facial comparison input images](recommendations-facial-input-images.md "recommendations-facial-input-images.md").
 
 ![Diagram showing the three axes of aircraft motion: pitch, roll, and yaw, with arrows indicating the direction of each axis around a gray human head icon.](images/RPY-diagram.png)
 

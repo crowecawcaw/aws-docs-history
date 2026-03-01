@@ -5,26 +5,19 @@ streaming video. For more information about collections, see [Searching faces in
 
 ###### Topics
 
-- [Creating the Amazon Rekognition Video face search
-  stream processor](#streaming-video-creating-stream-processor "#streaming-video-creating-stream-processor")
-- [Starting the Amazon Rekognition Video
-  face search stream processor](#streaming-video-starting-stream-processor "#streaming-video-starting-stream-processor")
+- [Creating the Amazon Rekognition Video face search stream processor](#streaming-video-creating-stream-processor "#streaming-video-creating-stream-processor")
+- [Starting the Amazon Rekognition Video face search stream processor](#streaming-video-starting-stream-processor "#streaming-video-starting-stream-processor")
 - [Using stream processors for face searching (Java V2 example)](#using-stream-processors-v2 "#using-stream-processors-v2")
 - [Using stream processors for face searching (Java V1 example)](#using-stream-processors "#using-stream-processors")
-- [Reading streaming video analysis
-  results](streaming-video-kinesis-output.md "streaming-video-kinesis-output.md")
-- [Displaying Rekognition results
-  with Kinesis Video Streams locally](displaying-rekognition-results-locally.md "displaying-rekognition-results-locally.md")
-- [Understanding the Kinesis face
-  recognition JSON frame record](streaming-video-kinesis-output-reference.md "streaming-video-kinesis-output-reference.md")
+- [Reading streaming video analysis results](streaming-video-kinesis-output.md "streaming-video-kinesis-output.md")
+- [Displaying Rekognition results with Kinesis Video Streams locally](displaying-rekognition-results-locally.md "displaying-rekognition-results-locally.md")
+- [Understanding the Kinesis face recognition JSON frame record](streaming-video-kinesis-output-reference.md "streaming-video-kinesis-output-reference.md")
   The following diagram shows how Amazon Rekognition Video detects and recognizes faces in a streaming
   video.
 
 ![Diagram of workflow for using Amazon Rekognition Video to process video streams from Amazon Kinesis.](images/VideoRekognitionStream.png)
 
-## Creating the Amazon Rekognition Video face search
-
-stream processor
+## Creating the Amazon Rekognition Video face search stream processor
 
 Before you can analyze a streaming video, you create an Amazon Rekognition Video stream processor
 ([CreateStreamProcessor](../APIReference/API_CreateStreamProcessor.md "../APIReference/API_CreateStreamProcessor.md")). The stream processor contains
@@ -67,9 +60,7 @@ The following is an example response from
 
 ```
 
-## Starting the Amazon Rekognition Video
-
-face search stream processor
+## Starting the Amazon Rekognition Video face search stream processor
 
 You start analyzing streaming video by calling [StartStreamProcessor](../APIReference/API_StartStreamProcessor.md "../APIReference/API_StartStreamProcessor.md") with the stream processor name that you
 specified in `CreateStreamProcessor`. The following is a JSON example for

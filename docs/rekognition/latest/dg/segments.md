@@ -152,5 +152,5 @@ accepts videos stored in an Amazon S3 bucket and returns a JSON output. You can 
 detect only technical cues, only shot changes, or both together by configuring the
 `StartSegmentdetection` API request. You can also filter detected
 segments by setting thresholds for a minimum prediction confidence. For more
-information, see [Using the Amazon Rekognition Segment API](segment-api.md "segment-api.md") . For example
+information, see [Using the Amazon Rekognition Segment API](segment-api.md "segment-api.md"). For example
 code, see [Example: Detecting segments in a stored video](segment-example.md "segment-example.md").

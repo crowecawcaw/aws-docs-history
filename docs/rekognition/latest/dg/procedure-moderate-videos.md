@@ -9,14 +9,12 @@ to get the analysis results. For more information about starting video analysis 
 getting the results, see [Calling Amazon Rekognition Video operations](api-video.md "api-video.md"). For a list of moderation labels in Amazon Rekognition, see
 [Using the image and video moderation APIs](moderation.md#moderation-api "moderation.md#moderation-api").
 
-This procedure expands on the code in [Analyzing a video stored in an Amazon S3
-bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md"), which uses an Amazon Simple Queue Service queue to get
+This procedure expands on the code in [Analyzing a video stored in an Amazon S3 bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md"), which uses an Amazon Simple Queue Service queue to get
 the completion status of a video analysis request.
 
 ###### To detect inappropriate or offensive content in a video stored in an Amazon S3 bucket (SDK)
 
-1. Perform [Analyzing a video stored in an Amazon S3
-   bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md").
+1. Perform [Analyzing a video stored in an Amazon S3 bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md").
 2. Add the following code to the class `VideoDetect` that you created in step 1.
 
 Java
@@ -334,8 +332,7 @@ with:
 
 ###### Note
 
-If you've already run a video example other than [Analyzing a video stored in an Amazon S3
-bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md"), the code to replace
+If you've already run a video example other than [Analyzing a video stored in an Amazon S3 bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md"), the code to replace
 might be different. 3. Run the code. A list of inappropriate content labels detected in the video is shown.
 
 ## GetContentModeration operation response

@@ -1,6 +1,4 @@
-# Understanding the Kinesis face
-
-recognition JSON frame record
+# Understanding the Kinesis face recognition JSON frame record
 
 Amazon Rekognition Video can recognize faces in a streaming video. For each analyzed frame, Amazon Rekognition Video
 outputs a JSON frame record to a Kinesis data stream. Amazon Rekognition Video doesn't analyze every frame

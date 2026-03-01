@@ -23,9 +23,7 @@ following:
 
 ###### Topics
 
-- [Setting
-  up your Amazon Rekognition Video and Amazon Kinesis resources](setting-up-your-amazon-rekognition-streaming-video-resources.md "setting-up-your-amazon-rekognition-streaming-video-resources.md")
+- [Setting up your Amazon Rekognition Video and Amazon Kinesis resources](setting-up-your-amazon-rekognition-streaming-video-resources.md "setting-up-your-amazon-rekognition-streaming-video-resources.md")
 - [Searching faces in a streaming video](rekognition-video-stream-processor-search-faces.md "rekognition-video-stream-processor-search-faces.md")
-- [Streaming using a GStreamer
-  plugin](streaming-using-gstreamer-plugin.md "streaming-using-gstreamer-plugin.md")
+- [Streaming using a GStreamer plugin](streaming-using-gstreamer-plugin.md "streaming-using-gstreamer-plugin.md")
 - [Troubleshooting streaming video](streaming-video-troubleshooting.md "streaming-video-troubleshooting.md")

@@ -5,9 +5,7 @@ images manually. You create your test data by either uploading and annotating te
 by auto-splitting to have Rekognition automatically use a portion of your training
 data as test images.
 
-## Uploading and annotating
-
-images
+## Uploading and annotating images
 
 To train the adapter, you’ll need to upload a set of sample images representative
 of your use case. For best results, provide as many images for training as

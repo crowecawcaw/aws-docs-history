@@ -1,6 +1,4 @@
-# How Amazon Rekognition works with
-
-IAM
+# How Amazon Rekognition works with IAM
 
 Before you use IAM to manage access to Amazon Rekognition, you should understand what
 IAM features are available to use with Amazon Rekognition. To get a high-level view of how
@@ -9,16 +7,11 @@ Work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-wi
 
 ###### Topics
 
-- [Amazon Rekognition
-  identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
-- [Amazon Rekognition
-  resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
-- [Amazon Rekognition IAM
-  roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
+- [Amazon Rekognition identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
+- [Amazon Rekognition resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
+- [Amazon Rekognition IAM roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
 
-## Amazon Rekognition
-
-identity-based policies
+## Amazon Rekognition identity-based policies
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources as well as the conditions under which actions are allowed or denied.
@@ -109,9 +102,7 @@ does not provide any service-specific condition keys, but it does support using 
 global condition keys. To see all AWS global condition keys, see [AWS Global Condition
 Context Keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the _IAM User Guide_.
 
-## Amazon Rekognition
-
-resource-based policies
+## Amazon Rekognition resource-based policies
 
 Amazon Rekognition supports resource-based policies for Custom Labels model copy
 operations. For more information, see [Amazon Rekognition resource-based policy examples](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md").
@@ -167,16 +158,12 @@ JSON
 
 ```
 
-## Amazon Rekognition IAM
-
-roles
+## Amazon Rekognition IAM roles
 
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within
 your AWS account that has specific permissions.
 
-### Using temporary
-
-credentials with Amazon Rekognition
+### Using temporary credentials with Amazon Rekognition
 
 You can use temporary credentials to sign in with federation, assume an IAM
 role, or to assume a cross-account role. You obtain temporary security credentials by
@@ -184,9 +171,7 @@ calling AWS STS API operations such as [AssumeRole](../../../STS/latest/APIRefer
 
 Amazon Rekognition supports using temporary credentials.
 
-### Service-linked
-
-roles
+### Service-linked roles
 
 [Service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role") allow AWS services to access resources in other
 services to complete an action on your behalf. Service-linked roles appear in your
@@ -210,12 +195,9 @@ Using a service role may create a security issue where Amazon Rekognition is use
 call another service and act on resources it shouldn't have access to. To keep your
 account secure, you should limit the scope of Amazon Rekognition's access to just the resources
 you are using. This can be done by attaching a trust policy to your IAM service
-role. For information on how to do this, see [Cross-service confused deputy
-prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md").
+role. For information on how to do this, see [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md").
 
-### Choosing an IAM role
-
-in Amazon Rekognition
+### Choosing an IAM role in Amazon Rekognition
 
 When you configure Amazon Rekognition to analyze stored videos,
 you must choose a role to allow Amazon Rekognition to access Amazon SNS on your behalf. If
@@ -223,9 +205,7 @@ you have previously created a service role or service-linked role, then
 Amazon Rekognition provides you with a list of roles to choose from. For more
 information, see [Configuring Amazon Rekognition Video](api-video-roles.md "api-video-roles.md").
 
-### Example: Configuring Amazon Rekognition to
-
-accsss images in an Amazon S3 bucket
+### Example: Configuring Amazon Rekognition to accsss images in an Amazon S3 bucket
 
 The following is an example of how you might configure Amazon Rekognition for analyzing
 images in an Amazon S3 bucket. If you want to use Amazon Rekognition to analyze images in an

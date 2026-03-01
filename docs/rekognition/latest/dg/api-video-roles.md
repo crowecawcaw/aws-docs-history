@@ -6,20 +6,17 @@ queue to your Amazon SNS topics.
 
 ###### Note
 
-If you're using these instructions to set up the [Analyzing a video stored in an Amazon S3
-bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md")
+If you're using these instructions to set up the [Analyzing a video stored in an Amazon S3 bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md")
 example, you don't need to do steps 3, 4, 5, and 6. The example includes code to
 create and configure the Amazon SNS topic and Amazon SQS queue.
 
 The examples in this section create a new Amazon SNS topic by using the instructions that
 give Amazon Rekognition Video access to multiple topics. If you want to use an existing Amazon SNS topic, use
-[Giving access to an existing Amazon SNS
-topic](#api-video-roles-single-topics "#api-video-roles-single-topics") for step 3.
+[Giving access to an existing Amazon SNS topic](#api-video-roles-single-topics "#api-video-roles-single-topics") for step 3.
 
 ###### To configure Amazon Rekognition Video
 
-1. Set up an AWS account to access Amazon Rekognition Video. For more information, see [Step 1: Set up an AWS account and create a
-   User](setting-up.md "setting-up.md").
+1. Set up an AWS account to access Amazon Rekognition Video. For more information, see [Step 1: Set up an AWS account and create a User](setting-up.md "setting-up.md").
 2. Install and configure the required AWS SDK. For more information, see [Step 2: Set up the AWS CLI and AWS SDKs](setup-awscli-sdk.md "setup-awscli-sdk.md").
 3. To run the code examples in this developer guide, ensure that your chosen user has programmatic access.
    See [Grant programmatic access](sdk-programmatic-access.md "sdk-programmatic-access.md") for more information.
@@ -41,12 +38,10 @@ console](https://console.aws.amazon.com/sqs/ "https://console.aws.amazon.com/sqs
 queue to the topic](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-subscribe-queue-sns-topic.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-subscribe-queue-sns-topic.md") you created in step 3. 7. [Give permission to the Amazon SNS topic to send messages to the Amazon SQS
 queue](../../../sns/latest/dg/SendMessageToSQS.md#SendMessageToSQS.sqs.permissions "../../../sns/latest/dg/SendMessageToSQS.md#SendMessageToSQS.sqs.permissions"). 8. Create an IAM service role to give Amazon Rekognition Video access to your Amazon SNS topics.
 Note the Amazon Resource Name (ARN) of the service role. For more information,
-see [Giving access to multiple Amazon SNS
-topics](#api-video-roles-all-topics "#api-video-roles-all-topics"). 9. To ensure your account is secure, you will want to limit the scope of Rekognition's
+see [Giving access to multiple Amazon SNS topics](#api-video-roles-all-topics "#api-video-roles-all-topics"). 9. To ensure your account is secure, you will want to limit the scope of Rekognition's
 access to just the resources you are using. This can be done by attaching a
 Trust policy to your IAM service role. For information on how to do this, see
-[Cross-service confused deputy
-prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md"). 10. [Add the following inline policy](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#embed-inline-policy-console "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#embed-inline-policy-console") to the user that you created
+[Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md"). 10. [Add the following inline policy](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#embed-inline-policy-console "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#embed-inline-policy-console") to the user that you created
 in step 1:
 
 Give the inline policy a name of your choosing. 11. If you use a customer managed AWS Key Management Service key to encrypt the videos in your Amazon S3
@@ -73,12 +68,9 @@ For more information, see see [My Amazon S3 bucket has default encryption using 
 allow users to download from and upload to the bucket?](https://aws.amazon.com/premiumsupport/knowledge-center/s3-bucket-access-default-encryption/ "https://aws.amazon.com/premiumsupport/knowledge-center/s3-bucket-access-default-encryption/") and
 [Protecting Data
 Using Server-Side Encryption with KMS keys Stored in AWS Key Management
-Service (SSE-KMS)](../../../AmazonS3/latest/userguide/UsingKMSEncryption.md "../../../AmazonS3/latest/userguide/UsingKMSEncryption.md"). 12. You can now run the examples in [Analyzing a video stored in an Amazon S3
-bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md") and [Analyzing a video with the AWS Command Line Interface](video-cli-commands.md "video-cli-commands.md").
+Service (SSE-KMS)](../../../AmazonS3/latest/userguide/UsingKMSEncryption.md "../../../AmazonS3/latest/userguide/UsingKMSEncryption.md"). 12. You can now run the examples in [Analyzing a video stored in an Amazon S3 bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md") and [Analyzing a video with the AWS Command Line Interface](video-cli-commands.md "video-cli-commands.md").
 
-## Giving access to multiple Amazon SNS
-
-topics
+## Giving access to multiple Amazon SNS topics
 
 You use an IAM service role to give Amazon Rekognition Video access to Amazon SNS topics that you
 create. IAM provides the _Rekognition_ use case for creating an
@@ -106,9 +98,7 @@ topic names with _AmazonRekognition_—for example,
 2. Note the ARN of the service role. You need it to start video analysis
    operations.
 
-## Giving access to an existing Amazon SNS
-
-topic
+## Giving access to an existing Amazon SNS topic
 
 You can create a permissions policy that allows Amazon Rekognition Video access to an existing
 Amazon SNS topic.

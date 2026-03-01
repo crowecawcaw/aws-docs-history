@@ -1,6 +1,4 @@
-# Recognizing celebrities in an
-
-image
+# Recognizing celebrities in an image
 
 To recognize celebrities within images and get additional information about recognized
 celebrities, use the [RecognizeCelebrities](../APIReference/API_RecognizeCelebrities.md "../APIReference/API_RecognizeCelebrities.md")
@@ -41,8 +39,7 @@ you need an image file that contains one or more celebrity faces.
 1. If you haven't already:
    1. Create or update a user with `AmazonRekognitionFullAccess` and
       `AmazonS3ReadOnlyAccess` permissions. For more
-      information, see [Step 1: Set up an AWS account and create a
-      User](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam").
+      information, see [Step 1: Set up an AWS account and create a User](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam").
    2. Install and configure the AWS CLI and the AWS SDKs. For more information, see
       [Step 2: Set up the AWS CLI and AWS SDKs](setup-awscli-sdk.md "setup-awscli-sdk.md").
 

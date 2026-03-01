@@ -6,8 +6,7 @@ detected, Amazon Rekognition extracts facial features and stores the feature inf
 database. In addition, the command stores metadata for each face that's detected in the
 specified face collection. Amazon Rekognition doesn't store the actual image bytes.
 
-For information about providing suitable faces for indexing, see [Recommendations for facial
-comparison input images](recommendations-facial-input-images.md "recommendations-facial-input-images.md").
+For information about providing suitable faces for indexing, see [Recommendations for facial comparison input images](recommendations-facial-input-images.md "recommendations-facial-input-images.md").
 
 For each face, the `IndexFaces` operation persists the following
 information:
@@ -106,8 +105,7 @@ For more information, see [Managing faces in a collection](managing-face-collect
 1. If you haven't already:
    1. Create or update a user with `AmazonRekognitionFullAccess`
       and `AmazonS3ReadOnlyAccess` permissions. For more
-      information, see [Step 1: Set up an AWS account and create a
-      User](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam").
+      information, see [Step 1: Set up an AWS account and create a User](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam").
    2. Install and configure the AWS CLI and the AWS SDKs. For more
       information, see [Step 2: Set up the AWS CLI and AWS SDKs](setup-awscli-sdk.md "setup-awscli-sdk.md").
 
@@ -464,9 +462,7 @@ to add the face or faces to.
 }
 ```
 
-## IndexFaces operation
-
-response
+## IndexFaces operation response
 
 `IndexFaces` returns information about the faces that were detected in
 the image. For example, the following JSON response includes the default detection
@@ -617,8 +613,7 @@ with the collection. For more information, see [Understanding model versioning](
 
 `OrientationCorrection` is the estimated orientation of the image.
 Orientation correction information is not returned if you are using a version of the
-face detection model that is greater than version 3. For more information, see [Getting image orientation and bounding box
-coordinates](images-orientation.md "images-orientation.md").
+face detection model that is greater than version 3. For more information, see [Getting image orientation and bounding box coordinates](images-orientation.md "images-orientation.md").
 
 The following sample response shows the returned JSON when specifying
 ["ALL"]:

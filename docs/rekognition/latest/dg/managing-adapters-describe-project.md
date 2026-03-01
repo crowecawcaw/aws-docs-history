@@ -1,6 +1,4 @@
-# Describing a project
-
-version
+# Describing a project version
 
 You can list and describe adapters associated with a project by using the [DescribeProjectVersions](../APIReference/API_DescribeProjectVersions.md "../APIReference/API_DescribeProjectVersions.md") operation.
 You can specify up to 10 model versions in ProjectVersionArns. If you don't specify a value, descriptions

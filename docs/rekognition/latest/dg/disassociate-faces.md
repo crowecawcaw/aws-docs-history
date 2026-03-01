@@ -7,8 +7,7 @@ a face ID.
 
 1. If you haven't already:
    1. Create or update a user with `AmazonRekognitionFullAccess`
-      permissions. For more information, see [Step 1: Set up an AWS account and create a
-      User](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam").
+      permissions. For more information, see [Step 1: Set up an AWS account and create a User](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam").
    2. Install and configure the AWS CLI and the AWS SDKs. For more
       information, see [Step 2: Set up the AWS CLI and AWS SDKs](setup-awscli-sdk.md "setup-awscli-sdk.md").
 
@@ -123,9 +122,7 @@ if __name__ == "__main__":
     main()
 ```
 
-## DisassociateFaces operation
-
-response
+## DisassociateFaces operation response
 
 The response for `DisassociateFaces` includes the
 `UserStatus`, which is the status of the disassociation request, as

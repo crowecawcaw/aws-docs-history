@@ -115,9 +115,7 @@ predictions:
 
 For the complete list of labels returned refer to [Moderating content](moderation.md "moderation.md").
 
-## Evaluation results
-
-manifest
+## Evaluation results manifest
 
 On completion of a training job, an evaluation result manifest file is
 returned. The evaluation results manifest is a JSON file output by the training

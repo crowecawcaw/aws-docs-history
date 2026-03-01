@@ -1,6 +1,4 @@
-# Recommendations for Usage of Face
-
-Liveness
+# Recommendations for Usage of Face Liveness
 
 We recommend the following best practices when using Rekognition Face Liveness:
 

@@ -67,8 +67,7 @@ An image can be orientated in various ways. Your application might need to rotat
 the image to display it with the correction orientation. Bounding box coordinates
 are affected by the orientation of the image. You might need to translate the
 coordinates before you can display a bounding box at the right location. For more
-information, see [Getting image orientation and bounding box
-coordinates](images-orientation.md "images-orientation.md").
+information, see [Getting image orientation and bounding box coordinates](images-orientation.md "images-orientation.md").
 
 The following examples show how to display a bounding box around faces that are
 detected by calling [DetectFaces](../APIReference/API_DetectFaces.md "../APIReference/API_DetectFaces.md").
@@ -81,8 +80,7 @@ how to download the image from an Amazon S3 bucket.
    1. Create or update a user with
       `AmazonRekognitionFullAccess` and
       `AmazonS3ReadOnlyAccess` permissions. For more
-      information, see [Step 1: Set up an AWS account and create a
-      User](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam").
+      information, see [Step 1: Set up an AWS account and create a User](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam").
    2. Install and configure the AWS CLI and the AWS SDKs. For more
       information, see [Step 2: Set up the AWS CLI and AWS SDKs](setup-awscli-sdk.md "setup-awscli-sdk.md").
 

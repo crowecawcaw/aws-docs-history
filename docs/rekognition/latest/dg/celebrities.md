@@ -25,7 +25,6 @@ If you are a celebrity and don’t want to be included in this feature, contact
 ###### Topics
 
 - [Celebrity recognition compared to face search](celebrity-recognition-vs-face-search.md "celebrity-recognition-vs-face-search.md")
-- [Recognizing celebrities in an
-  image](celebrities-procedure-image.md "celebrities-procedure-image.md")
+- [Recognizing celebrities in an image](celebrities-procedure-image.md "celebrities-procedure-image.md")
 - [Recognizing celebrities in a stored video](celebrities-video-sqs.md "celebrities-video-sqs.md")
 - [Getting information about a celebrity](get-celebrity-info-procedure.md "get-celebrity-info-procedure.md")

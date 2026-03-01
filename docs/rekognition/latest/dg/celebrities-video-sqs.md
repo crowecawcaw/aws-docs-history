@@ -9,15 +9,13 @@ call [GetCelebrityRecognition](../APIReference/API_GetCelebrityRecognition.md ".
 to get the analysis results. For more information about starting video analysis and getting the results,
 see [Calling Amazon Rekognition Video operations](api-video.md "api-video.md").
 
-This procedure expands on the code in [Analyzing a video stored in an Amazon S3
-bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md"), which uses an Amazon SQS queue to get the
+This procedure expands on the code in [Analyzing a video stored in an Amazon S3 bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md"), which uses an Amazon SQS queue to get the
 completion status of a video analysis request. To run this procedure, you need a
 video file that contains one or more celebrity faces.
 
 ###### To detect celebrities in a video stored in an Amazon S3 bucket (SDK)
 
-1. Perform [Analyzing a video stored in an Amazon S3
-   bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md").
+1. Perform [Analyzing a video stored in an Amazon S3 bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md").
 2. Add the following code to the class `VideoDetect` that you created in step 1.
 
 Java
@@ -622,8 +620,7 @@ aws rekognition get-celebrity-recognition --job-id job-id-number --profile profi
 
 ###### Note
 
-If you've already run a video example other than [Analyzing a video stored in an Amazon S3
-bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md"), the code to replace
+If you've already run a video example other than [Analyzing a video stored in an Amazon S3 bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md"), the code to replace
 might be different. 3. Run the code. Information about the celebrities recognized in the video is shown.
 
 ## GetCelebrityRecognition operation response

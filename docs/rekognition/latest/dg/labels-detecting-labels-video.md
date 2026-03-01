@@ -1,8 +1,7 @@
 # Detecting labels in a video
 
 Amazon Rekognition Video can detect labels (objects and concepts), and the time a label is detected,
-in a video. For an SDK code example, see [Analyzing a video stored in an Amazon S3
-bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md"). For an AWS CLI example, see [Analyzing a video with the AWS Command Line Interface](video-cli-commands.md "video-cli-commands.md").
+in a video. For an SDK code example, see [Analyzing a video stored in an Amazon S3 bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md"). For an AWS CLI example, see [Analyzing a video with the AWS Command Line Interface](video-cli-commands.md "video-cli-commands.md").
 
 Amazon Rekognition Video label detection is an asynchronous operation. To start the detection of
 labels in a video, call [StartLabelDetection](../APIReference/API_StartlabelDetection.md "../APIReference/API_StartlabelDetection.md").
@@ -11,9 +10,7 @@ Amazon Rekognition Video publishes the completion status of the video analysis t
 If the video analysis is succesful, call [GetLabelDetection](../APIReference/API_GetLabelDetection.md "../APIReference/API_GetLabelDetection.md") to get the detected labels. For information about calling
 the video analysis API operations, see [Calling Amazon Rekognition Video operations](api-video.md "api-video.md").
 
-## StartLabelDetection
-
-Request
+## StartLabelDetection Request
 
 The following example is a request for the `StartLabelDetection`
 operation. You provide the `StartLabelDetection` operation with a video
@@ -80,9 +77,7 @@ including filters:
 
 ```
 
-## GetLabelDetection Operation
-
-Response
+## GetLabelDetection Operation Response
 
 `GetLabelDetection` returns an array (`Labels`) that
 contains information about the labels detected in the video. The array can be sorted
@@ -373,9 +368,7 @@ by SEGMENTS:
 }
 ```
 
-## Transforming the
-
-GetLabelDetection Response
+## Transforming the GetLabelDetection Response
 
 When retrieving results with the GetLabelDetection API operation, you might need
 the response structure to mimic the older API response structure, where both primary

@@ -1,6 +1,4 @@
-# Analyzing a video stored in an Amazon S3
-
-bucket with Java or Python (SDK)
+# Analyzing a video stored in an Amazon S3 bucket with Java or Python (SDK)
 
 This procedure shows you how to detect labels in a video by using Amazon Rekognition Video label
 detection operations, a video stored in an Amazon S3 bucket, and an Amazon SNS topic. The

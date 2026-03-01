@@ -1,6 +1,4 @@
-# Detecting personal protective
-
-equipment in an image
+# Detecting personal protective equipment in an image
 
 To detect Personal Protective Equipment (PPE) on persons in an image, use the
 [DetectProtectiveEquipment](../APIReference/API_DetectProtectiveEquipment.md "../APIReference/API_DetectProtectiveEquipment.md")
@@ -15,8 +13,7 @@ an image stored in an Amazon S3 bucket. For more information, see [Working with 
 1. If you haven't already:
    1. Create or update a user with `AmazonRekognitionFullAccess` and
       `AmazonS3ReadOnlyAccess` permissions. For more
-      information, see [Step 1: Set up an AWS account and create a
-      User](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam").
+      information, see [Step 1: Set up an AWS account and create a User](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam").
    2. Install and configure the AWS CLI and the AWS SDKs. For more information, see
       [Step 2: Set up the AWS CLI and AWS SDKs](setup-awscli-sdk.md "setup-awscli-sdk.md").
 

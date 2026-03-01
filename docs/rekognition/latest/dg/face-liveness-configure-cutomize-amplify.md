@@ -1,10 +1,6 @@
-# Configuring and Customizing
+# Configuring and Customizing Your Application
 
-Your Application
-
-## Configuring Your
-
-Application
+## Configuring Your Application
 
 Your Face Liveness application can operate on mobile devices or desktop web
 browsers. You'll want to configure the Face Liveness components to integrate with

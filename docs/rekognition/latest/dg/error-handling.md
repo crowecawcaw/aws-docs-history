@@ -47,9 +47,7 @@ code. If _OK to retry?_ is _Yes_, you can submit
 the same request again. If _OK to retry?_ is _No_,
 you need to fix the problem on the client side before you submit a new request.
 
-### HTTP status code
-
-400
+### HTTP status code 400
 
 An HTTP `400` status code indicates a problem with your request. Some
 examples of problems are authentication failure, required parameters that are
@@ -223,9 +221,7 @@ The file size or duration of the supplied media is too large. For more informati
 
 OK to retry? No
 
-### HTTP status code
-
-5xx
+### HTTP status code 5xx
 
 An HTTP `5xx` status code indicates a problem that must be resolved by
 AWS. This might be a transient error. If it is, you can retry your request until

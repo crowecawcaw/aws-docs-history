@@ -7,16 +7,14 @@ call to [RecognizeCelebrities](../APIReference/API_RecognizeCelebrities.md "../A
 ## Calling GetCelebrityInfo
 
 These procedures require the celebrity ID for a celebrity that Amazon Rekognition knows.
-Use the celebrity ID that you note in [Recognizing celebrities in an
-image](celebrities-procedure-image.md "celebrities-procedure-image.md").
+Use the celebrity ID that you note in [Recognizing celebrities in an image](celebrities-procedure-image.md "celebrities-procedure-image.md").
 
 ###### To get celebrity information (SDK)
 
 1. If you haven't already:
    1. Create or update a user with `AmazonRekognitionFullAccess` and
       `AmazonS3ReadOnlyAccess` permissions. For more
-      information, see [Step 1: Set up an AWS account and create a
-      User](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam").
+      information, see [Step 1: Set up an AWS account and create a User](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam").
    2. Install and configure the AWS CLI and AWS SDKs. For more information, see
       [Step 2: Set up the AWS CLI and AWS SDKs](setup-awscli-sdk.md "setup-awscli-sdk.md").
 
@@ -25,8 +23,7 @@ image](celebrities-procedure-image.md "celebrities-procedure-image.md").
 JavaThis example displays the name and information about a celebrity.
 
 Replace `id` with one of the celebrity IDs displayed in
-[Recognizing celebrities in an
-image](celebrities-procedure-image.md "celebrities-procedure-image.md").
+[Recognizing celebrities in an image](celebrities-procedure-image.md "celebrities-procedure-image.md").
 
 ```
 //Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -140,8 +137,7 @@ public class CelebrityInfo {
 AWS CLI
 This AWS CLI command displays the JSON output for the
 `get-celebrity-info` CLI operation. Replace
-`ID` with one of the celebrity IDs displayed in [Recognizing celebrities in an
-image](celebrities-procedure-image.md "celebrities-procedure-image.md"). Replace the value
+`ID` with one of the celebrity IDs displayed in [Recognizing celebrities in an image](celebrities-procedure-image.md "celebrities-procedure-image.md"). Replace the value
 of `profile-name` with the name of your developer
 profile.
 
@@ -152,8 +148,7 @@ aws rekognition get-celebrity-info --id celebrity-id --profile profile-name
 PythonThis example displays the name and information about a celebrity.
 
 Replace `id` with one
-of the celebrity IDs displayed in [Recognizing celebrities in an
-image](celebrities-procedure-image.md "celebrities-procedure-image.md").
+of the celebrity IDs displayed in [Recognizing celebrities in an image](celebrities-procedure-image.md "celebrities-procedure-image.md").
 Replace the value of `profile_name` in the line that creates the Rekognition session with the name of your developer profile.
 
 ```
@@ -188,8 +183,7 @@ if __name__ == "__main__":
 .NETThis example displays the name and information about a celebrity.
 
 Replace `id` with one
-of the celebrity IDs displayed in [Recognizing celebrities in an
-image](celebrities-procedure-image.md "celebrities-procedure-image.md").
+of the celebrity IDs displayed in [Recognizing celebrities in an image](celebrities-procedure-image.md "celebrities-procedure-image.md").
 
 ```
 //Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.

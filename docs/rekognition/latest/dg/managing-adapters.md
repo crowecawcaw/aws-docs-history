@@ -1,6 +1,4 @@
-# Managing adapters with the AWS CLI and
-
-SDKs
+# Managing adapters with the AWS CLI and SDKs
 
 Rekognition lets you make use of multiple features that leverage pre-trained computer vision models.
 With these models you can carry out tasks like label detection and content moderation.
@@ -23,21 +21,15 @@ Adapters cannot be copied. Only Rekognition Custom Labels project versions can b
 
 ###### Topics
 
-- [Adapter
-  statuses](#managing-adapters-project-versions-statuses "#managing-adapters-project-versions-statuses")
+- [Adapter statuses](#managing-adapters-project-versions-statuses "#managing-adapters-project-versions-statuses")
 - [Creating a project](managing-adapters-create-project.md "managing-adapters-create-project.md")
 - [Describing projects](managing-adapters-describe-projects.md "managing-adapters-describe-projects.md")
 - [Deleting a project](managing-adapters-delete-project.md "managing-adapters-delete-project.md")
-- [Creating a project
-  version](managing-adapters-create-project-version.md "managing-adapters-create-project-version.md")
-- [Describing a project
-  version](managing-adapters-describe-project.md "managing-adapters-describe-project.md")
-- [Deleting a project
-  version](managing-adapters-delete-project-version.md "managing-adapters-delete-project-version.md")
+- [Creating a project version](managing-adapters-create-project-version.md "managing-adapters-create-project-version.md")
+- [Describing a project version](managing-adapters-describe-project.md "managing-adapters-describe-project.md")
+- [Deleting a project version](managing-adapters-delete-project-version.md "managing-adapters-delete-project-version.md")
 
-## Adapter
-
-statuses
+## Adapter statuses
 
 Custom Moderation adapter (project versions) can be in one of the following
 statuses:

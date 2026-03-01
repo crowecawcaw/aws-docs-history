@@ -54,9 +54,7 @@ endpoint to an AWS service using the console" in [Creating an Interface Endpoint
 For more information, see [Getting Started](../../../vpc/latest/userguide/GetStarted.md "../../../vpc/latest/userguide/GetStarted.md")
 in the _Amazon VPC User Guide_.
 
-## Create a VPC endpoint policy for
-
-Amazon Rekognition
+## Create a VPC endpoint policy for Amazon Rekognition
 
 You can create a policy for Amazon VPC endpoints for Amazon Rekognition
 to specify the following:
@@ -75,8 +73,7 @@ policy prevents users from performing other Amazon Rekognition API operations th
 
 Users can still call
 other Amazon Rekognition API operations from outside the VPC. For information about how to deny access to
-Amazon Rekognition API operations that are outside the VPC, see [Amazon Rekognition
-identity-based policies](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies").
+Amazon Rekognition API operations that are outside the VPC, see [Amazon Rekognition identity-based policies](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies").
 
 JSON
 

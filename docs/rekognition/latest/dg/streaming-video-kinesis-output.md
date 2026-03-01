@@ -1,6 +1,4 @@
-# Reading streaming video analysis
-
-results
+# Reading streaming video analysis results
 
 You can use the Amazon Kinesis Data Streams Client Library to consume analysis results that are sent to
 the Amazon Kinesis Data Streams output stream. For more information, see [Reading Data from a
@@ -11,12 +9,10 @@ it through the Kinesis video stream.
 A frame record that's sent to a Kinesis data stream contains information about which Kinesis video stream
 fragment the frame is in, where the frame is in the fragment, and faces that are
 recognized in the frame. It also includes status information for the stream processor.
-For more information, see [Understanding the Kinesis face
-recognition JSON frame record](streaming-video-kinesis-output-reference.md "streaming-video-kinesis-output-reference.md").
+For more information, see [Understanding the Kinesis face recognition JSON frame record](streaming-video-kinesis-output-reference.md "streaming-video-kinesis-output-reference.md").
 
 The Amazon Kinesis Video Streams Parser Library contains example tests that consume Amazon Rekognition Video results and integrates it with
-the original Kinesis video stream. For more information, see [Displaying Rekognition results
-with Kinesis Video Streams locally](displaying-rekognition-results-locally.md "displaying-rekognition-results-locally.md").
+the original Kinesis video stream. For more information, see [Displaying Rekognition results with Kinesis Video Streams locally](displaying-rekognition-results-locally.md "displaying-rekognition-results-locally.md").
 
 Amazon Rekognition Video streams Amazon Rekognition Video analysis information to the Kinesis data stream. The following is a JSON
 example for a single record.
@@ -120,9 +116,7 @@ In the JSON example, note the following:
   face objects ([MatchedFace](streaming-video-kinesis-output-reference.md#streaming-video-kinesis-output-reference-facematch "streaming-video-kinesis-output-reference.md#streaming-video-kinesis-output-reference-facematch")) found
   in the input collection, along with a similarity score.
 
-## Mapping the Kinesis video stream to the Kinesis data
-
-stream
+## Mapping the Kinesis video stream to the Kinesis data stream
 
 You might want to map the Kinesis video stream frames to the analyzed frames that are sent to the
 Kinesis data stream. For example, during the display of a streaming video, you might want to

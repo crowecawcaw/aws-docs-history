@@ -1,6 +1,4 @@
-# Deleting a project
-
-version
+# Deleting a project version
 
 You can delete an Rekognition adapter associated with a project using the [DeleteProjectVersion](../APIReference/API_DeleteProjectVersion.md "../APIReference/API_DeleteProjectVersion.md") operation. You can't delete an adapter if it's
 running or if it's training. To check the status of an adapter, call the

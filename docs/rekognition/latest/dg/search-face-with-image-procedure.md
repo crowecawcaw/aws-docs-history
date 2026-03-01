@@ -1,20 +1,16 @@
-# Searching for a face with an
-
-image
+# Searching for a face with an image
 
 You can use the [SearchFacesByImage](../APIReference/API_SearchFacesByImage.md "../APIReference/API_SearchFacesByImage.md") operation to search for faces in a collection that match
 the largest face in a supplied image.
 
-For more information, see [Searching for faces and users within a
-collection](collections-search-faces.md "collections-search-faces.md").
+For more information, see [Searching for faces and users within a collection](collections-search-faces.md "collections-search-faces.md").
 
 ###### To search for a face in a collection using an image (SDK)
 
 1. If you haven't already:
    1. Create or update a user with `AmazonRekognitionFullAccess`
       and `AmazonS3ReadOnlyAccess` permissions. For more
-      information, see [Step 1: Set up an AWS account and create a
-      User](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam").
+      information, see [Step 1: Set up an AWS account and create a User](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam").
    2. Install and configure the AWS CLI and the AWS SDKs. For more
       information, see [Step 2: Set up the AWS CLI and AWS SDKs](setup-awscli-sdk.md "setup-awscli-sdk.md").
 
@@ -320,9 +316,7 @@ public class SearchFacesMatchingImage
 
 ```
 
-## SearchFacesByImage operation
-
-request
+## SearchFacesByImage operation request
 
 The input parameters to `SearchFacesImageByImage` are the collection to
 search in and the source image location. In this example, the source image is stored
@@ -344,9 +338,7 @@ matched for a face to be returned (`FaceMatchThreshold`).
 }
 ```
 
-## SearchFacesByImage operation
-
-response
+## SearchFacesByImage operation response
 
 Given an input image (.jpeg or .png), the operation first detects the face in the
 input image, and then searches the specified face collection for similar faces.

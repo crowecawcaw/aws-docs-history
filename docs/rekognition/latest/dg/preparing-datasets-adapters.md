@@ -67,5 +67,4 @@ The testing dataset is used to evaluate the adapter’s performance after traini
 To ensure reliable evaluation, the testing dataset is created by using a slice of
 the original training dataset that the model hasn’t seen before. This process
 ensures that the adapter’s performance is assessed with new data, creating accurate
-measurements and metrics. For optimal accuracy improvements see [Best practices for training
-adapters](using-adapters-best-practices.md "using-adapters-best-practices.md") .
+measurements and metrics. For optimal accuracy improvements see [Best practices for training adapters](using-adapters-best-practices.md "using-adapters-best-practices.md") .

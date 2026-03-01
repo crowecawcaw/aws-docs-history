@@ -20,14 +20,12 @@ Amazon Rekognition Video can create a track of the path people take in videos an
 
 The following procedure shows how to track the path of people through a video stored in an Amazon S3 bucket.
 The example expands on the code in
-[Analyzing a video stored in an Amazon S3
-bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md") which uses an Amazon Simple Queue Service queue to get the
+[Analyzing a video stored in an Amazon S3 bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md") which uses an Amazon Simple Queue Service queue to get the
 completion status of a video analysis request.
 
 ###### To detect people in a video stored in an Amazon S3 bucket (SDK)
 
-1. Perform [Analyzing a video stored in an Amazon S3
-   bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md").
+1. Perform [Analyzing a video stored in an Amazon S3 bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md").
 2. Add the following code to the class `VideoDetect` that you created in step 1.
 
 Java
@@ -385,8 +383,7 @@ aws rekognition get-person-tracking --job-id job-id-number
 
 ###### Note
 
-If you've already run a video example other than [Analyzing a video stored in an Amazon S3
-bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md"), the code to replace
+If you've already run a video example other than [Analyzing a video stored in an Amazon S3 bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md"), the code to replace
 might be different. 3. Run the code. The unique identifiers for tracked people are shown along with the time, in seconds, the people's paths were tracked.
 
 ## GetPersonTracking operation response

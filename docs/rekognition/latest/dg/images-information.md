@@ -37,8 +37,7 @@ For information about ensuring the lowest possible latency for Amazon Rekognitio
 In several Rekognition API operations, the orientation of an analyzed image is returned. Knowing image orientation is important as it allows you to reorient images for display. Rekognition API operations
 that analyze faces also return bounding boxes for the location of faces within an image. You can use bounding boxes to display a box around a face on an image. The bounding box coordinates returned are
 affected by image orientation and you may need to translate bounding box coordinates to correctly display a box around a face. For more information, see
-[Getting image orientation and bounding box
-coordinates](images-orientation.md "images-orientation.md").
+[Getting image orientation and bounding box coordinates](images-orientation.md "images-orientation.md").
 
 ## Image resizing
 

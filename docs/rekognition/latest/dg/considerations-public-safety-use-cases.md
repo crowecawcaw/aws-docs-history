@@ -1,9 +1,6 @@
-# Use cases that involve public
+# Use cases that involve public safety
 
-safety
-
-In addition to the recommendations listed in [Best practices for sensors, input images, and
-videos](best-practices.md "best-practices.md") and [Guidance for indexing faces in common scenarios](guidance-index-faces.md "guidance-index-faces.md"), you should use the following best practices
+In addition to the recommendations listed in [Best practices for sensors, input images, and videos](best-practices.md "best-practices.md") and [Guidance for indexing faces in common scenarios](guidance-index-faces.md "guidance-index-faces.md"), you should use the following best practices
 when deploying face detection and comparison systems in use cases that involve public
 safety. First, you should use confidence thresholds of 99% or higher to reduce errors
 and false positives. Second, you should involve human reviewers to verify results

@@ -1,6 +1,4 @@
-# Cross-service confused deputy
-
-prevention
+# Cross-service confused deputy prevention
 
 In AWS, cross-service impersonation can occur when one service (the _calling
 service_) calls another service (the _called service_).

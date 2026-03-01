@@ -1,6 +1,4 @@
-# Understanding non-storage and storage
-
-API operations
+# Understanding non-storage and storage API operations
 
 Amazon Rekognition provides two types of API operations. They are non-storage operations where
 no information is stored by Amazon Rekognition, and storage operations where certain facial
@@ -36,9 +34,7 @@ The following example scenarios show where you might integrate non-storage API
 operations in your application. These scenarios assume that you have a local
 repository of images.
 
-###### Example 1: An application that finds images in your local repository that contain
-
-specific labels
+###### Example 1: An application that finds images in your local repository that contain specific labels
 
 First, you detect labels (objects and concepts) using the Amazon Rekognition
 `DetectLabels` operation in each of the images in your repository

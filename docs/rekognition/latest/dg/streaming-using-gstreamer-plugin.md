@@ -1,14 +1,11 @@
-# Streaming using a GStreamer
-
-plugin
+# Streaming using a GStreamer plugin
 
 Amazon Rekognition Video can analyze a live streaming video from a device camera. To access media input from a device source, you need to install GStreamer.
 GStreamer is a third-party multimedia framework software that connects media sources and processing tools together in workflow pipelines.
 You also need to install the
 [Amazon Kinesis Video Streams Producer Plugin](https://github.com/awslabs/amazon-kinesis-video-streams-producer-sdk-cpp/ "https://github.com/awslabs/amazon-kinesis-video-streams-producer-sdk-cpp/") for Gstreamer.
 This process assumes that you have successfully set up your Amazon Rekognition Video and Amazon Kinesis resources. For more information, see
-[Setting
-up your Amazon Rekognition Video and Amazon Kinesis resources](setting-up-your-amazon-rekognition-streaming-video-resources.md "setting-up-your-amazon-rekognition-streaming-video-resources.md").
+[Setting up your Amazon Rekognition Video and Amazon Kinesis resources](setting-up-your-amazon-rekognition-streaming-video-resources.md "setting-up-your-amazon-rekognition-streaming-video-resources.md").
 
 ## Step 1: Install Gstreamer
 

@@ -1,6 +1,4 @@
-# Add tags to a new stream
-
-processor
+# Add tags to a new stream processor
 
 You can identify, organize, search for, and filter Amazon Rekognition stream processors by using tags. Each tag is a label consisting of a
 user-defined key and value.

@@ -1,6 +1,4 @@
-# Searching stored videos for
-
-faces
+# Searching stored videos for faces
 
 You can search a collection for faces that match faces of people who are detected in a
 stored video or a streaming video. This section covers searching for faces in a stored
@@ -18,8 +16,7 @@ starting video analysis and getting the results, see [Calling Amazon Rekognition
 The following procedure shows how to search a collection for faces that match the
 faces of people who are detected in a video. The procedure also shows how to get the
 tracking data for people who are matched in the video. The procedure expands on the code
-in [Analyzing a video stored in an Amazon S3
-bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md"),
+in [Analyzing a video stored in an Amazon S3 bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md"),
 which uses an Amazon Simple Queue Service (Amazon SQS) queue to get the completion status of a video analysis
 request.
 
@@ -28,8 +25,7 @@ request.
 1. [Create a collection](create-collection-procedure.md "create-collection-procedure.md").
 2. [Index a face into the
    collection](add-faces-to-collection-procedure.md "add-faces-to-collection-procedure.md").
-3. Perform [Analyzing a video stored in an Amazon S3
-   bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md").
+3. Perform [Analyzing a video stored in an Amazon S3 bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md").
 4. Add the following code to the class `VideoDetect` that you created
    in step 3.
 
@@ -361,15 +357,12 @@ with:
         analyzer.GetFaceSearchCollectionResults()
 ```
 
-If you've already run a video example other than [Analyzing a video stored in an Amazon S3
-bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md"), the code to replace might be different. 5. Change the value of `collection` to the name of the collection you
+If you've already run a video example other than [Analyzing a video stored in an Amazon S3 bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md"), the code to replace might be different. 5. Change the value of `collection` to the name of the collection you
 created in step 1. 6. Run the code. A list of people in the video whose faces match those in the
 input collection is displayed. The tracking data for each matched person is also
 displayed.
 
-## GetFaceSearch operation
-
-response
+## GetFaceSearch operation response
 
 The following is an example JSON response from `GetFaceSearch`.
 

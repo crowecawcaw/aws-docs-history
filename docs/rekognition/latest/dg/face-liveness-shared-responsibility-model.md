@@ -94,5 +94,4 @@ AWS secures its connections in the following ways:
    are some examples of [defense
    techniques](https://en.wikipedia.org/wiki/Denial-of-service_attack#Defense_techniques "https://en.wikipedia.org/wiki/Denial-of-service_attack#Defense_techniques") against DDoS attacks.
    Customers are responsible for keeping their applications up-to-date. For more information,
-   see [Face Liveness update
-   guidelines](face-liveness-update-guidelines.md "face-liveness-update-guidelines.md").
+   see [Face Liveness update guidelines](face-liveness-update-guidelines.md "face-liveness-update-guidelines.md").

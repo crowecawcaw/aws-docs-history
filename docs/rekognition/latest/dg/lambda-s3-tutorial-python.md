@@ -13,9 +13,7 @@ and supply it with an image sourced from an Amazon S3 bucket or your local compu
 Make sure your chosen images meet Rekognition’s limits. See [Guidelines and quotas](limits.md "limits.md") in Rekognition and the
 [DetectLabels API Reference](../APIReference/API_DetectLabels.md "../APIReference/API_DetectLabels.md") for information on image file type and size limits.
 
-##
-
-Create an Lambda function (console)
+## Create an Lambda function (console)
 
 In this step, you create an empty Lambda function and an IAM execution role that lets your
 Lambda function call the `DetectLabels` operation. In later steps, you add the source
@@ -24,9 +22,7 @@ code and optionally add a layer to the Lambda function.
 If you are using documents stored in an Amazon S3 bucket, this step also demonstrates how to
 grant access to the bucket that stores your documents.
 
-###### To create an AWS Lambda function
-
-(console)
+###### To create an AWS Lambda function (console)
 
 1. Sign in to the AWS Management Console and open the AWS Lambda console at
    [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/").
@@ -94,9 +90,7 @@ JSON
 
     2. For step 10, choose a different policy name, such as _S3Bucket-access_.
 
-##
-
-(Optional) Create a layer (console)
+## (Optional) Create a layer (console)
 
 You don't need to perform this step to use a Lambda function and call
 `DetectLabels`.
@@ -148,9 +142,7 @@ zip boto3-layer.zip -r python/
 18. In **Version** choose the layer version, which should be 1.
 19. Choose **Add**.
 
-##
-
-Add Python code (console)
+## Add Python code (console)
 
 In this step, you add your Python code to your Lambda function through the Lambda console
 code editor. The code detects labels in a image using the `DetectLabels` operation. It
@@ -243,9 +235,7 @@ def lambda_handler(event, context):
 
 3. Choose **Deploy** to deploy your Lambda function.
 
-##
-
-To add Python code (console)
+## To add Python code (console)
 
 Now that you’ve created your Lambda function, you can invoke it to detect labels in an image.
 

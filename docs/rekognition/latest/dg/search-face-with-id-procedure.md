@@ -1,6 +1,4 @@
-# Searching for a face with a face
-
-ID
+# Searching for a face with a face ID
 
 You can use the [SearchFaces](../APIReference/API_SearchFaces.md "../APIReference/API_SearchFaces.md")
 operation to search for users in a collection that match the largest face in a supplied
@@ -14,8 +12,7 @@ information, see [Managing faces in a collection](managing-face-collections.md#c
 
 1. If you haven't already:
    1. Create or update a user with `AmazonRekognitionFullAccess`
-      permissions. For more information, see [Step 1: Set up an AWS account and create a
-      User](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam").
+      permissions. For more information, see [Step 1: Set up an AWS account and create a User](setting-up.md#setting-up-iam "setting-up.md#setting-up-iam").
    2. Install and configure the AWS CLI and the AWS SDKs. For more
       information, see [Step 2: Set up the AWS CLI and AWS SDKs](setup-awscli-sdk.md "setup-awscli-sdk.md").
 
@@ -278,9 +275,7 @@ public class SearchFacesMatchingId
 Run the example code. Information about matching faces is
 displayed.
 
-## SearchFaces operation
-
-request
+## SearchFaces operation request
 
 Given a face ID (each face stored in the face collection has a face ID),
 `SearchFaces` searches the specified face collection for similar
@@ -299,9 +294,7 @@ closely the face matches with the input face. Optionally, you can use
 }
 ```
 
-## SearchFaces operation
-
-response
+## SearchFaces operation response
 
 The operation returns an array of face matches that were found and the face ID you
 provided as input.

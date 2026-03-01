@@ -19,5 +19,4 @@ detected content type is returned as part of the response.
 - [Processing images in bulk](to-process-images-in-bulk.md "to-process-images-in-bulk.md")
 - [Bulk analysis output manifests](bulk-analysis-output-manifests.md "bulk-analysis-output-manifests.md")
 - [Content type](bulk-analysis-content-type.md "bulk-analysis-content-type.md")
-- [Verifying predictions and training
-  adapters](bulk-analysis-pred-verify.md "bulk-analysis-pred-verify.md")
+- [Verifying predictions and training adapters](bulk-analysis-pred-verify.md "bulk-analysis-pred-verify.md")

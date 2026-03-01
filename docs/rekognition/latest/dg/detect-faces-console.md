@@ -1,6 +1,4 @@
-# Exercise 2: Analyze faces in an image
-
-(console)
+# Exercise 2: Analyze faces in an image (console)
 
 This section shows you how to use the Amazon Rekognition console to detect faces and
 analyze facial attributes in an image. When you provide an image that contains a

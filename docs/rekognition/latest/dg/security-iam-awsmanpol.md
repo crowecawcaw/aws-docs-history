@@ -114,9 +114,7 @@ JSON
 
 ```
 
-## AWS managed
-
-policy: AmazonRekognitionServiceRole
+## AWS managed policy: AmazonRekognitionServiceRole
 
 `AmazonRekognitionServiceRole` allows Amazon Rekognition to call Amazon Kinesis Data Streams and
 Amazon SNS services on your behalf.
@@ -126,8 +124,7 @@ identities.
 
 If using this service role, you should keep your account secure by limiting the scope
 of Amazon Rekognition's access to just the resources you are using. This can be done by attaching a
-trust policy to your IAM service role. For information on how to do this, see [Cross-service confused deputy
-prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md").
+trust policy to your IAM service role. For information on how to do this, see [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md").
 
 **Permissions details**
 
@@ -232,9 +229,7 @@ JSON
 
 ```
 
-## Amazon Rekognition updates to AWS managed
-
-policies
+## Amazon Rekognition updates to AWS managed policies
 
 View details about updates to AWS managed policies for Amazon Rekognition since this
 service began tracking these changes. For automatic alerts about changes to this page,

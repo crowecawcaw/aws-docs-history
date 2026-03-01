@@ -16,11 +16,9 @@ API, and examples for using Amazon Rekognition Video.
 - [Amazon Rekognition Video API overview](#video-api-overview "#video-api-overview")
 - [Calling Amazon Rekognition Video operations](api-video.md "api-video.md")
 - [Configuring Amazon Rekognition Video](api-video-roles.md "api-video-roles.md")
-- [Analyzing a video stored in an Amazon S3
-  bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md")
+- [Analyzing a video stored in an Amazon S3 bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md")
 - [Analyzing a video with the AWS Command Line Interface](video-cli-commands.md "video-cli-commands.md")
-- [Reference: Video analysis results
-  notification](video-notification-payload.md "video-notification-payload.md")
+- [Reference: Video analysis results notification](video-notification-payload.md "video-notification-payload.md")
 - [Troubleshooting Amazon Rekognition Video](video-troubleshooting.md "video-troubleshooting.md")
 
 ## Types of analysis
@@ -72,8 +70,7 @@ Amazon Rekognition Video returns tracking information for when entities are dete
 input video.
 
 For more information about using Amazon Rekognition Video, see [Calling Amazon Rekognition Video operations](api-video.md "api-video.md"). For an example that does video analysis by using Amazon SQS,
-see [Analyzing a video stored in an Amazon S3
-bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md").
+see [Analyzing a video stored in an Amazon S3 bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md").
 For AWS CLI examples, see [Analyzing a video with the AWS Command Line Interface](video-cli-commands.md "video-cli-commands.md").
 
 ### Video formats and storage
@@ -103,8 +100,7 @@ multiple people. You store facial metadata from source images in a collection by
 using the [IndexFaces](../APIReference/API_IndexFaces.md "../APIReference/API_IndexFaces.md") operation.
 You can then use [StartFaceSearch](../APIReference/API_StartFaceSearch.md "../APIReference/API_StartFaceSearch.md") to start asynchronously searching for
 faces in the collection. You use [GetFaceSearch](../APIReference/API_GeFaceSearch.md "../APIReference/API_GeFaceSearch.md") to get the search results. For more
-information, see [Searching stored videos for
-faces](procedure-person-search-videos.md "procedure-person-search-videos.md"). Searching for people is an
+information, see [Searching stored videos for faces](procedure-person-search-videos.md "procedure-person-search-videos.md"). Searching for people is an
 example of a storage-based Amazon Rekognition operation. For more information, see [Storage-based API operations](how-it-works-storage-non-storage.md#how-it-works-storage-based "how-it-works-storage-non-storage.md#how-it-works-storage-based").
 
 You can also search for people in a streaming video. For more information, see

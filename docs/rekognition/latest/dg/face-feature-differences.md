@@ -1,6 +1,4 @@
-# Overview of face detection and face
-
-comparison
+# Overview of face detection and face comparison
 
 Amazon Rekognition provides users access to two primary machine learning applications for
 images containing faces: face detection and face comparison. They empower crucial

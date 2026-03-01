@@ -53,8 +53,7 @@ For Amazon Rekognition Custom Labels limits, see [Guidelines and Quotas in Amazo
   on up to 15 people.
 
 For best practice information about images and facial comparison, see
-[Best practices for sensors, input images, and
-videos](best-practices.md "best-practices.md").
+[Best practices for sensors, input images, and videos](best-practices.md "best-practices.md").
 
 ### Amazon Rekognition Image Bulk Analysis
 

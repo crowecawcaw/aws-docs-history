@@ -1,6 +1,4 @@
-# Detecting text in a stored
-
-video
+# Detecting text in a stored video
 
 Amazon Rekognition Video text detection in stored videos is an asynchronous operation. To start
 detecting text, call [StartTextDetection](../APIReference/API_StartTextDetection.md "../APIReference/API_StartTextDetection.md").
@@ -9,14 +7,12 @@ successful, call [GetTextDetection](../APIReference/API_GetTextDetection.md "../
 to get the analysis results. For
 more information about starting video analysis and getting the results, see [Calling Amazon Rekognition Video operations](api-video.md "api-video.md").
 
-This procedure expands on the code in [Analyzing a video stored in an Amazon S3
-bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md"). It uses an Amazon SQS queue to get the
+This procedure expands on the code in [Analyzing a video stored in an Amazon S3 bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md"). It uses an Amazon SQS queue to get the
 completion status of a video analysis request.
 
 ###### To detect text in a video stored in an Amazon S3 bucket (SDK)
 
-1. Perform the steps in [Analyzing a video stored in an Amazon S3
-   bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md").
+1. Perform the steps in [Analyzing a video stored in an Amazon S3 bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md").
 2. Add the following code to the class `VideoDetect` in step 1.
 
 Java
@@ -390,8 +386,7 @@ aws rekognition get-text-detection --job-id job-id-number --profile profile-name
 
 ###### Note
 
-If you've already run a video example other than [Analyzing a video stored in an Amazon S3
-bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md"), the code to replace might be
+If you've already run a video example other than [Analyzing a video stored in an Amazon S3 bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md"), the code to replace might be
 different. 3. Run the code. Text that was detected in the video is shown in a list.
 
 ## Filters

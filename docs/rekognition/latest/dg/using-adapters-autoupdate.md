@@ -1,6 +1,4 @@
-# Setting up AutoUpdate
-
-permissions
+# Setting up AutoUpdate permissions
 
 Rekognition supports the AutoUpdate feature for custom adapters. This means automated retraining is given a
 best effort attempt when AutoUpdate flag is ENABLED on a project. These automatic updateds requires permission to access your

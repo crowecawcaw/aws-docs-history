@@ -1,6 +1,4 @@
-# Recomendations for
-
-searching faces in a collection
+# Recomendations for searching faces in a collection
 
 - When searching for faces in a collection, ensure that recent face images
   are indexed.

@@ -17,8 +17,7 @@ providing filtration arguments to the `LabelsInclusionFilter` and/or
 
 The completion status notification is a JSON structure within the
 `receive-message` response. You need to extract the JSON from the
-response. For information about the completion status JSON, see [Reference: Video analysis results
-notification](video-notification-payload.md "video-notification-payload.md").
+response. For information about the completion status JSON, see [Reference: Video analysis results notification](video-notification-payload.md "video-notification-payload.md").
 If the value of the `Status` field of the completed status JSON is
 `SUCCEEDED`, you can get the results of the video analysis request by
 calling `get-label-detection`. When calling `GetLabelDetection`,
@@ -27,8 +26,7 @@ you can sort and aggregate the returned results using the `SortBy` and
 
 The following procedures don't include code to poll the Amazon SQS queue. Also, they don't
 include code to parse the JSON that's returned from the Amazon SQS queue. For an example in
-Java, see [Analyzing a video stored in an Amazon S3
-bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md").
+Java, see [Analyzing a video stored in an Amazon S3 bucket with Java or Python (SDK)](video-analyzing-with-sqs.md "video-analyzing-with-sqs.md").
 
 ## Prerequisites
 

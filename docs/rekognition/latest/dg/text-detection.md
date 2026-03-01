@@ -69,5 +69,4 @@ an example, see [Detecting text in an image](text-detecting-text-procedure.md "t
 ###### Topics
 
 - [Detecting text in an image](text-detecting-text-procedure.md "text-detecting-text-procedure.md")
-- [Detecting text in a stored
-  video](text-detecting-video-procedure.md "text-detecting-video-procedure.md")
+- [Detecting text in a stored video](text-detecting-video-procedure.md "text-detecting-video-procedure.md")
