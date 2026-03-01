@@ -10,15 +10,11 @@ active. If you subscribe to the license but have no active Timestream for Influx
 
 ###### Topics
 
-- [Read replica licensing
-  terminology](#timestream-for-influx-rr-licensing-terminology "#timestream-for-influx-rr-licensing-terminology")
+- [Read replica licensing terminology](#timestream-for-influx-rr-licensing-terminology "#timestream-for-influx-rr-licensing-terminology")
 - [Payments and billing](#timestream-for-influx-rr-license-billing "#timestream-for-influx-rr-license-billing")
-- [Subscribing to the InfluxDB
-  read replica add-on on Marketplace listings](#timestream-for-influx-subscribe-rr-add-on "#timestream-for-influx-subscribe-rr-add-on")
+- [Subscribing to the InfluxDB read replica add-on on Marketplace listings](#timestream-for-influx-subscribe-rr-add-on "#timestream-for-influx-subscribe-rr-add-on")
 
-## Read replica licensing
-
-terminology
+## Read replica licensing terminology
 
 This page uses the following terminology when discussing the Amazon Timestream for InfluxDB integration
 with AWS Marketplace.
@@ -59,9 +55,7 @@ AWS Billing console. Your bills includes two charges: one for your usage of
 InfluxData's licensed add-on through AWS Marketplace, and one for your usage of Amazon Timestream.
 For more information about billing, see [Understanding your bill](../../../awsaccountbilling/latest/aboutv2/getting-viewing-bill.md "../../../awsaccountbilling/latest/aboutv2/getting-viewing-bill.md") in the _AWS Billing and Cost Management User Guide_.
 
-## Subscribing to the InfluxDB
-
-read replica add-on on Marketplace listings
+## Subscribing to the InfluxDB read replica add-on on Marketplace listings
 
 To use the read replica add-on license through AWS Marketplace, you must use the Amazon Timestream
 AWS Management Console to subscribe to the InfluxDB read replica add-on. You cannot complete
@@ -69,28 +63,21 @@ these tasks through the AWS CLI or the Timestream for InfluxDB API.
 
 ###### Topics
 
-- [Subscribe from
-  Amazon Timestream AWS Management Console](#timestream-for-influx-subscribe-console "#timestream-for-influx-subscribe-console")
-- [Subscribe to the
-  InfluxDB read replica add-on in AWS Marketplace](#timestream-for-influx-subscribe-marketplace "#timestream-for-influx-subscribe-marketplace")
+- [Subscribe from Amazon Timestream AWS Management Console](#timestream-for-influx-subscribe-console "#timestream-for-influx-subscribe-console")
+- [Subscribe to the InfluxDB read replica add-on in AWS Marketplace](#timestream-for-influx-subscribe-marketplace "#timestream-for-influx-subscribe-marketplace")
 
 ###### Note
 
 If you want to create your read replica cluster by using the AWS CLI or the Timestream for InfluxDB API, you must complete this step first.
 
-### Subscribe from
-
-Amazon Timestream AWS Management Console
+### Subscribe from Amazon Timestream AWS Management Console
 
 You can subscribe to the InfluxDB read replica add-on using the Timestream
 Management Console. Start the **Create InfluxDB
 Database** flow and follow the steps. For more information, see
-[Creating a Timestream for InfluxDB read replica
-cluster](timestream-for-influx-create-rr-cluster.md "timestream-for-influx-create-rr-cluster.md").
+[Creating a Timestream for InfluxDB read replica cluster](timestream-for-influx-create-rr-cluster.md "timestream-for-influx-create-rr-cluster.md").
 
-### Subscribe to the
-
-InfluxDB read replica add-on in AWS Marketplace
+### Subscribe to the InfluxDB read replica add-on in AWS Marketplace
 
 To use the InfluxDB add-on license with AWS Marketplace, you need to have an active
 AWS Marketplace subscription for the InfluxDB read replica add-on. You will need to

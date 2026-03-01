@@ -15,8 +15,7 @@ through the AWS Management Console, the AWS CLI, and the AWS SDKs.
 and table in Timestream. For information about creating databases and tables, see [Create a database](console_timestream.md#console_timestream.db.using-console "console_timestream.md#console_timestream.db.using-console") and [Create a table](console_timestream.md#console_timestream.table.using-console "console_timestream.md#console_timestream.table.using-console").
 
 **Data source** – The source CSV file that is
-stored in an S3 bucket. For information about preparing the data file, see [Preparing a batch load data
-file](batch-load-preparing-data-file.md "batch-load-preparing-data-file.md"). For information about S3 pricing,
+stored in an S3 bucket. For information about preparing the data file, see [Preparing a batch load data file](batch-load-preparing-data-file.md "batch-load-preparing-data-file.md"). For information about S3 pricing,
 see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
 
 **Batch load error report** – A report that stores
@@ -26,5 +25,4 @@ the reports, see [Using batch load error reports](batch-load-using-error-reports
 
 **Data model mapping** – A batch load mapping for
 time, dimensions, and measures that is from a data source in an S3 location to a target
-Timestream for LiveAnalytics table. For more information, see [Data model mappings for batch
-load](batch-load-data-model-mappings.md "batch-load-data-model-mappings.md").
+Timestream for LiveAnalytics table. For more information, see [Data model mappings for batch load](batch-load-data-model-mappings.md "batch-load-data-model-mappings.md").

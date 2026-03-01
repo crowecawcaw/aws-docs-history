@@ -17,8 +17,7 @@ recommendations:
 4. Do not delete or revoke permissions from tables or source, or report S3
    buckets that have scheduled or in-progress batch load tasks.
 5. When ingesting data with a high cardinality set of dimension values, follow
-   guidance at [Recommendations for
-   partitioning multi-measure records](data-modeling.md#data-modeling-multi-measure-partitioning "data-modeling.md#data-modeling-multi-measure-partitioning").
+   guidance at [Recommendations for partitioning multi-measure records](data-modeling.md#data-modeling-multi-measure-partitioning "data-modeling.md#data-modeling-multi-measure-partitioning").
 6. Make sure you test the data for correctness by submitting a small file. You
    will be charged for any data submitted to batch load regardless of correctness.
    For more information about pricing, see [Amazon Timestream pricing](https://aws.amazon.com/timestream/pricing/ "https://aws.amazon.com/timestream/pricing/").

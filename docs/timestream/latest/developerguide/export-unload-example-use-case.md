@@ -1,9 +1,7 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Example use case for UNLOAD from
-
-Timestream for LiveAnalytics
+# Example use case for UNLOAD from Timestream for LiveAnalytics
 
 Assume you are monitoring user session metrics, traffic sources, and product purchases
 of your e-commerce website. You are using Timestream for LiveAnalytics to derive real-time insights into user
@@ -13,21 +11,14 @@ the website.
 
 ###### Topics
 
-- [Exporting the data without any
-  partitions](#export-unload-example-sample-1 "#export-unload-example-sample-1")
-- [Partitioning data by
-  channel](#export-unload-example-sample-2 "#export-unload-example-sample-2")
+- [Exporting the data without any partitions](#export-unload-example-sample-1 "#export-unload-example-sample-1")
+- [Partitioning data by channel](#export-unload-example-sample-2 "#export-unload-example-sample-2")
 - [Partitioning data by event](#export-unload-example-sample-3 "#export-unload-example-sample-3")
-- [Partitioning data by both channel
-  and event](#export-unload-example-sample-4 "#export-unload-example-sample-4")
-- [Manifest and metadata
-  files](#export-unload-example-manifest-metadata "#export-unload-example-manifest-metadata")
-- [Using Glue crawlers to
-  build Glue Data Catalog](#export-unload-example-using-glue-crawlers "#export-unload-example-using-glue-crawlers")
+- [Partitioning data by both channel and event](#export-unload-example-sample-4 "#export-unload-example-sample-4")
+- [Manifest and metadata files](#export-unload-example-manifest-metadata "#export-unload-example-manifest-metadata")
+- [Using Glue crawlers to build Glue Data Catalog](#export-unload-example-using-glue-crawlers "#export-unload-example-using-glue-crawlers")
 
-## Exporting the data without any
-
-partitions
+## Exporting the data without any partitions
 
 You want to export the last two days of your data in CSV format.
 
@@ -41,9 +32,7 @@ WITH (  format='CSV',
 compression='GZIP')
 ```
 
-## Partitioning data by
-
-channel
+## Partitioning data by channel
 
 You want to export the last two days of data in CSV format but would like to have
 the data from each traffic channel in a separate folder. To do this, you need to
@@ -80,9 +69,7 @@ format='CSV',
 compression='GZIP')
 ```
 
-## Partitioning data by both channel
-
-and event
+## Partitioning data by both channel and event
 
 You want to export the last two days of data in CSV format but would like to have
 the data for each channel and within channel store each event in a separate folder.
@@ -101,9 +88,7 @@ format='CSV',
 compression='GZIP')
 ```
 
-## Manifest and metadata
-
-files
+## Manifest and metadata files
 
 ### Manifest file
 
@@ -201,9 +186,7 @@ The column information shared in the metadata file has same structure as
 `ColumnInfo` sent in Query API response for `SELECT`
 queries.
 
-## Using Glue crawlers to
-
-build Glue Data Catalog
+## Using Glue crawlers to build Glue Data Catalog
 
 1. Login to your account with Admin credentials for the following
    validation.

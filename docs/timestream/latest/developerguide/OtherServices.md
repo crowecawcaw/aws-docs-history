@@ -15,7 +15,7 @@ Currently, Timestream for LiveAnalytics supports integrations with the following
 - [Amazon Kinesis](Kinesis.md "Kinesis.md")
 - [Amazon MQ](MQ.md "MQ.md")
 - [Amazon MSK](MSK.md "MSK.md")
-- [Amazon Quick Suite](Quicksight.md "Quicksight.md")
+- [Amazon Quick](Quicksight.md "Quicksight.md")
 - [Amazon SageMaker AI](Sagemaker.md "Sagemaker.md")
 - [Amazon SQS](SQS.md "SQS.md")
 - [Using DBeaver to work with Amazon Timestream](DBeaver.md "DBeaver.md")

@@ -50,8 +50,7 @@ Following are the key concepts of Timestream for LiveAnalytics.
        value is the actual CPU utilization.
 
   Measures can be modeled in Timestream for LiveAnalytics as multi-measure or single-measure records. For
-  more information, see [Multi-measure records vs.
-  single-measure records](data-modeling.md#data-modeling-multiVsinglerecords "data-modeling.md#data-modeling-multiVsinglerecords").
+  more information, see [Multi-measure records vs. single-measure records](data-modeling.md#data-modeling-multiVsinglerecords "data-modeling.md#data-modeling-multiVsinglerecords").
 
 - **Timestamp** - _Indicates when a measure
   was collected for a given record._ Timestream for LiveAnalytics supports timestamps with

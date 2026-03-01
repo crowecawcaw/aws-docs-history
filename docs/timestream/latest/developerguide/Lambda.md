@@ -11,17 +11,12 @@ Lambda documentation](../../../lambda/latest/dg/welcome.md "../../../lambda/late
 
 ###### Topics
 
-- [Build AWS Lambda functions using Amazon Timestream for LiveAnalytics with
-  Python](#Lambda.w-python "#Lambda.w-python")
-- [Build AWS Lambda functions using Amazon Timestream for LiveAnalytics with
-  JavaScript](#Lambda.w-js "#Lambda.w-js")
+- [Build AWS Lambda functions using Amazon Timestream for LiveAnalytics with Python](#Lambda.w-python "#Lambda.w-python")
+- [Build AWS Lambda functions using Amazon Timestream for LiveAnalytics with JavaScript](#Lambda.w-js "#Lambda.w-js")
 - [Build AWS Lambda functions using Amazon Timestream for LiveAnalytics with Go](#Lambda.w-go "#Lambda.w-go")
-- [Build AWS Lambda functions using Amazon Timestream for LiveAnalytics with
-  C#](#Lambda.w-c-sharp "#Lambda.w-c-sharp")
+- [Build AWS Lambda functions using Amazon Timestream for LiveAnalytics with C#](#Lambda.w-c-sharp "#Lambda.w-c-sharp")
 
-## Build AWS Lambda functions using Amazon Timestream for LiveAnalytics with
-
-Python
+## Build AWS Lambda functions using Amazon Timestream for LiveAnalytics with Python
 
 To build AWS Lambda functions using Amazon Timestream for LiveAnalytics with Python, follow the steps
 below.
@@ -60,9 +55,7 @@ below.
 
 Related references are at [TimestreamWrite](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-write.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-write.html") and [TimestreamQuery](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-query.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-query.html").
 
-## Build AWS Lambda functions using Amazon Timestream for LiveAnalytics with
-
-JavaScript
+## Build AWS Lambda functions using Amazon Timestream for LiveAnalytics with JavaScript
 
 To build AWS Lambda functions using Amazon Timestream for LiveAnalytics with JavaScript, follow the instructions
 outlined [here](../../../lambda/latest/dg/nodejs-package.md#nodejs-package-dependencies "../../../lambda/latest/dg/nodejs-package.md#nodejs-package-dependencies").
@@ -76,9 +69,7 @@ To build AWS Lambda functions using Amazon Timestream for LiveAnalytics with Go,
 
 Related references are at [timestreamwrite](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/timestreamwrite "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/timestreamwrite") and [timestreamquery](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/timestreamquery "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/timestreamquery").
 
-## Build AWS Lambda functions using Amazon Timestream for LiveAnalytics with
-
-C#
+## Build AWS Lambda functions using Amazon Timestream for LiveAnalytics with C#
 
 To build AWS Lambda functions using Amazon Timestream for LiveAnalytics with C#, follow the instructions outlined
 [here](../../../lambda/latest/dg/csharp-package.md "../../../lambda/latest/dg/csharp-package.md").

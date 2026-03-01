@@ -9,5 +9,4 @@ practices might not be appropriate or sufficient for your environment, treat the
 
 ###### Topics
 
-- [Timestream for LiveAnalytics preventative security best
-  practices](best-practices-security-preventative.md "best-practices-security-preventative.md")
+- [Timestream for LiveAnalytics preventative security best practices](best-practices-security-preventative.md "best-practices-security-preventative.md")

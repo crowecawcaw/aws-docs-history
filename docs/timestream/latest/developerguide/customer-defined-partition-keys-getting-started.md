@@ -1,17 +1,13 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Getting started with
-
-customer-defined partition keys
+# Getting started with customer-defined partition keys
 
 From the console, choose **Tables** and create a new table. You can
 also use an SDK to access the `CreateTable` action to create new tables that
 can include a customer-defined partition key.
 
-## Create
-
-a table with a dimension type partition key
+## Create a table with a dimension type partition key
 
 You can use the following code snippets to create a table with a dimension type
 partition key.

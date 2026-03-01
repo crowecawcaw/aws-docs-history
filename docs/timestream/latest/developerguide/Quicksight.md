@@ -1,28 +1,25 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Amazon Quick Suite
+# Amazon Quick
 
-You can use Amazon Quick Suite to analyze and publish data dashboards that contain your Amazon
+You can use Amazon Quick to analyze and publish data dashboards that contain your Amazon
 Timestream data. This section describes how you can create a new QuickSight data source
 connection, modify permissions, create new datasets, and perform an analysis. This [video tutorial](https://youtu.be/TzW4HWl-L8s "https://youtu.be/TzW4HWl-L8s") describes how to work with
-Timestream and Quick Suite.
+Timestream and Quick.
 
 ###### Note
 
-All datasets in Quick Suite are read-only. You can't make any changes to your actual data in
-Timestream by using Quick Suite to remove the data source, dataset, or fields.
+All datasets in Quick are read-only. You can't make any changes to your actual data in
+Timestream by using Quick to remove the data source, dataset, or fields.
 
 ###### Topics
 
 - [Accessing Amazon Timestream from QuickSight](#Quicksight.accessing "#Quicksight.accessing")
 - [Create a new QuickSight data source connection for Timestream](#Quicksight.create-connection "#Quicksight.create-connection")
-- [Edit permissions for the QuickSight data source
-  connection for Timestream](#Quicksight.permissions "#Quicksight.permissions")
-- [Create a new QuickSight dataset for
-  Timestream](#Quicksight.create-data "#Quicksight.create-data")
-- [Create a new analysis for
-  Timestream](#Quicksight.create-analysis "#Quicksight.create-analysis")
+- [Edit permissions for the QuickSight data source connection for Timestream](#Quicksight.permissions "#Quicksight.permissions")
+- [Create a new QuickSight dataset for Timestream](#Quicksight.create-data "#Quicksight.create-data")
+- [Create a new analysis for Timestream](#Quicksight.create-analysis "#Quicksight.create-analysis")
 - [Video tutorial](#Quicksight.video-tutorial "#Quicksight.video-tutorial")
 
 ## Accessing Amazon Timestream from QuickSight
@@ -70,9 +67,7 @@ view the list of available options. Choose the one you want to use. 8. Choose **
 10. Choose **Edit/Preview** and then **Save** to
     save your dataset and close it.
 
-## Edit permissions for the QuickSight data source
-
-connection for Timestream
+## Edit permissions for the QuickSight data source connection for Timestream
 
 The following procedure describes how to view, add, and revoke permissions for other
 QuickSight users so that they can access the same Timestream data source. The people
@@ -106,9 +101,7 @@ Data`.
 
 8. When you are finished, choose `Close`.
 
-## Create a new QuickSight dataset for
-
-Timestream
+## Create a new QuickSight dataset for Timestream
 
 1. Ensure you have configured the appropriate permissions for Amazon QuickSight
    to access Amazon Timestream, as described in [Accessing Amazon Timestream from QuickSight](#Quicksight.accessing "#Quicksight.accessing").
@@ -140,9 +133,7 @@ Timestream
 8. When you are done, choose **Save** to save and close the
    dataset.
 
-## Create a new analysis for
-
-Timestream
+## Create a new analysis for Timestream
 
 1. Ensure you have configured the appropriate permissions for Amazon QuickSight
    to access Amazon Timestream, as described in [Accessing Amazon Timestream from QuickSight](#Quicksight.accessing "#Quicksight.accessing").
@@ -160,5 +151,5 @@ Timestream
 
 ## Video tutorial
 
-This [video](https://youtu.be/TzW4HWl-L8s "https://youtu.be/TzW4HWl-L8s") explains how Quick Suite works
+This [video](https://youtu.be/TzW4HWl-L8s "https://youtu.be/TzW4HWl-L8s") explains how Quick works
 with Timestream.

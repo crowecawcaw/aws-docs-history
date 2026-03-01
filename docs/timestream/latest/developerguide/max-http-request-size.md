@@ -9,4 +9,6 @@ Parameter Details| **Default** | 10,485,760 (10 MiB) |
 
 **Detailed Explanation:**
 
-Sets the maximum allowed size for any single incoming HTTP request body. This applies to all HTTP endpoints including write endpoint (Line protocol data batches), query endpoint (SQL/InfluxQL query strings), and API endpoints (Management operations).
+Sets the maximum allowed size for any single incoming HTTP request body. Applies to write, query, and API endpoints. Requests exceeding this size are rejected with HTTP 413.
+
+**Recommendation:** 5 MiB for db.influx.medium. 10 MiB (default) for db.influx.large through db.influx.xlarge. 10–16 MiB for db.influx.2xlarge and above if clients send large batches.

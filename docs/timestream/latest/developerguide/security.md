@@ -30,6 +30,5 @@ responsibility model](https://aws.amazon.com/compliance/shared-responsibility-mo
 - [Infrastructure security in Amazon Timestream Live Analytics](infrastructure-security.md "infrastructure-security.md")
 - [Configuration and vulnerability analysis in Timestream](ConfigAndVulnerability.md "ConfigAndVulnerability.md")
 - [Incident response in Timestream for LiveAnalytics](IncidentResponse.md "IncidentResponse.md")
-- [VPC endpoints
-  (AWS PrivateLink)](VPCEndpoints.md "VPCEndpoints.md")
+- [VPC endpoints (AWS PrivateLink)](VPCEndpoints.md "VPCEndpoints.md")
 - [Security best practices for Amazon Timestream for LiveAnalytics](best-practices-security.md "best-practices-security.md")

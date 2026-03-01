@@ -1,16 +1,12 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Updating
-
-partitioning schema configuration
+# Updating partitioning schema configuration
 
 You can update table configuration for partitioning schema with an SDK with access the
 `UpdateTable` action.
 
-## Update a table
-
-with a partition key
+## Update a table with a partition key
 
 You can use the following code snippets to update a table with a partition
 key.

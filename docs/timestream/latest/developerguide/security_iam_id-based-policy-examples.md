@@ -1,9 +1,7 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Amazon Timestream for LiveAnalytics identity-based
-
-policy examples
+# Amazon Timestream for LiveAnalytics identity-based policy examples
 
 By default, IAM users and roles don't have permission to create or modify
 Timestream for LiveAnalytics resources. They also can't perform tasks using the AWS Management Console, CQLSH,
@@ -18,22 +16,14 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the
-  Timestream for LiveAnalytics console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Common
-  operations in Timestream for LiveAnalytics](#security_iam_id-based-policy-examples-common-operations "#security_iam_id-based-policy-examples-common-operations")
-- [Timestream for LiveAnalytics resource
-  access based on tags](#security_iam_id-based-policy-examples-tags "#security_iam_id-based-policy-examples-tags")
-- [Scheduled
-  queries](#security_iam_id-based-policy-examples-sheduledqueries "#security_iam_id-based-policy-examples-sheduledqueries")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the Timestream for LiveAnalytics console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Common operations in Timestream for LiveAnalytics](#security_iam_id-based-policy-examples-common-operations "#security_iam_id-based-policy-examples-common-operations")
+- [Timestream for LiveAnalytics resource access based on tags](#security_iam_id-based-policy-examples-tags "#security_iam_id-based-policy-examples-tags")
+- [Scheduled queries](#security_iam_id-based-policy-examples-sheduledqueries "#security_iam_id-based-policy-examples-sheduledqueries")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Timestream for LiveAnalytics resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -66,9 +56,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the
-
-Timestream for LiveAnalytics console
+## Using the Timestream for LiveAnalytics console
 
 Timestream for LiveAnalytics does not require specific permissions to access the Amazon Timestream for LiveAnalytics console.
 You need at least read-only permissions to list and view details about the
@@ -76,9 +64,7 @@ Timestream for LiveAnalytics resources in your AWS account. If you create an ide
 that is more restrictive than the minimum required permissions, the console won't
 function as intended for entities (IAM users or roles) with that policy.
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -118,9 +104,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Common
-
-operations in Timestream for LiveAnalytics
+## Common operations in Timestream for LiveAnalytics
 
 Below are sample IAM policies that allow for common operations in the Timestream for LiveAnalytics
 service.
@@ -505,9 +489,7 @@ JSON
 
 ```
 
-## Timestream for LiveAnalytics resource
-
-access based on tags
+## Timestream for LiveAnalytics resource access based on tags
 
 You can use conditions in your identity-based policy to control access to
 Timestream for LiveAnalytics resources based on tags. This section provides some examples.
@@ -619,9 +601,7 @@ This policy uses a `Condition` key to allow a tag that has the key
 `env` and a value of `test`, `qa`, or
 `dev` to be added to a resource.
 
-## Scheduled
-
-queries
+## Scheduled queries
 
 ### List, delete, update, execute ScheduledQuery
 
@@ -724,9 +704,7 @@ JSON
 
 ```
 
-### Execution role permissions (using a customer managed KMS key for scheduled query
-
-and SSE-KMS for error reports)
+### Execution role permissions (using a customer managed KMS key for scheduled query and SSE-KMS for error reports)
 
 Attach the following sample policy to the IAM role specified in the
 `ScheduledQueryExecutionRoleArn` parameter, of the

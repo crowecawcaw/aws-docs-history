@@ -218,9 +218,7 @@ is 78 GB.
 The actual file size is approximated when the file is being written, so
 the actual maximum size may not be exactly equal to the number you specify.
 
-## What is written to
-
-my S3 bucket?
+## What is written to my S3 bucket?
 
 For every successfully executed UNLOAD query, Timestream for LiveAnalytics writes your query results,
 metadata file and manifest file into the S3 bucket. If you have partitioned the
@@ -229,9 +227,7 @@ contains a list of the files that were written by the UNLOAD command. Metadata f
 contains information that describes the characteristics, properties, and attributes
 of the written data.
 
-## What is the
-
-exported file name?
+## What is the exported file name?
 
 The exported file name contains two components, the first component is the queryID
 and the second component is a unique identifier.
@@ -267,9 +263,7 @@ when exporting to S3, the file will have a “.gz” extension. However, the dat
 Parquet is compressed at column level so even when you compress the data while
 exporting, the file will still have .parquet extension.
 
-## What information
-
-does each file contain?
+## What information does each file contain?
 
 ### Manifest file
 

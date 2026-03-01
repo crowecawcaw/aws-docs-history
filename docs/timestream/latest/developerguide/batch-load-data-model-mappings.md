@@ -1,16 +1,12 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Data model mappings for batch
-
-load
+# Data model mappings for batch load
 
 The following discusses the schema for data model mappings and gives and
 example.
 
-## Data model mappings
-
-schema
+## Data model mappings schema
 
 The `CreateBatchLoadTask` request syntax and a
 `BatchLoadTaskDescription` object returned by a call to
@@ -38,8 +34,7 @@ S3 location to a target Timestream for LiveAnalytics table for the following.
 - Measures
 
 If possible, we recommend that you map measure data to multi-measure records in
-Timestream for LiveAnalytics. For information about the benefits of multi-measure records, see [Multi-measure
-records](writes.md#writes.writing-data-multi-measure "writes.md#writes.writing-data-multi-measure").
+Timestream for LiveAnalytics. For information about the benefits of multi-measure records, see [Multi-measure records](writes.md#writes.writing-data-multi-measure "writes.md#writes.writing-data-multi-measure").
 
 If multiple measures in the source data are stored in one row, you can map those
 multiple measures to multi-measure records in Timestream for LiveAnalytics using
@@ -110,10 +105,7 @@ One of `DOUBLE`, `BIGINT`
 `BOOLEAN`, `VARCHAR`, or
 `TIMESTAMP`.
 
-## Data
-
-model mappings with `MultiMeasureMappings`
-example
+## Data model mappings with `MultiMeasureMappings` example
 
 This example demonstrates mapping to multi-measure records, the preferred
 approach, which store each measure value in a dedicated column. You can download a
@@ -192,9 +184,7 @@ can specify a new one. `MeasureValueType` is one of `DOUBLE`,
 
 ![Visual builder interface showing column mappings for timestream data attributes and types.](images/column-mapping.jpg)
 
-## Data model mappings
-
-with `MixedMeasureMappings` example
+## Data model mappings with `MixedMeasureMappings` example
 
 We recommend that you only use this approach when you need to map to
 single-measure records in Timestream for LiveAnalytics.

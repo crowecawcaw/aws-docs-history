@@ -1,9 +1,7 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Back-filling historical
-
-pre-computations
+# Back-filling historical pre-computations
 
 When you create a scheduled computation, Timestream for LiveAnalytics manages executions of the queries
 moving forward where the refresh is governed by the schedule expression you provide.

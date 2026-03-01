@@ -20,13 +20,10 @@ Reference](../../../cli/latest/reference/timestream-write/index.md "../../../cli
 
 ###### Topics
 
-- [Downloading and configuring the
-  AWS CLI](#Tools.CLI.DownloadingAndRunning "#Tools.CLI.DownloadingAndRunning")
+- [Downloading and configuring the AWS CLI](#Tools.CLI.DownloadingAndRunning "#Tools.CLI.DownloadingAndRunning")
 - [Using the AWS CLI with Timestream for LiveAnalytics](#Tools.CLI.UsingWithQLDB "#Tools.CLI.UsingWithQLDB")
 
-## Downloading and configuring the
-
-AWS CLI
+## Downloading and configuring the AWS CLI
 
 The AWS CLI runs on Windows, macOS, or Linux. To download, install, and configure
 it, follow these steps:

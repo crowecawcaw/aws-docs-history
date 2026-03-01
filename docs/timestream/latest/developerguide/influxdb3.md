@@ -120,9 +120,7 @@ instance class to ensure balanced performance across the cluster. As your worklo
 grows, you can scale up by selecting a larger instance class for all nodes in the
 cluster or scale out by adding more nodes of the same class to your cluster.
 
-##### Hardware specifications
-
-for DB cluster classes
+##### Hardware specifications for DB cluster classes
 
 The following terminology describes the hardware specifications for DB cluster
 classes:
@@ -239,9 +237,7 @@ following characteristics:
 | <750,000                      | <100                           | db.influxIOIncluded.8xlarge   | Enterprise  |
 | >750,000                      | >100                           | Multi-node Enterprise cluster | Enterprise  |
 
-#### DB Cluster
-
-Billing for Amazon Timestream for InfluxDB 3
+#### DB Cluster Billing for Amazon Timestream for InfluxDB 3
 
 Amazon Timestream for InfluxDB 3 clusters are billed based on the following components:
 
@@ -308,9 +304,7 @@ costs are consolidated since all nodes share the same underlying object storage.
 
 For Amazon Timestream for InfluxDB 3 pricing information, see the [Amazon Timestream for InfluxDB pricing page](https://aws.amazon.com/timestream/pricing/ "https://aws.amazon.com/timestream/pricing/").
 
-### AWS Regions and Availability
-
-Zones
+### AWS Regions and Availability Zones
 
 Amazon cloud computing resources are hosted in multiple locations world-wide. These
 locations are composed of AWS Regions and Availability Zones. Each AWS Region is a

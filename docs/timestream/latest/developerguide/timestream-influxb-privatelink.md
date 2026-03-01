@@ -1,9 +1,7 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Amazon Timestream for InfluxDB API and interface VPC endpoints
-
-(AWS PrivateLink)
+# Amazon Timestream for InfluxDB API and interface VPC endpoints (AWS PrivateLink)
 
 You can establish a private connection between your VPC and Amazon
 Amazon Timestream for InfluxDB control plane API endpoints by creating an
@@ -42,9 +40,7 @@ of its [API Actions](../../../ts-influxdb/latest/ts-influxdb-api/Welcome.md "../
 Private DNS hostnames can be enabled for only one VPC endpoint in the VPC. If you want to create an additional VPC endpoint then private
 DNS hostname should be disabled for it.
 
-## Considerations for VPC
-
-endpoints
+## Considerations for VPC endpoints
 
 Before you set up an interface VPC endpoint for Amazon Timestream for InfluxDB API endpoints, ensure that
 you review [Interface endpoint
@@ -57,11 +53,7 @@ default, full access to Timestream for InfluxDB API operations is allowed throug
 information, see [Controlling access to services
 with VPC endpoints](../../../vpc/latest/userguide/vpc-endpoints-access.md "../../../vpc/latest/userguide/vpc-endpoints-access.md") in the _Amazon VPC User Guide_.
 
-### Creating an interface VPC
-
-endpoint for
-the
-Timestream for InfluxDB API
+### Creating an interface VPC endpoint for the Timestream for InfluxDB API
 
 You can create a VPC endpoint for the Amazon Timestream for InfluxDB API using either the Amazon VPC console or the AWS CLI. For more information,
 see [Creating an interface endpoint](../../../vpc/latest/privatelink/create-endpoint-service.md "../../../vpc/latest/privatelink/create-endpoint-service.md")
@@ -71,10 +63,7 @@ After you create an interface VPC endpoint, you can enable private DNS host name
 For more information, see [Accessing a service through an interface endpoint](../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint "../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint") in the
 _Amazon VPC User Guide_.
 
-### Creating a VPC endpoint policy for
-
-the
-Amazon Timestream for InfluxDB API
+### Creating a VPC endpoint policy for the Amazon Timestream for InfluxDB API
 
 You can attach an endpoint policy to your VPC endpoint that controls access to the
 Timestream for InfluxDB API. The policy specifies the following:

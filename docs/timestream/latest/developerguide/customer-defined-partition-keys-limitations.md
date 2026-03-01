@@ -1,9 +1,7 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Limitations of
-
-customer-defined partition keys
+# Limitations of customer-defined partition keys
 
 As a Timestream for LiveAnalytics user, it's important to keep in mind the limitations around a customer
 partition key. Firstly, it requires a good understanding of your workload and query

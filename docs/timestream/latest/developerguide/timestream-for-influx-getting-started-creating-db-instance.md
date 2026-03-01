@@ -1,9 +1,7 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Creating and connecting to
-
-a Timestream for InfluxDB instance
+# Creating and connecting to a Timestream for InfluxDB instance
 
 This tutorial creates an Amazon EC2 instance and an Amazon Timestream for InfluxDB DB instance.
 The tutorial shows you how to write data to the DB instance from the EC2 instance using the
@@ -68,9 +66,7 @@ Before you begin, complete the steps in the following sections:
 - Sign up for an AWS account.
 - Create an administrative user.
 
-## Step 1: Create an
-
-Amazon EC2 instance
+## Step 1: Create an Amazon EC2 instance
 
 Create an Amazon EC2 instance that you will use to connect to your database.
 
@@ -107,9 +103,7 @@ Create an Amazon EC2 instance that you will use to connect to your database.
    for all IP addresses to access your public EC2 instances using SSH. This approach
    is not acceptable even for a short time in a test environment. Authorize only a specific IP address or range of addresses to access your EC2 instances using SSH.
 
-## Step 2: Create an
-
-InfluxDB DB instance
+## Step 2: Create an InfluxDB DB instance
 
 The basic building block of Amazon Timestream for InfluxDB is the DB instance. This
 environment is where you run your InfluxDB databases.
@@ -137,8 +131,7 @@ bucket name** and **Password**.
 
 You won't be able to view the user password again. You won't be able to access your
 instance and obtain an operator token without your password. If you don't record it, you
-might have to change it. See [Creating a new operator
-token for your InfluxDB instance](timestream-for-influx-getting-started-operator-token.md "timestream-for-influx-getting-started-operator-token.md").
+might have to change it. See [Creating a new operator token for your InfluxDB instance](timestream-for-influx-getting-started-operator-token.md "timestream-for-influx-getting-started-operator-token.md").
 
 If you need to change the user password after the DB instance is available, you can
 modify the DB instance to do so. For more information about modifying a DB instance, see
@@ -166,9 +159,7 @@ take up to 20 minutes before the new instance is available.
 At this time, you can't modify compute (instance types) and storage (storage types)
 configurations of existing instances.
 
-## Step
-
-3: Access the InfluxDB UI
+## Step 3: Access the InfluxDB UI
 
 To access the InfluxDB UI from a private Timestream for InfluxDB DB instance, you must connect from
 within the same subnet and security group. One way to facilitate this connection is to create a bastion host within the private subnet.
@@ -183,8 +174,7 @@ the **InfluxDB UI** button on the instance details page in the
 console. Note that this button will be disabled for instances that are not publicly accessible.
 
 If you have a public DB instance, connect to the InfluxDB UI via the console and
-proceed to [Step 4: Send
-Telegraf data to your InfluxDB instance](#timestream-for-influx-getting-started-creating-db-instance-step4 "#timestream-for-influx-getting-started-creating-db-instance-step4").
+proceed to [Step 4: Send Telegraf data to your InfluxDB instance](#timestream-for-influx-getting-started-creating-db-instance-step4 "#timestream-for-influx-getting-started-creating-db-instance-step4").
 
 ![Summary interface showing details of a private InfluxDB database. The InfluxDB UI button is disabled.](images/kronos/InfluxDB-database-summary.png)
 
@@ -215,9 +205,7 @@ the above steps, you can access the InfluxDB UI at http://localhost:`port-number
 
 6. You can now access the InfluxDB UI using https://`endpoint`:`port-number`.
 
-## Step 4: Send
-
-Telegraf data to your InfluxDB instance
+## Step 4: Send Telegraf data to your InfluxDB instance
 
 You can now start sending telemetry data to your InfluxDB DB instance using the Telegraf
 agent. In this example, you'll install and configure a Telegraf agent to send performance
@@ -356,9 +344,7 @@ $ sudo systemctl enable telegraf
 $ sudo systemctl start telegraf
 ```
 
-## Step 5: Delete the
-
-Amazon EC2 instance and the InfluxDB DB instance
+## Step 5: Delete the Amazon EC2 instance and the InfluxDB DB instance
 
 After you explore the Telegraf-generated data using your your InfluxDB DB instance with
 the InfluxDB UI, delete both your EC2 and your InfluxDB DB instances so you are no longer charged

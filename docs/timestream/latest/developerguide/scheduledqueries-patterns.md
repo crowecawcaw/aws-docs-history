@@ -37,13 +37,8 @@ The following are the key points that are covered in this section.
 ###### Topics
 
 - [Scenario](scheduledqueries-patterns-scenario.md "scheduledqueries-patterns-scenario.md")
-- [Simple fleet-level
-  aggregates](scheduledqueries-patterns-simplefleet.md "scheduledqueries-patterns-simplefleet.md")
-- [Last point from each
-  device](scheduledqueries-patterns-lastpointfromdevice.md "scheduledqueries-patterns-lastpointfromdevice.md")
-- [Unique dimension
-  values](scheduledqueries-patterns-uniquedimvalues.md "scheduledqueries-patterns-uniquedimvalues.md")
-- [Handling late-arriving
-  data](scheduledqueries-patterns-latearrive.md "scheduledqueries-patterns-latearrive.md")
-- [Back-filling historical
-  pre-computations](scheduledqueries-patterns-backfilling.md "scheduledqueries-patterns-backfilling.md")
+- [Simple fleet-level aggregates](scheduledqueries-patterns-simplefleet.md "scheduledqueries-patterns-simplefleet.md")
+- [Last point from each device](scheduledqueries-patterns-lastpointfromdevice.md "scheduledqueries-patterns-lastpointfromdevice.md")
+- [Unique dimension values](scheduledqueries-patterns-uniquedimvalues.md "scheduledqueries-patterns-uniquedimvalues.md")
+- [Handling late-arriving data](scheduledqueries-patterns-latearrive.md "scheduledqueries-patterns-latearrive.md")
+- [Back-filling historical pre-computations](scheduledqueries-patterns-backfilling.md "scheduledqueries-patterns-backfilling.md")

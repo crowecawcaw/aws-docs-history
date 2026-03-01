@@ -1,9 +1,7 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Writing data to your Timestream for InfluxDB 3
-
-cluster
+# Writing data to your Timestream for InfluxDB 3 cluster
 
 Amazon Timestream for InfluxDB 3 provides robust capabilities for ingesting time-series data
 efficiently. Understanding the proper methods for writing data is essential for maximizing
@@ -205,9 +203,7 @@ V1 API parameters:
 
 ## Client libraries and integrations
 
-### Official InfluxDB 3 client
-
-libraries
+### Official InfluxDB 3 client libraries
 
 InfluxDB 3 client libraries provide native language interfaces for constructing and
 writing time-series data:

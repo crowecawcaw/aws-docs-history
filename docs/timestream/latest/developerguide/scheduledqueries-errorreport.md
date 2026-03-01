@@ -14,9 +14,7 @@ by Timestream for LiveAnalytics when errors are encountered by running scheduled
 - [Error types](#scheduled-queries-error-report-error-types "#scheduled-queries-error-report-error-types")
 - [Example](#scheduled-queries-error-report-example "#scheduled-queries-error-report-example")
 
-## Scheduled query error
-
-reports reasons
+## Scheduled query error reports reasons
 
 Error reports are generated for recoverable errors. Error reports are not
 generated for non-recoverable errors. Timestream for LiveAnalytics can disable the scheduled queries
@@ -32,9 +30,7 @@ For non-recoverable errors, Timestream for LiveAnalytics sends a failure notific
 non-recoverable error message. An update notification is also sent which indicates that
 the scheduled query is disabled.
 
-## Scheduled query error
-
-reports location
+## Scheduled query error reports location
 
 A scheduled query error report location has the following naming
 convention:
@@ -59,9 +55,7 @@ manually triggered by a user via `ExecuteScheduledQuery` API action in
 Amazon Timestream for LiveAnalytics Query. For more information about `ExecuteScheduledQuery`, see
 [ExecuteScheduledQuery](API_query_ExecuteScheduledQuery.md "API_query_ExecuteScheduledQuery.md").
 
-## Scheduled query error
-
-reports format
+## Scheduled query error reports format
 
 The error reports have the following JSON format:
 
@@ -72,9 +66,7 @@ The error reports have the following JSON format:
 }
 ```
 
-## Scheduled query error
-
-types
+## Scheduled query error types
 
 The `Error` object can be one of three types:
 
@@ -104,9 +96,7 @@ The `Error` object can be one of three types:
 }
 ```
 
-## Scheduled query error
-
-reports example
+## Scheduled query error reports example
 
 The following is an example of an error report that was produced due to ingestion
 errors.

@@ -37,15 +37,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-### Identity-based policy examples for
-
-Timestream for InfluxDB
+### Identity-based policy examples for Timestream for InfluxDB
 
 To view examples of Timestream for InfluxDB identity-based policies, see [Identity-based policy examples for Amazon Timestream for InfluxDB](security_iam_id-based-policy-examples-influxb.md "security_iam_id-based-policy-examples-influxb.md").
 
-## Resource-based policies within
-
-Timestream for InfluxDB
+## Resource-based policies within Timestream for InfluxDB
 
 **Supports resource-based policies:**
 
@@ -120,9 +116,7 @@ _Service Authorization Reference_. To learn with which actions you can specify t
 [Actions,
 resources and condition keys for Amazon Timestream for InfluxDB](../../../service-authorization/latest/reference/list_amazontimestreaminfluxdb.md "../../../service-authorization/latest/reference/list_amazontimestreaminfluxdb.md").
 
-## Policy condition keys for
-
-Timestream for InfluxDB
+## Policy condition keys for Timestream for InfluxDB
 
 **Supports service-specific policy condition keys:**
 
@@ -175,9 +169,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service principal permissions for
-
-Timestream for InfluxDB
+## Cross-service principal permissions for Timestream for InfluxDB
 
 **Supports forward access sessions (FAS):**
 

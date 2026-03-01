@@ -1,9 +1,7 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Best practices for UNLOAD from
-
-Timestream for LiveAnalytics
+# Best practices for UNLOAD from Timestream for LiveAnalytics
 
 Following are best practices related to the UNLOAD command.
 
@@ -52,9 +50,7 @@ Following are best practices related to the UNLOAD command.
    structures will use corresponding datatypes supported in Parquet
    format
 
-## Using partition_by
-
-clause
+## Using partition_by clause
 
 - The column used in the `partitioned_by` field should be the
   last column in the select query. If more than one column is used in the

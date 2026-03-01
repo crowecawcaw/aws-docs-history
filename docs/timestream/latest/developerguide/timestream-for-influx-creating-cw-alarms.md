@@ -24,26 +24,20 @@ to InfluxDB. We recommend setting alerts to be sent whenever
 Call `put-metric-alarm`. For more information, see [put-metric-alarm](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/put-metric-alarm.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/put-metric-alarm.html")
 in the _AWS CLI Command Reference_.
 
-## To set an alarm using the CloudWatch
-
-API
+## To set an alarm using the CloudWatch API
 
 Call `PutMetricAlarm`. For more information, see [PutMetricAlarm](../../../AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.md "../../../AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.md")
 in the _Amazon CloudWatch API Reference_. For more information about setting up Amazon SNS topics
 and creating alarms, see [Using Amazon CloudWatch alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md").
 
-## Tutorial: Create an Amazon CloudWatch
-
-alarm for Multi-AZ cluster replica lag for Amazon Timestream for InfluxDB
+## Tutorial: Create an Amazon CloudWatch alarm for Multi-AZ cluster replica lag for Amazon Timestream for InfluxDB
 
 You can create an Amazon CloudWatch alarm that sends an Amazon SNS message when replica lag for
 a Multi-AZ DB cluster has exceeded a threshold. An alarm watches the
 `ReplicaLag` metric over a time period that you specify. The action is a
 notification sent to an Amazon SNS topic or Amazon EC2 Auto Scaling policy.
 
-### To set a CloudWatch
-
-alarm for Multi-AZ DB cluster replica lag
+### To set a CloudWatch alarm for Multi-AZ DB cluster replica lag
 
 1. Sign in to the AWS Management Console and open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch "https://console.aws.amazon.com/cloudwatch").
 2. In the navigation pane, choose **Alarms**, then

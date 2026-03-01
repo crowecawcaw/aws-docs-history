@@ -1,9 +1,7 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Data model mappings for scheduled
-
-queries
+# Data model mappings for scheduled queries
 
 Timestream for LiveAnalytics supports flexible modeling of data in its tables and this same flexibility applies
 to results of scheduled queries that are materialized into another Timestream for LiveAnalytics table. With
@@ -29,9 +27,7 @@ different data models in the derived table. Specifically, you will see:
   record or a multi-measure record, which allows you to choose the flexibility of
   data models.
 
-## Example: Target
-
-measure name for multi-measure records
+## Example: Target measure name for multi-measure records
 
 In this example, you will see that the query is reading data from a table with
 multi-measure data and is writing the results into another table using multi-measure
@@ -154,9 +150,7 @@ query.
 | ----------------- | --------- | -------------------------------------------------------- |
 | dashboard-metrics | multi     | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
 
-## Example: Using measure
-
-name from scheduled query in multi-measure records
+## Example: Using measure name from scheduled query in multi-measure records
 
 In this example, you will see a query reading from a table with single-measure
 records and materializing the results into multi-measure records. In this case, the
@@ -263,9 +257,7 @@ query.
 | memory_free    | multi     | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
 | memory_free    | multi     | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
 
-## Example: Mapping results to different multi-measure records with different
-
-attributes
+## Example: Mapping results to different multi-measure records with different attributes
 
 The following example shows how you can map different columns in your query result
 into different multi-measure records with different measure names. If you see the
@@ -425,9 +417,7 @@ query.
 | disk_aggregates | multi     | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
 | mem_aggregates  | multi     | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
 
-## Example: Mapping results to single-measure records with measure name from query
-
-results
+## Example: Mapping results to single-measure records with measure name from query results
 
 The following is an example of a scheduled query whose results are materialized
 into single-measure records. In this example, the query result has the measure_name
@@ -559,9 +549,7 @@ query.
 | maxMemUsed           | double    | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
 | total-disk-io-writes | double    | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
 
-## Example: Mapping results to single-measure records with query result columns as
-
-measure names
+## Example: Mapping results to single-measure records with query result columns as measure names
 
 In this example, you have a query whose results do not have a measure name column.
 Instead, you want the query result column name as the measure name when mapping the

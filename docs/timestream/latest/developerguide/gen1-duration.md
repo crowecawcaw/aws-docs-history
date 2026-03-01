@@ -6,12 +6,13 @@ data ingestion and single-digit millisecond query response times for real-time a
 Parameter Details| **Default** | 10 minutes |
 | **Allowed Values** | Duration |
 | **Category** | Data Lifecycle |
-| **Customer Configurable** | No<br>• not accessible to customers at this time |
 
 ###### Note
 
-**Not Currently Accessible:** This parameter is not accessible to customers at this time. It is managed by the service with a default value of 10 minutes.
+**IMMUTABLE AFTER INITIAL SETUP:** This parameter is persisted in the catalog. Changing it after the cluster's first start causes silent deduplication failures. Set this at cluster creation time only. When cloning parameter groups, this value must be copied unchanged.
 
 **Detailed Explanation:**
 
-Controls the time span covered by generation 1 (Gen1) Parquet files. When WAL data is snapshotted to persistent storage, the system creates Gen1 files that each cover this time duration. Gen1 is the first tier of persistent storage — data flows from WAL → Gen1 → Gen2 (via compaction) → Gen3+.
+Controls the time span covered by Gen1 Parquet files. Data flows from WAL to Gen1 to Gen2 (via compaction) to Gen3+.
+
+**Recommendation:** 5–10 minutes for high-frequency ingestion. 10 minutes (default) for medium-frequency. 15–30 minutes for low-frequency. 30–60 minutes for batch ingestion.

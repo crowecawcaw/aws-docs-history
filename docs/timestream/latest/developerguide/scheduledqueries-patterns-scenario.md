@@ -3,8 +3,7 @@ data ingestion and single-digit millisecond query response times for real-time a
 
 # Scenario
 
-The following examples use a DevOps monitoring scenario which is outlined in [Scheduled queries sample
-schema](scheduledqueries-common-schema-example.md "scheduledqueries-common-schema-example.md").
+The following examples use a DevOps monitoring scenario which is outlined in [Scheduled queries sample schema](scheduledqueries-common-schema-example.md "scheduledqueries-common-schema-example.md").
 
 The examples provide the scheduled query definition where you can plug in the
 appropriate configurations for where to receive execution status notifications for

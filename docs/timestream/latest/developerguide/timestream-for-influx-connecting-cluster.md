@@ -1,9 +1,7 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Connecting to a Timestream for InfluxDB read
-
-replica DB cluster
+# Connecting to a Timestream for InfluxDB read replica DB cluster
 
 A Timestream for InfluxDB read replica DB cluster has two reachable DB instances instead of a single DB
 instance. Each connection is handled by a specific DB instance. When you connect to a
@@ -21,9 +19,7 @@ DB instance endpoint, `/metrics`, to examine details about a specific DB instanc
 For information about connecting to a DB instance, see [Connecting to an Amazon Timestream for InfluxDB DB instance](timestream-for-influx-db-connecting.md "timestream-for-influx-db-connecting.md").
 For more information about connecting to read replica clusters, see the following topics.
 
-## Types of read replica
-
-cluster endpoints
+## Types of read replica cluster endpoints
 
 An endpoint is represented by a unique identifier that contains a host address. Each
 Timestream for InfluxDB cluster has:

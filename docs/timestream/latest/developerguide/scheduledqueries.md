@@ -78,9 +78,7 @@ can do this by granting source table access exclusively to the scheduled queries
 providing your developers access to only the tables populated by scheduled queries. This
 minimizes the impact of unintentional, long-running queries.
 
-## Example: Using real-time analytics to detect
-
-fraudulent payments and make better business decisions
+## Example: Using real-time analytics to detect fraudulent payments and make better business decisions
 
 Consider a payment system that processes transactions sent from multiple point-of-sale
 terminals distributed across major metropolitan cities in the United States. You want to

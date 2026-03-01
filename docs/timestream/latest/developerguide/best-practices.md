@@ -23,6 +23,5 @@ match needs of your application.
 - [Writes](data-ingest.md "data-ingest.md")
 - [Queries](queries-bp.md "queries-bp.md")
 - [Scheduled queries](scheduledqueries-bp.md "scheduledqueries-bp.md")
-- [Client applications and supported
-  integrations](client-integrations.md "client-integrations.md")
+- [Client applications and supported integrations](client-integrations.md "client-integrations.md")
 - [General](general.md "general.md")

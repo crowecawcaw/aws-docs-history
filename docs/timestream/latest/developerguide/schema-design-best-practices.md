@@ -6,9 +6,7 @@ data ingestion and single-digit millisecond query response times for real-time a
 By following these guidelines, you can design InfluxDB schemas that enable simpler and more
 performant queries while optimizing resource utilization.
 
-## Performance optimization
-
-guidelines
+## Performance optimization guidelines
 
 - Sort tags by query priority:
   - The first write to a table determines physical column order in storage.

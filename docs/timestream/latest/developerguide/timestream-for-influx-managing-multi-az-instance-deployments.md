@@ -9,7 +9,7 @@ In a Multi-AZ DB instance deployment, Amazon Timestream automatically provisions
 replica in a different Availability Zone. The primary DB instance is synchronously replicated across Availability
 Zones to a standby replica to provide data redundancy. Running a DB instance with high availability can enhance
 availability during DB instance failure and Availability Zone disruption. For more information on ,
-see [AWS Regions and Availability Zones](timestream-for-influxdb.md#timestream-for-influx-dbi-regions "timestream-for-influxdb.md#timestream-for-influx-dbi-regions") .
+see [AWS Regions and Availability Zones](timestream-for-influxdb.md#timestream-for-influx-dbi-regions "timestream-for-influxdb.md#timestream-for-influx-dbi-regions").
 
 ###### Note
 

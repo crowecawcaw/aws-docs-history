@@ -85,9 +85,7 @@ optimized for InfluxDB use cases.
 - **`db.influx`**—These instance classes are
   ideal for running memory-intensive workloads in open-source InfluxDB databases
 
-## Hardware specifications for DB instance
-
-classes
+## Hardware specifications for DB instance classes
 
 The following terminology describes the hardware specifications for DB instance
 classes:
@@ -134,9 +132,7 @@ affect storage performance](../../../AmazonRDS/latest/UserGuide/CHAP_Storage.md#
 pricing, see [Amazon Timestream
 pricing](https://aws.amazon.com/timestream/pricing/ "https://aws.amazon.com/timestream/pricing/").
 
-### Amazon Timestream for InfluxDB storage
-
-types
+### Amazon Timestream for InfluxDB storage types
 
 Amazon Timestream for InfluxDB provides support for one storage type, Influx IOPS Included.
 You can create Timestream for InfluxDB instances with up to 16 tebibytes (TiB) of storage.
@@ -274,9 +270,7 @@ You can't choose the for the primary and secondary DB instances in a
 _Multi-AZ DB deployment_. Amazon Timestream for InfluxDB chooses them for
 you randomly. For more information about Multi-AZ deployments, see [Configuring and managing a multi-AZ deployment](timestream-for-influx-managing-multi-az.md "timestream-for-influx-managing-multi-az.md").
 
-## DB Instance billing for Amazon Timestream for
-
-InfluxDB
+## DB Instance billing for Amazon Timestream for InfluxDB
 
 Amazon Timestream for InfluxDB instances are billed based on the following
 components:
@@ -302,8 +296,7 @@ tasks:
 
 If you already have an AWS account, know your Amazon Timestream for InfluxDB requirements,
 and prefer to use the defaults for IAM and Amazon VPC
-[Getting started with Timestream for
-InfluxDB](timestream-for-influx-getting-started.md "timestream-for-influx-getting-started.md").
+[Getting started with Timestream for InfluxDB](timestream-for-influx-getting-started.md "timestream-for-influx-getting-started.md").
 
 ### Sign up for an AWS account
 
@@ -365,9 +358,7 @@ To grant users programmatic access, choose one of the following options:
 | IAM                                                      | Use temporary credentials to sign programmatic requests to the AWS CLI, SDKs, and<br>APIs.                   | Following the instructions in [Use temporary credentials with AWS resources](../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md "../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md") in the _AWS Identity and Access Management User<br>Guide_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | IAM                                                      | (Not recommended) Use long-term credentials to sign programmatic requests to the AWS<br>CLI, SDKs, and APIs. | Following the instructions for the interface that you want to use.<br>For the AWS CLI, see [Authenticating using<br>IAM user credentials for the AWS CLI](../../../cli/latest/userguide/cli-authentication-user.md "../../../cli/latest/userguide/cli-authentication-user.md") in the<br>_AWS Command Line Interface User Guide_.<br>For AWS SDKs and tools, see [Using long-term credentials to<br>authenticate AWS SDKs and tools](../../../sdkref/latest/guide/access-iam-users.md "../../../sdkref/latest/guide/access-iam-users.md") in the _AWS SDKs and<br>Tools Reference Guide_.<br>For AWS APIs, see [Managing access<br>keys for IAM users](../../../IAM/latest/UserGuide/id_credentials_access-keys.md "../../../IAM/latest/UserGuide/id_credentials_access-keys.md") in the _AWS Identity and Access Management User<br>Guide_. |
 
-### Determine
-
-requirements
+### Determine requirements
 
 The basic building block of Amazon Timestream for InfluxDB is the DB instance. In a DB
 instance, you create your buckets. A DB instance provides a network address called an endpoint.
@@ -426,7 +417,7 @@ The following list describes the rules for each VPC option:
   your database engine. The default for Timestream for InfluxDB is 8086.
 - **AWS Region** — What AWS Region do you want your
   database in? Having your database in close proximity to your application or web service can
-  reduce network latency. For more information, see [AWS Regions and Availability Zones](#timestream-for-influx-dbi-regions "#timestream-for-influx-dbi-regions") .
+  reduce network latency. For more information, see [AWS Regions and Availability Zones](#timestream-for-influx-dbi-regions "#timestream-for-influx-dbi-regions").
 - **DB disk subsystem** — What are your storage
   requirements? Amazon Timestream for InfluxDB provides provides three configurations for it Influx IOPS Included storage type::
 
@@ -438,9 +429,7 @@ The following list describes the rules for each VPC option:
   Amazon Timestream for InfluxDB DB instance storage. When you have the information you need to
   create the security group and the DB instance, continue to the next step.
 
-### Provide access to your DB instance in
-
-your VPC by creating a security group
+### Provide access to your DB instance in your VPC by creating a security group
 
 VPC security groups provide access to DB instances in a VPC. They act as a firewall for the
 associated DB instance, controlling both inbound and outbound traffic at the DB instance level.
@@ -457,9 +446,7 @@ and IP addresses that your application uses to access the database. If you have 
 on an Amazon EC2 instance, you can use the security group that you set up for the Amazon EC2
 instance.
 
-#### Creating a security group
-
-for VPC access
+#### Creating a security group for VPC access
 
 To create a VPC security group, sign in to the AWS Management Console and choose [VPC.](https://console.aws.amazon.com/vpc "https://console.aws.amazon.com/vpc")
 

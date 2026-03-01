@@ -66,9 +66,7 @@ those permissions.
 To review this policy in JSON format,
 see [AmazonTimestreamInfluxDBFullAccessWithoutMarketplaceAccess](../../../aws-managed-policy/latest/reference/AmazonTimestreamInfluxDBFullAccessWithoutMarketplaceAccess.md "../../../aws-managed-policy/latest/reference/AmazonTimestreamInfluxDBFullAccessWithoutMarketplaceAccess.md").
 
-## Timestream for InfluxDB updates to AWS managed
-
-policies
+## Timestream for InfluxDB updates to AWS managed policies
 
 View details about updates to AWS managed policies for Timestream for InfluxDB since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

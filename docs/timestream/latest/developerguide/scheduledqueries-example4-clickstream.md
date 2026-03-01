@@ -1,9 +1,7 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Comparing a query on a base
-
-table with a query of scheduled query results
+# Comparing a query on a base table with a query of scheduled query results
 
 In
 this
@@ -28,9 +26,7 @@ For this example, we use the following scenario:
 - **Derived table** –
   `"clickstream"."aggregate"`
 
-## Base
-
-table
+## Base table
 
 The following describes the schema for the base table.
 
@@ -65,9 +61,7 @@ on.
 [ ( user_group, varchar ),( user_id, varchar ),( session_id, varchar ),( ip_address, varchar ),( event, varchar ) ]
 ```
 
-## Query
-
-on a base table
+## Query on a base table
 
 The following is an ad-hoc query that gathers counts by a 5-minute aggregate
 in a given time range.
@@ -108,9 +102,7 @@ GROUP BY BIN(time, 5m), channel, product_id, product
 
 ```
 
-## Query on a
-
-derived table
+## Query on a derived table
 
 The following is an ad-hoc query on a derived table. A _derived table_ refers to a Timestream table that contains the results
 of a scheduled query.

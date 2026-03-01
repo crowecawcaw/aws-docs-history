@@ -1,9 +1,7 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Modifying a read replica cluster
-
-for Amazon Timestream for InfluxDB
+# Modifying a read replica cluster for Amazon Timestream for InfluxDB
 
 A read replica cluster has a writer DB instance and a reader DB instance
 in separate Availability Zones. Read replica clusters provide high availability,
@@ -18,9 +16,7 @@ You can't modify the DB instances within a read replica cluster. All modificatio
 
 You can modify a read replica cluster using the AWS Management Console, the AWS CLI, or the Amazon Timestream for InfluxDB API.
 
-## Modify a read replica cluster
-
-for Amazon Timestream for InfluxDB
+## Modify a read replica cluster for Amazon Timestream for InfluxDB
 
 Using the AWS Management Console
 To modify a read replica DB cluster using the console:
@@ -32,8 +28,7 @@ To modify a read replica DB cluster using the console:
 3. Choose **Modify**. The **Modify DB
    cluster** page appears.
 4. Choose any of the settings that you want. For information
-   about each setting, see [Settings for
-   modifying read replica clusters](#timestream-for-influx-rr-modify-settings "#timestream-for-influx-rr-modify-settings").
+   about each setting, see [Settings for modifying read replica clusters](#timestream-for-influx-rr-modify-settings "#timestream-for-influx-rr-modify-settings").
 5. After you have made your changes, choose
    **Continue** and check the summary of
    modifications.
@@ -64,9 +59,7 @@ aws timestream-influxdb update-db-cluster \
 
 ```
 
-## Settings for
-
-modifying read replica clusters
+## Settings for modifying read replica clusters
 
 For details about settings that you can use to modify a read replica cluster, see
 the following table. For more information about

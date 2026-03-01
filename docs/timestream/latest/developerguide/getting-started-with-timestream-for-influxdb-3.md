@@ -1,19 +1,14 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Getting started with Timestream for
+# Getting started with Timestream for InfluxDB 3
 
-InfluxDB 3
-
-## Setting up Amazon Timestream for
-
-InfluxDB 3
+## Setting up Amazon Timestream for InfluxDB 3
 
 Before you use Amazon Timestream for InfluxDB for the first time, complete the following tasks:
 
 If you already have an AWS account, know your Timestream for InfluxDB requirements, and
-prefer to use the defaults for IAM and Amazon VPC, skip to [Creating and
-connecting to a Timestream for InfluxDB instance](#creating-and-connecting-to-a-timestream-for-influxdb-instance "#creating-and-connecting-to-a-timestream-for-influxdb-instance").
+prefer to use the defaults for IAM and Amazon VPC, skip to [Creating and connecting to a Timestream for InfluxDB instance](#creating-and-connecting-to-a-timestream-for-influxdb-instance "#creating-and-connecting-to-a-timestream-for-influxdb-instance").
 
 ### Sign up for an AWS account
 
@@ -121,9 +116,7 @@ To create a VPC security group:
 5. Add inbound rules for Custom TCP with appropriate source settings.
 6. Create the security group.
 
-## Creating and
-
-connecting to a Timestream for InfluxDB instance
+## Creating and connecting to a Timestream for InfluxDB instance
 
 Connecting to a Amazon Timestream for InfluxDB DB instance uses token authentication.
 
@@ -143,18 +136,14 @@ The following procedure creates both an Amazon Elastic Compute Cloud instance an
 cluster, and shows you how to write data to the DB instance from the Amazon EC2 instance using the
 Telegraf client.
 
-### Step 1: Create an Amazon EC2
-
-instance
+### Step 1: Create an Amazon EC2 instance
 
 1. Sign in to the AWS Management Console and open the Amazon EC2 console.
 2. Choose the AWS Region where you want to create the Amazon EC2 instance.
 3. Choose Amazon EC2 Dashboard, then Launch instance.
 4. Configure your Amazon EC2 instance with appropriate settings.
 
-### Step 2: Create an InfluxDB 3
-
-instance
+### Step 2: Create an InfluxDB 3 instance
 
 1. Sign in to the AWS Management Console and open the Timestream for InfluxDB console.
 2. In the navigation pane, choose **InfluxDB Databases**.
@@ -185,9 +174,7 @@ The easiest way to start interacting with your InfluxDB instance through the Inf
 
 If you prefer using the InfluxDB 3 CLI, or APIs, please refer to [InfluxDB 3 documentation](https://docs.influxdata.com/influxdb3/enterprise/ "https://docs.influxdata.com/influxdb3/enterprise/") to find information on [writing data](https://docs.influxdata.com/influxdb3/enterprise/write-data/ "https://docs.influxdata.com/influxdb3/enterprise/write-data/"), [executing queries](https://docs.influxdata.com/influxdb3/enterprise/query-data/ "https://docs.influxdata.com/influxdb3/enterprise/query-data/"), or [Administer](https://docs.influxdata.com/influxdb3/enterprise/admin/ "https://docs.influxdata.com/influxdb3/enterprise/admin/") your InfluxDB 3 Database
 
-### Step 4: Send Telegraf
-
-data to your InfluxDB instance
+### Step 4: Send Telegraf data to your InfluxDB instance
 
 1. Connect to your InfluxDB instance using the InfluxDB Explorer and generate an API
    token.
@@ -195,9 +182,7 @@ data to your InfluxDB instance
 3. Configure Telegraf to send data to your InfluxDB instance.
 4. Enable and start the Telegraf service.
 
-### Step 5:
-
-Delete the Amazon EC2 instance and the InfluxDB DB instance
+### Step 5: Delete the Amazon EC2 instance and the InfluxDB DB instance
 
 After you explore the Telegraf-generated data, delete both your Amazon EC2 and your InfluxDB
 DB instances to avoid being charged for them.

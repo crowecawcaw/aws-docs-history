@@ -9,4 +9,6 @@ Parameter Details| **Default** | 10 seconds |
 
 **Detailed Explanation:**
 
-The last value cache stores the most recent data point for each unique time series (combination of measurement + tag set). This is extremely valuable for IoT and monitoring use cases where dashboards frequently display "current value" for thousands of sensors/hosts. This parameter controls how frequently stale entries are evicted from this cache.
+The last value cache stores the most recent data point for each unique time series. This parameter controls how frequently stale entries are evicted.
+
+**Recommendation:** Keep at 10 seconds (default). Reduce to 5 seconds if you have high time series churn.

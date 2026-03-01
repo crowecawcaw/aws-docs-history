@@ -5,9 +5,7 @@ data ingestion and single-digit millisecond query response times for real-time a
 
 You can reboot your cluster in Amazon Timestream in the event of a cluster health issue. 
 
-## Reboot a cluster using the
-
-AWS Management Console
+## Reboot a cluster using the AWS Management Console
 
 1. Sign in to the AWS Management Console and open the Amazon Timestream for InfluxDB console.
 2. In the navigation pane, choose **InfluxDB Databases**.

@@ -27,13 +27,10 @@ deciding whether to create a single table or multiple tables to store data:
 ###### Topics
 
 - [Single table vs. multiple tables](#data-modeling-singleVmultitable "#data-modeling-singleVmultitable")
-- [Multi-measure records vs.
-  single-measure records](#data-modeling-multiVsinglerecords "#data-modeling-multiVsinglerecords")
+- [Multi-measure records vs. single-measure records](#data-modeling-multiVsinglerecords "#data-modeling-multiVsinglerecords")
 - [Dimensions and measures](#data-modeling-dimensionsmeasures "#data-modeling-dimensionsmeasures")
-- [Using measure name with
-  multi-measure records](#data-modeling-measurenamemulti "#data-modeling-measurenamemulti")
-- [Recommendations for
-  partitioning multi-measure records](#data-modeling-multi-measure-partitioning "#data-modeling-multi-measure-partitioning")
+- [Using measure name with multi-measure records](#data-modeling-measurenamemulti "#data-modeling-measurenamemulti")
+- [Recommendations for partitioning multi-measure records](#data-modeling-multi-measure-partitioning "#data-modeling-multi-measure-partitioning")
 
 ## Single table vs. multiple tables
 
@@ -102,9 +99,7 @@ measure_name = 'cpu'` in your query, not only do you get
     essentially used to partition the data and prune partitions
     irrelevant to the query.
 
-## Multi-measure records vs.
-
-single-measure records
+## Multi-measure records vs. single-measure records
 
 Timestream for LiveAnalytics allows you to write data with multiple measures per record (multi-measure) or
 single measure per record (single-measure).
@@ -307,9 +302,7 @@ data using the rich data types supported in multi-measure records, you can expre
 the predicates using native data types instead of casting values from
 `VARCHAR` to another data type if you modeled such data as dimensions.
 
-## Using measure name with
-
-multi-measure records
+## Using measure name with multi-measure records
 
 Tables in Timestream for LiveAnalytics support a special attribute (or column) called _measure
 name_. You specify a value for this attribute for every record you
@@ -424,9 +417,7 @@ For instance, a predicate of the form `WHERE instance_name =
  'instance-1234'` without a `measure_name` predicate will return all data for
 a specific server instance.
 
-## Recommendations for
-
-partitioning multi-measure records
+## Recommendations for partitioning multi-measure records
 
 ###### Important
 

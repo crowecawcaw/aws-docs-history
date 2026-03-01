@@ -1,18 +1,14 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Timestream for LiveAnalytics schema
-
-validation with custom composite partition keys
+# Timestream for LiveAnalytics schema validation with custom composite partition keys
 
 Schema validation in Timestream for LiveAnalytics helps ensure that data ingested into the database complies
 with the specified schema, minimizing ingestion errors and improving data quality. In
 particular, schema validation is especially useful when adopting customer-defined
 partition key with the goal of optimizing your query performance.
 
-## What is
-
-Timestream for LiveAnalytics schema validation with customer-defined partition keys?
+## What is Timestream for LiveAnalytics schema validation with customer-defined partition keys?
 
 Timestream for LiveAnalytics schema validation is a feature that validates data being ingested into a Timestream for LiveAnalytics
 table based on a predefined schema. This schema defines the data model, including
@@ -24,9 +20,7 @@ your data is stored in Timestream for LiveAnalytics. By validating the incoming 
 a custom partition key, you can enforce data consistency, detect errors early, and
 improve the overall quality of the data stored in Timestream for LiveAnalytics.
 
-## How to Use
-
-Timestream for LiveAnalytics schema validation with custom composite partition keys
+## How to Use Timestream for LiveAnalytics schema validation with custom composite partition keys
 
 To use Timestream for LiveAnalytics schema validation with custom composite partition keys, follow these
 steps:
@@ -78,9 +72,7 @@ errors for records that don't meet this condition. Therefore, it's essential to
 choose the appropriate enforcement level for your use case when creating your table,
 based on your data's partitioning requirements.
 
-## When
-
-to use Timestream for LiveAnalytics schema validation with custom composite partition keys
+## When to use Timestream for LiveAnalytics schema validation with custom composite partition keys
 
 Timestream for LiveAnalytics schema validation with custom composite partition keys should be used in
 scenarios where data consistency, quality, and optimized partitioning are crucial.

@@ -16,7 +16,7 @@ Because you don't need to manage the underlying infrastructure, you can focus on
 
 Timestream for LiveAnalytics also integrates with commonly used services for data collection, visualization, and machine learning.
 You can send data to Amazon Timestream for LiveAnalytics using AWS IoT Core, Amazon Kinesis, Amazon MSK, and open source Telegraf.
-You can visualize data using Quick Suite, Grafana, and business intelligence tools through JDBC.
+You can visualize data using Quick, Grafana, and business intelligence tools through JDBC.
 You can also use Amazon SageMaker AI with Timestream for LiveAnalytics for machine learning.
 
 ## Timestream for LiveAnalytics key benefits

@@ -5,8 +5,10 @@ data ingestion and single-digit millisecond query response times for real-time a
 
 Parameter Details| **Default** | 250 ms |
 | **Allowed Values** | Duration |
-| **Category** | Replication (Enterprise only) |
+| **Category** | Replication |
 
 **Detailed Explanation:**
 
-Controls how frequently data written to one node is replicated to other nodes in the Enterprise cluster. This determines the **replication lag** — the maximum delay between data being ingested on the primary node and being available for queries on replica nodes.
+Controls how frequently data written to one node is replicated to other nodes in the Enterprise cluster. This determines the replication lag.
+
+**Recommendation:** 250ms – 1 second for real-time alerting. 1 second for dashboard monitoring. 5–10 seconds for batch analytics. 5–30 seconds for cost-sensitive bandwidth.

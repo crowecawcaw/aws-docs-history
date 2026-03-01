@@ -1,9 +1,7 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Preparing a batch load data
-
-file
+# Preparing a batch load data file
 
 A source data file has delimiter-separated values. The more specific term,
 comma-separated values (CSV) is used generically. Valid column separators include commas
@@ -41,8 +39,7 @@ quote, to represent a double quote in the data, place the escape character befor
 the double quote.
 
 For information about when to specify these when creating a batch load task, see
-[Create a batch
-load task](batch-load-using-console.md#console_timestream.create-batch-load.using-console "batch-load-using-console.md#console_timestream.create-batch-load.using-console").
+[Create a batch load task](batch-load-using-console.md#console_timestream.create-batch-load.using-console "batch-load-using-console.md#console_timestream.create-batch-load.using-console").
 
 | Parameter        | Options                    |
 | ---------------- | -------------------------- | ----------------- | --- | --------------- | ---------- | --------------------- |

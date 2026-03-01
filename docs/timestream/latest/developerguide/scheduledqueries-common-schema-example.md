@@ -1,9 +1,7 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Scheduled queries sample
-
-schema
+# Scheduled queries sample schema
 
 In this example we will use a sample application mimicking a DevOps scenario
 monitoring metrics from a large fleet of servers. Users want to alert on anomalous
@@ -40,14 +38,10 @@ sample data from the data set.
 
 ###### Topics
 
-- [Multi-measure
-  records](#scheduledqueries-common-schema-example-mmr "#scheduledqueries-common-schema-example-mmr")
-- [Single-measure
-  records](#scheduledqueries-common-schema-example-smr "#scheduledqueries-common-schema-example-smr")
+- [Multi-measure records](#scheduledqueries-common-schema-example-mmr "#scheduledqueries-common-schema-example-mmr")
+- [Single-measure records](#scheduledqueries-common-schema-example-smr "#scheduledqueries-common-schema-example-smr")
 
-## Multi-measure
-
-records
+## Multi-measure records
 
 **Table Schema**
 
@@ -126,9 +120,7 @@ SHOW MEASURES FROM "raw_data"."devops"
 | us-east-2 | us-east-2-cell-1 | us-east-2-cell-1-silo-2 | us-east-2-1       | athena            | i-zaZswmJk-athena-us-east-2-cell-1-silo-2-00000216.amazonaws.com |               |            | host_manager | JDK_8       | events       | 11/12/2021 12:38 |          |            |          |           |            |          |        |        |             |               |               |                  |                |                   |           |           |                  |                   |                         | 23          | SUCCESS_WITH_RESULT    | 53.3     | 138            | 99           |
 | us-east-2 | us-east-2-cell-1 | us-east-2-cell-1-silo-2 | us-east-2-1       | athena            | i-zaZswmJk-athena-us-east-2-cell-1-silo-2-00000216.amazonaws.com |               |            | host_manager | JDK_8       | events       | 11/12/2021 12:36 |          |            |          |           |            |          |        |        |             |               |               |                  |                |                   |           |           |                  |                   |                         | 39.4        | SUCCESS_WITH_NO_RESULT | 79.6     | 254            | 82.9         |
 
-## Single-measure
-
-records
+## Single-measure records
 
 Timestream for LiveAnalytics also allows you to ingest the data with one measure per time series record.
 Below are the schema details when ingested using single measure records.

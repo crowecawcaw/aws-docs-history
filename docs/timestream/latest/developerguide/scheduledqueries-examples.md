@@ -33,11 +33,7 @@ The following scenarios will be described.
 
 ###### Topics
 
-- [Converting an aggregate dashboard to scheduled
-  query](scheduledqueries-example1.md "scheduledqueries-example1.md")
-- [Using scheduled queries and raw data for drill
-  downs](scheduledqueries-example2.md "scheduledqueries-example2.md")
-- [Optimizing costs by sharing scheduled query
-  across dashboards](scheduledqueries-example3.md "scheduledqueries-example3.md")
-- [Comparing a query on a base
-  table with a query of scheduled query results](scheduledqueries-example4-clickstream.md "scheduledqueries-example4-clickstream.md")
+- [Converting an aggregate dashboard to scheduled query](scheduledqueries-example1.md "scheduledqueries-example1.md")
+- [Using scheduled queries and raw data for drill downs](scheduledqueries-example2.md "scheduledqueries-example2.md")
+- [Optimizing costs by sharing scheduled query across dashboards](scheduledqueries-example3.md "scheduledqueries-example3.md")
+- [Comparing a query on a base table with a query of scheduled query results](scheduledqueries-example4-clickstream.md "scheduledqueries-example4-clickstream.md")

@@ -13,11 +13,9 @@ queries.
 - [Create a database](#console_timestream.db.using-console "#console_timestream.db.using-console")
 - [Create a table](#console_timestream.table.using-console "#console_timestream.table.using-console")
 - [Run a query](#console_timestream.queries.using-console "#console_timestream.queries.using-console")
-- [Create a scheduled
-  query](#console_timestream.scheduledquery.using-console "#console_timestream.scheduledquery.using-console")
+- [Create a scheduled query](#console_timestream.scheduledquery.using-console "#console_timestream.scheduledquery.using-console")
 - [Delete a scheduled query](#console_timestream.scheduledquerydeletedisable.using-console "#console_timestream.scheduledquerydeletedisable.using-console")
-- [Delete a
-  table](#console_timestream.delete-table.using-console "#console_timestream.delete-table.using-console")
+- [Delete a table](#console_timestream.delete-table.using-console "#console_timestream.delete-table.using-console")
 - [Delete a database](#console_timestream.delete-db.using-console "#console_timestream.delete-db.using-console")
 - [Edit a table](#console_timestream.edit-table.using-console "#console_timestream.edit-table.using-console")
 - [Edit a database](#console_timestream.edit-db.using-console "#console_timestream.edit-db.using-console")
@@ -121,9 +119,7 @@ SELECT * FROM <database_name>.<table_name> ORDER BY time DESC LIMIT 10
 
 6. (Optional) Turn on **Enable Insights** to get insights about the efficiency of your queries.
 
-## Create a scheduled
-
-query
+## Create a scheduled query
 
 Follow these steps to create a scheduled query using the AWS Console.
 
@@ -170,16 +166,13 @@ Console.
    Console](https://console.aws.amazon.com/timestream "https://console.aws.amazon.com/timestream").
 2. In the navigation pane, choose **Scheduled
    queries**
-3. Select the scheduled query created in [Create a scheduled
-   query](#console_timestream.scheduledquery.using-console "#console_timestream.scheduledquery.using-console").
+3. Select the scheduled query created in [Create a scheduled query](#console_timestream.scheduledquery.using-console "#console_timestream.scheduledquery.using-console").
 4. Select **Actions**.
 5. Choose **Disable** or **Delete**.
 6. If you selected Delete, confirm the action and select
    **Delete**.
 
-## Delete a
-
-table
+## Delete a table
 
 Follow these steps to delete a database using the AWS Console.
 

@@ -5,8 +5,10 @@ data ingestion and single-digit millisecond query response times for real-time a
 
 Parameter Details| **Default** | 1 second |
 | **Allowed Values** | Duration |
-| **Category** | Catalog Synchronization (Enterprise only) |
+| **Category** | Catalog Synchronization |
 
 **Detailed Explanation:**
 
-In Enterprise clusters with multiple nodes, the catalog (metadata about databases, tables, columns, retention policies, and schema definitions) must be kept in sync across all nodes. This parameter controls how frequently each node checks for catalog updates from the central catalog store.
+In Enterprise clusters with multiple nodes, the catalog (metadata about databases, tables, columns, retention policies) must be kept in sync. This parameter controls how frequently each node checks for catalog updates.
+
+**Recommendation:** 1 second (default) for frequent schema changes. 5–10 seconds for stable schemas. 2–5 seconds for high node counts.

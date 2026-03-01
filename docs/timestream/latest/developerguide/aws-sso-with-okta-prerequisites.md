@@ -10,5 +10,4 @@ JDBC single sign-on authentication with Okta:
   identity provider and the roles](security-iam.md "security-iam.md").
 - An Okta account (Go to [https://www.okta.com/login/](https://www.okta.com/login/ "https://www.okta.com/login/") to create an account).
 - [Access to Amazon Timestream for LiveAnalytics](accessing.md "accessing.md").
-  Now that you have completed the Prerequisites, you may proceed to [AWS account federation in
-  Okta](aws-account-federation-in-okta.md "aws-account-federation-in-okta.md").
+  Now that you have completed the Prerequisites, you may proceed to [AWS account federation in Okta](aws-account-federation-in-okta.md "aws-account-federation-in-okta.md").

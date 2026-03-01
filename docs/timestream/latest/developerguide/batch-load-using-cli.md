@@ -11,11 +11,9 @@ To start using batch load, go through the following steps.
 2. Run the following command to verify that the Timestream CLI commands have been
    updated. Verify that create-batch-load-task is in the list.
 
-`aws timestream-write help` 3. Prepare a data source using the instructions at [Preparing a batch load data
-file](batch-load-preparing-data-file.md "batch-load-preparing-data-file.md"). 4. Create a database and table using the instructions at [Accessing Amazon Timestream for LiveAnalytics using the AWS CLI](Tools.md "Tools.md"). 5. Create an S3 bucket for report output. The bucket must be in the same Region.
+`aws timestream-write help` 3. Prepare a data source using the instructions at [Preparing a batch load data file](batch-load-preparing-data-file.md "batch-load-preparing-data-file.md"). 4. Create a database and table using the instructions at [Accessing Amazon Timestream for LiveAnalytics using the AWS CLI](Tools.md "Tools.md"). 5. Create an S3 bucket for report output. The bucket must be in the same Region.
 For more information about buckets, see [Creating,
-configuring, and working with Amazon S3 buckets](../../../AmazonS3/latest/userguide/creating-buckets-s3.md "../../../AmazonS3/latest/userguide/creating-buckets-s3.md"). 6. Create a batch load task. For steps, see [Create a batch load task](#batch-load-using-cli-create-task "#batch-load-using-cli-create-task"). 7. Confirm the status of the task. For steps, see [Describe batch load
-task](#batch-load-using-cli-describe-task "#batch-load-using-cli-describe-task").
+configuring, and working with Amazon S3 buckets](../../../AmazonS3/latest/userguide/creating-buckets-s3.md "../../../AmazonS3/latest/userguide/creating-buckets-s3.md"). 6. Create a batch load task. For steps, see [Create a batch load task](#batch-load-using-cli-create-task "#batch-load-using-cli-create-task"). 7. Confirm the status of the task. For steps, see [Describe batch load task](#batch-load-using-cli-describe-task "#batch-load-using-cli-describe-task").
 
 ## Create a batch load task
 
@@ -27,12 +25,9 @@ parameters including `data-model-configuration`,
 `data-source-configuration`, `report-configuration`,
 `target-database-name`, and `target-table-name`.
 
-For an example, see [Create batch load task
-example](#batch-load-using-cli-example "#batch-load-using-cli-example")
+For an example, see [Create batch load task example](#batch-load-using-cli-example "#batch-load-using-cli-example")
 
-## Describe batch load
-
-task
+## Describe batch load task
 
 You can retrieve a batch load task description as follows.
 
@@ -155,9 +150,7 @@ aws timestream-write resume-batch-load-task --task-id `<value>`
 
 A response can indicate success or contain error information.
 
-## Create batch load task
-
-example
+## Create batch load task example
 
 ###### Example
 

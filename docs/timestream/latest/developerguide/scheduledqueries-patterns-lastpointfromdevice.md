@@ -1,9 +1,7 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Last point from each
-
-device
+# Last point from each device
 
 Your application may require you to read the last measurement emitted by a device.
 There can be more general use cases to obtain the last measurement for a device

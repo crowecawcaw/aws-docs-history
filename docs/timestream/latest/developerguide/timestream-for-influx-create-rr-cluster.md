@@ -1,9 +1,7 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Creating a Timestream for InfluxDB read replica
-
-cluster
+# Creating a Timestream for InfluxDB read replica cluster
 
 A Timestream for InfluxDB read replica cluster has a writer DB instance and a reader DB
 instance in separate Availability Zones. Timestream for InfluxDB read replica clusters provide high availability, increased capacity for read workloads, and faster failover when failover to replica is configured.
@@ -17,13 +15,10 @@ cluster.
 
 ###### Topics
 
-- [Configure the network
-  for the DB cluster](#timestream-for-influx-config-network "#timestream-for-influx-config-network")
+- [Configure the network for the DB cluster](#timestream-for-influx-config-network "#timestream-for-influx-config-network")
 - [Additional prerequisites](#timestream-for-influx-addl-prereqs "#timestream-for-influx-addl-prereqs")
 
-### Configure the network
-
-for the DB cluster
+### Configure the network for the DB cluster
 
 You can only create a Timestream for InfluxDB read replica DB cluster in a virtual private cloud
 (VPC) based on the Amazon VPC service. It must be in an AWS Region that has at least three Availability Zones. The DB subnet group that you choose for the DB cluster must cover at least three Availability Zones. This configuration ensures that each DB instance in the DB cluster is in a different Availability Zone.
@@ -36,8 +31,7 @@ To connect to your DB cluster from resources other than EC2 instances in the sam
 
 To tailor the configuration parameters for your DB cluster, specify a DB
 cluster parameter group with the required parameter settings. For information
-about creating or modifying a DB cluster parameter group, see [Parameter groups for read replica
-clusters](timestream-for-influx-working-read-replica.md#timestream-for-influx-rr-param-groups "timestream-for-influx-working-read-replica.md#timestream-for-influx-rr-param-groups").
+about creating or modifying a DB cluster parameter group, see [Parameter groups for read replica clusters](timestream-for-influx-working-read-replica.md#timestream-for-influx-rr-param-groups "timestream-for-influx-working-read-replica.md#timestream-for-influx-rr-param-groups").
 
 Determine the TCP/IP port number to specify for your DB cluster. The firewalls at some companies block connections to the default ports. If your company firewall blocks the default port, choose another port for your DB cluster. All DB instances in a DB cluster use the same port.
 
@@ -150,9 +144,7 @@ aws timestream-influxdb create-db-cluster \
 
 ```
 
-### Settings for
-
-creating read replica clusters
+### Settings for creating read replica clusters
 
 For details about settings that you choose when you create a read
 replica cluster, see the following table. For more information about

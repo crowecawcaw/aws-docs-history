@@ -1,9 +1,7 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Converting an aggregate dashboard to scheduled
-
-query
+# Converting an aggregate dashboard to scheduled query
 
 Assume you are computing the fleet-wide statistics such as host counts in the
 fleet by the five microservices and by the six regions where your service is

@@ -1,9 +1,7 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# How the endpoint
-
-discovery pattern works
+# How the endpoint discovery pattern works
 
 Timestream is built using a [cellular architecture](architecture.md#cells "architecture.md#cells")
 to ensure better scaling and traffic isolation properties. Because each customer

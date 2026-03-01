@@ -9,4 +9,6 @@ Parameter Details| **Default** | 10 seconds |
 
 **Detailed Explanation:**
 
-The distinct value cache stores the set of unique values for tag columns (e.g., all unique `host` names, all unique `region` values). This dramatically accelerates queries that use `SHOW TAG VALUES`, `DISTINCT`, or `GROUP BY` on tag columns. This parameter controls how frequently the cache is checked for stale entries that should be evicted.
+The distinct value cache stores the set of unique values for tag columns. This parameter controls how frequently the cache is checked for stale entries.
+
+**Recommendation:** Keep at 10 seconds (default) for all instance sizes.

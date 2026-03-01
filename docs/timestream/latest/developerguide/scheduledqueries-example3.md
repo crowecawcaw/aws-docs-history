@@ -1,9 +1,7 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Optimizing costs by sharing scheduled query
-
-across dashboards
+# Optimizing costs by sharing scheduled query across dashboards
 
 In this example, we will see a scenario where multiple dashboard panels display
 variations of similar information (finding high CPU hosts and fraction of fleet with
@@ -12,9 +10,7 @@ results which are then used to populate multiple panels. This reuse further
 optimizes your costs where instead of using different scheduled queries, one for
 each panel, you use only owner.
 
-## Dashboard panels with raw
-
-data
+## Dashboard panels with raw data
 
 **CPU utilization per region per
 microservice**
@@ -139,9 +135,7 @@ GROUP BY hup.region, hup.cell, hup.silo
 ORDER BY hup.silo
 ```
 
-## Converting into a single
-
-scheduled query enabling reuse
+## Converting into a single scheduled query enabling reuse
 
 It is important to note that a similar computation is done across the
 different panels across the two dashboards. You can define a separate scheduled
@@ -276,9 +270,7 @@ the panel.
 }
 ```
 
-## Dashboard from
-
-pre-computed results
+## Dashboard from pre-computed results
 
 **High CPU utilization hosts**
 

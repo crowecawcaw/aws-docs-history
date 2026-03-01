@@ -3,4 +3,4 @@ data ingestion and single-digit millisecond query response times for real-time a
 
 # Category 3: Write-Ahead Log (WAL) Configuration
 
-The WAL is the mechanism that ensures data durability during ingestion. Data is first written to the WAL before being persisted to Parquet files. These parameters control WAL behavior, snapshot creation, and flush characteristics.
+The WAL ensures data durability during ingestion. Data is first written to the WAL before being persisted to Parquet files. These parameters control WAL behavior, snapshot creation, and flush characteristics.

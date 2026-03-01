@@ -4,10 +4,11 @@ data ingestion and single-digit millisecond query response times for real-time a
 # `num-io-threads`
 
 Parameter Details| **Default** | System logical core count (number of vCPUs) |
-| **Allowed Values** | Set automatically to match vCPU count on writer nodes |
+| **Allowed Values** | Integer: 1 – 2,048 |
 | **Category** | Query Execution / I/O |
-| **Customer Configurable** | No<br>• automatically set by the service |
 
 **Detailed Explanation:**
 
-This parameter sets the number of threads in the I/O runtime, which handles network I/O, object store operations, and other async I/O tasks. This is separate from the DataFusion query threads. On writer nodes, this value is automatically set to match the number of vCPUs and cannot be changed by customers.
+Sets the number of threads in the I/O runtime, which handles network I/O, object store operations, and other async I/O tasks. This is separate from the DataFusion query threads.
+
+**Recommendation:** Set to the number of vCPUs on your instance.

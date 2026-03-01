@@ -1,9 +1,7 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Unique dimension
-
-values
+# Unique dimension values
 
 You may have a use case where you have dashboards which you want to use the unique
 values of dimensions as variables to drill down on the metrics corresponding to a
@@ -15,14 +13,11 @@ variables from the metrics you are tracking.
 
 ###### Topics
 
-- [On raw
-  data](#scheduledqueries-patterns-uniquedimvalues-onraw "#scheduledqueries-patterns-uniquedimvalues-onraw")
+- [On raw data](#scheduledqueries-patterns-uniquedimvalues-onraw "#scheduledqueries-patterns-uniquedimvalues-onraw")
 - [Pre-compute unique dimension values](#scheduledqueries-patterns-uniquedimvalues-precompute "#scheduledqueries-patterns-uniquedimvalues-precompute")
 - [Computing the variables from derived table](#scheduledqueries-patterns-uniquedimvalues-fromderived "#scheduledqueries-patterns-uniquedimvalues-fromderived")
 
-## On raw
-
-data
+## On raw data
 
 You can use SELECT DISTINCT to compute the distinct values seen from your
 data. For instance, if you want to obtain the distinct values of region, you can

@@ -4,5 +4,4 @@ data ingestion and single-digit millisecond query response times for real-time a
 # VPC endpoints (AWS PrivateLink)
 
 You can establish a private connection between your VPC and Amazon Timestream for LiveAnalytics by creating an
-_interface VPC endpoint_. For more information, see [VPC endpoints
-(AWS PrivateLink)](VPCEndpoints.md "VPCEndpoints.md").
+_interface VPC endpoint_. For more information, see [VPC endpoints (AWS PrivateLink)](VPCEndpoints.md "VPCEndpoints.md").

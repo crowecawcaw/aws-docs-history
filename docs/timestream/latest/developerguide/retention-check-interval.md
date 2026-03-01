@@ -9,4 +9,6 @@ Parameter Details| **Default** | 30 minutes |
 
 **Detailed Explanation:**
 
-Controls how frequently the system evaluates and enforces retention policies. Retention policies automatically delete data older than a configured age (e.g., "keep only the last 30 days"). This parameter determines the interval between enforcement checks.
+Controls how frequently the system evaluates and enforces retention policies.
+
+**Recommendation:** 10–15 minutes for strict retention compliance. 30 minutes (default) for standard production. 1–6 hours for relaxed retention.

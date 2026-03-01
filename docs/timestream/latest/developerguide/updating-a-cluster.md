@@ -7,9 +7,7 @@ After your cluster is created, you can modify certain configuration parameters t
 changing workload requirements in Amazon Timestream. Note that some modifications may cause temporary
 downtime during the update process.
 
-## Update a cluster using the
-
-AWS Management Console
+## Update a cluster using the AWS Management Console
 
 1. Sign in to the AWS Management Console and open the Amazon Timestream for InfluxDB console.
 2. In the navigation pane, choose **InfluxDB Databases**.
@@ -43,9 +41,7 @@ aws timestream-influxdb update-db-cluster \
 
 ```
 
-## Considerations when updating a
-
-cluster
+## Considerations when updating a cluster
 
 **Modifiable parameters**
 

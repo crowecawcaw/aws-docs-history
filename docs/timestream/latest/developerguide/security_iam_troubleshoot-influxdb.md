@@ -8,14 +8,10 @@ encounter when working with Timestream for InfluxDB and IAM.
 
 ###### Topics
 
-- [I am not authorized to perform an action in
-  Timestream for InfluxDB](#security_iam_troubleshoot-no-permissions-influxdb "#security_iam_troubleshoot-no-permissions-influxdb")
-- [I want to allow people outside of my AWS account
-  to access my Timestream for InfluxDB resources](#security_iam_troubleshoot-cross-account-access-influxdb "#security_iam_troubleshoot-cross-account-access-influxdb")
+- [I am not authorized to perform an action in Timestream for InfluxDB](#security_iam_troubleshoot-no-permissions-influxdb "#security_iam_troubleshoot-no-permissions-influxdb")
+- [I want to allow people outside of my AWS account to access my Timestream for InfluxDB resources](#security_iam_troubleshoot-cross-account-access-influxdb "#security_iam_troubleshoot-cross-account-access-influxdb")
 
-## I am not authorized to perform an action in
-
-Timestream for InfluxDB
+## I am not authorized to perform an action in Timestream for InfluxDB
 
 If the AWS Management Console tells you that you're not authorized to perform an action, then you must contact your
 administrator for assistance. Your administrator is the person that provided you with your user name and
@@ -33,9 +29,7 @@ In this case, Mateo asks his administrator to update his policies to allow him t
 `my-example-widget` resource using the
 `timestream-influxdb:`GetWidget`` action.
 
-## I want to allow people outside of my AWS account
-
-to access my Timestream for InfluxDB resources
+## I want to allow people outside of my AWS account to access my Timestream for InfluxDB resources
 
 You can create a role that users in other accounts or people outside of your organization can use to access your resources. You can specify who is trusted to assume the role. For services that support resource-based policies or access control lists (ACLs), you can use those policies to grant people access to your resources.
 

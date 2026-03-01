@@ -1,9 +1,7 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Extend Timestream for InfluxDB with processing engine
-
-plugins
+# Extend Timestream for InfluxDB with processing engine plugins
 
 The Processing engine is an embedded Python virtual machine that runs inside your InfluxDB
 3 database in Amazon Timestream. It's available in both Core and Enterprise editions. It enables you to
@@ -36,9 +34,7 @@ by InfluxData:
 These certified plugins are ready to use and can be configured through trigger arguments
 to meet your specific requirements.
 
-## Plugin types and trigger
-
-specifications
+## Plugin types and trigger specifications
 
 | **Plugin Type**  | **Trigger Specification**                 | **When Plugin Runs**            | **Use Cases**                                  |
 | ---------------- | ----------------------------------------- | ------------------------------- | ---------------------------------------------- |
@@ -188,9 +184,7 @@ influxdb3 show summary \
 
 ```
 
-### Table exclusion for write
-
-triggers
+### Table exclusion for write triggers
 
 To filter tables within your plugin code when using `all_tables`:
 
@@ -217,9 +211,7 @@ def process_writes(influxdb3_local, table_batches, args=None):
 
 ```
 
-## Distributed deployment
-
-considerations
+## Distributed deployment considerations
 
 In multi-node deployments, configure plugins based on node roles:
 

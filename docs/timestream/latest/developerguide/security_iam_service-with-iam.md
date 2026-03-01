@@ -1,9 +1,7 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# How Amazon Timestream for LiveAnalytics works with
-
-IAM
+# How Amazon Timestream for LiveAnalytics works with IAM
 
 Before you use IAM to manage access to Timestream for LiveAnalytics, you should understand what
 IAM features are available to use with Timestream for LiveAnalytics. To get a high-level view of how
@@ -12,18 +10,12 @@ Work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-wi
 
 ###### Topics
 
-- [Timestream for LiveAnalytics
-  identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
-- [Timestream for LiveAnalytics
-  resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
-- [Authorization based on
-  Timestream for LiveAnalytics tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
-- [Timestream for LiveAnalytics IAM
-  roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
+- [Timestream for LiveAnalytics identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
+- [Timestream for LiveAnalytics resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
+- [Authorization based on Timestream for LiveAnalytics tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
+- [Timestream for LiveAnalytics IAM roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
 
-## Timestream for LiveAnalytics
-
-identity-based policies
+## Timestream for LiveAnalytics identity-based policies
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources as well as the conditions under which actions are allowed or denied.
@@ -163,19 +155,14 @@ _IAM User Guide_.
 
 ### Examples
 
-To view examples of Timestream for LiveAnalytics identity-based policies, see [Amazon Timestream for LiveAnalytics identity-based
-policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Timestream for LiveAnalytics identity-based policies, see [Amazon Timestream for LiveAnalytics identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Timestream for LiveAnalytics
-
-resource-based policies
+## Timestream for LiveAnalytics resource-based policies
 
 Timestream for LiveAnalytics does not support resource-based policies. To view an example of a
 detailed resource-based policy page, see [https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html](../../../lambda/latest/dg/access-control-resource-based.md "../../../lambda/latest/dg/access-control-resource-based.md").
 
-## Authorization based on
-
-Timestream for LiveAnalytics tags
+## Authorization based on Timestream for LiveAnalytics tags
 
 You can manage access to your Timestream for LiveAnalytics resources by using tags. To manage
 resource access based on tags, you provide tag information in the [condition
@@ -186,27 +173,20 @@ element](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md 
 Timestream for LiveAnalytics resources, see [Adding tags and labels to resources](tagging-keyspaces.md "tagging-keyspaces.md").
 
 To view example identity-based policies for limiting access to a resource based on
-the tags on that resource, see [Timestream for LiveAnalytics resource
-access based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-tags").
+the tags on that resource, see [Timestream for LiveAnalytics resource access based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-tags").
 
-## Timestream for LiveAnalytics IAM
-
-roles
+## Timestream for LiveAnalytics IAM roles
 
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within
 your AWS account that has specific permissions.
 
-### Using temporary
-
-credentials with Timestream for LiveAnalytics
+### Using temporary credentials with Timestream for LiveAnalytics
 
 You can use temporary credentials to sign in with federation, assume an IAM
 role, or to assume a cross-account role. You obtain temporary security credentials by
 calling AWS STS API operations such as [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") or [GetFederationToken](../../../STS/latest/APIReference/API_GetFederationToken.md "../../../STS/latest/APIReference/API_GetFederationToken.md").
 
-### Service-linked
-
-roles
+### Service-linked roles
 
 Timestream for LiveAnalytics does not support service-linked roles.
 

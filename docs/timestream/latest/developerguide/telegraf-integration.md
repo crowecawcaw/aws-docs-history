@@ -46,9 +46,7 @@ InfluxDB v2 compatibility API:
 
 ```
 
-### Using the legacy v1 output
-
-plugin
+### Using the legacy v1 output plugin
 
 For existing Telegraf configurations using the v1 plugin:
 
@@ -68,9 +66,7 @@ For existing Telegraf configurations using the v1 plugin:
 
 ```
 
-## Basic Telegraf configuration
-
-Example
+## Basic Telegraf configuration Example
 
 The following is a complete example that collects system metrics and writes them to
 InfluxDB 3:
@@ -116,9 +112,7 @@ InfluxDB 3:
 
 ```
 
-## Best practices for Telegraf with
-
-InfluxDB 3
+## Best practices for Telegraf with InfluxDB 3
 
 - **Security**
   - Store tokens in environment variables or secret stores.
@@ -162,9 +156,7 @@ sudo systemctl start telegraf
 
 ```
 
-### Common Telegraf plugins for time
-
-series data
+### Common Telegraf plugins for time series data
 
 **Popular input plugins:**
 

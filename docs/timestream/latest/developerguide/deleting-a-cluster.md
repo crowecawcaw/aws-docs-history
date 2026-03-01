@@ -11,9 +11,7 @@ additional charges. 
 Deletion permanently removes all data, so ensure you have exported any critical data before
 proceeding.
 
-## Delete a cluster using the
-
-AWS Management Console
+## Delete a cluster using the AWS Management Console
 
 1. Sign in to the AWS Management Console and open the Amazon Timestream for InfluxDB console.
 2. In the navigation pane, choose **InfluxDB Databases**.

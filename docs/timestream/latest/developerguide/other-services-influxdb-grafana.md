@@ -31,9 +31,7 @@ The instructions in this guide require Grafana Cloud or Grafana 10.3+.
 
 SQL is only supported in InfluxDB 3.
 
-### Configure Grafana to use
-
-Flux
+### Configure Grafana to use Flux
 
 With Flux selected as the query language in your InfluxDB data source, configure your InfluxDB connection:
 
@@ -60,16 +58,12 @@ https://`your-timestream-for-influxdb-endpoint`:8086
 ![Settings form for configuring an InfluxDB connection using Flux as the query language.](images/grafana-flux-config.png) 3. Click **Save & test**. Grafana attempts to
 connect to the InfluxDB 2.7 data source and returns the results of the test.
 
-### Configure Grafana to use
-
-InfluxQL
+### Configure Grafana to use InfluxQL
 
 To query InfluxDB 2.7 with InfluxQL, find your use case below and then complete
 the instructions to configure Grafana.
 
-#### New
-
-install of InfluxDB 2.7:
+#### New install of InfluxDB 2.7:
 
 To configure Grafana to use InfluxQL with a new install of InfluxDB 2.7, do
 the following:
@@ -79,9 +73,7 @@ the following:
 2. Manually create [DBRP
    mappings](https://docs.influxdata.com/influxdb/v2/tools/grafana/?t=InfluxQL#view-and-create-influxdb-dbrp-mappings "https://docs.influxdata.com/influxdb/v2/tools/grafana/?t=InfluxQL#view-and-create-influxdb-dbrp-mappings").
 
-#### Manual
-
-migration from InfluxDB 1.x to 2.7:
+#### Manual migration from InfluxDB 1.x to 2.7:
 
 To configure Grafana to use InfluxQL when you have manually migrated from
 InfluxDB 1.x to InfluxDB 2.7, do the following:
@@ -128,9 +120,7 @@ y0uR5uP3rSecr3tT0k3n`.
 ![Settings form for configuring an InfluxDB connection using InfluxQL as the query language.](images/grafana-influxql-config.png) 4. Click **Save & test**. Grafana attempts to
 connect to the InfluxDB 2.7 data source and returns the results of the test.
 
-### Query and
-
-visualize data
+### Query and visualize data
 
 After configuring your InfluxDB connection, you can use Grafana and Flux to query and
 visualize time series data stored in your InfluxDB instance.

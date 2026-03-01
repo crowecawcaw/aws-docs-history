@@ -21,9 +21,7 @@ InfluxDB 3 supports the following query methods:
 The v3 API provides dedicated endpoints for SQL and InfluxQL queries with support for both
 GET and POST methods.
 
-#### SQL queries
-
-(`/api/v3/query_sql`)
+#### SQL queries (`/api/v3/query_sql`)
 
 GET request example:
 
@@ -48,9 +46,7 @@ curl "https://your-cluster-endpoint:8086/api/v3/query_sql" \
 
 ```
 
-#### InfluxQL queries
-
-(`/api/v3/query_influxql`)
+#### InfluxQL queries (`/api/v3/query_influxql`)
 
 For InfluxQL queries do the following:
 

@@ -1,9 +1,7 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Working with Multi-AZ read
-
-replica clusters for Amazon Timestream for InfluxDB
+# Working with Multi-AZ read replica clusters for Amazon Timestream for InfluxDB
 
 A read replica cluster deployment is an asynchronous deployment mode of Amazon Timestream for InfluxDB that allows you to configure read replicas attached to a primary DB instance. A read replica cluster has a writer DB instance and a reader DB instance in separate Availability Zones within the same AWS Region. Read replica clusters provide high availability and increased capacity for read workloads when compared to Multi-AZ DB instance deployments.
 
@@ -41,9 +39,7 @@ The following diagram shows a primary DB instance replicating to a read replica 
 
 ![A primary DB instance in Avaiability Zone A asynchronously replicates to a read replica instance in Availability Zone C.](images/kronos/rr_azs_diagram.png)
 
-## Parameter groups for read replica
-
-clusters
+## Parameter groups for read replica clusters
 
 In a read replica cluster, a _DB parameter group_ acts as a
 container for engine configuration values that are applied to every DB instance in the
@@ -53,9 +49,7 @@ When passing a specific DB parameter group using [CreateDbCluster](../../../ts-i
 for Multi-AZ DB read replica, ensure the `storage-wal-max-write-delay` is set to a
 duration of 1 hour minimum. If no DB parameter group is specified, `storage-wal-max-write-delay` will default to 1 hour.
 
-## Replica lag in read replica
-
-clusters
+## Replica lag in read replica clusters
 
 Although Timestream for InfluxDB read replica clusters allow for high write performance, replica lag can
 still occur due to the nature of engine-based asynchronous replication. This lag can
@@ -83,8 +77,7 @@ In general, replica lag occurs when the write and read workloads are too high fo
   can sometimes cause a temporary increase in replica lag because the database must preserve commit order.
 
 For a tutorial that shows you how to create a CloudWatch alarm when replica lag exceeds
-a set amount of time, see [Tutorial: Create an Amazon CloudWatch
-alarm for Multi-AZ cluster replica lag for Amazon Timestream for InfluxDB](timestream-for-influx-creating-cw-alarms.md#timestream-for-influx-tutorial-alarm "timestream-for-influx-creating-cw-alarms.md#timestream-for-influx-tutorial-alarm").
+a set amount of time, see [Tutorial: Create an Amazon CloudWatch alarm for Multi-AZ cluster replica lag for Amazon Timestream for InfluxDB](timestream-for-influx-creating-cw-alarms.md#timestream-for-influx-tutorial-alarm "timestream-for-influx-creating-cw-alarms.md#timestream-for-influx-tutorial-alarm").
 
 ### Mitigating replica lag
 
@@ -96,8 +89,7 @@ Read replica clusters can be configured to either automatically fail over to one
 the reader instances in case of writer failure to prioritize write availability or to
 avoid failing over to minimize tip data loss. Tip data refers to the replication gap of
 data not yet replicated to at least one of the reader nodes (see
-[Replica lag in read replica
-clusters](#timestream-for-influx-replica-lag "#timestream-for-influx-replica-lag")). The default and recommended behavior for read replica clusters is to automatically fail over in case of writer failures. However, if tip data loss is more important than write availability for your use cases, you can override the default by updating the cluster.
+[Replica lag in read replica clusters](#timestream-for-influx-replica-lag "#timestream-for-influx-replica-lag")). The default and recommended behavior for read replica clusters is to automatically fail over in case of writer failures. However, if tip data loss is more important than write availability for your use cases, you can override the default by updating the cluster.
 
 Read replica clusters ensure that all DB instances of the cluster are distributed
 across at least two Availability Zones to ensure increased write availability and data durability in case of an Availability Zone outage.
@@ -105,13 +97,9 @@ across at least two Availability Zones to ensure increased write availability an
 ###### Topics
 
 - [Overview of Amazon Timestream for InfluxDB read replica clusters](timestream-for-influx-read-replica-overview.md "timestream-for-influx-read-replica-overview.md")
-- [Creating a Timestream for InfluxDB read replica
-  cluster](timestream-for-influx-create-rr-cluster.md "timestream-for-influx-create-rr-cluster.md")
-- [Connecting to a Timestream for InfluxDB read
-  replica DB cluster](timestream-for-influx-connecting-cluster.md "timestream-for-influx-connecting-cluster.md")
-- [Modifying a read replica cluster
-  for Amazon Timestream for InfluxDB](timestream-for-influx-modifying-rr-cluster.md "timestream-for-influx-modifying-rr-cluster.md")
-- [Rebooting a read replica cluster
-  in Amazon Timestream for InfluxDB](timestream-for-influx-rebooting-rr-cluster.md "timestream-for-influx-rebooting-rr-cluster.md")
+- [Creating a Timestream for InfluxDB read replica cluster](timestream-for-influx-create-rr-cluster.md "timestream-for-influx-create-rr-cluster.md")
+- [Connecting to a Timestream for InfluxDB read replica DB cluster](timestream-for-influx-connecting-cluster.md "timestream-for-influx-connecting-cluster.md")
+- [Modifying a read replica cluster for Amazon Timestream for InfluxDB](timestream-for-influx-modifying-rr-cluster.md "timestream-for-influx-modifying-rr-cluster.md")
+- [Rebooting a read replica cluster in Amazon Timestream for InfluxDB](timestream-for-influx-rebooting-rr-cluster.md "timestream-for-influx-rebooting-rr-cluster.md")
 - [Creating CloudWatch alarms to monitor Amazon Timestream for InfluxDB](timestream-for-influx-creating-cw-alarms.md "timestream-for-influx-creating-cw-alarms.md")
 - [Read replica licensing through AWS Marketplace](timestream-for-influx-rr-licensing.md "timestream-for-influx-rr-licensing.md")

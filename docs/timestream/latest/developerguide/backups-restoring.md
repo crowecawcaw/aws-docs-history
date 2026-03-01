@@ -8,8 +8,7 @@ This section describes how to restore a backup of an Amazon Timestream table.
 ###### Topics
 
 - [Restoring a Timestream for LiveAnalytics table from AWS Backup](#backups-restoring-from "#backups-restoring-from")
-- [Restoring a Timestream for LiveAnalytics table to another Region or
-  account](#backups-restoring-to "#backups-restoring-to")
+- [Restoring a Timestream for LiveAnalytics table to another Region or account](#backups-restoring-to "#backups-restoring-to")
 
 ## Restoring a Timestream for LiveAnalytics table from AWS Backup
 
@@ -36,9 +35,7 @@ You are charged for restoring the entire backup irrespective of the configured m
 magnetic store retention periods. However, once the restore is completed, your restored table
 will only contain the data within the configured retention periods.
 
-## Restoring a Timestream for LiveAnalytics table to another Region or
-
-account
+## Restoring a Timestream for LiveAnalytics table to another Region or account
 
 To restore a Timestream for LiveAnalytics table to another Region or account, you will first need to copy the backup
 to that new Region or account. In order to copy to another account, that account must first

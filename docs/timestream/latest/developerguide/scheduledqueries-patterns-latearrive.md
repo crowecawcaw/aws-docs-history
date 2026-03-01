@@ -1,9 +1,7 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Handling late-arriving
-
-data
+# Handling late-arriving data
 
 You may have scenarios where you can have data that arrives significantly late,
 for example, the time when the data was ingested into Timestream for LiveAnalytics is significantly delayed compared
@@ -12,8 +10,7 @@ you have seen how you can use the time ranges defined by the @scheduled_runtime
 parameter to account for some late arriving data. However, if you have use cases
 where data can be delayed by hours or days, you may need a different pattern to make
 sure your pre-computations in the derived table are appropriately updated to reflect
-such late-arriving data. For general information about late-arriving data, see [Writing data (inserts and
-upserts)](writes.md#writes.writing-data-inserts-upserts "writes.md#writes.writing-data-inserts-upserts").
+such late-arriving data. For general information about late-arriving data, see [Writing data (inserts and upserts)](writes.md#writes.writing-data-inserts-upserts "writes.md#writes.writing-data-inserts-upserts").
 
 In the following you will see two different ways to address this late arriving
 data.
@@ -29,18 +26,12 @@ data.
 
 ###### Topics
 
-- [Scheduled
-  catch-up queries](#scheduledqueries-patterns-latearrive-schedcatchup "#scheduledqueries-patterns-latearrive-schedcatchup")
-- [Manual executions
-  for unpredictable late arriving data](#scheduledqueries-patterns-latearrive-manual "#scheduledqueries-patterns-latearrive-manual")
+- [Scheduled catch-up queries](#scheduledqueries-patterns-latearrive-schedcatchup "#scheduledqueries-patterns-latearrive-schedcatchup")
+- [Manual executions for unpredictable late arriving data](#scheduledqueries-patterns-latearrive-manual "#scheduledqueries-patterns-latearrive-manual")
 
-## Scheduled
+## Scheduled catch-up queries
 
-catch-up queries
-
-### Query
-
-aggregating data that arrived in time
+### Query aggregating data that arrived in time
 
 Below is a pattern you will see how you can use an automated way to update
 your aggregates if you have predictable delays in your data arrival.
@@ -241,9 +232,7 @@ reflects the late arriving data sooner. Similarly, you can adapt the time
 range to be older than 12 hours, e.g., a day or even a week or more, to
 handle predictable late-arriving data.
 
-## Manual executions
-
-for unpredictable late arriving data
+## Manual executions for unpredictable late arriving data
 
 There can be instances where you have unpredictable late arriving data or you
 made changes to the source data and updated some values after the fact. In all

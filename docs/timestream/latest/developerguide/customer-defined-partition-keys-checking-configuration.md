@@ -1,17 +1,13 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Checking
-
-partitioning schema configuration
+# Checking partitioning schema configuration
 
 You can check how a table configuration for partitioning schema in a couple of ways.
 From the console, choose **Databases** and choose the table to check.
 You can also use an SDK to access the `DescribeTable` action.
 
-## Describe a
-
-table with a partition key
+## Describe a table with a partition key
 
 You can use the following code snippets to describe a table with a partition
 key.

@@ -8,12 +8,9 @@ console, query language, or the AWS Command Line Interface (AWS CLI).
 
 ###### Topics
 
-- [Adding tags to new or existing databases and
-  tables using the console](#Tagging.Operations.using-console "#Tagging.Operations.using-console")
+- [Adding tags to new or existing databases and tables using the console](#Tagging.Operations.using-console "#Tagging.Operations.using-console")
 
-## Adding tags to new or existing databases and
-
-tables using the console
+## Adding tags to new or existing databases and tables using the console
 
 You can use the Timestream for LiveAnalytics console to add tags to new databases, tables and scheduled queries when you create
 them. You can also add, edit, or delete tags for existing tables.

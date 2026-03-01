@@ -8,17 +8,12 @@ CSV at [sample CSV](samples/batch-load-sample-file.csv.md "samples/batch-load-sa
 
 ###### Topics
 
-- [Access batch
-  load](#console_timestream.access-batch-load.using-console "#console_timestream.access-batch-load.using-console")
-- [Create a batch
-  load task](#console_timestream.create-batch-load.using-console "#console_timestream.create-batch-load.using-console")
-- [Resume a batch
-  load task](#console_timestream.resume-batch-load.using-console "#console_timestream.resume-batch-load.using-console")
+- [Access batch load](#console_timestream.access-batch-load.using-console "#console_timestream.access-batch-load.using-console")
+- [Create a batch load task](#console_timestream.create-batch-load.using-console "#console_timestream.create-batch-load.using-console")
+- [Resume a batch load task](#console_timestream.resume-batch-load.using-console "#console_timestream.resume-batch-load.using-console")
 - [Using the visual builder](#batch-load-using-visual-builder "#batch-load-using-visual-builder")
 
-## Access batch
-
-load
+## Access batch load
 
 Follow these steps to access batch load using the AWS Management Console.
 
@@ -29,9 +24,7 @@ Follow these steps to access batch load using the AWS Management Console.
 3. From here, you can view the list of batch load tasks and drill into a
    given task for more details. You can also create and resume tasks.
 
-## Create a batch
-
-load task
+## Create a batch load task
 
 Follow these steps to create a batch load task using the AWS Management Console.
 
@@ -61,8 +54,7 @@ Follow these steps to create a batch load task using the AWS Management Console.
     **CSV format parameters**, and select parameters to
     parse input data. For information about these parameters, see [CSV format parameters](batch-load-preparing-data-file.md#batch-load-data-file-options "batch-load-preparing-data-file.md#batch-load-data-file-options").
 7.  From **Configure data model mapping**, configure the data
-    model. For additional data model guidance, see [Data model mappings for batch
-    load](batch-load-data-model-mappings.md "batch-load-data-model-mappings.md")
+    model. For additional data model guidance, see [Data model mappings for batch load](batch-load-data-model-mappings.md "batch-load-data-model-mappings.md")
     - From **Data model mapping**, choose
       **Mapping configuration input**, and choose one
       of the following.
@@ -107,9 +99,7 @@ You can't change batch load task settings after the task has been
 created. Task completion times will vary based on the amount of data
 being imported. 12. Choose **Create batch load task**.
 
-## Resume a batch
-
-load task
+## Resume a batch load task
 
 When you select a batch load task with a status of "Progress stopped" which is
 still resumable, you are prompted to resume the task. There is also a banner with a
@@ -145,8 +135,7 @@ specify one bucket only. When there are no existing mappings, you can choose
    **Timestream attribute type**, and **Data
    type** for each source column.
 
-For details about these columns and possible values, see [Mapping
-fields](#batch-load-using-visual-builder-mapping-fields "#batch-load-using-visual-builder-mapping-fields"). 4. Use the drag-to-fill feature to set the value for multiple columns at
+For details about these columns and possible values, see [Mapping fields](#batch-load-using-visual-builder-mapping-fields "#batch-load-using-visual-builder-mapping-fields"). 4. Use the drag-to-fill feature to set the value for multiple columns at
 once.
 
 ### Manually add source columns
@@ -156,9 +145,7 @@ delete column mappings from the visual editor with the **Add column
 mapping** and **Delete column mapping** buttons.
 There is also a button to reset mappings.
 
-### Mapping
-
-fields
+### Mapping fields
 
 - **Source column name** – The name of a column
   in the source file that represents a measure to import. Timestream for LiveAnalytics can populate

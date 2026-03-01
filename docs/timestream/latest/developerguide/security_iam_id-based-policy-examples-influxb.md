@@ -18,10 +18,8 @@ resources, and condition Keys for Amazon Timestream for InfluxDB](../../../servi
 
 - [Policy best practices](#security_iam_service-with-iam-policy-best-practices-influxb "#security_iam_service-with-iam-policy-best-practices-influxb")
 - [Using the Timestream for InfluxDB console](#security_iam_id-based-policy-examples-console-influxb "#security_iam_id-based-policy-examples-console-influxb")
-- [Allow users to view their own
-  permissions](#security_iam_id-based-policy-examples-view-own-permissions-influxb "#security_iam_id-based-policy-examples-view-own-permissions-influxb")
-- [Accessing one
-  Amazon S3 bucket](#security_iam_id-based-policy-examples-access-one-bucket "#security_iam_id-based-policy-examples-access-one-bucket")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions-influxb "#security_iam_id-based-policy-examples-view-own-permissions-influxb")
+- [Accessing one Amazon S3 bucket](#security_iam_id-based-policy-examples-access-one-bucket "#security_iam_id-based-policy-examples-access-one-bucket")
 - [Allowing all operations](#security_iam_id-based-policy-examples-common-operations.all-influxdb "#security_iam_id-based-policy-examples-common-operations.all-influxdb")
 - [Create, describe, delete and update a DB instance](#security_iam_id-based-policy-examples-common-operations.cddd-influxdb "#security_iam_id-based-policy-examples-common-operations.cddd-influxdb")
 
@@ -75,9 +73,7 @@ To ensure that users and roles can still use the Timestream for InfluxDB console
 [Adding permissions
 to a user](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
 
-## Allow users to view their own
-
-permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -117,9 +113,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Accessing one
-
-Amazon S3 bucket
+## Accessing one Amazon S3 bucket
 
 In this example, you want to grant an IAM user in your AWS account access to one
 of your Amazon S3 buckets, `amzn-s3-demo-bucket`. You also want to allow the user to

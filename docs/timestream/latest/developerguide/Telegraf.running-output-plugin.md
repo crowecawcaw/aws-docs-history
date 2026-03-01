@@ -1,9 +1,7 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Running Telegraf with the Timestream for LiveAnalytics output
-
-plugin
+# Running Telegraf with the Timestream for LiveAnalytics output plugin
 
 You can follow the instructions below to run Telegraf with the Timestream for LiveAnalytics plugin.
 

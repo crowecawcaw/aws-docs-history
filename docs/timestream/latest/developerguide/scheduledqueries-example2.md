@@ -1,9 +1,7 @@
 For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
 data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
 
-# Using scheduled queries and raw data for drill
-
-downs
+# Using scheduled queries and raw data for drill downs
 
 You can use the aggregated statistics across your fleet to identify areas that
 need drill downs and then use the raw data to drill down into granular data to get

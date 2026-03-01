@@ -34,6 +34,5 @@ responsibility model](https://aws.amazon.com/compliance/shared-responsibility-mo
 - [Infrastructure security in Amazon Timestream for InfluxDB](infrastructure-security-influxdb.md "infrastructure-security-influxdb.md")
 - [Configuration and vulnerability analysis in Timestream for InfluxDB](ConfigAndVulnerability-timestream-for-influxdb.md "ConfigAndVulnerability-timestream-for-influxdb.md")
 - [Incident response in Timestream for InfluxDB](IncidentResponse-timestream-for-influxdb.md "IncidentResponse-timestream-for-influxdb.md")
-- [Amazon Timestream for InfluxDB API and interface VPC endpoints
-  (AWS PrivateLink)](timestream-influxb-privatelink.md "timestream-influxb-privatelink.md")
+- [Amazon Timestream for InfluxDB API and interface VPC endpoints (AWS PrivateLink)](timestream-influxb-privatelink.md "timestream-influxb-privatelink.md")
 - [Security best practices for Timestream for InfluxDB](security-best-practices.md "security-best-practices.md")

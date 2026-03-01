@@ -62,9 +62,7 @@ Enterprise adds the following features to Core:
 - **Integrated admin UI** (coming soon) - Note: Currently, you can
   use the InfluxDB Explorer downloaded from [https://docs.influxdata.com/influxdb3/explorer/](https://docs.influxdata.com/influxdb3/explorer/ "https://docs.influxdata.com/influxdb3/explorer/").
 
-## Choosing between Core and
-
-Enterprise
+## Choosing between Core and Enterprise
 
 Choose Core when:
 

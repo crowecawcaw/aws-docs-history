@@ -9,11 +9,6 @@ Parameter Details| **Default** | `20%` of system memory |
 
 **Detailed Explanation:**
 
-Defines the maximum amount of memory that the query execution engine (DataFusion) can use for processing queries. This includes memory for sorting, aggregation, joins, and intermediate result sets. This is one of the most critical memory parameters. When specified as a percentage, it is calculated against the total instance memory.
+Defines the maximum amount of memory that the query execution engine (DataFusion) can use for processing queries. This includes memory for sorting, aggregation, joins, and intermediate result sets.
 
-**Impact:**
-
-- **Too low:** Queries that require significant memory (large aggregations, sorts, joins) will fail or spill to disk, dramatically increasing latency. Concurrent queries compete for a small pool.
-- **Too high:** Leaves insufficient memory for the Parquet cache, WAL buffers, OS page cache, and system processes, potentially causing OOM kills.
-- **Optimal:** `20%` of total instance memory (the code default). If you are running query/reader-only nodes, you can set this up to 70%.
-  **Recommendation:** Keep at `20%` (default) for all instance sizes.
+**Recommendation:** Keep at `20%` (default) for all instance sizes. For query/reader-only nodes, you can increase up to 70%.

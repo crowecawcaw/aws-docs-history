@@ -5,18 +5,14 @@ data ingestion and single-digit millisecond query response times for real-time a
 
 Parameter Details| **Default** | 20 minutes |
 | **Allowed Values** | Duration |
-| **Category** | Compaction (Enterprise only) |
-| **Customer Configurable** | No<br>• not accessible to customers at this time |
+| **Category** | Compaction |
 
 ###### Note
 
-**Not Currently Accessible:** This parameter is not accessible to customers at this time. It is managed by the service with a default value of 20 minutes.
+**IMMUTABLE AFTER INITIAL SETUP:** This parameter is persisted in the catalog. Changing it after the cluster's first start causes silent data divergence. Set this at cluster creation time only. When cloning parameter groups, this value must be copied unchanged.
 
 **Detailed Explanation:**
 
-Defines the time span that each generation 2 (Gen2) compacted file should cover. InfluxDB 3 uses a tiered compaction strategy:
+Defines the time span that each Gen2 compacted file should cover. InfluxDB 3 uses a tiered compaction strategy: Gen0 (raw WAL snapshots), Gen1 (controlled by `gen1-duration`), Gen2 (this parameter), Gen3+ (controlled by `compaction-multipliers`).
 
-- **Gen0:** Raw WAL snapshots (very small, covering seconds to minutes)
-- **Gen1:** First-level compaction (controlled by `gen1-duration`, default 10 minutes)
-- **Gen2:** Second-level compaction (controlled by this parameter, default 20 minutes)
-- **Gen3+:** Higher-level compaction (controlled by `compaction-multipliers`)
+**Recommendation:** 20 minutes (default) for real-time monitoring. 1 hour for operational dashboards. 2–4 hours for analytical/batch queries.
