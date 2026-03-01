@@ -64,9 +64,7 @@ Discovery](../../../AmazonECS/latest/developerguide/service-discovery.md "../../
 Discovery](../../../AmazonECS/latest/developerguide/create-service-discovery.md "../../../AmazonECS/latest/developerguide/create-service-discovery.md"). If you don't already have services running, you can [Create an Amazon ECS service with service
 discovery](../../../AmazonECS/latest/developerguide/create-service-discovery.md "../../../AmazonECS/latest/developerguide/create-service-discovery.md").
 
-## Step 1: Create a mesh and virtual
-
-service
+## Step 1: Create a mesh and virtual service
 
 A service mesh is a logical boundary for network traffic between the services that reside
 within it. For more information, see [Service Meshes](meshes.md "meshes.md"). A
@@ -172,9 +170,7 @@ AWS CLI
 `aws appmesh create-virtual-node --cli-input-json file://create-virtual-node-serviceb.json`
 ```
 
-## Step 3: Create a virtual router and
-
-route
+## Step 3: Create a virtual router and route
 
 Virtual routers route traffic for one or more virtual services within your mesh. For more
 information, see [Virtual routers](virtual_routers.md "virtual_routers.md") and [Routes](routes.md "routes.md").
@@ -326,9 +322,7 @@ Review the settings of the route that you created with the [describe-route](../.
  --virtual-router-name serviceB --route-name serviceB`
 ```
 
-## Step 5: Create additional
-
-resources
+## Step 5: Create additional resources
 
 To complete the scenario, you need to:
 
@@ -749,13 +743,13 @@ Regions can replace `Region-code` with any Region other than
 Standard
 
 ```
-840364872350.dkr.ecr.`region-code`.amazonaws.com/aws-appmesh-envoy:v1.34.12.0-prod
+840364872350.dkr.ecr.`region-code`.amazonaws.com/aws-appmesh-envoy:v1.34.12.1-prod
 ```
 
 FIPS-compliant
 
 ```
-840364872350.dkr.ecr.`region-code`.amazonaws.com/aws-appmesh-envoy:v1.34.12.0-prod-fips
+840364872350.dkr.ecr.`region-code`.amazonaws.com/aws-appmesh-envoy:v1.34.12.1-prod-fips
 ```
 
 `me-south-1`
@@ -763,7 +757,7 @@ FIPS-compliant
 Standard
 
 ```
-772975370895.dkr.ecr.me-south-1.amazonaws.com/aws-appmesh-envoy:v1.34.12.0-prod
+772975370895.dkr.ecr.me-south-1.amazonaws.com/aws-appmesh-envoy:v1.34.12.1-prod
 ```
 
 `ap-east-1`
@@ -771,7 +765,7 @@ Standard
 Standard
 
 ```
-856666278305.dkr.ecr.ap-east-1.amazonaws.com/aws-appmesh-envoy:v1.34.12.0-prod
+856666278305.dkr.ecr.ap-east-1.amazonaws.com/aws-appmesh-envoy:v1.34.12.1-prod
 ```
 
 `ap-southeast-3`
@@ -779,7 +773,7 @@ Standard
 Standard
 
 ```
-909464085924.dkr.ecr.ap-southeast-3.amazonaws.com/aws-appmesh-envoy:v1.34.12.0-prod
+909464085924.dkr.ecr.ap-southeast-3.amazonaws.com/aws-appmesh-envoy:v1.34.12.1-prod
 ```
 
 `eu-south-1`
@@ -787,7 +781,7 @@ Standard
 Standard
 
 ```
-422531588944.dkr.ecr.eu-south-1.amazonaws.com/aws-appmesh-envoy:v1.34.12.0-prod
+422531588944.dkr.ecr.eu-south-1.amazonaws.com/aws-appmesh-envoy:v1.34.12.1-prod
 ```
 
 `il-central-1`
@@ -795,7 +789,7 @@ Standard
 Standard
 
 ```
-564877687649.dkr.ecr.il-central-1.amazonaws.com/aws-appmesh-envoy:v1.34.12.0-prod
+564877687649.dkr.ecr.il-central-1.amazonaws.com/aws-appmesh-envoy:v1.34.12.1-prod
 ```
 
 `af-south-1`
@@ -803,7 +797,7 @@ Standard
 Standard
 
 ```
-924023996002.dkr.ecr.af-south-1.amazonaws.com/aws-appmesh-envoy:v1.34.12.0-prod
+924023996002.dkr.ecr.af-south-1.amazonaws.com/aws-appmesh-envoy:v1.34.12.1-prod
 ```
 
 `Public repository`
@@ -811,13 +805,13 @@ Standard
 Standard
 
 ```
-public.ecr.aws/appmesh/aws-appmesh-envoy:v1.34.12.0-prod
+public.ecr.aws/appmesh/aws-appmesh-envoy:v1.34.12.1-prod
 ```
 
 FIPS-compliant
 
 ```
-public.ecr.aws/appmesh/aws-appmesh-envoy:v1.34.12.0-prod-fips
+public.ecr.aws/appmesh/aws-appmesh-envoy:v1.34.12.1-prod-fips
 ```
 
 ###### Important
@@ -857,7 +851,7 @@ also required, but some are `replaceable`.
 ```
 {
 	"name": "envoy",
-	"image": "`840364872350`.dkr.ecr.`us-west-2`.amazonaws.com/aws-appmesh-envoy:v1.34.12.0-prod",
+	"image": "`840364872350`.dkr.ecr.`us-west-2`.amazonaws.com/aws-appmesh-envoy:v1.34.12.1-prod",
 	"essential": true,
 	"environment": [{
 		"name": "APPMESH_RESOURCE_ARN",
@@ -959,7 +953,7 @@ Fargate must use a port value greater than 1024.
       },
       {
          "name" : "envoy",
-         "image" : "`840364872350`.dkr.ecr.`us-west-2`.amazonaws.com/aws-appmesh-envoy:v1.34.12.0-prod",
+         "image" : "`840364872350`.dkr.ecr.`us-west-2`.amazonaws.com/aws-appmesh-envoy:v1.34.12.1-prod",
          "essential" : true,
          "environment" : [
             {
@@ -1057,7 +1051,7 @@ integration.
       {
 
          "name" : "envoy",
-         "image" : "`840364872350`.dkr.ecr.`us-west-2`.amazonaws.com/aws-appmesh-envoy:v1.34.12.0-prod",
+         "image" : "`840364872350`.dkr.ecr.`us-west-2`.amazonaws.com/aws-appmesh-envoy:v1.34.12.1-prod",
          "essential" : true,
          "environment" : [
             {
@@ -1161,7 +1155,7 @@ integration.
     },
     {
       "name": "envoy",
-      "image": "`840364872350`.dkr.ecr.`us-west-2`.amazonaws.com/aws-appmesh-envoy:v1.34.12.0-prod",
+      "image": "`840364872350`.dkr.ecr.`us-west-2`.amazonaws.com/aws-appmesh-envoy:v1.34.12.1-prod",
       "essential": true,
       "environment": [
         {
@@ -1247,7 +1241,7 @@ integration.
     },
     {
       "name": "envoy",
-      "image": "`840364872350`.dkr.ecr.`us-west-2`.amazonaws.com/aws-appmesh-envoy:v1.34.12.0-prod",
+      "image": "`840364872350`.dkr.ecr.`us-west-2`.amazonaws.com/aws-appmesh-envoy:v1.34.12.1-prod",
       "essential": true,
       "environment": [
         {

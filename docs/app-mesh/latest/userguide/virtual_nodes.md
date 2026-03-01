@@ -157,8 +157,7 @@ preference set for the mesh on this specific node.
     	 `IPv6` addresses.
     [Show moreShow less](# "#")
 
-8. ###### (Optional) **Client policy defaults** – Configure
-   default requirements when communicating to backend virtual services.
+8. ###### (Optional) **Client policy defaults** – Configure default requirements when communicating to backend virtual services.
 
 ###### Note
 
@@ -230,8 +229,7 @@ preference set for the mesh on this specific node.
     	 file, as well as the **Private key**, on the file
     	 system where Envoy is deployed.
 
-[Show moreShow less](# "#") 9. ###### (Optional) **Service backends** – Specify the App Mesh
-virtual service that the virtual node will communicate with.
+[Show moreShow less](# "#") 9. ###### (Optional) **Service backends** – Specify the App Mesh virtual service that the virtual node will communicate with.
 
     * Enter an App Mesh virtual service name or full Amazon Resource Name (ARN) for the virtual
      service that your virtual node communicates with.
@@ -388,8 +386,7 @@ Listeners support `HTTP`,`HTTP/2`, `GRPC`, and
     	 percentage of hosts in the load balancing pool that can be
     	 ejected.
     [Show moreShow less](# "#")
-    4. ###### (Optional) **Enable health check** –
-     Configure settings for a health check policy.
+    4. ###### (Optional) **Enable health check** – Configure settings for a health check policy.
 
 
     A health check policy is optional, but if you specify any values for
@@ -423,9 +420,7 @@ Listeners support `HTTP`,`HTTP/2`, `GRPC`, and
     	 of consecutive failed health checks that must occur before
     	 declaring the listener unhealthy.
     [Show moreShow less](# "#")
-    5. ###### (Optional) **Enable TLS termination** –
-     Configure how other virtual nodes communicate with this virtual node
-     using TLS.
+    5. ###### (Optional) **Enable TLS termination** – Configure how other virtual nodes communicate with this virtual node using TLS.
 
 
 

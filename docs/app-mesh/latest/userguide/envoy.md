@@ -50,13 +50,13 @@ Regions can replace `Region-code` with any Region other than
 Standard
 
 ```
-840364872350.dkr.ecr.`region-code`.amazonaws.com/aws-appmesh-envoy:v1.34.12.0-prod
+840364872350.dkr.ecr.`region-code`.amazonaws.com/aws-appmesh-envoy:v1.34.12.1-prod
 ```
 
 FIPS-compliant
 
 ```
-840364872350.dkr.ecr.`region-code`.amazonaws.com/aws-appmesh-envoy:v1.34.12.0-prod-fips
+840364872350.dkr.ecr.`region-code`.amazonaws.com/aws-appmesh-envoy:v1.34.12.1-prod-fips
 ```
 
 `me-south-1`
@@ -64,7 +64,7 @@ FIPS-compliant
 Standard
 
 ```
-772975370895.dkr.ecr.me-south-1.amazonaws.com/aws-appmesh-envoy:v1.34.12.0-prod
+772975370895.dkr.ecr.me-south-1.amazonaws.com/aws-appmesh-envoy:v1.34.12.1-prod
 ```
 
 `ap-east-1`
@@ -72,7 +72,7 @@ Standard
 Standard
 
 ```
-856666278305.dkr.ecr.ap-east-1.amazonaws.com/aws-appmesh-envoy:v1.34.12.0-prod
+856666278305.dkr.ecr.ap-east-1.amazonaws.com/aws-appmesh-envoy:v1.34.12.1-prod
 ```
 
 `ap-southeast-3`
@@ -80,7 +80,7 @@ Standard
 Standard
 
 ```
-909464085924.dkr.ecr.ap-southeast-3.amazonaws.com/aws-appmesh-envoy:v1.34.12.0-prod
+909464085924.dkr.ecr.ap-southeast-3.amazonaws.com/aws-appmesh-envoy:v1.34.12.1-prod
 ```
 
 `eu-south-1`
@@ -88,7 +88,7 @@ Standard
 Standard
 
 ```
-422531588944.dkr.ecr.eu-south-1.amazonaws.com/aws-appmesh-envoy:v1.34.12.0-prod
+422531588944.dkr.ecr.eu-south-1.amazonaws.com/aws-appmesh-envoy:v1.34.12.1-prod
 ```
 
 `il-central-1`
@@ -96,7 +96,7 @@ Standard
 Standard
 
 ```
-564877687649.dkr.ecr.il-central-1.amazonaws.com/aws-appmesh-envoy:v1.34.12.0-prod
+564877687649.dkr.ecr.il-central-1.amazonaws.com/aws-appmesh-envoy:v1.34.12.1-prod
 ```
 
 `af-south-1`
@@ -104,7 +104,7 @@ Standard
 Standard
 
 ```
-924023996002.dkr.ecr.af-south-1.amazonaws.com/aws-appmesh-envoy:v1.34.12.0-prod
+924023996002.dkr.ecr.af-south-1.amazonaws.com/aws-appmesh-envoy:v1.34.12.1-prod
 ```
 
 `Public repository`
@@ -112,13 +112,13 @@ Standard
 Standard
 
 ```
-public.ecr.aws/appmesh/aws-appmesh-envoy:v1.34.12.0-prod
+public.ecr.aws/appmesh/aws-appmesh-envoy:v1.34.12.1-prod
 ```
 
 FIPS-compliant
 
 ```
-public.ecr.aws/appmesh/aws-appmesh-envoy:v1.34.12.0-prod-fips
+public.ecr.aws/appmesh/aws-appmesh-envoy:v1.34.12.1-prod-fips
 ```
 
 ###### Note

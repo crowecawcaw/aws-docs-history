@@ -28,8 +28,7 @@ allows you to see similar metric names in your Prometheus endpoint.
 | `http.*ingress*.downstream_cx_length_ms`                              | `http.*ingress.http.5555*.downstream_cx_length_ms`<br>`http.*ingress.http.6666*.downstream_cx_length_ms`                                   |
 
 For more information about the stats endpoint, see [Statistics endpoint](https://www.envoyproxy.io/docs/envoy/latest/operations/admin#get--stats "https://www.envoyproxy.io/docs/envoy/latest/operations/admin#get--stats") in the Envoy documentation. For more information
-about the administration interface, see [Enable the Envoy proxy administration
-interface](troubleshooting-best-practices.md#ts-bp-enable-proxy-admin-interface "troubleshooting-best-practices.md#ts-bp-enable-proxy-admin-interface").
+about the administration interface, see [Enable the Envoy proxy administration interface](troubleshooting-best-practices.md#ts-bp-enable-proxy-admin-interface "troubleshooting-best-practices.md#ts-bp-enable-proxy-admin-interface").
 
 ## Prometheus for App Mesh with Amazon EKS
 
@@ -122,9 +121,7 @@ helm upgrade -i appmesh-prometheus eks/appmesh-prometheus \
 
 - [App Mesh with EKS—Observability: Prometheus](https://github.com/aws/aws-app-mesh-examples/blob/main/walkthroughs/eks/o11y-prometheus.md "https://github.com/aws/aws-app-mesh-examples/blob/main/walkthroughs/eks/o11y-prometheus.md")
 
-### To learn more about Prometheus and Prometheus with
-
-Amazon EKS
+### To learn more about Prometheus and Prometheus with Amazon EKS
 
 - [Prometheus
   Documentation](https://prometheus.io/docs/introduction/overview/ "https://prometheus.io/docs/introduction/overview/")

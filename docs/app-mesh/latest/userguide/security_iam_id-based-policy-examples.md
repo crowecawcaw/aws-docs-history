@@ -1,6 +1,4 @@
-# AWS App Mesh identity-based
-
-policy examples
+# AWS App Mesh identity-based policy examples
 
 ###### Important
 
@@ -19,20 +17,14 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the
-  App Mesh console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the App Mesh console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
 - [Create a mesh](#policy_example1 "#policy_example1")
 - [List and describe all meshes](#policy_example2 "#policy_example2")
-- [Creating
-  App Mesh meshes with restricted tags](#security_iam_id-based-policy-examples-view-widget-tags "#security_iam_id-based-policy-examples-view-widget-tags")
+- [Creating App Mesh meshes with restricted tags](#security_iam_id-based-policy-examples-view-widget-tags "#security_iam_id-based-policy-examples-view-widget-tags")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete App Mesh resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -65,9 +57,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the
-
-App Mesh console
+## Using the App Mesh console
 
 To access the AWS App Mesh console, you must have a minimum set of
 permissions. These permissions must allow you to list and view details about the
@@ -82,9 +72,7 @@ You don't need to allow minimum console permissions for users that are making ca
 only to the AWS CLI or the AWS API. Instead, allow access to only the actions that match
 the API operation that you're trying to perform.
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -169,9 +157,7 @@ JSON
 
 ```
 
-## Creating
-
-App Mesh meshes with restricted tags
+## Creating App Mesh meshes with restricted tags
 
 You can use tags in your IAM policies to control what tags can be passed in the IAM
 request. You can specify which tag key-value pairs can be added, changed, or removed

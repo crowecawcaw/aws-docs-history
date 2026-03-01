@@ -6,9 +6,7 @@ End of support notice: On September 30, 2026, AWS will discontinue support for A
 
 This topic details common issues that you may experience with App Mesh observability.
 
-## Unable to see AWS X-Ray traces for my
-
-applications
+## Unable to see AWS X-Ray traces for my applications
 
 ###### Symptoms
 
@@ -40,9 +38,7 @@ to confirm that X-Ray has been set up correctly:
 If your issue is still not resolved, then consider opening a [GitHub issue](https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here "https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here") or contact [AWS
 Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 
-## Unable to see Envoy metrics for my applications in
-
-Amazon CloudWatch metrics
+## Unable to see Envoy metrics for my applications in Amazon CloudWatch metrics
 
 ###### Symptoms
 
@@ -68,9 +64,7 @@ correctly:
 If your issue is still not resolved, then consider opening a [GitHub issue](https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here "https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here") or contact [AWS
 Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 
-## Unable to configure custom sampling rules for
-
-AWS X-Ray traces
+## Unable to configure custom sampling rules for AWS X-Ray traces
 
 ###### Symptoms
 

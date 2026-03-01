@@ -291,8 +291,7 @@ Choose **Add metadata**.
  request that has a metadata name that starts with anything other than `123`.
 * (Optional) Select **Add metadata** to add up to ten metadata items.
 
-### (Optional) **Retry
- policy**
+### (Optional) **Retry policy**
 
 
 A retry policy enables clients to protect themselves from intermittent network failures or intermittent server-side
@@ -306,8 +305,7 @@ A retry policy enables clients to protect themselves from intermittent network f
 * Select a **TCP retry event**.
 * Select one or more **gRPC retry events**. We recommend selecting at least **cancelled** and **unavailable**.
 
-### **(Optional)
- Timeouts**
+### **(Optional) Timeouts**
 
 
 * The default is 15 seconds. If you specified a **Retry
@@ -342,8 +340,7 @@ A retry policy enables clients to protect themselves from intermittent network f
  request that has a header that starts with anything other than `123`.
 * (Optional) Select **Add header**. You can add up to ten headers.
 
-### **(Optional) Retry
- policy**
+### **(Optional) Retry policy**
 
 
 A retry policy enables clients to protect themselves from intermittent network failures or intermittent server-side
@@ -356,8 +353,7 @@ A retry policy enables clients to protect themselves from intermittent network f
 * Select one or more **HTTP retry events**. We recommend selecting at least **stream-error** and **gateway-error**.
 * Select a **TCP retry event**.
 
-### **(Optional)
- Timeouts**
+### **(Optional) Timeouts**
 
 
 * **Request timeout** – The default is 15 seconds. If you specified a **Retry policy**, then the duration that you specify here should always be greater than or equal to the retry duration multiplied by the
@@ -373,8 +369,7 @@ A retry policy enables clients to protect themselves from intermittent network f
  virtual nodes. For more information, see [Virtual Nodes](virtual_nodes.md "virtual_nodes.md").
 
 
-### **(Optional)
- Timeouts**
+### **(Optional) Timeouts**
 
 
 * **Idle duration** – The default is 300 seconds.

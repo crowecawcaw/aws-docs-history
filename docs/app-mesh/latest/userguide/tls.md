@@ -172,9 +172,7 @@ and updates are streamed back to Envoy. Envoy immediately applies them to
 new connections without any interruptions or downtime and without the
 private keys ever touching the file system.
 
-## How App Mesh configures Envoys to negotiate
-
-TLS
+## How App Mesh configures Envoys to negotiate TLS
 
 App Mesh uses the mesh endpoint configuration of both the client and server
 when determining how to configure the communication between Envoys in a mesh.
@@ -297,9 +295,7 @@ process to load a new certificate. You can also place a newer certificate at a
 different file path and update the virtual node or gateway configuration with that
 file path.
 
-## Configure Amazon ECS workloads to use TLS authentication
-
-with AWS App Mesh
+## Configure Amazon ECS workloads to use TLS authentication with AWS App Mesh
 
 You can configure your mesh to use TLS authentication. Make sure that the certificates
 are available to Envoy proxy sidecars that you add to your workloads. You can attach an
@@ -316,9 +312,7 @@ AWS Secrets Manager.
 
 SPIRE is not supported on Amazon ECS.
 
-## Configure Kubernetes workloads to use TLS
-
-authentication with AWS App Mesh
+## Configure Kubernetes workloads to use TLS authentication with AWS App Mesh
 
 You can configure the AWS App Mesh Controller for Kubernetes to enable TLS
 authentication for virtual node and virtual gateway service backends and listeners. Make

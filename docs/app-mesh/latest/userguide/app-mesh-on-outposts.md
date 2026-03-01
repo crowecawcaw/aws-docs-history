@@ -30,9 +30,7 @@ The following are the limitations of using App Mesh on AWS Outposts:
   Outposts. This will increase latencies between these services and the
   containers.
 
-## Network connectivity
-
-considerations
+## Network connectivity considerations
 
 The following are network connectivity considerations for Amazon EKS AWS Outposts:
 
@@ -42,9 +40,7 @@ The following are network connectivity considerations for Amazon EKS AWS Outpost
 - We recommend that you provide reliable, highly available, and low-latency
   connectivity between your Outpost and its AWS Region.
 
-## Creating an App Mesh Envoy proxy on an
-
-Outpost
+## Creating an App Mesh Envoy proxy on an Outpost
 
 An Outpost is an extension of an AWS Region, and you can extend an Amazon VPC in an
 account to span multiple Availability Zones and any associated Outpost locations. When

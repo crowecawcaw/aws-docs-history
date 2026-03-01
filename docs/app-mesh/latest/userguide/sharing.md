@@ -24,9 +24,7 @@ When sharing meshes across accounts, there are required permissions for the IAM
 principal sharing the mesh and required resource-level permissions for the mesh
 itself.
 
-### Granting permission to share a
-
-mesh
+### Granting permission to share a mesh
 
 A minimum set of permissions is required for an IAM principal to share a mesh.
 We recommend using the `AWSAppMeshFullAccess` and
@@ -44,9 +42,7 @@ For more information about the way the AWS Resource Access Manager service uses 
 AWS RAM uses IAM](../../../ram/latest/userguide/security-iam-policies.md "../../../ram/latest/userguide/security-iam-policies.md") in the _AWS Resource Access Manager User
 Guide_.
 
-### Granting permissions for a
-
-mesh
+### Granting permissions for a mesh
 
 A shared mesh has the following permissions.
 

@@ -6,9 +6,7 @@ End of support notice: On September 30, 2026, AWS will discontinue support for A
 
 This topic details common issues that you may experience with App Mesh security.
 
-## Unable to connect to a backend virtual service with
-
-a TLS client policy
+## Unable to connect to a backend virtual service with a TLS client policy
 
 ###### Symptoms
 
@@ -20,12 +18,10 @@ fail with an `HTTP 503` response code and the error message: `upstream connect
 ###### Resolution
 
 In order to determine the root cause of the issue, we recommend using the Envoy proxy process
-logs to help you diagnose the issue. For more information, see [Enable Envoy debug logging in pre-production
-environments](troubleshooting-best-practices.md#ts-bp-enable-envoy-debug-logging "troubleshooting-best-practices.md#ts-bp-enable-envoy-debug-logging"). Use the following list to determine the cause of the connection failure:
+logs to help you diagnose the issue. For more information, see [Enable Envoy debug logging in pre-production environments](troubleshooting-best-practices.md#ts-bp-enable-envoy-debug-logging "troubleshooting-best-practices.md#ts-bp-enable-envoy-debug-logging"). Use the following list to determine the cause of the connection failure:
 
 - Make sure connectivity to the backend is succeeding by ruling out the errors mentioned in
-  [Unable to connect to a virtual service
-  backend](troubleshooting-connectivity.md#ts-connectivity-virtual-service-backend "troubleshooting-connectivity.md#ts-connectivity-virtual-service-backend").
+  [Unable to connect to a virtual service backend](troubleshooting-connectivity.md#ts-connectivity-virtual-service-backend "troubleshooting-connectivity.md#ts-connectivity-virtual-service-backend").
 - In the Envoy process logs, look for the following errors (logged at debug level).
 
 ```
@@ -60,9 +56,7 @@ Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiums
 about App Mesh’s security, then see the [AWS vulnerability reporting
 guidelines](https://aws.amazon.com/security/vulnerability-reporting/ "https://aws.amazon.com/security/vulnerability-reporting/").
 
-## Unable to connect to a backend virtual service when
-
-application is originating TLS
+## Unable to connect to a backend virtual service when application is originating TLS
 
 ###### Symptoms
 
@@ -83,9 +77,7 @@ Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiums
 about App Mesh’s security, then see the [AWS vulnerability reporting
 guidelines](https://aws.amazon.com/security/vulnerability-reporting/ "https://aws.amazon.com/security/vulnerability-reporting/").
 
-## Unable to assert that connectivity between Envoy
-
-proxies is using TLS
+## Unable to assert that connectivity between Envoy proxies is using TLS
 
 ###### Symptoms
 
@@ -96,9 +88,7 @@ connectivity between Envoy proxies is occurring over a TLS-negotiated session.
 ###### Resolution
 
 Steps defined in this resolution make use of the Envoy administration interface and Envoy
-statistics. For help configuring these, see [Enable the Envoy proxy administration
-interface](troubleshooting-best-practices.md#ts-bp-enable-proxy-admin-interface "troubleshooting-best-practices.md#ts-bp-enable-proxy-admin-interface") and [Enable Envoy DogStatsD integration for
-metric offload](troubleshooting-best-practices.md#ts-bp-enable-envoy-statsd-integration "troubleshooting-best-practices.md#ts-bp-enable-envoy-statsd-integration"). The following statistics examples
+statistics. For help configuring these, see [Enable the Envoy proxy administration interface](troubleshooting-best-practices.md#ts-bp-enable-proxy-admin-interface "troubleshooting-best-practices.md#ts-bp-enable-proxy-admin-interface") and [Enable Envoy DogStatsD integration for metric offload](troubleshooting-best-practices.md#ts-bp-enable-envoy-statsd-integration "troubleshooting-best-practices.md#ts-bp-enable-envoy-statsd-integration"). The following statistics examples
 use the administration interface for simplicity.
 
 - For the Envoy proxy performing TLS termination:
@@ -171,8 +161,7 @@ traffic to a virtual node, connectivity and load balancer health checks can fail
 In order to determine the root cause of the issue, you need to check the following:
 
 - For the Envoy proxy performing TLS termination, you need to rule out any
-  misconfiguration. Follow the steps provided above in the [Unable to connect to a backend virtual service with
-  a TLS client policy](#ts-security-tls-client-policy "#ts-security-tls-client-policy").
+  misconfiguration. Follow the steps provided above in the [Unable to connect to a backend virtual service with a TLS client policy](#ts-security-tls-client-policy "#ts-security-tls-client-policy").
 - For the load balancer, you need to look at the configuration of the
   `TargetGroup:`
   - Make sure that the `TargetGroup` port matches the virtual node’s

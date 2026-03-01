@@ -75,9 +75,7 @@ be derived from one of the same certificate authorities (CAs) that the
 server-side certificates use on the Virtual Gateway listener for TLS
 origination.
 
-## Migrate services to mutual TLS
-
-authentication
+## Migrate services to mutual TLS authentication
 
 Follow these guidelines to maintain connectivity when migrating your existing services
 within App Mesh to mutual TLS authentication.

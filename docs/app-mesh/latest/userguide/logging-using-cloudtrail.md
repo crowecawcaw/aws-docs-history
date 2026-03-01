@@ -1,6 +1,4 @@
-# Logging AWS App Mesh API calls using
-
-AWS CloudTrail
+# Logging AWS App Mesh API calls using AWS CloudTrail
 
 ###### Important
 

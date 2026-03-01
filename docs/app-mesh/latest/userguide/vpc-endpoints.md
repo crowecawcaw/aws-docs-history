@@ -13,9 +13,7 @@ You're not required to configure PrivateLink, but we recommend it. For more info
 about PrivateLink and interface VPC endpoints, see [Accessing
 Services Through AWS PrivateLink](../../../vpc/latest/userguide/what-is-amazon-vpc.md#what-is-privatelink "../../../vpc/latest/userguide/what-is-amazon-vpc.md#what-is-privatelink").
 
-## Considerations for App Mesh
-
-interface VPC endpoints
+## Considerations for App Mesh interface VPC endpoints
 
 Before you set up interface VPC endpoints for App Mesh, be aware of the following
 considerations:
@@ -44,9 +42,7 @@ isn't supported for Envoy connection.
 For additional considerations and limitations, see [Interface Endpoint Availability Zone Considerations](../../../vpc/latest/userguide/vpce-interface.md#vpce-interface-availability-zones "../../../vpc/latest/userguide/vpce-interface.md#vpce-interface-availability-zones") and [Interface
 Endpoint Properties and Limitations](../../../vpc/latest/userguide/vpce-interface.md#vpce-interface-limitations "../../../vpc/latest/userguide/vpce-interface.md#vpce-interface-limitations").
 
-## Create the interface VPC endpoint for
-
-App Mesh
+## Create the interface VPC endpoint for App Mesh
 
 To create the interface VPC endpoint for the App Mesh service, use the [Creating an
 Interface Endpoint](../../../vpc/latest/userguide/vpce-interface.md#create-interface-endpoint "../../../vpc/latest/userguide/vpce-interface.md#create-interface-endpoint") procedure in the _Amazon VPC User Guide_. Specify

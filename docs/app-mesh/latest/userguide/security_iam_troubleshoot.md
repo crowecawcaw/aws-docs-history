@@ -1,6 +1,4 @@
-# Troubleshooting AWS App Mesh identity
-
-and access
+# Troubleshooting AWS App Mesh identity and access
 
 ###### Important
 
@@ -11,14 +9,10 @@ encounter when working with App Mesh and IAM.
 
 ###### Topics
 
-- [I am not authorized to
-  perform an action in App Mesh](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
-- [I want to allow people
-  outside of my AWS account to access my App Mesh resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
+- [I am not authorized to perform an action in App Mesh](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
+- [I want to allow people outside of my AWS account to access my App Mesh resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
 
-## I am not authorized to
-
-perform an action in App Mesh
+## I am not authorized to perform an action in App Mesh
 
 If the AWS Management Console tells you that you're not authorized to perform an action, then you
 must contact your administrator for assistance. Your administrator is the person that
@@ -44,9 +38,7 @@ Since a virtual node is created within a mesh, Mateo's account also requires the
 `appmesh:ListMeshes` actions to create the virtual node in
 the console.
 
-## I want to allow people
-
-outside of my AWS account to access my App Mesh resources
+## I want to allow people outside of my AWS account to access my App Mesh resources
 
 You can create a role that users in other accounts or people outside of your organization can use to access your resources. You can specify who
 is trusted to assume the role. For services that support resource-based policies or access control lists (ACLs), you can use those policies to grant
@@ -54,8 +46,7 @@ people access to your resources.
 
 To learn more, consult the following:
 
-- To learn whether App Mesh supports these features, see [How AWS App Mesh works with
-  IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
+- To learn whether App Mesh supports these features, see [How AWS App Mesh works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
 - To learn how to provide access to your resources across AWS accounts that you own, see [Providing access to an IAM user in another AWS account that you
   own](../../../IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.md "../../../IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.md") in the _IAM User Guide_.
 - To learn how to provide access to your resources to third-party AWS accounts, see [Providing access to AWS accounts owned by third parties](../../../IAM/latest/UserGuide/id_roles_common-scenarios_third-party.md "../../../IAM/latest/UserGuide/id_roles_common-scenarios_third-party.md") in the

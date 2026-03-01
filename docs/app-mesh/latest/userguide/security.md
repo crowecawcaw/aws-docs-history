@@ -51,11 +51,9 @@ secure by default.
 - [Transport Layer Security (TLS)](tls.md "tls.md")
 - [Mutual TLS authentication](mutual-tls.md "mutual-tls.md")
 - [How AWS App Mesh works with IAM](security-iam.md "security-iam.md")
-- [Logging AWS App Mesh API calls using
-  AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
+- [Logging AWS App Mesh API calls using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
 - [Data protection in AWS App Mesh](data-protection.md "data-protection.md")
 - [Compliance validation for AWS App Mesh](compliance.md "compliance.md")
 - [Infrastructure security in AWS App Mesh](infrastructure-security.md "infrastructure-security.md")
 - [Resilience in AWS App Mesh](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
-- [Configuration and vulnerability
-  analysis in AWS App Mesh](configuration-vulnerability-analysis.md "configuration-vulnerability-analysis.md")
+- [Configuration and vulnerability analysis in AWS App Mesh](configuration-vulnerability-analysis.md "configuration-vulnerability-analysis.md")

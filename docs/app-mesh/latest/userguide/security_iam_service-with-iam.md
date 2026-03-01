@@ -1,6 +1,4 @@
-# How AWS App Mesh works with
-
-IAM
+# How AWS App Mesh works with IAM
 
 ###### Important
 
@@ -13,18 +11,12 @@ That Work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-wo
 
 ###### Topics
 
-- [App Mesh
-  identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
-- [App Mesh
-  resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
-- [Authorization based on
-  App Mesh tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
-- [App Mesh IAM
-  roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
+- [App Mesh identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
+- [App Mesh resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
+- [Authorization based on App Mesh tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
+- [App Mesh IAM roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
 
-## App Mesh
-
-identity-based policies
+## App Mesh identity-based policies
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources as well as the conditions under which actions are allowed or denied.
@@ -140,21 +132,15 @@ with which actions and resources you can use with a condition key, see
 
 ### Examples
 
-To view examples of App Mesh identity-based policies, see [AWS App Mesh identity-based
-policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of App Mesh identity-based policies, see [AWS App Mesh identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## App Mesh
-
-resource-based policies
+## App Mesh resource-based policies
 
 App Mesh doesn't support resource-based policies. However, if you use the
 AWS Resource Access Manager (AWS RAM) service to share a mesh across AWS services, a resource-based policy
-is applied to your mesh by the AWS RAM service. For more information, see [Granting permissions for a
-mesh](sharing.md#sharing-permissions-resource "sharing.md#sharing-permissions-resource").
+is applied to your mesh by the AWS RAM service. For more information, see [Granting permissions for a mesh](sharing.md#sharing-permissions-resource "sharing.md#sharing-permissions-resource").
 
-## Authorization based on
-
-App Mesh tags
+## Authorization based on App Mesh tags
 
 You can attach tags to App Mesh resources or pass tags in a request to
 App Mesh. To control access based on tags, you provide tag information in the
@@ -166,20 +152,15 @@ element](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md 
 App Mesh resources, see [Tagging AWS Resources](../../../general/latest/gr/aws_tagging.md "../../../general/latest/gr/aws_tagging.md").
 
 To view an example identity-based policy for limiting access to a resource based on
-the tags on that resource, see [Creating
-App Mesh meshes with restricted tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-widget-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-widget-tags").
+the tags on that resource, see [Creating App Mesh meshes with restricted tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-widget-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-widget-tags").
 
-## App Mesh IAM
-
-roles
+## App Mesh IAM roles
 
 An [IAM
 role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within your AWS account that has specific
 permissions.
 
-### Using temporary
-
-credentials with App Mesh
+### Using temporary credentials with App Mesh
 
 You can use temporary credentials to sign in with federation, assume an IAM
 role, or to assume a cross-account role. You obtain temporary security credentials by
@@ -187,9 +168,7 @@ calling AWS STS API operations such as [AssumeRole](../../../STS/latest/APIRefer
 
 App Mesh supports using temporary credentials.
 
-### Service-linked
-
-roles
+### Service-linked roles
 
 [Service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role") allow AWS services to access resources in other
 services to complete an action on your behalf. Service-linked roles appear in your

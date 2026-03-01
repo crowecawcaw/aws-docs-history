@@ -10,6 +10,5 @@ services that App Mesh uses to perform tasks.
 
 ###### Contents
 
-- [Creating App Mesh resources with
-  AWS CloudFormation](creating-resources-with-cloudformation.md "creating-resources-with-cloudformation.md")
+- [Creating App Mesh resources with AWS CloudFormation](creating-resources-with-cloudformation.md "creating-resources-with-cloudformation.md")
 - [App Mesh on AWS Outposts](app-mesh-on-outposts.md "app-mesh-on-outposts.md")

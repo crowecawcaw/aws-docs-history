@@ -1,6 +1,4 @@
-# Creating App Mesh resources with
-
-AWS CloudFormation
+# Creating App Mesh resources with AWS CloudFormation
 
 ###### Important
 

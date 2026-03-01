@@ -6,9 +6,7 @@ End of support notice: On September 30, 2026, AWS will discontinue support for A
 
 This topic details common issues that you may experience with App Mesh scaling.
 
-## Connectivity fails and container
-
-health checks fail when scaling beyond 50 replicas for a virtual node/virtual gateway
+## Connectivity fails and container health checks fail when scaling beyond 50 replicas for a virtual node/virtual gateway
 
 ###### Symptoms
 
@@ -29,9 +27,7 @@ connect to App Mesh's Envoy management service with gRPC status code `8`
 If your issue is still not resolved, then consider opening a [GitHub issue](https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here "https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here") or contact [AWS
 Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 
-## Requests fail with `503` when a virtual service
-
-backend horizontally scales out or in
+## Requests fail with `503` when a virtual service backend horizontally scales out or in
 
 ###### Symptoms
 
@@ -46,9 +42,7 @@ horizontally. For detailed information about how to prevent these failures, see 
 If your issue is still not resolved, then consider opening a [GitHub issue](https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here "https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here") or contact [AWS
 Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 
-## Envoy container crashes with segfault under increased
-
-load
+## Envoy container crashes with segfault under increased load
 
 ###### Symptoms
 
@@ -71,9 +65,7 @@ definition's [resource limits settings](../../../AmazonECS/latest/developerguide
 If your issue is still not resolved, then consider opening a [GitHub issue](https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here "https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here") or contact [AWS
 Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 
-## Increase in default resources is not reflected in
-
-Service Limits
+## Increase in default resources is not reflected in Service Limits
 
 ###### Symptoms
 
@@ -87,9 +79,7 @@ While the new limits aren't currently shown, customers can still exercise them.
 If your issue is still not resolved, then consider opening a [GitHub issue](https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here "https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here") or contact [AWS
 Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 
-## Application crashes due to a huge number of health checks
-
-calls.
+## Application crashes due to a huge number of health checks calls.
 
 ###### Symptoms
 

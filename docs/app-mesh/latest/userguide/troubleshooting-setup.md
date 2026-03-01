@@ -45,9 +45,7 @@ statements:
 If your issue is still not resolved, then consider opening a [GitHub issue](https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here "https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here") or contact [AWS
 Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 
-## Cannot connect to App Mesh Envoy management
-
-service
+## Cannot connect to App Mesh Envoy management service
 
 ###### Symptoms
 
@@ -92,9 +90,7 @@ grpc-message: Missing Authentication Token
 If your issue is still not resolved, then consider opening a [GitHub issue](https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here "https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here") or contact [AWS
 Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 
-## Envoy disconnected from App Mesh Envoy management service
-
-with error text
+## Envoy disconnected from App Mesh Envoy management service with error text
 
 ###### Symptoms
 
@@ -130,9 +126,7 @@ Insights](../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md "../../../Am
 If the provided error message was not helpful, or your issue is still not resolved, then consider
 opening a [GitHub issue](https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here "https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here").
 
-## Envoy container health check, readiness probe, or
-
-liveliness probe failing
+## Envoy container health check, readiness probe, or liveliness probe failing
 
 ###### Symptoms
 
@@ -152,8 +146,7 @@ proxy.
 - `PRE_INITIALIZING` or `INITIALIZING` – The Envoy proxy has
   yet to receive configuration, or cannot connect and retrieve configuration from App Mesh
   Envoy management service. The Envoy may be receiving an error from the Envoy management
-  service when trying to connect. For more information, see the errors in [Envoy disconnected from App Mesh Envoy management service
-  with error text](#ts-setup-grpc-error-codes "#ts-setup-grpc-error-codes").
+  service when trying to connect. For more information, see the errors in [Envoy disconnected from App Mesh Envoy management service with error text](#ts-setup-grpc-error-codes "#ts-setup-grpc-error-codes").
 - `DRAINING` – The Envoy proxy has begun draining connections in response
   to a `/healthcheck/fail` or `/drain_listeners` request on the Envoy
   administration interface. We do not recommend invoking these paths on the administration
@@ -163,9 +156,7 @@ proxy.
 If your issue is still not resolved, then consider opening a [GitHub issue](https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here "https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here") or contact [AWS
 Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 
-## Health check from the load balancer to the
-
-mesh endpoint is failing
+## Health check from the load balancer to the mesh endpoint is failing
 
 ###### Symptoms
 
@@ -196,9 +187,7 @@ To resolve the issue, complete the following tasks.
 If your issue is still not resolved, then consider opening a [GitHub issue](https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here "https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here") or contact [AWS
 Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 
-## Virtual gateway not accepting traffic on ports 1024 or
-
-less
+## Virtual gateway not accepting traffic on ports 1024 or less
 
 ###### Symptoms
 

@@ -11,6 +11,5 @@ your own Amazon EC2 instances or running on Amazon EKS), and Amazon EC2. To get 
 
 - [Getting started with AWS App Mesh and Amazon ECS](getting-started-ecs.md "getting-started-ecs.md")
 - [Getting started with AWS App Mesh and Kubernetes](getting-started-kubernetes.md "getting-started-kubernetes.md")
-- [Getting started with AWS App Mesh and
-  Amazon EC2](getting-started-ec2.md "getting-started-ec2.md")
+- [Getting started with AWS App Mesh and Amazon EC2](getting-started-ec2.md "getting-started-ec2.md")
 - [App Mesh Examples](examples.md "examples.md")

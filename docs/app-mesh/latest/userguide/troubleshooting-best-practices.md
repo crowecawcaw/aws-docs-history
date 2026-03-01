@@ -7,9 +7,7 @@ End of support notice: On September 30, 2026, AWS will discontinue support for A
 We recommend that you follow the best practices in this topic to troubleshoot issues when using
 App Mesh.
 
-## Enable the Envoy proxy administration
-
-interface
+## Enable the Envoy proxy administration interface
 
 The Envoy proxy ships with an administration interface that you can use to discover configuration
 and statistics and to perform other administrative functions such as connection draining. For more
@@ -26,9 +24,7 @@ recommend monitoring the administration endpoint logs, which are set by the
 `ENVOY_ADMIN_ACCESS_LOG_FILE` environment variable to
 `/tmp/envoy_admin_access.log` by default.
 
-## Enable Envoy DogStatsD integration for
-
-metric offload
+## Enable Envoy DogStatsD integration for metric offload
 
 The Envoy proxy can be configured to offload statistics for OSI Layer 4 and Layer 7 traffic and
 for internal process health. While this topic shows how to use these statistics without offloading
@@ -53,9 +49,7 @@ following parse statement.
 `parse @message "[*] \"* * *\" * * * * * * * * * * *" as StartTime, Method, Path, Protocol, ResponseCode, ResponseFlags, BytesReceived, BytesSent, DurationMillis, UpstreamServiceTimeMillis, ForwardedFor, UserAgent, RequestId, Authority, UpstreamHost`
 ```
 
-## Enable Envoy debug logging in pre-production
-
-environments
+## Enable Envoy debug logging in pre-production environments
 
 We recommend setting the Envoy proxy’s log level to `debug` in a pre-production
 environment. Debug logs can help you identify issues before you graduate the associated App Mesh
@@ -77,9 +71,7 @@ Insights](../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md "../../../Am
 `parse @message "[*][*][*][*] [*] *" as Time, Thread, Level, Name, Source, Message`
 ```
 
-## Monitor the Envoy Proxy Connectivity
-
-with App Mesh control plane
+## Monitor the Envoy Proxy Connectivity with App Mesh control plane
 
 We recommend you monitor the Envoy metrics `control_plane.connected_state` to make
 sure that the Envoy proxy communicates with the App Mesh control plane to fetch the dynamic

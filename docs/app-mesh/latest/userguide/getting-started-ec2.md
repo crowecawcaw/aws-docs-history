@@ -1,6 +1,4 @@
-# Getting started with AWS App Mesh and
-
-Amazon EC2
+# Getting started with AWS App Mesh and Amazon EC2
 
 ###### Important
 
@@ -59,9 +57,7 @@ assume that the actual services are named `serviceA`, `serviceB`,
 and `serviceBv2` and that all services are discoverable through a namespace
 named `apps.local`.
 
-## Step 1: Create a mesh and virtual
-
-service
+## Step 1: Create a mesh and virtual service
 
 A service mesh is a logical boundary for network traffic between the services that reside
 within it. For more information, see [Service Meshes](meshes.md "meshes.md"). A
@@ -167,9 +163,7 @@ AWS CLI
 `aws appmesh create-virtual-node --cli-input-json file://create-virtual-node-serviceb.json`
 ```
 
-## Step 3: Create a virtual router and
-
-route
+## Step 3: Create a virtual router and route
 
 Virtual routers route traffic for one or more virtual services within your mesh. For more
 information, see [Virtual routers](virtual_routers.md "virtual_routers.md") and [Routes](routes.md "routes.md").
@@ -321,9 +315,7 @@ Review the settings of the route that you created with the [describe-route](../.
  --virtual-router-name serviceB --route-name serviceB`
 ```
 
-## Step 5: Create additional
-
-resources
+## Step 5: Create additional resources
 
 To complete the scenario, you need to:
 
@@ -636,8 +628,7 @@ After creating your mesh, you need to complete the following tasks:
    the configuration of a specific App Mesh virtual node.
    1. Create a file named `virtual-node-policy.json` with the
       following contents. `apps` is the name of the mesh you
-      created in [Step 1: Create a mesh and virtual
-      service](#create-mesh-and-virtual-service "#create-mesh-and-virtual-service") and
+      created in [Step 1: Create a mesh and virtual service](#create-mesh-and-virtual-service "#create-mesh-and-virtual-service") and
       `serviceB` is the name of the virtual node that you
       created in [Step 2: Create a virtual node](#create-virtual-node "#create-virtual-node"). Replace
       `111122223333` with your account
@@ -739,7 +730,7 @@ After creating your mesh, you need to complete the following tasks:
 
    ```
    `sudo docker run --detach --env APPMESH_RESOURCE_ARN=`mesh/`apps`/virtualNode/`serviceB`` \
-   -u `1337` --network host 840364872350.dkr.ecr.`region-code`.amazonaws.com/aws-appmesh-envoy:v1.34.12.0-prod`
+   -u `1337` --network host 840364872350.dkr.ecr.`region-code`.amazonaws.com/aws-appmesh-envoy:v1.34.12.1-prod`
    ```
 
    - `me-south-1` Region. You can replace
@@ -748,7 +739,7 @@ After creating your mesh, you need to complete the following tasks:
 
    ```
    `sudo docker run --detach --env APPMESH_RESOURCE_ARN=`mesh/`apps`/virtualNode/`serviceB`` \
-   -u `1337` --network host 772975370895.dkr.ecr.me-south-1.amazonaws.com/aws-appmesh-envoy:v1.34.12.0-prod`
+   -u `1337` --network host 772975370895.dkr.ecr.me-south-1.amazonaws.com/aws-appmesh-envoy:v1.34.12.1-prod`
    ```
 
    - `ap-east-1` Region. You can replace
@@ -757,7 +748,7 @@ After creating your mesh, you need to complete the following tasks:
 
    ```
    `sudo docker run --detach --env APPMESH_RESOURCE_ARN=`mesh/`apps`/virtualNode/`serviceB`` \
-   -u `1337` --network host 856666278305.dkr.ecr.ap-east-1.amazonaws.com/aws-appmesh-envoy:v1.34.12.0-prod`
+   -u `1337` --network host 856666278305.dkr.ecr.ap-east-1.amazonaws.com/aws-appmesh-envoy:v1.34.12.1-prod`
    ```
 
 ###### Note

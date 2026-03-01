@@ -6,9 +6,7 @@ End of support notice: On September 30, 2026, AWS will discontinue support for A
 
 This topic details common issues that you may experience when you use App Mesh with Kubernetes.
 
-## App Mesh resources created in Kubernetes cannot be
-
-found in App Mesh
+## App Mesh resources created in Kubernetes cannot be found in App Mesh
 
 ###### Symptoms
 
@@ -30,9 +28,7 @@ indicating that the controller could not create any resources.
 If your issue is still not resolved, then consider opening a [GitHub issue](https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here "https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here") or contact [AWS
 Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 
-## Pods are failing readiness and liveliness
-
-checks after Envoy sidecar is injected
+## Pods are failing readiness and liveliness checks after Envoy sidecar is injected
 
 ###### Symptoms
 
@@ -43,8 +39,7 @@ is injected into a pod, readiness and liveliness checks begin failing.
 
 Make sure that the Envoy container that was injected into the pod has bootstrapped with
 App Mesh’s Envoy management service. You can verify any errors by referencing the error codes in
-[Envoy disconnected from App Mesh Envoy management service
-with error text](troubleshooting-setup.md#ts-setup-grpc-error-codes "troubleshooting-setup.md#ts-setup-grpc-error-codes"). You
+[Envoy disconnected from App Mesh Envoy management service with error text](troubleshooting-setup.md#ts-setup-grpc-error-codes "troubleshooting-setup.md#ts-setup-grpc-error-codes"). You
 can use the following command to inspect Envoy logs for the relevant pod.
 
 ```
@@ -56,9 +51,7 @@ can use the following command to inspect Envoy logs for the relevant pod.
 If your issue is still not resolved, then consider opening a [GitHub issue](https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here "https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here") or contact [AWS
 Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 
-## Pods not registering or deregistering as AWS Cloud Map
-
-instances
+## Pods not registering or deregistering as AWS Cloud Map instances
 
 ###### Symptoms
 
@@ -84,8 +77,7 @@ To mitigate this issue:
   correct in your virtual node definition.
 - Make sure that you delete any associated pods prior to deleting your virtual node
   definition. If you need help identifying which pods are associated with a virtual node, see
-  [Cannot determine where a pod for an App Mesh
-  resource is running](#ts-kubernetes-where-pod-running "#ts-kubernetes-where-pod-running").
+  [Cannot determine where a pod for an App Mesh resource is running](#ts-kubernetes-where-pod-running "#ts-kubernetes-where-pod-running").
 - If your issue persists, run the following command to inspect your controller logs for
   errors that may help reveal the underlying issue.
 
@@ -105,9 +97,7 @@ To mitigate this issue:
 If your issue is still not resolved, then consider opening a [GitHub issue](https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here "https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here") or contact [AWS
 Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 
-## Cannot determine where a pod for an App Mesh
-
-resource is running
+## Cannot determine where a pod for an App Mesh resource is running
 
 ###### Symptoms
 
@@ -128,9 +118,7 @@ following command.
 If your issue is still not resolved, then consider opening a [GitHub issue](https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here "https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here") or contact [AWS
 Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 
-## Cannot determine what App Mesh resource a pod is
-
-running as
+## Cannot determine what App Mesh resource a pod is running as
 
 ###### Symptoms
 
@@ -151,9 +139,7 @@ using the following command.
 If your issue is still not resolved, then consider opening a [GitHub issue](https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here "https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here") or contact [AWS
 Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 
-## Client Envoys are not able to communicate with
-
-App Mesh Envoy Management Service with IMDSv1 disabled
+## Client Envoys are not able to communicate with App Mesh Envoy Management Service with IMDSv1 disabled
 
 ###### Symptoms
 
@@ -177,9 +163,7 @@ To resolve this issue, you can do one of these three things.
 If your issue is still not resolved, then consider opening a [GitHub issue](https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here "https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here") or contact [AWS
 Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 
-## IRSA does not work on application container when
-
-App Mesh is enabled and Envoy is injected
+## IRSA does not work on application container when App Mesh is enabled and Envoy is injected
 
 ###### Symptoms
 

@@ -6,9 +6,7 @@ End of support notice: On September 30, 2026, AWS will discontinue support for A
 
 This topic details common issues that you may experience with App Mesh connectivity.
 
-## Unable to resolve DNS name for a
-
-virtual service
+## Unable to resolve DNS name for a virtual service
 
 ###### Symptoms
 
@@ -32,9 +30,7 @@ DNS `A` record can be added under the following conditions:
 If your issue is still not resolved, then consider opening a [GitHub issue](https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here "https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here") or contact [AWS
 Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 
-## Unable to connect to a virtual service
-
-backend
+## Unable to connect to a virtual service backend
 
 ###### Symptoms
 
@@ -91,8 +87,7 @@ For more information, see [virtual services](virtual_services.md "virtual_servic
     service discovery and health check settings.
 
   If requests to the service are failing during a deployment or scaling of the
-  backend virtual service, follow the guidance in [Some requests fail with HTTP status code
-  503 when a virtual service has a virtual node provider](#ts-connectivity-virtual-node-provider "#ts-connectivity-virtual-node-provider").
+  backend virtual service, follow the guidance in [Some requests fail with HTTP status code 503 when a virtual service has a virtual node provider](#ts-connectivity-virtual-node-provider "#ts-connectivity-virtual-node-provider").
   - `No cluster match for URL` – This is most likely caused when a
     request is sent to a virtual service that does not match the criteria defined by
     any of the routes defined under a virtual router provider. Make sure that the
@@ -131,9 +126,7 @@ two options:
 If your issue is still not resolved, then consider opening a [GitHub issue](https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here "https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here") or contact [AWS
 Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 
-## Unable to connect to a MySQL or
-
-SMTP server
+## Unable to connect to a MySQL or SMTP server
 
 ###### Symptoms
 
@@ -183,9 +176,7 @@ If your issue is still not resolved, then you can provide us with details on wha
 experiencing using the existing [GitHub issue](https://github.com/aws/aws-app-mesh-roadmap/issues/62 "https://github.com/aws/aws-app-mesh-roadmap/issues/62") or contact [AWS
 Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 
-## Unable to connect to a service modeled as a
-
-TCP virtual node or virtual router in App Mesh
+## Unable to connect to a service modeled as a TCP virtual node or virtual router in App Mesh
 
 ###### Symptoms
 
@@ -206,16 +197,13 @@ routed appropriately for all backend destinations, do the following:
   applications to open connections on the virtual router port while the Envoy proxy continues
   to use the port defined in the virtual node.
 - If the destination modeled as TCP is a MySQL server, or any other TCP-based protocol in
-  which the server sends the first packets after connection, see [Unable to connect to a MySQL or
-  SMTP server](#ts-connectivity-troubleshooting-mysql-and-smtp "#ts-connectivity-troubleshooting-mysql-and-smtp").
+  which the server sends the first packets after connection, see [Unable to connect to a MySQL or SMTP server](#ts-connectivity-troubleshooting-mysql-and-smtp "#ts-connectivity-troubleshooting-mysql-and-smtp").
 
 If your issue is still not resolved, then you can provide us with details on what you're
 experiencing using the existing [GitHub issue](https://github.com/aws/aws-app-mesh-roadmap/issues/195 "https://github.com/aws/aws-app-mesh-roadmap/issues/195") or contact [AWS
 Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 
-## Connectivity succeeds to service not listed
-
-as a virtual service backend for a virtual node
+## Connectivity succeeds to service not listed as a virtual service backend for a virtual node
 
 ###### Symptoms
 
@@ -243,9 +231,7 @@ available for outbound traffic that isn't to an AWS domain.
 If your issue is still not resolved, then consider opening a [GitHub issue](https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here "https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here") or contact [AWS
 Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 
-## Some requests fail with HTTP status code
-
-`503` when a virtual service has a virtual node provider
+## Some requests fail with HTTP status code `503` when a virtual service has a virtual node provider
 
 ###### Symptoms
 
@@ -292,9 +278,7 @@ setting in the proxy configuration of your Amazon ECS task definition. For more 
 If your issue is still not resolved, then consider opening a [GitHub issue](https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here "https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here") or contact [AWS
 Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 
-## Connectivity succeeds to service, but the incoming
-
-request does not appear in access logs, traces, or metrics for Envoy
+## Connectivity succeeds to service, but the incoming request does not appear in access logs, traces, or metrics for Envoy
 
 ###### Symptoms
 
@@ -314,9 +298,7 @@ the same port.
 If your issue is still not resolved, then consider opening a [GitHub issue](https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here "https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here") or contact [AWS
 Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 
-## Setting the `HTTP_PROXY`/`HTTPS_PROXY`
-
-environment variables at container level doesn't work as expected.
+## Setting the `HTTP_PROXY`/`HTTPS_PROXY` environment variables at container level doesn't work as expected.
 
 ###### Symptoms
 
@@ -354,9 +336,7 @@ Envoy doesn't support a generic proxy. We do not recommend setting these variabl
 If your issue is still not resolved, then consider opening a [GitHub issue](https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here "https://github.com/aws/aws-app-mesh-roadmap/issues/new?assignees=&labels=Bug&template=issue--bug-report.md&title=Bug%3A+describe+bug+here") or contact [AWS
 Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 
-## Upstream request timeouts even after setting the timeout
-
-for routes.
+## Upstream request timeouts even after setting the timeout for routes.
 
 ###### Symptoms
 

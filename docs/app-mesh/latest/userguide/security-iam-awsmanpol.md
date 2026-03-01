@@ -19,9 +19,7 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## AWS managed policy:
-
-AWSAppMeshServiceRolePolicy
+## AWS managed policy: AWSAppMeshServiceRolePolicy
 
 You can attach `AWSAppMeshServiceRolePolicy` to your IAM entities. Enables access to
 AWS Services and resources used or managed by AWS App Mesh.
@@ -32,9 +30,7 @@ Reference_.
 For information on the permission details for the `AWSAppMeshServiceRolePolicy`, see see [Service-Linked
 Role Permissions for App Mesh](using-service-linked-roles.md#slr-permissions "using-service-linked-roles.md#slr-permissions").
 
-## AWS managed policy:
-
-AWSAppMeshEnvoyAccess
+## AWS managed policy: AWSAppMeshEnvoyAccess
 
 You can attach `AWSAppMeshEnvoyAccess` to your IAM entities. App Mesh Envoy policy for
 accessing virtual node configuration.
@@ -42,9 +38,7 @@ accessing virtual node configuration.
 To view the permissions for this policy, see [AWSAppMeshEnvoyAccess](../../../aws-managed-policy/latest/reference/AWSAppMeshEnvoyAccess.md "../../../aws-managed-policy/latest/reference/AWSAppMeshEnvoyAccess.md")
 in the _AWS Managed Policy Reference_.
 
-## AWS managed policy:
-
-AWSAppMeshFullAccess
+## AWS managed policy: AWSAppMeshFullAccess
 
 You can attach `AWSAppMeshFullAccess` to your IAM entities. Provides full access to the
 AWS App Mesh APIs and AWS Management Console.
@@ -52,9 +46,7 @@ AWS App Mesh APIs and AWS Management Console.
 To view the permissions for this policy, see [AWSAppMeshFullAccess](../../../aws-managed-policy/latest/reference/AWSAppMeshFullAccess.md "../../../aws-managed-policy/latest/reference/AWSAppMeshFullAccess.md") in
 the _AWS Managed Policy Reference_.
 
-## AWS managed policy:
-
-AWSAppMeshPreviewEnvoyAccess
+## AWS managed policy: AWSAppMeshPreviewEnvoyAccess
 
 You can attach `AWSAppMeshPreviewEnvoyAccess` to your IAM entities. App Mesh Preview Envoy
 policy for accessing virtual node configuration.
@@ -62,9 +54,7 @@ policy for accessing virtual node configuration.
 To view the permissions for this policy, see [AWSAppMeshPreviewEnvoyAccess](../../../aws-managed-policy/latest/reference/AWSAppMeshPreviewEnvoyAccess.md "../../../aws-managed-policy/latest/reference/AWSAppMeshPreviewEnvoyAccess.md") in the _AWS Managed Policy
 Reference_.
 
-## AWS managed policy:
-
-AWSAppMeshPreviewServiceRolePolicy
+## AWS managed policy: AWSAppMeshPreviewServiceRolePolicy
 
 You can attach `AWSAppMeshPreviewServiceRolePolicy` to your IAM entities. Enables access
 to AWS Services and resources used or managed by AWS App Mesh.
@@ -72,9 +62,7 @@ to AWS Services and resources used or managed by AWS App Mesh.
 To view the permissions for this policy, see [AWSAppMeshPreviewServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSAppMeshPreviewServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSAppMeshPreviewServiceRolePolicy.md") in the _AWS Managed Policy
 Reference_.
 
-## AWS managed policy:
-
-AWSAppMeshReadOnly
+## AWS managed policy: AWSAppMeshReadOnly
 
 You can attach `AWSAppMeshReadOnly` to your IAM entities. Provides read-only access to
 the AWS App Mesh APIs and AWS Management Console.
