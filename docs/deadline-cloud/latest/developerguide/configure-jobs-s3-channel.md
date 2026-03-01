@@ -25,12 +25,10 @@ in the Deadline Cloud samples repository on GitHub.
 ###### Topics
 
 - [Create a package building queue](#s3-channel-create-queue "#s3-channel-create-queue")
-- [Configure production queue permissions
-  for custom conda packages](#s3-channel-configure-permissions "#s3-channel-configure-permissions")
+- [Configure production queue permissions for custom conda packages](#s3-channel-configure-permissions "#s3-channel-configure-permissions")
 - [Add a conda channel to a queue environment](#s3-channel-add-channel "#s3-channel-add-channel")
 - [Create a conda package for an application or plugin](conda-package.md "conda-package.md")
-- [Create a conda build recipe for
-  Blender](create-conda-recipe-blender.md "create-conda-recipe-blender.md")
+- [Create a conda build recipe for Blender](create-conda-recipe-blender.md "create-conda-recipe-blender.md")
 - [Create a conda build recipe for Autodesk Maya](create-conda-recipe-maya.md "create-conda-recipe-maya.md")
 - [Create a conda build recipe for Autodesk Maya to Arnold (MtoA) plugin](create-conda-recipe-mtoa-plugin.md "create-conda-recipe-mtoa-plugin.md")
 
@@ -53,9 +51,7 @@ _Deadline Cloud User Guide_. Make the following changes:
   modify the permissions to give the queue the permissions required for uploading packages
   and reindexing a conda channel.
 
-### Configure the package building queue
-
-permissions
+### Configure the package building queue permissions
 
 To allow the package build queue to access the `/Conda` prefix in the
 queue's S3 bucket, you must modify the queue's role to give it read/write access. The role
@@ -104,9 +100,7 @@ reindex the channel.
   },
 ```
 
-## Configure production queue permissions
-
-for custom conda packages
+## Configure production queue permissions for custom conda packages
 
 Your production queue needs read-only permissions to the `/Conda` prefix in
 the queue's S3 bucket. Open the AWS Identity and Access Management (IAM) page for the role associated with the

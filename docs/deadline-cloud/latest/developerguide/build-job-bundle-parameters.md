@@ -1,6 +1,4 @@
-# Parameter values elements for job
-
-bundles
+# Parameter values elements for job bundles
 
 You can use the parameters file to set the values of some of the job parameters in the job
 template or [CreateJob](../APIReference/API_CreateJob.md "../APIReference/API_CreateJob.md") operation

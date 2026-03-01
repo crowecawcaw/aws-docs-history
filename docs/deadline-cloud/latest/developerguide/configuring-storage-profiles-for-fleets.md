@@ -1,6 +1,4 @@
-# Configure storage profiles for
-
-fleets
+# Configure storage profiles for fleets
 
 You can configure a fleet to include a storage profile that models
 the file system locations on all workers in the fleet. The host file system configuration of

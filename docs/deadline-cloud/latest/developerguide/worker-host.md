@@ -33,9 +33,7 @@ Windows
 
 - Python 3.9 or above installed for all users
 
-## Create and configure a Python virtual
-
-environment
+## Create and configure a Python virtual environment
 
 You can create a Python virtual environment on Linux if you have installed Python
 3.9 or greater and placed it in your `PATH`.

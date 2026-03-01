@@ -1,6 +1,4 @@
-# How Deadline Cloud chooses
-
-the files to upload
+# How Deadline Cloud chooses the files to upload
 
 The files and directories that job attachments considers for upload to Amazon S3 as inputs
 to your job are:

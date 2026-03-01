@@ -1,6 +1,4 @@
-# Model shared
-
-file system locations with storage profiles
+# Model shared file system locations with storage profiles
 
 A storage profile models the file system configuration of one of your host
 configurations. There are four different host configurations in the sample project infrastructure. In this

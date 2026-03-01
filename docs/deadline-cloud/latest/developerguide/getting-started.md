@@ -21,6 +21,5 @@ started](../userguide/getting-started.md "../userguide/getting-started.md") in t
 - [Run the Deadline Cloud worker agent](run-worker.md "run-worker.md")
 - [Submit with Deadline Cloud](submit-a-job.md "submit-a-job.md")
 - [Submit jobs with job attachments in Deadline Cloud](run-jobs-job-attachments.md "run-jobs-job-attachments.md")
-- [Add a service-managed fleet to your developer farm
-  in Deadline Cloud](service-managed-fleet.md "service-managed-fleet.md")
+- [Add a service-managed fleet to your developer farm in Deadline Cloud](service-managed-fleet.md "service-managed-fleet.md")
 - [Clean up your farm resources in Deadline Cloud](cleaning-up.md "cleaning-up.md")

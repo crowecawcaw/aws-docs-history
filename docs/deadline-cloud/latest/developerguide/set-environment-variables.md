@@ -1,6 +1,4 @@
-# Set environment variables in a queue
-
-environment
+# Set environment variables in a queue environment
 
 [Open Job Description (OpenJD) environments](https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#4-environment "https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#4-environment") can set environment variables that every
 task command within their scope uses. Many applications and frameworks check for environment
@@ -55,9 +53,7 @@ On the right are three session actions, **Launch JobEnv**,
 **Launch StepEnv**, and **Task run**. The log view
 in the center of the window corresponds to the selected session action on the right.
 
-## Compare the session actions with their
-
-definitions
+## Compare the session actions with their definitions
 
 In this section you use the Deadline Cloud monitor to compare the session actions with where they
 are defined in the job template. It continues from the previous section.

@@ -36,9 +36,3 @@ default environment. They are:
 - `CondaChannels` – A space-separated list of conda channels to install
   packages from. For service-managed fleets, packages are installed from the
   `deadline-cloud` channel. You can add other channels.
-
-###### Topics
-
-- [Control the job environment with OpenJD queue
-  environments](control-the-job-environment.md "control-the-job-environment.md")
-- [Provide applications for your jobs](provide-applications.md "provide-applications.md")

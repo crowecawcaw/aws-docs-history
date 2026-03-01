@@ -52,9 +52,7 @@ For comprehensive instructions on creating event bus rules, see [Creating
 rules that react to events](../../../eventbridge/latest/userguide/eb-create-rule.md "../../../eventbridge/latest/userguide/eb-create-rule.md") in the _EventBridge User
 Guide_.
 
-### Creating event patterns
-
-that match Deadline Cloud events
+### Creating event patterns that match Deadline Cloud events
 
 Each event pattern is a JSON object that contains:
 

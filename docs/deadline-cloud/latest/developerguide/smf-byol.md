@@ -37,8 +37,7 @@ following methods:
   forwards license server ports to the license server. For details on how to configure a
   license proxy instance, see [Step 2: (Optional) License proxy instance setup](#license-proxy "#license-proxy").
 
-For information about configuring license environment variables, see [Step 3: Connect a rendering application to an
-endpoint](cmf-ubl.md "cmf-ubl.md"). For a custom license server setup,
+For information about configuring license environment variables, see [Step 3: Connect a rendering application to an endpoint](cmf-ubl.md "cmf-ubl.md"). For a custom license server setup,
 the license server address remains localhost instead of the Amazon VPC endpoint.
 
 ###### To add required permissions to the queue role

@@ -16,17 +16,12 @@ following:
 
 ###### Topics
 
-- [Submit the simple_job
-  sample](#submit-a-simplejob-sample "#submit-a-simplejob-sample")
-- [Submit a simple_job with a
-  parameter](#submit-with-parameter "#submit-with-parameter")
-- [Create a simple_file_job job bundle
-  with file I/O](#create-job-bundle-with-file-io "#create-job-bundle-with-file-io")
+- [Submit the simple_job sample](#submit-a-simplejob-sample "#submit-a-simplejob-sample")
+- [Submit a simple_job with a parameter](#submit-with-parameter "#submit-with-parameter")
+- [Create a simple_file_job job bundle with file I/O](#create-job-bundle-with-file-io "#create-job-bundle-with-file-io")
 - [Next steps](#submit-a-job-next "#submit-a-job-next")
 
-## Submit the simple_job
-
-sample
+## Submit the simple_job sample
 
 After you create a farm and run the worker agent, you can submit the
 simple_job sample to Deadline Cloud.
@@ -166,9 +161,7 @@ writes.
 When you submit the job, the system saves it as the default so you don't have
 to enter the job ID.
 
-## Submit a simple_job with a
-
-parameter
+## Submit a simple_job with a parameter
 
 You can submit jobs with parameters. In the following procedure, you edit the
 simple_job template to include a custom message, submit the
@@ -217,9 +210,7 @@ parameterDefinitions:
 cat $DEV_QUEUE_ID/$(ls -t $DEV_QUEUE_ID | head -1)`
 ```
 
-## Create a simple_file_job job bundle
-
-with file I/O
+## Create a simple_file_job job bundle with file I/O
 
 A render job needs to read the scene definition, render an image from it, and then
 save that image to an output file. You can simulate this action by making the job
@@ -385,8 +376,7 @@ After learning how to submit simple jobs using the Deadline Cloud CLI, you can e
 
 - [Submit jobs with job attachments in Deadline Cloud](run-jobs-job-attachments.md "run-jobs-job-attachments.md") to learn how to run jobs on hosts
   running different operating systems.
-- [Add a service-managed fleet to your developer farm
-  in Deadline Cloud](service-managed-fleet.md "service-managed-fleet.md")
+- [Add a service-managed fleet to your developer farm in Deadline Cloud](service-managed-fleet.md "service-managed-fleet.md")
   to run your jobs on hosts managed by Deadline Cloud.
 - [Clean up your farm resources in Deadline Cloud](cleaning-up.md "cleaning-up.md") to shut down the
   resources that you used for this tutorial.

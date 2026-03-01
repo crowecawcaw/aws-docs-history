@@ -17,8 +17,7 @@ values:
 
 To identify the username associated with an IAM Identity Center user ID, use the following procedure.
 Before you begin, get the Identity Store ID from your IAM Identity Center settings. For more information,
-see [Finding your Identity Store
-ID](#query-session-data-find-identity-store-id "#query-session-data-find-identity-store-id").
+see [Finding your Identity Store ID](#query-session-data-find-identity-store-id "#query-session-data-find-identity-store-id").
 
 ## To map a user ID
 
@@ -52,9 +51,7 @@ aws identitystore describe-user \
 }
 ```
 
-## Finding your Identity Store
-
-ID
+## Finding your Identity Store ID
 
 To map user IDs to usernames, you need the Identity Store ID. You can find the Identity
 Store ID using the IAM Identity Center console or the AWS CLI.

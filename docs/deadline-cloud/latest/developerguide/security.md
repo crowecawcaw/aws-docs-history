@@ -30,11 +30,8 @@ _in_ the cloud:
 - [Compliance validation for Deadline Cloud](SERVICE-compliance.md "SERVICE-compliance.md")
 - [Resilience in Deadline Cloud](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in Deadline Cloud](infrastructure-security.md "infrastructure-security.md")
-- [Configuration and vulnerability
-  analysis in Deadline Cloud](vulnerability-analysis-and-management.md "vulnerability-analysis-and-management.md")
-- [Cross-service confused deputy
-  prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
-- [Access AWS Deadline Cloud using an interface endpoint
-  (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
+- [Configuration and vulnerability analysis in Deadline Cloud](vulnerability-analysis-and-management.md "vulnerability-analysis-and-management.md")
+- [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Access AWS Deadline Cloud using an interface endpoint (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
 - [Restricted network environments](network-connectivity.md "network-connectivity.md")
 - [Security best practices for Deadline Cloud](security-best-practices.md "security-best-practices.md")

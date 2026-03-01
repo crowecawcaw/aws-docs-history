@@ -10,9 +10,7 @@ Workloads scale from simple job bundles that users submit to a queue with either
 an automatically generated GUI, to integrated submitter plugins that dynamically generate a job
 bundle for an application-defined workload.
 
-## How workloads arise from
-
-production
+## How workloads arise from production
 
 To understand workloads in production contexts and how to support them with Deadline Cloud,
 consider how they come to be. Production may involve creating visual effects, animation,
@@ -85,8 +83,7 @@ consider when defining a workload for Deadline Cloud:
 - **Job parameter definitions**. The user experience of
   submitting the job is affected greatly by the parameters it provides. Example parameters
   include data files, directories, and application configuration.
-  - [Parameter values elements for job
-    bundles](build-job-bundle-parameters.md "build-job-bundle-parameters.md")
+  - [Parameter values elements for job bundles](build-job-bundle-parameters.md "build-job-bundle-parameters.md")
 
 - **File data flow**. When a job runs, it reads input from
   files provided by the user, then writes its output as new files. To work with the job

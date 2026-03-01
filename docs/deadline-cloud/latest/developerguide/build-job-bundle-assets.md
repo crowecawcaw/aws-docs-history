@@ -48,7 +48,7 @@ shares.
 For more information about creating and using storage profiles, see [Shared
 storage in Deadline Cloud](../userguide/storage-shared.md "../userguide/storage-shared.md") in the _AWS Deadline Cloud User Guide_.
 
-###### Example - The asset reference file created by the Deadline Cloud GUI
+###### Example- The asset reference file created by the Deadline Cloud GUI
 
 Use the following command to submit a job using the [blender_render sample](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/blender_render "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/blender_render").
 

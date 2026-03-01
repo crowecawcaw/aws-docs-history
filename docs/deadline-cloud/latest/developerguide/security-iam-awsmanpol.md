@@ -15,9 +15,7 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## AWS managed policy:
-
-AWSDeadlineCloud-FleetWorker
+## AWS managed policy: AWSDeadlineCloud-FleetWorker
 
 You can attach the `AWSDeadlineCloud-FleetWorker` policy to your AWS Identity and Access Management
 (IAM) identities.
@@ -34,9 +32,7 @@ This policy includes the following permissions:
 For a JSON listing of the policy details, see [AWSDeadlineCloud-FleetWorker](../../../aws-managed-policy/latest/reference/AWSDeadlineCloud-FleetWorker.md "../../../aws-managed-policy/latest/reference/AWSDeadlineCloud-FleetWorker.md") in the _AWS Managed Policy reference
 guide_.
 
-## AWS managed policy:
-
-AWSDeadlineCloud-WorkerHost
+## AWS managed policy: AWSDeadlineCloud-WorkerHost
 
 You can attach the `AWSDeadlineCloud-WorkerHost` policy to your IAM
 identities.
@@ -54,9 +50,7 @@ This policy includes the following permissions:
 For a JSON listing of the policy details, see [AWSDeadlineCloud-WorkerHost](../../../aws-managed-policy/latest/reference/AWSDeadlineCloud-WorkerHost.md "../../../aws-managed-policy/latest/reference/AWSDeadlineCloud-WorkerHost.md") in the _AWS Managed Policy reference
 guide_.
 
-## AWS managed policy:
-
-AWSDeadlineCloud-UserAccessFarms
+## AWS managed policy: AWSDeadlineCloud-UserAccessFarms
 
 You can attach the `AWSDeadlineCloud-UserAccessFarms` policy to your IAM
 identities.
@@ -76,9 +70,7 @@ This policy includes the following permissions:
 For a JSON listing of the policy details, see [AWSDeadlineCloud-UserAccessFarms](../../../aws-managed-policy/latest/reference/AWSDeadlineCloud-UserAccessFarms.md "../../../aws-managed-policy/latest/reference/AWSDeadlineCloud-UserAccessFarms.md") in the _AWS Managed Policy reference
 guide_.
 
-## AWS managed policy:
-
-AWSDeadlineCloud-UserAccessFleets
+## AWS managed policy: AWSDeadlineCloud-UserAccessFleets
 
 You can attach the `AWSDeadlineCloud-UserAccessFleets` policy to your IAM
 identities.
@@ -97,9 +89,7 @@ This policy includes the following permissions:
 For a JSON listing of the policy details, see [AWSDeadlineCloud-UserAccessFleets](../../../aws-managed-policy/latest/reference/AWSDeadlineCloud-UserAccessFleets.md "../../../aws-managed-policy/latest/reference/AWSDeadlineCloud-UserAccessFleets.md") in the _AWS Managed Policy reference
 guide_.
 
-## AWS managed policy:
-
-AWSDeadlineCloud-UserAccessJobs
+## AWS managed policy: AWSDeadlineCloud-UserAccessJobs
 
 You can attach the `AWSDeadlineCloud-UserAccessJobs` policy to your IAM
 identities.
@@ -118,9 +108,7 @@ This policy includes the following permissions:
 For a JSON listing of the policy details, see [AWSDeadlineCloud-UserAccessJobs](../../../aws-managed-policy/latest/reference/AWSDeadlineCloud-UserAccessJobs.md "../../../aws-managed-policy/latest/reference/AWSDeadlineCloud-UserAccessJobs.md") in the _AWS Managed Policy reference
 guide_.
 
-## AWS managed policy:
-
-AWSDeadlineCloud-UserAccessQueues
+## AWS managed policy: AWSDeadlineCloud-UserAccessQueues
 
 You can attach the `AWSDeadlineCloud-UserAccessQueues` policy to your IAM
 identities.
@@ -139,9 +127,7 @@ This policy includes the following permissions:
 For a JSON listing of the policy details, see [AWSDeadlineCloud-UserAccessQueues](../../../aws-managed-policy/latest/reference/AWSDeadlineCloud-UserAccessQueues.md "../../../aws-managed-policy/latest/reference/AWSDeadlineCloud-UserAccessQueues.md") in the _AWS Managed Policy reference
 guide_.
 
-## Deadline Cloud updates to AWS managed
-
-policies
+## Deadline Cloud updates to AWS managed policies
 
 View details about updates to AWS managed policies for Deadline Cloud since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

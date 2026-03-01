@@ -41,7 +41,6 @@ Deadline Cloud has three CloudWatch metrics.
 
 ###### Topics
 
-- [Logging Deadline Cloud API calls using
-  AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
+- [Logging Deadline Cloud API calls using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
 - [Monitoring with CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md")
 - [Managing Deadline Cloud events using Amazon EventBridge](eventbridge-integration.md "eventbridge-integration.md")

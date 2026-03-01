@@ -1,6 +1,4 @@
-# Using files from a step
-
-in a dependent step
+# Using files from a step in a dependent step
 
 This example shows how one step in a job can access the outputs from a step that it
 depends on in the same job.

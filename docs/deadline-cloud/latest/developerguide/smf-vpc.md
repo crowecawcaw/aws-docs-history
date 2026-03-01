@@ -59,10 +59,14 @@ After connecting your VPC resource to your fleet, workers can access it using a 
 
 This domain is private and only accessible by workers (not from the internet or your workstation).
 
+To mount or configure access to the VPC resource on your workers, use a [host
+configuration script](smf-admin.md "smf-admin.md"). Host configuration scripts run with administrator privileges when workers start,
+allowing you to mount file systems, configure network settings, or perform other setup tasks.
+
 ## Authentication and security
 
 For resources requiring authentication, store credentials securely in AWS Secrets Manager, access secrets from your
-host configuration scripts or job scripts, and implement appropriate file system permissions to control access. Consider
+[host configuration scripts](smf-admin.md "smf-admin.md") or job scripts, and implement appropriate file system permissions to control access. Consider
 security implications when sharing resources across multiple fleets. For example, if two fleets are connected to the same
 shared storage, jobs that run on one fleet might be able to access assets created from the other fleet.
 

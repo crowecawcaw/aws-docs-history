@@ -1,6 +1,4 @@
-# Run a background daemon process from the
-
-queue environment
+# Run a background daemon process from the queue environment
 
 In many rendering use cases, loading the application and scene data can take a
 significant amount of time. If a job reloads them for every frame, it will spend most of its

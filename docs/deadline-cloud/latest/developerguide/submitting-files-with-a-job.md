@@ -20,9 +20,6 @@ available to the worker hosts processing your jobs.
 
 ###### Topics
 
-- [How Deadline Cloud uploads files to
-  Amazon S3](what-job-attachments-uploads-to-amazon-s3.md "what-job-attachments-uploads-to-amazon-s3.md")
-- [How Deadline Cloud chooses
-  the files to upload](how-job-attachments-decides-what-to-upload-to-amazon-s3.md "how-job-attachments-decides-what-to-upload-to-amazon-s3.md")
-- [How jobs find job attachment
-  input files](how-jobs-find-job-attachments-input-files.md "how-jobs-find-job-attachments-input-files.md")
+- [How Deadline Cloud uploads files to Amazon S3](what-job-attachments-uploads-to-amazon-s3.md "what-job-attachments-uploads-to-amazon-s3.md")
+- [How Deadline Cloud chooses the files to upload](how-job-attachments-decides-what-to-upload-to-amazon-s3.md "how-job-attachments-decides-what-to-upload-to-amazon-s3.md")
+- [How jobs find job attachment input files](how-jobs-find-job-attachments-input-files.md "how-jobs-find-job-attachments-input-files.md")

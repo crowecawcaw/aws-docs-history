@@ -21,10 +21,7 @@ is running the job to derive these path mapping rules.
 
 ###### Topics
 
-- [Model shared
-  file system locations with storage profiles](modeling-your-shared-filesystem-locations-with-storage-profiles.md "modeling-your-shared-filesystem-locations-with-storage-profiles.md")
-- [Configure storage profiles for
-  fleets](configuring-storage-profiles-for-fleets.md "configuring-storage-profiles-for-fleets.md")
+- [Model shared file system locations with storage profiles](modeling-your-shared-filesystem-locations-with-storage-profiles.md "modeling-your-shared-filesystem-locations-with-storage-profiles.md")
+- [Configure storage profiles for fleets](configuring-storage-profiles-for-fleets.md "configuring-storage-profiles-for-fleets.md")
 - [Configure storage profiles for queues](storage-profiles-for-queues.md "storage-profiles-for-queues.md")
-- [Derive path mapping
-  rules from storage profiles](deriving-path-mapping-rules-from-storage-profiles.md "deriving-path-mapping-rules-from-storage-profiles.md")
+- [Derive path mapping rules from storage profiles](deriving-path-mapping-rules-from-storage-profiles.md "deriving-path-mapping-rules-from-storage-profiles.md")

@@ -76,6 +76,6 @@ provide it with information about the job. The environment variables are:
 ###### Topics
 
 - [Job template elements for job bundles](build-job-bundle-template.md "build-job-bundle-template.md")
-- [Parameter values elements for job
-  bundles](build-job-bundle-parameters.md "build-job-bundle-parameters.md")
+- [Task chunking for job templates](build-job-bundle-chunking.md "build-job-bundle-chunking.md")
+- [Parameter values elements for job bundles](build-job-bundle-parameters.md "build-job-bundle-parameters.md")
 - [Asset references elements for job bundles](build-job-bundle-assets.md "build-job-bundle-assets.md")

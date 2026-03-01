@@ -12,8 +12,11 @@ environment](../userguide/create-queue-environment.md "../userguide/create-queue
 In most cases, you don't need to change an SMF to process your workloads. However, some
 situations may require you make changes to your fleets.
 
+###### Note
+
+To install custom software on workers using host configuration scripts, see [Run host configuration scripts with administrator privileges](smf-admin.md "smf-admin.md").
+
 ###### Topics
 
-- [Run scripts as an administrator to configure workers](smf-admin.md "smf-admin.md")
 - [Connect VPC resources to your SMF with VPC resource endpoints](smf-vpc.md "smf-vpc.md")
 - [Use job attachments with service-managed fleets](smf-job-attachments.md "smf-job-attachments.md")

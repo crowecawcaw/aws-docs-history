@@ -1,6 +1,4 @@
-# Create a conda build recipe for
-
-Blender
+# Create a conda build recipe for Blender
 
 You can use different applications to create a conda build recipe. Blender is free to
 use and is simple to package with conda. The Blender Foundation provides [application archives](https://download.blender.org/release/Blender4.2/ "https://download.blender.org/release/Blender4.2/") for

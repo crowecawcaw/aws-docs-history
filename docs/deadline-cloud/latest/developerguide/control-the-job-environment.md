@@ -1,6 +1,4 @@
-# Control the job environment with OpenJD queue
-
-environments
+# Control the job environment with OpenJD queue environments
 
 You can define customized environments for your rendering jobs using _queue
 environments_. A queue environment is a template that controls the environment
@@ -22,8 +20,6 @@ we will show them inside of job templates.
 
 ###### Topics
 
-- [Set environment variables in a queue
-  environment](set-environment-variables.md "set-environment-variables.md")
+- [Set environment variables in a queue environment](set-environment-variables.md "set-environment-variables.md")
 - [Set the path in a queue environment](set-the-path.md "set-the-path.md")
-- [Run a background daemon process from the
-  queue environment](run-a-background-daemon-process.md "run-a-background-daemon-process.md")
+- [Run a background daemon process from the queue environment](run-a-background-daemon-process.md "run-a-background-daemon-process.md")

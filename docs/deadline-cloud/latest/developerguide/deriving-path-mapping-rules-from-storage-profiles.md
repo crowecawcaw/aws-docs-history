@@ -1,6 +1,4 @@
-# Derive path mapping
-
-rules from storage profiles
+# Derive path mapping rules from storage profiles
 
 Path mapping rules describe how paths should be remapped from the job to the path's
 actual location on a worker host. When a task is running on a worker, the storage profile

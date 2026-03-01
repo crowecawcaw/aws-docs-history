@@ -17,13 +17,10 @@ running the job.
 
 ###### Topics
 
-- [Getting an application from a conda
-  channel](#provide-applications-get-application "#provide-applications-get-application")
+- [Getting an application from a conda channel](#provide-applications-get-application "#provide-applications-get-application")
 - [Use a different package manager](#provide-applications-other-package "#provide-applications-other-package")
 
-## Getting an application from a conda
-
-channel
+## Getting an application from a conda channel
 
 You can create a custom queue environment for your Deadline Cloud workers that installs the
 software of your choice. This example queue environment has the same behavior as the
@@ -47,9 +44,7 @@ If the you want to use an application that is not available in the conda channel
 can create a conda channel in Amazon S3 and then build your own packages for that application. See
 [Create a conda channel using S3](configure-jobs-s3-channel.md "configure-jobs-s3-channel.md") to learn more.
 
-### Get open source libraries from
-
-conda-forge
+### Get open source libraries from conda-forge
 
 This section describes how to use open source libraries from the `conda-forge` channel.
 The following example is a job template that uses the `polars` Python package.
@@ -73,9 +68,7 @@ The section of the job template that sets the parameters is:
 For the latest version of the complete example job template, see [stage_1_self_contained_template/template.yaml](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/job_bundles/job_dev_progression/stage_1_self_contained_template/template.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/job_bundles/job_dev_progression/stage_1_self_contained_template/template.yaml"). For the latest version of the
 queue environment that loads the conda packages, see [conda_queue_env_console_equivalent.yaml](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_console_equivalent.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/conda_queue_env_console_equivalent.yaml") in the [deadline-cloud-samples](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline") repository on GitHub.
 
-### Get Blender from the deadline-cloud
-
-channel
+### Get Blender from the deadline-cloud channel
 
 The following example shows a job template that gets Blender from the
 `deadline-cloud` conda channel. This channel supports the submitters that

@@ -1,22 +1,22 @@
-# Run scripts as an administrator to configure workers
+# Run host configuration scripts with administrator privileges
 
-Custom fleet host configuration scripts allow you to perform administrative tasks, such as
+Host configuration scripts allow you to perform administrative tasks, such as
 software installation, on your service-managed fleet workers. These scripts run with elevated
-privileges, giving you the flexibility to configure your workers for your system.
+privileges (`sudo` on Linux, Administrator on Windows), giving you the flexibility
+to configure your workers for your system.
 
 Deadline Cloud runs the script after the worker enters the `STARTING` state and before
 it runs any tasks.
 
 ###### Important
 
-The script runs with elevated permissions, `sudo` on Linux systems and
-'Administrator' on Windows systems. It is your responsibility to ensure that the script
+The script runs with elevated permissions. It is your responsibility to ensure that the script
 does not introduce any security issues.
 
-When you use an admin script you are responsible for monitoring the health of your
+When you use a host configuration script you are responsible for monitoring the health of your
 fleet.
 
-Common uses for the script include:
+Common uses for host configuration scripts include:
 
 - Installing software that requires administrator access
 - Installing Docker containers
@@ -47,15 +47,15 @@ aws deadline create-fleet \
 --display-name "`fleet-name`" \
 --max-worker-count 1 \
 --configuration '{
-  "serviceManagedEc2": {
-    "instanceCapabilities": {
-      "vCpuCount": {"min": 2},
-      "memoryMiB": {"min": 4096},
-      "osFamily": "linux",
-      "cpuArchitectureType": "x86_64"
-    },
-    "instanceMarketOptions": {"type":"spot"}
-  }
+"serviceManagedEc2": {
+  "instanceCapabilities": {
+    "vCpuCount": {"min": 2},
+    "memoryMiB": {"min": 4096},
+    "osFamily": "linux",
+    "cpuArchitectureType": "x86_64"
+  },
+  "instanceMarketOptions": {"type":"spot"}
+}
 }' \
 --role-arn arn:aws:iam::`111122223333`:role/`role-name` \
 --host-configuration '{ "scriptBody": "`script body`", "scriptTimeoutSeconds": `timeout value`}'
@@ -97,21 +97,21 @@ with Administrator privileges:
 Get-ChildItem env: | ForEach-Object { "$($_.Name)=$($_.Value)" }
 aws sts get-caller-identity
 function Test-AdminPrivileges {
-    $currentUser = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
-    $isAdmin = $currentUser.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+  $currentUser = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
+  $isAdmin = $currentUser.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 
-    return $isAdmin
+  return $isAdmin
 }
 
 if (Test-AdminPrivileges) {
-    Write-Host "The current PowerShell session is elevated (running as Administrator)."
+  Write-Host "The current PowerShell session is elevated (running as Administrator)."
 } else {
-    Write-Host "The current PowerShell session is not elevated (not running as Administrator)."
+  Write-Host "The current PowerShell session is not elevated (not running as Administrator)."
 }
 exit 0
 ```
 
-## Troubleshooting host configuration scripts
+## Troubleshoot host configuration scripts
 
 When you run the host configuration script:
 
@@ -129,6 +129,11 @@ To monitor the script:
 2. Choose **View workers** to open the Deadline Cloud monitor.
 3. View the worker status in the monitor page.
 
+###### Tip
+
+When testing host configuration scripts, set the fleet's maximum worker count to 1 to
+avoid starting multiple workers while iterating on the script.
+
 Important notes:
 
 - Workers that shut down due to an error are not available in the list of workers in
@@ -138,17 +143,13 @@ Important notes:
 /aws/deadline/farm-`XXXXX`/fleet-`YYYYY`
 ```
 
-Within that log group is a stream of
-
-```
-worker-`ZZZZZ`
-```
+Within that log group, look for a stream named `worker-`ZZZZZ``.
 
 - CloudWatch Logs retains worker logs according to your configured retention period.
 
-### Monitoring host configuration script execution
+### Monitor host configuration script execution
 
-With Admin scripts to configure workers, you can take full control of a Deadline Cloud worker. You can install any software package, reconfigure operating system parameters, or mount shared file systems. With this advanced feature and Deadline Cloud's capability to scale to thousands of workers, you can now monitor when configuration scripts are executed successfully or failed. Failure causes may include script errors, flaky behavior, or other unknown situations.
+With host configuration scripts, you can take full control of a Deadline Cloud worker. You can install any software package, reconfigure operating system parameters, or mount shared file systems. With this advanced feature and Deadline Cloud's capability to scale to thousands of workers, you can monitor when configuration scripts are executed successfully or failed.
 
 We recommend the following solutions for monitoring host configuration script execution.
 

@@ -1,6 +1,4 @@
-# How jobs find job attachment
-
-input files
+# How jobs find job attachment input files
 
 For a job to use the files that Deadline Cloud uploads to Amazon S3 using job attachments, your job
 needs those files available through the file system on the worker hosts. When a [session](https://github.com/OpenJobDescription/openjd-specifications/wiki/How-Jobs-Are-Run#sessions "https://github.com/OpenJobDescription/openjd-specifications/wiki/How-Jobs-Are-Run#sessions") for your job runs on a worker host, Deadline Cloud downloads the input files for

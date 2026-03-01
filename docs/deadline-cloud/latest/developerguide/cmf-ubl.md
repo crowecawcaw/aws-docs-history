@@ -16,9 +16,8 @@ traffic for third-party licenses.
 
 - [Step 1: Create a security group](#cmf-ubl-step-1 "#cmf-ubl-step-1")
 - [Step 2: Set up the license endpoint](#cmf-ubl-step-2 "#cmf-ubl-step-2")
-- [Step 3: Connect a rendering application to an
-  endpoint](#w2aac38c15c15 "#w2aac38c15c15")
-- [Step 4: Delete a license endpoint](#w2aac38c15c17 "#w2aac38c15c17")
+- [Step 3: Connect a rendering application to an endpoint](#w2aac31c15c15 "#w2aac31c15c15")
+- [Step 4: Delete a license endpoint](#w2aac31c15c17 "#w2aac31c15c17")
 
 ## Step 1: Create a security group
 
@@ -69,9 +68,7 @@ You can create your license endpoint from your dashboard in the Deadline Cloud [
 To remove a product from a license endpoint, in the metered products section, select the product
 and then choose **Remove**. In the confirmation, choose **Remove** again.
 
-## Step 3: Connect a rendering application to an
-
-endpoint
+## Step 3: Connect a rendering application to an endpoint
 
 After the license endpoint is set up, applications use it the same as they use a
 third-party license server. You typically configure the license server for the application by
@@ -83,7 +80,7 @@ choose the copy icon in the DNS Name section.
 
 ### Configuration examples
 
-###### Example – Autodesk Maya and Arnold
+###### Example– Autodesk Maya and Arnold
 
 ###### Note
 
@@ -112,7 +109,7 @@ For Autodesk Maya and Arnold, set the environment variable `ADSKFLEX_LICENSE_FIL
 For Windows workers, use a semi-colon (;) instead of a colon (:) to separate
 endpoints.
 
-###### Example – Cinema 4D
+###### Example– Cinema 4D
 
 Set the environment variable `g_licenseServerRLM` to:
 
@@ -129,7 +126,7 @@ using a command line similar to this one:
     -oimage "C:\Users\Administrator\User\MyOutputImage.png
 ```
 
-###### Example – KeyShot
+###### Example– KeyShot
 
 Set the environment variable `LUXION_LICENSE_FILE` to:
 
@@ -154,7 +151,7 @@ The response should contain the following without any error messages:
 Connecting to floating license server
 ```
 
-###### Example – Foundry Nuke
+###### Example– Foundry Nuke
 
 Set the environment variable `foundry_LICENSE` to:
 
@@ -168,7 +165,7 @@ To test that licensing is working properly, you can run Nuke in a terminal:
 ~/nuke/Nuke14.0v5/Nuke14.0 -x
 ```
 
-###### Example – Red Giant
+###### Example– Red Giant
 
 Set the environment variable `redshift_LICENSE` to:
 
@@ -197,7 +194,7 @@ C:\Program Files\Adobe\Adobe After Effects 2025\Support Files\aerender.exe -comp
             C:\Users\MyUser\`myMovieWithRedGiant`.mp4
 ```
 
-###### Example – Redshift
+###### Example– Redshift
 
 Set the environment variable `redshift_LICENSE` to:
 
@@ -214,7 +211,7 @@ C:\ProgramData\redshift\bin\redshiftCmdLine.exe ^
     -oip C:\demo\proxy\images
 ```
 
-###### Example – SideFX Houdini, Mantra, and Karma
+###### Example– SideFX Houdini, Mantra, and Karma
 
 Run the following command:
 
@@ -229,7 +226,7 @@ command:
 /opt/hfs19.5.640/bin/hython ~/forpentest.hip -c "hou.node('/out/mantra1').render()"
 ```
 
-###### Example – VRay
+###### Example– VRay
 
 Set the environment variable `VRAY_AUTH_CLIENT_SETTINGS` to:
 

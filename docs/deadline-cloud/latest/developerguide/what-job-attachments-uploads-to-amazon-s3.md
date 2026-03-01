@@ -1,6 +1,4 @@
-# How Deadline Cloud uploads files to
-
-Amazon S3
+# How Deadline Cloud uploads files to Amazon S3
 
 This example shows how Deadline Cloud uploads files from your workstation or worker host to Amazon S3
 so that they can be shared. It uses a sample job bundle from GitHub and the Deadline Cloud CLI to

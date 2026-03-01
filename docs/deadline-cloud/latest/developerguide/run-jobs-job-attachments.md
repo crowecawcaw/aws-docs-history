@@ -31,17 +31,12 @@ following:
 
 ###### Topics
 
-- [Add a job attachments configuration to your
-  queue](#job-attachments-config "#job-attachments-config")
-- [Submit simple_file_job with job
-  attachments](#submit-job-attachments "#submit-job-attachments")
-- [Understanding how job attachments are stored
-  in Amazon S3](#job-attachments-in-depth "#job-attachments-in-depth")
+- [Add a job attachments configuration to your queue](#job-attachments-config "#job-attachments-config")
+- [Submit simple_file_job with job attachments](#submit-job-attachments "#submit-job-attachments")
+- [Understanding how job attachments are stored in Amazon S3](#job-attachments-in-depth "#job-attachments-in-depth")
 - [Next steps](#run-jobs-job-attachments-next "#run-jobs-job-attachments-next")
 
-## Add a job attachments configuration to your
-
-queue
+## Add a job attachments configuration to your queue
 
 To enable job attachments in your queue, add a job attachments configuration to the
 queue resource in your account.
@@ -165,9 +160,7 @@ roleArn: arn:aws:iam::ACCOUNT_NUMBER:role/DeveloperFarmQueueRole
 ...
 ```
 
-## Submit simple_file_job with job
-
-attachments
+## Submit simple_file_job with job attachments
 
 When you use job attachments, job bundles must give Deadline Cloud enough information to
 determine the job's data flow, such as using `PATH` parameters. In the case
@@ -313,8 +306,7 @@ eaa2df5d34b54be5ac34c56a24a8c237b8487231a607eaf530a04d76b89c9cd3 /tmp/openjd/ses
 
 ```
 
-## Understanding how job attachments are stored
- in Amazon S3
+## Understanding how job attachments are stored in Amazon S3
 
 
 You can use the AWS Command Line Interface (AWS CLI) to upload or download data for job attachments,
@@ -514,8 +506,7 @@ After learning how to submit jobs with attachments using the Deadline Cloud CLI,
 
 * [Submit with Deadline Cloud](submit-a-job.md "submit-a-job.md") to learn how to
  run jobs using an OpenJD bundle on your worker hosts.
-* [Add a service-managed fleet to your developer farm
- in Deadline Cloud](service-managed-fleet.md "service-managed-fleet.md")
+* [Add a service-managed fleet to your developer farm in Deadline Cloud](service-managed-fleet.md "service-managed-fleet.md")
  to run your jobs on hosts managed by Deadline Cloud.
 * [Clean up your farm resources in Deadline Cloud](cleaning-up.md "cleaning-up.md") to shut down the
  resources that you used for this tutorial.
