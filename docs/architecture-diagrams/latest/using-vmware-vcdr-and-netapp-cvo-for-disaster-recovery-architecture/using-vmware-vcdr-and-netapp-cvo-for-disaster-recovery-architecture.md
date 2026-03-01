@@ -4,9 +4,7 @@ Publication date: **March 17, 2022 ([Diagram history](#diagram-history "#diagram
 
 This architecture shows you how to bring Disaster-Recovery-as-a-Service (DRaaS) and the power of AWS to your on-premises VMware workloads.
 
-## Using VMware VCDR and NetApp CVO for DR
-
-Diagram
+## Using VMware VCDR and NetApp CVO for DR Diagram
 
 ![Reference architecture diagram showing how you can use AWS to bring Disaster-Recovery-as-a-Service (DRaaS) to your on-premises VMware workloads.](images/using-vmware-vcdr-and-netapp-for-cvo-for-dr-architecture.png)
 
