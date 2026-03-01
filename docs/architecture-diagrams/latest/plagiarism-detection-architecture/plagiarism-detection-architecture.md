@@ -1,14 +1,10 @@
-# Plagiarism Detection
-
-Architecture
+# Plagiarism Detection Architecture
 
 Publication date: **July 26, 2021 ([Diagram history](#diagram-history "#diagram-history"))**
 
 This architecture helps you create a plagiarism-detection service using AWS Step Functions, AWS Lambda, Amazon SageMaker AI, and OpenSearch Service.
 
-## Plagiarism Detection
-
-Architecture Diagram
+## Plagiarism Detection Architecture Diagram
 
 ![Reference architecture diagram showing how you can use AWS Step Functions, AWS Lambda, Amazon SageMaker AI, and OpenSearch Service services to create a plagiarism-detection service .](images/plagiarism-detection-architecture.png)
 
