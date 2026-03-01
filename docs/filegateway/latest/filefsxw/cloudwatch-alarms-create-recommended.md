@@ -2,9 +2,7 @@ Amazon FSx File Gateway is no longer available to new customers. Existing
 customers of FSx File Gateway can continue to use the service normally. For capabilities
 similar to FSx File Gateway, visit [this blog post](https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/ "https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/").
 
-# Creating recommended CloudWatch alarms
-
-for your gateway
+# Creating recommended CloudWatch alarms for your gateway
 
 When you create a new gateway using the Storage Gateway console, you can choose to create all
 recommended CloudWatch alarms automatically as part of the initial setup process. For more

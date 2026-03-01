@@ -2,9 +2,7 @@ Amazon FSx File Gateway is no longer available to new customers. Existing
 customers of FSx File Gateway can continue to use the service normally. For capabilities
 similar to FSx File Gateway, visit [this blog post](https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/ "https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/").
 
-# Create an IAM user with administrator
-
-privileges
+# Create an IAM user with administrator privileges
 
 After you
 create your AWS account, use the following steps to create an AWS Identity and Access Management (IAM) user for

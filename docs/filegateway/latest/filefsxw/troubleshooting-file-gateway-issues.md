@@ -2,9 +2,7 @@ Amazon FSx File Gateway is no longer available to new customers. Existing
 customers of FSx File Gateway can continue to use the service normally. For capabilities
 similar to FSx File Gateway, visit [this blog post](https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/ "https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/").
 
-# Troubleshooting: File Gateway
-
-issues
+# Troubleshooting: File Gateway issues
 
 You can configure your File Gateway to write log entries to a Amazon CloudWatch log group. If you
 do, you receive notifications about gateway health status and about any errors that the
@@ -17,25 +15,17 @@ of each error and health notification and how to fix issues.
 ###### Topics
 
 - [Error: FileMissing](#troubleshoot-logging-errors-filemissing "#troubleshoot-logging-errors-filemissing")
-- [Error:
-  FsxFileSystemAuthenticationFailure](#troubleshoot-logging-errors-fsxfilesystemauthenticationfailure "#troubleshoot-logging-errors-fsxfilesystemauthenticationfailure")
-- [Error:
-  FsxFileSystemConnectionFailure](#troubleshoot-logging-errors-fsxfilesystemconnectionfailure "#troubleshoot-logging-errors-fsxfilesystemconnectionfailure")
-- [Error:
-  FsxFileSystemFull](#troubleshoot-logging-errors-fsxfilesystemfull "#troubleshoot-logging-errors-fsxfilesystemfull")
-- [Error:
-  GatewayClockOutOfSync](#troubleshoot-logging-errors-gatewayclockoutofsync "#troubleshoot-logging-errors-gatewayclockoutofsync")
-- [Error:
-  InvalidFileState](#troubleshoot-logging-errors-invalidfilestate "#troubleshoot-logging-errors-invalidfilestate")
+- [Error: FsxFileSystemAuthenticationFailure](#troubleshoot-logging-errors-fsxfilesystemauthenticationfailure "#troubleshoot-logging-errors-fsxfilesystemauthenticationfailure")
+- [Error: FsxFileSystemConnectionFailure](#troubleshoot-logging-errors-fsxfilesystemconnectionfailure "#troubleshoot-logging-errors-fsxfilesystemconnectionfailure")
+- [Error: FsxFileSystemFull](#troubleshoot-logging-errors-fsxfilesystemfull "#troubleshoot-logging-errors-fsxfilesystemfull")
+- [Error: GatewayClockOutOfSync](#troubleshoot-logging-errors-gatewayclockoutofsync "#troubleshoot-logging-errors-gatewayclockoutofsync")
+- [Error: InvalidFileState](#troubleshoot-logging-errors-invalidfilestate "#troubleshoot-logging-errors-invalidfilestate")
 - [Error: ObjectMissing](#troubleshoot-logging-errors-objectmissing "#troubleshoot-logging-errors-objectmissing")
-- [Error:
-  DroppedNotifications](#troubleshoot-logging-errors-droppednotifications "#troubleshoot-logging-errors-droppednotifications")
+- [Error: DroppedNotifications](#troubleshoot-logging-errors-droppednotifications "#troubleshoot-logging-errors-droppednotifications")
 - [Notification: HardReboot](#troubleshoot-hardreboot-notification "#troubleshoot-hardreboot-notification")
 - [Notification: Reboot](#troubleshoot-reboot-notification "#troubleshoot-reboot-notification")
-- [Troubleshooting: Active Directory domain
-  issues](#troubleshooting-ad-domain "#troubleshooting-ad-domain")
-- [Troubleshooting: Using CloudWatch
-  metrics](#troubleshooting-with-cw-metrics "#troubleshooting-with-cw-metrics")
+- [Troubleshooting: Active Directory domain issues](#troubleshooting-ad-domain "#troubleshooting-ad-domain")
+- [Troubleshooting: Using CloudWatch metrics](#troubleshooting-with-cw-metrics "#troubleshooting-with-cw-metrics")
 
 ## Error: FileMissing
 
@@ -53,9 +43,7 @@ fail.
 3. Copy the latest version of the file that you saved in step 1 Amazon FSx using your
    SMB client. Do this through your File Gateway.
 
-## Error:
-
-FsxFileSystemAuthenticationFailure
+## Error: FsxFileSystemAuthenticationFailure
 
 You can get an `FsxFileSystemAuthenticationFailure` error when the
 credentials provided while attaching the filesystem expired or, its privileges have been
@@ -68,9 +56,7 @@ revoked.
 2. Ensure that the user has all necessary permissions as described in [Attach an
    Amazon FSx for Windows File Server file system](attach-fsxw-filesystem.md "attach-fsxw-filesystem.md").
 
-## Error:
-
-FsxFileSystemConnectionFailure
+## Error: FsxFileSystemConnectionFailure
 
 You can get an `FsxFileSystemConnectionFailure` error when the Amazon FSx server
 is inaccessible from the gateway machine.
@@ -81,9 +67,7 @@ is inaccessible from the gateway machine.
    the gateway machine and the Amazon FSx server.
 2. Ensure that the Amazon FSx server is running.
 
-## Error:
-
-FsxFileSystemFull
+## Error: FsxFileSystemFull
 
 You can get an `FsxFileSystemFull` error when there is not enough free disk
 space in the Amazon FSx file system.
@@ -92,9 +76,7 @@ space in the Amazon FSx file system.
 
 - Increase the storage space for the Amazon FSx file system.
 
-## Error:
-
-GatewayClockOutOfSync
+## Error: GatewayClockOutOfSync
 
 You can get a `GatewayClockOutOfSync` error when the gateway detects a
 difference of 5 minutes or more between the local system time and the time reported by
@@ -110,9 +92,7 @@ authentication errors.
   server configuration, see [Configuring a Network Time Protocol (NTP) server for your
   gateway](manage-on-premises-fgw.md#MaintenanceTimeSync-fgw "manage-on-premises-fgw.md#MaintenanceTimeSync-fgw").
 
-## Error:
-
-InvalidFileState
+## Error: InvalidFileState
 
 You can get an `InvalidFileState` error when a writer other than the
 specified gateway modifies the specified file in the specified file share. As a result,
@@ -144,9 +124,7 @@ or retrievals from Amazon FSx for the object fail.
 3. Copy the latest version of the file that you saved in step 1 Amazon FSx using your
    SMB client. Do this through your File Gateway.
 
-## Error:
-
-DroppedNotifications
+## Error: DroppedNotifications
 
 You might see a `DroppedNotifications` error instead of other expected
 types of CloudWatch log entries when free storage space on your gateway's root disk is less
@@ -194,9 +172,7 @@ reboot is probably a normal occurrence and not a sign of any problem. If the reb
 occurred significantly outside the maintenance window, check whether the gateway was
 restarted manually.
 
-## Troubleshooting: Active Directory domain
-
-issues
+## Troubleshooting: Active Directory domain issues
 
 FSx File Gateway doesn't generate specific log messages for Active Directory domain issues.
 If you have trouble joining your gateway to your Active Directory domain, do the
@@ -270,30 +246,21 @@ of 3,600 seconds.
 - Verify that the Active Directory user you are using to join the gateway to the
   domain has the privileges required to do so.
 
-## Troubleshooting: Using CloudWatch
-
-metrics
+## Troubleshooting: Using CloudWatch metrics
 
 You can find information following about actions to address issues using Amazon CloudWatch
 metrics with Storage Gateway.
 
 ###### Topics
 
-- [Your gateway reacts slowly when browsing
-  directories](#slow-gateway "#slow-gateway")
+- [Your gateway reacts slowly when browsing directories](#slow-gateway "#slow-gateway")
 - [Your gateway isn't responding](#gateway-not-responding "#gateway-not-responding")
-- [You do not see files in your Amazon FSx file
-  system](#files-missing-fsx "#files-missing-fsx")
-- [You do not see older snapshots in your Amazon FSx
-  file system](#snapshots-missing-fsx "#snapshots-missing-fsx")
-- [Your gateway is slow transferring data
-  to Amazon FSx](#slow-data-transfer-to-fsx "#slow-data-transfer-to-fsx")
-- [Your gateway backup job fails or there are errors
-  when writing to your gateway](#backup-job-fails "#backup-job-fails")
+- [You do not see files in your Amazon FSx file system](#files-missing-fsx "#files-missing-fsx")
+- [You do not see older snapshots in your Amazon FSx file system](#snapshots-missing-fsx "#snapshots-missing-fsx")
+- [Your gateway is slow transferring data to Amazon FSx](#slow-data-transfer-to-fsx "#slow-data-transfer-to-fsx")
+- [Your gateway backup job fails or there are errors when writing to your gateway](#backup-job-fails "#backup-job-fails")
 
-### Your gateway reacts slowly when browsing
-
-directories
+### Your gateway reacts slowly when browsing directories
 
 If your File Gateway reacts slowly when you run the **ls** command
 or browse directories, check the `IndexFetch` and
@@ -338,9 +305,7 @@ at any given time, check the `SMBV(1/2/3)Sessions` metric. If
 there are many clients connected, you might need to add more RAM to your
 File Gateway.
 
-### You do not see files in your Amazon FSx file
-
-system
+### You do not see files in your Amazon FSx file system
 
 If you notice that files on the gateway are not reflected in the Amazon FSx file
 system, check the `FilesFailingUpload` metric. If the metric reports that
@@ -348,17 +313,13 @@ some files are failing upload, check your health notifications. When files fail 
 upload, the gateway generates a health notification containing more details on the
 issue.
 
-### You do not see older snapshots in your Amazon FSx
-
-file system
+### You do not see older snapshots in your Amazon FSx file system
 
 Some file operations on the FSx File Gateway, such as top-level folder renames or permission changes, can result in multiple file operations that lead to a high I/O load on your FSx for Windows File Server file system. If your file system doesn't have enough performance resources for your workload, the file system might delete [shadow copies](../../../fsx/latest/WindowsGuide/shadow-copies-fsxW.md "../../../fsx/latest/WindowsGuide/shadow-copies-fsxW.md") because it prioritizes availability for ongoing I/O over historical shadow copy retention.
 
 In the Amazon FSx console, check the **Monitoring and performance** page to see if your file system is under-provisioned. If it is, you can switch to SSD storage, increase throughput capacity, or increase SSD IOPS to handle your workload.
 
-### Your gateway is slow transferring data
-
-to Amazon FSx
+### Your gateway is slow transferring data to Amazon FSx
 
 If your File Gateway is slow transferring data to Amazon FSx for Windows File Server, do the
 following:
@@ -377,9 +338,7 @@ following:
   available, try using multiple cache disks from separate physical disks for a
   performance improvement.
 
-### Your gateway backup job fails or there are errors
-
-when writing to your gateway
+### Your gateway backup job fails or there are errors when writing to your gateway
 
 If your File Gateway backup job fails or there are errors when writing to your
 File Gateway, do the following:

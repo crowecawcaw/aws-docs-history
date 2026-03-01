@@ -2,17 +2,14 @@ Amazon FSx File Gateway is no longer available to new customers. Existing
 customers of FSx File Gateway can continue to use the service normally. For capabilities
 similar to FSx File Gateway, visit [this blog post](https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/ "https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/").
 
-# Configuring your Amazon EC2 gateway
-
-network settings
+# Configuring your Amazon EC2 gateway network settings
 
 You can view and configure the network settings for your Amazon EC2 File Gateway by using the gateway local
 console.
 
 ###### To configure your network settings
 
-1. Log in to the local console on your Amazon EC2 File Gateway. For instructions, see [Logging in to your Amazon EC2 gateway
-   local console](EC2_MaintenanceConsoleWindow-fgw.md "EC2_MaintenanceConsoleWindow-fgw.md").
+1. Log in to the local console on your Amazon EC2 File Gateway. For instructions, see [Logging in to your Amazon EC2 gateway local console](EC2_MaintenanceConsoleWindow-fgw.md "EC2_MaintenanceConsoleWindow-fgw.md").
 2. From the **AWS Appliance Activation - Configuration** main
    menu, enter the corresponding numeral to select **Network
    Configuration**.

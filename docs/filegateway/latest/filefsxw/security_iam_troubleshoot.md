@@ -2,25 +2,18 @@ Amazon FSx File Gateway is no longer available to new customers. Existing
 customers of FSx File Gateway can continue to use the service normally. For capabilities
 similar to FSx File Gateway, visit [this blog post](https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/ "https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/").
 
-# Troubleshooting AWS Storage Gateway identity and
-
-access
+# Troubleshooting AWS Storage Gateway identity and access
 
 Use the following information to help you diagnose and fix common issues that you might
 encounter when working with AWS SGW and IAM.
 
 ###### Topics
 
-- [I am not authorized to
-  perform an action in AWS SGW](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
-- [I am not authorized to perform
-  iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
-- [I want to allow people
-  outside of my AWS account to access my AWS SGW resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
+- [I am not authorized to perform an action in AWS SGW](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
+- [I am not authorized to perform iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
+- [I want to allow people outside of my AWS account to access my AWS SGW resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
 
-## I am not authorized to
-
-perform an action in AWS SGW
+## I am not authorized to perform an action in AWS SGW
 
 If you receive an error that you're not authorized to perform an action, your
 policies must be updated to allow you to perform the action.
@@ -40,9 +33,7 @@ In this case, the policy for the `mateojackson` user must be updated to allow ac
 
 If you need help, contact your AWS administrator. Your administrator is the person who provided you with your sign-in credentials.
 
-## I am not authorized to perform
-
-iam:PassRole
+## I am not authorized to perform iam:PassRole
 
 If you receive an error that you're not authorized to perform the `iam:PassRole` action, your policies must be updated to allow you to pass a role to AWS SGW.
 
@@ -76,9 +67,7 @@ Guide_:
   permissions to pass a role to an AWS service](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md")
 - [Available keys for IAM](../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_PassedToService "../../../IAM/latest/UserGuide/reference_policies_iam-condition-keys.md#ck_PassedToService")
 
-## I want to allow people
-
-outside of my AWS account to access my AWS SGW resources
+## I want to allow people outside of my AWS account to access my AWS SGW resources
 
 You can create a role that users in other accounts or people outside of your organization can use to access your resources. You can specify who
 is trusted to assume the role. For services that support resource-based policies or access control lists (ACLs), you can use those policies to grant

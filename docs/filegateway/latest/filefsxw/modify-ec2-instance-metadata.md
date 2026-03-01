@@ -2,9 +2,7 @@ Amazon FSx File Gateway is no longer available to new customers. Existing
 customers of FSx File Gateway can continue to use the service normally. For capabilities
 similar to FSx File Gateway, visit [this blog post](https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/ "https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/").
 
-# Modify Amazon EC2 instance metadata
-
-options
+# Modify Amazon EC2 instance metadata options
 
 The instance metadata service (IMDS) is an on-instance component that provides secure
 access to Amazon EC2 instance metadata. An instance can be configured to accept incoming metadata

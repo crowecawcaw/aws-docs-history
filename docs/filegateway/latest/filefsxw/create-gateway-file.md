@@ -2,9 +2,7 @@ Amazon FSx File Gateway is no longer available to new customers. Existing
 customers of FSx File Gateway can continue to use the service normally. For capabilities
 similar to FSx File Gateway, visit [this blog post](https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/ "https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/").
 
-# Create and activate an
-
-Amazon FSx File Gateway
+# Create and activate an Amazon FSx File Gateway
 
 In this section, you can find instructions on how to create, deploy, and activate a
 File Gateway in AWS Storage Gateway.
@@ -12,10 +10,8 @@ File Gateway in AWS Storage Gateway.
 ###### Topics
 
 - [Set up an Amazon FSx File Gateway](#set-up-gateway-fsx-file "#set-up-gateway-fsx-file")
-- [Connect your Amazon FSx File Gateway to
-  AWS](#connect-to-amazon-fsx-file "#connect-to-amazon-fsx-file")
-- [Review settings and activate your
-  Amazon FSx File Gateway](#review-and-activate-fsx-file "#review-and-activate-fsx-file")
+- [Connect your Amazon FSx File Gateway to AWS](#connect-to-amazon-fsx-file "#connect-to-amazon-fsx-file")
+- [Review settings and activate your Amazon FSx File Gateway](#review-and-activate-fsx-file "#review-and-activate-fsx-file")
 - [Configure your Amazon FSx File Gateway](#configure-gateway-fsx-file "#configure-gateway-fsx-file")
 
 ## Set up an Amazon FSx File Gateway
@@ -73,9 +69,7 @@ File Gateway in AWS Storage Gateway.
    connect and communicate with AWS. Choose **Next** to
    proceed.
 
-## Connect your Amazon FSx File Gateway to
-
-AWS
+## Connect your Amazon FSx File Gateway to AWS
 
 ###### To connect a new FSx File Gateway to AWS
 
@@ -133,9 +127,7 @@ AWS
    you must activate the gateway. Choose **Next** to
    proceed.
 
-## Review settings and activate your
-
-Amazon FSx File Gateway
+## Review settings and activate your Amazon FSx File Gateway
 
 ###### To activate a new FSx File Gateway
 

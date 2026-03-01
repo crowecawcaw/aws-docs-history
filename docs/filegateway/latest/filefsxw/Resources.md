@@ -23,8 +23,7 @@ resources related to setting up and using AWS Storage Gateway:
   permissions](ad-serviceaccount-permissions.md "ad-serviceaccount-permissions.md") - Learn which permissions
   your service account must have to be able to join your gateway to your Active
   Directory domain.
-- [Getting the IP address for your gateway
-  appliance](getting-ip-address.md "getting-ip-address.md") - Learn
+- [Getting the IP address for your gateway appliance](getting-ip-address.md "getting-ip-address.md") - Learn
   where to find the gateway's virtual machine host IP address, which you need to
   provide when you deploy a new gateway.
 - [Understanding resources and

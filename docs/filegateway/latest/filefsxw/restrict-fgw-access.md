@@ -2,9 +2,7 @@ Amazon FSx File Gateway is no longer available to new customers. Existing
 customers of FSx File Gateway can continue to use the service normally. For capabilities
 similar to FSx File Gateway, visit [this blog post](https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/ "https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/").
 
-# Using tags to control access to your gateway and
-
-resources
+# Using tags to control access to your gateway and resources
 
 To control access to gateway resources and actions, you can use AWS Identity and Access Management (IAM) policies
 based on tags. You can provide the control in two ways:
@@ -13,9 +11,7 @@ based on tags. You can provide the control in two ways:
 2. Control what tags can be passed in an IAM request condition.
    For information about how to use tags to control access, see [Controlling Access Using Tags](../../../IAM/latest/UserGuide/access_tags.md "../../../IAM/latest/UserGuide/access_tags.md").
 
-## Controlling Access Based on Tags on a
-
-Resource
+## Controlling Access Based on Tags on a Resource
 
 To control what actions a user or role can perform on a gateway resource, you can use
 tags on the gateway resource. For example, you might want to allow or deny specific API
@@ -60,9 +56,7 @@ JSON
 
 ```
 
-## Controlling Access Based on Tags in an IAM
-
-Request
+## Controlling Access Based on Tags in an IAM Request
 
 To control what an user can do on a gateway resource, you can use conditions in an
 IAM policy based on tags. For example, you can write a policy that allows or denies an

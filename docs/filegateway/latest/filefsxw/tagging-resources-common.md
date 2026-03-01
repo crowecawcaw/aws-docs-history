@@ -21,8 +21,7 @@ Similarly, if you retrieve a tape from the archive to another gateway, the tags 
 maintained in the new gateway.
 
 For File Gateway, you can use tags to control access to resources. For information about
-how to do this, see [Using tags to control access to your gateway and
-resources](restrict-fgw-access.md "restrict-fgw-access.md").
+how to do this, see [Using tags to control access to your gateway and resources](restrict-fgw-access.md "restrict-fgw-access.md").
 
 Tags don’t have any semantic meaning but rather are interpreted as strings of
 characters.

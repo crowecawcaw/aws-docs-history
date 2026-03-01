@@ -2,22 +2,17 @@ Amazon FSx File Gateway is no longer available to new customers. Existing
 customers of FSx File Gateway can continue to use the service normally. For capabilities
 similar to FSx File Gateway, visit [this blog post](https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/ "https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/").
 
-# Working with open-source components for
-
-AWS Storage Gateway
+# Working with open-source components for AWS Storage Gateway
 
 This section describes the third-party tools and licenses that we depend on to deliver
 AWS Storage Gateway functionality.
 
 ###### Topics
 
-- [Open-source components for
-  Storage Gateway](#open-source-volume-tape-s3 "#open-source-volume-tape-s3")
+- [Open-source components for Storage Gateway](#open-source-volume-tape-s3 "#open-source-volume-tape-s3")
 - [Open-source components for Amazon FSx File Gateway](#open-source-fsx "#open-source-fsx")
 
-## Open-source components for
-
-Storage Gateway
+## Open-source components for Storage Gateway
 
 Several third-party tools and licenses are used to deliver functionality for
 Volume Gateway, Tape Gateway, and Amazon S3 File Gateway.

@@ -36,21 +36,15 @@ multiple adapters, see the following topics:
 
 ###### Topics
 
-- [Configuring Your Gateway for Multiple NICs
-  on a VMware ESXi Host](#MaintenanceMultiNIC-vmaware "#MaintenanceMultiNIC-vmaware")
-- [Configuring Your Gateway for Multiple NICs
-  in Microsoft Hyper-V Host](#MaintenanceMultiNIC-hyperv "#MaintenanceMultiNIC-hyperv")
+- [Configuring Your Gateway for Multiple NICs on a VMware ESXi Host](#MaintenanceMultiNIC-vmaware "#MaintenanceMultiNIC-vmaware")
+- [Configuring Your Gateway for Multiple NICs in Microsoft Hyper-V Host](#MaintenanceMultiNIC-hyperv "#MaintenanceMultiNIC-hyperv")
 
-## Configuring Your Gateway for Multiple NICs
-
-on a VMware ESXi Host
+## Configuring Your Gateway for Multiple NICs on a VMware ESXi Host
 
 The following procedure assumes that your gateway VM already has one network adapter
 defined, and describes how to add an adapter on VMware ESXi.
 
-###### To configure your gateway to use an additional network adapter in VMware ESXi
-
-host
+###### To configure your gateway to use an additional network adapter in VMware ESXi host
 
 1. Shut down the gateway.
 2. In the VMware vSphere client, select your gateway VM.
@@ -90,20 +84,15 @@ the adapter. Confirm that the second IP address is listed in the
 **Details** tab.
 
 For information about local console tasks common to VMware, Hyper-V, and KVM hosts,
-see [Performing tasks on the virtual machine local
-console](manage-on-premises-fgw.md "manage-on-premises-fgw.md")
+see [Performing tasks on the virtual machine local console](manage-on-premises-fgw.md "manage-on-premises-fgw.md")
 
-## Configuring Your Gateway for Multiple NICs
-
-in Microsoft Hyper-V Host
+## Configuring Your Gateway for Multiple NICs in Microsoft Hyper-V Host
 
 The following procedure assumes that your gateway VM already has one network adapter
 defined and that you are adding a second adapter. This procedure shows how to add an
 adapter for a Microsoft Hyper-V host.
 
-###### To configure your gateway to use an additional network adapter in a Microsoft
-
-Hyper-V Host
+###### To configure your gateway to use an additional network adapter in a Microsoft Hyper-V Host
 
 1. On the Storage Gateway console, turn off the gateway.
 2. In the Microsoft Hyper-V Manager, select your gateway VM from the
@@ -131,5 +120,4 @@ Hyper-V Host
     **Details** tab.
 
 For information about local console tasks common to VMware, Hyper-V, and KVM hosts,
-see [Performing tasks on the virtual machine local
-console](manage-on-premises-fgw.md "manage-on-premises-fgw.md")
+see [Performing tasks on the virtual machine local console](manage-on-premises-fgw.md "manage-on-premises-fgw.md")

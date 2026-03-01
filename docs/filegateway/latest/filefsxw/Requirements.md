@@ -11,14 +11,11 @@ requirements that apply to your gateway setup before you deploy your gateway.
 ###### Topics
 
 - [Prerequisites](#user-requirements "#user-requirements")
-- [Hardware and storage
-  requirements](#requirements-hardware-storage "#requirements-hardware-storage")
+- [Hardware and storage requirements](#requirements-hardware-storage "#requirements-hardware-storage")
 - [Network and firewall requirements](#networks "#networks")
 - [Supported hypervisors and host requirements](#requirements-host "#requirements-host")
-- [Supported SMB clients for
-  File Gateway](#requirements-smb-versions "#requirements-smb-versions")
-- [Supported file system operations for
-  File Gateway](#requirements-file-operations "#requirements-file-operations")
+- [Supported SMB clients for File Gateway](#requirements-smb-versions "#requirements-smb-versions")
+- [Supported file system operations for File Gateway](#requirements-file-operations "#requirements-file-operations")
 - [Managing local disks for your gateway](ManagingLocalStorage-common.md "ManagingLocalStorage-common.md")
 
 ## Prerequisites
@@ -45,17 +42,13 @@ you must meet the following prerequisites:
   resolution, or specify a DNS server manually from the Network Configuration
   settings menu in the gateway local console.
 
-## Hardware and storage
-
-requirements
+## Hardware and storage requirements
 
 The following sections provide information about the minimum required hardware and
 storage configurations for your gateway, and the minimum amount of disk space to
 allocate for the required storage.
 
-### Hardware requirements for on-premises
-
-VMs
+### Hardware requirements for on-premises VMs
 
 When deploying your gateway on-premises, ensure that the underlying hardware on
 which you deploy the gateway virtual machine (VM) can dedicate the following minimum
@@ -65,9 +58,7 @@ resources:
 - 16 GiB of reserved RAM for File Gateways
 - 80 GiB of disk space for installation of VM image and system data
 
-### Requirements for Amazon EC2 instance
-
-types
+### Requirements for Amazon EC2 instance types
 
 When deploying your gateway on Amazon Elastic Compute Cloud (Amazon EC2), the instance size must be at
 least **`xlarge`** for your gateway to
@@ -153,12 +144,9 @@ address ranges](../../../general/latest/gr/aws-ip-ranges.md "../../../general/la
 ###### Topics
 
 - [Port requirements](#requirements-network "#requirements-network")
-- [Networking and firewall
-  requirements for the Storage Gateway Hardware Appliance](#appliance-network-requirements "#appliance-network-requirements")
-- [Allowing AWS Storage Gateway access through
-  firewalls and routers](#allow-firewall-gateway-access "#allow-firewall-gateway-access")
-- [Configuring security groups for your
-  Amazon EC2 gateway instance](#EC2GatewayCustomSecurityGroup-common "#EC2GatewayCustomSecurityGroup-common")
+- [Networking and firewall requirements for the Storage Gateway Hardware Appliance](#appliance-network-requirements "#appliance-network-requirements")
+- [Allowing AWS Storage Gateway access through firewalls and routers](#allow-firewall-gateway-access "#allow-firewall-gateway-access")
+- [Configuring security groups for your Amazon EC2 gateway instance](#EC2GatewayCustomSecurityGroup-common "#EC2GatewayCustomSecurityGroup-common")
 
 ### Port requirements
 
@@ -206,9 +194,7 @@ for FSx File Gateway
 | Microsoft Active Directory | Storage Gateway VM | Active Directory server            | TCP Distributed Computing Environment/End Point Mapper (DCE/EMAP) | 135  | ✓       | ✓        | ✓        | RPC                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Amazon FSx connection      | Storage Gateway VM | FSx for Windows File Server        | TCP or UDP SMBv3                                                  | 445  | ✓       | ✓        | ✓        | File sharing data transfer session service                                                                                                                                                                                                                                                                                                                                                                                                                                |
 
-### Networking and firewall
-
-requirements for the Storage Gateway Hardware Appliance
+### Networking and firewall requirements for the Storage Gateway Hardware Appliance
 
 Each Storage Gateway Hardware Appliance requires the following network services:
 
@@ -254,8 +240,7 @@ settings as follows:
 - Provide all connected network interfaces with outbound access to the
   endpoints listed in the diagram preceding.
 - Configure at least one network interface to support the hardware
-  appliance. For more information, see [Configuring hardware appliance network
-  parameters](appliance-configure-network.md "appliance-configure-network.md").
+  appliance. For more information, see [Configuring hardware appliance network parameters](appliance-configure-network.md "appliance-configure-network.md").
 
 ###### Note
 
@@ -270,9 +255,7 @@ scheme.
 For more information about activating and configuring a hardware appliance, see
 [Using the AWS Storage Gateway Hardware Appliance](hardware-appliance.md "hardware-appliance.md").
 
-### Allowing AWS Storage Gateway access through
-
-firewalls and routers
+### Allowing AWS Storage Gateway access through firewalls and routers
 
 Your gateway requires access to the following Storage Gateway service endpoints to communicate
 with AWS. During gateway setup, select the endpoint type for your gateway based on your network environment.
@@ -355,9 +338,7 @@ time.aws.com
 For more information about supported AWS Regions and service endpoints, see [Storage Gateway](../../../general/latest/gr/sg.md "../../../general/latest/gr/sg.md") in the
 _AWS General Reference_.
 
-### Configuring security groups for your
-
-Amazon EC2 gateway instance
+### Configuring security groups for your Amazon EC2 gateway instance
 
 In AWS Storage Gateway, a security group controls traffic to your Amazon EC2 gateway instance. When you
 configure a security group, we recommend the following:
@@ -376,8 +357,7 @@ activation).
   80, activate your gateway, and then close access on port 80 after completing
   activation.
 - Allow port 22 access only if you are using Support for troubleshooting purposes. For
-  more information, see [You want Support to help troubleshoot
-  your Amazon EC2 gateway](troubleshooting-EC2-gateway-issues.md#EC2-EnableAWSSupportAccess "troubleshooting-EC2-gateway-issues.md#EC2-EnableAWSSupportAccess").
+  more information, see [You want Support to help troubleshoot your Amazon EC2 gateway](troubleshooting-EC2-gateway-issues.md#EC2-EnableAWSSupportAccess "troubleshooting-EC2-gateway-issues.md#EC2-EnableAWSSupportAccess").
 
 ## Supported hypervisors and host requirements
 
@@ -407,8 +387,7 @@ Storage Gateway supports the following hypervisor versions and hosts:
 - Nutanix AHV (Acropolis Hypervisor) beginning with version 10.0.1.1 – A KVM-based virtualization platform that is integrated into the Nutanix hyper-converged infrastructure (HCI) solution.
 - Amazon EC2 instance – Storage Gateway provides an Amazon Machine Image (AMI)
   that contains the gateway VM image. For information about how to deploy a
-  gateway on Amazon EC2, see [Deploy a default Amazon EC2 host for
-  FSx File Gateway](ec2-gateway-file.md "ec2-gateway-file.md").
+  gateway on Amazon EC2, see [Deploy a default Amazon EC2 host for FSx File Gateway](ec2-gateway-file.md "ec2-gateway-file.md").
 - Storage Gateway Hardware Appliance – Storage Gateway provides a physical hardware
   appliance as an on-premises deployment option for locations with limited virtual
   machine infrastructure.
@@ -418,14 +397,11 @@ Storage Gateway supports the following hypervisor versions and hosts:
 Storage Gateway doesn’t support recovering a gateway from a VM that was created from
 a snapshot or clone of another gateway VM or from your Amazon EC2 AMI. If your gateway VM
 malfunctions, activate a new gateway and recover your data to that gateway. For more
-information, see [Recovering from an unexpected virtual
-machine shutdown](best-practices.md#recover-from-gateway-shutdown "best-practices.md#recover-from-gateway-shutdown").
+information, see [Recovering from an unexpected virtual machine shutdown](best-practices.md#recover-from-gateway-shutdown "best-practices.md#recover-from-gateway-shutdown").
 
 Storage Gateway doesn’t support dynamic memory and virtual memory ballooning.
 
-## Supported SMB clients for
-
-File Gateway
+## Supported SMB clients for File Gateway
 
 File Gateway supports the following Service Message Block (SMB) clients:
 
@@ -438,9 +414,7 @@ File Gateway supports the following Service Message Block (SMB) clients:
 Server Message Block encryption requires clients that support SMB v3.x
 dialects.
 
-## Supported file system operations for
-
-File Gateway
+## Supported file system operations for File Gateway
 
 Your SMB client can write, read, delete, and truncate ﬁles. When
 clients send writes to Storage Gateway, it writes to local cache synchronously. Then it writes

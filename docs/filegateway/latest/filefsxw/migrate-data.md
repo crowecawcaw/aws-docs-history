@@ -2,9 +2,7 @@ Amazon FSx File Gateway is no longer available to new customers. Existing
 customers of FSx File Gateway can continue to use the service normally. For capabilities
 similar to FSx File Gateway, visit [this blog post](https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/ "https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/").
 
-# Replacing your existing FSx File Gateway with a new
-
-instance
+# Replacing your existing FSx File Gateway with a new instance
 
 You can replace an existing FSx File Gateway with a new instance as your data and
 performance needs grow, or if you receive an AWS notification to migrate your gateway. You
@@ -20,9 +18,7 @@ Use these instructions only for migrating gateway appliances running version 1.x
 Migration can only be performed between gateways of the same type. For example, you
 cannot migrate settings or data from an FSx File Gateway to an S3 File Gateway.
 
-###### To replace your FSx File Gateway gateway with a new
-
-instance with an empty cache disk and a new Gateway ID:
+###### To replace your FSx File Gateway gateway with a new instance with an empty cache disk and a new Gateway ID:
 
 1. Stop any applications that are writing to the existing FSx File Gateway. Verify that
    the `CachePercentDirty` metric on the **Monitoring** tab

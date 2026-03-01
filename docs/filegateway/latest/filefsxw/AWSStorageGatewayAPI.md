@@ -18,15 +18,12 @@ programming tasks. For information about downloading the SDK libraries, see [Sam
 
 ###### Topics
 
-- [AWS Storage Gateway Required Request
-  Headers](#AWSStorageGatewayHTTPRequestsHeaders "#AWSStorageGatewayHTTPRequestsHeaders")
+- [AWS Storage Gateway Required Request Headers](#AWSStorageGatewayHTTPRequestsHeaders "#AWSStorageGatewayHTTPRequestsHeaders")
 - [Signing Requests](#AWSStorageGatewaySigningRequests "#AWSStorageGatewaySigningRequests")
 - [Error Responses](#APIErrorResponses "#APIErrorResponses")
 - [Storage Gateway API Actions](#AWSStorageGatewayAPIOperations "#AWSStorageGatewayAPIOperations")
 
-## AWS Storage Gateway Required Request
-
-Headers
+## AWS Storage Gateway Required Request Headers
 
 This section describes the required headers that you must send with every POST request to
 AWS Storage Gateway. You include HTTP headers to identify key information about the request

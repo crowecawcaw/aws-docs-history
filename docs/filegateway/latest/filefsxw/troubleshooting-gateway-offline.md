@@ -2,9 +2,7 @@ Amazon FSx File Gateway is no longer available to new customers. Existing
 customers of FSx File Gateway can continue to use the service normally. For capabilities
 similar to FSx File Gateway, visit [this blog post](https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/ "https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/").
 
-# Troubleshooting: gateway offline in the
-
-Storage Gateway console
+# Troubleshooting: gateway offline in the Storage Gateway console
 
 Use the following troubleshooting information to determine what to do if the AWS Storage Gateway
 console shows that your gateway is offline.
@@ -26,9 +24,7 @@ must allow traffic to and from the network ports and service endpoints required 
 Storage Gateway. For more information, see [Network and firewall
 requirements](Requirements.md#networks "Requirements.md#networks").
 
-## Check for an ongoing SSL or deep-packet inspection of your gateway's
-
-traffic
+## Check for an ongoing SSL or deep-packet inspection of your gateway's traffic
 
 If an SSL or deep-packet inspection is currently being performed on the network
 traffic between your gateway and AWS, then your gateway might not be able to

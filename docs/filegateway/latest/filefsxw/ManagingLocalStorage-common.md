@@ -17,11 +17,9 @@ to managing local disks.
 
 **Topics**
 
-- [Deciding the amount of local disk
-  storage](decide-local-disks-and-sizes.md "decide-local-disks-and-sizes.md") - Learn how to determine the
+- [Deciding the amount of local disk storage](decide-local-disks-and-sizes.md "decide-local-disks-and-sizes.md") - Learn how to determine the
   number and size of local cache disks to allocate for your File Gateway.
-- [Configuring additional cache
-  storage](ConfiguringLocalDiskStorage.md "ConfiguringLocalDiskStorage.md") - Learn how to increase the cache
+- [Configuring additional cache storage](ConfiguringLocalDiskStorage.md "ConfiguringLocalDiskStorage.md") - Learn how to increase the cache
   storage capacity of your File Gateway as your application needs change.
 - [Using ephemeral storage with EC2 gateways](ephemeral-disk-cache.md "ephemeral-disk-cache.md") -
   Learn how to prevent data loss when using ephemeral disk storage with

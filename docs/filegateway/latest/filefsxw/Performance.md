@@ -12,8 +12,7 @@ performance.
 - [Basic performance guidance for FSx File Gateway](#performance-fgw "#performance-fgw")
 - [Optimizing gateway performance](#Optimizing-common "#Optimizing-common")
 - [Maximizing S3 File Gateway throughput](Performance-Throughput.md "Performance-Throughput.md")
-- [Optimizing S3 File Gateway for SQL Server database
-  backups](SQL-Backup-Best-Practices.md "SQL-Backup-Best-Practices.md")
+- [Optimizing S3 File Gateway for SQL Server database backups](SQL-Backup-Best-Practices.md "SQL-Backup-Best-Practices.md")
 
 ## Basic performance guidance for FSx File Gateway
 
@@ -43,9 +42,7 @@ file data that is served from Amazon FSx for Windows File Server.
 The following table shows an example FSx File Gateway
 configuration.
 
-### FSx File Gateway performance on Windows
-
-clients
+### FSx File Gateway performance on Windows clients
 
 | Example Configuration                                                                                                        | Protocol               | Write throughput (file sizes 1 GB) | Cache hit read throughput | Cache miss read throughput |
 | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ---------------------------------- | ------------------------- | -------------------------- | ---------------------- |
@@ -65,9 +62,7 @@ You can find information following about how to optimize the performance of your
 The guidance is based on adding resources to your gateway and adding resources to your
 application server.
 
-### Add Resources to Your
-
-Gateway
+### Add Resources to Your Gateway
 
 You can optimize gateway performance by adding resources to your gateway in one or
 more of the following ways.
@@ -79,8 +74,7 @@ as solid-state drives (SSDs) and a NVMe controller. You can also attach
 virtual disks to your VM directly from a storage area network (SAN) instead
 of the Microsoft Hyper-V NTFS. Improved disk performance generally results
 in better throughput and more input/output operations per second (IOPS). For
-information about adding disks, see [Configuring additional cache
-storage](ConfiguringLocalDiskStorage.md "ConfiguringLocalDiskStorage.md").
+information about adding disks, see [Configuring additional cache storage](ConfiguringLocalDiskStorage.md "ConfiguringLocalDiskStorage.md").
 
 To measure throughput, use the `ReadBytes` and
 `WriteBytes` metrics with the `Samples` Amazon
@@ -156,9 +150,7 @@ cache storage and upload buffer in a gateway setup. Similarly, a data store
 that is backed by a less high-performing RAID configuration such as RAID 1
 can lead to poor performance.
 
-### Add Resources to Your
-
-Application Environment
+### Add Resources to Your Application Environment
 
 **Increase the bandwidth between your application server
 and your gateway**

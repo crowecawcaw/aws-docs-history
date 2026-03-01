@@ -2,9 +2,7 @@ Amazon FSx File Gateway is no longer available to new customers. Existing
 customers of FSx File Gateway can continue to use the service normally. For capabilities
 similar to FSx File Gateway, visit [this blog post](https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/ "https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/").
 
-# Configuring hardware appliance network
-
-parameters
+# Configuring hardware appliance network parameters
 
 ###### Note
 
@@ -15,8 +13,7 @@ you can use the AWS Storage Gateway service to give your applications on-premise
 in-cloud access to virtually unlimited cloud storage.
 
 After the hardware appliance boots up and you set your admin user password in the
-hardware console as described in [Accessing the hardware appliance
-console](access-hardware-appliance-console.md "access-hardware-appliance-console.md"), use the following procedure to
+hardware console as described in [Accessing the hardware appliance console](access-hardware-appliance-console.md "access-hardware-appliance-console.md"), use the following procedure to
 configure network parameters so your hardware appliance can connect to AWS.
 
 ###### To set a network address

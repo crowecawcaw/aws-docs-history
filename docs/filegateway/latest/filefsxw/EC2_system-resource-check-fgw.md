@@ -2,9 +2,7 @@ Amazon FSx File Gateway is no longer available to new customers. Existing
 customers of FSx File Gateway can continue to use the service normally. For capabilities
 similar to FSx File Gateway, visit [this blog post](https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/ "https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/").
 
-# Viewing your gateway system resource
-
-status
+# Viewing your gateway system resource status
 
 When your File Gateway starts, it checks its virtual CPU cores, root volume size, and
 RAM. It then determines whether the available system resources are sufficient for your
@@ -14,8 +12,7 @@ using the gateway local console.
 ###### To view the status of a system resource check
 
 1. Log in to the local console on your Amazon EC2 File Gateway. For instructions, see
-   [Logging in to your Amazon EC2 gateway
-   local console](EC2_MaintenanceConsoleWindow-fgw.md "EC2_MaintenanceConsoleWindow-fgw.md").
+   [Logging in to your Amazon EC2 gateway local console](EC2_MaintenanceConsoleWindow-fgw.md "EC2_MaintenanceConsoleWindow-fgw.md").
 2. From the **AWS Appliance Activation - Configuration** main
    menu, enter the corresponding numeral to select **View System Resource
    Check**.

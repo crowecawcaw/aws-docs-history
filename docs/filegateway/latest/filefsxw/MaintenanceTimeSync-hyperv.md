@@ -2,28 +2,21 @@ Amazon FSx File Gateway is no longer available to new customers. Existing
 customers of FSx File Gateway can continue to use the service normally. For capabilities
 similar to FSx File Gateway, visit [this blog post](https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/ "https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/").
 
-# Synchronize VM time with Hyper-V or Linux KVM
-
-host time
+# Synchronize VM time with Hyper-V or Linux KVM host time
 
 For a gateway deployed on VMware ESXi, setting the hypervisor host time and synchronizing
 the virtual machine time to the host is sufficient to avoid time drift. For more
-information, see [Synchronize VM time with VMware host
-time](GettingStartedSyncVMTime-common.md "GettingStartedSyncVMTime-common.md"). For a gateway deployed on Microsoft
+information, see [Synchronize VM time with VMware host time](GettingStartedSyncVMTime-common.md "GettingStartedSyncVMTime-common.md"). For a gateway deployed on Microsoft
 Hyper-V or Linux KVM, we recommend that you periodically check the virtual machine time
 using the procedure described following.
 
-###### To view and synchronize the time of a hypervisor gateway virtual machine to a Network
-
-Time Protocol (NTP) server
+###### To view and synchronize the time of a hypervisor gateway virtual machine to a Network Time Protocol (NTP) server
 
 1. Log in to your gateway's local console:
    - For more information on logging in to the Microsoft Hyper-V local console,
-     see [Access the Gateway Local Console
-     with Microsoft Hyper-V](accessing-local-console.md#MaintenanceConsoleWindowHyperV-common "accessing-local-console.md#MaintenanceConsoleWindowHyperV-common").
+     see [Access the Gateway Local Console with Microsoft Hyper-V](accessing-local-console.md#MaintenanceConsoleWindowHyperV-common "accessing-local-console.md#MaintenanceConsoleWindowHyperV-common").
    - For more information on logging in to the local console for Linux
-     Kernel-based Virtual Machine (KVM), see [Accessing the Gateway Local Console
-     with Linux KVM](accessing-local-console.md#MaintenanceConsoleWindowKVM-common "accessing-local-console.md#MaintenanceConsoleWindowKVM-common").
+     Kernel-based Virtual Machine (KVM), see [Accessing the Gateway Local Console with Linux KVM](accessing-local-console.md#MaintenanceConsoleWindowKVM-common "accessing-local-console.md#MaintenanceConsoleWindowKVM-common").
 
 2. On the **Storage Gateway Configuration** main menu screen, enter the
    corresponding numeral to select **System Time Management**.

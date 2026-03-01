@@ -6,8 +6,7 @@ similar to FSx File Gateway, visit [this blog post](https://aws.amazon.com/blogs
 
 To create an Amazon FSx File Gateway in AWS Storage Gateway, the first step is to create an
 Amazon FSx for Windows File Server file system. If you've already created an Amazon FSx file system, go to the
-next step, [Create and activate an
-Amazon FSx File Gateway](create-gateway-file.md "create-gateway-file.md").
+next step, [Create and activate an Amazon FSx File Gateway](create-gateway-file.md "create-gateway-file.md").
 
 ###### Note
 

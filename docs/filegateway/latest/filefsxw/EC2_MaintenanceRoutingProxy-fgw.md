@@ -2,9 +2,7 @@ Amazon FSx File Gateway is no longer available to new customers. Existing
 customers of FSx File Gateway can continue to use the service normally. For capabilities
 similar to FSx File Gateway, visit [this blog post](https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/ "https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/").
 
-# Routing your gateway deployed on Amazon EC2
-
-through an HTTP proxy
+# Routing your gateway deployed on Amazon EC2 through an HTTP proxy
 
 Storage Gateway supports the configuration of a Socket Secure version 5 (SOCKS5) proxy between
 your gateway deployed on Amazon EC2 and AWS.
@@ -17,8 +15,7 @@ and endpoints is encrypted, even when using the HTTP proxy.
 
 ###### To route your gateway internet traffic through a local proxy server
 
-1. Log in to your gateway's local console. For instructions, see [Logging in to your Amazon EC2 gateway
-   local console](EC2_MaintenanceConsoleWindow-fgw.md "EC2_MaintenanceConsoleWindow-fgw.md").
+1. Log in to your gateway's local console. For instructions, see [Logging in to your Amazon EC2 gateway local console](EC2_MaintenanceConsoleWindow-fgw.md "EC2_MaintenanceConsoleWindow-fgw.md").
 2. From the **AWS Appliance Activation - Configuration** main
    menu, enter the corresponding numeral to select **Configure HTTP
    Proxy**.

@@ -10,19 +10,13 @@ operations are done.
 
 ###### Topics
 
-- [Getting FSx File Gateway health logs
-  with CloudWatch log groups](#cw-log-groups "#cw-log-groups")
+- [Getting FSx File Gateway health logs with CloudWatch log groups](#cw-log-groups "#cw-log-groups")
 - [Using Amazon CloudWatch metrics](#using-CloudWatch-metrics "#using-CloudWatch-metrics")
-- [Understanding
-  gateway metrics](#understanding-file-gateway-metrics "#understanding-file-gateway-metrics")
-- [Understanding
-  file system metrics](#monitoring-file-gateway-resources "#monitoring-file-gateway-resources")
-- [Understanding FSx File Gateway audit
-  logs](#audit-logs "#audit-logs")
+- [Understanding gateway metrics](#understanding-file-gateway-metrics "#understanding-file-gateway-metrics")
+- [Understanding file system metrics](#monitoring-file-gateway-resources "#monitoring-file-gateway-resources")
+- [Understanding FSx File Gateway audit logs](#audit-logs "#audit-logs")
 
-## Getting FSx File Gateway health logs
-
-with CloudWatch log groups
+## Getting FSx File Gateway health logs with CloudWatch log groups
 
 You can use Amazon CloudWatch Logs to get information about the health of your FSx File Gateway
 and related resources. You can use the logs to monitor your gateway for errors that it
@@ -38,12 +32,9 @@ CloudWatch log group when activating a gateway, see [Configure your Amazon FSx F
 groups, see [Working
 with Log Groups and Log Streams](../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md "../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md") in the _Amazon CloudWatch User Guide._
 
-For information about how to troubleshoot the errors that may be reported by FSx File Gateway, see [Troubleshooting: File Gateway
-issues](troubleshooting-file-gateway-issues.md "troubleshooting-file-gateway-issues.md").
+For information about how to troubleshoot the errors that may be reported by FSx File Gateway, see [Troubleshooting: File Gateway issues](troubleshooting-file-gateway-issues.md "troubleshooting-file-gateway-issues.md").
 
-### Configuring a CloudWatch log group after your gateway is
-
-activated
+### Configuring a CloudWatch log group after your gateway is activated
 
 The following procedure shows you how to configure a CloudWatch Log Group after your
 gateway is activated.
@@ -112,9 +103,7 @@ documentation listed following:
 - [Creating
   CloudWatch alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md")
 
-## Understanding
-
-gateway metrics
+## Understanding gateway metrics
 
 The following table describes metrics that cover FSx File Gateways.
 Each gateway has a set of metrics associated with it. Some gateway-specific metrics have
@@ -161,9 +150,7 @@ your FSx File Gateways.
 | `TotalCacheSize`            | This metric reports the total size of the cache.<br>Units: Bytes                                                                                                                                                                                                                                                                                                                                                                       |
 | `UserCpuPercent`            | This metric reports the percentage of time that is spent on gateway processing.<br>Units: Percent                                                                                                                                                                                                                                                                                                                                      |
 
-## Understanding
-
-file system metrics
+## Understanding file system metrics
 
 You can find information following about the Storage Gateway metrics that
 cover file systems. Each file
@@ -196,9 +183,7 @@ information about your file shares.
 | `ReadBytes`            | The total number of bytes read from your on-premises<br>applications in the reporting period for a file share.<br>Use this metric with the `Sum` statistic to measure<br>throughput and with the `Samples` statistic to<br>measure IOPS.<br>Units: Bytes                                                                                                                                                                                            |
 | `WriteBytes`           | The total number of bytes written to your on-premises<br>applications in the reporting period.<br>Use this metric with the `Sum` statistic to measure<br>throughput and with the `Samples` statistic to<br>measure IOPS.<br>Units: Bytes                                                                                                                                                                                                            |
 
-## Understanding FSx File Gateway audit
-
-logs
+## Understanding FSx File Gateway audit logs
 
 Amazon FSx File Gateway (FSx File Gateway) audit logs provide you with details
 about user access to files and folders within a file system association. You can use

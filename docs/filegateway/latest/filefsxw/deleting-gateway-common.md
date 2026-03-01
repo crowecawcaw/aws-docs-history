@@ -2,9 +2,7 @@ Amazon FSx File Gateway is no longer available to new customers. Existing
 customers of FSx File Gateway can continue to use the service normally. For capabilities
 similar to FSx File Gateway, visit [this blog post](https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/ "https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/").
 
-# Deleting your gateway and removing associated
-
-resources
+# Deleting your gateway and removing associated resources
 
 If you don't plan to continue using your gateway, consider deleting the gateway and its
 associated resources. Removing resources avoids incurring charges for resources you don't
@@ -20,9 +18,7 @@ You can delete a gateway using the Storage Gateway console or programmatically. 
 information following about how to delete a gateway using the Storage Gateway console. If you
 want to programmatically delete your gateway, see _[AWS Storage Gateway API Reference](../../../storagegateway/latest/APIReference.md "../../../storagegateway/latest/APIReference.md")._
 
-## Deleting Your Gateway by Using the Storage Gateway
-
-Console
+## Deleting Your Gateway by Using the Storage Gateway Console
 
 The procedure for deleting a gateway is the same for all gateway types. However,
 depending on the type of gateway you want to delete and the host the gateway is deployed

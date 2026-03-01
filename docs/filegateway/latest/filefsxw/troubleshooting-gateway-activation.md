@@ -2,9 +2,7 @@ Amazon FSx File Gateway is no longer available to new customers. Existing
 customers of FSx File Gateway can continue to use the service normally. For capabilities
 similar to FSx File Gateway, visit [this blog post](https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/ "https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/").
 
-# Troubleshooting: internal error during
-
-gateway activation
+# Troubleshooting: internal error during gateway activation
 
 Storage Gateway activation requests traverse two network paths. Incoming activation requests sent
 by a client connect to the gateway's virtual machine (VM) or Amazon Elastic Compute Cloud (Amazon EC2) instance over
@@ -59,9 +57,7 @@ information, see [Testing your gateway's network connectivity](manage-on-premise
 The default login user name for the gateway console is `admin`, and
 the default password is `password`.
 
-### Make sure firewall security does not modify packets sent from the gateway to
-
-the public endpoints
+### Make sure firewall security does not modify packets sent from the gateway to the public endpoints
 
 SSL inspections, deep packet inspections, or other forms of firewall security can
 interfere with packets sent from the gateway. The SSL handshake fails if the SSL
@@ -197,9 +193,7 @@ telnet vpce-1234567e1c24a1fe9-62qntt8k.storagegateway.us-east-1.vpce.amazonaws.c
 telnet vpce-1234567e1c24a1fe9-62qntt8k.storagegateway.us-east-1.vpce.amazonaws.com 2222
 ```
 
-### Make sure firewall security does not modify packets sent from the gateway to
-
-your Storage Gateway Amazon VPC endpoint
+### Make sure firewall security does not modify packets sent from the gateway to your Storage Gateway Amazon VPC endpoint
 
 SSL inspections, deep packet inspections, or other forms of firewall security can
 interfere with packets sent from the gateway. The SSL handshake fails if the SSL
@@ -289,9 +283,7 @@ server pool list over ports UDP and TCP 123:
 - 2.amazon.pool.ntp.org
 - 3.amazon.pool.ntp.org
 
-### Check for an HTTP proxy and confirm associated security group
-
-settings
+### Check for an HTTP proxy and confirm associated security group settings
 
 Before activation, check if you have an HTTP proxy on Amazon EC2 configured on the
 on-premises gateway VM as a Squid proxy on port 3128. In this case, confirm the
@@ -304,17 +296,13 @@ following:
   rules. These inbound rules must allow traffic on ports 1026-1028, 1031,
   2222, and 443 from the IP address of the HTTP proxy on Amazon EC2.
 
-## Resolve errors when activating your gateway using a public endpoint and there is
-
-a Storage Gateway VPC endpoint in the same VPC
+## Resolve errors when activating your gateway using a public endpoint and there is a Storage Gateway VPC endpoint in the same VPC
 
 To resolve errors when activating your gateway using a public endpoint when there is a
 Amazon Virtual Private Cloud (Amazon VPC) enpoint in the same VPC, perform the following checks and
 configurations.
 
-### Confirm that the **Enable Private DNS Name** setting isn't
-
-enabled on your Storage Gateway VPC endpoint
+### Confirm that the **Enable Private DNS Name** setting isn't enabled on your Storage Gateway VPC endpoint
 
 If **Enable Private DNS Name** is enabled, you can't activate any
 gateways from that VPC to the public endpoint.

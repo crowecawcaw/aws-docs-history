@@ -2,29 +2,20 @@ Amazon FSx File Gateway is no longer available to new customers. Existing
 customers of FSx File Gateway can continue to use the service normally. For capabilities
 similar to FSx File Gateway, visit [this blog post](https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/ "https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/").
 
-# Troubleshooting: Amazon EC2 gateway
-
-issues
+# Troubleshooting: Amazon EC2 gateway issues
 
 In the following sections, you can find typical issues that you might encounter
 working with your gateway deployed on Amazon EC2. For more information about the difference
-between an on-premises gateway and a gateway deployed in Amazon EC2, see [Deploy a default Amazon EC2 host for
-FSx File Gateway](ec2-gateway-file.md "ec2-gateway-file.md").
+between an on-premises gateway and a gateway deployed in Amazon EC2, see [Deploy a default Amazon EC2 host for FSx File Gateway](ec2-gateway-file.md "ec2-gateway-file.md").
 
 ###### Topics
 
-- [Your gateway activation hasn't occurred
-  after a few moments](#activation-issues "#activation-issues")
-- [You can't find your EC2 gateway instance in the
-  instance list](#find-instance "#find-instance")
-- [You want to connect to your gateway instance
-  using the Amazon EC2 serial console](#ec2-serial-console "#ec2-serial-console")
-- [You want Support to help troubleshoot
-  your Amazon EC2 gateway](#EC2-EnableAWSSupportAccess "#EC2-EnableAWSSupportAccess")
+- [Your gateway activation hasn't occurred after a few moments](#activation-issues "#activation-issues")
+- [You can't find your EC2 gateway instance in the instance list](#find-instance "#find-instance")
+- [You want to connect to your gateway instance using the Amazon EC2 serial console](#ec2-serial-console "#ec2-serial-console")
+- [You want Support to help troubleshoot your Amazon EC2 gateway](#EC2-EnableAWSSupportAccess "#EC2-EnableAWSSupportAccess")
 
-## Your gateway activation hasn't occurred
-
-after a few moments
+## Your gateway activation hasn't occurred after a few moments
 
 Check the following in the Amazon EC2 console:
 
@@ -42,9 +33,7 @@ After correcting the problem, try activating the gateway again. To do this, open
 the Storage Gateway console, choose **Deploy a new Gateway on Amazon EC2**,
 and re-enter the IP address of the instance.
 
-## You can't find your EC2 gateway instance in the
-
-instance list
+## You can't find your EC2 gateway instance in the instance list
 
 If you didn't give your instance a resource tag and you have many instances
 running, it can be hard to tell which instance you launched. In this case, you can
@@ -57,17 +46,13 @@ take the following actions to find the gateway instance:
 - If you have several instances based on the Storage Gateway AMI, check the instance
   launch time to find the correct instance.
 
-## You want to connect to your gateway instance
-
-using the Amazon EC2 serial console
+## You want to connect to your gateway instance using the Amazon EC2 serial console
 
 You can use the Amazon EC2 serial console to troubleshoot boot, network configuration,
 and other issues. For instructions and troubleshooting tips, see [Amazon EC2
 Serial Console](../../../AWSEC2/latest/UserGuide/ec2-serial-console.md "../../../AWSEC2/latest/UserGuide/ec2-serial-console.md") in the _Amazon Elastic Compute Cloud User Guide_.
 
-## You want Support to help troubleshoot
-
-your Amazon EC2 gateway
+## You want Support to help troubleshoot your Amazon EC2 gateway
 
 Storage Gateway provides a local console you can use to perform several maintenance tasks,
 including allowing Support to access your gateway to assist you with troubleshooting

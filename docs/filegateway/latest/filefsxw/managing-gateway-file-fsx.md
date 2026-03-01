@@ -12,11 +12,9 @@ configuring Microsoft Active Directory settings.
 
 - [Understanding gateway status](#understand-gateway-status "#understand-gateway-status")
 - [Understanding file system status](#understand-file-system "#understand-file-system")
-- [Edit basic information for an
-  FSx File Gateway](#edit-gateway-information "#edit-gateway-information")
+- [Edit basic information for an FSx File Gateway](#edit-gateway-information "#edit-gateway-information")
 - [Set a security level for your gateway](#security-strategy-fsx "#security-strategy-fsx")
-- [Editing Active Directory settings for n
-  FSx File Gateway](#editing-ad-settings "#editing-ad-settings")
+- [Editing Active Directory settings for n FSx File Gateway](#editing-ad-settings "#editing-ad-settings")
 - [Editing settings for an Amazon FSx file system](#edit-file-system "#edit-file-system")
 - [Detaching an Amazon FSx file system](#detach-file-system "#detach-file-system")
 
@@ -65,9 +63,7 @@ might be required.
 | FORCE_DELETING | The file system is being deleted forcibly. The file system is<br>deleted immediately and data is not uploaded to AWS. The<br>FORCE_DELETING status is transitional, and no action is<br>required.                                                                                                                                           |
 | ERROR          | The file system is in an unhealthy state. Action is required. Some<br>possible causes include problems with access credentials or<br>privileges, connectivity issues, or insufficient storage space on<br>the file system. When the issue that caused the unhealthy state is<br>resolved, the file system returns to a status of AVAILABLE. |
 
-## Edit basic information for an
-
-FSx File Gateway
+## Edit basic information for an FSx File Gateway
 
 You can use the Storage Gateway console to edit basic information for an existing gateway,
 including the gateway name, time zone, and CloudWatch log group.
@@ -151,9 +147,7 @@ A higher security level can affect performance of the gateway.
 The default security level for FSx File Gateway is **Enforce
 encryption**. 5. Choose **Save**.
 
-## Editing Active Directory settings for n
-
-FSx File Gateway
+## Editing Active Directory settings for n FSx File Gateway
 
 To use your corporate Microsoft Active Directory or AWS Managed Microsoft AD for user
 authenticated access to your Amazon FSx file system, edit the SMB settings for your gateway

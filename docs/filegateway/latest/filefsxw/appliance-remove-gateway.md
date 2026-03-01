@@ -2,9 +2,7 @@ Amazon FSx File Gateway is no longer available to new customers. Existing
 customers of FSx File Gateway can continue to use the service normally. For capabilities
 similar to FSx File Gateway, visit [this blog post](https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/ "https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/").
 
-# Removing gateway software from your
-
-hardware appliance
+# Removing gateway software from your hardware appliance
 
 ###### Note
 
@@ -40,7 +38,6 @@ software.
 
 After you remove the gateway software, you can't undo the action. For
 certain gateway types, you can lose data on deletion, particularly cached
-data. For more information on deleting a gateway, see [Deleting your gateway and removing associated
-resources](deleting-gateway-common.md "deleting-gateway-common.md").
+data. For more information on deleting a gateway, see [Deleting your gateway and removing associated resources](deleting-gateway-common.md "deleting-gateway-common.md").
 Removing the gateway doesn't delete the hardware appliance from the console. The
 hardware appliance remains for future gateway deployments.

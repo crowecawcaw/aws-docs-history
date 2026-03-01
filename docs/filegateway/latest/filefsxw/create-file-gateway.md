@@ -23,9 +23,7 @@ Amazon FSx File Gateway is no longer available to new customers. Existing custom
 FSx File Gateway can continue to use the service normally. For capabilities similar to
 FSx File Gateway, visit [this blog post](https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/ "https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/").
 
-## Overview - Gateway
-
-Activation
+## Overview - Gateway Activation
 
 Gateway activation involves setting up your gateway, connecting it to AWS, then
 reviewing your settings and activating it.
@@ -58,9 +56,7 @@ you want you can activate the gateway. Before you can start using your activated
 gateway, you will need to configure some additional settings and create your storage
 resources.
 
-## Overview - Gateway
-
-Configuration
+## Overview - Gateway Configuration
 
 After you activate your Storage Gateway, you need to perform some additional configuration. In
 this step, you allocate the physical storage you provisioned on the gateway host

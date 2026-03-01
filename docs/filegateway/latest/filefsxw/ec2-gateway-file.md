@@ -2,9 +2,7 @@ Amazon FSx File Gateway is no longer available to new customers. Existing
 customers of FSx File Gateway can continue to use the service normally. For capabilities
 similar to FSx File Gateway, visit [this blog post](https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/ "https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/").
 
-# Deploy a customized Amazon EC2 host for
-
-FSx File Gateway
+# Deploy a customized Amazon EC2 host for FSx File Gateway
 
 You can deploy and activate an Amazon FSx File Gateway on an Amazon Elastic Compute Cloud (Amazon EC2) instance. The
 AWS Storage Gateway Amazon Machine Image (AMI) is available as a community AMI.
@@ -39,8 +37,7 @@ type**, choose the hardware configuration for your instance. The
 hardware configuration must meet certain minimum requirements to support your
 gateway. We recommend starting with the **m5.xlarge** instance
 type, which meets the minimum hardware requirements for your gateway to function
-properly. For more information, see [Requirements for Amazon EC2 instance
-types](Requirements.md#requirements-hardware "Requirements.md#requirements-hardware").
+properly. For more information, see [Requirements for Amazon EC2 instance types](Requirements.md#requirements-hardware "Requirements.md#requirements-hardware").
 
 You can resize your instance after you launch, if necessary. For more information,
 see [Resizing your

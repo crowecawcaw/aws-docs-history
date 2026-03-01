@@ -2,9 +2,7 @@ Amazon FSx File Gateway is no longer available to new customers. Existing
 customers of FSx File Gateway can continue to use the service normally. For capabilities
 similar to FSx File Gateway, visit [this blog post](https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/ "https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/").
 
-# Creating a gateway on your
-
-hardware appliance
+# Creating a gateway on your hardware appliance
 
 ###### Note
 
@@ -36,5 +34,4 @@ gateway's network interfaces so your applications can use it.
 
 **Next step**
 
-[Configuring a gateway IP address on the
-hardware appliance](appliance-configure-ip.md "appliance-configure-ip.md")
+[Configuring a gateway IP address on the hardware appliance](appliance-configure-ip.md "appliance-configure-ip.md")

@@ -10,13 +10,10 @@ can start using your Amazon FSx File Gateway (FSx File Gateway).
 
 ###### Topics
 
-- [Mount your SMB file share on your
-  client](#mount-smb-fsxwfileshare "#mount-smb-fsxwfileshare")
+- [Mount your SMB file share on your client](#mount-smb-fsxwfileshare "#mount-smb-fsxwfileshare")
 - [Test your FSx File Gateway](#TestFileFsxShare "#TestFileFsxShare")
 
-## Mount your SMB file share on your
-
-client
+## Mount your SMB file share on your client
 
 In this step, you mount your SMB file share and map to a drive that is accessible to
 your client. The console's File Gateway section shows the supported mount commands
@@ -43,9 +40,7 @@ your local system.
 
 Amazon FSx File Gateway doesn't support SMB locking or SMB extended attributes.
 
-###### To mount an SMB file share for Active Directory users using the net use
-
-command
+###### To mount an SMB file share for Active Directory users using the net use command
 
 1. Make sure that you have access to the SMB file share before mounting the file
    share to your local system.

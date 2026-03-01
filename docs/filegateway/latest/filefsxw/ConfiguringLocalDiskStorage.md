@@ -2,9 +2,7 @@ Amazon FSx File Gateway is no longer available to new customers. Existing
 customers of FSx File Gateway can continue to use the service normally. For capabilities
 similar to FSx File Gateway, visit [this blog post](https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/ "https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/").
 
-# Configuring additional cache
-
-storage
+# Configuring additional cache storage
 
 As your application needs change, you can increase the gateway's cache storage
 capacity. You can add storage capacity to your gateway without interrupting
@@ -17,9 +15,7 @@ When adding cache to an existing gateway, you must create new disks on the gatew
 host hypervisor or Amazon EC2 instance. Do not remove or change the size of existing
 disks that have already been allocated as cache.
 
-###### To configure additional cache
-
-storage for your gateway
+###### To configure additional cache storage for your gateway
 
 1. Provision one or more new disks on your gateway host hypervisor or Amazon EC2
    instance. For information about how to provision a disk on a hypervisor, see

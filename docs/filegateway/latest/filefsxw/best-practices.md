@@ -8,14 +8,12 @@ This section contains the following topics, which provide information about the 
 practices for working with gateways, file shares, buckets, and data. We recommend that you
 familiarize yourself with the information outlined in this section, and attempt to follow these
 guidelines in order to avoid problems with your AWS Storage Gateway. For additional guidance on diagnosing
-and solving common issues you might encounter with your deployment, see [Troubleshooting problems with your Storage Gateway
-deployment](troubleshooting-gateway-issues.md "troubleshooting-gateway-issues.md").
+and solving common issues you might encounter with your deployment, see [Troubleshooting problems with your Storage Gateway deployment](troubleshooting-gateway-issues.md "troubleshooting-gateway-issues.md").
 
 ###### Topics
 
 - [Best practices: recovering your data](#recover-data-from-gateway "#recover-data-from-gateway")
-- [Restoring from backups or
-  snapshots directly on Amazon FSx](#bestpractice-restore-snapshot-backup-fsx-fgw "#bestpractice-restore-snapshot-backup-fsx-fgw")
+- [Restoring from backups or snapshots directly on Amazon FSx](#bestpractice-restore-snapshot-backup-fsx-fgw "#bestpractice-restore-snapshot-backup-fsx-fgw")
 - [Clean up unnecessary resources](#cleanup-file "#cleanup-file")
 
 ## Best practices: recovering your data
@@ -32,9 +30,7 @@ your hypervisor or from your Amazon EC2 Amazon Machine Image (AMI). If your gate
 malfunctions, activate a new gateway and recover your data to that gateway using the
 instructions following.
 
-### Recovering from an unexpected virtual
-
-machine shutdown
+### Recovering from an unexpected virtual machine shutdown
 
 If your VM shuts down unexpectedly, for example during a power outage, your gateway
 becomes unreachable. When power and network connectivity are restored, your gateway
@@ -42,12 +38,9 @@ becomes reachable and starts to function normally. Following are some steps you 
 at that point to help recover your data:
 
 - If an outage causes network connectivity issues, you can troubleshoot the
-  issue. For information about how to test network connectivity, see [Testing your gateway's network
-  connectivity](MaintenanceTestGatewayConnectivity-fgw.md "MaintenanceTestGatewayConnectivity-fgw.md").
+  issue. For information about how to test network connectivity, see [Testing your gateway's network connectivity](MaintenanceTestGatewayConnectivity-fgw.md "MaintenanceTestGatewayConnectivity-fgw.md").
 
-### Recovering your data from a malfunctioning
-
-cache disk
+### Recovering your data from a malfunctioning cache disk
 
 If your cache disk encounters a failure, we recommend you use the following steps to
 recover your data depending on your situation:
@@ -55,9 +48,7 @@ recover your data depending on your situation:
 - If the malfunction occurred because a cache disk was removed from your host,
   shut down the gateway, re-add the disk, and restart the gateway.
 
-### Recovering your data from an inaccessible data
-
-center
+### Recovering your data from an inaccessible data center
 
 If your gateway or data center becomes inaccessible for some reason, you can recover
 your data to another gateway in a different data center or recover to a gateway hosted
@@ -70,8 +61,7 @@ type you are covering the data from.
 For File Gateway, you map a new file system to the FSx for Windows File Server that contains the data you want to recover.
 
 1. Create and activate a new File Gateway on an Amazon EC2 host. For more
-   information, see [Deploy a default Amazon EC2 host for
-   FSx File Gateway](ec2-gateway-file.md "ec2-gateway-file.md").
+   information, see [Deploy a default Amazon EC2 host for FSx File Gateway](ec2-gateway-file.md "ec2-gateway-file.md").
 2. Create a new file system on the EC2 gateway you created.
    For more information, see [Create an
    FSx for Windows File Server file system](create-file-system.md "create-file-system.md").
@@ -80,9 +70,7 @@ For File Gateway, you map a new file system to the FSx for Windows File Server t
    more information, see [Mount and use your
    file share](use-fsxw-gateway.md "use-fsxw-gateway.md").
 
-## Restoring from backups or
-
-snapshots directly on Amazon FSx
+## Restoring from backups or snapshots directly on Amazon FSx
 
 In some cases, you might need to restore data on your Amazon FSx file system directly, using a
 backup or snapshot from an earlier point in time. In these instances, there is a risk of creating
@@ -111,7 +99,6 @@ to clean up resources.
 ###### To clean up resources you don't need
 
 1. If you no longer plan to continue using a gateway, delete it. For more information, see
-   [Deleting your gateway and removing associated
-   resources](deleting-gateway-common.md "deleting-gateway-common.md").
+   [Deleting your gateway and removing associated resources](deleting-gateway-common.md "deleting-gateway-common.md").
 2. Delete the Storage Gateway VM from your on-premises host. If you created your gateway on an Amazon EC2
    instance, terminate the instance.

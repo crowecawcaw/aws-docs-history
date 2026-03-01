@@ -21,9 +21,7 @@ file system, but it is not a file system. Using Amazon S3 as durable backend sto
 additional overhead on each I/O operation, so evaluating S3 File Gateway performance against an
 existing NAS or file server is not an equivalent comparison.
 
-## Deploy your gateway in the same location as your
-
-clients
+## Deploy your gateway in the same location as your clients
 
 We recommend deploying your S3 File Gateway virtual appliance in a physical location with as
 little network latency as possible between it and your NFS or SMB clients. When choosing
@@ -56,9 +54,7 @@ attempting to optimize disk-related performance issues, consider the following:
 - We recommend using either NVMe or SSD for your gateway's root and cache disks
   to minimize `IoWaitPercent`.
 
-## Adjust virtual machine resource
-
-allocation for CPU, RAM, and cache disks
+## Adjust virtual machine resource allocation for CPU, RAM, and cache disks
 
 When attempting to optimize throughput for your S3 File Gateway, it is important to allocate
 sufficient resources to the gateway VM, including CPU, RAM, and cache disks. The minimum
@@ -164,9 +160,7 @@ for the file share status to change from **Updating** to
 disconnect and reconnect your SMB clients for the new setting to take
 effect.
 
-## Use multiple threads and clients to
-
-parallelize write operations
+## Use multiple threads and clients to parallelize write operations
 
 It is difficult to achieve maximum throughput performance with an S3 File Gateway that uses
 only one NFS or SMB client to write one file at a time, because sequential writing from
@@ -285,9 +279,7 @@ if that is tolerable for your workload.
   takes to refresh the gateway cache can increase substantially depending on the
   number of files and subdirectories in your Amazon S3 bucket.
 
-## Increase the number of Amazon S3 uploader
-
-threads
+## Increase the number of Amazon S3 uploader threads
 
 By default, S3 File Gateway opens 8 threads for Amazon S3 data upload, which provides sufficient
 upload capacity for most typical deployments. However, it is possible for a gateway to
@@ -321,9 +313,7 @@ minutes or more, depending on the size of the files and the write speed of your 
 The default is 300 seconds, or 5 minutes. For more information, see [Your gateway backup job fails or there are errors when writing to your
 gateway](../files3/troubleshooting-file-gateway-issues.md#backup-job-fails "../files3/troubleshooting-file-gateway-issues.md#backup-job-fails").
 
-## Turn on opportunistic locking for
-
-compatible applications
+## Turn on opportunistic locking for compatible applications
 
 Opportunistic locking, or "oplocks", is enabled by default for each new S3 File Gateway. When
 using oplocks with compatible applications, the client batches multiple smaller
@@ -337,9 +327,7 @@ typically open large files (50 MB or larger) much more slowly. This delay occurs
 the gateway sends data in 4 KB parts, which results in high I/O and low
 throughput.
 
-## Adjust gateway capacity according to the
-
-size of the working file set
+## Adjust gateway capacity according to the size of the working file set
 
 The gateway capacity parameter specifies the maximum number of files for which your
 gateway will store metadata in its local cache. By default, gateway capacity is set to
@@ -378,9 +366,7 @@ capacity.
 
 Gateway capacity cannot be decreased.
 
-## Deploy multiple gateways for larger
-
-workloads
+## Deploy multiple gateways for larger workloads
 
 We recommend splitting your workload across multiple gateways when possible, rather
 than consolidating many file shares on a single large gateway. For example, you could
