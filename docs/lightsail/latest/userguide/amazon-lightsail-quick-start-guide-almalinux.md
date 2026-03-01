@@ -1,6 +1,4 @@
-# Launch and set up an
-
-AlmaLinux instance on Lightsail
+# Launch and set up an AlmaLinux instance on Lightsail
 
 ###### Did you know?
 
@@ -18,24 +16,18 @@ AlmaLinux instance up and running on Lightsail.
 ###### Topics
 
 - [Prerequisites](#amazon-lightsail-quick-start-guide-almalinux-prerequisites "#amazon-lightsail-quick-start-guide-almalinux-prerequisites")
-- [Create an
-  AlmaLinux instance in Lightsail](#amazon-lightsail-quick-start-guide-almalinux-create-instance "#amazon-lightsail-quick-start-guide-almalinux-create-instance")
-- [(Optional) Additional
-  setup](#amazon-lightsail-additional-setup-almalinux "#amazon-lightsail-additional-setup-almalinux")
-- [Migrate data from CentOS
-  to AlmaLinux on Lightsail](amazon-lightsail-migrate-centos-to-almalinux.md "amazon-lightsail-migrate-centos-to-almalinux.md")
+- [Create an AlmaLinux instance in Lightsail](#amazon-lightsail-quick-start-guide-almalinux-create-instance "#amazon-lightsail-quick-start-guide-almalinux-create-instance")
+- [(Optional) Additional setup](#amazon-lightsail-additional-setup-almalinux "#amazon-lightsail-additional-setup-almalinux")
+- [Migrate data from CentOS to AlmaLinux on Lightsail](amazon-lightsail-migrate-centos-to-almalinux.md "amazon-lightsail-migrate-centos-to-almalinux.md")
 
 ## Prerequisites
 
 - If you're a new AWS customer, complete the setup prerequisites before you
-  start using Amazon Lightsail. For more information, see [Set up AWS account and administrative users for
-  Lightsail](setting-up.md "setting-up.md").
+  start using Amazon Lightsail. For more information, see [Set up AWS account and administrative users for Lightsail](setting-up.md "setting-up.md").
 - Read the AlmaLinux documentation on the [_AlmaLinux
   Wiki_](https://wiki.almalinux.org/ "https://wiki.almalinux.org/") site.
 
-## Create an
-
-AlmaLinux instance in Lightsail
+## Create an AlmaLinux instance in Lightsail
 
 Complete the following procedure to create an AlmaLinux instance by using the [Lightsail console](https://lightsail.aws.amazon.com/ "https://lightsail.aws.amazon.com/").
 
@@ -60,14 +52,12 @@ instance in another location. 4. Choose the Linux platform. 5. Choose **Operatin
      see [Set up SSH keys for Lightsail](lightsail-how-to-set-up-ssh.md "lightsail-how-to-set-up-ssh.md").
     3. Enable **Automatic Snapshots** for your instance and
      the attached disks by selecting **Enable Automatic
-     Snapshots**. For more information, see [Configure automatic snapshots
-     for Lightsail instances and disks](amazon-lightsail-configuring-automatic-snapshots.md "amazon-lightsail-configuring-automatic-snapshots.md").
+     Snapshots**. For more information, see [Configure automatic snapshots for Lightsail instances and disks](amazon-lightsail-configuring-automatic-snapshots.md "amazon-lightsail-configuring-automatic-snapshots.md").
 
 7. Choose your instance plan. You can choose whether your instance uses
    dual-stack (IPv4 and IPv6), or IPv6-only networking. The AlmaLinux blueprint
    supports both dual-stack and IPv6-only bundles. To learn more about IPv6-only
-   networking, see [Configure IPv6-only networking for
-   Lightsail instances](amazon-lightsail-ipv6-only-plans.md "amazon-lightsail-ipv6-only-plans.md").
+   networking, see [Configure IPv6-only networking for Lightsail instances](amazon-lightsail-ipv6-only-plans.md "amazon-lightsail-ipv6-only-plans.md").
 
 ![The instance plan picker in the Lightsail console.](images/lightsail-almalinux-qs-guide-02.png) 8. Enter a name for your instance.
 
@@ -98,9 +88,7 @@ more information on tag usage, see [Tags](amazon-lightsail-tags.md "amazon-light
 
 Within minutes, your Lightsail instance is ready and you can connect to it.
 
-## (Optional) Additional
-
-setup
+## (Optional) Additional setup
 
 Here are a few steps you should take to get started after your AlmaLinux instance is
 up and running on Lightsail:
@@ -142,8 +130,7 @@ instance](lightsail-create-static-ip.md "lightsail-create-static-ip.md").
 
 On the Lightsail console home page, on the **Domains &
 DNS** section, choose **Create DNS zone**, then
-follow the instructions on the page. For more information, see [Create a DNS zone to manage domain records
-for Lightsail instances](lightsail-how-to-create-dns-entry.md "lightsail-how-to-create-dns-entry.md").
+follow the instructions on the page. For more information, see [Create a DNS zone to manage domain records for Lightsail instances](lightsail-how-to-create-dns-entry.md "lightsail-how-to-create-dns-entry.md").
 
 - Create a snapshot of your instance – A
   snapshot is a copy of the system disk and original configuration of an instance.
@@ -153,8 +140,6 @@ for Lightsail instances](lightsail-how-to-create-dns-entry.md "lightsail-how-to-
 
 Under the **Snapshot** tab of your instance’s management
 page, enter a name for the snapshot, then choose **Create
-snapshot**. For more information, see [Back up Linux/Unix
-Lightsail instances with snapshots](lightsail-how-to-create-a-snapshot-of-your-instance.md "lightsail-how-to-create-a-snapshot-of-your-instance.md").
+snapshot**. For more information, see [Back up Linux/Unix Lightsail instances with snapshots](lightsail-how-to-create-a-snapshot-of-your-instance.md "lightsail-how-to-create-a-snapshot-of-your-instance.md").
 
-To learn how to migrate from CentOS to AlmaLinux, continue to the next topic: [Migrate data from CentOS
-to AlmaLinux on Lightsail](amazon-lightsail-migrate-centos-to-almalinux.md "amazon-lightsail-migrate-centos-to-almalinux.md").
+To learn how to migrate from CentOS to AlmaLinux, continue to the next topic: [Migrate data from CentOS to AlmaLinux on Lightsail](amazon-lightsail-migrate-centos-to-almalinux.md "amazon-lightsail-migrate-centos-to-almalinux.md").

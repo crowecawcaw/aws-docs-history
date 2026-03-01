@@ -1,6 +1,4 @@
-# Resolve WordPress setup errors on
-
-Lightsail
+# Resolve WordPress setup errors on Lightsail
 
 An error message will appear at the top of the Lightsail console if there's an issue
 with the information that was submitted during the workflow.
@@ -22,26 +20,14 @@ following errors.
 
 ###### Errors
 
-- [DNS records not found. Confirm that the domain's DNS
-  records point to the public IP address of your instance, and allow time for DNS
-  changes to propagate.](#dns-not-found "#dns-not-found")
-- [DNS records do not match. Confirm that the
-  domain's DNS records point to the public IP address of your instance, and allow
-  time for DNS changes to propagate.](#dns-mismatch-error "#dns-mismatch-error")
-- [Unable to connect to your instance. Allow a few
-  minutes for the SSH connection to become ready. Then, start setup again.](#unable-to-connect "#unable-to-connect")
-- [Unsupported WordPress version. Setup only
-  supports WordPress versions 6, and up.](#unsupported-wp-version "#unsupported-wp-version")
-- [Setup only supports WordPress instances
-  that were created on or after January 1, 2023.](#instance-create-date-error "#instance-create-date-error")
-- [Instance firewall ports 22, 80, and 443 must
-  allow a TCP connection from any IP address during the setup workflow. You can
-  change these settings from the instance Networking tab.](#firewall-ports-error "#firewall-ports-error")
+- [DNS records not found. Confirm that the domain's DNS records point to the public IP address of your instance, and allow time for DNS changes to propagate.](#dns-not-found "#dns-not-found")
+- [DNS records do not match. Confirm that the domain's DNS records point to the public IP address of your instance, and allow time for DNS changes to propagate.](#dns-mismatch-error "#dns-mismatch-error")
+- [Unable to connect to your instance. Allow a few minutes for the SSH connection to become ready. Then, start setup again.](#unable-to-connect "#unable-to-connect")
+- [Unsupported WordPress version. Setup only supports WordPress versions 6, and up.](#unsupported-wp-version "#unsupported-wp-version")
+- [Setup only supports WordPress instances that were created on or after January 1, 2023.](#instance-create-date-error "#instance-create-date-error")
+- [Instance firewall ports 22, 80, and 443 must allow a TCP connection from any IP address during the setup workflow. You can change these settings from the instance Networking tab.](#firewall-ports-error "#firewall-ports-error")
 
-## DNS records not found. Confirm that the domain's DNS
-
-records point to the public IP address of your instance, and allow time for DNS
-changes to propagate.
+## DNS records not found. Confirm that the domain's DNS records point to the public IP address of your instance, and allow time for DNS changes to propagate.
 
 **Reason**
 
@@ -68,10 +54,7 @@ _MxToolbox_.
 Allow time for any DNS record changes to propagate through the
 internet's DNS, which may take several hours.
 
-## DNS records do not match. Confirm that the
-
-domain's DNS records point to the public IP address of your instance, and allow
-time for DNS changes to propagate.
+## DNS records do not match. Confirm that the domain's DNS records point to the public IP address of your instance, and allow time for DNS changes to propagate.
 
 **Reason**
 
@@ -90,9 +73,7 @@ Lightsail](understanding-dns-in-amazon-lightsail.md "understanding-dns-in-amazon
 Allow time for any DNS record changes to propagate through the
 internet's DNS, which may take several hours.
 
-## Unable to connect to your instance. Allow a few
-
-minutes for the SSH connection to become ready. Then, start setup again.
+## Unable to connect to your instance. Allow a few minutes for the SSH connection to become ready. Then, start setup again.
 
 **Reason**
 
@@ -104,9 +85,7 @@ not ready.
 Allow a few minutes for the SSH connection to become ready. Then,
 retry the guided workflow. For more information, see [Troubleshooting SSH in Lightsail](amazon-lightsail-troubleshooting-browser-based-ssh-rdp-client-connection.md "amazon-lightsail-troubleshooting-browser-based-ssh-rdp-client-connection.md").
 
-## Unsupported WordPress version. Setup only
-
-supports WordPress versions 6, and up.
+## Unsupported WordPress version. Setup only supports WordPress versions 6, and up.
 
 **Reason**
 
@@ -126,9 +105,7 @@ If you’re creating a new instance to replace the existing instance,
 make sure to update your application dependencies to your new
 instance.
 
-## Setup only supports WordPress instances
-
-that were created on or after January 1, 2023.
+## Setup only supports WordPress instances that were created on or after January 1, 2023.
 
 **Reason**
 
@@ -147,10 +124,7 @@ If you’re creating a new instance to replace the existing instance,
 make sure to update your application dependencies to your new
 instance.
 
-## Instance firewall ports 22, 80, and 443 must
-
-allow a TCP connection from any IP address during the setup workflow. You can
-change these settings from the instance Networking tab.
+## Instance firewall ports 22, 80, and 443 must allow a TCP connection from any IP address during the setup workflow. You can change these settings from the instance Networking tab.
 
 **Reason**
 

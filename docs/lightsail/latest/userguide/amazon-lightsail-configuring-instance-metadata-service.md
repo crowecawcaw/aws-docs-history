@@ -1,6 +1,4 @@
-# Access and
-
-configure Instance Metadata Service (IMDS) on Lightsail
+# Access and configure Instance Metadata Service (IMDS) on Lightsail
 
 You can access instance metadata from a running instance by using one of the following
 methods:
@@ -155,9 +153,7 @@ can adjust it by using the `update-instance-metadata-options` command. For
 example, you might need a larger hop limit for backward compatibility with container
 services running on the instance. For more information, see [update-instance-metadata-options](../../../cli/latest/reference/lightsail/update-instance-metadata-options.md "../../../cli/latest/reference/lightsail/update-instance-metadata-options.md") in the _AWS CLI Command Reference_.
 
-## Transition to using
-
-Instance Metadata Service Version 2
+## Transition to using Instance Metadata Service Version 2
 
 Use of Instance Metadata Service Version 2 (IMDSv2) is optional. Instance Metadata Service Version 1 (IMDSv1) will
 continue to be supported indefinitely. If you choose to migrate to using IMDSv2,
@@ -215,9 +211,7 @@ Track your transition progress by using the instance metric
 instance metadata service that are using IMDSv1 on your instances. For more
 information, see [View instance metrics](amazon-lightsail-viewing-instance-health-metrics.md "amazon-lightsail-viewing-instance-health-metrics.md").
 
-### Step 3: When everything is ready on all
-
-instances
+### Step 3: When everything is ready on all instances
 
 Everything is ready on all instances when the instance metric
 `MetadataNoToken` records zero IMDSv1 usage. At this stage,

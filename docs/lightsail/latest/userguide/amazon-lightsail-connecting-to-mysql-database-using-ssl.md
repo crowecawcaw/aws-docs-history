@@ -47,9 +47,7 @@ The following list shows the TLS support for MySQL versions:
 - Download the appropriate certificate for your database. For information, see [Download an SSL
   certificate for your managed database](amazon-lightsail-download-ssl-certificate-for-managed-database.md "amazon-lightsail-download-ssl-certificate-for-managed-database.md").
 
-## Connect to your MySQL database
-
-using SSL
+## Connect to your MySQL database using SSL
 
 Complete the following steps to connect to your MySQL database using SSL.
 

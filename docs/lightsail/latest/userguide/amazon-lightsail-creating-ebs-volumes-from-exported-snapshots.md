@@ -1,6 +1,4 @@
-# Create Amazon Elastic Block Store
-
-volumes from exported Lightsail disk snapshots
+# Create Amazon Elastic Block Store volumes from exported Lightsail disk snapshots
 
 After a Lightsail block storage disk snapshot is exported and available in Amazon EC2 (as an
 EBS snapshot), you can create an EBS volume from the snapshot using the Amazon EC2 console.
@@ -25,9 +23,7 @@ steps in this guide. For more information, see [Export snapshots to Amazon EC2](
 Export a Lightsail block storage disk snapshot to Amazon EC2. For more information, see [Export snapshots to
 Amazon EC2](amazon-lightsail-exporting-snapshots-to-amazon-ec2.md "amazon-lightsail-exporting-snapshots-to-amazon-ec2.md").
 
-## Create an EBS volume from an
-
-exported Lightsail block storage disk snapshot
+## Create an EBS volume from an exported Lightsail block storage disk snapshot
 
 Use the Amazon EC2 console to create a new EBS volume from an exported Lightsail block
 storage disk snapshot.
@@ -37,9 +33,7 @@ storage disk snapshot.
 These steps are also in the Amazon EC2 documentation. To learn more, see [Restoring an Amazon EBS Volume from a Snapshot](../../../AWSEC2/latest/UserGuide/ebs-restoring-volume.md "../../../AWSEC2/latest/UserGuide/ebs-restoring-volume.md") in the Amazon EC2
 documentation.
 
-###### To create an EBS volume from an exported Lightsail block storage disk
-
-snapshot
+###### To create an EBS volume from an exported Lightsail block storage disk snapshot
 
 1. Sign in to the [Amazon EC2 console](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. From the navigation bar, select the region that your snapshot is located in.

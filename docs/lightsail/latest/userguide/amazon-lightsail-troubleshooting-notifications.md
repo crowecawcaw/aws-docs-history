@@ -1,6 +1,4 @@
-# Troubleshoot notification
-
-delivery in Lightsail
+# Troubleshoot notification delivery in Lightsail
 
 If don't receive notifications when you expect to be notified, then there are a few things
 you should check to confirm that your notification contacts are configured correctly. To learn

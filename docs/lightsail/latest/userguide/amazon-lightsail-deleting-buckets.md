@@ -1,6 +1,4 @@
-# Delete Lightsail object storage
-
-buckets
+# Delete Lightsail object storage buckets
 
 Delete your bucket in the Amazon Lightsail object storage service if you're no longer using
 it. When you delete your bucket, all objects in the bucket, including stored versions of objects
@@ -31,9 +29,7 @@ specify the `--force-delete` flag when making a `delete-bucket` request.
 Both of these procedures are covered in the [Delete your bucket using the
 Lightsail console](#delete-bucket-using-lightsail-console "#delete-bucket-using-lightsail-console") and [Delete your bucket using the AWS CLI](#delete-bucket-using-aws-cli "#delete-bucket-using-aws-cli") sections of this guide.
 
-## Delete your bucket using the
-
-Lightsail console
+## Delete your bucket using the Lightsail console
 
 Complete the following procedure to delete your bucket using the Lightsail
 console.
@@ -108,9 +104,7 @@ You should see a result similar to the following example:
 
 ![Result of the delete bucket request](images/amazon-lightsail-delete-bucket-cli.png)
 
-## Manage buckets and
-
-objects
+## Manage buckets and objects
 
 These are the general steps to manage your Lightsail object storage bucket:
 

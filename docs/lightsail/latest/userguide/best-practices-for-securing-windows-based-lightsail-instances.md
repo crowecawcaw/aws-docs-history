@@ -1,13 +1,9 @@
-# Secure Windows
-
-Server instances on Lightsail
+# Secure Windows Server instances on Lightsail
 
 In this article, we provide tips and tricks to help you avoid security risks when using your
 Lightsail instance running Windows Server.
 
-## About Lightsail
-
-passwords
+## About Lightsail passwords
 
 When you create a Windows Server-based instance, Lightsail randomly generates a long
 password that is hard to guess. You use this password uniquely with your new instance. You can
@@ -15,9 +11,7 @@ use the default password to connect quickly to your instance using remote deskto
 are always logged in as the **Administrator** on your Lightsail
 instance.
 
-## Manage your
-
-password
+## Manage your password
 
 You can change the password on your Windows Server-based instance. This might be useful if
 you want to use a remote desktop client to access your Lightsail instance. Lightsail never
@@ -63,9 +57,7 @@ When finished, you see a message with the installation results and more instruct
 
 ![Successfully downloaded and updated Windows Server 2016 security patch](images/download-install-updates-configure-server-windows-based-lightsail.png)
 
-## Enable the Account Lockout
-
-Policy in Windows Server
+## Enable the Account Lockout Policy in Windows Server
 
 You can configure Windows Server to temporarily or indefinitely disable accounts when a
 certain number of unsuccessful login attempts has been reached. For example, you can lock out
@@ -74,9 +66,7 @@ someone who attempts to log in to your instance using three unsuccessful passwor
 For more information, see [Account Lockout
 Policy](<https://technet.microsoft.com/en-us/library/hh994563(v=ws.11).aspx> "https://technet.microsoft.com/en-us/library/hh994563(v=ws.11).aspx") in the _Windows Server documentation_.
 
-## Ports and firewall
-
-settings
+## Ports and firewall settings
 
 By default, we open the following ports on your Windows Server-based instances.
 

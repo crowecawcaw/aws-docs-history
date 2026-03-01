@@ -1,12 +1,9 @@
-# Update domain contact information in
-
-Lightsail
+# Update domain contact information in Lightsail
 
 When you register a domain with Amazon Lightsail, you must specify contact information for
 your domain. Your domain’s contact information is used to verify ownership of your domain and to
 keep you updated about any information related to your domain name. For more information about the
-information required during domain registration, see [Provide domain information
-when you register or transfer a domain in Lightsail](amazon-lightsail-domain-register-values-specify.md "amazon-lightsail-domain-register-values-specify.md").
+information required during domain registration, see [Provide domain information when you register or transfer a domain in Lightsail](amazon-lightsail-domain-register-values-specify.md "amazon-lightsail-domain-register-values-specify.md").
 
 **Topics**
 
@@ -35,9 +32,7 @@ currently registered with Lightsail:
   central database of domain names, requires that the registrant contact confirm receiving
   the email.
 
-## Update contact information for a
-
-domain
+## Update contact information for a domain
 
 To update contact information for a domain, perform the following procedure.
 

@@ -1,6 +1,4 @@
-# Control Lightsail
-
-resource access with tags
+# Control Lightsail resource access with tags
 
 You can use tags in Amazon Lightsail to control access to resources, control access to
 requests, and control access to tag keys. In this guide, you’ll learn how to create an

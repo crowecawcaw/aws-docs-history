@@ -1,6 +1,4 @@
-# Upload files to an Lightsail
-
-object storage bucket
+# Upload files to an Lightsail object storage bucket
 
 When you upload a file to your bucket in the Amazon Lightsail object storage service, it is
 stored as an object. Objects consist of the file data and metadata that describe the object. You
@@ -30,9 +28,7 @@ upload:
   For more information about buckets,
   see [Object storage](buckets-in-amazon-lightsail.md "buckets-in-amazon-lightsail.md").
 
-## Object key names and
-
-versioning
+## Object key names and versioning
 
 When you upload a file using the Lightsail console, the file name is used as the object
 key name. An object key (or key name) uniquely identifies an object stored in a bucket. The
@@ -60,9 +56,7 @@ creates a new version of the object instead of replacing the existing object. Fo
 information, see [Enable and
 suspend bucket object versioning](amazon-lightsail-managing-bucket-object-versioning.md "amazon-lightsail-managing-bucket-object-versioning.md").
 
-## Upload files to a bucket using
-
-the Lightsail console
+## Upload files to a bucket using the Lightsail console
 
 Complete the following procedure to upload files and directories using the Lightsail
 console.
@@ -87,9 +81,7 @@ console.
     An **Upload successful** message is displayed when the upload
     completes.
 
-## Upload files to a bucket using the
-
-AWS CLI
+## Upload files to a bucket using the AWS CLI
 
 Complete the following procedure to upload files and folders to a bucket using the
 AWS Command Line Interface (AWS CLI). You do this by using the `put-object` command. For more
@@ -138,9 +130,7 @@ You should see a result similar to the following example:
 
 ![Result of the AWS CLI put-object command](images/amazon-lightsail-s3api-put-object-result.png)
 
-## Configure the AWS CLI for IPv6-only
-
-requests
+## Configure the AWS CLI for IPv6-only requests
 
 Amazon S3 supports bucket access over IPv6. You make requests with Amazon S3 API calls over IPv6 by
 using dual-stack endpoints. This section provides examples of how to make requests to a
@@ -191,9 +181,7 @@ the name of your bucket and your AWS Region.
 aws s3api list-objects --bucket `bucketname` --endpoint-url https://s3.dualstack.`aws-region`.amazonaws.com
 ```
 
-## Managing buckets and objects in
-
-Lightsail
+## Managing buckets and objects in Lightsail
 
 These are the general steps to manage your Lightsail object storage bucket:
 

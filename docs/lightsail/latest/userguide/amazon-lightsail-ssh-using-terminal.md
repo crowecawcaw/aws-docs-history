@@ -1,6 +1,4 @@
-# Connect to Lightsail Linux or Unix
-
-instances with the SSH command
+# Connect to Lightsail Linux or Unix instances with the SSH command
 
 If your local machine uses a Linux or Unix operating system, including macOS, then you can
 connect to your Linux or Unix instance in Amazon Lightsail using the SSH client through a
@@ -16,16 +14,11 @@ your Linux or Unix instance](lightsail-how-to-connect-to-your-instance-virtual-p
 
 ###### Contents
 
-- [Step 1: Confirm your instance is running
-  and get the public IP address](#terminal-ssh-get-public-ip-address "#terminal-ssh-get-public-ip-address")
-- [Step 2: Confirm the SSH key pair being used by
-  your instance](#terminal-ssh-confirm-key-pair "#terminal-ssh-confirm-key-pair")
-- [Step 3: Change the permissions of
-  your private key and connect to your instance using SSH](#terminal-ssh-change-key-file-permissions "#terminal-ssh-change-key-file-permissions")
+- [Step 1: Confirm your instance is running and get the public IP address](#terminal-ssh-get-public-ip-address "#terminal-ssh-get-public-ip-address")
+- [Step 2: Confirm the SSH key pair being used by your instance](#terminal-ssh-confirm-key-pair "#terminal-ssh-confirm-key-pair")
+- [Step 3: Change the permissions of your private key and connect to your instance using SSH](#terminal-ssh-change-key-file-permissions "#terminal-ssh-change-key-file-permissions")
 
-## Step 1: Confirm your instance is running
-
-and get the public IP address
+## Step 1: Confirm your instance is running and get the public IP address
 
 In the following procedure, you sign in to the Lightsail console to confirm your
 instance is in the running state and to get the public IP address of your instance. Your
@@ -43,9 +36,7 @@ instance as shown in the following example.
 
 ![The status and public IP address of an instance](images/amazon-lightsail-status-and-public-ip-address.png)
 
-## Step 2: Confirm the SSH key pair being used by
-
-your instance
+## Step 2: Confirm the SSH key pair being used by your instance
 
 In the following procedure you confirm the SSH key pair that is being used by your
 instance. You will need the private key of the key pair to authenticate to your instance and
@@ -114,9 +105,7 @@ Continue to the next [Step 3: Change the permissions of your private key and con
 instance using SSH](#terminal-ssh-change-key-file-permissions "#terminal-ssh-change-key-file-permissions") section of this guide to use the private key you just
 downloaded and establish an SSH connection to your instance.
 
-## Step 3: Change the permissions of
-
-your private key and connect to your instance using SSH
+## Step 3: Change the permissions of your private key and connect to your instance using SSH
 
 In the following procedure you will change the permissions of your private key file to be
 readable and writable only by you. You then open a terminal window in your local machine, and

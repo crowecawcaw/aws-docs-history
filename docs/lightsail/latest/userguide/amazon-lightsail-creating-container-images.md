@@ -1,6 +1,4 @@
-# Build and test Docker images for
-
-Lightsail container services
+# Build and test Docker images for Lightsail container services
 
 With Docker, you can build, run, test, and deploy distributed applications that are based on
 containers. Amazon Lightsail container services use Docker container images in deployments to
@@ -26,9 +24,7 @@ Docker is and how it works. For more information about Docker, see [What is Dock
 - [Next steps after
   creating container images](#create-container-image-next-steps "#create-container-image-next-steps")
 
-## Step 1: Complete the
-
-prerequisites
+## Step 1: Complete the prerequisites
 
 Before you get started, you must install the software required to create containers and
 then push them to your Lightsail container service. For example, you must install and use
@@ -36,9 +32,7 @@ Docker to create and build your container images that you can then use with your
 container service. For more information, see [Installing software to manage container images for your Amazon Lightsail container
 services](amazon-lightsail-install-software.md "amazon-lightsail-install-software.md").
 
-## Step 2: Create a Dockerfile and
-
-build a container image
+## Step 2: Create a Dockerfile and build a container image
 
 Complete the following procedure to create a Dockerfile, and build a
 `mystaticwebsite` Docker container image from it. The container image will be for
@@ -135,9 +129,7 @@ Your newly built container image is ready to be tested by using it to run a new
 container on your local machine. Continue to the next [Step 3: Run your new
 container image](#create-container-image-run-container "#create-container-image-run-container") section of this guide.
 
-## Step 3: Run your new container
-
-image
+## Step 3: Run your new container image
 
 Complete the following steps to run the new container image you created.
 
@@ -172,9 +164,7 @@ that you can deploy it to your Lightsail container service. For more information
 [Pushing and managing container
 images on your Amazon Lightsail container services](amazon-lightsail-pushing-container-images.md "amazon-lightsail-pushing-container-images.md").
 
-## (Optional) Step 4: Clean up the containers
-
-running on your local machine
+## (Optional) Step 4: Clean up the containers running on your local machine
 
 Now that you've created a container image that you can push to your Lightsail container
 service, it's time to clean up the containers that are running on your local machine as a
@@ -211,9 +201,7 @@ docker container rm `mystaticwebsite` --force
 
 The container that was created as a result of this guide should now be deleted.
 
-## Next steps after creating container
-
-images
+## Next steps after creating container images
 
 After you create your container images, push them to your Lightsail container service
 when you're ready to deploy them. For more information, see [Manage Lightsail container service

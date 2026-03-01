@@ -1,6 +1,4 @@
-# Analyze Lightsail
-
-container service logs
+# Analyze Lightsail container service logs
 
 Every container in your Amazon Lightsail container service deployment generates a log. The
 container logs provide the stdout and stderr streams of processes that run inside your

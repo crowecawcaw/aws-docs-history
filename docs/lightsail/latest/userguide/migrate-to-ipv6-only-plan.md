@@ -1,6 +1,4 @@
-# Switch instance networking type to IPv6 or
-
-dual-stack in Lightsail
+# Switch instance networking type to IPv6 or dual-stack in Lightsail
 
 Your instance’s networking type determines which protocol it uses to communicate over
 the Internet. When you create an instance, you choose between **dual-stack** or **IPv6-only** networking. You
@@ -12,8 +10,7 @@ With the guided workflow, your instance will continue to run while the new netwo
 type is configured. Use this option for your instance to remain reachable over the
 internet while the change takes place. But first, make sure your local network,
 computer, devices, and end-users can communicate using IPv6. For more information, see
-[Verify IPv6 reachability for
-Lightsail instances](amazon-lightsail-ipv6-reachability.md "amazon-lightsail-ipv6-reachability.md").
+[Verify IPv6 reachability for Lightsail instances](amazon-lightsail-ipv6-reachability.md "amazon-lightsail-ipv6-reachability.md").
 
 With the individual steps, you’ll snapshot your instance, then create a new instance
 from the snapshot. You can choose a different networking type as you're creating the new
@@ -31,16 +28,14 @@ Review the following considerations:
 - Your instance will communicate publicly over IPv6. It will not support
   incoming or outgoing public IPv4 traffic. It will receive a private IPv4
   address for communicating with other resources in your Lightsail account.
-  For more information, see [View and
-  manage IP addresses for Lightsail resources](understanding-public-ip-and-private-ip-addresses-in-amazon-lightsail.md "understanding-public-ip-and-private-ip-addresses-in-amazon-lightsail.md").
+  For more information, see [View and manage IP addresses for Lightsail resources](understanding-public-ip-and-private-ip-addresses-in-amazon-lightsail.md "understanding-public-ip-and-private-ip-addresses-in-amazon-lightsail.md").
 - IPv6-only instances can't be configured as the origin for a Lightsail
   content delivery network (CDN) distribution.
 - You can add IPv6-only instances to a Lightsail load balancer.
 - The allowance for your instance's data transfer plan will carry over when
   you change networking types. It will not reset.
 - Verify that your local devices, network, and Internet Service Provider
-  (ISP) are IPv6-compatible. For more information, see [Verify IPv6 reachability for
-  Lightsail instances](amazon-lightsail-ipv6-reachability.md "amazon-lightsail-ipv6-reachability.md").
+  (ISP) are IPv6-compatible. For more information, see [Verify IPv6 reachability for Lightsail instances](amazon-lightsail-ipv6-reachability.md "amazon-lightsail-ipv6-reachability.md").
 
 ## Option: Guided workflow
 
@@ -68,22 +63,17 @@ Review the following considerations:
 
 ## Option: Individual steps
 
-###### To configure your instance networking type by completing the individual
-
-steps
+###### To configure your instance networking type by completing the individual steps
 
 1. On the instance management page, on the **Snapshots**
    tab, choose **Create snapshot**. For more information, see
    one of the following topics:
-   - [Back up Linux/Unix
-     Lightsail instances with snapshots](lightsail-how-to-create-a-snapshot-of-your-instance.md "lightsail-how-to-create-a-snapshot-of-your-instance.md")
-   - [Create a snapshot of your
-     Lightsail Windows Server instance](prepare-windows-based-instance-and-create-snapshot.md "prepare-windows-based-instance-and-create-snapshot.md")
+   - [Back up Linux/Unix Lightsail instances with snapshots](lightsail-how-to-create-a-snapshot-of-your-instance.md "lightsail-how-to-create-a-snapshot-of-your-instance.md")
+   - [Create a snapshot of your Lightsail Windows Server instance](prepare-windows-based-instance-and-create-snapshot.md "prepare-windows-based-instance-and-create-snapshot.md")
 
 2. Give your snapshot a name, then choose **Create**.
 3. From the snapshot actions menu (⋮), choose **Create a new
-   instance**. For more information, see [Create Lightsail
-   instances from snapshots](lightsail-how-to-create-instance-from-snapshot.md "lightsail-how-to-create-instance-from-snapshot.md").
+   instance**. For more information, see [Create Lightsail instances from snapshots](lightsail-how-to-create-instance-from-snapshot.md "lightsail-how-to-create-instance-from-snapshot.md").
 4. From the **Select networking type** section, choose
    **Dual-stack** or
    **IPv6-only**.
@@ -99,8 +89,7 @@ There are a few additional tasks that you can perform after you change the
 networking type of your instance:
 
 - (IPv6-only) Ensure that your application
-  and users are able to communicate over IPv6. For more information, see [Verify IPv6 reachability for
-  Lightsail instances](amazon-lightsail-ipv6-reachability.md "amazon-lightsail-ipv6-reachability.md").
+  and users are able to communicate over IPv6. For more information, see [Verify IPv6 reachability for Lightsail instances](amazon-lightsail-ipv6-reachability.md "amazon-lightsail-ipv6-reachability.md").
 - (Dual-stack) Attach a static IP address to
   your instance. For more information, see [Attach a static IP to an
   instance](lightsail-create-static-ip.md "lightsail-create-static-ip.md").

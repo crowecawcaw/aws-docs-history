@@ -1,6 +1,4 @@
-# Create Windows Server
-
-instances in Lightsail
+# Create Windows Server instances in Lightsail
 
 ###### Did you know?
 
@@ -19,9 +17,7 @@ Server-based instance, and connecting to it.
 Learn more about [Windows Server on
 AWS](https://aws.amazon.com/windows/ "https://aws.amazon.com/windows/")
 
-## Choose a Windows Server-based
-
-instance
+## Choose a Windows Server-based instance
 
 There are three options for creating a Windows Server-based instance in
 Lightsail.
@@ -101,9 +97,7 @@ Windows Server 2016.
 [Learn more about the SQL
 Server Express image](https://aws.amazon.com/marketplace/pp/B01MAZHH98 "https://aws.amazon.com/marketplace/pp/B01MAZHH98")
 
-## Create a Windows Server-based
-
-instance
+## Create a Windows Server-based instance
 
 You can create a Windows Server-based instance using the Lightsail console or by using
 the AWS Command Line Interface (AWS CLI).
@@ -123,8 +117,7 @@ OS**. 6. Choose your instance plan.
 
 Choose whether your instance uses dual-stack (IPv4 and IPv6), or IPv6-only networking.
 Some Lightsail blueprints don't support IPv6-only networking at this time. To see which
-blueprints support IPv6-only networking see [Review the Lightsail
-instance blueprint offerings](compare-options-choose-lightsail-instance-image.md "compare-options-choose-lightsail-instance-image.md").
+blueprints support IPv6-only networking see [Review the Lightsail instance blueprint offerings](compare-options-choose-lightsail-instance-image.md "compare-options-choose-lightsail-instance-image.md").
 
 A plan also includes a low, predictable cost and a machine configuration (RAM, SSD,
 vCPU), as well as data transfer.

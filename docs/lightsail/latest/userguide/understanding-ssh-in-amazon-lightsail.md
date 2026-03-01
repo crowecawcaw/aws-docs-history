@@ -1,6 +1,4 @@
-# Manage SSH key pairs and connect to your
-
-Lightsail instances
+# Manage SSH key pairs and connect to your Lightsail instances
 
 A key pair is a set of security credentials that you use to prove your identity when
 connecting to an Amazon Lightsail instance. A key pair consists of a public key and a private

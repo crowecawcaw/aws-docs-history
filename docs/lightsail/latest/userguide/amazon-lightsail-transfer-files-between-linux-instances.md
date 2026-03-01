@@ -1,6 +1,4 @@
-# Transfer files
-
-between Linux instances on Lightsail using scp
+# Transfer files between Linux instances on Lightsail using scp
 
 Use the secure copy (scp) command in Linux to transfer files from your local computer to
 your Linux or Unix instance, and from one instance to another in Amazon Lightsail. To learn
@@ -13,14 +11,10 @@ another.
 ###### Contents
 
 - [Prerequisites](#amazon-lightsail-copy-files-to-linux-instance-prerequisites "#amazon-lightsail-copy-files-to-linux-instance-prerequisites")
-- [Step 1: Save the private key (.pem)
-  file to your local computer](#get-and-transfer-instance-ssh-key "#get-and-transfer-instance-ssh-key")
-- [Step 2: Change the permissions of
-  the private key](#copy-private-key-change-permissions "#copy-private-key-change-permissions")
-- [Step 3: Transfer the private key to your
-  instance](#copy-private-key-to-instance "#copy-private-key-to-instance")
-- [Step 4: Securely transfer files between
-  Lightsail Linux and Unix instances](#transfer-files-between-instances-scp "#transfer-files-between-instances-scp")
+- [Step 1: Save the private key (.pem) file to your local computer](#get-and-transfer-instance-ssh-key "#get-and-transfer-instance-ssh-key")
+- [Step 2: Change the permissions of the private key](#copy-private-key-change-permissions "#copy-private-key-change-permissions")
+- [Step 3: Transfer the private key to your instance](#copy-private-key-to-instance "#copy-private-key-to-instance")
+- [Step 4: Securely transfer files between Lightsail Linux and Unix instances](#transfer-files-between-instances-scp "#transfer-files-between-instances-scp")
 
 ## Prerequisites
 
@@ -31,9 +25,7 @@ another.
 - You can access both instances using an SSH key pair. For more information, see
   [Connect to Linux instances](lightsail-how-to-connect-to-your-instance-virtual-private-server.md "lightsail-how-to-connect-to-your-instance-virtual-private-server.md").
 
-## Step 1: Save the private key (.pem)
-
-file to your local computer
+## Step 1: Save the private key (.pem) file to your local computer
 
 Complete the following steps to save the private key (.pem) file to your local
 computer. The private key file for the target instance will be used to securely transfer
@@ -73,9 +65,7 @@ section of this guide. If the private key attempts to save as a format other
 than `.pem`, you should manually change the format to
 `.pem` before saving.
 
-## Step 2: Change the permissions of
-
-the private key
+## Step 2: Change the permissions of the private key
 
 In the following procedure you will change the permissions of your private key file to
 be readable and writable only by you.
@@ -102,16 +92,12 @@ used by your instance.
 sudo chmod 400 `/Users/user/Keys/LightsailDefaultKey-us-west-2`.pem
 ```
 
-## Step 3: Transfer the private key to your
-
-instance
+## Step 3: Transfer the private key to your instance
 
 In the following procedure you will transfer the private key to your source instance
 by running the scp command from your local computer.
 
-###### To use scp to transfer the private key from your computer to your source
-
-instance
+###### To use scp to transfer the private key from your computer to your source instance
 
 1. Determine the location of the private key file on your computer and the
    destination path on the instance. In the following examples, the name of the
@@ -179,9 +165,7 @@ Now that you have transferred the private key to your source instance, you can
 securely connect to and transfer files to your target instance. Continue to the next
 step to learn how.
 
-## Step 4: Securely transfer files between
-
-Lightsail Linux and Unix instances
+## Step 4: Securely transfer files between Lightsail Linux and Unix instances
 
 In the following procedure you will run the scp command from one instance
 (**source instance**), to transfer files to another instance

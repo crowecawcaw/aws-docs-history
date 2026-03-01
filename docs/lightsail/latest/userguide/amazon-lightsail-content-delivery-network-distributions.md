@@ -1,6 +1,4 @@
-# Serve web content
-
-globally with Lightsail content delivery distributions
+# Serve web content globally with Lightsail content delivery distributions
 
 A Lightsail distribution uses a globally distributed network of servers, also known as
 _edge locations_, to provide faster delivery of your content to your users.

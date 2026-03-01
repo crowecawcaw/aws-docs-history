@@ -1,6 +1,4 @@
-# Enable secure web
-
-access with custom domains in Lightsail
+# Enable secure web access with custom domains in Lightsail
 
 Enable custom domains for your Amazon Lightsail container service to use your registered
 domain names with your service. Before you enable custom domains, your container service accepts
@@ -34,9 +32,7 @@ default domain of a distribution to a container service](amazon-lightsail-adding
 - [Disable custom
   domains for a container service](#container-service-disable-custom-domains "#container-service-disable-custom-domains")
 
-## Container service custom domain
-
-limits
+## Container service custom domain limits
 
 The following limits apply to container service custom domains:
 
@@ -57,9 +53,7 @@ service. For more information, see [Create container service
 SSL/TLS certificates](amazon-lightsail-creating-container-services-certificates.md "amazon-lightsail-creating-container-services-certificates.md") and [Validate container
 service SSL/TLS certificates](amazon-lightsail-validating-container-services-certificates.md "amazon-lightsail-validating-container-services-certificates.md").
 
-## View custom domains for a container
-
-service
+## View custom domains for a container service
 
 Complete the following procedure to view the custom domains that are currently enabled for
 your container service.
@@ -80,9 +74,7 @@ The custom domains being used under each attached certificate, are listed under 
 certificates currently attached to your container service, are listed under the
 **Attached certificates** section.
 
-## Enable custom domains for a
-
-container service
+## Enable custom domains for a container service
 
 Complete the following procedure to enable custom domains for your Lightsail container
 service by attaching a certificate to your service.
@@ -112,9 +104,7 @@ will begin to be accepted by your container service. 11. After you've added the 
 custom domain that you enabled for your container service. The application that is running
 on your container service, if any, should load.
 
-## Disable custom domains for a
-
-container service
+## Disable custom domains for a container service
 
 Complete the following procedure to disable custom domains for your Lightsail container
 service by detaching a certificate from your service, or by deselecting a previously selected

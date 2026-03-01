@@ -1,6 +1,4 @@
-# Grant Lightsail access for
-
-an IAM user
+# Grant Lightsail access for an IAM user
 
 As an [AWS
 account root user](../../../IAM/latest/UserGuide/id_root-user.md "../../../IAM/latest/UserGuide/id_root-user.md"), or an AWS Identity and Access Management (IAM) user with administrator access, you can
@@ -32,9 +30,7 @@ This scenario requires IAM users with programmatic access and long-term credenti
 - [Create an IAM
   user and add the user to the Lightsail access group](#create-an-iam-user-for-lightsail-access "#create-an-iam-user-for-lightsail-access")
 
-## Create an IAM policy for
-
-Lightsail access
+## Create an IAM policy for Lightsail access
 
 Follow these steps to create an IAM policy for Lightsail access. For more information,
 see [Creating IAM Policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in the IAM documentation.
@@ -95,9 +91,7 @@ Policy**.
 The policy is now created and can be added to an existing IAM group, or you can
 create a new IAM group using the steps in the following section of this guide.
 
-## Create an IAM group for
-
-Lightsail access and attach the Lightsail access policy
+## Create an IAM group for Lightsail access and attach the Lightsail access policy
 
 Follow these steps to create an IAM group for Lightsail access, then attach the
 Lightsail access policy created in the previous section of this guide. For more information,
@@ -120,9 +114,7 @@ The group is now created, and users added to the group will have access to Light
 actions and resources. You can add existing IAM users to the group, or you can create
 new IAM users using the steps in the following section of this guide.
 
-## Create an IAM user and add the
-
-user to the Lightsail access group
+## Create an IAM user and add the user to the Lightsail access group
 
 Follow these steps to create an IAM user and add the user to the Lightsail access
 group. For more information, see [Creating an

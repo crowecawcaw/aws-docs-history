@@ -1,6 +1,4 @@
-# Configure automatic snapshots
-
-for Lightsail instances and disks
+# Configure automatic snapshots for Lightsail instances and disks
 
 When you enable the automatic snapshots feature of your instance or block storage disk,
 Amazon Lightsail creates daily snapshots of your resource during the default automatic snapshot
@@ -65,9 +63,7 @@ following:
   existing automatic snapshots](amazon-lightsail-deleting-automatic-snapshots.md "amazon-lightsail-deleting-automatic-snapshots.md").
 - Delete the source resource, which deletes the associated automatic snapshots.
 
-## Enable or disable automatic
-
-instance snapshots using the Lightsail console
+## Enable or disable automatic instance snapshots using the Lightsail console
 
 Complete the following steps to enable or disable automatic snapshots for an instance
 using the Lightsail console.
@@ -94,9 +90,7 @@ The automatic snapshot is enabled or disabled after a few moments.
      deleting automatic snapshots, see [Delete automatic instance
      snapshots](amazon-lightsail-deleting-automatic-snapshots.md "amazon-lightsail-deleting-automatic-snapshots.md").
 
-## Enable or disable automatic
-
-snapshots for instances or block storage disks using the AWS CLI
+## Enable or disable automatic snapshots for instances or block storage disks using the AWS CLI
 
 Complete the following steps to enable or disable automatic snapshots for an instance or
 block storage disk using the AWS CLI.

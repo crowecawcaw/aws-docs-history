@@ -1,6 +1,4 @@
-# Track object storage bucket requests with
-
-access logs
+# Track object storage bucket requests with access logs
 
 Access logging provides detailed records for the requests that are made to a bucket in the
 Amazon Lightsail object storage service. This information can include the request type, the
@@ -94,9 +92,7 @@ might not be delivered at all. The purpose of access logs is to give you an idea
 of traffic against your bucket. It is rare to lose log records, but access logging is not
 meant to be a complete accounting of all requests.
 
-## Bucket logging status changes take effect over
-
-time
+## Bucket logging status changes take effect over time
 
 Changes to the logging status of a bucket take time to actually affect the delivery of log
 files. For example, if you enable logging for a bucket, some requests made in the following

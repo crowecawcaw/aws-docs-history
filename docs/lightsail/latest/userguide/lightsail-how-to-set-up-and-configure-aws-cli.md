@@ -1,6 +1,4 @@
-# Set up and configure the AWS CLI
-
-for Lightsail operations
+# Set up and configure the AWS CLI for Lightsail operations
 
 The AWS Command Line Interface (AWS CLI) is a tool that allows advanced users and developers to control the
 Amazon Lightsail service by typing commands in the terminal (on Linux and Unix) or Command Prompt
@@ -12,14 +10,12 @@ interface, and the Lightsail application program interface (API).
 You can also use AWS CloudShell to manage your Lightsail resources by running AWS CLI commands
 without downloading or installing command line tools. CloudShell is a browser-based,
 pre-authenticated shell that you can launch directly from the Lightsail console. For more
-information, see [Manage Lightsail resources with
-AWS CloudShell](amazon-lightsail-cloudshell.md "amazon-lightsail-cloudshell.md").
+information, see [Manage Lightsail resources with AWS CloudShell](amazon-lightsail-cloudshell.md "amazon-lightsail-cloudshell.md").
 
 ###### Topics
 
 - [Step 1: Install the AWS CLI](#lightsail-install-the-cli "#lightsail-install-the-cli")
-- [Step 2: Create a new access
-  key](#set-up-access-keys-create-new-access-key "#set-up-access-keys-create-new-access-key")
+- [Step 2: Create a new access key](#set-up-access-keys-create-new-access-key "#set-up-access-keys-create-new-access-key")
 - [Step 3: Configure the AWS CLI](#set-up-access-keys- "#set-up-access-keys-")
 - [Next steps](#set-up-access-keys-next-steps "#set-up-access-keys-next-steps")
 
@@ -42,9 +38,7 @@ need to reinstall it, connect to your instance, and type `sudo yum install
 After you install the AWS CLI, you need to generate access keys and then configure the AWS CLI
 to use them.
 
-## Step 2: Create a new access
-
-key
+## Step 2: Create a new access key
 
 To use the Lightsail API or the AWS Command Line Interface (AWS CLI), you need to create a new access key. The access key consists of an **Access Key ID** and a **Secret Access
 Key**. Use the following procedure to create the key.

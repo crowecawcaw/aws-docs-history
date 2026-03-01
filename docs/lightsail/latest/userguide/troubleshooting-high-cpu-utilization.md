@@ -1,6 +1,4 @@
-# Troubleshoot high CPU utilization for
-
-your Lightsail instance
+# Troubleshoot high CPU utilization for your Lightsail instance
 
 ###### Did you know?
 

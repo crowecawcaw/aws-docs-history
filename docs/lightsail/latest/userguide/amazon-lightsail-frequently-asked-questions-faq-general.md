@@ -1,6 +1,4 @@
-# Learn about
-
-Lightsail and its global availability
+# Learn about Lightsail and its global availability
 
 ## What is Amazon Lightsail?
 
@@ -33,13 +31,10 @@ Learn how to install and use the Lightsail [CLI](../../../cli/latest/reference/l
 To start using Lightsail, choose [Get Started](https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?client=lightsail "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?client=lightsail") and log in. You use your Amazon Web Services account to access Lightsail; if
 you don't already have one, you will be prompted to create one.
 
-## In which AWS Regions is
-
-Lightsail available?
+## In which AWS Regions is Lightsail available?
 
 Lightsail is available in various Regions across the globe. For more information on
-which Regions are available, see [Regions and
-Availability Zones for Lightsail](understanding-regions-and-availability-zones-in-amazon-lightsail.md "understanding-regions-and-availability-zones-in-amazon-lightsail.md").
+which Regions are available, see [Regions and Availability Zones for Lightsail](understanding-regions-and-availability-zones-in-amazon-lightsail.md "understanding-regions-and-availability-zones-in-amazon-lightsail.md").
 
 ## What are Availability Zones?
 
@@ -50,9 +45,7 @@ Additionally, Availability Zones are physically separate, so that even extremely
 disasters such as fires, tornadoes, or flooding can affect only a single Availability
 Zone.
 
-## What are the Lightsail service
-
-quotas?
+## What are the Lightsail service quotas?
 
 For the latest Lightsail service quotas, including which quotas can be increased, see
 [Lightsail service quotas](../../../general/latest/gr/lightsail.md#limits_lightsail "../../../general/latest/gr/lightsail.md#limits_lightsail") in the _AWS General Reference_. To increase

@@ -1,6 +1,4 @@
-# Enable email for WordPress
-
-instances in Lightsail
+# Enable email for WordPress instances in Lightsail
 
 You can enable email on your WordPress instance in Amazon Lightsail. Configure the SMTP
 service in the Amazon Simple Email Service (Amazon SES). Then activate and configure the WP Mail SMTP plugin on your
@@ -26,9 +24,7 @@ Amazon Lightsail using Amazon SES.
   For more information, see [Using the
   Amazon SES SMTP Interface to Send Email](../../../ses/latest/DeveloperGuide/send-email-smtp.md "../../../ses/latest/DeveloperGuide/send-email-smtp.md") in the Amazon SES documentation.
 
-## Step 1: Review the
-
-restrictions
+## Step 1: Review the restrictions
 
 New Amazon Web Services (AWS) accounts that are in the Amazon SES sandbox can send email only to
 verified addresses and domains. If this is the case for your account, then we recommend that
@@ -50,9 +46,7 @@ in the WordPress documentation.
 To send email to any address and domain, you must request to have your account taken out
 of the Amazon SES sandbox. For more information, see [Moving Out of the Amazon SES Sandbox](../../../ses/latest/DeveloperGuide/request-production-access.md "../../../ses/latest/DeveloperGuide/request-production-access.md") in the Amazon SES documentation.
 
-## Step 2: Complete the
-
-prerequisites
+## Step 2: Complete the prerequisites
 
 You must complete the following tasks before you can enable email on your WordPress
 instance:
@@ -71,9 +65,7 @@ instance:
   - [Amazon SES Pricing](https://aws.amazon.com/ses/pricing/ "https://aws.amazon.com/ses/pricing/")
   - [Amazon SES Service Quotas](../../../general/latest/gr/aws_service_limits.md#limits_ses_quota "../../../general/latest/gr/aws_service_limits.md#limits_ses_quota")
 
-## Step 3: Create SMTP
-
-credentials in Amazon SES
+## Step 3: Create SMTP credentials in Amazon SES
 
 Creating SMTP credentials in your Amazon SES account is required to configure the WP Mail SMTP
 plugin that you configure later in this guide. For more information, see [Obtaining
@@ -103,9 +95,7 @@ configuring the WP Mail SMTP plugin on your WordPress instance.
 The credentials created in the Amazon SES console are automatically added to AWS Identity and Access Management
 (IAM) for your account.
 
-## Step 4: Verify your domain in
-
-Amazon SES
+## Step 4: Verify your domain in Amazon SES
 
 Amazon SES requires that you verify your domain to confirm that you own it and to prevent
 others from using it. When you verify a domain, you are verifying all email addresses from
@@ -166,9 +156,7 @@ and enabled for sending, as shown in the following example:
 
 Your SMTP service in Amazon SES is now ready to send emails from your domain.
 
-## Step 5: Verify email
-
-addresses in Amazon SES
+## Step 5: Verify email addresses in Amazon SES
 
 As a new Amazon SES customer, you must verify the email addresses to which you want to send
 email. You do this by adding the email addresses in the Amazon SES console. For more information,
@@ -208,9 +196,7 @@ process.
 
 ![Verified email identities list in the Amazon SES console.](images/amazon-lightsail-amazon-ses-verified-email-identities-list.png)
 
-## Step 6:
-
-Configure the WP Mail SMTP plugin on your WordPress instance
+## Step 6: Configure the WP Mail SMTP plugin on your WordPress instance
 
 The final step is to configure the WP Mail SMTP plugin on your WordPress instance. Use the
 SMTP credentials that you created earlier in this guide in the Amazon SES console.

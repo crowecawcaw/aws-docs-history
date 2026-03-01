@@ -1,6 +1,4 @@
-# Secure your
-
-Lightsail NGINX website with Let's Encrypt SSL/TLS
+# Secure your Lightsail NGINX website with Let's Encrypt SSL/TLS
 
 Amazon Lightsail makes it easy to secure your websites and applications with SSL/TLS using
 Lightsail load balancers. However, using a Lightsail load balancer might not generally be
@@ -61,9 +59,7 @@ Bitnami
 - [Step 9: Renew the
   Let's Encrypt certificates every 90 days](#renew-a-lets-encrypt-certificate-nginx "#renew-a-lets-encrypt-certificate-nginx")
 
-## Step 1: Complete the
-
-prerequisites
+## Step 1: Complete the prerequisites
 
 Complete the following prerequisites if you haven’t already done so:
 
@@ -86,9 +82,7 @@ to manage your domain’s DNS records](lightsail-how-to-create-dns-entry.md "lig
 After you've completed the prerequisites, continue to the [next section](#install-certbot-on-your-instance-nginx "#install-certbot-on-your-instance-nginx") of this
 tutorial.
 
-## Step 2: Install Certbot on your
-
-Lightsail instance
+## Step 2: Install Certbot on your Lightsail instance
 
 Certbot is a client used to request a certificate from Let’s Encrypt and deploy it to a
 web server. Let's Encrypt uses the ACME protocol to issue certificates, and Certbot is an
@@ -146,9 +140,7 @@ sudo apt-get install certbot -y
 Certbot is now installed on your Lightsail instance. 8. Keep the browser-based SSH terminal window open—you return to it later in this
 tutorial. Continue to the [next section](#request-a-lets-encrypt-certificate-nginx "#request-a-lets-encrypt-certificate-nginx") of this tutorial.
 
-## Step 3: Request a Let’s Encrypt SSL
-
-wildcard certificate
+## Step 3: Request a Let’s Encrypt SSL wildcard certificate
 
 Begin the process of requesting a certificate from Let’s Encrypt. Using Certbot, request a
 wildcard certificate, which lets you use a single certificate for a domain and its subdomains.
@@ -218,9 +210,7 @@ verification.
 ![TXT records for Let's Encrypt certificates.](/images/lightsail/latest/userguide/images/instances/ssh/lets-encrypt-text-records.png) 8. Keep the Lightsail browser-based SSH session open—you return to it later in this
 tutorial. Continue to the [next section](#add-a-text-record-to-your-domains-dns-zone-lets-encrypt-nginx "#add-a-text-record-to-your-domains-dns-zone-lets-encrypt-nginx") of this tutorial.
 
-## Step 4: Add
-
-TXT records to your domain’s DNS zone
+## Step 4: Add TXT records to your domain’s DNS zone
 
 Adding a TXT record to your domain’s DNS zone verifies that you own the domain. For
 demonstration purposes, we use the Lightsail DNS zone. However, the steps might be similar
@@ -255,9 +245,7 @@ Encrypt certificate request. 9. Keep the Lightsail console browser window open�
 tutorial. Continue to the [next
 section](#confirm-the-text-records-have-propagated-lets-encrypt-nginx "#confirm-the-text-records-have-propagated-lets-encrypt-nginx") of this tutorial.
 
-## Step 5: Confirm
-
-that the TXT records have propagated
+## Step 5: Confirm that the TXT records have propagated
 
 Use the MxToolbox utility to confirm that the TXT records have propagated to the
 Internet’s DNS. DNS record propagation might take a while depending on your DNS hosting
@@ -296,9 +284,7 @@ _acme-challenge.`example.com`
      a while longer to let your domain’s DNS records propagate, and run the TXT lookup
      again.
 
-## Step 6: Complete the
-
-Let’s Encrypt SSL certificate request
+## Step 6: Complete the Let’s Encrypt SSL certificate request
 
 Go back to the Lightsail browser-based SSH session for your Nginx instance
 and complete the Let’s Encrypt certificate request. Certbot saves your SSL certificate, chain, and key
@@ -320,17 +306,13 @@ certificate by that date.
 
 ![Let's Encrypt certificate renewal date.](images/instances/lets-encrypt/certificate-renewal-date.png) 3. Now that you have the Let’s Encrypt SSL certificate, continue to the [next section](#link-the-lets-encrypt-certificate-files-in-the-nginx-directory-nginx "#link-the-lets-encrypt-certificate-files-in-the-nginx-directory-nginx") of this tutorial.
 
-## Step 7:
-
-Create links to the Let’s Encrypt certificate files in the NGINX server directory
+## Step 7: Create links to the Let’s Encrypt certificate files in the NGINX server directory
 
 Create links to the Let’s Encrypt SSL certificate files in the NGINX server directory on
 your Nginx instance. Also, back up your existing certificates, in case you need them
 later.
 
-###### To create links to the Let’s Encrypt certificate files in the NGINX server
-
-directory
+###### To create links to the Let’s Encrypt certificate files in the NGINX server directory
 
 1. In the Lightsail browser-based SSH session for your Nginx instance, enter the
    following command to stop the underlying services:
@@ -459,9 +441,7 @@ You should see a result similar to the following:
 Your Nginx instance is now configured to use SSL encryption. However,
 traffic is not automatically redirected from HTTP to HTTPS. 7. Continue to the [next section](#configure-http-to-https-redirection-nginx "#configure-http-to-https-redirection-nginx") of this tutorial.
 
-## Step 8: Configure HTTP to HTTPS
-
-redirection for your web application
+## Step 8: Configure HTTP to HTTPS redirection for your web application
 
 You can configure an HTTP to HTTPS redirect for your Nginx instance.
 Automatically redirecting from HTTP to HTTPS makes your site accessible only by your customers using SSL,
@@ -471,9 +451,7 @@ tutorial for information about the different distributions and file structures.
 This tutorial uses Vim for demonstration purposes; however, you can use any text editor of
 your choice.
 
-###### For Debian Linux distributions – Configure HTTP to HTTPS redirection for your
-
-web application
+###### For Debian Linux distributions – Configure HTTP to HTTPS redirection for your web application
 
 ###### Approach A (Bitnami installations using system packages):
 
@@ -528,9 +506,7 @@ effective:
 sudo /opt/bitnami/ctlscript.sh restart
 ```
 
-###### For older instances that use the Ubuntu Linux distribution – Configure HTTP to
-
-HTTPS redirection for your web application
+###### For older instances that use the Ubuntu Linux distribution – Configure HTTP to HTTPS redirection for your web application
 
 1. In the Lightsail browser-based SSH session for your Nginx instance,
    enter the following command to edit the NGINX web server configuration file using
@@ -563,9 +539,7 @@ connections from HTTP to HTTPS. When a visitor goes to `http://www.example.com`,
 automatically redirected to the encrypted `https://www.example.com`
 address.
 
-## Step 9: Renew the Let's Encrypt
-
-certificates every 90 days
+## Step 9: Renew the Let's Encrypt certificates every 90 days
 
 Let’s Encrypt certificates are valid for 90 days. Certificates can be renewed 30 days
 before they expire. To renew the Let's Encrypt certificates, run the original command used to
@@ -709,9 +683,7 @@ the
 [next section](#add-a-text-record-to-your-domains-dns-zone-lets-encrypt "#add-a-text-record-to-your-domains-dns-zone-lets-encrypt")
 of this tutorial.
 
-##
-
-Step 4: Add TXT records to your domain’s DNS zone
+## Step 4: Add TXT records to your domain’s DNS zone
 
 Adding a TXT record to your domain’s DNS zone verifies that you own the domain. For
 demonstration purposes, we use the Lightsail DNS zone. However, the steps might be similar
@@ -745,9 +717,7 @@ the
 [next section](#confirm-the-text-records-have-propagated-lets-encrypt "#confirm-the-text-records-have-propagated-lets-encrypt")
 of this tutorial.
 
-##
-
-Step 5: Confirm that the TXT records have propagated
+## Step 5: Confirm that the TXT records have propagated
 
 Use the MxToolbox utility to confirm that the TXT records have propagated to the Internet’s DNS. DNS record
 propagation might take a while depending on your DNS hosting provider, and the configured time to live (TTL) for
@@ -809,9 +779,7 @@ The message confirms that your certificate, chain, and key files are stored in t
 
 ![Let’s Encrypt certificate renewal date.](images/instances/lets-encrypt/certificate-renewal-date.png)
 
-##
-
-Step 7: Update SSL configuration in NGINX and redirect traffic from HTTP to HTTPS
+## Step 7: Update SSL configuration in NGINX and redirect traffic from HTTP to HTTPS
 
 ###### To update the SSL configuration in NGINX's default.conf
 

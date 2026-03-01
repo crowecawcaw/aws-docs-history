@@ -1,6 +1,4 @@
-# Renew or deactivate domain
-
-registration in Lightsail
+# Renew or deactivate domain registration in Lightsail
 
 When you register a domain with Amazon Lightsail, we configure the domain to renew
 automatically by default. The default automatic renewal period is one year, although the
@@ -83,9 +81,7 @@ domain for the standard renewal price. To determine whether a domain is still wi
 late-renewal period, perform the procedure in [Extend the registration period for a domain](../../../Route53/latest/DeveloperGuide/domain-extend.md "../../../Route53/latest/DeveloperGuide/domain-extend.md") in the Amazon Route 53 Developer Guide. If the
 domain is still listed, it's within the late-renewal period.
 
-## Configure automatic renewal
-
-for a domain during domain registration
+## Configure automatic renewal for a domain during domain registration
 
 When you register a new domain name with Lightsail, we configure the domain to renew
 automatically. You can choose to deactivate automatic domain renewal during the domain
@@ -101,9 +97,7 @@ registration procedure.
    **Automatic domain renewal** section, turn the toggle switch on or off
    to activate or deactivate automatic domain renewal.
 
-## Configure automatic renewal for
-
-a domain that is already registered
+## Configure automatic renewal for a domain that is already registered
 
 When you want to change whether Lightsail automatically renews registration for a domain
 shortly before the expiration date, or if you want to view the current setting for automatic

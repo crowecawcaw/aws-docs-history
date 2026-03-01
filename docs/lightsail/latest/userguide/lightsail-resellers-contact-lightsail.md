@@ -21,8 +21,7 @@ Lightsail**.
 
 The **Contact Lightsail** action is only available to
 the account that requested to become a Lightsail reseller and was
-accepted. For more information, see [Become a Lightsail
-reseller](lightsail-resellers-become-a-reseller.md "lightsail-resellers-become-a-reseller.md").
+accepted. For more information, see [Become a Lightsail reseller](lightsail-resellers-become-a-reseller.md "lightsail-resellers-become-a-reseller.md").
 
 ![Contact Lightsail from the account page.](images/lightsail-reseller-contact-account-page.png) 5. Fill out the necessary fields for your request. If you are requesting service
 quota increases for Lightsail, you can specify multiple member

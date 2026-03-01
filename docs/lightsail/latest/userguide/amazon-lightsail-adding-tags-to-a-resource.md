@@ -1,6 +1,4 @@
-# Categorize Lightsail resources
-
-with tags
+# Categorize Lightsail resources with tags
 
 Use tags in Amazon Lightsail to categorize your resources by purpose, owner, environment, or
 other criteria. Tags can be added to resources at or after they are created. Follow these steps

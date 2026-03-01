@@ -1,8 +1,6 @@
 # Databases
 
-## What are Lightsail managed
-
-databases?
+## What are Lightsail managed databases?
 
 Lightsail managed databases are instances that are dedicated to running databases,
 instead of other workloads like web servers, mail servers, etc. A managed database can
@@ -16,9 +14,7 @@ amount of memory, computing power, and SSD based storage in their plans that you
 up over time. Lightsail will automatically install and configure your chosen database for
 you upon creation.
 
-## What can I do with Lightsail
-
-managed databases?
+## What can I do with Lightsail managed databases?
 
 Lightsail managed databases provide an easy, low maintenance way to store your data in
 the cloud. You can run managed databases either as a new database or by migrating from an
@@ -33,9 +29,7 @@ more Lightsail instances to create a powerful, scaled application. By using Ligh
 high availability managed database plans, you can also add redundancy to your database,
 helping to ensure high uptime for your application.
 
-## What does Lightsail manage for
-
-me?
+## What does Lightsail manage for me?
 
 Lightsail manages a range of maintenance activities and security for your managed
 database and its underlying infrastructure. Lightsail automatically backs up your database
@@ -47,18 +41,14 @@ maintenance on your database during your set maintenance window. This maintenanc
 automatic upgrades to the latest minor database version and all management of the underlying
 infrastructure and operating system.
 
-## What kinds of databases and
-
-what versions of these databases does Lightsail support?
+## What kinds of databases and what versions of these databases does Lightsail support?
 
 Lightsail managed databases support the latest major versions of MySQL and PostgreSQL.
 Currently, these versions are MySQL 5.7, MySQL 8.0, PostgreSQL 9, PostgreSQL 10, PostgreSQL
 11, and PostgreSQL 12. Lightsail only provides the latest minor version for each major
 version option.
 
-## What managed database
-
-plans does Lightsail offer?
+## What managed database plans does Lightsail offer?
 
 Lightsail offers 6 sizes of managed databases in standard and high availability plans.
 Each plan comes with a fixed amount of storage and a monthly allowance of data transfer. You
@@ -80,9 +70,7 @@ maintenance so that you ensure uptime even when databases is being automatically
 upgraded/maintained by Lightsail. Use high availability plans for running production
 applications or software where high uptime is required.
 
-## How do I scale up or down my
-
-Lightsail managed database?
+## How do I scale up or down my Lightsail managed database?
 
 You can scale up your Lightsail managed database by taking a snapshot of it and
 creating a new, larger database plan from snapshot or by creating a new, larger database
@@ -91,9 +79,7 @@ plans and vice versa using either method. You cannot scale down your database. F
 information, see [Creating
 a database from a snapshot in Lightsail](amazon-lightsail-creating-a-database-from-snapshot.md "amazon-lightsail-creating-a-database-from-snapshot.md").
 
-## How can I back up my Lightsail managed
-
-database?
+## How can I back up my Lightsail managed database?
 
 Lightsail backs up your data automatically and allows restore of this data from a
 specific point in time to a new database. Automatic backup is a free service for your
@@ -109,9 +95,7 @@ create a new, larger database or to switch between Standard and High Availabilit
 Manual snapshots are stored until you delete them and are billed at $0.05
 USD/GB-month.
 
-## What happens to my data if
-
-I delete my Lightsail managed database?
+## What happens to my data if I delete my Lightsail managed database?
 
 If you delete your Lightsail managed database, both your database itself and all
 automatic backups will be deleted. There is no way to recover this data unless you take a
@@ -121,17 +105,13 @@ accidental loss of data. Taking a manual snapshot before deletion is optional bu
 recommended. You can delete your manual snapshot in the future when you no longer need the
 stored data.
 
-## Can I connect my instance(s) to a Lightsail managed database running in different
-
-AWS Regions or different Availability Zones?
+## Can I connect my instance(s) to a Lightsail managed database running in different AWS Regions or different Availability Zones?
 
 You cannot use Lightsail managed databases with instances running in different
 AWS Regions. You can, however, use databases across different Availability Zones from your
 instance.
 
-## How do I load data onto my Lightsail
-
-managed database?
+## How do I load data onto my Lightsail managed database?
 
 In order to load data onto your Lightsail managed database, you should first enable
 data import mode. After enabling data import mode, you can continue to manually upload data
@@ -141,9 +121,7 @@ more information, see [Import data into your
 MySQL database](amazon-lightsail-importing-data-into-your-mysql-database.md "amazon-lightsail-importing-data-into-your-mysql-database.md") and [Import data into
 your PostgreSQL database](amazon-lightsail-importing-data-into-your-postgres-database.md "amazon-lightsail-importing-data-into-your-postgres-database.md").
 
-## How do I access the data on my
-
-Lightsail managed database?
+## How do I access the data on my Lightsail managed database?
 
 You can connect to your database and query your data using any standard SQL client
 application. We recommend MySQL Workbench for GUI based administration and querying. You can
@@ -151,9 +129,7 @@ find connection data in the database management screen for your database, includ
 endpoint URL and DNS name. For more information, see [Connect to your MySQL
 database](amazon-lightsail-connecting-to-your-mysql-database.md "amazon-lightsail-connecting-to-your-mysql-database.md") or [Connecting to your PostgreSQL database in Amazon Lightsail](amazon-lightsail-connecting-to-your-postgres-database.md "amazon-lightsail-connecting-to-your-postgres-database.md").
 
-## How do
-
-Lightsail managed databases work with my Lightsail instances?
+## How do Lightsail managed databases work with my Lightsail instances?
 
 After you create your Lightsail managed database, you can start using it with your
 application immediately, using your Lightsail instances as web servers or other dedicated
@@ -164,9 +140,7 @@ database management screens. The file name and location for your database config
 will vary by application. Note that you can connect many instances to one database, either
 using the same tables or using different ones.
 
-## How can I connect Lightsail
-
-managed database to EC2 instances running in my AWS account?
+## How can I connect Lightsail managed database to EC2 instances running in my AWS account?
 
 You can connect your Lightsail managed database to EC2 instances by connecting over
 the public internet. Note that connection to all AWS services will consume your database
@@ -175,9 +149,7 @@ of your data transfer allowance will accrue overage charges. You cannot use VPC 
 between Lightsail managed databases and EC2 instances. For more
 information about data transfer costs, see [What does data transfer cost?](amazon-lightsail-faq-data-transfer-allowance.md#data-transfer-allowance-what-does-data-transfer-cost "amazon-lightsail-faq-data-transfer-allowance.md#data-transfer-allowance-what-does-data-transfer-cost").
 
-## What is the difference between public and private modes for my Lightsail managed
-
-database?
+## What is the difference between public and private modes for my Lightsail managed database?
 
 By default, your Lightsail managed database is created in private mode, which secures
 it by making it accessible only by Lightsail instances. You can set your database public
@@ -186,17 +158,13 @@ security of your data, we do not recommend keeping public mode enabled long-term
 change between public and private modes at any time from your database management
 screens.
 
-## Can I manage the ports used by
-
-my Lightsail managed database?
+## Can I manage the ports used by my Lightsail managed database?
 
 No, Lightsail automatically manages your ports for security purposes, opening Port
 3306 for MySQL for all Lightsail managed databases in public mode. If your database is in
 private mode, your database is only open to resources running in your Lightsail account
 via the internal network.
 
-## Do Lightsail managed databases services
-
-support IPv6?
+## Do Lightsail managed databases services support IPv6?
 
 Lightsail managed databases do not support IPv6.

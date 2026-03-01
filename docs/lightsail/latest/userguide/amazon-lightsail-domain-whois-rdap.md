@@ -1,6 +1,4 @@
-# View registration details for domains that
-
-are registered with Amazon Registrar
+# View registration details for domains that are registered with Amazon Registrar
 
 You can view information about .com, .net, and .org domains that were registered using
 Amazon Lightsail and Amazon Route 53, for which Amazon Registrar is the registrar. This information

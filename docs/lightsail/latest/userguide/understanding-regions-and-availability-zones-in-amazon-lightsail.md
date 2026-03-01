@@ -1,6 +1,4 @@
-# Regions and
-
-Availability Zones for Lightsail
+# Regions and Availability Zones for Lightsail
 
 When creating resources in Amazon Lightsail, create them in an AWS Region that is closer
 to your users. You can also leverage multiple Availability Zones for fault tolerance and high
@@ -27,12 +25,9 @@ AWS Region.
 - [SSH keys and Lightsail Regions](#ssh-keys-and-regions "#ssh-keys-and-regions")
 - [Tips for working with Lightsail Regions](#tips-working-with-regions "#tips-working-with-regions")
 - [Lightsail Availability Zones](#availability-zones "#availability-zones")
-- [Availability Zones and your Lightsail
-  application](#why-regions-and-availability-zones "#why-regions-and-availability-zones")
-- [Enable opt-in Regions for
-  Lightsail](opt-in-regions-for-lightsail-enable.md "opt-in-regions-for-lightsail-enable.md")
-- [Disable opt-in Regions for
-  Lightsail](opt-in-regions-for-lightsail-disable.md "opt-in-regions-for-lightsail-disable.md")
+- [Availability Zones and your Lightsail application](#why-regions-and-availability-zones "#why-regions-and-availability-zones")
+- [Enable opt-in Regions for Lightsail](opt-in-regions-for-lightsail-enable.md "opt-in-regions-for-lightsail-enable.md")
+- [Disable opt-in Regions for Lightsail](opt-in-regions-for-lightsail-disable.md "opt-in-regions-for-lightsail-disable.md")
 
 ## Regions for Lightsail
 
@@ -100,9 +95,7 @@ not see all Availability Zones at the time you create your instance. If you don'
 of Availability Zones at all, be sure that you have selected a Region in the previous
 step.
 
-## Availability Zones and your Lightsail
-
-application
+## Availability Zones and your Lightsail application
 
 By launching your instances in separate Availability Zones, you can protect your
 applications from a failure in a single location. Before you proceed with such a

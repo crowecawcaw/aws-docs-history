@@ -1,6 +1,4 @@
-# Expand storage and
-
-performance with Lightsail block storage disks
+# Expand storage and performance with Lightsail block storage disks
 
 System disks offer the consistent and low-latency performance you need to run your
 workloads. With Lightsail disks, you can scale your usage up or down within minutes—and

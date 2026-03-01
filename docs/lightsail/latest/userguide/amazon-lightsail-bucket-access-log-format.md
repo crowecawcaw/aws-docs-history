@@ -334,9 +334,7 @@ Example entry
 TLSv1.2
 ```
 
-## Additional logging for copy
-
-operations
+## Additional logging for copy operations
 
 A copy operation involves a `GET` and a `PUT`. For that reason, we
 log two records when performing a copy operation. The previous section describes the fields
@@ -630,9 +628,7 @@ works the same as the request for
 `"x-user=johndoe"` string is included in the `Request-URI` field for
 the associated log record. This functionality is available in the REST interface only.
 
-## Programming considerations for extensible access
-
-log format
+## Programming considerations for extensible access log format
 
 Occasionally we might extend the access log record format by adding new fields to the end
 of each line. Therefore, you should write any code that parses access logs to handle trailing

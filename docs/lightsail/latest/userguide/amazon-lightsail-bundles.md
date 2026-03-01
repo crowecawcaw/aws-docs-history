@@ -45,8 +45,7 @@ The following table lists the specifications for Linux/Unix instance bundles tha
 | Memory-optimized 16Xlarge-512GB Linux with public IPv4 | $2,344.00         | 64    | 512 GB | 1,280 GB | 10 TB            |
 
 \* The data transfer allowance can vary by Region. For more information, see
-[How does my data
-transfer allowance for instances vary by AWS Region?](amazon-lightsail-faq-data-transfer-allowance.md#data-transfer-allowance-how-do-data-transfer-allowances-vary-by-region "amazon-lightsail-faq-data-transfer-allowance.md#data-transfer-allowance-how-do-data-transfer-allowances-vary-by-region").
+[How does my data transfer allowance for instances vary by AWS Region?](amazon-lightsail-faq-data-transfer-allowance.md#data-transfer-allowance-how-do-data-transfer-allowances-vary-by-region "amazon-lightsail-faq-data-transfer-allowance.md#data-transfer-allowance-how-do-data-transfer-allowances-vary-by-region").
 
 ## Linux/Unix bundles (IPv6-only)
 
@@ -74,8 +73,7 @@ The following table lists the specifications for Linux/Unix instance bundles wit
 | Memory-optimized 16Xlarge-512GB Linux IPv6-only | $2,340.00         | 64    | 512 GB | 1,280 GB | 10 TB            |
 
 \* The data transfer allowance can vary by Region. For more information, see
-[How does my data
-transfer allowance for instances vary by AWS Region?](amazon-lightsail-faq-data-transfer-allowance.md#data-transfer-allowance-how-do-data-transfer-allowances-vary-by-region "amazon-lightsail-faq-data-transfer-allowance.md#data-transfer-allowance-how-do-data-transfer-allowances-vary-by-region").
+[How does my data transfer allowance for instances vary by AWS Region?](amazon-lightsail-faq-data-transfer-allowance.md#data-transfer-allowance-how-do-data-transfer-allowances-vary-by-region "amazon-lightsail-faq-data-transfer-allowance.md#data-transfer-allowance-how-do-data-transfer-allowances-vary-by-region").
 
 ## Windows bundles (with public IPv4 addressing)
 
@@ -103,8 +101,7 @@ The following table lists the specifications for Windows instance bundles that i
 | Memory-optimized 16Xlarge-512GB Windows with public IPv4 | $4,204.00         | 64    | 512 GB | 1,280 GB | 10 TB            |
 
 \* The data transfer allowance can vary by Region. For more information, see
-[How does my data
-transfer allowance for instances vary by AWS Region?](amazon-lightsail-faq-data-transfer-allowance.md#data-transfer-allowance-how-do-data-transfer-allowances-vary-by-region "amazon-lightsail-faq-data-transfer-allowance.md#data-transfer-allowance-how-do-data-transfer-allowances-vary-by-region").
+[How does my data transfer allowance for instances vary by AWS Region?](amazon-lightsail-faq-data-transfer-allowance.md#data-transfer-allowance-how-do-data-transfer-allowances-vary-by-region "amazon-lightsail-faq-data-transfer-allowance.md#data-transfer-allowance-how-do-data-transfer-allowances-vary-by-region").
 
 ## Windows bundles (IPv6-only)
 
@@ -132,5 +129,4 @@ The following table lists the specifications for Windows instance bundles with o
 | Memory-optimized 16Xlarge-512GB Windows IPv6-only | $4,200.00         | 64    | 512 GB | 1,280 GB | 10 TB            |
 
 \* The data transfer allowance can vary by Region. For more information, see
-[How does my data
-transfer allowance for instances vary by AWS Region?](amazon-lightsail-faq-data-transfer-allowance.md#data-transfer-allowance-how-do-data-transfer-allowances-vary-by-region "amazon-lightsail-faq-data-transfer-allowance.md#data-transfer-allowance-how-do-data-transfer-allowances-vary-by-region").
+[How does my data transfer allowance for instances vary by AWS Region?](amazon-lightsail-faq-data-transfer-allowance.md#data-transfer-allowance-how-do-data-transfer-allowances-vary-by-region "amazon-lightsail-faq-data-transfer-allowance.md#data-transfer-allowance-how-do-data-transfer-allowances-vary-by-region").

@@ -24,9 +24,7 @@ browser. Follow this step-by-step procedure to create a HAR file.
 - [Step 3: Submit the HAR file for
   review](#submit-har-file "#submit-har-file")
 
-## Step 1: Create a HAR file in your
-
-browser
+## Step 1: Create a HAR file in your browser
 
 ###### Note
 
@@ -72,9 +70,7 @@ tools**. 3. In the **Web Developer** menu, choose **Network**.
 requests. 6. Reproduce the issue you are facing. 7. In the Network Monitor, open the context menu (right-click) on any network request in
 the request list. 8. Choose **Save All As HAR**, and then save the file.
 
-## Step 2: Edit the HAR file to remove sensitive
-
-information
+## Step 2: Edit the HAR file to remove sensitive information
 
 1. Open the HAR file in a text editor application.
 2. Use the text editor's Find and Replace tools to identify and replace all sensitive

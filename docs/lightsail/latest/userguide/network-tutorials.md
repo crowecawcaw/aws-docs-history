@@ -1,6 +1,4 @@
-# Configure IPv6 networking for Lightsail
-
-instances
+# Configure IPv6 networking for Lightsail instances
 
 This section covers the following topics related to configuring IPv6 on Lightsail
 instance blueprints:
@@ -10,8 +8,7 @@ instance blueprints:
 - [Configure IPv6 connectivity for cPanel instances in Lightsail](amazon-lightsail-configure-ipv6-on-cpanel.md "amazon-lightsail-configure-ipv6-on-cpanel.md")
 - [Configure IPv6 connectivity for GitLab instances in Lightsail](amazon-lightsail-configure-ipv6-on-gitlab.md "amazon-lightsail-configure-ipv6-on-gitlab.md")
 - [Configure IPv6 connectivity for Nginx instances in Lightsail](amazon-lightsail-configure-ipv6-on-nginx.md "amazon-lightsail-configure-ipv6-on-nginx.md")
-- [Configure IPv6 connectivity for Plesk
-  instances in Lightsail](amazon-lightsail-configure-ipv6-on-plesk.md "amazon-lightsail-configure-ipv6-on-plesk.md")
+- [Configure IPv6 connectivity for Plesk instances in Lightsail](amazon-lightsail-configure-ipv6-on-plesk.md "amazon-lightsail-configure-ipv6-on-plesk.md")
   Follow the step-by-step instructions to learn how to configure IPv6 on your
   Lightsail instance blueprints.
 

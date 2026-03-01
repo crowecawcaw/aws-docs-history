@@ -1,6 +1,4 @@
-# Configure IPv6 connectivity for Plesk
-
-instances in Lightsail
+# Configure IPv6 connectivity for Plesk instances in Lightsail
 
 You must
 perform an additional set of steps to make an instance that uses the Plesk blueprint aware of

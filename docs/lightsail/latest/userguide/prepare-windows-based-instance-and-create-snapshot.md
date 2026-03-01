@@ -1,6 +1,4 @@
-# Create a snapshot of your
-
-Lightsail Windows Server instance
+# Create a snapshot of your Lightsail Windows Server instance
 
 A snapshot is a copy of the system disk and original configuration of an instance. The
 snapshot includes such information as memory, CPU, disk size, and data transfer rate. For more
@@ -24,9 +22,7 @@ or Unix instance](lightsail-how-to-create-a-snapshot-of-your-instance.md "lights
 - [Step 3:
   Create a snapshot after running Sysprep](#lightsail-create-snapshot-after-running-sysprep "#lightsail-create-snapshot-after-running-sysprep")
 
-## Step 1: Create a backup snapshot before
-
-running Sysprep
+## Step 1: Create a backup snapshot before running Sysprep
 
 When you run Sysprep to create a snapshot, system-specific information is removed from
 your instance. This may have unintended consequences for the applications running on the
@@ -77,9 +73,7 @@ Resource names:
 The snapshot process takes a few minutes to complete. 8. After the snapshot is created, choose **Start** at the top of the
 instance management page to start your instance again.
 
-## Step 2: Connect to
-
-your instance and shut it down using Sysprep
+## Step 2: Connect to your instance and shut it down using Sysprep
 
 Now that you have a backup snapshot, it’s time to run Sysprep on your Windows Server
 instance. This causes the instance to shut down so that you can take a snapshot. For more
@@ -113,9 +107,7 @@ the instance.
 Your instance begins running Sysprep, your RDP connection shuts down, and your
 Lightsail instance stops running after a few minutes.
 
-## Step 3: Create a snapshot
-
-after running Sysprep
+## Step 3: Create a snapshot after running Sysprep
 
 After your instance is in a stopped state, create a snapshot in the Lightsail console.
 When you create a snapshot of your Windows Server instance after running Sysprep, all

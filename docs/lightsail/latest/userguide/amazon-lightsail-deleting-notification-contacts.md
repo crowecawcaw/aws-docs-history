@@ -16,9 +16,7 @@ alarm. For more information, see [Delete or disable metric alarms](amazon-lights
 - [Next steps after
   deleting your notification contacts](#next-steps-deleting-notification-contacts "#next-steps-deleting-notification-contacts")
 
-## Deleting notification contacts using
-
-the Lightsail console
+## Deleting notification contacts using the Lightsail console
 
 Complete the following steps to delete notification contacts using the Lightsail
 console.
@@ -33,9 +31,7 @@ to delete in the **Notification contacts** section on the
 **Profile & contacts** tab. 5. Choose **Yes** to confirm that you want to delete the notification
 contact.
 
-## Deleting notification contacts using the
-
-AWS CLI
+## Deleting notification contacts using the AWS CLI
 
 Complete the following steps to delete notification contacts for Lightsail using the
 AWS Command Line Interface (AWS CLI).
@@ -65,9 +61,7 @@ aws lightsail delete-contact-method --region `us-west-2` --notificationProtocol 
 When you press enter, you will see an operation response with details about your
 request.
 
-## Next steps after deleting your
-
-notification contacts
+## Next steps after deleting your notification contacts
 
 There are a couple of additional tasks that you can perform after deleting your
 notification contacts:

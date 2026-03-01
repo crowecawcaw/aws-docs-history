@@ -1,6 +1,4 @@
-# Secure your WordPress site with
-
-HTTPS on Lightsail
+# Secure your WordPress site with HTTPS on Lightsail
 
 Enabling Hypertext Transfer Protocol Secure (HTTPS) for your WordPress website assures
 visitors that your website is secure; that it's sending and receiving encrypted data. A
@@ -141,9 +139,7 @@ example.
 
 ![Browser-based SSH client terminal window in the Lightsail console.](images/amazon-lightsail-ssh-session-bncert.png)
 
-## Step 4: Confirm the bncert tool is installed
-
-on your instance
+## Step 4: Confirm the bncert tool is installed on your instance
 
 Complete the following steps to ensure the Bitnami HTTPS configuration tool
 (`bncert`) is installed on your instance. It's not preinstalled on all
@@ -223,9 +219,7 @@ You are now done installing the `bncert` tool on your instance. Continue to
 the [Step 5: Enable HTTPS on your
 WordPress instance](#https-wordpress-enable "#https-wordpress-enable") section of this guide.
 
-## Step 5: Enable HTTPS on your WordPress
-
-instance
+## Step 5: Enable HTTPS on your WordPress instance
 
 Complete the following procedure to enable HTTPS on your WordPress instance after you have
 confirmed that the `bncert` tool is installed on your instance.
@@ -298,13 +292,13 @@ Your selections should look like the following example.
 The actions are performed to enable HTTPS on your instance, including requesting the
 certificate and configuring the redirections you specified.
 
-![Actions being performed](/images/lightsail/latest/userguide/images/bncert-performing-actions.png)
+![Actions being performed](images/bncert-performing-actions.png)
 
 Your certificate is successfully issued and validated, and the redirections are
 successfully configured on your instance if you see a message similar to the following
 example.
 
-![Actions successfully completed](images/bncert-success-conf.png)
+![Actions successfully completed](/images/lightsail/latest/userguide/images/bncert-success-conf.png)
 
 The `bncert` tool will perform an automatic renewal of your certificate
 every 80 days before it expires. Repeat the above steps if you wish to use additional
@@ -314,9 +308,7 @@ domains.
 You are now done enabling HTTPS on your WordPress instance. Continue to the [Step 6: Test that your website is
 using HTTPS](#test-https-on-your-website "#test-https-on-your-website") section of this guide.
 
-## Step 6: Test that your website is using
-
-HTTPS
+## Step 6: Test that your website is using HTTPS
 
 After you enable HTTPS on your WordPress instance, you should confirm that your website is
 using HTTPS by browsing to all of the domains that you specified when using the

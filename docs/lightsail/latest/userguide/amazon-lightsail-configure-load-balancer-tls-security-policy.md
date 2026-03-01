@@ -1,6 +1,4 @@
-# Configure TLS
-
-security policies for your Lightsail load balancer
+# Configure TLS security policies for your Lightsail load balancer
 
 After you enable HTTPS on your Amazon Lightsail load balancer, you can configure a TLS
 security policy for the encrypted connections. This guide provides information about the
@@ -9,9 +7,7 @@ for updating your load balancer's security policy. For more information about lo
 balancers, see [Load
 balancers](understanding-lightsail-load-balancers.md "understanding-lightsail-load-balancers.md").
 
-## Security policies
-
-overview
+## Security policies overview
 
 Lightsail load balancing uses a Secure Socket Layer (SSL) negotiation configuration,
 known as a security policy, to negotiate SSL connections between a client and the load
@@ -33,18 +29,14 @@ used for only for front-end connections. The `TLS-2016-08` security policy is
 always used for backend connections. Lightsail load balancers do not support custom
 security policies.
 
-## Supported security policies and
-
-protocols
+## Supported security policies and protocols
 
 Lightsail load balancers can be configured with the following security policies and
 protocols:
 
 ![Supported TLS security policies](images/amazon-lighstail-load-balancer-tls-protocols.png)
 
-## Complete the
-
-prerequisites
+## Complete the prerequisites
 
 Complete the following prerequisites if you haven't already:
 
@@ -55,9 +47,7 @@ Complete the following prerequisites if you haven't already:
   more information about certificates, see [SSL/TLS
   certificates](understanding-tls-ssl-certificates-in-lightsail-https.md "understanding-tls-ssl-certificates-in-lightsail-https.md").
 
-## Configure a security
-
-policy using the Lightsail console
+## Configure a security policy using the Lightsail console
 
 Complete the following procedure to configure a security policy using the Lightsail
 console.
@@ -82,9 +72,7 @@ console.
 
 Your change takes a few moments to become effective.
 
-## Configure a security
-
-policy using the AWS CLI
+## Configure a security policy using the AWS CLI
 
 Complete the following procedure to configure a security policy using the AWS Command Line Interface
 (AWS CLI). You do this by using the `update-load-balancer-attribute` command.

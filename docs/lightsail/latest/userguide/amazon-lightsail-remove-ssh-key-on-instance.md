@@ -1,6 +1,4 @@
-# Manage SSH keys on Lightsail
-
-Linux instances
+# Manage SSH keys on Lightsail Linux instances
 
 You can establish a secure connection to your Amazon Lightsail instances using key pairs.
 Lightsail configures the public key of a key pair on your Linux or Unix instance when you
@@ -146,9 +144,7 @@ editor.
 The new public key is now added to your instance. Continue to the next section of this
 guide to connect to your instance using the new key pair.
 
-## Step 4: Connect to your instance using the
-
-new key pair
+## Step 4: Connect to your instance using the new key pair
 
 To test the new key pair, disconnect from your instance, and reconnect to it using the
 private key that you created earlier in this guide. For more information, see [Key pairs and connecting to instances in
@@ -156,9 +152,7 @@ Amazon Lightsail](understanding-ssh-in-amazon-lightsail.md "understanding-ssh-in
 you can remove an old key from the instance. Continue to the next step to learn how to delete
 public keys from your instance.
 
-## Step 5: Delete an existing public key from
-
-your instance
+## Step 5: Delete an existing public key from your instance
 
 Complete the following procedure to remove a public key from your instance. This prevents
 a user from connecting to an instance using an old key pair. Do this after you successfully

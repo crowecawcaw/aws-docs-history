@@ -1,6 +1,4 @@
-# View CPU utilization and burst capacity for
-
-Lightsail instances
+# View CPU utilization and burst capacity for Lightsail instances
 
 ###### Did you know?
 

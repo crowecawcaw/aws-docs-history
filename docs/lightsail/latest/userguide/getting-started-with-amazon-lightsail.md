@@ -1,6 +1,4 @@
-# Create Linux/Unix instances with apps on
-
-Lightsail
+# Create Linux/Unix instances with apps on Lightsail
 
 ###### Did you know?
 
@@ -32,8 +30,7 @@ an Amazon Lightsail instance image](compare-options-choose-lightsail-instance-im
 
 Choose whether your instance uses dual-stack (IPv4 and IPv6), or IPv6-only networking.
 Some Lightsail blueprints don't support IPv6-only networking at this time. To see which
-blueprints support IPv6-only networking see [Review the Lightsail
-instance blueprint offerings](compare-options-choose-lightsail-instance-image.md "compare-options-choose-lightsail-instance-image.md").
+blueprints support IPv6-only networking see [Review the Lightsail instance blueprint offerings](compare-options-choose-lightsail-instance-image.md "compare-options-choose-lightsail-instance-image.md").
 
 You can try the $5 USD Lightsail plan free for one month (up to 750 hours). We will
 credit one free month to your account. Learn more on our [Lightsail pricing page](http://www.amazonlightsail.com/pricing/ "http://www.amazonlightsail.com/pricing/").
@@ -88,15 +85,14 @@ To connect to your instance using an SSH client such as PuTTY, you can follow th
 procedure: [Set up PuTTY to connect to your Lightsail instance](lightsail-how-to-set-up-putty-to-connect-using-ssh.md "lightsail-how-to-set-up-putty-to-connect-using-ssh.md"). 2. Now you can type commands into the terminal and manage your Lightsail instance
 without setting up an SSH client.
 
-![Browser-based SSH terminal.](/images/lightsail/latest/userguide/images/amazon-lightsail-bitnami-terminal-window.png)
+![Browser-based SSH terminal.](images/amazon-lightsail-bitnami-terminal-window.png)
 
 ## Next steps
 
 Now that you can connect to your instance, what you do next depends on how you plan to use
 it. For example:
 
-- [Configure and manage Lightsail WordPress
-  instances](wordpress-tutorials.md "wordpress-tutorials.md") if you're creating a blog.
+- [Configure and manage Lightsail WordPress instances](wordpress-tutorials.md "wordpress-tutorials.md") if you're creating a blog.
 - [Create a static IP
   address](lightsail-create-static-ip.md "lightsail-create-static-ip.md") for your instance to keep the same IP address each time you restart your
   Lightsail instance.

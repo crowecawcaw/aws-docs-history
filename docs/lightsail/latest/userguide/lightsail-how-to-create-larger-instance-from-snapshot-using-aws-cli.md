@@ -1,7 +1,4 @@
-# Create
-
-larger instances, block storage disks, or databases from Lightsail snapshots using the
-AWS CLI
+# Create larger instances, block storage disks, or databases from Lightsail snapshots using the AWS CLI
 
 It happens. Your cloud project is growing and you need more compute power right away! We can
 help you with that. You can do everything from within the Lightsail console, or you can use
@@ -25,9 +22,7 @@ snapshot. You can only create the same size instance or a larger instance.
 2. You also need a snapshot of your instance to work from. To learn more, see [Create a snapshot of your
    Linux or Unix instance](lightsail-how-to-create-a-snapshot-of-your-instance.md "lightsail-how-to-create-a-snapshot-of-your-instance.md").
 
-## Step 1: Get your
-
-snapshot name
+## Step 1: Get your snapshot name
 
 This might seem obvious, but you need to have your snapshot name before you execute this
 AWS CLI command to create the larger instance. The good news is that it's easy to get.
@@ -68,9 +63,7 @@ You should see output similar to the following.
    This is the `--instance-snapshot-name` value you will use in your AWS CLI
    command.
 
-## Step 2: Choose a
-
-bundle
+## Step 2: Choose a bundle
 
 A _bundle_ is really just a pricing plan and a configuration for your
 instance. For example, **Medium** Linux-based bundles cost $24 USD per month
@@ -179,9 +172,7 @@ Your output should be similar to the following.
    information, see [Lightsail
    Pricing](https://amazonlightsail.com/pricing/ "https://amazonlightsail.com/pricing/").
 
-## Step 3: Write
-
-your AWS CLI command and create your new instance
+## Step 3: Write your AWS CLI command and create your new instance
 
 Now that you have your parameter values, you're ready to write and execute your command to
 create the instance!

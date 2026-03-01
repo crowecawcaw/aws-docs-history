@@ -37,8 +37,7 @@ com.amazonaws.`region`.lightsail
 If you enable private DNS for the interface endpoint, you can make API requests to
 Amazon Lightsail using its default Regional DNS name. For example,
 `lightsail.us-east-1.amazonaws.com`. For the Region codes that you can
-use, see [Regions and
-Availability Zones for Lightsail](understanding-regions-and-availability-zones-in-amazon-lightsail.md "understanding-regions-and-availability-zones-in-amazon-lightsail.md").
+use, see [Regions and Availability Zones for Lightsail](understanding-regions-and-availability-zones-in-amazon-lightsail.md "understanding-regions-and-availability-zones-in-amazon-lightsail.md").
 
 ## AWS CLI examples
 

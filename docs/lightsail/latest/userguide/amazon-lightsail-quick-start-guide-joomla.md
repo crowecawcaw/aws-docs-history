@@ -1,6 +1,4 @@
-# Get started with Joomla! on
-
-Lightsail
+# Get started with Joomla! on Lightsail
 
 ###### Did you know?
 
@@ -32,17 +30,13 @@ running on Amazon Lightsail:
 - [Step 8:
   Create a snapshot of your instance](#amazon-lightsail-create-a-snapshot-joomla "#amazon-lightsail-create-a-snapshot-joomla")
 
-## Step 1: Read
-
-the Bitnami documentation
+## Step 1: Read the Bitnami documentation
 
 Read the Bitnami documentation to learn how to configure your Joomla! application. For
 more information, see the [Joomla!
 Packaged By Bitnami For AWS Cloud](https://docs.bitnami.com/aws/apps/joomla/ "https://docs.bitnami.com/aws/apps/joomla/").
 
-## Step 2: Get the
-
-default application password to access the Joomla! control panel
+## Step 2: Get the default application password to access the Joomla! control panel
 
 Complete the following procedure to get the default application password required to
 access the control panel for your Joomla! website. For more information, see [Getting the
@@ -64,9 +58,7 @@ default application password:
 
 ![Bitnami default application password.](images/amazon-lightsail-bitnami-application-password.png)
 
-## Step 3: Attach a static IP
-
-address to your instance
+## Step 3: Attach a static IP address to your instance
 
 The default dynamic public IP address attached to your instance changes every time you
 stop and start the instance. You can create a static IP address and attach it to your instance to
@@ -82,9 +74,7 @@ instance](lightsail-create-static-ip.md "lightsail-create-static-ip.md").
 
 ![Attach static IP address in the Lightsail console](images/quick-start-static-ip-address.png)
 
-## Step 4: Sign in to the control panel
-
-of your Joomla! website
+## Step 4: Sign in to the control panel of your Joomla! website
 
 Now that you have the default application password, complete the following procedure
 to navigate to your Joomla! website's home page, and sign in to the control panel. After
@@ -114,9 +104,7 @@ The Joomla! administration control panel appears.
 
 ![The Joomla! administration control panel](images/amazon-lightsail-joomla-dashboard.png)
 
-## Step 5: Route
-
-traffic for your registered domain name to your Joomla! website
+## Step 5: Route traffic for your registered domain name to your Joomla! website
 
 To route traffic for your registered domain name, such as `example.com`, to
 your Joomla! website, you add a record to the domain name system (DNS) of your domain.
@@ -212,9 +200,7 @@ configure an SSL/TLS certificate to enable HTTPS connections for your Joomla! we
 For more information, continue to the next [Step 6: Configure HTTPS for your Joomla!
 website](#amazon-lightsail-https-joomla "#amazon-lightsail-https-joomla") section of this guide.
 
-## Step 6: Configure HTTPS for your Joomla!
-
-website
+## Step 6: Configure HTTPS for your Joomla! website
 
 Complete the following procedure to configure HTTPS on your Joomla! website. These
 steps show you how to use the Bitnami HTTPS Configuration Tool
@@ -363,17 +349,13 @@ You are now done enabling HTTPS on your Joomla! instance. Next time you browse
 to your Joomla! website using the domain you configured, you should see that it
 redirects to the HTTPS connection.
 
-## Step 7: Read the Joomla!
-
-documentation and continue configuring your website
+## Step 7: Read the Joomla! documentation and continue configuring your website
 
 Read the Joomla! documentation to learn how to administer and customize your website.
 For more information, see the [Joomla!
 Documentation](https://docs.joomla.org/ "https://docs.joomla.org/").
 
-## Step 8: Create a snapshot of
-
-your instance
+## Step 8: Create a snapshot of your instance
 
 After you configure your Joomla! website the way you want it, create periodic
 snapshots of your instance to back it up. You can create snapshots manually, or enable

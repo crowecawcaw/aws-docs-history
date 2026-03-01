@@ -1,6 +1,4 @@
-# Provide domain information
-
-when you register or transfer a domain in Lightsail
+# Provide domain information when you register or transfer a domain in Lightsail
 
 When you use Amazon Lightsail to register a domain, you provide domain information such as
 the registration period (_term_) and domain contact
@@ -24,8 +22,7 @@ You can also change information for a domain that is currently registered with L
 
 - [Term](#term "#term")
 - [Automatic domain renewal](#automatic-domain-renewal "#automatic-domain-renewal")
-- [Registrant, administrative, technical, and billing
-  contacts](#registrant-admin-tech "#registrant-admin-tech")
+- [Registrant, administrative, technical, and billing contacts](#registrant-admin-tech "#registrant-admin-tech")
 - [Contact type](#contact-type "#contact-type")
 - [First name, last name](#first-name-last-name "#first-name-last-name")
 - [Organization](#organization "#organization")
@@ -58,9 +55,7 @@ If you deactivate automatic domain renewal, registration for the domain will not
 renewed when the expiration date passes. As a result, you might lose control of the domain
 name.
 
-## Registrant, administrative, technical, and billing
-
-contacts
+## Registrant, administrative, technical, and billing contacts
 
 The following contacts are required when you register your domain:
 

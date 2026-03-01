@@ -1,6 +1,4 @@
-# Connect to your
-
-Lightsail PostgreSQL database instance
+# Connect to your Lightsail PostgreSQL database instance
 
 After your PostgreSQL managed database is created in Amazon Lightsail, you can use any
 standard PostgreSQL client application or utility to connect to it. You must get the database
@@ -16,9 +14,7 @@ the pgAdmin client to connect to your managed database.
 For more information about connecting to a MySQL database, see [Connect to your MySQL
 database](amazon-lightsail-connecting-to-your-mysql-database.md "amazon-lightsail-connecting-to-your-mysql-database.md").
 
-## Step 1: Get your PostgreSQL
-
-database connection details
+## Step 1: Get your PostgreSQL database connection details
 
 Get your database endpoint and port information from the Lightsail console. You use
 these later when configuring your client to connect to your database.
@@ -48,9 +44,7 @@ avoid entering it incorrectly. Highlight the managed password and press
 you’re using macOS, to copy it to your clipboard. Then, press **Ctrl+V**
 or **Cmd+V** as appropriate to paste it.
 
-## Step 2: Configure the public
-
-availability of your PostgreSQL database
+## Step 2: Configure the public availability of your PostgreSQL database
 
 You must enable public mode for your database to connect to it externally, or from a
 Lightsail instance in a different Region than your database. With public mode enabled,
@@ -63,9 +57,7 @@ your database](amazon-lightsail-configuring-database-public-mode.md "amazon-ligh
 Skip to step 3 if you plan to connect to your database from one of your Lightsail
 instances that is in the same Region as your database.
 
-## Step 3: Configure your database client
-
-to connect to your PostgreSQL database
+## Step 3: Configure your database client to connect to your PostgreSQL database
 
 To connect to your PostgreSQL database, configure your database client to use the endpoint
 and port that you obtained earlier. The following steps show you how to configure pgAdmin, but

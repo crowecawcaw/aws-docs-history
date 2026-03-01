@@ -1,6 +1,4 @@
-# Learn how internet traffic is routed
-
-to your website in Lightsail
+# Learn how internet traffic is routed to your website in Lightsail
 
 All computers on the internet, including smart phones, laptops, and website servers,
 communicate with one another by using unique strings of characters. These strings, known as IP
@@ -22,9 +20,7 @@ addresses, are in one of the following formats:
 - [Next
   steps](#internet-traffic-routing-next-steps "#internet-traffic-routing-next-steps")
 
-## Overview of how you configure Lightsail to route
-
-internet traffic for your domain
+## Overview of how you configure Lightsail to route internet traffic for your domain
 
 This overview explains how to use Lightsail to register and configure a domain that
 routes internet traffic to your website or web application.

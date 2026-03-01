@@ -1,6 +1,4 @@
-# Create a
-
-Lightsail content delivery network distribution
+# Create a Lightsail content delivery network distribution
 
 In this guide, we show you how to create an Amazon Lightsail distribution using the
 Lightsail console, and describe the distribution settings that you can configure. For more

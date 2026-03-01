@@ -1,6 +1,4 @@
-# Add blogs as
-
-domains to your WordPress Multisite on Lightsail
+# Add blogs as domains to your WordPress Multisite on Lightsail
 
 A WordPress Multisite instance in Amazon Lightsail is designed to use multiple domains, or
 subdomains, for each blog site that you create within that instance. In this guide, we’ll show
@@ -31,9 +29,7 @@ Complete the following prerequisites in the order shown:
    more information, see [Define
    the primary domain for your WordPress Multisite instance](amazon-lightsail-define-the-primary-domain-for-your-wordpress-multisite.md "amazon-lightsail-define-the-primary-domain-for-your-wordpress-multisite.md").
 
-## Add a blog as a
-
-domain to your WordPress Multisite instance
+## Add a blog as a domain to your WordPress Multisite instance
 
 Complete these steps to create a blog site on your WordPress Multisite instance that uses
 a domain which is different than your main blog’s primary domain.
@@ -73,9 +69,7 @@ the next step to add an address record (A record) to your domain’s DNS zone.
 
 ![Sites list in the WordPress administration dashboard.](images/wp-multisite-add-blogs-as-domains-sites-list.png)
 
-## Add an address record (A record)
-
-to your domain’s DNS zone
+## Add an address record (A record) to your domain’s DNS zone
 
 Complete these steps to point the domain for your new blog site to your WordPress
 Multisite instance. You must perform these steps for every blog site that you create on your
@@ -106,9 +100,7 @@ attached to your WordPress Multisite instance.
 After the change propagates through the internet’s DNS, the domain will route traffic
 to the new blog site on your WordPress Multisite instance.
 
-## Enable cookie support to allow
-
-sign in for blog sites
+## Enable cookie support to allow sign in for blog sites
 
 When you add blog sites as domains to your WordPress Multisite instance, you must also
 update the WordPress configuration (`wp-config`) file on your instance to enable

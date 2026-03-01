@@ -1,6 +1,4 @@
-# Monitor Lightsail load
-
-balancer health metrics
+# Monitor Lightsail load balancer health metrics
 
 After you create a load balancer in Amazon Lightsail, and attach instances to it, you can
 view its metric graphs on the **Metrics** tab of the load balancer’s management page. Monitoring

@@ -1,6 +1,4 @@
-# Set up Ruby on Rails on
-
-Lightsail
+# Set up Ruby on Rails on Lightsail
 
 ###### Did you know?
 
@@ -12,9 +10,7 @@ automatic snapshots for your instance. For more information, see
 Here are a few steps you should take to get started after your Ruby on Rails instance is up and
 running on Amazon Lightsail:
 
-## Step 1: Attach a static IP address
-
-to your Ruby on Rails instance
+## Step 1: Attach a static IP address to your Ruby on Rails instance
 
 The default dynamic public IP address attached to your instance changes every time you
 stop and start the instance. You can create a static IP address and attach it to your instance to
@@ -30,9 +26,7 @@ instance](lightsail-create-static-ip.md "lightsail-create-static-ip.md").
 
 ![Attach static IP address in the Lightsail console](images/quick-start-static-ip-address.png)
 
-## Step 2: Visit your Ruby on Rails
-
-instance welcome page
+## Step 2: Visit your Ruby on Rails instance welcome page
 
 Navigate to the static IP address of your instance to access the application installed on it.
 
@@ -42,9 +36,7 @@ Navigate to the static IP address of your instance to access the application ins
 
 For more information, see [Ruby on Rails Guides](https://guides.rubyonrails.org/ "https://guides.rubyonrails.org/").
 
-## Step 3: Deploy your
-
-application
+## Step 3: Deploy your application
 
 1. Follow the instructions from [Transfer files securely to Lightsail Linux instances with SFTP](amazon-lightsail-connecting-to-linux-unix-instance-using-sftp.md "amazon-lightsail-connecting-to-linux-unix-instance-using-sftp.md") to copy your application to `/home/ec2-user/my_app`
 2. On your instance management page, under the **Connect** tab, choose
@@ -52,9 +44,7 @@ application
 3. Run `sudo systemctl restart rails-server`
 4. Navigate to your instance's static IP address
 
-## Step 4: Create a snapshot of your
-
-Ruby on Rails instance
+## Step 4: Create a snapshot of your Ruby on Rails instance
 
 After you configure your website the way you want it, create
 periodic snapshots of your instance to back it up. A snapshot is a copy of the system disk and original configuration of an instance. A

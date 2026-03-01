@@ -1,6 +1,4 @@
-# Validate SSL/TLS
-
-certificates for Lightsail distributions
+# Validate SSL/TLS certificates for Lightsail distributions
 
 An Amazon Lightsail SSL/TLS certificate must be validated after it's created, and before you
 can use it with your Lightsail distribution. After your certificate request is submitted, the
@@ -39,9 +37,7 @@ certificates](understanding-tls-ssl-certificates-in-lightsail-https.md "understa
 Before you get started, you need to create an SSL/TLS certificate for your distribution.
 For more information, see [Create SSL/TLS certificates for your distribution](amazon-lightsail-create-a-distribution-certificate.md "amazon-lightsail-create-a-distribution-certificate.md").
 
-## Get the CNAME record values to
-
-validate your certificate
+## Get the CNAME record values to validate your certificate
 
 Complete the following procedure to get the CNAME records that you must add to your
 domains to validate the certificate.
@@ -69,9 +65,7 @@ these values into a text file that you can refer to later. For more information,
 following [Add the
 CNAME records to your domain's DNS zone](#add-distribution-certificate-cname-records "#add-distribution-certificate-cname-records") section of this guide.
 
-## Add the CNAME records to your
-
-domain's DNS zone
+## Add the CNAME records to your domain's DNS zone
 
 Complete the following procedure to add CNAME records to your domain's DNS zone.
 
@@ -99,9 +93,7 @@ After a few minutes, you should see if the status of your distribution certifica
 changed to **Valid**. For more information, see the following [View the status of your
 distribution certificate](#viewing-distribution-certificate-status "#viewing-distribution-certificate-status") section of this guide.
 
-## View the status of your distribution
-
-certificate
+## View the status of your distribution certificate
 
 Complete the following procedure to view the status of your SSL/TLS certificate for your
 distribution.

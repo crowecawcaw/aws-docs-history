@@ -1,6 +1,4 @@
-# Control instance
-
-traffic with firewalls in Lightsail
+# Control instance traffic with firewalls in Lightsail
 
 The firewall in the Amazon Lightsail console acts as a virtual firewall that controls the
 traffic allowed to connect to your instance through its public IP address. Each instance that
@@ -165,9 +163,7 @@ an email server on your Amazon Lightsail instance](amazon-lightsail-configuring-
 For more information, see [Service Name and Transport Protocol Port Number Registry](https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml") on the _Internet
 Assigned Numbers Authority website_.
 
-## Specify application layer
-
-protocol types
+## Specify application layer protocol types
 
 You can specify an application layer protocol type when you create a firewall rule, which
 are presets that specify the rule's protocol and port range for you based on the service that

@@ -1,6 +1,4 @@
-# High availability databases in
-
-Lightsail
+# High availability databases in Lightsail
 
 A Lightsail high availability managed database provides failover support with a primary
 database in one Availability Zone, and a secondary standby database in another. We recommend

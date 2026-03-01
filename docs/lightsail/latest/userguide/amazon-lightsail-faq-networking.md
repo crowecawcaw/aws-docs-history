@@ -13,9 +13,7 @@ even if the instance is stopped and started. IPv6 addresses assigned to the inst
 unchanged until the instance is deleted or the IPv6 address is manually released by
 disabling IPv6 on the instance.
 
-## Does Lightsail support
-
-IPv6-only instances?
+## Does Lightsail support IPv6-only instances?
 
 Yes, Lightsail instances support dual-stack (IPv4 and IPv6) and IPv6-only
 configurations.
@@ -32,9 +30,7 @@ available. However, IPv6 addresses assigned to the instance remain unchanged unt
 instance is deleted or the IPv6 address is manually released by disabling IPv6 on the
 instance.
 
-## How many static IPs can I attach to an
-
-instance?
+## How many static IPs can I attach to an instance?
 
 You can attach only one static IP to an instance at a time.
 
@@ -52,9 +48,7 @@ translations is referred to as a DNS query.
 It's important to know that to use a domain in Lightsail, you must first register it.
 You can register domains by using [Lightsail](amazon-lightsail-domain-registration.md "amazon-lightsail-domain-registration.md"), or your preferred DNS registrar.
 
-## Can I manage firewall settings for my
-
-instance?
+## Can I manage firewall settings for my instance?
 
 Yes. You can control the data traffic for your instances by using the Lightsail
 firewall. From the Lightsail console, you can set rules about which ports of your instance

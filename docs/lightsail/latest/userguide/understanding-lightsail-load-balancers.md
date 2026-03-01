@@ -1,6 +1,4 @@
-# Distribute web traffic with Lightsail
-
-load balancers
+# Distribute web traffic with Lightsail load balancers
 
 A Lightsail load balancer distributes incoming web traffic among multiple Lightsail
 instances, in multiple Availability Zones. Load balancing increases the availability and fault

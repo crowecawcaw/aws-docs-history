@@ -1,6 +1,4 @@
-# Remove the Bitnami banner from
-
-Lightsail instances
+# Remove the Bitnami banner from Lightsail instances
 
 Some of the Bitnami blueprints that can be selected for Amazon Lightsail instances display a
 Bitnami banner on the home page of the application. In the following example from a "Certified

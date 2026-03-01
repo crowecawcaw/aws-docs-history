@@ -1,6 +1,4 @@
-# Transfer files
-
-securely to Lightsail Linux instances with SFTP
+# Transfer files securely to Lightsail Linux instances with SFTP
 
 You can transfer files between your local computer and your Linux or Unix instance in
 Amazon Lightsail by connecting to your instance using SFTP (SSH File Transfer Protocol). To do
@@ -12,8 +10,7 @@ instance. These steps may also apply to other FTP clients.
 
 - [Prerequisites](#connecting-to-linux-unix-instance-using-sftp-prerequisites "#connecting-to-linux-unix-instance-using-sftp-prerequisites")
 - [Get the SSH key for your instance](#get-the-ssh-key-for-your-instance "#get-the-ssh-key-for-your-instance")
-- [Configure FileZilla and
-  connect to your instance](#configure-filezilla-and-connect-to-your-instance "#configure-filezilla-and-connect-to-your-instance")
+- [Configure FileZilla and connect to your instance](#configure-filezilla-and-connect-to-your-instance "#configure-filezilla-and-connect-to-your-instance")
 
 ## Prerequisites
 
@@ -55,9 +52,7 @@ where your instance is located.
 
 ![SSH keypairs in the Lightsail console.](images/managing-key-pairs-download-default-key.png) 7. Save your private key in a secured location on your local drive.
 
-## Configure FileZilla and
-
-connect to your instance
+## Configure FileZilla and connect to your instance
 
 Complete the following steps to configure FileZilla to connect to your instance.
 

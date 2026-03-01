@@ -1,6 +1,4 @@
-# Monitor Lightsail
-
-distribution performance metrics
+# Monitor Lightsail distribution performance metrics
 
 After you create a distribution in Amazon Lightsail, you can view its metric graphs on the
 **Metrics** tab of the distribution’s management page. Monitoring metrics is
@@ -48,9 +46,7 @@ The following distribution metrics are available:
   status code of 503 (Service Unavailable) means that the origin server is currently
   unavailable.
 
-## View distribution metrics in the
-
-Lightsail console
+## View distribution metrics in the Lightsail console
 
 Complete the following procedure to view distribution metrics in the Lightsail
 console.
@@ -74,9 +70,7 @@ metric. 6. You can perform the following actions on the metrics graph:
      threshold you specify. For more information, see [Alarms](amazon-lightsail-alarms.md "amazon-lightsail-alarms.md") and [Create instance
      metric alarms](amazon-lightsail-adding-distribution-health-metric-alarms.md "amazon-lightsail-adding-distribution-health-metric-alarms.md").
 
-## Next steps after viewing your
-
-distribution metrics
+## Next steps after viewing your distribution metrics
 
 There are a few additional tasks that you can perform for your distribution
 metrics:

@@ -1,6 +1,4 @@
-# Import SQL data into
-
-Lightsail MySQL databases
+# Import SQL data into Lightsail MySQL databases
 
 You can import a SQL file (.SQL) into your MySQL managed database in Amazon Lightsail using
 MySQL Workbench.

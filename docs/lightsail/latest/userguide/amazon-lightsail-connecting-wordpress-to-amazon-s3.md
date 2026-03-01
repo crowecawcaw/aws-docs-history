@@ -1,6 +1,4 @@
-# Connect a WordPress website
-
-on Lightsail to Amazon S3 with WP Offload Media
+# Connect a WordPress website on Lightsail to Amazon S3 with WP Offload Media
 
 This tutorial describes the steps required to connect your WordPress website running on an
 Amazon Lightsail instance to an Amazon Simple Storage Service (Amazon S3) bucket to store website images and attachments.
@@ -10,41 +8,28 @@ the bucket instead of the instance’s disk for website images and attachments.
 
 ###### Topics
 
-- [Step 1: Complete the
-  prerequisites](#connect-wordpress-to-s3-prerequisites "#connect-wordpress-to-s3-prerequisites")
-- [Step 2: Install the WP Offload Media
-  plugin on your WordPress website](#install-wp-offload-media-on-wordpress "#install-wp-offload-media-on-wordpress")
-- [Step 3: Create an IAM
-  policy](#create-iam-policy-for-wordpress "#create-iam-policy-for-wordpress")
-- [Step 4: Create an IAM
-  user](#create-iam-user-for-wordpress "#create-iam-user-for-wordpress")
-- [Step 5: Create an access key for your IAM
-  user](#create-access-key-for-wordpress "#create-access-key-for-wordpress")
-- [Step 6: Edit the WordPress
-  configuration file](#edit-the-wp-config-file-for-s3-bucket "#edit-the-wp-config-file-for-s3-bucket")
-- [Step 7: Create the Amazon S3 bucket using the WP
-  Offload Media plugin](#create-the-amazon-s3-bucket "#create-the-amazon-s3-bucket")
+- [Step 1: Complete the prerequisites](#connect-wordpress-to-s3-prerequisites "#connect-wordpress-to-s3-prerequisites")
+- [Step 2: Install the WP Offload Media plugin on your WordPress website](#install-wp-offload-media-on-wordpress "#install-wp-offload-media-on-wordpress")
+- [Step 3: Create an IAM policy](#create-iam-policy-for-wordpress "#create-iam-policy-for-wordpress")
+- [Step 4: Create an IAM user](#create-iam-user-for-wordpress "#create-iam-user-for-wordpress")
+- [Step 5: Create an access key for your IAM user](#create-access-key-for-wordpress "#create-access-key-for-wordpress")
+- [Step 6: Edit the WordPress configuration file](#edit-the-wp-config-file-for-s3-bucket "#edit-the-wp-config-file-for-s3-bucket")
+- [Step 7: Create the Amazon S3 bucket using the WP Offload Media plugin](#create-the-amazon-s3-bucket "#create-the-amazon-s3-bucket")
 - [Step 8: Next steps](#connect-wordpress-to-s3-prerequisites-next-steps "#connect-wordpress-to-s3-prerequisites-next-steps")
 
-## Step 1: Complete the
-
-prerequisites
+## Step 1: Complete the prerequisites
 
 Before you get started, create a WordPress instance in Lightsail, and make sure it’s in
 a running state. For more information, see [Tutorial: Launch and
 configure a WordPress instance](amazon-lightsail-tutorial-launching-and-configuring-wordpress.md "amazon-lightsail-tutorial-launching-and-configuring-wordpress.md").
 
-## Step 2: Install the WP Offload Media
-
-plugin on your WordPress website
+## Step 2: Install the WP Offload Media plugin on your WordPress website
 
 You must use a plugin to configure your website to use an Amazon S3 bucket. Many plugins are
 available to configure this; one such plugin is [WP Offload Media
 Lite](https://wordpress.org/plugins/amazon-s3-and-cloudfront/ "https://wordpress.org/plugins/amazon-s3-and-cloudfront/").
 
-###### To install the WP Offload Media plugin on your WordPress
-
-website
+###### To install the WP Offload Media plugin on your WordPress website
 
 1. Sign in to your WordPress dashboard as an administrator.
 
@@ -70,12 +55,9 @@ this tutorial.
 ![WP Offload Media page.](images/amazon-lightsail-offload-media-configuration.png)
 
 Leave the **Offload Media** page open; you will return to it later in
-this tutorial. Continue to the [Step 3: Create an IAM
-policy](#create-iam-policy-for-wordpress "#create-iam-policy-for-wordpress") section of this tutorial.
+this tutorial. Continue to the [Step 3: Create an IAM policy](#create-iam-policy-for-wordpress "#create-iam-policy-for-wordpress") section of this tutorial.
 
-## Step 3: Create an IAM
-
-policy
+## Step 3: Create an IAM policy
 
 ###### Warning
 
@@ -84,9 +66,7 @@ This scenario requires IAM users with programmatic access and long-term credenti
 The WP Offload Media plugin requires access to your AWS account to create the Amazon S3
 bucket, and to upload your website images and attachments.
 
-###### To create a new AWS Identity and Access Management (IAM) policy for the WP Offload
-
-Media plugin
+###### To create a new AWS Identity and Access Management (IAM) policy for the WP Offload Media plugin
 
 1. Open a new browser tab, and sign in to the [IAM
    console](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -128,15 +108,11 @@ identify it in the future when performing maintenance. 8. Choose **Create policy
 
 Keep the IAM console open for the next step.
 
-## Step 4: Create an IAM
-
-user
+## Step 4: Create an IAM user
 
 Create a new IAM user and attach the previously created policy to grant the required permissions to use the WP Offload Media plugin.
 
-###### To create a new AWS Identity and Access Management (IAM) user for the WP
-
-Offload Media plugin
+###### To create a new AWS Identity and Access Management (IAM) user for the WP Offload Media plugin
 
 1. If necessary, open the [IAM
    console](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -155,16 +131,12 @@ created previously in the search bar. 7. Select the policy, then choose **Next**
 
 Keep the IAM console open for the next step.
 
-## Step 5: Create an access key for your IAM
-
-user
+## Step 5: Create an access key for your IAM user
 
 Create an access key for the IAM user which will be used by the WP
 Offload Media plugin.
 
-###### To create a new AWS Identity and Access Management (IAM) user for the WP
-
-Offload Media plugin
+###### To create a new AWS Identity and Access Management (IAM) user for the WP Offload Media plugin
 
 1. If necessary, open the [IAM
    console](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -184,16 +156,12 @@ Offload Media plugin
 You can now close the IAM console and continue on the Lightsail console with the
 next step.
 
-## Step 6: Edit the WordPress
-
-configuration file
+## Step 6: Edit the WordPress configuration file
 
 The `wp-config.php` file contains your website’s base configuration
 details, such as database connection information.
 
-###### To edit the `wp-config.php`
-
-file in your WordPress instance
+###### To edit the `wp-config.php` file in your WordPress instance
 
 1. Sign in to the [Lightsail console](https://lightsail.aws.amazon.com/ "https://lightsail.aws.amazon.com/").
 2. Choose the browser-based SSH client icon for the WordPress instance.
@@ -261,17 +229,13 @@ Close the SSH window and toggle back to the **Offload Media** page
 that you left open earlier in this tutorial. You are now ready to [create the Amazon S3 bucket using the WP
 Offload Media plugin](#create-the-amazon-s3-bucket "#create-the-amazon-s3-bucket").
 
-## Step 7: Create the Amazon S3 bucket using the WP
-
-Offload Media plugin
+## Step 7: Create the Amazon S3 bucket using the WP Offload Media plugin
 
 Now that the `wp-config.php` file is configured with the AWS
 credentials, you can return to the **Offload Media** page to complete the
 process.
 
-###### To create the Amazon S3 bucket using the WP Offload Media
-
-plugin
+###### To create the Amazon S3 bucket using the WP Offload Media plugin
 
 1. Refresh the **Offload Media** page, or choose
    **Next**.

@@ -1,6 +1,4 @@
-# Access Instance Metadata Service (IMDS)
-
-and user data in Lightsail
+# Access Instance Metadata Service (IMDS) and user data in Lightsail
 
 _Instance metadata_ is data about your instance that you can use to
 configure or manage the running instance. Instance metadata is divided into categories, for
@@ -37,9 +35,7 @@ metrics](amazon-lightsail-viewing-instance-health-metrics.md "amazon-lightsail-v
 For more information about using IMDS, see [Configure the
 Instance Metadata Service (IMDS)](amazon-lightsail-configuring-instance-metadata-service.md "amazon-lightsail-configuring-instance-metadata-service.md").
 
-## Additional IMDS
-
-documentation
+## Additional IMDS documentation
 
 The following IMDS documentation is available in the _Amazon Elastic Compute Cloud User Guide
 for Linux Instances_ and the _Amazon Elastic Compute Cloud User Guide for Windows

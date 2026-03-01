@@ -1,6 +1,4 @@
-# Organize and filter Lightsail resources using
-
-tags
+# Organize and filter Lightsail resources using tags
 
 With Amazon Lightsail, you can assign labels to your resources as tags. Each tag is a label
 consisting of a key and an optional value that can make it more efficient to manage, search for,
@@ -21,9 +19,7 @@ projects and priorities, and key-only tags identify customers and application ve
 
 ![Tagging in Amazon Lightsail](images/amazon-lightsail-tags.png)
 
-## Use tags to organize billing
-
-and control access
+## Use tags to organize billing and control access
 
 You can also use tags to organize your billing, control access to resources and requests
 in Lightsail, and control access to tag keys. For more information, see one the following
@@ -34,9 +30,7 @@ guides:
 - [Use tags to control
   resource access](amazon-lightsail-controlling-access-using-tags.md "amazon-lightsail-controlling-access-using-tags.md")
 
-## Lightsail resources that support
-
-tagging
+## Lightsail resources that support tagging
 
 You can tag most Lightsail resources when you create them, or after they are created. If
 tags cannot be applied during resource creation, Lightsail rolls back the resource creation

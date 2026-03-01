@@ -1,6 +1,4 @@
-# Monitor Lightsail
-
-resources with health metrics
+# Monitor Lightsail resources with health metrics
 
 You can view the following Amazon Lightsail resource metrics over different time periods. For
 more information about resource metrics in Lightsail, see [Resource metrics](amazon-lightsail-resource-health-metrics.md "amazon-lightsail-resource-health-metrics.md").

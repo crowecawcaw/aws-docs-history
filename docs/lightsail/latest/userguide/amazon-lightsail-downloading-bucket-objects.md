@@ -1,6 +1,4 @@
-# Download objects from a
-
-Lightsail bucket
+# Download objects from a Lightsail bucket
 
 You can download objects from buckets that you have access to or that are public (read-only)
 in the Amazon Lightsail object storage service. You can download a single object at a time using
@@ -8,9 +6,7 @@ the Lightsail console. To download multiple objects in one request, use the AWS 
 AWS SDKs, or REST API. In this guide, we show you how to download objects using the
 Lightsail console and AWS CLI. For more information about buckets, see [Object storage](buckets-in-amazon-lightsail.md "buckets-in-amazon-lightsail.md").
 
-## Download objects using the
-
-Lightsail console
+## Download objects using the Lightsail console
 
 Complete the following procedure to download objects from a bucket using the Lightsail
 console.
@@ -69,9 +65,7 @@ You should see a result similar to the following example:
 
 ![Result of the AWS CLI download-object command](images/amazon-lightsail-s3api-download-object-result.png)
 
-## Manage buckets and
-
-objects
+## Manage buckets and objects
 
 These are the general steps to manage your Lightsail object storage bucket:
 

@@ -1,6 +1,4 @@
-# Download an
-
-SSL/TLS certificate for secure app connectivity to Lightsail databases
+# Download an SSL/TLS certificate for secure app connectivity to Lightsail databases
 
 You can use Secure Socket Layer (SSL) or Transport Layer Security (TLS) from your
 application to encrypt a connection to a managed database in Amazon Lightsail running MySQL, or
@@ -24,9 +22,7 @@ This root certificate is a trusted root entity and should work in most cases. Ho
 might fail if your application doesn't accept certificate chains. If your application doesn't
 accept certificate chains, continue to the next section of this document.
 
-## Certificate bundles for specific
-
-AWS Regions
+## Certificate bundles for specific AWS Regions
 
 To get a certificate bundle that contains both the intermediate and root certificates for
 a specific AWS Region, see [Certificate bundles for specific AWS Regions](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md#UsingWithRDS.SSL.RegionCertificates "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md#UsingWithRDS.SSL.RegionCertificates") in the Amazon Relational Database Service User Guide.

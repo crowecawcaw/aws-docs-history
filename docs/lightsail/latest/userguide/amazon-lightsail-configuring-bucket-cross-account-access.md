@@ -10,9 +10,7 @@ give bucket access to a maximum of 10 AWS accounts.
 
 For more information about permission options, see [Bucket permissions](amazon-lightsail-understanding-bucket-permissions.md "amazon-lightsail-understanding-bucket-permissions.md"). For more information about security best practices, see [Security Best Practices for object storage](amazon-lightsail-bucket-security-best-practices.md "amazon-lightsail-bucket-security-best-practices.md"). For more information about buckets, see [Object storage](buckets-in-amazon-lightsail.md "buckets-in-amazon-lightsail.md").
 
-## Configure cross-account access for a
-
-bucket
+## Configure cross-account access for a bucket
 
 Complete the following procedure to configure cross-account access for a bucket.
 

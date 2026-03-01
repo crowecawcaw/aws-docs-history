@@ -1,6 +1,4 @@
-# Control secure instance connectivity with
-
-Lightsail SSH keys
+# Control secure instance connectivity with Lightsail SSH keys
 
 You can establish a secure connection to your Amazon Lightsail instances using key pairs.
 When you first create an Amazon Lightsail instance, you can choose to use a key pair that
@@ -70,9 +68,7 @@ create a new one, and configure it on your instance. Then, delete the key which 
 lost. For more information, see [Create a custom key using the Lightsail console](#create-a-custom-key-console "#create-a-custom-key-console") or [Create a custom key using
 ssh-keygen and upload to Lightsail](#create-a-custom-key-ssh-keygen "#create-a-custom-key-ssh-keygen") later in this guide.
 
-## Download the private key of a default key from the
-
-Lightsail console
+## Download the private key of a default key from the Lightsail console
 
 Complete the following procedure to download the private key of a default key pair from
 the Lightsail console.
@@ -115,9 +111,7 @@ previously created and are currently running. To remove a previously configured 
 stored on a running instance, see [Manage keys stored on an instance
 in Amazon Lightsail](amazon-lightsail-remove-ssh-key-on-instance.md "amazon-lightsail-remove-ssh-key-on-instance.md").
 
-## Delete a default key and create a new one
-
-in the Lightsail console
+## Delete a default key and create a new one in the Lightsail console
 
 Complete the following procedure to delete a default key in the Lightsail console. This
 prevents that default key from being configured on new instances that you create in
@@ -172,9 +166,7 @@ You can configure your new default key on new instances that you create in
 Lightsail. To configure your new default key on instances that were previously created
 and are currently running, see [Manage keys stored on an instance in Amazon Lightsail](amazon-lightsail-remove-ssh-key-on-instance.md "amazon-lightsail-remove-ssh-key-on-instance.md").
 
-## Create a custom key using the Lightsail
-
-console
+## Create a custom key using the Lightsail console
 
 Complete the following procedure to create a custom key pair using the Lightsail
 console. You will be able to configure the new custom key on new instances that you create in
@@ -218,9 +210,7 @@ To configure your new custom key on instances that were previously created and a
 currently running, see [Manage
 keys stored on an instance in Amazon Lightsail](amazon-lightsail-remove-ssh-key-on-instance.md "amazon-lightsail-remove-ssh-key-on-instance.md").
 
-## Create a custom key using ssh-keygen and
-
-upload to Lightsail
+## Create a custom key using ssh-keygen and upload to Lightsail
 
 Complete the following procedure to create a custom key pair on your local computer using
 a third-party tool, such as ssh-keygen. After you create the key, you can upload it to the

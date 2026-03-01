@@ -111,9 +111,7 @@ name, such as `*.example.com` or `*example.com`.
 Lightsail DNS zones support wildcard records for name server domains
 (`*awsdns.com`) defined in a Name Server (NS) record.
 
-## DNS record types supported in
-
-the Lightsail DNS zone
+## DNS record types supported in the Lightsail DNS zone
 
 Address (A) record
 

@@ -1,6 +1,4 @@
-# Keep automatic snapshots from
-
-being replaced in Lightsail
+# Keep automatic snapshots from being replaced in Lightsail
 
 When you [enable the
 automatic snapshots feature](amazon-lightsail-configuring-automatic-snapshots.md "amazon-lightsail-configuring-automatic-snapshots.md") for an instance or block storage disk in Amazon Lightsail,
@@ -32,18 +30,14 @@ snapshots](amazon-lightsail-deleting-automatic-snapshots.md "amazon-lightsail-de
 - [Keep automatic
   snapshots of instances and block storage disks using the AWS CLI](#keeping-automatic-snapshots-using-cli "#keeping-automatic-snapshots-using-cli")
 
-## Keep automatic snapshots
-
-restriction
+## Keep automatic snapshots restriction
 
 Automatic snapshots of block storage disks cannot be copied to manual snapshots using the
 Lightsail console. To copy an automatic snapshot of a block storage disk, you must use the
 Lightsail API, AWS Command Line Interface (AWS CLI), or SDKs. For more information, see [Keep automatic snapshots of
 instances and block storage disks using the AWS CLI](#keeping-automatic-snapshots-using-cli "#keeping-automatic-snapshots-using-cli").
 
-## Keep automatic snapshots of
-
-instances using the Lightsail console
+## Keep automatic snapshots of instances using the Lightsail console
 
 Complete the following steps to keep automatic snapshots for an instance using the
 Lightsail console.
@@ -68,9 +62,7 @@ Otherwise, you will be billed the [snapshot storage fee](https://aws.amazon.com/
 snapshot stored on your Lightsail account. For more information, see [Delete automatic instance
 snapshots](amazon-lightsail-deleting-automatic-snapshots.md "amazon-lightsail-deleting-automatic-snapshots.md").
 
-## Keep automatic snapshots of instances
-
-and block storage disks using the AWS CLI
+## Keep automatic snapshots of instances and block storage disks using the AWS CLI
 
 Complete the following steps to keep automatic snapshots for an instance or block storage
 disk using the AWS CLI.

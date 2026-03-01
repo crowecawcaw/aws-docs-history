@@ -1,6 +1,4 @@
-# Manage Lightsail domains with
-
-advanced Route 53 features
+# Manage Lightsail domains with advanced Route 53 features
 
 Amazon Lightsail registers domains through Amazon Route 53, a highly available and scalable DNS web
 service. When you register a domain using Lightsail, you can manage the domain in both
@@ -40,9 +38,7 @@ name, and so on. All registrars use this same set of status codes. To view the s
 your domains, see [Viewing the status of a domain registration](../../../Route53/latest/DeveloperGuide/domain-view-status.md "../../../Route53/latest/DeveloperGuide/domain-view-status.md") in the
 _Amazon Route 53 Developer Guide_.
 
-## Lock a domain to prevent unauthorized transfer to another
-
-registrar
+## Lock a domain to prevent unauthorized transfer to another registrar
 
 The domain registries for all generic top-level domains (TLDs) let you lock a domain to
 prevent someone from transferring the domain to another registrar without your permission. For

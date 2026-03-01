@@ -8,14 +8,10 @@ registered resellers.
 ###### Topics
 
 - [Benefits of reselling Lightsail](#lightsail-resellers-features "#lightsail-resellers-features")
-- [How Lightsail reseller
-  benefits and increased default quotas apply to your accounts](#lightsail-resellers-how-accounts-benefit "#lightsail-resellers-how-accounts-benefit")
-- [How to become a Lightsail
-  reseller](#lightsail-resellers-next-steps "#lightsail-resellers-next-steps")
-- [Become a Lightsail
-  reseller](lightsail-resellers-become-a-reseller.md "lightsail-resellers-become-a-reseller.md")
-- [Request a service quota
-  increase for your reseller accounts](lightsail-resellers-request-quota-increase.md "lightsail-resellers-request-quota-increase.md")
+- [How Lightsail reseller benefits and increased default quotas apply to your accounts](#lightsail-resellers-how-accounts-benefit "#lightsail-resellers-how-accounts-benefit")
+- [How to become a Lightsail reseller](#lightsail-resellers-next-steps "#lightsail-resellers-next-steps")
+- [Become a Lightsail reseller](lightsail-resellers-become-a-reseller.md "lightsail-resellers-become-a-reseller.md")
+- [Request a service quota increase for your reseller accounts](lightsail-resellers-request-quota-increase.md "lightsail-resellers-request-quota-increase.md")
 - [Contact Lightsail as a reseller](lightsail-resellers-contact-lightsail.md "lightsail-resellers-contact-lightsail.md")
 
 ## Benefits of reselling Lightsail
@@ -44,9 +40,7 @@ features such as automated snapshots of your data, alarms with notifications
 for your resources that breach configured thresholds, and support for IPv6
 networking.
 
-## How Lightsail reseller
-
-benefits and increased default quotas apply to your accounts
+## How Lightsail reseller benefits and increased default quotas apply to your accounts
 
 Reseller benefits apply to the AWS account that you submit the request from. If your
 request is approved, you can request to add additional AWS accounts to have increased
@@ -78,10 +72,7 @@ The following diagram details what occurs when a new member account is added to 
 
 ![How Lightsail reseller benefits apply for new member accounts added in AWS Organizations.](images/lightsail-reseller-benefits-quotas-new-member-account-within-organization.png)
 
-## How to become a Lightsail
-
-reseller
+## How to become a Lightsail reseller
 
 To proceed, you’ll need to submit a form with details about your business needs to
-become a Lightsail reseller. For more information, see [Become a Lightsail
-reseller](lightsail-resellers-become-a-reseller.md "lightsail-resellers-become-a-reseller.md").
+become a Lightsail reseller. For more information, see [Become a Lightsail reseller](lightsail-resellers-become-a-reseller.md "lightsail-resellers-become-a-reseller.md").

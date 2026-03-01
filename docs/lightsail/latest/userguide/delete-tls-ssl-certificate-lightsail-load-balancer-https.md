@@ -1,6 +1,4 @@
-# Remove SSL/TLS
-
-certificates from a Lightsail load balancer
+# Remove SSL/TLS certificates from a Lightsail load balancer
 
 You can delete an SSL/TLS certificate that you're no longer using. For example, your
 certificate might be expired and you've already attached an updated certificate that's

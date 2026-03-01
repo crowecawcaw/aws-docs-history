@@ -1,6 +1,4 @@
-# Install Docker, AWS CLI, and the Lightsail
-
-Control plugin for containers
+# Install Docker, AWS CLI, and the Lightsail Control plugin for containers
 
 You can use the Amazon Lightsail console to create your Lightsail container services, and
 create deployments using container images from an online public registry, such as Amazon ECR Public
@@ -102,9 +100,7 @@ enhancements included with each version.
   adds functionality for the AWS CLI version 2 to push container images to a Lightsail
   container service.
 
-### Install the lightsailctl plugin on
-
-Windows
+### Install the lightsailctl plugin on Windows
 
 Complete the following procedure to install the lightsailctl plugin on Windows.
 
@@ -165,9 +161,7 @@ You are now ready to use the AWS Command Line Interface (AWS CLI) to push contai
 Lightsail container service. For more information, see [Push and manage container
 images](amazon-lightsail-pushing-container-images.md "amazon-lightsail-pushing-container-images.md").
 
-### Install the lightsailctl plugin on
-
-macOS
+### Install the lightsailctl plugin on macOS
 
 Complete one of the following procedures to download and install the lightsailctl plugin
 on macOS.
@@ -211,9 +205,7 @@ You are now ready to use the AWS CLI to push container images to your Lightsail
 container service. For more information, see [Push and manage container
 images](amazon-lightsail-pushing-container-images.md "amazon-lightsail-pushing-container-images.md").
 
-### Install the lightsailctl plugin on
-
-Linux
+### Install the lightsailctl plugin on Linux
 
 Complete the following procedure to install the Lightsail container services plugin on
 Linux.

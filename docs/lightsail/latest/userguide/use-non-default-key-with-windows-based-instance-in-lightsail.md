@@ -1,6 +1,4 @@
-# Change the
-
-Administrator password for Lightsail Windows instances
+# Change the Administrator password for Lightsail Windows instances
 
 When you create a Windows Server-based Lightsail instance, we use the default password for
 the AWS Region where we create the instance. This makes it easier to connect using the
@@ -13,18 +11,14 @@ We strongly encourage you to let Lightsail generate the password for your instan
 Since we don't store your custom password, you can risk losing access to your Lightsail
 instance if you change the Administrator password.
 
-## Change your Administrator password
-
-using Windows Server
+## Change your Administrator password using Windows Server
 
 You can change your Administrator password using the Windows Server **Change
 Password** tool. Type `Ctrl` + `Alt` + `Del` on
 your Windows Server-based Lightsail instance, and then choose **Change a
 password**.
 
-## Get the ciphertext for your
-
-Lightsail key pair using the AWS CLI
+## Get the ciphertext for your Lightsail key pair using the AWS CLI
 
 If you change your password on your Windows Server-based Lightsail instance, you can use
 the AWS Command Line Interface (AWS CLI) to get information that helps you decrypt your password.

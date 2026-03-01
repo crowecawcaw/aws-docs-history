@@ -1,6 +1,4 @@
-# Virtual
-
-private server instances in Lightsail
+# Virtual private server instances in Lightsail
 
 Your Lightsail instance is a virtual private server (also called a _virtual
 machine_). When you create your instance, you choose an image that has an operating

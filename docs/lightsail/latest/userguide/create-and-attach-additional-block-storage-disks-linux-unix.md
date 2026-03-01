@@ -1,6 +1,4 @@
-# Create and attach
-
-Lightsail block storage disks to Linux instances
+# Create and attach Lightsail block storage disks to Linux instances
 
 You can create and attach additional block storage disks for your Amazon Lightsail instances.
 After you create additional disks, you need to connect to your Linux/Unix-based Lightsail
@@ -13,9 +11,7 @@ mount your attached disk.
 If you have a Windows Server-based instance, see the following topic instead: [Create and
 attach block storage disks to your Windows Server instance](create-and-attach-additional-block-storage-disks-windows.md "create-and-attach-additional-block-storage-disks-windows.md").
 
-## Step 1: Create a new disk and
-
-attach it to your instance
+## Step 1: Create a new disk and attach it to your instance
 
 1. In the left navigation pane, choose **Storage**.
 2. Choose **Create disk**.
@@ -58,9 +54,7 @@ After a few seconds, your disk is created and you're on the new disk management
 page. 8. Choose your instance from the list, and then choose **Attach** to
 attach the new disk to your instance.
 
-## Step 2: Connect
-
-to your instance to format and mount the disk
+## Step 2: Connect to your instance to format and mount the disk
 
 1. After you create and attach your disk, go back to the instance management page in
    Lightsail.
@@ -273,9 +267,7 @@ applications can write to the disk. For more information about file permissions,
 [Making an Amazon EBS Volume Available for Use](../../../AWSEC2/latest/UserGuide/ebs-using-volumes.md "../../../AWSEC2/latest/UserGuide/ebs-using-volumes.md") in the _Amazon EC2 User
 Guide_.
 
-## Step 3: Mount the disk
-
-every time you reboot your instance
+## Step 3: Mount the disk every time you reboot your instance
 
 You probably want to mount this disk every time you reboot your Lightsail instance. If
 you don't, this step is optional for you.

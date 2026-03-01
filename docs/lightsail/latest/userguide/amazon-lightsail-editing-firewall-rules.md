@@ -1,6 +1,4 @@
-# Add firewall rules to Lightsail
-
-instances
+# Add firewall rules to Lightsail instances
 
 You can add rules to the IPv4 and IPv6 firewalls of your Amazon Lightsail instance to control
 the traffic that is allowed to connect to it. When you add a firewall rule, you can specify the

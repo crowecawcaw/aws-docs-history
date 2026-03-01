@@ -1,6 +1,4 @@
-# Create block storage
-
-disks from snapshots in Lightsail
+# Create block storage disks from snapshots in Lightsail
 
 You can create a new block storage disk from a disk snapshot. If you're creating an entirely
 new disk, see one of the following topics instead: [Create
@@ -14,9 +12,7 @@ though snapshots are saved incrementally, the snapshot deletion process is desig
 need to retain only the most recent snapshot to restore the entire disk. To create a snapshot of
 your block storage disk, see [Create a block storage disk snapshot](create-block-storage-disk-snapshot.md "create-block-storage-disk-snapshot.md").
 
-## Step 1: Find your disk
-
-snapshot and choose to create a new disk
+## Step 1: Find your disk snapshot and choose to create a new disk
 
 You can create a new instance from a disk snapshot in one of two places in Lightsail: on
 the **Snapshots** tab of the Lightsail home page, or on the
@@ -47,9 +43,7 @@ disk, and choose **Create new disk**.
 
 ![Use the actions menu to create a new disk from a snapshot](images/create-new-disk-from-snapshot-disk-management-page.png)
 
-## Step 2: Create a new disk from a disk
-
-snapshot
+## Step 2: Create a new disk from a disk snapshot
 
 1. Choose an Availability Zone for your new disk, or accept the default (`us-east-2a`).
 

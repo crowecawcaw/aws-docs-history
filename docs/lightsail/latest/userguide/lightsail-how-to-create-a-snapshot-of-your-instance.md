@@ -1,6 +1,4 @@
-# Back up Linux/Unix
-
-Lightsail instances with snapshots
+# Back up Linux/Unix Lightsail instances with snapshots
 
 You can create snapshots of your Linux/Unix-based Amazon Lightsail instances. An
 _instance snapshot_ is a copy of the system disk and matches the

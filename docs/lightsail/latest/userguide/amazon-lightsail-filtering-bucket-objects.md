@@ -1,14 +1,10 @@
-# Filter objects in Lightsail
-
-buckets by name prefix
+# Filter objects in Lightsail buckets by name prefix
 
 You can use filtering to find objects in your bucket in the Amazon Lightsail object storage
 service. In this guide, we show you how to filter objects using the Lightsail console, and the
 AWS Command Line Interface (AWS CLI). For more information about buckets, see [Object storage](buckets-in-amazon-lightsail.md "buckets-in-amazon-lightsail.md").
 
-## Filter objects using the Lightsail
-
-console
+## Filter objects using the Lightsail console
 
 Complete the following procedure to filter objects in a bucket using the Lightsail
 console.
@@ -72,9 +68,7 @@ You should see a result similar to the following example.
 
 ![Result of the AWS CLI list-objects-v2 command](images/amazon-lightsail-s3api-list-objects-v2-prefix-result.png)
 
-## Manage buckets and
-
-objects
+## Manage buckets and objects
 
 These are the general steps to manage your Lightsail object storage bucket:
 

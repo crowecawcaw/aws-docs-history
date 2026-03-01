@@ -1,6 +1,4 @@
-# Route domain traffic to a Lightsail
-
-instance
+# Route domain traffic to a Lightsail instance
 
 You can use the DNS zone in Amazon Lightsail to point a registered domain name, like
 **example.com**, to your website running on a Lightsail

@@ -12,9 +12,7 @@ instance. You can also connect to your instance from within the Lightsail consol
 browser. For more information, see [Connect to your
 Windows instance with the Microsoft Remote Desktop client](connect-to-your-windows-based-instance-using-amazon-lightsail.md "connect-to-your-windows-based-instance-using-amazon-lightsail.md").
 
-## Get the required connection information
-
-for your Windows instance
+## Get the required connection information for your Windows instance
 
 You will need the public IP address, user name, and administrator password for your
 Windows instance to connect to it using the Microsoft Remote Desktop client.
@@ -37,9 +35,7 @@ instance.
 ![The default administrator password.](images/amazon-lightsail-windows-default-admin-password.png) 7. Copy the administrator password. You will use it to sign in to your instance using the
 Microsoft Remote Desktop client later in this guide.
 
-## Configure Microsoft Remote
-
-Desktop and connect to your instance
+## Configure Microsoft Remote Desktop and connect to your instance
 
 Complete the following procedure to install the Microsoft Remote Desktop client on your
 Mac, and configure it to connect to your instance.

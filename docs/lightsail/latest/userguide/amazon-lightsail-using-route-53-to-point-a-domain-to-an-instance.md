@@ -1,6 +1,4 @@
-# Point a
-
-domain to your Lightsail instance using Amazon Route 53
+# Point a domain to your Lightsail instance using Amazon Route 53
 
 The DNS zone in Amazon Lightsail makes it easy to point a registered domain name, like
 `example.com`, to your website running on a Lightsail instance. You can create up
@@ -31,9 +29,7 @@ Complete the following prerequisites if you haven’t already done so:
   address (public IP address) of your instance. For more information, see [Create a static IP and attach it to an
   instance](lightsail-create-static-ip.md "lightsail-create-static-ip.md").
 
-## Point a domain to a
-
-Lightsail instance using Route 53
+## Point a domain to a Lightsail instance using Route 53
 
 Complete the following steps to configure the two most common DNS records, address and
 canonical name, in Route 53 to point your domain to a Lightsail instance.

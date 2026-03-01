@@ -1,6 +1,4 @@
-# Analyze bucket access logs with
-
-Amazon Athena in Lightsail
+# Analyze bucket access logs with Amazon Athena in Lightsail
 
 In this guide, we show you how to identify requests to a bucket using access logs. For more
 information, see [Bucket access
@@ -13,9 +11,7 @@ logs](amazon-lightsail-bucket-access-logs.md "amazon-lightsail-bucket-access-log
 - [Identify object access
   requests using Amazon S3 access logs](#identifying-object-access-requests "#identifying-object-access-requests")
 
-## Query access logs for requests using
-
-Amazon Athena
+## Query access logs for requests using Amazon Athena
 
 You can use Amazon Athena to query and identify requests to a bucket in access
 logs.
@@ -149,9 +145,7 @@ AND parse_datetime('2017-07-01','yyyy-MM-dd');
 
 ```
 
-## Identify object access requests using
-
-Amazon S3 access logs
+## Identify object access requests using Amazon S3 access logs
 
 You can use queries on access logs to identify object access requests, for operations such
 as _GET_, _PUT_, and _DELETE_, and

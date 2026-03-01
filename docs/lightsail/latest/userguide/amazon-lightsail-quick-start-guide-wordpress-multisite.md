@@ -1,6 +1,4 @@
-# Set up WordPress
-
-Multisite on Lightsail
+# Set up WordPress Multisite on Lightsail
 
 ###### Did you know?
 
@@ -38,9 +36,7 @@ Read the Bitnami documentation to learn how to configure your WordPress Multisit
 instance. For more information, see the [WordPress Multisite
 Packaged By Bitnami For AWS Cloud](https://docs.bitnami.com/aws/apps/wordpress-multisite/ "https://docs.bitnami.com/aws/apps/wordpress-multisite/").
 
-## Step 2: Get the default application password to access the WordPress administration
-
-dashboard
+## Step 2: Get the default application password to access the WordPress administration dashboard
 
 Complete the following procedure to get the default application password required to
 access the administration dashboard for your WordPress Multisite website. For more
@@ -64,9 +60,7 @@ dashboard of your WordPress Multisite website.
 
 ![Bitnami default application password.](images/amazon-lightsail-bitnami-application-password.png)
 
-## Step 3: Attach a
-
-static IP address to your instance
+## Step 3: Attach a static IP address to your instance
 
 The default dynamic public IP address attached to your instance changes every time you
 stop and start the instance. You can create a static IP address and attach it to your instance to
@@ -130,9 +124,7 @@ tool from automatically running every time the server restarts.
 sudo mv bnconfig bnconfig.disabled
 ```
 
-## Step 4: Sign in to the
-
-administration dashboard of your WordPress Multisite website
+## Step 4: Sign in to the administration dashboard of your WordPress Multisite website
 
 Now that you have the default application password, complete the following procedure
 to navigate to your WordPress Multisite website's home page, and sign in to the
@@ -163,9 +155,7 @@ The WordPress administration dashboard appears.
 
 ![The WordPress administration dashboard.](images/amazon-lightsail-wordpress-dashboard.png)
 
-## Step 5: Route traffic for your registered domain name to your WordPress Multisite
-
-website
+## Step 5: Route traffic for your registered domain name to your WordPress Multisite website
 
 To route traffic for your registered domain name, such as `example.com`, to
 your WordPress Multisite website, you add a record to the DNS of your domain. DNS
@@ -228,9 +218,7 @@ whether you want to add blogs as domains or as subdomains to your WordPress Mult
 website. For more information, continue to the next [Step 6: Add blogs as domains or subdomains to your WordPress Multisite
 website](#amazon-lightsail-add-blogs-as-domains-or-subdomains-wordpress-multisite "#amazon-lightsail-add-blogs-as-domains-or-subdomains-wordpress-multisite") section of this guide.
 
-## Step 6: Add blogs as domains or subdomains to your WordPress Multisite
-
-website
+## Step 6: Add blogs as domains or subdomains to your WordPress Multisite website
 
 WordPress Multisite is designed to host multiple blog websites on one instance of
 WordPress. When you add new blog websites to your WordPress Multisite, you can configure
@@ -247,16 +235,12 @@ following guides:
   such as `one.example.com` and `two.example.com`, see [Add blogs as subdomains to your WordPress Multisite instance in
   Lightsail](amazon-lightsail-add-blogs-as-subdomains-to-your-wordpress-multisite.md "amazon-lightsail-add-blogs-as-subdomains-to-your-wordpress-multisite.md").
 
-## Step 7: Read
-
-the WordPress Multisite documentation and continue configuring your website
+## Step 7: Read the WordPress Multisite documentation and continue configuring your website
 
 Read the WordPress Multisite documentation to learn how to administer and customize
 your website. For more information, see the [WordPress Multisite Network Administration Documentation](https://wordpress.org/support/article/multisite-network-administration/ "https://wordpress.org/support/article/multisite-network-administration/").
 
-## Step 8: Create
-
-a snapshot of your instance
+## Step 8: Create a snapshot of your instance
 
 After you configure your website the way you want it, create
 periodic snapshots of your instance to back it up. A snapshot is a copy of the system disk and original configuration of an instance. A

@@ -1,6 +1,4 @@
-# Getting started with virtual private servers on
-
-Lightsail
+# Getting started with virtual private servers on Lightsail
 
 In Lightsail, an instance is a virtual private server (also called a virtual machine).
 You create and manage Lightsail instances in the AWS Cloud. When you create an instance,
@@ -13,8 +11,7 @@ more information about pricing, see [Lightsail pricing](https://aws.amazon.com/l
 
 ###### Topics
 
-- [Step 1: Complete the
-  prerequisites](#getting-started-prerequisite "#getting-started-prerequisite")
+- [Step 1: Complete the prerequisites](#getting-started-prerequisite "#getting-started-prerequisite")
 - [Step 2: Create an instance](#getting-started-step2 "#getting-started-step2")
 - [Step 3: Connect to your instance](#getting-started-step3 "#getting-started-step3")
 - [Step 4: Add storage to your instance](#getting-started-step4 "#getting-started-step4")
@@ -23,20 +20,16 @@ more information about pricing, see [Lightsail pricing](https://aws.amazon.com/l
 - [Next steps](#getting-started-next-steps "#getting-started-next-steps")
 - [Using Amazon Lightsail with the AWS CLI](getstarted-awscli.md "getstarted-awscli.md")
 
-## Step 1: Complete the
-
-prerequisites
+## Step 1: Complete the prerequisites
 
 If you're a new AWS customer, complete the setup prerequisites before you start
-using Amazon Lightsail. For more information, see [Set up AWS account and administrative users for
-Lightsail](setting-up.md "setting-up.md").
+using Amazon Lightsail. For more information, see [Set up AWS account and administrative users for Lightsail](setting-up.md "setting-up.md").
 
 ## Step 2: Create an instance
 
 You can create an instance by using the [Lightsail console](https://lightsail.aws.amazon.com/ "https://lightsail.aws.amazon.com/") as described in the following procedure. This tutorial
 is intended to help you quickly launch your first instance. We also recommend exploring
-the available applications and hardware plans. For more information, see [Review the Lightsail
-instance blueprint offerings](compare-options-choose-lightsail-instance-image.md "compare-options-choose-lightsail-instance-image.md").
+the available applications and hardware plans. For more information, see [Review the Lightsail instance blueprint offerings](compare-options-choose-lightsail-instance-image.md "compare-options-choose-lightsail-instance-image.md").
 
 1. Sign in to the [Lightsail
    console](https://lightsail.aws.amazon.com/ "https://lightsail.aws.amazon.com/").
@@ -49,13 +42,11 @@ Choose **Change AWS Region and Availability Zone** to
 create your instance in another location. 4. You can pick an application (**Apps + OS**) or an operating
 system (**OS Only**).
 
-To learn more about Lightsail instance images, see [Review the Lightsail
-instance blueprint offerings](compare-options-choose-lightsail-instance-image.md "compare-options-choose-lightsail-instance-image.md"). 5. Choose your instance plan.
+To learn more about Lightsail instance images, see [Review the Lightsail instance blueprint offerings](compare-options-choose-lightsail-instance-image.md "compare-options-choose-lightsail-instance-image.md"). 5. Choose your instance plan.
 
 Choose whether your instance uses dual-stack (IPv4 and IPv6), or IPv6-only
 networking. Some Lightsail blueprints don't support IPv6-only networking at
-this time. To see which blueprints support IPv6-only networking see [Review the Lightsail
-instance blueprint offerings](compare-options-choose-lightsail-instance-image.md "compare-options-choose-lightsail-instance-image.md").
+this time. To see which blueprints support IPv6-only networking see [Review the Lightsail instance blueprint offerings](compare-options-choose-lightsail-instance-image.md "compare-options-choose-lightsail-instance-image.md").
 
 You can try the $5 USD Lightsail plan free for one month (up to 750 hours).
 We will credit one free month to your account. Learn more on our [Lightsail pricing
@@ -103,8 +94,7 @@ attach it to another instance.
 After you create an additional disk, you will need to connect to your Lightsail
 instance to format and mount the disk.
 
-For more information about creating, attaching, and managing a disk, see [Create and attach
-Lightsail block storage disks to Linux instances](create-and-attach-additional-block-storage-disks-linux-unix.md "create-and-attach-additional-block-storage-disks-linux-unix.md").
+For more information about creating, attaching, and managing a disk, see [Create and attach Lightsail block storage disks to Linux instances](create-and-attach-additional-block-storage-disks-linux-unix.md "create-and-attach-additional-block-storage-disks-linux-unix.md").
 
 To learn about backing up your virtual computer, continue to the next step of this
 tutorial.
@@ -116,8 +106,7 @@ instances and use them as baselines to create new instances or for data backup. 
 snapshot contains all of the data that's needed to restore your instance (from the
 moment when the snapshot was taken).
 
-For more information about creating and managing snapshots, see [Back up Linux/Unix
-Lightsail instances with snapshots](lightsail-how-to-create-a-snapshot-of-your-instance.md "lightsail-how-to-create-a-snapshot-of-your-instance.md").
+For more information about creating and managing snapshots, see [Back up Linux/Unix Lightsail instances with snapshots](lightsail-how-to-create-a-snapshot-of-your-instance.md "lightsail-how-to-create-a-snapshot-of-your-instance.md").
 
 To learn about cleaning up your virtual computer resources, continue to the next step
 of this tutorial.
@@ -139,8 +128,7 @@ pricing](https://aws.amazon.com/lightsail/pricing "https://aws.amazon.com/lights
 
 Deleting a Lightsail resource is a permanent action. The deleted data cannot be
 recovered. If you might need the data later, create a snapshot of your virtual
-computer before you delete it. For more information, see [Back up Linux/Unix
-Lightsail instances with snapshots](lightsail-how-to-create-a-snapshot-of-your-instance.md "lightsail-how-to-create-a-snapshot-of-your-instance.md").
+computer before you delete it. For more information, see [Back up Linux/Unix Lightsail instances with snapshots](lightsail-how-to-create-a-snapshot-of-your-instance.md "lightsail-how-to-create-a-snapshot-of-your-instance.md").
 
 1. Sign in to the [Lightsail
    console](https://lightsail.aws.amazon.com/ "https://lightsail.aws.amazon.com/").
@@ -155,7 +143,5 @@ Lightsail instances with snapshots](lightsail-how-to-create-a-snapshot-of-your-i
 Use the following topics to get started with Amazon Lightsail Linux and Windows based
 instances.
 
-- [Create Linux/Unix instances with apps on
-  Lightsail](getting-started-with-amazon-lightsail.md "getting-started-with-amazon-lightsail.md")
-- [Create Windows Server
-  instances in Lightsail](get-started-with-windows-based-instances-in-lightsail.md "get-started-with-windows-based-instances-in-lightsail.md")
+- [Create Linux/Unix instances with apps on Lightsail](getting-started-with-amazon-lightsail.md "getting-started-with-amazon-lightsail.md")
+- [Create Windows Server instances in Lightsail](get-started-with-windows-based-instances-in-lightsail.md "get-started-with-windows-based-instances-in-lightsail.md")

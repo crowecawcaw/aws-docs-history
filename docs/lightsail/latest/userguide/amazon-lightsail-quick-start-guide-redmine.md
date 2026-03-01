@@ -1,6 +1,4 @@
-# Configure and secure a Redmine
-
-instance on Lightsail
+# Configure and secure a Redmine instance on Lightsail
 
 ###### Did you know?
 
@@ -34,16 +32,12 @@ running on Amazon Lightsail:
 - [Step 8:
   Create a snapshot of your instance](#amazon-lightsail-create-a-snapshot-redmine "#amazon-lightsail-create-a-snapshot-redmine")
 
-## Step 1: Read
-
-the Bitnami documentation
+## Step 1: Read the Bitnami documentation
 
 Read the Bitnami documentation to learn how to configure your Redmine application. For
 more information, see the [Redmine Packaged By Bitnami For AWS Cloud](https://docs.bitnami.com/aws/apps/redmine/ "https://docs.bitnami.com/aws/apps/redmine/").
 
-## Step 2: Get the
-
-default application password to access the Redmine administration dashboard
+## Step 2: Get the default application password to access the Redmine administration dashboard
 
 Complete the following procedure to get the default application password required to
 access the administration dashboard for your Redmine website. For more information, see
@@ -65,9 +59,7 @@ default application password:
 
 ![Bitnami default application password.](images/amazon-lightsail-bitnami-application-password.png)
 
-## Step 3: Attach a static IP
-
-address to your instance
+## Step 3: Attach a static IP address to your instance
 
 The default dynamic public IP address attached to your instance changes every time you
 stop and start the instance. You can create a static IP address and attach it to your instance to
@@ -83,9 +75,7 @@ instance](lightsail-create-static-ip.md "lightsail-create-static-ip.md").
 
 ![Attach static IP address in the Lightsail console](images/quick-start-static-ip-address.png)
 
-## Step 4: Sign in to the administration
-
-dashboard of your Redmine website
+## Step 4: Sign in to the administration dashboard of your Redmine website
 
 Now that you have the default application password, complete the following procedure
 to navigate to your Redmine website's home page, and sign in to the administration
@@ -116,9 +106,7 @@ The Redmine administration dashboard appears.
 
 ![The Redmine administration dashboard](images/amazon-lightsail-redmine-dashboard.png)
 
-## Step 5:
-
-Route traffic for your registered domain name to your Redmine website
+## Step 5: Route traffic for your registered domain name to your Redmine website
 
 To route traffic for your registered domain name, such as `example.com`, to
 your Redmine website, you add a record to the DNS of your domain. DNS records are
@@ -137,9 +125,7 @@ configure an SSL/TLS certificate to enable HTTPS connections for your Redmine we
 For more information, continue to the next [Step 6: Configure HTTPS for your Redmine
 website](#amazon-lightsail-https-redmine "#amazon-lightsail-https-redmine") section of this guide.
 
-## Step 6: Configure HTTPS for your
-
-Redmine website
+## Step 6: Configure HTTPS for your Redmine website
 
 Complete the following procedure to configure HTTPS on your Redmine website. These
 steps show you how to use the Bitnami HTTPS Configuration Tool
@@ -265,7 +251,7 @@ press **Enter**.
 ![Associating your email address with your Let's Encrypt certificate](images/bncert-email-address.png) 12. Review the Let's Encrypt Subscriber Agreement. Type `Y` and press
 **Enter** to accept the agreement and continue.
 
-![Review the Let's Encrypt subscriber agreement](/images/lightsail/latest/userguide/images/bncert-lets-ecrypt-agreement.png)
+![Review the Let's Encrypt subscriber agreement](images/bncert-lets-ecrypt-agreement.png)
 
 The actions are performed to enable HTTPS on your instance, including
 requesting the certificate and configuring the redirections you
@@ -277,7 +263,7 @@ Your certificate is successfully issued and validated, and the redirections
 are successfully configured on your instance if you see a message similar to the
 following example.
 
-![Actions successfully completed](/images/lightsail/latest/userguide/images/bncert-success-conf.png)
+![Actions successfully completed](images/bncert-success-conf.png)
 
 The `bncert` tool will perform an automatic renewal of your
 certificate every 80 days before it expires. Repeat the above steps if you wish
@@ -288,17 +274,13 @@ You are now done enabling HTTPS on your Redmine instance. Next time you browse
 to your Redmine website using the domain you configured, you should see that it
 redirects to the HTTPS connection.
 
-## Step 7: Read the Redmine
-
-documentation and continue configuring your website
+## Step 7: Read the Redmine documentation and continue configuring your website
 
 Read the Redmine documentation to learn how to administer and customize your website.
 For more information, see the [Redmine
 guide](https://www.redmine.org/guide "https://www.redmine.org/guide").
 
-## Step 8: Create a snapshot
-
-of your instance
+## Step 8: Create a snapshot of your instance
 
 After you configure your Redmine website the way you want it, create periodic
 snapshots of your instance to back it up. You can create snapshots manually, or enable

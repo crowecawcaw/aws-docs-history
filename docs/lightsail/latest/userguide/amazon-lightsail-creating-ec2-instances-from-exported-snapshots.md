@@ -1,6 +1,4 @@
-# Create Amazon EC2
-
-instances from exported Lightsail snapshots
+# Create Amazon EC2 instances from exported Lightsail snapshots
 
 After a Lightsail instance snapshot is exported and available in Amazon EC2 (as an AMI and an
 EBS snapshot), you can create an Amazon EC2 instance from the snapshot using the **Create an
@@ -106,9 +104,7 @@ page:
 Export a Lightsail instance snapshot to Amazon EC2. For more information, see [Export snapshots to
 Amazon EC2](amazon-lightsail-exporting-snapshots-to-amazon-ec2.md "amazon-lightsail-exporting-snapshots-to-amazon-ec2.md").
 
-## Access the Create an Amazon EC2 instance page
-
-in the Lightsail console
+## Access the Create an Amazon EC2 instance page in the Lightsail console
 
 The **Create an Amazon EC2 instance** page in the Lightsail console can be
 accessed from the task monitor only after an instance snapshot is successfully exported to
@@ -251,8 +247,7 @@ from the same exported snapshot.
 ## Track the status of your new Amazon EC2 instance
 
 Use the **Exports** section in the Lightsail console to track the
-status of your EC2 instance. For more information, see [Track snapshot export status in
-Lightsail](amazon-lightsail-task-monitor.md "amazon-lightsail-task-monitor.md").
+status of your EC2 instance. For more information, see [Track snapshot export status in Lightsail](amazon-lightsail-task-monitor.md "amazon-lightsail-task-monitor.md").
 
 The following information is displayed for EC2 instances being created:
 

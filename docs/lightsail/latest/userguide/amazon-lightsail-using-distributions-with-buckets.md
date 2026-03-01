@@ -1,6 +1,4 @@
-# Serve media files
-
-efficiently with a Lightsail bucket and CDN distribution
+# Serve media files efficiently with a Lightsail bucket and CDN distribution
 
 This tutorial describes the steps required to configure your Amazon Lightsail bucket as the
 origin of a Lightsail content delivery network (CDN) distribution. It also describes how to
@@ -42,9 +40,7 @@ Complete the following prerequisites if you haven't already:
   [Creating buckets in
   Lightsail](amazon-lightsail-creating-buckets.md "amazon-lightsail-creating-buckets.md").
 
-## Step 2: Modify your bucket
-
-permissions
+## Step 2: Modify your bucket permissions
 
 Complete the following procedure to give your WordPress instance and the WP Offload Media
 Lite plugin access to your bucket. The permissions of your bucket must be set to
@@ -81,9 +77,7 @@ choose **Attach**.
 After a few moments, your WordPress instance is attached to your bucket. This gives
 your WordPress instance access to manage your bucket and its objects.
 
-## Step 3: Create a distribution with a bucket
-
-as the origin
+## Step 3: Create a distribution with a bucket as the origin
 
 Complete the following procedure to create a Lightsail distribution and choose your
 Lightsail bucket as the origin.
@@ -132,9 +126,7 @@ Your distribution is created after a few moments. When your new distribution rea
 an **Enabled** state, it is ready to serve and cache objects that are in
 your bucket.
 
-## Step 4: Enable a custom subdomain for
-
-your distribution
+## Step 4: Enable a custom subdomain for your distribution
 
 When you create your distribution, it is configured with a default domain that is similar
 to `123abc.cloudfront.net`. You can specify that default domain as the source of
@@ -163,9 +155,7 @@ Complete the following steps to configure a custom domain for your distribution:
    visit your domain are routed through your distribution. For more information, see [Point your domain to a
    distribution](amazon-lightsail-point-domain-to-distribution.md "amazon-lightsail-point-domain-to-distribution.md").
 
-## Step 5: Install the WP Offload Media
-
-Lite plugin on your WordPress website
+## Step 5: Install the WP Offload Media Lite plugin on your WordPress website
 
 Complete the following procedure to install the WP Offload Media Lite plugin on your
 WordPress website. This plugin automatically copies images, videos, documents, and any other
@@ -241,9 +231,7 @@ you upload a media file through WordPress, that file is automatically uploaded t
 Lightsail bucket, and is served by the distribution. To test the configuration, continue
 to the next section of this tutorial.
 
-## Step 6: Test the connection between your
-
-WordPress website and your Lightsail bucket and distribution
+## Step 6: Test the connection between your WordPress website and your Lightsail bucket and distribution
 
 Complete the following procedure to upload a media file to your WordPress instance and
 confirm that it is uploaded to your Lightsail bucket and is served from your
@@ -273,9 +261,7 @@ the Offload Media Lite plugin, and is used to store your uploaded media files.
 
 ![The wp-content folder in a bucket](images/amazon-lightsail-bucket-objects-wp-content-folder.png)
 
-## Manage buckets and
-
-objects
+## Manage buckets and objects
 
 These are the general steps to manage your Lightsail object storage bucket:
 

@@ -1,6 +1,4 @@
-# Secure Amazon EC2
-
-instances launched from Lightsail snapshots
+# Secure Amazon EC2 instances launched from Lightsail snapshots
 
 Amazon Lightsail, and Amazon Elastic Compute Cloud (Amazon EC2), use public–key cryptography to encrypt and decrypt
 login information. Public–key cryptography uses a public key to encrypt a piece of data, such as
@@ -62,9 +60,7 @@ PuTTYgen_ section of this guide to create a public key.
 
 ![Create key pairs in the Amazon EC2 console.](images/amazon-lightsail-ec2-console-create-key-pair.png)
 
-## Create the public key using
-
-PuTTYgen
+## Create the public key using PuTTYgen
 
 PuTTYgen is a tool that is included with PuTTY. Use PuTTYgen to generate the public key
 text that you add to your instance later in this guide.
@@ -102,9 +98,7 @@ text; you will need it later in this guide.
 ![PuTTY key generator.](images/amazon-lightsail-putty-key-generator.png) 6. Continue to the [Connect to your Linux or Unix instance in Amazon EC2](#connect-to-your-linux-or-unix-instance-in-amazon-ec2 "#connect-to-your-linux-or-unix-instance-in-amazon-ec2") section of this
 guide to connect to your EC2 instance and add the public key.
 
-## Connect to your Linux
-
-or Unix instance in Amazon EC2
+## Connect to your Linux or Unix instance in Amazon EC2
 
 Connect to your Linux or Unix instance in Amazon EC2 using SSH to remove the Lightsail
 default key and system key. For more information, see [Connect to a Linux
@@ -113,9 +107,7 @@ or Unix instance in Amazon EC2 created from an Amazon Lightsail snapshot](amazon
 Continue to the [Add the public key to your instance and test the connection](#add-the-public-key-to-your-instance-and-test "#add-the-public-key-to-your-instance-and-test") section of this guide
 after you’re connected to your instance in Amazon EC2.
 
-## Add the public key to your
-
-instance and test the connection
+## Add the public key to your instance and test the connection
 
 Public key content is saved in the `~/.ssh/authorized_keys` file on Linux and
 Unix instances. Edit the file to remove and replace the Lightsail default key from your
@@ -189,9 +181,7 @@ The Lightsail default key is now removed from your instance. Your instance will 
 refuse connections that use the Lightsail default key. Continue to the [Remove the Lightsail
 system key](#remove-the-lightsail-system-ssh-key "#remove-the-lightsail-system-ssh-key") section of this guide to remove the Lightsail system key.
 
-## Remove the Lightsail system
-
-key
+## Remove the Lightsail system key
 
 The Lightsail system key, also known as the `lightsail_instance_ca.pub` key,
 on Linux and Unix instances enables the Lightsail browser-based SSH client to connect.

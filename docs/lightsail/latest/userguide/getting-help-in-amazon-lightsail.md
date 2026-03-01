@@ -1,12 +1,8 @@
-# Find helpful resources for
-
-Lightsail
+# Find helpful resources for Lightsail
 
 In Amazon Lightsail, you can find help in several ways.
 
-## Context-sensitive
-
-help panel
+## Context-sensitive help panel
 
 Lightsail has a context-sensitive **Help** panel on each page of the
 console with additional tips and information that are specific to the page you're on. Open the

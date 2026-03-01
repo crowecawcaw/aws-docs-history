@@ -1,6 +1,4 @@
-# Identify when your Lightsail instance
-
-bursts
+# Identify when your Lightsail instance bursts
 
 ###### Did you know?
 

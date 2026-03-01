@@ -13,9 +13,7 @@ because they run Debian as their operating system. FreeBSD and openSUSE require 
 user configuration to use custom tools such as `freebsd-update` or
 `zypper` (openSUSE).
 
-## Example: Configure an
-
-Ubuntu server to install Node.js
+## Example: Configure an Ubuntu server to install Node.js
 
 The following example updates the package list and then installs Node.js through the
 `apt-get` command.
@@ -37,9 +35,7 @@ apt-get install nodejs -y
 Commands you send to configure your server are run as root, so you don't need to
 include `sudo` before your commands. 4. Choose **Create instance**.
 
-## Example: Configure a WordPress
-
-server to download and install a plugin
+## Example: Configure a WordPress server to download and install a plugin
 
 The following example updates the package list, and then downloads and installs the
 [BuddyPress plugin](https://wordpress.org/plugins/buddypress/ "https://wordpress.org/plugins/buddypress/") for

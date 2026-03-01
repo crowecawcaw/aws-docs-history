@@ -1,6 +1,4 @@
-# Upload
-
-files to a Lightsail bucket with multipart upload
+# Upload files to a Lightsail bucket with multipart upload
 
 With multipart upload, you can upload a single file to your bucket as a set of parts. Each
 part is a contiguous portion of the file's data. You can upload these file parts independently
@@ -139,9 +137,7 @@ result of this listing when sending a complete multipart upload request. Ins
 your own list of the part numbers you specified when uploading parts and the corresponding
 ETag values that Amazon Simple Storage Service returns.
 
-## Concurrent multipart upload
-
-operations
+## Concurrent multipart upload operations
 
 In a distributed development environment, it is possible for your application to initiate
 several updates on the same object at the same time. Your application might initiate several
@@ -188,9 +184,7 @@ into multiple parts that you then upload to your bucket. There are similar free-
 applications that you can use on the Windows operating system to split a file. After you split
 the file into multiple parts, continue to the [Initiate a multipart upload](#initiate-multipart-upload "#initiate-multipart-upload") section of this guide.
 
-## Initiate a multipart upload using the
-
-AWS CLI
+## Initiate a multipart upload using the AWS CLI
 
 Complete the following procedure to initiate a multipart upload using the AWS Command Line Interface
 (AWS CLI). You do this by using the `create-multipart-upload` command. For more
@@ -282,9 +276,7 @@ covered later in this guide.
 
 ![Result of the upload-part command](images/amazon-lightsail-s3api-upload-part-result.png)
 
-## List parts of a multipart upload using the
-
-AWS CLI
+## List parts of a multipart upload using the AWS CLI
 
 Complete the following procedure to list parts of a multipart upload using the AWS Command Line Interface
 (AWS CLI). You do this by using the `list-parts` command. For more information,
@@ -332,9 +324,7 @@ multipart upload. Copy these values to your clipboard, and continue to the [Crea
 
 ![Result of the list-parts command](images/amazon-lightsail-s3api-list-parts-result.png)
 
-## Create a multipart upload .json
-
-file
+## Create a multipart upload .json file
 
 Complete the following procedure to create a multipart upload .json file that defines all
 of the parts you uploaded and their `ETag` values. This is required later in this
@@ -351,9 +341,7 @@ The result should look like the following example.
 the [Complete a multipart upload
 using the AWS CLI](#complete-multipart-upload "#complete-multipart-upload") section of this guide.
 
-## Complete a multipart upload using the AWS
-
-CLI
+## Complete a multipart upload using the AWS CLI
 
 Complete the following procedure to complete a multipart upload using the AWS Command Line Interface
 (AWS CLI). You do this by using the `complete-multipart-upload` command. For more
@@ -394,9 +382,7 @@ bucket.
 
 ![Result of the complete-multipart-upload command](images/amazon-lightsail-s3api-complete-multipart-upload-result.png)
 
-## List multipart uploads for a bucket using the AWS
-
-CLI
+## List multipart uploads for a bucket using the AWS CLI
 
 Complete the following procedure to list all multipart uploads for a bucket using the
 AWS Command Line Interface (AWS CLI). You do this by using the `list-multipart-uploads` command. For

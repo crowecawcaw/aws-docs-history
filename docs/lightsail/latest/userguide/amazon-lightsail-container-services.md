@@ -1,6 +1,4 @@
-# Deploy and manage containers on
-
-Amazon Lightsail
+# Deploy and manage containers on Amazon Lightsail
 
 An Amazon Lightsail container service is a highly scalable compute and networking resource on
 which you can deploy, run, and manage containers. A container is a standard unit of software
@@ -65,9 +63,7 @@ more time focusing on the code.
 For more information about containers, and container images, see [What is a Container?](https://www.docker.com/resources/what-container "https://www.docker.com/resources/what-container") in the
 _Docker documentation_.
 
-## Lightsail container service
-
-elements
+## Lightsail container service elements
 
 The following are the key elements of Lightsail container services that you should
 understand before getting started.
@@ -82,9 +78,7 @@ Lightsail container services](amazon-lightsail-deleting-container-services.md "a
 
 ![Lightsail container service diagram](images/amazon-lightsail-container-service-diagram.png)
 
-### Container service capacity (scale and
-
-power)
+### Container service capacity (scale and power)
 
 You must choose the following capacity parameters when you first create your container
 service:
@@ -229,9 +223,7 @@ You will see output similar to the following:
 }
 ```
 
-### Public endpoints and default
-
-domains
+### Public endpoints and default domains
 
 When you create a deployment, you can specify the container entry in the deployment that
 will serve as the public endpoint of your container service. The application on the public
@@ -276,9 +268,7 @@ service named `container-service-1`, and you specify a Redis container with port
 `6379` open, then you should format the domain of your request as
 ``container-service-1`.service.local:`6379``.
 
-### Custom domains and SSL/TLS
-
-certificates
+### Custom domains and SSL/TLS certificates
 
 You can use up to 4 of your custom domains with your container service instead of using
 the default domain. For example, you can direct traffic for your custom domain, such as
@@ -308,17 +298,13 @@ over-utilization. You can also monitor metrics to help you determine if your ser
 under-provisioned or over-provisioned. For more information, see [View container service
 metrics](amazon-lightsail-viewing-container-services-metrics.md "amazon-lightsail-viewing-container-services-metrics.md").
 
-## Use Lightsail container
-
-services
+## Use Lightsail container services
 
 The following are the general steps to manage your Lightsail container service and
 either push images from your local machine to your service or use container images from a
 public registry.
 
-###### To manage your Lightsail container service and use container images in your
-
-deployment
+###### To manage your Lightsail container service and use container images in your deployment
 
 1. Create your container service in your Lightsail account. For more information, see
    [Create Lightsail

@@ -1,6 +1,4 @@
-# Create and manage container
-
-service deployments in Lightsail
+# Create and manage container service deployments in Lightsail
 
 Create a deployment when you're ready to launch containers on your Amazon Lightsail
 container service. A deployment is a set of specifications for the containers that you wish to
@@ -275,9 +273,7 @@ View the container logs of the failed deployment to diagnose and troubleshoot wh
 wrong. For more information, see [Viewing the container
 logs of your Amazon Lightsail container services](amazon-lightsail-viewing-container-service-container-logs.md "amazon-lightsail-viewing-container-service-container-logs.md").
 
-## View your current container service
-
-deployment
+## View your current container service deployment
 
 Complete the following procedure to view the current deployment on your Lightsail
 container service.
@@ -293,9 +289,7 @@ The **Deployments** page lists your current deployment and deployment
 versions. Both sections of the page are empty if you haven't created a deployment in your
 container service.
 
-## Create or modify your container
-
-service deployment
+## Create or modify your container service deployment
 
 Complete the following procedure to create or modify a deployment on your Lightsail
 container service. Whether you create a new deployment or modify an existing one, your

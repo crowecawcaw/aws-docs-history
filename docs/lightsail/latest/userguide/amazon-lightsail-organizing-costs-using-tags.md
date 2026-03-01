@@ -1,6 +1,4 @@
-# Organize Lightsail resource
-
-costs using tags
+# Organize Lightsail resource costs using tags
 
 You can use tags in Amazon Lightsail to organize your AWS billing to reflect your own cost
 structure. To do this, add key-value tags to your Lightsail resources. Then activate those
@@ -34,18 +32,14 @@ allocation:
 
 ![Key-value tags for cost allocation.](images/amazon-lightsail-key-value-tags-for-cost-allocation.png)
 
-## Step 2: Activate user-defined
-
-cost allocation tags
+## Step 2: Activate user-defined cost allocation tags
 
 After you add the necessary tags to your Lightsail resources, activate them for cost
 allocation in the Billing and Cost Management console. For example, if you created a “Cost center” key tag, then
 activate that key tag in the Billing and Cost Management console to generate cost-allocation reports for that tag.
 For more information, see [Activating user-defined cost allocation tags](../../../awsaccountbilling/latest/aboutv2/activating-tags.md "../../../awsaccountbilling/latest/aboutv2/activating-tags.md") in the AWS Billing and Cost Management documentation.
 
-## Step 3: Set up the cost allocation report, and
-
-view it
+## Step 3: Set up the cost allocation report, and view it
 
 The monthly cost allocation report lists the AWS usage for your account by product
 category and linked account user. The report contains the same line items as your detailed

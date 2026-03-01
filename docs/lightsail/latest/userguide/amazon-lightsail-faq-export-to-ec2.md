@@ -1,6 +1,4 @@
-# Export Lightsail resources to Amazon Elastic Compute Cloud
-
-(Amazon EC2)
+# Export Lightsail resources to Amazon Elastic Compute Cloud (Amazon EC2)
 
 ## What is export to Amazon EC2?
 
@@ -9,9 +7,7 @@ instance in Amazon EC2. When you export to Amazon EC2, you can pick among the wi
 types, configurations, and pricing models that Amazon EC2 offers, and have even more fine-tuned
 control over your networking, storage, and compute environment.
 
-## Why would I want to export to
-
-Amazon EC2?
+## Why would I want to export to Amazon EC2?
 
 Lightsail offers you an easy way to run and scale a wide set of cloud-based
 applications, at a bundled, predictable, and low price. Lightsail also automatically sets
@@ -45,17 +41,13 @@ pricing for your new instance and resources. Lightsail resources that continue t
 your Lightsail account will continue to be billed at their regular rates until they are
 deleted.
 
-## Can I export managed databases or disk
-
-snapshots?
+## Can I export managed databases or disk snapshots?
 
 The export feature allows you to export manual Lightsail disk snapshots but doesn't
 currently support manual snapshots of managed databases. Disk snapshots can be rehydrated as
 Amazon EBS volumes from the Amazon EC2 console or API.
 
-## What Lightsail resources can I
-
-export?
+## What Lightsail resources can I export?
 
 The Lightsail export to Amazon EC2 feature is designed to support the export of Linux and
 Windows instance snapshots to Amazon EC2. It also supports the export of block storage disk

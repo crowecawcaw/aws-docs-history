@@ -1,6 +1,4 @@
-# Connect to your Lightsail
-
-Linux instance with PuTTY
+# Connect to your Lightsail Linux instance with PuTTY
 
 You can use an SSH client like PuTTY to connect to your Amazon Lightsail instance. PuTTY
 requires a copy of your private SSH key. You might already have a key, or you might want to use
@@ -26,9 +24,7 @@ your Linux or Unix instance in Amazon Lightsail](lightsail-how-to-connect-to-you
   information, see [Create a static
   IP and attach it to an instance](lightsail-create-static-ip.md "lightsail-create-static-ip.md").
 
-## Step 1: Download and install
-
-PuTTY
+## Step 1: Download and install PuTTY
 
 PuTTY is a free implementation of SSH for Windows. Learn more about PuTTY on the [PuTTY website](http://www.chiark.greenend.org.uk/~sgtatham/putty/ "http://www.chiark.greenend.org.uk/~sgtatham/putty/"), including
 restrictions related to countries where encryption isn't allowed. If you already have PuTTY,
@@ -41,9 +37,7 @@ If you need help deciding which download to choose, see the [PuTTY
 documentation](http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html "http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html"). We recommend using the latest version. 2. Go on to **Step 2** to get your private key before you configure
 PuTTY.
 
-## Step 2: Get your private key
-
-ready
+## Step 2: Get your private key ready
 
 You have several options for getting your private key. You might want to use the default
 private key that Lightsail generates, you might want to have Lightsail create a new
@@ -89,9 +83,7 @@ use:
 We also recommend that you set permissions for the file so that no one else can read
 it.
 
-## Step 3: Configure PuTTYgen with
-
-your Lightsail private key
+## Step 3: Configure PuTTYgen with your Lightsail private key
 
 Now that you have a copy of your `.pem` key file, you can set up PuTTY using
 the PuTTY Key Generator (PuTTYgen).
@@ -114,9 +106,7 @@ If you choose to create a passphrase as an extra measure of security, remember y
 will need to enter it every time you connect to your instance using PuTTY. 5. Specify a name and a location to save your private key, and then choose
 **Save**. 6. Close PuTTYgen.
 
-## Step 4: Finish configuring PuTTY
-
-with your private key and instance information
+## Step 4: Finish configuring PuTTY with your private key and instance information
 
 You're almost there! Hang on while we make one last change.
 

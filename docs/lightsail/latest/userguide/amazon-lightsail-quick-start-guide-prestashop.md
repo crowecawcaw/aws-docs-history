@@ -1,6 +1,4 @@
-# Set up a PrestaShop website on
-
-Lightsail
+# Set up a PrestaShop website on Lightsail
 
 ###### Did you know?
 
@@ -29,9 +27,7 @@ and running on Amazon Lightsail.
 - [Step 8:
   Create a snapshot of your PrestaShop instance](#amazon-lightsail-prestashop-create-a-snapshot "#amazon-lightsail-prestashop-create-a-snapshot")
 
-## Step 1: Get the
-
-default application password for your PrestaShop website
+## Step 1: Get the default application password for your PrestaShop website
 
 Complete the following steps to get the default application password for your PrestaShop
 website.
@@ -57,9 +53,7 @@ For more information, see [Getting the
 application user name and password for your Bitnami instance in
 Amazon Lightsail](log-in-to-your-bitnami-application-running-on-amazon-lightsail.md "log-in-to-your-bitnami-application-running-on-amazon-lightsail.md").
 
-## Step 2: Attach a static IP
-
-address to your PrestaShop instance
+## Step 2: Attach a static IP address to your PrestaShop instance
 
 The default dynamic public IP address attached to your instance changes every time you
 stop and start the instance. You can create a static IP address and attach it to your instance to
@@ -109,9 +103,7 @@ PrestaShop does not currently support IPv6 addresses. You can enable IPv6 for th
 instance, but the PrestaShop software will not respond to requests over the IPv6
 network.
 
-## Step 3: Sign in to the administration
-
-dashboard of your PrestaShop website
+## Step 3: Sign in to the administration dashboard of your PrestaShop website
 
 Complete the following step to access your PrestaShop website and sign in to its
 administration dashboard. To sign in, you will use the default user name
@@ -156,9 +148,7 @@ For more information about the administration dashboard, see For more informatio
 [User Guide
 PrestaShop](https://docs.prestashop-project.org/1.7-documentation/user-guide "https://docs.prestashop-project.org/1.7-documentation/user-guide") in the _PrestaShop documentation_.
 
-## Step 4: Route
-
-traffic for your registered domain name to your PrestaShop website
+## Step 4: Route traffic for your registered domain name to your PrestaShop website
 
 To route traffic for your registered domain name, such as `example.com`, to
 your PrestaShop website, you add a record to the domain name system (DNS) of your domain. DNS
@@ -198,9 +188,7 @@ should now be aware of the domain name.
 
 ![Result of the domain configuration tool](images/prestashop-quick-start-configure-domain.png)
 
-## Step 5: Configure HTTPS for your
-
-PrestaShop website
+## Step 5: Configure HTTPS for your PrestaShop website
 
 Complete the following steps to configure HTTPS on your PrestaShop website. These steps
 show you how to use the Bitnami HTTPS configuration tool (bncert), which is a command line
@@ -317,9 +305,7 @@ version (e.g., `http://www.example.com`) of your PrestaShop website, they will
 be automatically redirected to the HTTPS version (e.g.,
 `https://www.example.com`).
 
-## Step 6: Configure SMTP for email
-
-notifications
+## Step 6: Configure SMTP for email notifications
 
 Configure the SMTP settings of your PrestaShop website to enable email notifications for
 it. To do so, sign in to the administration dashboard of your PrestaShop website. Choose
@@ -345,9 +331,7 @@ must use an app password instead of using the standard password that you use to 
 Gmail. For more information, see [Sign in with App
 Passwords](https://support.google.com/accounts/answer/185833?hl=en "https://support.google.com/accounts/answer/185833?hl=en").
 
-## Step 7: Read the
-
-Bitnami and PrestaShop documentation
+## Step 7: Read the Bitnami and PrestaShop documentation
 
 Read the Bitnami documentation to learn how to perform administrative tasks on your
 PrestaShop instance and website, such as install plugins and customize the theme. For more
@@ -358,9 +342,7 @@ You should also read the PrestaShop documentation to learn how to administer you
 PrestaShop website. For more information, see the [User Guide
 PrestaShop](https://docs.prestashop-project.org/1.7-documentation/user-guide "https://docs.prestashop-project.org/1.7-documentation/user-guide") in the _PrestaShop documentation_.
 
-## Step 8: Create a snapshot of
-
-your PrestaShop instance
+## Step 8: Create a snapshot of your PrestaShop instance
 
 After you configure your website the way you want it, create
 periodic snapshots of your instance to back it up. A snapshot is a copy of the system disk and original configuration of an instance. A

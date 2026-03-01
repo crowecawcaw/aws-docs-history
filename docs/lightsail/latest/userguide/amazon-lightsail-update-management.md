@@ -1,6 +1,4 @@
-# Keep Lightsail instances and containers
-
-secure with update management
+# Keep Lightsail instances and containers secure with update management
 
 Amazon Web Services (AWS), Amazon Lightsail, and third-party application vendors periodically update
 and patch the instance images (also known as _blueprints_) that are available

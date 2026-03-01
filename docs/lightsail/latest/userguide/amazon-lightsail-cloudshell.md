@@ -1,6 +1,4 @@
-# Manage Lightsail resources with
-
-AWS CloudShell
+# Manage Lightsail resources with AWS CloudShell
 
 AWS CloudShell is a browser-based, pre-authenticated shell that you can launch directly from the
 Amazon Lightsail console. You can use CloudShell to manage your Lightsail resources from the

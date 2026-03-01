@@ -1,6 +1,4 @@
-# Delete access keys for a Lightsail object
-
-storage bucket
+# Delete access keys for a Lightsail object storage bucket
 
 Access keys are a set of credentials that grant full access to a bucket and its objects.
 Access keys consist of an access key ID and a secret access key as a set. If your secret

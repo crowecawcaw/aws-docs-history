@@ -1,6 +1,4 @@
-# Transfer
-
-WordPress data to a MySQL managed database in Lightsail
+# Transfer WordPress data to a MySQL managed database in Lightsail
 
 Crucial WordPress website data for posts, pages, and users, is stored on the MySQL database
 that is running on your instance in Amazon Lightsail. If your instance fails, your data may
@@ -20,9 +18,7 @@ managed database, and stops connecting to the database running on the instance.
 - [Step 3: Configure WordPress to connect to your MySQL managed database](#configure-wordpress-to-connect-to-mysql-managed-database "#configure-wordpress-to-connect-to-mysql-managed-database")
 - [Step 4: Complete the next steps](#connect-wordpress-to-mysql-managed-database-next-steps "#connect-wordpress-to-mysql-managed-database-next-steps")
 
-## Step 1: Complete
-
-the prerequisites
+## Step 1: Complete the prerequisites
 
 Complete the following prerequisites before getting started:
 
@@ -39,9 +35,7 @@ Complete the following prerequisites before getting started:
   mode for your database](amazon-lightsail-configuring-database-public-mode.md "amazon-lightsail-configuring-database-public-mode.md") and [Configure the data
   import mode for your database](amazon-lightsail-configuring-database-data-import-mode.md "amazon-lightsail-configuring-database-data-import-mode.md").
 
-## Step 2: Transfer the
-
-WordPress database to your MySQL managed database
+## Step 2: Transfer the WordPress database to your MySQL managed database
 
 Complete the following procedure to transfer your WordPress website data to your MySQL
 managed database in Lightsail.
@@ -80,9 +74,7 @@ password, or endpoint, and try again.
 
 ![Successfully transferred WordPress database to a MySQL managed database in Lightsail.](images/amazon-lightsail-transfer-wordpress-database-to-mysql-managed-database-success.png)
 
-## Step 3: Configure
-
-WordPress to connect to your MySQL managed database
+## Step 3: Configure WordPress to connect to your MySQL managed database
 
 Complete the following procedure to edit the WordPress configuration file
 (`wp-config.php`) so that your website connects to your MySQL managed
@@ -147,9 +139,7 @@ tutorial.
 cp /opt/bitnami/wordpress/wp-config.php-backup /opt/bitnami/wordpress/wp-config.php
 ```
 
-## Step 4: Complete the
-
-next steps
+## Step 4: Complete the next steps
 
 You should complete these additional steps after you’re done connecting your WordPress
 website to a MySQL managed database:

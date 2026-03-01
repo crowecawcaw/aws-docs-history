@@ -1,6 +1,4 @@
-# Migrate data from a MySQL
-
-5.6 database to a newer version in Lightsail
+# Migrate data from a MySQL 5.6 database to a newer version in Lightsail
 
 In this tutorial, we show you how to migrate data from a MySQL 5.6 database to a new MySQL
 5.7 database in Amazon Lightsail. To perform the migration, you connect to your MySQL 5.6
@@ -21,9 +19,7 @@ connect to the new database.
 - [Step 5: Test your
   application and complete the migration](#migrate-mysql-5-6-test-your-application "#migrate-mysql-5-6-test-your-application")
 
-## Step 1: Understand the
-
-changes
+## Step 1: Understand the changes
 
 Going from a MySQL 5.6 database to a MySQL 5.7 database is considered a major version
 upgrade. Major version upgrades can contain database changes that are not backward-compatible
@@ -38,9 +34,7 @@ application in the production instance. To take it a step further, you can then 
 data from your existing MySQL 5.7 database to a new MySQL 8.0 database, test your application
 in pre-production again, and apply the change to your application in production.
 
-## Step 2: Complete the
-
-prerequisites
+## Step 2: Complete the prerequisites
 
 You must complete the following prerequisites before continuing to the next sections of
 this tutorial:
@@ -58,9 +52,7 @@ this tutorial:
   [Connect to your MySQL
   database](amazon-lightsail-connecting-to-your-mysql-database.md "amazon-lightsail-connecting-to-your-mysql-database.md").
 
-## Step 3: Connect to your MySQL 5.6
-
-database and export the data
+## Step 3: Connect to your MySQL 5.6 database and export the data
 
 In this section of the tutorial, you will connect to your MySQL 5.6 database and export
 data from it using MySQL Workbench. For more information about using MySQL Workbench to export
@@ -134,9 +126,7 @@ tutorial.
 
 ![MySQL Workbench export progress](images/mysql-workbench-export-progress.png)
 
-## Step 4: Connect to your MySQL 5.7
-
-database and import the data
+## Step 4: Connect to your MySQL 5.7 database and import the data
 
 In this section of the tutorial, you will connect to your MySQL 5.7 database and import
 data to it using MySQL Workbench.
@@ -170,9 +160,7 @@ tutorial.
 
 ![MySQL Workbench import progress](images/mysql-workbench-import-progress.png)
 
-## Step 5: Test your application and
-
-complete the migration
+## Step 5: Test your application and complete the migration
 
 At this point, your data is now in your new MySQL 5.7 database. Configure your application
 in a pre-production environment, and test the connection between your application and your new

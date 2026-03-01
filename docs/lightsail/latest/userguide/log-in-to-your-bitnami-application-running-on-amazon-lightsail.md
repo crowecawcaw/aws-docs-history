@@ -1,6 +1,4 @@
-# Obtain the
-
-default application username and password for Lightsail Bitnami instances
+# Obtain the default application username and password for Lightsail Bitnami instances
 
 Bitnami provides many of the application instance images, or blueprints, that you can create
 as Amazon Lightsail instances, which are your virtual private servers. These blueprints are
@@ -27,9 +25,7 @@ in and administer Lightsail instances created from the following blueprints:
 - Redmine project management application
 - Nginx (LEMP) development stack
 
-## Get the default Bitnami application and
-
-database user name
+## Get the default Bitnami application and database user name
 
 These are the default application and database user names for Lightsail instances
 created using the Bitnami blueprints:
@@ -55,9 +51,7 @@ as not applicable (N/A) when these are not included in the blueprint.
 | Redmine                                  | user                  | root               |
 | Nginx                                    | N/A                   | root               |
 
-## Get the default Bitnami application and
-
-database password
+## Get the default Bitnami application and database password
 
 The default application and database password are stored on your instance. You retrieve it
 by connecting to it using the browser-based SSH terminal in the Lightsail console and
@@ -97,9 +91,7 @@ clipboard.
 Make sure to save your password somewhere at this time. You can change it later
 after you sign in to the Bitnami application on your instance.
 
-## Sign in to the Bitnami application on
-
-your instance
+## Sign in to the Bitnami application on your instance
 
 For instances created from the WordPress, Joomla, Magento, Drupal, GitLab CE, and Redmine
 blueprints, sign in to the application by browsing to the public IP address of your

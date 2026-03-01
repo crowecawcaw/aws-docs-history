@@ -1,6 +1,4 @@
-# Serve content with
-
-custom domains for your Lightsail distribution
+# Serve content with custom domains for your Lightsail distribution
 
 Enable custom domains for your Amazon Lightsail distribution to use your registered domain
 names with your distribution. Before you enable custom domains, your distribution accepts
@@ -34,9 +32,7 @@ You also should have created and validated an SSL/TLS certificate for your distr
 For more information, see [Create SSL/TLS certificates for your distribution](amazon-lightsail-create-a-distribution-certificate.md "amazon-lightsail-create-a-distribution-certificate.md") and [Validate SSL/TLS
 certificates for your distribution](amazon-lightsail-validating-a-distribution-certificate.md "amazon-lightsail-validating-a-distribution-certificate.md").
 
-## Enable custom domains for your
-
-distribution
+## Enable custom domains for your distribution
 
 Complete the following procedure to enable custom domains for your distribution.
 

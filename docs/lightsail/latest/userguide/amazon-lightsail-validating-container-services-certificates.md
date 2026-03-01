@@ -1,6 +1,4 @@
-# Validate SSL/TLS
-
-certificates for Lightsail container services
+# Validate SSL/TLS certificates for Lightsail container services
 
 An Amazon Lightsail SSL/TLS certificate must be validated after it's created, and before you
 can use it with your Lightsail container service. After your certificate request is submitted,
@@ -30,9 +28,7 @@ Before you get started, you need to create an SSL/TLS certificate for your conta
 service. For more information, see [Create SSL/TLS
 certificates for your container services](amazon-lightsail-creating-container-services-certificates.md "amazon-lightsail-creating-container-services-certificates.md").
 
-## Get the CNAME record values to
-
-validate your certificate
+## Get the CNAME record values to validate your certificate
 
 Complete the following procedure to get the CNAME records that you must add to your
 domains to validate the certificate.
@@ -58,9 +54,7 @@ these values into a text file that you can refer to later. For more information,
 following [Add the
 CNAME records to your domain's DNS zone](#add-container-service-certificate-cname "#add-container-service-certificate-cname") section of this guide.
 
-## Add the CNAME records to your
-
-domain's DNS zone
+## Add the CNAME records to your domain's DNS zone
 
 Complete the following procedure to add CNAME records to your domain's DNS zone.
 
@@ -88,9 +82,7 @@ After a few minutes, you should see if the status of your certificate has change
 **Valid**. For more information, see the following [View the status of
 your certificate](#view-container-service-certificate-status "#view-container-service-certificate-status") section of this guide.
 
-## View the status of your
-
-certificate
+## View the status of your certificate
 
 Complete the following procedure to view the status of your SSL/TLS certificate.
 

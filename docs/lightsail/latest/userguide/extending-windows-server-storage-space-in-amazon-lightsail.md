@@ -1,6 +1,4 @@
-# Extend the file
-
-system of your Windows Server instance in Lightsail
+# Extend the file system of your Windows Server instance in Lightsail
 
 After you use a snapshot to create a new Windows Server instance with a larger plan, you may
 see that the available storage space is lower than that specified by the plan. This is typically

@@ -1,6 +1,4 @@
-# Monitor your Lightsail resource
-
-metrics
+# Monitor your Lightsail resource metrics
 
 Monitor the performance of your instances, databases, distributions, load balancers,
 container services, and buckets in Amazon Lightsail by checking and collecting their metric data.
@@ -23,9 +21,7 @@ occurs.
 - [Metrics available in
   Lightsail](#available-metrics "#available-metrics")
 
-## Monitoring your resources
-
-effectively
+## Monitoring your resources effectively
 
 You should establish a baseline for normal resource performance in your environment.
 Measure performance at various times, and under different load conditions. As you monitor your

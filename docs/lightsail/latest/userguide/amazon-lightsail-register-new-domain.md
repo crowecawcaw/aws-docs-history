@@ -44,9 +44,7 @@ refunds for accidentally registered domain names.
 When you register a domain with Lightsail, we automatically create a DNS zone for
 the domain. Lightsail does not charge a fee for the DNS zone.
 
-## Register a new domain by using
-
-Lightsail
+## Register a new domain by using Lightsail
 
 ###### Topics
 

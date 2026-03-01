@@ -1,6 +1,4 @@
-# Connect a WordPress instance
-
-to a Lightsail bucket for static content
+# Connect a WordPress instance to a Lightsail bucket for static content
 
 This tutorial describes the steps required to connect your WordPress website running on an
 Amazon Lightsail instance to a Lightsail bucket. You can use the bucket to host static content
@@ -20,9 +18,7 @@ your bucket instead of the instance’s disk.
   Test the connection between your WordPress website and your Lightsail
   bucket](#connecting-buckets-to-wordpress-test-connection "#connecting-buckets-to-wordpress-test-connection")
 
-## Step 1: Complete the
-
-prerequisites
+## Step 1: Complete the prerequisites
 
 Complete the following prerequisites if you haven't already:
 
@@ -31,9 +27,7 @@ Complete the following prerequisites if you haven't already:
 - Create a bucket in the Lightsail object storage service. For more information, see
   [Create a bucket](amazon-lightsail-creating-buckets.md "amazon-lightsail-creating-buckets.md").
 
-## Step 2: Modify
-
-your bucket permissions
+## Step 2: Modify your bucket permissions
 
 Complete the following procedure to change the permissions of your bucket to give access
 to your WordPress instance and the Offload Media Lite plugin. The access permissions of your
@@ -70,9 +64,7 @@ then choose **Attach**.
 After a few moments, your WordPress instance is attached to your bucket. This gives
 your WordPress instance access to manage your bucket and its objects.
 
-## Step 3:
-
-Install the WP Offload Media Lite plugin on your WordPress website
+## Step 3: Install the WP Offload Media Lite plugin on your WordPress website
 
 Complete the following procedure to install the WP Offload Media Lite plugin on your
 WordPress website. This plugin automatically copies images, videos, documents, and any other
@@ -135,9 +127,7 @@ you upload a media file through WordPress, that file is automatically uploaded t
 Lightsail bucket, and is served by the bucket. To test the configuration, continue to
 the next section of this tutorial.
 
-## Step 4: Test the connection
-
-between your WordPress website and your Lightsail bucket
+## Step 4: Test the connection between your WordPress website and your Lightsail bucket
 
 Complete the following procedure to upload a media file to your WordPress instance and
 confirm that it is uploaded to, and is served from your Lightsail bucket.
@@ -166,9 +156,7 @@ files.
 
 ![The wp-content folder in a bucket](images/amazon-lightsail-bucket-objects-wp-content-folder.png)
 
-## Manage buckets and
-
-objects
+## Manage buckets and objects
 
 These are the general steps to manage your Lightsail object storage bucket:
 

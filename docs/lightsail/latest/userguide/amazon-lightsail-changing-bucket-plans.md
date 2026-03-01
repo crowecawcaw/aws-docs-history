@@ -16,9 +16,7 @@ with an ample storage space and data transfer quota for a long time to come.
 
 For more information about buckets, see [Object storage](buckets-in-amazon-lightsail.md "buckets-in-amazon-lightsail.md").
 
-## Change your bucket's storage
-
-plan using the Lightsail console
+## Change your bucket's storage plan using the Lightsail console
 
 Complete the following procedure to change your bucket's storage plan using the
 Lightsail console.
@@ -37,9 +35,7 @@ Lightsail console.
    apply the change to your bucket, or choose **No, go back** to not apply
    it.
 
-## Change your bucket's storage plan using
-
-the AWS CLI
+## Change your bucket's storage plan using the AWS CLI
 
 Complete the following procedure to change the plan of your bucket using the AWS Command Line Interface (AWS CLI). You do this by using the
 `update-bucket-bundle` command. Note that a bucket storage plan is referred to as

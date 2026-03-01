@@ -1,6 +1,4 @@
-# Detach instances from a
-
-Lightsail load balancer
+# Detach instances from a Lightsail load balancer
 
 If you no longer want to have an instance attached to your Amazon Lightsail load balancer,
 you can detach it. When you detach a Lightsail instance from a load balancer, we wait until

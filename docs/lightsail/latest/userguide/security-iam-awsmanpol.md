@@ -22,9 +22,7 @@ launches a new feature, AWS adds read-only permissions for new operations and re
 For a list and descriptions of job function policies, see [AWS managed policies for
 job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md "../../../IAM/latest/UserGuide/access_policies_job-functions.md") in the _IAM User Guide_.
 
-## AWS managed policy:
-
-LightsailExportAccess
+## AWS managed policy: LightsailExportAccess
 
 You can't attach LightsailExportAccess to your IAM entities. This policy is attached
 to a service-linked role that allows Lightsail to perform actions on your behalf. For
@@ -81,9 +79,7 @@ JSON
 
 ```
 
-## Lightsail updates to AWS managed
-
-policies
+## Lightsail updates to AWS managed policies
 
 - Edit to the `LightsailExportAccess` managed policy
 

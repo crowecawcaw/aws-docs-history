@@ -1,6 +1,4 @@
-# Verify SSL/TLS certificate
-
-domains with CNAME records in Lightsail
+# Verify SSL/TLS certificate domains with CNAME records in Lightsail
 
 After you create an SSL/TLS certificate in Lightsail, you need to verify that you control
 all the domains and subdomains that you added to the certificate.
@@ -13,17 +11,13 @@ all the domains and subdomains that you added to the certificate.
   your domain's DNS zone](#verify-ssl-tls-create-dns-records "#verify-ssl-tls-create-dns-records")
 - [Next step](#verify-ssl-tls-next-step "#verify-ssl-tls-next-step")
 
-## Step 1: Create a Lightsail DNS zone for
-
-your domain
+## Step 1: Create a Lightsail DNS zone for your domain
 
 If you haven't done so already, create a Lightsail DNS zone for your domain. For more
 information, see [Create a DNS zone to manage
 your domain’s DNS records](lightsail-how-to-create-dns-entry.md "lightsail-how-to-create-dns-entry.md")
 
-## Step 2: Add records to your domain's DNS
-
-zone
+## Step 2: Add records to your domain's DNS zone
 
 The certificate that you created provides a set of canonical name (CNAME) records. You add
 these records to your domain's DNS zone to verify that you own or control that domain.

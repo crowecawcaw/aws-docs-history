@@ -1,6 +1,4 @@
-# Define
-
-the primary domain for your WordPress Multisite instance on Lightsail
+# Define the primary domain for your WordPress Multisite instance on Lightsail
 
 A WordPress Multisite instance in Amazon Lightsail is designed to use multiple domains, or
 subdomains, for each blog site that you create within that instance. Because of this, you must
@@ -25,9 +23,7 @@ DNS records](lightsail-how-to-create-dns-entry.md "lightsail-how-to-create-dns-e
 continue to the [Define the primary domain for your WordPress Multisite instance>](#define-the-primary-domain-for-your-wordpress-multisite "#define-the-primary-domain-for-your-wordpress-multisite")
 section of this guide.
 
-## Define the primary
-
-domain for your WordPress Multisite instance
+## Define the primary domain for your WordPress Multisite instance
 
 Complete these steps to ensure that your domain, such as `example.com`,
 redirects to the main blog of your WordPress Multisite instance.
@@ -73,9 +69,7 @@ sudo mv bnconfig bnconfig.disabled
 At this point, browsing to the domain that you defined should redirect you to the main
 blog of your WordPress Multisite instance.
 
-## Next
-
-steps
+## Next steps
 
 Complete the next steps after you have defined the primary domain for your WordPress
 Multisite instance:

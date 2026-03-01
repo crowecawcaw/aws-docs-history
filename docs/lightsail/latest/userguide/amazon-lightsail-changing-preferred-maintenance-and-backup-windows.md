@@ -1,6 +1,4 @@
-# Schedule
-
-maintenance and backups for Lightsail databases
+# Schedule maintenance and backups for Lightsail databases
 
 When a new version of a database is supported by Amazon Lightsail, your existing managed
 database can be upgraded to it. There are two kinds of upgrades—minor version upgrades and major
@@ -35,9 +33,7 @@ Complete the following prerequisites:
 - **Configure the AWS CLI** — For more information, see
   [Configuring the AWS CLI](https://lightsail.aws.amazon.com/ls/docs/en/articles/lightsail-how-to-set-up-and-configure-aws-cli "https://lightsail.aws.amazon.com/ls/docs/en/articles/lightsail-how-to-set-up-and-configure-aws-cli").
 
-## Change your
-
-database maintenance window
+## Change your database maintenance window
 
 Your database may become unavailable during maintenance or backup operations. Therefore,
 you may want to change your preferred maintenance or backup window to a time in which your
@@ -133,9 +129,7 @@ You should see a result similar to the following example:
 
 ![Database preferred maintenance window update result.](images/amazon-lightsail-update-database-preferred-maintenance-window-response.png)
 
-## Next
-
-steps
+## Next steps
 
 Here are a few guides to help you manage your database:
 

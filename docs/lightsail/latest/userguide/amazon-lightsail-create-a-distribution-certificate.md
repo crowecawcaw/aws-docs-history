@@ -24,9 +24,7 @@ with your distribution.
 Before you get started, you need to create a Lightsail distribution. For more
 information, see [Create a distribution](amazon-lightsail-creating-content-delivery-network-distribution.md "amazon-lightsail-creating-content-delivery-network-distribution.md") and [Content delivery network distributions](amazon-lightsail-content-delivery-network-distributions.md "amazon-lightsail-content-delivery-network-distributions.md").
 
-## Create an SSL/TLS certificate for your
-
-distribution
+## Create an SSL/TLS certificate for your distribution
 
 Complete the following procedure to create an SSL/TLS certificate for your
 distribution.

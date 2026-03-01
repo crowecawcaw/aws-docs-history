@@ -20,9 +20,7 @@ Lightsail object storage resources take into account both Lightsail bucket acces
 permissions and Amazon S3 account-level block public access configurations when allowing or denying
 public access. For more information, see [Block public access for buckets](amazon-lightsail-block-public-access-for-buckets.md "amazon-lightsail-block-public-access-for-buckets.md").
 
-## Configure bucket access
-
-permissions
+## Configure bucket access permissions
 
 Complete the following procedure to configure access permissions for a bucket.
 

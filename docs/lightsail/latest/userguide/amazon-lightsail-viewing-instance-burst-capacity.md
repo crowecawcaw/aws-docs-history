@@ -1,6 +1,4 @@
-# Detect Lightsail instance
-
-bursting for optimal performance
+# Detect Lightsail instance bursting for optimal performance
 
 ###### Did you know?
 

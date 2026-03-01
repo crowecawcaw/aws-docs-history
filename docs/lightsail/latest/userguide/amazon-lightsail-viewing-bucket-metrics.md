@@ -1,6 +1,4 @@
-# Monitor Lightsail bucket performance
-
-and usage
+# Monitor Lightsail bucket performance and usage
 
 After you create a bucket in the Amazon Lightsail object storage service, you can view its
 metric graphs on the **Metrics** tab of the bucket's management
@@ -57,9 +55,7 @@ You can perform the following actions on the metrics graph:
      threshold you specify. For more information, see [Alarms](amazon-lightsail-alarms.md "amazon-lightsail-alarms.md") and [Create bucket metric
      alarms](amazon-lightsail-adding-bucket-metric-alarms.md "amazon-lightsail-adding-bucket-metric-alarms.md").
 
-## Manage buckets and
-
-objects
+## Manage buckets and objects
 
 These are the general steps to manage your Lightsail object storage bucket:
 

@@ -1,6 +1,4 @@
-# Connect a
-
-Lightsail LAMP instance to an Aurora database
+# Connect a Lightsail LAMP instance to an Aurora database
 
 Application data for posts, pages, and users is stored on a MariaDB database that is running
 on your LAMP instance in Amazon Lightsail. If your instance fails, your data may become
@@ -31,9 +29,7 @@ in Lightsail to an Aurora managed database in Amazon RDS.
 - [Step 5: Configure your
   application to connect to your Aurora managed database](#connect-application-to-database "#connect-application-to-database")
 
-## Step 1: Complete the
-
-prerequisites
+## Step 1: Complete the prerequisites
 
 Complete the following prerequisites before you begin:
 
@@ -47,9 +43,7 @@ Complete the following prerequisites before you begin:
    continue. For more information, see [Getting started with Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/CHAP_GettingStartedAurora.md "../../../AmazonRDS/latest/AuroraUserGuide/CHAP_GettingStartedAurora.md") in the _Amazon Aurora User Guide for
    Aurora_.
 
-## Step 2: Configure the security group for your Aurora
-
-database
+## Step 2: Configure the security group for your Aurora database
 
 An AWS security group acts as a virtual firewall for your AWS resources. It controls
 the incoming and outgoing traffic that can connect to your Aurora database in Amazon RDS. For more
@@ -92,9 +86,7 @@ rule**. 11. Complete one of the following steps:
 
 ![Inbound rules detail screenshot of the Amazon RDS console.](images/lamp-aurora-add-security-group-rule.png)
 
-## Step 3: Connect to your Aurora
-
-database from your Lightsail instance
+## Step 3: Connect to your Aurora database from your Lightsail instance
 
 Complete the following procedure to confirm that you can connect to your Aurora database
 from your Lightsail instance.
@@ -125,18 +117,14 @@ configure the security group of your database to allow the private IP address of
 Lightsail instance to connect to it. For more information, see the [Configure the security group for your
 Aurora database](#configure-security-group "#configure-security-group") section of this guide.
 
-## Step 4: Transfer the MariaDB database
-
-from your LAMP instance to your Aurora database
+## Step 4: Transfer the MariaDB database from your LAMP instance to your Aurora database
 
 Now that you’ve confirmed you can connect to your database from your instance, you should
 migrate the data from your LAMP instance database to your Aurora database. For more
 information, see [Migrating data to an Amazon Aurora MySQL DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.md") in the _Amazon Aurora User
 Guide for Aurora_.
 
-## Step 5: Configure your application to
-
-connect to your Aurora managed database
+## Step 5: Configure your application to connect to your Aurora managed database
 
 After transferring your application data to your Aurora database, you should configure the
 application running on your LAMP instance to connect to your Aurora database. Connect to your

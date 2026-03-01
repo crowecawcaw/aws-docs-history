@@ -1,6 +1,4 @@
-# Attach a validated SSL/TLS
-
-certificate to your Lightsail load balancer
+# Attach a validated SSL/TLS certificate to your Lightsail load balancer
 
 After you verify that you control your domain, the certificate's status will change to
 **Valid**.

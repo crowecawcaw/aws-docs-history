@@ -38,9 +38,7 @@ The following limits apply to alarms:
   data** option for missing data points.
 - You can only test notifications if the alarm is in an OK state.
 
-## Best practices for configuring bucket
-
-alarms
+## Best practices for configuring bucket alarms
 
 Before you configure a metric alarm for your bucket, you should determine what you want to
 be notified about. For example, with the **Bucket size** metric in mind, you
@@ -60,9 +58,7 @@ metric is **greater than or equal to**
 have only 5 GB of storage space. You might want to modify the alarm threshold to be
 **equal to or greater than** 4.5 GB.
 
-## Create bucket metric alarms using the Lightsail
-
-console
+## Create bucket metric alarms using the Lightsail console
 
 Complete the following steps to create a bucket metric alarm using the Lightsail
 console.
@@ -125,9 +121,7 @@ following options:
 To edit the alarm later, choose the ellipsis icon (⋮) next to the alarm you
 want to edit, and choose **Edit alarm**.
 
-## Test bucket metric alarms using the Lightsail
-
-console
+## Test bucket metric alarms using the Lightsail console
 
 Complete the following steps to test an alarm using the Lightsail console. You might
 want to test an alarm to confirm that the configured notification options are working, such as
@@ -161,9 +155,7 @@ banner displays in the Lightsail console only if you chose to test the
 test the `OK` notification. The alarm will return to its actual state often
 after a few seconds.
 
-## Next steps after creating bucket
-
-alarms
+## Next steps after creating bucket alarms
 
 There are a few additional tasks that you can perform for your bucket alarms:
 

@@ -1,6 +1,4 @@
-# Secure your
-
-Lightsail distribution with minimum TLS protocol version
+# Secure your Lightsail distribution with minimum TLS protocol version
 
 Amazon Lightsail uses SSL/TLS certificates to validate custom (registered) domains that you
 can use with your Lightsail distribution. This guide provides information about the viewer
@@ -37,9 +35,7 @@ Complete the following prerequisites if you haven't already:
 - [Point your
   domain to the distribution](amazon-lightsail-point-domain-to-distribution.md "amazon-lightsail-point-domain-to-distribution.md")
 
-## Identify the minimum
-
-TLS protocol version for your distribution
+## Identify the minimum TLS protocol version for your distribution
 
 Complete the following steps to identify the minimum TLS protocol version for your
 Lightsail distribution
@@ -80,9 +76,7 @@ distribution.
 "viewerMinimumTlsProtocolVersion": "TLSv1.2_2021"
 ```
 
-## Configure the minimum TLS
-
-protocol version using the AWS CLI
+## Configure the minimum TLS protocol version using the AWS CLI
 
 Complete the following procedure to configure the TLS protocol version using the
 AWS Command Line Interface (AWS CLI). You do this by using the `update-distribution` command.

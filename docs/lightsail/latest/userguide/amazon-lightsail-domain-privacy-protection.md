@@ -1,6 +1,4 @@
-# Manage privacy protection for
-
-domain contacts in Lightsail
+# Manage privacy protection for domain contacts in Lightsail
 
 When you register a domain on Amazon Lightsail, we activate privacy protection by default for
 all the domain contacts. This typically hides most of your contact information from WHOIS ("Who
@@ -28,9 +26,7 @@ the following procedure.
 
 Register a domain with Lightsail. For more information, see [Register a new domain](amazon-lightsail-register-new-domain.md "amazon-lightsail-register-new-domain.md").
 
-## Manage privacy protection for your
-
-domain
+## Manage privacy protection for your domain
 
 1. Sign in to the [Lightsail
    console](https://lightsail.aws.amazon.com/ "https://lightsail.aws.amazon.com/").

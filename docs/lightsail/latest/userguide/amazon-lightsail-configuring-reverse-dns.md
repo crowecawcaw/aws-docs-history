@@ -1,6 +1,4 @@
-# Configure reverse DNS to prevent
-
-email spam for your Lightsail instance
+# Configure reverse DNS to prevent email spam for your Lightsail instance
 
 A reverse Domain Name System (DNS) lookup is used by email servers to track where a message
 originated from, and confirm that it’s not spam or malicious. A reverse DNS lookup returns the
@@ -43,9 +41,7 @@ one place—the Lightsail console. For more information, see [Create a DNS zone 
 DNS records](lightsail-how-to-create-dns-entry.md "lightsail-how-to-create-dns-entry.md"). 4. Allow time for changes to propagate through the internet's DNS. Then, you can continue
 submitting the request to AWS Support to configure reverse DNS.
 
-## Submit a request to AWS
-
-Support to configure reverse DNS
+## Submit a request to AWS Support to configure reverse DNS
 
 For security reasons, Lightsail limits outbound messages through port 25 by default.
 However, you can request AWS Support to remove this quota from your account and configure

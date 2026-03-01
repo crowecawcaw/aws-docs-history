@@ -1,6 +1,4 @@
-# Restrict public access to
-
-Lightsail buckets and objects
+# Restrict public access to Lightsail buckets and objects
 
 Amazon Simple Storage Service (Amazon S3) is an object storage service on which customers can store and protect
 data. The Amazon Lightsail object storage service is built on Amazon S3 technology. Amazon S3 offers
@@ -20,9 +18,7 @@ account the following:
   access** in Amazon S3, your public Lightsail buckets and objects become private
   and are no longer publicly accessible.
 
-## Configuring block public access
-
-settings for your account
+## Configuring block public access settings for your account
 
 You can use the Amazon S3 console, AWS Command Line Interface (AWS CLI), AWS SDKs, and REST API to configure
 block public access settings. You can access the account-level block public access
@@ -133,9 +129,7 @@ resources. After configuring block public access in Amazon S3, wait at least one
 it to take effect in Lightsail. For more information, see [Service-linked
 roles](amazon-lightsail-using-service-linked-roles.md "amazon-lightsail-using-service-linked-roles.md").
 
-## Manage buckets and
-
-objects
+## Manage buckets and objects
 
 These are the general steps to manage your Lightsail object storage bucket:
 

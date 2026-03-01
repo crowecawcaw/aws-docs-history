@@ -10,8 +10,8 @@ plan
 - [Amazon Linux 2](compare-options-choose-lightsail-instance-image.md#AL2 "compare-options-choose-lightsail-instance-image.md#AL2")
 - [AlmaLinux OS 9](compare-options-choose-lightsail-instance-image.md#ALMA "compare-options-choose-lightsail-instance-image.md#ALMA")
 - [CentOS Stream 9](compare-options-choose-lightsail-instance-image.md#Centos9 "compare-options-choose-lightsail-instance-image.md#Centos9")
-- [Debian 11, and 12](compare-options-choose-lightsail-instance-image.md#Debian "compare-options-choose-lightsail-instance-image.md#Debian")
-- [FreeBSD 13, and 14](compare-options-choose-lightsail-instance-image.md#FreeBSD "compare-options-choose-lightsail-instance-image.md#FreeBSD")
+- [Debian 11 and 12](compare-options-choose-lightsail-instance-image.md#Debian "compare-options-choose-lightsail-instance-image.md#Debian")
+- [FreeBSD 13 and 14](compare-options-choose-lightsail-instance-image.md#FreeBSD "compare-options-choose-lightsail-instance-image.md#FreeBSD")
 - [Ubuntu 20, 22, and 24](compare-options-choose-lightsail-instance-image.md#Ubuntu "compare-options-choose-lightsail-instance-image.md#Ubuntu")
 - [SQL Server 2022 Express](compare-options-choose-lightsail-instance-image.md#SQL2022 "compare-options-choose-lightsail-instance-image.md#SQL2022")
 - [SQL Server 2019 Express](compare-options-choose-lightsail-instance-image.md#SQL2019 "compare-options-choose-lightsail-instance-image.md#SQL2019")
@@ -19,5 +19,4 @@ plan
 - [LAMP stack (PHP 8) packaged by Bitnami](compare-options-choose-lightsail-instance-image.md#LAMP "compare-options-choose-lightsail-instance-image.md#LAMP")
 - [MEAN stack packaged by Bitnami](compare-options-choose-lightsail-instance-image.md#MEAN "compare-options-choose-lightsail-instance-image.md#MEAN")
 - [Redmine packaged by Bitnami](compare-options-choose-lightsail-instance-image.md#Redmine "compare-options-choose-lightsail-instance-image.md#Redmine")
-  For more information about Lightsail blueprints, see [Review the Lightsail
-  instance blueprint offerings](compare-options-choose-lightsail-instance-image.md "compare-options-choose-lightsail-instance-image.md").
+  For more information about Lightsail blueprints, see [Review the Lightsail instance blueprint offerings](compare-options-choose-lightsail-instance-image.md "compare-options-choose-lightsail-instance-image.md").

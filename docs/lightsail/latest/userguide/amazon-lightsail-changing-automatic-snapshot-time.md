@@ -1,6 +1,4 @@
-# Adjust automatic snapshot
-
-schedule for Lightsail instances and disks
+# Adjust automatic snapshot schedule for Lightsail instances and disks
 
 When you [enable the
 automatic snapshots feature](amazon-lightsail-configuring-automatic-snapshots.md "amazon-lightsail-configuring-automatic-snapshots.md") for an instance or block storage disk, Lightsail creates
@@ -18,9 +16,7 @@ in this guide to change the automatic snapshot time for your resource.
 - [Change the
   automatic snapshot time and block storage disks using the AWS CLI](#changing-automatic-snapshot-time-using-cli "#changing-automatic-snapshot-time-using-cli")
 
-## Automatic snapshot time
-
-restrictions
+## Automatic snapshot time restrictions
 
 The following restrictions apply to the automatic snapshot time:
 
@@ -65,9 +61,7 @@ created.
   When any of these conditions are true, a message displays in the Lightsail console
   to notify you that the new snapshot time may take up to 24 hours to take effect.
 
-## Default automatic snapshot times for
-
-AWS Regions
+## Default automatic snapshot times for AWS Regions
 
 If you don't specify an automatic snapshot time when you enable automatic snapshots, then
 Lightsail assigns one of the following default automatic snapshot times. The times depend on
@@ -89,9 +83,7 @@ the AWS Region where your instance or block storage disk is located:
 - EU (Paris) (eu-west-3): 07:00 UTC
 - EU (Stockholm) (eu-north-1): 08:00 UTC
 
-## Change the automatic snapshot
-
-time using the Lightsail console
+## Change the automatic snapshot time using the Lightsail console
 
 Complete the following steps to change the automatic snapshot time for an instance using
 the Lightsail console.
@@ -110,9 +102,7 @@ The automatic snapshot time is updated after a few moments. A restriction may ap
 the effective date of your new automatic snapshot time. For more information, see [Automatic snapshot time
 restrictions](#automatic-snapshot-time-restrictions "#automatic-snapshot-time-restrictions").
 
-## Change the automatic snapshot
-
-time for instances and block storage disks using the AWS CLI
+## Change the automatic snapshot time for instances and block storage disks using the AWS CLI
 
 Complete the following steps to change the automatic snapshot time for an instance or
 block storage disk using the AWS CLI.

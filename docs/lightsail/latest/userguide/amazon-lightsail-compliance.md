@@ -1,6 +1,4 @@
-# Validate compliance for Amazon Lightsail
-
-resources
+# Validate compliance for Amazon Lightsail resources
 
 AWS provides the following resources to help with compliance:
 

@@ -1,6 +1,4 @@
-# Push, view, and delete container
-
-images for a Lightsail container service
+# Push, view, and delete container images for a Lightsail container service
 
 When you create a deployment in your Amazon Lightsail container service, you must specify a
 source container image for each container entry. You can use images from a public registry, such
@@ -34,9 +32,7 @@ images to your container service:
   container service. For more information, see [Creating container images for your
   Amazon Lightsail container services](amazon-lightsail-creating-container-images.md "amazon-lightsail-creating-container-images.md").
 
-## Push container images from your local machine to your
-
-container service
+## Push container images from your local machine to your container service
 
 Complete the following procedure to push your container images to your container
 service.
@@ -100,9 +96,7 @@ Refer to the following [View
 container images stored on your container service](#view-pushed-container-images "#view-pushed-container-images") section of this guide to view
 your pushed container image in your container service on the Lightsail console.
 
-## View container images stored on your container
-
-service
+## View container images stored on your container service
 
 Complete the following procedure to view container images that were pushed, and are being
 stored, on your container service.
@@ -131,9 +125,7 @@ You can create deployments using container images stored on your service. For mo
 information, see Creating and managing deployments for your Amazon Lightsail container
 services.
 
-## Delete container images stored on your
-
-container service
+## Delete container images stored on your container service
 
 Complete the following procedure to delete container images that were pushed, and are
 being stored, on your container service.

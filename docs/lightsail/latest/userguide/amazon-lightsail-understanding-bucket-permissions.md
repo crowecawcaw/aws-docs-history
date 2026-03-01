@@ -1,6 +1,4 @@
-# Control access to
-
-Lightsail buckets and objects
+# Control access to Lightsail buckets and objects
 
 By default, all Amazon Lightsail object storage resources—buckets and
 objects—are private. This means that only the bucket owner, the Lightsail account that
@@ -64,9 +62,7 @@ access permissions:
 For more information about configuring bucket access permissions, see [Configure bucket access
 permissions](amazon-lightsail-configuring-bucket-permissions.md "amazon-lightsail-configuring-bucket-permissions.md").
 
-## Individual object access
-
-permissions
+## Individual object access permissions
 
 Use individual object access permissions to control public (unauthenticated) read-only
 access to individual objects in a bucket. Individual object access permissions can be

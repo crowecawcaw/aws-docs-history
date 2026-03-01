@@ -1,6 +1,4 @@
-# Reset the cache of your
-
-Lightsail distribution
+# Reset the cache of your Lightsail distribution
 
 The cache lifespan (time to live) setting controls the amount of time your content stays in
 your Amazon Lightsail distribution's cache. You can also manually reset the cache on your

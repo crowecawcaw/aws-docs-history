@@ -1,6 +1,4 @@
-# Configure
-
-Lightsail load balancer health checks
+# Configure Lightsail load balancer health checks
 
 By default, Lightsail performs health checks on your instances at the root
 (`"/"`) of your web application. The health checks are used to monitor the health

@@ -1,6 +1,4 @@
-# Configure WordPress with a
-
-Lightsail content delivery network
+# Configure WordPress with a Lightsail content delivery network
 
 In this guide, we show you how to configure your WordPress instance to work with a
 Amazon Lightsail distribution.
@@ -19,18 +17,14 @@ encrypted.
   forward all content requests to your instance using an encrypted connection. This
   configuration is known as end-to-end encryption.
 
-## Create the
-
-distribution
+## Create the distribution
 
 Complete the following steps to configure a Lightsail distribution for your WordPress
-instance. For more information, see [Create a
-Lightsail content delivery network distribution](amazon-lightsail-creating-content-delivery-network-distribution.md "amazon-lightsail-creating-content-delivery-network-distribution.md").
+instance. For more information, see [Create a Lightsail content delivery network distribution](amazon-lightsail-creating-content-delivery-network-distribution.md "amazon-lightsail-creating-content-delivery-network-distribution.md").
 
 ###### Prerequisite
 
-Create and configure a WordPress instance as described in [Launch and configure WordPress on
-Lightsail](amazon-lightsail-quick-start-guide-wordpress.md "amazon-lightsail-quick-start-guide-wordpress.md").
+Create and configure a WordPress instance as described in [Deploy and manage WordPress on Lightsail](amazon-lightsail-quick-start-guide-wordpress.md "amazon-lightsail-quick-start-guide-wordpress.md").
 
 ###### To create a distribution for your WordPress instance
 
@@ -68,9 +62,7 @@ zone.
    d2vbec9EXAMPLE.cloudfront.net).
 5. Choose **Save**.
 
-## Allow static content to be
-
-cached by the distribution
+## Allow static content to be cached by the distribution
 
 Complete the following procedure to edit the `wp-config.php` file in your
 WordPress instance so that it works with your distribution.

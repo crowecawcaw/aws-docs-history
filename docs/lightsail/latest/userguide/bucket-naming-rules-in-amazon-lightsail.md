@@ -1,6 +1,4 @@
-# Follow bucket naming requirements for
-
-Lightsail object storage
+# Follow bucket naming requirements for Lightsail object storage
 
 When you create a bucket in the Amazon Lightsail object storage service, you must give it a
 name. The name of the bucket is part of the URL that your customers will use when accessing

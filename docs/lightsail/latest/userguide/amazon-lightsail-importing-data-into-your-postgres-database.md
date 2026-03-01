@@ -1,6 +1,4 @@
-# Import PostgreSQL
-
-database backups to Lightsail managed databases
+# Import PostgreSQL database backups to Lightsail managed databases
 
 You can import a database backup file into your PostgreSQL managed database in
 Amazon Lightsail using pgAdmin.

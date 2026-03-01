@@ -1,6 +1,4 @@
-# Adjust the data transfer quota for
-
-your Lightsail distribution
+# Adjust the data transfer quota for your Lightsail distribution
 
 When you create a Amazon Lightsail distribution, you choose a distribution plan that
 specifies the monthly data transfer quota and cost of your distribution. If your distribution

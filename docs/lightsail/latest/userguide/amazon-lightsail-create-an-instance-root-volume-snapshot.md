@@ -1,6 +1,4 @@
-# Create a snapshot of
-
-a root volume for a Lightsail instance
+# Create a snapshot of a root volume for a Lightsail instance
 
 Back up an instance root volume in Amazon Lightsail by creating a snapshot of the system
 disk. Then, access the files in the backup by creating a new block storage disk from the
@@ -24,19 +22,13 @@ snapshot and attaching it to another instance. Do this if you need to:
 - [Step 4: Access
   a block storage disk from an instance](#access-block-storage-disk-from-an-instance "#access-block-storage-disk-from-an-instance")
 
-## Step 1: Complete the
-
-prerequisites
+## Step 1: Complete the prerequisites
 
 Use the AWS Command Line Interface (AWS CLI), or AWS CloudShell to create an instance root volume snapshot.
 CloudShell is a browser-based, pre-authenticated shell that you can launch directly from
-the Lightsail console. For more information, see [Set up and configure the AWS CLI
-for Lightsail operations](lightsail-how-to-set-up-and-configure-aws-cli.md "lightsail-how-to-set-up-and-configure-aws-cli.md") , and [Manage Lightsail resources with
-AWS CloudShell](amazon-lightsail-cloudshell.md "amazon-lightsail-cloudshell.md").
+the Lightsail console. For more information, see [Set up and configure the AWS CLI for Lightsail operations](lightsail-how-to-set-up-and-configure-aws-cli.md "lightsail-how-to-set-up-and-configure-aws-cli.md"), and [Manage Lightsail resources with AWS CloudShell](amazon-lightsail-cloudshell.md "amazon-lightsail-cloudshell.md").
 
-## Step 2: Create an instance root volume
-
-snapshot
+## Step 2: Create an instance root volume snapshot
 
 Open a Terminal, CloudShell or Command Prompt window, then type the following command
 to create an instance root volume snapshot.
@@ -70,9 +62,7 @@ following example.
 
 ![Root volume disk snapshot in the Lightsail console.](images/amazon-lightsail-root-volume-disk-snapshot.png)
 
-## Step 3: Create a block storage disk
-
-from a snapshot and attach it to an instance
+## Step 3: Create a block storage disk from a snapshot and attach it to an instance
 
 Create a new block storage disk from the instance root volume snapshot and attach it to
 another instance if you must access its contents. Do this if you need to recover data from the
@@ -132,9 +122,7 @@ operating system by mounting it on Linux, or bringing it online on Windows. For 
 information, see the following **Access the block storage from an
 instance** section of this guide.
 
-## Step 4: Access a block storage
-
-disk from an instance
+## Step 4: Access a block storage disk from an instance
 
 To access a block storage disk after attaching it to an instance, you must mount it on
 Linux or Unix, or bring it online on Windows.

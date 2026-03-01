@@ -27,17 +27,13 @@ Joomla!, Magento, Redmine, LAMP, Nginx (LEMP), MEAN, and Node.js.
 You can install additional software on your instances by using the in-browser SSH or
 your own SSH client.
 
-## What operating systems can I use with
-
-Lightsail?
+## What operating systems can I use with Lightsail?
 
 Lightsail currently supports 7 Linux or Unix-like distributions: AlmaLinux OS 9,
 Amazon Linux 2, Amazon Linux 2023, CentOS, Debian, FreeBSD, OpenSUSE, and Ubuntu, as well as three Windows
 Server versions: 2016, 2019, and 2022.
 
-## Do I need to bring my own license to use
-
-Lightsail instances?
+## Do I need to bring my own license to use Lightsail instances?
 
 All instance blueprints available on Lightsail include a license, except for the
 cPanel & WHM blueprint. That blueprint includes a 15-day trial license. For more
@@ -45,9 +41,7 @@ information, see [Quick start
 guide: cPanel & WHM on Amazon Lightsail](amazon-lightsail-quick-start-guide-cpanel.md "amazon-lightsail-quick-start-guide-cpanel.md"). For all other instance blueprints, you
 don't need to bring your own license (BYOL).
 
-## How do I create a Lightsail
-
-instance?
+## How do I create a Lightsail instance?
 
 After logging in to Lightsail, you can use the Lightsail [console](https://lightsail.aws.amazon.com/ls/webapp "https://lightsail.aws.amazon.com/ls/webapp"), command line interface
 (CLI), or API to create and manage instances.
@@ -56,9 +50,7 @@ The first time you log in to the console, choose Create Instance. The create ins
 page is where you can choose the software, location, and name for your instance. Once you
 choose Create, your new instance will spin up automatically within minutes.
 
-## How do Lightsail instances
-
-perform?
+## How do Lightsail instances perform?
 
 Lightsail instances are specifically engineered by AWS for web servers, developer
 environments, and small database use cases. Such workloads don't use the full CPU often or
@@ -73,9 +65,7 @@ If you need highly configurable environments and instances with consistently hig
 performance for applications such as video encoding or HPC applications, we recommend you
 use [Amazon EC2](https://aws.amazon.com/ec2/ "https://aws.amazon.com/ec2/").
 
-## How do I know when my instances are
-
-bursting?
+## How do I know when my instances are bursting?
 
 On the CPU utilization metric graphs for your instance, you will see a sustainable zone,
 and a burstable zone. Your Lightsail instance can operate in the sustainable zone
@@ -114,9 +104,7 @@ your instance snapshot to create a brand new instance. For more information, see
 Yes. You can use a snapshot of your instance to create a new, larger size instance. For
 more information, see [Snapshots](understanding-snapshots-in-amazon-lightsail.md "understanding-snapshots-in-amazon-lightsail.md").
 
-## How can I connect Lightsail
-
-instances to other resources in my AWS account?
+## How can I connect Lightsail instances to other resources in my AWS account?
 
 You can connect your Lightsail instances to Amazon VPC resources in your AWS account
 privately, by using VPC peering. Just choose **Enable VPC peering** on your
@@ -131,9 +119,7 @@ VPC peering with Lightsail to work. AWS accounts created before December 2013 do
 have a default VPC, and you will need to set one up. Find out more about setting up your
 default VPC [here](../../../AmazonVPC/latest/UserGuide/default-vpc.md "../../../AmazonVPC/latest/UserGuide/default-vpc.md").
 
-## What is the difference
-
-between stopping and deleting my instance?
+## What is the difference between stopping and deleting my instance?
 
 When you stop your instance, it is powered down at its current state and is available
 for you to start again at any time. Stopping your instance will release its public IPv4

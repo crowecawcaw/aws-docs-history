@@ -6,9 +6,7 @@ address (A) record to your domain's DNS hosting provider that points your domain
 Lightsail load balancer. In this guide, we show you how to add the A record to a Lightsail
 DNS zone, and an Amazon Route 53 hosted zone.
 
-## Add an A record using the DNS zone - Assignments
-
-page
+## Add an A record using the DNS zone - Assignments page
 
 1. In the left navigation pane, choose **Domains & DNS**.
 2. Choose the DNS zone you want to manage.
@@ -23,9 +21,7 @@ page
 Allow time for the change to propagate through the internet's DNS. This may take a few
 minutes to several hours.
 
-## Add an A record using the DNS zone - DNS
-
-records page
+## Add an A record using the DNS zone - DNS records page
 
 1. In the left navigation pane, choose **Domains & DNS**.
 2. Choose the DNS zone you want to manage.

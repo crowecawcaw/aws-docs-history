@@ -1,6 +1,4 @@
-# Create Lightsail object storage bucket access
-
-keys
+# Create Lightsail object storage bucket access keys
 
 You can use access keys to create a set of credentials that grant full access to a bucket
 and its objects. Access keys consist of an access key ID and a secret access key as a set. The
@@ -40,8 +38,7 @@ make a note of it. The secret access key will not be shown again.
 ###### Important
 
 Store your access key ID and secret access key in a secure location. If it becomes
-compromised, you should delete it and create a new one. For more information, see [Delete access keys for a Lightsail object
-storage bucket](amazon-lightsail-deleting-bucket-access-keys.md "amazon-lightsail-deleting-bucket-access-keys.md"). 9. Choose **Continue** to finish.
+compromised, you should delete it and create a new one. For more information, see [Delete access keys for a Lightsail object storage bucket](amazon-lightsail-deleting-bucket-access-keys.md "amazon-lightsail-deleting-bucket-access-keys.md"). 9. Choose **Continue** to finish.
 
 The new access key is listed in the **Access keys** section of the
 page. If your access key becomes compromised, or lost, delete it and create a new

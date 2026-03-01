@@ -1,16 +1,12 @@
-# Create a
-
-Lightsail instance
+# Create a Lightsail instance
 
 This section covers the following topics related to creating instances in
 Amazon Lightsail:
 
 ###### Topics
 
-- [Create Linux/Unix instances with apps on
-  Lightsail](getting-started-with-amazon-lightsail.md "getting-started-with-amazon-lightsail.md")
-- [Create Windows Server
-  instances in Lightsail](get-started-with-windows-based-instances-in-lightsail.md "get-started-with-windows-based-instances-in-lightsail.md")
+- [Create Linux/Unix instances with apps on Lightsail](getting-started-with-amazon-lightsail.md "getting-started-with-amazon-lightsail.md")
+- [Create Windows Server instances in Lightsail](get-started-with-windows-based-instances-in-lightsail.md "get-started-with-windows-based-instances-in-lightsail.md")
   Follow the step-by-step instructions to create instances running Linux and Unix
   distributions like Amazon Linux, Ubuntu, Debian, or Windows Server operating systems like Windows Server
   2022, 2019, and 2016.

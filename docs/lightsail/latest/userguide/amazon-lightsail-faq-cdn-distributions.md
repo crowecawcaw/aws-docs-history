@@ -1,10 +1,6 @@
-# Content delivery network
+# Content delivery network distributions
 
-distributions
-
-## What can I do with Lightsail CDN
-
-distributions?
+## What can I do with Lightsail CDN distributions?
 
 Lightsail content delivery network (CDN) distributions make it easy for you to
 accelerate the delivery of content hosted on your Lightsail resources by storing and
@@ -15,41 +11,30 @@ resources and help your website handle large traffic spikes. Like all of Lightsa
 features, setup can be completed with just a few clicks, and you pay a simple monthly
 price.
 
-## What types of resources can I use as
-
-the origin of my distributions?
+## What types of resources can I use as the origin of my distributions?
 
 Lightsail distributions allow you to use your Lightsail instances and load balancers
 as origins. Lightsail containers are not currently supported as origins. Resources outside
 of Lightsail, such as S3 buckets, are not supported.
 
-## Do I need to attach a static IPv4
-
-address to my Lightsail instance in order to use it as an origin for my Lightsail
-distribution?
+## Do I need to attach a static IPv4 address to my Lightsail instance in order to use it as an origin for my Lightsail distribution?
 
 Yes, static IPv4 addresses are required to be attached to instances that are specified
 as origins. Lightsail distributions do not currently support IPv6.
 
-## How do I setup a Lightsail
-
-distribution with my WordPress website?
+## How do I setup a Lightsail distribution with my WordPress website?
 
 Create your distribution, select your WordPress instance as the origin, choose your
 plan, and you’re all set. Lightsail distributions automatically configure your
 distribution settings to optimize performance for most WordPress configurations.
 
-## Can I attach multiple
-
-origins?
+## Can I attach multiple origins?
 
 Although you cannot attach multiple origins to your Lightsail distribution, you can
 attach multiple instances to a Lightsail load balancer and specify it as the origin of
 your distribution.
 
-## Do Lightsail distributions support
-
-certificate creation?
+## Do Lightsail distributions support certificate creation?
 
 Yes. Lightsail distributions makes it easy to create, verify, and attach certificates
 directly from your distribution’s management page.
@@ -62,22 +47,16 @@ that is HTTPS-enabled. However, if you wish to use your custom domain with your
 distribution, then you need to attach a certificate for your custom domain to your
 distribution.
 
-## Is there a limit to the number of certificates
-
-I can create?
+## Is there a limit to the number of certificates I can create?
 
 Yes, refer to [Lightsail service quotas](../../../general/latest/gr/lightsail.md#limits_lightsail "../../../general/latest/gr/lightsail.md#limits_lightsail") for more information.
 
-## How can I configure my
-
-distribution to redirect HTTP requests to HTTPS?
+## How can I configure my distribution to redirect HTTP requests to HTTPS?
 
 Lightsail distributions automatically redirect all HTTP requests to HTTPS to ensure
 that your content is served securely.
 
-## How can I configure my apex domain
-
-to point to my Lightsail distribution?
+## How can I configure my apex domain to point to my Lightsail distribution?
 
 In order to point your apex domain to your CDN distribution, you must create an ALIAS
 record in the domain name system (DNS) of your domain that maps your apex domain to your
@@ -85,17 +64,13 @@ distribution’s default domain. If your DNS hosting provider does not support A
 you can use Lightsail DNS zones to easily configure your apex domain to point to your
 distribution’s domain.
 
-## Can I change the plan associated with my
-
-distribution?
+## Can I change the plan associated with my distribution?
 
 Yes, you can change your distribution's plan once per month. If you wish to change your
 plan a second time, you must wait until the beginning of the following month to do
 so.
 
-## How do I know if my distribution is
-
-working?
+## How do I know if my distribution is working?
 
 Lightsail distributions provide you with a variety of metrics that track the
 performance of your distribution, including the total number of requests your distribution
@@ -103,15 +78,11 @@ has received, the amount of data your distribution has sent to clients and to yo
 and the percentage of requests that have resulted in errors. Additionally, you can create
 alerts that are linked to distribution metrics.
 
-## Can I delete cached content on
-
-my Lightsail distribution?
+## Can I delete cached content on my Lightsail distribution?
 
 You can delete all cached content, but not specific files or folders.
 
-## When should I use
-
-Lightsail distributions versus Amazon CloudFront distributions?
+## When should I use Lightsail distributions versus Amazon CloudFront distributions?
 
 Lightsail distributions are designed specifically for users who are hosting websites
 or web applications on Lightsail resources, such as instances and load balancers. If
@@ -119,9 +90,7 @@ you’re using another service in AWS to host your website or app, have complex
 configuration needs, or have a workload that involves a high number of requests per second
 or large amount of video streaming, we recommend that you use Amazon CloudFront.
 
-## Can I move my Lightsail content
-
-delivery network (CDN) distribution to Amazon CloudFront?
+## Can I move my Lightsail content delivery network (CDN) distribution to Amazon CloudFront?
 
 Yes, you can move your Lightsail distribution by creating a similarly configured
 distribution in Amazon CloudFront. All of the settings that can be configured in a Lightsail
@@ -156,9 +125,7 @@ balance your website or web application. For more information, see the [Elastic 
   information, see [Updating your CloudFront distribution](../../../AmazonCloudFront/latest/DeveloperGuide/cnames-and-https-procedures.md#cnames-and-https-updating-cloudfront "../../../AmazonCloudFront/latest/DeveloperGuide/cnames-and-https-procedures.md#cnames-and-https-updating-cloudfront") in the _CloudFront User
   Guide_.
 
-## How is Lightsail CDN intended to be
-
-used?
+## How is Lightsail CDN intended to be used?
 
 Lightsail CDN distributions are created using fixed-priced bundles of data transfer to
 make the cost of using the service simple and predictable. Distribution bundles are designed
@@ -176,9 +143,7 @@ All Lightsail CDN distributions have IPv6 enabled by default. The distribution h
 names resolve to both IPv4 and IPv6 addresses. IPv6 can be disabled by using a toggle on the
 Networking tab of the CDN's management page.
 
-## Do the origins need to be IPv6 enabled to work with
-
-the Lightsail CDN distributions?
+## Do the origins need to be IPv6 enabled to work with the Lightsail CDN distributions?
 
 No. CDN distributions accept both IPv6 and IPv4 traffic, and seamlessly convert it to
 IPv4 when communicating with the origins in the backend. Hence, origins behind a

@@ -1,6 +1,4 @@
-# Monitor MySQL
-
-query performance with general and slow query logs in Lightsail
+# Monitor MySQL query performance with general and slow query logs in Lightsail
 
 The [general and slow
 query logs](amazon-lightsail-viewing-database-logs-and-history.md "amazon-lightsail-viewing-database-logs-and-history.md") are disabled by default for MySQL databases in Amazon Lightsail. You can
@@ -16,9 +14,7 @@ If you haven't done so already, install and configure the AWS CLI. For more info
 [Configure the
 AWS Command Line Interface to work with Amazon Lightsail](lightsail-how-to-set-up-and-configure-aws-cli.md "lightsail-how-to-set-up-and-configure-aws-cli.md").
 
-## Enable the general and slow query
-
-logs in the Lightsail console
+## Enable the general and slow query logs in the Lightsail console
 
 To enable the general and slow query logs in the Lightsail console, you must update the
 `general_log` and `slow_query_log` database parameters with a value of
@@ -87,9 +83,7 @@ and history in Amazon Lightsail](amazon-lightsail-viewing-database-logs-and-hist
 For more information about updating database parameters, see [Updating database parameters
 in Amazon Lightsail](amazon-lightsail-updating-database-parameters.md "amazon-lightsail-updating-database-parameters.md").
 
-## Control additional database log
-
-options
+## Control additional database log options
 
 To control additional options for the MySQL general and slow query logs, update the
 following parameters:

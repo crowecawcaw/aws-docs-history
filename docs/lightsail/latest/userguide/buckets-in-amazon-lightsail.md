@@ -1,6 +1,4 @@
-# Store and manage data with Lightsail object
-
-storage buckets
+# Store and manage data with Lightsail object storage buckets
 
 Use the Amazon Lightsail object storage service to store and retrieve objects, at any time,
 from anywhere on the internet. It is designed to make web-scale computing easier for developers,

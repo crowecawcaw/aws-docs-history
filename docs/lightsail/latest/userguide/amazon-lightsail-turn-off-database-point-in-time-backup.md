@@ -1,6 +1,4 @@
-# Disable
-
-point-in-time backups for Lightsail databases
+# Disable point-in-time backups for Lightsail databases
 
 Use the following procedure to disable point-in-time backups for your Lightsail managed
 database.
@@ -16,13 +14,9 @@ managed database.
 Use the AWS Command Line Interface (AWS CLI), or AWS CloudShell to enable or disable point-in-time backups for
 your Lightsail database. CloudShell is a browser-based, pre-authenticated shell
 that you can launch directly from the Lightsail console. For more information, see
-[Set up and configure the AWS CLI
-for Lightsail operations](lightsail-how-to-set-up-and-configure-aws-cli.md "lightsail-how-to-set-up-and-configure-aws-cli.md") , and [Manage Lightsail resources with
-AWS CloudShell](amazon-lightsail-cloudshell.md "amazon-lightsail-cloudshell.md").
+[Set up and configure the AWS CLI for Lightsail operations](lightsail-how-to-set-up-and-configure-aws-cli.md "lightsail-how-to-set-up-and-configure-aws-cli.md"), and [Manage Lightsail resources with AWS CloudShell](amazon-lightsail-cloudshell.md "amazon-lightsail-cloudshell.md").
 
-## Disable database point-in-time
-
-backups
+## Disable database point-in-time backups
 
 To disable the point-in-time backups for your managed database in Lightsail, you
 must update the database using the `update-relational-database` Lightsail

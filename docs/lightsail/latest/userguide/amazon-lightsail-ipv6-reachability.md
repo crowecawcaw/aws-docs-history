@@ -1,6 +1,4 @@
-# Verify IPv6 reachability for
-
-Lightsail instances
+# Verify IPv6 reachability for Lightsail instances
 
 You can verify IPv6 connectivity from your local computer to an Amazon Lightsail instance
 using the ping tool. Ping is a network diagnostic utility that’s used to troubleshoot
@@ -10,15 +8,11 @@ to allow IPv6, the ping command fails. For more information, see [IPv6-only cons
 
 ###### Contents
 
-- [Enable IPv6 for dual-stack
-  instances](#ipv6-reachability-enable-ipv6 "#ipv6-reachability-enable-ipv6")
-- [Configure the instance's
-  firewall](#ipv6-reachability-configure-firewall "#ipv6-reachability-configure-firewall")
+- [Enable IPv6 for dual-stack instances](#ipv6-reachability-enable-ipv6 "#ipv6-reachability-enable-ipv6")
+- [Configure the instance's firewall](#ipv6-reachability-configure-firewall "#ipv6-reachability-configure-firewall")
 - [Test reachability to your instance](#ipv6-reachability-test "#ipv6-reachability-test")
 
-## Enable IPv6 for dual-stack
-
-instances
+## Enable IPv6 for dual-stack instances
 
 Enable IPv6 for your dual-stack instance before you begin testing. IPv6 is always
 on for IPv6-only instances.
@@ -46,9 +40,7 @@ You will use them in the following sections.
 
 [Show moreShow less](# "#")
 
-## Configure the instance's
-
-firewall
+## Configure the instance's firewall
 
 The firewall in the Lightsail console acts as a virtual firewall. Meaning it
 controls which traffic is allowed to connect to your instance through its public IP
@@ -61,8 +53,7 @@ that you can configure.
 
 Complete the following procedure to configure your instance’s firewall for
 Internet Control Message Protocol (ICMP) traffic. The ping utility uses the ICMP
-protocol to communicate with your instance. For more information, see [Control instance
-traffic with firewalls in Lightsail](understanding-firewall-and-port-mappings-in-amazon-lightsail.md "understanding-firewall-and-port-mappings-in-amazon-lightsail.md").
+protocol to communicate with your instance. For more information, see [Control instance traffic with firewalls in Lightsail](understanding-firewall-and-port-mappings-in-amazon-lightsail.md "understanding-firewall-and-port-mappings-in-amazon-lightsail.md").
 
 ###### Important
 
@@ -71,10 +62,8 @@ block ping commands. Verify that the instance’s OS firewall can accept ICMP
 traffic over IPv4 and IPv6 before you continue. For more information, see the
 following documentation:
 
-- [Connect to your
-  Lightsail Windows instance using RDP](connect-to-your-windows-based-instance-using-amazon-lightsail.md "connect-to-your-windows-based-instance-using-amazon-lightsail.md")
-- [Connect to
-  Linux or Unix instances on Lightsail](lightsail-how-to-connect-to-your-instance-virtual-private-server.md "lightsail-how-to-connect-to-your-instance-virtual-private-server.md")
+- [Connect to your Lightsail Windows instance using RDP](connect-to-your-windows-based-instance-using-amazon-lightsail.md "connect-to-your-windows-based-instance-using-amazon-lightsail.md")
+- [Connect to Linux or Unix instances on Lightsail](lightsail-how-to-connect-to-your-instance-virtual-private-server.md "lightsail-how-to-connect-to-your-instance-virtual-private-server.md")
 
 1. Sign in to the [Lightsail
    console](https://lightsail.aws.amazon.com/ "https://lightsail.aws.amazon.com/").

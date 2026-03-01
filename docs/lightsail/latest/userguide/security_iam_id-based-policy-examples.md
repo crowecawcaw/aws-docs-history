@@ -1,6 +1,4 @@
-# Grant least-privilege permissions
-
-with IAM identity policies in Lightsail
+# Grant least-privilege permissions with IAM identity policies in Lightsail
 
 By default, IAM users and roles don't have permission to create or modify Lightsail
 resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or AWS API. An IAM
@@ -12,9 +10,7 @@ To learn how to create an IAM identity-based policy using these example JSON pol
 documents, see [Creating Policies on the JSON Tab](../../../IAM/latest/UserGuide/access_policies_create.md#access_policies_create-json-editor "../../../IAM/latest/UserGuide/access_policies_create.md#access_policies_create-json-editor") in the
 _IAM User Guide_.
 
-## Policy Best
-
-Practices
+## Policy Best Practices
 
 Identity-based policies determine whether someone can create, access, or delete Amazon Lightsail resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -47,9 +43,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the Lightsail
-
-Console
+## Using the Lightsail Console
 
 To access the Amazon Lightsail console, you must have full-access permission to all
 Lightsail actions and resources. These permissions must allow you to list and view
@@ -84,9 +78,7 @@ You don't need to allow minimum console permissions for users that are making ca
 only to the AWS CLI or the AWS API. Instead, allow access to only the actions that match
 the API operation that you're trying to perform.
 
-## Allow Users
-
-to View Their Own Permissions
+## Allow Users to View Their Own Permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -126,9 +118,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Allowing
-
-Creation and Deletion of Lightsail Resources Based on Tags
+## Allowing Creation and Deletion of Lightsail Resources Based on Tags
 
 You can use conditions in your identity-based policy to control access to Lightsail
 resources based on tags. This example shows how you might create a policy that restricts

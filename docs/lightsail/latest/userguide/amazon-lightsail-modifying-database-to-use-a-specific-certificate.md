@@ -1,6 +1,4 @@
-# Update the
-
-CA certificate version for your Lightsail database
+# Update the CA certificate version for your Lightsail database
 
 Amazon Lightsail has published new Certificate Authority (CA) certificates for connecting to
 your managed database using SSL/TLS. This guide describes how to upgrade to the new CA
@@ -53,9 +51,7 @@ _Amazon Relational Database Service User Guide_.
   CloudShell, see [AWS CloudShell in
   Lightsail](amazon-lightsail-cloudshell.md "amazon-lightsail-cloudshell.md").
 
-## Identify the active CA certificate for
-
-your managed database
+## Identify the active CA certificate for your managed database
 
 Complete the following steps to identify the active CA certificate for your Lightsail
 database instance.
@@ -87,9 +83,7 @@ The command will return the ID of the active CA certificate for your database.
 "caCertificateIdentifier": "rds-ca-rsa2048-g1"
 ```
 
-## Modify your managed database to use the
-
-new CA certificate
+## Modify your managed database to use the new CA certificate
 
 Complete the following steps to modify your managed database in Lightsail to use one of
 the new CA certificates (`rds-ca-rsa2048-g1`,
@@ -123,9 +117,7 @@ The CA certificate used by your managed database will be updated during your
 database’s next maintenance window, or immediately if you add the
 `--apply-immediately` parameter to the end of the command.
 
-## Modify your managed database to use the
-
-old CA certificate
+## Modify your managed database to use the old CA certificate
 
 Complete the following steps to modify your managed database in Lightsail to use the old
 CA certificate (`rds-ca-2019`). Do this only if you experience a critical

@@ -1,6 +1,4 @@
-# Route domain traffic to a
-
-Lightsail container service
+# Route domain traffic to a Lightsail container service
 
 You must point your registered domain names to your Amazon Lightsail container service after
 you enabled custom domains for your service. You do this by adding an alias record to the DNS
@@ -26,9 +24,7 @@ Before you get started, you should enable custom domains for your Lightsail cont
 service. For more information, see [Enabling and managing
 custom domains for your Amazon Lightsail container services](amazon-lightsail-enabling-container-services-custom-domains.md "amazon-lightsail-enabling-container-services-custom-domains.md").
 
-## Get the default domain of your
-
-container service
+## Get the default domain of your container service
 
 Complete the following procedure to get default domain name of your container service,
 which you specify when you add an alias record to the DNS of your domain.
@@ -46,9 +42,7 @@ domains. We recommend that you copy and paste this value into a text file that y
 refer to later. For more information, see the following [Add the CNAME
 records to your domain's DNS zone](#add-container-service-default-domain-record "#add-container-service-default-domain-record") section of this guide.
 
-## Add a record to your domain's
-
-DNS zone
+## Add a record to your domain's DNS zone
 
 Complete the following procedure to add an address (A for IPv4 or AAAA for IPv6) record,
 or canonical (CNAME) record to your domain's DNS zone.

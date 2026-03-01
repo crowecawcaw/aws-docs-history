@@ -1,6 +1,4 @@
-# Enable bucket access logging in
-
-Lightsail
+# Enable bucket access logging in Lightsail
 
 Access logging provides detailed records for the requests that are made to a bucket in the
 Amazon Lightsail object storage service. Access logs are useful for many applications. For

@@ -8,8 +8,7 @@ When Lightsail object storage receives a preflight request from a browser, it ev
 
 ###### Note
 
-Bucket permissions continue to apply when you enable CORS on your bucket. CORS configuration only determines whether the browser allows the cross-origin request to proceed. For more information, see [Control access to
-Lightsail buckets and objects](amazon-lightsail-understanding-bucket-permissions.md "amazon-lightsail-understanding-bucket-permissions.md").
+Bucket permissions continue to apply when you enable CORS on your bucket. CORS configuration only determines whether the browser allows the cross-origin request to proceed. For more information, see [Control access to Lightsail buckets and objects](amazon-lightsail-understanding-bucket-permissions.md "amazon-lightsail-understanding-bucket-permissions.md").
 
 ## Elements of a CORS configuration
 

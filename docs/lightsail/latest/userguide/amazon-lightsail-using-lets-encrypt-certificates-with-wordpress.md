@@ -1,6 +1,4 @@
-# Secure your
-
-Lightsail WordPress instance with free Let's Encrypt SSL certificates
+# Secure your Lightsail WordPress instance with free Let's Encrypt SSL certificates
 
 ###### Tip
 
@@ -58,9 +56,7 @@ plugin.
 - [Step 9: Renew
   the Let's Encrypt certificates every 90 days](#renew-a-lets-encrypt-certificate-wordpress "#renew-a-lets-encrypt-certificate-wordpress")
 
-## Before getting
-
-started
+## Before getting started
 
 You should consider the following before getting started with this tutorial:
 
@@ -99,9 +95,7 @@ command:
  Using system packages." || echo "Approach B: Self-contained
  installation."`
 
-## Step 1: Complete the
-
-prerequisites
+## Step 1: Complete the prerequisites
 
 Complete the following prerequisites if you haven’t already done so:
 
@@ -122,9 +116,7 @@ manage your domain’s DNS records](lightsail-how-to-create-dns-entry.md "lights
 After you've completed the prerequisites, continue to the [next section](#install-certbot-on-your-instance-wordpress "#install-certbot-on-your-instance-wordpress") of
 this tutorial.
 
-## Step 2: Install Certbot on your
-
-Lightsail instance
+## Step 2: Install Certbot on your Lightsail instance
 
 Certbot is a client used to request a certificate from Let’s Encrypt and deploy it to a
 web server. Let's Encrypt uses the ACME protocol to issue certificates, and Certbot is an
@@ -187,9 +179,7 @@ sudo apt-get install certbot -y
 Certbot is now installed on your Lightsail instance. 8. Keep the browser-based SSH terminal window open—you return to it later in this
 tutorial. Continue to the [next section](#request-a-lets-encrypt-certificate-wordpress "#request-a-lets-encrypt-certificate-wordpress") of this tutorial.
 
-## Step 3: Request a Let’s Encrypt
-
-SSL wildcard certificate
+## Step 3: Request a Let’s Encrypt SSL wildcard certificate
 
 Begin the process of requesting a certificate from Let’s Encrypt. Using Certbot, request a
 wildcard certificate, which lets you use a single certificate for a domain and its subdomains.
@@ -259,9 +249,7 @@ verification.
 ![TXT records for Let's Encrypt certificates.](/images/lightsail/latest/userguide/images/instances/ssh/lets-encrypt-text-records.png) 8. Keep the Lightsail browser-based SSH session open—you return to it later in this
 tutorial. Continue to the [next section](#add-a-text-record-to-your-domains-dns-zone-lets-encrypt-wordpress "#add-a-text-record-to-your-domains-dns-zone-lets-encrypt-wordpress") of this tutorial.
 
-## Step 4:
-
-Add TXT records to your domain’s DNS zone
+## Step 4: Add TXT records to your domain’s DNS zone
 
 Adding a TXT record to your domain’s DNS zone verifies that you own the domain. For
 demonstration purposes, we use the Lightsail DNS zone. However, the steps might be similar
@@ -296,9 +284,7 @@ Encrypt certificate request. 9. Keep the Lightsail console browser window open�
 tutorial. Continue to the [next
 section](amazon-lightsail-using-lets-encrypt-certificates-with-lamp.md#confirm-the-text-records-have-propagated-lets-encrypt-lamp "amazon-lightsail-using-lets-encrypt-certificates-with-lamp.md#confirm-the-text-records-have-propagated-lets-encrypt-lamp") of this tutorial.
 
-## Step 5:
-
-Confirm that the TXT records have propagated
+## Step 5: Confirm that the TXT records have propagated
 
 Use the MxToolbox utility to confirm that the TXT records have propagated to the
 Internet’s DNS. DNS record propagation might take a while depending on your DNS hosting
@@ -338,9 +324,7 @@ _acme-challenge.`example.com`
      a while longer to let your domain’s DNS records propagate, and run the TXT lookup
      again.
 
-## Step 6: Complete the
-
-Let’s Encrypt SSL certificate request
+## Step 6: Complete the Let’s Encrypt SSL certificate request
 
 Go back to the Lightsail browser-based SSH session for your WordPress instance and
 complete the Let’s Encrypt certificate request. Certbot saves your SSL certificate, chain, and
@@ -363,17 +347,13 @@ certificate by that date.
 
 ![Let's Encrypt certificate renewal date.](images/instances/lets-encrypt/certificate-renewal-date.png) 3. Now that you have the Let’s Encrypt SSL certificate, continue to the [next section](#link-the-lets-encrypt-certificate-files-in-the-apache-directory-wordpress "#link-the-lets-encrypt-certificate-files-in-the-apache-directory-wordpress") of this tutorial.
 
-## Step 7: Create links to the Let’s Encrypt certificate files in the Apache server
-
-directory
+## Step 7: Create links to the Let’s Encrypt certificate files in the Apache server directory
 
 Create links to the Let’s Encrypt SSL certificate files in the Apache server directory on
 your WordPress instance. Also, back up your existing certificates, in case you need them
 later.
 
-###### To create links to the Let’s Encrypt certificate files in the Apache server
-
-directory
+###### To create links to the Let’s Encrypt certificate files in the Apache server directory
 
 1. In the Lightsail browser-based SSH session for your WordPress instance, enter the
    following command to stop the underlying services:
@@ -507,18 +487,13 @@ You should see a result similar to the following:
 The SSL certificate files for your WordPress instance are now in the correct
 directory. 7. Continue to the [next section](#integrate-certificates-with-wordpress-using-really-simple-ssl-plugin "#integrate-certificates-with-wordpress-using-really-simple-ssl-plugin") of this tutorial.
 
-## Step 8:
-
-Integrate the SSL certificate with your WordPress site using the Really Simple SSL
-plug-in
+## Step 8: Integrate the SSL certificate with your WordPress site using the Really Simple SSL plug-in
 
 Install the Really Simple SSL plug-in to your WordPress site, and use it to integrate the
 SSL certificate. Really Simple SSL also configures HTTP to HTTPS redirection to ensure that
 users who visit your site are always on the HTTPS connection.
 
-###### To integrate the SSL certificate with your WordPress site using the Really Simple SSL
-
-plug-in
+###### To integrate the SSL certificate with your WordPress site using the Really Simple SSL plug-in
 
 1. In the Lightsail browser-based SSH session for your WordPress instance, enter the
    following command to set your `wp-config.php` and `htaccess.conf`
@@ -558,9 +533,7 @@ HTTPS. When a visitor goes to `http://example.com`, they are automatically
 redirected to the encrypted HTTPS connection (i.e.,
 `https://example.com`).
 
-## Step 9: Renew the Let's Encrypt
-
-certificates every 90 days
+## Step 9: Renew the Let's Encrypt certificates every 90 days
 
 Let’s Encrypt certificates are valid for 90 days. Certificates can be renewed 30 days
 before they expire. To renew the Let's Encrypt certificates, run the original command used to

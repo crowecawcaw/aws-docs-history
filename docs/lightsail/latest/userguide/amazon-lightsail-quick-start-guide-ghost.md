@@ -1,6 +1,4 @@
-# Deploy a Ghost website on
-
-Lightsail
+# Deploy a Ghost website on Lightsail
 
 ###### Did you know?
 
@@ -31,16 +29,12 @@ running on Amazon Lightsail:
 - [Step 8:
   Create a snapshot of your instance](#amazon-lightsail-create-a-snapshot-ghost "#amazon-lightsail-create-a-snapshot-ghost")
 
-## Step 1: Read the
-
-Bitnami documentation
+## Step 1: Read the Bitnami documentation
 
 Read the Bitnami documentation to learn how to configure your Ghost application. For
 more information, see the [_Ghost Packaged By Bitnami For AWS Cloud_](https://docs.bitnami.com/aws/apps/ghost/ "https://docs.bitnami.com/aws/apps/ghost/").
 
-## Step 2: Get the
-
-default application password to access the Ghost administration dashboard
+## Step 2: Get the default application password to access the Ghost administration dashboard
 
 Complete the following procedure to get the default application password required to
 access the administration dashboard for your Ghost website. For more information, see
@@ -65,9 +59,7 @@ bitnami@ip-192-0-2-0:~$ cat $HOME/bitnami_application_password
 wB2Ex@mplEK6
 ```
 
-## Step 3: Attach a static IP
-
-address to your instance
+## Step 3: Attach a static IP address to your instance
 
 The default dynamic public IP address attached to your instance changes every time you
 stop and start the instance. You can create a static IP address and attach it to your instance to
@@ -117,9 +109,7 @@ ghost 21:43:42.78 INFO  ==> Configuring Ghost URL to http://203.0.113.0
 Disabling automatic domain update for IP address changes
 ```
 
-## Step 4: Sign in to the administration
-
-dashboard of your Ghost website
+## Step 4: Sign in to the administration dashboard of your Ghost website
 
 Now that you have the default application password, complete the following procedure
 to navigate to your Ghost website's home page, and sign in to the administration
@@ -152,9 +142,7 @@ The Ghost administration dashboard appears.
 
 ![The Ghost administration dashboard](images/amazon-lightsail-ghost-dashboard.png)
 
-## Step 5: Route
-
-traffic for your registered domain name to your Ghost website
+## Step 5: Route traffic for your registered domain name to your Ghost website
 
 To route traffic for your registered domain name, such as `example.com`, to
 your Ghost website, you add a record to the DNS of your domain. DNS records are
@@ -203,9 +191,7 @@ configure an SSL/TLS certificate to enable HTTPS connections for your Ghost webs
 more information, continue to the next [Step 6: Configure HTTPS for your Ghost
 website](#amazon-lightsail-https-ghost "#amazon-lightsail-https-ghost") section of this guide.
 
-## Step 6: Configure HTTPS for your Ghost
-
-website
+## Step 6: Configure HTTPS for your Ghost website
 
 Complete the following procedure to configure HTTPS on your Ghost website. These steps
 show you how to use the Bitnami HTTPS Configuration Tool (`bncert-tool`),
@@ -321,7 +307,7 @@ redirection to be configured. These are the options available:
 
 Your selections should look like the following example.
 
-![Website redirection options](images/bncert-enable-disable-redirection.png) 10. The changes that are going to be made are listed. Type `Y` and
+![Website redirection options](/images/lightsail/latest/userguide/images/bncert-enable-disable-redirection.png) 10. The changes that are going to be made are listed. Type `Y` and
 press **Enter** to confirm and continue.
 
 ![Confirming the changes](images/bncert-confirm-changes.png) 11. Enter your email address to associate with your Let's Encrypt certificate and
@@ -342,7 +328,7 @@ Your certificate is successfully issued and validated, and the redirections
 are successfully configured on your instance if you see a message similar to the
 following example.
 
-![Actions successfully completed](images/bncert-success-conf.png)
+![Actions successfully completed](/images/lightsail/latest/userguide/images/bncert-success-conf.png)
 
 The `bncert` tool will perform an automatic renewal of your
 certificate every 80 days before it expires. Repeat the above steps if you wish
@@ -362,17 +348,13 @@ You are now done enabling HTTPS on your Ghost instance. Next time you browse
 to your Ghost website using the domain you configured, you should see that it
 redirects to the HTTPS connection.
 
-## Step 7: Read the Ghost
-
-documentation and continue configuring your website
+## Step 7: Read the Ghost documentation and continue configuring your website
 
 Read the Ghost documentation to learn how to administer and customize your website.
 For more information, see the [Ghost
 Documentation](https://ghost.org/docs/ "https://ghost.org/docs/").
 
-## Step 8: Create a snapshot of
-
-your instance
+## Step 8: Create a snapshot of your instance
 
 After you configure your website the way you want it, create
 periodic snapshots of your instance to back it up. A snapshot is a copy of the system disk and original configuration of an instance. A

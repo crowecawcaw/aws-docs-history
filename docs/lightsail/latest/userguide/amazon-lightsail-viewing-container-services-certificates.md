@@ -1,6 +1,4 @@
-# View SSL/TLS
-
-certificates for Lightsail container services
+# View SSL/TLS certificates for Lightsail container services
 
 You can view the Amazon Lightsail SSL/TLS certificates that you created for your Lightsail
 container service. You do this by accessing the management page of any container service in the
@@ -18,9 +16,7 @@ Amazon Lightsail container services](amazon-lightsail-creating-container-service
 You also should have created an SSL/TLS certificate for your container service. For more
 information, see [Create container service SSL/TLS certificates](amazon-lightsail-creating-container-services-certificates.md "amazon-lightsail-creating-container-services-certificates.md").
 
-## View your container service SSL/TLS
-
-certificates
+## View your container service SSL/TLS certificates
 
 Complete the following procedure to view your container service SSL/TLS
 certificates.

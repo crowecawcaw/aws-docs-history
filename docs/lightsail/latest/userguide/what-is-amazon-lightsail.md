@@ -18,8 +18,7 @@ User Guide](../../../lightsail-for-research/latest/ug/what-is-lfr.md "../../../l
 - [Who is Lightsail for?](#who-is-lightsail-for "#who-is-lightsail-for")
 - [Get started](#how-to-get-started-lightsail "#how-to-get-started-lightsail")
 - [Related services](#related-services "#related-services")
-- [Estimates, billing, and cost
-  optimization](#lightsail-pricing-additional "#lightsail-pricing-additional")
+- [Estimates, billing, and cost optimization](#lightsail-pricing-additional "#lightsail-pricing-additional")
 
 ## Features of Lightsail
 
@@ -113,8 +112,7 @@ highly available application. You can also configure your load balancer to handl
 
 ## Get started with Lightsail
 
-After you set up to use Lightsail, you can walk through [Getting started with virtual private servers on
-Lightsail](getting-started.md "getting-started.md")
+After you set up to use Lightsail, you can walk through [Getting started with virtual private servers on Lightsail](getting-started.md "getting-started.md")
 to launch, connect to, and clean up an instance. For more information on how to access Lightsail, see [Access Lightsail](access-lightsail.md "access-lightsail.md")
 .
 
@@ -150,9 +148,7 @@ Set up, operate, and scale a managed relational database in the cloud.
 Deploy, manage, and scale containerized applications on a cluster of Amazon EC2
 instances.
 
-## Estimates, billing, and cost
-
-optimization
+## Estimates, billing, and cost optimization
 
 To create estimates for your AWS use cases, use the [AWS Pricing Calculator](https://calculator.aws/#/ "https://calculator.aws/#/").
 

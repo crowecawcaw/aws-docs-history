@@ -1,6 +1,4 @@
-# Enable enhanced networking for Amazon EC2
-
-instances
+# Enable enhanced networking for Amazon EC2 instances
 
 Some Lightsail instances are incompatible with the current generation EC2 instance types
 (T3, M5, C5, or R5) because they are not enabled for enhanced networking. If your source
@@ -30,9 +28,7 @@ After your new EC2 instance is up and running, continue to the [Enable
 Enhanced Networking with the Elastic Network Adapter](#enabling-enhanced-networking-with-elastic-network-adapter "#enabling-enhanced-networking-with-elastic-network-adapter") section of this guide to learn
 how to enable enhanced networking.
 
-## Enable Enhanced
-
-Networking with the Elastic Network Adapter
+## Enable Enhanced Networking with the Elastic Network Adapter
 
 After your new instance is up and running, see one of the following guides in the Amazon EC2
 documentation to enable enhanced networking with the Elastic Network Adapter (ENA):

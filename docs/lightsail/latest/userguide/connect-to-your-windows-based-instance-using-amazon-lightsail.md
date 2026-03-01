@@ -1,6 +1,4 @@
-# Connect to your
-
-Lightsail Windows instance using RDP
+# Connect to your Lightsail Windows instance using RDP
 
 You can connect to your Windows Server instance in Amazon Lightsail using the browser-based
 RDP client that is available in the Lightsail console. The browser-based RDP client does not
@@ -16,9 +14,7 @@ your Windows instance with the Remote Desktop Connection client](amazon-lightsai
 or Unix instance in Lightsail, see [Connect to your
 Linux or Unix instance](lightsail-how-to-connect-to-your-instance-virtual-private-server.md "lightsail-how-to-connect-to-your-instance-virtual-private-server.md") .
 
-## Default administrator password for Windows Server
-
-instances
+## Default administrator password for Windows Server instances
 
 A randomly generated default administrator password is assigned to Windows Server
 instances when they are created. The browser-based RDP client in the Lightsail console uses
@@ -46,9 +42,7 @@ view the original default administrator password as shown in the following examp
 
 ![Windows default administrator password in the Lightsail console.](images/amazon-lightsail-windows-default-admin-password.png)
 
-## Connect to your Windows Server instance
-
-using the browser-based RDP client
+## Connect to your Windows Server instance using the browser-based RDP client
 
 Use the following procedure to connect to your Windows Server instance using the
 browser-based RDP client in the Lightsail console.
@@ -89,9 +83,7 @@ Windows instance. For more information about configuring your own RDP client, se
 Windows instance in Amazon Lightsail using the Remote Desktop Connection
 client](amazon-lightsail-connecting-to-windows-instance-using-rdc.md "amazon-lightsail-connecting-to-windows-instance-using-rdc.md").
 
-## Interact with your Windows instance using the
-
-browser-based RDP client
+## Interact with your Windows instance using the browser-based RDP client
 
 Use the browser-based RDP client as you would your own local Windows desktop. RDP includes
 function keys and other keys specific to Windows to help you interact with your instance. The

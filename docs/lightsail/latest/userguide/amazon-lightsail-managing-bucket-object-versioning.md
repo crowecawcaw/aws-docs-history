@@ -1,6 +1,4 @@
-# Enable and suspend object
-
-versioning in Lightsail
+# Enable and suspend object versioning in Lightsail
 
 Versioning in Amazon Lightsail object storage service is a means of keeping multiple variants
 of an object in the same bucket. You can use the versioning feature to preserve, retrieve, and
@@ -21,9 +19,7 @@ access permission back to **Individual objects can be made public
 (read-only)**. For more information, see [Configure bucket access
 permissions](amazon-lightsail-configuring-bucket-permissions.md "amazon-lightsail-configuring-bucket-permissions.md").
 
-## Version disabled, enabled, and
-
-suspended buckets
+## Version disabled, enabled, and suspended buckets
 
 Bucket versioning can be in one of three states in the Lightsail console:
 
@@ -55,9 +51,7 @@ that are no more than 1,024 bytes long. The following is an example of a version
 3sL4kqtJlcpXroDTDmJ+rmSpXd3dIbrHY+MTRCxf3vjVBH40Nr8X8gdRQBpUMLUo
 ```
 
-## Enable or suspend
-
-object versioning using the Lightsail console
+## Enable or suspend object versioning using the Lightsail console
 
 Complete the following procedure to enable or suspend object versioning using the
 Lightsail console.
@@ -75,9 +69,7 @@ Lightsail console.
    - If versioning is currently enabled, choose the toggle under the **Object
      versioning** section of the page to suspend versioning.
 
-## Enable or suspend object
-
-versioning using the AWS CLI
+## Enable or suspend object versioning using the AWS CLI
 
 Complete the following procedure to enable or suspend object versioning using the
 AWS Command Line Interface (AWS CLI). You do this by using the `update-bucket` command. For more

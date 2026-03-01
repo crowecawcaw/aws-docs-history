@@ -1,6 +1,4 @@
-# Host websites, email, and services
-
-with cPanel & WHM on Lightsail
+# Host websites, email, and services with cPanel & WHM on Lightsail
 
 ###### Did you know?
 
@@ -42,9 +40,7 @@ up and running on Amazon Lightsail.
 - [Step 10: Create
   a snapshot of your cPanel & WHM instance](#amazon-lightsail-cpanel-create-a-snapshot "#amazon-lightsail-cpanel-create-a-snapshot")
 
-## Step 1: Change the root user
-
-password
+## Step 1: Change the root user password
 
 Complete the following procedure to change the root user password on your cPanel instance.
 You will use the root user and password to sign in to the Web Host Manager (WHM) console
@@ -70,9 +66,7 @@ warning.
 Remember this password because you will use it to sign in to the WHM console later in
 this guide.
 
-## Step 2: Attach a static IP address
-
-to your cPanel & WHM instance
+## Step 2: Attach a static IP address to your cPanel & WHM instance
 
 ###### Important
 
@@ -99,9 +93,7 @@ instance](lightsail-create-static-ip.md "lightsail-create-static-ip.md").
 
 ![Attach static IP address in the Lightsail console](images/quick-start-static-ip-address.png)
 
-## Step 3: Sign in to the Web Host Manager for
-
-the first time
+## Step 3: Sign in to the Web Host Manager for the first time
 
 Complete the following procedure to sign in to the WHM console for the first time.
 
@@ -176,9 +168,7 @@ configure these later.
 The WHM console appears, where you can manage the settings and features for
 cPanel.
 
-## Step 4: Change the hostname and IP
-
-address of your cPanel & WHM instance
+## Step 4: Change the hostname and IP address of your cPanel & WHM instance
 
 Complete the following steps to change the hostname of your instance, so that you don't
 have to use its public IP address to access the WHM console. You should also change the IP
@@ -222,9 +212,7 @@ the domain name system (DNS) of your registered domain name. The A record resolv
 hostname of your instance to the static IP address of your instance. We show you how to do
 this in the next section of this guide.
 
-## Step 5: Map your
-
-domain name to your cPanel & WHM instance
+## Step 5: Map your domain name to your cPanel & WHM instance
 
 ###### Note
 
@@ -265,9 +253,7 @@ instructions on the page to add your domain name to Lightsail. For more informat
 [Creating a DNS zone to manage your
 domain’s DNS records in Lightsail](lightsail-how-to-create-dns-entry.md "lightsail-how-to-create-dns-entry.md").
 
-## Step 6: Edit the firewall of your
-
-instance
+## Step 6: Edit the firewall of your instance
 
 The following firewall ports are open by default on your cPanel & WHM instance:
 
@@ -294,9 +280,7 @@ documentation_. For more information about editing your instance's firewall in
 Lightsail, see [Adding and editing
 instance firewall rules in Amazon Lightsail](amazon-lightsail-editing-firewall-rules.md "amazon-lightsail-editing-firewall-rules.md").
 
-## Step 7: Remove SMTP restrictions from your
-
-Lightsail instance
+## Step 7: Remove SMTP restrictions from your Lightsail instance
 
 AWS blocks outbound traffic on port 25 on all Lightsail instances. To send outbound
 traffic on port 25, request that this restriction be removed. For more information, see [How
@@ -308,9 +292,7 @@ If you configure SMTP to use ports 25, 465, or 587, then you must open those por
 the firewall of your instance in the Lightsail console. For more information, see [Adding and editing instance firewall
 rules in Amazon Lightsail](amazon-lightsail-editing-firewall-rules.md "amazon-lightsail-editing-firewall-rules.md").
 
-## Step 8: Read the cPanel &
-
-WHM documentation and get support
+## Step 8: Read the cPanel & WHM documentation and get support
 
 Read the cPanel & WHM documentation to learn how to administer web sites using cPanel
 and WHM. For more information, see [cPanel & WHM
@@ -323,9 +305,7 @@ the following resources:
   Troubleshoot your installation](https://docs.cpanel.net/installation-guide/troubleshoot-your-installation/ "https://docs.cpanel.net/installation-guide/troubleshoot-your-installation/")
 - [cPanel Discord channel](https://go.cpanel.net/discord "https://go.cpanel.net/discord")
 
-## Step 9: Purchase a license for
-
-cPanel & WHM
+## Step 9: Purchase a license for cPanel & WHM
 
 Your cPanel & WHM instance includes a 15-day trial license. After 15 days, you must
 purchase a license from cPanel to continue using cPanel & WHM. For more information, see
@@ -344,9 +324,7 @@ transfer your license to another IP address later, you can submit a request to c
 more information, see [Transfer a
 license](https://docs.cpanel.net/manage2/licenses/transfer-a-license/ "https://docs.cpanel.net/manage2/licenses/transfer-a-license/") in the _WHM documentation_.
 
-## Step 10: Create a snapshot of your
-
-cPanel & WHM instance
+## Step 10: Create a snapshot of your cPanel & WHM instance
 
 ###### Note
 

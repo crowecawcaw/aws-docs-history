@@ -1,6 +1,4 @@
-# Scale capacity for your
-
-Lightsail container service
+# Scale capacity for your Lightsail container service
 
 The capacity of your Amazon Lightsail container service is made up of its scale and power.
 The scale specifies the number of compute nodes in your container service, and the power
@@ -20,9 +18,7 @@ service will disappear, and only metrics for the new current deployment will be 
 
 For more information about container services, see [Container services](amazon-lightsail-container-services.md "amazon-lightsail-container-services.md").
 
-## Change the capacity of your container
-
-service
+## Change the capacity of your container service
 
 Complete the following procedure to change the capacity of your Lightsail container
 service.

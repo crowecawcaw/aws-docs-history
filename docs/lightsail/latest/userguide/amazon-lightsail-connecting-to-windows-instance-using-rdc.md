@@ -1,6 +1,4 @@
-# Connect to a
-
-Lightsail Windows instance from Windows with Remote Desktop
+# Connect to a Lightsail Windows instance from Windows with Remote Desktop
 
 You can use the Remote Desktop Connection (RDC) client included with the Windows operating
 system to connect to your Windows instance in Amazon Lightsail. RDC requires that you use the
@@ -13,9 +11,7 @@ the Lightsail console, and configure RDC to connect to your Windows instance. Yo
 connect to your instance from within the Lightsail console using your browser. For more
 information, see [Connect to your Windows instance with the web-based RDP client](connect-to-your-windows-based-instance-using-amazon-lightsail.md "connect-to-your-windows-based-instance-using-amazon-lightsail.md").
 
-## Get the default administrator password for
-
-your Windows instance
+## Get the default administrator password for your Windows instance
 
 Complete the following steps to get the default administrator password for your Windows
 instance, which is required to connect to the instance using RDC.
@@ -37,9 +33,7 @@ password.
 Continue to the next section of this guide to configure RDC, and paste the password
 into the client.
 
-## Configure RDC and connect to your Windows
-
-instance
+## Configure RDC and connect to your Windows instance
 
 Complete the following steps to configure RDC and connect to your Windows instance.
 

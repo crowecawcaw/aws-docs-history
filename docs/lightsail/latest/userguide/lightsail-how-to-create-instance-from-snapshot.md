@@ -1,6 +1,4 @@
-# Create Lightsail
-
-instances from snapshots
+# Create Lightsail instances from snapshots
 
 After you create a snapshot in Lightsail, you can create a new instance from that
 snapshot. You can change attributes of the new instance, such as instance size and
@@ -8,9 +6,7 @@ networking type – dual-stack or IPv6-only. The new instance includes the syste
 and the attached block storage disks that you added.
 
 You must have a snapshot of an instance before you can create another instance from that
-snapshot. For more information, see [Back up Linux/Unix
-Lightsail instances with snapshots](lightsail-how-to-create-a-snapshot-of-your-instance.md "lightsail-how-to-create-a-snapshot-of-your-instance.md") or [Create a snapshot of your
-Lightsail Windows Server instance](prepare-windows-based-instance-and-create-snapshot.md "prepare-windows-based-instance-and-create-snapshot.md").
+snapshot. For more information, see [Back up Linux/Unix Lightsail instances with snapshots](lightsail-how-to-create-a-snapshot-of-your-instance.md "lightsail-how-to-create-a-snapshot-of-your-instance.md") or [Create a snapshot of your Lightsail Windows Server instance](prepare-windows-based-instance-and-create-snapshot.md "prepare-windows-based-instance-and-create-snapshot.md").
 
 1. On the Lightsail console, choose the instance that you want to snapshot to
    create a new instance.
@@ -25,8 +21,7 @@ Zone, [add a launch script](lightsail-how-to-configure-server-additional-data-sh
 you connect to your instance](understanding-ssh-in-amazon-lightsail.md "understanding-ssh-in-amazon-lightsail.md"). 5. Choose a plan (or _bundle_) for your new instance. You can
 choose to create an instance that uses a dual-stack (IPv4 and IPv6) instance plan,
 or an IPv6-only plan. You can also choose a larger bundle size than that of the
-original instance. For more information about IPv6-only instance plans, see [Configure IPv6-only networking for
-Lightsail instances](amazon-lightsail-ipv6-only-plans.md "amazon-lightsail-ipv6-only-plans.md").
+original instance. For more information about IPv6-only instance plans, see [Configure IPv6-only networking for Lightsail instances](amazon-lightsail-ipv6-only-plans.md "amazon-lightsail-ipv6-only-plans.md").
 
 ###### Note
 

@@ -1,6 +1,4 @@
-# Disable opt-in Regions for
-
-Lightsail
+# Disable opt-in Regions for Lightsail
 
 If you decide you no longer want to operate resources in an opt-in Region, you can
 disable it. Before you disable the Region, you should evaluate whether you have any
@@ -10,9 +8,7 @@ the Billing and Cost Management console can help you identify resources used acr
 Region. For additional information about working with Regions, see [Enable or
 disable AWS Regions in your account](../../../accounts/latest/reference/manage-acct-regions.md "../../../accounts/latest/reference/manage-acct-regions.md").
 
-## Behavior of
-
-resources in a disabled opt-in Region
+## Behavior of resources in a disabled opt-in Region
 
 If you disable a Region that still contains resources, charges for those resources (if
 any) continue to accrue at the standard rate. Additionally, you lose access to manage your resources in the Region, though they continue to run.

@@ -1,6 +1,4 @@
-# Track snapshot export status in
-
-Lightsail
+# Track snapshot export status in Lightsail
 
 The **Exports** section on the Amazon Lightsail console, is where you can
 track the status of exporting Lightsail snapshots to Amazon EC2, or creating new EC2 instances from

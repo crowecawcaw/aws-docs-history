@@ -1,8 +1,6 @@
 # Data transfer in Lightsail
 
-## What if I exceed my data
-
-transfer plan allowance for instances?
+## What if I exceed my data transfer plan allowance for instances?
 
 We have designed our data transfer plans so that the vast majority of our customers will
 be fully covered by their allowance and not incur any additional charges. If your instance
@@ -15,9 +13,7 @@ Data transfer OUT from a Lightsail instance to another Lightsail instance, in be
 Lightsail instances and Lightsail managed databases, or to AWS resources in the same
 Region is also free if private IP addresses are used.
 
-## What types of data transfer do I get
-
-charged for with instances?
+## What types of data transfer do I get charged for with instances?
 
 When you exceed the monthly free data transfer allowance of your instance plan, you will
 get charged for data transfer OUT from a Lightsail instance to the internet or to another
@@ -45,9 +41,7 @@ privately and for free, and are much less likely to be impaired concurrently. Av
 Zones enable you to build highly available applications and websites without increasing the
 cost of data transfer or compromising your application's security.
 
-## How does my data
-
-transfer allowance work for instances?
+## How does my data transfer allowance work for instances?
 
 Every Lightsail instance plan includes a data transfer allowance. Both data transfer
 IN and data transfer OUT of your instance count toward your data transfer allowance. If you
@@ -121,9 +115,7 @@ Amazon Lightsail API Reference.
   previously accrued. Further data transfer OUT through these instances will continue to
   accrue data transfer OUT overage fees.
 
-## How does my data
-
-transfer allowance for instances vary by AWS Region?
+## How does my data transfer allowance for instances vary by AWS Region?
 
 The regional data transfer allowance for Lightsail instances is found on [Amazon Lightsail pricing](https://aws.amazon.com/lightsail/pricing/ "https://aws.amazon.com/lightsail/pricing/"). The
 allowance is the same for all AWS Regions, with the exception of the Asia Pacific (Mumbai
@@ -154,9 +146,7 @@ For Lightsail CDN distributions, all data transfer out of your distribution coun
 toward your allowance. All data transfer out of your distribution will incur a charge after
 you exceed your distribution data transfer allowance.
 
-## How does my data
-
-transfer allowance work with my load balancers?
+## How does my data transfer allowance work with my load balancers?
 
 Your load balancer does not consume your data transfer allowance. Traffic between the
 load balancer and the target instances or distributions is metered and counts toward your
@@ -165,9 +155,7 @@ from and out to the internet is counted toward your data transfer allowance for 
 instances that are not behind a load balancer. Traffic into and out of your load balancer to
 the internet is not calculated toward the data transfer allowance for your instances.
 
-## How does my data transfer allowance work with object
-
-storage?
+## How does my data transfer allowance work with object storage?
 
 You can consume your data transfer allowance by transferring data into and out of
 Lightsail object storage, except for the following.
@@ -180,9 +168,7 @@ Lightsail object storage, except for the following.
 - Data transferred out from Lightsail object storage to a Lightsail CDN
   distribution
 
-## What types of data transfer do I get
-
-charged for with distributions?
+## What types of data transfer do I get charged for with distributions?
 
 When you exceed the data transfer allowance of your Lightsail CDN distribution plan,
 you are charged for all data transfer OUT. The charge for data transfer above your
@@ -198,9 +184,7 @@ distribution's allowance is as follows.
 - South America: $0.11 USD/GB
 - United States: $0.09 USD/GB
 
-## What are the differences between Lightsail's instance data transfer quotas and
-
-distribution data transfer quotas?
+## What are the differences between Lightsail's instance data transfer quotas and distribution data transfer quotas?
 
 The charge for data transfer above your distribution's allowance is different from Lightsail instances.
 While data transfer IN and OUT count toward your instance's data transfer quota, only
@@ -210,9 +194,7 @@ overage fee, whereas some types of data transfer OUT are free for instances. Fin
 Lightsail distributions use a different regional overage model, though the majority of the
 rates are the same as those charged for instance overage.
 
-## Will I be charged for data
-
-transfer in and out of the container service?
+## Will I be charged for data transfer in and out of the container service?
 
 Every container service comes with a data transfer quota (500 GB per month). This counts
 toward both the data transfer IN and OUT of your service. When you exceed the quota, you

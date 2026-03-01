@@ -1,6 +1,4 @@
-# Route domain
-
-traffic to a Lightsail container service using Route 53
+# Route domain traffic to a Lightsail container service using Route 53
 
 You can route traffic for a registered domain, such as `example.com`, to the
 applications running on a Amazon Lightsail container service. You do this by adding an alias
@@ -28,9 +26,7 @@ Amazon Lightsail to a Lightsail container service](amazon-lightsail-point-domain
 - [Step
   4: Add a record to the hosted zone of your domain in Route 53](#route-53-container-service-add-record-to-hosted-zone "#route-53-container-service-add-record-to-hosted-zone")
 
-## Step 1: Complete the
-
-prerequisites
+## Step 1: Complete the prerequisites
 
 Complete the following prerequisites if you haven't already:
 
@@ -47,9 +43,7 @@ Complete the following prerequisites if you haven't already:
 - Configure the AWS CLI with your account. For more information, see [Configure the AWS CLI to work with
   Lightsail](lightsail-how-to-set-up-and-configure-aws-cli.md "lightsail-how-to-set-up-and-configure-aws-cli.md").
 
-## Step 2: Get the hosted zone IDs
-
-for Lightsail container services
+## Step 2: Get the hosted zone IDs for Lightsail container services
 
 You must specify a hosted zone ID for your Lightsail container service when you add an
 alias record to a hosted zone in Route 53. For example, if your Lightsail container service is
@@ -90,9 +84,7 @@ Lightsail container service.
 
 **US West (Oregon) (us-west-2)**: Z0959753D43BBB908BAV
 
-## Step 3: Create a record
-
-set JSON file
+## Step 3: Create a record set JSON file
 
 When you add a DNS record to the hosted zone of your domain in Route 53 using the AWS CLI, you
 must specify a set of configuration parameters for the record. The easiest way to do this is
@@ -170,9 +162,7 @@ Example:
 3. Save the file to your local directory as
    `change-resource-record-sets.json`.
 
-## Step 4: Add a record to
-
-the hosted zone of your domain in Route 53
+## Step 4: Add a record to the hosted zone of your domain in Route 53
 
 Complete the following procedure to add a record to the hosted zone of your domain in
 Route 53 using the AWS CLI. You do this by using the 

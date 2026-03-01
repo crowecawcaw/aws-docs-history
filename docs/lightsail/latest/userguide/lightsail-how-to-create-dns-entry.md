@@ -1,6 +1,4 @@
-# Create a DNS zone to manage domain records
-
-for Lightsail instances
+# Create a DNS zone to manage domain records for Lightsail instances
 
 To route traffic for a domain name, such as `example.com`, to an Amazon Lightsail
 instance, you add a record to the Domain Name System (DNS) of your domain. You can manage the
@@ -30,9 +28,7 @@ place at your domain's current DNS hosting provider while the transfer of manage
 Lightsail propagates. This ensures that traffic for your domain continues to route to your
 resources uninterrupted while the transfer takes place.
 
-## Step 1: Complete the
-
-prerequisites
+## Step 1: Complete the prerequisites
 
 Complete the following prerequisites if you haven’t already done so:
 
@@ -55,9 +51,7 @@ instance](how-to-create-amazon-lightsail-instance-virtual-private-server-vps.md 
 see [Create a static IP and attach it to an
 instance](lightsail-create-static-ip.md "lightsail-create-static-ip.md").
 
-## Step 2: Create a DNS zone in the Lightsail
-
-console
+## Step 2: Create a DNS zone in the Lightsail console
 
 Complete the following steps to create a DNS zone in Lightsail. When you create a DNS
 zone, you must specify the domain name that the DNS zone will apply to.
@@ -93,9 +87,7 @@ You are redirected to the DNS zone **Assignments** page, where you
 can manage domain resource assignments. Use assignments to point a domain to your
 Lightsail resources, such as load balancers and instances.
 
-## Step 3: Add records to the DNS
-
-zone
+## Step 3: Add records to the DNS zone
 
 Complete the following steps to add records to your domain’s DNS zone. DNS records specify
 how internet traffic is routed for the domain. For example, you could route traffic for the
@@ -235,9 +227,7 @@ Instead, all Lightsail DNS records default to a TTL of 60 seconds. For more
 information, see [Time to
 live](https://en.wikipedia.org/wiki/Time_to_live "https://en.wikipedia.org/wiki/Time_to_live") on Wikipedia.
 
-## Step 4: Change the name servers at your
-
-domain’s current DNS hosting provider
+## Step 4: Change the name servers at your domain’s current DNS hosting provider
 
 Complete the following steps to transfer management of your domain's DNS records to
 Lightsail. To do this, you sign in to the website of your domain’s current DNS hosting

@@ -18,15 +18,12 @@ resources. If you delete the stack, then all related resources are automatically
 Because of this, you should not delete any of the CloudFormation stacks created by Lightsail, and
 instead delete your Amazon EC2 resources using the EC2 console.
 
-## Accessing the CloudFormation stacks through the
-
-Lightsail console
+## Accessing the CloudFormation stacks through the Lightsail console
 
 After you choose to create an instance in Amazon EC2 using the Lightsail console or the
 Lightsail API, an CloudFormation stack is created and its status is tracked in the
 **Exports** section of the Lightsail console.. To learn more about
-**Exports**, see [Track snapshot export status in
-Lightsail](amazon-lightsail-task-monitor.md "amazon-lightsail-task-monitor.md").
+**Exports**, see [Track snapshot export status in Lightsail](amazon-lightsail-task-monitor.md "amazon-lightsail-task-monitor.md").
 
 ###### To view your CloudFormation stacks in the Lightsail console
 
@@ -38,9 +35,7 @@ Lightsail](amazon-lightsail-task-monitor.md "amazon-lightsail-task-monitor.md").
 ![The task history in the Lightsail console.](images/amazon-lightsail-task-manager-cloud-formation-stack.png) 4. The confirmation page that appears lists the CloudFormation stack for the task. Choose
 the stack name to open the stack details in the CloudFormation console.
 
-## Accessing the stacks in
-
-the CloudFormation console
+## Accessing the stacks in the CloudFormation console
 
 You can also access your stack details through the [CloudFormation console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation"). The stacks
 created by Lightsail begin with “Lightsail-stack” and have a description of

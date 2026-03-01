@@ -112,9 +112,7 @@ JSON
 
 ```
 
-## Use the Lightsail console
-
-to manage access to private repositories
+## Use the Lightsail console to manage access to private repositories
 
 Complete the following procedure to use the Lightsail console to manage access for a
 Lightsail container service to an Amazon ECR private repository.
@@ -163,9 +161,7 @@ container service deployments](amazon-lightsail-container-services-deployments.m
 
 ![Next steps after adding an Amazon ECR private repository](images/container-service-ecr-repos-next-steps.png)
 
-## Use the AWS CLI to manage access to private
-
-repositories
+## Use the AWS CLI to manage access to private repositories
 
 Managing access for a Lightsail container service to an Amazon ECR private repository
 using the AWS Command Line Interface (AWS CLI) requires the following steps:
@@ -210,9 +206,7 @@ statement:
      to a private repository that has a policy statement](#ecr-private-repo-add-policy-existing-policy "#ecr-private-repo-add-policy-existing-policy") later in
      this guide.
 
-### Activate or deactivate the Amazon ECR image
-
-puller IAM role
+### Activate or deactivate the Amazon ECR image puller IAM role
 
 Complete the following procedure to activate or deactivate the Amazon ECR image puller
 IAM role for your Lightsail container service. You can activate or deactivate
@@ -308,9 +302,7 @@ with your container service. Continue to the [Determine if your Amazon ECR
 private repository has a policy statement](#identify-ecr-repo-policy-statement "#identify-ecr-repo-policy-statement") section of this
 guide.
 
-### Determine if your Amazon ECR private
-
-repository has a policy statement
+### Determine if your Amazon ECR private repository has a policy statement
 
 Use the following procedure to determine if your Amazon ECR private repository has a
 policy statement. You can use the AWS CLI `get-repository-policy` command
@@ -370,9 +362,7 @@ You should see one of the following responses:
 
     ![Response to the get-repository-policy command for a private repository that has a policy statement](images/ecr-existing-policy-statement.png)
 
-### Add a policy to a private
-
-repository that doesn't have a policy statement
+### Add a policy to a private repository that doesn't have a policy statement
 
 Complete the following procedure to add a policy to an Amazon ECR private repository
 that doesn't have a policy statement. The policy that you add must include the Amazon ECR
@@ -498,9 +488,7 @@ Example:
 `111122223333`.dkr.ecr.`us-east-1`.amazonaws.com/`my-private-repo`:`myappimage`
 ```
 
-### Add a policy to a
-
-private repository that has a policy statement
+### Add a policy to a private repository that has a policy statement
 
 Complete the following procedure to add a policy to an Amazon ECR private repository
 that has a policy statement. The policy that you add must include the existing

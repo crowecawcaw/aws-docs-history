@@ -1,6 +1,4 @@
-# Monitor Lightsail
-
-container service resource utilization
+# Monitor Lightsail container service resource utilization
 
 After you create an Amazon Lightsail container service, you can view its metric graphs on
 the **Metrics** tab of the service’s management page. Monitoring metrics is an
@@ -34,9 +32,7 @@ If you create a new deployment, then the existing utilization metrics of your co
 service will disappear, and only metrics for the new current deployment will be
 shown.
 
-## View container service metrics in the
-
-Lightsail console
+## View container service metrics in the Lightsail console
 
 Complete the following procedure to view container service metrics in the Lightsail
 console.

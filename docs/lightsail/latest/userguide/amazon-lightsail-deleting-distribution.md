@@ -1,6 +1,4 @@
-# Delete Lightsail
-
-distributions
+# Delete Lightsail distributions
 
 You can delete your Amazon Lightsail distribution at any time if you're no longer using
 it.

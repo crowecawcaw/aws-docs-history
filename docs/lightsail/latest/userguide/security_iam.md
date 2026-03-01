@@ -153,9 +153,7 @@ perform the operation. For example, suppose that you have a policy that allows t
 `iam:GetRole` action. A user with that policy can get role information from
 the AWS Management Console, the AWS CLI, or the AWS API.
 
-### Identity-Based
-
-Policies
+### Identity-Based Policies
 
 Identity-based policies are JSON permissions policy documents that you attach to an identity (user, group, or role). These policies control what actions identities can perform, on which resources, and under what conditions. To learn how to create an identity-based policy, see [Define custom IAM permissions with customer managed policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in the _IAM User Guide_.
 
@@ -166,9 +164,7 @@ policies control what actions users and roles can perform, on which resources, a
 policy, see [Define custom IAM permissions with customer managed policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in the
 _IAM User Guide_.
 
-### Resource-Based
-
-Policies
+### Resource-Based Policies
 
 Resource-based policies are JSON policy documents that you attach to a resource. Examples include IAM _role trust policies_ and Amazon S3 _bucket policies_. In services that support resource-based policies, service administrators can use them to control access to a specific resource. You must [specify a principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md") in a resource-based policy.
 
@@ -227,9 +223,7 @@ AWS supports additional policy types that can set the maximum permissions grante
   policy. An explicit deny in any of these policies overrides the allow. For more
   information, see [Session policies](../../../IAM/latest/UserGuide/access_policies.md#policies_session "../../../IAM/latest/UserGuide/access_policies.md#policies_session") in the _IAM User Guide_.
 
-### Multiple Policy
-
-Types
+### Multiple Policy Types
 
 When multiple types of policies apply to a request, the resulting permissions are more complicated to understand. To learn how AWS determines whether to allow a request when multiple policy types are involved, see [Policy evaluation logic](../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md "../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md") in the _IAM User Guide_.
 

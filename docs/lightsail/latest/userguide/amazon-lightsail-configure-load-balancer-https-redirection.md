@@ -5,9 +5,7 @@ to HTTPS redirect so that users who browse to your website or web application us
 connection are automatically redirected to the encrypted HTTPS connection. For more
 information about load balancers, see [Load balancers](understanding-lightsail-load-balancers.md "understanding-lightsail-load-balancers.md").
 
-## Complete the
-
-prerequisites
+## Complete the prerequisites
 
 Complete the following prerequisites if you haven't already:
 

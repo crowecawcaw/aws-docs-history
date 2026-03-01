@@ -1,6 +1,4 @@
-# SSL/TLS certificates in
-
-Lightsail
+# SSL/TLS certificates in Lightsail
 
 Amazon Lightsail uses SSL/TLS certificates to validate custom (registered) domains that you
 can use with Lightsail load balancers, content delivery network (CDN) distributions, and
@@ -57,9 +55,7 @@ steps:
 After the certificate is attached to the resource, the traffic that is routed to that
 resource through the domain is encrypted using HTTPS.
 
-## Use SSL/TLS certificates with your
-
-distribution or container service
+## Use SSL/TLS certificates with your distribution or container service
 
 HTTPS is required on Lightsail distributions and container services. When you create
 either of those resources, HTTPS is enabled by default for the resource's default domain
@@ -100,9 +96,7 @@ following these links.
 
 For more information about container services, see [Container services](amazon-lightsail-container-services.md "amazon-lightsail-container-services.md").
 
-## Use SSL/TLS certificates with your load
-
-balancer
+## Use SSL/TLS certificates with your load balancer
 
 When you create a Lightsail load balancer, port 80 is open by default to handling
 regular HTTP traffic. To enable HTTPS traffic over port 443, you must create an SSL/TLS

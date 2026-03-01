@@ -1,6 +1,4 @@
-# Upsize a Lightsail
-
-instance, storage, or database from snapshots
+# Upsize a Lightsail instance, storage, or database from snapshots
 
 It happens. Your cloud project is growing and you need more compute power right away! We can
 help you with that. To upsize your Lightsail instance, block storage disk, or database, create

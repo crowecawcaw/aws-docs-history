@@ -1,6 +1,4 @@
-# Delete unused SSL/TLS
-
-certificates from Lightsail distributions
+# Delete unused SSL/TLS certificates from Lightsail distributions
 
 ###### Warning
 
@@ -14,9 +12,7 @@ distributions](amazon-lightsail-content-delivery-network-distributions.md "amazo
 
 You have a quota of certificates that you can create over a 365-day period. For more information, see [Lightsail service quotas](../../../general/latest/gr/lightsail.md#limits_lightsail "../../../general/latest/gr/lightsail.md#limits_lightsail") in the _AWS General Reference_.
 
-## Delete an SSL/TLS certificate for your
-
-distribution
+## Delete an SSL/TLS certificate for your distribution
 
 ###### Important
 

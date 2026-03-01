@@ -1,6 +1,4 @@
-# Become a Lightsail
-
-reseller
+# Become a Lightsail reseller
 
 You must submit a form to be considered for becoming an Amazon Lightsail reseller. The
 request will be filed using the AWS account that you are logged in with at the time
@@ -8,8 +6,7 @@ you complete the form. If you use AWS Organizations to help centrally manage you
 you should submit the request while using your management account to become a reseller.
 By using your management account, you get increased default Lightsail instance quotas
 across the member accounts in your organization. For more information on how Lightsail
-reseller benefits affect your AWS accounts, see [How Lightsail reseller
-benefits and increased default quotas apply to your accounts](lightsail-resellers.md#lightsail-resellers-how-accounts-benefit "lightsail-resellers.md#lightsail-resellers-how-accounts-benefit").
+reseller benefits affect your AWS accounts, see [How Lightsail reseller benefits and increased default quotas apply to your accounts](lightsail-resellers.md#lightsail-resellers-how-accounts-benefit "lightsail-resellers.md#lightsail-resellers-how-accounts-benefit").
 
 If your request is approved, and you have multiple organizations, you can submit an
 additional request to add the AWS account ID of each organization's management account
@@ -20,8 +17,7 @@ Guide_.
 ###### Topics
 
 - [Required information to become a Lightsail reseller](#lightsail-resellers-become-a-reseller-required-information "#lightsail-resellers-become-a-reseller-required-information")
-- [Request to
-  become a Lightsail reseller](#lightsail-resellers-become-a-reseller-submit-request "#lightsail-resellers-become-a-reseller-submit-request")
+- [Request to become a Lightsail reseller](#lightsail-resellers-become-a-reseller-submit-request "#lightsail-resellers-become-a-reseller-submit-request")
 - [Request additional accounts to become Lightsail resellers](#lightsail-resellers-become-a-reseller-request-additional-accounts "#lightsail-resellers-become-a-reseller-request-additional-accounts")
 
 ## Required information to become a Lightsail reseller
@@ -41,9 +37,7 @@ complete the form:
   information, see [Terminology and concepts for AWS Organizations](../../../organizations/latest/userguide/orgs_getting-started_concepts.md "../../../organizations/latest/userguide/orgs_getting-started_concepts.md") in the _AWS Organizations
   User Guide_.
 
-## Request to
-
-become a Lightsail reseller
+## Request to become a Lightsail reseller
 
 The following steps will submit a request to become a reseller. The AWS account
 ID that you are authenticated with will be used as the account that you'd like to

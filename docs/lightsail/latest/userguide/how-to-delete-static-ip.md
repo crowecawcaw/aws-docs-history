@@ -14,9 +14,7 @@ Deleting a static IP will completely remove the static IP from your Lightsail ac
 Resources that use that static IP, such as instances, will be impacted. You will not be able
 to get the static IP back after you delete it.
 
-## Delete a static IP using the
-
-Lightsail console
+## Delete a static IP using the Lightsail console
 
 Complete the following procedure to delete a static IP using the Lightsail
 console.

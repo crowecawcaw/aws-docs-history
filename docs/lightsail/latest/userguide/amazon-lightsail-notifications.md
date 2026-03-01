@@ -1,14 +1,11 @@
-# Configure metric notifications for Lightsail
-
-resources
+# Configure metric notifications for Lightsail resources
 
 You can configure Lightsail to notify you when a metric for one of your instances,
 databases, load balancers, or content delivery network (CDN) distributions crosses a specified
 threshold. Notifications can be in the form of a banner displayed in the Lightsail console, an
 email sent to an address you specify, or an SMS text message sent to a mobile phone number you
 specify. For more information on how to review your contacts pending verification for
-notifications, see [Review email
-contacts pending verification](amazon-lightsail-alarm-notifications.md#amazon-lightsail-alarm-notifications-review-contacts "amazon-lightsail-alarm-notifications.md#amazon-lightsail-alarm-notifications-review-contacts").
+notifications, see [Review email contacts pending verification](amazon-lightsail-alarm-notifications.md#amazon-lightsail-alarm-notifications-review-contacts "amazon-lightsail-alarm-notifications.md#amazon-lightsail-alarm-notifications-review-contacts").
 
 To get notifications, you must configure an alarm that monitors a metric for one of your
 resources. For example, you can configure an alarm that notifies you when your instance's

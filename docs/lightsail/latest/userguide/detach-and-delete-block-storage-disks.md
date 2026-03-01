@@ -1,6 +1,4 @@
-# Detach and delete Lightsail block
-
-storage disks
+# Detach and delete Lightsail block storage disks
 
 If you no longer need a block storage disk, you can detach it from your stopped
 Amazon Lightsail instance, and then delete it. This topic describes how to back up your data and
@@ -14,9 +12,7 @@ safely delete a disk.
   backup in case you change your mind. For more information, see [Create a snapshot of your
   database](create-block-storage-disk-snapshot.md "create-block-storage-disk-snapshot.md")
 
-## Detach and delete your
-
-disk
+## Detach and delete your disk
 
 Once you stop your Lightsail instance, you can safely detach and delete your
 disk.

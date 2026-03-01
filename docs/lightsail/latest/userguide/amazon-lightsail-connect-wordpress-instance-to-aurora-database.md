@@ -29,9 +29,7 @@ in Lightsail to an Aurora managed database in Amazon RDS.
 - [Step 5: Configure WordPress to
   connect to your Aurora managed database](#connect-wordpress-to-aurora "#connect-wordpress-to-aurora")
 
-## Step 1: Complete the
-
-prerequisites
+## Step 1: Complete the prerequisites
 
 Complete the following prerequisites before you begin:
 
@@ -44,9 +42,7 @@ Complete the following prerequisites before you begin:
    AWS Region as your WordPress instance. It should also be in a running state before you
    continue. For more information, see [Getting started with Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/CHAP_GettingStartedAurora.md "../../../AmazonRDS/latest/AuroraUserGuide/CHAP_GettingStartedAurora.md") in the Amazon Aurora User Guide.
 
-## Step 2: Configure the security group for
-
-your Aurora database
+## Step 2: Configure the security group for your Aurora database
 
 An AWS security group acts as a virtual firewall for your AWS resources. It controls
 the incoming and outgoing traffic that can connect to your Aurora database in Amazon RDS. For more
@@ -89,9 +85,7 @@ rule**. 11. Complete one of the following steps:
 
 ![Inbound rules detail screenshot of the Amazon RDS console.](images/wp-aurora-add-security-group-rule.png)
 
-## Step 3: Connect to your
-
-Aurora database from your Lightsail instance
+## Step 3: Connect to your Aurora database from your Lightsail instance
 
 Complete the following procedure to confirm that you can connect to your Aurora database
 from your Lightsail instance.
@@ -123,9 +117,7 @@ configure the security group of your Aurora database to allow the private IP add
 your Lightsail instance to connect to it. For more information, see the [Configure the security group for
 your Aurora database](#configure-aurora-security-group "#configure-aurora-security-group") section of this guide.
 
-## Step 4: Transfer the database from
-
-your WordPress instance to your Aurora database
+## Step 4: Transfer the database from your WordPress instance to your Aurora database
 
 Now that you’ve confirmed you can connect to your database from your instance, you should
 transfer your WordPress website data to your Aurora database.
@@ -167,9 +159,7 @@ displayed:
 If you get an error, confirm that you’re using the correct database user name,
 password, and endpoint, and try again.
 
-## Step 5: Configure WordPress to connect to your
-
-Aurora database
+## Step 5: Configure WordPress to connect to your Aurora database
 
 After you transfer your application data to your Aurora database, you should configure
 WordPress to connect to it. Complete the following procedure to edit the WordPress

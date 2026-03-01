@@ -5,9 +5,7 @@ script or any other batch script. This is a one-time script that runs right afte
 launches. This topic shows the syntax of the scripts and provides an example to get you started.
 We also show you how to test your script to see if it ran successfully.
 
-## Create an instance that launches and runs
-
-a PowerShell script
+## Create an instance that launches and runs a PowerShell script
 
 The following procedure installs a tool called _chocolatey_ on a new
 instance, right after the instance launches.
@@ -54,9 +52,7 @@ Resource names:
 
 9. Choose **Create instance**.
 
-## Verify that your script
-
-ran successfully
+## Verify that your script ran successfully
 
 You can log in to your instance to verify that the script ran successfully. It can take up
 to 15 minutes for a Windows-based instance to be ready to accept RDP connections. Once it's

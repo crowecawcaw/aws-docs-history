@@ -1,6 +1,4 @@
-# Recover previous object
-
-versions in Lightsail buckets
+# Recover previous object versions in Lightsail buckets
 
 If your bucket in the Amazon Lightsail object storage service is version-enabled, then you
 can restore previous versions of an object. Restore a previous version of an object recover from
@@ -13,9 +11,7 @@ This replaces the current version with the previous version, making the previous
 current version. For more information about versioning, see [Enable and suspend bucket object
 versioning](amazon-lightsail-managing-bucket-object-versioning.md "amazon-lightsail-managing-bucket-object-versioning.md"). For more information about buckets, see [Object storage](buckets-in-amazon-lightsail.md "buckets-in-amazon-lightsail.md").
 
-## Restore a previous version
-
-of an object using the Lightsail console
+## Restore a previous version of an object using the Lightsail console
 
 Complete the following procedure to restore a previous version of an object using the
 Lightsail console.
@@ -37,9 +33,7 @@ Lightsail console.
 10. In the confirmation prompt that appears, choose **Yes, restore** to
     restore the object version. Otherwise, choose **No, cancel**.
 
-## Restore a previous version of an
-
-object using the AWS CLI
+## Restore a previous version of an object using the AWS CLI
 
 Complete the following procedure to restore a previous version of an object the AWS Command Line Interface
 (AWS CLI). You do this by using the `copy-object` command. You must copy the previous
@@ -81,9 +75,7 @@ You should see a result similar to the following example:
 
 ![Result of the AWS CLI copy-object-version command](images/amazon-lightsail-s3api-copy-object-version-result.png)
 
-## Manage buckets and
-
-objects
+## Manage buckets and objects
 
 These are the general steps to manage your Lightsail object storage bucket:
 

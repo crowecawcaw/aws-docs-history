@@ -1,6 +1,4 @@
-# Firewall rules reference for
-
-Lightsail instances
+# Firewall rules reference for Lightsail instances
 
 You can add rules to an Amazon Lightsail instance's firewall that reflects the role of the
 instance. For example, an instance that's configured as a web server needs firewall rules that
@@ -42,9 +40,7 @@ HTTP - TCP - 80 - all IP addresses
 
 HTTPS - TCP - 443 - all IP addresses
 
-## Rules to connect to your instance from your
-
-computer
+## Rules to connect to your instance from your computer
 
 To connect to your instance, you add a rule that allows SSH access (for Linux instances)
 or RDP access (for Windows instances).

@@ -1,6 +1,4 @@
-# Launch
-
-and configure a Windows Server 2016 instance on Lightsail
+# Launch and configure a Windows Server 2016 instance on Lightsail
 
 Amazon Lightsail is the easiest way to get started with Amazon Web Services (AWS) if you just need
 virtual private servers. Lightsail includes everything you need to launch your project quickly
@@ -26,16 +24,12 @@ Lightsail.
   instance](#tutorial-launching-and-configuring-windows-server-2016-creating-a-lightsail-static-ip "#tutorial-launching-and-configuring-windows-server-2016-creating-a-lightsail-static-ip")
 - [Next steps](#tutorial-launching-and-configuring-windows-server-2016-next-steps "#tutorial-launching-and-configuring-windows-server-2016-next-steps")
 
-## Step
-
-1: Sign up for AWS
+## Step 1: Sign up for AWS
 
 This tutorial requires an AWS account. [Sign up for AWS](https://console.aws.amazon.com/console/home "https://console.aws.amazon.com/console/home"), or [sign in to AWS](https://console.aws.amazon.com/console/home "https://console.aws.amazon.com/console/home") if you already
 have an account.
 
-## Step 2: Create a Windows Server 2016
-
-instance in Lightsail
+## Step 2: Create a Windows Server 2016 instance in Lightsail
 
 Get your Windows Server 2016 instance up and running in Lightsail. For more information,
 see [Get started with
@@ -89,9 +83,7 @@ more information on tag usage, see [Tags](amazon-lightsail-tags.md "amazon-light
 
 8. Choose **Create instance**.
 
-## Step 3: Connect to your Windows Server
-
-2016 instance with RDP
+## Step 3: Connect to your Windows Server 2016 instance with RDP
 
 Connect to your Windows Server 2016 instance using the browser-based RDP client in the
 Lightsail console. For more information, see [Connect to your
@@ -105,9 +97,7 @@ Windows Server 2016 instance:
 
 ![Launching and configuring a Windows Server 2016 instance in Lightsail.](images/amazon-ws-tutorial-06.png)
 
-## Step 4: Create a static IP address and attach it to your Windows Server 2016
-
-instance
+## Step 4: Create a static IP address and attach it to your Windows Server 2016 instance
 
 The default public IP for your Windows Server 2016 instance changes if you stop and start
 the instance. A static IP address, attached to an instance, stays the same even if you stop
@@ -168,9 +158,7 @@ record to point the apex of your domain to your LAMP instance, as follows:
 
 begins routing traffic to your LAMP instance.
 
-## Next
-
-steps
+## Next steps
 
 Here are a few additional steps you can perform after launching a Windows Server 2016
 instance in Amazon Lightsail:

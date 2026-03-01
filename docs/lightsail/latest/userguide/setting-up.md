@@ -1,6 +1,4 @@
-# Set up AWS account and administrative users for
-
-Lightsail
+# Set up AWS account and administrative users for Lightsail
 
 If you're a new AWS customer, complete the setup prerequisites that are listed on this
 page before you start using Amazon Lightsail. For these setup procedures, you use the

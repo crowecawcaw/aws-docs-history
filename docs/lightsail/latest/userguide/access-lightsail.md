@@ -31,8 +31,7 @@ commands in the [Lightsail section of the AWS CLI Command Reference](../../../cl
 CloudShell is a browser-based, pre-authenticated shell that you can launch
 directly from the AWS Management Console. You can run AWS CLI commands using your preferred
 shell, such as Bash, PowerShell, or Z shell. For
-examples of how to use AWS CloudShell to manage your Lightsail resources, see [Manage Lightsail resources with
-AWS CloudShell](amazon-lightsail-cloudshell.md "amazon-lightsail-cloudshell.md").
+examples of how to use AWS CloudShell to manage your Lightsail resources, see [Manage Lightsail resources with AWS CloudShell](amazon-lightsail-cloudshell.md "amazon-lightsail-cloudshell.md").
 
 **Query API**
 
@@ -99,8 +98,7 @@ For example, the dual-stack endpoint name for the `us-east-2` Region is
 ### Service endpoints by Region
 
 The following are the service endpoints for Lightsail. For more information
-about the Regions available for Lightsail, see [Regions and
-Availability Zones for Lightsail](understanding-regions-and-availability-zones-in-amazon-lightsail.md "understanding-regions-and-availability-zones-in-amazon-lightsail.md").
+about the Regions available for Lightsail, see [Regions and Availability Zones for Lightsail](understanding-regions-and-availability-zones-in-amazon-lightsail.md "understanding-regions-and-availability-zones-in-amazon-lightsail.md").
 
 | Region Name              | Region         | Endpoint                                                                   | Protocol       |
 | ------------------------ | -------------- | -------------------------------------------------------------------------- | -------------- |

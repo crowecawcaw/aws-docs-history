@@ -37,9 +37,7 @@ The following limits apply to alarms:
   data** option for missing data points.
 - You can only test notifications if the alarm is in an OK state.
 
-## Best practices for configuring
-
-distribution alarms
+## Best practices for configuring distribution alarms
 
 Before you configure a metric alarm for your distribution, you should view the historical
 data of the metric. Identify the metric's low-levels, mid-levels, and high-levels over a
@@ -173,9 +171,7 @@ banner displays in the Lightsail console only if you chose to test the
 test the `OK` notification. The alarm will return to its actual state often
 after a few seconds.
 
-## Next steps after creating
-
-distribution alarms
+## Next steps after creating distribution alarms
 
 There are a few additional tasks that you can perform for your distribution alarms:
 

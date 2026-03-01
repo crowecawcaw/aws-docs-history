@@ -1,6 +1,4 @@
-# Validate your Lightsail distribution's
-
-content caching
+# Validate your Lightsail distribution's content caching
 
 In this guide, you will learn how to test that your Amazon Lightsail distribution is caching
 and serving content from your origin. You should perform this test after you add your registered

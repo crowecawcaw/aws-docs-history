@@ -1,6 +1,4 @@
-# Enable opt-in Regions for
-
-Lightsail
+# Enable opt-in Regions for Lightsail
 
 You can enable the supported opt-in Region for Lightsail for no additional charge.
 You're charged only for resources that you create in the newly enabled Region. This process

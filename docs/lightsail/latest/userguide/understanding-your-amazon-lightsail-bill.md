@@ -1,15 +1,11 @@
-# View Lightsail detailed billing and
-
-usage
+# View Lightsail detailed billing and usage
 
 Billing for Amazon Lightsail is handled through Amazon Web Services (AWS) billing. To view your
 Lightsail bill, go to the [AWS Billing and Cost Management
 Dashboard](https://console.aws.amazon.com/billing/ "https://console.aws.amazon.com/billing/"), or choose **Billing** on the top navigation bar of the
 Lightsail console. For more information about pricing, see the [Lightsail pricing page](https://aws.amazon.com/lightsail/pricing/ "https://aws.amazon.com/lightsail/pricing/").
 
-## View your detailed Lightsail
-
-bill
+## View your detailed Lightsail bill
 
 To view a detailed breakdown of your monthly Lightsail bill:
 

@@ -54,9 +54,7 @@ Resource names:
 
 For more information about key-only and key-value tags, see [Tags](amazon-lightsail-tags.md "amazon-lightsail-tags.md"). 7. Choose **Create load balancer**.
 
-## Attach an instance to your load
-
-balancer
+## Attach an instance to your load balancer
 
 After your load balancer is created, Lightsail takes you to the load balancer management
 page. If you need to find that page again, choose the **Networking** tab on

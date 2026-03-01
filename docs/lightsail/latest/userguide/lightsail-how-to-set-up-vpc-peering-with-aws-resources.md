@@ -1,6 +1,4 @@
-# Connect Lightsail
-
-resources to AWS services using VPC peering
+# Connect Lightsail resources to AWS services using VPC peering
 
 With Amazon Lightsail, you can connect to AWS resources, such as an Amazon RDS database, through
 virtual private cloud (VPC) peering. A VPC is a virtual network dedicated to your AWS account.
@@ -44,9 +42,7 @@ navigation pane to view the peering connection that is created.
 
 For more information about Amazon VPC, see [VPC and Subnets](../../../AmazonVPC/latest/UserGuide/how-it-works.md#how-it-works-subnet "../../../AmazonVPC/latest/UserGuide/how-it-works.md#how-it-works-subnet") in the _Amazon VPC User Guide_.
 
-## Allow
-
-communication with other AWS services
+## Allow communication with other AWS services
 
 Once VPC peering has been enabled, you must ensure that your resources in the other AWS
 services you want to connect to accept inbound traffic from your Lightsail resources. If you
@@ -58,5 +54,4 @@ The steps you might take will depend on the service and types of traffic you are
 with. For an example of the steps you might take to connect a Lightsail instance to an Amazon RDS
 database, see the [Amazon Lightsail Database Tips
 and Tricks](https://aws.amazon.com/blogs/compute/amazon-lightsail-database-tips-and-tricks/ "https://aws.amazon.com/blogs/compute/amazon-lightsail-database-tips-and-tricks/") AWS blog post. For more information on the services you can integrate
-with Lightsail using VPC peering, see [Integrate Lightsail with other AWS
-services with VPC peering](using-lightsail-with-other-aws-services.md "using-lightsail-with-other-aws-services.md").
+with Lightsail using VPC peering, see [Integrate Lightsail with other AWS services with VPC peering](using-lightsail-with-other-aws-services.md "using-lightsail-with-other-aws-services.md").

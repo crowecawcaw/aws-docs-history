@@ -47,9 +47,7 @@ new resource from a tagged manual snapshot.
 
 Automatic snapshots cannot be tagged.
 
-## How can I tag my Lightsail
-
-snapshots?
+## How can I tag my Lightsail snapshots?
 
 The Lightsail console automatically tags manual snapshots with the same tags as its
 source resource. If you use the Lightsail API, or AWS CLI to create a snapshot, you can
@@ -60,9 +58,7 @@ choose the tags for the snapshot yourself.
 Tags for manual snapshots of databases are not currently included in billing reports
 (cost allocation tags).
 
-## What is the
-
-difference between key-value and key-only tags?
+## What is the difference between key-value and key-only tags?
 
 Lightsail tags are key-value pairs, allowing you to organize resources such as
 instances across different categories (e.g. project:Blog, project:Game, project:Test). This

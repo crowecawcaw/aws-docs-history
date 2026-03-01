@@ -1,6 +1,4 @@
-# Migrate your WordPress blog to
-
-Lightsail
+# Migrate your WordPress blog to Lightsail
 
 Looking to change your WordPress hosting provider? Amazon Lightsail is the easiest way to run
 a WordPress site on AWS.
@@ -27,9 +25,7 @@ Before you begin, you will need the following:
    created your account, or if you haven't provided a credit card yet, you may need to log in
    to the AWS Management Console and update your account first.
 
-## Step 1: Back up your existing
-
-WordPress blog
+## Step 1: Back up your existing WordPress blog
 
 You can use WordPress to back up your existing blog. You will just need to be able to log
 into the WordPress admin console and manage your blog.
@@ -60,7 +56,9 @@ how:
 3. Select the AWS Region where you'd like to create your blog.
 
 You can choose the default Availability Zone or change that once you select an
-AWS Region. 4. Select **WordPress**.
+AWS Region. 4. Select a **WordPress** blueprint.
+
+You can choose a Amazon Lightsail or Bitnami provider.
 
 ![Pick WordPress as your Lightsail instance image](images/amazon-lightsail-pick-your-instance-image.png) 5. Choose your instance plan (or _bundle_).
 
@@ -91,6 +89,8 @@ to import your old blog data. The default password to sign in to the administrat
 of your WordPress website is stored on the instance. Complete the following steps to get the
 password.
 
+Bitnami
+
 ###### To get the default password for the WordPress administrator
 
 1. Open the instance management page for your WordPress instance.
@@ -98,13 +98,30 @@ password.
    password**. This expands **Access default password** at
    the bottom of the page.
 
-![Accessing WordPress admin password in Lightsail.](images/amazon-wordpress-admin-password-retrieval-01.png) 3. Choose **Launch CloudShell**. This opens a panel at the bottom of
+![Accessing WordPress admin password in Lightsail.](images/wordpress/wordpress-bitnami-retrieve-password.png) 3. Choose **Launch CloudShell**. This opens a panel at the bottom of
 the page. 4. Choose **Copy** and then paste the contents into the CloudShell
 window. You can either put your cursor at the CloudShell prompt and press Ctrl+V,
 or you can right-click to open the menu and then choose **Paste**. 5. Make a note of the password displayed in the CloudShell window. You need this
 to sign in to the administration dashboard of your WordPress website.
 
 ![Viewing WordPress admin password in Lightsail.](images/amazon-wordpress-viewing-admin-password-01.png)
+
+Lightsail
+
+###### To get the default password for the WordPress administrator
+
+1. Open the instance management page for your WordPress instance.
+2. On the **WordPress** panel, choose **Retrieve default
+   password**. This expands **Access default password** at
+   the bottom of the page.
+
+![Accessing WordPress admin password in Lightsail.](images/wordpress/wordpress-lightsail-retrieve-password.png) 3. Choose **Launch CloudShell**. This opens a panel at the bottom of
+the page. 4. Choose **Copy** and then paste the contents into the CloudShell
+window. You can either put your cursor at the CloudShell prompt and press Ctrl+V,
+or you can right-click to open the menu and then choose **Paste**. 5. Make a note of the password displayed in the CloudShell window. You need this
+to sign in to the administration dashboard of your WordPress website.
+
+![Viewing WordPress admin password in Lightsail.](images/wordpress/amazon-wordpress-lightsail-viewing-admin-password.png)
 
 Now that you have the password for the administration dashboard of your WordPress website,
 you can sign in. In the administration dashboard, you can change your user password, install
@@ -160,4 +177,4 @@ Here are some next steps:
 - Migrate your DNS so that your domain name servers point to the new version of your
   blog.
 - Customize your new blog's appearance and/or install some WordPress plugins.
-- [Enable HTTPS support with SSL certificates](https://docs.bitnami.com/aws/apps/wordpress/#how-to-enable-https-support-with-ssl-certificates "https://docs.bitnami.com/aws/apps/wordpress/#how-to-enable-https-support-with-ssl-certificates")
+- [Launch and configure a WordPress instance on Lightsail](amazon-lightsail-tutorial-launching-and-configuring-wordpress.md "amazon-lightsail-tutorial-launching-and-configuring-wordpress.md")

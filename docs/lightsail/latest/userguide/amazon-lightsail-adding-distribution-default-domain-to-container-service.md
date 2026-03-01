@@ -1,6 +1,4 @@
-# Add
-
-the default domain of a distribution to a Lightsail container service
+# Add the default domain of a distribution to a Lightsail container service
 
 You can choose an Amazon Lightsail container service as the origin of a content delivery
 network (CDN) distribution. The distribution then caches and serves the website or web
@@ -21,9 +19,7 @@ circumstances:
   about distributions, see [Object
   storage](buckets-in-amazon-lightsail.md "buckets-in-amazon-lightsail.md").
 
-## Add the default
-
-domain of a distribution to a container service
+## Add the default domain of a distribution to a container service
 
 Complete the following procedure to add the default domain of a distribution to a
 container service in Lightsail using the AWS Command Line Interface (AWS CLI). You do this by using the

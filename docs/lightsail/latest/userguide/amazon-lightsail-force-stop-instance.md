@@ -1,6 +1,4 @@
-# Force stop stuck Lightsail
-
-instances
+# Force stop stuck Lightsail instances
 
 Rarely, an instance can get stuck in the `Stopping` state. If this happens, there
 might be an issue with the underlying hardware that hosts your Amazon Lightsail instance. In this

@@ -1,6 +1,4 @@
-# View CPU burst capacity accrual for Lightsail
-
-instances
+# View CPU burst capacity accrual for Lightsail instances
 
 ###### Did you know?
 

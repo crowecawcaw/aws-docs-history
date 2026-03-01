@@ -1,6 +1,4 @@
-# Monitor Lightsail instance
-
-performance with metrics
+# Monitor Lightsail instance performance with metrics
 
 After you launch an instance in Amazon Lightsail, you can view its metric graphs on the
 **Metrics** tab of the instance’s management page. Monitoring metrics is an
@@ -78,9 +76,7 @@ sustainable and burstable zones](#cpu-utilization-zones "#cpu-utilization-zones"
   Instance Metadata Service Version 2, then the value is 0. For more information, see [Instance metadata and user
   data](amazon-lightsail-instance-metadata.md "amazon-lightsail-instance-metadata.md").
 
-## CPU utilization sustainable and burstable
-
-zones
+## CPU utilization sustainable and burstable zones
 
 Lightsail uses burstable instances which provide a baseline amount of CPU performance,
 but also have the ability to temporarily provide additional CPU performance above the baseline
@@ -114,9 +110,7 @@ zone, you might want to switch to a larger plan for your instance (use the $12 U
 instead of the $5 USD/month plan). You can switch to a larger plan by creating a new snapshot
 of your instance, and then creating a new instance from the snapshot.
 
-## View instance metrics in the Lightsail
-
-console
+## View instance metrics in the Lightsail console
 
 Complete the following steps to view instance metrics in the Lightsail console.
 

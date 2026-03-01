@@ -1,8 +1,6 @@
 # Container services
 
-## What can I do with Lightsail
-
-container services?
+## What can I do with Lightsail container services?
 
 Lightsail container services provide an easy way to run containerized applications in
 the cloud. You can run a variety of applications on a container service, ranging from simple
@@ -12,40 +10,30 @@ of running the container service without you having to manage any underlying inf
 Lightsail will provide you with a load balanced TLS endpoint to access the application
 running on the container service.
 
-## Can Lightsail container service run Docker
-
-containers?
+## Can Lightsail container service run Docker containers?
 
 Yes. Lightsail supports Linux-based Docker containers. Windows containers are
 currently not supported.
 
-## How do I use my public
-
-container images with Lightsail container service?
+## How do I use my public container images with Lightsail container service?
 
 You can use container images from an online public registry, such as Amazon ECR Public
 Registry, or build your own custom image and push it to Lightsail in a few easy steps
 using the AWS CLI. For more information, see [Push and manage container
 images](amazon-lightsail-pushing-container-images.md "amazon-lightsail-pushing-container-images.md").
 
-## Can I pull my container images from a
-
-private container registry?
+## Can I pull my container images from a private container registry?
 
 Currently, only public container registries are supported by Lightsail container
 services. Alternately, you can push your custom container images from your local machine to
 Lightsail to keep them private.
 
-## Can I change the power and scale of my
-
-service based on demand?
+## Can I change the power and scale of my service based on demand?
 
 Yes, container service power and scale can be changed at any time even after the service
 is created.
 
-## Can I customize the name of the HTTPS
-
-endpoint created by Lightsail container service?
+## Can I customize the name of the HTTPS endpoint created by Lightsail container service?
 
 Lightsail provides a HTTPS endpoint for every container service in the format
 ``<service-name>`.`<random-guid>`.`<aws-region-name>`.cs.amazonlightsail.com`.
@@ -53,9 +41,7 @@ Only the service name can be customized. Alternately, you can use a custom domai
 more information, see [Enable and manage
 custom domains](amazon-lightsail-enabling-container-services-custom-domains.md "amazon-lightsail-enabling-container-services-custom-domains.md").
 
-## Can I use custom domains for
-
-the HTTPS endpoint of a Lightsail container service?
+## Can I use custom domains for the HTTPS endpoint of a Lightsail container service?
 
 Yes. You can create and attach an SSL/TLS certificate with custom domain names to your
 container service in Lightsail. The certificates must be domain validated. If the DNS of
@@ -66,9 +52,7 @@ to map the apex of your domain (`example.com`) to the default domain (public DNS
 of your Lightsail container service. For more information, see [Enable and manage
 custom domains](amazon-lightsail-enabling-container-services-custom-domains.md "amazon-lightsail-enabling-container-services-custom-domains.md").
 
-## What do Lightsail container services
-
-cost?
+## What do Lightsail container services cost?
 
 Lightsail container services are billed on an on-demand hourly rate, so you pay only
 for what you use. For every Lightsail container service you use, we charge you the fixed
@@ -78,12 +62,9 @@ service. For example, a service of Micro power and scale of 2 will cost a maximu
 $10\*2=$20/month. The least expensive Lightsail container service starts at $0.0094
 USD/hour ($7 USD/month). Additional data transfer charges may apply for usage above the
 free-quota of 500 GB per month for each service. For more information, see
-[Will I be charged for data
-transfer in and out of the container service?](amazon-lightsail-faq-data-transfer-allowance.md#data-transfer-allowance-will-i-be-charged-for-data-transfer-in-out "amazon-lightsail-faq-data-transfer-allowance.md#data-transfer-allowance-will-i-be-charged-for-data-transfer-in-out").
+[Will I be charged for data transfer in and out of the container service?](amazon-lightsail-faq-data-transfer-allowance.md#data-transfer-allowance-will-i-be-charged-for-data-transfer-in-out "amazon-lightsail-faq-data-transfer-allowance.md#data-transfer-allowance-will-i-be-charged-for-data-transfer-in-out").
 
-## Will I be charged
-
-for the whole month even if I run my container service for a few days?
+## Will I be charged for the whole month even if I run my container service for a few days?
 
 Your Lightsail container services are charged only when they're in the running or
 disabled state. If you delete your Lightsail container service before the end of the
@@ -92,9 +73,7 @@ Lightsail container service. For example, if you use your Lightsail container se
 with a power of Micro and scale of 1 for 100 hours in a month, you will be charged $1.34
 ($0.0134\*100)
 
-## What is the
-
-difference between stopping and deleting my container service?
+## What is the difference between stopping and deleting my container service?
 
 When you disable your container service, your container nodes are in a disabled state
 and the public endpoint of the service returns a HTTP status code ‘503’. Enabling the
@@ -107,45 +86,33 @@ container nodes of the service will be permanently deleted. The HTTPS public end
 address, container images, deployment history, and logs associated with your service will
 also be permanently deleted. You will not be able to recover the endpoint address.
 
-## Will I be charged if my container service is in a
-
-disabled state?
+## Will I be charged if my container service is in a disabled state?
 
 Yes, you are charged according to the power and scale configuration of your container
 service, even when it is in a disabled state.
 
-## Can I use container services as the origin to my
-
-Lightsail content delivery network (CDN) distributions?
+## Can I use container services as the origin to my Lightsail content delivery network (CDN) distributions?
 
 Container services are currently not supported as origins for Lightsail CDN
 distributions.
 
-## Can I use container services as targets for
-
-my Lightsail load balancer?
+## Can I use container services as targets for my Lightsail load balancer?
 
 No. Container services are currently not available as targets for Lightsail load
 balancers. However, the public endpoints of container services come with built-in load
 balancing.
 
-## Can I configure the public endpoint of
-
-my container service to redirect HTTP requests to HTTPS?
+## Can I configure the public endpoint of my container service to redirect HTTP requests to HTTPS?
 
 Lightsail container service public endpoints automatically redirect all HTTP requests
 to HTTPS to ensure that your content is served securely.
 
-## Do container services support monitoring and
-
-alerting?
+## Do container services support monitoring and alerting?
 
 Container services provide metrics for CPU utilization and memory utilization across the
 nodes of your service. Alerting based on these metrics is currently not supported.
 
-## Do Lightsail container services support
-
-IPv6?
+## Do Lightsail container services support IPv6?
 
 Lightsail container service HTTPS endpoints support both IPv4 and IPv6. Pv6 cannot be
 disabled on container services.

@@ -5,9 +5,7 @@ features are available to use with Lightsail. To get a high-level view of how Li
 and other AWS services work with IAM, see [AWS Services That Work
 with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Lightsail
-
-Identity-Based Policies
+## Lightsail Identity-Based Policies
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources as well as the conditions under which actions are allowed or denied. Lightsail
@@ -137,9 +135,7 @@ can use a condition key, see [Actions Defined by Amazon Lightsail](../../../IAM/
 To view examples of Lightsail identity-based policies, see [Amazon Lightsail Identity-Based Policy
 Examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Lightsail
-
-Resource-Based Policies
+## Lightsail Resource-Based Policies
 
 Lightsail does not support resource-based policies.
 
@@ -147,9 +143,7 @@ Lightsail does not support resource-based policies.
 
 Lightsail does not support Access Control Lists (ACLs).
 
-## Authorization Based on Lightsail
-
-Tags
+## Authorization Based on Lightsail Tags
 
 You can attach tags to Lightsail resources or pass tags in a request to Lightsail.
 To control access based on tags, you provide tag information in the [condition element](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md")
@@ -174,9 +168,7 @@ tags on that resource, see [Allowing Creation and Deletion of Lightsail Resource
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within your
 AWS account that has specific permissions.
 
-### Using Temporary
-
-Credentials with Lightsail
+### Using Temporary Credentials with Lightsail
 
 You can use temporary credentials to sign in with federation, assume an IAM role,
 or to assume a cross-account role. You obtain temporary security credentials by calling
@@ -184,9 +176,7 @@ AWS STS API operations such as [AssumeRole](../../../STS/latest/APIReference/API
 
 Lightsail supports using temporary credentials.
 
-### Service-Linked
-
-Roles
+### Service-Linked Roles
 
 [Service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role") allow AWS services to access resources in other
 services to complete an action on your behalf. Service-linked roles appear in your IAM

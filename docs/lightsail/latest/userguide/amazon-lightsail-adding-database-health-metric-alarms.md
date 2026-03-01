@@ -1,6 +1,4 @@
-# Monitor Lightsail
-
-database health with metric alarms
+# Monitor Lightsail database health with metric alarms
 
 You can create an Amazon Lightsail alarm that watches a single database metric. An alarm can
 be configured to notify you based on the value of the metric relative to a threshold that you
@@ -40,9 +38,7 @@ The following limits apply to alarms:
   data** option for missing data points.
 - You can only test notifications if the alarm is in an OK state.
 
-## Best practices for configuring database
-
-alarms
+## Best practices for configuring database alarms
 
 Before you configure a metric alarm for your database, you should view the historical data
 of the metric. Identify the metric's low-levels, mid-levels, and high-levels over a period of
@@ -76,9 +72,7 @@ within the last 5 minutes. However, that free storage space threshold might be t
 your database. You might want to modify the alarm threshold to be **less
 than** 4 GB for 1 time within the last 5 minutes.
 
-## Create database metric alarms using the Lightsail
-
-console
+## Create database metric alarms using the Lightsail console
 
 Complete the following steps to create a database metric alarm using the Lightsail
 console.
@@ -141,9 +135,7 @@ following options:
 To edit the alarm later, choose the ellipsis icon (⋮) next to the alarm you
 want to edit, and choose **Edit alarm**.
 
-## Testing database metric alarms using the Lightsail
-
-console
+## Testing database metric alarms using the Lightsail console
 
 Complete the following steps to test an alarm using the Lightsail console. You might
 want to test an alarm to confirm that the configured notification options are working, such as
@@ -177,9 +169,7 @@ banner displays in the Lightsail console only if you chose to test the
 test the `OK` notification. The alarm will return to its actual state often
 after a few seconds.
 
-## Next steps after creating database
-
-alarms
+## Next steps after creating database alarms
 
 There are a few additional tasks that you can perform for your database alarms:
 

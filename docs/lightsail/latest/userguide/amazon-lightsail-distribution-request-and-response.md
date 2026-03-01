@@ -1,6 +1,4 @@
-# Manage request and response
-
-behaviors for Lightsail distributions
+# Manage request and response behaviors for Lightsail distributions
 
 In this guide, we describe the way your Amazon Lightsail distribution behaves when processing
 and forwarding requests to your origin, and processing responses from your origin. For more
@@ -14,9 +12,7 @@ distributions](amazon-lightsail-content-delivery-network-distributions.md "amazo
 - [How your distribution
   processes responses from your origin](#distribution-process-responses "#distribution-process-responses")
 
-## How your distribution processes
-
-and forwards requests to your origin
+## How your distribution processes and forwards requests to your origin
 
 This section contains information about how your distribution processes viewer requests
 and forwards the requests to your origin.
@@ -207,9 +203,7 @@ you want to use `POST`, you must configure your origin server to handle
 `DELETE` requests appropriately so viewers can't delete resources that you
 don't want them to. For more information, see the documentation for your HTTP server.
 
-### HTTP request headers and distribution
-
-behavior
+### HTTP request headers and distribution behavior
 
 The following list contains the HTTP request headers that you can forward to your origin
 (with the exceptions that are noted). For each header, the list includes information about
@@ -588,9 +582,7 @@ removes the header.
 
 Your distribution forwards requests to your origin using HTTP/1.1.
 
-### Maximum length of a request and
-
-maximum length of a URL
+### Maximum length of a request and maximum length of a URL
 
 The maximum length of a request, including the path, the query string (if any), and
 headers, is 20,480 bytes.
@@ -651,9 +643,7 @@ distribution drops the TCP connection.
 You can configure whether your distribution forwards query string parameters to your
 origin.
 
-### Origin connection timeout and
-
-attempts
+### Origin connection timeout and attempts
 
 By default, your distribution waits as long as 30 seconds (3 attempts of 10 seconds
 each) before returning an error response to the viewer.
@@ -683,9 +673,7 @@ Your distribution's behavior depends on the HTTP method of the viewer request:
   your distribution drops the connection and doesn’t try again to contact the origin. The
   client can resubmit the request if necessary.
 
-### Simultaneous requests for the same object
-
-(traffic spikes)
+### Simultaneous requests for the same object (traffic spikes)
 
 When a distribution edge location receives a request for an object and either the object
 isn't currently in the cache or the object has expired, your distribution immediately sends
@@ -732,9 +720,7 @@ Your distribution adds this header regardless of whether the request from the vi
 includes a `User-Agent` header. If the request from the viewer includes a
 `User-Agent` header, your distribution removes it.
 
-## How your distribution processes responses
-
-from your origin
+## How your distribution processes responses from your origin
 
 This section contains information about how your distribution processes responses from
 your origin.
@@ -829,9 +815,7 @@ your origin included a `Content-Length` header in the response:
 We recommend that you configure your HTTP server to add a `Content-Length`
 header to prevent your distribution from caching partial objects.
 
-### HTTP response headers that your distribution
-
-removes or replaces
+### HTTP response headers that your distribution removes or replaces
 
 Your distribution removes or updates the following header fields before forwarding the
 response from your origin to the viewer:

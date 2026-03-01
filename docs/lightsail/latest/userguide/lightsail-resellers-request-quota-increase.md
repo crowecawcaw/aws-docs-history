@@ -1,6 +1,4 @@
-# Request a service quota
-
-increase for your reseller accounts
+# Request a service quota increase for your reseller accounts
 
 Once you become an Amazon Lightsail reseller, the default service quotas for
 Lightsail instances will be increased for the current account and any member accounts

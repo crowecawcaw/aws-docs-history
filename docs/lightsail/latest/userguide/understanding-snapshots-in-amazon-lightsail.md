@@ -1,6 +1,4 @@
-# Snapshots in
-
-Amazon Lightsail
+# Snapshots in Amazon Lightsail
 
 You can create point-in-time snapshots of instances, databases, and block storage disks in
 Amazon Lightsail, and use them as baselines to create new resources or for data backup. A

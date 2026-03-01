@@ -17,9 +17,7 @@ allows individual objects to be made public. For more information, see [Tutorial
 
 For more information about permission options, see [Bucket permissions](amazon-lightsail-understanding-bucket-permissions.md "amazon-lightsail-understanding-bucket-permissions.md"). For more information about security best practices, see [Security Best Practices for object storage](amazon-lightsail-bucket-security-best-practices.md "amazon-lightsail-bucket-security-best-practices.md"). For more information about buckets, see [Object storage](buckets-in-amazon-lightsail.md "buckets-in-amazon-lightsail.md").
 
-## Configure individual object
-
-access permissions
+## Configure individual object access permissions
 
 Complete the following procedure to configure access permissions for an individual object
 in a bucket. For an example IAM policy that grants a user the ability to manage a bucket in Lightsail, see , [IAM policy to manage buckets](amazon-lightsail-bucket-management-policies.md "amazon-lightsail-bucket-management-policies.md").

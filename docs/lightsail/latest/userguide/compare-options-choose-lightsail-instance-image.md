@@ -1,6 +1,4 @@
-# Review the Lightsail
-
-instance blueprint offerings
+# Review the Lightsail instance blueprint offerings
 
 Lightsail provides several options for you to create your virtual private server. This
 topic helps you decide which operating system (OS), application, or development stack is right
@@ -109,7 +107,12 @@ This blueprint is compatible with a Lightsail IPv6-only instance plan.
 
 Learn more at the [_CentOS Stream_](https://www.centos.org/centos-stream/ "https://www.centos.org/centos-stream/") website.
 
-\***\*Debian 11, and 12\*\***
+\***\*Debian 11 and 12\*\***
+
+###### Important
+
+Debian 11 will reach End of Long Term Support on August 31, 2026. You will not be
+able to create new Lightsail instances with this blueprint on or after August 31, 2026. For more information, see the [Debian website](https://wiki.debian.org/LTS "https://wiki.debian.org/LTS").
 
 Debian is a free operating system, developed by thousands of volunteers from all
 over the world who collaborate over the internet. The Debian project's key strengths are
@@ -121,7 +124,12 @@ This blueprint is compatible with a Lightsail IPv6-only instance plan.
 
 Learn more at the [_Debian_](https://www.debian.org/doc/ "https://www.debian.org/doc/") website.
 
-\***\*FreeBSD 13, and 14\*\***
+\***\*FreeBSD 13 and 14\*\***
+
+###### Important
+
+FreeBSD 13 will reach End of Life on April 30, 2026. You will not be
+able to create new Lightsail instances with this blueprint on or after April 30, 2026. For more information, see the [FreeBSD website](https://www.freebsd.org/releases/13.5R/announce/ "https://www.freebsd.org/releases/13.5R/announce/").
 
 FreeBSD is an operating system used to power servers, desktops, and embedded
 systems. Derived from BSD, the version of UNIX developed at the University of
@@ -160,12 +168,7 @@ This blueprint is compatible with a Lightsail IPv6-only instance plan.
 
 Learn more at the [_openSUSE_](https://www.opensuse.org/ "https://www.opensuse.org/") website.
 
-\***\*Ubuntu 20, 22, and 24\*\***
-
-###### Important
-
-Ubuntu 20.04 will reach End of Standard Support on April 2, 2025. You will not be
-able to create new Lightsail instances with this blueprint on or after April 2, 2025. For more information, see the [Ubuntu website](https://wiki.ubuntu.com/Releases "https://wiki.ubuntu.com/Releases").
+\***\*Ubuntu 22 and 24\*\***
 
 Ubuntu Server is a Debian-based Linux operating system used for virtual servers. A
 default installation of Ubuntu contains a wide range of software that includes
@@ -212,6 +215,11 @@ Express](https://aws.amazon.com/marketplace/pp/prodview-xbikutlmywslu "https://a
 
 \***\*SQL Server 2016 Express\*\***
 
+###### Important
+
+SQL Server 2016 Express will reach End of Extended Support on July 14, 2026. You will not be
+able to create new Lightsail instances with this blueprint on or after July 14, 2026. For more information, see the [Microsoft website](https://learn.microsoft.com/en-us/lifecycle/products/sql-server-2016 "https://learn.microsoft.com/en-us/lifecycle/products/sql-server-2016").
+
 SQL Server Express is a relational database management system that is free to
 download, distribute, and use. It comprises a database specifically targeted for
 embedded and smaller-scale applications. This Lightsail image runs on a base OS of
@@ -227,6 +235,19 @@ Server 2016 Express](https://aws.amazon.com/marketplace/pp/B01MAZHH98 "https://a
 The following content management system (CMS) applications are available in
 Lightsail:
 
+\***\*WordPress\*\***
+
+The WordPress blueprint provides a complete production environment with PHP, MariaDB, phpMyAdmin, and WordPress.
+Lightsail packages blueprints to be secure and up-to-date using industry best practices.
+
+Lightsail instances launched from WordPress will have Instance Metadata Service Version 2
+(IMDSv2) enforced by default. For more information, see [How Instance Metadata Service Version 2 works](amazon-lightsail-configuring-instance-metadata-service.md "amazon-lightsail-configuring-instance-metadata-service.md").
+
+[Deploy and manage WordPress on Lightsail](amazon-lightsail-quick-start-guide-wordpress.md "amazon-lightsail-quick-start-guide-wordpress.md")
+
+Learn more about the [WordPress
+stack](https://wordpress.org/ "https://wordpress.org/") at the _WordPress_ website.
+
 \***\*WordPress certified by Bitnami\*\***
 
 Bitnami WordPress is a preconfigured, ready-to-use image for running WordPress on
@@ -239,8 +260,7 @@ feel of your site with a few clicks. You can also use existing free or commercia
 WordPress themes. WordPress is in full compliance with the standards of the [_World Wide Web Consortium
 (W3C)_](https://www.w3.org/ "https://www.w3.org/").
 
-[Launch and configure WordPress on
-Lightsail](amazon-lightsail-quick-start-guide-wordpress.md "amazon-lightsail-quick-start-guide-wordpress.md")
+[Deploy and manage WordPress on Lightsail](amazon-lightsail-quick-start-guide-wordpress.md "amazon-lightsail-quick-start-guide-wordpress.md")
 
 Learn more about [WordPress](https://bitnami.com/stack/wordpress "https://bitnami.com/stack/wordpress")
 at the _Bitnami_ website.
@@ -257,8 +277,7 @@ WordPress Multisite is great for organizations such as universities, corporation
 and agencies that need to enable many people to host their own websites while giving
 overall control to a central administrator.
 
-[Set up WordPress
-Multisite on Lightsail](amazon-lightsail-quick-start-guide-wordpress-multisite.md "amazon-lightsail-quick-start-guide-wordpress-multisite.md")
+[Set up WordPress Multisite on Lightsail](amazon-lightsail-quick-start-guide-wordpress-multisite.md "amazon-lightsail-quick-start-guide-wordpress-multisite.md")
 
 Learn more about [WordPress Multisite](https://bitnami.com/stack/wordpress-multisite "https://bitnami.com/stack/wordpress-multisite") at the _Bitnami_ website.
 
@@ -269,8 +288,7 @@ to automate web hosting tasks by using a simple graphical user interface. Its go
 make managing servers easier for you and managing websites easier for your
 customers.
 
-[Host websites, email, and services
-with cPanel & WHM on Lightsail](amazon-lightsail-quick-start-guide-cpanel.md "amazon-lightsail-quick-start-guide-cpanel.md")
+[Host websites, email, and services with cPanel & WHM on Lightsail](amazon-lightsail-quick-start-guide-cpanel.md "amazon-lightsail-quick-start-guide-cpanel.md")
 
 Learn more about [cPanel & WHM](https://cpanel.net/products/cpanel-whm-features/ "https://cpanel.net/products/cpanel-whm-features/") at the _cPanel_ website.
 
@@ -284,8 +302,7 @@ customizing the look of your site. PrestaShop features multi-store support, cust
 URLs, multiple payment gateway options (including PayPal and Stripe), and marketplace
 integration with Amazon, eBay, Facebook and more.
 
-[Set up a PrestaShop website on
-Lightsail](amazon-lightsail-quick-start-guide-prestashop.md "amazon-lightsail-quick-start-guide-prestashop.md")
+[Set up a PrestaShop website on Lightsail](amazon-lightsail-quick-start-guide-prestashop.md "amazon-lightsail-quick-start-guide-prestashop.md")
 
 Learn more about [_PrestaShop_](https://prestashop.com "https://prestashop.com") at the _PrestaShop_
 website.
@@ -297,8 +314,7 @@ to major news websites. Built on Node.js, its modern technology stack makes it v
 and flexible for developers seeking to integrate with other applications and tools,
 while maintaining ease of use for content creators.
 
-[Deploy a Ghost website on
-Lightsail](amazon-lightsail-quick-start-guide-ghost.md "amazon-lightsail-quick-start-guide-ghost.md")
+[Deploy a Ghost website on Lightsail](amazon-lightsail-quick-start-guide-ghost.md "amazon-lightsail-quick-start-guide-ghost.md")
 
 Learn more about [Bitnami Ghost](https://bitnami.com/stack/ghost "https://bitnami.com/stack/ghost")
 at the _Bitnami_ website.
@@ -318,8 +334,7 @@ panel. Also, the **Banner Manager** makes it easy to set up and manage
 banners on your site. You can track metrics, including setting impression numbers,
 special URLs, and more.
 
-[Get started with Joomla! on
-Lightsail](amazon-lightsail-quick-start-guide-joomla.md "amazon-lightsail-quick-start-guide-joomla.md")
+[Get started with Joomla! on Lightsail](amazon-lightsail-quick-start-guide-joomla.md "amazon-lightsail-quick-start-guide-joomla.md")
 
 Learn more about [Joomla!](https://bitnami.com/stack/joomla "https://bitnami.com/stack/joomla") at
 the _Bitnami_ website.
@@ -336,8 +351,7 @@ integration with REST, JSON, SOAP, and other formats.
 There are thousands of add-on modules and designs available for Drupal free of
 charge. Drupal is also available in multiple languages.
 
-[Set up and customize your Drupal
-website on Lightsail](amazon-lightsail-quick-start-guide-drupal.md "amazon-lightsail-quick-start-guide-drupal.md")
+[Set up and customize your Drupal website on Lightsail](amazon-lightsail-quick-start-guide-drupal.md "amazon-lightsail-quick-start-guide-drupal.md")
 
 Learn more about [Drupal](https://bitnami.com/stack/drupal "https://bitnami.com/stack/drupal") at the
 _Bitnami_ website.
@@ -359,8 +373,7 @@ for each bundled component.
 
 This blueprint is compatible with a Lightsail IPv6-only instance plan.
 
-[Deploy and manage a LAMP stack on
-Lightsail](amazon-lightsail-quick-start-guide-lamp.md "amazon-lightsail-quick-start-guide-lamp.md")
+[Deploy and manage a LAMP stack on Lightsail](amazon-lightsail-quick-start-guide-lamp.md "amazon-lightsail-quick-start-guide-lamp.md")
 
 Learn more about the [Bitnami LAMP
 stack](https://bitnami.com/stack/lamp "https://bitnami.com/stack/lamp") at the _Bitnami_ website.
@@ -373,8 +386,7 @@ This blueprint also includes phpMyAdmin, PHP core modules, and Composer.
 Lightsail instances launched from LAMP will have Instance Metadata Service Version 2
 (IMDSv2) enforced by default. For more information, see [How Instance Metadata Service Version 2 works](amazon-lightsail-configuring-instance-metadata-service.md "amazon-lightsail-configuring-instance-metadata-service.md").
 
-[Deploy and manage a LAMP stack on
-Lightsail](amazon-lightsail-quick-start-guide-lamp.md "amazon-lightsail-quick-start-guide-lamp.md")
+[Deploy and manage a LAMP stack on Lightsail](amazon-lightsail-quick-start-guide-lamp.md "amazon-lightsail-quick-start-guide-lamp.md")
 
 \***\*Django packaged by Bitnami\*\***
 
@@ -395,8 +407,7 @@ creating fast, scalable network applications. It uses an event-driven, non-block
 model that makes it lightweight and efficient. Node.js is well suited for
 data-intensive, real-time applications.
 
-[Deploy and manage a Node.js stack on
-Lightsail](amazon-lightsail-quick-start-guide-nodejs.md "amazon-lightsail-quick-start-guide-nodejs.md")
+[Deploy and manage a Node.js stack on Lightsail](amazon-lightsail-quick-start-guide-nodejs.md "amazon-lightsail-quick-start-guide-nodejs.md")
 
 Learn more about the [Node.js
 stack](https://bitnami.com/stack/nodejs "https://bitnami.com/stack/nodejs") at the _Bitnami_ website.
@@ -409,8 +420,7 @@ Lightsail packages blueprints to be secure and up-to-date using industry best pr
 Lightsail instances launched from Node.js will have Instance Metadata Service Version 2
 (IMDSv2) enforced by default. For more information, see [How Instance Metadata Service Version 2 works](amazon-lightsail-configuring-instance-metadata-service.md "amazon-lightsail-configuring-instance-metadata-service.md").
 
-[Deploy and manage a Node.js stack on
-Lightsail](amazon-lightsail-quick-start-guide-nodejs.md "amazon-lightsail-quick-start-guide-nodejs.md")
+[Deploy and manage a Node.js stack on Lightsail](amazon-lightsail-quick-start-guide-nodejs.md "amazon-lightsail-quick-start-guide-nodejs.md")
 
 Learn more about the [Node.js
 stack](https://nodejs.org/en/learn/getting-started/introduction-to-nodejs "https://nodejs.org/en/learn/getting-started/introduction-to-nodejs") at the _Node.js_ website.
@@ -437,8 +447,7 @@ With GitLab, you keep your code secure on your own server, manage repositories,
 users, and access permissions. It's self-contained, so you can duplicate or move the
 installation to different servers easily.
 
-[Set up and configure a GitLab CE
-instance on Lightsail](amazon-lightsail-quick-start-guide-gitlab.md "amazon-lightsail-quick-start-guide-gitlab.md")
+[Set up and configure a GitLab CE instance on Lightsail](amazon-lightsail-quick-start-guide-gitlab.md "amazon-lightsail-quick-start-guide-gitlab.md")
 
 Learn more about the [GitLab
 stack](https://bitnami.com/stack/gitlab "https://bitnami.com/stack/gitlab") at the _Bitnami_ website.
@@ -452,8 +461,7 @@ ImageMagick, FastCGI, Memcache, GD, CURL, PEAR, PECL, and other components.
 NGINX is an asynchronous server and its main advantage is scalability. The NGINX
 stack is also known as LEMP (Linux, NGINX, MySQL, and PHP).
 
-[Deploy and manage an Nginx web server
-on Lightsail](amazon-lightsail-quick-start-guide-nginx.md "amazon-lightsail-quick-start-guide-nginx.md")
+[Deploy and manage an Nginx web server on Lightsail](amazon-lightsail-quick-start-guide-nginx.md "amazon-lightsail-quick-start-guide-nginx.md")
 
 Learn more about the [NGINX
 stack](https://bitnami.com/stack/nginx "https://bitnami.com/stack/nginx") at the _Bitnami_ website.
@@ -468,8 +476,7 @@ Lightsail instances launched from Nginx will have Instance Metadata Service Vers
 
 This blueprint is compatible with a Lightsail IPv6-only instance plan.
 
-[Deploy and manage an Nginx web server
-on Lightsail](amazon-lightsail-quick-start-guide-nginx.md "amazon-lightsail-quick-start-guide-nginx.md")
+[Deploy and manage an Nginx web server on Lightsail](amazon-lightsail-quick-start-guide-nginx.md "amazon-lightsail-quick-start-guide-nginx.md")
 
 Learn more about the [NGINX
 stack](https://nginx.org/en/ "https://nginx.org/en/") at the _NGINX_ website.
@@ -506,8 +513,7 @@ Learn more about the [Plesk stack](https://docs.plesk.com/en-US/current/administ
 
 The Ruby on Rails blueprint comes pre-configured with Rails on Amazon Linux 2023, eliminating the need for manual framework installation and setup. The Ruby on Rails blueprint enables you to deploy a robust, scalable, and cost-effective solution for building modern web applications on Lightsail.
 
-[Set up Ruby on Rails on
-Lightsail](amazon-lightsail-quick-start-guide-rubyonrails.md "amazon-lightsail-quick-start-guide-rubyonrails.md")
+[Set up Ruby on Rails on Lightsail](amazon-lightsail-quick-start-guide-rubyonrails.md "amazon-lightsail-quick-start-guide-rubyonrails.md")
 
 Learn more about [Ruby on Rails](https://guides.rubyonrails.org/getting_started.html "https://guides.rubyonrails.org/getting_started.html") and [Amazon Linux 2023](https://aws.amazon.com/linux/amazon-linux-2023/ "https://aws.amazon.com/linux/amazon-linux-2023/").
 
@@ -528,15 +534,12 @@ You can use Magento to create a highly customized ecommerce site that reflects y
 brand. Magento integrates with your business operations, so you can manage your
 ecommerce site as your business needs.
 
-[Set up and configure Magento on
-Lightsail](amazon-lightsail-quick-start-guide-magento.md "amazon-lightsail-quick-start-guide-magento.md")
+[Set up and configure Magento on Lightsail](amazon-lightsail-quick-start-guide-magento.md "amazon-lightsail-quick-start-guide-magento.md")
 
 Learn more about the [Magento
 stack](https://bitnami.com/stack/magento "https://bitnami.com/stack/magento") at the _Bitnami_ website.
 
-## Project management
-
-applications
+## Project management applications
 
 Lightsail currently has one project management application image, Redmine. This image
 uses Linux/Unix (Ubuntu) as the base operating system.
@@ -551,8 +554,7 @@ and more.
 
 This blueprint is compatible with a Lightsail IPv6-only instance plan.
 
-[Configure and secure a Redmine
-instance on Lightsail](amazon-lightsail-quick-start-guide-redmine.md "amazon-lightsail-quick-start-guide-redmine.md")
+[Configure and secure a Redmine instance on Lightsail](amazon-lightsail-quick-start-guide-redmine.md "amazon-lightsail-quick-start-guide-redmine.md")
 
 Learn more about the [Redmine
 stack](https://bitnami.com/stack/redmine "https://bitnami.com/stack/redmine") at the _Bitnami_ website.

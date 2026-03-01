@@ -1,6 +1,4 @@
-# Change your Lightsail database
-
-password
+# Change your Lightsail database password
 
 When you create a new database in Amazon Lightsail, you can let Lightsail create a strong
 password for you or specify your own. You can view or change the current database password at

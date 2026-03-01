@@ -34,9 +34,7 @@ You are redirected to the management page of your new bucket. Continue to the Ne
 steps section of this guide for additional documentation to use and manage your
 bucket.
 
-## Manage buckets and
-
-objects
+## Manage buckets and objects
 
 These are the general steps to manage your Lightsail object storage bucket:
 

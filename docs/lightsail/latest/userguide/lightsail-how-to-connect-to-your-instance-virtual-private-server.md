@@ -1,6 +1,4 @@
-# Connect to
-
-Linux or Unix instances on Lightsail
+# Connect to Linux or Unix instances on Lightsail
 
 Amazon Lightsail provides you with a browser-based SSH client, which is the fastest way to
 connect to your Linux or Unix instance. You can also use your own SSH client to connect to your
@@ -50,9 +48,7 @@ The **Connect** tab also provides the information required to connect
 using your own SSH client. For more information, see [Download and set up
 PuTTY](lightsail-how-to-set-up-putty-to-connect-using-ssh.md "lightsail-how-to-set-up-putty-to-connect-using-ssh.md")
 
-## Interact with your Linux or Unix instance using
-
-the browser-based SSH client
+## Interact with your Linux or Unix instance using the browser-based SSH client
 
 Type Linux or Unix commands directly into the terminal screen, paste text into the
 terminal screen, or copy text from the terminal screen of the browser-based SSH client. The

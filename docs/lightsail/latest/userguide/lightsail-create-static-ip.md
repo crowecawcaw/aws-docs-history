@@ -1,6 +1,4 @@
-# Create and attach a static IP to your Lightsail
-
-instance
+# Create and attach a static IP to your Lightsail instance
 
 The default dynamic public IP address attached to your Amazon Lightsail instance changes
 every time you stop and restart the instance. Create a static IP address and attach it to your
@@ -15,9 +13,7 @@ addresses](understanding-static-ip-addresses-in-amazon-lightsail.md "understandi
 You need at least one dual-stack instance running in Lightsail. To create one, see [Create an
 instance](getting-started-with-amazon-lightsail.md "getting-started-with-amazon-lightsail.md").
 
-## Create and assign a Static IP address to an
-
-instance
+## Create and assign a Static IP address to an instance
 
 Follow these steps to create a new static IP address and attach it to an instance in
 Lightsail.

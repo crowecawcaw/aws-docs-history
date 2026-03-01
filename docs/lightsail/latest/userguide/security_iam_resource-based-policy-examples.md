@@ -1,6 +1,4 @@
-# Grant access to specific
-
-Lightsail resources using IAM policies
+# Grant access to specific Lightsail resources using IAM policies
 
 The term _resource-level permissions_ refers to the ability to specify
 which resources users are allowed to perform actions on. Amazon Lightsail supports

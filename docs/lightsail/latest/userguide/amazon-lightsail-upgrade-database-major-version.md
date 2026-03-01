@@ -1,6 +1,4 @@
-# Upgrade the major version
-
-of a Lightsail database
+# Upgrade the major version of a Lightsail database
 
 When Amazon Lightsail supports a new version of a database engine, you can upgrade your
 database to the new version. Lightsail offers two database blueprints, MySQL and
@@ -40,9 +38,7 @@ websites.
    more information about making a copy of your database, see [Create a snapshot of
    your Lightsail database](amazon-lightsail-creating-a-database-snapshot.md "amazon-lightsail-creating-a-database-snapshot.md").
 
-## Update the database
-
-major version
+## Update the database major version
 
 Lightsail supports major version upgrades for MySQL and PostgreSQL database
 instances. A MySQL database is used as an example in the following procedure. However,

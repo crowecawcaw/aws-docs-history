@@ -1,6 +1,4 @@
-# Connect to a
-
-Linux Amazon EC2 instance created from a Lightsail snapshot
+# Connect to a Linux Amazon EC2 instance created from a Lightsail snapshot
 
 After a Linux or Unix instance is created in Amazon Elastic Compute Cloud (Amazon EC2) from an Amazon Lightsail
 snapshot, you can connect to the instance via SSH similar to how you connected to the source
@@ -51,9 +49,7 @@ or Unix instance in Amazon EC2 created from a Lightsail snapshot](amazon-lightsa
   you use your own key pair. If you’ve lost your private key, you cannot connect to your
   Amazon EC2 instance.
 
-## Get the public DNS
-
-address for your instance
+## Get the public DNS address for your instance
 
 Get the public DNS address for your Amazon EC2 instance, so that you can use it when
 configuring an SSH client, such as PuTTY, to connect to your instance.
@@ -127,9 +123,7 @@ PuTTY to connect to your instance](#configure-putty-to-connect "#configure-putty
 that you generated to configure PuTTY and connect to your Linux or Unix instance in
 Amazon EC2.
 
-## Configure PuTTY to connect to your
-
-instance
+## Configure PuTTY to connect to your instance
 
 Configure PuTTY, now that you have all of the requirements to connect to your Linux or
 Unix instance using SSH.

@@ -17,9 +17,7 @@ Format your domain name according to the following guidelines.
   zones and records](#using-asterisk "#using-asterisk")
 - [Next steps](#domain-name-format-next-steps "#domain-name-format-next-steps")
 
-## Format domain names for domain name
-
-registration
+## Format domain names for domain name registration
 
 For domain name registration, your domain name must have 1-255 characters. Valid
 characters for domain names include (a-z), (A-Z), (0-9), hyphens (-), and periods (.).
@@ -27,9 +25,7 @@ characters for domain names include (a-z), (A-Z), (0-9), hyphens (-), and period
 You can't use spaces or put a hyphen at the beginning or end of a domain name. Lightsail
 supports any valid generic top-level domain (TLD) name. For more information, see [Generic top-level domains](../../../Route53/latest/DeveloperGuide/registrar-tld-list-generic.md "../../../Route53/latest/DeveloperGuide/registrar-tld-list-generic.md") in the Amazon Route 53 Developer Guide.
 
-## Format domain names for DNS zones and
-
-records
+## Format domain names for DNS zones and records
 
 For DNS zones and records, the domain name must have 1-255 characters. Valid characters
 for domain names include (a-z), (A-Z), (0-9), hyphens (-), and periods (.). You can’t use
@@ -41,9 +37,7 @@ them as uppercase letters (A-Z).
 Lightsail supports DNS zones for both generic and geographic TLDs. For more examples of
 geographic TLDs, see [Geographic top-level domains](../../../Route53/latest/DeveloperGuide/registrar-tld-list.md#registrar-tld-list-index-geographic "../../../Route53/latest/DeveloperGuide/registrar-tld-list.md#registrar-tld-list-index-geographic") in the Amazon Route 53 Developer Guide.
 
-## Using an asterisk (\*) in the names of DNS zones and
-
-records
+## Using an asterisk (\*) in the names of DNS zones and records
 
 DNS treats the asterisk (\*) character as a wildcard character, depending on where the
 asterisk appears in the name. A wildcard DNS record is a record that answers DNS requests for

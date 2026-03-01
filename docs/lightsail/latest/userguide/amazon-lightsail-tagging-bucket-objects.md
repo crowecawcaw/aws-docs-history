@@ -1,15 +1,11 @@
-# Tag objects in Lightsail
-
-buckets
+# Tag objects in Lightsail buckets
 
 Tag objects in your bucket to categorize them by purpose, owner, environment, or other
 criteria. Tags can be added to objects when you upload them, or after they are uploaded. For
 more information about buckets, see [Object
 storage](buckets-in-amazon-lightsail.md "buckets-in-amazon-lightsail.md").
 
-## Add and delete tags for objects
-
-using the Lightsail console
+## Add and delete tags for objects using the Lightsail console
 
 Complete the following procedure to add or delete tags from objects in a bucket using the
 Lightsail console.
@@ -30,9 +26,7 @@ Lightsail console.
      key-value tag that you want to delete. Choose **Save** when you're
      done to delete the tag, or choose **Cancel** to not delete it.
 
-## Add and delete tags for objects using the
-
-AWS CLI
+## Add and delete tags for objects using the AWS CLI
 
 Complete the following procedure to add tags to objects or delete tags from objects using
 the AWS Command Line Interface (AWS CLI). You do this by using the `put-object-tagging` and
@@ -115,9 +109,7 @@ You should see a result similar to the following example:
 
 ![Result of the AWS CLI put-object-tagging command](images/amazon-lightsail-s3api-put-object-tagging-result.png)
 
-## Manage buckets and
-
-objects
+## Manage buckets and objects
 
 These are the general steps to manage your Lightsail object storage bucket:
 

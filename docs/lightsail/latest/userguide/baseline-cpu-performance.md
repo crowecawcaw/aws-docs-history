@@ -1,6 +1,4 @@
-# Understand baseline CPU performance and burst
-
-capacity accrual for Lightsail instances
+# Understand baseline CPU performance and burst capacity accrual for Lightsail instances
 
 ###### Did you know?
 
@@ -67,9 +65,7 @@ averaged CPU utilization baseline of 30%. Therefore, if:
 For more information about the sustainable and burstable zones, see [Identify when your instance
 bursts](identifying-instance-burst.md "identifying-instance-burst.md") later in this guide.
 
-## Previous generation CPU
-
-performance
+## Previous generation CPU performance
 
 The following table outlines the performance baselines for Lightsail instances that
 were created prior to **June 29, 2023**. These performance

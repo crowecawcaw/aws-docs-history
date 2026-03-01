@@ -1,6 +1,4 @@
-# Point custom domains to
-
-Lightsail distributions
+# Point custom domains to Lightsail distributions
 
 You must point your registered domain names to your Amazon Lightsail distribution after you
 enabled custom domains for your distribution. You do this by adding an alias record to the DNS
@@ -25,17 +23,13 @@ distribution](amazon-lightsail-creating-content-delivery-network-distribution.md
 - [Step 3: Add a
   record to your domain's DNS zone](#add-distribution-alias-record-to-dns-zone "#add-distribution-alias-record-to-dns-zone")
 
-## Step 1: Complete the
-
-prerequisite
+## Step 1: Complete the prerequisite
 
 Before you get started, you should enable custom domains for your Lightsail
 distribution. For more information, see [Enable custom domains for
 your distribution](amazon-lightsail-enabling-distribution-custom-domains.md "amazon-lightsail-enabling-distribution-custom-domains.md").
 
-## Step 2: Get the default domain of your
-
-distribution
+## Step 2: Get the default domain of your distribution
 
 Complete the following procedure to get default domain name of your distribution, which
 you specify when you add an alias record to the DNS of your domain.
@@ -52,9 +46,7 @@ recommend that you copy and paste this value into a text file that you can refer
 Continue to the next [Step 3: Add a record to your
 domain's DNS zone](#add-distribution-alias-record-to-dns-zone "#add-distribution-alias-record-to-dns-zone") section of this tutorial.
 
-## Step 3: Add a record to your
-
-domain's DNS zone
+## Step 3: Add a record to your domain's DNS zone
 
 Complete the following procedure to add a record to your domain's DNS zone.
 

@@ -1,6 +1,4 @@
-# Set up and configure a GitLab CE
-
-instance on Lightsail
+# Set up and configure a GitLab CE instance on Lightsail
 
 ###### Did you know?
 
@@ -32,16 +30,12 @@ and running on Amazon Lightsail:
 - [Step 8:
   Create a snapshot of your instance](#amazon-lightsail-create-a-snapshot-gitlab "#amazon-lightsail-create-a-snapshot-gitlab")
 
-## Step 1: Read
-
-the Bitnami documentation
+## Step 1: Read the Bitnami documentation
 
 Read the Bitnami documentation to learn how to configure your GitLab CE application.
 For more information, see the [GitLab CE Packaged By Bitnami For AWS Cloud](https://docs.bitnami.com/aws/apps/gitlab/ "https://docs.bitnami.com/aws/apps/gitlab/").
 
-## Step 2: Get the
-
-default application password to access the GitLab CE admin area
+## Step 2: Get the default application password to access the GitLab CE admin area
 
 Complete the following procedure to get the default application password required to
 access the admin area for your GitLab CE website. For more information, see [Getting the
@@ -63,9 +57,7 @@ default application password:
 
 ![Bitnami default application password.](images/amazon-lightsail-bitnami-application-password.png)
 
-## Step 3: Attach a static IP
-
-address to your instance
+## Step 3: Attach a static IP address to your instance
 
 The default dynamic public IP address attached to your instance changes every time you
 stop and start the instance. You can create a static IP address and attach it to your instance to
@@ -109,9 +101,7 @@ your instance should now be aware of the new static IP address.
 
 ![Result of the domain configuration tool](images/quick-start-configure-domain-ip-gitlab.png)
 
-## Step 4: Sign in to the admin area of
-
-your Gitlab CE website
+## Step 4: Sign in to the admin area of your Gitlab CE website
 
 Now that you have the default user password, navigate to your GitLab CE website's home
 page, and sign in to the admin area. After you’re signed in, you can start customizing
@@ -141,9 +131,7 @@ The Gitlab CE administration dashboard appears.
 
 ![The Gitlab CE administration dashboard](images/amazon-lightsail-gitlab-dashboard.png)
 
-## Step 5: Route
-
-traffic for your registered domain name to your GitLab CE website
+## Step 5: Route traffic for your registered domain name to your GitLab CE website
 
 To route traffic for your registered domain name, such as `example.com`, to
 your GitLab CE website, you add a record to the domain name system (DNS) of your domain.
@@ -206,9 +194,7 @@ Next, you should generate and configure an SSL/TLS certificate to enable HTTPS
 connections for your GitLab CE website. For more information, continue to the next [Step 6: Configure HTTPS for
 your GitLab CE website](#amazon-lightsail-https-gitlab "#amazon-lightsail-https-gitlab") section of this guide.
 
-## Step 6: Configure HTTPS for your GitLab
-
-CE website
+## Step 6: Configure HTTPS for your GitLab CE website
 
 Complete the following procedure to configure HTTPS on your GitLab CE website. These
 steps show you how to use the [Lego
@@ -380,16 +366,12 @@ should see that it redirects to the HTTPS connection. Note that it can take up t
 hour for the GitLab CE instance to recognize the new certificates. If your GitLab CE
 website refuses your connection, stop and start the instance, and try again.
 
-## Step 7: Read the GitLab CE
-
-documentation and continue configuring your website
+## Step 7: Read the GitLab CE documentation and continue configuring your website
 
 Read the GitLab CE documentation to learn how to administer and customize your
 website. For more information, see the [GitLab Documentation](https://docs.gitlab.com/ee/index.html "https://docs.gitlab.com/ee/index.html").
 
-## Step 8: Create a snapshot of
-
-your instance
+## Step 8: Create a snapshot of your instance
 
 After you configure your GitLab CE website the way you want it, create periodic
 snapshots of your instance to back it up. You can create snapshots manually, or enable

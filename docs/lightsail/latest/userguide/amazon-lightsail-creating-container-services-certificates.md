@@ -1,6 +1,4 @@
-# Create SSL/TLS
-
-certificates for secure Lightsail container service domains
+# Create SSL/TLS certificates for secure Lightsail container service domains
 
 You can create Amazon Lightsail TLS/SSL certificates for your Lightsail container service.
 When you create a certificate, you specify the primary and alternate domain names for the
@@ -21,9 +19,7 @@ information, see [Create a
 container services](amazon-lightsail-creating-container-services.md "amazon-lightsail-creating-container-services.md") and [Container
 services](amazon-lightsail-container-services.md "amazon-lightsail-container-services.md").
 
-## Create an SSL/TLS certificate for
-
-your container service
+## Create an SSL/TLS certificate for your container service
 
 Complete the following procedure to create an SSL/TLS certificate for your container
 service.

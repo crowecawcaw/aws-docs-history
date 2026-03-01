@@ -1,6 +1,4 @@
-# Create and attach
-
-Lightsail block storage disks to Windows Server instances
+# Create and attach Lightsail block storage disks to Windows Server instances
 
 If you need additional storage space, you can create and attach block storage disks to your
 Windows Server instance in Amazon Lightsail. For more information about block storage disks, see
@@ -16,9 +14,7 @@ Server instance using RDP so that you can bring the disk online and initialize i
 If you have a Linux or Unix instance, see [Create and attach
 disks to your Linux or Unix instance](create-and-attach-additional-block-storage-disks-linux-unix.md "create-and-attach-additional-block-storage-disks-linux-unix.md").
 
-## Step 1: Create a new block
-
-storage disk and attach it to your instance
+## Step 1: Create a new block storage disk and attach it to your instance
 
 Create a new block storage disk and attach it to your instance using the Amazon Lightsail
 console.
@@ -72,9 +68,7 @@ attach the new disk to your instance.
 Continue to the [Step 2: Connect to your instance and bring the block storage disk online](#connect-to-windows-server-instance-using-rdp-format-mount-disk "#connect-to-windows-server-instance-using-rdp-format-mount-disk") section
 of this guide to bring the block storage disk online.
 
-## Step 2:
-
-Connect to your instance and bring the block storage disk online
+## Step 2: Connect to your instance and bring the block storage disk online
 
 Connect to your Windows Server instance and use the Disk Management utility to bring the
 recently attached block storage disk online.
@@ -105,9 +99,7 @@ Initialized**. The block storage disk is not yet online. Continue to the [Step 3
 the block storage disk](#initialize-your-disk-windows-server-lightsail "#initialize-your-disk-windows-server-lightsail") section of this guide to initialize the block storage
 disk.
 
-## Step 3: Initialize the block
-
-storage disk
+## Step 3: Initialize the block storage disk
 
 Initialize the block storage disk so that you can format it.
 
@@ -137,9 +129,7 @@ You should see the status of the block storage disk update to
 Format the disk with a file system](#run-new-simple-volume-wizard-windows-server-lightsail "#run-new-simple-volume-wizard-windows-server-lightsail") section of this guide to format your block
 storage disk with a file system.
 
-## Step 4: Format the
-
-disk with a file system
+## Step 4: Format the disk with a file system
 
 Use the New Simple Volume wizard in Windows Server to assign a drive letter and format the
 disk with a file system.

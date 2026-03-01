@@ -1,6 +1,4 @@
-# Delete a Lightsail container
-
-service
+# Delete a Lightsail container service
 
 You can delete your Amazon Lightsail container service at any time if you're no longer using
 it. When you delete your container service, all deployments and registered container images

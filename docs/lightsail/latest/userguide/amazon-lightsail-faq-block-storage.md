@@ -1,8 +1,6 @@
 # Block storage (Disks)
 
-## What can I do with Lightsail block
-
-storage?
+## What can I do with Lightsail block storage?
 
 Lightsail block storage provides additional storage volumes (called "attached disks"
 in Lightsail) that you can attach to your Lightsail instance, similar to an individual
@@ -19,9 +17,7 @@ IOPS performance, high amounts of throughput per disk, or that are running large
 like MongoDB, Cassandra, etc., we recommend using Amazon EC2 with GP2 or Provisioned IOPS SSD
 storage instead of Lightsail.
 
-## How are attached
-
-disks different than the storage included in my Lightsail plan?
+## How are attached disks different than the storage included in my Lightsail plan?
 
 The system disk included with your Lightsail plan is your instance's root device. If
 you terminate your instance, the system disk will be deleted as well. If you experience an
@@ -33,52 +29,38 @@ disk. To protect your data, we recommend that you use your Lightsail instance's 
 disk only for temporary data. For data requiring a higher level of durability, we recommend
 using attached disks and regularly backing up your disk using disk or instance snapshots.
 
-## How large can I make my attached
-
-disk?
+## How large can I make my attached disk?
 
 Each attached disk can be up to 16 TB, and the total amount of attached block storage in
 a Lightsail account must not exceed 20 TB.
 
-## How many disks can I attach per Lightsail
-
-instance?
+## How many disks can I attach per Lightsail instance?
 
 You can attach up to 15 disks to a Lightsail instance.
 
-## Can I attach a disk to more
-
-than one instance?
+## Can I attach a disk to more than one instance?
 
 No, disks can only be attached to one instance at a time.
 
-## Does my disk need to be
-
-attached to an instance?
+## Does my disk need to be attached to an instance?
 
 No, you can choose not to attach a disk to an instance. The disk will remain in your
 account in an unattached state. There is no difference in price if your disk is not attached
 to an instance.
 
-## Can I increase the size of my
-
-attached disk?
+## Can I increase the size of my attached disk?
 
 Yes, you can increase the size of a disk by taking a disk snapshot and then creating a
 new, larger disk from that snapshot.
 
-## Does Lightsail block storage offer
-
-encryption?
+## Does Lightsail block storage offer encryption?
 
 Yes, to help keep your data secure, all Lightsail attached disks and disk snapshots
 are encrypted at rest by default, using keys that Lightsail manages on your behalf.
 Lightsail also provides encryption of data as it moves between Lightsail instances and
 attached disks.
 
-## What availability can I expect from
-
-Lightsail block storage?
+## What availability can I expect from Lightsail block storage?
 
 Lightsail block storage is designed to be highly available and reliable. Each attached
 disk is automatically replicated within its Availability Zone to protect you from component

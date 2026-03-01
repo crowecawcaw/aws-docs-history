@@ -1,6 +1,4 @@
-# Monitor Lightsail database
-
-performance metrics
+# Monitor Lightsail database performance metrics
 
 After you launch a database in Amazon Lightsail, you can view its metric graphs on the
 **Metrics** tab of the database’s management page. Monitoring metrics is an
@@ -44,9 +42,7 @@ The following database metrics are available:
   network traffic on the database, including both customer database traffic and AWS
   traffic used for monitoring and replication.
 
-## Viewing database metrics in the Lightsail
-
-console
+## Viewing database metrics in the Lightsail console
 
 Complete the following steps to view database metrics in the Lightsail console.
 
@@ -68,9 +64,7 @@ metric. 6. You can perform the following actions on the metrics graph:
      threshold you specify. For more information, see [Alarms](amazon-lightsail-alarms.md "amazon-lightsail-alarms.md") and [Create database
      metric alarms](amazon-lightsail-adding-database-health-metric-alarms.md "amazon-lightsail-adding-database-health-metric-alarms.md").
 
-## Next steps after viewing your database
-
-metrics
+## Next steps after viewing your database metrics
 
 There are a few additional tasks that you can perform for your database metrics:
 

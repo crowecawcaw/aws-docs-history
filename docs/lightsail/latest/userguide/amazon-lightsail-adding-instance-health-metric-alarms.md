@@ -1,6 +1,4 @@
-# Create Lightsail
-
-instance metric alarms
+# Create Lightsail instance metric alarms
 
 You can create an Amazon Lightsail alarm that watches a single instance metric. An alarm can
 be configured to notify you based on the value of the metric relative to a threshold that you
@@ -40,9 +38,7 @@ The following limits apply to alarms:
   data** option for missing data points.
 - You can only test notifications if the alarm is in an OK state.
 
-## Best practices for configuring instance
-
-alarms
+## Best practices for configuring instance alarms
 
 Before you configure a metric alarm for your instance, you should view the historical data
 of the metric. Identify the metric's low-levels, mid-levels, and high-levels over a period of
@@ -78,9 +74,7 @@ with these settings so that you're notified when there is no traffic, and when t
 traffic. The threshold that you specify should be adjusted to match the metric high-levels and
 low-levels as described in the [Best practices for configuring instance alarms](#instance-alarms-best-practices "#instance-alarms-best-practices") section of this guide.
 
-## Create instance metric alarms using the Lightsail
-
-console
+## Create instance metric alarms using the Lightsail console
 
 Complete the following steps to create an instance metric alarm using the Lightsail
 console.
@@ -143,9 +137,7 @@ following options:
 To edit the alarm later, choose the ellipsis icon (⋮) next to the alarm you
 want to edit, and choose **Edit alarm**.
 
-## Test instance metric alarms using the Lightsail
-
-console
+## Test instance metric alarms using the Lightsail console
 
 Complete the following steps to test an alarm using the Lightsail console. You might
 want to test an alarm to confirm that the configured notification options are working, such as

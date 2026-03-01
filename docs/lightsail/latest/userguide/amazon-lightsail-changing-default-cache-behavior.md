@@ -1,6 +1,4 @@
-# Configure caching for your
-
-Lightsail distribution
+# Configure caching for your Lightsail distribution
 
 A cache behavior lets you configure what is cached or isn't cached from your origin by your
 Amazon Lightsail distribution. For example, you can specify to cache individual directories,
@@ -60,9 +58,7 @@ distribution's settings.
 A caching preset can be specified only in the Lightsail console. It cannot be specified
 using the Lightsail API, AWS CLI, and SDKs.
 
-## Best for WordPress
-
-caching preset
+## Best for WordPress caching preset
 
 When you select an instance that uses the **WordPress Certified by Bitnami and
 Automattic** blueprint as the origin of your distribution, Lightsail asks if you
@@ -81,9 +77,7 @@ You must edit the WordPress configuration file in your instance to make your Wor
 website work with your distribution. For more information, see [Configure your WordPress
 instance to work with your distribution](amazon-lightsail-editing-wp-config-for-distribution.md "amazon-lightsail-editing-wp-config-for-distribution.md").
 
-## Default
-
-behavior
+## Default behavior
 
 A _default behavior_ specifies how your distribution handles content
 caching. The default behavior of your distribution is automatically specified for you
@@ -104,9 +98,7 @@ You can choose one of the follow default behaviors for your distribution:
   personalize content for individual users. If you select this option, you
   _must_ specify the [directory and file path overrides](#changing-caching-behavior-distribution-directory-file-overrides "#changing-caching-behavior-distribution-directory-file-overrides") to cache.
 
-## Directory
-
-and file overrides
+## Directory and file overrides
 
 A _directory and file override_ can be used to override, or add an
 exception to, the default behavior you selected. For example, if you chose to _cache
@@ -166,9 +158,7 @@ root of an Apache web server.
 var/www/html/images/
 ```
 
-## Advanced cache
-
-settings
+## Advanced cache settings
 
 The _advanced settings_ can be used to specify the cache lifespan of
 content on your distribution, the allowed HTTP methods, HTTP header forwarding, cookie
@@ -289,9 +279,7 @@ improves performance and reduces the load on your origin. Choose to forward only
 strings that you specify if your origin server returns different versions of your content
 based on one or more query string parameters.
 
-## Change your distribution's cache
-
-behavior
+## Change your distribution's cache behavior
 
 Complete the following procedure to change the default cache behavior of your
 distribution.

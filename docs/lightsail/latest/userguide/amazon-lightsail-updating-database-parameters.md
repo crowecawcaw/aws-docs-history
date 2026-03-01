@@ -1,6 +1,4 @@
-# Optimize Lightsail database
-
-performance with parameter updates
+# Optimize Lightsail database performance with parameter updates
 
 Database parameters, also known as database system variables, define fundamental properties
 of a managed database in Amazon Lightsail. For example, you can define a database parameter to

@@ -1,6 +1,4 @@
-# Configure health check
-
-settings for Lightsail load balancers
+# Configure health check settings for Lightsail load balancers
 
 Health checking starts as soon as you attach your Lightsail instances to your load
 balancer, and it occurs every 30 seconds thereafter. You can see the health check status on the

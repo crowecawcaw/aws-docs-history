@@ -1,6 +1,4 @@
-# Deploy PHP
-
-applications on a Lightsail LAMP instance
+# Deploy PHP applications on a Lightsail LAMP instance
 
 Amazon Lightsail is the easiest way to get started with Amazon Web Services (AWS) if you just need
 virtual private servers. Lightsail includes everything you need to launch your project quickly
@@ -29,9 +27,7 @@ and running on Lightsail.
 - [Next
   steps](#tutorial-launching-and-configuring-lamp-next-steps "#tutorial-launching-and-configuring-lamp-next-steps")
 
-## Step 1: Sign up for
-
-AWS
+## Step 1: Sign up for AWS
 
 This tutorial requires an AWS account. [Sign up for AWS](https://console.aws.amazon.com/console/home "https://console.aws.amazon.com/console/home"), or [sign in to AWS](https://console.aws.amazon.com/console/home "https://console.aws.amazon.com/console/home") if you already
 have an account.
@@ -89,9 +85,7 @@ more information on tag usage, see [Tags](amazon-lightsail-tags.md "amazon-light
 
 8. Choose **Create instance**.
 
-## Step 3: Connect to your instance via SSH and get the application password for your LAMP
-
-instance
+## Step 3: Connect to your instance via SSH and get the application password for your LAMP instance
 
 The default password to sign in to your database in LAMP is stored on your instance.
 Retrieve it by connecting to your instance using the browser-based SSH terminal in the
@@ -118,9 +112,7 @@ user name of `root`.
 
 ![Launching and configuring a LAMP instance in Lightsail.](images/amazon-lamp-tutorial-06.png)
 
-## Step 4: Install an application on top of your
-
-LAMP instance
+## Step 4: Install an application on top of your LAMP instance
 
 Deploy your PHP application on top of your LAMP instance, or install a Bitnami
 application. The main directory to deploy your PHP application is
@@ -133,9 +125,7 @@ functionality of your server. For more information about installing Bitnami appl
 [Getting
 Started](https://docs.bitnami.com/aws/infrastructure/lamp/get-started "https://docs.bitnami.com/aws/infrastructure/lamp/get-started") in the Bitnami documentation.
 
-## Step
-
-5: Create a static IP address and attach it to your LAMP instance
+## Step 5: Create a static IP address and attach it to your LAMP instance
 
 The default public IP for your LAMP instance changes if you stop and start the instance. A
 static IP address, attached to an instance, stays the same even if you stop and start your
@@ -155,9 +145,7 @@ IP**.
 
 ![Launch and configure a LAMP instance.](images/amazon-wordpress-tutorial-12.png)
 
-## Step 6: Create a DNS zone and map a domain to your LAMP
-
-instance
+## Step 6: Create a DNS zone and map a domain to your LAMP instance
 
 Transfer management of your domain's DNS records to Lightsail. This allows you to more
 easily map a domain to your LAMP instance, and manage all of your website’s resources using

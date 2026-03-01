@@ -1,6 +1,4 @@
-# View and
-
-manage IP addresses for Lightsail resources
+# View and manage IP addresses for Lightsail resources
 
 You can communicate with your Lightsail instance, and other Lightsail resources, using
 their IP addresses. For example, using the public IP address of your instance, you can check the
@@ -69,9 +67,7 @@ Keep the following in mind when using the IPv4 addresses of your instances:
   to it. For more information, see [Instance
   firewalls](understanding-firewall-and-port-mappings-in-amazon-lightsail.md "understanding-firewall-and-port-mappings-in-amazon-lightsail.md").
 
-## Static IPv4 addresses for
-
-instances
+## Static IPv4 addresses for instances
 
 The default public IPv4 address that is assigned to your instance when you create it will
 change when you stop and start your instance. You can optionally create and attach a static
@@ -106,9 +102,7 @@ following areas of the Lightsail console:
 
 ![All static IP addresses in the Networking tab of the Lightsail home page.](images/lightsail-all-static-ip-addresses.png)
 
-## IPv6 for instances, container services, CDN
-
-distributions, and load balancers
+## IPv6 for instances, container services, CDN distributions, and load balancers
 
 IPv6 is enabled by default for Lightsail instances, container services, CDN
 distributions, and load balancers created on or after January 12, 2021. You can optionally
@@ -118,8 +112,7 @@ resource; you cannot choose or specify the IPv6 address yourself. For more infor
 [Enable or disable IPv6](amazon-lightsail-enable-disable-ipv6.md "amazon-lightsail-enable-disable-ipv6.md").
 
 You can also create an IPv6-only instance. An IPv6-only instance can communicate publicly
-over IPv6 only and does not have a public IPv4 address. For more information, see [Configure IPv6-only networking for
-Lightsail instances](amazon-lightsail-ipv6-only-plans.md "amazon-lightsail-ipv6-only-plans.md")
+over IPv6 only and does not have a public IPv4 address. For more information, see [Configure IPv6-only networking for Lightsail instances](amazon-lightsail-ipv6-only-plans.md "amazon-lightsail-ipv6-only-plans.md")
 
 Your instance's IPv6 address is displayed in the following areas of the Lightsail
 console:

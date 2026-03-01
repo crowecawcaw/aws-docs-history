@@ -1,6 +1,4 @@
-# Manage Lightsail buckets with an
-
-IAM policy
+# Manage Lightsail buckets with an IAM policy
 
 The following policy grants a user access to manage a specific bucket in the Amazon Lightsail
 object storage service. This policy grants access to buckets through the Lightsail console,
@@ -43,9 +41,7 @@ JSON
 
 ```
 
-## Manage buckets and
-
-objects
+## Manage buckets and objects
 
 These are the general steps to manage your Lightsail object storage bucket:
 

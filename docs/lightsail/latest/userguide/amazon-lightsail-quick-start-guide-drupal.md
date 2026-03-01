@@ -1,6 +1,4 @@
-# Set up and customize your Drupal
-
-website on Lightsail
+# Set up and customize your Drupal website on Lightsail
 
 ###### Did you know?
 
@@ -33,17 +31,13 @@ running on Amazon Lightsail:
 - [Step 8:
   Create a snapshot of your instance](#amazon-lightsail-create-a-snapshot-drupal "#amazon-lightsail-create-a-snapshot-drupal")
 
-## Step 1: Read
-
-the Bitnami documentation
+## Step 1: Read the Bitnami documentation
 
 Read the Bitnami documentation to learn how to configure your Drupal application. For
 more information, see the [Drupal
 Packaged By Bitnami For AWS Cloud](https://docs.bitnami.com/aws/apps/drupal/ "https://docs.bitnami.com/aws/apps/drupal/").
 
-## Step 2: Get the
-
-default application password to access the Drupal administration dashboard
+## Step 2: Get the default application password to access the Drupal administration dashboard
 
 Complete the following procedure to get the default application password required to
 access the administration dashboard for your Drupal website. For more information, see
@@ -65,9 +59,7 @@ default application password:
 
 ![Bitnami default application password.](images/amazon-lightsail-bitnami-application-password.png)
 
-## Step 3: Attach a static IP
-
-address to your instance
+## Step 3: Attach a static IP address to your instance
 
 The default dynamic public IP address attached to your instance changes every time you
 stop and start the instance. You can create a static IP address and attach it to your instance to
@@ -83,9 +75,7 @@ instance](lightsail-create-static-ip.md "lightsail-create-static-ip.md").
 
 ![Attach static IP address in the Lightsail console](images/quick-start-static-ip-address.png)
 
-## Step 4: Sign in to the administration
-
-dashboard of your Drupal website
+## Step 4: Sign in to the administration dashboard of your Drupal website
 
 Now that you have the default user password, navigate to your Drupal website's home
 page, and sign in to the administration dashboard. After you’re signed in, you can start
@@ -115,9 +105,7 @@ The Drupal administration dashboard appears.
 
 ![The Drupal administration dashboard](images/amazon-lightsail-drupal-dashboard.png)
 
-## Step 5: Route
-
-traffic for your registered domain name to your Drupal website
+## Step 5: Route traffic for your registered domain name to your Drupal website
 
 To route traffic for your registered domain name, such as `example.com`, to
 your Drupal website, you add a record to the domain name system (DNS) of your domain.
@@ -136,9 +124,7 @@ configure an SSL/TLS certificate to enable HTTPS connections for your Drupal web
 For more information, continue to the next [Step 6: Configure HTTPS for your Drupal
 website](#amazon-lightsail-https-drupal "#amazon-lightsail-https-drupal") section of this guide.
 
-## Step 6: Configure HTTPS for your Drupal
-
-website
+## Step 6: Configure HTTPS for your Drupal website
 
 Complete the following procedure to configure HTTPS on your Drupal website. These
 steps show you how to use the Bitnami HTTPS Configuration Tool
@@ -258,7 +244,7 @@ Your selections should look like the following example.
 ![Website redirection options](images/bncert-enable-disable-redirection.png) 10. The changes that are going to be made are listed. Type `Y` and
 press **Enter** to confirm and continue.
 
-![Confirming the changes](images/bncert-confirm-changes.png) 11. Enter your email address to associate with your Let's Encrypt certificate and
+![Confirming the changes](/images/lightsail/latest/userguide/images/bncert-confirm-changes.png) 11. Enter your email address to associate with your Let's Encrypt certificate and
 press **Enter**.
 
 ![Associating your email address with your Let's Encrypt certificate](images/bncert-email-address.png) 12. Review the Let's Encrypt Subscriber Agreement. Type `Y` and press
@@ -287,17 +273,13 @@ You are now done enabling HTTPS on your Drupal instance. Next time you browse
 to your Drupal website using the domain you configured, you should see that it
 redirects to the HTTPS connection.
 
-## Step 7: Read the Drupal
-
-documentation and continue configuring your website
+## Step 7: Read the Drupal documentation and continue configuring your website
 
 Read the Drupal documentation to learn how to administer and customize your website.
 For more information, see the [Drupal
 Documentation](https://www.drupal.org/documentation "https://www.drupal.org/documentation").
 
-## Step 8: Create a snapshot of
-
-your instance
+## Step 8: Create a snapshot of your instance
 
 After you configure your website the way you want it, create
 periodic snapshots of your instance to back it up. A snapshot is a copy of the system disk and original configuration of an instance. A

@@ -6,8 +6,7 @@ configured to notify you based on the value of the metric relative to a threshol
 specify. Notifications can be a banner displayed in the Lightsail console, an email sent to
 your email address, and an SMS text message sent to your mobile phone number. In this guide, we
 describe the alarm conditions and settings that you can configure. For more information on how
-to review your active alarms across all Lightsail resources, see [Review alarm
-notifications for active alarms](amazon-lightsail-alarm-notifications.md#amazon-lightsail-alarm-notifications-review-alarms "amazon-lightsail-alarm-notifications.md#amazon-lightsail-alarm-notifications-review-alarms").
+to review your active alarms across all Lightsail resources, see [Review alarm notifications for active alarms](amazon-lightsail-alarm-notifications.md#amazon-lightsail-alarm-notifications-review-alarms "amazon-lightsail-alarm-notifications.md#amazon-lightsail-alarm-notifications-review-alarms").
 
 **Contents**
 

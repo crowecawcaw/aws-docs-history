@@ -10,9 +10,7 @@ objects across locations only using the AWS APIs, AWS SDKs, and AWS Command Line
 For more information about buckets, see [Object
 storage](buckets-in-amazon-lightsail.md "buckets-in-amazon-lightsail.md").
 
-## Restrictions for copying
-
-objects
+## Restrictions for copying objects
 
 You can create a copy of an object that is up to 2 GB in size by using the Lightsail
 console. You can create a copy of an object that is up to 5 GB in size with a single copy
@@ -21,9 +19,7 @@ that is greater than 5 GB in size, you must use the multipart upload action of t
 AWS APIs, and AWS SDKs. For more information, see [Upload files
 to a bucket using multipart upload](amazon-lightsail-uploading-files-to-a-bucket-using-multipart-upload.md "amazon-lightsail-uploading-files-to-a-bucket-using-multipart-upload.md").
 
-## Copy objects using the
-
-Lightsail console
+## Copy objects using the Lightsail console
 
 Complete the following procedure to copy an object stored in a bucket using the
 Lightsail console. To move an object in a bucket, you should copy it to the new location,
@@ -99,9 +95,7 @@ You should see a result similar to the following example:
 
 ![Result of the AWS CLI copy-object command](images/amazon-lightsail-s3api-copy-object-result.png)
 
-## Manage buckets and
-
-objects
+## Manage buckets and objects
 
 These are the general steps to manage your Lightsail object storage bucket:
 

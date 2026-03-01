@@ -1,6 +1,4 @@
-# Learn how to export Lightsail snapshots
-
-to Amazon EC2
+# Learn how to export Lightsail snapshots to Amazon EC2
 
 You can export Lightsail snapshots to Amazon EC2, create EC2 resources from exported
 snapshots, choose compatible EC2 instance types, connect to EC2 instances, and secure EC2
@@ -34,12 +32,9 @@ Amazon EC2. For more information about SLRs, see [Service-linked roles](amazon-l
 
 The export process can take a while. It depends on the size and configuration of the source
 instance or block storage disk. Use the **Exports** section in the Lightsail
-console to track the status of your export. For more information, see [Track snapshot export status in
-Lightsail](amazon-lightsail-task-monitor.md "amazon-lightsail-task-monitor.md").
+console to track the status of your export. For more information, see [Track snapshot export status in Lightsail](amazon-lightsail-task-monitor.md "amazon-lightsail-task-monitor.md").
 
-## Create Amazon EC2 resources
-
-from exported Lightsail snapshots
+## Create Amazon EC2 resources from exported Lightsail snapshots
 
 After a Lightsail snapshot is exported and available in Amazon EC2 (as an AMI, EBS snapshot,
 or both), you can create Amazon EC2 resources from the snapshot using one of the following
@@ -76,8 +71,7 @@ in EC2. For more information, see [CloudFormation stacks for Lightsail](amazon-l
 The process to create Amazon EC2 resources from an exported snapshot can take a while. It
 depends on the size and configuration of the source instance. Use the
 **Exports** section in the Lightsail console to track the status of your
-export. For more information, see [Track snapshot export status in
-Lightsail](amazon-lightsail-task-monitor.md "amazon-lightsail-task-monitor.md")..
+export. For more information, see [Track snapshot export status in Lightsail](amazon-lightsail-task-monitor.md "amazon-lightsail-task-monitor.md")..
 
 ## Choosing an Amazon EC2 instance type
 

@@ -1,6 +1,4 @@
-# Export Lightsail
-
-snapshots to Amazon EC2
+# Export Lightsail snapshots to Amazon EC2
 
 You can export Amazon Lightsail instance and block storage disk snapshots to Amazon Elastic Compute Cloud
 (Amazon EC2). Exporting a Lightsail instance snapshot results in an Amazon Machine Image (AMI) and
@@ -32,9 +30,7 @@ steps in this guide. For more information, see [Export snapshots to Amazon EC2](
 - [Track the status of your
   export](#track-the-status-of-your-export "#track-the-status-of-your-export")
 
-## Service-linked role and required IAM
-
-permissions to export Lightsail snapshots
+## Service-linked role and required IAM permissions to export Lightsail snapshots
 
 Lightsail uses an AWS Identity and Access Management (IAM) service-linked role (SLR) to export snapshots to
 Amazon EC2. For more information about SLRs, see [Service-linked roles](amazon-lightsail-using-service-linked-roles.md "amazon-lightsail-using-service-linked-roles.md").
@@ -83,9 +79,7 @@ export to Amazon EC2. For more information, see one of the following guides:
 - [Create a block storage disk
   snapshot](create-block-storage-disk-snapshot.md "create-block-storage-disk-snapshot.md")
 
-## Export a Lightsail snapshot to
-
-Amazon EC2
+## Export a Lightsail snapshot to Amazon EC2
 
 The most efficient way to export a snapshot to Amazon EC2 is by using the Lightsail console.
 You can also export snapshots using the Lightsail API, AWS Command Line Interface (AWS CLI), or SDKs. For more
@@ -116,15 +110,13 @@ the process.
 
 The export process can take a while. It depends on the size and configuration of the
 source instance or block storage disk. Use the **Exports** section in the
-Lightsail console to track the status of your export. For more information, see [Track snapshot export status in
-Lightsail](amazon-lightsail-task-monitor.md "amazon-lightsail-task-monitor.md").
+Lightsail console to track the status of your export. For more information, see [Track snapshot export status in Lightsail](amazon-lightsail-task-monitor.md "amazon-lightsail-task-monitor.md").
 
 ## Track the status of your export
 
 Track the status of your export in the **Exports** section of the
 Lightsail console. It can be accessed from the left navigation pane on all pages of the
-Lightsail console. For more information, see [Track snapshot export status in
-Lightsail](amazon-lightsail-task-monitor.md "amazon-lightsail-task-monitor.md").
+Lightsail console. For more information, see [Track snapshot export status in Lightsail](amazon-lightsail-task-monitor.md "amazon-lightsail-task-monitor.md").
 
 The following information is displayed in **Exports**:
 

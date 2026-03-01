@@ -1,6 +1,4 @@
-# Delete or disable Lightsail
-
-metric alarms
+# Delete or disable Lightsail metric alarms
 
 You can delete an Amazon Lightsail alarm to stop notifications of when the metric being
 monitored by the alarm crosses a threshold. You can also disable the alarm to stop receiving
@@ -32,9 +30,7 @@ console.
 8. At the prompt, choose **Delete** to confirm that you want to delete
    the alarm.
 
-## Disable and enabling metric alarms using the Lightsail
-
-console
+## Disable and enabling metric alarms using the Lightsail console
 
 Complete the following steps to disable a metric alarm using the Lightsail
 console.

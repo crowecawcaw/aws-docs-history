@@ -1,6 +1,4 @@
-# Set up and configure Magento on
-
-Lightsail
+# Set up and configure Magento on Lightsail
 
 ###### Did you know?
 
@@ -29,9 +27,7 @@ and running on Amazon Lightsail.
 - [Step 8: Create
   a snapshot of your Magento instance](#amazon-lightsail-magento-create-a-snapshot "#amazon-lightsail-magento-create-a-snapshot")
 
-## Step 1: Get the
-
-default application password for your Magento website
+## Step 1: Get the default application password for your Magento website
 
 Complete the following steps to get the default application password for your Magento
 website. For more information, see [Getting the
@@ -55,9 +51,7 @@ website.
 
 ![Default application password for Bitnami instances](images/magento-quick-start-ssh-default-application-password.png)
 
-## Step 2: Attach a static IP address
-
-to your Magento instance
+## Step 2: Attach a static IP address to your Magento instance
 
 The default dynamic public IP address attached to your instance changes every time you
 stop and start the instance. You can create a static IP address and attach it to your instance to
@@ -106,9 +100,7 @@ should now be aware of the new static IP address.
 Magento does not currently support IPv6 addresses. You can enable IPv6 for the instance,
 but the Magento software will not respond to requests over the IPv6 network.
 
-## Step 3: Sign in to the administration
-
-dashboard of your Magento website
+## Step 3: Sign in to the administration dashboard of your Magento website
 
 Complete the following step to access your Magento website and sign in to its
 administration dashboard. To sign in, you will use the default user name (`user`)
@@ -153,9 +145,7 @@ users](https://docs.magento.com/user-guide/system/permissions-users-all.html "ht
 
 For more information about the administration dashboard, see [Magento 2.4 User Guide](https://docs.magento.com/user-guide/ "https://docs.magento.com/user-guide/") .
 
-## Step 4: Route
-
-traffic for your registered domain name to your Magento website
+## Step 4: Route traffic for your registered domain name to your Magento website
 
 To route traffic for your registered domain name, such as `example.com`, to
 your Magento website, you add a record to the domain name system (DNS) of your domain. DNS
@@ -192,9 +182,7 @@ should now be aware of the domain name.
 
 ![Result of the domain configuration tool](images/quick-start-configure-domain.png)
 
-## Step 5: Configure HTTPS for your Magento
-
-website
+## Step 5: Configure HTTPS for your Magento website
 
 Complete the following steps to configure HTTPS on your Magento website. These steps show
 you how to use the Bitnami HTTPS configuration tool (bncert), which is a command line tool for
@@ -289,9 +277,7 @@ version (e.g., `http://www.example.com`) of your Magento website, they will be
 automatically redirected to the HTTPS version (e.g.,
 `https://www.example.com`).
 
-## Step 6: Configure SMTP for email
-
-notifications
+## Step 6: Configure SMTP for email notifications
 
 Configure the SMTP settings of your Magento website to enable email notifications for it.
 For more information, see [Install the Magento Magepal SMTP extension](https://docs.bitnami.com/aws/apps/magento/configuration/install-extension-smtp/ "https://docs.bitnami.com/aws/apps/magento/configuration/install-extension-smtp/") in the _Bitnami
@@ -308,9 +294,7 @@ use an app password instead of using the standard password that you use to sign 
 For more information, see [Sign in with App
 Passwords](https://support.google.com/accounts/answer/185833?hl=en "https://support.google.com/accounts/answer/185833?hl=en").
 
-## Step 7: Read the
-
-Bitnami and Magento documentation
+## Step 7: Read the Bitnami and Magento documentation
 
 Read the Bitnami documentation to learn how to perform administrative tasks on your
 Magento instance and website, such as install plugins and customize the theme. For more
@@ -320,9 +304,7 @@ for AWS Cloud](https://docs.bitnami.com/aws/apps/magento/ "https://docs.bitnami.
 You should also read the Magento documentation to learn how to administer your Magento
 website. For more information, see the [Magento 2.4 User Guide](https://docs.magento.com/user-guide/ "https://docs.magento.com/user-guide/").
 
-## Step 8: Create a snapshot of your
-
-Magento instance
+## Step 8: Create a snapshot of your Magento instance
 
 After you configure your website the way you want it, create
 periodic snapshots of your instance to back it up. A snapshot is a copy of the system disk and original configuration of an instance. A

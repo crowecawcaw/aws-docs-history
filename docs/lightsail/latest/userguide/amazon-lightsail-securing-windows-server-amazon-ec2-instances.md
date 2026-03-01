@@ -1,6 +1,4 @@
-# Secure Windows
-
-Server Amazon EC2 instances launched from Lightsail snapshots
+# Secure Windows Server Amazon EC2 instances launched from Lightsail snapshots
 
 To improve the security of a Windows Server instance in Amazon Elastic Compute Cloud (Amazon EC2) created from an
 Amazon Lightsail snapshot, we recommend that you change the default administrator password. This
@@ -20,9 +18,7 @@ Unix instance that was created from a Lightsail snapshot](amazon-lightsail-secur
 - [Change the default administrator password of your Windows Server instance in
   Amazon EC2](#change-the-password-of-your-windows-server-instance-in-ec2 "#change-the-password-of-your-windows-server-instance-in-ec2")
 
-## Connect to your Windows
-
-Server instance in Amazon EC2
+## Connect to your Windows Server instance in Amazon EC2
 
 To change your Windows Server administrator password, connect to your Windows Service
 instance in Amazon EC2 using Remote Desktop Protocol (RDP). To learn how to connect to your
@@ -32,16 +28,12 @@ Windows Server instance in Amazon EC2 created from a Lightsail snapshot](amazon-
 Continue to the [Change the default administrator password of your Windows Server instance in
 Amazon EC2](#change-the-password-of-your-windows-server-instance-in-ec2 "#change-the-password-of-your-windows-server-instance-in-ec2") section of this guide after you’re connected to your instance in Amazon EC2.
 
-## Change the
-
-default administrator password of your Windows Server instance in Amazon EC2
+## Change the default administrator password of your Windows Server instance in Amazon EC2
 
 Change the default password on your Windows Server instance to remove the association
 between your Lightsail key pairs and your new Windows Server instance in Amazon EC2.
 
-###### To change the default administrator password of your Windows Server instance in
-
-Amazon EC2
+###### To change the default administrator password of your Windows Server instance in Amazon EC2
 
 1. After you establish an RDP connection to your instance, open a Command Prompt and
    enter the following command.

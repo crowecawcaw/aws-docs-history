@@ -1,6 +1,4 @@
-# Monitor system resources and apps with
-
-Prometheus on Lightsail
+# Monitor system resources and apps with Prometheus on Lightsail
 
 Prometheus is an open source time series monitoring tool for managing a variety of system
 resources and applications. It provides a multidimensional data model, the ability to query
@@ -45,9 +43,7 @@ following:
   requires ports 9090 and 9100 to be open. For more information, see [Adding and editing
   instance firewall rules in Amazon Lightsail](amazon-lightsail-editing-firewall-rules.md "amazon-lightsail-editing-firewall-rules.md").
 
-## Step 2: Add users and local
-
-system directories to your Lightsail instance
+## Step 2: Add users and local system directories to your Lightsail instance
 
 Complete the following procedure to connect to your Lightsail instance using SSH and
 add users and system directories. This procedure creates the following Linux user
@@ -94,9 +90,7 @@ sudo chown prometheus:prometheus /etc/prometheus
 sudo chown prometheus:prometheus /var/lib/prometheus
 ```
 
-## Step 3: Download the Prometheus
-
-binary packages
+## Step 3: Download the Prometheus binary packages
 
 Complete the following procedure to download the Prometheus binary packages to your
 Lightsail instance.
@@ -481,9 +475,7 @@ is booted.
 sudo systemctl enable node_exporter
 ```
 
-## Step 7: Configure Prometheus
-
-with the Node Exporter data collector
+## Step 7: Configure Prometheus with the Node Exporter data collector
 
 Complete the following procedure to configure Prometheus with the Node Exporter data
 collector. You do this by adding a new `job_name` parameter for

@@ -90,9 +90,7 @@ console, and in the **Account** page.
 
 ![Email waiting verification banner in the Lightsail console.](images/amazon-lightsail-email-verification-banner.png)
 
-## Adding notification contacts using the
-
-Lightsail console
+## Adding notification contacts using the Lightsail console
 
 Complete the following steps to add notification contacts using the Lightsail
 console.
@@ -169,9 +167,7 @@ contacts](amazon-lightsail-deleting-notification-contacts.md "amazon-lightsail-d
 
 ![Email verification subscription.](images/amazon-lightsail-email-verification-subscribe.png)
 
-## Adding notification contacts using the
-
-AWS CLI
+## Adding notification contacts using the AWS CLI
 
 Complete the following steps to add notification contacts for Lightsail using the
 AWS Command Line Interface (AWS CLI).
@@ -237,9 +233,7 @@ unsubscribe, choose **click here to unsubscribe** on the page. Or, if you
 have closed the page, complete the steps to [delete your notification
 contacts](amazon-lightsail-deleting-notification-contacts.md "amazon-lightsail-deleting-notification-contacts.md").
 
-## Next steps after adding your
-
-notification contacts
+## Next steps after adding your notification contacts
 
 There are a couple of additional tasks that you can perform for your notification
 contacts:

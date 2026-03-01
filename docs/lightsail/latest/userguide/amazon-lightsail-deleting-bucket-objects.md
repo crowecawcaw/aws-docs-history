@@ -1,6 +1,4 @@
-# Clear Lightsail bucket storage by
-
-deleting objects
+# Clear Lightsail bucket storage by deleting objects
 
 You can delete objects from your bucket in the Amazon Lightsail object storage service. To
 free-up storage space, delete objects that you no longer need . For example, if you're
@@ -22,9 +20,7 @@ storage](buckets-in-amazon-lightsail.md "buckets-in-amazon-lightsail.md").
 - [Delete multiple objects or object
   versions using the AWS CLI](#delete-objects-aws-cli "#delete-objects-aws-cli")
 
-## Delete objects from a
-
-version-enabled bucket
+## Delete objects from a version-enabled bucket
 
 If versioning is enabled on your bucket, multiple versions of the same object can exist in
 it. You can delete any version of an object using the Lightsail console, AWS CLI, AWS APIs,
@@ -50,9 +46,7 @@ your delete request. To delete a specific version of an object, specify both the
 and also a version ID. For more information, see [Delete a single object or object
 version using the AWS CLI](#deleting-single-object-aws-cli "#deleting-single-object-aws-cli") later in this guide.
 
-## Delete objects using the Lightsail
-
-console
+## Delete objects using the Lightsail console
 
 Complete the following procedure to delete an object, including its stored previous
 versions, using the Lightsail console. You can delete only one object at a time using the
@@ -77,9 +71,7 @@ object also deletes the preceding folders when no other objects in the bucket sh
 same object prefix. For more information, see [Key names for object
 storage buckets](understanding-bucket-object-key-names-in-amazon-lightsail.md "understanding-bucket-object-key-names-in-amazon-lightsail.md").
 
-## Delete object versions using the
-
-Lightsail console
+## Delete object versions using the Lightsail console
 
 Complete the following procedure to delete stored versions of an object. This is only
 possible for version-enabled buckets. For more information, see [Enable and suspend object
@@ -110,9 +102,7 @@ If you delete:
      bucket share the same object key prefix. For more information, see [Enable and suspend
      object versioning in a bucket](amazon-lightsail-managing-bucket-object-versioning.md "amazon-lightsail-managing-bucket-object-versioning.md").
 
-## Delete a single object or object version
-
-using the AWS CLI
+## Delete a single object or object version using the AWS CLI
 
 Complete the following procedure to delete a single object or object version in your
 bucket using the AWS Command Line Interface (AWS CLI). You do this by using the `delete-object`
@@ -172,9 +162,7 @@ You should see a result similar to the following example:
 
 ![Result of the AWS CLI delete-object command](images/amazon-lightsail-s3api-delete-object-version-result.png)
 
-## Delete multiple objects or object versions using the
-
-AWS CLI
+## Delete multiple objects or object versions using the AWS CLI
 
 Complete the following procedure to delete multiple objects in your bucket using the
 AWS Command Line Interface (AWS CLI). You do this by using the `delete-objects` command. For more
@@ -272,9 +260,7 @@ You should see a result similar to the following example:
 
 ![Result of the AWS CLI delete-objects command](images/amazon-lightsail-s3api-delete-objects-version-result.png)
 
-## Manage buckets and
-
-objects
+## Manage buckets and objects
 
 These are the general steps to manage your Lightsail object storage bucket:
 

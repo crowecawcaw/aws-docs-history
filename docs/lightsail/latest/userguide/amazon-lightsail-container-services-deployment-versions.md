@@ -1,6 +1,4 @@
-# View and manage
-
-Lightsail container service deployment versions
+# View and manage Lightsail container service deployment versions
 
 Every deployment that you create in your Amazon Lightsail container service is saved as a
 deployment version. If you modify the parameters of an existing deployment, the containers are
@@ -36,9 +34,7 @@ You also should create a deployment in your container service that configures an
 your containers. For more information, see [Creating and managing deployments
 for your Amazon Lightsail container services](amazon-lightsail-container-services-deployments.md "amazon-lightsail-container-services-deployments.md").
 
-## View the deployment versions of a container
-
-service
+## View the deployment versions of a container service
 
 Complete the following procedure to view the deployment versions of your Lightsail
 container service.

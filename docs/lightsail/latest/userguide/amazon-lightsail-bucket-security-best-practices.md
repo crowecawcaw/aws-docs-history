@@ -8,44 +8,29 @@ rather than prescriptions.
 
 ###### Contents
 
-- [Preventative security
-  best practices](amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-preventative-practices "amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-preventative-practices")
-  - [Implement least
-    privilege access](amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-least-privilege-access "amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-least-privilege-access")
-  - [Verify that your
-    Lightsail buckets are not publicly accessible](amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-verify-bucket-permissions "amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-verify-bucket-permissions")
-  - [Enable block public
-    access in Amazon S3](amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-block-public-access "amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-block-public-access")
-  - [Attach instances to
-    buckets to grant full programmatic access](amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-attach-instances "amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-attach-instances")
+- [Preventative security best practices](amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-preventative-practices "amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-preventative-practices")
+  - [Implement least privilege access](amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-least-privilege-access "amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-least-privilege-access")
+  - [Verify that your Lightsail buckets are not publicly accessible](amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-verify-bucket-permissions "amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-verify-bucket-permissions")
+  - [Enable block public access in Amazon S3](amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-block-public-access "amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-block-public-access")
+  - [Attach instances to buckets to grant full programmatic access](amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-attach-instances "amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-attach-instances")
   - [Rotate bucket access keys](amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-rotate-bucket-access-keys "amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-rotate-bucket-access-keys")
-  - [Use cross-account
-    access to give other AWS accounts access to objects in your bucket](amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-cross-account-access "amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-cross-account-access")
+  - [Use cross-account access to give other AWS accounts access to objects in your bucket](amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-cross-account-access "amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-cross-account-access")
   - [Encryption of data](amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-data-encryption "amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-data-encryption")
   - [Enable versioning](amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-enable-versioning "amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-enable-versioning")
 
-- [Monitoring and auditing
-  best practices](amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-monitoring-auditing "amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-monitoring-auditing")
-  - [Enable access logging
-    and perform periodic security and access audits](amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-enable-access-logging "amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-enable-access-logging")
-  - [Identify, tag, and audit your
-    Lightsail buckets](amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-identify-tag "amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-identify-tag")
-  - [Implement monitoring using
-    AWS monitoring tools](amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-monitoring-tools "amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-monitoring-tools")
+- [Monitoring and auditing best practices](amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-monitoring-auditing "amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-monitoring-auditing")
+  - [Enable access logging and perform periodic security and access audits](amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-enable-access-logging "amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-enable-access-logging")
+  - [Identify, tag, and audit your Lightsail buckets](amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-identify-tag "amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-identify-tag")
+  - [Implement monitoring using AWS monitoring tools](amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-monitoring-tools "amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-monitoring-tools")
   - [Use AWS CloudTrail](amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-cloudtrail "amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-cloudtrail")
-  - [Monitor AWS security
-    advisories](amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-security-advisories "amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-security-advisories")
+  - [Monitor AWS security advisories](amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-security-advisories "amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-security-advisories")
 
-## Preventative security
-
-best practices
+## Preventative security best practices
 
 The following best practices can help prevent security incidents with Lightsail
 buckets.
 
-### Implement least
-
-privilege access
+### Implement least privilege access
 
 When granting permissions, you decide who is getting what permissions to which
 Lightsail resources. You enable specific actions that you want to allow on those
@@ -58,9 +43,7 @@ For more information about the Amazon S3 actions supported by Lightsail buckets,
 [Actions for object storage](../../2016-11-28/api-reference/API_Amazon_S3.md "../../2016-11-28/api-reference/API_Amazon_S3.md") in the _Amazon Lightsail API
 reference_.
 
-### Verify that your
-
-Lightsail buckets are not publicly accessible
+### Verify that your Lightsail buckets are not publicly accessible
 
 Buckets and objects are private by default. Keep your bucket private by having the
 bucket access permission set to **All objects are private**. For the
@@ -98,9 +81,7 @@ public:
 
 ![Bucket access permissions in the Lightsail console](images/amazon-lightsail-bucket-access-permission-all-objects-private.png)
 
-### Enable block public
-
-access in Amazon S3
+### Enable block public access in Amazon S3
 
 Lightsail object storage resources take into account both Lightsail bucket access
 permissions and Amazon S3 account-level block public access configurations when allowing or
@@ -111,9 +92,7 @@ resources are created, and regardless of the individual bucket and object permis
 might have been configured. For more information, see [Block public access for
 buckets](amazon-lightsail-block-public-access-for-buckets.md "amazon-lightsail-block-public-access-for-buckets.md").
 
-### Attach instances to
-
-buckets to grant full programmatic access
+### Attach instances to buckets to grant full programmatic access
 
 Attaching an instance to a Lightsail object storage bucket is the most secure way to
 provide access to the bucket. The **Resource access** functionality, which
@@ -128,8 +107,7 @@ your WordPress instance](amazon-lightsail-connecting-buckets-to-wordpress.md "am
 
 However, if the application is not on a Lightsail instance, then you can create and
 configure bucket access keys. Bucket access keys are long term credentials that are not
-automatically rotated. For more information, see [Create Lightsail object storage bucket access
-keys](amazon-lightsail-creating-bucket-access-keys.md "amazon-lightsail-creating-bucket-access-keys.md").
+automatically rotated. For more information, see [Create Lightsail object storage bucket access keys](amazon-lightsail-creating-bucket-access-keys.md "amazon-lightsail-creating-bucket-access-keys.md").
 
 ![Bucket access keys in the Lightsail console](images/amazon-lightsail-bucket-access-keys.png)
 
@@ -153,13 +131,9 @@ bucket's management page. Delete access keys that are not being used.
 To rotate an access key, you should create a new access key, configure it on your
 software and test it, and then delete the previously used access key. After you delete an
 access key, it's gone forever and can't be restored. You can only replace it with a new
-access key. For more information, see [Create Lightsail object storage bucket access
-keys](amazon-lightsail-creating-bucket-access-keys.md "amazon-lightsail-creating-bucket-access-keys.md") and [Delete access keys for a Lightsail object
-storage bucket](amazon-lightsail-deleting-bucket-access-keys.md "amazon-lightsail-deleting-bucket-access-keys.md").
+access key. For more information, see [Create Lightsail object storage bucket access keys](amazon-lightsail-creating-bucket-access-keys.md "amazon-lightsail-creating-bucket-access-keys.md") and [Delete access keys for a Lightsail object storage bucket](amazon-lightsail-deleting-bucket-access-keys.md "amazon-lightsail-deleting-bucket-access-keys.md").
 
-### Use cross-account
-
-access to give other AWS accounts access to objects in your bucket
+### Use cross-account access to give other AWS accounts access to objects in your bucket
 
 You can use cross-account access to make objects in a bucket accessible to a specific
 individual who has an AWS account without making the bucket and its objects public. If
@@ -185,16 +159,12 @@ in your Lightsail bucket. With versioning, you can easily recover from both unin
 user actions and application failures. For more information, see [Enable and suspend bucket
 object versioning](amazon-lightsail-managing-bucket-object-versioning.md "amazon-lightsail-managing-bucket-object-versioning.md").
 
-## Monitoring and auditing
-
-best practices
+## Monitoring and auditing best practices
 
 The following best practices can help detect potential security weaknesses and incidents
 for Lightsail buckets.
 
-### Enable access logging
-
-and perform periodic security and access audits
+### Enable access logging and perform periodic security and access audits
 
 Access logging provides detailed records for the requests that are made to a bucket.
 This information can include the request type (`GET`, `PUT`), the
@@ -205,9 +175,7 @@ Lightsail doesn't collect access logs for your buckets. You must manually enable
 logging. For more information, see [Bucket access logs](amazon-lightsail-enabling-bucket-access-logs.md "amazon-lightsail-enabling-bucket-access-logs.md") and [Enable bucket access
 logging](amazon-lightsail-enabling-bucket-access-logs.md "amazon-lightsail-enabling-bucket-access-logs.md").
 
-### Identify, tag, and audit your
-
-Lightsail buckets
+### Identify, tag, and audit your Lightsail buckets
 
 Identification of your IT assets is a crucial aspect of governance and security. You
 need to have visibility of all your Lightsail buckets to assess their security posture and
@@ -216,9 +184,7 @@ take action on potential areas of weakness.
 Use tagging to identify security-sensitive or audit-sensitive resources, then use those
 tags when you need to search for these resources. For more information, see [Tags](amazon-lightsail-tags.md "amazon-lightsail-tags.md").
 
-### Implement monitoring using
-
-AWS monitoring tools
+### Implement monitoring using AWS monitoring tools
 
 Monitoring is an important part of maintaining the reliability, security, availability,
 and performance of Lightsail buckets and other resources. You can monitor and create
@@ -243,9 +209,7 @@ of activity and events for your Lightsail buckets, you can create a trail in the
 CloudTrail console. For more information, see [Logging Data Events for Trails](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md") in the _AWS CloudTrail User
 Guide_.
 
-### Monitor AWS security
-
-advisories
+### Monitor AWS security advisories
 
 Actively monitor the primary email address registered to AWS account. AWS will
 contact you, using this email address, about emerging security issues that might affect

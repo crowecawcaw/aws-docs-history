@@ -1,6 +1,4 @@
-# Enable encrypted communication for Lightsail
-
-resources with Let's Encrypt
+# Enable encrypted communication for Lightsail resources with Let's Encrypt
 
 This guide covers the following topics related to Let's Encrypt in Amazon Lightsail.
 Before getting started, ensure you have completed the following prerequisites:
@@ -16,12 +14,9 @@ Before getting started, ensure you have completed the following prerequisites:
 
 ###### Topics
 
-- [Secure your
-  Lightsail LAMP instance with Let's Encrypt SSL certificates](amazon-lightsail-using-lets-encrypt-certificates-with-lamp.md "amazon-lightsail-using-lets-encrypt-certificates-with-lamp.md")
-- [Secure your
-  Lightsail NGINX website with Let's Encrypt SSL/TLS](amazon-lightsail-using-lets-encrypt-certificates-with-nginx.md "amazon-lightsail-using-lets-encrypt-certificates-with-nginx.md")
-- [Secure your
-  Lightsail WordPress instance with free Let's Encrypt SSL certificates](amazon-lightsail-using-lets-encrypt-certificates-with-wordpress.md "amazon-lightsail-using-lets-encrypt-certificates-with-wordpress.md")
+- [Secure your Lightsail LAMP instance with Let's Encrypt SSL certificates](amazon-lightsail-using-lets-encrypt-certificates-with-lamp.md "amazon-lightsail-using-lets-encrypt-certificates-with-lamp.md")
+- [Secure your Lightsail NGINX website with Let's Encrypt SSL/TLS](amazon-lightsail-using-lets-encrypt-certificates-with-nginx.md "amazon-lightsail-using-lets-encrypt-certificates-with-nginx.md")
+- [Secure your Lightsail WordPress instance with free Let's Encrypt SSL certificates](amazon-lightsail-using-lets-encrypt-certificates-with-wordpress.md "amazon-lightsail-using-lets-encrypt-certificates-with-wordpress.md")
   Follow the step-by-step instructions for your specific instance type. Each topic
   provides detailed commands and configuration steps tailored to the Linux distribution
   (Ubuntu or Debian) and Bitnami installation type (system packages or self-contained) of

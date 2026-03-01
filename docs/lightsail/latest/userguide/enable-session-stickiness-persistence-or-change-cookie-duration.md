@@ -1,6 +1,4 @@
-# Enable session
-
-persistence for Lightsail load balancers
+# Enable session persistence for Lightsail load balancers
 
 You can enable _session persistence_ for your users. This is helpful if
 you're storing session information locally in the user's browser. For example, you might be

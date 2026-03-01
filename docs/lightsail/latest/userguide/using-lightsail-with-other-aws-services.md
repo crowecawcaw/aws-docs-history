@@ -1,6 +1,4 @@
-# Integrate Lightsail with other AWS
-
-services with VPC peering
+# Integrate Lightsail with other AWS services with VPC peering
 
 Amazon Lightsail uses a focused set of AWS services like Amazon EC2 and AWS Identity and Access Management to make it
 easier to get started. But that doesn't mean you're limited to those services!
@@ -13,9 +11,7 @@ Lightsail resources to AWS services using VPC peering](lightsail-how-to-set-up-v
 Some AWS resources, such as Amazon Simple Storage Service, Amazon CloudFront, and Amazon DynamoDB don't require that you
 enable VPC peering. Follow the links below to learn more about other AWS services.
 
-## Virtual machines (virtual private
-
-servers)
+## Virtual machines (virtual private servers)
 
 **Amazon EC2**
 

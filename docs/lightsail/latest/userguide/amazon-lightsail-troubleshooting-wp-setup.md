@@ -1,6 +1,4 @@
-# Troubleshoot WordPress setup
-
-issues on Lightsail instances
+# Troubleshoot WordPress setup issues on Lightsail instances
 
 Two types of error messages can appear during the WordPress setup workflow in
 Amazon Lightsail:
@@ -31,4 +29,4 @@ you might encounter with the WordPress setup guided workflow.
 - [Setup failures](wordpress-setup-failures.md "wordpress-setup-failures.md")
   For more information about the WordPress setup guided workflow in Amazon Lightsail, see
   [Configure your WordPress
-  instance](amazon-lightsail-tutorial-launching-and-configuring-wordpress.md#set-up-wordpress-website "amazon-lightsail-tutorial-launching-and-configuring-wordpress.md#set-up-wordpress-website").
+  instance](amazon-lightsail-tutorial-launching-and-configuring-wordpress.md#set-up-wordpress-instance-website "amazon-lightsail-tutorial-launching-and-configuring-wordpress.md#set-up-wordpress-instance-website").

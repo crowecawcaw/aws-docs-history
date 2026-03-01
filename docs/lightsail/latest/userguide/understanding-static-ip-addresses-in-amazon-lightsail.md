@@ -1,6 +1,4 @@
-# Static IP addresses in
-
-Lightsail
+# Static IP addresses in Lightsail
 
 A static IP is a fixed, public IP address that you can assign and reassign to an instance or
 other resource. If you haven't set up a static IP address, each time you stop or restart your
@@ -8,8 +6,7 @@ instance, Lightsail assigns a new public IP address.
 
 There are no costs associated with static IP addresses when they are attached to a
 Lightsail instance. However, static IP addresses incur a charge when they aren't attached to
-an instance. For more information, see [What do Lightsail static IPv4
-addresses cost?](amazon-lightsail-frequently-asked-questions-faq-billing-and-account-management.md#what-do-lightsail-static-ips-cost "amazon-lightsail-frequently-asked-questions-faq-billing-and-account-management.md#what-do-lightsail-static-ips-cost").
+an instance. For more information, see [What do Lightsail static IPv4 addresses cost?](amazon-lightsail-frequently-asked-questions-faq-billing-and-account-management.md#what-do-lightsail-static-ips-cost "amazon-lightsail-frequently-asked-questions-faq-billing-and-account-management.md#what-do-lightsail-static-ips-cost").
 
 ###### Important
 

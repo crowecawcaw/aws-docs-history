@@ -1,6 +1,4 @@
-# Configure Lightsail
-
-instances for load balancing
+# Configure Lightsail instances for load balancing
 
 Before you attach instances to your Amazon Lightsail load balancer, you need to evaluate your
 application's configuration. For example, load balancers often work better when the data tier is

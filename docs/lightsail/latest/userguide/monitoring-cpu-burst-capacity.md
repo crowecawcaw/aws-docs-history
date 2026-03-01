@@ -1,6 +1,4 @@
-# Monitor CPU burst capacity for your
-
-Lightsail instance
+# Monitor CPU burst capacity for your Lightsail instance
 
 ###### Did you know?
 

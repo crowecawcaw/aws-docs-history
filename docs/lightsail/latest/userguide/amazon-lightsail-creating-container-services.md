@@ -1,6 +1,4 @@
-# Create a highly available
-
-container service with Lightsail
+# Create a highly available container service with Lightsail
 
 In this guide, we show you how to create an Amazon Lightsail container service using the
 Lightsail console, and describe the container service settings that you can configure.
@@ -8,9 +6,7 @@ Lightsail console, and describe the container service settings that you can conf
 Before getting started, we recommend that you familiarize yourself with the elements of a
 Lightsail container service. For more information, see [Container services](amazon-lightsail-container-services.md "amazon-lightsail-container-services.md").
 
-## Container service capacity (scale and
-
-power)
+## Container service capacity (scale and power)
 
 You must choose the capacity of your container service when you first create it. The
 capacity is made up of a combination of the following parameters:

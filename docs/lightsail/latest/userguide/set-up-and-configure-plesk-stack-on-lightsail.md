@@ -1,6 +1,4 @@
-# Deploy a Plesk hosting stack on
-
-Lightsail
+# Deploy a Plesk hosting stack on Lightsail
 
 ###### Did you know?
 
@@ -205,8 +203,7 @@ see [Adding a Domain in Plesk](https://docs.plesk.com/en-US/obsidian/quick-start
 To map your domain name, such as `example.com`, to your instance, you add an A record to the domain name system (DNS) of your domain.
 DNS records are typically managed and hosted at the registrar where you registered your domain. However, we recommend that you transfer management of your
 domain's DNS records to Lightsail so that you can administer them using the Lightsail console.
-For more information, see [Transfer DNS
-management for your Lightsail domain](amazon-lightsail-domain-register-other-dns-service-procedure.md "amazon-lightsail-domain-register-other-dns-service-procedure.md").
+For more information, see [Transfer DNS management for your Lightsail domain](amazon-lightsail-domain-register-other-dns-service-procedure.md "amazon-lightsail-domain-register-other-dns-service-procedure.md").
 
 ###### To map your domain name to your Plesk instance in Lightsail
 
@@ -237,9 +234,7 @@ You must install the license after you purchase it from Plesk. To install your P
 [How to install the Plesk license](https://support.plesk.com/hc/en-us/articles/12378028764951-How-to-install-the-Plesk-license "https://support.plesk.com/hc/en-us/articles/12378028764951-How-to-install-the-Plesk-license") on the
 _Plesk support_ website.
 
-## Step 9: Create a snapshot of your
-
-Plesk instance
+## Step 9: Create a snapshot of your Plesk instance
 
 After you configure your website the way you want it, create
 periodic snapshots of your instance to back it up. A snapshot is a copy of the system disk and original configuration of an instance. A
