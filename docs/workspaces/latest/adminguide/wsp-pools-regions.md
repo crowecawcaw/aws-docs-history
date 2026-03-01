@@ -1,6 +1,4 @@
-# AWS Regions and Availability Zones for
-
-WorkSpaces Pools
+# AWS Regions and Availability Zones for WorkSpaces Pools
 
 WorkSpaces Pools is available in the following AWS Regions.
 

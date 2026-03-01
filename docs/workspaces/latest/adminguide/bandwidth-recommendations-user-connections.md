@@ -1,6 +1,4 @@
-# Bandwidth
-
-Recommendations
+# Bandwidth Recommendations
 
 To optimize the performance of WorkSpaces Pools, make sure that your network bandwidth
 and latency can sustain your users' needs.

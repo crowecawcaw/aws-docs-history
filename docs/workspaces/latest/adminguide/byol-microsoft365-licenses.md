@@ -1,6 +1,4 @@
-# Microsoft 365 Bring Your Own License
-
-(BYOL) in WorkSpaces Personal
+# Microsoft 365 Bring Your Own License (BYOL) in WorkSpaces Personal
 
 Amazon WorkSpaces allows you to bring your own Microsoft 365 licenses if they meet Microsoft's
 licensing requirements. These licenses allow you to install and activate Microsoft 365 Apps
@@ -34,16 +32,11 @@ WorkSpaces and failover WorkSpaces using [Multi-Region Resilience](multi-region-
 
 ###### Contents
 
-- [Create WorkSpaces with Microsoft 365 Apps
-  for enterprise](#create-workspaces-microsoft365 "#create-workspaces-microsoft365")
-- [Migrate your existing WorkSpaces to use
-  Microsoft 365 Apps for enterprise](#migrate-workspaces-microsoft365 "#migrate-workspaces-microsoft365")
-- [Update your Microsoft 365 Apps for enterprise on
-  WorkSpaces](#microsoft365-update "#microsoft365-update")
+- [Create WorkSpaces with Microsoft 365 Apps for enterprise](#create-workspaces-microsoft365 "#create-workspaces-microsoft365")
+- [Migrate your existing WorkSpaces to use Microsoft 365 Apps for enterprise](#migrate-workspaces-microsoft365 "#migrate-workspaces-microsoft365")
+- [Update your Microsoft 365 Apps for enterprise on WorkSpaces](#microsoft365-update "#microsoft365-update")
 
-## Create WorkSpaces with Microsoft 365 Apps
-
-for enterprise
+## Create WorkSpaces with Microsoft 365 Apps for enterprise
 
 To create WorkSpaces with Microsoft 365 Apps for enterprise, you must create a custom image
 with the applications installed, and use it to create a custom bundle. You can use the
@@ -67,9 +60,7 @@ public bundles with Microsoft 365 Apps for enterprise.
 7. Launch WorkSpaces using the custom bundle that you created. These WorkSpaces have
    Microsoft 365 Apps for enterprise installed.
 
-## Migrate your existing WorkSpaces to use
-
-Microsoft 365 Apps for enterprise
+## Migrate your existing WorkSpaces to use Microsoft 365 Apps for enterprise
 
 If your WorkSpaces don't have a Microsoft Office license through AWS, you can
 install and configure Microsoft 365 Apps for enterprise on your WorkSpaces.
@@ -102,9 +93,7 @@ following:
     start using Microsoft 365 Apps for enterprise.
   - For more information on how to migrate WorkSpaces, see [Migrate a WorkSpace](migrate-workspaces.md "migrate-workspaces.md").
 
-## Update your Microsoft 365 Apps for enterprise on
-
-WorkSpaces
+## Update your Microsoft 365 Apps for enterprise on WorkSpaces
 
 By default, your WorkSpaces running on the Microsoft Windows Operating System are
 configured to receive updates from Windows Update. However, updates for Microsoft 365

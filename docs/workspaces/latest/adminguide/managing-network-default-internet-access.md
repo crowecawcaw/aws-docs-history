@@ -1,6 +1,4 @@
-# Configure a New or
-
-Existing VPC with a Public Subnet
+# Configure a New or Existing VPC with a Public Subnet
 
 If you created your Amazon Web Services account after 2013-12-04, you have a [default VPC](default-vpc-with-public-subnet.md "default-vpc-with-public-subnet.md") in each AWS Region
 that includes default public subnets. However, you may want to create your own
@@ -21,33 +19,23 @@ are supported. If your deployment must support more than 100 concurrent users, u
 the [NAT gateway
 configuration](managing-network-internet-NAT-gateway.md "managing-network-internet-NAT-gateway.md") instead.
 
-For more information, see the steps in [Configure a VPC with Private
-Subnets and a NAT Gateway](managing-network-internet-NAT-gateway.md "managing-network-internet-NAT-gateway.md"). For additional VPC
-configuration recommendations, see [VPC Setup Recommendations for
-WorkSpaces Pools](vpc-setup-recommendations.md "vpc-setup-recommendations.md").
+For more information, see the steps in [Configure a VPC with Private Subnets and a NAT Gateway](managing-network-internet-NAT-gateway.md "managing-network-internet-NAT-gateway.md"). For additional VPC
+configuration recommendations, see [VPC Setup Recommendations for WorkSpaces Pools](vpc-setup-recommendations.md "vpc-setup-recommendations.md").
 
 ###### Contents
 
-- [Step 1: Configure a VPC with a Public
-  Subnet](#vpc-with-public-subnet "#vpc-with-public-subnet")
-- [Step 2: Enable
-  Default Internet Access For Your WorkSpaces Pools](#managing-network-enable-default-internet-access "#managing-network-enable-default-internet-access")
+- [Step 1: Configure a VPC with a Public Subnet](#vpc-with-public-subnet "#vpc-with-public-subnet")
+- [Step 2: Enable Default Internet Access For Your WorkSpaces Pools](#managing-network-enable-default-internet-access "#managing-network-enable-default-internet-access")
 
-## Step 1: Configure a VPC with a Public
-
-Subnet
+## Step 1: Configure a VPC with a Public Subnet
 
 You can configure your own non-default VPC with a public subnet by using
 either of the following methods:
 
-- [Create a New VPC with a Single
-  Public Subnet](#new-vpc-with-public-subnet "#new-vpc-with-public-subnet")
-- [Configure an Existing
-  VPC](#existing-vpc-with-public-subnet "#existing-vpc-with-public-subnet")
+- [Create a New VPC with a Single Public Subnet](#new-vpc-with-public-subnet "#new-vpc-with-public-subnet")
+- [Configure an Existing VPC](#existing-vpc-with-public-subnet "#existing-vpc-with-public-subnet")
 
-### Create a New VPC with a Single
-
-Public Subnet
+### Create a New VPC with a Single Public Subnet
 
 When you use the VPC wizard to create a new VPC, the wizard creates an
 internet gateway and a custom route table that is associated with the public
@@ -60,12 +48,9 @@ Guide_.
 1. Complete the steps in [Step 1: Create the VPC](../../../vpc/latest/userguide/getting-started-ipv4.md#getting-started-create-vpc "../../../vpc/latest/userguide/getting-started-ipv4.md#getting-started-create-vpc") in the _Amazon VPC User
    Guide_ to create your VPC.
 2. To enable your WorkSpaces to access the internet, complete the steps in
-   [Step 2: Enable
-   Default Internet Access For Your WorkSpaces Pools](#managing-network-enable-default-internet-access "#managing-network-enable-default-internet-access").
+   [Step 2: Enable Default Internet Access For Your WorkSpaces Pools](#managing-network-enable-default-internet-access "#managing-network-enable-default-internet-access").
 
-### Configure an Existing
-
-VPC
+### Configure an Existing VPC
 
 If you want to use an existing VPC that does not have a public subnet, you
 can add a new public subnet. In addition to a public subnet, you must also
@@ -83,12 +68,9 @@ steps in [Creating and Attaching an Internet Gateway](../../../vpc/latest/usergu
 internet gateway, complete the steps in [Creating a Custom Route Table](../../../vpc/latest/userguide/VPC_Internet_Gateway.md#Add_IGW_Routing "../../../vpc/latest/userguide/VPC_Internet_Gateway.md#Add_IGW_Routing"). In
 step 5, for **Destination**, use IPv4 format
 (`0.0.0.0/0`). 4. To enable your WorkSpaces and image builders to access the internet,
-complete the steps in [Step 2: Enable
-Default Internet Access For Your WorkSpaces Pools](#managing-network-enable-default-internet-access "#managing-network-enable-default-internet-access").
+complete the steps in [Step 2: Enable Default Internet Access For Your WorkSpaces Pools](#managing-network-enable-default-internet-access "#managing-network-enable-default-internet-access").
 
-## Step 2: Enable
-
-Default Internet Access For Your WorkSpaces Pools
+## Step 2: Enable Default Internet Access For Your WorkSpaces Pools
 
 You can enable internet access when you [create the
 WorkSpaces Pool directory](create-directory-pools.md "create-directory-pools.md"). Choose the VPC with a public subnet when you

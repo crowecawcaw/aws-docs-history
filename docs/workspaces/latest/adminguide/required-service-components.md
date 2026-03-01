@@ -1,6 +1,4 @@
-# Required configuration and service components
-
-for WorkSpaces Personal
+# Required configuration and service components for WorkSpaces Personal
 
 As a WorkSpace administrator, you must understand the following about required
 configuration and service components.
@@ -77,8 +75,7 @@ is removed when your WorkSpaces are updated to use the 64-bit agent.
 20.10.4 of the PCoIP agent, Amazon WorkSpaces disables USB redirection by default through the Windows registry.
 This registry setting affects the behavior of USB peripherals when your users are using PCoIP zero client
 devices to connect to their WorkSpaces. For more information, see
-[USB printers and other USB peripherals aren't working for PCoIP
-zero clients](amazon-workspaces-troubleshooting.md#pcoip_zero_client_usb "amazon-workspaces-troubleshooting.md#pcoip_zero_client_usb").
+[USB printers and other USB peripherals aren't working for PCoIP zero clients](amazon-workspaces-troubleshooting.md#pcoip_zero_client_usb "amazon-workspaces-troubleshooting.md#pcoip_zero_client_usb").
 
 ## Required service components for Linux
 

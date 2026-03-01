@@ -1,6 +1,4 @@
-# Understanding AWS sign-in events for smart card
-
-users
+# Understanding AWS sign-in events for smart card users
 
 AWS CloudTrail logs successful and unsuccessful sign-in events for smart card users. This
 includes sign-in events that are captured each time a user is prompted to solve a
@@ -27,23 +25,17 @@ specific sign-in CloudTrail events.
 | `CredentialType` | Notifies that the user has attempted to solve a specific<br>`CredentialChallenge` request and specifies whether<br>that credential has succeeded or failed.                                                                                                                                      | `CredentialChallenge`,<br>`CredentialVerification`,<br>`UserAuthentication` | CredentialType": "SMARTCARD" (possible values today:<br>SMARTCARD) |
 | `LoginTo`        | Notifies that all authentication requirements that the user was<br>challenged with have been successfully completed and that the user<br>was successfully signed in. When users fail to successfully complete<br>the required credential challenges, no<br>`UserAuthentication` event is logged. | `UserAuthentication`                                                        | "LoginTo": "https://skylight.local“                                |
 
-## Example events for AWS sign-in
-
-scenarios
+## Example events for AWS sign-in scenarios
 
 The following examples show the expected sequence of CloudTrail events for different
 sign-in scenarios.
 
 ###### Contents
 
-- [Successful sign-in when authenticating with
-  smart card](#successful-signin "#successful-signin")
-- [Failed sign-in when authenticating with only a
-  smart card](#failed-signin "#failed-signin")
+- [Successful sign-in when authenticating with smart card](#successful-signin "#successful-signin")
+- [Failed sign-in when authenticating with only a smart card](#failed-signin "#failed-signin")
 
-### Successful sign-in when authenticating with
-
-smart card
+### Successful sign-in when authenticating with smart card
 
 The following sequence of events captures an example of a successful smart
 card sign-in.
@@ -166,9 +158,7 @@ card sign-in.
 
 ```
 
-### Failed sign-in when authenticating with only a
-
-smart card
+### Failed sign-in when authenticating with only a smart card
 
 The following sequence of events captures an example of failed smart card
 sign-in.

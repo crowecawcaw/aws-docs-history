@@ -15,11 +15,6 @@ The following clients are supported:
 - iOS
 - Web Access
 
-###### Note
-
-To modify branding elements using the ClientBranding APIs in the AWS GovCloud (US) Region, use a WorkSpaces client version
-that is 5.10.0.
-
 ## Import custom branding
 
 To import your client branding customization, use the action
@@ -30,7 +25,11 @@ To import your client branding customization, use the action
 Client branding attributes are public facing. Ensure that you don't include
 sensitive information.
 
-![WorkSpaces client sign in screen](images/client-cobranding.png)
+Depending on whether your directories are using the legacy or new user login flow, your users will see your custom client branding attributes as shown in the below screenshots.
+
+|                                                         |                                                      |
+| ------------------------------------------------------- | ---------------------------------------------------- |
+| WorkSpaces client sign in screen<br>• Legacy login flow | WorkSpaces client sign in screen<br>• New login flow |
 
 1. Support link
 2. Logo

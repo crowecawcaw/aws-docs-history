@@ -1,6 +1,4 @@
-# Enable and Administer Persistent Storage for
-
-WorkSpaces Pools
+# Enable and Administer Persistent Storage for WorkSpaces Pools
 
 WorkSpaces Pools supports home folders for persistent storage. As a WorkSpaces Pools administrator,
 you must understand how to perform the following tasks to enable and administer persistent
@@ -8,12 +6,9 @@ storage for your users.
 
 ###### Contents
 
-- [Enable and Administer Home Folders for Your WorkSpaces Pools
-  Users](#home-folders "#home-folders")
+- [Enable and Administer Home Folders for Your WorkSpaces Pools Users](#home-folders "#home-folders")
 
-## Enable and Administer Home Folders for Your WorkSpaces Pools
-
-Users
+## Enable and Administer Home Folders for Your WorkSpaces Pools Users
 
 When you enable home folders for WorkSpaces Pools, users can access a persistent storage
 folder during their streaming sessions. No further conﬁguration is required for your
@@ -41,8 +36,7 @@ access their home folder by browsing to the same directory in File Explorer.
 ###### Contents
 
 - [Files and Directories Associated with Compute-Intensive Applications](#storage-solutions-files-directories-associated-with-compute-intensive-applications "#storage-solutions-files-directories-associated-with-compute-intensive-applications")
-- [Enable Home Folders for Your WorkSpaces Pools
-  Users](#enable-home-folders "#enable-home-folders")
+- [Enable Home Folders for Your WorkSpaces Pools Users](#enable-home-folders "#enable-home-folders")
 - [Administer Your Home Folders](#home-folders-admin "#home-folders-admin")
 
 ### Files and Directories Associated with Compute-Intensive Applications
@@ -69,9 +63,7 @@ for use with these SMB solutions:
 For more information, see [File gateways](../../../storagegateway/latest/userguide/StorageGatewayConcepts.md#file-gateway-concepts "../../../storagegateway/latest/userguide/StorageGatewayConcepts.md#file-gateway-concepts") in the _AWS Storage Gateway User
 Guide_.
 
-### Enable Home Folders for Your WorkSpaces Pools
-
-Users
+### Enable Home Folders for Your WorkSpaces Pools Users
 
 Before enabling home folders, you must do the following:
 
@@ -84,11 +76,9 @@ Before enabling home folders, you must do the following:
 
 - Enable network connectivity to Amazon S3 from your virtual private cloud (VPC)
   by configuring internet access or a VPC endpoint for Amazon S3. For more
-  information, see [Networking and Access for WorkSpaces Pools](managing-network.md "managing-network.md") and [Using Amazon S3 VPC Endpoints for
-  WorkSpaces Pools Features](managing-network-vpce-iam-policy.md "managing-network-vpce-iam-policy.md").
+  information, see [Networking and Access for WorkSpaces Pools](managing-network.md "managing-network.md") and [Using Amazon S3 VPC Endpoints for WorkSpaces Pools Features](managing-network-vpce-iam-policy.md "managing-network-vpce-iam-policy.md").
 
-You can enable or disable home folders while creating a directory (see [Configure SAML 2.0 and create a WorkSpaces Pools
-directory](create-directory-pools.md "create-directory-pools.md")), or
+You can enable or disable home folders while creating a directory (see [Configure SAML 2.0 and create a WorkSpaces Pools directory](create-directory-pools.md "create-directory-pools.md")), or
 after the directory is created by using the AWS Management Console for WorkSpaces Pools. For each AWS
 Region, home folders are backed up by an Amazon S3 bucket.
 
@@ -99,8 +89,7 @@ directories in that Region. For more information, see [Amazon S3 Bucket Storage]
 
 ###### To enable home folders while creating a directory
 
-- Follow the steps in [Configure SAML 2.0 and create a WorkSpaces Pools
-  directory](create-directory-pools.md "create-directory-pools.md"), and make sure that **Enable
+- Follow the steps in [Configure SAML 2.0 and create a WorkSpaces Pools directory](create-directory-pools.md "create-directory-pools.md"), and make sure that **Enable
   Home Folders** is selected.
 
 ###### To enable home folders for an existing directory
@@ -119,8 +108,7 @@ directories in that Region. For more information, see [Amazon S3 Bucket Storage]
 
 - [Disable Home Folders](#home-folders-admin-disabling "#home-folders-admin-disabling")
 - [Amazon S3 Bucket Storage](#home-folders-s3 "#home-folders-s3")
-- [Home Folder Content
-  Synchronization](#home-folders-content-synchronization "#home-folders-content-synchronization")
+- [Home Folder Content Synchronization](#home-folders-content-synchronization "#home-folders-content-synchronization")
 - [Home Folder Formats](#home-folders-admin-folders "#home-folders-admin-folders")
 - [Additional Resources](#home-folders-admin-additional "#home-folders-admin-additional")
 
@@ -145,8 +133,7 @@ by following the steps described earlier in this topic.
 
 ###### To disable home folders while creating a directory
 
-- Follow the steps in [Configure SAML 2.0 and create a WorkSpaces Pools
-  directory](create-directory-pools.md "create-directory-pools.md") and make sure that the
+- Follow the steps in [Configure SAML 2.0 and create a WorkSpaces Pools directory](create-directory-pools.md "create-directory-pools.md") and make sure that the
   **Enable Home Folders** option is cleared.
 
 ###### To disable home folders for an existing directory
@@ -196,9 +183,7 @@ an administrator with adequate access must do so from the Amazon S3 console.
 WorkSpaces Pools adds a bucket policy that prevents accidental deletion of the
 bucket.
 
-#### Home Folder Content
-
-Synchronization
+#### Home Folder Content Synchronization
 
 When home folders are enabled, WorkSpaces Pools creates a unique folder for each
 user in which to store their content. The folder is created as a unique Amazon S3
@@ -233,16 +218,11 @@ replace, or remove a user's home folder file in Amazon S3.
 
 ###### Contents
 
-- [Synchronization of files that you add to a user’s home folder in
-  Amazon S3](#home-folders-content-synchronization-content-added-to-user-home-folder-in-S3 "#home-folders-content-synchronization-content-added-to-user-home-folder-in-S3")
-- [Synchronization of files that you replace in a user’s home folder in
-  Amazon S3](#home-folders-content-synchronization-content-replaced-in-user-home-folder-S3 "#home-folders-content-synchronization-content-replaced-in-user-home-folder-S3")
-- [Synchronization of files that you remove from a user’s home folder in
-  Amazon S3](#home-folders-content-synchronization-content-removed-from-user-home-folder-S3 "#home-folders-content-synchronization-content-removed-from-user-home-folder-S3")
+- [Synchronization of files that you add to a user’s home folder in Amazon S3](#home-folders-content-synchronization-content-added-to-user-home-folder-in-S3 "#home-folders-content-synchronization-content-added-to-user-home-folder-in-S3")
+- [Synchronization of files that you replace in a user’s home folder in Amazon S3](#home-folders-content-synchronization-content-replaced-in-user-home-folder-S3 "#home-folders-content-synchronization-content-replaced-in-user-home-folder-S3")
+- [Synchronization of files that you remove from a user’s home folder in Amazon S3](#home-folders-content-synchronization-content-removed-from-user-home-folder-S3 "#home-folders-content-synchronization-content-removed-from-user-home-folder-S3")
 
-##### Synchronization of files that you add to a user’s home folder in
-
-Amazon S3
+##### Synchronization of files that you add to a user’s home folder in Amazon S3
 
 If you add a new file to a user’s home folder in an S3 bucket, WorkSpaces Pools
 catalogs the file and displays it in the list of files in the user’s home
@@ -250,9 +230,7 @@ folder within a few minutes. However, the file isn’t downloaded from the S3
 bucket to the WorkSpace until the user opens the file with an application
 during their streaming session.
 
-##### Synchronization of files that you replace in a user’s home folder in
-
-Amazon S3
+##### Synchronization of files that you replace in a user’s home folder in Amazon S3
 
 If a user opens a file in their home folder on the WorkSpace in the
 WorkSpace Pool during their streaming session, and you replace the same
@@ -262,9 +240,7 @@ immediately downloaded to the WorkSpace. The new version is downloaded from
 the S3 bucket to the WorkSpace only after the user starts a new streaming
 session and opens the file again.
 
-##### Synchronization of files that you remove from a user’s home folder in
-
-Amazon S3
+##### Synchronization of files that you remove from a user’s home folder in Amazon S3
 
 If a user opens a file in their home folder on the WorkSpace in the
 WorkSpace Pool during their streaming session, and you remove the file from
@@ -295,8 +271,7 @@ generated from the `NameID` SAML attribute value passed in the
 SAML federation request. To differentiate users who have the same name but
 belong to two different domains, send the SAML request with
 `NameID` in the format `domainname\username`. For
-more information, see [Configure SAML 2.0 and create a WorkSpaces Pools
-directory](create-directory-pools.md "create-directory-pools.md").
+more information, see [Configure SAML 2.0 and create a WorkSpaces Pools directory](create-directory-pools.md "create-directory-pools.md").
 
 The following example folder structure applies to session access using
 SAML federation with `NameID` SAMPLEDOMAIN\testuser, account ID

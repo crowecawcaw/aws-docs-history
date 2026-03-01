@@ -12,8 +12,7 @@ For more information about using CloudWatch and alarms, see the [Amazon CloudWa
 To get CloudWatch metrics, enable access on port 443 on the `AMAZON` subset
 in the `us-east-1`
 Region. For more
-information, see [IP address and port requirements for
-WorkSpaces Personal](workspaces-port-requirements.md "workspaces-port-requirements.md").
+information, see [IP address and port requirements for WorkSpaces Personal](workspaces-port-requirements.md "workspaces-port-requirements.md").
 
 ###### Contents
 

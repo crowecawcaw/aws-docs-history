@@ -43,7 +43,7 @@ from the client application.
 3. Users are redirected to this page in the browser, and the WorkSpaces client application
    is opened automatically.
 
-![Opening WorkSpaces application redirection page](images/saml-redir.png) 4. The WorkSpaces client application is now registered and users can continue to sign by clicking
+![Opening WorkSpaces application redirection page](/images/workspaces/latest/adminguide/images/saml-redir.png) 4. The WorkSpaces client application is now registered and users can continue to sign by clicking
 **Continue to sign in to WorkSpaces**.
 
 ###### Identity provider (IdP)-initiated flow with Web Access
@@ -59,7 +59,7 @@ from Web Access.
 3. Users are redirected to this page in the browser. To open WorkSpaces, choose
    **Amazon WorkSpaces in the browser**.
 
-![Opening WorkSpaces application redirection page](images/saml-redir.png) 4. The WorkSpaces client application is now registered and users can continue to sign in through WorkSpaces Web Access.
+![Opening WorkSpaces application redirection page](/images/workspaces/latest/adminguide/images/saml-redir.png) 4. The WorkSpaces client application is now registered and users can continue to sign in through WorkSpaces Web Access.
 
 ###### WorkSpaces client-initiated flow
 

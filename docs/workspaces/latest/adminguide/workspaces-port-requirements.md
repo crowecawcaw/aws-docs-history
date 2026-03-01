@@ -1,6 +1,4 @@
-# IP address and port requirements for
-
-WorkSpaces Personal
+# IP address and port requirements for WorkSpaces Personal
 
 To connect to your WorkSpaces, the network that your WorkSpaces clients are connected to must
 have certain ports open to the IP address ranges for the various AWS services (grouped in
@@ -137,9 +135,7 @@ Typically, the web browser randomly selects a source port in the high range to u
 streaming traffic. WorkSpaces Web Access does not have control over the port that the browser
 selects. You must ensure that return traffic to this port is allowed.
 
-## Domains and IP addresses to add to your allow
-
-list
+## Domains and IP addresses to add to your allow list
 
 For the WorkSpaces client application to be able to access the WorkSpaces service, you must add
 the following domains and IP addresses to the allow list on the network from which the

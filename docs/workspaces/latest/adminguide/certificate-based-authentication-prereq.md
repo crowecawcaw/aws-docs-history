@@ -4,22 +4,19 @@ Complete the following steps before you use certificate-based
 authentication.
 
 1. Configure your WorkSpaces Pools directory with SAML 2.0 integration to use
-   certificate-based authentication. For more information, see [Configure SAML 2.0 and create a WorkSpaces Pools
-   directory](create-directory-pools.md "create-directory-pools.md").
+   certificate-based authentication. For more information, see [Configure SAML 2.0 and create a WorkSpaces Pools directory](create-directory-pools.md "create-directory-pools.md").
 
 ###### Note
 
 Don't enable **Smart card sign in** in your pool
 directory if you want to use certificate-based
 authentication. 2. Configure the `userPrincipalName` attribute in your SAML
-assertion. For more information, see [Step 7: Create assertions for the
-SAML authentication response](create-directory-pools.md#saml-directory-create-assertions "create-directory-pools.md#saml-directory-create-assertions"). 3. Configure the `ObjectSid` attribute in your SAML assertion. You
+assertion. For more information, see [Step 7: Create assertions for the SAML authentication response](create-directory-pools.md#saml-directory-create-assertions "create-directory-pools.md#saml-directory-create-assertions"). 3. Configure the `ObjectSid` attribute in your SAML assertion. You
 can use this attribute to perform strong mapping with the Active Directory
 user. Certificate-based authentication fails if the `ObjectSid`
 attribute doesn't match the Active Directory security identifier (SID) for
 the user specified in the SAML_Subject `NameID`. For more
-information, see [Step 7: Create assertions for the
-SAML authentication response](create-directory-pools.md#saml-directory-create-assertions "create-directory-pools.md#saml-directory-create-assertions").
+information, see [Step 7: Create assertions for the SAML authentication response](create-directory-pools.md#saml-directory-create-assertions "create-directory-pools.md#saml-directory-create-assertions").
 
 ###### Note
 
@@ -30,8 +27,7 @@ policy that you use with your SAML 2.0 configuration. For more information,
 see [Passing session
 tags in AWS STS](../../../IAM/latest/UserGuide/id_session-tags.md "../../../IAM/latest/UserGuide/id_session-tags.md") in the _AWS Identity and Access Management User Guide_.
 This permission is required to use certificate-based authentication. For
-more information, see [Step 5: Create a SAML 2.0
-federation IAM role](create-directory-pools.md#saml-directory-saml-federation-role-in-iam "create-directory-pools.md#saml-directory-saml-federation-role-in-iam"). 5. Create a private certificate authority (CA) using AWS Private CA, if you
+more information, see [Step 5: Create a SAML 2.0 federation IAM role](create-directory-pools.md#saml-directory-saml-federation-role-in-iam "create-directory-pools.md#saml-directory-saml-federation-role-in-iam"). 5. Create a private certificate authority (CA) using AWS Private CA, if you
 don't have one configured with your Active Directory. AWS Private CA is
 required to use certificate-based authentication. For more information, see
 [Planning your AWS Private CA

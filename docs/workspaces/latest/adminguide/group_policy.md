@@ -56,16 +56,13 @@ follows:
   see [Allow log on locally](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/allow-log-on-locally "https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/allow-log-on-locally") in the Microsoft documentation.
 
 For more information about enabling or disabling audio-in redirection, see
-[Configure audio-in redirection for
-PCoIP](#gp_audio "#gp_audio") or [Configure audio-in redirection for
-DCV](#gp_audio_in_wsp "#gp_audio_in_wsp").
+[Configure audio-in redirection for PCoIP](#gp_audio "#gp_audio") or [Configure audio-in redirection for DCV](#gp_audio_in_wsp "#gp_audio_in_wsp").
 
 - Using Group Policy to set the Windows power plan to
   **Balanced** or **Power saver** might
   cause your WorkSpaces to sleep when they're left idle. We strongly recommend using
   Group Policy to set the Windows power plan to **High
-  performance**. For more information, see [My Windows WorkSpace goes to
-  sleep when it's left idle](amazon-workspaces-troubleshooting.md#windows_workspace_sleeps_when_idle "amazon-workspaces-troubleshooting.md#windows_workspace_sleeps_when_idle").
+  performance**. For more information, see [My Windows WorkSpace goes to sleep when it's left idle](amazon-workspaces-troubleshooting.md#windows_workspace_sleeps_when_idle "amazon-workspaces-troubleshooting.md#windows_workspace_sleeps_when_idle").
 - Some Group Policy settings force users to log off when they are disconnected
   from a session. Any applications that users have open on their WorkSpaces are
   closed.
@@ -80,15 +77,11 @@ DCV](#gp_audio_in_wsp "#gp_audio_in_wsp").
 
 - [Install the Group Policy
   administrative template files for DCV](group_policy.md#gp_install_template_wsp "group_policy.md#gp_install_template_wsp")
-- [Manage Group Policy settings for
-  DCV](group_policy.md#gp_configurations_dcv "group_policy.md#gp_configurations_dcv")
-- [Install the Group Policy administrative template
-  for PCoIP](group_policy.md#gp_install_template "group_policy.md#gp_install_template")
+- [Manage Group Policy settings for DCV](group_policy.md#gp_configurations_dcv "group_policy.md#gp_configurations_dcv")
+- [Install the Group Policy administrative template for PCoIP](group_policy.md#gp_install_template "group_policy.md#gp_install_template")
 - [Manage Group Policy settings for PCoIP](group_policy.md#gp_configurations_pcoip "group_policy.md#gp_configurations_pcoip")
-- [Set the maximum lifetime for a Kerberos
-  ticket](group_policy.md#gp_kerberos_ticket "group_policy.md#gp_kerberos_ticket")
-- [Configure device proxy server settings for internet
-  access](group_policy.md#gp_device_proxy "group_policy.md#gp_device_proxy")
+- [Set the maximum lifetime for a Kerberos ticket](group_policy.md#gp_kerberos_ticket "group_policy.md#gp_kerberos_ticket")
+- [Configure device proxy server settings for internet access](group_policy.md#gp_device_proxy "group_policy.md#gp_device_proxy")
   - [Proxying desktop traffic](group_policy.md#w2aac11c29c11c27c15 "group_policy.md#w2aac11c29c11c27c15")
   - [Recommendation on the use of proxy servers](group_policy.md#w2aac11c29c11c27c17 "group_policy.md#w2aac11c29c11c27c17")
 
@@ -100,13 +93,10 @@ DCV](#gp_audio_in_wsp "#gp_audio_in_wsp").
 
   - [Enable Zoom Meeting Media Plugin for PCoIP](group_policy.md#zoom-pcoip "group_policy.md#zoom-pcoip")
     - [Prerequisites](group_policy.md#zoom-integ-prerequisites-pcoip "group_policy.md#zoom-integ-prerequisites-pcoip")
-    - [Create the registry key on a
-      Windows WorkSpaces host](group_policy.md#zoom-integ-create-registry-key "group_policy.md#zoom-integ-create-registry-key")
+    - [Create the registry key on a Windows WorkSpaces host](group_policy.md#zoom-integ-create-registry-key "group_policy.md#zoom-integ-create-registry-key")
     - [Troubleshooting](group_policy.md#zoom-integ-troubleshoot "group_policy.md#zoom-integ-troubleshoot")
 
-## Install the Group Policy administrative
-
-template files for DCV
+## Install the Group Policy administrative template files for DCV
 
 To use the Group Policy settings that are specific to WorkSpaces when using DCV, you must add the Group Policy administrative template
 `wsp.admx` and `wsp.adml` files for DCV
@@ -189,9 +179,7 @@ and **DCV**. 8. You can now use this **DCV** Group Policy object to modify
 the Group Policy settings that are specific to WorkSpaces when using
 DCV.
 
-## Manage Group Policy settings for
-
-DCV
+## Manage Group Policy settings for DCV
 
 ###### To use Group Policy settings to manage your Windows WorkSpaces that use DCV
 
@@ -1038,9 +1026,7 @@ WorkSpaces by using Group Policy settings.
 - To enable the use of smart cards with Windows WorkSpaces, additional
   steps are required. For more information, see [Use smart cards for authentication in WorkSpaces Personal](smart-cards.md "smart-cards.md").
 
-###### To configure disconnect session on screen lock for Windows
-
-WorkSpaces
+###### To configure disconnect session on screen lock for Windows WorkSpaces
 
 1.  In the Group Policy Management Editor, choose **Computer
     Configuration**, **Policies**,
@@ -1102,9 +1088,7 @@ Screen capture protection for DCV requires the following:
   is enabled and a video capture is attempted (e.g. trying to screen
   share the client window).
 
-###### To configure Screen Capture Protection for Windows
-
-WorkSpaces
+###### To configure Screen Capture Protection for Windows WorkSpaces
 
 1.  In the Group Policy Management Editor, choose **Computer
     Configuration**, **Policies**,
@@ -1131,9 +1115,7 @@ WorkSpaces
     needed for Windows WorkSpaces, you can use Group Policy settings to disable this
     feature.
 
-###### To configure Indirect Display Driver (IDD) for Windows
-
-WorkSpaces
+###### To configure Indirect Display Driver (IDD) for Windows WorkSpaces
 
 1.  In the Group Policy Management Editor, choose **Computer
     Configuration**, **Policies**,
@@ -1480,9 +1462,7 @@ This feature is supported in the Amazon WorkSpaces Windows client version 5.29.2
    - In an administrative command prompt, enter `gpupdate
 /force`.
 
-## Install the Group Policy administrative template
-
-for PCoIP
+## Install the Group Policy administrative template for PCoIP
 
 To use the Group Policy settings that are specific to Amazon WorkSpaces when using the PCoIP
 protocol, you must add the Group Policy administrative template that is appropriate to
@@ -1553,9 +1533,7 @@ Files (x86)\Teradici\PCoIP Agent\configuration`
 8. Close the Group Policy Management Editor. You can now use this GPO to
    modify the Group Policy settings that are specific to WorkSpaces.
 
-###### To verify that the administrative template file is correctly
-
-installed
+###### To verify that the administrative template file is correctly installed
 
 1. On a directory administration WorkSpace or an Amazon EC2 instance that is
    joined to your WorkSpaces directory, open the Group Policy Management tool
@@ -1591,9 +1569,7 @@ administrative template files to it. Perform the following procedure on a
 directory administration WorkSpace or Amazon EC2 instance that is joined to your
 WorkSpaces directory.
 
-###### To install the Group Policy administrative template files for
-
-PCoIP
+###### To install the Group Policy administrative template files for PCoIP
 
 1. From a running Windows WorkSpace, make a copy of the
    `PCoIP.admx` and `PCoIP.adml`
@@ -1623,9 +1599,7 @@ Agent\configuration\policyDefinitions` directory. The
     `\\`FQDN`\sysvol\`FQDN`\Policies\PolicyDefinitions\en-US`
     folder.
 
-###### To verify that the administrative template files are correctly
-
-installed
+###### To verify that the administrative template files are correctly installed
 
 1. On a directory administration WorkSpace or an Amazon EC2 instance that is
    joined to your WorkSpaces directory, open the Group Policy Management tool
@@ -2029,9 +2003,7 @@ After the setting takes effect, all supported USB devices can redirect to
 WorkSpaces unless restrictions are configured through the USB device rules
 setting.
 
-## Set the maximum lifetime for a Kerberos
-
-ticket
+## Set the maximum lifetime for a Kerberos ticket
 
 If you have not disabled the **Remember Me** feature of your Windows
 WorkSpaces, your WorkSpace users can use the **Remember Me** or
@@ -2045,12 +2017,9 @@ of the Kerberos tickets for your WorkSpaces users through Group Policy by follow
 in [Maximum Lifetime for a User Ticket](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/maximum-lifetime-for-user-ticket "https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/maximum-lifetime-for-user-ticket") in the Microsoft Windows
 documentation.
 
-To enable or disable the **Remember Me** feature, see [Enable self-service WorkSpaces
-management capabilities for your users in WorkSpaces Personal](enable-user-self-service-workspace-management.md "enable-user-self-service-workspace-management.md").
+To enable or disable the **Remember Me** feature, see [Enable self-service WorkSpaces management capabilities for your users in WorkSpaces Personal](enable-user-self-service-workspace-management.md "enable-user-self-service-workspace-management.md").
 
-## Configure device proxy server settings for internet
-
-access
+## Configure device proxy server settings for internet access
 
 By default, the WorkSpaces client applications use the proxy server that’s specified in the
 device operating system settings for HTTPS (port 443) traffic. The Amazon WorkSpaces client
@@ -2111,9 +2080,7 @@ If you must use a proxy, please locate your proxy server as close to the WorkSpa
 client as possible, preferably in the same network, to avoid adding network latency,
 which could negatively impact streaming quality and responsiveness.
 
-## Enable Amazon WorkSpaces for Zoom Meeting Media Plugin
-
-support
+## Enable Amazon WorkSpaces for Zoom Meeting Media Plugin support
 
 Zoom supports optimized real-time communication for DCV and PCoIP Windows-based WorkSpaces,
 with the Zoom VDI Plugin. Direct client communication allows video calls to bypass the cloud-based
@@ -2137,8 +2104,7 @@ Before using the plugin, make sure the following requirements are met.
 1. Enable the **Extensions** Group Policy setting. For more information, see
    [Configure extensions for DCV](#extensions "#extensions").
 2. Disable the **Automatic reconnect** Group Policy setting. For more information, see
-   [Set the session resume timeout for
-   DCV](#gp_auto_resume_wsp "#gp_auto_resume_wsp").
+   [Set the session resume timeout for DCV](#gp_auto_resume_wsp "#gp_auto_resume_wsp").
 
 #### Installing the Zoom components
 
@@ -2166,9 +2132,7 @@ Before using the plugin, make sure the following requirements are met.
   [Zoom VDI Plugin](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0066757#h_01H6PE29K2S6NPYCC3SWB667AT:~:text=Zoom%20Meeting%20client.-,Install%20the%20Zoom%20VDI%20plugin,-To%20complete%20your "https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0066757#h_01H6PE29K2S6NPYCC3SWB667AT:~:text=Zoom%20Meeting%20client.-,Install%20the%20Zoom%20VDI%20plugin,-To%20complete%20your") version 5.12.6+.
 - Within your WorkSpaces — [Zoom VDI Meeting](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0063810 "https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0063810") client version 5.12.6+.
 
-#### Create the registry key on a
-
-Windows WorkSpaces host
+#### Create the registry key on a Windows WorkSpaces host
 
 Complete the following procedure to create a registry key on a Windows WorkSpaces host.
 The registry key is required to use Zoom on Windows WorkSpaces.

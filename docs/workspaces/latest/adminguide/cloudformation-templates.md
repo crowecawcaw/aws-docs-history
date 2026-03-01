@@ -1,14 +1,10 @@
-# Create custom CloudWatch dashboards using CloudFormation
-
-templates
+# Create custom CloudWatch dashboards using CloudFormation templates
 
 AWS provides CloudFormation templates that you can use to create custom CloudWatch dashboards for
 WorkSpaces. Choose from the following CloudFormation template options to create custom dashboards for
 your WorkSpaces in the CloudFormation console.
 
-## Considerations before getting
-
-started
+## Considerations before getting started
 
 Consider the following before you get started with custom CloudWatch dashboards:
 
@@ -71,9 +67,7 @@ Pricing](https://aws.amazon.com/cloudwatch/pricing "https://aws.amazon.com/cloud
 the dashboard name you entered earlier in this procedure. 12. Using the Help Desk sample template, enter the UserName of the WorkSpace to monitor its
 data.
 
-## Connection Insights
-
-dashboard
+## Connection Insights dashboard
 
 The Connection Insights dashboard displays the client versions, platforms, and IP
 addresses that are connected to your WorkSpaces. This dashboard allows you to better
@@ -124,9 +118,7 @@ Pricing](https://aws.amazon.com/cloudwatch/pricing "https://aws.amazon.com/cloud
 the dashboard name you entered earlier in this procedure. 15. You can now monitor you WorkSpace's data using the Connection Insights
 dashboard.
 
-## Internet Monitoring
-
-dashboard
+## Internet Monitoring dashboard
 
 The Internet Monitoring dashboard displays details about the Internet Service
 Provider (ISP) that your users are using to join their WorkSpaces instances. It provides

@@ -29,8 +29,7 @@ credentials and set up individual users with AWS IAM Identity Center or AWS Iden
   provide a URL to an external server, we strongly recommend that you do not include credentials
   information in the URL to validate your request to that server.
 
-For more information about WorkSpaces and FIPS endpoint encryption, see [Configure FedRAMP authorization or DoD SRG
-compliance for WorkSpaces Personal](fips-encryption.md "fips-encryption.md").
+For more information about WorkSpaces and FIPS endpoint encryption, see [Configure FedRAMP authorization or DoD SRG compliance for WorkSpaces Personal](fips-encryption.md "fips-encryption.md").
 
 ## Encryption at rest
 

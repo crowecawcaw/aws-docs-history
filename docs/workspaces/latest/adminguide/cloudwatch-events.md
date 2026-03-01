@@ -114,9 +114,7 @@ The client version used to connect to WorkSpaces.
 
 The identifier of the WorkSpace.
 
-## Create a rule to handle WorkSpaces
-
-events
+## Create a rule to handle WorkSpaces events
 
 Use the following procedure to create a rule to handle the WorkSpaces
 events.

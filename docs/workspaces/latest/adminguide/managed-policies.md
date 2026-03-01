@@ -89,9 +89,7 @@ JSON
 
 ```
 
-## AWS managed policy:
-
-AmazonWorkspacesPCAAccess
+## AWS managed policy: AmazonWorkspacesPCAAccess
 
 This managed policy provides access to AWS Certificate Manager Private Certificate
 Authority (Private CA) resources in your AWS account for certificate-based
@@ -126,9 +124,7 @@ JSON
 
 ```
 
-## AWS managed policy:
-
-AmazonWorkSpacesSelfServiceAccess
+## AWS managed policy: AmazonWorkSpacesSelfServiceAccess
 
 This policy provides access to the Amazon WorkSpaces service to perform WorkSpaces self-service
 actions initiated by a user. It is included in the `workspaces_DefaultRole`
@@ -157,9 +153,7 @@ JSON
 
 ```
 
-## AWS managed policy:
-
-AmazonWorkSpacesServiceAccess
+## AWS managed policy: AmazonWorkSpacesServiceAccess
 
 This policy provides customer account access to the Amazon WorkSpaces service for launching a
 WorkSpace. It is included in the `workspaces_DefaultRole` role, and it
@@ -188,9 +182,7 @@ JSON
 
 ```
 
-## AWS managed policy:
-
-AmazonWorkSpacesPoolServiceAccess
+## AWS managed policy: AmazonWorkSpacesPoolServiceAccess
 
 This policy is used in the workspaces_DefaultRole, which WorkSpaces uses to access required
 resources in the customer AWS account for WorkSpaces Pools. For more information see [Create the workspaces_DefaultRole Role](workspaces-access-control.md#create-default-role "workspaces-access-control.md#create-default-role"). It provides the
@@ -319,17 +311,15 @@ JSONJSON
 
 ```
 
-## WorkSpaces updates to AWS managed
-
-policies
+## WorkSpaces updates to AWS managed policies
 
 View details about updates to AWS managed policies for WorkSpaces since this service
 began tracking these changes.
 
-| Change                                                                                                                                                   | Description                                                                                                                                                                   | Date              |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| [AWS managed policy:<br>AmazonWorkSpacesPoolServiceAccess](#workspaces-pools-service-access "#workspaces-pools-service-access")<br>• Added new<br>policy | WorkSpaces added a new managed policy to grant permission to view Amazon EC2<br>VPCs and related resources, and to view and manage Amazon S3 buckets for<br>WorkSpaces Pools. | June 24, 2024     |
-| [AWS managed policy: AmazonWorkSpacesAdmin](#workspaces-admin "#workspaces-admin")<br>• Updated policy                                                   | WorkSpaces added several actions for WorkSpaces Pools to the Amazon WorkSpacesAdmin<br>managed policy, granting admins access to manage WorkSpace Pool<br>resources.          | June 24, 2024     |
-| [AWS managed policy: AmazonWorkSpacesAdmin](#workspaces-admin "#workspaces-admin")<br>• Updated policy                                                   | WorkSpaces added the `workspaces:RestoreWorkspace` action to<br>the Amazon WorkSpacesAdmin managed policy, granting admins access to restore<br>WorkSpaces.                   | June 25, 2023     |
-| [AWS managed policy:<br>AmazonWorkspacesPCAAccess](#workspaces-pca-access "#workspaces-pca-access")<br>• Added new policy                                | WorkSpaces added a new managed policy to grant `acm-pca`<br>permission to manage AWS Private CA to manage certificate-based<br>authentication.                                | November 18, 2022 |
-| WorkSpaces started tracking changes                                                                                                                      | WorkSpaces started tracking changes for its WorkSpaces managed<br>policies.                                                                                                   | March 1, 2021     |
+| Change                                                                                                                                                | Description                                                                                                                                                                   | Date              |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| [AWS managed policy: AmazonWorkSpacesPoolServiceAccess](#workspaces-pools-service-access "#workspaces-pools-service-access")<br>• Added new<br>policy | WorkSpaces added a new managed policy to grant permission to view Amazon EC2<br>VPCs and related resources, and to view and manage Amazon S3 buckets for<br>WorkSpaces Pools. | June 24, 2024     |
+| [AWS managed policy: AmazonWorkSpacesAdmin](#workspaces-admin "#workspaces-admin")<br>• Updated policy                                                | WorkSpaces added several actions for WorkSpaces Pools to the Amazon WorkSpacesAdmin<br>managed policy, granting admins access to manage WorkSpace Pool<br>resources.          | June 24, 2024     |
+| [AWS managed policy: AmazonWorkSpacesAdmin](#workspaces-admin "#workspaces-admin")<br>• Updated policy                                                | WorkSpaces added the `workspaces:RestoreWorkspace` action to<br>the Amazon WorkSpacesAdmin managed policy, granting admins access to restore<br>WorkSpaces.                   | June 25, 2023     |
+| [AWS managed policy: AmazonWorkspacesPCAAccess](#workspaces-pca-access "#workspaces-pca-access")<br>• Added new policy                                | WorkSpaces added a new managed policy to grant `acm-pca`<br>permission to manage AWS Private CA to manage certificate-based<br>authentication.                                | November 18, 2022 |
+| WorkSpaces started tracking changes                                                                                                                   | WorkSpaces started tracking changes for its WorkSpaces managed<br>policies.                                                                                                   | March 1, 2021     |

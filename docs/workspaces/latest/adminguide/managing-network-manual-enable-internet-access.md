@@ -1,6 +1,4 @@
-# Enable Internet
-
-Access for WorkSpaces Pools
+# Enable Internet Access for WorkSpaces Pools
 
 After your NAT gateway is available on a VPC, you can enable internet access
 for your WorkSpaces Pools. You can enable internet access when you [create the

@@ -9,19 +9,18 @@ the volume, and snapshots created from the volumes are all encrypted.
 ###### Note
 
 - In addition to encrypting your WorkSpaces, you can also use FIPS endpoint encryption in
-  certain AWS US Regions. For more information, see [Configure FedRAMP authorization or DoD SRG
-  compliance for WorkSpaces Personal](fips-encryption.md "fips-encryption.md").
-- BitLocker encryption is not supported for Amazon WorkSpaces.
+  certain AWS US Regions. For more information, see [Configure FedRAMP authorization or DoD SRG compliance for WorkSpaces Personal](fips-encryption.md "fips-encryption.md").
+- Windows BitLocker encryption is not supported for Amazon WorkSpaces. 
+  Amazon WorkSpaces will attempt to decrypt any volumes detected during boot on all Windows Operating Systems where applicable. 
+  Volumes can become unresponsive during boot process if any combination of passwords, pins, or startup keys are enabled for any volumes on the WorkSpace it can become unhealthy and unable to boot properly.
 
 ###### Contents
 
 - [Prerequisites](#encryption_prerequisites "#encryption_prerequisites")
 - [Limits](#encryption_limits "#encryption_limits")
-- [Overview of WorkSpaces encryption using
-  AWS KMS](#kms-workspaces-overview "#kms-workspaces-overview")
+- [Overview of WorkSpaces encryption using AWS KMS](#kms-workspaces-overview "#kms-workspaces-overview")
 - [WorkSpaces encryption context](#kms-workspaces-encryption-context "#kms-workspaces-encryption-context")
-- [Grant WorkSpaces permission to use a KMS Key on
-  your behalf](#kms-workspaces-permissions "#kms-workspaces-permissions")
+- [Grant WorkSpaces permission to use a KMS Key on your behalf](#kms-workspaces-permissions "#kms-workspaces-permissions")
 - [Encrypt a WorkSpace](#encrypt_workspace "#encrypt_workspace")
 - [View encrypted WorkSpaces](#maintain_encryption "#maintain_encryption")
 
@@ -37,8 +36,7 @@ Key](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/l
   that you launch an unencrypted WorkSpace from the WorkSpaces console in a Region,
   Amazon WorkSpaces automatically creates an AWS managed KMS Key (**aws/workspaces**) in your account. You can select this AWS managed
   KMS Key to encrypt the user and root volumes of your WorkSpace. For details, see
-  [Overview of WorkSpaces encryption using
-  AWS KMS](#kms-workspaces-overview "#kms-workspaces-overview").
+  [Overview of WorkSpaces encryption using AWS KMS](#kms-workspaces-overview "#kms-workspaces-overview").
 
 You can view this AWS managed KMS Key, including its policies and grants, and
 can track its use in AWS CloudTrail logs, but you cannot use or manage this KMS Key.
@@ -77,8 +75,7 @@ WorkSpaces:
   whether a KMS Key is enabled, see [Displaying KMS Key Details](../../../kms/latest/developerguide/viewing-keys-console.md#viewing-console-details "../../../kms/latest/developerguide/viewing-keys-console.md#viewing-console-details") in the
   _AWS Key Management Service Developer Guide_.
 - **You must have the correct permissions and policies
-  associated with the KMS Key.** For more information, see [Part 2: Grant WorkSpaces administrators
-  additional permissions using an IAM policy](#kms-permissions-iam-policy "#kms-permissions-iam-policy").
+  associated with the KMS Key.** For more information, see [Part 2: Grant WorkSpaces administrators additional permissions using an IAM policy](#kms-permissions-iam-policy "#kms-permissions-iam-policy").
 
 ## Limits
 
@@ -94,9 +91,7 @@ WorkSpaces:
   KMS Key is enabled, see [Displaying KMS Key Details](../../../kms/latest/developerguide/viewing-keys-console.md#viewing-console-details "../../../kms/latest/developerguide/viewing-keys-console.md#viewing-console-details") in the
   _AWS Key Management Service Developer Guide_.
 
-## Overview of WorkSpaces encryption using
-
-AWS KMS
+## Overview of WorkSpaces encryption using AWS KMS
 
 When you create WorkSpaces with encrypted volumes, WorkSpaces uses Amazon Elastic Block Store (Amazon EBS) to create
 and manage those volumes. Amazon EBS encrypts your volumes with a data key using the
@@ -141,8 +136,7 @@ this:
 
 WorkSpaces doesn't use your KMS Key directly for cryptographic operations (such as [`Encrypt`](../../../kms/latest/APIReference/API_Encrypt.md "../../../kms/latest/APIReference/API_Encrypt.md"), [`Decrypt`](../../../kms/latest/APIReference/API_Decrypt.md "../../../kms/latest/APIReference/API_Decrypt.md"), [`GenerateDataKey`](../../../kms/latest/APIReference/API_GenerateDataKey.md "../../../kms/latest/APIReference/API_GenerateDataKey.md"),
 etc.), which means WorkSpaces doesn't send requests to AWS KMS that include an [encryption context](../../../kms/latest/developerguide/concepts.md#encrypt_context "../../../kms/latest/developerguide/concepts.md#encrypt_context"). However, when Amazon EBS requests an encrypted data key for
-the encrypted volumes of your WorkSpaces ([Step 3](#WSP-EBS-requests-encrypted-volume-data-key "#WSP-EBS-requests-encrypted-volume-data-key") in the [Overview of WorkSpaces encryption using
-AWS KMS](#kms-workspaces-overview "#kms-workspaces-overview")) and when
+the encrypted volumes of your WorkSpaces ([Step 3](#WSP-EBS-requests-encrypted-volume-data-key "#WSP-EBS-requests-encrypted-volume-data-key") in the [Overview of WorkSpaces encryption using AWS KMS](#kms-workspaces-overview "#kms-workspaces-overview")) and when
 it requests a plain text copy of that data key ([Step 5](#WSP-uses-EBS-to-attach-encrypted-volume "#WSP-uses-EBS-to-attach-encrypted-volume")), it includes encryption context
 in the request.
 
@@ -167,9 +161,7 @@ Amazon EBS uses:
 }
 ```
 
-## Grant WorkSpaces permission to use a KMS Key on
-
-your behalf
+## Grant WorkSpaces permission to use a KMS Key on your behalf
 
 You can protect your WorkSpace data under the AWS managed KMS Key for WorkSpaces
 (**aws/workspaces**) or a customer managed KMS Key. If you use a
@@ -188,16 +180,12 @@ procedure.
 Your WorkSpaces administrators also need permission to use WorkSpaces. For more information
 about these permissions, go to [Identity and access management for WorkSpaces](workspaces-access-control.md "workspaces-access-control.md").
 
-### Part 1: Add WorkSpaces administrators to as
-
-key users
+### Part 1: Add WorkSpaces administrators to as key users
 
 To give WorkSpaces administrators the permissions that they require, you can use the
 AWS Management Console or the AWS KMS API.
 
-#### To add WorkSpaces administrators as
-
-key users for a KMS Key (console)
+#### To add WorkSpaces administrators as key users for a KMS Key (console)
 
 1. Sign in to the AWS Management Console and open the AWS Key Management Service (AWS KMS) console at [https://console.aws.amazon.com/kms](https://console.aws.amazon.com/kms "https://console.aws.amazon.com/kms").
 2. To change the AWS Region, use the Region selector in the upper-right corner of the page.
@@ -210,9 +198,7 @@ key users for a KMS Key (console)
    correspond to your WorkSpaces administrators, and then choose
    **Add**.
 
-#### To add WorkSpaces administrators as key
-
-users for a KMS Key (API)
+#### To add WorkSpaces administrators as key users for a KMS Key (API)
 
 1. Use the [GetKeyPolicy](../../../kms/latest/APIReference/API_GetKeyPolicy.md "../../../kms/latest/APIReference/API_GetKeyPolicy.md") operation to get the existing key policy, and then
    save the policy document to a file.
@@ -222,9 +208,7 @@ users for a KMS Key (API)
 3. Use the [PutKeyPolicy](../../../kms/latest/APIReference/API_PutKeyPolicy.md "../../../kms/latest/APIReference/API_PutKeyPolicy.md") operation to apply the key policy to the KMS
    Key.
 
-### Part 2: Grant WorkSpaces administrators
-
-additional permissions using an IAM policy
+### Part 2: Grant WorkSpaces administrators additional permissions using an IAM policy
 
 If you select a customer managed KMS Key to use for encryption, you must establish
 IAM policies that allow Amazon WorkSpaces to use the KMS Key on behalf of an IAM user in your

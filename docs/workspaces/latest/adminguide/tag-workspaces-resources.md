@@ -43,9 +43,7 @@ were activated and onward. No historical data is available at this time.
   tag names or values because they are reserved for AWS use. You can't edit or delete
   tag names or values with these prefixes.
 
-###### To update the tags for an existing resource using the console (directories, WorkSpaces,
-
-or IP access control groups)
+###### To update the tags for an existing resource using the console (directories, WorkSpaces, or IP access control groups)
 
 1. Open the WorkSpaces console at [https://console.aws.amazon.com/workspaces/v2/home](https://console.aws.amazon.com/workspaces/v2/home "https://console.aws.amazon.com/workspaces/v2/home").
 2. In the navigation pane, choose one of the following resource types:
@@ -61,9 +59,7 @@ or IP access control groups)
 
 5. When you are finished updating tags, choose **Save**.
 
-###### To update the tags for an existing resource using the console (images or
-
-bundles)
+###### To update the tags for an existing resource using the console (images or bundles)
 
 1. Open the WorkSpaces console at [https://console.aws.amazon.com/workspaces/v2/home](https://console.aws.amazon.com/workspaces/v2/home "https://console.aws.amazon.com/workspaces/v2/home").
 2. In the navigation pane, choose one of the following resource types:

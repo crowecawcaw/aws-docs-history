@@ -1,6 +1,4 @@
-# Monitor your WorkSpaces health using the CloudWatch
-
-automatic dashboard
+# Monitor your WorkSpaces health using the CloudWatch automatic dashboard
 
 You can monitor WorkSpaces using CloudWatch automatic dashboard, which collects raw data
 and processes it into readable, near real-time metrics. The metrics are kept for 15
@@ -29,9 +27,7 @@ following purposes:
 3. Choose the **Automatic dashboards** tab.
 4. Choose **WorkSpaces**.
 
-## Understanding your WorkSpaces CloudWatch
-
-automatic dashboard
+## Understanding your WorkSpaces CloudWatch automatic dashboard
 
 The CloudWatch automatic dashboard allows you to gain insight into the performance of
 your WorkSpaces resources and helps you identify performance issues.

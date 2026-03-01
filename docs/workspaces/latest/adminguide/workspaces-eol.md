@@ -99,33 +99,24 @@ The following WorkSpaces clients are not supported.
 
 ## EOL FAQs
 
-### I’m using a version of a WorkSpaces client that has
-
-reached its EOL. What should I do to upgrade to a supported version?
+### I’m using a version of a WorkSpaces client that has reached its EOL. What should I do to upgrade to a supported version?
 
 Go to the [WorkSpaces client download
 page](https://clients.amazonworkspaces.com/ "https://clients.amazonworkspaces.com/") to download and install a fully supported version of WorkSpaces.
 
-### Can I use a version of the WorkSpaces client that
-
-has reached its EOL with a supported WorkSpace?
+### Can I use a version of the WorkSpaces client that has reached its EOL with a supported WorkSpace?
 
 We strongly recommend upgrading your clients to the latest version as previous resolutions
 and features are no longer applied to clients versions that have reached their EOL. If you are
 using a client version that has reached its EOL, contact the AWS support team for more information.
 
-### I’m using a version of a WorkSpaces client that has
-
-reached its EOL. Can I still report issues for it?
+### I’m using a version of a WorkSpaces client that has reached its EOL. Can I still report issues for it?
 
 You must first upgrade to a supported version and try to reproduce the issue. If
 the issue persists in the supported version, open a support case with the AWS
 support team.
 
-### I'm using a supported WorkSpaces client version on
-
-an operating system that has reached its EOL. Can I still report issues for
-it?
+### I'm using a supported WorkSpaces client version on an operating system that has reached its EOL. Can I still report issues for it?
 
 Technical assistance and software updates are no longer available for operating
 systems that have reached EOL and AWS doesn't provide support to WorkSpaces clients

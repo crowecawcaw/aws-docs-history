@@ -21,9 +21,7 @@ conflict and cause WorkSpaces to be unreachable. Also, do not modify or delete a
 network interfaces attached to a WorkSpace, as this might also cause the WorkSpace
 to become unreachable.
 
-## Management Network Interface IP Address
-
-Range and Ports
+## Management Network Interface IP Address Range and Ports
 
 The management network interface IP address range is 198.19.0.0/16. The following
 ports must be open on the management network interface of all WorkSpaces:

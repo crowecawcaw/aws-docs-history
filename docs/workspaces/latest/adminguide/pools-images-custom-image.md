@@ -1,6 +1,4 @@
-# Create a custom image and bundle for
-
-WorkSpaces Pools
+# Create a custom image and bundle for WorkSpaces Pools
 
 WorkSpaces Pool supports Windows images and bundles only. If you've launched a Windows or
 WorkSpace and have customized it, you can create a custom image and custom bundles from
@@ -27,18 +25,13 @@ different compute and storage options for each bundle.
 
 ###### Contents
 
-- [Requirements to create
-  Windows custom images](#pools-windows_custom_image_requirements "#pools-windows_custom_image_requirements")
+- [Requirements to create Windows custom images](#pools-windows_custom_image_requirements "#pools-windows_custom_image_requirements")
 - [Best practices](#pools-custom_image_best_practices "#pools-custom_image_best_practices")
 - [Step 1: Run the Image Checker](#pools-run_image_checker "#pools-run_image_checker")
-- [Step 2: Create a custom image and
-  custom bundle](#pools-create_custom_image_bundle "#pools-create_custom_image_bundle")
-- [What's included with Windows WorkSpaces
-  custom images](#pools-image_creation_windows "#pools-image_creation_windows")
+- [Step 2: Create a custom image and custom bundle](#pools-create_custom_image_bundle "#pools-create_custom_image_bundle")
+- [What's included with Windows WorkSpaces custom images](#pools-image_creation_windows "#pools-image_creation_windows")
 
-## Requirements to create
-
-Windows custom images
+## Requirements to create Windows custom images
 
 ###### Note
 
@@ -61,8 +54,7 @@ WorkSpace.
   WorkSpace is not currently supported.
 - The following components are required in an image. Without these
   components, the WorkSpaces that you launch from the image will not function
-  correctly. For more information, see [Required configuration and service components
-  for WorkSpaces Personal](required-service-components.md "required-service-components.md").
+  correctly. For more information, see [Required configuration and service components for WorkSpaces Personal](required-service-components.md "required-service-components.md").
   - Windows PowerShell version 3.0 or later
   - Remote Desktop Services
   - AWS PV drivers
@@ -106,8 +98,7 @@ Before you create an image from a WorkSpace, do the following:
 - If you're running any antivirus software on the WorkSpace, disable it
   while you're attempting to create an image.
 - If you have a firewall enabled on your WorkSpace, make sure that it isn't
-  blocking any necessary ports. For more information, see [IP address and port requirements for
-  WorkSpaces Personal](workspaces-port-requirements.md "workspaces-port-requirements.md").
+  blocking any necessary ports. For more information, see [IP address and port requirements for WorkSpaces Personal](workspaces-port-requirements.md "workspaces-port-requirements.md").
 - For Windows WorkSpaces, don't configure any Group Policy Objects (GPOs)
   before image creation.
 - For Windows WorkSpaces, do not customize the default user profile
@@ -161,8 +152,7 @@ To get the Image Checker, do one of the following:
 For any test with a status of **FAILED**, choose
 **Info** to display information about how to resolve
 the issue that caused the failure. For more information about how to resolve
-these issues, see [Tips for resolving issues detected by
-the Image Checker](#pools-image_checker_tips "#pools-image_checker_tips").
+these issues, see [Tips for resolving issues detected by the Image Checker](#pools-image_checker_tips "#pools-image_checker_tips").
 
 If any tests display a status of **WARNING**, choose the
 **Fix All Warnings** button.
@@ -179,9 +169,7 @@ create an image. 5. After your WorkSpace passes all tests, you see a **Validatio
 Successful** message. You are now ready to create a custom
 bundle.
 
-### Tips for resolving issues detected by
-
-the Image Checker
+### Tips for resolving issues detected by the Image Checker
 
 In addition to consulting the following tips for resolving issues that are
 detected by the Image Checker, be sure to review the Image Checker log file at
@@ -491,9 +479,7 @@ rearm count be a value other than 0.
 To reset the rearm count to a value other than 0, see [Sysprep (Generalize) a Windows installation](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation "https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation") in the
 Microsoft Windows documentation.
 
-#### Other troubleshooting
-
-tips
+#### Other troubleshooting tips
 
 If your WorkSpace passes all of the tests run by the Image Checker, but
 you are still unable to create an image from the WorkSpace, check for the
@@ -530,9 +516,7 @@ Get-WmiObject -Class Win32_Service | Where-Object { $_.StartName -like "*$env:US
       **Automatic**.
   5.  Choose **OK**.
 
-## Step 2: Create a custom image and
-
-custom bundle
+## Step 2: Create a custom image and custom bundle
 
 After you have validated your WorkSpace image, complete the following procedure to
 create your custom image and custom bundle using the WorkSpaces console. To create an
@@ -585,9 +569,7 @@ bundle**. 9. Enter a bundle name and a description, and then do the following:
     **Bundles** and verify that the bundle is
     listed.
 
-## What's included with Windows WorkSpaces
-
-custom images
+## What's included with Windows WorkSpaces custom images
 
 When you create an image from a Windows WorkSpace, the entire contents of the
 `C` drive are included.

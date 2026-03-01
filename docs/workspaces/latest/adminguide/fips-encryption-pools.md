@@ -1,6 +1,4 @@
-# Configure FedRAMP authorization or DoD SRG
-
-compliance for WorkSpaces Pools
+# Configure FedRAMP authorization or DoD SRG compliance for WorkSpaces Pools
 
 To comply with the [Federal Risk and
 Authorization Management Program (FedRAMP)](https://aws.amazon.com/compliance/fedramp/ "https://aws.amazon.com/compliance/fedramp/") or the [Department of Defense (DoD) Cloud Computing

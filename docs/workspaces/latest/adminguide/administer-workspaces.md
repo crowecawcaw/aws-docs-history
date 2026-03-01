@@ -21,8 +21,7 @@ To perform directory administration tasks, see [Set up Active Directory Administ
 - [Manage your Ubuntu WorkSpaces in WorkSpaces Personal](manage_ubuntu_workspace.md "manage_ubuntu_workspace.md")
 - [Manage your Rocky Linux WorkSpaces](manage_rockylinux_workspace.md "manage_rockylinux_workspace.md")
 - [Manage your Red Hat Enterprise Linux WorkSpaces](manage_rhel_workspace.md "manage_rhel_workspace.md")
-- [Optimize WorkSpaces for real-time
-  communication in WorkSpaces Personal](communication-optimization.md "communication-optimization.md")
+- [Optimize WorkSpaces for real-time communication in WorkSpaces Personal](communication-optimization.md "communication-optimization.md")
 - [Manage the running mode in WorkSpaces Personal](running-mode.md "running-mode.md")
 - [Manage applications in WorkSpaces Personal](manage-applications.md "manage-applications.md")
 - [Modify a WorkSpace in WorkSpaces Personal](modify-workspaces.md "modify-workspaces.md")
@@ -33,8 +32,7 @@ To perform directory administration tasks, see [Set up Active Directory Administ
 - [Reboot a WorkSpace in WorkSpaces Personal](reboot-workspaces.md "reboot-workspaces.md")
 - [Rebuild a WorkSpace in WorkSpaces Personal](rebuild-workspace.md "rebuild-workspace.md")
 - [Restore a WorkSpace in WorkSpaces Personal](restore-workspace.md "restore-workspace.md")
-- [Microsoft 365 Bring Your Own License
-  (BYOL) in WorkSpaces Personal](byol-microsoft365-licenses.md "byol-microsoft365-licenses.md")
+- [Microsoft 365 Bring Your Own License (BYOL) in WorkSpaces Personal](byol-microsoft365-licenses.md "byol-microsoft365-licenses.md")
 - [Upgrade Windows BYOL WorkSpaces in WorkSpaces Personal](upgrade-windows-10-byol-workspaces.md "upgrade-windows-10-byol-workspaces.md")
 - [Migrate a WorkSpace in WorkSpaces Personal](migrate-workspaces.md "migrate-workspaces.md")
 - [Delete a WorkSpace in WorkSpaces Personal](delete-workspaces.md "delete-workspaces.md")

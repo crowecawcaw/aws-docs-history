@@ -1,6 +1,4 @@
-# Enable SSH connections for
-
-your Linux WorkSpaces in WorkSpaces Personal
+# Enable SSH connections for your Linux WorkSpaces in WorkSpaces Personal
 
 If you or your users want to connect to your Linux WorkSpaces by using the command line,
 you can enable SSH connections. You can enable SSH connections to all WorkSpaces in a
@@ -18,19 +16,13 @@ This tutorial is for Amazon Linux 2 WorkSpaces only.
 
 ###### Contents
 
-- [Prerequisites for SSH
-  connections to Linux WorkSpaces](#before-you-begin-enable-ssh-linux-workspaces "#before-you-begin-enable-ssh-linux-workspaces")
-- [Enable SSH
-  connections to all Linux WorkSpaces in a directory](#enable-ssh-directory-level-access-linux-workspaces "#enable-ssh-directory-level-access-linux-workspaces")
+- [Prerequisites for SSH connections to Linux WorkSpaces](#before-you-begin-enable-ssh-linux-workspaces "#before-you-begin-enable-ssh-linux-workspaces")
+- [Enable SSH connections to all Linux WorkSpaces in a directory](#enable-ssh-directory-level-access-linux-workspaces "#enable-ssh-directory-level-access-linux-workspaces")
 - [Password-based authentication in WorkSpaces](#enable-ssh-access-old-version "#enable-ssh-access-old-version")
-- [Enable SSH connections to a
-  specific Linux WorkSpace](#enable-ssh-access-specific-linux-workspace "#enable-ssh-access-specific-linux-workspace")
-- [Connect to a Linux
-  WorkSpace using Linux or PuTTY](#ssh-connection-linux-workspace-using-linux-or-putty "#ssh-connection-linux-workspace-using-linux-or-putty")
+- [Enable SSH connections to a specific Linux WorkSpace](#enable-ssh-access-specific-linux-workspace "#enable-ssh-access-specific-linux-workspace")
+- [Connect to a Linux WorkSpace using Linux or PuTTY](#ssh-connection-linux-workspace-using-linux-or-putty "#ssh-connection-linux-workspace-using-linux-or-putty")
 
-## Prerequisites for SSH
-
-connections to Linux WorkSpaces
+## Prerequisites for SSH connections to Linux WorkSpaces
 
 - Enabling inbound SSH traffic to a WorkSpace — To add a rule to allow
   inbound SSH traffic to one or more Linux WorkSpaces, make sure that you have the
@@ -59,9 +51,7 @@ service: [Check IP](https://checkip.amazonaws.com/ "https://checkip.amazonaws.co
   WorkSpaces console to find the public IP address, as described in the
   following procedure.
 
-###### To find the IP addresses for the Linux WorkSpace you want to connect to and your
-
-user name
+###### To find the IP addresses for the Linux WorkSpace you want to connect to and your user name
 
 1. Open the WorkSpaces console at [https://console.aws.amazon.com/workspaces/v2/home](https://console.aws.amazon.com/workspaces/v2/home "https://console.aws.amazon.com/workspaces/v2/home").
 2. In the navigation pane, choose **WorkSpaces**.
@@ -92,9 +82,7 @@ user name
     **IPv4 Public IP** column. Make a note of this address, if
     applicable.
 
-###### To find the NetBIOS name of the Active Directory domain that you are connected
-
-to
+###### To find the NetBIOS name of the Active Directory domain that you are connected to
 
 1. Open the Directory Service console at [https://console.aws.amazon.com/directoryservicev2/](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/").
 2. In the list of directories, click the **Directory ID** link of
@@ -102,16 +90,12 @@ to
 3. In the **Directory details** section, note the
    **Directory NetBIOS name**.
 
-## Enable SSH
-
-connections to all Linux WorkSpaces in a directory
+## Enable SSH connections to all Linux WorkSpaces in a directory
 
 To enable SSH connections to all Linux WorkSpaces in a directory, do the
 following.
 
-###### To create a security group with a rule to allow inbound SSH traffic to all Linux
-
-WorkSpaces in a directory
+###### To create a security group with a rule to allow inbound SSH traffic to all Linux WorkSpaces in a directory
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
@@ -184,15 +168,11 @@ This script will do the following:
 
 This immediately disables SSH in the WorkSpace and will persist through custom images.
 
-## Enable SSH connections to a
-
-specific Linux WorkSpace
+## Enable SSH connections to a specific Linux WorkSpace
 
 To enable SSH connections to a specific Linux WorkSpace, do the following.
 
-###### To add a rule to an existing security group to allow inbound SSH traffic to a
-
-specific Linux WorkSpace
+###### To add a rule to an existing security group to allow inbound SSH traffic to a specific Linux WorkSpace
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
@@ -222,9 +202,7 @@ specific Linux WorkSpace
 
 7. Choose **Save**.
 
-## Connect to a Linux
-
-WorkSpace using Linux or PuTTY
+## Connect to a Linux WorkSpace using Linux or PuTTY
 
 After you create or update your security group and add the required rule, your users and
 others can use Linux or PuTTY to connect from their devices to your WorkSpaces.

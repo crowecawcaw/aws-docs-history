@@ -1,6 +1,4 @@
-# VPC Setup Recommendations for
-
-WorkSpaces Pools
+# VPC Setup Recommendations for WorkSpaces Pools
 
 When you create a WorkSpaces Pools, you specify the VPC and one or more subnets to use.
 You can provide additional access control to your VPC by specifying security groups.
@@ -37,8 +35,7 @@ internet or other AWS services. However, it prevents the internet from
 initiating a connection with those WorkSpaces. In addition, unlike configurations
 that use the **Default Internet Access** option for
 enabling internet access, the NAT configuration supports more than 100
-WorkSpaces. For more information, see [Configure a VPC with Private
-Subnets and a NAT Gateway](managing-network-internet-NAT-gateway.md "managing-network-internet-NAT-gateway.md").
+WorkSpaces. For more information, see [Configure a VPC with Private Subnets and a NAT Gateway](managing-network-internet-NAT-gateway.md "managing-network-internet-NAT-gateway.md").
 **Elastic Network Interfaces**
 
 - WorkSpaces Pools creates as many [elastic

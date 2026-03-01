@@ -1,6 +1,4 @@
-# Optimize WorkSpaces for real-time
-
-communication in WorkSpaces Personal
+# Optimize WorkSpaces for real-time communication in WorkSpaces Personal
 
 Amazon WorkSpaces offers a diverse range of techniques to facilitate the deployment of Unified
 Communication (UC) applications like Microsoft Teams, Zoom, Webex and others. In
@@ -26,20 +24,15 @@ documentation.
 
 ###### Topics
 
-- [Overview of media optimization
-  modes](#media-optimization-modes-overview "#media-optimization-modes-overview")
+- [Overview of media optimization modes](#media-optimization-modes-overview "#media-optimization-modes-overview")
 - [Which RTC optimization mode to use?](#choosing-optimization-mode "#choosing-optimization-mode")
 - [RTC Optimization Guidance](#rtc-optimization-guidance "#rtc-optimization-guidance")
 
-## Overview of media optimization
-
-modes
+## Overview of media optimization modes
 
 Following are the media optimization options available.
 
-### Option 1: Media Optimized Real-Time
-
-Communication (Media Optimized RTC)
+### Option 1: Media Optimized Real-Time Communication (Media Optimized RTC)
 
 In this mode, third-party UC and VoIP applications are executed on the remote
 WorkSpace, while their media framework is offloaded to the supported client for
@@ -55,12 +48,9 @@ the integration with WorkSpaces using one of the available Software Development 
 (SDK), such as the [DCV Extension SDK](../../../dcv/latest/extsdkguide/what-is.md "../../../dcv/latest/extsdkguide/what-is.md"). This mode
 requires the UC components to be installed on the client device.
 
-For more information about configuring this mode, see [Configure Media Optimized
-RTC](#configure-media-optimized-rtc "#configure-media-optimized-rtc").
+For more information about configuring this mode, see [Configure Media Optimized RTC](#configure-media-optimized-rtc "#configure-media-optimized-rtc").
 
-### Option 2: In-Session Optimized Real-Time
-
-Communication (In-session Optimized RTC)
+### Option 2: In-Session Optimized Real-Time Communication (In-session Optimized RTC)
 
 In this mode, the unaltered UC application runs on the WorkSpace, channeling audio
 and video traffic via the DCV to the client device. Local audio
@@ -70,12 +60,9 @@ compatibility and efficiently delivers the UC application from the remote WorkSp
 to a variety of client platforms. You don't need to deploy the UC application
 components to the client device.
 
-For more information about configuring this mode, see [Configure In-session Optimized
-RTC](#configure-in-session-optimized-rtc "#configure-in-session-optimized-rtc").
+For more information about configuring this mode, see [Configure In-session Optimized RTC](#configure-in-session-optimized-rtc "#configure-in-session-optimized-rtc").
 
-### Option 3: Direct Real-Time Communication (Direct
-
-RTC)
+### Option 3: Direct Real-Time Communication (Direct RTC)
 
 In this mode, the application operating within the WorkSpace takes control over
 the physical or virtual telephone set located on the user's desk or client OS. This
@@ -123,9 +110,7 @@ configuration mode provides the best result.
 
 ## RTC Optimization Guidance
 
-### Configure Media Optimized
-
-RTC
+### Configure Media Optimized RTC
 
 Media Optimized RTC mode is made possible by the UC application vendor use of the
 SDKs provided by Amazon. The architecture requires UC vendor to develop a
@@ -172,9 +157,7 @@ If Media Optimized RTC mode proves unsuitable for your environment or certain
 users are unable to install the client extension, configuring In-session Optimized
 RTC mode as a fallback option is recommended.
 
-### Configure In-session Optimized
-
-RTC
+### Configure In-session Optimized RTC
 
 In the In-session Optimized RTC mode, the UC application operates on the WorkSpace
 without any modifications, providing a like-local experience. The audio and video
@@ -234,18 +217,14 @@ Screen sharing also consumes notable resources, with resource consumption
 increasing with higher resolutions. As result, on non-GPU WorkSpaces, screen sharing
 is often limited to a lower frame rate.
 
-#### Leverage the UDP-based QUIC
-
-transport with DCV
+#### Leverage the UDP-based QUIC transport with DCV
 
 UDP transport is particularly well-suited for transmitting RTC applications.
 To maximize efficiency, ensure that your network is set up to utilize QUIC
 transport for DCV. Note that UDP-based transport is available with native
 clients only.
 
-#### Configure UC application for
-
-WorkSpaces
+#### Configure UC application for WorkSpaces
 
 For enhanced video processing capabilities, such as background blur, virtual
 backgrounds, reactions, or hosting live events, opting for a GPU-enabled
@@ -265,9 +244,7 @@ For more information, refer to the following resources.
 - Google Meet: [Using
   VDI](https://support.google.com/a/answer/1279090?hl=en#VDI "https://support.google.com/a/answer/1279090?hl=en#VDI")
 
-#### Enable
-
-bi-directional audio and webcam redirection
+#### Enable bi-directional audio and webcam redirection
 
 Amazon WorkSpaces inherently support audio-in, audio-out, and camera redirection
 through video-in by default. However, if these features have been disabled for
@@ -279,9 +256,7 @@ to use in session after connecting. For more information, users should refer to
 [Webcams and other video devices](../userguide/peripheral_devices.md#devices-webcams "../userguide/peripheral_devices.md#devices-webcams") in the _Amazon WorkSpaces User
 Guide_.
 
-#### Limit maximum webcam
-
-resolution
+#### Limit maximum webcam resolution
 
 For users employing Power, PowerPro, GeneralPurpose.4xlarge, or
 GeneralPurpose.8xlarge WorkSpaces for video conferencing, it is
@@ -308,9 +283,7 @@ HKEY_USERS/S-1-5-18/Software/GSettings/com/nicesoftware/dcv/webcam
    example, specify `(640,480)`) to represent a resolution that
    is 640 pixels in width and 480 pixel in height.
 
-#### Enable
-
-voice-optimized audio configuration
+#### Enable voice-optimized audio configuration
 
 By default, WorkSpaces are set to deliver 7.1 high-fidelity audio from WorkSpaces to the
 client, ensuring superior music playback quality. However, if your primary use
@@ -330,9 +303,7 @@ HKEY_USERS/S-1-5-18/Software/GSettings/com/nicesoftware/dcv/audio
 3. Create a string value name `default-profile` and set it to
    `voice`.
 
-#### Use good quality headsets for audio
-
-and video calls
+#### Use good quality headsets for audio and video calls
 
 To enhance the audio experience and prevent echo, it's crucial to utilize
 high-quality headsets. Utilizing desktop speakers can lead to echo issues on the

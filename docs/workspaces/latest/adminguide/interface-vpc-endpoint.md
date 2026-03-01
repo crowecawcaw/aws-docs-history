@@ -1,6 +1,4 @@
-# Make Amazon WorkSpaces API requests through a VPC interface
-
-endpoint
+# Make Amazon WorkSpaces API requests through a VPC interface endpoint
 
 You can connect directly to Amazon WorkSpaces API endpoints through an [interface
 endpoint](../../../AmazonVPC/latest/UserGuide/vpce-interface.md "../../../AmazonVPC/latest/UserGuide/vpce-interface.md") in your virtual private cloud (VPC) instead of connecting over the
@@ -11,8 +9,7 @@ Amazon WorkSpaces API endpoint is conducted entirely and securely within the AWS
 
 This feature can be used only for connecting to WorkSpaces API endpoints. To connect to
 WorkSpaces using the WorkSpaces clients, internet connectivity is required, as described
-in [IP address and port requirements for
-WorkSpaces Personal](workspaces-port-requirements.md "workspaces-port-requirements.md").
+in [IP address and port requirements for WorkSpaces Personal](workspaces-port-requirements.md "workspaces-port-requirements.md").
 
 The Amazon WorkSpaces API endpoints support [Amazon Virtual Private Cloud](../../../AmazonVPC/latest/UserGuide/VPC_Introduction.md "../../../AmazonVPC/latest/UserGuide/VPC_Introduction.md") (Amazon VPC)
 interface endpoints that are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink/ "https://aws.amazon.com/privatelink/"). Each VPC endpoint is represented

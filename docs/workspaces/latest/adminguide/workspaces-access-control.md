@@ -44,8 +44,7 @@ in the _IAM User Guide_.
 - [Example policies](#workspaces-example-iam-policies "#workspaces-example-iam-policies")
 - [Specify WorkSpaces resources in an IAM policy](#wsp_iam_resource "#wsp_iam_resource")
 - [Create the workspaces_DefaultRole Role](#create-default-role "#create-default-role")
-- [Create the AmazonWorkSpacesPCAAccess service
-  role](#create-pca-access-role "#create-pca-access-role")
+- [Create the AmazonWorkSpacesPCAAccess service role](#create-pca-access-role "#create-pca-access-role")
 - [AWS managed policies for WorkSpaces](managed-policies.md "managed-policies.md")
 - [Access to WorkSpaces and scripts on streaming instances](using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.md "using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.md")
 - [Amazon WorkSpaces Console operations permissions reference](wsp-console-permissions-ref.md "wsp-console-permissions-ref.md")
@@ -719,9 +718,7 @@ the following procedure.
 
 19. Choose **Update Trust Policy**.
 
-## Create the AmazonWorkSpacesPCAAccess service
-
-role
+## Create the AmazonWorkSpacesPCAAccess service role
 
 Before users can login using certificate-based authentication, you must verify that a role
 named `AmazonWorkSpacesPCAAccess` exists. This role is created when you enable

@@ -1,6 +1,4 @@
-# Update directory details for your
-
-WorkSpaces Pools
+# Update directory details for your WorkSpaces Pools
 
 You can complete the following directory management tasks using the WorkSpaces Pools
 console.

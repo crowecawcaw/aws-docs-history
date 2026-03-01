@@ -1,6 +1,4 @@
-# Use session scripts to manage your
-
-users' streaming experience
+# Use session scripts to manage your users' streaming experience
 
 WorkSpaces Pool provides on-instance session scripts. You can use these scripts to run your
 own custom scripts when specific events occur in users' streaming sessions. For example,
@@ -15,25 +13,16 @@ Amazon S3 bucket within your Amazon Web Services account.
 
 ###### Contents
 
-- [Run Scripts Before
-  Streaming Sessions Begin](#run-scripts-before-streaming-sessions-begin "#run-scripts-before-streaming-sessions-begin")
-- [Run Scripts After
-  Streaming Sessions End](#run-scripts-after-streaming-sessions-end "#run-scripts-after-streaming-sessions-end")
-- [Create and Specify Session
-  Scripts](#create-specify-session-scripts "#create-specify-session-scripts")
-- [Session Scripts Configuration
-  File](#session-script-configuration-file "#session-script-configuration-file")
-- [Using Windows
-  PowerShell Files](#using-powershell-files-with-session-scripts "#using-powershell-files-with-session-scripts")
+- [Run Scripts Before Streaming Sessions Begin](#run-scripts-before-streaming-sessions-begin "#run-scripts-before-streaming-sessions-begin")
+- [Run Scripts After Streaming Sessions End](#run-scripts-after-streaming-sessions-end "#run-scripts-after-streaming-sessions-end")
+- [Create and Specify Session Scripts](#create-specify-session-scripts "#create-specify-session-scripts")
+- [Session Scripts Configuration File](#session-script-configuration-file "#session-script-configuration-file")
+- [Using Windows PowerShell Files](#using-powershell-files-with-session-scripts "#using-powershell-files-with-session-scripts")
 - [Logging Session Script Output](#logging-session-output "#logging-session-output")
-- [Use persistent storage
-  with session scripts](#use-storage-connectors-with-session-scripts "#use-storage-connectors-with-session-scripts")
-- [Enable Amazon S3 Bucket
-  Storage for Session Script Logs](#enable-S3-bucket-storage-session-script-logs "#enable-S3-bucket-storage-session-script-logs")
+- [Use persistent storage with session scripts](#use-storage-connectors-with-session-scripts "#use-storage-connectors-with-session-scripts")
+- [Enable Amazon S3 Bucket Storage for Session Script Logs](#enable-S3-bucket-storage-session-script-logs "#enable-S3-bucket-storage-session-script-logs")
 
-## Run Scripts Before
-
-Streaming Sessions Begin
+## Run Scripts Before Streaming Sessions Begin
 
 You can configure your scripts to run for a maximum of 60 seconds before your
 users' applications launch and their streaming sessions begin. Doing so enables you
@@ -71,15 +60,13 @@ occurs:
      users' customizations and Windows settings is downloaded and
      mounted. Windows user login is required in this case.
 
-   For information about application settings persistence, see [Enable application settings persistence for your
-   WorkSpaces Pools users](app-settings-persistence.md "app-settings-persistence.md").
+   For information about application settings persistence, see [Enable application settings persistence for your WorkSpaces Pools users](app-settings-persistence.md "app-settings-persistence.md").
    - If application settings persistence is not enabled, the Windows
      user is already logged in.
 
 3. Your session scripts start. If persistent storage is enabled for your
    users, storage connector mounting also starts. For information about
-   persistent storage, see [Enable and Administer Persistent Storage for
-   WorkSpaces Pools](persistent-storage.md "persistent-storage.md").
+   persistent storage, see [Enable and Administer Persistent Storage for WorkSpaces Pools](persistent-storage.md "persistent-storage.md").
 
 ###### Note
 
@@ -88,12 +75,9 @@ session to start. If the session scripts complete before the storage
 connector mount completes, the streaming session starts.
 
 For information about monitoring the mount status of storage
-connectors, see [Use persistent storage
-with session scripts](#use-storage-connectors-with-session-scripts "#use-storage-connectors-with-session-scripts"). 4. Your session scripts complete or time out. 5. The users' streaming session starts.
+connectors, see [Use persistent storage with session scripts](#use-storage-connectors-with-session-scripts "#use-storage-connectors-with-session-scripts"). 4. Your session scripts complete or time out. 5. The users' streaming session starts.
 
-## Run Scripts After
-
-Streaming Sessions End
+## Run Scripts After Streaming Sessions End
 
 You can also configure your scripts to run after users' streaming sessions end.
 For example, you can run a script when users select **End Session**
@@ -117,9 +101,7 @@ streaming sessions end, the following process occurs:
 
 6. The WorkSpace is terminated.
 
-## Create and Specify Session
-
-Scripts
+## Create and Specify Session Scripts
 
 Complete the following procedure to create and specify session scripts for your
 WorkSpaces in a WorkSpaces Pool.
@@ -134,15 +116,11 @@ WorkSpaces in a WorkSpaces Pool.
 4. Navigate to `C:\AWSEUC\SessionScripts`, and open the
    `config.json` configuration file.
 
-For information about session script parameters, see [Session Scripts Configuration
-File](#session-script-configuration-file "#session-script-configuration-file"). 5. After you finish making your changes, save and close the
+For information about session script parameters, see [Session Scripts Configuration File](#session-script-configuration-file "#session-script-configuration-file"). 5. After you finish making your changes, save and close the
 `config.json` file. 6. Complete the steps to create an image from the WorkSpace. For more
-information, see [Create a custom image and bundle for
-WorkSpaces Pools](pools-images-custom-image.md "pools-images-custom-image.md").
+information, see [Create a custom image and bundle for WorkSpaces Pools](pools-images-custom-image.md "pools-images-custom-image.md").
 
-## Session Scripts Configuration
-
-File
+## Session Scripts Configuration File
 
 To locate the session scripts configuration file in a Windows instance, navigate
 to `C:\AWSEUC\SessionScripts\config.json`. The file is formatted as
@@ -263,8 +241,7 @@ the file name and full path is 1,000 characters.
 ###### Note
 
 You can also use Windows PowerShell files. For more information,
-see [Using Windows
-PowerShell Files](#using-powershell-files-with-session-scripts "#using-powershell-files-with-session-scripts").
+see [Using Windows PowerShell Files](#using-powershell-files-with-session-scripts "#using-powershell-files-with-session-scripts").
 
 **`Arguments`**
 
@@ -293,9 +270,7 @@ section later in this topic.
 **Allowed values:**
 `True`, `False`
 
-## Using Windows
-
-PowerShell Files
+## Using Windows PowerShell Files
 
 To use Windows PowerShell files, specify the full path to the PowerShell file in
 the `filename` parameter:
@@ -328,9 +303,7 @@ The log files are uploaded when the session script returns a value, or the
 value set in `WaitingTime` has elapsed, whichever comes
 first.
 
-## Use persistent storage
-
-with session scripts
+## Use persistent storage with session scripts
 
 When WorkSpaces persistent storage is enabled, the storage begins mounting when the
 session start scripts run. If your script relies on persistent storage being
@@ -375,9 +348,7 @@ To view these registry keys, you must have Microsoft .NET Framework version
 | 3     | Storage connector mounting failed                             |
 | 4     | Storage connector mounting is enabled, but not mounted<br>yet |
 
-## Enable Amazon S3 Bucket
-
-Storage for Session Script Logs
+## Enable Amazon S3 Bucket Storage for Session Script Logs
 
 When you enable Amazon S3 logging in your session script configuration, WorkSpaces Pool
 captures standard output from your session script. The output is periodically

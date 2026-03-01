@@ -141,16 +141,14 @@ screen is detected, the WorkSpace session is disconnected, and the user can reco
 by using their smart card.
 
 You can enable disconnecting the session when the Windows lock screen is detected by using Group Policy settings.
-For more information, see [Configure disconnect session on
-screen lock for DCV](group_policy.md#gp_lock_screen_in_wsp "group_policy.md#gp_lock_screen_in_wsp").
+For more information, see [Configure disconnect session on screen lock for DCV](group_policy.md#gp_lock_screen_in_wsp "group_policy.md#gp_lock_screen_in_wsp").
 
 ###### To enable in-session or pre-session authentication
 
 By default, Windows WorkSpaces are not enabled to support the use of smart cards for pre-session or
 in-session authentication. If needed, you can enable in-session and pre-session authentication
 for Windows WorkSpaces by using Group Policy settings. For more information, see
-[Configure smart card redirection
-for DCV](group_policy.md#gp_smart_cards_in_wsp "group_policy.md#gp_smart_cards_in_wsp").
+[Configure smart card redirection for DCV](group_policy.md#gp_smart_cards_in_wsp "group_policy.md#gp_smart_cards_in_wsp").
 
 To use pre-session authentication, in addition to updating the Group Policy settings, you must also
 enable pre-session authentication through your AD Connector directory settings. For more information, follow the

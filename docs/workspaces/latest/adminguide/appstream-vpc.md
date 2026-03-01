@@ -13,11 +13,7 @@ to provide access to the internet.
 
 ###### Contents
 
-- [VPC Setup Recommendations for
-  WorkSpaces Pools](vpc-setup-recommendations.md "vpc-setup-recommendations.md")
-- [Configure a VPC with Private
-  Subnets and a NAT Gateway](managing-network-internet-NAT-gateway.md "managing-network-internet-NAT-gateway.md")
-- [Configure a New or
-  Existing VPC with a Public Subnet](managing-network-default-internet-access.md "managing-network-default-internet-access.md")
-- [Use the Default VPC, Public Subnet,
-  and Security Group](default-vpc-with-public-subnet.md "default-vpc-with-public-subnet.md")
+- [VPC Setup Recommendations for WorkSpaces Pools](vpc-setup-recommendations.md "vpc-setup-recommendations.md")
+- [Configure a VPC with Private Subnets and a NAT Gateway](managing-network-internet-NAT-gateway.md "managing-network-internet-NAT-gateway.md")
+- [Configure a New or Existing VPC with a Public Subnet](managing-network-default-internet-access.md "managing-network-default-internet-access.md")
+- [Use the Default VPC, Public Subnet, and Security Group](default-vpc-with-public-subnet.md "default-vpc-with-public-subnet.md")

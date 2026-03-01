@@ -1,6 +1,4 @@
-# Enable application settings persistence for your
-
-WorkSpaces Pools users
+# Enable application settings persistence for your WorkSpaces Pools users
 
 WorkSpaces Pools supports persistent application settings for Windows-based directories. This
 means that your users' application customizations and Windows settings are automatically
@@ -18,9 +16,6 @@ information, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/ "https:/
 
 ###### Contents
 
-- [How application settings
-  persistence works](how-it-works-app-settings-persistence.md "how-it-works-app-settings-persistence.md")
-- [Enabling application settings
-  persistence](enabling-app-settings-persistence.md "enabling-app-settings-persistence.md")
-- [Administer the VHDs for your users'
-  application settings](administer-app-settings-vhds.md "administer-app-settings-vhds.md")
+- [How application settings persistence works](how-it-works-app-settings-persistence.md "how-it-works-app-settings-persistence.md")
+- [Enabling application settings persistence](enabling-app-settings-persistence.md "enabling-app-settings-persistence.md")
+- [Administer the VHDs for your users' application settings](administer-app-settings-vhds.md "administer-app-settings-vhds.md")

@@ -30,8 +30,7 @@ more information about using MFA with your directory, see the following document
 - Starting with version 20.10.4 of the PCoIP agent, Amazon WorkSpaces disables USB redirection by default through
   the Windows registry. This registry setting affects the behavior of USB peripherals when your users are
   using PCoIP zero client devices to connect to their WorkSpaces. For more information, see
-  [USB printers and other USB peripherals aren't working for PCoIP
-  zero clients](amazon-workspaces-troubleshooting.md#pcoip_zero_client_usb "amazon-workspaces-troubleshooting.md#pcoip_zero_client_usb").
+  [USB printers and other USB peripherals aren't working for PCoIP zero clients](amazon-workspaces-troubleshooting.md#pcoip_zero_client_usb "amazon-workspaces-troubleshooting.md#pcoip_zero_client_usb").
   For information about setting up and connecting with a PCoIP zero client device, see
   [PCoIP Zero Client](../userguide/amazon-workspaces-pcoip-zero-client.md "../userguide/amazon-workspaces-pcoip-zero-client.md")
   in the _Amazon WorkSpaces User Guide_. For a list of approved PCoIP zero client devices, see

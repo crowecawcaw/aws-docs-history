@@ -34,23 +34,17 @@ configuring your DNS failover routing policies.
 - [Limitations](#cross-region-redirection-limitations "#cross-region-redirection-limitations")
 - [Step 1: Create connection aliases](#cross-region-redirection-create-connection-aliases "#cross-region-redirection-create-connection-aliases")
 - [(Optional) Step 2: Share a connection alias with another account](#cross-region-redirection-share-connection-alias "#cross-region-redirection-share-connection-alias")
-- [Step 3: Associate connection aliases with
-  directories in each Region](#cross-region-redirection-associate-connection-aliases "#cross-region-redirection-associate-connection-aliases")
-- [Step 4: Configure your DNS service and set up
-  DNS routing policies](#cross-region-redirection-configure-DNS-routing "#cross-region-redirection-configure-DNS-routing")
-- [Step 5: Send the connection string to
-  your WorkSpaces users](#cross-region-redirection-send-connection-string-to-users "#cross-region-redirection-send-connection-string-to-users")
+- [Step 3: Associate connection aliases with directories in each Region](#cross-region-redirection-associate-connection-aliases "#cross-region-redirection-associate-connection-aliases")
+- [Step 4: Configure your DNS service and set up DNS routing policies](#cross-region-redirection-configure-DNS-routing "#cross-region-redirection-configure-DNS-routing")
+- [Step 5: Send the connection string to your WorkSpaces users](#cross-region-redirection-send-connection-string-to-users "#cross-region-redirection-send-connection-string-to-users")
 - [Cross-Region Redirection architecture diagram](#cross-region-redirection-architecture-diagram "#cross-region-redirection-architecture-diagram")
 - [Initiate cross-Region redirection](#initiate-cross-region-redirection "#initiate-cross-region-redirection")
 - [What happens during cross-Region redirection](#cross-region-redirection-what-happens "#cross-region-redirection-what-happens")
-- [Disassociate a connection alias from a
-  directory](#cross-region-redirection-disassociate-connection-alias "#cross-region-redirection-disassociate-connection-alias")
+- [Disassociate a connection alias from a directory](#cross-region-redirection-disassociate-connection-alias "#cross-region-redirection-disassociate-connection-alias")
 - [Unshare a connection alias](#cross-region-redirection-unshare-connection-alias "#cross-region-redirection-unshare-connection-alias")
 - [Delete a connection alias](#cross-region-redirection-delete-connection-alias "#cross-region-redirection-delete-connection-alias")
-- [IAM permissions to associate and disassociate
-  connection aliases](#cross-region-redirection-iam "#cross-region-redirection-iam")
-- [Security considerations if you stop using
-  cross-Region redirection](#cross-region-redirection-security-considerations "#cross-region-redirection-security-considerations")
+- [IAM permissions to associate and disassociate connection aliases](#cross-region-redirection-iam "#cross-region-redirection-iam")
+- [Security considerations if you stop using cross-Region redirection](#cross-region-redirection-security-considerations "#cross-region-redirection-security-considerations")
 
 ## Prerequisites
 
@@ -94,8 +88,7 @@ within replicated Regions.
 When you've finished setting up cross-Region redirection, you must make sure your WorkSpaces users are
 using the FQDN-based registration code instead of the Region-based registration code (for example,
 `WSpdx+ABC12D`) for their primary Region. To do this, you must send them an email with the
-FQDN connection string by using the procedure in [Step 5: Send the connection string to
-your WorkSpaces users](#cross-region-redirection-send-connection-string-to-users "#cross-region-redirection-send-connection-string-to-users").
+FQDN connection string by using the procedure in [Step 5: Send the connection string to your WorkSpaces users](#cross-region-redirection-send-connection-string-to-users "#cross-region-redirection-send-connection-string-to-users").
 
 ###### Note
 
@@ -169,9 +162,7 @@ You can also share an alias from the details page for your connection alias. To 
 **Shared account**, choose **Share connection alias**. 5. On the **Share/unshare connection alias** page, under **Share with an account**,
 enter the AWS account ID that you want to share your connection alias with in this AWS Region. 6. Choose **Share**.
 
-## Step 3: Associate connection aliases with
-
-directories in each Region
+## Step 3: Associate connection aliases with directories in each Region
 
 Associating the same connection alias with a WorkSpaces directory in two or more Regions creates an association
 pair between the directories. Each association pair has a primary Region and one or more failover Regions.
@@ -216,9 +207,7 @@ within replicated Regions. 6. Choose **Associate**. 7. Repeat these steps, but i
 failover Region for your WorkSpaces. If you have more than one failover Region, repeat these steps for each
 failover Region. Be sure to associate the same connection alias with a directory in each failover Region.
 
-## Step 4: Configure your DNS service and set up
-
-DNS routing policies
+## Step 4: Configure your DNS service and set up DNS routing policies
 
 After you've created your connection aliases and your connection alias association pairs, you can then configure
 the DNS service for the domain that you've used in your connection strings. You can use any DNS service provider
@@ -369,9 +358,7 @@ For more information about configuring DNS TXT records, see
 [TXT record type](../../../Route53/latest/DeveloperGuide/ResourceRecordTypes.md#TXTFormat "../../../Route53/latest/DeveloperGuide/ResourceRecordTypes.md#TXTFormat")
 in the _Amazon Route 53 Developer Guide_.
 
-## Step 5: Send the connection string to
-
-your WorkSpaces users
+## Step 5: Send the connection string to your WorkSpaces users
 
 To make sure your users' WorkSpaces will be redirected as needed during an outage, you must send the connection
 string (FQDN) to your users. If you've already issued Region-based registration codes (for example, `WSpdx+ABC12D`)
@@ -443,9 +430,7 @@ failover Region.
 In some cases, users might be unable to reconnect when they log in again. If this behavior occurs, they must
 close and restart the WorkSpaces client application, and then try to log in again.
 
-## Disassociate a connection alias from a
-
-directory
+## Disassociate a connection alias from a directory
 
 Only the account that owns a directory can disassociate a connection alias from the directory.
 
@@ -501,8 +486,7 @@ account. The connection string is globally reserved for your account.
 
 **If you will no longer be using an FQDN as the registration code for your WorkSpaces
 users, you must take certain precautions to prevent potential security issues.** For more information,
-see [Security considerations if you stop using
-cross-Region redirection](#cross-region-redirection-security-considerations "#cross-region-redirection-security-considerations").
+see [Security considerations if you stop using cross-Region redirection](#cross-region-redirection-security-considerations "#cross-region-redirection-security-considerations").
 
 ###### To delete a connection alias
 
@@ -521,9 +505,7 @@ You can also delete a connection alias from the connection alias details page. T
 If the **Delete** button is disabled, make sure that you are the owner of the alias,
 and make sure that the alias isn't associated with a directory. 5. In the dialog box that asks you to confirm deletion, choose **Delete**.
 
-## IAM permissions to associate and disassociate
-
-connection aliases
+## IAM permissions to associate and disassociate connection aliases
 
 If you use an IAM user to associate or disassociate connection aliases, the user must have
 permissions for `workspaces:AssociateConnectionAlias` and
@@ -584,9 +566,7 @@ be associated or disassociated.
 For more information about working with IAM, see
 [Identity and access management for WorkSpaces](workspaces-access-control.md "workspaces-access-control.md").
 
-## Security considerations if you stop using
-
-cross-Region redirection
+## Security considerations if you stop using cross-Region redirection
 
 If you will no longer be using an FQDN as the registration code for your WorkSpaces users, you must take the
 following precautions to prevent potential security issues:

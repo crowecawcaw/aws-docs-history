@@ -1,24 +1,16 @@
-# Before You Begin Using Active Directory
-
-with WorkSpaces Pools
+# Before You Begin Using Active Directory with WorkSpaces Pools
 
 Before you use Microsoft Active Directory domains with WorkSpaces Pools, be aware of the
 following requirements and considerations.
 
 ###### Contents
 
-- [Active Directory
-  Domain Environment](#active-directory-prerequisites-domain-environment "#active-directory-prerequisites-domain-environment")
-- [Domain-Joined
-  WorkSpaces in WorkSpaces Pools](#active-directory-prerequisites-streaming-instances "#active-directory-prerequisites-streaming-instances")
-- [Group Policy
-  Settings](#active-directory-prerequisites-group-policy-settings "#active-directory-prerequisites-group-policy-settings")
-- [Smart
-  Card Authentication](#active-directory-prerequisites-smart-card-authentication "#active-directory-prerequisites-smart-card-authentication")
+- [Active Directory Domain Environment](#active-directory-prerequisites-domain-environment "#active-directory-prerequisites-domain-environment")
+- [Domain-Joined WorkSpaces in WorkSpaces Pools](#active-directory-prerequisites-streaming-instances "#active-directory-prerequisites-streaming-instances")
+- [Group Policy Settings](#active-directory-prerequisites-group-policy-settings "#active-directory-prerequisites-group-policy-settings")
+- [Smart Card Authentication](#active-directory-prerequisites-smart-card-authentication "#active-directory-prerequisites-smart-card-authentication")
 
-## Active Directory
-
-Domain Environment
+## Active Directory Domain Environment
 
 - You must have a Microsoft Active Directory domain to which to join your
   WorkSpaces. If you don't have an Active Directory domain or you want to use your
@@ -31,23 +23,19 @@ Domain Environment
 When you associate this Active Directory domain with WorkSpaces Pools, provide
 the service account name and password. WorkSpaces Pools uses this account to
 create and manage computer objects in the directory. For more information,
-see [Granting Permissions to Create and
-Manage Active Directory Computer Objects](active-directory-admin.md#active-directory-permissions "active-directory-admin.md#active-directory-permissions").
+see [Granting Permissions to Create and Manage Active Directory Computer Objects](active-directory-admin.md#active-directory-permissions "active-directory-admin.md#active-directory-permissions").
 
 - When you register your Active Directory domain with WorkSpaces Pools, you must
   provide an organizational unit (OU) distinguished name. Create an OU for
   this purpose. The default Computers container is not an OU and cannot be
-  used by WorkSpaces Pools. For more information, see [Finding the Organizational Unit
-  Distinguished Name](active-directory-admin.md#active-directory-oudn "active-directory-admin.md#active-directory-oudn").
+  used by WorkSpaces Pools. For more information, see [Finding the Organizational Unit Distinguished Name](active-directory-admin.md#active-directory-oudn "active-directory-admin.md#active-directory-oudn").
 - The directories that you plan to use with WorkSpaces Pools must be accessible
   through their fully qualified domain names (FQDNs) through the virtual
   private cloud (VPC) in which your WorkSpaces are launched. For more information,
   see [Active Directory and Active Directory Domain Services Port
   Requirements](https://technet.microsoft.com/en-us/library/dd772723.aspx "https://technet.microsoft.com/en-us/library/dd772723.aspx") in the Microsoft documentation.
 
-## Domain-Joined
-
-WorkSpaces in WorkSpaces Pools
+## Domain-Joined WorkSpaces in WorkSpaces Pools
 
 SAML 2.0-based user federation is required for application streaming from
 domain-joined WorkSpaces. Also, you must use a Windows image that supports joining to an
@@ -55,9 +43,7 @@ Active Directory domain. All public images published on or after July 24, 2017
 support joining an Active Directory
 domain.
 
-## Group Policy
-
-Settings
+## Group Policy Settings
 
 Verify your configuration for the following Group Policy settings. If required,
 update the settings as described in this section so that they don't block WorkSpaces Pools
@@ -84,9 +70,7 @@ users that "An unknown error occurred."
   users attempting to log on** — Set this to **Not
   defined**.
 
-## Smart
-
-Card Authentication
+## Smart Card Authentication
 
 WorkSpaces Pools supports the use of Active Directory domain passwords or smart cards
 such as [Common Access Card

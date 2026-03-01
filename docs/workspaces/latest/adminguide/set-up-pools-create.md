@@ -5,8 +5,7 @@ Set up and create a pool from which user applications are launched and streamed.
 ###### Note
 
 You should create a directory before you create a WorkSpaces Pool. For more information, see
-[Configure SAML 2.0 and create a WorkSpaces Pools
-directory](create-directory-pools.md "create-directory-pools.md").
+[Configure SAML 2.0 and create a WorkSpaces Pools directory](create-directory-pools.md "create-directory-pools.md").
 
 ###### To set up and create a pool
 

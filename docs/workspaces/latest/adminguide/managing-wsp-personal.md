@@ -43,8 +43,7 @@ using WorkSpaces and Directory Service.
 
 ###### Note
 
-To get started with WorkSpaces Pools, see [Configure SAML 2.0 and create a WorkSpaces Pools
-directory](create-directory-pools.md "create-directory-pools.md").
+To get started with WorkSpaces Pools, see [Configure SAML 2.0 and create a WorkSpaces Pools directory](create-directory-pools.md "create-directory-pools.md").
 
 In this tutorial, you learn how to provision a virtual, cloud-based Microsoft
 Windows, Amazon Linux 2, Ubuntu Linux, Rocky Linux, or Red Hat Enterprise Linux desktop, known as a _WorkSpace_,
@@ -74,10 +73,8 @@ Quick setup is supported in the following AWS Regions:
 
 - [Before you begin](#quick-setup-prereqs "#quick-setup-prereqs")
 - [What quick setup does](#quick-setup-what-it-does "#quick-setup-what-it-does")
-- [Step 1: Launch the
-  WorkSpace](#quick-setup-launch-workspace "#quick-setup-launch-workspace")
-- [Step 2: Connect to the
-  WorkSpace](#quick-setup-connect-workspace "#quick-setup-connect-workspace")
+- [Step 1: Launch the WorkSpace](#quick-setup-launch-workspace "#quick-setup-launch-workspace")
+- [Step 2: Connect to the WorkSpace](#quick-setup-connect-workspace "#quick-setup-connect-workspace")
 - [Step 3: Clean up (Optional)](#quick-setup-clean-up "#quick-setup-clean-up")
 - [Next steps](#quick-setup-next-steps "#quick-setup-next-steps")
 
@@ -139,9 +136,7 @@ AWS account. You can't update this AWS account from the WorkSpaces Console. Don'
 share the information for this account with anyone else. To invite other users
 to use WorkSpaces, create new AWS accounts for them.
 
-#### Step 1: Launch the
-
-WorkSpace
+#### Step 1: Launch the WorkSpace
 
 Using quick setup, you can launch your first WorkSpace in minutes.
 
@@ -184,9 +179,7 @@ launch process. The initial status of the WorkSpace is
 address that you specified for each user. If your users don't receive
 their invitation emails, see [Send an invitation email](manage-workspaces-users.md#send-invitation "manage-workspaces-users.md#send-invitation").
 
-#### Step 2: Connect to the
-
-WorkSpace
+#### Step 2: Connect to the WorkSpace
 
 After you receive the invitation email, you can connect to the WorkSpace using
 the client of your choice. After you sign in, the client displays the WorkSpace
@@ -289,8 +282,7 @@ Advanced setup is supported in all Regions for WorkSpaces.
 ###### Tasks
 
 - [Before you begin](#advanced-setup-prereqs "#advanced-setup-prereqs")
-- [Using advanced setup to launch your
-  WorkSpace](#advanced-setup-procedure "#advanced-setup-procedure")
+- [Using advanced setup to launch your WorkSpace](#advanced-setup-procedure "#advanced-setup-procedure")
 
 #### Before you begin
 
@@ -310,9 +302,7 @@ Review and understand the following concepts before you proceed:
   profiles by specifying a password. Information about WorkSpaces and
   users is stored in a directory. For more information, see [Manage directories for WorkSpaces Personal](manage-workspaces-directory.md "manage-workspaces-directory.md").
 
-#### Using advanced setup to launch your
-
-WorkSpace
+#### Using advanced setup to launch your WorkSpace
 
 ###### To use advanced setup to launch your WorkSpace:
 

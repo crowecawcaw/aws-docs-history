@@ -12,8 +12,7 @@ Programs](https://aws.amazon.com/compliance/programs/ "https://aws.amazon.com/co
 You can download third-party audit reports using AWS Artifact. For more information,
 see [Downloading Reports in AWS Artifact](../../../artifact/latest/ug/downloading-documents.md "../../../artifact/latest/ug/downloading-documents.md").
 
-For more information about WorkSpaces and FedRAMP, see [Configure FedRAMP authorization or DoD SRG
-compliance for WorkSpaces Personal](fips-encryption.md "fips-encryption.md").
+For more information about WorkSpaces and FedRAMP, see [Configure FedRAMP authorization or DoD SRG compliance for WorkSpaces Personal](fips-encryption.md "fips-encryption.md").
 
 Your compliance responsibility when using WorkSpaces is determined by the sensitivity of
 your data, your company's compliance objectives, and applicable laws and regulations.

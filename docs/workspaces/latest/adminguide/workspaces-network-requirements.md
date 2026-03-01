@@ -23,8 +23,7 @@ network requirements:
   for video resolution, more bandwidth might be required.
 - The network that the client device is connected to, and any firewall on the client
   device, must have certain ports open to the IP address ranges for various AWS
-  services. For more information, see [IP address and port requirements for
-  WorkSpaces Personal](workspaces-port-requirements.md "workspaces-port-requirements.md").
+  services. For more information, see [IP address and port requirements for WorkSpaces Personal](workspaces-port-requirements.md "workspaces-port-requirements.md").
 - For the best performance for PCoIP, the round trip time (RTT) from the client's network to the Region that the
   WorkSpaces are in should be less than 100ms. If the RTT is between 100ms and 200ms, the user can access the
   WorkSpace, but performance is affected. If the RTT is between 200ms and 375ms, the performance is degraded.
@@ -46,8 +45,7 @@ To check the RTT to the various AWS Regions from your location, use the
 
 You cannot access WorkSpaces through a VPN connected to your virtual private cloud (VPC). To access WorkSpaces
 using a VPN, internet connectivity (through the VPN's public IP addresses) is required,
-as described in [IP address and port requirements for
-WorkSpaces Personal](workspaces-port-requirements.md "workspaces-port-requirements.md").
+as described in [IP address and port requirements for WorkSpaces Personal](workspaces-port-requirements.md "workspaces-port-requirements.md").
 
 - The clients require HTTPS access to WorkSpaces resources hosted by the service and
   Amazon Simple Storage Service (Amazon S3). The clients do not support proxy redirection at the application

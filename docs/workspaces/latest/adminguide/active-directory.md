@@ -21,10 +21,7 @@ By joining WorkSpaces Pools to your Active Directory domain, you can:
 ###### Contents
 
 - [Overview of Active Directory Domains](active-directory-overview.md "active-directory-overview.md")
-- [Before You Begin Using Active Directory
-  with WorkSpaces Pools](active-directory-prerequisites.md "active-directory-prerequisites.md")
-- [Certificate-Based
-  Authentication](pools-certificate-based-authentication.md "pools-certificate-based-authentication.md")
-- [WorkSpaces Pools Active Directory
-  Administration](active-directory-admin.md "active-directory-admin.md")
+- [Before You Begin Using Active Directory with WorkSpaces Pools](active-directory-prerequisites.md "active-directory-prerequisites.md")
+- [Certificate-Based Authentication](pools-certificate-based-authentication.md "pools-certificate-based-authentication.md")
+- [WorkSpaces Pools Active Directory Administration](active-directory-admin.md "active-directory-admin.md")
 - [More Info](active-directory-more-info.md "active-directory-more-info.md")

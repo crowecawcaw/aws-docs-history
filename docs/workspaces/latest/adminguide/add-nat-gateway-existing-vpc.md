@@ -1,6 +1,4 @@
-# Add a NAT Gateway to an Existing
-
-VPC
+# Add a NAT Gateway to an Existing VPC
 
 If you have already configured a VPC, complete the following steps to add a
 NAT gateway to your VPC. If you need to create a new VPC, see [Create and Configure a New VPC](create-configure-new-vpc-with-private-public-subnets-nat.md "create-configure-new-vpc-with-private-public-subnets-nat.md").
@@ -22,5 +20,4 @@ NAT gateway to your VPC. If you need to create a new VPC, see [Create and Config
    **Next Steps**
 
 To enable your WorkSpaces in WorkSpaces Pools to access the internet, complete the steps
-in [Enable Internet
-Access for WorkSpaces Pools](managing-network-manual-enable-internet-access.md "managing-network-manual-enable-internet-access.md").
+in [Enable Internet Access for WorkSpaces Pools](managing-network-manual-enable-internet-access.md "managing-network-manual-enable-internet-access.md").

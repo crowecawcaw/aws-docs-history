@@ -14,22 +14,16 @@ Guide_.
 
 ###### Note
 
-If you already have a VPC, complete the steps in [Add a NAT Gateway to an Existing
-VPC](add-nat-gateway-existing-vpc.md "add-nat-gateway-existing-vpc.md") instead.
+If you already have a VPC, complete the steps in [Add a NAT Gateway to an Existing VPC](add-nat-gateway-existing-vpc.md "add-nat-gateway-existing-vpc.md") instead.
 
 ###### Contents
 
-- [Step 1: Allocate an Elastic IP
-  Address](#allocate-elastic-ip "#allocate-elastic-ip")
-- [Step 2: Create a
-  New VPC](#vpc-with-private-and-public-subnets-nat "#vpc-with-private-and-public-subnets-nat")
+- [Step 1: Allocate an Elastic IP Address](#allocate-elastic-ip "#allocate-elastic-ip")
+- [Step 2: Create a New VPC](#vpc-with-private-and-public-subnets-nat "#vpc-with-private-and-public-subnets-nat")
 - [Step 3: Add a Second Private Subnet](#vpc-with-private-and-public-subnets-add-private-subnet-nat "#vpc-with-private-and-public-subnets-add-private-subnet-nat")
-- [Step 4: Verify and Name Your
-  Subnet Route Tables](#verify-name-route-tables "#verify-name-route-tables")
+- [Step 4: Verify and Name Your Subnet Route Tables](#verify-name-route-tables "#verify-name-route-tables")
 
-## Step 1: Allocate an Elastic IP
-
-Address
+## Step 1: Allocate an Elastic IP Address
 
 Before you create your VPC, you must allocate an Elastic IP address in
 your WorkSpaces Region. You must first allocate an Elastic IP address for use in
@@ -59,9 +53,7 @@ not currently associated with another instance or network interface.
 5. In the upper right of the **Elastic IPs** pane,
    click the X icon to close the pane.
 
-## Step 2: Create a
-
-New VPC
+## Step 2: Create a New VPC
 
 Complete the following steps to create a new VPC with a public subnet and
 one private subnet.
@@ -139,8 +131,7 @@ To specify an Amazon S3 endpoint, do the following:
 
 ## Step 3: Add a Second Private Subnet
 
-In the previous step ([Step 2: Create a
-New VPC](#vpc-with-private-and-public-subnets-nat "#vpc-with-private-and-public-subnets-nat")), you
+In the previous step ([Step 2: Create a New VPC](#vpc-with-private-and-public-subnets-nat "#vpc-with-private-and-public-subnets-nat")), you
 created a VPC with one public subnet and one private subnet. Perform the
 following steps to add a second private subnet. We recommend that you
 add a second private subnet in a different Availability Zone than your
@@ -171,9 +162,7 @@ first private subnet.
 9. After your subnet is created, choose
    **Close**.
 
-## Step 4: Verify and Name Your
-
-Subnet Route Tables
+## Step 4: Verify and Name Your Subnet Route Tables
 
 After you've created and configured your VPC, complete the following steps
 to specify a name for your route tables, and to verify that:
@@ -238,5 +227,4 @@ Public Subnet`.
 **Next Steps**
 
 To enable your WorkSpaces in WorkSpaces Pools to access the internet, complete the
-steps in [Enable Internet
-Access for WorkSpaces Pools](managing-network-manual-enable-internet-access.md "managing-network-manual-enable-internet-access.md").
+steps in [Enable Internet Access for WorkSpaces Pools](managing-network-manual-enable-internet-access.md "managing-network-manual-enable-internet-access.md").

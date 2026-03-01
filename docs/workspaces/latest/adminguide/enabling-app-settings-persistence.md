@@ -1,19 +1,12 @@
-# Enabling application settings
-
-persistence
+# Enabling application settings persistence
 
 ###### Contents
 
-- [Prerequisites for enabling
-  application settings persistence](#prerequisites-app-settings-persistence "#prerequisites-app-settings-persistence")
-- [Best practices for
-  enabling application settings persistence](#best-practices-app-settings-persistence "#best-practices-app-settings-persistence")
-- [How to enable application
-  settings persistence](#howto-enable-app-settings-persistence "#howto-enable-app-settings-persistence")
+- [Prerequisites for enabling application settings persistence](#prerequisites-app-settings-persistence "#prerequisites-app-settings-persistence")
+- [Best practices for enabling application settings persistence](#best-practices-app-settings-persistence "#best-practices-app-settings-persistence")
+- [How to enable application settings persistence](#howto-enable-app-settings-persistence "#howto-enable-app-settings-persistence")
 
-## Prerequisites for enabling
-
-application settings persistence
+## Prerequisites for enabling application settings persistence
 
 To enable application settings persistence, you must first do the
 following:
@@ -28,9 +21,7 @@ following:
   information, see the _Home Folders and VPC Endpoints_
   section in [Networking and Access for WorkSpaces Pools](managing-network.md "managing-network.md").
 
-## Best practices for
-
-enabling application settings persistence
+## Best practices for enabling application settings persistence
 
 To enable application settings persistence without providing internet access to
 your WorkSpaces, use a VPC endpoint. This endpoint must be in the VPC to which your
@@ -40,9 +31,7 @@ policy, see the _Home Folders and VPC Endpoints_ section in [Networking and Acce
 information about private Amazon S3 endpoints, see [VPC Endpoints](../../../vpc/latest/userguide/vpc-endpoints.md "../../../vpc/latest/userguide/vpc-endpoints.md") and
 [Endpoints for Amazon S3](../../../vpc/latest/userguide/vpc-endpoints-s3.md "../../../vpc/latest/userguide/vpc-endpoints-s3.md") in the _Amazon VPC User Guide_.
 
-## How to enable application
-
-settings persistence
+## How to enable application settings persistence
 
 You can enable or disable application settings persistence while creating a
 directory or after the directory is created by using the WorkSpaces console. For each
@@ -53,13 +42,11 @@ The first time you enable application settings persistence for a directory in an
 AWS Region, WorkSpaces Pools creates an S3 bucket in your AWS account in the same
 Region. The same bucket stores the application settings VHD file for all users and
 all directories in that AWS Region. For more information, see _Amazon S3
-Bucket Storage_ in [Administer the VHDs for your users'
-application settings](administer-app-settings-vhds.md "administer-app-settings-vhds.md").
+Bucket Storage_ in [Administer the VHDs for your users' application settings](administer-app-settings-vhds.md "administer-app-settings-vhds.md").
 
 ###### To enable application settings persistence while creating a directory
 
-- Follow the steps in [Configure SAML 2.0 and create a WorkSpaces Pools
-  directory](create-directory-pools.md "create-directory-pools.md"), and make sure that **Enable
+- Follow the steps in [Configure SAML 2.0 and create a WorkSpaces Pools directory](create-directory-pools.md "create-directory-pools.md"), and make sure that **Enable
   Application Settings Persistence** is selected.
 
 ###### To enable application settings persistence for an existing directory

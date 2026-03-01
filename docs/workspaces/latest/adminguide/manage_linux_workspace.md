@@ -325,8 +325,7 @@ We recommend that you create a dedicated administrators group for your Amazon Li
  administrators in Active Directory.
 
 
-###### To enable sudo access for members of the Linux\_Workspaces\_Admins Active Directory
- group
+###### To enable sudo access for members of the Linux\_Workspaces\_Admins Active Directory group
 
 1. Edit the `sudoers` file by using `visudo`, as
  shown in the following example.
@@ -352,8 +351,7 @@ After you create the dedicated administrators group, follow these steps to enabl
  login for members of the group.
 
 
-###### To enable login for members of the Linux\_WorkSpaces\_Admins Active Directory
- group
+###### To enable login for members of the Linux\_WorkSpaces\_Admins Active Directory group
 
 1. Edit `/etc/security/access.conf` with elevated
  rights.
@@ -375,8 +373,7 @@ After you create the dedicated administrators group, follow these steps to enabl
 
 ```
 
-For more information about enabling SSH connections, see [Enable SSH connections for
- your Linux WorkSpaces in WorkSpaces Personal](connect-to-linux-workspaces-with-ssh.md "connect-to-linux-workspaces-with-ssh.md").
+For more information about enabling SSH connections, see [Enable SSH connections for your Linux WorkSpaces in WorkSpaces Personal](connect-to-linux-workspaces-with-ssh.md "connect-to-linux-workspaces-with-ssh.md").
 
 
 ## Override the default shell for Amazon Linux WorkSpaces
@@ -442,8 +439,7 @@ Linux WorkSpaces on DCV bundles allow the use of
  [Use smart cards for authentication in WorkSpaces Personal](smart-cards.md "smart-cards.md").
 
 
-## Configure device proxy server settings for internet
- access
+## Configure device proxy server settings for internet access
 
 
 By default, the WorkSpaces client applications use the proxy server that’s

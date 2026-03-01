@@ -38,9 +38,6 @@ and bundles that are supported by each OS.
 ###### Topics
 
 - [Bundle options for WorkSpaces Pools](pools-custom-images-bundles.md "pools-custom-images-bundles.md")
-- [Create a custom image and bundle for
-  WorkSpaces Pools](pools-images-custom-image.md "pools-images-custom-image.md")
-- [Manage custom images and bundles for
-  WorkSpaces Pools](pools-images-managing.md "pools-images-managing.md")
-- [Use session scripts to manage your
-  users' streaming experience](pools-images-session-scripts.md "pools-images-session-scripts.md")
+- [Create a custom image and bundle for WorkSpaces Pools](pools-images-custom-image.md "pools-images-custom-image.md")
+- [Manage custom images and bundles for WorkSpaces Pools](pools-images-managing.md "pools-images-managing.md")
+- [Use session scripts to manage your users' streaming experience](pools-images-session-scripts.md "pools-images-session-scripts.md")

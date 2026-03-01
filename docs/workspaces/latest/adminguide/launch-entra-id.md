@@ -19,8 +19,7 @@ Africa (Cape Town), Israel (Tel Aviv), and China (Ningxia).
 - [Step 4: Create an AWS Secrets Manager secret](launch-entra-id.md#entra-step-4 "launch-entra-id.md#entra-step-4")
 - [Step 5: Create a dedicated Microsoft Entra ID WorkSpaces directory](launch-entra-id.md#entra-step-5 "launch-entra-id.md#entra-step-5")
 - [Configure the IAM Identity Center application for a WorkSpaces directory (optional)](launch-entra-id.md#configure-iam-directory "launch-entra-id.md#configure-iam-directory")
-- [Create a cross-Region IAM
-  Identity Center integration (optional)](launch-entra-id.md#create-cross-region-iam-identity-integration "launch-entra-id.md#create-cross-region-iam-identity-integration")
+- [Create a cross-Region IAM Identity Center integration (optional)](launch-entra-id.md#create-cross-region-iam-identity-integration "launch-entra-id.md#create-cross-region-iam-identity-integration")
 
 ## Overview
 
@@ -68,8 +67,7 @@ For more information, see [What is IAM Identity Center?](../../../singlesignon/l
 If you don’t have an existing IAM Identity Center instance to integrate with your
 WorkSpaces, we recommend that you create one in the same Region as your WorkSpaces. If you have an
 existing AWS Identity Center instance in a different Region, you can set up cross-Region
-integration. For more information about cross-Region setup, see [Create a cross-Region IAM
-Identity Center integration (optional)](#create-cross-region-iam-identity-integration "#create-cross-region-iam-identity-integration").
+integration. For more information about cross-Region setup, see [Create a cross-Region IAM Identity Center integration (optional)](#create-cross-region-iam-identity-integration "#create-cross-region-iam-identity-integration").
 
 ###### Note
 
@@ -291,8 +289,7 @@ Region from the dropdown list.
 
 If you have an existing IAM Identity Center instance in a different Region,
 you must opt-in to set up a cross-Region integration. For more information about
-cross-Region setup, see [Create a cross-Region IAM
-Identity Center integration (optional)](#create-cross-region-iam-identity-integration "#create-cross-region-iam-identity-integration"). 7. For **Directory name**, enter a unique name for the directory (For example, `WorkSpacesDirectoryName`).
+cross-Region setup, see [Create a cross-Region IAM Identity Center integration (optional)](#create-cross-region-iam-identity-integration "#create-cross-region-iam-identity-integration"). 7. For **Directory name**, enter a unique name for the directory (For example, `WorkSpacesDirectoryName`).
 
 ###### Important
 
@@ -348,9 +345,7 @@ After you make this change, users in the Identity Center instance will lose acce
 To assign your users to the application, use the AWS CLI command `create-application-assignment` to assign users or groups to an application. For more information, see the
 [AWS CLI Command Reference](../../../cli/latest/reference/sso-admin/create-application-assignment.md "../../../cli/latest/reference/sso-admin/create-application-assignment.md").
 
-## Create a cross-Region IAM
-
-Identity Center integration (optional)
+## Create a cross-Region IAM Identity Center integration (optional)
 
 We recommend that your WorkSpaces and the associated IAM Identity Center instance are in
 the same AWS Region. However, if you already have an IAM Identity Center instance

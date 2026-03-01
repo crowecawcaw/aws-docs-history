@@ -24,8 +24,7 @@ a fixed size.
 ###### Contents
 
 - [Scaling concepts](#autoscaling-concepts "#autoscaling-concepts")
-- [Managing pool scaling using the
-  console](#autoscaling-console "#autoscaling-console")
+- [Managing pool scaling using the console](#autoscaling-console "#autoscaling-console")
 - [Managing pool scaling using the AWS CLI](#autoscaling-cli "#autoscaling-cli")
 - [Additional resources](#autoscaling-additional-resources "#autoscaling-additional-resources")
 
@@ -112,9 +111,7 @@ Condition**: "If Insufficient Capacity Error
 > 0" perform **Scaling Policy Action**:
 > "Add 1 instance(s)".
 
-## Managing pool scaling using the
-
-console
+## Managing pool scaling using the console
 
 You can set up and manage scaling by using the WorkSpaces console in either of the
 following two ways: During pool creation, or any time, by using the
@@ -180,20 +177,13 @@ as a scalable target. To do so, use the following [register-scalable-target](../
 
 ###### Examples
 
-- [Example 1: Applying a scaling
-  policy based on capacity utilization](#autoscaling-cli-utilization "#autoscaling-cli-utilization")
-- [Example 2: Applying a scaling policy
-  based on insufficient capacity errors](#autoscaling-cli-capacity "#autoscaling-cli-capacity")
-- [Example 3: Applying a scaling policy
-  based on low capacity utilization](#autoscaling-cli-scale-in "#autoscaling-cli-scale-in")
-- [Example 4: Change the pool capacity
-  based on a schedule](#autoscaling-cli-schedule "#autoscaling-cli-schedule")
-- [Example 5: Applying a target
-  tracking scaling policy](#autoscaling-target-tracking "#autoscaling-target-tracking")
+- [Example 1: Applying a scaling policy based on capacity utilization](#autoscaling-cli-utilization "#autoscaling-cli-utilization")
+- [Example 2: Applying a scaling policy based on insufficient capacity errors](#autoscaling-cli-capacity "#autoscaling-cli-capacity")
+- [Example 3: Applying a scaling policy based on low capacity utilization](#autoscaling-cli-scale-in "#autoscaling-cli-scale-in")
+- [Example 4: Change the pool capacity based on a schedule](#autoscaling-cli-schedule "#autoscaling-cli-schedule")
+- [Example 5: Applying a target tracking scaling policy](#autoscaling-target-tracking "#autoscaling-target-tracking")
 
-### Example 1: Applying a scaling
-
-policy based on capacity utilization
+### Example 1: Applying a scaling policy based on capacity utilization
 
 This AWS CLI example sets up a scaling policy that scales out a pool by 25%
 if Utilization >= 75%.
@@ -256,9 +246,7 @@ parameter.
 --alarm-actions "arn:aws:autoscaling:`your-region-code`:`account-number-without-hyphens`:scalingPolicy:`policyid`:resource/workspaces/workspacespool/`PoolId`:policyName/`policyname`"`
 ```
 
-### Example 2: Applying a scaling policy
-
-based on insufficient capacity errors
+### Example 2: Applying a scaling policy based on insufficient capacity errors
 
 This AWS CLI example sets up a scaling policy that scales out the pool by 1
 if the pool returns an `InsufficientCapacityError` error.
@@ -321,9 +309,7 @@ parameter.
 --alarm-actions "arn:aws:autoscaling:`your-region-code`:`account-number-without-hyphens`:scalingPolicy:`policyid`:resource/workspaces/workspacespool/`PoolId`:policyName/`policyname`"`
 ```
 
-### Example 3: Applying a scaling policy
-
-based on low capacity utilization
+### Example 3: Applying a scaling policy based on low capacity utilization
 
 This AWS CLI example sets up a scaling policy that scales in the pool to reduce
 actual capacity when `UserSessionsCapacityUtilization` is low.
@@ -385,9 +371,7 @@ parameter.
 --alarm-actions "arn:aws:autoscaling:`your-region-code`:`account-number-without-hyphens`:scalingPolicy:`policyid`:resource/workspaces/workspacespool/`PoolId`:policyName/`policyname`"`
 ```
 
-### Example 4: Change the pool capacity
-
-based on a schedule
+### Example 4: Change the pool capacity based on a schedule
 
 Changing your pool capacity based on a schedule lets you scale your pool
 capacity in response to predictable changes in demand. For example, at the start
@@ -469,9 +453,7 @@ to the following.
 For more information, see [Scheduled Scaling](../../../autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.md "../../../autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.md") in the _Application Auto Scaling User
 Guide_.
 
-### Example 5: Applying a target
-
-tracking scaling policy
+### Example 5: Applying a target tracking scaling policy
 
 With target tracking scaling, you can specify a capacity utilization level for
 your pool.

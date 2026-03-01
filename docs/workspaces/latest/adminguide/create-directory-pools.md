@@ -1,6 +1,4 @@
-# Configure SAML 2.0 and create a WorkSpaces Pools
-
-directory
+# Configure SAML 2.0 and create a WorkSpaces Pools directory
 
 You can enable WorkSpaces client application registration and signing in to WorkSpaces in a
 WorkSpaces Pool by setting up identity federation using SAML 2.0. To do this, you use an
@@ -15,31 +13,19 @@ WorkSpaces Pools doesn't support IP-based SAML 2.0 configurations.
 
 ###### Topics
 
-- [Step 1: Consider the
-  requirements](#saml-directory-consider-the-requirements "#saml-directory-consider-the-requirements")
-- [Step 2: Complete the
-  prerequisites](#saml-directory-complete-the-prereqs "#saml-directory-complete-the-prereqs")
-- [Step 3: Create a SAML identity provider
-  in IAM](#saml-directory-create-saml-idp "#saml-directory-create-saml-idp")
-- [Step 4: Create
-  WorkSpace Pool directory](#saml-directory-create-wsp-pools-directory "#saml-directory-create-wsp-pools-directory")
-- [Step 5: Create a SAML 2.0
-  federation IAM role](#saml-directory-saml-federation-role-in-iam "#saml-directory-saml-federation-role-in-iam")
-- [Step 6: Configure your SAML 2.0
-  identity provider](#saml-directory-configure-saml-idp "#saml-directory-configure-saml-idp")
-- [Step 7: Create assertions for the
-  SAML authentication response](#saml-directory-create-assertions "#saml-directory-create-assertions")
-- [Step 8: Configure the relay state
-  of your federation](#saml-directory-configure-relay-state "#saml-directory-configure-relay-state")
-- [Step 9: Enable integration with
-  SAML 2.0 on your WorkSpace Pool directory](#saml-directory-enable-saml-integration "#saml-directory-enable-saml-integration")
+- [Step 1: Consider the requirements](#saml-directory-consider-the-requirements "#saml-directory-consider-the-requirements")
+- [Step 2: Complete the prerequisites](#saml-directory-complete-the-prereqs "#saml-directory-complete-the-prereqs")
+- [Step 3: Create a SAML identity provider in IAM](#saml-directory-create-saml-idp "#saml-directory-create-saml-idp")
+- [Step 4: Create WorkSpace Pool directory](#saml-directory-create-wsp-pools-directory "#saml-directory-create-wsp-pools-directory")
+- [Step 5: Create a SAML 2.0 federation IAM role](#saml-directory-saml-federation-role-in-iam "#saml-directory-saml-federation-role-in-iam")
+- [Step 6: Configure your SAML 2.0 identity provider](#saml-directory-configure-saml-idp "#saml-directory-configure-saml-idp")
+- [Step 7: Create assertions for the SAML authentication response](#saml-directory-create-assertions "#saml-directory-create-assertions")
+- [Step 8: Configure the relay state of your federation](#saml-directory-configure-relay-state "#saml-directory-configure-relay-state")
+- [Step 9: Enable integration with SAML 2.0 on your WorkSpace Pool directory](#saml-directory-enable-saml-integration "#saml-directory-enable-saml-integration")
 - [Troubleshooting](#saml-pools-troubleshooting "#saml-pools-troubleshooting")
-- [Specify Active Directory details for your
-  WorkSpaces Pools directory](pools-service-account-details.md "pools-service-account-details.md")
+- [Specify Active Directory details for your WorkSpaces Pools directory](pools-service-account-details.md "pools-service-account-details.md")
 
-## Step 1: Consider the
-
-requirements
+## Step 1: Consider the requirements
 
 The following requirements apply when setting up SAML for a WorkSpaces Pools
 directory.
@@ -51,11 +37,9 @@ directory.
   already exists, you might need to attach the AmazonWorkSpacesPoolServiceAccess
   managed policy to it, which Amazon WorkSpaces uses to access required resources in the
   AWS account for WorkSpaces Pools. For more information, see [Create the workspaces_DefaultRole Role](workspaces-access-control.md#create-default-role "workspaces-access-control.md#create-default-role") and
-  [AWS managed policy:
-  AmazonWorkSpacesPoolServiceAccess](managed-policies.md#workspaces-pools-service-access "managed-policies.md#workspaces-pools-service-access").
+  [AWS managed policy: AmazonWorkSpacesPoolServiceAccess](managed-policies.md#workspaces-pools-service-access "managed-policies.md#workspaces-pools-service-access").
 - You can configure SAML 2.0 authentication for WorkSpaces Pools in the
-  AWS Regions that support the feature. For more information, see [AWS Regions and Availability Zones for
-  WorkSpaces Pools](wsp-pools-regions.md "wsp-pools-regions.md").
+  AWS Regions that support the feature. For more information, see [AWS Regions and Availability Zones for WorkSpaces Pools](wsp-pools-regions.md "wsp-pools-regions.md").
 - To use SAML 2.0 authentication with WorkSpaces, the IdP must support
   unsolicited IdP-initiated SSO with a deep link target resource or relay state
   endpoint URL. Examples of IdPs that support this include ADFS, Azure AD, Duo
@@ -68,9 +52,7 @@ directory.
   - macOS client version 5.20.0 or later
   - Web Access
 
-## Step 2: Complete the
-
-prerequisites
+## Step 2: Complete the prerequisites
 
 Complete the following prerequisites before configuring your SAML 2.0 IdP connection
 to a WorkSpaces Pool directory.
@@ -88,9 +70,7 @@ to a WorkSpaces Pool directory.
 - Create a WorkSpaces Pool for users who can sign in to the IdP using a supported
   directory type. For more information, see [Create a WorkSpaces Pool](set-up-pools-create.md "set-up-pools-create.md").
 
-## Step 3: Create a SAML identity provider
-
-in IAM
+## Step 3: Create a SAML identity provider in IAM
 
 To get started, you must create a SAML IdP in IAM. This IdP defines your
 organization's IdP-to-AWS trust relationship using the metadata document generated by
@@ -99,9 +79,7 @@ User Guide_. For information about working with SAML IdPs in
 AWS GovCloud (US) Regions, see [AWS Identity and Access Management](../../../govcloud-us/latest/UserGuide/govcloud-iam.md "../../../govcloud-us/latest/UserGuide/govcloud-iam.md") in the
 _AWS GovCloud (US) User Guide_.
 
-## Step 4: Create
-
-WorkSpace Pool directory
+## Step 4: Create WorkSpace Pool directory
 
 Complete the following procedure to create a WorkSpaces Pool directory.
 
@@ -139,8 +117,7 @@ Complete the following procedure to create a WorkSpaces Pool directory.
    creation of your WorkSpaces Pools directory if you plan to use an AD with your
    WorkSpaces Pools. You can't edit the **Active Directory Config** for
    your WorkSpaces Pools directory after you create it. For more information about
-   specifying your AD details for your WorkSpaces Pool directory, see [Specify Active Directory details for your
-   WorkSpaces Pools directory](pools-service-account-details.md "pools-service-account-details.md"). After you complete the
+   specifying your AD details for your WorkSpaces Pool directory, see [Specify Active Directory details for your WorkSpaces Pools directory](pools-service-account-details.md "pools-service-account-details.md"). After you complete the
    process outlined in that topic, you should return to this topic to finish
    creating your WorkSpaces Pools directory.
 
@@ -168,9 +145,7 @@ information, see [Creating a role to
 delegate permissions to an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in _AWS Identity and Access Management User
 Guide_. 12. Choose **Create directory**.
 
-## Step 5: Create a SAML 2.0
-
-federation IAM role
+## Step 5: Create a SAML 2.0 federation IAM role
 
 Complete the following procedure to create a SAML 2.0 federation IAM role in the
 IAM console.
@@ -229,9 +204,7 @@ ARN:
 `arn:aws-us-gov:workspaces:`<region-code>`:`<account-id>`:directory/`<directory-id>``. 22. Choose Next. 23. Enter a name for the policy, and then choose **Create
 policy**.
 
-## Step 6: Configure your SAML 2.0
-
-identity provider
+## Step 6: Configure your SAML 2.0 identity provider
 
 Depending on your SAML 2.0 IdP, you might need to manually update your IdP to trust
 AWS as a service provider. You do this by downloading the
@@ -255,9 +228,7 @@ automatically authorized to access the WorkSpaces application. To successfully c
 to a WorkSpace using SAML 2.0 authentication, a user must be authorized by the IdP
 and must have a WorkSpace created.
 
-## Step 7: Create assertions for the
-
-SAML authentication response
+## Step 7: Create assertions for the SAML authentication response
 
 Configure the information that your IdP sends to AWS as SAML attributes in its
 authentication response. Depending on your IdP, this is might already be configured. You
@@ -288,8 +259,7 @@ primary-domain
   for the `NameID` element in all SAML requests from a particular
   user. Make sure that your IAM policy includes a condition to only allow SAML
   requests with a SAML `sub_type` set to `persistent`, as
-  described in the [Step 5: Create a SAML 2.0
-  federation IAM role](#saml-directory-saml-federation-role-in-iam "#saml-directory-saml-federation-role-in-iam") section.
+  described in the [Step 5: Create a SAML 2.0 federation IAM role](#saml-directory-saml-federation-role-in-iam "#saml-directory-saml-federation-role-in-iam") section.
 - **`Attribute` element with the
   `Name` attribute set to
   https://aws.amazon.com/SAML/Attributes/Role** — This element
@@ -364,9 +334,7 @@ For more information about how to configure these elements, see [Configuring SAM
 _AWS Identity and Access Management User Guide_. For information about specific
 configuration requirements for your IdP, see your IdP's documentation.
 
-## Step 8: Configure the relay state
-
-of your federation
+## Step 8: Configure the relay state of your federation
 
 Use your IdP to configure the relay state of your federation to point to the
 WorkSpaces Pool directory relay state URL. After successful authentication by AWS, the user
@@ -402,9 +370,7 @@ feature is not available have been removed.
 | AWS GovCloud (US-West)           | • workspaces.euc-sso.us-gov-west-1.amazonaws-us-gov.com<br>• (FIPS)<br>workspaces.euc-sso-fips.us-gov-west-1.amazonaws-us-gov.com<br>NoteFor information about working with SAML IdPs in<br>AWS GovCloud (US) Regions, see [Amazon WorkSpaces](../../../govcloud-us/latest/UserGuide/govcloud-workspaces.md "../../../govcloud-us/latest/UserGuide/govcloud-workspaces.md") in the _AWS GovCloud (US) User<br>Guide_. |
 | AWS GovCloud (US-East)           | • workspaces.euc-sso.us-gov-east-1.amazonaws-us-gov.com<br>• (FIPS)<br>workspaces.euc-sso-fips.us-gov-east-1.amazonaws-us-gov.com<br>NoteFor information about working with SAML IdPs in<br>AWS GovCloud (US) Regions, see [Amazon WorkSpaces](../../../govcloud-us/latest/UserGuide/govcloud-workspaces.md "../../../govcloud-us/latest/UserGuide/govcloud-workspaces.md") in the _AWS GovCloud (US) User<br>Guide_. |
 
-## Step 9: Enable integration with
-
-SAML 2.0 on your WorkSpace Pool directory
+## Step 9: Enable integration with SAML 2.0 on your WorkSpace Pool directory
 
 Complete the following procedure to enable SAML 2.0 authentication for the WorkSpaces Pool
 directory.
@@ -452,9 +418,7 @@ will be removed only after the timeout kicks in. They can also terminate it usin
 The following information can help you troubleshoot specific issues with your
 WorkSpaces Pools.
 
-### I am receiving an "Unable to login" message
-
-in the WorkSpaces Pools client after completing SAML authentication
+### I am receiving an "Unable to login" message in the WorkSpaces Pools client after completing SAML authentication
 
 The `nameID` and `PrincipalTag:Email` in the SAML claims need
 to match the username and email configured in Active Directory. Some IdP's may require an

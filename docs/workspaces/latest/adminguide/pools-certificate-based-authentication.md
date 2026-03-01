@@ -1,6 +1,4 @@
-# Certificate-Based
-
-Authentication
+# Certificate-Based Authentication
 
 You can use certificate-based authentication with WorkSpaces Pools joined to Microsoft
 Active Directory. This removes the user prompt for the Active Directory domain password
@@ -29,8 +27,6 @@ Windows instances.
 ###### Contents
 
 - [Prerequisites](certificate-based-authentication-prereq.md "certificate-based-authentication-prereq.md")
-- [Enable Certificate-based
-  Authentication](certificate-based-authentication-enable.md "certificate-based-authentication-enable.md")
-- [Manage Certificate-based
-  Authentication](certificate-based-authentication-manage.md "certificate-based-authentication-manage.md")
+- [Enable Certificate-based Authentication](certificate-based-authentication-enable.md "certificate-based-authentication-enable.md")
+- [Manage Certificate-based Authentication](certificate-based-authentication-manage.md "certificate-based-authentication-manage.md")
 - [Enable Cross-account PCA Sharing](pca-sharing.md "pca-sharing.md")

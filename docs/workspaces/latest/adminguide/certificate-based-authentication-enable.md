@@ -1,6 +1,4 @@
-# Enable Certificate-based
-
-Authentication
+# Enable Certificate-based Authentication
 
 Complete the following steps to enable certificate-based authentication.
 

@@ -53,9 +53,7 @@ Choose a name that will be meaningful to your users. 7. Enter the Amazon Connect
 [Provide access to the Contact Control Panel](../../../connect/latest/adminguide/amazon-connect-contact-control-panel.md "../../../connect/latest/adminguide/amazon-connect-contact-control-panel.md") for more
 information on getting the URL. 8. Choose **Create Amazon Connect**.
 
-## Update directory's Amazon Connect audio
-
-optimization details
+## Update directory's Amazon Connect audio optimization details
 
 To update a directory's Amazon Connect audio optimization
 details:

@@ -1,6 +1,4 @@
-# IP Address and Port Requirements
-
-for WorkSpaces Pools User Devices
+# IP Address and Port Requirements for WorkSpaces Pools User Devices
 
 WorkSpaces Pools users' devices require outbound access on port 443 (TCP) and port 4195
 (UDP) when using the internet endpoints, and if you are using DNS servers for domain

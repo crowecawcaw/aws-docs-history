@@ -25,8 +25,7 @@ used to upgrade your Windows 10 WorkSpaces to Windows 11.
 - [Summary of registry key settings](#upgrade_byol_registry_summary "#upgrade_byol_registry_summary")
 - [Perform an in-place upgrade](#upgrade_byol_procedure "#upgrade_byol_procedure")
 - [Troubleshooting](#byol-troubleshooting "#byol-troubleshooting")
-- [Update your WorkSpace registry using a
-  PowerShell script](#update-windows-10-byol-script "#update-windows-10-byol-script")
+- [Update your WorkSpace registry using a PowerShell script](#update-windows-10-byol-script "#update-windows-10-byol-script")
 
 ## Prerequisites
 
@@ -102,18 +101,16 @@ rebuild or migration process.
 To enable the in-place upgrade process and to specify where you would like the user
 profile to be after the upgrade, you must set a number of registry keys.
 
-Registry path:
-**HKLM:\Software\Amazon\WorkSpacesConfig\enable-inplace-upgrade.ps1**| Registry key | Type | Values |
-| --- | --- | --- |
-| **Enabled** | DWORD | **0\*<br>• – (Default) Disables in-place<br>upgrade<br>**1*<br>• – Enables in-place upgrade |
-| **PostUpgradeRestoreProfileOnD** | DWORD | \*\*0*<br>• – (Default) Does not attempt to restore<br>the user profile path after the in-place upgrade<br>**1\*<br>• – Restores the user profile path<br>(**ProfileImagePath**) after the in-place<br>upgrade |
-| **UserShellFoldersRedirection** | DWORD | **0*<br>• – Does not enable redirection of user<br>shell folders<br>\*\*1*<br>• – (Default) Enables redirection of user<br>shell folders to `D:\Users\%USERNAME%` after the user<br>profile is regenerated on `C:\Users\%USERNAME%` |
-| **NoReboot** | DWORD | **0\*<br>• – (Default) Allows you to control when a<br>reboot occurs after modifying the registry for the user profile<br>**1\*<br>• – Does not allow the script to reboot<br>the WorkSpace after modifying the registry for the user profile |
+| Registry path: **HKLM:\Software\Amazon\WorkSpacesConfig\enable-inplace-upgrade.ps1** | Registry key | Type                                                                                                                                                                                                                                          | Values |
+| ------------------------------------------------------------------------------------ | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| **Enabled**                                                                          | DWORD        | **0\*<br>• – (Default) Disables in-place<br>upgrade<br>**1\*<br>• – Enables in-place upgrade                                                                                                                                                  |
+| **PostUpgradeRestoreProfileOnD**                                                     | DWORD        | **0\*<br>• – (Default) Does not attempt to restore<br>the user profile path after the in-place upgrade<br>**1\*<br>• – Restores the user profile path<br>(**ProfileImagePath**) after the in-place<br>upgrade                                 |
+| **UserShellFoldersRedirection**                                                      | DWORD        | **0\*<br>• – Does not enable redirection of user<br>shell folders<br>**1\*<br>• – (Default) Enables redirection of user<br>shell folders to `D:\Users\%USERNAME%` after the user<br>profile is regenerated on `C:\Users\%USERNAME%`           |
+| **NoReboot**                                                                         | DWORD        | **0\*<br>• – (Default) Allows you to control when a<br>reboot occurs after modifying the registry for the user profile<br>**1\*<br>• – Does not allow the script to reboot<br>the WorkSpace after modifying the registry for the user profile |
 
-Registry path:
-**HKLM:\Software\Amazon\WorkSpacesConfig\update-pvdrivers.ps1**| Registry key | Type | Values |
-| --- | --- | --- |
-| **Enabled** | DWORD | **0\*<br>• – (Default) Disables AWS PV drivers<br>update<br>**1\*<br>• – Enables AWS PV drivers update |
+| Registry path: **HKLM:\Software\Amazon\WorkSpacesConfig\update-pvdrivers.ps1** | Registry key | Type                                                                                                   | Values |
+| ------------------------------------------------------------------------------ | ------------ | ------------------------------------------------------------------------------------------------------ | ------ |
+| **Enabled**                                                                    | DWORD        | **0\*<br>• – (Default) Disables AWS PV drivers<br>update<br>**1\*<br>• – Enables AWS PV drivers update |
 
 ## Perform an in-place upgrade
 
@@ -124,8 +121,7 @@ upgrades are finished.
 
 You can make these registry changes manually. If you have multiple WorkSpaces to update,
 you can use Group Policy or SCCM to push a PowerShell script. For a sample PowerShell
-script, see [Update your WorkSpace registry using a
-PowerShell script](#update-windows-10-byol-script "#update-windows-10-byol-script").
+script, see [Update your WorkSpace registry using a PowerShell script](#update-windows-10-byol-script "#update-windows-10-byol-script").
 
 ###### To perform an in-place upgrade of Windows 10 and 11
 
@@ -307,9 +303,7 @@ C:\Windows\System32\Drivers\
 
 5. Initiate Windows 11 24H2 upgrade using the ISO file.
 
-## Update your WorkSpace registry using a
-
-PowerShell script
+## Update your WorkSpace registry using a PowerShell script
 
 You can use the following sample PowerShell script to update the registry on your
 WorkSpaces to enable in-place upgrades. Follow the [Perform an in-place upgrade](#upgrade_byol_procedure "#upgrade_byol_procedure"), but use this script to update the registry

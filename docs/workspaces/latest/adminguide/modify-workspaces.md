@@ -19,8 +19,7 @@ time.
 Changing the volume size or compute type of a WorkSpace will change the billing rate for
 the WorkSpace.
 
-To allow your users to modify their volumes and compute types themselves, see [Enable self-service WorkSpaces
-management capabilities for your users in WorkSpaces Personal](enable-user-self-service-workspace-management.md "enable-user-self-service-workspace-management.md").
+To allow your users to modify their volumes and compute types themselves, see [Enable self-service WorkSpaces management capabilities for your users in WorkSpaces Personal](enable-user-self-service-workspace-management.md "enable-user-self-service-workspace-management.md").
 
 ## Modify volume sizes
 
@@ -79,9 +78,7 @@ you're modifying the volume sizes for a large number of WorkSpaces, the process 
 significantly longer. If you have a large number of WorkSpaces to modify, we recommend
 contacting AWS Support for assistance.
 
-###### Limitations for increasing
-
-volumes
+###### Limitations for increasing volumes
 
 - You can resize only SSD volumes.
 - When you launch a WorkSpace, you must wait 6 hours before you can modify the

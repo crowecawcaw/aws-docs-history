@@ -1,6 +1,4 @@
-# Manage custom images and bundles for
-
-WorkSpaces Pools
+# Manage custom images and bundles for WorkSpaces Pools
 
 The process to manage custom images and bundles is the same between WorkSpaces Personal and
 WorkSpaces Pool. For more information about how to manage images and bundles, refer to the

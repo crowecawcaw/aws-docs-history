@@ -1,6 +1,4 @@
-# How application settings
-
-persistence works
+# How application settings persistence works
 
 Persistent application settings are saved to a Virtual Hard Disk (VHD) file. This file
 is created the first time a user streams an application from a directory on which
@@ -67,8 +65,7 @@ following folders:
 
 The entire VHD must be downloaded to the WorkSpace before a streaming session can
 begin. For this reason, a VHD that contains a large amount of data can delay the
-start of the streaming session. For more information, see [Best practices for
-enabling application settings persistence](enabling-app-settings-persistence.md#best-practices-app-settings-persistence "enabling-app-settings-persistence.md#best-practices-app-settings-persistence").
+start of the streaming session. For more information, see [Best practices for enabling application settings persistence](enabling-app-settings-persistence.md#best-practices-app-settings-persistence "enabling-app-settings-persistence.md#best-practices-app-settings-persistence").
 
 When you enable application settings persistence, you must specify a settings group.
 The settings group determines which saved application settings are used for a streaming

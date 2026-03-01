@@ -201,108 +201,57 @@ WorkSpaces.
 
 ###### Issues
 
-- [I can't create an Amazon Linux
-  WorkSpace because there are non-valid characters in the user name](#linux_workspace_provision_fail_username "#linux_workspace_provision_fail_username")
-- [I changed the shell
-  for my Amazon Linux WorkSpace and now I can't provision a PCoIP session](#linux_workspace_provision_fail_shell_override "#linux_workspace_provision_fail_shell_override")
-- [My Amazon Linux WorkSpaces
-  won't start](#linux_workspace_provision_fail_pcoip_agent_upgrade "#linux_workspace_provision_fail_pcoip_agent_upgrade")
-- [Launching WorkSpaces in my connected directory often
-  fails](#provision_fail "#provision_fail")
-- [Launching WorkSpaces fails with an internal
-  error](#launch-failure-ipv6 "#launch-failure-ipv6")
-- [When I try to register a directory, the
-  registration fails and leaves the directory in an ERROR state](#cannot-register-directory "#cannot-register-directory")
-- [My users can't connect to a Windows WorkSpace with an
-  interactive logon banner](#logon_banner "#logon_banner")
+- [I can't create an Amazon Linux WorkSpace because there are non-valid characters in the user name](#linux_workspace_provision_fail_username "#linux_workspace_provision_fail_username")
+- [I changed the shell for my Amazon Linux WorkSpace and now I can't provision a PCoIP session](#linux_workspace_provision_fail_shell_override "#linux_workspace_provision_fail_shell_override")
+- [My Amazon Linux WorkSpaces won't start](#linux_workspace_provision_fail_pcoip_agent_upgrade "#linux_workspace_provision_fail_pcoip_agent_upgrade")
+- [Launching WorkSpaces in my connected directory often fails](#provision_fail "#provision_fail")
+- [Launching WorkSpaces fails with an internal error](#launch-failure-ipv6 "#launch-failure-ipv6")
+- [When I try to register a directory, the registration fails and leaves the directory in an ERROR state](#cannot-register-directory "#cannot-register-directory")
+- [My users can't connect to a Windows WorkSpace with an interactive logon banner](#logon_banner "#logon_banner")
 - [My users can't connect to a Windows WorkSpace](#gpo_security_user_rights "#gpo_security_user_rights")
-- [My users are having issues when they try to log
-  on to WorkSpaces from WorkSpaces Web Access](#byol_logon_issues "#byol_logon_issues")
-- [The Amazon WorkSpaces client displays a gray "Loading..."
-  screen for a while before returning to the login screen. No other error message
-  appears.](#loading_screen "#loading_screen")
-- [My users receive the message "WorkSpace Status:
-  Unhealthy. We were unable to connect you to your WorkSpace. Please try again in a
-  few minutes."](#unhealthy_cant_connect "#unhealthy_cant_connect")
-- [My users receive the message "This device is not
-  authorized to access the WorkSpace. Please contact your administrator for assistance."](#device_not_authorized "#device_not_authorized")
-- [My users receive the message "No network. Network connection lost.
-  Check your network connection or contact your administrator for help." when trying to connect
-  to a DCV WorkSpace](#no_network "#no_network")
-- [The WorkSpaces client gives my users a network error, but
-  they are able to use other network-enabled apps on their devices](#network_error "#network_error")
-- [My WorkSpace users see the following error message:
-  "Device can't connect to the registration service. Check your network settings."](#registration_service_failure "#registration_service_failure")
-- [My PCoIP zero client users are receiving the error
-  "The supplied certificate is invalid due to timestamp"](#pcoip_zero_client_ntp "#pcoip_zero_client_ntp")
-- [USB printers and other USB peripherals aren't working for PCoIP
-  zero clients](#pcoip_zero_client_usb "#pcoip_zero_client_usb")
-- [My users skipped updating their Windows or macOS client
-  applications and aren't getting prompted to install the latest version](#client_update_skipped "#client_update_skipped")
-- [My users are unable to install the Android client application
-  on their Chromebooks](#install_android_chromebook "#install_android_chromebook")
+- [My users are having issues when they try to log on to WorkSpaces from WorkSpaces Web Access](#byol_logon_issues "#byol_logon_issues")
+- [The Amazon WorkSpaces client displays a gray "Loading..." screen for a while before returning to the login screen. No other error message appears.](#loading_screen "#loading_screen")
+- [My users receive the message "WorkSpace Status: Unhealthy. We were unable to connect you to your WorkSpace. Please try again in a few minutes."](#unhealthy_cant_connect "#unhealthy_cant_connect")
+- [My users receive the message "This device is not authorized to access the WorkSpace. Please contact your administrator for assistance."](#device_not_authorized "#device_not_authorized")
+- [My users receive the message "No network. Network connection lost. Check your network connection or contact your administrator for help." when trying to connect to a DCV WorkSpace](#no_network "#no_network")
+- [The WorkSpaces client gives my users a network error, but they are able to use other network-enabled apps on their devices](#network_error "#network_error")
+- [My WorkSpace users see the following error message: "Device can't connect to the registration service. Check your network settings."](#registration_service_failure "#registration_service_failure")
+- [My PCoIP zero client users are receiving the error "The supplied certificate is invalid due to timestamp"](#pcoip_zero_client_ntp "#pcoip_zero_client_ntp")
+- [USB printers and other USB peripherals aren't working for PCoIP zero clients](#pcoip_zero_client_usb "#pcoip_zero_client_usb")
+- [My users skipped updating their Windows or macOS client applications and aren't getting prompted to install the latest version](#client_update_skipped "#client_update_skipped")
+- [My users are unable to install the Android client application on their Chromebooks](#install_android_chromebook "#install_android_chromebook")
 - [My users aren't receiving invitation emails or password reset emails](#welcome_emails "#welcome_emails")
 - [My users don't see the Forgot password? option on the client login screen](#forgot_password "#forgot_password")
-- [I receive the message "The system administrator has set
-  policies to prevent this installation" when I try to install applications on a Windows WorkSpace](#msi_wont_install "#msi_wont_install")
-- [No WorkSpaces in my directory can connect to the
-  internet](#no_internet "#no_internet")
+- [I receive the message "The system administrator has set policies to prevent this installation" when I try to install applications on a Windows WorkSpace](#msi_wont_install "#msi_wont_install")
+- [No WorkSpaces in my directory can connect to the internet](#no_internet "#no_internet")
 - [My WorkSpace has lost its internet access](#lost_internet_access "#lost_internet_access")
-- [I receive a "DNS unavailable" error when I try to
-  connect to my on-premises directory](#dns_unavailable "#dns_unavailable")
-- [I receive a "Connectivity issues
-  detected" error when I try to connect to my on-premises directory](#connectivity_issues_detected "#connectivity_issues_detected")
-- [I receive an "SRV record" error when I try to
-  connect to my on-premises directory](#srv_record_not_found "#srv_record_not_found")
-- [My Windows WorkSpace goes to
-  sleep when it's left idle](#windows_workspace_sleeps_when_idle "#windows_workspace_sleeps_when_idle")
-- [One of my WorkSpaces has a state of
-  UNHEALTHY](#unhealthy "#unhealthy")
+- [I receive a "DNS unavailable" error when I try to connect to my on-premises directory](#dns_unavailable "#dns_unavailable")
+- [I receive a "Connectivity issues detected" error when I try to connect to my on-premises directory](#connectivity_issues_detected "#connectivity_issues_detected")
+- [I receive an "SRV record" error when I try to connect to my on-premises directory](#srv_record_not_found "#srv_record_not_found")
+- [My Windows WorkSpace goes to sleep when it's left idle](#windows_workspace_sleeps_when_idle "#windows_workspace_sleeps_when_idle")
+- [One of my WorkSpaces has a state of UNHEALTHY](#unhealthy "#unhealthy")
 - [My WorkSpace is unexpectedly crashing or rebooting](#crash_web_access "#crash_web_access")
-- [The same username has more than
-  one WorkSpace, but the user can log in to only one of the WorkSpaces](#multiple_workspaces_same_username "#multiple_workspaces_same_username")
+- [The same username has more than one WorkSpace, but the user can log in to only one of the WorkSpaces](#multiple_workspaces_same_username "#multiple_workspaces_same_username")
 - [I'm having trouble using Docker with Amazon WorkSpaces](#docker_support "#docker_support")
 - [I receive ThrottlingException errors to some of my API calls](#throttled-api-calls "#throttled-api-calls")
 - [My WorkSpace keeps disconnecting when I let it run in the background](#workspaces-disconnecting "#workspaces-disconnecting")
-- [SAML 2.0 federation isn't working. My
-  users are not authorized to stream their WorkSpaces desktop.](#saml-federation-not-working "#saml-federation-not-working")
-- [My users are getting disconnected from
-  their WorkSpaces session every 60 minutes.](#disconnected-workspace "#disconnected-workspace")
-- [My users get a redirect URI error when they
-  federate using the SAML 2.0 identity provider (IdP)-initiated flow, or an
-  additional instance of the WorkSpaces client application starts every time my users
-  attempt to sign in from the client after federating to the IdP.](#invalid-redirect-uri "#invalid-redirect-uri")
-- [My users receive the message, "Something
-  went wrong: An error occurred while launching your WorkSpace" when they attempt
-  to sign in to the WorkSpaces client application after federating to the IdP.](#federating-error-message "#federating-error-message")
-- [My users receive the message, "Unable to
-  validate tags” when they attempt to sign in to the WorkSpaces client application
-  after federating to the IdP.](#unable-to-validate-tags "#unable-to-validate-tags")
-- [My users receive the message, "The client and
-  the server cannot communicate, because they do not possess a common algorithm".](#no-common-algorithm "#no-common-algorithm")
-- [My microphone or web cam is not working on
-  Windows WorkSpaces.](#microphone-not-working "#microphone-not-working")
-- [My users cannot log in using
-  certificate-based authentication and are prompted for the password either at the
-  WorkSpaces client or the Windows sign-on screen when they connect to their desktop
-  session.](#cert-based-auth-troubleshooting "#cert-based-auth-troubleshooting")
-- [I am trying to do something that
-  requires Windows installation media but WorkSpaces does not provide it.](#install-media-troubleshooting "#install-media-troubleshooting")
-- [I want to launch WorkSpaces with an existing AWS Managed Directory created in an
-  unsupported WorkSpaces Region.](#unsupported-regions-troubleshooting "#unsupported-regions-troubleshooting")
+- [SAML 2.0 federation isn't working. My users are not authorized to stream their WorkSpaces desktop.](#saml-federation-not-working "#saml-federation-not-working")
+- [My users are getting disconnected from their WorkSpaces session every 60 minutes.](#disconnected-workspace "#disconnected-workspace")
+- [My users get a redirect URI error when they federate using the SAML 2.0 identity provider (IdP)-initiated flow, or an additional instance of the WorkSpaces client application starts every time my users attempt to sign in from the client after federating to the IdP.](#invalid-redirect-uri "#invalid-redirect-uri")
+- [My users receive the message, "Something went wrong: An error occurred while launching your WorkSpace" when they attempt to sign in to the WorkSpaces client application after federating to the IdP.](#federating-error-message "#federating-error-message")
+- [My users receive the message, "Unable to validate tags” when they attempt to sign in to the WorkSpaces client application after federating to the IdP.](#unable-to-validate-tags "#unable-to-validate-tags")
+- [My users receive the message, "The client and the server cannot communicate, because they do not possess a common algorithm".](#no-common-algorithm "#no-common-algorithm")
+- [My microphone or web cam is not working on Windows WorkSpaces.](#microphone-not-working "#microphone-not-working")
+- [My users cannot log in using certificate-based authentication and are prompted for the password either at the WorkSpaces client or the Windows sign-on screen when they connect to their desktop session.](#cert-based-auth-troubleshooting "#cert-based-auth-troubleshooting")
+- [I am trying to do something that requires Windows installation media but WorkSpaces does not provide it.](#install-media-troubleshooting "#install-media-troubleshooting")
+- [I want to launch WorkSpaces with an existing AWS Managed Directory created in an unsupported WorkSpaces Region.](#unsupported-regions-troubleshooting "#unsupported-regions-troubleshooting")
 - [I want to update Firefox on Amazon Linux 2.](#firefox_al2 "#firefox_al2")
-- [My user is able to reset their password using the WorkSpaces client,
-  ignoring the Fine Grained Password Policy (FFGP) setting that is configured on AWS Managed Microsoft AD.](#password-setting-mad "#password-setting-mad")
-- [My users receive the error message "This OS/platform is not authorized to access your WorkSpace"
-  when trying to access the Windows/Linux WorkSpace using Web Access](#os-authorized-access "#os-authorized-access")
-- [My user's WorkSpace is showing as unhealthy after they connect
-  to an AutoStop WorkSpace that is in the stopped state](#autostop-unhealthy "#autostop-unhealthy")
-- [Gnome crashes on WorkSpaces Ubuntu bundles after
-  login](#gnome-crashes-ubuntu "#gnome-crashes-ubuntu")
+- [My user is able to reset their password using the WorkSpaces client, ignoring the Fine Grained Password Policy (FFGP) setting that is configured on AWS Managed Microsoft AD.](#password-setting-mad "#password-setting-mad")
+- [My users receive the error message "This OS/platform is not authorized to access your WorkSpace" when trying to access the Windows/Linux WorkSpace using Web Access](#os-authorized-access "#os-authorized-access")
+- [My user's WorkSpace is showing as unhealthy after they connect to an AutoStop WorkSpace that is in the stopped state](#autostop-unhealthy "#autostop-unhealthy")
+- [Gnome crashes on WorkSpaces Ubuntu bundles after login](#gnome-crashes-ubuntu "#gnome-crashes-ubuntu")
 
-### I can't create an Amazon Linux
-
-WorkSpace because there are non-valid characters in the user name
+### I can't create an Amazon Linux WorkSpace because there are non-valid characters in the user name
 
 For Amazon Linux WorkSpaces, user names:
 
@@ -318,15 +267,11 @@ For Amazon Linux WorkSpaces, user names:
 These limitations do not apply to Windows WorkSpaces. Windows WorkSpaces support the @
 and - symbols for all characters in the user name.
 
-### I changed the shell
-
-for my Amazon Linux WorkSpace and now I can't provision a PCoIP session
+### I changed the shell for my Amazon Linux WorkSpace and now I can't provision a PCoIP session
 
 To override the default shell for Linux WorkSpaces, see [Override the default shell for Amazon Linux WorkSpaces](manage_linux_workspace.md#linux_shell "manage_linux_workspace.md#linux_shell").
 
-### My Amazon Linux WorkSpaces
-
-won't start
+### My Amazon Linux WorkSpaces won't start
 
 Starting July 20, 2020, Amazon Linux WorkSpaces will be using new license certificates.
 These new certificates are compatible only with versions 2.14.1.1, 2.14.7, 2.14.9,
@@ -361,8 +306,7 @@ following:
     4. Choose **Modify**.
 
 5. Connect to your Linux WorkSpace through SSH. For more information, see
-   [Enable SSH connections for
-   your Linux WorkSpaces in WorkSpaces Personal](connect-to-linux-workspaces-with-ssh.md "connect-to-linux-workspaces-with-ssh.md").
+   [Enable SSH connections for your Linux WorkSpaces in WorkSpaces Personal](connect-to-linux-workspaces-with-ssh.md "connect-to-linux-workspaces-with-ssh.md").
 6. To update the PCoIP agent, run the following command:
 
 ```
@@ -390,9 +334,7 @@ pcoip-agent-standard-20.10.6-1.el7.x86_64
 If your Linux WorkSpace still fails to start after you upgrade the PCoIP agent, contact
 AWS Support.
 
-### Launching WorkSpaces in my connected directory often
-
-fails
+### Launching WorkSpaces in my connected directory often fails
 
 Verify that the two DNS servers or domain controllers in your on-premises
 directory are accessible from each of the subnets that you specified when you
@@ -400,9 +342,7 @@ connected to your directory. You can verify this connectivity by launching an Am
 instance in each subnet and joining the instance to your directory using the IP
 addresses of the two DNS servers.
 
-### Launching WorkSpaces fails with an internal
-
-error
+### Launching WorkSpaces fails with an internal error
 
 Check whether your subnets are configured to automatically assign IPv6 addresses
 to instances launched in the subnet. To check this setting, open the Amazon VPC console,
@@ -411,9 +351,7 @@ auto-assign IP settings**. If this setting is enabled, you cannot
 launch WorkSpaces using the Performance or Graphics bundles. Instead, disable this
 setting and specify IPv6 addresses manually when you launch your instances.
 
-### When I try to register a directory, the
-
-registration fails and leaves the directory in an ERROR state
+### When I try to register a directory, the registration fails and leaves the directory in an ERROR state
 
 This problem can occur if you're trying to register an AWS Managed Microsoft AD
 directory that has been configured for multi-Region replication. Although the directory
@@ -422,9 +360,7 @@ attempting to register the directory in a replicated Region fails. Multi-Region 
 with AWS Managed Microsoft AD isn't supported for use with Amazon WorkSpaces within replicated
 Regions.
 
-### My users can't connect to a Windows WorkSpace with an
-
-interactive logon banner
+### My users can't connect to a Windows WorkSpace with an interactive logon banner
 
 If an interactive logon message has been implemented to display a logon banner,
 this prevents users from being able to access their Windows WorkSpaces. The interactive
@@ -491,9 +427,7 @@ This policy setting should be applied to **Domain Users** instead of
 
 For more information, see [Access this computer from the network - security policy setting](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/access-this-computer-from-the-network "https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/access-this-computer-from-the-network") and [Configure security policy settings](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/how-to-configure-security-policy-settings "https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/how-to-configure-security-policy-settings") in the Microsoft Windows documentation.
 
-### My users are having issues when they try to log
-
-on to WorkSpaces from WorkSpaces Web Access
+### My users are having issues when they try to log on to WorkSpaces from WorkSpaces Web Access
 
 Amazon WorkSpaces relies on a specific logon screen configuration to enable users to
 successfully log on from their Web Access client.
@@ -509,10 +443,7 @@ Beginning October 1, 2020, customers will no longer be able to use the
 Amazon WorkSpaces Web Access client to connect to Windows 7 custom WorkSpaces or to Windows 7
 Bring Your Own License (BYOL) WorkSpaces.
 
-### The Amazon WorkSpaces client displays a gray "Loading..."
-
-screen for a while before returning to the login screen. No other error message
-appears.
+### The Amazon WorkSpaces client displays a gray "Loading..." screen for a while before returning to the login screen. No other error message appears.
 
 This behavior usually indicates that the WorkSpaces client can authenticate over port
 443, but can't establish a streaming connection over port 4172 (PCoIP) or port 4195
@@ -535,10 +466,7 @@ of the WorkSpace. For example, a Windows Firewall rule might block port UDP 4172
 management interface. [Connect to the WorkSpace using a Remote Desktop Protocol (RDP) client](https://aws.amazon.com/premiumsupport/knowledge-center/connect-workspace-rdp/ "https://aws.amazon.com/premiumsupport/knowledge-center/connect-workspace-rdp/") to verify
 that the WorkSpace meets the necessary [port requirements](workspaces-port-requirements.md "workspaces-port-requirements.md").
 
-### My users receive the message "WorkSpace Status:
-
-Unhealthy. We were unable to connect you to your WorkSpace. Please try again in a
-few minutes."
+### My users receive the message "WorkSpace Status: Unhealthy. We were unable to connect you to your WorkSpace. Please try again in a few minutes."
 
 This error usually indicates the SkyLightWorkSpacesConfigService service isn't
 responding to health checks.
@@ -557,9 +485,7 @@ to verify that the SkyLightWorkSpacesConfigService service:
 
 - Isn't blocked by any third-party antivirus software.
 
-### My users receive the message "This device is not
-
-authorized to access the WorkSpace. Please contact your administrator for assistance."
+### My users receive the message "This device is not authorized to access the WorkSpace. Please contact your administrator for assistance."
 
 This error indicates that one of the following might be occurring:
 
@@ -606,18 +532,13 @@ connecting from allows access to the WorkSpace.
 
   6.  Choose **Save**.
 
-### My users receive the message "No network. Network connection lost.
-
-Check your network connection or contact your administrator for help." when trying to connect
-to a DCV WorkSpace
+### My users receive the message "No network. Network connection lost. Check your network connection or contact your administrator for help." when trying to connect to a DCV WorkSpace
 
 If this error occurs and your users don't have connectivity issues, make sure that
 port 4195 is open on your network's firewalls. For WorkSpaces using DCV,
 the port used to stream the client session was changed from 4172 to 4195.
 
-### The WorkSpaces client gives my users a network error, but
-
-they are able to use other network-enabled apps on their devices
+### The WorkSpaces client gives my users a network error, but they are able to use other network-enabled apps on their devices
 
 The WorkSpaces client applications rely on access to resources in the AWS Cloud, and
 require a connection that provides at least 1 Mbps download bandwidth. If a device
@@ -707,9 +628,7 @@ information about how to add a Root CA, see the following documentation:
 - Chrome OS: [Manage client certificates on Chrome devices](https://support.google.com/chrome/a/answer/6080885 "https://support.google.com/chrome/a/answer/6080885")
 - macOS and iOS: [Installing a CA's Root Certificate on Your Test Device](https://developer.apple.com/library/content/qa/qa1948/_index.html#/apple_ref/doc/uid/DTS40017603-CH1-SECINSTALLING "https://developer.apple.com/library/content/qa/qa1948/_index.html#/apple_ref/doc/uid/DTS40017603-CH1-SECINSTALLING")
 
-### My WorkSpace users see the following error message:
-
-"Device can't connect to the registration service. Check your network settings."
+### My WorkSpace users see the following error message: "Device can't connect to the registration service. Check your network settings."
 
 When a registration service failure occurs, your WorkSpace users might see the
 following error message on the **Connection Health Check** page:
@@ -722,16 +641,12 @@ service. Typically, this happens when the WorkSpaces directory has been deleted.
 resolve this error, make sure that the registration code is valid and corresponds to
 a running directory in the AWS Cloud.
 
-### My PCoIP zero client users are receiving the error
-
-"The supplied certificate is invalid due to timestamp"
+### My PCoIP zero client users are receiving the error "The supplied certificate is invalid due to timestamp"
 
 If Network Time Protocol (NTP) isn't enabled in Teradici, your PCoIP zero client users might receive
 certificate failure errors. To set up NTP, see [Set up PCoIP zero clients for WorkSpaces Personal](set-up-pcoip-zero-client.md "set-up-pcoip-zero-client.md").
 
-### USB printers and other USB peripherals aren't working for PCoIP
-
-zero clients
+### USB printers and other USB peripherals aren't working for PCoIP zero clients
 
 Starting with version 20.10.4 of the PCoIP agent, Amazon WorkSpaces disables USB redirection by default through
 the Windows registry. This registry setting affects the behavior of USB peripherals when your users are
@@ -770,9 +685,7 @@ KeyType = **DWORD**
 KeyValue = **1** 3. If you haven't already done so, log out of the WorkSpace, and then log back in. Your USB
 devices should now work.
 
-### My users skipped updating their Windows or macOS client
-
-applications and aren't getting prompted to install the latest version
+### My users skipped updating their Windows or macOS client applications and aren't getting prompted to install the latest version
 
 When users skip updates to the Amazon WorkSpaces Windows client application, the **SkipThisVersion**
 registry key gets set, and they are no longer prompted to update their clients when a new version of
@@ -790,9 +703,7 @@ client is released. To update to the latest version, you can reset this preferen
 [Update the WorkSpaces macOS Client Application to a Newer Version](../userguide/amazon-workspaces-osx-client.md#osx_setup "../userguide/amazon-workspaces-osx-client.md#osx_setup") in the
 _Amazon WorkSpaces User Guide_.
 
-### My users are unable to install the Android client application
-
-on their Chromebooks
+### My users are unable to install the Android client application on their Chromebooks
 
 Version 2.4.13 is the final release of the Amazon WorkSpaces Chromebook client
 application. Because [Google is phasing out support for Chrome Apps](https://blog.chromium.org/2020/01/moving-forward-from-chrome-apps.html "https://blog.chromium.org/2020/01/moving-forward-from-chrome-apps.html"), there will be no further
@@ -823,9 +734,7 @@ reset their own passwords. (The **Forgot password?** option on the
 WorkSpaces client application login screen won't be available.) For information about how
 to reset user passwords, see [Set up Active Directory Administration Tools for WorkSpaces Personal](directory_administration.md "directory_administration.md").
 
-### I receive the message "The system administrator has set
-
-policies to prevent this installation" when I try to install applications on a Windows WorkSpace
+### I receive the message "The system administrator has set policies to prevent this installation" when I try to install applications on a Windows WorkSpace
 
 You can address this issue by modifying the Windows Installer Group Policy
 setting. To deploy this policy to multiple WorkSpaces in your directory, apply this
@@ -859,9 +768,7 @@ Policy object.
      **Actions**, **Reboot WorkSpaces**).
    - From an administrative command prompt, enter **gpupdate /force**.
 
-### No WorkSpaces in my directory can connect to the
-
-internet
+### No WorkSpaces in my directory can connect to the internet
 
 WorkSpaces cannot communicate with the internet by default. You must explicitly provide
 internet access. For more information, see [Provide internet access for WorkSpaces Personal](amazon-workspaces-internet-access.md "amazon-workspaces-internet-access.md").
@@ -886,9 +793,7 @@ after the WorkSpace is launched. After an Elastic IP address has been assigned t
 WorkSpace, the WorkSpace retains the same public IP address (unless the WorkSpace is
 rebuilt, in which case it gets a new public IP address).
 
-### I receive a "DNS unavailable" error when I try to
-
-connect to my on-premises directory
+### I receive a "DNS unavailable" error when I try to connect to my on-premises directory
 
 You receive an error message similar to the following when connecting to your
 on-premises directory.
@@ -901,9 +806,7 @@ AD Connector must be able to communicate with your on-premises DNS servers via
 TCP and UDP over port 53. Verify that your security groups and on-premises firewalls
 allow TCP and UDP communication over this port.
 
-### I receive a "Connectivity issues
-
-detected" error when I try to connect to my on-premises directory
+### I receive a "Connectivity issues detected" error when I try to connect to my on-premises directory
 
 You receive an error message similar to the following when connecting to your
 on-premises directory.
@@ -922,9 +825,7 @@ ports:
 - 88 (Kerberos)
 - 389 (LDAP)
 
-### I receive an "SRV record" error when I try to
-
-connect to my on-premises directory
+### I receive an "SRV record" error when I try to connect to my on-premises directory
 
 You receive an error message similar to one or more of the following when
 connecting to your on-premises directory.
@@ -944,9 +845,7 @@ directory. Make sure that your DNS servers contain these SRV records. For more
 information, see [SRV Resource
 Records](https://technet.microsoft.com/en-us/library/cc961719.aspx "https://technet.microsoft.com/en-us/library/cc961719.aspx") on Microsoft TechNet.
 
-### My Windows WorkSpace goes to
-
-sleep when it's left idle
+### My Windows WorkSpace goes to sleep when it's left idle
 
 To resolve this issue, connect to the WorkSpace and change the power plan to
 **High performance** by using the following procedure:
@@ -1003,9 +902,7 @@ If the preceding steps do not solve the issue, do the following:
 9. In the **Change settings for the plan** pane, if you
    changed any settings, choose **Save changes**.
 
-### One of my WorkSpaces has a state of
-
-`UNHEALTHY`
+### One of my WorkSpaces has a state of `UNHEALTHY`
 
 The WorkSpaces service periodically sends status requests to a WorkSpace. A WorkSpace
 is marked `UNHEALTHY` when it fails to respond to these requests. Common
@@ -1035,9 +932,7 @@ You can attempt to correct the situation using the following methods:
       are met.
 
 - Make sure the SkyLightWorkSpacesConfigService service can respond to health checks.
-  To troubleshoot this issue, see [My users receive the message "WorkSpace Status:
-  Unhealthy. We were unable to connect you to your WorkSpace. Please try again in a
-  few minutes."](#unhealthy_cant_connect "#unhealthy_cant_connect").
+  To troubleshoot this issue, see [My users receive the message "WorkSpace Status: Unhealthy. We were unable to connect you to your WorkSpace. Please try again in a few minutes."](#unhealthy_cant_connect "#unhealthy_cant_connect").
 - Rebuild the WorkSpace from the WorkSpaces console. Because rebuilding a
   WorkSpace can potentially cause a loss of data, this option should be
   used only if all other attempts to correct the problem have been
@@ -1068,9 +963,7 @@ The computer has rebooted from a bugcheck.
 
 To disable Web Access to the WorkSpace, you must disable Web Access in the WorkSpaces directory and reboot the WorkSpace.
 
-### The same username has more than
-
-one WorkSpace, but the user can log in to only one of the WorkSpaces
+### The same username has more than one WorkSpace, but the user can log in to only one of the WorkSpaces
 
 If you delete a user in Active Directory (AD) without first deleting their
 WorkSpace and then you add the user back to Active Directory and create a new
@@ -1157,9 +1050,7 @@ terminal and run the following command:
 defaults write com.amazon.workspaces NSAppSleepDisabled -bool YES
 ```
 
-### SAML 2.0 federation isn't working. My
-
-users are not authorized to stream their WorkSpaces desktop.
+### SAML 2.0 federation isn't working. My users are not authorized to stream their WorkSpaces desktop.
 
 This might happen because the inline policy that is embedded for the SAML 2.0
 federation IAM role does not include permissions to stream from the directory
@@ -1168,9 +1059,7 @@ accessing a WorkSpaces directory. Edit the role permissions to include the direc
 and ensure that the user has a WorkSpace in the directory. For more information, see
 [SAML 2.0 Authentication](amazon-workspaces-saml.md "amazon-workspaces-saml.md") and [Troubleshooting SAML 2.0 Federation with AWS](../../../IAM/latest/UserGuide/troubleshoot_saml.md "../../../IAM/latest/UserGuide/troubleshoot_saml.md").
 
-### My users are getting disconnected from
-
-their WorkSpaces session every 60 minutes.
+### My users are getting disconnected from their WorkSpaces session every 60 minutes.
 
 If you have configured SAML 2.0 authentication to WorkSpaces, depending on your
 identity provider (IdP), you might need to configure the information that the IdP
@@ -1189,11 +1078,7 @@ To resolve this issue, configure your IdP to include the
 `SessionDuration` value in the SAML authentication response and set
 the value as required. For more information, see [Step 5: Create assertions for the SAML authentication response](setting-up-saml.md#create-assertions-saml-auth "setting-up-saml.md#create-assertions-saml-auth").
 
-### My users get a redirect URI error when they
-
-federate using the SAML 2.0 identity provider (IdP)-initiated flow, or an
-additional instance of the WorkSpaces client application starts every time my users
-attempt to sign in from the client after federating to the IdP.
+### My users get a redirect URI error when they federate using the SAML 2.0 identity provider (IdP)-initiated flow, or an additional instance of the WorkSpaces client application starts every time my users attempt to sign in from the client after federating to the IdP.
 
 This error occurs due to a relay state URL that's not valid. Make sure that the
 relay state in your IdP federation setup is correct, and that the user access URL
@@ -1201,10 +1086,7 @@ and relay state parameter name are configured correctly for your IdP federation 
 the WorkSpaces directory properties. If they are valid and the problem still persists,
 contact AWS Support. For more information, see [Setting Up SAML](setting-up-saml.md "setting-up-saml.md").
 
-### My users receive the message, "Something
-
-went wrong: An error occurred while launching your WorkSpace" when they attempt
-to sign in to the WorkSpaces client application after federating to the IdP.
+### My users receive the message, "Something went wrong: An error occurred while launching your WorkSpace" when they attempt to sign in to the WorkSpaces client application after federating to the IdP.
 
 Review the SAML 2.0 assertions for your federation. The **SAML Subject
 NameID** value must match the WorkSpaces user name, and is typically the
@@ -1215,10 +1097,7 @@ user. In addition, the **Attribute** element that has the
 match the WorkSpaces user's email address as defined in the WorkSpaces directory. For more
 information, see [Setting Up SAML](setting-up-saml.md "setting-up-saml.md").
 
-### My users receive the message, "Unable to
-
-validate tags” when they attempt to sign in to the WorkSpaces client application
-after federating to the IdP.
+### My users receive the message, "Unable to validate tags” when they attempt to sign in to the WorkSpaces client application after federating to the IdP.
 
 Review the `PrincipalTag` attribute values in the SAML 2.0 assertions
 for your federation, such as
@@ -1226,15 +1105,11 @@ for your federation, such as
 values may include combinations of the characters `_ . : / = + - @`,
 letters, numbers, and spaces.. For more information, see [Rules for tagging in IAM and AWS STS](../../../IAM/latest/UserGuide/id_tags.md#id_tags_rules "../../../IAM/latest/UserGuide/id_tags.md#id_tags_rules").
 
-### My users receive the message, "The client and
-
-the server cannot communicate, because they do not possess a common algorithm".
+### My users receive the message, "The client and the server cannot communicate, because they do not possess a common algorithm".
 
 This problem can occur if you do not enable TLS 1.2.
 
-### My microphone or web cam is not working on
-
-Windows WorkSpaces.
+### My microphone or web cam is not working on Windows WorkSpaces.
 
 Check your privacy setting by opening the Start menu
 
@@ -1245,11 +1120,7 @@ If they are turned off turn them on.
 
 Alternatively, WorkSpaces administrators can create a Group Policy Object (GPO) to enable microphone and or webcam as needed.
 
-### My users cannot log in using
-
-certificate-based authentication and are prompted for the password either at the
-WorkSpaces client or the Windows sign-on screen when they connect to their desktop
-session.
+### My users cannot log in using certificate-based authentication and are prompted for the password either at the WorkSpaces client or the Windows sign-on screen when they connect to their desktop session.
 
 Certificate-based authentication was unsuccessful for the session. If the problem
 continues, certificate-based authentication failure can be the result of one of the
@@ -1304,9 +1175,7 @@ log.
 
 If the problem persists, contact Support. For more information, see [Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
 
-### I am trying to do something that
-
-requires Windows installation media but WorkSpaces does not provide it.
+### I am trying to do something that requires Windows installation media but WorkSpaces does not provide it.
 
 If you are using an AWS-provided public bundle, you can use the Windows Server OS installation media EBS snapshots provided by Amazon EC2 when needed.
 
@@ -1315,9 +1184,7 @@ If you are using Windows 10 on BYOL on WorkSpaces and need an installation media
 For more information, see [Add Windows components using installation media](../../../AWSEC2/latest/WindowsGuide/windows-optional-components.md#adding-windows-components-console "../../../AWSEC2/latest/WindowsGuide/windows-optional-components.md#adding-windows-components-console"). Since you can't directly attach an EBS volume to a WorkSpace, you'll need to attach it
 to an Amazon EC2 instance and copy the files.
 
-### I want to launch WorkSpaces with an existing AWS Managed Directory created in an
-
-unsupported WorkSpaces Region.
+### I want to launch WorkSpaces with an existing AWS Managed Directory created in an unsupported WorkSpaces Region.
 
 To launch Amazon WorkSpaces using a directory in a Region that is not currently supported by WorkSpaces, follow the steps below.
 
@@ -1418,9 +1285,7 @@ receiving Firefox updates for Amazon Linux 2 WorkSpaces via YUM repositories, en
 WorkSpaces are able to reach Amazon Linux 2 repositories. For more information on accessing
 Amazon Linux 2 repositories without internet access, see [this knowledge center article](https://repost.aws/knowledge-center/ec2-al1-al2-update-yum-without-internet "https://repost.aws/knowledge-center/ec2-al1-al2-update-yum-without-internet").
 
-### My user is able to reset their password using the WorkSpaces client,
-
-ignoring the Fine Grained Password Policy (FFGP) setting that is configured on AWS Managed Microsoft AD.
+### My user is able to reset their password using the WorkSpaces client, ignoring the Fine Grained Password Policy (FFGP) setting that is configured on AWS Managed Microsoft AD.
 
 If your user's WorkSpaces client is associated with AWS Managed Microsoft AD, they will have to reset their password using
 the default complexity setting.
@@ -1439,24 +1304,18 @@ Make sure the password doesn't include non-printable unicode characters, such as
 If your organization requires you to enforce FFGP for WorkSpaces, contact your Active Directory administrator to reset your
 user's password directly from the Active Directory instead of the WorkSpaces client.
 
-### My users receive the error message "This OS/platform is not authorized to access your WorkSpace"
-
-when trying to access the Windows/Linux WorkSpace using Web Access
+### My users receive the error message "This OS/platform is not authorized to access your WorkSpace" when trying to access the Windows/Linux WorkSpace using Web Access
 
 The operating system version your user is trying to use isn't compatible with WorkSpaces Web Access. Make sure you enable
 Web Access under the WorkSpace directory's **Other Platform** setting. For more information on enabling your
 WorkSpace's Web Access, see [Enable and configure WorkSpaces Web Access for WorkSpaces Personal](web-access.md "web-access.md").
 
-### My user's WorkSpace is showing as unhealthy after they connect
-
-to an AutoStop WorkSpace that is in the stopped state
+### My user's WorkSpace is showing as unhealthy after they connect to an AutoStop WorkSpace that is in the stopped state
 
 Your user might be using software that is known to cause issues to the network interfaces when resuming from hibernation.
 For example, if the WorkSpace has the NPCAP 1.1 application installed, update to version 1.2 or above to resolve this issue.
 
-### Gnome crashes on WorkSpaces Ubuntu bundles after
-
-login
+### Gnome crashes on WorkSpaces Ubuntu bundles after login
 
 If a WorkSpace is launched using the `ubuntu` username, there will be conflicts
 with the `ubuntu` user that exists by default. This will cause

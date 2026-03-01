@@ -14,8 +14,7 @@ users your deployment must support and your deployment goals. For example:
   The following sections provide more information about each of these deployment
   options.
 
-- [Configure a VPC with Private
-  Subnets and a NAT Gateway](managing-network-internet-NAT-gateway.md "managing-network-internet-NAT-gateway.md") (recommended) —
+- [Configure a VPC with Private Subnets and a NAT Gateway](managing-network-internet-NAT-gateway.md "managing-network-internet-NAT-gateway.md") (recommended) —
   With this configuration, you launch your WorkSpaces Pools builders in a private subnet
   and configure a NAT gateway in a public subnet in your VPC. Your streaming
   instances are assigned a private IP address that is not directly accessible from
@@ -29,8 +28,7 @@ than 100 concurrent users, use this configuration.
 You can create and configure a new VPC to use with a NAT gateway, or add a NAT
 gateway to an existing VPC.
 
-- [Configure a New or
-  Existing VPC with a Public Subnet](managing-network-default-internet-access.md "managing-network-default-internet-access.md") — With this
+- [Configure a New or Existing VPC with a Public Subnet](managing-network-default-internet-access.md "managing-network-default-internet-access.md") — With this
   configuration, you launch your WorkSpaces Pools in a public subnet. When you enable
   this option, WorkSpaces Pools uses the internet gateway in your Amazon VPC public subnet to
   provide the internet connection. Your streaming instances are assigned a public
@@ -44,8 +42,7 @@ of 100 WorkSpaces are supported in WorkSpaces Pools. If your deployment must sup
 more than 100 concurrent users, use the [NAT gateway
 configuration](managing-network-internet-NAT-gateway.md "managing-network-internet-NAT-gateway.md") instead.
 
-- [Use the Default VPC, Public Subnet,
-  and Security Group](default-vpc-with-public-subnet.md "default-vpc-with-public-subnet.md") — If you are new to
+- [Use the Default VPC, Public Subnet, and Security Group](default-vpc-with-public-subnet.md "default-vpc-with-public-subnet.md") — If you are new to
   WorkSpaces Pools and want to get started using the service, you can launch your
   WorkSpaces Pools in a default public subnet. When you enable this option, WorkSpaces Pools
   uses the internet gateway in your Amazon VPC public subnet to provide the internet

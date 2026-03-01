@@ -1,26 +1,17 @@
-# WorkSpaces Pools Active Directory
-
-Administration
+# WorkSpaces Pools Active Directory Administration
 
 Setting up and using Active Directory with WorkSpaces Pools involves the following
 administrative tasks.
 
 ###### Tasks
 
-- [Granting Permissions to Create and
-  Manage Active Directory Computer Objects](#active-directory-permissions "#active-directory-permissions")
-- [Finding the Organizational Unit
-  Distinguished Name](#active-directory-oudn "#active-directory-oudn")
-- [Granting Local
-  Administrator Rights on custom images](#active-directory-image-builder-local-admin "#active-directory-image-builder-local-admin")
-- [Locking the Streaming Session When
-  the User is Idle](#active-directory-session-lock "#active-directory-session-lock")
-- [Configuring WorkSpaces Pools to Use
-  Domain Trusts](#active-directory-domain-trusts "#active-directory-domain-trusts")
+- [Granting Permissions to Create and Manage Active Directory Computer Objects](#active-directory-permissions "#active-directory-permissions")
+- [Finding the Organizational Unit Distinguished Name](#active-directory-oudn "#active-directory-oudn")
+- [Granting Local Administrator Rights on custom images](#active-directory-image-builder-local-admin "#active-directory-image-builder-local-admin")
+- [Locking the Streaming Session When the User is Idle](#active-directory-session-lock "#active-directory-session-lock")
+- [Configuring WorkSpaces Pools to Use Domain Trusts](#active-directory-domain-trusts "#active-directory-domain-trusts")
 
-## Granting Permissions to Create and
-
-Manage Active Directory Computer Objects
+## Granting Permissions to Create and Manage Active Directory Computer Objects
 
 To allow WorkSpaces Pools to perform Active Directory computer object operations, you
 need an account with sufficient permissions. As a best practice, use an account that
@@ -76,9 +67,7 @@ strong password and add that account to the group. This account will then have
 sufficient privileges to connect your WorkSpaces to the directory. Use this account when
 creating your WorkSpaces Pools directory configuration.
 
-## Finding the Organizational Unit
-
-Distinguished Name
+## Finding the Organizational Unit Distinguished Name
 
 When you register your Active Directory domain with WorkSpaces Pools, you must provide
 an organizational unit (OU) distinguished name. Create an OU for this purpose. The
@@ -116,9 +105,7 @@ Before you complete this procedure, you'll need to do the following first:
 6. For **Value**, select the distinguished name, open the
    context menu, and then choose **Copy**.
 
-## Granting Local
-
-Administrator Rights on custom images
+## Granting Local Administrator Rights on custom images
 
 By default, Active Directory domain users do not have local administrator rights
 on images. You can grant these rights by using Group Policy preferences in your
@@ -129,8 +116,7 @@ applications on and create custom images in WorkSpaces Pools.
 ###### Contents
 
 - [Using Group Policy preferences](#group-policy "#group-policy")
-- [Using the local Administrators group on the
-  WorkSpace to create images](#manual-procedure "#manual-procedure")
+- [Using the local Administrators group on the WorkSpace to create images](#manual-procedure "#manual-procedure")
 
 ### Using Group Policy preferences
 
@@ -148,9 +134,7 @@ you'll need to do the following first:
 - Log in as a domain user with permissions to create Group Policy
   objects (GPOs). Link GPOs to the appropriate OUs.
 
-###### To use Group Policy preferences to grant local administrator
-
-permissions
+###### To use Group Policy preferences to grant local administrator permissions
 
 1. In your directory or on a domain controller, open the command prompt
    as an administrator, type `gpmc.msc`, and then press
@@ -198,9 +182,7 @@ image builders or fleets. The Active Directory users and groups that you
 specified in step 8 are automatically granted local administrator rights on the
 image builders and fleets in the OU to which the GPO is linked.
 
-### Using the local Administrators group on the
-
-WorkSpace to create images
+### Using the local Administrators group on the WorkSpace to create images
 
 To grant Active Directory users or groups local administrator rights on an
 image, you can manually add these users or groups to the local Administrators
@@ -229,9 +211,7 @@ rights must already exist.
    Commands**, **Switch user**, and then
    enter the credentials of the relevant user.
 
-## Locking the Streaming Session When
-
-the User is Idle
+## Locking the Streaming Session When the User is Idle
 
 WorkSpaces Pools relies on a setting that you configure in the GPMC to lock the
 streaming session after your user is idle for specified amount of time. To use the
@@ -299,9 +279,7 @@ GPMC, you'll need to do the following first:
 22. Choose **Apply**, and then choose
     **OK**.
 
-## Configuring WorkSpaces Pools to Use
-
-Domain Trusts
+## Configuring WorkSpaces Pools to Use Domain Trusts
 
 WorkSpaces Pools supports Active Directory domain environments where network resources
 such as file servers, applications, and computer objects reside in one domain, and
@@ -320,5 +298,4 @@ permissions for the following:
 - WorkSpaces Pools computer objects
 - Domain controllers for the domain
 
-For more information, see [Granting Permissions to Create and
-Manage Active Directory Computer Objects](#active-directory-permissions "#active-directory-permissions").
+For more information, see [Granting Permissions to Create and Manage Active Directory Computer Objects](#active-directory-permissions "#active-directory-permissions").

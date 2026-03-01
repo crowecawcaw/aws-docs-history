@@ -1,4 +1,4 @@
-# Infrastructure security in Amazon WorkSpaces
+# Infrastructure Security in Amazon WorkSpaces
 
 As a managed service, Amazon WorkSpaces is protected by AWS global network security. For
 information about AWS security services and how AWS protects infrastructure, see [AWS Cloud Security](https://aws.amazon.com/security/ "https://aws.amazon.com/security/"). To design your AWS
@@ -14,14 +14,13 @@ support the following:
   Diffie-Hellman) or ECDHE (Elliptic Curve Ephemeral Diffie-Hellman). Most modern systems
   such as Java 7 and later support these modes.
 
-###### Contents
+###### Topics
 
 - [Network isolation](network-isolation.md "network-isolation.md")
 - [Isolation on physical hosts](physical-isolation.md "physical-isolation.md")
 - [Credential Guard / Virtualization-Based Security (VBS)](credential-guard-vbs.md "credential-guard-vbs.md")
 - [Authorization of corporate users](authorization.md "authorization.md")
 - [Create and Stream from Interface VPC Endpoints](creating-streaming-vpc-endpoints.md "creating-streaming-vpc-endpoints.md")
-- [Make Amazon WorkSpaces API requests through a VPC interface
-  endpoint](interface-vpc-endpoint.md "interface-vpc-endpoint.md")
+- [Make Amazon WorkSpaces API requests through a VPC interface endpoint](interface-vpc-endpoint.md "interface-vpc-endpoint.md")
 - [Create a VPC endpoint policy for Amazon WorkSpaces](api-private-link-policy.md "api-private-link-policy.md")
 - [Connect your private network to your VPC](notebook-private-link-vpn.md "notebook-private-link-vpn.md")

@@ -45,24 +45,16 @@ different compute and storage options for each bundle.
 
 ###### Contents
 
-- [Requirements to create Windows
-  custom images](#windows_custom_image_requirements "#windows_custom_image_requirements")
-- [Requirements to create Linux
-  custom images](#linux_custom_image_requirements "#linux_custom_image_requirements")
+- [Requirements to create Windows custom images](#windows_custom_image_requirements "#windows_custom_image_requirements")
+- [Requirements to create Linux custom images](#linux_custom_image_requirements "#linux_custom_image_requirements")
 - [Best practices](#custom_image_best_practices "#custom_image_best_practices")
-- [(Optional) Step 1: Specify a custom computer
-  name format for your image](#custom_computer_name "#custom_computer_name")
+- [(Optional) Step 1: Specify a custom computer name format for your image](#custom_computer_name "#custom_computer_name")
 - [Step 2: Run the Image Checker](#run_image_checker "#run_image_checker")
-- [Step 3: Create a custom image and
-  custom bundle](#create_custom_image_bundle "#create_custom_image_bundle")
-- [What's included with Windows WorkSpaces custom
-  images](#image_creation_windows "#image_creation_windows")
-- [What's included with Linux WorkSpace custom
-  images](#image_creation_linux "#image_creation_linux")
+- [Step 3: Create a custom image and custom bundle](#create_custom_image_bundle "#create_custom_image_bundle")
+- [What's included with Windows WorkSpaces custom images](#image_creation_windows "#image_creation_windows")
+- [What's included with Linux WorkSpace custom images](#image_creation_linux "#image_creation_linux")
 
-## Requirements to create Windows
-
-custom images
+## Requirements to create Windows custom images
 
 ###### Note
 
@@ -89,8 +81,7 @@ image of a WorkSpace.
   WorkSpace is not currently supported.
 - The following components are required in an image. Without these
   components, the WorkSpaces that you launch from the image will not function
-  correctly. For more information, see [Required configuration and service components
-  for WorkSpaces Personal](required-service-components.md "required-service-components.md").
+  correctly. For more information, see [Required configuration and service components for WorkSpaces Personal](required-service-components.md "required-service-components.md").
   - Windows PowerShell version 3.0 or later
   - Remote Desktop Services
   - AWS PV drivers
@@ -100,9 +91,7 @@ image of a WorkSpace.
   - AWS and WorkSpaces certificates
   - Skylight agent
 
-## Requirements to create Linux
-
-custom images
+## Requirements to create Linux custom images
 
 - The status of the WorkSpace must be **Available** and its
   modification state must be **None**.
@@ -150,8 +139,7 @@ Before you create an image from a WorkSpace, do the following:
 - If you're running any antivirus software on the WorkSpace, disable it
   while you're attempting to create an image.
 - If you have a firewall enabled on your WorkSpace, make sure that it isn't
-  blocking any necessary ports. For more information, see [IP address and port requirements for
-  WorkSpaces Personal](workspaces-port-requirements.md "workspaces-port-requirements.md").
+  blocking any necessary ports. For more information, see [IP address and port requirements for WorkSpaces Personal](workspaces-port-requirements.md "workspaces-port-requirements.md").
 - For Windows WorkSpaces, don't configure any Group Policy Objects (GPOs)
   before image creation.
 - For Windows WorkSpaces, do not customize the default user profile
@@ -174,9 +162,7 @@ Before you create an image from a WorkSpace, do the following:
 - Ensure you update the EC2Config, EC2Launch, and EC2Launch V2 agents to the latest versions periodically. You should do this at least once every 6 months. For more information, see
   [Update EC2Config and EC2Launch](../../../AWSEC2/latest/WindowsGuide/migrating-latest-types.md#upgdate-ec2config-ec2launch "../../../AWSEC2/latest/WindowsGuide/migrating-latest-types.md#upgdate-ec2config-ec2launch").
 
-## (Optional) Step 1: Specify a custom computer
-
-name format for your image
+## (Optional) Step 1: Specify a custom computer name format for your image
 
 For the WorkSpaces launched from your custom or Bring Your Own License (BYOL)
 images, you can specify a custom prefix for the computer name format instead of
@@ -288,8 +274,7 @@ EC2AMAZ-`xxxxxxx`.
 ###### Note
 
 The Image Checker is available only for Windows WorkSpaces. If you are
-creating an image from a Linux WorkSpace, skip to [Step 3: Create a custom image and
-custom bundle](#create_custom_image_bundle "#create_custom_image_bundle").
+creating an image from a Linux WorkSpace, skip to [Step 3: Create a custom image and custom bundle](#create_custom_image_bundle "#create_custom_image_bundle").
 
 To confirm that your Windows WorkSpace meets the requirements for image creation,
 we recommend running the Image Checker. The Image Checker performs a series of tests
@@ -324,8 +309,7 @@ To get the Image Checker, do one of the following:
 For any test with a status of **FAILED**, choose
 **Info** to display information about how to resolve
 the issue that caused the failure. For more information about how to resolve
-these issues, see [Tips for resolving issues detected by the
-Image Checker](#image_checker_tips "#image_checker_tips").
+these issues, see [Tips for resolving issues detected by the Image Checker](#image_checker_tips "#image_checker_tips").
 
 If any tests display a status of **WARNING**, choose the
 **Fix All Warnings** button.
@@ -345,9 +329,7 @@ create an image. 5. After your WorkSpace passes all tests, you see a **Validatio
 Successful** message. You are now ready to create a custom
 bundle.
 
-### Tips for resolving issues detected by the
-
-Image Checker
+### Tips for resolving issues detected by the Image Checker
 
 In addition to consulting the following tips for resolving issues that are
 detected by the Image Checker, be sure to review the Image Checker log file at
@@ -665,9 +647,7 @@ rearm count be a value other than 0.
 To reset the rearm count to a value other than 0, see [Sysprep (Generalize) a Windows installation](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation "https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation") in the
 Microsoft Windows documentation.
 
-#### Other troubleshooting
-
-tips
+#### Other troubleshooting tips
 
 If your WorkSpace passes all of the tests run by the Image Checker, but
 you are still unable to create an image from the WorkSpace, check for the
@@ -717,9 +697,7 @@ Get-WmiObject -Class Win32_Service | Where-Object { $_.StartName -like "*$env:US
       **Automatic**.
   5.  Choose **OK**.
 
-## Step 3: Create a custom image and
-
-custom bundle
+## Step 3: Create a custom image and custom bundle
 
 After you have validated your WorkSpace image, you can proceed with creating your
 custom image and custom bundle.
@@ -818,9 +796,7 @@ _Amazon WorkSpaces API Reference_. 9. Enter a bundle name and a description, and
     **Bundles** and verify that the bundle is
     listed.
 
-## What's included with Windows WorkSpaces custom
-
-images
+## What's included with Windows WorkSpaces custom images
 
 When you create an image from a Windows 7, Windows 10, or
 Windows 11 WorkSpace, the entire contents of the `C` drive are
@@ -869,9 +845,7 @@ included, except for the following:
 - appdata\local\microsoft\internet explorer\recovery\
 - appdata\local\mozilla\firefox\profiles\
 
-## What's included with Linux WorkSpace custom
-
-images
+## What's included with Linux WorkSpace custom images
 
 When you create an image from an Amazon Linux WorkSpace, the entire contents of the user
 volume (/home) are removed. The contents of the root volume (/) are included, except

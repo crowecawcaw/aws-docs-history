@@ -1,6 +1,4 @@
-# Using Amazon S3 VPC Endpoints for
-
-WorkSpaces Pools Features
+# Using Amazon S3 VPC Endpoints for WorkSpaces Pools Features
 
 When you enable Application Settings Persistence for a WorkSpaces Pool or Home folders for a
 WorkSpaces Pool directory, WorkSpaces uses the VPC you specify for your directory to provide access

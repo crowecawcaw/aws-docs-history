@@ -278,9 +278,7 @@ and [Personal Identity Verification (PIV)](https://piv.idmanagement.gov/ "https:
 smart cards for authentication. For more information, see
 [Use smart cards for authentication in WorkSpaces Personal](smart-cards.md "smart-cards.md").
 
-## Configure device proxy server settings for internet
-
-access
+## Configure device proxy server settings for internet access
 
 By default, the WorkSpaces client applications use the proxy server that’s
 specified in the device operating system settings for HTTPS (port 443) traffic. The

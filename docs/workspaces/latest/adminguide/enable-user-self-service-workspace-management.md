@@ -1,6 +1,4 @@
-# Enable self-service WorkSpaces
-
-management capabilities for your users in WorkSpaces Personal
+# Enable self-service WorkSpaces management capabilities for your users in WorkSpaces Personal
 
 In WorkSpaces, you can enable self-service WorkSpace management capabilities for your
 users to provide them with more control over their experience. It can also reduce your
@@ -35,8 +33,7 @@ can perform one or more of the following tasks directly from their WorkSpaces cl
      or **Keep me logged in** check box on the login screen. The credentials
      are cached in RAM only. When users choose to cache their credentials, they can reconnect
      to their WorkSpaces without re-entering their credentials. To control how long users can cache their
-     credentials, see [Set the maximum lifetime for a Kerberos
-     ticket](group_policy.md#gp_kerberos_ticket "group_policy.md#gp_kerberos_ticket").
+     credentials, see [Set the maximum lifetime for a Kerberos ticket](group_policy.md#gp_kerberos_ticket "group_policy.md#gp_kerberos_ticket").
    - **Restart WorkSpace from client** — Users can restart (reboot)
      their WorkSpace. Restarting disconnects the user from their WorkSpace, shuts it
      down, and reboots it. The user data, operating system, and system settings are

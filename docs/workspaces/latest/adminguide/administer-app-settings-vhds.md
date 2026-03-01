@@ -1,16 +1,11 @@
-# Administer the VHDs for your users'
-
-application settings
+# Administer the VHDs for your users' application settings
 
 ###### Contents
 
 - [Amazon S3 bucket storage](#app-persistence-s3-buckets "#app-persistence-s3-buckets")
-- [Reset a user's application
-  settings](#app-persistence-s3-reset "#app-persistence-s3-reset")
-- [Enable Amazon S3 object
-  versioning and revert a user's application settings](#app-persistence-enable-versions-revert-settings "#app-persistence-enable-versions-revert-settings")
-- [Increase the size of the
-  application settings VHD](#app-persistence-increase-VHD-size "#app-persistence-increase-VHD-size")
+- [Reset a user's application settings](#app-persistence-s3-reset "#app-persistence-s3-reset")
+- [Enable Amazon S3 object versioning and revert a user's application settings](#app-persistence-enable-versions-revert-settings "#app-persistence-enable-versions-revert-settings")
+- [Increase the size of the application settings VHD](#app-persistence-increase-VHD-size "#app-persistence-increase-VHD-size")
 
 ## Amazon S3 bucket storage
 
@@ -110,9 +105,7 @@ You can identify the folder for a user by generating the lowercase SHA-256 hash
 value of the user ID using websites or open source coding libraries available
 online.
 
-## Reset a user's application
-
-settings
+## Reset a user's application settings
 
 To reset a user's application settings, you must find and delete the VHD and
 associated metadata file from the S3 bucket in your AWS account. Make sure that
@@ -141,9 +134,7 @@ persistence is enabled with the applicable settings group, a new application
 settings VHD is created. This VHD is saved to the S3 bucket at the end of the
 session.
 
-## Enable Amazon S3 object
-
-versioning and revert a user's application settings
+## Enable Amazon S3 object versioning and revert a user's application settings
 
 You can use Amazon S3 object versioning and lifecycle policies to manage your users’
 application settings when your users change them. With Amazon S3 object versioning, you
@@ -204,9 +195,7 @@ The next time the user streams from a pool on which application settings
 persistence is enabled with the applicable settings group, the reverted version of
 the user's settings displays.
 
-## Increase the size of the
-
-application settings VHD
+## Increase the size of the application settings VHD
 
 The default VHD maximum size is 5 GB for Pools. If a user requires additional
 space for application settings, you can download the applicable application settings
