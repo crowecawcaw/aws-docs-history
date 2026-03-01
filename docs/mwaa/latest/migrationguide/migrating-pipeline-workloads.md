@@ -1,6 +1,4 @@
-# Migrate workloads from AWS Data Pipeline to
-
-Amazon MWAA
+# Migrate workloads from AWS Data Pipeline to Amazon MWAA
 
 AWS launched the AWS Data Pipeline service in 2012. At that time, customers wanted a service that let them use a variety of compute options to move data between different data sources.
 As data transfer needs changed over time, so have the solutions to those needs. You now have the option to choose the solution that most closely meets your business requirements.
