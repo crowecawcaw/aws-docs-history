@@ -83,7 +83,7 @@ is not established:** Medium
 **Related documents:**
 
 - [Amazon Athena](https://aws.amazon.com/athena/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc "https://aws.amazon.com/athena/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc")
-- [Quick Suite](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/")
+- [Quick](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/")
 - [AWS Compliance](https://aws.amazon.com/compliance/ "https://aws.amazon.com/compliance/")
 - [AWS Compliance Latest News](https://aws.amazon.com/compliance/compliance-latest-news/ "https://aws.amazon.com/compliance/compliance-latest-news/")
 - [AWS Compliance Programs](https://aws.amazon.com/compliance/programs/ "https://aws.amazon.com/compliance/programs/")

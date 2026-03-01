@@ -1,6 +1,4 @@
-# OPS03-BP04 Communications are timely, clear, and
-
-actionable
+# OPS03-BP04 Communications are timely, clear, and actionable
 
 Leadership is responsible for the creation of strong and effective
 communications, especially when the organization adopts new

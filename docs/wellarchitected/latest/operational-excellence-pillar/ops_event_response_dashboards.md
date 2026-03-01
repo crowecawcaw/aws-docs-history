@@ -26,12 +26,12 @@ is not established:** Medium
 
 ## Implementation guidance
 
-Dashboards effectively communicate the status of your system and business metrics and can be tailored to the needs of different audience groups. Tools like Amazon CloudWatch dashboards and Amazon Quick Suite help you create interactive, real-time dashboards for system monitoring and business intelligence.
+Dashboards effectively communicate the status of your system and business metrics and can be tailored to the needs of different audience groups. Tools like Amazon CloudWatch dashboards and Amazon Quick help you create interactive, real-time dashboards for system monitoring and business intelligence.
 
 ### Implementation steps
 
 1. **Identify stakeholder needs:** Determine the specific information needs of different audience groups, such as technical teams, leadership, and customers.
-2. **Choose the right tools:** Select appropriate tools like [Amazon CloudWatch dashboards](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md") for system monitoring and [Amazon Quick Suite](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") for interactive business intelligence. [AWS Health](../../../health/latest/ug/what-is-aws-health.md "../../../health/latest/ug/what-is-aws-health.md") provides a ready-to-use experience in the [AWS Health Dashboard](https://health.aws.amazon.com/health/home "https://health.aws.amazon.com/health/home"), or you can use Health events in Amazon EventBridge or through the AWS Health API to augment your own dashboards.
+2. **Choose the right tools:** Select appropriate tools like [Amazon CloudWatch dashboards](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md") for system monitoring and [Amazon Quick](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") for interactive business intelligence. [AWS Health](../../../health/latest/ug/what-is-aws-health.md "../../../health/latest/ug/what-is-aws-health.md") provides a ready-to-use experience in the [AWS Health Dashboard](https://health.aws.amazon.com/health/home "https://health.aws.amazon.com/health/home"), or you can use Health events in Amazon EventBridge or through the AWS Health API to augment your own dashboards.
 3. **Design effective dashboards:**
    - Design dashboards to clearly present relevant metrics and KPIs, ensuring they are understandable and actionable.
    - Incorporate system-level and business-level views as needed.

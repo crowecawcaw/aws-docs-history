@@ -1,6 +1,4 @@
-# OPS10-BP03 Prioritize operational events based on business
-
-impact
+# OPS10-BP03 Prioritize operational events based on business impact
 
 Responding promptly to operational events is critical, but not all events are equal. When you prioritize based on business impact, you also prioritize addressing events with the potential for significant consequences, such as safety, financial loss, regulatory violations, or damage to reputation.
 

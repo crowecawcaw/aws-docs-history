@@ -1,6 +1,4 @@
-# OPS02-BP04 Mechanisms exist to manage responsibilities and
-
-ownership
+# OPS02-BP04 Mechanisms exist to manage responsibilities and ownership
 
 Understand the responsibilities of your role and how you contribute
 to business outcomes, as this understanding informs the

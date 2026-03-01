@@ -1,6 +1,4 @@
-# Operating model 2 by 2
-
-representations
+# Operating model 2 by 2 representations
 
 These operating model 2 by 2 representations are illustrations
 to help you understand the relationships between teams in your
