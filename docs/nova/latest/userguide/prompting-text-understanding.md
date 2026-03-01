@@ -1,6 +1,4 @@
-# Text understanding prompting best
-
-practices
+# Text understanding prompting best practices
 
 ###### Note
 

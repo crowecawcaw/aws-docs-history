@@ -78,8 +78,7 @@ The `garmentStyling` parameter allows you to preserve or alter specific garment 
   - `"CLOSED"`
   - `"OPEN"`
 
-For more information, see the `garmentStyling` parameters in [Request and response structure for image
-generation](image-gen-req-resp-structure.md "image-gen-req-resp-structure.md").
+For more information, see the `garmentStyling` parameters in [Request and response structure for image generation](image-gen-req-resp-structure.md "image-gen-req-resp-structure.md").
 
 ## Image stitching
 

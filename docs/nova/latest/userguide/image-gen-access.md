@@ -5,15 +5,12 @@ responses when carrying out model inference.
 
 ###### Topics
 
-- [Image generation request and response
-  format](#image-gen-req-resp-format "#image-gen-req-resp-format")
+- [Image generation request and response format](#image-gen-req-resp-format "#image-gen-req-resp-format")
 - [Input images for image generation](#image-gen-input-images "#image-gen-input-images")
 - [Masking images](#image-gen-masking "#image-gen-masking")
 - [Supported image resolutions](#image-gen-resolutions "#image-gen-resolutions")
 
-## Image generation request and response
-
-format
+## Image generation request and response format
 
 When you make an [InvokeModel](../../../bedrock/latest/APIReference/API_runtime_InvokeModel.md "../../../bedrock/latest/APIReference/API_runtime_InvokeModel.md")
 call using the Amazon Nova Canvas model, replace the `body` field of the

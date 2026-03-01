@@ -1,6 +1,4 @@
-# Request and response structure for image
-
-generation
+# Request and response structure for image generation
 
 ###### Image generation
 

@@ -84,9 +84,7 @@ Included elements are:
 - `url` — The full web address (URL) of the citation's source.
 - `domain` — The root domain of the source `url`.
 
-##
-
-Grounding Safety
+## Grounding Safety
 
 Your data never leaves AWS infrastructure. Model-generated queries stay within AWS services and are never sent to the broader internet.
 Our expansive internal web search index and knowledge graphs prioritize trustworthy and high quality sources and filter malicious content

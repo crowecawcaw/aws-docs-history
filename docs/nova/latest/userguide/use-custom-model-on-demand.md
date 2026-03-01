@@ -1,6 +1,4 @@
-# Use a deployment for on-demand
-
-inference
+# Use a deployment for on-demand inference
 
 After you deploy your custom model for on-demand inference, you can use it to generate
 responses by making inference requests. For `InvokeModel` or

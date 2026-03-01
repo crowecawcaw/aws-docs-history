@@ -9,9 +9,7 @@ models to smaller, efficient ones. With Amazon Nova models, a larger "teacher" m
 (like Amazon Nova Lite or Amazon Nova Micro). This creates a customized model that maintains
 high performance while using fewer resources.
 
-## Key
-
-components
+## Key components
 
 The distillation process primarily involves two types of models:
 
@@ -47,17 +45,13 @@ Mode distillation is particularly beneficial when:
 - IAM role with permissions for SageMaker Training Jobs.
 - Amazon S3 bucket to store training data and outputs.
 
-## Setting up data
-
-augmentation
+## Setting up data augmentation
 
 The data augmentation phase uses SageMaker Training Jobs to generate high-quality
 training data using the teacher model. This section details the setup process
 and requirements.
 
-### IAM
-
-role
+### IAM role
 
 To create IAM roles and attach policies, see [Creating roles and attaching policies (console)](../../../IAM/latest/UserGuide/access_policies_job-functions_create-policies.md "../../../IAM/latest/UserGuide/access_policies_job-functions_create-policies.md"). If you use
 AWS CLI, follow instructions in [create-role](../../../cli/latest/reference/iam/create-role.md "../../../cli/latest/reference/iam/create-role.md") and
@@ -159,9 +153,7 @@ aws iam put-role-policy \
 }
 ```
 
-### Amazon VPC
-
-configuration
+### Amazon VPC configuration
 
 To create Amazon VPC configuration for SageMaker Training Jobs using the AWS Management Console,
 follow instructions in [Configure Your private VPC for
@@ -208,9 +200,7 @@ For each endpoint:
 - Choose the private subnets
 - Select the Distillation-SG security group
 
-### AWS KMS
-
-keys
+### AWS KMS keys
 
 When working with Amazon Bedrock batch inference, a AWS KMS key is required for data
 security and compliance. Amazon Bedrock batch inference jobs require input and output
@@ -242,9 +232,7 @@ output:
 Save the KMS key ARN from the output as you'll need it for the Amazon S3
 bucket creation in the next section.
 
-### Amazon S3
-
-bucket
+### Amazon S3 bucket
 
 You need two types of Amazon S3 storage. Customer-managed Amazon S3 bucket stores
 your input data and output `manifest.json` files. You create and
@@ -278,9 +266,7 @@ aws s3api create-bucket \
 }'
 ```
 
-## Starting a SageMaker training
-
-job
+## Starting a SageMaker training job
 
 Before you start a training job, prepare your data.
 
@@ -414,9 +400,7 @@ Logs are available in Amazon CloudWatch under the
 `/aws/sagemaker/TrainingJobs` log group in your AWS account.
 You will see one log file per host used for your training job.
 
-## Successful
-
-training
+## Successful training
 
 For a successful training job, you will see the log message "Training is
 complete" at the end of the log.
@@ -449,9 +433,7 @@ The output bucket contains the following files:
 }
 ```
 
-## Validating augmented
-
-data quality
+## Validating augmented data quality
 
 Before proceeding to fine-tuning, it's crucial to validate the quality of the
 augmented data:

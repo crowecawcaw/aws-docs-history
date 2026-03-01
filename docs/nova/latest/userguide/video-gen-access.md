@@ -21,8 +21,7 @@ video are:
 
 - [Starting a video generation job](#video-gen-start-a-job "#video-gen-start-a-job")
 - [Video generation input parameters](#video-gen-input-params "#video-gen-input-params")
-- [Checking progress of video generation
-  jobs](#video-gen-check-progress "#video-gen-check-progress")
+- [Checking progress of video generation jobs](#video-gen-check-progress "#video-gen-check-progress")
 - [Accessing the results of a video generation job](#video-gen-read-results "#video-gen-read-results")
 
 ## Starting a video generation job
@@ -237,9 +236,7 @@ The video generation process will result in the following files being written to
 - **output.mp4** - The complete multi-shot video. Written only if the job succeeds.
 - **shot_N.mp4** - Each individual shot is also provided as its own video. The file name follows the format "shot_0001.mp4", "shot_0002.mp4", and so on. These files are written only if the whole job succeeds.
 
-## Checking progress of video generation
-
-jobs
+## Checking progress of video generation jobs
 
 There are two ways to check on the progress of a video generation job. If you have a
 reference to the invocation ARN that was returned when starting the invocation, you can

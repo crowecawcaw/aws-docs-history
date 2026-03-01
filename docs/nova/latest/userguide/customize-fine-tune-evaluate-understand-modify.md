@@ -1,6 +1,4 @@
-# Understanding the recipe
-
-parameters
+# Understanding the recipe parameters
 
 ###### Run configuration
 

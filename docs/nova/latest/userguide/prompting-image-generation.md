@@ -1,6 +1,4 @@
-# Amazon Nova Canvas prompting best
-
-practices
+# Amazon Nova Canvas prompting best practices
 
 Prompting for image generation models differs from prompting for large language models
 (LLMs). Image generation models do not have the ability to reason or interpret explicit

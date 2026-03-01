@@ -46,7 +46,6 @@ Amazon Nova Canvas supports the following features:
 - [Image generation and editing](image-gen-access.md "image-gen-access.md")
 - [Virtual try-on](image-gen-vto.md "image-gen-vto.md")
 - [Visual Styles](image-gen-styles.md "image-gen-styles.md")
-- [Request and response structure for image
-  generation](image-gen-req-resp-structure.md "image-gen-req-resp-structure.md")
+- [Request and response structure for image generation](image-gen-req-resp-structure.md "image-gen-req-resp-structure.md")
 - [Error handling](image-gen-errors.md "image-gen-errors.md")
 - [Code examples](image-gen-code-examples.md "image-gen-code-examples.md")

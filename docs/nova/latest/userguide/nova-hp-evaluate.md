@@ -13,12 +13,8 @@ the Amazon Bedrock runtime APIs.
 
 ###### Topics
 
-- [Available benchmark
-  tasks](customize-fine-tune-evaluate-available-tasks.md "customize-fine-tune-evaluate-available-tasks.md")
-- [Understanding the recipe
-  parameters](customize-fine-tune-evaluate-understand-modify.md "customize-fine-tune-evaluate-understand-modify.md")
-- [Evaluation recipe
-  examples](customize-fine-tune-evaluate-recipe-examples.md "customize-fine-tune-evaluate-recipe-examples.md")
+- [Available benchmark tasks](customize-fine-tune-evaluate-available-tasks.md "customize-fine-tune-evaluate-available-tasks.md")
+- [Understanding the recipe parameters](customize-fine-tune-evaluate-understand-modify.md "customize-fine-tune-evaluate-understand-modify.md")
+- [Evaluation recipe examples](customize-fine-tune-evaluate-recipe-examples.md "customize-fine-tune-evaluate-recipe-examples.md")
 - [Starting an evaluation job](customize-fine-tune-evaluate-start-job.md "customize-fine-tune-evaluate-start-job.md")
-- [Accessing and analyzing
-  evaluation results](customize-fine-tune-evaluate-access-results.md "customize-fine-tune-evaluate-access-results.md")
+- [Accessing and analyzing evaluation results](customize-fine-tune-evaluate-access-results.md "customize-fine-tune-evaluate-access-results.md")

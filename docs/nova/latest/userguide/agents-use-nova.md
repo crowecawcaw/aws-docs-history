@@ -1,6 +1,4 @@
-# Using Amazon Nova as a foundation model in an AI
-
-agent
+# Using Amazon Nova as a foundation model in an AI agent
 
 To use Amazon Nova models as the foundation model in an AI agent, you can use [Amazon Bedrock Agents](../../../bedrock/latest/userguide/agents-how.md "../../../bedrock/latest/userguide/agents-how.md") or you can [call a tool with the Converse API](../../../bedrock/latest/userguide/tool-use-inference-call.md "../../../bedrock/latest/userguide/tool-use-inference-call.md") or InvokeModel API.
 Amazon Bedrock Agents is a fully managed service that you can use to build and

@@ -40,7 +40,7 @@ If you provide a KMS key to your Amazon Nova model customization training job fo
   gives you flexibility in configuring your training environment with specialized GPU
   instances and integrated Amazon FSx for Lustre storage, making it particularly well-suited
   for advanced distributed training scenarios and ongoing model development. For more
-  information, see [Amazon Nova customization on SageMaker HyperPod](nova-hp.md "nova-hp.md") .
+  information, see [Amazon Nova customization on SageMaker HyperPod](nova-hp.md "nova-hp.md").
 
 ###### In this chapter
 

@@ -1,6 +1,4 @@
-# Create Amazon Bedrock resources with
-
-AWS CloudFormation
+# Create Amazon Bedrock resources with AWS CloudFormation
 
 ###### Note
 

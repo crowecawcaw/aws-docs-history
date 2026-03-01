@@ -14,10 +14,8 @@ inference with Amazon Bedrock features such as playgrounds, Agents, and Knowledg
 
 - [Supported models](#custom-model-inference-supported-models "#custom-model-inference-supported-models")
 - [Deploy a custom model](deploying-custom-model.md "deploying-custom-model.md")
-- [Use a deployment for on-demand
-  inference](use-custom-model-on-demand.md "use-custom-model-on-demand.md")
-- [Delete a custom model
-  deployment](delete-custom-model-deployment.md "delete-custom-model-deployment.md")
+- [Use a deployment for on-demand inference](use-custom-model-on-demand.md "use-custom-model-on-demand.md")
+- [Delete a custom model deployment](delete-custom-model-deployment.md "delete-custom-model-deployment.md")
 
 ## Supported models
 

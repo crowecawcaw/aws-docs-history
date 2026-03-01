@@ -80,8 +80,7 @@ Here is an example with a partially-filled response from Amazon Nova:
 ]`
 ```
 
-For information about creating prompts for Amazon Nova models, see [Text understanding prompting best
-practices](prompting-text-understanding.md "prompting-text-understanding.md").
+For information about creating prompts for Amazon Nova models, see [Text understanding prompting best practices](prompting-text-understanding.md "prompting-text-understanding.md").
 
 ## Utilizing the system prompt
 

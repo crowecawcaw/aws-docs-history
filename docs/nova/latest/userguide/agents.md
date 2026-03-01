@@ -31,8 +31,7 @@ Agents perform the following tasks:
 
 ###### Topics
 
-- [Using Amazon Nova as a foundation model in an AI
-  agent](agents-use-nova.md "agents-use-nova.md")
+- [Using Amazon Nova as a foundation model in an AI agent](agents-use-nova.md "agents-use-nova.md")
 - [Using Amazon Nova with AgentCore](#agents-agentcore "#agents-agentcore")
 - [Using Amazon Nova with Strands](#agents-strands "#agents-strands")
 - [Additional Resources](#agents-resources "#agents-resources")
@@ -91,5 +90,4 @@ response = agent("Tell me about Amazon Bedrock.")
 
 1. [Automate tasks in your application using agents](../../../bedrock/latest/userguide/agents.md "../../../bedrock/latest/userguide/agents.md")
 2. [Tool use (function calling) with Amazon Nova](tool-use.md "tool-use.md")
-3. [Text understanding prompting best
-   practices](prompting-text-understanding.md "prompting-text-understanding.md")
+3. [Text understanding prompting best practices](prompting-text-understanding.md "prompting-text-understanding.md")

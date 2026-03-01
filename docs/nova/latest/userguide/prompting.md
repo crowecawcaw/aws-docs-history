@@ -43,14 +43,11 @@ place, so you can iteratively develop the most optimal prompt for your use case:
    The Amazon Nova model family consists of two broad model categories, understanding models
    (Amazon Nova Micro, Lite, Pro, and Premier) and content generation models (Amazon Nova Canvas and Reel). The
    following guidance addresses the text understanding model and the vision understanding models.
-   For guidance on image generation prompting, see [Amazon Nova Canvas prompting best
-   practices](prompting-image-generation.md "prompting-image-generation.md") and for guidance on video generation prompting,
+   For guidance on image generation prompting, see [Amazon Nova Canvas prompting best practices](prompting-image-generation.md "prompting-image-generation.md") and for guidance on video generation prompting,
    see [Amazon Nova Reel prompting best practices](prompting-video-generation.md "prompting-video-generation.md").
 
 ###### Topics
 
-- [Text understanding prompting best
-  practices](prompting-text-understanding.md "prompting-text-understanding.md")
-- [Vision understanding prompting best
-  practices](prompting-video-understanding.md "prompting-video-understanding.md")
+- [Text understanding prompting best practices](prompting-text-understanding.md "prompting-text-understanding.md")
+- [Vision understanding prompting best practices](prompting-video-understanding.md "prompting-video-understanding.md")
 - [General prompting tips](prompting-general-tips.md "prompting-general-tips.md")

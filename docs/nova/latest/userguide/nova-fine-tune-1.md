@@ -283,9 +283,7 @@ DPO dataset limits
 
 By reducing the number of epochs or the context length of your records, you could provide more records.
 
-## Full-rank SFT and LoRA PEFT
-
-configurations
+## Full-rank SFT and LoRA PEFT configurations
 
 This section covers guidance on recipe configurations for both full-rank
 supervised fine-tuning (SFT) and low-rank adaptation parameter-efficient fine-tuning
@@ -295,9 +293,7 @@ and other critical settings that determine how your model learns from your data.
 adjust the hyperparameters, follow the guidelines in [Selecting
 hyperparameters](customize-fine-tune-hyperparameters.md "customize-fine-tune-hyperparameters.md").
 
-### Fine-tuning
-
-configurations (Full-rank SFT and LoRA PEFT)
+### Fine-tuning configurations (Full-rank SFT and LoRA PEFT)
 
 The only difference between full-rank SFT and LoRA PEFT in terms of recipe is the
 LoRA PEFT configuration, which is set to 'null' for full rank and set to
@@ -337,9 +333,7 @@ About **“training_config” configuration**.
 | model.peft                     | lora_tuning.alpha             | Scaling factor for LoRA weights. Allowed values are 32, 64, 96,<br>128, 160 and 192.                               | 32                                                                                                                                                                           | 192      |
 | model.peft                     | lora_tuning.adapter_dropout   | Regularization for LoRA parameters.Must be between 0.0 and<br>1.0.                                                 | 0                                                                                                                                                                            | 1        |
 
-### Fine-tuning specific
-
-configurations (DPO)
+### Fine-tuning specific configurations (DPO)
 
 The only difference between Direct Preference Optimization (DPO) as compared to
 LoRA PEFT and FullRank SFT is in terms of dpo_cfg configuration and allowed
@@ -370,9 +364,7 @@ shows detailed configurations that you might find helpful.
 | model.peft                     | lora_tuning.adapter_dropout   | Regularization for LoRA parameters. Must be between 0.0 and<br>1.0.                                                | 0                                                                                                                                                       | 1        |
 | **DPO configuration**          | model-dpo_cfg                 | beta                                                                                                               | Strength of preference enforcement.                                                                                                                     | 0.001    | 0.1   |
 
-## Running customized Nova model on
-
-SageMaker Training Jobs
+## Running customized Nova model on SageMaker Training Jobs
 
 This section demonstrates how to run a customized Nova model on SageMaker Training Jobs
 through a Jupyter notebook environment. You'll find a complete example that walks
@@ -382,9 +374,7 @@ configurations. This approach gives you programmatic control over your fine-tuni
 workflows while leveraging SageMaker AI's managed infrastructure for model customization.
 For more information, see [Use a SageMaker AI estimator to run a training job](../../../sagemaker/latest/dg/docker-containers-adapt-your-own-private-registry-estimator.md "../../../sagemaker/latest/dg/docker-containers-adapt-your-own-private-registry-estimator.md").
 
-### Reference
-
-tables
+### Reference tables
 
 Before running the sample notebook, refer to the following tables for selecting
 the appropriate container image URIs and instance configurations.

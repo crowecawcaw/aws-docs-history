@@ -121,6 +121,5 @@ Amazon Nova allows tool use in both the Invoke and Converse API however, for ful
 1. [Use
    a tool to complete a model response](../../../bedrock/latest/userguide/tool-use.md "../../../bedrock/latest/userguide/tool-use.md")
 2. [Building AI agents with Amazon Nova](agents.md "agents.md")
-3. [Text understanding prompting best
-   practices](prompting-text-understanding.md "prompting-text-understanding.md")
+3. [Text understanding prompting best practices](prompting-text-understanding.md "prompting-text-understanding.md")
 4. [Troubleshooting tool calls](prompting-tool-troubleshooting.md "prompting-tool-troubleshooting.md")

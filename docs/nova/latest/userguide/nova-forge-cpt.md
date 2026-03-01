@@ -9,9 +9,7 @@ intermediate checkpoints and data mixing with Nova's pre-training corpus. These 
 enable more efficient domain adaptation and better preservation of the model's general
 capabilities.
 
-## What are intermediate checkpoints and
-
-why are they needed?
+## What are intermediate checkpoints and why are they needed?
 
 Intermediate checkpoints are snapshots of the Amazon Nova model saved at different
 stages of the pre-training, before the model reaches its final production-ready
@@ -112,9 +110,7 @@ and stable training, as the model's knowledge base will be substantially modifie
 With small datasets (<10B tokens), use the GA checkpoint to preserve
 instruction-following capabilities while adapting to the domain.
 
-## How to use data mixing for 1.0 or 2.0
-
-models?
+## How to use data mixing for 1.0 or 2.0 models?
 
 When performing CPT with a new domain data, it is highly beneficial to mix the new
 data with some of the data used previously in the pre-training stage of the model.

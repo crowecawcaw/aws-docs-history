@@ -80,7 +80,7 @@ MLFlow integration is already built into the SageMaker Studio UI experience. Whe
 
 ![the ML Flow App.](images/MLFlow-App.png)
 
-### Submitting a job via the AWSAWS CLI
+### Submitting a job via the AWS AWS CLI
 
 If you use the AWS AWS CLI, you must create an MLflow app and pass it as an input to the
 training job API request.

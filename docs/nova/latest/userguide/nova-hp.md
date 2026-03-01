@@ -69,10 +69,8 @@ training jobs training for Nova 1.0 models.
 ###### Topics
 
 - [Nova Customization SDK](nova-hp-customization-sdk.md "nova-hp-customization-sdk.md")
-- [Amazon SageMaker HyperPod Essential Commands
-  Guide](nova-hp-essential-commands-guide.md "nova-hp-essential-commands-guide.md")
-- [Creating a SageMaker HyperPod EKS cluster with restricted
-  instance group (RIG)](nova-hp-cluster.md "nova-hp-cluster.md")
+- [Amazon SageMaker HyperPod Essential Commands Guide](nova-hp-essential-commands-guide.md "nova-hp-essential-commands-guide.md")
+- [Creating a SageMaker HyperPod EKS cluster with restricted instance group (RIG)](nova-hp-cluster.md "nova-hp-cluster.md")
 - [Nova Forge access and setup for](nova-forge-hp-access.md "nova-forge-hp-access.md")
 - [Training for Amazon Nova models](nova-hp-training.md "nova-hp-training.md")
 - [Fine-tuning Amazon Nova models on SageMaker HyperPod](nova-hp-fine-tune.md "nova-hp-fine-tune.md")

@@ -1,6 +1,4 @@
-# Vision understanding prompting best
-
-practices
+# Vision understanding prompting best practices
 
 ###### Note
 
@@ -60,8 +58,7 @@ for the video
 
 - [Long and high-motion videos](#prompting-video-motion "#prompting-video-motion")
 - [Latency](#prompting-video-latency "#prompting-video-latency")
-- [Vision understanding prompting
-  techniques](prompting-vision-prompting.md "prompting-vision-prompting.md")
+- [Vision understanding prompting techniques](prompting-vision-prompting.md "prompting-vision-prompting.md")
 
 ## Long and high-motion videos
 

@@ -14,9 +14,7 @@ To create a multimodal RAG system:
    2. Return the content back to Amazon Nova
    3. Enable Amazon Nova to respond to the original user query.
 
-## Creating a custom multimodal RAG system with
-
-Amazon Nova
+## Creating a custom multimodal RAG system with Amazon Nova
 
 To create a database of multimodal content with Amazon Nova, you can use one of two
 common approaches. The accuracy of either approach is dependent on your specific

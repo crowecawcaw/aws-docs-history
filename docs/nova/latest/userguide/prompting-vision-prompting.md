@@ -1,6 +1,4 @@
-# Vision understanding prompting
-
-techniques
+# Vision understanding prompting techniques
 
 ###### Note
 
@@ -12,8 +10,7 @@ Amazon Nova.
 ###### Topics
 
 - [Placement matters](#prompting-video-placement "#prompting-video-placement")
-- [Multiple media files with vision
-  components](#prompting-video-vision-components "#prompting-video-vision-components")
+- [Multiple media files with vision components](#prompting-video-vision-components "#prompting-video-vision-components")
 - [Use user instructions for improved instruction following for vision understanding tasks](#prompting-video-instructions "#prompting-video-instructions")
 - [Few shot exemplars](#prompting-video-exemplars "#prompting-video-exemplars")
 - [Bounding box detection](#prompting-video-bounding "#prompting-video-bounding")
@@ -56,9 +53,7 @@ vision understanding.
 | ---- | ------------------------------------------------- | ------------------------------------------------------- |
 | User | Explain whats happening in the image [Image1.png] | [Image1.png]<br>Explain what is happening in the image? |
 
-## Multiple media files with vision
-
-components
+## Multiple media files with vision components
 
 In situations where you provide multiple media files across turns, introduce each
 image with a numbered label. For example, if you use two images, label them `Image

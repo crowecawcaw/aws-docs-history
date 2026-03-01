@@ -6,8 +6,7 @@ This documentation is for Amazon Nova Version 1. Amazon Nova 2 is now available 
 
 Amazon Nova allows you to create novel images and videos in a wide variety of styles. The
 following sections detail the requirements and process necessary to create images or videos.
-For prompt engineering guidance, see [Amazon Nova Canvas prompting best
-practices](prompting-image-generation.md "prompting-image-generation.md") and [Amazon Nova Reel prompting best practices](prompting-video-generation.md "prompting-video-generation.md").
+For prompt engineering guidance, see [Amazon Nova Canvas prompting best practices](prompting-image-generation.md "prompting-image-generation.md") and [Amazon Nova Reel prompting best practices](prompting-video-generation.md "prompting-video-generation.md").
 
 ###### Topics
 

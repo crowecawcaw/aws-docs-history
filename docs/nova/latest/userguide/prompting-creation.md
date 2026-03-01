@@ -1,6 +1,4 @@
-# Prompting best practices for Amazon Nova content creation
-
-models
+# Prompting best practices for Amazon Nova content creation models
 
 ###### Note
 
@@ -11,6 +9,5 @@ For guidance on multimodal understanding models, [Prompting best practices for A
 
 ###### Topics
 
-- [Amazon Nova Canvas prompting best
-  practices](prompting-image-generation.md "prompting-image-generation.md")
+- [Amazon Nova Canvas prompting best practices](prompting-image-generation.md "prompting-image-generation.md")
 - [Amazon Nova Reel prompting best practices](prompting-video-generation.md "prompting-video-generation.md")
