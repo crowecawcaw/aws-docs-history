@@ -10,3 +10,4 @@ to write complex queries.
 ###### Topics
 
 - [G.V() graph database client](gv-tool.md "gv-tool.md")
+- [Graph Explorer](graph-explorer-tool.md "graph-explorer-tool.md")

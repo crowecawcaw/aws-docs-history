@@ -20,9 +20,9 @@ permissions to load the dataset from the location where it resides.
    one preloaded with data.
    - If you choose **Create empty graph**,
      choose the number of memory-optimized Neptune Capacity Units (m-NCUs) to
-     allocate to the new Neptune Analytics graph, between 128 and 1024. Each m-NCU has
+     allocate to the new Neptune Analytics graph. Each m-NCU has
      around one GiB of memory capacity and corresponding compute and
-     networking.
+     networking. For available capacity values, see the [Neptune Analytics pricing page](https://aws.amazon.com/neptune/pricing/ "https://aws.amazon.com/neptune/pricing/").
    - If you choose **Create Graph from existing source**,
      Neptune Analytics will bulk-load data for you when the graph is created. Choose this
      option if you want to import a large dataset, on the order of 50 GiB or
@@ -36,12 +36,12 @@ permissions to load the dataset from the location where it resides.
         that you specify.
      2. Under **Load role ARN**, select an IAM role
         that you have created to provide the necessary permissions for the data import.
-        See [Create an IAM role with permissions to export
-        from Neptune to Neptune Analytics](bulk-import-create-from-neptune.md#iam-create-role-export-neptune-analytics "bulk-import-create-from-neptune.md#iam-create-role-export-neptune-analytics") for instructions about how to create the role.
+        See [Create an IAM role with permissions to export from Neptune to Neptune Analytics](bulk-import-create-from-neptune.md#iam-create-role-export-neptune-analytics "bulk-import-create-from-neptune.md#iam-create-role-export-neptune-analytics") for instructions about how to create the role.
      3. The next steps depend on what source you're loading data from:
         - If you choose **Create empty graph**, choose the number of memory-optimized Neptune Capacity
-          Units (m-NCUs) to allocate to the new Neptune Analytics graph, between 16 and 4096. Each m-NCU has around one GiB of
-          memory capacity and corresponding compute and networking.
+          Units (m-NCUs) to allocate to the new Neptune Analytics graph. Each m-NCU has
+          around one GiB of memory capacity and corresponding compute and
+          networking. For available capacity values, see the [Neptune Analytics pricing page](https://aws.amazon.com/neptune/pricing/ "https://aws.amazon.com/neptune/pricing/").
         - If you choose **Neptune cluster snapshot** as the type of source,
           select one of your manual DB snapshots that you want to load from under **Neptune
           DB snapshot**.

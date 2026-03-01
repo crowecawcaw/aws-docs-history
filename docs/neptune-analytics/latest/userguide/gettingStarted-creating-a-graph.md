@@ -69,10 +69,10 @@ aws neptune-graph create-graph --graph-name 'test-neptune-graph' \
 Create a private graph endpoint:
 
 ```
-aws neptune-graph create-private-graph-endpoint —vpc-id vpc-0a9b7a5b15 \
+aws neptune-graph create-private-graph-endpoint --vpc-id vpc-0a9b7a5b15 \
 --subnet-ids subnet-06a4b41a6221b subnet-0840a4b327ab77 subnet-0353627ab123 \
 --vpc-security-group-ids sg-0ab7abab56ab \
---graph-identifier g-146a51b7a151ba —region us-east-1
+--graph-identifier g-146a51b7a151ba --region us-east-1
 ```
 
 Check the status of graph creation:

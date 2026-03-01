@@ -1,6 +1,4 @@
-#
-
-Connecting to a private endpoint from a different VPC (including cross-account)
+# Connecting to a private endpoint from a different VPC (including cross-account)
 
 In some cases, you may be required to connect to your graph from a different VPC without enabling public
 connectivity. For example, applications that segregate AWS services using different VPCs or different accounts.

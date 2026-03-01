@@ -1,6 +1,4 @@
-#
-
-Creating an Amazon VPC endpoint policy for Neptune Analytics data plane
+# Creating an Amazon VPC endpoint policy for Neptune Analytics data plane
 
 ###### Note
 

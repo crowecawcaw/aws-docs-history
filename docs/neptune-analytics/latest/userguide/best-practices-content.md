@@ -117,9 +117,7 @@ parameters={
 }
 ```
 
-## Place more restrictive nodes on the left side in
-
-Variable-Length Path (VLP) expressions
+## Place more restrictive nodes on the left side in Variable-Length Path (VLP) expressions
 
 In Variable-Length Path (VLP) queries, the query engine optimizes the evaluation by choosing to start the traversal
 on the left or right side of the expression. The decision is based on the cardinality of the patterns on the left
@@ -352,9 +350,7 @@ WITH n, collect(postId) as post_list
 RETURN n, post_list
 ```
 
-## Prefer the properties function over individual property lookup when
-
-retrieving all property values
+## Prefer the properties function over individual property lookup when retrieving all property values
 
 The `properties()` function is used to return a map containing all properties for an entity, and is much
 more efficient than returning properties individually.

@@ -33,8 +33,7 @@ A quick summary of steps to import from a Neptune cluster or a Neptune snapshot:
 
 1. [Obtain the ARN of your Neptune cluster or snapshot](#obtain-arn-of-neptune-cluster "#obtain-arn-of-neptune-cluster"): This can be done
    from the AWS console or using the Neptune CLI.
-2. [Create an IAM role with permissions to export
-   from Neptune to Neptune Analytics](#iam-create-role-export-neptune-analytics "#iam-create-role-export-neptune-analytics"):
+2. [Create an IAM role with permissions to export from Neptune to Neptune Analytics](#iam-create-role-export-neptune-analytics "#iam-create-role-export-neptune-analytics"):
    Create an IAM role that has permissions to perform an export of your Neptune graph, write to Amazon S3 and use your
    KMS key for writing data in Amazon S3.
 3. Use the `CreateGraphUsingImportTask` API with source = NEPTUNE, and provide the ARN of your source,
@@ -70,9 +69,7 @@ programmatically or through the AWS management console.
 
 ![Cluster details option 2.](images/bulk-import/cluster-details-2.png)
 
-## Create an IAM role with permissions to export
-
-from Neptune to Neptune Analytics
+## Create an IAM role with permissions to export from Neptune to Neptune Analytics
 
 1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/"). Choose **Roles**, and
    then choose **Create Role**.

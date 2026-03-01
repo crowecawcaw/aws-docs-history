@@ -38,7 +38,7 @@ and user-defined column names, annotated with predefined datatypes and cardinali
   in the vertex files. For more information on vertices and what they are, see
   [vertices](query-openCypher-data-model.md#query-openCypher-data-model-vertices "query-openCypher-data-model.md#query-openCypher-data-model-vertices").
 - Date column type is supported. The following date formats are supported: yyyy-MM-dd, yyyy-MM-dd[+|-]hhmm. To include
-  time along with date, use the `Datetime` column type instead.
+  time along with date, use the `Datetime` column type instead. Note that unlike Neptune Database, Neptune Analytics doesn't convert the date type into datetime Type.
 - The datetime values can either be provided in the [XSD format](https://www.w3.org/TR/xmlschema-2/ "https://www.w3.org/TR/xmlschema-2/") or one
   of the following formats:
   - `yyyy-MM-dd`

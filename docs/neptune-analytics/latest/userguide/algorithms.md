@@ -64,7 +64,7 @@ aws neptune-graph execute-query \
 Algorithms having signatures with different kinds of input
 in Neptune Analytics are exposed as separate algorithms. Unless otherwise
 indicated, the examples here are using the [Air Routes
-dataset](s3://neptune-benchmark-artifacts-us-west-2/data/CP/air-routes/ "s3://neptune-benchmark-artifacts-us-west-2/data/CP/air-routes/").
+dataset](https://aws.amazon.com/blogs/database/let-me-graph-that-for-you-part-1-air-routes/ "https://aws.amazon.com/blogs/database/let-me-graph-that-for-you-part-1-air-routes/").
 
 Neptune Analytics currently supports five main categories of algorithm:
 

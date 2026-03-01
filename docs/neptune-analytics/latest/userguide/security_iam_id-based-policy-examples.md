@@ -1,6 +1,4 @@
-# Identity-based policy
-
-examples for Neptune Analytics
+# Identity-based policy examples for Neptune Analytics
 
 By default, users and roles don't have permission to create or modify Neptune Analytics
 resources. To grant users permission to perform actions on the

@@ -23,14 +23,13 @@ The `~id` column in `edge` (`relationship`) files in
 ###### Vertex headers
 
 - `~id` - Required. An `id` for the vertex.
-- `~label` - Optional. A label for the vertex, multiple label values are supported, separated by
-  semicolons (`;`).
+- `~label` - Optional. List of labels for the vertex. Each label is a string. Multiple labels can either be semicolon (`;`) separated, or a list of strings.
 
 ###### Edge headers
 
 - `~from` - Required. The vertex `id` of the **from** vertex.
 - `~to` - Required. The vertex `id` of the **to** vertex.
-- `~label` - Optional. A label for the edge. Edges can only have a single label.
+- `~label` - Optional. A label for the edge. The label is a string value.
 
 ## Property column headers
 
@@ -55,3 +54,7 @@ The following object is an example of the metadata that has `Any` type column, `
 
 Space, comma, carriage return and newline characters are not allowed in the column headers, so property names cannot
 include these characters.
+
+###### Warning
+
+Without the annotation in the metadata for the special column types, the values of these special columns will be stored as strings instead of the intended types.

@@ -29,7 +29,6 @@ _of_ the cloud and security _in_ the cloud:
 - [Compliance validation for Neptune Analytics](compliance-validation.md "compliance-validation.md")
 - [Resilience in Neptune Analytics](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure Security in Neptune Analytics](infrastructure-security.md "infrastructure-security.md")
-- [Cross-service confused deputy
-  prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
 - [Using service-linked roles (SLRs) in Neptune Analytics](nan-service-linked-roles.md "nan-service-linked-roles.md")
 - [Import/export permissions](import-export-permissions.md "import-export-permissions.md")
