@@ -74,8 +74,7 @@ For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgro
 ###### Note
 
 You can use a service-linked role with AWS IoT FleetWise. Service-linked roles are predefined by AWS IoT FleetWise and
-include the permissions that AWS IoT FleetWise needs to send metrics to Amazon CloudWatch. For more information, see [Using service-linked roles for
-AWS IoT FleetWise](using-service-linked-roles.md "using-service-linked-roles.md").
+include the permissions that AWS IoT FleetWise needs to send metrics to Amazon CloudWatch. For more information, see [Using service-linked roles for AWS IoT FleetWise](using-service-linked-roles.md "using-service-linked-roles.md").
 
 ## Get started in the console
 

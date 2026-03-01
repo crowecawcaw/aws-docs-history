@@ -24,8 +24,7 @@ For your campaign to work, you must have the following:
 
 - [Create a campaign (console)](#create-campaign-console "#create-campaign-console")
 - [Create a campaign (AWS CLI)](#create-campaign-cli "#create-campaign-cli")
-- [Logical expressions for AWS IoT FleetWise
-  campaigns](logical-expression.md "logical-expression.md")
+- [Logical expressions for AWS IoT FleetWise campaigns](logical-expression.md "logical-expression.md")
 
 ## Create a campaign (console)
 
@@ -46,8 +45,7 @@ vehicle data to the cloud.
 - [Step 2: Specify storage and upload conditions](#specify-storage-upload-conditions "#specify-storage-upload-conditions")
 - [Step 3: Configure data destination](#configure-data-collection-scheme-console "#configure-data-collection-scheme-console")
 - [Step 4: Add vehicles](#add-attributes-console "#add-attributes-console")
-- [Step 5: Review and
-  create](#review-and-create-campaign-console "#review-and-create-campaign-console")
+- [Step 5: Review and create](#review-and-create-campaign-console "#review-and-create-campaign-console")
 - [Step 6: Deploy a campaign](#update-campaign-console "#update-campaign-console")
 
 ###### Important
@@ -117,8 +115,7 @@ define options to customize the scheme.
      > 50.0` expression, AWS IoT FleetWise collects
      temperature values that are greater than 50.0. For
      instructions about how to write expressions, see
-     [Logical expressions for AWS IoT FleetWise
-     campaigns](logical-expression.md "logical-expression.md").
+     [Logical expressions for AWS IoT FleetWise campaigns](logical-expression.md "logical-expression.md").
 
 
     Enter the logical expression used to recognize
@@ -355,9 +352,7 @@ Up to 100 vehicles are displayed in search results. Choose
 **Select all** to add all vehicles to the
 campaign. 5. Choose **Next**.
 
-### Step 5: Review and
-
-create
+### Step 5: Review and create
 
 Verify the configurations for the campaign, and then choose **Create
 campaign**.

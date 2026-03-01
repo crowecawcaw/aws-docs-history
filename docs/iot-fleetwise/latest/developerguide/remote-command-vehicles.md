@@ -24,8 +24,7 @@ To use the commands feature:
 - [Workflow overview](#remote-command-vehicles-overview "#remote-command-vehicles-overview")
 - [Vehicle workflow](#iot-remote-command-devices-workflow "#iot-remote-command-devices-workflow")
 - [Commands workflow](#iot-remote-command-commands-workflow "#iot-remote-command-commands-workflow")
-- [(Optional) Commands
-  notifications](#remote-command-notifications "#remote-command-notifications")
+- [(Optional) Commands notifications](#remote-command-notifications "#remote-command-notifications")
 
 ## Workflow overview
 
@@ -182,8 +181,7 @@ over MQTT that's authenticated with TLS.
     $aws/commands/things/`<DeviceID>`/executions/`<ExecutionId>`/response/protobuf/rejected
     ```
 
-For more information about this API and an example, see [Update command execution
-result](send-monitor-remote-command-cli.md#update-remote-command-execution-cli "send-monitor-remote-command-cli.md#update-remote-command-execution-cli").
+For more information about this API and an example, see [Update command execution result](send-monitor-remote-command-cli.md#update-remote-command-execution-cli "send-monitor-remote-command-cli.md#update-remote-command-execution-cli").
 
 ## Commands workflow
 
@@ -250,9 +248,7 @@ published the command execution result to the response topic.
 
 For more information and examples for using this API, see [Get command execution](send-monitor-remote-command-cli.md#get-remote-command-execution-cli "send-monitor-remote-command-cli.md#get-remote-command-execution-cli").
 
-## (Optional) Commands
-
-notifications
+## (Optional) Commands notifications
 
 You can subscribe to commands events to receive notifications when the status of a
 command execution changes. The following steps show you how to subscribe to commands

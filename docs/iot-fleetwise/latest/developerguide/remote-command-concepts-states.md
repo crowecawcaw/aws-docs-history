@@ -17,8 +17,7 @@ For the detailed workflow, see [Vehicles and commands](remote-command-vehicles.m
 ###### Topics
 
 - [Commands key concepts](#remote-command-concepts "#remote-command-concepts")
-- [Command execution
-  status](#remote-command-execution-status-codes "#remote-command-execution-status-codes")
+- [Command execution status](#remote-command-execution-status-codes "#remote-command-execution-status-codes")
 
 ## Commands key concepts
 
@@ -151,9 +150,7 @@ or deactivate previously deployed LKS state templates to start or stop
 reporting vehicle data. For examples that show how to use commands with
 state templates, see [Command usage scenarios](remote-command-use-cases.md "remote-command-use-cases.md").
 
-## Command execution
-
-status
+## Command execution status
 
 After you start the command execution, your vehicle can publish the status of the
 execution, and provide the reasons for the status as additional information about
@@ -162,16 +159,11 @@ statuses, and the status codes.
 
 ###### Topics
 
-- [Command execution
-  status reason code and description](#remote-command-execution-status-reason-codes "#remote-command-execution-status-reason-codes")
-- [Command execution status
-  and status codes](#remote-command-execution-status-codes "#remote-command-execution-status-codes")
-- [Command execution
-  timeout status](#remote-command-execution-status-timeout "#remote-command-execution-status-timeout")
+- [Command execution status reason code and description](#remote-command-execution-status-reason-codes "#remote-command-execution-status-reason-codes")
+- [Command execution status and status codes](#remote-command-execution-status-codes "#remote-command-execution-status-codes")
+- [Command execution timeout status](#remote-command-execution-status-timeout "#remote-command-execution-status-timeout")
 
-### Command execution
-
-status reason code and description
+### Command execution status reason code and description
 
 To report updates to the command execution status, your vehicles can use the
 `UpdateCommandExecution` API to publish the updated status
@@ -182,9 +174,7 @@ each command execution using the `StatusReason` object, and the
 fields `reasonCode` and `reasonDescription` that are
 contained within the object.
 
-### Command execution status
-
-and status codes
+### Command execution status and status codes
 
 The following table shows the various command execution status codes and the
 allowed statuses that a command execution can transition to. It also shows
@@ -201,18 +191,16 @@ are reported by the cloud.
   and the transitions between the statuses, see [Command execution status](../../../iot/latest/developerguide/iot-remote-command-concepts.md#iot-command-execution-status "../../../iot/latest/developerguide/iot-remote-command-concepts.md#iot-command-execution-status") in the _AWS IoT Core
   developer guide_.
 
-| Command execution status and source | Command execution status                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Description      | Initiated by device/cloud? | Terminal execution?                                                             | Allowed status transitions           | Pre-defined status codes |
-| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------- | -------------------------- | ------------------------------------------------------------------------------- | ------------------------------------ | ------------------------ |
-| `CREATED`                           | When the API request to start executing the command<br>(`StartCommandExecution` API) is successful, the<br>command execution status changes to<br>`CREATED`.                                                                                                                                                                                                                                                                                                                                                                                                       | Cloud            | No                         | • `IN_PROGRESS`<br>• `SUCCEEDED`<br>• `FAILED`<br>• `REJECTED`<br>• `TIMED_OUT` | None                                 |
-| `IN_PROGRESS`                       | When the vehicle starts executing the command, it can publish<br>a message to the response topic to update the status to<br>`IN_PROGRESS`.                                                                                                                                                                                                                                                                                                                                                                                                                         | Device           | No                         | • IN_PROGRESS<br>• SUCCEEDED<br>• FAILED<br>• REJECTED<br>• TIMED_OUT           | `COMMAND_STATUS_COMMAND_IN_PROGRESS` |
-| `SUCCEEDED`                         | When the vehicle has successfully processed the command and<br>completed the execution, it can publish a message to the<br>response topic to update the status to<br>`SUCCEEDED`.                                                                                                                                                                                                                                                                                                                                                                                  | Device           | Yes                        | Not applicable                                                                  | `COMMAND_STATUS_SUCCEEDED`           |
-| `FAILED`                            | When the vehicle failed to execute the command, it can<br>publish a message to the response topic to update the status to<br>`FAILED`.                                                                                                                                                                                                                                                                                                                                                                                                                             | Device           | Yes                        | Not applicable                                                                  | `COMMAND_STATUS_EXECUTION_FAILED`    |
-| `REJECTED`                          | If the vehicle fails to accept the command, it can publish a<br>message to the response topic to update the status to<br>`REJECTED`.                                                                                                                                                                                                                                                                                                                                                                                                                               | Device           | Yes                        | Not applicable                                                                  | None                                 |
-| `TIMED_OUT`                         | The command execution status can change to<br>`TIMED_OUT` due to any of the following<br>reasons.<br>• The result of the command execution wasn't<br>received and the cloud automatically reports a<br>`TIMED_OUT` status.<br>• The vehicle reports that a time out occurred when<br>it was attempting to execute the command. In this<br>case, the command execution becomes terminal.<br>For more information about this status, see [Command execution<br>timeout status](#remote-command-execution-status-timeout "#remote-command-execution-status-timeout"). | Device and cloud | No                         | • SUCCEEDED<br>• FAILED<br>• REJECTED<br>• TIMED_OUT                            | `COMMAND_STATUS_EXECUTION_TIMEOUT`   |
+| Command execution status and source | Command execution status                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Description      | Initiated by device/cloud? | Terminal execution?                                                             | Allowed status transitions           | Pre-defined status codes |
+| ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | -------------------------- | ------------------------------------------------------------------------------- | ------------------------------------ | ------------------------ |
+| `CREATED`                           | When the API request to start executing the command<br>(`StartCommandExecution` API) is successful, the<br>command execution status changes to<br>`CREATED`.                                                                                                                                                                                                                                                                                                                                                                                                    | Cloud            | No                         | • `IN_PROGRESS`<br>• `SUCCEEDED`<br>• `FAILED`<br>• `REJECTED`<br>• `TIMED_OUT` | None                                 |
+| `IN_PROGRESS`                       | When the vehicle starts executing the command, it can publish<br>a message to the response topic to update the status to<br>`IN_PROGRESS`.                                                                                                                                                                                                                                                                                                                                                                                                                      | Device           | No                         | • IN_PROGRESS<br>• SUCCEEDED<br>• FAILED<br>• REJECTED<br>• TIMED_OUT           | `COMMAND_STATUS_COMMAND_IN_PROGRESS` |
+| `SUCCEEDED`                         | When the vehicle has successfully processed the command and<br>completed the execution, it can publish a message to the<br>response topic to update the status to<br>`SUCCEEDED`.                                                                                                                                                                                                                                                                                                                                                                               | Device           | Yes                        | Not applicable                                                                  | `COMMAND_STATUS_SUCCEEDED`           |
+| `FAILED`                            | When the vehicle failed to execute the command, it can<br>publish a message to the response topic to update the status to<br>`FAILED`.                                                                                                                                                                                                                                                                                                                                                                                                                          | Device           | Yes                        | Not applicable                                                                  | `COMMAND_STATUS_EXECUTION_FAILED`    |
+| `REJECTED`                          | If the vehicle fails to accept the command, it can publish a<br>message to the response topic to update the status to<br>`REJECTED`.                                                                                                                                                                                                                                                                                                                                                                                                                            | Device           | Yes                        | Not applicable                                                                  | None                                 |
+| `TIMED_OUT`                         | The command execution status can change to<br>`TIMED_OUT` due to any of the following<br>reasons.<br>• The result of the command execution wasn't<br>received and the cloud automatically reports a<br>`TIMED_OUT` status.<br>• The vehicle reports that a time out occurred when<br>it was attempting to execute the command. In this<br>case, the command execution becomes terminal.<br>For more information about this status, see [Command execution timeout status](#remote-command-execution-status-timeout "#remote-command-execution-status-timeout"). | Device and cloud | No                         | • SUCCEEDED<br>• FAILED<br>• REJECTED<br>• TIMED_OUT                            | `COMMAND_STATUS_EXECUTION_TIMEOUT`   |
 
-### Command execution
-
-timeout status
+### Command execution timeout status
 
 A command execution timeout can be reported both by the cloud and the device.
 After the command is sent to the device, a timer starts. If there was no

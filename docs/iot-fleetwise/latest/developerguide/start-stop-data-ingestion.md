@@ -1,6 +1,4 @@
-# Activate and deactivate state data
-
-collection using state templates
+# Activate and deactivate state data collection using state templates
 
 ###### Important
 
@@ -23,16 +21,11 @@ how to use this API and how to activate and deactivate data ingestion.
 
 ###### Topics
 
-- [Using the
-  CreateCommand API](#start-stop-ingestion-create-command "#start-stop-ingestion-create-command")
-- [Example: Activate a
-  state template](#start-stop-ingestion-activate-template "#start-stop-ingestion-activate-template")
-- [Example: Deactivate a
-  state template](#start-stop-ingestion-deactivate-template "#start-stop-ingestion-deactivate-template")
+- [Using the CreateCommand API](#start-stop-ingestion-create-command "#start-stop-ingestion-create-command")
+- [Example: Activate a state template](#start-stop-ingestion-activate-template "#start-stop-ingestion-activate-template")
+- [Example: Deactivate a state template](#start-stop-ingestion-deactivate-template "#start-stop-ingestion-deactivate-template")
 
-## Using the
-
-`CreateCommand` API
+## Using the `CreateCommand` API
 
 Create a command resource in the "`AWS-IoTFleetwise`"
 namespace, and use the following parameters when you create or send a command
@@ -102,9 +95,7 @@ A validation exception can occur in any of the following scenarios:
 - A request is made to a state template but it's being `DELETED` on a
   vehicle.
 
-## Example: Activate a
-
-state template
+## Example: Activate a state template
 
 To activate a state template, first create a command resource. You can then send the following
 command to the vehicle on which you want to activate the state
@@ -178,9 +169,7 @@ template.
 aws iot get-command-execution --execution-id `<EXECUTION_ID>`
 ```
 
-## Example: Deactivate a
-
-state template
+## Example: Deactivate a state template
 
 To deactivate a state template, first create a command resource. You can then send the
 following command to the vehicle on which you want to deactivate the state

@@ -1,6 +1,4 @@
-# Start and monitor command
-
-executions
+# Start and monitor command executions
 
 ###### Important
 
@@ -17,11 +15,9 @@ you how to monitor and update the status of the command execution.
 
 ###### Topics
 
-- [Update command execution
-  result](#update-remote-command-execution-cli "#update-remote-command-execution-cli")
+- [Update command execution result](#update-remote-command-execution-cli "#update-remote-command-execution-cli")
 - [Get command execution](#get-remote-command-execution-cli "#get-remote-command-execution-cli")
-- [List command executions in your
-  account](#list-remote-command-execution-cli "#list-remote-command-execution-cli")
+- [List command executions in your account](#list-remote-command-execution-cli "#list-remote-command-execution-cli")
 - [Delete a command execution](#delete-remote-command-execution-cli "#delete-remote-command-execution-cli")
   To send a command from the console, go to the [Vehicles](https://console.aws.amazon.com/iotfleetwise/home#/vehicles "https://console.aws.amazon.com/iotfleetwise/home#/vehicles") page of the AWS IoT FleetWise console and
   perform the following steps.
@@ -38,15 +34,11 @@ you how to monitor and update the status of the command execution.
 
 ###### Topics
 
-- [Considerations when sending a
-  command](#send-remote-command-considerations "#send-remote-command-considerations")
-- [Obtain account-specific data plane
-  endpoint](#send-remote-command-endpoint "#send-remote-command-endpoint")
+- [Considerations when sending a command](#send-remote-command-considerations "#send-remote-command-considerations")
+- [Obtain account-specific data plane endpoint](#send-remote-command-endpoint "#send-remote-command-endpoint")
 - [Send a command example](#send-remote-command-example "#send-remote-command-example")
 
-### Considerations when sending a
-
-command
+### Considerations when sending a command
 
 When you start a command execution in AWS IoT FleetWise:
 
@@ -68,9 +60,7 @@ When you start a command execution in AWS IoT FleetWise:
   `name` field must use the fully qualified name with the
   `$actuatorPath.` prefix.
 
-### Obtain account-specific data plane
-
-endpoint
+### Obtain account-specific data plane endpoint
 
 Before you run the API command, you must obtain the account-specific endpoint URL
 for the `iot:Jobs` endpoint. For example, if you run this command:
@@ -103,8 +93,7 @@ To send a command to a vehicle, run the following command.
 You can specify the target ARN of an AWS IoT thing (AWS IoT FleetWise vehicle). Thing groups and fleets aren't currently supported.
 
 - Replace `endpoint-url` with the account-specific
-  endpoint that you obtained in [Obtain account-specific data plane
-  endpoint](#send-remote-command-endpoint "#send-remote-command-endpoint"), prefixed by
+  endpoint that you obtained in [Obtain account-specific data plane endpoint](#send-remote-command-endpoint "#send-remote-command-endpoint"), prefixed by
   `https://`, for example,
   `https://`123456789012abcd`.jobs.iot.`ap-south-1`.amazonaws.com`.
 - Replace `name` and
@@ -135,8 +124,7 @@ that makes it terminal, such as `SUCCEEDED` or
 The device can also report a `TIMED_OUT` status, or
 override this status to a status such as `SUCCEEDED`,
 `FAILED`, or `REJECTED`, and the command
-execution will become terminal. For more information, see [Command execution
-timeout status](remote-command-concepts-states.md#remote-command-execution-status-timeout "remote-command-concepts-states.md#remote-command-execution-status-timeout").
+execution will become terminal. For more information, see [Command execution timeout status](remote-command-concepts-states.md#remote-command-execution-status-timeout "remote-command-concepts-states.md#remote-command-execution-status-timeout").
 
 ```
 aws iot-jobs-data start-command-execution \
@@ -174,9 +162,7 @@ timeout_ms: `9000000`
 issued_timestamp_ms: `1723847831317`
 ```
 
-## Update command execution
-
-result
+## Update command execution result
 
 To update the status of the command execution, your device must have established an
 MQTT connection and subscribed to the following commands request topic.
@@ -301,8 +287,7 @@ time when the device reports a terminal status to the cloud. In the case of
 `TIMED_OUT` status, this field will be set only when the device
 reports A timeout. When the `TIMED_OUT` status is set by the cloud, the
 `TIMED_OUT` status is not updated. For more information about the
-time out behavior, see [Command execution
-timeout status](remote-command-concepts-states.md#remote-command-execution-status-timeout "remote-command-concepts-states.md#remote-command-execution-status-timeout").
+time out behavior, see [Command execution timeout status](remote-command-concepts-states.md#remote-command-execution-status-timeout "remote-command-concepts-states.md#remote-command-execution-status-timeout").
 
 ```
 {
@@ -323,9 +308,7 @@ timeout status](remote-command-concepts-states.md#remote-command-execution-statu
 }
 ```
 
-## List command executions in your
-
-account
+## List command executions in your account
 
 Use the [`ListCommandExecutions`](../../../iot/latest/apireference/API_ListCommandExecutions.md "../../../iot/latest/apireference/API_ListCommandExecutions.md") AWS IoT Core control plane HTTP API
 operation to list all command executions in your account. The example uses the
@@ -333,14 +316,10 @@ AWS CLI.
 
 ###### Topics
 
-- [Considerations when listing
-  command executions](#list-remote-command-considerations "#list-remote-command-considerations")
-- [List command executions
-  example](#list-remote-command-example "#list-remote-command-example")
+- [Considerations when listing command executions](#list-remote-command-considerations "#list-remote-command-considerations")
+- [List command executions example](#list-remote-command-example "#list-remote-command-example")
 
-### Considerations when listing
-
-command executions
+### Considerations when listing command executions
 
 The following are some considerations when using the
 `ListCommandExecutions` API.
@@ -368,9 +347,7 @@ The following are some considerations when using the
 - You cannot filter the command executions based on their status when
   listing command executions for a command ARN.
 
-### List command executions
-
-example
+### List command executions example
 
 The following example shows you how to list command executions in your
 AWS account.

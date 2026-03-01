@@ -1,6 +1,4 @@
-# Get AWS IoT FleetWise decoder manifest
-
-information
+# Get AWS IoT FleetWise decoder manifest information
 
 You can use the [GetDecoderManifest](../APIReference/API_GetDecoderManifest.md "../APIReference/API_GetDecoderManifest.md") API operation to verify if network interfaces and
 signal decoders in the decoder manifest have been updated. The following example

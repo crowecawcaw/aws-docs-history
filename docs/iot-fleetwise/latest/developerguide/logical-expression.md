@@ -1,6 +1,4 @@
-# Logical expressions for AWS IoT FleetWise
-
-campaigns
+# Logical expressions for AWS IoT FleetWise campaigns
 
 AWS IoT FleetWise uses a logical expression to recognize what data to collect as part of a
 campaign. For more information about expressions, see [Expressions](../../../iotevents/latest/developerguide/iotevents-expressions.md "../../../iotevents/latest/developerguide/iotevents-expressions.md") in the _AWS IoT Events Developer Guide_.

@@ -108,9 +108,7 @@ JSON
 
 ```
 
-## Verify signal catalog
-
-update
+## Verify signal catalog update
 
 You can use the [ListSignalCatalogNodes](../APIReference/API_ListSignalCatalogNodes.md "../APIReference/API_ListSignalCatalogNodes.md") API operation to verify if a
 signal catalog was updated. The following example uses AWS CLI.

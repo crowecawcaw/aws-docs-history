@@ -1,6 +1,4 @@
-# Process last known state vehicle
-
-data using MQTT messaging
+# Process last known state vehicle data using MQTT messaging
 
 ###### Important
 

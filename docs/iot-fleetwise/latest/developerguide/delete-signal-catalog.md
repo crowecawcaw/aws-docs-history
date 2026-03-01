@@ -22,9 +22,7 @@ the following:
 aws iotfleetwise delete-signal-catalog --name `signal-catalog-name`
 ```
 
-## Verify signal catalog
-
-deletion
+## Verify signal catalog deletion
 
 You can use the [ListSignalCatalogs](../APIReference/API_ListSignalCatalogs.md "../APIReference/API_ListSignalCatalogs.md") API operation to verify if a signal catalog has been
 deleted. The following example uses AWS CLI.

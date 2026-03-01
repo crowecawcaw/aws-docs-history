@@ -1,6 +1,4 @@
-# Upload data using AWS IoT
-
-Jobs
+# Upload data using AWS IoT Jobs
 
 ###### Important
 

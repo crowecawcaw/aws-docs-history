@@ -1,6 +1,4 @@
-# Example: Using commands to control a vehicle
-
-steering mode (AWS CLI)
+# Example: Using commands to control a vehicle steering mode (AWS CLI)
 
 ###### Important
 
@@ -12,17 +10,13 @@ show how you can send a command to remotely control the steering mode.
 
 ###### Topics
 
-- [Overview of vehicle steering
-  mode example](#iot-remote-command-tutorial-overview "#iot-remote-command-tutorial-overview")
+- [Overview of vehicle steering mode example](#iot-remote-command-tutorial-overview "#iot-remote-command-tutorial-overview")
 - [Prerequisites](#iot-remote-command-tutorial-prereq "#iot-remote-command-tutorial-prereq")
-- [IAM policy for using remote
-  commands](#remote-command-policy "#remote-command-policy")
+- [IAM policy for using remote commands](#remote-command-policy "#remote-command-policy")
 - [Run AWS IoT commands (AWS CLI)](#iot-remote-command-tutorial-run "#iot-remote-command-tutorial-run")
 - [Cleaning up](#remote-command-tutorial-clean "#remote-command-tutorial-clean")
 
-## Overview of vehicle steering
-
-mode example
+## Overview of vehicle steering mode example
 
 In this example, you'll:
 
@@ -52,12 +46,9 @@ Before you run this example:
   see [Provision vehicles](provision-vehicles.md "provision-vehicles.md").
 - Create an IAM user and an IAM policy that grants you permission to
   perform the API operations for using commands, as shown in
-  [IAM policy for using remote
-  commands](#remote-command-policy "#remote-command-policy").
+  [IAM policy for using remote commands](#remote-command-policy "#remote-command-policy").
 
-## IAM policy for using remote
-
-commands
+## IAM policy for using remote commands
 
 The following table shows a sample IAM policy that grants access to all the
 control plane and data plane API operations for the commands
@@ -151,8 +142,7 @@ Create the command that you want to send to your device using the
     * `role-arn` as
      `"arn:aws:iam:`accountId`:role/`FwCommandExecutionRole`"`
      The `role-arn` must be provided, as it is the IAM role that
-     grants permissions to create and run commands on your vehicle. For more information, see [Grant AWS IoT Device Management permission to generate the
-     payload for commands with AWS IoT FleetWise](controlling-access.md#generate-command-payload "controlling-access.md#generate-command-payload").
+     grants permissions to create and run commands on your vehicle. For more information, see [Grant AWS IoT Device Management permission to generate the payload for commands with AWS IoT FleetWise](controlling-access.md#generate-command-payload "controlling-access.md#generate-command-payload").
     * `display-name` as "``Turn off steering
      mode``"
     * `namespace` must be `AWS-IoT-FleetWise`
@@ -285,14 +275,12 @@ the device that you're targeting.
     * To obtain the latest status information, your devices must have
      published the updated status information to the MQTT reserved response
      topic for commands using the `UpdateCommandExecution` MQTT
-     API. For more information, see [Update command execution
-     result](send-monitor-remote-command-cli.md#update-remote-command-execution-cli "send-monitor-remote-command-cli.md#update-remote-command-execution-cli").
+     API. For more information, see [Update command execution result](send-monitor-remote-command-cli.md#update-remote-command-execution-cli "send-monitor-remote-command-cli.md#update-remote-command-execution-cli").
     * If you start more than one command execution, you can use the
      `ListCommandExecutions` API to list all command executions in
      your account, and then use the `GetCommandExecution` API
      to obtain additional information about a specific execution. For more information,
-     see [List command executions in your
-     account](send-monitor-remote-command-cli.md#list-remote-command-execution-cli "send-monitor-remote-command-cli.md#list-remote-command-execution-cli").
+     see [List command executions in your account](send-monitor-remote-command-cli.md#list-remote-command-execution-cli "send-monitor-remote-command-cli.md#list-remote-command-execution-cli").
 
 ```
 aws iot get-command-execution \
@@ -362,8 +350,7 @@ deprecated. You can also use the CLI to restore the command.
 ###### Note
 
 You can also use the `update-command` CLI to update the display
-name and description of a command. For additional information, see [Update or deprecate a command
-resource](create-manage-remote-command-cli.md#update-remote-command-cli "create-manage-remote-command-cli.md#update-remote-command-cli").
+name and description of a command. For additional information, see [Update or deprecate a command resource](create-manage-remote-command-cli.md#update-remote-command-cli "create-manage-remote-command-cli.md#update-remote-command-cli").
 
 ```
 {

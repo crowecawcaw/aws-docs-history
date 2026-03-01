@@ -4,21 +4,13 @@ Troubleshoot Edge Agent software issues.
 
 ###### Issues
 
-- [Issue: The Edge Agent software doesn't
-  start.](#troubleshooting-issue1 "#troubleshooting-issue1")
-- [Issue: [ERROR]
-  [IoTFleetWiseEngine::connect]: [Failed to init persistency library]](#troubleshooting-issue2 "#troubleshooting-issue2")
-- [Issue: The Edge Agent software doesn't collect
-  on-board diagnostics (OBD) II PIDs and diagnostic trouble codes (DTCs).](#troubleshooting-issue3 "#troubleshooting-issue3")
-- [Issue: The Edge Agent for AWS IoT FleetWise software doesn't collect
-  data from the network or isn't able to apply data inspection rules.](#troubleshooting-issue5 "#troubleshooting-issue5")
-- [Issue: [ERROR]
-  [AwsIotConnectivityModule::connect]: [Connection failed with error] or [WARN]
-  [AwsIotChannel::send]: [No alive MQTT Connection.]](#troubleshooting-issue4 "#troubleshooting-issue4")
+- [Issue: The Edge Agent software doesn't start.](#troubleshooting-issue1 "#troubleshooting-issue1")
+- [Issue: [ERROR] [IoTFleetWiseEngine::connect]: [Failed to init persistency library]](#troubleshooting-issue2 "#troubleshooting-issue2")
+- [Issue: The Edge Agent software doesn't collect on-board diagnostics (OBD) II PIDs and diagnostic trouble codes (DTCs).](#troubleshooting-issue3 "#troubleshooting-issue3")
+- [Issue: The Edge Agent for AWS IoT FleetWise software doesn't collect data from the network or isn't able to apply data inspection rules.](#troubleshooting-issue5 "#troubleshooting-issue5")
+- [Issue: [ERROR] [AwsIotConnectivityModule::connect]: [Connection failed with error] or [WARN] [AwsIotChannel::send]: [No alive MQTT Connection.]](#troubleshooting-issue4 "#troubleshooting-issue4")
 
-## Issue: The Edge Agent software doesn't
-
-start.
+## Issue: The Edge Agent software doesn't start.
 
 You might see the following errors when the Edge Agent software doesn't start.
 
@@ -95,8 +87,7 @@ sudo ip link set `network-interface-id` up
 	 information, see [Provision AWS IoT FleetWise vehicles](provision-vehicles.md "provision-vehicles.md").
 For more troubleshooting information, see [AWS IoT Device SDK for C++ Frequently Asked Questions](https://github.com/aws/aws-iot-device-sdk-cpp-v2/blob/main/documents/FAQ.md#frequently-asked-questions "https://github.com/aws/aws-iot-device-sdk-cpp-v2/blob/main/documents/FAQ.md#frequently-asked-questions").
 
-## Issue: [ERROR]
- [IoTFleetWiseEngine::connect]: [Failed to init persistency library]
+## Issue: [ERROR] [IoTFleetWiseEngine::connect]: [Failed to init persistency library]
 
 
 **Solution:**  You might see this error when the
@@ -108,8 +99,7 @@ For more troubleshooting information, see [AWS IoT Device SDK for C++ Frequently
  collection schemes, decoder manifests, and data snapshots.
 
 
-## Issue: The Edge Agent software doesn't collect
- on-board diagnostics (OBD) II PIDs and diagnostic trouble codes (DTCs).
+## Issue: The Edge Agent software doesn't collect on-board diagnostics (OBD) II PIDs and diagnostic trouble codes (DTCs).
 
 
 **Solution:**  You might see this error if
@@ -127,8 +117,7 @@ If your vehicle supports extended Controller Area Network (CAN bus) arbitration
  `true`.
 
 
-## Issue: The Edge Agent for AWS IoT FleetWise software doesn't collect
- data from the network or isn't able to apply data inspection rules.
+## Issue: The Edge Agent for AWS IoT FleetWise software doesn't collect data from the network or isn't able to apply data inspection rules.
 
 
 **Solution:** You might see this error when the
@@ -144,9 +133,7 @@ If your vehicle supports extended Controller Area Network (CAN bus) arbitration
 | Size of the signal history buffer | 20 MB | Yes | If the quota is breached, the Edge Agent software stops collecting new<br>data. |
 
 
-## Issue: [ERROR]
- [AwsIotConnectivityModule::connect]: [Connection failed with error] or [WARN]
- [AwsIotChannel::send]: [No alive MQTT Connection.]
+## Issue: [ERROR] [AwsIotConnectivityModule::connect]: [Connection failed with error] or [WARN] [AwsIotChannel::send]: [No alive MQTT Connection.]
 
 
 **Solution:** You might see this error when the

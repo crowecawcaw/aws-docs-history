@@ -1,6 +1,4 @@
-# Document history for the \*AWS IoT FleetWise Developer
-
-Guide\*
+# Document history for the _AWS IoT FleetWise Developer Guide_
 
 The following table describes the documentation releases for AWS IoT FleetWise.
 

@@ -16,17 +16,12 @@ IAM?](../../../IAM/latest/UserGuide/IAM_Introduction.md "../../../IAM/latest/Use
 
 ###### Contents
 
-- [Grant AWS IoT FleetWise permission to send and receive data on
-  an MQTT topic](#using-iam-mqtt "#using-iam-mqtt")
+- [Grant AWS IoT FleetWise permission to send and receive data on an MQTT topic](#using-iam-mqtt "#using-iam-mqtt")
 - [Grant AWS IoT FleetWise access to an Amazon S3 destination](#using-iam-s3 "#using-iam-s3")
-- [Grant AWS IoT FleetWise access to an Amazon Timestream
-  destination](#using-timestream "#using-timestream")
-- [Grant AWS IoT Device Management permission to generate the
-  payload for commands with AWS IoT FleetWise](#generate-command-payload "#generate-command-payload")
+- [Grant AWS IoT FleetWise access to an Amazon Timestream destination](#using-timestream "#using-timestream")
+- [Grant AWS IoT Device Management permission to generate the payload for commands with AWS IoT FleetWise](#generate-command-payload "#generate-command-payload")
 
-## Grant AWS IoT FleetWise permission to send and receive data on
-
-an MQTT topic
+## Grant AWS IoT FleetWise permission to send and receive data on an MQTT topic
 
 When you use an [MQTT topic](../../../iot/latest/developerguide/topics.md "../../../iot/latest/developerguide/topics.md"), your vehicles send data using the AWS IoT
 MQTT message broker. You must grant AWS IoT FleetWise permission to subscribe to the MQTT topic
@@ -287,9 +282,7 @@ see [Disabling ACLs for
 all new buckets and enforcing Object Ownership](../../../AmazonS3/latest/userguide/ensure-object-ownership.md "../../../AmazonS3/latest/userguide/ensure-object-ownership.md") in the _Amazon Simple Storage Service
 User Guide_.
 
-## Grant AWS IoT FleetWise access to an Amazon Timestream
-
-destination
+## Grant AWS IoT FleetWise access to an Amazon Timestream destination
 
 When you use a Timestream destination, AWS IoT FleetWise delivers vehicle data to a Timestream table.
 You must attach the policies to the IAM role to allow AWS IoT FleetWise to send data to
@@ -426,9 +419,7 @@ aws iam attach-role-policy --policy-arn `permissions-policy-arn` --role-name `Ti
 For more information, see [Access management for
 AWS resources](../../../IAM/latest/UserGuide/access.md "../../../IAM/latest/UserGuide/access.md") in the _IAM User Guide_.
 
-## Grant AWS IoT Device Management permission to generate the
-
-payload for commands with AWS IoT FleetWise
+## Grant AWS IoT Device Management permission to generate the payload for commands with AWS IoT FleetWise
 
 When you use the commands feature to start a command execution, AWS IoT Device Management will
 fetch the command and command parameters from the incoming request. It then requires

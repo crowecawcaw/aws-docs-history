@@ -9,14 +9,10 @@ information, see [Delete an AWS IoT FleetWise vehicle](delete-vehicle.md "delete
 
 ###### Topics
 
-- [Delete a decoder manifest
-  (console)](#delete-decoder-manifest-console "#delete-decoder-manifest-console")
-- [Delete a decoder manifest
-  (AWS CLI)](#delete-decoder-manifest-cli "#delete-decoder-manifest-cli")
+- [Delete a decoder manifest (console)](#delete-decoder-manifest-console "#delete-decoder-manifest-console")
+- [Delete a decoder manifest (AWS CLI)](#delete-decoder-manifest-cli "#delete-decoder-manifest-cli")
 
-## Delete a decoder manifest
-
-(console)
+## Delete a decoder manifest (console)
 
 You can use the AWS IoT FleetWise console to delete a decoder manifest.
 
@@ -34,9 +30,7 @@ You can use the AWS IoT FleetWise console to delete a decoder manifest.
    name of the decoder manifest to delete, and then choose
    **Confirm**.
 
-## Delete a decoder manifest
-
-(AWS CLI)
+## Delete a decoder manifest (AWS CLI)
 
 You can use the [DeleteDecoderManifest](../APIReference/API_DeleteDecoderManifest.md "../APIReference/API_DeleteDecoderManifest.md") API operation to delete a decoder manifest.
 The following example uses AWS CLI.

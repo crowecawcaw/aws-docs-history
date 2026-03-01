@@ -106,5 +106,4 @@ used to define all the non-leaf nodes.
 - [Import an AWS IoT FleetWise signal catalog](import-signal.md "import-signal.md")
 - [Update an AWS IoT FleetWise signal catalog](update-signal-catalog.md "update-signal-catalog.md")
 - [Delete an AWS IoT FleetWise signal catalog](delete-signal-catalog.md "delete-signal-catalog.md")
-- [Get AWS IoT FleetWise signal catalog
-  information](get-signal-catalog-information.md "get-signal-catalog-information.md")
+- [Get AWS IoT FleetWise signal catalog information](get-signal-catalog-information.md "get-signal-catalog-information.md")

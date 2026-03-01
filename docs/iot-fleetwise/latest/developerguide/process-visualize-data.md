@@ -65,7 +65,7 @@ services to visualize, monitor, analyze, and share your data.
 - Visualize and monitor data in dashboards by using [Grafana or Amazon Managed Grafana](../../../timestream/latest/developerguide/Grafana.md "../../../timestream/latest/developerguide/Grafana.md"). You can
   visualize data from multiple AWS sources (such as Amazon CloudWatch and Timestream) and
   other data sources with a single Grafana dashboard.
-- Analyze and visualize data in dashboards by using [Quick Suite](../../../timestream/latest/developerguide/Quicksight.md "../../../timestream/latest/developerguide/Quicksight.md").
+- Analyze and visualize data in dashboards by using [Quick](../../../timestream/latest/developerguide/Quicksight.md "../../../timestream/latest/developerguide/Quicksight.md").
 
 ## Process vehicle data in Amazon S3
 
@@ -155,14 +155,14 @@ Guide_:
 - [Using AWS Glue to connect to data sources in Amazon S3](../../../athena/latest/ug/data-sources-glue.md "../../../athena/latest/ug/data-sources-glue.md")
 - [Best practices when using Athena with AWS Glue](../../../athena/latest/ug/glue-best-practices.md "../../../athena/latest/ug/glue-best-practices.md")
 
-Visualize data using Quick Suite by either reading your Athena table or S3 bucket directly.
+Visualize data using Quick by either reading your Athena table or S3 bucket directly.
 
 ###### Tip
 
 If you're reading from S3 directly, confirm that your vehicle data is in JSON
-format because Quick Suite doesn't support Apache Parquet format.
+format because Quick doesn't support Apache Parquet format.
 
-For more information, see the following topics in the _Amazon Quick Suite User
+For more information, see the following topics in the _Amazon Quick User
 Guide_:
 
 - [Supported data

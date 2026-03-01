@@ -12,7 +12,7 @@ contains the configurations of multiple vehicles.
 aws iotfleetwise batch-create-vehicle --cli-input-json file://`file-name`.json
 ```
 
-###### Example – vehicle configurations
+###### Example– vehicle configurations
 
 ```
 {

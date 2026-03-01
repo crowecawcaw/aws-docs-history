@@ -68,8 +68,7 @@ collection scheme and the time-based collection scheme.
     `$variable.`myVehicle.InVehicleTemperature` >
 50.0` expression is specified, the Edge Agent software collects
     temperature values that are greater than 50.0. For instructions
-    on how to write expressions, see [Logical expressions for AWS IoT FleetWise
-    campaigns](logical-expression.md "logical-expression.md").
+    on how to write expressions, see [Logical expressions for AWS IoT FleetWise campaigns](logical-expression.md "logical-expression.md").
   - (Optional) `conditionLanguageVersion` – the
     version of the conditional expression language.
   - (Optional) `minimumTriggerIntervalMs` – the

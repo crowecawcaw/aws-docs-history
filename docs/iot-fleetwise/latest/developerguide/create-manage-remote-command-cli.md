@@ -19,8 +19,7 @@ resource.
 - [Create a command resource](#create-remote-command-cli "#create-remote-command-cli")
 - [Retrieve information about a command](#get-remote-command-cli "#get-remote-command-cli")
 - [List commands in your account](#list-remote-command-cli "#list-remote-command-cli")
-- [Update or deprecate a command
-  resource](#update-remote-command-cli "#update-remote-command-cli")
+- [Update or deprecate a command resource](#update-remote-command-cli "#update-remote-command-cli")
 - [Delete a command resource](#delete-remote-command-cli "#delete-remote-command-cli")
 
 ## Create a command resource
@@ -43,16 +42,13 @@ You can use the AWS IoT FleetWise console to create a command.
 The following example shows how to create a command with a
 parameter.
 
-#### Considerations when creating
-
-a command
+#### Considerations when creating a command
 
 When you create a command in AWS IoT FleetWise:
 
 - You must specify the `roleArn` that grants permission to create
   and run commands on your vehicle. For more information and about sample
-  policies including when KMS keys are enabled, see [Grant AWS IoT Device Management permission to generate the
-  payload for commands with AWS IoT FleetWise](controlling-access.md#generate-command-payload "controlling-access.md#generate-command-payload").
+  policies including when KMS keys are enabled, see [Grant AWS IoT Device Management permission to generate the payload for commands with AWS IoT FleetWise](controlling-access.md#generate-command-payload "controlling-access.md#generate-command-payload").
 - You must specify `AWS-IoT-FleetWise` as the namespace.
 - You can skip the `mandatory-parameters` field and specify them
   at run time instead. Alternatively, you can create a command with
@@ -177,9 +173,7 @@ following information.
 - The command state which indicates whether the commands are available to run on
   the vehicle.
 
-## Update or deprecate a command
-
-resource
+## Update or deprecate a command resource
 
 You can use the [`UpdateCommand`](../../../iot/latest/apireference/API_UpdateCommand.md "../../../iot/latest/apireference/API_UpdateCommand.md") AWS IoT Core control plane API operation or AWS IoT FleetWise console to update
 a command resource. You can update the display name and

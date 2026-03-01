@@ -1,6 +1,4 @@
-# Get AWS IoT FleetWise vehicle model
-
-information
+# Get AWS IoT FleetWise vehicle model information
 
 You can use the [GetModelManifest](../APIReference/API_GetModelManifest.md "../APIReference/API_GetModelManifest.md") API operation to retrieve information about a vehicle model. The following example uses AWS CLI.
 

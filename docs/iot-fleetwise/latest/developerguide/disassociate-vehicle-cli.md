@@ -1,6 +1,4 @@
-# Disassociate an AWS IoT FleetWise vehicle from a
-
-fleet
+# Disassociate an AWS IoT FleetWise vehicle from a fleet
 
 You can use the [DisassociateVehicleFleet](../APIReference/API_DisassociateVehicle.md "../APIReference/API_DisassociateVehicle.md") API operation to disassociate a vehicle from a fleet.
 The following example uses AWS CLI.

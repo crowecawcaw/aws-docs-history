@@ -89,10 +89,8 @@ manifest. The state can be one of the following values:
 
 ###### Topics
 
-- [Configure AWS IoT FleetWise
-  network interfaces and decoder signals](configure-network-interfaces-decoder-signals.md "configure-network-interfaces-decoder-signals.md")
+- [Configure AWS IoT FleetWise network interfaces and decoder signals](configure-network-interfaces-decoder-signals.md "configure-network-interfaces-decoder-signals.md")
 - [Create an AWS IoT FleetWise decoder manifest](create-decoder-manifest.md "create-decoder-manifest.md")
 - [Update an AWS IoT FleetWise decoder manifest](update-decoder-manifest.md "update-decoder-manifest.md")
 - [Delete an AWS IoT FleetWise decoder manifest](delete-decoder-manifest.md "delete-decoder-manifest.md")
-- [Get AWS IoT FleetWise decoder manifest
-  information](get-decoder-manifest-information.md "get-decoder-manifest-information.md")
+- [Get AWS IoT FleetWise decoder manifest information](get-decoder-manifest-information.md "get-decoder-manifest-information.md")

@@ -64,9 +64,7 @@ To complete this getting started tutorial, you first need the following:
     AWS IoT FleetWise** section, choose **Explore Edge
     Agent**.
 
-## Step 1: Set up the Edge Agent
-
-software for AWS IoT FleetWise
+## Step 1: Set up the Edge Agent software for AWS IoT FleetWise
 
 ###### Note
 
@@ -109,9 +107,7 @@ You will be charged for the AWS IoT FleetWise resources that this demo creates a
 For more information, see [AWS IoT FleetWise](https://aws.amazon.com/iot-fleetwise/pricing/ "https://aws.amazon.com/iot-fleetwise/pricing/")
 in the _AWS IoT FleetWise Pricing_ page.
 
-## Step 2: Create a
-
-vehicle model
+## Step 2: Create a vehicle model
 
 ###### Important
 
@@ -168,9 +164,7 @@ to upload for this step. 7. Add attributes to your vehicle model and then choose
 
 ![The AWS IoT FleetWise notification saying your vehicle model was successfully created.](images/vehicle-model-status.png)
 
-## Step 3: Create a
-
-decoder manifest
+## Step 3: Create a decoder manifest
 
 Decoder manifests are associated with the vehicle models that you create. They contain
 information that helps AWS IoT FleetWise decode and transform vehicle data from a binary
@@ -187,16 +181,13 @@ decoder signal provides decoding information for a specific signal.
    that you want to use to create a decoder manifest.
 4. Choose **Create decoder manifest**.
 
-## Step 4: Configure a decoder
-
-manifest
+## Step 4: Configure a decoder manifest
 
 ###### To configure a decoder manifest
 
 ###### Important
 
-You can't configure vision system data signals in decoder manifests using the AWS IoT FleetWise console. Instead, use the AWS CLI. For more information, see [Create a decoder manifest
-(AWS CLI)](create-decoder-manifest.md#create-decoder-manifest-cli "create-decoder-manifest.md#create-decoder-manifest-cli").
+You can't configure vision system data signals in decoder manifests using the AWS IoT FleetWise console. Instead, use the AWS CLI. For more information, see [Create a decoder manifest (AWS CLI)](create-decoder-manifest.md#create-decoder-manifest-cli "create-decoder-manifest.md#create-decoder-manifest-cli").
 
 1. To help you identify your decoder manifest, enter a name and an optional
    description for it. Then, choose **Next**.
@@ -226,9 +217,7 @@ You can't configure vision system data signals in decoder manifests using the AW
    notification appears saying your decoder manifest was successfully
    created.
 
-## Step 5: Create a
-
-vehicle
+## Step 5: Create a vehicle
 
 In AWS IoT FleetWise, vehicles are virtual representations of your real-life, physical
 vehicle. All vehicles created from the same vehicle model inherit the same group of
@@ -271,9 +260,7 @@ must associate all vehicles with a decoder manifest.
     **Create policy** and then choose **Next**.
 11. Review your configurations. When you’re done, choose **Create vehicle.**
 
-## Step 6: Create a
-
-campaign
+## Step 6: Create a campaign
 
 In AWS IoT FleetWise, campaigns are used to facilitate the selection, collection, and transfer of
 data from vehicles to the cloud. Campaigns contain data collection schemes that give the

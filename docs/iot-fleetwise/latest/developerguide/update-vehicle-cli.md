@@ -17,7 +17,7 @@ contains the configuration of your vehicle.
 aws iotfleetwise update-vehicle --cli-input-json file://`file-name`.json
 ```
 
-###### Example – vehicle configuration
+###### Example– vehicle configuration
 
 - Replace `vehicle-name` with the ID of the vehicle
   that you want to update.
@@ -75,7 +75,7 @@ individual vehicles.
 }
 ```
 
-###### Example – add or remove state templates associated with the vehicle
+###### Example– add or remove state templates associated with the vehicle
 
 You can associate additional state templates or remove existing associations from the
 vehicle using the following fields:

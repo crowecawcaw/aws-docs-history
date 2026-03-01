@@ -1,6 +1,4 @@
-# Configure AWS IoT FleetWise
-
-network interfaces and decoder signals
+# Configure AWS IoT FleetWise network interfaces and decoder signals
 
 ###### Important
 
@@ -15,13 +13,10 @@ contain OBD signal decoders.
 
 ###### Topics
 
-- [Configure network
-  interfaces](#configure-network-interfaces "#configure-network-interfaces")
+- [Configure network interfaces](#configure-network-interfaces "#configure-network-interfaces")
 - [Configure signal decoders](#configure-decoder-signals "#configure-decoder-signals")
 
-## Configure network
-
-interfaces
+## Configure network interfaces
 
 To configure a CAN network interface, specify the following
 information.

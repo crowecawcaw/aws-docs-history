@@ -29,8 +29,7 @@ A validation exception can occur in any of the following scenarios:
    To fetch a state snapshot, first create a command resource. You can then send the following command
    to the vehicle for which you want to fetch the state snapshot. For more
    information about using the `CreateCommand` API and its parameters, see
-   [Using the
-   CreateCommand API](start-stop-data-ingestion.md#start-stop-ingestion-create-command "start-stop-data-ingestion.md#start-stop-ingestion-create-command").
+   [Using the CreateCommand API](start-stop-data-ingestion.md#start-stop-ingestion-create-command "start-stop-data-ingestion.md#start-stop-ingestion-create-command").
 
 7. ###### Create a command resource
 

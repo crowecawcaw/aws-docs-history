@@ -1,6 +1,4 @@
-# Get AWS IoT FleetWise signal catalog
-
-information
+# Get AWS IoT FleetWise signal catalog information
 
 You can use the [GetSignalCatalog](../APIReference/API_GetSignalCatalog.md "../APIReference/API_GetSignalCatalog.md") API operation to retrieve signal catalog information.
 The following example uses AWS CLI.

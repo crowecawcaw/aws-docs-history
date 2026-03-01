@@ -33,5 +33,4 @@ The state can be one of the following values:
 - [Create an AWS IoT FleetWise vehicle model](create-vehicle-model.md "create-vehicle-model.md")
 - [Update an AWS IoT FleetWise vehicle model](update-vehicle-model-cli.md "update-vehicle-model-cli.md")
 - [Delete an AWS IoT FleetWise vehicle model](delete-vehicle-model.md "delete-vehicle-model.md")
-- [Get AWS IoT FleetWise vehicle model
-  information](get-vehicle-model-information.md "get-vehicle-model-information.md")
+- [Get AWS IoT FleetWise vehicle model information](get-vehicle-model-information.md "get-vehicle-model-information.md")

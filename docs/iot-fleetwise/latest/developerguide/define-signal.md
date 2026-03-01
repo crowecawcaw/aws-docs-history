@@ -7,10 +7,8 @@ actuators.
 
 - [Configure branches](#configure-branch "#configure-branch")
 - [Configure attributes](#configure-attributes "#configure-attributes")
-- [Configure sensors or
-  actuators](#configure-sensors-or-acuators "#configure-sensors-or-acuators")
-- [Configure complex data
-  types](#configure-complex-data-types "#configure-complex-data-types")
+- [Configure sensors or actuators](#configure-sensors-or-acuators "#configure-sensors-or-acuators")
+- [Configure complex data types](#configure-complex-data-types "#configure-complex-data-types")
 
 ## Configure branches
 
@@ -108,9 +106,7 @@ The comment can have up to 2048 characters. Valid characters:
 a–z, A–Z, 0–9, : (colon), \_ (underscore), and -
 (hyphen).
 
-## Configure sensors or
-
-actuators
+## Configure sensors or actuators
 
 To configure a sensor or actuator, specify the following information.
 
@@ -166,9 +162,7 @@ The comment can have up to 2048 characters. Valid characters:
 a–z, A–Z, 0–9, : (colon), \_ (underscore), and -
 (hyphen).
 
-## Configure complex data
-
-types
+## Configure complex data types
 
 Complex data types are used when modeling vision systems. In addition to branches, these data types are made up of structures (also known as a struct) and properties. A struct is a signal that is described by multiple values, like an image. A property represents a member of the struct, like a primitive data type (such as UINT8) or another struct (such as timestamp). For example, Vehicle.Cameras.Front represents a branch, Vehicle.Cameras.Front.Image represents a struct, and Vehicle.Cameras.Timestamp represents a property.
 

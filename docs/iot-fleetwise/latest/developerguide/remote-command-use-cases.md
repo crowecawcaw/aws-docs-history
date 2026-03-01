@@ -23,18 +23,12 @@ following scenarios:
 
 ###### Topics
 
-- [Creating a command with no
-  parameters](#remote-command-use-case1 "#remote-command-use-case1")
-- [Creating a command with default values
-  for parameters](#remote-command-use-case2 "#remote-command-use-case2")
-- [Creating a command with parameter
-  values](#remote-command-use-case3 "#remote-command-use-case3")
-- [Using commands with
-  state templates](#remote-command-use-cases-templates "#remote-command-use-cases-templates")
+- [Creating a command with no parameters](#remote-command-use-case1 "#remote-command-use-case1")
+- [Creating a command with default values for parameters](#remote-command-use-case2 "#remote-command-use-case2")
+- [Creating a command with parameter values](#remote-command-use-case3 "#remote-command-use-case3")
+- [Using commands with state templates](#remote-command-use-cases-templates "#remote-command-use-cases-templates")
 
-## Creating a command with no
-
-parameters
+## Creating a command with no parameters
 
 The following use case shows how you can use the `CreateCommand` API or
 the `create-command` CLI to create a command with no parameters. When you
@@ -84,9 +78,7 @@ aws iot-jobs-data start-command-execution \
     }'
 ```
 
-## Creating a command with default values
-
-for parameters
+## Creating a command with default values for parameters
 
 This command only allows you to execute a command on the specified actuator.
 Providing default values will help protect you from sending inaccurate commands. For
@@ -141,9 +133,7 @@ aws iot-jobs-data start-command-execution \
     }'
 ```
 
-## Creating a command with parameter
-
-values
+## Creating a command with parameter values
 
 This command only allows you to execute a command on the specified actuator. It
 also forces you to set a value for the actuator during runtime.
@@ -189,16 +179,13 @@ aws iot-data start-command-execution \
     }'
 ```
 
-## Using commands with
-
-state templates
+## Using commands with state templates
 
 You can also use the commands API operations for state data collection and
 processing. For example, you can fetch a one-time state snapshot or to activate or
 deactivate state templates to start or stop collecting vehicle state data. The
 following examples show how to use the commands feature with state templates.
-For more information, see [State template operations for data
-collection and processing](state-template-api-operations.md "state-template-api-operations.md")
+For more information, see [State template operations for data collection and processing](state-template-api-operations.md "state-template-api-operations.md")
 
 ###### Note
 

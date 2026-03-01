@@ -4,13 +4,10 @@ You can use the AWS IoT FleetWise console or API to import a signal catalog.
 
 ###### Topics
 
-- [Import a signal catalog
-  (console)](#import-signal-catalog-console "#import-signal-catalog-console")
+- [Import a signal catalog (console)](#import-signal-catalog-console "#import-signal-catalog-console")
 - [Import a signal catalog (AWS CLI)](#import-signal-catalog "#import-signal-catalog")
 
-## Import a signal catalog
-
-(console)
+## Import a signal catalog (console)
 
 You can use the AWS IoT FleetWise console to import a signal catalog.
 

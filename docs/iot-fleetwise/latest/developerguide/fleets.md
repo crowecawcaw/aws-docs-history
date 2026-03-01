@@ -45,8 +45,7 @@ fleets.
 
 - [Create an AWS IoT FleetWise fleet](create-fleet-cli.md "create-fleet-cli.md")
 - [Associate an AWS IoT FleetWise vehicle with a fleet](associate-vehicle-cli.md "associate-vehicle-cli.md")
-- [Disassociate an AWS IoT FleetWise vehicle from a
-  fleet](disassociate-vehicle-cli.md "disassociate-vehicle-cli.md")
+- [Disassociate an AWS IoT FleetWise vehicle from a fleet](disassociate-vehicle-cli.md "disassociate-vehicle-cli.md")
 - [Update an AWS IoT FleetWise fleet](update-fleet-cli.md "update-fleet-cli.md")
 - [Delete an AWS IoT FleetWise fleet](delete-fleet-cli.md "delete-fleet-cli.md")
 - [Get AWS IoT FleetWise fleet information](get-fleet-information-cli.md "get-fleet-information-cli.md")

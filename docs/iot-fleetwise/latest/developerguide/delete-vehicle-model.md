@@ -7,9 +7,7 @@ You can use the AWS IoT FleetWise console or API to delete vehicle models.
 Vehicles and decoder manifests associated with the vehicle model must be
 deleted first. For more information, see [Delete an AWS IoT FleetWise vehicle](delete-vehicle.md "delete-vehicle.md") and [Delete an AWS IoT FleetWise decoder manifest](delete-decoder-manifest.md "delete-decoder-manifest.md").
 
-## Delete a vehicle model
-
-(console)
+## Delete a vehicle model (console)
 
 To delete a vehicle model, use the AWS IoT FleetWise console.
 
@@ -25,9 +23,7 @@ To delete a vehicle model, use the AWS IoT FleetWise console.
    name of the vehicle model to delete, and then choose
    **Confirm**.
 
-## Delete a vehicle model
-
-(AWS CLI)
+## Delete a vehicle model (AWS CLI)
 
 You can use the [DeleteModelManifest](../APIReference/API_DeleteModelManifest.md "../APIReference/API_DeleteModelManifest.md") API operation to delete an existing vehicle
 model (model manifests). The following example uses the AWS CLI.

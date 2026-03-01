@@ -15,8 +15,7 @@ Follow the principle of least privilege by using the minimum set of permissions 
 IAM roles. Limit the use of the `*` wildcard for the `Action`
 and `Resource` properties in your IAM policies. Instead, declare a finite
 set of actions and resources when possible. For more information about least privilege
-and other policy best practices, see [Policy best
-practices](security_iam_id-based-policy-examples.md#security_iam_service-with-iam-policy-best-practices "security_iam_id-based-policy-examples.md#security_iam_service-with-iam-policy-best-practices").
+and other policy best practices, see [Policy best practices](security_iam_id-based-policy-examples.md#security_iam_service-with-iam-policy-best-practices "security_iam_id-based-policy-examples.md#security_iam_service-with-iam-policy-best-practices").
 
 ## Don't log sensitive information
 

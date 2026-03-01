@@ -9,14 +9,10 @@ vehicle model.
 
 ###### Topics
 
-- [Create a decoder manifest
-  (console)](#create-decoder-manifest-console "#create-decoder-manifest-console")
-- [Create a decoder manifest
-  (AWS CLI)](#create-decoder-manifest-cli "#create-decoder-manifest-cli")
+- [Create a decoder manifest (console)](#create-decoder-manifest-console "#create-decoder-manifest-console")
+- [Create a decoder manifest (AWS CLI)](#create-decoder-manifest-cli "#create-decoder-manifest-cli")
 
-## Create a decoder manifest
-
-(console)
+## Create a decoder manifest (console)
 
 You can use the AWS IoT FleetWise console to create a decoder manifest that's
 associated with your vehicle model.
@@ -37,16 +33,11 @@ and is subject to change.
 
 ###### Topics
 
-- [Step 1: Configure
-  decoder manifest](#configure-decoder-manifest-console "#configure-decoder-manifest-console")
-- [Step 2: Map CAN
-  interface](#map-can-interface "#map-can-interface")
-- [Step 3: Review
-  and create](#review-and-create-decoder-manifest-console "#review-and-create-decoder-manifest-console")
+- [Step 1: Configure decoder manifest](#configure-decoder-manifest-console "#configure-decoder-manifest-console")
+- [Step 2: Map CAN interface](#map-can-interface "#map-can-interface")
+- [Step 3: Review and create](#review-and-create-decoder-manifest-console "#review-and-create-decoder-manifest-console")
 
-### Step 1: Configure
-
-decoder manifest
+### Step 1: Configure decoder manifest
 
 In **General information**, do the following.
 
@@ -73,9 +64,7 @@ If there are signals in the vehicle model that are missing paired signal decoder
 1. Select **Create default custom decoder for missing signals**.
 2. Choose **Next**.
 
-### Step 2: Map CAN
-
-interface
+### Step 2: Map CAN interface
 
 You can map the CAN signals with CAN signal decoders. If you selected the **Create default custom decoder for missing signals** checkbox, any signals that are missing a decoder signal are automatically mapped to default custom signal decoders.
 
@@ -88,16 +77,12 @@ You can map the CAN signals with CAN signal decoders. If you selected the **Crea
 
 If you added a ROS 2 or a custom interface, you can verify the mappings before creating the decoder manifest.
 
-### Step 3: Review
-
-and create
+### Step 3: Review and create
 
 Verify the configurations for the decoder manifest, and then choose
 **Create**.
 
-## Create a decoder manifest
-
-(AWS CLI)
+## Create a decoder manifest (AWS CLI)
 
 You can use the [CreateDecoderManifest](../APIReference/API_CreateDecoderManifest.md "../APIReference/API_CreateDecoderManifest.md") API operation to create decoder manifests.
 The following example uses the AWS CLI.
@@ -126,8 +111,7 @@ aws iotfleetwise create-decoder-manifest --cli-input-json file://`decoder-manife
   with a description to help you identify the decoder
   manifest.
   For more information about how to configure branches, attributes,
-  sensors, and actuators, see [Configure AWS IoT FleetWise
-  network interfaces and decoder signals](configure-network-interfaces-decoder-signals.md "configure-network-interfaces-decoder-signals.md").
+  sensors, and actuators, see [Configure AWS IoT FleetWise network interfaces and decoder signals](configure-network-interfaces-decoder-signals.md "configure-network-interfaces-decoder-signals.md").
 
 ```
 {
@@ -191,8 +175,7 @@ aws iotfleetwise create-decoder-manifest --cli-input-json file://`decoder-manife
   The order of property nodes within a structure (struct) must
   remain consistent as defined in the signal catalog and vehicle model
   (model manifest). For more information about how to configure
-  branches, attributes, sensors, and actuators, see [Configure AWS IoT FleetWise
-  network interfaces and decoder signals](configure-network-interfaces-decoder-signals.md "configure-network-interfaces-decoder-signals.md").
+  branches, attributes, sensors, and actuators, see [Configure AWS IoT FleetWise network interfaces and decoder signals](configure-network-interfaces-decoder-signals.md "configure-network-interfaces-decoder-signals.md").
 
 ```
 {
@@ -338,8 +321,7 @@ aws iotfleetwise create-decoder-manifest --cli-input-json file://`decoder-manife
   with a description to help you identify the decoder
   manifest.
   For more information about how to configure branches, attributes,
-  sensors, and actuators, see [Configure AWS IoT FleetWise
-  network interfaces and decoder signals](configure-network-interfaces-decoder-signals.md "configure-network-interfaces-decoder-signals.md").
+  sensors, and actuators, see [Configure AWS IoT FleetWise network interfaces and decoder signals](configure-network-interfaces-decoder-signals.md "configure-network-interfaces-decoder-signals.md").
 
 ```
 {

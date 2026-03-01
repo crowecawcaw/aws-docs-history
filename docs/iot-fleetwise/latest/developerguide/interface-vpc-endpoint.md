@@ -1,6 +1,4 @@
-# Connecting to AWS IoT FleetWise through an
-
-interface VPC endpoint
+# Connecting to AWS IoT FleetWise through an interface VPC endpoint
 
 You can connect directly to AWS IoT FleetWise by using an [interface VPC
 endpoint (AWS PrivateLink)](../../../AmazonVPC/latest/UserGuide/vpce-interface.md "../../../AmazonVPC/latest/UserGuide/vpce-interface.md") in your Virtual Private Cloud (VPC), instead of
@@ -52,9 +50,7 @@ with VPC endpoints](../../../vpc/latest/userguide/vpc-endpoints-access.md "../..
 
 AWS IoT FleetWise supports all VPC endpoints with dual-stack mode. For information about service endpoints, see [AWS IoT FleetWise endpoints and quotas](../../../general/latest/gr/iotfleetwise.md "../../../general/latest/gr/iotfleetwise.md").
 
-## Creating a VPC endpoint policy for
-
-AWS IoT FleetWise
+## Creating a VPC endpoint policy for AWS IoT FleetWise
 
 You can create a policy for Amazon VPC endpoints for AWS IoT FleetWise to specify the following:
 
@@ -65,7 +61,7 @@ For more information, see [Controlling
 access to services with VPC endpoints](../../../vpc/latest/userguide/vpc-endpoints-access.md "../../../vpc/latest/userguide/vpc-endpoints-access.md") in the _Amazon VPC User
 Guide_.
 
-###### Example – VPC endpoint policy to deny all access from a specified AWS account
+###### Example– VPC endpoint policy to deny all access from a specified AWS account
 
 The following VPC endpoint policy denies AWS account
 `123456789012` all API calls using the endpoint.
@@ -94,7 +90,7 @@ The following VPC endpoint policy denies AWS account
 
 ```
 
-###### Example – VPC endpoint policy to allow VPC access only to a specified IAM principal (user)
+###### Example– VPC endpoint policy to allow VPC access only to a specified IAM principal (user)
 
 The following VPC endpoint policy allows full access only to the a user
 `lijuan` in AWS account
@@ -118,7 +114,7 @@ principals access to the endpoint.
 
 ```
 
-###### Example – VPC endpoint policy for AWS IoT FleetWise actions
+###### Example– VPC endpoint policy for AWS IoT FleetWise actions
 
 The following is an example of an endpoint policy for AWS IoT FleetWise. When attached to an
 endpoint, this policy grants access to the listed AWS IoT FleetWise actions for the

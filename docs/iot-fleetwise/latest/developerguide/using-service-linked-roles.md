@@ -1,6 +1,4 @@
-# Using service-linked roles for
-
-AWS IoT FleetWise
+# Using service-linked roles for AWS IoT FleetWise
 
 AWS IoT FleetWise uses AWS Identity and Access Management (IAM)[service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
 linked directly to AWS IoT FleetWise. Service-linked roles are predefined by AWS IoT FleetWise and
@@ -19,9 +17,7 @@ access the resources.
 For information about other services that support service-linked roles, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md"), and look for the services that have **Yes** in the **Service-linked roles**
 column. To view the service-linked role documentation for that service, choose a **Yes** with a link.
 
-## Service-linked role permissions for
-
-AWS IoT FleetWise
+## Service-linked role permissions for AWS IoT FleetWise
 
 AWS IoT FleetWise uses the service-linked role named **AWSServiceRoleForIoTFleetWise** –
 An AWS managed policy that is used for all out-of-the-box permissions for AWS IoT FleetWise.
@@ -53,17 +49,13 @@ You don't need to manually create a service-linked role. When you
 register an account in the AWS IoT FleetWise console, the AWS CLI, or the AWS API, AWS IoT FleetWise creates
 the service-linked role for you. For more information, see [Configure your AWS IoT FleetWise settings](configure-settings.md "configure-settings.md").
 
-### Creating a service-linked role
-
-in AWS IoT FleetWise (console)
+### Creating a service-linked role in AWS IoT FleetWise (console)
 
 You don't need to manually create a service-linked role. When you
 register an account in the AWS IoT FleetWise console, the AWS CLI,
 or the AWS API, AWS IoT FleetWise creates the service-linked role for you.
 
-### Editing a service-linked role for
-
-AWS IoT FleetWise
+### Editing a service-linked role for AWS IoT FleetWise
 
 You can't edit the AWSServiceRoleForIoTFleetWise service-linked role in AWS IoT FleetWise. Because various
 entities might reference any service-linked role you create, you can't change the name of
@@ -71,9 +63,7 @@ the role. However, you can edit the description of the role by using IAM. For mo
 information, see [Editing a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the
 _IAM User Guide_.
 
-### Cleaning up a service-linked
-
-role
+### Cleaning up a service-linked role
 
 Before you can use IAM to delete a service-linked role, you must first delete any
 resources used by the role.

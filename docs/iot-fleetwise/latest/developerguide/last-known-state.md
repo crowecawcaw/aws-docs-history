@@ -43,8 +43,7 @@ user property.
 
 A unique, service-generated identifier.
 
-For methods to collect data sent by a vehicle that uses the Edge Agent for AWS IoT FleetWise software, see [Process last known state vehicle
-data using MQTT messaging](process-last-known-state-vehicle-data.md "process-last-known-state-vehicle-data.md"). For more information about how to associate a state
+For methods to collect data sent by a vehicle that uses the Edge Agent for AWS IoT FleetWise software, see [Process last known state vehicle data using MQTT messaging](process-last-known-state-vehicle-data.md "process-last-known-state-vehicle-data.md"). For more information about how to associate a state
 template with a vehicle, see [Create an AWS IoT FleetWise vehicle](create-vehicle.md "create-vehicle.md").
 
 ###### Topics
@@ -53,5 +52,4 @@ template with a vehicle, see [Create an AWS IoT FleetWise vehicle](create-vehicl
 - [Update an AWS IoT FleetWise state template](update-state-template.md "update-state-template.md")
 - [Delete an AWS IoT FleetWise state template](delete-state-template.md "delete-state-template.md")
 - [Get AWS IoT FleetWise state template information](get-state-template.md "get-state-template.md")
-- [State template operations for data
-  collection and processing](state-template-api-operations.md "state-template-api-operations.md")
+- [State template operations for data collection and processing](state-template-api-operations.md "state-template-api-operations.md")

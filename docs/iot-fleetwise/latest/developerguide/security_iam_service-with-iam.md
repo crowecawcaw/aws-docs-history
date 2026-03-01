@@ -1,6 +1,4 @@
-# How AWS IoT FleetWise works with
-
-IAM
+# How AWS IoT FleetWise works with IAM
 
 Before you use IAM to manage access to AWS IoT FleetWise, learn what IAM features are
 available to use with AWS IoT FleetWise.
@@ -23,9 +21,7 @@ To get a high-level view of how AWS IoT FleetWise and other AWS services work wi
 IAM features, see [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Identity-based
-
-policies for AWS IoT FleetWise
+## Identity-based policies for AWS IoT FleetWise
 
 **Supports identity-based policies:**
 
@@ -42,12 +38,9 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for AWS IoT FleetWise
 
-Identity-based policy examples for AWS IoT FleetWise
-
-To view examples of AWS IoT FleetWise identity-based policies, see [Identity-based policy examples
-for AWS IoT FleetWise](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS IoT FleetWise identity-based policies, see [Identity-based policy examples for AWS IoT FleetWise](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Resource-based policies within AWS IoT FleetWise
 
@@ -65,9 +58,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy
-
-actions for AWS IoT FleetWise
+## Policy actions for AWS IoT FleetWise
 
 **Supports policy actions:**
 
@@ -106,12 +97,9 @@ action:
 "Action": "iotfleetwise:List*"
 ```
 
-To view examples of AWS IoT FleetWise identity-based policies, see [Identity-based policy examples
-for AWS IoT FleetWise](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS IoT FleetWise identity-based policies, see [Identity-based policy examples for AWS IoT FleetWise](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for AWS IoT FleetWise
+## Policy resources for AWS IoT FleetWise
 
 **Supports policy resources:**
 
@@ -131,8 +119,7 @@ To see a list of AWS IoT FleetWise resource types and their ARNs, see
 which actions you can specify the ARN of each resource, see
 [Actions Defined by AWS IoT FleetWise](../../../IAM/latest/UserGuide/list_awskeymanagementservice.md#awskeymanagementservice-actions-as-permissions "../../../IAM/latest/UserGuide/list_awskeymanagementservice.md#awskeymanagementservice-actions-as-permissions") .
 
-To view examples of AWS IoT FleetWise identity-based policies, see [Identity-based policy examples
-for AWS IoT FleetWise](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS IoT FleetWise identity-based policies, see [Identity-based policy examples for AWS IoT FleetWise](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Policy condition keys for AWS IoT FleetWise
 
@@ -153,12 +140,9 @@ To see a list of AWS IoT FleetWise condition keys, see [Condition Keys for AWS I
 _Service Authorization Reference_. To learn with which actions and resources
 you can use a condition key, see [Actions Defined by AWS IoT FleetWise](../../../IAM/latest/UserGuide/list_awskeymanagementservice.md#awskeymanagementservice-actions-as-permissions "../../../IAM/latest/UserGuide/list_awskeymanagementservice.md#awskeymanagementservice-actions-as-permissions") .
 
-To view examples of AWS IoT FleetWise identity-based policies, see [Identity-based policy examples
-for AWS IoT FleetWise](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS IoT FleetWise identity-based policies, see [Identity-based policy examples for AWS IoT FleetWise](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Access control lists (ACLs) in
-
-AWS IoT FleetWise
+## Access control lists (ACLs) in AWS IoT FleetWise
 
 **Supports ACLs:**
 
@@ -167,9 +151,7 @@ No
 Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
 similar to resource-based policies, although they do not use the JSON policy document format.
 
-## Attribute-based access control
-
-(ABAC) with AWS IoT FleetWise
+## Attribute-based access control (ABAC) with AWS IoT FleetWise
 
 **Supports ABAC (tags in policies):**
 
@@ -191,9 +173,7 @@ For more information about ABAC, see [Define permissions with ABAC authorization
 AWS IoT FleetWise only supports `iam:PassRole`, which is required for the
 `CreateCampaign` API operation.
 
-## Using Temporary
-
-credentials with AWS IoT FleetWise
+## Using Temporary credentials with AWS IoT FleetWise
 
 **Supports temporary credentials:**
 
@@ -205,9 +185,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for AWS IoT FleetWise
+## Cross-service principal permissions for AWS IoT FleetWise
 
 **Supports forward access sessions (FAS):**
 
@@ -216,9 +194,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-AWS IoT FleetWise
+## Service roles for AWS IoT FleetWise
 
 **Supports service roles:**
 
@@ -234,9 +210,7 @@ Changing the permissions for a service role might break AWS IoT FleetWise
 functionality. Edit service roles only when AWS IoT FleetWise provides guidance to do
 so.
 
-## Service-linked
-
-roles for AWS IoT FleetWise
+## Service-linked roles for AWS IoT FleetWise
 
 **Supports service-linked roles:**
 

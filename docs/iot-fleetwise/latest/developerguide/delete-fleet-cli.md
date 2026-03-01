@@ -5,8 +5,7 @@ operation to delete a fleet. The following example uses AWS CLI.
 
 ###### Important
 
-Before you delete a fleet, make sure it has no associated vehicles. For instructions on how to disassociate a vehicle from a fleet, see [Disassociate an AWS IoT FleetWise vehicle from a
-fleet](disassociate-vehicle-cli.md "disassociate-vehicle-cli.md").
+Before you delete a fleet, make sure it has no associated vehicles. For instructions on how to disassociate a vehicle from a fleet, see [Disassociate an AWS IoT FleetWise vehicle from a fleet](disassociate-vehicle-cli.md "disassociate-vehicle-cli.md").
 
 To delete a fleet, run the following command.
 

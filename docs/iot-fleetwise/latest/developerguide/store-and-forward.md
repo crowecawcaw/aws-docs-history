@@ -16,5 +16,4 @@ Alternatively, you can collect data using AWS IoT Jobs.
 
 - [Create data partitions](create-campaign-data-partitions.md "create-campaign-data-partitions.md")
 - [Upload campaign data](update-campaign-cli-data-partitions.md "update-campaign-cli-data-partitions.md")
-- [Upload data using AWS IoT
-  Jobs](update-campaign-cli-data-partitions-jobs.md "update-campaign-cli-data-partitions-jobs.md")
+- [Upload data using AWS IoT Jobs](update-campaign-cli-data-partitions-jobs.md "update-campaign-cli-data-partitions-jobs.md")

@@ -95,7 +95,7 @@ contains the vehicle configuration.
 aws iotfleetwise create-vehicle --cli-input-json file://`file-name`.json
 ```
 
-###### Example – vehicle configuration
+###### Example– vehicle configuration
 
 - (Optional) The `associationBehavior` value can be one of the
   following:
@@ -163,7 +163,7 @@ individual vehicles.
 }
 ```
 
-###### Example – associate a state template with the vehicle
+###### Example– associate a state template with the vehicle
 
 You can associate [state templates](state-templates.md "state-templates.md") with
 the vehicle to allow collection of state updates from the vehicle in the cloud by using the

@@ -1,6 +1,4 @@
-# Identity-based policy examples
-
-for AWS IoT FleetWise
+# Identity-based policy examples for AWS IoT FleetWise
 
 By default, users and roles don't have permission to create or modify AWS IoT FleetWise
 resources. To grant users permission to perform actions on the
@@ -14,18 +12,12 @@ For details about actions and resource types defined by AWS IoT FleetWise, inclu
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the AWS IoT FleetWise
-  console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow
-  users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Access
-  resources in Amazon Timestream](#security_iam_id-based-policy-examples-register-account "#security_iam_id-based-policy-examples-register-account")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the AWS IoT FleetWise console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Access resources in Amazon Timestream](#security_iam_id-based-policy-examples-register-account "#security_iam_id-based-policy-examples-register-account")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete AWS IoT FleetWise resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -58,9 +50,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the AWS IoT FleetWise
-
-console
+## Using the AWS IoT FleetWise console
 
 To access the AWS IoT FleetWise console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the AWS IoT FleetWise resources
@@ -77,9 +67,7 @@ the AWS IoT FleetWise `ConsoleAccess` or `ReadOnly` AWS managed
 policy to the entities. For more information, see [Adding permissions to a user](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the
 _IAM User Guide_.
 
-## Allow
-
-users to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -119,9 +107,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Access
-
-resources in Amazon Timestream
+## Access resources in Amazon Timestream
 
 Before using AWS IoT FleetWise, you must register your AWS account, IAM, and
 Amazon Timestream resources to grant AWS IoT FleetWise permission to send vehicle data to

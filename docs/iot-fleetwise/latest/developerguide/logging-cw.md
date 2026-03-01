@@ -13,9 +13,7 @@ logs to the CloudWatch log group in log streams.
 You can view log data sent from AWS IoT FleetWise in the CloudWatch console. For more information about configuring a CloudWatch log group and viewing log data, see [Working with Log
 Groups](../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md "../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md"). For more information on setting up logging for AWS services, see [AWS services that publish logs to CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md") in the _Amazon CloudWatch Logs User Guide_.
 
-## Permissions to publish logs to
-
-CloudWatch
+## Permissions to publish logs to CloudWatch
 
 Configuring logging for a CloudWatch log group requires the
 permissions settings described in this section. For information about managing permissions,

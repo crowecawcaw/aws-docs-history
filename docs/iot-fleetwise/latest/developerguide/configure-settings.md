@@ -78,8 +78,7 @@ aws iotfleetwise register-account
 
 ###### Note
 
-The service-linked role is only used to publish AWS IoT FleetWise metrics to CloudWatch. For more information, see [Using service-linked roles for
-AWS IoT FleetWise](using-service-linked-roles.md "using-service-linked-roles.md").
+The service-linked role is only used to publish AWS IoT FleetWise metrics to CloudWatch. For more information, see [Using service-linked roles for AWS IoT FleetWise](using-service-linked-roles.md "using-service-linked-roles.md").
 
 ```
 aws iotfleetwise get-register-account-status

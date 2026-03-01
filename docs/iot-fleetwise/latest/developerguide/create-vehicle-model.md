@@ -4,20 +4,16 @@ You can use the AWS IoT FleetWise console or API to create vehicle models.
 
 ###### Topics
 
-- [Create a vehicle model
-  (console)](#create-vehicle-model-console "#create-vehicle-model-console")
+- [Create a vehicle model (console)](#create-vehicle-model-console "#create-vehicle-model-console")
 - [Create a vehicle model (AWS CLI)](#create-vehicle-model-cli "#create-vehicle-model-cli")
 
-## Create a vehicle model
-
-(console)
+## Create a vehicle model (console)
 
 In the AWS IoT FleetWise console, you can create a vehicle model in the following
 ways:
 
 - [Use a template provided by AWS](#use-obd-template "#use-obd-template")
-- [Manually create a vehicle
-  model](#manually-create-vehicle-model "#manually-create-vehicle-model")
+- [Manually create a vehicle model](#manually-create-vehicle-model "#manually-create-vehicle-model")
 - [Duplicate a vehicle model](#duplicate-vehicle-model "#duplicate-vehicle-model")
 
 ### Use a template provided by AWS
@@ -38,9 +34,7 @@ decoder manifest. For more information, see [Manage AWS IoT FleetWise decoder ma
    creating.
 6. Choose **Add**.
 
-### Manually create a vehicle
-
-model
+### Manually create a vehicle model
 
 You can add signals from the signal catalog or import signals by uploading
 one or more .dbc files. A .dbc file is a file format that Controller Area
@@ -64,18 +58,13 @@ change.
 
 ###### Topics
 
-- [Step 1: Configure
-  vehicle model](#configure-vehicle-model-console "#configure-vehicle-model-console")
+- [Step 1: Configure vehicle model](#configure-vehicle-model-console "#configure-vehicle-model-console")
 - [Step 2: Add signals](#add-signals-console "#add-signals-console")
 - [Step 3: Import signals](#import-signals-console "#import-signals-console")
-- [(Optional) Step 4: Add
-  attributes](#add-attrobutes-console "#add-attrobutes-console")
-- [Step 5: Review and
-  create](#review-and-create-vehicle-model "#review-and-create-vehicle-model")
+- [(Optional) Step 4: Add attributes](#add-attrobutes-console "#add-attrobutes-console")
+- [Step 5: Review and create](#review-and-create-vehicle-model "#review-and-create-vehicle-model")
 
-#### Step 1: Configure
-
-vehicle model
+#### Step 1: Configure vehicle model
 
 In **General information**, do the following.
 
@@ -176,9 +165,7 @@ following metadata for each signal.
 
 4. Choose **Next**.
 
-#### (Optional) Step 4: Add
-
-attributes
+#### (Optional) Step 4: Add attributes
 
 You can add up to 100 attributes, including the existing attributes in
 the signal catalog.
@@ -226,9 +213,7 @@ the signal catalog.
 
 2. Choose **Next**.
 
-#### Step 5: Review and
-
-create
+#### Step 5: Review and create
 
 Verify the configurations for the vehicle model, and then choose
 **Create**.
@@ -246,8 +231,7 @@ copied to the new vehicle model.
 3. Choose a model from the vehicle model list, and then choose
    **Duplicate model**.
 
-To configure the vehicle model, follow the [Manually create a vehicle
-model](#manually-create-vehicle-model "#manually-create-vehicle-model") tutorial.
+To configure the vehicle model, follow the [Manually create a vehicle model](#manually-create-vehicle-model "#manually-create-vehicle-model") tutorial.
 
 It can take a few minutes for AWS IoT FleetWise to process your request to create the
 vehicle model. After the vehicle model is successfully created, on the

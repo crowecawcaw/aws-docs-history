@@ -17,5 +17,4 @@ support the following:
 
 ###### Topics
 
-- [Connecting to AWS IoT FleetWise through an
-  interface VPC endpoint](interface-vpc-endpoint.md "interface-vpc-endpoint.md")
+- [Connecting to AWS IoT FleetWise through an interface VPC endpoint](interface-vpc-endpoint.md "interface-vpc-endpoint.md")

@@ -41,8 +41,6 @@ Using the AWS IoT commands feature, you can:
 - [Commands concepts](remote-command-concepts-states.md "remote-command-concepts-states.md")
 - [Vehicles and commands](remote-command-vehicles.md "remote-command-vehicles.md")
 - [Create and manage commands](create-manage-remote-command-cli.md "create-manage-remote-command-cli.md")
-- [Start and monitor command
-  executions](send-monitor-remote-command-cli.md "send-monitor-remote-command-cli.md")
-- [Example: Using commands to control a vehicle
-  steering mode (AWS CLI)](remote-command-tutorial.md "remote-command-tutorial.md")
+- [Start and monitor command executions](send-monitor-remote-command-cli.md "send-monitor-remote-command-cli.md")
+- [Example: Using commands to control a vehicle steering mode (AWS CLI)](remote-command-tutorial.md "remote-command-tutorial.md")
 - [Command usage scenarios](remote-command-use-cases.md "remote-command-use-cases.md")
