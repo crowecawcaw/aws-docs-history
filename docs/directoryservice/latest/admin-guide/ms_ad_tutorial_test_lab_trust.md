@@ -1,6 +1,4 @@
-# Tutorial: Creating a trust from AWS Managed Microsoft AD
-
-to a self-managed Active Directory installation on Amazon EC2
+# Tutorial: Creating a trust from AWS Managed Microsoft AD to a self-managed Active Directory installation on Amazon EC2
 
 In this tutorial, you learn how to create a trust between the AWS Directory Service for Microsoft Active Directory forest
 that you created in the [Base tutorial](ms_ad_tutorial_test_lab_base.md "ms_ad_tutorial_test_lab_base.md").
@@ -14,8 +12,7 @@ tutorials when necessary for more experience.
 
 ![Steps to create a trust from a Microsoft Active Directory to a self-managed Active Directory: Set up your environment, create your Microsoft Active Directory, Deploy an Amazon EC2 instance, and test the lab.](images/tutorialmicrosoftadtrust.png)
 
-**[Step 1: Set up your environment for
-trusts](microsoftadtruststep1.md "microsoftadtruststep1.md")**
+**[Step 1: Set up your environment for trusts](microsoftadtruststep1.md "microsoftadtruststep1.md")**
 
 Before you can establish trusts between a new Active Directory forest and the
 AWS Managed Microsoft AD forest that you created in the [Base tutorial](ms_ad_tutorial_test_lab_base.md "ms_ad_tutorial_test_lab_base.md"), you need to

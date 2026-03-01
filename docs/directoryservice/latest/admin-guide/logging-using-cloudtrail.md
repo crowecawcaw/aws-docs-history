@@ -1,6 +1,4 @@
-# Logging AWS Directory Service Data API calls using
-
-AWS CloudTrail
+# Logging AWS Directory Service Data API calls using AWS CloudTrail
 
 AWS Directory Service Data integrates with AWS CloudTrail, a service that provides a record of actions taken by
 a user, role, or an AWS service in Directory Service Data. CloudTrail captures all API calls for Directory Service Data as
@@ -52,9 +50,7 @@ identity information helps you determine the following:
 
 For more information, see the [CloudTrail userIdentity element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## Understanding Directory Service Data log file
-
-entries
+## Understanding Directory Service Data log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3
 bucket that you specify. CloudTrail log files contain one or more log entries. An event
@@ -279,9 +275,7 @@ The `NextToken` element is redacted from all log entries.
 }
 ```
 
-## Log entries for exception
-
-errors
+## Log entries for exception errors
 
 The following example shows a CloudTrail log entry for an Access Denied error. For help with
 this error, see [Troubleshooting access

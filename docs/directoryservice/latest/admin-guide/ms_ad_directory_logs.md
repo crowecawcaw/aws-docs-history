@@ -2,8 +2,7 @@
 
 Security logs from AWS Managed Microsoft AD domain controller instances are archived for a year. You
 can also configure your AWS Managed Microsoft AD directory to forward domain controller logs to Amazon CloudWatch Logs in near real time. For more information, see
-[Enabling Amazon CloudWatch Logs log forwarding for
-AWS Managed Microsoft AD](ms_ad_enable_log_forwarding.md "ms_ad_enable_log_forwarding.md").
+[Enabling Amazon CloudWatch Logs log forwarding for AWS Managed Microsoft AD](ms_ad_enable_log_forwarding.md "ms_ad_enable_log_forwarding.md").
 
 AWS logs the following events for compliance.
 

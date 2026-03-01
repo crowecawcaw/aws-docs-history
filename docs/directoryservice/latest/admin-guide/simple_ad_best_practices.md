@@ -27,18 +27,14 @@ that fits your budget:
 
 For a more detailed comparison of Directory Service options, see [Which to choose](what_is.md#choosing_an_option "what_is.md#choosing_an_option").
 
-### Ensure your VPCs and instances are configured
-
-correctly
+### Ensure your VPCs and instances are configured correctly
 
 In order to connect to, manage, and use your directories, you must properly
-configure the VPCs that the directories are associated with. See either [Prerequisites for creating a
-AWS Managed Microsoft AD](ms_ad_getting_started.md#ms_ad_getting_started_prereqs "ms_ad_getting_started.md#ms_ad_getting_started_prereqs"), [AD Connector prerequisites](ad_connector_getting_started.md#prereq_connector "ad_connector_getting_started.md#prereq_connector"), or [Simple AD prerequisites](simple_ad_getting_started.md#prereq_simple "simple_ad_getting_started.md#prereq_simple") for information about the
+configure the VPCs that the directories are associated with. See either [Prerequisites for creating a AWS Managed Microsoft AD](ms_ad_getting_started.md#ms_ad_getting_started_prereqs "ms_ad_getting_started.md#ms_ad_getting_started_prereqs"), [AD Connector prerequisites](ad_connector_getting_started.md#prereq_connector "ad_connector_getting_started.md#prereq_connector"), or [Simple AD prerequisites](simple_ad_getting_started.md#prereq_simple "simple_ad_getting_started.md#prereq_simple") for information about the
 VPC security and networking requirements.
 
 If you are adding an instance to your domain, ensure that you have connectivity
-and remote access to your instance as described in [Ways to join an Amazon EC2 instance to your
-AWS Managed Microsoft AD](ms_ad_join_instance.md "ms_ad_join_instance.md").
+and remote access to your instance as described in [Ways to join an Amazon EC2 instance to your AWS Managed Microsoft AD](ms_ad_join_instance.md "ms_ad_join_instance.md").
 
 ### Be aware of your limits
 
@@ -85,7 +81,7 @@ directory.
 
 Directory Service provides support for most character formats that can be used in the construction
 of usernames. However, there are character restrictions that are enforced on usernames that
-will be used for signing in to AWS applications, such as WorkSpaces, WorkDocs, Amazon WorkMail, or Quick Suite. These
+will be used for signing in to AWS applications, such as WorkSpaces, WorkDocs, Amazon WorkMail, or Quick. These
 restrictions require that the following characters not be used:
 
 - Spaces
@@ -110,8 +106,7 @@ Be sure to do lab testing with objects and requests that are representative of y
 production workload to confirm that the directory scales to the load of your application.
 Should you require additional capacity, you should use Directory Service for Microsoft
 Active Directory, which enables you to add domain controllers for high performance. For more
-information, see [Deploying additional domain controllers for your
-AWS Managed Microsoft AD](ms_ad_deploy_additional_dcs.md "ms_ad_deploy_additional_dcs.md").
+information, see [Deploying additional domain controllers for your AWS Managed Microsoft AD](ms_ad_deploy_additional_dcs.md "ms_ad_deploy_additional_dcs.md").
 
 ### Use efficient LDAP queries
 

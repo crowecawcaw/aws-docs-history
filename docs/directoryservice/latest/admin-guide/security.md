@@ -36,13 +36,11 @@ The following additional security topics can be found in this guide:
 
 _Accounts, trusts, and AWS resource access_
 
-- [AWS Managed Microsoft AD Administrator account and
-  group permissions](ms_ad_getting_started_admin_account.md "ms_ad_getting_started_admin_account.md")
+- [AWS Managed Microsoft AD Administrator account and group permissions](ms_ad_getting_started_admin_account.md "ms_ad_getting_started_admin_account.md")
 - [Group Managed Service Accounts](ms_ad_key_concepts.md#ms_ad_key_concepts_gmsa "ms_ad_key_concepts.md#ms_ad_key_concepts_gmsa")
 - [Creating a trust relationship between your AWS Managed Microsoft AD and self-managed AD](ms_ad_setup_trust.md "ms_ad_setup_trust.md")
 - [Kerberos constrained delegation](ms_ad_key_concepts.md#ms_ad_key_concepts_kerberos "ms_ad_key_concepts.md#ms_ad_key_concepts_kerberos")
-- [Granting AWS Managed Microsoft AD users and groups access to AWS
-  resources with IAM roles](ms_ad_manage_roles.md "ms_ad_manage_roles.md")
+- [Granting AWS Managed Microsoft AD users and groups access to AWS resources with IAM roles](ms_ad_manage_roles.md "ms_ad_manage_roles.md")
 - [Authorization for AWS applications and services using Directory Service](ad_manage_apps_services_authorization.md "ad_manage_apps_services_authorization.md")
   _Secure your directory_
 
@@ -54,5 +52,4 @@ _Accounts, trusts, and AWS resource access_
 - [Monitor your AD Connector directory](ad_connector_monitor.md "ad_connector_monitor.md")
   _Resilience_
 
-- [Patching and maintenance for
-  AWS Managed Microsoft AD](ms_ad_key_concepts.md#ms_ad_key_concepts_maintenance "ms_ad_key_concepts.md#ms_ad_key_concepts_maintenance")
+- [Patching and maintenance for AWS Managed Microsoft AD](ms_ad_key_concepts.md#ms_ad_key_concepts_maintenance "ms_ad_key_concepts.md#ms_ad_key_concepts_maintenance")

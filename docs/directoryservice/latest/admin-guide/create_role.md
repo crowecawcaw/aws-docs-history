@@ -3,14 +3,12 @@
 If you need to create a new IAM role for use with Directory Service, you must create it using
 the IAM console. Once the role has been created, you must then set up a trust
 relationship with that role before you can see that role in the Directory Service console. For more
-information, see [Editing the trust relationship for an existing IAM
-role](edit_trust.md "edit_trust.md").
+information, see [Editing the trust relationship for an existing IAM role](edit_trust.md "edit_trust.md").
 
 ###### Note
 
 The user performing this task must have permission to perform the following IAM
-actions. For more information, see [Identity-based
-policies (IAM policies)](IAM_Auth_Access_Overview.md#IAM_Auth_Access_ManagingAccess_IdentityBased "IAM_Auth_Access_Overview.md#IAM_Auth_Access_ManagingAccess_IdentityBased").
+actions. For more information, see [Identity-based policies (IAM policies)](IAM_Auth_Access_Overview.md#IAM_Auth_Access_ManagingAccess_IdentityBased "IAM_Auth_Access_Overview.md#IAM_Auth_Access_ManagingAccess_IdentityBased").
 
 - iam:PassRole
 - iam:GetRole
@@ -43,15 +41,12 @@ console.
 
 1. Create a role with the IAM console using the procedure above. When prompted
    for a policy, choose **AmazonEC2FullAccess**.
-2. Use the steps in [Editing the trust relationship for an existing IAM
-   role](edit_trust.md "edit_trust.md") to
+2. Use the steps in [Editing the trust relationship for an existing IAM role](edit_trust.md "edit_trust.md") to
    edit the role you just created, and then add the required trust relationship
    information to the policy document. This step is necessary for the role to be
    visible immediately after you enable access to the AWS Management Console in the next
    step.
-3. Follow the steps in [Enabling AWS Management Console access with AWS Managed Microsoft AD
-   credentials](ms_ad_management_console_access.md "ms_ad_management_console_access.md") to configure general
+3. Follow the steps in [Enabling AWS Management Console access with AWS Managed Microsoft AD credentials](ms_ad_management_console_access.md "ms_ad_management_console_access.md") to configure general
    access to the AWS Management Console.
-4. Follow the steps in [Assigning users or groups to an existing IAM
-   role](assign_role.md "assign_role.md")
+4. Follow the steps in [Assigning users or groups to an existing IAM role](assign_role.md "assign_role.md")
    to add the users who need full access to EC2 resources to the new role.

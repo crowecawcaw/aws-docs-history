@@ -3,7 +3,7 @@
 Client-side Lightweight Directory Access Protocol Secure Sockets Layer (SSL)/Transport Layer
 Security (TLS) (LDAPS) support in AWS Managed Microsoft AD encrypts communications between self-managed
 (on-premises) Microsoft Active Directory (AD) and AWS applications. Examples of such
-applications include WorkSpaces, AWS IAM Identity Center, Quick Suite, and Amazon Chime. This encryption helps you to better
+applications include WorkSpaces, AWS IAM Identity Center, Quick, and Amazon Chime. This encryption helps you to better
 protect your organization's identity data and meet your security requirements.
 
 ## Prerequisites
@@ -12,23 +12,17 @@ Before you enable client-side LDAPS, you need to meet the following requirements
 
 ###### Topics
 
-- [Create a trust relationship
-  between your AWS Managed Microsoft AD and self-managed Microsoft Active Directory](#trust_relationship_MAD_and_self_managed "#trust_relationship_MAD_and_self_managed")
-- [Deploy server certificates in Active
-  Directory](#ldap_client_side_deploy_server_certs "#ldap_client_side_deploy_server_certs")
+- [Create a trust relationship between your AWS Managed Microsoft AD and self-managed Microsoft Active Directory](#trust_relationship_MAD_and_self_managed "#trust_relationship_MAD_and_self_managed")
+- [Deploy server certificates in Active Directory](#ldap_client_side_deploy_server_certs "#ldap_client_side_deploy_server_certs")
 - [Certificate Authority certificate requirements](#ldap_client_side_get_certs_ready "#ldap_client_side_get_certs_ready")
 - [Networking requirements](#ldap_client_side_considerations_enabling "#ldap_client_side_considerations_enabling")
 
-### Create a trust relationship
-
-between your AWS Managed Microsoft AD and self-managed Microsoft Active Directory
+### Create a trust relationship between your AWS Managed Microsoft AD and self-managed Microsoft Active Directory
 
 First, you need to establish a trust relationship between your AWS Managed Microsoft AD and
 self-managed Microsoft Active Directory to enable client-side LDAPS. For more information, see [Creating a trust relationship between your AWS Managed Microsoft AD and self-managed AD](ms_ad_setup_trust.md "ms_ad_setup_trust.md").
 
-### Deploy server certificates in Active
-
-Directory
+### Deploy server certificates in Active Directory
 
 In order to enable client-side LDAPS, you need to obtain and install server certificates
 for each domain controller in Active Directory. These certificates will be used by the LDAP

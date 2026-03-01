@@ -1,6 +1,4 @@
-# Launching a directory administration instance in your
-
-AWS Managed Microsoft AD Active Directory
+# Launching a directory administration instance in your AWS Managed Microsoft AD Active Directory
 
 This procedure launches an Amazon EC2 directory administration Windows instance
 in the AWS Management Console using AWS Systems Manager Automation to manage your directories. You can also
@@ -40,8 +38,7 @@ The following prerequisites are required to complete this tutorial:
   [Show moreShow less](# "#")
 
 - The VPC connected to your AWS Managed Microsoft AD needs to allow access to public Directory Service
-  endpoints. For more information, see [Prerequisites for creating a
-  AWS Managed Microsoft AD](ms_ad_getting_started.md#ms_ad_getting_started_prereqs "ms_ad_getting_started.md#ms_ad_getting_started_prereqs").
+  endpoints. For more information, see [Prerequisites for creating a AWS Managed Microsoft AD](ms_ad_getting_started.md#ms_ad_getting_started_prereqs "ms_ad_getting_started.md#ms_ad_getting_started_prereqs").
 
 [Show moreShow less](# "#")
 
@@ -90,9 +87,7 @@ The following prerequisites are required to complete this tutorial:
 
   [Show moreShow less](# "#")
 
-## Launching a directory administration EC2 instance
-
-in the AWS Management Console
+## Launching a directory administration EC2 instance in the AWS Management Console
 
 1. Sign in to the [Directory Service
    console](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/").
@@ -116,9 +111,7 @@ in the AWS Management Console
 8. You're taken back to the directory page. A green flashbar displays at the top of
    your screen to indicate that you successfully began the launch.
 
-## Viewing directory administration EC2
-
-instance
+## Viewing directory administration EC2 instance
 
 If you haven't launched any EC2 instances for a directory, a dash
 (**-**) displays under **Directory administration EC2

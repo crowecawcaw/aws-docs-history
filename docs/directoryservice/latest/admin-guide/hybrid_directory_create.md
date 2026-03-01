@@ -3,9 +3,7 @@
 Before creating a hybrid directory, you must create and successfully pass a directory assessment that verifies
 connectivity and interoperability with your self-managed Active Directory
 
-## Creating a hybrid directory with your
-
-self-managed AD
+## Creating a hybrid directory with your self-managed AD
 
 Follow these steps to create a hybrid directory with your self-managed AD:
 

@@ -65,9 +65,7 @@ enrollment for AWS Managed Microsoft AD with AWS Private CA.
 AWS Private CA Connector for AD must be configured so AWS Managed Microsoft AD domain controllers and
 objects can request and receive certificates. Configure your group policy object ([GPO](https://learn.microsoft.com/previous-versions/windows/desktop/policy/group-policy-objects "https://learn.microsoft.com/previous-versions/windows/desktop/policy/group-policy-objects")) so AWS Private CA can issue certificates to AWS Managed Microsoft AD objects.
 
-### Configuring Active Directory policies for
-
-domain controllers
+### Configuring Active Directory policies for domain controllers
 
 ###### Turn on Active Directory policies for domain controllers
 
@@ -101,9 +99,7 @@ existing one:
 4. Choose **Actions**, **Disable domain controller
    certificates**.
 
-### Configuring Active Directory policies for
-
-domain joined users, computers and machines
+### Configuring Active Directory policies for domain joined users, computers and machines
 
 ###### Configure group policy objects
 
@@ -169,9 +165,7 @@ After you finish configuring GPOs and Public Key Policies, objects in the domain
 request certificates from AWS Private CA Connector for AD and receive certificates issued by
 AWS Private CA.
 
-## Confirming AWS Private CA issued a
-
-certificate
+## Confirming AWS Private CA issued a certificate
 
 The process to update AWS Private CA to issue certificates for your AWS Managed Microsoft AD can take up to
 8 hours.

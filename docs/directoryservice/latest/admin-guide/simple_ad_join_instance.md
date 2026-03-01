@@ -1,10 +1,7 @@
-# Ways to join an Amazon EC2 instance to your
-
-Simple AD
+# Ways to join an Amazon EC2 instance to your Simple AD
 
 You can seamlessly join an Amazon EC2 instance to your Active Directory domain when the instance is
-launched. For more information, see [Joining an Amazon EC2 Windows instance to your AWS Managed Microsoft AD
-Active Directory](launching_instance.md "launching_instance.md"). You can also
+launched. For more information, see [Joining an Amazon EC2 Windows instance to your AWS Managed Microsoft AD Active Directory](launching_instance.md "launching_instance.md"). You can also
 launch an EC2 instance and join it to an Active Directory domain directly from the Directory Service console with
 [AWS Systems Manager Automation](../../../systems-manager/latest/userguide/systems-manager-automation.md "../../../systems-manager/latest/userguide/systems-manager-automation.md").
 
@@ -19,11 +16,7 @@ address.
 
 ###### Topics
 
-- [Joining an Amazon EC2 Windows instance to your
-  Simple AD Active Directory](simple_ad_launching_instance.md "simple_ad_launching_instance.md")
-- [Join an Amazon EC2 Linux instance to
-  your Simple AD Active Directory](simple_ad_linux_domain_join.md "simple_ad_linux_domain_join.md")
-- [Delegating directory join privileges for
-  Simple AD](simple_ad_directory_join_privileges.md "simple_ad_directory_join_privileges.md")
-- [Creating a DHCP options set for
-  Simple AD](simple_ad_dhcp_options_set.md "simple_ad_dhcp_options_set.md")
+- [Joining an Amazon EC2 Windows instance to your Simple AD Active Directory](simple_ad_launching_instance.md "simple_ad_launching_instance.md")
+- [Join an Amazon EC2 Linux instance to your Simple AD Active Directory](simple_ad_linux_domain_join.md "simple_ad_linux_domain_join.md")
+- [Delegating directory join privileges for Simple AD](simple_ad_directory_join_privileges.md "simple_ad_directory_join_privileges.md")
+- [Creating a DHCP options set for Simple AD](simple_ad_dhcp_options_set.md "simple_ad_dhcp_options_set.md")

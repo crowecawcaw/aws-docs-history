@@ -1,6 +1,4 @@
-# Editing the trust relationship for an existing IAM
-
-role
+# Editing the trust relationship for an existing IAM role
 
 You can assign your existing IAM roles to your Directory Service users and groups. To do this,
 however, the role must have a trust relationship with Directory Service. When you use Directory Service to

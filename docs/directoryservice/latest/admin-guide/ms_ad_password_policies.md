@@ -31,8 +31,7 @@ password policies and security policies:
   AWS provides a set of fine-grained password policies in AWS Managed Microsoft AD that you can
   configure and assign to your groups. To configure the policies, you can use standard
   Microsoft policy tools such as [Active Directory Administrative Center](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center "https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center"). To get started with the Microsoft policy
-  tools, see [Installing Active Directory Administration
-  Tools for AWS Managed Microsoft AD](ms_ad_install_ad_tools.md "ms_ad_install_ad_tools.md").
+  tools, see [Installing Active Directory Administration Tools for AWS Managed Microsoft AD](ms_ad_install_ad_tools.md "ms_ad_install_ad_tools.md").
 
 ## How password policies are applied
 
@@ -131,8 +130,7 @@ website.
 ###### Topics
 
 - [Assigning password policies to your AWS Managed Microsoft AD users](assignpasswordpolicies.md "assignpasswordpolicies.md")
-- [Delegating who can manage your AWS Managed Microsoft AD password
-  policies](delegatepasswordpolicies.md "delegatepasswordpolicies.md")
+- [Delegating who can manage your AWS Managed Microsoft AD password policies](delegatepasswordpolicies.md "delegatepasswordpolicies.md")
   **Related AWS Security blog article**
 
 - [How to configure even stronger password policies to help meet your security standards by

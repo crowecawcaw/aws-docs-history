@@ -1,6 +1,4 @@
-# Assigning users or groups to an existing IAM
-
-role
+# Assigning users or groups to an existing IAM role
 
 You can assign an existing IAM role to an AWS Managed Microsoft AD user or group. To do this,
 make sure you have completed the following.
@@ -47,8 +45,7 @@ groups do not.
    **Select Active Directory Forest**, choose either the
    AWS Managed Microsoft AD forest (this forest) or the on-premises forest (trusted forest),
    whichever contains where the accounts that need access to the AWS Management Console. For
-   more information about how to set up a trusted forest, see [Tutorial: Create a trust relationship between your
-   AWS Managed Microsoft AD and your self-managed Active Directory domain](ms_ad_tutorial_setup_trust.md "ms_ad_tutorial_setup_trust.md").
+   more information about how to set up a trusted forest, see [Tutorial: Create a trust relationship between your AWS Managed Microsoft AD and your self-managed Active Directory domain](ms_ad_tutorial_setup_trust.md "ms_ad_tutorial_setup_trust.md").
 8. Under **Specify which users or groups to add**, select either
    **Find by user** or **Find by group**, and
    then type the name of the user or group. In the list of possible matches, choose

@@ -30,8 +30,8 @@ When an AD Connector is deleted, your on-premises directory remains intact. All 
         _AWS Client VPN Administrator Guide_.
       - To disable Amazon Connect, you must delete the Amazon Connect Instance. For more information, see [Delete your Amazon Connect instance](../../../connect/latest/adminguide/delete-connect-instance.md "../../../connect/latest/adminguide/delete-connect-instance.md") in the
         _Amazon Connect Administration Guide_.
-      - To disable Amazon Quick Suite, you must unsubscribe from Amazon Quick Suite. For more information, see [Closing your Amazon Quick Suite account](../../../quicksight/latest/user/closing-account.md "../../../quicksight/latest/user/closing-account.md") in the
-        _Amazon Quick Suite User Guide_.
+      - To disable Amazon Quick, you must unsubscribe from Amazon Quick. For more information, see [Closing your Amazon Quick account](../../../quicksight/latest/user/closing-account.md "../../../quicksight/latest/user/closing-account.md") in the
+        _Amazon Quick User Guide_.
 
    ###### Note
 

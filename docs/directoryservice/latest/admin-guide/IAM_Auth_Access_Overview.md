@@ -1,6 +1,4 @@
-# Overview of managing access permissions to
-
-your Directory Service resources
+# Overview of managing access permissions to your Directory Service resources
 
 Every AWS resource is owned by an AWS account. As a result, permissions to create
 or access the resources are governed by permissions policies. However, an account
@@ -17,14 +15,10 @@ _IAM User Guide_.
 ###### Topics
 
 - [Directory Service resources and operations](#CreatingIAMPolicies_DS "#CreatingIAMPolicies_DS")
-- [Understanding resource
-  ownership](#IAM_Auth_Access_ResourceOwner "#IAM_Auth_Access_ResourceOwner")
-- [Managing access to
-  resources](#IAM_Auth_Access_ManagingAccess "#IAM_Auth_Access_ManagingAccess")
-- [Specifying policy elements: Actions,
-  effects, resources, and principals](#SpecifyingIAMPolicyActions_DS "#SpecifyingIAMPolicyActions_DS")
-- [Specifying conditions in a
-  policy](#SpecifyingIAMPolicyConditions_DS "#SpecifyingIAMPolicyConditions_DS")
+- [Understanding resource ownership](#IAM_Auth_Access_ResourceOwner "#IAM_Auth_Access_ResourceOwner")
+- [Managing access to resources](#IAM_Auth_Access_ManagingAccess "#IAM_Auth_Access_ManagingAccess")
+- [Specifying policy elements: Actions, effects, resources, and principals](#SpecifyingIAMPolicyActions_DS "#SpecifyingIAMPolicyActions_DS")
+- [Specifying conditions in a policy](#SpecifyingIAMPolicyConditions_DS "#SpecifyingIAMPolicyConditions_DS")
 
 ## Directory Service resources and operations
 
@@ -51,9 +45,7 @@ perform.
 - The `ds-data` service namespace provides a set of operations
   to Active Directory objects. For a list of available operations, see [Directory Service Data API Reference](../../../directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.md "../../../directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.md").
 
-## Understanding resource
-
-ownership
+## Understanding resource ownership
 
 A _resource owner_ is the AWS account that created a
 resource. That is, the resource owner is the AWS account of the
@@ -73,9 +65,7 @@ examples illustrate how this works:
   resources. Your AWS account, to which the role belongs, owns the Directory Service
   resources.
 
-## Managing access to
-
-resources
+## Managing access to resources
 
 A _permissions policy_ describes who has access to what. The
 following section explains the available options for creating permissions
@@ -97,14 +87,10 @@ policies. Directory Service supports only identity-based policies (IAM policies)
 
 ###### Topics
 
-- [Identity-based
-  policies (IAM policies)](#IAM_Auth_Access_ManagingAccess_IdentityBased "#IAM_Auth_Access_ManagingAccess_IdentityBased")
-- [Resource-based
-  policies](#IAM_Auth_Access_ManagingAccess_ResourceBased "#IAM_Auth_Access_ManagingAccess_ResourceBased")
+- [Identity-based policies (IAM policies)](#IAM_Auth_Access_ManagingAccess_IdentityBased "#IAM_Auth_Access_ManagingAccess_IdentityBased")
+- [Resource-based policies](#IAM_Auth_Access_ManagingAccess_ResourceBased "#IAM_Auth_Access_ManagingAccess_ResourceBased")
 
-### Identity-based
-
-policies (IAM policies)
+### Identity-based policies (IAM policies)
 
 You can attach policies to IAM identities. For example, you can do the
 following:
@@ -145,22 +131,17 @@ JSON
 
 ```
 
-For more information about using identity-based policies with Directory Service, see [Using identity-based policies (IAM
-policies) for Directory Service](IAM_Auth_Access_IdentityBased.md "IAM_Auth_Access_IdentityBased.md"). For more information about
+For more information about using identity-based policies with Directory Service, see [Using identity-based policies (IAM policies) for Directory Service](IAM_Auth_Access_IdentityBased.md "IAM_Auth_Access_IdentityBased.md"). For more information about
 users, groups, roles, and permissions, see [Identities (users, groups, and roles)](../../../IAM/latest/UserGuide/id.md "../../../IAM/latest/UserGuide/id.md") in the
 _IAM User Guide_.
 
-### Resource-based
-
-policies
+### Resource-based policies
 
 Other services, such as Amazon S3, also support resource-based permissions
 policies. For example, you can attach a policy to an S3 bucket to manage access
 permissions to that bucket. Directory Service doesn't support resource-based policies.
 
-## Specifying policy elements: Actions,
-
-effects, resources, and principals
+## Specifying policy elements: Actions, effects, resources, and principals
 
 For each Directory Service resource, the service defines a set of API operations. For more
 information, see [Directory Service resources and operations](#CreatingIAMPolicies_DS "#CreatingIAMPolicies_DS"). For a list of available API
@@ -198,12 +179,9 @@ To learn more about IAM policy syntax and descriptions, see [IAM JSON policy ref
 in the _IAM User Guide_.
 
 For a table showing all of the Directory Service API actions and the resources that they apply
-to, see [Directory Service API permissions: Actions,
-resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md").
+to, see [Directory Service API permissions: Actions, resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md").
 
-## Specifying conditions in a
-
-policy
+## Specifying conditions in a policy
 
 When you grant permissions, you can use the access policy language to specify the
 conditions when a policy should take effect. For example, you might want a policy to

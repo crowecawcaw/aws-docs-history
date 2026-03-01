@@ -2,9 +2,7 @@
 
 This topic describes authorization for AWS applications and services using AWS Directory Service and AWS Directory Service Data
 
-##
-
-Authorizing an AWS application on an Active Directory
+## Authorizing an AWS application on an Active Directory
 
 Directory Service grants specific permissions for selected applications to integrate seamlessly with your Active Directory when you authorize an AWS application.
 AWS applications are only granted the access that's necessary for their specific use-cases.
@@ -24,13 +22,10 @@ Certain AWS Managed Microsoft AD applications such as Amazon RDS and Amazon FSx 
 such as LDAP and Kerberos. The permissions of these AWS applications are controlled by a directory user account created in the AWS Reserved Organizational Unit (OU) during the application authorization, which includes
 DNS management and full access to a custom OU created for the application. In order to use this account, the application requires permissions to `ds:GetAuthorizedApplicationDetails` action through caller credentials or an IAM role.
 
-For more information about Directory Service API permissions, see [Directory Service API permissions: Actions,
-resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md").
+For more information about Directory Service API permissions, see [Directory Service API permissions: Actions, resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md").
 
-For more information about enabling AWS applications and services for AWS Managed Microsoft AD, see [Access to AWS applications and services
-from your AWS Managed Microsoft AD](ms_ad_manage_apps_services.md "ms_ad_manage_apps_services.md").
-For more information about enabling AWS applications and services for Simple AD, see [Access to AWS applications and services
-from your Simple AD](simple_ad_manage_apps_services.md "simple_ad_manage_apps_services.md").
+For more information about enabling AWS applications and services for AWS Managed Microsoft AD, see [Access to AWS applications and services from your AWS Managed Microsoft AD](ms_ad_manage_apps_services.md "ms_ad_manage_apps_services.md").
+For more information about enabling AWS applications and services for Simple AD, see [Access to AWS applications and services from your Simple AD](simple_ad_manage_apps_services.md "simple_ad_manage_apps_services.md").
 For information about enabling AWS applications and services for AD Connector, see [Access to AWS applications and services from AD Connector](ad_connector_manage_apps_services.md "ad_connector_manage_apps_services.md").
 
 ###### Deauthorizing an AWS application on a Active Directory
@@ -45,7 +40,7 @@ The authorization model of AWS applications is separate from the access controls
 Denying access to a directory in ds-data will not interrupt the AWS Application integration or use-cases of AWS applications.
 
 When writing access policies for AWS Managed Microsoft AD directories that authorize AWS applications, be aware that user and group functionality might be available by calling either an authorized AWS Application or Directory Service Data API.
-Amazon WorkDocs, Amazon WorkMail, Amazon WorkSpaces, Amazon Quick Suite, and Amazon Chime all provide user and group management actions in their APIs.
+Amazon WorkDocs, Amazon WorkMail, Amazon WorkSpaces, Amazon Quick, and Amazon Chime all provide user and group management actions in their APIs.
 Control access to this AWS application functionality with IAM policies.
 
 ###### Examples

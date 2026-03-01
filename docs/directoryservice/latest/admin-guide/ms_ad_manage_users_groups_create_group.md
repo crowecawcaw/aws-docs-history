@@ -27,8 +27,7 @@ open the Active Directory Users and Computers tool box directly.
 
 3. In the directory tree, select an
    OU under your directory's NetBIOS name OU where you want to store your group (for example, Corp\Users).
-   For more information about the OU structure used by directories in AWS, see [What gets created with your
-   AWS Managed Microsoft AD](ms_ad_getting_started_what_gets_created.md "ms_ad_getting_started_what_gets_created.md").
+   For more information about the OU structure used by directories in AWS, see [What gets created with your AWS Managed Microsoft AD](ms_ad_getting_started_what_gets_created.md "ms_ad_getting_started_what_gets_created.md").
 
 ![Active Directory Users and Computers tool showing example OU structure.](images/create-security-groups-OU.png) 4. On the **Action** menu, click **New**, and then
 click **Group** to open the new group wizard. 5. Type a name for the group in **Group name**, select a **Group

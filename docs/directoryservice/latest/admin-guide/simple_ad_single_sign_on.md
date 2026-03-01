@@ -75,23 +75,17 @@ settings using Group Policy settings.
 
 ###### Topics
 
-- [Manual update for single sign-on on
-  Windows](#ie_sso_manual_windows "#ie_sso_manual_windows")
-- [Manual update for single sign-on on OS
-  X](#chrome_sso_manual_mac "#chrome_sso_manual_mac")
+- [Manual update for single sign-on on Windows](#ie_sso_manual_windows "#ie_sso_manual_windows")
+- [Manual update for single sign-on on OS X](#chrome_sso_manual_mac "#chrome_sso_manual_mac")
 - [Group policy settings for single sign-on](#ie_sso_gpo "#ie_sso_gpo")
 
-### Manual update for single sign-on on
-
-Windows
+### Manual update for single sign-on on Windows
 
 To manually enable single sign-on on a Windows computer, perform the following
 steps on the client computer. Some of these settings may already be set
 correctly.
 
-###### To manually enable single sign-on for Internet Explorer and Chrome on
-
-Windows
+###### To manually enable single sign-on for Internet Explorer and Chrome on Windows
 
 1. To open the **Internet Properties** dialog box,
    choose the **Start** menu, type `Internet Options` in
@@ -148,9 +142,7 @@ Windows
 6. Close and re-open your browser to have these changes take
    effect.
 
-### Manual update for single sign-on on OS
-
-X
+### Manual update for single sign-on on OS X
 
 To manually enable single sign-on for Chrome on OS X, perform the following
 steps on the client computer. You will need administrator rights on your
@@ -182,9 +174,7 @@ If you manage the Chrome web browsers on the computers in your domain with
 Chrome policies, you must add your access URL to the [AuthServerAllowlist](https://chromeenterprise.google/policies/#AuthServerAllowlist "https://chromeenterprise.google/policies/#AuthServerAllowlist") policy. For more information about setting
 Chrome policies, go to [Policy Settings in Chrome](https://source.chromium.org/chromium/chromium/src/+/main:docs/enterprise/add_new_policy.md "https://source.chromium.org/chromium/chromium/src/+/main:docs/enterprise/add_new_policy.md").
 
-###### To enable single sign-on for Internet Explorer and Chrome using Group
-
-Policy settings
+###### To enable single sign-on for Internet Explorer and Chrome using Group Policy settings
 
 1. Create a new Group Policy object by performing the following
    steps:
@@ -357,9 +347,7 @@ sites for single sign-on. This can be done manually, or automated with a script.
 To manually add your access URL to the list of approved sites in Firefox,
 perform the following steps on the client computer.
 
-###### To manually add your access URL to the list of approved sites in
-
-Firefox
+###### To manually add your access URL to the list of approved sites in Firefox
 
 1. Open Firefox and open the `about:config` page.
 2. Open the `network.negotiate-auth.trusted-uris`

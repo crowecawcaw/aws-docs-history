@@ -1,6 +1,4 @@
-# Seamlessly join an Amazon EC2 Linux
-
-instance to your Simple AD Active Directory
+# Seamlessly join an Amazon EC2 Linux instance to your Simple AD Active Directory
 
 This procedure seamlessly joins an Amazon EC2 Linux instance to your Simple AD Active
 Directory.
@@ -24,9 +22,7 @@ seamless domain join feature.
 Before you can set up seamless domain join to a Linux instance, you need to complete
 the procedures in this section.
 
-### Select your seamless domain
-
-join service account
+### Select your seamless domain join service account
 
 You can seamlessly join Linux computers to your Simple AD domain. To do that, you
 must create a user account with create computer account permissions to join the
@@ -36,8 +32,7 @@ recommend this. As a best practice, we recommend you use a service account that 
 minimum privileges necessary to join the computers to the domain.
 
 For information about how to process and delegate permissions to your service
-account for computer account creation, see [Delegate privileges to your service
-account](ad_connector_getting_started.md#connect_delegate_privileges "ad_connector_getting_started.md#connect_delegate_privileges").
+account for computer account creation, see [Delegate privileges to your service account](ad_connector_getting_started.md#connect_delegate_privileges "ad_connector_getting_started.md#connect_delegate_privileges").
 
 ### Create the secrets to store the domain service account
 
@@ -103,9 +98,7 @@ changes. The Secrets Manager console returns you to the list of secrets in your 
 your new secret now included in the list. 8. Choose your newly created secret name from the list, and take note of the
 **Secret ARN** value. You will need it in the next section.
 
-### Turn on rotation for the domain service
-
-account secret
+### Turn on rotation for the domain service account secret
 
 We recommend that you regularly rotate secrets to improve your security posture.
 
@@ -126,9 +119,7 @@ Use the following prerequisite steps to create a custom policy that allows read-
 access to your Secrets Manager seamless domain join secret (which you created earlier), and to
 create a new LinuxEC2DomainJoin IAM role.
 
-#### Create the Secrets Manager IAM read
-
-policy
+#### Create the Secrets Manager IAM read policy
 
 You use the IAM console to create a policy that grants read-only access to your Secrets Manager secret.
 
@@ -215,9 +206,7 @@ with these permissions, and for information about other permissions and policies
 can assign to your IAM role, see [Create an IAM instance profile for Systems Manager](../../../systems-manager/latest/userguide/setup-instance-profile.md "../../../systems-manager/latest/userguide/setup-instance-profile.md") in the
 _AWS Systems Manager User Guide_. 7. Enter a name for your new role, such as `LinuxEC2DomainJoin` or another name that you prefer in the **Role name** field. 8. (Optional) For **Role description**, enter a description. 9. (Optional) Choose **Add new tag** under **Step 3: Add tags** to add tags. Tag key-value pairs are used to organize, track, or control access for this role. 10. Choose **Create role**.
 
-## Seamlessly join a Linux instance
-
-to your Simple AD Active Directory
+## Seamlessly join a Linux instance to your Simple AD Active Directory
 
 ###### To seamlessly join your Linux instance
 

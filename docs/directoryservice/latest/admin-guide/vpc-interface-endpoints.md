@@ -1,6 +1,4 @@
-# Directory Service API and interface Amazon VPC endpoints using
-
-AWS PrivateLink
+# Directory Service API and interface Amazon VPC endpoints using AWS PrivateLink
 
 You can use AWS PrivateLink
 to create a private connection
@@ -101,8 +99,7 @@ The following is an example of a custom endpoint policy.
 When you attach this policy to your interface endpoint, it grants access to the listed Directory Service actions for all principals on all resources.
 
 Replace `action-1`, `action-2`, and `action-3` with the required permissions for the Directory Service APIs that you want to include in your policy.
-For a full list, see [Directory Service API permissions: Actions,
-resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md").
+For a full list, see [Directory Service API permissions: Actions, resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md").
 
 ```
 {
@@ -138,8 +135,7 @@ with the required permissions for the Directory Service Data APIs
 that you want to include
 in your policy.
 For a full list,
-see [Directory Service API permissions: Actions,
-resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md").
+see [Directory Service API permissions: Actions, resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md").
 
 ```
 {

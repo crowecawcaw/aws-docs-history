@@ -1,6 +1,4 @@
-# Joining an Amazon EC2 Linux instance to your AWS Managed Microsoft AD
-
-Active Directory
+# Joining an Amazon EC2 Linux instance to your AWS Managed Microsoft AD Active Directory
 
 You can launch and join an EC2 Linux instance to your AWS Managed Microsoft AD in the AWS Management Console. You
 can also manually join EC2 Linux instance to your AWS Managed Microsoft AD. Tools like Winbind can also be
@@ -22,11 +20,7 @@ seamless domain join feature.
 
 ###### Ways to domain join a EC2 Linux instance:
 
-- [Seamlessly joining an Amazon EC2 Linux instance
-  to your AWS Managed Microsoft AD Active Directory](seamlessly_join_linux_instance.md "seamlessly_join_linux_instance.md")
-- [Seamlessly joining an Amazon EC2 Linux
-  instance to a shared AWS Managed Microsoft AD](seamlessly_join_linux_to_shared_MAD.md "seamlessly_join_linux_to_shared_MAD.md")
-- [Manually joining an Amazon EC2 Linux instance to your
-  AWS Managed Microsoft AD Active Directory](join_linux_instance.md "join_linux_instance.md")
-- [Manually joining an Amazon EC2 Linux instance to
-  your AWS Managed Microsoft AD Active Directory using Winbind](join_linux_instance_winbind.md "join_linux_instance_winbind.md")
+- [Seamlessly joining an Amazon EC2 Linux instance to your AWS Managed Microsoft AD Active Directory](seamlessly_join_linux_instance.md "seamlessly_join_linux_instance.md")
+- [Seamlessly joining an Amazon EC2 Linux instance to a shared AWS Managed Microsoft AD](seamlessly_join_linux_to_shared_MAD.md "seamlessly_join_linux_to_shared_MAD.md")
+- [Manually joining an Amazon EC2 Linux instance to your AWS Managed Microsoft AD Active Directory](join_linux_instance.md "join_linux_instance.md")
+- [Manually joining an Amazon EC2 Linux instance to your AWS Managed Microsoft AD Active Directory using Winbind](join_linux_instance_winbind.md "join_linux_instance_winbind.md")

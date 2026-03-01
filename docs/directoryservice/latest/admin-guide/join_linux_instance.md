@@ -1,6 +1,4 @@
-# Manually joining an Amazon EC2 Linux instance to your
-
-AWS Managed Microsoft AD Active Directory
+# Manually joining an Amazon EC2 Linux instance to your AWS Managed Microsoft AD Active Directory
 
 In addition to Amazon EC2 Windows instances, you can also join certain Amazon EC2 Linux
 instances to your AWS Managed Microsoft AD Active Directory. The following Linux instance distributions and versions
@@ -75,8 +73,7 @@ sudo realm join -U `join_account@EXAMPLE.COM` `example.com` --verbose
 An account in the `example.com` domain that
 has domain join privileges. Enter the password for the account when
 prompted. For more information about delegating these privileges, see
-[Delegating directory join privileges for
-AWS Managed Microsoft AD](directory_join_privileges.md "directory_join_privileges.md").
+[Delegating directory join privileges for AWS Managed Microsoft AD](directory_join_privileges.md "directory_join_privileges.md").
 
 `example.com`
 
@@ -169,8 +166,7 @@ sudo realm join -U `join_account@example.com` `example.com` --verbose
 An account in the `example.com` domain that
 has domain join privileges. Enter the password for the account when
 prompted. For more information about delegating these privileges, see
-[Delegating directory join privileges for
-AWS Managed Microsoft AD](directory_join_privileges.md "directory_join_privileges.md").
+[Delegating directory join privileges for AWS Managed Microsoft AD](directory_join_privileges.md "directory_join_privileges.md").
 
 `example.com`
 
@@ -263,8 +259,7 @@ sudo realm join -v -U `join_account` `example.com` --install=/
 The **sAMAccountName** for an account in the `example.com` domain that
 has domain join privileges. Enter the password for the account when
 prompted. For more information about delegating these privileges, see
-[Delegating directory join privileges for
-AWS Managed Microsoft AD](directory_join_privileges.md "directory_join_privileges.md").
+[Delegating directory join privileges for AWS Managed Microsoft AD](directory_join_privileges.md "directory_join_privileges.md").
 
 `example.com`
 
@@ -367,8 +362,7 @@ sudo realm join -U join_account example.com --verbose
 The sAMAccountName in the `example.com`
 domain that has domain join privileges. Enter the password for the account
 when prompted. For more information about delegating these privileges, see
-[Delegating directory join privileges for
-AWS Managed Microsoft AD](directory_join_privileges.md "directory_join_privileges.md").
+[Delegating directory join privileges for AWS Managed Microsoft AD](directory_join_privileges.md "directory_join_privileges.md").
 
 `example.com`
 
@@ -577,8 +571,7 @@ sudo realm join -U join_account `example.com` --verbose
 The **sAMAccountName** for an account in the `example.com` domain that
 has domain join privileges. Enter the password for the account when
 prompted. For more information about delegating these privileges, see
-[Delegating directory join privileges for
-AWS Managed Microsoft AD](directory_join_privileges.md "directory_join_privileges.md").
+[Delegating directory join privileges for AWS Managed Microsoft AD](directory_join_privileges.md "directory_join_privileges.md").
 
 `example.com`
 

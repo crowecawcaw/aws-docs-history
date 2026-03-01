@@ -54,9 +54,7 @@ You can also aggregate AWS Managed Microsoft AD log files from multiple AWS Regi
 into a single Amazon S3 bucket. For more information, see [Aggregating CloudTrail Log Files to a
 Single Amazon S3 Bucket](../../../awscloudtrail/latest/userguide/aggregating_logs_top_level.md "../../../awscloudtrail/latest/userguide/aggregating_logs_top_level.md").
 
-## Understanding AWS Managed Microsoft AD Log File
-
-Entries
+## Understanding AWS Managed Microsoft AD Log File Entries
 
 CloudTrail log files can contain one or more log entries, where each entry is made up of
 multiple JSON-formatted events. A log entry represents a single request from any source and

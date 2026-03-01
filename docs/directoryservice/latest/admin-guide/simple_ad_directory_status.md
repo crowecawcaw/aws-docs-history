@@ -1,6 +1,4 @@
-# Understanding your Simple AD directory
-
-status
+# Understanding your Simple AD directory status
 
 The following are the various statuses for a directory.
 
@@ -62,5 +60,4 @@ The directory is currently being restored from an automatic or manual
 snapshot. Restoring from a snapshot typically takes several minutes, depending
 on the size of the directory data in the snapshot.
 
-For more information, see [Troubleshooting Simple AD directory
-status messages](simple_ad_troubleshooting_reasons.md "simple_ad_troubleshooting_reasons.md").
+For more information, see [Troubleshooting Simple AD directory status messages](simple_ad_troubleshooting_reasons.md "simple_ad_troubleshooting_reasons.md").

@@ -14,9 +14,7 @@ tasks:
 To create a support case, see [Creating support cases and case
 management](../../../awssupport/latest/user/case-management.md "../../../awssupport/latest/user/case-management.md").
 
-## Problems with Netlogon and secure channel
-
-communications
+## Problems with Netlogon and secure channel communications
 
 As a mitigation against [CVE-2020-1472](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-1472 "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-1472"), Microsoft has released patching which modifies the way that
 Netlogon secure channel communications are processed by domain controllers. Since the
@@ -26,15 +24,12 @@ workstations, and trust validations) may not be accepted by your AWS Managed Mic
 To verify if your issue is related to Netlogon or secure channel communications,
 search your Amazon CloudWatch Logs for event IDs 5827 (for device authentication related issues) or
 5828 (for AD trust validation related issues). For information about CloudWatch in
-AWS Managed Microsoft AD, see [Enabling Amazon CloudWatch Logs log forwarding for
-AWS Managed Microsoft AD](ms_ad_enable_log_forwarding.md "ms_ad_enable_log_forwarding.md").
+AWS Managed Microsoft AD, see [Enabling Amazon CloudWatch Logs log forwarding for AWS Managed Microsoft AD](ms_ad_enable_log_forwarding.md "ms_ad_enable_log_forwarding.md").
 
 For more information about the mitigation against CVE-2020-1472, see [How to manage the changes in Netlogon secure channel connections associated with
 CVE-2020-1472](https://support.microsoft.com/en-us/topic/how-to-manage-the-changes-in-netlogon-secure-channel-connections-associated-with-cve-2020-1472-f7e8cc17-0309-1d6a-304e-5ba73cd1a11e "https://support.microsoft.com/en-us/topic/how-to-manage-the-changes-in-netlogon-secure-channel-connections-associated-with-cve-2020-1472-f7e8cc17-0309-1d6a-304e-5ba73cd1a11e") on Microsoft 's website.
 
-## You receive a 'Response Status: 400
-
-Bad Request' error when attempting to reset a user's password
+## You receive a 'Response Status: 400 Bad Request' error when attempting to reset a user's password
 
 You receive an error message similar to the following when attempting to reset a
 user's password:
@@ -74,7 +69,6 @@ The following resources can help you troubleshoot common Active Directory issues
 ###### Topics
 
 - [Amazon EC2 Linux instance domain join errors](ms_ad_troubleshooting_join_linux.md "ms_ad_troubleshooting_join_linux.md")
-- [AWS Managed Microsoft AD low available storage
-  space](ms_ad_troubleshooting_low_storage_space.md "ms_ad_troubleshooting_low_storage_space.md")
+- [AWS Managed Microsoft AD low available storage space](ms_ad_troubleshooting_low_storage_space.md "ms_ad_troubleshooting_low_storage_space.md")
 - [Schema extension errors](ms_ad_troubleshooting_schema.md "ms_ad_troubleshooting_schema.md")
 - [Trust creation status reasons](ms_ad_troubleshooting_trusts.md "ms_ad_troubleshooting_trusts.md")

@@ -1,6 +1,4 @@
-# Join an Amazon EC2 Linux instance to
-
-your Simple AD Active Directory
+# Join an Amazon EC2 Linux instance to your Simple AD Active Directory
 
 You can launch and join an Amazon EC2 Linux instance to your Simple AD in the AWS Management Console. You
 can also manually join EC2 Linux instance to your Simple AD.
@@ -21,7 +19,5 @@ seamless domain join feature.
 
 ###### Ways to domain join a EC2 Linux instance:
 
-- [Seamlessly join an Amazon EC2 Linux
-  instance to your Simple AD Active Directory](simple_ad_seamlessly_join_linux_instance.md "simple_ad_seamlessly_join_linux_instance.md")
-- [Manually join an Amazon EC2 Linux instance to
-  your Simple AD Active Directory](simple_ad_join_linux_instance.md "simple_ad_join_linux_instance.md")
+- [Seamlessly join an Amazon EC2 Linux instance to your Simple AD Active Directory](simple_ad_seamlessly_join_linux_instance.md "simple_ad_seamlessly_join_linux_instance.md")
+- [Manually join an Amazon EC2 Linux instance to your Simple AD Active Directory](simple_ad_join_linux_instance.md "simple_ad_join_linux_instance.md")

@@ -1,6 +1,4 @@
-# Delegating directory join privileges for
-
-AWS Managed Microsoft AD
+# Delegating directory join privileges for AWS Managed Microsoft AD
 
 To join a computer to your AWS Managed Microsoft AD, you need an account that has privileges to join
 computers to the directory.

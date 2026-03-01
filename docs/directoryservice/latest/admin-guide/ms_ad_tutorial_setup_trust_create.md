@@ -1,14 +1,10 @@
-# Step 3: Create the trust
-
-relationship
+# Step 3: Create the trust relationship
 
 Now that the preparation work is complete, the final steps are to create the trusts.
 First you create the trust on your self-managed domain, and then finally on your AWS Managed Microsoft AD. If
 you have any issues during the trust creation process, see [Trust creation status reasons](ms_ad_troubleshooting_trusts.md "ms_ad_troubleshooting_trusts.md") for assistance.
 
-## Configure the trust in your self-managed Active
-
-Directory
+## Configure the trust in your self-managed Active Directory
 
 In this tutorial, you configure a two-way forest trust. However, if you create a
 one-way forest trust, be aware that the trust directions on each of your domains must be
@@ -42,9 +38,7 @@ you will create a two-way forest trust.
 11. Choose **No, do not confirm the incoming trust**. Choose
     **Next**.
 
-## Configure the trust in your AWS Managed Microsoft AD
-
-directory
+## Configure the trust in your AWS Managed Microsoft AD directory
 
 Finally, you configure the forest trust relationship with your AWS Managed Microsoft AD directory.
 Because you created a two-way forest trust on the self-managed domain, you also create a
@@ -52,8 +46,7 @@ two-way trust using your AWS Managed Microsoft AD directory.
 
 ###### Note
 
-Trust relationships is a global feature of AWS Managed Microsoft AD. If you are using [Configure Multi-Region
-replication for AWS Managed Microsoft AD](ms_ad_configure_multi_region_replication.md "ms_ad_configure_multi_region_replication.md"), the following procedures must be
+Trust relationships is a global feature of AWS Managed Microsoft AD. If you are using [Configure Multi-Region replication for AWS Managed Microsoft AD](ms_ad_configure_multi_region_replication.md "ms_ad_configure_multi_region_replication.md"), the following procedures must be
 performed in the [Primary Region](multi-region-global-primary-additional.md#multi-region-primary "multi-region-global-primary-additional.md#multi-region-primary"). The changes will be applied across all replicated Regions
 automatically. For more information, see [Global vs Regional features](multi-region-global-region-features.md "multi-region-global-region-features.md").
 

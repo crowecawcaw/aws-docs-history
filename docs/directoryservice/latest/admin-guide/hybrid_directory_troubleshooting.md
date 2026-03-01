@@ -1,6 +1,4 @@
-# Troubleshooting hybrid directory and
-
-directory assessment
+# Troubleshooting hybrid directory and directory assessment
 
 A directory assessment is required to create a hybrid directory. Assessment tests run on each domain controller. The
 assessment tests examines different areas and result in a **`Passed`** or
@@ -15,16 +13,13 @@ creating a hybrid directory
 
 ###### Topics
 
-- [Troubleshooting failed
-  hybrid directory assessment](#hybrid_directory_troubleshooting_steps "#hybrid_directory_troubleshooting_steps")
+- [Troubleshooting failed hybrid directory assessment](#hybrid_directory_troubleshooting_steps "#hybrid_directory_troubleshooting_steps")
 - [Directory Status Errors](hybrid_directory_status_errors.md "hybrid_directory_status_errors.md")
 - [Directory Assessment Error Messages](da-error-msgs.md "da-error-msgs.md")
 - [Assessment Test error messages](assessment_test_error-msgs.md "assessment_test_error-msgs.md")
 - [Assessment Test warning messages](assessment_test_warning-msgs.md "assessment_test_warning-msgs.md")
 
-## Troubleshooting failed
-
-hybrid directory assessment
+## Troubleshooting failed hybrid directory assessment
 
 You can troubleshoot a failed directory assessment from the **Directories** page in
 the AWS Management Console.
@@ -43,6 +38,5 @@ the AWS Management Console.
    AWS Managed Microsoft AD. See [Directory Assessment Error Messages](da-error-msgs.md "da-error-msgs.md")
    and [Assessment Test error messages](assessment_test_error-msgs.md "assessment_test_error-msgs.md") for more information.
 5. Return to the failed assessment in the Directory Service console. Choose **Create
-   assessment** in the red warning message. See [Creating a hybrid directory with your
-   self-managed AD](hybrid_directory_create.md#creating_hybrid_directory "hybrid_directory_create.md#creating_hybrid_directory") for more information on creating
+   assessment** in the red warning message. See [Creating a hybrid directory with your self-managed AD](hybrid_directory_create.md#creating_hybrid_directory "hybrid_directory_create.md#creating_hybrid_directory") for more information on creating
    a directory assessment.

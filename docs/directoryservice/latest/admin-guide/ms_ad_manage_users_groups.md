@@ -20,9 +20,7 @@ You can manage users and groups with [AWS Directory Service Data](ms_ad_getting_
 
 Alternatively, you can use a [domain-joined instance](#ms_ad_manage_users_groups_with_instance "#ms_ad_manage_users_groups_with_instance").
 
-## Manage users and groups with the
-
-AWS Management Console
+## Manage users and groups with the AWS Management Console
 
 You can manage users and groups with the AWS Management Console with AWS Directory Service Data. Directory Service Data is an
 extension of Directory Service that provides you with the ability to perform built-in object management
@@ -40,17 +38,12 @@ You can only manage users and groups with the AWS Management Console from the Pr
 for your directory. For more information, see [Primary vs additional Regions](multi-region-global-primary-additional.md "multi-region-global-primary-additional.md").
 
 You'll need the necessary IAM permissions to use AWS Directory Service Data. For more
-information, see [Directory Service API permissions: Actions,
-resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md"). To get started granting permissions
-to your users and workloads, you can use AWS managed policies like [AWS managed
-policy: AWSDirectoryServiceDataFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess") or [AWS
-managed policy: AWSDirectoryServiceDataReadOnlyAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess"). For more
+information, see [Directory Service API permissions: Actions, resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md"). To get started granting permissions
+to your users and workloads, you can use AWS managed policies like [AWS managed policy: AWSDirectoryServiceDataFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess") or [AWS managed policy: AWSDirectoryServiceDataReadOnlyAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess"). For more
 information, see [Security
 best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies "../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies").
 
-## Manage users and groups with the
-
-AWS CLI
+## Manage users and groups with the AWS CLI
 
 You can manage users and groups with the AWS CLI through the [AWS Directory Service Data
 API](../../../directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.md "../../../directoryservicedata/latest/DirectoryServiceDataAPIReference/Welcome.md"). Directory Service Data is an extension of Directory Service that provides you with the ability to perform
@@ -70,27 +63,21 @@ aws ds-data create-user --directory-id `d-1234567890` --sam-account-name `"jane.
 ###### Note
 
 To use this AWS CLI, it must be enabled. For more information, see
-[Enabling or disabling
-user and group management or AWS Directory Service Data](ms_ad_users_groups_mgmt_enable_disable.md "ms_ad_users_groups_mgmt_enable_disable.md").
+[Enabling or disabling user and group management or AWS Directory Service Data](ms_ad_users_groups_mgmt_enable_disable.md "ms_ad_users_groups_mgmt_enable_disable.md").
 
 You can only manage users and groups with the AWS Directory Service Data CLI from the primary AWS Region for your directory. For
 more information, see [Primary vs additional Regions](multi-region-global-primary-additional.md "multi-region-global-primary-additional.md").
 
 You'll need the necessary IAM permissions to use AWS Directory Service Data. For more
-information, see [Directory Service API permissions: Actions,
-resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md"). To get started granting permissions
-to your users and workloads, you can use AWS managed policies like. [AWS managed
-policy: AWSDirectoryServiceDataFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess") or [AWS
-managed policy: AWSDirectoryServiceDataReadOnlyAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess"). For more
+information, see [Directory Service API permissions: Actions, resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md"). To get started granting permissions
+to your users and workloads, you can use AWS managed policies like. [AWS managed policy: AWSDirectoryServiceDataFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess") or [AWS managed policy: AWSDirectoryServiceDataReadOnlyAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess"). For more
 information, see [Security
 best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies "../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies")
 
 For more information, see [Manage
 AWS Managed Microsoft AD users and groups with the AWS CLI](ms_ad_manage_users_groups_procedures.md "ms_ad_manage_users_groups_procedures.md").
 
-## Manage users and groups with
-
-AWS Tools for PowerShell
+## Manage users and groups with AWS Tools for PowerShell
 
 The [AWS Tools for PowerShell](../../../powershell/latest/userguide/pstools-welcome.md "../../../powershell/latest/userguide/pstools-welcome.md") provides two separate modules for managing AWS Directory Service:
 `AWS.Tools.DirectoryService` (DS) and `AWS.Tools.DirectoryServiceData`
@@ -110,9 +97,7 @@ intended operation.
   (`Add-DSDGroupMember`, and `Remove-DSDGroupMember`), and search
   functionality (`Search-DSDUser` and `Search-DSDGroup`).
 
-## Manage users and groups with an
-
-on-premise instance or Amazon EC2 instance
+## Manage users and groups with an on-premise instance or Amazon EC2 instance
 
 If the AWS Directory Service Data doesn't support your use case, we recommend managing users and groups
 with an on-premise or EC2 instance.
@@ -124,13 +109,11 @@ Tools on your instance so you can add your users and groups with the Active Dire
 tool.
 
 - You can deploy a pre-configured EC2 instance with preinstalled Active Directory administrative
-  tools from Directory Service management console. For more information, see [Launching a directory administration instance in your
-  AWS Managed Microsoft AD Active Directory](console_instance.md "console_instance.md").
+  tools from Directory Service management console. For more information, see [Launching a directory administration instance in your AWS Managed Microsoft AD Active Directory](console_instance.md "console_instance.md").
 - If you need to deploy a self-managed EC2 instance with administrative tools and
   install the necessary tools, see [Step 3: Deploy an Amazon EC2 instance to manage your AWS Managed Microsoft AD Active Directory](microsoftadbasestep3.md "microsoftadbasestep3.md").
 
 ###### Topics
 
-- [Manage AWS Managed Microsoft AD users and groups with
-  the AWS Management Console, AWS CLI, or AWS Tools for PowerShell](ms_ad_manage_users_groups_procedures.md "ms_ad_manage_users_groups_procedures.md")
+- [Manage AWS Managed Microsoft AD users and groups with the AWS Management Console, AWS CLI, or AWS Tools for PowerShell](ms_ad_manage_users_groups_procedures.md "ms_ad_manage_users_groups_procedures.md")
 - [Manage users and groups with an Amazon EC2 instance](ms_ad_manage_users_groups_ec2.md "ms_ad_manage_users_groups_ec2.md")

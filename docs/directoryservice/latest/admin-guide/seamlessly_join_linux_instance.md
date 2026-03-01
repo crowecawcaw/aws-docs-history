@@ -1,6 +1,4 @@
-# Seamlessly joining an Amazon EC2 Linux instance
-
-to your AWS Managed Microsoft AD Active Directory
+# Seamlessly joining an Amazon EC2 Linux instance to your AWS Managed Microsoft AD Active Directory
 
 This procedure seamlessly joins an Amazon EC2 Linux instance to your AWS Managed Microsoft AD Active
 Directory. To complete this procedure, you will need to create an AWS Secrets Manager secret which
@@ -31,9 +29,7 @@ AWS Managed Microsoft AD Active Directory, see the following YouTube video.
 Before you can set up seamless domain join to an EC2 Linux instance, you need to
 complete the procedures in these sections.
 
-### Networking prerequisites for
-
-seamless domain join
+### Networking prerequisites for seamless domain join
 
 To seamlessly domain join an EC2 Linux instance, you will need to complete the
 following:
@@ -74,8 +70,7 @@ following:
         - `"ssm:CreateBatchAssociation"`
 
 - When your AWS Managed Microsoft AD is created, a security group is created with inbound and
-  outbound rules. To learn more about these rules and ports, see [What gets created with your
-  AWS Managed Microsoft AD](ms_ad_getting_started_what_gets_created.md "ms_ad_getting_started_what_gets_created.md"). To seamlessly domain join an
+  outbound rules. To learn more about these rules and ports, see [What gets created with your AWS Managed Microsoft AD](ms_ad_getting_started_what_gets_created.md "ms_ad_getting_started_what_gets_created.md"). To seamlessly domain join an
   EC2 Linux instance, your VPC where you're launching your instance should allow
   the same ports allowed in your AWS Managed Microsoft AD security group's inbound and outbound
   rules.
@@ -92,15 +87,12 @@ following:
   | `secretsmanager.`region`.amazonaws.com` | Endpoint for AWS Secrets Manager. For more information, see [AWS Secrets Manager<br>endpoints and quotas](../../../general/latest/gr/asm.md "../../../general/latest/gr/asm.md").                                     |
 
 - We recommend to use a DNS server that will resolve your AWS Managed Microsoft AD domain
-  name. To do so, you can create a DHCP option set. See [Creating or changing a DHCP options set for
-  AWS Managed Microsoft AD](dhcp_options_set.md "dhcp_options_set.md") for more
+  name. To do so, you can create a DHCP option set. See [Creating or changing a DHCP options set for AWS Managed Microsoft AD](dhcp_options_set.md "dhcp_options_set.md") for more
   information.
   - If you choose not to create a DHCP option set, then your DNS servers will be
     static and configured to by your AWS Managed Microsoft AD.
 
-### Select your seamless domain join service
-
-account
+### Select your seamless domain join service account
 
 You can seamlessly join Linux computers to your AWS Managed Microsoft AD Active Directory domain. To do
 that, you must use a user account with create computer account permissions to join the
@@ -112,8 +104,7 @@ join the computers to the domain.
 
 To delegate an account with the minimum privileges necessary to join the computers
 to the domain, you can run the following PowerShell commands. You must run these
-commands from a domain-joined Windows computer with the [Installing Active Directory Administration
-Tools for AWS Managed Microsoft AD](ms_ad_install_ad_tools.md "ms_ad_install_ad_tools.md") installed.
+commands from a domain-joined Windows computer with the [Installing Active Directory Administration Tools for AWS Managed Microsoft AD](ms_ad_install_ad_tools.md "ms_ad_install_ad_tools.md") installed.
 In addition, you must use an account that has permission to modify the permissions on
 your Computers OU or container. The PowerShell command sets permissions allowing the
 service account to create computer objects in your domain's default computers
@@ -141,8 +132,7 @@ Set-ACL -AclObject $ObjectAcl -Path "AD:\$ComputersContainer"
 ```
 
 If you prefer using a graphical user interface (GUI) you can use the manual process
-that is described in [Delegate privileges to your service
-account](ad_connector_getting_started.md#connect_delegate_privileges "ad_connector_getting_started.md#connect_delegate_privileges").
+that is described in [Delegate privileges to your service account](ad_connector_getting_started.md#connect_delegate_privileges "ad_connector_getting_started.md#connect_delegate_privileges").
 
 ### Create the secrets to store the domain service account
 
@@ -208,9 +198,7 @@ changes. The Secrets Manager console returns you to the list of secrets in your 
 your new secret now included in the list. 8. Choose your newly created secret name from the list, and take note of the
 **Secret ARN** value. You will need it in the next section.
 
-### Turn on rotation for the domain service
-
-account secret
+### Turn on rotation for the domain service account secret
 
 We recommend that you regularly rotate secrets to improve your security posture.
 
@@ -231,9 +219,7 @@ Use the following prerequisite steps to create a custom policy that allows read-
 access to your Secrets Manager seamless domain join secret (which you created earlier), and to
 create a new LinuxEC2DomainJoin IAM role.
 
-#### Create the Secrets Manager IAM read
-
-policy
+#### Create the Secrets Manager IAM read policy
 
 You use the IAM console to create a policy that grants read-only access to your Secrets Manager secret.
 

@@ -1,13 +1,9 @@
-# Step 1: Prepare your
-
-self-managed AD Domain
+# Step 1: Prepare your self-managed AD Domain
 
 First you need to complete several prerequisite steps on your self-managed (on-premises)
 domain.
 
-## Configure your self-managed
-
-firewall
+## Configure your self-managed firewall
 
 You must configure your self-managed firewall so that the following ports are open to
 the CIDRs for all subnets used by the VPC that contains your AWS Managed Microsoft AD. In this
@@ -21,7 +17,7 @@ of our AWS Managed Microsoft AD's VPC) on the following ports:
 - TCP 9389 - Active Directory Web Services (ADWS) (_Optional_
 
 * This port needs to be open if you want to use your NetBIOS name instead of your full domain name for authentication with AWS applications like
-  Amazon WorkDocs or Amazon Quick Suite.)
+  Amazon WorkDocs or Amazon Quick.)
 
 ###### Note
 
@@ -30,9 +26,7 @@ SMBv1 is no longer supported.
 These are the minimum ports that are needed to connect the VPC to the self-managed
 directory. Your specific configuration may require additional ports be open.
 
-## Ensure that Kerberos
-
-pre-authentication is enabled
+## Ensure that Kerberos pre-authentication is enabled
 
 User accounts in both directories must have Kerberos preauthentication enabled. This
 is the default, but let's check the properties of any random user to make sure nothing
@@ -53,9 +47,7 @@ has changed.
 
 ![Corp User Properties dialog box with the account option do not require Kerberos preauthentication highlighted.](images/kerberos_enabled.png)
 
-## Configure DNS conditional
-
-forwarders for your self-managed domain
+## Configure DNS conditional forwarders for your self-managed domain
 
 You must set up DNS conditional forwarders on each domain. Before doing this on your
 self-managed domain, you will first get some information about your AWS Managed Microsoft AD.
@@ -94,5 +86,4 @@ replicate it as follows**. 13. Select **All DNS servers in this domain**, and th
 
 **Next Step**
 
-[Step 2: Prepare your
-AWS Managed Microsoft AD](ms_ad_tutorial_setup_trust_prepare_mad.md "ms_ad_tutorial_setup_trust_prepare_mad.md")
+[Step 2: Prepare your AWS Managed Microsoft AD](ms_ad_tutorial_setup_trust_prepare_mad.md "ms_ad_tutorial_setup_trust_prepare_mad.md")

@@ -28,5 +28,4 @@ A hybrid directory configuration provides several important capabilities:
 - [Viewing and editing a hybrid directory](hybrid_directory_view_and_edit.md "hybrid_directory_view_and_edit.md")
 - [Deleting a hybrid directory](hybrid_directory_delete.md "hybrid_directory_delete.md")
 - [Directory assessments for hybrid directories](hybrid_directory_assessment.md "hybrid_directory_assessment.md")
-- [Troubleshooting hybrid directory and
-  directory assessment](hybrid_directory_troubleshooting.md "hybrid_directory_troubleshooting.md")
+- [Troubleshooting hybrid directory and directory assessment](hybrid_directory_troubleshooting.md "hybrid_directory_troubleshooting.md")

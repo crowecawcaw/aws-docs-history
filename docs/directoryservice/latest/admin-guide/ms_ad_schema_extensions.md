@@ -22,8 +22,7 @@ with a unique ID. That way when companies add extensions to the schema, they can
 to be unique and not to conflict with each other. These IDs are referred to as AD Object
 Identifiers (OIDs) and are stored in AWS Managed Microsoft AD.
 
-To get started, see [Tutorial: Extending your AWS Managed Microsoft AD
-schema](ms_ad_tutorial_extend_schema.md "ms_ad_tutorial_extend_schema.md").
+To get started, see [Tutorial: Extending your AWS Managed Microsoft AD schema](ms_ad_tutorial_extend_schema.md "ms_ad_tutorial_extend_schema.md").
 
 ### Related topics
 
@@ -32,5 +31,4 @@ schema](ms_ad_tutorial_extend_schema.md "ms_ad_tutorial_extend_schema.md").
 
 ###### Topics
 
-- [Tutorial: Extending your AWS Managed Microsoft AD
-  schema](ms_ad_tutorial_extend_schema.md "ms_ad_tutorial_extend_schema.md")
+- [Tutorial: Extending your AWS Managed Microsoft AD schema](ms_ad_tutorial_extend_schema.md "ms_ad_tutorial_extend_schema.md")

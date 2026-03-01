@@ -1,6 +1,4 @@
-# Step 4: Verify that the base test lab is
-
-operational
+# Step 4: Verify that the base test lab is operational
 
 Use the following procedure to verify that the test lab has been set up successfully
 before adding on additional test lab guide modules. This procedure verifies that your Windows
@@ -27,5 +25,4 @@ administer your AWS Managed Microsoft AD forest.
    Congratulations! Your AWS Managed Microsoft AD base test lab environment has now been configured. You
    are ready to begin adding the next test lab in the series.
 
-Next tutorial: [Tutorial: Creating a trust from AWS Managed Microsoft AD
-to a self-managed Active Directory installation on Amazon EC2](ms_ad_tutorial_test_lab_trust.md "ms_ad_tutorial_test_lab_trust.md")
+Next tutorial: [Tutorial: Creating a trust from AWS Managed Microsoft AD to a self-managed Active Directory installation on Amazon EC2](ms_ad_tutorial_test_lab_trust.md "ms_ad_tutorial_test_lab_trust.md")

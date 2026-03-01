@@ -33,8 +33,7 @@ following steps.
 4. Scroll down to the **AWS Management Console** section. The
    **Status** should be **Enabled**. If not,
    choose **Actions** and **Enable**. For more
-   information, see [Enabling AWS Management Console access with AWS Managed Microsoft AD
-   credentials](ms_ad_management_console_access.md "ms_ad_management_console_access.md").
+   information, see [Enabling AWS Management Console access with AWS Managed Microsoft AD credentials](ms_ad_management_console_access.md "ms_ad_management_console_access.md").
 
 ###### Note
 

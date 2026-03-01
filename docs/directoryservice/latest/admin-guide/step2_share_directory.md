@@ -75,5 +75,4 @@ following procedures must be applied separately in each Region. For more informa
 
     **Next Step**
 
-[Step 3: Accept shared directory invite -
-Optional](step3_accept_invite.md "step3_accept_invite.md")
+[Step 3: Accept shared directory invite - Optional](step3_accept_invite.md "step3_accept_invite.md")

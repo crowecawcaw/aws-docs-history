@@ -1,6 +1,4 @@
-# Joining an Amazon EC2 Mac instance to your AWS Managed Microsoft AD
-
-Active Directory
+# Joining an Amazon EC2 Mac instance to your AWS Managed Microsoft AD Active Directory
 
 This procedure manually joins an Amazon EC2 Mac instance to your AWS Managed Microsoft AD Active
 Directory.
@@ -12,8 +10,7 @@ Directory.
   instance](../../../AWSEC2/latest/UserGuide/ec2-mac-instances.md#mac-instance-launch "../../../AWSEC2/latest/UserGuide/ec2-mac-instances.md#mac-instance-launch") in _Amazon EC2 User Guide_.
 - We recommend creating a DHCP option set for your AWS Managed Microsoft AD Active Directory. This
   will allow any instances in your Amazon VPC to point to the specified domain and DNS servers
-  to resolve their domain names. See [Creating or changing a DHCP options set for
-  AWS Managed Microsoft AD](dhcp_options_set.md "dhcp_options_set.md") for more information.
+  to resolve their domain names. See [Creating or changing a DHCP options set for AWS Managed Microsoft AD](dhcp_options_set.md "dhcp_options_set.md") for more information.
 
 ###### Note
 

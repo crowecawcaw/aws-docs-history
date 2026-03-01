@@ -5,14 +5,11 @@ most out of AWS Managed Microsoft AD.
 
 ###### Topics
 
-- [Best practices for setting up an
-  AWS Managed Microsoft AD](#ms_ad_best_practices_set_up "#ms_ad_best_practices_set_up")
+- [Best practices for setting up an AWS Managed Microsoft AD](#ms_ad_best_practices_set_up "#ms_ad_best_practices_set_up")
 - [Best practices when using an AWS Managed Microsoft AD directory](#ms_ad_bp_using_directory "#ms_ad_bp_using_directory")
 - [Best practices when programming your applications for an AWS Managed Microsoft AD](#program_apps "#program_apps")
 
-## Best practices for setting up an
-
-AWS Managed Microsoft AD
+## Best practices for setting up an AWS Managed Microsoft AD
 
 Here are some suggestions and guidelines for when you're setting up your
 AWS Managed Microsoft AD:
@@ -46,26 +43,20 @@ that fits your budget:
 
 For a more detailed comparison of Directory Service options, see [Which to choose](what_is.md#choosing_an_option "what_is.md#choosing_an_option").
 
-#### Ensure your VPCs and instances are configured
-
-correctly
+#### Ensure your VPCs and instances are configured correctly
 
 In order to connect to, manage, and use your directories, you must properly
-configure the VPCs that the directories are associated with. See either [Prerequisites for creating a
-AWS Managed Microsoft AD](ms_ad_getting_started.md#ms_ad_getting_started_prereqs "ms_ad_getting_started.md#ms_ad_getting_started_prereqs"), [AD Connector prerequisites](ad_connector_getting_started.md#prereq_connector "ad_connector_getting_started.md#prereq_connector"), or [Simple AD prerequisites](simple_ad_getting_started.md#prereq_simple "simple_ad_getting_started.md#prereq_simple") for information about the
+configure the VPCs that the directories are associated with. See either [Prerequisites for creating a AWS Managed Microsoft AD](ms_ad_getting_started.md#ms_ad_getting_started_prereqs "ms_ad_getting_started.md#ms_ad_getting_started_prereqs"), [AD Connector prerequisites](ad_connector_getting_started.md#prereq_connector "ad_connector_getting_started.md#prereq_connector"), or [Simple AD prerequisites](simple_ad_getting_started.md#prereq_simple "simple_ad_getting_started.md#prereq_simple") for information about the
 VPC security and networking requirements.
 
 If you are adding an instance to your domain, ensure that you have connectivity
-and remote access to your instance as described in [Ways to join an Amazon EC2 instance to your
-AWS Managed Microsoft AD](ms_ad_join_instance.md "ms_ad_join_instance.md").
+and remote access to your instance as described in [Ways to join an Amazon EC2 instance to your AWS Managed Microsoft AD](ms_ad_join_instance.md "ms_ad_join_instance.md").
 
 #### Be aware of your limits
 
 Learn about the various limits for your specific directory type. The available storage and the aggregate size of your objects are the only limitations on the number of objects you may store in your directory. See either [AWS Managed Microsoft AD quotas](ms_ad_limits.md "ms_ad_limits.md"), [AD Connector quotas](ad_connector_limits.md "ad_connector_limits.md"), or [Simple AD quotas](simple_ad_limits.md "simple_ad_limits.md") for details about your chosen directory.
 
-#### Understand your directory's AWS security group
-
-configuration and use
+#### Understand your directory's AWS security group configuration and use
 
 AWS creates a [security group](../../../AWSEC2/latest/UserGuide/using-network-security.md#adding-security-group-rule "../../../AWSEC2/latest/UserGuide/using-network-security.md#adding-security-group-rule") and attaches it to your directory's domain controller [elastic network
 interfaces](../../../AWSEC2/latest/UserGuide/using-eni.md "../../../AWSEC2/latest/UserGuide/using-eni.md"). This security group blocks unnecessary traffic to the domain
@@ -119,11 +110,9 @@ Here are some suggestions to consider as you create your AWS Managed Microsoft A
 
 - [Remember your administrator ID and password](#ms_ad_remember_pw "#ms_ad_remember_pw")
 - [Create a DHCP options set](#bp_create_dhcp_options_set "#bp_create_dhcp_options_set")
-- [Enable Conditional Forwarder
-  Setting](#bp_conditional_forwarder_settings "#bp_conditional_forwarder_settings")
+- [Enable Conditional Forwarder Setting](#bp_conditional_forwarder_settings "#bp_conditional_forwarder_settings")
 - [Deploy additional domain controllers](#bp_create_additional_dcs "#bp_create_additional_dcs")
-- [Understand username restrictions for AWS
-  applications](#usernamerestrictions "#usernamerestrictions")
+- [Understand username restrictions for AWS applications](#usernamerestrictions "#usernamerestrictions")
 
 #### Remember your administrator ID and password
 
@@ -139,12 +128,9 @@ the DHCP options set to the VPC that your directory is in. That way any instance
 VPC can point to the specified domain, and DNS servers can resolve their domain
 names.
 
-For more information about DHCP options sets, see [Creating or changing a DHCP options set for
-AWS Managed Microsoft AD](dhcp_options_set.md "dhcp_options_set.md").
+For more information about DHCP options sets, see [Creating or changing a DHCP options set for AWS Managed Microsoft AD](dhcp_options_set.md "dhcp_options_set.md").
 
-#### Enable Conditional Forwarder
-
-Setting
+#### Enable Conditional Forwarder Setting
 
 The following conditional forward settings _Store this conditional forwarder
 in Active Directory, replicate as follows:_ should be enabled. Enabling these
@@ -165,14 +151,12 @@ Availability Zone.
 
 For more information, see [Use the Windows DC locator service](#program_dc_locator "#program_dc_locator").
 
-#### Understand username restrictions for AWS
-
-applications
+#### Understand username restrictions for AWS applications
 
 Directory Service provides support for most character formats that can be used in the construction
 of usernames. However, there are character restrictions that are enforced on usernames
 that will be used for signing in to AWS applications, such as WorkSpaces, WorkDocs, Amazon WorkMail, or
-Quick Suite. These restrictions require that the following characters not be used:
+Quick. These restrictions require that the following characters not be used:
 
 - Spaces
 - Multibyte characters
@@ -188,8 +172,7 @@ Here are some suggestions to keep in mind when using your AWS Managed Microsoft 
 
 ###### Topics
 
-- [Do not alter predefined users, groups and organizational
-  units](#predefined_groups "#predefined_groups")
+- [Do not alter predefined users, groups and organizational units](#predefined_groups "#predefined_groups")
 - [Automatically join domains](#auto_join_domains "#auto_join_domains")
 - [Set up trusts correctly](#setup_trust_correctly "#setup_trust_correctly")
 - [Track your domain controller performance](#bp_scale_dcs "#bp_scale_dcs")
@@ -198,14 +181,10 @@ Here are some suggestions to keep in mind when using your AWS Managed Microsoft 
 - [Make a backup of your instance](#make_backups "#make_backups")
 - [Set up SNS messaging](#use_sns "#use_sns")
 - [Apply directory service settings](#ds-settings "#ds-settings")
-- [Remove Amazon Enterprise applications before deleting a
-  directory](#remove_rds "#remove_rds")
-- [Use SMB 2.x clients when accessing the SYSVOL and NETLOGON
-  shares](#use_smbv2 "#use_smbv2")
+- [Remove Amazon Enterprise applications before deleting a directory](#remove_rds "#remove_rds")
+- [Use SMB 2.x clients when accessing the SYSVOL and NETLOGON shares](#use_smbv2 "#use_smbv2")
 
-### Do not alter predefined users, groups and organizational
-
-units
+### Do not alter predefined users, groups and organizational units
 
 When you use Directory Service to launch a directory, AWS creates an organizational unit (OU) that
 contains all your directory's objects. This OU, which has the NetBIOS name that you typed
@@ -213,8 +192,7 @@ when you created your directory, is located in the domain root. The domain root 
 managed by AWS. Several groups and an administrative user are also created.
 
 Do not move, delete or in any other way alter these predefined objects. Doing so can
-make your directory inaccessible by both yourself and AWS. For more information, see [What gets created with your
-AWS Managed Microsoft AD](ms_ad_getting_started_what_gets_created.md "ms_ad_getting_started_what_gets_created.md").
+make your directory inaccessible by both yourself and AWS. For more information, see [What gets created with your AWS Managed Microsoft AD](ms_ad_getting_started_what_gets_created.md "ms_ad_getting_started_what_gets_created.md").
 
 ### Automatically join domains
 
@@ -222,8 +200,7 @@ When launching a Windows instance that is to be part of an Directory Service dom
 easiest to join the domain as part of the instance creation process rather than manually
 adding the instance later. To automatically join a domain, simply select the correct
 directory for **Domain join directory** when launching a new instance. You
-can find details in [Joining an Amazon EC2 Windows instance to your AWS Managed Microsoft AD
-Active Directory](launching_instance.md "launching_instance.md").
+can find details in [Joining an Amazon EC2 Windows instance to your AWS Managed Microsoft AD Active Directory](launching_instance.md "launching_instance.md").
 
 ### Set up trusts correctly
 
@@ -283,8 +260,7 @@ returns to an Active status.
 Also remember that if you have an SNS topic that receives messages from Directory Service, before
 deleting that topic from the Amazon SNS console, you should associate your directory with a
 different SNS topic. Otherwise you risk missing important directory status messages. For
-information about how to set up Amazon SNS, see [Enabling AWS Managed Microsoft AD directory status
-notifications with Amazon Simple Notification Service](ms_ad_enable_notifications.md "ms_ad_enable_notifications.md").
+information about how to set up Amazon SNS, see [Enabling AWS Managed Microsoft AD directory status notifications with Amazon Simple Notification Service](ms_ad_enable_notifications.md "ms_ad_enable_notifications.md").
 
 ### Apply directory service settings
 
@@ -297,18 +273,14 @@ API](../devguide/API_UpdateSettings.md "../devguide/API_UpdateSettings.md").
 
 For more information, see [Editing AWS Managed Microsoft AD directory security settings](ms_ad_directory_settings.md "ms_ad_directory_settings.md").
 
-### Remove Amazon Enterprise applications before deleting a
-
-directory
+### Remove Amazon Enterprise applications before deleting a directory
 
 Before deleting a directory that is associated with one or more Amazon Enterprise
 Applications such as, WorkSpaces, Amazon WorkSpaces Application Manager, WorkDocs, Amazon WorkMail, AWS Management Console, or Amazon Relational Database Service (Amazon RDS), you
 must first remove each application. For more information how to remove these applications,
 see [Deleting your AWS Managed Microsoft AD](ms_ad_delete.md "ms_ad_delete.md").
 
-### Use SMB 2.x clients when accessing the SYSVOL and NETLOGON
-
-shares
+### Use SMB 2.x clients when accessing the SYSVOL and NETLOGON shares
 
 Client computers use Server Message Block (SMB) to access the SYSVOL and NETLOGON shares
 on AWS Managed Microsoft AD domain controllers for Group Policy, login scripts and other files.
@@ -378,8 +350,7 @@ trigger recovery processes that replace the unresponsive DC.
 Be sure to do lab testing with objects and requests that are representative of your
 production workload to confirm that the directory scales to the load of your application.
 Should you require additional capacity, test with additional DCs while distributing requests
-between the DCs. For more information, see [Deploying additional domain controllers for your
-AWS Managed Microsoft AD](ms_ad_deploy_additional_dcs.md "ms_ad_deploy_additional_dcs.md").
+between the DCs. For more information, see [Deploying additional domain controllers for your AWS Managed Microsoft AD](ms_ad_deploy_additional_dcs.md "ms_ad_deploy_additional_dcs.md").
 
 ### Use efficient LDAP queries
 

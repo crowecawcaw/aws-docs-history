@@ -5,27 +5,21 @@ Server 2019 and operates at the 2012 R2 Forest and Domain functional levels. Whe
 directory with AWS Managed Microsoft AD, Directory Service creates two domain controllers and adds the DNS service on
 your behalf. The domain controllers are created in different subnets in an Amazon VPC this redundancy
 helps ensure that your directory remains accessible even if a failure occurs. If you need more
-domain controllers, you can add them later. For more information, see [Deploying additional domain controllers for your
-AWS Managed Microsoft AD](ms_ad_deploy_additional_dcs.md "ms_ad_deploy_additional_dcs.md").
+domain controllers, you can add them later. For more information, see [Deploying additional domain controllers for your AWS Managed Microsoft AD](ms_ad_deploy_additional_dcs.md "ms_ad_deploy_additional_dcs.md").
 
 For a demo and overview of AWS Managed Microsoft AD, see the following YouTube
 video.
 
 ###### Topics
 
-- [Prerequisites for creating a
-  AWS Managed Microsoft AD](#ms_ad_getting_started_prereqs "#ms_ad_getting_started_prereqs")
+- [Prerequisites for creating a AWS Managed Microsoft AD](#ms_ad_getting_started_prereqs "#ms_ad_getting_started_prereqs")
 - [AWS IAM Identity Center prerequisites](#prereq_aws_sso_ms_ad "#prereq_aws_sso_ms_ad")
 - [Multi-factor authentication prerequisites](#prereq_mfa_ad "#prereq_mfa_ad")
 - [Creating your AWS Managed Microsoft AD](#ms_ad_getting_started_create_directory "#ms_ad_getting_started_create_directory")
-- [What gets created with your
-  AWS Managed Microsoft AD](ms_ad_getting_started_what_gets_created.md "ms_ad_getting_started_what_gets_created.md")
-- [AWS Managed Microsoft AD Administrator account and
-  group permissions](ms_ad_getting_started_admin_account.md "ms_ad_getting_started_admin_account.md")
+- [What gets created with your AWS Managed Microsoft AD](ms_ad_getting_started_what_gets_created.md "ms_ad_getting_started_what_gets_created.md")
+- [AWS Managed Microsoft AD Administrator account and group permissions](ms_ad_getting_started_admin_account.md "ms_ad_getting_started_admin_account.md")
 
-## Prerequisites for creating a
-
-AWS Managed Microsoft AD
+## Prerequisites for creating a AWS Managed Microsoft AD
 
 To create an AWS Managed Microsoft AD Active Directory, you need an Amazon VPC with the following:
 
@@ -111,8 +105,7 @@ For more information about using AWS Managed Microsoft AD with MFA, see [Enablin
 ## Creating your AWS Managed Microsoft AD
 
 To create a new AWS Managed Microsoft AD Active Directory, perform the following steps. Before starting this
-procedure, make sure that you have completed the prerequisites identified in [Prerequisites for creating a
-AWS Managed Microsoft AD](#ms_ad_getting_started_prereqs "#ms_ad_getting_started_prereqs").
+procedure, make sure that you have completed the prerequisites identified in [Prerequisites for creating a AWS Managed Microsoft AD](#ms_ad_getting_started_prereqs "#ms_ad_getting_started_prereqs").
 
 ###### To create an AWS Managed Microsoft AD
 
@@ -174,8 +167,7 @@ Retype the administrator password.
 
 To enable AWS Managed Microsoft AD user and group management from the AWS Management Console, select
 **Manage user and group management in the AWS Management Console**. For more
-information on how to use user and group management, see [Manage AWS Managed Microsoft AD users and groups with
-the AWS Management Console, AWS CLI, or AWS Tools for PowerShell](ms_ad_manage_users_groups_procedures.md "ms_ad_manage_users_groups_procedures.md"). 4. On the **Choose VPC and subnets** page, provide the following
+information on how to use user and group management, see [Manage AWS Managed Microsoft AD users and groups with the AWS Management Console, AWS CLI, or AWS Tools for PowerShell](ms_ad_manage_users_groups_procedures.md "ms_ad_manage_users_groups_procedures.md"). 4. On the **Choose VPC and subnets** page, provide the following
 information, and then choose **Next**.
 
 **VPC**
@@ -202,10 +194,8 @@ directory**. Creating the directory takes 20 to 40 minutes. Once created, the
 
 For more information on what is created with your AWS Managed Microsoft AD, see the following:
 
-- [What gets created with your
-  AWS Managed Microsoft AD](ms_ad_getting_started_what_gets_created.md "ms_ad_getting_started_what_gets_created.md")
-- [AWS Managed Microsoft AD Administrator account and
-  group permissions](ms_ad_getting_started_admin_account.md "ms_ad_getting_started_admin_account.md")
+- [What gets created with your AWS Managed Microsoft AD](ms_ad_getting_started_what_gets_created.md "ms_ad_getting_started_what_gets_created.md")
+- [AWS Managed Microsoft AD Administrator account and group permissions](ms_ad_getting_started_admin_account.md "ms_ad_getting_started_admin_account.md")
 
 **Related AWS Security blog articles**
 

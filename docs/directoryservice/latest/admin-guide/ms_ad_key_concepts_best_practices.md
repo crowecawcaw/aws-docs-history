@@ -1,6 +1,4 @@
-# Key concepts and best practices for
-
-AWS Managed Microsoft AD
+# Key concepts and best practices for AWS Managed Microsoft AD
 
 You can get more out of your AWS Managed Microsoft AD by becoming familiar with key concepts and best
 practices. Key concepts help you understand how AWS Managed Microsoft AD works. Key concepts include learning more

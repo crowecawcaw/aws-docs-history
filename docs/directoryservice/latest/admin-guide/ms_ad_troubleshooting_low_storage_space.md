@@ -1,20 +1,15 @@
-# AWS Managed Microsoft AD low available storage
-
-space
+# AWS Managed Microsoft AD low available storage space
 
 When your AWS Managed Microsoft AD is impaired due to Active Directory having low available storage
 space, immediate action is required to return the directory to an active state. The two most
 common causes of this impairment are covered in the sections below:
 
-1. [SYSVOL folder is storing more than essential group policy
-   objects](#sysvol-folder-gpo "#sysvol-folder-gpo")
+1. [SYSVOL folder is storing more than essential group policy objects](#sysvol-folder-gpo "#sysvol-folder-gpo")
 2. [Active Directory database has filled the volume](#ad-db-filled-volume "#ad-db-filled-volume")
    For pricing information about AWS Managed Microsoft AD storage, see [Directory Service
    Pricing](https://aws.amazon.com/directoryservice/pricing/#Comparison_Table "https://aws.amazon.com/directoryservice/pricing/#Comparison_Table").
 
-## SYSVOL folder is storing more than essential group policy
-
-objects
+## SYSVOL folder is storing more than essential group policy objects
 
 A common cause of this impairment is due to storing non-essential files for Group Policy
 processing in the SYSVOL folder. These non-essential files could be EXEs, MSIs, or any other

@@ -1,6 +1,4 @@
-# Using identity-based policies (IAM
-
-policies) for Directory Service
+# Using identity-based policies (IAM policies) for Directory Service
 
 This topic provides examples of identity-based policies in which an account
 administrator can attach permissions policies to IAM identities (users, groups, and
@@ -11,18 +9,14 @@ your own policies to suit your needs and environment.
 
 We recommend that you first review the introductory topics that explain the basic
 concepts and options available for you to manage access to your Directory Service resources. For
-more information, see [Overview of managing access permissions to
-your Directory Service resources](IAM_Auth_Access_Overview.md "IAM_Auth_Access_Overview.md").
+more information, see [Overview of managing access permissions to your Directory Service resources](IAM_Auth_Access_Overview.md "IAM_Auth_Access_Overview.md").
 
 The sections in this topic cover the following:
 
-- [Permissions required
-  to use the Directory Service console](#UsingWithDS_IAM_RequiredPermissions_Console "#UsingWithDS_IAM_RequiredPermissions_Console")
-- [AWS managed (predefined)
-  policies for Directory Service](#IAM_Auth_Access_ManagedPolicies "#IAM_Auth_Access_ManagedPolicies")
+- [Permissions required to use the Directory Service console](#UsingWithDS_IAM_RequiredPermissions_Console "#UsingWithDS_IAM_RequiredPermissions_Console")
+- [AWS managed (predefined) policies for Directory Service](#IAM_Auth_Access_ManagedPolicies "#IAM_Auth_Access_ManagedPolicies")
 - [Customer managed policy examples](#IAMPolicyExamples_DS "#IAMPolicyExamples_DS")
-- [Using tags with IAM
-  policies](#using_tags_with_iam_policies "#using_tags_with_iam_policies")
+- [Using tags with IAM policies](#using_tags_with_iam_policies "#using_tags_with_iam_policies")
   The following shows an example of a permissions policy.
 
 JSON
@@ -98,25 +92,19 @@ The three statements in the policy grant permissions as follows:
   gets the permissions.
 
 For a table showing all of the Directory Service API actions and the resources that they apply to,
-see [Directory Service API permissions: Actions,
-resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md").
+see [Directory Service API permissions: Actions, resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md").
 
-## Permissions required
-
-to use the Directory Service console
+## Permissions required to use the Directory Service console
 
 For a user to work with the Directory Service console, that user must have permissions listed
 in the preceding policy or the permissions granted by the Directory Service Full
-Access Role or Directory Service Read Only role, described in [AWS managed (predefined)
-policies for Directory Service](#IAM_Auth_Access_ManagedPolicies "#IAM_Auth_Access_ManagedPolicies").
+Access Role or Directory Service Read Only role, described in [AWS managed (predefined) policies for Directory Service](#IAM_Auth_Access_ManagedPolicies "#IAM_Auth_Access_ManagedPolicies").
 
 If you create an IAM policy that is more restrictive than the minimum required
 permissions, the console won't function as intended for users with that IAM
 policy.
 
-## AWS managed (predefined)
-
-policies for Directory Service
+## AWS managed (predefined) policies for Directory Service
 
 AWS addresses many common use cases by providing predefined, or managed, IAM
 policies that are created and administered by AWS. Managed policies grant
@@ -135,14 +123,10 @@ fictitious account IDs.
 
 ###### Examples
 
-- [Example 1: Allow
-  a user to perform any Describe action on any Directory Service resource](#IAMPolicyExamples_DS_perform_describe_action "#IAMPolicyExamples_DS_perform_describe_action")
-- [Example 2: Allow a user
-  to create a directory](#IAMPolicyExamples_DS_create_directory "#IAMPolicyExamples_DS_create_directory")
+- [Example 1: Allow a user to perform any Describe action on any Directory Service resource](#IAMPolicyExamples_DS_perform_describe_action "#IAMPolicyExamples_DS_perform_describe_action")
+- [Example 2: Allow a user to create a directory](#IAMPolicyExamples_DS_create_directory "#IAMPolicyExamples_DS_create_directory")
 
-### Example 1: Allow
-
-a user to perform any Describe action on any Directory Service resource
+### Example 1: Allow a user to perform any Describe action on any Directory Service resource
 
 The following permissions policy grants permissions to a user to run all of
 the actions that begin with `Describe` in an AWS Managed Microsoft AD with the
@@ -167,9 +151,7 @@ JSON
 
 ```
 
-### Example 2: Allow a user
-
-to create a directory
+### Example 2: Allow a user to create a directory
 
 The following permissions policy grants permissions to allow a user to create
 a directory and all other related resources, such as snapshots and trusts. In
@@ -212,9 +194,7 @@ JSON
 
 ```
 
-## Using tags with IAM
-
-policies
+## Using tags with IAM policies
 
 You can apply tag-based resource-level permissions in the IAM policies you use
 for most Directory Service API actions. This gives you better control over what resources a user

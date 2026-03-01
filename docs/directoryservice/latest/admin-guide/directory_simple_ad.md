@@ -50,10 +50,8 @@ Simple AD offers many advantages:
 - [Maintain your Simple AD directory](simple_ad_maintain.md "simple_ad_maintain.md")
 - [Secure your Simple AD directory](simple_ad_security.md "simple_ad_security.md")
 - [Monitor your Simple AD directory](simple_ad_monitor.md "simple_ad_monitor.md")
-- [Access to AWS applications and services
-  from your Simple AD](simple_ad_manage_apps_services.md "simple_ad_manage_apps_services.md")
-- [Ways to join an Amazon EC2 instance to your
-  Simple AD](simple_ad_join_instance.md "simple_ad_join_instance.md")
+- [Access to AWS applications and services from your Simple AD](simple_ad_manage_apps_services.md "simple_ad_manage_apps_services.md")
+- [Ways to join an Amazon EC2 instance to your Simple AD](simple_ad_join_instance.md "simple_ad_join_instance.md")
 - [Users and groups management in Simple AD](simple_ad_manage_users_groups.md "simple_ad_manage_users_groups.md")
 - [Simple AD quotas](simple_ad_limits.md "simple_ad_limits.md")
 - [Troubleshooting Simple AD](simple_ad_troubleshooting.md "simple_ad_troubleshooting.md")

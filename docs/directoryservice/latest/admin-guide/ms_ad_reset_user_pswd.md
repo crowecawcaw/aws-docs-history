@@ -1,6 +1,4 @@
-# Resetting and enabling an AWS Managed Microsoft AD user's
-
-password
+# Resetting and enabling an AWS Managed Microsoft AD user's password
 
 Use the following procedure to reset an AWS Managed Microsoft AD user's password to enable their
 account with user and group management or AWS Directory Service Data in either the AWS Management Console, AWS CLI,
@@ -15,11 +13,8 @@ AWS Tools for PowerShell.
 - You can only enable this feature from the Primary AWS Region for your directory. For
   more information, see [Primary vs additional Regions](multi-region-global-primary-additional.md "multi-region-global-primary-additional.md").
 - You'll need the necessary IAM permissions to use AWS Directory Service Data. For more
-  information, see [Directory Service API permissions: Actions,
-  resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md"). To get started granting permissions
-  to your users and workloads, you can use AWS managed policies like [AWS managed
-  policy: AWSDirectoryServiceDataFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess") or [AWS
-  managed policy: AWSDirectoryServiceDataReadOnlyAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess"). For more
+  information, see [Directory Service API permissions: Actions, resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md"). To get started granting permissions
+  to your users and workloads, you can use AWS managed policies like [AWS managed policy: AWSDirectoryServiceDataFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess") or [AWS managed policy: AWSDirectoryServiceDataReadOnlyAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess"). For more
   information, see [Security
   best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies "../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies").
 - [Creating an AWS Managed Microsoft AD user](ms_ad_create_user.md "ms_ad_create_user.md").

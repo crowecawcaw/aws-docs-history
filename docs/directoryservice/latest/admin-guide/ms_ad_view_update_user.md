@@ -17,11 +17,8 @@ includes profile and account information and group membership.
 - You can only enable this feature from the Primary AWS Region for your directory. For
   more information, see [Primary vs additional Regions](multi-region-global-primary-additional.md "multi-region-global-primary-additional.md").
 - You'll need the necessary IAM permissions to use AWS Directory Service Data. For more
-  information, see [Directory Service API permissions: Actions,
-  resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md"). To get started granting permissions
-  to your users and workloads, you can use AWS managed policies like [AWS managed
-  policy: AWSDirectoryServiceDataFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess") or [AWS
-  managed policy: AWSDirectoryServiceDataReadOnlyAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess"). For more
+  information, see [Directory Service API permissions: Actions, resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md"). To get started granting permissions
+  to your users and workloads, you can use AWS managed policies like [AWS managed policy: AWSDirectoryServiceDataFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess") or [AWS managed policy: AWSDirectoryServiceDataReadOnlyAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess"). For more
   information, see [Security
   best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies "../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies").
 - [Creating an AWS Managed Microsoft AD user](ms_ad_create_user.md "ms_ad_create_user.md").
@@ -29,9 +26,7 @@ includes profile and account information and group membership.
 AWS Management Console
 You can view an AWS Managed Microsoft AD user's details in the AWS Management Console.
 
-###### To view an AWS Managed Microsoft AD user's details and account details with the
-
-AWS Management Console
+###### To view an AWS Managed Microsoft AD user's details and account details with the AWS Management Console
 
 1. Open the Directory Service console at [https://console.aws.amazon.com/directoryservicev2/](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/").
 2. From the navigation pane, choose **Active Directory**, and then choose
@@ -59,9 +54,7 @@ AWS CLI
 With the AWS CLI, you can view a user's details, which includes profile and account
 information and group memberships.
 
-###### To view an AWS Managed Microsoft AD user's profile and account details with the
-
-AWS CLI
+###### To view an AWS Managed Microsoft AD user's profile and account details with the AWS CLI
 
 The following describes how to view an AWS Managed Microsoft AD user's details with the
 AWS Directory Service Data CLI.
@@ -94,9 +87,7 @@ AWS Tools for PowerShell
 With Tools for PowerShell, you can view a user's details, which includes profile and account
 information and group memberships.
 
-###### To view an AWS Managed Microsoft AD user's profile and account details with
-
-Tools for PowerShell
+###### To view an AWS Managed Microsoft AD user's profile and account details with Tools for PowerShell
 
 The following describes how to view an AWS Managed Microsoft AD user's details with the
 Tools for PowerShell.
@@ -143,11 +134,8 @@ The minimum attribute length is 1.
 - You can only enable this feature from the Primary AWS Region for your directory. For
   more information, see [Primary vs additional Regions](multi-region-global-primary-additional.md "multi-region-global-primary-additional.md").
 - You'll need the necessary IAM permissions to use AWS Directory Service Data. For more
-  information, see [Directory Service API permissions: Actions,
-  resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md"). To get started granting permissions
-  to your users and workloads, you can use AWS managed policies like [AWS managed
-  policy: AWSDirectoryServiceDataFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess") or [AWS
-  managed policy: AWSDirectoryServiceDataReadOnlyAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess"). For more
+  information, see [Directory Service API permissions: Actions, resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md"). To get started granting permissions
+  to your users and workloads, you can use AWS managed policies like [AWS managed policy: AWSDirectoryServiceDataFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess") or [AWS managed policy: AWSDirectoryServiceDataReadOnlyAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess"). For more
   information, see [Security
   best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies "../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies").
 - [Creating an AWS Managed Microsoft AD user](ms_ad_create_user.md "ms_ad_create_user.md").

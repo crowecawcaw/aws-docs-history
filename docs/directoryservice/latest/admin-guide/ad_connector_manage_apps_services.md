@@ -10,6 +10,5 @@ You can allow your AD Connector access to AWS applications and services for your
 
 ###### Tasks to access AWS applications and services from AD Connector
 
-- [Application compatibility policy for
-  AD Connector](ad_connector_app_compatibility.md "ad_connector_app_compatibility.md")
+- [Application compatibility policy for AD Connector](ad_connector_app_compatibility.md "ad_connector_app_compatibility.md")
 - [Enabling access to AWS applications and services from AD Connector](ad_connector_enable_apps_services.md "ad_connector_enable_apps_services.md")

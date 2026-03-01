@@ -88,8 +88,7 @@ used in a large-scale production environment.
 ###### Steps
 
 - [Prerequisites](#gsg_prereqs "#gsg_prereqs")
-- [Creating and configuring your Amazon VPC for your
-  Simple AD](#gsg_create_vpc "#gsg_create_vpc")
+- [Creating and configuring your Amazon VPC for your Simple AD](#gsg_create_vpc "#gsg_create_vpc")
 - [Creating your Simple AD](#gsg_create_directory "#gsg_create_directory")
 
 ### Prerequisites
@@ -105,9 +104,7 @@ This procedure assumes the following:
 
 For more information, see [Simple AD prerequisites](#prereq_simple "#prereq_simple").
 
-### Creating and configuring your Amazon VPC for your
-
-Simple AD
+### Creating and configuring your Amazon VPC for your Simple AD
 
 First, you will create and configure an Amazon VPC for use with your Simple AD. Before
 starting this procedure, make sure you have completed the [Prerequisites](#gsg_prereqs "#gsg_prereqs").
@@ -144,8 +141,7 @@ VPC, and each subnet must be in a different Availability Zone.
 ### Creating your Simple AD
 
 To create a new Simple AD, perform the following steps. Before starting this
-procedure, make sure you have completed the following in [Prerequisites](#gsg_prereqs "#gsg_prereqs") and [Creating and configuring your Amazon VPC for your
-Simple AD](#gsg_create_vpc "#gsg_create_vpc").
+procedure, make sure you have completed the following in [Prerequisites](#gsg_prereqs "#gsg_prereqs") and [Creating and configuring your Amazon VPC for your Simple AD](#gsg_create_vpc "#gsg_create_vpc").
 
 ###### Create a Simple AD
 

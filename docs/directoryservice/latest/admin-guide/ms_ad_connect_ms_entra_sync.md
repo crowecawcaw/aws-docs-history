@@ -1,6 +1,4 @@
-# Connecting your AWS Managed Microsoft AD to
-
-Microsoft Entra Connect Sync
+# Connecting your AWS Managed Microsoft AD to Microsoft Entra Connect Sync
 
 This tutorial walks you through the necessary steps to install [Microsoft Entra Connect Sync](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-sync-whatis "https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-sync-whatis") to sync your [Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/fundamentals/whatis "https://learn.microsoft.com/en-us/entra/fundamentals/whatis") to
 your AWS Managed Microsoft AD.
@@ -21,14 +19,12 @@ You will need the following to complete this tutorial:
 - An Amazon EC2 Windows Server instance joined to your AWS Managed Microsoft AD. For more information,
   see [Joining a Windows instance](launching_instance.md "launching_instance.md").
 - An EC2 Windows Server with Active Directory Administration Tools installed to manage your AWS Managed Microsoft AD.
-  For more information, see [Installing Active Directory Administration
-  Tools for AWS Managed Microsoft AD](ms_ad_install_ad_tools.md "ms_ad_install_ad_tools.md").
+  For more information, see [Installing Active Directory Administration Tools for AWS Managed Microsoft AD](ms_ad_install_ad_tools.md "ms_ad_install_ad_tools.md").
 
 ## Create an Active Directory domain user
 
 This tutorial assumes you already have an AWS Managed Microsoft AD as well as an EC2 Windows Server
-instance with Active Directory Administration Tools installed. For more information, see [Installing Active Directory Administration
-Tools for AWS Managed Microsoft AD](ms_ad_install_ad_tools.md "ms_ad_install_ad_tools.md").
+instance with Active Directory Administration Tools installed. For more information, see [Installing Active Directory Administration Tools for AWS Managed Microsoft AD](ms_ad_install_ad_tools.md "ms_ad_install_ad_tools.md").
 
 1. Connect to the instance where the Active Directory Administration Tools were installed.
 2. Create an AWS Managed Microsoft AD domain user. This user will become the Active Directory Directory Service (AD DS) Connector account for

@@ -75,9 +75,7 @@ default_realm = EXAMPLE.COM
 rdns = false
 ```
 
-## One-way trust authentication issue with seamless
-
-domain join
+## One-way trust authentication issue with seamless domain join
 
 If you have a one-way outgoing trust established between your AWS Managed Microsoft AD and your
 on-premises Active Directory, you might encounter an authentication issue when attempting to authenticate

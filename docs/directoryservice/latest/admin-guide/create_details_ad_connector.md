@@ -1,6 +1,4 @@
-# What gets created with your
-
-AD Connector
+# What gets created with your AD Connector
 
 When you create an AD Connector, Directory Service automatically creates and associates an
 elastic network interface (ENI) with each of your AD Connector instances. Each of

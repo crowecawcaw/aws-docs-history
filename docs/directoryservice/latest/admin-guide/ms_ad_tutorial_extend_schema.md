@@ -1,6 +1,4 @@
-# Tutorial: Extending your AWS Managed Microsoft AD
-
-schema
+# Tutorial: Extending your AWS Managed Microsoft AD schema
 
 In this tutorial, you will learn how to extend the schema for your AWS Directory Service for Microsoft Active Directory
 directory, also known as AWS Managed Microsoft AD, by adding unique _attributes_ and _classes_ that meet your specific

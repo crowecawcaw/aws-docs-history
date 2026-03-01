@@ -8,8 +8,7 @@ you have joined to your AWS Managed Microsoft AD directory.
 
 To do that, you must be logged in with the **Admin** account or with an
 account that is a member of the **AWS Delegated Sites and Services
-Administrators** group. For more information about this group, see [What gets created with your
-AWS Managed Microsoft AD](ms_ad_getting_started_what_gets_created.md "ms_ad_getting_started_what_gets_created.md").
+Administrators** group. For more information about this group, see [What gets created with your AWS Managed Microsoft AD](ms_ad_getting_started_what_gets_created.md "ms_ad_getting_started_what_gets_created.md").
 
 For additional benefits on renaming your site in relation to trusts, see [Domain Locator Across a Forest Trust](https://techcommunity.microsoft.com/t5/ask-the-directory-services-team/domain-locator-across-a-forest-trust/ba-p/395689 "https://techcommunity.microsoft.com/t5/ask-the-directory-services-team/domain-locator-across-a-forest-trust/ba-p/395689") on Microsoft's website.
 

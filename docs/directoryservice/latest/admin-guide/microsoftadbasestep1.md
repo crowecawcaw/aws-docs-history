@@ -1,6 +1,4 @@
-# Step 1: Set up your AWS environment for
-
-AWS Managed Microsoft AD Active Directory
+# Step 1: Set up your AWS environment for AWS Managed Microsoft AD Active Directory
 
 Before you can create AWS Managed Microsoft AD in your AWS test lab, you first need to set up your
 Amazon EC2 key pair so that all login data is encrypted.
@@ -52,8 +50,7 @@ In this step, you need to create two VPCs in the same account using the specifie
 parameters in the following table. AWS Managed Microsoft AD supports the use of separate accounts with
 the [Share your AWS Managed Microsoft AD](ms_ad_directory_sharing.md "ms_ad_directory_sharing.md")
 feature. The first VPC will be used for AWS Managed Microsoft AD. The second VPC will be
-used for resources that can be used later in [Tutorial: Creating a trust from AWS Managed Microsoft AD
-to a self-managed Active Directory installation on Amazon EC2](ms_ad_tutorial_test_lab_trust.md "ms_ad_tutorial_test_lab_trust.md").
+used for resources that can be used later in [Tutorial: Creating a trust from AWS Managed Microsoft AD to a self-managed Active Directory installation on Amazon EC2](ms_ad_tutorial_test_lab_trust.md "ms_ad_tutorial_test_lab_trust.md").
 
 | Managed Active Directory VPC information                                                                          | On-premises VPC information                                                                                             |
 | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
@@ -66,8 +63,7 @@ For detailed instructions, see [Creating a VPC](../../../vpc/latest/userguide/wo
 After you have created the VPCs you will need to create two subnets per VPC using the
 specified parameters in the following table. For this test lab each subnet will be a /24.
 This will allows up to 256 addresses to be issued per subnet. Each subnet must be a in a
-separate AZ. Putting each subnet in a separate in AZ is one of the [Prerequisites for creating a
-AWS Managed Microsoft AD](ms_ad_getting_started.md#ms_ad_getting_started_prereqs "ms_ad_getting_started.md#ms_ad_getting_started_prereqs").
+separate AZ. Putting each subnet in a separate in AZ is one of the [Prerequisites for creating a AWS Managed Microsoft AD](ms_ad_getting_started.md#ms_ad_getting_started_prereqs "ms_ad_getting_started.md#ms_ad_getting_started_prereqs").
 
 | AWS-DS-VPC01 subnet Information:                                                                                                            | AWS-OnPrem-VPC01 subnet information                                                                                                                   |
 | ------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |

@@ -14,10 +14,9 @@ is and remains compatible with Directory Services. For more information on your 
 please see our [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model "https://aws.amazon.com/compliance/shared-responsibility-model").
 
 AWS Managed Microsoft AD supports both external and forest trusts. To walk through an example scenario
-showing how to create a forest trust, see [Tutorial: Create a trust relationship between your
-AWS Managed Microsoft AD and your self-managed Active Directory domain](ms_ad_tutorial_setup_trust.md "ms_ad_tutorial_setup_trust.md").
+showing how to create a forest trust, see [Tutorial: Create a trust relationship between your AWS Managed Microsoft AD and your self-managed Active Directory domain](ms_ad_tutorial_setup_trust.md "ms_ad_tutorial_setup_trust.md").
 
-A two-way trust is required for AWS Enterprise Apps such as Amazon Chime, Amazon Connect, Quick Suite,
+A two-way trust is required for AWS Enterprise Apps such as Amazon Chime, Amazon Connect, Quick,
 AWS IAM Identity Center, WorkDocs, Amazon WorkMail, Amazon WorkSpaces, and the AWS Management Console. AWS Managed Microsoft AD must be able to query the
 users and groups in your self-managed Active Directory.
 
@@ -44,7 +43,7 @@ the network ports open that are listed in [Windows Server 2008 and later version
 documentation.
 
 To use your NetBIOS name instead of your full domain name for authentication with
-your AWS applictions like Amazon WorkDocs or Amazon Quick Suite, you must allow port 9389. For more
+your AWS applictions like Amazon WorkDocs or Amazon Quick, you must allow port 9389. For more
 information about Active Directory ports and protocols, see [Service overview and network port requirements for
 Windows](https://learn.microsoft.com/en-US/troubleshoot/windows-server/networking/service-overview-and-network-port-requirements#system-services-ports "https://learn.microsoft.com/en-US/troubleshoot/windows-server/networking/service-overview-and-network-port-requirements#system-services-ports") in Microsoft documentation.
 
@@ -81,8 +80,7 @@ rule**. For the new rule, enter the following values:
      self-managed network. Specify a single IP address or an IP address
      range in CIDR notation (for example, 203.0.113.5/32). You can also
      specify the name or ID of another security group in the same Region.
-     For more information, see [Understand your directory's AWS security group
-     configuration and use](ms_ad_best_practices.md#understandsecuritygroup "ms_ad_best_practices.md#understandsecuritygroup").
+     For more information, see [Understand your directory's AWS security group configuration and use](ms_ad_best_practices.md#understandsecuritygroup "ms_ad_best_practices.md#understandsecuritygroup").
 
 6. Select **Save**.
 
@@ -91,9 +89,7 @@ rule**. For the new rule, enter the following values:
 Your user accounts must have Kerberos pre-authentication enabled. For more
 information about this setting, review [Preauthentication](http://technet.microsoft.com/en-us/library/cc961961.aspx "http://technet.microsoft.com/en-us/library/cc961961.aspx") on Microsoft TechNet.
 
-### Configure DNS conditional forwarders on your
-
-self-managed domain
+### Configure DNS conditional forwarders on your self-managed domain
 
 You must set up DNS conditional forwarders on your self-managed domain. Refer to
 [Assign a
@@ -156,8 +152,7 @@ trust relationship.
 ###### Note
 
 Trust relationships is a global feature of AWS Managed Microsoft AD.
-If you are using [Configure Multi-Region
-replication for AWS Managed Microsoft AD](ms_ad_configure_multi_region_replication.md "ms_ad_configure_multi_region_replication.md"), the following procedures must be
+If you are using [Configure Multi-Region replication for AWS Managed Microsoft AD](ms_ad_configure_multi_region_replication.md "ms_ad_configure_multi_region_replication.md"), the following procedures must be
 performed in the [Primary Region](multi-region-global-primary-additional.md#multi-region-primary "multi-region-global-primary-additional.md#multi-region-primary"). The changes will be applied across all replicated Regions
 automatically. For more information, see [Global vs Regional features](multi-region-global-region-features.md "multi-region-global-region-features.md").
 

@@ -6,8 +6,7 @@ be rolled back. AWS Directory Service currently supports the following two AWS s
 can monitor your organization and the activity that happens within it.
 
 - Amazon CloudWatch - You can use CloudWatch Events with the AWS Managed Microsoft AD directory type. For more
-  information, see [Enabling Amazon CloudWatch Logs log forwarding for
-  AWS Managed Microsoft AD](ms_ad_enable_log_forwarding.md "ms_ad_enable_log_forwarding.md"). Additionally, you can use CloudWatch
+  information, see [Enabling Amazon CloudWatch Logs log forwarding for AWS Managed Microsoft AD](ms_ad_enable_log_forwarding.md "ms_ad_enable_log_forwarding.md"). Additionally, you can use CloudWatch
   Metrics to monitor domain controller performance. For more information, see [Determining when to add domain controllers with CloudWatch metrics](ms_ad_monitor_dc_performance.md#scaledcs "ms_ad_monitor_dc_performance.md#scaledcs").
 - AWS CloudTrail
   - You can use CloudTrail
@@ -19,5 +18,4 @@ can monitor your organization and the activity that happens within it.
     in the Directory Service Data API.
     For more
     information,
-    see [Logging AWS Directory Service Data API calls using
-    AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
+    see [Logging AWS Directory Service Data API calls using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").

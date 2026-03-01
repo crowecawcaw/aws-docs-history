@@ -1,7 +1,6 @@
 # Adding a replicated Region for AWS Managed Microsoft AD
 
-When you add a Region using the [Configure Multi-Region
-replication for AWS Managed Microsoft AD](ms_ad_configure_multi_region_replication.md "ms_ad_configure_multi_region_replication.md") feature, AWS Managed Microsoft AD creates two
+When you add a Region using the [Configure Multi-Region replication for AWS Managed Microsoft AD](ms_ad_configure_multi_region_replication.md "ms_ad_configure_multi_region_replication.md") feature, AWS Managed Microsoft AD creates two
 domain controllers in the selected AWS Region, Amazon Virtual Private Cloud (VPC), and
 subnet. AWS Managed Microsoft AD also creates the related security groups that enable Windows workloads to
 connect to your directory in the new Region. It also creates these resources using the same
@@ -66,8 +65,7 @@ steps:
 - Deploy additional domain controllers (up to 20) to your new Region as needed. The
   number of domain controllers when you add a new Region is 2 by default, which is the
   minimum required for fault-tolerance and high availability purposes. For more
-  information, see [Adding or removing additional domain controllers with the
-  AWS Management Console](ms_ad_deploy_additional_dcs.md#addremovedcs "ms_ad_deploy_additional_dcs.md#addremovedcs").
+  information, see [Adding or removing additional domain controllers with the AWS Management Console](ms_ad_deploy_additional_dcs.md#addremovedcs "ms_ad_deploy_additional_dcs.md#addremovedcs").
 
 ###### Note
 
@@ -86,8 +84,7 @@ AWS Region.
 
 - Enable log forwarding to retrieve your directory's security logs using Amazon CloudWatch Logs
   from the new Region. When you enable log forwarding, you must provide a log group name
-  in each Region where you replicated your directory. For more information, see [Enabling Amazon CloudWatch Logs log forwarding for
-  AWS Managed Microsoft AD](ms_ad_enable_log_forwarding.md "ms_ad_enable_log_forwarding.md").
+  in each Region where you replicated your directory. For more information, see [Enabling Amazon CloudWatch Logs log forwarding for AWS Managed Microsoft AD](ms_ad_enable_log_forwarding.md "ms_ad_enable_log_forwarding.md").
 
 ###### Note
 
@@ -95,5 +92,4 @@ When you enable log forwarding, you must provide a name for the log group in eac
 AWS Region where you replicated your directory.
 
 - Enable Amazon Simple Notification Service (Amazon SNS) monitoring for the new Region to track your directory
-  health status per Region. For more information, see [Enabling AWS Managed Microsoft AD directory status
-  notifications with Amazon Simple Notification Service](ms_ad_enable_notifications.md "ms_ad_enable_notifications.md").
+  health status per Region. For more information, see [Enabling AWS Managed Microsoft AD directory status notifications with Amazon Simple Notification Service](ms_ad_enable_notifications.md "ms_ad_enable_notifications.md").

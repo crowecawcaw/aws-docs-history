@@ -1,6 +1,4 @@
-# Enabling AWS Management Console access with AWS Managed Microsoft AD
-
-credentials
+# Enabling AWS Management Console access with AWS Managed Microsoft AD credentials
 
 Directory Service allows you to grant members of your directory access to the AWS Management Console. By default,
 your directory members do not have access to any AWS resources. You assign IAM roles to
@@ -10,13 +8,11 @@ have.
 
 Before you can grant console access to your directory members, your directory must have an
 access URL. For more information about how to view directory details and get your access URL,
-see [Viewing AWS Managed Microsoft AD directory
-information](ms_ad_view_directory_info.md "ms_ad_view_directory_info.md"). For more
+see [Viewing AWS Managed Microsoft AD directory information](ms_ad_view_directory_info.md "ms_ad_view_directory_info.md"). For more
 information about how to create an access URL, see [Creating an access URL for AWS Managed Microsoft AD](ms_ad_create_access_url.md "ms_ad_create_access_url.md").
 
 For more information about how to create and assign IAM roles to your directory members,
-see [Granting AWS Managed Microsoft AD users and groups access to AWS
-resources with IAM roles](ms_ad_manage_roles.md "ms_ad_manage_roles.md").
+see [Granting AWS Managed Microsoft AD users and groups access to AWS resources with IAM roles](ms_ad_manage_roles.md "ms_ad_manage_roles.md").
 
 ###### Topics
 
@@ -65,8 +61,7 @@ for your directory users and groups, perform the following steps:
 
 Before users can sign-in to the console with your access URL, you must first
 add your users to the IAM role. For general information about assigning users to IAM
-roles, see [Assigning users or groups to an existing IAM
-role](assign_role.md "assign_role.md"). After the
+roles, see [Assigning users or groups to an existing IAM role](assign_role.md "assign_role.md"). After the
 IAM roles have been assigned, users can then access the console using your
 access URL. For example, if your directory access URL is
 `example-corp.awsapps.com`, the URL to access the console is

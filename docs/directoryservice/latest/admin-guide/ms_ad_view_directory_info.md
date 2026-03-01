@@ -1,6 +1,4 @@
-# Viewing AWS Managed Microsoft AD directory
-
-information
+# Viewing AWS Managed Microsoft AD directory information
 
 You can use the AWS Management Console to view your AWS Managed Microsoft AD directory details like:
 

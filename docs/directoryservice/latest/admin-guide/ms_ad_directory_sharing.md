@@ -6,9 +6,7 @@ within the same organization or share the directory with other AWS accounts that
 your organization. You can also share your directory when your AWS account is not currently a
 member of an organization.
 
-## Key directory sharing
-
-concepts
+## Key directory sharing concepts
 
 You will get more out of the directory sharing feature if you become familiar with the
 following key concepts.
@@ -63,8 +61,7 @@ AWS accounts. AWS supports many solutions to connect your VPCs, some of these in
 [VPC
 peering](../../../vpc/latest/peering/what-is-vpc-peering.md "../../../vpc/latest/peering/what-is-vpc-peering.md"), [Transit
 Gateway](../../../vpc/latest/tgw/what-is-transit-gateway.md "../../../vpc/latest/tgw/what-is-transit-gateway.md"), and [VPN](../../../vpc/latest/adminguide/Welcome.md "../../../vpc/latest/adminguide/Welcome.md"). To get
-started, see [Tutorial: Sharing your AWS Managed Microsoft AD
-directory for seamless EC2 domain-join](ms_ad_tutorial_directory_sharing.md "ms_ad_tutorial_directory_sharing.md").
+started, see [Tutorial: Sharing your AWS Managed Microsoft AD directory for seamless EC2 domain-join](ms_ad_tutorial_directory_sharing.md "ms_ad_tutorial_directory_sharing.md").
 
 ## Considerations
 
@@ -90,8 +87,7 @@ AWS Managed Microsoft AD directory across AWS account boundaries, see the follow
 
 ###### Topics
 
-- [Tutorial: Sharing your AWS Managed Microsoft AD
-  directory for seamless EC2 domain-join](ms_ad_tutorial_directory_sharing.md "ms_ad_tutorial_directory_sharing.md")
+- [Tutorial: Sharing your AWS Managed Microsoft AD directory for seamless EC2 domain-join](ms_ad_tutorial_directory_sharing.md "ms_ad_tutorial_directory_sharing.md")
 - [Unsharing your directory](ms_ad_directory_sharing_unshare.md "ms_ad_directory_sharing_unshare.md")
   **Additional resources**
 

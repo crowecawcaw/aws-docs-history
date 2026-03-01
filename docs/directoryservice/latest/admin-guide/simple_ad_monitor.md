@@ -7,6 +7,5 @@ of your Simple AD directory status.
 
 ###### Tasks to monitor your Simple AD
 
-- [Understanding your Simple AD directory
-  status](simple_ad_directory_status.md "simple_ad_directory_status.md")
+- [Understanding your Simple AD directory status](simple_ad_directory_status.md "simple_ad_directory_status.md")
 - [Enabling Simple AD directory status notifications with Amazon Simple Notification Service](simple_ad_enable_notifications.md "simple_ad_enable_notifications.md")

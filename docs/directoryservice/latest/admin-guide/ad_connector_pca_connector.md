@@ -15,9 +15,7 @@ console.
 
 For setup instructions, see [Set up Connector for AD](../../../privateca/latest/userguide/connector-for-ad-getting-started-prerequisites.md "../../../privateca/latest/userguide/connector-for-ad-getting-started-prerequisites.md") in the AWS Private CA Connector for AD User Guide.
 
-## Setting up
-
-AWS Private CA Connector for AD
+## Setting up AWS Private CA Connector for AD
 
 ###### To create a Private CA connector for Active Directory
 

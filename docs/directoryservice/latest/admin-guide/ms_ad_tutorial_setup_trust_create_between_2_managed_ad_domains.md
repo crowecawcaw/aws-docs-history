@@ -1,14 +1,10 @@
-# Step 2: Create the trust
-
-relationship with another AWS Managed Microsoft AD domain
+# Step 2: Create the trust relationship with another AWS Managed Microsoft AD domain
 
 Now that the preparation work is complete, the final steps are to create the trusts
 between your two AWS Managed Microsoft AD domains. If you have any issues during the trust creation
 process, see [Trust creation status reasons](ms_ad_troubleshooting_trusts.md "ms_ad_troubleshooting_trusts.md") for assistance.
 
-## Configure the trust in your first AWS Managed Microsoft AD
-
-domain
+## Configure the trust in your first AWS Managed Microsoft AD domain
 
 In this tutorial, you configure a two-way forest trust. However, if you create a
 one-way forest trust, be aware that the trust directions on each of your domains must be
@@ -51,9 +47,7 @@ you will create a two-way forest trust.
 8. Choose **Add**. The trust will fail at this point which is
    expected until we create the other side of the trust.
 
-## Configure the trust in your second AWS Managed Microsoft AD
-
-domain
+## Configure the trust in your second AWS Managed Microsoft AD domain
 
 Now, you configure the forest trust relationship with your second AWS Managed Microsoft AD directory.
 Because you created a two-way forest trust on the first AWS Managed Microsoft AD domain, you also

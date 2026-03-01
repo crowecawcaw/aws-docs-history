@@ -1,6 +1,4 @@
-# Enabling Amazon CloudWatch Logs log forwarding for
-
-AWS Managed Microsoft AD
+# Enabling Amazon CloudWatch Logs log forwarding for AWS Managed Microsoft AD
 
 You can use either the Directory Service console or APIs to forward domain controller security event
 logs to Amazon CloudWatch Logs for your AWS Managed Microsoft AD. This helps you to meet your security monitoring, audit,
@@ -30,14 +28,10 @@ specified CloudWatch log group. Any logs created before log forwarding is enable
 
 ###### Topics
 
-- [Using the AWS Management Console to enable Amazon CloudWatch Logs
-  log forwarding](#enable_log_forwarding_with_console "#enable_log_forwarding_with_console")
-- [Using the CLI or PowerShell to enable
-  Amazon CloudWatch Logs log forwarding](#enable_log_forwarding_with_cli "#enable_log_forwarding_with_cli")
+- [Using the AWS Management Console to enable Amazon CloudWatch Logs log forwarding](#enable_log_forwarding_with_console "#enable_log_forwarding_with_console")
+- [Using the CLI or PowerShell to enable Amazon CloudWatch Logs log forwarding](#enable_log_forwarding_with_cli "#enable_log_forwarding_with_cli")
 
-## Using the AWS Management Console to enable Amazon CloudWatch Logs
-
-log forwarding
+## Using the AWS Management Console to enable Amazon CloudWatch Logs log forwarding
 
 You can enable Amazon CloudWatch Logs log forwarding for your AWS Managed Microsoft AD in the AWS Management Console.
 
@@ -66,9 +60,7 @@ You can enable Amazon CloudWatch Logs log forwarding for your AWS Managed Micros
 
 6. Review the pricing information and link, and then choose **Enable**.
 
-## Using the CLI or PowerShell to enable
-
-Amazon CloudWatch Logs log forwarding
+## Using the CLI or PowerShell to enable Amazon CloudWatch Logs log forwarding
 
 Before you can use the [`ds create-log-subscription`](../../../cli/latest/reference/ds/create-log-subscription.md "../../../cli/latest/reference/ds/create-log-subscription.md") command, you must first create an
 Amazon CloudWatch log group and then create an IAM resource policy that will grant the necessary
@@ -96,9 +88,7 @@ New-CWLLogGroup -LogGroupName '/aws/directoryservice/`d-1111111111`'
 For instructions on how to create a CloudWatch Logs group, see [Create a log group in CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md#Create-Log-Group "../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md#Create-Log-Group") in the _Amazon CloudWatch Logs User
 Guide_.
 
-### Step 2: Create a CloudWatch Logs resource policy in
-
-IAM
+### Step 2: Create a CloudWatch Logs resource policy in IAM
 
 Create a CloudWatch Logs resource policy granting Directory Service rights to add logs into the new log group
 you created in Step 1. You can either specify the exact ARN to the log group to limit
@@ -127,9 +117,7 @@ $PolicyDocument = Get-Content .\DSPolicy.json –Raw
 Write-CWLResourcePolicy -PolicyName DSLogSubscription -PolicyDocument $PolicyDocument
 ```
 
-### Step 3: Create an Directory Service log
-
-subscription
+### Step 3: Create an Directory Service log subscription
 
 In this final step, you can now proceed to enable log forwarding by creating the log
 subscription. For example:

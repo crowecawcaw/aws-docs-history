@@ -1,6 +1,4 @@
-# Application compatibility policy for
-
-AD Connector
+# Application compatibility policy for AD Connector
 
 As an alternative to AWS Directory Service for Microsoft Active Directory ([AWS Managed Microsoft AD](directory_microsoft_ad.md "directory_microsoft_ad.md")), AD Connector is an Active Directory proxy for
 AWS created applications and services only. You configure the proxy to use a specified Active
@@ -20,10 +18,9 @@ The following is a list of compatible AWS applications and services:
   AD Connector. For more information, see [Ways to join an Amazon EC2 instance to your Active Directory](ad_connector_join_instance.md "ad_connector_join_instance.md").
 - AWS Management Console – You can use AD Connector to authenticate AWS Management Console users with their Active
   Directory credentials without setting up SAML infrastructure. For more information, see
-  [Enabling AWS Management Console access with AWS Managed Microsoft AD
-  credentials](ms_ad_management_console_access.md "ms_ad_management_console_access.md").
-- Quick Suite - For more information, see [Managing user
-  accounts in Quick Suite Enterprise Edition](../../../quicksight/latest/user/managing-users-enterprise.md "../../../quicksight/latest/user/managing-users-enterprise.md").
+  [Enabling AWS Management Console access with AWS Managed Microsoft AD credentials](ms_ad_management_console_access.md "ms_ad_management_console_access.md").
+- Quick - For more information, see [Managing user
+  accounts in Quick Enterprise Edition](../../../quicksight/latest/user/managing-users-enterprise.md "../../../quicksight/latest/user/managing-users-enterprise.md").
 - AWS IAM Identity Center - For detailed instructions, see [Connect IAM Identity Center to an
   on-premises Active Directory](../../../singlesignon/latest/userguide/connectawsad.md "../../../singlesignon/latest/userguide/connectawsad.md").
 - AWS Transfer Family - For detailed instructions, see [Working with Directory Service for Microsoft Active Directory](../../../transfer/latest/userguide/directory-services-users.md "../../../transfer/latest/userguide/directory-services-users.md").

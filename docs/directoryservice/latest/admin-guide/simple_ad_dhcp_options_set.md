@@ -1,6 +1,4 @@
-# Creating a DHCP options set for
-
-Simple AD
+# Creating a DHCP options set for Simple AD
 
 AWS recommends that you create a DHCP options set for your Directory Service directory and
 assign the DHCP options set to the VPC that your directory is in. This allows any

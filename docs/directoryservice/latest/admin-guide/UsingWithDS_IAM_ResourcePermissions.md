@@ -1,10 +1,7 @@
-# Directory Service API permissions: Actions,
-
-resources, and conditions reference
+# Directory Service API permissions: Actions, resources, and conditions reference
 
 When you are setting up [Access control](iam_auth_access.md#access_control "iam_auth_access.md#access_control") and writing permissions policies that you can attach to an IAM identity
-(identity-based policies), you can use the Directory Service API permissions: Actions,
-resources, and conditions reference table as a reference. Each API
+(identity-based policies), you can use the Directory Service API permissions: Actions, resources, and conditions reference table as a reference. Each API
 entry in the table includes the following:
 
 - The name of each API operation
@@ -32,9 +29,7 @@ You can use AWS global condition keys in your Directory Service and Directory Se
 conditions. For a complete list of AWS keys, see [Available
 Global Condition Keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#AvailableKeys "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#AvailableKeys") in the _IAM User Guide_.
 
-## Directory Service API and required
-
-permissions for actions
+## Directory Service API and required permissions for actions
 
 | Directory Service API Operations                                                                                                           | Required Permissions (API Actions)                                                                                                                                                                                                                                                                        | Resources |
 | ------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
@@ -89,9 +84,7 @@ permissions for actions
 | [UpdateTrust](../devguide/API_UpdateTrust.md "../devguide/API_UpdateTrust.md")                                                             | `ds:UpdateTrust`                                                                                                                                                                                                                                                                                          | \*        |
 | [VerifyTrust](../devguide/API_VerifyTrust.md "../devguide/API_VerifyTrust.md")                                                             | `ds:VerifyTrust`                                                                                                                                                                                                                                                                                          | \*        |
 
-## AWS Directory Service Data API and required permissions
-
-for actions
+## AWS Directory Service Data API and required permissions for actions
 
 ###### Note
 

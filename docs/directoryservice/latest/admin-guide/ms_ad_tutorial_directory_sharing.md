@@ -1,6 +1,4 @@
-# Tutorial: Sharing your AWS Managed Microsoft AD
-
-directory for seamless EC2 domain-join
+# Tutorial: Sharing your AWS Managed Microsoft AD directory for seamless EC2 domain-join
 
 This tutorial shows you how to share your AWS Managed Microsoft AD directory (the directory owner
 account) with another AWS account (the directory consumer account). Once the networking
@@ -9,8 +7,7 @@ Then you will learn how to seamlessly join an EC2 instance to a domain in the di
 consumer account.
 
 We recommend that you first review directory sharing key concepts and use case content
-before you start work on this tutorial. For more information, see [Key directory sharing
-concepts](ms_ad_directory_sharing.md#ms_ad_directory_sharing_key_concepts "ms_ad_directory_sharing.md#ms_ad_directory_sharing_key_concepts").
+before you start work on this tutorial. For more information, see [Key directory sharing concepts](ms_ad_directory_sharing.md#ms_ad_directory_sharing_key_concepts "ms_ad_directory_sharing.md#ms_ad_directory_sharing_key_concepts").
 
 The process for sharing your directory differs depending on whether you share the
 directory with another AWS account in the same AWS organization or with an account that
@@ -21,8 +18,7 @@ This workflow has four basic steps.
 
 ![Steps to share AWS Managed Microsoft AD: Set up your networking environment, share your directory, accept shared directory invite, and test seamlessly join an Amazon EC2 instance for Windows Server to a domain.](images/directory_sharing_tutorial3.png)
 
-**[Step 1: Set up your networking
-environment](step1_setup_networking.md "step1_setup_networking.md")**
+**[Step 1: Set up your networking environment](step1_setup_networking.md "step1_setup_networking.md")**
 
 In the directory owner account, you set up all of the networking prerequisites
 necessary for the directory sharing process.
@@ -33,14 +29,12 @@ While signed in with directory owner administrator credentials, you open the
 Directory Service console and start the share directory workflow, which sends an invitation
 to the directory consumer account.
 
-**[Step 3: Accept shared directory invite -
-Optional](step3_accept_invite.md "step3_accept_invite.md")**
+**[Step 3: Accept shared directory invite - Optional](step3_accept_invite.md "step3_accept_invite.md")**
 
 While signed in with directory consumer administrator credentials, you open
 the Directory Service console and accept the directory sharing invite.
 
-**[Step 4: Test seamlessly joining an EC2 instance
-for Windows Server to a domain](step4_test_ec2_access.md "step4_test_ec2_access.md")**
+**[Step 4: Test seamlessly joining an EC2 instance for Windows Server to a domain](step4_test_ec2_access.md "step4_test_ec2_access.md")**
 
 Finally, as the directory consumer administrator, you attempt to join an EC2
 instance to your domain and verify that it works.

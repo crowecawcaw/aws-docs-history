@@ -26,9 +26,7 @@ For a complete list of all the various AWS compliance programs that AWS Managed 
 supports, see [AWS services
 in scope by compliance program](https://aws.amazon.com/compliance/services-in-scope/ "https://aws.amazon.com/compliance/services-in-scope/").
 
-## Enable PCI compliance for your AWS Managed Microsoft AD
-
-directory
+## Enable PCI compliance for your AWS Managed Microsoft AD directory
 
 To enable PCI compliance for your AWS Managed Microsoft AD directory, you must configure
 fine-grained password policies as specified in the PCI DSS Attestation of Compliance (AOC) and

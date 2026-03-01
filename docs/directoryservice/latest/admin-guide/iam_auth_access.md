@@ -21,9 +21,6 @@ permissions to create an Directory Service directory or to create a directory sn
 The following sections describe how to manage permissions for Directory Service. We recommend that
 you read the overview first.
 
-- [Overview of managing access permissions to
-  your Directory Service resources](IAM_Auth_Access_Overview.md "IAM_Auth_Access_Overview.md")
-- [Using identity-based policies (IAM
-  policies) for Directory Service](IAM_Auth_Access_IdentityBased.md "IAM_Auth_Access_IdentityBased.md")
-- [Directory Service API permissions: Actions,
-  resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md")
+- [Overview of managing access permissions to your Directory Service resources](IAM_Auth_Access_Overview.md "IAM_Auth_Access_Overview.md")
+- [Using identity-based policies (IAM policies) for Directory Service](IAM_Auth_Access_IdentityBased.md "IAM_Auth_Access_IdentityBased.md")
+- [Directory Service API permissions: Actions, resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md")

@@ -1,6 +1,4 @@
-# Step 1: Set up your environment for
-
-trusts
+# Step 1: Set up your environment for trusts
 
 In this section, you set up your Amazon EC2 environment, deploy your new forest, and
 prepare your VPC for trusts with AWS.

@@ -5,8 +5,7 @@ You will get more out of AWS Managed Microsoft AD if you become familiar with th
 ###### Topics
 
 - [Active Directory schema](#ms_ad_key_concepts_schema "#ms_ad_key_concepts_schema")
-- [Patching and maintenance for
-  AWS Managed Microsoft AD](#ms_ad_key_concepts_maintenance "#ms_ad_key_concepts_maintenance")
+- [Patching and maintenance for AWS Managed Microsoft AD](#ms_ad_key_concepts_maintenance "#ms_ad_key_concepts_maintenance")
 - [Group Managed Service Accounts](#ms_ad_key_concepts_gmsa "#ms_ad_key_concepts_gmsa")
 - [Kerberos constrained delegation](#ms_ad_key_concepts_kerberos "#ms_ad_key_concepts_kerberos")
 
@@ -67,12 +66,9 @@ Attributes](<https://msdn.microsoft.com/en-us/library/ms677270(v=vs.85).aspx> "h
 #### Related topics
 
 - [When to extend your AWS Managed Microsoft AD schema](ms_ad_schema_extensions.md#ms_ad_schema_when_to_extend "ms_ad_schema_extensions.md#ms_ad_schema_when_to_extend")
-- [Tutorial: Extending your AWS Managed Microsoft AD
-  schema](ms_ad_tutorial_extend_schema.md "ms_ad_tutorial_extend_schema.md")
+- [Tutorial: Extending your AWS Managed Microsoft AD schema](ms_ad_tutorial_extend_schema.md "ms_ad_tutorial_extend_schema.md")
 
-## Patching and maintenance for
-
-AWS Managed Microsoft AD
+## Patching and maintenance for AWS Managed Microsoft AD
 
 AWS Directory Service for Microsoft Active Directory, also known as AWS DS for AWS Managed Microsoft AD, is actually Microsoft Active
 Directory Domain Services (AD DS), delivered as a managed service. The system uses Microsoft

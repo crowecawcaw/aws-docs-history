@@ -1,6 +1,4 @@
-# Enabling mTLS authentication in AD Connector for use
-
-with smart cards
+# Enabling mTLS authentication in AD Connector for use with smart cards
 
 You can use certificate-based mutual Transport Layer Security (mTLS) authentication with
 smart cards to authenticate users into Amazon WorkSpaces through your self-managed Active Directory (AD)
@@ -159,15 +157,11 @@ steps to import your CA certificates and subsequently enable smart card authenti
 
 ###### Steps
 
-- [Enabling Kerberos constrained delegation for the
-  AD Connector service account](#step1 "#step1")
+- [Enabling Kerberos constrained delegation for the AD Connector service account](#step1 "#step1")
 - [Registering the CA certificate in AD Connector](#step2 "#step2")
-- [Enabling smart card authentication for supported AWS
-  applications and services](#step3 "#step3")
+- [Enabling smart card authentication for supported AWS applications and services](#step3 "#step3")
 
-### Enabling Kerberos constrained delegation for the
-
-AD Connector service account
+### Enabling Kerberos constrained delegation for the AD Connector service account
 
 To use smart card authentication with AD Connector, you must enable **Kerberos Constrained Delegation (KCD)** for the AD Connector
 Service account to the LDAP service in the self-managed AD directory.
@@ -257,9 +251,7 @@ aws ds list-certificates --directory-id `your_directory_id`
 If the status value returns `Registered`, you have successfully
 registered your certificate.
 
-### Enabling smart card authentication for supported AWS
-
-applications and services
+### Enabling smart card authentication for supported AWS applications and services
 
 Use either of the following methods to register a CA certificate for your AD Connector
 directory.

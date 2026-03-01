@@ -1,9 +1,7 @@
-# Enabling client-side LDAPS using
-
-AD Connector
+# Enabling client-side LDAPS using AD Connector
 
 Client-side LDAPS support in AD Connector encrypts communications between Microsoft Active Directory (AD)
-and AWS applications. Examples of such applications include WorkSpaces, AWS IAM Identity Center, Quick Suite, and Amazon Chime.
+and AWS applications. Examples of such applications include WorkSpaces, AWS IAM Identity Center, Quick, and Amazon Chime.
 This encryption helps you to better protect your organization's identity data and meet your
 security requirements.
 
@@ -21,14 +19,11 @@ Before you enable client-side LDAPS, you need to meet the following requirements
 
 ###### Prerequisites:
 
-- [Deploy server certificates in Active
-  Directory](#deploy_server_certs_ldap_client_side "#deploy_server_certs_ldap_client_side")
+- [Deploy server certificates in Active Directory](#deploy_server_certs_ldap_client_side "#deploy_server_certs_ldap_client_side")
 - [CA certificate requirements](#cert_requirements_ldap_client_side "#cert_requirements_ldap_client_side")
 - [Networking requirements](#networking_requirements_ldap_client_side "#networking_requirements_ldap_client_side")
 
-### Deploy server certificates in Active
-
-Directory
+### Deploy server certificates in Active Directory
 
 In order to enable client-side LDAPS, you need to obtain and install server certificates
 for each domain controller in Active Directory. These certificates will be used by the LDAP
@@ -71,9 +66,7 @@ Sockets Layer (SSL) channel encryption.
 You can use two different methods to enable client-side LDAPS for your directory. You can
 use either the AWS Management Console method or the AWS CLI method.
 
-### Registering certificate in
-
-Directory Service
+### Registering certificate in Directory Service
 
 Use either of the following methods to register a certificate in Directory Service.
 
@@ -101,9 +94,7 @@ Use either of the following methods to register a certificate in Directory Servi
 aws ds register-certificate --directory-id `your_directory_id` --certificate-data file://`your_file_path`
 ```
 
-### Checking registration
-
-status
+### Checking registration status
 
 To see the status of a certificate registration or a list of registered certificates,
 use either of the following methods.

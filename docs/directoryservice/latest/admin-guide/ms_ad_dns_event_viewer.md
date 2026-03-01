@@ -6,8 +6,7 @@ identify the root cause and fix the issue. You can also use DNS audit event logs
 security by detecting and blocking requests from suspicious IP addresses.
 
 To do that, you must be logged on with the **Admin** account or with an
-account that is a member of the **AWS Domain Name System Administrators** group. For more information about this group, see [What gets created with your
-AWS Managed Microsoft AD](ms_ad_getting_started_what_gets_created.md "ms_ad_getting_started_what_gets_created.md").
+account that is a member of the **AWS Domain Name System Administrators** group. For more information about this group, see [What gets created with your AWS Managed Microsoft AD](ms_ad_getting_started_what_gets_created.md "ms_ad_getting_started_what_gets_created.md").
 
 ###### To access Event Viewer for your AWS Managed Microsoft AD DNS
 

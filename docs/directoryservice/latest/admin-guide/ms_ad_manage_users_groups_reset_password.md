@@ -6,8 +6,7 @@ password. When this happens, you can quickly reset the user's password using Dir
 user resides AWS Managed Microsoft AD.
 
 You must be signed in as a user with the necessary permissions to reset passwords. For more
-information about permissions, see [Overview of managing access permissions to
-your Directory Service resources](IAM_Auth_Access_Overview.md "IAM_Auth_Access_Overview.md").
+information about permissions, see [Overview of managing access permissions to your Directory Service resources](IAM_Auth_Access_Overview.md "IAM_Auth_Access_Overview.md").
 
 You can reset the password for any user in your Active Directory with the following exceptions:
 
@@ -18,8 +17,7 @@ You can reset the password for any user in your Active Directory with the follow
 - You cannot reset the password of any user outside of the OU that is based off the
   NetBIOS name you used when you created your Active Directory. For example, you cannot
   reset the password for a user in **AWS Reserved OU**. For more
-  information about the OU structure for AWS Managed Microsoft AD, see [What gets created with your
-  AWS Managed Microsoft AD](ms_ad_getting_started_what_gets_created.md "ms_ad_getting_started_what_gets_created.md").
+  information about the OU structure for AWS Managed Microsoft AD, see [What gets created with your AWS Managed Microsoft AD](ms_ad_getting_started_what_gets_created.md "ms_ad_getting_started_what_gets_created.md").
   For more information on how the password policies are applied when a password is reset in
   AWS Managed Microsoft AD, see [How password policies are applied](ms_ad_password_policies.md#how_password_policies_applied "ms_ad_password_policies.md#how_password_policies_applied").
 

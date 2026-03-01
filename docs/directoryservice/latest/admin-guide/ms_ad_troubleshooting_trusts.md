@@ -7,8 +7,7 @@ information. The following can help you understand what those messages mean.
 
 Access was denied when trying to create the trust. Either the trust password is incorrect
 or the remote domain's security settings do not allow a trust to be configured. For more
-information on trusts, see [Enhancing Trust Efficiency with Site Names and
-DCLocator](#enhancing-trust-site-names "#enhancing-trust-site-names"). To resolve this problem, try the
+information on trusts, see [Enhancing Trust Efficiency with Site Names and DCLocator](#enhancing-trust-site-names "#enhancing-trust-site-names"). To resolve this problem, try the
 following:
 
 - Verify that you are using the same trust password that you used when creating the
@@ -45,9 +44,7 @@ normal, as the domain controller's effective default settings for `Network acces
     Enabled
   - Microsoft network server: Digitally sign communications (always): Enabled
 
-### Enhancing Trust Efficiency with Site Names and
-
-DCLocator
+### Enhancing Trust Efficiency with Site Names and DCLocator
 
 The First Site name like Default-First-Site-Name is not a requirement for establishing
 trust relationships between domains. However, aligning site names between domains can
@@ -66,9 +63,7 @@ following Microsoft articles:
 - [How Domain Controllers are Located Across Trusts](https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/how-domain-controllers-are-located-across-trusts/ba-p/256180 "https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/how-domain-controllers-are-located-across-trusts/ba-p/256180")
 - [Domain Locator Across Forests](https://techcommunity.microsoft.com/blog/askds/domain-locator-across-a-forest-trust/395689 "https://techcommunity.microsoft.com/blog/askds/domain-locator-across-a-forest-trust/395689")
 
-## The specified domain name does not exist or could not be
-
-contacted
+## The specified domain name does not exist or could not be contacted
 
 To resolve
 this problem, ensure the security group settings for your domain and access control list (ACL)
@@ -77,8 +72,7 @@ forwarder. AWS configures the security group to open only the ports that are req
 communications. In the default configuration, the security group accepts traffic to these
 ports from any IP address. Outbound traffic is restricted to the Security group. You will need
 to update the outbound rule on the security group to allow traffic to your on premise network.
-For more information about security requirements, please see [Step 2: Prepare your
-AWS Managed Microsoft AD](ms_ad_tutorial_setup_trust_prepare_mad.md "ms_ad_tutorial_setup_trust_prepare_mad.md").
+For more information about security requirements, please see [Step 2: Prepare your AWS Managed Microsoft AD](ms_ad_tutorial_setup_trust_prepare_mad.md "ms_ad_tutorial_setup_trust_prepare_mad.md").
 
 ![Edit security group](images/edit_security_group.png)
 
@@ -108,17 +102,13 @@ For more information about how this works, see [Domain Locator Across a Forest T
 
 ![Default first site name](images/default_first_site_name.png)
 
-## The operation could not be performed on this
-
-domain
+## The operation could not be performed on this domain
 
 To resolve this, ensure both domains / directories do not have overlapping NETBIOS
 name(s). If the domains / directories do have overlapping NETBIOS names, recreate one of them
 with a different NETBIOS name, and then try again.
 
-## Trust creation is failing because of the error
-
-"Required and valid domain name"
+## Trust creation is failing because of the error "Required and valid domain name"
 
 DNS names can contain only alphabetical characters (A-Z), numeric characters (0-9), the
 minus sign (-), and a period (.). Period characters are allowed only when they are used to

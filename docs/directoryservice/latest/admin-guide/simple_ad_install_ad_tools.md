@@ -1,6 +1,4 @@
-# Installing the Active Directory Administration
-
-Tools for Simple AD
+# Installing the Active Directory Administration Tools for Simple AD
 
 To manage your Active Directory from an Amazon EC2 Windows Server instance, you need to install the
 Active Directory Domain Services and Active Directory Lightweight Directory Services Tools on the
@@ -16,8 +14,7 @@ Before you can begin this procedure, complete the following:
    The EC2 instance needs the following policies to create users and groups:
    `AmazonSSMManagedInstanceCore` and
    `AmazonSSMDirectoryServiceAccess`. For more
-   information, see [Joining an Amazon EC2 Windows instance to your
-   Simple AD Active Directory](simple_ad_launching_instance.md "simple_ad_launching_instance.md").
+   information, see [Joining an Amazon EC2 Windows instance to your Simple AD Active Directory](simple_ad_launching_instance.md "simple_ad_launching_instance.md").
 3. You will need the credentials for your Active Directory domain
    Administrator. These credentials were created when the Simple AD was
    created. If you followed the procedure in [Create your Simple AD](simple_ad_getting_started.md#how_to_create_simple_ad "simple_ad_getting_started.md#how_to_create_simple_ad"), your Administrator username

@@ -1,6 +1,4 @@
-# Seamlessly joining an Amazon EC2 Linux
-
-instance to a shared AWS Managed Microsoft AD
+# Seamlessly joining an Amazon EC2 Linux instance to a shared AWS Managed Microsoft AD
 
 In this procedure, you will seamlessly join an Amazon EC2 Linux instance to a shared
 AWS Managed Microsoft AD. To do this, you will create an AWS Secrets Manager IAM read policy in the EC2
@@ -14,15 +12,11 @@ AWS Managed Microsoft AD that is being shared from the other account which is re
 Before you can seamlessly join an Amazon EC2 Linux instance to a shared AWS Managed Microsoft AD,
 you will need to complete the following:
 
-- Steps 1 through 3 in the tutorial, [Tutorial: Sharing your AWS Managed Microsoft AD
-  directory for seamless EC2 domain-join](ms_ad_tutorial_directory_sharing.md "ms_ad_tutorial_directory_sharing.md"). This tutorial walks you through
+- Steps 1 through 3 in the tutorial, [Tutorial: Sharing your AWS Managed Microsoft AD directory for seamless EC2 domain-join](ms_ad_tutorial_directory_sharing.md "ms_ad_tutorial_directory_sharing.md"). This tutorial walks you through
   setting up your network and sharing your AWS Managed Microsoft AD.
-- The procedure outlined in [Seamlessly joining an Amazon EC2 Linux instance
-  to your AWS Managed Microsoft AD Active Directory](seamlessly_join_linux_instance.md "seamlessly_join_linux_instance.md").
+- The procedure outlined in [Seamlessly joining an Amazon EC2 Linux instance to your AWS Managed Microsoft AD Active Directory](seamlessly_join_linux_instance.md "seamlessly_join_linux_instance.md").
 
-## Step 1. Create
-
-LinuxEC2DomainJoin role in Account 2
+## Step 1. Create LinuxEC2DomainJoin role in Account 2
 
 In this step, you will use the IAM console to create the IAM role that
 you will use to domain join your EC2 Linux instance while signed in to `Account
@@ -66,9 +60,7 @@ you will use to domain join your EC2 Linux instance while signed in to `Account
    organize, track, or control access for this role.
 10. Choose **Create role**.
 
-## Step 2. Create cross account
-
-resource access to share AWS Secrets Manager secrets
+## Step 2. Create cross account resource access to share AWS Secrets Manager secrets
 
 The next section are additional requirements that need to be met to seamlessly join
 EC2 Linux instances with a shared AWS Managed Microsoft AD. These requirements include creating
@@ -98,9 +90,7 @@ you at the current AWS KMS rate. For more information, see [AWS Key Management S
 The following steps allow you to create the resource policies to enable users to
 seamlessly join a EC2 Linux instance to a shared AWS Managed Microsoft AD.
 
-###### Attach a resource
-
-policy to the secret in Account 1
+###### Attach a resource policy to the secret in Account 1
 
 1. Open the Secrets Manager console at [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/").
 2. From the list of secrets, choose your **Secret** you created
@@ -135,9 +125,7 @@ policy to the secret in Account 1
 
    ```
 
-###### Add a statement to the key policy for the KMS key in
-
-Account 1
+###### Add a statement to the key policy for the KMS key in Account 1
 
 1. Open the Secrets Manager console at [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/").
 2. In the left navigation pane, select **Customer managed
@@ -217,9 +205,7 @@ JSON
 8. In the search bar, find the policy you created in [Add a statement to the key policy for the KMS key in Account 1](#step2KeyPolicy "#step2KeyPolicy") and select the box to add the policy to the role. Then
    select **Add permissions**.
 
-## Step 3. Seamlessly
-
-join your Linux instance
+## Step 3. Seamlessly join your Linux instance
 
 You can now use the following procedure to seamlessly join your EC2 Linux instance to
 your shared AWS Managed Microsoft AD.

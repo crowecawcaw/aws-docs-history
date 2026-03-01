@@ -1,8 +1,6 @@
-# Use Case 1: Sign in to AWS applications and services with Active Directory
+# Use Case 1: Sign in to AWS applications and services with Active Directory credentials
 
-credentials
-
-You can enable multiple AWS applications and services such as [AWS Client VPN](https://aws.amazon.com/vpn/ "https://aws.amazon.com/vpn/"), [AWS Management Console](https://aws.amazon.com/console/ "https://aws.amazon.com/console/"), [AWS IAM Identity Center](https://aws.amazon.com/single-sign-on/ "https://aws.amazon.com/single-sign-on/"), [Amazon Chime](https://aws.amazon.com/chime/ "https://aws.amazon.com/chime/"), [Amazon Connect](https://aws.amazon.com/connect "https://aws.amazon.com/connect"), [Amazon FSx](https://aws.amazon.com/fsx/windows/ "https://aws.amazon.com/fsx/windows/"), [Quick Suite](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/"), [Amazon RDS for SQL Server](https://aws.amazon.com/rds/sqlserver/ "https://aws.amazon.com/rds/sqlserver/"), [WorkDocs](https://aws.amazon.com/workdocs "https://aws.amazon.com/workdocs"), [Amazon WorkMail](https://aws.amazon.com/workmail/ "https://aws.amazon.com/workmail/"), and [WorkSpaces](https://aws.amazon.com/workspaces/ "https://aws.amazon.com/workspaces/") to use your AWS Managed Microsoft AD directory.
+You can enable multiple AWS applications and services such as [AWS Client VPN](https://aws.amazon.com/vpn/ "https://aws.amazon.com/vpn/"), [AWS Management Console](https://aws.amazon.com/console/ "https://aws.amazon.com/console/"), [AWS IAM Identity Center](https://aws.amazon.com/single-sign-on/ "https://aws.amazon.com/single-sign-on/"), [Amazon Chime](https://aws.amazon.com/chime/ "https://aws.amazon.com/chime/"), [Amazon Connect](https://aws.amazon.com/connect "https://aws.amazon.com/connect"), [Amazon FSx](https://aws.amazon.com/fsx/windows/ "https://aws.amazon.com/fsx/windows/"), [Quick](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/"), [Amazon RDS for SQL Server](https://aws.amazon.com/rds/sqlserver/ "https://aws.amazon.com/rds/sqlserver/"), [WorkDocs](https://aws.amazon.com/workdocs "https://aws.amazon.com/workdocs"), [Amazon WorkMail](https://aws.amazon.com/workmail/ "https://aws.amazon.com/workmail/"), and [WorkSpaces](https://aws.amazon.com/workspaces/ "https://aws.amazon.com/workspaces/") to use your AWS Managed Microsoft AD directory.
 When you enable an AWS application or service in your directory, your users can access the
 application or service with their Active Directory credentials.
 
@@ -146,9 +144,7 @@ Amazon RDS also supports AWS Managed Microsoft AD Directory Sharing. For more in
 
 For more information about joining an Amazon RDS for SQL Server to your Active Directory, see [Join Amazon RDS for SQL Server to your self-managed Active Directory](https://aws.amazon.com/blogs//database/join-amazon-rds-for-sql-server-to-your-self-managed-active-directory/ "https://aws.amazon.com/blogs//database/join-amazon-rds-for-sql-server-to-your-self-managed-active-directory/").
 
-### .NET application using Amazon RDS for SQL Server with
-
-group Managed Service Accounts
+### .NET application using Amazon RDS for SQL Server with group Managed Service Accounts
 
 You can integrate Amazon RDS for SQL Server with a basic .NET application and group Managed
 Service Accounts (gMSAs). For more information, see [How AWS Managed Microsoft AD Helps to Simplify the Deployment and Improve the Security

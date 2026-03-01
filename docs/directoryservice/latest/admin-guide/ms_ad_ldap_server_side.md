@@ -79,8 +79,7 @@ connecting to a CA in your domain:
   CA** in [How to Enable
   Server-Side LDAPS for Your AWS Managed Microsoft AD Directory](https://aws.amazon.com/blogs/security/how-to-enable-ldaps-for-your-aws-microsoft-ad-directory/ "https://aws.amazon.com/blogs/security/how-to-enable-ldaps-for-your-aws-microsoft-ad-directory/").
 
-For more information about how to join your EC2 instance to the domain, see [Ways to join an Amazon EC2 instance to your
-AWS Managed Microsoft AD](ms_ad_join_instance.md "ms_ad_join_instance.md").
+For more information about how to join your EC2 instance to the domain, see [Ways to join an Amazon EC2 instance to your AWS Managed Microsoft AD](ms_ad_join_instance.md "ms_ad_join_instance.md").
 
 ### Step 3: Create a certificate template
 
@@ -174,8 +173,7 @@ connections.
 
 You can test the LDAPS connection to the AWS Managed Microsoft AD directory using the LDP
 tool. The LDP tool comes with the Active Directory Administrative
-Tools. For more information, see [Installing Active Directory Administration
-Tools for AWS Managed Microsoft AD](ms_ad_install_ad_tools.md "ms_ad_install_ad_tools.md").
+Tools. For more information, see [Installing Active Directory Administration Tools for AWS Managed Microsoft AD](ms_ad_install_ad_tools.md "ms_ad_install_ad_tools.md").
 
 ###### Note
 

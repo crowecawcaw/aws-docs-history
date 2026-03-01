@@ -42,7 +42,7 @@ AWS Managed Microsoft AD:
   - If you wish to support external communications between your AWS Managed Microsoft AD and your
     RADIUS server hosted on the AWS network, please contact [Support](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
 
-- All Amazon Enterprise IT applications including WorkSpaces, WorkDocs, Amazon WorkMail, Amazon Quick Suite, and
+- All Amazon Enterprise IT applications including WorkSpaces, WorkDocs, Amazon WorkMail, Amazon Quick, and
   access to AWS IAM Identity Center and AWS Management Console are supported when using AWS Managed Microsoft AD and AD Connector
   with MFA. These AWS applications using MFA are not supported in multi-regions.
 
@@ -50,17 +50,13 @@ For more information, see[How to enable multi-factor authentication for AWS serv
 on-premises credentials](https://aws.amazon.com/blogs/security/how-to-enable-multi-factor-authentication-for-amazon-workspaces-and-amazon-quicksight-by-using-microsoft-ad-and-on-premises-credentials/ "https://aws.amazon.com/blogs/security/how-to-enable-multi-factor-authentication-for-amazon-workspaces-and-amazon-quicksight-by-using-microsoft-ad-and-on-premises-credentials/").
 
     + For information about how to configure basic user access to Amazon Enterprise
-     applications, AWS Single Sign-On and the AWS Management Console using Directory Service, see [Access to AWS applications and services
-     from your AWS Managed Microsoft AD](ms_ad_manage_apps_services.md "ms_ad_manage_apps_services.md")
-     and [Enabling AWS Management Console access with AWS Managed Microsoft AD
-     credentials](ms_ad_management_console_access.md "ms_ad_management_console_access.md").
+     applications, AWS Single Sign-On and the AWS Management Console using Directory Service, see [Access to AWS applications and services from your AWS Managed Microsoft AD](ms_ad_manage_apps_services.md "ms_ad_manage_apps_services.md")
+     and [Enabling AWS Management Console access with AWS Managed Microsoft AD credentials](ms_ad_management_console_access.md "ms_ad_management_console_access.md").
     + See the following this AWS Security Blog post to learn how to enable MFA for
      Amazon WorkSpaces users on your AWS Managed Microsoft AD, [How to enable multi-factor authentication for AWS services by using AWS Managed Microsoft AD
      and on-premises credentials](https://aws.amazon.com/blogs/security/how-to-enable-multi-factor-authentication-for-amazon-workspaces-and-amazon-quicksight-by-using-microsoft-ad-and-on-premises-credentials/ "https://aws.amazon.com/blogs/security/how-to-enable-multi-factor-authentication-for-amazon-workspaces-and-amazon-quicksight-by-using-microsoft-ad-and-on-premises-credentials/")
 
-## Enable multi-factor authentication for
-
-AWS Managed Microsoft AD
+## Enable multi-factor authentication for AWS Managed Microsoft AD
 
 The following procedure shows you how to enable multi-factor authentication for
 AWS Managed Microsoft AD.
@@ -100,7 +96,7 @@ with a comma (e.g., `192.0.0.0,192.0.0.12`).
 ###### Note
 
 RADIUS MFA is applicable only to authenticate access to the AWS Management Console, or to
-Amazon Enterprise applications and services such as WorkSpaces, Amazon Quick Suite, or Amazon Chime.
+Amazon Enterprise applications and services such as WorkSpaces, Amazon Quick, or Amazon Chime.
 Amazon Enterprise applications and services are only supported in the Primary
 Region if Multi-Region replication is configured for your AWS Managed Microsoft AD. It does
 not provide MFA to Windows workloads running on EC2 instances, or for signing into

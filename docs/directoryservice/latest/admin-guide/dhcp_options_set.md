@@ -1,6 +1,4 @@
-# Creating or changing a DHCP options set for
-
-AWS Managed Microsoft AD
+# Creating or changing a DHCP options set for AWS Managed Microsoft AD
 
 AWS recommends that you create a DHCP options set for your Directory Service directory and
 assign the DHCP options set to the VPC that your directory is in. This allows any

@@ -10,21 +10,16 @@ creating or using your AD Connector.
 - [Authentication issues](#ad_connector_auth_issues "#ad_connector_auth_issues")
 - [Maintenance issues](#ad_connector_maintenance_issues "#ad_connector_maintenance_issues")
 - [I cannot delete my AD Connector](#delete_ad_connector "#delete_ad_connector")
-- [General tools for investigating
-  AD Connector issuers](#ad_connector_troubleshooting_tools "#ad_connector_troubleshooting_tools")
+- [General tools for investigating AD Connector issuers](#ad_connector_troubleshooting_tools "#ad_connector_troubleshooting_tools")
 
 ## Creation issues
 
 ###### The following are common creation issues for AD Connector
 
-- [I receive an "AZ Constrained" error when I create a
-  directory](#contrained_az2 "#contrained_az2")
-- [I receive a "Connectivity issues
-  detected" error when I try to create AD Connector](#ad_creation_connectivity_issues "#ad_creation_connectivity_issues")
+- [I receive an "AZ Constrained" error when I create a directory](#contrained_az2 "#contrained_az2")
+- [I receive a "Connectivity issues detected" error when I try to create AD Connector](#ad_creation_connectivity_issues "#ad_creation_connectivity_issues")
 
-### I receive an "AZ Constrained" error when I create a
-
-directory
+### I receive an "AZ Constrained" error when I create a directory
 
 Some AWS accounts created before 2012 might have access to Availability Zones in
 the US East (N. Virginia), US West (N. California), or Asia Pacific (Tokyo)
@@ -32,9 +27,7 @@ Regions that do not support Directory Service directories. If you receive an
 error such as this when creating a Active Directory, choose a subnet in a different Availability
 Zone and try to create the directory again.
 
-### I receive a "Connectivity issues
-
-detected" error when I try to create AD Connector
+### I receive a "Connectivity issues detected" error when I try to create AD Connector
 
 If you receive the "Connectivity issue detected" error when trying to create an
 AD Connector, the error could be due to port availability or AD Connector
@@ -56,10 +49,7 @@ requirements. For more information, see Service account in [AD Connector prerequ
 If your AD Connector does not meet these requirements, recreate your
 AD Connector with a password that complies with these requirements.
 
-### I receive "An internal service error has been
-
-encountered while connecting the directory. Please retry the operation." error
-when I create an AD Connector
+### I receive "An internal service error has been encountered while connecting the directory. Please retry the operation." error when I create an AD Connector
 
 This error usually occurs when the AD Connector fails to create and can't
 connect to a valid domain controller for your self-managed Active Directory domain.
@@ -97,16 +87,11 @@ flow logs of directory network interfaces to investigate this issue. Contact [AW
 
 ###### The following are common connectivity issues for AD Connector
 
-- [I receive a "Connectivity issues
-  detected" error when I try to connect to my on-premises directory](#connectivity_issues_detected "#connectivity_issues_detected")
-- [I receive a "DNS unavailable" error when I try to
-  connect to my on-premises directory](#dns_unavailable "#dns_unavailable")
-- [I receive an "SRV record" error when I try to
-  connect to my on-premises directory](#srv_record_not_found "#srv_record_not_found")
+- [I receive a "Connectivity issues detected" error when I try to connect to my on-premises directory](#connectivity_issues_detected "#connectivity_issues_detected")
+- [I receive a "DNS unavailable" error when I try to connect to my on-premises directory](#dns_unavailable "#dns_unavailable")
+- [I receive an "SRV record" error when I try to connect to my on-premises directory](#srv_record_not_found "#srv_record_not_found")
 
-### I receive a "Connectivity issues
-
-detected" error when I try to connect to my on-premises directory
+### I receive a "Connectivity issues detected" error when I try to connect to my on-premises directory
 
 You receive an error message similar to the following when connecting to your
 on-premises directory: **`Connectivity issues detected: LDAP unavailable
@@ -134,9 +119,7 @@ Microsoft documentation.
 
 [Show moreShow less](# "#")
 
-### I receive a "DNS unavailable" error when I try to
-
-connect to my on-premises directory
+### I receive a "DNS unavailable" error when I try to connect to my on-premises directory
 
 You receive an error message similar to the following when connecting to your
 on-premises directory:
@@ -149,9 +132,7 @@ AD Connector must be able to communicate with your on-premises DNS servers via
 TCP and UDP over port 53. Verify that your security groups and on-premises firewalls
 allow TCP and UDP communication over this port. For more information, see [AD Connector prerequisites](ad_connector_getting_started.md#prereq_connector "ad_connector_getting_started.md#prereq_connector").
 
-### I receive an "SRV record" error when I try to
-
-connect to my on-premises directory
+### I receive an "SRV record" error when I try to connect to my on-premises directory
 
 You receive an error message similar to one or more of the following when
 connecting to your on-premises directory:
@@ -170,22 +151,13 @@ to your directory. For more information about these SRV records, see [SRV record
 
 ###### Here are some common authentication issues with AD Connector:
 
-- [I receive a "Certificate Validation
-  failed" error when I try to sign in to Amazon WorkSpaces with a smart
-  card](#cert_validation_failure "#cert_validation_failure")
-- [I receive an "Invalid Credentials" error when the
-  service account used by AD Connector attempts to authenticate](#invalid_creds "#invalid_creds")
-- [I receive a "Unable to Authenticate" error
-  when using AWS applications to search for users or groups](#fails_when_searching "#fails_when_searching")
-- [I receive an error about my directory
-  credentials when I try to update the AD Connector service account](#error_with_ad_creds "#error_with_ad_creds")
-- [Some of my users cannot authenticate with my
-  directory](#kerberos_preauth2 "#kerberos_preauth2")
+- [I receive a "Certificate Validation failed" error when I try to sign in to Amazon WorkSpaces with a smart card](#cert_validation_failure "#cert_validation_failure")
+- [I receive an "Invalid Credentials" error when the service account used by AD Connector attempts to authenticate](#invalid_creds "#invalid_creds")
+- [I receive a "Unable to Authenticate" error when using AWS applications to search for users or groups](#fails_when_searching "#fails_when_searching")
+- [I receive an error about my directory credentials when I try to update the AD Connector service account](#error_with_ad_creds "#error_with_ad_creds")
+- [Some of my users cannot authenticate with my directory](#kerberos_preauth2 "#kerberos_preauth2")
 
-### I receive a "Certificate Validation
-
-failed" error when I try to sign in to Amazon WorkSpaces with a smart
-card
+### I receive a "Certificate Validation failed" error when I try to sign in to Amazon WorkSpaces with a smart card
 
 You receive an error message similar to the following when you try to sign in to
 your WorkSpaces with a smart card: **`**ERROR**: Certificate
@@ -195,9 +167,7 @@ if the smart card's certificate is not properly stored on the client that uses t
 certificates. For more information on AD Connector and smart card requirements,
 see [Prerequisites](ad_connector_clientauth.md#prereqs-clientauth "ad_connector_clientauth.md#prereqs-clientauth").
 
-###### Use the following procedures to troubleshoot the smart card's ability to
-
-store certificates in the user's certificate store:
+###### Use the following procedures to troubleshoot the smart card's ability to store certificates in the user's certificate store:
 
 1. On the device that is having trouble accessing the certificates,
    access the Microsoft Management Console (MMC).
@@ -228,9 +198,7 @@ Principal Name (UPN) mapping for Subject Alternative Name. For more information
 about this change, see [How to disable the Subject Alternative Name for UPN mapping](https://learn.microsoft.com/en-us/troubleshoot/windows-server/windows-security/disable-subject-alternative-name-upn-mapping "https://learn.microsoft.com/en-us/troubleshoot/windows-server/windows-security/disable-subject-alternative-name-upn-mapping") in
 Microsoft documentation.
 
-###### Use the following procedure to check your domain controller's registry
-
-key:
+###### Use the following procedure to check your domain controller's registry key:
 
 - In the **Registry Editor**, navigate to the following
   hive key
@@ -293,9 +261,7 @@ For more information about publishing certificates to the NTAuth store, see
 in _Access Amazon WorkSpaces with Common Access Cards Installation
 Guide_.
 
-###### You can check to see if the user certificate or CA chain certificates are
-
-verified by OCSP by following this procedure:
+###### You can check to see if the user certificate or CA chain certificates are verified by OCSP by following this procedure:
 
 1. Export the smart card certificate to a location on the local machine
    like the C: drive.
@@ -316,17 +282,12 @@ For more information about the certutil command, see [certutil](https://learn.mi
 
 [Show moreShow less](# "#")
 
-### I receive an "Invalid Credentials" error when the
-
-service account used by AD Connector attempts to authenticate
+### I receive an "Invalid Credentials" error when the service account used by AD Connector attempts to authenticate
 
 This can occur if the hard drive on your domain controller runs out of space.
 Ensure that your domain controller's hard drives are not full.
 
-### I receive "An error has occurred" or "An
-
-unexpected error" when I try to update the AD Connector service
-account
+### I receive "An error has occurred" or "An unexpected error" when I try to update the AD Connector service account
 
 The following errors or symptoms occur while searching users in AWS Enterprise
 Applications such as [Amazon WorkSpaces Console Launch Wizard](../../../workspaces/latest/adminguide/launch-workspace-ad-connector.md#create-workspace-ad-connector "../../../workspaces/latest/adminguide/launch-workspace-ad-connector.md#create-workspace-ad-connector"):
@@ -469,12 +430,10 @@ For more information, see [Microsoft documentation](https://techcommunity.micros
 
 [Show moreShow less](# "#")
 
-### I receive a "Unable to Authenticate" error
-
-when using AWS applications to search for users or groups
+### I receive a "Unable to Authenticate" error when using AWS applications to search for users or groups
 
 You may experience errors when searching for users or logging into AWS
-applications, such as WorkSpaces or Quick Suite, even while the AD Connector status was
+applications, such as WorkSpaces or Quick, even while the AD Connector status was
 active. If the AD Connector's service account's password has been changed or is
 expired, AD Connector can no longer query the Active Directory domain. Contact your AD
 Administrator and verify the following:
@@ -488,9 +447,7 @@ Administrator and verify the following:
   reset the service account password and also [update](ad_connector_update_creds.md "ad_connector_update_creds.md") the same password in
   AD Connector.
 
-### I receive an error about my directory
-
-credentials when I try to update the AD Connector service account
+### I receive an error about my directory credentials when I try to update the AD Connector service account
 
 You receive an error message similar to one or more of the following when trying
 to update the AD Connector service account:
@@ -519,9 +476,7 @@ below:
 
 [Show moreShow less](# "#")
 
-### Some of my users cannot authenticate with my
-
-directory
+### Some of my users cannot authenticate with my directory
 
 Your user accounts must have Kerberos preauthentication enabled. This is the
 default setting for new user accounts, but it should not be modified. For more
@@ -534,31 +489,24 @@ information about this setting, go to [Preauthentication](http://technet.microso
 - My directory is stuck in the "Requested" state
 - Seamless domain join for Amazon EC2 instances stopped working
 
-### My directory is stuck in the
-
-"Requested" state
+### My directory is stuck in the "Requested" state
 
 If you have a directory that has been in the "Requested" state for more than five
 minutes, try deleting the directory and recreating it. If this problem persists,
 contact [AWS Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
 
-### Seamless domain join for Amazon EC2 instances stopped
-
-working
+### Seamless domain join for Amazon EC2 instances stopped working
 
 If seamless domain join for EC2 instances was working and then stopped while the
 AD Connector was active, the credentials for your AD Connector service account
 may have expired. Expired credentials can prevent AD Connector from creating
 computer objects in your Active Directory.
 
-###### To resolve this issue, update the service account passwords in the following
-
-order so that the passwords match:
+###### To resolve this issue, update the service account passwords in the following order so that the passwords match:
 
 1. Update the password for the service account in your Active Directory.
 2. Update the password for the service account in your AD Connector in
-   Directory Service. For more information, see [Updating your AD Connector service account credentials
-   in AWS Management Console](ad_connector_update_creds.md "ad_connector_update_creds.md").
+   Directory Service. For more information, see [Updating your AD Connector service account credentials in AWS Management Console](ad_connector_update_creds.md "ad_connector_update_creds.md").
 
 ###### Important
 
@@ -575,9 +523,7 @@ directory. For a list of applications you need to disable in order to delete you
 AD Connector, see [Deleting your AD Connector](ad_connector_delete.md "ad_connector_delete.md"). If you still can't delete your
 AD Connector, you can request help through [AWS Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
 
-## General tools for investigating
-
-AD Connector issuers
+## General tools for investigating AD Connector issuers
 
 The following tools can be used to troubleshoot various AD Connector issues related
 to creation, authentication, and connectivity:

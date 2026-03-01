@@ -19,10 +19,7 @@ include:
 ###### Tasks to secure your AD Connector
 
 - [Enabling multi-factor authentication for AD Connector](ad_connector_mfa.md "ad_connector_mfa.md")
-- [Enabling client-side LDAPS using
-  AD Connector](ad_connector_ldap_client_side.md "ad_connector_ldap_client_side.md")
-- [Enabling mTLS authentication in AD Connector for use
-  with smart cards](ad_connector_clientauth.md "ad_connector_clientauth.md")
-- [Updating your AD Connector service account credentials
-  in AWS Management Console](ad_connector_update_creds.md "ad_connector_update_creds.md")
+- [Enabling client-side LDAPS using AD Connector](ad_connector_ldap_client_side.md "ad_connector_ldap_client_side.md")
+- [Enabling mTLS authentication in AD Connector for use with smart cards](ad_connector_clientauth.md "ad_connector_clientauth.md")
+- [Updating your AD Connector service account credentials in AWS Management Console](ad_connector_update_creds.md "ad_connector_update_creds.md")
 - [Set up AWS Private CA Connector for AD](ad_connector_pca_connector.md "ad_connector_pca_connector.md")

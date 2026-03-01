@@ -1,14 +1,10 @@
-# Step 2: Prepare your
-
-AWS Managed Microsoft AD
+# Step 2: Prepare your AWS Managed Microsoft AD
 
 Now let's get your AWS Managed Microsoft AD ready for the trust relationship. Many of the
 following steps are almost identical to what you just completed for your self-managed domain.
 This time, however, you are working with your AWS Managed Microsoft AD.
 
-## Configure your VPC subnets and security
-
-groups
+## Configure your VPC subnets and security groups
 
 You must allow traffic from your self-managed network to the VPC containing
 your AWS Managed Microsoft AD. To do this, you will need to make sure that the ACLs associated with the
@@ -45,9 +41,7 @@ SMBv1 is no longer supported.
 These are the minimum ports that are needed to be able to connect the VPC and self-managed
 directory. Your specific configuration may require additional ports be open.
 
-###### To configure your AWS Managed Microsoft AD domain controller outbound and inbound
-
-rules
+###### To configure your AWS Managed Microsoft AD domain controller outbound and inbound rules
 
 1. Return to the [AWS Directory Service console](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/"). In the list of directories, take note the directory ID for your AWS Managed Microsoft AD directory.
 2. Open the Amazon VPC console at
@@ -68,8 +62,7 @@ For the new rule, enter the following values:
      can leave your domain controllers and where it can go. Specify a single
      IP address or an IP address range in CIDR notation (for example,
      203.0.113.5/32). You can also specify the name or ID of another security
-     group in the same Region. For more information, see [Understand your directory's AWS security group
-     configuration and use](ms_ad_best_practices.md#understandsecuritygroup "ms_ad_best_practices.md#understandsecuritygroup").
+     group in the same Region. For more information, see [Understand your directory's AWS security group configuration and use](ms_ad_best_practices.md#understandsecuritygroup "ms_ad_best_practices.md#understandsecuritygroup").
 
 6. Select **Save Rule**.
 
@@ -84,13 +77,11 @@ directory. This is the default, but let's check to make sure nothing has changed
 ###### To view user kerberos settings
 
 1. Log in to an instance that is a member of your AWS Managed Microsoft AD
-   directory using either the [AWS Managed Microsoft AD Administrator account and
-   group permissions](ms_ad_getting_started_admin_account.md "ms_ad_getting_started_admin_account.md") for the domain or an account that
+   directory using either the [AWS Managed Microsoft AD Administrator account and group permissions](ms_ad_getting_started_admin_account.md "ms_ad_getting_started_admin_account.md") for the domain or an account that
    has been delegated permissions to manage users in the domain.
 2. If they are not already installed, install the Active Directory Users
    and Computers tool and the DNS tool. Learn how to install these tools in
-   [Installing Active Directory Administration
-   Tools for AWS Managed Microsoft AD](ms_ad_install_ad_tools.md "ms_ad_install_ad_tools.md").
+   [Installing Active Directory Administration Tools for AWS Managed Microsoft AD](ms_ad_install_ad_tools.md "ms_ad_install_ad_tools.md").
 3. Open Server Manager. On the **Tools** menu, choose **Active Directory Users and Computers**.
 4. Choose the **Users** folder in your domain. Note that this is the **Users** folder under your NetBIOS name, not the **Users** folder under the fully qualified domain name (FQDN).
 
@@ -99,5 +90,4 @@ directory. This is the default, but let's check to make sure nothing has changed
 
 **Next Step**
 
-[Step 3: Create the trust
-relationship](ms_ad_tutorial_setup_trust_create.md "ms_ad_tutorial_setup_trust_create.md")
+[Step 3: Create the trust relationship](ms_ad_tutorial_setup_trust_create.md "ms_ad_tutorial_setup_trust_create.md")

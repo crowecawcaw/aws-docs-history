@@ -1,14 +1,11 @@
-# Joining an Amazon EC2 Windows instance to your AWS Managed Microsoft AD
-
-Active Directory
+# Joining an Amazon EC2 Windows instance to your AWS Managed Microsoft AD Active Directory
 
 You can launch and join an Amazon EC2 Windows instance to an AWS Managed Microsoft AD. Alternatively, you
 can manually join an existing EC2 Windows instance to an AWS Managed Microsoft AD.
 
 Seamlessly join EC2 Windows instance
 This procedure seamlessly joins an Amazon EC2 Windows instance to your AWS Managed Microsoft AD. If
-you need to perform seamless domain join across multiple AWS accounts, see [Tutorial: Sharing your AWS Managed Microsoft AD
-directory for seamless EC2 domain-join](ms_ad_tutorial_directory_sharing.md "ms_ad_tutorial_directory_sharing.md"). For more information about Amazon EC2,
+you need to perform seamless domain join across multiple AWS accounts, see [Tutorial: Sharing your AWS Managed Microsoft AD directory for seamless EC2 domain-join](ms_ad_tutorial_directory_sharing.md "ms_ad_tutorial_directory_sharing.md"). For more information about Amazon EC2,
 see [What is
 Amazon EC2?](../../../AWSEC2/latest/UserGuide/concepts.md "../../../AWSEC2/latest/UserGuide/concepts.md").
 
@@ -50,8 +47,7 @@ To seamlessly domain join an EC2 instance, you will need to complete the followi
       - `"ssm:CreateBatchAssociation"`
 
 When your AWS Managed Microsoft AD is created, a security group is created with inbound and
-outbound rules. To learn more about these rules and ports, see [What gets created with your
-AWS Managed Microsoft AD](ms_ad_getting_started_what_gets_created.md "ms_ad_getting_started_what_gets_created.md"). To seamlessly domain join an
+outbound rules. To learn more about these rules and ports, see [What gets created with your AWS Managed Microsoft AD](ms_ad_getting_started_what_gets_created.md "ms_ad_getting_started_what_gets_created.md"). To seamlessly domain join an
 EC2 Windows instance, your VPC where you're launching your instance should allow
 the same ports allowed in your AWS Managed Microsoft AD security group's inbound and outbound
 rules.
@@ -68,8 +64,7 @@ rules.
 | `ds.`region`.amazonaws.com`          | Endpoint for Directory Service. For more information, see [Region availability for Directory Service](regions.md "regions.md").                                                                                       |
 
 - We recommend to use a DNS server that will resolve your AWS Managed Microsoft AD domain
-  name. To do so, you can create a DHCP option set. See [Creating or changing a DHCP options set for
-  AWS Managed Microsoft AD](dhcp_options_set.md "dhcp_options_set.md") for more
+  name. To do so, you can create a DHCP option set. See [Creating or changing a DHCP options set for AWS Managed Microsoft AD](dhcp_options_set.md "dhcp_options_set.md") for more
   information.
   - If you choose not to create a DHCP option set, then your DNS servers will be
     static and configured to by your AWS Managed Microsoft AD.
@@ -160,8 +155,7 @@ This error occurs if the EC2 launch wizard identifies an existing SSM document w
 16. Choose **Launch instance**.
 
 Manually join EC2 Windows instanceTo manually join an existing Amazon EC2 Windows instance to an
-AWS Managed Microsoft AD Active Directory, the instance must be launched using the parameters as specified in Joining an Amazon EC2 Windows instance to your AWS Managed Microsoft AD
-Active Directory.
+AWS Managed Microsoft AD Active Directory, the instance must be launched using the parameters as specified in Joining an Amazon EC2 Windows instance to your AWS Managed Microsoft AD Active Directory.
 
 You will need the IP addresses of the AWS Managed Microsoft AD DNS servers. This information can be found under **Directory Services** >
 **Directories** > the **Directory ID** link for your directory > **Directory details** and **Networking & Security** sections.
@@ -213,8 +207,7 @@ instance.
    Directory, and choose **OK**.
 6. When prompted for the name and password for the domain administrator, enter the
    username and password of an account that has domain join privileges. For more information
-   about delegating these privileges, see [Delegating directory join privileges for
-   AWS Managed Microsoft AD](directory_join_privileges.md "directory_join_privileges.md").
+   about delegating these privileges, see [Delegating directory join privileges for AWS Managed Microsoft AD](directory_join_privileges.md "directory_join_privileges.md").
 
 ###### Note
 
@@ -225,8 +218,7 @@ instance to have the changes take effect.
 
 Now that your instance has been joined to the AWS Managed Microsoft AD Active Directory domain, you can log into that
 instance remotely and install utilities to manage the directory, such as adding
-users and groups. The Active Directory Administration Tools can be used to create users and groups. For more information, see [Installing Active Directory Administration
-Tools for AWS Managed Microsoft AD](ms_ad_install_ad_tools.md "ms_ad_install_ad_tools.md").
+users and groups. The Active Directory Administration Tools can be used to create users and groups. For more information, see [Installing Active Directory Administration Tools for AWS Managed Microsoft AD](ms_ad_install_ad_tools.md "ms_ad_install_ad_tools.md").
 
 ###### Note
 

@@ -1,6 +1,4 @@
-# Troubleshooting Simple AD directory
-
-status messages
+# Troubleshooting Simple AD directory status messages
 
 When a Simple AD is impaired or inoperable, the directory status message contains
 additional information. The status message is displayed in the Directory Service console, or returned in
@@ -11,22 +9,15 @@ The following are the status messages for a Simple AD directory:
 
 ###### Topics
 
-- [The directory service's elastic network interface is not
-  attached](#sr_eni_detached "#sr_eni_detached")
+- [The directory service's elastic network interface is not attached](#sr_eni_detached "#sr_eni_detached")
 - [Issue(s) detected by instance](#sr_internal_error "#sr_internal_error")
-- [The critical Directory Service reserved user is missing
-  from the directory](#sr_service_account_missing "#sr_service_account_missing")
-- [The critical Directory Service reserved user needs to
-  belong to the Domain Admins group](#sr_service_account_not_admin "#sr_service_account_not_admin")
-- [The critical Directory Service reserved user is
-  disabled](#sr_service_account_disabled "#sr_service_account_disabled")
-- [The main domain controller does not have all FSMO
-  roles](#sr_dc_fsmo_role "#sr_dc_fsmo_role")
+- [The critical Directory Service reserved user is missing from the directory](#sr_service_account_missing "#sr_service_account_missing")
+- [The critical Directory Service reserved user needs to belong to the Domain Admins group](#sr_service_account_not_admin "#sr_service_account_not_admin")
+- [The critical Directory Service reserved user is disabled](#sr_service_account_disabled "#sr_service_account_disabled")
+- [The main domain controller does not have all FSMO roles](#sr_dc_fsmo_role "#sr_dc_fsmo_role")
 - [Domain controller replication failures](#sr_dc_repl_failures "#sr_dc_repl_failures")
 
-## The directory service's elastic network interface is not
-
-attached
+## The directory service's elastic network interface is not attached
 
 **Description**
 
@@ -55,9 +46,7 @@ instances.
 In most cases, this is a transient issue, and the directory eventually
 returns to the Active state. If the problem persists, contact Support for more assistance.
 
-## The critical Directory Service reserved user is missing
-
-from the directory
+## The critical Directory Service reserved user is missing from the directory
 
 **Description**
 
@@ -78,9 +67,7 @@ restore the directory from a snapshot where this account exists, your
 directory may become permanently unusable. If this is the case, you must
 delete your directory and create a new one.
 
-## The critical Directory Service reserved user needs to
-
-belong to the Domain Admins group
+## The critical Directory Service reserved user needs to belong to the Domain Admins group
 
 **Description**
 
@@ -96,9 +83,7 @@ directory controllers, and restoring from snapshots.
 Use the Active Directory Users and Computers tool to re-add the service
 account to the `Domain Admins` group.
 
-## The critical Directory Service reserved user is
-
-disabled
+## The critical Directory Service reserved user is disabled
 
 **Description**
 
@@ -113,9 +98,7 @@ directory.
 Use the Active Directory Users and Computers tool to re-enable the service
 account.
 
-## The main domain controller does not have all FSMO
-
-roles
+## The main domain controller does not have all FSMO roles
 
 **Description**
 
@@ -149,8 +132,7 @@ another. This can be caused by one or more of the following issues:
 **Troubleshooting**
 
 For more information about your VPC network requirements, see either
-AWS Managed Microsoft AD [Prerequisites for creating a
-AWS Managed Microsoft AD](ms_ad_getting_started.md#ms_ad_getting_started_prereqs "ms_ad_getting_started.md#ms_ad_getting_started_prereqs"), AD Connector [AD Connector prerequisites](ad_connector_getting_started.md#prereq_connector "ad_connector_getting_started.md#prereq_connector"), or Simple
+AWS Managed Microsoft AD [Prerequisites for creating a AWS Managed Microsoft AD](ms_ad_getting_started.md#ms_ad_getting_started_prereqs "ms_ad_getting_started.md#ms_ad_getting_started_prereqs"), AD Connector [AD Connector prerequisites](ad_connector_getting_started.md#prereq_connector "ad_connector_getting_started.md#prereq_connector"), or Simple
 AD [Simple AD prerequisites](simple_ad_getting_started.md#prereq_simple "simple_ad_getting_started.md#prereq_simple"). If there
 is an unknown domain controller in your directory, you must demote it. If
 your VPC network setup is correct, but the error persists, please contact

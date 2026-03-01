@@ -1,6 +1,4 @@
-# Joining an Amazon EC2 Windows instance to your
-
-Simple AD Active Directory
+# Joining an Amazon EC2 Windows instance to your Simple AD Active Directory
 
 You can launch and join an Amazon EC2 Windows instance to a Simple AD. Alternatively, you
 can manually join an existing EC2 Windows instance to a Simple AD
@@ -61,8 +59,7 @@ rules.
 | `ds.`region`.amazonaws.com`          | Endpoint for Directory Service. For more information, see [Region availability for Directory Service](regions.md "regions.md").                                                                                       |
 
 - We recommend to use a DNS server that will resolve your Simple AD domain
-  name. To do so, you can create a DHCP option set. See [Creating a DHCP options set for
-  Simple AD](simple_ad_dhcp_options_set.md "simple_ad_dhcp_options_set.md") for more
+  name. To do so, you can create a DHCP option set. See [Creating a DHCP options set for Simple AD](simple_ad_dhcp_options_set.md "simple_ad_dhcp_options_set.md") for more
   information.
   - If you choose not to create a DHCP option set, then your DNS servers will be
     static and configured to by your Simple AD.
@@ -149,8 +146,7 @@ This error occurs if the EC2 launch wizard identifies an existing SSM document w
 
 16. Choose **Launch instance**.
 
-Manually join an EC2 Windows To manually join an existing Amazon EC2 Windows instance to a Simple AD Active Directory, the instance must be launched using the parameters as specified in Joining an Amazon EC2 Windows instance to your
-Simple AD Active Directory.
+Manually join an EC2 Windows To manually join an existing Amazon EC2 Windows instance to a Simple AD Active Directory, the instance must be launched using the parameters as specified in Joining an Amazon EC2 Windows instance to your Simple AD Active Directory.
 
 You will need the IP addresses of the Simple AD DNS servers. This information can be found under **Directory Services** >
 **Directories** > the **Directory ID** link for your directory > **Directory details** and **Networking & Security** sections.
@@ -202,8 +198,7 @@ instance.
    Active Directory, and choose **OK**.
 6. When prompted for the name and password for the domain administrator, enter the
    username and password of an account that has domain join privileges. For more information
-   about delegating these privileges, see [Delegating directory join privileges for
-   Simple AD](simple_ad_directory_join_privileges.md "simple_ad_directory_join_privileges.md").
+   about delegating these privileges, see [Delegating directory join privileges for Simple AD](simple_ad_directory_join_privileges.md "simple_ad_directory_join_privileges.md").
 
 ###### Note
 
@@ -214,5 +209,4 @@ instance to have the changes take effect.
 
 Now that your instance has been joined to the Simple AD Active Directory domain, you can log into that
 instance remotely and install utilities to manage the directory, such as adding
-users and groups. The Active Directory Administration Tools can be used to create users and groups. For more information, see [Installing the Active Directory Administration
-Tools for Simple AD](simple_ad_install_ad_tools.md "simple_ad_install_ad_tools.md").
+users and groups. The Active Directory Administration Tools can be used to create users and groups. For more information, see [Installing the Active Directory Administration Tools for Simple AD](simple_ad_install_ad_tools.md "simple_ad_install_ad_tools.md").

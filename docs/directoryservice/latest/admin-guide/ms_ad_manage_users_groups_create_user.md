@@ -2,8 +2,7 @@
 
 You can create AWS Managed Microsoft AD users
 with the Active Directory Administration Tools and PowerShell.
-Before you can create user with the Active Directory Administration Tools, you will need to complete the procedure in [Installing Active Directory Administration
-Tools for AWS Managed Microsoft AD](ms_ad_install_ad_tools.md "ms_ad_install_ad_tools.md").
+Before you can create user with the Active Directory Administration Tools, you will need to complete the procedure in [Installing Active Directory Administration Tools for AWS Managed Microsoft AD](ms_ad_install_ad_tools.md "ms_ad_install_ad_tools.md").
 
 Active Directory Administration Tools
 Use the following procedure to create an AWS Managed Microsoft AD user with Active Directory Administration Tools.
@@ -22,8 +21,7 @@ open the Active Directory Users and Computers tool box directly.
 ```
 
 3. In the directory tree, select an
-   OU under your directory's NetBIOS name OU where you want to store your user (for example, `corp\Users`). For more information about the OU structure used by directories in AWS, see [What gets created with your
-   AWS Managed Microsoft AD](ms_ad_getting_started_what_gets_created.md "ms_ad_getting_started_what_gets_created.md").
+   OU under your directory's NetBIOS name OU where you want to store your user (for example, `corp\Users`). For more information about the OU structure used by directories in AWS, see [What gets created with your AWS Managed Microsoft AD](ms_ad_getting_started_what_gets_created.md "ms_ad_getting_started_what_gets_created.md").
 
 ![Active Directory Users and Computers tool showing example OU structure.](images/create-security-groups-OU.png) 4. On the **Action** menu, choose **New**, and then
 choose **User** to open the new user wizard. 5. On the first page of the wizard, enter the values for the following fields, and then

@@ -1,6 +1,4 @@
-# What gets created with your
-
-AWS Managed Microsoft AD
+# What gets created with your AWS Managed Microsoft AD
 
 When you create an Active Directory with AWS Managed Microsoft AD, Directory Service performs the following tasks on your
 behalf:
@@ -25,8 +23,7 @@ backup.
 
 - Provisions Active Directory within your VPC using two domain controllers for fault tolerance and
   high availability. More domain controllers can be provisioned for higher resiliency and
-  performance after the directory has been successfully created and is [Active](ms_ad_directory_status.md "ms_ad_directory_status.md"). For more information, see [Deploying additional domain controllers for your
-  AWS Managed Microsoft AD](ms_ad_deploy_additional_dcs.md "ms_ad_deploy_additional_dcs.md").
+  performance after the directory has been successfully created and is [Active](ms_ad_directory_status.md "ms_ad_directory_status.md"). For more information, see [Deploying additional domain controllers for your AWS Managed Microsoft AD](ms_ad_deploy_additional_dcs.md "ms_ad_deploy_additional_dcs.md").
 
 ###### Note
 
@@ -45,8 +42,7 @@ controllers.
   is local VPC. You can change the security group rules to allow additional traffic sources,
   for example from other peered VPCs or CIDRs reachable via VPN. Use extreme caution if you
   attempt to change these rules as you may break your ability to communicate with your domain
-  controllers. For more information, see [AWS Managed Microsoft AD best practices](ms_ad_best_practices.md "ms_ad_best_practices.md") and [Enhancing your AWS Managed Microsoft AD network security
-  configuration](ms_ad_network_security.md "ms_ad_network_security.md").
+  controllers. For more information, see [AWS Managed Microsoft AD best practices](ms_ad_best_practices.md "ms_ad_best_practices.md") and [Enhancing your AWS Managed Microsoft AD network security configuration](ms_ad_network_security.md "ms_ad_network_security.md").
 
 You can use prefix lists to manage your CIDR blocks within the security
 group rules. Prefix lists make it easier to manage and configure security groups and route
@@ -97,8 +93,7 @@ The following AWS Security group rules are created by default:
 - Creates a directory administrator account with the user name Admin and the specified
   password. This account is located under the Users OU (For example, Corp >
   Users). You use this account to manage your directory in the AWS Cloud. For more
-  information, see [AWS Managed Microsoft AD Administrator account and
-  group permissions](ms_ad_getting_started_admin_account.md "ms_ad_getting_started_admin_account.md").
+  information, see [AWS Managed Microsoft AD Administrator account and group permissions](ms_ad_getting_started_admin_account.md "ms_ad_getting_started_admin_account.md").
 
 ###### Important
 
@@ -181,8 +176,7 @@ The Admin is the directory administrator account
 created when the AWS Managed Microsoft AD is first created. You provide a password for this
 account when you create an AWS Managed Microsoft AD. This account is located under the
 Users OU (For example, Corp > Users). You use this account to manage
-your Active Directory in the AWS. For more information, see [AWS Managed Microsoft AD Administrator account and
-group permissions](ms_ad_getting_started_admin_account.md "ms_ad_getting_started_admin_account.md").
+your Active Directory in the AWS. For more information, see [AWS Managed Microsoft AD Administrator account and group permissions](ms_ad_getting_started_admin_account.md "ms_ad_getting_started_admin_account.md").
 
 **AWS_11111111111**
 

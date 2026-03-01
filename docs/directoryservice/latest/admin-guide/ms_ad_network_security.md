@@ -1,11 +1,8 @@
-# Enhancing your AWS Managed Microsoft AD network security
-
-configuration
+# Enhancing your AWS Managed Microsoft AD network security configuration
 
 The AWS Security Group that is provisioned for the AWS Managed Microsoft AD directory is configured
 with the minimum inbound network ports required to support all known use cases for your
-AWS Managed Microsoft AD directory. For more information on the provisioned AWS Security Group, see [What gets created with your
-AWS Managed Microsoft AD](ms_ad_getting_started_what_gets_created.md "ms_ad_getting_started_what_gets_created.md").
+AWS Managed Microsoft AD directory. For more information on the provisioned AWS Security Group, see [What gets created with your AWS Managed Microsoft AD](ms_ad_getting_started_what_gets_created.md "ms_ad_getting_started_what_gets_created.md").
 
 To further enhance the network security of your AWS Managed Microsoft AD directory, you can modify the
 AWS Security Group based on the following common scenarios.
@@ -21,10 +18,8 @@ reside in this CIDR block.
 
 - [AWS applications only support](#aws_apps_support "#aws_apps_support")
 - [AWS applications only with trust support](#aws_apps_trust_support "#aws_apps_trust_support")
-- [AWS applications and native Active Directory
-  workload support](#aws_apps_native_ad_support "#aws_apps_native_ad_support")
-- [AWS applications and native Active
-  Directory workload support with trust support](#aws_apps_native_ad_trust_support "#aws_apps_native_ad_trust_support")
+- [AWS applications and native Active Directory workload support](#aws_apps_native_ad_support "#aws_apps_native_ad_support")
+- [AWS applications and native Active Directory workload support with trust support](#aws_apps_native_ad_trust_support "#aws_apps_native_ad_trust_support")
 
 ## AWS applications only support
 
@@ -33,7 +28,7 @@ AWS applications, such as the following:
 
 - Amazon Chime
 - Amazon Connect
-- Quick Suite
+- Quick
 - AWS IAM Identity Center
 - WorkDocs
 - Amazon WorkMail
@@ -72,7 +67,7 @@ used with supported AWS applications, such as the following:
 
 - Amazon Chime
 - Amazon Connect
-- Quick Suite
+- Quick
 - AWS IAM Identity Center
 - WorkDocs
 - Amazon WorkMail
@@ -124,9 +119,7 @@ non-essential traffic to your AWS Managed Microsoft AD domain controllers.
 | -------- | ---------- | -------------------------------- | --------------- | ---------------------- |
 | All      | All        | Customer domain controllers CIDR | All traffic     |                        |
 
-## AWS applications and native Active Directory
-
-workload support
+## AWS applications and native Active Directory workload support
 
 User accounts are provisioned only in your AWS Managed Microsoft AD to be used with supported AWS
 applications, such as the following:
@@ -135,7 +128,7 @@ applications, such as the following:
 - Amazon Connect
 - Amazon EC2 instances
 - Amazon FSx
-- Quick Suite
+- Quick
 - Amazon RDS for MySQL
 - Amazon RDS for Oracle
 - Amazon RDS for PostgreSQL
@@ -180,9 +173,7 @@ non-essential traffic to your AWS Managed Microsoft AD domain controllers.
 
 None.
 
-## AWS applications and native Active
-
-Directory workload support with trust support
+## AWS applications and native Active Directory workload support with trust support
 
 All user accounts are provisioned in your AWS Managed Microsoft AD or trusted Active Directory to be
 used with supported AWS applications, such as the following:
@@ -191,7 +182,7 @@ used with supported AWS applications, such as the following:
 - Amazon Connect
 - Amazon EC2 instances
 - Amazon FSx
-- Quick Suite
+- Quick
 - Amazon RDS for MySQL
 - Amazon RDS for Oracle
 - Amazon RDS for PostgreSQL

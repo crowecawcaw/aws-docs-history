@@ -1,6 +1,4 @@
-# Application compatibility for
-
-AWS Managed Microsoft AD
+# Application compatibility for AWS Managed Microsoft AD
 
 AWS Directory Service for Microsoft Active Directory (AWS Managed Microsoft AD) is compatible with multiple AWS services and third-party
 applications.
@@ -10,7 +8,7 @@ The following is a list of compatible AWS applications and services:
 - Amazon Chime
 - Amazon Connect
 - Amazon EC2
-- Quick Suite
+- Quick
 - Amazon RDS
 - WorkDocs
 - Amazon WorkMail
@@ -20,8 +18,7 @@ The following is a list of compatible AWS applications and services:
 - AWS Management Console
 - FSx for Windows File Server
 - WorkSpaces
-  For more information, see [Enabling access to AWS applications and
-  services for your AWS Managed Microsoft AD](ms_ad_enable_apps_services.md "ms_ad_enable_apps_services.md").
+  For more information, see [Enabling access to AWS applications and services for your AWS Managed Microsoft AD](ms_ad_enable_apps_services.md "ms_ad_enable_apps_services.md").
 
 Due to the magnitude of custom and commercial off-the-shelf applications that use Active Directory, AWS does not and cannot perform formal or broad verification of third-party
 application compatibility with AWS Directory Service for Microsoft Active Directory (AWS Managed Microsoft AD). Although AWS works with
@@ -65,8 +62,7 @@ deployment changes.
   applications by delegating specific, less privileged, and AWS supported permissions to
   the person who performs the installation. For more details on the precise permissions that
   your application requires, ask your application provider. For more information about
-  permissions that AWS allows you to delegate, see [What gets created with your
-  AWS Managed Microsoft AD](ms_ad_getting_started_what_gets_created.md "ms_ad_getting_started_what_gets_created.md").
+  permissions that AWS allows you to delegate, see [What gets created with your AWS Managed Microsoft AD](ms_ad_getting_started_what_gets_created.md "ms_ad_getting_started_what_gets_created.md").
 - **Access to privileged Active Directory containers –**
   Within your directory, AWS Managed Microsoft AD provides an Organizational Unit (OU) over which you
   have full administrative control. You do not have create or write permissions and may have
@@ -75,8 +71,7 @@ deployment changes.
   might not work. However, such applications often have an ability to use a container that
   you create in your OU as an alternative. Check with your application provider to find ways
   to create and use a container in your OU as an alternative. For more information on
-  your OU, see [What gets created with your
-  AWS Managed Microsoft AD](ms_ad_getting_started_what_gets_created.md "ms_ad_getting_started_what_gets_created.md").
+  your OU, see [What gets created with your AWS Managed Microsoft AD](ms_ad_getting_started_what_gets_created.md "ms_ad_getting_started_what_gets_created.md").
 - **Schema changes during the install workflow –** Some
   Active Directory applications require changes to the default Active Directory schema, and
   they may attempt to install those changes as part of the application installation
@@ -84,8 +79,7 @@ deployment changes.
   importing Lightweight Directory Interchange Format (LDIF) files through the Directory Service console,
   CLI, or SDK only. Such applications often come with an LDIF file that you can apply to the
   directory through the Directory Service schema update process. For more information about how the LDIF
-  import process works, see [Tutorial: Extending your AWS Managed Microsoft AD
-  schema](ms_ad_tutorial_extend_schema.md "ms_ad_tutorial_extend_schema.md"). You can install the application in a way
+  import process works, see [Tutorial: Extending your AWS Managed Microsoft AD schema](ms_ad_tutorial_extend_schema.md "ms_ad_tutorial_extend_schema.md"). You can install the application in a way
   to bypass the schema installation during the installation process.
 
 ## Known incompatible applications

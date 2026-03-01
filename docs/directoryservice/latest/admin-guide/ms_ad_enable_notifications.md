@@ -1,6 +1,4 @@
-# Enabling AWS Managed Microsoft AD directory status
-
-notifications with Amazon Simple Notification Service
+# Enabling AWS Managed Microsoft AD directory status notifications with Amazon Simple Notification Service
 
 Using Amazon Simple Notification Service (Amazon SNS), you can receive email or text (SMS) messages when the status of
 your directory changes. You get notified if your directory goes from an Active status to an
@@ -75,9 +73,7 @@ additional privileges for SNS. 8. Choose **Create**.
 If you want to designate additional SNS subscribers, such as an additional email
 address, Amazon SQS queues or AWS Lambda, you can do this from the [Amazon SNS console](https://console.aws.amazon.com//sns/v3/home. "https://console.aws.amazon.com//sns/v3/home.").
 
-## Removing directory status messages from an Amazon SNS
-
-topic
+## Removing directory status messages from an Amazon SNS topic
 
 The following walks you through how you can remove your AWS Managed Microsoft AD directory status
 messages from an Amazon SNS topic:

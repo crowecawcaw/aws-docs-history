@@ -1,6 +1,4 @@
-# Use Case 3: Provide directory services to your Active Directory-aware
-
-workloads
+# Use Case 3: Provide directory services to your Active Directory-aware workloads
 
 AWS Managed Microsoft AD is an actual Microsoft Active Directory that enables you to run traditional Active Directory-aware
 workloads such as [Remote Desktop Licensing Manager](https://aws.amazon.com/blogs/security/how-to-enable-the-use-of-remote-desktops-by-deploying-microsoft-remote-desktop-licensing-manager-on-aws-microsoft-ad/ "https://aws.amazon.com/blogs/security/how-to-enable-the-use-of-remote-desktops-by-deploying-microsoft-remote-desktop-licensing-manager-on-aws-microsoft-ad/") and [Microsoft SharePoint and Microsoft

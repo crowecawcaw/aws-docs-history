@@ -1,6 +1,4 @@
-# Resetting a Simple AD user
-
-password
+# Resetting a Simple AD user password
 
 Users must adhere to password policies as defined in the Active Directory. Sometimes this can get the
 best of users, including the Active Directory administrator, and they forget their password. When this
@@ -8,8 +6,7 @@ happens, you can quickly reset the user's password using Directory Service if th
 Simple AD.
 
 You must be signed in as a user with the necessary permissions to reset passwords. For more
-information about permissions, see [Overview of managing access permissions to
-your Directory Service resources](IAM_Auth_Access_Overview.md "IAM_Auth_Access_Overview.md").
+information about permissions, see [Overview of managing access permissions to your Directory Service resources](IAM_Auth_Access_Overview.md "IAM_Auth_Access_Overview.md").
 
 You can reset the password for any user in your Active Directory with the following exceptions:
 

@@ -3,9 +3,7 @@
 Hybrid directory extends your self-managed Active Directory to the AWS Cloud. Before creating a
 hybrid directory, ensure your environment meets these requirements:
 
-## Microsoft Active Directory domain
-
-requirements
+## Microsoft Active Directory domain requirements
 
 Before creating a hybrid directory, ensure your self-managed AD environment and
 infrastructure meet the following requirements, and gather the necessary
@@ -43,12 +41,9 @@ Gather the following information about your self-managed AD:
 - Directory DNS IPs
 - Service account credentials with Administrator permissions to your
   self-managed AD
-- AWS Secret ARN for storing your service account credentials (see [AWS Secret ARN for
-  hybrid directory](#aws_secret_arn_for_hybrid "#aws_secret_arn_for_hybrid"))
+- AWS Secret ARN for storing your service account credentials (see [AWS Secret ARN for hybrid directory](#aws_secret_arn_for_hybrid "#aws_secret_arn_for_hybrid"))
 
-### AWS Secret ARN for
-
-hybrid directory
+### AWS Secret ARN for hybrid directory
 
 To configure a hybrid directory with your self-managed AD, you need to create a
 KMS key to encrypt your AWS secret and then create the secret itself. Both
@@ -128,9 +123,7 @@ To create a secret
    2. For the value of the second key, enter the password that you
       created for the AD user on your domain.
 
-##### Complete the secret
-
-configuration
+##### Complete the secret configuration
 
 1. For **Encryption key**, select the KMS key that
    you created in [Create a KMS key](#create_kms_key_for_hybrid "#create_kms_key_for_hybrid") and choose
@@ -162,9 +155,7 @@ Prepare the following infrastructure components:
     you will need two Systems Manager managed EC2 instances. For more
     information on how to provision these instances, see [Managing EC2 instances with Systems Manager](../../../systems-manager/latest/userguide/systems-manager-setting-up-ec2.md "../../../systems-manager/latest/userguide/systems-manager-setting-up-ec2.md").
 
-## Required Active Directory
-
-services
+## Required Active Directory services
 
 Ensure the following services are running on your self-managed AD:
 
@@ -186,26 +177,20 @@ Hybrid directory requires both the UDP port 123 to be open and the Windows
 Time Server to be enabled and functional. We synchronize time with your
 domain controller to ensure hybrid directory replication works properly.
 
-## Kerberos authentication
-
-requirements
+## Kerberos authentication requirements
 
 Your user accounts must have Kerberos preauthentication enabled. For detailed
 instructions on how to enable this setting, see [Ensure that Kerberos pre-authentication is enabled](ms-ad-tutorial-setup-trust-prepare-onprem.md#tutorial-setup-trust-enable-kerberos "ms-ad-tutorial-setup-trust-prepare-onprem.md#tutorial-setup-trust-enable-kerberos"). For general information
 about this setting, go to [Preauthentication](http://technet.microsoft.com/en-us/library/cc961961.aspx "http://technet.microsoft.com/en-us/library/cc961961.aspx") on Microsoft TechNet.
 
-## Supported encryption
-
-types
+## Supported encryption types
 
 hybrid directory supports the following encryption types when authenticating via Kerberos
 to your Active Directory domain controllers:
 
 - AES-256-HMAC
 
-## Network port
-
-requirements
+## Network port requirements
 
 For AWS to extend your self-managed Active Directory domain controllers, the firewall for your
 existing network must have the following ports open to the CIDRs for both
@@ -293,9 +278,7 @@ _Amazon VPC User Guide_:
 For more information about AWS Direct Connect, see the [What
 is AWS Direct Connect?](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md")
 
-## AWS security group
-
-configuration
+## AWS security group configuration
 
 By default, AWS attaches a security group to allow network access to the AWS Systems Manager
 managed nodes in your VPC. You can optionally supply your own security group that allows

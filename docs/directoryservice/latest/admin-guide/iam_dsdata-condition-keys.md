@@ -24,8 +24,7 @@ Reference_.
 
 ###### Note
 
-For information about tag-based resource-level permissions, see [Using tags with IAM
-policies](IAM_Auth_Access_IdentityBased.md#using_tags_with_iam_policies "IAM_Auth_Access_IdentityBased.md#using_tags_with_iam_policies").
+For information about tag-based resource-level permissions, see [Using tags with IAM policies](IAM_Auth_Access_IdentityBased.md#using_tags_with_iam_policies "IAM_Auth_Access_IdentityBased.md#using_tags_with_iam_policies").
 
 ## ds-data:SAMAccountName
 

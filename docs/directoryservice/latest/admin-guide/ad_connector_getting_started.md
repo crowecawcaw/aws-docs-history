@@ -8,8 +8,7 @@ Directory Service does not replicate any of your directory data.
 
 - [AD Connector prerequisites](#prereq_connector "#prereq_connector")
 - [Create an AD Connector](#create_ad_connector "#create_ad_connector")
-- [What gets created with your
-  AD Connector](create_details_ad_connector.md "create_details_ad_connector.md")
+- [What gets created with your AD Connector](create_details_ad_connector.md "create_details_ad_connector.md")
 
 ## AD Connector prerequisites
 
@@ -105,8 +104,7 @@ which has been delegated the following privileges:
     - Non-alphanumeric characters
       (~!@#$%^&\*\_-+=`|\(){}[]:;"'<>,.?/)
 
-For more information, see [Delegate privileges to your service
-account](#connect_delegate_privileges "#connect_delegate_privileges").
+For more information, see [Delegate privileges to your service account](#connect_delegate_privileges "#connect_delegate_privileges").
 
 ###### Note
 
@@ -183,8 +181,7 @@ documentation.
 **Kerberos preauthentication**
 
 Your user accounts must have Kerberos preauthentication enabled. For
-detailed instructions on how to enable this setting, see [Ensure that Kerberos
-pre-authentication is enabled](ms_ad_tutorial_setup_trust_prepare_onprem.md#tutorial_setup_trust_enable_kerberos "ms_ad_tutorial_setup_trust_prepare_onprem.md#tutorial_setup_trust_enable_kerberos"). For general
+detailed instructions on how to enable this setting, see [Ensure that Kerberos pre-authentication is enabled](ms_ad_tutorial_setup_trust_prepare_onprem.md#tutorial_setup_trust_enable_kerberos "ms_ad_tutorial_setup_trust_prepare_onprem.md#tutorial_setup_trust_enable_kerberos"). For general
 information about this setting, go to [Preauthentication](http://technet.microsoft.com/en-us/library/cc961961.aspx "http://technet.microsoft.com/en-us/library/cc961961.aspx") on Microsoft TechNet.
 
 **Encryption types**
@@ -231,9 +228,7 @@ need the following:
 
 For more information about using AD Connector with MFA, see [Enabling multi-factor authentication for AD Connector](ad_connector_mfa.md "ad_connector_mfa.md").
 
-### Delegate privileges to your service
-
-account
+### Delegate privileges to your service account
 
 To connect to your existing directory, you must have the credentials for your
 AD Connector service account in the existing directory that has been delegated
@@ -731,5 +726,4 @@ choose **Create directory**. It takes several minutes for the
 directory to be created. Once created, the **Status** value
 changes to **Active**.
 
-For more information on what is created with your AD Connector, see [What gets created with your
-AD Connector](create_details_ad_connector.md "create_details_ad_connector.md").
+For more information on what is created with your AD Connector, see [What gets created with your AD Connector](create_details_ad_connector.md "create_details_ad_connector.md").

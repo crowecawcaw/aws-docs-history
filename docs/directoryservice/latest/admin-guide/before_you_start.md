@@ -7,8 +7,7 @@ This tutorial assumes you already have the following:
 AWS Managed Microsoft AD does not support trust with [Single label domains](https://support.microsoft.com/en-us/help/2269810/microsoft-support-for-single-label-domains "https://support.microsoft.com/en-us/help/2269810/microsoft-support-for-single-label-domains").
 
 - An AWS Managed Microsoft AD directory created on AWS. If you need help doing this, see [Getting started with AWS Managed Microsoft AD](ms_ad_getting_started.md "ms_ad_getting_started.md").
-- An EC2 instance running Windows added to that AWS Managed Microsoft AD. If you need help doing this, see [Joining an Amazon EC2 Windows instance to your AWS Managed Microsoft AD
-  Active Directory](launching_instance.md "launching_instance.md").
+- An EC2 instance running Windows added to that AWS Managed Microsoft AD. If you need help doing this, see [Joining an Amazon EC2 Windows instance to your AWS Managed Microsoft AD Active Directory](launching_instance.md "launching_instance.md").
 
 ###### Important
 
@@ -20,8 +19,7 @@ instance.
       + AD DS and AD LDS Tools
       + DNS
 
-  If you need help doing this, see [Installing Active Directory Administration
-  Tools for AWS Managed Microsoft AD](ms_ad_install_ad_tools.md "ms_ad_install_ad_tools.md").
+  If you need help doing this, see [Installing Active Directory Administration Tools for AWS Managed Microsoft AD](ms_ad_install_ad_tools.md "ms_ad_install_ad_tools.md").
 
 - A self-managed (on-premises) Microsoft Active Directory
 
@@ -62,5 +60,4 @@ The AWS Managed Microsoft AD resides in VPC ID: vpc-12345678.
 
 **Next Step**
 
-[Step 1: Prepare your
-self-managed AD Domain](ms_ad_tutorial_setup_trust_prepare_onprem.md "ms_ad_tutorial_setup_trust_prepare_onprem.md")
+[Step 1: Prepare your self-managed AD Domain](ms_ad_tutorial_setup_trust_prepare_onprem.md "ms_ad_tutorial_setup_trust_prepare_onprem.md")

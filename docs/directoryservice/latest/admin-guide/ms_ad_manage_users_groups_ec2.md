@@ -12,8 +12,7 @@ For more information, see [Install the Active Directory administration tools](ms
 
 ###### Topics
 
-- [Installing Active Directory Administration
-  Tools for AWS Managed Microsoft AD](ms_ad_install_ad_tools.md "ms_ad_install_ad_tools.md")
+- [Installing Active Directory Administration Tools for AWS Managed Microsoft AD](ms_ad_install_ad_tools.md "ms_ad_install_ad_tools.md")
 - [Creating an AWS Managed Microsoft AD user](ms_ad_manage_users_groups_create_user.md "ms_ad_manage_users_groups_create_user.md")
 - [Delete a user's account with an Amazon EC2 instance](ms_ad_manage_users_groups_delete_user.md "ms_ad_manage_users_groups_delete_user.md")
 - [Resetting an AWS Managed Microsoft AD user password](ms_ad_manage_users_groups_reset_password.md "ms_ad_manage_users_groups_reset_password.md")

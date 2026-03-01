@@ -18,12 +18,9 @@ billing and cost](../../../AmazonCloudWatch/latest/monitoring/cloudwatch_billing
 Domain controller performance metrics with CloudWatch is unavailable in the
 Canada West (Calgary) Region.
 
-To enable CloudWatch, see [Enabling Amazon CloudWatch Logs log forwarding for
-AWS Managed Microsoft AD](ms_ad_enable_log_forwarding.md "ms_ad_enable_log_forwarding.md").
+To enable CloudWatch, see [Enabling Amazon CloudWatch Logs log forwarding for AWS Managed Microsoft AD](ms_ad_enable_log_forwarding.md "ms_ad_enable_log_forwarding.md").
 
-## Finding domain controllers performance metrics in
-
-CloudWatch
+## Finding domain controllers performance metrics in CloudWatch
 
 In the Amazon CloudWatch console, metrics for a given service are grouped first by the service's
 namespace. You can add metric filters that are subordinate to that namespace. Use the

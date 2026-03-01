@@ -1,6 +1,4 @@
-# Enabling or disabling
-
-user and group management or AWS Directory Service Data
+# Enabling or disabling user and group management or AWS Directory Service Data
 
 To use user and group management or AWS Directory Service Data, it must be enabled. Once enabled, you can manage
 users and groups from the AWS Management Console, AWS CLI, or AWS Tools for PowerShell.
@@ -12,7 +10,7 @@ users and groups from the AWS Management Console, AWS CLI, or AWS Tools for Powe
 - For a list of regions that support AWS Directory Service Data, see
   [Supported AWS Regions for Directory Service Data](regions.md#regions_directory_service_data "regions.md#regions_directory_service_data").
 - Access controls for AWS Directory Service Data are different than access controls for AWS services like
-  Amazon WorkSpaces, Amazon Quick Suite, and Amazon WorkMail. For more information, see [AWS application authorization with Directory Service Data](ad_manage_apps_services_authorization.md#ad_manage_apps_services_authorization_ADSD "ad_manage_apps_services_authorization.md#ad_manage_apps_services_authorization_ADSD").
+  Amazon WorkSpaces, Amazon Quick, and Amazon WorkMail. For more information, see [AWS application authorization with Directory Service Data](ad_manage_apps_services_authorization.md#ad_manage_apps_services_authorization_ADSD "ad_manage_apps_services_authorization.md#ad_manage_apps_services_authorization_ADSD").
 
 ## Enabling AWS Directory Service Data
 

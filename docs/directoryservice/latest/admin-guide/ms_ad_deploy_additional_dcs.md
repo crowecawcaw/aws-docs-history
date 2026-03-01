@@ -1,6 +1,4 @@
-# Deploying additional domain controllers for your
-
-AWS Managed Microsoft AD
+# Deploying additional domain controllers for your AWS Managed Microsoft AD
 
 Deploying additional domain controllers for your AWS Managed Microsoft AD increases the redundancy,
 which results in even greater resilience and higher availability. This also improves the
@@ -35,8 +33,7 @@ to your AWS Managed Microsoft AD:
 
 - [`update-number-of-domain-controllers`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ds/update-number-of-domain-controllers.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ds/update-number-of-domain-controllers.html") AWS CLI command
 - [UpdateNumberOfDomainControllers](../devguide/API_UpdateNumberOfDomainControllers.md "../devguide/API_UpdateNumberOfDomainControllers.md") API
-- [Adding or removing additional domain controllers with the
-  AWS Management Console](#addremovedcs "#addremovedcs")
+- [Adding or removing additional domain controllers with the AWS Management Console](#addremovedcs "#addremovedcs")
 
 ###### Note
 
@@ -45,9 +42,7 @@ If you are using [Multi-Region replication](ms_ad_configure_multi_region_replica
 following procedures must be applied separately in each Region. For more information, see
 [Global vs Regional features](multi-region-global-region-features.md "multi-region-global-region-features.md").
 
-## Adding or removing additional domain controllers with the
-
-AWS Management Console
+## Adding or removing additional domain controllers with the AWS Management Console
 
 You can use the AWS Management Console to add or remove additional domain controllers to your
 AWS Managed Microsoft AD.
@@ -122,9 +117,7 @@ aws ds update-number-of-domain-controllers --directory-id `d-1234567890` --desir
 
 PowerShell
 
-###### To add or remove additional domain controllers with
-
-PowerShell
+###### To add or remove additional domain controllers with PowerShell
 
 1. Open PowerShell. To check the current number of domain
    controllers, run the following command, replacing the Directory ID with your

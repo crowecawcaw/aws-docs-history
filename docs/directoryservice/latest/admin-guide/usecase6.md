@@ -1,6 +1,4 @@
-# Use Case 6: Share your directory to seamlessly join Amazon EC2 instances
-
-to a domain across AWS accounts
+# Use Case 6: Share your directory to seamlessly join Amazon EC2 instances to a domain across AWS accounts
 
 Sharing your directory across multiple AWS accounts enables you to manage AWS services
 such as [Amazon EC2](https://aws.amazon.com/ec2/ "https://aws.amazon.com/ec2/") easily without the need to

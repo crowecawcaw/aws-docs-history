@@ -17,11 +17,8 @@ account and applications.
 - You can only enable this feature from the Primary AWS Region for your directory. For
   more information, see [Primary vs additional Regions](multi-region-global-primary-additional.md "multi-region-global-primary-additional.md").
 - You'll need the necessary IAM permissions to use AWS Directory Service Data. For more
-  information, see [Directory Service API permissions: Actions,
-  resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md"). To get started granting permissions
-  to your users and workloads, you can use AWS managed policies like [AWS managed
-  policy: AWSDirectoryServiceDataFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess") or [AWS
-  managed policy: AWSDirectoryServiceDataReadOnlyAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess"). For more
+  information, see [Directory Service API permissions: Actions, resources, and conditions reference](UsingWithDS_IAM_ResourcePermissions.md "UsingWithDS_IAM_ResourcePermissions.md"). To get started granting permissions
+  to your users and workloads, you can use AWS managed policies like [AWS managed policy: AWSDirectoryServiceDataFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataFullAccess") or [AWS managed policy: AWSDirectoryServiceDataReadOnlyAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSDirectoryServiceDataReadOnlyAccess"). For more
   information, see [Security
   best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies "../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies").
 - [Creating an AWS Managed Microsoft AD user](ms_ad_create_user.md "ms_ad_create_user.md").
@@ -48,8 +45,7 @@ You can disable an AWS Managed Microsoft AD user account in the AWS Management C
 ###### Note
 
 To re-enable your user's account, you must reset the user's password. For more
-information, see [Resetting and enabling an AWS Managed Microsoft AD user's
-password](ms_ad_reset_user_pswd.md "ms_ad_reset_user_pswd.md").
+information, see [Resetting and enabling an AWS Managed Microsoft AD user's password](ms_ad_reset_user_pswd.md "ms_ad_reset_user_pswd.md").
 
 AWS CLI
 The following describes how to format a request that disables an AWS Managed Microsoft AD user
@@ -67,8 +63,7 @@ aws ds-data disable-user --directory-id `d-1234567890` --sam-account-name "`jane
 ###### Note
 
 To re-enable your user account, you must reset the user's password. For more
-information, see [Resetting and enabling an AWS Managed Microsoft AD user's
-password](ms_ad_reset_user_pswd.md "ms_ad_reset_user_pswd.md").
+information, see [Resetting and enabling an AWS Managed Microsoft AD user's password](ms_ad_reset_user_pswd.md "ms_ad_reset_user_pswd.md").
 
 AWS Tools for PowerShell
 The following describes how to format a request that disables an AWS Managed Microsoft AD user
@@ -86,5 +81,4 @@ Disable-DSDUser -DirectoryId `d-1234567890` -SAMAccountName "`jane.doe`"
 ###### Note
 
 To re-enable your user account, you must reset the user's password. For more
-information, see [Resetting and enabling an AWS Managed Microsoft AD user's
-password](ms_ad_reset_user_pswd.md "ms_ad_reset_user_pswd.md").
+information, see [Resetting and enabling an AWS Managed Microsoft AD user's password](ms_ad_reset_user_pswd.md "ms_ad_reset_user_pswd.md").

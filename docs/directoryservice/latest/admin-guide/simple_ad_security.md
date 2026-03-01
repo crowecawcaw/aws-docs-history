@@ -4,12 +4,9 @@ This section describes considerations for securing your Simple AD environment.
 
 ###### Topics
 
-- [How to reset a Simple AD krbtgt account
-  password](#simple_ad_reset_krbtgt_acct_pswd "#simple_ad_reset_krbtgt_acct_pswd")
+- [How to reset a Simple AD krbtgt account password](#simple_ad_reset_krbtgt_acct_pswd "#simple_ad_reset_krbtgt_acct_pswd")
 
-## How to reset a Simple AD krbtgt account
-
-password
+## How to reset a Simple AD krbtgt account password
 
 The krbtgt account plays an important role in the Kerberos ticket exchanges. The krbtgt
 account is a special account used for Kerberos ticket-granting ticket (TGT) encryption, and it
@@ -39,8 +36,7 @@ Windows instance.
 - Before you can begin this procedure, complete the following:
   - You have domain joined an EC2 instance to your Simple AD directory.
     - For more information on how to join an EC2 Windows instance to a
-      Simple AD, see [Joining an Amazon EC2 Windows instance to your
-      Simple AD Active Directory](simple_ad_launching_instance.md "simple_ad_launching_instance.md").
+      Simple AD, see [Joining an Amazon EC2 Windows instance to your Simple AD Active Directory](simple_ad_launching_instance.md "simple_ad_launching_instance.md").
 
   - You have the Simple AD directory administrator credentials. You will be signing
     in as the Simple AD directory administrator for this procedure.

@@ -1,6 +1,4 @@
-# Enable Public Key Cryptography for Initial
-
-Authentication (PKINIT) for your AWS Managed Microsoft AD users
+# Enable Public Key Cryptography for Initial Authentication (PKINIT) for your AWS Managed Microsoft AD users
 
 AWS Managed Microsoft AD directories use strong certificate binding by default, which requires
 explicit mapping between certificates and AD objects. The following mappings are considered
@@ -28,9 +26,7 @@ controllers](https://support.microsoft.com/en-us/topic/kb5014754-certificate-bas
 - PowerShell with Active Directory module installed
 - The certificate you want to map to the AD object
 
-## Map AltSecurityIdentity
-
-attribute
+## Map AltSecurityIdentity attribute
 
 1. Choose one of the following `AltSecurityIdentity` mapping methods
    based on your certificate information:
@@ -83,9 +79,7 @@ Get-ADUser -Identity $Username -Properties altSecurityIdentities |
 3. Wait for Active Directory replication to complete (typically 15-30 seconds)
    before testing certificate authentication.
 
-## Example: Bulk certificate
-
-mapping the AltSecurityIdentity attribute
+## Example: Bulk certificate mapping the AltSecurityIdentity attribute
 
 The following example demonstrates how to map `AltSecurityIdentity`
 attribute for multiple user certificates from a certificate authority:

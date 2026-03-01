@@ -8,8 +8,7 @@ create another. You cannot take snapshots of AD Connector directories.
 
 ###### Note
 
-Snapshot is a global feature of AWS Managed Microsoft AD. If you are using [Configure Multi-Region
-replication for AWS Managed Microsoft AD](ms_ad_configure_multi_region_replication.md "ms_ad_configure_multi_region_replication.md"), the following procedures must be
+Snapshot is a global feature of AWS Managed Microsoft AD. If you are using [Configure Multi-Region replication for AWS Managed Microsoft AD](ms_ad_configure_multi_region_replication.md "ms_ad_configure_multi_region_replication.md"), the following procedures must be
 performed in the [Primary Region](multi-region-global-primary-additional.md#multi-region-primary "multi-region-global-primary-additional.md#multi-region-primary"). The changes will be applied across all replicated Regions
 automatically. For more information, see [Global vs Regional features](multi-region-global-region-features.md "multi-region-global-region-features.md").
 

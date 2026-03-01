@@ -27,18 +27,14 @@ that fits your budget:
 
 For a more detailed comparison of Directory Service options, see [Which to choose](what_is.md#choosing_an_option "what_is.md#choosing_an_option").
 
-### Ensure your VPCs and instances are configured
-
-correctly
+### Ensure your VPCs and instances are configured correctly
 
 In order to connect to, manage, and use your directories, you must properly
-configure the VPCs that the directories are associated with. See either [Prerequisites for creating a
-AWS Managed Microsoft AD](ms_ad_getting_started.md#ms_ad_getting_started_prereqs "ms_ad_getting_started.md#ms_ad_getting_started_prereqs"), [AD Connector prerequisites](ad_connector_getting_started.md#prereq_connector "ad_connector_getting_started.md#prereq_connector"), or [Simple AD prerequisites](simple_ad_getting_started.md#prereq_simple "simple_ad_getting_started.md#prereq_simple") for information about the
+configure the VPCs that the directories are associated with. See either [Prerequisites for creating a AWS Managed Microsoft AD](ms_ad_getting_started.md#ms_ad_getting_started_prereqs "ms_ad_getting_started.md#ms_ad_getting_started_prereqs"), [AD Connector prerequisites](ad_connector_getting_started.md#prereq_connector "ad_connector_getting_started.md#prereq_connector"), or [Simple AD prerequisites](simple_ad_getting_started.md#prereq_simple "simple_ad_getting_started.md#prereq_simple") for information about the
 VPC security and networking requirements.
 
 If you are adding an instance to your domain, ensure that you have connectivity
-and remote access to your instance as described in [Ways to join an Amazon EC2 instance to your
-AWS Managed Microsoft AD](ms_ad_join_instance.md "ms_ad_join_instance.md").
+and remote access to your instance as described in [Ways to join an Amazon EC2 instance to your AWS Managed Microsoft AD](ms_ad_join_instance.md "ms_ad_join_instance.md").
 
 ### Be aware of your limits
 
@@ -71,9 +67,7 @@ you associate the directory security group and may disrupt operation of the asso
 instances. Furthermore, associating the directory security group with your EC2 instances
 may create a potential security risk for your EC2 instances.
 
-### Configure on-premises sites and subnets correctly when
-
-using AD Connector
+### Configure on-premises sites and subnets correctly when using AD Connector
 
 If your on-premises network has Active Directory sites defined, you must make sure
 the subnets in the VPC where your AD Connector resides are defined in an Active
@@ -90,7 +84,7 @@ physically close to your Region.
 
 Directory Service provides support for most character formats that can be used in the construction
 of usernames. However, there are character restrictions that are enforced on usernames that
-will be used for signing in to AWS applications, such as WorkSpaces, WorkDocs, Amazon WorkMail, or Quick Suite. These
+will be used for signing in to AWS applications, such as WorkSpaces, WorkDocs, Amazon WorkMail, or Quick. These
 restrictions require that the following characters not be used:
 
 - Spaces
@@ -120,8 +114,7 @@ Here are some suggestions to keep in mind when using your directory.
 
 Change your AD Connector service account Admin password regularly, and make sure that
 the password is consistent with your existing Active Directory password policies. For
-instructions on how to change the service account password, see [Updating your AD Connector service account credentials
-in AWS Management Console](ad_connector_update_creds.md "ad_connector_update_creds.md").
+instructions on how to change the service account password, see [Updating your AD Connector service account credentials in AWS Management Console](ad_connector_update_creds.md "ad_connector_update_creds.md").
 
 ### Use unique AD Connectors for each domain
 

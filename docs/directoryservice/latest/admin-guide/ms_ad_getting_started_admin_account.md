@@ -1,10 +1,7 @@
-# AWS Managed Microsoft AD Administrator account and
-
-group permissions
+# AWS Managed Microsoft AD Administrator account and group permissions
 
 When you create an AWS Directory Service for Microsoft Active Directory directory, AWS creates an organizational unit (OU) to
-store all AWS related groups and accounts. For more information about this OU, see [What gets created with your
-AWS Managed Microsoft AD](ms_ad_getting_started_what_gets_created.md "ms_ad_getting_started_what_gets_created.md"). This includes the Admin account.
+store all AWS related groups and accounts. For more information about this OU, see [What gets created with your AWS Managed Microsoft AD](ms_ad_getting_started_what_gets_created.md "ms_ad_getting_started_what_gets_created.md"). This includes the Admin account.
 The Admin account has permissions to perform the following common administrative activities for
 your OU:
 
@@ -12,8 +9,7 @@ your OU:
 - Add resources to your domain such as file or print servers, and then assign permissions
   for those resources to users and groups in your OU.
 - Create additional OUs and containers.
-- Delegate authority of additional OUs and containers. For more information, see [Delegating directory join privileges for
-  AWS Managed Microsoft AD](directory_join_privileges.md "directory_join_privileges.md").
+- Delegate authority of additional OUs and containers. For more information, see [Delegating directory join privileges for AWS Managed Microsoft AD](directory_join_privileges.md "directory_join_privileges.md").
 - Create and link group policies.
 - Restore deleted objects from the Active Directory Recycle Bin.
 - Run Active Directory and DNS PowerShell modules on the Active Directory Web
@@ -45,9 +41,7 @@ AWS has exclusive control of the Domain Administrator and Enterprise Administrat
 privileged users and groups. This allows AWS to perform operational management of your
 directory.
 
-## Enterprise and domain administrator privileged
-
-accounts
+## Enterprise and domain administrator privileged accounts
 
 AWS automatically rotates the built-in Administrator password to a random password every
 90 days. Anytime the built in Administrator password is requested for human use an AWS
@@ -76,13 +70,11 @@ logs. When the allocated time elapses, automation deletes the user account.
 
 You can monitor administrative account actions by using the log forwarding feature of your
 directory. This feature enables you to forward the AD Security events to your CloudWatch
-system where you can implement monitoring solutions. For more information, see [Enabling Amazon CloudWatch Logs log forwarding for
-AWS Managed Microsoft AD](ms_ad_enable_log_forwarding.md "ms_ad_enable_log_forwarding.md").
+system where you can implement monitoring solutions. For more information, see [Enabling Amazon CloudWatch Logs log forwarding for AWS Managed Microsoft AD](ms_ad_enable_log_forwarding.md "ms_ad_enable_log_forwarding.md").
 
 Security Event IDs 4624, 4672 and 4648 are all logged when someone logs onto a DC
 interactively. You can view each DC's Windows Security event log using the Event Viewer
-Microsoft Management Console (MMC) from a domain joined Windows computer. You can also [Enabling Amazon CloudWatch Logs log forwarding for
-AWS Managed Microsoft AD](ms_ad_enable_log_forwarding.md "ms_ad_enable_log_forwarding.md") to send
+Microsoft Management Console (MMC) from a domain joined Windows computer. You can also [Enabling Amazon CloudWatch Logs log forwarding for AWS Managed Microsoft AD](ms_ad_enable_log_forwarding.md "ms_ad_enable_log_forwarding.md") to send
 all of the Security event logs to CloudWatch Logs in your account.
 
 You might occasionally see users created and deleted within the AWS Reserved OU. AWS

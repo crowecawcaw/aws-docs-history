@@ -1,6 +1,4 @@
-# Step 1: Set up your networking
-
-environment
+# Step 1: Set up your networking environment
 
 You will need to establish an Amazon VPC peering connection to share your AWS Managed Microsoft AD
 directory (directory account owner) with another AWS account (directory consumer
@@ -28,19 +26,14 @@ While there are many ways to connect Directory owner and Directory
 consumer account VPCs, this tutorial will use the VPC peering method.
 For additional VPC connectivity options, see [Network connectivity](ms_ad_directory_sharing.md#network_connectivity "ms_ad_directory_sharing.md#network_connectivity").
 
-## Configure a VPC peering
-
-connection between the directory owner and the directory consumer
-account
+## Configure a VPC peering connection between the directory owner and the directory consumer account
 
 The VPC peering connection you will create is between the directory consumer and
 directory owner VPCs. Follow these steps to configure a VPC peering connection for
 connectivity with the directory consumer account. With this connection you can route
 traffic between both VPCs using private IP addresses.
 
-###### To create a VPC peering connection between the directory owner and directory
-
-consumer account
+###### To create a VPC peering connection between the directory owner and directory consumer account
 
 1. Open the Amazon VPC console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/"). Makes sure to sign in as a
    user with administrator credentials in the directory owner account with the
@@ -65,9 +58,7 @@ consumer account
 4. Choose **Create Peering Connection**. In the
    confirmation dialog box, choose **OK**.
 
-###### To accept the peering request on behalf of the directory consumer
-
-account
+###### To accept the peering request on behalf of the directory consumer account
 
 1. Open the Amazon VPC console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/"). Makes sure to sign in as a
    user with the necessary permissions to accept the peering request. See [Prerequisites](#step1_setup_networking_prereqs "#step1_setup_networking_prereqs") for more
@@ -100,9 +91,7 @@ to the VPC in the directory consumer account.
    account.
 5. Choose **Save changes**.
 
-###### To add an entry to the VPC route table in the directory consumer
-
-account
+###### To add an entry to the VPC route table in the directory consumer account
 
 1. While in the **Route Tables** section of the Amazon VPC
    console, select the route table for the directory consumer VPC.

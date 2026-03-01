@@ -1,6 +1,4 @@
-# Tutorial: Setting up your base AWS Managed Microsoft AD test
-
-lab in AWS
+# Tutorial: Setting up your base AWS Managed Microsoft AD test lab in AWS
 
 This tutorial teaches you how to set up your AWS environment to prepare for a new
 AWS Managed Microsoft AD installation that uses a new Amazon EC2 instance running Windows Server 2019. It then
@@ -16,8 +14,7 @@ hour to complete.
 
 ![Diagram showing tutorial steps: 1 set up your environment, 2 create your AWS Managed Microsoft AD, 3 deploy an Amazon EC2, and 4 test the lab.](images/tutorialmicrosoftadbase.png)
 
-**[Step 1: Set up your AWS environment for
-AWS Managed Microsoft AD Active Directory](microsoftadbasestep1.md "microsoftadbasestep1.md")**
+**[Step 1: Set up your AWS environment for AWS Managed Microsoft AD Active Directory](microsoftadbasestep1.md "microsoftadbasestep1.md")**
 
 After you've completed your prerequisite tasks, you create and configure an Amazon VPC in your
 EC2 instance.
@@ -32,8 +29,7 @@ Here, you walk through the various post-deployment tasks necessary for client
 computers to connect to your new domain and set up a new Windows Server system in
 EC2.
 
-**[Step 4: Verify that the base test lab is
-operational](microsoftadbasestep4.md "microsoftadbasestep4.md")**
+**[Step 4: Verify that the base test lab is operational](microsoftadbasestep4.md "microsoftadbasestep4.md")**
 
 Finally, as an administrator, you verify that you can log in and connect to
 AWS Managed Microsoft AD from your Windows Server system in EC2. Once you've successfully tested that

@@ -1,6 +1,4 @@
-# Installing Active Directory Administration
-
-Tools for AWS Managed Microsoft AD
+# Installing Active Directory Administration Tools for AWS Managed Microsoft AD
 
 You can manage your AWS Managed Microsoft AD Active Directory using Active Directory Domain Services and
 Active Directory Lightweight Directory Services Tools. To use Active
@@ -19,18 +17,14 @@ Before you can begin this procedure, complete the following:
    create users and groups:
    `AmazonSSMManagedInstanceCore` and
    `AmazonSSMDirectoryServiceAccess`. For more
-   information, see [Launching a directory administration instance in your
-   AWS Managed Microsoft AD Active Directory](console_instance.md "console_instance.md") and [Joining an Amazon EC2 Windows instance to your AWS Managed Microsoft AD
-   Active Directory](launching_instance.md "launching_instance.md").
+   information, see [Launching a directory administration instance in your AWS Managed Microsoft AD Active Directory](console_instance.md "console_instance.md") and [Joining an Amazon EC2 Windows instance to your AWS Managed Microsoft AD Active Directory](launching_instance.md "launching_instance.md").
 3. You will need the credentials for your Active Directory domain Administrator.
    These credentials were created when the AWS Managed Microsoft AD was created. If you
    followed the procedure in [Creating your AWS Managed Microsoft AD](ms_ad_getting_started.md#ms_ad_getting_started_create_directory "ms_ad_getting_started.md#ms_ad_getting_started_create_directory"), your
    Administrator username includes your NetBIOS name,
    `corp\admin`.
 
-###### Installing Active Directory administration tools on a EC2 Windows Server
-
-instance
+###### Installing Active Directory administration tools on a EC2 Windows Server instance
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
@@ -92,5 +86,4 @@ Directory administration instance
 You can launch a directory administration EC2 instance in the AWS Management Console
 that already has the Active Directory Domain Services and Active Directory
 Lightweight Directory Services Tools installed by following the procedures in
-[Launching a directory administration instance in your
-AWS Managed Microsoft AD Active Directory](console_instance.md "console_instance.md").
+[Launching a directory administration instance in your AWS Managed Microsoft AD Active Directory](console_instance.md "console_instance.md").
