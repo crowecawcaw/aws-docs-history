@@ -4,9 +4,7 @@ able to access the Lookout for Equipment console or resources. For more
 information,
 [see the following](https://aws.amazon.com/blogs/machine-learning/preserve-access-and-explore-alternatives-for-amazon-lookout-for-equipment/ "https://aws.amazon.com/blogs/machine-learning/preserve-access-and-explore-alternatives-for-amazon-lookout-for-equipment/").
 
-# Identity-based policy examples for
-
-Amazon Lookout for Equipment
+# Identity-based policy examples for Amazon Lookout for Equipment
 
 By default, users and roles don't have permission to create or modify Amazon Lookout for Equipment
 resources. To grant users permission to perform actions on the
@@ -20,20 +18,13 @@ For details about actions and resource types defined by Lookout for Equipment, i
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the Lookout for Equipment
-  console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Accessing a
-  single Lookout for Equipment dataset](#security_iam_id-based-policy-examples-access-one-bucket "#security_iam_id-based-policy-examples-access-one-bucket")
-- [Tag-based
-  policy examples](#security_iam_id-based-policy-examples-view-widget-tags "#security_iam_id-based-policy-examples-view-widget-tags")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the Lookout for Equipment console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Accessing a single Lookout for Equipment dataset](#security_iam_id-based-policy-examples-access-one-bucket "#security_iam_id-based-policy-examples-access-one-bucket")
+- [Tag-based policy examples](#security_iam_id-based-policy-examples-view-widget-tags "#security_iam_id-based-policy-examples-view-widget-tags")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Amazon Lookout for Equipment resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -66,9 +57,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the Lookout for Equipment
-
-console
+## Using the Lookout for Equipment console
 
 To access the Amazon Lookout for Equipment console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the Amazon Lookout for Equipment resources
@@ -85,9 +74,7 @@ Lookout for Equipment `ConsoleAccess` or `ReadOnly` AWS managed policy to
 the entities. For more information, see [Adding permissions to a user](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the
 _IAM User Guide_.
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -127,16 +114,12 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Accessing a
-
-single Lookout for Equipment dataset
+## Accessing a single Lookout for Equipment dataset
 
 In this example, you grant an IAM user in your AWS account access to an Lookout for Equipment
 dataset.
 
-## Tag-based
-
-policy examples
+## Tag-based policy examples
 
 Tag-based policies are JSON policy documents that specify the actions that a
 principal can perform on tagged resources.

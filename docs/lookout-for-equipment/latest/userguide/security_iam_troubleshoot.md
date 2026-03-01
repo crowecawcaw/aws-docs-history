@@ -4,29 +4,20 @@ able to access the Lookout for Equipment console or resources. For more
 information,
 [see the following](https://aws.amazon.com/blogs/machine-learning/preserve-access-and-explore-alternatives-for-amazon-lookout-for-equipment/ "https://aws.amazon.com/blogs/machine-learning/preserve-access-and-explore-alternatives-for-amazon-lookout-for-equipment/").
 
-# Troubleshooting Amazon Lookout for Equipment identity and
-
-access
+# Troubleshooting Amazon Lookout for Equipment identity and access
 
 Use the following information to help you diagnose and fix common issues that you might
 encounter when working with Amazon Lookout for Equipment and IAM.
 
 ###### Topics
 
-- [I am not authorized to
-  perform an action in Lookout for Equipment](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
-- [I am not authorized to perform
-  iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
-- [I want to view my access
-  keys](#security_iam_troubleshoot-access-keys "#security_iam_troubleshoot-access-keys")
-- [I'm an administrator and want
-  to allow others to access Lookout for Equipment](#security_iam_troubleshoot-admin-delegate "#security_iam_troubleshoot-admin-delegate")
-- [I want to allow people
-  outside of my AWS account to access my Lookout for Equipment resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
+- [I am not authorized to perform an action in Lookout for Equipment](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
+- [I am not authorized to perform iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
+- [I want to view my access keys](#security_iam_troubleshoot-access-keys "#security_iam_troubleshoot-access-keys")
+- [I'm an administrator and want to allow others to access Lookout for Equipment](#security_iam_troubleshoot-admin-delegate "#security_iam_troubleshoot-admin-delegate")
+- [I want to allow people outside of my AWS account to access my Lookout for Equipment resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
 
-## I am not authorized to
-
-perform an action in Lookout for Equipment
+## I am not authorized to perform an action in Lookout for Equipment
 
 If the AWS Management Console tells you that you're not authorized to perform an action, contact
 your administrator for assistance. Your administrator is the person that provided you
@@ -46,9 +37,7 @@ access the dataset using the
 `lookoutequipment:`DescribeDataset``
 action.
 
-## I am not authorized to perform
-
-iam:PassRole
+## I am not authorized to perform iam:PassRole
 
 If you receive an error that you're not authorized to perform the `iam:PassRole` action, your policies must be updated to allow you to pass a role to Amazon Lookout for Equipment.
 
@@ -67,9 +56,7 @@ In this case, Mary's policies must be updated to allow her to perform the `iam:P
 
 If you need help, contact your AWS administrator. Your administrator is the person who provided you with your sign-in credentials.
 
-## I want to view my access
-
-keys
+## I want to view my access keys
 
 After you create your IAM user access keys, you can view your access key ID at any time. However, you can't view your secret access key again.
 If you lose your secret key, you must create a new access key pair.
@@ -88,9 +75,7 @@ is available only at the time you create it. If you lose your secret access key,
 maximum of two access keys. If you already have two, you must delete one key pair before creating a new one. To view instructions, see [Managing access keys](../../../IAM/latest/UserGuide/id_credentials_access-keys.md#Using_CreateAccessKey "../../../IAM/latest/UserGuide/id_credentials_access-keys.md#Using_CreateAccessKey") in the
 _IAM User Guide_.
 
-## I'm an administrator and want
-
-to allow others to access Lookout for Equipment
+## I'm an administrator and want to allow others to access Lookout for Equipment
 
 To allow others to access Amazon Lookout for Equipment, you must grant permission to the people or applications that need access. If you are using AWS IAM Identity Center
 to manage people and applications, you assign permission sets to users or groups to define their level of access. Permission sets automatically create
@@ -101,9 +86,7 @@ a policy to the entity that grants them the correct permissions in Amazon Lookou
 or application developer. They will use those credentials to access AWS. To learn more about creating IAM users, groups, policies, and permissions,
 see [IAM Identities](../../../IAM/latest/UserGuide/id.md "../../../IAM/latest/UserGuide/id.md") and [Policies and permissions in IAM](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserGuide/access_policies.md") in the _IAM User Guide_.
 
-## I want to allow people
-
-outside of my AWS account to access my Lookout for Equipment resources
+## I want to allow people outside of my AWS account to access my Lookout for Equipment resources
 
 You can create a role that users in other accounts or people outside of your organization can use to access your resources. You can specify who
 is trusted to assume the role. For services that support resource-based policies or access control lists (ACLs), you can use those policies to grant

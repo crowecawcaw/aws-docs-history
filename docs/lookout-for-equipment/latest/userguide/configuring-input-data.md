@@ -6,9 +6,7 @@ information,
 
 # Configuring your input data
 
-## Choosing your training and
-
-evaluation settings.
+## Choosing your training and evaluation settings.
 
 You can use Lookout for Equipment to train a model in one of the following ways:
 
@@ -54,9 +52,7 @@ of anomalous behavior. This option may be the most work to set up in the
 short term, but it may lead to a more accurate model in the long
 term.
 
-## Training, evaluating, and
-
-sampling
+## Training, evaluating, and sampling
 
 Now you'll need to decide how to split up your data between the training subset
 and the evaluation subset. The bigger the training set, the more data contributes to
