@@ -2,8 +2,7 @@
 
 ###### Topics
 
-- [Why was I automatically signed out of my
-  AWS DeepRacer Student account?](#sl-troubleshooting-automatic-sign-out "#sl-troubleshooting-automatic-sign-out")
+- [Why was I automatically signed out of my AWS DeepRacer Student account?](#sl-troubleshooting-automatic-sign-out "#sl-troubleshooting-automatic-sign-out")
 - [How do I opt out of the AWS AI & ML Scholarship program?](#sl-troubleshooting-opt-out-scholarship "#sl-troubleshooting-opt-out-scholarship")
 - [I can't delete my AWS DeepRacer Student account](#sl-troubleshooting-account-deletion "#sl-troubleshooting-account-deletion")
 - [I can't find my school name on the dropdown list](#sl-troubleshooting-no-school-name "#sl-troubleshooting-no-school-name")
@@ -11,9 +10,7 @@
 - [I get an "An account is registered with this email" error message](#sl-troubleshooting-email-already-confirmed "#sl-troubleshooting-email-already-confirmed")
 - [I signed up with a Gmail account and can't find my verification code](#sl-troubleshooting-gmail-verification-code "#sl-troubleshooting-gmail-verification-code")
 
-## Why was I automatically signed out of my
-
-AWS DeepRacer Student account?
+## Why was I automatically signed out of my AWS DeepRacer Student account?
 
 In compliance with AWS security policy, you are automatically signed out of your
 AWS DeepRacer Student account after 30 days.

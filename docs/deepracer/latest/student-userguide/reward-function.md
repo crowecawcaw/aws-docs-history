@@ -11,8 +11,7 @@ Crafting an effective reward function is a creative and iterative process. Try d
 ###### Topics
 
 - [Editing Python code to customize your reward function](#edit-reward-function "#edit-reward-function")
-- [Input parameters of the AWS DeepRacer
-  reward function](#deepracer-reward-function-input "#deepracer-reward-function-input")
+- [Input parameters of the AWS DeepRacer reward function](#deepracer-reward-function-input "#deepracer-reward-function-input")
 
 ## Editing Python code to customize your reward function
 
@@ -25,12 +24,9 @@ In AWS DeepRacer Student, you can edit sample reward functions to craft a custom
 3. Select **Validate** to check whether or not your code will work. Alternatively, choose **Reset** to start over.
 4. Once you're done making changes, select **Next**.
 
-Use [Input parameters of the AWS DeepRacer
-reward function](#deepracer-reward-function-input "#deepracer-reward-function-input") to learn about each parameter. See how different parameters are used in reward function examples.
+Use [Input parameters of the AWS DeepRacer reward function](#deepracer-reward-function-input "#deepracer-reward-function-input") to learn about each parameter. See how different parameters are used in reward function examples.
 
-## Input parameters of the AWS DeepRacer
-
-reward function
+## Input parameters of the AWS DeepRacer reward function
 
 The AWS DeepRacer reward function takes a dictionary object passed as the variable, `params`, as the input.
 

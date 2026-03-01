@@ -11,11 +11,9 @@ opt in at a later time when you update your profile.
 - [Prerequisites](#getting-started-prerequisites "#getting-started-prerequisites")
 - [Step 1: Sign up for AWS DeepRacer Student](#getting-started-step1 "#getting-started-step1")
 - [Step 2: Complete sign-up for AWS DeepRacer Student](#getting-started-step2 "#getting-started-step2")
-- [Step 3: (Optional) Read about and opt in to AWS AI & ML Scholarship
-  consideration](#getting-started-step3 "#getting-started-step3")
+- [Step 3: (Optional) Read about and opt in to AWS AI & ML Scholarship consideration](#getting-started-step3 "#getting-started-step3")
 - [Step 4: Update your profile](#getting-started-step4 "#getting-started-step4")
-- [Step 5: Explore AWS DeepRacer Student from the
-  Home page](#getting-started-step5 "#getting-started-step5")
+- [Step 5: Explore AWS DeepRacer Student from the Home page](#getting-started-step5 "#getting-started-step5")
 
 ## Prerequisites
 
@@ -78,9 +76,7 @@ If you are a high school student, do the following:
     * For **Current or prospective major,** choose
      **Undecided** or choose a possible prospective major from the list.
 
-## Step 3: (Optional) Read about and opt in to AWS AI & ML Scholarship
-
-consideration
+## Step 3: (Optional) Read about and opt in to AWS AI & ML Scholarship consideration
 
 Read the information about the AWS AI & ML Scholarship and for whom it is intended in the **Do
 you want to be considered for the AWS AI & ML Scholarship program?** section.
@@ -132,9 +128,7 @@ don't want to change your racer name, choose **Cancel**. 4. In the **Your profil
    2. (Optional) Enter your information in the **Choose gender** and **Choose race** fields.
    3. Choose **Submit**.
 
-## Step 5: Explore AWS DeepRacer Student from the
-
-**Home** page
+## Step 5: Explore AWS DeepRacer Student from the **Home** page
 
 The AWS DeepRacer Student **Home** page is the perfect place to start your
 exploration of all that AWS DeepRacer Student has to offer. From the **Home** page, you can do the

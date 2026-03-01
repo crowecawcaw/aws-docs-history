@@ -5,8 +5,7 @@ Launching as part of AWS DeepRacer Student, the AWS AI & ML Scholarship program 
 This scholarship is focused on people who are underserved and underrepresented in tech.
 Applicants must be at least 16 years old, and currently enrolled in high school, university,
 or community colleges. For more details about how you prequalify,
-see [How do I sign up and prequalify for the AWS AI & ML Scholarship
-program?](#scholarship-details "#scholarship-details")
+see [How do I sign up and prequalify for the AWS AI & ML Scholarship program?](#scholarship-details "#scholarship-details")
 
 Participation in the AWS AI & ML Scholarship program is free.
 
@@ -44,9 +43,7 @@ Generative AI with AWS_, co-created by AWS and Udacity. The month-long course is
 further upskill in the field of generative AI. The course is available to all students who submit an application for the scholarship, whereas
 the Nanodegree scholarship is only available to scholarship recipients.
 
-## How do I sign up and prequalify for the AWS AI & ML Scholarship
-
-program?
+## How do I sign up and prequalify for the AWS AI & ML Scholarship program?
 
 The AWS AI & ML Scholarship program is intended for underserved and underrepresented students who are
 16 years or older. Underrepresented and underserved students include (but are not limited to)
@@ -82,10 +79,7 @@ scholarship. To be considered for the scholarship, students need to fill out the
 steps to enroll in the optional _Introducing Generative AI with AWS_ course offered to all applicants. Udacity contacts
 applicants who are selected to receive a Udacity Nanodegree scholarship.
 
-## Frequently asked questions (FAQs) about the AWS AI & ML Scholarship
-
-program and the Udacity
-platform
+## Frequently asked questions (FAQs) about the AWS AI & ML Scholarship program and the Udacity platform
 
 ###### What are the official AWS AI & ML Scholarship terms and conditions?
 
@@ -107,17 +101,13 @@ learning and career skills.
 No. Students who prequalify for the AWS AI & ML Scholarship are given access to the application for the Udacity Nanodegree
 scholarship. Udacity determines which prequalified students are awarded Udacity Nanodegree scholarships.
 
-###### Am I required to provide proof of enrollment before being selected for the
-
-AWS AI & ML Scholarship?
+###### Am I required to provide proof of enrollment before being selected for the AWS AI & ML Scholarship?
 
 You might be asked to provide proof of enrollment (such as a college transcript)
 to receive the
 AWS AI & ML Scholarship.
 
-###### How do I indicate that I am currently enrolled in high school when applying for
-
-the AWS AI & ML Scholarship program?
+###### How do I indicate that I am currently enrolled in high school when applying for the AWS AI & ML Scholarship program?
 
 To indicate that you are enrolled in high school, see [Step 4: Update your profile](getting-started.md#getting-started-step4 "getting-started.md#getting-started-step4") in the _AWS DeepRacer Student User Guide_.
 

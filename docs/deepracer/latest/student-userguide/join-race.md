@@ -10,9 +10,7 @@ A _student league race_ is a monthly virtual competition that all students can j
 This section discusses how to
 participate in an AWS DeepRacer Student student league race and student community race.
 
-## Join a
-
-student league race
+## Join a student league race
 
 In this section, learn how to submit your model to
 an AWS DeepRacer Student student league race. You can join a race every month by submitting a trained model directly to a student leaderboard. For more information about training models, see [Training a reinforcement learning model in AWS DeepRacer Student](train-model.md "train-model.md").
@@ -33,9 +31,7 @@ an AWS DeepRacer Student student league race. You can join a race every month by
    performance.
 7. Choose **Race again** to enter another model. The submission quota for each AWS DeepRacer Student League race is 50.
 
-## Join a
-
-student community race
+## Join a student community race
 
 In this section, learn how to submit your model to
 an AWS DeepRacer Student student community race. You can join the student community race by receiving an invitation link from your educator or event organizer through email.
