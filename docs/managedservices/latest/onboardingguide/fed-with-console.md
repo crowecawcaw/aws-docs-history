@@ -11,7 +11,7 @@ and stacks.
 | customer_managed_ad_user_role | SAML              | For AMS Managed Active Directory accounts. Allows you to login to the AMS Console to create service requests and incidents (no RFCs).                 |
 
 For the full list of the roles available under different accounts see
-[IAM user role in AMS](defaults-user-role.md "defaults-user-role.md") .
+[IAM user role in AMS](defaults-user-role.md "defaults-user-role.md").
 
 A member of the onboarding team uploads the metadata file from your federation solution to the pre-configured identity provider.
 You use a SAML identity provider when you want to establish trust between a SAML-compatible IdP (identity provider) such as Shibboleth or

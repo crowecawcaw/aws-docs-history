@@ -3,9 +3,7 @@
 After you are set up with AD FS, and have the AMS URL to use for authentication, you
 can perform the following procedure.
 
-###### With an Active Directory Federated Service (AD FS) configuration, you can follow
-
-these steps:
+###### With an Active Directory Federated Service (AD FS) configuration, you can follow these steps:
 
 1. Open a browser window and go to the sign in page provided to you for your account.
    The **AD FS IdpInitiatedSignOn** page for your account opens.

@@ -11,5 +11,4 @@ For detailed information on integrating SAML for API access, refer to this AWS b
 ###### Note
 
 For an example that installs the AMS CLI and SAML, see
-[Appendix: ActiveDirectory Federation Services (ADFS) claim rule and
-SAML settings](apx-adfs-claim-rule-saml.md "apx-adfs-claim-rule-saml.md").
+[Appendix: ActiveDirectory Federation Services (ADFS) claim rule and SAML settings](apx-adfs-claim-rule-saml.md "apx-adfs-claim-rule-saml.md").

@@ -1,8 +1,7 @@
 # Install the AMS CLIs
 
 For an example of installing the AWS Managed Services (AMS) CLI to use with SAML, see
-[Appendix: ActiveDirectory Federation Services (ADFS) claim rule and
-SAML settings](apx-adfs-claim-rule-saml.md "apx-adfs-claim-rule-saml.md").
+[Appendix: ActiveDirectory Federation Services (ADFS) claim rule and SAML settings](apx-adfs-claim-rule-saml.md "apx-adfs-claim-rule-saml.md").
 
 If you need temporary access, in order to get and install the AWS Managed Services (AMS) SDKs, see
 [Temporary AMS console access](../userguide/access-console-temp.md "../userguide/access-console-temp.md").

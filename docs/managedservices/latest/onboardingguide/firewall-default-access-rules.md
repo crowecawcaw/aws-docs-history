@@ -11,13 +11,12 @@ going to the AWS Artifact console -> Reports tab and search for AWS Managed Serv
 
 These rules are required for your authentication into AMS Linux stacks.
 
-Linux Instance Ports Rules FROM: Linux Stack Instance TO: CORP Domain
-Controller| Port | Protocol | Service | Direction |
-| --- | --- | --- | --- |
-| 389 | TCP | LDAP | Ingress |
-| 389 | UDP | LDAP | Ingress |
-| 88 | TCP | Kerberos | Ingress |
-| 88 | UDP | Kerberos | Ingress |
+| Linux Instance Ports Rules FROM: Linux Stack Instance TO: CORP Domain Controller | Port | Protocol | Service | Direction |
+| -------------------------------------------------------------------------------- | ---- | -------- | ------- | --------- |
+| 389                                                                              | TCP  | LDAP     | Ingress |
+| 389                                                                              | UDP  | LDAP     | Ingress |
+| 88                                                                               | TCP  | Kerberos | Ingress |
+| 88                                                                               | UDP  | Kerberos | Ingress |
 
 ## Windows Stack Instance Ports
 
