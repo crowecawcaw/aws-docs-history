@@ -1,6 +1,4 @@
-# Creating a profile from
-
-scratch
+# Creating a profile from scratch
 
 ###### Topics
 
@@ -66,15 +64,12 @@ encodes, you must create two profiles.
 
         + If you do not want to specify the input source in the profile,
          you can specify a “channel parameter” as a placeholder that you
-         replace with real information when you create the channel. See [Working with
-         channel parameters in a profile](creating-a-profile-with-channel-parameters.md "creating-a-profile-with-channel-parameters.md").
+         replace with real information when you create the channel. See [Working with channel parameters in a profile](creating-a-profile-with-channel-parameters.md "creating-a-profile-with-channel-parameters.md").
 
 
-        + If your input is an SDI Direct Input, see [Use case:
-         Using SDI direct input in a profile and channel](using-sdi-direct-input-in-a-profile-and-channel.md "using-sdi-direct-input-in-a-profile-and-channel.md") for
+        + If your input is an SDI Direct Input, see [Use case: Using SDI direct input in a profile and channel](using-sdi-direct-input-in-a-profile-and-channel.md "using-sdi-direct-input-in-a-profile-and-channel.md") for
          important information.
-        + If your input is an SDI Router Input, see [Use case:
-         Using SDI router input in a profile and channel](using-sdi-router-input-in-a-profile-and-channel.md "using-sdi-router-input-in-a-profile-and-channel.md") for
+        + If your input is an SDI Router Input, see [Use case: Using SDI router input in a profile and channel](using-sdi-router-input-in-a-profile-and-channel.md "using-sdi-router-input-in-a-profile-and-channel.md") for
          important information.
 
     - **Output Group**: A channel must always contain at

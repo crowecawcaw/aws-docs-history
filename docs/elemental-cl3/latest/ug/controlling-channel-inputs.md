@@ -1,6 +1,4 @@
-# Controlling
-
-channels
+# Controlling channels
 
 When a channel is running, you can control its behaviour from the
 Conductor Live web interface in several ways. These features work in the same

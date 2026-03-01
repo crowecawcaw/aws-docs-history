@@ -1,6 +1,4 @@
-# Step 2. Add
-
-channels to the MPTS
+# Step 2. Add channels to the MPTS
 
 After you create the MPTS, you must add channels. The [channels must already
 exist](resource_channel.md "resource_channel.md").
@@ -36,15 +34,12 @@ channel must have these characteristics:
    information about the significant fields, see the sections
    after this procedure.
 7. Choose **Save**.
-   The MPTS is now ready to start. See [Starting or stopping an
-   MPTS](starting-an-mpts-output.md "starting-an-mpts-output.md").
+   The MPTS is now ready to start. See [Starting or stopping an MPTS](starting-an-mpts-output.md "starting-an-mpts-output.md").
 
 ###### Topics
 
 - [Basic tab](mpts-channel-tab-basic.md "mpts-channel-tab-basic.md")
 - [PID Controls tab](mpts-channel-tab-pid.md "mpts-channel-tab-pid.md")
 - [TS Endpoints tab](mpts-channel-tab-ts.md "mpts-channel-tab-ts.md")
-- [Complexity
-  Endpoints tab](mpts-channel-tab-complexity.md "mpts-channel-tab-complexity.md")
-- [RateAllocation
-  Endpoints tab](mpts-channel-tab-allocation.md "mpts-channel-tab-allocation.md")
+- [Complexity Endpoints tab](mpts-channel-tab-complexity.md "mpts-channel-tab-complexity.md")
+- [RateAllocation Endpoints tab](mpts-channel-tab-allocation.md "mpts-channel-tab-allocation.md")

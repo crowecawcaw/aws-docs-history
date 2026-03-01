@@ -11,8 +11,7 @@ The **Details** page for the MPTS appear.
 MPTS**
 
 You can change any of the fields on this tab even if the MPTS is
-running. For information on the fields, see [Creating a standard
-MPTS](setting-up-mpts-outputs.md "setting-up-mpts-outputs.md"). The change takes effect
+running. For information on the fields, see [Creating a standard MPTS](setting-up-mpts-outputs.md "setting-up-mpts-outputs.md"). The change takes effect
 immediately. For example, if you change the transport stream bitrate,
 the muxer starts using the new value immediately.
 

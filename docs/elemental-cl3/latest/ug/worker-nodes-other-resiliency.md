@@ -1,22 +1,15 @@
-# Resiliency features
-
-in Elemental Statmux
+# Resiliency features in Elemental Statmux
 
 Elemental Statmux includes two features that provide resiliency for Elemental Statmux –
 output listening and output redundancy.
 
 ###### Topics
 
-- [Output listening in
-  Elemental Statmux](#es-resiliency-opl "#es-resiliency-opl")
-- [Output redundancy in
-  Elemental Statmux](#es-resiliency-opr "#es-resiliency-opr")
-- [Output listening
-  combined with output redundancy](#es-resiliency-opl-opr "#es-resiliency-opl-opr")
+- [Output listening in Elemental Statmux](#es-resiliency-opl "#es-resiliency-opl")
+- [Output redundancy in Elemental Statmux](#es-resiliency-opr "#es-resiliency-opr")
+- [Output listening combined with output redundancy](#es-resiliency-opl-opr "#es-resiliency-opl-opr")
 
-## Output listening in
-
-Elemental Statmux
+## Output listening in Elemental Statmux
 
 If your MPTS is on a node that is in a 1:1 (or 1:1 Plus)
 redundancy group, you can set up the MPTS for output listening.
@@ -59,9 +52,7 @@ is not delivering, and it automatically starts to deliver to the
 same destination. The secondary MPTS is already muxing, so there
 is minimal disruption in delivery.
 
-## Output redundancy in
-
-Elemental Statmux
+## Output redundancy in Elemental Statmux
 
 You can set up the MPTS with two destinations. Elemental Statmux delivers
 the MPTS to two different addresses.
@@ -118,9 +109,7 @@ The following diagram illustrates the setup where there is
 
 ![Diagram showing two Statmux nodes (MPTS1 and MPTS2) with multiple outputs connecting to devices.](images/sm_resil_opr_1-1.png)
 
-## Output listening
-
-combined with output redundancy
+## Output listening combined with output redundancy
 
 If your MPTS is on a node that is in a 1:1 (or 1:1 Plus)
 redundancy group, you can combine output listening and output

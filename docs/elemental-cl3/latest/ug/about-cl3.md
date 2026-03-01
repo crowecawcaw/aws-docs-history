@@ -24,8 +24,7 @@ For this scenario, the cluster includes Conductor Live and Elemental Live nodes.
 ###### Topics
 
 - [General information](cl3-general.md "cl3-general.md")
-- [Software
-  versions](cl3-software-versions.md "cl3-software-versions.md")
+- [Software versions](cl3-software-versions.md "cl3-software-versions.md")
 - [Licenses](cl3-software-licenses.md "cl3-software-licenses.md")
 - [Centralized management](centralized-management.md "centralized-management.md")
 - [Redundancy and failover](redundancy-and-failover.md "redundancy-and-failover.md")

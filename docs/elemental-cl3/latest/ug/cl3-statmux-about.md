@@ -13,6 +13,5 @@ Conductor Live.
 
 ###### Topics
 
-- [Components of
-  AWS Elemental Statmux in a cluster](smux-cluster-usage-components.md "smux-cluster-usage-components.md")
+- [Components of AWS Elemental Statmux in a cluster](smux-cluster-usage-components.md "smux-cluster-usage-components.md")
 - [Features of AWS Elemental Statmux](cl3-statmux-features.md "cl3-statmux-features.md")

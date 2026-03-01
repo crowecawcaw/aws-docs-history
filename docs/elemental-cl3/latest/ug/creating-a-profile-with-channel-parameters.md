@@ -1,6 +1,4 @@
-# Working with
-
-channel parameters in a profile
+# Working with channel parameters in a profile
 
 You can create an AWS Elemental Live profile in which some fields have values that are variable rather
 than absolute. Then when you create a channel using that profile, you assign real values to those
@@ -21,9 +19,6 @@ profiles using the REST API.
 
 - [Rules for channel parameters](create-profile-rules.md "create-profile-rules.md")
 - [The procedure](create-profile-procedure.md "create-profile-procedure.md")
-- [Planning ahead for bulk
-  changes](profile-channel-params-plan-ahead.md "profile-channel-params-plan-ahead.md")
-- [Use case:
-  Using SDI direct input in a profile and channel](using-sdi-direct-input-in-a-profile-and-channel.md "using-sdi-direct-input-in-a-profile-and-channel.md")
-- [Use case:
-  Using SDI router input in a profile and channel](using-sdi-router-input-in-a-profile-and-channel.md "using-sdi-router-input-in-a-profile-and-channel.md")
+- [Planning ahead for bulk changes](profile-channel-params-plan-ahead.md "profile-channel-params-plan-ahead.md")
+- [Use case: Using SDI direct input in a profile and channel](using-sdi-direct-input-in-a-profile-and-channel.md "using-sdi-direct-input-in-a-profile-and-channel.md")
+- [Use case: Using SDI router input in a profile and channel](using-sdi-router-input-in-a-profile-and-channel.md "using-sdi-router-input-in-a-profile-and-channel.md")

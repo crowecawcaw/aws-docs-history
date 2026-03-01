@@ -41,5 +41,4 @@ to configure it.
 
 - [N-to-M redundancy](redundancy-n-m.md "redundancy-n-m.md")
 - [1-to-1 redundancy](redundancy-11.md "redundancy-11.md")
-- [1-to-1 Plus
-  redundancy](redundancy-11-plus.md "redundancy-11-plus.md")
+- [1-to-1 Plus redundancy](redundancy-11-plus.md "redundancy-11-plus.md")

@@ -1,6 +1,4 @@
-# Including passthrough
-
-programs
+# Including passthrough programs
 
 In any MPTS, you can include any number of *passthrough program*s. A passthrough program is a
 source program that doesn't come from an Elemental Live node that is in the
@@ -42,8 +40,7 @@ rules apply:
   that valid PIDs are assigned throughout the MPTS.
 
 For detailed instructions about adding a passthrough program, see
-[Including passthrough
-programs in an MPTS](crud-mpts-passthrough-programs.md "crud-mpts-passthrough-programs.md").
+[Including passthrough programs in an MPTS](crud-mpts-passthrough-programs.md "crud-mpts-passthrough-programs.md").
 
 **Handling by Elemental Statmux**
 

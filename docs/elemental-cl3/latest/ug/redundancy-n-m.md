@@ -16,9 +16,7 @@ nodes.
 
 ![Diagram showing one active node and two backup nodes in a redundancy group configuration.](images/live_resil_node_nm.png)
 
-## What happens in a
-
-failure
+## What happens in a failure
 
 If an active Elemental Live node fails, Conductor Live automatically moves
 both the active and idle channels to a backup node, then

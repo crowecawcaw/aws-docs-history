@@ -1,6 +1,4 @@
-# Changing the profile used by
-
-multiple channels
+# Changing the profile used by multiple channels
 
 You can use the **Tasks** feature to change the profile so that several
 channels can use it. You can also change associations between channels and profiles so that each
@@ -70,9 +68,7 @@ following:
     * Then choose **Run Pending Actions**. Bulk Change #1 runs. As soon as
      it has finished, Bulk Change #2 runs.
 
-## Step B. Monitor the status of the
-
-task
+## Step B. Monitor the status of the task
 
 When you run **Process Now** to run the task, you can monitor the status
 of each modify action in the task.

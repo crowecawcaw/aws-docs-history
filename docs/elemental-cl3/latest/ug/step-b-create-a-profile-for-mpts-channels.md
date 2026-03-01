@@ -1,6 +1,4 @@
-# Creating a
-
-profile for an SPTS channel
+# Creating a profile for an SPTS channel
 
 An SPTS channel is a channel that you plan to use in an MPTS that you will run on
 AWS Elemental Statmux.

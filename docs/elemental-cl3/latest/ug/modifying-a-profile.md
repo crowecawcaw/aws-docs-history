@@ -17,5 +17,4 @@ the following steps.
    - If you duplicated a profile that is being used by one or more channels, remember to
      associate the channels with the new profile. Then delete the unused profile.
      - To change the association for only one channel, see [Modifying a channel](modifying-a-channel.md "modifying-a-channel.md").
-     - To change the association for several channels that use this profile, see [Changing the profile used by
-       multiple channels](changing-the-profile-used-by-multiple-channels.md "changing-the-profile-used-by-multiple-channels.md").
+     - To change the association for several channels that use this profile, see [Changing the profile used by multiple channels](changing-the-profile-used-by-multiple-channels.md "changing-the-profile-used-by-multiple-channels.md").

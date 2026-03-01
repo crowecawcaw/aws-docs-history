@@ -1,6 +1,4 @@
-# Passing through SI/PSI
-
-tables
+# Passing through SI/PSI tables
 
 You can pass through any stream from a source TS to the output
 MPTS. You can pass through any number of streams.
@@ -42,8 +40,7 @@ stream:
      MPTS.
 
 For detailed instructions about passing through a stream,
-see [Including passthrough
-streams in an MPTS](crud-mpts-pasthrough-streams.md "crud-mpts-pasthrough-streams.md").
+see [Including passthrough streams in an MPTS](crud-mpts-pasthrough-streams.md "crud-mpts-pasthrough-streams.md").
 
 - You might want to suppress some or all of the tables that
   Elemental Statmux usually generates.
@@ -59,8 +56,7 @@ streams in an MPTS](crud-mpts-pasthrough-streams.md "crud-mpts-pasthrough-stream
        PAT.
 
   For detailed instructions about suppressing table
-  generation, see [Advanced tab –
-  Suppressing generation of SI/PSI tables](step-create-mpts-tab-advanced.md "step-create-mpts-tab-advanced.md").
+  generation, see [Advanced tab – Suppressing generation of SI/PSI tables](step-create-mpts-tab-advanced.md "step-create-mpts-tab-advanced.md").
   **Handling by Elemental Statmux**
 
 When passing through this type of stream, Elemental Statmux reads the PID of

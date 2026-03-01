@@ -1,6 +1,4 @@
-# Use case:
-
-Using SDI direct input in a profile and channel
+# Use case: Using SDI direct input in a profile and channel
 
 You might want to specify an SDI direct input in your profile and
 channel. When you choose this type of input, two supplementary fields
@@ -11,8 +9,7 @@ The **Device ID** field must be set up as a channel
 parameter. You can't enter a real ID.
 
 To set up this field, follow this procedure. This procedure assumes
-that you have already read [Working with
-channel parameters in a profile](creating-a-profile-with-channel-parameters.md "creating-a-profile-with-channel-parameters.md").
+that you have already read [Working with channel parameters in a profile](creating-a-profile-with-channel-parameters.md "creating-a-profile-with-channel-parameters.md").
 
 1. When you create the profile, complete the following fields in this
    way:
@@ -20,8 +17,7 @@ channel parameters in a profile](creating-a-profile-with-channel-parameters.md "
      Input**.
 
    - **Device ID**: For the value, create a channel
-     parameter as described in the section [Working with
-     channel parameters in a profile](creating-a-profile-with-channel-parameters.md "creating-a-profile-with-channel-parameters.md").
+     parameter as described in the section [Working with channel parameters in a profile](creating-a-profile-with-channel-parameters.md "creating-a-profile-with-channel-parameters.md").
 
    Assign any name, but do not create a name consisting only of a
    number. For example, create a channel parameter with the name

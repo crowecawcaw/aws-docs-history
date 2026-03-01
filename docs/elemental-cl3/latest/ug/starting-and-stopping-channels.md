@@ -1,10 +1,6 @@
-# Starting and stopping
+# Starting and stopping a channel
 
-a channel
-
-## Starting and
-
-stopping one channel
+## Starting and stopping one channel
 
 On the Conductor Live main menu, choose **Channels**. Then
 choose the green **Start** button to the right of
@@ -16,13 +12,9 @@ point at which it was stopped on the Conductor Live web interface. When the
 channel stops on the Conductor Live web interface, it also stops and is
 archived on the AWS Elemental Live web interface.
 
-## Starting or
+## Starting or stopping several channels at one time
 
-stopping several channels at one time
-
-### Step A. Create the
-
-task
+### Step A. Create the task
 
 You can use the Tasks feature to start or stop several
 channels at once.
@@ -59,9 +51,7 @@ Don't use **Save for Later** and
 then delay process the task in a few hours. Doing so
 might create undesired consequences.
 
-### Step
-
-B. Monitor the status of the task
+### Step B. Monitor the status of the task
 
 When you choose **Process Now** to run the task, you can monitor
 the status of each stop or start in the task.

@@ -1,6 +1,4 @@
-# Creating a standard
-
-MPTS
+# Creating a standard MPTS
 
 This section describes how to create a standard MPTS. A standard
 MPTS is one where each STPS programs comes from a channel that is
@@ -22,16 +20,11 @@ This section assumes the following:
 
 ###### Topics
 
-- [Step 1: Create the
-  profiles and SPTS channels](#mpts-design-channel "#mpts-design-channel")
-- [Step 2: Create the MPTS and
-  add channels](#mpts-design-create "#mpts-design-create")
-- [Handling by
-  Elemental Statmux](#mpts-design-handling "#mpts-design-handling")
+- [Step 1: Create the profiles and SPTS channels](#mpts-design-channel "#mpts-design-channel")
+- [Step 2: Create the MPTS and add channels](#mpts-design-create "#mpts-design-create")
+- [Handling by Elemental Statmux](#mpts-design-handling "#mpts-design-handling")
 
-## Step 1: Create the
-
-profiles and SPTS channels
+## Step 1: Create the profiles and SPTS channels
 
 You perform these steps in Conductor Live. You don't perform them on
 Elemental Live.
@@ -62,8 +55,7 @@ Elemental Live.
 
     - Identify fields in the profile that you must
       set up as profile parameters. For more
-      information about profile parameters, see [Working with
-      channel parameters in a profile](creating-a-profile-with-channel-parameters.md "creating-a-profile-with-channel-parameters.md").
+      information about profile parameters, see [Working with channel parameters in a profile](creating-a-profile-with-channel-parameters.md "creating-a-profile-with-channel-parameters.md").
 
 2.  As part of the design of the _MPTS_ output (in the UDP/TS output
     group), consider the following:
@@ -90,8 +82,7 @@ Elemental Live.
     PAT. It creates other tables according to the channel
     instructions.
 
-3.  Create the profile. For more information, see [Creating a profile from
-    scratch](creating-a-profile-from-scratch.md "creating-a-profile-from-scratch.md").
+3.  Create the profile. For more information, see [Creating a profile from scratch](creating-a-profile-from-scratch.md "creating-a-profile-from-scratch.md").
 4.  Create the channels for all the profiles that you have
     created. Create the channel in the way that you create
     any channel using Conductor Live. You can create the channel
@@ -122,12 +113,9 @@ channels:
 
 ![Diagram showing channel A with HLS, Archive, and Statmux outputs, plus Elemental Statmux node.](images/Channel-several-outputs.png)
 
-## Step 2: Create the MPTS and
+## Step 2: Create the MPTS and add channels
 
-add channels
-
-Create an MPTS. To create the MPTS, see [Creating a standard
-MPTS](setting-up-mpts-outputs.md "setting-up-mpts-outputs.md"). The MPTS appears in the
+Create an MPTS. To create the MPTS, see [Creating a standard MPTS](setting-up-mpts-outputs.md "setting-up-mpts-outputs.md"). The MPTS appears in the
 list of MPTSes.
 
 Then [add channels](step-d-add-channels-to-the-mpts-output.md "step-d-add-channels-to-the-mpts-output.md") (SPTS programs) to the MPTS. Specify a
@@ -148,9 +136,7 @@ For much of this information, if you don't specify values,
 Elemental Statmux automatically assigns values when you save the MPTS. Elemental Statmux
 ensures that valid PIDs are assigned throughout the MPTS.
 
-## Handling by
-
-Elemental Statmux
+## Handling by Elemental Statmux
 
 When Elemental Statmux ingests each SPTS program, it handles the data as
 follows:

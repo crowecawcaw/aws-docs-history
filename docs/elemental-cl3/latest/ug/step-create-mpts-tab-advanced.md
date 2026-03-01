@@ -1,11 +1,8 @@
-# Advanced tab –
-
-Suppressing generation of SI/PSI tables
+# Advanced tab – Suppressing generation of SI/PSI tables
 
 Many of the fields on this tab let you control generation of all the
 SI/PSI tables that Elemental Statmux can generate. For guidance for disabling
-generation of these tables, see [Passing through SI/PSI
-tables](mpts-passthrough-PSI-pids.md "mpts-passthrough-PSI-pids.md").
+generation of these tables, see [Passing through SI/PSI tables](mpts-passthrough-PSI-pids.md "mpts-passthrough-PSI-pids.md").
 
 | Field                              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

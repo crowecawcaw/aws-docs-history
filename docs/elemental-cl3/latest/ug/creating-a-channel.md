@@ -29,5 +29,4 @@
    —Elemental Live will use the default interface.
 
 5. Choose **Save**. The channel is created. If you specified all the
-   parameters, then the channel is ready to run: see [Starting and stopping
-   a channel](starting-and-stopping-channels.md "starting-and-stopping-channels.md").
+   parameters, then the channel is ready to run: see [Starting and stopping a channel](starting-and-stopping-channels.md "starting-and-stopping-channels.md").

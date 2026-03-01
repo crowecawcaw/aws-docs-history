@@ -9,7 +9,5 @@ when you run Elemental Live in stand-alone mode:
 
 ###### Topics
 
-- [Components of Elemental Live in a
-  cluster](el-cluster-usage-components.md "el-cluster-usage-components.md")
-- [Comparison of
-  profiles](comparison-of-profiles-in-cl3-vs-live.md "comparison-of-profiles-in-cl3-vs-live.md")
+- [Components of Elemental Live in a cluster](el-cluster-usage-components.md "el-cluster-usage-components.md")
+- [Comparison of profiles](comparison-of-profiles-in-cl3-vs-live.md "comparison-of-profiles-in-cl3-vs-live.md")

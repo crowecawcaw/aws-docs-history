@@ -1,6 +1,4 @@
-# Organizing redundancy
-
-groups in the cluster
+# Organizing redundancy groups in the cluster
 
 These rules and guidelines apply to organizing multiple redundancy
 groups in the cluster.

@@ -1,6 +1,4 @@
-# Step 1: Create the
-
-MPTS
+# Step 1: Create the MPTS
 
 ###### To create an MPTS
 

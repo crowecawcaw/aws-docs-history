@@ -1,14 +1,10 @@
-# Displaying the Conductor Live web
-
-interface
+# Displaying the Conductor Live web interface
 
 You create ECL3; encoding workflow by creating profiles and channels. When you are
 ready, you then start the channel. When your Elemental Live nodes are in a cluster, you should use
 AWS Elemental Conductor Live to create the Elemental Live encoding workflow.
 
-## Displaying the web
-
-interface
+## Displaying the web interface
 
 1. Obtain the following information from the person who configured the
    Conductor Live cluster:
@@ -52,9 +48,7 @@ menu items:
   (such as network cards) on the Conductor Live node, and configure the Conductor Live
   software.
 
-## Viewing Conductor Live
-
-configuration information
+## Viewing Conductor Live configuration information
 
 On the Conductor Live web interface, choose the **Globe** icon
 at the top right of the page. A drop-down menu appears showing system

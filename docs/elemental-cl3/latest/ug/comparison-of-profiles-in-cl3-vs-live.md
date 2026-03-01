@@ -1,6 +1,4 @@
-# Comparison of
-
-profiles
+# Comparison of profiles
 
 The way that channels (which you create using Conductor Live) and events (which
 you create using Elemental Live) use their profiles is different. The way that

@@ -1,11 +1,8 @@
-# Including passthrough
-
-programs in an MPTS
+# Including passthrough programs in an MPTS
 
 Read this section if you want to include passthrough programs in the
 MPTS. For guidelines and rules about including these programs in an
-MPTS, see [Including passthrough
-programs](mpts-passthrough-program.md "mpts-passthrough-program.md").
+MPTS, see [Including passthrough programs](mpts-passthrough-program.md "mpts-passthrough-program.md").
 
 To pass through a program, you instruct Elemental Statmux to extract a specific
 program from a _source MPTS_ that is

@@ -1,6 +1,4 @@
-# Passing through custom
-
-streams
+# Passing through custom streams
 
 You can passthrough any stream from a source TS to the output
 MPTS. You can pass through any number of streams.
@@ -27,8 +25,7 @@ You must specify the following information for the stream:
   location.
 - The PID to assign to this stream in the output MPTS.
   For detailed instructions about passing through a stream, see
-  [Including passthrough
-  streams in an MPTS](crud-mpts-pasthrough-streams.md "crud-mpts-pasthrough-streams.md").
+  [Including passthrough streams in an MPTS](crud-mpts-pasthrough-streams.md "crud-mpts-pasthrough-streams.md").
 
 **Handling by Elemental Statmux**
 

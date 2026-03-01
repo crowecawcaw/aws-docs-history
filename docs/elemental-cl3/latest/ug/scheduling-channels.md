@@ -1,6 +1,4 @@
-# Starting channels using a
-
-schedule
+# Starting channels using a schedule
 
 You can schedule channels to run once or repeatedly, and for a
 specified duration. Schedules must be at least 60 seconds in duration,
@@ -26,14 +24,11 @@ with at least one minute between scheduled runs.
 5. Choose **Enable**. The channel will run as
    specified.
 
-See also [View active
-schedules](#view-active-schedules "#view-active-schedules").
+See also [View active schedules](#view-active-schedules "#view-active-schedules").
 
 ## The procedure
 
-## View active
-
-schedules
+## View active schedules
 
 After you have enabled at least one schedule, choose
 **All Active Schedules** to see a calendar view

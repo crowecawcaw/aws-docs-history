@@ -8,9 +8,7 @@ yourself if, you have one AWS Elemental Conductor Live node, one AWS Elemental S
 you have at least two sources that can be set up as inputs into Elemental Live, and if you have a
 multicast address where you can send an MPTS output.
 
-## Assumptions about
-
-existing knowledge
+## Assumptions about existing knowledge
 
 We assume the following:
 
@@ -26,9 +24,7 @@ We assume the following:
   familiar with how to create MPTSes using Conductor
   Live and Elemental Statmux.
 
-## Step 1: Check
-
-your cluster and redundant nodes
+## Step 1: Check your cluster and redundant nodes
 
 We're not going to show you how to create the cluster. Assume
 you've already set up the following:
@@ -139,9 +135,7 @@ is set up in this way:
 After you've read this tutorial, you can get more information
 about [redundancy](cl3-resiliency.md "cl3-resiliency.md").
 
-## Step 2: Create the
-
-profiles
+## Step 2: Create the profiles
 
 You must create the profiles that you require for the SPTS
 channels that will produce the output from Elemental Live.
@@ -186,9 +180,7 @@ Under the **Channels** column, the profile
 displays 0 0. This indicates that the profile is not yet being used
 by any channels.
 
-## Step 3: Create the SPTS
-
-channels
+## Step 3: Create the SPTS channels
 
 You must create the SPTS channels that produce the SPTS outputs.
 In the Conductor Live main menu, choose Channels to display the
@@ -222,9 +214,7 @@ profile that you created now displays **0 2**, to
 indicate that the profile is being used by two channels but none of
 the channels is active.
 
-## Step 4: Create the
-
-MPTS
+## Step 4: Create the MPTS
 
 You are now ready to create the MPTS. You set up this MPTS to
 include the two channels that you created.
@@ -301,9 +291,7 @@ After you've finished this tutorial, you can get more information
 about [Elemental Statmux node
 redundancy](redundancy-worker.md "redundancy-worker.md").
 
-## Step 5: Add programs
-
-to the MPTS
+## Step 5: Add programs to the MPTS
 
 After you create the MPTS, it has no programs in it. You must add
 programs before you can run the MPTS.
@@ -356,9 +344,7 @@ The other tabs display information that Conductor Live
 automatically assigns. Typically, there is no need to change these
 values.
 
-## Step 6: Start the
-
-MPTS
+## Step 6: Start the MPTS
 
 There are two steps to starting the MPTS: start all the channels,
 then start the MPTS. You should start processing in this order so

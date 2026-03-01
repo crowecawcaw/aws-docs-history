@@ -1,6 +1,4 @@
-# 1-to-1 Plus
-
-redundancy
+# 1-to-1 Plus redundancy
 
 ## Setup
 
@@ -22,9 +20,7 @@ groups.
 
 ![Diagram showing two live active nodes and one live backup node in a redundancy group.](images/Live_resil_node_1-1plus.png)
 
-## What happens in
-
-a failure
+## What happens in a failure
 
 If one of the nodes fails, the other node continues to
 process the content. There is a delay of a few seconds

@@ -39,5 +39,4 @@ For more information about planning node redundancy, see [Setup: Planning resili
   resiliency features you want to implement. An encoding workflow and in an
   MPTS workflow have slightly different resiliency options.
 
-For more information about resiliency features, see [Resiliency features
-in Elemental Statmux](worker-nodes-other-resiliency.md "worker-nodes-other-resiliency.md").
+For more information about resiliency features, see [Resiliency features in Elemental Statmux](worker-nodes-other-resiliency.md "worker-nodes-other-resiliency.md").

@@ -1,12 +1,9 @@
-# Monitoring MPTS
-
-outputs
+# Monitoring MPTS outputs
 
 ###### Topics
 
 - [Monitoring the progress of all MPTSes](#monitoring-the-progress-of-all-mpts-outputs "#monitoring-the-progress-of-all-mpts-outputs")
-- [Monitoring the
-  muxing performance of an MPTS](#monitoring-the-muxing-performance "#monitoring-the-muxing-performance")
+- [Monitoring the muxing performance of an MPTS](#monitoring-the-muxing-performance "#monitoring-the-muxing-performance")
 - [Modifying the MPTS while it is running](#modifying-the-mpts-output-while-it-is-running "#modifying-the-mpts-output-while-it-is-running")
 
 ## Monitoring the progress of all MPTSes
@@ -27,9 +24,7 @@ failed.
 5. Review the alerts and messages to determine why the MPTS
    failed.
 
-## Monitoring the
-
-muxing performance of an MPTS
+## Monitoring the muxing performance of an MPTS
 
 To monitor the muxing of an individual MPTS, display the
 **MPTS** page and choose

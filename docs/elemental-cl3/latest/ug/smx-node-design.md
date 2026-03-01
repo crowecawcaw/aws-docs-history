@@ -1,6 +1,4 @@
-# Number of primary Elemental Statmux
-
-nodes
+# Number of primary Elemental Statmux nodes
 
 Determine the number of _primary nodes_ you need:
 

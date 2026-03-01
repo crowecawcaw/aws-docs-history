@@ -1,14 +1,11 @@
-# Planning ahead for bulk
-
-changes
+# Planning ahead for bulk changes
 
 When you create a channel parameter that you might use in another
 profile, note its name carefully so you can enter the exact same name in the
 other profile.
 
 This careful planning will help if you ever want to make a bulk change
-to switch several channels to a different profile ([Changing the profile used by
-multiple channels](changing-the-profile-used-by-multiple-channels.md "changing-the-profile-used-by-multiple-channels.md")).
+to switch several channels to a different profile ([Changing the profile used by multiple channels](changing-the-profile-used-by-multiple-channels.md "changing-the-profile-used-by-multiple-channels.md")).
 
 **Example of good planning**
 

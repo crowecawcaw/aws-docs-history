@@ -1,6 +1,4 @@
-# Monitoring alerts and
-
-messages
+# Monitoring alerts and messages
 
 AWS Elemental Conductor Live generates alerts and messages to provide information about the status of the
 nodes in the cluster and about the encoding channels. This section covers how to monitor
@@ -12,14 +10,10 @@ alerts and messages, see [AWS Elemental Conductor Live Configuration Guide](../c
 
 ###### Topics
 
-- [About alerts and
-  messages](#about-alerts-and-messages "#about-alerts-and-messages")
-- [Alerts
-  and messages on the web interface](#alerts-and-messages-on-the-web-interface "#alerts-and-messages-on-the-web-interface")
+- [About alerts and messages](#about-alerts-and-messages "#about-alerts-and-messages")
+- [Alerts and messages on the web interface](#alerts-and-messages-on-the-web-interface "#alerts-and-messages-on-the-web-interface")
 
-## About alerts and
-
-messages
+## About alerts and messages
 
 In the following table, read down the first column to find the
 type of information that you're interested in. Then read across to
@@ -33,9 +27,7 @@ that provide messages about that information.
 | Active/Inactive      | Alerts remain active until the underlying problem is<br>resolved. When the cause of the alert is no longer<br>present, the system clears the alert so that it becomes<br>inactive.                                                                                                                         | Messages are neither active nor inactive. They are<br>defined as “recent” when they are fewer than 24 hours<br>old.                                                                                                                                                                                                                                                                                                                                                                |
 | Visibility           | You can toggle the visibility of active alerts.<br>Suppressing an alert this way is similar to marking<br>an email as read.<br>The section below describes where you can see<br>suppressed and unsuppressed alerts on the web<br>interface.                                                                | Only messages of the type<br>**Error\*<br>• are visible in the<br>header. You can toggle the visibility of recent error<br>messages, which is similar to marking an email as<br>**read\*\*.<br>The section below describes where you can see<br>suppressed and unsuppressed messages on the web<br>interface.                                                                                                                                                                      |
 
-## Alerts
-
-and messages on the web interface
+## Alerts and messages on the web interface
 
 Conductor Live provides information about alerts and messages in two
 places:
@@ -45,9 +37,7 @@ places:
   Alerts** and **Status –
   Messages**.
 
-### Web interface
-
-header: Alerts
+### Web interface header: Alerts
 
 The web interface header, located at the top of all pages of
 the web interface, shows a count of alerts that are both active
@@ -72,9 +62,7 @@ The count is in a red circle to the right of the information
 You can unsuppress the alert on the **Status –
 Messages** page.
 
-### Web interface
-
-header: Messages
+### Web interface header: Messages
 
 The web interface header, located at the top of all pages of
 the web interface, shows a count of error messages that are both
@@ -99,9 +87,7 @@ The count is in a red circle to the right of the information
 You can unsuppress the alert on the **Status –
 Messages** page.
 
-### Status – Alerts
-
-page
+### Status – Alerts page
 
 On the Conductor Live main menu, choose **Status**.
 Then choose **Alerts** in the left panel.
@@ -125,9 +111,7 @@ Each tab shows the same information:
 You can choose the **Alert Filters** button
 at the top right corner to filter alerts.
 
-### Status - Messages
-
-page
+### Status - Messages page
 
 On the Conductor Live main menu, choose **Status**.
 Then choose **Messages** in the left

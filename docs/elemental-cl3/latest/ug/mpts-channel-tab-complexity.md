@@ -1,6 +1,4 @@
-# Complexity
-
-Endpoints tab
+# Complexity Endpoints tab
 
 This tab contains fields for the endpoints used for the [complexity/allocation communications](cl3-statmux-features.md#cl3-statmux-features-allocation "cl3-statmux-features.md#cl3-statmux-features-allocation") between the Elemental Live
 node and the Elemental Statmux node.

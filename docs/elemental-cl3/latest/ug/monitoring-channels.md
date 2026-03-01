@@ -2,16 +2,11 @@
 
 ###### Topics
 
-- [Monitoring the health of
-  channels](#monitoring-for-failure "#monitoring-for-failure")
-- [Monitoring
-  channel activity at the node](#monitoring-channel-activity-at-the-node "#monitoring-channel-activity-at-the-node")
-- [Viewing channel
-  history](#viewing-channel-history "#viewing-channel-history")
+- [Monitoring the health of channels](#monitoring-for-failure "#monitoring-for-failure")
+- [Monitoring channel activity at the node](#monitoring-channel-activity-at-the-node "#monitoring-channel-activity-at-the-node")
+- [Viewing channel history](#viewing-channel-history "#viewing-channel-history")
 
-## Monitoring the health of
-
-channels
+## Monitoring the health of channels
 
 You can monitor the status of channels as they run.
 
@@ -33,9 +28,7 @@ You can monitor the status of channels as they run.
      – Alerts** page. This page shows detailed
      information about any alerts for this channel.
 
-## Monitoring
-
-channel activity at the node
+## Monitoring channel activity at the node
 
 You can view information about the channel activity that is
 happening at any worker node.
@@ -55,9 +48,7 @@ Note that channel logs are displayed for 24 hours. Logs that are
 from 24 hours to one-week old are held in zip files that you can
 unzip if needed.
 
-## Viewing channel
-
-history
+## Viewing channel history
 
 You can view a summarized history of the channel.
 

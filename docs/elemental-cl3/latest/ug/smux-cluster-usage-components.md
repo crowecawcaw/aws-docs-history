@@ -1,6 +1,4 @@
-# Components of
-
-AWS Elemental Statmux in a cluster
+# Components of AWS Elemental Statmux in a cluster
 
 To create an MPTS using Elemental Statmux, you need:
 

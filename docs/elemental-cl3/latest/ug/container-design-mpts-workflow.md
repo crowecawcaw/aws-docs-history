@@ -1,6 +1,4 @@
-# Designing an MPTS
-
-workflow
+# Designing an MPTS workflow
 
 This section describes how to design a standard MPTS, and how to
 augment that standard MPTS by including passthrough elements.
@@ -23,11 +21,7 @@ tables:
 
 ###### Topics
 
-- [Creating a standard
-  MPTS](mpts-design-step-channels.md "mpts-design-step-channels.md")
-- [Including passthrough
-  programs](mpts-passthrough-program.md "mpts-passthrough-program.md")
-- [Passing through custom
-  streams](mpts-passthrough-high-pids.md "mpts-passthrough-high-pids.md")
-- [Passing through SI/PSI
-  tables](mpts-passthrough-PSI-pids.md "mpts-passthrough-PSI-pids.md")
+- [Creating a standard MPTS](mpts-design-step-channels.md "mpts-design-step-channels.md")
+- [Including passthrough programs](mpts-passthrough-program.md "mpts-passthrough-program.md")
+- [Passing through custom streams](mpts-passthrough-high-pids.md "mpts-passthrough-high-pids.md")
+- [Passing through SI/PSI tables](mpts-passthrough-PSI-pids.md "mpts-passthrough-PSI-pids.md")

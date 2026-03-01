@@ -1,6 +1,4 @@
-# Creating a channel by duplicating an existing
-
-channel
+# Creating a channel by duplicating an existing channel
 
 ###### To create a channel by duplicating an existing channel
 

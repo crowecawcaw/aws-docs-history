@@ -1,6 +1,4 @@
-# Monitoring
-
-nodes
+# Monitoring nodes
 
 You should monitor the nodes regularly to ensure that they are still
 all online.
@@ -30,11 +28,9 @@ column. 4. Choose an orange icon to go to the **Status**
 ###### Topics
 
 - [Offline nodes](#offline-nodes "#offline-nodes")
-- [Failed
-  worker nodes with worker redundancy](#failed-worker-nodes-with-worker-redundancy "#failed-worker-nodes-with-worker-redundancy")
+- [Failed worker nodes with worker redundancy](#failed-worker-nodes-with-worker-redundancy "#failed-worker-nodes-with-worker-redundancy")
 - [Failed worker nodes without worker redundancy](#failed-worker-nodes-without-worker-redundancy "#failed-worker-nodes-without-worker-redundancy")
-- [Failed Conductor Live nodes
-  with Conductor Live redundancy](#failed-conductor-nodes-with-conductor-redundancy "#failed-conductor-nodes-with-conductor-redundancy")
+- [Failed Conductor Live nodes with Conductor Live redundancy](#failed-conductor-nodes-with-conductor-redundancy "#failed-conductor-nodes-with-conductor-redundancy")
 - [Failed Conductor Live nodes without Conductor Live redundancy](#failed-conductor-nodes-without-conductor-redundancy "#failed-conductor-nodes-without-conductor-redundancy")
 
 ## Offline nodes
@@ -44,18 +40,14 @@ offline. Try to determine why the node has been taken offline (speak
 to other engineers and operators) and, if necessary, take steps to
 bring the node back online.
 
-## Failed
-
-worker nodes with worker redundancy
+## Failed worker nodes with worker redundancy
 
 When worker redundancy is implemented on the cluster and a node
 switches to the failed status, any channels that are running on the
 worker node move to a backup node, as described in “How Worker Node
 Failover Occurs” below.
 
-### Setting up for
-
-Notification
+### Setting up for Notification
 
 We recommend that you set up Conductor Live so that it sends you an
 email or hits your webserver when the following alerts or
@@ -68,9 +60,7 @@ messages are raised:
 See the [AWS Elemental Conductor Live Configuration Guide](../configguide.md "../configguide.md") for information on setting up
 notifications.
 
-### Dealing with a failed
-
-node
+### Dealing with a failed node
 
 When a node goes to failed, follow this procedure to deal with
 the failed node and with the redundancy setup.
@@ -119,9 +109,7 @@ Backup tab.
 4. Make sure you have the desired number of backup nodes
    set up.
 
-### How worker node
-
-failover occurs
+### How worker node failover occurs
 
 1. Conductor Live determines the action to attempt:
    - If the node was online/idle before it failed,
@@ -143,9 +131,7 @@ failover occurs
    eligible to be selected as a failover node if another
    active node fails.
 
-### If a reserve node
-
-fails
+### If a reserve node fails
 
 If a reserve node fails when it is currently in reserve, it
 stays as a reserve node but its status changes to
@@ -155,16 +141,12 @@ If a reserve node switches to **active** and
 then fails, it will be eligible to fail over to another reserve,
 in the same way as any other active node is eligible.
 
-### When a failed node
-
-recovers
+### When a failed node recovers
 
 When a node that is failed is brought back into service, it
 returns to the status it had when it failed: Active or Backup.
 
-### Dealing with a false
-
-failure
+### Dealing with a false failure
 
 Conductor Live may determine that node_X has failed, when in fact it
 has only become disconnected from the management network (and is
@@ -180,9 +162,7 @@ However, if the network connection is later re-established (so
 that Conductor Live can now view activity on node_X), Conductor Live attempts to
 shut down the channels or MPTSes that are running there.
 
-### If a node does not
-
-fail over
+### If a node does not fail over
 
 If a node fails but there is no reserve node ready to take
 over for it, the node remains active/offline. When the node
@@ -190,9 +170,7 @@ problem is resolved and the node goes back online, it still has
 its original channels. Channels that were running before the
 failure start running again.
 
-### Monitoring
-
-the distribution of nodes in a redundancy group
+### Monitoring the distribution of nodes in a redundancy group
 
 After a fail over, you should check the state of the
 redundancy group and take steps to ensure that the distribution
@@ -209,9 +187,7 @@ prepared for a possible new fail over.
 On the Redundancy page, make sure that the Redundancy type has
 a non-zero number as the second number:
 
-### Redundancy Status
-
-Alert
+### Redundancy Status Alert
 
 Alerts
 are raised if a redundancy group has one or more active, online
@@ -219,8 +195,7 @@ nodes but has no backup, online nodes. The alert persists until a
 node is restored to a backup role, or a node without channels is
 manually moved to a backup role.
 
-For more information about alerts and messages, see [Monitoring alerts and
-messages](monitoring-alerts-and-messages.md "monitoring-alerts-and-messages.md").
+For more information about alerts and messages, see [Monitoring alerts and messages](monitoring-alerts-and-messages.md "monitoring-alerts-and-messages.md").
 
 ## Failed worker nodes without worker redundancy
 
@@ -249,9 +224,7 @@ worker node has failed, you must do the following:
 4. Take the necessary steps to resolve the problem and bring
    the node back into service.
 
-## Failed Conductor Live nodes
-
-with Conductor Live redundancy
+## Failed Conductor Live nodes with Conductor Live redundancy
 
 When you have redundant Conductor Live nodes set
 up

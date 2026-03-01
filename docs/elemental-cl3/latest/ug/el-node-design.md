@@ -1,6 +1,4 @@
-# Number of primary Elemental Live
-
-nodes
+# Number of primary Elemental Live nodes
 
 Determine the number of _primary nodes_ you need:
 
