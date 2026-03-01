@@ -13,17 +13,13 @@ The following are the service endpoints and service quotas for this service.
 
 ###### Topics
 
-- [AWS IoT Device Management jobs and commands
-  data endpoints](#iot_device_management_region_jobs "#iot_device_management_region_jobs")
+- [AWS IoT Device Management jobs and commands data endpoints](#iot_device_management_region_jobs "#iot_device_management_region_jobs")
 - [AWS IoT Device Management - secure tunneling endpoints](#iot_device_management_region_tunnel "#iot_device_management_region_tunnel")
-- [AWS IoT Device Management - Software Package Catalog
-  endpoints](#software_package_catalog_region "#software_package_catalog_region")
+- [AWS IoT Device Management - Software Package Catalog endpoints](#software_package_catalog_region "#software_package_catalog_region")
 - [AWS IoT Device Management - managed integrations endpoints](#managed_integrations_region "#managed_integrations_region")
 - [AWS IoT FIPS endpoints](#iot_device_management_fips "#iot_device_management_fips")
 
-### AWS IoT Device Management jobs and commands
-
-data endpoints
+### AWS IoT Device Management jobs and commands data endpoints
 
 ###### Note
 
@@ -155,9 +151,7 @@ AWS IoT supports additional endpoints for secure tunneling.
 | AWS GovCloud (US-East)    | us-gov-east-1  | wss://data.iot-tunneling.us-gov-east-1.api.aws<br>wss://data.tunneling.iot-fips.us-gov-east-1.amazonaws.com<br>wss://data.iot-tunneling-fips.us-gov-east-1.api.aws<br>wss://data.tunneling.iot-fips.us-gov-east-1.amazonaws.com | HTTPS    |
 | AWS GovCloud (US-West)    | us-gov-west-1  | wss://data.iot-tunneling.us-gov-west-1.api.aws<br>wss://data.tunneling.iot-fips.us-gov-west-1.amazonaws.com<br>wss://data.iot-tunneling-fips.us-gov-west-1.api.aws<br>wss://data.tunneling.iot-fips.us-gov-west-1.amazonaws.com | HTTPS    |
 
-### AWS IoT Device Management - Software Package Catalog
-
-endpoints
+### AWS IoT Device Management - Software Package Catalog endpoints
 
 AWS IoT Device Management Software Package Catalog is available in the following AWS Regions.
 

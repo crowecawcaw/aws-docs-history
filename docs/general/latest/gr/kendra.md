@@ -33,9 +33,7 @@ Amazon Kendra GenAI Enterprise Edition indices are only available in the
 US East (N. Virginia), US West (Oregon),
 Europe (Ireland), Asia Pacific (Sydney), regions.
 
-### Amazon Kendra
-
-Intelligent Ranking
+### Amazon Kendra Intelligent Ranking
 
 | Region Name              | Region         | Endpoint                                                                        | Protocol       |
 | ------------------------ | -------------- | ------------------------------------------------------------------------------- | -------------- |
@@ -84,9 +82,7 @@ Intelligent Ranking
 | Thesauri                                                    | Each supported Region: 1            | No                                                                                                                                                                               | The maximum number of thesauri per index.                                                                                             |
 | Thesaurus file size                                         | Each supported Region: 5 Megabytes  | [Yes](https://console.aws.amazon.com/servicequotas/home/services/kendra/quotas/L-C0EA1398 "https://console.aws.amazon.com/servicequotas/home/services/kendra/quotas/L-C0EA1398") | The maximum thesaurus file size in MB.                                                                                                |
 
-### Amazon Kendra
-
-Intelligent Ranking
+### Amazon Kendra Intelligent Ranking
 
 | Name                                              | Default                      | Adjustable                                                                                                                                                                                       | Description                                                                    |
 | ------------------------------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |

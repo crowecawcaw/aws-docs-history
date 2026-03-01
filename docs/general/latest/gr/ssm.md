@@ -90,8 +90,7 @@ on.
 - [Service quotas for Distributor](#distributor "#distributor")
 - [Service quotas for Documents](#documents "#documents")
 - [Service quotas for Explorer](#explorer "#explorer")
-- [Service quotas for Fleet Manager /
-  AWS Systems Manager GUI Connect](#fleet-manager "#fleet-manager")
+- [Service quotas for Fleet Manager / AWS Systems Manager GUI Connect](#fleet-manager "#fleet-manager")
 - [Service quotas for Inventory](#inventory "#inventory")
 - [Service quotas for Maintenance Windows](#maintenance-windows "#maintenance-windows")
 - [Service quotas for Managed nodes](#managed-nodes "#managed-nodes")
@@ -165,9 +164,7 @@ on.
 | ------------------------------------- | ------- |
 | Maximum number of resource data syncs | 5       |
 
-### Service quotas for Fleet Manager /
-
-AWS Systems Manager GUI Connect
+### Service quotas for Fleet Manager / AWS Systems Manager GUI Connect
 
 | Resource                                                                                                | Default                                                                                                                                                                                                                                                                                                             |
 | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

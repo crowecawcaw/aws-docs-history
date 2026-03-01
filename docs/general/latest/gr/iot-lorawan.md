@@ -141,22 +141,14 @@ Wireless API](../../../iot-wireless/2020-11-22/apireference/Welcome.md "../../..
 
 ###### Contents
 
-- [Wireless devices and device data
-  quotas](#iot-wireless_quotas-device-data "#iot-wireless_quotas-device-data")
-- [LoRaWAN gateways API
-  throttling](#iot-wireless_quotas-gateways "#iot-wireless_quotas-gateways")
-- [Profiles and
-  destinations API throttling](#iot-wireless_quotas-destinations-profiles "#iot-wireless_quotas-destinations-profiles")
-- [Sidewalk and logging API
-  throttling](#iot-wireless_quotas-sidewalk "#iot-wireless_quotas-sidewalk")
-- [Tagging and endpoint API
-  throttling](#iot-wireless_quotas-tagging "#iot-wireless_quotas-tagging")
-- [Device location and
-  additional AWS IoT Wireless API limits](#iot-wireless_quotas-additional "#iot-wireless_quotas-additional")
+- [Wireless devices and device data quotas](#iot-wireless_quotas-device-data "#iot-wireless_quotas-device-data")
+- [LoRaWAN gateways API throttling](#iot-wireless_quotas-gateways "#iot-wireless_quotas-gateways")
+- [Profiles and destinations API throttling](#iot-wireless_quotas-destinations-profiles "#iot-wireless_quotas-destinations-profiles")
+- [Sidewalk and logging API throttling](#iot-wireless_quotas-sidewalk "#iot-wireless_quotas-sidewalk")
+- [Tagging and endpoint API throttling](#iot-wireless_quotas-tagging "#iot-wireless_quotas-tagging")
+- [Device location and additional AWS IoT Wireless API limits](#iot-wireless_quotas-additional "#iot-wireless_quotas-additional")
 
-### Wireless devices and device data
-
-quotas
+### Wireless devices and device data quotas
 
 The following service quotas apply to LoRaWAN and Sidewalk devices. It also includes
 device metrics, and device data quotas, which are transmitted between wireless devices,
@@ -184,9 +176,7 @@ gateways, and the cloud.
 | `TPS limit for UpdateMetricConfiguration`               | TPS limit for UpdateMetricConfiguration               | 10          | [Yes](https://console.aws.amazon.com/servicequotas/home/services/iotwireless/quotas/L-189593ED "https://console.aws.amazon.com/servicequotas/home/services/iotwireless/quotas/L-189593ED") |
 | `TPS limit for UpdateWirelessDevice`                    | TPS limit for UpdateWirelessDevice                    | 10          | [Yes](https://console.aws.amazon.com/servicequotas/home/services/iotwireless/quotas/L-B4636E40 "https://console.aws.amazon.com/servicequotas/home/services/iotwireless/quotas/L-B4636E40") |
 
-### LoRaWAN gateways API
-
-throttling
+### LoRaWAN gateways API throttling
 
 This table describes the maximum TPS for APIs used with LoRaWAN gateways. The
 gateways route messages between LoRaWAN devices and AWS IoT Core for LoRaWAN.
@@ -213,9 +203,7 @@ gateways route messages between LoRaWAN devices and AWS IoT Core for LoRaWAN.
 | `TPS limit for ListWirelessGateways`                       | TPS limit for ListWirelessGateways                       | 10          | [Yes](https://console.aws.amazon.com/servicequotas/home/services/iotwireless/quotas/L-F881E3D9 "https://console.aws.amazon.com/servicequotas/home/services/iotwireless/quotas/L-F881E3D9") |
 | `TPS limit for UpdateWirelessGateway`                      | TPS limit for UpdateWirelessGateway                      | 10          | [Yes](https://console.aws.amazon.com/servicequotas/home/services/iotwireless/quotas/L-A1F96616 "https://console.aws.amazon.com/servicequotas/home/services/iotwireless/quotas/L-A1F96616") |
 
-### Profiles and
-
-destinations API throttling
+### Profiles and destinations API throttling
 
 This table describes the maximum TPS for device profiles, service profiles, and
 destinations that can route messages to other AWS services.
@@ -236,9 +224,7 @@ destinations that can route messages to other AWS services.
 | `TPS limit for ListServiceProfiles`                             | TPS limit for ListServiceProfiles  | 10          | [Yes](https://console.aws.amazon.com/servicequotas/home/services/iotwireless/quotas/L-647D6C46 "https://console.aws.amazon.com/servicequotas/home/services/iotwireless/quotas/L-647D6C46") |
 | `TPS limit for UpdateDestination`                               | TPS limit for UpdateDestination    | 10          | [Yes](https://console.aws.amazon.com/servicequotas/home/services/iotwireless/quotas/L-AA413BB8 "https://console.aws.amazon.com/servicequotas/home/services/iotwireless/quotas/L-AA413BB8") |
 
-### Sidewalk and logging API
-
-throttling
+### Sidewalk and logging API throttling
 
 This table describes the maximum TPS for Amazon Sidewalk APIs and APIs that are
 used for log levels based on resource types.
@@ -264,9 +250,7 @@ used for log levels based on resource types.
 | `TPS limit for UpdatePartnerAccount`                   | TPS limit for UpdatePartnerAccount                   | 10          | [Yes](https://console.aws.amazon.com/servicequotas/home/services/iotwireless/quotas/L-3AC27648 "https://console.aws.amazon.com/servicequotas/home/services/iotwireless/quotas/L-3AC27648") |
 | `TPS limit for UpdateWirelessDeviceImportTask`         | TPS limit for UpdateWirelessDeviceImportTask         | 10          | [Yes](https://console.aws.amazon.com/servicequotas/home/services/iotwireless/quotas/L-E8B6C4D2 "https://console.aws.amazon.com/servicequotas/home/services/iotwireless/quotas/L-E8B6C4D2") |
 
-### Tagging and endpoint API
-
-throttling
+### Tagging and endpoint API throttling
 
 This table describes the maximum TPS for the `GetServiceEndpoint` API
 and APIs used for tagging resources.
@@ -278,9 +262,7 @@ and APIs used for tagging resources.
 | `TPS limit for TagResource`                                    | TPS limit for TagResource         | 10          | [Yes](https://console.aws.amazon.com/servicequotas/home/services/iotwireless/quotas/L-9D5A90BD "https://console.aws.amazon.com/servicequotas/home/services/iotwireless/quotas/L-9D5A90BD") |
 | `TPS limit for UntagResource`                                  | TPS limit for UntagResource       | 10          | [Yes](https://console.aws.amazon.com/servicequotas/home/services/iotwireless/quotas/L-DF869DBB "https://console.aws.amazon.com/servicequotas/home/services/iotwireless/quotas/L-DF869DBB") |
 
-### Device location and
-
-additional AWS IoT Wireless API limits
+### Device location and additional AWS IoT Wireless API limits
 
 This table describes the maximum TPS for other, additional AWS IoT Wireless API
 throttling including AWS IoT Core device location, the network analyzer feature,

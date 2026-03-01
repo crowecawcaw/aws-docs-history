@@ -121,9 +121,7 @@ _AWS GovCloud (US-West) and AWS GovCloud (US-East)._.
 | AWS GovCloud (US-East)   | us-gov-east-1      | dkim.us-gov-east-1.amazonses.com  |
 | All other<br>regions     | dkim.amazonses.com |
 
-## Tracking domains for open/click links (HTTP &
-
-HTTPS)
+## Tracking domains for open/click links (HTTP & HTTPS)
 
 | Region Name               | Tracking Domain                |
 | ------------------------- | ------------------------------ |
@@ -156,9 +154,7 @@ HTTPS)
 | AWS GovCloud (US-West)    | `r.us-gov-west-1.awstrack.me`  |
 | AWS GovCloud (US-East)    | `r.us-gov-east-1.awstrack.me`  |
 
-## Feedback endpoints used by SES for Custom MAIL
-
-FROM domains
+## Feedback endpoints used by SES for Custom MAIL FROM domains
 
 | Region Name               | Endpoint                                   |
 | ------------------------- | ------------------------------------------ |
@@ -192,9 +188,7 @@ FROM domains
 | AWS GovCloud (US-West)    | feedback-smtp.us-gov-west-1.amazonses.com  |
 | AWS GovCloud (US-East)    | feedback-smtp.us-gov-east-1.amazonses.com  |
 
-## IP ranges used by Mail Manager SMTP
-
-relays
+## IP ranges used by Mail Manager SMTP relays
 
 | Region         | IP range         |
 | -------------- | ---------------- |

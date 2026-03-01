@@ -204,25 +204,17 @@ the FIPS endpoints provided by AWS IoT, see [Connecting to AWS IoT FIPS endpoint
 ###### Contents
 
 - [AWS IoT Core thing resource limits and quotas](#thing-limits "#thing-limits")
-- [AWS IoT Core thing group resource limits and
-  quotas](#thing-group-limits "#thing-group-limits")
-- [AWS IoT Core bulk thing registration limits and
-  quotas](#bulk-thing-reg-limits "#bulk-thing-reg-limits")
-- [AWS IoT Core billing group
-  restrictions](#tagging-iot-billing-groups-limits "#tagging-iot-billing-groups-limits")
+- [AWS IoT Core thing group resource limits and quotas](#thing-group-limits "#thing-group-limits")
+- [AWS IoT Core bulk thing registration limits and quotas](#bulk-thing-reg-limits "#bulk-thing-reg-limits")
+- [AWS IoT Core billing group restrictions](#tagging-iot-billing-groups-limits "#tagging-iot-billing-groups-limits")
 - [AWS IoT Core rules engine limits and quotas](#rules-limits "#rules-limits")
 - [AWS IoT Core API throttling limits](#throttling-limits "#throttling-limits")
-- [AWS IoT Core Device Shadow service limits and
-  quotas](#device-shadow-limits "#device-shadow-limits")
-- [AWS IoT Core Fleet Provisioning limits and
-  quotas](#fleet-provisioning-limits "#fleet-provisioning-limits")
+- [AWS IoT Core Device Shadow service limits and quotas](#device-shadow-limits "#device-shadow-limits")
+- [AWS IoT Core Fleet Provisioning limits and quotas](#fleet-provisioning-limits "#fleet-provisioning-limits")
 - [AWS IoT Core message broker and protocol limits and quotas](#message-broker-limits "#message-broker-limits")
-- [AWS IoT Core credential provider limits
-  and quotas](#credential-provider-limits "#credential-provider-limits")
-- [AWS IoT Core security and identity limits and
-  quotas](#security-limits "#security-limits")
-- [MQTT-based File
-  Delivery](#limits-mqtt-based-file-delivery "#limits-mqtt-based-file-delivery")
+- [AWS IoT Core credential provider limits and quotas](#credential-provider-limits "#credential-provider-limits")
+- [AWS IoT Core security and identity limits and quotas](#security-limits "#security-limits")
+- [MQTT-based File Delivery](#limits-mqtt-based-file-delivery "#limits-mqtt-based-file-delivery")
 - [AWS IoT Core Device Advisor limits and quotas](#iot-device-advisor "#iot-device-advisor")
 
 ###### Note
@@ -250,9 +242,7 @@ limited.Thing types allow you to store description and configuration
 information that is common to all things associated with the same thing
 type.
 
-### AWS IoT Core thing group resource limits and
-
-quotas
+### AWS IoT Core thing group resource limits and quotas
 
 | AWS IoT Core thing group limits and quotas                   | Limit display name                                                                                                                                                                                                                                                                               | Description | Default value | Adjustable |
 | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- | ------------- | ---------- |
@@ -272,9 +262,7 @@ quotas
 The maximum number of things that can be assigned to a thing group is not
 limited.
 
-### AWS IoT Core bulk thing registration limits and
-
-quotas
+### AWS IoT Core bulk thing registration limits and quotas
 
 | AWS IoT Core bulk thing registration | Limit display name                                                                                                                                    | Description     | Default value | Adjustable |
 | ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ------------- | ---------- |
@@ -285,9 +273,7 @@ quotas
 
 For more information about the JSON file used for bulk registration, see [Amazon S3 input JSON file](../../../iot/latest/developerguide/bulk-provisioning.md "../../../iot/latest/developerguide/bulk-provisioning.md").
 
-### AWS IoT Core billing group
-
-restrictions
+### AWS IoT Core billing group restrictions
 
 - A thing can belong to exactly one billing group.
 - Unlike thing groups, billing groups cannot be organized into
@@ -320,9 +306,7 @@ This section describes the limits and quotas of the AWS IoT Core rules engine.
 \***Select AWS Regions**:
 Europe (Stockholm), Middle East (Bahrain), Middle East (UAE), Europe (Paris), Asia Pacific (Hong Kong), AWS GovCloud (US-East), AWS GovCloud (US-West), US West (N. California), Canada (Central), China (Ningxia), Asia Pacific (Malaysia), Europe (Spain)
 
-#### AWS IoT Core rules engine HTTP actions
-
-limits and quotas
+#### AWS IoT Core rules engine HTTP actions limits and quotas
 
 | AWS IoT Core HTTP action                                       | Limit display name                                                                                                                                                                                                                                                              | Description       | Default value | Adjustable |
 | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ------------- | ---------- |
@@ -336,18 +320,14 @@ limits and quotas
 | ------------------------------- | --------- | ---------- |
 | TCP ports used for HTTP actions | 443, 8443 | No         |
 
-#### AWS IoT Core rules engine Apache Kafka actions
-
-limits and quotas
+#### AWS IoT Core rules engine Apache Kafka actions limits and quotas
 
 | Resource                               | Limits    |
 | -------------------------------------- | --------- |
 | Bootstrap server ports                 | 9000-9100 |
 | Kerberos key distribution center (KDC) | 88        |
 
-#### AWS IoT Core rules engine VPC actions limits and
-
-quotas
+#### AWS IoT Core rules engine VPC actions limits and quotas
 
 | Resource                           | Quota                    |
 | ---------------------------------- | ------------------------ |
@@ -510,9 +490,7 @@ be made to each of these AWS IoT Core API actions.
 | [`UpdateThingType API TPS`](https://console.aws.amazon.com/servicequotas/home/services/iotcore/quotas/L-02253FF9 "https://console.aws.amazon.com/servicequotas/home/services/iotcore/quotas/L-02253FF9")                                                    | The maximum number of transactions per second (TPS) that can be made for the UpdateThingType API.                     | 15            | 15                                    | [Yes](https://console.aws.amazon.com/servicequotas/home/services/iotcore/quotas/L-02253FF9 "https://console.aws.amazon.com/servicequotas/home/services/iotcore/quotas/L-02253FF9") |
 | [`UpdateTopicRuleDestination API TPS`](https://console.aws.amazon.com/servicequotas/home/services/iotcore/quotas/L-008F5D21 "https://console.aws.amazon.com/servicequotas/home/services/iotcore/quotas/L-008F5D21")                                         | The maximum number of transactions per second (TPS) that can be made for the UpdateTopicRuleDestination API.          | 5             | 5                                     | No                                                                                                                                                                                 |
 
-### AWS IoT Core Device Shadow service limits and
-
-quotas
+### AWS IoT Core Device Shadow service limits and quotas
 
 | AWS IoT Core Device Shadow actions                               | Limit display name                                                                                                                                                                                                                                                  | Description | Default value | Default value in select AWS Regions\*                                                                                                                                              | Adjustable |
 | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
@@ -552,9 +530,7 @@ AWS IoT Core deletes a Device Shadow document after the creating account is
 deleted or upon customer request. For operational purposes, AWS IoT service
 backups are retained for 6 months.
 
-### AWS IoT Core Fleet Provisioning limits and
-
-quotas
+### AWS IoT Core Fleet Provisioning limits and quotas
 
 Following are throttling limits for some fleet provisioning APIs per AWS
 account.
@@ -622,9 +598,7 @@ The limits listed below are per AWS Regions.
 
 **\***Select AWS Regions: Europe (Stockholm), Middle East (Bahrain), Middle East (UAE), Europe (Paris), Asia Pacific (Hong Kong), AWS GovCloud (US-East), AWS GovCloud (US-West), US West (N. California), Canada (Central), China (Ningxia), Asia Pacific (Malaysia), Europe (Spain)
 
-### AWS IoT Core credential provider limits
-
-and quotas
+### AWS IoT Core credential provider limits and quotas
 
 | AWS IoT Core credential limits and quotas     | Limit display name                                                                                                                                                                                                                                                          | Description | Default value | Default value in select AWS Regions\*                                                                                                                                              | Adjustable |
 | --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
@@ -639,9 +613,7 @@ US East (N. Virginia), US West (Oregon), Europe (Ireland) Asia Pacific (Malaysia
 **Large Region** limits apply to AWS Regions:
 US East (N. Virginia), US West (Oregon), and Europe (Ireland)
 
-### AWS IoT Core security and identity limits and
-
-quotas
+### AWS IoT Core security and identity limits and quotas
 
 | AWS IoT Core security and identity limits and quotas                                               | Limit display name                                                                                                                                                                                                                                                             | Description  | Default value                                                                                                                                                                      | Adjustable |
 | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
@@ -667,9 +639,7 @@ quotas
 | Custom authentication: minimum policy refresh rate (value of<br>`RefreshAfterInSecs`)    | The Lambda function of a custom authorizer<br>uses a `RefreshAfterInSeconds` parameter to indicate the<br>interval (in seconds) between policy refreshes when connected to the<br>AWS IoT Core gateway. When this interval passes, AWS IoT Core invokes the<br>Lambda function to allow for policy refreshes.                                                                                                                                                                                                                                          | 300         | No      |
 | Custom authentication: maximum policy refresh rate (value of<br>`RefreshAfterInSecs`)    | The maximum time interval between policy<br>refreshes when connected to the AWS IoT Core gateway, defined by the<br>value of `RefreshAfterInSeconds`.                                                                                                                                                                                                                                                                                                                                                                                                  | 86,400      | No      |
 
-### MQTT-based File
-
-Delivery
+### MQTT-based File Delivery
 
 | MQTT-based File Delivery Resource Quotas                        | Resource                                                                       | Description  | Default | Adjustable |
 | --------------------------------------------------------------- | ------------------------------------------------------------------------------ | ------------ | ------- | ---------- |

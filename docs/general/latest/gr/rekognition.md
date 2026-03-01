@@ -33,9 +33,7 @@ following regions and endpoints:
 | Israel (Tel Aviv)        | il-central-1   | rekognition.il-central-1.amazonaws.com<br>rekognition.il-central-1.api.aws                                                                                             | HTTPS<br>HTTPS                   |
 | AWS GovCloud (US-West)   | us-gov-west-1  | rekognition.us-gov-west-1.amazonaws.com<br>rekognition-fips.us-gov-west-1.api.aws<br>rekognition-fips.us-gov-west-1.amazonaws.com<br>rekognition.us-gov-west-1.api.aws | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
 
-### Amazon Rekognition Streaming
-
-Endpoints
+### Amazon Rekognition Streaming Endpoints
 
 The Amazon Rekognition streaming API operations are available at the following regions and
 endpoints:

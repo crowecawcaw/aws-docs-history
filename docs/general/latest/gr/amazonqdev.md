@@ -21,27 +21,21 @@ performance for all subscribers.
 
 For more information about pricing, see the [Amazon Q Developer pricing page](https://aws.amazon.com/q/developer/pricing "https://aws.amazon.com/q/developer/pricing").
 
-### Quotas for Amazon Q Developer Pro (in IDEs and
-
-CLI)
+### Quotas for Amazon Q Developer Pro (in IDEs and CLI)
 
 | Feature                                                                                                                                                                            | Quota (per user)                                                                                                                                                                                                                                        |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Amazon Q<br>Developer Agent for code transformation](../../../amazonq/latest/qdeveloper-ug/code-transformation.md "../../../amazonq/latest/qdeveloper-ug/code-transformation.md") | 4,000 lines of code per month, pooled at the account level. Extra lines of<br>code available. For more information, see [Amazon Q Developer Pro<br>pricing](https://aws.amazon.com/q/developer/pricing/ "https://aws.amazon.com/q/developer/pricing/"). |
 | [Agentic requests<br>(Q&A chat, agentic coding)](../../../amazonq/latest/qdeveloper-ug/q-in-IDE-chat.md "../../../amazonq/latest/qdeveloper-ug/q-in-IDE-chat.md")                  | 10,000 inference calls (equivalent of roughly 1,000 user inputs) per<br>month.                                                                                                                                                                          |
 
-### Quotas for Amazon Q Developer Pro (in the
-
-AWS Management Console)
+### Quotas for Amazon Q Developer Pro (in the AWS Management Console)
 
 | Feature                                                                                                                                                                                 | Quota (per user)        |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
 | [Generative<br>SQL](../../../redshift/latest/mgmt/query-editor-v2-generative-ai.md "../../../redshift/latest/mgmt/query-editor-v2-generative-ai.md")                                    | 1,000 queries per month |
 | [Analyze network reachability](../../../vpc/latest/reachability/amazon-q-network-reachability-analysis.md "../../../vpc/latest/reachability/amazon-q-network-reachability-analysis.md") | 20 requests per day     |
 
-### Quotas for Amazon Q Developer Pro (in
-
-Amazon CodeCatalyst)
+### Quotas for Amazon Q Developer Pro (in Amazon CodeCatalyst)
 
 | Feature                                                                                                                                                                                                                                                                                               | Quota (per user) |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |

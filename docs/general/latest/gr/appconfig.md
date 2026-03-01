@@ -128,9 +128,7 @@ operations](../../../appconfig/2019-10-09/APIReference/API_Operations_AWS_AppCon
 | Maximum number of deployment strategies                              | Each supported Region: 20              | [Yes](https://console.aws.amazon.com/servicequotas/home/services/appconfig/quotas/L-F59D302B "https://console.aws.amazon.com/servicequotas/home/services/appconfig/quotas/L-F59D302B") | A deployment strategy defines how configuration deploys, or rolls out, across a collection of instances within a specific application environment. Limit increase requests will be automatically approved for values less than or equal to 100.                                                                                                   |
 | Maximum number of environments per application                       | Each supported Region: 20              | [Yes](https://console.aws.amazon.com/servicequotas/home/services/appconfig/quotas/L-A52E46BE "https://console.aws.amazon.com/servicequotas/home/services/appconfig/quotas/L-A52E46BE") | An environment corresponds to a grouping of instances associated with an application. Environments examples include stages, such as beta and prod, or application subcomponents, such as web, mobile, and service. Limit increase requests will be automatically approved for values less than or equal to 100.                                   |
 
-### Control plane default
-
-limits
+### Control plane default limits
 
 | API name              | Transactions per second | Adjustable |
 | --------------------- | ----------------------- | ---------- |

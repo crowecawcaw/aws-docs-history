@@ -11,9 +11,7 @@ The following are the service endpoints and service quotas for this service.
 
 ## Service endpoints
 
-### Control plane
-
-operations
+### Control plane operations
 
 The following table contains AWS Region-specific endpoints that AWS IoT Greengrass V2 supports
 for operations to manage components, devices, and deployments.

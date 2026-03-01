@@ -71,9 +71,7 @@ AWS End User Messaging includes the AWS End User Messaging SMS and Voice V2 API 
 
 ## Service quotas
 
-### AWS End User Messaging SMS and Voice Service
-
-Quotas
+### AWS End User Messaging SMS and Voice Service Quotas
 
 The following quotas apply to the SMS and MMS channel.
 
@@ -123,9 +121,7 @@ The following quotas apply to the voice channel.
 
 For more information, see [Quotas for AWS End User Messaging SMS](../../../sms-voice/latest/userguide/quotas.md "../../../sms-voice/latest/userguide/quotas.md") in the _AWS End User Messaging SMS User Guide_.
 
-### AWS End User Messaging Social Service
-
-Quotas
+### AWS End User Messaging Social Service Quotas
 
 The following quotas apply to the Social messaging channel.
 

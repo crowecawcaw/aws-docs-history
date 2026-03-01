@@ -9,9 +9,7 @@ For more information, see [AWS service quotas](aws_service_limits.md "aws_servic
 
 The following are the service endpoints and service quotas for this service.
 
-## Service endpoints supporting signing for AWS Lambda,
-
-Amazon ECR, and Amazon EKS
+## Service endpoints supporting signing for AWS Lambda, Amazon ECR, and Amazon EKS
 
 | Region Name               | Region         | Endpoint                                                                                                                                                                                                                                                                                                                                                                                                                                | Protocol                                                                               |
 | ------------------------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
@@ -38,9 +36,7 @@ Amazon ECR, and Amazon EKS
 | AWS GovCloud (US-East)    | us-gov-east-1  | signer.us-gov-east-1.amazonaws.com<br>data-signer-fips.us-gov-east-1.api.aws<br>data-signer.us-gov-east-1.api.aws<br>signer-fips.us-gov-east-1.api.aws<br>signer-fips.us-gov-east-1.amazonaws.com<br>signer.us-gov-east-1.api.aws<br>data-signer.us-gov-east-1.amazonaws.com<br>verification.signer-fips.us-gov-east-1.amazonaws.com<br>verification.signer.us-gov-east-1.amazonaws.com<br>data-signer-fips.us-gov-east-1.amazonaws.com | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS<br>HTTPS<br>HTTPS<br>HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
 | AWS GovCloud (US-West)    | us-gov-west-1  | signer.us-gov-west-1.amazonaws.com<br>data-signer-fips.us-gov-west-1.api.aws<br>data-signer.us-gov-west-1.api.aws<br>signer-fips.us-gov-west-1.api.aws<br>signer-fips.us-gov-west-1.amazonaws.com<br>signer.us-gov-west-1.api.aws<br>data-signer.us-gov-west-1.amazonaws.com<br>verification.signer-fips.us-gov-west-1.amazonaws.com<br>verification.signer.us-gov-west-1.amazonaws.com<br>data-signer-fips.us-gov-west-1.amazonaws.com | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS<br>HTTPS<br>HTTPS<br>HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
 
-## Service endpoints supporting signing for FreeRTOS and
-
-AWS IoT Device Management
+## Service endpoints supporting signing for FreeRTOS and AWS IoT Device Management
 
 | **Region Name**           | **Region**     | **Endpoint**                        | **Protocol** |
 | ------------------------- | -------------- | ----------------------------------- | ------------ |

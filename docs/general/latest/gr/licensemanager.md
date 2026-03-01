@@ -14,10 +14,8 @@ The following are the service endpoints and service quotas for this service.
 ###### Topics
 
 - [Endpoints for working with licenses](#licensemanager_region "#licensemanager_region")
-- [Endpoints for
-  working with user-based subscriptions](#license-manager-user-based-subscriptions_region "#license-manager-user-based-subscriptions_region")
-- [Endpoints for
-  working with Linux subscriptions](#license-manager-linux-subscriptions_region "#license-manager-linux-subscriptions_region")
+- [Endpoints for working with user-based subscriptions](#license-manager-user-based-subscriptions_region "#license-manager-user-based-subscriptions_region")
+- [Endpoints for working with Linux subscriptions](#license-manager-linux-subscriptions_region "#license-manager-linux-subscriptions_region")
 
 ### Endpoints for working with licenses
 
@@ -60,9 +58,7 @@ The following are the service endpoints and service quotas for this service.
 | AWS GovCloud (US-East)     | us-gov-east-1  | license-manager.us-gov-east-1.amazonaws.com<br>license-manager-fips.us-gov-east-1.amazonaws.com<br>license-manager.us-gov-east-1.api.aws | HTTPS<br>HTTPS<br>HTTPS |
 | AWS GovCloud (US-West)     | us-gov-west-1  | license-manager.us-gov-west-1.amazonaws.com<br>license-manager-fips.us-gov-west-1.amazonaws.com<br>license-manager.us-gov-west-1.api.aws | HTTPS<br>HTTPS<br>HTTPS |
 
-### Endpoints for
-
-working with user-based subscriptions
+### Endpoints for working with user-based subscriptions
 
 | Region Name               | Region         | Endpoint                                                                                                                                                                              | Protocol                |
 | ------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
@@ -102,9 +98,7 @@ working with user-based subscriptions
 | AWS GovCloud (US-East)    | us-gov-east-1  | license-manager-user-subscriptions.us-gov-east-1.amazonaws.com<br>license-manager-user-subscriptions.us-gov-east-1.api.aws                                                            | HTTPS<br>HTTPS          |
 | AWS GovCloud (US-West)    | us-gov-west-1  | license-manager-user-subscriptions.us-gov-west-1.amazonaws.com<br>license-manager-user-subscriptions.us-gov-west-1.api.aws                                                            | HTTPS<br>HTTPS          |
 
-### Endpoints for
-
-working with Linux subscriptions
+### Endpoints for working with Linux subscriptions
 
 | Region Name                | Region         | Endpoint                                                                                                                                                                                 | Protocol                |
 | -------------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
@@ -150,10 +144,8 @@ working with Linux subscriptions
 ###### Topics
 
 - [Quotas for working with licenses](#limits_license-manager "#limits_license-manager")
-- [Quotas for working
-  with user-based subscriptions](#limits_license-manager-user-based-subscriptions "#limits_license-manager-user-based-subscriptions")
-- [Quotas for working
-  with Linux subscriptions](#limits_license-manager-linux-subscriptions "#limits_license-manager-linux-subscriptions")
+- [Quotas for working with user-based subscriptions](#limits_license-manager-user-based-subscriptions "#limits_license-manager-user-based-subscriptions")
+- [Quotas for working with Linux subscriptions](#limits_license-manager-linux-subscriptions "#limits_license-manager-linux-subscriptions")
 
 ### Quotas for working with licenses
 
@@ -185,9 +177,7 @@ working with Linux subscriptions
 | Total number counted entitlements per license                                   | Each supported Region: 25     | No                                                                                                                                                                                                 | The total number of counted entitlements allowed per license.                                                |
 | Total number uncounted entitlements per license                                 | Each supported Region: 25     | No                                                                                                                                                                                                 | The total number of uncounted entitlements allowed per license.                                              |
 
-### Quotas for working
-
-with user-based subscriptions
+### Quotas for working with user-based subscriptions
 
 | Name                                                    | Default                   | Adjustable                                                                                                                                                                                                                               | Description                                                                                                                              |
 | ------------------------------------------------------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
@@ -196,9 +186,7 @@ with user-based subscriptions
 | User-based subscriptions for Visual Studio Enterprise   | Each supported Region: 30 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/license-manager-user-subscriptions/quotas/L-79A245D6 "https://console.aws.amazon.com/servicequotas/home/services/license-manager-user-subscriptions/quotas/L-79A245D6") | The maximum number of user-based subscriptions for Visual Studio Enterprise that you can create in this account in the current Region.   |
 | User-based subscriptions for Visual Studio Professional | Each supported Region: 50 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/license-manager-user-subscriptions/quotas/L-FA5F53F9 "https://console.aws.amazon.com/servicequotas/home/services/license-manager-user-subscriptions/quotas/L-FA5F53F9") | The maximum number of user-based subscriptions for Visual Studio Professional that you can create in this account in the current Region. |
 
-### Quotas for working
-
-with Linux subscriptions
+### Quotas for working with Linux subscriptions
 
 | Name                           | Default                      | Adjustable | Description                                                                         |
 | ------------------------------ | ---------------------------- | ---------- | ----------------------------------------------------------------------------------- |

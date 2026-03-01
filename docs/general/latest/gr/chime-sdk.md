@@ -13,8 +13,7 @@ The following are the service endpoints and service quotas for this service.
 
 - [Service endpoints](chime-sdk.md#chime_sdk_region "chime-sdk.md#chime_sdk_region")
   - [Identity](chime-sdk.md#identity_endpoints "chime-sdk.md#identity_endpoints")
-  - [Media pipeline regional
-    endpoints](chime-sdk.md#media_pipelines_endpoints "chime-sdk.md#media_pipelines_endpoints")
+  - [Media pipeline regional endpoints](chime-sdk.md#media_pipelines_endpoints "chime-sdk.md#media_pipelines_endpoints")
   - [Messaging](chime-sdk.md#messaging_endpoints "chime-sdk.md#messaging_endpoints")
   - [Voice](chime-sdk.md#pstn_audio_endpoints "chime-sdk.md#pstn_audio_endpoints")
   - [WebRTC media sessions](chime-sdk.md#web_rtc_media_sessions_endpoints "chime-sdk.md#web_rtc_media_sessions_endpoints")
@@ -38,9 +37,7 @@ The following are the service endpoints and service quotas for this service.
 | US East (N. Virginia) | `us-east-1`    | identity-chime.us-east-1.amazonaws.com<br>identity-chime.us-east-1.api.aws<br>identity-chime-fips.us-east-1.amazonaws.com<br>identity-chime-fips.us-east-1.api.aws | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
 | Europe (Frankfurt)    | `eu-central-1` | identity-chime.eu-central-1.amazonaws.com<br>identity-chime.eu-central-1.api.aws                                                                                   | HTTPS<br>HTTPS                   |
 
-### Media pipeline regional
-
-endpoints
+### Media pipeline regional endpoints
 
 | Region name              | Region           | Endpoint                                                                                                                                                                                       | Protocol                         |
 | ------------------------ | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |

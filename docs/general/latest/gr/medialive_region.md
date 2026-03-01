@@ -21,6 +21,7 @@ using the MediaLive API, use the us-east-1 Region to sign requests.
 | US East (N. Virginia)     | us-east-1      | medialive.us-east-1.amazonaws.com<br>medialive-fips.us-east-1.amazonaws.com | HTTPS<br>HTTPS |
 | US West (Oregon)          | us-west-2      | medialive.us-west-2.amazonaws.com<br>medialive-fips.us-west-2.amazonaws.com | HTTPS<br>HTTPS |
 | Asia Pacific (Hyderabad)  | ap-south-2     | medialive.ap-south-2.amazonaws.com                                          | HTTPS          |
+| Asia Pacific (Malaysia)   | ap-southeast-5 | medialive.ap-southeast-5.amazonaws.com                                      | HTTPS          |
 | Asia Pacific (Melbourne)  | ap-southeast-4 | medialive.ap-southeast-4.amazonaws.com                                      | HTTPS          |
 | Asia Pacific (Mumbai)     | ap-south-1     | medialive.ap-south-1.amazonaws.com                                          | HTTPS          |
 | Asia Pacific (Osaka)      | ap-northeast-3 | medialive.ap-northeast-3.amazonaws.com                                      | HTTPS          |

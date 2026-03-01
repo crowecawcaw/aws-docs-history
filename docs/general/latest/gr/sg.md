@@ -50,9 +50,7 @@ For more information, see [AWS service quotas](aws_service_limits.md "aws_servic
 | AWS GovCloud (US-East)     | us-gov-east-1  | storagegateway.us-gov-east-1.amazonaws.com<br>storagegateway-fips.us-gov-east-1.amazonaws.com<br>storagegateway-fips.us-gov-east-1.api.aws<br>storagegateway.us-gov-east-1.api.aws | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
 | AWS GovCloud (US-West)     | us-gov-west-1  | storagegateway.us-gov-west-1.amazonaws.com<br>storagegateway-fips.us-gov-west-1.amazonaws.com<br>storagegateway.us-gov-west-1.api.aws<br>storagegateway-fips.us-gov-west-1.api.aws | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
 
-### Storage Gateway hardware appliance
-
-regions
+### Storage Gateway hardware appliance regions
 
 The Storage Gateway hardware appliance is available for shipping worldwide where it
 is legally allowed and permitted for exporting by the US government.
