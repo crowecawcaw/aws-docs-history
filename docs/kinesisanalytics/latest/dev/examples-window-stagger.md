@@ -58,14 +58,10 @@ the input stream in a stagger window based on EVENT_TIME and TICKER.
 
 ###### Topics
 
-- [Step 1: Create a Kinesis Data
-  Stream](#examples-stagger-window-1 "#examples-stagger-window-1")
-- [Step 2: Create the Kinesis Data Analytics
-  Application](#examples-stagger-window-2 "#examples-stagger-window-2")
+- [Step 1: Create a Kinesis Data Stream](#examples-stagger-window-1 "#examples-stagger-window-1")
+- [Step 2: Create the Kinesis Data Analytics Application](#examples-stagger-window-2 "#examples-stagger-window-2")
 
-## Step 1: Create a Kinesis Data
-
-Stream
+## Step 1: Create a Kinesis Data Stream
 
 Create an Amazon Kinesis data stream and populate the records as follows:
 
@@ -121,9 +117,7 @@ if __name__ == "__main__":
 
 ```
 
-## Step 2: Create the Kinesis Data Analytics
-
-Application
+## Step 2: Create the Kinesis Data Analytics Application
 
 Create a Kinesis Data Analytics application as follows:
 

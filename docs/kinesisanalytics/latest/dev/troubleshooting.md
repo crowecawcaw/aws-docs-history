@@ -190,8 +190,7 @@ If your application's [MillisBehindLatest](../../../AmazonCloudWatch/latest/moni
 
 - Verify that your application is not reaching the default limit for
   Kinesis Processing Units (KPU). If your application is reaching this limit, you can request a limit increase. For more
-  information, see [Automatically Scaling Applications to Increase
-  Throughput](how-it-works-autoscaling.md "how-it-works-autoscaling.md").
+  information, see [Automatically Scaling Applications to Increase Throughput](how-it-works-autoscaling.md "how-it-works-autoscaling.md").
 - If your application is still having issues after having your KPU limit increase, check that your application's input throughput
   does not exceed 100MB/sec. If it exceeds 100MB/sec, we recommend implementing changes to reduce overall throughput to stabilize the application,
   for example by reducing the amount of data being sent to the data source that the Kinesis Data Analytics Sql application reads from.

@@ -11,9 +11,7 @@ Data Analytics for SQL applications:
    be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
    [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
 
-# Migrating to Managed Service for Apache
-
-Flink Studio Examples
+# Migrating to Managed Service for Apache Flink Studio Examples
 
 After careful consideration, we have made the decision to discontinue Amazon Kinesis Data Analytics for SQL applications. To help you plan and migrate away from Amazon Kinesis Data Analytics for SQL applications, we will discontinue the offering gradually over 15 months. These are important dates to note, **September 1, 2025**, **October 15, 2025**, and **January 27, 2026**.
 
@@ -37,9 +35,7 @@ cases.
 Before you explore these examples, we recommend you first review [Using a Studio
 notebook with a Managed Service for Apache Flink](../../../managed-flink/latest/java/how-notebook.md "../../../managed-flink/latest/java/how-notebook.md").
 
-### Re-creating Kinesis Data Analytics for SQL queries in
-
-Managed Service for Apache Flink Studio
+### Re-creating Kinesis Data Analytics for SQL queries in Managed Service for Apache Flink Studio
 
 The following options provide translations of common SQL-based Kinesis Data Analytics application queries to
 Managed Service for Apache Flink Studio.
@@ -1338,9 +1334,7 @@ First we share a typical KDA-SQL architecture, before showing how you can replac
 using Amazon Managed Service for Apache Flink Studio and Amazon Kinesis Data Streams.
 Alternatively you can launch the CloudFormation template [here](https://github.com/aws-samples/amazon-kinesis-data-analytics-examples/blob/master/Converting-KDASQL-KDAStudio/environmentStackCfn/KdaStudioStack.template.yaml "https://github.com/aws-samples/amazon-kinesis-data-analytics-examples/blob/master/Converting-KDASQL-KDAStudio/environmentStackCfn/KdaStudioStack.template.yaml"):
 
-### Amazon Kinesis Data Analytics-SQL and Amazon Kinesis
-
-Data Firehose
+### Amazon Kinesis Data Analytics-SQL and Amazon Kinesis Data Firehose
 
 Here is the Amazon Kinesis Data Analytics SQL architectural flow:
 
@@ -1475,9 +1469,7 @@ other times like the event time.
   following example, the analytics goal is to group the records and return count by
   ticker.
 
-### Amazon Managed Service for Apache Flink
-
-Studio
+### Amazon Managed Service for Apache Flink Studio
 
 In the updated architecture, you replace Amazon Kinesis Data Firehose with Amazon
 Kinesis Data Streams. Amazon Kinesis Data Analytics for SQL Applications are replaced by Amazon
@@ -1490,9 +1482,7 @@ Here is the Amazon Managed Service for Apache Flink Studio architectural flow:
 
 ![Data flow from Producer through Kinesis streams to Analytics Studio and S3 storage.](images/kda-studio.png)
 
-#### Create a Kinesis Data
-
-Stream
+#### Create a Kinesis Data Stream
 
 ###### To create a data stream using the console
 
@@ -1558,9 +1548,7 @@ exercise:
 The Flink SQL code is explained following, but first [this is what a Zeppelin notebook screen looks like](https://github.com/aws-samples/amazon-kinesis-data-analytics-examples/blob/master/Converting-KDASQL-KDAStudio/environmentStackCfn/open-Zeppelin-notebook.jpg "https://github.com/aws-samples/amazon-kinesis-data-analytics-examples/blob/master/Converting-KDASQL-KDAStudio/environmentStackCfn/open-Zeppelin-notebook.jpg"). Each window within
 the notebook is a separate code block, and they can be run one at a time.
 
-##### Amazon Managed Service for Apache Flink
-
-Studio Code
+##### Amazon Managed Service for Apache Flink Studio Code
 
 Amazon Managed Service for Apache Flink Studio uses Zeppelin Notebooks to run
 the code. Mapping is done for this example to ssql code based on Apache Flink
@@ -1727,9 +1715,7 @@ notebooks
 
 ![](images/sql-udf.png)
 
-## User-defined functions
-
-(UDFs)
+## User-defined functions (UDFs)
 
 To reuse common business logic into an operator, it can be useful to reference a
 user-defined function to transform your data stream. This can be done either within the
@@ -1782,9 +1768,7 @@ The CloudFormation stack may take 10 to 15 minutes to launch depending on the Re
 launching in. Once you see `CREATE_COMPLETE` status for the entire stack, you
 are ready to continue.
 
-## Working with Managed Service
-
-for Apache Flink Studio notebook
+## Working with Managed Service for Apache Flink Studio notebook
 
 Studio notebooks for Kinesis Data Analytics allow you to interactively query data streams in real
 time, and easily build and run stream processing applications using standard SQL,
@@ -1935,9 +1919,7 @@ tools, including the following:
     select * from customer_reviews_stream_table
     ```
 
-## Promoting a
-
-notebook as an application
+## Promoting a notebook as an application
 
 Now that you have tested your notebook code interactively, you will deploy the code
 as a streaming application with durable state. You will need to first modify Application

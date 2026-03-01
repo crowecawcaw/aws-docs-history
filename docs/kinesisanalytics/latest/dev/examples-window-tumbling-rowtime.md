@@ -11,13 +11,10 @@ Data Analytics for SQL applications:
    be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
    [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
 
-# Example: Tumbling Window Using
-
-ROWTIME
+# Example: Tumbling Window Using ROWTIME
 
 When a windowed query processes each window in a non-overlapping manner, the window is
-referred to as a _tumbling window_. For details, see [Tumbling Windows (Aggregations Using
-GROUP BY)](tumbling-window-concepts.md "tumbling-window-concepts.md"). This
+referred to as a _tumbling window_. For details, see [Tumbling Windows (Aggregations Using GROUP BY)](tumbling-window-concepts.md "tumbling-window-concepts.md"). This
 Amazon Kinesis Data Analytics example uses the `ROWTIME` column to create tumbling windows. The
 `ROWTIME` column represents the time the record was read by the
 application.
@@ -48,14 +45,10 @@ the input stream in a tumbling window based on ROWTIME.
 
 ###### Topics
 
-- [Step 1: Create a Kinesis Data
-  Stream](#examples-tumbling-window-1 "#examples-tumbling-window-1")
-- [Step 2: Create the Kinesis Data Analytics
-  Application](#examples-tumbling-window-2 "#examples-tumbling-window-2")
+- [Step 1: Create a Kinesis Data Stream](#examples-tumbling-window-1 "#examples-tumbling-window-1")
+- [Step 2: Create the Kinesis Data Analytics Application](#examples-tumbling-window-2 "#examples-tumbling-window-2")
 
-## Step 1: Create a Kinesis Data
-
-Stream
+## Step 1: Create a Kinesis Data Stream
 
 Create an Amazon Kinesis data stream and populate the records as follows:
 
@@ -104,9 +97,7 @@ if __name__ == "__main__":
 
 ```
 
-## Step 2: Create the Kinesis Data Analytics
-
-Application
+## Step 2: Create the Kinesis Data Analytics Application
 
 Create a Kinesis Data Analytics application as follows:
 

@@ -11,9 +11,7 @@ Data Analytics for SQL applications:
    be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
    [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
 
-# Step 4 (Optional) Edit the Schema and SQL Code Using the
-
-Console
+# Step 4 (Optional) Edit the Schema and SQL Code Using the Console
 
 Following, you can find information about how to edit an inferred schema and how to edit
 SQL code for Amazon Kinesis Data Analytics. You do so by working with the schema editor and SQL editor that

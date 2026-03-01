@@ -29,6 +29,5 @@ For information about preprocessing streams with AWS Lambda, see [Preprocessing 
 ###### Topics
 
 - [Examples: Transforming String Values](examples-transforming-strings.md "examples-transforming-strings.md")
-- [Example: Transforming
-  DateTime Values](app-string-datetime-manipulation.md "app-string-datetime-manipulation.md")
+- [Example: Transforming DateTime Values](app-string-datetime-manipulation.md "app-string-datetime-manipulation.md")
 - [Example: Transforming Multiple Data Types](app-tworecordtypes.md "app-tworecordtypes.md")

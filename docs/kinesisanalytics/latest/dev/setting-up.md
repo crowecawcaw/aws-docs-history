@@ -11,9 +11,7 @@ Data Analytics for SQL applications:
    be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
    [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
 
-# Step 1: Set Up an Account and Create an Administrator
-
-User
+# Step 1: Set Up an Account and Create an Administrator User
 
 Before you use Amazon Kinesis Data Analytics for the first time, complete the following
 tasks:

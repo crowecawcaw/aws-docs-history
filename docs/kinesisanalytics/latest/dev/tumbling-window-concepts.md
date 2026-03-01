@@ -11,9 +11,7 @@ Data Analytics for SQL applications:
    be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
    [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
 
-# Tumbling Windows (Aggregations Using
-
-GROUP BY)
+# Tumbling Windows (Aggregations Using GROUP BY)
 
 When a windowed query processes each window in a non-overlapping manner, the window
 is referred to as a _tumbling window_. In this case, each record on

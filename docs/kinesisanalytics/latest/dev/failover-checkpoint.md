@@ -11,9 +11,7 @@ Data Analytics for SQL applications:
    be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
    [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
 
-# Delivery Model for Persisting Application Output to an
-
-External Destination
+# Delivery Model for Persisting Application Output to an External Destination
 
 Amazon Kinesis Data Analytics uses an "at least once" delivery model for application output to the configured
 destinations. When an application is running, Kinesis Data Analytics takes internal checkpoints. These

@@ -11,9 +11,7 @@ Data Analytics for SQL applications:
    be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
    [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
 
-# Example: Split
-
-Strings into Multiple Fields (VARIABLE_COLUMN_LOG_PARSE Function)
+# Example: Split Strings into Multiple Fields (VARIABLE_COLUMN_LOG_PARSE Function)
 
 This example uses the `VARIABLE_COLUMN_LOG_PARSE` function to manipulate
 strings in Kinesis Data Analytics. `VARIABLE_COLUMN_LOG_PARSE` splits an input string into
@@ -49,14 +47,10 @@ in-application stream, as shown following:
 
 ###### Topics
 
-- [Step 1:
-  Create a Kinesis Data Stream](#examples-transforming-strings-variablecolumnlogparse-1 "#examples-transforming-strings-variablecolumnlogparse-1")
-- [Step 2:
-  Create the Kinesis Data Analytics Application](#examples-transforming-strings-variablecolumnlogparse-2 "#examples-transforming-strings-variablecolumnlogparse-2")
+- [Step 1: Create a Kinesis Data Stream](#examples-transforming-strings-variablecolumnlogparse-1 "#examples-transforming-strings-variablecolumnlogparse-1")
+- [Step 2: Create the Kinesis Data Analytics Application](#examples-transforming-strings-variablecolumnlogparse-2 "#examples-transforming-strings-variablecolumnlogparse-2")
 
-## Step 1:
-
-Create a Kinesis Data Stream
+## Step 1: Create a Kinesis Data Stream
 
 Create an Amazon Kinesis data stream and populate the log records as follows:
 
@@ -95,9 +89,7 @@ if __name__ == "__main__":
 
 ```
 
-## Step 2:
-
-Create the Kinesis Data Analytics Application
+## Step 2: Create the Kinesis Data Analytics Application
 
 Create an Kinesis Data Analytics application as follows:
 

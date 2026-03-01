@@ -11,9 +11,7 @@ Data Analytics for SQL applications:
    be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
    [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
 
-# Example: Exploring the In-Application Error
-
-Stream
+# Example: Exploring the In-Application Error Stream
 
 Amazon Kinesis Data Analytics provides an in-application error stream for each application that you
 create. Any rows that your application cannot process are sent to this error stream. You

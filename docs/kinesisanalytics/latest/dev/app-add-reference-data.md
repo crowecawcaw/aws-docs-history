@@ -11,9 +11,7 @@ Data Analytics for SQL applications:
    be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
    [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
 
-# Example: Adding Reference Data to a Kinesis Data Analytics
-
-Application
+# Example: Adding Reference Data to a Kinesis Data Analytics Application
 
 In this exercise, you add reference data to an existing Kinesis Data Analytics
 application. For information about reference data, see the following topics:
@@ -54,10 +52,8 @@ ticker symbol.
 ###### Topics
 
 - [Step 1: Prepare](#add-refdata-prepare "#add-refdata-prepare")
-- [Step 2: Add the Reference Data Source
-  to the Application Configuration](#add-refdata-create-iamrole "#add-refdata-create-iamrole")
-- [Step 3: Test: Query the In-Application Reference
-  Table](#add-refdata-test "#add-refdata-test")
+- [Step 2: Add the Reference Data Source to the Application Configuration](#add-refdata-create-iamrole "#add-refdata-create-iamrole")
+- [Step 3: Test: Query the In-Application Reference Table](#add-refdata-test "#add-refdata-test")
 
 ## Step 1: Prepare
 
@@ -65,9 +61,7 @@ In this section, you store sample reference data as an object in an Amazon S3 bu
 You also create an IAM role that Kinesis Data Analytics can assume to read the object on your
 behalf.
 
-### Store Reference Data as an Amazon S3
-
-Object
+### Store Reference Data as an Amazon S3 Object
 
 In this step, you store the sample reference data as an Amazon S3 object.
 
@@ -154,9 +148,7 @@ On the IAM console, specify the following:
 
    ```
 
-## Step 2: Add the Reference Data Source
-
-to the Application Configuration
+## Step 2: Add the Reference Data Source to the Application Configuration
 
 In this step, you add a reference data source to your application configuration.
 To begin, you need the following information:
@@ -172,9 +164,7 @@ To begin, you need the following information:
 5. Choose **Discover schema**. The console detects two columns in the reference data.
 6. Choose **Save and close**.
 
-## Step 3: Test: Query the In-Application Reference
-
-Table
+## Step 3: Test: Query the In-Application Reference Table
 
 You can now query the in-application reference table, `CompanyName`.
 You can use the reference information to enrich your application by joining the

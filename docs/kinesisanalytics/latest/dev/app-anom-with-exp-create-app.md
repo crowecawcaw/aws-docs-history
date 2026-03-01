@@ -11,9 +11,7 @@ Data Analytics for SQL applications:
    be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
    [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
 
-# Step 2: Create an Analytics
-
-Application
+# Step 2: Create an Analytics Application
 
 In this section, you create an Amazon Kinesis Data Analytics application and configure it to use the
 Kinesis data stream that you created as the streaming source in [Step 1: Prepare the Data](app-anomaly-with-ex-prepare.md "app-anomaly-with-ex-prepare.md"). You then run application code that uses

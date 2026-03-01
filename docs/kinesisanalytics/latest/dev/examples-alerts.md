@@ -21,5 +21,4 @@ your Kinesis Data Analytics application.
 
 - [Example: Creating Simple Alerts](app-simple-alerts.md "app-simple-alerts.md")
 - [Example: Creating Throttled Alerts](app-throttled-alerts.md "app-throttled-alerts.md")
-- [Example: Exploring the In-Application Error
-  Stream](app-explore-error-stream.md "app-explore-error-stream.md")
+- [Example: Exploring the In-Application Error Stream](app-explore-error-stream.md "app-explore-error-stream.md")

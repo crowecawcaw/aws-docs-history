@@ -37,9 +37,7 @@ scenarios:
 - Applying complex string transformation to record fields.
 - Data filtering for cleaning up the data.
 
-## Using a Lambda Function for Preprocessing
-
-Records
+## Using a Lambda Function for Preprocessing Records
 
 When creating your Kinesis Data Analytics application, you enable Lambda preprocessing in the
 **Connect to a Source** page.
@@ -68,9 +66,7 @@ When you choose or create a Lambda function for record preprocessing, the record
 are preprocessed before your application SQL code executes or your application
 generates a schema from the records.
 
-## Lambda Preprocessing
-
-Permissions
+## Lambda Preprocessing Permissions
 
 To use Lambda preprocessing, the application's IAM role requires the following
 permissions policy:
@@ -95,9 +91,7 @@ successes and failures, and so on. For information about CloudWatch metrics that
 emitted by Kinesis Data Analytics Lambda preprocessing, see [Amazon Kinesis Analytics
 Metrics](../../../AmazonCloudWatch/latest/monitoring/aka-metricscollected.md "../../../AmazonCloudWatch/latest/monitoring/aka-metricscollected.md").
 
-## Using AWS Lambda with the Kinesis
-
-Producer Library
+## Using AWS Lambda with the Kinesis Producer Library
 
 The [Kinesis Producer Library](../../../streams/latest/dev/developing-producers-with-kpl.md "../../../streams/latest/dev/developing-producers-with-kpl.md") (KPL) aggregates small user-formatted records
 into larger records up to 1 MB to make better use of Amazon Kinesis Data Streams throughput. The Kinesis
@@ -110,16 +104,12 @@ Deaggregation Modules for AWS Lambda](https://github.com/awslabs/kinesis-deaggre
 components in this project to process KPL serialized data within AWS Lambda in Java,
 Node.js, and Python. You can also use these components as part of a [multi-lang KCL application](https://github.com/awslabs/amazon-kinesis-client/blob/master/amazon-kinesis-client-multilang/src/main/java/software/amazon/kinesis/multilang/package-info.java "https://github.com/awslabs/amazon-kinesis-client/blob/master/amazon-kinesis-client-multilang/src/main/java/software/amazon/kinesis/multilang/package-info.java").
 
-## Data Preprocessing Event Input
-
-Data Model/Record Response Model
+## Data Preprocessing Event Input Data Model/Record Response Model
 
 To preprocess records, your Lambda function must be compliant with the required
 event input data and record response models.
 
-### Event Input Data
-
-Model
+### Event Input Data Model
 
 Kinesis Data Analytics continuously reads data from your Kinesis data stream or Firehose delivery
 stream. For each batch of records it retrieves, the service manages how each
@@ -201,9 +191,7 @@ The following example shows input from a Kinesis data stream:
 
 ```
 
-### Record Response
-
-Model
+### Record Response Model
 
 All records returned from your Lambda preprocessing function (with record IDs)
 that are sent to the Lambda function must be returned. They must contain the
@@ -232,9 +220,7 @@ The following example shows output from a Lambda function:
 
 ```
 
-## Common Data Preprocessing
-
-Failures
+## Common Data Preprocessing Failures
 
 The following are common reasons why preprocessing can fail.
 

@@ -87,7 +87,7 @@ input by doing the following:
 
 The console displays the sample records on the streaming source.
 
-![Formatted stream sample tab showing stock symbols, sectors, and prices in tabular format.](images/gs-v2-30.png)
+![Formatted stream sample tab showing stock symbols, sectors, and prices in tabular format.](/images/kinesisanalytics/latest/dev/images/gs-v2-30.png)
 
 The following appear on the **Stream sample** console page:
 
@@ -115,5 +115,4 @@ in-application input stream.
 
 ###### Next Step
 
-[Step 3.3: Add Real-Time Analytics (Add
-Application Code)](get-started-add-realtime-analytics.md "get-started-add-realtime-analytics.md")
+[Step 3.3: Add Real-Time Analytics (Add Application Code)](get-started-add-realtime-analytics.md "get-started-add-realtime-analytics.md")

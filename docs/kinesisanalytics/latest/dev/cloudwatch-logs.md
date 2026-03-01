@@ -97,9 +97,7 @@ application or change a log option for an existing application.
 You can currently only add a CloudWatch log option to an application by using API actions. You can't
 add CloudWatch log options by using the console.
 
-### Adding a CloudWatch Log Option When Creating
-
-an Application
+### Adding a CloudWatch Log Option When Creating an Application
 
 The following code example demonstrates how to use the
 `CreateApplication` action to add a CloudWatch log option when you
@@ -120,9 +118,7 @@ create an application. For more information on
 }
 ```
 
-### Adding a CloudWatch Log Option to an Existing
-
-Application
+### Adding a CloudWatch Log Option to an Existing Application
 
 The following code example demonstrates how to use the
 `AddApplicationCloudWatchLoggingOption` action to add a CloudWatch
@@ -141,9 +137,7 @@ log option to an existing application. For more information about
 
 ```
 
-### Updating an Existing CloudWatch Log
-
-Option
+### Updating an Existing CloudWatch Log Option
 
 The following code example demonstrates how to use the
 `UpdateApplication` action to modify an existing CloudWatch log
@@ -167,9 +161,7 @@ option. For more information about `UpdateApplication`, see [UpdateApplication](
 
 ```
 
-### Deleting a CloudWatch Log Option from an
-
-Application
+### Deleting a CloudWatch Log Option from an Application
 
 The following code example demonstrates how to use the
 `DeleteApplicationCloudWatchLoggingOption` action to delete
@@ -294,9 +286,7 @@ generated.
 }
 ```
 
-#### Role Does Not Have Permissions
-
-to Access the Resource
+#### Role Does Not Have Permissions to Access the Resource
 
 If an input role is used that doesn't have permission to access the input
 resources, such as a Kinesis source stream, an error like the following is

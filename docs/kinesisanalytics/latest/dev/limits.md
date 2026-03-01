@@ -36,8 +36,7 @@ important dates to note, **October 15, 2025**, and
 
 We recommend that you migrate your applications to [Amazon Managed Service for Apache Flink](../../../managed-flink/latest/java/what-is.md "../../../managed-flink/latest/java/what-is.md") or [Amazon Managed Service for Apache Flink
 Studio](https://aws.amazon.com/managed-service-apache-flink/studio/ "https://aws.amazon.com/managed-service-apache-flink/studio/") before October 15, 2025. For resources to assist with your migration,
-see [Migrating to Managed Service for Apache
-Flink Studio Examples](migrating-to-kda-studio-overview.md "migrating-to-kda-studio-overview.md"). To learn more about Amazon Managed Service for Apache Flink or
+see [Migrating to Managed Service for Apache Flink Studio Examples](migrating-to-kda-studio-overview.md "migrating-to-kda-studio-overview.md"). To learn more about Amazon Managed Service for Apache Flink or
 Amazon Managed Service for Apache Flink Studio, see the [Amazon Managed Service for Apache Flink developer guide](../../../managed-flink/latest/java/what-is.md "../../../managed-flink/latest/java/what-is.md").
 
 ## Limits

@@ -22,8 +22,7 @@ describe the application input sources.
 - [Configuring a Streaming Source](#source-streaming "#source-streaming")
 - [Configuring a Reference Source](#source-reference "#source-reference")
 - [Working with JSONPath](about-json-path.md "about-json-path.md")
-- [Mapping Streaming Source Elements to SQL Input
-  Columns](sch-mapping.md "sch-mapping.md")
+- [Mapping Streaming Source Elements to SQL Input Columns](sch-mapping.md "sch-mapping.md")
 - [Using the Schema Discovery Feature on Streaming Data](sch-dis.md "sch-dis.md")
 - [Using the Schema Discovery Feature on Static Data](sch-dis-ref.md "sch-dis-ref.md")
 - [Preprocessing Data Using a Lambda Function](lambda-preprocessing.md "lambda-preprocessing.md")
@@ -181,8 +180,7 @@ You can add an application reference data source either with the API or with the
 - [AddApplicationReferenceDataSource](API_AddApplicationReferenceDataSource.md "API_AddApplicationReferenceDataSource.md")
 - [UpdateApplication](API_UpdateApplication.md "API_UpdateApplication.md")
 
-For information about adding reference data using the console, see [Example: Adding Reference Data to a Kinesis Data Analytics
-Application](app-add-reference-data.md "app-add-reference-data.md").
+For information about adding reference data using the console, see [Example: Adding Reference Data to a Kinesis Data Analytics Application](app-add-reference-data.md "app-add-reference-data.md").
 
 Note the following:
 

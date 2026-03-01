@@ -17,8 +17,7 @@ This section provides examples of creating and working with applications in Amaz
 They include example code and step-by-step instructions to help you create Kinesis Data Analytics
 applications and test your results.
 
-Before you explore these examples, we recommend that you first review [Amazon Kinesis Data Analytics for SQL Applications: How It Works](how-it-works.md "how-it-works.md") and [Getting Started with Amazon Kinesis Data Analytics for SQL
-Applications](getting-started.md "getting-started.md").
+Before you explore these examples, we recommend that you first review [Amazon Kinesis Data Analytics for SQL Applications: How It Works](how-it-works.md "how-it-works.md") and [Getting Started with Amazon Kinesis Data Analytics for SQL Applications](getting-started.md "getting-started.md").
 
 ###### Topics
 

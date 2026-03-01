@@ -24,12 +24,9 @@ JSON](http://www.json.org/ "http://www.json.org/").
 
 Amazon Kinesis Data Analytics uses JSONPath expressions in the application's source schema to identify data elements in a streaming source that contains JSON-format data.
 
-For more information about how to map streaming data to your application's input stream, see [Mapping Streaming Source Elements to SQL Input
-Columns](sch-mapping.md "sch-mapping.md").
+For more information about how to map streaming data to your application's input stream, see [Mapping Streaming Source Elements to SQL Input Columns](sch-mapping.md "sch-mapping.md").
 
-## Accessing JSON Elements with
-
-JSONPath
+## Accessing JSON Elements with JSONPath
 
 Following, you can find how to use JSONPath expressions to access various elements
 in JSON-formatted data. For the examples in this section, assume that the source

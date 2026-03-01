@@ -19,5 +19,4 @@ Kinesis Data Analytics application.
 
 ###### Topics
 
-- [Example: Adding Reference Data to a Kinesis Data Analytics
-  Application](app-add-reference-data.md "app-add-reference-data.md")
+- [Example: Adding Reference Data to a Kinesis Data Analytics Application](app-add-reference-data.md "app-add-reference-data.md")

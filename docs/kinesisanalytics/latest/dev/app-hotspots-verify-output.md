@@ -11,9 +11,7 @@ Data Analytics for SQL applications:
    be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
    [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
 
-# Step 4: Verify the Application
-
-Output
+# Step 4: Verify the Application Output
 
 In this section of the [Hotspots
 example](app-hotspots-detection.md "app-hotspots-detection.md"), you set up a web application that displays the hotspot

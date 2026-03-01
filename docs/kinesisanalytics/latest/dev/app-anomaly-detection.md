@@ -11,9 +11,7 @@ Data Analytics for SQL applications:
    be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
    [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
 
-# Example: Detecting Data Anomalies on a Stream
-
-(RANDOM_CUT_FOREST Function)
+# Example: Detecting Data Anomalies on a Stream (RANDOM_CUT_FOREST Function)
 
 Amazon Kinesis Data Analytics provides a function (`RANDOM_CUT_FOREST`) that can assign an
 anomaly score to each record based on values in the numeric columns. For more
@@ -94,8 +92,7 @@ code accordingly.
 
 - [Step 1: Prepare](app-anomaly-prepare.md "app-anomaly-prepare.md")
 - [Step 2: Create an Application](app-anom-score-create-app.md "app-anom-score-create-app.md")
-- [Step 3: Configure
-  Application Output](app-anomaly-create-ka-app-config-destination.md "app-anomaly-create-ka-app-config-destination.md")
+- [Step 3: Configure Application Output](app-anomaly-create-ka-app-config-destination.md "app-anomaly-create-ka-app-config-destination.md")
 - [Step 4: Verify Output](app-anomaly-verify-output.md "app-anomaly-verify-output.md")
 
 ###### Next Step

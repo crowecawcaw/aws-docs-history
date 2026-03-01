@@ -127,13 +127,8 @@ streams that contain normalized data:
 
 ###### Topics
 
-- [Example: Extracting a
-  Portion of a String (SUBSTRING Function)](examples-transforming-strings-substring.md "examples-transforming-strings-substring.md")
-- [Example: Replacing a
-  Substring using Regex (REGEX_REPLACE Function)](examples-transforming-strings-regexreplace.md "examples-transforming-strings-regexreplace.md")
-- [Example: Parsing Log
-  Strings Based on Regular Expressions (REGEX_LOG_PARSE Function)](examples-transforming-strings-regexlogparse.md "examples-transforming-strings-regexlogparse.md")
-- [Example: Parsing Web Logs
-  (W3C_LOG_PARSE Function)](examples-transforming-strings-w3clogparse.md "examples-transforming-strings-w3clogparse.md")
-- [Example: Split
-  Strings into Multiple Fields (VARIABLE_COLUMN_LOG_PARSE Function)](examples-transforming-strings-variablecolumnlogparse.md "examples-transforming-strings-variablecolumnlogparse.md")
+- [Example: Extracting a Portion of a String (SUBSTRING Function)](examples-transforming-strings-substring.md "examples-transforming-strings-substring.md")
+- [Example: Replacing a Substring using Regex (REGEX_REPLACE Function)](examples-transforming-strings-regexreplace.md "examples-transforming-strings-regexreplace.md")
+- [Example: Parsing Log Strings Based on Regular Expressions (REGEX_LOG_PARSE Function)](examples-transforming-strings-regexlogparse.md "examples-transforming-strings-regexlogparse.md")
+- [Example: Parsing Web Logs (W3C_LOG_PARSE Function)](examples-transforming-strings-w3clogparse.md "examples-transforming-strings-w3clogparse.md")
+- [Example: Split Strings into Multiple Fields (VARIABLE_COLUMN_LOG_PARSE Function)](examples-transforming-strings-variablecolumnlogparse.md "examples-transforming-strings-variablecolumnlogparse.md")

@@ -11,9 +11,7 @@ Data Analytics for SQL applications:
    be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
    [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
 
-# Step 1: Create the Input and Output
-
-Streams
+# Step 1: Create the Input and Output Streams
 
 Before you create an Amazon Kinesis Data Analytics application for the [Hotspots example](app-hotspots-detection.md "app-hotspots-detection.md"), you create two Kinesis
 data streams. Configure one of the streams as the streaming source for your
@@ -22,14 +20,10 @@ application output.
 
 ###### Topics
 
-- [Step 1.1: Create the Kinesis Data
-  Streams](#app-hotspots-create-two-streams "#app-hotspots-create-two-streams")
-- [Step 1.2: Write
-  Sample Records to the Input Stream](#app-hotspots-write-sample-records-inputstream "#app-hotspots-write-sample-records-inputstream")
+- [Step 1.1: Create the Kinesis Data Streams](#app-hotspots-create-two-streams "#app-hotspots-create-two-streams")
+- [Step 1.2: Write Sample Records to the Input Stream](#app-hotspots-write-sample-records-inputstream "#app-hotspots-write-sample-records-inputstream")
 
-## Step 1.1: Create the Kinesis Data
-
-Streams
+## Step 1.1: Create the Kinesis Data Streams
 
 In this section, you create two Kinesis data streams:
 `ExampleInputStream` and `ExampleOutputStream`.
@@ -70,9 +64,7 @@ Create these data streams using the console or the AWS CLI.
 
   ```
 
-## Step 1.2: Write
-
-Sample Records to the Input Stream
+## Step 1.2: Write Sample Records to the Input Stream
 
 In this step, you run Python code to continuously generate sample records and
 write to the `ExampleInputStream` stream.
@@ -172,5 +164,4 @@ if __name__ == "__main__":
 
 ###### Next Step
 
-[Step 2: Create the Kinesis Data Analytics
-Application](app-hotspot-create-app.md "app-hotspot-create-app.md")
+[Step 2: Create the Kinesis Data Analytics Application](app-hotspot-create-app.md "app-hotspot-create-app.md")

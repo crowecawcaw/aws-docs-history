@@ -32,8 +32,7 @@ After careful consideration, we have made the decision to discontinue Amazon Kin
 
 We recommend that you migrate your applications to [Amazon Managed Service for Apache Flink](../../../managed-flink/latest/java/what-is.md "../../../managed-flink/latest/java/what-is.md") or [Amazon Managed Service for Apache Flink
 Studio](https://aws.amazon.com/managed-service-apache-flink/studio/ "https://aws.amazon.com/managed-service-apache-flink/studio/") before October 15, 2025. For resources to assist with your migration,
-see [Migrating to Managed Service for Apache
-Flink Studio Examples](migrating-to-kda-studio-overview.md "migrating-to-kda-studio-overview.md"). To learn more about Amazon Managed Service for Apache Flink or
+see [Migrating to Managed Service for Apache Flink Studio Examples](migrating-to-kda-studio-overview.md "migrating-to-kda-studio-overview.md"). To learn more about Amazon Managed Service for Apache Flink or
 Amazon Managed Service for Apache Flink Studio, see the [Amazon Managed Service for Apache Flink developer
 guide](../../../managed-flink/latest/java/what-is.md "../../../managed-flink/latest/java/what-is.md").
 
@@ -45,8 +44,7 @@ To view a full list of your Amazon Kinesis Data Analytics for SQL applications, 
 ## Migrating to Amazon Managed Service for Apache Flink Studio
 
 To learn more about migrating your applications and view code and architecture
-examples, see [Migrating to Managed Service for Apache
-Flink Studio Examples](migrating-to-kda-studio-overview.md "migrating-to-kda-studio-overview.md").
+examples, see [Migrating to Managed Service for Apache Flink Studio Examples](migrating-to-kda-studio-overview.md "migrating-to-kda-studio-overview.md").
 
 ## FAQ
 
@@ -81,15 +79,12 @@ to an Amazon Managed Service for Apache Flink offering?**
 
 To upgrade to Amazon Managed Service for Apache Flink or Amazon Managed Service for Apache Flink Studio, customers must re-create their
 application. To help, we have provided a library of common SQL queries and how to re-write them in Amazon Managed Service for Apache Flink
-Studio. See [Replicating Kinesis Data Analytics for SQL Queries in
-Managed Service for Apache Flink Studio](migrating-to-kda-studio-overview.md#examples-migrating-to-kda-studio "migrating-to-kda-studio-overview.md#examples-migrating-to-kda-studio"). We have also provided common pattern architectures that customers can followv if
-they are building long running applications or using machine learning in Amazon Managed Service for Apache Flink. See [Replacing Kinesis Data Firehose as a source with
-Kinesis Data Streams](migrating-to-kda-studio-overview.md#examples-firehose "migrating-to-kda-studio-overview.md#examples-firehose")
+Studio. See [Replicating Kinesis Data Analytics for SQL Queries in Managed Service for Apache Flink Studio](migrating-to-kda-studio-overview.md#examples-migrating-to-kda-studio "migrating-to-kda-studio-overview.md#examples-migrating-to-kda-studio"). We have also provided common pattern architectures that customers can followv if
+they are building long running applications or using machine learning in Amazon Managed Service for Apache Flink. See [Replacing Kinesis Data Firehose as a source with Kinesis Data Streams](migrating-to-kda-studio-overview.md#examples-firehose "migrating-to-kda-studio-overview.md#examples-firehose")
 
 To learn more about Amazon Managed Service for Apache Flink, see [Amazon Managed Service for Apache Flink](../../../managed-flink/latest/java/what-is.md "../../../managed-flink/latest/java/what-is.md").
 
-For migration guides, see [Migrating to Managed Service for Apache
-Flink Studio Examples](migrating-to-kda-studio-overview.md "migrating-to-kda-studio-overview.md").
+For migration guides, see [Migrating to Managed Service for Apache Flink Studio Examples](migrating-to-kda-studio-overview.md "migrating-to-kda-studio-overview.md").
 
 **Will Amazon Managed Service for Apache Flink support the existing Amazon Kinesis Data Analytics for SQL
 applications features?**

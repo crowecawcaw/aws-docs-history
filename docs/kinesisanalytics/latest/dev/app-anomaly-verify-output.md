@@ -13,8 +13,7 @@ Data Analytics for SQL applications:
 
 # Step 4: Verify Output
 
-After configuring the application output in [Step 3: Configure
-Application Output](app-anomaly-create-ka-app-config-destination.md "app-anomaly-create-ka-app-config-destination.md"), use the following
+After configuring the application output in [Step 3: Configure Application Output](app-anomaly-create-ka-app-config-destination.md "app-anomaly-create-ka-app-config-destination.md"), use the following
 AWS CLI commands to read records in the destination stream that is written by the
 application:
 

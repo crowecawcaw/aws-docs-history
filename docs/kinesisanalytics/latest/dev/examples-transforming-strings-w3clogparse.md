@@ -11,9 +11,7 @@ Data Analytics for SQL applications:
    be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
    [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
 
-# Example: Parsing Web Logs
-
-(W3C_LOG_PARSE Function)
+# Example: Parsing Web Logs (W3C_LOG_PARSE Function)
 
 This example uses the `W3C_LOG_PARSE` function to transform a string in
 Amazon Kinesis Data Analytics. You can use `W3C_LOG_PARSE` to format Apache logs quickly. For
@@ -43,14 +41,10 @@ separate columns, as shown following:
 
 ###### Topics
 
-- [Step 1: Create a Kinesis
-  Data Stream](#examples-transforming-strings-w3clogparse-1 "#examples-transforming-strings-w3clogparse-1")
-- [Step 2: Create the
-  Kinesis Data Analytics Application](#examples-transforming-strings-w3clogparse-2 "#examples-transforming-strings-w3clogparse-2")
+- [Step 1: Create a Kinesis Data Stream](#examples-transforming-strings-w3clogparse-1 "#examples-transforming-strings-w3clogparse-1")
+- [Step 2: Create the Kinesis Data Analytics Application](#examples-transforming-strings-w3clogparse-2 "#examples-transforming-strings-w3clogparse-2")
 
-## Step 1: Create a Kinesis
-
-Data Stream
+## Step 1: Create a Kinesis Data Stream
 
 Create an Amazon Kinesis data stream, and populate the log records as follows:
 
@@ -92,9 +86,7 @@ if __name__ == "__main__":
 
 ```
 
-## Step 2: Create the
-
-Kinesis Data Analytics Application
+## Step 2: Create the Kinesis Data Analytics Application
 
 Create an Kinesis Data Analytics application as follows:
 

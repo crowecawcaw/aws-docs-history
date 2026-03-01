@@ -36,8 +36,7 @@ to ensure that you do not create an invalid schema.
 After you finalize a schema for your in-application stream, there are functions you
 can use to manipulate string and datetime values. You can use these functions in your
 application code when working with rows in the resulting in-application stream. For more
-information, see [Example: Transforming
-DateTime Values](app-string-datetime-manipulation.md "app-string-datetime-manipulation.md").
+information, see [Example: Transforming DateTime Values](app-string-datetime-manipulation.md "app-string-datetime-manipulation.md").
 
 ## Column Naming During Schema Discovery
 
@@ -62,9 +61,7 @@ column's place in the column order.
 After discovery completes, you can update the schema using the console to add or
 remove columns, or change column names, data types, or data size.
 
-### Examples of Discovery-Suggested
-
-Column Names
+### Examples of Discovery-Suggested Column Names
 
 | Source Stream Column Name | Discovery-Suggested Column Name |
 | ------------------------- | ------------------------------- |
@@ -86,5 +83,4 @@ If your data does not follow a pattern (which you can specify using the schema
 editor), you can define a schema as a single column of type VARCHAR(N), where N is
 the largest number of characters you expect your record to include. From there, you
 can use string and date-time manipulation to structure your data after it is in an
-in-application stream. For examples, see [Example: Transforming
-DateTime Values](app-string-datetime-manipulation.md "app-string-datetime-manipulation.md").
+in-application stream. For examples, see [Example: Transforming DateTime Values](app-string-datetime-manipulation.md "app-string-datetime-manipulation.md").

@@ -11,9 +11,7 @@ Data Analytics for SQL applications:
    be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
    [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
 
-# Example: Aggregating Partial Results
-
-from a Query
+# Example: Aggregating Partial Results from a Query
 
 If an Amazon Kinesis data stream contains records that have an event time that does not
 exactly match ingestion time, a selection of results in a tumbling window contains
@@ -41,15 +39,12 @@ be combined to produce a final result. The application then produces a second
 aggregation (sent to the `DESTINATION_SQL_STREAM` in-application stream) that
 combines the two partial results.
 
-###### To create an application that aggregates partial results using an event
-
-time
+###### To create an application that aggregates partial results using an event time
 
 1. Sign in to the AWS Management Console and open the Kinesis console at
    [https://console.aws.amazon.com/kinesis](https://console.aws.amazon.com/kinesis "https://console.aws.amazon.com/kinesis").
 2. Choose **Data Analytics** in the navigation pane. Create a
-   Kinesis Data Analytics application as described in the [Getting Started with Amazon Kinesis Data Analytics for SQL
-   Applications](getting-started.md "getting-started.md") tutorial.
+   Kinesis Data Analytics application as described in the [Getting Started with Amazon Kinesis Data Analytics for SQL Applications](getting-started.md "getting-started.md") tutorial.
 3. In the SQL editor, replace the application code with the following:
 
 ```

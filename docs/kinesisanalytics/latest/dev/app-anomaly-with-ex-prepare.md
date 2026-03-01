@@ -19,14 +19,10 @@ Python code to write simulated blood pressure data to the stream.
 
 ###### Topics
 
-- [Step 1.1: Create a Kinesis Data
-  Stream](#app-anomaly-create-two-streams "#app-anomaly-create-two-streams")
-- [Step 1.2: Write
-  Sample Records to the Input Stream](#app-anomaly-write-sample-records-inputstream "#app-anomaly-write-sample-records-inputstream")
+- [Step 1.1: Create a Kinesis Data Stream](#app-anomaly-create-two-streams "#app-anomaly-create-two-streams")
+- [Step 1.2: Write Sample Records to the Input Stream](#app-anomaly-write-sample-records-inputstream "#app-anomaly-write-sample-records-inputstream")
 
-## Step 1.1: Create a Kinesis Data
-
-Stream
+## Step 1.1: Create a Kinesis Data Stream
 
 In this section, you create a Kinesis data stream named
 `ExampleInputStream`. You can create this data stream
@@ -48,9 +44,7 @@ using the AWS Management Console or the AWS CLI.
 $ aws kinesis create-stream --stream-name ExampleInputStream --shard-count 1
 ```
 
-## Step 1.2: Write
-
-Sample Records to the Input Stream
+## Step 1.2: Write Sample Records to the Input Stream
 
 In this step, you run Python code to continuously generate sample records and
 write them to the data stream that you created.
@@ -123,5 +117,4 @@ if __name__ == "__main__":
 
 ###### Next Step
 
-[Step 2: Create an Analytics
-Application](app-anom-with-exp-create-app.md "app-anom-with-exp-create-app.md")
+[Step 2: Create an Analytics Application](app-anom-with-exp-create-app.md "app-anom-with-exp-create-app.md")

@@ -155,8 +155,7 @@ error stream.
   column type, consider changing it to an `INTEGER`.
 - Use SQL functions in your application code to handle any unstructured data or
   columns. You might have unstructured data or columns, such as log data, in your
-  input. For examples, see [Example: Transforming
-  DateTime Values](app-string-datetime-manipulation.md "app-string-datetime-manipulation.md"). One approach to handling
+  input. For examples, see [Example: Transforming DateTime Values](app-string-datetime-manipulation.md "app-string-datetime-manipulation.md"). One approach to handling
   this type of data is to define the schema with only one column of type
   `VARCHAR(N)`, where `N` is the largest possible row
   that you would expect to see in your stream. In your application code, you can
@@ -234,8 +233,7 @@ two methods for populating a stream with mock data:
 - Use a custom Python application to send more complex data to a Kinesis data stream. A Python
   application can generate complex relationships between data items, such as
   hotspots or anomalies. For an example of a Python application that sends
-  data clustered into a data hotspot, see [Example: Detecting Hotspots on a Stream (HOTSPOTS
-  Function)](app-hotspots-detection.md "app-hotspots-detection.md").
+  data clustered into a data hotspot, see [Example: Detecting Hotspots on a Stream (HOTSPOTS Function)](app-hotspots-detection.md "app-hotspots-detection.md").
 
 When running your test application, view your results using a destination (such as
 a Firehose delivery stream to an Amazon Redshift database) instead of viewing your in-application

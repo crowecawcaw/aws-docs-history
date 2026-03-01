@@ -11,9 +11,7 @@ Data Analytics for SQL applications:
    be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
    [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
 
-# Overview of Managing Access Permissions to Your
-
-Resources
+# Overview of Managing Access Permissions to Your Resources
 
 ###### Warning
 
@@ -42,18 +40,13 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [Resources and
-  Operations](#access-control-resources "#access-control-resources")
+- [Resources and Operations](#access-control-resources "#access-control-resources")
 - [Understanding Resource Ownership](#access-control-resource-ownership "#access-control-resource-ownership")
 - [Managing Access to Resources](#manage-access-overview "#manage-access-overview")
-- [Specifying Policy Elements:
-  Actions, Effects, and Principals](#specify-policy-elements "#specify-policy-elements")
-- [Specifying Conditions in a
-  Policy](#specifying-conditions-overview "#specifying-conditions-overview")
+- [Specifying Policy Elements: Actions, Effects, and Principals](#specify-policy-elements "#specify-policy-elements")
+- [Specifying Conditions in a Policy](#specifying-conditions-overview "#specifying-conditions-overview")
 
-## Resources and
-
-Operations
+## Resources and Operations
 
 In , the primary resource is
 _an application_. In a policy, you use an
@@ -112,13 +105,10 @@ policies. supports only identity-based policies (IAM policies).
 
 ###### Topics
 
-- [Identity-Based Policies (IAM
-  Policies)](#manage-access-iam-policies "#manage-access-iam-policies")
+- [Identity-Based Policies (IAM Policies)](#manage-access-iam-policies "#manage-access-iam-policies")
 - [Resource-Based Policies](#manage-access-resource-policies "#manage-access-resource-policies")
 
-### Identity-Based Policies (IAM
-
-Policies)
+### Identity-Based Policies (IAM Policies)
 
 You can attach policies to IAM identities. For example, you can do the following:
 
@@ -183,8 +173,7 @@ JSON
 ```
 
 For more information about using identity-based policies with ,
-see [Using Identity-Based Policies (IAM
-Policies) for](using-identity-based-policies.md "using-identity-based-policies.md") . For more
+see [Using Identity-Based Policies (IAM Policies) for](using-identity-based-policies.md "using-identity-based-policies.md"). For more
 information about users, groups, roles, and permissions, see [Identities (Users, Groups, and Roles)](../../../IAM/latest/UserGuide/id.md "../../../IAM/latest/UserGuide/id.md") in
 the _IAM User Guide_.
 
@@ -195,24 +184,20 @@ policies. For example, you can attach a policy to an S3 bucket to manage access
 permissions to that bucket. doesn't support resource-based
 policies.
 
-## Specifying Policy Elements:
-
-Actions, Effects, and Principals
+## Specifying Policy Elements: Actions, Effects, and Principals
 
 For each resource, the service defines a set of API operations. To grant
 permissions for these API operations, defines a set of actions that you
 can specify in a policy. Some API operations can require permissions for more than
 one action in order to perform the API operation. For more information about
-resources and API operations, see [Resources and
-Operations](#access-control-resources "#access-control-resources") and [Actions](API_Operations.md "API_Operations.md").
+resources and API operations, see [Resources and Operations](#access-control-resources "#access-control-resources") and [Actions](API_Operations.md "API_Operations.md").
 
 The following are the most basic policy elements:
 
 - **Resource** –
   You use an Amazon Resource Name (ARN) to identify the resource
   that the policy applies to. For more information, see
-  [Resources and
-  Operations](#access-control-resources "#access-control-resources").
+  [Resources and Operations](#access-control-resources "#access-control-resources").
 - **Action** – You use action
   keywords to identify resource operations that you want to allow or deny.
   For example, you can use `create` to
@@ -236,12 +221,9 @@ the _IAM User Guide_.
 For a table
 
 showing all of the API operations and the resources that they apply to,
-see [API Permissions: Actions,
-Permissions, and Resources Reference](api-permissions-reference.md "api-permissions-reference.md").
+see [API Permissions: Actions, Permissions, and Resources Reference](api-permissions-reference.md "api-permissions-reference.md").
 
-## Specifying Conditions in a
-
-Policy
+## Specifying Conditions in a Policy
 
 When you grant permissions, you can use the access policy language to specify the
 conditions when a policy should take effect. For example, you might want a policy to

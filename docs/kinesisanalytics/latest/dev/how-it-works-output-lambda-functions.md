@@ -11,9 +11,7 @@ Data Analytics for SQL applications:
    be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
    [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
 
-# Creating Lambda Functions for
-
-Application Destinations
+# Creating Lambda Functions for Application Destinations
 
 Your Kinesis Data Analytics application can use AWS Lambda functions as an output. Kinesis Data Analytics provides
 templates for creating Lambda functions to use as a destination for your
@@ -22,18 +20,12 @@ from your application.
 
 ###### Topics
 
-- [Creating a Lambda Function
-  Destination in Node.js](#how-it-works-lambda-dest-nodejs "#how-it-works-lambda-dest-nodejs")
-- [Creating a Lambda Function
-  Destination in Python](#how-it-works-lambda-dest-python "#how-it-works-lambda-dest-python")
-- [Creating a Lambda Function
-  Destination in Java](#how-it-works-lambda-dest-java "#how-it-works-lambda-dest-java")
-- [Creating a Lambda Function Destination
-  in .NET](#how-it-works-lambda-net "#how-it-works-lambda-net")
+- [Creating a Lambda Function Destination in Node.js](#how-it-works-lambda-dest-nodejs "#how-it-works-lambda-dest-nodejs")
+- [Creating a Lambda Function Destination in Python](#how-it-works-lambda-dest-python "#how-it-works-lambda-dest-python")
+- [Creating a Lambda Function Destination in Java](#how-it-works-lambda-dest-java "#how-it-works-lambda-dest-java")
+- [Creating a Lambda Function Destination in .NET](#how-it-works-lambda-net "#how-it-works-lambda-net")
 
-## Creating a Lambda Function
-
-Destination in Node.js
+## Creating a Lambda Function Destination in Node.js
 
 The following template for creating a destination Lambda function in Node.js is
 available on the console:
@@ -42,9 +34,7 @@ available on the console:
 | -------------------------- | -------------------- | -------------------------------------------------------------------------------------------- |
 | `kinesis-analytics-output` | Node.js 12.x         | Deliver output records from a Kinesis Data Analytics application to a custom<br>destination. |
 
-## Creating a Lambda Function
-
-Destination in Python
+## Creating a Lambda Function Destination in Python
 
 The following templates for creating a destination Lambda function in Python
 are available on the console:
@@ -54,9 +44,7 @@ are available on the console:
 | `kinesis-analytics-output-sns` | Python 2.7           | Deliver output records from a Kinesis Data Analytics application to<br>Amazon SNS.      |
 | `kinesis-analytics-output-ddb` | Python 2.7           | Deliver output records from a Kinesis Data Analytics application to<br>Amazon DynamoDB. |
 
-## Creating a Lambda Function
-
-Destination in Java
+## Creating a Lambda Function Destination in Java
 
 To create a destination Lambda function in Java, use the [Java events](https://github.com/aws/aws-lambda-java-libs/tree/master/aws-lambda-java-events/src/main/java/com/amazonaws/services/lambda/runtime/events "https://github.com/aws/aws-lambda-java-libs/tree/master/aws-lambda-java-events/src/main/java/com/amazonaws/services/lambda/runtime/events") classes.
 
@@ -89,9 +77,7 @@ public class LambdaFunctionHandler
 
 ```
 
-## Creating a Lambda Function Destination
-
-in .NET
+## Creating a Lambda Function Destination in .NET
 
 To create a destination Lambda function in .NET, use the [.NET events](https://github.com/aws/aws-lambda-dotnet/tree/master/Libraries/src/Amazon.Lambda.KinesisAnalyticsEvents "https://github.com/aws/aws-lambda-dotnet/tree/master/Libraries/src/Amazon.Lambda.KinesisAnalyticsEvents") classes.
 

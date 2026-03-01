@@ -11,9 +11,7 @@ Data Analytics for SQL applications:
    be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
    [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
 
-# Creating Lambda Functions for
-
-Preprocessing
+# Creating Lambda Functions for Preprocessing
 
 Your Amazon Kinesis Data Analytics application can use Lambda functions for preprocessing records as
 they are ingested into the application. Kinesis Data Analytics provides the following templates on
@@ -21,18 +19,12 @@ the console to use as a starting point for preprocessing your data.
 
 ###### Topics
 
-- [Creating a Preprocessing
-  Lambda Function in Node.js](#lambda-preprocessing-functions-nodejs "#lambda-preprocessing-functions-nodejs")
-- [Creating a Preprocessing
-  Lambda Function in Python](#lambda-preprocessing-functions-python "#lambda-preprocessing-functions-python")
-- [Creating a Preprocessing
-  Lambda Function in Java](#lambda-preprocessing-functions-java "#lambda-preprocessing-functions-java")
-- [Creating a Preprocessing
-  Lambda Function in .NET](#lambda-preprocessing-functions-net "#lambda-preprocessing-functions-net")
+- [Creating a Preprocessing Lambda Function in Node.js](#lambda-preprocessing-functions-nodejs "#lambda-preprocessing-functions-nodejs")
+- [Creating a Preprocessing Lambda Function in Python](#lambda-preprocessing-functions-python "#lambda-preprocessing-functions-python")
+- [Creating a Preprocessing Lambda Function in Java](#lambda-preprocessing-functions-java "#lambda-preprocessing-functions-java")
+- [Creating a Preprocessing Lambda Function in .NET](#lambda-preprocessing-functions-net "#lambda-preprocessing-functions-net")
 
-## Creating a Preprocessing
-
-Lambda Function in Node.js
+## Creating a Preprocessing Lambda Function in Node.js
 
 The following templates for creating preprocessing Lambda function in Node.js
 are available on the Kinesis Data Analytics console:
@@ -42,9 +34,7 @@ are available on the Kinesis Data Analytics console:
 | General Kinesis Data Analytics Input Processing | Node.js 6.10         | A Kinesis Data Analytics record preprocessor that receives JSON or CSV<br>records as input and then returns them with a processing<br>status. Use this processor as a starting point for custom<br>transformation logic. |
 | Compressed Input Processing                     | Node.js 6.10         | A Kinesis Data Analytics record processor that receives compressed (GZIP or<br>Deflate compressed) JSON or CSV records as input and returns<br>decompressed records with a processing status.                            |
 
-## Creating a Preprocessing
-
-Lambda Function in Python
+## Creating a Preprocessing Lambda Function in Python
 
 The following templates for creating preprocessing Lambda function in Python
 are available on the console:
@@ -54,9 +44,7 @@ are available on the console:
 | General Kinesis Analytics Input Processing | Python 2.7           | A Kinesis Data Analytics record preprocessor that receives JSON or CSV<br>records as input and then returns them with a processing<br>status. Use this processor as a starting point for custom<br>transformation logic. |
 | KPL Input Processing                       | Python 2.7           | A Kinesis Data Analytics record processor that receives Kinesis Producer<br>Library (KPL) aggregates of JSON or CSV records as input and<br>returns disaggregated records with a processing status.                      |
 
-## Creating a Preprocessing
-
-Lambda Function in Java
+## Creating a Preprocessing Lambda Function in Java
 
 To create a Lambda function in Java for preprocessing records, use the [Java events](https://github.com/aws/aws-lambda-java-libs/tree/master/aws-lambda-java-events/src/main/java/com/amazonaws/services/lambda/runtime/events "https://github.com/aws/aws-lambda-java-libs/tree/master/aws-lambda-java-events/src/main/java/com/amazonaws/services/lambda/runtime/events") classes.
 
@@ -90,9 +78,7 @@ public class LambdaFunctionHandler implements
 
 ```
 
-## Creating a Preprocessing
-
-Lambda Function in .NET
+## Creating a Preprocessing Lambda Function in .NET
 
 To create a Lambda function in .NET for preprocessing records, use the [.NET events](https://github.com/aws/aws-lambda-dotnet/tree/master/Libraries/src/Amazon.Lambda.KinesisAnalyticsEvents "https://github.com/aws/aws-lambda-dotnet/tree/master/Libraries/src/Amazon.Lambda.KinesisAnalyticsEvents") classes.
 

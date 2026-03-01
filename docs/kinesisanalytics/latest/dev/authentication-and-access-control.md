@@ -27,12 +27,9 @@ must have permissions to create an application.
 The following sections describe how to manage permissions for . We
 recommend that you read the overview first.
 
-- [Overview of Managing Access Permissions to Your
-  Resources](access-control-overview.md "access-control-overview.md")
-- [Using Identity-Based Policies (IAM
-  Policies) for](using-identity-based-policies.md "using-identity-based-policies.md")
-- [API Permissions: Actions,
-  Permissions, and Resources Reference](api-permissions-reference.md "api-permissions-reference.md")
+- [Overview of Managing Access Permissions to Your Resources](access-control-overview.md "access-control-overview.md")
+- [Using Identity-Based Policies (IAM Policies) for](using-identity-based-policies.md "using-identity-based-policies.md")
+- [API Permissions: Actions, Permissions, and Resources Reference](api-permissions-reference.md "api-permissions-reference.md")
 
 ## Authenticating with identities
 

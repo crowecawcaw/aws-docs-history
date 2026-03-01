@@ -119,8 +119,7 @@ streams. For more information, see [Application Code](how-it-works-app-code.md "
   information, see [Error Handling](error-handling.md "error-handling.md").
 - Amazon Kinesis Data Analytics ensures that your application output records are written to the
   configured destination. It uses an "at least once" processing and delivery model,
-  even if you experience an application interruption. For more information, see [Delivery Model for Persisting Application Output to an
-  External Destination](failover-checkpoint.md "failover-checkpoint.md").
+  even if you experience an application interruption. For more information, see [Delivery Model for Persisting Application Output to an External Destination](failover-checkpoint.md "failover-checkpoint.md").
 
 ######
 
@@ -128,6 +127,5 @@ streams. For more information, see [Application Code](how-it-works-app-code.md "
 - [Application Code](how-it-works-app-code.md "how-it-works-app-code.md")
 - [Configuring Application Output](how-it-works-output.md "how-it-works-output.md")
 - [Error Handling](error-handling.md "error-handling.md")
-- [Automatically Scaling Applications to Increase
-  Throughput](how-it-works-autoscaling.md "how-it-works-autoscaling.md")
+- [Automatically Scaling Applications to Increase Throughput](how-it-works-autoscaling.md "how-it-works-autoscaling.md")
 - [Using Tagging](how-tagging.md "how-tagging.md")

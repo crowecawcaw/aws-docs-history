@@ -11,9 +11,7 @@ Data Analytics for SQL applications:
    be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
    [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
 
-# Getting Started with Amazon Kinesis Data Analytics for SQL
-
-Applications
+# Getting Started with Amazon Kinesis Data Analytics for SQL Applications
 
 Following, you can find topics to help get you started using Amazon Kinesis Data Analytics for SQL
 Applications. If you are new to Kinesis Data Analytics for SQL Applications, we recommend that you review the
@@ -24,14 +22,12 @@ section.
 
 - [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [Create a user with administrative access](#create-an-admin "#create-an-admin")
-- [Step 1: Set Up an Account and Create an Administrator
-  User](setting-up.md "setting-up.md")
+- [Step 1: Set Up an Account and Create an Administrator User](setting-up.md "setting-up.md")
 - [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [Create a user with administrative access](#create-an-admin "#create-an-admin")
 - [Step 2: Set Up the AWS Command Line Interface (AWS CLI)](setup-awscli.md "setup-awscli.md")
 - [Step 3: Create Your Starter Amazon Kinesis Data Analytics Application](get-started-exercise.md "get-started-exercise.md")
-- [Step 4 (Optional) Edit the Schema and SQL Code Using the
-  Console](console-feature-summary.md "console-feature-summary.md")
+- [Step 4 (Optional) Edit the Schema and SQL Code Using the Console](console-feature-summary.md "console-feature-summary.md")
 
 ## Sign up for an AWS account
 

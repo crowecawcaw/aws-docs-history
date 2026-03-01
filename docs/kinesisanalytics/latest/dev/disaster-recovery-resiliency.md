@@ -26,5 +26,4 @@ In addition to the AWS global infrastructure, Kinesis Data Analytics offers seve
 ## Disaster Recovery
 
 Kinesis Data Analytics runs in a serverless mode, and takes care of host degradations, Availability Zone availability, and other infrastructure related issues by performing automatic migration.
-When this happens, Kinesis Data Analytics ensures that the application is processed without any loss of data. For more information, see [Delivery Model for Persisting Application Output to an
-External Destination](failover-checkpoint.md "failover-checkpoint.md").
+When this happens, Kinesis Data Analytics ensures that the application is processed without any loss of data. For more information, see [Delivery Model for Persisting Application Output to an External Destination](failover-checkpoint.md "failover-checkpoint.md").

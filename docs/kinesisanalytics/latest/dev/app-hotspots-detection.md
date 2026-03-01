@@ -11,9 +11,7 @@ Data Analytics for SQL applications:
    be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
    [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
 
-# Example: Detecting Hotspots on a Stream (HOTSPOTS
-
-Function)
+# Example: Detecting Hotspots on a Stream (HOTSPOTS Function)
 
 Amazon Kinesis Data Analytics provides the `HOTSPOTS` function, which can locate and return
 information about relatively dense regions in your data. For more information, see
@@ -84,11 +82,7 @@ accordingly.
 
 ###### Topics
 
-- [Step 1: Create the Input and Output
-  Streams](app-hotspots-prepare.md "app-hotspots-prepare.md")
-- [Step 2: Create the Kinesis Data Analytics
-  Application](app-hotspot-create-app.md "app-hotspot-create-app.md")
-- [Step 3: Configure
-  the Application Output](app-hotspots-create-ka-app-config-destination.md "app-hotspots-create-ka-app-config-destination.md")
-- [Step 4: Verify the Application
-  Output](app-hotspots-verify-output.md "app-hotspots-verify-output.md")
+- [Step 1: Create the Input and Output Streams](app-hotspots-prepare.md "app-hotspots-prepare.md")
+- [Step 2: Create the Kinesis Data Analytics Application](app-hotspot-create-app.md "app-hotspot-create-app.md")
+- [Step 3: Configure the Application Output](app-hotspots-create-ka-app-config-destination.md "app-hotspots-create-ka-app-config-destination.md")
+- [Step 4: Verify the Application Output](app-hotspots-verify-output.md "app-hotspots-verify-output.md")

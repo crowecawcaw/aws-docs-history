@@ -50,9 +50,7 @@ to provide explicit mapping in your input configuration:
 These timestamp values are useful in windowed queries that are time-based.
 For more information, see [Windowed Queries](windowed-sql.md "windowed-sql.md").
 
-## Real-Time Analytics
-
-Tab
+## Real-Time Analytics Tab
 
 The **Real-time analytics** tab shows all the
 in-application streams that your application code creates. This group of streams

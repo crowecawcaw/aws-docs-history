@@ -11,9 +11,7 @@ Data Analytics for SQL applications:
    be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
    [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
 
-# Step 3: Configure
-
-the Application Output
+# Step 3: Configure the Application Output
 
 At this point in the [Hotspots
 example](app-hotspots-detection.md "app-hotspots-detection.md"), you have Amazon Kinesis Data Analytics application code discovering significant
@@ -41,10 +39,8 @@ records, your application writes to the in-application stream
 `ExampleOutputStream` stream and send you alerts. For
 more information, see [Using a Lambda Function as Output](how-it-works-output-lambda.md "how-it-works-output-lambda.md"). You can also review the
 records that Kinesis Data Analytics writes to the external destination, which is the Kinesis
-stream `ExampleOutputStream`, as described in [Step 4: Verify the Application
-Output](app-hotspots-verify-output.md "app-hotspots-verify-output.md").
+stream `ExampleOutputStream`, as described in [Step 4: Verify the Application Output](app-hotspots-verify-output.md "app-hotspots-verify-output.md").
 
 ###### Next Step
 
-[Step 4: Verify the Application
-Output](app-hotspots-verify-output.md "app-hotspots-verify-output.md")
+[Step 4: Verify the Application Output](app-hotspots-verify-output.md "app-hotspots-verify-output.md")

@@ -19,14 +19,10 @@ create in the next step.
 
 ###### Topics
 
-- [Step 1.1: Create a
-  Streaming Source](#tworecordtypes-prepare-create-stream "#tworecordtypes-prepare-create-stream")
-- [Step 1.2: Populate the
-  Streaming Source](#tworecordtypes-prepare-populate-stream "#tworecordtypes-prepare-populate-stream")
+- [Step 1.1: Create a Streaming Source](#tworecordtypes-prepare-create-stream "#tworecordtypes-prepare-create-stream")
+- [Step 1.2: Populate the Streaming Source](#tworecordtypes-prepare-populate-stream "#tworecordtypes-prepare-populate-stream")
 
-## Step 1.1: Create a
-
-Streaming Source
+## Step 1.1: Create a Streaming Source
 
 You can create a Kinesis data stream using the console or the AWS CLI. The example
 assumes `OrdersAndTradesStream` as the stream name.
@@ -48,9 +44,7 @@ $ aws kinesis create-stream \
 --profile *adminuser*
 ```
 
-## Step 1.2: Populate the
-
-Streaming Source
+## Step 1.2: Populate the Streaming Source
 
 Run the following Python script to populate sample records on the
 `OrdersAndTradesStream`. If you created the stream with a

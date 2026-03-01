@@ -11,9 +11,7 @@ Data Analytics for SQL applications:
    be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
    [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
 
-# Step 3: Configure
-
-Application Output
+# Step 3: Configure Application Output
 
 After completing [Step 2: Create an Application](app-anom-score-create-app.md "app-anom-score-create-app.md"), you have application
 code that is reading heart rate data from a streaming source and assigning an

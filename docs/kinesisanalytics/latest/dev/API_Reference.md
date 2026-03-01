@@ -17,8 +17,7 @@ Data Analytics for SQL applications:
 
 This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see [Amazon Managed Service for Apache Flink API V2 Documentation](../../../managed-flink/latest/apiv2/Welcome.md "../../../managed-flink/latest/apiv2/Welcome.md").
 
-You can use the AWS CLI to explore the Amazon Kinesis Data Analytics API. This guide provides [Getting Started with Amazon Kinesis Data Analytics for SQL
-Applications](getting-started.md "getting-started.md")
+You can use the AWS CLI to explore the Amazon Kinesis Data Analytics API. This guide provides [Getting Started with Amazon Kinesis Data Analytics for SQL Applications](getting-started.md "getting-started.md")
 exercises that use the AWS CLI.
 
 **Topics**

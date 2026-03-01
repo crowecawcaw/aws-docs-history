@@ -11,9 +11,7 @@ Data Analytics for SQL applications:
    be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
    [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
 
-# Example: Retrieving the Most Frequently
-
-Occurring Values (TOP_K_ITEMS_TUMBLING)
+# Example: Retrieving the Most Frequently Occurring Values (TOP_K_ITEMS_TUMBLING)
 
 This Amazon Kinesis Data Analytics example demonstrates how to use the `TOP_K_ITEMS_TUMBLING`
 function to retrieve the most frequently occurring values in a tumbling window. For more
@@ -50,14 +48,10 @@ frequently occurring values in the input stream.
 
 ###### Topics
 
-- [Step 1: Create a Kinesis Data
-  Stream](#examples-window-topkitems-1 "#examples-window-topkitems-1")
-- [Step 2: Create the Kinesis Data Analytics
-  Application](#examples-window-topkitems-2 "#examples-window-topkitems-2")
+- [Step 1: Create a Kinesis Data Stream](#examples-window-topkitems-1 "#examples-window-topkitems-1")
+- [Step 2: Create the Kinesis Data Analytics Application](#examples-window-topkitems-2 "#examples-window-topkitems-2")
 
-## Step 1: Create a Kinesis Data
-
-Stream
+## Step 1: Create a Kinesis Data Stream
 
 Create an Amazon Kinesis data stream and populate the records as follows:
 
@@ -103,9 +97,7 @@ if __name__ == "__main__":
 
 ```
 
-## Step 2: Create the Kinesis Data Analytics
-
-Application
+## Step 2: Create the Kinesis Data Analytics Application
 
 Create a Kinesis Data Analytics application as follows:
 

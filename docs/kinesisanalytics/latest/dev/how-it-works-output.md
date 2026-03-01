@@ -60,9 +60,7 @@ This section describes how to create the `Outputs` section of the request
 body for a `CreateApplication` or `AddApplicationOutput`
 operation.
 
-### Creating a Kinesis Stream
-
-Output
+### Creating a Kinesis Stream Output
 
 The following JSON fragment shows the `Outputs` section in the
 `CreateApplication` request body for creating an Amazon Kinesis data stream
@@ -85,9 +83,7 @@ destination.
 
 ```
 
-### Creating a Firehose Delivery Stream
-
-Output
+### Creating a Firehose Delivery Stream Output
 
 The following JSON fragment shows the `Outputs` section in the
 `CreateApplication` request body for creating an Amazon Data Firehose delivery
@@ -109,9 +105,7 @@ stream destination.
 
 ```
 
-### Creating a Lambda Function
-
-Output
+### Creating a Lambda Function Output
 
 The following JSON fragment shows the `Outputs` section in the
 `CreateApplication` request body for creating an AWS Lambda function

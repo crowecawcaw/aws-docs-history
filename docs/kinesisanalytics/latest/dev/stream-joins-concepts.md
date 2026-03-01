@@ -32,9 +32,7 @@ suppose that you have the following in-application streams:
 
 The following are `JOIN` query examples that correlate data on these streams.
 
-## Example 1: Report Orders Where There Are Trades Within One
-
-Minute of the Order Being Placed
+## Example 1: Report Orders Where There Are Trades Within One Minute of the Order Being Placed
 
 In this example, your query joins both the `OrderStream` and
 `TradeStream`. However, because we want only trades placed one minute

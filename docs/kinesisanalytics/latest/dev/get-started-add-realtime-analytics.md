@@ -11,9 +11,7 @@ Data Analytics for SQL applications:
    be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
    [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
 
-# Step 3.3: Add Real-Time Analytics (Add
-
-Application Code)
+# Step 3.3: Add Real-Time Analytics (Add Application Code)
 
 You can write your own SQL queries against the in-application stream, but for
 the following step you use one of the templates that provides sample code.
@@ -116,5 +114,4 @@ streaming source and adding rows to the in-application stream
 
 ###### Next Step
 
-[Step 3.4: (Optional) Update the Application
-Code](get-started-update-appcode.md "get-started-update-appcode.md")
+[Step 3.4: (Optional) Update the Application Code](get-started-update-appcode.md "get-started-update-appcode.md")

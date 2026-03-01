@@ -11,9 +11,7 @@ Data Analytics for SQL applications:
    be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
    [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
 
-# Example: Replacing a
-
-Substring using Regex (REGEX_REPLACE Function)
+# Example: Replacing a Substring using Regex (REGEX_REPLACE Function)
 
 This example uses the `REGEX_REPLACE` function to transform a string in
 Amazon Kinesis Data Analytics. `REGEX_REPLACE` replaces a substring with an alternative
@@ -43,14 +41,10 @@ the resulting data into another in-application stream, as shown following:
 
 ###### Topics
 
-- [Step 1: Create a Kinesis
-  Data Stream](#examples-transforming-strings-regexreplace-1 "#examples-transforming-strings-regexreplace-1")
-- [Step 2: Create the
-  Kinesis Data Analytics Application](#examples-transforming-strings-regexreplace-2 "#examples-transforming-strings-regexreplace-2")
+- [Step 1: Create a Kinesis Data Stream](#examples-transforming-strings-regexreplace-1 "#examples-transforming-strings-regexreplace-1")
+- [Step 2: Create the Kinesis Data Analytics Application](#examples-transforming-strings-regexreplace-2 "#examples-transforming-strings-regexreplace-2")
 
-## Step 1: Create a Kinesis
-
-Data Stream
+## Step 1: Create a Kinesis Data Stream
 
 Create an Amazon Kinesis data stream and populate the log records as follows:
 
@@ -89,9 +83,7 @@ if __name__ == "__main__":
 
 ```
 
-## Step 2: Create the
-
-Kinesis Data Analytics Application
+## Step 2: Create the Kinesis Data Analytics Application
 
 Next, create an Kinesis Data Analytics application as follows:
 

@@ -11,9 +11,7 @@ Data Analytics for SQL applications:
    be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
    [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
 
-# Step 3.4: (Optional) Update the Application
-
-Code
+# Step 3.4: (Optional) Update the Application Code
 
 In this step, you explore how to update the application code.
 
@@ -95,5 +93,4 @@ did the following:
 
 ###### Next Step
 
-[Step 4 (Optional) Edit the Schema and SQL Code Using the
-Console](console-feature-summary.md "console-feature-summary.md").
+[Step 4 (Optional) Edit the Schema and SQL Code Using the Console](console-feature-summary.md "console-feature-summary.md").

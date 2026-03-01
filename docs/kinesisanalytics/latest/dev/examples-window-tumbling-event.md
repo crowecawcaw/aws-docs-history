@@ -11,13 +11,10 @@ Data Analytics for SQL applications:
    be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
    [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
 
-# Example: Tumbling Window Using an Event
-
-Timestamp
+# Example: Tumbling Window Using an Event Timestamp
 
 When a windowed query processes each window in a non-overlapping manner, the window is
-referred to as a _tumbling window_. For details, see [Tumbling Windows (Aggregations Using
-GROUP BY)](tumbling-window-concepts.md "tumbling-window-concepts.md"). This
+referred to as a _tumbling window_. For details, see [Tumbling Windows (Aggregations Using GROUP BY)](tumbling-window-concepts.md "tumbling-window-concepts.md"). This
 Amazon Kinesis Data Analytics example demonstrates a tumbling window that uses an event timestamp, which is
 a user-created timestamp that is included in the streaming data. It uses this approach
 rather than just using ROWTIME, which is a timestamp that Kinesis Data Analytics creates when the
@@ -56,14 +53,10 @@ the input stream in a tumbling window based on an event time.
 
 ###### Topics
 
-- [Step 1: Create a Kinesis Data
-  Stream](#examples-window-tumbling-event-1 "#examples-window-tumbling-event-1")
-- [Step 2: Create the Kinesis Data Analytics
-  Application](#examples-window-tumbling-event-2 "#examples-window-tumbling-event-2")
+- [Step 1: Create a Kinesis Data Stream](#examples-window-tumbling-event-1 "#examples-window-tumbling-event-1")
+- [Step 2: Create the Kinesis Data Analytics Application](#examples-window-tumbling-event-2 "#examples-window-tumbling-event-2")
 
-## Step 1: Create a Kinesis Data
-
-Stream
+## Step 1: Create a Kinesis Data Stream
 
 Create an Amazon Kinesis data stream and populate the records as follows:
 
@@ -112,9 +105,7 @@ if __name__ == "__main__":
 
 ```
 
-## Step 2: Create the Kinesis Data Analytics
-
-Application
+## Step 2: Create the Kinesis Data Analytics Application
 
 Create a Kinesis Data Analytics application as follows:
 

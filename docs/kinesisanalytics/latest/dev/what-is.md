@@ -57,8 +57,7 @@ sections in order:
    This section introduces various Kinesis Data Analytics components that you work with to create an
    end-to-end experience. For more information, see [Amazon Kinesis Data Analytics for SQL Applications: How It Works](how-it-works.md "how-it-works.md").
 2. Try the Getting Started exercises. For more
-   information, see [Getting Started with Amazon Kinesis Data Analytics for SQL
-   Applications](getting-started.md "getting-started.md").
+   information, see [Getting Started with Amazon Kinesis Data Analytics for SQL Applications](getting-started.md "getting-started.md").
 3. Explore the streaming SQL concepts. For more
    information, see [Streaming SQL Concepts](streaming-sql-concepts.md "streaming-sql-concepts.md").
 4. Try additional examples. For more information,

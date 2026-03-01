@@ -11,9 +11,7 @@ Data Analytics for SQL applications:
    be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
    [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
 
-# Mapping Streaming Source Elements to SQL Input
-
-Columns
+# Mapping Streaming Source Elements to SQL Input Columns
 
 ###### Note
 
@@ -36,8 +34,7 @@ cannot import only columns 1, 2, and 4.
   more information about using JSONPath with Amazon Kinesis Data Analytics, see [Working with JSONPath](about-json-path.md "about-json-path.md"). The columns in
   the SQL table have data types that are mapped from JSON types. For supported
   data types, see [Data
-  Types](../sqlref/sql-reference-data-types.md "../sqlref/sql-reference-data-types.md"). For details about converting JSON data to SQL data, see [Mapping JSON Data Types to SQL Data
-  Types](#sch-mapping-datatypes "#sch-mapping-datatypes").
+  Types](../sqlref/sql-reference-data-types.md "../sqlref/sql-reference-data-types.md"). For details about converting JSON data to SQL data, see [Mapping JSON Data Types to SQL Data Types](#sch-mapping-datatypes "#sch-mapping-datatypes").
   For more information about how to configure input streams, see [Configuring Application Input](how-it-works-input.md "how-it-works-input.md").
 
 ## Mapping JSON Data to SQL Columns
@@ -166,9 +163,7 @@ value for a schema in comma-separated value (CSV) format.
 
 ```
 
-## Mapping JSON Data Types to SQL Data
-
-Types
+## Mapping JSON Data Types to SQL Data Types
 
 JSON data types are converted to corresponding SQL data types according to the
 application's input schema. For information about supported SQL data types, see

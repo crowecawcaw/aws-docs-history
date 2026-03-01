@@ -35,8 +35,7 @@ stream shards.
 
 When you increase the number of in-application streams, your application must access the
 data in each stream explicitly. For information about accessing multiple in-application
-streams in your code, see [Accessing Separate In-Application Streams
-in Your Amazon Kinesis Data Analytics Application](#input-parallelism-code-example "#input-parallelism-code-example").
+streams in your code, see [Accessing Separate In-Application Streams in Your Amazon Kinesis Data Analytics Application](#input-parallelism-code-example "#input-parallelism-code-example").
 
 Although Kinesis Data Streams and Firehose stream shards are both divided among in-application streams in
 the same way, they differ in the way they appear to your application:
@@ -47,9 +46,7 @@ the same way, they differ in the way they appear to your application:
   shard or partition. This is because Firehose abstracts this information away from your
   application.
 
-## Evaluating Whether to Increase Your Number of
-
-In-Application Input Streams
+## Evaluating Whether to Increase Your Number of In-Application Input Streams
 
 In most cases, a single in-application input stream can handle the throughput of a single source stream, depending on the complexity and data size of the input streams. To determine if you need to increase the
 number of in-application input streams, you can monitor the
@@ -78,9 +75,7 @@ the following are true:
 
 For more information on using CloudWatch, see the [CloudWatch User Guide](../../../AmazonCloudWatch/latest/monitoring.md "../../../AmazonCloudWatch/latest/monitoring.md").
 
-## Implementing Multiple In-Application Input
-
-Streams
+## Implementing Multiple In-Application Input Streams
 
 You can set the number of in-application input streams when an application is created
 using [CreateApplication](API_CreateApplication.md "API_CreateApplication.md"). You
@@ -92,9 +87,7 @@ You can only set the `InputParallelism` setting using the Amazon Kinesis Data An
 AWS CLI. You cannot set this setting using the AWS Management Console. For information on setting
 up the AWS CLI, see [Step 2: Set Up the AWS Command Line Interface (AWS CLI)](setup-awscli.md "setup-awscli.md").
 
-### Setting a New Application's
-
-Input Stream Count
+### Setting a New Application's Input Stream Count
 
 The following example demonstrates how to use the `CreateApplication` API
 action to set a new application's input stream count to 2.
@@ -117,9 +110,7 @@ For more information about `CreateApplication`, see [CreateApplication](API_Crea
 }
 ```
 
-### Setting an Existing
-
-Application's Input Stream Count
+### Setting an Existing Application's Input Stream Count
 
 The following example demonstrates how to use the `UpdateApplication`
 API action to set an existing application's input stream count to 2.
@@ -140,9 +131,7 @@ For more information about `Update_Application`, see [UpdateApplication](API_Upd
 
 ```
 
-## Accessing Separate In-Application Streams
-
-in Your Amazon Kinesis Data Analytics Application
+## Accessing Separate In-Application Streams in Your Amazon Kinesis Data Analytics Application
 
 To use multiple in-application input streams in your application, you must explicitly select from the different streams. The following code example
 demonstrates how to query multiple input streams in the application created in the Getting Started tutorial.
@@ -204,5 +193,4 @@ When using multiple input streams, be aware of the following:
 - If your application continues to experience poor performance (reflected by a high
   `MillisBehindLatest` metric) after you increase your number of
   input streams, you might have reached your limit of Kinesis Processing Units
-  (KPUs). For more information, see [Automatically Scaling Applications to Increase
-  Throughput](how-it-works-autoscaling.md "how-it-works-autoscaling.md").
+  (KPUs). For more information, see [Automatically Scaling Applications to Increase Throughput](how-it-works-autoscaling.md "how-it-works-autoscaling.md").

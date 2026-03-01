@@ -11,9 +11,7 @@ Data Analytics for SQL applications:
    be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
    [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
 
-# Example: Transforming
-
-DateTime Values
+# Example: Transforming DateTime Values
 
 Amazon Kinesis Data Analytics supports converting columns to time stamps. For example, you might want to
 use your own time stamp as part of a `GROUP BY` clause as another time-based
@@ -93,9 +91,7 @@ screenshot:
 
 ![Console screenshot showing the resulting data in an in-application stream..](images/ex_datetime_convert_1.png)
 
-### Step 1: Create a Kinesis Data
-
-Stream
+### Step 1: Create a Kinesis Data Stream
 
 Create an Amazon Kinesis data stream and populate it with event time and ticker
 records as follows:
@@ -142,9 +138,7 @@ if __name__ == "__main__":
 
 ```
 
-### Step 2: Create the Amazon Kinesis Data Analytics
-
-Application
+### Step 2: Create the Amazon Kinesis Data Analytics Application
 
 Create an application as follows:
 

@@ -20,14 +20,10 @@ application output.
 
 ###### Topics
 
-- [Step 1.1: Create the Input and
-  Output Data Streams](#app-anomaly-create-two-streams "#app-anomaly-create-two-streams")
-- [Step 1.2: Write
-  Sample Records to the Input Stream](#app-anomaly-write-sample-records-inputstream "#app-anomaly-write-sample-records-inputstream")
+- [Step 1.1: Create the Input and Output Data Streams](#app-anomaly-create-two-streams "#app-anomaly-create-two-streams")
+- [Step 1.2: Write Sample Records to the Input Stream](#app-anomaly-write-sample-records-inputstream "#app-anomaly-write-sample-records-inputstream")
 
-## Step 1.1: Create the Input and
-
-Output Data Streams
+## Step 1.1: Create the Input and Output Data Streams
 
 In this section, you create two Kinesis streams: `ExampleInputStream`
 and `ExampleOutputStream`. You can create these streams using the
@@ -60,9 +56,7 @@ AWS Management Console or the AWS CLI.
       `ExampleOutputStream`. This command creates the
       second stream that the application uses to write output.
 
-## Step 1.2: Write
-
-Sample Records to the Input Stream
+## Step 1.2: Write Sample Records to the Input Stream
 
 In this step, you run Python code to continuously generate sample records and
 write these records to the `ExampleInputStream` stream.

@@ -11,10 +11,7 @@ Data Analytics for SQL applications:
    be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
    [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
 
-# Example: Detecting Data
-
-Anomalies and Getting an Explanation (RANDOM_CUT_FOREST_WITH_EXPLANATION
-Function)
+# Example: Detecting Data Anomalies and Getting an Explanation (RANDOM_CUT_FOREST_WITH_EXPLANATION Function)
 
 Amazon Kinesis Data Analytics provides the `RANDOM_CUT_FOREST_WITH_EXPLANATION` function, which
 assigns an anomaly score to each record based on values in the numeric columns. The
@@ -28,8 +25,7 @@ anomaly.
 ###### Topics
 
 - [Step 1: Prepare the Data](app-anomaly-with-ex-prepare.md "app-anomaly-with-ex-prepare.md")
-- [Step 2: Create an Analytics
-  Application](app-anom-with-exp-create-app.md "app-anom-with-exp-create-app.md")
+- [Step 2: Create an Analytics Application](app-anom-with-exp-create-app.md "app-anom-with-exp-create-app.md")
 - [Step 3: Examine the Results](examine-results-with-exp.md "examine-results-with-exp.md")
 
 ###### First Step

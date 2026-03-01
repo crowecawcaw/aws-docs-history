@@ -36,8 +36,7 @@ To run discovery on a static file using the console, do the following:
    reference data.
 4. Choose **Discover schema**.
 
-For more information on how to add reference data and discover schema in the console, see [Example: Adding Reference Data to a Kinesis Data Analytics
-Application](app-add-reference-data.md "app-add-reference-data.md").
+For more information on how to add reference data and discover schema in the console, see [Example: Adding Reference Data to a Kinesis Data Analytics Application](app-add-reference-data.md "app-add-reference-data.md").
 
 ## Running Schema Discovery Using the API
 
@@ -54,9 +53,7 @@ To run discovery on a static file using the API, you provide the API with an
   Role](../../../IAM/latest/UserGuide/id_roles_manage_modify.md "../../../IAM/latest/UserGuide/id_roles_manage_modify.md").
 - `FileKey`: The file name of the object.
 
-###### To generate a schema from an Amazon S3 object using the
-
-`DiscoverInputSchema` API
+###### To generate a schema from an Amazon S3 object using the `DiscoverInputSchema` API
 
 1. Make sure that you have the AWS CLI set up. For more information, see [Step 2: Set Up the AWS Command Line Interface (AWS CLI)](setup-awscli.md "setup-awscli.md") in the Getting Started
    section.

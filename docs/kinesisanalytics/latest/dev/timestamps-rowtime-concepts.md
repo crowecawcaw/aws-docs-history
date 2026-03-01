@@ -36,9 +36,7 @@ SELECT STREAM ROWTIME,
 FROM  SOURCE_SQL_STREAM_001
 ```
 
-## Understanding Various Times in Streaming
-
-Analytics
+## Understanding Various Times in Streaming Analytics
 
 In addition to `ROWTIME`, there are other types of times in real-time streaming
 applications. These

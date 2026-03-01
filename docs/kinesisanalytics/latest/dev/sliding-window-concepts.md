@@ -153,9 +153,7 @@ CREATE OR REPLACE PUMP "STREAM_PUMP" AS
         RANGE INTERVAL '1' MINUTE PRECEDING);
 ```
 
-## Example 2: Query Applying Aggregates on a Sliding
-
-Window
+## Example 2: Query Applying Aggregates on a Sliding Window
 
 The following query on the demo stream returns the average of the percent change
 in the price of each ticker in a 10-second window.
@@ -190,9 +188,7 @@ CREATE OR REPLACE PUMP "STREAM_PUMP" AS
               RANGE INTERVAL '10' SECOND PRECEDING);
 ```
 
-## Example 3: Query Data from Multiple Sliding Windows on the
-
-Same Stream
+## Example 3: Query Data from Multiple Sliding Windows on the Same Stream
 
 You can write queries to emit output in which each column value is calculated
 using different sliding windows defined over the same stream.

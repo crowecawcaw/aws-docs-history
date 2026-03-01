@@ -82,5 +82,4 @@ CREATE OR REPLACE PUMP "OUTPUT_PUMP" AS
 
 ###### Next Step
 
-[Step 3: Configure
-Application Output](app-anomaly-create-ka-app-config-destination.md "app-anomaly-create-ka-app-config-destination.md")
+[Step 3: Configure Application Output](app-anomaly-create-ka-app-config-destination.md "app-anomaly-create-ka-app-config-destination.md")

@@ -42,23 +42,15 @@ tasks include the following:
 
 ###### Topics
 
-- [Lambda as Output
-  Permissions](#how-it-works-output-lambda-perms "#how-it-works-output-lambda-perms")
+- [Lambda as Output Permissions](#how-it-works-output-lambda-perms "#how-it-works-output-lambda-perms")
 - [Lambda as Output Metrics](#how-it-works-output-lambda-metrics "#how-it-works-output-lambda-metrics")
-- [Lambda as Output Event Input Data
-  Model and Record Response Model](#how-it-works-output-lambda-model "#how-it-works-output-lambda-model")
-- [Lambda Output Invocation
-  Frequency](#how-it-works-output-lambda-frequency "#how-it-works-output-lambda-frequency")
-- [Adding a Lambda Function for
-  Use as an Output](#how-it-works-output-lambda-procedure "#how-it-works-output-lambda-procedure")
-- [Common Lambda as Output
-  Failures](#how-it-works-output-lambda-troubleshooting "#how-it-works-output-lambda-troubleshooting")
-- [Creating Lambda Functions for
-  Application Destinations](how-it-works-output-lambda-functions.md "how-it-works-output-lambda-functions.md")
+- [Lambda as Output Event Input Data Model and Record Response Model](#how-it-works-output-lambda-model "#how-it-works-output-lambda-model")
+- [Lambda Output Invocation Frequency](#how-it-works-output-lambda-frequency "#how-it-works-output-lambda-frequency")
+- [Adding a Lambda Function for Use as an Output](#how-it-works-output-lambda-procedure "#how-it-works-output-lambda-procedure")
+- [Common Lambda as Output Failures](#how-it-works-output-lambda-troubleshooting "#how-it-works-output-lambda-troubleshooting")
+- [Creating Lambda Functions for Application Destinations](how-it-works-output-lambda-functions.md "how-it-works-output-lambda-functions.md")
 
-## Lambda as Output
-
-Permissions
+## Lambda as Output Permissions
 
 To use Lambda as output, the application’s Lambda output IAM role requires the
 following permissions policy:
@@ -83,16 +75,12 @@ so on. For information about CloudWatch metrics that are emitted by Kinesis Data
 output, see [Amazon Kinesis
 Analytics Metrics](../../../AmazonCloudWatch/latest/monitoring/aka-metricscollected.md "../../../AmazonCloudWatch/latest/monitoring/aka-metricscollected.md").
 
-## Lambda as Output Event Input Data
-
-Model and Record Response Model
+## Lambda as Output Event Input Data Model and Record Response Model
 
 To send Kinesis Data Analytics output records, your Lambda function must be compliant with the
 required event input data and record response models.
 
-### Event Input Data
-
-Model
+### Event Input Data Model
 
 Kinesis Data Analytics continuously sends the output records from the application to the Lambda
 as an output function with the following request model. Within your function,
@@ -112,9 +100,7 @@ The `retryHint` is a value that increases for every delivery
 failure. This value is not durably persisted, and resets if the application
 is disrupted.
 
-### Record Response
-
-Model
+### Record Response Model
 
 Each record sent to your Lambda as an output function (with record IDs) must be
 acknowledged with either `Ok` or `DeliveryFailed`, and it
@@ -125,9 +111,7 @@ delivery failure.
 | ----------- | ----- | ----------- | ---- | ------- | ------- | ---- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
 | records<br> | Field | Description | <br> | --<br>• | --<br>• | <br> | `recordId` | The record ID is passed from Kinesis Data Analytics to Lambda<br>during the invocation. Any mismatch between the ID<br>of the original record and the ID of the<br>acknowledged record is treated as a delivery<br>failure. | <br> | `result` | The status of the delivery of the record.<br>The following are possible values:<br>• `Ok`: The record was transformed<br>successfully and sent to the final destination.<br>Kinesis Data Analytics ingests the record for SQL processing.<br>• `DeliveryFailed`: The record was<br>not delivered successfully to the final<br>destination by the Lambda as output function. Kinesis Data Analytics<br>continuously retries sending the delivery failed<br>records to the Lambda as output function. |     |
 
-## Lambda Output Invocation
-
-Frequency
+## Lambda Output Invocation Frequency
 
 A Kinesis Data Analytics application buffers the output records and invokes the AWS Lambda
 destination function frequently.
@@ -148,9 +132,7 @@ destination function frequently.
 payload size limits](../../../lambda/latest/dg/limits.md "../../../lambda/latest/dg/limits.md") apply. Exceeding those limits results in output
 records being split and sent across multiple Lambda function calls.
 
-## Adding a Lambda Function for
-
-Use as an Output
+## Adding a Lambda Function for Use as an Output
 
 The following procedure demonstrates how to add a Lambda function as an output for
 a Kinesis Data Analytics application.
@@ -167,8 +149,7 @@ a Kinesis Data Analytics application.
    choose an existing Lambda function and version, or choose **Create
    new**.
 6. If you are creating a new Lambda function, do the following:
-   1. Choose one of the templates provided. For more information, [Creating Lambda Functions for
-      Application Destinations](how-it-works-output-lambda-functions.md "how-it-works-output-lambda-functions.md").
+   1. Choose one of the templates provided. For more information, [Creating Lambda Functions for Application Destinations](how-it-works-output-lambda-functions.md "how-it-works-output-lambda-functions.md").
    2. The **Create Function** page opens in a new
       browser tab. In the **Name** box, give the function
       a meaningful name (for example,
@@ -194,9 +175,7 @@ function. You can see the results of the default template in the Amazon CloudWat
 Monitor the `AWS/KinesisAnalytics/LambdaDelivery.OkRecords` metric to see
 the number of records being delivered to the Lambda function.
 
-## Common Lambda as Output
-
-Failures
+## Common Lambda as Output Failures
 
 The following are common reasons why delivery to a Lambda function can fail.
 

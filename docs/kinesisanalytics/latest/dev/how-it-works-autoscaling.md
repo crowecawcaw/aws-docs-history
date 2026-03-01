@@ -11,9 +11,7 @@ Data Analytics for SQL applications:
    be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
    [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
 
-# Automatically Scaling Applications to Increase
-
-Throughput
+# Automatically Scaling Applications to Increase Throughput
 
 Amazon Kinesis Data Analytics elastically scales your application to accommodate the data throughput of your
 source stream and your query complexity for most scenarios. Kinesis Data Analytics provisions capacity in the

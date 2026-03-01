@@ -11,9 +11,7 @@ Data Analytics for SQL applications:
    be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
    [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
 
-# Step 2: Create the Kinesis Data Analytics
-
-Application
+# Step 2: Create the Kinesis Data Analytics Application
 
 In this section of the [Hotspots
 example](app-hotspots-detection.md "app-hotspots-detection.md"), you create an Kinesis Data Analytics application as
@@ -32,8 +30,7 @@ follows:
 
 In the source configuration, do the following:
 
-    * Specify the streaming source you created in [Step 1: Create the Input and Output
-     Streams](app-hotspots-prepare.md "app-hotspots-prepare.md").
+    * Specify the streaming source you created in [Step 1: Create the Input and Output Streams](app-hotspots-prepare.md "app-hotspots-prepare.md").
     * After the console infers the schema, edit the schema. Ensure that
      the `x` and `y` column types are set to
      `DOUBLE` and that the `IS_HOT` column type
@@ -68,5 +65,4 @@ CREATE OR REPLACE PUMP "STREAM_PUMP" AS
 
 ###### Next Step
 
-[Step 3: Configure
-the Application Output](app-hotspots-create-ka-app-config-destination.md "app-hotspots-create-ka-app-config-destination.md")
+[Step 3: Configure the Application Output](app-hotspots-create-ka-app-config-destination.md "app-hotspots-create-ka-app-config-destination.md")

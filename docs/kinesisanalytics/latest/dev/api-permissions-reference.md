@@ -11,9 +11,7 @@ Data Analytics for SQL applications:
    be available for Amazon Kinesis Data Analytics for SQL from that time. For more information, see
    [Amazon Kinesis Data Analytics for SQL Applications discontinuation](discontinuation.md "discontinuation.md").
 
-# API Permissions: Actions,
-
-Permissions, and Resources Reference
+# API Permissions: Actions, Permissions, and Resources Reference
 
 When you are setting up [Access Control](authentication-and-access-control.md#access-control "authentication-and-access-control.md#access-control") and writing a permissions policy that you can attach to an IAM identity
 (identity-based policies), you can use the following table
