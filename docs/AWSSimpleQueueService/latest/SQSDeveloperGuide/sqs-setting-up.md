@@ -2,9 +2,7 @@
 
 Before you can use Amazon SQS for the first time, you must complete the following steps:
 
-## Step 1: Create an AWS account and IAM
-
-user
+## Step 1: Create an AWS account and IAM user
 
 To access any AWS service, you first need to create an [AWS account](https://aws.amazon.com/ "https://aws.amazon.com/"), an Amazon.com account that can use AWS products. You can
 use your AWS account to view your activity and usage reports and to manage
@@ -71,9 +69,7 @@ For instructions, see [Create a permission set](../../../singlesignon/latest/use
 
 For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgroups.md "../../../singlesignon/latest/userguide/addgroups.md") in the _AWS IAM Identity Center User Guide_.
 
-## Step 2: Grant programmatic
-
-access
+## Step 2: Grant programmatic access
 
 To use Amazon SQS actions (for example, using Java or through the AWS Command Line Interface), you need an
 access key ID and a secret access key.
@@ -94,9 +90,7 @@ To grant users programmatic access, choose one of the following options.
 | IAM                                                          | Use temporary credentials to sign programmatic requests to the AWS CLI, AWS SDKs, or<br>AWS APIs.                                   | Following the instructions in [Using temporary<br>credentials with AWS resources](../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md "../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md") in the _IAM User Guide_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | IAM                                                          | (Not recommended)Use long-term credentials to sign programmatic requests<br>to the AWS CLI, AWS SDKs, or AWS APIs.                  | Following the instructions for the interface that you want to use.<br>• For the AWS CLI, see [Authenticating using IAM user credentials](../../../cli/latest/userguide/cli-authentication-user.md "../../../cli/latest/userguide/cli-authentication-user.md") in<br>the _AWS Command Line Interface User Guide_.<br>• For AWS SDKs and tools, see [Authenticate using long-term credentials](../../../sdkref/latest/guide/access-iam-users.md "../../../sdkref/latest/guide/access-iam-users.md") in the<br>_AWS SDKs and Tools Reference Guide_.<br>• For AWS APIs, see [Managing access keys for<br>IAM users](../../../IAM/latest/UserGuide/id_credentials_access-keys.md "../../../IAM/latest/UserGuide/id_credentials_access-keys.md") in the _IAM User Guide_. |
 
-## Step 3: Get ready to use the example
-
-code
+## Step 3: Get ready to use the example code
 
 This guide includes examples that use the AWS SDK for Java. To run the example code,
 follow the set-up instructions in [Getting Started with

@@ -6,8 +6,7 @@ responses.
 ###### Note
 
 AWS JSON protocol is supported for most language variants. For a full
-list of supported language variants, see [What languages are supported for
-AWS JSON protocol used in Amazon SQS APIs?](sqs-json-faqs.md#json-protocol-supported-languages "sqs-json-faqs.md#json-protocol-supported-languages").
+list of supported language variants, see [What languages are supported for AWS JSON protocol used in Amazon SQS APIs?](sqs-json-faqs.md#json-protocol-supported-languages "sqs-json-faqs.md#json-protocol-supported-languages").
 
 ## Constructing an endpoint
 

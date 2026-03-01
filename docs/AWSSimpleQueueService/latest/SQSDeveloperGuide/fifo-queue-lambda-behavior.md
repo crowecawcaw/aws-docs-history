@@ -1,6 +1,4 @@
-# Amazon SQS FIFO queue and Lambda concurrency
-
-behavior
+# Amazon SQS FIFO queue and Lambda concurrency behavior
 
 By using a FIFO (First-In-First-Out) queue with Lambda, you can ensure ordered processing
 of messages within each message group. The Lambda function will not run multiple instances
@@ -29,9 +27,7 @@ processed sequentially.
 Messages within the same message group are processed in order, and only one message
 from each group is processed at a time to maintain this order.
 
-## Lambda concurrency with FIFO
-
-queues
+## Lambda concurrency with FIFO queues
 
 After you create your queue, you can send a message to it.
 

@@ -1,6 +1,4 @@
-# Tutorial: Sending a message to an Amazon SQS
-
-queue from Amazon Virtual Private Cloud
+# Tutorial: Sending a message to an Amazon SQS queue from Amazon Virtual Private Cloud
 
 This tutorial shows you how to send messages to an Amazon SQS queue over a secure, private
 network. The network includes:
@@ -90,9 +88,7 @@ CloudFormation begins to create the stack and displays the
 **CREATE_IN_PROGRESS** status. When the process is complete, CloudFormation
 displays the **CREATE_COMPLETE** status.
 
-## Step 3: Confirm that
-
-your EC2 instance isn't publicly accessible
+## Step 3: Confirm that your EC2 instance isn't publicly accessible
 
 Your CloudFormation template launches an EC2 instance named
 `SQS-VPCE-Tutorial-EC2-Instance` into your VPC. This EC2 instance doesn't
@@ -139,9 +135,7 @@ The sending attempt fails, as expected.
 Later, when you create a VPC endpoint for Amazon SQS, your sending attempt will
 succeed.
 
-## Step 4: Create an Amazon VPC endpoint for
-
-Amazon SQS
+## Step 4: Create an Amazon VPC endpoint for Amazon SQS
 
 To connect your VPC to Amazon SQS, you must define an interface VPC endpoint. After you add
 the endpoint, you can use the Amazon SQS API from the EC2 instance in your VPC. This allows
@@ -180,9 +174,7 @@ Amazon VPC begins to create the endpoint and displays the **pending**
 status. When the process is complete, Amazon VPC displays the **available**
 status.
 
-## Step 5: Send a message to your Amazon SQS
-
-queue
+## Step 5: Send a message to your Amazon SQS queue
 
 Now that your VPC includes an endpoint for Amazon SQS, you can connect to your EC2 instance
 and send messages to your queue.
@@ -212,7 +204,7 @@ message ID are displayed, for example:
 
 For information about receiving and deleting the message from the queue created by
 your CloudFormation template (for example,
-**VPCE-SQS-Tutorial-Stack-CFQueue-1ABCDEFGH2IJK**), see [Receiving and deleting a message in Amazon SQS](step-receive-delete-message.md "step-receive-delete-message.md") .
+**VPCE-SQS-Tutorial-Stack-CFQueue-1ABCDEFGH2IJK**), see [Receiving and deleting a message in Amazon SQS](step-receive-delete-message.md "step-receive-delete-message.md").
 
 For information about deleting your resources, see the following:
 

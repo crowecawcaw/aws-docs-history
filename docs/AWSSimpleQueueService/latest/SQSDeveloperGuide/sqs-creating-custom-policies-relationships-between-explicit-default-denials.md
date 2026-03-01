@@ -1,6 +1,4 @@
-# Relationships between explicit and default denials in the Amazon SQS
-
-Access Policy Language
+# Relationships between explicit and default denials in the Amazon SQS Access Policy Language
 
 If an Amazon SQS policy doesn't directly apply to a request, the request results in
 a _[Default-deny](sqs-creating-custom-policies-key-concepts.md#default-deny "sqs-creating-custom-policies-key-concepts.md#default-deny")_. For example, if a user

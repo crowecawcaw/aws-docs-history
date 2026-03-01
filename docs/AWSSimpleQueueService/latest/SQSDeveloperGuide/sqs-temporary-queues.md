@@ -74,9 +74,7 @@ existing code which creates and deletes queues. The client also includes the
 `AmazonSQSRequester` and `AmazonSQSResponder` interfaces that
 allow two-way communication between queues.
 
-## Request-response messaging pattern
-
-(virtual queues)
+## Request-response messaging pattern (virtual queues)
 
 The most common use case for temporary queues is the
 _request-response_ messaging pattern, where a requester creates a

@@ -1,6 +1,4 @@
-# FIFO queue delivery logic in
-
-Amazon SQS
+# FIFO queue delivery logic in Amazon SQS
 
 The following concepts clarify how Amazon SQS FIFO queues handle the sending and receiving
 of messages, particularly when dealing with message ordering and message group

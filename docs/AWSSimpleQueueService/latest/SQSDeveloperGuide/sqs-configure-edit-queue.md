@@ -1,6 +1,4 @@
-# Editing an Amazon SQS queue using the
-
-console
+# Editing an Amazon SQS queue using the console
 
 You can use the Amazon SQS console to edit queue configuration parameters (except the queue
 type) and modify or remove features as needed.

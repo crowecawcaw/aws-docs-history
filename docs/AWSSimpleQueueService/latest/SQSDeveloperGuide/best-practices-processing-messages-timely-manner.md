@@ -1,6 +1,4 @@
-# Processing messages
-
-in a timely manner in Amazon SQS
+# Processing messages in a timely manner in Amazon SQS
 
 Setting the visibility timeout depends on how long it takes your application to
 process and delete a message. For example, if your application requires 10 seconds to

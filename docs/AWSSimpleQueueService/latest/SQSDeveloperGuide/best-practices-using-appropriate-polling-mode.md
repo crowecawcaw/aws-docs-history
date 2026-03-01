@@ -1,6 +1,4 @@
-# Using the appropriate
-
-polling mode in Amazon SQS
+# Using the appropriate polling mode in Amazon SQS
 
 - Long polling lets you consume messages from your Amazon SQS queue as soon as they
   become available.

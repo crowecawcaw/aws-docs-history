@@ -1,6 +1,4 @@
-# Creating an Amazon SQS FIFO queue and sending a
-
-message
+# Creating an Amazon SQS FIFO queue and sending a message
 
 You can create an Amazon SQS FIFO queue and send messages using the console. This topic
 explains how to set up queue parameters, including visibility timeout, message retention,
@@ -9,9 +7,7 @@ information in queue names and enabling server-side encryption. It also covers d
 access policies, configuring dead-letter queues, and sending messages with FIFO-specific
 attributes like message group ID and deduplication ID.
 
-## Creating a FIFO queue using the Amazon SQS
-
-console
+## Creating a FIFO queue using the Amazon SQS console
 
 You can use the Amazon SQS console to create [FIFO
 queues](sqs-fifo-queues.md "sqs-fifo-queues.md"). The console provides default values for all settings except for the
@@ -94,9 +90,7 @@ To define the access policy, do one of the following:
    of up to 10 source queues by the Amazon Resource Name (ARN).
 8. Amazon SQS provides managed server-side encryption by default. To choose an
    encryption key type, or to disable Amazon SQS managed server-side encryption, expand
-   **Encryption**. For more on encryption key types, see [Configuring server-side encryption for a
-   queue using SQS-managed encryption keys](sqs-configure-sqs-sse-queue.md "sqs-configure-sqs-sse-queue.md") and [Configuring server-side encryption for a queue
-   using the Amazon SQS console](sqs-configure-sse-existing-queue.md "sqs-configure-sse-existing-queue.md").
+   **Encryption**. For more on encryption key types, see [Configuring server-side encryption for a queue using SQS-managed encryption keys](sqs-configure-sqs-sse-queue.md "sqs-configure-sqs-sse-queue.md") and [Configuring server-side encryption for a queue using the Amazon SQS console](sqs-configure-sse-existing-queue.md "sqs-configure-sse-existing-queue.md").
 
 ###### Note
 
@@ -130,11 +124,9 @@ After you create your queue, you can send a message to it.
 The console displays the **Send and receive messages**
 page. 3. In the **Message body**, enter the message
 text. 4. For a First-In-First-Out (FIFO) queue, enter a **Message group
-ID**. For more information, see [FIFO queue delivery logic in
-Amazon SQS](FIFO-queues-understanding-logic.md "FIFO-queues-understanding-logic.md"). 5. (Optional) For a FIFO queue, you can enter a **Message deduplication
+ID**. For more information, see [FIFO queue delivery logic in Amazon SQS](FIFO-queues-understanding-logic.md "FIFO-queues-understanding-logic.md"). 5. (Optional) For a FIFO queue, you can enter a **Message deduplication
 ID**. If you enabled content-based deduplication for the queue, the
-message deduplication ID isn't required. For more information, see [FIFO queue delivery logic in
-Amazon SQS](FIFO-queues-understanding-logic.md "FIFO-queues-understanding-logic.md"). 6. FIFO queues does not support timers on individual messages. For more
+message deduplication ID isn't required. For more information, see [FIFO queue delivery logic in Amazon SQS](FIFO-queues-understanding-logic.md "FIFO-queues-understanding-logic.md"). 6. FIFO queues does not support timers on individual messages. For more
 information, see [Amazon SQS message timers](sqs-message-timers.md "sqs-message-timers.md"). 7. Choose **Send message**.
 
 When your message is sent, the console displays a success message. Choose

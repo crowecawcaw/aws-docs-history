@@ -1,6 +1,4 @@
-# Amazon SQS API permissions:
-
-Actions and resource reference
+# Amazon SQS API permissions: Actions and resource reference
 
 When you set up [Access control](security_iam_service-with-iam.md#access-control "security_iam_service-with-iam.md#access-control") and write permissions policies that you
 can attach to an IAM identity, you can use the following table as a

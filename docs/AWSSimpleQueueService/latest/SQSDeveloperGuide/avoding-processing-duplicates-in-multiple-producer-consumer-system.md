@@ -1,6 +1,4 @@
-# Preventing duplicate processing in a multiple-producer/consumer system in
-
-Amazon SQS
+# Preventing duplicate processing in a multiple-producer/consumer system in Amazon SQS
 
 In a high-throughput, low-latency system where message ordering is not a priority,
 producers can assign a unique [`MessageGroupId`](../APIReference/API_SendMessage.md "../APIReference/API_SendMessage.md") to each message. This ensures that

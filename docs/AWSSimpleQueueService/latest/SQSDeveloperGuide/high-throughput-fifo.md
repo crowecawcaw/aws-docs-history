@@ -17,12 +17,9 @@ To enhance request capacity in high throughput FIFO queues, increasing the numbe
 groups is recommended. For more information on high throughput message quotas, see [Amazon SQS service
 quotas](../../../general/latest/gr/sqs-service.md#limits_sqs.html "../../../general/latest/gr/sqs-service.md#limits_sqs.html") in the _Amazon Web Services General Reference_.
 
-For information per-queue quotas and data distribution strategies, see [Amazon SQS message quotas](quotas-messages.md "quotas-messages.md") and [Partitions and data distribution for high
-throughput for SQS FIFO queues](#partitions-and-data-distribution "#partitions-and-data-distribution").
+For information per-queue quotas and data distribution strategies, see [Amazon SQS message quotas](quotas-messages.md "quotas-messages.md") and [Partitions and data distribution for high throughput for SQS FIFO queues](#partitions-and-data-distribution "#partitions-and-data-distribution").
 
-## Use cases for high throughput for Amazon SQS FIFO
-
-queues
+## Use cases for high throughput for Amazon SQS FIFO queues
 
 The following use cases highlight the diverse applications of high throughput FIFO queues,
 showcasing their effectiveness across industries and scenarios:
@@ -44,9 +41,7 @@ showcasing their effectiveness across industries and scenarios:
    files and streaming content, ensuring smooth playback experiences for users while
    maintaining the correct order of content delivery.
 
-## Partitions and data distribution for high
-
-throughput for SQS FIFO queues
+## Partitions and data distribution for high throughput for SQS FIFO queues
 
 Amazon SQS stores FIFO queue data in partitions. A _partition_ is an
 allocation of storage for a queue that is automatically replicated across multiple Availability
@@ -85,9 +80,7 @@ Amazon SQS is optimized for uniform distribution of items across a FIFO queue's 
 regardless of the number of partitions. AWS recommends that you use message group IDs that
 can have a large number of distinct values.
 
-### Optimizing partition
-
-utilization
+### Optimizing partition utilization
 
 Each partition supports up to 3,000 messages per second with batching, or up to 300
 messages per second for send, receive, and delete operations in supported regions. For more

@@ -1,6 +1,4 @@
-# Setting-up dead-letter queue
-
-retention in Amazon SQS
+# Setting-up dead-letter queue retention in Amazon SQS
 
 For standard queues, the expiration of a message is always based on its original enqueue timestamp.
 When a message is moved to a dead-letter queue, the enqueue timestamp is unchanged. The

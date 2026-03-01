@@ -1,6 +1,4 @@
-# Interleaving multiple
-
-ordered message groups in Amazon SQS
+# Interleaving multiple ordered message groups in Amazon SQS
 
 To interleave multiple ordered message groups within a single FIFO queue, assign a
 [`MessageGroupId`](../APIReference/API_SendMessage.md "../APIReference/API_SendMessage.md") to each group (for example, session

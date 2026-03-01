@@ -1,6 +1,4 @@
-# Enabling deduplication for a
-
-single-producer/consumer system in Amazon SQS
+# Enabling deduplication for a single-producer/consumer system in Amazon SQS
 
 If you have a single producer and a single consumer, and messages are unique
 because they include an application-specific message ID in the body, follow these

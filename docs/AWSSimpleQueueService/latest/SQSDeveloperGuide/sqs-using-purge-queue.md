@@ -1,6 +1,4 @@
-# Purging messages from an queue using the Amazon SQS
-
-console
+# Purging messages from an queue using the Amazon SQS console
 
 To keep an Amazon SQS queue but remove all its messages, you can purge the
 queue. This will delete all messages, including those that are currently invisible (in

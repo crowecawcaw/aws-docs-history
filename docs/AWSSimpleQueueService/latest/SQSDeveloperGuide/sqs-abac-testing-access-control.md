@@ -1,13 +1,9 @@
-# Testing attribute-based access control in
-
-Amazon SQS
+# Testing attribute-based access control in Amazon SQS
 
 The following examples show you how to test attribute-based access control in
 Amazon SQS.
 
-## Create a queue with the tag
-
-key set to environment and the tag value set to prod
+## Create a queue with the tag key set to environment and the tag value set to prod
 
 Run this AWS CLI command to test creating the queue with the tag key set
 to environment and the tag value set to prod. If you don't have AWS CLI, you
@@ -28,9 +24,7 @@ This is because the tag value on the IAM user does not match the tag passed in t
 user with the key set to `environment` and the value set to
 `beta`.
 
-## Create a queue with the tag key
-
-set to environment and the tag value set to beta
+## Create a queue with the tag key set to environment and the tag value set to beta
 
 Run the this CLI command to test creating a queue with the tag key set to
 `environment` and the tag value set to `beta`.
@@ -48,9 +42,7 @@ one below.
 }
 ```
 
-## Sending a message to a
-
-queue
+## Sending a message to a queue
 
 Run this CLI command to test sending a message to a queue.
 

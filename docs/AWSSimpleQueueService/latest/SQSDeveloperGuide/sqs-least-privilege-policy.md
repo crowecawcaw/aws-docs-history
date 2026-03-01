@@ -1,6 +1,4 @@
-# Access management for encrypted Amazon SQS queues
-
-with least privilege policies
+# Access management for encrypted Amazon SQS queues with least privilege policies
 
 You can use Amazon SQS to exchange sensitive data between applications by using server-side
 encryption (SSE) integrated with [AWS Key Management Service (KMS)](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md"). With the
@@ -26,14 +24,10 @@ problem](../../../IAM/latest/UserGuide/confused-deputy.md "../../../IAM/latest/U
 ###### Topics
 
 - [Overview](#sqs-least-privilege-overview "#sqs-least-privilege-overview")
-- [Least privilege key policy for
-  Amazon SQS](#sqs-least-privilege-use-case "#sqs-least-privilege-use-case")
-- [Amazon SQS policy statements for the dead-letter
-  queue](#sqs-policy-dlq "#sqs-policy-dlq")
-- [Prevent the cross-service confused
-  deputy problem](#sqs-confused-deputy-prevention "#sqs-confused-deputy-prevention")
-- [Use IAM Access Analyzer to review cross-account
-  access](#sqs-cross-account-findings "#sqs-cross-account-findings")
+- [Least privilege key policy for Amazon SQS](#sqs-least-privilege-use-case "#sqs-least-privilege-use-case")
+- [Amazon SQS policy statements for the dead-letter queue](#sqs-policy-dlq "#sqs-policy-dlq")
+- [Prevent the cross-service confused deputy problem](#sqs-confused-deputy-prevention "#sqs-confused-deputy-prevention")
+- [Use IAM Access Analyzer to review cross-account access](#sqs-cross-account-findings "#sqs-cross-account-findings")
 
 ## Overview
 
@@ -66,9 +60,7 @@ keys](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/dev
 The Amazon SQS policy defined in this guide doesn’t support redriving messages directly
 to the same or a different Amazon SQS queue.
 
-## Least privilege key policy for
-
-Amazon SQS
+## Least privilege key policy for Amazon SQS
 
 In this section, we describe the required least privilege permissions in AWS KMS for the
 customer-managed key that you use to encrypt your Amazon SQS queue. With these permissions,
@@ -76,18 +68,12 @@ you can limit access to only the intended entities while implementing least priv
 The key policy must consist of the following policy statements, which we describe in
 detail below:
 
-- [Grant administrator permissions
-  to the AWS KMS key](#sqs-use-case-kms-admin-permissions "#sqs-use-case-kms-admin-permissions")
-- [Grant read-only access to the
-  key metadata](#sqs-use-case-read-only-permissions "#sqs-use-case-read-only-permissions")
-- [Grant Amazon SNS KMS
-  permissions to Amazon SNS to publish messages to the queue](#sqs-use-case-publish-messages-permissions "#sqs-use-case-publish-messages-permissions")
-- [Allow consumers to
-  decrypt messages from the queue](#sqs-use-case-decrypt-messages-permissions "#sqs-use-case-decrypt-messages-permissions")
+- [Grant administrator permissions to the AWS KMS key](#sqs-use-case-kms-admin-permissions "#sqs-use-case-kms-admin-permissions")
+- [Grant read-only access to the key metadata](#sqs-use-case-read-only-permissions "#sqs-use-case-read-only-permissions")
+- [Grant Amazon SNS KMS permissions to Amazon SNS to publish messages to the queue](#sqs-use-case-publish-messages-permissions "#sqs-use-case-publish-messages-permissions")
+- [Allow consumers to decrypt messages from the queue](#sqs-use-case-decrypt-messages-permissions "#sqs-use-case-decrypt-messages-permissions")
 
-### Grant administrator permissions
-
-to the AWS KMS key
+### Grant administrator permissions to the AWS KMS key
 
 To create an AWS KMS key, you need to provide AWS KMS administrator permissions to the
 IAM role that you use to deploy the AWS KMS key. These administrator permissions are
@@ -133,9 +119,7 @@ to be `*`, which means "this AWS KMS key". The asterisk
 (`*`) identifies the AWS KMS key to which the key policy is
 attached.
 
-### Grant read-only access to the
-
-key metadata
+### Grant read-only access to the key metadata
 
 To grant other IAM roles read-only access to your key metadata, add the
 `AllowReadAccessToKeyMetaData` statement to your key policy. For
@@ -166,9 +150,7 @@ the following statement: `kms:Describe*`, `kms:Get*`, and
 
 ```
 
-### Grant Amazon SNS KMS
-
-permissions to Amazon SNS to publish messages to the queue
+### Grant Amazon SNS KMS permissions to Amazon SNS to publish messages to the queue
 
 To allow your Amazon SNS topic to publish messages to your encrypted Amazon SQS queue, add
 the `AllowSNSToSendToSQS` policy statement to your key policy. This
@@ -203,9 +185,7 @@ service in the same AWS account.
 }
 ```
 
-### Allow consumers to
-
-decrypt messages from the queue
+### Allow consumers to decrypt messages from the queue
 
 The following `AllowConsumersToReceiveFromTheQueue` statement grants
 the Amazon SQS message consumer the required permissions to decrypt messages received
@@ -242,21 +222,14 @@ entity within the policy condition.
 The Amazon SQS policy includes the following statements, which we describe in detail
 below:
 
-- [Restrict Amazon SQS management
-  permissions](#sqs-use-case-restrict-permissions "#sqs-use-case-restrict-permissions")
-- [Restrict Amazon SQS queue
-  actions from the specified organization](#sqs-use-case-restrict-permissions-from-org "#sqs-use-case-restrict-permissions-from-org")
-- [Grant Amazon SQS permissions to
-  consumers](#sqs-use-grant-consumer-permissions "#sqs-use-grant-consumer-permissions")
+- [Restrict Amazon SQS management permissions](#sqs-use-case-restrict-permissions "#sqs-use-case-restrict-permissions")
+- [Restrict Amazon SQS queue actions from the specified organization](#sqs-use-case-restrict-permissions-from-org "#sqs-use-case-restrict-permissions-from-org")
+- [Grant Amazon SQS permissions to consumers](#sqs-use-grant-consumer-permissions "#sqs-use-grant-consumer-permissions")
 - [Enforce encryption in transit](#sqs-encryption-in-transit "#sqs-encryption-in-transit")
-- [Restrict message transmission
-  to a specific Amazon SNS topic](#sqs-restrict-transmission-to-topic "#sqs-restrict-transmission-to-topic")
-- [(Optional) Restrict message
-  reception to a specific VPC endpoint](#sqs-restrict-message-to-endpoint "#sqs-restrict-message-to-endpoint")
+- [Restrict message transmission to a specific Amazon SNS topic](#sqs-restrict-transmission-to-topic "#sqs-restrict-transmission-to-topic")
+- [(Optional) Restrict message reception to a specific VPC endpoint](#sqs-restrict-message-to-endpoint "#sqs-restrict-message-to-endpoint")
 
-### Restrict Amazon SQS management
-
-permissions
+### Restrict Amazon SQS management permissions
 
 The following `RestrictAdminQueueActions` policy statement restricts
 the Amazon SQS management permissions to only the IAM role or roles that you use to
@@ -290,9 +263,7 @@ ARNs of any administrator roles that should have Amazon SQS management permissio
 }
 ```
 
-### Restrict Amazon SQS queue
-
-actions from the specified organization
+### Restrict Amazon SQS queue actions from the specified organization
 
 To help protect your Amazon SQS resources from external access (access by an entity
 outside of your [AWS
@@ -328,9 +299,7 @@ the IAM role used to deploy the Amazon SQS queue; and the
 }
 ```
 
-### Grant Amazon SQS permissions to
-
-consumers
+### Grant Amazon SQS permissions to consumers
 
 To receive messages from the Amazon SQS queue, you need to provide the message consumer
 with the necessary permissions. The following policy statement grants the consumer,
@@ -420,9 +389,7 @@ queue.
 
 ```
 
-### Restrict message transmission
-
-to a specific Amazon SNS topic
+### Restrict message transmission to a specific Amazon SNS topic
 
 The following `AllowSNSToSendToTheQueue` policy statement allows the
 specified Amazon SNS topic to send messages to the Amazon SQS queue. Make sure to replace
@@ -472,9 +439,7 @@ prevents other producers from sending messages to the queue. Replace
 
 ```
 
-### (Optional) Restrict message
-
-reception to a specific VPC endpoint
+### (Optional) Restrict message reception to a specific VPC endpoint
 
 To restrict the receipt of messages to only a specific [VPC
 endpoint](https://aws.amazon.com/about-aws/whats-new/2018/12/amazon-sqs-vpc-endpoints-aws-privatelink/ "https://aws.amazon.com/about-aws/whats-new/2018/12/amazon-sqs-vpc-endpoints-aws-privatelink/"), add the following policy statement to your Amazon SQS queue policy.
@@ -501,9 +466,7 @@ endpoint.
 }
 ```
 
-## Amazon SQS policy statements for the dead-letter
-
-queue
+## Amazon SQS policy statements for the dead-letter queue
 
 Add the following policy statements, identified by their statement ID, to your DLQ
 access policy:
@@ -518,9 +481,7 @@ In addition to adding the preceding policy statements to your DLQ access policy,
 should also add a statement to restrict message transmission to Amazon SQS queues, as
 described in the following section.
 
-### Restrict message transmission to
-
-Amazon SQS queues
+### Restrict message transmission to Amazon SQS queues
 
 To restrict access to only Amazon SQS queues from the same account, add the following
 `DenyAnyProducersExceptSQS` policy statement to the DLQ queue policy.
@@ -562,9 +523,7 @@ not restricting this action to a certain role is that this role might not be
 known when deploying the Amazon SQS queue. You will need to add this permission to
 the role’s identity-based policy to be able to purge the queue.
 
-## Prevent the cross-service confused
-
-deputy problem
+## Prevent the cross-service confused deputy problem
 
 The [confused deputy problem](../../../IAM/latest/UserGuide/confused-deputy.md "../../../IAM/latest/UserGuide/confused-deputy.md") is a security issue where an entity that doesn't
 have permission to perform an action can coerce a more privileged entity to perform the
@@ -581,9 +540,7 @@ defined in this post use the [`aws:SourceArn`](../../../IAM/latest/UserGuide/ref
 This limits the permissions that a service has to a specific resource, a specific
 account, or a specific organization in AWS Organizations.
 
-## Use IAM Access Analyzer to review cross-account
-
-access
+## Use IAM Access Analyzer to review cross-account access
 
 You can use [AWS IAM Access Analyzer](../../../IAM/latest/UserGuide/what-is-access-analyzer.md "../../../IAM/latest/UserGuide/what-is-access-analyzer.md")
 to review your Amazon SQS queue policies and AWS KMS key policies and alert you when an Amazon SQS

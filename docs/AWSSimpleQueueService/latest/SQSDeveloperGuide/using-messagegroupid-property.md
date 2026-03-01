@@ -8,11 +8,7 @@ If strict ordering is required, use a FIFO queue.
 
 ###### Topics
 
-- [Interleaving multiple
-  ordered message groups in Amazon SQS](interleaving-multiple-ordered-message-groups.md "interleaving-multiple-ordered-message-groups.md")
-- [Preventing duplicate processing in a multiple-producer/consumer system in
-  Amazon SQS](avoding-processing-duplicates-in-multiple-producer-consumer-system.md "avoding-processing-duplicates-in-multiple-producer-consumer-system.md")
-- [Avoid large message
-  backlogs with the same message group ID in Amazon SQS](avoid-backlog-with-the-same-message-group-id.md "avoid-backlog-with-the-same-message-group-id.md")
-- [Avoid
-  reusing the same message group ID with virtual queues in Amazon SQS](avoiding-reusing-message-group-id-with-virtual-queues.md "avoiding-reusing-message-group-id-with-virtual-queues.md")
+- [Interleaving multiple ordered message groups in Amazon SQS](interleaving-multiple-ordered-message-groups.md "interleaving-multiple-ordered-message-groups.md")
+- [Preventing duplicate processing in a multiple-producer/consumer system in Amazon SQS](avoding-processing-duplicates-in-multiple-producer-consumer-system.md "avoding-processing-duplicates-in-multiple-producer-consumer-system.md")
+- [Avoid large message backlogs with the same message group ID in Amazon SQS](avoid-backlog-with-the-same-message-group-id.md "avoid-backlog-with-the-same-message-group-id.md")
+- [Avoid reusing the same message group ID with virtual queues in Amazon SQS](avoiding-reusing-message-group-id-with-virtual-queues.md "avoiding-reusing-message-group-id-with-virtual-queues.md")

@@ -1,13 +1,10 @@
-# Troubleshoot FIFO throttling issues
-
-in Amazon SQS
+# Troubleshoot FIFO throttling issues in Amazon SQS
 
 By default, FIFO queues support 300 transactions per second, per API action for [`SendMessage`](../APIReference/API_SendMessage.md "../APIReference/API_SendMessage.md"), [`ReceiveMessage`](../APIReference/API_ReceiveMessage.md "../APIReference/API_ReceiveMessage.md"), and [`DeleteMessage`](../APIReference/API_DeleteMessage.md "../APIReference/API_DeleteMessage.md"). Requests over 300 TPS get the
 `ThrottlingException` error even if messages in the queue are available. To
 mitigate this, you can use following methods:
 
-- [Enabling high throughput for FIFO queues in
-  Amazon SQS](enable-high-throughput-fifo.md "enable-high-throughput-fifo.md").
+- [Enabling high throughput for FIFO queues in Amazon SQS](enable-high-throughput-fifo.md "enable-high-throughput-fifo.md").
 - Use the Amazon SQS API batch actions `SendMessageBatch`,
   `DeleteMessageBatch`, and `ChangeMessageVisibilityBatch` to increase
   the TPS limit of up to 3,000 messages per second per API action, and to reduce cost. For the

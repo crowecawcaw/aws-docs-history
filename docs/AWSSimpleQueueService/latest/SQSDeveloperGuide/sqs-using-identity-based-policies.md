@@ -8,15 +8,11 @@ roles).
 
 We recommend that you first review the introductory topics that explain the basic
 concepts and options available for you to manage access to your Amazon Simple Queue Service resources.
-For more information, see [Overview of managing access in
-Amazon SQS](sqs-overview-of-managing-access.md "sqs-overview-of-managing-access.md").
+For more information, see [Overview of managing access in Amazon SQS](sqs-overview-of-managing-access.md "sqs-overview-of-managing-access.md").
 
-With the exception of `ListQueues`, all Amazon SQS actions support resource-level permissions. For more information, see [Amazon SQS API permissions:
-Actions and resource reference](sqs-api-permissions-reference.md "sqs-api-permissions-reference.md").
+With the exception of `ListQueues`, all Amazon SQS actions support resource-level permissions. For more information, see [Amazon SQS API permissions: Actions and resource reference](sqs-api-permissions-reference.md "sqs-api-permissions-reference.md").
 
-## Using Amazon SQS and IAM
-
-policies
+## Using Amazon SQS and IAM policies
 
 There are two ways to give your users permissions to your Amazon SQS resources: using
 the Amazon SQS policy system (resource-based policies) and using the IAM policy system
@@ -66,8 +62,7 @@ policy allows the action.
   thing to do is to add a policy that denies him access to all actions for the
   queue. This policy overrides the other two because an explicit
   `deny` always overrides an `allow`. For more
-  information about policy evaluation logic, see [Using custom policies with the Amazon SQS
-  Access Policy Language](sqs-creating-custom-policies.md "sqs-creating-custom-policies.md"). The following diagram
+  information about policy evaluation logic, see [Using custom policies with the Amazon SQS Access Policy Language](sqs-creating-custom-policies.md "sqs-creating-custom-policies.md"). The following diagram
   illustrates the concept.
 
 ![Diagram showing an IAM policy override with an Amazon SQS policy. Bob abuses his access to queue_xyz, so it becomes necessary to remove his entire access to the queue. The easiest thing to do is to add a policy that denies him access to all actions for the queue. This policy overrides the other two because an explicit deny always overrides an allow.](images/sqs-iam-policies-deny-override.png)
@@ -75,14 +70,10 @@ policy allows the action.
 You can also add an additional statement to the Amazon SQS policy that denies
 Bob any type of access to the queue. It has the same effect as adding an
 IAM policy that denies Bob access to the queue. For examples of policies
-that cover Amazon SQS actions and resources, see [Basic examples of Amazon SQS
-policies](sqs-basic-examples-of-sqs-policies.md "sqs-basic-examples-of-sqs-policies.md"). For more
-information about writing Amazon SQS policies, see [Using custom policies with the Amazon SQS
-Access Policy Language](sqs-creating-custom-policies.md "sqs-creating-custom-policies.md").
+that cover Amazon SQS actions and resources, see [Basic examples of Amazon SQS policies](sqs-basic-examples-of-sqs-policies.md "sqs-basic-examples-of-sqs-policies.md"). For more
+information about writing Amazon SQS policies, see [Using custom policies with the Amazon SQS Access Policy Language](sqs-creating-custom-policies.md "sqs-creating-custom-policies.md").
 
-## Permissions required to use the Amazon SQS
-
-console
+## Permissions required to use the Amazon SQS console
 
 A user who wants to work with the Amazon SQS console must have the minimum set of
 permissions to work with the Amazon SQS queues in the user's AWS account. For example,

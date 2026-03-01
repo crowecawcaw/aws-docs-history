@@ -1,6 +1,4 @@
-# How Amazon Simple Queue Service works with
-
-IAM
+# How Amazon Simple Queue Service works with IAM
 
 Before you use IAM to manage access to Amazon SQS, learn what IAM features are
 available to use with Amazon SQS.
@@ -40,13 +38,10 @@ share access to your AWS resources without having to manage additional users.
 For information about using cross-account access, see [Enabling Cross-Account Access](../../../IAM/latest/UserGuide/Delegation.md "../../../IAM/latest/UserGuide/Delegation.md") in
 the _IAM User Guide_.
 
-See [Limitations of Amazon SQS custom
-policies](sqs-limitations-of-custom-policies.md "sqs-limitations-of-custom-policies.md") for further details on
+See [Limitations of Amazon SQS custom policies](sqs-limitations-of-custom-policies.md "sqs-limitations-of-custom-policies.md") for further details on
 cross-content permissions and condition keys within Amazon SQS custom policies.
 
-## Identity-based
-
-policies for Amazon SQS
+## Identity-based policies for Amazon SQS
 
 **Supports identity-based policies:**
 
@@ -63,12 +58,9 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for Amazon SQS
 
-Identity-based policy examples for Amazon SQS
-
-To view examples of Amazon SQS identity-based policies, see [Policy best
-practices](sqs-basic-examples-of-iam-policies.md#security_iam_id-based-policy-examples "sqs-basic-examples-of-iam-policies.md#security_iam_id-based-policy-examples").
+To view examples of Amazon SQS identity-based policies, see [Policy best practices](sqs-basic-examples-of-iam-policies.md#security_iam_id-based-policy-examples "sqs-basic-examples-of-iam-policies.md#security_iam_id-based-policy-examples").
 
 ## Resource-based policies within Amazon SQS
 
@@ -86,9 +78,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy
-
-actions for Amazon SQS
+## Policy actions for Amazon SQS
 
 **Supports policy actions:**
 
@@ -119,12 +109,9 @@ commas.
          ]
 ```
 
-To view examples of Amazon SQS identity-based policies, see [Policy best
-practices](sqs-basic-examples-of-iam-policies.md#security_iam_id-based-policy-examples "sqs-basic-examples-of-iam-policies.md#security_iam_id-based-policy-examples").
+To view examples of Amazon SQS identity-based policies, see [Policy best practices](sqs-basic-examples-of-iam-policies.md#security_iam_id-based-policy-examples "sqs-basic-examples-of-iam-policies.md#security_iam_id-based-policy-examples").
 
-## Policy
-
-resources for Amazon SQS
+## Policy resources for Amazon SQS
 
 **Supports policy resources:**
 
@@ -144,8 +131,7 @@ To see a list of Amazon SQS resource types and their ARNs, see
 which actions you can specify the ARN of each resource, see
 [Resources Defined by Amazon Simple Queue Service](../../../IAM/latest/UserGuide/list_amazonsqs.md#amazonsqs-resources-for-iam-policies "../../../IAM/latest/UserGuide/list_amazonsqs.md#amazonsqs-resources-for-iam-policies").
 
-To view examples of Amazon SQS identity-based policies, see [Policy best
-practices](sqs-basic-examples-of-iam-policies.md#security_iam_id-based-policy-examples "sqs-basic-examples-of-iam-policies.md#security_iam_id-based-policy-examples").
+To view examples of Amazon SQS identity-based policies, see [Policy best practices](sqs-basic-examples-of-iam-policies.md#security_iam_id-based-policy-examples "sqs-basic-examples-of-iam-policies.md#security_iam_id-based-policy-examples").
 
 ## Policy condition keys for Amazon SQS
 
@@ -166,8 +152,7 @@ To see a list of Amazon SQS condition keys, see [Condition Keys for Amazon Simpl
 _Service Authorization Reference_. To learn with which actions and resources
 you can use a condition key, see [Resources Defined by Amazon Simple Queue Service](../../../IAM/latest/UserGuide/list_amazonsqs.md#amazonsqs-resources-for-iam-policies "../../../IAM/latest/UserGuide/list_amazonsqs.md#amazonsqs-resources-for-iam-policies").
 
-To view examples of Amazon SQS identity-based policies, see [Policy best
-practices](sqs-basic-examples-of-iam-policies.md#security_iam_id-based-policy-examples "sqs-basic-examples-of-iam-policies.md#security_iam_id-based-policy-examples").
+To view examples of Amazon SQS identity-based policies, see [Policy best practices](sqs-basic-examples-of-iam-policies.md#security_iam_id-based-policy-examples "sqs-basic-examples-of-iam-policies.md#security_iam_id-based-policy-examples").
 
 ## ACLs in Amazon SQS
 
@@ -195,9 +180,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary
-
-credentials with Amazon SQS
+## Using temporary credentials with Amazon SQS
 
 **Supports temporary credentials:**
 
@@ -209,9 +192,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Forward access
-
-sessions for Amazon SQS
+## Forward access sessions for Amazon SQS
 
 **Supports forward access sessions (FAS):**
 
@@ -220,9 +201,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Amazon SQS
+## Service roles for Amazon SQS
 
 **Supports service roles:**
 
@@ -238,9 +217,7 @@ Changing the permissions for a service role might break Amazon SQS
 functionality. Edit service roles only when Amazon SQS provides guidance to do
 so.
 
-## Service-linked
-
-roles for Amazon SQS
+## Service-linked roles for Amazon SQS
 
 **Supports service-linked roles:**
 

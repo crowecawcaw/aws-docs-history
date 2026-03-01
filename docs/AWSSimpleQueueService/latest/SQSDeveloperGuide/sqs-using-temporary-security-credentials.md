@@ -1,6 +1,4 @@
-# Using temporary
-
-security credentials with Amazon SQS
+# Using temporary security credentials with Amazon SQS
 
 In addition to creating users with their own security credentials, IAM
 also allows you to grant temporary security credentials to any user,
@@ -40,9 +38,7 @@ temporary security credentials, see [Granting Temporary
 Access to Your AWS Resources](../../../IAM/latest/UserGuide/TokenBasedAuth.md "../../../IAM/latest/UserGuide/TokenBasedAuth.md") in the
 _IAM User Guide_.
 
-## To call an
-
-Amazon SQS Query API action using temporary security credentials
+## To call an Amazon SQS Query API action using temporary security credentials
 
 1. Request a temporary security token using AWS Identity and Access Management. For more
    information, see [Creating

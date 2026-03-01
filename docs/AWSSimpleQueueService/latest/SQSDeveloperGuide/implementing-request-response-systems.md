@@ -1,6 +1,4 @@
-# Implementing request-response
-
-systems in Amazon SQS
+# Implementing request-response systems in Amazon SQS
 
 When implementing a request-response or remote procedure call (RPC) system, keep the
 following best practices in mind:
@@ -14,5 +12,4 @@ following best practices in mind:
   can result in a producer receiving response messages intended for another
   producer.
   For more information about implementing the request-response pattern using the
-  Temporary Queue Client, see [Request-response messaging pattern
-  (virtual queues)](sqs-temporary-queues.md#request-reply-messaging-pattern "sqs-temporary-queues.md#request-reply-messaging-pattern").
+  Temporary Queue Client, see [Request-response messaging pattern (virtual queues)](sqs-temporary-queues.md#request-reply-messaging-pattern "sqs-temporary-queues.md#request-reply-messaging-pattern").

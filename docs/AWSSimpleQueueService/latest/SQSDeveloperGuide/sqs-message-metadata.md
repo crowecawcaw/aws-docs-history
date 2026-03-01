@@ -10,8 +10,7 @@ Amazon SQS allows you to include structured metadata (such as timestamps, geospa
 attributes. Message attributes are optional and separate from the message body (however,
 they are sent alongside it). Your consumer can use message attributes to handle a
 message in a particular way without having to process the message body first. For
-information about sending messages with attributes using the Amazon SQS console, see [Sending a message with attributes
-using Amazon SQS](sqs-using-send-message-with-attributes.md "sqs-using-send-message-with-attributes.md").
+information about sending messages with attributes using the Amazon SQS console, see [Sending a message with attributes using Amazon SQS](sqs-using-send-message-with-attributes.md "sqs-using-send-message-with-attributes.md").
 
 ###### Note
 
@@ -24,8 +23,7 @@ store metadata for other AWS services, such as AWS X-Ray.
 
 - [Message attribute components](#message-attribute-components "#message-attribute-components")
 - [Message attribute data types](#message-attribute-data-types "#message-attribute-data-types")
-- [Calculating the MD5
-  message digest for message attributes](#sqs-attributes-md5-message-digest-calculation "#sqs-attributes-md5-message-digest-calculation")
+- [Calculating the MD5 message digest for message attributes](#sqs-attributes-md5-message-digest-calculation "#sqs-attributes-md5-message-digest-calculation")
 
 ### Message attribute components
 
@@ -105,9 +103,7 @@ Amazon SQS doesn't interpret, validate, or use the appended data.
 The custom-type label has the same restrictions as the message
 body.
 
-### Calculating the MD5
-
-message digest for message attributes
+### Calculating the MD5 message digest for message attributes
 
 If you use the AWS SDK for Java, you can skip this section. The
 `MessageMD5ChecksumHandler` class of the SDK for Java supports MD5 message

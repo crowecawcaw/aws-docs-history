@@ -1,6 +1,4 @@
-# Troubleshoot an access denied error in
-
-Amazon SQS
+# Troubleshoot an access denied error in Amazon SQS
 
 The following topics cover the most common causes of `AccessDenied` or
 `AccessDeniedException` errors on Amazon SQS API calls. For more information on how to

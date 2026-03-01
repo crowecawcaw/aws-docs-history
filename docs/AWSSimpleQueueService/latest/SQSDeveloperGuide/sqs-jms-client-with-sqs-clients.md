@@ -1,6 +1,4 @@
-# Using the Java Message Service with other
-
-Amazon SQS clients
+# Using the Java Message Service with other Amazon SQS clients
 
 Using the Amazon SQS Java Message Service (JMS) Client with the AWS SDK limits Amazon SQS message size to 256 KB.
 However, you can create a JMS provider using any Amazon SQS client. For example, you can use the

@@ -37,8 +37,7 @@ _only with standard queues:_
 - [AWS Lambda Dead-Letter
   Queues](../../../lambda/latest/dg/dlq.md "../../../lambda/latest/dg/dlq.md")
   For information about compatibility of other services with encrypted queues,
-  see [Configure KMS permissions
-  for AWS services](sqs-key-management.md#compatibility-with-aws-services "sqs-key-management.md#compatibility-with-aws-services") and your service
+  see [Configure KMS permissions for AWS services](sqs-key-management.md#compatibility-with-aws-services "sqs-key-management.md#compatibility-with-aws-services") and your service
   documentation.
 
 AWS KMS combines secure, highly available hardware and software to provide a key
@@ -105,8 +104,7 @@ The length of time, in seconds, for which Amazon SQS can reuse a data
 key to encrypt or decrypt messages before calling AWS KMS again. An
 integer representing seconds, between 60 seconds (1 minute) and
 86,400 seconds (24 hours). The default is 300 (5 minutes). For more
-information, see [Understanding the
-data key reuse period](sqs-key-management.md#sqs-how-does-the-data-key-reuse-period-work "sqs-key-management.md#sqs-how-does-the-data-key-reuse-period-work").
+information, see [Understanding the data key reuse period](sqs-key-management.md#sqs-how-does-the-data-key-reuse-period-work "sqs-key-management.md#sqs-how-does-the-data-key-reuse-period-work").
 
 ###### Note
 

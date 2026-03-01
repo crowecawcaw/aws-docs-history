@@ -1,6 +1,4 @@
-# Outage recovery scenarios
-
-in Amazon SQS
+# Outage recovery scenarios in Amazon SQS
 
 The deduplication process in FIFO queues is time-sensitive. When designing your
 application, ensure that both the producer and consumer can recover from client or

@@ -89,8 +89,7 @@ if (!client.queueExists("MyQueue.fifo")) {
 The name of a FIFO queue must end with the `.fifo` suffix.
 
 For more information about the `ContentBasedDeduplication`
-attribute, see [Exactly-once processing in
-Amazon SQS](FIFO-queues-exactly-once-processing.md "FIFO-queues-exactly-once-processing.md").
+attribute, see [Exactly-once processing in Amazon SQS](FIFO-queues-exactly-once-processing.md "FIFO-queues-exactly-once-processing.md").
 
 ## Sending messages synchronously
 
@@ -147,9 +146,7 @@ MessageProducer producer = session.createProducer(queue);
    System.out.println("JMS Message Sequence Number " + message.getStringProperty("JMS_SQS_SequenceNumber"));
    ```
 
-## Receiving messages
-
-synchronously
+## Receiving messages synchronously
 
 1. To receive messages, create a consumer for the same queue and invoke the
    `start` method.
@@ -219,15 +216,12 @@ You can use the Spring Framework to initialize these objects.
 For additional information, see `SpringExampleConfiguration.xml`,
 `SpringExample.java`, and the other helper classes in
 `ExampleConfiguration.java` and `ExampleCommon.java` in
-the [Working Java examples for using JMS with Amazon SQS
-standard queues](sqs-jms-code-examples.md "sqs-jms-code-examples.md")
+the [Working Java examples for using JMS with Amazon SQS standard queues](sqs-jms-code-examples.md "sqs-jms-code-examples.md")
 section.
 
 For complete examples of sending and receiving objects, see [TextMessageSender.java](sqs-jms-code-examples.md#example-sender "sqs-jms-code-examples.md#example-sender") and [SyncMessageReceiver.java](sqs-jms-code-examples.md#example-synchronous-message-receiver "sqs-jms-code-examples.md#example-synchronous-message-receiver").
 
-## Receiving messages
-
-asynchronously
+## Receiving messages asynchronously
 
 In the example in [Using the Amazon SQS Java Messaging Library](getting-started.md "getting-started.md"), a
 message is sent to `MyQueue` and received synchronously.
@@ -274,8 +268,7 @@ Thread.sleep(1000);
 ```
 
 The rest of the steps are identical to the ones in the [Using the Amazon SQS Java Messaging Library](getting-started.md "getting-started.md") example. For a complete example of an asynchronous
-consumer, see `AsyncMessageReceiver.java` in [Working Java examples for using JMS with Amazon SQS
-standard queues](sqs-jms-code-examples.md "sqs-jms-code-examples.md").
+consumer, see `AsyncMessageReceiver.java` in [Working Java examples for using JMS with Amazon SQS standard queues](sqs-jms-code-examples.md "sqs-jms-code-examples.md").
 
 The output for this example looks similar to the following:
 
@@ -320,8 +313,7 @@ also acknowledged.
 
 The rest of the steps are identical to the ones in the [Using the Amazon SQS Java Messaging Library](getting-started.md "getting-started.md") example. For a complete example of a synchronous
 consumer with client acknowledge mode, see
-`SyncMessageReceiverClientAcknowledge.java` in [Working Java examples for using JMS with Amazon SQS
-standard queues](sqs-jms-code-examples.md "sqs-jms-code-examples.md").
+`SyncMessageReceiverClientAcknowledge.java` in [Working Java examples for using JMS with Amazon SQS standard queues](sqs-jms-code-examples.md "sqs-jms-code-examples.md").
 
 The output for this example looks similar to the following:
 
@@ -331,9 +323,7 @@ Received: Hello World!
 Acknowledged: ID:4example-aa0e-403f-b6df-5e02example5
 ```
 
-## Using unordered acknowledge
-
-mode
+## Using unordered acknowledge mode
 
 When using `CLIENT_ACKNOWLEDGE` mode, all messages received before an
 explicitly-acknowledged message are acknowledged automatically. For more information,

@@ -1,6 +1,4 @@
-# Tagging for access control in
-
-Amazon SQS
+# Tagging for access control in Amazon SQS
 
 The following is an example of using tags for access control in Amazon SQS. The IAM policy
 restricts an IAM user to all Amazon SQS actions for all queues that include a resource tag with

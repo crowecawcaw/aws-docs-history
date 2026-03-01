@@ -1,6 +1,4 @@
-# Basic examples of Amazon SQS
-
-policies
+# Basic examples of Amazon SQS policies
 
 This section shows example policies for common Amazon SQS use cases.
 
@@ -15,9 +13,7 @@ We recommend that you use two browser windows: one to grant permissions and
 the other to sign into the AWS Management Console using the user's credentials to verify
 permissions as you grant them to the user.
 
-## Example 1: Grant one
-
-permission to one AWS account
+## Example 1: Grant one permission to one AWS account
 
 The following example policy grants AWS account number
 `111122223333` the `SendMessage` permission
@@ -45,9 +41,7 @@ JSON
 
 ```
 
-## Example 2: Grant two
-
-permissions to one AWS account
+## Example 2: Grant two permissions to one AWS account
 
 The following example policy grants AWS account number
 `111122223333` both the `SendMessage` and
@@ -78,9 +72,7 @@ JSON
 
 ```
 
-## Example 3: Grant all
-
-permissions to two AWS accounts
+## Example 3: Grant all permissions to two AWS accounts
 
 The following example policy grants two different AWS accounts numbers
 (`111122223333` and
@@ -111,9 +103,7 @@ JSON
 
 ```
 
-## Example
-
-4: Grant cross-account permissions to a role and a username
+## Example 4: Grant cross-account permissions to a role and a username
 
 The following example policy grants `role1` and
 `username1` under AWS account number
@@ -159,9 +149,7 @@ JSON
 
 ```
 
-## Example 5: Grant a permission
-
-to all users
+## Example 5: Grant a permission to all users
 
 The following example policy grants all users (anonymous users)
 `ReceiveMessage` permission for the queue named
@@ -184,9 +172,7 @@ JSON
 
 ```
 
-## Example 6: Grant a
-
-time-limited permission to all users
+## Example 6: Grant a time-limited permission to all users
 
 The following example policy grants all users (anonymous users)
 `ReceiveMessage` permission for the queue named
@@ -218,9 +204,7 @@ JSON
 
 ```
 
-## Example 7:
-
-Grant all permissions to all users in a CIDR range
+## Example 7: Grant all permissions to all users in a CIDR range
 
 The following example policy grants all users (anonymous users) permission to
 use all possible Amazon SQS actions that can be shared for the queue named
@@ -249,9 +233,7 @@ JSON
 
 ```
 
-## Example 8: Allowlist and blocklist permissions for users in different CIDR
-
-ranges
+## Example 8: Allowlist and blocklist permissions for users in different CIDR ranges
 
 The following example policy has two statements:
 

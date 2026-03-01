@@ -3,9 +3,7 @@
 This topic covers frequently asked questions about using AWS JSON
 protocol with Amazon SQS.
 
-## What is AWS JSON protocol,
-
-and how does it differ from existing Amazon SQS API requests and responses?
+## What is AWS JSON protocol, and how does it differ from existing Amazon SQS API requests and responses?
 
 JSON is one of the most widely used and accepted wiring methods for communication
 between heterogeneous systems. Amazon SQS uses JSON as a medium to communicate between an
@@ -49,9 +47,7 @@ The following is a list of SDK versions across language variants for AWS JSON pr
 | awscli          | [AWS<br>CLI](https://github.com/aws/aws-cli "https://github.com/aws/aws-cli")                          | [1.29.82](https://github.com/aws/aws-cli/releases/tag/1.29.82 "https://github.com/aws/aws-cli/releases/tag/1.29.82")                                                                                                       | [AWSCommand Line Interface](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/")                                             |
 | Ruby            | [aws/aws-sdk-ruby](https://github.com/aws/aws-sdk-ruby "https://github.com/aws/aws-sdk-ruby")          | [1.67.0](https://rubygems.org/gems/aws-sdk-sqs/versions/1.67.0 "https://rubygems.org/gems/aws-sdk-sqs/versions/1.67.0")                                                                                                    | [AWS SDK for Ruby](https://aws.amazon.com/sdk-for-ruby/ "https://aws.amazon.com/sdk-for-ruby/")                                    |
 
-## What are the risks of enabling JSON protocol
-
-for my Amazon SQS workloads?
+## What are the risks of enabling JSON protocol for my Amazon SQS workloads?
 
 If you are using a custom implementation of AWS SDK or a
 combination of custom clients and AWS SDK to interact with Amazon SQS that
@@ -59,35 +55,25 @@ generates AWS Query based (aka XML-based) responses, it may be
 incompatible with AWS JSON protocol. If you encounter any issues,
 contact AWS Support.
 
-## What if I am already on the
-
-latest AWS SDK version, but my open sourced solution does not
-support JSON?
+## What if I am already on the latest AWS SDK version, but my open sourced solution does not support JSON?
 
 You must change your SDK version to the version previous to what you are using.
 See [How do I get started with AWS JSON protocols for Amazon SQS?](#json-protocol-getting-started "#json-protocol-getting-started") for more information. AWS SDK versions listed in [How do I get started with AWS JSON protocols for Amazon SQS?](#json-protocol-getting-started "#json-protocol-getting-started") uses JSON wire protocol for
 Amazon SQS APIs. If you change your AWS SDK to the previous version, your
 Amazon SQS APIs will use the AWS query.
 
-## What languages are supported for
-
-AWS JSON protocol used in Amazon SQS APIs?
+## What languages are supported for AWS JSON protocol used in Amazon SQS APIs?
 
 Amazon SQS supports all language variants where AWS SDKs are generally
 available (GA). Currently, we don't support Kotlin, Rust, or Swift. To learn more
 about other language variants, see [Tools to Build on AWS](https://aws.amazon.com/developer/tools/ "https://aws.amazon.com/developer/tools/").
 
-## What regions are supported for
-
-AWS JSON protocol used in Amazon SQS APIs
+## What regions are supported for AWS JSON protocol used in Amazon SQS APIs
 
 Amazon SQS supports AWS JSON protocol in all [AWS regions](../../../general/latest/gr/sqs-service.md "../../../general/latest/gr/sqs-service.md")
 where Amazon SQS is available.
 
-## What latency improvements can I expect
-
-when upgrading to the specified AWS SDK versions for Amazon SQS using
-the AWS JSON protocol?
+## What latency improvements can I expect when upgrading to the specified AWS SDK versions for Amazon SQS using the AWS JSON protocol?
 
 AWS JSON protocol is more efficient at serialization and
 deserialization of requests and responses when compared to AWS query
@@ -95,17 +81,13 @@ protocol. Based on AWS performance tests for a 5 KB message payload,
 JSON protocol for Amazon SQS reduces end-to-end message processing latency by up to 23%,
 and reduces application client side CPU and memory usage.
 
-## Will AWS query protocol be
-
-deprecated?
+## Will AWS query protocol be deprecated?
 
 AWS query protocol will continue to be supported. You can continue
 using AWS query protocol as long as your AWS SDK
 version is set any previous version other that what is listed in [How do I get started with AWS JSON protocols for Amazon SQS](#json-protocol-getting-started "#json-protocol-getting-started").
 
-## Where can I find more information about
-
-AWS JSON protocol?
+## Where can I find more information about AWS JSON protocol?
 
 You can find more information about JSON protocol at [AWS JSON 1.0 protocol](https://smithy.io/2.0/aws/protocols/aws-json-1_0-protocol.html "https://smithy.io/2.0/aws/protocols/aws-json-1_0-protocol.html") in the _Smithy_ documentation. For more about Amazon SQS API requests using
 AWS JSON protocol, see [Making query API requests using AWS JSON protocol in Amazon SQS](sqs-making-api-requests-json.md "sqs-making-api-requests-json.md").

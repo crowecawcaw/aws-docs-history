@@ -1,6 +1,4 @@
-# When to provide a message
-
-deduplication ID in Amazon SQS
+# When to provide a message deduplication ID in Amazon SQS
 
 A producer should specify a message deduplication ID in the following
 scenarios:

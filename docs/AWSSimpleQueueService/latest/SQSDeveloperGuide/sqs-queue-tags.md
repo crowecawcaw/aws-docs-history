@@ -3,8 +3,7 @@
 To organize and identify your Amazon SQS queues for cost allocation, you can add metadata
 _tags_ that identify a queue's purpose, owner, or environment. This
 is especially useful when you have many queues. To configure tags using the Amazon SQS console,
-see [Configuring cost allocation tags for a queue using
-the Amazon SQS console](sqs-configure-tag-queue.md "sqs-configure-tag-queue.md")
+see [Configuring cost allocation tags for a queue using the Amazon SQS console](sqs-configure-tag-queue.md "sqs-configure-tag-queue.md")
 
 You can use cost allocation tags to organize your AWS bill to reflect your own cost
 structure. To do this, sign up to get your AWS account bill to include tag keys and

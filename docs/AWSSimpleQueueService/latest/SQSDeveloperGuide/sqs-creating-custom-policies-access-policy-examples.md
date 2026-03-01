@@ -1,12 +1,8 @@
-# Custom
-
-Amazon SQS Access Policy Language examples
+# Custom Amazon SQS Access Policy Language examples
 
 The following are examples of typical Amazon SQS access policies.
 
-## Example 1: Give permission to one
-
-account
+## Example 1: Give permission to one account
 
 The following example Amazon SQS policy gives AWS account
 111122223333 permission to send to and receive from
@@ -36,9 +32,7 @@ JSON
 
 ```
 
-## Example 2: Give permission to one or more
-
-accounts
+## Example 2: Give permission to one or more accounts
 
 The following example Amazon SQS policy gives one or more AWS accounts access
 to queues owned by your account for a specific time period. It is necessary
@@ -75,13 +69,10 @@ JSON
 
 ```
 
-## Example 3: Give permission to requests
-
-from Amazon EC2 instances
+## Example 3: Give permission to requests from Amazon EC2 instances
 
 The following example Amazon SQS policy gives access to requests that come from
-Amazon EC2 instances. This example builds on the "[Example 2: Give permission to one or more
-accounts](#two-accounts "#two-accounts")" example: it restricts access to before
+Amazon EC2 instances. This example builds on the "[Example 2: Give permission to one or more accounts](#two-accounts "#two-accounts")" example: it restricts access to before
 June 30, 2009 at 12 noon (UTC), it restricts access to the IP range
 `203.0.113.0/24`. It is necessary to write this policy and to
 upload it to Amazon SQS using the [`SetQueueAttributes`](../APIReference/API_SetQueueAttributes.md "../APIReference/API_SetQueueAttributes.md") action because the [`AddPermission`](../APIReference/API_AddPermission.md "../APIReference/API_AddPermission.md") action doesn't permit specifying an
@@ -119,13 +110,10 @@ JSON
 
 ```
 
-## Example 4: Deny access to a specific
-
-account
+## Example 4: Deny access to a specific account
 
 The following example Amazon SQS policy denies a specific AWS account access
-to your queue. This example builds on the "[Example 1: Give permission to one
-account](#one-account "#one-account")" example: it denies access to the
+to your queue. This example builds on the "[Example 1: Give permission to one account](#one-account "#one-account")" example: it denies access to the
 specified AWS account. It is necessary to write this policy and to upload
 it to Amazon SQS using the [`SetQueueAttributes`](../APIReference/API_SetQueueAttributes.md "../APIReference/API_SetQueueAttributes.md") action because the [`AddPermission`](../APIReference/API_AddPermission.md "../APIReference/API_AddPermission.md") action doesn't permit deny access to
 a queue (it allows only granting access to a queue).
@@ -154,9 +142,7 @@ JSON
 
 ```
 
-## Example 5: Deny access if it isn't from
-
-a VPC endpoint
+## Example 5: Deny access if it isn't from a VPC endpoint
 
 The following example Amazon SQS policy restricts access to
 `queue1`: 111122223333 can perform the [`SendMessage`](../APIReference/API_SendMessage.md "../APIReference/API_SendMessage.md")

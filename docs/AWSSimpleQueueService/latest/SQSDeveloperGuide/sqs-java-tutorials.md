@@ -11,5 +11,4 @@ AWS services.
 - This guide also includes examples of additional Amazon SQS features, such as:
   - [Using server-side encryption with Amazon SQS queues](sqs-java-configure-sse.md "sqs-java-configure-sse.md")
   - [Configuring tags for an Amazon SQS queue](sqs-java-add-update-remove-tag-queue.md "sqs-java-add-update-remove-tag-queue.md")
-  - [Sending message attributes to an
-    Amazon SQS queue](sqs-java-send-message-with-attributes.md "sqs-java-send-message-with-attributes.md")
+  - [Sending message attributes to an Amazon SQS queue](sqs-java-send-message-with-attributes.md "sqs-java-send-message-with-attributes.md")

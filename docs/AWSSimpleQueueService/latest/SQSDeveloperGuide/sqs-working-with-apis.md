@@ -21,8 +21,7 @@ Amazon SQS uses AWS JSON protocol as the transport mechanism for
 all Amazon SQS APIs on the specified [AWS SDK versions](sqs-json-faqs.md#json-protocol-getting-started "sqs-json-faqs.md#json-protocol-getting-started"). AWS JSON protocol provides a higher
 throughput, lower latency, and faster application-to-application communication. AWS JSON protocol is more efficient in serialization/deserialization of requests
 and responses when compared to AWS query protocol. If you still prefer to use
-the AWS query protocol with SQS APIs, see [What languages are supported for
-AWS JSON protocol used in Amazon SQS APIs?](sqs-json-faqs.md#json-protocol-supported-languages "sqs-json-faqs.md#json-protocol-supported-languages") for the AWS SDK
+the AWS query protocol with SQS APIs, see [What languages are supported for AWS JSON protocol used in Amazon SQS APIs?](sqs-json-faqs.md#json-protocol-supported-languages "sqs-json-faqs.md#json-protocol-supported-languages") for the AWS SDK
 versions that support Amazon SQS AWS query protocol.
 
 Amazon SQS uses AWS JSON protocol to communicate between AWS SDK

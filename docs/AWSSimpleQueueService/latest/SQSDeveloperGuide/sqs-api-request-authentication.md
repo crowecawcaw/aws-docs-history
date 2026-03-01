@@ -3,8 +3,7 @@
 Authentication is the process of identifying and verifying the party that sends a request.
 During the first stage of authentication, AWS verifies the identity of the producer and
 whether the producer is [registered to use AWS](https://aws.amazon.com/ "https://aws.amazon.com/") (for
-more information, see [Step 1: Create an AWS account and IAM
-user](sqs-setting-up.md#sqs-creating-aws-account "sqs-setting-up.md#sqs-creating-aws-account")). Next, AWS abides by the following
+more information, see [Step 1: Create an AWS account and IAM user](sqs-setting-up.md#sqs-creating-aws-account "sqs-setting-up.md#sqs-creating-aws-account")). Next, AWS abides by the following
 procedure:
 
 1. The producer (sender) obtains the necessary credential.
@@ -16,9 +15,7 @@ procedure:
    - If authentication fails, the consumer rejects the request and returns an
      error.
 
-## Basic authentication process with
-
-HMAC-SHA
+## Basic authentication process with HMAC-SHA
 
 When you access Amazon SQS using the Query API, you must provide the following items to
 authenticate your request:

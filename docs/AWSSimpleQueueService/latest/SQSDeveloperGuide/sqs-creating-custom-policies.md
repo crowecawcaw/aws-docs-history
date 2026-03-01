@@ -1,6 +1,4 @@
-# Using custom policies with the Amazon SQS
-
-Access Policy Language
+# Using custom policies with the Amazon SQS Access Policy Language
 
 To grant basic permissions (such as [`SendMessage`](../APIReference/API_SendMessage.md "../APIReference/API_SendMessage.md") or [`ReceiveMessage`](../APIReference/API_ReceiveMessage.md "../APIReference/API_ReceiveMessage.md"))
 based only on an AWS account ID, you don’t need to write a custom policy. Instead,

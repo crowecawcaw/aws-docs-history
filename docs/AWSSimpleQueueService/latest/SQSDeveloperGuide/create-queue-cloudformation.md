@@ -9,8 +9,7 @@ _AWS CloudFormation User Guide_.
 1. Copy the following JSON code to a file named `MyQueue.json`. To create
    a standard queue, omit the `FifoQueue` and
    `ContentBasedDeduplication` properties. For more information on
-   content-based deduplication, see [Exactly-once processing in
-   Amazon SQS](FIFO-queues-exactly-once-processing.md "FIFO-queues-exactly-once-processing.md").
+   content-based deduplication, see [Exactly-once processing in Amazon SQS](FIFO-queues-exactly-once-processing.md "FIFO-queues-exactly-once-processing.md").
 
 ###### Note
 

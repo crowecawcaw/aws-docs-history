@@ -31,8 +31,7 @@ The Amazon SQS Java Messaging Library includes support for [Maven](http://maven.
 Framework](http://projects.spring.io/spring-framework/ "http://projects.spring.io/spring-framework/").
 
 For code samples that use Maven, the Spring Framework, and the
-Amazon SQS Java Messaging Library, see [Working Java examples for using JMS with Amazon SQS
-standard queues](sqs-jms-code-examples.md "sqs-jms-code-examples.md").
+Amazon SQS Java Messaging Library, see [Working Java examples for using JMS with Amazon SQS standard queues](sqs-jms-code-examples.md "sqs-jms-code-examples.md").
 
 ```
 <dependency>

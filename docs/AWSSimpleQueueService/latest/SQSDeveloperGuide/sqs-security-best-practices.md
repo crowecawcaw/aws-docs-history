@@ -10,9 +10,7 @@ The specific implementation guidance provided is for common use cases and
 implementations. We suggest that you view these best practices in the context of your
 specific use case, architecture, and threat model.
 
-## Make sure that queues aren't
-
-publicly accessible
+## Make sure that queues aren't publicly accessible
 
 Unless you explicitly require anyone on the internet to be able to read or write to
 your Amazon SQS queue, you should make sure that your queue isn't publicly accessible
@@ -23,9 +21,7 @@ your Amazon SQS queue, you should make sure that your queue isn't publicly acces
 - Avoid using a wildcard (`*`). Instead, name a specific user or
   users.
 
-## Implement least-privilege
-
-access
+## Implement least-privilege access
 
 When you grant permissions, you decide who receives them, which queues the permissions
 are for, and specific API actions that you want to allow for these queues. Implementing
@@ -49,16 +45,11 @@ access:
 
 For more information, see the following sections:
 
-- [Identity and access management in
-  Amazon SQS](security-iam.md "security-iam.md")
-- [Amazon SQS API permissions:
-  Actions and resource reference](sqs-api-permissions-reference.md "sqs-api-permissions-reference.md")
-- [Using custom policies with the Amazon SQS
-  Access Policy Language](sqs-creating-custom-policies.md "sqs-creating-custom-policies.md")
+- [Identity and access management in Amazon SQS](security-iam.md "security-iam.md")
+- [Amazon SQS API permissions: Actions and resource reference](sqs-api-permissions-reference.md "sqs-api-permissions-reference.md")
+- [Using custom policies with the Amazon SQS Access Policy Language](sqs-creating-custom-policies.md "sqs-creating-custom-policies.md")
 
-## Use
-
-IAM roles for applications and AWS services which require Amazon SQS access
+## Use IAM roles for applications and AWS services which require Amazon SQS access
 
 For applications or AWS services such as Amazon EC2 to access Amazon SQS queues, they must use
 valid AWS credentials in their AWS API requests. Because these credentials aren't
@@ -76,9 +67,7 @@ and [Common Scenarios for
 Roles: Users, Applications, and Services](../../../IAM/latest/UserGuide/id_roles_common-scenarios.md "../../../IAM/latest/UserGuide/id_roles_common-scenarios.md") in the
 _IAM User Guide_.
 
-## Implement server-side
-
-encryption
+## Implement server-side encryption
 
 To mitigate data leakage issues, use encryption at rest to encrypt your messages using
 a key stored in a different location from the location that stores your messages.
@@ -90,18 +79,14 @@ and unencrypted queues.
 
 For more information, see [Encryption at rest in Amazon SQS](sqs-server-side-encryption.md "sqs-server-side-encryption.md") and [Amazon SQS Key management](sqs-key-management.md "sqs-key-management.md").
 
-## Enforce encryption of data in
-
-transit
+## Enforce encryption of data in transit
 
 Without HTTPS (TLS), a network-based attacker can eavesdrop on network traffic or
 manipulate it, using an attack such as man-in-the-middle. Allow only encrypted
 connections over HTTPS (TLS) using the [`aws:SecureTransport`](../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md#Conditions_Boolean "../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md#Conditions_Boolean") condition in the queue policy to force
 requests to use SSL.
 
-## Consider using VPC endpoints
-
-to access Amazon SQS
+## Consider using VPC endpoints to access Amazon SQS
 
 If you have queues that you must be able to interact with but which must absolutely
 not be exposed to the internet, use VPC endpoints to queue access to only the hosts
@@ -115,5 +100,4 @@ Amazon SQS VPC endpoints provide two ways to control access to your messages:
 - You can control which VPCs or VPC endpoints have access to your queue using a
   queue policy.
 
-For more information, see [Amazon Virtual Private Cloud endpoints for Amazon SQS](sqs-internetwork-traffic-privacy.md#sqs-vpc-endpoints "sqs-internetwork-traffic-privacy.md#sqs-vpc-endpoints") and [Creating an Amazon VPC endpoint policy for
-Amazon SQS](sqs-internetwork-traffic-privacy.md#sqs-vpc-endpoint-policy "sqs-internetwork-traffic-privacy.md#sqs-vpc-endpoint-policy").
+For more information, see [Amazon Virtual Private Cloud endpoints for Amazon SQS](sqs-internetwork-traffic-privacy.md#sqs-vpc-endpoints "sqs-internetwork-traffic-privacy.md#sqs-vpc-endpoints") and [Creating an Amazon VPC endpoint policy for Amazon SQS](sqs-internetwork-traffic-privacy.md#sqs-vpc-endpoint-policy "sqs-internetwork-traffic-privacy.md#sqs-vpc-endpoint-policy").

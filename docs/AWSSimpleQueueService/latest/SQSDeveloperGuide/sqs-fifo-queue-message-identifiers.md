@@ -1,13 +1,9 @@
-# FIFO queue and message
-
-identifiers in Amazon SQS
+# FIFO queue and message identifiers in Amazon SQS
 
 This section describes the identifiers of FIFO queues. These identifiers can help you
 find and manipulate specific queues and messages.
 
-## Identifiers for FIFO queues in
-
-Amazon SQS
+## Identifiers for FIFO queues in Amazon SQS
 
 For more information about the following identifiers, see the _[Amazon Simple Queue Service API Reference](../APIReference.md "../APIReference.md")_.
 
@@ -67,16 +63,11 @@ Lj1FjgXUv1uSj1gUPAWV66FU/WeR4mq2OKpEGYWbnLmpRCJVAyeMjeU5ZBdtcQ+QE
 auMZc8ZRv37sIW2iJKq3M9MFx1YvV11A2x/KSbkJ0=
 ```
 
-## Additional identifiers for
+## Additional identifiers for Amazon SQS FIFO queues
 
-Amazon SQS FIFO queues
+For more information about the following identifiers, see [Exactly-once processing in Amazon SQS](FIFO-queues-exactly-once-processing.md "FIFO-queues-exactly-once-processing.md") and the _[Amazon Simple Queue Service API Reference](../APIReference.md "../APIReference.md")_.
 
-For more information about the following identifiers, see [Exactly-once processing in
-Amazon SQS](FIFO-queues-exactly-once-processing.md "FIFO-queues-exactly-once-processing.md") and the _[Amazon Simple Queue Service API Reference](../APIReference.md "../APIReference.md")_.
-
-### Message deduplication
-
-ID
+### Message deduplication ID
 
 A token used in Amazon SQS FIFO queues to uniquely identify messages and prevent duplication. If multiple messages with the same deduplication ID are sent within a 5 minute deduplication interval, they are treated as duplicates, and only one copy is delivered. If you don't specify a deduplication ID and content-based deduplication is enabled, Amazon SQS generates a deduplication ID by hashing the message body. This mechanism ensures exactly-once delivery by eliminating duplicate messages within the specified time frame.
 

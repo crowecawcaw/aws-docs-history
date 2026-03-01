@@ -1,6 +1,4 @@
-# Creating CloudWatch alarms for Amazon SQS
-
-metrics
+# Creating CloudWatch alarms for Amazon SQS metrics
 
 CloudWatch allows you trigger alarms when a metric reaches a specified threshold. For example,
 you can create an alarm for the `NumberOfMessagesSent` metric. For example, if more

@@ -1,6 +1,4 @@
-# Avoiding inconsistent message
-
-processing in Amazon SQS
+# Avoiding inconsistent message processing in Amazon SQS
 
 Because Amazon SQS is a distributed system, it is possible for a consumer to not receive a
 message even when Amazon SQS marks the message as delivered while returning successfully from

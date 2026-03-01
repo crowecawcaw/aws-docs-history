@@ -1,6 +1,4 @@
-# Capturing problematic messages in
-
-Amazon SQS
+# Capturing problematic messages in Amazon SQS
 
 To capture all messages that can't be processed, and to collect accurate CloudWatch metrics,
 configure a [dead-letter queue](sqs-dead-letter-queues.md "sqs-dead-letter-queues.md").

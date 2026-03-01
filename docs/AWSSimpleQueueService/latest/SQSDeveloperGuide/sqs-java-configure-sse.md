@@ -6,9 +6,7 @@ AWS managed KMS key for Amazon SQS.
 
 For more information about using SSE and the role of the KMS key, see [Encryption at rest in Amazon SQS](sqs-server-side-encryption.md "sqs-server-side-encryption.md").
 
-## Adding SSE to an existing
-
-queue
+## Adding SSE to an existing queue
 
 To enable server-side encryption for an existing queue, use the `SetQueueAttributes`
 method to set the `KmsMasterKeyId` attribute.
@@ -70,9 +68,7 @@ attribute to an empty string using the `SetQueueAttributes` method.
 
 `null` isn't a valid value for `KmsMasterKeyId`.
 
-## Creating a queue with
-
-SSE
+## Creating a queue with SSE
 
 To enable SSE when you create the queue, add the `KmsMasterKeyId`
 attribute to the `CreateQueue` API method.

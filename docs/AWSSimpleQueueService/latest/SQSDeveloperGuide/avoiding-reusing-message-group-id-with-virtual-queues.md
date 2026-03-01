@@ -1,6 +1,4 @@
-# Avoid
-
-reusing the same message group ID with virtual queues in Amazon SQS
+# Avoid reusing the same message group ID with virtual queues in Amazon SQS
 
 When using virtual queues with a shared host queue, avoid reusing the same [`MessageGroupId`](../APIReference/API_SendMessage.md "../APIReference/API_SendMessage.md") across different virtual queues. If
 multiple virtual queues share the same host queue and contain messages with the same

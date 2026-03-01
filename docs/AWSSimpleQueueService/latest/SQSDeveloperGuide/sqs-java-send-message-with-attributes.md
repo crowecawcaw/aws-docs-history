@@ -1,6 +1,4 @@
-# Sending message attributes to an
-
-Amazon SQS queue
+# Sending message attributes to an Amazon SQS queue
 
 You can include structured metadata (such as timestamps, geospatial data, signatures, and identifiers) with messages using _message attributes_. For more information, see [Amazon SQS message attributes](sqs-message-metadata.md#sqs-message-attributes "sqs-message-metadata.md#sqs-message-attributes").
 
@@ -16,8 +14,7 @@ To define an attribute for a message, add the following code, which uses the
 The AWS SDK for Java automatically calculates the message body and message attribute
 checksums and compares them with the data that Amazon SQS returns. For more information, see
 the _[AWS SDK for Java 2.x Developer Guide](../../../sdk-for-java/latest/developer-guide.md "../../../sdk-for-java/latest/developer-guide.md")_ and
-[Calculating the MD5
-message digest for message attributes](sqs-message-metadata.md#sqs-attributes-md5-message-digest-calculation "sqs-message-metadata.md#sqs-attributes-md5-message-digest-calculation") for other
+[Calculating the MD5 message digest for message attributes](sqs-message-metadata.md#sqs-attributes-md5-message-digest-calculation "sqs-message-metadata.md#sqs-attributes-md5-message-digest-calculation") for other
 programming languages.
 
 String

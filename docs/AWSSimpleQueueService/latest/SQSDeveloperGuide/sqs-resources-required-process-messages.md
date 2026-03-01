@@ -1,6 +1,4 @@
-# Resources required to process
-
-Amazon SQS messages
+# Resources required to process Amazon SQS messages
 
 Amazon SQS provides estimates of the approximate number of delayed, visible, and not visible
 messages in a queue to help you assess the resources needed for processing. For more

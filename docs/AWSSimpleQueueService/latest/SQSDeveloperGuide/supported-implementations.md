@@ -19,9 +19,7 @@ capabilities of the Amazon SQS Java Messaging Library, see the [Amazon SQS FAQ](
 - `ObjectMessage`
 - `TextMessage`
 
-## Supported message
-
-acknowledgment modes
+## Supported message acknowledgment modes
 
 - `AUTO_ACKNOWLEDGE`
 - `CLIENT_ACKNOWLEDGE`
@@ -34,9 +32,7 @@ The `UNORDERED_ACKNOWLEDGE` mode isn't part of the JMS 1.1
 specification. This mode helps Amazon SQS allow a JMS client to explicitly acknowledge a
 message.
 
-## JMS-defined headers and
-
-reserved properties
+## JMS-defined headers and reserved properties
 
 ### For sending messages
 

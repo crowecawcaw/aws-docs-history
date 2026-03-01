@@ -1,6 +1,4 @@
-# Amazon SQS at-least-once
-
-delivery
+# Amazon SQS at-least-once delivery
 
 Amazon SQS stores copies of your messages on multiple servers for redundancy and high
 availability. On rare occasions, one of the servers that stores a copy of a message

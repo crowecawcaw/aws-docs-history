@@ -1,6 +1,4 @@
-# Configuring cost allocation tags for a queue using
-
-the Amazon SQS console
+# Configuring cost allocation tags for a queue using the Amazon SQS console
 
 To organize and identify your Amazon SQS queues, you can add cost allocation tags. For more
 information, see [Amazon SQS cost allocation tags](sqs-queue-tags.md "sqs-queue-tags.md").

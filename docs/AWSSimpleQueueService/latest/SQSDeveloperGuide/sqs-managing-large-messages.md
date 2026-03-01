@@ -1,6 +1,4 @@
-# Managing large Amazon SQS messages with Extended
-
-Client Library and Amazon Simple Storage Service
+# Managing large Amazon SQS messages with Extended Client Library and Amazon Simple Storage Service
 
 Use the [Amazon SQS
 Extended Client Library for Java](https://github.com/awslabs/amazon-sqs-java-extended-client-lib "https://github.com/awslabs/amazon-sqs-java-extended-client-lib") and [Amazon SQS Extended

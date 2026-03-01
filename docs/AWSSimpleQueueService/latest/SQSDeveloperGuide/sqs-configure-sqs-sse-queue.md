@@ -1,6 +1,4 @@
-# Configuring server-side encryption for a
-
-queue using SQS-managed encryption keys
+# Configuring server-side encryption for a queue using SQS-managed encryption keys
 
 In addition to the [default](creating-sqs-standard-queues.md#step-create-standard-queue "creating-sqs-standard-queues.md#step-create-standard-queue") Amazon SQS managed server-side encryption (SSE) option, Amazon SQS
 managed SSE (SSE-SQS) lets you create custom managed server-side encryption that uses

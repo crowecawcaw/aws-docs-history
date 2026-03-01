@@ -1,6 +1,4 @@
-# Moving from a standard queue to a FIFO queue in
-
-Amazon SQS
+# Moving from a standard queue to a FIFO queue in Amazon SQS
 
 If your existing application uses standard queues and you want to take advantage of
 the ordering or exactly-once processing features of FIFO queues, you need to configure

@@ -1,6 +1,4 @@
-# Configuring queue parameters using the Amazon SQS
-
-console
+# Configuring queue parameters using the Amazon SQS console
 
 When [creating](creating-sqs-standard-queues.md#step-create-standard-queue "creating-sqs-standard-queues.md#step-create-standard-queue") or [editing](sqs-configure-edit-queue.md "sqs-configure-edit-queue.md") a queue, you can configure the following
 parameters:
@@ -33,7 +31,7 @@ messages, you must use one of the AWS SDKs.
   for messages in the queue. Choosing this option changes the related options ([Deduplication scope](enable-high-throughput-fifo.md "enable-high-throughput-fifo.md") and [FIFO throughput limit](enable-high-throughput-fifo.md "enable-high-throughput-fifo.md")) to the required
   settings for enabling high throughput for FIFO queues. For more information, see [High throughput for FIFO queues in Amazon SQS](high-throughput-fifo.md "high-throughput-fifo.md") and [Amazon SQS message quotas](quotas-messages.md "quotas-messages.md").
 - **Redrive allow policy**: defines which source queues can use this queue as
-  the dead-letter queue. For more information, see [Using dead-letter queues in Amazon SQS](sqs-dead-letter-queues.md "sqs-dead-letter-queues.md") .
+  the dead-letter queue. For more information, see [Using dead-letter queues in Amazon SQS](sqs-dead-letter-queues.md "sqs-dead-letter-queues.md").
 
 ###### To configure queue parameters for an existing queue (console)
 

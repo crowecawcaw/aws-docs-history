@@ -5,9 +5,7 @@ the request. To understand the structure and details of these responses, refer t
 specific [API
 actions](../APIReference/API_Operations.md "../APIReference/API_Operations.md") in the _Amazon Simple Queue Service API Reference_.
 
-## Successful XML response
-
-structure
+## Successful XML response structure
 
 If the request is successful, the main response element is named after the action,
 with `Response` appended (for example,
@@ -40,9 +38,7 @@ The following is an example successful response in XML format:
 </CreateQueueResponse>
 ```
 
-## XML error response
-
-structure
+## XML error response structure
 
 If a request is unsuccessful, Amazon SQS always returns the main response element
 `ErrorResponse`. This element contains an `Error` element

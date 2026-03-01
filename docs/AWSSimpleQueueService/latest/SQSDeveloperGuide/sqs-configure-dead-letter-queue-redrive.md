@@ -1,6 +1,4 @@
-# Learn how to configure a
-
-dead-letter queue redrive in Amazon SQS
+# Learn how to configure a dead-letter queue redrive in Amazon SQS
 
 Use dead-letter queue redrive to move unconsumed messages from a dead-letter queue to
 another destination for processing. By default, dead-letter queue redrive moves messages
@@ -30,9 +28,7 @@ The redrive task resets the retention period. All redriven messages are consider
 messages with a new `messageID` and `enqueueTime` are assigned to
 redriven messages.
 
-## Configuring a dead-letter
-
-queue redrive for an existing standard queue using the Amazon SQS API
+## Configuring a dead-letter queue redrive for an existing standard queue using the Amazon SQS API
 
 You can configure a dead-letter queue redrive using the
 `StartMessageMoveTask`, `ListMessageMoveTasks`, and
@@ -44,10 +40,7 @@ You can configure a dead-letter queue redrive using the
 | [`ListMessageMoveTasks`](../APIReference/API_ListMessageMoveTasks.md "../APIReference/API_ListMessageMoveTasks.md")    | Gets the most recent message movement tasks (up to 10) under a<br>specific source queue.                                   |
 | [`CancelMessageMoveTask`](../APIReference/API_CancelMessageMoveTask.md "../APIReference/API_CancelMessageMoveTask.md") | Cancels a specified message movement task. A message movement can<br>only be cancelled when the current status is RUNNING. |
 
-## Configuring a
-
-dead-letter queue redrive for an existing standard queue using the Amazon SQS
-console
+## Configuring a dead-letter queue redrive for an existing standard queue using the Amazon SQS console
 
 1. Open the Amazon SQS console at
    [https://console.aws.amazon.com/sqs/](https://console.aws.amazon.com/sqs/ "https://console.aws.amazon.com/sqs/").
@@ -91,9 +84,7 @@ DLQ redrive**. When canceling an in progress message redrive, any
 messages that have already been successfully moved to their move destination
 queue will remain in the destination queue.
 
-## Configuring queue
-
-permissions for dead-letter queue redrive
+## Configuring queue permissions for dead-letter queue redrive
 
 You can give user access to specific dead-letter queue actions by adding permissions
 to your policy. The minimum required permissions for a dead-letter queue redrive are as
@@ -105,9 +96,7 @@ follows:
 | To cancel an in-progress message redrive | • Add the `sqs:CancelMessageMoveTask`,<br>`sqs:ReceiveMessage`,<br>`sqs:DeleteMessage`, and<br>`sqs:GetQueueAttributes` of the dead-letter<br>queue. If the dead-letter queue is encrypted (also known as<br>an [SSE](sqs-server-side-encryption.md "sqs-server-side-encryption.md")<br>queue), `kms:Decrypt` is also required.                                                                                                                                                                                                                                                                      |
 | To show a message move status            | • Add the `sqs:ListMessageMoveTasks` and<br>`sqs:GetQueueAttributes` of the dead-letter<br>queue.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
-###### To configure permissions for an encrypted queue pair (a source queue with a
-
-dead-letter queue)
+###### To configure permissions for an encrypted queue pair (a source queue with a dead-letter queue)
 
 Use the following steps to configure minimum permissions for a dead-letter queue
 (DLQ) redrive:
@@ -220,9 +209,7 @@ JSON
 
 ```
 
-###### To configure permissions using a non-encrypted queue pair (a source queue with a
-
-dead-letter queue)
+###### To configure permissions using a non-encrypted queue pair (a source queue with a dead-letter queue)
 
 Follow these steps to configure the minimum permissions required for handling a
 standard, **unencrypted** dead-letter queue (DLQ).
@@ -300,9 +287,7 @@ JSON
 
 ```
 
-##
-
-Using dead-letter queue redrive with VPC endpoint access control
+## Using dead-letter queue redrive with VPC endpoint access control
 
 When you restrict queue access to specific VPCs using the `aws:sourceVpc` condition,
 you need to make an exception for AWS services to enable dead-letter queue (DLQ) redrive functionality.

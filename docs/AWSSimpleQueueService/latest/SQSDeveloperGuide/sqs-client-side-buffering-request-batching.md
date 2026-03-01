@@ -1,6 +1,4 @@
-# Enabling client-side
-
-buffering and request batching with Amazon SQS
+# Enabling client-side buffering and request batching with Amazon SQS
 
 The [AWS SDK for Java](https://aws.amazon.com/sdkforjava/ "https://aws.amazon.com/sdkforjava/") includes
 `AmazonSQSBufferedAsyncClient` which accesses Amazon SQS. This client allows
@@ -11,8 +9,7 @@ Client-side buffering allows up to 10 requests to be buffered and sent as a batc
 request, decreasing your cost of using Amazon SQS and reducing the number of sent requests.
 `AmazonSQSBufferedAsyncClient` buffers both synchronous and asynchronous
 calls. Batched requests and support for [long
-polling](sqs-short-and-long-polling.md "sqs-short-and-long-polling.md") can also help increase throughput. For more information, see [Increasing throughput
-using horizontal scaling and action batching with Amazon SQS](sqs-throughput-horizontal-scaling-and-batching.md "sqs-throughput-horizontal-scaling-and-batching.md").
+polling](sqs-short-and-long-polling.md "sqs-short-and-long-polling.md") can also help increase throughput. For more information, see [Increasing throughput using horizontal scaling and action batching with Amazon SQS](sqs-throughput-horizontal-scaling-and-batching.md "sqs-throughput-horizontal-scaling-and-batching.md").
 
 Because `AmazonSQSBufferedAsyncClient` implements the same interface as
 `AmazonSQSAsyncClient`, migrating from `AmazonSQSAsyncClient`
@@ -23,15 +20,11 @@ your existing code.
 
 The Amazon SQS Buffered Asynchronous Client doesn't currently support FIFO queues.
 
-## Using
-
-AmazonSQSBufferedAsyncClient
+## Using AmazonSQSBufferedAsyncClient
 
 Before you begin, complete the steps in [Setting up Amazon SQS](sqs-setting-up.md "sqs-setting-up.md").
 
-### AWS SDK for Java
-
-1.x
+### AWS SDK for Java 1.x
 
 For AWS SDK for Java 1.x, you can create a new
 `AmazonSQSBufferedAsyncClient` based on the following
@@ -67,9 +60,7 @@ final ReceiveMessageRequest receiveRq = new ReceiveMessageRequest()
 final ReceiveMessageResult rx = bufferedSqs.receiveMessage(receiveRq);
 ```
 
-### Configuring
-
-AmazonSQSBufferedAsyncClient
+### Configuring AmazonSQSBufferedAsyncClient
 
 `AmazonSQSBufferedAsyncClient` is preconfigured with settings that
 work for most use cases. You can further configure
@@ -104,9 +95,7 @@ final AmazonSQSAsync bufferedSqs = new AmazonSQSBufferedAsyncClient(sqsAsync, co
 | `maxInflightReceiveBatches`                | 10 batches            | The maximum number of active receive batches that can be<br>processed at the same time.<br>The higher the setting, the more messages can be received<br>(subject to quotas such as CPU or bandwidth), and the more<br>threads are consumed by<br>`AmazonSQSBufferedAsyncClient`.<br>Note`0` indicates that all message pre-fetching<br>is disabled and messages are consumed only on<br>demand.                                                                                                    |
 | `visibilityTimeoutSeconds`                 | -1                    | When this parameter is set to a positive, non-zero value,<br>the visibility timeout set here overrides the visibility<br>timeout set on the queue from which messages are<br>consumed.<br>Note`-1` indicates that the default setting is<br>selected for the queue.You can't set visibility timeout to<br>`0`.                                                                                                                                                                                     |
 
-### AWS SDK for Java
-
-2.x
+### AWS SDK for Java 2.x
 
 For AWS SDK for Java 2.x, you can create a new
 `SqsAsyncBatchManager` based on the following example:
@@ -157,9 +146,7 @@ int code = sqs.deleteQueue(deleteQueueRequest).join().sdkHttpResponse().statusCo
 System.out.println("Queue is deleted, with statusCode " + code);
 ```
 
-### Configuring
-
-SqsAsyncBatchManager
+### Configuring SqsAsyncBatchManager
 
 `SqsAsyncBatchManager` is preconfigured with settings that work for
 most use cases. You can further configure `SqsAsyncBatchManager`, for

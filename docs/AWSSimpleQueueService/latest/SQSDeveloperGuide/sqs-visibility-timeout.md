@@ -41,9 +41,7 @@ appropriate timeouts, you can ensure that messages are processed efficiently wit
 tying up resources unnecessarily. This leads to better overall system performance and
 cost-effectiveness.
 
-## Setting and adjusting the visibility
-
-timeout
+## Setting and adjusting the visibility timeout
 
 The visibility timeout starts as soon as a message is delivered to you. During this
 period, you're expected to process and delete the message. If you don't delete it before
@@ -86,9 +84,7 @@ To manage in-flight messages effectively:
    request to [AWS
    Support](../../../awssupport/latest/user/create-service-quota-increase.md "../../../awssupport/latest/user/create-service-quota-increase.md") if higher limits are required.
 
-## Understanding visibility
-
-timeout in standard and FIFO queues
+## Understanding visibility timeout in standard and FIFO queues
 
 In both standard and FIFO (First-In-First-Out) queues, the visibility timeout helps
 prevent multiple consumers from processing the same message simultaneously. However, due
@@ -121,9 +117,7 @@ reappearance of unprocessed messages, potentially slowing down retries. It's cru
 set an appropriate visibility timeout based on the expected processing time for timely
 message handling.
 
-## Changing and terminating
-
-visibility timeout
+## Changing and terminating visibility timeout
 
 You can change or terminate the visibility timeout using the
 `ChangeMessageVisibility` action:

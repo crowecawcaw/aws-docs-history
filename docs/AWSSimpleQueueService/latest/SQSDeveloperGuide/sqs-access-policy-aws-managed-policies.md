@@ -25,9 +25,7 @@ job function policies, see [AWS
 managed policies for job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md "../../../IAM/latest/UserGuide/access_policies_job-functions.md") in the
 _IAM User Guide_.
 
-## AWS managed policy:
-
-AmazonSQSFullAccess
+## AWS managed policy: AmazonSQSFullAccess
 
 You can attach the `AmazonSQSFullAccess` policy to your Amazon SQS
 identities. This policy grants permissions that allow full access to Amazon SQS.
@@ -35,9 +33,7 @@ identities. This policy grants permissions that allow full access to Amazon SQS.
 To view the permissions for this policy, see [AmazonSQSFullAccess](../../../aws-managed-policy/latest/reference/AmazonSQSFullAccess.md "../../../aws-managed-policy/latest/reference/AmazonSQSFullAccess.md") in the _AWS Managed
 Policy Reference_.
 
-## AWS managed
-
-policy: AmazonSQSReadOnlyAccess
+## AWS managed policy: AmazonSQSReadOnlyAccess
 
 You can attach the `AmazonSQSReadOnlyAccess` policy to your Amazon SQS
 identities. This policy grants permissions that allow read-only access to
@@ -46,9 +42,7 @@ Amazon SQS.
 To view the permissions for this policy, see [AmazonSQSReadOnlyAccess](../../../aws-managed-policy/latest/reference/AmazonSQSReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AmazonSQSReadOnlyAccess.md") in the _AWS
 Managed Policy Reference_.
 
-## AWS managed policy:
-
-SQSUnlockQueuePolicy
+## AWS managed policy: SQSUnlockQueuePolicy
 
 If you incorrectly configured your queue policy for a member account to deny all
 users access to your Amazon SQS queue, you can use the `SQSUnlockQueuePolicy`
@@ -59,9 +53,7 @@ principals from accessing an Amazon SQS queue, see [Perform a
 privileged task on an AWS Organizations member account](../../../IAM/latest/UserGuide/id_root-user-privileged-task.md "../../../IAM/latest/UserGuide/id_root-user-privileged-task.md") in the
 _IAM User Guide_.
 
-## Amazon SQS updates to AWS managed
-
-policies
+## Amazon SQS updates to AWS managed policies
 
 View details about updates to AWS managed policies for Amazon SQS since
 this service began tracking these changes. For automatic alerts about changes to

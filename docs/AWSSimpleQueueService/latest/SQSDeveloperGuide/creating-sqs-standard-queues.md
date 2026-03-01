@@ -1,14 +1,10 @@
-# Creating an Amazon SQS standard queue and sending
-
-a message
+# Creating an Amazon SQS standard queue and sending a message
 
 You can create a [standard queue](standard-queues.md "standard-queues.md") and send messages
 using the Amazon SQS console. This topic also emphasizes best practices, including avoiding
 sensitive information in queue names and utilizing managed server-side encryption.
 
-## Creating a standard queue using the Amazon SQS
-
-console
+## Creating a standard queue using the Amazon SQS console
 
 ###### Important
 
@@ -72,9 +68,7 @@ To define the access policy, do one of the following:
    of up to 10 source queues by the Amazon Resource Name (ARN).
 8. Amazon SQS provides managed server-side encryption by default. To choose an
    encryption key type, or to disable Amazon SQS managed server-side encryption, expand
-   **Encryption**. For more on encryption key types, see [Configuring server-side encryption for a
-   queue using SQS-managed encryption keys](sqs-configure-sqs-sse-queue.md "sqs-configure-sqs-sse-queue.md") and [Configuring server-side encryption for a queue
-   using the Amazon SQS console](sqs-configure-sse-existing-queue.md "sqs-configure-sse-existing-queue.md").
+   **Encryption**. For more on encryption key types, see [Configuring server-side encryption for a queue using SQS-managed encryption keys](sqs-configure-sqs-sse-queue.md "sqs-configure-sqs-sse-queue.md") and [Configuring server-side encryption for a queue using the Amazon SQS console](sqs-configure-sse-existing-queue.md "sqs-configure-sse-existing-queue.md").
 
 ###### Note
 

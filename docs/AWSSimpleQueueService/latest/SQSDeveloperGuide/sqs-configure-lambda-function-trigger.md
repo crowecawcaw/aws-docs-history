@@ -1,6 +1,4 @@
-# Configuring an Amazon SQS queue to
-
-trigger an AWS Lambda function
+# Configuring an Amazon SQS queue to trigger an AWS Lambda function
 
 You can use a Lambda function to process messages from an Amazon SQS queue. Lambda polls the
 queue and invokes your function synchronously, passing a batch of messages as an
@@ -56,8 +54,7 @@ To configure Lambda function triggers, you must meet the following requirements:
 - If you associate an encrypted queue with a Lambda function, add the
   `kms:Decrypt` permission to the Lambda execution role.
 
-For more information, see [Overview of managing access in
-Amazon SQS](sqs-overview-of-managing-access.md "sqs-overview-of-managing-access.md").
+For more information, see [Overview of managing access in Amazon SQS](sqs-overview-of-managing-access.md "sqs-overview-of-managing-access.md").
 
 ###### To configure a queue to trigger a Lambda function (console)
 

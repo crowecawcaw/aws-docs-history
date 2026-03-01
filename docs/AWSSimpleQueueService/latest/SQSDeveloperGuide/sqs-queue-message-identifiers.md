@@ -1,13 +1,9 @@
-# Amazon SQS queue and message
-
-identifiers
+# Amazon SQS queue and message identifiers
 
 This topic describes the identifiers of standard and FIFO queues. These identifiers
 can help you find and manipulate specific queues and messages.
 
-## Identifiers for Amazon SQS standard
-
-queues
+## Identifiers for Amazon SQS standard queues
 
 For more information about the following identifiers, see the _[Amazon Simple Queue Service API Reference](../APIReference.md "../APIReference.md")_.
 

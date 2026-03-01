@@ -45,7 +45,6 @@ For more on using FIFO queues with complex ordering, see [Solving
 Complex Ordering Challenges with Amazon SQS FIFO Queues](https://aws.amazon.com/blogs/compute/solving-complex-ordering-challenges-with-amazon-sqs-fifo-queues/ "https://aws.amazon.com/blogs/compute/solving-complex-ordering-challenges-with-amazon-sqs-fifo-queues/").
 
 For information about how to create and configure queues using the Amazon SQS console, see
-[Creating a standard queue using the Amazon SQS
-console](creating-sqs-standard-queues.md#step-create-standard-queue "creating-sqs-standard-queues.md#step-create-standard-queue"). For Java examples, see [Amazon SQS Java SDK examples](sqs-java-tutorials.md "sqs-java-tutorials.md").
+[Creating a standard queue using the Amazon SQS console](creating-sqs-standard-queues.md#step-create-standard-queue "creating-sqs-standard-queues.md#step-create-standard-queue"). For Java examples, see [Amazon SQS Java SDK examples](sqs-java-tutorials.md "sqs-java-tutorials.md").
 
 For best practices for working with FIFO queues, see [Amazon SQS best practices](sqs-best-practices.md "sqs-best-practices.md").

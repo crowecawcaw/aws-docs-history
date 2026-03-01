@@ -6,9 +6,7 @@ management definitions. Amazon SQS uses KMS keys to validate and secure the data
 that encrypt and decrypt the messages. The following sections provide information
 about working with KMS keys and data keys in the Amazon SQS service.
 
-## Configuring AWS KMS
-
-permissions
+## Configuring AWS KMS permissions
 
 Every KMS key must have a key policy. Note that you cannot modify the key
 policy of an AWS managed KMS key for Amazon SQS. The policy for this KMS key
@@ -38,9 +36,7 @@ Amazon SQS, AWS KMS requires explicitly naming the full ARN of KMS keys in
 specific regions in the `Resource` section of an IAM
 policy.
 
-### Configure KMS permissions
-
-for AWS services
+### Configure KMS permissions for AWS services
 
 Several AWS services act as event sources that can send events to Amazon SQS
 queues. To allow these event sources to work with encrypted queues, you must
@@ -103,9 +99,7 @@ following services.
    KMS key.
 4. Provide the ARN of the encrypted queue to the event source.
 
-### Configure AWS KMS permissions for
-
-producers
+### Configure AWS KMS permissions for producers
 
 When the [data
 key reuse period](#sqs-how-does-the-data-key-reuse-period-work "#sqs-how-does-the-data-key-reuse-period-work") expires, the producer's next call to
@@ -146,9 +140,7 @@ JSON
 
 ```
 
-### Configure AWS KMS permissions
-
-for consumers
+### Configure AWS KMS permissions for consumers
 
 When the data key reuse period expires, the consumer's next call to
 `ReceiveMessage` also triggers a call to
@@ -186,9 +178,7 @@ JSON
 
 ```
 
-### Configure AWS KMS
-
-permissions with confused deputy protection
+### Configure AWS KMS permissions with confused deputy protection
 
 When the principal in a key policy statement is an [AWS service principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md#principal-services "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md#principal-services"), you can use the [`aws:SourceArn`](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn") or [`aws:SourceAccount`](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceaccount "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceaccount") global condition keys to
 protect against the [confused deputy
@@ -243,9 +233,7 @@ When using SSE enabled Amazon SQS queues, the following services support
 - AWS Auto Scaling
 - Amazon Chime
 
-## Understanding the
-
-data key reuse period
+## Understanding the data key reuse period
 
 The [data key reuse period](sqs-server-side-encryption.md#sqs-sse-key-terms "sqs-server-side-encryption.md#sqs-sse-key-terms") defines
 the maximum duration for Amazon SQS to reuse the same data key. When the data key
@@ -300,8 +288,7 @@ Amazon SQS queue.
 ###### Important
 
 In general, producing principals incur double the cost of consuming
-principals. For more information, see [Understanding the
-data key reuse period](#sqs-how-does-the-data-key-reuse-period-work "#sqs-how-does-the-data-key-reuse-period-work").
+principals. For more information, see [Understanding the data key reuse period](#sqs-how-does-the-data-key-reuse-period-work "#sqs-how-does-the-data-key-reuse-period-work").
 
 If the producer and consumer have different users, the cost
 increases.
@@ -309,9 +296,7 @@ increases.
 The following are example calculations. For exact pricing information, see
 [AWS Key Management Service Pricing](https://aws.amazon.com/kms/pricing/ "https://aws.amazon.com/kms/pricing/").
 
-### Example 1: Calculating the
-
-number of AWS KMS API calls for 2 principals and 1 queue
+### Example 1: Calculating the number of AWS KMS API calls for 2 principals and 1 queue
 
 This example assumes the following:
 
@@ -325,10 +310,7 @@ This example assumes the following:
 (2,678,400 / 300) * (2 * 1 + 1) = 26,784
 ```
 
-### Example 2:
-
-Calculating the number of AWS KMS API calls for multiple producers and
-consumers and 2 queues
+### Example 2: Calculating the number of AWS KMS API calls for multiple producers and consumers and 2 queues
 
 This example assumes the following:
 

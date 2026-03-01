@@ -1,6 +1,4 @@
-# Internetwork traffic privacy in
-
-Amazon SQS
+# Internetwork traffic privacy in Amazon SQS
 
 An Amazon Virtual Private Cloud (Amazon VPC) endpoint for Amazon SQS is a logical entity within a VPC that allows
 connectivity only to Amazon SQS. The VPC routes requests to Amazon SQS and routes responses back
@@ -21,9 +19,7 @@ _[Amazon VPC User Guide](../../../vpc/latest/userguide.md "../../../vpc/latest/u
 To connect your VPC to Amazon SQS, you must first define an _interface VPC endpoint_, which lets you connect your VPC to other
 AWS services. The endpoint provides reliable, scalable connectivity to Amazon SQS
 without requiring an internet gateway, network address translation (NAT) instance,
-or VPN connection. For more information, see [Tutorial: Sending a message to an Amazon SQS
-queue from Amazon Virtual Private Cloud](sqs-sending-messages-from-vpc.md "sqs-sending-messages-from-vpc.md") and [Example 5: Deny access if it isn't from
-a VPC endpoint](sqs-creating-custom-policies-access-policy-examples.md#deny-not-from-vpc "sqs-creating-custom-policies-access-policy-examples.md#deny-not-from-vpc") in this guide
+or VPN connection. For more information, see [Tutorial: Sending a message to an Amazon SQS queue from Amazon Virtual Private Cloud](sqs-sending-messages-from-vpc.md "sqs-sending-messages-from-vpc.md") and [Example 5: Deny access if it isn't from a VPC endpoint](sqs-creating-custom-policies-access-policy-examples.md#deny-not-from-vpc "sqs-creating-custom-policies-access-policy-examples.md#deny-not-from-vpc") in this guide
 and [Interface VPC Endpoints
 (AWS PrivateLink)](../../../vpc/latest/userguide/vpce-interface.md "../../../vpc/latest/userguide/vpce-interface.md") in the _Amazon VPC User Guide_.
 
@@ -39,9 +35,7 @@ and [Interface VPC Endpoints
   `queue.amazonaws.com` or
   ``us-east-2`.queue.amazonaws.com`.
 
-## Creating an Amazon VPC endpoint policy for
-
-Amazon SQS
+## Creating an Amazon VPC endpoint policy for Amazon SQS
 
 You can create a policy for Amazon VPC endpoints for Amazon SQS in which you specify the
 following:
@@ -80,5 +74,4 @@ The following are denied:
 ###### Note
 
 The user can still use other Amazon SQS API actions from
-_outside_ the VPC. For more information, see [Example 5: Deny access if it isn't from
-a VPC endpoint](sqs-creating-custom-policies-access-policy-examples.md#deny-not-from-vpc "sqs-creating-custom-policies-access-policy-examples.md#deny-not-from-vpc").
+_outside_ the VPC. For more information, see [Example 5: Deny access if it isn't from a VPC endpoint](sqs-creating-custom-policies-access-policy-examples.md#deny-not-from-vpc "sqs-creating-custom-policies-access-policy-examples.md#deny-not-from-vpc").

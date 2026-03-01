@@ -9,9 +9,7 @@ To understand the details of these responses, see:
   actions](../APIReference/API_Operations.md "../APIReference/API_Operations.md") in the _Amazon Simple Queue Service API Reference_
 - The [Amazon SQS AWS JSON protocol FAQs](sqs-json-faqs.md "sqs-json-faqs.md")
 
-## Successful JSON
-
-response structure
+## Successful JSON response structure
 
 If the request is successful, the main response element is
 `x-amzn-RequestId`, which contains the Universal Unique Identifier
@@ -31,9 +29,7 @@ Content-Type: application/x-amz-json-1.0
 }
 ```
 
-## JSON error response
-
-structure
+## JSON error response structure
 
 If a request is unsuccessful, Amazon SQS returns the main response, including the HTTP
 header and the body.

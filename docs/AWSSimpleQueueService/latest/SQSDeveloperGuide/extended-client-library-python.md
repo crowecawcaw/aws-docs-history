@@ -1,6 +1,4 @@
-# Managing large Amazon SQS messages using Python
-
-and Amazon S3
+# Managing large Amazon SQS messages using Python and Amazon S3
 
 Use the Amazon SQS [Amazon SQS Extended
 Client Library for Python](https://github.com/awslabs/amazon-sqs-python-extended-client-lib/ "https://github.com/awslabs/amazon-sqs-python-extended-client-lib/") with Amazon S3 to manage large Amazon SQS messages, especially
@@ -53,9 +51,7 @@ the Amazon S3 message storage options:
   instead of the current reserved message attribute
   (`ExtendedPayloadSize`).
 
-## Managing large Amazon SQS
-
-messages with Extended Client Library for Python
+## Managing large Amazon SQS messages with Extended Client Library for Python
 
 The following example creates an Amazon S3 bucket with a random name. It then creates
 an Amazon SQS queue named `MyQueue` and sends a message that is stored in an S3

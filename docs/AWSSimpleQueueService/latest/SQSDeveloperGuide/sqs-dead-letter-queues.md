@@ -15,10 +15,8 @@ AWS account and Region. Once messages are in a dead-letter queue, you can:
 - Move messages out of the dead-letter queue using [dead-letter queue
   redrive](sqs-configure-dead-letter-queue.md "sqs-configure-dead-letter-queue.md").
   You must first create a new queue before configuring it as a dead-letter queue. For
-  information about configuring a dead-letter queue using the Amazon SQS console, see [Configure a dead-letter queue using the
-  Amazon SQS console](sqs-configure-dead-letter-queue.md "sqs-configure-dead-letter-queue.md"). For help with dead-letter queues,
-  such as how to configure an alarm for any messages moved to a dead-letter queue, see [Creating alarms for dead-letter
-  queues using Amazon CloudWatch](dead-letter-queues-alarms-cloudwatch.md "dead-letter-queues-alarms-cloudwatch.md").
+  information about configuring a dead-letter queue using the Amazon SQS console, see [Configure a dead-letter queue using the Amazon SQS console](sqs-configure-dead-letter-queue.md "sqs-configure-dead-letter-queue.md"). For help with dead-letter queues,
+  such as how to configure an alarm for any messages moved to a dead-letter queue, see [Creating alarms for dead-letter queues using Amazon CloudWatch](dead-letter-queues-alarms-cloudwatch.md "dead-letter-queues-alarms-cloudwatch.md").
 
 ###### Note
 
@@ -27,9 +25,7 @@ order of messages or operations. For example, don't use a dead-letter queue with
 instructions in an Edit Decision List (EDL) for a video editing suite, where changing
 the order of edits changes the context of subsequent edits.
 
-## Using policies for dead-letter
-
-queues
+## Using policies for dead-letter queues
 
 Use a **redrive policy** to specify the
 `maxReceiveCount`. The `maxReceiveCount` is the number of
@@ -52,9 +48,7 @@ to allow specific queues using the `byQueue` option, you can specify up to 10
 source queues using the source queue Amazon Resource Name (ARN). If you specify
 `denyAll`, the queue cannot be used as a dead-letter queue.
 
-## Understanding message
-
-retention periods for dead-letter queues
+## Understanding message retention periods for dead-letter queues
 
 For standard queues, the expiration of a message is always based on its original
 enqueue timestamp. When a message is moved to a dead-letter queue, the enqueue timestamp

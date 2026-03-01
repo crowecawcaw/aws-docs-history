@@ -1,6 +1,4 @@
-# Using the message deduplication
-
-ID in Amazon SQS
+# Using the message deduplication ID in Amazon SQS
 
 [`MessageDeduplicationId`](../APIReference/API_SendMessage.md "../APIReference/API_SendMessage.md") is a token used only in Amazon SQS FIFO
 queues to prevent duplicate message delivery. It ensures that within a 5-minute
@@ -17,11 +15,7 @@ Amazon SQS continues tracking the deduplication ID even after the message has be
 
 ###### Topics
 
-- [When to provide a message
-  deduplication ID in Amazon SQS](providing-message-deduplication-id.md "providing-message-deduplication-id.md")
-- [Enabling deduplication for a
-  single-producer/consumer system in Amazon SQS](single-producer-single-consumer.md "single-producer-single-consumer.md")
-- [Outage recovery scenarios
-  in Amazon SQS](designing-for-outage-recovery-scenarios.md "designing-for-outage-recovery-scenarios.md")
-- [Configuring visibility timeouts
-  in Amazon SQS](working-with-visibility-timeouts.md "working-with-visibility-timeouts.md")
+- [When to provide a message deduplication ID in Amazon SQS](providing-message-deduplication-id.md "providing-message-deduplication-id.md")
+- [Enabling deduplication for a single-producer/consumer system in Amazon SQS](single-producer-single-consumer.md "single-producer-single-consumer.md")
+- [Outage recovery scenarios in Amazon SQS](designing-for-outage-recovery-scenarios.md "designing-for-outage-recovery-scenarios.md")
+- [Configuring visibility timeouts in Amazon SQS](working-with-visibility-timeouts.md "working-with-visibility-timeouts.md")

@@ -13,8 +13,7 @@ ensures that no single computer, network, or AZ failure can render the messages
 inaccessible.
 
 You can create and configure queues using the Amazon SQS console. For detailed instructions,
-see [Creating a standard queue using the Amazon SQS
-console](creating-sqs-standard-queues.md#step-create-standard-queue "creating-sqs-standard-queues.md#step-create-standard-queue"). For Java-specific examples, see [Amazon SQS Java SDK examples](sqs-java-tutorials.md "sqs-java-tutorials.md").
+see [Creating a standard queue using the Amazon SQS console](creating-sqs-standard-queues.md#step-create-standard-queue "creating-sqs-standard-queues.md#step-create-standard-queue"). For Java-specific examples, see [Amazon SQS Java SDK examples](sqs-java-tutorials.md "sqs-java-tutorials.md").
 
 **Use cases for standard queues**
 

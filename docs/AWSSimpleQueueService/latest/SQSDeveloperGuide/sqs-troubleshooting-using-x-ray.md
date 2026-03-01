@@ -1,6 +1,4 @@
-# Troubleshooting Amazon Simple Queue Service queues using
-
-AWS X-Ray
+# Troubleshooting Amazon Simple Queue Service queues using AWS X-Ray
 
 AWS X-Ray collects data about requests that your application serves and lets you view and
 filter data to identify potential issues and opportunities for optimization. For any traced

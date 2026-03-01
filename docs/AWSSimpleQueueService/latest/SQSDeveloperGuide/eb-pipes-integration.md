@@ -1,6 +1,4 @@
-# Accessing Amazon EventBridge Pipes through the Amazon SQS
-
-console
+# Accessing Amazon EventBridge Pipes through the Amazon SQS console
 
 Amazon EventBridge Pipes connect sources to targets. Pipes are intended for point-to-point
 integrations between supported sources and targets, with support for advanced

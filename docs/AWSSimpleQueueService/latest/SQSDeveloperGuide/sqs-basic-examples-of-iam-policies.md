@@ -1,6 +1,4 @@
-# Identity-based policy examples
-
-for Amazon SQS
+# Identity-based policy examples for Amazon SQS
 
 By default, users and roles don't have permission to create or modify Amazon SQS
 resources. To grant users permission to perform actions on the
@@ -18,9 +16,7 @@ When you configure lifecycle hooks for Amazon EC2 Auto Scaling, you don't need t
 policy to send messages to an Amazon SQS queue. For more information, see [Amazon EC2 Auto Scaling Lifecycle Hooks](../../../autoscaling/ec2/userguide/lifecycle-hooks.md "../../../autoscaling/ec2/userguide/lifecycle-hooks.md") in
 the _Amazon EC2 User Guide_.
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Amazon SQS resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -53,9 +49,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the
-
-Amazon SQS console
+## Using the Amazon SQS console
 
 To access the Amazon Simple Queue Service console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the Amazon SQS resources
@@ -137,9 +131,7 @@ JSON
 
 ```
 
-## Allow developers to write
-
-messages to a shared queue
+## Allow developers to write messages to a shared queue
 
 In the following example, we create a group for developers and attach a policy
 that lets the group use the Amazon SQS `SendMessage` action, but only with
@@ -184,9 +176,7 @@ only the `ReceiveMessage` permission, first add the
 `ReceiveMessage` permission and then remove the
 `*` permission.
 
-## Allow managers to get the general size of
-
-queues
+## Allow managers to get the general size of queues
 
 In the following example, we create a group for managers and attach a policy
 that lets the group use the Amazon SQS `GetQueueAttributes` action with
@@ -206,9 +196,7 @@ JSON
 
 ```
 
-## Allow a partner to send
-
-messages to a specific queue
+## Allow a partner to send messages to a specific queue
 
 You can accomplish this task using an Amazon SQS policy or an IAM policy. If your
 partner has an AWS account, it might be easier to use an Amazon SQS policy.

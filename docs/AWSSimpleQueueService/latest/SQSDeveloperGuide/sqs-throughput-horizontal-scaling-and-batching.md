@@ -1,6 +1,4 @@
-# Increasing throughput
-
-using horizontal scaling and action batching with Amazon SQS
+# Increasing throughput using horizontal scaling and action batching with Amazon SQS
 
 Amazon SQS supports high-throughput messaging. For details on throughput limits, refer to
 [Amazon SQS message quotas](quotas-messages.md "quotas-messages.md").
@@ -74,9 +72,7 @@ A batch request might succeed even though individual messages in the batch
 failed. After a batch request, always check for individual message failures and
 retry the action if necessary.
 
-## Working Java example for
-
-single-operation and batch requests
+## Working Java example for single-operation and batch requests
 
 ### Prerequisites
 
@@ -530,9 +526,7 @@ public class SimpleProducerConsumer {
 }
 ```
 
-### Monitoring
-
-volume metrics from the example run
+### Monitoring volume metrics from the example run
 
 Amazon SQS automatically generates volume metrics for sent, received, and deleted
 messages. You can access those metrics and others through the

@@ -36,9 +36,7 @@ trigger an action to send a message to an Amazon SQS queue. CloudWatch alarms do
 simply because they are in a specific state; the state must change and remain in that
 state for a defined number of periods.
 
-For more information, see [Creating CloudWatch alarms for Amazon SQS
-metrics](set-cloudwatch-alarms-for-metrics.md "set-cloudwatch-alarms-for-metrics.md") and [Creating alarms for dead-letter
-queues using Amazon CloudWatch](dead-letter-queues-alarms-cloudwatch.md "dead-letter-queues-alarms-cloudwatch.md").
+For more information, see [Creating CloudWatch alarms for Amazon SQS metrics](set-cloudwatch-alarms-for-metrics.md "set-cloudwatch-alarms-for-metrics.md") and [Creating alarms for dead-letter queues using Amazon CloudWatch](dead-letter-queues-alarms-cloudwatch.md "dead-letter-queues-alarms-cloudwatch.md").
 
 **Amazon CloudWatch Logs**
 
@@ -47,8 +45,7 @@ or Lambda functions that process messages to send logs to CloudWatch Logs. You c
 analyze message processing, debug issues, and monitor the performance of your Amazon SQS
 workflows.
 
-For more information, see [Logging Amazon Simple Queue Service API calls using
-AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
+For more information, see [Logging Amazon Simple Queue Service API calls using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
 
 **Amazon CloudWatch Events**
 
@@ -56,8 +53,7 @@ Use Amazon CloudWatch Events to detect changes or specific events in your AWS en
 them to an Amazon SQS queue. This allows you to capture event data, trigger workflows, or store
 events for processing later.
 
-For more information, see [Automating notifications from AWS services
-to Amazon SQS using Amazon EventBridge](sqs-automating-using-eventbridge.md "sqs-automating-using-eventbridge.md") in this guide and [EventBridge is the
+For more information, see [Automating notifications from AWS services to Amazon SQS using Amazon EventBridge](sqs-automating-using-eventbridge.md "sqs-automating-using-eventbridge.md") in this guide and [EventBridge is the
 evolution of Amazon CloudWatch Events](../../../eventbridge/latest/userguide/eb-cwe-now-eb.md "../../../eventbridge/latest/userguide/eb-cwe-now-eb.md") in the _Amazon EventBridge User Guide_.
 
 **AWS CloudTrail Logs**
@@ -66,8 +62,7 @@ CloudTrail captures a detailed record of actions performed on Amazon SQS by user
 AWS services. These logs let you track API calls, such as [`SendMessage`](../APIReference/API_SendMessage.md "../APIReference/API_SendMessage.md"), [`ReceiveMessage`](../APIReference/API_ReceiveMessage.md "../APIReference/API_ReceiveMessage.md"), or [`DeleteQueue`](../APIReference/API_DeleteQueue.md "../APIReference/API_DeleteQueue.md"), and provide key details such as who made the
 request, when it occurred, and the originating IP address.
 
-For more information, see [Logging Amazon Simple Queue Service API calls using
-AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
+For more information, see [Logging Amazon Simple Queue Service API calls using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
 
 **AWS Trusted Advisor**
 

@@ -1,6 +1,4 @@
-# CloudTrail update and permission requirements
-
-for Amazon SQS dead-letter queue redrive
+# CloudTrail update and permission requirements for Amazon SQS dead-letter queue redrive
 
 On June 8, 2023, Amazon SQS introduced dead-letter queue (DLQ) redrive for AWS
 SDK and AWS Command Line Interface (CLI). This capability is an addition to the already supported DLQ redrive
@@ -18,9 +16,7 @@ The following are the new CloudTrail event names for DLQ redrive:
 | `CreateMoveTask`    | `StartMessageMoveTask`  |
 | `CancelMoveTask`    | `CancelMessageMoveTask` |
 
-## Updated
-
-permissions
+## Updated permissions
 
 Included with the SDK and CLI release, Amazon SQS has also updated queue permissions for
 DLQ redrive to adhere to security best practices. Use the following queue permission

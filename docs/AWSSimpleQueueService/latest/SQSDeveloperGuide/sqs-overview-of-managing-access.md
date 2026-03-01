@@ -1,6 +1,4 @@
-# Overview of managing access in
-
-Amazon SQS
+# Overview of managing access in Amazon SQS
 
 Every AWS resource is owned by an AWS account, and permissions to create or access
 a resource are governed by permissions policies. An account administrator can attach
@@ -17,9 +15,7 @@ When granting permissions, you specify what users get permissions, the resource 
 get permissions for, and the specific actions that you want to allow on the
 resource.
 
-## Amazon Simple Queue Service resource and
-
-operations
+## Amazon Simple Queue Service resource and operations
 
 In Amazon SQS, the only resource is the _queue_. In a policy, use an
 Amazon Resource Name (ARN) to identify the resource that the policy applies to. The
@@ -60,12 +56,9 @@ about ARNs, see [IAM
 ARNs](../../../IAM/latest/UserGuide/reference_identifiers.md#identifiers-arns "../../../IAM/latest/UserGuide/reference_identifiers.md#identifiers-arns") in the _IAM User Guide_.
 
 Amazon SQS provides a set of actions that work with the queue resource. For more
-information, see [Amazon SQS API permissions:
-Actions and resource reference](sqs-api-permissions-reference.md "sqs-api-permissions-reference.md").
+information, see [Amazon SQS API permissions: Actions and resource reference](sqs-api-permissions-reference.md "sqs-api-permissions-reference.md").
 
-## Understanding resource
-
-ownership
+## Understanding resource ownership
 
 The AWS account owns the resources that are created in the account, regardless
 of who created the resources. Specifically, the resource owner is the AWS account
@@ -83,9 +76,7 @@ examples illustrate how this works:
   create an Amazon SQS queue, anyone who can assume the role can create a queue.
   Your AWS account (to which the role belongs) owns the queue resource.
 
-## Managing access to
-
-resources
+## Managing access to resources
 
 A _permissions policy_ describes the permissions granted to
 accounts. The following section explains the available options for creating
@@ -105,9 +96,7 @@ _identity-based_ policies (IAM policies) and policies
 attached to a resource are referred to as _resource-based_
 policies.
 
-### Identity-based
-
-policies
+### Identity-based policies
 
 There are two ways to give your users permissions to your Amazon SQS queues: using
 the Amazon SQS policy system and using the IAM policy system. You can use either
@@ -214,7 +203,7 @@ about SQS policies. The following diagram and table describe the changes.
 
 ![IAM and Amazon Resource Names added to the Amazon SQS policy.](images/SQS_PolicyWithNewFeatures.png)
 
-![Number one in the diagram.](images/number-1-red.png)
+![Number one in the diagram.](/images/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/number-1-red.png)
 For information about giving permissions to users in
 different accounts, see [Tutorial:
 Delegate Access Across AWS Accounts Using IAM Roles](../../../IAM/latest/UserGuide/tutorial_cross-account-with-roles.md "../../../IAM/latest/UserGuide/tutorial_cross-account-with-roles.md") in the
@@ -222,14 +211,12 @@ _IAM User Guide_.
 
 ![Number two in the diagram.](images/number-2-red.png)
 The subset of actions included in `*` has
-expanded. For a list of allowed actions, see [Amazon SQS API permissions:
-Actions and resource reference](sqs-api-permissions-reference.md "sqs-api-permissions-reference.md").
+expanded. For a list of allowed actions, see [Amazon SQS API permissions: Actions and resource reference](sqs-api-permissions-reference.md "sqs-api-permissions-reference.md").
 
-![Number three in the diagram.](images/number-3-red.png)
+![Number three in the diagram.](/images/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/number-3-red.png)
 You can specify the resource using the Amazon Resource Name
 (ARN), the standard means of specifying resources in IAM policies. For
-information about the ARN format for Amazon SQS queues, see [Amazon Simple Queue Service resource and
-operations](#sqs-resource-and-operations "#sqs-resource-and-operations").
+information about the ARN format for Amazon SQS queues, see [Amazon Simple Queue Service resource and operations](#sqs-resource-and-operations "#sqs-resource-and-operations").
 
 For example, according to the Amazon SQS policy in the preceding diagram, anyone
 who possesses the security credentials for AWS Account 1 or AWS Account 2
@@ -265,9 +252,7 @@ JSON
 For more information, see [Using policies with Amazon SQS](sqs-using-identity-based-policies.md "sqs-using-identity-based-policies.md"), and [Identities (Users, Groups, and Roles)](../../../IAM/latest/UserGuide/id.md "../../../IAM/latest/UserGuide/id.md") in
 the _IAM User Guide_.
 
-## Specifying policy elements:
-
-Actions, effects, resources, and principals
+## Specifying policy elements: Actions, effects, resources, and principals
 
 For each [Amazon Simple Queue Service resource](#sqs-resource-and-operations "#sqs-resource-and-operations"),
 the service defines a set of [actions](../APIReference/API_Operations.md "../APIReference/API_Operations.md"). To grant permissions for these actions, Amazon SQS defines a set of
@@ -304,5 +289,4 @@ To learn more about Amazon SQS policy syntax and descriptions, see [AWS IAM Poli
 in the _IAM User Guide_.
 
 For a table of all Amazon Simple Queue Service actions and the resources that they apply to, see
-[Amazon SQS API permissions:
-Actions and resource reference](sqs-api-permissions-reference.md "sqs-api-permissions-reference.md").
+[Amazon SQS API permissions: Actions and resource reference](sqs-api-permissions-reference.md "sqs-api-permissions-reference.md").
