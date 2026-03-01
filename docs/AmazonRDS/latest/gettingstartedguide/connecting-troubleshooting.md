@@ -1,6 +1,4 @@
-# Troubleshooting connection issues to your Amazon RDS
-
-DB instance
+# Troubleshooting connection issues to your Amazon RDS DB instance
 
 When you attempt to connect to an Amazon RDS DB instance, you might encounter common
 issues that prevent successful connections. This topic addresses several frequent connection
@@ -9,8 +7,7 @@ problems, along with steps to identify and resolve them.
 ###### Topics
 
 - [Incorrect security group configuration](#connecting-troubleshooting-sg "#connecting-troubleshooting-sg")
-- [Incorrect database endpoint and
-  port](#connecting-troubleshooting-endpoint-port "#connecting-troubleshooting-endpoint-port")
+- [Incorrect database endpoint and port](#connecting-troubleshooting-endpoint-port "#connecting-troubleshooting-endpoint-port")
 - [Network ACLs blocking traffic](#connecting-troubleshooting-acls "#connecting-troubleshooting-acls")
 - [Authentication errors](#connecting-troubleshooting-auth "#connecting-troubleshooting-auth")
 - [VPC peering or network misconfigurations](#connecting-troubleshooting-network "#connecting-troubleshooting-network")
@@ -31,9 +28,7 @@ client, connections will fail.
 For more information, see [Controlling access
 with security groups](../UserGuide/Overview.md "../UserGuide/Overview.md").
 
-## Incorrect database endpoint and
-
-port
+## Incorrect database endpoint and port
 
 Using the wrong endpoint or port results in failed connection attempts.
 

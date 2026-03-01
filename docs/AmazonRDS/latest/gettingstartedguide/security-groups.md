@@ -1,6 +1,4 @@
-# Determining who can connect to your Amazon RDS DB
-
-instance
+# Determining who can connect to your Amazon RDS DB instance
 
 Security groups act as virtual firewalls for your Amazon RDS DB instance, controlling inbound
 and outbound traffic. It's important to properly configure security groups to ensure that only
@@ -8,14 +6,11 @@ trusted connections can access your database.
 
 ###### Topics
 
-- [Purpose of security groups and default
-  behavior](#security-groups-purpose "#security-groups-purpose")
+- [Purpose of security groups and default behavior](#security-groups-purpose "#security-groups-purpose")
 - [Configuring inbound and outbound rules](#security-groups-rules "#security-groups-rules")
 - [Next steps](#security-groups-next-steps "#security-groups-next-steps")
 
-## Purpose of security groups and default
-
-behavior
+## Purpose of security groups and default behavior
 
 Security groups in RDS determine which IP addresses and ports can connect to your DB
 instance. By default, each DB instance has the following behavior:

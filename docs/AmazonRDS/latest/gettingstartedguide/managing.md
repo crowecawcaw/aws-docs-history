@@ -7,6 +7,5 @@ continuity.
 
 ###### Topics
 
-- [Backing up and restoring your Amazon RDS DB
-  instance](managing-backup-restore.md "managing-backup-restore.md")
+- [Backing up and restoring your Amazon RDS DB instance](managing-backup-restore.md "managing-backup-restore.md")
 - [Monitoring your Amazon RDS DB instance](managing-monitoring-perf.md "managing-monitoring-perf.md")

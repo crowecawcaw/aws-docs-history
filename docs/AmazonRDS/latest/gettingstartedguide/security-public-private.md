@@ -93,5 +93,4 @@ instances](../UserGuide/USER_ModifyInstance.md "../UserGuide/USER_ModifyInstance
 Now that you decided on public or private access for your DB instance, the next step is
 to define who can connect to your DB instance.
 
-**Next step:** [Determining who can connect to your Amazon RDS DB
-instance](security-groups.md "security-groups.md")
+**Next step:** [Determining who can connect to your Amazon RDS DB instance](security-groups.md "security-groups.md")

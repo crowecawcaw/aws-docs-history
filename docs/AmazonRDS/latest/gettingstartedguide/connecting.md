@@ -14,9 +14,6 @@ Amazon RDS DB instance and start to manage your data.
 ###### Topics
 
 - [Using the Amazon RDS console to retrieve connection information](connecting-console.md "connecting-console.md")
-- [Using the AWS CLI to retrieve and validate connection
-  information for Amazon RDS](connecting-cli.md "connecting-cli.md")
-- [Connecting to an Amazon RDS DB instance using a database
-  client](connecting-client.md "connecting-client.md")
-- [Troubleshooting connection issues to your Amazon RDS
-  DB instance](connecting-troubleshooting.md "connecting-troubleshooting.md")
+- [Using the AWS CLI to retrieve and validate connection information for Amazon RDS](connecting-cli.md "connecting-cli.md")
+- [Connecting to an Amazon RDS DB instance using a database client](connecting-client.md "connecting-client.md")
+- [Troubleshooting connection issues to your Amazon RDS DB instance](connecting-troubleshooting.md "connecting-troubleshooting.md")

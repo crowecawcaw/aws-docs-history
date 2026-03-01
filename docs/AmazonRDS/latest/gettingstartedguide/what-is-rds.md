@@ -23,8 +23,7 @@ Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
 - [Purpose and benefits of Amazon RDS](#purpose-benefits "#purpose-benefits")
 - [Key concepts and architecture of Amazon RDS](concepts.md "concepts.md")
 - [Mapping Amazon RDS personas to this guide](personas.md "personas.md")
-- [Common challenges and how this guide addresses
-  them](#challenges "#challenges")
+- [Common challenges and how this guide addresses them](#challenges "#challenges")
 - [Setting up Amazon RDS](setting-up.md "setting-up.md")
 
 ## Purpose and benefits of Amazon RDS
@@ -47,9 +46,7 @@ Key benefits for new users include:
 As you explore this guide, you'll learn how to create, secure, and connect to your first DB
 instance, which provides the foundation for effective database management in the cloud.
 
-## Common challenges and how this guide addresses
-
-them
+## Common challenges and how this guide addresses them
 
 When you're getting started with Amazon RDS, you might encounter challenges in three key
 areas.

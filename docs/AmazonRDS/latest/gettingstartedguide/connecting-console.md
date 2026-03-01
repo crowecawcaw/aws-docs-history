@@ -63,5 +63,4 @@ information in the **Connectivity & security** section and in the
 Once you have the required connection details, including the instance endpoint and port,
 you can use them to connect to the DB instance.
 
-**Next step:** [Connecting to an Amazon RDS DB instance using a database
-client](connecting-client.md "connecting-client.md")
+**Next step:** [Connecting to an Amazon RDS DB instance using a database client](connecting-client.md "connecting-client.md")

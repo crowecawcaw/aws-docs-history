@@ -15,6 +15,5 @@ By the end of this chapter, you will understand the following concepts:
 ###### Topics
 
 - [Setting up public or private access in Amazon RDS](security-public-private.md "security-public-private.md")
-- [Determining who can connect to your Amazon RDS DB
-  instance](security-groups.md "security-groups.md")
+- [Determining who can connect to your Amazon RDS DB instance](security-groups.md "security-groups.md")
 - [Database authentication options for Amazon RDS](database-auth.md "database-auth.md")

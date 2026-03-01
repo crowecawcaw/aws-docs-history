@@ -1,6 +1,4 @@
-# Using the AWS CLI to retrieve and validate connection
-
-information for Amazon RDS
+# Using the AWS CLI to retrieve and validate connection information for Amazon RDS
 
 While the AWS Command Line Interface (AWS CLI) doesn't directly connect to a database for querying or
 interactive use, it provides tools to manage and test the connectivity of your Amazon RDS DB
@@ -8,9 +6,7 @@ instance. You can retrieve connection details, validate network configurations, 
 authentication tokens if you're using IAM authentication. This section explains how to use the
 AWS CLI to prepare to connect to your database using a client tool.
 
-## Testing connectivity using the
-
-AWS CLI
+## Testing connectivity using the AWS CLI
 
 Test connectivity with the AWS CLI to make sure you can reach your DB instance from your
 local environment. The following steps guide you through retrieving and verifying connection
@@ -35,9 +31,7 @@ to configure your database client. 2. Verify the output. Make sure that the endp
 AWS Management Console. If there are any discrepancies, check the DB instance
 configuration.
 
-## Resolving network and authentication issues using
-
-the AWS CLI
+## Resolving network and authentication issues using the AWS CLI
 
 Misconfigured network settings or incorrect authentication credentials are common causes
 of connectivity issues. The AWS CLI provides commands to check and resolve these
@@ -118,5 +112,4 @@ RDS](../UserGuide/CHAP_Troubleshooting.md "../UserGuide/CHAP_Troubleshooting.md"
 Once you have the required connection details, including the instance endpoint and port,
 you can use them to connect to the DB instance.
 
-**Next step:** [Connecting to an Amazon RDS DB instance using a database
-client](connecting-client.md "connecting-client.md")
+**Next step:** [Connecting to an Amazon RDS DB instance using a database client](connecting-client.md "connecting-client.md")
