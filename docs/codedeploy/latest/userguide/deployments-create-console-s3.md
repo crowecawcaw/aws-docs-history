@@ -1,9 +1,6 @@
-# Specify information about a revision
+# Specify information about a revision stored in an Amazon S3 bucket
 
-stored in an Amazon S3 bucket
-
-If you are following the steps in [Create an
-EC2/On-Premises Compute Platform deployment (console)](deployments-create-console.md "deployments-create-console.md"), follow these steps to add details
+If you are following the steps in [Create an EC2/On-Premises Compute Platform deployment (console)](deployments-create-console.md "deployments-create-console.md"), follow these steps to add details
 about an application revision stored in an Amazon S3 bucket.
 
 1. Copy your revision's Amazon S3 link into **Revision

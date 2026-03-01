@@ -1,10 +1,7 @@
-# Step 1: Set up a GitHub
-
-account
+# Step 1: Set up a GitHub account
 
 You will need a GitHub account to create a GitHub repository where the revision will be
-stored. If you already have a GitHub account, skip ahead to [Step 2: Create a GitHub
-repository](tutorials-github-create-github-repository.md "tutorials-github-create-github-repository.md").
+stored. If you already have a GitHub account, skip ahead to [Step 2: Create a GitHub repository](tutorials-github-create-github-repository.md "tutorials-github-create-github-repository.md").
 
 1. Go to [https://github.com/join](https://github.com "https://github.com").
 2. Type a user name, your email address, and a password.

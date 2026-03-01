@@ -10,17 +10,10 @@ deployment.
 ###### Topics
 
 - [Deployment prerequisites](deployments-create-prerequisites.md "deployments-create-prerequisites.md")
-- [Create an
-  Amazon ECS Compute Platform deployment (console)](deployments-create-console-ecs.md "deployments-create-console-ecs.md")
-- [Create an
-  AWS Lambda Compute Platform deployment (console)](deployments-create-console-lambda.md "deployments-create-console-lambda.md")
-- [Create an
-  EC2/On-Premises Compute Platform deployment (console)](deployments-create-console.md "deployments-create-console.md")
-- [Create an Amazon ECS Compute Platform
-  deployment (CLI)](deployments-create-ecs-cli.md "deployments-create-ecs-cli.md")
-- [Create an
-  AWS Lambda Compute Platform deployment (CLI)](deployments-create-lambda-cli.md "deployments-create-lambda-cli.md")
-- [Create an EC2/On-Premises Compute Platform
-  deployment (CLI)](deployments-create-cli.md "deployments-create-cli.md")
-- [Create an Amazon ECS blue/green deployment
-  through CloudFormation](deployments-create-ecs-cfn.md "deployments-create-ecs-cfn.md")
+- [Create an Amazon ECS Compute Platform deployment (console)](deployments-create-console-ecs.md "deployments-create-console-ecs.md")
+- [Create an AWS Lambda Compute Platform deployment (console)](deployments-create-console-lambda.md "deployments-create-console-lambda.md")
+- [Create an EC2/On-Premises Compute Platform deployment (console)](deployments-create-console.md "deployments-create-console.md")
+- [Create an Amazon ECS Compute Platform deployment (CLI)](deployments-create-ecs-cli.md "deployments-create-ecs-cli.md")
+- [Create an AWS Lambda Compute Platform deployment (CLI)](deployments-create-lambda-cli.md "deployments-create-lambda-cli.md")
+- [Create an EC2/On-Premises Compute Platform deployment (CLI)](deployments-create-cli.md "deployments-create-cli.md")
+- [Create an Amazon ECS blue/green deployment through CloudFormation](deployments-create-ecs-cfn.md "deployments-create-ecs-cfn.md")

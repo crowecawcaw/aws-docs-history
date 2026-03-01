@@ -1,6 +1,4 @@
-# Monitoring deployments with Amazon SNS event
-
-notifications
+# Monitoring deployments with Amazon SNS event notifications
 
 You can add triggers to a CodeDeploy deployment group to receive notifications about events
 related to deployments or instances in that deployment group. These notifications are sent
@@ -10,8 +8,7 @@ action.
 You can receive notifications for CodeDeploy events in SMS messages or email messages. You can
 also use the JSON data that is created when a specified event occurs in other ways, such as
 sending messages to Amazon SQS queues or invoking a function in AWS Lambda. For a look at the
-structure of the JSON data provided for deployment and instance triggers, see [JSON data formats for
-CodeDeploy triggers](monitoring-sns-event-notifications-json-format.md "monitoring-sns-event-notifications-json-format.md").
+structure of the JSON data provided for deployment and instance triggers, see [JSON data formats for CodeDeploy triggers](monitoring-sns-event-notifications-json-format.md "monitoring-sns-event-notifications-json-format.md").
 
 You might choose to use triggers to receive notifications if:
 

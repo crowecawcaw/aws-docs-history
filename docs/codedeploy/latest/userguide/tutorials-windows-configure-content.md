@@ -1,6 +1,4 @@
-# Step 2: Configure your source content to
-
-deploy to the Windows Server Amazon EC2 instance
+# Step 2: Configure your source content to deploy to the Windows Server Amazon EC2 instance
 
 Now it's time to configure your application's source content so you have something you can
 deploy to the Amazon EC2 instance. For this tutorial, you'll deploy a single web page to the Amazon EC2
@@ -9,16 +7,11 @@ This web page will display a simple "Hello, World!" message.
 
 ###### Topics
 
-- [Create the web
-  page](#tutorials-windows-configure-content-download-code "#tutorials-windows-configure-content-download-code")
-- [Create a script to run
-  your application](#tutorials-windows-configure-content-create-scripts "#tutorials-windows-configure-content-create-scripts")
-- [Add an application
-  specification file](#tutorials-windows-configure-content-add-appspec-file "#tutorials-windows-configure-content-add-appspec-file")
+- [Create the web page](#tutorials-windows-configure-content-download-code "#tutorials-windows-configure-content-download-code")
+- [Create a script to run your application](#tutorials-windows-configure-content-create-scripts "#tutorials-windows-configure-content-create-scripts")
+- [Add an application specification file](#tutorials-windows-configure-content-add-appspec-file "#tutorials-windows-configure-content-add-appspec-file")
 
-## Create the web
-
-page
+## Create the web page
 
 1. Create a subdirectory (subfolder) named `HelloWorldApp` in your
    `c:\temp` folder, and then switch to that folder.
@@ -65,9 +58,7 @@ notepad index.html
 </html>
 ```
 
-## Create a script to run
-
-your application
+## Create a script to run your application
 
 Next, you will create a script that CodeDeploy will use to set up the web server on the target
 Amazon EC2 instance.
@@ -88,9 +79,7 @@ c:\Windows\Sysnative\WindowsPowerShell\v1.0\powershell.exe -Command Import-Modul
 c:\Windows\Sysnative\WindowsPowerShell\v1.0\powershell.exe -Command Install-WindowsFeature Web-Server
 ```
 
-## Add an application
-
-specification file
+## Add an application specification file
 
 Next, you will add an application specification file (AppSpec file) in addition to the web page
 and batch script file. The AppSpec file is a [YAML](http://www.yaml.org "http://www.yaml.org")-formatted file used by CodeDeploy to:

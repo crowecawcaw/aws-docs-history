@@ -1,6 +1,4 @@
-# Step 1: Create
-
-and configure the Auto Scaling group
+# Step 1: Create and configure the Auto Scaling group
 
 In this step, you'll create an Auto Scaling group that contains a single Amazon Linux, RHEL, or
 Windows Server Amazon EC2 instance. In a later step, you will instruct Amazon EC2 Auto Scaling to add one more
@@ -8,14 +6,10 @@ Amazon EC2 instance, and CodeDeploy will deploy your revision to it.
 
 ###### Topics
 
-- [To
-  create and configure the Auto Scaling group (CLI)](#tutorials-auto-scaling-group-create-auto-scaling-group-cli "#tutorials-auto-scaling-group-create-auto-scaling-group-cli")
-- [To
-  create and configure the Auto Scaling group (console)](#tutorials-auto-scaling-group-create-auto-scaling-group-console "#tutorials-auto-scaling-group-create-auto-scaling-group-console")
+- [To create and configure the Auto Scaling group (CLI)](#tutorials-auto-scaling-group-create-auto-scaling-group-cli "#tutorials-auto-scaling-group-create-auto-scaling-group-cli")
+- [To create and configure the Auto Scaling group (console)](#tutorials-auto-scaling-group-create-auto-scaling-group-console "#tutorials-auto-scaling-group-create-auto-scaling-group-console")
 
-## To
-
-create and configure the Auto Scaling group (CLI)
+## To create and configure the Auto Scaling group (CLI)
 
 1. Call the **create-launch-template** command to create an
    Amazon EC2 launch template.
@@ -45,8 +39,7 @@ To get the ID of an AMI that works with this tutorial:
     If you have a custom version of an AMI that is compatible with
      CodeDeploy, choose it here instead of browsing through the
      **Quick Start** tab. For information about
-     using a custom AMI with CodeDeploy and Amazon EC2 Auto Scaling, see [Using a custom AMI with CodeDeploy
-     and Amazon EC2 Auto Scaling](integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-custom-ami "integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-custom-ami").For the Amazon EC2 instance key pair, use the name of your Amazon EC2 instance key
+     using a custom AMI with CodeDeploy and Amazon EC2 Auto Scaling, see [Using a custom AMI with CodeDeploy and Amazon EC2 Auto Scaling](integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-custom-ami "integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-custom-ami").For the Amazon EC2 instance key pair, use the name of your Amazon EC2 instance key
 
 pair.
 
@@ -177,9 +170,7 @@ with the CodeDeploy agent](codedeploy-agent.md "codedeploy-agent.md"). For more 
 [What is
 AWS Systems Manager](../../../systems-manager/latest/userguide/what-is-systems-manager.md "../../../systems-manager/latest/userguide/what-is-systems-manager.md").
 
-## To
-
-create and configure the Auto Scaling group (console)
+## To create and configure the Auto Scaling group (console)
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
@@ -209,8 +200,7 @@ create and configure the Auto Scaling group (console)
    If you have a custom version of an AMI that is compatible with
    CodeDeploy, choose it here instead of browsing through the
    **Quick Start** tab. For information about
-   using a custom AMI with CodeDeploy and Amazon EC2 Auto Scaling, see [Using a custom AMI with CodeDeploy
-   and Amazon EC2 Auto Scaling](integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-custom-ami "integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-custom-ami").
+   using a custom AMI with CodeDeploy and Amazon EC2 Auto Scaling, see [Using a custom AMI with CodeDeploy and Amazon EC2 Auto Scaling](integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-custom-ami "integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-custom-ami").
 
 7. In **Instance type**, select the dropdown and choose
    **t1.micro**. You can use the search bar to find it

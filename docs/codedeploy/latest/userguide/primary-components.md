@@ -100,8 +100,7 @@ application revision available on instances in a deployment group. There are two
   version of the application is started and validated. You can use a load balancer
   so that each instance is deregistered during its deployment and then restored to service after
   the deployment is complete. Only deployments that use the EC2/On-Premises compute platform can use in-place deployments.
-  For more information about in-place deployments, see [Overview of an in-place
-  deployment](welcome.md#welcome-deployment-overview-in-place "welcome.md#welcome-deployment-overview-in-place").
+  For more information about in-place deployments, see [Overview of an in-place deployment](welcome.md#welcome-deployment-overview-in-place "welcome.md#welcome-deployment-overview-in-place").
 - **Blue/green deployment**: The behavior of your deployment depends on which
   compute platform you use:
 
@@ -125,8 +124,7 @@ application revision available on instances in a deployment group. There are two
       + **Blue/green on an AWS Lambda or Amazon ECS compute platform**: Traffic is shifted in increments according to a **canary**, **linear**, or **all-at-once** deployment configuration.
       + **Blue/green deployments through CloudFormation**: Traffic is shifted from your current resources to your updated resources as part of an CloudFormation stack update. Currently, only ECS blue/green deployments are supported.
 
-  For more information about blue/green deployments, see [Overview of a blue/green
-  deployment](welcome.md#welcome-deployment-overview-blue-green "welcome.md#welcome-deployment-overview-blue-green").
+  For more information about blue/green deployments, see [Overview of a blue/green deployment](welcome.md#welcome-deployment-overview-blue-green "welcome.md#welcome-deployment-overview-blue-green").
 
 ###### Note
 
@@ -138,8 +136,7 @@ Details for these deployments are described in subsequent sections.
 An _IAM instance profile_ is an IAM role that you attach to
 your Amazon EC2 instances. This profile includes the permissions required to access the Amazon S3
 buckets or GitHub repositories where the applications are
-stored. For more information, see [Step 4: Create an IAM instance
-profile for your Amazon EC2 instances](getting-started-create-iam-instance-profile.md "getting-started-create-iam-instance-profile.md").
+stored. For more information, see [Step 4: Create an IAM instance profile for your Amazon EC2 instances](getting-started-create-iam-instance-profile.md "getting-started-create-iam-instance-profile.md").
 
 ## Revision
 
@@ -168,8 +165,7 @@ those resources. For CodeDeploy, a service role is used for the following:
 - To retrieve information about CloudWatch alarms to set up alarm monitoring for
   deployments.
 
-For more information, see [Step 2: Create a service role for
-CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md").
+For more information, see [Step 2: Create a service role for CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md").
 
 ## Target revision
 

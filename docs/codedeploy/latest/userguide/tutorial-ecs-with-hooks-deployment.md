@@ -1,10 +1,7 @@
-# Step 5: Use the CodeDeploy console to deploy
-
-your Amazon ECS service
+# Step 5: Use the CodeDeploy console to deploy your Amazon ECS service
 
 In this section, you update your deployment group by specifying the port for your test
-listener. This is the listener you created in [Step 1: Create a test
-listener](tutorial-ecs-with-hooks-create-second-listener.md "tutorial-ecs-with-hooks-create-second-listener.md") . During deployment, CodeDeploy
+listener. This is the listener you created in [Step 1: Create a test listener](tutorial-ecs-with-hooks-create-second-listener.md "tutorial-ecs-with-hooks-create-second-listener.md"). During deployment, CodeDeploy
 runs your validation test during the `AfterAllowTestTraffic` deployment lifecycle
 hook using test traffic served to your replacement task set using the test listener. Your
 validation test returns the result `Succeeded`, so the deployment proceeds with the

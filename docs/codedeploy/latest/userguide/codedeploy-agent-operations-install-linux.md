@@ -1,6 +1,4 @@
-# Install the CodeDeploy agent for
-
-Amazon Linux or RHEL
+# Install the CodeDeploy agent for Amazon Linux or RHEL
 
 Sign in to the instance, and run the following commands, one at a time. Running the
 command `sudo yum update` first is considered best practice when using

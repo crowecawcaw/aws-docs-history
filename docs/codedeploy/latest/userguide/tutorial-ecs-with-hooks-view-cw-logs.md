@@ -1,6 +1,4 @@
-# Step 6: View your Lambda hook function
-
-output in CloudWatch Logs
+# Step 6: View your Lambda hook function output in CloudWatch Logs
 
 If your CodeDeploy deployment is successful, the validation tests in your Lambda hook fuctions
 are successful, too. You can confirm this by looking at the log for the hook function in

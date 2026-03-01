@@ -1,6 +1,4 @@
-# Redeploy and roll back a deployment with
-
-CodeDeploy
+# Redeploy and roll back a deployment with CodeDeploy
 
 CodeDeploy rolls back deployments by redeploying a previously deployed revision of an application
 as a new deployment. These rolled-back deployments are technically new deployments, with new
@@ -10,17 +8,12 @@ Deployments can be rolled back automatically or manually.
 
 ###### Topics
 
-- [Automatic
-  rollbacks](#deployments-rollback-and-redeploy-automatic-rollbacks "#deployments-rollback-and-redeploy-automatic-rollbacks")
+- [Automatic rollbacks](#deployments-rollback-and-redeploy-automatic-rollbacks "#deployments-rollback-and-redeploy-automatic-rollbacks")
 - [Manual rollbacks](#deployments-rollback-and-redeploy-manual-rollbacks "#deployments-rollback-and-redeploy-manual-rollbacks")
-- [Rollback and redeployment
-  workflow](#deployments-rollback-and-redeploy-workflow "#deployments-rollback-and-redeploy-workflow")
-- [Rollback behavior with
-  existing content](#deployments-rollback-and-redeploy-content-options "#deployments-rollback-and-redeploy-content-options")
+- [Rollback and redeployment workflow](#deployments-rollback-and-redeploy-workflow "#deployments-rollback-and-redeploy-workflow")
+- [Rollback behavior with existing content](#deployments-rollback-and-redeploy-content-options "#deployments-rollback-and-redeploy-content-options")
 
-## Automatic
-
-rollbacks
+## Automatic rollbacks
 
 You can configure a deployment group or deployment to automatically roll back when a
 deployment fails or when a monitoring threshold you specify is met. In this case, the last
@@ -35,8 +28,7 @@ configuration that were specified for the deployment group.
 You can use Amazon Simple Notification Service to receive a notification whenever a deployment is rolled back
 automatically. For information, see [Monitoring Deployments with Amazon SNS Event Notifications](monitoring-sns-event-notifications.md "monitoring-sns-event-notifications.md").
 
-For more information about configuring automatic rollbacks, see [Configure advanced options
-for a deployment group](deployment-groups-configure-advanced-options.md "deployment-groups-configure-advanced-options.md").
+For more information about configuring automatic rollbacks, see [Configure advanced options for a deployment group](deployment-groups-configure-advanced-options.md "deployment-groups-configure-advanced-options.md").
 
 ## Manual rollbacks
 
@@ -51,9 +43,7 @@ application to a known working state. For more information, see [Create a deploy
 If you remove an instance from a deployment group, CodeDeploy does not uninstall anything
 that might have already been installed on that instance.
 
-## Rollback and redeployment
-
-workflow
+## Rollback and redeployment workflow
 
 When automatic rollback is initiated, or when you manually initiate a redeployment or
 manual rollback, CodeDeploy first tries to remove from each participating instance all files that
@@ -113,9 +103,7 @@ subsequent deployments. You can add logic to `c.bat` and
 `d.bat` to always check for and delete old versions of
 `e.txt` and `f.txt` before creating new ones.
 
-## Rollback behavior with
-
-existing content
+## Rollback behavior with existing content
 
 As part of the deployment process, the CodeDeploy agent removes from each instance all the
 files installed by the most recent deployment. If files that weren’t part of a previous
@@ -130,10 +118,8 @@ during the next deployment:
   kept and the version in the application revision is not copied to the instance.
 
 You can choose this behavior when you create a deployment. If creating a deployment in the
-console, see [Create an
-EC2/On-Premises Compute Platform deployment (console)](deployments-create-console.md "deployments-create-console.md"). If creating a deployment with the AWS CLI, see
-[Create an EC2/On-Premises Compute Platform
-deployment (CLI)](deployments-create-cli.md "deployments-create-cli.md").
+console, see [Create an EC2/On-Premises Compute Platform deployment (console)](deployments-create-console.md "deployments-create-console.md"). If creating a deployment with the AWS CLI, see
+[Create an EC2/On-Premises Compute Platform deployment (CLI)](deployments-create-cli.md "deployments-create-cli.md").
 
 You might choose to retain files that you want to be part of the next deployment without
 having to add them to the application revision package. For example, you might upload files

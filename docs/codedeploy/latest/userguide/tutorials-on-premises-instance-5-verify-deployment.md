@@ -1,8 +1,6 @@
-# Step 5: Verify your
+# Step 5: Verify your deployment
 
-deployment
-
-To verify the deployment was successful, follow the instructions in [View CodeDeploy deployment details](deployments-view-details.md "deployments-view-details.md") , and
+To verify the deployment was successful, follow the instructions in [View CodeDeploy deployment details](deployments-view-details.md "deployments-view-details.md"), and
 then return to this page.
 
 If the deployment was successful, you'll find four text files in the

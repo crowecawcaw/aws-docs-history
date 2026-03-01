@@ -1,6 +1,4 @@
-# Create an Amazon ECS Compute Platform
-
-deployment (CLI)
+# Create an Amazon ECS Compute Platform deployment (CLI)
 
 After you have created the application and revision (in Amazon ECS
 deployments, this is the AppSpec file):
@@ -52,9 +50,7 @@ The **create-deployment** command can load a revision from a file.
 For more information, see [Loading parameters
 from a file](../../../cli/latest/userguide/cli-using-param.md#cli-using-param-file "../../../cli/latest/userguide/cli-using-param.md#cli-using-param-file").
 
-For AWS Lambda deployment revision templates, see [Add an AppSpec file for an AWS Lambda
-deployment](application-revisions-appspec-file.md#add-appspec-file-lambda "application-revisions-appspec-file.md#add-appspec-file-lambda"). For an
-example revision, see [AppSpec File example for an
-AWS Lambda deployment](reference-appspec-file-example.md#appspec-file-example-lambda "reference-appspec-file-example.md#appspec-file-example-lambda") .
+For AWS Lambda deployment revision templates, see [Add an AppSpec file for an AWS Lambda deployment](application-revisions-appspec-file.md#add-appspec-file-lambda "application-revisions-appspec-file.md#add-appspec-file-lambda"). For an
+example revision, see [AppSpec File example for an AWS Lambda deployment](reference-appspec-file-example.md#appspec-file-example-lambda "reference-appspec-file-example.md#appspec-file-example-lambda").
 
-To track the status of your deployment, see [View CodeDeploy deployment details](deployments-view-details.md "deployments-view-details.md") .
+To track the status of your deployment, see [View CodeDeploy deployment details](deployments-view-details.md "deployments-view-details.md").

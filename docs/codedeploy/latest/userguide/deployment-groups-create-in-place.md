@@ -1,6 +1,4 @@
-# Create a deployment group for an
-
-in-place deployment (console)
+# Create a deployment group for an in-place deployment (console)
 
 To use the CodeDeploy console to create a deployment group for an in-place
 deployment:
@@ -18,10 +16,8 @@ Do not follow these steps if:
   Follow the instructions in [Create a Deployment Configuration](deployment-configurations-create.md "deployment-configurations-create.md"), and then follow the
   steps in this topic.
 - You do not have a service role that trusts CodeDeploy with, at minimum, the
-  trust and permissions described in [Step 2: Create a service role for
-  CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md"). To create and
-  configure a service role, follow the instructions in [Step 2: Create a service role for
-  CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md"), and then follow
+  trust and permissions described in [Step 2: Create a service role for CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md"). To create and
+  configure a service role, follow the instructions in [Step 2: Create a service role for CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md"), and then follow
   the steps in this topic.
 - You want to select a Classic Load Balancer, Application Load Balancer, or Network Load Balancer in Elastic Load Balancing for the in-place
   deployment, but have not yet created it.
@@ -57,8 +53,7 @@ access to your target instance. 7. In **Deployment type**, choose
      have CodeDeploy install a termination hook into your Auto Scaling group when you
      create or update the deployment group. When this hook is installed,
      CodeDeploy will perform termination deployments. For more information, see
-     [Enabling
-     termination deployments during Auto Scaling scale-in events](integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors-hook-enable "integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors-hook-enable").
+     [Enabling termination deployments during Auto Scaling scale-in events](integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors-hook-enable "integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors-hook-enable").
     3. If you want to tag your instances, select **Amazon EC2
      instances** or **On-premises instances**.
      In the **Key** and **Value** fields,
@@ -114,8 +109,7 @@ access to your target instance. 7. In **Deployment type**, choose
 10. In **Deployment configuration**, choose a deployment
     configuration to control the rate at which instances are deployed to, such as
     one at a time or all at once. For more information about deployment
-    configurations, see [Working with deployment configurations in
-    CodeDeploy](deployment-configurations.md "deployment-configurations.md").
+    configurations, see [Working with deployment configurations in CodeDeploy](deployment-configurations.md "deployment-configurations.md").
 11. (Optional) In **Load balancer**, select **Enable load
     balancing**, and then from the lists, select the Classic Load Balancers, Application Load Balancer
     target groups, and Network Load Balancer target groups to manage traffic to the instances during
@@ -144,5 +138,4 @@ load balancers unexpectedly. 12. (Optional) Expand **Advanced** and configure an
 want to include in the deployment, such as Amazon SNS notification triggers, Amazon CloudWatch
 alarms, Auto Scaling options, or automatic rollbacks.
 
-For more information, see [Configure advanced options
-for a deployment group](deployment-groups-configure-advanced-options.md "deployment-groups-configure-advanced-options.md"). 13. Choose **Create deployment group**.
+For more information, see [Configure advanced options for a deployment group](deployment-groups-configure-advanced-options.md "deployment-groups-configure-advanced-options.md"). 13. Choose **Create deployment group**.

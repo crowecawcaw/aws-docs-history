@@ -1,6 +1,4 @@
-# Use the CodeDeploy agent to validate a deployment package on
-
-a local machine
+# Use the CodeDeploy agent to validate a deployment package on a local machine
 
 Using the CodeDeploy agent, you can deploy content on an instance you are logged in to. This
 allows you to test the integrity of an application specification file (AppSpec file) that
@@ -26,8 +24,7 @@ By validating a deployment package on a local machine you can:
 Before you start a local deployment, complete the following steps:
 
 - Create or use an instance type supported by the CodeDeploy agent. For information,
-  see [Operating systems
-  supported by the CodeDeploy agent](codedeploy-agent.md#codedeploy-agent-supported-operating-systems "codedeploy-agent.md#codedeploy-agent-supported-operating-systems").
+  see [Operating systems supported by the CodeDeploy agent](codedeploy-agent.md#codedeploy-agent-supported-operating-systems "codedeploy-agent.md#codedeploy-agent-supported-operating-systems").
 - Install version 1.0.1.1352 or later of the CodeDeploy agent. For information, see
   [Install the CodeDeploy agent](codedeploy-agent-operations-install.md "codedeploy-agent-operations-install.md").
 - If you are deploying your content from an Amazon S3 bucket or GitHub repository,
@@ -93,11 +90,8 @@ examples](../../../AmazonS3/latest/userguide/example-bucket-policies.md "../../.
 
 - If you are deploying your application revision from an Amazon S3 bucket or GitHub
   repository, set up an IAM instance profile and attach it to the instance. For
-  information, see [Step 4: Create an IAM instance
-  profile for your Amazon EC2 instances](getting-started-create-iam-instance-profile.md "getting-started-create-iam-instance-profile.md"), [Create an Amazon EC2 instance for CodeDeploy (AWS CLI or Amazon EC2
-  console)](instances-ec2-create.md "instances-ec2-create.md"), and
-  [Create an Amazon EC2 instance for
-  CodeDeploy (CloudFormation template)](instances-ec2-create-cloudformation-template.md "instances-ec2-create-cloudformation-template.md").
+  information, see [Step 4: Create an IAM instance profile for your Amazon EC2 instances](getting-started-create-iam-instance-profile.md "getting-started-create-iam-instance-profile.md"), [Create an Amazon EC2 instance for CodeDeploy (AWS CLI or Amazon EC2 console)](instances-ec2-create.md "instances-ec2-create.md"), and
+  [Create an Amazon EC2 instance for CodeDeploy (CloudFormation template)](instances-ec2-create-cloudformation-template.md "instances-ec2-create-cloudformation-template.md").
 - If you are deploying your content from GitHub, create a GitHub account and a
   public repository. To create a GitHub account, see [Join GitHub](https://github.com/join "https://github.com/join"). To create a GitHub
   repository, see [Create a repo](https://help.github.com/articles/create-a-repo/ "https://help.github.com/articles/create-a-repo/").

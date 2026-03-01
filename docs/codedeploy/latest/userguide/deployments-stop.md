@@ -39,8 +39,7 @@ _AWS General Reference_. CodeDeploy is supported in these regions only. 3. Choos
     2. Choose **Stop and roll back deployment** to stop and
      roll back the deployment
 
-For more information, see [Redeploy and roll back a deployment with
-CodeDeploy](deployments-rollback-and-redeploy.md "deployments-rollback-and-redeploy.md").
+For more information, see [Redeploy and roll back a deployment with CodeDeploy](deployments-rollback-and-redeploy.md "deployments-rollback-and-redeploy.md").
 
 ###### Note
 

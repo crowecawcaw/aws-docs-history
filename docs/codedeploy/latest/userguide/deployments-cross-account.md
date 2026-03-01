@@ -1,6 +1,4 @@
-# Deploy an application in a different AWS
-
-account
+# Deploy an application in a different AWS account
 
 Organizations commonly have multiple AWS accounts that they use for different purposes
 (for example, one for system administration tasks and another for development, test, and
@@ -22,9 +20,7 @@ belong to another of your organization’s accounts without needing a full set o
 for that other account. You do this, in part, by using a capability provided by the
 AWS Security Token Service (AWS STS) that grants you temporary access to that account.
 
-## Step 1: Create an S3
-
-bucket in either account
+## Step 1: Create an S3 bucket in either account
 
 In either the development account or the production account:
 
@@ -34,9 +30,7 @@ In either the development account or the production account:
   deploying the same files to your production environment that you tested and
   verified in your development account.
 
-## Step 2: Grant
-
-Amazon S3 bucket permissions to the production account's IAM instance profile
+## Step 2: Grant Amazon S3 bucket permissions to the production account's IAM instance profile
 
 If the Amazon S3 bucket you created in step 1 is in your production account, this step is
 not required. The role you assume later will already have access to this bucket because
@@ -45,8 +39,7 @@ it is also in the production account.
 If you created the Amazon S3 bucket in the development account, do the following:
 
 - In the production account, create an IAM instance profile. For information,
-  see [Step 4: Create an IAM instance
-  profile for your Amazon EC2 instances](getting-started-create-iam-instance-profile.md "getting-started-create-iam-instance-profile.md").
+  see [Step 4: Create an IAM instance profile for your Amazon EC2 instances](getting-started-create-iam-instance-profile.md "getting-started-create-iam-instance-profile.md").
 
 ###### Note
 
@@ -115,9 +108,7 @@ bucket permissions:
      after the name of your bucket to provide access to each of the files
      inside the bucket.
 
-## Step 3: Create
-
-resources and a cross-account role in the production account
+## Step 3: Create resources and a cross-account role in the production account
 
 In your production account:
 
@@ -142,8 +133,7 @@ attach, at minimum, the following two AWS supplied policies to the role:
 If you want to create and manage deployment groups and not just initiate
 deployments, add the `AWSCodeDeployFullAccess` policy instead of the
 `AWSCodeDeployDeployerAccess` policy. For more information about
-using IAM managed policies to grant permissions for CodeDeploy tasks, see [AWS managed (predefined) policies for
-CodeDeploy](managed-policies.md "managed-policies.md").
+using IAM managed policies to grant permissions for CodeDeploy tasks, see [AWS managed (predefined) policies for CodeDeploy](managed-policies.md "managed-policies.md").
 
 You can attach additional policies if you want to perform tasks in other AWS
 services while using this cross-account role.
@@ -166,30 +156,23 @@ following:
 
 - The ARN of the cross-account role you will assume.
 
-## Step 4: Upload
-
-the application revision to Amazon S3 bucket
+## Step 4: Upload the application revision to Amazon S3 bucket
 
 In the account in which you created the Amazon S3 bucket:
 
 - Upload your application revision to the Amazon S3 bucket. For information, see
-  [Push a revision for CodeDeploy to Amazon S3
-  (EC2/On-Premises deployments only)](application-revisions-push.md "application-revisions-push.md").
+  [Push a revision for CodeDeploy to Amazon S3 (EC2/On-Premises deployments only)](application-revisions-push.md "application-revisions-push.md").
 
-## Step 5: Assume the
-
-cross-account role and deploy applications
+## Step 5: Assume the cross-account role and deploy applications
 
 In the development account, you can use the AWS CLI or the AWS Management Console to assume the
 cross-account role and initiate the deployment in the production account.
 
 For instructions about how to use the AWS Management Console to switch roles and initiate
-deployments, see [Switching to a role (AWS Management Console)](../../../IAM/latest/UserGuide/id_roles_use_switch-role-console.md "../../../IAM/latest/UserGuide/id_roles_use_switch-role-console.md") and [Create an
-EC2/On-Premises Compute Platform deployment (console)](deployments-create-console.md "deployments-create-console.md").
+deployments, see [Switching to a role (AWS Management Console)](../../../IAM/latest/UserGuide/id_roles_use_switch-role-console.md "../../../IAM/latest/UserGuide/id_roles_use_switch-role-console.md") and [Create an EC2/On-Premises Compute Platform deployment (console)](deployments-create-console.md "deployments-create-console.md").
 
 For instructions about how to use the AWS CLI to assume the cross-account role and
-initiate deployments, see [Switching to an IAM role (AWS Command Line Interface)](../../../IAM/latest/UserGuide/id_roles_use_switch-role-cli.md "../../../IAM/latest/UserGuide/id_roles_use_switch-role-cli.md") and [Create an EC2/On-Premises Compute Platform
-deployment (CLI)](deployments-create-cli.md "deployments-create-cli.md").
+initiate deployments, see [Switching to an IAM role (AWS Command Line Interface)](../../../IAM/latest/UserGuide/id_roles_use_switch-role-cli.md "../../../IAM/latest/UserGuide/id_roles_use_switch-role-cli.md") and [Create an EC2/On-Premises Compute Platform deployment (CLI)](deployments-create-cli.md "deployments-create-cli.md").
 
 For more information about assuming a role through AWS STS, see [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") in the [AWS Security Token Service User Guide](../../../STS/latest/APIReference/Welcome.md "../../../STS/latest/APIReference/Welcome.md")
 and [assume-role](../../../cli/latest/reference/sts/assume-role.md "../../../cli/latest/reference/sts/assume-role.md") in the [AWS CLI Command Reference](../../../cli/latest/reference.md "../../../cli/latest/reference.md").

@@ -5,13 +5,10 @@ applications associated with your AWS account.
 
 ###### Topics
 
-- [View application details
-  (console)](#applications-view-details-console "#applications-view-details-console")
+- [View application details (console)](#applications-view-details-console "#applications-view-details-console")
 - [View application details (CLI)](#applications-view-details-cli "#applications-view-details-cli")
 
-## View application details
-
-(console)
+## View application details (console)
 
 To use the CodeDeploy console to view application details:
 

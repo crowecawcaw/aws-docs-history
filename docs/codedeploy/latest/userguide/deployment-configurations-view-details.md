@@ -1,22 +1,15 @@
-# View deployment configuration
-
-details with CodeDeploy
+# View deployment configuration details with CodeDeploy
 
 You can use the CodeDeploy console, the AWS CLI, or the CodeDeploy APIs to view details about
 deployment configurations associated with your AWS account. For descriptions of the
-predefined CodeDeploy deployment configurations, see [Predefined deployment configurations
-for an EC2/on-premises compute platform](deployment-configurations.md#deployment-configurations-predefined "deployment-configurations.md#deployment-configurations-predefined").
+predefined CodeDeploy deployment configurations, see [Predefined deployment configurations for an EC2/on-premises compute platform](deployment-configurations.md#deployment-configurations-predefined "deployment-configurations.md#deployment-configurations-predefined").
 
 ###### Topics
 
-- [View deployment
-  configuration details (console)](#deployment-configurations-view-details-console "#deployment-configurations-view-details-console")
-- [View deployment
-  configuration (CLI)](#deployment-configurations-view-details-cli "#deployment-configurations-view-details-cli")
+- [View deployment configuration details (console)](#deployment-configurations-view-details-console "#deployment-configurations-view-details-console")
+- [View deployment configuration (CLI)](#deployment-configurations-view-details-cli "#deployment-configurations-view-details-cli")
 
-## View deployment
-
-configuration details (console)
+## View deployment configuration details (console)
 
 To use the CodeDeploy console to view a list of deployment configuration names:
 
@@ -35,9 +28,7 @@ If no entries are displayed, make sure the correct region is selected. On the
 navigation bar, in the region selector, choose one of the regions listed in [Region and Endpoints](../../../general/latest/gr/rande.md#codedeploy_region "../../../general/latest/gr/rande.md#codedeploy_region") in the
 _AWS General Reference_. CodeDeploy is supported in these regions only.
 
-## View deployment
-
-configuration (CLI)
+## View deployment configuration (CLI)
 
 To use the AWS CLI to view deployment configuration details, call either the
 `get-deployment-config` command or the

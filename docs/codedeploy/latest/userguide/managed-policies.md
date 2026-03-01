@@ -1,6 +1,4 @@
-# AWS managed (predefined) policies for
-
-CodeDeploy
+# AWS managed (predefined) policies for CodeDeploy
 
 AWS addresses many common use cases by providing standalone IAM policies that are
 created and administered by AWS. These AWS-managed policies grant permissions for
@@ -9,13 +7,10 @@ For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/a
 
 ###### Topics
 
-- [List of AWS managed policies for
-  CodeDeploy](#managed-policies-list "#managed-policies-list")
+- [List of AWS managed policies for CodeDeploy](#managed-policies-list "#managed-policies-list")
 - [CodeDeploy managed policies and notifications](#notifications-permissions "#notifications-permissions")
 
-## List of AWS managed policies for
-
-CodeDeploy
+## List of AWS managed policies for CodeDeploy
 
 The following AWS managed policies, which you can attach to users in your
 account, are specific to CodeDeploy:
@@ -113,8 +108,7 @@ JSON
   - In the `hooks` section of the AppSpec file, only
     Lambda functions with names that begin with
     `CodeDeployHook_` can be used. For more information,
-    see [AppSpec 'hooks' section for an Amazon ECS
-    deployment](reference-appspec-file-structure-hooks.md#appspec-hooks-ecs "reference-appspec-file-structure-hooks.md#appspec-hooks-ecs").
+    see [AppSpec 'hooks' section for an Amazon ECS deployment](reference-appspec-file-structure-hooks.md#appspec-hooks-ecs "reference-appspec-file-structure-hooks.md#appspec-hooks-ecs").
   - S3 bucket access is limited to S3 buckets with a registration
     tag, `UseWithCodeDeploy`, that has a value of
     `true`. For more information, see [Object tagging](../../../AmazonS3/latest/userguide/object-tagging.md "../../../AmazonS3/latest/userguide/object-tagging.md").
@@ -162,8 +156,7 @@ role types that act on behalf of CodeDeploy:
 - An _IAM instance profile_ is an IAM role that you attach to
   your Amazon EC2 instances. This profile includes the permissions required to access the Amazon S3
   buckets or GitHub repositories where the applications are
-  stored. For more information, see [Step 4: Create an IAM instance
-  profile for your Amazon EC2 instances](getting-started-create-iam-instance-profile.md "getting-started-create-iam-instance-profile.md").
+  stored. For more information, see [Step 4: Create an IAM instance profile for your Amazon EC2 instances](getting-started-create-iam-instance-profile.md "getting-started-create-iam-instance-profile.md").
 - A _service role_ is an IAM role that grants permissions to an
   AWS service so it can access AWS resources. The policies you attach to the service role
   determine which AWS resources the service can access and the actions it can perform with
@@ -178,8 +171,7 @@ role types that act on behalf of CodeDeploy:
       + To retrieve information about CloudWatch alarms to set up alarm monitoring for
        deployments.
 
-  For more information, see [Step 2: Create a service role for
-  CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md").
+  For more information, see [Step 2: Create a service role for CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md").
 
 You can also create custom IAM policies to grant permissions for CodeDeploy
 actions and resources. You attach these custom policies to IAM roles, and then you
@@ -193,9 +185,7 @@ Managed policies for CodeDeploy include policy statements for notification
 functionality. For more information, see [What are
 notifications?](../../../codestar-notifications/latest/userguide/welcome.md "../../../codestar-notifications/latest/userguide/welcome.md").
 
-### Permissions for notifications in full access
-
-managed policies
+### Permissions for notifications in full access managed policies
 
 The `AWSCodeDeployFullAccess` managed policy includes the following
 statements to allow full access to notifications. Users with this managed policy applied
@@ -256,9 +246,7 @@ users to topics, and list topics to choose as targets for notification rules.
     }
 ```
 
-### Permissions for notifications in read-only
-
-managed policies
+### Permissions for notifications in read-only managed policies
 
 The
 `AWSCodeDeployReadOnlyAccess` managed policy includes the following

@@ -10,37 +10,28 @@ in the _Amazon EC2 Auto Scaling User Guide_.
 When new Amazon EC2 instances are launched as part of an Amazon EC2 Auto Scaling group, CodeDeploy can deploy your
 revisions to the new instances automatically. You can also coordinate deployments in CodeDeploy
 with Amazon EC2 Auto Scaling instances registered with Elastic Load Balancing load balancers. For more information, see
-[Integrating CodeDeploy with Elastic Load Balancing](integrations-aws-elastic-load-balancing.md "integrations-aws-elastic-load-balancing.md") and [Set up a load balancer in Elastic Load Balancing
-for CodeDeploy Amazon EC2 deployments](deployment-groups-create-load-balancer.md "deployment-groups-create-load-balancer.md").
+[Integrating CodeDeploy with Elastic Load Balancing](integrations-aws-elastic-load-balancing.md "integrations-aws-elastic-load-balancing.md") and [Set up a load balancer in Elastic Load Balancing for CodeDeploy Amazon EC2 deployments](deployment-groups-create-load-balancer.md "deployment-groups-create-load-balancer.md").
 
 ###### Note
 
 You might encounter issues if you associate multiple deployment groups with a single
 Amazon EC2 Auto Scaling group. If one deployment fails, for example, the instance will begin to shut
 down, but the other deployments that were running can take an hour to time out. For more
-information, see [Avoid associating multiple deployment
-groups with a single Amazon EC2 Auto Scaling group](troubleshooting-auto-scaling.md#troubleshooting-multiple-depgroups "troubleshooting-auto-scaling.md#troubleshooting-multiple-depgroups") and [Under the hood: CodeDeploy and Amazon EC2 Auto Scaling integration](https://aws.amazon.com/blogs/devops/under-the-hood-aws-codedeploy-and-auto-scaling-integration/ "https://aws.amazon.com/blogs/devops/under-the-hood-aws-codedeploy-and-auto-scaling-integration/").
+information, see [Avoid associating multiple deployment groups with a single Amazon EC2 Auto Scaling group](troubleshooting-auto-scaling.md#troubleshooting-multiple-depgroups "troubleshooting-auto-scaling.md#troubleshooting-multiple-depgroups") and [Under the hood: CodeDeploy and Amazon EC2 Auto Scaling integration](https://aws.amazon.com/blogs/devops/under-the-hood-aws-codedeploy-and-auto-scaling-integration/ "https://aws.amazon.com/blogs/devops/under-the-hood-aws-codedeploy-and-auto-scaling-integration/").
 
 ###### Topics
 
-- [Deploying CodeDeploy applications to
-  Amazon EC2 Auto Scaling groups](#integrations-aws-auto-scaling-deploy "#integrations-aws-auto-scaling-deploy")
-- [Enabling
-  termination deployments during Auto Scaling scale-in events](#integrations-aws-auto-scaling-behaviors-hook-enable "#integrations-aws-auto-scaling-behaviors-hook-enable")
-- [How Amazon EC2 Auto Scaling works with
-  CodeDeploy](#integrations-aws-auto-scaling-behaviors "#integrations-aws-auto-scaling-behaviors")
-- [Using a custom AMI with CodeDeploy
-  and Amazon EC2 Auto Scaling](#integrations-aws-auto-scaling-custom-ami "#integrations-aws-auto-scaling-custom-ami")
+- [Deploying CodeDeploy applications to Amazon EC2 Auto Scaling groups](#integrations-aws-auto-scaling-deploy "#integrations-aws-auto-scaling-deploy")
+- [Enabling termination deployments during Auto Scaling scale-in events](#integrations-aws-auto-scaling-behaviors-hook-enable "#integrations-aws-auto-scaling-behaviors-hook-enable")
+- [How Amazon EC2 Auto Scaling works with CodeDeploy](#integrations-aws-auto-scaling-behaviors "#integrations-aws-auto-scaling-behaviors")
+- [Using a custom AMI with CodeDeploy and Amazon EC2 Auto Scaling](#integrations-aws-auto-scaling-custom-ami "#integrations-aws-auto-scaling-custom-ami")
 
-## Deploying CodeDeploy applications to
-
-Amazon EC2 Auto Scaling groups
+## Deploying CodeDeploy applications to Amazon EC2 Auto Scaling groups
 
 To deploy a CodeDeploy application revision to an Amazon EC2 Auto Scaling group:
 
 1. Create or locate an IAM instance profile that allows the Amazon EC2 Auto Scaling group to
-   work with Amazon S3. For more information, see [Step 4: Create an IAM instance
-   profile for your Amazon EC2 instances](getting-started-create-iam-instance-profile.md "getting-started-create-iam-instance-profile.md").
+   work with Amazon S3. For more information, see [Step 4: Create an IAM instance profile for your Amazon EC2 instances](getting-started-create-iam-instance-profile.md "getting-started-create-iam-instance-profile.md").
 
 ###### Note
 
@@ -51,17 +42,12 @@ a GitHub repository. 2. Create or use an Amazon EC2 Auto Scaling group, specifyi
 launch configuration or template. For more information, see [IAM
 role for applications that run on Amazon EC2 instances](../../../autoscaling/ec2/userguide/us-iam-role.md "../../../autoscaling/ec2/userguide/us-iam-role.md"). 3. Create or locate a service role that allows CodeDeploy to create a deployment group
 that contains the Amazon EC2 Auto Scaling group. 4. Create a deployment group with CodeDeploy, specifying the Amazon EC2 Auto Scaling group name, the
-service role, and a few other options. For more information, see [Create a deployment group for an
-in-place deployment (console)](deployment-groups-create-in-place.md "deployment-groups-create-in-place.md") or [Create a deployment group for an
-in-place deployment (console)](deployment-groups-create-in-place.md "deployment-groups-create-in-place.md"). 5. Use CodeDeploy to deploy your revision to the deployment group that contains the
+service role, and a few other options. For more information, see [Create a deployment group for an in-place deployment (console)](deployment-groups-create-in-place.md "deployment-groups-create-in-place.md") or [Create a deployment group for an in-place deployment (console)](deployment-groups-create-in-place.md "deployment-groups-create-in-place.md"). 5. Use CodeDeploy to deploy your revision to the deployment group that contains the
 Amazon EC2 Auto Scaling group.
 
-For more information, see [Tutorial: Use CodeDeploy to deploy an application
-to an Auto Scaling group](tutorials-auto-scaling-group.md "tutorials-auto-scaling-group.md").
+For more information, see [Tutorial: Use CodeDeploy to deploy an application to an Auto Scaling group](tutorials-auto-scaling-group.md "tutorials-auto-scaling-group.md").
 
-## Enabling
-
-termination deployments during Auto Scaling scale-in events
+## Enabling termination deployments during Auto Scaling scale-in events
 
 A _termination deployment_ is a type of CodeDeploy deployment that is
 activated automatically when an Auto Scaling [scale-in event](../../../autoscaling/ec2/userguide/ec2-auto-scaling-lifecycle.md#as-lifecycle-scale-in "../../../autoscaling/ec2/userguide/ec2-auto-scaling-lifecycle.md#as-lifecycle-scale-in") occurs. CodeDeploy performs the termination deployment right
@@ -72,8 +58,7 @@ up the `ApplicationStop` lifecycle event to a script that shuts down your
 application gracefully before the instance is terminated.
 
 For a list of lifecycle events that CodeDeploy generates during a termination deployment,
-see [Lifecycle event
-hook availability](reference-appspec-file-structure-hooks.md#reference-appspec-file-structure-hooks-availability "reference-appspec-file-structure-hooks.md#reference-appspec-file-structure-hooks-availability").
+see [Lifecycle event hook availability](reference-appspec-file-structure-hooks.md#reference-appspec-file-structure-hooks-availability "reference-appspec-file-structure-hooks.md#reference-appspec-file-structure-hooks-availability").
 
 If the termination deployment fails for any reason, CodeDeploy will allow the instance
 termination to proceed. This means that the instance will be shut down even though CodeDeploy
@@ -96,9 +81,7 @@ with either the Amazon EC2 instance termination or the CodeDeploy deployment.
 ###### To enable CodeDeploy to perform termination deployments
 
 - Select the **Add a termination hook to Auto Scaling groups** check
-  box when creating or updating your deployment group. For instructions, see [Create a deployment group for an
-  in-place deployment (console)](deployment-groups-create-in-place.md "deployment-groups-create-in-place.md"), or [Create a deployment group for an
-  EC2/On-Premises blue/green deployment (console)](deployment-groups-create-blue-green.md "deployment-groups-create-blue-green.md").
+  box when creating or updating your deployment group. For instructions, see [Create a deployment group for an in-place deployment (console)](deployment-groups-create-in-place.md "deployment-groups-create-in-place.md"), or [Create a deployment group for an EC2/On-Premises blue/green deployment (console)](deployment-groups-create-blue-green.md "deployment-groups-create-blue-green.md").
 
 Enabling this check box causes CodeDeploy to install an [Auto Scaling lifecycle
 hook](../../../autoscaling/ec2/userguide/lifecycle-hooks.md "../../../autoscaling/ec2/userguide/lifecycle-hooks.md") into the Auto Scaling groups that you specify when you create or update
@@ -133,9 +116,7 @@ hook_ and enables termination deployments.
    `CONTINUE` the EC2 termination process, regardless of
    whether the termination deployment succeeded or failed.
 
-## How Amazon EC2 Auto Scaling works with
-
-CodeDeploy
+## How Amazon EC2 Auto Scaling works with CodeDeploy
 
 When you create or update a CodeDeploy deployment group to include an Auto Scaling group, CodeDeploy
 accesses the Auto Scaling group using the CodeDeploy service role, and then installs [Auto Scaling
@@ -161,8 +142,7 @@ deployment_, CodeDeploy:
     + Generates lifecycle events to indicate the progress of the deployment.
      You can hook up these lifecycle events to your own scripts to enable
      custom startup functionality. For more information, see the table in
-     [Lifecycle event
-     hook availability](reference-appspec-file-structure-hooks.md#reference-appspec-file-structure-hooks-availability "reference-appspec-file-structure-hooks.md#reference-appspec-file-structure-hooks-availability").
+     [Lifecycle event hook availability](reference-appspec-file-structure-hooks.md#reference-appspec-file-structure-hooks-availability "reference-appspec-file-structure-hooks.md#reference-appspec-file-structure-hooks-availability").
 
 The launch hook and associated launch deployment are always enabled and cannot
 be turned off.
@@ -173,26 +153,18 @@ be turned off.
 
 During a _termination deployment_, CodeDeploy generates
 lifecycle events to indicate the progress of the instance shutdown. For more
-information, see [Enabling
-termination deployments during Auto Scaling scale-in events](#integrations-aws-auto-scaling-behaviors-hook-enable "#integrations-aws-auto-scaling-behaviors-hook-enable").
+information, see [Enabling termination deployments during Auto Scaling scale-in events](#integrations-aws-auto-scaling-behaviors-hook-enable "#integrations-aws-auto-scaling-behaviors-hook-enable").
 
 ###### Topics
 
-- [After CodeDeploy
-  installs the lifecycle hooks, how are they used?](#integrations-aws-auto-scaling-behaviors-hook-usage "#integrations-aws-auto-scaling-behaviors-hook-usage")
-- [How CodeDeploy names
-  Amazon EC2 Auto Scaling groups](#integrations-aws-auto-scaling-behaviors-naming "#integrations-aws-auto-scaling-behaviors-naming")
-- [Execution order
-  of custom lifecycle hook events](#integrations-aws-auto-scaling-behaviors-hook-order "#integrations-aws-auto-scaling-behaviors-hook-order")
+- [After CodeDeploy installs the lifecycle hooks, how are they used?](#integrations-aws-auto-scaling-behaviors-hook-usage "#integrations-aws-auto-scaling-behaviors-hook-usage")
+- [How CodeDeploy names Amazon EC2 Auto Scaling groups](#integrations-aws-auto-scaling-behaviors-naming "#integrations-aws-auto-scaling-behaviors-naming")
+- [Execution order of custom lifecycle hook events](#integrations-aws-auto-scaling-behaviors-hook-order "#integrations-aws-auto-scaling-behaviors-hook-order")
 - [Scale-out events during a deployment](#integrations-aws-auto-scaling-behaviors-mixed-environment "#integrations-aws-auto-scaling-behaviors-mixed-environment")
-- [Scale-in events
-  during a deployment](#integrations-aws-auto-scaling-behaviors-scale-in "#integrations-aws-auto-scaling-behaviors-scale-in")
-- [Order of
-  events in AWS CloudFormation cfn-init scripts](#integrations-aws-auto-scaling-behaviors-event-order "#integrations-aws-auto-scaling-behaviors-event-order")
+- [Scale-in events during a deployment](#integrations-aws-auto-scaling-behaviors-scale-in "#integrations-aws-auto-scaling-behaviors-scale-in")
+- [Order of events in AWS CloudFormation cfn-init scripts](#integrations-aws-auto-scaling-behaviors-event-order "#integrations-aws-auto-scaling-behaviors-event-order")
 
-### After CodeDeploy
-
-installs the lifecycle hooks, how are they used?
+### After CodeDeploy installs the lifecycle hooks, how are they used?
 
 After the launch and termination lifecycle hooks are installed, they are used by
 CodeDeploy during Auto Scaling group scale-out and scale-in events, respectively.
@@ -234,12 +206,9 @@ follows:**
 **A scale-in (termination) event unfolds as
 follows:**
 
-See [Enabling
-termination deployments during Auto Scaling scale-in events](#integrations-aws-auto-scaling-behaviors-hook-enable "#integrations-aws-auto-scaling-behaviors-hook-enable").
+See [Enabling termination deployments during Auto Scaling scale-in events](#integrations-aws-auto-scaling-behaviors-hook-enable "#integrations-aws-auto-scaling-behaviors-hook-enable").
 
-### How CodeDeploy names
-
-Amazon EC2 Auto Scaling groups
+### How CodeDeploy names Amazon EC2 Auto Scaling groups
 
 During blue/green deployments on an EC2/On-Premises compute platform, you have two
 options for adding instances to your replacement (green) environment:
@@ -257,12 +226,9 @@ CodeDeploy_`deployment_group_name`_`deployment_id`
 
 For example, if a deployment with ID `10` deploys a deployment group
 named `alpha-deployments`, the provisioned Amazon EC2 Auto Scaling group is named
-`CodeDeploy_alpha-deployments_10`. For more information, see [Create a deployment group for an
-EC2/On-Premises blue/green deployment (console)](deployment-groups-create-blue-green.md "deployment-groups-create-blue-green.md") and [GreenFleetProvisioningOption](../APIReference/API_GreenFleetProvisioningOption.md "../APIReference/API_GreenFleetProvisioningOption.md").
+`CodeDeploy_alpha-deployments_10`. For more information, see [Create a deployment group for an EC2/On-Premises blue/green deployment (console)](deployment-groups-create-blue-green.md "deployment-groups-create-blue-green.md") and [GreenFleetProvisioningOption](../APIReference/API_GreenFleetProvisioningOption.md "../APIReference/API_GreenFleetProvisioningOption.md").
 
-### Execution order
-
-of custom lifecycle hook events
+### Execution order of custom lifecycle hook events
 
 You can add your own lifecycle hooks to Amazon EC2 Auto Scaling groups to which CodeDeploy deploys.
 However, the order in which those custom lifecycle hook events are executed cannot
@@ -305,9 +271,7 @@ functionality.
 For more information about using `HANDLE_PROCS=true` to avoid
 deployment problems when using Amazon EC2 Auto Scaling, see [Important notice about handling AutoScaling processes](https://github.com/awslabs/aws-codedeploy-samples/tree/master/load-balancing/elb#important-notice-about-handling-autoscaling-processes "https://github.com/awslabs/aws-codedeploy-samples/tree/master/load-balancing/elb#important-notice-about-handling-autoscaling-processes") in [aws-codedeploy-samples](https://github.com/awslabs/aws-codedeploy-samples "https://github.com/awslabs/aws-codedeploy-samples") on GitHub.
 
-### Scale-in events
-
-during a deployment
+### Scale-in events during a deployment
 
 If an Auto Scaling group starts scaling in while a CodeDeploy deployment is underway on that
 Auto Scaling group, a race condition could occur between the termination process (including
@@ -318,9 +282,7 @@ overall CodeDeploy deployment may or may not fail, depending on how you've set y
 **Minimum healthy hosts** setting in your deployment
 configuration.
 
-### Order of
-
-events in AWS CloudFormation cfn-init scripts
+### Order of events in AWS CloudFormation cfn-init scripts
 
 If you use `cfn-init` (or `cloud-init`) to run scripts on
 newly provisioned Linux-based instances, your deployments might fail unless you
@@ -346,9 +308,7 @@ To control the order of events, use one of these best practices:
 For information about using `cfn-init`, see [cfn-init](../../../AWSCloudFormation/latest/UserGuide/cfn-init.md "../../../AWSCloudFormation/latest/UserGuide/cfn-init.md") in the
 _AWS CloudFormation User Guide_.
 
-## Using a custom AMI with CodeDeploy
-
-and Amazon EC2 Auto Scaling
+## Using a custom AMI with CodeDeploy and Amazon EC2 Auto Scaling
 
 You have two options for specifying the base AMI to use when new Amazon EC2 instances are
 launched in an Amazon EC2 Auto Scaling group:

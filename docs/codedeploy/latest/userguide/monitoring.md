@@ -47,8 +47,7 @@ when something is wrong:
   number of periods. For more information, see [Monitoring Deployments with Amazon CloudWatch Tools](monitoring-cloudwatch.md "monitoring-cloudwatch.md").
 
 For information about updating your service role to work with
-CloudWatch alarm monitoring, see [Grant CloudWatch permissions to a
-CodeDeploy service role](monitoring-create-alarms-grant-permissions.md "monitoring-create-alarms-grant-permissions.md"). For information about
+CloudWatch alarm monitoring, see [Grant CloudWatch permissions to a CodeDeploy service role](monitoring-create-alarms-grant-permissions.md "monitoring-create-alarms-grant-permissions.md"). For information about
 adding CloudWatch alarm monitoring to your CodeDeploy operations, see [Create an application with CodeDeploy](applications-create.md "applications-create.md"), [Create a deployment group with CodeDeploy](deployment-groups-create.md "deployment-groups-create.md"), or [Change deployment group settings with CodeDeploy](deployment-groups-edit.md "deployment-groups-edit.md").
 
 - **Amazon CloudWatch Logs** – Monitor, store, and access your log files from AWS CloudTrail

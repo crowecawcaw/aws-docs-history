@@ -1,6 +1,4 @@
-# Step 3: Upload your "hello, world!"
-
-application to Amazon S3
+# Step 3: Upload your "hello, world!" application to Amazon S3
 
 Now you will prepare and upload your source content to a location from which CodeDeploy can
 deploy it. The following instructions show you how to provision an Amazon S3 bucket, prepare the
@@ -14,16 +12,11 @@ GitHub repositories to instances. For more information, see [Integrating CodeDep
 
 ###### Topics
 
-- [Provision an Amazon S3
-  bucket](#tutorials-windows-upload-application-create-s3-bucket "#tutorials-windows-upload-application-create-s3-bucket")
-- [Prepare the
-  application's files for the bucket](#tutorials-windows-upload-application-prepare-application-files "#tutorials-windows-upload-application-prepare-application-files")
-- [Bundle the
-  application's files into a single archive file and push the archive file](#tutorials-windows-upload-application-bundle-and-push-archive "#tutorials-windows-upload-application-bundle-and-push-archive")
+- [Provision an Amazon S3 bucket](#tutorials-windows-upload-application-create-s3-bucket "#tutorials-windows-upload-application-create-s3-bucket")
+- [Prepare the application's files for the bucket](#tutorials-windows-upload-application-prepare-application-files "#tutorials-windows-upload-application-prepare-application-files")
+- [Bundle the application's files into a single archive file and push the archive file](#tutorials-windows-upload-application-bundle-and-push-archive "#tutorials-windows-upload-application-bundle-and-push-archive")
 
-## Provision an Amazon S3
-
-bucket
+## Provision an Amazon S3 bucket
 
 Create a storage container or _bucket_ in Amazon S3—or use an existing
 bucket. Make sure you can upload the revision to the bucket and that Amazon EC2 instances used in
@@ -48,15 +41,11 @@ your target Amazon EC2 instances must be launched in the US East (N. Virginia) R
 
 ###### Topics
 
-- [To create an
-  Amazon S3 bucket (CLI)](#tutorials-windows-upload-application-create-s3-bucket-cli "#tutorials-windows-upload-application-create-s3-bucket-cli")
-- [To create an
-  Amazon S3 bucket (console)](#tutorials-windows-upload-application-create-s3-bucket-console "#tutorials-windows-upload-application-create-s3-bucket-console")
+- [To create an Amazon S3 bucket (CLI)](#tutorials-windows-upload-application-create-s3-bucket-cli "#tutorials-windows-upload-application-create-s3-bucket-cli")
+- [To create an Amazon S3 bucket (console)](#tutorials-windows-upload-application-create-s3-bucket-console "#tutorials-windows-upload-application-create-s3-bucket-console")
 - [Give permissions to the Amazon S3 bucket and your AWS account](#tutorials-windows-upload-application-create-s3-bucket-grant-permission "#tutorials-windows-upload-application-create-s3-bucket-grant-permission")
 
-### To create an
-
-Amazon S3 bucket (CLI)
+### To create an Amazon S3 bucket (CLI)
 
 Call the **mb** command to create an Amazon S3 bucket named
 `amzn-s3-demo-bucket`:
@@ -65,9 +54,7 @@ Call the **mb** command to create an Amazon S3 bucket named
 aws s3 mb s3://amzn-s3-demo-bucket --region `region`
 ```
 
-### To create an
-
-Amazon S3 bucket (console)
+### To create an Amazon S3 bucket (console)
 
 1. Open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -163,9 +150,7 @@ the _IAM User Guide_. For information on adding a policy to a
 permission set, see [Create a permission
 set](../../../singlesignon/latest/userguide/howtocreatepermissionset.md "../../../singlesignon/latest/userguide/howtocreatepermissionset.md") in the _AWS IAM Identity Center User Guide_.
 
-## Prepare the
-
-application's files for the bucket
+## Prepare the application's files for the bucket
 
 Make sure the web page, the AppSpec file, and the script are organized on your
 development machine like this:
@@ -179,9 +164,7 @@ c:\
              |-- index.html
 ```
 
-## Bundle the
-
-application's files into a single archive file and push the archive file
+## Bundle the application's files into a single archive file and push the archive file
 
 Bundle the files into an archive file (known as an application
 _revision_).

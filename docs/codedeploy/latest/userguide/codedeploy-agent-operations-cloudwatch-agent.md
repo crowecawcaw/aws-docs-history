@@ -1,6 +1,4 @@
-# Send CodeDeploy agent logs to
-
-CloudWatch
+# Send CodeDeploy agent logs to CloudWatch
 
 You can send CodeDeploy agent metric and log data to CloudWatch using the [unified CloudWatch agent](../../../AmazonCloudWatch/latest/logs/UseCloudWatchUnifiedAgent.md "../../../AmazonCloudWatch/latest/logs/UseCloudWatchUnifiedAgent.md"),
 or more simply, the CloudWatch agent.
@@ -19,12 +17,9 @@ Before you begin, complete the following tasks:
       + CloudWatchLogsFullAccess
       + CloudWatchAgentServerPolicy
 
-  For more information on the CodeDeploy instance profile, see [Step 4: Create an IAM instance
-  profile for your Amazon EC2 instances](getting-started-create-iam-instance-profile.md "getting-started-create-iam-instance-profile.md") of [Getting started with CodeDeploy](getting-started-codedeploy.md "getting-started-codedeploy.md").
+  For more information on the CodeDeploy instance profile, see [Step 4: Create an IAM instance profile for your Amazon EC2 instances](getting-started-create-iam-instance-profile.md "getting-started-create-iam-instance-profile.md") of [Getting started with CodeDeploy](getting-started-codedeploy.md "getting-started-codedeploy.md").
 
-## Configure the CloudWatch agent to
-
-collect CodeDeploy logs
+## Configure the CloudWatch agent to collect CodeDeploy logs
 
 You can configure the CloudWatch agent by stepping through a wizard or by manually creating or
 editing a configuration file.
@@ -87,9 +82,7 @@ files?` enter `1`.
    3. For `Log stream name` enter a log stream name, for example:
       `{instance_id}-codedeploy-agent-deployment-log`.
 
-###### To configure the CloudWatch agent by manually creating or editing a configuration file
-
-(Linux)
+###### To configure the CloudWatch agent by manually creating or editing a configuration file (Linux)
 
 1. Create or edit the CloudWatch agent configuration file as described in [Manually create or edit the CloudWatch agent configuration file](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-Configuration-File-Details.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-Configuration-File-Details.md").
 2. Make sure that the file is called
@@ -124,9 +117,7 @@ files?` enter `1`.
 ...
 ```
 
-###### To configure the CloudWatch agent by manually creating or editing a configuration file
-
-(Windows)
+###### To configure the CloudWatch agent by manually creating or editing a configuration file (Windows)
 
 1. Create or edit the CloudWatch agent configuration file as described in [Manually create or edit the CloudWatch agent configuration file](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-Configuration-File-Details.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-Configuration-File-Details.md").
 2. Make sure that the file is called
@@ -157,8 +148,6 @@ files?` enter `1`.
 ...
 ```
 
-## Restart the CloudWatch
-
-agent
+## Restart the CloudWatch agent
 
 After making your changes, restart the CloudWatch agent as described in [Start the CloudWatch agent](../../../AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-EC2-Instance-fleet.md#start-CloudWatch-Agent-EC2-fleet "../../../AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-EC2-Instance-fleet.md#start-CloudWatch-Agent-EC2-fleet").

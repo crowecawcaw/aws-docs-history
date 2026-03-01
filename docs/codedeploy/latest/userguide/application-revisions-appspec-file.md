@@ -1,6 +1,4 @@
-# Add an application specification file to a
-
-revision for CodeDeploy
+# Add an application specification file to a revision for CodeDeploy
 
 This topic shows how to add an AppSpec file to your deployment. It also includes
 templates to create an AppSpec file for an AWS Lambda and
@@ -8,16 +6,11 @@ EC2/On-Premises deployment.
 
 ###### Topics
 
-- [Add an AppSpec file for an Amazon ECS
-  deployment](#add-appspec-file-ecs "#add-appspec-file-ecs")
-- [Add an AppSpec file for an AWS Lambda
-  deployment](#add-appspec-file-lambda "#add-appspec-file-lambda")
-- [Add an AppSpec file for an EC2/On-Premises
-  deployment](#add-appspec-file-server "#add-appspec-file-server")
+- [Add an AppSpec file for an Amazon ECS deployment](#add-appspec-file-ecs "#add-appspec-file-ecs")
+- [Add an AppSpec file for an AWS Lambda deployment](#add-appspec-file-lambda "#add-appspec-file-lambda")
+- [Add an AppSpec file for an EC2/On-Premises deployment](#add-appspec-file-server "#add-appspec-file-server")
 
-## Add an AppSpec file for an Amazon ECS
-
-deployment
+## Add an AppSpec file for an Amazon ECS deployment
 
 For a deployment to an Amazon ECS compute platform:
 
@@ -27,8 +20,7 @@ For a deployment to an Amazon ECS compute platform:
 - A revision is the same as an AppSpec file.
 - An AppSpec file can be written using JSON or YAML.
 - An AppSpec file can be saved as a text file or entered directly into a console when
-  you create a deployment. For more information, see [Create an
-  Amazon ECS Compute Platform deployment (console)](deployments-create-console-ecs.md "deployments-create-console-ecs.md").
+  you create a deployment. For more information, see [Create an Amazon ECS Compute Platform deployment (console)](deployments-create-console-ecs.md "deployments-create-console-ecs.md").
 
 **To create an AppSpec file**
 
@@ -42,14 +34,11 @@ For a deployment to an Amazon ECS compute platform:
    deployment, reference the AppSpec file if it's on your hard drive or in an Amazon S3 bucket.
    If you use the console, you must push your AppSpec file to Amazon S3.
 
-### YAML AppSpec file template for an Amazon ECS
-
-deployment with instructions
+### YAML AppSpec file template for an Amazon ECS deployment with instructions
 
 The following is a YAML template of an AppSpec file for an Amazon ECS deployment with all
 available options. For information about lifecycle events to use in the `hooks`
-section, see [AppSpec 'hooks' section for an Amazon ECS
-deployment](reference-appspec-file-structure-hooks.md#appspec-hooks-ecs "reference-appspec-file-structure-hooks.md#appspec-hooks-ecs").
+section, see [AppSpec 'hooks' section for an Amazon ECS deployment](reference-appspec-file-structure-hooks.md#appspec-hooks-ecs "reference-appspec-file-structure-hooks.md#appspec-hooks-ecs").
 
 ```
 # This is an appspec.yml template file for use with an Amazon ECS deployment in CodeDeploy.
@@ -89,15 +78,12 @@ Hooks:
     - AfterAllowTraffic: "" # Specify a Lambda function name or ARN
 ```
 
-### JSON AppSpec file for an Amazon ECS deployment
-
-template
+### JSON AppSpec file for an Amazon ECS deployment template
 
 The following is a JSON template for an AppSpec file for an Amazon ECS deployment with all
 available options. For template instructions, refer to comments in the YAML version in the
 previous section. For information about lifecycle events to use in the `hooks`
-section, see [AppSpec 'hooks' section for an Amazon ECS
-deployment](reference-appspec-file-structure-hooks.md#appspec-hooks-ecs "reference-appspec-file-structure-hooks.md#appspec-hooks-ecs").
+section, see [AppSpec 'hooks' section for an Amazon ECS deployment](reference-appspec-file-structure-hooks.md#appspec-hooks-ecs "reference-appspec-file-structure-hooks.md#appspec-hooks-ecs").
 
 ```
 {
@@ -150,9 +136,7 @@ deployment](reference-appspec-file-structure-hooks.md#appspec-hooks-ecs "referen
 }
 ```
 
-## Add an AppSpec file for an AWS Lambda
-
-deployment
+## Add an AppSpec file for an AWS Lambda deployment
 
 For a deployment to an AWS Lambda compute platform:
 
@@ -161,8 +145,7 @@ For a deployment to an AWS Lambda compute platform:
 - A revision is the same as an AppSpec file.
 - An AppSpec file can be written using JSON or YAML.
 - An AppSpec file can be saved as a text file or entered directly into a console
-  AppSpec editor when creating a deployment. For more information, see [Create an
-  AWS Lambda Compute Platform deployment (console)](deployments-create-console-lambda.md "deployments-create-console-lambda.md").
+  AppSpec editor when creating a deployment. For more information, see [Create an AWS Lambda Compute Platform deployment (console)](deployments-create-console-lambda.md "deployments-create-console-lambda.md").
 
 To create an AppSpec file:
 
@@ -176,12 +159,9 @@ To create an AppSpec file:
    deployment, reference the AppSpec file if it's on your hard drive or in an Amazon S3 bucket.
    If you use the console, you must push your AppSpec file to Amazon S3.
 
-### YAML AppSpec file template for an AWS Lambda
+### YAML AppSpec file template for an AWS Lambda deployment with instructions
 
-deployment with instructions
-
-For information about lifecycle events to use in the hooks section, see [AppSpec 'hooks' section for an
-AWS Lambda deployment](reference-appspec-file-structure-hooks.md#appspec-hooks-lambda "reference-appspec-file-structure-hooks.md#appspec-hooks-lambda").
+For information about lifecycle events to use in the hooks section, see [AppSpec 'hooks' section for an AWS Lambda deployment](reference-appspec-file-structure-hooks.md#appspec-hooks-lambda "reference-appspec-file-structure-hooks.md#appspec-hooks-lambda").
 
 ```
 # This is an appspec.yml template file for use with an AWS Lambda deployment in CodeDeploy.
@@ -209,16 +189,13 @@ Hooks:
     - LifeCycleEvent: "" # Specify a Lambda validation function between double-quotes.
 ```
 
-### JSON AppSpec file for an AWS Lambda deployment
-
-template
+### JSON AppSpec file for an AWS Lambda deployment template
 
 In the following template, replace "MyFunction" with the name of your AWS Lambda
 function. In the optional Hooks section, replace the lifecycle events with
 BeforeAllowTraffic or AfterAllowTraffic.
 
-For information about lifecycle events to use in the Hooks section, see [AppSpec 'hooks' section for an
-AWS Lambda deployment](reference-appspec-file-structure-hooks.md#appspec-hooks-lambda "reference-appspec-file-structure-hooks.md#appspec-hooks-lambda").
+For information about lifecycle events to use in the Hooks section, see [AppSpec 'hooks' section for an AWS Lambda deployment](reference-appspec-file-structure-hooks.md#appspec-hooks-lambda "reference-appspec-file-structure-hooks.md#appspec-hooks-lambda").
 
 ```
 {
@@ -241,9 +218,7 @@ AWS Lambda deployment](reference-appspec-file-structure-hooks.md#appspec-hooks-l
  }
 ```
 
-## Add an AppSpec file for an EC2/On-Premises
-
-deployment
+## Add an AppSpec file for an EC2/On-Premises deployment
 
 Without an AppSpec file, CodeDeploy cannot map the source files in your application revision
 to their destinations or run scripts for your deployment to an EC2/On-Premises compute platform,
@@ -278,12 +253,9 @@ To add an AppSpec file to a revision:
 
 6. Push the revision to Amazon S3 or GitHub.
 
-For instructions, see [Push a revision for CodeDeploy to Amazon S3
-(EC2/On-Premises deployments only)](application-revisions-push.md "application-revisions-push.md").
+For instructions, see [Push a revision for CodeDeploy to Amazon S3 (EC2/On-Premises deployments only)](application-revisions-push.md "application-revisions-push.md").
 
-### AppSpec file template for an EC2/On-Premises
-
-deployment with instructions
+### AppSpec file template for an EC2/On-Premises deployment with instructions
 
 ###### Note
 

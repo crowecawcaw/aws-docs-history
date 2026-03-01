@@ -1,6 +1,4 @@
-# Create an application for an in-place
-
-deployment (console)
+# Create an application for an in-place deployment (console)
 
 To use the CodeDeploy console to create an application for an in-place deployment:
 
@@ -17,8 +15,7 @@ Do not follow these steps if:
   steps in this topic.
 - You do not have a service role that trusts CodeDeploy with the minimum required
   trust and permissions. To create and configure a service role with the
-  required permissions, follow the instructions in [Step 2: Create a service role for
-  CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md"), and then return
+  required permissions, follow the instructions in [Step 2: Create a service role for CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md"), and then return
   to the steps in this topic.
 - You want to select a Classic Load Balancer, Application Load Balancer, or Network Load Balancer in Elastic Load Balancing for the in-place
   deployment, but have not yet created it.
@@ -92,8 +89,7 @@ following:
 12. In **Deployment settings**, choose a deployment configuration
     to control the rate your application is deployed to instances, such as one at a
     time or all at once. For more information about deployment configurations, see
-    [Working with deployment configurations in
-    CodeDeploy](deployment-configurations.md "deployment-configurations.md").
+    [Working with deployment configurations in CodeDeploy](deployment-configurations.md "deployment-configurations.md").
 13. (Optional) In **Load balancer**, select **Enable load
     balancing**, and then from the lists, select the Classic Load Balancers, Application Load Balancer
     target groups, and Network Load Balancer target groups to manage traffic to the instances during
@@ -112,7 +108,6 @@ For more information about load balancers for CodeDeploy deployments, see [Integ
 want to include in the deployment, such as Amazon SNS notification triggers, Amazon CloudWatch
 alarms, or automatic rollbacks.
 
-For more information, see [Configure advanced options
-for a deployment group](deployment-groups-configure-advanced-options.md "deployment-groups-configure-advanced-options.md"). 15. Choose **Create deployment group**.
+For more information, see [Configure advanced options for a deployment group](deployment-groups-configure-advanced-options.md "deployment-groups-configure-advanced-options.md"). 15. Choose **Create deployment group**.
 The next step is to prepare a revision to deploy to the application and deployment
 group. For instructions, see [Working with application revisions for CodeDeploy](application-revisions.md "application-revisions.md").

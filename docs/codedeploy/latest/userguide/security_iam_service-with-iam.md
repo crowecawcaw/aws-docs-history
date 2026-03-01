@@ -1,6 +1,4 @@
-# How AWS CodeDeploy works with
-
-IAM
+# How AWS CodeDeploy works with IAM
 
 Before you use IAM to manage access to CodeDeploy, you should understand which
 IAM features are available to use with CodeDeploy. For more information, see
@@ -10,17 +8,12 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [CodeDeploy
-  identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
+- [CodeDeploy identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
 - [CodeDeploy resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
-- [Authorization based on
-  CodeDeploy tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
-- [CodeDeploy IAM
-  roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
+- [Authorization based on CodeDeploy tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
+- [CodeDeploy IAM roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
 
-## CodeDeploy
-
-identity-based policies
+## CodeDeploy identity-based policies
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources and the conditions under which actions are allowed or denied.
@@ -65,8 +58,7 @@ For a list of CodeDeploy actions, see [Actions Defined by AWS CodeDeploy](../../
 _IAM User Guide_.
 
 For a table that lists all of the CodeDeploy API actions and the resources
-they apply to, see [CodeDeploy
-permissions reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").
+they apply to, see [CodeDeploy permissions reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").
 
 ### Resources
 
@@ -110,8 +102,7 @@ single statement, separate their ARNs with commas, as follows:
 ```
 
 CodeDeploy provides a set of operations to work with the CodeDeploy
-resources. For a list of available operations, see [CodeDeploy
-permissions reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").
+resources. For a list of available operations, see [CodeDeploy permissions reference](auth-and-access-control-permissions-reference.md "auth-and-access-control-permissions-reference.md").
 
 For a list of CodeDeploy resource types and their ARNs, see
 [Resources Defined by AWS CodeDeploy](../../../IAM/latest/UserGuide/list_awscodedeploy.md "../../../IAM/latest/UserGuide/list_awscodedeploy.md") in the _IAM User Guide_. For
@@ -157,31 +148,24 @@ _IAM User Guide_.
 
 ### Examples
 
-To view examples of CodeDeploy identity-based policies, see [AWS CodeDeploy
-identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of CodeDeploy identity-based policies, see [AWS CodeDeploy identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## CodeDeploy resource-based policies
 
 CodeDeploy does not support resource-based policies. To view an example of a
 detailed resource-based policy page, see [Using resource-based policies for AWS Lambda](../../../lambda/latest/dg/access-control-resource-based.md "../../../lambda/latest/dg/access-control-resource-based.md").
 
-## Authorization based on
-
-CodeDeploy tags
+## Authorization based on CodeDeploy tags
 
 CodeDeploy does not support tagging resources or controlling access based on
 tags.
 
-## CodeDeploy IAM
-
-roles
+## CodeDeploy IAM roles
 
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity in
 your AWS account that has specific permissions.
 
-### Using temporary
-
-credentials with CodeDeploy
+### Using temporary credentials with CodeDeploy
 
 You can use temporary credentials to sign in with federation, assume an IAM
 role, or to assume a cross-account role. You obtain temporary security
@@ -193,9 +177,7 @@ CodeDeploy supports the use of temporary credentials.
 
 CodeDeploy does not support service-linked roles.
 
-### Service
-
-roles
+### Service roles
 
 This feature allows a service to assume a [service role](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-role") on your behalf. This role allows the service to access
 resources in other services to complete an action on your behalf. Service roles
@@ -205,9 +187,7 @@ functionality of the service.
 
 CodeDeploy supports service roles.
 
-### Choosing an IAM
-
-role in CodeDeploy
+### Choosing an IAM role in CodeDeploy
 
 When you create a deployment group resource in CodeDeploy, you must
 choose a role to allow CodeDeploy to access Amazon EC2 on your behalf. If you

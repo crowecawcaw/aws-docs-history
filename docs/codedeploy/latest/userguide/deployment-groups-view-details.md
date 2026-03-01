@@ -1,20 +1,14 @@
-# View deployment group details with
-
-CodeDeploy
+# View deployment group details with CodeDeploy
 
 You can use the CodeDeploy console, the AWS CLI, or the CodeDeploy APIs to view details about all
 deployment groups associated with an application.
 
 ###### Topics
 
-- [View deployment group details
-  (console)](#deployment-groups-view-details-console "#deployment-groups-view-details-console")
-- [View deployment group details
-  (CLI)](#deployment-groups-view-details-cli "#deployment-groups-view-details-cli")
+- [View deployment group details (console)](#deployment-groups-view-details-console "#deployment-groups-view-details-console")
+- [View deployment group details (CLI)](#deployment-groups-view-details-cli "#deployment-groups-view-details-cli")
 
-## View deployment group details
-
-(console)
+## View deployment group details (console)
 
 To use the CodeDeploy console to view deployment group details:
 
@@ -33,9 +27,7 @@ _AWS General Reference_. CodeDeploy is supported in these regions only. 4. To vi
 **Deployment groups** tab, choose the name of the
 deployment group.
 
-## View deployment group details
-
-(CLI)
+## View deployment group details (CLI)
 
 To use the AWS CLI to view deployment group details, call either the
 `get-deployment-group` command or the `list-deployment-groups`

@@ -1,12 +1,9 @@
-# Install the CodeDeploy agent for
-
-Ubuntu Server
+# Install the CodeDeploy agent for Ubuntu Server
 
 ###### Note
 
 We recommend installing the CodeDeploy agent with AWS Systems Manager to be able to configure
-scheduled updates of the agent. For more information, see [Install the CodeDeploy agent using
-AWS Systems Manager](codedeploy-agent-operations-install-ssm.md "codedeploy-agent-operations-install-ssm.md").
+scheduled updates of the agent. For more information, see [Install the CodeDeploy agent using AWS Systems Manager](codedeploy-agent-operations-install-ssm.md "codedeploy-agent-operations-install-ssm.md").
 
 ###### To install the CodeDeploy agent on Ubuntu Server
 

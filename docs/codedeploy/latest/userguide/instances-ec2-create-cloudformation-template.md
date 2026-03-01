@@ -1,6 +1,4 @@
-# Create an Amazon EC2 instance for
-
-CodeDeploy (CloudFormation template)
+# Create an Amazon EC2 instance for CodeDeploy (CloudFormation template)
 
 You can use our CloudFormation template to quickly launch an Amazon EC2 instance running Amazon Linux or Windows Server.
 You can use the AWS CLI, the CodeDeploy console, or the AWS APIs to launch the instance with the
@@ -18,10 +16,8 @@ We do not provide an CloudFormation template for Amazon EC2 instances running Ub
 ###### Topics
 
 - [Before you begin](#instances-ec2-create-cloudformation-template-before "#instances-ec2-create-cloudformation-template-before")
-- [Launch an Amazon EC2
-  instance with the CloudFormation template (console)](#instances-ec2-create-cloudformation-template-console "#instances-ec2-create-cloudformation-template-console")
-- [Launch an Amazon EC2 instance
-  with the CloudFormation template (AWS CLI)](#instances-ec2-create-cloudformation-template-cli "#instances-ec2-create-cloudformation-template-cli")
+- [Launch an Amazon EC2 instance with the CloudFormation template (console)](#instances-ec2-create-cloudformation-template-console "#instances-ec2-create-cloudformation-template-console")
+- [Launch an Amazon EC2 instance with the CloudFormation template (AWS CLI)](#instances-ec2-create-cloudformation-template-cli "#instances-ec2-create-cloudformation-template-cli")
 
 ## Before you begin
 
@@ -56,9 +52,7 @@ in [Region and endpoints](../../../general/latest/gr/rande.md#codedeploy_region 
 _AWS General Reference_. Otherwise, you can't use the instance key pair with
 CodeDeploy.
 
-## Launch an Amazon EC2
-
-instance with the CloudFormation template (console)
+## Launch an Amazon EC2 instance with the CloudFormation template (console)
 
 1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
@@ -141,9 +135,7 @@ console, **CREATE_COMPLETE** will be displayed in the
 To verify the CodeDeploy agent is running on the Amazon EC2 instances, see [Managing CodeDeploy agent operations](codedeploy-agent-operations.md "codedeploy-agent-operations.md"), and
 then proceed to [Create an application with CodeDeploy](applications-create.md "applications-create.md").
 
-## Launch an Amazon EC2 instance
-
-with the CloudFormation template (AWS CLI)
+## Launch an Amazon EC2 instance with the CloudFormation template (AWS CLI)
 
 1. Use our CloudFormation template in a call to the **create-stack** command. This
    stack will launch a new Amazon EC2 instance with the CodeDeploy agent installed.

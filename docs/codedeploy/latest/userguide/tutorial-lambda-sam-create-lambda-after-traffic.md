@@ -1,6 +1,4 @@
-# Create a file for your
-
-AfterAllowTraffic Lambda function
+# Create a file for your AfterAllowTraffic Lambda function
 
 Create the file for your `afterAllowTraffic` hook Lambda function.
 

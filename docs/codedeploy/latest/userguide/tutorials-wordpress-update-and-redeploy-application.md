@@ -1,6 +1,4 @@
-# Step 5: Update and
-
-redeploy your WordPress application
+# Step 5: Update and redeploy your WordPress application
 
 Now that you've successfully deployed your application revision, update the WordPress code
 on the development machine, and then use CodeDeploy to redeploy the site. Afterward, you should see
@@ -9,10 +7,8 @@ the code changes on the Amazon EC2 instance.
 ###### Topics
 
 - [Set up the WordPress site](#tutorials-wordpress-update-and-redeploy-application-configure-and-install "#tutorials-wordpress-update-and-redeploy-application-configure-and-install")
-- [Modify the
-  site](#tutorials-wordpress-update-and-redeploy-application-modify-code "#tutorials-wordpress-update-and-redeploy-application-modify-code")
-- [Redeploy
-  the site](#tutorials-wordpress-update-and-redeploy-application-deploy-updates "#tutorials-wordpress-update-and-redeploy-application-deploy-updates")
+- [Modify the site](#tutorials-wordpress-update-and-redeploy-application-modify-code "#tutorials-wordpress-update-and-redeploy-application-modify-code")
+- [Redeploy the site](#tutorials-wordpress-update-and-redeploy-application-deploy-updates "#tutorials-wordpress-update-and-redeploy-application-deploy-updates")
 
 ## Set up the WordPress site
 
@@ -53,9 +49,7 @@ to it:
 chmod -R 755 /var/www/html/WordPress
 ```
 
-## Modify the
-
-site
+## Modify the site
 
 To modify the WordPress site, go to the application's folder on your development
 machine:
@@ -83,14 +77,11 @@ On macOS, Unix, or other systems with BSD **sed**, use:
 sed -i '' 's/#fff/#768331/g' wp-content/themes/twentyfifteen/style.css
 ```
 
-## Redeploy
-
-the site
+## Redeploy the site
 
 Now that you've modified the site's code, use Amazon S3 and CodeDeploy to redeploy the site.
 
-Bundle and upload the changes to Amazon S3, as described in [Bundle the
-application's files into a single archive file and push the archive file](tutorials-wordpress-upload-application.md#tutorials-wordpress-upload-application-bundle-and-push-archive "tutorials-wordpress-upload-application.md#tutorials-wordpress-upload-application-bundle-and-push-archive"). (As you
+Bundle and upload the changes to Amazon S3, as described in [Bundle the application's files into a single archive file and push the archive file](tutorials-wordpress-upload-application.md#tutorials-wordpress-upload-application-bundle-and-push-archive "tutorials-wordpress-upload-application.md#tutorials-wordpress-upload-application-bundle-and-push-archive"). (As you
 follow those instructions, remember that you do not need to create an application.) Give the
 new revision the same key as before
 (`WordPressApp.zip`). Upload it to the same Amazon S3
@@ -101,13 +92,10 @@ Use the AWS CLI, the CodeDeploy console, or the CodeDeploy APIs to redeploy the 
 
 ###### Topics
 
-- [To
-  redeploy the site (CLI)](#tutorials-wordpress-update-and-redeploy-application-deploy-updates-cli "#tutorials-wordpress-update-and-redeploy-application-deploy-updates-cli")
+- [To redeploy the site (CLI)](#tutorials-wordpress-update-and-redeploy-application-deploy-updates-cli "#tutorials-wordpress-update-and-redeploy-application-deploy-updates-cli")
 - [To redeploy the site (console)](#tutorials-wordpress-update-and-redeploy-application-deploy-updates-console "#tutorials-wordpress-update-and-redeploy-application-deploy-updates-console")
 
-### To
-
-redeploy the site (CLI)
+### To redeploy the site (CLI)
 
 Call the **create-deployment** command to create a deployment based on
 the newly uploaded revision. Use the application named
@@ -125,8 +113,7 @@ the newly uploaded revision. Use the application named
   --s3-location bucket=amzn-s3-demo-bucket,bundleType=zip,key=WordPressApp.zip
 ```
 
-You can check the status of the deployment, as described in [Monitor and troubleshoot your
-deployment](tutorials-wordpress-deploy-application.md#tutorials-wordpress-deploy-application-monitor "tutorials-wordpress-deploy-application.md#tutorials-wordpress-deploy-application-monitor").
+You can check the status of the deployment, as described in [Monitor and troubleshoot your deployment](tutorials-wordpress-deploy-application.md#tutorials-wordpress-deploy-application-monitor "tutorials-wordpress-deploy-application.md#tutorials-wordpress-deploy-application-monitor").
 
 After CodeDeploy has redeployed the site, revisit the site in your web browser to verify the
 colors have been changed. (You might need to refresh your browser.) If the colors have been
@@ -170,8 +157,7 @@ Sign in with the same user that you set up in [Getting started with CodeDeploy](
      **CodeDeployDefault.OneAtATime**.
     6. Choose **Start deployment**. Information about your newly
      created deployment appears on the **Deployments** page.
-    7. You can check the status of the deployment, as described in [Monitor and troubleshoot your
-     deployment](tutorials-wordpress-deploy-application.md#tutorials-wordpress-deploy-application-monitor "tutorials-wordpress-deploy-application.md#tutorials-wordpress-deploy-application-monitor").
+    7. You can check the status of the deployment, as described in [Monitor and troubleshoot your deployment](tutorials-wordpress-deploy-application.md#tutorials-wordpress-deploy-application-monitor "tutorials-wordpress-deploy-application.md#tutorials-wordpress-deploy-application-monitor").
 
 
     After CodeDeploy has redeployed the site, revisit the site in your web browser to

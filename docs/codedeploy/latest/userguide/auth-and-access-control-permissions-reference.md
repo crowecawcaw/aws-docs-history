@@ -1,6 +1,4 @@
-# CodeDeploy
-
-permissions reference
+# CodeDeploy permissions reference
 
 Use the following table when you are setting up access and writing permissions
 policies that you can attach to an IAM identity (identity-based policies). The table

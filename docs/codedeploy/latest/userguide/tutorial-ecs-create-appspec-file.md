@@ -3,9 +3,7 @@
 In this section, you create your AppSpec file and upload it to the Amazon S3 bucket you
 created in the [Prerequisites](tutorial-ecs-prereqs.md "tutorial-ecs-prereqs.md")
 section. The AppSpec file for an Amazon ECS deployment specifies your task definition, container
-name, and container port. For more information, see [AppSpec File example for an
-Amazon ECS deployment](reference-appspec-file-example.md#appspec-file-example-ecs "reference-appspec-file-example.md#appspec-file-example-ecs") and [AppSpec 'resources'
-section for Amazon ECS deployments](reference-appspec-file-structure-resources.md#reference-appspec-file-structure-resources-ecs "reference-appspec-file-structure-resources.md#reference-appspec-file-structure-resources-ecs").
+name, and container port. For more information, see [AppSpec File example for an Amazon ECS deployment](reference-appspec-file-example.md#appspec-file-example-ecs "reference-appspec-file-example.md#appspec-file-example-ecs") and [AppSpec 'resources' section for Amazon ECS deployments](reference-appspec-file-structure-resources.md#reference-appspec-file-structure-resources-ecs "reference-appspec-file-structure-resources.md#reference-appspec-file-structure-resources-ecs").
 
 ###### To create your AppSpec file
 
@@ -14,8 +12,7 @@ section for Amazon ECS deployments](reference-appspec-file-structure-resources.m
    create a file named `appspec.json`.
 2. Choose the appropriate tab, depending on if you use YAML or JSON for your
    AppSpec file, and copy its content into the AppSpec file you just created. For the
-   `TaskDefinition` property, use the task definition ARN you noted in [Step 1: Update your Amazon ECS
-   application](tutorial-ecs-update-the-ecs-application.md "tutorial-ecs-update-the-ecs-application.md") section.
+   `TaskDefinition` property, use the task definition ARN you noted in [Step 1: Update your Amazon ECS application](tutorial-ecs-update-the-ecs-application.md "tutorial-ecs-update-the-ecs-application.md") section.
 
 JSON AppSpec
 
@@ -58,7 +55,5 @@ Resources:
 Your replacement task set inherits the subnet, security group, platform version,
 and assigned public IP values from your original task set. You can override these values
 for your replacement task set by setting their optional properties in your
-AppSpec file. For more information, see [AppSpec 'resources'
-section for Amazon ECS deployments](reference-appspec-file-structure-resources.md#reference-appspec-file-structure-resources-ecs "reference-appspec-file-structure-resources.md#reference-appspec-file-structure-resources-ecs") and [AppSpec File example for an
-Amazon ECS deployment](reference-appspec-file-example.md#appspec-file-example-ecs "reference-appspec-file-example.md#appspec-file-example-ecs") . 3. Upload your AppSpec file to the S3 bucket you created as a prerequisite for this
+AppSpec file. For more information, see [AppSpec 'resources' section for Amazon ECS deployments](reference-appspec-file-structure-resources.md#reference-appspec-file-structure-resources-ecs "reference-appspec-file-structure-resources.md#reference-appspec-file-structure-resources-ecs") and [AppSpec File example for an Amazon ECS deployment](reference-appspec-file-example.md#appspec-file-example-ecs "reference-appspec-file-example.md#appspec-file-example-ecs"). 3. Upload your AppSpec file to the S3 bucket you created as a prerequisite for this
 tutorial.

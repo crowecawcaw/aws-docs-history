@@ -1,6 +1,4 @@
-# Grant Amazon SNS
-
-permissions to a CodeDeploy service role
+# Grant Amazon SNS permissions to a CodeDeploy service role
 
 Before your triggers can generate notifications, the service role you use in your
 CodeDeploy operations must be granted permission to access the Amazon SNS resources.

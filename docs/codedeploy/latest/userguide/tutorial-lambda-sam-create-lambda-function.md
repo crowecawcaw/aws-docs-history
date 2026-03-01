@@ -1,6 +1,4 @@
-# Create a file for your Lambda
-
-function
+# Create a file for your Lambda function
 
 Create the file for the function you update and deploy later in this tutorial.
 

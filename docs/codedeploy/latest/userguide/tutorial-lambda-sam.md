@@ -1,6 +1,4 @@
-# Tutorial: Deploy an updated Lambda function with CodeDeploy and
-
-the AWS Serverless Application Model
+# Tutorial: Deploy an updated Lambda function with CodeDeploy and the AWS Serverless Application Model
 
 AWS SAM is an open-source framework for building serverless applications. It
 transforms and expands YAML syntax in a AWS SAM template into CloudFormation syntax to build serverless
@@ -27,12 +25,8 @@ information, see [CodeDeploy pricing](https://aws.amazon.com/codedeploy/pricing/
 ###### Topics
 
 - [Prerequisites](tutorial-lambda-sam-prereqs.md "tutorial-lambda-sam-prereqs.md")
-- [Step 1: Set up your
-  infrastructure](tutorial-lambda-sam-setup-infrastructure.md "tutorial-lambda-sam-setup-infrastructure.md")
-- [Step 2: Update the Lambda
-  function](tutorial-lambda-sam-update-function.md "tutorial-lambda-sam-update-function.md")
-- [Step 3: Deploy the updated Lambda
-  function](tutorial-lambda-sam-deploy-update.md "tutorial-lambda-sam-deploy-update.md")
-- [Step 4: View your deployment
-  results](tutorial-lambda-sam-deploy-view-results.md "tutorial-lambda-sam-deploy-view-results.md")
+- [Step 1: Set up your infrastructure](tutorial-lambda-sam-setup-infrastructure.md "tutorial-lambda-sam-setup-infrastructure.md")
+- [Step 2: Update the Lambda function](tutorial-lambda-sam-update-function.md "tutorial-lambda-sam-update-function.md")
+- [Step 3: Deploy the updated Lambda function](tutorial-lambda-sam-deploy-update.md "tutorial-lambda-sam-deploy-update.md")
+- [Step 4: View your deployment results](tutorial-lambda-sam-deploy-view-results.md "tutorial-lambda-sam-deploy-view-results.md")
 - [Step 5: Clean up](tutorial-lambda-clean-up.md "tutorial-lambda-clean-up.md")

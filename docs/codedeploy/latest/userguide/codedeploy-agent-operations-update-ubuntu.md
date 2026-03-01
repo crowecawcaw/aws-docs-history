@@ -1,6 +1,4 @@
-# Update the CodeDeploy agent on
-
-Ubuntu Server
+# Update the CodeDeploy agent on Ubuntu Server
 
 To configure automatic, scheduled updates of the CodeDeploy agent using AWS Systems Manager, follow the
 steps in [Install the

@@ -32,12 +32,9 @@ instances for a deployment group.
 ###### Topics
 
 - [Example 1: Single tag group, single tag](#instances-tagging-example-1 "#instances-tagging-example-1")
-- [Example 2: Single tag group, multiple
-  tags](#instances-tagging-example-2 "#instances-tagging-example-2")
-- [Example 3: Multiple tag groups, single
-  tags](#instances-tagging-example-3 "#instances-tagging-example-3")
-- [Example 4: Multiple tag groups, multiple
-  tags](#instances-tagging-example-4 "#instances-tagging-example-4")
+- [Example 2: Single tag group, multiple tags](#instances-tagging-example-2 "#instances-tagging-example-2")
+- [Example 3: Multiple tag groups, single tags](#instances-tagging-example-3 "#instances-tagging-example-3")
+- [Example 4: Multiple tag groups, multiple tags](#instances-tagging-example-4 "#instances-tagging-example-4")
 
 ## Example 1: Single tag group, single tag
 
@@ -70,9 +67,7 @@ JSON structure:
       },
 ```
 
-## Example 2: Single tag group, multiple
-
-tags
+## Example 2: Single tag group, multiple tags
 
 You can also specify multiple tags in a single tag group:
 
@@ -116,9 +111,7 @@ JSON structure:
       },
 ```
 
-## Example 3: Multiple tag groups, single
-
-tags
+## Example 3: Multiple tag groups, single tags
 
 You can also use multiple sets of tag groups with a single key-value pair in each to
 specify the criteria for instances in a deployment group. When you use multiple tag groups in
@@ -175,9 +168,7 @@ JSON structure:
       },
 ```
 
-## Example 4: Multiple tag groups, multiple
-
-tags
+## Example 4: Multiple tag groups, multiple tags
 
 When you use multiple tag groups with multiple tags in one or more group, an instance must
 match at least one of the tags in each of the groups.

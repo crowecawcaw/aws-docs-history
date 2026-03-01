@@ -1,22 +1,15 @@
-# Step 2: Configure your source content to
-
-be deployed to the Amazon Linux or Red Hat Enterprise Linux Amazon EC2 instance
+# Step 2: Configure your source content to be deployed to the Amazon Linux or Red Hat Enterprise Linux Amazon EC2 instance
 
 Now it's time to configure your application's source content so you have something to deploy
 to the instance.
 
 ###### Topics
 
-- [Get the source
-  code](#tutorials-wordpress-configure-content-download-code "#tutorials-wordpress-configure-content-download-code")
-- [Create scripts to run
-  your application](#tutorials-wordpress-configure-content-create-scripts "#tutorials-wordpress-configure-content-create-scripts")
-- [Add an application
-  specification file](#tutorials-wordpress-configure-content-add-appspec-file "#tutorials-wordpress-configure-content-add-appspec-file")
+- [Get the source code](#tutorials-wordpress-configure-content-download-code "#tutorials-wordpress-configure-content-download-code")
+- [Create scripts to run your application](#tutorials-wordpress-configure-content-create-scripts "#tutorials-wordpress-configure-content-create-scripts")
+- [Add an application specification file](#tutorials-wordpress-configure-content-add-appspec-file "#tutorials-wordpress-configure-content-add-appspec-file")
 
-## Get the source
-
-code
+## Get the source code
 
 For this tutorial, you deploy the WordPress content publishing platform from your
 development machine to the target Amazon EC2 instance. To get the WordPress source code, you can
@@ -34,14 +27,10 @@ Git.
 
 ###### Topics
 
-- [To get a
-  copy of the WordPress source code (built-in command-line calls)](#tutorials-wordpress-configure-content-download-code-command-line "#tutorials-wordpress-configure-content-download-code-command-line")
-- [To get a copy of
-  the WordPress source code (Git)](#tutorials-wordpress-configure-content-download-code-git "#tutorials-wordpress-configure-content-download-code-git")
+- [To get a copy of the WordPress source code (built-in command-line calls)](#tutorials-wordpress-configure-content-download-code-command-line "#tutorials-wordpress-configure-content-download-code-command-line")
+- [To get a copy of the WordPress source code (Git)](#tutorials-wordpress-configure-content-download-code-git "#tutorials-wordpress-configure-content-download-code-git")
 
-### To get a
-
-copy of the WordPress source code (built-in command-line calls)
+### To get a copy of the WordPress source code (built-in command-line calls)
 
 1. Call the **wget** command to download a copy of the WordPress source
    code, as a .zip file, to the current directory:
@@ -85,9 +74,7 @@ rm -f master
 This leaves you with a clean set of WordPress source code files in the
 `/tmp/WordPress` folder.
 
-### To get a copy of
-
-the WordPress source code (Git)
+### To get a copy of the WordPress source code (Git)
 
 1. Download and install [Git](http://git-scm.com "http://git-scm.com") on your development
    machine.
@@ -104,9 +91,7 @@ git clone https://github.com/WordPress/WordPress.git /tmp/WordPress
 This leaves you with a clean set of WordPress source code files in the
 `/tmp/WordPress` folder.
 
-## Create scripts to run
-
-your application
+## Create scripts to run your application
 
 Next, create a folder and scripts in the directory. CodeDeploy uses these scripts to set up and
 deploy your application revision on the target Amazon EC2 instance. You can use any text editor to
@@ -185,8 +170,7 @@ CREATE_TEST_DB
 
 This script updated permissions on the `/tmp/WordPress` folder
 so that anyone can write to it. This is required so that WordPress can write to its
-database during [Step 5: Update and
-redeploy your WordPress application](tutorials-wordpress-update-and-redeploy-application.md "tutorials-wordpress-update-and-redeploy-application.md"). After the
+database during [Step 5: Update and redeploy your WordPress application](tutorials-wordpress-update-and-redeploy-application.md "tutorials-wordpress-update-and-redeploy-application.md"). After the
 WordPress application is set up, run the following command to update permissions to a
 more secure setting:
 
@@ -207,9 +191,7 @@ chmod -R 777 /var/www/html/WordPress
 chmod +x /tmp/WordPress/scripts/*
 ```
 
-## Add an application
-
-specification file
+## Add an application specification file
 
 Next, add an application specification file (AppSpec file), a [YAML](http://www.yaml.org "http://www.yaml.org")-formatted file used by CodeDeploy to:
 

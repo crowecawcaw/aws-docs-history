@@ -1,6 +1,4 @@
-# Install the CodeDeploy agent for
-
-Windows Server
+# Install the CodeDeploy agent for Windows Server
 
 On Windows Server instances, you can use one of these methods to download and install the
 CodeDeploy agent:
@@ -19,22 +17,16 @@ symlinks on this path.
 ###### Topics
 
 - [Use Systems Manager](#codedeploy-agent-operations-install-system-manager "#codedeploy-agent-operations-install-system-manager")
-- [Use Windows
-  PowerShell](#codedeploy-agent-operations-install-windows-powershell "#codedeploy-agent-operations-install-windows-powershell")
-- [Use a direct
-  link](#codedeploy-agent-operations-install-windows-direct-link "#codedeploy-agent-operations-install-windows-direct-link")
-- [Use an Amazon S3 copy
-  command](#codedeploy-agent-operations-install-windows-s3-copy "#codedeploy-agent-operations-install-windows-s3-copy")
+- [Use Windows PowerShell](#codedeploy-agent-operations-install-windows-powershell "#codedeploy-agent-operations-install-windows-powershell")
+- [Use a direct link](#codedeploy-agent-operations-install-windows-direct-link "#codedeploy-agent-operations-install-windows-direct-link")
+- [Use an Amazon S3 copy command](#codedeploy-agent-operations-install-windows-s3-copy "#codedeploy-agent-operations-install-windows-s3-copy")
 
 ## Use Systems Manager
 
-Follow the instructions in [Install the CodeDeploy agent using
-AWS Systems Manager](codedeploy-agent-operations-install-ssm.md "codedeploy-agent-operations-install-ssm.md") to install the CodeDeploy
+Follow the instructions in [Install the CodeDeploy agent using AWS Systems Manager](codedeploy-agent-operations-install-ssm.md "codedeploy-agent-operations-install-ssm.md") to install the CodeDeploy
 agent.
 
-## Use Windows
-
-PowerShell
+## Use Windows PowerShell
 
 Sign in to the instance, and run the following commands in Windows
 PowerShell:
@@ -121,9 +113,7 @@ Status     Name                DisplayName
 Running    codedeployagent    CodeDeploy Host Agent Service
 ```
 
-## Use a direct
-
-link
+## Use a direct link
 
 If the browser security settings on the Windows Server instance
 provide the permissions (for example, to `https://s3.*.amazonaws.com`), you
@@ -152,9 +142,7 @@ application. Choosing a different Region may cause `inconsistent region`
 failures in the `codedeploy-agent-log` file when you run the
 `.msi` file.
 
-## Use an Amazon S3 copy
-
-command
+## Use an Amazon S3 copy command
 
 If the AWS CLI is installed on the instance, you can use the Amazon S3 [cp](../../../cli/latest/reference/s3/cp.md "../../../cli/latest/reference/s3/cp.md") command to download the CodeDeploy agent and then
 run the installer manually. For information, see [Install the AWS Command Line Interface on Microsoft

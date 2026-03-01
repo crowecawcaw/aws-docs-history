@@ -1,9 +1,6 @@
-# Specify information about a
+# Specify information about a revision stored in a GitHub repository
 
-revision stored in a GitHub repository
-
-If you are following the steps in [Create an
-EC2/On-Premises Compute Platform deployment (console)](deployments-create-console.md "deployments-create-console.md"), follow these steps to add details
+If you are following the steps in [Create an EC2/On-Premises Compute Platform deployment (console)](deployments-create-console.md "deployments-create-console.md"), follow these steps to add details
 about an application revision stored in a GitHub repository.
 
 1. In **Connect to GitHub**, do one of the following:

@@ -1,40 +1,29 @@
-# Deployments on an
-
-EC2/On-Premises Compute Platform
+# Deployments on an EC2/On-Premises Compute Platform
 
 This topic provides information about the components and workflow of CodeDeploy deployments
 that use the EC2/On-Premises compute platform. For information about blue/green deployments, see
-[Overview of a blue/green
-deployment](welcome.md#welcome-deployment-overview-blue-green "welcome.md#welcome-deployment-overview-blue-green").
+[Overview of a blue/green deployment](welcome.md#welcome-deployment-overview-blue-green "welcome.md#welcome-deployment-overview-blue-green").
 
 ###### Topics
 
-- [Deployment components on an
-  EC2/on-premises compute platform](#deployment-steps-components-server "#deployment-steps-components-server")
-- [Deployment workflow on an EC2/on-premises
-  compute platform](#deployment-steps-workflow "#deployment-steps-workflow")
+- [Deployment components on an EC2/on-premises compute platform](#deployment-steps-components-server "#deployment-steps-components-server")
+- [Deployment workflow on an EC2/on-premises compute platform](#deployment-steps-workflow "#deployment-steps-workflow")
 - [Setting up instances](#deployment-steps-setting-up-instances "#deployment-steps-setting-up-instances")
-- [Uploading your application
-  revision](#deployment-steps-uploading-your-app "#deployment-steps-uploading-your-app")
-- [Creating your
-  application and deployment groups](#deployment-steps-registering-app-deployment-groups "#deployment-steps-registering-app-deployment-groups")
+- [Uploading your application revision](#deployment-steps-uploading-your-app "#deployment-steps-uploading-your-app")
+- [Creating your application and deployment groups](#deployment-steps-registering-app-deployment-groups "#deployment-steps-registering-app-deployment-groups")
 - [Deploying your application revision](#deployment-steps-deploy "#deployment-steps-deploy")
 - [Updating your application](#deployment-steps-updating-your-app "#deployment-steps-updating-your-app")
 - [Stopped and failed deployments](#deployment-stop-fail "#deployment-stop-fail")
 - [Redeployments and deployment rollbacks](#deployment-rollback "#deployment-rollback")
 
-## Deployment components on an
-
-EC2/on-premises compute platform
+## Deployment components on an EC2/on-premises compute platform
 
 The following diagram shows the components in a CodeDeploy deployment on an EC2/On-Premises
 compute platform.
 
 ![The components in a CodeDeploy deployment on an EC2/On-Premises compute platform.](images/deployment-components-workflow.png)
 
-## Deployment workflow on an EC2/on-premises
-
-compute platform
+## Deployment workflow on an EC2/on-premises compute platform
 
 The following diagram shows the major steps in the deployment of application
 revisions:
@@ -135,9 +124,7 @@ For a blue/green deployment, you can choose between using instances that you alr
 have for the replacement environment or letting CodeDeploy provision new instances for you as
 part of the deployment process.
 
-## Uploading your application
-
-revision
+## Uploading your application revision
 
 Place an AppSpec file under the root folder in your application's source content
 folder structure. For more information, see [Application Specification Files](application-specification-files.md "application-specification-files.md").
@@ -151,9 +138,7 @@ _revision_) to an Amazon S3 bucket or GitHub repository.
 The tar and compressed tar archive file formats (.tar and .tar.gz) are not supported
 for Windows Server instances.
 
-## Creating your
-
-application and deployment groups
+## Creating your application and deployment groups
 
 A CodeDeploy deployment group identifies a collection of instances based on their tags,
 Amazon EC2 Auto Scaling group names, or both. Multiple application revisions can be deployed to the same
@@ -202,9 +187,7 @@ Like stopped deployments, failed deployments might result in some deployment lif
 events having already been run on one or more of the instances in the deployment group. To
 find out why a deployment failed, you can use the CodeDeploy console, call the
 [get-deployment-instance](../../../cli/latest/reference/deploy/get-deployment-instance.md "../../../cli/latest/reference/deploy/get-deployment-instance.md") command, or analyze the log file data from the failed
-deployment. For more information, see [Application revision and log
-file cleanup](codedeploy-agent.md#codedeploy-agent-revisions-logs-cleanup "codedeploy-agent.md#codedeploy-agent-revisions-logs-cleanup") and [View log data for CodeDeploy EC2/On-Premises
-deployments](deployments-view-logs.md "deployments-view-logs.md").
+deployment. For more information, see [Application revision and log file cleanup](codedeploy-agent.md#codedeploy-agent-revisions-logs-cleanup "codedeploy-agent.md#codedeploy-agent-revisions-logs-cleanup") and [View log data for CodeDeploy EC2/On-Premises deployments](deployments-view-logs.md "deployments-view-logs.md").
 
 ## Redeployments and deployment rollbacks
 
@@ -223,5 +206,4 @@ In all cases, the new or rolled-back deployment is assigned its own deployment I
 list of deployments you can view in the CodeDeploy console shows which ones are the result of an
 automatic deployment.
 
-For more information, see [Redeploy and roll back a deployment with
-CodeDeploy](deployments-rollback-and-redeploy.md "deployments-rollback-and-redeploy.md").
+For more information, see [Redeploy and roll back a deployment with CodeDeploy](deployments-rollback-and-redeploy.md "deployments-rollback-and-redeploy.md").

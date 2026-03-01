@@ -1,27 +1,19 @@
-# Deployments on an
-
-AWS Lambda Compute Platform
+# Deployments on an AWS Lambda Compute Platform
 
 This topic provides information about the components and workflow of CodeDeploy deployments
 that use the AWS Lambda compute platform.
 
 ###### Topics
 
-- [Deployment workflow on an AWS Lambda
-  compute platform](#deployment-process-workflow-lambda "#deployment-process-workflow-lambda")
-- [Uploading your application
-  revision](#deployment-steps-uploading-your-app-lambda "#deployment-steps-uploading-your-app-lambda")
-- [Creating your
-  application and deployment groups](#deployment-steps-registering-app-deployment-groups-lambda "#deployment-steps-registering-app-deployment-groups-lambda")
+- [Deployment workflow on an AWS Lambda compute platform](#deployment-process-workflow-lambda "#deployment-process-workflow-lambda")
+- [Uploading your application revision](#deployment-steps-uploading-your-app-lambda "#deployment-steps-uploading-your-app-lambda")
+- [Creating your application and deployment groups](#deployment-steps-registering-app-deployment-groups-lambda "#deployment-steps-registering-app-deployment-groups-lambda")
 - [Deploying your application revision](#deployment-steps-deploy-lambda "#deployment-steps-deploy-lambda")
-- [Updating your
-  application](#deployment-steps-updating-your-app-lambda "#deployment-steps-updating-your-app-lambda")
+- [Updating your application](#deployment-steps-updating-your-app-lambda "#deployment-steps-updating-your-app-lambda")
 - [Stopped and failed deployments](#deployment-stop-fail-lambda "#deployment-stop-fail-lambda")
 - [Redeployments and deployment rollbacks](#deployment-rollback-lambda "#deployment-rollback-lambda")
 
-## Deployment workflow on an AWS Lambda
-
-compute platform
+## Deployment workflow on an AWS Lambda compute platform
 
 The following diagram shows the primary steps in the deployment of new and updated
 AWS Lambda functions.
@@ -51,16 +43,12 @@ These steps include:
    For more information, see [Create a deployment with CodeDeploy](deployments-create.md "deployments-create.md").
 6. Check the deployment results. For more information, see [Monitoring deployments in CodeDeploy](monitoring.md "monitoring.md").
 
-## Uploading your application
-
-revision
+## Uploading your application revision
 
 Place an AppSpec file in Amazon S3 or enter it directly into the console or AWS CLI. For
 more information, see [Application Specification Files](application-specification-files.md "application-specification-files.md").
 
-## Creating your
-
-application and deployment groups
+## Creating your application and deployment groups
 
 A CodeDeploy deployment group on an AWS Lambda compute platform identifies a collection of
 one or more AppSpec files. Each AppSpec file can deploy one Lambda function version. A
@@ -74,9 +62,7 @@ deployment group. You can use the CodeDeploy console or the [create-deployment](
 command. There are parameters you can specify to control your deployment, including the
 revision, deployment group, and deployment configuration.
 
-## Updating your
-
-application
+## Updating your application
 
 You can make updates to your application and then use the CodeDeploy console or call the
 [create-deployment](../../../cli/latest/reference/deploy/create-deployment.md "../../../cli/latest/reference/deploy/create-deployment.md") command to push a revision.
@@ -100,9 +86,7 @@ deployment. When you attempt to stop the deployment, one of three things happens
 Like stopped deployments, failed deployments might result in some deployment lifecycle
 events having already been run. To find out why a deployment failed, you can use the CodeDeploy
 console or analyze the log file data from the failed deployment. For more information, see
-[Application revision and log
-file cleanup](codedeploy-agent.md#codedeploy-agent-revisions-logs-cleanup "codedeploy-agent.md#codedeploy-agent-revisions-logs-cleanup") and [View log data for CodeDeploy EC2/On-Premises
-deployments](deployments-view-logs.md "deployments-view-logs.md").
+[Application revision and log file cleanup](codedeploy-agent.md#codedeploy-agent-revisions-logs-cleanup "codedeploy-agent.md#codedeploy-agent-revisions-logs-cleanup") and [View log data for CodeDeploy EC2/On-Premises deployments](deployments-view-logs.md "deployments-view-logs.md").
 
 ## Redeployments and deployment rollbacks
 
@@ -121,5 +105,4 @@ In all cases, the new or rolled-back deployment is assigned its own deployment I
 list of deployments you can view in the CodeDeploy console shows which ones are the result of an
 automatic deployment.
 
-For more information, see [Redeploy and roll back a deployment with
-CodeDeploy](deployments-rollback-and-redeploy.md "deployments-rollback-and-redeploy.md").
+For more information, see [Redeploy and roll back a deployment with CodeDeploy](deployments-rollback-and-redeploy.md "deployments-rollback-and-redeploy.md").

@@ -1,6 +1,4 @@
-# Update the CodeDeploy agent on
-
-Windows Server
+# Update the CodeDeploy agent on Windows Server
 
 You can enable automatic updates of the CodeDeploy agent with AWS Systems Manager. With Systems Manager, you can
 configure an update schedule for your Amazon EC2 or on-premises instances by creating an
@@ -9,23 +7,16 @@ uninstalling the current version and installing a newer one.
 
 ###### Topics
 
-- [Set up automatic CodeDeploy
-  agent update with AWS Systems Manager](#codedeploy-agent-operations-update-windows-ssm "#codedeploy-agent-operations-update-windows-ssm")
-- [Update the CodeDeploy agent
-  manually](#codedeploy-agent-operations-update-windows-manual "#codedeploy-agent-operations-update-windows-manual")
-- [(Deprecated) Update
-  the CodeDeploy agent with the Windows Server Updater](#codedeploy-agent-operations-update-windows-updater "#codedeploy-agent-operations-update-windows-updater")
+- [Set up automatic CodeDeploy agent update with AWS Systems Manager](#codedeploy-agent-operations-update-windows-ssm "#codedeploy-agent-operations-update-windows-ssm")
+- [Update the CodeDeploy agent manually](#codedeploy-agent-operations-update-windows-manual "#codedeploy-agent-operations-update-windows-manual")
+- [(Deprecated) Update the CodeDeploy agent with the Windows Server Updater](#codedeploy-agent-operations-update-windows-updater "#codedeploy-agent-operations-update-windows-updater")
 
-## Set up automatic CodeDeploy
-
-agent update with AWS Systems Manager
+## Set up automatic CodeDeploy agent update with AWS Systems Manager
 
 To configure Systems Manager and enable automatic updates of the CodeDeploy agent, follow the
 instructions in [Install the CodeDeploy agent using AWS Systems Manager](codedeploy-agent-operations-install-ssm.md "codedeploy-agent-operations-install-ssm.md").
 
-## Update the CodeDeploy agent
-
-manually
+## Update the CodeDeploy agent manually
 
 To update the CodeDeploy agent manually, you can install the latest version from the CLI or
 using Systems Manager. Follow the instructions in [Install the CodeDeploy
@@ -33,9 +24,7 @@ agent.](codedeploy-agent-operations-install.md "codedeploy-agent-operations-inst
 following the instructions in [Uninstall the CodeDeploy
 agent](codedeploy-agent-operations-uninstall.md "codedeploy-agent-operations-uninstall.md").
 
-## (Deprecated) Update
-
-the CodeDeploy agent with the Windows Server Updater
+## (Deprecated) Update the CodeDeploy agent with the Windows Server Updater
 
 ###### Note
 
@@ -51,8 +40,7 @@ If a deployment is already underway when the updater detects a new version, the
 deployment continues to completion. If a deployment attempts to start during the update
 process, the deployment fails.
 
-If you want to force an update of the CodeDeploy agent, follow the instructions in [Install the CodeDeploy agent for
-Windows Server](codedeploy-agent-operations-install-windows.md "codedeploy-agent-operations-install-windows.md").
+If you want to force an update of the CodeDeploy agent, follow the instructions in [Install the CodeDeploy agent for Windows Server](codedeploy-agent-operations-install-windows.md "codedeploy-agent-operations-install-windows.md").
 
 On Windows Server instances, you can download and install the CodeDeploy agent updater by running
 Windows PowerShell commands, using a direct download link, or running an Amazon S3 copy
@@ -60,16 +48,11 @@ command.
 
 ###### Topics
 
-- [Use Windows
-  PowerShell](#codedeploy-agent-operations-update-windows-powershell "#codedeploy-agent-operations-update-windows-powershell")
-- [Use a direct
-  link](#codedeploy-agent-operations-update-windows-direct-link "#codedeploy-agent-operations-update-windows-direct-link")
-- [Use an Amazon S3 copy
-  command](#codedeploy-agent-operations-update-windows-s3-copy "#codedeploy-agent-operations-update-windows-s3-copy")
+- [Use Windows PowerShell](#codedeploy-agent-operations-update-windows-powershell "#codedeploy-agent-operations-update-windows-powershell")
+- [Use a direct link](#codedeploy-agent-operations-update-windows-direct-link "#codedeploy-agent-operations-update-windows-direct-link")
+- [Use an Amazon S3 copy command](#codedeploy-agent-operations-update-windows-s3-copy "#codedeploy-agent-operations-update-windows-s3-copy")
 
-### Use Windows
-
-PowerShell
+### Use Windows PowerShell
 
 Sign in to the instance, and run the following commands in Windows PowerShell, one at
 a time:
@@ -114,9 +97,7 @@ open the CodeDeploy agent updater log file:
 notepad C:\ProgramData\Amazon\CodeDeployUpdater\log\codedeploy-agent.updater.log
 ```
 
-### Use a direct
-
-link
+### Use a direct link
 
 If the browser security settings on the Windows Server instance
 provide the required permissions (for example, to `http://s3.*.amazonaws.com`
@@ -138,9 +119,7 @@ For example:
 https://s3.af-south-1.amazonaws.com/aws-codedeploy-af-south-1/latest/codedeploy-agent-updater.msi
 ```
 
-### Use an Amazon S3 copy
-
-command
+### Use an Amazon S3 copy command
 
 If the AWS CLI is installed on the instance, you can use the Amazon S3 [cp](../../../cli/latest/reference/s3/cp.md "../../../cli/latest/reference/s3/cp.md") command to download the CodeDeploy agent updater
 and then run the installer manually. For information, see [Install the AWS Command Line Interface on Microsoft

@@ -1,6 +1,4 @@
-# Create an application for an AWS Lambda
-
-function deployment (console)
+# Create an application for an AWS Lambda function deployment (console)
 
 You can use the CodeDeploy console to create an application for an AWS Lambda function
 deployment.
@@ -24,13 +22,11 @@ choose those settings on this page. Although this new deployment group and
 the existing deployment group might have the same name, CodeDeploy treats them as
 separate deployment groups, because each is associated with a separate
 application. 9. In **Service role**, choose a service role that grants CodeDeploy
-access to AWS Lambda. For more information, see [Step 2: Create a service role for
-CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md"). 10. If you want to use a predefined deployment configuration, choose one from
+access to AWS Lambda. For more information, see [Step 2: Create a service role for CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md"). 10. If you want to use a predefined deployment configuration, choose one from
 **Deployment configuration**, and then skip to step 12. To
 create a custom configuration, continue to the next step.
 
-For more information about deployment configurations, see [Deployment configurations on an AWS Lambda
-compute platform](deployment-configurations.md#deployment-configuration-lambda "deployment-configurations.md#deployment-configuration-lambda"). 11. To create a custom configuration, choose **Create deployment
+For more information about deployment configurations, see [Deployment configurations on an AWS Lambda compute platform](deployment-configurations.md#deployment-configuration-lambda "deployment-configurations.md#deployment-configuration-lambda"). 11. To create a custom configuration, choose **Create deployment
 configuration**, and then do the following:
 
     1. For **Deployment configuration name**, enter a name
@@ -71,5 +67,4 @@ configuration**, and then do the following:
     include in the deployment, such as Amazon SNS notification triggers, Amazon CloudWatch alarms,
     or automatic rollbacks.
 
-For more information, see [Configure advanced options
-for a deployment group](deployment-groups-configure-advanced-options.md "deployment-groups-configure-advanced-options.md"). 13. Choose **Create deployment group**.
+For more information, see [Configure advanced options for a deployment group](deployment-groups-configure-advanced-options.md "deployment-groups-configure-advanced-options.md"). 13. Choose **Create deployment group**.

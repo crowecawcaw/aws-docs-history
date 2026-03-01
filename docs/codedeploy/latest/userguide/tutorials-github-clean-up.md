@@ -5,9 +5,7 @@ the Amazon EC2 instance and its associated resources. Optionally, you can delete
 deployment component records associated with this tutorial. If you were using a GitHub
 repository just for this tutorial, you can delete it now, too.
 
-## To delete a CloudFormation stack
-
-(if you used the CloudFormation template to create an Amazon EC2 instance)
+## To delete a CloudFormation stack (if you used the CloudFormation template to create an Amazon EC2 instance)
 
 1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
@@ -17,9 +15,7 @@ repository just for this tutorial, you can delete it now, too.
 4. When prompted, choose **Delete stack**. The Amazon EC2 instance and the
    associated IAM instance profile and service role are deleted.
 
-## To manually deregister and
-
-clean up an on-premises instance (if you provisioned an on-premises instance)
+## To manually deregister and clean up an on-premises instance (if you provisioned an on-premises instance)
 
 1. Use the AWS CLI to call the [deregister](../../../cli/latest/reference/deploy/deregister.md "../../../cli/latest/reference/deploy/deregister.md") command against the on-premises
    instance represented here by `your-instance-name` and the
@@ -35,9 +31,7 @@ aws deploy deregister --instance-name `your-instance-name` --no-delete-iam-user 
 aws deploy uninstall
 ```
 
-## To manually terminate an Amazon EC2
-
-instance (if you manually launched an Amazon EC2 instance)
+## To manually terminate an Amazon EC2 instance (if you manually launched an Amazon EC2 instance)
 
 1. Sign in to the AWS Management Console and open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
@@ -48,9 +42,7 @@ instance (if you manually launched an Amazon EC2 instance)
    then choose **Terminate**.
 4. When prompted, choose **Yes, Terminate**.
 
-## To delete the CodeDeploy
-
-deployment component records
+## To delete the CodeDeploy deployment component records
 
 1. Sign in to the AWS Management Console and open the CodeDeploy console at [https://console.aws.amazon.com/codedeploy](https://console.aws.amazon.com/codedeploy "https://console.aws.amazon.com/codedeploy").
 
@@ -59,9 +51,7 @@ deployment component records
 Sign in with the same user that you set up in [Getting started with CodeDeploy](getting-started-codedeploy.md "getting-started-codedeploy.md"). 2. In the navigation pane, expand **Deploy**, then choose **Applications**. 3. Choose **CodeDeployGitHubDemo-App**. 4. Choose **Delete application**. 5. When prompted, enter `Delete`, and then choose
 **Delete**.
 
-## To delete your GitHub
-
-repository
+## To delete your GitHub repository
 
 See [Deleting a
 repository](https://help.github.com/articles/deleting-a-repository/ "https://help.github.com/articles/deleting-a-repository/") in [GitHub help](https://help.github.com "https://help.github.com").

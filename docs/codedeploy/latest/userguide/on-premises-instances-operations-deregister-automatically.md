@@ -1,6 +1,4 @@
-# Automatically
-
-deregister an on-premises instance
+# Automatically deregister an on-premises instance
 
 Typically, you deregister an on-premises instance after you're no longer planning to
 deploy to it. When you deregister an on-premises instance, even though the on-premises
@@ -17,15 +15,12 @@ on-premises instance. It does not remove the on-premises instance configuration 
 the on-premises instance.
 
 To use the CodeDeploy console to perform some (but not all) of the activities in this
-section, see the CodeDeploy console section of [Manually deregister an
-on-premises instance](on-premises-instances-operations-deregister-manually.md "on-premises-instances-operations-deregister-manually.md").
+section, see the CodeDeploy console section of [Manually deregister an on-premises instance](on-premises-instances-operations-deregister-manually.md "on-premises-instances-operations-deregister-manually.md").
 
-To manually disassociate any associated on-premises instance tags, see [Manually remove on-premises
-instance tags from an on-premises instance](on-premises-instances-operations-remove-tags.md "on-premises-instances-operations-remove-tags.md").
+To manually disassociate any associated on-premises instance tags, see [Manually remove on-premises instance tags from an on-premises instance](on-premises-instances-operations-remove-tags.md "on-premises-instances-operations-remove-tags.md").
 
 To automatically uninstall the CodeDeploy agent and remove the configuration file from the
-on-premises instance, see [Automatically uninstall the
-CodeDeploy agent and remove the configuration file from an on-premises instance](on-premises-instances-operations-uninstall-agent.md "on-premises-instances-operations-uninstall-agent.md").
+on-premises instance, see [Automatically uninstall the CodeDeploy agent and remove the configuration file from an on-premises instance](on-premises-instances-operations-uninstall-agent.md "on-premises-instances-operations-uninstall-agent.md").
 
 To manually uninstall only the CodeDeploy agent from the on-premises instance, see [Managing CodeDeploy agent operations](codedeploy-agent-operations.md "codedeploy-agent-operations.md").
 

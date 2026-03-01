@@ -1,14 +1,10 @@
-# Use the register command (IAM user
-
-ARN) to register an on-premises instance
+# Use the register command (IAM user ARN) to register an on-premises instance
 
 ###### Important
 
 Registering an instance using an IAM user is not recommended because it uses static
 (permanent) credentials for authentication. For improved security, we recommend registering an
-instance using temporary credentials for authentication. For more information, see [Use the
-register-on-premises-instance command (IAM Session ARN) to register an on-premises
-instance](register-on-premises-instance-iam-session-arn.md "register-on-premises-instance-iam-session-arn.md").
+instance using temporary credentials for authentication. For more information, see [Use the register-on-premises-instance command (IAM Session ARN) to register an on-premises instance](register-on-premises-instance-iam-session-arn.md "register-on-premises-instance-iam-session-arn.md").
 
 ###### Important
 
@@ -42,28 +38,17 @@ you the option to use an IAM session ARN to register instances instead of an IAM
 This approach provides a major advantage if you have large fleets of on-premises instances.
 Specifically, you can use a single IAM session ARN to authenticate multiple instances
 instead of having to create an IAM user for each on-premises instance one by one. For more
-information, see [Use the
-register-on-premises-instance command (IAM user ARN) to register an on-premises
-instance](register-on-premises-instance-iam-user-arn.md "register-on-premises-instance-iam-user-arn.md") and [Use the
-register-on-premises-instance command (IAM Session ARN) to register an on-premises
-instance](register-on-premises-instance-iam-session-arn.md "register-on-premises-instance-iam-session-arn.md").
+information, see [Use the register-on-premises-instance command (IAM user ARN) to register an on-premises instance](register-on-premises-instance-iam-user-arn.md "register-on-premises-instance-iam-user-arn.md") and [Use the register-on-premises-instance command (IAM Session ARN) to register an on-premises instance](register-on-premises-instance-iam-session-arn.md "register-on-premises-instance-iam-session-arn.md").
 
 ###### Topics
 
-- [Step 1: Install and
-  configure the AWS CLI on the on-premises instance](#instances-on-premises-register-instance-1-install-cli "#instances-on-premises-register-instance-1-install-cli")
-- [Step 2: Call the
-  register command](#instances-on-premises-register-instance-2-register-command "#instances-on-premises-register-instance-2-register-command")
-- [Step 3: Call the
-  install command](#instances-on-premises-register-instance-3-install-command "#instances-on-premises-register-instance-3-install-command")
-- [Step 4: Deploy
-  application revisions to the on-premises instance](#instances-on-premises-register-instance-4-deploy-revision "#instances-on-premises-register-instance-4-deploy-revision")
-- [Step 5: Track
-  deployments to the on-premises instance](#instances-on-premises-register-instance-5-track-deployment "#instances-on-premises-register-instance-5-track-deployment")
+- [Step 1: Install and configure the AWS CLI on the on-premises instance](#instances-on-premises-register-instance-1-install-cli "#instances-on-premises-register-instance-1-install-cli")
+- [Step 2: Call the register command](#instances-on-premises-register-instance-2-register-command "#instances-on-premises-register-instance-2-register-command")
+- [Step 3: Call the install command](#instances-on-premises-register-instance-3-install-command "#instances-on-premises-register-instance-3-install-command")
+- [Step 4: Deploy application revisions to the on-premises instance](#instances-on-premises-register-instance-4-deploy-revision "#instances-on-premises-register-instance-4-deploy-revision")
+- [Step 5: Track deployments to the on-premises instance](#instances-on-premises-register-instance-5-track-deployment "#instances-on-premises-register-instance-5-track-deployment")
 
-## Step 1: Install and
-
-configure the AWS CLI on the on-premises instance
+## Step 1: Install and configure the AWS CLI on the on-premises instance
 
 1. Install the AWS CLI on the on-premises instance. Follow the instructions in [Getting set up with the AWS CLI](../../../cli/latest/userguide/cli-chap-getting-set-up.md "../../../cli/latest/userguide/cli-chap-getting-set-up.md") in
    the _AWS Command Line Interface User Guide_.
@@ -80,8 +65,7 @@ _AWS Command Line Interface User Guide_.
 As you configure the AWS CLI (for example, by calling the **aws
 configure** command), be sure to specify the secret key ID and secret access
 key of an IAM user who has, at minimum, the following AWS access permissions in
-addition to the permissions specified in [Prerequisites for configuring an
-on-premises instance](instances-on-premises-prerequisites.md "instances-on-premises-prerequisites.md"). This makes it possible to
+addition to the permissions specified in [Prerequisites for configuring an on-premises instance](instances-on-premises-prerequisites.md "instances-on-premises-prerequisites.md"). This makes it possible to
 download and install the CodeDeploy agent on the on-premises instance. The access permissions
 might look similar to this:
 
@@ -172,9 +156,7 @@ JSON
 
 ```
 
-## Step 2: Call the
-
-register command
+## Step 2: Call the register command
 
 For this step, we assume you are registering the on-premises instance from the on-premises
 instance itself. You can also register an on-premises instance from a separate device or
@@ -207,8 +189,7 @@ For a list of allowed characters, see [CodeDeploy quotas](limits.md "limits.md")
 ###### Important
 
 If you specify the `--iam-user-arn` option, you must also manually create
-the on-premises instance configuration file, as described in [Step 4: Add a configuration
-file to the on-premises instance](register-on-premises-instance-iam-user-arn.md#register-on-premises-instance-iam-user-arn-4 "register-on-premises-instance-iam-user-arn.md#register-on-premises-instance-iam-user-arn-4").
+the on-premises instance configuration file, as described in [Step 4: Add a configuration file to the on-premises instance](register-on-premises-instance-iam-user-arn.md#register-on-premises-instance-iam-user-arn-4 "register-on-premises-instance-iam-user-arn.md#register-on-premises-instance-iam-user-arn-4").
 
 You can associate only one IAM user with only one on-premises instance. Trying to
 associate a single IAM user with multiple on-premises instances can result in errors,
@@ -250,9 +231,7 @@ If this command encounters any errors, an error message appears, describing how 
 manually complete the remaining steps. Otherwise, a success message appears, describing how to
 call the **install** command as listed in the next step.
 
-## Step 3: Call the
-
-install command
+## Step 3: Call the install command
 
 From the on-premises instance, use the AWS CLI to call the [install](../../../cli/latest/reference/deploy/install.md "../../../cli/latest/reference/deploy/install.md") command,
 specifying:
@@ -306,9 +285,7 @@ For Windows Server, this is
 If the `--override-config` option was specified, creates or overwrites the
 file. 3. Installs the CodeDeploy agent on the on-premises instance and then starts it.
 
-## Step 4: Deploy
-
-application revisions to the on-premises instance
+## Step 4: Deploy application revisions to the on-premises instance
 
 You are now ready to deploy application revisions to the registered and tagged on-premises
 instance.
@@ -317,27 +294,21 @@ You deploy application revisions to on-premises instances in a way that's simila
 deploying application revisions to Amazon EC2 instances. For instructions, see [Create a deployment with CodeDeploy](deployments-create.md "deployments-create.md"). These instructions link
 to prerequisites, including creating an application, creating a deployment group, and
 preparing an application revision. If you need a simple sample application revision to deploy,
-you can create the one described in [Step 2: Create
-a sample application revision](tutorials-on-premises-instance-2-create-sample-revision.md "tutorials-on-premises-instance-2-create-sample-revision.md") in the [Tutorial: Deploy an application to an
-on-premises instance with CodeDeploy (Windows Server, Ubuntu Server, or Red Hat Enterprise Linux)](tutorials-on-premises-instance.md "tutorials-on-premises-instance.md").
+you can create the one described in [Step 2: Create a sample application revision](tutorials-on-premises-instance-2-create-sample-revision.md "tutorials-on-premises-instance-2-create-sample-revision.md") in the [Tutorial: Deploy an application to an on-premises instance with CodeDeploy (Windows Server, Ubuntu Server, or Red Hat Enterprise Linux)](tutorials-on-premises-instance.md "tutorials-on-premises-instance.md").
 
 ###### Important
 
 If you reuse an existing CodeDeploy service role as part of creating a deployment group that
 targets on-premises instances, you must include `Tag:get*` to the
 `Action` portion of the service role's policy statement. For more information,
-see [Step 2: Create a service role for
-CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md").
+see [Step 2: Create a service role for CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md").
 
-## Step 5: Track
-
-deployments to the on-premises instance
+## Step 5: Track deployments to the on-premises instance
 
 After you deploy an application revision to registered and tagged on-premises instances,
 you can track the deployment's progress.
 
 You track deployments to on-premises instances in a way that's similar to tracking
-deployments to Amazon EC2 instances. For instructions, see [View CodeDeploy deployment details](deployments-view-details.md "deployments-view-details.md") .
+deployments to Amazon EC2 instances. For instructions, see [View CodeDeploy deployment details](deployments-view-details.md "deployments-view-details.md").
 
-For more options, see [Managing on-premises instances operations in
-CodeDeploy](on-premises-instances-operations.md "on-premises-instances-operations.md").
+For more options, see [Managing on-premises instances operations in CodeDeploy](on-premises-instances-operations.md "on-premises-instances-operations.md").

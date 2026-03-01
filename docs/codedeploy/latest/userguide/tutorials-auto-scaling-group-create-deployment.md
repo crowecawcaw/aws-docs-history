@@ -1,20 +1,14 @@
-# Step 2: Deploy the
-
-application to the Auto Scaling group
+# Step 2: Deploy the application to the Auto Scaling group
 
 In this step, you'll deploy the revision to the single Amazon EC2 instance in the Auto Scaling
 group.
 
 ###### Topics
 
-- [To create the
-  deployment (CLI)](#tutorials-auto-scaling-group-create-deployment-cli "#tutorials-auto-scaling-group-create-deployment-cli")
-- [To create
-  the deployment (console)](#tutorials-auto-scaling-group-create-deployment-console "#tutorials-auto-scaling-group-create-deployment-console")
+- [To create the deployment (CLI)](#tutorials-auto-scaling-group-create-deployment-cli "#tutorials-auto-scaling-group-create-deployment-cli")
+- [To create the deployment (console)](#tutorials-auto-scaling-group-create-deployment-console "#tutorials-auto-scaling-group-create-deployment-console")
 
-## To create the
-
-deployment (CLI)
+## To create the deployment (CLI)
 
 1. Call the **create-application** command to create an
    application named `SimpleDemoApp`:
@@ -24,11 +18,10 @@ aws deploy create-application --application-name SimpleDemoApp
 ```
 
 2. You should have already created a service role by following the
-   instructions in [Step 2: Create a service role for
-   CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md"). The service role
+   instructions in [Step 2: Create a service role for CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md"). The service role
    will give CodeDeploy permission to access your Amazon EC2 instances to expand (read)
    their tags. You will need the service role ARN. To get the service role ARN,
-   follow the instructions in [Get the service role ARN (CLI)](getting-started-create-service-role.md#getting-started-get-service-role-cli "getting-started-create-service-role.md#getting-started-get-service-role-cli") .
+   follow the instructions in [Get the service role ARN (CLI)](getting-started-create-service-role.md#getting-started-get-service-role-cli "getting-started-create-service-role.md#getting-started-get-service-role-cli").
 3. Now that you have a service role ARN, call the
    **create-deployment-group** command to create a
    deployment group named `SimpleDemoDG`,
@@ -154,17 +147,14 @@ aws deploy get-deployment --deployment-id `deployment-id` --query "deploymentInf
 
 Do not continue until the returned value is `Succeeded`.
 
-## To create
-
-the deployment (console)
+## To create the deployment (console)
 
 1. You should have already created a service role by following the
-   instructions in [Step 2: Create a service role for
-   CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md"). The service role
+   instructions in [Step 2: Create a service role for CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md"). The service role
    will give CodeDeploy permission to access your instances to expand (read) their
    tags. Before you use the CodeDeploy console to deploy your application revision,
    you will need the service role ARN. To get the service role ARN, follow the
-   instructions in [Get the service role ARN (console)](getting-started-create-service-role.md#getting-started-get-service-role-console "getting-started-create-service-role.md#getting-started-get-service-role-console") .
+   instructions in [Get the service role ARN (console)](getting-started-create-service-role.md#getting-started-get-service-role-console "getting-started-create-service-role.md#getting-started-get-service-role-console").
 2. Now that you have the service role ARN, you can use the CodeDeploy console to
    deploy your application revision.
 
@@ -241,8 +231,7 @@ Amazon S3. 20. Leave **Deployment description** blank. 21. Expand **Advanced**. 
 
 If **Failed** appears instead of
 **Succeeded**, you may want to try some of the
-techniques in [Monitor and troubleshoot your
-deployment](tutorials-wordpress-deploy-application.md#tutorials-wordpress-deploy-application-monitor "tutorials-wordpress-deploy-application.md#tutorials-wordpress-deploy-application-monitor")
+techniques in [Monitor and troubleshoot your deployment](tutorials-wordpress-deploy-application.md#tutorials-wordpress-deploy-application-monitor "tutorials-wordpress-deploy-application.md#tutorials-wordpress-deploy-application-monitor")
 (using the application name of
 `SimpleDemoApp` and the deployment
 group name of `SimpleDemoDG`).

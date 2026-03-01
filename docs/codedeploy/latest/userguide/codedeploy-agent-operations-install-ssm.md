@@ -1,6 +1,4 @@
-# Install the CodeDeploy agent using
-
-AWS Systems Manager
+# Install the CodeDeploy agent using AWS Systems Manager
 
 You can use the AWS Management Console or the AWS CLI to install the CodeDeploy agent to your Amazon EC2 or
 on-premises instances by using AWS Systems Manager. You can choose to install a specific version or
@@ -9,14 +7,12 @@ AWS Systems Manager, see [What is AWS Systems Manager](../../../systems-manager/
 
 Using AWS Systems Manager is the recommended method for installing and updating the CodeDeploy agent.
 You can also install the CodeDeploy agent from an Amazon S3 bucket. For information about using an
-Amazon S3 download link, see [Install the CodeDeploy agent using the
-command line](codedeploy-agent-operations-install-cli.md "codedeploy-agent-operations-install-cli.md").
+Amazon S3 download link, see [Install the CodeDeploy agent using the command line](codedeploy-agent-operations-install-cli.md "codedeploy-agent-operations-install-cli.md").
 
 ###### Topics
 
 - [Prerequisites](#install-codedeploy-agent-prereqs "#install-codedeploy-agent-prereqs")
-- [Install the CodeDeploy
-  agent](#download-codedeploy-agent-on-EC2-Instance "#download-codedeploy-agent-on-EC2-Instance")
+- [Install the CodeDeploy agent](#download-codedeploy-agent-on-EC2-Instance "#download-codedeploy-agent-on-EC2-Instance")
 
 ## Prerequisites
 
@@ -27,16 +23,12 @@ If installing the CodeDeploy agent on an on-premises server with Systems Manager
 your on-premises server with Amazon EC2 Systems Manager. For more information, see [Setting up Systems Manager in hybrid
 environments](../../../systems-manager/latest/userguide/systems-manager-managedinstances.md "../../../systems-manager/latest/userguide/systems-manager-managedinstances.md") in the _AWS Systems Manager User Guide_.
 
-## Install the CodeDeploy
-
-agent
+## Install the CodeDeploy agent
 
 Before you can use Systems Manager to install the CodeDeploy agent, you must make sure that the
 instance is configured correctly for Systems Manager.
 
-### Installing or updating the
-
-SSM agent
+### Installing or updating the SSM agent
 
 On an Amazon EC2 instance, the CodeDeploy agent requires that the instance is running version
 2.3.274.0 or later. Before you install the CodeDeploy agent, update or install SSM agent on
@@ -49,8 +41,7 @@ Images (AMIs) with SSM agent preinstalled](../../../systems-manager/latest/userg
 ###### Note
 
 Make sure that the instance's operating system is also supported by the CodeDeploy
-agent. For more information, see [Operating systems
-supported by the CodeDeploy agent](codedeploy-agent.md#codedeploy-agent-supported-operating-systems "codedeploy-agent.md#codedeploy-agent-supported-operating-systems").
+agent. For more information, see [Operating systems supported by the CodeDeploy agent](codedeploy-agent.md#codedeploy-agent-supported-operating-systems "codedeploy-agent.md#codedeploy-agent-supported-operating-systems").
 
 For information about installing or updating SSM agent on an instance running Linux,
 see [Installing and configuring
@@ -62,9 +53,7 @@ Server, see [Installing and
 configuring SSM agent on Windows instances](../../../systems-manager/latest/userguide/sysman-install-ssm-win.md "../../../systems-manager/latest/userguide/sysman-install-ssm-win.md") in the
 _AWS Systems Manager User Guide_.
 
-### (Optional) Verify Systems Manager
-
-prerequisites
+### (Optional) Verify Systems Manager prerequisites
 
 Before you use Systems Manager Run Command to install the CodeDeploy agent, verify that your instances
 meet the minimum Systems Manager requirements. For more information, see [Setting up AWS Systems Manager](../../../systems-manager/latest/userguide/systems-manager-setting-up.md "../../../systems-manager/latest/userguide/systems-manager-setting-up.md") in

@@ -1,6 +1,4 @@
-# Grant CloudWatch permissions to a
-
-CodeDeploy service role
+# Grant CloudWatch permissions to a CodeDeploy service role
 
 Before you can use CloudWatch alarm monitoring with your deployments, the service role you use
 in your CodeDeploy operations must be granted permission to access the CloudWatch resources.

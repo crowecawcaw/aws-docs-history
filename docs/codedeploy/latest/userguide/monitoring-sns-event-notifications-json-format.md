@@ -1,6 +1,4 @@
-# JSON data formats for
-
-CodeDeploy triggers
+# JSON data formats for CodeDeploy triggers
 
 You can use the JSON output that is created when a trigger for a deployment or
 instance is activated in a custom notification workflow, such as sending messages to

@@ -1,6 +1,4 @@
-# Create an
-
-AWS Lambda Compute Platform deployment (console)
+# Create an AWS Lambda Compute Platform deployment (console)
 
 This topic shows you how to deploy a Lambda function using the console.
 
@@ -36,16 +34,14 @@ this deployment. 5. Next to **Revision location**, choose where your revision is
 located:
 
     * **My application is stored in Amazon S3** — For
-     information, see [Specify information about a revision
-     stored in an Amazon S3 bucket](deployments-create-console-s3.md "deployments-create-console-s3.md"), and then return to
+     information, see [Specify information about a revision stored in an Amazon S3 bucket](deployments-create-console-s3.md "deployments-create-console-s3.md"), and then return to
      step 6.
     * **Use AppSpec editor** — Select either JSON or
      YAML, and then enter your AppSpec file into the editor. You can save
      the AppSpec file by choosing **Save as text file**.
      When you choose **Deploy** at the end of these steps,
      you receive an error if your JSON or YAML is not valid. For more
-     information about creating an AppSpec file, see [Add an application specification file to a
-     revision for CodeDeploy](application-revisions-appspec-file.md "application-revisions-appspec-file.md").
+     information about creating an AppSpec file, see [Add an application specification file to a revision for CodeDeploy](application-revisions-appspec-file.md "application-revisions-appspec-file.md").
 
 6. (Optional) In **Deployment description**, enter a description
    for this deployment.
@@ -53,13 +49,11 @@ located:
    deployment configuration to control how traffic is shifted to the Lambda function
    version that is different from the one specified in the deployment group.
 
-For more information, see [Deployment configurations on an AWS Lambda
-compute platform](deployment-configurations.md#deployment-configuration-lambda "deployment-configurations.md#deployment-configuration-lambda"). 8. (Optional) In **Rollback configuration overrides**, you can
+For more information, see [Deployment configurations on an AWS Lambda compute platform](deployment-configurations.md#deployment-configuration-lambda "deployment-configurations.md#deployment-configuration-lambda"). 8. (Optional) In **Rollback configuration overrides**, you can
 specify different automatic rollback options for this deployment than were
 specified for the deployment group, if any.
 
-For information about rollbacks in CodeDeploy, see [Redeployments and deployment rollbacks](deployment-steps-lambda.md#deployment-rollback-lambda "deployment-steps-lambda.md#deployment-rollback-lambda") and [Redeploy and roll back a deployment with
-CodeDeploy](deployments-rollback-and-redeploy.md "deployments-rollback-and-redeploy.md").
+For information about rollbacks in CodeDeploy, see [Redeployments and deployment rollbacks](deployment-steps-lambda.md#deployment-rollback-lambda "deployment-steps-lambda.md#deployment-rollback-lambda") and [Redeploy and roll back a deployment with CodeDeploy](deployments-rollback-and-redeploy.md "deployments-rollback-and-redeploy.md").
 
 Choose from the following:
 
@@ -74,4 +68,4 @@ Choose from the following:
 
 9. Choose **Create deployment**.
 
-To track the status of your deployment, see [View CodeDeploy deployment details](deployments-view-details.md "deployments-view-details.md") .
+To track the status of your deployment, see [View CodeDeploy deployment details](deployments-view-details.md "deployments-view-details.md").

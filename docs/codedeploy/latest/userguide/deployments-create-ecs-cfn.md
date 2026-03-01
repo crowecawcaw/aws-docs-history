@@ -1,6 +1,4 @@
-# Create an Amazon ECS blue/green deployment
-
-through CloudFormation
+# Create an Amazon ECS blue/green deployment through CloudFormation
 
 You can use AWS CloudFormation to manage Amazon ECS blue/green deployments through CodeDeploy. You
 generate your deployment by defining your green and blue resources and specifying the
@@ -18,9 +16,7 @@ User Guide_.
 Managing Amazon ECS blue/green deployments with CloudFormation is not available in the Asia
 Pacific (Osaka) region.
 
-## Differences between Amazon ECS blue/green
-
-deployments through CodeDeploy and CloudFormation
+## Differences between Amazon ECS blue/green deployments through CodeDeploy and CloudFormation
 
 The CloudFormation stack template models Amazon ECS task-related resources and infrastructure,
 and also the conﬁguration options for deployments. So there are differences between
@@ -50,9 +46,7 @@ deployment types.
 | CloudWatch alarms.                                                                                                                                                    | Create a CloudWatch alarm that triggers a rollback.                     | Configure a CloudWatch alarm at the CloudFormation stack level that triggers<br>a rollback.                                  |
 | Rollback/redeployment.                                                                                                                                                | Specify rollback and redeployment options.                              | Cancel the stack update in CloudFormation.                                                                                   |
 
-## Monitoring Amazon ECS blue/green deployments
-
-through CloudFormation
+## Monitoring Amazon ECS blue/green deployments through CloudFormation
 
 You can monitor blue/green deployments through CloudFormation and CodeDeploy. For information
 about monitoring through CloudFormation, see [Monitoring blue/green events in CloudFormation](../../../AWSCloudFormation/latest/UserGuide/blue-green.md#blue-green-events "../../../AWSCloudFormation/latest/UserGuide/blue-green.md#blue-green-events") in the _AWS CloudFormation User

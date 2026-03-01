@@ -4,8 +4,7 @@ Good planning makes deploying revisions much easier.
 
 For deployments to an AWS Lambda or an Amazon ECS
 compute platform, a revision is the same as the AppSpec file. The following information
-does not apply. For more information, see [Add an application specification file to a
-revision for CodeDeploy](application-revisions-appspec-file.md "application-revisions-appspec-file.md")
+does not apply. For more information, see [Add an application specification file to a revision for CodeDeploy](application-revisions-appspec-file.md "application-revisions-appspec-file.md")
 
 For deployments to an EC2/On-Premises compute platform, start by creating an empty root
 directory (folder) on the development machine. This is where you will store the source files
@@ -32,5 +31,4 @@ For example, at the `/tmp/` root folder in Linux, macOS, or Unix or the
 ```
 
 The root folder should also include an application specification file (AppSpec file), as shown
-here. For more information, see [Add an application specification file to a
-revision for CodeDeploy](application-revisions-appspec-file.md "application-revisions-appspec-file.md").
+here. For more information, see [Add an application specification file to a revision for CodeDeploy](application-revisions-appspec-file.md "application-revisions-appspec-file.md").

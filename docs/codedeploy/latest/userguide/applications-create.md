@@ -13,8 +13,7 @@ deployment. CodeDeploy supports two types of deployments:
   version of the application is started and validated. You can use a load balancer
   so that each instance is deregistered during its deployment and then restored to service after
   the deployment is complete. Only deployments that use the EC2/On-Premises compute platform can use in-place deployments.
-  For more information about in-place deployments, see [Overview of an in-place
-  deployment](welcome.md#welcome-deployment-overview-in-place "welcome.md#welcome-deployment-overview-in-place").
+  For more information about in-place deployments, see [Overview of an in-place deployment](welcome.md#welcome-deployment-overview-in-place "welcome.md#welcome-deployment-overview-in-place").
 - **Blue/green deployment**: The behavior of your deployment depends on which
   compute platform you use:
 
@@ -38,15 +37,13 @@ deployment. CodeDeploy supports two types of deployments:
       + **Blue/green on an AWS Lambda or Amazon ECS compute platform**: Traffic is shifted in increments according to a **canary**, **linear**, or **all-at-once** deployment configuration.
       + **Blue/green deployments through CloudFormation**: Traffic is shifted from your current resources to your updated resources as part of an CloudFormation stack update. Currently, only ECS blue/green deployments are supported.
 
-  For more information about blue/green deployments, see [Overview of a blue/green
-  deployment](welcome.md#welcome-deployment-overview-blue-green "welcome.md#welcome-deployment-overview-blue-green").
+  For more information about blue/green deployments, see [Overview of a blue/green deployment](welcome.md#welcome-deployment-overview-blue-green "welcome.md#welcome-deployment-overview-blue-green").
   When you use the CodeDeploy console to create an application, you configure its first
   deployment group at the same time. When you use the AWS CLI to create an application, you
   create its first deployment group in a separate step.
 
 To view a list of applications already registered to your AWS account, see [View application details with CodeDeploy](applications-view-details.md "applications-view-details.md"). For
-information about using an CloudFormation template to create an application, see [CloudFormation templates for CodeDeploy
-reference](reference-cloudformation-templates.md "reference-cloudformation-templates.md").
+information about using an CloudFormation template to create an application, see [CloudFormation templates for CodeDeploy reference](reference-cloudformation-templates.md "reference-cloudformation-templates.md").
 
 Both deployment types do not apply to all destinations. The following table lists which
 deployment types work with deployments to the three types of deployment destinations.
@@ -60,12 +57,8 @@ deployment types work with deployments to the three types of deployment destinat
 
 ###### Topics
 
-- [Create an application for an in-place
-  deployment (console)](applications-create-in-place.md "applications-create-in-place.md")
-- [Create an application for a blue/green
-  deployment (console)](applications-create-blue-green.md "applications-create-blue-green.md")
-- [Create an application for an
-  Amazon ECS service deployment (console)](applications-create-ecs.md "applications-create-ecs.md")
-- [Create an application for an AWS Lambda
-  function deployment (console)](applications-create-lambda.md "applications-create-lambda.md")
+- [Create an application for an in-place deployment (console)](applications-create-in-place.md "applications-create-in-place.md")
+- [Create an application for a blue/green deployment (console)](applications-create-blue-green.md "applications-create-blue-green.md")
+- [Create an application for an Amazon ECS service deployment (console)](applications-create-ecs.md "applications-create-ecs.md")
+- [Create an application for an AWS Lambda function deployment (console)](applications-create-lambda.md "applications-create-lambda.md")
 - [Create an application (CLI)](applications-create-cli.md "applications-create-cli.md")

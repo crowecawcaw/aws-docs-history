@@ -3,9 +3,7 @@
 This section provides an overview of monitoring, logging, and incident response in
 CodeDeploy.
 
-## Auditing of all interactions with
-
-CodeDeploy
+## Auditing of all interactions with CodeDeploy
 
 CodeDeploy is integrated with AWS CloudTrail, a service that captures API calls made by or on
 behalf of CodeDeploy in your AWS account and delivers the log files to an S3 bucket you
@@ -18,8 +16,7 @@ log files](../../../awscloudtrail/latest/userguide/cloudtrail-working-with-log-f
 
 You can view the log data created by a CodeDeploy deployment by setting up the Amazon CloudWatch
 agent to view aggregated data in the CloudWatch console or by signing in to an instance to
-review the log file. For more information, see [Send CodeDeploy agent logs to
-CloudWatch](codedeploy-agent-operations-cloudwatch-agent.md "codedeploy-agent-operations-cloudwatch-agent.md").
+review the log file. For more information, see [Send CodeDeploy agent logs to CloudWatch](codedeploy-agent-operations-cloudwatch-agent.md "codedeploy-agent-operations-cloudwatch-agent.md").
 
 ## Alerting and incident management
 

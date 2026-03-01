@@ -17,8 +17,7 @@ To deploy an application revision from a GitHub repository to instances:
 1. Create a revision that's compatible with CodeDeploy and the Amazon EC2 instance type to
    which you will deploy.
 
-To create a compatible revision, follow the instructions in [Plan a revision for CodeDeploy](application-revisions-plan.md "application-revisions-plan.md") and [Add an application specification file to a
-revision for CodeDeploy](application-revisions-appspec-file.md "application-revisions-appspec-file.md"). 2. Use a GitHub account to add your revision to a GitHub repository.
+To create a compatible revision, follow the instructions in [Plan a revision for CodeDeploy](application-revisions-plan.md "application-revisions-plan.md") and [Add an application specification file to a revision for CodeDeploy](application-revisions-appspec-file.md "application-revisions-appspec-file.md"). 2. Use a GitHub account to add your revision to a GitHub repository.
 
 To create a GitHub account, see [Join
 GitHub](https://github.com/join "https://github.com/join"). To create a GitHub repository, see [Create a
@@ -37,30 +36,22 @@ To learn how to use the **Create deployment** page to deploy
 from a GitHub repository, see [Create a deployment with CodeDeploy](deployments-create.md "deployments-create.md").
 
 To learn how to call the **create-deployment** command to
-deploy from a GitHub repository, see [Create an EC2/On-Premises Compute Platform
-deployment (CLI)](deployments-create-cli.md "deployments-create-cli.md").
+deploy from a GitHub repository, see [Create an EC2/On-Premises Compute Platform deployment (CLI)](deployments-create-cli.md "deployments-create-cli.md").
 
 To learn how to prepare instances for use in CodeDeploy deployments, see [Working with instances for CodeDeploy](instances.md "instances.md").
 
-For more information, see [Tutorial: Use CodeDeploy to deploy an application from
-GitHub](tutorials-github.md "tutorials-github.md").
+For more information, see [Tutorial: Use CodeDeploy to deploy an application from GitHub](tutorials-github.md "tutorials-github.md").
 
 ## GitHub behaviors with CodeDeploy
 
 ###### Topics
 
-- [GitHub authentication with applications
-  in CodeDeploy](#behaviors-authentication "#behaviors-authentication")
-- [CodeDeploy interaction with
-  private and public GitHub repositories](#behaviors-interactions-private-and-public "#behaviors-interactions-private-and-public")
-- [CodeDeploy interaction with
-  organization-managed GitHub repositories](#behaviors-interactions-organization-managed "#behaviors-interactions-organization-managed")
-- [Automatically deploy from CodePipeline
-  with CodeDeploy](#behaviors-deploy-automatically "#behaviors-deploy-automatically")
+- [GitHub authentication with applications in CodeDeploy](#behaviors-authentication "#behaviors-authentication")
+- [CodeDeploy interaction with private and public GitHub repositories](#behaviors-interactions-private-and-public "#behaviors-interactions-private-and-public")
+- [CodeDeploy interaction with organization-managed GitHub repositories](#behaviors-interactions-organization-managed "#behaviors-interactions-organization-managed")
+- [Automatically deploy from CodePipeline with CodeDeploy](#behaviors-deploy-automatically "#behaviors-deploy-automatically")
 
-### GitHub authentication with applications
-
-in CodeDeploy
+### GitHub authentication with applications in CodeDeploy
 
 After you give CodeDeploy permission to interact with GitHub, the association between
 that GitHub account and application is stored in CodeDeploy. You can link the application
@@ -124,9 +115,7 @@ GitHub**. 7. Do one of the following:
    list of authorized applications, and then follow the GitHub procedure for
    revoking authorization for an application.
 
-### CodeDeploy interaction with
-
-private and public GitHub repositories
+### CodeDeploy interaction with private and public GitHub repositories
 
 CodeDeploy supports the deployment of applications from private and public GitHub
 repositories. When you give CodeDeploy permission to access GitHub on your behalf, CodeDeploy
@@ -134,9 +123,7 @@ will have read-write access to all of the private GitHub repositories to which y
 GitHub account has access. However, CodeDeploy only reads from GitHub repositories. It
 will not write to any of your private GitHub repositories.
 
-### CodeDeploy interaction with
-
-organization-managed GitHub repositories
+### CodeDeploy interaction with organization-managed GitHub repositories
 
 By default, GitHub repositories that are managed by an organization (as opposed to
 your account's own private or public repositories) do not grant access to
@@ -160,9 +147,7 @@ this issue.
 
 For more information, see [About third-party application restrictions](https://help.github.com/articles/about-third-party-application-restrictions/ "https://help.github.com/articles/about-third-party-application-restrictions/").
 
-### Automatically deploy from CodePipeline
-
-with CodeDeploy
+### Automatically deploy from CodePipeline with CodeDeploy
 
 You can trigger a deployment from a CodePipeline whenever the source code changes. For
 more infomation, see [CodePipeline](https://aws.amazon.com/codepipeline/ "https://aws.amazon.com/codepipeline/").

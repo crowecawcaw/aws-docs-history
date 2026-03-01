@@ -16,8 +16,7 @@ deployments.
   version of the application is started and validated. You can use a load balancer
   so that each instance is deregistered during its deployment and then restored to service after
   the deployment is complete. Only deployments that use the EC2/On-Premises compute platform can use in-place deployments.
-  For more information about in-place deployments, see [Overview of an in-place
-  deployment](welcome.md#welcome-deployment-overview-in-place "welcome.md#welcome-deployment-overview-in-place").
+  For more information about in-place deployments, see [Overview of an in-place deployment](welcome.md#welcome-deployment-overview-in-place "welcome.md#welcome-deployment-overview-in-place").
 - **Blue/green deployment**: The behavior of your deployment depends on which
   compute platform you use:
 
@@ -41,8 +40,7 @@ deployments.
       + **Blue/green on an AWS Lambda or Amazon ECS compute platform**: Traffic is shifted in increments according to a **canary**, **linear**, or **all-at-once** deployment configuration.
       + **Blue/green deployments through CloudFormation**: Traffic is shifted from your current resources to your updated resources as part of an CloudFormation stack update. Currently, only ECS blue/green deployments are supported.
 
-  For more information about blue/green deployments, see [Overview of a blue/green
-  deployment](welcome.md#welcome-deployment-overview-blue-green "welcome.md#welcome-deployment-overview-blue-green").
+  For more information about blue/green deployments, see [Overview of a blue/green deployment](welcome.md#welcome-deployment-overview-blue-green "welcome.md#welcome-deployment-overview-blue-green").
   For information about automatically deploying from Amazon S3, see [Automatically deploy from Amazon S3 using CodeDeploy](https://aws.amazon.com/blogs/devops/automatically-deploy-from-amazon-s3-using-aws-codedeploy/ "https://aws.amazon.com/blogs/devops/automatically-deploy-from-amazon-s3-using-aws-codedeploy/").
 
 ###### Topics

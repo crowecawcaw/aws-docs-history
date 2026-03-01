@@ -22,8 +22,7 @@ be true:
 
 - [Health status](#instances-health-status "#instances-health-status")
 - [About the minimum number of healthy instances](#minimum-healthy-hosts "#minimum-healthy-hosts")
-- [About the minimum number of healthy instances per
-  Availability Zone](#minimum-healthy-hosts-az "#minimum-healthy-hosts-az")
+- [About the minimum number of healthy instances per Availability Zone](#minimum-healthy-hosts-az "#minimum-healthy-hosts-az")
 
 ## Health status
 
@@ -102,8 +101,7 @@ healthy host values:
 | CodeDeployDefault.HalfAtATime         | 50%                                    |
 | CodeDeployDefault.AllAtOnce           | 0                                      |
 
-You'll find more information about default deployment configurations in [Working with deployment configurations in
-CodeDeploy](deployment-configurations.md "deployment-configurations.md").
+You'll find more information about default deployment configurations in [Working with deployment configurations in CodeDeploy](deployment-configurations.md "deployment-configurations.md").
 
 You can create custom deployment configurations in CodeDeploy to define your own minimum
 healthy host values. You can define these values as whole numbers or percentages when using
@@ -233,9 +231,7 @@ that in order to mark an overall deployment as successful, at least one instance
 healthy when the overall deployment is completed, even if the minimum healthy instances
 value is 0.
 
-## About the minimum number of healthy instances per
-
-Availability Zone
+## About the minimum number of healthy instances per Availability Zone
 
 ###### Note
 

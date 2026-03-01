@@ -1,6 +1,4 @@
-# Monitoring deployments with CloudWatch alarms in
-
-CodeDeploy
+# Monitoring deployments with CloudWatch alarms in CodeDeploy
 
 You can create a CloudWatch alarm for an instance or Amazon EC2 Auto Scaling group you are using in your CodeDeploy
 operations. An alarm
@@ -27,5 +25,4 @@ For information about associating a CloudWatch alarm with a deployment group in 
 
 ###### Topics
 
-- [Grant CloudWatch permissions to a
-  CodeDeploy service role](monitoring-create-alarms-grant-permissions.md "monitoring-create-alarms-grant-permissions.md")
+- [Grant CloudWatch permissions to a CodeDeploy service role](monitoring-create-alarms-grant-permissions.md "monitoring-create-alarms-grant-permissions.md")

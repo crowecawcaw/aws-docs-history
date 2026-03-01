@@ -1,6 +1,4 @@
-# Determine the version of the CodeDeploy
-
-agent
+# Determine the version of the CodeDeploy agent
 
 You can determine the version of the CodeDeploy agent running on your instance in two
 ways.
@@ -20,16 +18,11 @@ agent.
 
 ###### Topics
 
-- [Determine the version on Amazon Linux or
-  RHEL](#codedeploy-agent-operations-version-linux "#codedeploy-agent-operations-version-linux")
-- [Determine the version on
-  Ubuntu Server](#codedeploy-agent-operations-version-ubuntu "#codedeploy-agent-operations-version-ubuntu")
-- [Determine the version on
-  Windows Server](#codedeploy-agent-operations-version-windows "#codedeploy-agent-operations-version-windows")
+- [Determine the version on Amazon Linux or RHEL](#codedeploy-agent-operations-version-linux "#codedeploy-agent-operations-version-linux")
+- [Determine the version on Ubuntu Server](#codedeploy-agent-operations-version-ubuntu "#codedeploy-agent-operations-version-ubuntu")
+- [Determine the version on Windows Server](#codedeploy-agent-operations-version-windows "#codedeploy-agent-operations-version-windows")
 
-## Determine the version on Amazon Linux or
-
-RHEL
+## Determine the version on Amazon Linux or RHEL
 
 Sign in to the instance and run the following command:
 
@@ -37,9 +30,7 @@ Sign in to the instance and run the following command:
 sudo yum info codedeploy-agent
 ```
 
-## Determine the version on
-
-Ubuntu Server
+## Determine the version on Ubuntu Server
 
 Sign in to the instance and run the following command:
 
@@ -47,9 +38,7 @@ Sign in to the instance and run the following command:
 sudo dpkg -s codedeploy-agent
 ```
 
-## Determine the version on
-
-Windows Server
+## Determine the version on Windows Server
 
 Sign in to the instance and run the following command:
 

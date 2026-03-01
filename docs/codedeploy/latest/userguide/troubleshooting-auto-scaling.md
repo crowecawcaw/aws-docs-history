@@ -2,27 +2,16 @@
 
 ###### Topics
 
-- [General Amazon EC2 Auto Scaling
-  troubleshooting](#troubleshooting-auto-scaling-general "#troubleshooting-auto-scaling-general")
-- ["CodeDeployRole does not give you
-  permission to perform operations in the following AWS service: AmazonAutoScaling" error](#troubleshooting-auto-scaling-permissions-error "#troubleshooting-auto-scaling-permissions-error")
-- [Instances in an
-  Amazon EC2 Auto Scaling group are continuously provisioned and terminated before a revision can be
-  deployed](#troubleshooting-auto-scaling-provision-termination-loop "#troubleshooting-auto-scaling-provision-termination-loop")
-- [Terminating or rebooting an Amazon EC2 Auto Scaling
-  instance might cause deployments to fail](#troubleshooting-auto-scaling-reboot "#troubleshooting-auto-scaling-reboot")
-- [Avoid associating multiple deployment
-  groups with a single Amazon EC2 Auto Scaling group](#troubleshooting-multiple-depgroups "#troubleshooting-multiple-depgroups")
-- [EC2 instances in an
-  Amazon EC2 Auto Scaling group fail to launch and receive the error "Heartbeat Timeout"](#troubleshooting-auto-scaling-heartbeat "#troubleshooting-auto-scaling-heartbeat")
-- [Mismatched Amazon EC2 Auto Scaling lifecycle hooks
-  might cause automatic deployments to Amazon EC2 Auto Scaling groups to stop or fail](#troubleshooting-auto-scaling-hooks "#troubleshooting-auto-scaling-hooks")
-- ["The
-  deployment failed because no instances were found for your deployment group" error](#troubleshooting-deployment-failed-because-no-instances-found "#troubleshooting-deployment-failed-because-no-instances-found")
+- [General Amazon EC2 Auto Scaling troubleshooting](#troubleshooting-auto-scaling-general "#troubleshooting-auto-scaling-general")
+- ["CodeDeployRole does not give you permission to perform operations in the following AWS service: AmazonAutoScaling" error](#troubleshooting-auto-scaling-permissions-error "#troubleshooting-auto-scaling-permissions-error")
+- [Instances in an Amazon EC2 Auto Scaling group are continuously provisioned and terminated before a revision can be deployed](#troubleshooting-auto-scaling-provision-termination-loop "#troubleshooting-auto-scaling-provision-termination-loop")
+- [Terminating or rebooting an Amazon EC2 Auto Scaling instance might cause deployments to fail](#troubleshooting-auto-scaling-reboot "#troubleshooting-auto-scaling-reboot")
+- [Avoid associating multiple deployment groups with a single Amazon EC2 Auto Scaling group](#troubleshooting-multiple-depgroups "#troubleshooting-multiple-depgroups")
+- [EC2 instances in an Amazon EC2 Auto Scaling group fail to launch and receive the error "Heartbeat Timeout"](#troubleshooting-auto-scaling-heartbeat "#troubleshooting-auto-scaling-heartbeat")
+- [Mismatched Amazon EC2 Auto Scaling lifecycle hooks might cause automatic deployments to Amazon EC2 Auto Scaling groups to stop or fail](#troubleshooting-auto-scaling-hooks "#troubleshooting-auto-scaling-hooks")
+- ["The deployment failed because no instances were found for your deployment group" error](#troubleshooting-deployment-failed-because-no-instances-found "#troubleshooting-deployment-failed-because-no-instances-found")
 
-## General Amazon EC2 Auto Scaling
-
-troubleshooting
+## General Amazon EC2 Auto Scaling troubleshooting
 
 Deployments to EC2 instances in an Amazon EC2 Auto Scaling group can fail for the following
 reasons:
@@ -45,8 +34,7 @@ EC2 instances). For more information, see [Change deployment group settings with
 - **An EC2 instance in an Amazon EC2 Auto Scaling group reboots during a
   deployment.** Your deployment can fail if an EC2 instance is rebooted
   during a deployment or the CodeDeploy agent is shut down while processing a deployment
-  command. For more information, see [Terminating or rebooting an Amazon EC2 Auto Scaling
-  instance might cause deployments to fail](#troubleshooting-auto-scaling-reboot "#troubleshooting-auto-scaling-reboot").
+  command. For more information, see [Terminating or rebooting an Amazon EC2 Auto Scaling instance might cause deployments to fail](#troubleshooting-auto-scaling-reboot "#troubleshooting-auto-scaling-reboot").
 - **Multiple application revisions are deployed simultaneously to
   the same EC2 instance in an Amazon EC2 Auto Scaling group.** Deploying multiple
   application revisions to the same EC2 instance in an Amazon EC2 Auto Scaling group at the same
@@ -68,9 +56,7 @@ EC2 instances). For more information, see [Change deployment group settings with
     created, and then include a script for starting the agent as the final step in your
     `cfn-init` script library.
 
-## "CodeDeployRole does not give you
-
-permission to perform operations in the following AWS service: AmazonAutoScaling" error
+## "CodeDeployRole does not give you permission to perform operations in the following AWS service: AmazonAutoScaling" error
 
 Deployments that use an Auto Scaling group created with a launch template require the following
 permissions. These are in addition to the permissions granted by the
@@ -81,14 +67,10 @@ permissions. These are in addition to the permissions granted by the
 - `iam:PassRole`
 
 You might received this error if you are missing these permissions. For more
-information, see [Tutorial: Use CodeDeploy to deploy an application
-to an Auto Scaling group](tutorials-auto-scaling-group.md "tutorials-auto-scaling-group.md"), [Creating a launch template for
+information, see [Tutorial: Use CodeDeploy to deploy an application to an Auto Scaling group](tutorials-auto-scaling-group.md "tutorials-auto-scaling-group.md"), [Creating a launch template for
 an Auto Scaling group](../../../autoscaling/ec2/userguide/create-launch-template.md "../../../autoscaling/ec2/userguide/create-launch-template.md"), and [Permissions](../../../autoscaling/ec2/userguide/launch-templates.md#launch-templates-permissions "../../../autoscaling/ec2/userguide/launch-templates.md#launch-templates-permissions") in the _Amazon EC2 Auto Scaling User Guide_.
 
-## Instances in an
-
-Amazon EC2 Auto Scaling group are continuously provisioned and terminated before a revision can be
-deployed
+## Instances in an Amazon EC2 Auto Scaling group are continuously provisioned and terminated before a revision can be deployed
 
 In some cases, an error can prevent a successful deployment to newly provisioned
 instances in an Amazon EC2 Auto Scaling group. The results are no healthy instances and no successful
@@ -117,9 +99,7 @@ in the Amazon EC2 Auto Scaling group.
 After you confirm that deployments are successful, delete the instance you created to
 avoid ongoing charges to your AWS account.
 
-## Terminating or rebooting an Amazon EC2 Auto Scaling
-
-instance might cause deployments to fail
+## Terminating or rebooting an Amazon EC2 Auto Scaling instance might cause deployments to fail
 
 If an EC2 instance is launched through Amazon EC2 Auto Scaling, and the instance is then
 terminated or rebooted, deployments to that instance might fail for the following
@@ -147,9 +127,7 @@ To address this issue:
   behavior enabled, you do not need to clear this check box. Simply redeploy failed
   deployments to those instances after they have been rebooted.
 
-## Avoid associating multiple deployment
-
-groups with a single Amazon EC2 Auto Scaling group
+## Avoid associating multiple deployment groups with a single Amazon EC2 Auto Scaling group
 
 As a best practice, you should associate only one deployment group with each Amazon EC2 Auto Scaling
 group.
@@ -165,8 +143,7 @@ is otherwise running as expected.
 ###### Note
 
 The default timeout for a script in a lifecycle event is 30 minutes. You can change the timeout to a different value in the AppSpec file. For more information,
-see [Add an AppSpec file for an EC2/On-Premises
-deployment](application-revisions-appspec-file.md#add-appspec-file-server "application-revisions-appspec-file.md#add-appspec-file-server").
+see [Add an AppSpec file for an EC2/On-Premises deployment](application-revisions-appspec-file.md#add-appspec-file-server "application-revisions-appspec-file.md#add-appspec-file-server").
 
 It's not possible to control the order in which deployments occur if more than one
 deployment attempts to run at the same time.
@@ -178,9 +155,7 @@ it can take up to 60 minutes for each instance to time out.
 
 For more information about Amazon EC2 Auto Scaling, see [Under the hood: CodeDeploy and Auto Scaling integration](https://aws.amazon.com/blogs/devops/under-the-hood-aws-codedeploy-and-auto-scaling-integration/ "https://aws.amazon.com/blogs/devops/under-the-hood-aws-codedeploy-and-auto-scaling-integration/").
 
-## EC2 instances in an
-
-Amazon EC2 Auto Scaling group fail to launch and receive the error "Heartbeat Timeout"
+## EC2 instances in an Amazon EC2 Auto Scaling group fail to launch and receive the error "Heartbeat Timeout"
 
 An Amazon EC2 Auto Scaling group might fail to launch new EC2 instances, generating a message
 similar to the following:
@@ -268,9 +243,7 @@ group will not receive your application revisions from CodeDeploy. To get Auto S
 with CodeDeploy, you'll need to re-attach the Auto Scaling group to the deployment group and call a new
 `CreateDeployment` to start a fleet-wide deployment.
 
-## Mismatched Amazon EC2 Auto Scaling lifecycle hooks
-
-might cause automatic deployments to Amazon EC2 Auto Scaling groups to stop or fail
+## Mismatched Amazon EC2 Auto Scaling lifecycle hooks might cause automatic deployments to Amazon EC2 Auto Scaling groups to stop or fail
 
 Amazon EC2 Auto Scaling and CodeDeploy use lifecycle hooks to determine which application revisions should
 be deployed to which EC2 instances after they are launched in Amazon EC2 Auto Scaling groups.
@@ -324,9 +297,7 @@ character, application revisions should be deployed again, but only to new insta
 are added to the Amazon EC2 Auto Scaling group. Deployments do not occur automatically to instances that
 are already in the Amazon EC2 Auto Scaling group.
 
-## "The
-
-deployment failed because no instances were found for your deployment group" error
+## "The deployment failed because no instances were found for your deployment group" error
 
 Read this section if you see the following CodeDeploy error:
 
@@ -394,9 +365,7 @@ Possible causes for this error are:
       - [To fix the deployment deadlock issue (CLI)](#ToFixDeployDeadlockCLI "#ToFixDeployDeadlockCLI")
       - [To fix the deployment deadlock issue (console)](#ToFixDeployDeadlockConsole "#ToFixDeployDeadlockConsole")
 
-###### To fix the deployment deadlock
-
-issue (CLI)
+###### To fix the deployment deadlock issue (CLI)
 
 1. (Optional) Block your CI/CD pipelines that are causing the CodeDeploy error so that
    unexpected deployments do not occur while you’re fixing this problem.
@@ -493,9 +462,7 @@ capacity, if you previously scaled it in:
  `ASG_NAME`--desired-capacity
 `ORIGINAL_CAPACITY``
 
-###### To fix the deployment
-
-deadlock issue (console)
+###### To fix the deployment deadlock issue (console)
 
 1. (Optional) Block your CI/CD pipelines that are causing the CodeDeploy error so that
    unexpected deployments do not occur while you’re fixing this problem.

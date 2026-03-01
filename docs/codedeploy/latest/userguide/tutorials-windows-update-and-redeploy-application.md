@@ -1,6 +1,4 @@
-# Step 5: Update and redeploy
-
-your "hello, world!" application
+# Step 5: Update and redeploy your "hello, world!" application
 
 Now that you've successfully deployed your application revision, on the development machine,
 make an update to the webpage's code, and then use CodeDeploy to redeploy the site. After
@@ -8,14 +6,10 @@ redeployment, you should be able to see the changes on the Amazon EC2 instance.
 
 ###### Topics
 
-- [Modify the
-  webpage](#tutorials-windows-update-and-redeploy-application-modify-code "#tutorials-windows-update-and-redeploy-application-modify-code")
-- [Redeploy
-  the site](#tutorials-windows-update-and-redeploy-application-deploy-updates "#tutorials-windows-update-and-redeploy-application-deploy-updates")
+- [Modify the webpage](#tutorials-windows-update-and-redeploy-application-modify-code "#tutorials-windows-update-and-redeploy-application-modify-code")
+- [Redeploy the site](#tutorials-windows-update-and-redeploy-application-deploy-updates "#tutorials-windows-update-and-redeploy-application-deploy-updates")
 
-## Modify the
-
-webpage
+## Modify the webpage
 
 1. Go to your `c:\temp\HelloWorldApp` subfolder and use a text editor
    to modify the `index.html` file:
@@ -52,14 +46,11 @@ notepad index.html
 </html>
 ```
 
-## Redeploy
-
-the site
+## Redeploy the site
 
 Now that you've modified the code, use Amazon S3 and CodeDeploy to redeploy the webpage.
 
-Bundle and upload the changes to Amazon S3 as described in [Bundle the
-application's files into a single archive file and push the archive file](tutorials-windows-upload-application.md#tutorials-windows-upload-application-bundle-and-push-archive "tutorials-windows-upload-application.md#tutorials-windows-upload-application-bundle-and-push-archive"). (As you
+Bundle and upload the changes to Amazon S3 as described in [Bundle the application's files into a single archive file and push the archive file](tutorials-windows-upload-application.md#tutorials-windows-upload-application-bundle-and-push-archive "tutorials-windows-upload-application.md#tutorials-windows-upload-application-bundle-and-push-archive"). (As you
 follow those instructions, you do not need to create a new application.) Give the revision the
 same key as before (`HelloWorld_App.zip`). Upload it to the same Amazon S3
 bucket you created earlier (for example,
@@ -69,13 +60,10 @@ Use the AWS CLI or the CodeDeploy console to redeploy the site.
 
 ###### Topics
 
-- [To
-  redeploy the site (CLI)](#tutorials-windows-update-and-redeploy-application-deploy-updates-cli "#tutorials-windows-update-and-redeploy-application-deploy-updates-cli")
+- [To redeploy the site (CLI)](#tutorials-windows-update-and-redeploy-application-deploy-updates-cli "#tutorials-windows-update-and-redeploy-application-deploy-updates-cli")
 - [To redeploy the site (console)](#tutorials-windows-update-and-redeploy-application-deploy-updates-console "#tutorials-windows-update-and-redeploy-application-deploy-updates-console")
 
-### To
-
-redeploy the site (CLI)
+### To redeploy the site (CLI)
 
 Call the **create-deployment** command to create a deployment based on
 the uploaded revision, again using the application named
@@ -89,8 +77,7 @@ the uploaded revision, again using the application named
  aws deploy create-deployment --application-name HelloWorld_App --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name HelloWorld_DepGroup --s3-location bucket=amzn-s3-demo-bucket,bundleType=zip,key=HelloWorld_App.zip
 ```
 
-You can check the status of the new deployment, as described in [Monitor and troubleshoot your
-deployment](tutorials-windows-deploy-application.md#tutorials-windows-deploy-application-monitor "tutorials-windows-deploy-application.md#tutorials-windows-deploy-application-monitor").
+You can check the status of the new deployment, as described in [Monitor and troubleshoot your deployment](tutorials-windows-deploy-application.md#tutorials-windows-deploy-application-monitor "tutorials-windows-deploy-application.md#tutorials-windows-deploy-application-monitor").
 
 When CodeDeploy has redeployed the site, revisit the site in your web browser to verify that
 the background color and text on the webpage have been changed. (You may need to refresh
@@ -138,8 +125,7 @@ deployment**.
      deployment**.
 
 
-    You can check the status of the deployment as described in [Monitor and troubleshoot your
-     deployment](tutorials-windows-deploy-application.md#tutorials-windows-deploy-application-monitor "tutorials-windows-deploy-application.md#tutorials-windows-deploy-application-monitor").
+    You can check the status of the deployment as described in [Monitor and troubleshoot your deployment](tutorials-windows-deploy-application.md#tutorials-windows-deploy-application-monitor "tutorials-windows-deploy-application.md#tutorials-windows-deploy-application-monitor").
 
 
     When CodeDeploy has redeployed the site, revisit the site in your web browser to

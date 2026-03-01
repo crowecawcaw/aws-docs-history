@@ -11,13 +11,10 @@ unchanged. This action cannot be undone.
 
 ###### Topics
 
-- [Delete a deployment group
-  (console)](#deployment-groups-delete-console "#deployment-groups-delete-console")
+- [Delete a deployment group (console)](#deployment-groups-delete-console "#deployment-groups-delete-console")
 - [Delete a deployment group (CLI)](#deployment-groups-delete-cli "#deployment-groups-delete-cli")
 
-## Delete a deployment group
-
-(console)
+## Delete a deployment group (console)
 
 To use the CodeDeploy console to delete a deployment group:
 

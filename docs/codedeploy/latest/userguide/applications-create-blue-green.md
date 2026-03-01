@@ -1,6 +1,4 @@
-# Create an application for a blue/green
-
-deployment (console)
+# Create an application for a blue/green deployment (console)
 
 To use the CodeDeploy console to create an application for a blue/green deployment:
 
@@ -21,15 +19,12 @@ Do not follow these steps if:
   Follow the instructions in [Create a Deployment Configuration](deployment-configurations-create.md "deployment-configurations-create.md"), and then follow the
   steps in this topic.
 - You do not have a service role that trusts CodeDeploy with, at minimum, the
-  trust and permissions described in [Step 2: Create a service role for
-  CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md"). To create and
-  configure a service role, follow the instructions in [Step 2: Create a service role for
-  CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md"), and then follow
+  trust and permissions described in [Step 2: Create a service role for CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md"). To create and
+  configure a service role, follow the instructions in [Step 2: Create a service role for CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md"), and then follow
   the steps in this topic.
 - You have not created a Classic Load Balancer, Application Load Balancer, or Network Load Balancer in Elastic Load Balancing for the
   registration of the instances in your replacement environment. For more
-  information, see [Set up a load balancer in Elastic Load Balancing
-  for CodeDeploy Amazon EC2 deployments](deployment-groups-create-load-balancer.md "deployment-groups-create-load-balancer.md").
+  information, see [Set up a load balancer in Elastic Load Balancing for CodeDeploy Amazon EC2 deployments](deployment-groups-create-load-balancer.md "deployment-groups-create-load-balancer.md").
 
 1. Sign in to the AWS Management Console and open the CodeDeploy console at [https://console.aws.amazon.com/codedeploy](https://console.aws.amazon.com/codedeploy "https://console.aws.amazon.com/codedeploy").
 
@@ -100,7 +95,7 @@ the following settings.
 | Setting                      | Options                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Traffic rerouting**        | • **Reroute traffic immediately**:<br>As soon as instances in the replacement environment<br>are provisioned and the latest application revision<br>is installed on them, they are registered with the<br>specified load balancers and target groups<br>automatically, causing traffic to be rerouted to<br>them. Instances in the original environment are then<br>deregistered.<br>• **I will choose whether to reroute<br>traffic**: Instances in the replacement<br>environment are not registered with the specified<br>load balancers and target groups unless you manually<br>reroute traffic. If the wait time you specify passes<br>without traffic being rerouted, the deployment<br>status is changed to Stopped. |
-| **Deployment configuration** | Choose the rate at which instances in the replacement<br>environment are registered with the load balancers and<br>target groups, such as one at a time or all at once.<br>NoteAfter traffic is successfully routed to the<br>replacement environment, instances in the original<br>environment are deregistered all at once no matter which<br>deployment configuration was selected.<br>For more information, see [Working with deployment configurations in<br>CodeDeploy](deployment-configurations.md "deployment-configurations.md").                                                                                                                                                                                  |
+| **Deployment configuration** | Choose the rate at which instances in the replacement<br>environment are registered with the load balancers and<br>target groups, such as one at a time or all at once.<br>NoteAfter traffic is successfully routed to the<br>replacement environment, instances in the original<br>environment are deregistered all at once no matter which<br>deployment configuration was selected.<br>For more information, see [Working with deployment configurations in CodeDeploy](deployment-configurations.md "deployment-configurations.md").                                                                                                                                                                                     |
 | **Original instances**       | • **Terminate the original instances in the<br>deployment group**: After traffic is<br>rerouted to the replacement environment, the<br>instances that were deregistered from the load<br>balancers and target groups are terminated following<br>the wait period you specify.<br>• **Keep the original instances in the<br>deployment group running**: After traffic<br>is rerouted to the replacement environment, the<br>instances that were deregistered from the load<br>balancers and target groups are kept running.                                                                                                                                                                                                   |
 
 15. (Optional) In **Advanced**, configure options you want to
@@ -108,7 +103,6 @@ the following settings.
     or automatic rollbacks.
 
 For information about specifying advanced options in deployment groups, see
-[Configure advanced options
-for a deployment group](deployment-groups-configure-advanced-options.md "deployment-groups-configure-advanced-options.md"). 16. Choose **Create deployment group**.
+[Configure advanced options for a deployment group](deployment-groups-configure-advanced-options.md "deployment-groups-configure-advanced-options.md"). 16. Choose **Create deployment group**.
 The next step is to prepare a revision to deploy to the application and deployment
 group. For instructions, see [Working with application revisions for CodeDeploy](application-revisions.md "application-revisions.md").

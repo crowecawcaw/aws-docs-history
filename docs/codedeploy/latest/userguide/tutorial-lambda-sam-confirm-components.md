@@ -1,6 +1,4 @@
-# (Optional) inspect and test your
-
-infrastructure
+# (Optional) inspect and test your infrastructure
 
 This topic shows how to view your infrastructure components and test your Lambda
 function.

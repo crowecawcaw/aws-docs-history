@@ -1,6 +1,4 @@
-# CodeDeploy application specification (AppSpec)
-
-files
+# CodeDeploy application specification (AppSpec) files
 
 An application specification file (AppSpec file), which is unique to CodeDeploy, is a [YAML](http://www.yaml.org "http://www.yaml.org")-formatted or [JSON](http://www.json.org "http://www.json.org")-formatted file. The AppSpec file is used to manage each deployment as a
 series of lifecycle event hooks, which are defined in the file.
@@ -9,18 +7,12 @@ For information about how to create a well-formed AppSpec file, see [CodeDeploy 
 
 ###### Topics
 
-- [AppSpec files on an
-  Amazon ECS Compute Platform](#appspec-files-on-ecs-compute-platform "#appspec-files-on-ecs-compute-platform")
-- [AppSpec files on an AWS Lambda
-  compute platform](#appspec-files-on-lambda-compute-platform "#appspec-files-on-lambda-compute-platform")
-- [AppSpec files on an EC2/on-premises
-  compute platform](#appspec-files-on-server-compute-platform "#appspec-files-on-server-compute-platform")
-- [How the CodeDeploy agent uses the
-  AppSpec file](#application-specification-files-agent-usage "#application-specification-files-agent-usage")
+- [AppSpec files on an Amazon ECS Compute Platform](#appspec-files-on-ecs-compute-platform "#appspec-files-on-ecs-compute-platform")
+- [AppSpec files on an AWS Lambda compute platform](#appspec-files-on-lambda-compute-platform "#appspec-files-on-lambda-compute-platform")
+- [AppSpec files on an EC2/on-premises compute platform](#appspec-files-on-server-compute-platform "#appspec-files-on-server-compute-platform")
+- [How the CodeDeploy agent uses the AppSpec file](#application-specification-files-agent-usage "#application-specification-files-agent-usage")
 
-## AppSpec files on an
-
-Amazon ECS Compute Platform
+## AppSpec files on an Amazon ECS Compute Platform
 
 If your application uses the Amazon ECS compute platform, the AppSpec file
 can be formatted with either YAML or JSON. It can also be typed directly into an editor in the
@@ -31,14 +23,9 @@ console. The AppSpec file is used to specify:
 - The functions to be used as validation tests.
 
 You can run validation Lambda functions after deployment lifecycle events. For more
-information, see [AppSpec 'hooks' section for an Amazon ECS
-deployment](reference-appspec-file-structure-hooks.md#appspec-hooks-ecs "reference-appspec-file-structure-hooks.md#appspec-hooks-ecs"), [AppSpec file structure for Amazon ECS
-deployments](reference-appspec-file-structure.md#ecs-appspec-structure "reference-appspec-file-structure.md#ecs-appspec-structure") , and [AppSpec File example for an
-Amazon ECS deployment](reference-appspec-file-example.md#appspec-file-example-ecs "reference-appspec-file-example.md#appspec-file-example-ecs") .
+information, see [AppSpec 'hooks' section for an Amazon ECS deployment](reference-appspec-file-structure-hooks.md#appspec-hooks-ecs "reference-appspec-file-structure-hooks.md#appspec-hooks-ecs"), [AppSpec file structure for Amazon ECS deployments](reference-appspec-file-structure.md#ecs-appspec-structure "reference-appspec-file-structure.md#ecs-appspec-structure"), and [AppSpec File example for an Amazon ECS deployment](reference-appspec-file-example.md#appspec-file-example-ecs "reference-appspec-file-example.md#appspec-file-example-ecs").
 
-## AppSpec files on an AWS Lambda
-
-compute platform
+## AppSpec files on an AWS Lambda compute platform
 
 If your application uses the AWS Lambda compute platform, the AppSpec file can be
 formatted with either YAML or JSON. It can also be typed directly into an editor in the
@@ -48,12 +35,9 @@ console. The AppSpec file is used to specify:
 - The functions to be used as validation tests.
 
 You can run validation Lambda functions after deployment lifecycle events. For more
-information, see [AppSpec 'hooks' section for an
-AWS Lambda deployment](reference-appspec-file-structure-hooks.md#appspec-hooks-lambda "reference-appspec-file-structure-hooks.md#appspec-hooks-lambda").
+information, see [AppSpec 'hooks' section for an AWS Lambda deployment](reference-appspec-file-structure-hooks.md#appspec-hooks-lambda "reference-appspec-file-structure-hooks.md#appspec-hooks-lambda").
 
-## AppSpec files on an EC2/on-premises
-
-compute platform
+## AppSpec files on an EC2/on-premises compute platform
 
 If your application uses the EC2/On-Premises compute platform, the AppSpec file is always
 YAML-formatted. The AppSpec file is used to:
@@ -67,12 +51,9 @@ YAML-formatted. The AppSpec file is used to:
 You can run scripts on an instance after many of the individual deployment lifecycle
 events. CodeDeploy runs only those scripts specified in the file, but those scripts can call other
 scripts on the instance. You can run any type of script as long as it is supported by the
-operating system running on the instances. For more information, see [AppSpec 'hooks' section for an
-EC2/On-Premises deployment](reference-appspec-file-structure-hooks.md#appspec-hooks-server "reference-appspec-file-structure-hooks.md#appspec-hooks-server").
+operating system running on the instances. For more information, see [AppSpec 'hooks' section for an EC2/On-Premises deployment](reference-appspec-file-structure-hooks.md#appspec-hooks-server "reference-appspec-file-structure-hooks.md#appspec-hooks-server").
 
-## How the CodeDeploy agent uses the
-
-AppSpec file
+## How the CodeDeploy agent uses the AppSpec file
 
 During deployment, the CodeDeploy agent looks up the name of the current event in the **hooks** section of the AppSpec file. If the event is not found, the
 CodeDeploy agent moves on to the next step. If the event is found, the CodeDeploy agent retrieves the

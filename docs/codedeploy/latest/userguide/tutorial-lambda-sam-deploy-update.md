@@ -1,6 +1,4 @@
-# Step 3: Deploy the updated Lambda
-
-function
+# Step 3: Deploy the updated Lambda function
 
 In this step, you use your updated `myDateTimeFunction.js` to update
 and initiate the deployment of your Lambda function. You can monitor the deployment progress in

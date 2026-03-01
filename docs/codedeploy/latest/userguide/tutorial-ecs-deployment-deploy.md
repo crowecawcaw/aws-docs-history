@@ -1,6 +1,4 @@
-# Step 3: Use the CodeDeploy console to deploy your
-
-application
+# Step 3: Use the CodeDeploy console to deploy your application
 
 In this section, you create a CodeDeploy application and deployment group to deploy your
 updated application into Amazon ECS. During deployment, CodeDeploy shifts the production traffic for
@@ -32,8 +30,7 @@ need the following items:
 2. In **Deployment group name**, enter
    `ecs-demo-dg`.
 3. In **Service role**, choose a service role that grants CodeDeploy access
-   to Amazon ECS. For more information, see [Identity and access management for
-   AWS CodeDeploy](security-iam.md "security-iam.md").
+   to Amazon ECS. For more information, see [Identity and access management for AWS CodeDeploy](security-iam.md "security-iam.md").
 4. In **Environment configuration**, choose your Amazon ECS cluster name and
    service name.
 5. From **Load balancers**, choose the name of the load balancer that

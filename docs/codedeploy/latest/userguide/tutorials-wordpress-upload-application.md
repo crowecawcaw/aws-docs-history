@@ -1,6 +1,4 @@
-# Step 3: Upload your WordPress
-
-application to Amazon S3
+# Step 3: Upload your WordPress application to Amazon S3
 
 Now you will prepare and upload your source content to a location from which CodeDeploy can
 deploy it. The following instructions show you how to provision an Amazon S3 bucket, prepare the
@@ -14,16 +12,11 @@ GitHub repositories to instances. For more information, see [Integrating CodeDep
 
 ###### Topics
 
-- [Provision an Amazon S3
-  bucket](#tutorials-wordpress-upload-application-create-s3-bucket "#tutorials-wordpress-upload-application-create-s3-bucket")
-- [Prepare the
-  application's files for the bucket](#tutorials-wordpress-upload-application-prepare-application-files "#tutorials-wordpress-upload-application-prepare-application-files")
-- [Bundle the
-  application's files into a single archive file and push the archive file](#tutorials-wordpress-upload-application-bundle-and-push-archive "#tutorials-wordpress-upload-application-bundle-and-push-archive")
+- [Provision an Amazon S3 bucket](#tutorials-wordpress-upload-application-create-s3-bucket "#tutorials-wordpress-upload-application-create-s3-bucket")
+- [Prepare the application's files for the bucket](#tutorials-wordpress-upload-application-prepare-application-files "#tutorials-wordpress-upload-application-prepare-application-files")
+- [Bundle the application's files into a single archive file and push the archive file](#tutorials-wordpress-upload-application-bundle-and-push-archive "#tutorials-wordpress-upload-application-bundle-and-push-archive")
 
-## Provision an Amazon S3
-
-bucket
+## Provision an Amazon S3 bucket
 
 Create a storage container or _bucket_ in Amazon S3—or use an existing
 bucket. Make sure you can upload the revision to the bucket and that Amazon EC2 instances used in
@@ -48,15 +41,11 @@ your target Amazon EC2 instances must be launched in the US East (N. Virginia) R
 
 ###### Topics
 
-- [To create an
-  Amazon S3 bucket (CLI)](#tutorials-wordpress-upload-application-create-s3-bucket-cli "#tutorials-wordpress-upload-application-create-s3-bucket-cli")
-- [To create
-  an Amazon S3 bucket (console)](#tutorials-wordpress-upload-application-create-s3-bucket-console "#tutorials-wordpress-upload-application-create-s3-bucket-console")
+- [To create an Amazon S3 bucket (CLI)](#tutorials-wordpress-upload-application-create-s3-bucket-cli "#tutorials-wordpress-upload-application-create-s3-bucket-cli")
+- [To create an Amazon S3 bucket (console)](#tutorials-wordpress-upload-application-create-s3-bucket-console "#tutorials-wordpress-upload-application-create-s3-bucket-console")
 - [Give permissions to the Amazon S3 bucket and AWS account](#tutorials-wordpress-upload-application-create-s3-bucket-grant-permissions "#tutorials-wordpress-upload-application-create-s3-bucket-grant-permissions")
 
-### To create an
-
-Amazon S3 bucket (CLI)
+### To create an Amazon S3 bucket (CLI)
 
 Call the **mb** command to create an Amazon S3 bucket named
 `amzn-s3-demo-bucket`:
@@ -65,9 +54,7 @@ Call the **mb** command to create an Amazon S3 bucket named
 aws s3 mb s3://amzn-s3-demo-bucket --region `region`
 ```
 
-### To create
-
-an Amazon S3 bucket (console)
+### To create an Amazon S3 bucket (console)
 
 1. Open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -138,9 +125,7 @@ For information about how to generate and attach an Amazon S3 bucket policy, see
 For information about how to create and attach an IAM policy, see [Working with
 policies](../../../IAM/latest/UserGuide/ManagingPolicies.md#AddingPermissions_Console "../../../IAM/latest/UserGuide/ManagingPolicies.md#AddingPermissions_Console").
 
-## Prepare the
-
-application's files for the bucket
+## Prepare the application's files for the bucket
 
 Make sure the WordPress application files, the AppSpec file, and the scripts are
 organized on your development machine similar to the following:
@@ -167,9 +152,7 @@ organized on your development machine similar to the following:
       |-- `(various files ending with .php...)`
 ```
 
-## Bundle the
-
-application's files into a single archive file and push the archive file
+## Bundle the application's files into a single archive file and push the archive file
 
 Bundle the WordPress application files and the AppSpec file into an archive file (known
 as an application _revision_).

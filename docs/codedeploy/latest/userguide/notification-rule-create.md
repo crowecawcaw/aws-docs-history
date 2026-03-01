@@ -6,9 +6,7 @@ events and the Amazon SNS topic that is used to send notifications. For more inf
 
 You can use the console or the AWS CLI to create notification rules for AWS CodeDeploy.
 
-# To create a notification rule
-
-(console)
+# To create a notification rule (console)
 
 1. Sign in to the AWS Management Console and open the CodeDeploy console at
    [https://console.aws.amazon.com/codedeploy/](https://console.aws.amazon.com/codedeploy/ "https://console.aws.amazon.com/codedeploy/").

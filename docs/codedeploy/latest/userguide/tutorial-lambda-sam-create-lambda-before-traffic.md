@@ -1,6 +1,4 @@
-# Create a file for your
-
-BeforeAllowTraffic Lambda function
+# Create a file for your BeforeAllowTraffic Lambda function
 
 Create the file for your `beforeAllowTraffic` hook Lambda function.
 

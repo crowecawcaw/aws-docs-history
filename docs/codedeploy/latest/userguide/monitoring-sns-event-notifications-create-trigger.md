@@ -1,6 +1,4 @@
-# Create a trigger for
-
-a CodeDeploy event
+# Create a trigger for a CodeDeploy event
 
 You can create a trigger that publishes an Amazon Simple Notification Service (Amazon SNS) topic for a AWS CodeDeploy
 deployment or instance event. Then, when that event occurs, all subscribers to the
@@ -16,15 +14,12 @@ identifies its purpose, in formats such as
 `Topic-group-project-2-instance-stop`.
 
 You must also grant Amazon SNS permissions to a CodeDeploy service role before notifications can
-be sent for your trigger. For information, see [Grant Amazon SNS
-permissions to a CodeDeploy service role](monitoring-sns-event-notifications-permisssions.md "monitoring-sns-event-notifications-permisssions.md").
+be sent for your trigger. For information, see [Grant Amazon SNS permissions to a CodeDeploy service role](monitoring-sns-event-notifications-permisssions.md "monitoring-sns-event-notifications-permisssions.md").
 
 After you have created the topic, you can add subscribers. For information about
 creating, managing, and subscribing to topics, see [What is Amazon Simple Notification Service](../../../sns/latest/dg/welcome.md "../../../sns/latest/dg/welcome.md").
 
-## Create a
-
-trigger to send notifications for CodeDeploy events (console)
+## Create a trigger to send notifications for CodeDeploy events (console)
 
 You can use the CodeDeploy console to create triggers for a CodeDeploy event. At the end of
 the setup process, a test notification message is sent to ensure that both
@@ -60,16 +55,12 @@ following:
 
 10. Choose **Save changes**.
 
-## Create a
-
-trigger to send notifications for CodeDeploy events (CLI)
+## Create a trigger to send notifications for CodeDeploy events (CLI)
 
 You can use the CLI to include triggers when you create a deployment group, or you
 can add triggers to an existing deployment group.
 
-### To
-
-create a trigger to send notifications for a new deployment group
+### To create a trigger to send notifications for a new deployment group
 
 Create a JSON file to configure the deployment group, and then run the
 [create-deployment-group](../../../cli/latest/reference/deploy/create-deployment-group.md "../../../cli/latest/reference/deploy/create-deployment-group.md") command using the
@@ -134,8 +125,7 @@ minimum, values for the following parameters:
      group you are creating.
     * `serviceRoleArn`: The ARN of an existing service
      role set up for CodeDeploy in your account. For information, see
-     [Step 2: Create a service role for
-     CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md").
+     [Step 2: Create a service role for CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md").
 
 In the `triggerConfigurations` section, provide values for
 the following parameters:

@@ -1,6 +1,4 @@
-# Step 4: Deploy your WordPress
-
-application
+# Step 4: Deploy your WordPress application
 
 Now you deploy the sample WordPress application revision you uploaded to Amazon S3. You can use
 the AWS CLI or the CodeDeploy console to deploy the revision and monitor the deployment's progress.
@@ -8,29 +6,20 @@ After the application revision is successfully deployed, you check the results.
 
 ###### Topics
 
-- [Deploy your
-  application revision with CodeDeploy](#tutorials-wordpress-deploy-application-create-deployment "#tutorials-wordpress-deploy-application-create-deployment")
-- [Monitor and troubleshoot your
-  deployment](#tutorials-wordpress-deploy-application-monitor "#tutorials-wordpress-deploy-application-monitor")
-- [Verify your
-  deployment](#tutorials-wordpress-deploy-application-verify-deployment "#tutorials-wordpress-deploy-application-verify-deployment")
+- [Deploy your application revision with CodeDeploy](#tutorials-wordpress-deploy-application-create-deployment "#tutorials-wordpress-deploy-application-create-deployment")
+- [Monitor and troubleshoot your deployment](#tutorials-wordpress-deploy-application-monitor "#tutorials-wordpress-deploy-application-monitor")
+- [Verify your deployment](#tutorials-wordpress-deploy-application-verify-deployment "#tutorials-wordpress-deploy-application-verify-deployment")
 
-## Deploy your
-
-application revision with CodeDeploy
+## Deploy your application revision with CodeDeploy
 
 Use the AWS CLI or the console to deploy your application revision.
 
 ###### Topics
 
-- [To deploy
-  your application revision (CLI)](#tutorials-wordpress-deploy-application-create-deployment-cli "#tutorials-wordpress-deploy-application-create-deployment-cli")
-- [To deploy
-  your application revision (console)](#tutorials-wordpress-deploy-application-create-deployment-console "#tutorials-wordpress-deploy-application-create-deployment-console")
+- [To deploy your application revision (CLI)](#tutorials-wordpress-deploy-application-create-deployment-cli "#tutorials-wordpress-deploy-application-create-deployment-cli")
+- [To deploy your application revision (console)](#tutorials-wordpress-deploy-application-create-deployment-console "#tutorials-wordpress-deploy-application-create-deployment-console")
 
-### To deploy
-
-your application revision (CLI)
+### To deploy your application revision (CLI)
 
 1. The deployment needs a deployment group. However, before you create the deployment
    group, you need a service role ARN. A service role is an IAM role that gives a service
@@ -38,7 +27,7 @@ your application revision (CLI)
    to access your Amazon EC2 instances to expand (read) their Amazon EC2 instance tags.
 
 You should have already followed the instructions in [Create a service role (CLI)](getting-started-create-service-role.md#getting-started-create-service-role-cli "getting-started-create-service-role.md#getting-started-create-service-role-cli") to create a service role. To
-get the ARN of the service role, see [Get the service role ARN (CLI)](getting-started-create-service-role.md#getting-started-get-service-role-cli "getting-started-create-service-role.md#getting-started-get-service-role-cli") . 2. Now that you have the service role ARN, call the
+get the ARN of the service role, see [Get the service role ARN (CLI)](getting-started-create-service-role.md#getting-started-get-service-role-cli "getting-started-create-service-role.md#getting-started-get-service-role-cli"). 2. Now that you have the service role ARN, call the
 **create-deployment-group** command to create a deployment group named
 `WordPress_DepGroup`, associated with the
 application named `WordPress_App`, using the Amazon EC2 tag
@@ -91,9 +80,7 @@ aws deploy create-deployment \
   --s3-location bucket=amzn-s3-demo-bucket,bundleType=zip,key=WordPressApp.zip
 ```
 
-### To deploy
-
-your application revision (console)
+### To deploy your application revision (console)
 
 1. Before you use the CodeDeploy console to deploy your application revision, you need a
    service role ARN. A service role is an IAM role that gives a service permission to act
@@ -101,7 +88,7 @@ your application revision (console)
    Amazon EC2 instances to expand (read) their Amazon EC2 instance tags.
 
 You should have already followed the instructions in [Create a service role (console)](getting-started-create-service-role.md#getting-started-create-service-role-console "getting-started-create-service-role.md#getting-started-create-service-role-console") to create a service
-role. To get the ARN of the service role, see [Get the service role ARN (console)](getting-started-create-service-role.md#getting-started-get-service-role-console "getting-started-create-service-role.md#getting-started-get-service-role-console") . 2. Now that you have the ARN, use the CodeDeploy console to deploy your application
+role. To get the ARN of the service role, see [Get the service role ARN (console)](getting-started-create-service-role.md#getting-started-get-service-role-console "getting-started-create-service-role.md#getting-started-get-service-role-console"). 2. Now that you have the ARN, use the CodeDeploy console to deploy your application
 revision:
 
 Sign in to the AWS Management Console and open the CodeDeploy console at [https://console.aws.amazon.com/codedeploy](https://console.aws.amazon.com/codedeploy "https://console.aws.amazon.com/codedeploy").
@@ -156,22 +143,16 @@ To get the location:
 20. Choose **Start deployment**. Information about your newly created
     deployment appears on the **Deployments** page.
 
-## Monitor and troubleshoot your
-
-deployment
+## Monitor and troubleshoot your deployment
 
 Use the AWS CLI or the console to monitor and troubleshoot your deployment.
 
 ###### Topics
 
-- [To monitor and
-  troubleshoot your deployment (CLI)](#tutorials-wordpress-deploy-application-monitor-cli "#tutorials-wordpress-deploy-application-monitor-cli")
-- [To monitor and
-  troubleshoot your deployment (console)](#tutorials-wordpress-deploy-application-monitor-console "#tutorials-wordpress-deploy-application-monitor-console")
+- [To monitor and troubleshoot your deployment (CLI)](#tutorials-wordpress-deploy-application-monitor-cli "#tutorials-wordpress-deploy-application-monitor-cli")
+- [To monitor and troubleshoot your deployment (console)](#tutorials-wordpress-deploy-application-monitor-console "#tutorials-wordpress-deploy-application-monitor-console")
 
-### To monitor and
-
-troubleshoot your deployment (CLI)
+### To monitor and troubleshoot your deployment (CLI)
 
 1. Get the deployment's ID by calling the **list-deployments** command
    against the application named `WordPress_App` and the
@@ -193,12 +174,9 @@ aws deploy get-deployment --deployment-id `deploymentID` --query 'deploymentInfo
 
 If the overall status is `Failed`, you can call commands such as
 [list-deployment-instances](../../../cli/latest/reference/deploy/list-deployment-instances.md "../../../cli/latest/reference/deploy/list-deployment-instances.md") and [get-deployment-instance](../../../cli/latest/reference/deploy/get-deployment-instance.md "../../../cli/latest/reference/deploy/get-deployment-instance.md") to
-troubleshoot. For more troubleshooting options, see [Analyzing log files to investigate
-deployment failures on instances](troubleshooting-ec2-instances.md#troubleshooting-deploy-failures "troubleshooting-ec2-instances.md#troubleshooting-deploy-failures").
+troubleshoot. For more troubleshooting options, see [Analyzing log files to investigate deployment failures on instances](troubleshooting-ec2-instances.md#troubleshooting-deploy-failures "troubleshooting-ec2-instances.md#troubleshooting-deploy-failures").
 
-### To monitor and
-
-troubleshoot your deployment (console)
+### To monitor and troubleshoot your deployment (console)
 
 On the **Deployments** page in the CodeDeploy console, you can monitor your
 deployment's status in the **Status** column.
@@ -215,12 +193,9 @@ To get more information about your deployment, especially if the
    instances and at which step the deployment failed.
 3. If you want to do more troubleshooting, you can use a technique like the one
    described in [View Instance Details](instances-view-details.md "instances-view-details.md"). You can also analyze the deployment log
-   files on an Amazon EC2 instance. For more information, see [Analyzing log files to investigate
-   deployment failures on instances](troubleshooting-ec2-instances.md#troubleshooting-deploy-failures "troubleshooting-ec2-instances.md#troubleshooting-deploy-failures").
+   files on an Amazon EC2 instance. For more information, see [Analyzing log files to investigate deployment failures on instances](troubleshooting-ec2-instances.md#troubleshooting-deploy-failures "troubleshooting-ec2-instances.md#troubleshooting-deploy-failures").
 
-## Verify your
-
-deployment
+## Verify your deployment
 
 After your deployment is successful, verify your WordPress installation is working. Use
 the public DNS address of the Amazon EC2 instance, followed by `/WordPress`, to view
@@ -243,5 +218,4 @@ similar to the following:
 If your Amazon EC2 instance does not have an HTTP inbound rule added to its security group,
 then the WordPress welcome page does not appear. If you see a message that says the remote
 server is not responding, make sure the security group for your Amazon EC2 instance has the inbound
-rule. For more information, see [Add an inbound
-rule that allows HTTP traffic to your Amazon Linux or RHEL Amazon EC2 instance](tutorials-wordpress-launch-instance.md#tutorials-wordpress-launch-instance-add-inbound-rule "tutorials-wordpress-launch-instance.md#tutorials-wordpress-launch-instance-add-inbound-rule").
+rule. For more information, see [Add an inbound rule that allows HTTP traffic to your Amazon Linux or RHEL Amazon EC2 instance](tutorials-wordpress-launch-instance.md#tutorials-wordpress-launch-instance-add-inbound-rule "tutorials-wordpress-launch-instance.md#tutorials-wordpress-launch-instance-add-inbound-rule").

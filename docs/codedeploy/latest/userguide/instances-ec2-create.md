@@ -1,6 +1,4 @@
-# Create an Amazon EC2 instance for CodeDeploy (AWS CLI or Amazon EC2
-
-console)
+# Create an Amazon EC2 instance for CodeDeploy (AWS CLI or Amazon EC2 console)
 
 These instructions show you how to launch a new Amazon EC2 instance that is configured for use in
 CodeDeploy deployments.
@@ -28,15 +26,13 @@ up and configure the AWS CLI and create an IAM instance profile.
 3. On the **Step 1: Choose an Amazon Machine Image (AMI)** page, from
    the **Quick Start** tab, locate the operating system and version you
    want to use, and then choose **Select**. You must choose an Amazon EC2 AMI
-   operating systems supported by CodeDeploy. For more information, see [Operating systems
-   supported by the CodeDeploy agent](codedeploy-agent.md#codedeploy-agent-supported-operating-systems "codedeploy-agent.md#codedeploy-agent-supported-operating-systems").
+   operating systems supported by CodeDeploy. For more information, see [Operating systems supported by the CodeDeploy agent](codedeploy-agent.md#codedeploy-agent-supported-operating-systems "codedeploy-agent.md#codedeploy-agent-supported-operating-systems").
 4. On the **Step 2: Choose an Instance Type** page, choose any
    available Amazon EC2 instance type, and then choose **Next: Configure Instance
    Details**.
 5. On the **Step 3: Configure Instance Details** page, in the
    **IAM role** list, choose the IAM instance role you created in
-   [Step 4: Create an IAM instance
-   profile for your Amazon EC2 instances](getting-started-create-iam-instance-profile.md "getting-started-create-iam-instance-profile.md"). If you used the
+   [Step 4: Create an IAM instance profile for your Amazon EC2 instances](getting-started-create-iam-instance-profile.md "getting-started-create-iam-instance-profile.md"). If you used the
    suggested role name, then choose `CodeDeployDemo-EC2-Instance-Profile`. If
    you created your own role name, choose that.
 
@@ -149,8 +145,7 @@ Before you call this command, you need to collect the following:
      where the CodeDeploy agent installation files for your region are stored.
 
 
-    For information about creating an IAM instance profile, see [Step 4: Create an IAM instance
-     profile for your Amazon EC2 instances](getting-started-create-iam-instance-profile.md "getting-started-create-iam-instance-profile.md").
+    For information about creating an IAM instance profile, see [Step 4: Create an IAM instance profile for your Amazon EC2 instances](getting-started-create-iam-instance-profile.md "getting-started-create-iam-instance-profile.md").
     * The name of an Amazon EC2 instance key pair (`key-name`) to
      enable SSH access to an Amazon EC2 instance running Amazon Linux, Ubuntu Server, or RHEL or RDP
      access to an Amazon EC2 instance running Windows Server.
@@ -177,8 +172,7 @@ Before you call this command, you need to collect the following:
 
 To call the **run-instances** command to launch an Amazon EC2 instance
 running Amazon Linux, Ubuntu Server, or RHEL and attach the IAM instance profile you created
-in [Step 4: Create an IAM instance
-profile for your Amazon EC2 instances](getting-started-create-iam-instance-profile.md "getting-started-create-iam-instance-profile.md"). For example:
+in [Step 4: Create an IAM instance profile for your Amazon EC2 instances](getting-started-create-iam-instance-profile.md "getting-started-create-iam-instance-profile.md"). For example:
 
 ```
 aws ec2 run-instances \
@@ -201,8 +195,7 @@ instance](https://aws.amazon.com/articles/1233 "https://aws.amazon.com/articles/
 **For Windows Server**
 
 To call the **run-instances** command to launch an Amazon EC2 instance
-running Windows Server and attach the IAM instance profile you created in [Step 4: Create an IAM instance
-profile for your Amazon EC2 instances](getting-started-create-iam-instance-profile.md "getting-started-create-iam-instance-profile.md"), and specify the name of
+running Windows Server and attach the IAM instance profile you created in [Step 4: Create an IAM instance profile for your Amazon EC2 instances](getting-started-create-iam-instance-profile.md "getting-started-create-iam-instance-profile.md"), and specify the name of
 the security group you created in Step 1. For example:
 
 ```

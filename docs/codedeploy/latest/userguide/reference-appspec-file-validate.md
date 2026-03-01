@@ -1,6 +1,4 @@
-# Validate your AppSpec File and file
-
-location
+# Validate your AppSpec File and file location
 
 File syntax
 

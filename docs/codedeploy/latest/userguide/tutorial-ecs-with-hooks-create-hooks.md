@@ -1,6 +1,4 @@
-# Step 3: Create a lifecycle hook Lambda
-
-function
+# Step 3: Create a lifecycle hook Lambda function
 
 In this section, you implement one Lambda function for your Amazon ECS deployment's
 `AfterAllowTestTraffic` hook. The Lambda function runs a validation test before
@@ -10,8 +8,7 @@ the updated Amazon ECS application is installed. For this tutorial, the Lambda f
 test. Also during a real world deployment, you might implement a Lambda test function for one
 or more of the other Amazon ECS deployment lifecycle event hooks (`BeforeInstall`,
 `AfterInstall`, `BeforeAllowTraffic`, and
-`AfterAllowTraffic`). For more information, see [List of lifecycle
-event hooks for an Amazon ECS deployment](reference-appspec-file-structure-hooks.md#reference-appspec-file-structure-hooks-list-ecs "reference-appspec-file-structure-hooks.md#reference-appspec-file-structure-hooks-list-ecs").
+`AfterAllowTraffic`). For more information, see [List of lifecycle event hooks for an Amazon ECS deployment](reference-appspec-file-structure-hooks.md#reference-appspec-file-structure-hooks-list-ecs "reference-appspec-file-structure-hooks.md#reference-appspec-file-structure-hooks-list-ecs").
 
 An IAM role is required to create your Lambda function. The role grants the Lambda
 function permission to write to CloudWatch Logs and set the status of a CodeDeploy lifecycle hook.

@@ -1,6 +1,4 @@
-# Step 6: Clean up
-
-resources
+# Step 6: Clean up resources
 
 To avoid ongoing charges for resources you created for this tutorial, delete the Amazon S3
 bucket if you'll no longer be using it. You can also clean up associated resources, such
@@ -10,9 +8,7 @@ instance.
 You can use the AWS CLI or a combination of the CodeDeploy and Amazon S3 consoles and the AWS CLI to
 clean up resources.
 
-## Clean up
-
-resources (CLI)
+## Clean up resources (CLI)
 
 ###### To delete the Amazon S3 bucket
 
@@ -50,9 +46,7 @@ If you do not want to delete the IAM user associated with this
 on-premises instance, use the `--no-delete-iam-user` option
 instead.
 
-###### To uninstall the CodeDeploy agent and remove the configuration file from the
-
-on-premises instance
+###### To uninstall the CodeDeploy agent and remove the configuration file from the on-premises instance
 
 - From the on-premises instance, call the [uninstall](../../../cli/latest/reference/deploy/uninstall.md "../../../cli/latest/reference/deploy/uninstall.md")
   command:
@@ -64,9 +58,7 @@ aws deploy uninstall
 You have now completed all of the steps to clean up the resources used for this
 tutorial.
 
-## Clean
-
-up resources (console)
+## Clean up resources (console)
 
 ###### To delete the Amazon S3 bucket
 
@@ -91,4 +83,4 @@ Sign in with the same user that you set up in [Getting started with CodeDeploy](
 delete it, and then choose **Delete**.
 
 You cannot use the AWS CodeDeploy console to deregister the on-premises instance or
-uninstall the CodeDeploy agent. Follow the instructions in [To deregister the on-premises instance and delete the IAM user](#tutorials-on-premises-instance-6-clean-up-resources-deregister-cli "#tutorials-on-premises-instance-6-clean-up-resources-deregister-cli") .
+uninstall the CodeDeploy agent. Follow the instructions in [To deregister the on-premises instance and delete the IAM user](#tutorials-on-premises-instance-6-clean-up-resources-deregister-cli "#tutorials-on-premises-instance-6-clean-up-resources-deregister-cli").

@@ -1,6 +1,4 @@
-# Create a deployment group for an
-
-Amazon ECS deployment (console)
+# Create a deployment group for an Amazon ECS deployment (console)
 
 1. Sign in to the AWS Management Console and open the CodeDeploy console at [https://console.aws.amazon.com/codedeploy](https://console.aws.amazon.com/codedeploy "https://console.aws.amazon.com/codedeploy").
 
@@ -11,8 +9,7 @@ application associated with the deployment group you want to edit. 4. On your ap
 the name of the deployment group you want to edit. 5. On your application page, from the **Deployment groups** tab,
 choose **Create deployment group**. For more information about what
 you need to create a deployment group for an Amazon ECS deployment, see
-[Before you begin an Amazon ECS
-deployment](deployment-steps-ecs.md#deployment-steps-prerequisites-ecs "deployment-steps-ecs.md#deployment-steps-prerequisites-ecs"). 6. In **Deployment group name**, enter a name that describes the
+[Before you begin an Amazon ECS deployment](deployment-steps-ecs.md#deployment-steps-prerequisites-ecs "deployment-steps-ecs.md#deployment-steps-prerequisites-ecs"). 6. In **Deployment group name**, enter a name that describes the
 deployment group.
 
 ###### Note
@@ -23,8 +20,7 @@ choose those settings on this page. Although this new group and
 the existing group might have the same name, CodeDeploy treats them as
 separate deployment groups, because each is associated with a separate
 application. 7. In **Service role**, choose a service role that grants CodeDeploy
-access to Amazon ECS. For more information, see [Step 2: Create a service role for
-CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md"). 8. From **Load balancer name**, choose the name of the load balancer that
+access to Amazon ECS. For more information, see [Step 2: Create a service role for CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md"). 8. From **Load balancer name**, choose the name of the load balancer that
 serves traffic to your Amazon ECS service. 9. From **Production listener port**, choose the port and protocol for the
 listener that serves production traffic to your Amazon ECS service. 10. (Optional) From **Test listener port**, choose the port and protocol of
 a test listener that serves traffic to the replacement task set in your Amazon ECS service during
@@ -33,8 +29,7 @@ during the `AfterAllowTestTraffic` hook. The functions can run validation tests.
 If a validation test fails, a deployment rollback is triggered. If the validation tests
 succeed, the next hook in the deployment lifecycle, `BeforeAllowTraffic`,
 is triggered. If a test listener port is not specified, nothing happens during the
-`AfterAllowTestTraffic` hook. For more information, see [AppSpec 'hooks' section for an Amazon ECS
-deployment](reference-appspec-file-structure-hooks.md#appspec-hooks-ecs "reference-appspec-file-structure-hooks.md#appspec-hooks-ecs"). 11. From **Target group 1 name** and **Target group 2 name**,
+`AfterAllowTestTraffic` hook. For more information, see [AppSpec 'hooks' section for an Amazon ECS deployment](reference-appspec-file-structure-hooks.md#appspec-hooks-ecs "reference-appspec-file-structure-hooks.md#appspec-hooks-ecs"). 11. From **Target group 1 name** and **Target group 2 name**,
 choose the target groups used to route traffic during your deployment. CodeDeploy binds one target group to
 your Amazon ECS service's original task set and the other to its replacement task set. For more information,
 see [Target Groups for Your Application Load Balancers](../../../elasticloadbalancing/latest/application/load-balancer-target-groups.md "../../../elasticloadbalancing/latest/application/load-balancer-target-groups.md"). 12. Choose **Reroute traffic immediately** or **Specify when to reroute traffic** to determine
@@ -50,5 +45,4 @@ task set in your Amazon ECS service is terminated. 14. (Optional) In **Advanced*
 include in the deployment, such as Amazon SNS notification triggers, Amazon CloudWatch alarms,
 or automatic rollbacks.
 
-For more information, see [Configure advanced options
-for a deployment group](deployment-groups-configure-advanced-options.md "deployment-groups-configure-advanced-options.md").
+For more information, see [Configure advanced options for a deployment group](deployment-groups-configure-advanced-options.md "deployment-groups-configure-advanced-options.md").

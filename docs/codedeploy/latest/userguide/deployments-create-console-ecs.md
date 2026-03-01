@@ -1,10 +1,7 @@
-# Create an
-
-Amazon ECS Compute Platform deployment (console)
+# Create an Amazon ECS Compute Platform deployment (console)
 
 This topic shows you how to deploy an Amazon ECS service using the console. For more
-information, see [Tutorial: Deploy an application into Amazon ECS](tutorial-ecs-deployment.md "tutorial-ecs-deployment.md") and [Tutorial: Deploy an Amazon ECS service with a
-validation test](tutorial-ecs-deployment-with-hooks.md "tutorial-ecs-deployment-with-hooks.md").
+information, see [Tutorial: Deploy an application into Amazon ECS](tutorial-ecs-deployment.md "tutorial-ecs-deployment.md") and [Tutorial: Deploy an Amazon ECS service with a validation test](tutorial-ecs-deployment-with-hooks.md "tutorial-ecs-deployment-with-hooks.md").
 
 1. Sign in to the AWS Management Console and open the CodeDeploy console at [https://console.aws.amazon.com/codedeploy](https://console.aws.amazon.com/codedeploy "https://console.aws.amazon.com/codedeploy").
 
@@ -38,16 +35,14 @@ this deployment. 5. Next to **Revision location**, choose where your revision is
 located:
 
     * **My application is stored in Amazon S3** — For
-     information, see [Specify information about a revision
-     stored in an Amazon S3 bucket](deployments-create-console-s3.md "deployments-create-console-s3.md"), and then return to
+     information, see [Specify information about a revision stored in an Amazon S3 bucket](deployments-create-console-s3.md "deployments-create-console-s3.md"), and then return to
      step 6.
     * **Use AppSpec editor** — Select either JSON or
      YAML, and then enter your AppSpec file into the editor. You can save
      the AppSpec file by choosing **Save as text file**.
      When you choose **Deploy** at the end of these steps,
      you receive an error if your JSON or YAML is not valid. For more
-     information about creating an AppSpec file, see [Add an application specification file to a
-     revision for CodeDeploy](application-revisions-appspec-file.md "application-revisions-appspec-file.md").
+     information about creating an AppSpec file, see [Add an application specification file to a revision for CodeDeploy](application-revisions-appspec-file.md "application-revisions-appspec-file.md").
 
 6. (Optional) In **Deployment description**, enter a description
    for this deployment.
@@ -55,8 +50,7 @@ located:
    specify different automatic rollback options for this deployment than were
    specified for the deployment group, if any.
 
-For information about rollbacks in CodeDeploy, see [Redeployments and deployment rollbacks](deployment-steps-lambda.md#deployment-rollback-lambda "deployment-steps-lambda.md#deployment-rollback-lambda") and [Redeploy and roll back a deployment with
-CodeDeploy](deployments-rollback-and-redeploy.md "deployments-rollback-and-redeploy.md").
+For information about rollbacks in CodeDeploy, see [Redeployments and deployment rollbacks](deployment-steps-lambda.md#deployment-rollback-lambda "deployment-steps-lambda.md#deployment-rollback-lambda") and [Redeploy and roll back a deployment with CodeDeploy](deployments-rollback-and-redeploy.md "deployments-rollback-and-redeploy.md").
 
 Choose from the following:
 
@@ -71,4 +65,4 @@ Choose from the following:
 
 8. Choose **Create deployment**.
 
-To track the status of your deployment, see [View CodeDeploy deployment details](deployments-view-details.md "deployments-view-details.md") .
+To track the status of your deployment, see [View CodeDeploy deployment details](deployments-view-details.md "deployments-view-details.md").

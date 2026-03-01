@@ -1,6 +1,4 @@
-# Integrating CodeDeploy with
-
-Elastic Load Balancing
+# Integrating CodeDeploy with Elastic Load Balancing
 
 During CodeDeploy deployments, a load balancer prevents internet traffic from being routed to
 instances when they are not ready, are currently being deployed to, or are no longer needed
@@ -54,9 +52,7 @@ To learn more about Elastic Load Balancing load balancers, see the following top
 - [What is an Application Load Balancer?](../../../elasticloadbalancing/latest/application/introduction.md "../../../elasticloadbalancing/latest/application/introduction.md")
 - [What is a Network Load Balancer?](../../../elasticloadbalancing/latest/network/introduction.md "../../../elasticloadbalancing/latest/network/introduction.md")
 
-## Blue/Green
-
-deployments
+## Blue/Green deployments
 
 Rerouting instance traffic behind an Elastic Load Balancing load balancer is fundamental to CodeDeploy
 blue/green deployments.
@@ -78,16 +74,11 @@ add the load balancers to a deployment group.
 For more information about load balancers in blue/green deployments, see the following
 topics:
 
-- [Set up a load balancer in Elastic Load Balancing
-  for CodeDeploy Amazon EC2 deployments](deployment-groups-create-load-balancer.md "deployment-groups-create-load-balancer.md")
-- [Create an application for a blue/green
-  deployment (console)](applications-create-blue-green.md "applications-create-blue-green.md")
-- [Create a deployment group for an
-  EC2/On-Premises blue/green deployment (console)](deployment-groups-create-blue-green.md "deployment-groups-create-blue-green.md")
+- [Set up a load balancer in Elastic Load Balancing for CodeDeploy Amazon EC2 deployments](deployment-groups-create-load-balancer.md "deployment-groups-create-load-balancer.md")
+- [Create an application for a blue/green deployment (console)](applications-create-blue-green.md "applications-create-blue-green.md")
+- [Create a deployment group for an EC2/On-Premises blue/green deployment (console)](deployment-groups-create-blue-green.md "deployment-groups-create-blue-green.md")
 
-## In-place
-
-deployments
+## In-place deployments
 
 During an in-place deployment, a load balancer prevents internet traffic from being
 routed to an instance while it is being deployed to, and then makes the instance
@@ -109,24 +100,17 @@ or Network Load Balancer target groups. You can specify the load balancers as pa
 group's configuration, or you can use a script provided by CodeDeploy to implement the load
 balancers.
 
-###
-
-Specify in-place deployment load balancer using a deployment group
+### Specify in-place deployment load balancer using a deployment group
 
 To add load balancers to a deployment group, you use the CodeDeploy console or AWS CLI.
 For information about specifying a load balancer in a deployment group for in-place
 deployments, see the following topics:
 
-- [Create an application for an in-place
-  deployment (console)](applications-create-in-place.md "applications-create-in-place.md")
-- [Create a deployment group for an
-  in-place deployment (console)](deployment-groups-create-in-place.md "deployment-groups-create-in-place.md")
-- [Set up a load balancer in Elastic Load Balancing
-  for CodeDeploy Amazon EC2 deployments](deployment-groups-create-load-balancer.md "deployment-groups-create-load-balancer.md")
+- [Create an application for an in-place deployment (console)](applications-create-in-place.md "applications-create-in-place.md")
+- [Create a deployment group for an in-place deployment (console)](deployment-groups-create-in-place.md "deployment-groups-create-in-place.md")
+- [Set up a load balancer in Elastic Load Balancing for CodeDeploy Amazon EC2 deployments](deployment-groups-create-load-balancer.md "deployment-groups-create-load-balancer.md")
 
-### Specify
-
-in-place deployment load balancer using a script
+### Specify in-place deployment load balancer using a script
 
 Use the steps in the following procedure to use deployment lifecycle scripts
 to set up load balancing for in-place deployments.
@@ -137,8 +121,7 @@ You should use the CodeDeployDefault.OneAtATime deployment configuration
 only when you are using a script to set up a load balancer for an in-place
 deployment. Concurrent runs are not supported, and the
 CodeDeployDefault.OneAtATime setting ensures a serial execution of the
-scripts. For more information about deployment configurations, see [Working with deployment configurations in
-CodeDeploy](deployment-configurations.md "deployment-configurations.md").
+scripts. For more information about deployment configurations, see [Working with deployment configurations in CodeDeploy](deployment-configurations.md "deployment-configurations.md").
 
 In the CodeDeploy Samples repository on GitHub, we provide instructions and samples
 you can adapt to use CodeDeploy Elastic Load Balancing load balancers. These repositories include

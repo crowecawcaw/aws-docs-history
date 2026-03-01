@@ -76,8 +76,7 @@ JSON
 
 In this policy, replace
 `arn:aws:iam::account-ID:role/CodeDeployServiceRole` with the
-ARN value of the CodeDeploy service role that you created in [Step 2: Create a service role for
-CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md"). You can find the ARN value in the
+ARN value of the CodeDeploy service role that you created in [Step 2: Create a service role for CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md"). You can find the ARN value in the
 details page of the service role in the IAM console.
 
 The preceding policy lets you deploy an application to an

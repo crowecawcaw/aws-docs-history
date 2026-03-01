@@ -1,6 +1,4 @@
-# AppSpec 'permissions' section
-
-(EC2/On-Premises deployments only)
+# AppSpec 'permissions' section (EC2/On-Premises deployments only)
 
 The `'permissions'` section specifies how special permissions, if any, should
 be applied to the files and directories/folders in the `'files'` section after
@@ -148,9 +146,7 @@ instead.
 Specify `type` with a dash (-), followed by a space, and then a string
 (for example, `- file`).
 
-## 'Permissions'
-
-section example
+## 'Permissions' section example
 
 The following example shows how to specify the `'permissions'` section with
 the `object`, `pattern`, `except`, `owner`,

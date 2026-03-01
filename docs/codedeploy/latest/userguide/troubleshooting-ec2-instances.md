@@ -3,17 +3,11 @@
 ###### Topics
 
 - [Tags must be set correctly](#troubleshooting-EC2-tags "#troubleshooting-EC2-tags")
-- [AWS CodeDeploy agent must be installed and running on
-  instances](#troubleshooting-sds-agent "#troubleshooting-sds-agent")
-- [Deployments do not fail for up to an hour
-  when an instance is terminated during a deployment](#troubleshooting-one-hour-timeout "#troubleshooting-one-hour-timeout")
-- [Analyzing log files to investigate
-  deployment failures on instances](#troubleshooting-deploy-failures "#troubleshooting-deploy-failures")
-- [Create a new CodeDeploy log file if it was
-  accidentally deleted](#troubleshooting-create-new-log-file "#troubleshooting-create-new-log-file")
-- [Troubleshooting
-  “InvalidSignatureException – Signature expired: [time] is now earlier than [time]”
-  deployment errors](#troubleshooting-instance-time-failures "#troubleshooting-instance-time-failures")
+- [AWS CodeDeploy agent must be installed and running on instances](#troubleshooting-sds-agent "#troubleshooting-sds-agent")
+- [Deployments do not fail for up to an hour when an instance is terminated during a deployment](#troubleshooting-one-hour-timeout "#troubleshooting-one-hour-timeout")
+- [Analyzing log files to investigate deployment failures on instances](#troubleshooting-deploy-failures "#troubleshooting-deploy-failures")
+- [Create a new CodeDeploy log file if it was accidentally deleted](#troubleshooting-create-new-log-file "#troubleshooting-create-new-log-file")
+- [Troubleshooting “InvalidSignatureException – Signature expired: [time] is now earlier than [time]” deployment errors](#troubleshooting-instance-time-failures "#troubleshooting-instance-time-failures")
 
 ## Tags must be set correctly
 
@@ -30,17 +24,13 @@ instance might not be included in the deployment. This is because it can take se
 minutes before CodeDeploy can read the tags. We recommend that you wait at least five minutes
 between the time you tag an instance and attempt to deploy to it.
 
-## AWS CodeDeploy agent must be installed and running on
-
-instances
+## AWS CodeDeploy agent must be installed and running on instances
 
 To verify the CodeDeploy agent is installed and running on an instance, see [Verify the CodeDeploy agent is running](codedeploy-agent-operations-verify.md "codedeploy-agent-operations-verify.md").
 
 To install, uninstall, or reinstall the CodeDeploy agent, see [Install the CodeDeploy agent](codedeploy-agent-operations-install.md "codedeploy-agent-operations-install.md").
 
-## Deployments do not fail for up to an hour
-
-when an instance is terminated during a deployment
+## Deployments do not fail for up to an hour when an instance is terminated during a deployment
 
 CodeDeploy provides a one-hour window for each deployment lifecycle event to run to
 completion. This provides ample time for long-running scripts.
@@ -54,18 +44,13 @@ instance is terminated, the CodeDeploy agent shuts down and cannot process more 
 If an instance is terminated between lifecycle events or before the first lifecycle
 event step starts, the timeout occurs after just five minutes.
 
-## Analyzing log files to investigate
-
-deployment failures on instances
+## Analyzing log files to investigate deployment failures on instances
 
 If the status of an instance in the deployment is anything other than
 `Succeeded`, you can review the deployment log file data to help identify the
-problem. For information about accessing deployment log data, see [View log data for CodeDeploy EC2/On-Premises
-deployments](deployments-view-logs.md "deployments-view-logs.md").
+problem. For information about accessing deployment log data, see [View log data for CodeDeploy EC2/On-Premises deployments](deployments-view-logs.md "deployments-view-logs.md").
 
-## Create a new CodeDeploy log file if it was
-
-accidentally deleted
+## Create a new CodeDeploy log file if it was accidentally deleted
 
 If you accidentally delete the deployment log file on an instance, CodeDeploy does not create
 a replacement log file. To create a new log file, sign in to the instance, and then run
@@ -88,10 +73,7 @@ systemctl start codedeploy-agent
 powershell.exe -Command Restart-Service -Name codedeployagent
 ```
 
-## Troubleshooting
-
-“InvalidSignatureException – Signature expired: [time] is now earlier than [time]”
-deployment errors
+## Troubleshooting “InvalidSignatureException – Signature expired: [time] is now earlier than [time]” deployment errors
 
 CodeDeploy requires accurate time references to perform its operations. If the date and time
 on your instance are not set correctly, they might not match the signature date of your

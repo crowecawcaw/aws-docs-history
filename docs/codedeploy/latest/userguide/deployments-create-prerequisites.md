@@ -2,9 +2,7 @@
 
 Make sure the following steps are complete before you start a deployment.
 
-## Deployment prerequisites on an
-
-AWS Lambda compute platform
+## Deployment prerequisites on an AWS Lambda compute platform
 
 - Create an application that includes at least one deployment group. For
   information, see [Create an application with CodeDeploy](applications-create.md "applications-create.md") and [Create a deployment group with CodeDeploy](deployment-groups-create.md "deployment-groups-create.md").
@@ -16,16 +14,13 @@ AWS Lambda compute platform
   create it before you start the deployment process. For information, see
   [Create a Deployment Configuration](deployment-configurations-create.md "deployment-configurations-create.md").
 
-## Deployment prerequisites on an
-
-EC2/on-premises compute platform
+## Deployment prerequisites on an EC2/on-premises compute platform
 
 - For an in-place deployment, create or configure the instances you want to
   deploy to. For information, see [Working with instances for CodeDeploy](instances.md "instances.md"). For a blue/green deployment, you either
   have an existing Amazon EC2 Auto Scaling group to use as a template for your replacement
   environment, or you have one or more instances or Amazon EC2 Auto Scaling groups that you
-  specify as your original environment. For more information, see [Tutorial: Use CodeDeploy to deploy an application
-  to an Auto Scaling group](tutorials-auto-scaling-group.md "tutorials-auto-scaling-group.md") and [Integrating CodeDeploy with Amazon EC2 Auto Scaling](integrations-aws-auto-scaling.md "integrations-aws-auto-scaling.md").
+  specify as your original environment. For more information, see [Tutorial: Use CodeDeploy to deploy an application to an Auto Scaling group](tutorials-auto-scaling-group.md "tutorials-auto-scaling-group.md") and [Integrating CodeDeploy with Amazon EC2 Auto Scaling](integrations-aws-auto-scaling.md "integrations-aws-auto-scaling.md").
 - Create an application that includes at least one deployment group. For
   information, see [Create an application with CodeDeploy](applications-create.md "applications-create.md") and [Create a deployment group with CodeDeploy](deployment-groups-create.md "deployment-groups-create.md").
 - Prepare the application revision that you want to deploy to the instances
@@ -112,13 +107,9 @@ If you have not created a VPC yet, see the [Amazon VPC Getting Started Guide](..
 The instances in your replacement environment will be registered with
 the load balancer later.
 
-For more information about configuring a load balancer, see [Set up a load balancer in Elastic Load Balancing
-for CodeDeploy Amazon EC2 deployments](deployment-groups-create-load-balancer.md "deployment-groups-create-load-balancer.md"), and [Set up a load balancer,
-target groups, and listeners for CodeDeploy Amazon ECS deployments](deployment-groups-create-load-balancer-for-ecs.md "deployment-groups-create-load-balancer-for-ecs.md").
+For more information about configuring a load balancer, see [Set up a load balancer in Elastic Load Balancing for CodeDeploy Amazon EC2 deployments](deployment-groups-create-load-balancer.md "deployment-groups-create-load-balancer.md"), and [Set up a load balancer, target groups, and listeners for CodeDeploy Amazon ECS deployments](deployment-groups-create-load-balancer-for-ecs.md "deployment-groups-create-load-balancer-for-ecs.md").
 
-## Deployment prerequisites for a
-
-blue/green deployment through CloudFormation
+## Deployment prerequisites for a blue/green deployment through CloudFormation
 
 - Your template does not need to model resources for a CodeDeploy application or
   deployment group.

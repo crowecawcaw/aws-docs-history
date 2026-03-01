@@ -1,6 +1,4 @@
-# Create an
-
-EC2/On-Premises Compute Platform deployment (console)
+# Create an EC2/On-Premises Compute Platform deployment (console)
 
 This topic shows you how to deploy an application to an Amazon EC2 or on-premises
 server using the console.
@@ -37,12 +35,10 @@ this deployment. 5. Next to **Repository type**, choose the repository type your
 revision is stored in:
 
     * **My application is stored in Amazon S3** — For
-     information, see [Specify information about a revision
-     stored in an Amazon S3 bucket](deployments-create-console-s3.md "deployments-create-console-s3.md"), and then return to
+     information, see [Specify information about a revision stored in an Amazon S3 bucket](deployments-create-console-s3.md "deployments-create-console-s3.md"), and then return to
      step 6.
     * **My application is stored in GitHub** — For
-     information, see [Specify information about a
-     revision stored in a GitHub repository](deployments-create-console-github.md "deployments-create-console-github.md"), and then return
+     information, see [Specify information about a revision stored in a GitHub repository](deployments-create-console-github.md "deployments-create-console-github.md"), and then return
      to step 6.
 
 6. (Optional) In **Deployment description**, enter a description
@@ -52,8 +48,7 @@ revision is stored in:
    or on-premises server that is different from the one specified in the deployment
    group.
 
-For more information, see [Working with deployment configurations in
-CodeDeploy](deployment-configurations.md "deployment-configurations.md"). 8. 1. Select **Don't fail the deployment if the ApplicationStop
+For more information, see [Working with deployment configurations in CodeDeploy](deployment-configurations.md "deployment-configurations.md"). 8. 1. Select **Don't fail the deployment if the ApplicationStop
 lifecycle event fails** if you want a deployment to an
 instance to succeed if the `ApplicationStop` lifecycle event
 fails. 2. Expand **Additional deployment behavior settings** to
@@ -69,14 +64,12 @@ the application revision replaces it. \* **Retain the content** — If a file of
 the same name exists in the target location, the file is kept
 and the version in the application revision is not copied to the
 instance.
-For more information, see [Rollback behavior with
-existing content](deployments-rollback-and-redeploy.md#deployments-rollback-and-redeploy-content-options "deployments-rollback-and-redeploy.md#deployments-rollback-and-redeploy-content-options"). 9. (Optional) In **Rollback configuration overrides**, you can
+For more information, see [Rollback behavior with existing content](deployments-rollback-and-redeploy.md#deployments-rollback-and-redeploy-content-options "deployments-rollback-and-redeploy.md#deployments-rollback-and-redeploy-content-options"). 9. (Optional) In **Rollback configuration overrides**, you can
 specify different automatic rollback options for this deployment than were
 specified for the deployment group, if any.
 
 For information about rollbacks in CodeDeploy, see [Redeployments and deployment rollbacks](deployment-steps-server.md#deployment-rollback "deployment-steps-server.md#deployment-rollback") and
-[Redeploy and roll back a deployment with
-CodeDeploy](deployments-rollback-and-redeploy.md "deployments-rollback-and-redeploy.md").
+[Redeploy and roll back a deployment with CodeDeploy](deployments-rollback-and-redeploy.md "deployments-rollback-and-redeploy.md").
 
 Choose from the following:
 
@@ -91,11 +84,9 @@ Choose from the following:
 
 10. Choose **Start deployment**.
 
-To track the status of your deployment, see [View CodeDeploy deployment details](deployments-view-details.md "deployments-view-details.md") .
+To track the status of your deployment, see [View CodeDeploy deployment details](deployments-view-details.md "deployments-view-details.md").
 
 ###### Topics
 
-- [Specify information about a revision
-  stored in an Amazon S3 bucket](deployments-create-console-s3.md "deployments-create-console-s3.md")
-- [Specify information about a
-  revision stored in a GitHub repository](deployments-create-console-github.md "deployments-create-console-github.md")
+- [Specify information about a revision stored in an Amazon S3 bucket](deployments-create-console-s3.md "deployments-create-console-s3.md")
+- [Specify information about a revision stored in a GitHub repository](deployments-create-console-github.md "deployments-create-console-github.md")

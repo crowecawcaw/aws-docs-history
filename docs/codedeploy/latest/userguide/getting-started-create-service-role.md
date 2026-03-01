@@ -1,6 +1,4 @@
-# Step 2: Create a service role for
-
-CodeDeploy
+# Step 2: Create a service role for CodeDeploy
 
 In AWS, service roles are used to grant permissions to an AWS service so it can access
 AWS resources. The policies that you attach to the service role determine which resources the
@@ -284,7 +282,7 @@ command.
 
 In the command's output, make a note of the value of the `Arn` entry under
 the `Role` object. You need it later when you create deployment groups. If you
-forget the value, follow the instructions in [Get the service role ARN (CLI)](#getting-started-get-service-role-cli "#getting-started-get-service-role-cli") . 3. The managed policy you use depends on the compute platform.
+forget the value, follow the instructions in [Get the service role ARN (CLI)](#getting-started-get-service-role-cli "#getting-started-get-service-role-cli"). 3. The managed policy you use depends on the compute platform.
 
     * If your deployment is to an EC2/On-Premises compute platform:
 

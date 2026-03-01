@@ -6,14 +6,10 @@ instance in the Auto Scaling group.
 
 ###### Topics
 
-- [To check the results
-  (CLI)](#tutorials-auto-scaling-group-verify-cli "#tutorials-auto-scaling-group-verify-cli")
-- [To check the results
-  (console)](#tutorials-auto-scaling-group-verify-console "#tutorials-auto-scaling-group-verify-console")
+- [To check the results (CLI)](#tutorials-auto-scaling-group-verify-cli "#tutorials-auto-scaling-group-verify-cli")
+- [To check the results (console)](#tutorials-auto-scaling-group-verify-console "#tutorials-auto-scaling-group-verify-console")
 
-## To check the results
-
-(CLI)
+## To check the results (CLI)
 
 First, you'll need the public DNS of the Amazon EC2 instance.
 
@@ -49,9 +45,7 @@ revision to a single Amazon EC2 instance in an Auto Scaling group!
 Next, you'll add an Amazon EC2 instance to the Auto Scaling group. After Amazon EC2 Auto Scaling adds the
 Amazon EC2 instance, CodeDeploy will deploy your revision to the new instance.
 
-## To check the results
-
-(console)
+## To check the results (console)
 
 First, you'll need the public DNS of the Amazon EC2 instance.
 

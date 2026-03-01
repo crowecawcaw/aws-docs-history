@@ -9,22 +9,16 @@ Do not use these steps if you want the deployment group to use a not-yet-created
 custom deployment group. Instead, follow the instructions in [Create a Deployment Configuration](deployment-configurations-create.md "deployment-configurations-create.md"), and then return to this topic.
 Do not use these steps if you want the deployment group to use a different,
 not-yet-created service role. The service role must trust CodeDeploy with, at minimum, the
-permissions described in [Step 2: Create a service role for
-CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md"). To create and configure a
-service role with the correct permissions, follow the instructions in [Step 2: Create a service role for
-CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md"), and then return to this
+permissions described in [Step 2: Create a service role for CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md"). To create and configure a
+service role with the correct permissions, follow the instructions in [Step 2: Create a service role for CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md"), and then return to this
 topic.
 
 ###### Topics
 
-- [Change deployment group settings
-  (console)](#deployment-groups-edit-console "#deployment-groups-edit-console")
-- [Change deployment group settings
-  (CLI)](#deployment-groups-edit-cli "#deployment-groups-edit-cli")
+- [Change deployment group settings (console)](#deployment-groups-edit-console "#deployment-groups-edit-console")
+- [Change deployment group settings (CLI)](#deployment-groups-edit-cli "#deployment-groups-edit-cli")
 
-## Change deployment group settings
-
-(console)
+## Change deployment group settings (console)
 
 To use the CodeDeploy console to change deployment group settings:
 
@@ -45,9 +39,7 @@ name of the deployment group you want to change. 5. On the **Depoyment group** p
 
 For information about deployment group components, see [Create a deployment group with CodeDeploy](deployment-groups-create.md "deployment-groups-create.md"). 7. Choose **Save changes**.
 
-## Change deployment group settings
-
-(CLI)
+## Change deployment group settings (CLI)
 
 To use the AWS CLI to change deployment group settings, call the
 [update-deployment-group](../../../cli/latest/reference/deploy/update-deployment-group.md "../../../cli/latest/reference/deploy/update-deployment-group.md") command, specifying:
@@ -62,7 +54,7 @@ To use the AWS CLI to change deployment group settings, call the
   - (Optional) A different Amazon Resource Name (ARN) that corresponds to
     a service role that allows CodeDeploy to act on your AWS account's behalf
     when interacting with other AWS services. To get the service role ARN,
-    see [Get the service role ARN (CLI)](getting-started-create-service-role.md#getting-started-get-service-role-cli "getting-started-create-service-role.md#getting-started-get-service-role-cli") . For more
+    see [Get the service role ARN (CLI)](getting-started-create-service-role.md#getting-started-get-service-role-cli "getting-started-create-service-role.md#getting-started-get-service-role-cli"). For more
     information about service roles, see [Roles terms and
     concepts](../../../IAM/latest/UserGuide/cross-acct-access.md "../../../IAM/latest/UserGuide/cross-acct-access.md") in _IAM User Guide_.
   - (Optional) The name of the deployment configuration. To view a list of
@@ -75,8 +67,7 @@ To use the AWS CLI to change deployment group settings, call the
     good revision when a deployment fails or a CloudWatch alarm is
     activated.
   - (Optional) Commands for a deployment to generate lifecycle event hooks during
-    an Auto Scaling scale-in event. For more information, see [How Amazon EC2 Auto Scaling works with
-    CodeDeploy](integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors "integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors").
+    an Auto Scaling scale-in event. For more information, see [How Amazon EC2 Auto Scaling works with CodeDeploy](integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors "integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors").
   - (Optional) Commands to create or update a trigger that publishes to a
     topic in Amazon Simple Notification Service, so that subscribers to that topic receive
     notifications about deployment and instance events in this deployment

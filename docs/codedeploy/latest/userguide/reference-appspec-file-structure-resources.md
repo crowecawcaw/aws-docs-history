@@ -1,6 +1,4 @@
-# AppSpec 'resources' section
-
-(Amazon ECS and AWS Lambda deployments only)
+# AppSpec 'resources' section (Amazon ECS and AWS Lambda deployments only)
 
 The content in the `'resources'` section of the AppSpec file varies,
 depending on the compute platform of your deployment. The `'resources'` section
@@ -11,14 +9,10 @@ current version, and target version of a Lambda function.
 
 ###### Topics
 
-- [AppSpec 'resources'
-  section for AWS Lambda deployments](#reference-appspec-file-structure-resources-lambda "#reference-appspec-file-structure-resources-lambda")
-- [AppSpec 'resources'
-  section for Amazon ECS deployments](#reference-appspec-file-structure-resources-ecs "#reference-appspec-file-structure-resources-ecs")
+- [AppSpec 'resources' section for AWS Lambda deployments](#reference-appspec-file-structure-resources-lambda "#reference-appspec-file-structure-resources-lambda")
+- [AppSpec 'resources' section for Amazon ECS deployments](#reference-appspec-file-structure-resources-ecs "#reference-appspec-file-structure-resources-ecs")
 
-## AppSpec 'resources'
-
-section for AWS Lambda deployments
+## AppSpec 'resources' section for AWS Lambda deployments
 
 The `'resources'` section specifies the Lambda function to deploy and has
 the following structure:
@@ -66,9 +60,7 @@ Each property is specified with a string.
 - `targetversion` – Required. This is the version of the Lambda
   function traffic is shifted to. This value must be a valid positive integer.
 
-## AppSpec 'resources'
-
-section for Amazon ECS deployments
+## AppSpec 'resources' section for Amazon ECS deployments
 
 The `'resources'` section specifies the Amazon ECS service to deploy and has
 the following structure:

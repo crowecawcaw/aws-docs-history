@@ -1,11 +1,8 @@
-# Set up a load balancer,
-
-target groups, and listeners for CodeDeploy Amazon ECS deployments
+# Set up a load balancer, target groups, and listeners for CodeDeploy Amazon ECS deployments
 
 Before you run a deployment using the Amazon ECS compute platform, you must create an
 Application Load Balancer or a Network Load Balancer, two target groups, and one or two listeners. This topic shows you how
-to create an Application Load Balancer. For more information, see [Before you begin an Amazon ECS
-deployment](deployment-steps-ecs.md#deployment-steps-prerequisites-ecs "deployment-steps-ecs.md#deployment-steps-prerequisites-ecs").
+to create an Application Load Balancer. For more information, see [Before you begin an Amazon ECS deployment](deployment-steps-ecs.md#deployment-steps-prerequisites-ecs "deployment-steps-ecs.md#deployment-steps-prerequisites-ecs").
 
 One of the target groups directs traffic to your Amazon ECS application's original task
 set. The other target group directs traffic to its replacement task set. During
@@ -22,9 +19,7 @@ Application Load Balancer, and then create two target groups for your load balan
 see [Target groups for your
 network load balancers](../../../elasticloadbalancing/latest/network/load-balancer-target-groups.md "../../../elasticloadbalancing/latest/network/load-balancer-target-groups.md").
 
-## Verify
-
-your default VPC, public subnets, and security group
+## Verify your default VPC, public subnets, and security group
 
 This topic shows how to create an Amazon EC2 Application Load Balancer, two target groups, and two ports
 that can be used during an Amazon ECS deloyment. One of the ports is optional and needed
@@ -56,9 +51,7 @@ deployment.
    its group ID (for example, **sg-abcd1234**). You use this
    when you create your load balancer.
 
-## Create an
-
-Amazon EC2 Application Load Balancer, two target groups, and listeners (console)
+## Create an Amazon EC2 Application Load Balancer, two target groups, and listeners (console)
 
 To use the Amazon EC2 console to create an Amazon EC2 Application Load Balancer:
 
@@ -127,9 +120,7 @@ target groups when you create your Amazon ECS service. For more information,
 see [Step 4: Create an Amazon ECS service](../../../AmazonECS/latest/developerguide/create-blue-green.md#create-blue-green-taskdef "../../../AmazonECS/latest/developerguide/create-blue-green.md#create-blue-green-taskdef") in the _Amazon ECS
 User Guide_.
 
-## Create an
-
-Amazon EC2 Application Load Balancer, two target groups, and listeners (CLI)
+## Create an Amazon EC2 Application Load Balancer, two target groups, and listeners (CLI)
 
 To create an Application Load Balancer using the AWS CLI:
 

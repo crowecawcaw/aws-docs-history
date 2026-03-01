@@ -1,6 +1,4 @@
-# View log data for CodeDeploy EC2/On-Premises
-
-deployments
+# View log data for CodeDeploy EC2/On-Premises deployments
 
 You can view the log data created by a CodeDeploy deployment by setting up the Amazon CloudWatch agent
 to view aggregated data in the CloudWatch console or by logging into an individual instance to
@@ -13,19 +11,15 @@ deployments. They can be created for EC2/On-Premises deployments only.
 
 ###### Topics
 
-- [View log file data in the Amazon CloudWatch
-  console](#deployments-view-logs-cloudwatch "#deployments-view-logs-cloudwatch")
+- [View log file data in the Amazon CloudWatch console](#deployments-view-logs-cloudwatch "#deployments-view-logs-cloudwatch")
 - [View log files on an instance](#deployments-view-logs-instance "#deployments-view-logs-instance")
 
-## View log file data in the Amazon CloudWatch
-
-console
+## View log file data in the Amazon CloudWatch console
 
 When the Amazon CloudWatch agent is installed on an instance, deployment data for all
 deployments to that instance becomes available for viewing in the CloudWatch console. For
 simplicity, we recommend using CloudWatch to centrally monitor log files instead of
-viewing them instance by instance. For more information, see [Send CodeDeploy agent logs to
-CloudWatch](codedeploy-agent-operations-cloudwatch-agent.md "codedeploy-agent-operations-cloudwatch-agent.md").
+viewing them instance by instance. For more information, see [Send CodeDeploy agent logs to CloudWatch](codedeploy-agent-operations-cloudwatch-agent.md "codedeploy-agent-operations-cloudwatch-agent.md").
 
 ## View log files on an instance
 
@@ -34,14 +28,10 @@ instance and browse for information about errors or other deployment events.
 
 ###### Topics
 
-- [To view deployment log files
-  on Amazon Linux, RHEL, and Ubuntu Server instances](#deployments-view-logs-instance-unix "#deployments-view-logs-instance-unix")
-- [To view deployment log
-  files on Windows Server instances](#deployments-view-logs-instance-windows "#deployments-view-logs-instance-windows")
+- [To view deployment log files on Amazon Linux, RHEL, and Ubuntu Server instances](#deployments-view-logs-instance-unix "#deployments-view-logs-instance-unix")
+- [To view deployment log files on Windows Server instances](#deployments-view-logs-instance-windows "#deployments-view-logs-instance-windows")
 
-### To view deployment log files
-
-on Amazon Linux, RHEL, and Ubuntu Server instances
+### To view deployment log files on Amazon Linux, RHEL, and Ubuntu Server instances
 
 On Amazon Linux, RHEL, and Ubuntu Server instances, deployment logs are stored in the
 following location:
@@ -88,9 +78,7 @@ Type the following commands to browse the log file for error messages:
 | `h`                                                                                                                                                                                                                                                                       | Learn about additional commands.              |
 | ¹After you type `/stderr`, type<br>`n` for the next error message forward.<br>Type `N` for the previous error message<br>backward.<br>² After you type `?stderr`, type<br>`n` for the next error message<br>backward. Type `N` for the previous error<br>message forward. |
 
-### To view deployment log
-
-files on Windows Server instances
+### To view deployment log files on Windows Server instances
 
 **CodeDeploy agent log file**: On Windows Server instances, the
 CodeDeploy agent log file is stored at the following location:

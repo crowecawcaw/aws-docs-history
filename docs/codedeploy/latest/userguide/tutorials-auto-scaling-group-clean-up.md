@@ -6,14 +6,10 @@ deployment component records.
 
 ###### Topics
 
-- [To clean up resources
-  (CLI)](#tutorials-auto-scaling-group-clean-up-cli "#tutorials-auto-scaling-group-clean-up-cli")
-- [To clean up
-  resources (console)](#tutorials-auto-scaling-group-clean-up-console "#tutorials-auto-scaling-group-clean-up-console")
+- [To clean up resources (CLI)](#tutorials-auto-scaling-group-clean-up-cli "#tutorials-auto-scaling-group-clean-up-cli")
+- [To clean up resources (console)](#tutorials-auto-scaling-group-clean-up-console "#tutorials-auto-scaling-group-clean-up-console")
 
-## To clean up resources
-
-(CLI)
+## To clean up resources (CLI)
 
 1. Delete the Auto Scaling group by calling the
    **delete-auto-scaling-group** command against
@@ -56,9 +52,7 @@ You can get the `association-id` by calling the
 aws ssm describe-association --name AWS-ConfigureAWSPackage --targets Key=tag:Name,Values=CodeDeployDemo
 ```
 
-## To clean up
-
-resources (console)
+## To clean up resources (console)
 
 To delete the Auto Scaling group, which also terminates the Amazon EC2 instances:
 

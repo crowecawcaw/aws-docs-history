@@ -12,7 +12,7 @@ To use the AWS CLI to create a deployment group, call the
   the instances to be included in the deployment group.
 - The Amazon Resource Name (ARN) identifier of the service role that allows
   CodeDeploy to act on behalf of your AWS account when interacting with other AWS
-  services. To get the service role ARN, see [Get the service role ARN (CLI)](getting-started-create-service-role.md#getting-started-get-service-role-cli "getting-started-create-service-role.md#getting-started-get-service-role-cli") . For more information
+  services. To get the service role ARN, see [Get the service role ARN (CLI)](getting-started-create-service-role.md#getting-started-get-service-role-cli "getting-started-create-service-role.md#getting-started-get-service-role-cli"). For more information
   about service roles, see [Roles
   terms and concepts](../../../IAM/latest/UserGuide/roles-toplevel.md#roles-about-termsandconcepts "../../../IAM/latest/UserGuide/roles-toplevel.md#roles-about-termsandconcepts") in _IAM User Guide_.
 - Information about the type of deployment, either in-place or blue/green, to
@@ -29,8 +29,7 @@ To use the AWS CLI to create a deployment group, call the
 - (Optional) Commands for a deployment to roll back to the last known good
   revision when a deployment fails or a CloudWatch alarm is activated.
 - (Optional) Commands for a deployment to generate lifecycle event hooks during
-  an Auto Scaling scale-in event. For more information, see [How Amazon EC2 Auto Scaling works with
-  CodeDeploy](integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors "integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors").
+  an Auto Scaling scale-in event. For more information, see [How Amazon EC2 Auto Scaling works with CodeDeploy](integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors "integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors").
 - For in-place deployments:
   - (Optional) The names of the Classic Load Balancers, Application Load Balancers, or Network Load Balancers in Elastic Load Balancing that
     manage traffic to the instances during the deployment processes.

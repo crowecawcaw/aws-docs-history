@@ -130,8 +130,7 @@ validation test fails, the deployment fails and is rolled back.
 The name of both functions start with `CodeDeployHook_`. The
 `CodeDeployRoleForLambda` role allows calls to the Lambda
 `invoke` method only in Lambda functions with names that start with this
-prefix. For more information, see [AppSpec 'hooks' section for an
-AWS Lambda deployment](reference-appspec-file-structure-hooks.md#appspec-hooks-lambda "reference-appspec-file-structure-hooks.md#appspec-hooks-lambda") and [PutLifecycleEventHookExecutionStatus](../APIReference/API_PutLifecycleEventHookExecutionStatus.md "../APIReference/API_PutLifecycleEventHookExecutionStatus.md") in the _CodeDeploy API
+prefix. For more information, see [AppSpec 'hooks' section for an AWS Lambda deployment](reference-appspec-file-structure-hooks.md#appspec-hooks-lambda "reference-appspec-file-structure-hooks.md#appspec-hooks-lambda") and [PutLifecycleEventHookExecutionStatus](../APIReference/API_PutLifecycleEventHookExecutionStatus.md "../APIReference/API_PutLifecycleEventHookExecutionStatus.md") in the _CodeDeploy API
 Reference_.
 
 **Automatic detection of an updated Lambda function**

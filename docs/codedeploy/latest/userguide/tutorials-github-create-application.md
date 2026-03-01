@@ -1,13 +1,9 @@
-# Step 5: Create an application and
-
-deployment group
+# Step 5: Create an application and deployment group
 
 In this step, you will use the CodeDeploy console or the AWS CLI to create an application and
 deployment group to use to deploy the sample revision from your GitHub repository.
 
-## Create an application and
-
-deployment group (console)
+## Create an application and deployment group (console)
 
 1. Sign in to the AWS Management Console and open the CodeDeploy console at [https://console.aws.amazon.com/codedeploy](https://console.aws.amazon.com/codedeploy "https://console.aws.amazon.com/codedeploy").
 
@@ -29,9 +25,7 @@ enter the instance tag key and value that was applied to your instance as part o
 balancing**. 14. Expand **Advanced**. 15. In **Alarms**, select **Ignore alarm
 configuration**. 16. Choose **Create deployment group**, and continue to the next step.
 
-## Create an application and
-
-deployment group (CLI)
+## Create an application and deployment group (CLI)
 
 1. Call the **create-application** command to create an application in
    CodeDeploy named `CodeDeployGitHubDemo-App`:

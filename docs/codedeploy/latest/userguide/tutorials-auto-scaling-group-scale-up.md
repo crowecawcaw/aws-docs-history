@@ -1,20 +1,14 @@
-# Step 4: Increase the number of
-
-Amazon EC2 instances in the Auto Scaling group
+# Step 4: Increase the number of Amazon EC2 instances in the Auto Scaling group
 
 In this step, you instruct the Auto Scaling group to create an additional Amazon EC2 instance.
 After Amazon EC2 Auto Scaling creates the instance, CodeDeploy deploys your revision to it.
 
 ###### Topics
 
-- [To scale out the number
-  of Amazon EC2 instances in the Auto Scaling group (CLI)](#tutorials-auto-scaling-group-scale-up-cli "#tutorials-auto-scaling-group-scale-up-cli")
-- [To scale out the
-  number of Amazon EC2 instances in the deployment group (console)](#tutorials-auto-scaling-group-scale-up-console "#tutorials-auto-scaling-group-scale-up-console")
+- [To scale out the number of Amazon EC2 instances in the Auto Scaling group (CLI)](#tutorials-auto-scaling-group-scale-up-cli "#tutorials-auto-scaling-group-scale-up-cli")
+- [To scale out the number of Amazon EC2 instances in the deployment group (console)](#tutorials-auto-scaling-group-scale-up-console "#tutorials-auto-scaling-group-scale-up-console")
 
-## To scale out the number
-
-of Amazon EC2 instances in the Auto Scaling group (CLI)
+## To scale out the number of Amazon EC2 instances in the Auto Scaling group (CLI)
 
 1. Call the **update-auto-scaling-group** command to increase
    the Amazon EC2 instances in the Auto Scaling group named
@@ -48,9 +42,7 @@ aws autoscaling describe-auto-scaling-groups --auto-scaling-group-names CodeDepl
 Do not proceed until both of the returned values show `Healthy`
 and `InService`.
 
-## To scale out the
-
-number of Amazon EC2 instances in the deployment group (console)
+## To scale out the number of Amazon EC2 instances in the deployment group (console)
 
 1. In the Amazon EC2 navigation bar, under **Auto Scaling**, choose
    **Auto Scaling Groups**, and then choose

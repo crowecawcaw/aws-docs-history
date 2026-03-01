@@ -5,26 +5,18 @@ that use the Amazon ECS compute platform.
 
 ###### Topics
 
-- [Before you begin an Amazon ECS
-  deployment](#deployment-steps-prerequisites-ecs "#deployment-steps-prerequisites-ecs")
-- [Deployment workflow (high level) on an
-  Amazon ECS compute platform](#deployment-process-workflow-ecs "#deployment-process-workflow-ecs")
-- [What happens during an Amazon ECS
-  deployment](#deployment-steps-what-happens "#deployment-steps-what-happens")
-- [Uploading your application
-  revision](#deployment-steps-uploading-your-app-ecs "#deployment-steps-uploading-your-app-ecs")
-- [Creating your
-  application and deployment groups](#deployment-steps-registering-app-deployment-groups-ecs "#deployment-steps-registering-app-deployment-groups-ecs")
+- [Before you begin an Amazon ECS deployment](#deployment-steps-prerequisites-ecs "#deployment-steps-prerequisites-ecs")
+- [Deployment workflow (high level) on an Amazon ECS compute platform](#deployment-process-workflow-ecs "#deployment-process-workflow-ecs")
+- [What happens during an Amazon ECS deployment](#deployment-steps-what-happens "#deployment-steps-what-happens")
+- [Uploading your application revision](#deployment-steps-uploading-your-app-ecs "#deployment-steps-uploading-your-app-ecs")
+- [Creating your application and deployment groups](#deployment-steps-registering-app-deployment-groups-ecs "#deployment-steps-registering-app-deployment-groups-ecs")
 - [Deploying your application revision](#deployment-steps-deploy-ecs "#deployment-steps-deploy-ecs")
 - [Updating your application](#deployment-steps-updating-your-app-ecs "#deployment-steps-updating-your-app-ecs")
 - [Stopped and failed deployments](#deployment-stop-fail-ecs "#deployment-stop-fail-ecs")
 - [Redeployments and deployment rollbacks](#deployment-rollback-ecs "#deployment-rollback-ecs")
-- [Amazon ECS blue/green deployments through
-  AWS CloudFormation](#deployment-steps-ecs-cf "#deployment-steps-ecs-cf")
+- [Amazon ECS blue/green deployments through AWS CloudFormation](#deployment-steps-ecs-cf "#deployment-steps-ecs-cf")
 
-## Before you begin an Amazon ECS
-
-deployment
+## Before you begin an Amazon ECS deployment
 
 Before you begin an Amazon ECS application deployment, you must have the following ready.
 Some requirements are specified when you create your deployment group, and some are
@@ -63,8 +55,7 @@ You must use Elastic Load Balancing with the Amazon ECS service you want to upda
 deployment. You can use an Application Load Balancer or a Network Load Balancer. We recommend an Application Load Balancer so you can take
 advantage of features such as dynamic port mapping and path-based routing and priority
 rules. You specify the load balancer when you create your CodeDeploy application's
-deployment group. For more information, see [Set up a load balancer,
-target groups, and listeners for CodeDeploy Amazon ECS deployments](deployment-groups-create-load-balancer-for-ecs.md "deployment-groups-create-load-balancer-for-ecs.md") and [Creating a load balancer](../../../AmazonECS/latest/developerguide/create-load-balancer.md "../../../AmazonECS/latest/developerguide/create-load-balancer.md") in the
+deployment group. For more information, see [Set up a load balancer, target groups, and listeners for CodeDeploy Amazon ECS deployments](deployment-groups-create-load-balancer-for-ecs.md "deployment-groups-create-load-balancer-for-ecs.md") and [Creating a load balancer](../../../AmazonECS/latest/developerguide/create-load-balancer.md "../../../AmazonECS/latest/developerguide/create-load-balancer.md") in the
 _Amazon Elastic Container Service User Guide_.
 
 **One or two listeners**
@@ -104,8 +95,7 @@ A _task definition_ is required to run the
 Docker container that contains your Amazon ECS application. You specify the ARN of your
 task definition in your CodeDeploy application's AppSpec file. For more information, see
 [Amazon ECS task definitions](../../../AmazonECS/latest/developerguide/task_definitions.md "../../../AmazonECS/latest/developerguide/task_definitions.md") in
-the _Amazon Elastic Container Service User Guide_ and [AppSpec 'resources'
-section for Amazon ECS deployments](reference-appspec-file-structure-resources.md#reference-appspec-file-structure-resources-ecs "reference-appspec-file-structure-resources.md#reference-appspec-file-structure-resources-ecs").
+the _Amazon Elastic Container Service User Guide_ and [AppSpec 'resources' section for Amazon ECS deployments](reference-appspec-file-structure-resources.md#reference-appspec-file-structure-resources-ecs "reference-appspec-file-structure-resources.md#reference-appspec-file-structure-resources-ecs").
 
 **A container for your Amazon ECS
 application**
@@ -116,8 +106,7 @@ isolates your application so it runs in different computing environments. Your l
 balancer directs traffic to a container in your Amazon ECS application's task set. You
 specify the name of your container in your CodeDeploy application's AppSpec file. The
 container specified in your AppSpec file must be one of the containers specified in
-your Amazon ECS task definition. For more information, see [What is Amazon Elastic Container Service?](../../../AmazonECS/latest/developerguide/Welcome.md "../../../AmazonECS/latest/developerguide/Welcome.md") in the _Amazon Elastic Container Service User Guide_ and [AppSpec 'resources'
-section for Amazon ECS deployments](reference-appspec-file-structure-resources.md#reference-appspec-file-structure-resources-ecs "reference-appspec-file-structure-resources.md#reference-appspec-file-structure-resources-ecs").
+your Amazon ECS task definition. For more information, see [What is Amazon Elastic Container Service?](../../../AmazonECS/latest/developerguide/Welcome.md "../../../AmazonECS/latest/developerguide/Welcome.md") in the _Amazon Elastic Container Service User Guide_ and [AppSpec 'resources' section for Amazon ECS deployments](reference-appspec-file-structure-resources.md#reference-appspec-file-structure-resources-ecs "reference-appspec-file-structure-resources.md#reference-appspec-file-structure-resources-ecs").
 
 **A port for your replacement
 task set**
@@ -125,12 +114,9 @@ task set**
 During your Amazon ECS deployment, your load balancer directs traffic to this
 _port_ on the container specified in your CodeDeploy
 application's AppSpec file. You specify the port in your CodeDeploy application's
-AppSpec file. For more information, see [AppSpec 'resources'
-section for Amazon ECS deployments](reference-appspec-file-structure-resources.md#reference-appspec-file-structure-resources-ecs "reference-appspec-file-structure-resources.md#reference-appspec-file-structure-resources-ecs").
+AppSpec file. For more information, see [AppSpec 'resources' section for Amazon ECS deployments](reference-appspec-file-structure-resources.md#reference-appspec-file-structure-resources-ecs "reference-appspec-file-structure-resources.md#reference-appspec-file-structure-resources-ecs").
 
-## Deployment workflow (high level) on an
-
-Amazon ECS compute platform
+## Deployment workflow (high level) on an Amazon ECS compute platform
 
 The following diagram shows the primary steps in the deployment of updated Amazon ECS
 services.
@@ -170,13 +156,10 @@ These steps include:
    replacement version before traffic is rerouted to it. For more information, see [Create a deployment with CodeDeploy](deployments-create.md "deployments-create.md").
 5. Check the deployment results. For more information, see [Monitoring deployments in CodeDeploy](monitoring.md "monitoring.md").
 
-## What happens during an Amazon ECS
-
-deployment
+## What happens during an Amazon ECS deployment
 
 Before an Amazon ECS deployment with a test listener starts, you must configure its
-components. For more information, see [Before you begin an Amazon ECS
-deployment](#deployment-steps-prerequisites-ecs "#deployment-steps-prerequisites-ecs").
+components. For more information, see [Before you begin an Amazon ECS deployment](#deployment-steps-prerequisites-ecs "#deployment-steps-prerequisites-ecs").
 
 The following diagram shows the relationship between these components when an Amazon ECS
 deployment is ready to start.
@@ -186,8 +169,7 @@ deployment is ready to start.
 When the deployment starts, the deployment lifecycle events start to execute one at a
 time. Some lifecycle events are hooks that only execute Lambda functions specified in the
 AppSpec file. The deployment lifecycle events in the following table are listed in the
-order they execute. For more information, see [AppSpec 'hooks' section for an Amazon ECS
-deployment](reference-appspec-file-structure-hooks.md#appspec-hooks-ecs "reference-appspec-file-structure-hooks.md#appspec-hooks-ecs").
+order they execute. For more information, see [AppSpec 'hooks' section for an Amazon ECS deployment](reference-appspec-file-structure-hooks.md#appspec-hooks-ecs "reference-appspec-file-structure-hooks.md#appspec-hooks-ecs").
 
 | Lifecycle event                                       | Lifecycle event action                                        |
 | ----------------------------------------------------- | ------------------------------------------------------------- |
@@ -247,10 +229,7 @@ After the validation tests are complete, one of the following occurs:
     * If validation succeeds, the deployment continues to the
      `BeforeAllowTraffic` hook.
 
-For more information, see [Monitoring deployments with CloudWatch alarms in
-CodeDeploy](monitoring-create-alarms.md "monitoring-create-alarms.md"), [Automatic
-rollbacks](deployments-rollback-and-redeploy.md#deployments-rollback-and-redeploy-automatic-rollbacks "deployments-rollback-and-redeploy.md#deployments-rollback-and-redeploy-automatic-rollbacks"), and [Configure advanced options
-for a deployment group](deployment-groups-configure-advanced-options.md "deployment-groups-configure-advanced-options.md"). 6. ######
+For more information, see [Monitoring deployments with CloudWatch alarms in CodeDeploy](monitoring-create-alarms.md "monitoring-create-alarms.md"), [Automatic rollbacks](deployments-rollback-and-redeploy.md#deployments-rollback-and-redeploy-automatic-rollbacks "deployments-rollback-and-redeploy.md#deployments-rollback-and-redeploy-automatic-rollbacks"), and [Configure advanced options for a deployment group](deployment-groups-configure-advanced-options.md "deployment-groups-configure-advanced-options.md"). 6. ######
 
 Execute any Lambda functions specified in the `BeforeAllowTraffic` hook in
 the AppSpec file. 7. ######
@@ -269,16 +248,12 @@ the original task set is removed.
 
 ![All events succeeding.](images/codedeploy-ecs-deployment-step-6.png)
 
-## Uploading your application
-
-revision
+## Uploading your application revision
 
 Place an AppSpec file in Amazon S3 or enter it directly into the console or AWS CLI. For
 more information, see [Application Specification Files](application-specification-files.md "application-specification-files.md").
 
-## Creating your
-
-application and deployment groups
+## Creating your application and deployment groups
 
 A CodeDeploy deployment group on an Amazon ECS compute platform identifies listeners to serve
 traffic to your updated Amazon ECS application and two target groups used during your deployment.
@@ -333,16 +308,12 @@ CodeDeploy console displays a list of deployments that are the result of an auto
 If you redeploy, the target group associated with the current deployment's original task
 set is associated with the redeployment's replacement task set.
 
-For more information, see [Redeploy and roll back a deployment with
-CodeDeploy](deployments-rollback-and-redeploy.md "deployments-rollback-and-redeploy.md").
+For more information, see [Redeploy and roll back a deployment with CodeDeploy](deployments-rollback-and-redeploy.md "deployments-rollback-and-redeploy.md").
 
-## Amazon ECS blue/green deployments through
-
-AWS CloudFormation
+## Amazon ECS blue/green deployments through AWS CloudFormation
 
 You can use AWS CloudFormation to manage Amazon ECS blue/green deployments through CodeDeploy. For more
-information, see [Create an Amazon ECS blue/green deployment
-through CloudFormation](deployments-create-ecs-cfn.md "deployments-create-ecs-cfn.md").
+information, see [Create an Amazon ECS blue/green deployment through CloudFormation](deployments-create-ecs-cfn.md "deployments-create-ecs-cfn.md").
 
 ###### Note
 

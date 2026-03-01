@@ -6,5 +6,4 @@ service role. You do not have to create an IAM instance profile as described in 
 prerequisites. On-premises instances do not use IAM instance profiles.
 
 The physical device you will configure as an on-premises instance must be running one
-of the operating systems listed in [Operating systems
-supported by the CodeDeploy agent](codedeploy-agent.md#codedeploy-agent-supported-operating-systems "codedeploy-agent.md#codedeploy-agent-supported-operating-systems").
+of the operating systems listed in [Operating systems supported by the CodeDeploy agent](codedeploy-agent.md#codedeploy-agent-supported-operating-systems "codedeploy-agent.md#codedeploy-agent-supported-operating-systems").

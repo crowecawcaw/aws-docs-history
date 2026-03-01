@@ -1,20 +1,14 @@
-# Step 5: Check your results
-
-again
+# Step 5: Check your results again
 
 In this step, you'll check to see if CodeDeploy installed the SimpleDemoApp
 revision on the new instance in the Auto Scaling group.
 
 ###### Topics
 
-- [To check automatic
-  deployment results (CLI)](#tutorials-auto-scaling-group-reverify-cli "#tutorials-auto-scaling-group-reverify-cli")
-- [To check automatic
-  deployment results (console)](#tutorials-auto-scaling-group-reverify-console "#tutorials-auto-scaling-group-reverify-console")
+- [To check automatic deployment results (CLI)](#tutorials-auto-scaling-group-reverify-cli "#tutorials-auto-scaling-group-reverify-cli")
+- [To check automatic deployment results (console)](#tutorials-auto-scaling-group-reverify-console "#tutorials-auto-scaling-group-reverify-console")
 
-## To check automatic
-
-deployment results (CLI)
+## To check automatic deployment results (CLI)
 
 1. Before you call the **get-deployment** command, you will
    need the ID of the automatic deployment. To get the ID, call the
@@ -66,9 +60,7 @@ http://`ec2-01-234-567-890.compute-1.amazonaws.com`
 If the congratulations page appears, you've used CodeDeploy to deploy a
 revision to a scaled-up Amazon EC2 instance in an Auto Scaling group!
 
-## To check automatic
-
-deployment results (console)
+## To check automatic deployment results (console)
 
 1. Sign in to the AWS Management Console and open the CodeDeploy console at [https://console.aws.amazon.com/codedeploy](https://console.aws.amazon.com/codedeploy "https://console.aws.amazon.com/codedeploy").
 

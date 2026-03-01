@@ -1,6 +1,4 @@
-# Step 4: Deploy your Hello World
-
-application
+# Step 4: Deploy your Hello World application
 
 Now you deploy the sample Hello World application revision you uploaded to Amazon S3. You use the
 AWS CLI or the CodeDeploy console to deploy the revision and monitor the deployment's progress. After
@@ -8,28 +6,20 @@ the application revision is successfully deployed, you check the results.
 
 ###### Topics
 
-- [Deploy your
-  application revision with CodeDeploy](#tutorials-windows-deploy-application-create-deployment "#tutorials-windows-deploy-application-create-deployment")
-- [Monitor and troubleshoot your
-  deployment](#tutorials-windows-deploy-application-monitor "#tutorials-windows-deploy-application-monitor")
+- [Deploy your application revision with CodeDeploy](#tutorials-windows-deploy-application-create-deployment "#tutorials-windows-deploy-application-create-deployment")
+- [Monitor and troubleshoot your deployment](#tutorials-windows-deploy-application-monitor "#tutorials-windows-deploy-application-monitor")
 - [Verify your deployment](#tutorials-windows-deploy-application-verify "#tutorials-windows-deploy-application-verify")
 
-## Deploy your
-
-application revision with CodeDeploy
+## Deploy your application revision with CodeDeploy
 
 You can deploy your application using the CLI or the console.
 
 ###### Topics
 
-- [To deploy your
-  application revision (CLI)](#tutorials-windows-deploy-application-create-deployment-cli "#tutorials-windows-deploy-application-create-deployment-cli")
-- [To deploy
-  your application revision (console)](#tutorials-windows-deploy-application-create-deployment-console "#tutorials-windows-deploy-application-create-deployment-console")
+- [To deploy your application revision (CLI)](#tutorials-windows-deploy-application-create-deployment-cli "#tutorials-windows-deploy-application-create-deployment-cli")
+- [To deploy your application revision (console)](#tutorials-windows-deploy-application-create-deployment-console "#tutorials-windows-deploy-application-create-deployment-console")
 
-### To deploy your
-
-application revision (CLI)
+### To deploy your application revision (CLI)
 
 1. First, the deployment needs a deployment group. However, before you create the
    deployment group, you need a service role ARN. A service role is an IAM role that
@@ -38,7 +28,7 @@ application revision (CLI)
    tags.
 
 You should have already followed the instructions in [Create a service role (CLI)](getting-started-create-service-role.md#getting-started-create-service-role-cli "getting-started-create-service-role.md#getting-started-create-service-role-cli") to create a service role. To
-get the ARN of the service role, see [Get the service role ARN (CLI)](getting-started-create-service-role.md#getting-started-get-service-role-cli "getting-started-create-service-role.md#getting-started-get-service-role-cli") . 2. Now that you have the ARN, call the **create-deployment-group**
+get the ARN of the service role, see [Get the service role ARN (CLI)](getting-started-create-service-role.md#getting-started-get-service-role-cli "getting-started-create-service-role.md#getting-started-get-service-role-cli"). 2. Now that you have the ARN, call the **create-deployment-group**
 command to create a deployment group named `HelloWorld_DepGroup`,
 associated with the application named `HelloWorld_App`, using the
 Amazon EC2 instance tag named `CodeDeployDemo` and deployment
@@ -77,9 +67,7 @@ revision named `HelloWorld_App.zip` in the bucket named
 aws deploy create-deployment --application-name HelloWorld_App --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name HelloWorld_DepGroup --s3-location bucket=amzn-s3-demo-bucket,bundleType=zip,key=HelloWorld_App.zip
 ```
 
-### To deploy
-
-your application revision (console)
+### To deploy your application revision (console)
 
 1. Before you use the CodeDeploy console to deploy your application revision, you need a
    service role ARN. A service role is an IAM role that gives a service permission to act
@@ -87,7 +75,7 @@ your application revision (console)
    Amazon EC2 instances to expand (read) their Amazon EC2 instance tags.
 
 You should have already followed the instructions in [Create a service role (console)](getting-started-create-service-role.md#getting-started-create-service-role-console "getting-started-create-service-role.md#getting-started-create-service-role-console") to create a service
-role. To get the ARN of the service role, see [Get the service role ARN (console)](getting-started-create-service-role.md#getting-started-get-service-role-console "getting-started-create-service-role.md#getting-started-get-service-role-console") . 2. Now that you have the ARN, you can use the CodeDeploy console to deploy your application
+role. To get the ARN of the service role, see [Get the service role ARN (console)](getting-started-create-service-role.md#getting-started-get-service-role-console "getting-started-create-service-role.md#getting-started-get-service-role-console"). 2. Now that you have the ARN, you can use the CodeDeploy console to deploy your application
 revision.
 
 Sign in to the AWS Management Console and open the CodeDeploy console at [https://console.aws.amazon.com/codedeploy](https://console.aws.amazon.com/codedeploy "https://console.aws.amazon.com/codedeploy").
@@ -124,22 +112,16 @@ To get the location:
 21. Choose **Create deployment**. Information about your newly created
     deployment appears on the **Deployments** page.
 
-## Monitor and troubleshoot your
-
-deployment
+## Monitor and troubleshoot your deployment
 
 Use the AWS CLI or the console to monitor and troubleshoot your deployment.
 
 ###### Topics
 
-- [To monitor and
-  troubleshoot your deployment (CLI)](#tutorials-windows-deploy-application-monitor-cli "#tutorials-windows-deploy-application-monitor-cli")
-- [To monitor and
-  troubleshoot your deployment (console)](#tutorials-windows-deploy-application-monitor-console "#tutorials-windows-deploy-application-monitor-console")
+- [To monitor and troubleshoot your deployment (CLI)](#tutorials-windows-deploy-application-monitor-cli "#tutorials-windows-deploy-application-monitor-cli")
+- [To monitor and troubleshoot your deployment (console)](#tutorials-windows-deploy-application-monitor-console "#tutorials-windows-deploy-application-monitor-console")
 
-### To monitor and
-
-troubleshoot your deployment (CLI)
+### To monitor and troubleshoot your deployment (CLI)
 
 1. Get the deployment's ID by calling the **list-deployments** command
    against the application named `HelloWorld_App` and the deployment
@@ -160,12 +142,9 @@ aws deploy get-deployment --deployment-id `deploymentID` --query "deploymentInfo
 
 If the overall status is `Failed`, you can call commands such as
 [list-deployment-instances](../../../cli/latest/reference/deploy/list-deployment-instances.md "../../../cli/latest/reference/deploy/list-deployment-instances.md") and [get-deployment-instance](../../../cli/latest/reference/deploy/get-deployment-instance.md "../../../cli/latest/reference/deploy/get-deployment-instance.md") to
-troubleshoot. For more troubleshooting options, see [Analyzing log files to investigate
-deployment failures on instances](troubleshooting-ec2-instances.md#troubleshooting-deploy-failures "troubleshooting-ec2-instances.md#troubleshooting-deploy-failures").
+troubleshoot. For more troubleshooting options, see [Analyzing log files to investigate deployment failures on instances](troubleshooting-ec2-instances.md#troubleshooting-deploy-failures "troubleshooting-ec2-instances.md#troubleshooting-deploy-failures").
 
-### To monitor and
-
-troubleshoot your deployment (console)
+### To monitor and troubleshoot your deployment (console)
 
 On the **Deployments** page in the CodeDeploy console, you can monitor your
 deployment's status in the **Status** column.
@@ -182,8 +161,7 @@ To get more information about your deployment, especially if the
    deployment failed.
 3. If you want to do more troubleshooting, you can use a technique like [View Instance Details](instances-view-details.md "instances-view-details.md"). You can
    also analyze the deployment log files on an Amazon EC2 instance. For more information, see
-   [Analyzing log files to investigate
-   deployment failures on instances](troubleshooting-ec2-instances.md#troubleshooting-deploy-failures "troubleshooting-ec2-instances.md#troubleshooting-deploy-failures").
+   [Analyzing log files to investigate deployment failures on instances](troubleshooting-ec2-instances.md#troubleshooting-deploy-failures "troubleshooting-ec2-instances.md#troubleshooting-deploy-failures").
 
 ## Verify your deployment
 

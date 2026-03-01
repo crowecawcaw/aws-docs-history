@@ -1,15 +1,11 @@
-# Working with deployment configurations in
-
-CodeDeploy
+# Working with deployment configurations in CodeDeploy
 
 A deployment configuration is a set of rules and success and failure conditions used by
 CodeDeploy during a deployment. These rules and conditions are different, depending on whether you
 deploy to an EC2/On-Premises compute platform, AWS Lambda compute platform, or
 Amazon ECS compute platform.
 
-## Deployment configurations on an
-
-EC2/on-premises compute platform
+## Deployment configurations on an EC2/on-premises compute platform
 
 When you deploy to an EC2/On-Premises compute platform, the deployment configuration
 specifies, through the use of a 'minimum healthy hosts' value and an optional 'minimum healthy
@@ -25,9 +21,7 @@ For more information about how CodeDeploy monitors and evaluates instance health
 deployment, see [Instance Health](instances-health.md "instances-health.md"). To view a
 list of deployment configurations already registered to your AWS account, see [View Deployment Configuration Details](deployment-configurations-view-details.md "deployment-configurations-view-details.md").
 
-### Predefined deployment configurations
-
-for an EC2/on-premises compute platform
+### Predefined deployment configurations for an EC2/on-premises compute platform
 
 The following table lists the predefined deployment configurations.
 
@@ -44,9 +38,7 @@ deployment configuration](deployment-configurations-create.md "deployment-config
 | CodeDeployDefault.HalfAtATime | **In-place deployments**:<br>Deploys to up to half of the instances at a time (with fractions rounded<br>down). The overall deployment succeeds if the application revision is deployed to<br>at least half of the instances (with fractions rounded up). Otherwise, the<br>deployment fails. In the example of nine instances, it deploys to up to four<br>instances at a time. The overall deployment succeeds if deployment to five or more<br>instances succeed. Otherwise, the deployment fails.<br>NoteIf you're deploying to instances in multiple Auto Scaling groups, CodeDeploy will deploy<br>to up to half of the instances at a time _regardless of the Auto Scaling group<br>they're in_. For example, let's assume you have two Auto Scaling groups,<br>`ASG1` and `ASG2`, each with 10 instances. In this<br>scenario, CodeDeploy might deploy to 10 instances in just `ASG1` and<br>consider this a success because it has deployed to at least half of the<br>instances.<br>**Blue/green deployments**:<br>• Deployment to replacement environment: Follows the same deployment rules<br>as CodeDeployDefault.HalfAtATime for in-place deployments.<br>• Traffic rerouting: Routes traffic to up to half the instances in the<br>replacement environment at a time. Succeeds if rerouting to at least half of<br>the instances succeeds. Otherwise, fails.                                                                                                                                                                                                                                                         |
 | CodeDeployDefault.OneAtATime  | **In-place deployments**:<br>Deploys the application revision to only one instance at a time.<br>For deployment groups that contain more than one instance:<br>• The overall deployment succeeds if the application revision is deployed to<br>all of the instances. The exception to this rule is that if deployment to the<br>last instance fails, the overall deployment still succeeds. This is because<br>CodeDeploy allows only one instance at a time to be taken offline with the<br>CodeDeployDefault.OneAtATime configuration.<br>• The overall deployment fails as soon as the application revision fails to<br>be deployed to any but the last instance.<br>• In an example using nine instances, it deploys to one instance at a time.<br>The overall deployment succeeds if deployment to the first eight instances is<br>successful. The overall deployment fails if deployment to any of the first<br>eight instances fails.<br>For deployment groups that contain only one instance, the overall deployment<br>is successful only if deployment to the single instance is successful.<br>**Blue/green deployments**:<br>• Deployment to replacement environment: Follows same deployment rules as<br>CodeDeployDefault.OneAtATime for in-place deployments.<br>• Traffic rerouting: Routes traffic to one instance in the replacement<br>environment at a time. Succeeds if traffic is successfully rerouted to all<br>replacement instances. Fails after the very first rerouting failure. The<br>exception to this rule is that if the last instance fails to register, the<br>overall deployment still succeeds. |
 
-## Deployment configurations on an Amazon ECS compute
-
-platform
+## Deployment configurations on an Amazon ECS compute platform
 
 When you deploy to an Amazon ECS compute platform, the deployment configuration specifies
 how traffic is shifted to the updated Amazon ECS task set. You can shift traffic using a **canary**, **linear**, or **all-at-once** deployment configuration. For more information, see [Deployment configuration](primary-components.md#primary-components-deployment-configuration "primary-components.md#primary-components-deployment-configuration").
@@ -54,9 +46,7 @@ how traffic is shifted to the updated Amazon ECS task set. You can shift traffic
 You can also create your own custom canary or linear deployment configuration. For more
 information, see [Create a Deployment Configuration](deployment-configurations-create.md "deployment-configurations-create.md").
 
-### Predefined deployment
-
-configurations for an Amazon ECS compute platform
+### Predefined deployment configurations for an Amazon ECS compute platform
 
 The following table lists the predefined configurations available for Amazon ECS
 deployments.
@@ -74,9 +64,7 @@ deployment configuration is supported.
 | CodeDeployDefault.ECSCanary10Percent15Minutes     | Shifts 10 percent of traffic in the first increment. The remaining 90 percent<br>is deployed 15 minutes later.   |
 | CodeDeployDefault.ECSAllAtOnce                    | Shifts all traffic to the updated Amazon ECS container at once.                                                  |
 
-## Deployment configurations for CloudFormation
-
-blue/green deployments (Amazon ECS)
+## Deployment configurations for CloudFormation blue/green deployments (Amazon ECS)
 
 When you deploy to an Amazon ECS compute platform through CloudFormation blue/green deployments,
 the deployment configuration specifies how traffic is shifted to the updated Amazon ECS container.
@@ -94,9 +82,7 @@ Managing Amazon ECS blue/green deployments with CloudFormation is not
 available in the Europe (Milan), Africa (Cape Town), and Asia Pacific (Osaka)
 regions.
 
-## Deployment configurations on an AWS Lambda
-
-compute platform
+## Deployment configurations on an AWS Lambda compute platform
 
 When you deploy to an AWS Lambda compute platform, the deployment configuration
 specifies the way traffic is shifted to the new Lambda function versions in your application.
@@ -106,9 +92,7 @@ configuration. For more information, see [Deployment configuration](primary-comp
 You can also create your own custom canary or linear deployment configuration. For more
 information, see [Create a Deployment Configuration](deployment-configurations-create.md "deployment-configurations-create.md").
 
-### Predefined deployment
-
-configurations for an AWS Lambda compute platform
+### Predefined deployment configurations for an AWS Lambda compute platform
 
 The following table lists the predefined configurations available for AWS Lambda
 deployments.

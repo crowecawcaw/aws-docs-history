@@ -1,13 +1,9 @@
-# Step 6: Deploy the application to the
-
-instance
+# Step 6: Deploy the application to the instance
 
 In this step, you use the CodeDeploy console or the AWS CLI to deploy the sample revision from
 your GitHub repository to your instance.
 
-## To deploy the revision
-
-(console)
+## To deploy the revision (console)
 
 1. On the **Deployment group details** page, choose **Create
    deployment**.

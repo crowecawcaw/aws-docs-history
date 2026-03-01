@@ -14,15 +14,12 @@ For more information, see [Create a local deployment](deployments-local.md#deplo
 ###### Topics
 
 - [AppSpec files on an Amazon ECS compute platform](#appspec-reference-ecs "#appspec-reference-ecs")
-- [AppSpec files on an AWS Lambda compute
-  platform](#appspec-reference-lambda "#appspec-reference-lambda")
-- [AppSpec files on an EC2/on-premises compute
-  platform](#appspec-reference-server "#appspec-reference-server")
+- [AppSpec files on an AWS Lambda compute platform](#appspec-reference-lambda "#appspec-reference-lambda")
+- [AppSpec files on an EC2/on-premises compute platform](#appspec-reference-server "#appspec-reference-server")
 - [AppSpec File structure](reference-appspec-file-structure.md "reference-appspec-file-structure.md")
 - [AppSpec File example](reference-appspec-file-example.md "reference-appspec-file-example.md")
 - [AppSpec File spacing](#reference-appspec-file-spacing "#reference-appspec-file-spacing")
-- [Validate your AppSpec File and file
-  location](reference-appspec-file-validate.md "reference-appspec-file-validate.md")
+- [Validate your AppSpec File and file location](reference-appspec-file-validate.md "reference-appspec-file-validate.md")
 
 ## AppSpec files on an Amazon ECS compute platform
 
@@ -37,12 +34,9 @@ determine:
 - Optional information about your Amazon ECS service, such the platform version on which it
   runs, its subnets, and its security groups.
 - Optional Lambda functions to run during hooks that correspond with lifecycle events
-  during an Amazon ECS deployment. For more information, see [AppSpec 'hooks' section for an Amazon ECS
-  deployment](reference-appspec-file-structure-hooks.md#appspec-hooks-ecs "reference-appspec-file-structure-hooks.md#appspec-hooks-ecs").
+  during an Amazon ECS deployment. For more information, see [AppSpec 'hooks' section for an Amazon ECS deployment](reference-appspec-file-structure-hooks.md#appspec-hooks-ecs "reference-appspec-file-structure-hooks.md#appspec-hooks-ecs").
 
-## AppSpec files on an AWS Lambda compute
-
-platform
+## AppSpec files on an AWS Lambda compute platform
 
 For AWS Lambda compute platform applications, the AppSpec file is used by CodeDeploy to
 determine:
@@ -54,9 +48,7 @@ An AppSpec file can be YAML-formatted or JSON-formatted. You can also enter the
 contents of an AppSpec file directly into CodeDeploy console when you create a
 deployment.
 
-## AppSpec files on an EC2/on-premises compute
-
-platform
+## AppSpec files on an EC2/on-premises compute platform
 
 If your application uses the EC2/On-Premises compute platform, the AppSpec file must be
 a YAML-formatted file named `appspec.yml` and it must be placed
@@ -80,8 +72,7 @@ you upload it to an Amazon S3 bucket or Git repository. Then you use CodeDeploy 
 For instructions, see [Create a deployment with CodeDeploy](deployments-create.md "deployments-create.md").
 
 The appspec.yml for an EC2/On-Premises compute platform deployment is saved in
-the root directory of your revision. For more information, see [Add an AppSpec file for an EC2/On-Premises
-deployment](application-revisions-appspec-file.md#add-appspec-file-server "application-revisions-appspec-file.md#add-appspec-file-server") and [Plan a revision for CodeDeploy](application-revisions-plan.md "application-revisions-plan.md").
+the root directory of your revision. For more information, see [Add an AppSpec file for an EC2/On-Premises deployment](application-revisions-appspec-file.md#add-appspec-file-server "application-revisions-appspec-file.md#add-appspec-file-server") and [Plan a revision for CodeDeploy](application-revisions-plan.md "application-revisions-plan.md").
 
 ## AppSpec File spacing
 

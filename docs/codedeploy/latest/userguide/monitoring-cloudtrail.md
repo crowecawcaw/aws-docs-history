@@ -38,9 +38,7 @@ You can also aggregate CodeDeploy log files from multiple AWS regions and multip
 accounts into a single Amazon S3 bucket. For more information, see [Receiving CloudTrail log files from multiple
 regions](../../../awscloudtrail/latest/userguide/aggregating_logs_top_level.md "../../../awscloudtrail/latest/userguide/aggregating_logs_top_level.md").
 
-## Understanding CodeDeploy log file
-
-entries
+## Understanding CodeDeploy log file entries
 
 CloudTrail log files can contain one or more log entries where each entry is made up of multiple
 JSON-formatted events. A log entry represents a single request from any source and includes

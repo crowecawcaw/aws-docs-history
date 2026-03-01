@@ -1,11 +1,6 @@
-# Troubleshoot deployment group
+# Troubleshoot deployment group issues
 
-issues
-
-## Tagging an instance as part of a
-
-deployment group does not automatically deploy your application to the new
-instance
+## Tagging an instance as part of a deployment group does not automatically deploy your application to the new instance
 
 CodeDeploy does not automatically deploy your application to a newly tagged instance. You
 must create a new deployment in the deployment group.

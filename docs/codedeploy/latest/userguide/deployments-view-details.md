@@ -12,18 +12,14 @@ following locations:
   `/opt/codedeploy-agent/deployment-root/deployment-logs/codedeploy-agent-deployments.log`
 - Windows Server:
   C:\ProgramData\Amazon\CodeDeploy<DEPLOYMENT-GROUP-ID><DEPLOYMENT-ID>\logs\scripts.log
-  For more information, see [Analyzing log files to investigate
-  deployment failures on instances](troubleshooting-ec2-instances.md#troubleshooting-deploy-failures "troubleshooting-ec2-instances.md#troubleshooting-deploy-failures").
+  For more information, see [Analyzing log files to investigate deployment failures on instances](troubleshooting-ec2-instances.md#troubleshooting-deploy-failures "troubleshooting-ec2-instances.md#troubleshooting-deploy-failures").
 
 ###### Topics
 
-- [View deployment details
-  (console)](#deployments-view-details-console "#deployments-view-details-console")
+- [View deployment details (console)](#deployments-view-details-console "#deployments-view-details-console")
 - [View deployment details (CLI)](#deployments-view-details-cli "#deployments-view-details-cli")
 
-## View deployment details
-
-(console)
+## View deployment details (console)
 
 To use the CodeDeploy console to view deployment details:
 

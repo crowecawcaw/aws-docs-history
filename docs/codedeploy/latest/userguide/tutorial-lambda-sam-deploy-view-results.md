@@ -1,6 +1,4 @@
-# Step 4: View your deployment
-
-results
+# Step 4: View your deployment results
 
 In this step, you view the results of your deployment. If your deployment succeeds, you
 can confirm that your updated Lambda function receives production traffic. If your deployment
@@ -9,13 +7,10 @@ run during your deployment's lifecycle hoooks.
 
 ###### Topics
 
-- [Test your deployed
-  function](#tutorial-lambda-sam-deploy-test-deployed-function "#tutorial-lambda-sam-deploy-test-deployed-function")
+- [Test your deployed function](#tutorial-lambda-sam-deploy-test-deployed-function "#tutorial-lambda-sam-deploy-test-deployed-function")
 - [View hook events in CloudWatch Logs](#tutorial-lambda-view-hook-events "#tutorial-lambda-view-hook-events")
 
-## Test your deployed
-
-function
+## Test your deployed function
 
 The **sam deploy** command updates the
 `my-date-time-app-myDateTimeFunction` Lambda function. The function version is
@@ -35,8 +30,7 @@ updated to 2 and added to the `live` alias.
    2**.
 
 ![The aliases section of the CodeDeploy console.](images/lambda-tutorial-function-version.png) 4. In **Function code**, view the source code for your function. Your
-changes should appear. 5. (Optional) You can use the test instructions in [Step 2: Update the Lambda
-function](tutorial-lambda-sam-update-function.md "tutorial-lambda-sam-update-function.md") to test your updated function.
+changes should appear. 5. (Optional) You can use the test instructions in [Step 2: Update the Lambda function](tutorial-lambda-sam-update-function.md "tutorial-lambda-sam-update-function.md") to test your updated function.
 Create a new test event with the following payload, and then confirm the result contains
 the current hour, minute, and second.
 

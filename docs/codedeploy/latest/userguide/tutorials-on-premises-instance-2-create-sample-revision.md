@@ -1,6 +1,4 @@
-# Step 2: Create
-
-a sample application revision
+# Step 2: Create a sample application revision
 
 In this step, you create a sample application revision to deploy to your on-premises
 instance.
@@ -29,14 +27,10 @@ are true:
 ###### Note
 
 If you configured a Windows Server instance and want to deploy a different sample, you
-may want to use the one in [Step 2: Configure your source content to
-deploy to the Windows Server Amazon EC2 instance](tutorials-windows-configure-content.md "tutorials-windows-configure-content.md") in the [Tutorial: Deploy a "hello, world!" application with CodeDeploy
-(Windows Server)](tutorials-windows.md "tutorials-windows.md") tutorial.
+may want to use the one in [Step 2: Configure your source content to deploy to the Windows Server Amazon EC2 instance](tutorials-windows-configure-content.md "tutorials-windows-configure-content.md") in the [Tutorial: Deploy a "hello, world!" application with CodeDeploy (Windows Server)](tutorials-windows.md "tutorials-windows.md") tutorial.
 
 If you configured a RHEL instance and want to deploy a different sample, you may
-want to use the one in [Step 2: Configure your source content to
-be deployed to the Amazon Linux or Red Hat Enterprise Linux Amazon EC2 instance](tutorials-wordpress-configure-content.md "tutorials-wordpress-configure-content.md") in the [Tutorial: Deploy WordPress to an Amazon EC2 instance (Amazon Linux or
-Red Hat Enterprise Linux and Linux, macOS, or Unix)](tutorials-wordpress.md "tutorials-wordpress.md")
+want to use the one in [Step 2: Configure your source content to be deployed to the Amazon Linux or Red Hat Enterprise Linux Amazon EC2 instance](tutorials-wordpress-configure-content.md "tutorials-wordpress-configure-content.md") in the [Tutorial: Deploy WordPress to an Amazon EC2 instance (Amazon Linux or Red Hat Enterprise Linux and Linux, macOS, or Unix)](tutorials-wordpress.md "tutorials-wordpress.md")
 tutorial.
 
 Currently, there is no alternative sample for Ubuntu Server.
@@ -115,8 +109,7 @@ hooks:
       timeout: 900
 ```
 
-For more information about AppSpec files, see [Add an application specification file to a
-revision for CodeDeploy](application-revisions-appspec-file.md "application-revisions-appspec-file.md") and [CodeDeploy AppSpec file reference](reference-appspec-file.md "reference-appspec-file.md").
+For more information about AppSpec files, see [Add an application specification file to a revision for CodeDeploy](application-revisions-appspec-file.md "application-revisions-appspec-file.md") and [CodeDeploy AppSpec file reference](reference-appspec-file.md "reference-appspec-file.md").
 
 `install.txt`:
 

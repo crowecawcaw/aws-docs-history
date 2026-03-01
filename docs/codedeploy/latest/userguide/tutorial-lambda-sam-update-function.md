@@ -1,6 +1,4 @@
-# Step 2: Update the Lambda
-
-function
+# Step 2: Update the Lambda function
 
 In this topic, you update your `myDateTimeFunction.js` file. In the next step,
 you use the file to deploy the updated function. This triggers CodeDeploy to deploy it by shifting

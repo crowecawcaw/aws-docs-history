@@ -1,6 +1,4 @@
-# AppSpec 'files' section
-
-(EC2/On-Premises deployments only)
+# AppSpec 'files' section (EC2/On-Premises deployments only)
 
 Provides information to CodeDeploy about which files from your application revision should be
 installed on the instance during the deployment's **Install**
@@ -77,9 +75,7 @@ In this example, the following two operations are performed during the **Install
 2. Recursively copy all of the files in your revision's `source`
    directory to the `/webapps/myApp` directory on the instance.
 
-## 'Files' section
-
-examples
+## 'Files' section examples
 
 The following examples show how to specify the `files` section. Although
 these examples describe Windows Server file and directory (folder) structures, they can easily

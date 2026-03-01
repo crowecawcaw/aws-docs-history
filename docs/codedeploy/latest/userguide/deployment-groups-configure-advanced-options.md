@@ -1,6 +1,4 @@
-# Configure advanced options
-
-for a deployment group
+# Configure advanced options for a deployment group
 
 When you create or update a deployment group, you can configure a number of options to
 provide more control and oversight over the deployments for that deployment group.
@@ -66,8 +64,7 @@ a deployment group without having to add the same alarms again later.
 
 This option corresponds to **ignorePollAlarmFailure** in the
 [AlarmConfiguration](../APIReference/API_AlarmConfiguration.md "../APIReference/API_AlarmConfiguration.md") object in the CodeDeploy API.
-For more information, see [Monitoring deployments with CloudWatch alarms in
-CodeDeploy](monitoring-create-alarms.md "monitoring-create-alarms.md").
+For more information, see [Monitoring deployments with CloudWatch alarms in CodeDeploy](monitoring-create-alarms.md "monitoring-create-alarms.md").
 
 **Automatic rollbacks**: You can configure a deployment group
 or deployment to automatically roll back when a deployment fails or when a monitoring
@@ -93,8 +90,7 @@ rollbacks**. This choice is useful when you want to temporarily
 disable automatic rollbacks without having to set up the same configuration
 again later.
 
-For more information, see [Redeploy and roll back a deployment with
-CodeDeploy](deployments-rollback-and-redeploy.md "deployments-rollback-and-redeploy.md").
+For more information, see [Redeploy and roll back a deployment with CodeDeploy](deployments-rollback-and-redeploy.md "deployments-rollback-and-redeploy.md").
 **Automatic updates to outdated
 instances**: Under certain circumstances, CodeDeploy may deploy an outdated revision
 of your application to your Amazon EC2 instances. For example, if your EC2 instances are

@@ -1,6 +1,4 @@
-# Manually remove on-premises
-
-instance tags from an on-premises instance
+# Manually remove on-premises instance tags from an on-premises instance
 
 Typically, you remove an on-premises instance tag from an on-premises instance when that
 tag is no longer being used, or you want to remove the on-premises instance from any
@@ -15,15 +13,12 @@ deregister the instance. It does not uninstall the CodeDeploy agent from the ins
 remove the configuration file from the instance. It does not delete the IAM user associated
 with the instance.
 
-To automatically deregister the on-premises instance, see [Automatically
-deregister an on-premises instance](on-premises-instances-operations-deregister-automatically.md "on-premises-instances-operations-deregister-automatically.md").
+To automatically deregister the on-premises instance, see [Automatically deregister an on-premises instance](on-premises-instances-operations-deregister-automatically.md "on-premises-instances-operations-deregister-automatically.md").
 
-To manually deregister the on-premises instance, see [Manually deregister an
-on-premises instance](on-premises-instances-operations-deregister-manually.md "on-premises-instances-operations-deregister-manually.md").
+To manually deregister the on-premises instance, see [Manually deregister an on-premises instance](on-premises-instances-operations-deregister-manually.md "on-premises-instances-operations-deregister-manually.md").
 
 To automatically uninstall the CodeDeploy agent and remove the configuration file from the
-on-premises instance, see [Automatically uninstall the
-CodeDeploy agent and remove the configuration file from an on-premises instance](on-premises-instances-operations-uninstall-agent.md "on-premises-instances-operations-uninstall-agent.md").
+on-premises instance, see [Automatically uninstall the CodeDeploy agent and remove the configuration file from an on-premises instance](on-premises-instances-operations-uninstall-agent.md "on-premises-instances-operations-uninstall-agent.md").
 
 To manually uninstall just the CodeDeploy agent from the on-premises instance, see [Managing CodeDeploy agent operations](codedeploy-agent-operations.md "codedeploy-agent-operations.md").
 

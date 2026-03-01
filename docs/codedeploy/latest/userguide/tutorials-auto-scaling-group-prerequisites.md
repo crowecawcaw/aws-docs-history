@@ -21,9 +21,7 @@ To follow along in this tutorial:
 
 - Create and use a revision that is compatible with an Ubuntu Server instance and
   CodeDeploy. For your revision, you can do one of the following:
-  - Create and use the sample revision in [Step 2: Create
-    a sample application revision](tutorials-on-premises-instance-2-create-sample-revision.md "tutorials-on-premises-instance-2-create-sample-revision.md") in the [Tutorial: Deploy an application to an
-    on-premises instance with CodeDeploy (Windows Server, Ubuntu Server, or Red Hat Enterprise Linux)](tutorials-on-premises-instance.md "tutorials-on-premises-instance.md") tutorial.
+  - Create and use the sample revision in [Step 2: Create a sample application revision](tutorials-on-premises-instance-2-create-sample-revision.md "tutorials-on-premises-instance-2-create-sample-revision.md") in the [Tutorial: Deploy an application to an on-premises instance with CodeDeploy (Windows Server, Ubuntu Server, or Red Hat Enterprise Linux)](tutorials-on-premises-instance.md "tutorials-on-premises-instance.md") tutorial.
   - Create a revision on your own, see [Working with application revisions for CodeDeploy](application-revisions.md "application-revisions.md").
 
 - Create a Security Group named `CodeDeployDemo-AS-SG` with

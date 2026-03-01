@@ -27,8 +27,7 @@ _in_ the cloud:
 ###### Topics
 
 - [Data protection in AWS CodeDeploy](data-protection.md "data-protection.md")
-- [Identity and access management for
-  AWS CodeDeploy](security-iam.md "security-iam.md")
+- [Identity and access management for AWS CodeDeploy](security-iam.md "security-iam.md")
 - [Logging and monitoring in CodeDeploy](incident-response.md "incident-response.md")
 - [Compliance validation for AWS CodeDeploy](CodeDeploy-compliance.md "CodeDeploy-compliance.md")
 - [Resilience in AWS CodeDeploy](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")

@@ -1,6 +1,4 @@
-# Set up a load balancer in Elastic Load Balancing
-
-for CodeDeploy Amazon EC2 deployments
+# Set up a load balancer in Elastic Load Balancing for CodeDeploy Amazon EC2 deployments
 
 Before you run any blue/green deployment, or an in-place deployment for which you want
 to specify an optional load balancer in the deployment group, you must have created at

@@ -68,9 +68,7 @@ For more information and for FIPS endpoints, see [AWS CodeDeploy endpoints and q
 | AWS GovCloud (US-East)    | us-gov-east-1  | No             | No           | Yes                    |
 | AWS GovCloud (US-West)    | us-gov-west-1  | No             | No           | Yes                    |
 
-## Create VPC endpoints for
-
-CodeDeploy
+## Create VPC endpoints for CodeDeploy
 
 To start using CodeDeploy with your VPC, create an interface VPC endpoint for CodeDeploy. CodeDeploy
 requires separate endpoints for agent Git operations and for CodeDeploy API operations.
@@ -91,17 +89,14 @@ and in **Service Name**, choose from the following options:
   Choose this option if you want to create a VPC endpoint for CodeDeploy agent
   operations. You will also need to set `:enable_auth_policy:` to
   `true` in your agent configuration file and attach the required
-  permissions. For more information, see [Configure the CodeDeploy agent and IAM
-  permissions](#vpc-codedeploy-agent-configuration "#vpc-codedeploy-agent-configuration").
+  permissions. For more information, see [Configure the CodeDeploy agent and IAM permissions](#vpc-codedeploy-agent-configuration "#vpc-codedeploy-agent-configuration").
 
 If you are using Lambda or ECS deployments, you only need to create a VPC
 endpoint for **com.amazonaws.`region`.codedeploy**. Customers
 using Amazon EC2 deployments will need VPC endpoints for both **com.amazonaws.`region`.codedeploy** and
 **com.amazonaws.`region`.codedeploy-commands-secure**.
 
-## Configure the CodeDeploy agent and IAM
-
-permissions
+## Configure the CodeDeploy agent and IAM permissions
 
 To use Amazon VPC endpoints with CodeDeploy, you must set the value of
 `:enable_auth_policy:` to `true` in the agent configuration

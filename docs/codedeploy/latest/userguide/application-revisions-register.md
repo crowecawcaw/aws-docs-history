@@ -1,6 +1,4 @@
-# Register an application revision in Amazon S3
-
-with CodeDeploy
+# Register an application revision in Amazon S3 with CodeDeploy
 
 If you've already called the [push](../../../cli/latest/reference/deploy/push.md "../../../cli/latest/reference/deploy/push.md") command to push an application revision
 to Amazon S3, you don't need to register the revision. However, if you upload a revision to Amazon S3
@@ -15,14 +13,10 @@ GitHub.
 
 ###### Topics
 
-- [Register a revision in Amazon S3 with
-  CodeDeploy (CLI)](#application-revisions-register-s3 "#application-revisions-register-s3")
-- [Register a revision in GitHub
-  with CodeDeploy (CLI)](#application-revisions-register-github "#application-revisions-register-github")
+- [Register a revision in Amazon S3 with CodeDeploy (CLI)](#application-revisions-register-s3 "#application-revisions-register-s3")
+- [Register a revision in GitHub with CodeDeploy (CLI)](#application-revisions-register-github "#application-revisions-register-github")
 
-## Register a revision in Amazon S3 with
-
-CodeDeploy (CLI)
+## Register a revision in Amazon S3 with CodeDeploy (CLI)
 
 1. Upload the revision to Amazon S3.
 2. Call the [register-application-revision](../../../cli/latest/reference/deploy/register-application-revision.md "../../../cli/latest/reference/deploy/register-application-revision.md") command,
@@ -67,9 +61,7 @@ For a revision file for an AWS Lambda deployment:
 --s3-location bucket=*string*,key=*string*,bundleType=JSON|YAML,version=*string*,eTag=*string*
 ```
 
-## Register a revision in GitHub
-
-with CodeDeploy (CLI)
+## Register a revision in GitHub with CodeDeploy (CLI)
 
 ###### Note
 

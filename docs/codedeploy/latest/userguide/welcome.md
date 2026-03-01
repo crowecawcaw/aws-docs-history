@@ -33,8 +33,7 @@ The CodeDeploy console also provides a way to quickly search for your resources,
 repositories, build projects, deployment applications, and pipelines. Choose **Go to
 resource** or press the `/` key, and then type the name of the resource.
 Any matches appear in the list. Searches are case insensitive. You only see resources that you
-have permissions to view. For more information, see [Identity and access management for
-AWS CodeDeploy](security-iam.md "security-iam.md").
+have permissions to view. For more information, see [Identity and access management for AWS CodeDeploy](security-iam.md "security-iam.md").
 
 ###### Topics
 
@@ -44,8 +43,7 @@ AWS CodeDeploy](security-iam.md "security-iam.md").
 - [We want to hear from you](#welcome-contact-us "#welcome-contact-us")
 - [CodeDeploy primary components](primary-components.md "primary-components.md")
 - [CodeDeploy deployments](deployment-steps.md "deployment-steps.md")
-- [CodeDeploy application specification (AppSpec)
-  files](application-specification-files.md "application-specification-files.md")
+- [CodeDeploy application specification (AppSpec) files](application-specification-files.md "application-specification-files.md")
 
 ## Benefits of AWS CodeDeploy
 
@@ -123,8 +121,7 @@ For more information, see:
 
 - [Working with deployment groups in CodeDeploy](deployment-groups.md "deployment-groups.md")
 - [Working with deployments in CodeDeploy](deployments.md "deployments.md")
-- [Working with deployment configurations in
-  CodeDeploy](deployment-configurations.md "deployment-configurations.md")
+- [Working with deployment configurations in CodeDeploy](deployment-configurations.md "deployment-configurations.md")
 - [Working with application revisions for CodeDeploy](application-revisions.md "application-revisions.md")
 - [Working with applications in CodeDeploy](applications.md "applications.md")
 
@@ -145,8 +142,7 @@ CodeDeploy provides two deployment type options:
   version of the application is started and validated. You can use a load balancer
   so that each instance is deregistered during its deployment and then restored to service after
   the deployment is complete. Only deployments that use the EC2/On-Premises compute platform can use in-place deployments.
-  For more information about in-place deployments, see [Overview of an in-place
-  deployment](#welcome-deployment-overview-in-place "#welcome-deployment-overview-in-place").
+  For more information about in-place deployments, see [Overview of an in-place deployment](#welcome-deployment-overview-in-place "#welcome-deployment-overview-in-place").
 
 ###### Note
 
@@ -175,26 +171,20 @@ AWS Lambda and Amazon ECS deployments cannot use an in-place deployment type.
       + **Blue/green on an AWS Lambda or Amazon ECS compute platform**: Traffic is shifted in increments according to a **canary**, **linear**, or **all-at-once** deployment configuration.
       + **Blue/green deployments through CloudFormation**: Traffic is shifted from your current resources to your updated resources as part of an CloudFormation stack update. Currently, only ECS blue/green deployments are supported.
 
-  For more information about blue/green deployments, see [Overview of a blue/green
-  deployment](#welcome-deployment-overview-blue-green "#welcome-deployment-overview-blue-green").
+  For more information about blue/green deployments, see [Overview of a blue/green deployment](#welcome-deployment-overview-blue-green "#welcome-deployment-overview-blue-green").
 
 ###### Note
 
 Using the CodeDeploy agent, you can perform a deployment on an instance you are signed in to
 without the need for an application, deployment group, or even an AWS account. For
-information, see [Use the CodeDeploy agent to validate a deployment package on
-a local machine](deployments-local.md "deployments-local.md").
+information, see [Use the CodeDeploy agent to validate a deployment package on a local machine](deployments-local.md "deployments-local.md").
 
 ###### Topics
 
-- [Overview of an in-place
-  deployment](#welcome-deployment-overview-in-place "#welcome-deployment-overview-in-place")
-- [Overview of a blue/green
-  deployment](#welcome-deployment-overview-blue-green "#welcome-deployment-overview-blue-green")
+- [Overview of an in-place deployment](#welcome-deployment-overview-in-place "#welcome-deployment-overview-in-place")
+- [Overview of a blue/green deployment](#welcome-deployment-overview-blue-green "#welcome-deployment-overview-blue-green")
 
-### Overview of an in-place
-
-deployment
+### Overview of an in-place deployment
 
 ###### Note
 
@@ -228,9 +218,7 @@ the contents to the instance.
 CodeDeploy keeps a record of your deployments so that you can get deployment status,
 deployment configuration parameters, instance health, and so on.
 
-### Overview of a blue/green
-
-deployment
+### Overview of a blue/green deployment
 
 A blue/green deployment is used to update your applications while minimizing
 interruptions caused by the changes of a new application version. CodeDeploy provisions your new
@@ -269,8 +257,7 @@ A blue/green deployment with CloudFormation can use one of the following methods
 - **CloudFormation templates for deployments**: When you configure
   deployments with CloudFormation templates, your deployments are triggered by CloudFormation updates. When
   you change a resource and upload a template change, a stack update in CloudFormation initiates
-  the new deployment. For a list of resources you can use in CloudFormation templates, see [CloudFormation templates for CodeDeploy
-  reference](reference-cloudformation-templates.md "reference-cloudformation-templates.md").
+  the new deployment. For a list of resources you can use in CloudFormation templates, see [CloudFormation templates for CodeDeploy reference](reference-cloudformation-templates.md "reference-cloudformation-templates.md").
 - **Blue/green deployments through CloudFormation**: You can use
   CloudFormation to manage your blue/green deployments through stack updates. You define both your
   blue and green resources, in addition to specifying the traffic routing and
@@ -287,9 +274,7 @@ Supported for Amazon ECS blue/green deployments only.
 How you configure a blue/green deployment depends on which compute platform your
 deployment is using.
 
-#### Blue/Green deployment on an AWS Lambda or
-
-Amazon ECS compute platform
+#### Blue/Green deployment on an AWS Lambda or Amazon ECS compute platform
 
 If you're using the AWS Lambda or Amazon ECS compute platform, you must indicate how traffic
 is shifted from the original AWS Lambda function or Amazon ECS task set to the new function or
@@ -303,15 +288,11 @@ deployment configurations:
 For information on how traffic is shifted in a canary, linear, or all-at-once
 deployment configurations, see [Deployment configuration](primary-components.md#primary-components-deployment-configuration "primary-components.md#primary-components-deployment-configuration").
 
-For details on the Lambda deployment configuration, see [Deployment configurations on an AWS Lambda
-compute platform](deployment-configurations.md#deployment-configuration-lambda "deployment-configurations.md#deployment-configuration-lambda").
+For details on the Lambda deployment configuration, see [Deployment configurations on an AWS Lambda compute platform](deployment-configurations.md#deployment-configuration-lambda "deployment-configurations.md#deployment-configuration-lambda").
 
-For details on the Amazon ECS deployment configuration, see [Deployment configurations on an Amazon ECS compute
-platform](deployment-configurations.md#deployment-configuration-ecs "deployment-configurations.md#deployment-configuration-ecs").
+For details on the Amazon ECS deployment configuration, see [Deployment configurations on an Amazon ECS compute platform](deployment-configurations.md#deployment-configuration-ecs "deployment-configurations.md#deployment-configuration-ecs").
 
-#### Blue/Green deployment on an
-
-EC2/on-premises compute platform
+#### Blue/Green deployment on an EC2/on-premises compute platform
 
 ###### Note
 
@@ -395,8 +376,7 @@ For blue/green deployments through CloudFormation, you don't create a CodeDeploy
 deployment group.
 
 This method supports Amazon ECS blue/green deployments only. For more information about
-blue/green deployments through CloudFormation, see [Create an Amazon ECS blue/green deployment
-through CloudFormation](deployments-create-ecs-cfn.md "deployments-create-ecs-cfn.md").
+blue/green deployments through CloudFormation, see [Create an Amazon ECS blue/green deployment through CloudFormation](deployments-create-ecs-cfn.md "deployments-create-ecs-cfn.md").
 
 ## We want to hear from you
 

@@ -1,6 +1,4 @@
-# Tutorial: Use CodeDeploy to deploy an application
-
-to an Auto Scaling group
+# Tutorial: Use CodeDeploy to deploy an application to an Auto Scaling group
 
 In this tutorial, you'll use CodeDeploy to deploy an application revision to an Auto Scaling group.
 Amazon EC2 Auto Scaling launches Amazon EC2 instances using predefined conditions, and then terminates those
@@ -11,13 +9,9 @@ deployments. For information about Amazon EC2 Auto Scaling integration with Code
 ###### Topics
 
 - [Prerequisites](tutorials-auto-scaling-group-prerequisites.md "tutorials-auto-scaling-group-prerequisites.md")
-- [Step 1: Create
-  and configure the Auto Scaling group](tutorials-auto-scaling-group-create-auto-scaling-group.md "tutorials-auto-scaling-group-create-auto-scaling-group.md")
-- [Step 2: Deploy the
-  application to the Auto Scaling group](tutorials-auto-scaling-group-create-deployment.md "tutorials-auto-scaling-group-create-deployment.md")
+- [Step 1: Create and configure the Auto Scaling group](tutorials-auto-scaling-group-create-auto-scaling-group.md "tutorials-auto-scaling-group-create-auto-scaling-group.md")
+- [Step 2: Deploy the application to the Auto Scaling group](tutorials-auto-scaling-group-create-deployment.md "tutorials-auto-scaling-group-create-deployment.md")
 - [Step 3: Check your results](tutorials-auto-scaling-group-verify.md "tutorials-auto-scaling-group-verify.md")
-- [Step 4: Increase the number of
-  Amazon EC2 instances in the Auto Scaling group](tutorials-auto-scaling-group-scale-up.md "tutorials-auto-scaling-group-scale-up.md")
-- [Step 5: Check your results
-  again](tutorials-auto-scaling-group-reverify.md "tutorials-auto-scaling-group-reverify.md")
+- [Step 4: Increase the number of Amazon EC2 instances in the Auto Scaling group](tutorials-auto-scaling-group-scale-up.md "tutorials-auto-scaling-group-scale-up.md")
+- [Step 5: Check your results again](tutorials-auto-scaling-group-reverify.md "tutorials-auto-scaling-group-reverify.md")
 - [Step 6: Clean up](tutorials-auto-scaling-group-clean-up.md "tutorials-auto-scaling-group-clean-up.md")

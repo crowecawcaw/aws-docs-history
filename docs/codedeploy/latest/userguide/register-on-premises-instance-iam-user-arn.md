@@ -1,15 +1,10 @@
-# Use the
-
-register-on-premises-instance command (IAM user ARN) to register an on-premises
-instance
+# Use the register-on-premises-instance command (IAM user ARN) to register an on-premises instance
 
 ###### Important
 
 Registering an instance using an IAM user is not recommended because it uses static
 (permanent) credentials for authentication. For improved security, we recommend registering an
-instance using temporary credentials for authentication. For more information, see [Use the
-register-on-premises-instance command (IAM Session ARN) to register an on-premises
-instance](register-on-premises-instance-iam-session-arn.md "register-on-premises-instance-iam-session-arn.md").
+instance using temporary credentials for authentication. For more information, see [Use the register-on-premises-instance command (IAM Session ARN) to register an on-premises instance](register-on-premises-instance-iam-session-arn.md "register-on-premises-instance-iam-session-arn.md").
 
 ###### Important
 
@@ -22,31 +17,19 @@ CodeDeploy mostly on your own, using static IAM user credentials for authenticat
 
 ###### Topics
 
-- [Step 1: Create an IAM user
-  for the on-premises instance](#register-on-premises-instance-iam-user-arn-1 "#register-on-premises-instance-iam-user-arn-1")
-- [Step 2: Assign permissions to
-  the IAM user](#register-on-premises-instance-iam-user-arn-2 "#register-on-premises-instance-iam-user-arn-2")
-- [Step 3: Get the IAM user
-  credentials](#register-on-premises-instance-iam-user-arn-3 "#register-on-premises-instance-iam-user-arn-3")
-- [Step 4: Add a configuration
-  file to the on-premises instance](#register-on-premises-instance-iam-user-arn-4 "#register-on-premises-instance-iam-user-arn-4")
-- [Step 5: Install and configure
-  the AWS CLI](#register-on-premises-instance-iam-user-arn-5 "#register-on-premises-instance-iam-user-arn-5")
-- [Step 6: Set the AWS_REGION
-  environment variable (Ubuntu Server and RHEL only)](#register-on-premises-instance-iam-user-arn-6 "#register-on-premises-instance-iam-user-arn-6")
+- [Step 1: Create an IAM user for the on-premises instance](#register-on-premises-instance-iam-user-arn-1 "#register-on-premises-instance-iam-user-arn-1")
+- [Step 2: Assign permissions to the IAM user](#register-on-premises-instance-iam-user-arn-2 "#register-on-premises-instance-iam-user-arn-2")
+- [Step 3: Get the IAM user credentials](#register-on-premises-instance-iam-user-arn-3 "#register-on-premises-instance-iam-user-arn-3")
+- [Step 4: Add a configuration file to the on-premises instance](#register-on-premises-instance-iam-user-arn-4 "#register-on-premises-instance-iam-user-arn-4")
+- [Step 5: Install and configure the AWS CLI](#register-on-premises-instance-iam-user-arn-5 "#register-on-premises-instance-iam-user-arn-5")
+- [Step 6: Set the AWS_REGION environment variable (Ubuntu Server and RHEL only)](#register-on-premises-instance-iam-user-arn-6 "#register-on-premises-instance-iam-user-arn-6")
 - [Step 7: Install the CodeDeploy agent](#register-on-premises-instance-iam-user-arn-7 "#register-on-premises-instance-iam-user-arn-7")
-- [Step 8: Register the
-  on-premises instance with CodeDeploy](#register-on-premises-instance-iam-user-arn-8 "#register-on-premises-instance-iam-user-arn-8")
-- [Step 9: Tag the on-premises
-  instance](#register-on-premises-instance-iam-user-arn-9 "#register-on-premises-instance-iam-user-arn-9")
-- [Step 10: Deploy application
-  revisions to the on-premises instance](#register-on-premises-instance-iam-user-arn-10 "#register-on-premises-instance-iam-user-arn-10")
-- [Step 11: Track deployments to
-  the on-premises instance](#register-on-premises-instance-iam-user-arn-11 "#register-on-premises-instance-iam-user-arn-11")
+- [Step 8: Register the on-premises instance with CodeDeploy](#register-on-premises-instance-iam-user-arn-8 "#register-on-premises-instance-iam-user-arn-8")
+- [Step 9: Tag the on-premises instance](#register-on-premises-instance-iam-user-arn-9 "#register-on-premises-instance-iam-user-arn-9")
+- [Step 10: Deploy application revisions to the on-premises instance](#register-on-premises-instance-iam-user-arn-10 "#register-on-premises-instance-iam-user-arn-10")
+- [Step 11: Track deployments to the on-premises instance](#register-on-premises-instance-iam-user-arn-11 "#register-on-premises-instance-iam-user-arn-11")
 
-## Step 1: Create an IAM user
-
-for the on-premises instance
+## Step 1: Create an IAM user for the on-premises instance
 
 Create an IAM user that the on-premises instance will use to authenticate and interact
 with CodeDeploy.
@@ -69,13 +52,9 @@ account](../../../IAM/latest/UserGuide/id_users_create.md "../../../IAM/latest/U
 ###### Important
 
 Whether you use the AWS CLI or the IAM console to create a new IAM user, make a note
-of the user ARN provided for the user. You will need this information later in [Step 4: Add a configuration
-file to the on-premises instance](#register-on-premises-instance-iam-user-arn-4 "#register-on-premises-instance-iam-user-arn-4") and [Step 8: Register the
-on-premises instance with CodeDeploy](#register-on-premises-instance-iam-user-arn-8 "#register-on-premises-instance-iam-user-arn-8").
+of the user ARN provided for the user. You will need this information later in [Step 4: Add a configuration file to the on-premises instance](#register-on-premises-instance-iam-user-arn-4 "#register-on-premises-instance-iam-user-arn-4") and [Step 8: Register the on-premises instance with CodeDeploy](#register-on-premises-instance-iam-user-arn-8 "#register-on-premises-instance-iam-user-arn-8").
 
-## Step 2: Assign permissions to
-
-the IAM user
+## Step 2: Assign permissions to the IAM user
 
 If your on-premises instance will be deploying application revisions from Amazon S3 buckets,
 you must assign to the IAM user the permissions to interact with those buckets. You can use
@@ -84,10 +63,8 @@ the AWS CLI or the IAM console to assign permissions.
 ###### Note
 
 If you will be deploying application revisions only from GitHub repositories, skip this
-step and go directly to [Step 3: Get the IAM user
-credentials](#register-on-premises-instance-iam-user-arn-3 "#register-on-premises-instance-iam-user-arn-3"). (You will still need
-information about the IAM user you created in [Step 1: Create an IAM user
-for the on-premises instance](#register-on-premises-instance-iam-user-arn-1 "#register-on-premises-instance-iam-user-arn-1"). It will be used in later
+step and go directly to [Step 3: Get the IAM user credentials](#register-on-premises-instance-iam-user-arn-3 "#register-on-premises-instance-iam-user-arn-3"). (You will still need
+information about the IAM user you created in [Step 1: Create an IAM user for the on-premises instance](#register-on-premises-instance-iam-user-arn-1 "#register-on-premises-instance-iam-user-arn-1"). It will be used in later
 steps.)
 
 ###### To assign permissions (CLI)
@@ -219,27 +196,22 @@ aws iam put-user-policy --user-name CodeDeployUser-OnPrem --policy-name CodeDepl
 6. Choose **Create Policy**.
 7. In the navigation pane, choose **Users**.
 8. In the list of users, browse to and choose the name of the IAM user you created in
-   [Step 1: Create an IAM user
-   for the on-premises instance](#register-on-premises-instance-iam-user-arn-1 "#register-on-premises-instance-iam-user-arn-1").
+   [Step 1: Create an IAM user for the on-premises instance](#register-on-premises-instance-iam-user-arn-1 "#register-on-premises-instance-iam-user-arn-1").
 9. On the **Permissions** tab, in **Managed Policies**,
    choose **Attach Policy**.
 10. Select the policy named `CodeDeploy-OnPrem-Permissions`, and
     then choose **Attach Policy**.
 
-## Step 3: Get the IAM user
-
-credentials
+## Step 3: Get the IAM user credentials
 
 Get the secret key ID and the secret access key for the IAM user. You will need them for
-[Step 4: Add a configuration
-file to the on-premises instance](#register-on-premises-instance-iam-user-arn-4 "#register-on-premises-instance-iam-user-arn-4"). You can use the AWS CLI or the
+[Step 4: Add a configuration file to the on-premises instance](#register-on-premises-instance-iam-user-arn-4 "#register-on-premises-instance-iam-user-arn-4"). You can use the AWS CLI or the
 IAM console to get the secret key ID and the secret access key.
 
 ###### Note
 
 If you already have the secret key ID and the secret access key, skip this step and go
-directly to [Step 4: Add a configuration
-file to the on-premises instance](#register-on-premises-instance-iam-user-arn-4 "#register-on-premises-instance-iam-user-arn-4").
+directly to [Step 4: Add a configuration file to the on-premises instance](#register-on-premises-instance-iam-user-arn-4 "#register-on-premises-instance-iam-user-arn-4").
 
 Users need programmatic access if they want to interact with AWS outside of the AWS Management Console. The way to grant programmatic access depends on the type of user that's accessing AWS.
 
@@ -273,15 +245,13 @@ aws iam create-access-key --user-name CodeDeployUser-OnPrem
 
 In the output of the call to the **create-access-key** command, note
 the value of the `AccessKeyId` and `SecretAccessKey` fields. You
-will need this information in [Step 4: Add a configuration
-file to the on-premises instance](#register-on-premises-instance-iam-user-arn-4 "#register-on-premises-instance-iam-user-arn-4").
+will need this information in [Step 4: Add a configuration file to the on-premises instance](#register-on-premises-instance-iam-user-arn-4 "#register-on-premises-instance-iam-user-arn-4").
 
 ###### Important
 
 This will be the only time you will have access to this secret access key. If you
 forget or lose access to this secret access key, you will need to generate a new one by
-following the steps in Step 3: Get the IAM user
-credentials. 3. If two access keys are already listed, you must delete one of them by calling the
+following the steps in Step 3: Get the IAM user credentials. 3. If two access keys are already listed, you must delete one of them by calling the
 [delete-access-key](../../../cli/latest/reference/iam/delete-access-key.md "../../../cli/latest/reference/iam/delete-access-key.md") command,
 specifying the name of the IAM user (with the `--user-name` option), and the
 ID of the access key to delete (with the `--access-key-id` option). Then call
@@ -296,10 +266,8 @@ aws iam delete-access-key --user-name CodeDeployUser-OnPrem --access-key-id `acc
 
 If you call the **delete-access-key** command to delete one of these
 access keys, and an on-premises instance is already using this access key as described
-in [Step 4: Add a configuration
-file to the on-premises instance](#register-on-premises-instance-iam-user-arn-4 "#register-on-premises-instance-iam-user-arn-4"), you will need to
-follow the instructions in [Step 4: Add a configuration
-file to the on-premises instance](#register-on-premises-instance-iam-user-arn-4 "#register-on-premises-instance-iam-user-arn-4") again to specify a
+in [Step 4: Add a configuration file to the on-premises instance](#register-on-premises-instance-iam-user-arn-4 "#register-on-premises-instance-iam-user-arn-4"), you will need to
+follow the instructions in [Step 4: Add a configuration file to the on-premises instance](#register-on-premises-instance-iam-user-arn-4 "#register-on-premises-instance-iam-user-arn-4") again to specify a
 different access key ID and secret access key associated with this IAM user.
 Otherwise, any deployments to that on-premises instance might be stuck in a perpetual
 pending state or fail altogether.
@@ -311,8 +279,7 @@ pending state or fail altogether.
    2. If the list of users is not displayed, in the navigation pane, choose
       **Users**.
    3. In the list of users, browse to and choose the name of the IAM user you created
-      in [Step 1: Create an IAM user
-      for the on-premises instance](#register-on-premises-instance-iam-user-arn-1 "#register-on-premises-instance-iam-user-arn-1").
+      in [Step 1: Create an IAM user for the on-premises instance](#register-on-premises-instance-iam-user-arn-1 "#register-on-premises-instance-iam-user-arn-1").
 2. On the **Security credentials** tab, if no keys or only one key is
    listed, choose **Create access key**.
 
@@ -323,10 +290,8 @@ If two access keys are listed, you must delete one of them. Choose
 ###### Important
 
 If you choose **Delete** next to one of these access keys, and an
-on-premises instance is already using this access key as described in [Step 4: Add a configuration
-file to the on-premises instance](#register-on-premises-instance-iam-user-arn-4 "#register-on-premises-instance-iam-user-arn-4"), you will need to
-follow the instructions in [Step 4: Add a configuration
-file to the on-premises instance](#register-on-premises-instance-iam-user-arn-4 "#register-on-premises-instance-iam-user-arn-4") again to specify a
+on-premises instance is already using this access key as described in [Step 4: Add a configuration file to the on-premises instance](#register-on-premises-instance-iam-user-arn-4 "#register-on-premises-instance-iam-user-arn-4"), you will need to
+follow the instructions in [Step 4: Add a configuration file to the on-premises instance](#register-on-premises-instance-iam-user-arn-4 "#register-on-premises-instance-iam-user-arn-4") again to specify a
 different access key ID and secret access key associated with this IAM user.
 Otherwise, deployments to that on-premises instance might be stuck in a perpetual
 pending state or fail altogether. 3. Choose **Show** and note the access key ID and secret access key. You
@@ -338,13 +303,10 @@ secret access key.
 
 Unless you make a note of or download the credentials, this will be the only time
 you will have access to this secret access key. If you forget or lose access to this
-secret access key, you will need to generate a new one by following the steps in Step 3: Get the IAM user
-credentials. 4. Choose **Close** to return to the **Users >
+secret access key, you will need to generate a new one by following the steps in Step 3: Get the IAM user credentials. 4. Choose **Close** to return to the **Users >
 `IAM User Name`** page.
 
-## Step 4: Add a configuration
-
-file to the on-premises instance
+## Step 4: Add a configuration file to the on-premises instance
 
 Add a configuration file to the on-premises instance, using root or administrator
 permissions. This configuration file will be used to declare the IAM user credentials and
@@ -374,16 +336,11 @@ region: `supported-region`
 Where:
 
     * `secret-key-id` is the corresponding IAM user's secret
-     key ID you noted in [Step 1: Create an IAM user
-     for the on-premises instance](#register-on-premises-instance-iam-user-arn-1 "#register-on-premises-instance-iam-user-arn-1") or [Step 3: Get the IAM user
-     credentials](#register-on-premises-instance-iam-user-arn-3 "#register-on-premises-instance-iam-user-arn-3").
+     key ID you noted in [Step 1: Create an IAM user for the on-premises instance](#register-on-premises-instance-iam-user-arn-1 "#register-on-premises-instance-iam-user-arn-1") or [Step 3: Get the IAM user credentials](#register-on-premises-instance-iam-user-arn-3 "#register-on-premises-instance-iam-user-arn-3").
     * `secret-access-key` is the corresponding IAM user's
-     secret access key you noted in [Step 1: Create an IAM user
-     for the on-premises instance](#register-on-premises-instance-iam-user-arn-1 "#register-on-premises-instance-iam-user-arn-1") or [Step 3: Get the IAM user
-     credentials](#register-on-premises-instance-iam-user-arn-3 "#register-on-premises-instance-iam-user-arn-3").
+     secret access key you noted in [Step 1: Create an IAM user for the on-premises instance](#register-on-premises-instance-iam-user-arn-1 "#register-on-premises-instance-iam-user-arn-1") or [Step 3: Get the IAM user credentials](#register-on-premises-instance-iam-user-arn-3 "#register-on-premises-instance-iam-user-arn-3").
     * `iam-user-arn` is the IAM user's ARN you noted earlier in
-     [Step 1: Create an IAM user
-     for the on-premises instance](#register-on-premises-instance-iam-user-arn-1 "#register-on-premises-instance-iam-user-arn-1").
+     [Step 1: Create an IAM user for the on-premises instance](#register-on-premises-instance-iam-user-arn-1 "#register-on-premises-instance-iam-user-arn-1").
     * `supported-region` is the identifier of a region
      supported by CodeDeploy where your CodeDeploy applications, deployment groups, and application
      revisions are located (for example, `us-west-2`). For a list of regions,
@@ -392,18 +349,14 @@ Where:
 
 ###### Important
 
-If you chose **Delete** next to one of the access keys in [Step 3: Get the IAM user
-credentials](#register-on-premises-instance-iam-user-arn-3 "#register-on-premises-instance-iam-user-arn-3"), and your on-premises
+If you chose **Delete** next to one of the access keys in [Step 3: Get the IAM user credentials](#register-on-premises-instance-iam-user-arn-3 "#register-on-premises-instance-iam-user-arn-3"), and your on-premises
 instance is already using the associated access key ID and secret access key, you will
-need to follow the instructions in Step 4: Add a configuration
-file to the on-premises instance to specify a different
+need to follow the instructions in Step 4: Add a configuration file to the on-premises instance to specify a different
 access key ID and secret access key associated with this IAM user. Otherwise, any
 deployments to your on-premises instance might be stuck in a perpetual pending state or
 fail altogether.
 
-## Step 5: Install and configure
-
-the AWS CLI
+## Step 5: Install and configure the AWS CLI
 
 Install and configure the AWS CLI on the on-premises instance. (The AWS CLI will be used in
 [Step 7: Install the CodeDeploy agent](#register-on-premises-instance-iam-user-arn-7 "#register-on-premises-instance-iam-user-arn-7") to download and install the
@@ -424,8 +377,7 @@ _AWS Command Line Interface User Guide_.
 As you configure the AWS CLI (for example, by calling the **aws
 configure** command), be sure to specify the secret key ID and secret access
 key of an IAM user that has, at minimum, the following AWS access permissions in
-addition to the access permissions specified in the [Prerequisites for configuring an
-on-premises instance](instances-on-premises-prerequisites.md "instances-on-premises-prerequisites.md"). This makes it possible for you
+addition to the access permissions specified in the [Prerequisites for configuring an on-premises instance](instances-on-premises-prerequisites.md "instances-on-premises-prerequisites.md"). This makes it possible for you
 to download and install the CodeDeploy agent on the on-premises instance:
 
 JSON
@@ -486,18 +438,14 @@ JSON
 ```
 
 These access permissions can be assigned to either the IAM user you created in
-[Step 1: Create an IAM user
-for the on-premises instance](#register-on-premises-instance-iam-user-arn-1 "#register-on-premises-instance-iam-user-arn-1") or to a different IAM
-user. To assign these permissions to an IAM user, follow the instructions in [Step 1: Create an IAM user
-for the on-premises instance](#register-on-premises-instance-iam-user-arn-1 "#register-on-premises-instance-iam-user-arn-1"), using these access
+[Step 1: Create an IAM user for the on-premises instance](#register-on-premises-instance-iam-user-arn-1 "#register-on-premises-instance-iam-user-arn-1") or to a different IAM
+user. To assign these permissions to an IAM user, follow the instructions in [Step 1: Create an IAM user for the on-premises instance](#register-on-premises-instance-iam-user-arn-1 "#register-on-premises-instance-iam-user-arn-1"), using these access
 permissions instead of the ones in that step.
 
-## Step 6: Set the AWS_REGION
-
-environment variable (Ubuntu Server and RHEL only)
+## Step 6: Set the AWS_REGION environment variable (Ubuntu Server and RHEL only)
 
 If you are not running Ubuntu Server or RHEL on your on-premises instance, skip this step
-and go directly to [Step 7: Install the CodeDeploy agent](#register-on-premises-instance-iam-user-arn-7 "#register-on-premises-instance-iam-user-arn-7") .
+and go directly to [Step 7: Install the CodeDeploy agent](#register-on-premises-instance-iam-user-arn-7 "#register-on-premises-instance-iam-user-arn-7").
 
 Install the CodeDeploy agent on an Ubuntu Server or RHEL on-premises instance and enable the
 instance to update the CodeDeploy agent whenever a new version becomes available. You do this by
@@ -520,31 +468,24 @@ Where `supported-region` is the region identifier (for example,
 
 Install the CodeDeploy agent on the on-premises instance:
 
-- For an Ubuntu Server on-premises instance, follow the instructions in [Install the CodeDeploy agent for
-  Ubuntu Server](codedeploy-agent-operations-install-ubuntu.md "codedeploy-agent-operations-install-ubuntu.md"), and then return to this
+- For an Ubuntu Server on-premises instance, follow the instructions in [Install the CodeDeploy agent for Ubuntu Server](codedeploy-agent-operations-install-ubuntu.md "codedeploy-agent-operations-install-ubuntu.md"), and then return to this
   page.
-- For a RHEL on-premises instance, follow the instructions in [Install the CodeDeploy agent for
-  Amazon Linux or RHEL](codedeploy-agent-operations-install-linux.md "codedeploy-agent-operations-install-linux.md"), and then return to this
+- For a RHEL on-premises instance, follow the instructions in [Install the CodeDeploy agent for Amazon Linux or RHEL](codedeploy-agent-operations-install-linux.md "codedeploy-agent-operations-install-linux.md"), and then return to this
   page.
-- For a Windows Server on-premises instance, follow the instructions in [Install the CodeDeploy agent for
-  Windows Server](codedeploy-agent-operations-install-windows.md "codedeploy-agent-operations-install-windows.md"), and then return to this
+- For a Windows Server on-premises instance, follow the instructions in [Install the CodeDeploy agent for Windows Server](codedeploy-agent-operations-install-windows.md "codedeploy-agent-operations-install-windows.md"), and then return to this
   page.
 
-## Step 8: Register the
-
-on-premises instance with CodeDeploy
+## Step 8: Register the on-premises instance with CodeDeploy
 
 The instructions in this step assume you are registering the on-premises instance from the
 on-premises instance itself. You can register an on-premises instance from a separate device
-or instance that has the AWS CLI installed and configured, as described in [Step 5: Install and configure
-the AWS CLI](#register-on-premises-instance-iam-user-arn-5 "#register-on-premises-instance-iam-user-arn-5").
+or instance that has the AWS CLI installed and configured, as described in [Step 5: Install and configure the AWS CLI](#register-on-premises-instance-iam-user-arn-5 "#register-on-premises-instance-iam-user-arn-5").
 
 Use the AWS CLI to register the on-premises instance with CodeDeploy so that it can be used in
 deployments.
 
 1. Before you can use the AWS CLI, you will need the user ARN of the IAM user you created
-   in [Step 1: Create an IAM user
-   for the on-premises instance](#register-on-premises-instance-iam-user-arn-1 "#register-on-premises-instance-iam-user-arn-1"). If you don't already
+   in [Step 1: Create an IAM user for the on-premises instance](#register-on-premises-instance-iam-user-arn-1 "#register-on-premises-instance-iam-user-arn-1"). If you don't already
    have the user ARN, call the [get-user](../../../cli/latest/reference/iam/get-user.md "../../../cli/latest/reference/iam/get-user.md")
    command, specifying the name of the IAM user (with the `--user-name` option)
    and querying for just the user ARN (with the `--query` and
@@ -566,8 +507,7 @@ aws iam get-user --user-name CodeDeployUser-OnPrem --query "User.Arn" --output t
    identifier, if applicable). If you specify a MAC address as a name, be aware that
    MAC addresses contain characters that CodeDeploy does not allow, such as colon
    (`:`). For a list of allowed characters, see [CodeDeploy quotas](limits.md "limits.md").
-   - The user ARN of the IAM user you created in [Step 1: Create an IAM user
-     for the on-premises instance](#register-on-premises-instance-iam-user-arn-1 "#register-on-premises-instance-iam-user-arn-1") (with the
+   - The user ARN of the IAM user you created in [Step 1: Create an IAM user for the on-premises instance](#register-on-premises-instance-iam-user-arn-1 "#register-on-premises-instance-iam-user-arn-1") (with the
      `--iam-user-arn` option).
 
    For example:
@@ -576,9 +516,7 @@ aws iam get-user --user-name CodeDeployUser-OnPrem --query "User.Arn" --output t
    aws deploy register-on-premises-instance --instance-name AssetTag12010298EX --iam-user-arn arn:aws:iam::444455556666:user/CodeDeployUser-OnPrem
    ```
 
-## Step 9: Tag the on-premises
-
-instance
+## Step 9: Tag the on-premises instance
 
 You can use either the AWS CLI or the CodeDeploy console to tag the on-premises instance. (CodeDeploy
 uses on-premises instance tags to identify the deployment targets during a deployment.)
@@ -611,9 +549,7 @@ tags. To remove a tag, choose the delete icon (
 ![The delete icon.](images/delete-triggers-x.png)
 ). 5. After you have added tags, choose **Update Tags**.
 
-## Step 10: Deploy application
-
-revisions to the on-premises instance
+## Step 10: Deploy application revisions to the on-premises instance
 
 You are now ready to deploy application revisions to the registered and tagged on-premises
 instance.
@@ -622,23 +558,18 @@ You deploy application revisions to on-premises instances in a way that's simila
 deploying application revisions to Amazon EC2 instances. For instructions, see [Create a deployment with CodeDeploy](deployments-create.md "deployments-create.md"). These instructions
 include a link to prerequisites, including creating an application, creating a deployment
 group, and preparing an application revision. If you need a simple sample application revision
-to deploy, you can create the one described in [Step 2: Create
-a sample application revision](tutorials-on-premises-instance-2-create-sample-revision.md "tutorials-on-premises-instance-2-create-sample-revision.md") in the [Tutorial: Deploy an application to an
-on-premises instance with CodeDeploy (Windows Server, Ubuntu Server, or Red Hat Enterprise Linux)](tutorials-on-premises-instance.md "tutorials-on-premises-instance.md").
+to deploy, you can create the one described in [Step 2: Create a sample application revision](tutorials-on-premises-instance-2-create-sample-revision.md "tutorials-on-premises-instance-2-create-sample-revision.md") in the [Tutorial: Deploy an application to an on-premises instance with CodeDeploy (Windows Server, Ubuntu Server, or Red Hat Enterprise Linux)](tutorials-on-premises-instance.md "tutorials-on-premises-instance.md").
 
 ###### Important
 
 If you reuse a CodeDeploy service role as part of creating a deployment group that targets
 on-premises instances, you must include `Tag:get*` to the `Action`
-portion of the service role's policy statement. For more information, see [Step 2: Create a service role for
-CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md").
+portion of the service role's policy statement. For more information, see [Step 2: Create a service role for CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md").
 
-## Step 11: Track deployments to
-
-the on-premises instance
+## Step 11: Track deployments to the on-premises instance
 
 After you deploy an application revision to registered and tagged on-premises instances,
 you can track the deployment's progress.
 
 You track deployments to on-premises instances in a way that's similar to tracking
-deployments to Amazon EC2 instances. For instructions, see [View CodeDeploy deployment details](deployments-view-details.md "deployments-view-details.md") .
+deployments to Amazon EC2 instances. For instructions, see [View CodeDeploy deployment details](deployments-view-details.md "deployments-view-details.md").

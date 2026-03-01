@@ -1,6 +1,4 @@
-# Step 6: Clean up your WordPress application and
-
-related resources
+# Step 6: Clean up your WordPress application and related resources
 
 You've now successfully made an update to the WordPress code and redeployed the site. To
 avoid ongoing charges for resources you created for this tutorial, you should delete:

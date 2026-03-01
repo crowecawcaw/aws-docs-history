@@ -3,9 +3,7 @@
 You can remove the CodeDeploy agent from instances when it is no longer needed or when you want
 to perform a fresh installation.
 
-## Uninstall the CodeDeploy agent from
-
-Amazon Linux or RHEL
+## Uninstall the CodeDeploy agent from Amazon Linux or RHEL
 
 To uninstall the CodeDeploy agent, sign in to the instance and run the following
 command:
@@ -14,9 +12,7 @@ command:
 sudo yum erase codedeploy-agent
 ```
 
-## Uninstall the CodeDeploy agent
-
-from Ubuntu Server
+## Uninstall the CodeDeploy agent from Ubuntu Server
 
 To uninstall the CodeDeploy agent, sign in to the instance and run the following
 command:
@@ -25,9 +21,7 @@ command:
 sudo dpkg --purge codedeploy-agent
 ```
 
-## Uninstall the CodeDeploy agent
-
-from Windows Server
+## Uninstall the CodeDeploy agent from Windows Server
 
 To uninstall the CodeDeploy agent, sign in to the instance and run the following three
 commands, one at a time:

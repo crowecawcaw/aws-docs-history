@@ -3,16 +3,11 @@
 ###### Topics
 
 - [General troubleshooting checklist](#troubleshooting-checklist "#troubleshooting-checklist")
-- [CodeDeploy deployment resources are supported
-  in only in some AWS Regions](#troubleshooting-supported-regions "#troubleshooting-supported-regions")
-- [Procedures in this guide do not match the
-  CodeDeploy console](#troubleshooting-old-console "#troubleshooting-old-console")
-- [Required IAM roles are not
-  available](#troubleshooting-iam-cloudformation "#troubleshooting-iam-cloudformation")
-- [Using some text editors to create AppSpec
-  files and shell scripts can cause deployments to fail](#troubleshooting-text-editors "#troubleshooting-text-editors")
-- [Using Finder in macOS to bundle an
-  application revision can cause deployments to fail](#troubleshooting-bundle-with-finder "#troubleshooting-bundle-with-finder")
+- [CodeDeploy deployment resources are supported in only in some AWS Regions](#troubleshooting-supported-regions "#troubleshooting-supported-regions")
+- [Procedures in this guide do not match the CodeDeploy console](#troubleshooting-old-console "#troubleshooting-old-console")
+- [Required IAM roles are not available](#troubleshooting-iam-cloudformation "#troubleshooting-iam-cloudformation")
+- [Using some text editors to create AppSpec files and shell scripts can cause deployments to fail](#troubleshooting-text-editors "#troubleshooting-text-editors")
+- [Using Finder in macOS to bundle an application revision can cause deployments to fail](#troubleshooting-bundle-with-finder "#troubleshooting-bundle-with-finder")
 
 ## General troubleshooting checklist
 
@@ -25,46 +20,38 @@ You can use the following checklist to troubleshoot a failed deployment.
       information, see [EC2
       Key Pairs](../../../AWSEC2/latest/UserGuide/EC2-key-pairs.md "../../../AWSEC2/latest/UserGuide/EC2-key-pairs.md") in _Amazon EC2 User Guide_.
     - Is the correct IAM instance profile attached to the instance? For more
-      information, see [Configure an Amazon EC2 instance to work with CodeDeploy](instances-ec2-configure.md "instances-ec2-configure.md") and [Step 4: Create an IAM instance
-      profile for your Amazon EC2 instances](getting-started-create-iam-instance-profile.md "getting-started-create-iam-instance-profile.md").
+      information, see [Configure an Amazon EC2 instance to work with CodeDeploy](instances-ec2-configure.md "instances-ec2-configure.md") and [Step 4: Create an IAM instance profile for your Amazon EC2 instances](getting-started-create-iam-instance-profile.md "getting-started-create-iam-instance-profile.md").
     - Was the instance tagged? For more information, see [Working with tags in the
       console](../../../AWSEC2/latest/UserGuide/Using_Tags.md#Using_Tags_Console "../../../AWSEC2/latest/UserGuide/Using_Tags.md#Using_Tags_Console") in _Amazon EC2 User Guide_.
     - Is the CodeDeploy agent installed, updated, and running on the instance? For more
       information, see [Managing CodeDeploy agent operations](codedeploy-agent-operations.md "codedeploy-agent-operations.md"). To check which version of the agent
-      is installed, see [Determine the version of the CodeDeploy
-      agent](codedeploy-agent-operations-version.md "codedeploy-agent-operations-version.md").
+      is installed, see [Determine the version of the CodeDeploy agent](codedeploy-agent-operations-version.md "codedeploy-agent-operations-version.md").
 
 3.  Check the application and deployment group settings:
     - To check your application settings, see [View application details with CodeDeploy](applications-view-details.md "applications-view-details.md").
-    - To check your deployment group settings, see [View deployment group details with
-      CodeDeploy](deployment-groups-view-details.md "deployment-groups-view-details.md").
+    - To check your deployment group settings, see [View deployment group details with CodeDeploy](deployment-groups-view-details.md "deployment-groups-view-details.md").
 
 4.  Confirm the application revision is correctly configured:
-    - Check the format of your AppSpec file. For more information, see [Add an application specification file to a
-      revision for CodeDeploy](application-revisions-appspec-file.md "application-revisions-appspec-file.md") and [CodeDeploy AppSpec file reference](reference-appspec-file.md "reference-appspec-file.md").
+    - Check the format of your AppSpec file. For more information, see [Add an application specification file to a revision for CodeDeploy](application-revisions-appspec-file.md "application-revisions-appspec-file.md") and [CodeDeploy AppSpec file reference](reference-appspec-file.md "reference-appspec-file.md").
     - Check your Amazon S3 bucket or GitHub repository to verify your application revision
       is in the expected location.
     - Review the details of your CodeDeploy application revision to ensure that it is
-      registered correctly. For information, see [View application revision details with
-      CodeDeploy](application-revisions-view-details.md "application-revisions-view-details.md").
+      registered correctly. For information, see [View application revision details with CodeDeploy](application-revisions-view-details.md "application-revisions-view-details.md").
     - If you're deploying from Amazon S3, check your Amazon S3 bucket to verify CodeDeploy has been
       granted permissions to download the application revision. For information about
       bucket policies, see [Deployment prerequisites](deployments-create-prerequisites.md "deployments-create-prerequisites.md").
     - If you're deploying from GitHub, check your GitHub repository to verify CodeDeploy
       has been granted permissions to download the application revision. For more
-      information, see [Create a deployment with CodeDeploy](deployments-create.md "deployments-create.md") and [GitHub authentication with applications
-      in CodeDeploy](integrations-partners-github.md#behaviors-authentication "integrations-partners-github.md#behaviors-authentication").
+      information, see [Create a deployment with CodeDeploy](deployments-create.md "deployments-create.md") and [GitHub authentication with applications in CodeDeploy](integrations-partners-github.md#behaviors-authentication "integrations-partners-github.md#behaviors-authentication").
 
-5.  Check that the service role is correctly configured. For information, see [Step 2: Create a service role for
-    CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md").
+5.  Check that the service role is correctly configured. For information, see [Step 2: Create a service role for CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md").
 6.  Confirm you followed the steps in [Getting started with CodeDeploy](getting-started-codedeploy.md "getting-started-codedeploy.md") to:
 
         * Provisioned a user with the appropriate permissions.
         * Install or upgrade and configure the AWS CLI.
         * Create an IAM instance profile and a service role.
 
-    For more information, see [Identity and access management for
-    AWS CodeDeploy](security-iam.md "security-iam.md").
+    For more information, see [Identity and access management for AWS CodeDeploy](security-iam.md "security-iam.md").
 
 7.  Confirm you are using AWS CLI version 1.6.1 or later. To check the version you have
     installed, call **aws --version**.
@@ -72,9 +59,7 @@ You can use the following checklist to troubleshoot a failed deployment.
 If you are still unable to troubleshoot your failed deployment, review the other issues
 in this topic.
 
-## CodeDeploy deployment resources are supported
-
-in only in some AWS Regions
+## CodeDeploy deployment resources are supported in only in some AWS Regions
 
 If you do not see or cannot access applications, deployment groups, instances, or other
 deployment resources from the AWS CLI or the CodeDeploy console, make sure you're referencing one
@@ -108,9 +93,7 @@ For more information:
   version](http://docs.amazonaws.cn/en_us/codedeploy/latest/userguide/welcome.html "http://docs.amazonaws.cn/en_us/codedeploy/latest/userguide/welcome.html") | [Chinese
   version](http://docs.amazonaws.cn/codedeploy/latest/userguide/welcome.html "http://docs.amazonaws.cn/codedeploy/latest/userguide/welcome.html"))
 
-## Procedures in this guide do not match the
-
-CodeDeploy console
+## Procedures in this guide do not match the CodeDeploy console
 
 The procedures in this guide are written to reflect the new console design. If you are
 using the older version of the console, many of the concepts and basic procedures in this
@@ -118,18 +101,14 @@ guide still
 apply.
 To access help in the new console, choose the information icon.
 
-## Required IAM roles are not
-
-available
+## Required IAM roles are not available
 
 If you rely on an IAM instance profile or a service role that was created as part of
 an AWS CloudFormation stack, if you delete the stack, all IAM roles are deleted, too. This may be
 why the IAM role is no longer displayed in the IAM console and CodeDeploy no longer works as
 expected. To fix this problem, you must manually re-create the deleted IAM role.
 
-## Using some text editors to create AppSpec
-
-files and shell scripts can cause deployments to fail
+## Using some text editors to create AppSpec files and shell scripts can cause deployments to fail
 
 Some text editors introduce non-conforming, non-printing characters into files. If you
 use text editors to create or modify AppSpec files or shell script files to run on Amazon Linux,
@@ -159,9 +138,7 @@ To address this issue, we recommend the following:
   utilities, search the internet for DOS to UNIX or Mac to UNIX. Be sure to test the
   converted shell script files on the target operating systems.
 
-## Using Finder in macOS to bundle an
-
-application revision can cause deployments to fail
+## Using Finder in macOS to bundle an application revision can cause deployments to fail
 
 Deployments might fail if you use the Finder graphical user interface (GUI) application
 on a Mac to bundle (zip) an AppSpec file and related files and scripts into an

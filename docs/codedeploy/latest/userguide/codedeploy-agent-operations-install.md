@@ -8,12 +8,9 @@ agent with Systems Manager in the console when you create your deployment groups
 You can also install the CodeDeploy agent directly from an S3 bucket with the command
 line.
 
-For the recommended version to install, see [Version history of the CodeDeploy
-agent](codedeploy-agent.md#codedeploy-agent-version-history "codedeploy-agent.md#codedeploy-agent-version-history").
+For the recommended version to install, see [Version history of the CodeDeploy agent](codedeploy-agent.md#codedeploy-agent-version-history "codedeploy-agent.md#codedeploy-agent-version-history").
 
 ###### Topics
 
-- [Install the CodeDeploy agent using
-  AWS Systems Manager](codedeploy-agent-operations-install-ssm.md "codedeploy-agent-operations-install-ssm.md")
-- [Install the CodeDeploy agent using the
-  command line](codedeploy-agent-operations-install-cli.md "codedeploy-agent-operations-install-cli.md")
+- [Install the CodeDeploy agent using AWS Systems Manager](codedeploy-agent-operations-install-ssm.md "codedeploy-agent-operations-install-ssm.md")
+- [Install the CodeDeploy agent using the command line](codedeploy-agent-operations-install-cli.md "codedeploy-agent-operations-install-cli.md")

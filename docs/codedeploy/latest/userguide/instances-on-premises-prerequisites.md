@@ -1,6 +1,4 @@
-# Prerequisites for configuring an
-
-on-premises instance
+# Prerequisites for configuring an on-premises instance
 
 The following prerequisites must be met before you can register an on-premises
 instance.
@@ -9,14 +7,12 @@ instance.
 
 If you are using the [register-on-premises-instance](../../../cli/latest/reference/deploy/register-on-premises-instance.md "../../../cli/latest/reference/deploy/register-on-premises-instance.md") command and periodically
 refreshed temporary credentials generated with the AWS Security Token Service (AWS STS), there are other
-prerequisites. For information, see [IAM session
-ARN registration prerequisites](register-on-premises-instance-iam-session-arn.md#register-on-premises-instance-iam-session-arn-prerequisites "register-on-premises-instance-iam-session-arn.md#register-on-premises-instance-iam-session-arn-prerequisites").
+prerequisites. For information, see [IAM session ARN registration prerequisites](register-on-premises-instance-iam-session-arn.md#register-on-premises-instance-iam-session-arn-prerequisites "register-on-premises-instance-iam-session-arn.md#register-on-premises-instance-iam-session-arn-prerequisites").
 
 **Device requirements**
 
 The device you want to prepare, register, and tag as an on-premises instance with CodeDeploy must
-be running a supported operating system. For a list, see [Operating systems
-supported by the CodeDeploy agent](codedeploy-agent.md#codedeploy-agent-supported-operating-systems "codedeploy-agent.md#codedeploy-agent-supported-operating-systems").
+be running a supported operating system. For a list, see [Operating systems supported by the CodeDeploy agent](codedeploy-agent.md#codedeploy-agent-supported-operating-systems "codedeploy-agent.md#codedeploy-agent-supported-operating-systems").
 
 If your operating system is not supported, the CodeDeploy agent is available as open source for
 you to adapt to your needs. For more information, see the [CodeDeploy agent](https://github.com/aws/aws-codedeploy-agent "https://github.com/aws/aws-codedeploy-agent") repository in

@@ -1,13 +1,9 @@
-# Edit a trigger in a
-
-CodeDeploy deployment group
+# Edit a trigger in a CodeDeploy deployment group
 
 If your notification requirements change, you can modify your trigger rather than
 create a new one.
 
-## Modify a CodeDeploy
-
-trigger (CLI)
+## Modify a CodeDeploy trigger (CLI)
 
 To use the AWS CLI to change trigger details for CodeDeploy events when you update a
 deployment group, create a JSON file to define changes to the deployment group's

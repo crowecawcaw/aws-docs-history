@@ -1,6 +1,4 @@
-# Step 2: Update your
-
-Amazon ECS application
+# Step 2: Update your Amazon ECS application
 
 In this section, you update your Amazon ECS application to use a new revision of its task
 definition. You create the new revision and add a minor update to it by adding a tag.

@@ -1,6 +1,4 @@
-# AWS CodeDeploy
-
-identity-based policy examples
+# AWS CodeDeploy identity-based policy examples
 
 By default, users don't have permission to create or modify CodeDeploy
 resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or AWS API. You
@@ -60,20 +58,16 @@ JSON
 ###### Topics
 
 - [Customer-managed policy examples](#customer-managed-policies "#customer-managed-policies")
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the CodeDeploy
-  console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow
-  users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the CodeDeploy console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
 
 ## Customer-managed policy examples
 
 In this section, you can find example policies that grant permissions for various
 CodeDeploy actions. These policies work when you are using the CodeDeploy API,
 AWS SDKs, or the AWS CLI. You must grant additional permissions for actions you
-perform in the console. To learn more about granting console permissions, see [Using the CodeDeploy
-console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console") .
+perform in the console. To learn more about granting console permissions, see [Using the CodeDeploy console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console") .
 
 ###### Note
 
@@ -82,16 +76,11 @@ fictitious account IDs.
 
 **Examples**
 
-- [Example 1: Allow permission
-  to perform CodeDeploy operations in a single Region](#identity-based-policies-example-1 "#identity-based-policies-example-1")
-- [Example 2: Allow permission
-  to register revisions for a single application](#identity-based-policies-example-2 "#identity-based-policies-example-2")
-- [Example 3: Allow permission
-  to create deployments for a single deployment group](#identity-based-policies-example-3 "#identity-based-policies-example-3")
+- [Example 1: Allow permission to perform CodeDeploy operations in a single Region](#identity-based-policies-example-1 "#identity-based-policies-example-1")
+- [Example 2: Allow permission to register revisions for a single application](#identity-based-policies-example-2 "#identity-based-policies-example-2")
+- [Example 3: Allow permission to create deployments for a single deployment group](#identity-based-policies-example-3 "#identity-based-policies-example-3")
 
-### Example 1: Allow permission
-
-to perform CodeDeploy operations in a single Region
+### Example 1: Allow permission to perform CodeDeploy operations in a single Region
 
 The following example grants permissions to perform CodeDeploy operations
 in the `us-west-2` Region only:
@@ -116,9 +105,7 @@ JSON
 
 ```
 
-### Example 2: Allow permission
-
-to register revisions for a single application
+### Example 2: Allow permission to register revisions for a single application
 
 The following example grants permissions to register application revisions for
 all applications that begin with `Test` in the
@@ -144,9 +131,7 @@ JSON
 
 ```
 
-### Example 3: Allow permission
-
-to create deployments for a single deployment group
+### Example 3: Allow permission to create deployments for a single deployment group
 
 The following example allows permission to create deployments for the
 deployment group named
@@ -196,9 +181,7 @@ JSON
 
 ```
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete CodeDeploy resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -231,9 +214,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the CodeDeploy
-
-console
+## Using the CodeDeploy console
 
 If you use the CodeDeploy console, you must have a minimum set of permissions
 that allows you to describe other AWS resources for your AWS account. To use
@@ -253,15 +234,12 @@ If you create an IAM policy that is more restrictive than the minimum required
 permissions, the console won't function as intended for users who have a role with
 that IAM policy. To ensure that those users can still use the CodeDeploy
 console, also attach the `AWSCodeDeployReadOnlyAccess` managed policy
-to the role assigned to the user, as described in [AWS managed (predefined) policies for
-CodeDeploy](managed-policies.md "managed-policies.md").
+to the role assigned to the user, as described in [AWS managed (predefined) policies for CodeDeploy](managed-policies.md "managed-policies.md").
 
 You don't need to allow minimum console permissions for users who are making calls
 only to the AWS CLI or the CodeDeploy API.
 
-## Allow
-
-users to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.

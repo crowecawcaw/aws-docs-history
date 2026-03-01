@@ -1,9 +1,7 @@
-# Get information about a
-
-single on-premises instance
+# Get information about a single on-premises instance
 
 You can get information about a single on-premises instance by following the instructions
-in [View CodeDeploy deployment details](deployments-view-details.md "deployments-view-details.md") . You
+in [View CodeDeploy deployment details](deployments-view-details.md "deployments-view-details.md"). You
 can use the AWS CLI or the CodeDeploy console to get more information about a single on-premises
 instance.
 

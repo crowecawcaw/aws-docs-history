@@ -1,6 +1,4 @@
-# Create a deployment configuration with
-
-CodeDeploy
+# Create a deployment configuration with CodeDeploy
 
 If you don't want to use one of the default deployment configurations provided with CodeDeploy,
 you can create your own using the following instructions.
@@ -9,19 +7,14 @@ You can use the CodeDeploy console, AWS CLI, the CodeDeploy APIs, or an CloudFor
 custom deployment configurations.
 
 For information about using an CloudFormation template to create a deployment configuration, see
-[CloudFormation templates for CodeDeploy
-reference](reference-cloudformation-templates.md "reference-cloudformation-templates.md").
+[CloudFormation templates for CodeDeploy reference](reference-cloudformation-templates.md "reference-cloudformation-templates.md").
 
 ###### Topics
 
-- [Creating a deployment
-  configuration (console)](#deployment-configurations-create-console "#deployment-configurations-create-console")
-- [Creating a deployment
-  configuration with CodeDeploy (AWS CLI)](#deployment-configurations-create-cli "#deployment-configurations-create-cli")
+- [Creating a deployment configuration (console)](#deployment-configurations-create-console "#deployment-configurations-create-console")
+- [Creating a deployment configuration with CodeDeploy (AWS CLI)](#deployment-configurations-create-cli "#deployment-configurations-create-cli")
 
-## Creating a deployment
-
-configuration (console)
+## Creating a deployment configuration (console)
 
 Use the following instructions to create a deployment configuration using the AWS
 console.
@@ -78,8 +71,7 @@ following:
            will not roll back one zone at a time, as you might
            expect.) This rollback behavior was chosen for
            performance reasons. For more information about
-           rollbacks, see [Redeploy and roll back a deployment with
-           CodeDeploy](deployments-rollback-and-redeploy.md "deployments-rollback-and-redeploy.md").
+           rollbacks, see [Redeploy and roll back a deployment with CodeDeploy](deployments-rollback-and-redeploy.md "deployments-rollback-and-redeploy.md").
 
       3. If you selected the **Enable zonal
          configuration** check box, optionally specify the
@@ -96,8 +88,7 @@ following:
            CodeDeploy starts deploying to the next Availability Zone
            immediately. For more information about how the
            **Monitor duration** setting works,
-           see [About the minimum number of healthy instances per
-           Availability Zone](instances-health.md#minimum-healthy-hosts-az "instances-health.md#minimum-healthy-hosts-az").
+           see [About the minimum number of healthy instances per Availability Zone](instances-health.md#minimum-healthy-hosts-az "instances-health.md#minimum-healthy-hosts-az").
          - (Optional) Select **Add a monitor duration for
            the first zone** to set a monitor duration
            that only applies to the first Availability Zone. You
@@ -115,8 +106,7 @@ following:
            percentage, or **HOST_COUNT** to
            specify a number. This field works in conjunction with
            the **Minimum healthy hosts** field.
-           For more information, see [About the minimum number of healthy instances per
-           Availability Zone](instances-health.md#minimum-healthy-hosts-az "instances-health.md#minimum-healthy-hosts-az").
+           For more information, see [About the minimum number of healthy instances per Availability Zone](instances-health.md#minimum-healthy-hosts-az "instances-health.md#minimum-healthy-hosts-az").
 
          If you don't specify a value under **Minimum
          healthy hosts per zone**, then CodeDeploy uses a
@@ -154,9 +144,7 @@ following:
 You now have a deployment configuration that you can associate with a
 deployment group.
 
-## Creating a deployment
-
-configuration with CodeDeploy (AWS CLI)
+## Creating a deployment configuration with CodeDeploy (AWS CLI)
 
 To use the AWS CLI to create a deployment configuration, call the
 [create-deployment-config](../../../cli/latest/reference/deploy/create-deployment-config.md "../../../cli/latest/reference/deploy/create-deployment-config.md") command.

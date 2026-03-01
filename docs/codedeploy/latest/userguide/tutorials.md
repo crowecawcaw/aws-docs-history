@@ -10,18 +10,11 @@ locations and names as you perform the procedures.
 
 ###### Topics
 
-- [Tutorial: Deploy WordPress to an Amazon EC2 instance (Amazon Linux or
-  Red Hat Enterprise Linux and Linux, macOS, or Unix)](tutorials-wordpress.md "tutorials-wordpress.md")
-- [Tutorial: Deploy a "hello, world!" application with CodeDeploy
-  (Windows Server)](tutorials-windows.md "tutorials-windows.md")
-- [Tutorial: Deploy an application to an
-  on-premises instance with CodeDeploy (Windows Server, Ubuntu Server, or Red Hat Enterprise Linux)](tutorials-on-premises-instance.md "tutorials-on-premises-instance.md")
-- [Tutorial: Use CodeDeploy to deploy an application
-  to an Auto Scaling group](tutorials-auto-scaling-group.md "tutorials-auto-scaling-group.md")
-- [Tutorial: Use CodeDeploy to deploy an application from
-  GitHub](tutorials-github.md "tutorials-github.md")
+- [Tutorial: Deploy WordPress to an Amazon EC2 instance (Amazon Linux or Red Hat Enterprise Linux and Linux, macOS, or Unix)](tutorials-wordpress.md "tutorials-wordpress.md")
+- [Tutorial: Deploy a "hello, world!" application with CodeDeploy (Windows Server)](tutorials-windows.md "tutorials-windows.md")
+- [Tutorial: Deploy an application to an on-premises instance with CodeDeploy (Windows Server, Ubuntu Server, or Red Hat Enterprise Linux)](tutorials-on-premises-instance.md "tutorials-on-premises-instance.md")
+- [Tutorial: Use CodeDeploy to deploy an application to an Auto Scaling group](tutorials-auto-scaling-group.md "tutorials-auto-scaling-group.md")
+- [Tutorial: Use CodeDeploy to deploy an application from GitHub](tutorials-github.md "tutorials-github.md")
 - [Tutorial: Deploy an application into Amazon ECS](tutorial-ecs-deployment.md "tutorial-ecs-deployment.md")
-- [Tutorial: Deploy an Amazon ECS service with a
-  validation test](tutorial-ecs-deployment-with-hooks.md "tutorial-ecs-deployment-with-hooks.md")
-- [Tutorial: Deploy an updated Lambda function with CodeDeploy and
-  the AWS Serverless Application Model](tutorial-lambda-sam.md "tutorial-lambda-sam.md")
+- [Tutorial: Deploy an Amazon ECS service with a validation test](tutorial-ecs-deployment-with-hooks.md "tutorial-ecs-deployment-with-hooks.md")
+- [Tutorial: Deploy an updated Lambda function with CodeDeploy and the AWS Serverless Application Model](tutorial-lambda-sam.md "tutorial-lambda-sam.md")

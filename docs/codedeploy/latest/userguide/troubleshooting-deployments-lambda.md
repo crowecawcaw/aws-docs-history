@@ -1,15 +1,10 @@
-# Troubleshoot AWS Lambda
-
-deployment issues
+# Troubleshoot AWS Lambda deployment issues
 
 ###### Topics
 
-- [AWS Lambda deployments
-  fail after manually stopping a Lambda deployment that does not have configured rollbacks](#troubleshooting-manually-stopped-lambda-deployment "#troubleshooting-manually-stopped-lambda-deployment")
+- [AWS Lambda deployments fail after manually stopping a Lambda deployment that does not have configured rollbacks](#troubleshooting-manually-stopped-lambda-deployment "#troubleshooting-manually-stopped-lambda-deployment")
 
-## AWS Lambda deployments
-
-fail after manually stopping a Lambda deployment that does not have configured rollbacks
+## AWS Lambda deployments fail after manually stopping a Lambda deployment that does not have configured rollbacks
 
 In some cases, the alias of a Lambda function specified in a deployment might reference
 two different versions of the function. The result is that subsequent attempts to deploy the

@@ -1,6 +1,4 @@
-# Create an EC2/On-Premises Compute Platform
-
-deployment (CLI)
+# Create an EC2/On-Premises Compute Platform deployment (CLI)
 
 To use the AWS CLI to deploy a revision to the EC2/On-Premises compute platform:
 
@@ -9,8 +7,7 @@ To use the AWS CLI to deploy a revision to the EC2/On-Premises compute platform:
     - If you want to deploy a revision from an Amazon S3 bucket, continue to step
       2 now.
     - If you want to deploy a revision from a GitHub repository, first
-      complete the steps in [Connect a CodeDeploy application to a
-      GitHub repository](deployments-create-cli-github.md "deployments-create-cli-github.md"), and then continue
+      complete the steps in [Connect a CodeDeploy application to a GitHub repository](deployments-create-cli-github.md "deployments-create-cli-github.md"), and then continue
       to step 2.
 
 2.  Call the [create-deployment](../../../cli/latest/reference/deploy/create-deployment.md "../../../cli/latest/reference/deploy/create-deployment.md") command, specifying:
@@ -96,11 +93,9 @@ specify information about a revision in GitHub directly on the command line:
 To get information about revisions that have been pushed already, call the
 [list-application-revisions](../../../cli/latest/reference/deploy/list-application-revisions.md "../../../cli/latest/reference/deploy/list-application-revisions.md") command.
 
-To track the status of your deployment, see [View CodeDeploy deployment details](deployments-view-details.md "deployments-view-details.md") .
+To track the status of your deployment, see [View CodeDeploy deployment details](deployments-view-details.md "deployments-view-details.md").
 
-## create-deployment command
-
-reference
+## create-deployment command reference
 
 Below is the command structure and options for the `create-deployment`
 command. For more information, see the [create-deployment](../../../cli/latest/reference/deploy/create-deployment.md "../../../cli/latest/reference/deploy/create-deployment.md") reference in the _AWS CLI Command

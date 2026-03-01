@@ -5,16 +5,11 @@ EC2/On-Premises deployment.
 
 ###### Topics
 
-- [AppSpec File example for an
-  Amazon ECS deployment](#appspec-file-example-ecs "#appspec-file-example-ecs")
-- [AppSpec File example for an
-  AWS Lambda deployment](#appspec-file-example-lambda "#appspec-file-example-lambda")
-- [AppSpec File example for an
-  EC2/On-Premises deployment](#appspec-file-example-server "#appspec-file-example-server")
+- [AppSpec File example for an Amazon ECS deployment](#appspec-file-example-ecs "#appspec-file-example-ecs")
+- [AppSpec File example for an AWS Lambda deployment](#appspec-file-example-lambda "#appspec-file-example-lambda")
+- [AppSpec File example for an EC2/On-Premises deployment](#appspec-file-example-server "#appspec-file-example-server")
 
-## AppSpec File example for an
-
-Amazon ECS deployment
+## AppSpec File example for an Amazon ECS deployment
 
 Here is an example of an AppSpec file written in YAML for deploying an Amazon ECS
 service.
@@ -138,9 +133,7 @@ Here is the sequence of events during deployment:
 The Lambda functions that run during any hook can perform validation tests or gather
 traffic metrics.
 
-## AppSpec File example for an
-
-AWS Lambda deployment
+## AppSpec File example for an AWS Lambda deployment
 
 Here is an example of an AppSpec file written in YAML for deploying a Lambda function
 version.
@@ -201,9 +194,7 @@ Here is the sequence of events during deployment:
    `LambdaFunctionToValidateAfterTrafficShift` that validates the deployment
    was completed successfully.
 
-## AppSpec File example for an
-
-EC2/On-Premises deployment
+## AppSpec File example for an EC2/On-Premises deployment
 
 Here is an example of an AppSpec file for an in-place deployment to an Amazon Linux,
 Ubuntu Server, or RHEL instance.

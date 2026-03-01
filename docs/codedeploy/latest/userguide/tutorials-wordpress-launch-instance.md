@@ -1,6 +1,4 @@
-# Step 1: Launch and configure an Amazon Linux
-
-or Red Hat Enterprise Linux Amazon EC2 instance
+# Step 1: Launch and configure an Amazon Linux or Red Hat Enterprise Linux Amazon EC2 instance
 
 To deploy the WordPress application with CodeDeploy, you'll need an Amazon EC2 instance running Amazon Linux
 or Red Hat Enterprise Linux (RHEL). The Amazon EC2 instance requires a new inbound security rule that allows
@@ -12,16 +10,13 @@ CodeDeploy](instances-ec2-create.md "instances-ec2-create.md"). When you get to 
 instructions about assigning an Amazon EC2 instance tag to the instance, be sure to specify the
 tag key of `Name` and the tag value of
 `CodeDeployDemo`. (If you specify a different tag key or
-tag value, then the instructions in [Step 4: Deploy your WordPress
-application](tutorials-wordpress-deploy-application.md "tutorials-wordpress-deploy-application.md") may produce unexpected
+tag value, then the instructions in [Step 4: Deploy your WordPress application](tutorials-wordpress-deploy-application.md "tutorials-wordpress-deploy-application.md") may produce unexpected
 results.)
 
 After you've followed the instructions to launch the Amazon EC2 instance, return to this page,
 and continue to the next section. Do not continue on to [Create an application with CodeDeploy](applications-create.md "applications-create.md") as the next step.
 
-## Connect to your Amazon Linux or
-
-RHEL Amazon EC2 instance
+## Connect to your Amazon Linux or RHEL Amazon EC2 instance
 
 After your new Amazon EC2 instance is launched, follow these instructions to practice
 connecting to it.
@@ -75,9 +70,7 @@ chmod 400 `/path/to/`codedeploydemo.pem
 Do not stop or terminate the Amazon EC2 instance. Otherwise, CodeDeploy won't be
 able to deploy to it.
 
-## Add an inbound
-
-rule that allows HTTP traffic to your Amazon Linux or RHEL Amazon EC2 instance
+## Add an inbound rule that allows HTTP traffic to your Amazon Linux or RHEL Amazon EC2 instance
 
 The next step confirms your Amazon EC2 instance has an open HTTP port so you can see the
 deployed WordPress application's home page in a browser.

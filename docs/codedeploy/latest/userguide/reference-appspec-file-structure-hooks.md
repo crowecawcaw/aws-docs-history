@@ -11,30 +11,20 @@ deployment.
 
 ###### Topics
 
-- [AppSpec 'hooks' section for an Amazon ECS
-  deployment](#appspec-hooks-ecs "#appspec-hooks-ecs")
-- [AppSpec 'hooks' section for an
-  AWS Lambda deployment](#appspec-hooks-lambda "#appspec-hooks-lambda")
-- [AppSpec 'hooks' section for an
-  EC2/On-Premises deployment](#appspec-hooks-server "#appspec-hooks-server")
+- [AppSpec 'hooks' section for an Amazon ECS deployment](#appspec-hooks-ecs "#appspec-hooks-ecs")
+- [AppSpec 'hooks' section for an AWS Lambda deployment](#appspec-hooks-lambda "#appspec-hooks-lambda")
+- [AppSpec 'hooks' section for an EC2/On-Premises deployment](#appspec-hooks-server "#appspec-hooks-server")
 
-## AppSpec 'hooks' section for an Amazon ECS
-
-deployment
+## AppSpec 'hooks' section for an Amazon ECS deployment
 
 ###### Topics
 
-- [List of lifecycle
-  event hooks for an Amazon ECS deployment](#reference-appspec-file-structure-hooks-list-ecs "#reference-appspec-file-structure-hooks-list-ecs")
-- [Run order of
-  hooks in an Amazon ECS deployment.](#reference-appspec-file-structure-hooks-run-order-ecs "#reference-appspec-file-structure-hooks-run-order-ecs")
-- [Structure
-  of 'hooks' section](#reference-appspec-file-structure-hooks-section-structure-ecs "#reference-appspec-file-structure-hooks-section-structure-ecs")
+- [List of lifecycle event hooks for an Amazon ECS deployment](#reference-appspec-file-structure-hooks-list-ecs "#reference-appspec-file-structure-hooks-list-ecs")
+- [Run order of hooks in an Amazon ECS deployment.](#reference-appspec-file-structure-hooks-run-order-ecs "#reference-appspec-file-structure-hooks-run-order-ecs")
+- [Structure of 'hooks' section](#reference-appspec-file-structure-hooks-section-structure-ecs "#reference-appspec-file-structure-hooks-section-structure-ecs")
 - [Sample Lambda 'hooks' function](#reference-appspec-file-structure-hooks-section-structure-ecs-sample-function "#reference-appspec-file-structure-hooks-section-structure-ecs-sample-function")
 
-### List of lifecycle
-
-event hooks for an Amazon ECS deployment
+### List of lifecycle event hooks for an Amazon ECS deployment
 
 An AWS Lambda hook is one Lambda function specified with a string on a
 new line after the name of the lifecycle event. Each hook is executed once per
@@ -60,13 +50,9 @@ during an Amazon ECS deployment.
   group serves traffic to the replacement task set. The results of a hook function at
   this lifecycle event can trigger a rollback.
 
-For more information, see [What happens during an Amazon ECS
-deployment](deployment-steps-ecs.md#deployment-steps-what-happens "deployment-steps-ecs.md#deployment-steps-what-happens") and [Tutorial: Deploy an Amazon ECS service with a
-validation test](tutorial-ecs-deployment-with-hooks.md "tutorial-ecs-deployment-with-hooks.md").
+For more information, see [What happens during an Amazon ECS deployment](deployment-steps-ecs.md#deployment-steps-what-happens "deployment-steps-ecs.md#deployment-steps-what-happens") and [Tutorial: Deploy an Amazon ECS service with a validation test](tutorial-ecs-deployment-with-hooks.md "tutorial-ecs-deployment-with-hooks.md").
 
-### Run order of
-
-hooks in an Amazon ECS deployment.
+### Run order of hooks in an Amazon ECS deployment.
 
 In an Amazon ECS deployment, event hooks run in the following order:
 
@@ -78,9 +64,7 @@ The **Start**, **Install**, **TestTraffic**, **AllowTraffic**, and **End** event
 in the deployment cannot be scripted, which is why they appear in gray in this
 diagram.
 
-### Structure
-
-of 'hooks' section
+### Structure of 'hooks' section
 
 The following are examples of the structure of the `'hooks'`
 section.
@@ -178,22 +162,16 @@ exports.handler = (event, context, callback) => {
 };
 ```
 
-## AppSpec 'hooks' section for an
-
-AWS Lambda deployment
+## AppSpec 'hooks' section for an AWS Lambda deployment
 
 ###### Topics
 
-- [List of lifecycle
-  event hooks for an AWS Lambda deployment](#reference-appspec-file-structure-hooks-list-lambda "#reference-appspec-file-structure-hooks-list-lambda")
-- [Run order of
-  hooks in a Lambda function version deployment](#reference-appspec-file-structure-hooks-run-order-lambda "#reference-appspec-file-structure-hooks-run-order-lambda")
+- [List of lifecycle event hooks for an AWS Lambda deployment](#reference-appspec-file-structure-hooks-list-lambda "#reference-appspec-file-structure-hooks-list-lambda")
+- [Run order of hooks in a Lambda function version deployment](#reference-appspec-file-structure-hooks-run-order-lambda "#reference-appspec-file-structure-hooks-run-order-lambda")
 - [Structure of 'hooks' section](#reference-appspec-file-structure-hooks-section-structure-lambda "#reference-appspec-file-structure-hooks-section-structure-lambda")
 - [Sample Lambda 'hooks' function](#reference-appspec-file-structure-hooks-section-structure-lambda-sample-function "#reference-appspec-file-structure-hooks-section-structure-lambda-sample-function")
 
-### List of lifecycle
-
-event hooks for an AWS Lambda deployment
+### List of lifecycle event hooks for an AWS Lambda deployment
 
 An AWS Lambda hook is one Lambda function specified with a string on a
 new line after the name of the lifecycle event. Each hook is executed once per
@@ -204,9 +182,7 @@ deployment. Here are descriptions of the hooks available for use in your AppSpec
 - **AfterAllowTraffic** – Use to run tasks
   after all traffic is shifted to the deployed Lambda function version.
 
-### Run order of
-
-hooks in a Lambda function version deployment
+### Run order of hooks in a Lambda function version deployment
 
 In a serverless Lambda function version deployment, event hooks run in the following
 order:
@@ -301,28 +277,19 @@ exports.handler = (event, context, callback) => {
 };
 ```
 
-## AppSpec 'hooks' section for an
-
-EC2/On-Premises deployment
+## AppSpec 'hooks' section for an EC2/On-Premises deployment
 
 ###### Topics
 
-- [List of lifecycle event
-  hooks](#reference-appspec-file-structure-hooks-list "#reference-appspec-file-structure-hooks-list")
-- [Lifecycle event
-  hook availability](#reference-appspec-file-structure-hooks-availability "#reference-appspec-file-structure-hooks-availability")
-- [Run order of hooks in
-  a deployment](#reference-appspec-file-structure-hooks-run-order "#reference-appspec-file-structure-hooks-run-order")
-- [Structure of
-  'hooks' section](#reference-appspec-file-structure-hooks-section-structure "#reference-appspec-file-structure-hooks-section-structure")
-- [Referencing files in your hook
-  scripts](#codedeploy-agent-working-directory "#codedeploy-agent-working-directory")
+- [List of lifecycle event hooks](#reference-appspec-file-structure-hooks-list "#reference-appspec-file-structure-hooks-list")
+- [Lifecycle event hook availability](#reference-appspec-file-structure-hooks-availability "#reference-appspec-file-structure-hooks-availability")
+- [Run order of hooks in a deployment](#reference-appspec-file-structure-hooks-run-order "#reference-appspec-file-structure-hooks-run-order")
+- [Structure of 'hooks' section](#reference-appspec-file-structure-hooks-section-structure "#reference-appspec-file-structure-hooks-section-structure")
+- [Referencing files in your hook scripts](#codedeploy-agent-working-directory "#codedeploy-agent-working-directory")
 - [Environment variable availability for hooks](#reference-appspec-file-structure-environment-variable-availability "#reference-appspec-file-structure-environment-variable-availability")
 - [Hooks example](#reference-appspec-file-structure-hooks-example "#reference-appspec-file-structure-hooks-example")
 
-### List of lifecycle event
-
-hooks
+### List of lifecycle event hooks
 
 An EC2/On-Premises deployment hook is executed once per deployment to an
 instance. You can specify one or more scripts to run in a hook. Each hook for a
@@ -330,8 +297,7 @@ lifecycle event is specified with a string on a separate line. Here are descript
 the hooks available for use in your AppSpec file.
 
 For information about which lifecycle event hooks are valid for which deployment and
-rollback types, see [Lifecycle event
-hook availability](#reference-appspec-file-structure-hooks-availability "#reference-appspec-file-structure-hooks-availability").
+rollback types, see [Lifecycle event hook availability](#reference-appspec-file-structure-hooks-availability "#reference-appspec-file-structure-hooks-availability").
 
 - `ApplicationStop` – This deployment lifecycle event occurs even
   before the application revision is downloaded. You can specify scripts for this
@@ -359,9 +325,7 @@ folder on Amazon Linux, Ubuntu Server, and RHEL Amazon EC2 instances.
 folder on Windows Server Amazon EC2 instances.
 
 To troubleshoot a deployment that fails during the `ApplicationStop`
-deployment lifecycle event, see [Troubleshooting a
-failed ApplicationStop, BeforeBlockTraffic, or AfterBlockTraffic deployment lifecycle
-event](troubleshooting-deployments.md#troubleshooting-deployments-lifecycle-event-failures "troubleshooting-deployments.md#troubleshooting-deployments-lifecycle-event-failures").
+deployment lifecycle event, see [Troubleshooting a failed ApplicationStop, BeforeBlockTraffic, or AfterBlockTraffic deployment lifecycle event](troubleshooting-deployments.md#troubleshooting-deployments-lifecycle-event-failures "troubleshooting-deployments.md#troubleshooting-deployments-lifecycle-event-failures").
 
 - `DownloadBundle` – During this deployment lifecycle event, the
   CodeDeploy agent copies the application revision files to a temporary location:
@@ -376,9 +340,7 @@ This event is reserved for the CodeDeploy agent and cannot be used to run
 scripts.
 
 To troubleshoot a deployment that fails during the `DownloadBundle`
-deployment lifecycle event, see [Troubleshooting a failed
-DownloadBundle deployment lifecycle event with UnknownError: not opened for
-reading](troubleshooting-deployments.md#troubleshooting-deployments-downloadbundle "troubleshooting-deployments.md#troubleshooting-deployments-downloadbundle").
+deployment lifecycle event, see [Troubleshooting a failed DownloadBundle deployment lifecycle event with UnknownError: not opened for reading](troubleshooting-deployments.md#troubleshooting-deployments-downloadbundle "troubleshooting-deployments.md#troubleshooting-deployments-downloadbundle").
 
 - `BeforeInstall` – You can use this deployment lifecycle event
   for preinstall tasks, such as decrypting files and creating a backup of the current
@@ -399,9 +361,7 @@ reading](troubleshooting-deployments.md#troubleshooting-deployments-downloadbund
   balancer.
 
 To troubleshoot a deployment that fails during the
-`BeforeBlockTraffic` deployment lifecycle event, see [Troubleshooting a
-failed ApplicationStop, BeforeBlockTraffic, or AfterBlockTraffic deployment lifecycle
-event](troubleshooting-deployments.md#troubleshooting-deployments-lifecycle-event-failures "troubleshooting-deployments.md#troubleshooting-deployments-lifecycle-event-failures").
+`BeforeBlockTraffic` deployment lifecycle event, see [Troubleshooting a failed ApplicationStop, BeforeBlockTraffic, or AfterBlockTraffic deployment lifecycle event](troubleshooting-deployments.md#troubleshooting-deployments-lifecycle-event-failures "troubleshooting-deployments.md#troubleshooting-deployments-lifecycle-event-failures").
 
 - `BlockTraffic` – During this deployment lifecycle event,
   internet traffic is blocked from accessing instances that are currently serving
@@ -412,9 +372,7 @@ event](troubleshooting-deployments.md#troubleshooting-deployments-lifecycle-even
   load balancer.
 
 To troubleshoot a deployment that fails during the
-`AfterBlockTraffic` deployment lifecycle event, see [Troubleshooting a
-failed ApplicationStop, BeforeBlockTraffic, or AfterBlockTraffic deployment lifecycle
-event](troubleshooting-deployments.md#troubleshooting-deployments-lifecycle-event-failures "troubleshooting-deployments.md#troubleshooting-deployments-lifecycle-event-failures").
+`AfterBlockTraffic` deployment lifecycle event, see [Troubleshooting a failed ApplicationStop, BeforeBlockTraffic, or AfterBlockTraffic deployment lifecycle event](troubleshooting-deployments.md#troubleshooting-deployments-lifecycle-event-failures "troubleshooting-deployments.md#troubleshooting-deployments-lifecycle-event-failures").
 
 - `BeforeAllowTraffic` – You can use this deployment lifecycle
   event to run tasks on instances before they are registered with a load
@@ -426,41 +384,36 @@ event](troubleshooting-deployments.md#troubleshooting-deployments-lifecycle-even
   event to run tasks on instances after they are registered with a load
   balancer.
 
-### Lifecycle event
-
-hook availability
+### Lifecycle event hook availability
 
 The following table lists the lifecycle event hooks available for each deployment
 and rollback scenario.
 
-| Lifecycle event name                                                                                                                                                                                                                                                                                                                                                                                                  | Auto Scaling launch deployment¹ | Auto Scaling termination deployment¹ | In-place deployment² | Blue/green deployment: Original instances | Blue/green deployment: Replacement instances | Blue/green deployment rollback: Original instances | Blue/green deployment rollback: Replacement instances |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | ------------------------------------ | -------------------- | ----------------------------------------- | -------------------------------------------- | -------------------------------------------------- | ----------------------------------------------------- |
-| **ApplicationStop**                                                                                                                                                                                                                                                                                                                                                                                                   | ✓                               | ✓                                    | ✓                    |                                           | ✓                                            |                                                    |                                                       |
-| **DownloadBundle**³                                                                                                                                                                                                                                                                                                                                                                                                   | ✓                               |                                      | ✓                    |                                           | ✓                                            |                                                    |                                                       |
-| **BeforeInstall**                                                                                                                                                                                                                                                                                                                                                                                                     | ✓                               |                                      | ✓                    |                                           | ✓                                            |                                                    |                                                       |
-| **Install**³                                                                                                                                                                                                                                                                                                                                                                                                          | ✓                               |                                      | ✓                    |                                           | ✓                                            |                                                    |                                                       |
-| **AfterInstall**                                                                                                                                                                                                                                                                                                                                                                                                      | ✓                               |                                      | ✓                    |                                           | ✓                                            |                                                    |                                                       |
-| **ApplicationStart**                                                                                                                                                                                                                                                                                                                                                                                                  | ✓                               |                                      | ✓                    |                                           | ✓                                            |                                                    |                                                       |
-| **ValidateService**                                                                                                                                                                                                                                                                                                                                                                                                   | ✓                               |                                      | ✓                    |                                           | ✓                                            |                                                    |                                                       |
-| **BeforeBlockTraffic**                                                                                                                                                                                                                                                                                                                                                                                                |                                 | ✓                                    | ✓                    | ✓                                         |                                              |                                                    | ✓                                                     |
-| **BlockTraffic**³                                                                                                                                                                                                                                                                                                                                                                                                     |                                 | ✓                                    | ✓                    | ✓                                         |                                              |                                                    | ✓                                                     |
-| **AfterBlockTraffic**                                                                                                                                                                                                                                                                                                                                                                                                 |                                 | ✓                                    | ✓                    | ✓                                         |                                              |                                                    | ✓                                                     |
-| **BeforeAllowTraffic**                                                                                                                                                                                                                                                                                                                                                                                                | ✓                               |                                      | ✓                    |                                           | ✓                                            | ✓                                                  |                                                       |
-| **AllowTraffic**³                                                                                                                                                                                                                                                                                                                                                                                                     | ✓                               |                                      | ✓                    |                                           | ✓                                            | ✓                                                  |                                                       |
-| **AfterAllowTraffic**                                                                                                                                                                                                                                                                                                                                                                                                 | ✓                               |                                      | ✓                    |                                           | ✓                                            | ✓                                                  |                                                       |
-| ¹ For information about Amazon EC2 Auto Scaling deployments, see [How Amazon EC2 Auto Scaling works with<br>CodeDeploy](integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors "integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors").<br>² Also applies to the rollback of an in-place deployment.<br>³ Reserved for CodeDeploy operations. Cannot be used to run<br>scripts. |
+| Lifecycle event name                                                                                                                                                                                                                                                                                                                                                                                               | Auto Scaling launch deployment¹ | Auto Scaling termination deployment¹ | In-place deployment² | Blue/green deployment: Original instances | Blue/green deployment: Replacement instances | Blue/green deployment rollback: Original instances | Blue/green deployment rollback: Replacement instances |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------- | ------------------------------------ | -------------------- | ----------------------------------------- | -------------------------------------------- | -------------------------------------------------- | ----------------------------------------------------- |
+| **ApplicationStop**                                                                                                                                                                                                                                                                                                                                                                                                | ✓                               | ✓                                    | ✓                    |                                           | ✓                                            |                                                    |                                                       |
+| **DownloadBundle**³                                                                                                                                                                                                                                                                                                                                                                                                | ✓                               |                                      | ✓                    |                                           | ✓                                            |                                                    |                                                       |
+| **BeforeInstall**                                                                                                                                                                                                                                                                                                                                                                                                  | ✓                               |                                      | ✓                    |                                           | ✓                                            |                                                    |                                                       |
+| **Install**³                                                                                                                                                                                                                                                                                                                                                                                                       | ✓                               |                                      | ✓                    |                                           | ✓                                            |                                                    |                                                       |
+| **AfterInstall**                                                                                                                                                                                                                                                                                                                                                                                                   | ✓                               |                                      | ✓                    |                                           | ✓                                            |                                                    |                                                       |
+| **ApplicationStart**                                                                                                                                                                                                                                                                                                                                                                                               | ✓                               |                                      | ✓                    |                                           | ✓                                            |                                                    |                                                       |
+| **ValidateService**                                                                                                                                                                                                                                                                                                                                                                                                | ✓                               |                                      | ✓                    |                                           | ✓                                            |                                                    |                                                       |
+| **BeforeBlockTraffic**                                                                                                                                                                                                                                                                                                                                                                                             |                                 | ✓                                    | ✓                    | ✓                                         |                                              |                                                    | ✓                                                     |
+| **BlockTraffic**³                                                                                                                                                                                                                                                                                                                                                                                                  |                                 | ✓                                    | ✓                    | ✓                                         |                                              |                                                    | ✓                                                     |
+| **AfterBlockTraffic**                                                                                                                                                                                                                                                                                                                                                                                              |                                 | ✓                                    | ✓                    | ✓                                         |                                              |                                                    | ✓                                                     |
+| **BeforeAllowTraffic**                                                                                                                                                                                                                                                                                                                                                                                             | ✓                               |                                      | ✓                    |                                           | ✓                                            | ✓                                                  |                                                       |
+| **AllowTraffic**³                                                                                                                                                                                                                                                                                                                                                                                                  | ✓                               |                                      | ✓                    |                                           | ✓                                            | ✓                                                  |                                                       |
+| **AfterAllowTraffic**                                                                                                                                                                                                                                                                                                                                                                                              | ✓                               |                                      | ✓                    |                                           | ✓                                            | ✓                                                  |                                                       |
+| ¹ For information about Amazon EC2 Auto Scaling deployments, see [How Amazon EC2 Auto Scaling works with CodeDeploy](integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors "integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors").<br>² Also applies to the rollback of an in-place deployment.<br>³ Reserved for CodeDeploy operations. Cannot be used to run<br>scripts. |
 
-### Run order of hooks in
-
-a deployment
+### Run order of hooks in a deployment
 
 **Auto Scaling launch deployments**
 
 During an Auto Scaling launch deployment, CodeDeploy runs event hooks in the following
 order.
 
-For more information about Auto Scaling launch deployments, see [How Amazon EC2 Auto Scaling works with
-CodeDeploy](integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors "integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors").
+For more information about Auto Scaling launch deployments, see [How Amazon EC2 Auto Scaling works with CodeDeploy](integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors "integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors").
 
 ![The order of event hooks during an Auto Scaling launch deployment.](images/lifecycle-event-order-scale-out.png)
 
@@ -477,8 +430,7 @@ event.
 During an Auto Scaling termination deployment, CodeDeploy runs event hooks in the following
 order.
 
-For more information about Auto Scaling termination deployments, see [Enabling
-termination deployments during Auto Scaling scale-in events](integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors-hook-enable "integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors-hook-enable").
+For more information about Auto Scaling termination deployments, see [Enabling termination deployments during Auto Scaling scale-in events](integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors-hook-enable "integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors-hook-enable").
 
 ![The order of event hooks during an Auto Scaling termination deployment.](images/lifecycle-event-order-scale-in.png)
 
@@ -519,9 +471,7 @@ and **End** events in the deployment cannot be scripted,
 which is why they appear in gray in this diagram. However, you can edit the 'files'
 section of the AppSpec file to specify what's installed during the **Install** event.
 
-### Structure of
-
-'hooks' section
+### Structure of 'hooks' section
 
 The `'hooks'` section has the following structure:
 
@@ -563,9 +513,7 @@ user cannot be impersonated if the **runas** user
 needs a password. This element applies to Amazon Linux and Ubuntu Server instances
 only.
 
-### Referencing files in your hook
-
-scripts
+### Referencing files in your hook scripts
 
 If you are hooking up a script to a CodeDeploy lifecycle event as described in [AppSpec 'hooks' section](reference-appspec-file-structure-hooks.md "reference-appspec-file-structure-hooks.md"), and you want to reference a
 file (for example, `helper.sh`) in your script, then you will need to
@@ -581,8 +529,7 @@ either:
 
 - Specify the absolute path in the `files` section of the
   AppSpec file, in the `destination` property. Then, specify the same
-  absolute path in your hook script. For more information, see [AppSpec 'files' section
-  (EC2/On-Premises deployments only)](reference-appspec-file-structure-files.md "reference-appspec-file-structure-files.md").
+  absolute path in your hook script. For more information, see [AppSpec 'files' section (EC2/On-Premises deployments only)](reference-appspec-file-structure-files.md "reference-appspec-file-structure-files.md").
 - Specify a dynamic absolute path in your hook script. For more information, see
   [Deployment archive
   location](#codedeploy-agent-working-dir-archive "#codedeploy-agent-working-dir-archive").

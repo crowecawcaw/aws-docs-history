@@ -1,32 +1,17 @@
-# Troubleshoot EC2/On-Premises
-
-deployment issues
+# Troubleshoot EC2/On-Premises deployment issues
 
 ###### Topics
 
-- [CodeDeploy plugin CommandPoller
-  missing credentials error](#troubleshooting-agent-commandpoller-error "#troubleshooting-agent-commandpoller-error")
-- [Deployment fails with the
-  message “Validation of PKCS7 signed message failed”](#troubleshooting-deployments-agent-SHA-256 "#troubleshooting-deployments-agent-SHA-256")
-- [Deployment or redeployment
-  of the same files to the same instance locations fail with the error "The deployment
-  failed because a specified file already exists at this location"](#troubleshooting-same-files-different-app-name "#troubleshooting-same-files-different-app-name")
-- [Long file paths cause "No such file or
-  directory" errors](#troubleshooting-long-file-paths "#troubleshooting-long-file-paths")
-- [Long-running processes can cause
-  deployments to fail](#troubleshooting-long-running-processes "#troubleshooting-long-running-processes")
-- [Troubleshooting a failed
-  AllowTraffic lifecycle event with no error reported in the deployment logs](#troubleshooting-deployments-allowtraffic-no-logs "#troubleshooting-deployments-allowtraffic-no-logs")
-- [Troubleshooting a
-  failed ApplicationStop, BeforeBlockTraffic, or AfterBlockTraffic deployment lifecycle
-  event](#troubleshooting-deployments-lifecycle-event-failures "#troubleshooting-deployments-lifecycle-event-failures")
-- [Troubleshooting a failed
-  DownloadBundle deployment lifecycle event with UnknownError: not opened for
-  reading](#troubleshooting-deployments-downloadbundle "#troubleshooting-deployments-downloadbundle")
-- [Troubleshooting all lifecycle
-  events skipped errors](#troubleshooting-skipped-lifecycle-events "#troubleshooting-skipped-lifecycle-events")
-- [Windows PowerShell scripts fail to
-  use the 64-bit version of Windows PowerShell by default](#troubleshooting-deployments-powershell "#troubleshooting-deployments-powershell")
+- [CodeDeploy plugin CommandPoller missing credentials error](#troubleshooting-agent-commandpoller-error "#troubleshooting-agent-commandpoller-error")
+- [Deployment fails with the message “Validation of PKCS7 signed message failed”](#troubleshooting-deployments-agent-SHA-256 "#troubleshooting-deployments-agent-SHA-256")
+- [Deployment or redeployment of the same files to the same instance locations fail with the error "The deployment failed because a specified file already exists at this location"](#troubleshooting-same-files-different-app-name "#troubleshooting-same-files-different-app-name")
+- [Long file paths cause "No such file or directory" errors](#troubleshooting-long-file-paths "#troubleshooting-long-file-paths")
+- [Long-running processes can cause deployments to fail](#troubleshooting-long-running-processes "#troubleshooting-long-running-processes")
+- [Troubleshooting a failed AllowTraffic lifecycle event with no error reported in the deployment logs](#troubleshooting-deployments-allowtraffic-no-logs "#troubleshooting-deployments-allowtraffic-no-logs")
+- [Troubleshooting a failed ApplicationStop, BeforeBlockTraffic, or AfterBlockTraffic deployment lifecycle event](#troubleshooting-deployments-lifecycle-event-failures "#troubleshooting-deployments-lifecycle-event-failures")
+- [Troubleshooting a failed DownloadBundle deployment lifecycle event with UnknownError: not opened for reading](#troubleshooting-deployments-downloadbundle "#troubleshooting-deployments-downloadbundle")
+- [Troubleshooting all lifecycle events skipped errors](#troubleshooting-skipped-lifecycle-events "#troubleshooting-skipped-lifecycle-events")
+- [Windows PowerShell scripts fail to use the 64-bit version of Windows PowerShell by default](#troubleshooting-deployments-powershell "#troubleshooting-deployments-powershell")
 
 ###### Note
 
@@ -42,9 +27,7 @@ For a runbook that automates many troubleshooting tasks related to
 EC2/On-Premises deployments, see [AWSSupport-TroubleshootCodeDeploy](../../../systems-manager-automation-runbooks/latest/userguide/automation-awssupport-troubleshootcodedeploy.md "../../../systems-manager-automation-runbooks/latest/userguide/automation-awssupport-troubleshootcodedeploy.md") in the _AWS Systems Manager Automation runbook
 reference_.
 
-## CodeDeploy plugin CommandPoller
-
-missing credentials error
+## CodeDeploy plugin CommandPoller missing credentials error
 
 If you receive an error similar to
 `InstanceAgent::Plugins::CodeDeployPlugin::CommandPoller: Missing credentials - please
@@ -56,13 +39,10 @@ by one of the following:
 - Your IAM instance profile does not have the correct permissions configured.
 
 An IAM instance profile grants the CodeDeploy agent permission to communicate with CodeDeploy
-and to download your revision from Amazon S3. For EC2 instances, see [Identity and access management for
-AWS CodeDeploy](security-iam.md "security-iam.md"). For on-premises instances, see
+and to download your revision from Amazon S3. For EC2 instances, see [Identity and access management for AWS CodeDeploy](security-iam.md "security-iam.md"). For on-premises instances, see
 [Working with On-Premises Instances](instances-on-premises.md "instances-on-premises.md").
 
-## Deployment fails with the
-
-message “Validation of PKCS7 signed message failed”
+## Deployment fails with the message “Validation of PKCS7 signed message failed”
 
 This error message indicates the instance is running a version of the CodeDeploy agent that
 supports only the SHA-1 hash algorithm. Support for the SHA-2 hash algorithm was introduced
@@ -71,10 +51,7 @@ in version 1.0.1.854 of the CodeDeploy agent, released in November 2015. Effecti
 For more information, see [AWS to switch to SHA256 hash algorithm for SSL Certificates](https://aws.amazon.com/security/security-bulletins/aws-to-switch-to-sha256-hash-algorithm-for-ssl-certificates/ "https://aws.amazon.com/security/security-bulletins/aws-to-switch-to-sha256-hash-algorithm-for-ssl-certificates/"), [NOTICE: Retiring CodeDeploy host agents
 older than version 1.0.1.85](https://forums.aws.amazon.com/thread.jspa?threadID=223319 "https://forums.aws.amazon.com/thread.jspa?threadID=223319"), and [Update the CodeDeploy agent](codedeploy-agent-operations-update.md "codedeploy-agent-operations-update.md").
 
-## Deployment or redeployment
-
-of the same files to the same instance locations fail with the error "The deployment
-failed because a specified file already exists at this location"
+## Deployment or redeployment of the same files to the same instance locations fail with the error "The deployment failed because a specified file already exists at this location"
 
 When CodeDeploy tries to deploy a file to an instance but a file with the same name already
 exists in the specified target location, the deployment to that instance may fail. You may
@@ -105,13 +82,9 @@ You might choose the retain option for files you place on the instance that you 
 be part of the next deployment without having to add them to the application revision
 package. The retain option is also useful if your application files are already in your
 production environment and you want to deploy using CodeDeploy for the first time. For more
-information, see [Create an
-EC2/On-Premises Compute Platform deployment (console)](deployments-create-console.md "deployments-create-console.md") and [Rollback behavior with
-existing content](deployments-rollback-and-redeploy.md#deployments-rollback-and-redeploy-content-options "deployments-rollback-and-redeploy.md#deployments-rollback-and-redeploy-content-options").
+information, see [Create an EC2/On-Premises Compute Platform deployment (console)](deployments-create-console.md "deployments-create-console.md") and [Rollback behavior with existing content](deployments-rollback-and-redeploy.md#deployments-rollback-and-redeploy-content-options "deployments-rollback-and-redeploy.md#deployments-rollback-and-redeploy-content-options").
 
-### Troubleshooting `The deployment failed because a specified file already exists at
-
-this location` deployment errors
+### Troubleshooting `The deployment failed because a specified file already exists at this location` deployment errors
 
 If you choose not to specify an option to overwrite or retain content that CodeDeploy
 detects in your target deployment locations (or if you do not specify any deployment
@@ -173,9 +146,7 @@ To address these situations, do one of the following:
   uses the underlying deployment group ID and AppSpec file to remove all of the files
   it installed in the previous successful deployment.
 
-## Long file paths cause "No such file or
-
-directory" errors
+## Long file paths cause "No such file or directory" errors
 
 For deployments to Windows instances, if you have a file path greater than 260
 characters in the files section of your appspec.yml file, you may see deployments fail with
@@ -220,9 +191,7 @@ New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem"
 powershell.exe -Command Restart-Service -Name codedeployagent
 ```
 
-## Long-running processes can cause
-
-deployments to fail
+## Long-running processes can cause deployments to fail
 
 For deployments to Amazon Linux, Ubuntu Server, and RHEL instances, if you have a deployment
 script that starts a long-running process, CodeDeploy might spend a long time waiting in the
@@ -300,9 +269,7 @@ In the preceding call, `sleep.sh` is the name of the process you want
 to start running in the background, redirecting stdout, stderr, and stdin to
 `/dev/null`.
 
-## Troubleshooting a failed
-
-AllowTraffic lifecycle event with no error reported in the deployment logs
+## Troubleshooting a failed AllowTraffic lifecycle event with no error reported in the deployment logs
 
 In some cases, a blue/green deployment fails during the AllowTraffic lifecycle event,
 but the deployment logs do not indicate the cause for the failure.
@@ -323,10 +290,7 @@ for Your Target Groups](../../../elasticloadbalancing/latest/application/target-
 For Network Load Balancers, see [Health Checks for Your Target Groups](../../../elasticloadbalancing/latest/network/target-group-health-checks.md "../../../elasticloadbalancing/latest/network/target-group-health-checks.md") in the _Network Load Balancer User
 Guide_.
 
-## Troubleshooting a
-
-failed ApplicationStop, BeforeBlockTraffic, or AfterBlockTraffic deployment lifecycle
-event
+## Troubleshooting a failed ApplicationStop, BeforeBlockTraffic, or AfterBlockTraffic deployment lifecycle event
 
 During a deployment, the CodeDeploy agent runs the scripts specified for ApplicationStop,
 BeforeBlockTraffic, and AfterBlockTraffic in the AppSpec file from the previous successful
@@ -381,10 +345,7 @@ When you deploy the application revision again, the deployment continues even if
 these three lifecycle events fail. If the new revision includes fixed scripts for those
 lifecycle events, future deployments can succeed without applying this fix.
 
-## Troubleshooting a failed
-
-DownloadBundle deployment lifecycle event with UnknownError: not opened for
-reading
+## Troubleshooting a failed DownloadBundle deployment lifecycle event with UnknownError: not opened for reading
 
 If you are trying to deploy an application revision from Amazon S3, and the deployment fails
 during the DownloadBundle deployment lifecycle event with the `UnknownError: not opened
@@ -393,8 +354,7 @@ during the DownloadBundle deployment lifecycle event with the `UnknownError: not
 - There was internal Amazon S3 service error. Deploy the application revision again.
 - The IAM instance profile on your EC2 instance does not have permissions to
   access the application revision in Amazon S3. For information about Amazon S3 bucket policies, see
-  [Push a revision for CodeDeploy to Amazon S3
-  (EC2/On-Premises deployments only)](application-revisions-push.md "application-revisions-push.md") and [Deployment prerequisites](deployments-create-prerequisites.md "deployments-create-prerequisites.md").
+  [Push a revision for CodeDeploy to Amazon S3 (EC2/On-Premises deployments only)](application-revisions-push.md "application-revisions-push.md") and [Deployment prerequisites](deployments-create-prerequisites.md "deployments-create-prerequisites.md").
 - The instances you deploy to are associated with one AWS Region (for example,
   US West (Oregon)), but the Amazon S3 bucket that contains the application revision is
   associated with another AWS Region (for example, US East (N. Virginia)). Make sure the
@@ -421,9 +381,7 @@ For information about how to find the wire logging file and enable and disable w
 logging, see `:log_aws_wire:` in [CodeDeploy agent configuration
 reference](reference-agent-configuration.md "reference-agent-configuration.md").
 
-## Troubleshooting all lifecycle
-
-events skipped errors
+## Troubleshooting all lifecycle events skipped errors
 
 If all lifecycle events of an EC2 or on-premises deployment are skipped, you
 might receive an error similar to `The overall deployment failed because too many
@@ -456,31 +414,26 @@ port 443. Try one of the following:
 
     + Assign a public IP address to the instance and use its route table to allow
      internet access. Make sure the security group associated with the instance allows
-     outbound access over port 443 (HTTPS). For more information, see [Communication protocol and port for the
-     CodeDeploy agent](codedeploy-agent.md#codedeploy-agent-outbound-port "codedeploy-agent.md#codedeploy-agent-outbound-port").
+     outbound access over port 443 (HTTPS). For more information, see [Communication protocol and port for the CodeDeploy agent](codedeploy-agent.md#codedeploy-agent-outbound-port "codedeploy-agent.md#codedeploy-agent-outbound-port").
     + If an instance is provisioned in a private subnet, use a NAT gateway instead of
      an internet gateway in the route table. For more information, see [NAT Gateways](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md").
 
 - The service role for CodeDeploy might not have required permissions. To configure a CodeDeploy
-  service role, see [Step 2: Create a service role for
-  CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md").
+  service role, see [Step 2: Create a service role for CodeDeploy](getting-started-create-service-role.md "getting-started-create-service-role.md").
 - If you use an HTTP proxy, make sure it is specified in the `:proxy_uri:`
   setting in the CodeDeploy agent configuration file. For more information, see [CodeDeploy agent configuration reference](reference-agent-configuration.md "reference-agent-configuration.md").
 - The date and time signature of your deployment instance might not match the date and
   time signature of your deployment request. Look for an error similar to `Cannot
 reach InstanceService: Aws::CodeDeployCommand::Errors::InvalidSignatureException -
 Signature expired` in your CodeDeploy agent log file. If you see this error, follow
-  the steps in [Troubleshooting
-  “InvalidSignatureException – Signature expired: [time] is now earlier than [time]”
-  deployment errors](troubleshooting-ec2-instances.md#troubleshooting-instance-time-failures "troubleshooting-ec2-instances.md#troubleshooting-instance-time-failures"). For more information, see
-  [View log data for CodeDeploy EC2/On-Premises
-  deployments](deployments-view-logs.md "deployments-view-logs.md").
+  the steps in [Troubleshooting “InvalidSignatureException – Signature expired: [time] is now earlier than [time]” deployment errors](troubleshooting-ec2-instances.md#troubleshooting-instance-time-failures "troubleshooting-ec2-instances.md#troubleshooting-instance-time-failures"). For more information, see
+  [View log data for CodeDeploy EC2/On-Premises deployments](deployments-view-logs.md "deployments-view-logs.md").
 - The CodeDeploy agent might stop running because an instance is running low on memory or
   hard disk space. Try to lower the number of archived deployments on your instance by
   updating the `max_revisions` setting in the CodeDeploy agent configuration. If you
   do this for an EC2 instance and the issue persists, consider using a larger
   instance. For example, if your instance type is `t2.small`, try using a
-  `t2.medium`. For more information, see [Files installed by the CodeDeploy agent](codedeploy-agent.md#codedeploy-agent-install-files "codedeploy-agent.md#codedeploy-agent-install-files") , [CodeDeploy agent configuration reference](reference-agent-configuration.md "reference-agent-configuration.md"), and [Instance types](../../../AWSEC2/latest/UserGuide/instance-types.md "../../../AWSEC2/latest/UserGuide/instance-types.md").
+  `t2.medium`. For more information, see [Files installed by the CodeDeploy agent](codedeploy-agent.md#codedeploy-agent-install-files "codedeploy-agent.md#codedeploy-agent-install-files"), [CodeDeploy agent configuration reference](reference-agent-configuration.md "reference-agent-configuration.md"), and [Instance types](../../../AWSEC2/latest/UserGuide/instance-types.md "../../../AWSEC2/latest/UserGuide/instance-types.md").
 - The instance you're deploying to might not have an IAM instance profile attached,
   or it might have an IAM instance profile attached that does not have the required
   permissions.
@@ -491,13 +444,10 @@ Signature expired` in your CodeDeploy agent log file. If you see this error, fol
        has the required permissions.
 
   After you confirm your attached instance profile is configured with the required
-  permissions, restart your instance. For more information, see [Step 4: Create an IAM instance
-  profile for your Amazon EC2 instances](getting-started-create-iam-instance-profile.md "getting-started-create-iam-instance-profile.md") and [IAM Roles for
+  permissions, restart your instance. For more information, see [Step 4: Create an IAM instance profile for your Amazon EC2 instances](getting-started-create-iam-instance-profile.md "getting-started-create-iam-instance-profile.md") and [IAM Roles for
   Amazon EC2](../../../AWSEC2/latest/UserGuide/iam-roles-for-amazon-EC2.md "../../../AWSEC2/latest/UserGuide/iam-roles-for-amazon-EC2.md") in the _Amazon EC2 User Guide_.
 
-## Windows PowerShell scripts fail to
-
-use the 64-bit version of Windows PowerShell by default
+## Windows PowerShell scripts fail to use the 64-bit version of Windows PowerShell by default
 
 If a Windows PowerShell script running as part of a deployment relies on 64-bit
 functionality (for example, because it consumes more memory than a 32-bit application allows

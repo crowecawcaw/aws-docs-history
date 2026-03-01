@@ -12,6 +12,5 @@ following topics.
 
 ###### Topics
 
-- [Monitoring deployments with CloudWatch alarms in
-  CodeDeploy](monitoring-create-alarms.md "monitoring-create-alarms.md")
+- [Monitoring deployments with CloudWatch alarms in CodeDeploy](monitoring-create-alarms.md "monitoring-create-alarms.md")
 - [Monitoring deployments with Amazon CloudWatch Events](monitoring-cloudwatch-events.md "monitoring-cloudwatch-events.md")

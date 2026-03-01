@@ -1,13 +1,10 @@
-# Step 2: Create a GitHub
-
-repository
+# Step 2: Create a GitHub repository
 
 You will need a GitHub repository to store the revision.
 
 If you already have a GitHub repository, be sure to substitute its name for
 `CodeDeployGitHubDemo` throughout this tutorial, and then skip
-ahead to [Step 3: Upload a sample application
-to your GitHub repository](tutorials-github-upload-sample-revision.md "tutorials-github-upload-sample-revision.md").
+ahead to [Step 3: Upload a sample application to your GitHub repository](tutorials-github-upload-sample-revision.md "tutorials-github-upload-sample-revision.md").
 
 1. On the [GitHub home page](https://github.com/dashboard "https://github.com/dashboard"), do one of
    the following:

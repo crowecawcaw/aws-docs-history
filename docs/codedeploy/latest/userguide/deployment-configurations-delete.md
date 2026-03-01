@@ -1,6 +1,4 @@
-# Delete a deployment configuration with
-
-CodeDeploy
+# Delete a deployment configuration with CodeDeploy
 
 You can use the AWS CLI or the CodeDeploy APIs to delete custom deployment configurations
 associated with your AWS account. You cannot delete built-in deployment configurations,

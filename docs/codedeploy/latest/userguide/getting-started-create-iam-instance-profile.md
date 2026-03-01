@@ -1,6 +1,4 @@
-# Step 4: Create an IAM instance
-
-profile for your Amazon EC2 instances
+# Step 4: Create an IAM instance profile for your Amazon EC2 instances
 
 ###### Note
 
@@ -24,14 +22,10 @@ previously launched instance. For more information, see [Instance profiles](../.
 
 ###### Topics
 
-- [Create an IAM instance
-  profile for your Amazon EC2 instances (CLI)](#getting-started-create-iam-instance-profile-cli "#getting-started-create-iam-instance-profile-cli")
-- [Create an IAM instance
-  profile for your Amazon EC2 instances (console)](#getting-started-create-iam-instance-profile-console "#getting-started-create-iam-instance-profile-console")
+- [Create an IAM instance profile for your Amazon EC2 instances (CLI)](#getting-started-create-iam-instance-profile-cli "#getting-started-create-iam-instance-profile-cli")
+- [Create an IAM instance profile for your Amazon EC2 instances (console)](#getting-started-create-iam-instance-profile-console "#getting-started-create-iam-instance-profile-console")
 
-## Create an IAM instance
-
-profile for your Amazon EC2 instances (CLI)
+## Create an IAM instance profile for your Amazon EC2 instances (CLI)
 
 In these steps, we assume you have already followed the instructions in the first three
 steps of [Getting started with CodeDeploy](getting-started-codedeploy.md "getting-started-codedeploy.md").
@@ -213,9 +207,7 @@ You've now created an IAM instance profile to attach to your Amazon EC2 instance
 information, see [IAM roles for
 Amazon EC2](../../../AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.md "../../../AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.md") in the _Amazon EC2 User Guide_.
 
-## Create an IAM instance
-
-profile for your Amazon EC2 instances (console)
+## Create an IAM instance profile for your Amazon EC2 instances (console)
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the IAM console, in the navigation pane, choose **Policies**,

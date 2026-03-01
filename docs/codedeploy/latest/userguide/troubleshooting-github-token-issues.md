@@ -26,9 +26,7 @@ If you receive a GitHub token error, you might have an older token that is now i
 
 2. Add a new OAuth token. For more information, see [Integrating CodeDeploy with GitHub](integrations-partners-github.md "integrations-partners-github.md").
 
-## Maximum number of GitHub OAuth
-
-tokens exceeded
+## Maximum number of GitHub OAuth tokens exceeded
 
 When you create a CodeDeploy deployment, the maximum number of allowed GitHub tokens is 10.
 If you receive an error about GitHub OAuth tokens, make sure you have 10 or fewer tokens. If
