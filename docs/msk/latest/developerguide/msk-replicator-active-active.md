@@ -1,6 +1,4 @@
-# Create an active-active setup using MSK
-
-Replicator
+# Create an active-active setup using MSK Replicator
 
 If you want to create an active-active setup where both MSK clusters are actively serving reads and writes, we recommend that you use an MSK Replicator with Prefixed topic name replication (**Add prefix to topics name** in console). However, this will require you to reconfigure your consumers to read the replicated topics.
 
@@ -14,5 +12,4 @@ Follow these steps to set up active-active topology between source MSK cluster A
 
 ###### Note
 
-If you're using Identical topic name replication (**Keep the same topics name** in console) to set up active-active topology, wait at least 30 seconds after deleting a topic before re-creating a topic with the same name. This waiting period helps to prevent duplicated messages being replicated back to the source cluster. Your consumers must be able to reprocess duplicate messages without downstream impact. See [Considerations for building
-multi-Region Apache Kafka applications](msk-replicator-increase-resiliency.md#msk-replication-multi-region-kafka-applications "msk-replicator-increase-resiliency.md#msk-replication-multi-region-kafka-applications").
+If you're using Identical topic name replication (**Keep the same topics name** in console) to set up active-active topology, wait at least 30 seconds after deleting a topic before re-creating a topic with the same name. This waiting period helps to prevent duplicated messages being replicated back to the source cluster. Your consumers must be able to reprocess duplicate messages without downstream impact. See [Considerations for building multi-Region Apache Kafka applications](msk-replicator-increase-resiliency.md#msk-replication-multi-region-kafka-applications "msk-replicator-increase-resiliency.md#msk-replication-multi-region-kafka-applications").

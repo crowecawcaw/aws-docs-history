@@ -1,6 +1,4 @@
-# Accessing one
-
-Amazon MSK cluster
+# Accessing one Amazon MSK cluster
 
 In this example, you want to grant an IAM user in your Amazon Web Services account access to one
 of your clusters, `purchaseQueriesCluster`. This policy allows the user

@@ -33,9 +33,7 @@ The following is an example of a log event sent to CloudWatch Logs:
 [Worker-0bb8afa0b01391c41] [2021-09-06 16:02:54,151] WARN [Producer clientId=producer-1] Connection to node 1 (b-1.my-test-cluster.twwhtj.c2.kafka.us-east-1.amazonaws.com/INTERNAL_IP) could not be established. Broker may not be available. (org.apache.kafka.clients.NetworkClient:782)
 ```
 
-## Preventing secrets from appearing in connector
-
-logs
+## Preventing secrets from appearing in connector logs
 
 ###### Note
 

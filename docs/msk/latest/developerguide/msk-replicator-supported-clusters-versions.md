@@ -1,6 +1,4 @@
-# Supported cluster
-
-types and versions for MSK Replicator
+# Supported cluster types and versions for MSK Replicator
 
 These are requirements for supported instance types, Kafka versions, and network configurations.
 

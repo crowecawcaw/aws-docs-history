@@ -1,6 +1,4 @@
-# Create an
-
-active-passive Kafka cluster setup with recommended topic naming configurations
+# Create an active-passive Kafka cluster setup with recommended topic naming configurations
 
 For an active-passive setup, we recommend you to operate a similar setup of
 producers, MSK clusters, and consumers (with the same consumer group name) in two

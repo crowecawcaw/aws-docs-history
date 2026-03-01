@@ -9,28 +9,23 @@ Amazon MSK cluster. You can also post your issue to [AWS re:Post](https://repost
 - [Consumer group stuck in PreparingRebalance state](#consumer-group-rebalance "#consumer-group-rebalance")
 - [Error delivering broker logs to Amazon CloudWatch Logs](#cw-broker-logs-error "#cw-broker-logs-error")
 - [No default security group](#troubleshooting-shared-vpc "#troubleshooting-shared-vpc")
-- [Cluster appears stuck in the CREATING
-  state](#troubleshooting-cluster-stuck "#troubleshooting-cluster-stuck")
-- [Cluster state goes from CREATING to
-  FAILED](#troubleshooting-cluster-failed "#troubleshooting-cluster-failed")
-- [Cluster state is ACTIVE but producers cannot
-  send data or consumers cannot receive data](#troubleshooting-nodata "#troubleshooting-nodata")
+- [Cluster appears stuck in the CREATING state](#troubleshooting-cluster-stuck "#troubleshooting-cluster-stuck")
+- [Cluster state goes from CREATING to FAILED](#troubleshooting-cluster-failed "#troubleshooting-cluster-failed")
+- [Cluster state is ACTIVE but producers cannot send data or consumers cannot receive data](#troubleshooting-nodata "#troubleshooting-nodata")
 - [AWS CLI doesn't recognize Amazon MSK](#troubleshooting-nocli "#troubleshooting-nocli")
-- [Partitions go
-  offline or replicas are out of sync](#troubleshooting-offlinepartition-outofsyncreplicas "#troubleshooting-offlinepartition-outofsyncreplicas")
+- [Partitions go offline or replicas are out of sync](#troubleshooting-offlinepartition-outofsyncreplicas "#troubleshooting-offlinepartition-outofsyncreplicas")
 - [Disk space is running low](#troubleshooting-lowdiskspace "#troubleshooting-lowdiskspace")
 - [Memory running low](#troubleshooting-lowmemory "#troubleshooting-lowmemory")
 - [Producer gets NotLeaderForPartitionException](#troubleshooting-NotLeaderForPartitionException "#troubleshooting-NotLeaderForPartitionException")
-- [Under-replicated partitions (URP) greater than
-  zero](#troubleshooting-urp "#troubleshooting-urp")
+- [Under-replicated partitions (URP) greater than zero](#troubleshooting-urp "#troubleshooting-urp")
 - [Cluster has topics called \_\_amazon_msk_canary and \_\_amazon_msk_canary_state](#amazon_msk_canary "#amazon_msk_canary")
 - [Partition replication fails](#partition_replication_fails "#partition_replication_fails")
 - [Unable to access cluster that has public access turned on](#public-access-issues "#public-access-issues")
+- [Unable to access cluster through IPv6 bootstrap](#dualstack-issues "#dualstack-issues")
 - [Unable to access cluster from within AWS: Networking issues](#networking-trouble "#networking-trouble")
 - [Failed authentication: Too many connects](#troubleshoot-too-many-connects "#troubleshoot-too-many-connects")
 - [Failed authentication: Session too short](#troubleshoot-session-too-short "#troubleshoot-session-too-short")
-- [MSK Serverless: Cluster creation
-  fails](#troubleshoot-serverless-create-cluster-failure "#troubleshoot-serverless-create-cluster-failure")
+- [MSK Serverless: Cluster creation fails](#troubleshoot-serverless-create-cluster-failure "#troubleshoot-serverless-create-cluster-failure")
 - [Can’t update KafkaVersionsList in MSK configuration](#troubleshoot-kafkaversionslist-cfn-update-failure "#troubleshoot-kafkaversionslist-cfn-update-failure")
 
 ## Volume replacement causes disk saturation due to replication overload
@@ -127,22 +122,16 @@ your administrator to grant you permission to describe the security groups on th
 and try again. For an example of a policy that allows this action, see [Amazon EC2: Allows Managing EC2 Security Groups Associated With a Specific VPC,
 Programmatically and in the Console](../../../IAM/latest/UserGuide/reference_policies_examples_ec2_securitygroups-vpc.md "../../../IAM/latest/UserGuide/reference_policies_examples_ec2_securitygroups-vpc.md") .
 
-## Cluster appears stuck in the CREATING
-
-state
+## Cluster appears stuck in the CREATING state
 
 Sometimes cluster creation can take up to 30 minutes. Wait for 30 minutes and check
 the state of the cluster again.
 
-## Cluster state goes from CREATING to
-
-FAILED
+## Cluster state goes from CREATING to FAILED
 
 Try creating the cluster again.
 
-## Cluster state is ACTIVE but producers cannot
-
-send data or consumers cannot receive data
+## Cluster state is ACTIVE but producers cannot send data or consumers cannot receive data
 
 - If the cluster creation succeeds (the cluster state is `ACTIVE`), but you
   can't send or receive data, ensure that your producer and consumer applications have
@@ -161,9 +150,7 @@ upgrade your AWS CLI to the latest version. For detailed instructions on how to 
 the AWS CLI, see [Installing the AWS Command Line Interface](../../../cli/latest/userguide/cli-chap-install.md "../../../cli/latest/userguide/cli-chap-install.md"). For information about how to use
 the AWS CLI to run Amazon MSK commands, see [Amazon MSK key features and concepts](operations.md "operations.md").
 
-## Partitions go
-
-offline or replicas are out of sync
+## Partitions go offline or replicas are out of sync
 
 These can be symptoms of low disk space. See [Disk space is running low](#troubleshooting-lowdiskspace "#troubleshooting-lowdiskspace").
 
@@ -179,9 +166,7 @@ If you see the `MemoryUsed` metric running high or `MemoryFree` running low, tha
 
 This is often a transient error. Set the producer's `retries` configuration parameter to a value that's higher than its current value.
 
-## Under-replicated partitions (URP) greater than
-
-zero
+## Under-replicated partitions (URP) greater than zero
 
 The `UnderReplicatedPartitions` metric is an important one to monitor. In a
 healthy MSK cluster, this metric has the value 0. If it's greater than zero, that might
@@ -226,13 +211,36 @@ internet, follow these steps:
    has two different bootstrap-brokers strings, one for public access, and one for
    access from within AWS. For more information, see [Get the bootstrap brokers using the AWS Management Console](get-bootstrap-console.md "get-bootstrap-console.md").
 
+## Unable to access cluster through IPv6 bootstrap
+
+If you're having trouble connecting to a cluster using the provided IPv6 bootstrap strings, follow these steps:
+
+1. Ensure your client has both IPv4 and IPv6 addresses assigned. Your client
+   application must be running in a subnet that has both IPv4 and IPv6 addressing
+   enabled and properly configured. Check if your VPC has both IPv4 CIDR block and
+   an associated IPv6 CIDR block, confirm your subnet has both IPv4 and IPv6
+   addresses enabled, and verify your EC2 instance or client environment has both
+   IPv4 and IPv6 addresses assigned. For more information, see [IP addressing for
+   your VPCs and subnets](../../../vpc/latest/userguide/vpc-ip-addressing.md "../../../vpc/latest/userguide/vpc-ip-addressing.md") in the Amazon VPC User Guide.
+2. Ensure relevant IPv6 ports are present in the security group inbound and
+   outbound rules. Add inbound rules to allow traffic on the cluster's ports from
+   your IPv6 addresses and configure outbound rules to allow IPv6 traffic. For
+   specific port numbers, see [Port information](port-info.md "port-info.md") in the MSK documentation. Remember
+   to update both IPv4 and IPv6 rules if running in dual-stack mode. For more
+   information about security groups and their inbound and outbound rules, see
+   [Security groups for your VPC](../../../vpc/latest/userguide/vpc-security-groups.md "../../../vpc/latest/userguide/vpc-security-groups.md") in the Amazon VPC User Guide.
+3. Ensure JVM property configuration is correct for IPv6 support. In your client
+   application, set `java.net.preferIPv6Addresses` to `true` and
+   `java.net.preferIPv4Stack` to `false`. These settings can be configured either as
+   system properties or JVM arguments. Restart your application after making these
+   changes for them to take effect.
+
 ## Unable to access cluster from within AWS: Networking issues
 
 If you have an Apache Kafka application that is unable to communicate successfully
 with an MSK cluster, start by performing the following connectivity test.
 
-1. Use any of the methods described in [Get the bootstrap brokers for an
-   Amazon MSK cluster](msk-get-bootstrap-brokers.md "msk-get-bootstrap-brokers.md") to get the
+1. Use any of the methods described in [Get the bootstrap brokers for an Amazon MSK cluster](msk-get-bootstrap-brokers.md "msk-get-bootstrap-brokers.md") to get the
    addresses of the bootstrap brokers.
 2. In the following command replace `bootstrap-broker`
    with one of the broker addresses that you obtained in the previous step. Replace
@@ -257,8 +265,7 @@ If the client machine is able to access the brokers, this means there
 are no connectivity issues. In this case, run the following command to check whether
 your Apache Kafka client is set up correctly. To get
 `bootstrap-brokers`, use any of the methods described in
-[Get the bootstrap brokers for an
-Amazon MSK cluster](msk-get-bootstrap-brokers.md "msk-get-bootstrap-brokers.md"). Replace
+[Get the bootstrap brokers for an Amazon MSK cluster](msk-get-bootstrap-brokers.md "msk-get-bootstrap-brokers.md"). Replace
 `topic` with the name of your topic.
 
 ```
@@ -271,9 +278,7 @@ at the application level.
 
 If the client machine is unable to access the brokers, see the following subsections for guidance that is based on your client-machine setup.
 
-### Amazon EC2 client and MSK cluster in
-
-the same VPC
+### Amazon EC2 client and MSK cluster in the same VPC
 
 If the client machine is in the same VPC as the MSK cluster, make sure
 the cluster's security group has an inbound rule that accepts traffic from the
@@ -281,9 +286,7 @@ client machine's security group. For information about setting up these rules, s
 [Security Group Rules](../../../vpc/latest/userguide/VPC_SecurityGroups.md#SecurityGroupRules "../../../vpc/latest/userguide/VPC_SecurityGroups.md#SecurityGroupRules"). For an example of how to access a cluster from an
 Amazon EC2 instance that's in the same VPC as the cluster, see [Get started using Amazon MSK](getting-started.md "getting-started.md").
 
-### Amazon EC2 client and MSK cluster in different
-
-VPCs
+### Amazon EC2 client and MSK cluster in different VPCs
 
 If the client machine and the cluster are in two different VPCs, ensure the
 following:
@@ -329,9 +332,7 @@ To learn more about the rate limits for new connections per broker, see the [Ama
 
 The `Failed authentication ... Session too short` error occurs when your client tries to connect to a cluster using IAM credentials that are about to expire. Make sure that you check how your IAM credentials are being refreshed. Most likely, the credentials are being replaced too close to session expiry which leads to issues on the server side, and authentication failures.
 
-## MSK Serverless: Cluster creation
-
-fails
+## MSK Serverless: Cluster creation fails
 
 If you try to create an MSK Serverless cluster and the workflow fails, you may not
 have permission to create a VPC endpoint. Verify that your administrator has granted you
@@ -339,8 +340,7 @@ permission to create a VPC endpoint by allowing the `ec2:CreateVpcEndpoint`
 action.
 
 For a complete list of permissions required to perform all Amazon MSK actions, see
-[AWS managed policy:
-AmazonMSKFullAccess](security-iam-awsmanpol-AmazonMSKFullAccess.md "security-iam-awsmanpol-AmazonMSKFullAccess.md").
+[AWS managed policy: AmazonMSKFullAccess](security-iam-awsmanpol-AmazonMSKFullAccess.md "security-iam-awsmanpol-AmazonMSKFullAccess.md").
 
 ## Can’t update KafkaVersionsList in MSK configuration
 

@@ -1,6 +1,4 @@
-# Policy best
-
-practices
+# Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Amazon MSK resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and

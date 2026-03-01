@@ -1,6 +1,4 @@
-# Create a
-
-Amazon MSK cluster with tiered storage with the AWS Management Console
+# Create a Amazon MSK cluster with tiered storage with the AWS Management Console
 
 This process describes how to create a tiered storage Amazon MSK cluster using the AWS Management Console.
 

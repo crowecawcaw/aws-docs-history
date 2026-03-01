@@ -31,8 +31,8 @@ The following table lists the Apache Kafka versions that Amazon MSK supports.
 | [3.5.1](https://archive.apache.org/dist/kafka/3.5.1/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/3.5.1/RELEASE_NOTES.html")         | 2023-09-26       | 2025-10-23          |
 | [3.6.0](https://archive.apache.org/dist/kafka/3.6.0/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/3.6.0/RELEASE_NOTES.html")         | 2023-11-16       | 2026-06-01          |
 | [3.7.x](https://archive.apache.org/dist/kafka/3.7.0/RELEASE_NOTES.html "https://archive.apache.org/dist/kafka/3.7.0/RELEASE_NOTES.html")         | 2024-05-29       | --                  |
-| [3.8.x](https://downloads.apache.org/kafka/3.8.0/RELEASE_NOTES.html "https://downloads.apache.org/kafka/3.8.0/RELEASE_NOTES.html") (Recommended) | 2025-02-20       | --                  |
-| [3.9.x](https://downloads.apache.org/kafka/3.9.0/RELEASE_NOTES.html "https://downloads.apache.org/kafka/3.9.0/RELEASE_NOTES.html")               | 2025-04-21       | --                  |
+| [3.8.x](https://downloads.apache.org/kafka/3.8.0/RELEASE_NOTES.html "https://downloads.apache.org/kafka/3.8.0/RELEASE_NOTES.html")               | 2025-02-20       | --                  |
+| [3.9.x](https://downloads.apache.org/kafka/3.9.0/RELEASE_NOTES.html "https://downloads.apache.org/kafka/3.9.0/RELEASE_NOTES.html") (Recommended) | 2025-04-21       | --                  |
 | [4.0.x](https://downloads.apache.org/kafka/4.0.0/RELEASE_NOTES.html "https://downloads.apache.org/kafka/4.0.0/RELEASE_NOTES.html")               | 2025-05-16       | --                  |
 | [4.1.x](https://downloads.apache.org/kafka/4.1.0/RELEASE_NOTES.html "https://downloads.apache.org/kafka/4.1.0/RELEASE_NOTES.html")               | 2025-10-15       | --                  |
 
@@ -54,7 +54,7 @@ Amazon Managed Streaming for Apache Kafka (Amazon MSK) now supports Apache Kafka
 
 For more details and a complete list of improvements and bug fixes, see the [Apache Kafka release notes for version 4.0](https://downloads.apache.org/kafka/4.0.0/RELEASE_NOTES.html "https://downloads.apache.org/kafka/4.0.0/RELEASE_NOTES.html").
 
-## Amazon MSK version 3.9.x
+## Amazon MSK version 3.9.x (Recommended)
 
 Amazon Managed Streaming for Apache Kafka (Amazon MSK) now supports Apache Kafka version 3.9. This version enhances tiered storage functionality by letting you retain tiered data when you disable tiered storage at the topic level. Your consumer applications can read historical data from the remote log start offset (Rx) while maintaining continuous log offsets across local and remote storage.
 
@@ -62,15 +62,13 @@ Version 3.9 is the last version to support both ZooKeeper and KRaft metadata man
 
 For more details and a complete list of improvements and bug fixes, see the [Apache Kafka release notes for version 3.9.x](https://downloads.apache.org/kafka/3.9.0/RELEASE_NOTES.html "https://downloads.apache.org/kafka/3.9.0/RELEASE_NOTES.html").
 
-## Amazon MSK version 3.8.x (Recommended)
+## Amazon MSK version 3.8.x
 
 Amazon Managed Streaming for Apache Kafka (Amazon MSK) now supports Apache Kafka version 3.8. You can now create new clusters using version 3.8 with either KRAFT or ZooKeeper mode for metadata management or upgrade your existing ZooKeeper based clusters to use version 3.8. Apache Kafka version 3.8 includes several bug fixes and new features that improve performance. Key new features include support for compression level configuration. This allows you to further optimize your performance when using compression types such as lz4, zstd and gzip, by allowing you to change the default compression level.
 
 For more details and a complete list of improvements and bug fixes, see the [Apache Kafka release notes for version 3.8.x](https://downloads.apache.org/kafka/3.8.0/RELEASE_NOTES.html "https://downloads.apache.org/kafka/3.8.0/RELEASE_NOTES.html").
 
-## Apache Kafka version 3.7.x (with production-ready
-
-tiered storage)
+## Apache Kafka version 3.7.x (with production-ready tiered storage)
 
 Apache Kafka version 3.7.x on MSK includes support for Apache Kafka version 3.7.0.
 You can create clusters or upgrade existing clusters to use the new 3.7.x version.
@@ -217,8 +215,7 @@ implementation of rack awareness provided by Apache Kafka.
 
 When you use this version of Apache Kafka, the metrics in the
 `PER_TOPIC_PER_BROKER` monitoring level appear only after their values
-become nonzero for the first time. For more information about this, see [PER_TOPIC_PER_BROKER Level
-monitoring](metrics-details.md#broker-topic-metrics "metrics-details.md#broker-topic-metrics").
+become nonzero for the first time. For more information about this, see [PER_TOPIC_PER_BROKER Level monitoring](metrics-details.md#broker-topic-metrics "metrics-details.md#broker-topic-metrics").
 
 For information about how to find Availability Zone IDs, see [AZ IDs for Your Resource](../../../ram/latest/userguide/working-with-az-ids.md "../../../ram/latest/userguide/working-with-az-ids.md") in the AWS Resource Access Manager user
 guide.

@@ -5,5 +5,4 @@ Apache Kafka has hundreds of broker configurations that you can use to tune the 
 ###### Topics
 
 - [Custom MSK Express broker configurations (Read/Write access)](msk-configuration-express-read-write.md "msk-configuration-express-read-write.md")
-- [Express brokers read-only
-  configurations](msk-configuration-express-read-only.md "msk-configuration-express-read-only.md")
+- [Express brokers read-only configurations](msk-configuration-express-read-only.md "msk-configuration-express-read-only.md")

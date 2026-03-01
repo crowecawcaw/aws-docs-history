@@ -1,6 +1,4 @@
-# Supported worker configuration
-
-properties
+# Supported worker configuration properties
 
 MSK Connect provides a default worker configuration. You also have the option to
 create a custom worker configuration to use with your connectors. The following list

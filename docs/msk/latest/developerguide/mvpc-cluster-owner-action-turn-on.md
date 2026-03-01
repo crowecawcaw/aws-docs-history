@@ -1,7 +1,4 @@
-# Step 1: On the MSK cluster in
-
-Account A, turn on multi-VPC connectivity for IAM auth scheme on the
-cluster
+# Step 1: On the MSK cluster in Account A, turn on multi-VPC connectivity for IAM auth scheme on the cluster
 
 The MSK cluster owner needs to make configuration settings on the MSK
 cluster after the cluster is created and in an ACTIVE state.

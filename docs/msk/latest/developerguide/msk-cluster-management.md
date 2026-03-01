@@ -18,8 +18,7 @@ An Amazon MSK cluster is the primary Amazon MSK resource that you can create in 
 - [Create an MSK Provisioned cluster](msk-create-cluster.md "msk-create-cluster.md")
 - [List Amazon MSK clusters](msk-list-clusters.md "msk-list-clusters.md")
 - [Connect to an Amazon MSK Provisioned cluster](client-access.md "client-access.md")
-- [Get the bootstrap brokers for an
-  Amazon MSK cluster](msk-get-bootstrap-brokers.md "msk-get-bootstrap-brokers.md")
+- [Get the bootstrap brokers for an Amazon MSK cluster](msk-get-bootstrap-brokers.md "msk-get-bootstrap-brokers.md")
 - [Monitor an Amazon MSK Provisioned cluster](monitoring.md "monitoring.md")
 - [Update security settings of a Amazon MSK cluster](msk-update-security.md "msk-update-security.md")
 - [Expand the number of brokers in an Amazon MSK cluster](msk-update-broker-count.md "msk-update-broker-count.md")

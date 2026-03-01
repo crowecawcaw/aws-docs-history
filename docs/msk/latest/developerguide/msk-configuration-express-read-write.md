@@ -5,8 +5,7 @@ You can update read/write broker configurations either by using Amazon MSK’s [
 ###### Topics
 
 - [Static configurations on MSK Express brokers](#msk-configuration-express-static-configuration "#msk-configuration-express-static-configuration")
-- [Dynamic
-  configurations on Express Brokers](#msk-configuration-express-dynamic-configuration "#msk-configuration-express-dynamic-configuration")
+- [Dynamic configurations on Express Brokers](#msk-configuration-express-dynamic-configuration "#msk-configuration-express-dynamic-configuration")
 - [Topic-level configurations on Express Brokers](#msk-configuration-express-topic-configuration "#msk-configuration-express-topic-configuration")
 
 ## Static configurations on MSK Express brokers
@@ -42,9 +41,7 @@ You can use Amazon MSK to create a custom MSK configuration file to set the foll
 | transaction.max.timeout.ms                | Maximum timeout for transactions. If the requested<br>transaction time of a client exceeds this value, the broker<br>returns an error in InitProducerIdRequest. This prevents a<br>client from too large of a timeout, and this can stall<br>consumers that read from topics included in the<br>transaction.                                                                                                                                                                                                                                                                         | Apache Kafka Default                                             |
 | transactional.id.expiration.ms            | The time in milliseconds that the transaction coordinator<br>waits to receive any transaction status updates for the<br>current transaction before the coordinator expires its<br>transactional ID. This setting also influences producer ID<br>expiration because it causes producer IDs to expire when<br>this time elapses after the last write with the given<br>producer ID. Producer IDs might expire sooner if the last<br>write from the producer ID is deleted because of the<br>retention settings for the topic. The minimum value for this<br>property is 1 millisecond. | Apache Kafka Default                                             |
 
-## Dynamic
-
-configurations on Express Brokers
+## Dynamic configurations on Express Brokers
 
 You can use Apache Kafka AlterConfig API or the Kafka-configs.sh tool to edit
 the following dynamic configurations. Amazon MSK sets and manages all other

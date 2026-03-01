@@ -1,6 +1,4 @@
-# Set up SASL/SCRAM authentication for an Amazon MSK
-
-cluster
+# Set up SASL/SCRAM authentication for an Amazon MSK cluster
 
 To set up a secret in AWS Secrets Manager, follow the [Creating and Retrieving a Secret](../../../secretsmanager/latest/userguide/tutorials_basic.md "../../../secretsmanager/latest/userguide/tutorials_basic.md")
 tutorial in the [AWS Secrets Manager User Guide](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md").
@@ -32,8 +30,7 @@ the default AWS KMS key cannot be used with an Amazon MSK cluster.
 - ###### Important
 
 You can't associate a Secrets Manager secret with a cluster that exceeds the limits
-described in [Right-size your cluster: Number of
-partitions per Standard broker](bestpractices.md#partitions-per-broker "bestpractices.md#partitions-per-broker").
+described in [Right-size your cluster: Number of partitions per Standard broker](bestpractices.md#partitions-per-broker "bestpractices.md#partitions-per-broker").
 
 - If you use the AWS CLI to create the secret, specify a key ID or ARN for the
   `kms-key-id` parameter. Don't specify an alias.

@@ -1,6 +1,4 @@
-# Create a client machine to access MSK
-
-Serverless cluster
+# Create a client machine to access MSK Serverless cluster
 
 In the step, you perform two tasks. The first task is to create an Amazon EC2 instance to
 use as an Apache Kafka client machine. The second task is to install Java and Apache
@@ -33,8 +31,7 @@ Kafka tools on the machine.
     rule, members of the same security group can communicate with each other. For
     more information, see [Security group rules](../../../vpc/latest/userguide/VPC_SecurityGroups.md#SecurityGroupRules "../../../vpc/latest/userguide/VPC_SecurityGroups.md#SecurityGroupRules") in the Amazon VPC Developer Guide.
 11. Expand the **Advanced details** section and choose the IAM
-    role that you created in [Create an IAM role for topics on MSK Serverless
-    cluster](create-iam-role.md "create-iam-role.md").
+    role that you created in [Create an IAM role for topics on MSK Serverless cluster](create-iam-role.md "create-iam-role.md").
 12. Choose **Launch**.
 13. In the left navigation pane, choose **Instances**. Then
     choose the check box in the row that represents your newly created Amazon EC2

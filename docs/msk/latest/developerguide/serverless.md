@@ -39,4 +39,5 @@ and monitoring options for serverless clusters, see the following.
 
 - [Use MSK Serverless clusters](serverless-getting-started.md "serverless-getting-started.md")
 - [Configuration properties for MSK Serverless clusters](serverless-config.md "serverless-config.md")
+- [Configure dual-stack network type](serverless-config-dual-stack.md "serverless-config-dual-stack.md")
 - [Monitor MSK Serverless clusters](serverless-monitoring.md "serverless-monitoring.md")

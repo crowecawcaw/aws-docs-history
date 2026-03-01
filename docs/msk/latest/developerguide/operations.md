@@ -13,8 +13,7 @@ these functionalities in detail.
 
 - [Amazon MSK broker types](broker-instance-types.md "broker-instance-types.md")
 - [Amazon MSK broker sizes](broker-instance-sizes.md "broker-instance-sizes.md")
-- [Storage management for
-  Standard brokers](msk-storage-management.md "msk-storage-management.md")
+- [Storage management for Standard brokers](msk-storage-management.md "msk-storage-management.md")
 - [Amazon MSK Provisioned configuration](msk-configuration.md "msk-configuration.md")
 - [Intelligent rebalancing for clusters](intelligent-rebalancing.md "intelligent-rebalancing.md")
 - [Patching on MSK Provisioned clusters](patching-impact.md "patching-impact.md")

@@ -27,9 +27,7 @@ Before you start the broker removal process, first move all partitions, except o
 
 You can use Kafka admin APIs or Cruise Control to move partitions to other brokers that you intend to retain in the cluster. See [Reassign partitions](bestpractices.md#bestpractices-balance-cluster "bestpractices.md#bestpractices-balance-cluster").
 
-### Example process to remove
-
-partitions
+### Example process to remove partitions
 
 This section is an example of how to remove partitions from the broker you
 intend to remove. Assume you have a cluster with 6 brokers, 2 brokers in each

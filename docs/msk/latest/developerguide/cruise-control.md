@@ -12,8 +12,7 @@ If [intelligent rebalancing](intelligent-rebalancing.md "intelligent-rebalancing
 1. Create an Amazon EC2 instance in the same Amazon VPC as the Amazon MSK cluster.
 2. Install Prometheus on the Amazon EC2 instance that you created in the previous step. Note the
    private IP and the port. The default port number is 9090. For information on how to
-   configure Prometheus to aggregate metrics for your cluster, see [Monitor an MSK Provisioned cluster with
-   Prometheus](open-monitoring.md "open-monitoring.md").
+   configure Prometheus to aggregate metrics for your cluster, see [Monitor an MSK Provisioned cluster with Prometheus](open-monitoring.md "open-monitoring.md").
 3. Download [Cruise
    Control](https://github.com/linkedin/cruise-control/releases "https://github.com/linkedin/cruise-control/releases") on the Amazon EC2 instance. (Alternatively, you can use a separate
    Amazon EC2 instance for Cruise Control if you prefer.) For a cluster that has Apache
@@ -134,9 +133,7 @@ Express broker config/capacityCores.json
 
 Only Cruise Control versions 2.5.60 and above are compatible with Express brokers as Express brokers do not expose Zookeeper endpoints.
 
-## Use automated deployment template of Cruise Control
-
-for Amazon MSK
+## Use automated deployment template of Cruise Control for Amazon MSK
 
 You can also use this [CloudFormation template](https://github.com/aws-samples/cruise-control-for-msk "https://github.com/aws-samples/cruise-control-for-msk"), to easily deploy Cruise Control and Prometheus to gain deeper insights into your Amazon MSK cluster's performance and optimize resource utilization.
 

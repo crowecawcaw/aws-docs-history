@@ -1,15 +1,26 @@
 # Step 4: Create a topic in the Amazon MSK cluster
 
-In this step of [Getting Started Using Amazon MSK](getting-started.md "getting-started.md"), you install Apache Kafka client libraries and tools on the client machine, and then you create a topic.
+In this step of [Getting Started Using Amazon MSK](getting-started.md "getting-started.md"), you can create a topic using one of two approaches: using native AWS tools with the CreateTopic API, or using Apache Kafka AdminClient tools on a client machine.
 
 ###### Warning
 
-Apache Kafka version numbers used in this tutorial are examples only. We recommend that you use the same version of the client as your MSK cluster version. An older client version might be missing certain features and critical bug fixes.
+When using AWS tools with the CreateTopic API, verify that your cluster meets the requirements. For details, see [Requirements for using topic APIs](msk-topic-operations-information.md#topic-operations-requirements "msk-topic-operations-information.md#topic-operations-requirements").
+
+###### Warning
+
+When using the AdminClient approach, Apache Kafka version numbers used in this tutorial are examples only. We recommend that you use the same version of the client as your MSK cluster version. An older client version might be missing certain features and critical bug fixes.
 
 ###### Topics
 
+- [Creating a topic using AWS tools](#create-topic-aws-tools "#create-topic-aws-tools")
 - [Determining your MSK cluster version](#find-msk-cluster-version "#find-msk-cluster-version")
 - [Creating a topic on the client machine](#create-topic-client-machine "#create-topic-client-machine")
+
+## Creating a topic using AWS tools
+
+You can create topics in your MSK cluster using AWS tools such as the AWS CLI, AWS SDKs, or the AWS Management Console. This approach provides a streamlined way to manage topics without requiring direct access to Kafka client tools.
+
+For detailed information about creating topics using the AWS tools, see the [CreateTopic API developer guide](msk-create-topic.md "msk-create-topic.md").
 
 ## Determining your MSK cluster version
 

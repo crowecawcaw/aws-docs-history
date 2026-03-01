@@ -1,6 +1,4 @@
-# Perform a planned failover to the
-
-secondary AWS Region
+# Perform a planned failover to the secondary AWS Region
 
 You can conduct a planned failover to test the resiliency of your application against an unexpected event in your primary AWS region which has your source MSK cluster. A planned failover should not result in data loss.
 

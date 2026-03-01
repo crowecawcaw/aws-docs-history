@@ -20,8 +20,7 @@ You must create a destination resource before you configure your cluster to deli
 ### Required permissions
 
 To configure a destination for Amazon MSK broker logs, the IAM identity that you use
-for Amazon MSK actions must have the permissions described in the [AWS managed policy:
-AmazonMSKFullAccess](security-iam-awsmanpol-AmazonMSKFullAccess.md "security-iam-awsmanpol-AmazonMSKFullAccess.md") policy.
+for Amazon MSK actions must have the permissions described in the [AWS managed policy: AmazonMSKFullAccess](security-iam-awsmanpol-AmazonMSKFullAccess.md "security-iam-awsmanpol-AmazonMSKFullAccess.md") policy.
 
 To stream broker logs to an S3 bucket, you also need the
 `s3:PutBucketPolicy` permission. For information about S3 bucket

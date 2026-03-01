@@ -44,19 +44,25 @@ schema.compatibility=NONE
 9. Next, you configure your connector capacity. You can choose between two
    capacity modes: provisioned and auto scaled. For information about these two
    options, see [Understand connector capacity](msk-connect-capacity.md "msk-connect-capacity.md").
-10. Choose either the default worker configuration or a custom worker
+10. (Optional) In the **Maximum Autoscaling Task Count** section,
+    use the Maximum Autoscaling Task Count field to enter the
+    maximum number of tasks you want to allocate to the connector during autoscaling
+    operations. The value must be at least equal to your maximum worker count. If
+    you don't specify a value, the connector uses the standard calculation without
+    any limit. For more information, see [Understand maximum autoscaling task count](msk-connect-max-autoscaling-task-count.md "msk-connect-max-autoscaling-task-count.md").
+11. Choose either the default worker configuration or a custom worker
     configuration. For information about creating custom worker configurations, see
     [Understand MSK Connect workers](msk-connect-workers.md "msk-connect-workers.md").
-11. Next, you specify the service execution role. This must be an IAM role that
+12. Next, you specify the service execution role. This must be an IAM role that
     MSK Connect can assume, and that grants the connector all the permissions that
     it needs to access the necessary AWS resources. Those permissions depend on
     the logic of the connector. For information about how to create this role, see
     [Understand service execution role](msk-connect-service-execution-role.md "msk-connect-service-execution-role.md").
-12. Choose **Next**, review the security information, then
+13. Choose **Next**, review the security information, then
     choose **Next** again.
-13. Specify the logging options that you want, then choose
+14. Specify the logging options that you want, then choose
     **Next**. For information about logging, see [Logging for MSK Connect](msk-connect-logging.md "msk-connect-logging.md").
-14. On the **Review and create** page, review your connector configuration and choose **Create connector**.
+15. On the **Review and create** page, review your connector configuration and choose **Create connector**.
     To use the MSK Connect API to create a connector, see [CreateConnector](../../../MSKC/latest/mskc/API_CreateConnector.md "../../../MSKC/latest/mskc/API_CreateConnector.md").
 
 You can use `UpdateConnector` API to modify the connector's configuration.

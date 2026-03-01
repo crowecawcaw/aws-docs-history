@@ -1,6 +1,4 @@
-# Configure a VPC DHCP option set for your
-
-connector
+# Configure a VPC DHCP option set for your connector
 
 Connectors automatically use the DNS servers defined in their VPC DHCP option set when the connector is created. Before you create a connector, make sure that you configure the VPC DHCP option set for your connector's DNS hostname resolution requirements.
 

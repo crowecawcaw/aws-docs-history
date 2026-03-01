@@ -1,6 +1,4 @@
-# Set up a Prometheus host on an Amazon EC2
-
-instance
+# Set up a Prometheus host on an Amazon EC2 instance
 
 This procedure describes how to set up a Prometheus host using a prometheus.yml file.
 

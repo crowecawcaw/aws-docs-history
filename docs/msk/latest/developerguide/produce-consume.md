@@ -26,5 +26,4 @@ You should start seeing the messages you entered earlier when you used the conso
 consumer window.
 **Next Step**
 
-[Step 6: Use Amazon CloudWatch to view Amazon MSK
-metrics](view-metrics.md "view-metrics.md")
+[Step 6: Use Amazon CloudWatch to view Amazon MSK metrics](view-metrics.md "view-metrics.md")

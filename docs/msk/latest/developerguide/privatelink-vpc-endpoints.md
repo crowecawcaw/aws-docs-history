@@ -74,28 +74,26 @@ MSK Connect — VPC endpoint policy example###### List connectors and create a n
 
 The following is an example of an endpoint policy for MSK Connect. This policy allows the specified role to list connectors and create a new connector.
 
-JSONJSON
-
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "MSKConnectPermissions",
- "Effect": "Allow",
- "Action": [
- "kafkaconnect:ListConnectors",
- "kafkaconnect:CreateConnector"
- ],
- "Resource": "*",
- "Principal": {
- "AWS": [
- "arn:aws:iam::111122223333:role/<ExampleRole>"
- ]
- }
- }
- ]
-}`
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "MSKConnectPermissions",
+            "Effect": "Allow",
+            "Action": [
+                "kafkaconnect:ListConnectors",
+                "kafkaconnect:CreateConnector"
+            ],
+            "Resource": "*",
+            "Principal": {
+                "AWS": [
+                    "arn:aws:iam::`111122223333`:role/`MyMSKConnectExecutionRole`"
+                ]
+            }
+        }
+    ]
+}
 
 ```
 

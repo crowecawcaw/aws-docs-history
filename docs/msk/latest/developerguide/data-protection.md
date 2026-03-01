@@ -32,6 +32,5 @@ credentials and set up individual users with AWS IAM Identity Center or AWS Iden
 ###### Topics
 
 - [Amazon MSK encryption](msk-encryption.md "msk-encryption.md")
-- [Get started with Amazon MSK
-  encryption](msk-working-with-encryption.md "msk-working-with-encryption.md")
+- [Get started with Amazon MSK encryption](msk-working-with-encryption.md "msk-working-with-encryption.md")
 - [Use Amazon MSK APIs with Interface VPC Endpoints](privatelink-vpc-endpoints.md "privatelink-vpc-endpoints.md")

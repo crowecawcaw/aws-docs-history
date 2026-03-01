@@ -4,8 +4,7 @@
 
 Amazon MSK Connect does not support using the [Service-linked role](mkc-using-service-linked-roles.md "mkc-using-service-linked-roles.md") as the service execution role. You must create a separate service execution role. For instructions on how to create a custom IAM role, see [Creating a role to delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the _IAM User Guide_.
 
-When you create a connector with MSK Connect, you're required to specify an AWS Identity and Access Management (IAM) role to use with it. Your service execution role must have the following trust policy so that MSK Connect can assume it. For information about the condition context keys in this policy, see [Prevent cross-service confused
-deputy problem](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md").
+When you create a connector with MSK Connect, you're required to specify an AWS Identity and Access Management (IAM) role to use with it. Your service execution role must have the following trust policy so that MSK Connect can assume it. For information about the condition context keys in this policy, see [Prevent cross-service confused deputy problem](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md").
 
 JSON
 

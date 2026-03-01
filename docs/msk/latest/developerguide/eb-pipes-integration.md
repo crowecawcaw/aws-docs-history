@@ -1,6 +1,4 @@
-# Access Amazon EventBridge Pipes through the Amazon MSK
-
-console
+# Access Amazon EventBridge Pipes through the Amazon MSK console
 
 Amazon EventBridge Pipes connects sources to targets. Pipes are intended for point-to-point
 integrations between supported sources and targets, with support for advanced transformations and

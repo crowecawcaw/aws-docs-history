@@ -1,12 +1,8 @@
-# Considerations for creating an Amazon MSK
-
-Replicator
+# Considerations for creating an Amazon MSK Replicator
 
 The following sections give an overview of the prerequisites, supported configurations, and best practices for using the MSK Replicator feature. It covers the necessary permissions, cluster compatibility, and Serverless-specific requirements, as well as guidance on managing the Replicator after creation.
 
-## IAM
-
-permissions required to create an MSK Replicator
+## IAM permissions required to create an MSK Replicator
 
 Here is an example of the IAM policy required to create an MSK Replicator. The
 action `kafka:TagResource` is only needed if tags are provided when

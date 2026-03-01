@@ -1,6 +1,4 @@
-# AWS managed policy:
-
-AmazonMSKReadOnlyAccess
+# AWS managed policy: AmazonMSKReadOnlyAccess
 
 This policy grants read-only permissions that allow users to view information in Amazon MSK.
 Principals with this policy attached can't make any updates or delete exiting resources,

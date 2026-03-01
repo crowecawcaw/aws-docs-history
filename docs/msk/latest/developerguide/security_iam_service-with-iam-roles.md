@@ -1,13 +1,9 @@
-# Amazon MSK IAM
-
-roles
+# Amazon MSK IAM roles
 
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within
 your Amazon Web Services account that has specific permissions.
 
-## Using temporary
-
-credentials with Amazon MSK
+## Using temporary credentials with Amazon MSK
 
 You can use temporary credentials to sign in with federation, assume an IAM
 role, or to assume a cross-account role. You obtain temporary security
@@ -23,5 +19,4 @@ in your IAM account and are owned by the service. An administrator can
 view but not edit the permissions for service-linked roles.
 
 Amazon MSK supports service-linked roles. For details about creating or
-managing Amazon MSK service-linked roles, [Service-linked roles for
-Amazon MSK](using-service-linked-roles.md "using-service-linked-roles.md").
+managing Amazon MSK service-linked roles, [Service-linked roles for Amazon MSK](using-service-linked-roles.md "using-service-linked-roles.md").

@@ -1,14 +1,10 @@
-# Enable and disable
-
-tiered storage on an existing Amazon MSK topic
+# Enable and disable tiered storage on an existing Amazon MSK topic
 
 These sections cover how to enable and disable tiered storage on a topic that
 you've already created. To create a new cluster and topic with tiered storage
 enabled, see [Creating a cluster with tiered storage using the AWS Management Console](msk-create-cluster-tiered-storage-console.md "msk-create-cluster-tiered-storage-console.md").
 
-## Enabling tiered storage on
-
-an existing Amazon MSK topic
+## Enabling tiered storage on an existing Amazon MSK topic
 
 To enable tiered storage on an existing topic, use the `alter`
 command syntax in the following example. When you enable tiered storage on an
@@ -19,9 +15,7 @@ version.
 bin/kafka-configs.sh --bootstrap-server $bsrv --alter --entity-type topics --entity-name msk-ts-topic --add-config 'remote.storage.enable=true, local.retention.ms=604800000, retention.ms=15550000000'
 ```
 
-## Disable tiered storage
-
-on an existing Amazon MSK topic
+## Disable tiered storage on an existing Amazon MSK topic
 
 To disable tiered storage on an existing topic, use the `alter`
 command syntax in the same order as when you enable tiered storage.

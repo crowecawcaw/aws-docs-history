@@ -18,8 +18,7 @@ position, or topic name replication configuration once the MSK Replicator has be
 
    ###### Note
 
-   MSK Replicator does not replicate write ACLs since your producers should not be writing directly to the replicated topic in the target cluster. Your producers should write to the local topic in the target cluster after failover. See [Perform a planned failover to the
-   secondary AWS Region](msk-replicator-perform-planned-failover.md "msk-replicator-perform-planned-failover.md") for details.
+   MSK Replicator does not replicate write ACLs since your producers should not be writing directly to the replicated topic in the target cluster. Your producers should write to the local topic in the target cluster after failover. See [Perform a planned failover to the secondary AWS Region](msk-replicator-perform-planned-failover.md "msk-replicator-perform-planned-failover.md") for details.
    - For **Consumer group replication**, you can specify the consumer groups you want to replicate using regular expressions in the allow and deny lists. By default, all consumer groups are replicated. If allow and deny lists are empty, consumer group replication is turned off.
    - Under **Target compression type**, you can choose whether to compress the data written to the target cluster. If you’re going to use compression, we recommend that you use the same compression method as the data in your source cluster.
 

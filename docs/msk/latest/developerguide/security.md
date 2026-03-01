@@ -22,11 +22,9 @@ _of_ the cloud and security _in_ the cloud:
 ###### Topics
 
 - [Data protection in Amazon Managed Streaming for Apache Kafka](data-protection.md "data-protection.md")
-- [Authentication and authorization for Amazon MSK
-  APIs](security-iam.md "security-iam.md")
+- [Authentication and authorization for Amazon MSK APIs](security-iam.md "security-iam.md")
 - [Authentication and authorization for Apache Kafka APIs](kafka_apis_iam.md "kafka_apis_iam.md")
-- [Changing an Amazon MSK cluster's security
-  group](change-security-group.md "change-security-group.md")
+- [Changing an Amazon MSK cluster's security group](change-security-group.md "change-security-group.md")
 - [Control access to Apache ZooKeeper nodes in your Amazon MSK cluster](zookeeper-security.md "zookeeper-security.md")
 - [Compliance validation for Amazon Managed Streaming for Apache Kafka](MSK-compliance.md "MSK-compliance.md")
 - [Resilience in Amazon Managed Streaming for Apache Kafka](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")

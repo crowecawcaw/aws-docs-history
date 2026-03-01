@@ -1,6 +1,4 @@
-# Enable open monitoring on
-
-existing MSK Provisioned cluster
+# Enable open monitoring on existing MSK Provisioned cluster
 
 To enable open monitoring, make sure that the MSK Provisioned cluster is in the
 `ACTIVE` state.

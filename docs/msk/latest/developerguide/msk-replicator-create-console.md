@@ -1,6 +1,4 @@
-# Create replicator using the
-
-AWS console in the target cluster Region
+# Create replicator using the AWS console in the target cluster Region
 
 The following section explains the step-wise console workflow for creating a
 replicator.
@@ -15,9 +13,7 @@ replicator.
 4. In the **Replicator details** pane, give the new
    replicator a unique name.
 
-## Choose your
-
-source cluster
+## Choose your source cluster
 
 The source cluster contains the data you want to copy to a target MSK
 cluster.
@@ -80,9 +76,7 @@ Alternately, if you do not want to restrict traffic using your security groups, 
 
 3. In the Source column, type `0.0.0.0/0`, and then select **Save rules**.
 
-## Choose your
-
-target cluster
+## Choose your target cluster
 
 The target cluster is the MSK provisioned or serverless cluster to which the source data is copied.
 
@@ -126,8 +120,7 @@ _Amazon VPC User Guide_.
 
 
 
-    ###### To add inbound rules to your target cluster’s security
-     group:
+    ###### To add inbound rules to your target cluster’s security group:
 
 
 
@@ -163,9 +156,7 @@ Alternately, if you do not want to restrict traffic using your security groups, 
 
 3. In the Source column, type `0.0.0.0/0`, and then select **Save rules**.
 
-## Configure replicator settings
-
-and permissions
+## Configure replicator settings and permissions
 
 1. In the **Replicator settings** pane, specify the
    topics you want to replicate using regular expressions in the allow and
@@ -206,8 +197,7 @@ section.
 MSK Replicator does not replicate write ACLs since your producers
 should not be writing directly to the replicated topic in the target
 cluster. Your producers should write to the local topic in the
-target cluster after failover. See [Perform a planned failover to the
-secondary AWS Region](msk-replicator-perform-planned-failover.md "msk-replicator-perform-planned-failover.md") for
+target cluster after failover. See [Perform a planned failover to the secondary AWS Region](msk-replicator-perform-planned-failover.md "msk-replicator-perform-planned-failover.md") for
 details. 5. In the **Consumer group replication** pane, specify
 the consumer groups you want to replicate using regular expressions in
 the allow and deny lists. By default, all consumer groups are

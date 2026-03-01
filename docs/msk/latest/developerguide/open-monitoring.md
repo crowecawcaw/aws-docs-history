@@ -1,6 +1,4 @@
-# Monitor an MSK Provisioned cluster with
-
-Prometheus
+# Monitor an MSK Provisioned cluster with Prometheus
 
 You can monitor your MSK Provisioned cluster with Prometheus, an open-source
 monitoring system for time-series metric data. You can publish this data to Amazon

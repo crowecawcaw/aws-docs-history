@@ -1,6 +1,4 @@
-# Prevent cross-service confused
-
-deputy problem
+# Prevent cross-service confused deputy problem
 
 The confused deputy problem is a security issue where an entity that doesn't have
 permission to perform an action can coerce a more-privileged entity to perform the action.

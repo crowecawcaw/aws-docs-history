@@ -144,9 +144,7 @@ JSON
 
 ```
 
-## MSK Connect updates to AWS managed
-
-policies
+## MSK Connect updates to AWS managed policies
 
 View details about updates to AWS managed policies for MSK Connect since this service
 began tracking these changes.

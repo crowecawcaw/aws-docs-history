@@ -1,6 +1,4 @@
-# Set up automatic scaling using the Amazon MSK
-
-AWS Management Console
+# Set up automatic scaling using the Amazon MSK AWS Management Console
 
 This process describes how to use the Amazon MSK console to implement automatic scaling for storage.
 

@@ -1,6 +1,4 @@
-# Produce and consume data in MSK
-
-Serverless
+# Produce and consume data in MSK Serverless
 
 In this step, you produce and consume data using the topic that you created in the
 previous step.
@@ -38,5 +36,4 @@ java -cp "kafka_2.12-2.8.1/libs/*:kafka_2.12-2.8.1/libs/aws-msk-iam-auth-2.3.0-a
 
 **Next Step**
 
-[Delete resources that you created for MSK
-Serverless](delete-resources.md "delete-resources.md")
+[Delete resources that you created for MSK Serverless](delete-resources.md "delete-resources.md")

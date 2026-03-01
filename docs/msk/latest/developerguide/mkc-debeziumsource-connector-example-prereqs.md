@@ -1,14 +1,11 @@
-# Complete prerequisites to use
-
-Debezium source connector
+# Complete prerequisites to use Debezium source connector
 
 Your connector must be able to access the internet so that it can interact with services such as AWS Secrets Manager that are
 outside of your Amazon Virtual Private Cloud. The steps in this section help you complete the following tasks to enable internet access.
 
 - Set up a public subnet that hosts a NAT gateway and routes traffic to an internet gateway in your VPC.
 - Create a default route that directs your private subnet traffic to your NAT gateway.
-  For more information, see [Enable internet access for Amazon MSK
-  Connect](msk-connect-internet-access.md "msk-connect-internet-access.md").
+  For more information, see [Enable internet access for Amazon MSK Connect](msk-connect-internet-access.md "msk-connect-internet-access.md").
 
 **Prerequisites**
 

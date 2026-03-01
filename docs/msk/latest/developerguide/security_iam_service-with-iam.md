@@ -7,10 +7,7 @@ That Work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-wo
 
 ###### Topics
 
-- [Amazon MSK
-  identity-based policies](security_iam_service-with-iam-id-based-policies.md "security_iam_service-with-iam-id-based-policies.md")
+- [Amazon MSK identity-based policies](security_iam_service-with-iam-id-based-policies.md "security_iam_service-with-iam-id-based-policies.md")
 - [Amazon MSK resource-based policies](security_iam_service-with-iam-resource-based-policies.md "security_iam_service-with-iam-resource-based-policies.md")
-- [Authorization based on
-  Amazon MSK tags](security_iam_service-with-iam-tags.md "security_iam_service-with-iam-tags.md")
-- [Amazon MSK IAM
-  roles](security_iam_service-with-iam-roles.md "security_iam_service-with-iam-roles.md")
+- [Authorization based on Amazon MSK tags](security_iam_service-with-iam-tags.md "security_iam_service-with-iam-tags.md")
+- [Amazon MSK IAM roles](security_iam_service-with-iam-roles.md "security_iam_service-with-iam-roles.md")

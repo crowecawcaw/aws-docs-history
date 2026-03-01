@@ -1,6 +1,4 @@
-# Express brokers read-only
-
-configurations
+# Express brokers read-only configurations
 
 Amazon MSK sets the values for these configurations and protects them from change that
 may affect the availability of your cluster. These values may change depending on the Apache Kafka version running on the

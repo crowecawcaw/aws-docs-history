@@ -11,7 +11,6 @@ create the policy while Amazon MSK service creates your cluster.
 
 ###### Topics
 
-- [Set up automatic scaling using the Amazon MSK
-  AWS Management Console](msk-autoexpand-setup-console.md "msk-autoexpand-setup-console.md")
+- [Set up automatic scaling using the Amazon MSK AWS Management Console](msk-autoexpand-setup-console.md "msk-autoexpand-setup-console.md")
 - [Set up automatic scaling using the CLI](msk-autoexpand-setup-cli.md "msk-autoexpand-setup-cli.md")
 - [Set up automatic-scaling for Amazon MSK using the API](msk-autoexpand-setup-api.md "msk-autoexpand-setup-api.md")

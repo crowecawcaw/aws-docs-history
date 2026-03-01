@@ -12,5 +12,4 @@ Express brokers.
 
 - [Standard broker configurations](msk-configuration-standard.md "msk-configuration-standard.md")
 - [Express broker configurations](msk-configuration-express.md "msk-configuration-express.md")
-- [Broker configuration
-  operations](msk-configuration-operations.md "msk-configuration-operations.md")
+- [Broker configuration operations](msk-configuration-operations.md "msk-configuration-operations.md")

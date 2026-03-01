@@ -1,6 +1,4 @@
-# Accessing
-
-Amazon MSK clusters based on tags
+# Accessing Amazon MSK clusters based on tags
 
 You can use conditions in your identity-based policy to control access to
 Amazon MSK resources based on tags. This example shows how you might create a

@@ -1,6 +1,4 @@
-# Get the bootstrap brokers for an
-
-Amazon MSK cluster
+# Get the bootstrap brokers for an Amazon MSK cluster
 
 The _bootstrap brokers_ refer to the list of brokers that an Apache
 Kafka client can use to connect to an Amazon MSK cluster. This list may not include all the

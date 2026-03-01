@@ -1,6 +1,4 @@
-# Get started with Amazon MSK
-
-encryption
+# Get started with Amazon MSK encryption
 
 When creating an MSK cluster, you can specify encryption settings in JSON format. The following is an example.
 

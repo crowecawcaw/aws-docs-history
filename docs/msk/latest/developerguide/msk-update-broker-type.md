@@ -38,8 +38,7 @@ the update on a test cluster first to see how it affects your scenario.
 ###### Important
 
 You can't update a cluster to a smaller broker size if the number of partitions per broker
-exceeds the maximum number specified in [Right-size your cluster: Number of
-partitions per Standard broker](bestpractices.md#partitions-per-broker "bestpractices.md#partitions-per-broker").
+exceeds the maximum number specified in [Right-size your cluster: Number of partitions per Standard broker](bestpractices.md#partitions-per-broker "bestpractices.md#partitions-per-broker").
 
 ###### Topics
 

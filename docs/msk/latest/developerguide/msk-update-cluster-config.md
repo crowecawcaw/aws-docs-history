@@ -1,7 +1,6 @@
 # Update the configuration of an Amazon MSK cluster
 
-To update the configuration of a cluster, make sure that the cluster is in the `ACTIVE` state. You must also ensure that the number of partitions per broker on your MSK cluster is under the limits described in [Right-size your cluster: Number of
-partitions per Standard broker](bestpractices.md#partitions-per-broker "bestpractices.md#partitions-per-broker"). You can't update the configuration of a cluster that exceeds these limits.
+To update the configuration of a cluster, make sure that the cluster is in the `ACTIVE` state. You must also ensure that the number of partitions per broker on your MSK cluster is under the limits described in [Right-size your cluster: Number of partitions per Standard broker](bestpractices.md#partitions-per-broker "bestpractices.md#partitions-per-broker"). You can't update the configuration of a cluster that exceeds these limits.
 
 For information about MSK configuration, including how to create a custom configuration, which properties you can update, and what happens when you update the configuration of an existing cluster, see [Amazon MSK Provisioned configuration](msk-configuration.md "msk-configuration.md").
 

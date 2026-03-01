@@ -1,13 +1,26 @@
 # Turn on public access to an MSK Provisioned cluster
 
-Amazon MSK gives you the option to turn on public access to the brokers of MSK Provisioned clusters running Apache Kafka 2.6.0 or later versions. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible.
+Amazon MSK gives you the option to turn on public access to the brokers of MSK Provisioned
+clusters running Apache Kafka 2.6.0 or later versions. For security reasons, you can't
+turn on public access while creating an MSK cluster. However, you can update
+an existing cluster to make it publicly accessible. You can also create a new cluster
+and then update it to make it publicly accessible.
 
-You can turn on public access to an MSK cluster at no additional cost, but standard AWS data transfer costs apply for data transfer in and out of the cluster. For information about pricing, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.com/ec2/pricing/on-demand/ "https://aws.amazon.com/ec2/pricing/on-demand/").
+You can turn on public access to an MSK cluster at no additional cost, but
+standard AWS data transfer costs apply for data transfer in and out of the cluster.
+For information about pricing, see [Amazon EC2 On-Demand Pricing](https://aws.amazon.com/ec2/pricing/on-demand/ "https://aws.amazon.com/ec2/pricing/on-demand/").
+
+Amazon MSK Provisioned clusters with dual-stack network type support both IPv4 and IPv6
+connectivity for public access. When public access is enabled on your cluster, the same
+IPv6 bootstrap strings will automatically work for both default and public access
+connectivity. Your existing IPv4 bootstrap strings will continue to work for IPv4
+connectivity. Note that if public access is not enabled on your cluster, the IPv6
+bootstrap strings will not have public access capability. For more information, see
+Configure dual-stack network type for an Amazon MSK cluster.
 
 ###### Note
 
-If you're using the SASL/SCRAM, or mTLS access-control methods, you must first set Apache Kafka ACLs for your cluster. Then, update the cluster's configuration to set the `allow.everyone.if.no.acl.found` property to false. For information about how to update the configuration of a cluster, see [Broker configuration
-operations](msk-configuration-operations.md "msk-configuration-operations.md").
+If you're using the SASL/SCRAM, or mTLS access-control methods, you must first set Apache Kafka ACLs for your cluster. Then, update the cluster's configuration to set the `allow.everyone.if.no.acl.found` property to false. For information about how to update the configuration of a cluster, see [Broker configuration operations](msk-configuration-operations.md "msk-configuration-operations.md").
 
 To turn on public access to an MSK Provisioned cluster, make sure that the cluster meets all of the following conditions:
 
@@ -16,13 +29,11 @@ To turn on public access to an MSK Provisioned cluster, make sure that the clust
 - Encryption within the cluster must be turned on. The on setting is the default when creating a cluster. It's not possible to turn on encryption within the cluster for a cluster that was created with it turned off. It is therefore not possible to turn on public access for a cluster that was created with encryption within the cluster turned off.
 - Plaintext traffic between brokers and clients must be off. For information about how to turn it off if it's on, see [Update security settings of a Amazon MSK cluster](msk-update-security.md "msk-update-security.md").
 - If you're using IAM access control and want to apply authorization policies or update your authorization policies, see [IAM access control](iam-access-control.md "iam-access-control.md"). For information about Apache Kafka ACLs, see [Apache Kafka ACLs](msk-acls.md "msk-acls.md").
-  After you ensure that an MSK cluster meets the conditions listed above, you can use the AWS Management Console, the AWS CLI, or the Amazon MSK API to turn on public access. After you turn on public access to a cluster, you can get a public bootstrap-brokers string for it. For information about getting the bootstrap brokers for a cluster, see [Get the bootstrap brokers for an
-  Amazon MSK cluster](msk-get-bootstrap-brokers.md "msk-get-bootstrap-brokers.md").
+  After you ensure that an MSK cluster meets the conditions listed above, you can use the AWS Management Console, the AWS CLI, or the Amazon MSK API to turn on public access. After you turn on public access to a cluster, you can get a public bootstrap-brokers string for it. For information about getting the bootstrap brokers for a cluster, see [Get the bootstrap brokers for an Amazon MSK cluster](msk-get-bootstrap-brokers.md "msk-get-bootstrap-brokers.md").
 
 ###### Important
 
-In addition to turning on public access, ensure that the cluster's security groups have inbound TCP rules that allow public access from your IP address. We recommend that you make these rules as restrictive as possible. For information about security groups and inbound rules, see [Security groups for your VPC](../../../vpc/latest/userguide/VPC_SecurityGroups.md "../../../vpc/latest/userguide/VPC_SecurityGroups.md") in the Amazon VPC User Guide. For port numbers, see [Port information](port-info.md "port-info.md"). For instructions on how to change a cluster's security group, see [Changing an Amazon MSK cluster's security
-group](change-security-group.md "change-security-group.md").
+In addition to turning on public access, ensure that the cluster's security groups have inbound TCP rules that allow public access from your IP address. We recommend that you make these rules as restrictive as possible. For information about security groups and inbound rules, see [Security groups for your VPC](../../../vpc/latest/userguide/VPC_SecurityGroups.md "../../../vpc/latest/userguide/VPC_SecurityGroups.md") in the Amazon VPC User Guide. For port numbers, see [Port information](port-info.md "port-info.md"). For instructions on how to change a cluster's security group, see [Changing an Amazon MSK cluster's security group](change-security-group.md "change-security-group.md").
 
 ###### Note
 

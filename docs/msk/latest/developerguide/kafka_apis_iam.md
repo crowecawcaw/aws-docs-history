@@ -2,8 +2,7 @@
 
 You can use IAM to authenticate clients and to allow or deny Apache Kafka actions. Alternatively, you can use TLS or SASL/SCRAM to authenticate clients, and Apache Kafka ACLs to allow or deny actions.
 
-For information on how to control who can perform [Amazon MSK operations](../../1.0/apireference/operations.md "../../1.0/apireference/operations.md") on your cluster, see [Authentication and authorization for Amazon MSK
-APIs](security-iam.md "security-iam.md").
+For information on how to control who can perform [Amazon MSK operations](../../1.0/apireference/operations.md "../../1.0/apireference/operations.md") on your cluster, see [Authentication and authorization for Amazon MSK APIs](security-iam.md "security-iam.md").
 
 ###### Topics
 

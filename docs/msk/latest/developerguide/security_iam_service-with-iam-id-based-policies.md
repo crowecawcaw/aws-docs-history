@@ -1,6 +1,4 @@
-# Amazon MSK
-
-identity-based policies
+# Amazon MSK identity-based policies
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources as well as the conditions under which actions are allowed or denied.
@@ -120,5 +118,4 @@ learn with which actions and resources you can use a condition key, see
 
 ## Examples for Amazon MSK identity-based policies
 
-To view examples of Amazon MSK identity-based policies, see [Amazon MSK identity-based policy
-examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon MSK identity-based policies, see [Amazon MSK identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").

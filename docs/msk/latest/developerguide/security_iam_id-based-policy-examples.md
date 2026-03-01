@@ -1,6 +1,4 @@
-# Amazon MSK identity-based policy
-
-examples
+# Amazon MSK identity-based policy examples
 
 By default, IAM users and roles don't have permission to execute
 Amazon MSK API actions. An administrator must create IAM policies that
@@ -15,11 +13,7 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [Policy best
-  practices](security_iam_service-with-iam-policy-best-practices.md "security_iam_service-with-iam-policy-best-practices.md")
-- [Allow users
-  to view their own permissions](security_iam_id-based-policy-examples-view-own-permissions.md "security_iam_id-based-policy-examples-view-own-permissions.md")
-- [Accessing one
-  Amazon MSK cluster](security_iam_id-based-policy-examples-access-one-cluster.md "security_iam_id-based-policy-examples-access-one-cluster.md")
-- [Accessing
-  Amazon MSK clusters based on tags](security_iam_id-based-policy-examples-view-widget-tags.md "security_iam_id-based-policy-examples-view-widget-tags.md")
+- [Policy best practices](security_iam_service-with-iam-policy-best-practices.md "security_iam_service-with-iam-policy-best-practices.md")
+- [Allow users to view their own permissions](security_iam_id-based-policy-examples-view-own-permissions.md "security_iam_id-based-policy-examples-view-own-permissions.md")
+- [Accessing one Amazon MSK cluster](security_iam_id-based-policy-examples-access-one-cluster.md "security_iam_id-based-policy-examples-access-one-cluster.md")
+- [Accessing Amazon MSK clusters based on tags](security_iam_id-based-policy-examples-view-widget-tags.md "security_iam_id-based-policy-examples-view-widget-tags.md")

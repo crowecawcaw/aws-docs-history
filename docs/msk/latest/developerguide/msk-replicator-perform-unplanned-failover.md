@@ -1,6 +1,4 @@
-# Perform an unplanned failover to the
-
-secondary AWS Region
+# Perform an unplanned failover to the secondary AWS Region
 
 You can conduct an unplanned failover when there is a service event in the primary AWS Region which has your source MSK cluster and you want to temporarily redirect your traffic to the secondary Region which has your target MSK cluster. An unplanned failover could result in some data loss as MSK Replicator replicates data asynchronously. You can track the message lag using the metrics in [Monitor replication](msk-replicator-monitor.md "msk-replicator-monitor.md").
 

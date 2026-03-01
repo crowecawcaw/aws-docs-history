@@ -6,8 +6,6 @@ This section helps you set up the appropriate IAM policies and roles to securely
 
 - [Understand service execution role](msk-connect-service-execution-role.md "msk-connect-service-execution-role.md")
 - [Example of IAM policy for MSK Connect](mkc-iam-policy-examples.md "mkc-iam-policy-examples.md")
-- [Prevent cross-service confused
-  deputy problem](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Prevent cross-service confused deputy problem](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
 - [AWS managed policies for MSK Connect](mkc-security-iam-awsmanpol.md "mkc-security-iam-awsmanpol.md")
-- [Use service-linked roles for
-  MSK Connect](mkc-using-service-linked-roles.md "mkc-using-service-linked-roles.md")
+- [Use service-linked roles for MSK Connect](mkc-using-service-linked-roles.md "mkc-using-service-linked-roles.md")

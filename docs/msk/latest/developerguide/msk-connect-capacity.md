@@ -33,6 +33,12 @@ You specify three sets of values:
      minimum and maximum numbers that you specify when you create the
      connector.
     + The number of MCUs per worker.
+    + (Optional) *Maximum autoscaling task count* - The
+     maximum number of tasks allocated to the connector during autoscaling
+     operations. This parameter allows you to set an upper limit on task
+     creation, providing greater control over resource utilization and
+     parallelism in relation to your Kafka topic partitions.
 
-For more information about workers, see [Understand MSK Connect workers](msk-connect-workers.md "msk-connect-workers.md"). To
-learn about MSK Connect metrics, see [Monitoring Amazon MSK Connect](mkc-monitoring-overview.md "mkc-monitoring-overview.md").
+For more information about workers, see [Understand MSK Connect workers](msk-connect-workers.md "msk-connect-workers.md"), and
+for more information about maximum autoscaling task count, see [Understand maximum autoscaling task count](msk-connect-max-autoscaling-task-count.md "msk-connect-max-autoscaling-task-count.md"). To learn about MSK Connect
+metrics, see [Monitoring Amazon MSK Connect](mkc-monitoring-overview.md "mkc-monitoring-overview.md").

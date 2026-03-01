@@ -1,6 +1,4 @@
-# AWS managed policy:
-
-AWSMSKReplicatorExecutionRole
+# AWS managed policy: AWSMSKReplicatorExecutionRole
 
 The
 `AWSMSKReplicatorExecutionRole`

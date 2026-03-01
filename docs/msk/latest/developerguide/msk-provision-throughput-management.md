@@ -4,15 +4,12 @@ For information on how to provision throughput using the Amazon MSK console, CLI
 
 ###### Topics
 
-- [Amazon MSK broker throughput
-  bottlenecks and maximum throughput settings](#throughput-bottlenecks "#throughput-bottlenecks")
+- [Amazon MSK broker throughput bottlenecks and maximum throughput settings](#throughput-bottlenecks "#throughput-bottlenecks")
 - [Measure storage throughput of a Amazon MSK cluster](#throughput-metrics "#throughput-metrics")
 - [Configuration update values for provisioned storage in a Amazon MSK cluster](#provisioned-throughput-config "#provisioned-throughput-config")
 - [Provision storage throughput for Standard brokers in a Amazon MSK cluster](msk-provision-throughput.md "msk-provision-throughput.md")
 
-## Amazon MSK broker throughput
-
-bottlenecks and maximum throughput settings
+## Amazon MSK broker throughput bottlenecks and maximum throughput settings
 
 There are multiple causes of bottlenecks in broker throughput: volume throughput,
 Amazon EC2 to Amazon EBS network throughput, and Amazon EC2 egress throughput. You can enable

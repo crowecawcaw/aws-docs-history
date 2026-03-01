@@ -44,8 +44,7 @@ stream. The following steps demonstrate how to accomplish this task.
    Replace
    `<bootstrapBrokerString>`
    with your cluster's bootstrap broker string. For instructions on getting
-   your bootstrap broker string, see [Get the bootstrap brokers for an
-   Amazon MSK cluster](msk-get-bootstrap-brokers.md "msk-get-bootstrap-brokers.md").
+   your bootstrap broker string, see [Get the bootstrap brokers for an Amazon MSK cluster](msk-get-bootstrap-brokers.md "msk-get-bootstrap-brokers.md").
 
 ```
 `<path-to-your-kafka-installation>`/bin/kafka-topics.sh --list --bootstrap-server `<bootstrapBrokerString>`

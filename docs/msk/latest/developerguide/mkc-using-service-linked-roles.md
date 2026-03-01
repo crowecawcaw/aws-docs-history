@@ -1,6 +1,4 @@
-# Use service-linked roles for
-
-MSK Connect
+# Use service-linked roles for MSK Connect
 
 Amazon MSK Connect uses AWS Identity and Access Management (IAM)[service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
 linked directly to MSK Connect. Service-linked roles are predefined by MSK Connect and
@@ -18,9 +16,7 @@ IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md 
 **Service-Linked Role** column. Choose a **Yes** with a link to view the service-linked role documentation for that
 service.
 
-## Service-linked role permissions for
-
-MSK Connect
+## Service-linked role permissions for MSK Connect
 
 MSK Connect uses the service-linked role named **AWSServiceRoleForKafkaConnect** –
 Allows Amazon MSK Connect to access Amazon resources on your behalf.
@@ -33,9 +29,7 @@ For information about the permissions policy that the role uses, see [AWS manage
 You must configure permissions to allow an IAM entity (such as a user, group, or role)
 to create, edit, or delete a service-linked role. For more information, see [Service-Linked Role Permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the _IAM User Guide_.
 
-## Creating a service-linked role for
-
-MSK Connect
+## Creating a service-linked role for MSK Connect
 
 You don't need to manually create a service-linked role. When you
 create a connector in the AWS Management Console, the AWS CLI, or the AWS API, MSK Connect
@@ -45,9 +39,7 @@ If you delete this service-linked role, and then need to create it again, you ca
 same process to recreate the role in your account. When you create a connector,
 MSK Connect creates the service-linked role for you again.
 
-## Editing a service-linked role for
-
-MSK Connect
+## Editing a service-linked role for MSK Connect
 
 MSK Connect does not allow you to edit the AWSServiceRoleForKafkaConnect service-linked role. After you
 create a service-linked role, you can't change the name of the role because various entities
@@ -55,16 +47,12 @@ might reference the role. However, you can edit the description of the role usin
 more information, see [Editing a
 Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the _IAM User Guide_.
 
-## Deleting a service-linked role for
-
-MSK Connect
+## Deleting a service-linked role for MSK Connect
 
 You can use the IAM console, the AWS CLI or the AWS API to manually delete the
 service-linked role. To do this, you must first manually delete all of your MSK Connect
 connectors, and then you can manually delete the role. For more information, see [Deleting a Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the _IAM User Guide_.
 
-## Supported Regions for
-
-MSK Connect service-linked roles
+## Supported Regions for MSK Connect service-linked roles
 
 MSK Connect supports using service-linked roles in all of the regions where the service is available. For more information, see [AWS Regions and Endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md").

@@ -30,8 +30,7 @@ cluster's bootstrap brokers has the DNS
 `b-6.mytestcluster.67281x.c4.kafka.us-east-1.amazonaws.com`, replace
 `Distinguished-Name` in the following command with
 `*.mytestcluster.67281x.c4.kafka.us-east-1.amazonaws.com`. For
-information on how to get the bootstrap brokers, see [Get the bootstrap brokers for an
-Amazon MSK cluster](msk-get-bootstrap-brokers.md "msk-get-bootstrap-brokers.md").
+information on how to get the bootstrap brokers, see [Get the bootstrap brokers for an Amazon MSK cluster](msk-get-bootstrap-brokers.md "msk-get-bootstrap-brokers.md").
 
 ```
 `<path-to-your-kafka-installation>`/bin/kafka-acls.sh --bootstrap-server BootstrapServerString --add --allow-principal "User:CN=`Distinguished-Name`" --operation Read --group=* --topic `Topic-Name`

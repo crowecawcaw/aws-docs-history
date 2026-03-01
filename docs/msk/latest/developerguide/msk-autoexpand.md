@@ -11,8 +11,7 @@ Before you use automatic scaling for Amazon MSK, you should consider the followi
 A storage scaling action can occur only once every six hours.
 
 We recommend that you start with a right-sized storage volume for your storage
-demands. For guidance on right-sizing your cluster, see [Right-size your cluster: Number of Standard
-brokers per cluster](bestpractices.md#brokers-per-cluster "bestpractices.md#brokers-per-cluster").
+demands. For guidance on right-sizing your cluster, see [Right-size your cluster: Number of Standard brokers per cluster](bestpractices.md#brokers-per-cluster "bestpractices.md#brokers-per-cluster").
 
 - Amazon MSK does not reduce cluster storage in response to reduced usage. Amazon MSK does not
   support decreasing the size of storage volumes. If you need to reduce the size of

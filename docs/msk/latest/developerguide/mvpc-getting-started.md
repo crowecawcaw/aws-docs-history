@@ -2,12 +2,9 @@
 
 ###### Topics
 
-- [Step 1: On the MSK cluster in
-  Account A, turn on multi-VPC connectivity for IAM auth scheme on the
-  cluster](mvpc-cluster-owner-action-turn-on.md "mvpc-cluster-owner-action-turn-on.md")
+- [Step 1: On the MSK cluster in Account A, turn on multi-VPC connectivity for IAM auth scheme on the cluster](mvpc-cluster-owner-action-turn-on.md "mvpc-cluster-owner-action-turn-on.md")
 - [Step 2: Attach a cluster policy to the MSK cluster](mvpc-cluster-owner-action-policy.md "mvpc-cluster-owner-action-policy.md")
-- [Step 3: Cross-account user actions to
-  configure client-managed VPC connections](mvpc-cross-account-user-action.md "mvpc-cross-account-user-action.md")
+- [Step 3: Cross-account user actions to configure client-managed VPC connections](mvpc-cross-account-user-action.md "mvpc-cross-account-user-action.md")
   This tutorial uses a common use case as an example of how you can use
   multi-VPC connectivity to privately connect an Apache Kafka client to an MSK
   cluster from inside AWS, but outside VPC of the cluster. This process requires

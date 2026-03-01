@@ -1,6 +1,4 @@
-# Changing an Amazon MSK cluster's security
-
-group
+# Changing an Amazon MSK cluster's security group
 
 This page explains how to change the security group of an existing MSK cluster.
 You might need to change a cluster's security group in order to provide access to a certain

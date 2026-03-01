@@ -1,6 +1,4 @@
-# Configure DNS attributes for your
-
-VPC
+# Configure DNS attributes for your VPC
 
 Make sure you have the VPC DNS attributes correctly configured as described in [DNS attributes in your VPC](../../../vpc/latest/userguide/vpc-dns.md#vpc-dns-support "../../../vpc/latest/userguide/vpc-dns.md#vpc-dns-support") and [DNS hostnames](../../../vpc/latest/userguide/vpc-dns.md#vpc-dns-hostnames "../../../vpc/latest/userguide/vpc-dns.md#vpc-dns-hostnames") in the _Amazon VPC User Guide_.
 

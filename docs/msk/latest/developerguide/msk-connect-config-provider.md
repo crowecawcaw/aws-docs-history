@@ -1,6 +1,4 @@
-# Tutorial: Externalizing sensitive information using config
-
-providers
+# Tutorial: Externalizing sensitive information using config providers
 
 This example shows how to externalize sensitive information for Amazon MSK Connect using an open
 source configuration provider. A configuration providers lets you specify variables instead of
@@ -18,8 +16,7 @@ Consider the following while using the MSK config provider with Amazon MSK Conne
 - Define the config providers in worker configurations and their implementation in the connector configuration.
 - Sensitive configuration values can appear in connector logs if a plugin does not
   define those values as secret. Kafka Connect treats undefined configuration values the
-  same as any other plaintext value. To learn more, see [Preventing secrets from appearing in connector
-  logs](msk-connect-logging.md#msk-connect-logging-secrets "msk-connect-logging.md#msk-connect-logging-secrets").
+  same as any other plaintext value. To learn more, see [Preventing secrets from appearing in connector logs](msk-connect-logging.md#msk-connect-logging-secrets "msk-connect-logging.md#msk-connect-logging-secrets").
 - By default, MSK Connect frequently restarts a connector when the connector uses a
   configuration provider. To turn off this restart behavior, you can set the
   `config.action.reload` value to `none` in your connector
@@ -30,9 +27,7 @@ Consider the following while using the MSK config provider with Amazon MSK Conne
 To create a custom-plugin, create a zip file that contains the connector and the
 msk-config-provider by running the following commands on your local machine.
 
-###### To create a custom plugin using a terminal window and Debezium as the
-
-connector
+###### To create a custom plugin using a terminal window and Debezium as the connector
 
 Use the AWS CLI to run commands as a superuser with
 credentials that allow you to access your AWS S3 bucket. For information on installing
@@ -170,9 +165,7 @@ You may also use the above step with more configuration providers.
 
 Configure in Systems Manager Parameter Store
 
-######
-
-To configure parameter values in Systems Manager Parameter Store
+###### To configure parameter values in Systems Manager Parameter Store
 
 1. Open the [Systems Manager
    console](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").

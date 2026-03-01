@@ -57,8 +57,7 @@ properties, see [Apache Kafka Configuration](https://kafka.apache.org/documentat
 | zookeeper.session.timeout.ms              | ZooKeeper mode clusters. The Apache ZooKeeper session timeout in milliseconds.<br>MinValue = 6000<br>MaxValue (inclusive) = 18000                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 
 To learn how you can create a custom MSK configuration, list all configurations, or
-describe them, see [Broker configuration
-operations](msk-configuration-operations.md "msk-configuration-operations.md"). To create an MSK
+describe them, see [Broker configuration operations](msk-configuration-operations.md "msk-configuration-operations.md"). To create an MSK
 cluster
 with
 a custom MSK

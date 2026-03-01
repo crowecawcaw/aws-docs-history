@@ -1,12 +1,8 @@
-# Use replication to increase the resiliency of a
-
-Kafka streaming application across Regions
+# Use replication to increase the resiliency of a Kafka streaming application across Regions
 
 You can use MSK Replicator to set up active-active or active-passive cluster topologies to increase resiliency of your Apache Kafka application across AWS Regions. In an active-active setup, both MSK clusters are actively serving reads and writes. In an active-passive setup, only one MSK cluster at a time is actively serving streaming data, while the other cluster is on standby.
 
-## Considerations for building
-
-multi-Region Apache Kafka applications
+## Considerations for building multi-Region Apache Kafka applications
 
 Your consumers must be able to reprocess duplicate messages without downstream
 impact. MSK Replicator replicates data at-least-once which may result in duplicates

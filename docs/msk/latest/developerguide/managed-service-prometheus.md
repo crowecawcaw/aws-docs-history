@@ -1,6 +1,4 @@
-# Store Prometheus metrics in Amazon
-
-Managed Service for Prometheus
+# Store Prometheus metrics in Amazon Managed Service for Prometheus
 
 Amazon Managed Service for Prometheus is a Prometheus-compatible monitoring and alerting service that you can
 use to monitor Amazon MSK clusters. It is a fully-managed service that automatically

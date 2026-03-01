@@ -1,6 +1,4 @@
-# List configurations in
-
-your account for the current Region
+# List configurations in your account for the current Region
 
 This process describes how to list all Amazon MSK configurations in your account for
 the current AWS Region.

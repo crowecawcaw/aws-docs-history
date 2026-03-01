@@ -1,6 +1,4 @@
-# Amazon MSK updates to AWS managed
-
-policies
+# Amazon MSK updates to AWS managed policies
 
 View details about updates to AWS managed policies for Amazon MSK since this service began
 tracking these changes.

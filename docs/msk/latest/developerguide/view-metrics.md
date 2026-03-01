@@ -1,6 +1,4 @@
-# Step 6: Use Amazon CloudWatch to view Amazon MSK
-
-metrics
+# Step 6: Use Amazon CloudWatch to view Amazon MSK metrics
 
 In this step of [Getting Started Using
 Amazon MSK](getting-started.md "getting-started.md"), you look at the Amazon MSK metrics in Amazon CloudWatch.
@@ -19,5 +17,4 @@ Amazon MSK](getting-started.md "getting-started.md"), you look at the Amazon MSK
    create a CloudWatch alarm using these settings.
    **Next Step**
 
-[Step 7: Delete the AWS resources created for this
-tutorial](delete-cluster.md "delete-cluster.md")
+[Step 7: Delete the AWS resources created for this tutorial](delete-cluster.md "delete-cluster.md")

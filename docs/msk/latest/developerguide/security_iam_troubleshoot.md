@@ -1,18 +1,13 @@
-# Troubleshoot Amazon MSK identity and
-
-access
+# Troubleshoot Amazon MSK identity and access
 
 Use the following information to help you diagnose and fix common issues that you might
 encounter when working with Amazon MSK and IAM.
 
 ###### Topics
 
-- [I Am not authorized to
-  perform an action in Amazon MSK](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
+- [I Am not authorized to perform an action in Amazon MSK](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
 
-## I Am not authorized to
-
-perform an action in Amazon MSK
+## I Am not authorized to perform an action in Amazon MSK
 
 If the AWS Management Console tells you that you're not authorized to perform an action, then you
 must contact your administrator for assistance. Your administrator is the person that

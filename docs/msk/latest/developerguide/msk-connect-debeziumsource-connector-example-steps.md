@@ -1,6 +1,4 @@
-# Create a
-
-Debezium source connector
+# Create a Debezium source connector
 
 This procedure describes how to create a Debezium source connector.
 

@@ -1,6 +1,4 @@
-# Get details about
-
-configuration revision
+# Get details about configuration revision
 
 This process gets you a detailed description of the Amazon MSK configuration
 revision.

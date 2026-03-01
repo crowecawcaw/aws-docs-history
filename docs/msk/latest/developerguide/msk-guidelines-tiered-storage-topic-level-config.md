@@ -1,6 +1,4 @@
-# Guidelines for Amazon MSK tiered
-
-storage topic-level configuration
+# Guidelines for Amazon MSK tiered storage topic-level configuration
 
 The following are default settings and limitations when you configure tiered storage
 at the topic level.
@@ -30,5 +28,4 @@ at the topic level.
   -1.
 - The topic-level configuration retention.ms is mandatory for topics with tiered
   storage activated. The minimum retention.ms is 3 days.
-  For more information about tiered storage contraints, see [Tiered storage constraints and
-  limitations for Amazon MSK clusters](msk-tiered-storage.md#msk-tiered-storage-constraints "msk-tiered-storage.md#msk-tiered-storage-constraints").
+  For more information about tiered storage contraints, see [Tiered storage constraints and limitations for Amazon MSK clusters](msk-tiered-storage.md#msk-tiered-storage-constraints "msk-tiered-storage.md#msk-tiered-storage-constraints").

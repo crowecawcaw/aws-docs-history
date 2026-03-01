@@ -1,6 +1,4 @@
-# Service-linked roles for
-
-Amazon MSK
+# Service-linked roles for Amazon MSK
 
 Amazon MSK uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that
 is linked directly to Amazon MSK. Service-linked roles are predefined by Amazon MSK

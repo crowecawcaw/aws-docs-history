@@ -18,5 +18,4 @@ over the subnets that you specify.
 - [Create an MSK Provisioned cluster using the AWS Management Console](create-cluster-console.md "create-cluster-console.md")
 - [Create a provisioned Amazon MSK cluster using the AWS CLI](create-cluster-cli.md "create-cluster-cli.md")
 - [Create an MSK Provisioned cluster with a custom Amazon MSK configuration using the AWS CLI](create-cluster-cli-custom-config.md "create-cluster-cli-custom-config.md")
-- [Create an MSK Provisioned cluster using the Amazon MSK
-  API](create-cluster-api.md "create-cluster-api.md")
+- [Create an MSK Provisioned cluster using the Amazon MSK API](create-cluster-api.md "create-cluster-api.md")

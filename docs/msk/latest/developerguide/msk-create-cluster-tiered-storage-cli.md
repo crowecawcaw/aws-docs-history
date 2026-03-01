@@ -1,6 +1,4 @@
-# Create an
-
-Amazon MSK cluster with tiered storage with the AWS CLI
+# Create an Amazon MSK cluster with tiered storage with the AWS CLI
 
 To enable tiered storage on a cluster, create the cluster with the correct Apache
 Kafka version and attribute for tiered storage. Follow the code example below. Also,
@@ -43,8 +41,7 @@ You must use the Apache Kafka client version 3.0.0 and above. These
 versions support a setting called `remote.storage.enable` only in
 those client versions of `kafka-topics.sh`. To enable tiered
 storage on an existing topic that uses an earlier version of Apache Kafka,
-see the section [Enabling tiered storage on
-an existing Amazon MSK topic](msk-enable-disable-topic-tiered-storage-cli.md#msk-enable-topic-tiered-storage-cli "msk-enable-disable-topic-tiered-storage-cli.md#msk-enable-topic-tiered-storage-cli").
+see the section [Enabling tiered storage on an existing Amazon MSK topic](msk-enable-disable-topic-tiered-storage-cli.md#msk-enable-topic-tiered-storage-cli "msk-enable-disable-topic-tiered-storage-cli.md#msk-enable-topic-tiered-storage-cli").
 
 ```
 bin/kafka-topics.sh --create --bootstrap-server $bs --replication-factor 2 --partitions 6 --topic MSKTutorialTopic --config remote.storage.enable=true --config local.retention.ms=100000 --config retention.ms=604800000 --config segment.bytes=134217728

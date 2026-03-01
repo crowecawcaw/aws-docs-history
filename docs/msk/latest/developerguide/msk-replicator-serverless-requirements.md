@@ -1,6 +1,4 @@
-# Supported MSK Serverless cluster
-
-configuration
+# Supported MSK Serverless cluster configuration
 
 - MSK Serverless supports replication of these topic configurations for MSK Serverless target clusters during topic creation: `cleanup.policy`, `compression.type`, `max.message.bytes`, `retention.bytes`, `retention.ms`.
 - MSK Serverless supports only these topic configurations during topic configuration sync: `compression.type`, `max.message.bytes`, `retention.bytes`, `retention.ms`.

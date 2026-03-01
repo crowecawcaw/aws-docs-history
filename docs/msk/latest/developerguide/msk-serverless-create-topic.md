@@ -52,5 +52,4 @@ export BS=`my-endpoint`
 
 **Next Step**
 
-[Produce and consume data in MSK
-Serverless](msk-serverless-produce-consume.md "msk-serverless-produce-consume.md")
+[Produce and consume data in MSK Serverless](msk-serverless-produce-consume.md "msk-serverless-produce-consume.md")

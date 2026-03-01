@@ -142,9 +142,7 @@ table have the following dimensions: Cluster Name, Broker ID.
 | `VolumeWriteBytes`                                                      | After the cluster gets to the ACTIVE state. | The number of bytes written in a specified time period.                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | `VolumeWriteOps`                                                        | After the cluster gets to the ACTIVE state. | The number of write operations in a specified time<br>period.                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 
-## `PER_TOPIC_PER_BROKER` Level
-
-monitoring
+## `PER_TOPIC_PER_BROKER` Level monitoring
 
 When you set the monitoring level to `PER_TOPIC_PER_BROKER`, you get
 the metrics described in the following table, in addition to all the metrics from
@@ -171,9 +169,7 @@ producers must first send data to the cluster.
 | `RemoteCopyErrorsPerSec (RemoteWriteErrorPerSec in v2.8.2.tiered)`      | After you create a topic and the topic is<br>producing/consuming. | The rate of errors in response to write requests that the<br>specified broker sends to tiered storage to transfer data upstream.<br>This metric includes all partitions from the topic that contribute<br>to upstream data transfer traffic on the specified broker. Category: traffic and error rates. This is a [KIP-405](https://cwiki.apache.org/confluence/display/KAFKA/KIP-405%3A+Kafka+Tiered+Storage "https://cwiki.apache.org/confluence/display/KAFKA/KIP-405%3A+Kafka+Tiered+Storage") metric.                                                   |
 | `RemoteLogSizeBytes`                                                    | After you create a topic.                                         | The number of bytes stored on the remote tier.<br>This metric is available for tiered storage clusters from Apache Kafka version 3.7.x on Amazon MSK.                                                                                                                                                                                                                                                                                                                                                                                                        |
 
-## `PER_TOPIC_PER_PARTITION` Level
-
-monitoring
+## `PER_TOPIC_PER_PARTITION` Level monitoring
 
 When you set the monitoring level to `PER_TOPIC_PER_PARTITION`, you get
 the metrics described in the following table, in addition to all the metrics from

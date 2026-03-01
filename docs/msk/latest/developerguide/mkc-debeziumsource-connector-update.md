@@ -1,6 +1,4 @@
-# Update a
-
-Debezium connector configuration
+# Update a Debezium connector configuration
 
 To update the configuration of the Debezium connector, follow these steps:
 

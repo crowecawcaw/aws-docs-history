@@ -18,16 +18,13 @@ settings but on client settings as well.
   availability zone. Having multiple brokers in a client's connection string
   allows for failover when a specific broker is offline for an update. For
   information about how to get a connection string with multiple brokers, see
-  [Get the bootstrap brokers for an
-  Amazon MSK cluster](msk-get-bootstrap-brokers.md "msk-get-bootstrap-brokers.md").
+  [Get the bootstrap brokers for an Amazon MSK cluster](msk-get-bootstrap-brokers.md "msk-get-bootstrap-brokers.md").
 - Run performance tests to verify that your client configurations allow you to
   meet your performance objectives.
 
 ## Server-side considerations
 
-### Right-size your cluster: Number of
-
-partitions per Standard broker
+### Right-size your cluster: Number of partitions per Standard broker
 
 The following table shows the recommended number of partitions (including leader
 and follower replicas) per Standard broker. The recommended number of
@@ -64,9 +61,7 @@ For guidance on choosing the number of partitions, see [Apache Kafka Supports 20
 that you perform your own testing to determine the right size for your brokers. For
 more information about the different broker sizes, see [Amazon MSK broker types](broker-instance-types.md "broker-instance-types.md").
 
-### Right-size your cluster: Number of Standard
-
-brokers per cluster
+### Right-size your cluster: Number of Standard brokers per cluster
 
 To determine the right number of Standard brokers for your MSK Provisioned cluster
 and understand costs, see the [MSK Sizing and Pricing](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fdy7oqpxkwhskb.cloudfront.net%2FMSK_Sizing_Pricing.xlsx&wdOrigin=BROWSELINK "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fdy7oqpxkwhskb.cloudfront.net%2FMSK_Sizing_Pricing.xlsx&wdOrigin=BROWSELINK") spreadsheet. This spreadsheet provides an
@@ -80,9 +75,7 @@ with actual testing.
 
 To understand how the underlying infrastructure affects Apache Kafka performance, see [Best practices for right-sizing your Apache Kafka clusters to optimize performance and cost](https://aws.amazon.com/blogs/big-data/best-practices-for-right-sizing-your-apache-kafka-clusters-to-optimize-performance-and-cost/ "https://aws.amazon.com/blogs/big-data/best-practices-for-right-sizing-your-apache-kafka-clusters-to-optimize-performance-and-cost/") in the AWS Big Data Blog. The blog post provides information about how to size your clusters to meet your throughput, availability, and latency requirements. It also provides answers to questions, such as when you should scale _up_ versus scale _out_, and guidance about how to continuously verify the size of your production clusters. For information about tiered storage based clusters, see [Best practices for running production workloads using Amazon MSK tiered storage](https://aws.amazon.com/blogs/big-data/best-practices-for-running-production-workloads-using-amazon-msk-tiered-storage/ "https://aws.amazon.com/blogs/big-data/best-practices-for-running-production-workloads-using-amazon-msk-tiered-storage/").
 
-### Optimize cluster throughput for m5.4xl,
-
-m7g.4xl or larger instances
+### Optimize cluster throughput for m5.4xl, m7g.4xl or larger instances
 
 When using m5.4xl, m7g.4xl, or larger instances, you can optimize the MSK
 Provisioned cluster throughput by tuning the num.io.threads and num.network.threads
@@ -117,9 +110,7 @@ The following table describes the recommended settings for each instance size.
 | m7g.12xlarge  | 48                                   | 24                                        |
 | m7g.16xlarge  | 64                                   | 32                                        |
 
-### Use latest Kafka AdminClient to avoid topic ID
-
-mismatch issue
+### Use latest Kafka AdminClient to avoid topic ID mismatch issue
 
 The ID of a topic is lost (Error: does not match the topic Id for partition) when
 you use a Kafka AdminClient version lower than 2.8.0 with the flag
@@ -249,9 +240,7 @@ kafka-configs.sh --bootstrap-server $bs --alter --entity-type topics --entity-na
 The retention parameters that you specify at the topic level take precedence over
 cluster-level parameters.
 
-### Speeding up log recovery after
-
-unclean shutdown
+### Speeding up log recovery after unclean shutdown
 
 After an unclean shutdown, a broker can take a while to restart as it does log
 recovery. By default, Kafka only uses a single thread per log directory to perform
@@ -286,9 +275,7 @@ your Apache ZooKeeper will contain incorrect information about the cluster. This
 might result in data loss. For supported MSK Provisioned cluster operations, see
 [Amazon MSK key features and concepts](operations.md "operations.md").
 
-### Enable in-transit
-
-encryption
+### Enable in-transit encryption
 
 For information about encryption in transit and how to enable it, see [Amazon MSK encryption in transit](msk-encryption.md#msk-encryption-in-transit "msk-encryption.md#msk-encryption-in-transit").
 

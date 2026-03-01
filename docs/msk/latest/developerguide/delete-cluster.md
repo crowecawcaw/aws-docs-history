@@ -1,6 +1,4 @@
-# Step 7: Delete the AWS resources created for this
-
-tutorial
+# Step 7: Delete the AWS resources created for this tutorial
 
 In the final step of [Getting Started Using
 Amazon MSK](getting-started.md "getting-started.md"), you delete the MSK cluster and the client machine

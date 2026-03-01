@@ -1,6 +1,4 @@
-# Understand internal topics used by Kafka
-
-Connect
+# Understand internal topics used by Kafka Connect
 
 An Apache Kafka Connect application that’s running in distributed mode stores its state by using internal topics in the Kafka cluster and group membership. The following are the configuration values that correspond to the internal topics that are used for Kafka Connect applications:
 

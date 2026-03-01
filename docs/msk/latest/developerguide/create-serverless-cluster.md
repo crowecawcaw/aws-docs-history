@@ -49,5 +49,4 @@ each VPC. 7. Choose **Create cluster**.
    associated with the subnet. Save this Amazon VPC ID for later use.
    **Next Step**
 
-[Create an IAM role for topics on MSK Serverless
-cluster](create-iam-role.md "create-iam-role.md")
+[Create an IAM role for topics on MSK Serverless cluster](create-iam-role.md "create-iam-role.md")

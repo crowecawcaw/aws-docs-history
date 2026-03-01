@@ -1,6 +1,4 @@
-# Broker configuration
-
-operations
+# Broker configuration operations
 
 Apache Kafka broker configurations are either static or dynamic. Static configurations
 require a broker restart for the configuration to be applied. Dynamic configurations do
@@ -17,8 +15,6 @@ update clusters, see [Amazon MSK key features and concepts](operations.md "opera
 - [Update configuration](msk-configuration-operations-update.md "msk-configuration-operations-update.md")
 - [Delete configuration](msk-configuration-operations-delete.md "msk-configuration-operations-delete.md")
 - [Get configuration metadata](msk-configuration-operations-describe.md "msk-configuration-operations-describe.md")
-- [Get details about
-  configuration revision](msk-configuration-operations-describe-revision.md "msk-configuration-operations-describe-revision.md")
-- [List configurations in
-  your account for the current Region](msk-configuration-operations-list.md "msk-configuration-operations-list.md")
+- [Get details about configuration revision](msk-configuration-operations-describe-revision.md "msk-configuration-operations-describe-revision.md")
+- [List configurations in your account for the current Region](msk-configuration-operations-list.md "msk-configuration-operations-list.md")
 - [Amazon MSK configuration states](msk-configuration-states.md "msk-configuration-states.md")

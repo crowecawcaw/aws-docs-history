@@ -4,8 +4,7 @@ This section summarizes the permissions needed for clients and clusters using th
 
 ###### Cluster auth type and topic access permissions
 
-Turn on the multi-VPC private connectivity feature for auth schemes that are enabled for your MSK cluster. See [Requirements and limitations for multi-VPC private connectivity](aws-access-mult-vpc.md#mvpc-requirements "aws-access-mult-vpc.md#mvpc-requirements"). If you are configuring your MSK cluster to use SASL/SCRAM auth scheme, the Apache Kafka ACLs property `allow.everyone.if.no.acl.found=false` is mandatory. After you set the [Apache Kafka ACLs](msk-acls.md "msk-acls.md") for your cluster, update the cluster's configuration to have the property `allow.everyone.if.no.acl.found` set to false for the cluster. For information about how to update the configuration of a cluster, see [Broker configuration
-operations](msk-configuration-operations.md "msk-configuration-operations.md").
+Turn on the multi-VPC private connectivity feature for auth schemes that are enabled for your MSK cluster. See [Requirements and limitations for multi-VPC private connectivity](aws-access-mult-vpc.md#mvpc-requirements "aws-access-mult-vpc.md#mvpc-requirements"). If you are configuring your MSK cluster to use SASL/SCRAM auth scheme, the Apache Kafka ACLs property `allow.everyone.if.no.acl.found=false` is mandatory. After you set the [Apache Kafka ACLs](msk-acls.md "msk-acls.md") for your cluster, update the cluster's configuration to have the property `allow.everyone.if.no.acl.found` set to false for the cluster. For information about how to update the configuration of a cluster, see [Broker configuration operations](msk-configuration-operations.md "msk-configuration-operations.md").
 
 ###### Cross-account cluster policy permissions
 

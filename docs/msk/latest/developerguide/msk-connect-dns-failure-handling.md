@@ -1,6 +1,4 @@
-# Handle connector creation
-
-failures
+# Handle connector creation failures
 
 This section describes possible connector creation failures associated with DNS resolution and suggested actions to resolve the issues.
 

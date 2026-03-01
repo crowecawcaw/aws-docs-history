@@ -11,7 +11,11 @@ See [Enabling internet access for Amazon MSK Connect](msk-connect-internet-acces
 Here are some reasons a connector may use fewer tasks than the specified tasks.max configuration:
 
 - Some connector implementations limit the number of tasks the can be used. For example, the Debezium connector for MySQL is limited to using a single task.
-- When using autoscaled capacity mode, Amazon MSK Connect overrides a connector's tasks.max property with a value that is proportional to the number of workers running in the connector and the number of MCUs per worker.
+- When using autoscaled capacity mode, Amazon MSK Connect overrides a connector's
+  tasks.max property with a value that is proportional to the number of workers
+  running in the connector and the number of MCUs per worker. If you have configured
+  the optional `maxAutoscalingTaskCount` parameter, the `tasks.max` value
+  will not exceed this limit. For more information, see [Understand maximum autoscaling task count](msk-connect-connectors.md#msk-connect-max-autoscaling-task-count "msk-connect-connectors.md#msk-connect-max-autoscaling-task-count").
 - For sink connectors, the level of parallelism (number of tasks) cannot be more than the number of
   topic partitions. While you can set the tasks.max larger than that, a single partition is never processed by more than a single task at a time.
 - In Kafka Connect 2.7.x, the default consumer partition assignor is `RangeAssignor`.

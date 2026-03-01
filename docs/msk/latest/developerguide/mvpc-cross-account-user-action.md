@@ -1,6 +1,4 @@
-# Step 3: Cross-account user actions to
-
-configure client-managed VPC connections
+# Step 3: Cross-account user actions to configure client-managed VPC connections
 
 To set up multi-VPC private connectivity between a client in a different
 account from the MSK cluster, the cross-account user creates a managed VPC

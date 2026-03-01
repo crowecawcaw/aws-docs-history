@@ -2,10 +2,30 @@
 
 A plugin is an AWS resource that contains the code that defines your connector logic.
 You upload a JAR file (or a ZIP file that contains one or more JAR files) to an S3 bucket,
-and specify the location of the bucket when you create the plugin. When you create a
-connector, you specify the plugin that you want MSK Connect to use for it. The relationship
-of plugins to connectors is one-to-many: You can create one or more connectors from the same
-plugin.
+and specify the location of the bucket when you create the plugin. When the plugin is
+created, MSK Connect copies the contents of the S3 object at that point in time. It does
+not maintain a link to the S3 object, so any subsequent modifications to the object will
+not affect the plugin or its connectors. When you create a connector, you specify the
+plugin that you want MSK Connect to use for it. The relationship of plugins to connectors
+is one-to-many: you can create one or more connectors from the same plugin.
+
+###### Note
+
+Custom plugins cannot be updated in place. To use a new version of your plugin
+code, delete all connectors that reference the plugin, delete the plugin, and then
+recreate it.
+
+###### Dependency packaging for custom plugins
+
+We recommend that you include all required JAR files and dependencies for your
+plugin. Package your connector as one of the following:
+
+- A ZIP file that contains all required JAR files and dependencies
+  for the plugin.
+- A single uber JAR that contains all the class files for the plugin
+  and its dependencies.
+  Not bundling your plugin dependencies may impact availability or compatibility
+  in the runtime environment and cause unexpected errors.
 
 For information on how to develop the code for a connector, see the [Connector Development
 Guide](https://kafka.apache.org/documentation/#connect_development "https://kafka.apache.org/documentation/#connect_development")in the Apache Kafka documentation.

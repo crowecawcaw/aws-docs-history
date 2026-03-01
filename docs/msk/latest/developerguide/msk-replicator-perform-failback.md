@@ -1,6 +1,4 @@
-# Perform failback to the primary AWS
-
-Region
+# Perform failback to the primary AWS Region
 
 You can failback to the primary AWS region after the service event in that
 region has ended.

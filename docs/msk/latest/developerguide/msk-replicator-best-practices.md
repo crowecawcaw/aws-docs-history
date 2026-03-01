@@ -16,8 +16,7 @@ You can also set Kafka quotas for the Replicator on your source and target clust
 
 Follow these steps to apply a quota.
 
-1. Retrieve the bootstrap server string for the source cluster. See [Get the bootstrap brokers for an
-   Amazon MSK cluster](msk-get-bootstrap-brokers.md "msk-get-bootstrap-brokers.md").
+1. Retrieve the bootstrap server string for the source cluster. See [Get the bootstrap brokers for an Amazon MSK cluster](msk-get-bootstrap-brokers.md "msk-get-bootstrap-brokers.md").
 2. Retrieve the service execution role (SER) used by the MSK Replicator. This is the SER you used for a `CreateReplicator` request. You can also pull the SER from the DescribeReplicator response from an existing Replicator.
 3. Using Kafka CLI tools, run the following command against the source cluster.
 
@@ -38,5 +37,4 @@ Setting an extremely low consumer_byte_rate may cause your MSK Replicator to act
 
 ## Setting cluster retention period
 
-You can set the log retention period for MSK provisioned and serverless clusters. The recommended retention period is 7 days. See [Cluster configuration changes](msk-replicator-serverless-requirements.md#msk-replicator-config-changes "msk-replicator-serverless-requirements.md#msk-replicator-config-changes") or [Supported MSK Serverless cluster
-configuration](msk-replicator-serverless-requirements.md "msk-replicator-serverless-requirements.md").
+You can set the log retention period for MSK provisioned and serverless clusters. The recommended retention period is 7 days. See [Cluster configuration changes](msk-replicator-serverless-requirements.md#msk-replicator-config-changes "msk-replicator-serverless-requirements.md#msk-replicator-config-changes") or [Supported MSK Serverless cluster configuration](msk-replicator-serverless-requirements.md "msk-replicator-serverless-requirements.md").

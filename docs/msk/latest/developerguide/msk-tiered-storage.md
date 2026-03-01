@@ -35,9 +35,7 @@ Here are some of the features of tiered storage:
   enabled. See [Create a client
   machine](create-client-machine.md "create-client-machine.md").
 
-## Tiered storage
-
-requirements for Amazon MSK clusters
+## Tiered storage requirements for Amazon MSK clusters
 
 - You must use Apache Kafka client version 3.0.0 or higher to create a new topic with tiered storage enabled. To
   transition an existing topic to tiered storage, you
@@ -47,9 +45,7 @@ requirements for Amazon MSK clusters
 - The Amazon MSK cluster with tiered storage enabled must use version 3.6.0 or higher, or
   2.8.2.tiered.
 
-## Tiered storage constraints and
-
-limitations for Amazon MSK clusters
+## Tiered storage constraints and limitations for Amazon MSK clusters
 
 Tiered storage has the following constraints and limitations:
 
@@ -71,5 +67,4 @@ Tiered storage has the following constraints and limitations:
 - The kafka-log-dirs tool can't report tiered storage data
   size. The tool only reports the size of the log segments in primary storage.
 
-For information about default settings and constraints you must be mindful of when you configure tiered storage at the topic level, see [Guidelines for Amazon MSK tiered
-storage topic-level configuration](msk-guidelines-tiered-storage-topic-level-config.md "msk-guidelines-tiered-storage-topic-level-config.md").
+For information about default settings and constraints you must be mindful of when you configure tiered storage at the topic level, see [Guidelines for Amazon MSK tiered storage topic-level configuration](msk-guidelines-tiered-storage-topic-level-config.md "msk-guidelines-tiered-storage-topic-level-config.md").

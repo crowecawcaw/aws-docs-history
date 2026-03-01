@@ -1,6 +1,4 @@
-# Enable internet access for Amazon MSK
-
-Connect
+# Enable internet access for Amazon MSK Connect
 
 If your connector for Amazon MSK Connect needs access to the internet, we recommend that you
 use the following Amazon Virtual Private Cloud (VPC) settings to enable that access.

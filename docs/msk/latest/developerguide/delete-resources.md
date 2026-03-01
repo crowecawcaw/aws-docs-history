@@ -1,6 +1,4 @@
-# Delete resources that you created for MSK
-
-Serverless
+# Delete resources that you created for MSK Serverless
 
 In this step, you delete the resources that you created in this tutorial.
 

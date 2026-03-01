@@ -26,9 +26,7 @@ use the `BootstrapServerString` to connect to your cluster and perfom
 admin operations as the `--zookeeper` flag has been deprecated in Kafka
 2.5 and is removed from Kafka 3.0.
 
-### Getting the Apache ZooKeeper connection string using
-
-the AWS Management Console
+### Getting the Apache ZooKeeper connection string using the AWS Management Console
 
 1. Open the Amazon MSK console at [https://console.aws.amazon.com/msk/](https://console.aws.amazon.com/msk/ "https://console.aws.amazon.com/msk/").
 2. The table shows all the clusters for the current region under this account.
@@ -36,9 +34,7 @@ the AWS Management Console
 3. On the **Cluster summary** page, choose **View client information**. This shows you the bootstrap brokers, as
    well as the Apache ZooKeeper connection string.
 
-### Getting the Apache ZooKeeper connection string using the
-
-AWS CLI
+### Getting the Apache ZooKeeper connection string using the AWS CLI
 
 1. If you don't know the Amazon Resource Name (ARN) of your cluster, you can find it by listing
    all the clusters in your account. For more information, see [List Amazon MSK clusters](msk-list-clusters.md "msk-list-clusters.md").
@@ -103,9 +99,7 @@ in the `CREATING` state, the output of the
 minutes and then run the `describe-cluster` again after your
 cluster reaches the `ACTIVE` state.
 
-### Getting the Apache ZooKeeper connection string using the
-
-API
+### Getting the Apache ZooKeeper connection string using the API
 
 To get the Apache ZooKeeper connection string using the API, see [DescribeCluster](../../1.0/apireference/clusters-clusterarn.md#DescribeCluster "../../1.0/apireference/clusters-clusterarn.md#DescribeCluster").
 
@@ -135,8 +129,7 @@ Here are some points to note about KRaft mode on MSK:
   any administrative actions. However, if you are using open monitoring to
   collect metrics, you also need the DNS endpoints of your controllers in
   order to collect some non-controller related metrics about your cluster. You
-  can get these DNS endpoints from the MSK Console or using the [ListNodes](../../1.0/apireference/clusters-clusterarn-nodes.md#ListNodes "../../1.0/apireference/clusters-clusterarn-nodes.md#ListNodes") API operation. See [Monitor an MSK Provisioned cluster with
-  Prometheus](open-monitoring.md "open-monitoring.md") for updated steps for setting up
+  can get these DNS endpoints from the MSK Console or using the [ListNodes](../../1.0/apireference/clusters-clusterarn-nodes.md#ListNodes "../../1.0/apireference/clusters-clusterarn-nodes.md#ListNodes") API operation. See [Monitor an MSK Provisioned cluster with Prometheus](open-monitoring.md "open-monitoring.md") for updated steps for setting up
   open-monitoring for KRaft-based clusters.
 - There are no additional [CloudWatch metrics](metrics-details.md "metrics-details.md") you need to monitor for KRaft mode clusters over ZooKeeper mode clusters. MSK manages the KRaft controllers used in your clusters.
 - You can continue managing ACLs using in KRaft mode clusters using the

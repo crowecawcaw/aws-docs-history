@@ -11,12 +11,8 @@ information, see the [Amazon MSK API Reference 2.0](../../../MSK/2.0/APIReferenc
 ###### Topics
 
 - [Create an MSK Serverless cluster](create-serverless-cluster.md "create-serverless-cluster.md")
-- [Create an IAM role for topics on MSK Serverless
-  cluster](create-iam-role.md "create-iam-role.md")
-- [Create a client machine to access MSK
-  Serverless cluster](create-serverless-cluster-client.md "create-serverless-cluster-client.md")
+- [Create an IAM role for topics on MSK Serverless cluster](create-iam-role.md "create-iam-role.md")
+- [Create a client machine to access MSK Serverless cluster](create-serverless-cluster-client.md "create-serverless-cluster-client.md")
 - [Create an Apache Kafka topic](msk-serverless-create-topic.md "msk-serverless-create-topic.md")
-- [Produce and consume data in MSK
-  Serverless](msk-serverless-produce-consume.md "msk-serverless-produce-consume.md")
-- [Delete resources that you created for MSK
-  Serverless](delete-resources.md "delete-resources.md")
+- [Produce and consume data in MSK Serverless](msk-serverless-produce-consume.md "msk-serverless-produce-consume.md")
+- [Delete resources that you created for MSK Serverless](delete-resources.md "delete-resources.md")
