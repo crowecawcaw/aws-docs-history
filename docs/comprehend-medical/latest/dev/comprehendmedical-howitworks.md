@@ -54,9 +54,7 @@ collection of documents or a single large document. By
 using either the console or the ontology linking batch APIs, you can perform operations
 to start, stop, list, and describe ongoing batch analysis jobs.
 
-### Linking to concepts in the ICD-10-CM knowledge base
-
-of medical conditions
+### Linking to concepts in the ICD-10-CM knowledge base of medical conditions
 
 The **InferICD10CM** operation detects potential medical
 conditions and links them to codes from the 2019 version of the International
@@ -71,9 +69,7 @@ confidence that Amazon Comprehend Medical has in
 the
 accuracy of the entities to the matched concepts in the results.
 
-### Linking to concepts in the RxNorm knowledge base of
-
-medications
+### Linking to concepts in the RxNorm knowledge base of medications
 
 The **InferRxNorm** operation identifies medications that are
 listed in a patient record as entities. It links entities to concept identifiers
@@ -92,9 +88,7 @@ knowledge base. Amazon Comprehend Medical lists the top RxCUIs that potentially 
 for each medication that it detects in descending order based on confidence
 score.
 
-### Linking to concepts in the SNOMED CT knowledge base of
-
-medical concepts
+### Linking to concepts in the SNOMED CT knowledge base of medical concepts
 
 The InferSNOMEDCT operation identifies possible medical concepts as entities and
 links them to codes from the 2021-03 version of the Systematized Nomenclature of

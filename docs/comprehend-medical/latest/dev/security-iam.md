@@ -33,8 +33,7 @@ A service role is an [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../..
 actions on your behalf. An IAM administrator can create, modify, and delete a service role from within IAM. For
 more information, see [Create a role to delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the _IAM User Guide_.
 
-To learn more about specifying Amazon Comprehend Medical as the service in principal, see [Role-based Permissions required for
-batch operations](security-iam-permissions.md#auth-role-permissions-med "security-iam-permissions.md#auth-role-permissions-med").
+To learn more about specifying Amazon Comprehend Medical as the service in principal, see [Role-based Permissions required for batch operations](security-iam-permissions.md#auth-role-permissions-med "security-iam-permissions.md#auth-role-permissions-med").
 
 ## Access Control
 
@@ -42,17 +41,12 @@ You must have valid credentials to authenticate your requests. The credentials m
 
 The following sections describe how to manage permissions for Amazon Comprehend Medical. We recommend that you read the overview first.
 
-- [Overview of managing access permissions to
-  Amazon Comprehend Medical resources](security-iam-accesscontrol.md "security-iam-accesscontrol.md")
-- [Using Identity-Based policies
-  (IAM policies) for Amazon Comprehend Medical](security-iam-permissions.md "security-iam-permissions.md")
+- [Overview of managing access permissions to Amazon Comprehend Medical resources](security-iam-accesscontrol.md "security-iam-accesscontrol.md")
+- [Using Identity-Based policies (IAM policies) for Amazon Comprehend Medical](security-iam-permissions.md "security-iam-permissions.md")
 
 ###### Topics
 
-- [Overview of managing access permissions to
-  Amazon Comprehend Medical resources](security-iam-accesscontrol.md "security-iam-accesscontrol.md")
-- [Using Identity-Based policies
-  (IAM policies) for Amazon Comprehend Medical](security-iam-permissions.md "security-iam-permissions.md")
-- [Amazon Comprehend Medical API Permissions: actions,
-  resources, and conditions reference](security-iam-resources.md "security-iam-resources.md")
+- [Overview of managing access permissions to Amazon Comprehend Medical resources](security-iam-accesscontrol.md "security-iam-accesscontrol.md")
+- [Using Identity-Based policies (IAM policies) for Amazon Comprehend Medical](security-iam-permissions.md "security-iam-permissions.md")
+- [Amazon Comprehend Medical API Permissions: actions, resources, and conditions reference](security-iam-resources.md "security-iam-resources.md")
 - [AWS managed policies for Amazon Comprehend Medical](security-iam-awsmanpol.md "security-iam-awsmanpol.md")

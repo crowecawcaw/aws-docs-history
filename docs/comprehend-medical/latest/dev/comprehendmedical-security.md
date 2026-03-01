@@ -29,9 +29,7 @@ cloud and security _in_ the cloud:
 
 - [Data protection in Amazon Comprehend Medical](security-dataprotection.md "security-dataprotection.md")
 - [Identity and access management in Amazon Comprehend Medical](security-iam.md "security-iam.md")
-- [Logging Amazon Comprehend Medical API calls by
-  using AWS CloudTrail](security-cloudtrail.md "security-cloudtrail.md")
+- [Logging Amazon Comprehend Medical API calls by using AWS CloudTrail](security-cloudtrail.md "security-cloudtrail.md")
 - [Compliance validation for Amazon Comprehend Medical](security-compliance.md "security-compliance.md")
 - [Resilience in Amazon Comprehend Medical](security-resilience.md "security-resilience.md")
-- [Infrastructure security in
-  Amazon Comprehend Medical](security-infrastructure.md "security-infrastructure.md")
+- [Infrastructure security in Amazon Comprehend Medical](security-infrastructure.md "security-infrastructure.md")

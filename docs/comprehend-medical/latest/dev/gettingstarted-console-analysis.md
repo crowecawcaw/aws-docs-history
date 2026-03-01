@@ -1,6 +1,4 @@
-# Analyzing clinical text using the
-
-console
+# Analyzing clinical text using the console
 
 The Comprehend Medical console enables you to analyze the contents of clinical text,
 up to 20,000 characters long. The results are shown in the console so that you can

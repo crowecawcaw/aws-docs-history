@@ -1,6 +1,4 @@
-# Overview of managing access permissions to
-
-Amazon Comprehend Medical resources
+# Overview of managing access permissions to Amazon Comprehend Medical resources
 
 Permissions policies govern the access to an action. An account administrator attaches
 permissions policies to IAM identities to manage access to actions. IAM identities
@@ -17,16 +15,11 @@ permissions.
 
 ###### Topics
 
-- [Managing access to
-  actions](#access-control-manage-access-intro-med "#access-control-manage-access-intro-med")
-- [Specifying policy
-  elements: actions, effects, and principals](#access-control-specify-comprehend-actions-med "#access-control-specify-comprehend-actions-med")
-- [Specifying conditions in a
-  policy](#specifying-conditions-med "#specifying-conditions-med")
+- [Managing access to actions](#access-control-manage-access-intro-med "#access-control-manage-access-intro-med")
+- [Specifying policy elements: actions, effects, and principals](#access-control-specify-comprehend-actions-med "#access-control-specify-comprehend-actions-med")
+- [Specifying conditions in a policy](#specifying-conditions-med "#specifying-conditions-med")
 
-## Managing access to
-
-actions
+## Managing access to actions
 
 A _permissions policy_ describes who has access to what. The
 following section explains the options for permissions policies.
@@ -75,8 +68,7 @@ You can attach policies to IAM identities. Here are two examples.
   _IAM User Guide_.
 
 For more information about using identity-based policies with Amazon Comprehend Medical, see
-[Using Identity-Based policies
-(IAM policies) for Amazon Comprehend Medical](security-iam-permissions.md "security-iam-permissions.md"). For more
+[Using Identity-Based policies (IAM policies) for Amazon Comprehend Medical](security-iam-permissions.md "security-iam-permissions.md"). For more
 information about users, groups, roles, and permissions, see [Identities (Users, Groups, and Roles)](../../../IAM/latest/UserGuide/id.md "../../../IAM/latest/UserGuide/id.md") in
 the _IAM User Guide_.
 
@@ -86,9 +78,7 @@ Other services, such as AWS Lambda, support resource-based permissions policies.
 For example, you can attach a policy to an S3 bucket to manage access
 permissions to that bucket. Amazon Comprehend Medical doesn't support resource-based policies.
 
-## Specifying policy
-
-elements: actions, effects, and principals
+## Specifying policy elements: actions, effects, and principals
 
 Amazon Comprehend Medical defines a set of API operations. To grant permissions for these API
 operations, Amazon Comprehend Medical defines a set of actions that you can specify in a policy.
@@ -115,12 +105,9 @@ The four items here are the most basic policy elements.
 To learn more about IAM policy syntax and descriptions, see [AWS IAM Policy Reference](../../../IAM/latest/UserGuide/reference_policies.md "../../../IAM/latest/UserGuide/reference_policies.md") in the
 _IAM User Guide_.
 
-For a table showing all of the Amazon Comprehend Medical API actions, see [Amazon Comprehend Medical API Permissions: actions,
-resources, and conditions reference](security-iam-resources.md "security-iam-resources.md").
+For a table showing all of the Amazon Comprehend Medical API actions, see [Amazon Comprehend Medical API Permissions: actions, resources, and conditions reference](security-iam-resources.md "security-iam-resources.md").
 
-## Specifying conditions in a
-
-policy
+## Specifying conditions in a policy
 
 When you grant permissions, you use the IAM policy language to specify the
 conditions under which a policy should take effect. For example, you might want a

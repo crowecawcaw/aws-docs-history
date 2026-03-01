@@ -12,16 +12,11 @@ SDK for Java](../../../sdk-for-java/v1/developer-guide/setup-install.md "../../.
 
 ###### Topics
 
-- [Detecting medical entities using the
-  AWS Command Line Interface](#med-examples-cli "#med-examples-cli")
-- [Detecting medical entities using the
-  AWS SDK for Java](#med-examples-java "#med-examples-java")
-- [Detecting medical entities using the
-  AWS SDK for Python (Boto)](#med-examples-python "#med-examples-python")
+- [Detecting medical entities using the AWS Command Line Interface](#med-examples-cli "#med-examples-cli")
+- [Detecting medical entities using the AWS SDK for Java](#med-examples-java "#med-examples-java")
+- [Detecting medical entities using the AWS SDK for Python (Boto)](#med-examples-python "#med-examples-python")
 
-## Detecting medical entities using the
-
-AWS Command Line Interface
+## Detecting medical entities using the AWS Command Line Interface
 
 The following example demonstrates using the `DetectEntitiesV2` operation
 using the AWS CLI to return the medical entities detected in text. To run the example, you
@@ -110,9 +105,7 @@ The response is the following:
 }
 ```
 
-## Detecting medical entities using the
-
-AWS SDK for Java
+## Detecting medical entities using the AWS SDK for Java
 
 The following example uses the `DetectEntitiesV2` operation with Java. To run
 the example, install the AWS SDK for Java. For instructions on installing the AWS SDK for Java, see
@@ -166,9 +159,7 @@ PROTECTED_HEALTH_INFORMATION,Type: NAME,Traits: [],}
 [{Type: DOSAGE,Score: 0.9630807,RelationshipScore: 0.99969745,Id: 1,BeginOffset: 14,EndOffset: 19,Text: 50 mg,Traits: []}]}
 ```
 
-## Detecting medical entities using the
-
-AWS SDK for Python (Boto)
+## Detecting medical entities using the AWS SDK for Python (Boto)
 
 The following example uses the `DetectEntitiesV2` operation with Python. To
 run the sample, install the AWS CLI. For more information, see [Step 2: Set up the AWS Command Line Interface (AWS CLI)](gettingstarted-awscli.md "gettingstarted-awscli.md").

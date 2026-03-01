@@ -18,8 +18,7 @@ _IAM User Guide_.
 ###### Topics
 
 - [AWS managed policy: ComprehendMedicalFullAccess](#security-iam-awsmanpol-ComprehendMedicalFullAccess "#security-iam-awsmanpol-ComprehendMedicalFullAccess")
-- [Comprehend Medical updates to AWS managed
-  policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
+- [Comprehend Medical updates to AWS managed policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
 
 ## AWS managed policy: ComprehendMedicalFullAccess
 
@@ -45,9 +44,7 @@ JSON
 
 ```
 
-## Comprehend Medical updates to AWS managed
-
-policies
+## Comprehend Medical updates to AWS managed policies
 
 View details about updates to AWS managed policies for Amazon Comprehend Medical since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

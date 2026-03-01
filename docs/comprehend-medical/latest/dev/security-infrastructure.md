@@ -1,6 +1,4 @@
-# Infrastructure security in
-
-Amazon Comprehend Medical
+# Infrastructure security in Amazon Comprehend Medical
 
 As a managed service, Amazon Comprehend Medical is protected by the AWS global network
 security procedures that are described in the [Amazon Web Services: Overview of Security Processes](https://d0.awsstatic.com/whitepapers/Security/AWS_Security_Whitepaper.pdf "https://d0.awsstatic.com/whitepapers/Security/AWS_Security_Whitepaper.pdf") whitepaper.

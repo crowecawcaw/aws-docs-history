@@ -1,6 +1,4 @@
-# Logging Amazon Comprehend Medical API calls by
-
-using AWS CloudTrail
+# Logging Amazon Comprehend Medical API calls by using AWS CloudTrail
 
 Amazon Comprehend Medical is integrated with AWS CloudTrail. CloudTrail is a service that provides a
 record of actions taken by a user, role, or an AWS service from within
@@ -19,9 +17,7 @@ information collected by CloudTrail, you can determine several things such as:
 - Other details
   To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
 
-## Amazon Comprehend Medical
-
-information in CloudTrail
+## Amazon Comprehend Medical information in CloudTrail
 
 CloudTrail is enabled on your AWS account when you create the account. When activity
 occurs in Amazon Comprehend Medical, that activity is recorded in a CloudTrail event along
@@ -63,9 +59,7 @@ identity information helps you determine the following:
 For more information, see the [CloudTrail userIdentity
 Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## Understanding
-
-Amazon Comprehend Medical log file entries
+## Understanding Amazon Comprehend Medical log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3
 bucket that you specify. CloudTrail log files contain one or more log entries. An event

@@ -1,6 +1,4 @@
-# Step 1: Set up an AWS account and create an
-
-administrator user
+# Step 1: Set up an AWS account and create an administrator user
 
 Before you use Amazon Comprehend Medical for the first time, complete the following tasks:
 

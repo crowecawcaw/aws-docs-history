@@ -2,8 +2,7 @@
 
 You don't need the AWS CLI to perform the steps in the Getting Started exercises.
 However, some of the other exercises in this guide do require it. If you prefer, you can
-skip this step and go to [Step 3: Getting started using the Amazon Comprehend Medical
-console](gettingstarted-console.md "gettingstarted-console.md"), and set up the AWS CLI later.
+skip this step and go to [Step 3: Getting started using the Amazon Comprehend Medical console](gettingstarted-console.md "gettingstarted-console.md"), and set up the AWS CLI later.
 
 ###### To set up the AWS CLI
 
@@ -35,5 +34,4 @@ aws help
 
 ## Next step
 
-[Step 3: Getting started using the Amazon Comprehend Medical
-console](gettingstarted-console.md "gettingstarted-console.md")
+[Step 3: Getting started using the Amazon Comprehend Medical console](gettingstarted-console.md "gettingstarted-console.md")

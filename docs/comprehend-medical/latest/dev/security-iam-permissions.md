@@ -1,6 +1,4 @@
-# Using Identity-Based policies
-
-(IAM policies) for Amazon Comprehend Medical
+# Using Identity-Based policies (IAM policies) for Amazon Comprehend Medical
 
 This topic shows example identity-based policies. The examples show how an account
 administrator can attach permissions policies to IAM identities. This enables users,
@@ -8,8 +6,7 @@ groups, and roles to perform Amazon Comprehend Medical actions.
 
 ###### Important
 
-To understand permissions, we recommend [Overview of managing access permissions to
-Amazon Comprehend Medical resources](security-iam-accesscontrol.md "security-iam-accesscontrol.md").
+To understand permissions, we recommend [Overview of managing access permissions to Amazon Comprehend Medical resources](security-iam-accesscontrol.md "security-iam-accesscontrol.md").
 
 This example policy is required to use the Amazon Comprehend Medical document analysis actions.
 
@@ -65,17 +62,13 @@ attach a policy to a user, the user is the implicit principal. When you attach a
 to an IAM role, the principal identified in the role's trust policy gets the
 permission.
 
-To see all the Amazon Comprehend Medical API actions and the resources that they apply to, see [Amazon Comprehend Medical API Permissions: actions,
-resources, and conditions reference](security-iam-resources.md "security-iam-resources.md").
+To see all the Amazon Comprehend Medical API actions and the resources that they apply to, see [Amazon Comprehend Medical API Permissions: actions, resources, and conditions reference](security-iam-resources.md "security-iam-resources.md").
 
-## Permissions required to use the
-
-Amazon Comprehend Medical console
+## Permissions required to use the Amazon Comprehend Medical console
 
 The permissions reference table lists the Amazon Comprehend Medical API operations and shows the
 required permissions for each operation. For more information, about Amazon Comprehend Medical API
-permissions, see [Amazon Comprehend Medical API Permissions: actions,
-resources, and conditions reference](security-iam-resources.md "security-iam-resources.md").
+permissions, see [Amazon Comprehend Medical API Permissions: actions, resources, and conditions reference](security-iam-resources.md "security-iam-resources.md").
 
 To use the Amazon Comprehend Medical console, grant permissions for the actions shown in the
 following policy.
@@ -146,9 +139,7 @@ The Amazon Comprehend Medical console needs these permissions to create roles an
 `iam:PassRole` action enables the console to pass the role to
 Amazon Comprehend Medical.
 
-## AWS managed (predefined)
-
-policies for Amazon Comprehend Medical
+## AWS managed (predefined) policies for Amazon Comprehend Medical
 
 AWS addresses many common use cases by providing standalone IAM policies that are
 created and administered by AWS. These AWS managed policies grant necessary
@@ -195,9 +186,7 @@ You can also create your own IAM policies to allow permissions for Amazon Compre
 actions and resources. You can attach these custom policies to the IAM users or
 groups that require them.
 
-## Role-based Permissions required for
-
-batch operations
+## Role-based Permissions required for batch operations
 
 To use the Amazon Comprehend Medical asynchronous operations, grant Amazon Comprehend Medical access to the Amazon S3 bucket
 that contains your document collection. Do this by creating a data access role in
@@ -270,15 +259,12 @@ JSON
 
 ```
 
-## Customer managed
-
-policy examples
+## Customer managed policy examples
 
 In this section, you can find example user policies that grant permissions for
 various Amazon Comprehend Medical actions. These policies work when you are using AWS SDKs or the AWS
 CLI. When you are using the console, you must grant permissions to all the Amazon Comprehend Medical
-APIs. This is discussed in [Permissions required to use the
-Amazon Comprehend Medical console](#auth-console-permissions-med "#auth-console-permissions-med").
+APIs. This is discussed in [Permissions required to use the Amazon Comprehend Medical console](#auth-console-permissions-med "#auth-console-permissions-med").
 
 ###### Note
 
@@ -287,9 +273,7 @@ IDs.
 
 ###### Examples
 
-### Example 1: Allow all Amazon Comprehend Medical
-
-actions
+### Example 1: Allow all Amazon Comprehend Medical actions
 
 After you sign up for AWS, you create an administrator to manage your
 account, including creating users and managing their permissions.
@@ -316,9 +300,7 @@ JSON
 
 ```
 
-### Example 2: Allow only DetectEntities
-
-actions
+### Example 2: Allow only DetectEntities actions
 
 The following permissions policy grants user permissions to detect entities in
 Amazon Comprehend Medical, but not to detect PHI operations.

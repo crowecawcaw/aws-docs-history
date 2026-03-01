@@ -4,9 +4,7 @@ Use Amazon Comprehend Medical to detect entities in clinical text stored in an A
 
 For pricing information for batch analysis and other Amazon Comprehend Medical operations, see [Amazon Comprehend Medical Pricing](https://aws.amazon.com/comprehend/medical/pricing/ "https://aws.amazon.com/comprehend/medical/pricing/").
 
-## Performing batch
-
-analysis
+## Performing batch analysis
 
 You can run a batch analysis job using either the Amazon Comprehend Medical console or the Amazon Comprehend Medical batch API operations.
 
@@ -28,9 +26,7 @@ Permissions](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/late
    **StopRxNormInferenceJob** to stop analysis.
 5. To view the results of your analysis job, see the output S3 bucket that you configured when you started the job.
 
-### Performing batch analysis
-
-using the console
+### Performing batch analysis using the console
 
 ######
 
@@ -42,9 +38,7 @@ using the console
 4. To see the results of your analysis job, see the output S3 bucket that
    you configured when you started the job.
 
-## IAM policies for batch
-
-operations
+## IAM policies for batch operations
 
 The IAM role that calls the Amazon Comprehend Medical batch API operations must have a policy that grants access to the S3 buckets that contain the input and output files. The IAM role must also be assigned a trust relationship so that the Amazon Comprehend Medical service can assume the role. To learn more about IAM roles and trust policies, see [IAM Roles](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md").
 
@@ -191,9 +185,7 @@ about successfully processed files.
 }
 ```
 
-### Unprocessed manifest
-
-file
+### Unprocessed manifest file
 
 Following is the JSON structure of the manifest file that contains
 information about unprocessed files.
