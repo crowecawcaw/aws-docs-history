@@ -27,8 +27,7 @@ format.
 
 ## Step 5.2: Enroll the Administrative User
 
-AMB Access registers the user identity that you specified when you created the member as an administrator. In Hyperledger Fabric, this user is known as the _bootstrap identity_ because the identity is used to enroll itself. To enroll, you need the CA endpoint, as well as the user name and password for the administrator that you created in [Step 1: Create the Network and First Member](get-started-create-network.md "get-started-create-network.md"). For information about registering other user identities as administrators before you enroll them, see [Register and Enroll a
-Hyperledger Fabric Admin](managed-blockchain-hyperledger-create-admin.md "managed-blockchain-hyperledger-create-admin.md").
+AMB Access registers the user identity that you specified when you created the member as an administrator. In Hyperledger Fabric, this user is known as the _bootstrap identity_ because the identity is used to enroll itself. To enroll, you need the CA endpoint, as well as the user name and password for the administrator that you created in [Step 1: Create the Network and First Member](get-started-create-network.md "get-started-create-network.md"). For information about registering other user identities as administrators before you enroll them, see [Register and Enroll a Hyperledger Fabric Admin](managed-blockchain-hyperledger-create-admin.md "managed-blockchain-hyperledger-create-admin.md").
 
 Use the `get-member` command to get the CA endpoint for your membership as shown in the following example. Replace the values of `--network-id` and `--member-id` with the values returned in [Step 1: Create the Network and First Member](get-started-create-network.md "get-started-create-network.md").
 

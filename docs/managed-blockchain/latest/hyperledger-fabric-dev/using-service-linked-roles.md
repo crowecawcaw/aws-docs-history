@@ -1,6 +1,4 @@
-# Using Service-Linked Roles for
-
-AMB Access
+# Using Service-Linked Roles for AMB Access
 
 Amazon Managed Blockchain (AMB) uses AWS Identity and Access Management (IAM)[service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
 linked directly to AMB Access. Service-linked roles are predefined by AMB Access and
@@ -22,9 +20,7 @@ IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md 
 **Service-Linked Role** column. Choose a **Yes** with a link to view the service-linked role documentation for that
 service.
 
-## Service-Linked Role Permissions for
-
-AMB Access
+## Service-Linked Role Permissions for AMB Access
 
 AMB Access uses the service-linked role named **AWSServiceRoleForAmazonManagedBlockchain**. This role
 enables access to AWS Services and Resources used or managed by Amazon Managed
@@ -70,9 +66,7 @@ JSON
 You must configure permissions to allow an IAM entity (such as a user, group, or role)
 to create, edit, or delete a service-linked role. For more information, see [Service-Linked Role Permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the _IAM User Guide_.
 
-## Creating a Service-Linked Role for
-
-AMB Access
+## Creating a Service-Linked Role for AMB Access
 
 You don't need to manually create a service-linked role. When you create a network,
 a member, or a peer node, AMB Access creates the service-linked role for you. It doesn't matter if you use the AWS Management Console, the AWS CLI, or the AWS API. The IAM entity performing the action must have permissions to create the service-linked role. After the role is created in your account,
@@ -82,9 +76,7 @@ If you delete this service-linked role, and then need to create it again, you ca
 same process to recreate the role in your account. When you create a network, member, or node,
 AMB Access creates the service-linked role for you again.
 
-## Editing a Service-Linked Role for
-
-AMB Access
+## Editing a Service-Linked Role for AMB Access
 
 AMB Access does not allow you to edit the AWSServiceRoleForAmazonManagedBlockchain service-linked role. After you
 create a service-linked role, you cannot change the name of the role because various entities
@@ -92,9 +84,7 @@ might reference the role. However, you can edit the description of the role usin
 more information, see [Editing a
 Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the _IAM User Guide_.
 
-## Deleting a Service-Linked Role for
-
-AMB Access
+## Deleting a Service-Linked Role for AMB Access
 
 If you no longer need to use a feature or service that requires a service-linked role, we
 recommend that you delete that role. That way you don’t have an unused entity that is not
@@ -113,9 +103,7 @@ Use the IAM console, the AWS CLI, or the AWS API to delete the AWSServiceRoleFor
 service-linked role. For more information, see [Deleting a
 Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the _IAM User Guide_.
 
-## Supported Regions for
-
-AMB Access Service-Linked Roles
+## Supported Regions for AMB Access Service-Linked Roles
 
 AMB Access supports using service-linked roles in all of the Regions where the service
 is available. For more information, see [AWS Regions and Endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md").

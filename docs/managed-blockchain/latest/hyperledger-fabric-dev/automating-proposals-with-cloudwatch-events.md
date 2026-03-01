@@ -1,6 +1,4 @@
-# Automating AMB Access Proposal Notifications with
-
-CloudWatch Events
+# Automating AMB Access Proposal Notifications with CloudWatch Events
 
 Amazon CloudWatch Events enables you to automate your AWS services and respond automatically to system events. Events from AWS services are delivered to CloudWatch Events in near real
 time on a best-effort basis. You can write simple rules to indicate which events are of interest to you, and what automated actions to take

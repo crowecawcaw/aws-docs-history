@@ -31,8 +31,7 @@ AMB Access. For information about working with AMB Access Ethereum, see [Amazon 
 
 We recommend the following resources to get started with Hyperledger Fabric networks and chaincode on AMB Access:
 
-- [Key Concepts: Amazon Managed Blockchain (AMB) Networks, Members, and Peer
-  Nodes](network-components.md "network-components.md")
+- [Key Concepts: Amazon Managed Blockchain (AMB) Networks, Members, and Peer Nodes](network-components.md "network-components.md")
 
 This overview helps you understand the fundamental building blocks of a Hyperledger Fabric network on AMB Access. It
 also tells you how to identify and communicate with network resources.

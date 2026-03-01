@@ -1,6 +1,4 @@
-# Register and Enroll a
-
-Hyperledger Fabric Admin
+# Register and Enroll a Hyperledger Fabric Admin
 
 Only identities who are admins within a Hyperledger Fabric member can install
 and query chaincode.
@@ -40,9 +38,7 @@ To register and enroll an identity as an admin, you must have the following:
 - A valid certificate file and the path to the MSP directory of your identity,
   which will register the new administrator
 
-## Registering an
-
-Admin
+## Registering an Admin
 
 The following example uses a [Fabric-CA Client CLI](https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/clientcli.html "https://hyperledger-fabric-ca.readthedocs.io/en/release-1.4/clientcli.html")
 `register` command to register an admin with these options:
@@ -95,9 +91,7 @@ fabric-ca-client enroll \
 -M `/home/ec2-user/admin-msp`
 ```
 
-## Copying the Admin
-
-Certificate
+## Copying the Admin Certificate
 
 After you enroll the admin, copy the certificates from the `signcerts`
 directory to the `admincerts` directory as shown in the following

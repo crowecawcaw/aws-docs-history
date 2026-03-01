@@ -53,8 +53,7 @@ The steps below require that you have the following:
   - [Work with Hyperledger Fabric Peer Nodes on AMB Access](managed-blockchain-hyperledger-peer-nodes.md "managed-blockchain-hyperledger-peer-nodes.md")
   - [Step 4: Create an Amazon EC2 Instance and Set Up the Hyperledger Fabric Client](get-started-create-client.md "get-started-create-client.md"). Optionally, modify [step 4.4](get-started-create-client.md#get-started-client-configure-peer-cli "get-started-create-client.md#get-started-client-configure-peer-cli") when launching the Docker container to establish CLI variables demonstrated in the install steps below.
 
-- You must be a Hyperledger Fabric admin to install chaincode. For more information, see [Register and Enroll a
-  Hyperledger Fabric Admin](managed-blockchain-hyperledger-create-admin.md "managed-blockchain-hyperledger-create-admin.md").
+- You must be a Hyperledger Fabric admin to install chaincode. For more information, see [Register and Enroll a Hyperledger Fabric Admin](managed-blockchain-hyperledger-create-admin.md "managed-blockchain-hyperledger-create-admin.md").
 
 ### Step 1: Download the Gradle Shadow plugin and add it to the chaincode project
 
@@ -133,9 +132,7 @@ shadowJar {
 }
 ```
 
-### Step 2: Add
-
-fabric-chaincode-shim and the getDeps task to the chaincode project
+### Step 2: Add fabric-chaincode-shim and the getDeps task to the chaincode project
 
 Update `build.gradle` to add [fabric-chaincode-shim](https://github.com/hyperledger/fabric-chaincode-java/tree/master/fabric-chaincode-shim "https://github.com/hyperledger/fabric-chaincode-java/tree/master/fabric-chaincode-shim") as a dependency in the `dependencies`
 section. In addition, reference the task `getDeps` to download

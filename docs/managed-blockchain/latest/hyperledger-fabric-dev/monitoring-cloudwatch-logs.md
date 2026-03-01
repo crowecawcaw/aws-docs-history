@@ -23,8 +23,7 @@ Consider the following before you enable and view CloudWatch Logs for AMB Access
 
 - CA logs can be enabled only for members created after April 6, 2020. Peer node logs and chaincode logs can be enabled only for peer nodes created after April 6, 2020.
 - Log entries are updated every five seconds.
-- Logging requires the service-linked role for AMB Access. The role is created automatically when an IAM principal (user or role) in your account with permissions to create the service-linked role creates a network, member, or peer. For more information, see [Using Service-Linked Roles for
-  AMB Access](using-service-linked-roles.md "using-service-linked-roles.md").
+- Logging requires the service-linked role for AMB Access. The role is created automatically when an IAM principal (user or role) in your account with permissions to create the service-linked role creates a network, member, or peer. For more information, see [Using Service-Linked Roles for AMB Access](using-service-linked-roles.md "using-service-linked-roles.md").
 - Logging currently does not support CloudWatch Logs encryption.
 - Logging currently does not support CloudWatch Logs Insights.
 - To log chaincode events, you must first configure Go chaincode for logging. For more information, see [Logging Control for Chaincode](https://hyperledger-fabric.readthedocs.io/en/release-2.2/logging-control.html#chaincode "https://hyperledger-fabric.readthedocs.io/en/release-2.2/logging-control.html#chaincode") in the Hyperledger Fabric documentation.

@@ -1,6 +1,4 @@
-# Encryption at Rest for
-
-AMB Access Hyperledger Fabric
+# Encryption at Rest for AMB Access Hyperledger Fabric
 
 Amazon Managed Blockchain (AMB) offers fully managed encryption at rest. AMB Access _encryption at
 rest_ provides enhanced security by encrypting all data at rest on
@@ -45,17 +43,12 @@ a customer managed key. For information about pricing, see [AWS Key Management S
 
 ###### Topics
 
-- [Encryption
-  at Rest: How It Works](#managed-blockchain-encryption-at-rest.how-it-works "#managed-blockchain-encryption-at-rest.how-it-works")
-- [How AMB Access Uses
-  Grants in AWS KMS](#managed-blockchain-encryption-at-rest.grants "#managed-blockchain-encryption-at-rest.grants")
+- [Encryption at Rest: How It Works](#managed-blockchain-encryption-at-rest.how-it-works "#managed-blockchain-encryption-at-rest.how-it-works")
+- [How AMB Access Uses Grants in AWS KMS](#managed-blockchain-encryption-at-rest.grants "#managed-blockchain-encryption-at-rest.grants")
 - [Encryption at Rest Considerations](#managed-blockchain-encryption-at-rest.considerations "#managed-blockchain-encryption-at-rest.considerations")
-- [Using
-  Customer Managed Keys in AMB Access](#managed-blockchain-encryption-at-rest.using-cust-keys "#managed-blockchain-encryption-at-rest.using-cust-keys")
+- [Using Customer Managed Keys in AMB Access](#managed-blockchain-encryption-at-rest.using-cust-keys "#managed-blockchain-encryption-at-rest.using-cust-keys")
 
-## Encryption
-
-at Rest: How It Works
+## Encryption at Rest: How It Works
 
 AMB Access Hyperledger Fabric encryption at rest encrypts your data using 256-bit Advanced
 Encryption Standard (AES-256), which helps secure your data from unauthorized
@@ -134,9 +127,7 @@ recommend deleting and recreating the resource, and reconfiguring the
 KMS key. To check the encryption status of a member or peer node resource,
 use the [GetMember](../APIReference/API_GetMember.md "../APIReference/API_GetMember.md") or [GetNode](../APIReference/API_GetNode.md "../APIReference/API_GetNode.md") API operation respectively.
 
-## How AMB Access Uses
-
-Grants in AWS KMS
+## How AMB Access Uses Grants in AWS KMS
 
 AMB Access requires _grants_ to use your customer managed key. When you
 create a member that is protected with a customer managed key, AMB Access creates grants on
@@ -189,9 +180,7 @@ AMB Access Hyperledger Fabric.
 - AMB Access currently doesn't support encryption context for AWS KMS
   cryptographic operations.
 
-## Using
-
-Customer Managed Keys in AMB Access
+## Using Customer Managed Keys in AMB Access
 
 You can use the AMB Access console, the AMB Access API, or the AWS CLI to specify the
 AWS KMS key for new members in AMB Access. The following topics describe how to
@@ -233,8 +222,7 @@ include permissions for the [CreateGrant](../../../kms/latest/APIReference/API_C
 [grant](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md") to
 a customer managed key. Grants control access to a specified KMS key.
 AMB Access creates grants that allow access to the [grant operations](../../../kms/latest/developerguide/grants.md#terms-grant-operations "../../../kms/latest/developerguide/grants.md#terms-grant-operations") that it requires, which are listed
-in [How AMB Access Uses
-Grants in AWS KMS](#managed-blockchain-encryption-at-rest.grants "#managed-blockchain-encryption-at-rest.grants").
+in [How AMB Access Uses Grants in AWS KMS](#managed-blockchain-encryption-at-rest.grants "#managed-blockchain-encryption-at-rest.grants").
 
 Key Policy Example
 

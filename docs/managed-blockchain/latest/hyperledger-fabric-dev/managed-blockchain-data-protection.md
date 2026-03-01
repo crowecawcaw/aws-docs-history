@@ -29,9 +29,7 @@ credentials and set up individual users with AWS IAM Identity Center or AWS Iden
   provide a URL to an external server, we strongly recommend that you do not include credentials
   information in the URL to validate your request to that server.
 
-## Data
-
-Encryption for AMB Access Hyperledger Fabric
+## Data Encryption for AMB Access Hyperledger Fabric
 
 Data encryption helps prevent unauthorized users from reading data from a
 blockchain network and the associated data storage systems. This includes data saved
@@ -41,7 +39,5 @@ transit_.
 
 ###### Topics
 
-- [Encryption at Rest for
-  AMB Access Hyperledger Fabric](managed-blockchain-encryption-at-rest.md "managed-blockchain-encryption-at-rest.md")
-- [Encryption in Transit for
-  AMB Access Hyperledger Fabric](managed-blockchain-encryption-in-transit.md "managed-blockchain-encryption-in-transit.md")
+- [Encryption at Rest for AMB Access Hyperledger Fabric](managed-blockchain-encryption-at-rest.md "managed-blockchain-encryption-at-rest.md")
+- [Encryption in Transit for AMB Access Hyperledger Fabric](managed-blockchain-encryption-in-transit.md "managed-blockchain-encryption-in-transit.md")

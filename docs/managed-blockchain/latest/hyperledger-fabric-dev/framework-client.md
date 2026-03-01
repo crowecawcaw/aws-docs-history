@@ -13,8 +13,7 @@ An AWS CloudFormation template to create a Hyperledger Fabric client is availabl
 
 ###### Topics
 
-- [Register and Enroll a
-  Hyperledger Fabric Admin](managed-blockchain-hyperledger-create-admin.md "managed-blockchain-hyperledger-create-admin.md")
+- [Register and Enroll a Hyperledger Fabric Admin](managed-blockchain-hyperledger-create-admin.md "managed-blockchain-hyperledger-create-admin.md")
 - [Work with Channels](hyperledger-work-with-channels.md "hyperledger-work-with-channels.md")
 - [Add an Anchor Peer to a Channel](hyperledger-anchor-peers.md "hyperledger-anchor-peers.md")
 - [Develop Hyperledger Fabric Chaincode](managed-blockchain-hyperledger-develop-chaincode.md "managed-blockchain-hyperledger-develop-chaincode.md")

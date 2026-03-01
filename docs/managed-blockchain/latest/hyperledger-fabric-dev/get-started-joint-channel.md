@@ -94,9 +94,7 @@ If you are creating an additional member in the same AWS account, and you alread
 
 - [Step 5: Enroll an Administrative User](get-started-enroll-admin.md "get-started-enroll-admin.md")
 
-## Step 8.4: Share Artifacts
-
-and Information with the Network Creator
+## Step 8.4: Share Artifacts and Information with the Network Creator
 
 Before a shared channel can be created, the following artifacts and information need to be shared with `org1` by `org2`:
 
@@ -109,9 +107,7 @@ Before a shared channel can be created, the following artifacts and information 
   channel**—This `Endpoint` value is output by
   the `get-node` command after [Step 3: Create a Peer Node in Your Membership](get-started-create-peer-node.md "get-started-create-peer-node.md") is complete.
 
-## Step 8.5: The Channel Creator
-
-(org1) Creates Artifacts for org2's MSP
+## Step 8.5: The Channel Creator (org1) Creates Artifacts for org2's MSP
 
 In the following example, the channel creator is org1. The CA administrator for org1 copies the certificates from the step above to a location on the Hyperledger Fabric client computer. The Membership Service Provider (MSP) uses the certificates to authenticate the member.
 
@@ -157,9 +153,7 @@ The channel creator (org1) should verify that the required artifacts for channel
 
 If you created this configtx file earlier, delete the old file, rename it, or replace it.
 
-## Step 8.6: Create configtx
-
-for the Multi-Member Channel
+## Step 8.6: Create configtx for the Multi-Member Channel
 
 The `configtx.yaml` file contains details of the channel configuration. For more information, see [Channel Configuration (configtx)](https://hyperledger-fabric.readthedocs.io/en/release-2.2/configtx.html "https://hyperledger-fabric.readthedocs.io/en/release-2.2/configtx.html") in the Hyperledger Fabric documentation.
 
@@ -411,9 +405,7 @@ docker exec cli configtxgen \
 --configPath /opt/home/
 ```
 
-## Step 8.7: Create the
-
-Channel
+## Step 8.7: Create the Channel
 
 The channel creator (org1) uses the following command on their Hyperledger Fabric client to submit the channel to the orderer, which creates the channel `ourchannel`. The command example assumes that Docker environment variables have been configured as described in [Step 4.4: Configure and Run Docker Compose to Start the Hyperledger Fabric CLI](get-started-create-client.md#get-started-client-configure-peer-cli "get-started-create-client.md#get-started-client-configure-peer-cli") and that the `$ORDERER` environment variable has been set on the client.
 
@@ -423,9 +415,7 @@ docker exec cli peer channel create -c ourchannel \
 --cafile /opt/home/managedblockchain-tls-chain.pem --tls
 ```
 
-## Step 8.8: Get Channel
-
-Genesis Block
+## Step 8.8: Get Channel Genesis Block
 
 Both org1 and org2 need to run the following command on their respective Hyperledger Fabric clients to
 get the channel's genesis (`oldest`) block. For more information about the `peer channel` command, see [peer channel](https://hyperledger-fabric.readthedocs.io/en/release-2.2/commands/peerchannel.html "https://hyperledger-fabric.readthedocs.io/en/release-2.2/commands/peerchannel.html") in Hyperledger Fabric documentation.
@@ -436,9 +426,7 @@ docker exec cli peer channel fetch oldest /opt/home/ourchannel.block \
 --cafile /opt/home/managedblockchain-tls-chain.pem --tls
 ```
 
-## Step 8.9: Join Peer Nodes
-
-to the Channel
+## Step 8.9: Join Peer Nodes to the Channel
 
 Both org1 and org2 need to run the following command on their respective Hyperledger Fabric clients to
 join their peer nodes to the channel. For more information, see the `peer channel join` command
@@ -452,9 +440,7 @@ docker exec cli peer channel join -b /opt/home/ourchannel.block \
 
 Optionally, after you join a peer to a channel, you can set up the peer node as an _anchor peer_. Anchor peers support the gossip protocol, which is required for some features of Hyperledger Fabric, such as private data collections and service discovery. For more information, see [Add an Anchor Peer to a Channel](hyperledger-anchor-peers.md "hyperledger-anchor-peers.md").
 
-## Step 8.10: Install
-
-Chaincode
+## Step 8.10: Install Chaincode
 
 Both org1 and org2 run the following commands on their respective Hyperledger Fabric clients to install example chaincode on their respective peer nodes:
 
@@ -502,9 +488,7 @@ docker exec cli peer lifecycle chaincode commit \
 --channelID ourchannel --name myjointcc --version v0 --sequence 1
 ```
 
-## Step 8.11: Query
-
-Chaincode
+## Step 8.11: Query Chaincode
 
 Channel members can run the following command to query the chaincode:
 
@@ -518,9 +502,7 @@ value of `100`.
 
 You may need to wait a brief moment for the instantiation from the previous step to complete before you run the following command to query a value:
 
-## Step 8.12: Invoke
-
-Chaincode
+## Step 8.12: Invoke Chaincode
 
 With the channel created and configured with both members, and the chaincode instantiated with values and an endorsement policy, channel members can invoke chaincode. This example command is similar to the example in [Step 7.11: Invoke the Chaincode](get-started-chaincode.md#get-started-chaincode-invoke "get-started-chaincode.md#get-started-chaincode-invoke"). However, the command uses the `--peerAddresses` option to specify the endpoints of peer nodes that belong to members in the endorsement policy. The example specifies `Org2PeerNodeEndpoint` in addition to `Org1PeerEndpoint`.
 

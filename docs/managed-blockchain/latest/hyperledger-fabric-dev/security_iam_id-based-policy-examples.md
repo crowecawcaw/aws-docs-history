@@ -1,6 +1,4 @@
-# Amazon Managed Blockchain (AMB) Hyperledger Fabric Identity-Based
-
-Policy Examples
+# Amazon Managed Blockchain (AMB) Hyperledger Fabric Identity-Based Policy Examples
 
 By default, IAM users and roles don't have permission to create or modify
 AMB Access Hyperledger Fabric resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or
@@ -15,18 +13,13 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [Policy Best
-  Practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Allow Users
-  to View Their Own Permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Using the
-  AMB Access Hyperledger Fabric Console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Policy Best Practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Allow Users to View Their Own Permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Using the AMB Access Hyperledger Fabric Console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
 - [Performing All AMB Access Actions on All Accessible Networks for an AWS Account](#security_iam_id-based-policy-examples-access-one-bucket "#security_iam_id-based-policy-examples-access-one-bucket")
 - [Controlling access using tags](#security_iam_id-based-policy-examples-tags "#security_iam_id-based-policy-examples-tags")
 
-## Policy Best
-
-Practices
+## Policy Best Practices
 
 Identity-based policies determine whether someone can create, access, or delete AMB Access Hyperledger Fabric resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -59,9 +52,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Allow Users
-
-to View Their Own Permissions
+## Allow Users to View Their Own Permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -101,9 +92,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Using the
-
-AMB Access Hyperledger Fabric Console
+## Using the AMB Access Hyperledger Fabric Console
 
 To access the Amazon Managed Blockchain (AMB) Hyperledger Fabric console, you must have a minimum set of
 permissions. These permissions must allow you to list and view details about the
@@ -229,7 +218,7 @@ Each policy statement assumes that a statement with a broader `Allow`
 effect for the same actions exists; the `Deny` policy statement
 restricts that otherwise overly-permissive allow statement.
 
-###### Example – Require a tag key with either of two values to be added during network creation
+###### Example– Require a tag key with either of two values to be added during network creation
 
 The following identity-based policy statements allow the IAM principal to create a network only if the network is created with the tags specified.
 
@@ -277,7 +266,7 @@ JSON
 
 ```
 
-###### Example – Deny access to networks that have a specific tag key
+###### Example– Deny access to networks that have a specific tag key
 
 The following identity-based policy statement denies the IAM principal the ability to retrieve or view information for networks that have a tag with a tag key of `restricted`.
 
@@ -309,7 +298,7 @@ JSON
 
 ```
 
-###### Example – Deny member creation for networks with a specific tag key and value
+###### Example– Deny member creation for networks with a specific tag key and value
 
 The following identity-based policy statement denies the IAM principal from creating a member on any network that has a tag with a tag key of `department` with the value of `accounting`.
 
@@ -339,7 +328,7 @@ JSON
 
 ```
 
-###### Example – Allow member creation only if a specific tag key and value are added
+###### Example– Allow member creation only if a specific tag key and value are added
 
 The following identity-based policy statements allow the IAM principal to create members in the account `111122223333` only if the member is created with a tag that has the tag key of `department` and a tag value of `accounting`; otherwise, the create member operation fails.
 
@@ -379,7 +368,7 @@ JSON
 
 ```
 
-###### Example – Allow access only to members that have a specified tag key
+###### Example– Allow access only to members that have a specified tag key
 
 The following identity-based policy statement allows the IAM principal to retrieve or view information about members only if the member has a tag with a tag key of `unrestricted`.
 
@@ -411,7 +400,7 @@ JSON
 
 ```
 
-###### Example – Deny node creation if a specific tag key and value are added during creation
+###### Example– Deny node creation if a specific tag key and value are added during creation
 
 The following identity-based policy statement denies the IAM principal the ability to create a node if a tag with the tag key of `department` and a value of `analytics` is added during creation.
 
@@ -443,7 +432,7 @@ JSON
 
 ```
 
-###### Example – Deny node creation for members with a specific tag key and value
+###### Example– Deny node creation for members with a specific tag key and value
 
 The following identity-based policy statement denies the IAM principal the ability to create a node if the member to which the node will belong has a tag with a tag key of `department` and a tag value of `analytics`.
 
@@ -475,7 +464,7 @@ JSON
 
 ```
 
-###### Example – Allow access only to nodes with a specific tag key and value
+###### Example– Allow access only to nodes with a specific tag key and value
 
 The following identity-based policy statement allows the IAM principal to retrieve or view information about nodes only if the node has a tag with a tag key of `department` and a tag value of `sales`.
 
@@ -507,7 +496,7 @@ JSON
 
 ```
 
-###### Example – Deny access to nodes with a specific tag key
+###### Example– Deny access to nodes with a specific tag key
 
 The following identity-based policy statement denies the IAM principal the ability to retrieve or view information about a node if the node has a tag with a tag key of `restricted`.
 
@@ -539,7 +528,7 @@ JSON
 
 ```
 
-###### Example – Allow proposal creation only for networks with a specific tag key and value
+###### Example– Allow proposal creation only for networks with a specific tag key and value
 
 The following identity-based policy statement allows the IAM principal to create a proposal only if the network for which the proposal is made has a tag with a tag key of `department` and a value of `accounting`.
 
@@ -571,7 +560,7 @@ JSON
 
 ```
 
-###### Example – Allow proposal creation only if a specific tag key and value are added
+###### Example– Allow proposal creation only if a specific tag key and value are added
 
 The following identity-based policy statements allow the IAM principal to create a proposal for inviting the specified account `123456789012` to the network only if a tag with a tag key of `consortium` and a tag value of `exampleconsortium` is added during proposal creation.
 
@@ -614,7 +603,7 @@ JSON
 
 ```
 
-###### Example – Allow access only to proposals with a specific tag key and value
+###### Example– Allow access only to proposals with a specific tag key and value
 
 The following identity-based policy statement allows the IAM principal to retrieve and view proposals only if the proposal has a tag with a tag key of `consortium` and a tag value of `exampleconsortium`.
 
@@ -646,7 +635,7 @@ JSON
 
 ```
 
-###### Example – Deny the ability to vote on proposals based on a specific tag key and value
+###### Example– Deny the ability to vote on proposals based on a specific tag key and value
 
 The following identity-based policy statement denies the IAM principal the ability to vote on proposals that have a tag with the tag key of `consortium` and a tag value of `exampleconsortium`.
 
@@ -678,7 +667,7 @@ JSON
 
 ```
 
-###### Example – Deny the ability to reject an invitation with a specific tag and value
+###### Example– Deny the ability to reject an invitation with a specific tag and value
 
 The following identity-based policy statement denies the IAM principal the ability to reject on invitation that has a tag with the tag key of `consortium` and a tag value of `exampleconsortium`.
 

@@ -4,8 +4,7 @@ If you are invited to join a Hyperledger Fabric network on Amazon Managed Blockc
 
 You can see all pending, accepted, and rejected invitations for your AWS account in the AWS Management Console. Alternatively, you can use the AWS CLI or the AMB Access SDK [ListInvitations](../APIReference/>API_ListInvitedNetworks.md "../APIReference/>API_ListInvitedNetworks.md") action.
 
-You can set up Amazon CloudWatch Events along with Amazon Simple Notification Service so that you receive an alert when there is an invitation for your account. For more information, see [Automating AMB Access Proposal Notifications with
-CloudWatch Events](automating-proposals-with-cloudwatch-events.md "automating-proposals-with-cloudwatch-events.md").
+You can set up Amazon CloudWatch Events along with Amazon Simple Notification Service so that you receive an alert when there is an invitation for your account. For more information, see [Automating AMB Access Proposal Notifications with CloudWatch Events](automating-proposals-with-cloudwatch-events.md "automating-proposals-with-cloudwatch-events.md").
 
 1. Open the AMB Access console at [https://console.aws.amazon.com/managedblockchain/](https://console.aws.amazon.com/managedblockchain/ "https://console.aws.amazon.com/managedblockchain/").
 2. Choose **Invitations**, and then do one of the following:

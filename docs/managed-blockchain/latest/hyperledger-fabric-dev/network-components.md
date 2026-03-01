@@ -1,6 +1,4 @@
-# Key Concepts: Amazon Managed Blockchain (AMB) Networks, Members, and Peer
-
-Nodes
+# Key Concepts: Amazon Managed Blockchain (AMB) Networks, Members, and Peer Nodes
 
 A blockchain network is a peer-to-peer network running a decentralized blockchain framework. A Hyperledger Fabric network on Amazon Managed Blockchain (AMB) includes one or more _members_. Members are unique identities in the network. For example, a member might be an organization in a consortium of banks. A single AWS account might have multiple members. Each member runs one or more Hyperledger Fabric _peer nodes_. The peer nodes run chaincode, endorse transactions, and store a local copy of ledger.
 

@@ -21,9 +21,7 @@ To get a high-level view of how AMB Access Hyperledger Fabric and other AWS serv
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for AMB Access Hyperledger Fabric
+## Identity-based policies for AMB Access Hyperledger Fabric
 
 **Supports identity-based policies:**
 
@@ -40,16 +38,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for AMB Access Hyperledger Fabric
 
-Identity-based policy examples for AMB Access Hyperledger Fabric
+To view examples of AMB Access Hyperledger Fabric identity-based policies, see [Amazon Managed Blockchain (AMB) Hyperledger Fabric Identity-Based Policy Examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of AMB Access Hyperledger Fabric identity-based policies, see [Amazon Managed Blockchain (AMB) Hyperledger Fabric Identity-Based
-Policy Examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within AMB Access Hyperledger Fabric
+## Resource-based policies within AMB Access Hyperledger Fabric
 
 **Supports resource-based policies:**
 
@@ -65,9 +58,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions
-
-for AMB Access Hyperledger Fabric
+## Policy actions for AMB Access Hyperledger Fabric
 
 **Supports policy actions:**
 
@@ -111,12 +102,9 @@ action:
 "Action": "managedblockchain::List*"
 ```
 
-To view examples of AMB Access Hyperledger Fabric identity-based policies, see [Amazon Managed Blockchain (AMB) Hyperledger Fabric Identity-Based
-Policy Examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AMB Access Hyperledger Fabric identity-based policies, see [Amazon Managed Blockchain (AMB) Hyperledger Fabric Identity-Based Policy Examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for AMB Access Hyperledger Fabric
+## Policy resources for AMB Access Hyperledger Fabric
 
 **Supports policy resources:**
 
@@ -176,12 +164,9 @@ To see a list of AMB Access Hyperledger Fabric resource types and their ARNs, se
 which actions you can specify the ARN of each resource, see
 [Actions defined by Amazon Managed Blockchain (AMB) Hyperledger Fabric](../../../service-authorization/latest/reference/list_amazonmanagedblockchain.md#amazonmanagedblockchain-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonmanagedblockchain.md#amazonmanagedblockchain-actions-as-permissions").
 
-To view examples of AMB Access Hyperledger Fabric identity-based policies, see [Amazon Managed Blockchain (AMB) Hyperledger Fabric Identity-Based
-Policy Examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AMB Access Hyperledger Fabric identity-based policies, see [Amazon Managed Blockchain (AMB) Hyperledger Fabric Identity-Based Policy Examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for AMB Access Hyperledger Fabric
+## Policy condition keys for AMB Access Hyperledger Fabric
 
 **Supports service-specific policy condition keys:**
 
@@ -206,8 +191,7 @@ To see a list of the AWS global condition keys supported, see
 [Condition keys for Amazon Managed Blockchain (AMB) Hyperledger Fabric](../../../service-authorization/latest/reference/list_amazonmanagedblockchain.md#amazonmanagedblockchain-policy-keys "../../../service-authorization/latest/reference/list_amazonmanagedblockchain.md#amazonmanagedblockchain-policy-keys") in the _Service Authorization Reference_. To learn with
 which actions and resources you can use a condition key, see [Actions defined by Amazon Managed Blockchain (AMB) Hyperledger Fabric](../../../service-authorization/latest/reference/list_amazonmanagedblockchain.md#amazonmanagedblockchain-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonmanagedblockchain.md#amazonmanagedblockchain-actions-as-permissions").
 
-To view examples of AMB Access Hyperledger Fabric identity-based policies, see [Amazon Managed Blockchain (AMB) Hyperledger Fabric Identity-Based
-Policy Examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AMB Access Hyperledger Fabric identity-based policies, see [Amazon Managed Blockchain (AMB) Hyperledger Fabric Identity-Based Policy Examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## ACLs in AMB Access Hyperledger Fabric
 
@@ -245,9 +229,7 @@ AMB Access Hyperledger Fabric resources, see [Tagging Amazon Managed Blockchain 
 
 To view example identity-based policies for allowing or denying access to resources and actions based on tags, see [Controlling access using tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-tags").
 
-## Using temporary
-
-credentials with AMB Access Hyperledger Fabric
+## Using temporary credentials with AMB Access Hyperledger Fabric
 
 **Supports temporary credentials:**
 
@@ -259,9 +241,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for AMB Access Hyperledger Fabric
+## Cross-service principal permissions for AMB Access Hyperledger Fabric
 
 **Supports forward access sessions (FAS):**
 
@@ -270,9 +250,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-AMB Access Hyperledger Fabric
+## Service roles for AMB Access Hyperledger Fabric
 
 **Supports service roles:**
 
@@ -287,9 +265,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break AMB Access Hyperledger Fabric functionality.
 Edit service roles only when AMB Access Hyperledger Fabric provides guidance to do so.
 
-## Service-linked
-
-roles for AMB Access Hyperledger Fabric
+## Service-linked roles for AMB Access Hyperledger Fabric
 
 **Supports service-linked roles:**
 
