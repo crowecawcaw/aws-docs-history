@@ -1,9 +1,7 @@
 This guide documents the classic version of the AWS Wickr administration console, released before March
 13, 2025. For documentation on the new AWS Wickr administration console, see [Administration Guide](../adminguide/what-is-wickr.md "../adminguide/what-is-wickr.md").
 
-# View data retention details in
-
-AWS Wickr
+# View data retention details in AWS Wickr
 
 Complete the following procedure to view the data retention details for your
 Wickr network. You can also enable or disable data retention for your Wickr
@@ -17,8 +15,7 @@ network.
 
 The **Data Retention** page displays steps for setting up
 data retention, and the option to activate or deactivate the data retention
-feature. For more information about configuring data retention, see [Configure data retention for
-AWS Wickr](configure-data-retention.md "configure-data-retention.md").
+feature. For more information about configuring data retention, see [Configure data retention for AWS Wickr](configure-data-retention.md "configure-data-retention.md").
 
 ###### Note
 

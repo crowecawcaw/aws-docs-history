@@ -31,9 +31,7 @@ To manage your network plan, complete the following procedure.
    To stop usage and billing on your network, remove all users,
    including any suspended users from your network.
 
-## Premium free trial
-
-limitations
+## Premium free trial limitations
 
 The following limitations apply to the premium free trial:
 

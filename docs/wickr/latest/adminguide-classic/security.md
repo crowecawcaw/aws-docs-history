@@ -32,6 +32,5 @@ _in_ the cloud:
 - [Compliance validation](compliance-validation.md "compliance-validation.md")
 - [Resilience in AWS Wickr](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure Security in AWS Wickr](infrastructure-security.md "infrastructure-security.md")
-- [Configuration and vulnerability
-  analysis in AWS Wickr](vulnerability-analysis-and-management.md "vulnerability-analysis-and-management.md")
+- [Configuration and vulnerability analysis in AWS Wickr](vulnerability-analysis-and-management.md "vulnerability-analysis-and-management.md")
 - [Security best practices for AWS Wickr](security-best-practices.md "security-best-practices.md")

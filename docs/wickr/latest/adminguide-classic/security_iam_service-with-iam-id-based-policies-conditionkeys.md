@@ -1,9 +1,7 @@
 This guide documents the classic version of the AWS Wickr administration console, released before March
 13, 2025. For documentation on the new AWS Wickr administration console, see [Administration Guide](../adminguide/what-is-wickr.md "../adminguide/what-is-wickr.md").
 
-# Policy
-
-condition keys for Wickr
+# Policy condition keys for Wickr
 
 **Supports service-specific policy condition keys:**
 
@@ -22,5 +20,4 @@ To see a list of Wickr condition keys, see [Condition Keys for AWS Wickr](../../
 _Service Authorization Reference_. To learn with which actions and resources you
 can use a condition key, see [Actions Defined by AWS Wickr](../../../IAM/latest/UserGuide/list_awswickr.md#awswickr-actions-as-permissions "../../../IAM/latest/UserGuide/list_awswickr.md#awswickr-actions-as-permissions").
 
-To view examples of Wickr identity-based policies, see [Identity-based policy examples for
-AWS Wickr](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Wickr identity-based policies, see [Identity-based policy examples for AWS Wickr](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").

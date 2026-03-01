@@ -40,8 +40,7 @@ To create an administrator user, choose one of the following options.
 ###### Note
 
 You can also assign the `AWSWickrFullAccess` managed policy to grant full
-administrative permission to the Wickr service. For more information, see [AWS managed policy:
-AWSWickrFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSWickrFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSWickrFullAccess").
+administrative permission to the Wickr service. For more information, see [AWS managed policy: AWSWickrFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSWickrFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSWickrFullAccess").
 
 ## What's next
 

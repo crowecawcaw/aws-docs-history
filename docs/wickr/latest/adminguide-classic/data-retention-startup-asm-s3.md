@@ -1,9 +1,7 @@
 This guide documents the classic version of the AWS Wickr administration console, released before March
 13, 2025. For documentation on the new AWS Wickr administration console, see [Administration Guide](../adminguide/what-is-wickr.md "../adminguide/what-is-wickr.md").
 
-# Start the bot and configure Amazon S3
-
-with Secrets Manager
+# Start the bot and configure Amazon S3 with Secrets Manager
 
 You can use the Secrets Manager to host the credentials, and the Amazon S3 bucket information.
 When you start the data retention bot, you will need to set an environment variable

@@ -1,16 +1,13 @@
 This guide documents the classic version of the AWS Wickr administration console, released before March
 13, 2025. For documentation on the new AWS Wickr administration console, see [Administration Guide](../adminguide/what-is-wickr.md "../adminguide/what-is-wickr.md").
 
-# Password for data retention bot in
-
-AWS Wickr
+# Password for data retention bot in AWS Wickr
 
 The first time you start the data retention bot, you specify the initial password
 using one of the following options:
 
 - The `WICKRIO_BOT_PASSWORD` environment variable. The data retention
-  bot environment variables are outlined in the [Environment variables to configure
-  data retention bot in AWS Wickr](data-retention-bot-env-variables.md "data-retention-bot-env-variables.md") section later in this
+  bot environment variables are outlined in the [Environment variables to configure data retention bot in AWS Wickr](data-retention-bot-env-variables.md "data-retention-bot-env-variables.md") section later in this
   guide.
 - The **password** value in Secrets Manager identified by the
   `AWS_SECRET_NAME` environment variable. The Secrets Manager values for the

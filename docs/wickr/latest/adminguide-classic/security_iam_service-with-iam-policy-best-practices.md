@@ -1,9 +1,7 @@
 This guide documents the classic version of the AWS Wickr administration console, released before March
 13, 2025. For documentation on the new AWS Wickr administration console, see [Administration Guide](../adminguide/what-is-wickr.md "../adminguide/what-is-wickr.md").
 
-# Policy best
-
-practices
+# Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Wickr resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and

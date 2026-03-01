@@ -1,9 +1,7 @@
 This guide documents the classic version of the AWS Wickr administration console, released before March
 13, 2025. For documentation on the new AWS Wickr administration console, see [Administration Guide](../adminguide/what-is-wickr.md "../adminguide/what-is-wickr.md").
 
-# GovCloud cross boundary classification and
-
-federation
+# GovCloud cross boundary classification and federation
 
 AWS Wickr offers WickrGov client tailored for GovCloud users. The GovCloud Federation
 allows communication between GovCloud users and commercial users. The cross boundary

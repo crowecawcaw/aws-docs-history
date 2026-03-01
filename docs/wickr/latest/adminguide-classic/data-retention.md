@@ -25,11 +25,7 @@ responsibility to configure a data retention system.
 
 ###### Topics
 
-- [View data retention details in
-  AWS Wickr](view-data-retention-details.md "view-data-retention-details.md")
-- [Configure data retention for
-  AWS Wickr](configure-data-retention.md "configure-data-retention.md")
-- [Get the data retention logs for your
-  Wickr network](getting-data-retention-logs.md "getting-data-retention-logs.md")
-- [Data retention metrics and events for your Wickr
-  network](metrics-events.md "metrics-events.md")
+- [View data retention details in AWS Wickr](view-data-retention-details.md "view-data-retention-details.md")
+- [Configure data retention for AWS Wickr](configure-data-retention.md "configure-data-retention.md")
+- [Get the data retention logs for your Wickr network](getting-data-retention-logs.md "getting-data-retention-logs.md")
+- [Data retention metrics and events for your Wickr network](metrics-events.md "metrics-events.md")

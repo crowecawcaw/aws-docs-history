@@ -24,8 +24,7 @@ Management Reference Guide](../../../accounts/latest/reference/accounts-welcome.
 ###### Topics
 
 - [Step 1: Create an AWS account](#transfer-wickr-pro-to-aws-wickr-step1 "#transfer-wickr-pro-to-aws-wickr-step1")
-- [Step 2: Retrieve your Wickr network
-  ID](#transfer-wickr-pro-to-aws-wickr-step2 "#transfer-wickr-pro-to-aws-wickr-step2")
+- [Step 2: Retrieve your Wickr network ID](#transfer-wickr-pro-to-aws-wickr-step2 "#transfer-wickr-pro-to-aws-wickr-step2")
 - [Step 3: Submit a request](#transfer-wickr-pro-to-aws-wickr-step3 "#transfer-wickr-pro-to-aws-wickr-step3")
 - [Step 4: Login to your AWS Console](#transfer-wickr-pro-to-aws-wickr-step4 "#transfer-wickr-pro-to-aws-wickr-step4")
 
@@ -51,9 +50,7 @@ Complete the following procedure to create an AWS account.
 3. Once you complete the previous steps, you will be able to log in to the AWS Management Console to
    find your 12-digit AWS account ID under your account name.
 
-## Step 2: Retrieve your Wickr network
-
-ID
+## Step 2: Retrieve your Wickr network ID
 
 Complete the following procedure to retrieve your Wickr network ID.
 

@@ -1,9 +1,7 @@
 This guide documents the classic version of the AWS Wickr administration console, released before March
 13, 2025. For documentation on the new AWS Wickr administration console, see [Administration Guide](../adminguide/what-is-wickr.md "../adminguide/what-is-wickr.md").
 
-# Create a security group in
-
-AWS Wickr
+# Create a security group in AWS Wickr
 
 You can create a new Wickr security group.
 

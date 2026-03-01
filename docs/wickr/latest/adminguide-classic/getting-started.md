@@ -22,11 +22,9 @@ already:
 
 - Sign up for Amazon Web Services (AWS). For more information, see [Setting up for AWS Wickr](setting-up.md "setting-up.md").
 - Ensure that you have the permissions required to administer Wickr. For more information,
-  see [AWS managed policy:
-  AWSWickrFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSWickrFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSWickrFullAccess").
+  see [AWS managed policy: AWSWickrFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSWickrFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSWickrFullAccess").
 - Make sure you allow list the appropriate ports and domains for Wickr. For more
-  information, see [Ports and domains to allow list for your
-  Wickr network](allow-list-ports-domains.md "allow-list-ports-domains.md").
+  information, see [Ports and domains to allow list for your Wickr network](allow-list-ports-domains.md "allow-list-ports-domains.md").
 
 ## Step 1: Create a network
 
@@ -85,12 +83,11 @@ configuring these settings, see [Manage your AWS Wickr network](managing-network
 
     * **Security Group** — Manage security groups and
      their settings, such as password complexity policies, messaging preferences, calling
-     features, security features and external federation. For more information, see [Security groups for AWS Wickr](security-groups.md "security-groups.md") .
+     features, security features and external federation. For more information, see [Security groups for AWS Wickr](security-groups.md "security-groups.md").
     * **SSO Configuration** — Configure SSO and view the
      endpoint address for your Wickr network. Wickr supports SSO providers who use OpenID
      Connect (OIDC) only. Providers who use Security Assertion Markup Language (SAML) are not
-     supported. For more information, see [Single sign-on configuration for
-     AWS Wickr](sso-configuration.md "sso-configuration.md").
+     supported. For more information, see [Single sign-on configuration for AWS Wickr](sso-configuration.md "sso-configuration.md").
 
 ## Step 3: Create and invite users
 
@@ -98,8 +95,7 @@ You can create users in your Wickr network using the following methods:
 
 - **Single sign-on** — If you configure SSO, you can
   invite users by sharing your Wickr company ID. End users register for Wickr using the
-  provided company ID and their work email address. For more information, see [Single sign-on configuration for
-  AWS Wickr](sso-configuration.md "sso-configuration.md").
+  provided company ID and their work email address. For more information, see [Single sign-on configuration for AWS Wickr](sso-configuration.md "sso-configuration.md").
 - **Invitation** — You can manually create users in the
   AWS Management Console for Wickr and have an email invitation sent to them. End users can register for Wickr
   by choosing the link in the email.

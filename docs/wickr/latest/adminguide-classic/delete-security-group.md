@@ -1,9 +1,7 @@
 This guide documents the classic version of the AWS Wickr administration console, released before March
 13, 2025. For documentation on the new AWS Wickr administration console, see [Administration Guide](../adminguide/what-is-wickr.md "../adminguide/what-is-wickr.md").
 
-# Delete a security group in
-
-AWS Wickr
+# Delete a security group in AWS Wickr
 
 You can delete your Wickr security group.
 

@@ -1,21 +1,16 @@
 This guide documents the classic version of the AWS Wickr administration console, released before March
 13, 2025. For documentation on the new AWS Wickr administration console, see [Administration Guide](../adminguide/what-is-wickr.md "../adminguide/what-is-wickr.md").
 
-# Troubleshooting AWS Wickr identity and
-
-access
+# Troubleshooting AWS Wickr identity and access
 
 Use the following information to help you diagnose and fix common issues that you might
 encounter when working with Wickr and IAM.
 
 ###### Topics
 
-- [I am not authorized to
-  perform an administrative action in the AWS Management Console for Wickr](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
+- [I am not authorized to perform an administrative action in the AWS Management Console for Wickr](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
 
-## I am not authorized to
-
-perform an administrative action in the AWS Management Console for Wickr
+## I am not authorized to perform an administrative action in the AWS Management Console for Wickr
 
 If the AWS Management Console for Wickr tells you that you're not authorized to perform an action,
 then you must contact your administrator for assistance. Your administrator is the
@@ -32,6 +27,4 @@ User: arn:aws:iam::123456789012:user/mateojackson is not authorized to perform: 
 
 In this case, Mateo asks his administrator to update his policies to allow him to
 access the AWS Management Console for Wickr using the `wickr:CreateAdminSession`
-and `wickr:ListNetworks` actions. For more information, see [Identity-based policy examples for
-AWS Wickr](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md") and [AWS managed policy:
-AWSWickrFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSWickrFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSWickrFullAccess").
+and `wickr:ListNetworks` actions. For more information, see [Identity-based policy examples for AWS Wickr](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md") and [AWS managed policy: AWSWickrFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSWickrFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSWickrFullAccess").

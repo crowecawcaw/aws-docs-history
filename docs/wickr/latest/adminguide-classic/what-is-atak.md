@@ -17,8 +17,7 @@ federal agencies.
 - [Unpair the Wickr Plugin for ATAK](unpair.md "unpair.md")
 - [Dial and receive a call in ATAK](dial-and-receive-call.md "dial-and-receive-call.md")
 - [Send a file in ATAK](send-a-file.md "send-a-file.md")
-- [Send a secure voice message (Push-to-talk)
-  in ATAK](send-secure-voice-message.md "send-secure-voice-message.md")
+- [Send a secure voice message (Push-to-talk) in ATAK](send-secure-voice-message.md "send-secure-voice-message.md")
 - [Pinwheel (Quick Access) for ATAK](pinwheel.md "pinwheel.md")
 - [Navigation for ATAK](navigation.md "navigation.md")
 
@@ -45,7 +44,7 @@ Dashboard.
 
 You're redirected to the Wickr Admin Console for a specific network.
 
-![The Dashboard page.](images/wickr-network-admin-console-dashboard-page.png) 3. In the navigation pane of the Wickr Admin Console, choose
+![The Dashboard page.](/images/wickr/latest/adminguide-classic/images/wickr-network-admin-console-dashboard-page.png) 3. In the navigation pane of the Wickr Admin Console, choose
 **Network Settings**, and then choose
 **Security Group**. 4. Choose **Details** next to desired security group for
 which you want to enable ATAK. 5. On the **General** tab, choose

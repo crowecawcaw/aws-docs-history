@@ -17,7 +17,7 @@ ID.
 
 You're redirected to the Wickr Admin Console for a specific network.
 
-![The Dashboard page.](images/wickr-network-admin-console-dashboard-page.png) 3. In the navigation pane of the Wickr Admin Console, choose
+![The Dashboard page.](/images/wickr/latest/adminguide-classic/images/wickr-network-admin-console-dashboard-page.png) 3. In the navigation pane of the Wickr Admin Console, choose
 **Network Settings**, and then choose **Network
 Profile**.
 

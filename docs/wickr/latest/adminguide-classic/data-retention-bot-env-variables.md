@@ -1,9 +1,7 @@
 This guide documents the classic version of the AWS Wickr administration console, released before March
 13, 2025. For documentation on the new AWS Wickr administration console, see [Administration Guide](../adminguide/what-is-wickr.md "../adminguide/what-is-wickr.md").
 
-# Environment variables to configure
-
-data retention bot in AWS Wickr
+# Environment variables to configure data retention bot in AWS Wickr
 
 You can use the following environment variables to configure the data retention bot.
 You set these environment variables using the `-e` option when you run the
@@ -20,8 +18,7 @@ credentials:
   This variable is _required_ when you run the data retention
   bot Docker image.
 - `WICKRIO_BOT_PASSWORD` — The initial password for the data
-  retention bot. For more information, see [Prerequisites to configure data retention
-  for AWS Wickr](configure-data-retention.md#data-retention-prerequisites "configure-data-retention.md#data-retention-prerequisites"). This variable is
+  retention bot. For more information, see [Prerequisites to configure data retention for AWS Wickr](configure-data-retention.md#data-retention-prerequisites "configure-data-retention.md#data-retention-prerequisites"). This variable is
   _required_ if you don't plan to start the data retention
   bot with a password prompt or you don't plan to use Secrets Manager to store the data
   retention bot credentials.

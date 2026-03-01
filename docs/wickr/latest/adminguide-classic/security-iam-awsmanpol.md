@@ -18,9 +18,7 @@ AWS managed policy when a new feature is launched or when new operations become 
 Services do not remove permissions from an AWS managed policy, so policy updates won't
 break your existing permissions.
 
-## AWS managed policy:
-
-AWSWickrFullAccess
+## AWS managed policy: AWSWickrFullAccess
 
 You can attach the `AWSWickrFullAccess` policy to your IAM identities. This
 policy grants full administrative permission to the Wickr service, including the
@@ -52,9 +50,7 @@ JSON
 
 ```
 
-## Wickr updates to AWS managed
-
-policies
+## Wickr updates to AWS managed policies
 
 View details about updates to AWS managed policies for Wickr since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to
