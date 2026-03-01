@@ -14,5 +14,4 @@ systems.
 
 ###### Best practices
 
-- [ADVSUS09-BP01 Optimize fraud detection systems for
-  resource efficiency](advsus09-bp01.md "advsus09-bp01.md")
+- [ADVSUS09-BP01 Optimize fraud detection systems for resource efficiency](advsus09-bp01.md "advsus09-bp01.md")

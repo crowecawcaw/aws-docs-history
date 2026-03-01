@@ -1,7 +1,4 @@
-# ADVSUS01-BP01 Distribute data and
-
-workloads across Regions when necessary to minimize network usage
-and latency
+# ADVSUS01-BP01 Distribute data and workloads across Regions when necessary to minimize network usage and latency
 
 When selecting regions to host workloads for sustainability,
 distribute data and workloads across multiple Regions to minimize

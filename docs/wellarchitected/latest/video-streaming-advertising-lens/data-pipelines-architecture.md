@@ -65,7 +65,7 @@ following features:
   **Reporting module**
 
 The reporting module creates a secure connection to the data warehouse and provisions
-the out-of-the-box dashboards in business intelligence Amazon Quick Suite.
+the out-of-the-box dashboards in business intelligence Amazon Quick.
 
 For more information, see [Guidance for Clickstream Analytics on AWS](../../../pdfs/solutions/latest/clickstream-analytics-on-aws/clickstream-analytics-on-aws.md "../../../pdfs/solutions/latest/clickstream-analytics-on-aws/clickstream-analytics-on-aws.md").
 

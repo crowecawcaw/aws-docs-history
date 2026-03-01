@@ -1,6 +1,4 @@
-# ADVPERF04-BP05 Manage high volume user profile
-
-data
+# ADVPERF04-BP05 Manage high volume user profile data
 
 The user profile database is typically large, ranging from
 100-200 million to 5 billion user profiles and contains a wide

@@ -1,6 +1,4 @@
-# ADVSEC07-BP01 Enable secure data privacy and collaboration
-
-between advertisers while protecting user privacy
+# ADVSEC07-BP01 Enable secure data privacy and collaboration between advertisers while protecting user privacy
 
 Delivering a privacy-centric advertising infrastructure
 assists to optimize your system to keep privacy which focuses

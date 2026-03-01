@@ -19,7 +19,5 @@ the advertising solution.
 
 ###### Best practices
 
-- [ADVREL09-BP01 Implement redundant ad-verification
-  systems with automated failover mechanisms](advrel09-bp01.md "advrel09-bp01.md")
-- [ADVREL09-BP02 Establish robust data collection and
-  validation pipelines for measurement accuracy](advrel09-bp02.md "advrel09-bp02.md")
+- [ADVREL09-BP01 Implement redundant ad-verification systems with automated failover mechanisms](advrel09-bp01.md "advrel09-bp01.md")
+- [ADVREL09-BP02 Establish robust data collection and validation pipelines for measurement accuracy](advrel09-bp02.md "advrel09-bp02.md")

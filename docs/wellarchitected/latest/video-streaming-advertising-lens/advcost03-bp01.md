@@ -1,6 +1,4 @@
-# ADVCOST03-BP01 Consider private communication channels
-
-between SSP and DSP
+# ADVCOST03-BP01 Consider private communication channels between SSP and DSP
 
 Private communication channels can help keep traffic secure while also reducing
 internet egress charges.

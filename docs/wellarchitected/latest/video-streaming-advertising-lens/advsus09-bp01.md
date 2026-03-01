@@ -1,6 +1,4 @@
-# ADVSUS09-BP01 Optimize fraud detection systems for
-
-resource efficiency
+# ADVSUS09-BP01 Optimize fraud detection systems for resource efficiency
 
 Fraud detection systems can perform efficiently and have a reduced carbon impact when using approaches such as intelligent sampling, scheduled analysis, and Regional detection.
 

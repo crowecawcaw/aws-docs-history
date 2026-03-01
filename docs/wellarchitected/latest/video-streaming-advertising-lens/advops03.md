@@ -17,7 +17,5 @@ incidents and establishing clear procedures for managing them.
 
 ###### Best practices
 
-- [ADVOPS03-BP01 Create runbooks for the most common
-  operational events and incidents that can impact your advertising
-  workload](advops03-bp01.md "advops03-bp01.md")
+- [ADVOPS03-BP01 Create runbooks for the most common operational events and incidents that can impact your advertising workload](advops03-bp01.md "advops03-bp01.md")
 - [ADVOPS03-BP02 Automate runbooks to gain operational efficiency](advops03-bp02.md "advops03-bp02.md")

@@ -1,6 +1,4 @@
-# ADVCOST01-BP01 Continually measure costs of different
-
-real-time bidding workloads, and adjust resource allocation accordingly
+# ADVCOST01-BP01 Continually measure costs of different real-time bidding workloads, and adjust resource allocation accordingly
 
 With fluctuations in usage over time, the costs associated with real-time bidding
 workloads can vary significantly. Continually monitoring costs is the best way to keep them
@@ -16,11 +14,11 @@ under control.
 - Use the Cost and Usage Dashboards Operations Solution (CUDOS) Dashboard as a way
   to quickly visualize information about RTB costs and performance.
 - Use [AWS Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/ "https://aws.amazon.com/aws-cost-management/aws-cost-explorer/") for one-off visualizations of cost data.
-- Generate [Quick Suite](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") dashboards that
+- Generate [Quick](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") dashboards that
   are specific to each campaign or that comprise the business as a whole.
-- Configure Quick Suite with user-configurable filters to allow users to focus on the data
+- Configure Quick with user-configurable filters to allow users to focus on the data
   that matters most to them.
-- Configure Quick Suite to email dashboard reports to users on a schedule to automate and
+- Configure Quick to email dashboard reports to users on a schedule to automate and
   simplify the process.
 - Regularly evaluate the data and report findings back to the business.
 - As campaigns progress, continually re-evaluate them, and adjust resource

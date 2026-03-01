@@ -10,5 +10,4 @@ and networking resources.
 
 ###### Best practices
 
-- [ADVCOST06-BP01 Design fraud detection pipelines to minimize
-  redundant processing and optimize inference costs](advcost06-bp01.md "advcost06-bp01.md")
+- [ADVCOST06-BP01 Design fraud detection pipelines to minimize redundant processing and optimize inference costs](advcost06-bp01.md "advcost06-bp01.md")

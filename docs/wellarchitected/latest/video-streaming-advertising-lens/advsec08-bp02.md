@@ -1,6 +1,4 @@
-# ADVSEC08-BP02 Look for opportunities to block ad fraud and
-
-enhance transparency in your advertising solution
+# ADVSEC08-BP02 Look for opportunities to block ad fraud and enhance transparency in your advertising solution
 
 DSP’s need to verify their advertisers and agencies are
 purchasing legitimate advertising inventory across potentially

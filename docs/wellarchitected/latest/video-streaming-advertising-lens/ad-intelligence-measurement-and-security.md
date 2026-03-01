@@ -1,6 +1,4 @@
-# Ad intelligence, measurement, and
-
-security
+# Ad intelligence, measurement, and security
 
 This scenario covers the solution guidance for digital ad content creation with brand
 safety, verification, and fraud detections.
@@ -21,9 +19,7 @@ For additional details, see [Guidance for Contextual Intelligence Advertising Us
 
 ![Guidance for contextual intelligence advertising using generative AI on AWS - 2](images/contextual-intelligence-advertising-2.png)
 
-## Generative AI-generated
-
-ad creative and moderation
+## Generative AI-generated ad creative and moderation
 
 The solution guidance demonstrates the Intelligent Ad QC solution leveraging the power
 of AWS AI and generative AI to enable media publishers to efficiently manage advertising

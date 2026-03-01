@@ -11,6 +11,4 @@ efficiency, proximity to customers, and regulatory landscape.
 
 ###### Best practices
 
-- [ADVSUS01-BP01 Distribute data and
-  workloads across Regions when necessary to minimize network usage
-  and latency](advsus01-bp01.md "advsus01-bp01.md")
+- [ADVSUS01-BP01 Distribute data and workloads across Regions when necessary to minimize network usage and latency](advsus01-bp01.md "advsus01-bp01.md")

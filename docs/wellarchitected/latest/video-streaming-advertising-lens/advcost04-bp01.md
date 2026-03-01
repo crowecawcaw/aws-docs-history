@@ -1,6 +1,4 @@
-# ADVCOST04-BP01 Consider lower cost storage for older User
-
-Profile data
+# ADVCOST04-BP01 Consider lower cost storage for older User Profile data
 
 As the 30 most recent days are most relevant, using DynamoDB can prioritize high
 performance for the most relevant data (typically within the last 30 days), and archiving to

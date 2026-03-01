@@ -1,6 +1,4 @@
-# ADVCOST02-BP02 Use compression to reduce network traffic
-
-and storage costs
+# ADVCOST02-BP02 Use compression to reduce network traffic and storage costs
 
 Using compression can reduce the amount of data transferred thus reducing network and
 storage costs.

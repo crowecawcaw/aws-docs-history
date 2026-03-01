@@ -1,6 +1,4 @@
-# ADVCOST03-BP02 When integrating SSPs and DSPs for
-
-programmatic advertising, co-locate the platforms
+# ADVCOST03-BP02 When integrating SSPs and DSPs for programmatic advertising, co-locate the platforms
 
 Keeping SSP and DSP components together can keep transactions fast while minimizing
 inter-AZ and inter-Region traffic charges.

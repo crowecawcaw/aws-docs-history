@@ -14,7 +14,5 @@ appropriate contexts and maximizing ROI on ad spend.
 
 ###### Best practices
 
-- [ADVSEC08-BP01 Create guardrails and controls to maintain
-  brand safety and content moderation within your workload](advsec08-bp01.md "advsec08-bp01.md")
-- [ADVSEC08-BP02 Look for opportunities to block ad fraud and
-  enhance transparency in your advertising solution](advsec08-bp02.md "advsec08-bp02.md")
+- [ADVSEC08-BP01 Create guardrails and controls to maintain brand safety and content moderation within your workload](advsec08-bp01.md "advsec08-bp01.md")
+- [ADVSEC08-BP02 Look for opportunities to block ad fraud and enhance transparency in your advertising solution](advsec08-bp02.md "advsec08-bp02.md")

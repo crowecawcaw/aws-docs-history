@@ -4,9 +4,7 @@ This scenario covers the best practices for collaboration between advertising, p
 and agencies, to improve campaign planning, activation, and measurement while protecting
 consumer data privacy.
 
-## AWS Clean Rooms implementation connecting
-
-marketing and publisher customer data platform
+## AWS Clean Rooms implementation connecting marketing and publisher customer data platform
 
 This guidance shows you how to use customer data platforms (CDPs) to set up a
 collaboration between first-party marketing data and third-party data from a publishing

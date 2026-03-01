@@ -1,6 +1,4 @@
-# ADVCOST04-BP03 Store profiles in a single Region and
-
-replicate asynchronously
+# ADVCOST04-BP03 Store profiles in a single Region and replicate asynchronously
 
 Generally, users will only be in one Region at a time and therefore will only be
 updating in one Region. As a result, schedule replication a few times a day with AWS Step Functions

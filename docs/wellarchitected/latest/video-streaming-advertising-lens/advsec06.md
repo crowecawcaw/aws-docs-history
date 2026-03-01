@@ -14,5 +14,4 @@ deletion protocols.
 
 ###### Best practices
 
-- [ADVSEC06-BP01 Verify your advertising workload remains
-  adherent to data protection regulations](advsec06-bp01.md "advsec06-bp01.md")
+- [ADVSEC06-BP01 Verify your advertising workload remains adherent to data protection regulations](advsec06-bp01.md "advsec06-bp01.md")

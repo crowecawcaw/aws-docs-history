@@ -1,6 +1,4 @@
-# ADVSEC04-BP01 Implement secure data collaboration with
-
-least privileged access and privacy controls
+# ADVSEC04-BP01 Implement secure data collaboration with least privileged access and privacy controls
 
 ## Implementation guidance
 

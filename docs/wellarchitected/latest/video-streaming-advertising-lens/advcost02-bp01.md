@@ -1,6 +1,4 @@
-# ADVCOST02-BP01 Use ARM processors for faster and more
-
-cost-effective bidder nodes
+# ADVCOST02-BP01 Use ARM processors for faster and more cost-effective bidder nodes
 
 ARM processors can combine lower costs and higher performance, which makes them a great
 consideration for cost optimization.

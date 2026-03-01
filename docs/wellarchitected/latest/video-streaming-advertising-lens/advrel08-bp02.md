@@ -1,6 +1,4 @@
-# ADVREL08-BP02 Maintain data consistency and availability
-
-across collaboration workflows
+# ADVREL08-BP02 Maintain data consistency and availability across collaboration workflows
 
 Data consistency and availability is critical when working with multiple stakeholders or workflows. Implement tools like versioning, logging, and health checks to verify that data remains consistent and available.
 

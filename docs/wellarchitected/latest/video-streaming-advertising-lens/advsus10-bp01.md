@@ -1,6 +1,4 @@
-# ADVSUS10-BP01 Optimize content moderation systems for
-
-sustainable operation
+# ADVSUS10-BP01 Optimize content moderation systems for sustainable operation
 
 As content grows for organizations, optimizing content moderation systems can benefit sustainability-related key performance indicators (KPIs). Implement or build architectures that include efficient machine learning models, automated scaling, and optimized storage patterns.
 

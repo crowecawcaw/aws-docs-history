@@ -8,8 +8,6 @@ with prescribed reference architecture. 
 
 - [Programmatic advertising workloads](operate-highly-scalable-programmatic-advertising-workloads.md "operate-highly-scalable-programmatic-advertising-workloads.md")
 - [Data pipelines architecture](data-pipelines-architecture.md "data-pipelines-architecture.md")
-- [Multi-Region advertising
-  workloads](multi-region-advertising.md "multi-region-advertising.md")
+- [Multi-Region advertising workloads](multi-region-advertising.md "multi-region-advertising.md")
 - [Using privacy-enhanced collaboration](using-privacy-enhanced-collaboration.md "using-privacy-enhanced-collaboration.md")
-- [Ad intelligence, measurement, and
-  security](ad-intelligence-measurement-and-security.md "ad-intelligence-measurement-and-security.md")
+- [Ad intelligence, measurement, and security](ad-intelligence-measurement-and-security.md "ad-intelligence-measurement-and-security.md")

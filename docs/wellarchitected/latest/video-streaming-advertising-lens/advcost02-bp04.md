@@ -1,6 +1,4 @@
-# ADVCOST02-BP04 Use Spot Instances for cost-effective
-
-bidding-as-a-service workloads with flexible fault-tolerance mechanisms
+# ADVCOST02-BP04 Use Spot Instances for cost-effective bidding-as-a-service workloads with flexible fault-tolerance mechanisms
 
 For workloads that can be interrupted, Spot Instances can provide high performance for
 a very low cost per hour.

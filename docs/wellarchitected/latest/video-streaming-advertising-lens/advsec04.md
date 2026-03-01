@@ -29,8 +29,7 @@ these features verify data is protected at rest.
 
 ###### Best practices
 
-- [ADVSEC04-BP01 Implement secure data collaboration with
-  least privileged access and privacy controls](advsec04-bp01.md "advsec04-bp01.md")
+- [ADVSEC04-BP01 Implement secure data collaboration with least privileged access and privacy controls](advsec04-bp01.md "advsec04-bp01.md")
 - [Key AWS services](#key-aws-services-5 "#key-aws-services-5")
 - [Resources](#resources-10 "#resources-10")
 

@@ -1,6 +1,4 @@
-# ADVREL09-BP02 Establish robust data collection and
-
-validation pipelines for measurement accuracy
+# ADVREL09-BP02 Establish robust data collection and validation pipelines for measurement accuracy
 
 Build reliable data collection and validation pipelines, emphasizing real-time monitoring, automated reconciliation, and recovery procedures to maintain measurement accuracy in advertising systems.
 

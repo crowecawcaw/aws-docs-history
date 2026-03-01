@@ -1,6 +1,4 @@
-# Multi-Region advertising
-
-workloads
+# Multi-Region advertising workloads
 
 The section expands on ad decision service (ADS) invoked by the publisher ad insertion
 workflow provided in the following diagrams. This comprises of SSP, ad network, Ad exchange,

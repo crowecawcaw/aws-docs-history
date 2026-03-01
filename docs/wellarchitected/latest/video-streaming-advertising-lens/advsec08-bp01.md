@@ -1,6 +1,4 @@
-# ADVSEC08-BP01 Create guardrails and controls to maintain
-
-brand safety and content moderation within your workload
+# ADVSEC08-BP01 Create guardrails and controls to maintain brand safety and content moderation within your workload
 
 Brand reputation protection can block brand association with
 inappropriate or otherwise harmful content. Having guardrails

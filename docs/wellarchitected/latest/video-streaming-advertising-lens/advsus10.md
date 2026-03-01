@@ -13,5 +13,4 @@ optimization.
 
 ###### Best practices
 
-- [ADVSUS10-BP01 Optimize content moderation systems for
-  sustainable operation](advsus10-bp01.md "advsus10-bp01.md")
+- [ADVSUS10-BP01 Optimize content moderation systems for sustainable operation](advsus10-bp01.md "advsus10-bp01.md")

@@ -14,5 +14,4 @@ more transparent data practices.
 
 ###### Best practices
 
-- [ADVSEC07-BP01 Enable secure data privacy and collaboration
-  between advertisers while protecting user privacy](advsec07-bp01.md "advsec07-bp01.md")
+- [ADVSEC07-BP01 Enable secure data privacy and collaboration between advertisers while protecting user privacy](advsec07-bp01.md "advsec07-bp01.md")

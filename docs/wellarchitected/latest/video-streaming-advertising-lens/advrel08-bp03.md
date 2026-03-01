@@ -1,6 +1,4 @@
-# ADVREL08-BP03 Implement secure and privacy-preserving
-
-recovery mechanisms for collaboration workloads
+# ADVREL08-BP03 Implement secure and privacy-preserving recovery mechanisms for collaboration workloads
 
 Ad data requires security and preservation of privacy. Implement tooling and systems that preserve secure data and avoid privacy breaches when collaborating with first and third parties, and verify that you have disaster recovery and automated backup mechanisms in place.
 

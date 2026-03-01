@@ -1,6 +1,4 @@
-# ADVCOST01-BP02 Evaluate resiliency needs against the cost
-
-of downtime for ad delivery and bidding
+# ADVCOST01-BP02 Evaluate resiliency needs against the cost of downtime for ad delivery and bidding
 
 While resiliency can increase the cost of workloads, downtime can also be very
 expensive. It's important to understand the costs of having a resilient infrastructure
@@ -17,7 +15,7 @@ against the costs of not having a resilient infrastructure.
   - Evaluate the cost of additional resources required for multi-Regional
     deployments, backup, and recovery solutions
   - Use AWS tools like [AWS Pricing Calculator](https://calculator.aws/#/ "https://calculator.aws/#/")
-    for estimating costs of future resiliency efforts and [Quick Suite](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/"), [Amazon Athena](https://aws.amazon.com/athena/ "https://aws.amazon.com/athena/"), AWS Cost and Usage Report, and [AWS Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/ "https://aws.amazon.com/aws-cost-management/aws-cost-explorer/") for cost analysis
+    for estimating costs of future resiliency efforts and [Quick](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/"), [Amazon Athena](https://aws.amazon.com/athena/ "https://aws.amazon.com/athena/"), AWS Cost and Usage Report, and [AWS Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/ "https://aws.amazon.com/aws-cost-management/aws-cost-explorer/") for cost analysis
     and reporting.
 
 - Compare the cost of downtime with the cost of resiliency measures.

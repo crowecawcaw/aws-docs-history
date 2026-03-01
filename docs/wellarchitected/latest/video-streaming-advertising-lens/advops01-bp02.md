@@ -1,6 +1,4 @@
-# ADVOPS01-BP02 Create RACI matrices that define the roles and
-
-responsibilities for each key advertising process like infrastructure monitoring
+# ADVOPS01-BP02 Create RACI matrices that define the roles and responsibilities for each key advertising process like infrastructure monitoring
 
 When designing advertising workloads, define roles and set clear
 expectations for each stakeholder for seamless key advertising

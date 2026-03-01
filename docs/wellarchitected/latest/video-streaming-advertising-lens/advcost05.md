@@ -13,5 +13,4 @@ underlying cloud infrastructure for financial efficiency.
 
 ###### Best practices
 
-- [ADVCOST05-BP01 Use cost efficient data types and
-  configurations for collaborative data environments](advcost05-bp01.md "advcost05-bp01.md")
+- [ADVCOST05-BP01 Use cost efficient data types and configurations for collaborative data environments](advcost05-bp01.md "advcost05-bp01.md")

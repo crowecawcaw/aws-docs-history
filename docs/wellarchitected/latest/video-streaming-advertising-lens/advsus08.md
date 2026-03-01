@@ -15,5 +15,4 @@ resource allocation.
 
 ###### Best practices
 
-- [ADVSUS08-BP01 Optimize privacy workload processing
-  patterns and resource allocation for sustainability](advsus08-bp01.md "advsus08-bp01.md")
+- [ADVSUS08-BP01 Optimize privacy workload processing patterns and resource allocation for sustainability](advsus08-bp01.md "advsus08-bp01.md")

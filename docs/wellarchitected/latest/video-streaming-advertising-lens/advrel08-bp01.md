@@ -1,6 +1,4 @@
-# ADVREL08-BP01 Design resilient architectures with
-
-privacy-preserving fault tolerance
+# ADVREL08-BP01 Design resilient architectures with privacy-preserving fault tolerance
 
 Build resilient architectures that maintain data privacy in multi-party collaborations, focusing on fault-tolerant AWS Clean Rooms deployment, encrypted failover mechanisms, and privacy-preserving disaster recovery procedures.
 

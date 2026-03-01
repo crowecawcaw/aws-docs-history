@@ -1,6 +1,4 @@
-# ADVSEC06-BP01 Verify your advertising workload remains
-
-adherent to data protection regulations
+# ADVSEC06-BP01 Verify your advertising workload remains adherent to data protection regulations
 
 Maintaining compliance is essential to operate and grow your
 solution. Data encryption is a key requirement for several

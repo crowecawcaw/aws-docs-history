@@ -1,6 +1,4 @@
-# ADVCOST05-BP01 Use cost efficient data types and
-
-configurations for collaborative data environments
+# ADVCOST05-BP01 Use cost efficient data types and configurations for collaborative data environments
 
 Use efficient storage formats and streamlined query configurations to reduce unnecessary data scanning, duplication, and transfer costs in collaborative analytics environments.
 

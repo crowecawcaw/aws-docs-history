@@ -1,7 +1,4 @@
-# ADVOPS03-BP01 Create runbooks for the most common
-
-operational events and incidents that can impact your advertising
-workload
+# ADVOPS03-BP01 Create runbooks for the most common operational events and incidents that can impact your advertising workload
 
 Develop structured procedures to manage operational events and
 incidents in your advertising workloads. Runbooks provide

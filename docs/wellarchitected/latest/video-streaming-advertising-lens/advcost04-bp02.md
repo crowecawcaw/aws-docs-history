@@ -1,6 +1,4 @@
-# ADVCOST04-BP02 Consider multi-level caching for user
-
-profile data
+# ADVCOST04-BP02 Consider multi-level caching for user profile data
 
 DynamoDB Accelerator provides a powerful, cost-effective solution for caching user profile data by
 dramatically reducing read latency and minimizing direct database operations. By creating an

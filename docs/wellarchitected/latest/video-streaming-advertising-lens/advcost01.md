@@ -9,7 +9,5 @@ advertising workloads.
 
 ###### Best practices
 
-- [ADVCOST01-BP01 Continually measure costs of different
-  real-time bidding workloads, and adjust resource allocation accordingly](advcost01-bp01.md "advcost01-bp01.md")
-- [ADVCOST01-BP02 Evaluate resiliency needs against the cost
-  of downtime for ad delivery and bidding](advcost01-bp02.md "advcost01-bp02.md")
+- [ADVCOST01-BP01 Continually measure costs of different real-time bidding workloads, and adjust resource allocation accordingly](advcost01-bp01.md "advcost01-bp01.md")
+- [ADVCOST01-BP02 Evaluate resiliency needs against the cost of downtime for ad delivery and bidding](advcost01-bp02.md "advcost01-bp02.md")

@@ -59,7 +59,7 @@ referenced.
 | [Amazon Managed Streaming for Apache Kafka (MSK)](https://aws.amazon.com/msk/ "https://aws.amazon.com/msk/")                                                                                                       |
 | [Amazon S3 Express One<br>Zone](https://aws.amazon.com/s3/storage-classes/express-one-zone/ "https://aws.amazon.com/s3/storage-classes/express-one-zone/")                                                         |
 | [AWS Lambda@Edge](https://aws.amazon.com/lambda/edge/ "https://aws.amazon.com/lambda/edge/")                                                                                                                       |
-| [Quick Suite](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/")                                                                                                                             |
+| [Quick](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/")                                                                                                                                   |
 | [Amazon Athena](https://aws.amazon.com/athena/ "https://aws.amazon.com/athena/")                                                                                                                                   |
 | [AWS Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/ "https://aws.amazon.com/aws-cost-management/aws-cost-explorer/")                                                                 |
 | [Amazon<br>Cost and Usage Reports (CUR)](https://aws.amazon.com/aws-cost-management/aws-cost-and-usage-reporting/ "https://aws.amazon.com/aws-cost-management/aws-cost-and-usage-reporting/")                      |
