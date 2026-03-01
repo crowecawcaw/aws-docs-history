@@ -16,7 +16,7 @@ This architecture enables you to to create an intelligent fleet management solut
    model building. Use custom **AWS Lambda** functions to derive
    new attributes to classify the data.
 4. Analyze and visualize time-series data using **AWS IoT Analytics**
-   and **Amazon Quick Suite**.
+   and **Amazon Quick**.
 5. Apply machine learning to data with hosted Jupyter Notebooks. Build and deploy
    predictive maintenance models for edge inference with **Amazon SageMaker AI**.
 6. **AWS IoT Events** monitors change events from IoT sensors and
