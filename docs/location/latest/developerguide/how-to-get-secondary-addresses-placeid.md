@@ -1,14 +1,10 @@
-# How to get secondary addresses
-
-of a Place ID
+# How to get secondary addresses of a Place ID
 
 The `SecondaryAddresses` API command allows you to retrieve all secondary
 addresses that are under a main address. Geocode also returns secondary units, if any
 that are present within the `QueryText` parameter.
 
-## Potential use
-
-cases
+## Potential use cases
 
 **Retrieve all secondary addresses that are under a main
 address.** This can be used for address form completion use cases to

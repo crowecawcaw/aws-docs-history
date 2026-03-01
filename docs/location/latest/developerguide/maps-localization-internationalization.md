@@ -13,8 +13,7 @@ Amazon Location Service supports localization features that enable you to custom
 
 Amazon Location Service provides Maps APIs that enable you to customize the language of map labels and text elements. This capability helps your applications cater to a global audience or regions with multiple languages. By displaying maps in the user's preferred language, you enhance the overall user experience, making the maps more accessible and relevant to your diverse user base.
 
-For more information, see [How to set a preferred language for
-a map](how-to-set-preferred-language-map.md "how-to-set-preferred-language-map.md").
+For more information, see [How to set a preferred language for a map](how-to-set-preferred-language-map.md "how-to-set-preferred-language-map.md").
 
 ![Map of Taiwan showing major cities including Taipei, Taichung, and Kaohsiung along the western coast.](images/standard-language-switcher.gif)
 
@@ -24,7 +23,6 @@ By default, Amazon Location Service presents an international perspective, which
 
 In addition to the default international perspective, Amazon Location Service supports the geopolitical views of the following countries: Argentina, Cyprus, Egypt, Georgia, Greece, Kenya, Morocco, Palestine, Serbia, Russia, Sudan, Suriname, Syria, Türkiye, Tanzania, Uruguay. To activate a geopolitical view, pass the appropriate value to the _political view_ parameter.
 
-For more information, see [How to set the political view of a
-map](how-to-set-political-view-map.md "how-to-set-political-view-map.md").
+For more information, see [How to set the political view of a map](how-to-set-political-view-map.md "how-to-set-political-view-map.md").
 
 ![Map of Cyprus showing the locations of Nicosia and Limassol, with surrounding waters.](images/maps-political-view.png)

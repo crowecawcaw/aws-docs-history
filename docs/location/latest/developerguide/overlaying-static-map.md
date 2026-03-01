@@ -86,18 +86,14 @@ Each geometry type is defined along with its style properties. Multiple geometri
 are separated by a pipe operator (|), and properties for each geometry are separated
 using a semicolon.
 
-## Supported geometry
-
-types
+## Supported geometry types
 
 Amazon Location Service supports several geometry types, including `Point`,
 `MultiPoint`, `LineString`, `Polygon`, and
 `MultiPolygon`. These geometry types can be combined and styled
 within the same query parameter using the compact overlay format.
 
-## Styling
-
-properties
+## Styling properties
 
 Each geometry can be customized using various style properties, such as color,
 outline color, size, and more. These properties allow you to control the appearance

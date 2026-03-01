@@ -1,6 +1,4 @@
-# How to search nearby using geospatial
-
-context
+# How to search nearby using geospatial context
 
 The SearchNearby API enables you to explore nearby, while restricting results within
 geospatial context (such as a circle or bounding box).

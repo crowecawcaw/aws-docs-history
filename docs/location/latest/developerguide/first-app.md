@@ -1,6 +1,4 @@
-# Create your first Amazon Location Maps and Places
-
-application
+# Create your first Amazon Location Maps and Places application
 
 In this section, you will create your first application with Maps and Places.
 

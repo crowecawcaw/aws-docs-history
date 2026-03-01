@@ -1,6 +1,4 @@
-# How to get the time zone for a
-
-PlaceId
+# How to get the time zone for a PlaceId
 
 The GetPlace API allows retrieval of contact information associated with a specific
 PlaceId, providing you with details such as phone numbers, time zones, and website

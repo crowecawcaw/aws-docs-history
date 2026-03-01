@@ -54,9 +54,7 @@ AWS account.
 aws location list-trackers
 ```
 
-## Disconnecting a tracker from a geofence
-
-collection
+## Disconnecting a tracker from a geofence collection
 
 You can disconnect a tracker from a geofence collection using the Amazon Location
 console, the AWS CLI, or the Amazon Location APIs:

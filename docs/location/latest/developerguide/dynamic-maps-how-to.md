@@ -25,10 +25,8 @@ mapping functions to complex geopolitical and localization needs.
 - [How to add a line on the map](how-to-add-line-on-map.md "how-to-add-line-on-map.md")
 - [How to add a polygon on the map](how-to-add-polygon-on-map.md "how-to-add-polygon-on-map.md")
 - [How to add a popup to a map](how-to-add-popup-to-map.md "how-to-add-popup-to-map.md")
-- [How to set a preferred language for
-  a map](how-to-set-preferred-language-map.md "how-to-set-preferred-language-map.md")
-- [How to set the political view of a
-  map](how-to-set-political-view-map.md "how-to-set-political-view-map.md")
+- [How to set a preferred language for a map](how-to-set-preferred-language-map.md "how-to-set-preferred-language-map.md")
+- [How to set the political view of a map](how-to-set-political-view-map.md "how-to-set-political-view-map.md")
 - [How to filter POI on the map](how-to-filter-poi-map.md "how-to-filter-poi-map.md")
 - [How to create topographic maps](how-to-create-topographic-maps.md "how-to-create-topographic-maps.md")
 - [How to show real-time traffic on a map](how-to-set-real-time-traffic-map.md "how-to-set-real-time-traffic-map.md")

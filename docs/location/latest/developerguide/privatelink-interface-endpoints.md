@@ -23,21 +23,14 @@ Guide_.
 
 ###### Topics
 
-- [Types of Amazon VPC endpoints for Amazon Location
-  Service](#types-of-vpc-endpoints-for-al "#types-of-vpc-endpoints-for-al")
-- [Considerations when using AWS PrivateLink for
-  Amazon Location Service](#privatelink-considerations "#privatelink-considerations")
+- [Types of Amazon VPC endpoints for Amazon Location Service](#types-of-vpc-endpoints-for-al "#types-of-vpc-endpoints-for-al")
+- [Considerations when using AWS PrivateLink for Amazon Location Service](#privatelink-considerations "#privatelink-considerations")
 - [Create an interface endpoint for Amazon Location Service](#al-creating-vpc "#al-creating-vpc")
-- [Access Amazon Location API
-  operations from Amazon Location interface endpoints](#accessing-apis-from-interface-endpoints "#accessing-apis-from-interface-endpoints")
-- [Update an on-premises DNS
-  configuration](#updating-on-premises-dns-config "#updating-on-premises-dns-config")
-- [Create an Amazon VPC endpoint policy for
-  Amazon Location](#creating-vpc-endpoint-policy "#creating-vpc-endpoint-policy")
+- [Access Amazon Location API operations from Amazon Location interface endpoints](#accessing-apis-from-interface-endpoints "#accessing-apis-from-interface-endpoints")
+- [Update an on-premises DNS configuration](#updating-on-premises-dns-config "#updating-on-premises-dns-config")
+- [Create an Amazon VPC endpoint policy for Amazon Location](#creating-vpc-endpoint-policy "#creating-vpc-endpoint-policy")
 
-## Types of Amazon VPC endpoints for Amazon Location
-
-Service
+## Types of Amazon VPC endpoints for Amazon Location Service
 
 You can use one type of Amazon VPC endpoint to access Amazon Location Service: _interface endpoints_ (by using AWS PrivateLink). _Interface endpoints_ use private IP addresses to route
 requests to Amazon Location from within your Amazon VPC, on premises, or from an Amazon VPC in another
@@ -57,9 +50,7 @@ Interface endpoints for Amazon Location have the following properties:
   peering or AWS Transit Gateway
 - Interface endpoints are billed
 
-## Considerations when using AWS PrivateLink for
-
-Amazon Location Service
+## Considerations when using AWS PrivateLink for Amazon Location Service
 
 Amazon VPC considerations apply to AWS PrivateLink for Amazon Location Service. For more information, see
 [Interface endpoint considerations](../../../vpc/latest/privatelink/vpce-interface.md#vpce-interface-limitations "../../../vpc/latest/privatelink/vpce-interface.md#vpce-interface-limitations") and [AWS PrivateLink quotas](../../../vpc/latest/privatelink/vpc-limits-endpoints.md "../../../vpc/latest/privatelink/vpc-limits-endpoints.md")
@@ -143,9 +134,7 @@ used for interface endpoints.
 - `geofencing.geo.`region`.api.aws`
 - `metadata.geo.`region`.api.aws`
 
-## Access Amazon Location API
-
-operations from Amazon Location interface endpoints
+## Access Amazon Location API operations from Amazon Location interface endpoints
 
 You can use the [AWS CLI](../../../cli/latest/reference/location.md "../../../cli/latest/reference/location.md") or [AWS SDKs](dev-sdks.md "dev-sdks.md") to access
 Amazon Location API operations through Amazon Location interface endpoints.
@@ -173,9 +162,7 @@ aws ec2 modify-vpc-endpoint \
 # any additional parameters needed, see PrivateLink documentation for more details
 ```
 
-## Update an on-premises DNS
-
-configuration
+## Update an on-premises DNS configuration
 
 When using endpoint-specific DNS names to access the interface endpoints for
 Amazon Location, you don't have to update your on-premises DNS resolver. You can resolve the
@@ -188,9 +175,7 @@ gateway in the Amazon VPC
 Interface endpoints in your Amazon VPC can route both in-Amazon VPC applications and on-premises
 applications to Amazon Location over the Amazon network.
 
-## Create an Amazon VPC endpoint policy for
-
-Amazon Location
+## Create an Amazon VPC endpoint policy for Amazon Location
 
 You can attach an endpoint policy to your Amazon VPC endpoint that controls access to
 Amazon Location. The policy specifies the following information:

@@ -10,28 +10,21 @@ use with no additional charge.
 - [Audience](#security_iam_audience "#security_iam_audience")
 - [Authenticating with identities](#security_iam_authentication "#security_iam_authentication")
 - [Managing access using policies](#security_iam_access-manage "#security_iam_access-manage")
-- [How Amazon Location Service works with
-  IAM](#security_iam_service-with-iam "#security_iam_service-with-iam")
-- [How Amazon Location Service works with
-  unauthenticated users](#security_iam_unauthenticated-users "#security_iam_unauthenticated-users")
-- [Identity-based policy examples
-  for Amazon Location Service](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples")
-- [Troubleshooting Amazon Location Service identity and
-  access](#security_iam_troubleshoot "#security_iam_troubleshoot")
+- [How Amazon Location Service works with IAM](#security_iam_service-with-iam "#security_iam_service-with-iam")
+- [How Amazon Location Service works with unauthenticated users](#security_iam_unauthenticated-users "#security_iam_unauthenticated-users")
+- [Identity-based policy examples for Amazon Location Service](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples")
+- [Troubleshooting Amazon Location Service identity and access](#security_iam_troubleshoot "#security_iam_troubleshoot")
 
 ## Audience
 
 How you use AWS Identity and Access Management (IAM) differs based on your role:
 
 - **Service user** - request permissions from your
-  administrator if you cannot access features (see [Troubleshooting Amazon Location Service identity and
-  access](#security_iam_troubleshoot "#security_iam_troubleshoot"))
+  administrator if you cannot access features (see [Troubleshooting Amazon Location Service identity and access](#security_iam_troubleshoot "#security_iam_troubleshoot"))
 - **Service administrator** - determine user access and
-  submit permission requests (see [How Amazon Location Service works with
-  IAM](#security_iam_service-with-iam "#security_iam_service-with-iam"))
+  submit permission requests (see [How Amazon Location Service works with IAM](#security_iam_service-with-iam "#security_iam_service-with-iam"))
 - **IAM administrator** - write policies to manage
-  access (see [Identity-based policy examples
-  for Amazon Location Service](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples"))
+  access (see [Identity-based policy examples for Amazon Location Service](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples"))
 
 ## Authenticating with identities
 
@@ -73,17 +66,13 @@ Using policies, administrators specify who has access to what by defining which 
 
 By default, users and roles have no permissions. An IAM administrator creates IAM policies and adds them to roles, which users can then assume. IAM policies define permissions regardless of the method used to perform the operation.
 
-### Identity-based
-
-policies
+### Identity-based policies
 
 Identity-based policies are JSON permissions policy documents that you attach to an identity (user, group, or role). These policies control what actions identities can perform, on which resources, and under what conditions. To learn how to create an identity-based policy, see [Define custom IAM permissions with customer managed policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in the _IAM User Guide_.
 
 Identity-based policies can be _inline policies_ (embedded directly into a single identity) or _managed policies_ (standalone policies attached to multiple identities). To learn how to choose between managed and inline policies, see [Choose between managed policies and inline policies](../../../IAM/latest/UserGuide/access_policies-choosing-managed-or-inline.md "../../../IAM/latest/UserGuide/access_policies-choosing-managed-or-inline.md") in the _IAM User Guide_.
 
-### Resource-based
-
-policies
+### Resource-based policies
 
 Resource-based policies are JSON policy documents that you attach to a resource. Examples include IAM _role trust policies_ and Amazon S3 _bucket policies_. In services that support resource-based policies, service administrators can use them to control access to a specific resource. You must [specify a principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md") in a resource-based policy.
 
@@ -98,22 +87,18 @@ AWS supports additional policy types that can set the maximum permissions grante
 - **Resource control policies (RCPs)** – Set the maximum available permissions for resources in your accounts. For more information, see [Resource control policies (RCPs)](../../../organizations/latest/userguide/orgs_manage_policies_rcps.md "../../../organizations/latest/userguide/orgs_manage_policies_rcps.md") in the _AWS Organizations User Guide_.
 - **Session policies** – Advanced policies passed as a parameter when creating a temporary session for a role or federated user. For more information, see [Session policies](../../../IAM/latest/UserGuide/access_policies.md#policies_session "../../../IAM/latest/UserGuide/access_policies.md#policies_session") in the _IAM User Guide_.
 
-### Multiple policy
-
-types
+### Multiple policy types
 
 When multiple types of policies apply to a request, the resulting permissions are more complicated to understand. To learn how AWS determines whether to allow a request when multiple policy types are involved, see [Policy evaluation logic](../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md "../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md") in the _IAM User Guide_.
 
-## How Amazon Location Service works with
-
-IAM
+## How Amazon Location Service works with IAM
 
 Before you use IAM to manage access to Amazon Location, learn what IAM features are
 available to use with Amazon Location.
 
 | IAM features you can use with Amazon Location Service                                                                                                                       | IAM feature | Amazon Location support |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ----------------------- |
-| [Identity-based<br>policies for Amazon Location](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")                       | Yes         |
+| [Identity-based policies for Amazon Location](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")                          | Yes         |
 | [Resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")                                  | No          |
 | [Policy actions](#security_iam_service-with-iam-id-based-policies-actions "#security_iam_service-with-iam-id-based-policies-actions")                                       | Yes         |
 | [Policy resources](#security_iam_service-with-iam-id-based-policies-resources "#security_iam_service-with-iam-id-based-policies-resources")                                 | Yes         |
@@ -129,9 +114,7 @@ To get a high-level view of how Amazon Location and other AWS services work with
 IAM features, see [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-### Identity-based
-
-policies for Amazon Location
+### Identity-based policies for Amazon Location
 
 **Supports identity-based policies:**
 
@@ -148,12 +131,9 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-####
+#### Identity-based policy examples for Amazon Location
 
-Identity-based policy examples for Amazon Location
-
-To view examples of Amazon Location identity-based policies, see [Identity-based policy examples
-for Amazon Location Service](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples").
+To view examples of Amazon Location identity-based policies, see [Identity-based policy examples for Amazon Location Service](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples").
 
 ### Resource-based policies within Amazon Location
 
@@ -171,9 +151,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-### Policy
-
-actions for Amazon Location
+### Policy actions for Amazon Location
 
 **Supports policy actions:**
 
@@ -212,12 +190,9 @@ action:
 "Action": "geo:Get*"
 ```
 
-To view examples of Amazon Location identity-based policies, see [Identity-based policy examples
-for Amazon Location Service](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples").
+To view examples of Amazon Location identity-based policies, see [Identity-based policy examples for Amazon Location Service](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples").
 
-### Policy
-
-resources for Amazon Location
+### Policy resources for Amazon Location
 
 **Supports policy resources:**
 
@@ -237,8 +212,7 @@ To see a list of Amazon Location resource types and their ARNs, see
 which actions you can specify the ARN of each resource, see
 [Actions Defined by Amazon Location Service](../../../service-authorization/latest/reference/list_amazonlocation.md#amazonlocation-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonlocation.md#amazonlocation-actions-as-permissions").
 
-To view examples of Amazon Location identity-based policies, see [Identity-based policy examples
-for Amazon Location Service](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples").
+To view examples of Amazon Location identity-based policies, see [Identity-based policy examples for Amazon Location Service](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples").
 
 ### Policy condition keys for Amazon Location
 
@@ -291,8 +265,7 @@ You can't use these condition keys with the
 `BatchEvaluateGeofences`, `ListGeofences`, or
 `ListDevicePosition` actions.
 
-To view examples of Amazon Location identity-based policies, see [Identity-based policy examples
-for Amazon Location Service](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples").
+To view examples of Amazon Location identity-based policies, see [Identity-based policy examples for Amazon Location Service](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples").
 
 ### ACLs in Amazon Location
 
@@ -323,12 +296,9 @@ For more information about ABAC, see [Define permissions with ABAC authorization
 For more information about tagging Amazon Location resources, see [How to use tags](manage-resources.md#manage-resources_how-to "manage-resources.md#manage-resources_how-to").
 
 To view an example identity-based policy for limiting access to a resource based
-on the tags on that resource, see [Control resource access
-based on tags](#security_iam_tag-based-policy-example "#security_iam_tag-based-policy-example").
+on the tags on that resource, see [Control resource access based on tags](#security_iam_tag-based-policy-example "#security_iam_tag-based-policy-example").
 
-### Using temporary
-
-credentials with Amazon Location
+### Using temporary credentials with Amazon Location
 
 **Supports temporary credentials:**
 
@@ -340,9 +310,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-### Cross-service
-
-principal permissions for Amazon Location
+### Cross-service principal permissions for Amazon Location
 
 **Supports forward access sessions (FAS):**
 
@@ -351,9 +319,7 @@ No
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-### Service roles for
-
-Amazon Location
+### Service roles for Amazon Location
 
 **Supports service roles:**
 
@@ -369,9 +335,7 @@ Changing the permissions for a service role might break Amazon Location
 functionality. Edit service roles only when Amazon Location provides guidance to do
 so.
 
-### Service-linked
-
-roles for Amazon Location
+### Service-linked roles for Amazon Location
 
 **Supports service-linked roles:**
 
@@ -387,9 +351,7 @@ a `Yes` in the **Service-linked role** column. Choose
 the **Yes** link to view the service-linked role documentation for
 that service.
 
-## How Amazon Location Service works with
-
-unauthenticated users
+## How Amazon Location Service works with unauthenticated users
 
 Many scenarios for using Amazon Location Service, including showing maps on the web or in a mobile
 application, require allowing access to users who haven't signed in with IAM. For
@@ -407,9 +369,7 @@ these unauthenticated scenarios, you have two options.
 
 For an overview of providing access to unauthenticated users, see [Authenticate with Amazon Location Service](access.md "access.md").
 
-## Identity-based policy examples
-
-for Amazon Location Service
+## Identity-based policy examples for Amazon Location Service
 
 By default, users and roles don't have permission to create or modify Amazon Location
 resources. To grant users permission to perform actions on the
@@ -423,34 +383,21 @@ For details about actions and resource types defined by Amazon Location, includi
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the Amazon Location
-  console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow
-  users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Using
-  Amazon Location Service resources in policy](#security_iam_id-based-policy-examples-using-resources "#security_iam_id-based-policy-examples-using-resources")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the Amazon Location console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Using Amazon Location Service resources in policy](#security_iam_id-based-policy-examples-using-resources "#security_iam_id-based-policy-examples-using-resources")
 - [Permissions for updating device positions](#security_iam_id-based-policy-examples-update-device-positions "#security_iam_id-based-policy-examples-update-device-positions")
-- [Read-only
-  policy for tracker resources](#security_iam_id-based-policy-examples-read-only-trackers "#security_iam_id-based-policy-examples-read-only-trackers")
-- [Policy for
-  creating geofences](#security_iam_id-based-policy-examples-create-geofences "#security_iam_id-based-policy-examples-create-geofences")
+- [Read-only policy for tracker resources](#security_iam_id-based-policy-examples-read-only-trackers "#security_iam_id-based-policy-examples-read-only-trackers")
+- [Policy for creating geofences](#security_iam_id-based-policy-examples-create-geofences "#security_iam_id-based-policy-examples-create-geofences")
 - [Read-only policy for geofences](#security_iam_id-based-policy-examples-read-only-geofences "#security_iam_id-based-policy-examples-read-only-geofences")
-- [Permissions
-  for rendering a map resource](#security_iam_id-based-policy-examples-get-map-tiles "#security_iam_id-based-policy-examples-get-map-tiles")
-- [Permissions
-  to allow search operations](#security_iam_id-based-policy-examples-search-for-place "#security_iam_id-based-policy-examples-search-for-place")
-- [Read-only
-  policy for route calculators](#security_iam_id-based-policy-examples-calculate-route "#security_iam_id-based-policy-examples-calculate-route")
-- [Control resource access based
-  on condition keys](#security_iam_condition-key-example "#security_iam_condition-key-example")
-- [Control resource access
-  based on tags](#security_iam_tag-based-policy-example "#security_iam_tag-based-policy-example")
+- [Permissions for rendering a map resource](#security_iam_id-based-policy-examples-get-map-tiles "#security_iam_id-based-policy-examples-get-map-tiles")
+- [Permissions to allow search operations](#security_iam_id-based-policy-examples-search-for-place "#security_iam_id-based-policy-examples-search-for-place")
+- [Read-only policy for route calculators](#security_iam_id-based-policy-examples-calculate-route "#security_iam_id-based-policy-examples-calculate-route")
+- [Control resource access based on condition keys](#security_iam_condition-key-example "#security_iam_condition-key-example")
+- [Control resource access based on tags](#security_iam_tag-based-policy-example "#security_iam_tag-based-policy-example")
 
-### Policy best
-
-practices
+### Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Amazon Location resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -483,9 +430,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-### Using the Amazon Location
-
-console
+### Using the Amazon Location console
 
 To access the Amazon Location Service console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the Amazon Location resources
@@ -526,12 +471,9 @@ account.
 
 Alternatively, you can grant read-only permissions to facilitate read-only access.
 With read-only permissions, an error message will appear if the user attempts write
-actions such as creating or deleting resources. As an example, see [Read-only
-policy for tracker resources](#security_iam_id-based-policy-examples-read-only-trackers "#security_iam_id-based-policy-examples-read-only-trackers")
+actions such as creating or deleting resources. As an example, see [Read-only policy for tracker resources](#security_iam_id-based-policy-examples-read-only-trackers "#security_iam_id-based-policy-examples-read-only-trackers")
 
-### Allow
-
-users to view their own permissions
+### Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -571,9 +513,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-### Using
-
-Amazon Location Service resources in policy
+### Using Amazon Location Service resources in policy
 
 Amazon Location Service uses the following prefixes for resources:
 
@@ -682,9 +622,7 @@ specific device, you can add a condition key for that device id.
 }
 ```
 
-### Read-only
-
-policy for tracker resources
+### Read-only policy for tracker resources
 
 To create a read-only policy for all tracker resources in your AWS account,
 you'll need to grant access to all tracker resources. You'll also want to grant a
@@ -720,9 +658,7 @@ actions:
 }
 ```
 
-### Policy for
-
-creating geofences
+### Policy for creating geofences
 
 To create a policy to allow a user to create geofences, you'll need to grant
 access to specific actions that allow users to create one or more geofences on a
@@ -784,9 +720,7 @@ The policy below grants permission to the following actions on
 }
 ```
 
-### Permissions
-
-for rendering a map resource
+### Permissions for rendering a map resource
 
 To grant sufficient permissions to render maps, you'll need to grant access to map
 tiles, sprites, glyphs, and the style descriptor:
@@ -819,9 +753,7 @@ tiles, sprites, glyphs, and the style descriptor:
 }
 ```
 
-### Permissions
-
-to allow search operations
+### Permissions to allow search operations
 
 To create a policy to allow search operations, you'll first need to grant access
 to the place index resource in your AWS account. You'll also want to grant access
@@ -854,9 +786,7 @@ permission to the following actions:
 }
 ```
 
-### Read-only
-
-policy for route calculators
+### Read-only policy for route calculators
 
 You can create a read-only policy to allow a user access to a route calculator
 resource to calculate a route.
@@ -884,9 +814,7 @@ permission to the following operation:
 }
 ```
 
-### Control resource access based
-
-on condition keys
+### Control resource access based on condition keys
 
 When you create an IAM policy to grant access to use geofences or device
 positions, you can use [Condition operators](../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md") for more precise control over which geofences or
@@ -921,9 +849,7 @@ user to update device positions for a specific device.
 }
 ```
 
-### Control resource access
-
-based on tags
+### Control resource access based on tags
 
 When you create an IAM policy to grant access to use your Amazon Location resources,
 you can use [attribute-based access control](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") for better control over which resources
@@ -982,25 +908,18 @@ For a tutorial about [how to
 define permissions to access AWS resources based on tags](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md"), see the
 _AWS Identity and Access Management User Guide_.
 
-## Troubleshooting Amazon Location Service identity and
-
-access
+## Troubleshooting Amazon Location Service identity and access
 
 Use the following information to help you diagnose and fix common issues that you might
 encounter when working with Amazon Location and IAM.
 
 ###### Topics
 
-- [I am not authorized to
-  perform an action in Amazon Location](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
-- [I am not authorized to perform
-  iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
-- [I want to allow
-  people outside of my AWS account to access my Amazon Location resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
+- [I am not authorized to perform an action in Amazon Location](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
+- [I am not authorized to perform iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
+- [I want to allow people outside of my AWS account to access my Amazon Location resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
 
-### I am not authorized to
-
-perform an action in Amazon Location
+### I am not authorized to perform an action in Amazon Location
 
 If you receive an error that you're not authorized to perform an action, your
 policies must be updated to allow you to perform the action.
@@ -1020,9 +939,7 @@ In this case, the policy for the `mateojackson` user must be updated to allow ac
 
 If you need help, contact your AWS administrator. Your administrator is the person who provided you with your sign-in credentials.
 
-### I am not authorized to perform
-
-iam:PassRole
+### I am not authorized to perform iam:PassRole
 
 If you receive an error that you're not authorized to perform the `iam:PassRole` action, your policies must be updated to allow you to pass a role to Amazon Location.
 
@@ -1041,9 +958,7 @@ In this case, Mary's policies must be updated to allow her to perform the `iam:P
 
 If you need help, contact your AWS administrator. Your administrator is the person who provided you with your sign-in credentials.
 
-### I want to allow
-
-people outside of my AWS account to access my Amazon Location resources
+### I want to allow people outside of my AWS account to access my Amazon Location resources
 
 You can create a role that users in other accounts or people outside of your organization can use to access your resources. You can specify who
 is trusted to assume the role. For services that support resource-based policies or access control lists (ACLs), you can use those policies to grant
@@ -1051,8 +966,7 @@ people access to your resources.
 
 To learn more, consult the following:
 
-- To learn whether Amazon Location supports these features, see [How Amazon Location Service works with
-  IAM](#security_iam_service-with-iam "#security_iam_service-with-iam").
+- To learn whether Amazon Location supports these features, see [How Amazon Location Service works with IAM](#security_iam_service-with-iam "#security_iam_service-with-iam").
 - To learn how to provide access to your resources across AWS accounts that you own, see [Providing access to an IAM user in another AWS account that you
   own](../../../IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.md "../../../IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.md") in the _IAM User Guide_.
 - To learn how to provide access to your resources to third-party AWS accounts, see [Providing access to AWS accounts owned by third parties](../../../IAM/latest/UserGuide/id_roles_common-scenarios_third-party.md "../../../IAM/latest/UserGuide/id_roles_common-scenarios_third-party.md") in the

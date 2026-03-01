@@ -1,6 +1,4 @@
-# How to get
-
-results for a partially typed or misspelled query
+# How to get results for a partially typed or misspelled query
 
 The Suggest API enables applications to complete user queries for places or categories
 of results. These results are sorted from most likely to less-likely matches, allowing

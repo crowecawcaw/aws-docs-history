@@ -180,9 +180,7 @@ For more information about [specifying permissions in a policy](../../../kms/lat
 
 For more information about [troubleshooting key access](../../../kms/latest/developerguide/policy-evaluation.md#example-no-iam "../../../kms/latest/developerguide/policy-evaluation.md#example-no-iam"), see the _AWS Key Management Service Developer Guide_.
 
-## Specifying a customer managed key for
-
-Amazon Location
+## Specifying a customer managed key for Amazon Location
 
 You can specify a customer managed key as a second layer encryption for the following
 resources:
@@ -274,9 +272,7 @@ the encryption context.
 }
 ```
 
-## Monitoring your encryption keys for
-
-Amazon Location Service
+## Monitoring your encryption keys for Amazon Location Service
 
 When you use an AWS KMS customer managed key with your Amazon Location Service resources, you can use [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md")
 or [Amazon CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md")

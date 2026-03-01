@@ -1,6 +1,4 @@
-# How to set a preferred language for
-
-a map
+# How to set a preferred language for a map
 
 Amazon Location Service enables you to set the preferred language at the client-side by updating the
 style descriptor for a specific language. You can set a preferred language and display
@@ -11,9 +9,7 @@ language.
 
 For more information, see [Localization and internationalization](maps-localization-internationalization.md "maps-localization-internationalization.md").
 
-## Set preferred language to Japanese
-
-and show map of Japan
+## Set preferred language to Japanese and show map of Japan
 
 In this example, you will set update style to show map labels in Japanese
 (ja).
@@ -152,9 +148,7 @@ const recurseExpression = (exp, prevPropertyRegex, nextProperty) => {
 
 ```
 
-## Set preferred language based on end
-
-user's browser language
+## Set preferred language based on end user's browser language
 
 In this example, you will set update style to show map labels in user's device
 language.

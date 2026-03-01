@@ -1,6 +1,4 @@
-# How to set the political view of a
-
-map
+# How to set the political view of a map
 
 Amazon Location Service enables you to set the political view to ensure your application complies
 with local laws. You can set a political view and compare maps from different political
@@ -10,9 +8,7 @@ perspectives.
 
 For more information, see [Localization and internationalization](maps-localization-internationalization.md "maps-localization-internationalization.md").
 
-## Set political view and compare with
-
-international perspective
+## Set political view and compare with international perspective
 
 In this example, you will create and compare maps from two different political
 views: an international perspective and Turkey's view on Cyprus.

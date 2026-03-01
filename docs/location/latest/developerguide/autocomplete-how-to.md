@@ -10,5 +10,4 @@ enhance search relevance and user experience.
 ###### Topics
 
 - [How to complete an address](how-to-complete-address.md "how-to-complete-address.md")
-- [How to complete an address with
-  filters](how-to-complete-address-with-filters.md "how-to-complete-address-with-filters.md")
+- [How to complete an address with filters](how-to-complete-address-with-filters.md "how-to-complete-address-with-filters.md")

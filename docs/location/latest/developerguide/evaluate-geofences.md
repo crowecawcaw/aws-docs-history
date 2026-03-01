@@ -1,6 +1,4 @@
-# Evaluate device positions against
-
-geofences
+# Evaluate device positions against geofences
 
 There are two ways to evaluate positions against geofences to generate geofence
 events:

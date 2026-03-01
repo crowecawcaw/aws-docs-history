@@ -1,6 +1,4 @@
-# How to geocode an address number
-
-with a postal code
+# How to geocode an address number with a postal code
 
 In countries where postal codes are highly specific (linking only a few addresses on
 the same street), an address can be found using only the house number and postal code.

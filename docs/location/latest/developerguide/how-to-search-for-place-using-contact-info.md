@@ -1,6 +1,4 @@
-# How to search for a place
-
-using contact information
+# How to search for a place using contact information
 
 The SearchText API allows users to search for a place using a phone number, supporting
 both international and local formats. Users can bias results by setting a position based

@@ -75,13 +75,10 @@ The following is a policy example to allow a user to create a geofence collectio
 
 You can add tags when creating your resources using the Amazon Location console, the AWS CLI, or the Amazon Location APIs:
 
-- [Manage your geofence collection
-  resources](managing-geofence-collections.md "managing-geofence-collections.md")
+- [Manage your geofence collection resources](managing-geofence-collections.md "managing-geofence-collections.md")
 - [Create a tracker](start-create-tracker.md "start-create-tracker.md")
 
-######
-
-To tag existing resources, edit or delete tags
+###### To tag existing resources, edit or delete tags
 
 1. Open the [Amazon Location console](https://console.aws.amazon.com/location "https://console.aws.amazon.com/location").
 2. In the left navigation pane, choose the resource you want to tag. For example, **Maps**.
@@ -97,9 +94,7 @@ These are custom tags that you create. The user-defined tags use the `user:` pre
 
 You must activate each tag type individually. After your tags are activated, you can [enable AWS Cost Explorer](../../../cost-management/latest/userguide/ce-enable.md "../../../cost-management/latest/userguide/ce-enable.md") or view your monthly cost allocation report.
 
-######
-
-To activate user-defined tags
+###### To activate user-defined tags
 
 1. Open the [Billing and Cost Management console](https://console.aws.amazon.com/billing "https://console.aws.amazon.com/billing").
 2. In the left navigation pane, choose **Cost Allocation Tags**.

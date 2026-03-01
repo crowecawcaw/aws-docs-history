@@ -7,6 +7,10 @@ The following are a few best practices for integrating with Amazon Location Serv
 To help effectively manage your location resources in Amazon Location Service, consider the following
 best practices:
 
+###### Note
+
+The following best practices apply to the standalone resources used with v1 APIs. The v2 Maps, Places, and Routes APIs do not require resource creation.
+
 - Use regional endpoints that are central to your expected user base to improve
   their experience. For information about region endpoints, see [Amazon Location supported regions](location-regions.md "location-regions.md").
 - For resources that use data providers, such as map resources and place index

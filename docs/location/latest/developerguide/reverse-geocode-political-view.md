@@ -1,6 +1,4 @@
-# How to reverse geocode with a political
-
-view
+# How to reverse geocode with a political view
 
 The Amazon Location Service allows you to specify a political view to ensure your application aligns
 with local regulations. This feature is useful when geocoding locations in disputed

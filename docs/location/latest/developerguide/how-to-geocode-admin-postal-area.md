@@ -1,6 +1,4 @@
-# How to geocode an administrative and
-
-postal area
+# How to geocode an administrative and postal area
 
 The Geocode API allows you to perform geocoding for a geographic area using a query
 text input, such as the name of a country, region (state or province), or city. The API

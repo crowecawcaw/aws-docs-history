@@ -1,6 +1,4 @@
-# How to reverse geocode for correct
-
-result
+# How to reverse geocode for correct result
 
 This guide provides methods to refine reverse geocoding results, ensuring that the
 returned data aligns closely with specific business needs. Using filters, users can

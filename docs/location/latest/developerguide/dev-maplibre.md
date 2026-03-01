@@ -35,8 +35,7 @@ Use the [Amazon Location for MapLibre geocoder library](https://github.com/aws-g
 using Amazon Location with `amazon-location-for-maplibre-gl-geocoder` in
 JavaScript Applications.
 
-For more information, see [Use Amazon Location MapLibre Geocoder GL
-plugin](dev-maplibre-geocoder.md "dev-maplibre-geocoder.md").
+For more information, see [Use Amazon Location MapLibre Geocoder GL plugin](dev-maplibre-geocoder.md "dev-maplibre-geocoder.md").
 
 - **Routes**
 - **Geofences and Trackers**

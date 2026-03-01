@@ -42,9 +42,7 @@ For more information, see [map features](maps-concepts.md "maps-concepts.md").
   integrate seamlessly with your application's design language, providing a
   polished and consistent mapping experience for your end-users.
 
-## Get started with AWS map
-
-styles
+## Get started with AWS map styles
 
 - **Check the AWS map styles offering**: In
   the Amazon Location Service console, navigate to the **Map** section to

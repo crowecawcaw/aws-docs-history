@@ -1,6 +1,4 @@
-# How to search nearby within a
-
-country
+# How to search nearby within a country
 
 The SearchNearby API enables you to search for nearby places within a specific
 country. To use the API, you need to provide a QueryPosition, which can be:

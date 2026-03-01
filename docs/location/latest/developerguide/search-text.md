@@ -86,8 +86,7 @@ results.
 - `PoliticalView`: Applies a political view reflecting
   territorial claims.
 
-For more information, see [Localization and
-internationalization](places-localization-internationalization.md "places-localization-internationalization.md").
+For more information, see [Localization and internationalization](places-localization-internationalization.md "places-localization-internationalization.md").
 
 **Additional Features**
 

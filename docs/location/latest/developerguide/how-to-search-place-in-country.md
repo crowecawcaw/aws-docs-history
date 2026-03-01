@@ -1,6 +1,4 @@
-# How to search for a place within a
-
-country
+# How to search for a place within a country
 
 The `SearchText` API enables you limit search results to within one or more
 countries. This feature useful for searching in border areas or smaller countries that

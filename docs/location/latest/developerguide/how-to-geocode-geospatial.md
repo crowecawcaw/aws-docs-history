@@ -1,6 +1,4 @@
-# How to geocode using geospatial
-
-context
+# How to geocode using geospatial context
 
 The Geocode API enables you to use geospatial context (such as bias position) to get
 desired results.

@@ -1,6 +1,4 @@
-# How to reverse geocode for the time
-
-zone of a city
+# How to reverse geocode for the time zone of a city
 
 You can use the Reverse Geocode API to request for time zone information such as UTC
 offset and time zone name

@@ -56,16 +56,13 @@ For more information about CloudTrail pricing, see [AWS CloudTrail pricing](http
 
 ###### Topics
 
-- [Amazon Location management events in
-  CloudTrail](#cloudtrail-management-events "#cloudtrail-management-events")
+- [Amazon Location management events in CloudTrail](#cloudtrail-management-events "#cloudtrail-management-events")
 - [Amazon Location data events in CloudTrail](#cloudtrail-data-events "#cloudtrail-data-events")
 - [Learn about Amazon Location Service log file entries](#cloudtrail-log-entries "#cloudtrail-log-entries")
 - [Example: CloudTrail log file entry for an Amazon Location management event](#cloudtrail-management-event-example "#cloudtrail-management-event-example")
 - [Example: CloudTrail log file entry for an Amazon Location data event](#cloudtrail-data-event-example "#cloudtrail-data-event-example")
 
-## Amazon Location management events in
-
-CloudTrail
+## Amazon Location management events in CloudTrail
 
 You can view Amazon Location management events in your CloudTrail event history. These events
 include all API calls that manage Amazon Location resources and configurations. For a complete

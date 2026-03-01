@@ -1,6 +1,4 @@
-# Style iconography with
-
-sprites
+# Style iconography with sprites
 
 A sprite is a Portable Network Graphic (PNG) image file that contains small raster
 images such as icons, markers, and other elements rendered on a map. Sprites can be

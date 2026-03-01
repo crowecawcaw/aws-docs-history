@@ -1,6 +1,4 @@
-# Use Suggest and the ability to filter
-
-for a region or country
+# Use Suggest and the ability to filter for a region or country
 
 The Suggest API enables completing queries for places or categories of results. The
 results are sorted for most likely to less likely matches. Additionally, you can further
@@ -362,5 +360,4 @@ aws geo-places suggest --key ${YourKey} \
 Display search results using the `Title` response field to provide
 users with concise, recognizable entries. For results that might look similar, use
 the `Place.Address.Label` field to show additional address details that
-help users distinguish between them. For more information, see [How to help users disambiguate between
-similar results](suggest-disambiguate-results.md "suggest-disambiguate-results.md").
+help users distinguish between them. For more information, see [How to help users disambiguate between similar results](suggest-disambiguate-results.md "suggest-disambiguate-results.md").

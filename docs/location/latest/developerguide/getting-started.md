@@ -19,8 +19,7 @@ access to your resources and actions (APIs).
 
 Continue with the [Authenticate with Amazon Location Service](access.md "access.md") topic. 3. **Create your first location application.**
 
-See [Create your first Amazon Location Maps and Places
-application](first-app.md "first-app.md") to build your first "Hello World"
+See [Create your first Amazon Location Maps and Places application](first-app.md "first-app.md") to build your first "Hello World"
 application. 4. **Choose the right API.**
 
 Amazon Location offers a rich set of APIs across Places, Routes, Maps, and Geofences and

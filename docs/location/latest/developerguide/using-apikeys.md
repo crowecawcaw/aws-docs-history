@@ -106,8 +106,7 @@ aws location \
 2. The response includes the API key value to use when accessing
    resources in your applications. The key value will have the
    format `v1.public.a1b2c3d4...`. To learn more about
-   using the API key to render maps, see [Use an API key to call an Amazon Location
-   API](#using-apikeys-in-api "#using-apikeys-in-api"). The response to create-key
+   using the API key to render maps, see [Use an API key to call an Amazon Location API](#using-apikeys-in-api "#using-apikeys-in-api"). The response to create-key
    looks like the following:
 
 ```
@@ -163,9 +162,7 @@ resources in your applications. The key value will havethe format
 You can also use the [DescribeKey](../APIReference/API_DescribeKey.md "../APIReference/API_DescribeKey.md") API to find the key value for a key at a later
 time.
 
-## Use an API key to call an Amazon Location
-
-API
+## Use an API key to call an Amazon Location API
 
 After you create an API key, you can use the key value to make calls to Amazon Location
 APIs in your application.
@@ -343,9 +340,7 @@ class MapActivity : Activity(), OnMapReadyCallback {
 }
 ```
 
-## Restrict API key usage by request
-
-origin
+## Restrict API key usage by request origin
 
 You can configure API keys with client restrictions that limit access to specific
 domains or mobile applications. When restricting by domain, requests will be

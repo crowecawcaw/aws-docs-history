@@ -1,6 +1,4 @@
-# Update your tracker with a device
-
-position
+# Update your tracker with a device position
 
 To track your devices, you can post device position updates to your tracker. You
 can later retrieve these device positions or the device position history from your

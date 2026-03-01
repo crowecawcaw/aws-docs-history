@@ -1,6 +1,4 @@
-# How to search for contact and opening
-
-hours
+# How to search for contact and opening hours
 
 The `SearchText` API enables you to search for contacts and opening hours
 of a POI (Point of Interest).

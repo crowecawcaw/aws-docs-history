@@ -9,8 +9,6 @@ trackers enable accurate real-time tracking and geofencing applications tailored
 
 - [Create a tracker](start-create-tracker.md "start-create-tracker.md")
 - [Authenticating your requests](tracking-identity-pool.md "tracking-identity-pool.md")
-- [Update your tracker with a device
-  position](send-location-updates.md "send-location-updates.md")
-- [Get a device's location history from a
-  tracker](get-location-history.md "get-location-history.md")
+- [Update your tracker with a device position](send-location-updates.md "send-location-updates.md")
+- [Get a device's location history from a tracker](get-location-history.md "get-location-history.md")
 - [List your device positions](list-device-positions.md "list-device-positions.md")

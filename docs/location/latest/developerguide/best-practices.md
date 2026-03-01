@@ -21,15 +21,12 @@ To help manage or even avoid security risks, consider the following best practic
   `aws:referer` IAM condition, limiting use by sites other than
   those included in the allow-list.
 - Use monitoring and logging tools to track resource access and usage. For more
-  information, see [Logging and Monitoring in
-  Amazon Location Service](security-logging-and-monitoring.md "security-logging-and-monitoring.md") and [Logging Data Events for Trails](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md") in the AWS CloudTrail User Guide.
+  information, see [Logging and Monitoring in Amazon Location Service](security-logging-and-monitoring.md "security-logging-and-monitoring.md") and [Logging Data Events for Trails](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md") in the AWS CloudTrail User Guide.
 - Use secure connections, such as those that begin with `https://` to add
   security and protect users against attacks while data is being transmitted between the
   server and browser.
 
-### Detective security best practices for
-
-Amazon Location Service
+### Detective security best practices for Amazon Location Service
 
 The following best practices for Amazon Location Service can help detect security incidents:
 
@@ -44,8 +41,7 @@ For example, Amazon CloudWatch allows you to monitor metrics for Amazon Location
 you to setup alarms to notify you if a metric meets certain conditions you've set
 and has reached a threshold you've defined. When you create an alarm, you can set
 CloudWatch to sent a notification to alert using Amazon Simple Notification Service. For more information, see
-[Logging and Monitoring in
-Amazon Location Service](security-logging-and-monitoring.md "security-logging-and-monitoring.md").
+[Logging and Monitoring in Amazon Location Service](security-logging-and-monitoring.md "security-logging-and-monitoring.md").
 
 **Enable AWS logging tools**
 
@@ -59,9 +55,7 @@ request made to Amazon Location, the IP address from which the request was made,
 made the request, when the request was made, along with additional data. For more
 information, see [Logging Data Events for Trails](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md") in the AWS CloudTrail User Guide.
 
-### Preventive security best practices for
-
-Amazon Location Service
+### Preventive security best practices for Amazon Location Service
 
 The following best practices for Amazon Location Service can help prevent security incidents:
 

@@ -1,6 +1,4 @@
-# Create your first Geofences and Trackers
-
-application
+# Create your first Geofences and Trackers application
 
 In this section, you'll create an application that demonstrates the key features of
 using the Amazon Location Geofences and Trackers. The applications demonstrate how a tracker

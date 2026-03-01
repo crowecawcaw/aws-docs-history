@@ -1,6 +1,4 @@
-# How to search in a specific
-
-language
+# How to search in a specific language
 
 This feature allows the selection of a preferred response language from
 BCP47-compliant codes. It detects the query language based on name variants and uses the

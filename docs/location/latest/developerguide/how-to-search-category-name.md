@@ -1,6 +1,4 @@
-# How to search using category name or food
-
-type
+# How to search using category name or food type
 
 The `SearchText` API enables you to search by name of category such as
 restaurants, schools and more. You can also search by food type.

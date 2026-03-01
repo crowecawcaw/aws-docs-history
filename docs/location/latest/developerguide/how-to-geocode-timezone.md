@@ -1,6 +1,4 @@
-# How to geocode for the time zone of a
-
-city
+# How to geocode for the time zone of a city
 
 You can use the Geocode API to provide time zone information such as UTC offset and
 time zone name.

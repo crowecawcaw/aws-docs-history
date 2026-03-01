@@ -1,6 +1,4 @@
-# How to search nearby based on business
-
-chain
+# How to search nearby based on business chain
 
 The SearchNearby API enables you to query nearby business chains. You can include or
 exclude specific business chains in your search. This feature allows end users to

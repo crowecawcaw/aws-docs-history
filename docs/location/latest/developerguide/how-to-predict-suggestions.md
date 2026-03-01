@@ -1,6 +1,4 @@
-# How to predict suggestions based on
-
-input
+# How to predict suggestions based on input
 
 The Suggest API enables applications to complete user queries for places or categories
 of results. These suggestions can be used directly or refined further with the

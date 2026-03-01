@@ -1,6 +1,4 @@
-# How to get the details for
-
-PlaceId in a specific language
+# How to get the details for PlaceId in a specific language
 
 The feature allows you to select a preferred response language from BCP47-compliant
 codes. It detects the query language based on name variants and uses the preferred

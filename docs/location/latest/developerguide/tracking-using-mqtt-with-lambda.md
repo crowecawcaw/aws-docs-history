@@ -11,8 +11,7 @@ sending them to your tracker. For more information about this pattern, see the [
 - [Prerequisite](#mqtt-prerequisite-with-lambda "#mqtt-prerequisite-with-lambda")
 - [Create a Lambda function](#mqtt-with-lambda-create-lambda "#mqtt-with-lambda-create-lambda")
 - [Create an AWS IoT Core rule](#mqtt-create-iot-rule-with-lambda "#mqtt-create-iot-rule-with-lambda")
-- [Test your AWS IoT Core rule in the
-  console](#mqtt-test-iot-rule-with-lambda "#mqtt-test-iot-rule-with-lambda")
+- [Test your AWS IoT Core rule in the console](#mqtt-test-iot-rule-with-lambda "#mqtt-test-iot-rule-with-lambda")
 
 ## Prerequisite
 
@@ -196,9 +195,7 @@ SELECT * FROM '`iot/topic`'
 10. Choose **Add action**.
 11. Choose **Create rule**.
 
-## Test your AWS IoT Core rule in the
-
-console
+## Test your AWS IoT Core rule in the console
 
 If no devices are currently publishing telemetry that includes location, you can
 test your rule and this solution using the AWS IoT Core console. The console has a test

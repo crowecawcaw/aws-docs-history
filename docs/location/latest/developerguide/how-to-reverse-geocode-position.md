@@ -1,6 +1,4 @@
-# How to reverse geocode for a
-
-position
+# How to reverse geocode for a position
 
 The Reverse Geocode API allows you to convert a geocode to a geographic area based on
 a position query. The API response includes place details, providing information about

@@ -1,6 +1,4 @@
-# How to search nearby places based on
-
-category
+# How to search nearby places based on category
 
 The SearchNearby API enables querying for points of interest (POI) with the inclusion
 or exclusion of specified categories. This can help users explore neighborhoods,

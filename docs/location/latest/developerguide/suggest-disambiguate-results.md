@@ -1,6 +1,4 @@
-# How to help users disambiguate between
-
-similar results
+# How to help users disambiguate between similar results
 
 The Suggest API enables you to create queries for places or categories of results. The
 results are sorted for more likely to less likely matches. Information is provided for

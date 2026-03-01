@@ -5,10 +5,11 @@ allowing you to easily integrate the Amazon Location Service into your applicati
 the available SDKs, their installation procedures, and code examples to help you get
 started with the Amazon Location Service in your preferred development environment.
 
-There are several tools that will help you to use Amazon Location Service.
+There are several tools that will help you to use Amazon Location Service. You can also
+use AI coding assistants to accelerate development. For more information, see
+[Build with AI agents](ai-llms.md "ai-llms.md").
 
 ###### Topics
 
 - [SDKs and frameworks for Amazon Location Service](dev-sdks.md "dev-sdks.md")
-- [Working with AI and LLMs](ai-llms.md "ai-llms.md")
 - [Examples and Learning Resources](demos-samples.md "demos-samples.md")

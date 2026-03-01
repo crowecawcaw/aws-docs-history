@@ -32,8 +32,6 @@ cloud and security _in_ the cloud:
 - [Resilience in Amazon Location Service](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in Amazon Location Service](infrastructure-security.md "infrastructure-security.md")
 - [AWS PrivateLink for Amazon Location](privatelink-interface-endpoints.md "privatelink-interface-endpoints.md")
-- [Configuration and vulnerability
-  analysis in Amazon Location](vulnerability-analysis-and-management.md "vulnerability-analysis-and-management.md")
-- [Cross-service confused deputy
-  prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Configuration and vulnerability analysis in Amazon Location](vulnerability-analysis-and-management.md "vulnerability-analysis-and-management.md")
+- [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
 - [Best practices for Amazon Location Service](best-practices.md "best-practices.md")

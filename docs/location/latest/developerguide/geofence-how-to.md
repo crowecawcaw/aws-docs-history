@@ -8,8 +8,6 @@ location-based events with ease.
 
 ###### Topics
 
-- [Evaluate device positions against
-  geofences](evaluate-geofences.md "evaluate-geofences.md")
+- [Evaluate device positions against geofences](evaluate-geofences.md "evaluate-geofences.md")
 - [React to Amazon Location Service events with Amazon EventBridge](location-events.md "location-events.md")
-- [Manage your geofence collection
-  resources](managing-geofence-collections.md "managing-geofence-collections.md")
+- [Manage your geofence collection resources](managing-geofence-collections.md "managing-geofence-collections.md")

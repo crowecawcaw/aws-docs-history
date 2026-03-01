@@ -9,9 +9,7 @@ Driver settings to define work and rest schedules. This is mandatory for many ju
 | Custom rest cycles                   | Rest cycles defined by drive duration to be followed up with a rest duration. Any number of such cycles can be provided.                                                                                                                      | Yes, with options | No            | No      | No                | No           |
 | Long rest cycle and short rest cycle | Rest cycles defined by short cycle and long cycle. A short drive duration is followed by a short rest drive duration. Short drives can be repeated until a long drive duration is reached, at which point the long rest duration is enforced. | No                | No            | No      | Yes, with options | No           |
 
-## Notices, warnings, and
-
-constraints
+## Notices, warnings, and constraints
 
 Supplemental information that provides insight into decisions made during the route calculation.
 

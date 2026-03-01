@@ -2,6 +2,8 @@
 
 The CalculateRouteMatrix API calculates routes and provides travel time and travel distance for each combination of origins and destinations. This capability is useful for applications requiring route planning and optimization across multiple locations.
 
+The response includes `Distance` in meters and `Duration` in seconds for each origin-destination pair.
+
 ## Potential use cases
 
 - **Optimize route planning:** Use the route matrix as input for route optimization software to enhance service efficiency and reduce travel time.

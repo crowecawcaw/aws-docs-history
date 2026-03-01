@@ -28,9 +28,7 @@ a zoom level to determine how much area to display. To learn how it works, see [
   show more detail in a smaller area, while lower zoom levels show less detail
   over a larger area.
 
-## Dimension and
-
-quality
+## Dimension and quality
 
 You can customize the size and visual quality of the static map by defining its
 dimensions (height and width) and adding padding for better presentation of markers

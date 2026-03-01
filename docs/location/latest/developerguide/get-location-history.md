@@ -1,6 +1,4 @@
-# Get a device's location history from a
-
-tracker
+# Get a device's location history from a tracker
 
 Your Amazon Location tracker resource maintains the location history of all your
 tracked devices for a period of 30 days. You can retrieve device location history,

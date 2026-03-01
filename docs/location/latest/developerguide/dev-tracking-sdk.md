@@ -18,8 +18,7 @@ SDK:
 - [Installation](#loc-mobile-tracking-install-ios "#loc-mobile-tracking-install-ios")
 - [Usage](#loc-mobile-tracking-usage-ios "#loc-mobile-tracking-usage-ios")
 - [Filters](#loc-mobile-tracking-ios-filters "#loc-mobile-tracking-ios-filters")
-- [iOS Mobile SDK tracking
-  functions](#loc-mobile-tracking-functions "#loc-mobile-tracking-functions")
+- [iOS Mobile SDK tracking functions](#loc-mobile-tracking-functions "#loc-mobile-tracking-functions")
 - [Examples](#loc-mobile-tracking-example-ios "#loc-mobile-tracking-example-ios")
 
 ## Installation
@@ -121,9 +120,7 @@ locationTracker?.enableFilter(TimeLocationFilter())
 locationTracker?.disableFilter(TimeLocationFilter())
 ```
 
-## iOS Mobile SDK tracking
-
-functions
+## iOS Mobile SDK tracking functions
 
 The Amazon Location mobile tracking SDK for iOS includes the following
 functions:
@@ -380,8 +377,7 @@ Android SDK:
 - [Installation](#loc-mobile-tracking-install-android "#loc-mobile-tracking-install-android")
 - [Usage](#loc-mobile-tracking-usage-android "#loc-mobile-tracking-usage-android")
 - [Filters](#loc-mobile-tracking-android-filters "#loc-mobile-tracking-android-filters")
-- [Android Mobile SDK tracking
-  functions](#loc-mobile-tracking-functions "#loc-mobile-tracking-functions")
+- [Android Mobile SDK tracking functions](#loc-mobile-tracking-functions "#loc-mobile-tracking-functions")
 - [Examples](#loc-mobile-tracking-example-android "#loc-mobile-tracking-example-android")
 
 ## Installation
@@ -494,9 +490,7 @@ locationTracker?.enableFilter(TimeLocationFilter())
 locationTracker?.disableFilter(TimeLocationFilter())
 ```
 
-## Android Mobile SDK tracking
-
-functions
+## Android Mobile SDK tracking functions
 
 The Amazon Location mobile tracking SDK for Android includes the following
 functions:

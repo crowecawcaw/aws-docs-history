@@ -1,6 +1,4 @@
-# Use Amazon Location MapLibre Geocoder GL
-
-plugin
+# Use Amazon Location MapLibre Geocoder GL plugin
 
 The Amazon Location MapLibre geocoder plugin is designed to make it easier for you
 to incorporate Amazon Location functionality into your JavaScript applications,

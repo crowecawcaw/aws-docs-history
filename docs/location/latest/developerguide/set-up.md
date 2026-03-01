@@ -74,8 +74,7 @@ For information about giving unauthenticated users access to Amazon Location Ser
 functionality (for example, in a web-based application), see [Authenticate with Amazon Location Service](access.md "access.md").
 
 The following example policy gives a user permission to access all Amazon Location
-operations. For more examples, see [Identity-based policy examples
-for Amazon Location Service](security-iam.md#security_iam_id-based-policy-examples "security-iam.md#security_iam_id-based-policy-examples").
+operations. For more examples, see [Identity-based policy examples for Amazon Location Service](security-iam.md#security_iam_id-based-policy-examples "security-iam.md#security_iam_id-based-policy-examples").
 
 ```
 {
@@ -83,9 +82,9 @@ for Amazon Location Service](security-iam.md#security_iam_id-based-policy-exampl
   "Statement": [
     {
       "Action": [
-        "geo:*"
-        "geo-maps:*"
-        "geo-places:*"
+        "geo:*",
+        "geo-maps:*",
+        "geo-places:*",
         "geo-routes:*"
       ],
       "Resource": "*",

@@ -1,6 +1,4 @@
-# How to complete an address with
-
-filters
+# How to complete an address with filters
 
 The Autocomplete API enables you to complete partially typed addresses, facilitating
 quick and standardized address input for end users. By using the

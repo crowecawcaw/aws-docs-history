@@ -1,4 +1,4 @@
-# Working with AI and LLMs
+# Build with AI agents
 
 AI and LLMs can significantly accelerate development with Amazon Location Service by providing
 intelligent assistance for API usage, code generation, and troubleshooting. By configuring
@@ -8,276 +8,182 @@ minimal context and MCP configuration as recommended on this page can ensure you
 model of choice has enough context to lead to correct results without overwhelming the
 context window. This can reduce hallucinations and increase result accuracy. This
 configuration also ensures that model knowledge cutoff does not impact the quality of
-the results.
+the results. The Amazon Location Service agent context package provides ready-to-use integrations
+for popular AI coding assistants, guiding AI agents through adding maps, places search,
+geocoding, routing, and other geospatial features, including authentication setup, SDK
+integration, and best practices. Choose the installation method that matches your
+development environment.
 
-## Recommended MCP Servers
+## For Kiro users
 
-Model Context Protocol (MCP) servers extend LLM capabilities by providing access to
-external tools, documentation, and APIs. While these MCP servers are not required,
-they can help the LLM look up additional information about the service and let you
-stay up to date on the latest Amazon Location Service developer guidance. For Amazon Location Service
-development, the following MCP servers are recommended:
+[Kiro](https://kiro.dev "https://kiro.dev") supports Amazon Location Service through both the
+Kiro IDE (as a power) and the Kiro CLI (as an Agent Skill).
 
-- **[aws-knowledge-mcp-server](https://awslabs.github.io/mcp/servers/aws-knowledge-mcp-server "https://awslabs.github.io/mcp/servers/aws-knowledge-mcp-server")** - Access to AWS
-  documentation, API references, best practices, and knowledge bases. Does not
-  require AWS credentials or authentication, making it ideal for documentation
-  lookup without credential management.
-- **[aws-api-mcp-server](https://awslabs.github.io/mcp/servers/aws-api-mcp-server "https://awslabs.github.io/mcp/servers/aws-api-mcp-server")** - Direct AWS API
-  interactions and CLI command execution. Requires AWS credentials.
+Kiro IDE
 
-### Client Configuration
+Install Amazon Location Service as a power using the one-click install link:
 
-Configure your LLM client with the MCP servers using the appropriate configuration
-format for your client.
+[Install Amazon Location Service power in Kiro](https://kiro.dev/launch/powers/amazon-location-service "https://kiro.dev/launch/powers/amazon-location-service")
 
-Kiro
+###### Tip
 
-**One-click install:**
+Alternatively, open Kiro IDE, navigate to the **Powers** panel,
+select the **Available** tab, and search for
+"Build geospatial applications with Amazon Location Service".
 
-- [AWS Knowledge MCP Server](https://kiro.dev/launch/mcp/add?name=aws-knowledge-mcp&config=%7B%22url%22%3A%22https%3A%2F%2Fknowledge-mcp.global.api.aws%22%2C%22type%22%3A%22http%22%7D "https://kiro.dev/launch/mcp/add?name=aws-knowledge-mcp&config=%7B%22url%22%3A%22https%3A%2F%2Fknowledge-mcp.global.api.aws%22%2C%22type%22%3A%22http%22%7D")
-- [AWS API MCP Server](https://kiro.dev/launch/mcp/add?name=awslabs.aws-api-mcp-server&config=%7B%22command%22%3A%20%22uvx%22%2C%20%22args%22%3A%20%5B%22awslabs.aws-api-mcp-server%40latest%22%5D%2C%20%22disabled%22%3A%20false%2C%20%22autoApprove%22%3A%20%5B%5D%7D "https://kiro.dev/launch/mcp/add?name=awslabs.aws-api-mcp-server&config=%7B%22command%22%3A%20%22uvx%22%2C%20%22args%22%3A%20%5B%22awslabs.aws-api-mcp-server%40latest%22%5D%2C%20%22disabled%22%3A%20false%2C%20%22autoApprove%22%3A%20%5B%5D%7D")
+###### Note
 
-**Manual configuration:**
+When using [Spec](https://kiro.dev/docs/specs/ "https://kiro.dev/docs/specs/") mode, include
+"use the Amazon Location Service power" in your spec prompt for Kiro to activate it.
 
-Add the following to your Kiro agent configuration. For more information about
-[Kiro configuration](https://kiro.dev/docs/mcp/configuration/ "https://kiro.dev/docs/mcp/configuration/"), see the Kiro documentation.
+Kiro CLI
+
+Install Amazon Location Service as an [Agent Skill](https://agentskills.io "https://agentskills.io")
+using the skills CLI:
+
+```
+npx skills add aws-geospatial/amazon-location-agent-context -a kiro-cli
+```
+
+After installing, add the skill to your custom agent's resources in
+`.kiro/agents/<agent>.json`:
 
 ```
 {
-  "mcpServers": {
-    "aws-knowledge-mcp-server": {
-      "url": "https://knowledge-mcp.global.api.aws",
-      "type": "http"
-    },
-    "aws-api-mcp-server": {
-      "command": "uvx",
-      "args": ["awslabs.aws-api-mcp-server@latest"],
-      "env": {
-        "AWS_REGION": "`us-east-1`",
-        "READ_OPERATIONS_ONLY": "true"
-      }
-    }
-  }
+    "resources": [
+        "skill://.kiro/skills/**/SKILL.md"
+    ]
 }
 ```
 
-VSCode with Copilot
+###### Note
 
-**One-click install:**
+Kiro CLI skill installations don't include MCP configuration automatically.
+See [MCP Servers](#ai-llms-mcp-servers "#ai-llms-mcp-servers") for manual setup.
 
-- [AWS Knowledge MCP Server](https://vscode.dev/redirect/mcp/install?name=aws-knowledge-mcp&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fknowledge-mcp.global.api.aws%22%7D "https://vscode.dev/redirect/mcp/install?name=aws-knowledge-mcp&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fknowledge-mcp.global.api.aws%22%7D")
-- [AWS API MCP Server](https://insiders.vscode.dev/redirect/mcp/install?name=AWS%20API%20MCP%20Server&config=%7B%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22awslabs.aws-api-mcp-server%40latest%22%5D%2C%22env%22%3A%7B%22AWS_REGION%22%3A%22us-east-1%22%7D%2C%22type%22%3A%22stdio%22%7D "https://insiders.vscode.dev/redirect/mcp/install?name=AWS%20API%20MCP%20Server&config=%7B%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22awslabs.aws-api-mcp-server%40latest%22%5D%2C%22env%22%3A%7B%22AWS_REGION%22%3A%22us-east-1%22%7D%2C%22type%22%3A%22stdio%22%7D")
+Once installed, Amazon Location Service activates automatically when you mention keywords like
+"location", "maps", "geocoding", "routing", "places", "geofencing", or "tracking"
+in your prompts.
 
-**Manual configuration:**
+## For Claude Code and Cursor users
 
-Add the following to your VSCode mcp.json file. For more information about
-[MCP servers in VS Code](https://code.visualstudio.com/docs/copilot/customization/mcp-servers "https://code.visualstudio.com/docs/copilot/customization/mcp-servers"), see the VSCode documentation.
+For Claude Code and Cursor users, install the **amazon-location-service**
+plugin from the [Agent Plugins for AWS](https://github.com/awslabs/agent-plugins "https://github.com/awslabs/agent-plugins")
+marketplace. The plugin includes MCP configuration automatically.
 
-```
-{
-  "servers": {
-    "aws-knowledge-mcp-server": {
-      "type": "http",
-      "url": "https://knowledge-mcp.global.api.aws"
-    },
-    "aws-api-mcp-server": {
-      "command": "uvx",
-      "args": ["awslabs.aws-api-mcp-server@latest"],
-      "env": {
-        "AWS_REGION": "`us-east-1`",
-        "READ_OPERATIONS_ONLY": "true"
-      }
-    }
-  }
-}
-```
+Claude Code
 
-VSCode with Cline
+Run the following commands to add the marketplace and install the plugin:
 
-**Manual configuration:**
-
-Add the following to your Cline MCP settings file (cline_mcp_settings.json). For more information about
-[Cline MCP configuration](https://docs.cline.bot/mcp/configuring-mcp-servers "https://docs.cline.bot/mcp/configuring-mcp-servers"), see the Cline documentation.
+Add the marketplace:
 
 ```
-{
-  "mcpServers": {
-    "aws-knowledge-mcp-server": {
-      "type": "streamableHttp",
-      "url": "https://knowledge-mcp.global.api.aws"
-    },
-    "aws-api-mcp-server": {
-      "type": "stdio",
-      "command": "uvx",
-      "args": ["awslabs.aws-api-mcp-server@latest"],
-      "env": {
-        "AWS_REGION": "`us-east-1`",
-        "READ_OPERATIONS_ONLY": "true"
-      }
-    }
-  }
-}
+/plugin marketplace add awslabs/agent-plugins
+```
+
+Install the plugin:
+
+```
+/plugin install amazon-location-service@agent-plugins-for-aws
 ```
 
 Cursor
 
-**Manual configuration:**
+You can install the **amazon-location-service** plugin
+from the [Cursor Marketplace](https://cursor.com/marketplace/aws "https://cursor.com/marketplace/aws").
+For additional information, see the
+[Cursor plugin documentation](https://docs.cursor.com/plugins "https://docs.cursor.com/plugins").
+You can also install within the Cursor application:
 
-Add the following to your Cursor mcp.json file. For more information about
-[Cursor MCP configuration](https://cursor.com/docs/context/mcp "https://cursor.com/docs/context/mcp"), see the Cursor documentation.
+1. Open Cursor Settings.
+2. Navigate to **Plugins**.
+3. Search for **AWS**.
+4. Select the **amazon-location-service** plugin
+   and choose **Add to Cursor**.
+5. Select the scope for the installed plugin.
 
-```
-{
-  "mcpServers": {
-    "aws-knowledge-mcp-server": {
-      "url": "https://knowledge-mcp.global.api.aws"
-    },
-    "aws-api-mcp-server": {
-      "command": "uvx",
-      "args": ["awslabs.aws-api-mcp-server@latest"],
-      "env": {
-        "AWS_REGION": "`us-east-1`",
-        "READ_OPERATIONS_ONLY": "true"
-      }
-    }
-  }
-}
-```
+The plugin should appear under **Plugins** >
+**Installed**.
 
-Claude Code
+## For other AI coding agents
 
-**Manual configuration:**
-
-Add MCP servers using the Claude CLI commands. For more information about
-[Claude Code MCP setup](https://code.claude.com/docs/en/mcp "https://code.claude.com/docs/en/mcp"), see the Claude Code documentation.
+For AI coding agents that support the [Agent Skills](https://agentskills.io "https://agentskills.io")
+open standard (including GitHub Copilot, OpenCode, Codex, Antigravity, and
+[more](https://github.com/vercel-labs/skills?tab=readme-ov-file#supported-agents "https://github.com/vercel-labs/skills?tab=readme-ov-file#supported-agents")),
+install the skill using the skills CLI:
 
 ```
-# Add AWS Knowledge MCP Server (HTTP)
-claude mcp add --transport http aws-knowledge-mcp-server https://knowledge-mcp.global.api.aws
-
-# Add AWS API MCP Server (stdio)
-claude mcp add --transport stdio aws-api-mcp-server -- uvx awslabs.aws-api-mcp-server@latest
+npx skills add aws-geospatial/amazon-location-agent-context
 ```
 
-Gemini Code Assist
-
-**Manual configuration:**
-
-Add the following to your Gemini settings JSON file (~/.gemini/settings.json). For more information about
-[Gemini Code Assist MCP configuration](https://developers.google.com/gemini-code-assist/docs/use-agentic-chat-pair-programmer#configure-mcp-servers "https://developers.google.com/gemini-code-assist/docs/use-agentic-chat-pair-programmer#configure-mcp-servers"), see the Google Cloud documentation.
+The CLI guides you through selecting which agent to install the skill for and at
+what scope (project or user level):
 
 ```
-{
-  "mcpServers": {
-    "aws-knowledge-mcp-server": {
-      "httpUrl": "https://knowledge-mcp.global.api.aws"
-    },
-    "aws-api-mcp-server": {
-      "command": "uvx",
-      "args": ["awslabs.aws-api-mcp-server@latest"],
-      "env": {
-        "AWS_REGION": "`us-east-1`",
-        "READ_OPERATIONS_ONLY": "true"
-      }
-    }
-  }
-}
+$ npx skills add aws-geospatial/amazon-location-agent-context
+
+? Select an agent: (Use arrow keys)
+› Claude Code
+  Cursor
+  GitHub Copilot
+  OpenCode
+  Codex
+  Antigravity
+
+? Select a scope: (Use arrow keys)
+› Project — install in current directory (committed with your project)
+  Global — install globally for all projects
 ```
 
-## Useful Context
+You can also install for a specific agent directly:
 
-When working with AI and LLMs on Amazon Location Service projects, providing specific context
-can help guide the AI toward better solutions. We continually improve
-our published documentation and guides to better direct LLMs toward current best
-practices, but we are hosting and maintaining a set of useful context which can
-help while model training is catching up with the latest releases from Amazon Location Service.
-
-There is a maintained [AGENTS.md](https://github.com/aws-geospatial/amazon-location-docs-resources/tree/main/developer-tools/ai-and-llms/AGENTS.md "https://github.com/aws-geospatial/amazon-location-docs-resources/tree/main/developer-tools/ai-and-llms/AGENTS.md")
-file to provide a minimal useful context for working with Amazon Location.
-
-To use this context file, first download it locally:
+GitHub Copilot:
 
 ```
-curl -o `path/to/AGENTS.md` https://raw.githubusercontent.com/aws-geospatial/amazon-location-docs-resources/main/developer-tools/ai-and-llms/AGENTS.md
+npx skills add aws-geospatial/amazon-location-agent-context -a github-copilot
 ```
 
-Then configure your LLM client to use the downloaded file:
-
-Kiro
-
-Add the local file to your agent configuration:
+OpenCode:
 
 ```
-{
-  "resources": [
-    "file://`path/to/AGENTS.md`"
-  ]
-}
+npx skills add aws-geospatial/amazon-location-agent-context -a opencode
 ```
 
-VSCode with Copilot
-
-Place the downloaded AGENTS.md file at the root of your workspace. VSCode will automatically apply the instructions to all chat requests. To enable this feature, ensure the [chat.useAgentsMdFile](vscode://settings/chat.useAgentsMdFile "vscode://settings/chat.useAgentsMdFile") setting is enabled. For more information, see [custom instructions](https://code.visualstudio.com/docs/copilot/customization/custom-instructions "https://code.visualstudio.com/docs/copilot/customization/custom-instructions") in the VSCode documentation.
-
-VSCode with Cline
-
-Place the downloaded AGENTS.md file in your project root or use @ mentions to reference it in your conversations. Cline will automatically discover project files and you can reference the context using `@AGENTS.md` in your prompts. For more information about [context management](https://docs.cline.bot/prompting/understanding-context-management "https://docs.cline.bot/prompting/understanding-context-management"), see the Cline documentation.
-
-Cursor
-
-Use @ mentions to reference the downloaded AGENTS.md file in your conversations. You can reference files using `@Files & Folders` and then search for the AGENTS.md file, or drag the file directly into the chat. For more information about [@ mentions](https://cursor.com/docs/context/mentions "https://cursor.com/docs/context/mentions"), see the Cursor documentation.
-
-Claude Code
-
-Add the downloaded AGENTS.md file to your project directory. You can include it in your project's CLAUDE.md file or reference it directly in your current session. For more information about [Claude Code MCP setup](https://code.claude.com/docs/en/mcp "https://code.claude.com/docs/en/mcp"), see the Claude Code documentation.
-
-Gemini Code Assist
-
-Create a GEMINI.md file in your project root or ~/.gemini/GEMINI.md for global context, and include the contents of the downloaded AGENTS.md file. For more information about [context files](https://developers.google.com/gemini-code-assist/docs/use-agentic-chat-pair-programmer#create-a-context-file "https://developers.google.com/gemini-code-assist/docs/use-agentic-chat-pair-programmer#create-a-context-file"), see the Google Cloud documentation.
-
-## Kiro Agent Configuration
-
-For Kiro users, here is a complete agent configuration file that includes both the recommended MCP servers and the Amazon Location Service context file:
+Codex:
 
 ```
-{
-  "name": "amazon-location-agent",
-  "description": "Agent configured for Amazon Location Service development",
-  "prompt": null,
-  "mcpServers": {
-    "aws-knowledge-mcp-server": {
-      "url": "https://knowledge-mcp.global.api.aws",
-      "type": "http"
-    },
-    "aws-api-mcp-server": {
-      "command": "uvx",
-      "args": ["awslabs.aws-api-mcp-server@latest"],
-      "env": {
-        "AWS_REGION": "`us-east-1`",
-        "READ_OPERATIONS_ONLY": "true"
-      }
-    }
-  },
-  "tools": [
-    "@builtin",
-    "@aws-knowledge-mcp-server/aws___read_documentation",
-    "@aws-knowledge-mcp-server/aws___recommend",
-    "@aws-knowledge-mcp-server/aws___search_documentation",
-    "@aws-api-mcp-server/aws___call_aws",
-    "@aws-api-mcp-server/aws___suggest_aws_commands"
-  ],
-  "allowedTools": [
-    "web_fetch",
-    "web_search",
-    "fs_read",
-    "@aws-knowledge-mcp-server/aws___read_documentation",
-    "@aws-knowledge-mcp-server/aws___recommend",
-    "@aws-knowledge-mcp-server/aws___search_documentation",
-    "@aws-api-mcp-server/aws___suggest_aws_commands"
-  ],
-  "resources": [
-    "file://`path/to/amazon-location-docs-resources`/developer-tools/ai-and-llms/AGENTS.md"
-  ],
-  "includeMcpJson": false
-}
+npx skills add aws-geospatial/amazon-location-agent-context -a codex
 ```
+
+Once installed, the skill activates automatically when your task involves location,
+maps, geocoding, routing, or other Amazon Location Service topics.
+
+###### Note
+
+For Claude Code and Cursor users, we recommend the
+[For Claude Code and Cursor users](#ai-llms-install-plugin "#ai-llms-install-plugin") for the best experience, as it
+includes MCP configuration automatically.
+
+## For direct context usage
+
+If you are not using Kiro, Claude Code/Cursor plugins, or one of the agents
+supported by Agent Skills, you can load the context files directly into your LLM:
+
+1. Start with `context/amazon-location.md` from the
+   [amazon-location-agent-context](https://github.com/aws-geospatial/amazon-location-agent-context "https://github.com/aws-geospatial/amazon-location-agent-context")
+   repository for the service overview.
+2. Add specific files from `context/additional/` as needed for your
+   task, or allow the LLM client to read them on demand.
+
+## MCP Servers
+
+The Kiro IDE (Power) and [For Claude Code and Cursor users](#ai-llms-install-plugin "#ai-llms-install-plugin") installations
+include MCP configuration automatically. If you are using the Kiro CLI,
+[For other AI coding agents](#ai-llms-install-agent-skill "#ai-llms-install-agent-skill"), or
+[For direct context usage](#ai-llms-install-direct-context "#ai-llms-install-direct-context"), configure the following server
+manually for full functionality:
+
+- **[AWS MCP Server](../../../aws-mcp/latest/userguide/what-is-aws-mcp-server.md "../../../aws-mcp/latest/userguide/what-is-aws-mcp-server.md")** –
+  AWS API exploration, execution, and documentation access. For setup
+  instructions, see
+  [Getting started with the AWS MCP Server](../../../aws-mcp/latest/userguide/getting-started-aws-mcp-server.md "../../../aws-mcp/latest/userguide/getting-started-aws-mcp-server.md").

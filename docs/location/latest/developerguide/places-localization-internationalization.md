@@ -1,6 +1,4 @@
-# Localization and
-
-internationalization
+# Localization and internationalization
 
 Localization (L10n) and Internationalization (I18n) are key processes in adapting
 software, content, or applications for different languages, regions, and views. Here's

@@ -1,6 +1,4 @@
-# How to search for a place, POI,
-
-or business using a name
+# How to search for a place, POI, or business using a name
 
 The SearchText API allows users to search for a place, POI, or business by name, using
 free text input. Results can be refined by setting a bias position, which may be based

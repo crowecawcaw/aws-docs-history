@@ -181,9 +181,7 @@ html, body, #map { height: 100%; }
 
 ```
 
-## Show popup on click on multiple
-
-markers
+## Show popup on click on multiple markers
 
 In this example, you will attach a popup to multiple markers and display it on
 click.
@@ -302,9 +300,7 @@ html, body, #map { height: 100%; }
 
 ```
 
-## Show popup on hover on multiple
-
-markers
+## Show popup on hover on multiple markers
 
 In this example, you will attach a popup to multiple markers and display it on
 hover.

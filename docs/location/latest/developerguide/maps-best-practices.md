@@ -10,9 +10,7 @@ functionality and visualization.
 The following are a few best practices for working with dynamic maps in
 Amazon Location Service.
 
-### Rendering optimization with
-
-MapLibre
+### Rendering optimization with MapLibre
 
 The following are few features of MapLibre which help optimize rendering for
 AWS map styles. For more information, see [AWS map styles and features](map-styles.md "map-styles.md").

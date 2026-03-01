@@ -9,8 +9,7 @@ Amazon Location. By default, the Amazon Location APIs require authentication to 
 either Amazon Cognito or API keys to provide authentication and authorization for anonymous
 users.
 
-In the [Create your first Amazon Location Maps and Places
-application](first-app.md "first-app.md") tutorial, the application has anonymous usage,
+In the [Create your first Amazon Location Maps and Places application](first-app.md "first-app.md") tutorial, the application has anonymous usage,
 which means your users aren't required to sign in. In the tutorial, you create API keys
 for use in the sample application.
 
@@ -49,6 +48,5 @@ expiration time or a referrer, if not both. 4. Choose **Create API key** to crea
 that you have created.
 
 Choose **Show API key** and copy the key value to use later
-in the [Create your first Amazon Location Maps and Places
-application](first-app.md "first-app.md") tutorial. The key value will have the format
+in the [Create your first Amazon Location Maps and Places application](first-app.md "first-app.md") tutorial. The key value will have the format
 `v1.public.`a1b2c3d4...``.

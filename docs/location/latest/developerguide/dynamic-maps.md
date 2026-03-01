@@ -68,8 +68,7 @@ which supports both web and mobile (iOS and Android) platforms. MapLibre also pr
 plugin model and supports user interfaces for searching and routing in various
 languages.
 
-For more information, see [Create your first Amazon Location Maps and Places
-application](first-app.md "first-app.md").
+For more information, see [Create your first Amazon Location Maps and Places application](first-app.md "first-app.md").
 
 ## Requesting map assets
 

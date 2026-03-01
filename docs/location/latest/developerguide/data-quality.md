@@ -24,9 +24,7 @@ separately for Routing, Place Addresses, and Place Points-of-Interest (POI) data
 - **Unsupported** - No support for addresses
   within a country.
 
-## Place Points-of-Interest (POI) Data Category
-
-Definitions
+## Place Points-of-Interest (POI) Data Category Definitions
 
 - **Comprehensive** - Coverage of the
   businesses to support an optimal search experience.
