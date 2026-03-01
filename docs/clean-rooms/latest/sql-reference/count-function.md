@@ -1,6 +1,4 @@
-# COUNT and COUNT DISTINCT
-
-functions
+# COUNT and COUNT DISTINCT functions
 
 The COUNT function counts the rows defined by the expression. The
 COUNT DISTINCT function computes the number of distinct non-NULL values in a

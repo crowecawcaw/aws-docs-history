@@ -5,14 +5,10 @@ Character data types include CHAR (character) and VARCHAR (character varying).
 ###### Topics
 
 - [CHAR or CHARACTER](Character_types-char-or-character.md "Character_types-char-or-character.md")
-- [VARCHAR or CHARACTER
-  VARYING](Character_types-varchar-or-character-varying.md "Character_types-varchar-or-character-varying.md")
-- [Significance of
-  trailing blanks](#Character_types-significance-of-trailing-blanks "#Character_types-significance-of-trailing-blanks")
+- [VARCHAR or CHARACTER VARYING](Character_types-varchar-or-character-varying.md "Character_types-varchar-or-character-varying.md")
+- [Significance of trailing blanks](#Character_types-significance-of-trailing-blanks "#Character_types-significance-of-trailing-blanks")
 
-## Significance of
-
-trailing blanks
+## Significance of trailing blanks
 
 Both CHAR and VARCHAR data types store strings up to _n_ bytes in
 length. An attempt to store a longer string into a column of these types results in an

@@ -35,9 +35,7 @@ The following table lists the data types that you can use in AWS Clean Rooms Spa
 The ARRAY, STRUCT, and MAP nested data types are currently only enabled for the custom
 analysis rule. For more information, see [Nested type](s_Nested-data-type.md "s_Nested-data-type.md").
 
-## Multibyte
-
-characters
+## Multibyte characters
 
 The VARCHAR data type supports UTF-8 multibyte characters up to a maximum of four bytes.
 Five-byte or longer characters are not supported. To calculate the size of a VARCHAR column

@@ -62,9 +62,7 @@ from the cached version rather than recomputing or reading from
 `sourceTable`. This can improve query performance for frequently
 accessed data.
 
-### Create and cache a filtered table from query
-
-results
+### Create and cache a filtered table from query results
 
 The first example demonstrates how to create and cache a new table from query results. This
 command uses the `AS` keyword without parentheses around the `SELECT`
@@ -81,9 +79,7 @@ CACHE TABLE `cache_table_identifier` AS
 
 ```
 
-### Cache query results with parenthesized SELECT
-
-statements
+### Cache query results with parenthesized SELECT statements
 
 The second example demonstrates how to cache the results of a query as a new table with a
 specified name (`cache_table_identifier`), using parentheses around the

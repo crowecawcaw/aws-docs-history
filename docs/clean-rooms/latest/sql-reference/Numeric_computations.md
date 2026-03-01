@@ -14,9 +14,7 @@ configuration parameters to work around these problems.
 For information about the results of similar computations with SQL functions, see
 [AWS Clean Rooms Spark SQL functions](sql-functions-topic-spark.md "sql-functions-topic-spark.md").
 
-## Return types for
-
-computations
+## Return types for computations
 
 Given the set of numeric data types supported in AWS Clean Rooms, the following table shows
 the expected return types for addition, subtraction, multiplication, and division
@@ -105,9 +103,7 @@ Result = DECIMAL(15,3)
 
 ```
 
-## Notes on division
-
-operations
+## Notes on division operations
 
 For division operations, divide-by-zero conditions return errors.
 
@@ -123,9 +119,7 @@ precision is reduced to 38, and the scale becomes the result of: `max(38 + scale
 
 - precision), min(4, 100))`
 
-## Overflow
-
-conditions
+## Overflow conditions
 
 Overflow is checked for all numeric computations. DECIMAL data with a precision of
 19 or less is stored as 64-bit integers. DECIMAL data with a precision that is

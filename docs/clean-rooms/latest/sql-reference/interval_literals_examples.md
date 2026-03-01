@@ -1,6 +1,4 @@
-# Examples of interval literals without
-
-qualifier syntax
+# Examples of interval literals without qualifier syntax
 
 ###### Note
 

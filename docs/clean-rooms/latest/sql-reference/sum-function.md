@@ -1,6 +1,4 @@
-# SUM and SUM DISTINCT
-
-functions
+# SUM and SUM DISTINCT functions
 
 The SUM function returns the sum of the input column or expression values.
 The SUM function works with numeric values and ignores NULL values.

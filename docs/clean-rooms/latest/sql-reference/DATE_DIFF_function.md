@@ -171,9 +171,7 @@ nummins
 60
 ```
 
-## Examples with a TIMETZ
-
-column
+## Examples with a TIMETZ column
 
 The following example table TIMETZ_TEST has a column TIMETZ_VAL (type TIMETZ) with
 three values inserted.

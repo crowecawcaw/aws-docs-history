@@ -1,6 +1,4 @@
-# Date parts for date or timestamp
-
-functions
+# Date parts for date or timestamp functions
 
 The following table identifies the date part and time part names and abbreviations that
 are accepted as arguments to the following functions:
@@ -30,9 +28,7 @@ are accepted as arguments to the following functions:
 | microsecond, microseconds                | microsec, microsecs, microsecond, usecond, useconds, us,<br>usec, usecs                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | timezone, timezone_hour, timezone_minute | Supported by the<br>[EXTRACT](EXTRACT_function.md "EXTRACT_function.md") for<br>timestamp with time zone (TIMESTAMPTZ) only.                                                                                                                                                                                                                                                                                                                                                                                |
 
-## Variations in
-
-results with seconds, milliseconds, and microseconds
+## Variations in results with seconds, milliseconds, and microseconds
 
 Minor differences in query results occur when different date functions specify
 seconds, milliseconds, or microseconds as date parts:
@@ -46,9 +42,7 @@ seconds, milliseconds, or microseconds as date parts:
   regardless of the specified date part, returning either a decimal value or an
   integer as required.
 
-## CENTURY, EPOCH, DECADE, and
-
-MIL notes
+## CENTURY, EPOCH, DECADE, and MIL notes
 
 CENTURY or CENTURIES
 

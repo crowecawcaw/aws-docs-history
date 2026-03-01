@@ -1,6 +1,4 @@
-# Data type support by SQL
-
-engine
+# Data type support by SQL engine
 
 AWS Clean Rooms supports multiple SQL engines and dialects. Understanding the data type systems
 across these implementations is crucial for successful data collaboration and analysis. The

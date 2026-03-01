@@ -47,9 +47,7 @@ date.day in ('Mon', 'Tues')
 date.month not in ('Oct', 'Nov', 'Dec')
 ```
 
-## Optimization for
-
-Large IN Lists
+## Optimization for Large IN Lists
 
 To optimize query performance, an IN list that includes more than 10 values is
 internally evaluated as a scalar array. IN lists with fewer than 10 values are

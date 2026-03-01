@@ -23,9 +23,7 @@ seconds:
 INTERVAL *day\_to\_second\_qualifier* [ (*fractional\_precision*) ]
 ```
 
-## Syntax of interval
-
-literal
+## Syntax of interval literal
 
 To specify an interval literal to define a duration of time in years and
 months:
@@ -240,9 +238,7 @@ Interval day to second values are formatted as the following.
 1 2:03:04.5678`
 ```
 
-## Examples of interval data
-
-type
+## Examples of interval data type
 
 The following examples demonstrate how to use INTERVAL data types with
 tables.
@@ -271,9 +267,7 @@ select * from sample_intervals;`
 -----+-----`
 ```
 
-## Examples of interval
-
-literals
+## Examples of interval literals
 
 The following examples are run with interval style set to
 `postgres`.

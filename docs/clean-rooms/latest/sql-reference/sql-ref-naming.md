@@ -4,13 +4,10 @@ The following sections explain the SQL naming rules in AWS Clean Rooms.
 
 ###### Topics
 
-- [Configured table association names
-  and columns](#confg-table-and-column-naming-rules "#confg-table-and-column-naming-rules")
+- [Configured table association names and columns](#confg-table-and-column-naming-rules "#confg-table-and-column-naming-rules")
 - [Reserved words](#reserved-words "#reserved-words")
 
-## Configured table association names
-
-and columns
+## Configured table association names and columns
 
 Members who can query use configured table association names as table names in queries.
 Configured table association names and configured table columns can be aliased in queries.

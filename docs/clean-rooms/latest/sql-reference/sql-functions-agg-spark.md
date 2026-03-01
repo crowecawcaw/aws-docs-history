@@ -17,8 +17,7 @@ AWS Clean Rooms Spark SQL supports the following aggregate functions:
 - [CARDINALITY function](CARDINALITY.md "CARDINALITY.md")
 - [COLLECT_LIST function](COLLECT_LIST.md "COLLECT_LIST.md")
 - [COLLECT_SET function](COLLECT_SET.md "COLLECT_SET.md")
-- [COUNT and COUNT DISTINCT
-  functions](count-function.md "count-function.md")
+- [COUNT and COUNT DISTINCT functions](count-function.md "count-function.md")
 - [COUNT function](COUNT.md "COUNT.md")
 - [MAX function](MAX.md "MAX.md")
 - [MEDIAN function](MEDIAN.md "MEDIAN.md")
@@ -26,6 +25,5 @@ AWS Clean Rooms Spark SQL supports the following aggregate functions:
 - [PERCENTILE function](percentile.md "percentile.md")
 - [SKEWNESS function](SKEWNESS.md "SKEWNESS.md")
 - [STDDEV_SAMP and STDDEV_POP functions](STDDEV_functions.md "STDDEV_functions.md")
-- [SUM and SUM DISTINCT
-  functions](sum-function.md "sum-function.md")
+- [SUM and SUM DISTINCT functions](sum-function.md "sum-function.md")
 - [VAR_SAMP and VAR_POP functions](VARIANCE_functions.md "VARIANCE_functions.md")

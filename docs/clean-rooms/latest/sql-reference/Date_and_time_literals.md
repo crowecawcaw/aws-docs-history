@@ -43,9 +43,7 @@ values that you can load into AWS Clean Rooms tables.
 | 04:05 PM     | 4:05 PM exactly; the hour value must be less than<br>12 |
 | 16:05        | 4:05 PM exactly                                         |
 
-## Special datetime
-
-values
+## Special datetime values
 
 The following table shows special values that can be used as datetime literals and
 as arguments to date functions. They require single quotation marks and are converted

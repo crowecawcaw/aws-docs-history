@@ -30,8 +30,7 @@ merged by the UNION, UNION ALL, INTERSECT, and EXCEPT set operators.
 
 - [Syntax](#UNION-synopsis "#UNION-synopsis")
 - [Parameters](#UNION-parameters "#UNION-parameters")
-- [Order of evaluation for set
-  operators](#UNION-order-of-evaluation-for-set-operators "#UNION-order-of-evaluation-for-set-operators")
+- [Order of evaluation for set operators](#UNION-order-of-evaluation-for-set-operators "#UNION-order-of-evaluation-for-set-operators")
 - [Usage notes](#UNION-usage-notes "#UNION-usage-notes")
 - [Example UNION queries](example_union_query.md "example_union_query.md")
 - [Example UNION ALL query](example_unionall_query.md "example_unionall_query.md")
@@ -90,9 +89,7 @@ EXCEPT ALL doesn't remove duplicates from the result rows.
 
 MINUS and EXCEPT are exact synonyms.
 
-## Order of evaluation for set
-
-operators
+## Order of evaluation for set operators
 
 The UNION and EXCEPT set operators are left-associative. If parentheses aren't
 specified to influence the order of precedence, a combination of these set operators is

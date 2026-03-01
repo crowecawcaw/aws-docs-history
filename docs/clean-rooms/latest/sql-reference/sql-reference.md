@@ -14,8 +14,7 @@ used in this SQL Reference.
 
 - [SQL reference conventions](sql-ref-conventions.md "sql-ref-conventions.md")
 - [SQL naming rules](sql-ref-naming.md "sql-ref-naming.md")
-- [Data type support by SQL
-  engine](sql-reference-supported-data-types-dialect.md "sql-reference-supported-data-types-dialect.md")
+- [Data type support by SQL engine](sql-reference-supported-data-types-dialect.md "sql-reference-supported-data-types-dialect.md")
   The following sections provide information about the literals, data types, SQL commands,
   types of SQL functions, and SQL conditions you can use in AWS Clean Rooms.
 

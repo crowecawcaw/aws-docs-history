@@ -6,8 +6,7 @@ in AWS Clean Rooms Spark SQL.
 ###### Topics
 
 - [Compatibility](#s_Type_conversion-compatibility "#s_Type_conversion-compatibility")
-- [General
-  compatibility and conversion rules](#Type_conversion-general-compatibility-and-conversion-rules "#Type_conversion-general-compatibility-and-conversion-rules")
+- [General compatibility and conversion rules](#Type_conversion-general-compatibility-and-conversion-rules "#Type_conversion-general-compatibility-and-conversion-rules")
 - [Implicit conversion types](#implicit-conversion-types-spark "#implicit-conversion-types-spark")
 
 ## Compatibility
@@ -30,9 +29,7 @@ _coercion_, is possible. For more information, see [Implicit conversion types](#
 you can sometimes convert a value from one data type to another by using an explicit
 conversion function.
 
-## General
-
-compatibility and conversion rules
+## General compatibility and conversion rules
 
 Note the following compatibility and conversion rules:
 

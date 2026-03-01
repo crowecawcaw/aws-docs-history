@@ -1,6 +1,4 @@
-# VARCHAR or CHARACTER
-
-VARYING
+# VARCHAR or CHARACTER VARYING
 
 Use a VARCHAR or CHARACTER VARYING column to store variable-length strings with a
 fixed limit. These strings are not padded with blanks, so a VARCHAR(120) column consists
