@@ -1,20 +1,9 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Tutorial: View information about
-
-tasks and task executions using the AWS CLI
+# Tutorial: View information about tasks and task executions using the AWS CLI
 
 This tutorial demonstrates how to use the AWS Command Line Interface (AWS CLI) to view details
 about your completed maintenance window tasks.
 
-If you're continuing directly from [Tutorial: Create and
-configure a maintenance window using the AWS CLI](maintenance-windows-cli-tutorials-create.md "maintenance-windows-cli-tutorials-create.md"), make sure you
+If you're continuing directly from [Tutorial: Create and configure a maintenance window using the AWS CLI](maintenance-windows-cli-tutorials-create.md "maintenance-windows-cli-tutorials-create.md"), make sure you
 have allowed enough time for your maintenance window to run at least once in
 order to see its execution results.
 
@@ -23,9 +12,7 @@ As you follow the steps in this tutorial, replace the values in italicized
 the maintenance window ID `mw-0c50858d01EXAMPLE` and the instance ID
 `i-02573cafcfEXAMPLE` with IDs of resources you create.
 
-###### To view information about tasks and task executions using the
-
-AWS CLI
+###### To view information about tasks and task executions using the AWS CLI
 
 1. Run the following command to view a list of task executions for a
    specific maintenance window.

@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Security best practices for
-
-Systems Manager
+# Security best practices for Systems Manager
 
 AWS Systems Manager provides a number of security features to consider as you develop and
 implement your own security policies. The following best practices are general
@@ -18,16 +8,11 @@ helpful considerations rather than prescriptions.
 
 ###### Topics
 
-- [Systems Manager preventative
-  security best practices](#security-best-practices-prevent "#security-best-practices-prevent")
-- [SSM Agent installation best
-  practices](#security-best-practices-ssm-agent "#security-best-practices-ssm-agent")
-- [Systems Manager monitoring and
-  auditing best practices](#security-best-practices-detect "#security-best-practices-detect")
+- [Systems Manager preventative security best practices](#security-best-practices-prevent "#security-best-practices-prevent")
+- [SSM Agent installation best practices](#security-best-practices-ssm-agent "#security-best-practices-ssm-agent")
+- [Systems Manager monitoring and auditing best practices](#security-best-practices-detect "#security-best-practices-detect")
 
-## Systems Manager preventative
-
-security best practices
+## Systems Manager preventative security best practices
 
 The following best practices for Systems Manager can help prevent security
 incidents.
@@ -56,9 +41,7 @@ If you configure SSM Agent to use a proxy, use the
 instance metadata service to ensure that calls to Systems Manager don't take on
 the identity of the proxy service.
 
-For more information, see [Configuring SSM Agent to use a proxy on
-Linux nodes](configure-proxy-ssm-agent.md "configure-proxy-ssm-agent.md") and [Configure SSM Agent to use a
-proxy for Windows Server instances](configure-proxy-ssm-agent-windows.md "configure-proxy-ssm-agent-windows.md").
+For more information, see [Configuring SSM Agent to use a proxy on Linux nodes](configure-proxy-ssm-agent.md "configure-proxy-ssm-agent.md") and [Configure SSM Agent to use a proxy for Windows Server instances](configure-proxy-ssm-agent-windows.md "configure-proxy-ssm-agent-windows.md").
 
 **Use SecureString parameters to encrypt and protect secret data**
 
@@ -85,8 +68,7 @@ don't want users to work with `SecureString` parameters, the
 user's IAM policies must explicitly deny access to the default
 key.
 
-For more information, see [Restricting access to Parameter Store parameters
-using IAM policies](sysman-paramstore-access.md "sysman-paramstore-access.md") and [How
+For more information, see [Restricting access to Parameter Store parameters using IAM policies](sysman-paramstore-access.md "sysman-paramstore-access.md") and [How
 AWS Systems Manager Parameter Store Uses AWS KMS](../../../kms/latest/developerguide/services-parameter-store.md "../../../kms/latest/developerguide/services-parameter-store.md") in the
 _AWS Key Management Service Developer Guide_.
 
@@ -103,8 +85,7 @@ parameter. If the user input doesn't match the allowed pattern, the
 execution fails to start.
 
 For more information about `allowedValues` and
-`allowedPattern`, see [Data elements and
-parameters](documents-syntax-data-elements-parameters.md "documents-syntax-data-elements-parameters.md").
+`allowedPattern`, see [Data elements and parameters](documents-syntax-data-elements-parameters.md "documents-syntax-data-elements-parameters.md").
 
 **Block public sharing for documents**
 
@@ -142,14 +123,12 @@ most secure connections, you can require users to connect using the
 _interactive commands_ method to limit user
 interaction to a specific command or command sequence. This helps you
 manage the interactive actions a user can take. For more information,
-see [Starting a session
-(interactive and noninteractive commands)](session-manager-working-with-sessions-start.md#sessions-start-interactive-commands "session-manager-working-with-sessions-start.md#sessions-start-interactive-commands").
+see [Starting a session (interactive and noninteractive commands)](session-manager-working-with-sessions-start.md#sessions-start-interactive-commands "session-manager-working-with-sessions-start.md#sessions-start-interactive-commands").
 
 For added security, you can limit Session Manager access to specific Amazon EC2
 instances and specific Session Manager session documents. You grant or revoke
 Session Manager access in this way by using AWS Identity and Access Management (IAM) policies. For
-more information, see [Step 3: Control
-session access to managed nodes](session-manager-getting-started-restrict-access.md "session-manager-getting-started-restrict-access.md").
+more information, see [Step 3: Control session access to managed nodes](session-manager-getting-started-restrict-access.md "session-manager-getting-started-restrict-access.md").
 
 **Provide temporary node permissions for Automation workflows**
 
@@ -206,8 +185,7 @@ tools.
   install the plugin. We recommend creating a scheduled task on
   your local machine to run the command appropriate to your
   operating system at least once every two weeks. For information,
-  see [Install the Session Manager plugin
-  for the AWS CLI](session-manager-working-with-install-plugin.md "session-manager-working-with-install-plugin.md").
+  see [Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md "session-manager-working-with-install-plugin.md").
 - CloudWatch agent – You can configure and use the CloudWatch agent to
   collect metrics and logs from your EC2 instances, on-premises
   instances, and virtual machines (VMs). These logs can be sent to
@@ -216,9 +194,7 @@ tools.
   two weeks. For the simplest updates, use AWS Systems Manager Quick
   Setup. For information, see [AWS Systems Manager Quick Setup](systems-manager-quick-setup.md "systems-manager-quick-setup.md").
 
-## SSM Agent installation best
-
-practices
+## SSM Agent installation best practices
 
 When installing SSM Agent, use the appropriate installation method for your machine
 type. In particular, use the `ssm-setup-cli` tool for all non-EC2
@@ -229,24 +205,17 @@ To install the agent on on-premises servers and virtual machines, use the
 `ssm-setup-cli` tool as described in the following
 topics:
 
-- [Install SSM Agent on hybrid
-  Linux nodes](hybrid-multicloud-ssm-agent-install-linux.md "hybrid-multicloud-ssm-agent-install-linux.md")
-- [Install SSM Agent on hybrid
-  Windows Server nodes](hybrid-multicloud-ssm-agent-install-windows.md "hybrid-multicloud-ssm-agent-install-windows.md")
+- [Install SSM Agent on hybrid Linux nodes](hybrid-multicloud-ssm-agent-install-linux.md "hybrid-multicloud-ssm-agent-install-linux.md")
+- [Install SSM Agent on hybrid Windows Server nodes](hybrid-multicloud-ssm-agent-install-windows.md "hybrid-multicloud-ssm-agent-install-windows.md")
 
 To install the agent on EC2 instances, use the appropriate installation procedure
 for your operating system type:
 
-- [Manually installing and
-  uninstalling SSM Agent on EC2 instances for Linux](manually-install-ssm-agent-linux.md "manually-install-ssm-agent-linux.md")
-- [Manually installing and
-  uninstalling SSM Agent on EC2 instances for macOS](manually-install-ssm-agent-macos.md "manually-install-ssm-agent-macos.md")
-- [Manually installing and
-  uninstalling SSM Agent on EC2 instances for Windows Server](manually-install-ssm-agent-windows.md "manually-install-ssm-agent-windows.md")
+- [Manually installing and uninstalling SSM Agent on EC2 instances for Linux](manually-install-ssm-agent-linux.md "manually-install-ssm-agent-linux.md")
+- [Manually installing and uninstalling SSM Agent on EC2 instances for macOS](manually-install-ssm-agent-macos.md "manually-install-ssm-agent-macos.md")
+- [Manually installing and uninstalling SSM Agent on EC2 instances for Windows Server](manually-install-ssm-agent-windows.md "manually-install-ssm-agent-windows.md")
 
-## Systems Manager monitoring and
-
-auditing best practices
+## Systems Manager monitoring and auditing best practices
 
 The following best practices for Systems Manager can help detect potential security
 weaknesses and incidents.
@@ -273,9 +242,7 @@ Monitoring is an important part of maintaining the reliability,
 security, availability, and performance of Systems Manager and your AWS
 solutions. Amazon CloudWatch provides several tools and services to help you
 monitor Systems Manager and your other AWS services. For more
-information, see [Sending node logs to unified CloudWatch Logs
-(CloudWatch agent)](monitoring-cloudwatch-agent.md "monitoring-cloudwatch-agent.md") and [Monitoring Systems Manager events with
-Amazon EventBridge](monitoring-eventbridge-events.md "monitoring-eventbridge-events.md").
+information, see [Sending node logs to unified CloudWatch Logs (CloudWatch agent)](monitoring-cloudwatch-agent.md "monitoring-cloudwatch-agent.md") and [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md "monitoring-eventbridge-events.md").
 
 **Use CloudTrail**
 

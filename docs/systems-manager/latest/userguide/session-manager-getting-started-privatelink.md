@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Step 6: (Optional) Use
-
-AWS PrivateLink to set up a VPC endpoint for Session Manager
+# Step 6: (Optional) Use AWS PrivateLink to set up a VPC endpoint for Session Manager
 
 You can further improve the security posture of your managed nodes by configuring
 AWS Systems Manager to use an interface virtual private cloud (VPC) endpoint. Interface
@@ -39,5 +29,4 @@ Amazon CloudWatch Logs (CloudWatch Logs), and sending logs to Amazon Simple Stor
 - `kms.`region`.amazonaws.com`
 - `logs.`region`.amazonaws.com`
 - `s3.`region`.amazonaws.com`
-  For more information about required endpoints for Systems Manager, see [Reference: ec2messages,
-  ssmmessages, and other API operations](systems-manager-setting-up-messageAPIs.md "systems-manager-setting-up-messageAPIs.md").
+  For more information about required endpoints for Systems Manager, see [Reference: ec2messages, ssmmessages, and other API operations](systems-manager-setting-up-messageAPIs.md "systems-manager-setting-up-messageAPIs.md").

@@ -1,19 +1,8 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Manually installing SSM Agent on Amazon Linux 2 and
-
-Amazon Linux 2023 instances
+# Manually installing SSM Agent on Amazon Linux 2 and Amazon Linux 2023 instances
 
 In most cases, the Amazon Machine Images (AMIs) for Amazon Linux 2 and Amazon Linux 2023 that are
 provided by AWS come with AWS Systems Manager Agent (SSM Agent) preinstalled by default.
-For more information, see [Find AMIs with the SSM Agent
-preinstalled](ami-preinstalled-agent.md "ami-preinstalled-agent.md").
+For more information, see [Find AMIs with the SSM Agent preinstalled](ami-preinstalled-agent.md "ami-preinstalled-agent.md").
 
 In the event that SSM Agent isn’t preinstalled on a new Amazon Linux 2 or Amazon Linux 2023
 instance, or if you need to manually reinstall the agent, use the information on
@@ -25,8 +14,7 @@ Before you install SSM Agent on an Amazon Linux 2 or Amazon Linux 2023 instance,
 following:
 
 - For important information that applies to installation of SSM Agent on
-  all Linux-based operating systems, see [Manually installing and
-  uninstalling SSM Agent on EC2 instances for Linux](manually-install-ssm-agent-linux.md "manually-install-ssm-agent-linux.md").
+  all Linux-based operating systems, see [Manually installing and uninstalling SSM Agent on EC2 instances for Linux](manually-install-ssm-agent-linux.md "manually-install-ssm-agent-linux.md").
 - If you use a `yum` command to update SSM Agent on a managed node after the agent
   has been installed or updated using the SSM document `AWS-UpdateSSMAgent`, you
   might see the following message: `"Warning: RPMDB altered outside of yum."` This
@@ -34,21 +22,15 @@ following:
 
 ###### Topics
 
-- [Quick installation commands for SSM Agent
-  on Amazon Linux 2 or Amazon Linux 2023](#quick-install-al2 "#quick-install-al2")
-- [Create custom agent installation commands
-  for Amazon Linux 2 or Amazon Linux 2023 in your Region](#custom-url-al2 "#custom-url-al2")
+- [Quick installation commands for SSM Agent on Amazon Linux 2 or Amazon Linux 2023](#quick-install-al2 "#quick-install-al2")
+- [Create custom agent installation commands for Amazon Linux 2 or Amazon Linux 2023 in your Region](#custom-url-al2 "#custom-url-al2")
 
-## Quick installation commands for SSM Agent
-
-on Amazon Linux 2 or Amazon Linux 2023
+## Quick installation commands for SSM Agent on Amazon Linux 2 or Amazon Linux 2023
 
 Use the following steps to manually install SSM Agent on a single instance.
 This procedure uses globally available installation files.
 
-###### To install SSM Agent on Amazon Linux 2 or Amazon Linux 2023 using quick copy and
-
-paste commands
+###### To install SSM Agent on Amazon Linux 2 or Amazon Linux 2023 using quick copy and paste commands
 
 1. Connect to your Amazon Linux 2 or Amazon Linux 2023 instance using your
    preferred method, such as SSH.
@@ -108,9 +90,7 @@ command.
 sudo systemctl start amazon-ssm-agent
 ```
 
-## Create custom agent installation commands
-
-for Amazon Linux 2 or Amazon Linux 2023 in your Region
+## Create custom agent installation commands for Amazon Linux 2 or Amazon Linux 2023 in your Region
 
 When you install SSM Agent on multiple instances using a script or
 template, we recommend using installation files that are stored in the
@@ -121,8 +101,7 @@ accessible S3 bucket in the US East (Ohio) Region (`us-east-2`).
 
 ###### Tip
 
-You can also replace a global URL in the procedure [Quick installation commands for SSM Agent
-on Amazon Linux 2 or Amazon Linux 2023](#quick-install-al2 "#quick-install-al2")
+You can also replace a global URL in the procedure [Quick installation commands for SSM Agent on Amazon Linux 2 or Amazon Linux 2023](#quick-install-al2 "#quick-install-al2")
 earlier in this topic with a custom Regional URL you construct.
 
 In the following command, replace `region` with your own

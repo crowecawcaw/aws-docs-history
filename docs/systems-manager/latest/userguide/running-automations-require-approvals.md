@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Run an automation that requires
-
-approvals
+# Run an automation that requires approvals
 
 The following procedures describe how to use the AWS Systems Manager console and AWS Command Line Interface
 (AWS CLI) to run an automation with approvals using simple execution. The automation uses
@@ -33,9 +23,7 @@ In addition to the standard inputs required by the runbook, the
   to deliver the approval request. For information, see [Create a Topic](../../../sns/latest/dg/sns-getting-started.md#CreateTopic "../../../sns/latest/dg/sns-getting-started.md#CreateTopic") in
   the _Amazon Simple Notification Service Developer Guide_.
 
-## Running an automation with approvers
-
-(console)
+## Running an automation with approvers (console)
 
 ###### To run an automation with approvers
 
@@ -103,9 +91,7 @@ automation. If the automation fails to run, see [Troubleshooting Systems Manager
    optionally provide a comment.
 5. Choose **Submit**.
 
-## Running an automation with approvers (command
-
-line)
+## Running an automation with approvers (command line)
 
 The following procedure describes how to use the AWS CLI (on Linux or Windows) or
 AWS Tools for PowerShell to run an automation with approvers.

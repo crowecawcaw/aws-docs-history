@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Moving to just-in-time node access from Session Manager
 
 When you enable just-in-time node access, Systems Manager doesn't make any changes to your
@@ -19,8 +11,7 @@ Session Manager. We recommend testing approval policies with a subset of identit
 in an AWS account and AWS Region.
 
 For more information about the permissions required for just-in-time node access, see
-[Setting up
-just-in-time access with Systems Manager](systems-manager-just-in-time-node-access-setting-up.md "systems-manager-just-in-time-node-access-setting-up.md").
+[Setting up just-in-time access with Systems Manager](systems-manager-just-in-time-node-access-setting-up.md "systems-manager-just-in-time-node-access-setting-up.md").
 
 For more information about modifying and identity's IAM permissions, see [Adding and
 removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md") in the
@@ -101,17 +92,14 @@ Session Manager to just-in-time node access:
 ### Phase 1: Setup and configuration
 
 1. Enable just-in-time node access in the Systems Manager console. For detailed
-   steps, see [Setting up
-   just-in-time access with Systems Manager](systems-manager-just-in-time-node-access-setting-up.md "systems-manager-just-in-time-node-access-setting-up.md").
+   steps, see [Setting up just-in-time access with Systems Manager](systems-manager-just-in-time-node-access-setting-up.md "systems-manager-just-in-time-node-access-setting-up.md").
 2. Configure session preferences for just-in-time node access to
    match your current Session Manager settings. For more information, see
    [Update just-in-time node access session preferences](systems-manager-just-in-time-node-access-session-preferences.md "systems-manager-just-in-time-node-access-session-preferences.md").
 3. Set up notification preferences for access requests. For more
-   information, see [Configure
-   notifications for just-in-time access requests](systems-manager-just-in-time-node-access-notifications.md "systems-manager-just-in-time-node-access-notifications.md").
+   information, see [Configure notifications for just-in-time access requests](systems-manager-just-in-time-node-access-notifications.md "systems-manager-just-in-time-node-access-notifications.md").
 4. If you use RDP connections to Windows Server nodes, configure RDP
-   recording. For more information, see [Recording
-   RDP connections](systems-manager-just-in-time-node-access-rdp-recording.md "systems-manager-just-in-time-node-access-rdp-recording.md").
+   recording. For more information, see [Recording RDP connections](systems-manager-just-in-time-node-access-rdp-recording.md "systems-manager-just-in-time-node-access-rdp-recording.md").
 
 ### Phase 2: Policy development
 

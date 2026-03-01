@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Setting up
-
-related services
+# Setting up related services
 
 Application Manager, a tool in AWS Systems Manager, displays resources and information from other
 AWS services and Systems Manager tools. To maximize the amount of operations information
@@ -17,13 +7,10 @@ or tools _before_ you use Application Manager.
 
 ###### Topics
 
-- [Set
-  up tasks for importing resources](#application-manager-getting-started-related-services-resources "#application-manager-getting-started-related-services-resources")
+- [Set up tasks for importing resources](#application-manager-getting-started-related-services-resources "#application-manager-getting-started-related-services-resources")
 - [Set up tasks for viewing operations information about resources](#application-manager-getting-started-related-services-information "#application-manager-getting-started-related-services-information")
 
-## Set
-
-up tasks for importing resources
+## Set up tasks for importing resources
 
 The following setup tasks help you view AWS resources in Application Manager. After each
 of these tasks is completed, Systems Manager can automatically import resources into

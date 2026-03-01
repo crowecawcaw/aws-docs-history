@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Walkthrough: Use the AWS CLI with Run Command
 
 The following sample walkthrough shows you how to use the AWS Command Line Interface (AWS CLI) to
@@ -25,14 +17,10 @@ them with specific users.
 ###### Topics
 
 - [Step 1: Getting started](#walkthrough-cli-settings "#walkthrough-cli-settings")
-- [Step 2: Run shell scripts to view
-  resource details](#walkthrough-cli-run-scripts "#walkthrough-cli-run-scripts")
-- [Step 3: Send simple commands using
-  the AWS-RunShellScript document](#walkthrough-cli-example-1 "#walkthrough-cli-example-1")
-- [Step 4: Run a simple Python script
-  using Run Command](#walkthrough-cli-example-2 "#walkthrough-cli-example-2")
-- [Step 5: Run a Bash script using
-  Run Command](#walkthrough-cli-example-3 "#walkthrough-cli-example-3")
+- [Step 2: Run shell scripts to view resource details](#walkthrough-cli-run-scripts "#walkthrough-cli-run-scripts")
+- [Step 3: Send simple commands using the AWS-RunShellScript document](#walkthrough-cli-example-1 "#walkthrough-cli-example-1")
+- [Step 4: Run a simple Python script using Run Command](#walkthrough-cli-example-2 "#walkthrough-cli-example-2")
+- [Step 5: Run a Bash script using Run Command](#walkthrough-cli-example-3 "#walkthrough-cli-example-3")
 
 ## Step 1: Getting started
 
@@ -41,8 +29,7 @@ configure or you must have been granted the appropriate permission in AWS Identi
 (IAM). Also note, this example uses the US East (Ohio) Region (us-east-2). Run Command
 is available in the AWS Regions listed in [Systems Manager service endpoints](../../../general/latest/gr/ssm.md#ssm_region "../../../general/latest/gr/ssm.md#ssm_region") in the
 _Amazon Web Services General Reference_. For more
-information, see [Setting up managed nodes for
-AWS Systems Manager](systems-manager-setting-up-nodes.md "systems-manager-setting-up-nodes.md").
+information, see [Setting up managed nodes for AWS Systems Manager](systems-manager-setting-up-nodes.md "systems-manager-setting-up-nodes.md").
 
 ###### To run commands using the AWS CLI
 
@@ -103,9 +90,7 @@ aws ssm describe-instance-information ^
     --instance-information-filter-list key=InstanceIds,valueSet=`instance-ID`
 ```
 
-## Step 2: Run shell scripts to view
-
-resource details
+## Step 2: Run shell scripts to view resource details
 
 Using Run Command and the `AWS-RunShellScript` document, you can run
 any command or script on a managed node as if you were logged on locally.
@@ -151,9 +136,7 @@ aws ssm describe-document ^
     --query "Document.Parameters[*]"
 ```
 
-## Step 3: Send simple commands using
-
-the `AWS-RunShellScript` document
+## Step 3: Send simple commands using the `AWS-RunShellScript` document
 
 Run the following command to get IP information for a Linux managed
 node.
@@ -267,9 +250,7 @@ aws ssm list-command-invocations ^
     --details
 ```
 
-###### Get command information with response data for a specific managed
-
-node
+###### Get command information with response data for a specific managed node
 
 The following command returns the output of the original `aws ssm
  send-command` request for a specific managed node.
@@ -311,9 +292,7 @@ sh_command_id=$(aws ssm send-command \
     --query "CommandInvocations[].CommandPlugins[].{Status:Status,Output:Output}"'
 ```
 
-## Step 4: Run a simple Python script
-
-using Run Command
+## Step 4: Run a simple Python script using Run Command
 
 The following command runs a simple Python "Hello World" script using
 Run Command.
@@ -334,16 +313,13 @@ sh_command_id=$(aws ssm send-command \
     --query "CommandInvocations[].CommandPlugins[].{Status:Status,Output:Output}"'
 ```
 
-## Step 5: Run a Bash script using
-
-Run Command
+## Step 5: Run a Bash script using Run Command
 
 The examples in this section demonstrate how to run the following bash script
 using Run Command.
 
 For examples of using Run Command to run scripts stored in remote locations, see
-[Running scripts from Amazon S3](integration-s3.md "integration-s3.md") and [Running scripts from
-GitHub](integration-remote-scripts.md "integration-remote-scripts.md").
+[Running scripts from Amazon S3](integration-s3.md "integration-s3.md") and [Running scripts from GitHub](integration-remote-scripts.md "integration-remote-scripts.md").
 
 ```
 #!/bin/bash

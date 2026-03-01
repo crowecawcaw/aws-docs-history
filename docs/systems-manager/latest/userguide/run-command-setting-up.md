@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Setting up Run Command
 
 Before you can manage nodes by using Run Command, a tool in AWS Systems Manager, configure an
@@ -55,8 +47,7 @@ JSON
 
 ```
 
-You must also configure your nodes for Systems Manager. For more information, see [Setting up managed nodes for
-AWS Systems Manager](systems-manager-setting-up-nodes.md "systems-manager-setting-up-nodes.md").
+You must also configure your nodes for Systems Manager. For more information, see [Setting up managed nodes for AWS Systems Manager](systems-manager-setting-up-nodes.md "systems-manager-setting-up-nodes.md").
 
 We recommend completing the following optional setup tasks to help minimize the
 security posture and day-to-day management of your managed nodes.
@@ -67,8 +58,7 @@ You can use EventBridge to log command execution status changes. You can create 
 rule that runs whenever there is a state transition, or when there is a
 transition to one or more states that are of interest. You can also specify
 Run Command as a target action when an EventBridge event occurs. For more information,
-see [Configuring EventBridge for Systems Manager
-events](monitoring-systems-manager-events.md "monitoring-systems-manager-events.md").
+see [Configuring EventBridge for Systems Manager events](monitoring-systems-manager-events.md "monitoring-systems-manager-events.md").
 
 Monitor command executions using Amazon CloudWatch Logs
 

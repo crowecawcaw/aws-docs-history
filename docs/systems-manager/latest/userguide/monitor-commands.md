@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Understanding command statuses
 
 Run Command, a tool in AWS Systems Manager, reports detailed status information about the different
@@ -26,8 +18,7 @@ the command. You can monitor command statuses using the following methods:
 Run Command reports status details for three areas: plugins, invocations, and an
 overall command status. A _plugin_ is a code-execution block that
 is defined in your command's SSM document. For more information about plugins, see
-[Command document plugin
-reference](documents-command-ssm-plugin-reference.md "documents-command-ssm-plugin-reference.md").
+[Command document plugin reference](documents-command-ssm-plugin-reference.md "documents-command-ssm-plugin-reference.md").
 
 When you send a command to multiple managed nodes at the same time, each copy of
 the command targeting each node is a _command invocation_. For
@@ -76,9 +67,7 @@ following tables. For more information about these parameters, see [Run commands
 | AccessDenied                  | The user or role initiating the command doesn't have access to<br>the targeted resource group. `AccessDenied` doesn't count<br>against the parent command’s `max-errors` limit, but does<br>contribute to whether the parent command status is<br>`Success` or `Failed`. (For example, if<br>all invocations in a command have the status<br>`AccessDenied`, then the command status returned is<br>`Failed`. However, if a command has 5 invocations, 4<br>of which return the status `AccessDenied` and 1 of which<br>returns the status `Success`, then the parent command's<br>status is `Success`.) This is a terminal state. |
 | No Instances In Tag           | The tag key-pair value or resource group targeted by the command<br>doesn't match any managed nodes. This is a terminal state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 
-## Understanding command timeout
-
-values
+## Understanding command timeout values
 
 Systems Manager enforces the following timeout values when running commands.
 

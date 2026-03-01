@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Configuring a delegated
-
-administrator for Explorer
+# Configuring a delegated administrator for Explorer
 
 If you aggregate AWS Systems Manager Explorer data from multiple AWS Regions and accounts by using
 resource data sync with AWS Organizations, then we recommend that you configure a delegated
@@ -44,23 +34,17 @@ You can't use a delegated administrator account to create a resource data sync
 in [opt-in AWS Regions](../../../global-infrastructure/latest/regions/aws-regions.md#regions-opt-in-status "../../../global-infrastructure/latest/regions/aws-regions.md#regions-opt-in-status"). You must use an AWS Organizations management
 account.
 
-For more information about resource data sync, see [Setting up Systems Manager Explorer to display data from
-multiple accounts and Regions](Explorer-resource-data-sync.md "Explorer-resource-data-sync.md"). For more information about
+For more information about resource data sync, see [Setting up Systems Manager Explorer to display data from multiple accounts and Regions](Explorer-resource-data-sync.md "Explorer-resource-data-sync.md"). For more information about
 AWS Organizations, see [What is AWS Organizations?](../../../organizations/latest/userguide.md "../../../organizations/latest/userguide.md") in the
 _AWS Organizations User Guide_.
 
 ###### Topics
 
-- [Before
-  you begin](#Explorer-setup-delegated-administrator-before-you-begin "#Explorer-setup-delegated-administrator-before-you-begin")
-- [Configure
-  an Explorer delegated administrator](Explorer-setup-delegated-administrator-configure.md "Explorer-setup-delegated-administrator-configure.md")
-- [Deregister
-  an Explorer delegated administrator](Explorer-setup-delegated-administrator-deregister.md "Explorer-setup-delegated-administrator-deregister.md")
+- [Before you begin](#Explorer-setup-delegated-administrator-before-you-begin "#Explorer-setup-delegated-administrator-before-you-begin")
+- [Configure an Explorer delegated administrator](Explorer-setup-delegated-administrator-configure.md "Explorer-setup-delegated-administrator-configure.md")
+- [Deregister an Explorer delegated administrator](Explorer-setup-delegated-administrator-deregister.md "Explorer-setup-delegated-administrator-deregister.md")
 
-## Before
-
-you begin
+## Before you begin
 
 The following list includes important information about Explorer delegated
 administration.

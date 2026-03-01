@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Adjusting how long the
-
-Session Manager temporary log file is stored on disk
+# Adjusting how long the Session Manager temporary log file is stored on disk
 
 After you enable Session Manager logging to CloudWatch or Amazon S3, all commands executed during a
 session (and the resulting output from those commands) are logged to a temporary
@@ -35,9 +25,7 @@ ID`/Standard_Stream/ipcTempFile.log
   Use the following procedure to adjust how long the Session Manager temporary log file is
   stored on disk.
 
-###### To adjust how long the `ipcTempFile.log` file is stored on
-
-disk
+###### To adjust how long the `ipcTempFile.log` file is stored on disk
 
 1.  Connect to your instance and locate the
     `amazon-ssm-agent.json` file in the following

@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Using Kernel Live Patching on Amazon Linux 2 managed
-
-nodes
+# Using Kernel Live Patching on Amazon Linux 2 managed nodes
 
 Kernel Live Patching for Amazon Linux 2 allows you to apply security vulnerability and critical bug
 patches to a running Linux kernel without reboots or disruptions to running
@@ -101,8 +91,7 @@ a 7-day waiting period after a patch is released or last updated before it's
 installed automatically. If you don't want to wait 7 days for kernel live
 patches to be auto-approved, you can create and use a custom patch baseline. In
 your patch baseline, you can specify no auto-approval waiting period, or specify
-a shorter or longer one. For more information, see [Working with custom patch
-baselines](patch-manager-manage-patch-baselines.md "patch-manager-manage-patch-baselines.md").
+a shorter or longer one. For more information, see [Working with custom patch baselines](patch-manager-manage-patch-baselines.md "patch-manager-manage-patch-baselines.md").
 
 We recommend the following strategy to patch your managed nodes with kernel live
 updates:

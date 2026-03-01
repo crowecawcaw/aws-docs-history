@@ -1,18 +1,7 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Examples: Register
-
-targets with a maintenance window
+# Examples: Register targets with a maintenance window
 
 You can register a single node as a target using its node ID, as
-demonstrated in [Step 2: Register a target node
-with the maintenance window using the AWS CLI](mw-cli-tutorial-targets.md "mw-cli-tutorial-targets.md"). You can also register one
+demonstrated in [Step 2: Register a target node with the maintenance window using the AWS CLI](mw-cli-tutorial-targets.md "mw-cli-tutorial-targets.md"). You can also register one
 or more nodes as targets using the command formats on this page.
 
 In general, there are two methods for identifying the nodes you want
@@ -45,9 +34,7 @@ addition to those specified in the following examples, see
 [Systems Manager service quotas](../../../general/latest/gr/ssm.md#limits_ssm "../../../general/latest/gr/ssm.md#limits_ssm") in the
 _Amazon Web Services General Reference_.
 
-## Example 1: Register multiple targets
-
-using node IDs
+## Example 1: Register multiple targets using node IDs
 
 Run the following command on your local machine format to register
 multiple nodes as targets using their node IDs. Replace each
@@ -80,9 +67,7 @@ share a common node tag.
 **Quotas:** You can specify up to 50
 nodes total for each maintenance window target.
 
-## Example 2: Register targets using
-
-resource tags applied to nodes
+## Example 2: Register targets using resource tags applied to nodes
 
 Run the following command on your local machine to register nodes
 that are all already tagged with a key-value pair you have assigned.
@@ -139,9 +124,7 @@ Doing so allows you to use a maintenance window to update
 patches on a group of nodes that are already associated with the
 same patch baseline. For more information, see [Patch groups](patch-manager-patch-groups.md "patch-manager-patch-groups.md").
 
-## Example 3: Register targets using a
-
-group of tag keys (without tag values)
+## Example 3: Register targets using a group of tag keys (without tag values)
 
 Run the following command on your local machine to register nodes
 that all have one or more tag keys assigned to them, regardless of
@@ -177,9 +160,7 @@ If you specify more than one tag key, a node must be tagged with
 _all_ the tag keys you specify
 to be included in the target group.
 
-## Example 4: Register targets using a
-
-resource group name
+## Example 4: Register targets using a resource group name
 
 Run the following command on your local machine to register a
 specified resource group, regardless of the type of resources it
@@ -217,9 +198,7 @@ on.
 **Quotas:** You can specify only one
 resource group as a target.
 
-## Example 5: Register targets by
-
-filtering resource types in a resource group
+## Example 5: Register targets by filtering resource types in a resource group
 
 Run the following command on your local machine to register only
 certain resource types that belong to a resource group that you

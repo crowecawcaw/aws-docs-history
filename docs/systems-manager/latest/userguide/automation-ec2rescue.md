@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Run the EC2Rescue tool on unreachable
-
-instances
+# Run the EC2Rescue tool on unreachable instances
 
 EC2Rescue can help you diagnose and troubleshoot problems on Amazon Elastic Compute Cloud (Amazon EC2)
 instances for Linux and Windows Server. You can run the tool manually, as described in
@@ -76,10 +66,7 @@ Before you run the following Automation, do the following:
   for Automation. If you don't specify this role, then Automation runs
   in the context of the user who ran the automation.
 
-### Granting
-
-`AWSSupport-EC2Rescue` permissions to perform actions
-on your instances
+### Granting `AWSSupport-EC2Rescue` permissions to perform actions on your instances
 
 EC2Rescue needs permission to perform a series of actions on your
 instances during the automation. These actions invoke the AWS Lambda,
@@ -91,14 +78,10 @@ section. If you don't have Administrator-level permissions, then you or
 an administrator must configure permissions by using one of the
 following options.
 
-- [Granting
-  permissions by using IAM policies](#automation-ec2rescue-access-iam "#automation-ec2rescue-access-iam")
-- [Granting
-  permissions by using an CloudFormation template](#automation-ec2rescue-access-cfn "#automation-ec2rescue-access-cfn")
+- [Granting permissions by using IAM policies](#automation-ec2rescue-access-iam "#automation-ec2rescue-access-iam")
+- [Granting permissions by using an CloudFormation template](#automation-ec2rescue-access-cfn "#automation-ec2rescue-access-cfn")
 
-#### Granting
-
-permissions by using IAM policies
+#### Granting permissions by using IAM policies
 
 You can either attach the following IAM policy to your user,
 group, or role as an inline policy; or, you can create a new IAM
@@ -200,18 +183,14 @@ JSON
 
 ```
 
-#### Granting
-
-permissions by using an CloudFormation template
+#### Granting permissions by using an CloudFormation template
 
 CloudFormation automates the process of creating IAM roles and policies
 by using a preconfigured template. Use the following procedure to
 create the required IAM roles and policies for the EC2Rescue
 Automation by using CloudFormation.
 
-###### To create the required IAM roles and policies for
-
-EC2Rescue
+###### To create the required IAM roles and policies for EC2Rescue
 
 1. Download [`AWSSupport-EC2RescueRole.zip`](samples/AWSSupport-EC2RescueRole.md "samples/AWSSupport-EC2RescueRole.md")
    and extract the
@@ -254,12 +233,9 @@ the status of the create process. 14. In the **Stacks** list, choose the option
 button the stack you just created, and then choose the
 **Outputs** tab. 15. Note the **Value**. The is the ARN of the
 AssumeRole. You specify this ARN when you run the Automation
-in the next procedure, [Running the
-Automation](#automation-ec2rescue-executing "#automation-ec2rescue-executing").
+in the next procedure, [Running the Automation](#automation-ec2rescue-executing "#automation-ec2rescue-executing").
 
-## Running the
-
-Automation
+## Running the Automation
 
 ###### Important
 
@@ -268,9 +244,7 @@ instance can result in lost data on attached instance store volumes (if
 present). Stopping the instance can also cause the public IP to change,
 if no Elastic IP is associated.
 
-###### To run the `AWSSupport-ExecuteEC2Rescue`
-
-Automation
+###### To run the `AWSSupport-ExecuteEC2Rescue` Automation
 
 1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
 2. In the navigation pane, choose **Automation**.

@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Configuring roles and permissions for
-
-Change Manager
+# Configuring roles and permissions for Change Manager
 
 ###### Change Manager availability change
 
@@ -37,20 +27,13 @@ If you need to create a service role for Change Manager, complete the following 
 
 ###### Tasks
 
-- [Task 1: Creating an assume role
-  policy for Change Manager](#change-manager-role-policy "#change-manager-role-policy")
-- [Task 2: Creating an assume role for
-  Change Manager](#change-manager-role "#change-manager-role")
-- [Task 3: Attaching the
-  iam:PassRole policy to other roles](#change-manager-passpolicy "#change-manager-passpolicy")
-- [Task 4: Adding inline
-  policies to an assume role to invoke other AWS services](#change-manager-role-add-inline-policy "#change-manager-role-add-inline-policy")
-- [Task 5: Configuring user access to
-  Change Manager](#change-manager-passrole "#change-manager-passrole")
+- [Task 1: Creating an assume role policy for Change Manager](#change-manager-role-policy "#change-manager-role-policy")
+- [Task 2: Creating an assume role for Change Manager](#change-manager-role "#change-manager-role")
+- [Task 3: Attaching the iam:PassRole policy to other roles](#change-manager-passpolicy "#change-manager-passpolicy")
+- [Task 4: Adding inline policies to an assume role to invoke other AWS services](#change-manager-role-add-inline-policy "#change-manager-role-add-inline-policy")
+- [Task 5: Configuring user access to Change Manager](#change-manager-passrole "#change-manager-passrole")
 
-## Task 1: Creating an assume role
-
-policy for Change Manager
+## Task 1: Creating an assume role policy for Change Manager
 
 Use the following procedure to create the policy that you will attach to your
 Change Manager assume role.
@@ -139,12 +122,9 @@ JSON
     **Name** box, such as
     `MyChangeManagerAssumeRole`, and then enter an
     optional description.
-11. Choose **Create policy**, and continue to [Task 2: Creating an assume role for
-    Change Manager](#change-manager-role "#change-manager-role").
+11. Choose **Create policy**, and continue to [Task 2: Creating an assume role for Change Manager](#change-manager-role "#change-manager-role").
 
-## Task 2: Creating an assume role for
-
-Change Manager
+## Task 2: Creating an assume role for Change Manager
 
 Use the following procedure to create a Change Manager assume role, a type of
 service role, for Change Manager.
@@ -168,8 +148,7 @@ service role, for Change Manager.
 
 4. Choose **Next**.
 5. On the **Attached permissions policy** page, search
-   for the assume role policy you created in [Task 1: Creating an assume role
-   policy for Change Manager](#change-manager-role-policy "#change-manager-role-policy"), such as
+   for the assume role policy you created in [Task 1: Creating an assume role policy for Change Manager](#change-manager-role-policy "#change-manager-role-policy"), such as
    `MyChangeManagerAssumeRole`.
 6. Select the check box next to the assume role policy name, and then
    choose **Next: Tags**.
@@ -190,9 +169,7 @@ service role, for Change Manager.
 13. On the **Roles** page, choose the role you just
     created to open the **Summary** page.
 
-## Task 3: Attaching the
-
-`iam:PassRole` policy to other roles
+## Task 3: Attaching the `iam:PassRole` policy to other roles
 
 Use the following procedure to attach the `iam:PassRole` policy to
 an IAM instance profile or IAM service role. (The Systems Manager service uses IAM
@@ -203,9 +180,7 @@ By attaching the `iam:PassRole` policy, the Change Manager service can
 pass assume role permissions to other services or Systems Manager tools when running
 runbook workflows.
 
-###### To attach the `iam:PassRole` policy to an IAM
-
-instance profile or service role
+###### To attach the `iam:PassRole` policy to an IAM instance profile or service role
 
 1. Open the IAM console at
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -242,9 +217,7 @@ instance profile or service role
 - [Configure instance permissions required for Systems Manager](setup-instance-permissions.md "setup-instance-permissions.md")
 - [Create the IAM service role required for Systems Manager in hybrid and multicloud environments](hybrid-multicloud-service-role.md "hybrid-multicloud-service-role.md")
 
-## Task 4: Adding inline
-
-policies to an assume role to invoke other AWS services
+## Task 4: Adding inline policies to an assume role to invoke other AWS services
 
 When a change request invokes other AWS services by using the Change Manager
 assume role, the assume role must be configured with permission to invoke those
@@ -260,9 +233,7 @@ actions that call other services. For example, if you use the
 with permission to invoke those services. You can enable permissions to other
 AWS services by adding an IAM inline policy to the role.
 
-###### To add an inline policy to an assume role to invoke other AWS services
-
-(IAM console)
+###### To add an inline policy to an assume role to invoke other AWS services (IAM console)
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the navigation pane, choose **Roles**.
@@ -330,9 +301,7 @@ see the permissions that are granted by your policy. Then choose
 **Create policy** to save your work. 10. After you create an inline policy, it's automatically embedded in your
 role.
 
-## Task 5: Configuring user access to
-
-Change Manager
+## Task 5: Configuring user access to Change Manager
 
 If your user, group, or role is assigned administrator permissions, then you
 have access to Change Manager. If you don't have administrator permissions, then an
@@ -351,8 +320,7 @@ While configuring the user access, assign or add the following:
    policy that gives permission to access Systems Manager.
 2. Assign the `iam:PassRole` policy.
 3. Add the ARN for the Change Manager assume role you copied at the end of
-   [Task 2: Creating an assume role for
-   Change Manager](#change-manager-role "#change-manager-role").
+   [Task 2: Creating an assume role for Change Manager](#change-manager-role "#change-manager-role").
 
 To provide access, add permissions to your users, groups, or roles:
 

@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Searching for SSM documents
 
 You can search the AWS Systems Manager (SSM) document store for SSM documents by using
@@ -13,9 +5,7 @@ either free text search or a filter-based search. You can also favorite document
 help you find frequently used SSM documents. The following sections describes how
 to use these features.
 
-## Using free text
-
-search
+## Using free text search
 
 The search box on the Systems Manager **Documents** page supports free
 text search. Free text search compares the search term or terms that you enter
@@ -55,9 +45,7 @@ Note the following details about free text search.
 2. In the navigation pane, choose **Documents**.
 3. Enter your search terms in the search box, and press Enter.
 
-### Performing free text
-
-document search by using the AWS CLI
+### Performing free text document search by using the AWS CLI
 
 ###### To perform a free text document search by using the CLI
 

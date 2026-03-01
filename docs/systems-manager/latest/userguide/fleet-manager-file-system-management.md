@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Working with OS file systems
-
-using Fleet Manager
+# Working with OS file systems using Fleet Manager
 
 You can use Fleet Manager, a tool in AWS Systems Manager, to work with the file system on your
 managed nodes. Using Fleet Manager, you can view information about the directory and file
@@ -37,24 +27,15 @@ Fleet Manager uses Session Manager, a tool in AWS Systems Manager, to view text 
 `tail` files. For Amazon Elastic Compute Cloud (Amazon EC2) instances, the instance
 profile attached to your managed instances must provide permissions for Session Manager
 to use this feature. For more information about adding Session Manager permissions to
-an instance profile, see [Add
-Session Manager permissions to an existing IAM role](getting-started-add-permissions-to-existing-profile.md "getting-started-add-permissions-to-existing-profile.md").
+an instance profile, see [Add Session Manager permissions to an existing IAM role](getting-started-add-permissions-to-existing-profile.md "getting-started-add-permissions-to-existing-profile.md").
 
 ###### Topics
 
-- [Viewing the OS file system
-  using Fleet Manager](fleet-manager-viewing-file-system.md "fleet-manager-viewing-file-system.md")
-- [Previewing OS files using
-  Fleet Manager](fleet-manager-preview-os-files.md "fleet-manager-preview-os-files.md")
-- [Tailing OS files using
-  Fleet Manager](fleet-manager-tailing-os-files.md "fleet-manager-tailing-os-files.md")
-- [Copying, cutting, and
-  pasting OS files or directories using Fleet Manager](fleet-manager-move-files-or-directories.md "fleet-manager-move-files-or-directories.md")
-- [Renaming OS files
-  and directories using Fleet Manager](fleet-manager-renaming-files-and-directories.md "fleet-manager-renaming-files-and-directories.md")
-- [Deleting OS files
-  and directories using Fleet Manager](fleet-manager-deleting-files-and-directories.md "fleet-manager-deleting-files-and-directories.md")
-- [Creating OS directories
-  using Fleet Manager](fleet-manager-creating-directories.md "fleet-manager-creating-directories.md")
-- [Cutting, copying, and
-  pasting OS directories using Fleet Manager](fleet-manager-managing-directories.md "fleet-manager-managing-directories.md")
+- [Viewing the OS file system using Fleet Manager](fleet-manager-viewing-file-system.md "fleet-manager-viewing-file-system.md")
+- [Previewing OS files using Fleet Manager](fleet-manager-preview-os-files.md "fleet-manager-preview-os-files.md")
+- [Tailing OS files using Fleet Manager](fleet-manager-tailing-os-files.md "fleet-manager-tailing-os-files.md")
+- [Copying, cutting, and pasting OS files or directories using Fleet Manager](fleet-manager-move-files-or-directories.md "fleet-manager-move-files-or-directories.md")
+- [Renaming OS files and directories using Fleet Manager](fleet-manager-renaming-files-and-directories.md "fleet-manager-renaming-files-and-directories.md")
+- [Deleting OS files and directories using Fleet Manager](fleet-manager-deleting-files-and-directories.md "fleet-manager-deleting-files-and-directories.md")
+- [Creating OS directories using Fleet Manager](fleet-manager-creating-directories.md "fleet-manager-creating-directories.md")
+- [Cutting, copying, and pasting OS directories using Fleet Manager](fleet-manager-managing-directories.md "fleet-manager-managing-directories.md")

@@ -1,24 +1,12 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Creating a
-
-custom patch baseline for macOS
+# Creating a custom patch baseline for macOS
 
 Use the following procedure to create a custom patch baseline for macOS
 managed nodes in Patch Manager, a tool in AWS Systems Manager.
 
 For information about creating a patch baseline for Windows Server managed
-nodes, see [Creating
-a custom patch baseline for Windows Server](patch-manager-create-a-patch-baseline-for-windows.md "patch-manager-create-a-patch-baseline-for-windows.md"). For
+nodes, see [Creating a custom patch baseline for Windows Server](patch-manager-create-a-patch-baseline-for-windows.md "patch-manager-create-a-patch-baseline-for-windows.md"). For
 information about creating a patch baseline for Linux managed nodes, see
-[Creating a
-custom patch baseline for Linux](patch-manager-create-a-patch-baseline-for-linux.md "patch-manager-create-a-patch-baseline-for-linux.md").
+[Creating a custom patch baseline for Linux](patch-manager-create-a-patch-baseline-for-linux.md "patch-manager-create-a-patch-baseline-for-linux.md").
 
 ###### Note
 
@@ -53,8 +41,7 @@ before the [patch
 policies](patch-manager-policies.md "patch-manager-policies.md") release on December 22, 2022.
 
 For information about setting an existing patch baseline as
-the default, see [Setting an existing patch
-baseline as the default](patch-manager-default-patch-baseline.md "patch-manager-default-patch-baseline.md"). 8. In the **Approval rules for operating-systems**
+the default, see [Setting an existing patch baseline as the default](patch-manager-default-patch-baseline.md "patch-manager-default-patch-baseline.md"). 8. In the **Approval rules for operating-systems**
 section, use the fields to create one or more auto-approval
 rules.
 
@@ -100,8 +87,7 @@ exceptions** section:
 
 
     For information about accepted formats for lists of approved patches and rejected patches,
-     see [Package name
-     formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md "patch-manager-approved-rejected-package-name-formats.md").
+     see [Package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md "patch-manager-approved-rejected-package-name-formats.md").
     * (Optional) For **Approved patches compliance
      level**, assign a compliance level to the
      patches in the list.
@@ -114,8 +100,7 @@ exceptions** section:
       reject.
 
     For information about accepted formats for lists of approved patches and rejected patches,
-    see [Package name
-    formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md "patch-manager-approved-rejected-package-name-formats.md").
+    see [Package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md "patch-manager-approved-rejected-package-name-formats.md").
     - For **Rejected patches action**, select
       the action for Patch Manager to take on patches included in the
       **Rejected patches** list.

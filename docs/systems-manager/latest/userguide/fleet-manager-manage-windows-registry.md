@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Managing the Windows
-
-registry on managed nodes
+# Managing the Windows registry on managed nodes
 
 You can use Fleet Manager, a tool in AWS Systems Manager, to manage the registry on your Windows Server
 managed nodes. From the Fleet Manager console you can create, copy, update, and delete
@@ -24,9 +14,7 @@ the root volume of your node from a snapshot. AWS doesn't guarantee that these
 problems can be solved. Modify the registry at your own risk. You're responsible
 for all registry changes, and ensuring you have backups.
 
-## Create a Windows registry key
-
-or entry
+## Create a Windows registry key or entry
 
 ###### To create a Windows registry key with Fleet Manager
 
@@ -65,9 +53,7 @@ or entry
 10. Enter a value for the **Value** of the new registry
     entry.
 
-## Update a Windows registry
-
-entry
+## Update a Windows registry entry
 
 ###### To update a Windows registry entry with Fleet Manager
 
@@ -86,9 +72,7 @@ entry
    entry.
 10. Choose **Update**.
 
-## Delete a Windows registry entry
-
-or key
+## Delete a Windows registry entry or key
 
 ###### To delete a Windows registry key with Fleet Manager
 

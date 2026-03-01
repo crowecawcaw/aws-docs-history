@@ -1,21 +1,10 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Viewing AWS
-
-predefined patch baselines
+# Viewing AWS predefined patch baselines
 
 Patch Manager, a tool in AWS Systems Manager, includes a predefined patch baseline for each
 operating system supported by Patch Manager. You can use these patch baselines (you
 can't customize them), or you can create your own. The following procedure
 describes how to view a predefined patch baseline to see if it meets your needs.
-To learn more about patch baselines, see [Predefined and
-custom patch baselines](patch-manager-predefined-and-custom-patch-baselines.md "patch-manager-predefined-and-custom-patch-baselines.md").
+To learn more about patch baselines, see [Predefined and custom patch baselines](patch-manager-predefined-and-custom-patch-baselines.md "patch-manager-predefined-and-custom-patch-baselines.md").
 
 ###### To view AWS predefined patch baselines
 
@@ -45,13 +34,10 @@ from the third predefined patch baseline for Windows Server. That patch baseline
 patches to both the Windows Server operating system and supported applications released by
 Microsoft.
 
-For more information, see [Setting an existing patch
-baseline as the default](patch-manager-default-patch-baseline.md "patch-manager-default-patch-baseline.md"). 4. In the **Approval rules** section, review the patch
+For more information, see [Setting an existing patch baseline as the default](patch-manager-default-patch-baseline.md "patch-manager-default-patch-baseline.md"). 4. In the **Approval rules** section, review the patch
 baseline configuration. 5. If the configuration is acceptable for your managed nodes, you can
-skip ahead to the procedure [Creating and managing patch
-groups](patch-manager-tag-a-patch-group.md "patch-manager-tag-a-patch-group.md").
+skip ahead to the procedure [Creating and managing patch groups](patch-manager-tag-a-patch-group.md "patch-manager-tag-a-patch-group.md").
 
 -or-
 
-To create your own default patch baseline, continue to the topic [Working with custom patch
-baselines](patch-manager-manage-patch-baselines.md "patch-manager-manage-patch-baselines.md").
+To create your own default patch baseline, continue to the topic [Working with custom patch baselines](patch-manager-manage-patch-baselines.md "patch-manager-manage-patch-baselines.md").

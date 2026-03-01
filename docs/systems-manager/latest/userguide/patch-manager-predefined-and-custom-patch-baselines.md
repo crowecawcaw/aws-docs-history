@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Predefined and
-
-custom patch baselines
+# Predefined and custom patch baselines
 
 Patch Manager, a tool in AWS Systems Manager, provides predefined patch baselines for each of the
 operating systems supported by Patch Manager. You can use these baselines as they are
@@ -18,8 +8,7 @@ patches are approved or rejected for your environment. Also, the predefined
 baselines assign a compliance level of `Unspecified` to all patches
 installed using those baselines. For compliance values to be assigned, you can
 create a copy of a predefined baseline and specify the compliance values you want to
-assign to patches. For more information, see [Custom baselines](#patch-manager-baselines-custom "#patch-manager-baselines-custom") and [Working with custom patch
-baselines](patch-manager-manage-patch-baselines.md "patch-manager-manage-patch-baselines.md").
+assign to patches. For more information, see [Custom baselines](#patch-manager-baselines-custom "#patch-manager-baselines-custom") and [Working with custom patch baselines](patch-manager-manage-patch-baselines.md "patch-manager-manage-patch-baselines.md").
 
 ###### Note
 
@@ -34,13 +23,10 @@ configuration you are using for your patching operations:
 
 ###### Topics
 
-- [Predefined
-  baselines](#patch-manager-baselines-pre-defined "#patch-manager-baselines-pre-defined")
+- [Predefined baselines](#patch-manager-baselines-pre-defined "#patch-manager-baselines-pre-defined")
 - [Custom baselines](#patch-manager-baselines-custom "#patch-manager-baselines-custom")
 
-## Predefined
-
-baselines
+## Predefined baselines
 
 The following table describes the predefined patch baselines provided with
 Patch Manager.
@@ -70,8 +56,7 @@ calculated from an `Updated Date` value in
 `updateinfo.xml`, not a `Release Date` value.
 Various factors can affect the `Updated Date` value. Other operating
 systems handle release and update dates differently. For information to help you
-avoid unexpected results with auto-approval delays, see [How package release dates and update
-dates are calculated](patch-manager-release-dates.md "patch-manager-release-dates.md").
+avoid unexpected results with auto-approval delays, see [How package release dates and update dates are calculated](patch-manager-release-dates.md "patch-manager-release-dates.md").
 
 ² For Windows Server, default baselines include a 7-day auto-approval delay. To
 install a patch within 7 days after release, you must create a custom
@@ -84,14 +69,10 @@ meet your patching goals.
 
 ###### Topics
 
-- [Using auto-approvals in
-  custom baselines](#baselines-auto-approvals "#baselines-auto-approvals")
-- [Additional information for
-  creating patch baselines](#baseline-additional-info "#baseline-additional-info")
+- [Using auto-approvals in custom baselines](#baselines-auto-approvals "#baselines-auto-approvals")
+- [Additional information for creating patch baselines](#baseline-additional-info "#baseline-additional-info")
 
-### Using auto-approvals in
-
-custom baselines
+### Using auto-approvals in custom baselines
 
 If you create your own patch baseline, you can choose which patches to
 auto-approve by using the following categories.
@@ -145,9 +126,7 @@ approved patch is reported as `Missing`, then the patch
 baseline's overall reported compliance severity is the severity level you
 specified.
 
-### Additional information for
-
-creating patch baselines
+### Additional information for creating patch baselines
 
 Keep the following in mind when you create a patch baseline:
 
@@ -178,8 +157,7 @@ Microsoft.
   parameter is before the date of the latest patch, then the new patch
   isn't installed when the patching operation runs. For more
   information about Windows Server patching rules, see the Windows Server tab in
-  [How security patches are
-  selected](patch-manager-selecting-patches.md "patch-manager-selecting-patches.md").
+  [How security patches are selected](patch-manager-selecting-patches.md "patch-manager-selecting-patches.md").
 
 This means that the managed node is compliant in terms of Systems Manager
 operations, even though a critical patch from the previous month
@@ -229,8 +207,7 @@ parameter.
   of operating system you're patching.
 
 For information about accepted formats for lists of approved patches and rejected patches,
-see [Package name
-formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md "patch-manager-approved-rejected-package-name-formats.md").
+see [Package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md "patch-manager-approved-rejected-package-name-formats.md").
 
 - If you are using a [patch policy
   configuration](patch-manager-policies.md "patch-manager-policies.md") in Quick Setup, updates you make to custom patch baselines are
@@ -256,6 +233,4 @@ affected operating system.
   same rule are ignored for packages that don't have
   `Severity` attributes.
 
-For information about creating a patch baseline, see [Working with custom patch
-baselines](patch-manager-manage-patch-baselines.md "patch-manager-manage-patch-baselines.md") and [Tutorial: Patch a
-server environment using the AWS CLI](patch-manager-patch-servers-using-the-aws-cli.md "patch-manager-patch-servers-using-the-aws-cli.md").
+For information about creating a patch baseline, see [Working with custom patch baselines](patch-manager-manage-patch-baselines.md "patch-manager-manage-patch-baselines.md") and [Tutorial: Patch a server environment using the AWS CLI](patch-manager-patch-servers-using-the-aws-cli.md "patch-manager-patch-servers-using-the-aws-cli.md").

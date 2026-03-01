@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Setting up Change Manager for an
-
-organization (management account)
+# Setting up Change Manager for an organization (management account)
 
 ###### Change Manager availability change
 
@@ -19,8 +9,7 @@ information, see [AWS Systems Manager Change Manager availability change](chang
 
 The tasks in this topic apply if you're using Change Manager, a tool in AWS Systems Manager, with
 an organization that is set up in AWS Organizations. If you want to use Change Manager only with a
-single AWS account, skip to the topic [Configuring Change Manager options and best
-practices](change-manager-account-setup.md "change-manager-account-setup.md").
+single AWS account, skip to the topic [Configuring Change Manager options and best practices](change-manager-account-setup.md "change-manager-account-setup.md").
 
 Perform the tasks in this section in an AWS account that is serving as the
 _management account_ in Organizations. For information
@@ -187,10 +176,8 @@ actions, do the following.
 Granting users full administrative permissions should be done
 sparingly, and only if their roles require full Systems Manager access. For
 important information about security considerations for Systems Manager access,
-see [Identity and access management for
-AWS Systems Manager](security-iam.md "security-iam.md") and
-[Security best practices for
-Systems Manager](security-best-practices.md "security-best-practices.md").
+see [Identity and access management for AWS Systems Manager](security-iam.md "security-iam.md") and
+[Security best practices for Systems Manager](security-best-practices.md "security-best-practices.md").
 
     1. For **Job function**, enter a name to identify
      this role and its permissions, such as
@@ -313,5 +300,4 @@ task in either your delegated administrator account or any account in an organiz
 have allowed for use with Change Manager. You configure options such as choosing a user
 identity management option, specifying which users can review and approve or reject
 change templates and change requests, and choosing which best practice options to
-allow for your organization. For information, see [Configuring Change Manager options and best
-practices](change-manager-account-setup.md "change-manager-account-setup.md").
+allow for your organization. For information, see [Configuring Change Manager options and best practices](change-manager-account-setup.md "change-manager-account-setup.md").

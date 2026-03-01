@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # AWS Systems Manager State Manager
 
 State Manager, a tool in AWS Systems Manager, is a secure and scalable configuration management service
@@ -19,12 +11,9 @@ State Manager and Maintenance Windows can perform some similar types of updates 
 Which one you choose depends on whether you need to automate system compliance or perform
 high-priority, time-sensitive tasks during periods you specify.
 
-For more information, see [Choosing between State Manager and
-Maintenance Windows](state-manager-vs-maintenance-windows.md "state-manager-vs-maintenance-windows.md").
+For more information, see [Choosing between State Manager and Maintenance Windows](state-manager-vs-maintenance-windows.md "state-manager-vs-maintenance-windows.md").
 
-## How can State Manager benefit my
-
-organization?
+## How can State Manager benefit my organization?
 
 By using pre-configured Systems Manager documents (SSM documents), State Manager offers the
 following benefits for managing your nodes:
@@ -49,8 +38,7 @@ tool in Systems Manager, with State Manager to perform the following types of ta
 - Start, restart, or stop managed nodes and Amazon Relational Database Service (Amazon RDS) instances.
 - Apply patches to Linux, macOS, and Window AMIs.
 
-For information about using State Manager with Automation runbooks, see [Scheduling
-automations with State Manager associations](scheduling-automations-state-manager-associations.md "scheduling-automations-state-manager-associations.md").
+For information about using State Manager with Automation runbooks, see [Scheduling automations with State Manager associations](scheduling-automations-state-manager-associations.md "scheduling-automations-state-manager-associations.md").
 
 ## Who should use State Manager?
 
@@ -120,8 +108,7 @@ runs:
      after the scheduled day to run an association.
 
 
-    For information about building cron and rate expressions, see [Reference: Cron and rate expressions
-     for Systems Manager](reference-cron-and-rate-expressions.md "reference-cron-and-rate-expressions.md").
+    For information about building cron and rate expressions, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md "reference-cron-and-rate-expressions.md").
 
 - ###### Multiple targeting options
 
@@ -138,9 +125,7 @@ choice. For more information, see [Working with associations in Systems Manager]
 - ###### EventBridge support
 
 This Systems Manager tool is supported as both an _event_ type and a
-_target_ type in Amazon EventBridge rules. For information, see [Monitoring Systems Manager events with
-Amazon EventBridge](monitoring-eventbridge-events.md "monitoring-eventbridge-events.md") and [Reference: Amazon EventBridge event patterns and types
-for Systems Manager](reference-eventbridge-events.md "reference-eventbridge-events.md").
+_target_ type in Amazon EventBridge rules. For information, see [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md "monitoring-eventbridge-events.md") and [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md "reference-eventbridge-events.md").
 
 ## Is there a charge to use State Manager?
 
@@ -150,16 +135,11 @@ State Manager is available at no additional charge.
 
 - [Understanding how State Manager works](state-manager-about.md "state-manager-about.md")
 - [Working with associations in Systems Manager](state-manager-associations.md "state-manager-associations.md")
-- [Creating associations
-  that run MOF files](systems-manager-state-manager-using-mof-file.md "systems-manager-state-manager-using-mof-file.md")
-- [Creating associations that run
-  Ansible playbooks](systems-manager-state-manager-ansible.md "systems-manager-state-manager-ansible.md")
-- [Creating associations that run
-  Chef recipes](systems-manager-state-manager-chef.md "systems-manager-state-manager-chef.md")
-- [Walkthrough: Automatically update
-  SSM Agent with the AWS CLI](state-manager-update-ssm-agent-cli.md "state-manager-update-ssm-agent-cli.md")
-- [Walkthrough: Automatically update PV
-  drivers on EC2 instances for Windows Server](state-manager-update-pv-drivers.md "state-manager-update-pv-drivers.md")
+- [Creating associations that run MOF files](systems-manager-state-manager-using-mof-file.md "systems-manager-state-manager-using-mof-file.md")
+- [Creating associations that run Ansible playbooks](systems-manager-state-manager-ansible.md "systems-manager-state-manager-ansible.md")
+- [Creating associations that run Chef recipes](systems-manager-state-manager-chef.md "systems-manager-state-manager-chef.md")
+- [Walkthrough: Automatically update SSM Agent with the AWS CLI](state-manager-update-ssm-agent-cli.md "state-manager-update-ssm-agent-cli.md")
+- [Walkthrough: Automatically update PV drivers on EC2 instances for Windows Server](state-manager-update-pv-drivers.md "state-manager-update-pv-drivers.md")
 
 **More info**
 

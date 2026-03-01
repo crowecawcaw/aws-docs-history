@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Creating a Parameter Store parameter using
-
-the console
+# Creating a Parameter Store parameter using the console
 
 You can use the AWS Systems Manager console to create and run `String`, `StringList`, and
 `SecureString` parameter types. After deleting a parameter, wait
@@ -31,12 +21,10 @@ parameter types from the console.
 4. In the **Name** box, enter a hierarchy and a name.
    For example, enter `/Test/helloWorld`.
 
-For more information about parameter hierarchies, see [Working with parameter hierarchies
-in Parameter Store](sysman-paramstore-hierarchies.md "sysman-paramstore-hierarchies.md"). 5. In the **Description** box, type a description that
+For more information about parameter hierarchies, see [Working with parameter hierarchies in Parameter Store](sysman-paramstore-hierarchies.md "sysman-paramstore-hierarchies.md"). 5. In the **Description** box, type a description that
 identifies this parameter as a test parameter. 6. For **Parameter tier** choose either
 **Standard** or **Advanced**. For
-more information about advanced parameters, see [Managing parameter
-tiers](parameter-store-advanced-parameters.md "parameter-store-advanced-parameters.md"). 7. For **Type**, choose **String**,
+more information about advanced parameters, see [Managing parameter tiers](parameter-store-advanced-parameters.md "parameter-store-advanced-parameters.md"). 7. For **Type**, choose **String**,
 **StringList**, or
 **SecureString**.
 
@@ -133,5 +121,4 @@ parameter.
 You can't change the type of an existing parameter (for example, from
 `String` to `SecureString`) using the console. To change a parameter's type,
 you must use the AWS CLI or s with the `--overwrite` option.
-For more information, see [Creating a Parameter Store parameter using the
-AWS CLI](param-create-cli.md "param-create-cli.md").
+For more information, see [Creating a Parameter Store parameter using the AWS CLI](param-create-cli.md "param-create-cli.md").

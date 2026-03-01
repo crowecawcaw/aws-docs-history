@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Using Application Manager to
-
-manage CloudFormation stacks
+# Using Application Manager to manage CloudFormation stacks
 
 Application Manager, a tool in AWS Systems Manager, helps you provision and manage resources for
 your applications by integrating with AWS CloudFormation. You can create, edit, and
@@ -22,14 +12,10 @@ includes the following information.
 
 ###### Topics
 
-- [Creating
-  a stack](#application-manager-working-stacks-creating-stack "#application-manager-working-stacks-creating-stack")
-- [Updating
-  a stack](#application-manager-working-stacks-editing-stack "#application-manager-working-stacks-editing-stack")
+- [Creating a stack](#application-manager-working-stacks-creating-stack "#application-manager-working-stacks-creating-stack")
+- [Updating a stack](#application-manager-working-stacks-editing-stack "#application-manager-working-stacks-editing-stack")
 
-## Creating
-
-a stack
+## Creating a stack
 
 The following procedures describe how to create a CloudFormation stack by
 using Application Manager. A stack is based on a template. When you create a stack,
@@ -126,9 +112,7 @@ changes have been made outside of CloudFormation management. For information
 about drift status, see [Detecting unmanaged
 configuration changes to stacks and resources](../../../AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.md").
 
-### Creating a CloudFormation stack by using Application Manager (command
-
-line)
+### Creating a CloudFormation stack by using Application Manager (command line)
 
 Use the following AWS Command Line Interface (AWS CLI) procedure to provision a stack by
 using a CloudFormation template that is stored as an SSM document in
@@ -170,9 +154,7 @@ New-CFNStack `
 
 ```
 
-## Updating
-
-a stack
+## Updating a stack
 
 You can deploy updates to a CloudFormation stack by directly editing the stack
 in Application Manager. With a direct update, you specify updates to a template or

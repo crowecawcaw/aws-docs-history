@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Monitoring Run Command metrics using
-
-Amazon CloudWatch
+# Monitoring Run Command metrics using Amazon CloudWatch
 
 _Metrics_ are the fundamental concept in Amazon CloudWatch. A
 metric represents a time-ordered set of data points that are published to CloudWatch. Think of
@@ -49,9 +39,7 @@ To list all available metrics, use the following command.
 aws cloudwatch list-metrics
 ```
 
-## Systems Manager Run Command metrics and
-
-dimensions
+## Systems Manager Run Command metrics and dimensions
 
 Systems Manager sends Run Command command metrics to CloudWatch one time every minute.
 

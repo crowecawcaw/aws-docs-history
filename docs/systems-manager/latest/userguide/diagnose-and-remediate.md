@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Diagnosing and remediating
 
 Using the unified Systems Manager console, you can identify problems across your fleet in a single
@@ -30,12 +22,10 @@ perform actions on the machine.
 
 For EC2 instances, this permission can be provided at the account level using an
 AWS Identity and Access Management (IAM) role, or at the instance level using an instance profile. For more
-information, see [Configure instance permissions required for
-Systems Manager](setup-instance-permissions.md "setup-instance-permissions.md").
+information, see [Configure instance permissions required for Systems Manager](setup-instance-permissions.md "setup-instance-permissions.md").
 
 For non-EC2 machines, this permission is provided using an IAM service role. For
-more information, see [Create the IAM service role required
-for Systems Manager in hybrid and multicloud environments](hybrid-multicloud-service-role.md "hybrid-multicloud-service-role.md").
+more information, see [Create the IAM service role required for Systems Manager in hybrid and multicloud environments](hybrid-multicloud-service-role.md "hybrid-multicloud-service-role.md").
 
 ###### Before you begin
 
@@ -43,21 +33,15 @@ In order to use the **Diagnose and remediate** feature to detect
 unmanaged EC2 instances, you must first onboard your organization or account to the
 unified Systems Manager console. During this process, you must choose the option to create IAM
 roles and managed policies required for these operations. For more information, see
-[Setting up Systems Manager unified console
-for an organization](systems-manager-setting-up-organizations.md "systems-manager-setting-up-organizations.md").
+[Setting up Systems Manager unified console for an organization](systems-manager-setting-up-organizations.md "systems-manager-setting-up-organizations.md").
 
 Use the following topics to help you identify and fix certain common types of failed
 deployments, drifted configurations, and unmanaged EC2 instances.
 
 ###### Topics
 
-- [Diagnosing and remediating failed
-  deployments](remediating-deployment-issues.md "remediating-deployment-issues.md")
-- [Diagnosing and remediating drifted
-  configurations](remediating-configuration-drift.md "remediating-configuration-drift.md")
-- [Diagnosing and remediating unmanaged
-  Amazon EC2 instances in Systems Manager](remediating-unmanaged-instances.md "remediating-unmanaged-instances.md")
-- [Remediation impact types of runbook
-  actions](remediation-impact-type.md "remediation-impact-type.md")
-- [Viewing execution progress
-  and history for remediations in Systems Manager](diagnose-and-remediate-execution-history.md "diagnose-and-remediate-execution-history.md")
+- [Diagnosing and remediating failed deployments](remediating-deployment-issues.md "remediating-deployment-issues.md")
+- [Diagnosing and remediating drifted configurations](remediating-configuration-drift.md "remediating-configuration-drift.md")
+- [Diagnosing and remediating unmanaged Amazon EC2 instances in Systems Manager](remediating-unmanaged-instances.md "remediating-unmanaged-instances.md")
+- [Remediation impact types of runbook actions](remediation-impact-type.md "remediation-impact-type.md")
+- [Viewing execution progress and history for remediations in Systems Manager](diagnose-and-remediate-execution-history.md "diagnose-and-remediate-execution-history.md")

@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # AWS Systems Manager Automation
 
 Automation, a tool in AWS Systems Manager, simplifies common maintenance, deployment, and
@@ -33,9 +25,7 @@ service ends on December 31, 2025. For information about current service costs, 
 [AWS Systems Manager
 pricing](https://aws.amazon.com/systems-manager/pricing/ "https://aws.amazon.com/systems-manager/pricing/").
 
-## How can Automation benefit my
-
-organization?
+## How can Automation benefit my organization?
 
 Automation offers these benefits:
 
@@ -46,8 +36,7 @@ PowerShell functions directly from your runbooks. This provides you greater
 flexibility in creating your custom runbooks because you can complete various
 tasks that other Automation actions don't support. You also have greater control
 over the logic of the runbook. For an example of how this action can be used and
-how it can help to improve an existing automated solution, see [Authoring Automation
-runbooks](automation-authoring-runbooks.md "automation-authoring-runbooks.md").
+how it can help to improve an existing automated solution, see [Authoring Automation runbooks](automation-authoring-runbooks.md "automation-authoring-runbooks.md").
 
 - **Run automations across multiple AWS accounts and
   AWS Regions from a centralized location**
@@ -105,16 +94,13 @@ can monitor, store, and access log files from various AWS services. You can
 send output from the `aws:executeScript` action to a CloudWatch Logs log group
 for debugging and troubleshooting purposes. Log data can be sent to your log
 group with or without AWS KMS encryption using your KMS key. For more
-information, see [Logging Automation action output with
-CloudWatch Logs](automation-action-logging.md "automation-action-logging.md").
+information, see [Logging Automation action output with CloudWatch Logs](automation-action-logging.md "automation-action-logging.md").
 
 - **Amazon EventBridge integration**
 
 Automation is supported as a _target_ type in Amazon EventBridge
 rules. This means you can trigger runbooks by using events. For more
-information, see [Monitoring Systems Manager events with
-Amazon EventBridge](monitoring-eventbridge-events.md "monitoring-eventbridge-events.md") and [Reference: Amazon EventBridge event patterns and types
-for Systems Manager](reference-eventbridge-events.md "reference-eventbridge-events.md").
+information, see [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md "monitoring-eventbridge-events.md") and [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md "reference-eventbridge-events.md").
 
 - **Share organizational best practices**
 
@@ -142,7 +128,7 @@ following components to run automations.
 | ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Automation runbook                  | A Systems Manager Automation runbook defines the automation (the actions<br>that Systems Manager performs on your managed nodes and AWS resources).<br>Automation includes several pre-defined runbooks that you can use to<br>perform common tasks like restarting one or more Amazon EC2 instances or<br>creating an Amazon Machine Image (AMI). You can create your own runbooks as<br>well. Runbooks use YAML or JSON, and they include steps and<br>parameters that you specify. Steps run in sequential order. For more<br>information, see [Creating your own runbooks](automation-documents.md "automation-documents.md").<br>Runbooks are Systems Manager documents of type `Automation`, as<br>opposed to `Command`, `Policy`,<br>`Session` documents. Runbooks support schema version<br>0.3. Command documents use schema version 1.2, 2.0, or 2.2. Policy<br>documents use schema version 2.0 or later. |
 | Automation action                   | The automation defined in a runbook includes one or more steps.<br>Each step is associated with a particular action. The action<br>determines the inputs, behavior, and outputs of the step. Steps are<br>defined in the `mainSteps` section of your runbook.<br>Automation supports 20 distinct action types. For more information,<br>see the [Systems Manager Automation actions reference](automation-actions.md "automation-actions.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Automation quota                    | Each AWS account can run 100 automations simultaneously. This<br>includes child automations (automations that are started by another<br>automation), and rate control automations. If you attempt to run<br>more automations than this, Systems Manager adds the additional automations to<br>a queue and displays a status of Pending. This quota can be adjusted<br>using adaptive concurrency. For more information, see [Allowing Automation to adapt to your<br>concurrency needs](adaptive-concurrency.md "adaptive-concurrency.md").For more information<br>about running automations, see [Run an automated operation powered by Systems Manager<br>Automation](running-simple-automations.md "running-simple-automations.md").                                                                                                                                                                              |
+| Automation quota                    | Each AWS account can run 100 automations simultaneously. This<br>includes child automations (automations that are started by another<br>automation), and rate control automations. If you attempt to run<br>more automations than this, Systems Manager adds the additional automations to<br>a queue and displays a status of Pending. This quota can be adjusted<br>using adaptive concurrency. For more information, see [Allowing Automation to adapt to your concurrency needs](adaptive-concurrency.md "adaptive-concurrency.md").For more information<br>about running automations, see [Run an automated operation powered by Systems Manager Automation](running-simple-automations.md "running-simple-automations.md").                                                                                                                                                                                    |
 | Automation queue quota              | If you attempt to run more automations than the concurrent<br>automation limit, subsequent automations are added to a queue. Each<br>AWS account can queue 5,000 automations. When an automation is<br>complete (or reaches a terminal state), the first automation in the<br>queue is started.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | Rate control automation quota       | Each AWS account can run 25 rate control automations<br>simultaneously. If you attempt to run more rate control automations<br>than the concurrent rate control automation limit, Systems Manager adds the<br>subsequent rate control automations to a queue and displays a status<br>of Pending. For more information about running rate control<br>automations, see [Run automated operations at scale](running-automations-scale.md "running-automations-scale.md").                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | Rate control automation queue quota | If you attempt to run more automations than the concurrent rate<br>control automation limit, subsequent automations are added to a<br>queue. Each AWS account can queue 1,000 rate control automations.<br>When an automation is complete (or reaches a terminal state), the<br>first automation in the queue is started.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
@@ -150,26 +136,18 @@ following components to run automations.
 ###### Topics
 
 - [Setting up Automation](automation-setup.md "automation-setup.md")
-- [Run an automated operation powered by Systems Manager
-  Automation](running-simple-automations.md "running-simple-automations.md")
+- [Run an automated operation powered by Systems Manager Automation](running-simple-automations.md "running-simple-automations.md")
 - [Rerunning automation executions](automation-rerun-executions.md "automation-rerun-executions.md")
-- [Run an automation that requires
-  approvals](running-automations-require-approvals.md "running-automations-require-approvals.md")
+- [Run an automation that requires approvals](running-automations-require-approvals.md "running-automations-require-approvals.md")
 - [Run automated operations at scale](running-automations-scale.md "running-automations-scale.md")
-- [Running automations in
-  multiple AWS Regions and accounts](running-automations-multiple-accounts-regions.md "running-automations-multiple-accounts-regions.md")
-- [Run automations based on EventBridge
-  events](running-automations-event-bridge.md "running-automations-event-bridge.md")
-- [Run an automation step by
-  step](automation-working-executing-manually.md "automation-working-executing-manually.md")
-- [Scheduling
-  automations with State Manager associations](scheduling-automations-state-manager-associations.md "scheduling-automations-state-manager-associations.md")
-- [Schedule automations with
-  maintenance windows](scheduling-automations-maintenance-windows.md "scheduling-automations-maintenance-windows.md")
+- [Running automations in multiple AWS Regions and accounts](running-automations-multiple-accounts-regions.md "running-automations-multiple-accounts-regions.md")
+- [Run automations based on EventBridge events](running-automations-event-bridge.md "running-automations-event-bridge.md")
+- [Run an automation step by step](automation-working-executing-manually.md "automation-working-executing-manually.md")
+- [Scheduling automations with State Manager associations](scheduling-automations-state-manager-associations.md "scheduling-automations-state-manager-associations.md")
+- [Schedule automations with maintenance windows](scheduling-automations-maintenance-windows.md "scheduling-automations-maintenance-windows.md")
 - [Systems Manager Automation actions reference](automation-actions.md "automation-actions.md")
 - [Creating your own runbooks](automation-documents.md "automation-documents.md")
 - [Systems Manager Automation Runbook Reference](automation-documents-reference.md "automation-documents-reference.md")
 - [Tutorials](automation-tutorials.md "automation-tutorials.md")
-- [Learn about statuses returned by Systems Manager
-  Automation](automation-statuses.md "automation-statuses.md")
+- [Learn about statuses returned by Systems Manager Automation](automation-statuses.md "automation-statuses.md")
 - [Troubleshooting Systems Manager Automation](automation-troubleshooting.md "automation-troubleshooting.md")

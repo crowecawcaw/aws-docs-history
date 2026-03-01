@@ -1,22 +1,10 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Create service roles for
-
-Automation by using CloudFormation
+# Create service roles for Automation by using CloudFormation
 
 You can create a service role for Automation, a tool in AWS Systems Manager, from an
 AWS CloudFormation template. After you create the service role, you can specify the service
 role in runbooks using the parameter `AutomationAssumeRole`.
 
-## Create the service role using
-
-CloudFormation
+## Create the service role using CloudFormation
 
 Use the following procedure to create the required AWS Identity and Access Management (IAM) role for
 Systems Manager Automation by using CloudFormation.
@@ -63,12 +51,9 @@ For example, if you use the `aws:executeAwsApi`,
 `aws:createStack`, or `aws:copyImage` actions, configure the
 service role with permission to invoke those services. You can give permissions to other
 AWS services by adding an IAM inline policy to the role. For more information, see
-[(Optional) Add an Automation inline
-policy or customer managed policy to invoke other AWS services](automation-setup-iam.md#add-inline-policy "automation-setup-iam.md#add-inline-policy").
+[(Optional) Add an Automation inline policy or customer managed policy to invoke other AWS services](automation-setup-iam.md#add-inline-policy "automation-setup-iam.md#add-inline-policy").
 
-## Copy role information for
-
-Automation
+## Copy role information for Automation
 
 Use the following procedure to copy information about the Automation service
 role from the CloudFormation console. You must specify these roles when you use a

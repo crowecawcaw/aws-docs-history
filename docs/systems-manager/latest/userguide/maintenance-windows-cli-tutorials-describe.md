@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Tutorial: View
-
-information about maintenance windows using the AWS CLI
+# Tutorial: View information about maintenance windows using the AWS CLI
 
 This tutorial includes commands to help you update or get information about
 your maintenance windows, tasks, executions, and invocations. The examples are
@@ -25,17 +15,14 @@ For information about setting up and configuring the AWS Command Line Interface 
 
 ###### Command examples
 
-- [Examples for
-  'describe-maintenance-windows'](#mw-cli-tutorials-describe-maintenance-windows "#mw-cli-tutorials-describe-maintenance-windows")
+- [Examples for 'describe-maintenance-windows'](#mw-cli-tutorials-describe-maintenance-windows "#mw-cli-tutorials-describe-maintenance-windows")
 - [Examples for 'describe-maintenance-window-targets'](#mw-cli-tutorials-describe-maintenance-window-targets "#mw-cli-tutorials-describe-maintenance-window-targets")
 - [Examples for 'describe-maintenance-window-tasks'](#mw-cli-tutorials-describe-maintenance-window-tasks "#mw-cli-tutorials-describe-maintenance-window-tasks")
 - [Examples for 'describe-maintenance-windows-for-target'](#mw-cli-tutorials-describe-maintenance-windows-for-target "#mw-cli-tutorials-describe-maintenance-windows-for-target")
 - [Examples for 'describe-maintenance-window-executions'](#mw-cli-tutorials-describe-maintenance-window-executions "#mw-cli-tutorials-describe-maintenance-window-executions")
 - [Examples for 'describe-maintenance-window-schedule'](#mw-cli-tutorials-describe-maintenance-window-schedule "#mw-cli-tutorials-describe-maintenance-window-schedule")
 
-## Examples for
-
-'describe-maintenance-windows'
+## Examples for 'describe-maintenance-windows'
 
 ###### List all maintenance windows in your AWS account
 
@@ -127,9 +114,7 @@ The system returns information similar to the following.
 }
 ```
 
-###### List all maintenance windows having names that start with a certain
-
-prefix
+###### List all maintenance windows having names that start with a certain prefix
 
 Run the following command.
 
@@ -171,9 +156,7 @@ The system returns information similar to the following.
 
 ## Examples for 'describe-maintenance-window-targets'
 
-###### Display the targets for a maintenance window matching a specific
-
-owner information value
+###### Display the targets for a maintenance window matching a specific owner information value
 
 Run the following command.
 
@@ -225,9 +208,7 @@ The system returns information similar to the following.
 
 ## Examples for 'describe-maintenance-window-tasks'
 
-###### Show all registered tasks that invoke the SSM command document
-
-`AWS-RunPowerShellScript`
+###### Show all registered tasks that invoke the SSM command document `AWS-RunPowerShellScript`
 
 Run the following command.
 
@@ -351,9 +332,7 @@ The system returns information similar to the following.
 }
 ```
 
-###### Show all registered tasks that have a priority of "1" and use
-
-Run Command
+###### Show all registered tasks that have a priority of "1" and use Run Command
 
 Run the following command.
 
@@ -424,9 +403,7 @@ The system returns information similar to the following.
 
 ## Examples for 'describe-maintenance-windows-for-target'
 
-###### List information about the maintenance window targets or tasks
-
-associated with a specific node
+###### List information about the maintenance window targets or tasks associated with a specific node
 
 Run the following command.
 
@@ -571,9 +548,7 @@ The system returns information similar to the following.
 
 ## Examples for 'describe-maintenance-window-schedule'
 
-###### Display the next ten scheduled maintenance window runs for a
-
-particular node
+###### Display the next ten scheduled maintenance window runs for a particular node
 
 Run the following command.
 
@@ -655,9 +630,7 @@ The system returns information similar to the following.
 }
 ```
 
-###### Display the maintenance window schedule for nodes tagged with a
-
-certain key-value pair
+###### Display the maintenance window schedule for nodes tagged with a certain key-value pair
 
 Run the following command.
 
@@ -712,9 +685,7 @@ The system returns information similar to the following.
 }
 ```
 
-###### Display start times for next four runs of a maintenance
-
-window
+###### Display start times for next four runs of a maintenance window
 
 Run the following command.
 

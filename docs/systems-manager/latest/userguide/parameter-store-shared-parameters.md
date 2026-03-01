@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Working with shared parameters
-
-in Parameter Store
+# Working with shared parameters in Parameter Store
 
 Sharing advanced parameters simplifies configuration data management in a
 multi-account environment. You can centrally store and manage your parameters and
@@ -39,12 +29,10 @@ parameters that are shared with you.
 - [Stop sharing a shared parameter](#unshare "#unshare")
 - [Identifying shared parameters](#identify "#identify")
 - [Accessing shared parameters](#accessing "#accessing")
-- [Permissions sets for sharing
-  parameters](#sharing-permissions "#sharing-permissions")
+- [Permissions sets for sharing parameters](#sharing-permissions "#sharing-permissions")
 - [Maximum throughput for shared parameters](#throughput "#throughput")
 - [Pricing for shared parameters](#pricing "#pricing")
-- [Cross-account access for closed
-  AWS accounts](#closed-accounts "#closed-accounts")
+- [Cross-account access for closed AWS accounts](#closed-accounts "#closed-accounts")
 
 ## Prerequisites for sharing parameters
 
@@ -54,11 +42,9 @@ your account:
 - To share a parameter, you must own it in your AWS account. You can't
   share a parameter that has been shared with you.
 - To share a parameter, it must be in the advanced parameter tier. For
-  information about parameter tiers, see [Managing parameter
-  tiers](parameter-store-advanced-parameters.md "parameter-store-advanced-parameters.md"). For
+  information about parameter tiers, see [Managing parameter tiers](parameter-store-advanced-parameters.md "parameter-store-advanced-parameters.md"). For
   information about changing an existing standard parameter to an advanced
-  parameter, see [Changing a
-  standard parameter to an advanced parameter](parameter-store-advanced-parameters.md#parameter-store-advanced-parameters-enabling "parameter-store-advanced-parameters.md#parameter-store-advanced-parameters-enabling").
+  parameter, see [Changing a standard parameter to an advanced parameter](parameter-store-advanced-parameters.md#parameter-store-advanced-parameters-enabling "parameter-store-advanced-parameters.md#parameter-store-advanced-parameters-enabling").
 - To share a `SecureString` parameter, it must be encrypted
   with a customer managed key, and you must share the key separately through
   AWS Key Management Service. AWS managed keys cannot be shared. Parameters encrypted
@@ -79,8 +65,7 @@ they are shared.
 
 When you share a parameter that you own with other AWS accounts, you can
 choose from two AWS managed permissions to grant the consumers. For more
-information, see [Permissions sets for sharing
-parameters](#sharing-permissions "#sharing-permissions").
+information, see [Permissions sets for sharing parameters](#sharing-permissions "#sharing-permissions").
 
 If you are part of an organization in AWS Organizations and sharing within your
 organization is enabled, you can grant consumers in your organization access
@@ -112,8 +97,7 @@ Make the following selections as you complete the procedure:
   each parameter in the advanced parameter tier that you want to
   share.
 - In the Step 2 page, for **Managed permissions**,
-  choose the permission to grant consumers, as described in [Permissions sets for sharing
-  parameters](#sharing-permissions "#sharing-permissions")
+  choose the permission to grant consumers, as described in [Permissions sets for sharing parameters](#sharing-permissions "#sharing-permissions")
   later in this topic.
 
 Choose other options based on your parameter sharing objectives.
@@ -221,9 +205,7 @@ use of shared parameters:
   variables](../../../apprunner/latest/dg/env-variable.md "../../../apprunner/latest/dg/env-variable.md") in AWS App Runner
 - The [value of a secret](../../../AmazonECS/latest/userguide/secrets-envvar-ssm-paramstore.md "../../../AmazonECS/latest/userguide/secrets-envvar-ssm-paramstore.md") in Amazon Elastic Container Service
 
-## Permissions sets for sharing
-
-parameters
+## Permissions sets for sharing parameters
 
 Consumer accounts receive read-only access to the parameters you share with
 them. The consumer can't update or delete the parameter. The consumer can't
@@ -301,9 +283,7 @@ Parameter Store](https://aws.amazon.com/systems-manager/pricing/#Parameter_Store
 | Account B (consuming account) | 20,000 calls    | • 20,000 calls to<br>`MyAdvancedParameter`: USD<br>0.10<br>• **Total: USD<br>0.10**                                                        |
 | Account C (consuming account) | 30,000 calls    | • 30,000 calls to<br>`MyAdvancedParameter`: USD<br>0.15<br>• **Total: USD<br>0.15**                                                        |
 
-## Cross-account access for closed
-
-AWS accounts
+## Cross-account access for closed AWS accounts
 
 If the AWS account that owns a shared parameter is closed, all consuming
 accounts lose access to the shared parameter. If the owning account is reopened

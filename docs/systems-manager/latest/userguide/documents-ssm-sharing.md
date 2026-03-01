@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Sharing SSM documents
 
 You can share AWS Systems Manager (SSM) documents privately or publicly with accounts in
@@ -20,8 +12,7 @@ publicly and privately.
 Use shared SSM documents only from trusted sources. When using any shared
 document, carefully review the contents of the document before using it so that
 you understand how it will change the configuration of your instance. For more
-information about shared document best practices, see [Best practices for shared SSM
-documents](#best-practices-shared "#best-practices-shared").
+information about shared document best practices, see [Best practices for shared SSM documents](#best-practices-shared "#best-practices-shared").
 
 ###### Limitations
 
@@ -30,8 +21,7 @@ limitations.
 
 - Only the owner can share a document.
 - You must stop sharing a document before you can delete it. For more
-  information, see [Modify permissions for a shared
-  SSM document](#modify-permissions-shared "#modify-permissions-shared").
+  information, see [Modify permissions for a shared SSM document](#modify-permissions-shared "#modify-permissions-shared").
 - You can share a document with a maximum of 1000 AWS accounts. You can
   request an increase to this limit in the [Support Center](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase"). For **Limit
   type**, choose _EC2 Systems Manager_ and describe your
@@ -57,18 +47,13 @@ Quotas](../../../general/latest/gr/ssm.md#limits_ssm "../../../general/latest/gr
 
 ###### Contents
 
-- [Best practices for shared SSM
-  documents](#best-practices-shared "#best-practices-shared")
-- [Block public sharing for SSM
-  documents](#block-public-access "#block-public-access")
+- [Best practices for shared SSM documents](#best-practices-shared "#best-practices-shared")
+- [Block public sharing for SSM documents](#block-public-access "#block-public-access")
 - [Share an SSM document](#ssm-how-to-share "#ssm-how-to-share")
-- [Modify permissions for a shared
-  SSM document](#modify-permissions-shared "#modify-permissions-shared")
+- [Modify permissions for a shared SSM document](#modify-permissions-shared "#modify-permissions-shared")
 - [Using shared SSM documents](#using-shared-documents "#using-shared-documents")
 
-## Best practices for shared SSM
-
-documents
+## Best practices for shared SSM documents
 
 Review the following guidelines before you share or use a shared document.
 
@@ -86,8 +71,7 @@ information in the document.
 Review all publicly shared SSM documents in your account and
 confirm whether you want to continue sharing them. To stop sharing a
 document with the public, you must modify the document permission
-setting as described in the [Modify permissions for a shared
-SSM document](#modify-permissions-shared "#modify-permissions-shared") section of this
+setting as described in the [Modify permissions for a shared SSM document](#modify-permissions-shared "#modify-permissions-shared") section of this
 topic. Turning on the block public sharing setting doesn't affect
 any documents you're currently sharing with the public. Unless your
 use case requires you to share documents with the public, we
@@ -107,8 +91,7 @@ by calling `ListDocuments` using the AWS Command Line Interface (AWS CLI) or
 AWS Tools for Windows PowerShell. The policy also restricts the actions the user can
 perform with SSM documents. You can create a restrictive policy so
 that a user can only use specific documents. For more information,
-see [Customer managed policy
-examples](security_iam_id-based-policy-examples.md#customer-managed-policies "security_iam_id-based-policy-examples.md#customer-managed-policies").
+see [Customer managed policy examples](security_iam_id-based-policy-examples.md#customer-managed-policies "security_iam_id-based-policy-examples.md#customer-managed-policies").
 
 **Use caution when using shared SSM documents**
 
@@ -151,15 +134,12 @@ variable named
  include`"interpolationType": "ENV_VAR"`. For more
 information, see [Writing SSM document content](documents-creating-content.md#writing-ssm-doc-content "documents-creating-content.md#writing-ssm-doc-content").
 
-## Block public sharing for SSM
-
-documents
+## Block public sharing for SSM documents
 
 Before you begin, review all publicly shared SSM documents in your
 AWS account and confirm whether you want to continue sharing them. To stop
 sharing an SSM document with the public, you must modify the document
-permission setting as described in the [Modify permissions for a shared
-SSM document](#modify-permissions-shared "#modify-permissions-shared") section of this topic. Turning
+permission setting as described in the [Modify permissions for a shared SSM document](#modify-permissions-shared "#modify-permissions-shared") section of this topic. Turning
 on the block public sharing setting doesn't affect any SSM documents you're
 currently sharing with the public. With the block public sharing setting
 enabled, you won’t be able to share any additional SSM documents with the
@@ -172,9 +152,7 @@ block public sharing setting is an account level setting that can differ for
 each AWS Region. Complete the following tasks to block public sharing for any
 SSM documents you're not currently sharing.
 
-### Block public sharing
-
-(console)
+### Block public sharing (console)
 
 ###### To block public sharing of your SSM documents
 
@@ -186,9 +164,7 @@ SSM documents you're not currently sharing.
 4. Select the **Block public sharing** check box,
    and then choose **Save**.
 
-### Block public sharing (command
-
-line)
+### Block public sharing (command line)
 
 Open the AWS Command Line Interface (AWS CLI) or AWS Tools for Windows PowerShell on your local computer and run the
 following command to block public sharing of your SSM documents.
@@ -246,9 +222,7 @@ Get-SSMServiceSetting `
     -Region `The AWS Region you blocked public sharing in`
 ```
 
-### Restricting access to
-
-block public sharing with IAM
+### Restricting access to block public sharing with IAM
 
 You can create AWS Identity and Access Management (IAM) policies that restrict users from
 modifying the block public sharing setting. This prevents users from
@@ -511,18 +485,14 @@ Edit-SSMDocumentPermission `
     -AccountIdsToAdd ('all')
 ```
 
-## Modify permissions for a shared
-
-SSM document
+## Modify permissions for a shared SSM document
 
 If you share a command, users can view and use that command until you either
 remove access to the AWS Systems Manager (SSM) document or delete the SSM document.
 However, you can't delete a document as long as it's shared. You must stop
 sharing it first and then delete it.
 
-### Stop sharing a document
-
-(console)
+### Stop sharing a document (console)
 
 ###### Stop sharing a document
 
@@ -538,9 +508,7 @@ sharing it first and then delete it.
    should no longer have access to the command, and then choose
    **Save**.
 
-### Stop sharing a document (command
-
-line)
+### Stop sharing a document (command line)
 
 Open the AWS CLI or AWS Tools for Windows PowerShell on your local computer and run the following
 command to stop sharing a command.
@@ -587,9 +555,7 @@ the command to list documents.
 You aren't required to specify ARNs for AWS public documents (documents
 that begin with `AWS-*`) or documents that you own.
 
-### Use a shared SSM document
-
-(command line)
+### Use a shared SSM document (command line)
 
 **To list all public SSM documents**
 

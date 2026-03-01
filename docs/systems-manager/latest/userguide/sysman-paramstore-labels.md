@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Working with parameter labels in
-
-Parameter Store
+# Working with parameter labels in Parameter Store
 
 A parameter label is a user-defined alias to help you manage different versions of
 a parameter. When you modify a parameter, AWS Systems Manager automatically saves a new
@@ -72,29 +62,20 @@ Parameter labels have the following requirements and restrictions:
 
 ###### Topics
 
-- [Working with parameter labels
-  using the console](#sysman-paramstore-labels-console "#sysman-paramstore-labels-console")
-- [Working with parameter labels
-  using the AWS CLI](#sysman-paramstore-labels-cli "#sysman-paramstore-labels-cli")
+- [Working with parameter labels using the console](#sysman-paramstore-labels-console "#sysman-paramstore-labels-console")
+- [Working with parameter labels using the AWS CLI](#sysman-paramstore-labels-cli "#sysman-paramstore-labels-cli")
 
-## Working with parameter labels
-
-using the console
+## Working with parameter labels using the console
 
 This section describes how to perform the following tasks by using the Systems Manager
 console.
 
-- [Creating a
-  parameter label using the console](#sysman-paramstore-labels-console-create "#sysman-paramstore-labels-console-create")
-- [Viewing labels
-  attached to a parameter using the console](#sysman-paramstore-labels-console-view "#sysman-paramstore-labels-console-view")
-- [Moving a parameter
-  label using the console](#sysman-paramstore-labels-console-move "#sysman-paramstore-labels-console-move")
+- [Creating a parameter label using the console](#sysman-paramstore-labels-console-create "#sysman-paramstore-labels-console-create")
+- [Viewing labels attached to a parameter using the console](#sysman-paramstore-labels-console-view "#sysman-paramstore-labels-console-view")
+- [Moving a parameter label using the console](#sysman-paramstore-labels-console-move "#sysman-paramstore-labels-console-move")
 - [Deleting parameter labels using the console](#systems-manager-parameter-store-labels-console-delete "#systems-manager-parameter-store-labels-console-delete")
 
-### Creating a
-
-parameter label using the console
+### Creating a parameter label using the console
 
 The following procedure describes how to attach a label to a specific
 version of an _existing_ parameter by using the Systems Manager
@@ -116,9 +97,7 @@ console. You can't attach a label when you create a parameter.
    ten labels.
 9. When you're finished, choose **Save changes**.
 
-### Viewing labels
-
-attached to a parameter using the console
+### Viewing labels attached to a parameter using the console
 
 A parameter version can have a maximum of ten labels. The following
 procedure describes how to view all labels attached to a parameter version
@@ -135,9 +114,7 @@ by using the Systems Manager console.
    attached labels. The **Labels** column shows all
    labels attached to the parameter version.
 
-### Moving a parameter
-
-label using the console
+### Moving a parameter label using the console
 
 The following procedure describes how to move a parameter label to a
 different version of the same parameter by using the Systems Manager console.
@@ -178,27 +155,18 @@ labels using the Systems Manager console.
 9. Confirm that your changes are correct, enter `Confirm`
    in the text box, and choose **Confirm**.
 
-## Working with parameter labels
-
-using the AWS CLI
+## Working with parameter labels using the AWS CLI
 
 This section describes how to perform the following tasks by using the
 AWS Command Line Interface (AWS CLI).
 
-- [Creating a new
-  parameter label using the AWS CLI](#sysman-paramstore-labels-cli-create "#sysman-paramstore-labels-cli-create")
-- [Viewing labels for a
-  parameter using the AWS CLI](#sysman-paramstore-labels-cli-view "#sysman-paramstore-labels-cli-view")
-- [Viewing a list of
-  parameters that are assigned a label using the AWS CLI](#sysman-paramstore-labels-cli-view-param "#sysman-paramstore-labels-cli-view-param")
-- [Moving a parameter label
-  using the AWS CLI](#sysman-paramstore-labels-cli-move "#sysman-paramstore-labels-cli-move")
-- [Deleting
-  parameter labels using the AWS CLI](#systems-manager-parameter-store-labels-cli-delete "#systems-manager-parameter-store-labels-cli-delete")
+- [Creating a new parameter label using the AWS CLI](#sysman-paramstore-labels-cli-create "#sysman-paramstore-labels-cli-create")
+- [Viewing labels for a parameter using the AWS CLI](#sysman-paramstore-labels-cli-view "#sysman-paramstore-labels-cli-view")
+- [Viewing a list of parameters that are assigned a label using the AWS CLI](#sysman-paramstore-labels-cli-view-param "#sysman-paramstore-labels-cli-view-param")
+- [Moving a parameter label using the AWS CLI](#sysman-paramstore-labels-cli-move "#sysman-paramstore-labels-cli-move")
+- [Deleting parameter labels using the AWS CLI](#systems-manager-parameter-store-labels-cli-delete "#systems-manager-parameter-store-labels-cli-delete")
 
-### Creating a new
-
-parameter label using the AWS CLI
+### Creating a new parameter label using the AWS CLI
 
 The following procedure describes how to attach a label to a specific
 version of an _existing_ parameter by using the AWS CLI.
@@ -307,17 +275,13 @@ _Selector_ in the output is either the
 version number or the label that you specified in the
 `Name` input field.
 
-### Viewing labels for a
-
-parameter using the AWS CLI
+### Viewing labels for a parameter using the AWS CLI
 
 You can use the [GetParameterHistory](../APIReference/API_GetParameterHistory.md "../APIReference/API_GetParameterHistory.md") API operation to view the full history and
 all labels attached to a specified parameter. Or, you can use the [GetParametersByPath](../APIReference/API_GetParametersByPath.md "../APIReference/API_GetParametersByPath.md") API operation to view a list of all
 parameters that are assigned a specific label.
 
-###### To view labels for a parameter by using the GetParameterHistory API
-
-operation
+###### To view labels for a parameter by using the GetParameterHistory API operation
 
 1. Run the following command to view a list of parameters for which
    you can view labels.
@@ -371,9 +335,7 @@ The system returns information like the following.
 }
 ```
 
-### Viewing a list of
-
-parameters that are assigned a label using the AWS CLI
+### Viewing a list of parameters that are assigned a label using the AWS CLI
 
 You can use the [GetParametersByPath](../APIReference/API_GetParametersByPath.md "../APIReference/API_GetParametersByPath.md") API operation to view a list of all
 parameters in a path that are assigned a specific label.
@@ -418,9 +380,7 @@ user searched under the `/Config` path.
 }
 ```
 
-### Moving a parameter label
-
-using the AWS CLI
+### Moving a parameter label using the AWS CLI
 
 The following procedure describes how to move a parameter label to a
 different version of the same parameter.
@@ -455,9 +415,7 @@ If you want to move an existing label to the latest version of
 a parameter, then remove `--parameter-version` from
 the command.
 
-### Deleting
-
-parameter labels using the AWS CLI
+### Deleting parameter labels using the AWS CLI
 
 The following procedure describes how to delete parameter labels by using
 the AWS CLI.

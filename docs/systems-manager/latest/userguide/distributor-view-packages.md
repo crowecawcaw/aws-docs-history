@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # View packages in Distributor
 
 To view packages that are available for installation, you can use the AWS Systems Manager
@@ -17,9 +9,7 @@ the packages available to you.
 The following section describes how you can view Distributor packages using your
 preferred command line tool.
 
-## View packages using the command
-
-line
+## View packages using the command line
 
 This section contains information about how you can use your preferred command
 line tool to view Distributor packages using the provided commands.

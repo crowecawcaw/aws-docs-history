@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Resetting passwords on managed
-
-nodes
+# Resetting passwords on managed nodes
 
 You can reset the password for any user on a managed node. This includes Amazon Elastic Compute Cloud
 (Amazon EC2) instances; AWS IoT Greengrass core devices; and on-premises servers, edge devices, and
@@ -38,8 +28,7 @@ requirements must be met:
 ###### Note
 
 Session Manager support for on-premises nodes is provided for the
-advanced-instances tier only. For more information, see [Turning on the
-advanced-instances tier](fleet-manager-enable-advanced-instances-tier.md "fleet-manager-enable-advanced-instances-tier.md").
+advanced-instances tier only. For more information, see [Turning on the advanced-instances tier](fleet-manager-enable-advanced-instances-tier.md "fleet-manager-enable-advanced-instances-tier.md").
 
 - The AWS user who is changing the password must have the
   `ssm:SendCommand` permission for the managed node. For more
@@ -56,12 +45,9 @@ This is done by using identity-based policies for the Session Manager
 ###### Encrypting data
 
 Turn on AWS Key Management Service (AWS KMS) complete encryption for Session Manager data to use the
-password reset option for managed nodes. For more information, see [Turn on KMS key
-encryption of session data (console)](session-preferences-enable-encryption.md "session-preferences-enable-encryption.md").
+password reset option for managed nodes. For more information, see [Turn on KMS key encryption of session data (console)](session-preferences-enable-encryption.md "session-preferences-enable-encryption.md").
 
-## Reset a password on a
-
-managed node
+## Reset a password on a managed node
 
 You can reset a password on a Systems Manager managed node using the Systems Manager
 **Fleet Manager** console or the AWS Command Line Interface (AWS CLI).
@@ -94,8 +80,7 @@ placeholder` with your own information.
 ###### Note
 
 To use the AWS CLI to reset a password, the Session Manager plugin must be
-installed on your local machine. For information, see [Install the Session Manager plugin
-for the AWS CLI](session-manager-working-with-install-plugin.md "session-manager-working-with-install-plugin.md").
+installed on your local machine. For information, see [Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md "session-manager-working-with-install-plugin.md").
 
 Linux & macOS
 
@@ -118,9 +103,7 @@ aws ssm start-session ^
 2. Follow the prompts in the **Enter new password**
    command window to specify the new password.
 
-## Troubleshoot password resets on
-
-managed nodes
+## Troubleshoot password resets on managed nodes
 
 Many password reset issues can be resolved by ensuring that you have completed
 the [password reset prerequisites](#pw-reset-prereqs "#pw-reset-prereqs"). For
@@ -129,20 +112,13 @@ reset issues.
 
 ###### Topics
 
-- [Managed node not
-  available](#password-reset-troubleshooting-instances "#password-reset-troubleshooting-instances")
-- [SSM Agent
-  not up-to-date (console)](#password-reset-troubleshooting-ssmagent-console "#password-reset-troubleshooting-ssmagent-console")
-- [Password reset
-  options aren't provided (AWS CLI)](#password-reset-troubleshooting-ssmagent-cli "#password-reset-troubleshooting-ssmagent-cli")
-- [No
-  authorization to run ssm:SendCommand](#password-reset-troubleshooting-sendcommand "#password-reset-troubleshooting-sendcommand")
-- [Session Manager
-  error message](#password-reset-troubleshooting-session-manager "#password-reset-troubleshooting-session-manager")
+- [Managed node not available](#password-reset-troubleshooting-instances "#password-reset-troubleshooting-instances")
+- [SSM Agent not up-to-date (console)](#password-reset-troubleshooting-ssmagent-console "#password-reset-troubleshooting-ssmagent-console")
+- [Password reset options aren't provided (AWS CLI)](#password-reset-troubleshooting-ssmagent-cli "#password-reset-troubleshooting-ssmagent-cli")
+- [No authorization to run ssm:SendCommand](#password-reset-troubleshooting-sendcommand "#password-reset-troubleshooting-sendcommand")
+- [Session Manager error message](#password-reset-troubleshooting-session-manager "#password-reset-troubleshooting-session-manager")
 
-### Managed node not
-
-available
+### Managed node not available
 
 **Problem**: You want to reset the password
 for a managed node on the **Managed instances** console
@@ -158,12 +134,9 @@ To use a non-EC2 machine with Systems Manager, create an IAM service role
 that gives Systems Manager permission to perform actions on your managed
 nodes. For more information, see [Create the IAM service role required for Systems Manager in hybrid and multicloud environments](hybrid-multicloud-service-role.md "hybrid-multicloud-service-role.md"). (Session Manager
 support for on-premises servers and VMs is provided for the
-advanced-instances tier only. For more information, see [Turning on the
-advanced-instances tier](fleet-manager-enable-advanced-instances-tier.md "fleet-manager-enable-advanced-instances-tier.md").)
+advanced-instances tier only. For more information, see [Turning on the advanced-instances tier](fleet-manager-enable-advanced-instances-tier.md "fleet-manager-enable-advanced-instances-tier.md").)
 
-### SSM Agent
-
-not up-to-date (console)
+### SSM Agent not up-to-date (console)
 
 **Problem**: A message reports that the
 version of SSM Agent doesn't support password reset functionality.
@@ -181,9 +154,7 @@ information, see [Automating updates to SSM Agent](ssm-agent-automatic-updates.m
 Release Notes](https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md "https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md") page on GitHub to get notifications about SSM Agent
 updates.
 
-### Password reset
-
-options aren't provided (AWS CLI)
+### Password reset options aren't provided (AWS CLI)
 
 **Problem**: You connect successfully to a
 managed node using the AWS CLI `start-session`
@@ -203,9 +174,7 @@ information, see [Automating updates to SSM Agent](ssm-agent-automatic-updates.m
 Release Notes](https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md "https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md") page on GitHub to get notifications about SSM Agent
 updates.
 
-### No
-
-authorization to run `ssm:SendCommand`
+### No authorization to run `ssm:SendCommand`
 
 **Problem**: You attempt to connect to a
 managed node to change the password but receive an error message saying that
@@ -216,9 +185,7 @@ node.
   include permission to run the `ssm:SendCommand` command.
   For information, see [Restricting Run Command access based on tags](run-command-setting-up.md#tag-based-access "run-command-setting-up.md#tag-based-access").
 
-### Session Manager
-
-error message
+### Session Manager error message
 
 **Problem**: You receive an error message
 related to Session Manager.

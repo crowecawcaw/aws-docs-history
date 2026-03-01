@@ -1,20 +1,9 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# How to specify an
-
-alternative patch source repository (Linux)
+# How to specify an alternative patch source repository (Linux)
 
 When you use the default repositories configured on a managed node for patching
 operations, Patch Manager, a tool in AWS Systems Manager, scans for or installs security-related
 patches. This is the default behavior for Patch Manager. For complete information about
-how Patch Manager selects and installs security patches, see [How security patches are
-selected](patch-manager-selecting-patches.md "patch-manager-selecting-patches.md").
+how Patch Manager selects and installs security patches, see [How security patches are selected](patch-manager-selecting-patches.md "patch-manager-selecting-patches.md").
 
 On Linux systems, however, you can also use Patch Manager to install patches that
 aren't related to security, or that are in a different source repository than the
@@ -38,37 +27,29 @@ operating system. After the patching operation is complete, the repositories
 previously configured as the defaults for the node's operating system remain the
 defaults.
 
-For a list of example scenarios for using this option, see [Sample
-uses for alternative patch source repositories](#patch-manager-alternative-source-repository-examples "#patch-manager-alternative-source-repository-examples") later in
+For a list of example scenarios for using this option, see [Sample uses for alternative patch source repositories](#patch-manager-alternative-source-repository-examples "#patch-manager-alternative-source-repository-examples") later in
 this topic.
 
-For information about default and custom patch baselines, see [Predefined and
-custom patch baselines](patch-manager-predefined-and-custom-patch-baselines.md "patch-manager-predefined-and-custom-patch-baselines.md").
+For information about default and custom patch baselines, see [Predefined and custom patch baselines](patch-manager-predefined-and-custom-patch-baselines.md "patch-manager-predefined-and-custom-patch-baselines.md").
 
 ###### Example: Using the console
 
 To specify alternative patch source repositories when you're working in the
 Systems Manager console, use the **Patch sources** section on the
 **Create patch baseline** page. For information about using
-the **Patch sources** options, see [Creating a
-custom patch baseline for Linux](patch-manager-create-a-patch-baseline-for-linux.md "patch-manager-create-a-patch-baseline-for-linux.md").
+the **Patch sources** options, see [Creating a custom patch baseline for Linux](patch-manager-create-a-patch-baseline-for-linux.md "patch-manager-create-a-patch-baseline-for-linux.md").
 
 ###### Example: Using the AWS CLI
 
 For an example of using the `--sources` option with the AWS Command Line Interface
-(AWS CLI), see [Create a patch baseline with custom repositories for different OS
-versions](patch-manager-cli-commands.md#patch-manager-cli-commands-create-patch-baseline-mult-sources "patch-manager-cli-commands.md#patch-manager-cli-commands-create-patch-baseline-mult-sources").
+(AWS CLI), see [Create a patch baseline with custom repositories for different OS versions](patch-manager-cli-commands.md#patch-manager-cli-commands-create-patch-baseline-mult-sources "patch-manager-cli-commands.md#patch-manager-cli-commands-create-patch-baseline-mult-sources").
 
 ###### Topics
 
-- [Important considerations for
-  alternative repositories](#alt-source-repository-important "#alt-source-repository-important")
-- [Sample
-  uses for alternative patch source repositories](#patch-manager-alternative-source-repository-examples "#patch-manager-alternative-source-repository-examples")
+- [Important considerations for alternative repositories](#alt-source-repository-important "#alt-source-repository-important")
+- [Sample uses for alternative patch source repositories](#patch-manager-alternative-source-repository-examples "#patch-manager-alternative-source-repository-examples")
 
-## Important considerations for
-
-alternative repositories
+## Important considerations for alternative repositories
 
 Keep in mind the following points as you plan your patching strategy using
 alternative patch repositories.
@@ -106,9 +87,7 @@ repositories on the operating system. After the patching operation is
 complete, the repositories previously configured as the defaults for the
 node's operating system remain the defaults.
 
-###### Patching behavior for YUM-based distributions depends on the
-
-updateinfo.xml manifest
+###### Patching behavior for YUM-based distributions depends on the updateinfo.xml manifest
 
 When you specify alternative patch repositories for YUM-based
 distributions, such as Amazon Linux 2, or Red Hat Enterprise Linux, patching behavior depends on
@@ -136,9 +115,7 @@ packages. Any of the following will affect the patching behavior:
   prefiltered list of patches. (They must still meet the other patch
   baseline rule requirements in order to be installed.)
 
-## Sample
-
-uses for alternative patch source repositories
+## Sample uses for alternative patch source repositories
 
 ###### Example 1 – Nonsecurity Updates for Ubuntu Server
 
@@ -161,9 +138,7 @@ baseline that specifies a PPA repository that you have configured on the
 managed node as the source repository for the patching operation. Then use
 Run Command to run the patch baseline document on the nodes.
 
-###### Example 3 – Internal Corporate Applications on supported Amazon Linux
-
-versions
+###### Example 3 – Internal Corporate Applications on supported Amazon Linux versions
 
 You need to run some applications needed for industry regulatory
 compliance on your Amazon Linux managed nodes. You can configure a repository for

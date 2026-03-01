@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Using scripts in
-
-runbooks
+# Using scripts in runbooks
 
 Automation runbooks support running scripts as part of the automation. Automation
 is a tool in AWS Systems Manager. By using runbooks, you can run scripts directly in AWS
@@ -16,8 +6,7 @@ without creating a separate compute environment to run your scripts. Because
 runbooks can run script steps along with other automation step types, such as
 approvals, you can manually intervene in critical or ambiguous situations. You can
 send the output from `aws:executeScript` actions in your runbooks to
-Amazon CloudWatch Logs. For more information, see [Logging Automation action output with
-CloudWatch Logs](automation-action-logging.md "automation-action-logging.md").
+Amazon CloudWatch Logs. For more information, see [Logging Automation action output with CloudWatch Logs](automation-action-logging.md "automation-action-logging.md").
 
 ## Permissions for using runbooks
 
@@ -58,8 +47,7 @@ where the scripts are located. After a step that runs a script is complete, the
 output of the script is available as a JSON object, which you can then use as
 input for subsequent steps in your runbook. For more information about the
 `aws:executeScript` action and how to use attachments for
-scripts, see [aws:executeScript
-– Run a script](automation-action-executeScript.md "automation-action-executeScript.md").
+scripts, see [aws:executeScript – Run a script](automation-action-executeScript.md "automation-action-executeScript.md").
 
 ## Script constraints for runbooks
 

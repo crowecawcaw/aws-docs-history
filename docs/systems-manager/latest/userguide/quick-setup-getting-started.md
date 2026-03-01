@@ -1,25 +1,13 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Getting started with Quick Setup
 
 Use the information in this topic to help you prepare to use Quick Setup.
 
 ###### Topics
 
-- [IAM roles and permissions for
-  Quick Setup onboarding](#quick-setup-getting-started-iam "#quick-setup-getting-started-iam")
-- [Manual onboarding for working
-  with Quick Setup API programmatically](#quick-setup-api-manual-onboarding "#quick-setup-api-manual-onboarding")
+- [IAM roles and permissions for Quick Setup onboarding](#quick-setup-getting-started-iam "#quick-setup-getting-started-iam")
+- [Manual onboarding for working with Quick Setup API programmatically](#quick-setup-api-manual-onboarding "#quick-setup-api-manual-onboarding")
 
-## IAM roles and permissions for
-
-Quick Setup onboarding
+## IAM roles and permissions for Quick Setup onboarding
 
 Quick Setup launched a new console experience and a new API. Now you can interact
 with this API using the console, AWS CLI, CloudFormation, and SDKs. If you opt in to the new
@@ -261,9 +249,7 @@ deployed to your organization's management account. For more information, see
 [Considerations when creating a stack set with service-managed
 permissions](../../../AWSCloudFormation/latest/UserGuide/stacksets-getting-started-create.md#stacksets-orgs-considerations "../../../AWSCloudFormation/latest/UserGuide/stacksets-getting-started-create.md#stacksets-orgs-considerations").
 
-## Manual onboarding for working
-
-with Quick Setup API programmatically
+## Manual onboarding for working with Quick Setup API programmatically
 
 If you use the console to work with Quick Setup, the service handles onboarding steps
 for you. If you plan to use SDKs or the AWS CLI to work with the Quick Setup API, you can

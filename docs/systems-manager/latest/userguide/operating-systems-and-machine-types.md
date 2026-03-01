@@ -1,28 +1,14 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Supported operating systems and
-
-machine types
+# Supported operating systems and machine types
 
 Before working with Systems Manager, verify that your operating system (OS), OS version, and
 machine type are supported as managed nodes.
 
 ###### Topics
 
-- [Supported operating systems for
-  Systems Manager](#prereqs-operating-systems "#prereqs-operating-systems")
-- [Supported machine types in hybrid and
-  multicloud environments](#supported-machine-types "#supported-machine-types")
+- [Supported operating systems for Systems Manager](#prereqs-operating-systems "#prereqs-operating-systems")
+- [Supported machine types in hybrid and multicloud environments](#supported-machine-types "#supported-machine-types")
 
-## Supported operating systems for
-
-Systems Manager
+## Supported operating systems for Systems Manager
 
 The following sections list the OSs and OS versions supported by Systems Manager.
 
@@ -35,8 +21,7 @@ devices](../../../greengrass/v2/developerguide/setting-up.md "../../../greengras
 
 If you plan to manage and configure AWS IoT and non-AWS edge devices,
 those devices must meet the requirements listed here and be configured as
-on-premises managed nodes for Systems Manager. For more information, see [Managing edge devices with
-Systems Manager](systems-manager-setting-up-edge-devices.md "systems-manager-setting-up-edge-devices.md").
+on-premises managed nodes for Systems Manager. For more information, see [Managing edge devices with Systems Manager](systems-manager-setting-up-edge-devices.md "systems-manager-setting-up-edge-devices.md").
 
 ###### Important
 
@@ -152,9 +137,7 @@ with these versions, we recommend using Extended Security Updates (ESUs) from
 Microsoft. For more information, see [Windows Server 2012 and 2012 R2 reaching end of support](https://learn.microsoft.com/en-us/lifecycle/announcements/windows-server-2012-r2-end-of-support "https://learn.microsoft.com/en-us/lifecycle/announcements/windows-server-2012-r2-end-of-support") on the Microsoft
 website.
 
-## Supported machine types in hybrid and
-
-multicloud environments
+## Supported machine types in hybrid and multicloud environments
 
 Systems Manager supports a number of machine types as _managed
 nodes_. A managed node is any machine configured to work with

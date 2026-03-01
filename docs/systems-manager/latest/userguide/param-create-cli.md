@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Creating a Parameter Store parameter using the
-
-AWS CLI
+# Creating a Parameter Store parameter using the AWS CLI
 
 You can use the AWS Command Line Interface (AWS CLI) to create `String`,
 `StringList`, and `SecureString`
@@ -28,12 +18,9 @@ created.
 ###### Topics
 
 - [Creating a String parameter using the AWS CLI](#param-create-cli-string "#param-create-cli-string")
-- [Creating a StringList
-  parameter using the AWS CLI](#param-create-cli-stringlist "#param-create-cli-stringlist")
-- [Creating a SecureString
-  parameter using the AWS CLI](#param-create-cli-securestring "#param-create-cli-securestring")
-- [Creating a multi-line parameter
-  using the AWS CLI](#param-create-cli-multiline "#param-create-cli-multiline")
+- [Creating a StringList parameter using the AWS CLI](#param-create-cli-stringlist "#param-create-cli-stringlist")
+- [Creating a SecureString parameter using the AWS CLI](#param-create-cli-securestring "#param-create-cli-securestring")
+- [Creating a multi-line parameter using the AWS CLI](#param-create-cli-multiline "#param-create-cli-multiline")
 
 ## Creating a `String` parameter using the AWS CLI
 
@@ -92,16 +79,14 @@ aws ssm put-parameter ^
 ```
 
 The `--name` option supports hierarchies. For
-information about hierarchies, see [Working with parameter hierarchies
-in Parameter Store](sysman-paramstore-hierarchies.md "sysman-paramstore-hierarchies.md").
+information about hierarchies, see [Working with parameter hierarchies in Parameter Store](sysman-paramstore-hierarchies.md "sysman-paramstore-hierarchies.md").
 
 The `--data-type` option must be specified only if you
 are creating a parameter that contains an AMI ID. It validates
 that the parameter value you enter is a properly formatted Amazon Elastic Compute Cloud
 (Amazon EC2) AMI ID. For all other parameters, the default data type is
 `text` and it's optional to specify a value. For more
-information, see [Using native parameter support in
-Parameter Store for Amazon Machine Image IDs](parameter-store-ec2-aliases.md "parameter-store-ec2-aliases.md").
+information, see [Using native parameter support in Parameter Store for Amazon Machine Image IDs](parameter-store-ec2-aliases.md "parameter-store-ec2-aliases.md").
 
 ###### Important
 
@@ -110,8 +95,7 @@ parameter. **Exception**: If you
 have specified `aws:ec2:image` as the data type, a
 new version number in the response doesn't mean that the
 parameter value has been validated yet. For more information,
-see [Using native parameter support in
-Parameter Store for Amazon Machine Image IDs](parameter-store-ec2-aliases.md "parameter-store-ec2-aliases.md").
+see [Using native parameter support in Parameter Store for Amazon Machine Image IDs](parameter-store-ec2-aliases.md "parameter-store-ec2-aliases.md").
 
 The following example adds two key-value pair tags to a parameter.
 
@@ -138,8 +122,7 @@ aws ssm put-parameter ^
 The following example uses a parameter hierarchy in the name to
 create a plaintext `String` parameter. It returns the
 version number of the parameter. For more information about
-parameter hierarchies, see [Working with parameter hierarchies
-in Parameter Store](sysman-paramstore-hierarchies.md "sysman-paramstore-hierarchies.md").
+parameter hierarchies, see [Working with parameter hierarchies in Parameter Store](sysman-paramstore-hierarchies.md "sysman-paramstore-hierarchies.md").
 
 Linux & macOS
 **Parameter not in a
@@ -269,9 +252,7 @@ The system returns information like the following.
 }
 ```
 
-## Creating a StringList
-
-parameter using the AWS CLI
+## Creating a StringList parameter using the AWS CLI
 
 1. Install and configure the AWS Command Line Interface (AWS CLI), if you haven't already.
 
@@ -344,9 +325,7 @@ of the parameter. For example:
 aws ssm get-parameters --name "/IAD/ERP/Oracle/addUsers"
 ```
 
-## Creating a SecureString
-
-parameter using the AWS CLI
+## Creating a SecureString parameter using the AWS CLI
 
 Use the following procedure to create a `SecureString`
 parameter. Replace each `example resource
@@ -684,9 +663,7 @@ reference AWS KMS. This only applies to the KMS key alias; the key ID
 that an alias attaches to stays the same unless you delete the whole
 key.
 
-## Creating a multi-line parameter
-
-using the AWS CLI
+## Creating a multi-line parameter using the AWS CLI
 
 You can use the AWS CLI to create a parameter with line breaks. Use line
 breaks to break up the text in longer parameter values for better legibility

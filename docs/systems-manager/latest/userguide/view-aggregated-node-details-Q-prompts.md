@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Learning to craft effective
-
-prompts to ask Amazon Q about your fleet
+# Learning to craft effective prompts to ask Amazon Q about your fleet
 
 The better quality of the question, or the prompt, that you give to Amazon Q, the
 better the result it provides you with.
@@ -32,8 +22,7 @@ Keep in mind the following tips when querying Amazon Q about your fleet:
 ###### Topics
 
 - [Sample questions for Amazon Q](#sample-questions-Q "#sample-questions-Q")
-- [Supported operating system names and
-  versions for prompts](#supported-os-names-Q "#supported-os-names-Q")
+- [Supported operating system names and versions for prompts](#supported-os-names-Q "#supported-os-names-Q")
 
 ## Sample questions for Amazon Q
 
@@ -63,9 +52,7 @@ prompt.
 | `Find all managed nodes that have an SSM Agent<br>version that is not 3.3.987.0.`                                                            | `<br>AgentType = amazon-ssm-agent<br>AgentVersion != 3.3.987.0<br>`                                                                                   |
 | `List all managed instances that are not running a<br>Linux operating system.`                                                               | `<br>PlatformType != Linux<br>`                                                                                                                       |
 
-## Supported operating system names and
-
-versions for prompts
+## Supported operating system names and versions for prompts
 
 When you are asking Amazon Q about the managed nodes in your account, it's
 helpful to provide the name of an operating system as its labeled in Systems Manager. You

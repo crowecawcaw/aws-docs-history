@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Step 5: (Optional)
-
-Restrict access to commands in a session
+# Step 5: (Optional) Restrict access to commands in a session
 
 You can restrict the commands that a user can run in an AWS Systems Manager Session Manager session
 by using a custom `Session` type AWS Systems Manager (SSM) document. In the
@@ -18,26 +8,20 @@ document `schemaVersion` must be 1.0, and the `sessionType` of
 the document must be `InteractiveCommands`. You can then create AWS Identity and Access Management
 (IAM) policies that allow users to access only the `Session` documents
 that you define. For more information about using IAM policies to restrict access
-to commands in a session, see [IAM policy examples for
-interactive commands](#interactive-command-policy-examples "#interactive-command-policy-examples").
+to commands in a session, see [IAM policy examples for interactive commands](#interactive-command-policy-examples "#interactive-command-policy-examples").
 
 Documents with the `sessionType` of `InteractiveCommands`
 are only supported for sessions started from the AWS Command Line Interface (AWS CLI). The user
 provides the custom document name as the `--document-name` parameter
 value and provides any command parameter values using the `--parameters`
-option. For more information about running interactive commands, see [Starting a session
-(interactive and noninteractive commands)](session-manager-working-with-sessions-start.md#sessions-start-interactive-commands "session-manager-working-with-sessions-start.md#sessions-start-interactive-commands").
+option. For more information about running interactive commands, see [Starting a session (interactive and noninteractive commands)](session-manager-working-with-sessions-start.md#sessions-start-interactive-commands "session-manager-working-with-sessions-start.md#sessions-start-interactive-commands").
 
 Use following procedure to create a custom `Session` type SSM
 document that defines the command a user is allowed to run.
 
-## Restrict access to commands in
+## Restrict access to commands in a session (console)
 
-a session (console)
-
-###### To restrict the commands a user can run in a Session Manager session
-
-(console)
+###### To restrict the commands a user can run in a Session Manager session (console)
 
 1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
 2. In the navigation pane, choose **Documents**.
@@ -95,9 +79,7 @@ JSON
 
 7. Choose **Create document**.
 
-## Restrict access to
-
-commands in a session (command line)
+## Restrict access to commands in a session (command line)
 
 ###### Before you begin
 
@@ -106,9 +88,7 @@ AWS Tools for PowerShell. For information, see [Installing or
 updating the latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") and [Installing
 the AWS Tools for PowerShell](../../../powershell/latest/userguide/pstools-getting-set-up.md "../../../powershell/latest/userguide/pstools-getting-set-up.md").
 
-###### To restrict the commands a user can run in a Session Manager session (command
-
-line)
+###### To restrict the commands a user can run in a Session Manager session (command line)
 
 1. Create a JSON or YAML file for your document content that defines the
    command a user can run in a Session Manager session, as shown in the following
@@ -189,9 +169,7 @@ New-SSMDocument `
     -DocumentType "Session"
 ```
 
-## Interactive command
-
-parameters and the AWS CLI
+## Interactive command parameters and the AWS CLI
 
 There are a variety of ways you can provide interactive command parameters
 when using the AWS CLI. Depending on the operating system (OS) of your client
@@ -354,9 +332,7 @@ AWS CLI, see [Using
 quotation marks with strings in the AWS CLI](../../../cli/latest/userguide.md "../../../cli/latest/userguide.md") in the
 _AWS Command Line Interface User Guide_.
 
-## IAM policy examples for
-
-interactive commands
+## IAM policy examples for interactive commands
 
 You can create IAM policies that allow users to access only the
 `Session` documents you define. This restricts the commands a

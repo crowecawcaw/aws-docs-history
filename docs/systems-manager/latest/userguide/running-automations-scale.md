@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Run automated operations at scale
 
 With AWS Systems Manager Automation, you can run automations on a fleet of AWS resources by
@@ -19,18 +11,14 @@ from 100 concurrently running automations up to 500. An error threshold determin
 many automations are allowed to fail before Systems Manager stops sending the automation to other
 resources.
 
-For more information about concurrency and error thresholds, see [Control automations at
-scale](running-automations-scale-controls.md "running-automations-scale-controls.md"). For more information about
-targets, see [Mapping targets for an
-automation](running-automations-map-targets.md "running-automations-map-targets.md").
+For more information about concurrency and error thresholds, see [Control automations at scale](running-automations-scale-controls.md "running-automations-scale-controls.md"). For more information about
+targets, see [Mapping targets for an automation](running-automations-map-targets.md "running-automations-map-targets.md").
 
 The following procedures show you how to turn on adaptive concurrency, and how to run
 an automation with targets and rate controls by using the Systems Manager console and AWS Command Line Interface
 (AWS CLI).
 
-## Running an automation with targets and rate controls
-
-(console)
+## Running an automation with targets and rate controls (console)
 
 The following procedure describes how to use the Systems Manager console to run an
 automation with targets and rate controls.
@@ -131,9 +119,7 @@ automations**.
 After an automation execution completes, you can rerun the execution with the same
 or modified parameters. For more information, see [Rerunning automation executions](automation-rerun-executions.md "automation-rerun-executions.md").
 
-## Running an automation with targets and rate controls
-
-(command line)
+## Running an automation with targets and rate controls (command line)
 
 The following procedure describes how to use the AWS CLI (on Linux or Windows) or
 AWS Tools for PowerShell to run an automation with targets and rate controls.

@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Create a hybrid activation to register
-
-nodes with Systems Manager
+# Create a hybrid activation to register nodes with Systems Manager
 
 To set up machines other than Amazon Elastic Compute Cloud (EC2) instances as managed nodes for a
 [hybrid and multicloud](operating-systems-and-machine-types.md#supported-machine-types "operating-systems-and-machine-types.md#supported-machine-types") environment, you create and apply a _hybrid
@@ -90,19 +80,14 @@ You can't assign tags to an activation if you create it by using the Systems Man
 console. You must create it by using either the AWS CLI or Tools for Windows PowerShell.
 
 If you no longer want to manage an on-premises server or virtual machine (VM) by using
-Systems Manager, you can deregister it. For information, see [Deregistering managed nodes
-in a hybrid and multicloud environment](fleet-manager-deregister-hybrid-nodes.md "fleet-manager-deregister-hybrid-nodes.md").
+Systems Manager, you can deregister it. For information, see [Deregistering managed nodes in a hybrid and multicloud environment](fleet-manager-deregister-hybrid-nodes.md "fleet-manager-deregister-hybrid-nodes.md").
 
 ###### Topics
 
-- [Using the AWS Management Console to
-  create an activation for registering managed nodes with Systems Manager](#create-managed-node-activation-console "#create-managed-node-activation-console")
-- [Using the command line
-  to create an activation for registering managed nodes with Systems Manager](#create-managed-node-activation-command-line "#create-managed-node-activation-command-line")
+- [Using the AWS Management Console to create an activation for registering managed nodes with Systems Manager](#create-managed-node-activation-console "#create-managed-node-activation-console")
+- [Using the command line to create an activation for registering managed nodes with Systems Manager](#create-managed-node-activation-command-line "#create-managed-node-activation-command-line")
 
-## Using the AWS Management Console to
-
-create an activation for registering managed nodes with Systems Manager
+## Using the AWS Management Console to create an activation for registering managed nodes with Systems Manager
 
 ###### To create a managed-node activation
 
@@ -142,8 +127,7 @@ cloud:
                                         operation: Not existing role: arn:aws:iam::<accountid>:role/SSMRole
     ```
 
-    For more information about creating this role, see [Create the IAM service role required
-     for Systems Manager in hybrid and multicloud environments](hybrid-multicloud-service-role.md "hybrid-multicloud-service-role.md").
+    For more information about creating this role, see [Create the IAM service role required for Systems Manager in hybrid and multicloud environments](hybrid-multicloud-service-role.md "hybrid-multicloud-service-role.md").
 
 7. For **Activation expiry date**, specify an expiration
    date for the activation. The expiry date must be in the future, and not more
@@ -158,9 +142,7 @@ an identifying name value to be displayed for all managed nodes associated
 with this activation. 9. Choose **Create activation**. Systems Manager immediately returns
 the Activation Code and ID to the console.
 
-## Using the command line
-
-to create an activation for registering managed nodes with Systems Manager
+## Using the command line to create an activation for registering managed nodes with Systems Manager
 
 The following procedure describes how to use the AWS Command Line Interface (AWS CLI) (on Linux or
 Windows Server) or AWS Tools for PowerShell to create a managed node
@@ -194,8 +176,7 @@ AWS Tools for PowerShell](../../../powershell/latest/userguide/pstools-getting-s
                                             operation: Not existing role: arn:aws:iam::<accountid>:role/SSMRole
     ```
 
-    For more information about creating this role, see [Create the IAM service role required
-     for Systems Manager in hybrid and multicloud environments](hybrid-multicloud-service-role.md "hybrid-multicloud-service-role.md").
+    For more information about creating this role, see [Create the IAM service role required for Systems Manager in hybrid and multicloud environments](hybrid-multicloud-service-role.md "hybrid-multicloud-service-role.md").
     * For `--expiration-date`, provide a date in
      timestamp format, such as `"2021-07-07T00:00:00"`,
      for when the activation code expires. You can specify a date up

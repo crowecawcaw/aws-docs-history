@@ -1,18 +1,8 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Using roles to maintain Quick Setup-provisioned resource health and consistency
 
 Systems Manager uses the service-linked role named **`AWSServiceRoleForSSMQuickSetup`**.
 
-## `AWSServiceRoleForSSMQuickSetup` service-linked role permissions for
-
-Systems Manager
+## `AWSServiceRoleForSSMQuickSetup` service-linked role permissions for Systems Manager
 
 The `AWSServiceRoleForSSMQuickSetup` service-linked role trusts the following
 services to assume the role:
@@ -40,28 +30,21 @@ actions on the specified resources:
 
 The managed policy that is used to provide permissions for the
 `AWSServiceRoleForSSMQuickSetup` role is `SSMQuickSetupRolePolicy`. For details about the
-permissions it grants, see [AWS managed policy:
-SSMQuickSetupRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-SSMQuickSetupRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-SSMQuickSetupRolePolicy").
+permissions it grants, see [AWS managed policy: SSMQuickSetupRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-SSMQuickSetupRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-SSMQuickSetupRolePolicy").
 
 You must configure permissions to allow an IAM entity (such as a user,
 group, or role) to create, edit, or delete a service-linked role. For more
 information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the
 _IAM User Guide_.
 
-## Creating the
-
-`AWSServiceRoleForSSMQuickSetup` service-linked role for
-Systems Manager
+## Creating the `AWSServiceRoleForSSMQuickSetup` service-linked role for Systems Manager
 
 You don't need to manually create the AWSServiceRoleForSSMQuickSetup service-linked role. When
 you create a Quick Setup configuration in the
 AWS Management Console, Systems Manager creates the
 service-linked role for you.
 
-## Editing the
-
-`AWSServiceRoleForSSMQuickSetup` service-linked role for
-Systems Manager
+## Editing the `AWSServiceRoleForSSMQuickSetup` service-linked role for Systems Manager
 
 Systems Manager does not allow you to edit the `AWSServiceRoleForSSMQuickSetup`
 service-linked role. After you create a service-linked role, you cannot change
@@ -70,10 +53,7 @@ you can edit the description of the role using IAM. For more information, see
 [Editing a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the
 _IAM User Guide_.
 
-## Deleting the
-
-`AWSServiceRoleForSSMQuickSetup` service-linked role for
-Systems Manager
+## Deleting the `AWSServiceRoleForSSMQuickSetup` service-linked role for Systems Manager
 
 If you no longer need to use a feature or service that requires a
 service-linked role, we recommend that you delete that role. That way you don’t
@@ -84,12 +64,9 @@ must clean up your service-linked role before you can manually delete it.
 
 Before you can use IAM to delete the `AWSServiceRoleForSSMQuickSetup`
 service-linked role, you must first delete the Quick Setup configurations that
-are using the role. For more information, see [Editing and deleting your
-configuration](quick-setup-using.md#quick-setup-edit-delete "quick-setup-using.md#quick-setup-edit-delete").
+are using the role. For more information, see [Editing and deleting your configuration](quick-setup-using.md#quick-setup-edit-delete "quick-setup-using.md#quick-setup-edit-delete").
 
-### Manually delete the
-
-`AWSServiceRoleForSSMQuickSetup` service-linked role
+### Manually delete the `AWSServiceRoleForSSMQuickSetup` service-linked role
 
 Use the IAM console, the AWS CLI, or the AWS API to delete the
 `AWSServiceRoleForSSMQuickSetup` service-linked role. For more information,
@@ -103,9 +80,7 @@ see the following topics:
 - [DeleteConfigurationManager](../../../quick-setup/latest/APIReference/API_DeleteConfigurationManager.md "../../../quick-setup/latest/APIReference/API_DeleteConfigurationManager.md") in the
   _Quick Setup API Reference_
 
-## Supported Regions for the
-
-Systems Manager  `AWSServiceRoleForSSMQuickSetup` service-linked role
+## Supported Regions for the Systems Manager  `AWSServiceRoleForSSMQuickSetup` service-linked role
 
 Systems Manager does not support using service-linked roles in every Region
 where the service is available. You can use the AWSServiceRoleForSSMQuickSetup role in the

@@ -1,22 +1,11 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# `aws:runInstances` –
-
-Launch an Amazon EC2 instance
+# `aws:runInstances` – Launch an Amazon EC2 instance
 
 Launches a new Amazon Elastic Compute Cloud (Amazon EC2) instance.
 
 ###### Note
 
 The `aws:runInstances` action supports automatic throttling retry. For
-more information, see [Configuring automatic retry for
-throttled operations](automation-throttling-retry.md "automation-throttling-retry.md").
+more information, see [Configuring automatic retry for throttled operations](automation-throttling-retry.md "automation-throttling-retry.md").
 
 ###### Input
 
@@ -276,8 +265,7 @@ TagSpecifications
 The tags to apply to the resources during launch. You can only tag
 instances and volumes at launch. The specified tags are applied to all
 instances or volumes that are created during launch. To tag an instance
-after it has been launched, use the [aws:createTags –
-Create tags for AWS resources](automation-action-createtag.md "automation-action-createtag.md") action.
+after it has been launched, use the [aws:createTags – Create tags for AWS resources](automation-action-createtag.md "automation-action-createtag.md") action.
 
 Type: MapList (For more information, see [TagSpecification](../../../AWSEC2/latest/APIReference/API_TagSpecification.md "../../../AWSEC2/latest/APIReference/API_TagSpecification.md").)
 

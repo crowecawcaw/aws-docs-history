@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Managing parameter
-
-tiers
+# Managing parameter tiers
 
 Parameter Store, a tool in AWS Systems Manager, includes _standard
 parameters_ and _advanced
@@ -35,14 +25,13 @@ The following table describes the differences between the tiers.
 | ---------------------------------------------------------------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Total number of parameters allowed<br>(per AWS account and AWS Region) | 10,000               | 100,000                                                                                                                                                                                                                             |
 | Maximum size of a parameter value                                      | 4 KB                 | 8 KB                                                                                                                                                                                                                                |
-| Parameter policies available                                           | No                   | Yes<br>For more information, see [Assigning parameter policies in<br>Parameter Store](parameter-store-policies.md "parameter-store-policies.md").                                                                                   |
+| Parameter policies available                                           | No                   | Yes<br>For more information, see [Assigning parameter policies in Parameter Store](parameter-store-policies.md "parameter-store-policies.md").                                                                                      |
 | Cost                                                                   | No additional charge | Charges apply<br>For more information, see [AWS Systems Manager<br>Pricing for Parameter Store](https://aws.amazon.com/systems-manager/pricing/#Parameter_Store "https://aws.amazon.com/systems-manager/pricing/#Parameter_Store"). |
 
 ###### Topics
 
 - [Specifying a default parameter tier](#ps-default-tier "#ps-default-tier")
-- [Changing a
-  standard parameter to an advanced parameter](#parameter-store-advanced-parameters-enabling "#parameter-store-advanced-parameters-enabling")
+- [Changing a standard parameter to an advanced parameter](#parameter-store-advanced-parameters-enabling "#parameter-store-advanced-parameters-enabling")
 
 ## Specifying a default parameter tier
 
@@ -184,9 +173,7 @@ charge your account for any advanced parameters you created.
 
 You can change the Parameter Store default tier setting at any time.
 
-### Configuring permissions
-
-to specify a Parameter Store default tier
+### Configuring permissions to specify a Parameter Store default tier
 
 Verify that you have permission in AWS Identity and Access Management (IAM) to change the default
 parameter tier in Parameter Store by doing one of the following:
@@ -272,9 +259,7 @@ in the _IAM User Guide_.
   - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
   - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
 
-### Specifying or changing the
-
-Parameter Store default tier using the console
+### Specifying or changing the Parameter Store default tier using the console
 
 The following procedure shows how to use the Systems Manager console to specify or
 change the default parameter tier for the current AWS account and
@@ -284,9 +269,7 @@ AWS Region.
 
 If you haven't created a parameter yet, you can use the AWS Command Line Interface
 (AWS CLI) or AWS Tools for Windows PowerShell to change the default parameter tier. For
-information, see [Specifying or changing
-the Parameter Store default tier using the AWS CLI](#parameter-store-tier-changing-cli "#parameter-store-tier-changing-cli") and [Specifying or changing
-the Parameter Store default tier (PowerShell)](#parameter-store-tier-changing-ps "#parameter-store-tier-changing-ps").
+information, see [Specifying or changing the Parameter Store default tier using the AWS CLI](#parameter-store-tier-changing-cli "#parameter-store-tier-changing-cli") and [Specifying or changing the Parameter Store default tier (PowerShell)](#parameter-store-tier-changing-ps "#parameter-store-tier-changing-ps").
 
 ###### To specify or change the Parameter Store default tier
 
@@ -308,17 +291,13 @@ the Parameter Store default tier (PowerShell)](#parameter-store-tier-changing-ps
 If you want to change the default tier setting later, repeat this
 procedure and specify a different default tier option.
 
-### Specifying or changing
-
-the Parameter Store default tier using the AWS CLI
+### Specifying or changing the Parameter Store default tier using the AWS CLI
 
 The following procedure shows how to use the AWS CLI to change the default
 parameter tier setting for the current AWS account and
 AWS Region.
 
-###### To specify or change the Parameter Store default tier using the
-
-AWS CLI
+###### To specify or change the Parameter Store default tier using the AWS CLI
 
 1. Open the AWS CLI and run the following command to change the default
    parameter tier setting for a specific AWS Region in an
@@ -364,17 +343,13 @@ The system returns information similar to the following.
 If you want to change the default tier setting again, repeat this
 procedure and specify a different `SettingValue` option.
 
-### Specifying or changing
-
-the Parameter Store default tier (PowerShell)
+### Specifying or changing the Parameter Store default tier (PowerShell)
 
 The following procedure shows how to use the Tools for Windows PowerShell to change the default
 parameter tier setting for a specific AWS Region in an Amazon Web Services
 account.
 
-###### To specify or change the Parameter Store default tier using
-
-PowerShell
+###### To specify or change the Parameter Store default tier using PowerShell
 
 1. Change the Parameter Store default tier in the current AWS account and
    AWS Region using the AWS Tools for PowerShell (Tools for PowerShell).
@@ -421,14 +396,11 @@ Status           : Customized
 If you want to change the default tier setting again, repeat this
 procedure and specify a different `SettingValue` option.
 
-## Changing a
-
-standard parameter to an advanced parameter
+## Changing a standard parameter to an advanced parameter
 
 Use the following procedure to change an existing standard parameter to an
 advanced parameter. For information about how to create a new advanced
-parameter, see [Creating Parameter Store parameters in
-Systems Manager](sysman-paramstore-su-create.md "sysman-paramstore-su-create.md").
+parameter, see [Creating Parameter Store parameters in Systems Manager](sysman-paramstore-su-create.md "sysman-paramstore-su-create.md").
 
 ###### To change a standard parameter to an advanced parameter
 

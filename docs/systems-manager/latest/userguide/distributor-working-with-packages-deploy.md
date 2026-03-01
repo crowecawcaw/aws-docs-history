@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Install or update
-
-Distributor packages
+# Install or update Distributor packages
 
 You can deploy packages to your AWS Systems Manager managed nodes by using Distributor, a tool
 in AWS Systems Manager. To deploy the packages, use either the AWS Management Console or AWS Command Line Interface (AWS CLI).
@@ -27,28 +17,20 @@ using Distributor. Otherwise, Systems Manager can still register the application
 
 | Preference                                                                                                                                                                | AWS Systems Manager action | More info                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Install or update a package immediately.                                                                                                                                  | Run Command                | • [Installing or updating a<br>package one time using the console](#distributor-deploy-pkg-console "#distributor-deploy-pkg-console")<br>• [Installing a package one time using<br>the AWS CLI](#distributor-deploy-pkg-cli "#distributor-deploy-pkg-cli")<br>• [Updating a package one time using<br>the AWS CLI](#distributor-update-pkg-cli "#distributor-update-pkg-cli")                                                                                 |
-| Install or update a package on a schedule, so that the<br>installation always includes the default version.                                                               | State Manager              | • [Scheduling a package<br>installation or update using the console](#distributor-deploy-sm-pkg-console "#distributor-deploy-sm-pkg-console")<br>• [Scheduling a package installation<br>using the AWS CLI](#distributor-smdeploy-pkg-cli "#distributor-smdeploy-pkg-cli")<br>• [Scheduling a package update using<br>the AWS CLI](#distributor-smupdate-pkg-cli "#distributor-smupdate-pkg-cli")                                                             |
+| Install or update a package immediately.                                                                                                                                  | Run Command                | • [Installing or updating a package one time using the console](#distributor-deploy-pkg-console "#distributor-deploy-pkg-console")<br>• [Installing a package one time using the AWS CLI](#distributor-deploy-pkg-cli "#distributor-deploy-pkg-cli")<br>• [Updating a package one time using the AWS CLI](#distributor-update-pkg-cli "#distributor-update-pkg-cli")                                                                                          |
+| Install or update a package on a schedule, so that the<br>installation always includes the default version.                                                               | State Manager              | • [Scheduling a package installation or update using the console](#distributor-deploy-sm-pkg-console "#distributor-deploy-sm-pkg-console")<br>• [Scheduling a package installation using the AWS CLI](#distributor-smdeploy-pkg-cli "#distributor-smdeploy-pkg-cli")<br>• [Scheduling a package update using the AWS CLI](#distributor-smupdate-pkg-cli "#distributor-smupdate-pkg-cli")                                                                      |
 | Automatically install a package on new managed nodes that have<br>a specific tag or set of tags. For example, installing the<br>Amazon CloudWatch agent on new instances. | State Manager              | One way to do this is to apply tags to new managed nodes, and<br>then specify the tags as targets in your State Manager association.<br>State Manager automatically installs the package in an association on<br>managed nodes that have matching tags. See [Understanding targets and rate controls in State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md "systems-manager-state-manager-targets-and-rate-controls.md"). |
 
 ###### Topics
 
-- [Installing or updating a
-  package one time using the console](#distributor-deploy-pkg-console "#distributor-deploy-pkg-console")
-- [Scheduling a package
-  installation or update using the console](#distributor-deploy-sm-pkg-console "#distributor-deploy-sm-pkg-console")
-- [Installing a package one time using
-  the AWS CLI](#distributor-deploy-pkg-cli "#distributor-deploy-pkg-cli")
-- [Updating a package one time using
-  the AWS CLI](#distributor-update-pkg-cli "#distributor-update-pkg-cli")
-- [Scheduling a package installation
-  using the AWS CLI](#distributor-smdeploy-pkg-cli "#distributor-smdeploy-pkg-cli")
-- [Scheduling a package update using
-  the AWS CLI](#distributor-smupdate-pkg-cli "#distributor-smupdate-pkg-cli")
+- [Installing or updating a package one time using the console](#distributor-deploy-pkg-console "#distributor-deploy-pkg-console")
+- [Scheduling a package installation or update using the console](#distributor-deploy-sm-pkg-console "#distributor-deploy-sm-pkg-console")
+- [Installing a package one time using the AWS CLI](#distributor-deploy-pkg-cli "#distributor-deploy-pkg-cli")
+- [Updating a package one time using the AWS CLI](#distributor-update-pkg-cli "#distributor-update-pkg-cli")
+- [Scheduling a package installation using the AWS CLI](#distributor-smdeploy-pkg-cli "#distributor-smdeploy-pkg-cli")
+- [Scheduling a package update using the AWS CLI](#distributor-smupdate-pkg-cli "#distributor-smupdate-pkg-cli")
 
-## Installing or updating a
-
-package one time using the console
+## Installing or updating a package one time using the console
 
 You can use the AWS Systems Manager console to install or update a package one time.
 When you configure a one-time installation, Distributor uses [AWS Systems Manager Run Command](run-command.md "run-command.md"), a tool in AWS Systems Manager, to
@@ -92,8 +74,7 @@ following:
 
 ###### Note
 
-If you don't see a managed node in the list, see [Troubleshooting managed
-node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md"). 11. For **Other parameters**:
+If you don't see a managed node in the list, see [Troubleshooting managed node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md"). 11. For **Other parameters**:
 
     * For **Comment**, enter information about this command.
     * For **Timeout (seconds)**, specify the number of seconds for the
@@ -134,8 +115,7 @@ the managed node has the necessary permissions to write to that bucket. 14. In t
 about the status of the command execution, select the **Enable SNS
 notifications** check box.
 
-For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager status changes using
-Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifications.md"). 15. When you're ready to install the package, choose
+For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifications.md"). 15. When you're ready to install the package, choose
 **Run**. 16. The **Command status** area reports the progress of
 the execution. If the command is still in progress, choose the refresh
 icon in the top-left corner of the console until the **Overall
@@ -148,9 +128,7 @@ output**.
 The command output page shows the results of your command execution. 18. (Optional) If you chose to write command output to an Amazon S3 bucket,
 choose **Amazon S3** to view the output log data.
 
-## Scheduling a package
-
-installation or update using the console
+## Scheduling a package installation or update using the console
 
 You can use the AWS Systems Manager console to schedule the installation or update of a
 package. When you schedule package installation or update, Distributor uses [AWS Systems Manager State Manager](systems-manager-state.md "systems-manager-state.md") to
@@ -214,9 +192,7 @@ For more information about working with the options in **Advanced
 options**, **Rate control**, and **Output
 options**, see [Working with associations in Systems Manager](state-manager-associations.md "state-manager-associations.md").
 
-## Installing a package one time using
-
-the AWS CLI
+## Installing a package one time using the AWS CLI
 
 You can run **send-command** in the AWS CLI to install a Distributor
 package one time. If the package is already installed, the application will be
@@ -254,9 +230,7 @@ For information about other options you can use with the
 **send-command** command, see [**send-command**](../../../cli/latest/reference/ssm/send-command.md "../../../cli/latest/reference/ssm/send-command.md") in the AWS Systems Manager section of the
 _AWS CLI Command Reference_.
 
-## Updating a package one time using
-
-the AWS CLI
+## Updating a package one time using the AWS CLI
 
 You can run **send-command** in the AWS CLI to update a Distributor
 package without taking the associated application offline. Only new or updated
@@ -292,9 +266,7 @@ For information about other options you can use with the
 **send-command** command, see [**send-command**](../../../cli/latest/reference/ssm/send-command.md "../../../cli/latest/reference/ssm/send-command.md") in the AWS Systems Manager section of the
 _AWS CLI Command Reference_.
 
-## Scheduling a package installation
-
-using the AWS CLI
+## Scheduling a package installation using the AWS CLI
 
 You can run **create-association** in the AWS CLI to install a
 Distributor package on a schedule. The value of `--name`, the document
@@ -330,9 +302,7 @@ For information about other options you can use with the
 **create-association** command, see [**create-association**](../../../cli/latest/reference/ssm/create-association.md "../../../cli/latest/reference/ssm/create-association.md") in the AWS Systems Manager section
 of the _AWS CLI Command Reference_.
 
-## Scheduling a package update using
-
-the AWS CLI
+## Scheduling a package update using the AWS CLI
 
 You can run **create-association** in the AWS CLI to update a
 Distributor package on a schedule without taking the associated application

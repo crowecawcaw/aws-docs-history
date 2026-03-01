@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Identity and access management for
-
-AWS Systems Manager
+# Identity and access management for AWS Systems Manager
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access
 to AWS resources. IAM administrators control who can be _authenticated_ (signed in) and _authorized_
@@ -20,28 +10,21 @@ use with no additional charge.
 - [Audience](#security_iam_audience "#security_iam_audience")
 - [Authenticating with identities](#security_iam_authentication "#security_iam_authentication")
 - [Managing access using policies](#security_iam_access-manage "#security_iam_access-manage")
-- [How AWS Systems Manager works with
-  IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
-- [AWS Systems Manager
-  identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
-- [AWS managed policies for
-  AWS Systems Manager](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
-- [Troubleshooting AWS Systems Manager
-  identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
+- [How AWS Systems Manager works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
+- [AWS Systems Manager identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
+- [AWS managed policies for AWS Systems Manager](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
+- [Troubleshooting AWS Systems Manager identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
 
 ## Audience
 
 How you use AWS Identity and Access Management (IAM) differs based on your role:
 
 - **Service user** - request permissions from your
-  administrator if you cannot access features (see [Troubleshooting AWS Systems Manager
-  identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md"))
+  administrator if you cannot access features (see [Troubleshooting AWS Systems Manager identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md"))
 - **Service administrator** - determine user access and
-  submit permission requests (see [How AWS Systems Manager works with
-  IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md"))
+  submit permission requests (see [How AWS Systems Manager works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md"))
 - **IAM administrator** - write policies to manage
-  access (see [AWS Systems Manager
-  identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"))
+  access (see [AWS Systems Manager identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"))
 
 ## Authenticating with identities
 
@@ -55,9 +38,7 @@ For programmatic access, AWS provides an SDK and CLI to cryptographically sign r
 
 When you create an AWS account, you begin with one sign-in identity called the AWS account _root user_ that has complete access to all AWS services and resources. We strongly recommend that you don't use the root user for everyday tasks. For tasks that require root user credentials, see [Tasks that require root user credentials](../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks "../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks") in the _IAM User Guide_.
 
-### IAM users and
-
-groups
+### IAM users and groups
 
 An _[IAM user](../../../IAM/latest/UserGuide/id_users.md "../../../IAM/latest/UserGuide/id_users.md")_ is an identity with specific permissions for a single person or application. We recommend using temporary credentials instead of IAM users with long-term credentials. For more information, see [Require human users to use federation with an identity provider to access AWS using temporary credentials](../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp "../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp") in the _IAM User Guide_.
 
@@ -77,16 +58,13 @@ Using policies, administrators specify who has access to what by defining which 
 
 By default, users and roles have no permissions. An IAM administrator creates IAM policies and adds them to roles, which users can then assume. IAM policies define permissions regardless of the method used to perform the operation.
 
-### Identity-based
-
-policies
+### Identity-based policies
 
 Identity-based policies are JSON permissions policy documents that you attach to an identity (user, group, or role). These policies control what actions identities can perform, on which resources, and under what conditions. To learn how to create an identity-based policy, see [Define custom IAM permissions with customer managed policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in the _IAM User Guide_.
 
 Identity-based policies can be _inline policies_ (embedded directly into a single identity) or _managed policies_ (standalone policies attached to multiple identities). To learn how to choose between managed and inline policies, see [Choose between managed policies and inline policies](../../../IAM/latest/UserGuide/access_policies-choosing-managed-or-inline.md "../../../IAM/latest/UserGuide/access_policies-choosing-managed-or-inline.md") in the _IAM User Guide_.
 
-For information about AWS managed policies for Systems Manager, see [AWS Systems Manager managed
-policies](security_iam_service-with-iam.md#managed-policies "security_iam_service-with-iam.md#managed-policies").
+For information about AWS managed policies for Systems Manager, see [AWS Systems Manager managed policies](security_iam_service-with-iam.md#managed-policies "security_iam_service-with-iam.md#managed-policies").
 
 ### Resource-based policies
 
@@ -158,12 +136,9 @@ demonstrates checking for the existence of `ssm.amazonaws.com`.
 }
 ```
 
-To view examples of Systems Manager identity-based policies, see [AWS Systems Manager
-identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Systems Manager identity-based policies, see [AWS Systems Manager identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-### Access control lists
-
-(ACLs)
+### Access control lists (ACLs)
 
 Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
 similar to resource-based policies, although they do not use the JSON policy document format.
@@ -172,9 +147,7 @@ Amazon S3, AWS WAF, and Amazon VPC
 are examples of services that support ACLs. To learn more about ACLs, see [Access control list (ACL)
 overview](../../../AmazonS3/latest/userguide/acl-overview.md "../../../AmazonS3/latest/userguide/acl-overview.md") in the _Amazon Simple Storage Service Developer Guide_.
 
-### Other policy
-
-types
+### Other policy types
 
 AWS supports additional policy types that can set the maximum permissions granted by more common policy types:
 
@@ -183,8 +156,6 @@ AWS supports additional policy types that can set the maximum permissions grante
 - **Resource control policies (RCPs)** – Set the maximum available permissions for resources in your accounts. For more information, see [Resource control policies (RCPs)](../../../organizations/latest/userguide/orgs_manage_policies_rcps.md "../../../organizations/latest/userguide/orgs_manage_policies_rcps.md") in the _AWS Organizations User Guide_.
 - **Session policies** – Advanced policies passed as a parameter when creating a temporary session for a role or federated user. For more information, see [Session policies](../../../IAM/latest/UserGuide/access_policies.md#policies_session "../../../IAM/latest/UserGuide/access_policies.md#policies_session") in the _IAM User Guide_.
 
-### Multiple policy
-
-types
+### Multiple policy types
 
 When multiple types of policies apply to a request, the resulting permissions are more complicated to understand. To learn how AWS determines whether to allow a request when multiple policy types are involved, see [Policy evaluation logic](../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md "../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md") in the _IAM User Guide_.

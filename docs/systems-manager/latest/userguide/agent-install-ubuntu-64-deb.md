@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Install SSM Agent on
-
-Ubuntu Server 16.04 64-bit (deb)
+# Install SSM Agent on Ubuntu Server 16.04 64-bit (deb)
 
 ###### Important
 
@@ -17,32 +7,25 @@ that you are using the correction installation tools. Beginning with
 Amazon Machine Images (AMIs) that are identified with 20180627, SSM Agent
 is pre-installed on version 16.04 using Snap packages. On instances
 created from earlier AMIs, SSM Agent must be installed using deb
-installer packages. For more information, see [Determining the correct
-SSM Agent version to install on 64-bit Ubuntu Server 16.04
-instances](agent-install-ubuntu-about-v16.md "agent-install-ubuntu-about-v16.md").If
+installer packages. For more information, see [Determining the correct SSM Agent version to install on 64-bit Ubuntu Server 16.04 instances](agent-install-ubuntu-about-v16.md "agent-install-ubuntu-about-v16.md").If
 SSM Agent is installed on your instance in conjunction with a Snap and
 you install or update SSM Agent using a deb installer package, the
 installation or SSM Agent operations might fail.
 
 In most cases, the Amazon Machine Images (AMIs) Ubuntu Server 16.04 that are
 provided by AWS come with AWS Systems Manager Agent (SSM Agent) preinstalled by
-default. For more information, see [Find AMIs with the SSM Agent
-preinstalled](ami-preinstalled-agent.md "ami-preinstalled-agent.md").
+default. For more information, see [Find AMIs with the SSM Agent preinstalled](ami-preinstalled-agent.md "ami-preinstalled-agent.md").
 
 In the event that SSM Agent isn’t preinstalled on a new Ubuntu Server 16.04
 instance prior to version 20180627 or you need to manually reinstall the
 agent, use the information on this page to help you.
 
-## Quick installation
-
-commands for SSM Agent on Ubuntu Server 16.04 (deb)
+## Quick installation commands for SSM Agent on Ubuntu Server 16.04 (deb)
 
 Use the following steps to manually install SSM Agent on a single
 instance. This procedure uses globally available installation files.
 
-###### To install SSM Agent on Ubuntu Server 16.04 64-bit (deb) using quick
-
-copy and paste commands
+###### To install SSM Agent on Ubuntu Server 16.04 64-bit (deb) using quick copy and paste commands
 
 1. Connect to your Ubuntu Server instance using your preferred
    method, such as SSH.
@@ -101,10 +84,7 @@ Ubuntu Server 16.04:
 sudo systemctl enable amazon-ssm-agent
 ```
 
-## Create custom installation
-
-commands for SSM Agent on Ubuntu Server 16.04 64-bit (deb) in your
-Region
+## Create custom installation commands for SSM Agent on Ubuntu Server 16.04 64-bit (deb) in your Region
 
 When you install SSM Agent on multiple instances using a script or
 template, we recommend using installation files that are stored in the
@@ -115,8 +95,7 @@ accessible S3 bucket in the US East (Ohio) Region (`us-east-2`).
 
 ###### Tip
 
-You can also replace a global URL in the procedure [Quick installation
-commands for SSM Agent on Ubuntu Server 16.04 (deb)](#quick-install-ub-16-14-64-bit "#quick-install-ub-16-14-64-bit") earlier in this
+You can also replace a global URL in the procedure [Quick installation commands for SSM Agent on Ubuntu Server 16.04 (deb)](#quick-install-ub-16-14-64-bit "#quick-install-ub-16-14-64-bit") earlier in this
 topic with a custom Regional URL you construct.
 
 In the following command, replace `region` with your own

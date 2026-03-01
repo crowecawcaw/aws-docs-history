@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Working with managed nodes
 
 A _managed node_ is any machine configured for AWS Systems Manager. You can
@@ -34,8 +26,7 @@ If you need to register more than 1,000 machines in a single account and Region,
 use the advanced-instances tier. You can create as many managed nodes as you like in the
 advanced-instances tier. All managed nodes configured for Systems Manager are priced on a
 pay-per-use basis. For more information about enabling the advanced instances tier, see
-[Turning on the
-advanced-instances tier](fleet-manager-enable-advanced-instances-tier.md "fleet-manager-enable-advanced-instances-tier.md"). For more information
+[Turning on the advanced-instances tier](fleet-manager-enable-advanced-instances-tier.md "fleet-manager-enable-advanced-instances-tier.md"). For more information
 about pricing, see [AWS Systems Manager
 Pricing](https://aws.amazon.com/systems-manager/pricing/ "https://aws.amazon.com/systems-manager/pricing/").
 
@@ -51,8 +42,7 @@ advanced-instances tier:
   instances, activate the advanced-instances tier. There is a charge to use the
   advanced-instances tier. There is no additional charge to patch applications
   released by Microsoft on Amazon Elastic Compute Cloud (Amazon EC2) instances. For more information, see
-  [Patching applications
-  released by Microsoft on Windows Server](patch-manager-patching-windows-applications.md "patch-manager-patching-windows-applications.md").
+  [Patching applications released by Microsoft on Windows Server](patch-manager-patching-windows-applications.md "patch-manager-patching-windows-applications.md").
 
 ###### Display managed nodes
 
@@ -63,11 +53,9 @@ following:
    managed nodes. You can switch Regions by using the list in the top, right corner
    of the console.
 2. Verify that the setup steps for your managed nodes meet Systems Manager requirements.
-   For information, see [Setting up managed nodes for
-   AWS Systems Manager](systems-manager-setting-up-nodes.md "systems-manager-setting-up-nodes.md").
+   For information, see [Setting up managed nodes for AWS Systems Manager](systems-manager-setting-up-nodes.md "systems-manager-setting-up-nodes.md").
 3. For non-EC2 machines, verify that you completed the hybrid activation process.
-   For more information, see [Managing nodes in hybrid and multicloud
-   environments with Systems Manager](systems-manager-hybrid-multicloud.md "systems-manager-hybrid-multicloud.md").
+   For more information, see [Managing nodes in hybrid and multicloud environments with Systems Manager](systems-manager-hybrid-multicloud.md "systems-manager-hybrid-multicloud.md").
    Note the following additional information:
 
 - The Fleet Manager console does not display Amazon EC2 nodes that have been
@@ -81,8 +69,7 @@ following:
 - After the status of a managed node has been `Connection Lost` for
   at least 30 days, the node might no longer be listed in the Fleet Manager console. To
   restore it to the list, the issue that caused the lost connection must be
-  resolved. For troubleshooting tips, see [Troubleshooting managed
-  node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md").
+  resolved. For troubleshooting tips, see [Troubleshooting managed node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md").
 
 ###### Verify Systems Manager support on a managed node
 
@@ -96,8 +83,7 @@ Managed Rules](../../../config/latest/developerguide/evaluate-config_use-managed
 ###### Increase security posture on managed nodes
 
 For information about increasing your security posture against unauthorized
-root-level commands on your managed nodes, see [Restricting access to
-root-level commands through SSM Agent](ssm-agent-restrict-root-level-commands.md "ssm-agent-restrict-root-level-commands.md").
+root-level commands on your managed nodes, see [Restricting access to root-level commands through SSM Agent](ssm-agent-restrict-root-level-commands.md "ssm-agent-restrict-root-level-commands.md").
 
 ###### Deregister managed nodes
 
@@ -106,24 +92,16 @@ multiple nodes with the same AWS Identity and Access Management (IAM) role and y
 malicious behavior, you can deregister any number of machines at any point. (In
 order to re-register the same machine, you must use a different hybrid Activation
 Code and Activation ID than previously used to register it.) For information about
-deregistering managed nodes, see [Deregistering managed nodes
-in a hybrid and multicloud environment](fleet-manager-deregister-hybrid-nodes.md "fleet-manager-deregister-hybrid-nodes.md").
+deregistering managed nodes, see [Deregistering managed nodes in a hybrid and multicloud environment](fleet-manager-deregister-hybrid-nodes.md "fleet-manager-deregister-hybrid-nodes.md").
 
 ###### Topics
 
-- [Configuring instance
-  tiers](fleet-manager-configure-instance-tiers.md "fleet-manager-configure-instance-tiers.md")
-- [Resetting passwords on managed
-  nodes](fleet-manager-reset-password.md "fleet-manager-reset-password.md")
-- [Deregistering managed nodes
-  in a hybrid and multicloud environment](fleet-manager-deregister-hybrid-nodes.md "fleet-manager-deregister-hybrid-nodes.md")
-- [Working with OS file systems
-  using Fleet Manager](fleet-manager-file-system-management.md "fleet-manager-file-system-management.md")
-- [Monitoring managed node
-  performance](fleet-manager-monitoring-node-performance.md "fleet-manager-monitoring-node-performance.md")
+- [Configuring instance tiers](fleet-manager-configure-instance-tiers.md "fleet-manager-configure-instance-tiers.md")
+- [Resetting passwords on managed nodes](fleet-manager-reset-password.md "fleet-manager-reset-password.md")
+- [Deregistering managed nodes in a hybrid and multicloud environment](fleet-manager-deregister-hybrid-nodes.md "fleet-manager-deregister-hybrid-nodes.md")
+- [Working with OS file systems using Fleet Manager](fleet-manager-file-system-management.md "fleet-manager-file-system-management.md")
+- [Monitoring managed node performance](fleet-manager-monitoring-node-performance.md "fleet-manager-monitoring-node-performance.md")
 - [Working with processes](fleet-manager-manage-processes.md "fleet-manager-manage-processes.md")
 - [Viewing logs on managed nodes](fleet-manager-view-node-logs.md "fleet-manager-view-node-logs.md")
-- [Managing OS user accounts
-  and groups on managed nodes using Fleet Manager](fleet-manager-manage-os-user-accounts.md "fleet-manager-manage-os-user-accounts.md")
-- [Managing the Windows
-  registry on managed nodes](fleet-manager-manage-windows-registry.md "fleet-manager-manage-windows-registry.md")
+- [Managing OS user accounts and groups on managed nodes using Fleet Manager](fleet-manager-manage-os-user-accounts.md "fleet-manager-manage-os-user-accounts.md")
+- [Managing the Windows registry on managed nodes](fleet-manager-manage-windows-registry.md "fleet-manager-manage-windows-registry.md")

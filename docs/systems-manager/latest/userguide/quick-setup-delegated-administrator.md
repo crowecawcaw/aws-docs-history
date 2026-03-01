@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Using a delegated administrator
-
-for Quick Setup
+# Using a delegated administrator for Quick Setup
 
 After you register a delegated administrator account for Quick Setup, users with the
 appropriate permissions in that account can create, update, view, and delete
@@ -34,7 +24,5 @@ for Quick Setup.
 
 ###### Topics
 
-- [Register a delegated
-  administrator for Quick Setup](quick-setup-register-delegated-administrator.md "quick-setup-register-delegated-administrator.md")
-- [Deregister a
-  delegated administrator for Quick Setup](quick-setup-deregister-delegated-administrator.md "quick-setup-deregister-delegated-administrator.md")
+- [Register a delegated administrator for Quick Setup](quick-setup-register-delegated-administrator.md "quick-setup-register-delegated-administrator.md")
+- [Deregister a delegated administrator for Quick Setup](quick-setup-deregister-delegated-administrator.md "quick-setup-deregister-delegated-administrator.md")

@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Reference: Date and time string formats
-
-for Systems Manager
+# Reference: Date and time string formats for Systems Manager
 
 AWS Systems Manager API operations accept filters to limit the number of results returned by a
 request. Some of these API operations accept filters that require a formatted string to
@@ -29,9 +19,7 @@ parameter for the `GetCalendarState` operation. These strings are difficult to
 create. Use the examples in this topic to create formatted date and time strings to use with
 Systems Manager API operations.
 
-## Formatting date and time
-
-strings for Systems Manager
+## Formatting date and time strings for Systems Manager
 
 The following is an example of an ISO 8601 formatted date and time string.
 
@@ -59,9 +47,7 @@ hh:mm:ss
 The time portion of the string ends with the letter "Z", denoting the UTC
 standard.
 
-## Creating custom date and time
-
-strings for Systems Manager
+## Creating custom date and time strings for Systems Manager
 
 You can create custom date and time strings from your local machine using your
 preferred command line tool. The syntax you use to create an ISO 8601 formatted date and

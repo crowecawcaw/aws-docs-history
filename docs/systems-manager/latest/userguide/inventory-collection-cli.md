@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Using the AWS CLI to configure inventory data
-
-collection
+# Using the AWS CLI to configure inventory data collection
 
 The following procedures walk you through the process of configuring AWS Systems Manager
 Inventory to collect metadata from your managed nodes. When you configure inventory
@@ -26,9 +16,7 @@ A node can have only one inventory association configured at a time. If you
 configure a node with two or more inventory associations, the association doesn't
 run and no inventory data is collected.
 
-## Quickly configure all of your managed
-
-nodes for Inventory (CLI)
+## Quickly configure all of your managed nodes for Inventory (CLI)
 
 You can quickly configure all managed nodes in your AWS account and in the
 current Region to collect inventory data. This is called creating a global inventory
@@ -36,9 +24,7 @@ association. To create a global inventory association by using the AWS CLI, use 
 wildcard option for the `instanceIds` value, as shown in the following
 procedure.
 
-###### To configure inventory for all managed nodes in your AWS account and in the
-
-current Region (CLI)
+###### To configure inventory for all managed nodes in your AWS account and in the current Region (CLI)
 
 1. Install and configure the AWS Command Line Interface (AWS CLI), if you haven't already.
 
@@ -70,9 +56,7 @@ aws ssm create-association ^
 This command doesn't allow Inventory to collect metadata for the Windows
 Registry or files. To inventory these datatypes, use the next procedure.
 
-## Manually configuring Inventory on
-
-your managed nodes (CLI)
+## Manually configuring Inventory on your managed nodes (CLI)
 
 Use the following procedure to manually configure AWS Systems Manager Inventory on your
 managed nodes by using node IDs or tags.
@@ -183,8 +167,7 @@ aws ssm create-association ^
 You can also inventory files and Windows Registry keys on a Windows Server node
 by using the `files` and `windowsRegistry` inventory
 types with expressions. For more information about these inventory types,
-see [Working with file and Windows registry
-inventory](inventory-file-and-registry.md "inventory-file-and-registry.md").
+see [Working with file and Windows registry inventory](inventory-file-and-registry.md "inventory-file-and-registry.md").
 
 Linux & macOS
 

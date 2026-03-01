@@ -1,15 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Sample scenario for using the
-
-InstallOverrideList parameter in `AWS-RunPatchBaseline` or
-`AWS-RunPatchBaselineAssociation`
+# Sample scenario for using the InstallOverrideList parameter in `AWS-RunPatchBaseline` or `AWS-RunPatchBaselineAssociation`
 
 You can use the `InstallOverrideList` parameter when you want to
 override the patches specified by the current default patch baseline in Patch Manager, a
@@ -54,8 +43,7 @@ schedules, while still using the same patch baseline:
 When you're patching a node that only uses IPv6, ensure that the provided URL
 is reachable from the node. If the SSM Agent config option
 `UseDualStackEndpoint` is set to `true`, then a
-dualstack S3 client is used when an S3 URL is provided. See [Tutorial: Patching a
-server in an IPv6 only environment](patch-manager-server-patching-iPv6-tutorial.md "patch-manager-server-patching-iPv6-tutorial.md") for more information
+dualstack S3 client is used when an S3 URL is provided. See [Tutorial: Patching a server in an IPv6 only environment](patch-manager-server-patching-iPv6-tutorial.md "patch-manager-server-patching-iPv6-tutorial.md") for more information
 on configuring the agent to use dualstack.
 
 For more information and sample lists, see [Parameter name: InstallOverrideList](patch-manager-aws-runpatchbaseline.md#patch-manager-aws-runpatchbaseline-parameters-installoverridelist "patch-manager-aws-runpatchbaseline.md#patch-manager-aws-runpatchbaseline-parameters-installoverridelist").

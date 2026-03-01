@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Configure SSM Agent to use a
-
-proxy for Windows Server instances
+# Configure SSM Agent to use a proxy for Windows Server instances
 
 The information in this topic applies to Windows Server instances created on or after
 November 2016 that do _not_ use the Nano
@@ -86,9 +76,7 @@ Remove-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\AmazonSSMAgent
 Restart-Service AmazonSSMAgent
 ```
 
-## SSM Agent proxy setting
-
-precedence
+## SSM Agent proxy setting precedence
 
 When configuring proxy settings for the SSM Agent on Windows Server instances, it's
 important to understand these settings are evaluated and applied to the agent
@@ -117,9 +105,7 @@ SSM Agent proxy settings are evaluated in the following order.
 5. `WinHTTP` proxy settings (`http=`,
    `https=`, `bypass-list=`)
 
-## SSM Agent proxy settings and Systems Manager
-
-services
+## SSM Agent proxy settings and Systems Manager services
 
 If you configured the SSM Agent to use a proxy and are using AWS Systems Manager tools,
 such as Run Command and Patch Manager, that use PowerShell or the Windows Update client

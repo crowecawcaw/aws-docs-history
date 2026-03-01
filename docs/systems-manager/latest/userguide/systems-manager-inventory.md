@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # AWS Systems Manager Inventory
 
 AWS Systems Manager Inventory provides visibility into your AWS computing environment. You can use
@@ -37,7 +29,7 @@ you can specify.
 | Configuration               | Details                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Metadata types              | You can configure Inventory to collect the following types of<br>data:<br>• **Applications**: Application<br>names, publishers, versions, etc.<br>• **AWS components**: EC2 driver,<br>agents, versions, etc.<br>• **Files**: Name, size, version,<br>installed date, modification and last accessed times,<br>etc.<br>• **Network configuration**: IP<br>address, MAC address, DNS, gateway, subnet mask, etc.<br>• **Windows updates**: Hotfix ID,<br>installed by, installed date, etc.<br>• **Instance details**: CPUModel,<br>CPUCores, CPUs, CPUSpeedMHz, CPUSockets, CPUHyperThreadEnabled,<br>OSServicePacketc.<br>• **Services**: Name, display name,<br>status, dependent services, service type, start type,<br>etc.<br>• **Tags**: Tags assigned to your<br>nodes.<br>• **Windows Registry**: Registry<br>key path, value name, value type, and value.<br>• **Windows roles**: Name, display<br>name, path, feature type, installed state, etc.<br>• **Custom inventory**: Metadata<br>that was assigned to a managed node as described in [Working with custom inventory](inventory-custom.md "inventory-custom.md").<br>NoteTo view a list of all metadata collected by Inventory, see [Metadata collected by Inventory](inventory-schema.md "inventory-schema.md"). |
-| Nodes to target             | You can choose to inventory all managed nodes in your AWS account,<br>individually select nodes, or target groups of nodes by using tags. For<br>more information about collecting inventory data from all of your<br>managed nodes, see [Inventory all managed nodes in<br>your AWS account](inventory-collection.md#inventory-management-inventory-all "inventory-collection.md#inventory-management-inventory-all").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| Nodes to target             | You can choose to inventory all managed nodes in your AWS account,<br>individually select nodes, or target groups of nodes by using tags. For<br>more information about collecting inventory data from all of your<br>managed nodes, see [Inventory all managed nodes in your AWS account](inventory-collection.md#inventory-management-inventory-all "inventory-collection.md#inventory-management-inventory-all").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | When to collect information | You can specify a collection interval in terms of minutes, hours, and<br>days. The shortest collection interval is every 30 minutes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 
 ###### Note
@@ -61,37 +53,25 @@ with a state of _Terminated_.
 
 If you create a resource data sync to synchronize and store all of your data in a single
 Amazon S3 bucket, then you can drill down into the data on the **Inventory Detailed
-View** page. For more information, see [Querying inventory data from multiple
-Regions and accounts](systems-manager-inventory-query.md "systems-manager-inventory-query.md").
+View** page. For more information, see [Querying inventory data from multiple Regions and accounts](systems-manager-inventory-query.md "systems-manager-inventory-query.md").
 
 ###### EventBridge support
 
 This Systems Manager tool is supported as an _event_ type in Amazon EventBridge rules.
-For information, see [Monitoring Systems Manager events with
-Amazon EventBridge](monitoring-eventbridge-events.md "monitoring-eventbridge-events.md") and [Reference: Amazon EventBridge event patterns and types
-for Systems Manager](reference-eventbridge-events.md "reference-eventbridge-events.md").
+For information, see [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md "monitoring-eventbridge-events.md") and [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md "reference-eventbridge-events.md").
 
 ###### Contents
 
 - [Learn more about Systems Manager Inventory](inventory-about.md "inventory-about.md")
-- [Setting up Systems Manager
-  Inventory](systems-manager-inventory-setting-up.md "systems-manager-inventory-setting-up.md")
+- [Setting up Systems Manager Inventory](systems-manager-inventory-setting-up.md "systems-manager-inventory-setting-up.md")
 - [Configuring inventory collection](inventory-collection.md "inventory-collection.md")
-- [Querying inventory data from multiple
-  Regions and accounts](systems-manager-inventory-query.md "systems-manager-inventory-query.md")
-- [Querying an inventory collection by using
-  filters](inventory-query-filters.md "inventory-query-filters.md")
+- [Querying inventory data from multiple Regions and accounts](systems-manager-inventory-query.md "systems-manager-inventory-query.md")
+- [Querying an inventory collection by using filters](inventory-query-filters.md "inventory-query-filters.md")
 - [Aggregating inventory data](inventory-aggregate.md "inventory-aggregate.md")
 - [Working with custom inventory](inventory-custom.md "inventory-custom.md")
-- [Viewing inventory history and change
-  tracking](inventory-history.md "inventory-history.md")
-- [Stopping data collection and deleting
-  inventory data](systems-manager-inventory-delete.md "systems-manager-inventory-delete.md")
-- [Assigning custom inventory metadata to a
-  managed node](inventory-custom-metadata.md "inventory-custom-metadata.md")
-- [Using the AWS CLI to configure inventory data
-  collection](inventory-collection-cli.md "inventory-collection-cli.md")
-- [Walkthrough: Using resource data sync to
-  aggregate inventory data](inventory-resource-data-sync.md "inventory-resource-data-sync.md")
-- [Troubleshooting problems with Systems Manager
-  Inventory](syman-inventory-troubleshooting.md "syman-inventory-troubleshooting.md")
+- [Viewing inventory history and change tracking](inventory-history.md "inventory-history.md")
+- [Stopping data collection and deleting inventory data](systems-manager-inventory-delete.md "systems-manager-inventory-delete.md")
+- [Assigning custom inventory metadata to a managed node](inventory-custom-metadata.md "inventory-custom-metadata.md")
+- [Using the AWS CLI to configure inventory data collection](inventory-collection-cli.md "inventory-collection-cli.md")
+- [Walkthrough: Using resource data sync to aggregate inventory data](inventory-resource-data-sync.md "inventory-resource-data-sync.md")
+- [Troubleshooting problems with Systems Manager Inventory](syman-inventory-troubleshooting.md "syman-inventory-troubleshooting.md")

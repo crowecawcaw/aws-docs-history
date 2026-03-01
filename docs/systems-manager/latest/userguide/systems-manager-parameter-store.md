@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # AWS Systems Manager Parameter Store
 
 Parameter Store, a tool in AWS Systems Manager, provides secure, hierarchical storage for configuration
@@ -19,8 +11,7 @@ navigation pane, choose **Parameter Store**.
 
 Parameter Store is also integrated with Secrets Manager. You can retrieve Secrets Manager secrets when using other
 AWS services that already support references to Parameter Store parameters. For more information,
-see [Referencing AWS Secrets Manager secrets from
-Parameter Store parameters](integration-ps-secretsmanager.md "integration-ps-secretsmanager.md").
+see [Referencing AWS Secrets Manager secrets from Parameter Store parameters](integration-ps-secretsmanager.md "integration-ps-secretsmanager.md").
 
 ###### Note
 
@@ -29,9 +20,7 @@ retrieve database credentials, API keys, and other secrets throughout their life
 using Secrets Manager. For more information, see [What is AWS Secrets Manager?](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md") in the
 _AWS Secrets Manager User Guide_.
 
-## How can Parameter Store benefit my
-
-organization?
+## How can Parameter Store benefit my organization?
 
 Parameter Store offers these benefits:
 
@@ -58,8 +47,7 @@ Parameter Store offers these benefits:
 - **Change notification**
 
 You can configure change notifications and invoke automated actions for both
-parameters and parameter policies. For more information, see [Setting up notifications or triggering
-actions based on Parameter Store events](sysman-paramstore-cwe.md "sysman-paramstore-cwe.md").
+parameters and parameter policies. For more information, see [Setting up notifications or triggering actions based on Parameter Store events](sysman-paramstore-cwe.md "sysman-paramstore-cwe.md").
 
 - **Organize
   parameters**
@@ -120,11 +108,8 @@ notification, monitoring, and auditing:
 
     + AWS Key Management Service (AWS KMS)
     + Amazon Simple Notification Service (Amazon SNS)
-    + Amazon CloudWatch: For more information, see [Configuring EventBridge rules for parameters
-     and parameter policies](sysman-paramstore-cwe.md#cwe-parameter-changes "sysman-paramstore-cwe.md#cwe-parameter-changes").
-    + Amazon EventBridge: For more information, see [Monitoring Systems Manager status changes using
-     Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifications.md") and [Reference: Amazon EventBridge event patterns and types
-     for Systems Manager](reference-eventbridge-events.md "reference-eventbridge-events.md").
+    + Amazon CloudWatch: For more information, see [Configuring EventBridge rules for parameters and parameter policies](sysman-paramstore-cwe.md#cwe-parameter-changes "sysman-paramstore-cwe.md#cwe-parameter-changes").
+    + Amazon EventBridge: For more information, see [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifications.md") and [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md "reference-eventbridge-events.md").
     + AWS CloudTrail: For more information, see [Logging AWS Systems Manager API calls with AWS CloudTrail](monitoring-cloudtrail-logs.md "monitoring-cloudtrail-logs.md").
 
 ## What is a parameter?
@@ -188,8 +173,7 @@ Don't store sensitive data in a `String` or `StringList`
 parameter. For all sensitive data that must remain encrypted, use only the
 `SecureString` parameter type.
 
-For more information, see [Creating a SecureString
-parameter using the AWS CLI](param-create-cli.md#param-create-cli-securestring "param-create-cli.md#param-create-cli-securestring").
+For more information, see [Creating a SecureString parameter using the AWS CLI](param-create-cli.md#param-create-cli-securestring "param-create-cli.md#param-create-cli-securestring").
 
 We recommend using `SecureString` parameters for the following
 scenarios:
@@ -214,8 +198,7 @@ data, or any other types of data that you want to protect. `SecureString`
 data is encrypted and decrypted using an AWS KMS key. You can use either a default KMS
 key provided by AWS or create and use your own AWS KMS key. (Use your own
 AWS KMS key if you want to restrict user access to `SecureString`
-parameters. For more information, see [IAM permissions for using AWS default
-keys and customer managed keys](sysman-paramstore-access.md#ps-kms-permissions "sysman-paramstore-access.md#ps-kms-permissions").)
+parameters. For more information, see [IAM permissions for using AWS default keys and customer managed keys](sysman-paramstore-access.md#ps-kms-permissions "sysman-paramstore-access.md#ps-kms-permissions").)
 
 You can also use `SecureString` parameters with other AWS services.
 In the following example, the Lambda function retrieves a `SecureString`
@@ -272,8 +255,7 @@ aws kms describe-key --key-id alias/aws/ssm
 
 **More info**
 
-- [Creating a SecureString
-  parameter in Parameter Store and joining a node to a Domain (PowerShell)](sysman-param-securestring-walkthrough.md "sysman-param-securestring-walkthrough.md")
+- [Creating a SecureString parameter in Parameter Store and joining a node to a Domain (PowerShell)](sysman-param-securestring-walkthrough.md "sysman-param-securestring-walkthrough.md")
 - [Use Parameter Store to Securely Access Secrets and Config Data in
   CodeDeploy](https://aws.amazon.com/blogs/mt/use-parameter-store-to-securely-access-secrets-and-config-data-in-aws-codedeploy/ "https://aws.amazon.com/blogs/mt/use-parameter-store-to-securely-access-secrets-and-config-data-in-aws-codedeploy/")
 - [Interesting Articles on Amazon EC2 Systems Manager Parameter Store](https://aws.amazon.com/blogs/mt/interesting-articles-on-ec2-systems-manager-parameter-store/ "https://aws.amazon.com/blogs/mt/interesting-articles-on-ec2-systems-manager-parameter-store/")
@@ -291,8 +273,7 @@ tier you use:
 If you need to store parameter values larger than 4 KB, you must use the advanced
 parameter tier. Advanced parameters provide additional capabilities but incur charges on
 your AWS account. For more information about parameter tiers and their features, see
-[Managing parameter
-tiers](parameter-store-advanced-parameters.md "parameter-store-advanced-parameters.md").
+[Managing parameter tiers](parameter-store-advanced-parameters.md "parameter-store-advanced-parameters.md").
 
 For a complete list of Parameter Store quotas and limits, see [AWS Systems Manager endpoints and
 quotas](../../../general/latest/gr/ssm.md#parameter-store "../../../general/latest/gr/ssm.md#parameter-store") in the _AWS General Reference_.

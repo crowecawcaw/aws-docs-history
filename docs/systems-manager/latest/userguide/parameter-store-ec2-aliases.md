@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Using native parameter support in
-
-Parameter Store for Amazon Machine Image IDs
+# Using native parameter support in Parameter Store for Amazon Machine Image IDs
 
 When you create a `String` parameter, you can specify the _data type_ as `aws:ec2:image` to ensure that
 the parameter value you enter is a valid Amazon Machine Image (AMI) ID format.
@@ -60,9 +50,7 @@ When it's time to use a different AMI in your instance creation workflow, you
 need only update the parameter with the new AMI value, and Parameter Store again
 validates that you have entered an ID in the proper format.
 
-## Granting permissions to create a
-
-parameter of `aws:ec2:image` data type
+## Granting permissions to create a parameter of `aws:ec2:image` data type
 
 Using AWS Identity and Access Management (IAM) policies, you can provide or restrict user access to
 Parameter Store API operations and content.
@@ -97,9 +85,7 @@ JSON
 
 ```
 
-## How AMI format validation
-
-works
+## How AMI format validation works
 
 When you specify `aws:ec2:image` as the data type for a parameter,
 Systems Manager doesn't create the parameter immediately. It instead performs an
@@ -140,5 +126,4 @@ failure.
 }
 ```
 
-For information about subscribing to Parameter Store events in EventBridge, see [Setting up notifications or triggering
-actions based on Parameter Store events](sysman-paramstore-cwe.md "sysman-paramstore-cwe.md").
+For information about subscribing to Parameter Store events in EventBridge, see [Setting up notifications or triggering actions based on Parameter Store events](sysman-paramstore-cwe.md "sysman-paramstore-cwe.md").

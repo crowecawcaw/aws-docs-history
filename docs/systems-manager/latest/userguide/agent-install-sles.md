@@ -1,19 +1,8 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Manually install SSM Agent on SUSE Linux Enterprise Server
-
-instances
+# Manually install SSM Agent on SUSE Linux Enterprise Server instances
 
 In most cases, the Amazon Machine Images (AMIs) for SUSE Linux Enterprise Server (SLES) that are
 provided by AWS come with AWS Systems Manager Agent (SSM Agent) preinstalled by default.
-For more information, see [Find AMIs with the SSM Agent
-preinstalled](ami-preinstalled-agent.md "ami-preinstalled-agent.md").
+For more information, see [Find AMIs with the SSM Agent preinstalled](ami-preinstalled-agent.md "ami-preinstalled-agent.md").
 
 In the event that SSM Agent isn’t preinstalled on a new SLES instance, or if
 you need to manually reinstall the agent, use the information on this page to
@@ -25,26 +14,19 @@ Before you install SSM Agent on a SLES instance, note the
 following:
 
 - For important information that applies to installation of SSM Agent on
-  all Linux-based operating systems, see [Manually installing and
-  uninstalling SSM Agent on EC2 instances for Linux](manually-install-ssm-agent-linux.md "manually-install-ssm-agent-linux.md").
+  all Linux-based operating systems, see [Manually installing and uninstalling SSM Agent on EC2 instances for Linux](manually-install-ssm-agent-linux.md "manually-install-ssm-agent-linux.md").
 
 ###### Topics
 
-- [Quick installation commands for
-  SSM Agent on SLES](#quick-install-sles "#quick-install-sles")
-- [Create custom agent installation commands
-  for SLES in your Region](#custom-url-sles "#custom-url-sles")
+- [Quick installation commands for SSM Agent on SLES](#quick-install-sles "#quick-install-sles")
+- [Create custom agent installation commands for SLES in your Region](#custom-url-sles "#custom-url-sles")
 
-## Quick installation commands for
-
-SSM Agent on SLES
+## Quick installation commands for SSM Agent on SLES
 
 Use the following steps to manually install SSM Agent on a single instance.
 This procedure uses globally available installation files.
 
-###### To install SSM Agent on SLES using quick copy and paste
-
-commands
+###### To install SSM Agent on SLES using quick copy and paste commands
 
 1.  Connect to your SLES instance using your preferred method, such
     as SSH.
@@ -164,9 +146,7 @@ commands
         sudo systemctl start amazon-ssm-agent
         ```
 
-## Create custom agent installation commands
-
-for SLES in your Region
+## Create custom agent installation commands for SLES in your Region
 
 When you install SSM Agent on multiple instances using a script or
 template, we recommend using installation files that are stored in the
@@ -177,8 +157,7 @@ accessible S3 bucket in the US East (Ohio) Region (`us-east-2`).
 
 ###### Tip
 
-You can also replace a global URL in the procedure [Quick installation commands for
-SSM Agent on SLES](#quick-install-sles "#quick-install-sles")
+You can also replace a global URL in the procedure [Quick installation commands for SSM Agent on SLES](#quick-install-sles "#quick-install-sles")
 earlier in this topic with a custom Regional URL you construct.
 
 In the following command, replace `region` with your own

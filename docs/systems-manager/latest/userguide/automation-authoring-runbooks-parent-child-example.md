@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Example 1:
-
-Creating parent-child runbooks
+# Example 1: Creating parent-child runbooks
 
 The following example demonstrates how to create two runbooks that patch
 tagged groups of Amazon Elastic Compute Cloud (Amazon EC2) instances in stages. These runbooks are used
@@ -17,9 +7,7 @@ control automation of the child runbook. For more information about rate control
 automations, see [Run automated operations at scale](running-automations-scale.md "running-automations-scale.md"). For more information about the
 automation actions used in this example, see the [Systems Manager Automation actions reference](automation-actions.md "automation-actions.md").
 
-## Create the
-
-child runbook
+## Create the child runbook
 
 This example runbook addresses the following scenario. Emily is a Systems
 Engineer at AnyCompany Consultants, LLC. She needs to configure patching for
@@ -786,9 +774,7 @@ JSON
 For more information about the automation actions used in this example,
 see the [Systems Manager Automation actions reference](automation-actions.md "automation-actions.md").
 
-## Create the
-
-parent runbook
+## Create the parent runbook
 
 This example runbook continues the scenario described in the previous
 section. Now that Emily has created the child runbook, she begins authoring

@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Using Document Builder to create
-
-runbooks
+# Using Document Builder to create runbooks
 
 If the AWS Systems Manager public runbooks don't support all the actions you want to perform
 on your AWS resources, you can create your own runbooks. To create a custom
@@ -124,8 +114,7 @@ information.
 
     For information about the step input fields, see the entry in
      [Systems Manager Automation actions reference](automation-actions.md "automation-actions.md") for the action type you
-     selected. For example: [aws:executeStateMachine – Run an AWS Step Functions state
-     machine](automation-action-executeStateMachine.md "automation-action-executeStateMachine.md").
+     selected. For example: [aws:executeStateMachine – Run an AWS Step Functions state machine](automation-action-executeStateMachine.md "automation-action-executeStateMachine.md").
     * (Optional) For **Additional inputs**, provide
      any additional input values needed for your runbook. The
      available input types depend on the action type you selected for
@@ -162,9 +151,7 @@ the procedure for creating a step. To remove a step, choose
 **Remove step**. 12. Choose **Create automation** to save the
 runbook.
 
-## Create a runbook that runs
-
-scripts
+## Create a runbook that runs scripts
 
 The following procedure shows how to use Document Builder in the AWS Systems Manager
 Automation console to create a custom runbook that runs a script.
@@ -182,16 +169,14 @@ Make sure you have completed the following steps:
   granted the appropriate permissions to access Systems Manager in AWS Identity and Access Management
   (IAM).
 
-For information, see [Verifying user access for
-runbooks](automation-setup.md#automation-setup-user-access "automation-setup.md#automation-setup-user-access").
+For information, see [Verifying user access for runbooks](automation-setup.md#automation-setup-user-access "automation-setup.md#automation-setup-user-access").
 
 - Verify that you have an IAM service role for Automation (also known
   as an _assume role_) in your
   AWS account. The role is required because this walkthrough uses the
   `aws:executeScript` action.
 
-For information about creating this role, see [Configuring a service role (assume
-role) access for automations](automation-setup.md#automation-setup-configure-role "automation-setup.md#automation-setup-configure-role").
+For information about creating this role, see [Configuring a service role (assume role) access for automations](automation-setup.md#automation-setup-configure-role "automation-setup.md#automation-setup-configure-role").
 
 For information about the IAM service role requirement for running
 `aws:executeScript`, see [Permissions for using runbooks](automation-document-script-considerations.md#script-permissions "automation-document-script-considerations.md#script-permissions").
@@ -201,9 +186,7 @@ For information about the IAM service role requirement for running
 For information, see [IAM and
 Amazon EC2](../../../AWSEC2/latest/UserGuide/UsingIAM.md#intro-to-iam "../../../AWSEC2/latest/UserGuide/UsingIAM.md#intro-to-iam") in the _Amazon EC2 User Guide_.
 
-###### To create a custom runbook that runs scripts using Document
-
-Builder
+###### To create a custom runbook that runs scripts using Document Builder
 
 1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
 2. In the navigation pane, choose **Documents**.

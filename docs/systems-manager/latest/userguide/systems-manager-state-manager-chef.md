@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Creating associations that run
-
-Chef recipes
+# Creating associations that run Chef recipes
 
 You can create State Manager associations that run Chef recipes by using the
 `AWS-ApplyChefRecipes` SSM document. State Manager is a tool in AWS Systems Manager.
@@ -110,9 +100,7 @@ ease troubleshooting when an association has finished running, verify that the
 association is configured to write command output to either an Amazon S3 bucket or
 CloudWatch Logs. For more information, see [Working with associations in Systems Manager](state-manager-associations.md "state-manager-associations.md").
 
-## Applying JSON attributes to targets
-
-when running a recipe
+## Applying JSON attributes to targets when running a recipe
 
 You can specify JSON attributes for your Chef client to apply to
 target nodes during an association run. When setting up the association, you can
@@ -171,9 +159,7 @@ information.
 }
 ```
 
-## Use GitHub as a cookbook
-
-source
+## Use GitHub as a cookbook source
 
 The `AWS-ApplyChefRecipes` document uses the [aws:downloadContent](documents-command-ssm-plugin-reference.md#aws-downloadContent "documents-command-ssm-plugin-reference.md#aws-downloadContent") plugin to download
 cookbooks. To download content from GitHub, specify information about
@@ -242,9 +228,7 @@ If you specify Amazon S3, the AWS Identity and Access Management (IAM) instance 
 nodes must be configured with the `AmazonS3ReadOnlyAccess` policy.
 For more information, see [Configure instance permissions required for Systems Manager](setup-instance-permissions.md "setup-instance-permissions.md").
 
-## Create an association that runs
-
-Chef recipes (console)
+## Create an association that runs Chef recipes (console)
 
 The following procedure describes how to use the Systems Manager console to create a
 State Manager association that runs Chef cookbooks by using the
@@ -266,8 +250,7 @@ State Manager association that runs Chef cookbooks by using the
    Type** that you selected in step 6. For more information, see
    the following topics:
    - [Use Git as a cookbook source](#state-manager-chef-git "#state-manager-chef-git")
-   - [Use GitHub as a cookbook
-     source](#state-manager-chef-github "#state-manager-chef-github")
+   - [Use GitHub as a cookbook source](#state-manager-chef-github "#state-manager-chef-github")
    - [Use HTTP as a cookbook source](#state-manager-chef-http "#state-manager-chef-http")
    - [Use Amazon S3 as a cookbook source](#state-manager-chef-s3 "#state-manager-chef-s3")
 
@@ -288,8 +271,7 @@ recipe[`cookbook-name1`::`recipe-name`],recipe[`cookbook-name2`::`recipe-name`]
       your target nodes.
    2. In **JSON attributes sources**, add the paths to
       any attributes that you want the Chef client to pass
-      to your target nodes.For more information, see [Applying JSON attributes to targets
-      when running a recipe](#apply-custom-json-attributes "#apply-custom-json-attributes").
+      to your target nodes.For more information, see [Applying JSON attributes to targets when running a recipe](#apply-custom-json-attributes "#apply-custom-json-attributes").
 
 10. For **Chef client version**, specify a
     Chef version. Valid values are `11` through
@@ -361,9 +343,7 @@ hybrid environment](hybrid-multicloud-service-role.md "hybrid-multicloud-service
 AWS account, verify that the instance profile or IAM service role associated with
 the managed node has the necessary permissions to write to that bucket. 18. Choose **Create Association**.
 
-## Create an association that runs
-
-Chef recipes (CLI)
+## Create an association that runs Chef recipes (CLI)
 
 The following procedure describes how to use the AWS Command Line Interface (AWS CLI) to create a
 State Manager association that runs Chef cookbooks by using the
@@ -541,8 +521,7 @@ information.
 
     State Manager associations don't support all cron and rate
      expressions. For more information about creating cron and rate
-     expressions for associations, see [Reference: Cron and rate expressions
-     for Systems Manager](reference-cron-and-rate-expressions.md "reference-cron-and-rate-expressions.md").
+     expressions for associations, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md "reference-cron-and-rate-expressions.md").
 
 3. Run the following command to view the status of the association you just
    created.
@@ -551,9 +530,7 @@ information.
 aws ssm describe-association --association-id "`ID`"
 ```
 
-## Viewing Chef resource compliance
-
-details
+## Viewing Chef resource compliance details
 
 Systems Manager captures compliance information about Chef-managed resources
 in the Amazon S3 **Compliance report bucket** value that you specified

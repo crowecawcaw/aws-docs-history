@@ -1,23 +1,11 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Reference: Cron and rate expressions
-
-for Systems Manager
+# Reference: Cron and rate expressions for Systems Manager
 
 When you create a State Manager association or a maintenance window in AWS Systems Manager, you specify a
 schedule for when the window or the association should run. You can specify a schedule as
 either a time-based entry, called a _cron expression_, or a
 frequency-based entry, called a _rate expression_.
 
-## General information about
-
-cron and rate expressions
+## General information about cron and rate expressions
 
 The following information applies to cron and rate expressions for both maintenance
 windows and associations.
@@ -163,14 +151,10 @@ For example, `rate(1 hours)` and
 
 ###### Topics
 
-- [Cron and rate
-  expressions for associations](#reference-cron-and-rate-expressions-association "#reference-cron-and-rate-expressions-association")
-- [Cron and rate
-  expressions for maintenance windows](#reference-cron-and-rate-expressions-maintenance-window "#reference-cron-and-rate-expressions-maintenance-window")
+- [Cron and rate expressions for associations](#reference-cron-and-rate-expressions-association "#reference-cron-and-rate-expressions-association")
+- [Cron and rate expressions for maintenance windows](#reference-cron-and-rate-expressions-maintenance-window "#reference-cron-and-rate-expressions-maintenance-window")
 
-## Cron and rate
-
-expressions for associations
+## Cron and rate expressions for associations
 
 This section includes examples of cron and rate expressions for State Manager associations.
 Before you create one of these expressions, be aware of the following
@@ -282,9 +266,7 @@ aws ssm create-association \
     --apply-only-at-cron-interval
 ```
 
-## Cron and rate
-
-expressions for maintenance windows
+## Cron and rate expressions for maintenance windows
 
 This section includes examples of cron and rate expressions for maintenance
 windows.

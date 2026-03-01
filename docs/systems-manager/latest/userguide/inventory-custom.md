@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Working with custom inventory
 
 You can assign any metadata you want to your nodes by creating AWS Systems Manager Inventory
@@ -23,8 +15,7 @@ data sync](inventory-resource-data-sync.md "inventory-resource-data-sync.md") an
 Systems Manager supports a maximum of 20 custom inventory types per AWS account.
 
 To assign custom inventory to a node, you can either use the Systems Manager [PutInventory](../APIReference/API_PutInventory.md "../APIReference/API_PutInventory.md") API operation, as
-described in [Assigning custom inventory metadata to a
-managed node](inventory-custom-metadata.md "inventory-custom-metadata.md"). Or, you can create a custom inventory
+described in [Assigning custom inventory metadata to a managed node](inventory-custom-metadata.md "inventory-custom-metadata.md"). Or, you can create a custom inventory
 JSON file and upload it to the node. This section describes how to create the JSON
 file.
 
@@ -176,8 +167,7 @@ The system returns information like the following.
 ```
 
 For information about how to understand the delete inventory summary, see
-[Understanding the delete
-inventory summary](#delete-custom-inventory-summary "#delete-custom-inventory-summary"). 3. Run the following command to delete all data for a custom inventory
+[Understanding the delete inventory summary](#delete-custom-inventory-summary "#delete-custom-inventory-summary"). 3. Run the following command to delete all data for a custom inventory
 type.
 
 ```
@@ -293,9 +283,7 @@ The system returns information like the following.
 }
 ```
 
-### Viewing the deletion
-
-status
+### Viewing the deletion status
 
 You can check the status of a delete operation by using the
 `describe-inventory-deletions` AWS CLI command. You can specify a
@@ -424,9 +412,7 @@ aws ssm describe-inventory-deletions --max-results `a number`
  "NextToken": "next-token"
 ```
 
-### Understanding the delete
-
-inventory summary
+### Understanding the delete inventory summary
 
 To help you understand the contents of the delete inventory summary, consider
 the following example. A user assigned Custom:RackSpace inventory to three
@@ -552,9 +538,7 @@ The system returns information like the following.
 }
 ```
 
-### Viewing inventory delete actions
-
-in EventBridge
+### Viewing inventory delete actions in EventBridge
 
 You can configure Amazon EventBridge to create an event anytime a user deletes custom
 inventory. EventBridge offers three types of events for custom inventory delete

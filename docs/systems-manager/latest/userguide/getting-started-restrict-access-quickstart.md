@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Sample IAM
-
-policies for Session Manager
+# Sample IAM policies for Session Manager
 
 Use the samples in this section to help you create AWS Identity and Access Management (IAM) policies
 that provide the most commonly needed permissions for Session Manager access.
@@ -23,14 +13,10 @@ _AWS Key Management Service Developer Guide_.
 
 ###### Topics
 
-- [Quickstart end user
-  policies for Session Manager](#restrict-access-quickstart-end-user "#restrict-access-quickstart-end-user")
-- [Quickstart administrator
-  policy for Session Manager](#restrict-access-quickstart-admin "#restrict-access-quickstart-admin")
+- [Quickstart end user policies for Session Manager](#restrict-access-quickstart-end-user "#restrict-access-quickstart-end-user")
+- [Quickstart administrator policy for Session Manager](#restrict-access-quickstart-admin "#restrict-access-quickstart-admin")
 
-## Quickstart end user
-
-policies for Session Manager
+## Quickstart end user policies for Session Manager
 
 Use the following examples to create IAM end user policies for Session Manager.
 
@@ -40,8 +26,7 @@ console, or from all three.
 
 These policies provide end users the ability to start a session to a
 particular managed node and the ability to end only their own sessions.
-Refer to [Additional sample
-IAM policies for Session Manager](getting-started-restrict-access-examples.md "getting-started-restrict-access-examples.md") for examples
+Refer to [Additional sample IAM policies for Session Manager](getting-started-restrict-access-examples.md "getting-started-restrict-access-examples.md") for examples
 of customizations you might want to make to the policy.
 
 In the following sample policies, replace each `example
@@ -236,8 +221,7 @@ following content from the policy.
 ```
 
 For information about using AWS KMS for encrypting session data, see
-[Turn on KMS key
-encryption of session data (console)](session-preferences-enable-encryption.md "session-preferences-enable-encryption.md").
+[Turn on KMS key encryption of session data (console)](session-preferences-enable-encryption.md "session-preferences-enable-encryption.md").
 
 The permission for [SendCommand](../APIReference/API_SendCommand.md "../APIReference/API_SendCommand.md") is needed for cases where a user
 attempts to start a session from the Amazon EC2 console, but the SSM Agent
@@ -245,9 +229,7 @@ must be updated to the minimum required version for Session Manager first.
 Run Command is used to send a command to the instance to update the
 agent.
 
-## Quickstart administrator
-
-policy for Session Manager
+## Quickstart administrator policy for Session Manager
 
 Use the following examples to create IAM administrator policies for
 Session Manager.
@@ -256,8 +238,7 @@ These policies provide administrators the ability to start a session to
 managed nodes that are tagged with
 `Key=Finance,Value=WebServers`, permission to create, update, and
 delete preferences, and permission to end only their own sessions. Refer to
-[Additional sample
-IAM policies for Session Manager](getting-started-restrict-access-examples.md "getting-started-restrict-access-examples.md") for examples
+[Additional sample IAM policies for Session Manager](getting-started-restrict-access-examples.md "getting-started-restrict-access-examples.md") for examples
 of customizations you might want to make to the policy.
 
 You can create a policy that allows administrators to perform these tasks

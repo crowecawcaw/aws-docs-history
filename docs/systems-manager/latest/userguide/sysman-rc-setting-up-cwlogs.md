@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Configuring Amazon CloudWatch Logs for Run Command
 
 When you send a command by using Run Command, a tool in AWS Systems Manager, you can specify where
@@ -53,9 +45,7 @@ policy. For more information about updating an IAM policy, see [Editing IAM poli
 },
 ```
 
-## Specifying CloudWatch Logs when you send
-
-commands
+## Specifying CloudWatch Logs when you send commands
 
 To specify CloudWatch Logs as the output when you send a command from the AWS Management Console, choose
 **CloudWatch Output** in the **Output
@@ -91,9 +81,7 @@ aws ssm send-command ^
     --cloud-watch-output-config '{"CloudWatchLogGroupName":"`log group name`","CloudWatchOutputEnabled":true}'
 ```
 
-## Viewing command output in
-
-CloudWatch Logs
+## Viewing command output in CloudWatch Logs
 
 As soon as the command starts to run, Systems Manager sends output to CloudWatch Logs in near-real
 time. The output in CloudWatch Logs uses the following format:

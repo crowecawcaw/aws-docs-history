@@ -1,21 +1,10 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Tutorial: Create a
-
-maintenance window for patching using the console
+# Tutorial: Create a maintenance window for patching using the console
 
 ###### Important
 
 You can continue to use this legacy topic to create a maintenance window for
 patching. However, we recommend that you use a patch policy instead. For more
-information, see [Patch policy configurations in Quick Setup](patch-manager-policies.md "patch-manager-policies.md") and [Configure patching for instances in an
-organization using a Quick Setup patch policy](quick-setup-patch-manager.md "quick-setup-patch-manager.md").
+information, see [Patch policy configurations in Quick Setup](patch-manager-policies.md "patch-manager-policies.md") and [Configure patching for instances in an organization using a Quick Setup patch policy](quick-setup-patch-manager.md "quick-setup-patch-manager.md").
 
 To minimize the impact on your server availability, we recommend that you
 configure a maintenance window to run patching during times that won't interrupt
@@ -46,8 +35,7 @@ window. 7. In the top of the **Schedule** section, specify a
 schedule for the maintenance window by using one of the three scheduling
 options.
 
-For information about building cron/rate expressions, see [Reference: Cron and rate expressions
-for Systems Manager](reference-cron-and-rate-expressions.md "reference-cron-and-rate-expressions.md"). 8. For **Duration**, enter the number of hours the
+For information about building cron/rate expressions, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md "reference-cron-and-rate-expressions.md"). 8. For **Duration**, enter the number of hours the
 maintenance window will run. The value you specify determines the specific
 end time for the maintenance window based on the time it begins. No
 maintenance window tasks are permitted to start after the resulting endtime
@@ -157,8 +145,7 @@ the box. 28. In the **SNS notifications** section, if you want notifications sen
 about the status of the command execution, select the **Enable SNS
 notifications** check box.
 
-For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager status changes using
-Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifications.md"). 29. For **Parameters**:
+For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifications.md"). 29. For **Parameters**:
 
     * For **Operation**, choose
      **Scan** to scan for missing patches, or choose

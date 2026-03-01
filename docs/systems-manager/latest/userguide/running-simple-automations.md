@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Run an automated operation powered by Systems Manager
-
-Automation
+# Run an automated operation powered by Systems Manager Automation
 
 When you run an automation, by default, the automation runs in the context of the user
 who initiated the automation. This means, for example, if your user has administrator
@@ -49,8 +39,7 @@ accounts.
 
 Before you complete the following procedures, you must create the IAM service
 role and configure a trust relationship for Automation, a tool in AWS Systems Manager. For
-more information, see [Task 1: Create a service role for
-Automation](automation-setup-iam.md#create-service-role "automation-setup-iam.md#create-service-role").
+more information, see [Task 1: Create a service role for Automation](automation-setup-iam.md#create-service-role "automation-setup-iam.md#create-service-role").
 
 The following procedures describe how to use the Systems Manager console or your preferred
 command line tool to run a simple automation.

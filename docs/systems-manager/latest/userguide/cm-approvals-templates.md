@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# About approvals in your
-
-change templates
+# About approvals in your change templates
 
 ###### Change Manager availability change
 
@@ -43,8 +33,7 @@ For example, you could specify five approvers but require three
 approvals.
 
 For console-view and JSON samples of this approval type, see
-[Sample per-level approval
-configuration](approval-type-samples.md#per-level-approvals "approval-type-samples.md#per-level-approvals").
+[Sample per-level approval configuration](approval-type-samples.md#per-level-approvals "approval-type-samples.md#per-level-approvals").
 
 Per-line approvals
 _Supported for backward
@@ -58,8 +47,7 @@ before this date continue to support per-line approvals, but we
 recommend using per-level approvals instead.
 
 For console-view and JSON samples of this approval type, see
-[Sample per-line approval
-configuration](approval-type-samples.md#per-line-approvals "approval-type-samples.md#per-line-approvals").
+[Sample per-line approval configuration](approval-type-samples.md#per-line-approvals "approval-type-samples.md#per-line-approvals").
 
 Combined per-line and per-level approvals
 _Not recommended_. In the
@@ -72,8 +60,7 @@ you create or update a change template by editing its YAML
 content manually,
 
 For console-view and JSON samples of this approval type, see
-[Sample combined per-level and
-per-line approval configuration](approval-type-samples.md#combined-approval-levels "approval-type-samples.md#combined-approval-levels").
+[Sample combined per-level and per-line approval configuration](approval-type-samples.md#combined-approval-levels "approval-type-samples.md#combined-approval-levels").
 
 ###### Important
 
@@ -94,9 +81,7 @@ or per-level approvals) takes precedence. For example:
   However, new levels that you add using the console still support only
   per-level approval configurations.
 
-## Change request notifications and
-
-rejections
+## Change request notifications and rejections
 
 Amazon SNS notifications
 

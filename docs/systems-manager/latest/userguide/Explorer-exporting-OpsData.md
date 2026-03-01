@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Exporting OpsData from Systems Manager
-
-Explorer
+# Exporting OpsData from Systems Manager Explorer
 
 You can export 5,000 OpsData items as a comma separated value (.csv) file to an
 Amazon Simple Storage Service (Amazon S3) bucket from AWS Systems Manager Explorer. Explorer uses the [AWS-ExportOpsDataToS3](../../../systems-manager-automation-runbooks/latest/userguide/automation-aws-exportopsdatatos3.md "../../../systems-manager-automation-runbooks/latest/userguide/automation-aws-exportopsdatatos3.md") automation runbook to export
@@ -19,8 +9,7 @@ to be exported.
 ###### To export OpsData:
 
 - [Step 1: Specifying an SNS topic](#Explorer-specify-SNS-topic "#Explorer-specify-SNS-topic")
-- [Step 2: (Optional) Configuring data
-  export](#Explorer-configure-data-export "#Explorer-configure-data-export")
+- [Step 2: (Optional) Configuring data export](#Explorer-configure-data-export "#Explorer-configure-data-export")
 - [Step 3: Exporting OpsData](#Explorer-export-OpsData "#Explorer-export-OpsData")
 
 ## Step 1: Specifying an SNS topic
@@ -30,9 +19,7 @@ exists in the same AWS Region where you want to export the data. Systems Manager
 notification to the Amazon SNS topic when an export is complete. For information about
 creating an Amazon SNS topic, see [Creating an Amazon SNS topic](../../../sns/latest/dg/sns-tutorial-create-topic.md "../../../sns/latest/dg/sns-tutorial-create-topic.md").
 
-## Step 2: (Optional) Configuring data
-
-export
+## Step 2: (Optional) Configuring data export
 
 You can configure data export settings from the **Settings** or
 **Export Ops Data to S3 Bucket** page.

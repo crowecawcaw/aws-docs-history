@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Create the IAM service role required
-
-for Systems Manager in hybrid and multicloud environments
+# Create the IAM service role required for Systems Manager in hybrid and multicloud environments
 
 Non-EC2 (Amazon Elastic Compute Cloud) machines in a [hybrid and multicloud](operating-systems-and-machine-types.md#supported-machine-types "operating-systems-and-machine-types.md#supported-machine-types") environment require an AWS Identity and Access Management (IAM)
 service role to communicate with the AWS Systems Manager service. The role grants AWS Security Token Service
@@ -21,9 +11,7 @@ different permissions.
 The following procedures describe how to create the required service role using the
 Systems Manager console or your preferred command line tool.
 
-## Using the AWS Management Console
-
-to create an IAM service role for Systems Manager hybrid activations
+## Using the AWS Management Console to create an IAM service role for Systems Manager hybrid activations
 
 Use the following procedure to create a service role for hybrid activation. This
 procedure uses the `AmazonSSMManagedInstanceCore` policy for Systems Manager core
@@ -64,8 +52,7 @@ Amazon Simple Storage Service (Amazon S3) buckets, Patch Manager patching operat
 
    The console retains your selection even if you search for
    other policies.
-   - If you created a custom S3 bucket policy in the procedure [(Optional) Create a custom
-     policy for S3 bucket access](setup-instance-permissions.md#instance-profile-custom-s3-policy "setup-instance-permissions.md#instance-profile-custom-s3-policy"), search for
+   - If you created a custom S3 bucket policy in the procedure [(Optional) Create a custom policy for S3 bucket access](setup-instance-permissions.md#instance-profile-custom-s3-policy "setup-instance-permissions.md#instance-profile-custom-s3-policy"), search for
      it and select the check box next to its name.
    - If you plan to join non-EC2 machines to an Active Directory
      managed by Directory Service, search for
@@ -87,9 +74,7 @@ for this IAM server role. 9. (Optional) For **Tags**, add one or more tag-key va
 pairs to organize, track, or control access for this role. 10. Choose **Create role**. The system returns you to the
 **Roles** page.
 
-## Using the AWS CLI to
-
-create an IAM service role for Systems Manager hybrid activations
+## Using the AWS CLI to create an IAM service role for Systems Manager hybrid activations
 
 Use the following procedure to create a service role for hybrid activation. This
 procedure uses the `AmazonSSMManagedInstanceCore` policy Systems Manager core
@@ -115,9 +100,7 @@ procedure:
 
 AWS CLI
 
-###### To create an IAM service role for a hybrid and multicloud
-
-environment (AWS CLI)
+###### To create an IAM service role for a hybrid and multicloud environment (AWS CLI)
 
 1. Install and configure the AWS Command Line Interface (AWS CLI), if you haven't already.
 
@@ -270,9 +253,7 @@ aws iam attach-role-policy \
 
 Tools for PowerShell
 
-###### To create an IAM service role for a hybrid and multicloud
-
-environment (AWS Tools for Windows PowerShell)
+###### To create an IAM service role for a hybrid and multicloud environment (AWS Tools for Windows PowerShell)
 
 1. Install and configure the AWS Tools for PowerShell (Tools for Windows PowerShell), if you haven't already.
 
@@ -380,5 +361,4 @@ Register-IAMRolePolicy `
     -PolicyArn arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
 ```
 
-Continue to [Create a hybrid activation to register
-nodes with Systems Manager](hybrid-activation-managed-nodes.md "hybrid-activation-managed-nodes.md").
+Continue to [Create a hybrid activation to register nodes with Systems Manager](hybrid-activation-managed-nodes.md "hybrid-activation-managed-nodes.md").

@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Verify the signature
-
-of the Session Manager plugin
+# Verify the signature of the Session Manager plugin
 
 The Session Manager plugin RPM and Debian installer packages for Linux instances are
 cryptographically signed. You can use a public key to verify that the plugin
@@ -22,18 +12,12 @@ installer package.
 
 ###### Topics
 
-- [Step 1:
-  Download the Session Manager plugin installer package](#install-plugin-linux-verify-signature-installer-packages "#install-plugin-linux-verify-signature-installer-packages")
-- [Step 2:
-  Download the associated signature file](#install-plugin-linux-verify-signature-packages "#install-plugin-linux-verify-signature-packages")
-- [Step 3:
-  Install the GPG tool](#install-plugin-linux-verify-signature-packages-gpg "#install-plugin-linux-verify-signature-packages-gpg")
-- [Step 4:
-  Verify the Session Manager plugin installer package on a Linux server](#install-plugin-linux-verify-signature-packages "#install-plugin-linux-verify-signature-packages")
+- [Step 1: Download the Session Manager plugin installer package](#install-plugin-linux-verify-signature-installer-packages "#install-plugin-linux-verify-signature-installer-packages")
+- [Step 2: Download the associated signature file](#install-plugin-linux-verify-signature-packages "#install-plugin-linux-verify-signature-packages")
+- [Step 3: Install the GPG tool](#install-plugin-linux-verify-signature-packages-gpg "#install-plugin-linux-verify-signature-packages-gpg")
+- [Step 4: Verify the Session Manager plugin installer package on a Linux server](#install-plugin-linux-verify-signature-packages "#install-plugin-linux-verify-signature-packages")
 
-## Step 1:
-
-Download the Session Manager plugin installer package
+## Step 1: Download the Session Manager plugin installer package
 
 Download the Session Manager plugin installer package you want to verify.
 
@@ -67,9 +51,7 @@ ARM64
 curl -o "session-manager-plugin.deb" "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_arm64/session-manager-plugin.deb"
 ```
 
-## Step 2:
-
-Download the associated signature file
+## Step 2: Download the associated signature file
 
 After you download the installer package, download the associated
 signature file for package verification. To provide an extra layer of
@@ -137,9 +119,7 @@ Binary:
 curl -o "session-manager-plugin.sig" "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_arm64/session-manager-plugin.sig"
 ```
 
-## Step 3:
-
-Install the GPG tool
+## Step 3: Install the GPG tool
 
 To verify the signature of the Session Manager plugin, you must have the GNU Privacy
 Guard (GPG) tool installed on your system. The verification process
@@ -171,9 +151,7 @@ sudo apt-get install gnupg2
 Ensure you have the required GPG version before continuing with the
 verification process.
 
-## Step 4:
-
-Verify the Session Manager plugin installer package on a Linux server
+## Step 4: Verify the Session Manager plugin installer package on a Linux server
 
 Use the following procedure to verify the Session Manager plugin installer package
 on a Linux server.

@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Diagnosing and remediating unmanaged
-
-Amazon EC2 instances in Systems Manager
+# Diagnosing and remediating unmanaged Amazon EC2 instances in Systems Manager
 
 To help you manage your Amazon Elastic Compute Cloud (Amazon EC2) instances with Systems Manager, you can use the
 unified Systems Manager console to do the following:
@@ -22,9 +12,7 @@ unified Systems Manager console to do the following:
    Use the information in the following topics to help you diagnose and remediate issues
    that are preventing Systems Manager from managing your EC2 instances.
 
-## How Systems Manager counts impacted nodes for
-
-the 'Unmanaged EC2 instance issues' list
+## How Systems Manager counts impacted nodes for the 'Unmanaged EC2 instance issues' list
 
 The number of nodes reported as unmanaged on the **Unmanaged EC2 instances
 issues** tab represents to the total number of instances with any of
@@ -53,9 +41,6 @@ is an unmanaged instance?](review-node-insights.md#unmanaged-instance-definition
 
 ###### Topics
 
-- [Categories of diagnosable unmanaged
-  EC2 instance issues](diagnosing-ec2-category-types.md "diagnosing-ec2-category-types.md")
-- [Running a diagnosis and optional
-  remediation for unmanaged EC2 instances](running-diagnosis-execution-ec2.md "running-diagnosis-execution-ec2.md")
-- [Scheduling a recurring scan for
-  unmanaged EC2 instances](schedule-recurring-ec2-diagnosis.md "schedule-recurring-ec2-diagnosis.md")
+- [Categories of diagnosable unmanaged EC2 instance issues](diagnosing-ec2-category-types.md "diagnosing-ec2-category-types.md")
+- [Running a diagnosis and optional remediation for unmanaged EC2 instances](running-diagnosis-execution-ec2.md "running-diagnosis-execution-ec2.md")
+- [Scheduling a recurring scan for unmanaged EC2 instances](schedule-recurring-ec2-diagnosis.md "schedule-recurring-ec2-diagnosis.md")

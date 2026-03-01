@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Learn Quick Setup terminology and details
 
 Quick Setup, a tool in AWS Systems Manager, displays the results of all configuration managers
@@ -87,9 +79,7 @@ deployment by selecting the deployment and then choosing **View
 details**. The details page of each deployment displays the
 associations deployed to the nodes in that deployment.
 
-## Editing and deleting your
-
-configuration
+## Editing and deleting your configuration
 
 You can edit configuration options of a configuration from the
 **Configuration details** page by choosing

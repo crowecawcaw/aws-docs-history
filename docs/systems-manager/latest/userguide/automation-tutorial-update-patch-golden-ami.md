@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Update a golden
-
-AMI using Automation, AWS Lambda, and Parameter Store
+# Update a golden AMI using Automation, AWS Lambda, and Parameter Store
 
 The following example uses the model where an organization maintains and
 periodically patches their own, proprietary AMIs rather than building from
@@ -31,18 +21,12 @@ more information, see [Setting up Automation](automation-setup.md "automation-se
 
 ###### Contents
 
-- [Task 1: Create a parameter in Systems Manager
-  Parameter Store](#create-parameter-ami "#create-parameter-ami")
-- [Task 2: Create an IAM role for
-  AWS Lambda](#create-lambda-role "#create-lambda-role")
-- [Task 3: Create an AWS Lambda
-  function](#create-lambda-function "#create-lambda-function")
-- [Task 4: Create a runbook
-  and patch the AMI](#create-custom-ami-update-runbook "#create-custom-ami-update-runbook")
+- [Task 1: Create a parameter in Systems Manager Parameter Store](#create-parameter-ami "#create-parameter-ami")
+- [Task 2: Create an IAM role for AWS Lambda](#create-lambda-role "#create-lambda-role")
+- [Task 3: Create an AWS Lambda function](#create-lambda-function "#create-lambda-function")
+- [Task 4: Create a runbook and patch the AMI](#create-custom-ami-update-runbook "#create-custom-ami-update-runbook")
 
-## Task 1: Create a parameter in Systems Manager
-
-Parameter Store
+## Task 1: Create a parameter in Systems Manager Parameter Store
 
 Create a string parameter in Parameter Store that uses the following
 information:
@@ -50,12 +34,9 @@ information:
 - **Name**: `latestAmi`.
 - **Value**: An AMI ID. For example:`ami-188d6e0e`.
 
-For information about how to create a Parameter Store string parameter, see [Creating Parameter Store parameters in
-Systems Manager](sysman-paramstore-su-create.md "sysman-paramstore-su-create.md").
+For information about how to create a Parameter Store string parameter, see [Creating Parameter Store parameters in Systems Manager](sysman-paramstore-su-create.md "sysman-paramstore-su-create.md").
 
-## Task 2: Create an IAM role for
-
-AWS Lambda
+## Task 2: Create an IAM role for AWS Lambda
 
 Use the following procedure to create an IAM service role for AWS Lambda.
 These policies give Lambda permission to update the value of the
@@ -161,9 +142,7 @@ change the name of the role after it has been created. 22. (Optional) Add one or
 or control access for this role, and then choose **Create
 role**.
 
-## Task 3: Create an AWS Lambda
-
-function
+## Task 3: Create an AWS Lambda function
 
 Use the following procedure to create a Lambda function that automatically
 updates the value of the `latestAmi` parameter.
@@ -271,9 +250,7 @@ def lambda_handler(event, context):
     reported as **Succeeded**, along with other details
     about the update.
 
-## Task 4: Create a runbook
-
-and patch the AMI
+## Task 4: Create a runbook and patch the AMI
 
 Use the following procedure to create and run a runbook that patches the
 AMI you specified for the **latestAmi** parameter. After

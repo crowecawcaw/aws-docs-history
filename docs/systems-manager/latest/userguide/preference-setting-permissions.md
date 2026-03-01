@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Grant or deny a user
-
-permissions to update Session Manager preferences
+# Grant or deny a user permissions to update Session Manager preferences
 
 Account preferences are stored as AWS Systems Manager (SSM) documents for each
 AWS Region. Before a user can update account preferences for sessions in your
@@ -16,9 +6,7 @@ account, they must be granted the necessary permissions to access the type of
 SSM document where these preferences are stored. These permissions are granted
 through an AWS Identity and Access Management (IAM) policy.
 
-###### Administrator policy to allow preferences to be created and
-
-updated
+###### Administrator policy to allow preferences to be created and updated
 
 An administrator can have the following policy to create and update
 preferences at any time. The following policy allows permission to access

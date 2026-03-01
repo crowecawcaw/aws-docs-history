@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Learn details about Compliance
 
 Compliance, a tool in AWS Systems Manager, collects and reports data about the status of
@@ -21,8 +13,7 @@ Systems Manager integrates with [Chef
 InSpec](https://www.chef.io/inspec/ "https://www.chef.io/inspec/"). InSpec is an open-source, runtime framework that
 allows you to create human-readable profiles on GitHub or Amazon Simple Storage Service
 (Amazon S3). Then you can use Systems Manager to run compliance scans and view compliant and
-noncompliant instances. For more information, see [Using Chef InSpec profiles
-with Systems Manager Compliance](integration-chef-inspec.md "integration-chef-inspec.md").
+noncompliant instances. For more information, see [Using Chef InSpec profiles with Systems Manager Compliance](integration-chef-inspec.md "integration-chef-inspec.md").
 
 ## About patch compliance
 
@@ -30,12 +21,9 @@ After you use Patch Manager to install patches on your instances, compliance sta
 information is immediately available to you in the console or in response to
 AWS Command Line Interface (AWS CLI) commands or corresponding Systems Manager API operations.
 
-For information about patch compliance status values, see [Patch compliance state
-values](patch-manager-compliance-states.md "patch-manager-compliance-states.md").
+For information about patch compliance status values, see [Patch compliance state values](patch-manager-compliance-states.md "patch-manager-compliance-states.md").
 
-## About State Manager association
-
-compliance
+## About State Manager association compliance
 
 After you create one or more State Manager associations, compliance status information
 is immediately available to you in the console or in response to AWS CLI commands or
@@ -103,26 +91,20 @@ nodes are or aren't compliant. You can assign a maximum of 10 different custom
 compliance types to a managed node.
 
 For an example of how to create a custom compliance type and view compliance data,
-see [Assign custom compliance metadata using
-the AWS CLI](compliance-custom-metadata-cli.md "compliance-custom-metadata-cli.md").
+see [Assign custom compliance metadata using the AWS CLI](compliance-custom-metadata-cli.md "compliance-custom-metadata-cli.md").
 
 ## Viewing current compliance data
 
 This section describes how to view compliance data in the Systems Manager console and by
 using the AWS CLI. For information about how to view patch and association compliance
-history and change tracking, see [Viewing compliance configuration history and
-change tracking](#compliance-history "#compliance-history").
+history and change tracking, see [Viewing compliance configuration history and change tracking](#compliance-history "#compliance-history").
 
 ###### Topics
 
-- [Viewing current compliance
-  data (console)](#compliance-view-results-console "#compliance-view-results-console")
-- [Viewing current compliance data
-  (AWS CLI)](#compliance-view-data-cli "#compliance-view-data-cli")
+- [Viewing current compliance data (console)](#compliance-view-results-console "#compliance-view-results-console")
+- [Viewing current compliance data (AWS CLI)](#compliance-view-data-cli "#compliance-view-data-cli")
 
-### Viewing current compliance
-
-data (console)
+### Viewing current compliance data (console)
 
 Use the following procedure to view compliance data in the Systems Manager
 console.
@@ -147,9 +129,7 @@ console.
 
 For information about fixing compliance issues, see [Remediating compliance issues using EventBridge](compliance-fixing.md "compliance-fixing.md").
 
-### Viewing current compliance data
-
-(AWS CLI)
+### Viewing current compliance data (AWS CLI)
 
 You can view summaries of compliance data for patching, associations, and
 custom compliance types in the in the AWS CLI by using the following AWS CLI
@@ -183,12 +163,9 @@ specified patch group. (API: [DescribeInstancePatchStatesForPatchGroup](../APIRe
 ###### Note
 
 For an illustration of how to configure patching and view patch compliance
-details by using the AWS CLI, see [Tutorial: Patch a
-server environment using the AWS CLI](patch-manager-patch-servers-using-the-aws-cli.md "patch-manager-patch-servers-using-the-aws-cli.md").
+details by using the AWS CLI, see [Tutorial: Patch a server environment using the AWS CLI](patch-manager-patch-servers-using-the-aws-cli.md "patch-manager-patch-servers-using-the-aws-cli.md").
 
-## Viewing compliance configuration history and
-
-change tracking
+## Viewing compliance configuration history and change tracking
 
 Systems Manager Compliance displays _current_ patching and association
 compliance data for your managed nodes. You can view patching and association

@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Configuring Amazon SNS topics for Change Manager
-
-notifications
+# Configuring Amazon SNS topics for Change Manager notifications
 
 ###### Change Manager availability change
 
@@ -24,16 +14,11 @@ Change Manager events you add a topic to.
 
 ###### Topics
 
-- [Task 1: Create and
-  subscribe to an Amazon SNS topic](#change-manager-sns-setup-create-topic "#change-manager-sns-setup-create-topic")
-- [Task 2: Update
-  the Amazon SNS access policy](#change-manager-sns-setup-encryption-policy "#change-manager-sns-setup-encryption-policy")
-- [Task 3: (Optional)
-  Update the AWS Key Management Service access policy](#change-manager-sns-setup-KMS-policy "#change-manager-sns-setup-KMS-policy")
+- [Task 1: Create and subscribe to an Amazon SNS topic](#change-manager-sns-setup-create-topic "#change-manager-sns-setup-create-topic")
+- [Task 2: Update the Amazon SNS access policy](#change-manager-sns-setup-encryption-policy "#change-manager-sns-setup-encryption-policy")
+- [Task 3: (Optional) Update the AWS Key Management Service access policy](#change-manager-sns-setup-KMS-policy "#change-manager-sns-setup-KMS-policy")
 
-## Task 1: Create and
-
-subscribe to an Amazon SNS topic
+## Task 1: Create and subscribe to an Amazon SNS topic
 
 First, you must create and subscribe to an Amazon SNS topic. For more
 information, see [Creating a Amazon SNS topic](../../../sns/latest/dg/sns-create-topic.md "../../../sns/latest/dg/sns-create-topic.md")
@@ -46,9 +31,7 @@ To receive notifications, you must specify the Amazon Resource Name
 (ARN) of an Amazon SNS topic that is in the same AWS Region and
 AWS account as the delegated administrator account.
 
-## Task 2: Update
-
-the Amazon SNS access policy
+## Task 2: Update the Amazon SNS access policy
 
 Use the following procedure to update the Amazon SNS access policy so that
 Systems Manager can publish Change Manager notifications to the Amazon SNS topic you created in
@@ -98,9 +81,7 @@ you add to topic for occurs.
 If you configured the Amazon SNS topic with an AWS Key Management Service (AWS KMS)
 server-side encryption key, then you must complete Task 3.
 
-## Task 3: (Optional)
-
-Update the AWS Key Management Service access policy
+## Task 3: (Optional) Update the AWS Key Management Service access policy
 
 If you turned on AWS Key Management Service (AWS KMS) server-side encryption for your Amazon SNS
 topic, then you must also update the access policy of the AWS KMS key you

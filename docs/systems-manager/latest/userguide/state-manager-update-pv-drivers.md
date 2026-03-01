@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Walkthrough: Automatically update PV
-
-drivers on EC2 instances for Windows Server
+# Walkthrough: Automatically update PV drivers on EC2 instances for Windows Server
 
 Amazon Windows Server Amazon Machine Images (AMIs) contain a set of drivers to permit access to
 virtualized hardware. These drivers are used by Amazon Elastic Compute Cloud (Amazon EC2) to map instance store
@@ -25,8 +15,7 @@ available. State Manager is a tool in AWS Systems Manager.
 
 Before you complete the following procedure, verify that you have at least one
 Amazon EC2 instance for Windows Server running that is configured for Systems Manager. For more
-information, see [Setting up managed nodes for
-AWS Systems Manager](systems-manager-setting-up-nodes.md "systems-manager-setting-up-nodes.md").
+information, see [Setting up managed nodes for AWS Systems Manager](systems-manager-setting-up-nodes.md "systems-manager-setting-up-nodes.md").
 
 ###### To create a State Manager association that automatically updates PV drivers
 
@@ -59,8 +48,7 @@ AWS Systems Manager](systems-manager-setting-up-nodes.md "systems-manager-settin
 
 ###### Tip
 
-If a managed node you expect to see isn't listed, see [Troubleshooting managed
-node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for troubleshooting
+If a managed node you expect to see isn't listed, see [Troubleshooting managed node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for troubleshooting
 tips.
 
 ###### Note
@@ -74,8 +62,7 @@ are released a several times a year, so you can schedule the association to run
 once a month, if you want. 9. In the **Advanced options** area, for **Compliance
 severity**, choose a severity level for the association. Compliance
 reporting indicates whether the association state is compliant or noncompliant,
-along with the severity level you indicate here. For more information, see [About State Manager association
-compliance](compliance-about.md#compliance-about-association "compliance-about.md#compliance-about-association"). 10. For **Rate control**:
+along with the severity level you indicate here. For more information, see [About State Manager association compliance](compliance-about.md#compliance-about-association "compliance-about.md#compliance-about-association"). 10. For **Rate control**:
 
     * For **Concurrency**, specify either a number or a percentage of
      managed nodes on which to run the command at the same time.
@@ -115,8 +102,7 @@ Note the following information about this step.
 
     * The alarms list displays a maximum of 100 alarms. If you don't see
      your alarm in the list, use the AWS Command Line Interface to create the association.
-     For more information, see [Create an
-     association (command line)](state-manager-associations-creating.md#create-state-manager-association-commandline "state-manager-associations-creating.md#create-state-manager-association-commandline").
+     For more information, see [Create an association (command line)](state-manager-associations-creating.md#create-state-manager-association-commandline "state-manager-associations-creating.md#create-state-manager-association-commandline").
     * To attach a CloudWatch alarm to your command, the IAM principal that
      creates the association must have permission for the
      `iam:createServiceLinkedRole` action. For more
@@ -139,5 +125,4 @@ association was successfully created on your EC2 instances for Windows Server. I
 instances for Windows Server show a status of **Failed**, verify that
 the SSM Agent is running on the instance, and verify that the instance is
 configured with an AWS Identity and Access Management (IAM) role for Systems Manager. For more information, see
-[Setting up Systems Manager unified console
-for an organization](systems-manager-setting-up-organizations.md "systems-manager-setting-up-organizations.md").
+[Setting up Systems Manager unified console for an organization](systems-manager-setting-up-organizations.md "systems-manager-setting-up-organizations.md").

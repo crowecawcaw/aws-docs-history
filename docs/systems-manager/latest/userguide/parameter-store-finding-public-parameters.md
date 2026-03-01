@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Discovering public
-
-parameters in Parameter Store
+# Discovering public parameters in Parameter Store
 
 You can search for public parameters using the Parameter Store console or the AWS Command Line Interface.
 
@@ -41,9 +31,7 @@ public parameters:
 - `storagegateway`
   Not all public parameters are published to every AWS Region.
 
-## Finding public parameters
-
-using the Parameter Store console
+## Finding public parameters using the Parameter Store console
 
 You must have at least one parameter in your AWS account and AWS Region
 before you can search for public parameters using the console.
@@ -59,9 +47,7 @@ before you can search for public parameters using the console.
    entering more information into the search bar.
 6. Choose the public parameter you want to use.
 
-## Finding public parameters using
-
-the AWS CLI
+## Finding public parameters using the AWS CLI
 
 Use `describe-parameters` for discovery of public parameters.
 
@@ -136,9 +122,7 @@ recursive (contains elements in the path beyond what you have given).
 ###### Note
 
 The `/aws/service/global-infrastructure` path is not supported
-for queries in all Regions. For information, see [Calling
-public parameters for AWS services, Regions, endpoints, Availability Zones,
-local zones, and Wavelength Zones in Parameter Store](parameter-store-public-parameters-global-infrastructure.md "parameter-store-public-parameters-global-infrastructure.md").
+for queries in all Regions. For information, see [Calling public parameters for AWS services, Regions, endpoints, Availability Zones, local zones, and Wavelength Zones in Parameter Store](parameter-store-public-parameters-global-infrastructure.md "parameter-store-public-parameters-global-infrastructure.md").
 
 If no results are returned for the service you specify, add the
 `--recursive` flag and run the command again.

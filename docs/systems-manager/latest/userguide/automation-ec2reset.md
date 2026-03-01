@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Reset passwords and SSH keys on EC2
-
-instances
+# Reset passwords and SSH keys on EC2 instances
 
 You can use the `AWSSupport-ResetAccess` runbook to automatically
 re-enable local Administrator password generation on Amazon Elastic Compute Cloud (Amazon EC2) instances
@@ -114,10 +104,7 @@ Before you run the following Automation, do the following:
   for Automation. If you don't specify this role, then Automation runs
   in the context of the user who ran the automation.
 
-### Granting
-
-AWSSupport-EC2Rescue permissions to perform actions on your
-instances
+### Granting AWSSupport-EC2Rescue permissions to perform actions on your instances
 
 EC2Rescue needs permission to perform a series of actions on your
 instances during the automation. These actions invoke the AWS Lambda,
@@ -129,14 +116,10 @@ section. If you don't have Administrator-level permissions, then you or
 an administrator must configure permissions by using one of the
 following options.
 
-- [Granting
-  permissions by using IAM policies](#automation-ec2reset-access-iam "#automation-ec2reset-access-iam")
-- [Granting
-  permissions by using an CloudFormation template](#automation-ec2reset-access-cfn "#automation-ec2reset-access-cfn")
+- [Granting permissions by using IAM policies](#automation-ec2reset-access-iam "#automation-ec2reset-access-iam")
+- [Granting permissions by using an CloudFormation template](#automation-ec2reset-access-cfn "#automation-ec2reset-access-cfn")
 
-#### Granting
-
-permissions by using IAM policies
+#### Granting permissions by using IAM policies
 
 You can either attach the following IAM policy to your user,
 group, or role as an inline policy; or, you can create a new IAM
@@ -237,18 +220,14 @@ JSON
 
 ```
 
-#### Granting
-
-permissions by using an CloudFormation template
+#### Granting permissions by using an CloudFormation template
 
 CloudFormation automates the process of creating IAM roles and policies
 by using a preconfigured template. Use the following procedure to
 create the required IAM roles and policies for the EC2Rescue
 Automation by using CloudFormation.
 
-###### To create the required IAM roles and policies for
-
-EC2Rescue
+###### To create the required IAM roles and policies for EC2Rescue
 
 1. Download [`AWSSupport-EC2RescueRole.zip`](samples/AWSSupport-EC2RescueRole.md "samples/AWSSupport-EC2RescueRole.md")
    and extract the
@@ -291,9 +270,7 @@ just created, and then choose the
 AssumeRole. You will specify this ARN when you run the
 Automation.
 
-## Running the
-
-Automation
+## Running the Automation
 
 The following procedure describes how to run the
 `AWSSupport-ResetAccess` runbook by using the AWS Systems Manager

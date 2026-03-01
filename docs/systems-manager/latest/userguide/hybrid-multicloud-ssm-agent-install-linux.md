@@ -1,28 +1,14 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Install SSM Agent on hybrid
-
-Linux nodes
+# Install SSM Agent on hybrid Linux nodes
 
 This topic describes how to install AWS Systems Manager SSM Agent on non-EC2 (Amazon Elastic Compute Cloud) Linux
 machines in a [hybrid and multicloud](operating-systems-and-machine-types.md#supported-machine-types "operating-systems-and-machine-types.md#supported-machine-types") environment. For information about installing SSM Agent on EC2
-instances for Linux, see [Manually installing and
-uninstalling SSM Agent on EC2 instances for Linux](manually-install-ssm-agent-linux.md "manually-install-ssm-agent-linux.md").
+instances for Linux, see [Manually installing and uninstalling SSM Agent on EC2 instances for Linux](manually-install-ssm-agent-linux.md "manually-install-ssm-agent-linux.md").
 
 Before you begin, locate the Activation Code and Activation ID that were generated
-during the hybrid activation process, as described in [Create a hybrid activation to register
-nodes with Systems Manager](hybrid-activation-managed-nodes.md "hybrid-activation-managed-nodes.md"). You specify the Code and ID in
+during the hybrid activation process, as described in [Create a hybrid activation to register nodes with Systems Manager](hybrid-activation-managed-nodes.md "hybrid-activation-managed-nodes.md"). You specify the Code and ID in
 the following procedure.
 
-###### To install SSM Agent on non-EC2 machines in a hybrid and multicloud
-
-environment
+###### To install SSM Agent on non-EC2 machines in a hybrid and multicloud environment
 
 1. Log on to a server or VM in your hybrid and multicloud environment.
 2. If you use an HTTP or HTTPS proxy, you must set the `http_proxy` or
@@ -158,21 +144,16 @@ configured for Systems Manager are also managed nodes. In the Systems Manager co
 hybrid-activated nodes are distinguished from Amazon EC2 instances with the prefix
 "mi-".
 
-Continue to [Install SSM Agent on hybrid
-Windows Server nodes](hybrid-multicloud-ssm-agent-install-windows.md "hybrid-multicloud-ssm-agent-install-windows.md").
+Continue to [Install SSM Agent on hybrid Windows Server nodes](hybrid-multicloud-ssm-agent-install-windows.md "hybrid-multicloud-ssm-agent-install-windows.md").
 
-## Setting up private key auto
-
-rotation
+## Setting up private key auto rotation
 
 To strengthen your security posture, you can configure AWS Systems Manager Agent (SSM Agent)
 to automatically rotate the private key for your hybrid and multicloud environment.
 You can access this feature using SSM Agent version 3.0.1031.0 or later. Turn on this
 feature using the following procedure.
 
-###### To configure SSM Agent to rotate the private key for a hybrid and multicloud
-
-environment
+###### To configure SSM Agent to rotate the private key for a hybrid and multicloud environment
 
 1. Navigate to `/etc/amazon/ssm/` on a Linux machine or
    `C:\Program Files\Amazon\SSM` for a Windows

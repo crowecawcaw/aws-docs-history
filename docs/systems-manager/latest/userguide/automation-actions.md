@@ -1,18 +1,9 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Systems Manager Automation actions reference
 
 This reference describes the Automation actions that you can specify in an Automation
 runbook. Automation is a tool in AWS Systems Manager. These actions can't be used in other types of
 Systems Manager (SSM) documents. For information about plugins for other types of SSM documents,
-see [Command document plugin
-reference](documents-command-ssm-plugin-reference.md "documents-command-ssm-plugin-reference.md").
+see [Command document plugin reference](documents-command-ssm-plugin-reference.md "documents-command-ssm-plugin-reference.md").
 
 Systems Manager Automation runs steps defined in Automation runbooks. Each step is associated with a
 particular action. The action determines the inputs, behavior, and outputs of the step.
@@ -37,58 +28,34 @@ For example, if you use the `aws:executeAwsApi`,
 `aws:createStack`, or `aws:copyImage` actions, configure the
 service role with permission to invoke those services. You can give permissions to other
 AWS services by adding an IAM inline policy to the role. For more information, see
-[(Optional) Add an Automation inline
-policy or customer managed policy to invoke other AWS services](automation-setup-iam.md#add-inline-policy "automation-setup-iam.md#add-inline-policy").
+[(Optional) Add an Automation inline policy or customer managed policy to invoke other AWS services](automation-setup-iam.md#add-inline-policy "automation-setup-iam.md#add-inline-policy").
 
 ###### Topics
 
 - [Properties shared by all actions](#automation-common "#automation-common")
-- [aws:approve – Pause an
-  automation for manual approval](automation-action-approve.md "automation-action-approve.md")
-- [aws:assertAwsResourceProperty – Assert an AWS resource
-  state or event state](automation-action-assertAwsResourceProperty.md "automation-action-assertAwsResourceProperty.md")
-- [aws:branch – Run
-  conditional automation steps](automation-action-branch.md "automation-action-branch.md")
-- [aws:changeInstanceState
-  – Change or assert instance state](automation-action-changestate.md "automation-action-changestate.md")
-- [aws:copyImage – Copy
-  or encrypt an Amazon Machine Image](automation-action-copyimage.md "automation-action-copyimage.md")
-- [aws:createImage – Create
-  an Amazon Machine Image](automation-action-create.md "automation-action-create.md")
-- [aws:createStack –
-  Create an CloudFormation stack](automation-action-createstack.md "automation-action-createstack.md")
-- [aws:createTags –
-  Create tags for AWS resources](automation-action-createtag.md "automation-action-createtag.md")
-- [aws:deleteImage – Delete
-  an Amazon Machine Image](automation-action-delete.md "automation-action-delete.md")
-- [aws:deleteStack –
-  Delete an CloudFormation stack](automation-action-deletestack.md "automation-action-deletestack.md")
-- [aws:executeAutomation
-  – Run another automation](automation-action-executeAutomation.md "automation-action-executeAutomation.md")
-- [aws:executeAwsApi
-  – Call and run AWS API operations](automation-action-executeAwsApi.md "automation-action-executeAwsApi.md")
-- [aws:executeScript
-  – Run a script](automation-action-executeScript.md "automation-action-executeScript.md")
-- [aws:executeStateMachine – Run an AWS Step Functions state
-  machine](automation-action-executeStateMachine.md "automation-action-executeStateMachine.md")
-- [aws:invokeWebhook – Invoke an
-  Automation webhook integration](invoke-webhook.md "invoke-webhook.md")
-- [aws:invokeLambdaFunction –
-  Invoke an AWS Lambda function](automation-action-lamb.md "automation-action-lamb.md")
-- [aws:loop – Iterate over
-  steps in an automation](automation-action-loop.md "automation-action-loop.md")
-- [aws:pause – Pause an
-  automation](automation-action-pause.md "automation-action-pause.md")
-- [aws:runCommand – Run
-  a command on a managed instance](automation-action-runcommand.md "automation-action-runcommand.md")
-- [aws:runInstances –
-  Launch an Amazon EC2 instance](automation-action-runinstance.md "automation-action-runinstance.md")
-- [aws:sleep – Delay an
-  automation](automation-action-sleep.md "automation-action-sleep.md")
-- [aws:updateVariable
-  – Updates a value for a runbook variable](automation-action-update-variable.md "automation-action-update-variable.md")
-- [aws:waitForAwsResourceProperty – Wait on an AWS resource
-  property](automation-action-waitForAwsResourceProperty.md "automation-action-waitForAwsResourceProperty.md")
+- [aws:approve – Pause an automation for manual approval](automation-action-approve.md "automation-action-approve.md")
+- [aws:assertAwsResourceProperty – Assert an AWS resource state or event state](automation-action-assertAwsResourceProperty.md "automation-action-assertAwsResourceProperty.md")
+- [aws:branch – Run conditional automation steps](automation-action-branch.md "automation-action-branch.md")
+- [aws:changeInstanceState – Change or assert instance state](automation-action-changestate.md "automation-action-changestate.md")
+- [aws:copyImage – Copy or encrypt an Amazon Machine Image](automation-action-copyimage.md "automation-action-copyimage.md")
+- [aws:createImage – Create an Amazon Machine Image](automation-action-create.md "automation-action-create.md")
+- [aws:createStack – Create an CloudFormation stack](automation-action-createstack.md "automation-action-createstack.md")
+- [aws:createTags – Create tags for AWS resources](automation-action-createtag.md "automation-action-createtag.md")
+- [aws:deleteImage – Delete an Amazon Machine Image](automation-action-delete.md "automation-action-delete.md")
+- [aws:deleteStack – Delete an CloudFormation stack](automation-action-deletestack.md "automation-action-deletestack.md")
+- [aws:executeAutomation – Run another automation](automation-action-executeAutomation.md "automation-action-executeAutomation.md")
+- [aws:executeAwsApi – Call and run AWS API operations](automation-action-executeAwsApi.md "automation-action-executeAwsApi.md")
+- [aws:executeScript – Run a script](automation-action-executeScript.md "automation-action-executeScript.md")
+- [aws:executeStateMachine – Run an AWS Step Functions state machine](automation-action-executeStateMachine.md "automation-action-executeStateMachine.md")
+- [aws:invokeWebhook – Invoke an Automation webhook integration](invoke-webhook.md "invoke-webhook.md")
+- [aws:invokeLambdaFunction – Invoke an AWS Lambda function](automation-action-lamb.md "automation-action-lamb.md")
+- [aws:loop – Iterate over steps in an automation](automation-action-loop.md "automation-action-loop.md")
+- [aws:pause – Pause an automation](automation-action-pause.md "automation-action-pause.md")
+- [aws:runCommand – Run a command on a managed instance](automation-action-runcommand.md "automation-action-runcommand.md")
+- [aws:runInstances – Launch an Amazon EC2 instance](automation-action-runinstance.md "automation-action-runinstance.md")
+- [aws:sleep – Delay an automation](automation-action-sleep.md "automation-action-sleep.md")
+- [aws:updateVariable – Updates a value for a runbook variable](automation-action-update-variable.md "automation-action-update-variable.md")
+- [aws:waitForAwsResourceProperty – Wait on an AWS resource property](automation-action-waitForAwsResourceProperty.md "automation-action-waitForAwsResourceProperty.md")
 - [Automation system variables](automation-variables.md "automation-variables.md")
 
 ## Properties shared by all actions
@@ -119,8 +86,7 @@ Required: Yes
 
 [action](#actProp "#actProp")
 
-The name of the action the step is to run. [aws:runCommand – Run
-a command on a managed instance](automation-action-runcommand.md "automation-action-runcommand.md") is an example of an
+The name of the action the step is to run. [aws:runCommand – Run a command on a managed instance](automation-action-runcommand.md "automation-action-runcommand.md") is an example of an
 action you can specify here. This document provides detailed information
 about all available actions.
 

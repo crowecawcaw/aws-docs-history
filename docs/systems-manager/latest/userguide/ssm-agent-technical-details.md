@@ -1,40 +1,23 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Learn technical details about the
-
-SSM Agent
+# Learn technical details about the SSM Agent
 
 Use the information in this topic to help you implement AWS Systems Manager Agent (SSM Agent) and
 understand how the agent works.
 
 ###### Topics
 
-- [SSM Agent version 3.2.x.x credential
-  behavior](#credentials-file "#credentials-file")
+- [SSM Agent version 3.2.x.x credential behavior](#credentials-file "#credentials-file")
 - [SSM Agent credentials precedence](#credentials-precedence "#credentials-precedence")
-- [Configuring SSM Agent for use with
-  the Federal Information Processing Standard (FIPS)](#fips-compliant-configurations "#fips-compliant-configurations")
+- [Configuring SSM Agent for use with the Federal Information Processing Standard (FIPS)](#fips-compliant-configurations "#fips-compliant-configurations")
 - [About the local ssm-user account](#ssm-user-account "#ssm-user-account")
-- [SSM Agent and the Instance Metadata Service
-  (IMDS)](#imds "#imds")
+- [SSM Agent and the Instance Metadata Service (IMDS)](#imds "#imds")
 - [Keeping SSM Agent up-to-date](#updating "#updating")
-- [Ensuring that the SSM Agent installation
-  directory is not modified, moved, or deleted](#installation-directory "#installation-directory")
+- [Ensuring that the SSM Agent installation directory is not modified, moved, or deleted](#installation-directory "#installation-directory")
 - [SSM Agent rolling updates by AWS Regions](#rolling-updates "#rolling-updates")
-- [SSM Agent communications with
-  AWS managed S3 buckets](#ssm-agent-minimum-s3-permissions "#ssm-agent-minimum-s3-permissions")
+- [SSM Agent communications with AWS managed S3 buckets](#ssm-agent-minimum-s3-permissions "#ssm-agent-minimum-s3-permissions")
 - [SSM Agent on GitHub](#github "#github")
 - [Understanding SSM Agent hibernation](#ssm-agent-hibernation "#ssm-agent-hibernation")
 
-## SSM Agent version 3.2.x.x credential
-
-behavior
+## SSM Agent version 3.2.x.x credential behavior
 
 SSM Agent stores a set of temporary credentials at
 `/var/lib/amazon/ssm/credentials` (for Linux and macOS) or
@@ -55,8 +38,7 @@ permission to perform actions on your resources.
 Support for edge devices differs slightly. You must configure your edge
 devices to use AWS IoT Greengrass Core software, configure an AWS Identity and Access Management (IAM) service
 role, and deploy SSM Agent to your devices by using AWS IoT Greengrass. For more information,
-see [Managing edge devices with
-Systems Manager](systems-manager-setting-up-edge-devices.md "systems-manager-setting-up-edge-devices.md").
+see [Managing edge devices with Systems Manager](systems-manager-setting-up-edge-devices.md "systems-manager-setting-up-edge-devices.md").
 
 When SSM Agent is installed on a machine, it requires permissions in order to
 communicate with the Systems Manager service. On Amazon Elastic Compute Cloud (Amazon EC2) instances, these
@@ -121,9 +103,7 @@ This topic in the _AWS SDK for Go Developer Guide_ describes the
 default provider chain in terms of the SDK for Go; however, the same
 principles apply to evaluating credentials for SSM Agent.
 
-## Configuring SSM Agent for use with
-
-the Federal Information Processing Standard (FIPS)
+## Configuring SSM Agent for use with the Federal Information Processing Standard (FIPS)
 
 If you need to use Systems Manager with Federal Information Processing Standard (FIPS) 140-3
 validated cryptographic modules, you can configure AWS Systems Manager Agent (SSM Agent) to use
@@ -223,9 +203,7 @@ In order for the `ssm-user` account to be created, the instance
 profile attached to the instance must provide the necessary permissions. For
 information, see [Step 2: Verify or add instance permissions for Session Manager](session-manager-getting-started-instance-profile.md "session-manager-getting-started-instance-profile.md").
 
-## SSM Agent and the Instance Metadata Service
-
-(IMDS)
+## SSM Agent and the Instance Metadata Service (IMDS)
 
 Systems Manager relies on EC2 instance metadata to function correctly. Systems Manager can access
 instance metadata using either version 1 or version 2 of the Instance
@@ -258,9 +236,7 @@ Amazon Machine Images (AMIs) that include SSM Agent by default can take up to tw
 weeks to be updated with the newest version of SSM Agent. We recommend that you
 configure even more frequent automated updates to SSM Agent.
 
-## Ensuring that the SSM Agent installation
-
-directory is not modified, moved, or deleted
+## Ensuring that the SSM Agent installation directory is not modified, moved, or deleted
 
 SSM Agent is installed at `/var/lib/amazon/ssm/` (Linux and
 macOS) and `%PROGRAMFILES%\Amazon\SSM\` (Windows Server). These
@@ -299,9 +275,7 @@ curl https://s3.`region`.amazonaws.com/amazon-ssm-`region`/latest/VERSION
 You can also open the `VERSION` file directly in your browser
 without a `curl` command.
 
-## SSM Agent communications with
-
-AWS managed S3 buckets
+## SSM Agent communications with AWS managed S3 buckets
 
 In the course of performing various Systems Manager operations, AWS Systems Manager Agent (SSM Agent)
 accesses a number of Amazon Simple Storage Service (Amazon S3) buckets. These S3 buckets are publicly
@@ -330,20 +304,15 @@ For more information, see the following topics:
 
 - [Configure instance permissions required for Systems Manager](setup-instance-permissions.md "setup-instance-permissions.md")
 - [Create the IAM service role required for Systems Manager in hybrid and multicloud environments](hybrid-multicloud-service-role.md "hybrid-multicloud-service-role.md")
-- [Reference: Amazon S3 buckets for patching
-  operations](patch-operations-s3-buckets.md "patch-operations-s3-buckets.md")
+- [Reference: Amazon S3 buckets for patching operations](patch-operations-s3-buckets.md "patch-operations-s3-buckets.md")
 
 ###### Contents
 
-- [Required bucket
-  permissions](#ssm-agent-minimum-s3-permissions-required "#ssm-agent-minimum-s3-permissions-required")
+- [Required bucket permissions](#ssm-agent-minimum-s3-permissions-required "#ssm-agent-minimum-s3-permissions-required")
 - [Example](#ssm-agent-minimum-s3-permissions-example "#ssm-agent-minimum-s3-permissions-example")
-- [Validating hybrid-activated machines
-  using a hardware fingerprint](#fingerprint-validation "#fingerprint-validation")
+- [Validating hybrid-activated machines using a hardware fingerprint](#fingerprint-validation "#fingerprint-validation")
 
-### Required bucket
-
-permissions
+### Required bucket permissions
 
 The following table describes each of the S3 buckets that SSM Agent might need
 to access for Systems Manager operations.
@@ -357,13 +326,13 @@ _Amazon Web Services General Reference_.
 
 Amazon S3 permissions required by SSM Agent
 
-| S3 bucket ARN                                                                                                                                                                                                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `arn:aws:s3:::aws-windows-downloads-`region`/*`                                                                                                                                                                       | Required for some SSM documents that support only<br>Windows Server operating systems, plus some for cross-platform<br>support, such as<br>`AWSEC2-ConfigureSTIG`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `arn:aws:s3:::amazon-ssm-`region`/*`                                                                                                                                                                                  | Required for updating SSM Agent installations. These buckets<br>contain the SSM Agent installation packages, and the installation<br>manifests that are referenced by the<br>`AWS-UpdateSSMAgent` document and plugin. If<br>these permissions aren't provided, the SSM Agent makes an HTTP<br>call to download the update.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| `arn:aws:s3:::aws-ssm-`region`/*`                                                                                                                                                                                     | Provides access to the S3 bucket containing modules required<br>for use with Systems Manager documents (SSM Command documents),<br>including both non-patching and patching operations. For<br>example: `arn:aws:s3:::aws-ssm-us-east-2/*`.<br>The following are some commonly used SSM documents<br>that use modules from these buckets.<br>• `AWS-RunPatchBaseline`<br>• `AWS-RunPatchBaselineAssociation`<br>• `AWS-RunPatchBaselineWithHooks`<br>• `AWS-ApplyPatchBaseline` (a<br>legacy SSM document)<br>• `AWS-ConfigureWindowsUpdate`<br>• `AWS-FindWindowsUpdates`<br>• `AWS-UpdateSSMAgent`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `arn:aws:s3:::patch-baseline-snapshot-`region`/*`<br>-or-`arn:aws:s3:::patch-baseline-snapshot-`region`-`unique-suffix`/*`                                                                                            | Provides access to the S3 bucket containing patch baseline<br>snapshots. This is required if you use any of the following<br>SSM Command documents:<br>• `AWS-RunPatchBaseline`<br>• `AWS-RunPatchBaselineAssociation`<br>• `AWS-RunPatchBaselineWithHooks`<br>• `AWS-ApplyPatchBaseline` (a<br>legacy SSM document)<br>The buckets for most supported AWS Regions use the<br>following format:<br>`arn:aws:s3:::patch-baseline-snapshot-`region``<br>For some Regions, an additional unique suffix is included<br>in the bucket name. For example, the bucket name for the<br>Middle East (Bahrain) Region (me-south-1) is as follows:<br>• `patch-baseline-snapshot-me-south-1-uduvl7q8`<br>For a complete list of patch baseline snapshot bucket<br>names, see [Buckets containing AWS<br>managed patch baseline snapshots](patch-operations-s3-buckets.md#aws-patch-manager-buckets-baseline-snapshots "patch-operations-s3-buckets.md#aws-patch-manager-buckets-baseline-snapshots").<br>NoteIf you use an on-premises firewall and plan to use<br>Patch Manager, that firewall must also allow access to the<br>appropriate patch baseline endpoint.                                                                                                                                                |
-| For Linux and Windows Server managed nodes:<br>`arn:aws:s3:::aws-patch-manager-`region`-`unique-suffix`/*`<br>For Amazon EC2 instances for macOS:<br>`arn:aws:s3:::aws-patchmanager-macos-`region`-`unique-suffix`/*` | Provides access to the S3 bucket containing modules used<br>by SSM Command documents for patching operations in<br>Patch Manager. Each bucket name includes a unique suffix, such as<br>`552881074` for buckets in the<br>US East (Ohio) (us-east-2) Region:<br>• `arn:aws:s3:::aws-patch-managerer-us-east-2-552881074/*`<br>• `arn:aws:s3:::``aws-patchmanager-macos-us-east-2-552881074/*`<br>SSM documents<br>The following are some commonly used SSM documents<br>that use modules from these buckets.<br>• `AWS-RunPatchBaseline`<br>• `AWS-RunPatchBaselineAssociation`<br>• `AWS-RunPatchBaselineWithHooks`<br>• `AWS-InstanceRebootWithHooks`<br>• `AWS-PatchAsgInstance`<br>• `AWS-PatchInstanceWithRollback`<br>For complete lists of AWS managed S3 buckets for<br>patching operations, see the following topics:<br>• [Buckets containing SSM<br>Command documents for patching operations (Linux and Windows Server)](patch-operations-s3-buckets.md#aws-patch-manager-buckets-linux-windows "patch-operations-s3-buckets.md#aws-patch-manager-buckets-linux-windows")<br>• [Buckets containing SSM Command<br>documents for patching operations (macOS)](patch-operations-s3-buckets.md#aws-patch-manager-buckets-macos "patch-operations-s3-buckets.md#aws-patch-manager-buckets-macos") |
+| S3 bucket ARN                                                                                                                                                                                                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `arn:aws:s3:::aws-windows-downloads-`region`/*`                                                                                                                                                                       | Required for some SSM documents that support only<br>Windows Server operating systems, plus some for cross-platform<br>support, such as<br>`AWSEC2-ConfigureSTIG`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `arn:aws:s3:::amazon-ssm-`region`/*`                                                                                                                                                                                  | Required for updating SSM Agent installations. These buckets<br>contain the SSM Agent installation packages, and the installation<br>manifests that are referenced by the<br>`AWS-UpdateSSMAgent` document and plugin. If<br>these permissions aren't provided, the SSM Agent makes an HTTP<br>call to download the update.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| `arn:aws:s3:::aws-ssm-`region`/*`                                                                                                                                                                                     | Provides access to the S3 bucket containing modules required<br>for use with Systems Manager documents (SSM Command documents),<br>including both non-patching and patching operations. For<br>example: `arn:aws:s3:::aws-ssm-us-east-2/*`.<br>The following are some commonly used SSM documents<br>that use modules from these buckets.<br>• `AWS-RunPatchBaseline`<br>• `AWS-RunPatchBaselineAssociation`<br>• `AWS-RunPatchBaselineWithHooks`<br>• `AWS-ApplyPatchBaseline` (a<br>legacy SSM document)<br>• `AWS-ConfigureWindowsUpdate`<br>• `AWS-FindWindowsUpdates`<br>• `AWS-UpdateSSMAgent`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| `arn:aws:s3:::patch-baseline-snapshot-`region`/*`<br>-or-`arn:aws:s3:::patch-baseline-snapshot-`region`-`unique-suffix`/*`                                                                                            | Provides access to the S3 bucket containing patch baseline<br>snapshots. This is required if you use any of the following<br>SSM Command documents:<br>• `AWS-RunPatchBaseline`<br>• `AWS-RunPatchBaselineAssociation`<br>• `AWS-RunPatchBaselineWithHooks`<br>• `AWS-ApplyPatchBaseline` (a<br>legacy SSM document)<br>The buckets for most supported AWS Regions use the<br>following format:<br>`arn:aws:s3:::patch-baseline-snapshot-`region``<br>For some Regions, an additional unique suffix is included<br>in the bucket name. For example, the bucket name for the<br>Middle East (Bahrain) Region (me-south-1) is as follows:<br>• `patch-baseline-snapshot-me-south-1-uduvl7q8`<br>For a complete list of patch baseline snapshot bucket<br>names, see [Buckets containing AWS managed patch baseline snapshots](patch-operations-s3-buckets.md#aws-patch-manager-buckets-baseline-snapshots "patch-operations-s3-buckets.md#aws-patch-manager-buckets-baseline-snapshots").<br>NoteIf you use an on-premises firewall and plan to use<br>Patch Manager, that firewall must also allow access to the<br>appropriate patch baseline endpoint.                                                                                                                                             |
+| For Linux and Windows Server managed nodes:<br>`arn:aws:s3:::aws-patch-manager-`region`-`unique-suffix`/*`<br>For Amazon EC2 instances for macOS:<br>`arn:aws:s3:::aws-patchmanager-macos-`region`-`unique-suffix`/*` | Provides access to the S3 bucket containing modules used<br>by SSM Command documents for patching operations in<br>Patch Manager. Each bucket name includes a unique suffix, such as<br>`552881074` for buckets in the<br>US East (Ohio) (us-east-2) Region:<br>• `arn:aws:s3:::aws-patch-managerer-us-east-2-552881074/*`<br>• `arn:aws:s3:::``aws-patchmanager-macos-us-east-2-552881074/*`<br>SSM documents<br>The following are some commonly used SSM documents<br>that use modules from these buckets.<br>• `AWS-RunPatchBaseline`<br>• `AWS-RunPatchBaselineAssociation`<br>• `AWS-RunPatchBaselineWithHooks`<br>• `AWS-InstanceRebootWithHooks`<br>• `AWS-PatchAsgInstance`<br>• `AWS-PatchInstanceWithRollback`<br>For complete lists of AWS managed S3 buckets for<br>patching operations, see the following topics:<br>• [Buckets containing SSM Command documents for patching operations (Linux and Windows Server)](patch-operations-s3-buckets.md#aws-patch-manager-buckets-linux-windows "patch-operations-s3-buckets.md#aws-patch-manager-buckets-linux-windows")<br>• [Buckets containing SSM Command documents for patching operations (macOS)](patch-operations-s3-buckets.md#aws-patch-manager-buckets-macos "patch-operations-s3-buckets.md#aws-patch-manager-buckets-macos") |
 
 ### Example
 
@@ -405,9 +374,7 @@ JSON
 
 ```
 
-### Validating hybrid-activated machines
-
-using a hardware fingerprint
+### Validating hybrid-activated machines using a hardware fingerprint
 
 When non-EC2 machines in a [hybrid and multicloud](operating-systems-and-machine-types.md#supported-machine-types "operating-systems-and-machine-types.md#supported-machine-types") environment, SSM Agent gathers a number
 of system attributes (referred to as the _hardware
@@ -506,8 +473,7 @@ SSM Agent uses a hardware fingerprint to validate hybrid-activated
 machines. If one of the components used to calculate this fingerprint
 changes significantly, the agent might hibernate as a security measure.
 This is by design to prevent multiple managed nodes from communicating
-with Systems Manager as the same node. For more information, see [Validating hybrid-activated machines
-using a hardware fingerprint](#fingerprint-validation "#fingerprint-validation").
+with Systems Manager as the same node. For more information, see [Validating hybrid-activated machines using a hardware fingerprint](#fingerprint-validation "#fingerprint-validation").
 
 SSM Agent hibernation on Amazon EC2 instances
 
@@ -565,8 +531,7 @@ you identify and troubleshoot the hibernation state:
 
 - **Agent log files**: Hibernation events are
   logged in the standard SSM Agent log files. For more information about log
-  file locations, see [Troubleshoot issues using
-  SSM Agent log files](troubleshooting-ssm-agent.md#systems-manager-ssm-agent-log-files "troubleshooting-ssm-agent.md#systems-manager-ssm-agent-log-files").
+  file locations, see [Troubleshoot issues using SSM Agent log files](troubleshooting-ssm-agent.md#systems-manager-ssm-agent-log-files "troubleshooting-ssm-agent.md#systems-manager-ssm-agent-log-files").
 - **Amazon EC2 console logging**: For EC2 instances,
   hibernation messages are now logged to the Amazon EC2 console system logs,
   providing additional visibility into agent status. To access the logs,
@@ -594,8 +559,7 @@ To recover from hibernation, address the underlying cause:
   significant.
 - **For connectivity issues**: Verify network
   connectivity and make sure that the required endpoints are accessible. For
-  more information, see [Troubleshooting
-  managed node availability using ssm-cli](troubleshooting-managed-nodes-using-ssm-cli.md "troubleshooting-managed-nodes-using-ssm-cli.md").
+  more information, see [Troubleshooting managed node availability using ssm-cli](troubleshooting-managed-nodes-using-ssm-cli.md "troubleshooting-managed-nodes-using-ssm-cli.md").
 
 After you resolve the underlying issue, the agent should automatically exit
 hibernation mode and resume normal operation at the next communication

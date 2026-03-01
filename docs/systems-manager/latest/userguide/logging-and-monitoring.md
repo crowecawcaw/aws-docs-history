@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Logging and monitoring in
-
-AWS Systems Manager
+# Logging and monitoring in AWS Systems Manager
 
 Monitoring is an important part of maintaining the reliability, availability, and
 performance of AWS Systems Manager and your AWS solutions. You should collect monitoring data
@@ -41,24 +31,21 @@ CloudWatch dashboards are customizable home pages in the CloudWatch console that
 can use to monitor your resources in a single view, even those resources
 that are spread across different AWS Regions. You can use CloudWatch dashboards
 to create customized views of the metrics and alarms for your AWS
-resources. For more information, see [Using Amazon CloudWatch dashboards
-hosted by Systems Manager](systems-manager-cloudwatch-dashboards.md "systems-manager-cloudwatch-dashboards.md").
+resources. For more information, see [Using Amazon CloudWatch dashboards hosted by Systems Manager](systems-manager-cloudwatch-dashboards.md "systems-manager-cloudwatch-dashboards.md").
 
 **Amazon EventBridge**
 
 Using Amazon EventBridge, you can configure rules to alert you to changes in
 Systems Manager resources, and to direct EventBridge to take actions based on the
 content of those events. EventBridge provides support for a number of events that
-are emitted by various Systems Manager tools. For more information, see [Monitoring Systems Manager events with
-Amazon EventBridge](monitoring-eventbridge-events.md "monitoring-eventbridge-events.md").
+are emitted by various Systems Manager tools. For more information, see [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md "monitoring-eventbridge-events.md").
 
 **Amazon CloudWatch Logs and SSM Agent logs**
 
 SSM Agent writes information about executions, scheduled actions, errors,
 and health statuses to log files on each node. You can view log files by
 manually connecting to a node. We recommend automatically sending agent log
-data to a log group in CloudWatch Logs for analysis. For more information, see [Sending node logs to unified CloudWatch Logs
-(CloudWatch agent)](monitoring-cloudwatch-agent.md "monitoring-cloudwatch-agent.md") and [Viewing SSM Agent logs](ssm-agent-logs.md "ssm-agent-logs.md").
+data to a log group in CloudWatch Logs for analysis. For more information, see [Sending node logs to unified CloudWatch Logs (CloudWatch agent)](monitoring-cloudwatch-agent.md "monitoring-cloudwatch-agent.md") and [Viewing SSM Agent logs](ssm-agent-logs.md "ssm-agent-logs.md").
 
 **AWS Systems Manager Compliance**
 
@@ -106,8 +93,7 @@ notification whenever a command changes to a new state or to a specific
 state, such as `Failed` or `Timed Out`. In cases where
 you send a command to multiple nodes, you can receive a notification for
 each copy of the command sent to a specific node. For more information, see
-[Monitoring Systems Manager status changes using
-Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifications.md").
+[Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifications.md").
 
 **AWS Trusted Advisor and AWS Health Dashboard**
 

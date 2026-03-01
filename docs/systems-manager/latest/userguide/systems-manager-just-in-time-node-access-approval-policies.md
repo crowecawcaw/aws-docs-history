@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Create
-
-approval policies for your nodes
+# Create approval policies for your nodes
 
 Approval policies define what approvals users need to access a node. Since
 just-in-time node access removes the need for long standing permissions to nodes
@@ -70,8 +60,7 @@ policies. Policy conflicts resulting in failed access requests emit EventBridge 
 allowing you flexibility in building your own response workflows. Additionally,
 Systems Manager sends email notifications for policy conflicts resulting in failed access
 requests to the recipients you specify. For more information about configuring email
-notifications for policy conflicts, see [Configure
-notifications for just-in-time access requests](systems-manager-just-in-time-node-access-notifications.md "systems-manager-just-in-time-node-access-notifications.md").
+notifications for policy conflicts, see [Configure notifications for just-in-time access requests](systems-manager-just-in-time-node-access-notifications.md "systems-manager-just-in-time-node-access-notifications.md").
 
 In a _deny-access_ policy, you use the Cedar policy language to
 define which nodes users explicitly can't automatically connect to in your
@@ -111,9 +100,7 @@ node access.
 ###### Topics
 
 - [Create manual approval policies for just-in-time node access](systems-manager-just-in-time-node-access-create-manual-policies.md "systems-manager-just-in-time-node-access-create-manual-policies.md")
-- [Statement
-  structure and built-in operators for auto-approval and deny-access
-  policies](auto-approval-deny-access-policy-statement-structure.md "auto-approval-deny-access-policy-statement-structure.md")
+- [Statement structure and built-in operators for auto-approval and deny-access policies](auto-approval-deny-access-policy-statement-structure.md "auto-approval-deny-access-policy-statement-structure.md")
 - [Create an auto-approval policy for just-in-time node access](systems-manager-just-in-time-node-access-create-auto-approval-policies.md "systems-manager-just-in-time-node-access-create-auto-approval-policies.md")
 - [Create a deny-access policy for just-in-time node access](systems-manager-just-in-time-node-access-create-deny-access-policies.md "systems-manager-just-in-time-node-access-create-deny-access-policies.md")
 - [Create approval policies for just-in-time node access with Amazon Q](systems-manager-just-in-time-node-access-create-approval-policies-q-ide-cli.md "systems-manager-just-in-time-node-access-create-approval-policies-q-ide-cli.md")

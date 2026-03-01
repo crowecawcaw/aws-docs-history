@@ -1,34 +1,18 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Amazon EventBridge event examples for
-
-Systems Manager
+# Amazon EventBridge event examples for Systems Manager
 
 The following are examples, in JSON format, of supported EventBridge events for AWS Systems Manager.
 
 ###### Systems Manager event types
 
 - [AWS Systems Manager Automation Events](#SSM-Automation-event-types "#SSM-Automation-event-types")
-- [AWS Systems Manager Change Calendar
-  Events](#SSM-Change-Management-event-types "#SSM-Change-Management-event-types")
-- [AWS Systems Manager Change Manager
-  Events](#SSM-Change-Manager-event-types "#SSM-Change-Manager-event-types")
-- [AWS Systems Manager Compliance
-  Events](#SSM-Configuration-Compliance-event-types "#SSM-Configuration-Compliance-event-types")
-- [AWS Systems Manager Maintenance Windows
-  Events](#EC2_maintenance_windows_event_types "#EC2_maintenance_windows_event_types")
-- [AWS Systems Manager Parameter Store
-  Events](#SSM-Parameter-Store-event-types "#SSM-Parameter-Store-event-types")
+- [AWS Systems Manager Change Calendar Events](#SSM-Change-Management-event-types "#SSM-Change-Management-event-types")
+- [AWS Systems Manager Change Manager Events](#SSM-Change-Manager-event-types "#SSM-Change-Manager-event-types")
+- [AWS Systems Manager Compliance Events](#SSM-Configuration-Compliance-event-types "#SSM-Configuration-Compliance-event-types")
+- [AWS Systems Manager Maintenance Windows Events](#EC2_maintenance_windows_event_types "#EC2_maintenance_windows_event_types")
+- [AWS Systems Manager Parameter Store Events](#SSM-Parameter-Store-event-types "#SSM-Parameter-Store-event-types")
 - [AWS Systems Manager OpsCenter Events](#SSM-OpsCenter-event-types "#SSM-OpsCenter-event-types")
 - [AWS Systems Manager Run Command Events](#SSM-Run-Command-event-types "#SSM-Run-Command-event-types")
-- [AWS Systems Manager State Manager
-  Events](#SSM-State-Manager-event-types "#SSM-State-Manager-event-types")
+- [AWS Systems Manager State Manager Events](#SSM-State-Manager-event-types "#SSM-State-Manager-event-types")
 
 ## AWS Systems Manager Automation Events
 
@@ -86,9 +70,7 @@ Notification**
 }
 ```
 
-## AWS Systems Manager Change Calendar
-
-Events
+## AWS Systems Manager Change Calendar Events
 
 Use the information in this topic to plan and understand the behavior of EventBridge
 events for AWS Systems Manager Change Calendar.
@@ -98,9 +80,7 @@ events for AWS Systems Manager Change Calendar.
 State changes for calendars shared from other AWS accounts are not currently
 supported.
 
-### Change Calendar integration
-
-with Amazon EventBridge
+### Change Calendar integration with Amazon EventBridge
 
 AWS Systems Manager Change Calendar integrates with Amazon EventBridge to notify you of calendar state
 changes. Be aware of the following behaviors related to the underlying
@@ -200,9 +180,7 @@ Best practices
 }
 ```
 
-## AWS Systems Manager Change Manager
-
-Events
+## AWS Systems Manager Change Manager Events
 
 **Change request status update notification - example
 1**
@@ -276,9 +254,7 @@ Events
 }
 ```
 
-## AWS Systems Manager Compliance
-
-Events
+## AWS Systems Manager Compliance Events
 
 The following are examples of the events for AWS Systems Manager Compliance.
 
@@ -380,9 +356,7 @@ The following are examples of the events for AWS Systems Manager Compliance.
 }
 ```
 
-## AWS Systems Manager Maintenance Windows
-
-Events
+## AWS Systems Manager Maintenance Windows Events
 
 The following are examples of the events for Systems Manager Maintenance Windows.
 
@@ -527,9 +501,7 @@ Valid status values include `ENABLED` and `DISABLED`.
 }
 ```
 
-## AWS Systems Manager Parameter Store
-
-Events
+## AWS Systems Manager Parameter Store Events
 
 The following are examples of the events for Systems Manager Parameter Store.
 
@@ -712,9 +684,7 @@ Notification**
 }
 ```
 
-## AWS Systems Manager State Manager
-
-Events
+## AWS Systems Manager State Manager Events
 
 **State Manager Association State Change**
 

@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Creating OpsItems manually
-
-(AWS CLI)
+# Creating OpsItems manually (AWS CLI)
 
 The following procedure describes how to create an OpsItem by using the AWS Command Line Interface
 (AWS CLI).
@@ -130,9 +120,7 @@ The command has no output. 5. Run the following command again to verify that the
 aws ssm get-ops-item --ops-item-id `ID`
 ```
 
-## Examples of
-
-creating an OpsItem
+## Examples of creating an OpsItem
 
 The following code examples show you how to create an OpsItem by using the
 Linux management portal, macOS, or

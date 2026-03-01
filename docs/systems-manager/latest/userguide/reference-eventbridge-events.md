@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Reference: Amazon EventBridge event patterns and types
-
-for Systems Manager
+# Reference: Amazon EventBridge event patterns and types for Systems Manager
 
 |                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -26,10 +16,8 @@ functions, Amazon Kinesis streams, Amazon Elastic Container Service (Amazon ECS)
 
 For information about creating EventBridge rules, see the following topics:
 
-- [Monitoring Systems Manager events with
-  Amazon EventBridge](monitoring-eventbridge-events.md "monitoring-eventbridge-events.md")
-- [Amazon EventBridge event examples for
-  Systems Manager](monitoring-systems-manager-event-examples.md "monitoring-systems-manager-event-examples.md")
+- [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md "monitoring-eventbridge-events.md")
+- [Amazon EventBridge event examples for Systems Manager](monitoring-systems-manager-event-examples.md "monitoring-systems-manager-event-examples.md")
 - [Getting started with Amazon EventBridge](../../../eventbridge/latest/userguide/eb-get-started.md "../../../eventbridge/latest/userguide/eb-get-started.md") in the
   _Amazon EventBridge User Guide_
   The remainder of this topic describes the types of Systems Manager events that you can include in
@@ -61,9 +49,7 @@ information, see [AWS Systems Manager Change Manager availability change](chang
 | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
 | Change Request Status Update | The state of a Change Manager change request. You can use the following<br>states in an event rule:<br>• Approved<br>• Rejected<br>• InProgress |
 
-## Event type: Configuration
-
-Compliance
+## Event type: Configuration Compliance
 
 | Event type name                       | Description of events you can add to a rule                                                                                                                                                               |
 | ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -71,9 +57,9 @@ Compliance
 
 ## Event type: Inventory
 
-| Event type name                 | Description of events you can add to a rule                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Inventory Resource State Change | The deletion of custom inventory and a [PutInventory](../APIReference/API_PutInventory.md "../APIReference/API_PutInventory.md") call that uses an old schema version. You can add one or more of the following state changes to an event rule:<br>• Custom inventory type deleted event on a specific node.<br>EventBridge sends one event per node per custom<br>InventoryType.<br>• Custom inventory type deleted event for all nodes.<br>• PutInventory call with old schema version event. EventBridge<br>sends this event when the schema version is less than the<br>current schema. This event applies to all inventory<br>types.<br>For more information, see [Using EventBridge to<br>monitor Inventory events](systems-manager-inventory-setting-up-eventbridge.md "systems-manager-inventory-setting-up-eventbridge.md"). |
+| Event type name                 | Description of events you can add to a rule                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Inventory Resource State Change | The deletion of custom inventory and a [PutInventory](../APIReference/API_PutInventory.md "../APIReference/API_PutInventory.md") call that uses an old schema version. You can add one or more of the following state changes to an event rule:<br>• Custom inventory type deleted event on a specific node.<br>EventBridge sends one event per node per custom<br>InventoryType.<br>• Custom inventory type deleted event for all nodes.<br>• PutInventory call with old schema version event. EventBridge<br>sends this event when the schema version is less than the<br>current schema. This event applies to all inventory<br>types.<br>For more information, see [Using EventBridge to monitor Inventory events](systems-manager-inventory-setting-up-eventbridge.md "systems-manager-inventory-setting-up-eventbridge.md"). |
 
 ## Event type: Maintenance Window
 
@@ -95,10 +81,10 @@ Compliance
 
 ## Event type: Parameter Store
 
-| Event type name               | Description of events you can add to a rule                                                                                                                                                                                                                                                                                                                                                                        |
-| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Parameter Store Change        | The state of a parameter changes. You can add one or more of the following state changes to an event rule:<br>• Create<br>• Update<br>• Delete<br>• LabelParameterVersion<br>For more information, see [Configuring EventBridge rules for parameters<br>and parameter policies](sysman-paramstore-cwe.md#cwe-parameter-changes "sysman-paramstore-cwe.md#cwe-parameter-changes").                                  |
-| Parameter Store Policy Action | A condition of an advanced parameter policy change is met. You can add one or more of the following status changes to an event rule:<br>• Expiration<br>• ExpirationNotification<br>• NoChangeNotification<br>For more information, see [Configuring EventBridge rules for parameters<br>and parameter policies](sysman-paramstore-cwe.md#cwe-parameter-changes "sysman-paramstore-cwe.md#cwe-parameter-changes"). |
+| Event type name               | Description of events you can add to a rule                                                                                                                                                                                                                                                                                                                                                                     |
+| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Parameter Store Change        | The state of a parameter changes. You can add one or more of the following state changes to an event rule:<br>• Create<br>• Update<br>• Delete<br>• LabelParameterVersion<br>For more information, see [Configuring EventBridge rules for parameters and parameter policies](sysman-paramstore-cwe.md#cwe-parameter-changes "sysman-paramstore-cwe.md#cwe-parameter-changes").                                  |
+| Parameter Store Policy Action | A condition of an advanced parameter policy change is met. You can add one or more of the following status changes to an event rule:<br>• Expiration<br>• ExpirationNotification<br>• NoChangeNotification<br>For more information, see [Configuring EventBridge rules for parameters and parameter policies](sysman-paramstore-cwe.md#cwe-parameter-changes "sysman-paramstore-cwe.md#cwe-parameter-changes"). |
 
 ## Event type: Run Command
 

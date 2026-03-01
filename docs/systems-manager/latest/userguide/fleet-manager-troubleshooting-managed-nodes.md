@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Troubleshooting managed
-
-node availability
+# Troubleshooting managed node availability
 
 For several AWS Systems Manager tools like Run Command, Distributor, and Session Manager, you can choose to
 manually select the managed nodes on which you want to run an operation. In cases like
@@ -29,8 +19,7 @@ must meet three requirements:
 Some AWS managed Amazon Machine Images (AMIs) are configured to launch
 instances with [SSM Agent](ssm-agent.md "ssm-agent.md") preinstalled. (You
 can also configure a custom AMI to preinstall SSM Agent.) For more
-information, see [Find AMIs with the SSM Agent
-preinstalled](ami-preinstalled-agent.md "ami-preinstalled-agent.md").
+information, see [Find AMIs with the SSM Agent preinstalled](ami-preinstalled-agent.md "ami-preinstalled-agent.md").
 
 - For Amazon Elastic Compute Cloud (Amazon EC2) instances, you must attach an AWS Identity and Access Management (IAM) instance
   profile to the instance. The instance profile enables the instance to
@@ -112,49 +101,32 @@ information to help you troubleshoot problems with your managed nodes.
 
 ###### Topics
 
-- [Solution 1: Verify that SSM Agent is
-  installed and running on the managed node](#instances-missing-solution-1 "#instances-missing-solution-1")
-- [Solution 2: Verify that an IAM
-  instance profile has been specified for the instance (EC2 instances
-  only)](#instances-missing-solution-2 "#instances-missing-solution-2")
-- [Solution 3: Verify service endpoint
-  connectivity](#instances-missing-solution-3 "#instances-missing-solution-3")
-- [Solution 4: Verify target operating
-  system support](#instances-missing-solution-4 "#instances-missing-solution-4")
-- [Solution 5: Verify you're working in
-  the same AWS Region as the Amazon EC2 instance](#instances-missing-solution-5 "#instances-missing-solution-5")
-- [Solution 6: Verify the proxy
-  configuration you applied to SSM Agent on your managed node](#instances-missing-solution-6 "#instances-missing-solution-6")
-- [Solution 7: Install a TLS certificate on
-  managed instances](#hybrid-tls-certificate "#hybrid-tls-certificate")
-- [Troubleshooting
-  managed node availability using ssm-cli](troubleshooting-managed-nodes-using-ssm-cli.md "troubleshooting-managed-nodes-using-ssm-cli.md")
+- [Solution 1: Verify that SSM Agent is installed and running on the managed node](#instances-missing-solution-1 "#instances-missing-solution-1")
+- [Solution 2: Verify that an IAM instance profile has been specified for the instance (EC2 instances only)](#instances-missing-solution-2 "#instances-missing-solution-2")
+- [Solution 3: Verify service endpoint connectivity](#instances-missing-solution-3 "#instances-missing-solution-3")
+- [Solution 4: Verify target operating system support](#instances-missing-solution-4 "#instances-missing-solution-4")
+- [Solution 5: Verify you're working in the same AWS Region as the Amazon EC2 instance](#instances-missing-solution-5 "#instances-missing-solution-5")
+- [Solution 6: Verify the proxy configuration you applied to SSM Agent on your managed node](#instances-missing-solution-6 "#instances-missing-solution-6")
+- [Solution 7: Install a TLS certificate on managed instances](#hybrid-tls-certificate "#hybrid-tls-certificate")
+- [Troubleshooting managed node availability using ssm-cli](troubleshooting-managed-nodes-using-ssm-cli.md "troubleshooting-managed-nodes-using-ssm-cli.md")
 
-## Solution 1: Verify that SSM Agent is
-
-installed and running on the managed node
+## Solution 1: Verify that SSM Agent is installed and running on the managed node
 
 Make sure the latest version of SSM Agent is installed and running on the managed
 node.
 
 To determine whether SSM Agent is installed and running on a managed node, see
-[Checking SSM Agent status and starting the
-agent](ssm-agent-status-and-restart.md "ssm-agent-status-and-restart.md").
+[Checking SSM Agent status and starting the agent](ssm-agent-status-and-restart.md "ssm-agent-status-and-restart.md").
 
 To install or reinstall SSM Agent on a managed node, see the following
 topics:
 
-- [Manually installing and
-  uninstalling SSM Agent on EC2 instances for Linux](manually-install-ssm-agent-linux.md "manually-install-ssm-agent-linux.md")
+- [Manually installing and uninstalling SSM Agent on EC2 instances for Linux](manually-install-ssm-agent-linux.md "manually-install-ssm-agent-linux.md")
 - [How to install the SSM Agent on hybrid Linux nodes](hybrid-multicloud-ssm-agent-install-linux.md "hybrid-multicloud-ssm-agent-install-linux.md")
-- [Manually installing and
-  uninstalling SSM Agent on EC2 instances for Windows Server](manually-install-ssm-agent-windows.md "manually-install-ssm-agent-windows.md")
+- [Manually installing and uninstalling SSM Agent on EC2 instances for Windows Server](manually-install-ssm-agent-windows.md "manually-install-ssm-agent-windows.md")
 - [How to install the SSM Agent on hybrid Windows nodes](hybrid-multicloud-ssm-agent-install-windows.md "hybrid-multicloud-ssm-agent-install-windows.md")
 
-## Solution 2: Verify that an IAM
-
-instance profile has been specified for the instance (EC2 instances
-only)
+## Solution 2: Verify that an IAM instance profile has been specified for the instance (EC2 instances only)
 
 For Amazon Elastic Compute Cloud (Amazon EC2) instances, verify that the instance is configured with an
 AWS Identity and Access Management (IAM) instance profile that allows the instance to communicate with the
@@ -166,9 +138,7 @@ user to communicate with the Systems Manager API.
 On-premises servers, edge devices, and virtual machines (VMs) use an IAM
 service role instead of an instance profile. For more information, see [Create the IAM service role required for Systems Manager in hybrid and multicloud environments](hybrid-multicloud-service-role.md "hybrid-multicloud-service-role.md").
 
-###### To determine whether an instance profile with the necessary permissions is
-
-attached to an EC2 instance
+###### To determine whether an instance profile with the necessary permissions is attached to an EC2 instance
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
@@ -190,9 +160,7 @@ console](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:poli
 For information about other policies that can be attached to an instance
 profile for Systems Manager, see [Configure instance permissions required for Systems Manager](setup-instance-permissions.md "setup-instance-permissions.md").
 
-## Solution 3: Verify service endpoint
-
-connectivity
+## Solution 3: Verify service endpoint connectivity
 
 Verify that the instance has connectivity to the Systems Manager service endpoints. This
 connectivity is provided by creating and configuring VPC endpoints for Systems Manager, or by
@@ -207,9 +175,7 @@ for your VPC instead.
 
 For more information, see [Improve the security of EC2 instances by using VPC endpoints for Systems Manager](setup-create-vpc.md "setup-create-vpc.md").
 
-## Solution 4: Verify target operating
-
-system support
+## Solution 4: Verify target operating system support
 
 Verify that the operation you have chosen can be run on the type of managed node
 you expect to see listed. Some Systems Manager operations can target only Windows instances or
@@ -220,9 +186,7 @@ the **Run a command** page, if you choose either of these documents
 and select **Choose instances manually**, only your Windows
 instances are listed and available for selection.
 
-## Solution 5: Verify you're working in
-
-the same AWS Region as the Amazon EC2 instance
+## Solution 5: Verify you're working in the same AWS Region as the Amazon EC2 instance
 
 Amazon EC2 instances are created and available in specific AWS Regions, such as the
 US East (Ohio) Region (us-east-2) or Europe (Ireland) Region (eu-west-1). Ensure that you're working
@@ -230,21 +194,15 @@ in the same AWS Region as the Amazon EC2 instance that you want to work with. Fo
 information, see [Choosing a
 Region](../../../awsconsolehelpdocs/latest/gsg/getting-started.md#select-region "../../../awsconsolehelpdocs/latest/gsg/getting-started.md#select-region") in _Getting Started with the AWS Management Console_.
 
-## Solution 6: Verify the proxy
-
-configuration you applied to SSM Agent on your managed node
+## Solution 6: Verify the proxy configuration you applied to SSM Agent on your managed node
 
 Verify that the proxy configuration you applied to SSM Agent on your managed node
 is correct. If the proxy configuration is incorrect, the node can't connect to the
 required service endpoints, or Systems Manager might identify the operating system of the
-managed node incorrectly. For more information, see [Configuring SSM Agent to use a proxy on
-Linux nodes](configure-proxy-ssm-agent.md "configure-proxy-ssm-agent.md")
-and [Configure SSM Agent to use a
-proxy for Windows Server instances](configure-proxy-ssm-agent-windows.md "configure-proxy-ssm-agent-windows.md").
+managed node incorrectly. For more information, see [Configuring SSM Agent to use a proxy on Linux nodes](configure-proxy-ssm-agent.md "configure-proxy-ssm-agent.md")
+and [Configure SSM Agent to use a proxy for Windows Server instances](configure-proxy-ssm-agent-windows.md "configure-proxy-ssm-agent-windows.md").
 
-## Solution 7: Install a TLS certificate on
-
-managed instances
+## Solution 7: Install a TLS certificate on managed instances
 
 A Transport Layer Security (TLS) certificate must be installed on each managed
 instance you use with AWS Systems Manager. AWS services use these certificates to encrypt

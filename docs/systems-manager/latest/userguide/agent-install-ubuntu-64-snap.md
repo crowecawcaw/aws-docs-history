@@ -1,15 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Install SSM Agent on
-
-Ubuntu Server 16.04 LTS 64-bit (Snap), 18.04, 20.04, 22.04 LTS, 23.10,
-24.04 LTS, 24.0, and 25.04
+# Install SSM Agent on Ubuntu Server 16.04 LTS 64-bit (Snap), 18.04, 20.04, 22.04 LTS, 23.10, 24.04 LTS, 24.0, and 25.04
 
 ###### Before you begin
 
@@ -86,10 +75,7 @@ sudo systemctl stop snap.amazon-ssm-agent.amazon-ssm-agent.service
 sudo systemctl status snap.amazon-ssm-agent.amazon-ssm-agent.service
 ```
 
-###### To install SSM Agent on Ubuntu Server 16.04 LTS 64-bit (Snap), 18.04,
-
-20.04, 22.04 LTS, 23.10, 24.04 LTS, 24.0, and 25.04 (with Snap
-package)
+###### To install SSM Agent on Ubuntu Server 16.04 LTS 64-bit (Snap), 18.04, 20.04, 22.04 LTS, 23.10, 24.04 LTS, 24.0, and 25.04 (with Snap package)
 
 1. SSM Agent is installed, by default, on Ubuntu Server 16.04 LTS 64-bit
    (Snap), 18.04, 20.04, 22.04 LTS, 23.10, 24.04 LTS, 24.0, and 25.04

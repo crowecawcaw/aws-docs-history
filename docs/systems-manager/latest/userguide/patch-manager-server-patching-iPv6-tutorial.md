@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Tutorial: Patching a
-
-server in an IPv6 only environment
+# Tutorial: Patching a server in an IPv6 only environment
 
 Patch Manager supports the patching of nodes in environments that only have IPv6. By
 updating the SSM Agent configuration, patching operations can be configured to only
@@ -56,8 +46,7 @@ make calls to IPv6 service endpoints.
         * Windows Server: `Stop-Service AmazonSSMAgent` followed by
          `Start-Service AmazonSSMAgent`
 
-    For the full list of commands per operating system, see [Checking SSM Agent status and starting the
-    agent](ssm-agent-status-and-restart.md "ssm-agent-status-and-restart.md").
+    For the full list of commands per operating system, see [Checking SSM Agent status and starting the agent](ssm-agent-status-and-restart.md "ssm-agent-status-and-restart.md").
 
 5.  Execute any patching operation to verify patching operations succeed in
     your IPv6-only environment. Ensure that the nodes being patched have

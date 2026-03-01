@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Managing nodes in hybrid and multicloud
-
-environments with Systems Manager
+# Managing nodes in hybrid and multicloud environments with Systems Manager
 
 You can use AWS Systems Manager to manage both Amazon Elastic Compute Cloud (EC2) instances and a number of non-EC2
 machine types. This section describes the setup tasks that account and system administrators
@@ -30,8 +20,7 @@ Any machine that has been configured for use with Systems Manager is called a _m
 Systems Manager also supports edge devices that use AWS IoT Greengrass Core software. The setup
 process and requirements for AWS IoT Greengrass core devices are different from those for
 AWS IoT and edge devices other than AWS edge devices. For information about
-registering AWS IoT Greengrass devices for use with Systems Manager, see [Managing edge devices with
-Systems Manager](systems-manager-setting-up-edge-devices.md "systems-manager-setting-up-edge-devices.md").
+registering AWS IoT Greengrass devices for use with Systems Manager, see [Managing edge devices with Systems Manager](systems-manager-setting-up-edge-devices.md "systems-manager-setting-up-edge-devices.md").
 
 - Non-EC2 macOS machines aren't supported for Systems Manager hybrid and multicloud
   environments.
@@ -54,8 +43,7 @@ For information about using CloudTrail to monitor Systems Manager actions, see [
 - Centralize monitoring by configuring Amazon EventBridge and Amazon Simple Notification Service (Amazon SNS) to send
   notifications about service execution success.
 
-For information about using EventBridge to monitor Systems Manager events, see [Monitoring Systems Manager events with
-Amazon EventBridge](monitoring-eventbridge-events.md "monitoring-eventbridge-events.md").
+For information about using EventBridge to monitor Systems Manager events, see [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md "monitoring-eventbridge-events.md").
 
 ###### About managed nodes
 
@@ -89,16 +77,11 @@ account and Region, then use the advanced-instances tier. Advanced instances als
 you to connect to your non-EC2 machines by using AWS Systems Manager Session Manager. Session Manager provides
 interactive shell access to your managed nodes.
 
-For more information, see [Configuring instance
-tiers](fleet-manager-configure-instance-tiers.md "fleet-manager-configure-instance-tiers.md").
+For more information, see [Configuring instance tiers](fleet-manager-configure-instance-tiers.md "fleet-manager-configure-instance-tiers.md").
 
 ###### Topics
 
-- [Create the IAM service role required
-  for Systems Manager in hybrid and multicloud environments](hybrid-multicloud-service-role.md "hybrid-multicloud-service-role.md")
-- [Create a hybrid activation to register
-  nodes with Systems Manager](hybrid-activation-managed-nodes.md "hybrid-activation-managed-nodes.md")
-- [Install SSM Agent on hybrid
-  Linux nodes](hybrid-multicloud-ssm-agent-install-linux.md "hybrid-multicloud-ssm-agent-install-linux.md")
-- [Install SSM Agent on hybrid
-  Windows Server nodes](hybrid-multicloud-ssm-agent-install-windows.md "hybrid-multicloud-ssm-agent-install-windows.md")
+- [Create the IAM service role required for Systems Manager in hybrid and multicloud environments](hybrid-multicloud-service-role.md "hybrid-multicloud-service-role.md")
+- [Create a hybrid activation to register nodes with Systems Manager](hybrid-activation-managed-nodes.md "hybrid-activation-managed-nodes.md")
+- [Install SSM Agent on hybrid Linux nodes](hybrid-multicloud-ssm-agent-install-linux.md "hybrid-multicloud-ssm-agent-install-linux.md")
+- [Install SSM Agent on hybrid Windows Server nodes](hybrid-multicloud-ssm-agent-install-windows.md "hybrid-multicloud-ssm-agent-install-windows.md")

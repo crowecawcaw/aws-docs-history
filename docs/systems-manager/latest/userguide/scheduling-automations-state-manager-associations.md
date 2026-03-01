@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Scheduling
-
-automations with State Manager associations
+# Scheduling automations with State Manager associations
 
 You can start an automation by creating a State Manager association with a runbook.
 State Manager is a tool in AWS Systems Manager. By creating a State Manager association with a runbook, you
@@ -70,12 +60,9 @@ New-IAMServiceLinkedRole `
 -AWSServiceName ssm.amazonaws.com
 ```
 
-For more information about service-linked roles, see [Using service-linked roles for
-Systems Manager](using-service-linked-roles.md "using-service-linked-roles.md").
+For more information about service-linked roles, see [Using service-linked roles for Systems Manager](using-service-linked-roles.md "using-service-linked-roles.md").
 
-## Creating an association that
-
-runs an automation (console)
+## Creating an association that runs an automation (console)
 
 The following procedure describes how to use the Systems Manager console to create a
 State Manager association that runs an automation.
@@ -162,8 +149,7 @@ Automation associations on your behalf. 8. In the **Specify schedule** section, 
 Schedule** if you want to run the association at regular
 intervals. If you choose this option, then use the options provided to
 create the schedule using Cron or Rate expressions. For more information
-about Cron and Rate expressions for State Manager, see [Cron and rate
-expressions for associations](reference-cron-and-rate-expressions.md#reference-cron-and-rate-expressions-association "reference-cron-and-rate-expressions.md#reference-cron-and-rate-expressions-association").
+about Cron and Rate expressions for State Manager, see [Cron and rate expressions for associations](reference-cron-and-rate-expressions.md#reference-cron-and-rate-expressions-association "reference-cron-and-rate-expressions.md#reference-cron-and-rate-expressions-association").
 
 ###### Note
 
@@ -214,9 +200,7 @@ against the specified targets. The association then runs based on the
 cron or rate expression you chose. If you chose **No
 schedule**, the association doesn't run again.
 
-## Creating an association that
-
-runs an automation (command line)
+## Creating an association that runs an automation (command line)
 
 The following procedure describes how to use the AWS CLI (on Linux or Windows Server) or
 AWS Tools for PowerShell to create a State Manager association that runs an automation.
@@ -226,8 +210,7 @@ AWS Tools for PowerShell to create a State Manager association that runs an auto
 Before you complete the following procedure, make sure you have created an
 IAM service role that contains the permissions necessary to run the runbook,
 and configured a trust relationship for Automation, a tool in AWS Systems Manager. For
-more information, see [Task 1: Create a service role for
-Automation](automation-setup-iam.md#create-service-role "automation-setup-iam.md#create-service-role").
+more information, see [Task 1: Create a service role for Automation](automation-setup-iam.md#create-service-role "automation-setup-iam.md#create-service-role").
 
 ###### To create an association that runs an automation
 
@@ -595,9 +578,7 @@ If you use tags to create an association on one or more target instances, and
 then you remove the tags from an instance, that instance no longer runs the
 association. The instance is disassociated from the State Manager document.
 
-## Troubleshooting
-
-automations run by State Manager associations
+## Troubleshooting automations run by State Manager associations
 
 Systems Manager Automation enforces a limit of 100 concurrent automations, and 1,000 queued
 automations per account, per Region. If a State Manager association that uses a runbook

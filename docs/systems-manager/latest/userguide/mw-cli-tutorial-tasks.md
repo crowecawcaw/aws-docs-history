@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Step 3: Register a task with the
-
-maintenance window using the AWS CLI
+# Step 3: Register a task with the maintenance window using the AWS CLI
 
 In this step of the tutorial, you register an AWS Systems Manager Run Command task that
 runs the `df` command on your Amazon Elastic Compute Cloud (Amazon EC2) instance for
@@ -24,8 +14,7 @@ about the IP address, subnet mask, and default gateway for adapters on the
 target instance.
 
 When you're ready to register other task types, or use more of the
-available Systems Manager Run Command options, see [Examples: Register
-tasks with a maintenance window](mw-cli-register-tasks-examples.md "mw-cli-register-tasks-examples.md"). There, we provide more
+available Systems Manager Run Command options, see [Examples: Register tasks with a maintenance window](mw-cli-register-tasks-examples.md "mw-cli-register-tasks-examples.md"). There, we provide more
 information about all four task types, and some of their most important
 options, to help you plan for more extensive real-world scenarios.
 
@@ -117,8 +106,7 @@ aws ssm describe-maintenance-window-tasks ^
 ```
 
 4. Wait until the task has had time to run, based on the schedule you
-   specified in [Step 1: Create the maintenance
-   window using the AWS CLI](mw-cli-tutorial-create-mw.md "mw-cli-tutorial-create-mw.md"). For example, if you
+   specified in [Step 1: Create the maintenance window using the AWS CLI](mw-cli-tutorial-create-mw.md "mw-cli-tutorial-create-mw.md"). For example, if you
    specified `--schedule "rate(5
 minutes)"`, wait five minutes. Then run the
    following command to view information about any executions that
@@ -178,17 +166,13 @@ aws ssm update-maintenance-window ^
     --schedule "rate(7 days)"
 ```
 
-For information about managing maintenance window schedules, see [Reference: Cron and rate expressions
-for Systems Manager](reference-cron-and-rate-expressions.md "reference-cron-and-rate-expressions.md") and [Maintenance window scheduling and
-active period options](maintenance-windows-schedule-options.md "maintenance-windows-schedule-options.md").
+For information about managing maintenance window schedules, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md "reference-cron-and-rate-expressions.md") and [Maintenance window scheduling and active period options](maintenance-windows-schedule-options.md "maintenance-windows-schedule-options.md").
 
 For information about using the AWS Command Line Interface (AWS CLI) to modify a
-maintenance window, see [Tutorial: Update a
-maintenance window using the AWS CLI](maintenance-windows-cli-tutorials-update.md "maintenance-windows-cli-tutorials-update.md").
+maintenance window, see [Tutorial: Update a maintenance window using the AWS CLI](maintenance-windows-cli-tutorials-update.md "maintenance-windows-cli-tutorials-update.md").
 
 For practice running AWS CLI commands to view more details about your
-maintenance window task and its executions, continue to [Tutorial: View information about
-tasks and task executions using the AWS CLI](mw-cli-tutorial-task-info.md "mw-cli-tutorial-task-info.md").
+maintenance window task and its executions, continue to [Tutorial: View information about tasks and task executions using the AWS CLI](mw-cli-tutorial-task-info.md "mw-cli-tutorial-task-info.md").
 
 ###### Accessing tutorial command output
 

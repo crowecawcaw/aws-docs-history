@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Setting up Systems Manager unified
-
-console for a single account and Region
+# Setting up Systems Manager unified console for a single account and Region
 
 To set up the Systems Manager unified console experience for a single AWS account and AWS Region
 you don't need to use Organizations or register a delegated administrator account. The setup process
@@ -30,8 +20,7 @@ IAM roles
   lifecycle of resources created by the setting up process. For more information about the
   policy, see [AWSQuickSetupSSMLifecycleManagementExecutionPolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSQuickSetupSSMLifecycleManagementExecutionPolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSQuickSetupSSMLifecycleManagementExecutionPolicy").
 - `RoleForAutomation` – A service role for Systems Manager Automation to
-  assume to execute runbooks. For more information, see [Create the service roles for Automation using
-  the console](automation-setup-iam.md "automation-setup-iam.md").
+  assume to execute runbooks. For more information, see [Create the service roles for Automation using the console](automation-setup-iam.md "automation-setup-iam.md").
 - `AWSSSMDiagnosisAdminRole` – An automation execution role for the
   diagnosis runbook. For more information about the policies, see [AWS-SSM-DiagnosisAutomation-AdministrationRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AWS-SSM-DiagnosisAutomation-AdministrationRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AWS-SSM-DiagnosisAutomation-AdministrationRolePolicy"),
   [AWS-SSM-Automation-DiagnosisBucketPolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AWS-SSM-Automation-DiagnosisBucketPolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AWS-SSM-Automation-DiagnosisBucketPolicy"), and [AWS-SSM-DiagnosisAutomation-OperationalAccountAdministrationRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AWS-SSM-DiagnosisAutomation-OperationalAccountAdministrationRolePolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AWS-SSM-DiagnosisAutomation-OperationalAccountAdministrationRolePolicy").
@@ -72,9 +61,7 @@ remediate** node task to automatically apply fixes to nodes that aren't reportin
 as managed by Systems Manager. This can include identifying issues such as network connectivity issues
 to the Systems Manager endpoints, and more.
 
-## Set up the unified
-
-console
+## Set up the unified console
 
 ###### To set up Systems Manager for a single account and Region
 
@@ -95,8 +82,7 @@ service or feature that conflicts with the selections made through your
 configuration. Systems Manager checks for configuration drift and attempts to remediate it
 based on the frequency you specify. You must specify a value between 1 and 31
 days. If you've already configured DHMC in a Region, Systems Manager doesn't change the
-IAM role you previously selected. For more information about DHMC, see [Managing EC2
-instances automatically with Default Host Management Configuration](fleet-manager-default-host-management-configuration.md "fleet-manager-default-host-management-configuration.md").
+IAM role you previously selected. For more information about DHMC, see [Managing EC2 instances automatically with Default Host Management Configuration](fleet-manager-default-host-management-configuration.md "fleet-manager-default-host-management-configuration.md").
 
 DHMC makes it possible to manage Amazon EC2 instances without your having to
 manually create an AWS Identity and Access Management (IAM) instance profile. We encourage you to choose
@@ -137,8 +123,7 @@ specify. The value for the frequency must be between 1 and 31 days. If there is 
 new version, then Systems Manager automatically updates the agent on your managed node to
 the latest released version. Systems Manager doesn't install the agent on instances where
 it's not already present. For information about which AMIs have SSM Agent
-preinstalled, see [Find AMIs with the SSM Agent
-preinstalled](ami-preinstalled-agent.md "ami-preinstalled-agent.md").
+preinstalled, see [Find AMIs with the SSM Agent preinstalled](ami-preinstalled-agent.md "ami-preinstalled-agent.md").
 
 We encourage you to choose this option to ensure that your nodes are always
 running the most up-to-date version of SSM Agent. For more information about

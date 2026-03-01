@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Using the
-
-BaselineOverride parameter
+# Using the BaselineOverride parameter
 
 You can define patching preferences at runtime using the baseline override feature
 in Patch Manager, a tool in AWS Systems Manager. Do this by specifying an Amazon Simple Storage Service (Amazon S3) bucket
@@ -40,13 +30,10 @@ updated for the managed node. For more information about patch policy behaviors,
 When you're patching a node that only uses IPv6, ensure that the provided URL
 is reachable from the node. If the SSM Agent config option
 `UseDualStackEndpoint` is set to `true`, then a
-dualstack S3 client is used when an S3 URL is provided. See [Tutorial: Patching a
-server in an IPv6 only environment](patch-manager-server-patching-iPv6-tutorial.md "patch-manager-server-patching-iPv6-tutorial.md") for more information
+dualstack S3 client is used when an S3 URL is provided. See [Tutorial: Patching a server in an IPv6 only environment](patch-manager-server-patching-iPv6-tutorial.md "patch-manager-server-patching-iPv6-tutorial.md") for more information
 on configuring the agent to use dualstack.
 
-## Using the patch baseline override with Snapshot Id or Install Override List
-
-parameters
+## Using the patch baseline override with Snapshot Id or Install Override List parameters
 
 There are two cases where the patch baseline override has noteworthy
 behavior.
@@ -65,17 +52,13 @@ same. If, midway through the patching operation, you changed the JSON file in
 the referenced S3 bucket to be something different, the patches applied will
 still be the same. This is because the Snapshot Id was provided.
 
-###### Using baseline override and Install Override List at the same
-
-time
+###### Using baseline override and Install Override List at the same time
 
 You can't use these two parameters at the same time. The patching document
 fails if both parameters are supplied, and it doesn't perform any scans or
 installs on the managed node.
 
-## Code
-
-examples
+## Code examples
 
 The following code example for Python shows how to generate the patch baseline
 override.

@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Controlling access to
-
-Fleet Manager
+# Controlling access to Fleet Manager
 
 To use Fleet Manager, a tool in AWS Systems Manager, your AWS Identity and Access Management (IAM) user or role must
 have the required permissions. You can create an IAM policy that provides access
@@ -46,14 +36,10 @@ identities in your account:
 
 ###### Topics
 
-- [Sample policy for Fleet Manager administrator
-  access](#admin-policy-sample "#admin-policy-sample")
-- [Sample policy for Fleet Manager read-only
-  access](#read-only-policy-sample "#read-only-policy-sample")
+- [Sample policy for Fleet Manager administrator access](#admin-policy-sample "#admin-policy-sample")
+- [Sample policy for Fleet Manager read-only access](#read-only-policy-sample "#read-only-policy-sample")
 
-## Sample policy for Fleet Manager administrator
-
-access
+## Sample policy for Fleet Manager administrator access
 
 The following policy provides permissions to all Fleet Manager features. This means
 a user can create and delete local users and groups, modify group membership for
@@ -185,9 +171,7 @@ JSON
 
 ```
 
-## Sample policy for Fleet Manager read-only
-
-access
+## Sample policy for Fleet Manager read-only access
 
 The following policy provides permissions to read-only Fleet Manager features.
 Replace each `example resource placeholder` with

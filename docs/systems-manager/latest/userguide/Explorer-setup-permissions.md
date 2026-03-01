@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Configuring roles and permissions for
-
-Systems Manager Explorer
+# Configuring roles and permissions for Systems Manager Explorer
 
 Integrated Setup automatically creates and configures AWS Identity and Access Management (IAM) roles for
 AWS Systems Manager Explorer and AWS Systems Manager OpsCenter. If you completed Integrated Setup, then you
@@ -60,9 +50,7 @@ JSON
 For more information about the
 `AWSServiceRoleForAmazonSSM_AccountDiscovery` role, see [Using roles to collect AWS account information for OpsCenter and Explorer](using-service-linked-roles-service-action-2.md "using-service-linked-roles-service-action-2.md").
 
-## Configuring
-
-permissions for Systems Manager OpsCenter
+## Configuring permissions for Systems Manager OpsCenter
 
 After you complete Integrated Setup, you must configure user, group, or role
 permissions so that users can perform actions in OpsCenter.
@@ -74,8 +62,7 @@ account or across multiple accounts. If you configure OpsCenter to create
 and manage OpsItems across multiple accounts, you can use either the Systems Manager
 delegated administrator account or the AWS Organizations management account to
 manually create, view, or edit OpsItems in other accounts. For more information
-about the Systems Manager delegated administrator account, see [Configuring a delegated
-administrator for Explorer](Explorer-setup-delegated-administrator.md "Explorer-setup-delegated-administrator.md").
+about the Systems Manager delegated administrator account, see [Configuring a delegated administrator for Explorer](Explorer-setup-delegated-administrator.md "Explorer-setup-delegated-administrator.md").
 
 If you configure OpsCenter for a single account, you can only view or edit
 OpsItems in the account where OpsItems were created. You can't share or transfer OpsItems

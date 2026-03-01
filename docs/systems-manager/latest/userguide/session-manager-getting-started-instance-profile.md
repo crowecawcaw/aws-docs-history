@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Step 2: Verify or
-
-add instance permissions for Session Manager
+# Step 2: Verify or add instance permissions for Session Manager
 
 By default, AWS Systems Manager doesn't have permission to perform actions on your
 instances. You can provide instance permissions at the account level using an
@@ -18,8 +8,7 @@ Host Management Configuration. If you've already set up the Default Host Managem
 Configuration for your account using the
 `AmazonSSMManagedEC2InstanceDefaultPolicy` policy, you can proceed to
 the next step. For more information about the Default Host Management Configuration,
-see [Managing EC2
-instances automatically with Default Host Management Configuration](fleet-manager-default-host-management-configuration.md "fleet-manager-default-host-management-configuration.md").
+see [Managing EC2 instances automatically with Default Host Management Configuration](fleet-manager-default-host-management-configuration.md "fleet-manager-default-host-management-configuration.md").
 
 Alternatively, you can use instance profiles to provide the required permissions
 to your instances. An instance profile passes an IAM role to an Amazon EC2 instance.
@@ -52,15 +41,13 @@ actions to be performed on your instances:
 
 To add permissions for Session Manager actions to an existing IAM role that
 doesn't rely on the AWS-provided default policy
-`AmazonSSMManagedInstanceCore`, follow the steps in [Add
-Session Manager permissions to an existing IAM role](getting-started-add-permissions-to-existing-profile.md "getting-started-add-permissions-to-existing-profile.md").
+`AmazonSSMManagedInstanceCore`, follow the steps in [Add Session Manager permissions to an existing IAM role](getting-started-add-permissions-to-existing-profile.md "getting-started-add-permissions-to-existing-profile.md").
 
 - **Create a custom IAM role with Session Manager permissions
   only**
 
 To create an IAM role that contains permissions only for Session Manager
-actions, follow the steps in [Create a custom
-IAM role for Session Manager](getting-started-create-iam-instance-profile.md "getting-started-create-iam-instance-profile.md").
+actions, follow the steps in [Create a custom IAM role for Session Manager](getting-started-create-iam-instance-profile.md "getting-started-create-iam-instance-profile.md").
 
 - **Create and use a new IAM role with permissions for
   all Systems Manager actions**
@@ -71,7 +58,5 @@ policy supplied by AWS to grant all Systems Manager permissions, follow the step
 
 ###### Topics
 
-- [Add
-  Session Manager permissions to an existing IAM role](getting-started-add-permissions-to-existing-profile.md "getting-started-add-permissions-to-existing-profile.md")
-- [Create a custom
-  IAM role for Session Manager](getting-started-create-iam-instance-profile.md "getting-started-create-iam-instance-profile.md")
+- [Add Session Manager permissions to an existing IAM role](getting-started-add-permissions-to-existing-profile.md "getting-started-add-permissions-to-existing-profile.md")
+- [Create a custom IAM role for Session Manager](getting-started-create-iam-instance-profile.md "getting-started-create-iam-instance-profile.md")

@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Assigning parameter policies in
-
-Parameter Store
+# Assigning parameter policies in Parameter Store
 
 Parameter policies help you manage a growing set of parameters by allowing you to
 assign specific criteria to a parameter such as an expiration date or _time
@@ -33,8 +23,7 @@ to the criteria you specified.
 ###### Note
 
 Parameter policies are available for parameters that use the advanced
-parameters tier. For more information, see [Managing parameter
-tiers](parameter-store-advanced-parameters.md "parameter-store-advanced-parameters.md").
+parameters tier. For more information, see [Managing parameter tiers](parameter-store-advanced-parameters.md "parameter-store-advanced-parameters.md").
 
 A parameter policy is a JSON array, as shown in the following table. You can
 assign a policy when you create a new advanced parameter, or you can apply a policy
@@ -99,28 +88,20 @@ assigns four policies to a new `SecureString` parameter named
 }
 ```
 
-## Adding policies to an
-
-existing parameter
+## Adding policies to an existing parameter
 
 This section includes information about how to add policies to an existing
 parameter by using the AWS Systems Manager console, the AWS Command Line Interface (AWS CLI), and AWS Tools for Windows PowerShell .
 For information about how to create a new parameter that includes policies, see
-[Creating Parameter Store parameters in
-Systems Manager](sysman-paramstore-su-create.md "sysman-paramstore-su-create.md").
+[Creating Parameter Store parameters in Systems Manager](sysman-paramstore-su-create.md "sysman-paramstore-su-create.md").
 
 ###### Topics
 
-- [Adding policies to
-  an existing parameter using the console](#sysman-paramstore-policy-create-console "#sysman-paramstore-policy-create-console")
-- [Adding policies to an
-  existing parameter using the AWS CLI](#sysman-paramstore-policy-create-cli "#sysman-paramstore-policy-create-cli")
-- [Adding policies to an
-  existing parameter (Tools for Windows PowerShell)](#sysman-paramstore-policy-create-ps "#sysman-paramstore-policy-create-ps")
+- [Adding policies to an existing parameter using the console](#sysman-paramstore-policy-create-console "#sysman-paramstore-policy-create-console")
+- [Adding policies to an existing parameter using the AWS CLI](#sysman-paramstore-policy-create-cli "#sysman-paramstore-policy-create-cli")
+- [Adding policies to an existing parameter (Tools for Windows PowerShell)](#sysman-paramstore-policy-create-ps "#sysman-paramstore-policy-create-ps")
 
-### Adding policies to
-
-an existing parameter using the console
+### Adding policies to an existing parameter using the console
 
 Use the following procedure to add policies to an existing parameter by
 using the Systems Manager console.
@@ -152,9 +133,7 @@ using the Systems Manager console.
   policies, copy and paste the original policies, type the new
   policy, and then save your changes.
 
-### Adding policies to an
-
-existing parameter using the AWS CLI
+### Adding policies to an existing parameter using the AWS CLI
 
 Use the following procedure to add policies to an existing parameter by
 using the AWS CLI.
@@ -279,9 +258,7 @@ aws ssm put-parameter ^
   policies, copy and paste the original policies, type the new
   policy, and then save your changes.
 
-### Adding policies to an
-
-existing parameter (Tools for Windows PowerShell)
+### Adding policies to an existing parameter (Tools for Windows PowerShell)
 
 Use the following procedure to add policies to an existing parameter by
 using Tools for Windows PowerShell. Replace each `example resource

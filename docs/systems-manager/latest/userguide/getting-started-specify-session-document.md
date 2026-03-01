@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Start a session with
-
-a document by specifying the session documents in IAM policies
+# Start a session with a document by specifying the session documents in IAM policies
 
 If you use the [start-session](../../../cli/latest/reference/ssm/start-session.md "../../../cli/latest/reference/ssm/start-session.md")
 AWS CLI command using the default session document, you can omit the document
@@ -31,8 +21,7 @@ aws ssm start-session \
 ```
 
 For an example of how to specify a Session Manager session document in an IAM
-policy, see [Quickstart end user
-policies for Session Manager](getting-started-restrict-access-quickstart.md#restrict-access-quickstart-end-user "getting-started-restrict-access-quickstart.md#restrict-access-quickstart-end-user").
+policy, see [Quickstart end user policies for Session Manager](getting-started-restrict-access-quickstart.md#restrict-access-quickstart-end-user "getting-started-restrict-access-quickstart.md#restrict-access-quickstart-end-user").
 
 ###### Note
 

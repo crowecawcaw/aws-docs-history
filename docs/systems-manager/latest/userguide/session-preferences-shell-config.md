@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Allow configurable shell
-
-profiles
+# Allow configurable shell profiles
 
 By default, sessions on EC2 instances for Linux start using the
 Bourne shell (sh). However, you might prefer to use another shell like bash. By
@@ -27,10 +17,8 @@ profile, we recommend the following:
   (IAM) users and roles. Then modify the IAM policy for these
   users and roles so the `StartSession` API operation can
   only use the Session-type document you have created for them. For
-  information see, [Create a Session Manager
-  preferences document (command line)](getting-started-create-preferences-cli.md "getting-started-create-preferences-cli.md") and
-  [Quickstart end user
-  policies for Session Manager](getting-started-restrict-access-quickstart.md#restrict-access-quickstart-end-user "getting-started-restrict-access-quickstart.md#restrict-access-quickstart-end-user").
+  information see, [Create a Session Manager preferences document (command line)](getting-started-create-preferences-cli.md "getting-started-create-preferences-cli.md") and
+  [Quickstart end user policies for Session Manager](getting-started-restrict-access-quickstart.md#restrict-access-quickstart-end-user "getting-started-restrict-access-quickstart.md#restrict-access-quickstart-end-user").
 - Modify the IAM policy for your IAM users and roles to deny
   access to the `UpdateDocument` API operation for the
   Session-type document resource you create. This allows your users

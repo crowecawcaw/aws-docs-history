@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Viewing SSM Agent logs
 
 AWS Systems Manager Agent (SSM Agent) writes information about executions, commands, scheduled
@@ -46,9 +38,7 @@ nodes.
 
 Linux and macOS
 
-###### To allow SSM Agent debug logging on Linux and macOS managed
-
-nodes
+###### To allow SSM Agent debug logging on Linux and macOS managed nodes
 
 1. Either use Session Manager, a tool in AWS Systems Manager, to connect to the
    managed node where you want to allow debug logging, or log on to

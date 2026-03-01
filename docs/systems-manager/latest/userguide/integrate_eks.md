@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Use Parameter Store parameters in Amazon Elastic Kubernetes Service
 
 To show parameters from Parameter Store, a tool of AWS Systems Manager, as files mounted in Amazon EKS
@@ -34,7 +26,7 @@ files in your Amazon EKS Pods. This approach is suitable when:
 - You want to retrieve specific key-value pairs from JSON-formatted
   parameters.
 
-For more information, see [Use AWS Secrets and Configuration Provider CSI with IAM Roles for Service Accounts (IRSA)](integrating_ascp_irsa.md "integrating_ascp_irsa.md") .
+For more information, see [Use AWS Secrets and Configuration Provider CSI with IAM Roles for Service Accounts (IRSA)](integrating_ascp_irsa.md "integrating_ascp_irsa.md").
 
 ## ASCP with Pod Identity
 
@@ -46,8 +38,7 @@ when:
 - You're using Amazon EKS version 1.24 or later.
 - You want improved performance and scalability.
 
-For more information, see [Use AWS Secrets and Configuration Provider CSI with Pod
-Identity for Amazon EKS](ascp-pod-identity-integration.md "ascp-pod-identity-integration.md").
+For more information, see [Use AWS Secrets and Configuration Provider CSI with Pod Identity for Amazon EKS](ascp-pod-identity-integration.md "ascp-pod-identity-integration.md").
 
 ## Choosing the right approach
 

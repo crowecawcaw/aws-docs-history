@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Generating .csv
-
-patch compliance reports
+# Generating .csv patch compliance reports
 
 You can use the AWS Systems Manager console to generate patch compliance reports that
 are saved as a .csv file to an Amazon Simple Storage Service (Amazon S3) bucket of your choice. You can
@@ -21,10 +11,10 @@ contains comprehensive details, including the IDs of patches related to a node
 being noncompliant. For a report on all managed nodes, only summary information
 and counts of noncompliant nodes' patches are provided.
 
-After a report is generated, you can use a tool like Amazon Quick Suite to import and
-analyze the data. Quick Suite is a business intelligence (BI) service you can use to
+After a report is generated, you can use a tool like Amazon Quick to import and
+analyze the data. Quick is a business intelligence (BI) service you can use to
 explore and interpret information in an interactive visual environment. For more
-information, see the [Amazon Quick Suite User Guide](../../../quicksuite/latest/userguide/what-is.md "../../../quicksuite/latest/userguide/what-is.md").
+information, see the [Amazon Quick User Guide](../../../quicksuite/latest/userguide/what-is.md "../../../quicksuite/latest/userguide/what-is.md").
 
 ###### Note
 
@@ -77,27 +67,18 @@ start an automation using the runbook [AWS-ExportPatchReportToS3](../../../syste
 
 We recommend against attempting to modify these policies and roles. Doing so
 could cause patch compliance report generation to fail. For more information,
-see [Troubleshooting
-patch compliance report generation](#patch-compliance-reports-troubleshooting "#patch-compliance-reports-troubleshooting").
+see [Troubleshooting patch compliance report generation](#patch-compliance-reports-troubleshooting "#patch-compliance-reports-troubleshooting").
 
 ###### Topics
 
-- [What's in a
-  generated patch compliance report?](#patch-compliance-reports-to-s3-examples "#patch-compliance-reports-to-s3-examples")
-- [Generating
-  patch compliance reports for a single managed node](#patch-compliance-reports-to-s3-one-instance "#patch-compliance-reports-to-s3-one-instance")
-- [Generating
-  patch compliance reports for all managed nodes](#patch-compliance-reports-to-s3-all-instances "#patch-compliance-reports-to-s3-all-instances")
-- [Viewing patch
-  compliance reporting history](#patch-compliance-reporting-history "#patch-compliance-reporting-history")
-- [Viewing patch
-  compliance reporting schedules](#patch-compliance-reporting-schedules "#patch-compliance-reporting-schedules")
-- [Troubleshooting
-  patch compliance report generation](#patch-compliance-reports-troubleshooting "#patch-compliance-reports-troubleshooting")
+- [What's in a generated patch compliance report?](#patch-compliance-reports-to-s3-examples "#patch-compliance-reports-to-s3-examples")
+- [Generating patch compliance reports for a single managed node](#patch-compliance-reports-to-s3-one-instance "#patch-compliance-reports-to-s3-one-instance")
+- [Generating patch compliance reports for all managed nodes](#patch-compliance-reports-to-s3-all-instances "#patch-compliance-reports-to-s3-all-instances")
+- [Viewing patch compliance reporting history](#patch-compliance-reporting-history "#patch-compliance-reporting-history")
+- [Viewing patch compliance reporting schedules](#patch-compliance-reporting-schedules "#patch-compliance-reporting-schedules")
+- [Troubleshooting patch compliance report generation](#patch-compliance-reports-troubleshooting "#patch-compliance-reports-troubleshooting")
 
-## What's in a
-
-generated patch compliance report?
+## What's in a generated patch compliance report?
 
 This topic provides information about the types of content included in the
 patch compliance reports that are generated and downloaded to a specified S3
@@ -185,18 +166,14 @@ following:
 - Noncompliant Informational severity patch count
 - Noncompliant Unspecified severity patch count
 
-## Generating
-
-patch compliance reports for a single managed node
+## Generating patch compliance reports for a single managed node
 
 Use the following procedure to generate a patch summary report for a
 single managed node in your AWS account. The report for a single managed
 node provides details about each patch that is out of compliance, including
 patch names and IDs.
 
-###### To generate patch compliance reports for a single managed
-
-node
+###### To generate patch compliance reports for a single managed node
 
 1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
 2. In the navigation pane, choose **Patch Manager**.
@@ -220,8 +197,7 @@ node
    expression, such as every 3 days, or provide a cron expression to
    set the report frequency.
 
-For information about cron expressions, see [Reference: Cron and rate expressions
-for Systems Manager](reference-cron-and-rate-expressions.md "reference-cron-and-rate-expressions.md"). 9. For **Bucket name**, select the name of an S3
+For information about cron expressions, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md "reference-cron-and-rate-expressions.md"). 9. For **Bucket name**, select the name of an S3
 bucket where you want to store the .csv report files.
 
 ###### Important
@@ -236,24 +212,19 @@ expend the **SNS topic** section, and then choose
 an existing Amazon SNS topic from **SNS topic Amazon Resource
 Name (ARN)**. 11. Choose **Submit**.
 
-For information about viewing a history of generated reports, see [Viewing patch
-compliance reporting history](#patch-compliance-reporting-history "#patch-compliance-reporting-history").
+For information about viewing a history of generated reports, see [Viewing patch compliance reporting history](#patch-compliance-reporting-history "#patch-compliance-reporting-history").
 
 For information about viewing details of reporting schedules you have
-created, see [Viewing patch
-compliance reporting schedules](#patch-compliance-reporting-schedules "#patch-compliance-reporting-schedules").
+created, see [Viewing patch compliance reporting schedules](#patch-compliance-reporting-schedules "#patch-compliance-reporting-schedules").
 
-## Generating
-
-patch compliance reports for all managed nodes
+## Generating patch compliance reports for all managed nodes
 
 Use the following procedure to generate a patch summary report for all
 managed nodes in your AWS account. The report for all managed nodes
 indicates which nodes are out of compliance and the numbers of noncompliant
 patches. It doesn't provide the names or other identifiers of the patches.
 For these additional details, you can generate a patch compliance report for
-a single managed node. For information, see [Generating
-patch compliance reports for a single managed node](#patch-compliance-reports-to-s3-one-instance "#patch-compliance-reports-to-s3-one-instance") earlier in
+a single managed node. For information, see [Generating patch compliance reports for a single managed node](#patch-compliance-reports-to-s3-one-instance "#patch-compliance-reports-to-s3-one-instance") earlier in
 this topic.
 
 ###### To generate patch compliance reports for all managed nodes
@@ -277,8 +248,7 @@ this topic.
    expression, such as every 3 days, or provide a cron expression to
    set the report frequency.
 
-For information about cron expressions, see [Reference: Cron and rate expressions
-for Systems Manager](reference-cron-and-rate-expressions.md "reference-cron-and-rate-expressions.md"). 8. For **Bucket name**, select the name of an S3
+For information about cron expressions, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md "reference-cron-and-rate-expressions.md"). 8. For **Bucket name**, select the name of an S3
 bucket where you want to store the .csv report files.
 
 ###### Important
@@ -293,16 +263,12 @@ expend the **SNS topic** section, and then choose
 an existing Amazon SNS topic from **SNS topic Amazon Resource
 Name (ARN)**. 10. Choose **Submit**.
 
-For information about viewing a history of generated reports, see [Viewing patch
-compliance reporting history](#patch-compliance-reporting-history "#patch-compliance-reporting-history").
+For information about viewing a history of generated reports, see [Viewing patch compliance reporting history](#patch-compliance-reporting-history "#patch-compliance-reporting-history").
 
 For information about viewing details of reporting schedules you have
-created, see [Viewing patch
-compliance reporting schedules](#patch-compliance-reporting-schedules "#patch-compliance-reporting-schedules").
+created, see [Viewing patch compliance reporting schedules](#patch-compliance-reporting-schedules "#patch-compliance-reporting-schedules").
 
-## Viewing patch
-
-compliance reporting history
+## Viewing patch compliance reporting history
 
 Use the information in this topic to help you view details about the patch
 compliance reports generated in your AWS account.
@@ -315,9 +281,7 @@ compliance reports generated in your AWS account.
 4. Choose **View all S3 exports**, and then choose
    the **Export history** tab.
 
-## Viewing patch
-
-compliance reporting schedules
+## Viewing patch compliance reporting schedules
 
 Use the information in this topic to help you view details about the patch
 compliance reporting schedules created in your AWS account.
@@ -330,9 +294,7 @@ compliance reporting schedules created in your AWS account.
 4. Choose **View all S3 exports**, and then choose
    the **Report schedule rules** tab.
 
-## Troubleshooting
-
-patch compliance report generation
+## Troubleshooting patch compliance report generation
 
 Use the following information to help you troubleshoot problems with
 generating patch compliance report generation in Patch Manager, a tool in
@@ -340,19 +302,10 @@ AWS Systems Manager.
 
 ###### Topics
 
-- [A message
-  reports that the
-  AWS-SystemsManager-PatchManagerExportRolePolicy
-  policy is corrupted](#patch-compliance-reports-troubleshooting-1 "#patch-compliance-reports-troubleshooting-1")
-- [After
-  deleting patch compliance policies or roles, scheduled reports
-  aren't generated successfully](#patch-compliance-reports-troubleshooting-2 "#patch-compliance-reports-troubleshooting-2")
+- [A message reports that the AWS-SystemsManager-PatchManagerExportRolePolicy policy is corrupted](#patch-compliance-reports-troubleshooting-1 "#patch-compliance-reports-troubleshooting-1")
+- [After deleting patch compliance policies or roles, scheduled reports aren't generated successfully](#patch-compliance-reports-troubleshooting-2 "#patch-compliance-reports-troubleshooting-2")
 
-### A message
-
-reports that the
-`AWS-SystemsManager-PatchManagerExportRolePolicy`
-policy is corrupted
+### A message reports that the `AWS-SystemsManager-PatchManagerExportRolePolicy` policy is corrupted
 
 **Problem**: You receive an error message
 similar to the following, indicating the
@@ -449,10 +402,7 @@ with your account ID.
 After completing either procedure, follow the steps to
 generate or schedule a new patch compliance report.
 
-### After
-
-deleting patch compliance policies or roles, scheduled reports
-aren't generated successfully
+### After deleting patch compliance policies or roles, scheduled reports aren't generated successfully
 
 **Problem**: The first time you generate
 a report, Systems Manager creates a service role and a policy to use for the

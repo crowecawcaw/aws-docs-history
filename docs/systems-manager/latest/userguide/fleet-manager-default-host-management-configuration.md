@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Managing EC2
-
-instances automatically with Default Host Management Configuration
+# Managing EC2 instances automatically with Default Host Management Configuration
 
 The Default Host Management Configuration setting allows AWS Systems Manager to manage your
 Amazon EC2 instances automatically as _managed instances_. A
@@ -38,8 +28,7 @@ to the IAM role you choose for Default Host Management Configuration applies to 
 managed Amazon EC2 instances in the Region and account.
 
 For more information about the policy used by Default Host Management Configuration,
-see [AWS
-managed policy: AmazonSSMManagedEC2InstanceDefaultPolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSSMManagedEC2InstanceDefaultPolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSSMManagedEC2InstanceDefaultPolicy").
+see [AWS managed policy: AmazonSSMManagedEC2InstanceDefaultPolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSSMManagedEC2InstanceDefaultPolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSSMManagedEC2InstanceDefaultPolicy").
 
 ###### Implement least privilege access
 
@@ -47,8 +36,7 @@ The procedures in this topic are intended to be performed only by administrators
 Therefore, we recommend implementing _least privilege
 access_ in order to prevent non-administrative users from configuring
 or modifying the Default Host Management Configuration. To view example policies
-that restrict access to the Default Host Management Configuration, see [Least privilege policy examples for
-Default Host Management Configuration](#least-privilege-examples "#least-privilege-examples")
+that restrict access to the Default Host Management Configuration, see [Least privilege policy examples for Default Host Management Configuration](#least-privilege-examples "#least-privilege-examples")
 later in this topic.
 
 ###### Important
@@ -64,12 +52,9 @@ permissions to your instance, or recreate the instance.
 ###### Topics
 
 - [Prerequisites](#dhmc-prerequisites "#dhmc-prerequisites")
-- [Activating the Default Host Management Configuration
-  setting](#dhmc-activate "#dhmc-activate")
-- [Deactivating the Default Host Management
-  Configuration setting](#dhmc-deactivate "#dhmc-deactivate")
-- [Least privilege policy examples for
-  Default Host Management Configuration](#least-privilege-examples "#least-privilege-examples")
+- [Activating the Default Host Management Configuration setting](#dhmc-activate "#dhmc-activate")
+- [Deactivating the Default Host Management Configuration setting](#dhmc-deactivate "#dhmc-deactivate")
+- [Least privilege policy examples for Default Host Management Configuration](#least-privilege-examples "#least-privilege-examples")
 
 ## Prerequisites
 
@@ -90,8 +75,7 @@ _Amazon EC2 User Guide_
 For information about checking the version of SSM Agent installed on your
 instance, see [Checking the SSM Agent version number](ssm-agent-get-version.md "ssm-agent-get-version.md").
 
-For information about updating SSM Agent, see [Automatically updating
-SSM Agent](ssm-agent-automatic-updates.md#ssm-agent-automatic-updates-console "ssm-agent-automatic-updates.md#ssm-agent-automatic-updates-console").
+For information about updating SSM Agent, see [Automatically updating SSM Agent](ssm-agent-automatic-updates.md#ssm-agent-automatic-updates-console "ssm-agent-automatic-updates.md#ssm-agent-automatic-updates-console").
 
 - You, as the administrator performing the tasks in this topic, must have
   permissions for the [GetServiceSetting](../APIReference/API_GetServiceSetting.md "../APIReference/API_GetServiceSetting.md"), [ResetServiceSetting](../APIReference/API_ResetServiceSetting.md "../APIReference/API_ResetServiceSetting.md"), and [UpdateServiceSetting](../APIReference/API_UpdateServiceSetting.md "../APIReference/API_UpdateServiceSetting.md") API operations. Additionally, you must
@@ -144,9 +128,7 @@ JSON
   instance profile, the instance will not use the Default Host Management
   Configuration permissions.
 
-## Activating the Default Host Management Configuration
-
-setting
+## Activating the Default Host Management Configuration setting
 
 You can activate Default Host Management Configuration from the Fleet Manager console,
 or by using the AWS Command Line Interface or AWS Tools for Windows PowerShell.
@@ -326,9 +308,7 @@ The command returns information like the following.
 }
 ```
 
-## Deactivating the Default Host Management
-
-Configuration setting
+## Deactivating the Default Host Management Configuration setting
 
 You can deactivate Default Host Management Configuration from the Fleet Manager
 console, or by using the AWS Command Line Interface or AWS Tools for Windows PowerShell.
@@ -380,9 +360,7 @@ Reset-SSMServiceSetting `
 -SettingId "arn:aws:ssm:`region`:`account-id`:servicesetting/ssm/managed-instance/default-ec2-instance-management-role"
 ```
 
-## Least privilege policy examples for
-
-Default Host Management Configuration
+## Least privilege policy examples for Default Host Management Configuration
 
 The following sample policies demonstrate how to prevent members of your
 organization from making changes to the Default Host Management Configuration

@@ -1,19 +1,9 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Troubleshooting Parameter Store
 
 Use the following information to help you troubleshoot problems with Parameter Store, a tool
 in AWS Systems Manager.
 
-## Troubleshooting
-
-`aws:ec2:image` parameter creation
+## Troubleshooting `aws:ec2:image` parameter creation
 
 Use the following information to help troubleshoot problems with creating
 `aws:ec2:image` data type parameters.
@@ -31,9 +21,7 @@ an `aws:ec2:image` parameter but receive an error message such as
   among others. Contact a user with administrator permissions in your
   organzation to request the necessary permissions.
 
-### EventBridge reports the failure message "Unable to
-
-Describe Resource"
+### EventBridge reports the failure message "Unable to Describe Resource"
 
 **Problem**: You ran a command to create an
 `aws:ec2:image` parameter, but parameter creation failed. You
@@ -52,9 +40,7 @@ following:
   Make sure you're entering the ID of an AMI that is available in the
   current AWS Region and account you're working in.
 
-### New `aws:ec2:image` parameter
-
-isn't available
+### New `aws:ec2:image` parameter isn't available
 
 **Problem**: You just ran a command to create an
 `aws:ec2:image` parameter and a version number was reported, but
@@ -71,8 +57,7 @@ the parameter isn't available.
        `create` and `update` parameter
        operations. These notifications report whether a parameter
        operation was successful or not. For information about
-       subscribing to Parameter Store events in EventBridge, see [Setting up notifications or triggering
-       actions based on Parameter Store events](sysman-paramstore-cwe.md "sysman-paramstore-cwe.md").
+       subscribing to Parameter Store events in EventBridge, see [Setting up notifications or triggering actions based on Parameter Store events](sysman-paramstore-cwe.md "sysman-paramstore-cwe.md").
       + In the Parameter Store section of the Systems Manager console, refresh the list
        of parameters periodically to search for the new or updated
        parameter details.

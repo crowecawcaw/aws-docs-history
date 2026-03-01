@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Reviewing and approving or rejecting
-
-change requests
+# Reviewing and approving or rejecting change requests
 
 ###### Change Manager availability change
 
@@ -25,8 +15,7 @@ change request is awaiting your review.
 
 This functionality depends on whether an Amazon SNS was specified in the
 change template for sending review notifications. For information, see
-[Configuring Amazon SNS topics for Change Manager
-notifications](change-manager-sns-setup.md "change-manager-sns-setup.md").
+[Configuring Amazon SNS topics for Change Manager notifications](change-manager-sns-setup.md "change-manager-sns-setup.md").
 
 To review the change request, you can follow the link in your notification,
 or sign in to the AWS Management Console directly and follow the steps in this
@@ -38,12 +27,9 @@ If an Amazon SNS topic is assigned for reviewers in a change template,
 notifications are sent to the topic's subscribers when the change request
 changes status.
 
-For more information about approvals for change requests, see [About change request
-approvals](change-requests-create.md#cm-approvals-requests "change-requests-create.md#cm-approvals-requests").
+For more information about approvals for change requests, see [About change request approvals](change-requests-create.md#cm-approvals-requests "change-requests-create.md#cm-approvals-requests").
 
-## Reviewing and approving or
-
-rejecting change requests (console)
+## Reviewing and approving or rejecting change requests (console)
 
 The following procedures describe how to use the Systems Manager console to review
 and approve or reject change requests.
@@ -88,9 +74,7 @@ approval or rejection. 7. Depending on whether you're approving or rejecting the
 change requests, choose **Approve** or
 **Reject**.
 
-## Reviewing and
-
-approving or rejecting a change request (command line)
+## Reviewing and approving or rejecting a change request (command line)
 
 The following procedure describes how to use the AWS Command Line Interface (AWS CLI) (on
 Linux, macOS, or Windows Server) to review and approve or reject a

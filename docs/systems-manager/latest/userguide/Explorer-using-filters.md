@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Customizing the Explorer display
 
 You can customize widget layout in AWS Systems Manager Explorer by using a drag-and-drop capability.
@@ -36,9 +28,7 @@ Repeat this process for each widget that you want to reposition.
 If you decide that you don't like the new layout, choose **Reset
 layout** to move all widgets back to their original location.
 
-## Using filters to the change
-
-the data displayed in Explorer
+## Using filters to the change the data displayed in Explorer
 
 By default, Explorer displays data for the current AWS account and the
 current Region. If you create one or more resource data syncs, you can use

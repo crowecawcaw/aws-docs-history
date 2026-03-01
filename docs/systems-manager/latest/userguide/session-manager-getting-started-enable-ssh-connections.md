@@ -1,15 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Step 8:
-
-(Optional) Allow and control permissions for SSH connections through
-Session Manager
+# Step 8: (Optional) Allow and control permissions for SSH connections through Session Manager
 
 You can allow users in your AWS account to use the AWS Command Line Interface (AWS CLI) to
 establish Secure Shell (SSH) connections to managed nodes using AWS Systems Manager Session Manager.
@@ -37,8 +26,7 @@ SSH connections.
 ###### Topics
 
 - [Allowing SSH connections for Session Manager](#ssh-connections-enable "#ssh-connections-enable")
-- [Controlling user permissions for
-  SSH connections through Session Manager](#ssh-connections-permissions "#ssh-connections-permissions")
+- [Controlling user permissions for SSH connections through Session Manager](#ssh-connections-permissions "#ssh-connections-permissions")
 
 ## Allowing SSH connections for Session Manager
 
@@ -57,12 +45,9 @@ node.
     For information about installing or updating SSM Agent on a
     managed node, see the following topics:
 
-        + [Manually installing and
-         uninstalling SSM Agent on EC2 instances for Windows Server](manually-install-ssm-agent-windows.md "manually-install-ssm-agent-windows.md").
-        + [Manually installing and
-         uninstalling SSM Agent on EC2 instances for Linux](manually-install-ssm-agent-linux.md "manually-install-ssm-agent-linux.md")
-        + [Manually installing and
-         uninstalling SSM Agent on EC2 instances for macOS](manually-install-ssm-agent-macos.md "manually-install-ssm-agent-macos.md")
+        + [Manually installing and uninstalling SSM Agent on EC2 instances for Windows Server](manually-install-ssm-agent-windows.md "manually-install-ssm-agent-windows.md").
+        + [Manually installing and uninstalling SSM Agent on EC2 instances for Linux](manually-install-ssm-agent-linux.md "manually-install-ssm-agent-linux.md")
+        + [Manually installing and uninstalling SSM Agent on EC2 instances for macOS](manually-install-ssm-agent-macos.md "manually-install-ssm-agent-macos.md")
         + [How to install the SSM Agent on hybrid Windows nodes](hybrid-multicloud-ssm-agent-install-windows.md "hybrid-multicloud-ssm-agent-install-windows.md")
         + [How to install the SSM Agent on hybrid Linux nodes](hybrid-multicloud-ssm-agent-install-linux.md "hybrid-multicloud-ssm-agent-install-linux.md")
 
@@ -71,16 +56,14 @@ node.
     To use Session Manager with on-premises servers, edge devices,
     and virtual machines (VMs) that you activated as managed
     nodes, you must use the advanced-instances tier. For more
-    information about advanced instances, see [Configuring instance
-    tiers](fleet-manager-configure-instance-tiers.md "fleet-manager-configure-instance-tiers.md").
+    information about advanced instances, see [Configuring instance tiers](fleet-manager-configure-instance-tiers.md "fleet-manager-configure-instance-tiers.md").
 
 2.  On the local machine from which you want to connect to a managed node
     using SSH, do the following:
     - Ensure that version 1.1.23.0 or later of the Session Manager plugin is
       installed.
 
-    For information about installing the Session Manager plugin, see [Install the Session Manager plugin
-    for the AWS CLI](session-manager-working-with-install-plugin.md "session-manager-working-with-install-plugin.md").
+    For information about installing the Session Manager plugin, see [Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md "session-manager-working-with-install-plugin.md").
     - Update the SSH configuration file to allow running a proxy
       command that starts a Session Manager session and transfer all data
       through the connection.
@@ -138,9 +121,7 @@ node.
     command to start a session. For information about starting a
     session using SSH, see [Starting a session (SSH)](session-manager-working-with-sessions-start.md#sessions-start-ssh "session-manager-working-with-sessions-start.md#sessions-start-ssh").)
 
-## Controlling user permissions for
-
-SSH connections through Session Manager
+## Controlling user permissions for SSH connections through Session Manager
 
 After you enable SSH connections through Session Manager on a managed node, you can
 use IAM policies to allow or deny users, groups, or roles the ability to make
@@ -157,8 +138,7 @@ SSH connections through Session Manager.
   want to allow to start SSH connections through Session Manager.
 
   For example, add the following element to the Quickstart
-  policy you created in [Quickstart end user
-  policies for Session Manager](getting-started-restrict-access-quickstart.md#restrict-access-quickstart-end-user "getting-started-restrict-access-quickstart.md#restrict-access-quickstart-end-user").
+  policy you created in [Quickstart end user policies for Session Manager](getting-started-restrict-access-quickstart.md#restrict-access-quickstart-end-user "getting-started-restrict-access-quickstart.md#restrict-access-quickstart-end-user").
   Replace each `example resource
  placeholder` with your own information.
 
@@ -207,8 +187,7 @@ SSH connections through Session Manager.
     Session Manager sessions.
 
   For example, add the following element to the Quickstart
-  policy you created in [Quickstart end user
-  policies for Session Manager](getting-started-restrict-access-quickstart.md#restrict-access-quickstart-end-user "getting-started-restrict-access-quickstart.md#restrict-access-quickstart-end-user").
+  policy you created in [Quickstart end user policies for Session Manager](getting-started-restrict-access-quickstart.md#restrict-access-quickstart-end-user "getting-started-restrict-access-quickstart.md#restrict-access-quickstart-end-user").
 
   JSON
 

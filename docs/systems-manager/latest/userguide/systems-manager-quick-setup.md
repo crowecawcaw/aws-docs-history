@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # AWS Systems Manager Quick Setup
 
 Use Quick Setup, a tool in AWS Systems Manager, to quickly configure frequently used Amazon Web Services services
@@ -21,8 +13,7 @@ get started with Quick Setup, open the [Systems Manager console](https://console
 ###### Note
 
 If you were directed to Quick Setup to help you configure your instances to be managed by
-Systems Manager, complete the procedure in [Set up Amazon EC2 host management using
-Quick Setup](quick-setup-host-management.md "quick-setup-host-management.md").
+Systems Manager, complete the procedure in [Set up Amazon EC2 host management using Quick Setup](quick-setup-host-management.md "quick-setup-host-management.md").
 
 ## What are the benefits of Quick Setup?
 
@@ -57,9 +48,7 @@ you're unfamiliar with the AWS service you're configuring with Quick Setup, we r
 that you learn more about the service. Review the content in the relevant User Guide
 before you create a configuration with Quick Setup.
 
-## Availability of Quick Setup in
-
-AWS Regions
+## Availability of Quick Setup in AWS Regions
 
 In the following AWS Regions, you can use all Quick Setup configuration types for an
 entire organization, as configured in AWS Organizations, or for only the organizational accounts

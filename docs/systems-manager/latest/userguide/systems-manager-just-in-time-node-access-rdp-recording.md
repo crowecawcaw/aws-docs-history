@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Recording
-
-RDP connections
+# Recording RDP connections
 
 Just-in-time node access includes the ability to record RDP connections made to
 your Windows Server nodes. Recording RDP connections require an S3 bucket and an AWS Key Management Service
@@ -25,9 +15,7 @@ different one than you specify in the recording settings, which must include for
 which the `kms:CreateGrant` permission is required for establishing
 connections.
 
-## Configuring S3 bucket
-
-encryption for RDP recordings
+## Configuring S3 bucket encryption for RDP recordings
 
 Your connection recordings are stored in the S3 bucket that you specify when
 you enable RDP recording.
@@ -92,9 +80,7 @@ in AWS Organizations.
 }
 ```
 
-## Configuring IAM
-
-permissions for recording RDP connections
+## Configuring IAM permissions for recording RDP connections
 
 In addition to the required IAM permissions for just-in-time node access,
 the user or role you use must be allowed the following permissions based on the
@@ -160,9 +146,7 @@ JSON
 
 ```
 
-## Enabling and configuring RDP
-
-connection recording
+## Enabling and configuring RDP connection recording
 
 The following procedure describes how to enable and configure RDP connection
 recording.
@@ -181,9 +165,7 @@ recording.
    bucket.)
 7. Select **Save**.
 
-## RDP connection recording status
-
-values
+## RDP connection recording status values
 
 Valid status values for RPD connection recordings include the
 following:

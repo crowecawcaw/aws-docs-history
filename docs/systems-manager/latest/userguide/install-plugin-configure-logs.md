@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# (Optional) Turn on Session Manager plugin
-
-logging
+# (Optional) Turn on Session Manager plugin logging
 
 The Session Manager plugin includes an option to allow logging for sessions that you run. By
 default, logging is turned off.
@@ -19,14 +9,10 @@ activity (`session-manager-plugin.log`) and errors
 
 ###### Topics
 
-- [Turn on logging for the Session Manager plugin
-  (Windows)](#configure-logs-windows "#configure-logs-windows")
-- [Enable logging for the Session Manager plugin
-  (Linux and macOS)](#configure-logs-linux "#configure-logs-linux")
+- [Turn on logging for the Session Manager plugin (Windows)](#configure-logs-windows "#configure-logs-windows")
+- [Enable logging for the Session Manager plugin (Linux and macOS)](#configure-logs-linux "#configure-logs-linux")
 
-## Turn on logging for the Session Manager plugin
-
-(Windows)
+## Turn on logging for the Session Manager plugin (Windows)
 
 1. Locate the `seelog.xml.template` file for the
    plugin.
@@ -69,9 +55,7 @@ can change include:
 
 5. Save the file.
 
-## Enable logging for the Session Manager plugin
-
-(Linux and macOS)
+## Enable logging for the Session Manager plugin (Linux and macOS)
 
 1. Locate the `seelog.xml.template` file for the
    plugin.

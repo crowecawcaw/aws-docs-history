@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Schemas, features, and examples
 
 AWS Systems Manager (SSM) documents use the following schema versions.
@@ -38,8 +30,7 @@ features.
 
 You must keep AWS Systems Manager SSM Agent on your instances updated with the latest
 version to use new Systems Manager features and SSM document features. For more
-information, see [Updating the SSM Agent using
-Run Command](run-command-tutorial-update-software.md#rc-console-agentexample "run-command-tutorial-update-software.md#rc-console-agentexample").
+information, see [Updating the SSM Agent using Run Command](run-command-tutorial-update-software.md#rc-console-agentexample "run-command-tutorial-update-software.md#rc-console-agentexample").
 
 The following table lists the differences between major schema versions.
 
@@ -362,9 +353,7 @@ JSON
 }
 ```
 
-###### Schema version 2.2 interpolation example with SSM Agent versions before
-
-3.3.2746.0
+###### Schema version 2.2 interpolation example with SSM Agent versions before 3.3.2746.0
 
 On SSM Agent versions prior to 3.3.2746.0, the agent ignores the
 `interpolationType` parameter and instead performs a raw
@@ -949,16 +938,12 @@ files:
       sha256: 18871b1311b295c43d0f...[truncated]...772da97b67e99d84d342ef4aEXAMPLE
 ````
 
-## Secure parameter handling
-
-examples
+## Secure parameter handling examples
 
 The following examples demonstrate secure parameter handling using environment
 variable `interpolationType`.
 
-### Basic secure command
-
-execution
+### Basic secure command execution
 
 This example shows how to securely handle a command parameter:
 
@@ -1025,9 +1010,7 @@ JSON
 
 ```
 
-### Using parameters in
-
-interpreted languages
+### Using parameters in interpreted languages
 
 This example demonstrates secure parameter handling in Python:
 
@@ -1064,9 +1047,7 @@ mainSteps:
           '
 ```
 
-### Backwards compatibility
-
-example
+### Backwards compatibility example
 
 This example shows how to handle parameters securely while maintaining
 backwards compatibility:
@@ -1105,9 +1086,7 @@ mainSteps:
 `allowedPattern` isn’t technically required in SSM
 documents that don’t use double braces: `{{ }}`
 
-## Parameter security best
-
-practices
+## Parameter security best practices
 
 Follow these best practices when handling parameters in SSM
 documents:

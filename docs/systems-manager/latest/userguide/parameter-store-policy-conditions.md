@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Preventing access to Parameter Store
-
-API operations
+# Preventing access to Parameter Store API operations
 
 Using service-specific _[conditions](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md")_ supported by Systems Manager for AWS Identity and Access Management (IAM)
 policies, you can explicity allow or deny access to Parameter Store API operations and
@@ -21,17 +11,11 @@ Systems Manager currently supports three conditions that are specific to Paramet
 
 ###### Topics
 
-- [Preventing changes to existing parameters
-  using ssm:Overwrite](#overwrite-condition "#overwrite-condition")
-- [Preventing creation or updates to
-  parameters that use a parameter policy using
-  ssm:Policies](#parameter-policies-condition "#parameter-policies-condition")
-- [Preventing access to levels in a
-  hierarchical parameter using ssm:Recursive](#recursive-condition "#recursive-condition")
+- [Preventing changes to existing parameters using ssm:Overwrite](#overwrite-condition "#overwrite-condition")
+- [Preventing creation or updates to parameters that use a parameter policy using ssm:Policies](#parameter-policies-condition "#parameter-policies-condition")
+- [Preventing access to levels in a hierarchical parameter using ssm:Recursive](#recursive-condition "#recursive-condition")
 
-## Preventing changes to existing parameters
-
-using `ssm:Overwrite`
+## Preventing changes to existing parameters using `ssm:Overwrite`
 
 Use the `ssm:Overwrite` condition to control whether IAM Entities
 can update existing parameters.
@@ -80,10 +64,7 @@ JSON
 
 ```
 
-## Preventing creation or updates to
-
-parameters that use a parameter policy using
-`ssm:Policies`
+## Preventing creation or updates to parameters that use a parameter policy using `ssm:Policies`
 
 User the `ssm:Policies` condition to control whether Entities can
 create parameters that include a parameter policy and update existing parameters
@@ -128,9 +109,7 @@ JSON
 
 ```
 
-## Preventing access to levels in a
-
-hierarchical parameter using `ssm:Recursive`
+## Preventing access to levels in a hierarchical parameter using `ssm:Recursive`
 
 Use the `ssm:Recursive` condition to control whether IAM Entities
 can view or reference levels in a hierarchical parameter. You can provide or

@@ -1,43 +1,22 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Troubleshooting problems with Systems Manager
-
-Inventory
+# Troubleshooting problems with Systems Manager Inventory
 
 This topic includes information about how to troubleshoot common errors or problems
 with AWS Systems Manager Inventory. If you're having trouble viewing your nodes in Systems Manager, see
-[Troubleshooting managed
-node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md").
+[Troubleshooting managed node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md").
 
 ###### Topics
 
-- [Multiple apply
-  all associations with document 'AWS-GatherSoftwareInventory' are
-  not supported](#systems-manager-inventory-troubleshooting-multiple "#systems-manager-inventory-troubleshooting-multiple")
-- [Inventory execution status never
-  exits pending](#inventory-troubleshooting-pending "#inventory-troubleshooting-pending")
-- [The
-  AWS-ListWindowsInventory document fails to run](#inventory-troubleshooting-ListWindowsInventory "#inventory-troubleshooting-ListWindowsInventory")
-- [Console doesn't display Inventory
-  Dashboard | Detailed View | Settings tabs](#inventory-troubleshooting-tabs "#inventory-troubleshooting-tabs")
+- [Multiple apply all associations with document 'AWS-GatherSoftwareInventory' are not supported](#systems-manager-inventory-troubleshooting-multiple "#systems-manager-inventory-troubleshooting-multiple")
+- [Inventory execution status never exits pending](#inventory-troubleshooting-pending "#inventory-troubleshooting-pending")
+- [The AWS-ListWindowsInventory document fails to run](#inventory-troubleshooting-ListWindowsInventory "#inventory-troubleshooting-ListWindowsInventory")
+- [Console doesn't display Inventory Dashboard | Detailed View | Settings tabs](#inventory-troubleshooting-tabs "#inventory-troubleshooting-tabs")
 - [UnsupportedAgent](#inventory-troubleshooting-unsupported-agent "#inventory-troubleshooting-unsupported-agent")
 - [Skipped](#inventory-troubleshooting-skipped "#inventory-troubleshooting-skipped")
 - [Failed](#inventory-troubleshooting-failed "#inventory-troubleshooting-failed")
-- [Inventory compliance
-  failed for an Amazon EC2 instance](#inventory-troubleshooting-ec2-compliance "#inventory-troubleshooting-ec2-compliance")
-- [S3 bucket object
-  contains old data](#systems-manager-inventory-troubleshooting-s3 "#systems-manager-inventory-troubleshooting-s3")
+- [Inventory compliance failed for an Amazon EC2 instance](#inventory-troubleshooting-ec2-compliance "#inventory-troubleshooting-ec2-compliance")
+- [S3 bucket object contains old data](#systems-manager-inventory-troubleshooting-s3 "#systems-manager-inventory-troubleshooting-s3")
 
-## Multiple apply
-
-all associations with document '`AWS-GatherSoftwareInventory`' are
-not supported
+## Multiple apply all associations with document '`AWS-GatherSoftwareInventory`' are not supported
 
 An error that `Multiple apply all associations with document
  'AWS-GatherSoftwareInventory' are not supported` means that one or more
@@ -51,9 +30,7 @@ document. If the existing inventory association for all nodes was created across
 multiple Regions, and you want to create a new one, you must delete the existing
 association from each Region where it exists.
 
-## Inventory execution status never
-
-exits pending
+## Inventory execution status never exits pending
 
 There are two reasons why inventory collection never exits the
 `Pending` status:
@@ -72,8 +49,7 @@ An inventory association shows `Pending` if one or more nodes
 don't have permission to run Systems Manager Inventory. Verify that the AWS Identity and Access Management
 (IAM) instance profile includes the
 **AmazonSSMManagedInstanceCore** managed policy. For
-information about how to add this policy to an instance profile, see [Alternative configuration for EC2
-instance permissions](setup-instance-permissions.md#instance-profile-add-permissions "setup-instance-permissions.md#instance-profile-add-permissions").
+information about how to add this policy to an instance profile, see [Alternative configuration for EC2 instance permissions](setup-instance-permissions.md#instance-profile-add-permissions "setup-instance-permissions.md#instance-profile-add-permissions").
 
 At a minimum, the instance profile must have the following IAM
 permissions.
@@ -105,16 +81,12 @@ JSON
 
 ```
 
-## The
-
-`AWS-ListWindowsInventory` document fails to run
+## The `AWS-ListWindowsInventory` document fails to run
 
 The `AWS-ListWindowsInventory` document is deprecated. Don't use this
 document to collect inventory. Instead, use one of the processes described in [Configuring inventory collection](inventory-collection.md "inventory-collection.md").
 
-## Console doesn't display Inventory
-
-Dashboard | Detailed View | Settings tabs
+## Console doesn't display Inventory Dashboard | Detailed View | Settings tabs
 
 The Inventory **Detailed View** page is only available in
 AWS Regions that offer Amazon Athena. If the following tabs aren't displayed on the
@@ -133,8 +105,7 @@ association (to inventory all nodes in your AWS account) for example, you must u
 SSM Agent version 2.0.790.0 or later. You can view the agent version running on each
 of your nodes on the **Managed Instances** page in the
 **Agent version** column. For information about how to update
-SSM Agent on your nodes, see [Updating the SSM Agent using
-Run Command](run-command-tutorial-update-software.md#rc-console-agentexample "run-command-tutorial-update-software.md#rc-console-agentexample").
+SSM Agent on your nodes, see [Updating the SSM Agent using Run Command](run-command-tutorial-update-software.md#rc-console-agentexample "run-command-tutorial-update-software.md#rc-console-agentexample").
 
 ## Skipped
 
@@ -142,9 +113,7 @@ If the status of the inventory association for a node shows **Skipped**, this me
 already running on that node. Systems Manager follows a specific priority order when multiple
 inventory associations could apply to the same managed node.
 
-### Inventory association
-
-priority order
+### Inventory association priority order
 
 Systems Manager applies inventory associations in the following priority order:
 
@@ -247,9 +216,7 @@ associations for a node.
 aws ssm describe-instance-associations-status --instance-id `instance-ID`
 ```
 
-## Inventory compliance
-
-failed for an Amazon EC2 instance
+## Inventory compliance failed for an Amazon EC2 instance
 
 Inventory compliance for an Amazon Elastic Compute Cloud (Amazon EC2) instance can fail if you assign
 multiple inventory associations to the instance.
@@ -276,9 +243,7 @@ managed node:
   because of the tag conflict. The association still runs on nodes that don't
   have the tag key-value conflict.
 
-## S3 bucket object
-
-contains old data
+## S3 bucket object contains old data
 
 Data inside the Amazon S3 bucket object is updated when the inventory association is
 successful and new data is discovered. The Amazon S3 bucket object is updated for each

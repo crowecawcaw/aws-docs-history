@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Creating associations
-
-that run MOF files
+# Creating associations that run MOF files
 
 You can run Managed Object Format (MOF) files to enforce a target state on Windows Server
 managed nodes with State Manager, a tool in AWS Systems Manager, by using the
@@ -38,23 +28,15 @@ configuration. For more information, see [Windows PowerShell Desired State Confi
 
 ###### Topics
 
-- [Using Amazon S3
-  to store artifacts](#systems-manager-state-manager-using-mof-file-S3-storage "#systems-manager-state-manager-using-mof-file-S3-storage")
-- [Resolving
-  credentials in MOF files](#systems-manager-state-manager-using-mof-file-credentials "#systems-manager-state-manager-using-mof-file-credentials")
-- [Using tokens
-  in MOF files](#systems-manager-state-manager-using-mof-file-tokens "#systems-manager-state-manager-using-mof-file-tokens")
-- [Prerequisites
-  for creating associations that run MOF files](#systems-manager-state-manager-using-mof-file-prereqs "#systems-manager-state-manager-using-mof-file-prereqs")
-- [Creating an
-  association that runs MOF files](#systems-manager-state-manager-using-mof-file-creating "#systems-manager-state-manager-using-mof-file-creating")
+- [Using Amazon S3 to store artifacts](#systems-manager-state-manager-using-mof-file-S3-storage "#systems-manager-state-manager-using-mof-file-S3-storage")
+- [Resolving credentials in MOF files](#systems-manager-state-manager-using-mof-file-credentials "#systems-manager-state-manager-using-mof-file-credentials")
+- [Using tokens in MOF files](#systems-manager-state-manager-using-mof-file-tokens "#systems-manager-state-manager-using-mof-file-tokens")
+- [Prerequisites for creating associations that run MOF files](#systems-manager-state-manager-using-mof-file-prereqs "#systems-manager-state-manager-using-mof-file-prereqs")
+- [Creating an association that runs MOF files](#systems-manager-state-manager-using-mof-file-creating "#systems-manager-state-manager-using-mof-file-creating")
 - [Troubleshooting issues when creating associations that run MOF files](#systems-manager-state-manager-using-mof-file-troubleshooting "#systems-manager-state-manager-using-mof-file-troubleshooting")
-- [Viewing
-  DSC resource compliance details](#systems-manager-state-manager-viewing-mof-file-compliance "#systems-manager-state-manager-viewing-mof-file-compliance")
+- [Viewing DSC resource compliance details](#systems-manager-state-manager-viewing-mof-file-compliance "#systems-manager-state-manager-viewing-mof-file-compliance")
 
-## Using Amazon S3
-
-to store artifacts
+## Using Amazon S3 to store artifacts
 
 If you're using Amazon S3 to store PowerShell modules, MOF files, compliance reports,
 or status reports, then the AWS Identity and Access Management (IAM) role used by AWS Systems Manager SSM Agent must
@@ -76,9 +58,7 @@ in Amazon S3.
 - All files must be in the bucket root. Folder structures aren't
   supported.
 
-## Resolving
-
-credentials in MOF files
+## Resolving credentials in MOF files
 
 Credentials are resolved by using [AWS Secrets Manager](../../../secretsmanager/latest/userguide.md "../../../secretsmanager/latest/userguide.md") or
 [AWS Systems Manager Parameter Store](systems-manager-parameter-store.md "systems-manager-parameter-store.md"). This allows you to set up
@@ -127,9 +107,7 @@ different usernames and passwords, and the rotation AWS Lambda function flips be
 them. This method allows you to have multiple active accounts while eliminating the
 risk of locking out a user during rotation.
 
-## Using tokens
-
-in MOF files
+## Using tokens in MOF files
 
 Tokens give you the ability to modify resource property values
 _after_ the MOF has been compiled. This allows you to reuse
@@ -209,9 +187,7 @@ provisioning time, and increases the risk of configuration drift between grouped
 nodes due to differing module versions being installed on the build server when
 their MOFs were compiled.
 
-## Prerequisites
-
-for creating associations that run MOF files
+## Prerequisites for creating associations that run MOF files
 
 Before you create an association that runs MOF files, verify that your managed
 nodes have the following prerequisites installed:
@@ -221,9 +197,7 @@ nodes have the following prerequisites installed:
   3.3.261.0 or later.
 - SSM Agent version 2.2 or later.
 
-## Creating an
-
-association that runs MOF files
+## Creating an association that runs MOF files
 
 ###### To create an association that runs MOF files
 
@@ -421,8 +395,7 @@ association that runs MOF files
     - In **Compliance severity**, choose a severity
       level for the association. Compliance reporting indicates whether
       the association state is compliant or noncompliant, along with the
-      severity level you indicate here. For more information, see [About State Manager association
-      compliance](compliance-about.md#compliance-about-association "compliance-about.md#compliance-about-association").
+      severity level you indicate here. For more information, see [About State Manager association compliance](compliance-about.md#compliance-about-association "compliance-about.md#compliance-about-association").
 
 10. In the **Rate control** section, configure options for
     running State Manager associations across of fleet of managed nodes. For more
@@ -582,9 +555,7 @@ Here is an example: `us-west-1:amzn-s3-demo-bucket;`
   firewall/transparent proxy is blocking access to the Amazon S3 Region, or
   the node can't access the internet.
 
-## Viewing
-
-DSC resource compliance details
+## Viewing DSC resource compliance details
 
 Systems Manager captures compliance information about DSC resource failures in the Amazon S3
 **Status Bucket** you specified when you ran the

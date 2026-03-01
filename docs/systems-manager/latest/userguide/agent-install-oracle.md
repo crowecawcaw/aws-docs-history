@@ -1,19 +1,8 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Manually installing SSM Agent on
-
-Oracle Linux instances
+# Manually installing SSM Agent on Oracle Linux instances
 
 The Amazon Machine Images (AMIs) for Oracle Linux that are provided by AWS do not
 come with AWS Systems Manager Agent (SSM Agent) preinstalled by default. For a list of
-AWS managed AMIs on which the agent might be preinstalled, see [Find AMIs with the SSM Agent
-preinstalled](ami-preinstalled-agent.md "ami-preinstalled-agent.md").
+AWS managed AMIs on which the agent might be preinstalled, see [Find AMIs with the SSM Agent preinstalled](ami-preinstalled-agent.md "ami-preinstalled-agent.md").
 
 Use the information in this section to help you manually install or reinstall
 SSM Agent on an Oracle Linux instance.
@@ -24,8 +13,7 @@ Before you install SSM Agent on an Oracle Linux instance, note the
 following:
 
 - For important information that applies to installation of SSM Agent on
-  all Linux-based operating systems, see [Manually installing and
-  uninstalling SSM Agent on EC2 instances for Linux](manually-install-ssm-agent-linux.md "manually-install-ssm-agent-linux.md").
+  all Linux-based operating systems, see [Manually installing and uninstalling SSM Agent on EC2 instances for Linux](manually-install-ssm-agent-linux.md "manually-install-ssm-agent-linux.md").
 - If you use a `yum` command to update SSM Agent on a managed node after the agent
   has been installed or updated using the SSM document `AWS-UpdateSSMAgent`, you
   might see the following message: `"Warning: RPMDB altered outside of yum."` This
@@ -33,21 +21,15 @@ following:
 
 ###### Topics
 
-- [Quick installation commands for
-  SSM Agent on Oracle Linux](#quick-install-oracle "#quick-install-oracle")
-- [Create custom agent installation
-  commands for Oracle Linux in your Region](#custom-url-oracle "#custom-url-oracle")
+- [Quick installation commands for SSM Agent on Oracle Linux](#quick-install-oracle "#quick-install-oracle")
+- [Create custom agent installation commands for Oracle Linux in your Region](#custom-url-oracle "#custom-url-oracle")
 
-## Quick installation commands for
-
-SSM Agent on Oracle Linux
+## Quick installation commands for SSM Agent on Oracle Linux
 
 Use the following steps to manually install SSM Agent on a single instance.
 This procedure uses globally available installation files.
 
-###### To install SSM Agent on Oracle Linux using quick copy and paste
-
-commands
+###### To install SSM Agent on Oracle Linux using quick copy and paste commands
 
 1. Connect to your Oracle Linux instance using your preferred method,
    such as SSH.
@@ -103,9 +85,7 @@ sudo systemctl enable amazon-ssm-agent
 sudo systemctl start amazon-ssm-agent
 ```
 
-## Create custom agent installation
-
-commands for Oracle Linux in your Region
+## Create custom agent installation commands for Oracle Linux in your Region
 
 When you install SSM Agent on multiple instances using a script or
 template, we recommend using installation files that are stored in the
@@ -116,8 +96,7 @@ accessible S3 bucket in the US East (Ohio) Region (`us-east-2`).
 
 ###### Tip
 
-You can also replace a global URL in the procedure [Quick installation commands for
-SSM Agent on Oracle Linux](#quick-install-oracle "#quick-install-oracle") earlier in this topic with a custom Regional URL you
+You can also replace a global URL in the procedure [Quick installation commands for SSM Agent on Oracle Linux](#quick-install-oracle "#quick-install-oracle") earlier in this topic with a custom Regional URL you
 construct.
 
 In the following command, replace `region` with your own

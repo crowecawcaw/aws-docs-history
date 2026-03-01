@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Using Parameter Store parameters in AWS Lambda
-
-functions
+# Using Parameter Store parameters in AWS Lambda functions
 
 Parameter Store, a tool in AWS Systems Manager, provides secure, hierarchical storage for configuration
 data management and secrets management. You can store data such as passwords, database
@@ -36,9 +26,7 @@ secrets in AWS Lambda functions](../../../secretsmanager/latest/userguide/retrie
 [Using the AWS Parameter and Secrets Lambda extension to cache parameters and
 secrets](https://aws.amazon.com/blogs/compute/using-the-aws-parameter-and-secrets-lambda-extension-to-cache-parameters-and-secrets/ "https://aws.amazon.com/blogs/compute/using-the-aws-parameter-and-secrets-lambda-extension-to-cache-parameters-and-secrets/") (AWS Compute Blog)
 
-## How the extension
-
-works
+## How the extension works
 
 To use parameters in a Lambda function _without_ the Lambda
 extension, you must configure your Lambda function to receive configuration updates by
@@ -160,8 +148,7 @@ ARM support
 The extension supports the ARM architecture in most AWS Regions
 where the x86_64 and x86 architectures are supported. If you
 are using the ARM architecture, we suggest you verify your architecture
-is supported. For complete lists of extension ARNs, see [AWS Parameters and Secrets
-Lambda Extension ARNs](#ps-integration-lambda-extensions-add "#ps-integration-lambda-extensions-add").
+is supported. For complete lists of extension ARNs, see [AWS Parameters and Secrets Lambda Extension ARNs](#ps-integration-lambda-extensions-add "#ps-integration-lambda-extensions-add").
 
 Logging
 
@@ -224,9 +211,7 @@ layers with your Lambda function](../../../lambda/latest/dg/invocation-layers.md
 [Configuring
 extensions (.zip file archive)](../../../lambda/latest/dg/using-extensions.md#using-extensions-config "../../../lambda/latest/dg/using-extensions.md#using-extensions-config")
 
-## AWS Parameters and Secrets
-
-Lambda Extension environment variables
+## AWS Parameters and Secrets Lambda Extension environment variables
 
 You can configure the extension by changing the following environment variables. To
 see the current settings, set `PARAMETERS_SECRETS_EXTENSION_LOG_LEVEL` to
@@ -250,9 +235,7 @@ in Amazon CloudWatch Logs.
 | `PARAMETERS_SECRETS_EXTENSION_MAX_CONNECTIONS` | Maximum number of connections for the HTTP clients that the<br>extension uses to make requests to Parameter Store or Secrets Manager. This is a<br>per-client configuration for the number of connections that both the<br>Secrets Manager client and Parameter Store client make to the backend<br>services. | No       | Minimum of 1; No maximum limit.  | 3                    |
 | `PARAMETERS_SECRETS_EXTENSION_LOG_LEVEL`       | The level of detail reported in logs for the extension.<br>We recommend using `DEBUG` for the most detail about<br>your cache configuration as you set up and test the extension.<br>Logs for Lambda operations are automatically pushed to an<br>associated CloudWatch Logs log group.                       | No       | `DEBUG                           | WARN                 | ERROR | NONE | INFO` | `INFO` |
 
-## Sample commands for
-
-using the AWS Systems Manager Parameter Store and AWS Secrets Manager Extension
+## Sample commands for using the AWS Systems Manager Parameter Store and AWS Secrets Manager Extension
 
 The examples in this section demonstrate API actions for use with the AWS Systems Manager
 Parameter Store and AWS Secrets Manager extension.
@@ -329,23 +312,17 @@ can also specify either a version or a label, but not both. If you do, only the
 first of these that is placed after question mark (`?`) in the URL is
 used.
 
-## AWS Parameters and Secrets
-
-Lambda Extension ARNs
+## AWS Parameters and Secrets Lambda Extension ARNs
 
 The following tables provide extension ARNs for supported architectures and
 Regions.
 
 ###### Topics
 
-- [Extension ARNs for the x86_64 and x86
-  architectures](#intel "#intel")
-- [Extension ARNs for ARM64 and Mac with Apple silicon
-  architectures](#arm64 "#arm64")
+- [Extension ARNs for the x86_64 and x86 architectures](#intel "#intel")
+- [Extension ARNs for ARM64 and Mac with Apple silicon architectures](#arm64 "#arm64")
 
-### Extension ARNs for the x86_64 and x86
-
-architectures
+### Extension ARNs for the x86_64 and x86 architectures
 
 Last updated: February 17, 2026
 
@@ -391,9 +368,7 @@ Last updated: February 17, 2026
 | AWS GovCloud (US-East)                 | `arn:aws-us-gov:lambda:us-gov-east-1:129776340158:layer:AWS-Parameters-and-Secrets-Lambda-Extension:58` |
 | AWS GovCloud (US-West)                 | `arn:aws-us-gov:lambda:us-gov-west-1:127562683043:layer:AWS-Parameters-and-Secrets-Lambda-Extension:58` |
 
-### Extension ARNs for ARM64 and Mac with Apple silicon
-
-architectures
+### Extension ARNs for ARM64 and Mac with Apple silicon architectures
 
 Last updated: February 17, 2026
 

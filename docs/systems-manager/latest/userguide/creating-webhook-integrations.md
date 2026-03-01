@@ -1,28 +1,15 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Creating webhook integrations for
-
-Automation
+# Creating webhook integrations for Automation
 
 To send messages using webhooks during an automation, create an integration.
 Integrations can be invoked during an automation by using the
 `aws:invokeWebhook` action in your runbook. If you haven't already
 created a webhook, see [Creating webhooks for integrations](#creating-webhooks "#creating-webhooks"). To learn more about the
-`aws:invokeWebhook` action, see [aws:invokeWebhook – Invoke an
-Automation webhook integration](invoke-webhook.md "invoke-webhook.md").
+`aws:invokeWebhook` action, see [aws:invokeWebhook – Invoke an Automation webhook integration](invoke-webhook.md "invoke-webhook.md").
 
 As shown in the following procedures, you can create an integration by using
 either the Systems Manager Automation console or your preferred command line tool.
 
-## Creating integrations
-
-(console)
+## Creating integrations (console)
 
 ###### To create an integration for Automation (console)
 
@@ -35,9 +22,7 @@ either the Systems Manager Automation console or your preferred command line too
    for the integration.
 6. Choose **Add** to create the integration.
 
-## Creating integrations
-
-(command line)
+## Creating integrations (command line)
 
 To create an integration using command line tools, you must create the
 required `SecureString` parameter for an integration. Automation uses

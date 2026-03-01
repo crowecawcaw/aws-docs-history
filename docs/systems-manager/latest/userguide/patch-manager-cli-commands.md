@@ -1,74 +1,42 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Working with Patch Manager resources using
-
-the AWS CLI
+# Working with Patch Manager resources using the AWS CLI
 
 The section includes examples of AWS Command Line Interface (AWS CLI) commands that you can use to
 perform configuration tasks for Patch Manager, a tool in AWS Systems Manager.
 
 For an illustration of using the AWS CLI to patch a server environment by using a custom
-patch baseline, see [Tutorial: Patch a
-server environment using the AWS CLI](patch-manager-patch-servers-using-the-aws-cli.md "patch-manager-patch-servers-using-the-aws-cli.md").
+patch baseline, see [Tutorial: Patch a server environment using the AWS CLI](patch-manager-patch-servers-using-the-aws-cli.md "patch-manager-patch-servers-using-the-aws-cli.md").
 
 For more information about using the AWS CLI for AWS Systems Manager tasks, see the
 [AWS Systems Manager section of the AWS CLI Command Reference](../../../cli/latest/reference/ssm/index.md "../../../cli/latest/reference/ssm/index.md").
 
 ###### Topics
 
-- [AWS CLI commands for patch
-  baselines](#patch-baseline-cli-commands "#patch-baseline-cli-commands")
+- [AWS CLI commands for patch baselines](#patch-baseline-cli-commands "#patch-baseline-cli-commands")
 - [AWS CLI commands for patch groups](#patch-group-cli-commands "#patch-group-cli-commands")
-- [AWS CLI commands for viewing patch
-  summaries and details](#patch-details-cli-commands "#patch-details-cli-commands")
-- [AWS CLI commands for scanning and
-  patching managed nodes](#patch-operations-cli-commands "#patch-operations-cli-commands")
+- [AWS CLI commands for viewing patch summaries and details](#patch-details-cli-commands "#patch-details-cli-commands")
+- [AWS CLI commands for scanning and patching managed nodes](#patch-operations-cli-commands "#patch-operations-cli-commands")
 
-## AWS CLI commands for patch
-
-baselines
+## AWS CLI commands for patch baselines
 
 ###### Sample commands for patch baselines
 
-- [Create a
-  patch baseline](#patch-manager-cli-commands-create-patch-baseline "#patch-manager-cli-commands-create-patch-baseline")
-- [Create a patch baseline with custom repositories for different OS
-  versions](#patch-manager-cli-commands-create-patch-baseline-mult-sources "#patch-manager-cli-commands-create-patch-baseline-mult-sources")
-- [Update a
-  patch baseline](#patch-manager-cli-commands-update-patch-baseline "#patch-manager-cli-commands-update-patch-baseline")
-- [Rename a
-  patch baseline](#patch-manager-cli-commands-rename-patch-baseline "#patch-manager-cli-commands-rename-patch-baseline")
-- [Delete a
-  patch baseline](#patch-manager-cli-commands-delete-patch-baseline "#patch-manager-cli-commands-delete-patch-baseline")
-- [List all
-  patch baselines](#patch-manager-cli-commands-describe-patch-baselines "#patch-manager-cli-commands-describe-patch-baselines")
-- [List
-  all AWS-provided patch baselines](#patch-manager-cli-commands-describe-patch-baselines-aws "#patch-manager-cli-commands-describe-patch-baselines-aws")
+- [Create a patch baseline](#patch-manager-cli-commands-create-patch-baseline "#patch-manager-cli-commands-create-patch-baseline")
+- [Create a patch baseline with custom repositories for different OS versions](#patch-manager-cli-commands-create-patch-baseline-mult-sources "#patch-manager-cli-commands-create-patch-baseline-mult-sources")
+- [Update a patch baseline](#patch-manager-cli-commands-update-patch-baseline "#patch-manager-cli-commands-update-patch-baseline")
+- [Rename a patch baseline](#patch-manager-cli-commands-rename-patch-baseline "#patch-manager-cli-commands-rename-patch-baseline")
+- [Delete a patch baseline](#patch-manager-cli-commands-delete-patch-baseline "#patch-manager-cli-commands-delete-patch-baseline")
+- [List all patch baselines](#patch-manager-cli-commands-describe-patch-baselines "#patch-manager-cli-commands-describe-patch-baselines")
+- [List all AWS-provided patch baselines](#patch-manager-cli-commands-describe-patch-baselines-aws "#patch-manager-cli-commands-describe-patch-baselines-aws")
 - [List my patch baselines](#patch-manager-cli-commands-describe-patch-baselines-custom "#patch-manager-cli-commands-describe-patch-baselines-custom")
-- [Display a patch
-  baseline](#patch-manager-cli-commands-get-patch-baseline "#patch-manager-cli-commands-get-patch-baseline")
-- [Get the
-  default patch baseline](#patch-manager-cli-commands-get-default-patch-baseline "#patch-manager-cli-commands-get-default-patch-baseline")
-- [Set
-  a custom patch baseline as the default](#patch-manager-cli-commands-register-default-patch-baseline "#patch-manager-cli-commands-register-default-patch-baseline")
-- [Reset
-  an AWS patch baseline as the default](#patch-manager-cli-commands-register-aws-patch-baseline "#patch-manager-cli-commands-register-aws-patch-baseline")
-- [Tag a patch
-  baseline](#patch-manager-cli-commands-add-tags-to-resource "#patch-manager-cli-commands-add-tags-to-resource")
-- [List the
-  tags for a patch baseline](#patch-manager-cli-commands-list-tags-for-resource "#patch-manager-cli-commands-list-tags-for-resource")
-- [Remove a
-  tag from a patch baseline](#patch-manager-cli-commands-remove-tags-from-resource "#patch-manager-cli-commands-remove-tags-from-resource")
+- [Display a patch baseline](#patch-manager-cli-commands-get-patch-baseline "#patch-manager-cli-commands-get-patch-baseline")
+- [Get the default patch baseline](#patch-manager-cli-commands-get-default-patch-baseline "#patch-manager-cli-commands-get-default-patch-baseline")
+- [Set a custom patch baseline as the default](#patch-manager-cli-commands-register-default-patch-baseline "#patch-manager-cli-commands-register-default-patch-baseline")
+- [Reset an AWS patch baseline as the default](#patch-manager-cli-commands-register-aws-patch-baseline "#patch-manager-cli-commands-register-aws-patch-baseline")
+- [Tag a patch baseline](#patch-manager-cli-commands-add-tags-to-resource "#patch-manager-cli-commands-add-tags-to-resource")
+- [List the tags for a patch baseline](#patch-manager-cli-commands-list-tags-for-resource "#patch-manager-cli-commands-list-tags-for-resource")
+- [Remove a tag from a patch baseline](#patch-manager-cli-commands-remove-tags-from-resource "#patch-manager-cli-commands-remove-tags-from-resource")
 
-### Create a
-
-patch baseline
+### Create a patch baseline
 
 The following command creates a patch baseline that approves all critical and
 important security updates for Windows Server 2012 R2 5 days after they're released.
@@ -110,9 +78,7 @@ The system returns information like the following.
 }
 ```
 
-### Create a patch baseline with custom repositories for different OS
-
-versions
+### Create a patch baseline with custom repositories for different OS versions
 
 Applies to Linux managed nodes only. The following command shows how to
 specify the patch repository to use for a particular version of the Amazon Linux
@@ -194,16 +160,13 @@ The system returns information like the following.
 }
 ```
 
-### Update a
-
-patch baseline
+### Update a patch baseline
 
 The following command adds two patches as rejected and one patch as approved
 to an existing patch baseline.
 
 For information about accepted formats for lists of approved patches and rejected patches,
-see [Package name
-formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md "patch-manager-approved-rejected-package-name-formats.md").
+see [Package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md "patch-manager-approved-rejected-package-name-formats.md").
 
 Linux & macOS
 
@@ -277,9 +240,7 @@ The system returns information like the following.
 }
 ```
 
-### Rename a
-
-patch baseline
+### Rename a patch baseline
 
 Linux & macOS
 
@@ -352,9 +313,7 @@ The system returns information like the following.
 
 ```
 
-### Delete a
-
-patch baseline
+### Delete a patch baseline
 
 ```
 aws ssm delete-patch-baseline --baseline-id "pb-0c10e65780EXAMPLE"
@@ -368,9 +327,7 @@ The system returns information like the following.
 }
 ```
 
-### List all
-
-patch baselines
+### List all patch baselines
 
 ```
 aws ssm describe-patch-baselines
@@ -438,9 +395,7 @@ The system returns information like the following.
 }
 ```
 
-### List
-
-all AWS-provided patch baselines
+### List all AWS-provided patch baselines
 
 Linux & macOS
 
@@ -506,9 +461,7 @@ The system returns information like the following.
 }
 ```
 
-### Display a patch
-
-baseline
+### Display a patch baseline
 
 ```
 aws ssm get-patch-baseline --baseline-id pb-0c10e65780EXAMPLE
@@ -578,9 +531,7 @@ The system returns information like the following.
 
 ```
 
-### Get the
-
-default patch baseline
+### Get the default patch baseline
 
 ```
 aws ssm get-default-patch-baseline --region us-east-2
@@ -594,9 +545,7 @@ The system returns information like the following.
 }
 ```
 
-### Set
-
-a custom patch baseline as the default
+### Set a custom patch baseline as the default
 
 Linux & macOS
 
@@ -622,9 +571,7 @@ The system returns information like the following.
 }
 ```
 
-### Reset
-
-an AWS patch baseline as the default
+### Reset an AWS patch baseline as the default
 
 Linux & macOS
 
@@ -650,9 +597,7 @@ The system returns information like the following.
 }
 ```
 
-### Tag a patch
-
-baseline
+### Tag a patch baseline
 
 Linux & macOS
 
@@ -672,9 +617,7 @@ aws ssm add-tags-to-resource ^
     --tags "Key=Project,Value=Testing"
 ```
 
-### List the
-
-tags for a patch baseline
+### List the tags for a patch baseline
 
 Linux & macOS
 
@@ -692,9 +635,7 @@ aws ssm list-tags-for-resource ^
     --resource-id "pb-0c10e65780EXAMPLE"
 ```
 
-### Remove a
-
-tag from a patch baseline
+### Remove a tag from a patch baseline
 
 Linux & macOS
 
@@ -718,18 +659,13 @@ aws ssm remove-tags-from-resource ^
 
 ###### Sample commands for patch groups
 
-- [Create a patch
-  group](#patch-manager-cli-commands-create-patch-group "#patch-manager-cli-commands-create-patch-group")
+- [Create a patch group](#patch-manager-cli-commands-create-patch-group "#patch-manager-cli-commands-create-patch-group")
 - [Register a patch group "web servers" with a patch baseline](#patch-manager-cli-commands-register-patch-baseline-for-patch-group-web-servers "#patch-manager-cli-commands-register-patch-baseline-for-patch-group-web-servers")
-- [Register a patch group "Backend" with the AWS-provided patch
-  baseline](#patch-manager-cli-commands-register-patch-baseline-for-patch-group-backend "#patch-manager-cli-commands-register-patch-baseline-for-patch-group-backend")
-- [Display patch
-  group registrations](#patch-manager-cli-commands-describe-patch-groups "#patch-manager-cli-commands-describe-patch-groups")
+- [Register a patch group "Backend" with the AWS-provided patch baseline](#patch-manager-cli-commands-register-patch-baseline-for-patch-group-backend "#patch-manager-cli-commands-register-patch-baseline-for-patch-group-backend")
+- [Display patch group registrations](#patch-manager-cli-commands-describe-patch-groups "#patch-manager-cli-commands-describe-patch-groups")
 - [Deregister a patch group from a patch baseline](#patch-manager-cli-commands-deregister-patch-baseline-for-patch-group "#patch-manager-cli-commands-deregister-patch-baseline-for-patch-group")
 
-### Create a patch
-
-group
+### Create a patch group
 
 ###### Note
 
@@ -749,9 +685,7 @@ to a patch baseline. By registering the patch group with a patch baseline, you
 ensure that the correct patches are installed during the patching
 operation.
 
-#### Task 1: Add EC2 instances to a
-
-patch group using tags
+#### Task 1: Add EC2 instances to a patch group using tags
 
 ###### Note
 
@@ -760,8 +694,7 @@ apply `Key = Patch Group` or `Key = PatchGroup`
 tags to instances that aren't yet configured for use with Systems Manager. If an
 EC2 instance you expect to see in Patch Manager isn't listed after applying
 the `Patch Group` or `Key = PatchGroup` tag, see
-[Troubleshooting managed
-node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for
+[Troubleshooting managed node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for
 troubleshooting tips.
 
 Run the following command to add the `PatchGroup` tag to an EC2
@@ -771,9 +704,7 @@ instance.
 aws ec2 create-tags --resources `"i-1234567890abcdef0"` --tags "Key=PatchGroup,Value=`GroupValue`"
 ```
 
-#### Task 2: Add managed nodes to a
-
-patch group using tags
+#### Task 2: Add managed nodes to a patch group using tags
 
 Run the following command to add the `PatchGroup` tag to a
 managed node.
@@ -796,9 +727,7 @@ aws ssm add-tags-to-resource ^
     --tags "Key=PatchGroup,Value=`GroupValue`"
 ```
 
-#### Task 3: Add a patch group to a
-
-patch baseline
+#### Task 3: Add a patch group to a patch baseline
 
 Run the following command to associate a `PatchGroup` tag value
 to the specified patch baseline.
@@ -855,9 +784,7 @@ The system returns information like the following.
 }
 ```
 
-### Register a patch group "Backend" with the AWS-provided patch
-
-baseline
+### Register a patch group "Backend" with the AWS-provided patch baseline
 
 Linux & macOS
 
@@ -886,9 +813,7 @@ The system returns information like the following.
 }
 ```
 
-### Display patch
-
-group registrations
+### Display patch group registrations
 
 ```
 aws ssm describe-patch-groups --region us-east-2
@@ -950,27 +875,17 @@ The system returns information like the following.
 }
 ```
 
-## AWS CLI commands for viewing patch
-
-summaries and details
+## AWS CLI commands for viewing patch summaries and details
 
 ###### Sample commands for viewing patch summaries and details
 
 - [Get all patches defined by a patch baseline](#patch-manager-cli-commands-describe-effective-patches-for-patch-baseline "#patch-manager-cli-commands-describe-effective-patches-for-patch-baseline")
-- [Get
-  all patches for AmazonLinux2018.03 that have a Classification
-  SECURITY and Severity of Critical](#patch-manager-cli-commands-describe-available-patches-linux "#patch-manager-cli-commands-describe-available-patches-linux")
-- [Get all
-  patches for Windows Server 2012 that have a MSRC severity of
-  Critical](#patch-manager-cli-commands-describe-available-patches "#patch-manager-cli-commands-describe-available-patches")
-- [Get all
-  available patches](#patch-manager-cli-commands-describe-available-patches "#patch-manager-cli-commands-describe-available-patches")
-- [Get
-  patch summary states per-managed node](#patch-manager-cli-commands-describe-instance-patch-states "#patch-manager-cli-commands-describe-instance-patch-states")
-- [Get patch
-  compliance details for a managed node](#patch-manager-cli-commands-describe-instance-patches "#patch-manager-cli-commands-describe-instance-patches")
-- [View patching compliance
-  results (AWS CLI)](#viewing-patch-compliance-results-cli "#viewing-patch-compliance-results-cli")
+- [Get all patches for AmazonLinux2018.03 that have a Classification SECURITY and Severity of Critical](#patch-manager-cli-commands-describe-available-patches-linux "#patch-manager-cli-commands-describe-available-patches-linux")
+- [Get all patches for Windows Server 2012 that have a MSRC severity of Critical](#patch-manager-cli-commands-describe-available-patches "#patch-manager-cli-commands-describe-available-patches")
+- [Get all available patches](#patch-manager-cli-commands-describe-available-patches "#patch-manager-cli-commands-describe-available-patches")
+- [Get patch summary states per-managed node](#patch-manager-cli-commands-describe-instance-patch-states "#patch-manager-cli-commands-describe-instance-patch-states")
+- [Get patch compliance details for a managed node](#patch-manager-cli-commands-describe-instance-patches "#patch-manager-cli-commands-describe-instance-patches")
+- [View patching compliance results (AWS CLI)](#viewing-patch-compliance-results-cli "#viewing-patch-compliance-results-cli")
 
 ### Get all patches defined by a patch baseline
 
@@ -1058,10 +973,7 @@ The system returns information like the following.
 
 ```
 
-### Get
-
-all patches for AmazonLinux2018.03 that have a Classification
-`SECURITY` and Severity of `Critical`
+### Get all patches for AmazonLinux2018.03 that have a Classification `SECURITY` and Severity of `Critical`
 
 Linux & macOS
 
@@ -1104,10 +1016,7 @@ The system returns information like the following.
 
 ```
 
-### Get all
-
-patches for Windows Server 2012 that have a MSRC severity of
-`Critical`
+### Get all patches for Windows Server 2012 that have a MSRC severity of `Critical`
 
 Linux & macOS
 
@@ -1174,9 +1083,7 @@ The system returns information like the following.
 
 ```
 
-### Get all
-
-available patches
+### Get all available patches
 
 ```
 aws ssm describe-available-patches --region us-east-2
@@ -1230,9 +1137,7 @@ The system returns information like the following.
 
 ```
 
-### Get
-
-patch summary states per-managed node
+### Get patch summary states per-managed node
 
 The per-managed node summary gives you the number of patches in the following
 states per node: "NotApplicable", "Missing", "Failed", "InstalledOther" and
@@ -1297,9 +1202,7 @@ The system returns information like the following.
 
 ```
 
-### Get patch
-
-compliance details for a managed node
+### Get patch compliance details for a managed node
 
 ```
 aws ssm describe-instance-patches --instance-id i-08ee91c0b17045407
@@ -1339,9 +1242,7 @@ The system returns information like the following.
 
 ```
 
-### View patching compliance
-
-results (AWS CLI)
+### View patching compliance results (AWS CLI)
 
 **To view patch compliance results for a single managed
 node**
@@ -1449,25 +1350,18 @@ types you can search for include the following:
 - `MissingCount`
 - `InstalledCount`
 
-## AWS CLI commands for scanning and
-
-patching managed nodes
+## AWS CLI commands for scanning and patching managed nodes
 
 After running the following commands to scan for patch compliance or install
-patches, you can use commands in the [AWS CLI commands for viewing patch
-summaries and details](#patch-details-cli-commands "#patch-details-cli-commands") section to view information about
+patches, you can use commands in the [AWS CLI commands for viewing patch summaries and details](#patch-details-cli-commands "#patch-details-cli-commands") section to view information about
 patch status and compliance.
 
 ###### Sample commands
 
-- [Scan managed nodes for patch compliance
-  (AWS CLI)](#patch-operations-scan "#patch-operations-scan")
-- [Install patches on managed nodes
-  (AWS CLI)](#patch-operations-install-cli "#patch-operations-install-cli")
+- [Scan managed nodes for patch compliance (AWS CLI)](#patch-operations-scan "#patch-operations-scan")
+- [Install patches on managed nodes (AWS CLI)](#patch-operations-install-cli "#patch-operations-install-cli")
 
-### Scan managed nodes for patch compliance
-
-(AWS CLI)
+### Scan managed nodes for patch compliance (AWS CLI)
 
 **To scan specific managed nodes for patch
 compliance**
@@ -1590,9 +1484,7 @@ The system returns information like the following.
 }
 ```
 
-### Install patches on managed nodes
-
-(AWS CLI)
+### Install patches on managed nodes (AWS CLI)
 
 **To install patches on specific managed
 nodes**
@@ -1602,8 +1494,7 @@ Run the following command.
 ###### Note
 
 The target managed nodes reboot as needed to complete patch installation.
-For more information, see [SSM Command document for
-patching: AWS-RunPatchBaseline](patch-manager-aws-runpatchbaseline.md "patch-manager-aws-runpatchbaseline.md").
+For more information, see [SSM Command document for patching: AWS-RunPatchBaseline](patch-manager-aws-runpatchbaseline.md "patch-manager-aws-runpatchbaseline.md").
 
 Linux & macOS
 

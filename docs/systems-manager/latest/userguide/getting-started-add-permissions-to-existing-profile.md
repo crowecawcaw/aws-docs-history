@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Add
-
-Session Manager permissions to an existing IAM role
+# Add Session Manager permissions to an existing IAM role
 
 Use the following procedure to add Session Manager permissions to an existing
 AWS Identity and Access Management (IAM) role. By adding permissions to an existing role, you can
@@ -87,8 +77,7 @@ JSON
 ```
 
 For information about using a KMS key to encrypt session data, see
-[Turn on KMS key
-encryption of session data (console)](session-preferences-enable-encryption.md "session-preferences-enable-encryption.md").
+[Turn on KMS key encryption of session data (console)](session-preferences-enable-encryption.md "session-preferences-enable-encryption.md").
 
 If you won't use AWS KMS encryption for your session data, you can
 remove the following content from the policy.
@@ -115,5 +104,4 @@ remove the following content from the policy.
     for the policy.
 
 Choose **Create policy**.
-For information about the `ssmmessages` actions, see [Reference: ec2messages,
-ssmmessages, and other API operations](systems-manager-setting-up-messageAPIs.md "systems-manager-setting-up-messageAPIs.md").
+For information about the `ssmmessages` actions, see [Reference: ec2messages, ssmmessages, and other API operations](systems-manager-setting-up-messageAPIs.md "systems-manager-setting-up-messageAPIs.md").

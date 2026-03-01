@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Registering maintenance window
-
-tasks without targets
+# Registering maintenance window tasks without targets
 
 For each maintenance window you create, you can specify one or more tasks to perform
 when the maintenance window runs. In most cases, you must specify the resources, or
@@ -97,7 +87,4 @@ remove the targets using the Systems Manager console or the
 
 **More info**
 
-- [Error messages:
-  "Maintenance window tasks without targets don't support MaxConcurrency values"
-  and "Maintenance window tasks without targets don't support MaxErrors
-  values"](troubleshooting-maintenance-windows.md#maxconcurrency-maxerrors-not-supported "troubleshooting-maintenance-windows.md#maxconcurrency-maxerrors-not-supported")
+- [Error messages: "Maintenance window tasks without targets don't support MaxConcurrency values" and "Maintenance window tasks without targets don't support MaxErrors values"](troubleshooting-maintenance-windows.md#maxconcurrency-maxerrors-not-supported "troubleshooting-maintenance-windows.md#maxconcurrency-maxerrors-not-supported")

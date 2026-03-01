@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Categories of diagnosable unmanaged
-
-EC2 instance issues
+# Categories of diagnosable unmanaged EC2 instance issues
 
 This topic lists the major categories of EC2 management issues, and the specific
 issues in each category, that Systems Manager can help you diagnose and remediate. Note that
@@ -21,17 +11,12 @@ the virtual private cloud (VPC) they belong to.
 
 ###### Issue types
 
-- [Problem category: Security
-  group configuration and HTTPS communications](#unmanaged-ec2-issue-security-groups "#unmanaged-ec2-issue-security-groups")
-- [Problem category: DNS or
-  DNS host name configuration](#unmanaged-ec2-issue-dns-configuration "#unmanaged-ec2-issue-dns-configuration")
-- [Problem
-  category: VPC endpoint configuration](#unmanaged-ec2-issue-vpc-endpoint-configuration "#unmanaged-ec2-issue-vpc-endpoint-configuration")
+- [Problem category: Security group configuration and HTTPS communications](#unmanaged-ec2-issue-security-groups "#unmanaged-ec2-issue-security-groups")
+- [Problem category: DNS or DNS host name configuration](#unmanaged-ec2-issue-dns-configuration "#unmanaged-ec2-issue-dns-configuration")
+- [Problem category: VPC endpoint configuration](#unmanaged-ec2-issue-vpc-endpoint-configuration "#unmanaged-ec2-issue-vpc-endpoint-configuration")
 - [Problem category: Network ACL configuration](#unmanaged-ec2-issue-nacl-configuration "#unmanaged-ec2-issue-nacl-configuration")
 
-## Problem category: Security
-
-group configuration and HTTPS communications
+## Problem category: Security group configuration and HTTPS communications
 
 A diagnosis operation might find that SSM Agent isn't able to communicate with
 the Systems Manager service over HTTPS. In those cases, you can choose to execute an
@@ -54,12 +39,9 @@ issues, but you can manually edit the affected security groups.
 - **`ec2messages` VPC endpoint's security
   group**: Inbound traffic not allowed on port 443
 
-For more information, see [Verify ingress rules on endpoint
-security groups](troubleshooting-ssm-agent.md#agent-ts-ingress-egress-rules "troubleshooting-ssm-agent.md#agent-ts-ingress-egress-rules") in the topic [Troubleshooting SSM Agent](troubleshooting-ssm-agent.md "troubleshooting-ssm-agent.md").
+For more information, see [Verify ingress rules on endpoint security groups](troubleshooting-ssm-agent.md#agent-ts-ingress-egress-rules "troubleshooting-ssm-agent.md#agent-ts-ingress-egress-rules") in the topic [Troubleshooting SSM Agent](troubleshooting-ssm-agent.md "troubleshooting-ssm-agent.md").
 
-## Problem category: DNS or
-
-DNS host name configuration
+## Problem category: DNS or DNS host name configuration
 
 A diagnosis operation might find that Doman Name System (DNS) or DNS host
 names aren't properly configured for the VPC. In those cases, you can choose to
@@ -72,12 +54,9 @@ of the affected VPC.
 - DNS support is disabled in a VPC.
 - A DNS hostname is disabled in a VPC.
 
-For more information, see [Verify your VPC DNS-related
-attributes](troubleshooting-ssm-agent.md#agent-ts-dns-attributes "troubleshooting-ssm-agent.md#agent-ts-dns-attributes") in the topic [Troubleshooting SSM Agent](troubleshooting-ssm-agent.md "troubleshooting-ssm-agent.md").
+For more information, see [Verify your VPC DNS-related attributes](troubleshooting-ssm-agent.md#agent-ts-dns-attributes "troubleshooting-ssm-agent.md#agent-ts-dns-attributes") in the topic [Troubleshooting SSM Agent](troubleshooting-ssm-agent.md "troubleshooting-ssm-agent.md").
 
-## Problem
-
-category: VPC endpoint configuration
+## Problem category: VPC endpoint configuration
 
 A diagnosis operation might find that VPC endpoints aren't properly configured
 for the VPC.

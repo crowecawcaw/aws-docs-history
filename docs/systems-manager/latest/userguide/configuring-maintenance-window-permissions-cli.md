@@ -1,33 +1,16 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Control access to
-
-maintenance windows using the AWS CLI
+# Control access to maintenance windows using the AWS CLI
 
 The following procedures describe how to use the AWS Command Line Interface (AWS CLI) to create the
 required permissions and roles for Maintenance Windows, a tool in AWS Systems Manager.
 
 ###### Topics
 
-- [Task 1: Create trust
-  policy and customer managed policy files in JSON format](#create-custom-policy-json-files-cli "#create-custom-policy-json-files-cli")
-- [Task 2: Create and verify a custom
-  service role for maintenance windows using the AWS CLI](#create-custom-role-cli "#create-custom-role-cli")
-- [Task 3: Grant permissions
-  to specified users to register maintenance window tasks using the
-  AWS CLI](#allow-maintenance-window-access-cli "#allow-maintenance-window-access-cli")
-- [Task 4: Prevent specified
-  users from registering maintenance window tasks using the AWS CLI](#deny-maintenance-window-access-cli "#deny-maintenance-window-access-cli")
+- [Task 1: Create trust policy and customer managed policy files in JSON format](#create-custom-policy-json-files-cli "#create-custom-policy-json-files-cli")
+- [Task 2: Create and verify a custom service role for maintenance windows using the AWS CLI](#create-custom-role-cli "#create-custom-role-cli")
+- [Task 3: Grant permissions to specified users to register maintenance window tasks using the AWS CLI](#allow-maintenance-window-access-cli "#allow-maintenance-window-access-cli")
+- [Task 4: Prevent specified users from registering maintenance window tasks using the AWS CLI](#deny-maintenance-window-access-cli "#deny-maintenance-window-access-cli")
 
-## Task 1: Create trust
-
-policy and customer managed policy files in JSON format
+## Task 1: Create trust policy and customer managed policy files in JSON format
 
 Maintenance window tasks require an IAM role to provide the permissions
 required to run on the target resources. The permissions are provided through an
@@ -39,8 +22,7 @@ this policy, and you might need to include additional permissions.
 
 In this task, you specify the permissions needed for your custom maintenance
 window role in a pair of JSON files. You attach this policy to the role that you
-create later in [Task 2: Create and verify a custom
-service role for maintenance windows using the AWS CLI](#create-custom-role-cli "#create-custom-role-cli").
+create later in [Task 2: Create and verify a custom service role for maintenance windows using the AWS CLI](#create-custom-role-cli "#create-custom-role-cli").
 
 ###### To create trust policy and customer managed policy files
 
@@ -185,9 +167,7 @@ For example:
 
 Save the file again after making any needed changes.
 
-## Task 2: Create and verify a custom
-
-service role for maintenance windows using the AWS CLI
+## Task 2: Create and verify a custom service role for maintenance windows using the AWS CLI
 
 The policy you created in the previous task is attached to the maintenance
 window service role you create in this task. When users register a maintenance
@@ -208,9 +188,7 @@ Systems Manager and other AWS services when your maintenance window tasks run.
 In this task, you run CLI commands to create your maintenance windows service
 role, adding the policy content from the JSON files you created.
 
-###### Create a custom service role for maintenance windows using the
-
-AWS CLI
+###### Create a custom service role for maintenance windows using the AWS CLI
 
 1. Open the AWS CLI and run the following command in the directory where
    you placed `mw-role-custom-policy.json` and
@@ -342,10 +320,7 @@ The command returns information similar to the following:
 }
 ```
 
-## Task 3: Grant permissions
-
-to specified users to register maintenance window tasks using the
-AWS CLI
+## Task 3: Grant permissions to specified users to register maintenance window tasks using the AWS CLI
 
 Providing users with permissions to access the custom service role for
 maintenance windows lets them use it with their maintenance windows tasks. This
@@ -363,9 +338,7 @@ specify, as part of registering those tasks with the maintenance window, the rol
 should be used when running tasks. For information, see [Grant a user permissions to pass a
 role to an AWS service](../../../IAM/latest/UserGuide/id_roles_use_passrole.md "../../../IAM/latest/UserGuide/id_roles_use_passrole.md") in the _IAM User Guide_.
 
-###### To configure permissions for users who are allowed to register
-
-maintenance window tasks using the AWS CLI
+###### To configure permissions for users who are allowed to register maintenance window tasks using the AWS CLI
 
 1. Copy and paste the following AWS Identity and Access Management (IAM) policy into a text
    editor and save it with the following name and file extension:
@@ -552,9 +525,7 @@ aws iam list-group-policies ^
     --group-name "`group-name`"
 ```
 
-## Task 4: Prevent specified
-
-users from registering maintenance window tasks using the AWS CLI
+## Task 4: Prevent specified users from registering maintenance window tasks using the AWS CLI
 
 You can deny the `ssm:RegisterTaskWithMaintenanceWindow` permission
 for the users in your AWS account who you don't want to register tasks with
@@ -566,9 +537,7 @@ Depending on whether you're denying the
 individual user or a group, use one of the following procedures to prevent users
 from registering tasks with a maintenance window.
 
-###### To configure permissions for users who aren't allowed to register
-
-maintenance window tasks using the AWS CLI
+###### To configure permissions for users who aren't allowed to register maintenance window tasks using the AWS CLI
 
 1. Copy and paste the following IAM policy into a text editor and save
    it with the following name and file extension:

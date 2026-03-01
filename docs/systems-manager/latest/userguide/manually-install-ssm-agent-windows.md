@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Manually installing and
-
-uninstalling SSM Agent on EC2 instances for Windows Server
+# Manually installing and uninstalling SSM Agent on EC2 instances for Windows Server
 
 AWS Systems Manager Agent (SSM Agent) is preinstalled, by default, on the following
 Amazon Machine Images (AMIs) for Windows Server provided by Amazon:
@@ -23,9 +13,7 @@ OS vendors including AWS typically don't provide security patches or other updat
 Continuing to use an EOL system greatly increases the risk of not being able to apply upgrades, including security
 fixes, and other operational problems. AWS does not test Systems Manager functionality on OS versions that have reached EOL.
 
-## Install SSM Agent on EC2 instances for
-
-Windows Server
+## Install SSM Agent on EC2 instances for Windows Server
 
 If necessary, you can manually download and install the latest version of
 SSM Agent on your Amazon Elastic Compute Cloud (Amazon EC2) instance for Windows Server by using the following
@@ -43,16 +31,13 @@ includes Windows PowerShell. For more information, see [Windows Management Frame
 This procedure in this topic applies specifically to installing or
 reinstalling SSM Agent on an EC2 instance for Windows Server. For on-premises
 servers, virtual machines, or other non-EC2 environments, use the
-`ssm-setup-cli` tool as described in [Install SSM Agent on hybrid
-Windows Server nodes](hybrid-multicloud-ssm-agent-install-windows.md "hybrid-multicloud-ssm-agent-install-windows.md").
+`ssm-setup-cli` tool as described in [Install SSM Agent on hybrid Windows Server nodes](hybrid-multicloud-ssm-agent-install-windows.md "hybrid-multicloud-ssm-agent-install-windows.md").
 
 Using EC2 installation procedures on non-EC2 systems can potentially
 result in security vulnerabilities. The `ssm-setup-cli`
 tool provides additional security protections for non-EC2 machines.
 
-###### To manually install the latest version of SSM Agent on EC2 instances for
-
-Windows Server
+###### To manually install the latest version of SSM Agent on EC2 instances for Windows Server
 
 1. Connect to your instance by using Remote Desktop or Windows
    PowerShell. For more information, see [Connect to your instance](../../../AWSEC2/latest/WindowsGuide/EC2_GetStarted.md#ec2-connect-to-instance-windows "../../../AWSEC2/latest/WindowsGuide/EC2_GetStarted.md#ec2-connect-to-instance-windows") in the

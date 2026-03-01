@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Increasing or resetting Parameter Store
-
-throughput
+# Increasing or resetting Parameter Store throughput
 
 Increasing Parameter Store throughput increases the maximum number of transactions per
 second (TPS) that Parameter Store, a tool in AWS Systems Manager, can process. Increased throughput
@@ -34,18 +24,12 @@ Pricing](https://aws.amazon.com/systems-manager/pricing/ "https://aws.amazon.com
 
 ###### Topics
 
-- [Configuring permissions
-  to change Parameter Store throughput](#parameter-store-throughput-permissions "#parameter-store-throughput-permissions")
-- [Increasing or resetting
-  throughput using the console](#parameter-store-throughput-increasing "#parameter-store-throughput-increasing")
-- [Increasing or
-  resetting throughput using the AWS CLI](#parameter-store-throughput-increasing-cli "#parameter-store-throughput-increasing-cli")
-- [Increasing or
-  resetting throughput (PowerShell)](#parameter-store-throughput-increasing-ps "#parameter-store-throughput-increasing-ps")
+- [Configuring permissions to change Parameter Store throughput](#parameter-store-throughput-permissions "#parameter-store-throughput-permissions")
+- [Increasing or resetting throughput using the console](#parameter-store-throughput-increasing "#parameter-store-throughput-increasing")
+- [Increasing or resetting throughput using the AWS CLI](#parameter-store-throughput-increasing-cli "#parameter-store-throughput-increasing-cli")
+- [Increasing or resetting throughput (PowerShell)](#parameter-store-throughput-increasing-ps "#parameter-store-throughput-increasing-ps")
 
-## Configuring permissions
-
-to change Parameter Store throughput
+## Configuring permissions to change Parameter Store throughput
 
 Verify that you have permission in IAM to change Parameter Store throughput by
 doing one of the following:
@@ -131,9 +115,7 @@ in the _IAM User Guide_.
   - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
   - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
 
-## Increasing or resetting
-
-throughput using the console
+## Increasing or resetting throughput using the console
 
 The following procedure shows how to use the Systems Manager console to increase the
 number of transactions per second that Parameter Store can process for the current
@@ -146,10 +128,8 @@ charges.
 ###### Tip
 
 If you haven't created a parameter yet, you can use the AWS Command Line Interface
-(AWS CLI) or AWS Tools for Windows PowerShell to increase throughput. For information, see [Increasing or
-resetting throughput using the AWS CLI](#parameter-store-throughput-increasing-cli "#parameter-store-throughput-increasing-cli") and
-[Increasing or
-resetting throughput (PowerShell)](#parameter-store-throughput-increasing-ps "#parameter-store-throughput-increasing-ps").
+(AWS CLI) or AWS Tools for Windows PowerShell to increase throughput. For information, see [Increasing or resetting throughput using the AWS CLI](#parameter-store-throughput-increasing-cli "#parameter-store-throughput-increasing-cli") and
+[Increasing or resetting throughput (PowerShell)](#parameter-store-throughput-increasing-ps "#parameter-store-throughput-increasing-ps").
 
 1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
 2. In the navigation pane, choose **Parameter Store**.
@@ -176,9 +156,7 @@ following:
      fewer transactions per second**.
     * Choose **Reset limit**.
 
-## Increasing or
-
-resetting throughput using the AWS CLI
+## Increasing or resetting throughput using the AWS CLI
 
 The following procedure shows how to use the AWS CLI to increase the number of
 transactions per second that Parameter Store can process for the current AWS account
@@ -238,9 +216,7 @@ aws ssm reset-service-setting --setting-id arn:aws:ssm:`region`:`account-id`:ser
 }
 ```
 
-## Increasing or
-
-resetting throughput (PowerShell)
+## Increasing or resetting throughput (PowerShell)
 
 The following procedure shows how to use the Tools for Windows PowerShell to increase the number of
 transactions per second that Parameter Store can process for the current AWS account

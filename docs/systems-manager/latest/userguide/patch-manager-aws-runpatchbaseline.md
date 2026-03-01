@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# SSM Command document for
-
-patching: `AWS-RunPatchBaseline`
+# SSM Command document for patching: `AWS-RunPatchBaseline`
 
 AWS Systems Manager supports `AWS-RunPatchBaseline`, a Systems Manager document (SSM
 document) for Patch Manager, a tool in AWS Systems Manager. This SSM document performs patching
@@ -240,16 +230,13 @@ to policy rather than what was approved for a specific patching operation.
 When you're patching a node that only uses IPv6, ensure that the
 provided URL is reachable from the node. If the SSM Agent config option
 `UseDualStackEndpoint` is set to `true`, then
-a dualstack S3 client is used when an S3 URL is provided. See [Tutorial: Patching a
-server in an IPv6 only environment](patch-manager-server-patching-iPv6-tutorial.md "patch-manager-server-patching-iPv6-tutorial.md") for more
+a dualstack S3 client is used when an S3 URL is provided. See [Tutorial: Patching a server in an IPv6 only environment](patch-manager-server-patching-iPv6-tutorial.md "patch-manager-server-patching-iPv6-tutorial.md") for more
 information on configuring the agent to use dualstack.
 
 For a description of how you might use the
 `InstallOverrideList` parameter to apply different types of
 patches to a target group, on different maintenance window schedules, while
-still using a single patch baseline, see [Sample scenario for using the
-InstallOverrideList parameter in AWS-RunPatchBaseline or
-AWS-RunPatchBaselineAssociation](patch-manager-override-lists.md "patch-manager-override-lists.md").
+still using a single patch baseline, see [Sample scenario for using the InstallOverrideList parameter in AWS-RunPatchBaseline or AWS-RunPatchBaselineAssociation](patch-manager-override-lists.md "patch-manager-override-lists.md").
 
 **Valid URL formats**
 
@@ -656,8 +643,7 @@ following characters: backtick (`), single quote ('), double quote ("),
 and dollar sign ($).
 
 For more information about how to use the `BaselineOverride`
-parameter, see [Using the
-BaselineOverride parameter](patch-manager-baselineoverride-parameter.md "patch-manager-baselineoverride-parameter.md").
+parameter, see [Using the BaselineOverride parameter](patch-manager-baselineoverride-parameter.md "patch-manager-baselineoverride-parameter.md").
 
 ### Parameter name: `StepTimeoutSeconds`
 

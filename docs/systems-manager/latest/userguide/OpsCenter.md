@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # AWS Systems Manager OpsCenter
 
 OpsCenter, a tool in AWS Systems Manager, provides a central location where operations engineers and
@@ -61,9 +53,7 @@ OpsCenter page in the AWS Systems Manager console, public API operations, the AW
 AWS Tools for Windows PowerShell, or the AWS SDKs. OpsCenter public API operations also allows you to integrate
 OpsCenter with your case management systems and health dashboards.
 
-## How can OpsCenter benefit my
-
-organization?
+## How can OpsCenter benefit my organization?
 
 OpsCenter provides a standard and unified experience for viewing, working on, and
 remediating issues related to AWS resources. A standard and unified experience
@@ -88,9 +78,7 @@ and organizations:
 - You can quickly view information about and run Systems Manager Automation runbooks to
   resolve issues.
 
-## What are the features of
-
-OpsCenter?
+## What are the features of OpsCenter?
 
 - **Automated and manual OpsItem creation**
 
@@ -123,8 +111,7 @@ updated. Each OpsItem also includes the following configurable features:
      can view all of the EC2-provided details about that instance in
      OpsCenter. You can manually add the ARNs of additional related
      resources. Each OpsItem can list a maximum of 100 related resource ARNs.
-     For more information, see [Adding
-     related resources to an OpsItem](OpsCenter-working-with-OpsItems-adding-related-resources.md "OpsCenter-working-with-OpsItems-adding-related-resources.md").
+     For more information, see [Adding related resources to an OpsItem](OpsCenter-working-with-OpsItems-adding-related-resources.md "OpsCenter-working-with-OpsItems-adding-related-resources.md").
     + **Related and Similar OpsItems**: With the
      **Related OpsItems** feature, you can specify the IDs
      of OpsItems that are in some way related to the current OpsItem. The
@@ -201,8 +188,7 @@ For more information about viewing OpsCenter summary reports, see [Viewing OpsCe
   support**
 
 You can audit and log OpsCenter user actions in your AWS account through
-integration with other AWS services. For more information, see [Viewing OpsCenter logs and
-reports](OpsCenter-logging-auditing.md "OpsCenter-logging-auditing.md").
+integration with other AWS services. For more information, see [Viewing OpsCenter logs and reports](OpsCenter-logging-auditing.md "OpsCenter-logging-auditing.md").
 
 - **Console, CLI, PowerShell, and SDK access to OpsCenter
   tool**
@@ -210,9 +196,7 @@ reports](OpsCenter-logging-auditing.md "OpsCenter-logging-auditing.md").
 You can work with OpsCenter by using the AWS Systems Manager console, AWS Command Line Interface (AWS CLI),
 AWS Tools for PowerShell, or the AWS SDK of your choice.
 
-## Does OpsCenter integrate with my
-
-existing case management system?
+## Does OpsCenter integrate with my existing case management system?
 
 OpsCenter is designed to complement your existing case management systems. You can
 integrate OpsItems into your existing case management system by using public API
@@ -232,14 +216,11 @@ operations in the _AWS Systems Manager API Reference_.
 
 Yes. For more information, see [AWS Systems Manager Pricing](https://aws.amazon.com/systems-manager/pricing/ "https://aws.amazon.com/systems-manager/pricing/").
 
-## Does OpsCenter work with my on-premises
-
-and hybrid managed nodes?
+## Does OpsCenter work with my on-premises and hybrid managed nodes?
 
 Yes. You can use OpsCenter to investigate and remediate issues with your on-premises
 managed nodes that are configured for Systems Manager. For more information about setting up and
-configuring on-premises servers and virtual machines for Systems Manager, see [Managing nodes in hybrid and multicloud
-environments with Systems Manager](systems-manager-hybrid-multicloud.md "systems-manager-hybrid-multicloud.md").
+configuring on-premises servers and virtual machines for Systems Manager, see [Managing nodes in hybrid and multicloud environments with Systems Manager](systems-manager-hybrid-multicloud.md "systems-manager-hybrid-multicloud.md").
 
 ## What are the quotas for OpsCenter?
 

@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Reviewing node insights
 
 You can gain insights into the overall status of managed nodes and unmanaged EC2 instances
@@ -13,8 +5,7 @@ in your organization or account by using the unified Systems Manager console.
 
 Systems Manager provides a visual overview into your managed nodes and EC2 instances that are not
 yet managed by Systems Manager. (A managed node is any machine configured for use with Systems Manager in
-[hybrid and multicloud](operating-systems-and-machine-types.md#supported-machine-types "operating-systems-and-machine-types.md#supported-machine-types") environments. For information about supported machine types, see [Supported machine types in hybrid and
-multicloud environments](operating-systems-and-machine-types.md#supported-machine-types "operating-systems-and-machine-types.md#supported-machine-types").)
+[hybrid and multicloud](operating-systems-and-machine-types.md#supported-machine-types "operating-systems-and-machine-types.md#supported-machine-types") environments. For information about supported machine types, see [Supported machine types in hybrid and multicloud environments](operating-systems-and-machine-types.md#supported-machine-types "operating-systems-and-machine-types.md#supported-machine-types").)
 
 This overview is provided through individual report boxes, called _widgets_, which feature interactive pie charts and other graphics.
 
@@ -59,18 +50,15 @@ the instance are preserved during the Stop/Start cycle.
 However, if the instance is still not reported as "Managed" several minutes
 after starting, the instance is likely not properly configured for Systems Manager
 management. In this case, we recommend running a diagnosis to identify why the
-instance remains in an unmanaged state. For more information, see [Diagnosing and remediating unmanaged
-Amazon EC2 instances in Systems Manager](remediating-unmanaged-instances.md "remediating-unmanaged-instances.md").
+instance remains in an unmanaged state. For more information, see [Diagnosing and remediating unmanaged Amazon EC2 instances in Systems Manager](remediating-unmanaged-instances.md "remediating-unmanaged-instances.md").
 
 If the diagnostic scan is not able to determine the issue, refer to the
 following topics to verify that the requirements for SSM Agent, AWS Identity and Access Management (IAM)
 roles, and Systems Manager prerequisites have all been met:
 
 - [Troubleshooting SSM Agent](troubleshooting-ssm-agent.md "troubleshooting-ssm-agent.md")
-- [Configure instance permissions required for
-  Systems Manager](setup-instance-permissions.md "setup-instance-permissions.md")
-- [Troubleshooting managed
-  node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md")
+- [Configure instance permissions required for Systems Manager](setup-instance-permissions.md "setup-instance-permissions.md")
+- [Troubleshooting managed node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md")
 
 **Managed node types**
 
@@ -116,7 +104,5 @@ widgets.
 
 ###### Topics
 
-- [Adding or removing widgets
-  from the Review node insights page](review-node-insights-add-and-remove-widgets.md "review-node-insights-add-and-remove-widgets.md")
-- [Rearranging widgets in the
-  Review node insights page](review-node-insights-rearrange-widgets.md "review-node-insights-rearrange-widgets.md")
+- [Adding or removing widgets from the Review node insights page](review-node-insights-add-and-remove-widgets.md "review-node-insights-add-and-remove-widgets.md")
+- [Rearranging widgets in the Review node insights page](review-node-insights-rearrange-widgets.md "review-node-insights-rearrange-widgets.md")

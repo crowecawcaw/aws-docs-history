@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Creating Parameter Store parameters in
-
-Systems Manager
+# Creating Parameter Store parameters in Systems Manager
 
 Use the information in the following topics to help you create Systems Manager parameters
 using the AWS Systems Manager console, the AWS Command Line Interface (AWS CLI), or AWS Tools for Windows PowerShell (Tools for Windows PowerShell).
@@ -17,9 +7,7 @@ This section demonstrates how to create, store, and run parameters with Paramete
 in a test environment. It also demonstrates how to use Parameter Store with other Systems Manager
 tools in AWS services. For more information, see [What is a parameter?](systems-manager-parameter-store.md#what-is-a-parameter "systems-manager-parameter-store.md#what-is-a-parameter")
 
-## Understanding requirements
-
-and constraints for parameter names
+## Understanding requirements and constraints for parameter names
 
 Use the information in this topic to help you specify valid values for
 parameter names when you create a parameter.
@@ -125,9 +113,6 @@ can still call the [GetParametersByPath](../APIReference/API_GetParametersByPath
 
 ###### Topics
 
-- [Creating a Parameter Store parameter using
-  the console](parameter-create-console.md "parameter-create-console.md")
-- [Creating a Parameter Store parameter using the
-  AWS CLI](param-create-cli.md "param-create-cli.md")
-- [Creating a Parameter Store parameter using
-  Tools for Windows PowerShell](param-create-ps.md "param-create-ps.md")
+- [Creating a Parameter Store parameter using the console](parameter-create-console.md "parameter-create-console.md")
+- [Creating a Parameter Store parameter using the AWS CLI](param-create-cli.md "param-create-cli.md")
+- [Creating a Parameter Store parameter using Tools for Windows PowerShell](param-create-ps.md "param-create-ps.md")

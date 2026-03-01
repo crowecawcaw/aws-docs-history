@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # AWS Systems Manager Explorer
 
 AWS Systems Manager Explorer is a customizable operations dashboard that reports information about your
@@ -31,9 +23,7 @@ _widgets_, which are available in Explorer.
 
 ![Explorer dashboard in AWS Systems Manager](images/Explorer-1-overview.png)
 
-## What are the features of
-
-Explorer?
+## What are the features of Explorer?
 
 Explorer includes the following features:
 
@@ -99,9 +89,7 @@ Explorer includes the following features:
   comma separated value (.csv) files to an Amazon Simple Storage Service (Amazon S3) bucket. You receive an
   alert from Amazon Simple Notification Service (Amazon SNS) when an export is complete.
 
-## How does Explorer relate to
-
-OpsCenter?
+## How does Explorer relate to OpsCenter?
 
 [Systems Manager OpsCenter](OpsCenter.md "OpsCenter.md") provides a central location where
 operations engineers and IT professionals view, investigate, and resolve OpsItems related
@@ -175,8 +163,7 @@ Enterprise or Business account set up with AWS Support.
 
 You can view and manage OpsData sources from the Explorer
 **Settings** page. For information about setting up and configuring
-services that populate Explorer widgets with OpsData, see [Setting up related services for
-Explorer](Explorer-setup-related-services.md "Explorer-setup-related-services.md").
+services that populate Explorer widgets with OpsData, see [Setting up related services for Explorer](Explorer-setup-related-services.md "Explorer-setup-related-services.md").
 
 ## Is there a charge to use Explorer?
 
@@ -192,6 +179,5 @@ relevant diagnostic information. For more information, see [AWS Systems Manager 
 
 - [Getting started with Systems Manager Explorer and OpsCenter](Explorer-setup.md "Explorer-setup.md")
 - [Using Explorer](Explorer-using.md "Explorer-using.md")
-- [Exporting OpsData from Systems Manager
-  Explorer](Explorer-exporting-OpsData.md "Explorer-exporting-OpsData.md")
+- [Exporting OpsData from Systems Manager Explorer](Explorer-exporting-OpsData.md "Explorer-exporting-OpsData.md")
 - [Troubleshooting Systems Manager Explorer](Explorer-troubleshooting.md "Explorer-troubleshooting.md")

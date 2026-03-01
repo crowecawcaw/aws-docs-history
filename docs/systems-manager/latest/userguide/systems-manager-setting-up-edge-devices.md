@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Managing edge devices with
-
-Systems Manager
+# Managing edge devices with Systems Manager
 
 This section describes the setup tasks that account and system administrators perform to
 enable configuration and management of AWS IoT Greengrass core devices. After you complete these
@@ -23,11 +13,9 @@ AWS Systems Manager to configure and manage their organization's AWS IoT Greengr
 - Systems Manager also supports edge devices that aren't configured as AWS IoT Greengrass core
   devices. To use Systems Manager to manage AWS IoT Core devices and non-AWS edge
   devices, you must configure them using a hybrid activation. For more
-  information, see [Managing nodes in hybrid and multicloud
-  environments with Systems Manager](systems-manager-hybrid-multicloud.md "systems-manager-hybrid-multicloud.md").
+  information, see [Managing nodes in hybrid and multicloud environments with Systems Manager](systems-manager-hybrid-multicloud.md "systems-manager-hybrid-multicloud.md").
 - To use Session Manager and Microsoft application patching with your edge devices, you
-  must enable the advanced-instances tier. For more information, see [Turning on the
-  advanced-instances tier](fleet-manager-enable-advanced-instances-tier.md "fleet-manager-enable-advanced-instances-tier.md").
+  must enable the advanced-instances tier. For more information, see [Turning on the advanced-instances tier](fleet-manager-enable-advanced-instances-tier.md "fleet-manager-enable-advanced-instances-tier.md").
 
 ###### Before you begin
 
@@ -37,8 +25,7 @@ Verify that your edge devices meet the following requirements.
   devices. For more information, see [Setting up AWS IoT Greengrass core
   devices](../../../greengrass/v2/developerguide/setting-up.md "../../../greengrass/v2/developerguide/setting-up.md") in the _AWS IoT Greengrass Version 2 Developer Guide_.
 - Your edge devices must be compatible with AWS Systems Manager Agent (SSM Agent). For more
-  information, see [Supported operating systems for
-  Systems Manager](operating-systems-and-machine-types.md#prereqs-operating-systems "operating-systems-and-machine-types.md#prereqs-operating-systems").
+  information, see [Supported operating systems for Systems Manager](operating-systems-and-machine-types.md#prereqs-operating-systems "operating-systems-and-machine-types.md#prereqs-operating-systems").
 - Your edge devices must be able to communicate with the Systems Manager service in the cloud.
   Systems Manager doesn't support disconnected edge devices.
 
@@ -51,9 +38,7 @@ Setting up AWS IoT Greengrass devices for Systems Manager involves the following
 For information about uninstalling SSM Agent from an edge device, see [Uninstall
 the AWS Systems Manager Agent](../../../greengrass/v2/developerguide/uninstall-systems-manager-agent.md "../../../greengrass/v2/developerguide/uninstall-systems-manager-agent.md") in the _AWS IoT Greengrass Version 2 Developer Guide_.
 
-## Create an IAM
-
-service role for your edge devices
+## Create an IAM service role for your edge devices
 
 AWS IoT Greengrass core devices require an AWS Identity and Access Management (IAM) service role to communicate with
 AWS Systems Manager. The role grants AWS Security Token Service (AWS STS) [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md")
@@ -96,9 +81,7 @@ _Amazon Web Services General Reference_.
 
 AWS CLI
 
-###### To create an IAM service role for an AWS IoT Greengrass environment
-
-(AWS CLI)
+###### To create an IAM service role for an AWS IoT Greengrass environment (AWS CLI)
 
 1. Install and configure the AWS Command Line Interface (AWS CLI), if you haven't already.
 
@@ -239,9 +222,7 @@ aws iam attach-role-policy \
 
 Tools for PowerShell
 
-###### To create an IAM service role for an AWS IoT Greengrass environment
-
-(AWS Tools for Windows PowerShell)
+###### To create an IAM service role for an AWS IoT Greengrass environment (AWS Tools for Windows PowerShell)
 
 1. Install and configure the AWS Tools for PowerShell (Tools for Windows PowerShell), if you haven't already.
 
@@ -337,18 +318,14 @@ Register-IAMRolePolicy `
     -PolicyArn arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
 ```
 
-## Configure your edge
-
-devices for AWS IoT Greengrass
+## Configure your edge devices for AWS IoT Greengrass
 
 Set up your edge devices as AWS IoT Greengrass core devices. The setup process involves
 verifying supported operating systems and system requirements, as well as installing and
 configuring the AWS IoT Greengrass Core software on your devices. For more information, see [Setting up
 AWS IoT Greengrass core devices](../../../greengrass/v2/developerguide/setting-up.md "../../../greengrass/v2/developerguide/setting-up.md") in the _AWS IoT Greengrass Version 2 Developer Guide_.
 
-## Update the AWS IoT Greengrass token
-
-exchange role and install SSM Agent on your edge devices
+## Update the AWS IoT Greengrass token exchange role and install SSM Agent on your edge devices
 
 The final step for setting up and configuring your AWS IoT Greengrass core devices for Systems Manager
 requires you to update the AWS IoT Greengrass AWS Identity and Access Management (IAM) device service role, also called the

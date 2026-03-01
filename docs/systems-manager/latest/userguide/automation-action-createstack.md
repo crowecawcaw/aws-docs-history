@@ -1,22 +1,11 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# `aws:createStack` –
-
-Create an CloudFormation stack
+# `aws:createStack` – Create an CloudFormation stack
 
 Creates an AWS CloudFormation stack from a template.
 
 ###### Note
 
 The `aws:createStack` action supports automatic throttling retry. For
-more information, see [Configuring automatic retry for
-throttled operations](automation-throttling-retry.md "automation-throttling-retry.md").
+more information, see [Configuring automatic retry for throttled operations](automation-throttling-retry.md "automation-throttling-retry.md").
 
 For supplemental information about creating CloudFormation stacks, see [CreateStack](../../../AWSCloudFormation/latest/APIReference/API_CreateStack.md "../../../AWSCloudFormation/latest/APIReference/API_CreateStack.md") in the
 _AWS CloudFormation API Reference_.
@@ -383,14 +372,11 @@ Required: No
 
 For more information, see [CreateStack](../../../AWSCloudFormation/latest/APIReference/API_CreateStack.md "../../../AWSCloudFormation/latest/APIReference/API_CreateStack.md").
 
-## Security
-
-considerations
+## Security considerations
 
 Before you can use the `aws:createStack` action, you must
 assign the following policy to the IAM Automation assume role. For more
-information about the assume role, see [Task 1: Create a service role for
-Automation](automation-setup-iam.md#create-service-role "automation-setup-iam.md#create-service-role").
+information about the assume role, see [Task 1: Create a service role for Automation](automation-setup-iam.md#create-service-role "automation-setup-iam.md#create-service-role").
 
 JSON
 

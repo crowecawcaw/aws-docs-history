@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Logging session activity
 
 In addition to providing information about current and completed sessions in the Systems Manager
@@ -24,9 +16,7 @@ querying CloudTrail logs using [CloudTrail Lake](../../../awscloudtrail/latest/u
 table you maintain. For more information, see [Querying AWS CloudTrail logs](../../../athena/latest/ug/cloudtrail-logs.md "../../../athena/latest/ug/cloudtrail-logs.md") in
 the _AWS CloudTrail User Guide_.
 
-## Monitoring session
-
-activity using Amazon EventBridge (console)
+## Monitoring session activity using Amazon EventBridge (console)
 
 With EventBridge, you can set up rules to detect when changes happen to AWS resources.
 You can create a rule to detect when a user in your organization starts or ends a

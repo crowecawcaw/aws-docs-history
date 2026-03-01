@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Troubleshooting SSM Agent
 
 If you experience problems running operations on your managed nodes, there might be a
@@ -16,19 +8,13 @@ or has reduced communication frequency, see [Understanding SSM Agent hibernation
 ###### Topics
 
 - [SSM Agent is out of date](#ssm-agent-out-of-date "#ssm-agent-out-of-date")
-- [Troubleshoot issues using
-  SSM Agent log files](#systems-manager-ssm-agent-log-files "#systems-manager-ssm-agent-log-files")
-- [Agent log
-  files don't rotate (Windows)](#systems-manager-ssm-agent-troubleshooting-log-rotation "#systems-manager-ssm-agent-troubleshooting-log-rotation")
-- [Unable
-  to connect to SSM endpoints](#systems-manager-ssm-agent-troubleshooting-endpoint-access "#systems-manager-ssm-agent-troubleshooting-endpoint-access")
+- [Troubleshoot issues using SSM Agent log files](#systems-manager-ssm-agent-log-files "#systems-manager-ssm-agent-log-files")
+- [Agent log files don't rotate (Windows)](#systems-manager-ssm-agent-troubleshooting-log-rotation "#systems-manager-ssm-agent-troubleshooting-log-rotation")
+- [Unable to connect to SSM endpoints](#systems-manager-ssm-agent-troubleshooting-endpoint-access "#systems-manager-ssm-agent-troubleshooting-endpoint-access")
 - [Verify your VPC configuration](#agent-ts-vpc-configuration "#agent-ts-vpc-configuration")
-- [Verify your VPC DNS-related
-  attributes](#agent-ts-dns-attributes "#agent-ts-dns-attributes")
-- [Verify ingress rules on endpoint
-  security groups](#agent-ts-ingress-egress-rules "#agent-ts-ingress-egress-rules")
-- [Use ssm-cli to troubleshoot managed node
-  availability](#agent-ts-ssm-cli "#agent-ts-ssm-cli")
+- [Verify your VPC DNS-related attributes](#agent-ts-dns-attributes "#agent-ts-dns-attributes")
+- [Verify ingress rules on endpoint security groups](#agent-ts-ingress-egress-rules "#agent-ts-ingress-egress-rules")
+- [Use ssm-cli to troubleshoot managed node availability](#agent-ts-ssm-cli "#agent-ts-ssm-cli")
 
 ## SSM Agent is out of date
 
@@ -40,9 +26,7 @@ information, see [Automating updates to SSM Agent](ssm-agent-automatic-updates.m
 Release Notes](https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md "https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md") page on GitHub to get notifications about SSM Agent
 updates.
 
-## Troubleshoot issues using
-
-SSM Agent log files
+## Troubleshoot issues using SSM Agent log files
 
 SSM Agent logs information in the following files. The information in these files
 can also help you troubleshoot problems. For more information about SSM Agent log
@@ -71,9 +55,7 @@ For additional information about troubleshooting using agent logs, see [How do I
 troubleshoot issues with SSM Agent in my managed instance?](https://repost.aws/knowledge-center/ssm-agent-logs "https://repost.aws/knowledge-center/ssm-agent-logs") in the
 _AWS re:Post Knowledge Center_.
 
-## Agent log
-
-files don't rotate (Windows)
+## Agent log files don't rotate (Windows)
 
 If you specify date-based log file rotation in the seelog.xml file (on Windows Server
 managed nodes) and the logs don't rotate, specify the `fullname=true`
@@ -102,9 +84,7 @@ parameter. Here is an example of a seelog.xml configuration file with the
 
 ```
 
-## Unable
-
-to connect to SSM endpoints
+## Unable to connect to SSM endpoints
 
 SSM Agent must allow HTTPS (port 443) outbound traffic to the following
 endpoints:
@@ -137,8 +117,7 @@ described, even if you use AWS provided Amazon Machine Images (AMIs) such as Ama
 Amazon Linux 2023. Your network configuration must have open internet access or you must
 have custom virtual private cloud (VPC) endpoints configured. If you don't plan on
 creating a custom VPC endpoint, check your internet gateways or NAT gateways. For
-more information about how to manage VPC endpoints, see [Improve the security of EC2 instances by using VPC
-endpoints for Systems Manager](setup-create-vpc.md "setup-create-vpc.md").
+more information about how to manage VPC endpoints, see [Improve the security of EC2 instances by using VPC endpoints for Systems Manager](setup-create-vpc.md "setup-create-vpc.md").
 
 ## Verify your VPC configuration
 
@@ -146,8 +125,7 @@ If you are using a virtual private cloud (VPC), in order to manage EC2 instances
 with Systems Manager, your VPC endpoints must be configured properly for
 `ssm.`region`.amazonaws.com`,
 `ssmmessages.`region`.amazonaws.com`, and
-in some cases explained earlier in this topic in [Unable
-to connect to SSM endpoints](#systems-manager-ssm-agent-troubleshooting-endpoint-access "#systems-manager-ssm-agent-troubleshooting-endpoint-access"),
+in some cases explained earlier in this topic in [Unable to connect to SSM endpoints](#systems-manager-ssm-agent-troubleshooting-endpoint-access "#systems-manager-ssm-agent-troubleshooting-endpoint-access"),
 `ec2messages.`region`.amazonaws.com`.
 
 ###### Note
@@ -163,8 +141,7 @@ HTTPS (port 443) outbound traffic to the following endpoints:
   reason, you don't need to configure your firewall to allow inbound traffic to
   your instances for Systems Manager.
 
-For more information about calls to these endpoints, see [Reference: ec2messages,
-ssmmessages, and other API operations](systems-manager-setting-up-messageAPIs.md "systems-manager-setting-up-messageAPIs.md").
+For more information about calls to these endpoints, see [Reference: ec2messages, ssmmessages, and other API operations](systems-manager-setting-up-messageAPIs.md "systems-manager-setting-up-messageAPIs.md").
 
 To troubleshoot issues with your VPC endpoints, do the following:
 
@@ -186,12 +163,9 @@ For more information, see the following topics:
   _AWS PrivateLink Guide_
 - [Associate a private DNS name](../../../vpc/latest/privatelink/configure-endpoint-service.md#associate-private-dns-name "../../../vpc/latest/privatelink/configure-endpoint-service.md#associate-private-dns-name") in the
   _AWS PrivateLink Guide_
-- [Improve the security of EC2 instances by using VPC
-  endpoints for Systems Manager](setup-create-vpc.md "setup-create-vpc.md")
+- [Improve the security of EC2 instances by using VPC endpoints for Systems Manager](setup-create-vpc.md "setup-create-vpc.md")
 
-## Verify your VPC DNS-related
-
-attributes
+## Verify your VPC DNS-related attributes
 
 If you are using a virtual private cloud (VPC), as part of verifying your VPC
 configuration, ensure that the attributes `enableDnsSupport` and
@@ -216,12 +190,9 @@ HTTPS (port 443) outbound traffic to the following endpoints:
   reason, you don't need to configure your firewall to allow inbound traffic to
   your instances for Systems Manager.
 
-For more information about calls to these endpoints, see [Reference: ec2messages,
-ssmmessages, and other API operations](systems-manager-setting-up-messageAPIs.md "systems-manager-setting-up-messageAPIs.md").
+For more information about calls to these endpoints, see [Reference: ec2messages, ssmmessages, and other API operations](systems-manager-setting-up-messageAPIs.md "systems-manager-setting-up-messageAPIs.md").
 
-## Verify ingress rules on endpoint
-
-security groups
+## Verify ingress rules on endpoint security groups
 
 Ensure that any VPC endpoints you have configured (`ssm`,
 `ssmmessages`, and `ec2messages`) include an ingress rule
@@ -238,9 +209,7 @@ For more information, see the following topics:
 - [VPC CIDR blocks](../../../vpc/latest/userguide/vpc-cidr-blocks.md "../../../vpc/latest/userguide/vpc-cidr-blocks.md")
   in the _Amazon VPC User Guide_
 
-## Use `ssm-cli` to troubleshoot managed node
-
-availability
+## Use `ssm-cli` to troubleshoot managed node availability
 
 Starting with SSM Agent version 3.1.501.0, you can use `ssm-cli` to determine
 whether a managed node meets the primary requirements to be managed by Systems Manager, and to
@@ -251,5 +220,4 @@ non-EC2 machine that you have confirmed is running isn't included in your lists 
 managed nodes in Systems Manager. These commands are run when you specify the
 `get-diagnostics` option.
 
-For more information, see [Troubleshooting
-managed node availability using ssm-cli](troubleshooting-managed-nodes-using-ssm-cli.md "troubleshooting-managed-nodes-using-ssm-cli.md").
+For more information, see [Troubleshooting managed node availability using ssm-cli](troubleshooting-managed-nodes-using-ssm-cli.md "troubleshooting-managed-nodes-using-ssm-cli.md").

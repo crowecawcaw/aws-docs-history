@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Reference: ec2messages,
-
-ssmmessages, and other API operations
+# Reference: ec2messages, ssmmessages, and other API operations
 
 If you monitor API operations, you might see calls to the following operations:
 
@@ -37,9 +27,7 @@ If you monitor API operations, you might see calls to the following operations:
   These are special operations used by AWS Systems Manager, as described in the rest of this
   topic.
 
-## Agent-related API operations
-
-(`ssmmessages` and `ec2messages` endpoints)
+## Agent-related API operations (`ssmmessages` and `ec2messages` endpoints)
 
 ###### ssmmessages API operations
 
@@ -120,9 +108,7 @@ For more information about the `ssmmessages` and `ec2messages:*` endpoints, see 
 - [Actions, resources, and condition keys for Amazon Message Delivery
   Service](../../../service-authorization/latest/reference/list_amazonmessagedeliveryservice.md "../../../service-authorization/latest/reference/list_amazonmessagedeliveryservice.md") (`ec2messages:*`)
 
-## `ssm:*` namespace instance-related API
-
-operations
+## `ssm:*` namespace instance-related API operations
 
 `DescribeDocumentParameters`
 
@@ -197,9 +183,7 @@ the key pair on the managed node. The public key is used to authenticate the
 requests, signed with the private key, to get temporary credentials from
 Systems Manager.
 
-## ssm:\* namespace other
-
-API operations
+## ssm:\* namespace other API operations
 
 `ExecuteApi`
 
@@ -209,7 +193,5 @@ OpsItems across multiple AWS accounts. Specifically, this API gives a
 delegated administrator permission to view the following OpsItem details in the
 AWS Management Console: the OpsItem description, tags, CloudFormation template, AWS Config changes,
 CloudWatch Logs alarms, and AWS CloudTrail events. For more information about working with
-OpsItems across accounts, see [(Optional)
-Manually set up OpsCenter to centrally manage OpsItems across accounts](OpsCenter-getting-started-multiple-accounts.md "OpsCenter-getting-started-multiple-accounts.md"). For more
-information about related resource details for OpsItems, see [Adding
-related resources to an OpsItem](OpsCenter-working-with-OpsItems-adding-related-resources.md "OpsCenter-working-with-OpsItems-adding-related-resources.md").
+OpsItems across accounts, see [(Optional) Manually set up OpsCenter to centrally manage OpsItems across accounts](OpsCenter-getting-started-multiple-accounts.md "OpsCenter-getting-started-multiple-accounts.md"). For more
+information about related resource details for OpsItems, see [Adding related resources to an OpsItem](OpsCenter-working-with-OpsItems-adding-related-resources.md "OpsCenter-working-with-OpsItems-adding-related-resources.md").

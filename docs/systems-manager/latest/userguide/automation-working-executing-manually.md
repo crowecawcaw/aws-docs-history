@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Run an automation step by
-
-step
+# Run an automation step by step
 
 The following procedures describe how to use the AWS Systems Manager console and AWS Command Line Interface
 (AWS CLI) to run an automation using the manual execution mode. By using the manual
@@ -22,9 +12,7 @@ to configure additional IAM permissions as long as you have permission to use th
 runbook, and any actions called by the runbook. If you have administrator permissions in
 IAM, then you already have permission to run this automation.
 
-## Running an
-
-automation step by step (console)
+## Running an automation step by step (console)
 
 The following procedure shows how to use the Systems Manager console to manually run an
 automation step by step.
@@ -81,9 +69,7 @@ and view the results.
 After an automation execution completes, you can rerun the execution with the same
 or modified parameters. For more information, see [Rerunning automation executions](automation-rerun-executions.md "automation-rerun-executions.md").
 
-## Running an
-
-automation step by step (command line)
+## Running an automation step by step (command line)
 
 The following procedure describes how to use the AWS CLI (on Linux, macOS, or
 Windows) or AWS Tools for PowerShell to manually run an automation step by step.

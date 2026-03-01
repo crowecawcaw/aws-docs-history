@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Additional sample
-
-IAM policies for Session Manager
+# Additional sample IAM policies for Session Manager
 
 Refer to the following example policies to help you create a custom AWS Identity and Access Management
 (IAM) policy for any Session Manager user access scenarios you want to
@@ -16,20 +6,13 @@ support.
 
 ###### Topics
 
-- [Example 1: Grant
-  access to documents in the console](#grant-access-documents-console-example "#grant-access-documents-console-example")
-- [Example 2: Restrict
-  access to specific managed nodes](#restrict-access-example-instances "#restrict-access-example-instances")
-- [Example 3: Restrict
-  access based on tags](#restrict-access-example-instance-tags "#restrict-access-example-instance-tags")
-- [Example 4: Allow a
-  user to end only sessions they started](#restrict-access-example-user-sessions "#restrict-access-example-user-sessions")
-- [Example 5: Allow full
-  (administrative) access to all sessions](#restrict-access-example-full-access "#restrict-access-example-full-access")
+- [Example 1: Grant access to documents in the console](#grant-access-documents-console-example "#grant-access-documents-console-example")
+- [Example 2: Restrict access to specific managed nodes](#restrict-access-example-instances "#restrict-access-example-instances")
+- [Example 3: Restrict access based on tags](#restrict-access-example-instance-tags "#restrict-access-example-instance-tags")
+- [Example 4: Allow a user to end only sessions they started](#restrict-access-example-user-sessions "#restrict-access-example-user-sessions")
+- [Example 5: Allow full (administrative) access to all sessions](#restrict-access-example-full-access "#restrict-access-example-full-access")
 
-## Example 1: Grant
-
-access to documents in the console
+## Example 1: Grant access to documents in the console
 
 You can allow users to specify a custom document when they launch a
 session using the Session Manager console. The following example IAM policy grants
@@ -67,9 +50,7 @@ The Session Manager console only supports Session documents that have a
 `sessionType` of `Standard_Stream` which are
 used to define session preferences. For more information, see [Session document schema](session-manager-schema.md "session-manager-schema.md").
 
-## Example 2: Restrict
-
-access to specific managed nodes
+## Example 2: Restrict access to specific managed nodes
 
 You can create an IAM policy that defines which managed nodes that a
 user is allowed to connect to using Session Manager. For example, the following
@@ -79,8 +60,7 @@ nodes other than those specified.
 
 ###### Note
 
-For federated users, see [Example 4: Allow a
-user to end only sessions they started](#restrict-access-example-user-sessions "#restrict-access-example-user-sessions").
+For federated users, see [Example 4: Allow a user to end only sessions they started](#restrict-access-example-user-sessions "#restrict-access-example-user-sessions").
 
 JSON
 
@@ -125,9 +105,7 @@ JSON
 
 ```
 
-## Example 3: Restrict
-
-access based on tags
+## Example 3: Restrict access based on tags
 
 You can restrict access to managed nodes based on specific tags. In the
 following example, the user is allowed to start and resume sessions
@@ -245,12 +223,9 @@ tagging managed nodes, see [Tagging your Amazon EC2
 resources](../../../AWSEC2/latest/UserGuide/Using_Tags.md "../../../AWSEC2/latest/UserGuide/Using_Tags.md") in the _Amazon EC2 User Guide_ (content applies to Windows
 and Linux managed nodes). For more information about
 increasing your security posture against unauthorized root-level commands on
-your managed nodes, see [Restricting access to
-root-level commands through SSM Agent](ssm-agent-restrict-root-level-commands.md "ssm-agent-restrict-root-level-commands.md")
+your managed nodes, see [Restricting access to root-level commands through SSM Agent](ssm-agent-restrict-root-level-commands.md "ssm-agent-restrict-root-level-commands.md")
 
-## Example 4: Allow a
-
-user to end only sessions they started
+## Example 4: Allow a user to end only sessions they started
 
 Session Manager provides two methods to control which sessions a federated user
 in your AWS account is allowed to end.
@@ -265,10 +240,7 @@ in your AWS account is allowed to end.
   by AWS. This method works for all accounts, including those that
   use federated IDs to grant access to AWS.
 
-### Method
-
-1: Grant TerminateSession privileges using the variable
-`{aws:username}`
+### Method 1: Grant TerminateSession privileges using the variable `{aws:username}`
 
 The following IAM policy allows a user to view the IDs of all
 sessions in your account. However, users can interact with managed nodes
@@ -310,10 +282,7 @@ JSON
 
 ```
 
-### Method 2:
-
-Grant TerminateSession privileges using tags supplied by
-AWS
+### Method 2: Grant TerminateSession privileges using tags supplied by AWS
 
 You can control which sessions that a user can end by including
 conditional tag key variables in an IAM policy. The condition
@@ -501,9 +470,7 @@ JSON
 
 ```
 
-## Example 5: Allow full
-
-(administrative) access to all sessions
+## Example 5: Allow full (administrative) access to all sessions
 
 The following IAM policy allows a user to fully interact with all
 managed nodes and all sessions created by all users for all nodes. It should

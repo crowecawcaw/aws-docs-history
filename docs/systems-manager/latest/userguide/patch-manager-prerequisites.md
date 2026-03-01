@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Patch Manager prerequisites
 
 Make sure that you have met the required prerequisites before using Patch Manager, a tool
@@ -18,8 +10,7 @@ in AWS Systems Manager.
 - [Additional package requirements](#additional-package-requirements "#additional-package-requirements")
 - [Connectivity to the patch source](#source-connectivity "#source-connectivity")
 - [S3 endpoint access](#s3-endpoint-access "#s3-endpoint-access")
-- [Permissions to install patches
-  locally](#local-installation-permissions "#local-installation-permissions")
+- [Permissions to install patches locally](#local-installation-permissions "#local-installation-permissions")
 - [Supported operating systems for Patch Manager](#supported-os "#supported-os")
 
 ## SSM Agent version
@@ -64,8 +55,7 @@ using an Amazon Virtual Private Cloud (Amazon VPC) with a VPC endpoint, you must
 access to the source patch repositories (repos). On Linux nodes, patch updates are
 typically downloaded from the remote repos configured on the node. Therefore, the
 node must be able to connect to the repos so the patching can be performed. For more
-information, see [How security patches are
-selected](patch-manager-selecting-patches.md "patch-manager-selecting-patches.md").
+information, see [How security patches are selected](patch-manager-selecting-patches.md "patch-manager-selecting-patches.md").
 
 When patching a node that is running in an IPv6 only environment, ensure that the
 node has connectivity to the patch source. You can check the Run Command output from
@@ -78,9 +68,7 @@ operating systems include Amazon Linux 2023, Red Hat Enterprise Linux 8 and late
 Amazon Linux 2023, the `skip_if_unavailable` option is set to
 `True` by default.
 
-###### CentOS Stream: Enable the `EnableNonSecurity`
-
-flag
+###### CentOS Stream: Enable the `EnableNonSecurity` flag
 
 CentOS Stream nodes uses DNF as the package manager, which uses
 the concept of an update notice. An update notice is simply a collection of
@@ -92,30 +80,23 @@ CentOS Stream repos. To allow Patch Manager to process packages that
 aren't contained in an update notice, you must turn on the
 `EnableNonSecurity` flag in the patch baseline rules.
 
-###### Windows Server: Ensure connectivity to Windows Update Catalog or Windows Server
-
-Update Services (WSUS)
+###### Windows Server: Ensure connectivity to Windows Update Catalog or Windows Server Update Services (WSUS)
 
 Windows Server managed nodes must be able to connect to the Windows Update Catalog
 or Windows Server Update Services (WSUS). Confirm that your nodes have
 connectivity to the [Microsoft Update
 Catalog](https://www.catalog.update.microsoft.com/home.aspx "https://www.catalog.update.microsoft.com/home.aspx") through an internet gateway, NAT gateway, or NAT instance.
 If you are using WSUS, confirm that the node has connectivity to the WSUS server
-in your environment. For more information, see [Issue: managed
-node doesn't have access to Windows Update Catalog or WSUS](patch-manager-troubleshooting.md#patch-manager-troubleshooting-instance-access "patch-manager-troubleshooting.md#patch-manager-troubleshooting-instance-access").
+in your environment. For more information, see [Issue: managed node doesn't have access to Windows Update Catalog or WSUS](patch-manager-troubleshooting.md#patch-manager-troubleshooting-instance-access "patch-manager-troubleshooting.md#patch-manager-troubleshooting-instance-access").
 
 ## S3 endpoint access
 
 Whether your managed nodes operate in a private or public network, without access
 to the required AWS managed Amazon Simple Storage Service (Amazon S3) buckets, patching operations fail. For
 information about the S3 buckets your managed nodes must be able to access, see
-[SSM Agent communications with
-AWS managed S3 buckets](ssm-agent-technical-details.md#ssm-agent-minimum-s3-permissions "ssm-agent-technical-details.md#ssm-agent-minimum-s3-permissions") and [Improve the security of EC2 instances by using VPC
-endpoints for Systems Manager](setup-create-vpc.md "setup-create-vpc.md").
+[SSM Agent communications with AWS managed S3 buckets](ssm-agent-technical-details.md#ssm-agent-minimum-s3-permissions "ssm-agent-technical-details.md#ssm-agent-minimum-s3-permissions") and [Improve the security of EC2 instances by using VPC endpoints for Systems Manager](setup-create-vpc.md "setup-create-vpc.md").
 
-## Permissions to install patches
-
-locally
+## Permissions to install patches locally
 
 On Windows Server and Linux operating systems, Patch Manager assumes the Administrator and
 root user accounts, respectively, to install patches.
@@ -140,8 +121,7 @@ sudo chown -R `$USER`:admin /usr/local
 
 The Patch Manager tool might not support all the same operating systems versions that
 are supported by other Systems Manager tools. (For the full list of Systems Manager-supported operating
-systems, see [Supported operating systems for
-Systems Manager](operating-systems-and-machine-types.md#prereqs-operating-systems "operating-systems-and-machine-types.md#prereqs-operating-systems").) Therefore, ensure that the managed
+systems, see [Supported operating systems for Systems Manager](operating-systems-and-machine-types.md#prereqs-operating-systems "operating-systems-and-machine-types.md#prereqs-operating-systems").) Therefore, ensure that the managed
 nodes you want to use with Patch Manager are running one of the operating systems listed
 in the following table.
 

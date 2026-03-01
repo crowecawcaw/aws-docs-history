@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Managing duplicate OpsItems
 
 OpsCenter can receive multiple duplicate OpsItems for a single source from multiple
@@ -30,20 +22,16 @@ AWS Systems Manager uses the following deduplication logic:
 To manage duplicate OpsItems, you can do the following:
 
 - Edit the deduplication string for an Amazon EventBridge rule that targets OpsCenter.
-  For more information, see [Editing a
-  deduplication string in a default EventBridge rule](#OpsCenter-working-deduplication-editing-cwe "#OpsCenter-working-deduplication-editing-cwe").
+  For more information, see [Editing a deduplication string in a default EventBridge rule](#OpsCenter-working-deduplication-editing-cwe "#OpsCenter-working-deduplication-editing-cwe").
 - Specify a deduplication string when you manually create an OpsItem. For more
   information, see [Specifying a deduplication string using AWS CLI](#OpsCenter-working-deduplication-configuring-manual-cli "#OpsCenter-working-deduplication-configuring-manual-cli").
 - Review and resolve duplicate OpsItems using operational insights. You can use
   runbooks to resolve duplicate OpsItems.
 
 To help you resolve duplicate OpsItems and reduce the number of OpsItems created
-by a source, Systems Manager provides automation runbooks. For information, see [Resolving
-duplicate OpsItems based on insights](OpsCenter-working-operational-insights.md#OpsCenter-working-operational-insights-resolve "OpsCenter-working-operational-insights.md#OpsCenter-working-operational-insights-resolve").
+by a source, Systems Manager provides automation runbooks. For information, see [Resolving duplicate OpsItems based on insights](OpsCenter-working-operational-insights.md#OpsCenter-working-operational-insights-resolve "OpsCenter-working-operational-insights.md#OpsCenter-working-operational-insights-resolve").
 
-## Editing a
-
-deduplication string in a default EventBridge rule
+## Editing a deduplication string in a default EventBridge rule
 
 Use the following procedure to specify a deduplication string for an EventBridge rule
 that targets OpsCenter.

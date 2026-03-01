@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Setting up Fleet Manager
 
 Before users in your AWS account can use Fleet Manager, a tool in AWS Systems Manager, to monitor
@@ -30,15 +22,11 @@ configure your Amazon EC2 instances as managed instances in an individual
 account. If your business or organization uses AWS Organizations, you can also
 configure instances across multiple organizational units (OUs) and
 AWS Regions. For more information about using Quick Setup to configure
-managed instances, see [Set up Amazon EC2 host management using
-Quick Setup](quick-setup-host-management.md "quick-setup-host-management.md").
+managed instances, see [Set up Amazon EC2 host management using Quick Setup](quick-setup-host-management.md "quick-setup-host-management.md").
 
-- On-premises and other server types in the cloud: [Managing nodes in hybrid and multicloud
-  environments with Systems Manager](systems-manager-hybrid-multicloud.md "systems-manager-hybrid-multicloud.md")
-- AWS IoT Greengrass (edge) devices: [Managing edge devices with
-  Systems Manager](systems-manager-setting-up-edge-devices.md "systems-manager-setting-up-edge-devices.md")
+- On-premises and other server types in the cloud: [Managing nodes in hybrid and multicloud environments with Systems Manager](systems-manager-hybrid-multicloud.md "systems-manager-hybrid-multicloud.md")
+- AWS IoT Greengrass (edge) devices: [Managing edge devices with Systems Manager](systems-manager-setting-up-edge-devices.md "systems-manager-setting-up-edge-devices.md")
 
 ###### Sample policies
 
-- [Controlling access to
-  Fleet Manager](configuring-fleet-manager-permissions.md "configuring-fleet-manager-permissions.md")
+- [Controlling access to Fleet Manager](configuring-fleet-manager-permissions.md "configuring-fleet-manager-permissions.md")

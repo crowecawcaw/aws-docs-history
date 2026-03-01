@@ -1,21 +1,8 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # AWS Secrets and Configuration Provider code examples
 
-## ASCP authentication and access
+## ASCP authentication and access control examples
 
-control examples
-
-### Example: IAM policy
-
-allowing Amazon EKS Pod Identity service (pods.eks.amazonaws.com) to
-assume the role and tag the session:
+### Example: IAM policy allowing Amazon EKS Pod Identity service (pods.eks.amazonaws.com) to assume the role and tag the session:
 
 JSON
 
@@ -41,8 +28,7 @@ JSON
 ## SecretProviderClass
 
 You use YAML to describe which parameters to mount in Amazon EKS using the
-ASCP. For examples, see [SecretProviderClass
-usage](#ascp-scenarios-secretproviderclass "#ascp-scenarios-secretproviderclass").
+ASCP. For examples, see [SecretProviderClass usage](#ascp-scenarios-secretproviderclass "#ascp-scenarios-secretproviderclass").
 
 ### SecretProviderClass YAML structure
 
@@ -95,8 +81,7 @@ then the ASCP mounts that parameter value. If the parameter is
 not retrieved successfully from `region`, but it is
 retrieved successfully from `failoverRegion`, then
 the ASCP mounts that parameter value. For an example of how to
-use this field, see [Multi-Region parameter
-failover](#multi-region-failover "#multi-region-failover").
+use this field, see [Multi-Region parameter failover](#multi-region-failover "#multi-region-failover").
 
 **pathTranslation**
 
@@ -254,13 +239,11 @@ successfully from the failover
 `objectName`, then the ASCP mounts
 that parameter value. If you include this field, you
 must include the field `objectAlias`. For
-an example of how to use this field, see [Failover to a different
-parameter](#failover-parameter "#failover-parameter").
+an example of how to use this field, see [Failover to a different parameter](#failover-parameter "#failover-parameter").
 
 You typically use this field when the failover
 parameter isn't a replica. For an example of how to
-specify a replica, see [Multi-Region parameter
-failover](#multi-region-failover "#multi-region-failover").
+specify a replica, see [Multi-Region parameter failover](#multi-region-failover "#multi-region-failover").
 
 **objectName**
 
@@ -283,10 +266,7 @@ default the most recent version is used.
 default is the most recent version
 `AWSCURRENT`.
 
-### Create a basic
-
-SecretProviderClass configuration to mount parameters in your Amazon EKS
-Pods.
+### Create a basic SecretProviderClass configuration to mount parameters in your Amazon EKS Pods.
 
 Pod Identity
 SecretProviderClass to use a parameter in the same Amazon EKS
@@ -321,16 +301,12 @@ spec:
           objectType: "ssmparameter"
 ```
 
-### SecretProviderClass
-
-usage
+### SecretProviderClass usage
 
 Use these examples to create `SecretProviderClass`
 configurations for different scenarios.
 
-#### Example: Mount parameters by
-
-name or ARN
+#### Example: Mount parameters by name or ARN
 
 This example shows how to mount three different types of
 parameters:
@@ -357,9 +333,7 @@ spec:
 
 ```
 
-#### Example: Mount key-value
-
-pairs from a parameter
+#### Example: Mount key-value pairs from a parameter
 
 This example shows how to mount specific key-value pairs from a
 JSON-formatted parameter:
@@ -382,16 +356,12 @@ spec:
 
 ```
 
-#### Example: Failover configuration
-
-examples
+#### Example: Failover configuration examples
 
 These examples show how to configure failover for
 parameters.
 
-##### Multi-Region parameter
-
-failover
+##### Multi-Region parameter failover
 
 This example shows how to configure automatic failover for a
 parameter replicated across multiple Regions:
@@ -411,9 +381,7 @@ spec:
 
 ```
 
-##### Failover to a different
-
-parameter
+##### Failover to a different parameter
 
 This example shows how to configure failover to a different
 parameter (not a replica):

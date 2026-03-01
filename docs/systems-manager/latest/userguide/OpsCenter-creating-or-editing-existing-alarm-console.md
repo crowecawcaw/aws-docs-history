@@ -1,19 +1,9 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Configuring a CloudWatch alarm to create OpsItems (console)
 
 You can manually create an alarm or update an existing alarm to create OpsItems
 from Amazon CloudWatch.
 
-###### To create a CloudWatch alarm and configure Systems Manager as a target of that
-
-alarm
+###### To create a CloudWatch alarm and configure Systems Manager as a target of that alarm
 
 1. Complete steps 1–9 as specified in [Create a CloudWatch alarm based on a
    static threshold](../../../AmazonCloudWatch/latest/monitoring/ConsoleAlarms.md "../../../AmazonCloudWatch/latest/monitoring/ConsoleAlarms.md") in the
@@ -29,9 +19,7 @@ alarm
    _Amazon CloudWatch User Guide_.
 7. Choose **Next** and complete the wizard.
 
-###### To edit an existing alarm and configure Systems Manager as a target of that
-
-alarm
+###### To edit an existing alarm and configure Systems Manager as a target of that alarm
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").

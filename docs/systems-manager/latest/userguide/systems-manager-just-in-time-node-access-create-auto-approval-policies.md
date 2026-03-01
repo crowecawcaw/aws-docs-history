@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Create an auto-approval policy for just-in-time node access
 
 Auto-approval policies use the Cedar policy language to define which users can
@@ -50,9 +42,7 @@ The following procedure describes how to create an auto-approval policy for
 just-in-time node acces. The access duration for an access request that is
 automatically approved is 1 hour. This value can't be changed. You can only have
 one auto-approval policy per AWS account and AWS Region. For more
-information about how to construct policy statements, see [Statement
-structure and built-in operators for auto-approval and deny-access
-policies](auto-approval-deny-access-policy-statement-structure.md "auto-approval-deny-access-policy-statement-structure.md").
+information about how to construct policy statements, see [Statement structure and built-in operators for auto-approval and deny-access policies](auto-approval-deny-access-policy-statement-structure.md "auto-approval-deny-access-policy-statement-structure.md").
 
 ###### To create an auto-approval policy
 

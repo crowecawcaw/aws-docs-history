@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Using Application Manager
-
-to manage CloudFormation templates
+# Using Application Manager to manage CloudFormation templates
 
 Application Manager, a tool in AWS Systems Manager, includes a template library and other tools to
 help you manage AWS CloudFormation templates. This section includes the following
@@ -39,8 +29,7 @@ Application Manager.
 
 - [AWS Systems Manager Documents](documents.md "documents.md")
 - [Sharing SSM documents](documents-ssm-sharing.md "documents-ssm-sharing.md")
-- [Best practices for shared SSM
-  documents](documents-ssm-sharing.md#best-practices-shared "documents-ssm-sharing.md#best-practices-shared")
+- [Best practices for shared SSM documents](documents-ssm-sharing.md#best-practices-shared "documents-ssm-sharing.md#best-practices-shared")
 
 ###### To view the template library in Application Manager
 

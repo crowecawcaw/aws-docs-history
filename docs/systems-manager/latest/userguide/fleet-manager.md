@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # AWS Systems Manager Fleet Manager
 
 Fleet Manager, a tool in AWS Systems Manager, is a unified user interface (UI) experience that helps you
@@ -88,13 +80,8 @@ manage.
 
 - [Setting up Fleet Manager](setting-up-fleet-manager.md "setting-up-fleet-manager.md")
 - [Working with managed nodes](fleet-manager-managed-nodes.md "fleet-manager-managed-nodes.md")
-- [Managing EC2
-  instances automatically with Default Host Management Configuration](fleet-manager-default-host-management-configuration.md "fleet-manager-default-host-management-configuration.md")
-- [Connecting to a Windows Server
-  managed instance using Remote Desktop](fleet-manager-remote-desktop-connections.md "fleet-manager-remote-desktop-connections.md")
-- [Managing Amazon EBS volumes on
-  managed instances](fleet-manager-manage-amazon-ebs-volumes.md "fleet-manager-manage-amazon-ebs-volumes.md")
-- [Accessing the Red Hat
-  Knowledge base portal](fleet-manager-red-hat-knowledge-base-access.md "fleet-manager-red-hat-knowledge-base-access.md")
-- [Troubleshooting managed
-  node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md")
+- [Managing EC2 instances automatically with Default Host Management Configuration](fleet-manager-default-host-management-configuration.md "fleet-manager-default-host-management-configuration.md")
+- [Connecting to a Windows Server managed instance using Remote Desktop](fleet-manager-remote-desktop-connections.md "fleet-manager-remote-desktop-connections.md")
+- [Managing Amazon EBS volumes on managed instances](fleet-manager-manage-amazon-ebs-volumes.md "fleet-manager-manage-amazon-ebs-volumes.md")
+- [Accessing the Red Hat Knowledge base portal](fleet-manager-red-hat-knowledge-base-access.md "fleet-manager-red-hat-knowledge-base-access.md")
+- [Troubleshooting managed node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md")

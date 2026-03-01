@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Update Session Manager
-
-preferences (command line)
+# Update Session Manager preferences (command line)
 
 The following procedure describes how to use your preferred command line tool
 to make changes to the AWS Systems Manager Session Manager preferences for your AWS account in
@@ -96,11 +86,9 @@ must have permission to use the key. You provide permission to use
 the KMS key with Session Manager through AWS Identity and Access Management (IAM) policies. For
 information, see the following topics:
 
-    * Add AWS KMS permissions for users in your account: [Sample IAM
-     policies for Session Manager](getting-started-restrict-access-quickstart.md "getting-started-restrict-access-quickstart.md").
+    * Add AWS KMS permissions for users in your account: [Sample IAM policies for Session Manager](getting-started-restrict-access-quickstart.md "getting-started-restrict-access-quickstart.md").
     * Add AWS KMS permissions for managed nodes in your account:
-     [Step 2: Verify or
-     add instance permissions for Session Manager](session-manager-getting-started-instance-profile.md "session-manager-getting-started-instance-profile.md").
+     [Step 2: Verify or add instance permissions for Session Manager](session-manager-getting-started-instance-profile.md "session-manager-getting-started-instance-profile.md").
 
 3. Save the file.
 4. In the directory where you created the JSON file, run the following

@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Configuring EventBridge for Systems Manager
-
-events
+# Configuring EventBridge for Systems Manager events
 
 You can use Amazon EventBridge to perform a target event when supported AWS Systems Manager status
 changes, state changes, or other conditions occur. You can create a rule that runs
@@ -74,8 +64,7 @@ services**. 11. For **AWS service**, choose
 
     For Systems Manager actions that aren't supported by EventBridge, you can choose an
      AWS API call through CloudTrail to create an event rule that is based on
-     an API call, which are recorded by CloudTrail. For an example, see [Monitoring session
-     activity using Amazon EventBridge (console)](session-manager-auditing.md#session-manager-auditing-eventbridge-events "session-manager-auditing.md#session-manager-auditing-eventbridge-events").
+     an API call, which are recorded by CloudTrail. For an example, see [Monitoring session activity using Amazon EventBridge (console)](session-manager-auditing.md#session-manager-auditing-eventbridge-events "session-manager-auditing.md#session-manager-auditing-eventbridge-events").
 
 13. (Optional) To make the rule more specific, add filter values. For example, if
     you chose **State Manager** and want to limit the rule to the state
@@ -83,8 +72,7 @@ services**. 11. For **AWS service**, choose
     **Specific type(s)**, choose **EC2 State Manager
     Instance Association State Change**.
 
-For complete details about supported detail types, see [Reference: Amazon EventBridge event patterns and types
-for Systems Manager](reference-eventbridge-events.md "reference-eventbridge-events.md").
+For complete details about supported detail types, see [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md "reference-eventbridge-events.md").
 
 Some detail types have other supported options such as status. The available
 options depend on the tool you selected. 14. Choose **Next**. 15. For **Target types**, choose **AWS
@@ -111,14 +99,9 @@ run:
 
 **More info**
 
-- [Creating an EventBridge event that uses a
-  runbook (console)](running-automations-event-bridge.md#automation-cwe-target-console "running-automations-event-bridge.md#automation-cwe-target-console")
-- [Passing data to
-  Automation using input transformers](automation-tutorial-eventbridge-input-transformers.md "automation-tutorial-eventbridge-input-transformers.md")
+- [Creating an EventBridge event that uses a runbook (console)](running-automations-event-bridge.md#automation-cwe-target-console "running-automations-event-bridge.md#automation-cwe-target-console")
+- [Passing data to Automation using input transformers](automation-tutorial-eventbridge-input-transformers.md "automation-tutorial-eventbridge-input-transformers.md")
 - [Remediating compliance issues using EventBridge](compliance-fixing.md "compliance-fixing.md")
-- [Viewing inventory delete actions
-  in EventBridge](inventory-custom.md#delete-custom-inventory-cwe "inventory-custom.md#delete-custom-inventory-cwe")
-- [Configure EventBridge rules to
-  create OpsItems](OpsCenter-automatically-create-OpsItems-2.md "OpsCenter-automatically-create-OpsItems-2.md")
-- [Configuring EventBridge rules for parameters
-  and parameter policies](sysman-paramstore-cwe.md#cwe-parameter-changes "sysman-paramstore-cwe.md#cwe-parameter-changes")
+- [Viewing inventory delete actions in EventBridge](inventory-custom.md#delete-custom-inventory-cwe "inventory-custom.md#delete-custom-inventory-cwe")
+- [Configure EventBridge rules to create OpsItems](OpsCenter-automatically-create-OpsItems-2.md "OpsCenter-automatically-create-OpsItems-2.md")
+- [Configuring EventBridge rules for parameters and parameter policies](sysman-paramstore-cwe.md#cwe-parameter-changes "sysman-paramstore-cwe.md#cwe-parameter-changes")

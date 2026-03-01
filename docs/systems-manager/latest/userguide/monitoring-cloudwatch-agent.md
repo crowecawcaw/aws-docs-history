@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Sending node logs to unified CloudWatch Logs
-
-(CloudWatch agent)
+# Sending node logs to unified CloudWatch Logs (CloudWatch agent)
 
 You can configure and use the Amazon CloudWatch agent to collect metrics and logs from your
 nodes instead of using AWS Systems Manager Agent (SSM Agent) for these tasks. The CloudWatch agent allows
@@ -43,10 +33,8 @@ Amazon CloudWatch Logs. The SSM Agent aws:cloudWatch plugin is not supported. We
 the unified CloudWatch agent for your log collection processes. For more information, see the
 following topics:
 
-- Sending node logs to unified CloudWatch Logs
-  (CloudWatch agent)
-- [Migrate Windows Server node
-  log collection to the CloudWatch agent](#monitoring-cloudwatch-agent-migrate "#monitoring-cloudwatch-agent-migrate")
+- Sending node logs to unified CloudWatch Logs (CloudWatch agent)
+- [Migrate Windows Server node log collection to the CloudWatch agent](#monitoring-cloudwatch-agent-migrate "#monitoring-cloudwatch-agent-migrate")
 - [Collecting metrics, logs, and traces with the CloudWatch agent](../../../AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.md "../../../AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.md") in the
   _Amazon CloudWatch User Guide_.
   Using CloudWatch Logs, you can monitor log data in real time, search and filter log data by
@@ -66,9 +54,7 @@ benefits:
   For information about monitoring Session Manager activity, see [Logging session activity](session-manager-auditing.md "session-manager-auditing.md") and
   [Enabling and disabling session logging](session-manager-logging.md "session-manager-logging.md").
 
-## Migrate Windows Server node
-
-log collection to the CloudWatch agent
+## Migrate Windows Server node log collection to the CloudWatch agent
 
 If you're using SSM Agent on supported Windows Server nodes to send SSM Agent log files to
 Amazon CloudWatch Logs, you can use Systems Manager to migrate from SSM Agent to the CloudWatch agent as your log
@@ -118,14 +104,10 @@ requirements:
 
 ###### Topics
 
-- [Automatically
-  migrating to the CloudWatch agent](#monitoring-cloudwatch-agent-migrate-auto "#monitoring-cloudwatch-agent-migrate-auto")
-- [Manually migrating
-  to the CloudWatch agent](#monitoring-cloudwatch-agent-migrate-manual "#monitoring-cloudwatch-agent-migrate-manual")
+- [Automatically migrating to the CloudWatch agent](#monitoring-cloudwatch-agent-migrate-auto "#monitoring-cloudwatch-agent-migrate-auto")
+- [Manually migrating to the CloudWatch agent](#monitoring-cloudwatch-agent-migrate-manual "#monitoring-cloudwatch-agent-migrate-manual")
 
-### Automatically
-
-migrating to the CloudWatch agent
+### Automatically migrating to the CloudWatch agent
 
 For EC2 instances for Windows Server only, you can use the AWS Systems Manager console or the
 AWS Command Line Interface (AWS CLI) to automatically migrate to the CloudWatch agent as your log collection
@@ -145,10 +127,8 @@ able to use Systems Manager to perform a tool migration.
 
 After the migration succeeds, check your results in CloudWatch to ensure you're
 receiving the metrics, logs, or Windows event logs you expect. If you're
-satisfied with the results, you can optionally [Store CloudWatch agent
-configuration settings in Parameter Store](#monitoring-cloudwatch-agent-store-config "#monitoring-cloudwatch-agent-store-config"). If the migration
-isn't successful or the results aren't as expected, you can try [Rolling back to log
-collection with SSM Agent](#monitoring-cloudwatch-agent-roll-back "#monitoring-cloudwatch-agent-roll-back").
+satisfied with the results, you can optionally [Store CloudWatch agent configuration settings in Parameter Store](#monitoring-cloudwatch-agent-store-config "#monitoring-cloudwatch-agent-store-config"). If the migration
+isn't successful or the results aren't as expected, you can try [Rolling back to log collection with SSM Agent](#monitoring-cloudwatch-agent-roll-back "#monitoring-cloudwatch-agent-roll-back").
 
 ###### Note
 
@@ -193,8 +173,7 @@ value, specify `{local_hostname}` instead of
 
 ###### Tip
 
-If a managed node you expect to see isn't listed, see [Troubleshooting managed
-node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for troubleshooting
+If a managed node you expect to see isn't listed, see [Troubleshooting managed node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for troubleshooting
 tips. 6. For **Rate control**:
 
     * For **Concurrency**, specify either a number or a percentage of
@@ -229,8 +208,7 @@ the managed node has the necessary permissions to write to that bucket. 8. In th
 about the status of the command execution, select the **Enable SNS
 notifications** check box.
 
-For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager status changes using
-Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifications.md"). 9. Choose **Run**.
+For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifications.md"). 9. Choose **Run**.
 
 [Show moreShow less](# "#")
 
@@ -248,9 +226,7 @@ want to update, such as _i-02573cafcfEXAMPLE_.
 
 [Show moreShow less](# "#")
 
-### Manually migrating
-
-to the CloudWatch agent
+### Manually migrating to the CloudWatch agent
 
 For on-premises Windows Server nodes or EC2 instances for Windows Server, follow these
 steps to manually migrate log collection to the Amazon CloudWatch agent.
@@ -301,8 +277,7 @@ value, specify `{local_hostname}` instead of
 
 ###### Tip
 
-If a managed node you expect to see isn't listed, see [Troubleshooting managed
-node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for troubleshooting
+If a managed node you expect to see isn't listed, see [Troubleshooting managed node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for troubleshooting
 tips. 8. For **Rate control**:
 
     * For **Concurrency**, specify either a number or a percentage of
@@ -337,8 +312,7 @@ the managed node has the necessary permissions to write to that bucket. 10. In t
 about the status of the command execution, select the **Enable SNS
 notifications** check box.
 
-For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager status changes using
-Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifications.md"). 11. Choose **Run**.
+For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifications.md"). 11. Choose **Run**.
 
 ###### Two: To update config data JSON format
 
@@ -385,8 +359,7 @@ specifying a resource group.
 
 ###### Tip
 
-If a managed node you expect to see isn't listed, see [Troubleshooting managed
-node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for troubleshooting
+If a managed node you expect to see isn't listed, see [Troubleshooting managed node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for troubleshooting
 tips. 6. For **Rate control**:
 
     * For **Concurrency**, specify either a number or a percentage of
@@ -421,8 +394,7 @@ the managed node has the necessary permissions to write to that bucket. 8. In th
 about the status of the command execution, select the **Enable SNS
 notifications** check box.
 
-For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager status changes using
-Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifications.md"). 9. Choose **Run**.
+For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifications.md"). 9. Choose **Run**.
 
 ###### Four: To turn off log collection in SSM Agent (console)
 
@@ -439,8 +411,7 @@ Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifi
 
 ###### Tip
 
-If a managed node you expect to see isn't listed, see [Troubleshooting managed
-node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for troubleshooting
+If a managed node you expect to see isn't listed, see [Troubleshooting managed node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for troubleshooting
 tips. 6. For **Status**, choose `Disabled`. 7. For **Rate control**:
 
     * For **Concurrency**, specify either a number or a percentage of
@@ -475,20 +446,15 @@ the managed node has the necessary permissions to write to that bucket. 9. In th
 about the status of the command execution, select the **Enable SNS
 notifications** check box.
 
-For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager status changes using
-Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifications.md"). 10. Choose **Run**.
+For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifications.md"). 10. Choose **Run**.
 
 After completing these steps, check your logs in CloudWatch to verify you
 are receiving the metrics, logs, or Windows event logs you expect. If
-the results are satisfactory, you can optionally [Store CloudWatch agent
-configuration settings in Parameter Store](#monitoring-cloudwatch-agent-store-config "#monitoring-cloudwatch-agent-store-config"). If the
+the results are satisfactory, you can optionally [Store CloudWatch agent configuration settings in Parameter Store](#monitoring-cloudwatch-agent-store-config "#monitoring-cloudwatch-agent-store-config"). If the
 migration isn't successful or the results aren't as expected, you can
-[Rolling back to log
-collection with SSM Agent](#monitoring-cloudwatch-agent-roll-back "#monitoring-cloudwatch-agent-roll-back").
+[Rolling back to log collection with SSM Agent](#monitoring-cloudwatch-agent-roll-back "#monitoring-cloudwatch-agent-roll-back").
 
-## Store CloudWatch agent
-
-configuration settings in Parameter Store
+## Store CloudWatch agent configuration settings in Parameter Store
 
 You can store the contents of an CloudWatch agent configuration file in Parameter Store. By
 maintaining this configuration data in a parameter, multiple nodes can derive their
@@ -518,15 +484,12 @@ Amazon directory containing the CloudWatch agent can be found, typically `C:\Pro
 We recommend keeping a backup of the JSON in this file on a location other than
 the node itself.
 
-For information about creating a parameter, see [Creating Parameter Store parameters in
-Systems Manager](sysman-paramstore-su-create.md "sysman-paramstore-su-create.md").
+For information about creating a parameter, see [Creating Parameter Store parameters in Systems Manager](sysman-paramstore-su-create.md "sysman-paramstore-su-create.md").
 
 For more information about the CloudWatch agent, see [Collecting metrics and logs from Amazon EC2 instances and on-premises servers with
 the CloudWatch agent](../../../AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.md "../../../AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.md") in the _Amazon CloudWatch User Guide_.
 
-## Rolling back to log
-
-collection with SSM Agent
+## Rolling back to log collection with SSM Agent
 
 If you want to return to using SSM Agent for log collection, follow these
 steps.
@@ -563,8 +526,7 @@ node itself.
 
 ###### Tip
 
-If a managed node you expect to see isn't listed, see [Troubleshooting managed
-node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for troubleshooting
+If a managed node you expect to see isn't listed, see [Troubleshooting managed node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for troubleshooting
 tips. 7. For **Rate control**:
 
     * For **Concurrency**, specify either a number or a percentage of
@@ -599,8 +561,7 @@ the managed node has the necessary permissions to write to that bucket. 9. In th
 about the status of the command execution, select the **Enable SNS
 notifications** check box.
 
-For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager status changes using
-Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifications.md"). 10. Choose **Run**.
+For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifications.md"). 10. Choose **Run**.
 
 ###### Three: To turn log collection back on in SSM Agent (console)
 
@@ -618,8 +579,7 @@ Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifi
 
 ###### Tip
 
-If a managed node you expect to see isn't listed, see [Troubleshooting managed
-node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for troubleshooting
+If a managed node you expect to see isn't listed, see [Troubleshooting managed node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for troubleshooting
 tips. 7. For **Rate control**:
 
     * For **Concurrency**, specify either a number or a percentage of
@@ -654,5 +614,4 @@ the managed node has the necessary permissions to write to that bucket. 9. In th
 about the status of the command execution, select the **Enable SNS
 notifications** check box.
 
-For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager status changes using
-Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifications.md"). 10. Choose **Run**.
+For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifications.md"). 10. Choose **Run**.

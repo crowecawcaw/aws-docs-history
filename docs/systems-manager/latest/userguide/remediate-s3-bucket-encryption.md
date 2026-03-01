@@ -1,31 +1,18 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Changing to an AWS KMS customer managed key to
-
-encrypt S3 resources
+# Changing to an AWS KMS customer managed key to encrypt S3 resources
 
 During the onboarding process for the unified Systems Manager console, Quick Setup creates an
 Amazon Simple Storage Service (Amazon S3) bucket in the delegated administrator account. This bucket is used to
 store the diagnosis output data generated during remediation runbook executions. By
 default, the bucket uses server-side encryption with Amazon S3 managed keys (SSE-S3).
 
-You can review the content of these policies in [S3 bucket policies for the unified Systems Manager
-console](remediate-s3-bucket-policies.md "remediate-s3-bucket-policies.md").
+You can review the content of these policies in [S3 bucket policies for the unified Systems Manager console](remediate-s3-bucket-policies.md "remediate-s3-bucket-policies.md").
 
 However, you can instead use server-side encryption with AWS KMS keys (SSE-KMS)
 using a customer managed key (CMK) as an alternative to an AWS KMS key.
 
 Complete the following tasks in order to configure Systems Manager to use your CMK.
 
-## Task 1: Add a tag to an
-
-existing CMK
+## Task 1: Add a tag to an existing CMK
 
 AWS Systems Manager uses your CMK only if it is tagged with the following key-value
 pair:
@@ -53,9 +40,7 @@ your CMK.
 
 7. Choose **Save**.
 
-## Task 2: Modify an
-
-existing CMK key policy
+## Task 2: Modify an existing CMK key policy
 
 Use the following procedure to update the [KMS key policy](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md") of your
 CMK to allow AWS Systems Manager roles to encrypt the S3 bucket on your behalf.
@@ -111,9 +96,7 @@ administrator account, locate the bucket in the format
 Alternatively, you can update the CMK key policy using the [aws:PrincipalOrgID](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-principalorgid "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-principalorgid") condition key to grant AWS Systems Manager access to your
 CMK.
 
-## Task 3: Specify the
-
-CMK in Systems Manager settings
+## Task 3: Specify the CMK in Systems Manager settings
 
 After completing the previous two tasks, use the following procedure to change the
 S3 bucket encryption. This change ensures that the associated Quick Setup configuration

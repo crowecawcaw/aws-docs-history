@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Creating a SecureString
-
-parameter in Parameter Store and joining a node to a Domain (PowerShell)
+# Creating a SecureString parameter in Parameter Store and joining a node to a Domain (PowerShell)
 
 This walkthrough shows how to join a Windows Server node to a domain using AWS Systems Manager
 `SecureString` parameters and Run Command. The walkthrough uses typical
@@ -23,9 +13,7 @@ server IP address in the DHCP option set that is associated with your Amazon VPC
 information, see [Working with DHCP Options Sets](../../../vpc/latest/userguide/VPC_DHCP_Options.md#DHCPOptionSet "../../../vpc/latest/userguide/VPC_DHCP_Options.md#DHCPOptionSet") in the
 _Amazon VPC User Guide_.
 
-###### To create a `SecureString` parameter and join a node to a
-
-domain
+###### To create a `SecureString` parameter and join a node to a domain
 
 1. Enter parameters into the system using AWS Tools for Windows PowerShell.
 

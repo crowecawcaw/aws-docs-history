@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Configuring an existing CloudWatch alarm to create OpsItems
-
-(programmatically)
+# Configuring an existing CloudWatch alarm to create OpsItems (programmatically)
 
 You can configure Amazon CloudWatch alarms to create OpsItems programmatically by using
 the AWS Command Line Interface (AWS CLI), AWS CloudFormation templates, or Java code
@@ -19,8 +9,7 @@ snippets.
 - [Before you begin](#OpsCenter-create-OpsItems-from-CloudWatch-Alarms-before-you-begin "#OpsCenter-create-OpsItems-from-CloudWatch-Alarms-before-you-begin")
 - [Configuring CloudWatch alarms to create OpsItems (AWS CLI)](#OpsCenter-create-OpsItems-from-CloudWatch-Alarms-manually-configure-cli "#OpsCenter-create-OpsItems-from-CloudWatch-Alarms-manually-configure-cli")
 - [Configuring CloudWatch alarms to create or update OpsItems (CloudFormation)](#OpsCenter-create-OpsItems-from-CloudWatch-Alarms-programmatically-configure-CloudFormation "#OpsCenter-create-OpsItems-from-CloudWatch-Alarms-programmatically-configure-CloudFormation")
-- [Configuring CloudWatch alarms to create or update OpsItems
-  (Java)](#OpsCenter-create-OpsItems-from-CloudWatch-Alarms-programmatically-configure-java "#OpsCenter-create-OpsItems-from-CloudWatch-Alarms-programmatically-configure-java")
+- [Configuring CloudWatch alarms to create or update OpsItems (Java)](#OpsCenter-create-OpsItems-from-CloudWatch-Alarms-programmatically-configure-java "#OpsCenter-create-OpsItems-from-CloudWatch-Alarms-programmatically-configure-java")
 
 ## Before you begin
 
@@ -232,9 +221,7 @@ composite alarm consists of multiple metric alarms. If the alarm enters the
     }
 ```
 
-## Configuring CloudWatch alarms to create or update OpsItems
-
-(Java)
+## Configuring CloudWatch alarms to create or update OpsItems (Java)
 
 This section includes Java code snippets that you can use
 to configure CloudWatch alarms to automatically create or update OpsItems. Each

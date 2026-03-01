@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Create approval policies for just-in-time node access with Amazon Q
 
 Using Amazon Q Developer for command line provides guidance and support across various
@@ -29,9 +21,7 @@ another. Therefore, we recommend that you clearly define the policy
 behaviors you want to determine which statements best fit your use case and
 preferences.
 
-## Set up your development
-
-environment
+## Set up your development environment
 
 Install Amazon Q for command line where you want to develop your approval
 policies. For information about installing Amazon Q for the command line, see
@@ -58,8 +48,7 @@ largely dictate the types of approval policies and statements you
 use.
 
 If you're unsure how to use a particular policy or need more information
-about the schema for a policy, see [Create
-approval policies for your nodes](systems-manager-just-in-time-node-access-approval-policies.md "systems-manager-just-in-time-node-access-approval-policies.md") and the subsequent topics. These topics explain in detail how policies
+about the schema for a policy, see [Create approval policies for your nodes](systems-manager-just-in-time-node-access-approval-policies.md "systems-manager-just-in-time-node-access-approval-policies.md") and the subsequent topics. These topics explain in detail how policies
 are evaluated and provide working example statements.
 
 The following procedure describes how to create approval policies with Amazon Q

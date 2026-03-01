@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Tutorials: Create and manage
-
-maintenance windows using the AWS CLI
+# Tutorials: Create and manage maintenance windows using the AWS CLI
 
 This section includes tutorials that help you learn how to use the AWS Command Line Interface
 (AWS CLI) to do the following:
@@ -48,13 +38,8 @@ section use them:
 
 ###### Tutorials
 
-- [Tutorial: Create and
-  configure a maintenance window using the AWS CLI](maintenance-windows-cli-tutorials-create.md "maintenance-windows-cli-tutorials-create.md")
-- [Tutorial: View
-  information about maintenance windows using the AWS CLI](maintenance-windows-cli-tutorials-describe.md "maintenance-windows-cli-tutorials-describe.md")
-- [Tutorial: View information about
-  tasks and task executions using the AWS CLI](mw-cli-tutorial-task-info.md "mw-cli-tutorial-task-info.md")
-- [Tutorial: Update a
-  maintenance window using the AWS CLI](maintenance-windows-cli-tutorials-update.md "maintenance-windows-cli-tutorials-update.md")
-- [Tutorial: Delete a maintenance
-  window using the AWS CLI](mw-cli-tutorial-delete-mw.md "mw-cli-tutorial-delete-mw.md")
+- [Tutorial: Create and configure a maintenance window using the AWS CLI](maintenance-windows-cli-tutorials-create.md "maintenance-windows-cli-tutorials-create.md")
+- [Tutorial: View information about maintenance windows using the AWS CLI](maintenance-windows-cli-tutorials-describe.md "maintenance-windows-cli-tutorials-describe.md")
+- [Tutorial: View information about tasks and task executions using the AWS CLI](mw-cli-tutorial-task-info.md "mw-cli-tutorial-task-info.md")
+- [Tutorial: Update a maintenance window using the AWS CLI](maintenance-windows-cli-tutorials-update.md "maintenance-windows-cli-tutorials-update.md")
+- [Tutorial: Delete a maintenance window using the AWS CLI](mw-cli-tutorial-delete-mw.md "mw-cli-tutorial-delete-mw.md")

@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Use Automation runbooks to
-
-remediate application issues
+# Use Automation runbooks to remediate application issues
 
 You can remediate issues with AWS resources from Application Manager, a tool in AWS Systems Manager,
 by using Automation runbooks. An Automation runbook defines the actions that Systems Manager
@@ -39,8 +29,7 @@ Before you start a runbook from Application Manager, do the following:
 - Verify that you have the correct permissions for starting runbooks. For
   more information, see [Setting up Automation](automation-setup.md "automation-setup.md").
 - Review the Automation procedure documentation about starting runbooks. For
-  more information, see [Run an automated operation powered by Systems Manager
-  Automation](running-simple-automations.md "running-simple-automations.md").
+  more information, see [Run an automated operation powered by Systems Manager Automation](running-simple-automations.md "running-simple-automations.md").
 
 ###### To start a runbook from Application Manager
 
@@ -53,5 +42,4 @@ Before you start a runbook from Application Manager, do the following:
    **Overview** tab.
 5. Choose **Start runbook**. Application Manager opens the
    **Automation widget** pop up. For information about the
-   options in the **Automation widget**, see [Run an automated operation powered by Systems Manager
-   Automation](running-simple-automations.md "running-simple-automations.md").
+   options in the **Automation widget**, see [Run an automated operation powered by Systems Manager Automation](running-simple-automations.md "running-simple-automations.md").

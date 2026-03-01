@@ -1,28 +1,14 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Install SSM Agent on hybrid
-
-Windows Server nodes
+# Install SSM Agent on hybrid Windows Server nodes
 
 This topic describes how to install AWS Systems Manager SSM Agent on Windows Server machines in a
 [hybrid and multicloud](operating-systems-and-machine-types.md#supported-machine-types "operating-systems-and-machine-types.md#supported-machine-types") environment. For information about installing SSM Agent on EC2 instances for
-Windows Server, see [Manually installing and
-uninstalling SSM Agent on EC2 instances for Windows Server](manually-install-ssm-agent-windows.md "manually-install-ssm-agent-windows.md").
+Windows Server, see [Manually installing and uninstalling SSM Agent on EC2 instances for Windows Server](manually-install-ssm-agent-windows.md "manually-install-ssm-agent-windows.md").
 
 Before you begin, locate the Activation Code and Activation ID that were generated
-during the hybrid activation process, as described in [Create a hybrid activation to register
-nodes with Systems Manager](hybrid-activation-managed-nodes.md "hybrid-activation-managed-nodes.md"). You specify the Code and ID in
+during the hybrid activation process, as described in [Create a hybrid activation to register nodes with Systems Manager](hybrid-activation-managed-nodes.md "hybrid-activation-managed-nodes.md"). You specify the Code and ID in
 the following procedure.
 
-###### To install SSM Agent on non-EC2 Windows Server machines in a hybrid and multicloud
-
-environment
+###### To install SSM Agent on non-EC2 Windows Server machines in a hybrid and multicloud environment
 
 1. Log on to a server or VM in your hybrid and multicloud environment.
 2. If you use an HTTP or HTTPS proxy, you must set the `http_proxy` or
@@ -59,8 +45,7 @@ $WebProxy = New-Object System.Net.WebProxy($proxyServer,$true,$proxyBypass)
 ###### Note
 
 WinINet proxy configuration is required for PowerShell operations. For
-more information, see [SSM Agent proxy settings and Systems Manager
-services](configure-proxy-ssm-agent-windows.md#ssm-agent-proxy-services "configure-proxy-ssm-agent-windows.md#ssm-agent-proxy-services"). 3. Open Windows PowerShell in elevated (administrative)
+more information, see [SSM Agent proxy settings and Systems Manager services](configure-proxy-ssm-agent-windows.md#ssm-agent-proxy-services "configure-proxy-ssm-agent-windows.md#ssm-agent-proxy-services"). 3. Open Windows PowerShell in elevated (administrative)
 mode. 4. Copy and paste the following command block into Windows
 PowerShell. Replace each `example resource
  placeholder` with your own information. For example, the
@@ -150,18 +135,14 @@ nodes are now identified with the prefix "mi-". You can view managed nodes on th
 [describe-instance-information](../../../cli/latest/reference/ssm/describe-instance-information.md "../../../cli/latest/reference/ssm/describe-instance-information.md"), or by using the API command
 [DescribeInstanceInformation](../APIReference/API_DescribeInstanceInformation.md "../APIReference/API_DescribeInstanceInformation.md").
 
-## Setting up private key
-
-auto rotation
+## Setting up private key auto rotation
 
 To strengthen your security posture, you can configure AWS Systems Manager Agent (SSM Agent)
 to automatically rotate the private key for a hybrid and multicloud environment. You
 can access this feature using SSM Agent version 3.0.1031.0 or later. Turn on this
 feature using the following procedure.
 
-###### To configure SSM Agent to rotate the private key for a hybrid and multicloud
-
-environment
+###### To configure SSM Agent to rotate the private key for a hybrid and multicloud environment
 
 1. Navigate to `/etc/amazon/ssm/` on a Linux machine or
    `C:\Program Files\Amazon\SSM` for a Windows Server machine.
@@ -204,9 +185,7 @@ command, verify that the value of `RegistrationCount` doesn't exceed
 `RegistrationLimit`. If it does, you must use a different
 activation code and ID.
 
-###### To reregister a managed node on a Windows Server hybrid
-
-machine
+###### To reregister a managed node on a Windows Server hybrid machine
 
 1. Connect to your machine.
 2. Run the following command. Be sure to replace the placeholder values with

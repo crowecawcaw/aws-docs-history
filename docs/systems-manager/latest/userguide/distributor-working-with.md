@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Working with Distributor packages
 
 You can use the AWS Systems Manager console, AWS command line tools (AWS CLI and AWS Tools for PowerShell),
@@ -30,8 +22,7 @@ You can delete or repurpose this bucket after you finish creating your
 package because Distributor moves the package contents to an internal Systems Manager
 bucket as part of the package creation process.
 AWS published packages are already packaged and ready for deployment. To deploy an
-AWS-published package to managed nodes, see [Install or update
-Distributor packages](distributor-working-with-packages-deploy.md "distributor-working-with-packages-deploy.md").
+AWS-published package to managed nodes, see [Install or update Distributor packages](distributor-working-with-packages-deploy.md "distributor-working-with-packages-deploy.md").
 
 You can share Distributor packages between AWS accounts. When using a package shared
 from another account in AWS CLI commands use the package Amazon Resource Name (ARN)
@@ -40,17 +31,10 @@ instead of the package name.
 ###### Topics
 
 - [View packages in Distributor](distributor-view-packages.md "distributor-view-packages.md")
-- [Create a package in
-  Distributor](distributor-working-with-packages-create.md "distributor-working-with-packages-create.md")
-- [Edit Distributor package
-  permissions in the console](distributor-working-with-packages-ep.md "distributor-working-with-packages-ep.md")
-- [Edit Distributor package tags
-  in the console](distributor-working-with-packages-tags.md "distributor-working-with-packages-tags.md")
-- [Add a version to a
-  Distributor package](distributor-working-with-packages-version.md "distributor-working-with-packages-version.md")
-- [Install or update
-  Distributor packages](distributor-working-with-packages-deploy.md "distributor-working-with-packages-deploy.md")
-- [Uninstall a Distributor
-  package](distributor-working-with-packages-uninstall.md "distributor-working-with-packages-uninstall.md")
-- [Delete a Distributor
-  package](distributor-working-with-packages-dpkg.md "distributor-working-with-packages-dpkg.md")
+- [Create a package in Distributor](distributor-working-with-packages-create.md "distributor-working-with-packages-create.md")
+- [Edit Distributor package permissions in the console](distributor-working-with-packages-ep.md "distributor-working-with-packages-ep.md")
+- [Edit Distributor package tags in the console](distributor-working-with-packages-tags.md "distributor-working-with-packages-tags.md")
+- [Add a version to a Distributor package](distributor-working-with-packages-version.md "distributor-working-with-packages-version.md")
+- [Install or update Distributor packages](distributor-working-with-packages-deploy.md "distributor-working-with-packages-deploy.md")
+- [Uninstall a Distributor package](distributor-working-with-packages-uninstall.md "distributor-working-with-packages-uninstall.md")
+- [Delete a Distributor package](distributor-working-with-packages-dpkg.md "distributor-working-with-packages-dpkg.md")

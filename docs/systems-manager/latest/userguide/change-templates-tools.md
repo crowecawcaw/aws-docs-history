@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Creating change templates using
-
-command line tools
+# Creating change templates using command line tools
 
 ###### Change Manager availability change
 
@@ -53,8 +43,7 @@ each change request. After that, any three members of the IAM
 role `Admin` must approve the change request.
 
 For more information about approvals for change templates,
-see [About approvals in your
-change templates](cm-approvals-templates.md "cm-approvals-templates.md").
+see [About approvals in your change templates](cm-approvals-templates.md "cm-approvals-templates.md").
 
 ```
 {

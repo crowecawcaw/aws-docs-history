@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Change Manager approval type
-
-examples
+# Change Manager approval type examples
 
 ###### Change Manager availability change
 
@@ -22,16 +12,11 @@ for the three types of approval types in Change Manager.
 
 ###### Topics
 
-- [Sample per-level approval
-  configuration](#per-level-approvals "#per-level-approvals")
-- [Sample per-line approval
-  configuration](#per-line-approvals "#per-line-approvals")
-- [Sample combined per-level and
-  per-line approval configuration](#combined-approval-levels "#combined-approval-levels")
+- [Sample per-level approval configuration](#per-level-approvals "#per-level-approvals")
+- [Sample per-line approval configuration](#per-line-approvals "#per-line-approvals")
+- [Sample combined per-level and per-line approval configuration](#combined-approval-levels "#combined-approval-levels")
 
-## Sample per-level approval
-
-configuration
+## Sample per-level approval configuration
 
 In the per-level approval level setup shown in the following
 image, three approvals are required. Those approvals can come from
@@ -95,9 +80,7 @@ templateInformation: >
     //truncated
 ```
 
-## Sample per-line approval
-
-configuration
+## Sample per-line approval configuration
 
 In the approval level setup shown in the following image, four
 approvers are specified. These include two IAM users (John Stiles
@@ -106,7 +89,7 @@ and Ana Carolina Silva), a user group that contains three members
 users (`RoleOfTen`). Per-line approvals are supported for
 backwards compatibility but not recommended.
 
-![Approval level showing four required per-line approvers.](/images/systems-manager/latest/userguide/images/Add-approval-1.png)
+![Approval level showing four required per-line approvers.](images/Add-approval-1.png)
 
 For the change request to be approved in this per-line approval
 configuration, it must be approved by all approver lines: John
@@ -156,9 +139,7 @@ templateInformation: >
     //truncated
 ```
 
-## Sample combined per-level and
-
-per-line approval configuration
+## Sample combined per-level and per-line approval configuration
 
 In the combined per-level and per-line approval setup shown in the
 following image, three approvals are specified for the level, but

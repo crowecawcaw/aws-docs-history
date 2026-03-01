@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Auditing and logging Change Manager activity
 
 ###### Change Manager availability change
@@ -20,9 +12,7 @@ AWS CloudTrail alarms.
 
 For more information about auditing and logging options for Systems Manager, see [Logging and monitoring in AWS Systems Manager](monitoring.md "monitoring.md").
 
-## Audit Change Manager activity
-
-using CloudWatch alarms
+## Audit Change Manager activity using CloudWatch alarms
 
 You can configure and assign a CloudWatch alarm to a change template. If any conditions
 defined in the alarm are met, the actions specified for the alarm are taken. In the
@@ -34,9 +24,7 @@ For information about creating a Change Manager template, see [Working with chan
 For information about creating CloudWatch alarms, see [Using CloudWatch
 Alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md") in the _Amazon CloudWatch User Guide_.
 
-## Audit Change Manager activity
-
-using CloudTrail
+## Audit Change Manager activity using CloudTrail
 
 CloudTrail captures API calls made in the Systems Manager console, the AWS Command Line Interface (AWS CLI), and the
 Systems Manager SDK. You can view the information in the CloudTrail console or in an Amazon Simple Storage Service (Amazon S3)

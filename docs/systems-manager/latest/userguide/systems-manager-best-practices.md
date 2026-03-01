@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Use cases and best practices
 
 This topic lists common use cases and best practices for AWS Systems Manager tools. If available,
@@ -43,8 +35,7 @@ technical documentation.
 - Define a schedule to perform potentially disruptive actions on your nodes such as
   operating system (OS) patching, driver updates, or software installations.
 - For information about the differences between State Manager and Maintenance Windows, tools of
-  AWS Systems Manager, see [Choosing between State Manager and
-  Maintenance Windows](state-manager-vs-maintenance-windows.md "state-manager-vs-maintenance-windows.md").
+  AWS Systems Manager, see [Choosing between State Manager and Maintenance Windows](state-manager-vs-maintenance-windows.md "state-manager-vs-maintenance-windows.md").
 
 ###### [Parameter Store](systems-manager-parameter-store.md "systems-manager-parameter-store.md")
 
@@ -80,8 +71,7 @@ technical documentation.
   reason, we recommend creating and using `SecureString` parameters to encrypt
   sensitive data you use in your Systems Manager operations.
 
-For more information, see [Restricting access to Parameter Store parameters
-using IAM policies](sysman-paramstore-access.md "sysman-paramstore-access.md").
+For more information, see [Restricting access to Parameter Store parameters using IAM policies](sysman-paramstore-access.md "sysman-paramstore-access.md").
 
 ###### Note
 
@@ -124,8 +114,7 @@ _AWS CloudTrail User Guide_.
 - [Use a centralized configuration repository
   for your SSM documents, and share documents across your
   organization](documents-ssm-sharing.md "documents-ssm-sharing.md").
-- For information about the differences between State Manager and Maintenance Windows, see [Choosing between State Manager and
-  Maintenance Windows](state-manager-vs-maintenance-windows.md "state-manager-vs-maintenance-windows.md").
+- For information about the differences between State Manager and Maintenance Windows, see [Choosing between State Manager and Maintenance Windows](state-manager-vs-maintenance-windows.md "state-manager-vs-maintenance-windows.md").
 
 ###### [Managed nodes](fleet-manager-managed-nodes.md "fleet-manager-managed-nodes.md")
 
@@ -143,5 +132,4 @@ for your Amazon EC2 instance](../../../AWSEC2/latest/UserGuide/set-time.md "../.
 
 **More info**
 
-- [Security best practices for
-  Systems Manager](security-best-practices.md "security-best-practices.md")
+- [Security best practices for Systems Manager](security-best-practices.md "security-best-practices.md")

@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Patching managed nodes on
-
-demand
+# Patching managed nodes on demand
 
 Using the **Patch now** option in Patch Manager, a tool in AWS Systems Manager,
 you can run on-demand patching operations from the Systems Manager console. This means you
@@ -57,9 +47,7 @@ when, or whether, to reboot managed nodes after patching, specifying an Amazon S
 (Amazon S3) bucket to store log data for the patching operation, and running Systems Manager
 documents (SSM documents) as lifecycle hooks during patching.
 
-### Concurrency and error
-
-thresholds for 'Patch now'
+### Concurrency and error thresholds for 'Patch now'
 
 For **Patch now** operations, concurrency and error
 threshold options are handled by Patch Manager. You don't need to specify how
@@ -89,9 +77,7 @@ encountered up to 1,000 errors.
 | 101 to 1,000                        | 10                                                                   |
 | More than 1,000                     | 10                                                                   |
 
-### Using 'Patch now' lifecycle
-
-hooks
+### Using 'Patch now' lifecycle hooks
 
 **Patch now** provides you with the ability to run SSM
 Command documents as lifecycle hooks during an `Install` patching
@@ -99,8 +85,7 @@ operation. You can use these hooks for tasks such as shutting down
 applications before patching or running health checks on your applications
 after patching or after a reboot.
 
-For more information about using lifecycle hooks, see [SSM Command document
-for patching: AWS-RunPatchBaselineWithHooks](patch-manager-aws-runpatchbaselinewithhooks.md "patch-manager-aws-runpatchbaselinewithhooks.md").
+For more information about using lifecycle hooks, see [SSM Command document for patching: AWS-RunPatchBaselineWithHooks](patch-manager-aws-runpatchbaselinewithhooks.md "patch-manager-aws-runpatchbaselinewithhooks.md").
 
 The following table lists the lifecycle hooks available for each of the
 three **Patch now** reboot options, in addition to sample
@@ -179,8 +164,7 @@ Use the following procedure to patch your managed nodes on demand.
 
 ###### Note
 
-If a managed node you expect to see isn't listed, see [Troubleshooting managed
-node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for troubleshooting
+If a managed node you expect to see isn't listed, see [Troubleshooting managed node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for troubleshooting
 tips.
 
 If you choose to target a resource group, note that resource

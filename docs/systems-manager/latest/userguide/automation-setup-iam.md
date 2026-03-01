@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Create the service roles for Automation using
-
-the console
+# Create the service roles for Automation using the console
 
 If you need to create a service role for Automation, a tool in AWS Systems Manager, complete
 the following tasks. For more information about when a service role is required for
@@ -16,14 +6,10 @@ Automation, see [Setting up Automation](automation-setup.md "automation-setup.md
 
 ###### Tasks
 
-- [Task 1: Create a service role for
-  Automation](#create-service-role "#create-service-role")
-- [Task 2: Attach the iam:PassRole policy
-  to your Automation role](#attach-passrole-policy "#attach-passrole-policy")
+- [Task 1: Create a service role for Automation](#create-service-role "#create-service-role")
+- [Task 2: Attach the iam:PassRole policy to your Automation role](#attach-passrole-policy "#attach-passrole-policy")
 
-## Task 1: Create a service role for
-
-Automation
+## Task 1: Create a service role for Automation
 
 Use the following procedure to create a service role (or _assume
 role_) for Systems Manager Automation.
@@ -156,9 +142,7 @@ JSON
 6. Choose **Update Trust Policy** to save your
    changes.
 
-### (Optional) Add an Automation inline
-
-policy or customer managed policy to invoke other AWS services
+### (Optional) Add an Automation inline policy or customer managed policy to invoke other AWS services
 
 If you run an automation that invokes other AWS services by using an
 IAM service role, the service role must be configured with permission to
@@ -249,9 +233,7 @@ permissions that are granted by your policy. Then choose
 **Create policy** to save your work. 11. After you create an inline policy, it's automatically embedded in
 your role.
 
-## Task 2: Attach the iam:PassRole policy
-
-to your Automation role
+## Task 2: Attach the iam:PassRole policy to your Automation role
 
 Use the following procedure to attach the `iam:PassRole` policy to
 your Automation service role. This allows the Automation service to pass the

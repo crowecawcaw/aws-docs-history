@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Adjusting Systems Manager settings
 
 The options on the **Settings** pages enable and configure features in
@@ -56,9 +48,7 @@ You can configure these features during initial Systems Manager setup or modify 
 through the Settings page. Each feature can be enabled or disabled independently based
 on your organization's requirements.
 
-### Default Host
-
-Management Configuration
+### Default Host Management Configuration
 
 Default Host Management Configuration (DHMC) automatically configures Amazon Elastic Compute Cloud
 (Amazon EC2) instances in your organization to be managed by Systems Manager. When enabled, DHMC
@@ -78,9 +68,7 @@ DHMC provides the following benefits:
 - **Consistent configuration** - Maintains
   uniform settings across your EC2 fleet
 
-#### Configuring drift remediation
-
-frequency
+#### Configuring drift remediation frequency
 
 Drift remediation automatically detects and corrects when EC2 instances lose
 their managed node configuration. You can configure how frequently Systems Manager checks
@@ -111,9 +99,7 @@ in your account. These roles allow EC2 instances to communicate with Systems Man
 services. For more information about the IAM roles created by DHMC, see
 [Managing EC2 instances with Systems Manager](systems-manager-setting-up-ec2.md "systems-manager-setting-up-ec2.md").
 
-### Inventory metadata
-
-collection
+### Inventory metadata collection
 
 Inventory metadata collection automatically gathers detailed information about
 your managed nodes, including installed applications, network configurations, system
@@ -131,9 +117,7 @@ Inventory collection provides the following benefits:
 - **Query capabilities** - Use collected data
   with Amazon Q Developer for natural language queries
 
-#### Types of inventory data
-
-collected
+#### Types of inventory data collected
 
 When inventory metadata collection is enabled, Systems Manager collects the following
 types of information from your managed nodes:
@@ -150,9 +134,7 @@ types of information from your managed nodes:
 - **Services** - Running services and their
   configurations
 
-#### Configuring inventory
-
-collection frequency
+#### Configuring inventory collection frequency
 
 You can configure how frequently Systems Manager collects inventory metadata from your
 managed nodes. More frequent collection provides more up-to-date information but
@@ -200,9 +182,7 @@ SSM Agent automatic updates provide the following benefits:
 - **Reduced maintenance** - Eliminates the need
   for manual agent updates
 
-#### Configuring automatic agent
-
-updates
+#### Configuring automatic agent updates
 
 You can configure how frequently Systems Manager checks for and installs SSM Agent
 updates on your managed nodes. Regular updates help ensure optimal performance
@@ -226,9 +206,7 @@ and security.
 
 6. Choose **Save**.
 
-## Diagnose and remediate
-
-settings
+## Diagnose and remediate settings
 
 The **Diagnose and remediate** settings determine whether or not
 Systems Manager automatically scans your nodes to ensure they can communicate with Systems Manager. If
@@ -237,9 +215,7 @@ identifies which nodes can't connect to Systems Manager and why. This feature al
 recommended runbooks for remediating networking issues and other problems preventing
 nodes from being configured as managed nodes.
 
-### Scheduling
-
-a recurring diagnostic scan
+### Scheduling a recurring diagnostic scan
 
 Systems Manager can diagnose and help you remediate several types of deployment failures, as
 well as drifted configurations. Systems Manager can also identify Amazon Elastic Compute Cloud (Amazon EC2) instances
@@ -277,9 +253,7 @@ and remediate** in the left navigation.
 For more information about the **Diagnose and remediate**
 feature, see [Diagnosing and remediating](diagnose-and-remediate.md "diagnose-and-remediate.md").
 
-### Updating S3 bucket
-
-encryption
+### Updating S3 bucket encryption
 
 When you onboard Systems Manager, Quick Setup creates an Amazon Simple Storage Service (Amazon S3) bucket in the
 delegated administrator account for AWS Organizations setups. For single-account setups, the
@@ -293,8 +267,7 @@ that AWS owns and manages for you.
 
 You can choose to use a different AWS KMS key for your bucket encryption. As another
 alternative, you can use server-side encryption with AWS KMS keys (SSE-KMS) using
-a customer managed key (CMK). For information, see [Working with Amazon S3 buckets and
-bucket policies for Systems Manager](systems-manager-diagnosis-metadata-bucket.md "systems-manager-diagnosis-metadata-bucket.md").
+a customer managed key (CMK). For information, see [Working with Amazon S3 buckets and bucket policies for Systems Manager](systems-manager-diagnosis-metadata-bucket.md "systems-manager-diagnosis-metadata-bucket.md").
 
 ###### To use a different AWS KMS key for S3 bucket encryption
 

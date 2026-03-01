@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Set up OpsCenter
 
 AWS Systems Manager uses an integrated setup experience to help you get started with OpsCenter
@@ -65,16 +57,11 @@ After you enable OpsCenter, you can do the following from
 **Settings**:
 
 - Create CloudWatch alarms using the **Open CloudWatch console**
-  button. For more information, see [Configure CloudWatch
-  alarms to create OpsItems](OpsCenter-create-OpsItems-from-CloudWatch-Alarms.md "OpsCenter-create-OpsItems-from-CloudWatch-Alarms.md").
-- Enable operational insights. For more information, see [Analyzing operational
-  insights to reduce OpsItems](OpsCenter-working-operational-insights.md "OpsCenter-working-operational-insights.md").
-- Enable AWS Security Hub CSPM findings alarms. For more information, see [Understanding OpsCenter
-  integration with AWS Security Hub CSPM](OpsCenter-applications-that-integrate.md#OpsCenter-integrate-with-security-hub "OpsCenter-applications-that-integrate.md#OpsCenter-integrate-with-security-hub").
+  button. For more information, see [Configure CloudWatch alarms to create OpsItems](OpsCenter-create-OpsItems-from-CloudWatch-Alarms.md "OpsCenter-create-OpsItems-from-CloudWatch-Alarms.md").
+- Enable operational insights. For more information, see [Analyzing operational insights to reduce OpsItems](OpsCenter-working-operational-insights.md "OpsCenter-working-operational-insights.md").
+- Enable AWS Security Hub CSPM findings alarms. For more information, see [Understanding OpsCenter integration with AWS Security Hub CSPM](OpsCenter-applications-that-integrate.md#OpsCenter-integrate-with-security-hub "OpsCenter-applications-that-integrate.md#OpsCenter-integrate-with-security-hub").
 
 ###### Contents
 
-- [(Optional) Setting up OpsCenter
-  to centrally manage OpsItems across accounts](OpsCenter-setting-up-cross-account.md "OpsCenter-setting-up-cross-account.md")
-- [(Optional) Set up Amazon SNS to receive
-  notifications about OpsItems](OpsCenter-getting-started-sns.md "OpsCenter-getting-started-sns.md")
+- [(Optional) Setting up OpsCenter to centrally manage OpsItems across accounts](OpsCenter-setting-up-cross-account.md "OpsCenter-setting-up-cross-account.md")
+- [(Optional) Set up Amazon SNS to receive notifications about OpsItems](OpsCenter-getting-started-sns.md "OpsCenter-getting-started-sns.md")

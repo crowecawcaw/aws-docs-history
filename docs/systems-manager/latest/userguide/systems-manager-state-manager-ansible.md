@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Creating associations that run
-
-Ansible playbooks
+# Creating associations that run Ansible playbooks
 
 You can create State Manager associations that run Ansible playbooks by
 using the `AWS-ApplyAnsiblePlaybooks` SSM document. State Manager is a tool in
@@ -110,9 +100,7 @@ The `AWS-ApplyAnsiblePlaybooks` document includes a required parameter for
 specifying which playbook to run when multiple playbooks are bundled. This option
 provides flexibility for running playbooks to support different use cases.
 
-## Understanding
-
-installed dependencies
+## Understanding installed dependencies
 
 If you specify **True** for the
 **InstallDependencies** parameter, then Systems Manager verifies that
@@ -128,17 +116,13 @@ your nodes have the following dependencies installed:
 If one or more of these dependencies aren't found, then Systems Manager automatically
 installs them.
 
-## Create an
-
-association that runs Ansible playbooks (console)
+## Create an association that runs Ansible playbooks (console)
 
 The following procedure describes how to use the Systems Manager console to create a
 State Manager association that runs Ansible playbooks by using the
 `AWS-ApplyAnsiblePlaybooks` document.
 
-###### To create an association that runs Ansible playbooks
-
-(console)
+###### To create an association that runs Ansible playbooks (console)
 
 1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
 2. In the navigation pane, choose **State Manager**.
@@ -196,8 +180,7 @@ following format.
     **Compliance severity**, choose a severity level for
     the association. Compliance reporting indicates whether the association
     state is compliant or noncompliant, along with the severity level you
-    indicate here. For more information, see [About State Manager association
-    compliance](compliance-about.md#compliance-about-association "compliance-about.md#compliance-about-association").
+    indicate here. For more information, see [About State Manager association compliance](compliance-about.md#compliance-about-association "compliance-about.md#compliance-about-association").
 15. In the **Rate control** section, configure options to run
     State Manager associations across a fleet of managed nodes. For information about
     using rate controls, see [Understanding targets and rate controls in State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md "systems-manager-state-manager-targets-and-rate-controls.md").
@@ -239,17 +222,13 @@ If you use tags to create an association on one or more target nodes, and then
 you remove the tags from a node, that node no longer runs the association. The
 node is disassociated from the State Manager document.
 
-## Create an association
-
-that runs Ansible playbooks (CLI)
+## Create an association that runs Ansible playbooks (CLI)
 
 The following procedure describes how to use the AWS Command Line Interface (AWS CLI) to create a
 State Manager association that runs Ansible playbooks by using the
 `AWS-ApplyAnsiblePlaybooks` document.
 
-###### To create an association that runs Ansible playbooks
-
-(CLI)
+###### To create an association that runs Ansible playbooks (CLI)
 
 1. Install and configure the AWS Command Line Interface (AWS CLI), if you haven't already.
 
@@ -328,8 +307,7 @@ aws ssm create-association --name "AWS-ApplyAnsiblePlaybooks" \
 
 State Manager associations don't support all cron and rate expressions. For
 more information about creating cron and rate expressions for
-associations, see [Reference: Cron and rate expressions
-for Systems Manager](reference-cron-and-rate-expressions.md "reference-cron-and-rate-expressions.md").
+associations, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md "reference-cron-and-rate-expressions.md").
 
 The system attempts to create the association on the nodes and immediately
 apply the state. 3. Run the following command to view an updated status of the association you

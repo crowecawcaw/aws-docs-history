@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Reverting from the
-
-advanced-instances tier to the standard-instances tier
+# Reverting from the advanced-instances tier to the standard-instances tier
 
 This section describes how to change hybrid-activated nodes running in the
 advanced-instances tier back to the standard-instances tier. This configuration
@@ -26,8 +16,7 @@ Review the following important details.
   Region. You must first deregister nodes until you have 1,000 or
   fewer. This also applies to Amazon Elastic Compute Cloud (Amazon EC2) instances that use a
   Systems Manager hybrid activation (which isn't a common scenario). For more
-  information, see [Deregistering managed nodes
-  in a hybrid and multicloud environment](fleet-manager-deregister-hybrid-nodes.md "fleet-manager-deregister-hybrid-nodes.md").
+  information, see [Deregistering managed nodes in a hybrid and multicloud environment](fleet-manager-deregister-hybrid-nodes.md "fleet-manager-deregister-hybrid-nodes.md").
 - After you revert, you won't be able to use Session Manager, a tool in
   AWS Systems Manager, to interactively access your hybrid-activated
   nodes.
@@ -41,9 +30,7 @@ Review the following important details.
   AWS account and AWS Region from the advanced-instances tier to the
   standard-instances tier.
 
-## Reverting to the
-
-standard-instances tier (console)
+## Reverting to the standard-instances tier (console)
 
 The following procedure shows you how to use the Systems Manager console to change
 all hybrid-activated nodes in your [hybrid and multicloud](operating-systems-and-machine-types.md#supported-machine-types "operating-systems-and-machine-types.md#supported-machine-types") environment to use the
@@ -61,9 +48,7 @@ AWS Region.
    settings, and then if you approve, choose the option to accept and
    continue.
 
-## Reverting to the
-
-standard-instances tier (AWS CLI)
+## Reverting to the standard-instances tier (AWS CLI)
 
 The following procedure shows you how to use the AWS Command Line Interface to change all
 hybrid-activated nodes in your [hybrid and multicloud](operating-systems-and-machine-types.md#supported-machine-types "operating-systems-and-machine-types.md#supported-machine-types") environment to use the
@@ -128,9 +113,7 @@ The command returns information like the following.
 The status changes to _Default_ after the
 request has been approved.
 
-## Reverting to the
-
-standard-instances tier (PowerShell)
+## Reverting to the standard-instances tier (PowerShell)
 
 The following procedure shows you how to use AWS Tools for Windows PowerShell to change
 hybrid-activated nodes in your hybrid and multicloud environment to use the

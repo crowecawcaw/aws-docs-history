@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Just-in-time node access using
-
-Systems Manager
+# Just-in-time node access using Systems Manager
 
 Systems Manager helps you to improve the security of your nodes by supporting
 _just-in-time_ access. Just-in-time node access allows users to
@@ -65,19 +55,13 @@ privileges since you only need to allow users to create access requests instead 
 them to start sessions with persistent permissions to your nodes. To help you meet
 compliance requirements, Systems Manager retains all access requests for 1 year. Systems Manager also emits EventBridge
 events for just-in-time node access for failed access requests and status updates to access
-requests for manual approvals. For more information see, [Monitoring Systems Manager events with
-Amazon EventBridge](monitoring-eventbridge-events.md "monitoring-eventbridge-events.md").
+requests for manual approvals. For more information see, [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md "monitoring-eventbridge-events.md").
 
 ###### Topics
 
-- [Setting up
-  just-in-time access with Systems Manager](systems-manager-just-in-time-node-access-setting-up.md "systems-manager-just-in-time-node-access-setting-up.md")
-- [Start a
-  just-in-time node access session](systems-manager-just-in-time-node-access-start-session.md "systems-manager-just-in-time-node-access-start-session.md")
-- [Managing
-  just-in-time access requests](systems-manager-just-in-time-node-access-manage-requests.md "systems-manager-just-in-time-node-access-manage-requests.md")
+- [Setting up just-in-time access with Systems Manager](systems-manager-just-in-time-node-access-setting-up.md "systems-manager-just-in-time-node-access-setting-up.md")
+- [Start a just-in-time node access session](systems-manager-just-in-time-node-access-start-session.md "systems-manager-just-in-time-node-access-start-session.md")
+- [Managing just-in-time access requests](systems-manager-just-in-time-node-access-manage-requests.md "systems-manager-just-in-time-node-access-manage-requests.md")
 - [Moving to just-in-time node access from Session Manager](systems-manager-just-in-time-node-access-moving-from-session-manager.md "systems-manager-just-in-time-node-access-moving-from-session-manager.md")
-- [Disabling just-in-time
-  access with Systems Manager](systems-manager-just-in-time-node-access-disable.md "systems-manager-just-in-time-node-access-disable.md")
-- [Just-in-time node access frequently asked
-  questions](just-in-time-node-access-faq.md "just-in-time-node-access-faq.md")
+- [Disabling just-in-time access with Systems Manager](systems-manager-just-in-time-node-access-disable.md "systems-manager-just-in-time-node-access-disable.md")
+- [Just-in-time node access frequently asked questions](just-in-time-node-access-faq.md "just-in-time-node-access-faq.md")

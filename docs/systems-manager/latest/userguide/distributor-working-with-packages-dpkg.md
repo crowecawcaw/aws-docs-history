@@ -1,21 +1,9 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Delete a Distributor
-
-package
+# Delete a Distributor package
 
 This section describes how to a delete a package. You can't delete a version of a
 package, only the entire package.
 
-## Deleting a package using the
-
-console
+## Deleting a package using the console
 
 You can use the AWS Systems Manager console to delete a package or a package version
 from Distributor, a tool in AWS Systems Manager. Deleting a package deletes all versions of a
@@ -32,9 +20,7 @@ package from Distributor.
 5. When you're prompted to confirm the deletion, choose **Delete
    package**.
 
-## Deleting a package
-
-version using the console
+## Deleting a package version using the console
 
 You can use the Systems Manager console to delete a package version from
 Distributor.
@@ -50,9 +36,7 @@ Distributor.
 5. When you're prompted to confirm the deletion, choose **Delete
    package version**.
 
-## Deleting a package using the
-
-command line
+## Deleting a package using the command line
 
 You can use your preferred command line tool to delete a package from
 Distributor.
@@ -158,9 +142,7 @@ Get-SSMDocumentList `
     -Filters @($filter)
 ```
 
-## Deleting a package version
-
-using the command line
+## Deleting a package version using the command line
 
 You can use your preferred command line tool to delete a package version from
 Distributor.

@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # AWS Systems Manager Maintenance Windows
 
 Maintenance Windows, a tool in AWS Systems Manager, helps you define a schedule for when to perform potentially
@@ -18,8 +10,7 @@ State Manager and Maintenance Windows can perform some similar types of updates 
 Which one you choose depends on whether you need to automate system compliance or perform
 high-priority, time-sensitive tasks during periods you specify.
 
-For more information, see [Choosing between State Manager and
-Maintenance Windows](state-manager-vs-maintenance-windows.md "state-manager-vs-maintenance-windows.md").
+For more information, see [Choosing between State Manager and Maintenance Windows](state-manager-vs-maintenance-windows.md "state-manager-vs-maintenance-windows.md").
 
 With Maintenance Windows, you can schedule actions on numerous other AWS resource types, such as
 Amazon Simple Storage Service (Amazon S3) buckets, Amazon Simple Queue Service (Amazon SQS) queues, AWS Key Management Service (AWS KMS) keys, and many more.
@@ -37,11 +28,9 @@ specify dates that a maintenance window shouldn't run before or after, and you c
 the international time zone on which to base the maintenance window schedule.
 
 For an explanation of how the various schedule-related options for maintenance windows
-relate to one another, see [Maintenance window scheduling and
-active period options](maintenance-windows-schedule-options.md "maintenance-windows-schedule-options.md").
+relate to one another, see [Maintenance window scheduling and active period options](maintenance-windows-schedule-options.md "maintenance-windows-schedule-options.md").
 
-For more information about working with the `--schedule` option, see [Reference: Cron and rate expressions
-for Systems Manager](reference-cron-and-rate-expressions.md "reference-cron-and-rate-expressions.md").
+For more information about working with the `--schedule` option, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md "reference-cron-and-rate-expressions.md").
 
 ###### Supported task types
 
@@ -94,27 +83,19 @@ selected targets.
 One or more targets must be specified for maintenance window Run Command-type tasks.
 Depending on the task, targets are optional for other maintenance window task types
 (Automation, AWS Lambda, and AWS Step Functions). For more information about running tasks that
-don't specify targets, see [Registering maintenance window
-tasks without targets](maintenance-windows-targetless-tasks.md "maintenance-windows-targetless-tasks.md").
+don't specify targets, see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md "maintenance-windows-targetless-tasks.md").
 
 ###### EventBridge support
 
 This Systems Manager tool is supported as an _event_ type in Amazon EventBridge rules.
-For information, see [Monitoring Systems Manager events with
-Amazon EventBridge](monitoring-eventbridge-events.md "monitoring-eventbridge-events.md") and [Reference: Amazon EventBridge event patterns and types
-for Systems Manager](reference-eventbridge-events.md "reference-eventbridge-events.md").
+For information, see [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md "monitoring-eventbridge-events.md") and [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md "reference-eventbridge-events.md").
 
 ###### Contents
 
 - [Setting up Maintenance Windows](setting-up-maintenance-windows.md "setting-up-maintenance-windows.md")
-- [Create and manage maintenance windows using
-  the console](sysman-maintenance-working.md "sysman-maintenance-working.md")
+- [Create and manage maintenance windows using the console](sysman-maintenance-working.md "sysman-maintenance-working.md")
 - [Tutorials](maintenance-windows-tutorials.md "maintenance-windows-tutorials.md")
-- [Using pseudo parameters
-  when registering maintenance window tasks](maintenance-window-tasks-pseudo-parameters.md "maintenance-window-tasks-pseudo-parameters.md")
-- [Maintenance window scheduling and
-  active period options](maintenance-windows-schedule-options.md "maintenance-windows-schedule-options.md")
-- [Registering maintenance window
-  tasks without targets](maintenance-windows-targetless-tasks.md "maintenance-windows-targetless-tasks.md")
-- [Troubleshooting maintenance
-  windows](troubleshooting-maintenance-windows.md "troubleshooting-maintenance-windows.md")
+- [Using pseudo parameters when registering maintenance window tasks](maintenance-window-tasks-pseudo-parameters.md "maintenance-window-tasks-pseudo-parameters.md")
+- [Maintenance window scheduling and active period options](maintenance-windows-schedule-options.md "maintenance-windows-schedule-options.md")
+- [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md "maintenance-windows-targetless-tasks.md")
+- [Troubleshooting maintenance windows](troubleshooting-maintenance-windows.md "troubleshooting-maintenance-windows.md")

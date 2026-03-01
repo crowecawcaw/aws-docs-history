@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Configure patching for instances in an
-
-organization using a Quick Setup patch policy
+# Configure patching for instances in an organization using a Quick Setup patch policy
 
 With Quick Setup, a tool in AWS Systems Manager, you can create patch policies powered by
 Patch Manager. A patch policy defines the schedule and baseline to use when automatically
@@ -22,8 +12,7 @@ for a single account-Region pair. For more information about patch policies, see
 
 To define a patch policy for a node using Quick Setup, the node must be a
 _managed node_. For more information about
-managing your nodes, see [Setting up Systems Manager unified console
-for an organization](systems-manager-setting-up-organizations.md "systems-manager-setting-up-organizations.md").
+managing your nodes, see [Setting up Systems Manager unified console for an organization](systems-manager-setting-up-organizations.md "systems-manager-setting-up-organizations.md").
 
 ###### Important
 
@@ -33,8 +22,7 @@ If you implement more than one of these methods at a time, the patch compliance
 information you see is always the result of the most recent scan. Results from
 previous scans are overwritten. If the scanning methods use different patch
 baselines, with different approval rules, the patch compliance information can
-change unexpectedly. For more information, see [Identifying the
-execution that created patch compliance data](patch-manager-compliance-data-overwrites.md "patch-manager-compliance-data-overwrites.md").
+change unexpectedly. For more information, see [Identifying the execution that created patch compliance data](patch-manager-compliance-data-overwrites.md "patch-manager-compliance-data-overwrites.md").
 
 **Association compliance status and patch
 policies** – The patching status for a managed node that's
@@ -45,9 +33,7 @@ marked `Compliant`. If the association execution status is
 `Non-Compliant`, the patching status for the managed node is also
 marked `Non-Compliant`.
 
-## Supported Regions for patch
-
-policy configurations
+## Supported Regions for patch policy configurations
 
 Patch policy configurations in Quick Setup are currently supported in the
 following Regions:
@@ -69,9 +55,7 @@ following Regions:
 - Europe (Stockholm) (eu-north-1)
 - South America (São Paulo) (sa-east-1)
 
-## Permissions for the patch
-
-policy S3 bucket
+## Permissions for the patch policy S3 bucket
 
 When you create a patch policy, Quick Setup creates an Amazon S3 bucket that contains
 a file named `baseline_overrides.json`. This file stores
@@ -90,20 +74,13 @@ in your organization's management account.
 There are two use cases when you must provide other AWS resources with
 permission to access this S3 bucket using AWS Identity and Access Management (IAM) policies:
 
-- [Case 1: Use
-  your own instance profile or service role with your managed nodes
-  instead of one provided by Quick Setup](#patch-policy-instance-profile-service-role "#patch-policy-instance-profile-service-role")
-- [Case 2: Use VPC endpoints to connect to
-  Systems Manager](#patch-policy-vpc "#patch-policy-vpc")
+- [Case 1: Use your own instance profile or service role with your managed nodes instead of one provided by Quick Setup](#patch-policy-instance-profile-service-role "#patch-policy-instance-profile-service-role")
+- [Case 2: Use VPC endpoints to connect to Systems Manager](#patch-policy-vpc "#patch-policy-vpc")
 
 The permissions policy you need in either case is located in the section
-below, [Policy permissions for
-Quick Setup S3 buckets](#patch-policy-bucket-permissions "#patch-policy-bucket-permissions").
+below, [Policy permissions for Quick Setup S3 buckets](#patch-policy-bucket-permissions "#patch-policy-bucket-permissions").
 
-### Case 1: Use
-
-your own instance profile or service role with your managed nodes
-instead of one provided by Quick Setup
+### Case 1: Use your own instance profile or service role with your managed nodes instead of one provided by Quick Setup
 
 Patch policy configurations include an option to **Add required
 IAM policies to existing instance profiles attached to your
@@ -157,9 +134,7 @@ ID, do the following:
 For information about adding tags to an IAM role, see [Tagging IAM roles](../../../IAM/latest/UserGuide/id_tags_roles.md#id_tags_roles_procs-console "../../../IAM/latest/UserGuide/id_tags_roles.md#id_tags_roles_procs-console") and [Managing tags on instance profiles (AWS CLI or AWS API)](../../../IAM/latest/UserGuide/id_tags_instance-profiles.md#id_tags_instance-profile_procs-cli-api "../../../IAM/latest/UserGuide/id_tags_instance-profiles.md#id_tags_instance-profile_procs-cli-api") in the
 _IAM User Guide_.
 
-### Case 2: Use VPC endpoints to connect to
-
-Systems Manager
+### Case 2: Use VPC endpoints to connect to Systems Manager
 
 If you use VPC endpoints to connect to Systems Manager, your VPC endpoint policy for
 S3 must allow access to your Quick Setup patch policy S3 bucket.
@@ -168,9 +143,7 @@ For information about adding permissions to a VPC endpoint policy for S3,
 see [Controlling access from VPC endpoints with bucket policies](../../../AmazonS3/latest/userguide/example-bucket-policies-vpc-endpoint.md "../../../AmazonS3/latest/userguide/example-bucket-policies-vpc-endpoint.md") in
 the _Amazon S3 User Guide_.
 
-### Policy permissions for
-
-Quick Setup S3 buckets
+### Policy permissions for Quick Setup S3 buckets
 
 You can provide wildcard access to all
 `aws-quicksetup-patchpolicy` buckets or only the
@@ -221,9 +194,7 @@ locate the full name of your bucket in the S3 console. For
 example:
 `aws-quicksetup-patchpolicy-123456789012-abcde`
 
-## Random patch baseline IDs in
-
-patch policy operations
+## Random patch baseline IDs in patch policy operations
 
 Patching operations for patch policies utilize the
 `BaselineOverride` parameter in the
@@ -234,8 +205,7 @@ _outside_ of a patch policy, you can use
 `BaselineOverride` to specify a list of patch baselines to use
 during the operation that are different from the specified defaults. You create
 this list in a file named `baseline_overrides.json` and
-manually add it to an Amazon S3 bucket that you own, as explained in [Using the
-BaselineOverride parameter](patch-manager-baselineoverride-parameter.md "patch-manager-baselineoverride-parameter.md").
+manually add it to an Amazon S3 bucket that you own, as explained in [Using the BaselineOverride parameter](patch-manager-baselineoverride-parameter.md "patch-manager-baselineoverride-parameter.md").
 
 For patching operations based on patch policies, however, Systems Manager automatically
 creates an S3 bucket and adds a `baseline_overrides.json`
@@ -291,8 +261,7 @@ targets daily at 1:00 AM UTC.
     * If you choose **Custom CRON Expression**,
      enter the schedule as a **CRON expression**.
      For more information about formatting CRON expressions for
-     Systems Manager, see [Reference: Cron and rate expressions
-     for Systems Manager](reference-cron-and-rate-expressions.md "reference-cron-and-rate-expressions.md").
+     Systems Manager, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md "reference-cron-and-rate-expressions.md").
 
 
     Also, select **Wait to scan targets until first CRON
@@ -311,8 +280,7 @@ targets daily at 1:00 AM UTC.
    - If you choose **Custom CRON expression**,
      enter the schedule as a **CRON expression**.
      For more information about formatting CRON expressions for
-     Systems Manager, see [Reference: Cron and rate expressions
-     for Systems Manager](reference-cron-and-rate-expressions.md "reference-cron-and-rate-expressions.md").
+     Systems Manager, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md "reference-cron-and-rate-expressions.md").
 
    Also, clear **Wait to install updates until first CRON
    interval** to immediately install updates on nodes
@@ -326,8 +294,7 @@ targets daily at 1:00 AM UTC.
    baselines to use when scanning and updating your targets.
 
 By default, Patch Manager uses the predefined patch baselines. For more
-information, see [Predefined
-baselines](patch-manager-predefined-and-custom-patch-baselines.md#patch-manager-baselines-pre-defined "patch-manager-predefined-and-custom-patch-baselines.md#patch-manager-baselines-pre-defined").
+information, see [Predefined baselines](patch-manager-predefined-and-custom-patch-baselines.md#patch-manager-baselines-pre-defined "patch-manager-predefined-and-custom-patch-baselines.md#patch-manager-baselines-pre-defined").
 
 If you choose **Custom patch baseline**, change the
 selected patch baseline for operating systems that you don't want to use
@@ -337,8 +304,7 @@ a predefined AWS patch baseline.
 
 If you use VPC endpoints to connect to Systems Manager, make sure
 your VPC endpoint policy for S3 allows access to this S3 bucket. For
-more information, see [Permissions for the patch
-policy S3 bucket](#patch-policy-s3-bucket-permissions "#patch-policy-s3-bucket-permissions").
+more information, see [Permissions for the patch policy S3 bucket](#patch-policy-s3-bucket-permissions "#patch-policy-s3-bucket-permissions").
 
 ###### Important
 
@@ -475,9 +441,7 @@ policy
 Tag your IAM instance profile or IAM service role with a
 specific key-value pair.
 
-For information, see [Case 1: Use
-your own instance profile or service role with your managed nodes
-instead of one provided by Quick Setup](#patch-policy-instance-profile-service-role "#patch-policy-instance-profile-service-role"). 15. Choose **Create**.
+For information, see [Case 1: Use your own instance profile or service role with your managed nodes instead of one provided by Quick Setup](#patch-policy-instance-profile-service-role "#patch-policy-instance-profile-service-role"). 15. Choose **Create**.
 
 To review patching status after the patch policy is created, you can
 access the configuration from the [Quick Setup](https://console.aws.amazon.com/systems-manager/quick-setup "https://console.aws.amazon.com/systems-manager/quick-setup") page.

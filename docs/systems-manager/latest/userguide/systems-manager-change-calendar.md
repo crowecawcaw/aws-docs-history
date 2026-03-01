@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # AWS Systems Manager Change Calendar
 
 Change Calendar, a tool in AWS Systems Manager, allows you to set up date and time ranges when actions you
@@ -104,14 +96,11 @@ _Amazon Web Services General Reference_.
 - ###### EventBridge support
 
 This Systems Manager tool is supported as an _event_ type in Amazon EventBridge rules.
-For information, see [Monitoring Systems Manager events with
-Amazon EventBridge](monitoring-eventbridge-events.md "monitoring-eventbridge-events.md") and [Reference: Amazon EventBridge event patterns and types
-for Systems Manager](reference-eventbridge-events.md "reference-eventbridge-events.md").
+For information, see [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md "monitoring-eventbridge-events.md") and [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md "reference-eventbridge-events.md").
 
 ###### Topics
 
 - [Setting up Change Calendar](systems-manager-change-calendar-prereqs.md "systems-manager-change-calendar-prereqs.md")
 - [Working with Change Calendar](systems-manager-change-calendar-working.md "systems-manager-change-calendar-working.md")
-- [Adding Change Calendar
-  dependencies to Automation runbooks](systems-manager-change-calendar-automations.md "systems-manager-change-calendar-automations.md")
+- [Adding Change Calendar dependencies to Automation runbooks](systems-manager-change-calendar-automations.md "systems-manager-change-calendar-automations.md")
 - [Troubleshooting Change Calendar](change-calendar-troubleshooting.md "change-calendar-troubleshooting.md")

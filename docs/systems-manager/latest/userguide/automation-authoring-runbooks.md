@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Authoring Automation
-
-runbooks
+# Authoring Automation runbooks
 
 Each runbook in Automation, a tool in AWS Systems Manager, defines an automation. Automation
 runbooks define the actions that are performed during an automation. In the runbook
@@ -29,9 +19,7 @@ your own runbook. For more information about the visual designer, see [Visual de
 
 The following sections will help you author your first runbook.
 
-## Identify your use
-
-case
+## Identify your use case
 
 The first step in authoring a runbook is identifying your use case. For
 example, you scheduled the `AWS-CreateImage` runbook to run daily on
@@ -78,9 +66,7 @@ functionality, over another. Therefore, we recommend that you review the
 available input parameters for the runbook or action you want to use to
 determine which best fits your use case and preferences.
 
-## Set up your
-
-development environment
+## Set up your development environment
 
 After you've identified your use case and the pre-defined runbooks or
 automation actions you want to use in your runbook, it's time to set up your
@@ -98,9 +84,7 @@ AWS Toolkit for Visual Studio Code](../../../toolkit-for-vscode/latest/userguide
 Toolkit for VS Code to develop runbooks, see [Working with Systems Manager Automation documents](../../../toolkit-for-vscode/latest/userguide/systems-manager-automation-docs.md "../../../toolkit-for-vscode/latest/userguide/systems-manager-automation-docs.md") in the
 _AWS Toolkit for Visual Studio Code User Guide_.
 
-## Develop
-
-runbook content
+## Develop runbook content
 
 With your use case identified and environment set up, you're ready to develop
 the content for your runbook. Your use case and preferences will largely dictate
@@ -114,20 +98,17 @@ If you're unsure how to use a particular action in your runbook, we recommend
 reviewing the corresponding entry for the action in the [Systems Manager Automation actions reference](automation-actions.md "automation-actions.md"). We also
 recommend reviewing the content of pre-defined runbooks to see real-world
 examples of how these actions are used. For more examples of real-world
-applications of runbooks, see [Additional runbook
-examples](automation-document-examples.md "automation-document-examples.md").
+applications of runbooks, see [Additional runbook examples](automation-document-examples.md "automation-document-examples.md").
 
 To demonstrate the differences in simplicity and flexibility that runbook
 content provides, the following tutorials provide an example of how to patch
 groups of Amazon EC2 instances in stages:
 
-- [Example 1:
-  Creating parent-child runbooks](automation-authoring-runbooks-parent-child-example.md "automation-authoring-runbooks-parent-child-example.md")
+- [Example 1: Creating parent-child runbooks](automation-authoring-runbooks-parent-child-example.md "automation-authoring-runbooks-parent-child-example.md")
   – In this example, two runbooks are used in a parent-child
   relationship. The parent runbook initiates a rate control automation of
   the child runbook.
-- [Example 2:
-  Scripted runbook](automation-authoring-runbooks-scripted-example.md "automation-authoring-runbooks-scripted-example.md")
+- [Example 2: Scripted runbook](automation-authoring-runbooks-scripted-example.md "automation-authoring-runbooks-scripted-example.md")
   – This example demonstrates how you can accomplish the same tasks
   of Example 1 by condensing the content into a single runbook and using
   scripts in your runbook.

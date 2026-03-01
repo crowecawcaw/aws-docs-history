@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Querying inventory data from multiple
-
-Regions and accounts
+# Querying inventory data from multiple Regions and accounts
 
 AWS Systems Manager Inventory integrates with Amazon Athena to help you query inventory data from
 multiple AWS Regions and AWS accounts. Athena integration uses resource data sync so
@@ -32,8 +22,7 @@ the _Amazon Web Services General Reference_.
 ###### Before you begin
 
 Athena integration uses resource data sync. You must set up and configure resource
-data sync to use this feature. For more information, see [Walkthrough: Using resource data sync to
-aggregate inventory data](inventory-resource-data-sync.md "inventory-resource-data-sync.md").
+data sync to use this feature. For more information, see [Walkthrough: Using resource data sync to aggregate inventory data](inventory-resource-data-sync.md "inventory-resource-data-sync.md").
 
 Also, be aware that the **Detailed View** page displays inventory
 data for the _owner_ of the central Amazon S3 bucket used by resource data
@@ -52,14 +41,10 @@ encryption, you must also configure your IAM entity and the
 
 ###### Topics
 
-- [Configuring your
-  IAM entity to access the Detailed View page](#systems-manager-inventory-query-iam-user "#systems-manager-inventory-query-iam-user")
-- [(Optional) Configure
-  permissions for viewing AWS KMS encrypted data](#systems-manager-inventory-query-kms "#systems-manager-inventory-query-kms")
+- [Configuring your IAM entity to access the Detailed View page](#systems-manager-inventory-query-iam-user "#systems-manager-inventory-query-iam-user")
+- [(Optional) Configure permissions for viewing AWS KMS encrypted data](#systems-manager-inventory-query-kms "#systems-manager-inventory-query-kms")
 
-### Configuring your
-
-IAM entity to access the Detailed View page
+### Configuring your IAM entity to access the Detailed View page
 
 The following describes the minimum permissions required to view inventory
 data on the **Detailed View** page.
@@ -152,9 +137,7 @@ in the _IAM User Guide_.
   - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
   - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
 
-### (Optional) Configure
-
-permissions for viewing AWS KMS encrypted data
+### (Optional) Configure permissions for viewing AWS KMS encrypted data
 
 If the Amazon S3 bucket used to store inventory data is encrypted by using the
 AWS Key Management Service (AWS KMS), you must configure your IAM entity and the
@@ -185,9 +168,7 @@ Use the following procedure to configure the
 **Amazon-GlueServiceRoleForSSM** role with
 `kms:Decrypt` permissions for the AWS KMS key.
 
-###### To configure the **Amazon-GlueServiceRoleForSSM** role
-
-with `kms:Decrypt` permissions
+###### To configure the **Amazon-GlueServiceRoleForSSM** role with `kms:Decrypt` permissions
 
 1. Open the IAM console at
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -231,9 +212,7 @@ JSON
    **Name** field.
 10. Choose **Create policy**.
 
-## Querying data on the
-
-inventory detailed view page
+## Querying data on the inventory detailed view page
 
 Use the following procedure to view inventory data from multiple AWS Regions and
 AWS accounts on the Systems Manager Inventory **Detailed View**
@@ -248,9 +227,7 @@ can't use the **Detailed View** to query data.
 
 ![Displaying Inventory Dashboard | Detailed View | Settings tabs](images/inventory-detailed-view-for-error.png)
 
-###### To view inventory data from multiple Regions and accounts in the AWS Systems Manager
-
-console
+###### To view inventory data from multiple Regions and accounts in the AWS Systems Manager console
 
 1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
 2. In the navigation pane, choose **Inventory**.
@@ -272,9 +249,7 @@ query set in a spreadsheet application such as Microsoft Excel. You can also use
 **Query History** and **Run Advanced Queries**
 buttons to view history details and interact with your data in Amazon Athena.
 
-### Editing the AWS Glue
-
-crawler schedule
+### Editing the AWS Glue crawler schedule
 
 AWS Glue crawls the inventory data in the central Amazon S3 bucket twice daily, by
 default. If you frequently change the types of data to collect on your nodes

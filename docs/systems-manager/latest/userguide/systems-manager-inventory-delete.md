@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Stopping data collection and deleting
-
-inventory data
+# Stopping data collection and deleting inventory data
 
 If you no longer want to use AWS Systems Manager Inventory to view metadata about your AWS
 resources, you can stop data collection and delete data that has already been collected.
@@ -16,14 +6,10 @@ This section includes the following information.
 
 ###### Topics
 
-- [Stopping data
-  collection](#systems-manager-inventory-delete-association "#systems-manager-inventory-delete-association")
-- [Deleting an Inventory
-  resource data sync](#systems-manager-inventory-delete-RDS "#systems-manager-inventory-delete-RDS")
+- [Stopping data collection](#systems-manager-inventory-delete-association "#systems-manager-inventory-delete-association")
+- [Deleting an Inventory resource data sync](#systems-manager-inventory-delete-RDS "#systems-manager-inventory-delete-RDS")
 
-## Stopping data
-
-collection
+## Stopping data collection
 
 When you initially configure Systems Manager to collect inventory data, the system creates a
 State Manager association that defines the schedule and the resources from which to
@@ -40,9 +26,7 @@ that use the `AWS-GatherSoftwareInventory` document.
 4. Repeat step three for any remaining associations that use the
    `AWS-GatherSoftwareInventory` document.
 
-## Deleting an Inventory
-
-resource data sync
+## Deleting an Inventory resource data sync
 
 If you no longer want to use AWS Systems Manager Inventory to view metadata about your AWS
 resources, then we also recommend deleting resource data syncs used for inventory

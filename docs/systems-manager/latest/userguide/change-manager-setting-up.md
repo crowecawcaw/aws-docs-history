@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Setting up Change Manager
 
 ###### Change Manager availability change
@@ -18,12 +10,9 @@ information, see [AWS Systems Manager Change Manager availability change](chang
 You can use Change Manager, a tool in AWS Systems Manager, to manage changes for an entire
 organization, as configured in AWS Organizations, or for a single AWS account.
 
-If you're using Change Manager with an organization, begin with the topic [Setting up Change Manager for an
-organization (management account)](change-manager-organization-setup.md "change-manager-organization-setup.md"), and then proceed to [Configuring Change Manager options and best
-practices](change-manager-account-setup.md "change-manager-account-setup.md").
+If you're using Change Manager with an organization, begin with the topic [Setting up Change Manager for an organization (management account)](change-manager-organization-setup.md "change-manager-organization-setup.md"), and then proceed to [Configuring Change Manager options and best practices](change-manager-account-setup.md "change-manager-account-setup.md").
 
-If you're using Change Manager with a single account, proceed directly to [Configuring Change Manager options and best
-practices](change-manager-account-setup.md "change-manager-account-setup.md").
+If you're using Change Manager with a single account, proceed directly to [Configuring Change Manager options and best practices](change-manager-account-setup.md "change-manager-account-setup.md").
 
 ###### Note
 
@@ -33,11 +22,7 @@ settings are disregarded.
 
 ###### Topics
 
-- [Setting up Change Manager for an
-  organization (management account)](change-manager-organization-setup.md "change-manager-organization-setup.md")
-- [Configuring Change Manager options and best
-  practices](change-manager-account-setup.md "change-manager-account-setup.md")
-- [Configuring roles and permissions for
-  Change Manager](change-manager-permissions.md "change-manager-permissions.md")
-- [Controlling access to
-  auto-approval runbook workflows](change-manager-auto-approval-access.md "change-manager-auto-approval-access.md")
+- [Setting up Change Manager for an organization (management account)](change-manager-organization-setup.md "change-manager-organization-setup.md")
+- [Configuring Change Manager options and best practices](change-manager-account-setup.md "change-manager-account-setup.md")
+- [Configuring roles and permissions for Change Manager](change-manager-permissions.md "change-manager-permissions.md")
+- [Controlling access to auto-approval runbook workflows](change-manager-auto-approval-access.md "change-manager-auto-approval-access.md")

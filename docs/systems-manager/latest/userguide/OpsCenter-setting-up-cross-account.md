@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# (Optional) Setting up OpsCenter
-
-to centrally manage OpsItems across accounts
+# (Optional) Setting up OpsCenter to centrally manage OpsItems across accounts
 
 You can use Systems Manager OpsCenter to centrally manage OpsItems across multiple
 AWS accounts in a selected AWS Region. This feature is available after you set
@@ -27,8 +17,7 @@ remediate issues with AWS resources that are generating OpsItems.
 ###### Note
 
 You can assign only one account as the delegated administrator for Systems Manager. For
-more information, see [Creating an AWS Organizations delegated administrator
-for Systems Manager](setting_up_delegated_admin.md "setting_up_delegated_admin.md").
+more information, see [Creating an AWS Organizations delegated administrator for Systems Manager](setting_up_delegated_admin.md "setting_up_delegated_admin.md").
 
 Systems Manager offers the following methods for setting up OpsCenter to centrally manage
 OpsItems across multiple AWS accounts.
@@ -47,8 +36,7 @@ managing OpsItems across accounts:
      where a delegated administrator can manage OpsItems across
      accounts
 
-For more information, see [(Optional) Configure
-OpsCenter to manage OpsItems across accounts by using Quick Setup](OpsCenter-quick-setup-cross-account.md "OpsCenter-quick-setup-cross-account.md").
+For more information, see [(Optional) Configure OpsCenter to manage OpsItems across accounts by using Quick Setup](OpsCenter-quick-setup-cross-account.md "OpsCenter-quick-setup-cross-account.md").
 
 ###### Note
 
@@ -56,11 +44,9 @@ Quick Setup isn't available in all AWS Regions where Systems Manager is
 currently available. If Quick Setup isn't available in a Region where
 you want to use it to configure OpsCenter to centrally manage OpsItems
 across multiple accounts, then you must use the manual method. To view a
-list of AWS Regions where Quick Setup is available, see [Availability of Quick Setup in
-AWS Regions](systems-manager-quick-setup.md#quick-setup-getting-started-regions "systems-manager-quick-setup.md#quick-setup-getting-started-regions").
+list of AWS Regions where Quick Setup is available, see [Availability of Quick Setup in AWS Regions](systems-manager-quick-setup.md#quick-setup-getting-started-regions "systems-manager-quick-setup.md#quick-setup-getting-started-regions").
 
 - **Manual set up**: If Quick Setup isn't
   available in the Region where you want to configure OpsCenter to centrally
   manage OpsItems across accounts, then you can use the manual procedure to do
-  so. For more information, see [(Optional)
-  Manually set up OpsCenter to centrally manage OpsItems across accounts](OpsCenter-getting-started-multiple-accounts.md "OpsCenter-getting-started-multiple-accounts.md").
+  so. For more information, see [(Optional) Manually set up OpsCenter to centrally manage OpsItems across accounts](OpsCenter-getting-started-multiple-accounts.md "OpsCenter-getting-started-multiple-accounts.md").

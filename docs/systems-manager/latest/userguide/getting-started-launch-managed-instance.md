@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Perform a node task with
-
-Systems Manager
+# Perform a node task with Systems Manager
 
 Use this tutorial to get started with AWS Systems Manager. You'll learn how to launch an Amazon Elastic Compute Cloud
 (Amazon EC2) instance that is managed by Systems Manager, and how to connect to the managed
@@ -22,9 +12,7 @@ tools.
 
 Before you begin, be sure that you've completed the steps in [Managing EC2 instances with Systems Manager](systems-manager-setting-up-ec2.md "systems-manager-setting-up-ec2.md").
 
-## Launch an
-
-instance using an AMI with SSM Agent preinstalled
+## Launch an instance using an AMI with SSM Agent preinstalled
 
 You can launch an Amazon EC2 instance using the AWS Management Console as described in the following
 procedure. This tutorial is intended to help you launch your first managed instance
@@ -67,8 +55,7 @@ quickly, so it doesn't cover all possible options.
 8. If you aren't using Default Host Management Configuration, expand the
    **Advanced details** section, and for **IAM
    instance profile**, choose the instance profile that you created
-   when getting set up in [Configure instance permissions required for
-   Systems Manager](setup-instance-permissions.md "setup-instance-permissions.md").
+   when getting set up in [Configure instance permissions required for Systems Manager](setup-instance-permissions.md "setup-instance-permissions.md").
 9. Keep the default selections for the other configuration settings for your
    instance.
 10. Review a summary of your instance configuration in the
@@ -83,9 +70,7 @@ quickly, so it doesn't cover all possible options.
     you to connect to it. To check that your instance passed its status checks, view
     this information in the **Status check** column.
 
-## Connect to your managed
-
-instance using Systems Manager
+## Connect to your managed instance using Systems Manager
 
 ###### To connect to your managed instance
 

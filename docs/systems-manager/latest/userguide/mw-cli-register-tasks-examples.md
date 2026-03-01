@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Examples: Register
-
-tasks with a maintenance window
+# Examples: Register tasks with a maintenance window
 
 You can register a task in Run Command, a tool in AWS Systems Manager, with a
 maintenance window using the AWS Command Line Interface (AWS CLI), as demonstrated in [Register tasks with the maintenance window](mw-cli-tutorial-tasks.md "mw-cli-tutorial-tasks.md"). You can also register
@@ -20,8 +10,7 @@ tasks, as demonstrated later in this topic.
 Specify one or more targets for maintenance window Run Command-type tasks. Depending on the
 task, targets are optional for other maintenance window task types (Automation, AWS Lambda,
 and AWS Step Functions). For more information about running tasks that don't specify targets,
-see [Registering maintenance window
-tasks without targets](maintenance-windows-targetless-tasks.md "maintenance-windows-targetless-tasks.md").
+see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md "maintenance-windows-targetless-tasks.md").
 
 In this topic, we provide examples of using the AWS Command Line Interface (AWS CLI)
 command `register-task-with-maintenance-window` to register
@@ -71,13 +60,11 @@ your tasks. For instance, `{{TARGET_ID}}` and
 `{{RESOURCE_ID}}` can be used to pass IDs of AWS
 resources to Automation, Lambda, and Step Functions tasks. For more
 information about pseudo parameters in
-`--task-invocation-parameters` content, see [Using pseudo parameters
-when registering maintenance window tasks](maintenance-window-tasks-pseudo-parameters.md "maintenance-window-tasks-pseudo-parameters.md").
+`--task-invocation-parameters` content, see [Using pseudo parameters when registering maintenance window tasks](maintenance-window-tasks-pseudo-parameters.md "maintenance-window-tasks-pseudo-parameters.md").
 
 **More info**
 
-- [Parameter options for the
-  register-task-with-maintenance-windows command](mw-cli-task-options.md "mw-cli-task-options.md").
+- [Parameter options for the register-task-with-maintenance-windows command](mw-cli-task-options.md "mw-cli-task-options.md").
 - [register-task-with-maintenance-window](../../../cli/latest/reference/ssm/register-task-with-maintenance-window.md "../../../cli/latest/reference/ssm/register-task-with-maintenance-window.md")
   in the _AWS CLI Command Reference_
 - [RegisterTaskWithMaintenanceWindow](../APIReference/API_RegisterTaskWithMaintenanceWindow.md "../APIReference/API_RegisterTaskWithMaintenanceWindow.md") in the

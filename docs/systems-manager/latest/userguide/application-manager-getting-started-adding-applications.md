@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Adding
-
-applications and container clusters to Application Manager
+# Adding applications and container clusters to Application Manager
 
 Application Manager is a component of AWS Systems Manager. In Application Manager, an
 _application_ is a logical group of AWS resources that you want
@@ -38,9 +28,7 @@ For **Applications**, the list includes the following:
   After you create an application in Application Manager, you can view operations information about
   your resource in the context of an application.
 
-## Creating an application in
-
-Application Manager
+## Creating an application in Application Manager
 
 Use the following procedure to create an application in Application Manager and add
 resources to that application.

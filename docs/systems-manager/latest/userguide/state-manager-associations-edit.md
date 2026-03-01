@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Editing and creating a new version
-
-of an association
+# Editing and creating a new version of an association
 
 You can edit a State Manager association to specify a new name, schedule, severity
 level, targets, or other values. For associations based on SSM Command-type
@@ -20,8 +10,7 @@ can view different versions after editing, as described in the following procedu
 
 In order for associations that are created with Automation runbooks to be
 applied when new target nodes are detected, certain conditions must be met. For
-information, see [About target updates with Automation
-runbooks](state-manager-about.md#runbook-target-updates "state-manager-about.md#runbook-target-updates").
+information, see [About target updates with Automation runbooks](state-manager-about.md#runbook-target-updates "state-manager-about.md#runbook-target-updates").
 
 The following procedures describe how to edit and create a new version of an
 association using the Systems Manager console, AWS Command Line Interface (AWS CLI), and AWS Tools for PowerShell (Tools for PowerShell).
@@ -35,9 +24,7 @@ even though the Systems Manager console shows that a new version was processed. 
 want to run an association using a new version of a document shared form another
 account, you must set the document version to `default`.
 
-## Edit an association
-
-(console)
+## Edit an association (console)
 
 The following procedure describes how to use the Systems Manager console to edit and
 create a new version of an association.
@@ -62,8 +49,7 @@ Bucket](../../../AmazonS3/latest/userguide/CreatingABucket.md "../../../AmazonS3
 For information about association options with `Command`
 and `Policy` documents, see [Creating associations](state-manager-associations-creating.md "state-manager-associations-creating.md"). For
 information about association options with Automation runbooks, see
-[Scheduling
-automations with State Manager associations](scheduling-automations-state-manager-associations.md "scheduling-automations-state-manager-associations.md"). 5. Choose **Save Changes**. 6. (Optional) To view association information, in the
+[Scheduling automations with State Manager associations](scheduling-automations-state-manager-associations.md "scheduling-automations-state-manager-associations.md"). 5. Choose **Save Changes**. 6. (Optional) To view association information, in the
 **Associations** page, choose the name of the
 association you edited, and then choose the
 **Versions** tab. The system lists each version of
@@ -82,9 +68,7 @@ the association you created and edited. 7. (Optional) To view output for associa
     4. Choose **Open** or
      **Download** to view the host name.
 
-## Edit an
-
-association (command line)
+## Edit an association (command line)
 
 The following procedure describes how to use the AWS CLI (on Linux or Windows Server)
 or AWS Tools for PowerShell to edit and create a new version of an association.

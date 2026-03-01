@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# `aws:executeScript`
-
-– Run a script
+# `aws:executeScript` – Run a script
 
 Runs the Python or PowerShell script provided using the specified runtime and handler.
 Each `aws:executeScript` action can run up to a maximum duration of 600
@@ -17,11 +7,9 @@ seconds (10 minutes). You can limit the timeout by specifying the
 step.
 
 Use return statements in your function to add outputs to your output payload. For
-examples of defining outputs for your `aws:executeScript` action, see [Example 2:
-Scripted runbook](automation-authoring-runbooks-scripted-example.md "automation-authoring-runbooks-scripted-example.md"). You can also send
+examples of defining outputs for your `aws:executeScript` action, see [Example 2: Scripted runbook](automation-authoring-runbooks-scripted-example.md "automation-authoring-runbooks-scripted-example.md"). You can also send
 the output from `aws:executeScript` actions in your runbooks to the Amazon CloudWatch Logs
-log group you specify. For more information, see [Logging Automation action output with
-CloudWatch Logs](automation-action-logging.md "automation-action-logging.md").
+log group you specify. For more information, see [Logging Automation action output with CloudWatch Logs](automation-action-logging.md "automation-action-logging.md").
 
 If you want to send output from `aws:executeScript` actions to CloudWatch Logs, or if
 the scripts you specify for `aws:executeScript` actions call AWS API

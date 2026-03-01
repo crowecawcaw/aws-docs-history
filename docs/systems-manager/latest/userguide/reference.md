@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # AWS Systems Manager reference
 
 The following information and topics can help you better implement AWS Systems Manager
@@ -54,13 +46,8 @@ Systems Manager issues in [AWS re:Post](https://repost.aws/tags/TA-UbbRGVYRWCDaC
 ###### More reference topics
 
 - [Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md")
-- [Reference: Amazon S3 buckets for patching
-  operations](patch-operations-s3-buckets.md "patch-operations-s3-buckets.md")
-- [Reference: Amazon EventBridge event patterns and types
-  for Systems Manager](reference-eventbridge-events.md "reference-eventbridge-events.md")
-- [Reference: Cron and rate expressions
-  for Systems Manager](reference-cron-and-rate-expressions.md "reference-cron-and-rate-expressions.md")
-- [Reference: ec2messages,
-  ssmmessages, and other API operations](systems-manager-setting-up-messageAPIs.md "systems-manager-setting-up-messageAPIs.md")
-- [Reference: Date and time string formats
-  for Systems Manager](systems-manager-datetime-strings.md "systems-manager-datetime-strings.md")
+- [Reference: Amazon S3 buckets for patching operations](patch-operations-s3-buckets.md "patch-operations-s3-buckets.md")
+- [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md "reference-eventbridge-events.md")
+- [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md "reference-cron-and-rate-expressions.md")
+- [Reference: ec2messages, ssmmessages, and other API operations](systems-manager-setting-up-messageAPIs.md "systems-manager-setting-up-messageAPIs.md")
+- [Reference: Date and time string formats for Systems Manager](systems-manager-datetime-strings.md "systems-manager-datetime-strings.md")

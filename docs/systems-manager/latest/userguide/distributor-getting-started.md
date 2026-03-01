@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Setting up Distributor
 
 Before you use Distributor, a tool in AWS Systems Manager, to create, manage, and deploy software
@@ -27,9 +19,7 @@ following requirements.
 Systems Manager doesn't support distributing packages to Oracle Linux managed nodes by
 using Distributor.
 
-## Verify or create an
-
-IAM instance profile with Distributor permissions
+## Verify or create an IAM instance profile with Distributor permissions
 
 By default, AWS Systems Manager doesn't have permission to perform actions on your
 instances. You must grant access by using an AWS Identity and Access Management (IAM) instance profile. An
@@ -50,9 +40,7 @@ instances. The simplest way to ensure that you have permissions to perform Distr
 tasks is to attach the **AmazonSSMManagedInstanceCore**
 policy to your instance profile. For more information, see [Configure instance permissions required for Systems Manager](setup-instance-permissions.md "setup-instance-permissions.md").
 
-## Control user access to
-
-packages
+## Control user access to packages
 
 Using AWS Identity and Access Management (IAM) policies, you can control who can create, deploy, and
 manage packages. You also control which Run Command and State Manager API operations they
@@ -87,9 +75,7 @@ Policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/
 Removing IAM Policies](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md") in the
 _IAM User Guide_.
 
-## Create or choose an Amazon S3 bucket to
-
-store Distributor packages
+## Create or choose an Amazon S3 bucket to store Distributor packages
 
 When you create a package by using the **Simple** workflow in the
 AWS Systems Manager console, you choose an existing Amazon Simple Storage Service (Amazon S3) bucket to which Distributor

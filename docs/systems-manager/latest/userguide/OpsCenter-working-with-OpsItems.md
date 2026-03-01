@@ -1,17 +1,8 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Manage OpsItems
 
 OpsCenter, a tool in AWS Systems Manager, tracks OpsItems from their creation to resolution. If you
 set up OpsCenter for cross-account administration, a delegated administrator or
-management account can manage OpsItems from their account. For more information, see [(Optional)
-Manually set up OpsCenter to centrally manage OpsItems across accounts](OpsCenter-getting-started-multiple-accounts.md "OpsCenter-getting-started-multiple-accounts.md").
+management account can manage OpsItems from their account. For more information, see [(Optional) Manually set up OpsCenter to centrally manage OpsItems across accounts](OpsCenter-getting-started-multiple-accounts.md "OpsCenter-getting-started-multiple-accounts.md").
 
 You can view and manage OpsItems by using the following pages in the Systems Manager console:
 
@@ -45,20 +36,12 @@ You can view and manage OpsItems by using the following pages in the Systems Man
 
 ###### Topics
 
-- [Viewing details of
-  an OpsItem](OpsCenter-working-with-OpsItems-viewing-details.md "OpsCenter-working-with-OpsItems-viewing-details.md")
-- [Editing an
-  OpsItem](OpsCenter-working-with-OpsItems-editing-details.md "OpsCenter-working-with-OpsItems-editing-details.md")
-- [Adding
-  related resources to an OpsItem](OpsCenter-working-with-OpsItems-adding-related-resources.md "OpsCenter-working-with-OpsItems-adding-related-resources.md")
-- [Adding
-  related OpsItems to an OpsItem](OpsCenter-working-with-OpsItems-adding-related-OpsItems.md "OpsCenter-working-with-OpsItems-adding-related-OpsItems.md")
-- [Adding
-  operational data to an OpsItem](OpsCenter-working-with-OpsItems-adding-operational-data.md "OpsCenter-working-with-OpsItems-adding-operational-data.md")
-- [Creating an
-  incident for an OpsItem](OpsCenter-working-with-OpsItems-create-an-incident.md "OpsCenter-working-with-OpsItems-create-an-incident.md")
+- [Viewing details of an OpsItem](OpsCenter-working-with-OpsItems-viewing-details.md "OpsCenter-working-with-OpsItems-viewing-details.md")
+- [Editing an OpsItem](OpsCenter-working-with-OpsItems-editing-details.md "OpsCenter-working-with-OpsItems-editing-details.md")
+- [Adding related resources to an OpsItem](OpsCenter-working-with-OpsItems-adding-related-resources.md "OpsCenter-working-with-OpsItems-adding-related-resources.md")
+- [Adding related OpsItems to an OpsItem](OpsCenter-working-with-OpsItems-adding-related-OpsItems.md "OpsCenter-working-with-OpsItems-adding-related-OpsItems.md")
+- [Adding operational data to an OpsItem](OpsCenter-working-with-OpsItems-adding-operational-data.md "OpsCenter-working-with-OpsItems-adding-operational-data.md")
+- [Creating an incident for an OpsItem](OpsCenter-working-with-OpsItems-create-an-incident.md "OpsCenter-working-with-OpsItems-create-an-incident.md")
 - [Managing duplicate OpsItems](OpsCenter-working-deduplication.md "OpsCenter-working-deduplication.md")
-- [Analyzing operational
-  insights to reduce OpsItems](OpsCenter-working-operational-insights.md "OpsCenter-working-operational-insights.md")
-- [Viewing OpsCenter logs and
-  reports](OpsCenter-logging-auditing.md "OpsCenter-logging-auditing.md")
+- [Analyzing operational insights to reduce OpsItems](OpsCenter-working-operational-insights.md "OpsCenter-working-operational-insights.md")
+- [Viewing OpsCenter logs and reports](OpsCenter-logging-auditing.md "OpsCenter-logging-auditing.md")

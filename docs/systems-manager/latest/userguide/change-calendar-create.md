@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Creating a change calendar
 
 When you create an entry in Change Calendar, a tool in AWS Systems Manager, you're creating a Systems Manager
@@ -35,8 +27,7 @@ calendar.
 Supported providers include Google Calendar, Microsoft Outlook, and iCloud
 Calendar.
 
-For more information, see [Importing events from third-party
-calendar providers](change-calendar-import.md "change-calendar-import.md"). 7. In **Calendar type**, choose one of the following.
+For more information, see [Importing events from third-party calendar providers](change-calendar-import.md "change-calendar-import.md"). 7. In **Calendar type**, choose one of the following.
 
     * **Open by default** - The calendar is open
      (Automation actions can run until an event starts), then closed for
@@ -62,5 +53,4 @@ the **Change Calendar** list. The columns show the calendar
 version and the calendar owner's AWS account number. Your calendar entry
 can't prevent or allow any actions until you have created or imported at
 least one event. For information about creating an event, see [Creating a Change Calendar event](change-calendar-create-event.md "change-calendar-create-event.md"). For information about
-importing events, see [Importing events from third-party
-calendar providers](change-calendar-import.md "change-calendar-import.md").
+importing events, see [Importing events from third-party calendar providers](change-calendar-import.md "change-calendar-import.md").

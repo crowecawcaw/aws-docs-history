@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Setting an existing patch
-
-baseline as the default
+# Setting an existing patch baseline as the default
 
 ###### Important
 
@@ -19,8 +9,7 @@ policies, see [Patch policy configurations in Quick Setup](patch-manager-policie
 
 When you create a custom patch baseline in Patch Manager, a tool in AWS Systems Manager, you
 can set the baseline as the default for the associated operating system type as
-soon as you create it. For information, see [Working with custom patch
-baselines](patch-manager-manage-patch-baselines.md "patch-manager-manage-patch-baselines.md").
+soon as you create it. For information, see [Working with custom patch baselines](patch-manager-manage-patch-baselines.md "patch-manager-manage-patch-baselines.md").
 
 You can also set an existing patch baseline as the default for an operating
 system type.

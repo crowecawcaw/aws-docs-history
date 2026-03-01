@@ -1,15 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Step 7:
-
-(Optional) Turn on or turn off ssm-user account administrative
-permissions
+# Step 7: (Optional) Turn on or turn off ssm-user account administrative permissions
 
 Starting with version 2.3.50.0 of AWS Systems Manager SSM Agent, the agent creates a local
 user account called `ssm-user` and adds it to
@@ -27,14 +16,10 @@ restore these permissions after they have been removed.
 
 ###### Topics
 
-- [Managing ssm-user sudo account
-  permissions on Linux and macOS](#ssm-user-permissions-linux "#ssm-user-permissions-linux")
-- [Managing ssm-user Administrator
-  account permissions on Windows Server](#ssm-user-permissions-windows "#ssm-user-permissions-windows")
+- [Managing ssm-user sudo account permissions on Linux and macOS](#ssm-user-permissions-linux "#ssm-user-permissions-linux")
+- [Managing ssm-user Administrator account permissions on Windows Server](#ssm-user-permissions-windows "#ssm-user-permissions-windows")
 
-## Managing ssm-user sudo account
-
-permissions on Linux and macOS
+## Managing ssm-user sudo account permissions on Linux and macOS
 
 Use one of the following procedures to turn on or turn off the ssm-user
 account sudo permissions on Linux and macOS managed
@@ -98,9 +83,7 @@ ssm-user ALL=(ALL) NOPASSWD:ALL
 
 5. Save the file.
 
-## Managing ssm-user Administrator
-
-account permissions on Windows Server
+## Managing ssm-user Administrator account permissions on Windows Server
 
 Use one of the following procedures to turn on or turn off the ssm-user
 account Administrator permissions on Windows Server managed nodes.
@@ -131,9 +114,7 @@ parameters** area, paste the following in the
 net localgroup "Administrators" "ssm-user" /add
 ```
 
-###### Use the PowerShell or command prompt window to modify
-
-Administrator permissions
+###### Use the PowerShell or command prompt window to modify Administrator permissions
 
 1. Connect to the managed node and open the PowerShell or
    Command Prompt window.
@@ -151,9 +132,7 @@ To restore administrative access, run the following command.
 net localgroup "Administrators" "ssm-user" /add
 ```
 
-###### Use the Windows console to modify Administrator
-
-permissions
+###### Use the Windows console to modify Administrator permissions
 
 1. Connect to the managed node and open the PowerShell or
    Command Prompt window.

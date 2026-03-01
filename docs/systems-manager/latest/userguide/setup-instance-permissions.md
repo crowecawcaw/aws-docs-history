@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Configure instance permissions required for
-
-Systems Manager
+# Configure instance permissions required for Systems Manager
 
 By default, AWS Systems Manager doesn't have permission to perform actions on your instances.
 You can provide instance permissions at the account level using an AWS Identity and Access Management (IAM)
@@ -22,9 +12,7 @@ You can skip this step and allow Systems Manager to apply the required permissio
 instances for you when setting up the unified console. For more information, see
 [Setting up AWS Systems Manager](systems-manager-setting-up-console.md "systems-manager-setting-up-console.md").
 
-## Recommended configuration for EC2 instance
-
-permissions
+## Recommended configuration for EC2 instance permissions
 
 Default Host Management Configuration allows Systems Manager to manage your Amazon EC2 instances
 automatically. After you've turned on this setting, all instances using Instance
@@ -34,8 +22,7 @@ instances. Default Host Management Configuration doesn't support Instance Metada
 Service Version 1. For information about transitioning to IMDSv2, see [Transition to using Instance Metadata Service Version 2](../../../AWSEC2/latest/UserGuide/instance-metadata-transition-to-version-2.md "../../../AWSEC2/latest/UserGuide/instance-metadata-transition-to-version-2.md") in the
 _Amazon EC2 User Guide_. For information about checking the
 version of the SSM Agent installed on your instance, see [Checking the SSM Agent version number](ssm-agent-get-version.md "ssm-agent-get-version.md"). For
-information about updating the SSM Agent, see [Automatically updating
-SSM Agent](ssm-agent-automatic-updates.md#ssm-agent-automatic-updates-console "ssm-agent-automatic-updates.md#ssm-agent-automatic-updates-console"). Benefits of managed
+information about updating the SSM Agent, see [Automatically updating SSM Agent](ssm-agent-automatic-updates.md#ssm-agent-automatic-updates-console "ssm-agent-automatic-updates.md#ssm-agent-automatic-updates-console"). Benefits of managed
 instances include the following:
 
 - Connect to your instances securely using Session Manager.
@@ -56,9 +43,7 @@ of the capabilities provided by the default IAM role, you can create your own
 custom role and policies. Any changes made to the IAM role you choose for Default
 Host Management Configuration applies to all managed Amazon EC2 instances in the Region
 and account. For more information about the policy used by Default Host Management
-Configuration, see [AWS
-managed policy: AmazonSSMManagedEC2InstanceDefaultPolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSSMManagedEC2InstanceDefaultPolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSSMManagedEC2InstanceDefaultPolicy"). For more information about the Default Host Management Configuration, see [Managing EC2
-instances automatically with Default Host Management Configuration](fleet-manager-default-host-management-configuration.md "fleet-manager-default-host-management-configuration.md").
+Configuration, see [AWS managed policy: AmazonSSMManagedEC2InstanceDefaultPolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSSMManagedEC2InstanceDefaultPolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSSMManagedEC2InstanceDefaultPolicy"). For more information about the Default Host Management Configuration, see [Managing EC2 instances automatically with Default Host Management Configuration](fleet-manager-default-host-management-configuration.md "fleet-manager-default-host-management-configuration.md").
 
 ###### Important
 
@@ -155,9 +140,7 @@ to automatically manage your Amazon EC2 instances.
 
 [Show moreShow less](# "#")
 
-## Alternative configuration for EC2
-
-instance permissions
+## Alternative configuration for EC2 instance permissions
 
 You can grant access at the individual instance level by using an AWS Identity and Access Management
 (IAM) instance profile. An instance profile is a container that passes IAM role
@@ -188,9 +171,7 @@ Depending on whether you're creating a new role for your instance profile or
 adding the necessary permissions to an existing role, use one of the following
 procedures.
 
-###### To create an instance
-
-profile for Systems Manager managed instances (console)
+###### To create an instance profile for Systems Manager managed instances (console)
 
 1. Open the IAM console at
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -212,8 +193,7 @@ profile for Systems Manager managed instances (console)
    The console retains your selection even if you search for
    other policies.
    - If you created a custom S3 bucket policy in the previous
-     procedure, [(Optional) Create a custom
-     policy for S3 bucket access](#instance-profile-custom-s3-policy "#instance-profile-custom-s3-policy"), search
+     procedure, [(Optional) Create a custom policy for S3 bucket access](#instance-profile-custom-s3-policy "#instance-profile-custom-s3-policy"), search
      for it and select the check box next to its name.
    - If you plan to join instances to an Active Directory managed
      by Directory Service, search for
@@ -239,9 +219,7 @@ the **Roles** page.
 
 [Show moreShow less](# "#")
 
-###### To add instance profile
-
-permissions for Systems Manager to an existing role (console)
+###### To add instance profile permissions for Systems Manager to an existing role (console)
 
 1. Open the IAM console at
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -257,8 +235,7 @@ permissions for Systems Manager to an existing role (console)
      Select the check box next to its name.
    - If you have created a custom S3 bucket policy, search for it
      and select the check box next to its name. For information about
-     custom S3 bucket policies for an instance profile, see [(Optional) Create a custom
-     policy for S3 bucket access](#instance-profile-custom-s3-policy "#instance-profile-custom-s3-policy").
+     custom S3 bucket policies for an instance profile, see [(Optional) Create a custom policy for S3 bucket access](#instance-profile-custom-s3-policy "#instance-profile-custom-s3-policy").
    - If you plan to join instances to an Active Directory managed
      by Directory Service, search for
      **AmazonSSMDirectoryServiceAccess** and
@@ -275,9 +252,7 @@ For information about how to update a role to include a trusted entity or furthe
 restrict access, see [Modifying a role](../../../IAM/latest/UserGuide/id_roles_manage_modify.md "../../../IAM/latest/UserGuide/id_roles_manage_modify.md")
 in the _IAM User Guide_.
 
-## (Optional) Create a custom
-
-policy for S3 bucket access
+## (Optional) Create a custom policy for S3 bucket access
 
 Creating a custom policy for Amazon S3 access is required only if you're using a VPC
 endpoint or using an S3 bucket of your own in your Systems Manager operations. You can attach
@@ -285,8 +260,7 @@ this policy to the default IAM role created by the Default Host Management
 Configuration, or an instance profile you created in the previous procedure.
 
 For information about the AWS managed S3 buckets you provide access to in the
-following policy, see [SSM Agent communications with
-AWS managed S3 buckets](ssm-agent-technical-details.md#ssm-agent-minimum-s3-permissions "ssm-agent-technical-details.md#ssm-agent-minimum-s3-permissions").
+following policy, see [SSM Agent communications with AWS managed S3 buckets](ssm-agent-technical-details.md#ssm-agent-minimum-s3-permissions "ssm-agent-technical-details.md#ssm-agent-minimum-s3-permissions").
 
 1. Open the IAM console at
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -409,9 +383,7 @@ can delete the second `Statement` element. 6. Choose **Next: Tags**. 7. (Optiona
 the preferred tags for the policy. 8. Choose **Next: Review**. 9. For **Name**, enter a name to identify this policy, such
 as `SSMInstanceProfileS3Policy`. 10. Choose **Create policy**.
 
-## Additional policy
-
-considerations for managed instances
+## Additional policy considerations for managed instances
 
 This section describes some of the policies you can add to the default IAM role
 created by the Default Host Management Configuration, or your instance profiles for
@@ -454,14 +426,11 @@ _[Amazon CloudWatch Logs User Guide](../../../AmazonCloudWatch/latest/logs.md ".
 To create IAM policies with permissions for additional Systems Manager tools,
 see the following resources:
 
-- [Restricting access to Parameter Store parameters
-  using IAM policies](sysman-paramstore-access.md "sysman-paramstore-access.md")
+- [Restricting access to Parameter Store parameters using IAM policies](sysman-paramstore-access.md "sysman-paramstore-access.md")
 - [Setting up Automation](automation-setup.md "automation-setup.md")
 - [Step 2: Verify or add instance permissions for Session Manager](session-manager-getting-started-instance-profile.md "session-manager-getting-started-instance-profile.md")
 
-## Attach the Systems Manager instance profile to an
-
-instance (console)
+## Attach the Systems Manager instance profile to an instance (console)
 
 The following procedure describes how to attach an IAM instance profile to an
 Amazon EC2 instance using the Amazon EC2 console.
@@ -475,8 +444,7 @@ Amazon EC2 instance using the Amazon EC2 console.
    **Security**, **Modify IAM
    role**.
 5. For **IAM role**, select the instance profile you
-   created using the procedure in [Alternative configuration for EC2
-   instance permissions](#instance-profile-add-permissions "#instance-profile-add-permissions").
+   created using the procedure in [Alternative configuration for EC2 instance permissions](#instance-profile-add-permissions "#instance-profile-add-permissions").
 6. Choose **Update **IAM role\*\*\*\*.
 
 For more information about attaching IAM roles to instances, choose one of the
@@ -487,5 +455,4 @@ following, depending on your selected operating system type:
 - [Attach an IAM role to an instance](../../../AWSEC2/latest/WindowsGuide/iam-roles-for-amazon-ec2.md#attach-iam-role "../../../AWSEC2/latest/WindowsGuide/iam-roles-for-amazon-ec2.md#attach-iam-role") in the
   _Amazon EC2 User Guide_
 
-Continue to [Improve the security of EC2 instances by using VPC
-endpoints for Systems Manager](setup-create-vpc.md "setup-create-vpc.md").
+Continue to [Improve the security of EC2 instances by using VPC endpoints for Systems Manager](setup-create-vpc.md "setup-create-vpc.md").

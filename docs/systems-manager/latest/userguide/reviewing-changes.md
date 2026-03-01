@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Reviewing change request details, tasks, and
-
-timelines (console)
+# Reviewing change request details, tasks, and timelines (console)
 
 ###### Change Manager availability change
 
@@ -81,8 +71,7 @@ completed successfully in the past 24 hours, do the following:
    the change request ran. You can turn on CloudTrail Lake event tracking
    from any change request in your account or organization. For
    information about enabling CloudTrail Lake integration and creating an
-   event data store, see [Monitoring your change request
-   events](monitoring-change-request-events.md "monitoring-change-request-events.md").
+   event data store, see [Monitoring your change request events](monitoring-change-request-events.md "monitoring-change-request-events.md").
 
    ###### Note
 

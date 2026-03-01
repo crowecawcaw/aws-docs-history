@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Creating change requests
 
 ###### Change Manager availability change
@@ -38,16 +30,11 @@ those changes won't be reported in or viewable from the delegated administrator 
 
 ###### Topics
 
-- [About change request
-  approvals](#cm-approvals-requests "#cm-approvals-requests")
-- [Creating change requests
-  (console)](#change-requests-create-console "#change-requests-create-console")
-- [Creating change requests
-  (AWS CLI)](#change-requests-create-cli "#change-requests-create-cli")
+- [About change request approvals](#cm-approvals-requests "#cm-approvals-requests")
+- [Creating change requests (console)](#change-requests-create-console "#change-requests-create-console")
+- [Creating change requests (AWS CLI)](#change-requests-create-cli "#change-requests-create-cli")
 
-## About change request
-
-approvals
+## About change request approvals
 
 Depending on the requirements specified in a change template,
 change requests that you create from it can require approvals from up to
@@ -111,9 +98,7 @@ No matter how many approval levels and approvers are specified, only one
 rejection to a change request is required to prevent the runbook workflow
 for that request from occurring.
 
-## Creating change requests
-
-(console)
+## Creating change requests (console)
 
 The following procedure describes how to create a change request by using
 the Systems Manager console.
@@ -213,8 +198,7 @@ one of the following:
     reviewers to be added to requests.
 
     For more information about approvals for change requests,
-    see [About change request
-    approvals](#cm-approvals-requests "#cm-approvals-requests"). 3. Under **SNS topic to notify approvers**,
+    see [About change request approvals](#cm-approvals-requests "#cm-approvals-requests"). 3. Under **SNS topic to notify approvers**,
     choose one of the following to specify the Amazon SNS topic in
     your account to use for sending notifications to the
     approvers you are adding to this change request.
@@ -242,8 +226,7 @@ one of the following:
 
     The Amazon SNS topic you select must be configured to specify the notifications it sends
     and the subscribers they're sent to. Its access policy must also grant permissions
-    to Systems Manager so Change Manager can send notifications. For information, see [Configuring Amazon SNS topics for Change Manager
-    notifications](change-manager-sns-setup.md "change-manager-sns-setup.md"). 4. Choose **Add notification**.
+    to Systems Manager so Change Manager can send notifications. For information, see [Configuring Amazon SNS topics for Change Manager notifications](change-manager-sns-setup.md "change-manager-sns-setup.md"). 4. Choose **Add notification**.
 
 11. Choose **Next**.
 12. For **IAM role**, select an IAM role
@@ -379,9 +362,7 @@ the request, notifications are sent when the request is rejected or
 approved. If you don't receive notifications for the request, you can return
 to Change Manager to check the status of your request.
 
-## Creating change requests
-
-(AWS CLI)
+## Creating change requests (AWS CLI)
 
 You can create a change request using the AWS Command Line Interface (AWS CLI) by specifying
 options and parameters for the change request in a JSON file and using the
@@ -412,8 +393,7 @@ _AWS Systems Manager API Reference_ for information about
 all available parameters
 
 For more information about approvals for change requests, see
-[About change request
-approvals](#cm-approvals-requests "#cm-approvals-requests").
+[About change request approvals](#cm-approvals-requests "#cm-approvals-requests").
 
 ```
 {

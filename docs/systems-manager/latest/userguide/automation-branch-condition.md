@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Using conditional statements in
-
-runbooks
+# Using conditional statements in runbooks
 
 By default, the steps that you define in the `mainSteps` section of a
 runbook run in sequential order. After one action is completed, the next action
@@ -41,12 +31,9 @@ create dynamic automations:
   step on failure. The default value for this option is abort.
   The following section describes the `aws:branch` automation action. For
   more information about the `nextStep`, `isEnd`,
-  `isCritical`, and `onFailure` options, see [Example aws:branch
-  runbooks](#branch-runbook-examples "#branch-runbook-examples").
+  `isCritical`, and `onFailure` options, see [Example aws:branch runbooks](#branch-runbook-examples "#branch-runbook-examples").
 
-## Working with the
-
-`aws:branch` action
+## Working with the `aws:branch` action
 
 The `aws:branch` action offers the most dynamic conditional
 branching options for automations. As noted earlier, this action allows your
@@ -148,9 +135,7 @@ mainSteps:
       PostProcessing
 ```
 
-### Creating an `aws:branch`
-
-step in a runbook
+### Creating an `aws:branch` step in a runbook
 
 When you create an `aws:branch` step in a runbook, you define
 the `Choices` the automation should evaluate to determine which
@@ -186,8 +171,7 @@ form.
 ###### Note
 
 Creating the output variable is described in more detail in
-the next section, [About creating the output
-variable](#branch-action-output "#branch-action-output").
+the next section, [About creating the output variable](#branch-action-output "#branch-action-output").
 
 - **Operation**: The criteria used to
   evaluate the choice, such as `StringEquals: Linux`. The
@@ -284,9 +268,7 @@ JSON
 }
 ```
 
-#### About creating the output
-
-variable
+#### About creating the output variable
 
 To create an `aws:branch` choice that references the output
 from a previous step, you need to identify the name of the previous step
@@ -364,9 +346,7 @@ previous step and the output.
     Default: runEC2RescueForLinux
 ```
 
-### Example `aws:branch`
-
-runbooks
+### Example `aws:branch` runbooks
 
 Here are some example runbooks that use `aws:branch`.
 
@@ -521,9 +501,7 @@ mainSteps:
     Duration: PT3S
 ```
 
-### Creating complex branching automations
-
-with operators
+### Creating complex branching automations with operators
 
 You can create complex branching automations by using the
 `And`, `Or`, and `Not` operators in your
@@ -619,9 +597,7 @@ mainSteps:
       sleep3
 ```
 
-## Examples of how to use conditional
-
-options
+## Examples of how to use conditional options
 
 This section includes different examples of how to use dynamic options in a
 runbook. Each example in this section extends the following runbook. This

@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Viewing aggregated
-
-counts of change requests (command line)
+# Viewing aggregated counts of change requests (command line)
 
 ###### Change Manager availability change
 
@@ -26,8 +16,7 @@ Regions.
 
 If you want to view aggregated counts of change requests for multiple
 AWS accounts and multiple AWS Regions, you must set up and configure a
-resource data sync. For more information, see [Creating a resource data sync
-for Inventory](inventory-create-resource-data-sync.md "inventory-create-resource-data-sync.md").
+resource data sync. For more information, see [Creating a resource data sync for Inventory](inventory-create-resource-data-sync.md "inventory-create-resource-data-sync.md").
 
 The following procedure describes how to use the AWS Command Line Interface (AWS CLI) (on Linux,
 macOS, or Windows Server) to view aggregated counts of change requests.

@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Calling AMI public
-
-parameters in Parameter Store
+# Calling AMI public parameters in Parameter Store
 
 Amazon Elastic Compute Cloud (Amazon EC2) Amazon Machine Image (AMI) public parameters are available for Amazon Linux 2,
 Amazon Linux 2023 (AL2023), macOS, and Windows Server from the following paths:
@@ -18,9 +8,7 @@ Amazon Linux 2023 (AL2023), macOS, and Windows Server from the following paths:
 - macOS: `/aws/service/ec2-macos`
 - Windows Server: `/aws/service/ami-windows-latest`
 
-## Calling AMI public parameters
-
-for Amazon Linux 2 and Amazon Linux 2023
+## Calling AMI public parameters for Amazon Linux 2 and Amazon Linux 2023
 
 You can view a list of all Amazon Linux 2 and Amazon Linux 2023 (AL2023) AMIs in the
 current AWS Region by using the following command in the AWS Command Line Interface
@@ -170,9 +158,7 @@ The command returns the following information.
 }
 ```
 
-## Calling AMI public parameters
-
-for macOS
+## Calling AMI public parameters for macOS
 
 You can view a list of all macOS AMIs in the current AWS Region by
 using the following command in the AWS CLI.
@@ -269,9 +255,7 @@ The command returns the following information.
 }
 ```
 
-## Calling AMI public parameters
-
-for Windows Server
+## Calling AMI public parameters for Windows Server
 
 You can view a list of all Windows Server AMIs in the current AWS Region by
 using the following command in the AWS CLI.

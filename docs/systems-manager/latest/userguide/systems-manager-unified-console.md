@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # What is the unified console?
 
 The unified Systems Manager console is a consolidated experience that combines various tools to
@@ -16,7 +8,7 @@ you're provided with detailed insights to your nodes. You can generate reports f
 nodes, diagnose and remediate common issues that prevent nodes from reporting as managed
 by Systems Manager, like connectivity issues.
 
-![Node data displayed on Systems Manager Review node insights page](images/SYS2-Dashboard-Nodes.png)
+![Node data displayed on Systems Manager Review node insights page](/images/systems-manager/latest/userguide/images/SYS2-Dashboard-Nodes.png)
 In addition to summaries about your nodes on the **Review node
 insights** page, you can view specific details about a node from the
 **Explore nodes** page.
@@ -85,9 +77,7 @@ patch states, nor is it defined by AWS, by operating system (OS)
 vendors, or by third parties such as security consulting firms. Instead,
 you define what patch compliance means for managed nodes in your
 organization or account in a _patch
-baseline_. For more information, see [What is compliance in
-Patch Manager?](patch-manager.md#patch-manager-definition-of-compliance "patch-manager.md#patch-manager-definition-of-compliance") and [Predefined and
-custom patch baselines](patch-manager-predefined-and-custom-patch-baselines.md "patch-manager-predefined-and-custom-patch-baselines.md").
+baseline_. For more information, see [What is compliance in Patch Manager?](patch-manager.md#patch-manager-definition-of-compliance "patch-manager.md#patch-manager-definition-of-compliance") and [Predefined and custom patch baselines](patch-manager-predefined-and-custom-patch-baselines.md "patch-manager-predefined-and-custom-patch-baselines.md").
 
 \***\*Configuration compliance\*\***
 
@@ -103,10 +93,8 @@ and different execution details. For related information, see [AWS Systems Manag
 
 Whether you have nodes in multiple accounts and Regions in an organization, or nodes
 in a single account and Region, we recommend using the unified console. To learn about
-the node tasks you can perform now using the unified console, see [Performing node management tasks with
-AWS Systems Manager](systems-manager-node-tasks.md "systems-manager-node-tasks.md").
+the node tasks you can perform now using the unified console, see [Performing node management tasks with AWS Systems Manager](systems-manager-node-tasks.md "systems-manager-node-tasks.md").
 
-For more information about setting up your nodes for Systems Manager, see [Setting up managed nodes for
-AWS Systems Manager](systems-manager-setting-up-nodes.md "systems-manager-setting-up-nodes.md"). After you've set up your nodes,
+For more information about setting up your nodes for Systems Manager, see [Setting up managed nodes for AWS Systems Manager](systems-manager-setting-up-nodes.md "systems-manager-setting-up-nodes.md"). After you've set up your nodes,
 you can set up Systems Manager and the unified console. To learn more about setting up Systems Manager, see
 [Setting up AWS Systems Manager](systems-manager-setting-up-console.md "systems-manager-setting-up-console.md").

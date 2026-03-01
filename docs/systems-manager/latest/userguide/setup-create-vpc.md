@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Improve the security of EC2 instances by using VPC
-
-endpoints for Systems Manager
+# Improve the security of EC2 instances by using VPC endpoints for Systems Manager
 
 You can improve the security posture of your managed nodes (including non-EC2 machines
 in a [hybrid and multicloud](operating-systems-and-machine-types.md#supported-machine-types "operating-systems-and-machine-types.md#supported-machine-types") environment) by configuring AWS Systems Manager to use an interface VPC endpoint
@@ -38,8 +28,7 @@ your managed instances. In this case, the managed instances must also allow HTTP
   reason, you don't need to configure your firewall to allow inbound traffic to your
   instances for Systems Manager.
 
-For more information about calls to these endpoints, see [Reference: ec2messages,
-ssmmessages, and other API operations](systems-manager-setting-up-messageAPIs.md "systems-manager-setting-up-messageAPIs.md").
+For more information about calls to these endpoints, see [Reference: ec2messages, ssmmessages, and other API operations](systems-manager-setting-up-messageAPIs.md "systems-manager-setting-up-messageAPIs.md").
 
 If you are using Systems Manager in an environment that supports _only_ IPv6, you must also allow outbound traffic to the following
 endpoints:
@@ -70,15 +59,11 @@ and network access control lists. For more information, see the [Amazon VPC User
 
 ###### Topics
 
-- [VPC endpoint restrictions and
-  limitations](#vpc-requirements-and-limitations "#vpc-requirements-and-limitations")
+- [VPC endpoint restrictions and limitations](#vpc-requirements-and-limitations "#vpc-requirements-and-limitations")
 - [Creating VPC endpoints for Systems Manager](#create-vpc-endpoints "#create-vpc-endpoints")
-- [Create an interface VPC
-  endpoint policy](#create-vpc-interface-endpoint-policies "#create-vpc-interface-endpoint-policies")
+- [Create an interface VPC endpoint policy](#create-vpc-interface-endpoint-policies "#create-vpc-interface-endpoint-policies")
 
-## VPC endpoint restrictions and
-
-limitations
+## VPC endpoint restrictions and limitations
 
 Before you configure VPC endpoints for Systems Manager, be aware of the following
 restrictions and limitations.
@@ -114,8 +99,7 @@ your VPC.
 ###### S3 buckets
 
 Your VPC endpoint policy must allow access to at least the Amazon S3 buckets listed
-in [SSM Agent communications with
-AWS managed S3 buckets](ssm-agent-technical-details.md#ssm-agent-minimum-s3-permissions "ssm-agent-technical-details.md#ssm-agent-minimum-s3-permissions").
+in [SSM Agent communications with AWS managed S3 buckets](ssm-agent-technical-details.md#ssm-agent-minimum-s3-permissions "ssm-agent-technical-details.md#ssm-agent-minimum-s3-permissions").
 
 ###### Note
 
@@ -180,8 +164,7 @@ endpoints:
   Systems Manager service, for Run Command, and if you're connecting to your instances
   through a secure data channel using Session Manager. For more information, see
   [AWS Systems Manager Session Manager](session-manager.md "session-manager.md") and
-  [Reference: ec2messages,
-  ssmmessages, and other API operations](systems-manager-setting-up-messageAPIs.md "systems-manager-setting-up-messageAPIs.md").
+  [Reference: ec2messages, ssmmessages, and other API operations](systems-manager-setting-up-messageAPIs.md "systems-manager-setting-up-messageAPIs.md").
 - (Optional)
   **`com.amazonaws.`region`.kms`**
   – Create this endpoint if you want to use AWS Key Management Service (AWS KMS)
@@ -192,15 +175,12 @@ endpoints:
   Session Manager, Run Command, or SSM Agent logs.
 
 For information about the AWS managed S3 buckets that SSM Agent must be able to
-access, see [SSM Agent communications with
-AWS managed S3 buckets](ssm-agent-technical-details.md#ssm-agent-minimum-s3-permissions "ssm-agent-technical-details.md#ssm-agent-minimum-s3-permissions"). If you're using a virtual
+access, see [SSM Agent communications with AWS managed S3 buckets](ssm-agent-technical-details.md#ssm-agent-minimum-s3-permissions "ssm-agent-technical-details.md#ssm-agent-minimum-s3-permissions"). If you're using a virtual
 private cloud (VPC) endpoint in your Systems Manager operations, you must provide explicit
 permission in an EC2 instance profile for Systems Manager, or in a service role for non-EC2
 managed nodes in a [hybrid and multicloud](operating-systems-and-machine-types.md#supported-machine-types "operating-systems-and-machine-types.md#supported-machine-types") environment.
 
-## Create an interface VPC
-
-endpoint policy
+## Create an interface VPC endpoint policy
 
 You can create policies for VPC interface endpoints for AWS Systems Manager in which you can
 specify:

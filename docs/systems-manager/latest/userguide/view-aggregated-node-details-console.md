@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Exploring nodes using console
-
-filters
+# Exploring nodes using console filters
 
 In the Systems Manager console, you can then group your managed nodes according to the following
 views:
@@ -54,5 +44,4 @@ reports to Amazon S3 in `CSV` format.
 
 ###### Topics
 
-- [Choosing a filter view for managed node
-  summaries](explore-nodes-filter-view.md "explore-nodes-filter-view.md")
+- [Choosing a filter view for managed node summaries](explore-nodes-filter-view.md "explore-nodes-filter-view.md")

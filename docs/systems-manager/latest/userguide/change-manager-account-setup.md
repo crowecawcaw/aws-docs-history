@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Configuring Change Manager options and best
-
-practices
+# Configuring Change Manager options and best practices
 
 ###### Change Manager availability change
 
@@ -26,24 +16,17 @@ allowed for use with Change Manager.
 
 ###### Topics
 
-- [Task 1: Configuring Change Manager user
-  identity management and template reviewers](#cm-configure-account-task-1 "#cm-configure-account-task-1")
-- [Task 2: Configuring Change Manager
-  change freeze event approvers and best practices](#cm-configure-account-task-2 "#cm-configure-account-task-2")
-- [Configuring Amazon SNS topics for Change Manager
-  notifications](change-manager-sns-setup.md "change-manager-sns-setup.md")
+- [Task 1: Configuring Change Manager user identity management and template reviewers](#cm-configure-account-task-1 "#cm-configure-account-task-1")
+- [Task 2: Configuring Change Manager change freeze event approvers and best practices](#cm-configure-account-task-2 "#cm-configure-account-task-2")
+- [Configuring Amazon SNS topics for Change Manager notifications](change-manager-sns-setup.md "change-manager-sns-setup.md")
 
-## Task 1: Configuring Change Manager user
-
-identity management and template reviewers
+## Task 1: Configuring Change Manager user identity management and template reviewers
 
 Perform the task in this procedure the first time you access Change Manager. You can
 update these configuration settings later by returning to Change Manager and choosing
 **Edit** on the **Settings** tab.
 
-###### To configure Change Manager user identity management and template
-
-reviewers
+###### To configure Change Manager user identity management and template reviewers
 
 1. Sign in to the AWS Management Console.
 
@@ -82,8 +65,7 @@ of the following:
    notifications to your template reviewers.
 
 For information about creating and configuring Amazon SNS topics for
-change template reviewer notifications, see [Configuring Amazon SNS topics for Change Manager
-notifications](change-manager-sns-setup.md "change-manager-sns-setup.md").
+change template reviewer notifications, see [Configuring Amazon SNS topics for Change Manager notifications](change-manager-sns-setup.md "change-manager-sns-setup.md").
 
     1. To specify the Amazon SNS topic for template reviewer notification,
      choose one of the following:
@@ -107,8 +89,7 @@ notifications](change-manager-sns-setup.md "change-manager-sns-setup.md").
 
     The Amazon SNS topic you select must be configured to specify the notifications it sends
      and the subscribers they're sent to. Its access policy must also grant permissions
-     to Systems Manager so Change Manager can send notifications. For information, see [Configuring Amazon SNS topics for Change Manager
-     notifications](change-manager-sns-setup.md "change-manager-sns-setup.md").
+     to Systems Manager so Change Manager can send notifications. For information, see [Configuring Amazon SNS topics for Change Manager notifications](change-manager-sns-setup.md "change-manager-sns-setup.md").
     2. Choose **Add notification**.
 
 7. In the **Change template reviewers** section, select
@@ -131,15 +112,11 @@ Select change template reviewers by doing the following:
 8. Choose **Submit**.
 
 After you complete this initial setup process, configure additional Change Manager
-settings and best practices by following the steps in [Task 2: Configuring Change Manager
-change freeze event approvers and best practices](#cm-configure-account-task-2 "#cm-configure-account-task-2").
+settings and best practices by following the steps in [Task 2: Configuring Change Manager change freeze event approvers and best practices](#cm-configure-account-task-2 "#cm-configure-account-task-2").
 
-## Task 2: Configuring Change Manager
+## Task 2: Configuring Change Manager change freeze event approvers and best practices
 
-change freeze event approvers and best practices
-
-After you complete the steps in [Task 1: Configuring Change Manager user
-identity management and template reviewers](#cm-configure-account-task-1 "#cm-configure-account-task-1"), you can designate extra
+After you complete the steps in [Task 1: Configuring Change Manager user identity management and template reviewers](#cm-configure-account-task-1 "#cm-configure-account-task-1"), you can designate extra
 reviewers for change requests during _change freeze
 events_ and specify which available best practices you want to
 allow for your Change Manager operations.
@@ -152,9 +129,7 @@ allow auto-approvals, change freeze approvers must grant permission for this
 change request to run. If they don't, the change won't be processed until the
 calendar state is again `OPEN`.
 
-###### To configure Change Manager change freeze event approvers and best
-
-practices
+###### To configure Change Manager change freeze event approvers and best practices
 
 1. In the navigation pane, choose **Change Manager**.
 2. Choose the **Settings** tab, and then choose
@@ -219,8 +194,7 @@ following:
 
      The Amazon SNS topic you select must be configured to specify the notifications it sends
      and the subscribers they're sent to. Its access policy must also grant permissions
-     to Systems Manager so Change Manager can send notifications. For information, see [Configuring Amazon SNS topics for Change Manager
-     notifications](change-manager-sns-setup.md "change-manager-sns-setup.md"). 2. Choose **Add notification**.
+     to Systems Manager so Change Manager can send notifications. For information, see [Configuring Amazon SNS topics for Change Manager notifications](change-manager-sns-setup.md "change-manager-sns-setup.md"). 2. Choose **Add notification**.
 
    - Option: **Require monitors for all
      templates**

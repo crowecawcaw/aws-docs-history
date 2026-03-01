@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# How security patches are
-
-selected
+# How security patches are selected
 
 The primary focus of Patch Manager, a tool in AWS Systems Manager, is on installing operating
 systems security-related updates on managed nodes. By default, Patch Manager doesn't
@@ -56,8 +46,7 @@ Scoring System](https://www.first.org/cvss/ "https://www.first.org/cvss/") (CVSS
 
 On all Linux-based systems supported by Patch Manager, you can choose a different
 source repository configured for the managed node, typically to install
-nonsecurity updates. For information, see [How to specify an
-alternative patch source repository (Linux)](patch-manager-alternative-source-repository.md "patch-manager-alternative-source-repository.md").
+nonsecurity updates. For information, see [How to specify an alternative patch source repository (Linux)](patch-manager-alternative-source-repository.md "patch-manager-alternative-source-repository.md").
 
 Choose from the following tabs to learn how Patch Manager selects
 security patches for your operating system.
@@ -141,8 +130,7 @@ However, in order for a patch to be applied, the patch must still
 meet the user-specified patch baseline rules.
 
 For more information about the **Include non-security
-updates** option, see [How patches are installed](patch-manager-installing-patches.md "patch-manager-installing-patches.md") and [How patch baseline rules work on
-Linux-based systems](patch-manager-linux-rules.md "patch-manager-linux-rules.md").
+updates** option, see [How patches are installed](patch-manager-installing-patches.md "patch-manager-installing-patches.md") and [How patch baseline rules work on Linux-based systems](patch-manager-linux-rules.md "patch-manager-linux-rules.md").
 
 CentOS Stream
 On CentOS Stream, the Systems Manager patch baseline service uses

@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Running commands on managed nodes
 
 This section includes information about how to send commands from the AWS Systems Manager
@@ -24,8 +16,7 @@ user with access to S3 bucket can view the plaintext values of those secrets. Fo
 reason, we recommend creating and using `SecureString` parameters to encrypt
 sensitive data you use in your Systems Manager operations.
 
-For more information, see [Restricting access to Parameter Store parameters
-using IAM policies](sysman-paramstore-access.md "sysman-paramstore-access.md").
+For more information, see [Restricting access to Parameter Store parameters using IAM policies](sysman-paramstore-access.md "sysman-paramstore-access.md").
 
 ###### Execution history retention
 
@@ -38,15 +29,13 @@ AWS CloudTrail.
 For information about sending commands using other tools, see the following
 topics:
 
-- [Walkthrough: Use the AWS Tools for Windows PowerShell with
-  Run Command](walkthrough-powershell.md "walkthrough-powershell.md") or the examples in the [AWS Systems Manager section of the AWS Tools for PowerShell Cmdlet Reference](../../../powershell/latest/reference/items/AWS_Systems_Manager_cmdlets.md "../../../powershell/latest/reference/items/AWS_Systems_Manager_cmdlets.md").
+- [Walkthrough: Use the AWS Tools for Windows PowerShell with Run Command](walkthrough-powershell.md "walkthrough-powershell.md") or the examples in the [AWS Systems Manager section of the AWS Tools for PowerShell Cmdlet Reference](../../../powershell/latest/reference/items/AWS_Systems_Manager_cmdlets.md "../../../powershell/latest/reference/items/AWS_Systems_Manager_cmdlets.md").
 - [Walkthrough: Use the AWS CLI with Run Command](walkthrough-cli.md "walkthrough-cli.md") or the
   examples in the [SSM CLI Reference](../../../cli/latest/reference/ssm.md "../../../cli/latest/reference/ssm.md")
 
 ###### Contents
 
 - [Running commands from the console](running-commands-console.md "running-commands-console.md")
-- [Running commands using a specific document
-  version](run-command-version.md "run-command-version.md")
+- [Running commands using a specific document version](run-command-version.md "run-command-version.md")
 - [Run commands at scale](send-commands-multiple.md "send-commands-multiple.md")
 - [Canceling a command](cancel-run-command.md "cancel-run-command.md")

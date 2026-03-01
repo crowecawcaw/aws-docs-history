@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Streaming session data using
-
-Amazon CloudWatch Logs (console)
+# Streaming session data using Amazon CloudWatch Logs (console)
 
 You can send a continual stream of session data logs to Amazon CloudWatch Logs. Essential
 details, such as the commands a user has run in a session, the ID of the user who
@@ -26,8 +16,7 @@ However, Windows Server 2012 and 2012 R2 don't have the required
 PowerShell version installed by default. If you haven't
 already updated PowerShell on your Windows Server 2012 or 2012 R2
 managed nodes, you can do so using Run Command. For information about updating
-PowerShell using Run Command, see [Updating PowerShell using
-Run Command](run-command-tutorial-update-software.md#rc-console-pwshexample "run-command-tutorial-update-software.md#rc-console-pwshexample").
+PowerShell using Run Command, see [Updating PowerShell using Run Command](run-command-tutorial-update-software.md#rc-console-pwshexample "run-command-tutorial-update-software.md#rc-console-pwshexample").
 
 ###### Important
 

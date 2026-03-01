@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Setting up Systems Manager console
-
-access
+# Setting up Systems Manager console access
 
 To use AWS Systems Manager in the AWS Management Console, you must have the correct permissions
 configured.
@@ -17,9 +7,7 @@ For more information about how to create AWS Identity and Access Management poli
 identities, see [Create IAM policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in the
 _IAM User Guide_
 
-## Systems Manager onboarding
-
-policy
+## Systems Manager onboarding policy
 
 You can create an IAM policy like the one shown in the following example, and attach
 the policy to your IAM identities. This policy grants full access to onboard to and
@@ -289,9 +277,7 @@ JSON
 
 ```
 
-## AWS Systems Manager console operator
-
-policy
+## AWS Systems Manager console operator policy
 
 You can create an IAM policy like the one shown in the following example, and attach
 the policy to your IAM identities. This policy grants full access to operate Systems Manager, and
@@ -456,9 +442,7 @@ JSON
 
 ```
 
-## AWS Systems Manager console operator read-only
-
-policy
+## AWS Systems Manager console operator read-only policy
 
 You can create an IAM policy like the one shown in the following example, and attach
 the policy to your IAM identities. This policy grants read-only access to use Systems Manager.

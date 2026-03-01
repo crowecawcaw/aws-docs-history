@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Troubleshooting Patch Manager
 
 Use the following information to help you troubleshoot problems with Patch Manager, a tool
@@ -13,28 +5,16 @@ in AWS Systems Manager.
 
 ###### Topics
 
-- [Issue: "Invoke-PatchBaselineOperation : Access Denied" error or "Unable to
-  download file from S3" error for
-  baseline_overrides.json](#patch-manager-troubleshooting-patch-policy-baseline-overrides "#patch-manager-troubleshooting-patch-policy-baseline-overrides")
-- [Issue: Patching fails without an apparent
-  cause or error message](#race-condition-conflict "#race-condition-conflict")
-- [Issue: Unexpected patch
-  compliance results](#patch-manager-troubleshooting-compliance "#patch-manager-troubleshooting-compliance")
-- [Errors when running
-  AWS-RunPatchBaseline on Linux](#patch-manager-troubleshooting-linux "#patch-manager-troubleshooting-linux")
-- [Errors when running
-  AWS-RunPatchBaseline on Windows Server](#patch-manager-troubleshooting-windows "#patch-manager-troubleshooting-windows")
-- [Errors when running
-  AWS-RunPatchBaseline on macOS](#patch-manager-troubleshooting-macos "#patch-manager-troubleshooting-macos")
-- [Using
-  AWS Support Automation runbooks](#patch-manager-troubleshooting-using-support-runbooks "#patch-manager-troubleshooting-using-support-runbooks")
-- [Contacting
-  AWS Support](#patch-manager-troubleshooting-contact-support "#patch-manager-troubleshooting-contact-support")
+- [Issue: "Invoke-PatchBaselineOperation : Access Denied" error or "Unable to download file from S3" error for baseline_overrides.json](#patch-manager-troubleshooting-patch-policy-baseline-overrides "#patch-manager-troubleshooting-patch-policy-baseline-overrides")
+- [Issue: Patching fails without an apparent cause or error message](#race-condition-conflict "#race-condition-conflict")
+- [Issue: Unexpected patch compliance results](#patch-manager-troubleshooting-compliance "#patch-manager-troubleshooting-compliance")
+- [Errors when running AWS-RunPatchBaseline on Linux](#patch-manager-troubleshooting-linux "#patch-manager-troubleshooting-linux")
+- [Errors when running AWS-RunPatchBaseline on Windows Server](#patch-manager-troubleshooting-windows "#patch-manager-troubleshooting-windows")
+- [Errors when running AWS-RunPatchBaseline on macOS](#patch-manager-troubleshooting-macos "#patch-manager-troubleshooting-macos")
+- [Using AWS Support Automation runbooks](#patch-manager-troubleshooting-using-support-runbooks "#patch-manager-troubleshooting-using-support-runbooks")
+- [Contacting AWS Support](#patch-manager-troubleshooting-contact-support "#patch-manager-troubleshooting-contact-support")
 
-## Issue: "Invoke-PatchBaselineOperation : Access Denied" error or "Unable to
-
-download file from S3" error for
-`baseline_overrides.json`
+## Issue: "Invoke-PatchBaselineOperation : Access Denied" error or "Unable to download file from S3" error for `baseline_overrides.json`
 
 **Problem**: When the patching operations specified
 by your patch policy run, you receive an error similar to the following example.
@@ -95,12 +75,9 @@ organization-wide patching using a Quick Setup patch policy](quick-setup-patch-m
 
 **Solution 2**: Manually add the required permissions
 and tags to each IAM instance profile and IAM service role that you use with
-Quick Setup. For instructions, see [Permissions for the patch
-policy S3 bucket](quick-setup-patch-manager.md#patch-policy-s3-bucket-permissions "quick-setup-patch-manager.md#patch-policy-s3-bucket-permissions").
+Quick Setup. For instructions, see [Permissions for the patch policy S3 bucket](quick-setup-patch-manager.md#patch-policy-s3-bucket-permissions "quick-setup-patch-manager.md#patch-policy-s3-bucket-permissions").
 
-## Issue: Patching fails without an apparent
-
-cause or error message
+## Issue: Patching fails without an apparent cause or error message
 
 **Problem**: A patching operation fails without
 returning an error message.
@@ -118,9 +95,7 @@ to assess the current compliance state.
 If you determine that external reboots weren't the cause of the
 failure in this scenario, we recommend contacting [AWS Support](#patch-manager-troubleshooting-contact-support "#patch-manager-troubleshooting-contact-support").
 
-## Issue: Unexpected patch
-
-compliance results
+## Issue: Unexpected patch compliance results
 
 **Problem**: When reviewing the patching compliance
 details generated after a `Scan` operation, the results include
@@ -147,62 +122,34 @@ different rules, they will result in differing patch compliance results.
 **Solution**: To avoid unexpected patch compliance
 results, we recommend using only one method at a time for running the Patch
 Manager
-`Scan` operation. For more information, see [Identifying the
-execution that created patch compliance data](patch-manager-compliance-data-overwrites.md "patch-manager-compliance-data-overwrites.md").
+`Scan` operation. For more information, see [Identifying the execution that created patch compliance data](patch-manager-compliance-data-overwrites.md "patch-manager-compliance-data-overwrites.md").
 
-## Errors when running
-
-`AWS-RunPatchBaseline` on Linux
+## Errors when running `AWS-RunPatchBaseline` on Linux
 
 ###### Topics
 
-- [Issue: 'No such file or
-  directory' error](#patch-manager-troubleshooting-linux-1 "#patch-manager-troubleshooting-linux-1")
-- [Issue: 'another process
-  has acquired yum lock' error](#patch-manager-troubleshooting-linux-2 "#patch-manager-troubleshooting-linux-2")
-- [Issue: 'Permission
-  denied / failed to run commands' error](#patch-manager-troubleshooting-linux-3 "#patch-manager-troubleshooting-linux-3")
-- [Issue: 'Unable to
-  download payload' error](#patch-manager-troubleshooting-linux-4 "#patch-manager-troubleshooting-linux-4")
-- [Issue: 'unsupported
-  package manager and python version combination' error](#patch-manager-troubleshooting-linux-5 "#patch-manager-troubleshooting-linux-5")
-- [Issue: Patch Manager isn't
-  applying rules specified to exclude certain packages](#patch-manager-troubleshooting-linux-6 "#patch-manager-troubleshooting-linux-6")
-- [Issue: Patching fails
-  and Patch Manager reports that the Server Name Indication extension to TLS is not
-  available](#patch-manager-troubleshooting-linux-7 "#patch-manager-troubleshooting-linux-7")
-- [Issue: Patch Manager reports
-  'No more mirrors to try'](#patch-manager-troubleshooting-linux-8 "#patch-manager-troubleshooting-linux-8")
-- [Issue: Patching fails
-  with 'Error code returned from curl is 23'](#patch-manager-troubleshooting-linux-9 "#patch-manager-troubleshooting-linux-9")
-- [Issue: Patching fails with ‘Error
-  unpacking rpm package…’ message](#error-unpacking-rpm "#error-unpacking-rpm")
-- [Issue: Patching fails with 'Encounter
-  service side error when uploading the inventory'](#inventory-upload-error "#inventory-upload-error")
-- [Issue: Patching fails with ‘Errors
-  were encountered while downloading packages’ message](#errors-while-downloading "#errors-while-downloading")
-- [Issue: Patching fails with a message
-  that 'The following signatures couldn't be verified because the public key
-  is not available'](#public-key-unavailable "#public-key-unavailable")
-- [Issue: Patching fails with a
-  'NoMoreMirrorsRepoError' message](#no-more-mirrors-repo-error "#no-more-mirrors-repo-error")
-- [Issue: Patching fails with an 'Unable
-  to download payload' message](#payload-download-error "#payload-download-error")
-- [Issue: Patching fails with a message
-  'install errors: dpkg: error: dpkg frontend is locked by another
-  process'](#dpkg-frontend-locked "#dpkg-frontend-locked")
-- [Issue: Patching on Ubuntu Server fails with a
-  'dpkg was interrupted' error](#dpkg-interrupted "#dpkg-interrupted")
-- [Issue: The package manager utility can't
-  resolve a package dependency](#unresolved-dependency "#unresolved-dependency")
-- [Issue: Zypper
-  package lock dependency failures on SLES managed nodes](#patch-manager-troubleshooting-linux-zypper-locks "#patch-manager-troubleshooting-linux-zypper-locks")
-- [Issue:
-  Cannot acquire lock. Another patching operation is in progress.](#patch-manager-troubleshooting-linux-concurrent-lock "#patch-manager-troubleshooting-linux-concurrent-lock")
+- [Issue: 'No such file or directory' error](#patch-manager-troubleshooting-linux-1 "#patch-manager-troubleshooting-linux-1")
+- [Issue: 'another process has acquired yum lock' error](#patch-manager-troubleshooting-linux-2 "#patch-manager-troubleshooting-linux-2")
+- [Issue: 'Permission denied / failed to run commands' error](#patch-manager-troubleshooting-linux-3 "#patch-manager-troubleshooting-linux-3")
+- [Issue: 'Unable to download payload' error](#patch-manager-troubleshooting-linux-4 "#patch-manager-troubleshooting-linux-4")
+- [Issue: 'unsupported package manager and python version combination' error](#patch-manager-troubleshooting-linux-5 "#patch-manager-troubleshooting-linux-5")
+- [Issue: Patch Manager isn't applying rules specified to exclude certain packages](#patch-manager-troubleshooting-linux-6 "#patch-manager-troubleshooting-linux-6")
+- [Issue: Patching fails and Patch Manager reports that the Server Name Indication extension to TLS is not available](#patch-manager-troubleshooting-linux-7 "#patch-manager-troubleshooting-linux-7")
+- [Issue: Patch Manager reports 'No more mirrors to try'](#patch-manager-troubleshooting-linux-8 "#patch-manager-troubleshooting-linux-8")
+- [Issue: Patching fails with 'Error code returned from curl is 23'](#patch-manager-troubleshooting-linux-9 "#patch-manager-troubleshooting-linux-9")
+- [Issue: Patching fails with ‘Error unpacking rpm package…’ message](#error-unpacking-rpm "#error-unpacking-rpm")
+- [Issue: Patching fails with 'Encounter service side error when uploading the inventory'](#inventory-upload-error "#inventory-upload-error")
+- [Issue: Patching fails with ‘Errors were encountered while downloading packages’ message](#errors-while-downloading "#errors-while-downloading")
+- [Issue: Patching fails with a message that 'The following signatures couldn't be verified because the public key is not available'](#public-key-unavailable "#public-key-unavailable")
+- [Issue: Patching fails with a 'NoMoreMirrorsRepoError' message](#no-more-mirrors-repo-error "#no-more-mirrors-repo-error")
+- [Issue: Patching fails with an 'Unable to download payload' message](#payload-download-error "#payload-download-error")
+- [Issue: Patching fails with a message 'install errors: dpkg: error: dpkg frontend is locked by another process'](#dpkg-frontend-locked "#dpkg-frontend-locked")
+- [Issue: Patching on Ubuntu Server fails with a 'dpkg was interrupted' error](#dpkg-interrupted "#dpkg-interrupted")
+- [Issue: The package manager utility can't resolve a package dependency](#unresolved-dependency "#unresolved-dependency")
+- [Issue: Zypper package lock dependency failures on SLES managed nodes](#patch-manager-troubleshooting-linux-zypper-locks "#patch-manager-troubleshooting-linux-zypper-locks")
+- [Issue: Cannot acquire lock. Another patching operation is in progress.](#patch-manager-troubleshooting-linux-concurrent-lock "#patch-manager-troubleshooting-linux-concurrent-lock")
 
-### Issue: 'No such file or
-
-directory' error
+### Issue: 'No such file or directory' error
 
 **Problem**: When you run
 `AWS-RunPatchBaseline`, patching fails with one of the following
@@ -246,9 +193,7 @@ and targeting the same managed nodes. State Manager is a tool in AWS Systems Man
 **Solution 4**: Free up sufficient storage space
 under the `/var` directory for the update packages.
 
-### Issue: 'another process
-
-has acquired yum lock' error
+### Issue: 'another process has acquired yum lock' error
 
 **Problem**: When you run
 `AWS-RunPatchBaseline`, patching fails with the following
@@ -268,9 +213,7 @@ association, maintenance window tasks, or other configurations that run
 `AWS-RunPatchBaseline` on a schedule are targeting the same
 managed node around the same time.
 
-### Issue: 'Permission
-
-denied / failed to run commands' error
+### Issue: 'Permission denied / failed to run commands' error
 
 **Problem**: When you run
 `AWS-RunPatchBaseline`, patching fails with the following
@@ -292,9 +235,7 @@ exclusive partitions to `/var/log/amazon` and
 `/var/lib/amazon`, and that they're mounted with
 `exec` permissions.
 
-### Issue: 'Unable to
-
-download payload' error
+### Issue: 'Unable to download payload' error
 
 **Problem**: When you run
 `AWS-RunPatchBaseline`, patching fails with the following
@@ -309,12 +250,9 @@ required permissions to access the specified Amazon Simple Storage Service (Amaz
 
 **Solution**: Update your network configuration
 so that S3 endpoints are reachable. For more details, see information about
-required access to S3 buckets for Patch Manager in [SSM Agent communications with
-AWS managed S3 buckets](ssm-agent-technical-details.md#ssm-agent-minimum-s3-permissions "ssm-agent-technical-details.md#ssm-agent-minimum-s3-permissions").
+required access to S3 buckets for Patch Manager in [SSM Agent communications with AWS managed S3 buckets](ssm-agent-technical-details.md#ssm-agent-minimum-s3-permissions "ssm-agent-technical-details.md#ssm-agent-minimum-s3-permissions").
 
-### Issue: 'unsupported
-
-package manager and python version combination' error
+### Issue: 'unsupported package manager and python version combination' error
 
 **Problem**: When you run
 `AWS-RunPatchBaseline`, patching fails with the following
@@ -332,9 +270,7 @@ installed on the Debian Server or Ubuntu Server instance.
 python3 (3.0 - 3.12) on the server, which is required for
 Debian Server and Ubuntu Server managed nodes.
 
-### Issue: Patch Manager isn't
-
-applying rules specified to exclude certain packages
+### Issue: Patch Manager isn't applying rules specified to exclude certain packages
 
 **Problem**: You have attempted to exclude
 certain packages by specifying them in the `/etc/yum.conf`
@@ -349,10 +285,7 @@ exclusions specified in the `/etc/yum.conf` file.
 create a custom patch baseline and create a rule to exclude the packages you
 don't want installed.
 
-### Issue: Patching fails
-
-and Patch Manager reports that the Server Name Indication extension to TLS is not
-available
+### Issue: Patching fails and Patch Manager reports that the Server Name Indication extension to TLS is not available
 
 **Problem**: The patching operation issues the
 following message.
@@ -381,9 +314,7 @@ managed node.
 
 `/var/lib/amazon/ssm/`instance-id`/document/orchestration/`Run-Command-execution-id`/awsrunShellScript/PatchLinux`
 
-### Issue: Patch Manager reports
-
-'No more mirrors to try'
+### Issue: Patch Manager reports 'No more mirrors to try'
 
 **Problem**: The patching operation issues the
 following message.
@@ -403,9 +334,7 @@ managed node are not working correctly. Possible causes for this include:
 default package manager to perform patching operation. Double-check that
 repositories are configured and operating correctly.
 
-### Issue: Patching fails
-
-with 'Error code returned from curl is 23'
+### Issue: Patching fails with 'Error code returned from curl is 23'
 
 **Problem**: A patching operating that uses
 `AWS-RunPatchBaseline` fails with an error similar to the
@@ -430,9 +359,7 @@ associated with the package manager is in the first directory listed in the
 `echo $PATH` to see the current order of directories that are
 checked for executable files on your system.
 
-### Issue: Patching fails with ‘Error
-
-unpacking rpm package…’ message
+### Issue: Patching fails with ‘Error unpacking rpm package…’ message
 
 **Problem**: A patching operation fails with an
 error similar to the following:
@@ -463,9 +390,7 @@ the `rpm` was package was previously installed by
 `sudo pip uninstall urllib3`, keeping the package only in the
 default package manager (`yum` or `dnf`).
 
-### Issue: Patching fails with 'Encounter
-
-service side error when uploading the inventory'
+### Issue: Patching fails with 'Encounter service side error when uploading the inventory'
 
 **Problem**: When running the
 `AWS-RunPatchBaseline` document, you receive the following error
@@ -485,9 +410,7 @@ association, maintenance window tasks, or other configurations that run
 `AWS-RunPatchBaseline` on a schedule are targeting the same
 managed node around the same time.
 
-### Issue: Patching fails with ‘Errors
-
-were encountered while downloading packages’ message
+### Issue: Patching fails with ‘Errors were encountered while downloading packages’ message
 
 **Problem**: During patching, you receive an
 error similar to the following:
@@ -508,10 +431,7 @@ memory is available on a managed node.
 upgrade the instance to a different type to increase the memory support. Then
 start a new patching operation.
 
-### Issue: Patching fails with a message
-
-that 'The following signatures couldn't be verified because the public key
-is not available'
+### Issue: Patching fails with a message that 'The following signatures couldn't be verified because the public key is not available'
 
 **Problem**: Patching fails on Ubuntu Server with
 an error similar to the following:
@@ -556,9 +476,7 @@ To do so, open the `sources.list` file for editing, locate
 the line for the repository, and insert a `#` character at the
 beginning of the line to comment it out. Then save and close the file.
 
-### Issue: Patching fails with a
-
-'NoMoreMirrorsRepoError' message
+### Issue: Patching fails with a 'NoMoreMirrorsRepoError' message
 
 **Problem**: You receive an error similar to the
 following:
@@ -588,9 +506,7 @@ yum-config-manager --disable pgdg94
 
 After you run this command, run another patching operation.
 
-### Issue: Patching fails with an 'Unable
-
-to download payload' message
+### Issue: Patching fails with an 'Unable to download payload' message
 
 **Problem**: You receive an error similar to the
 following:
@@ -615,10 +531,7 @@ configured with the following:
   the S3 endpoint. To do that, add an S3 gateway endpoint in the VPC and
   integrate it with the route table of the managed node.
 
-### Issue: Patching fails with a message
-
-'install errors: dpkg: error: dpkg frontend is locked by another
-process'
+### Issue: Patching fails with a message 'install errors: dpkg: error: dpkg frontend is locked by another process'
 
 **Problem**: Patching fails with an error similar
 to the following:
@@ -637,9 +550,7 @@ out and fail.
 **Solution**: After the other process that’s
 using the package manager completes, run a new patching operation.
 
-### Issue: Patching on Ubuntu Server fails with a
-
-'dpkg was interrupted' error
+### Issue: Patching on Ubuntu Server fails with a 'dpkg was interrupted' error
 
 **Problem**: On Ubuntu Server, patching fails with
 an error similar to the following:
@@ -683,9 +594,7 @@ sudo dpkg --configure -a
 sudo apt --fix-broken install
 ```
 
-### Issue: The package manager utility can't
-
-resolve a package dependency
+### Issue: The package manager utility can't resolve a package dependency
 
 **Problem**: The native package manager on the
 managed node is unable to resolve a package dependency and patching fails. The
@@ -717,9 +626,7 @@ such as:
 dependency issue for a wide variety of reasons. Therefore, we recommend that you
 contact AWS Support to assist with troubleshooting.
 
-### Issue: Zypper
-
-package lock dependency failures on SLES managed nodes
+### Issue: Zypper package lock dependency failures on SLES managed nodes
 
 **Problem**: When you run
 `AWS-RunPatchBaseline` with the `Install` operation on
@@ -856,9 +763,7 @@ conflicts:
   with system reboots or other actions that could prevent proper cleanup
   of temporary locks.
 
-### Issue:
-
-Cannot acquire lock. Another patching operation is in progress.
+### Issue: Cannot acquire lock. Another patching operation is in progress.
 
 **Problem**: When you run
 `AWS-RunPatchBaseline`, patching fails with error code 4 and the
@@ -888,29 +793,18 @@ following configurations to identify and resolve scheduling conflicts:
   initiating manual **Patch now** operations while
   scheduled patching is in progress.
 
-## Errors when running
-
-`AWS-RunPatchBaseline` on Windows Server
+## Errors when running `AWS-RunPatchBaseline` on Windows Server
 
 ###### Topics
 
-- [Issue:
-  mismatched product family/product pairs](#patch-manager-troubleshooting-product-family-mismatch "#patch-manager-troubleshooting-product-family-mismatch")
-- [Issue:
-  AWS-RunPatchBaseline output returns an HRESULT
-  (Windows Server)](#patch-manager-troubleshooting-hresult "#patch-manager-troubleshooting-hresult")
-- [Issue: managed
-  node doesn't have access to Windows Update Catalog or WSUS](#patch-manager-troubleshooting-instance-access "#patch-manager-troubleshooting-instance-access")
-- [Issue:
-  PatchBaselineOperations PowerShell module is not downloadable](#patch-manager-troubleshooting-module-not-downloadable "#patch-manager-troubleshooting-module-not-downloadable")
-- [Issue: missing
-  patches](#patch-manager-troubleshooting-missing-patches "#patch-manager-troubleshooting-missing-patches")
-- [Issue:
-  Cannot acquire lock. Another patching operation is in progress.](#patch-manager-troubleshooting-windows-concurrent-lock "#patch-manager-troubleshooting-windows-concurrent-lock")
+- [Issue: mismatched product family/product pairs](#patch-manager-troubleshooting-product-family-mismatch "#patch-manager-troubleshooting-product-family-mismatch")
+- [Issue: AWS-RunPatchBaseline output returns an HRESULT (Windows Server)](#patch-manager-troubleshooting-hresult "#patch-manager-troubleshooting-hresult")
+- [Issue: managed node doesn't have access to Windows Update Catalog or WSUS](#patch-manager-troubleshooting-instance-access "#patch-manager-troubleshooting-instance-access")
+- [Issue: PatchBaselineOperations PowerShell module is not downloadable](#patch-manager-troubleshooting-module-not-downloadable "#patch-manager-troubleshooting-module-not-downloadable")
+- [Issue: missing patches](#patch-manager-troubleshooting-missing-patches "#patch-manager-troubleshooting-missing-patches")
+- [Issue: Cannot acquire lock. Another patching operation is in progress.](#patch-manager-troubleshooting-windows-concurrent-lock "#patch-manager-troubleshooting-windows-concurrent-lock")
 
-### Issue:
-
-mismatched product family/product pairs
+### Issue: mismatched product family/product pairs
 
 **Problem**: When you create a patch baseline in
 the Systems Manager console, you specify a product family and a product. For example, you
@@ -947,10 +841,7 @@ You can also view the products that have available patches by using the
 `describe-patch-properties` command in the AWS CLI
 or the `DescribePatchProperties` API command.
 
-### Issue:
-
-`AWS-RunPatchBaseline` output returns an `HRESULT`
-(Windows Server)
+### Issue: `AWS-RunPatchBaseline` output returns an `HRESULT` (Windows Server)
 
 **Problem**: You received an error like the
 following.
@@ -979,9 +870,7 @@ resolving the error:
 - [Windows Update error codes by component](https://learn.microsoft.com/en-us/windows/deployment/update/windows-update-error-reference "https://learn.microsoft.com/en-us/windows/deployment/update/windows-update-error-reference")
 - [Windows Update common errors and mitigation](https://learn.microsoft.com/en-us/troubleshoot/windows-client/deployment/common-windows-update-errors "https://learn.microsoft.com/en-us/troubleshoot/windows-client/deployment/common-windows-update-errors")
 
-### Issue: managed
-
-node doesn't have access to Windows Update Catalog or WSUS
+### Issue: managed node doesn't have access to Windows Update Catalog or WSUS
 
 **Problem**: You received an error like the
 following.
@@ -1087,9 +976,7 @@ destination, check the Microsoft documentation for other potential causes of
 `HResult 0x80072EE2`. This might indicate an operating system
 level issue.
 
-### Issue:
-
-PatchBaselineOperations PowerShell module is not downloadable
+### Issue: PatchBaselineOperations PowerShell module is not downloadable
 
 **Problem**: You received an error like the
 following.
@@ -1113,16 +1000,12 @@ failed to run commands: exit status 4294967295
 
 **Solution**: Check the managed node connectivity
 and permissions to Amazon Simple Storage Service (Amazon S3). The managed node's AWS Identity and Access Management (IAM) role
-must use the minimum permissions cited in [SSM Agent communications with
-AWS managed S3 buckets](ssm-agent-technical-details.md#ssm-agent-minimum-s3-permissions "ssm-agent-technical-details.md#ssm-agent-minimum-s3-permissions"). The node must
+must use the minimum permissions cited in [SSM Agent communications with AWS managed S3 buckets](ssm-agent-technical-details.md#ssm-agent-minimum-s3-permissions "ssm-agent-technical-details.md#ssm-agent-minimum-s3-permissions"). The node must
 communicate with the Amazon S3 endpoint through the Amazon S3 gateway endpoint, NAT
 gateway, or internet gateway. For more information about the VPC Endpoint
-requirements for AWS Systems Manager SSM Agent (SSM Agent), see [Improve the security of EC2 instances by using VPC
-endpoints for Systems Manager](setup-create-vpc.md "setup-create-vpc.md").
+requirements for AWS Systems Manager SSM Agent (SSM Agent), see [Improve the security of EC2 instances by using VPC endpoints for Systems Manager](setup-create-vpc.md "setup-create-vpc.md").
 
-### Issue: missing
-
-patches
+### Issue: missing patches
 
 **Problem**: `AWS-RunPatchbaseline`
 completed successfully, but there are some missing patches.
@@ -1182,9 +1065,7 @@ Release Channels by Microsoft.
 the package isn't available under WSUS, install [OS Build 14393.3115](https://support.microsoft.com/en-us/topic/july-16-2019-kb4507459-os-build-14393-3115-511a3df6-c07e-14e3-dc95-b9898a7a7a57 "https://support.microsoft.com/en-us/topic/july-16-2019-kb4507459-os-build-14393-3115-511a3df6-c07e-14e3-dc95-b9898a7a7a57"). If the package is available for all operating
 system builds, install [OS Builds 18362.1256 and 18363.1256](https://support.microsoft.com/en-us/topic/december-8-2020-kb4592449-os-builds-18362-1256-and-18363-1256-c448f3df-a5f1-1d55-aa31-0e1cf7a440a9 "https://support.microsoft.com/en-us/topic/december-8-2020-kb4592449-os-builds-18362-1256-and-18363-1256-c448f3df-a5f1-1d55-aa31-0e1cf7a440a9").
 
-### Issue:
-
-Cannot acquire lock. Another patching operation is in progress.
+### Issue: Cannot acquire lock. Another patching operation is in progress.
 
 **Problem**: When you run
 `AWS-RunPatchBaseline`, patching fails with error code 4 and the
@@ -1214,18 +1095,13 @@ following configurations to identify and resolve scheduling conflicts:
   initiating manual **Patch now** operations while
   scheduled patching is in progress.
 
-## Errors when running
-
-`AWS-RunPatchBaseline` on macOS
+## Errors when running `AWS-RunPatchBaseline` on macOS
 
 ###### Topics
 
-- [Issue:
-  Cannot acquire lock. Another patching operation is in progress.](#patch-manager-troubleshooting-macos-concurrent-lock "#patch-manager-troubleshooting-macos-concurrent-lock")
+- [Issue: Cannot acquire lock. Another patching operation is in progress.](#patch-manager-troubleshooting-macos-concurrent-lock "#patch-manager-troubleshooting-macos-concurrent-lock")
 
-### Issue:
-
-Cannot acquire lock. Another patching operation is in progress.
+### Issue: Cannot acquire lock. Another patching operation is in progress.
 
 **Problem**: When you run
 `AWS-RunPatchBaseline`, patching fails with error code 4 and the
@@ -1255,9 +1131,7 @@ following configurations to identify and resolve scheduling conflicts:
   initiating manual **Patch now** operations while
   scheduled patching is in progress.
 
-## Using
-
-AWS Support Automation runbooks
+## Using AWS Support Automation runbooks
 
 AWS Support provides two Automation runbooks you can use to troubleshoot certain
 issues related to patching.
@@ -1278,9 +1152,7 @@ issues related to patching.
 There is a charge to run Automation runbooks. For information, see [AWS Systems Manager Pricing
 for Automation](https://aws.amazon.com/systems-manager/pricing/#Automation "https://aws.amazon.com/systems-manager/pricing/#Automation").
 
-## Contacting
-
-AWS Support
+## Contacting AWS Support
 
 If you can't find troubleshooting solutions in this section or in the Systems Manager issues in [AWS re:Post](https://repost.aws/tags/TA-UbbRGVYRWCDaCvae6itYg/aws-systems-manager "https://repost.aws/tags/TA-UbbRGVYRWCDaCvae6itYg/aws-systems-manager"), and you have a [Developer, Business, or Enterprise Support
 plan](https://aws.amazon.com/premiumsupport/plans "https://aws.amazon.com/premiumsupport/plans"), you can create a technical support case at [AWS Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").

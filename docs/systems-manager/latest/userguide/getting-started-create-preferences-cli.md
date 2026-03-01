@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Create a Session Manager
-
-preferences document (command line)
+# Create a Session Manager preferences document (command line)
 
 Use the following procedure to create SSM documents that define your
 preferences for AWS Systems Manager Session Manager sessions. You can use the document to
@@ -28,8 +18,7 @@ of `Standard_Stream`. For more information about Session documents,
 see [Session document schema](session-manager-schema.md "session-manager-schema.md").
 
 For information about using the command line to update existing Session Manager
-preferences, see [Update Session Manager
-preferences (command line)](getting-started-configure-preferences-cli.md "getting-started-configure-preferences-cli.md").
+preferences, see [Update Session Manager preferences (command line)](getting-started-configure-preferences-cli.md "getting-started-configure-preferences-cli.md").
 
 For an example of how to create session preferences using CloudFormation, see [Create a Systems Manager document for Session Manager preferences](../../../AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.md#aws-resource-ssm-document--examples "../../../AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.md#aws-resource-ssm-document--examples") in the
 _AWS CloudFormation User Guide_.
@@ -170,11 +159,9 @@ must have permission to use the key. You provide permission to use
 the KMS key with Session Manager through IAM policies. For information,
 see the following topics:
 
-    * Add AWS KMS permissions for users in your account: [Sample IAM
-     policies for Session Manager](getting-started-restrict-access-quickstart.md "getting-started-restrict-access-quickstart.md")
+    * Add AWS KMS permissions for users in your account: [Sample IAM policies for Session Manager](getting-started-restrict-access-quickstart.md "getting-started-restrict-access-quickstart.md")
     * Add AWS KMS permissions for managed nodes in your account:
-     [Step 2: Verify or
-     add instance permissions for Session Manager](session-manager-getting-started-instance-profile.md "session-manager-getting-started-instance-profile.md")
+     [Step 2: Verify or add instance permissions for Session Manager](session-manager-getting-started-instance-profile.md "session-manager-getting-started-instance-profile.md")
 
 3. Save the file.
 4. In the directory where you created the JSON file, run the following

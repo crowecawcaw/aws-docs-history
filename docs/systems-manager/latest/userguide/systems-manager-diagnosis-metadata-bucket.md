@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Working with Amazon S3 buckets and
-
-bucket policies for Systems Manager
+# Working with Amazon S3 buckets and bucket policies for Systems Manager
 
 During the [onboarding process](systems-manager-setting-up-console.md "systems-manager-setting-up-console.md")
 for AWS Systems Manager, Quick Setup creates an Amazon Simple Storage Service (Amazon S3) bucket in the delegated
@@ -28,16 +18,14 @@ By default, the S3 bucket uses server-side encryption with Amazon S3 managed key
 (SSE-S3).
 
 You can instead use server-side encryption with AWS KMS keys (SSE-KMS) using a
-customer managed key (CMK) as an alternative to Amazon S3 managed keys, as explained in [Changing to an AWS KMS customer managed key to
-encrypt S3 resources](remediate-s3-bucket-encryption.md "remediate-s3-bucket-encryption.md").
+customer managed key (CMK) as an alternative to Amazon S3 managed keys, as explained in [Changing to an AWS KMS customer managed key to encrypt S3 resources](remediate-s3-bucket-encryption.md "remediate-s3-bucket-encryption.md").
 
 ###### Contents of the bucket policy
 
 The bucket policy prevents member accounts in an organization from discovering one
 another. Read and write permissions to the bucket are allowed only for the diagnosis and
 remediation roles created for Systems Manager. The contents of these system-generated policies are
-presented in [S3 bucket policies for the unified Systems Manager
-console](remediate-s3-bucket-policies.md "remediate-s3-bucket-policies.md").
+presented in [S3 bucket policies for the unified Systems Manager console](remediate-s3-bucket-policies.md "remediate-s3-bucket-policies.md").
 
 ###### Warning
 
@@ -47,7 +35,5 @@ recommend using extreme caution if you choose to modify this policy.
 
 ###### Topics
 
-- [Changing to an AWS KMS customer managed key to
-  encrypt S3 resources](remediate-s3-bucket-encryption.md "remediate-s3-bucket-encryption.md")
-- [S3 bucket policies for the unified Systems Manager
-  console](remediate-s3-bucket-policies.md "remediate-s3-bucket-policies.md")
+- [Changing to an AWS KMS customer managed key to encrypt S3 resources](remediate-s3-bucket-encryption.md "remediate-s3-bucket-encryption.md")
+- [S3 bucket policies for the unified Systems Manager console](remediate-s3-bucket-policies.md "remediate-s3-bucket-policies.md")

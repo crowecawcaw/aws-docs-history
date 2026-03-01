@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Assign tasks to a maintenance
-
-window using the console
+# Assign tasks to a maintenance window using the console
 
 In this procedure, you add a task to a maintenance window. Tasks are the actions
 performed when a maintenance window runs.
@@ -109,8 +99,7 @@ Lambda
      of your `Payload` value. Then when the
      maintenance window task runs, it passes the correct
      values instead of the pseudo parameter placeholders.
-     For information, see [Using pseudo parameters
-     when registering maintenance window tasks](maintenance-window-tasks-pseudo-parameters.md "maintenance-window-tasks-pseudo-parameters.md").
+     For information, see [Using pseudo parameters when registering maintenance window tasks](maintenance-window-tasks-pseudo-parameters.md "maintenance-window-tasks-pseudo-parameters.md").
     3. For **Task priority**, specify a
      priority for this task. Zero (`0`) is the
      highest priority. Tasks in a maintenance window are
@@ -132,8 +121,7 @@ Step Functions
      of your `Input` value. Then when the
      maintenance window task runs, it passes the correct
      values instead of the pseudo parameter placeholders.
-     For information, see [Using pseudo parameters
-     when registering maintenance window tasks](maintenance-window-tasks-pseudo-parameters.md "maintenance-window-tasks-pseudo-parameters.md").
+     For information, see [Using pseudo parameters when registering maintenance window tasks](maintenance-window-tasks-pseudo-parameters.md "maintenance-window-tasks-pseudo-parameters.md").
     3. For **Task priority**, specify a
      priority for this task. Zero (`0`) is the
      highest priority. Tasks in a maintenance window are
@@ -148,8 +136,7 @@ Step Functions
    - **Selecting unregistered targets**: Choose
      available resources one by one as targets for the task.
 
-   If a managed node you expect to see isn't listed, see [Troubleshooting managed
-   node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for troubleshooting
+   If a managed node you expect to see isn't listed, see [Troubleshooting managed node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for troubleshooting
    tips.
    - **Task target not required**: Targets for the
      task might already be specified in other functions for all but
@@ -158,8 +145,7 @@ Step Functions
    Specify one or more targets for maintenance window Run Command-type tasks. Depending on the
    task, targets are optional for other maintenance window task types (Automation, AWS Lambda,
    and AWS Step Functions). For more information about running tasks that don't specify targets,
-   see [Registering maintenance window
-   tasks without targets](maintenance-windows-targetless-tasks.md "maintenance-windows-targetless-tasks.md").
+   see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md "maintenance-windows-targetless-tasks.md").
 
    ###### Note
 
@@ -181,8 +167,7 @@ required or optional parameters needed to run your task.
 In some cases, you can use a _pseudo
 parameter_ for certain input parameter values. Then when
 the maintenance window task runs, it passes the correct values instead
-of the pseudo parameter placeholders. For information, see [Using pseudo parameters
-when registering maintenance window tasks](maintenance-window-tasks-pseudo-parameters.md "maintenance-window-tasks-pseudo-parameters.md"). 11. For **Rate control**:
+of the pseudo parameter placeholders. For information, see [Using pseudo parameters when registering maintenance window tasks](maintenance-window-tasks-pseudo-parameters.md "maintenance-window-tasks-pseudo-parameters.md"). 11. For **Rate control**:
 
     * For **Concurrency**, specify either a number or a percentage of
      managed nodes on which to run the command at the same time.
@@ -245,8 +230,7 @@ In the **SNS notifications** section, if you want notifications sent
 about the status of the command execution, select the **Enable SNS
 notifications** check box.
 
-For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager status changes using
-Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifications.md"). 15. _Run Command tasks only:_
+For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifications.md"). 15. _Run Command tasks only:_
 
 In the **Parameters** area, specify parameters for the
 document.
@@ -256,8 +240,7 @@ document.
 In some cases, you can use a _pseudo
 parameter_ for certain input parameter values. Then when
 the maintenance window task runs, it passes the correct values instead
-of the pseudo parameter placeholders. For information, see [Using pseudo parameters
-when registering maintenance window tasks](maintenance-window-tasks-pseudo-parameters.md "maintenance-window-tasks-pseudo-parameters.md"). 16. _Run Command and Automation tasks
+of the pseudo parameter placeholders. For information, see [Using pseudo parameters when registering maintenance window tasks](maintenance-window-tasks-pseudo-parameters.md "maintenance-window-tasks-pseudo-parameters.md"). 16. _Run Command and Automation tasks
 only:_
 
 (Optional) In the **CloudWatch alarm** area, for

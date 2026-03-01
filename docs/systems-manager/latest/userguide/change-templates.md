@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Working with change templates
 
 ###### Change Manager availability change
@@ -41,9 +33,7 @@ the change template stored in an external file.
 
 ###### Topics
 
-- [Try out the AWS managed
-  Hello World change template](change-templates-aws-managed.md "change-templates-aws-managed.md")
+- [Try out the AWS managed Hello World change template](change-templates-aws-managed.md "change-templates-aws-managed.md")
 - [Creating change templates](change-templates-create.md "change-templates-create.md")
-- [Reviewing and approving or rejecting
-  change templates](change-templates-review.md "change-templates-review.md")
+- [Reviewing and approving or rejecting change templates](change-templates-review.md "change-templates-review.md")
 - [Deleting change templates](change-templates-delete.md "change-templates-delete.md")

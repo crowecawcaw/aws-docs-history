@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Data elements and
-
-parameters
+# Data elements and parameters
 
 This topic describes the data elements used in SSM documents. The schema version
 used to create a document defines the syntax and data elements that the document
@@ -178,8 +168,7 @@ and values:
   `Integer`
   `Boolean`, `MapList`, and
   `StringMap`. To view examples of each type,
-  see [SSM document parameter
-  type examples](#top-level-properties-type "#top-level-properties-type") in the next
+  see [SSM document parameter type examples](#top-level-properties-type "#top-level-properties-type") in the next
   section.
 
 ###### Note
@@ -297,8 +286,7 @@ are static in the context of a runbook, but the values of variables
 can be changed in the context of the runbook. When updating the
 value of a variable, the data type must match the defined data type.
 For information about updating variables values in an automation,
-see [aws:updateVariable
-– Updates a value for a runbook variable](automation-action-update-variable.md "automation-action-update-variable.md")
+see [aws:updateVariable – Updates a value for a runbook variable](automation-action-update-variable.md "automation-action-update-variable.md")
 
 Type: Boolean | Integer | MapList | String | StringList |
 StringMap
@@ -354,8 +342,7 @@ document that can be used in other processes. For example, if your
 document creates a new AMI, you might specify
 "CreateImage.ImageId" as the output value, and then use this output
 to create new instances in a subsequent automation execution. For
-more information about outputs, see [Using action outputs as
-inputs](automation-action-outputs-inputs.md "automation-action-outputs-inputs.md").
+more information about outputs, see [Using action outputs as inputs](automation-action-outputs-inputs.md "automation-action-outputs-inputs.md").
 
 Type: Dictionary<string,OutputConfiguration>
 
@@ -370,11 +357,9 @@ Applies only to documents that include the
 have been specified in one or more steps.
 
 To learn about the runtimes supported by Automation runbooks, see
-[aws:executeScript
-– Run a script](automation-action-executeScript.md "automation-action-executeScript.md"). For more
+[aws:executeScript – Run a script](automation-action-executeScript.md "automation-action-executeScript.md"). For more
 information about including scripts in Automation runbooks, see
-[Using scripts in
-runbooks](automation-document-script-considerations.md "automation-document-script-considerations.md") and
+[Using scripts in runbooks](automation-document-script-considerations.md "automation-document-script-considerations.md") and
 [Visual design experience for Automation runbooks](automation-visual-designer.md "automation-visual-designer.md").
 
 When creating an Automation runbook with attachments, you must
@@ -410,9 +395,7 @@ Type: Dictionary<string,FilesConfiguration>
 
 Required: No
 
-## SSM document parameter
-
-`type` examples
+## SSM document parameter `type` examples
 
 Parameter types in SSM documents are static. This means the parameter type
 can't be changed after it's defined. When using parameters with SSM document
@@ -637,9 +620,7 @@ JSON
 }
 ```
 
-## Viewing SSM Command document
-
-content
+## Viewing SSM Command document content
 
 To preview the required and optional parameters for an AWS Systems Manager (SSM)
 Command document, in addition to the actions the document runs, you can view the

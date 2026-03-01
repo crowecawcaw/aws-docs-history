@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# (Optional) Configure
-
-OpsCenter to manage OpsItems across accounts by using Quick Setup
+# (Optional) Configure OpsCenter to manage OpsItems across accounts by using Quick Setup
 
 Quick Setup, a tool in AWS Systems Manager, simplifies setup and configuration tasks for
 Systems Manager tools. Quick Setup for OpsCenter helps you complete the following tasks for
@@ -37,9 +27,7 @@ sets created during Steps 4 and 5 of that process. If those resources exist
 in your account when you complete the following procedure, Quick Setup fails to
 configure cross-account OpsItem management properly.
 
-###### To configure OpsCenter to manage OpsItems across accounts by using Quick
-
-Setup
+###### To configure OpsCenter to manage OpsItems across accounts by using Quick Setup
 
 1. Sign in to the AWS Management Console using the AWS Organizations management account.
 2. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
@@ -73,9 +61,7 @@ configuration was originally deployed:
   Quick Setup removes the configuration from all organizational units and
   AWS Regions where the configuration was originally deployed.
 
-## Troubleshooting issues with a Quick Setup configuration for
-
-OpsCenter
+## Troubleshooting issues with a Quick Setup configuration for OpsCenter
 
 This section includes information to help you troubleshoot issues when
 configuring cross-account OpsItem management using Quick Setup.
@@ -132,9 +118,7 @@ If the **Configuration details** table on the
 configuration status of `Failed`, sign in
 to the AWS account and Region where it failed.
 
-###### To troubleshoot a Quick Setup failure to create an OpsCenter
-
-configuration
+###### To troubleshoot a Quick Setup failure to create an OpsCenter configuration
 
 1. Sign in to the AWS account and the AWS Region where the
    failure occurred.
@@ -156,9 +140,7 @@ statuses, see [Stack status codes](../../../AWSCloudFormation/latest/UserGuide/c
 **Status**. For more information, see
 [Troubleshooting](../../../AWSCloudFormation/latest/UserGuide/troubleshooting.md "../../../AWSCloudFormation/latest/UserGuide/troubleshooting.md") in the _AWS CloudFormation User Guide_.
 
-#### Member account configuration shows
-
-ResourcePolicyLimitExceededException
+#### Member account configuration shows ResourcePolicyLimitExceededException
 
 If a stack status shows
 `ResourcePolicyLimitExceededException`, the account

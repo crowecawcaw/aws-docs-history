@@ -1,22 +1,10 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Use Run Command to send a command that returns
-
-status notifications
+# Use Run Command to send a command that returns status notifications
 
 The following procedures show how to use the AWS Command Line Interface (AWS CLI) or AWS Systems Manager
 console to send a command through Run Command, a tool in AWS Systems Manager, that is configured
 to return status notifications.
 
-## Sending a Run Command that returns
-
-notifications (console)
+## Sending a Run Command that returns notifications (console)
 
 Use the following procedure to send a command through Run Command that is
 configured to return status notifications using the Systems Manager console.
@@ -36,8 +24,7 @@ configured to return status notifications using the Systems Manager console.
 
 ###### Tip
 
-If a managed node you expect to see isn't listed, see [Troubleshooting managed
-node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for troubleshooting
+If a managed node you expect to see isn't listed, see [Troubleshooting managed node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for troubleshooting
 tips. 7. For **Other parameters**:
 
     * For **Comment**, enter information about this command.
@@ -74,8 +61,7 @@ environment](hybrid-multicloud-service-role.md "hybrid-multicloud-service-role.m
 AWS account, make sure that the instance profile or IAM service role associated with
 the managed node has the necessary permissions to write to that bucket. 10. In the **SNS Notifications** section, choose
 **Enable SNS notifications**. 11. For **IAM role**, choose the Amazon SNS IAM role ARN
-you created in Task 3 in [Monitoring Systems Manager status changes using
-Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifications.md"). 12. For **SNS topic**, enter the Amazon SNS topic ARN to be
+you created in Task 3 in [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifications.md"). 12. For **SNS topic**, enter the Amazon SNS topic ARN to be
 used. 13. For **Event notifications**, choose the events for
 which you want to receive notifications. 14. For **Change notifications**, choose to receive
 notifications for the command summary only (**Command status
@@ -84,9 +70,7 @@ nodes (**Command status on each instance changes**)
 . 15. Choose **Run**. 16. Check your email for a message from Amazon SNS and open the email message.
 Amazon SNS can take several minutes to send the email message.
 
-## Sending a Run Command that returns
-
-notifications (CLI)
+## Sending a Run Command that returns notifications (CLI)
 
 Use the following procedure to send a command through Run Command that is
 configured to return status notifications using the AWS CLI.

@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # How patches are installed
 
 Patch Manager, a tool in AWS Systems Manager, uses the operating system built-in package manager
@@ -135,8 +127,7 @@ version is applied. 7. The YUM update API (Amazon Linux 2) or the DNF update API
 
 
 
-    ###### Additional patching details for
-     Amazon Linux 2023
+    ###### Additional patching details for Amazon Linux 2023
 
 
 
@@ -847,7 +838,6 @@ that lack a KB ID are not included in patching operations.
 For information about creating custom patch baselines, see the
 following topics:
 
-- [Creating
-  a custom patch baseline for Windows Server](patch-manager-create-a-patch-baseline-for-windows.md "patch-manager-create-a-patch-baseline-for-windows.md")
+- [Creating a custom patch baseline for Windows Server](patch-manager-create-a-patch-baseline-for-windows.md "patch-manager-create-a-patch-baseline-for-windows.md")
 - [Create a patch baseline (CLI)](patch-manager-create-a-patch-baseline-for-windows.md "patch-manager-create-a-patch-baseline-for-windows.md")
 - [Package name formats for Windows operating systems](patch-manager-approved-rejected-package-name-formats.md#patch-manager-approved-rejected-package-name-formats-windows "patch-manager-approved-rejected-package-name-formats.md#patch-manager-approved-rejected-package-name-formats-windows")

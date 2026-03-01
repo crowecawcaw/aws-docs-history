@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Creating associations
 
 State Manager, a tool in AWS Systems Manager, helps you keep your AWS resources in a state that
@@ -60,14 +52,11 @@ The system also runs associations according to the following rules:
   during the next interval.
 - State Manager runs the association after changes to the association's
   configuration, target nodes, documents, or parameters. For more information,
-  see [Understanding when associations are
-  applied to resources](state-manager-about.md#state-manager-about-scheduling "state-manager-about.md#state-manager-about-scheduling")
+  see [Understanding when associations are applied to resources](state-manager-about.md#state-manager-about-scheduling "state-manager-about.md#state-manager-about-scheduling")
 - State Manager records history for all skipped intervals. You can view the
   history on the **Execution History** tab.
 
-## Scheduling
-
-associations
+## Scheduling associations
 
 You can schedule associations to run at basic intervals such as
 _every 10 hours_, or you can create more advanced
@@ -111,12 +100,9 @@ the `ApplyOnlyAtCronInterval` parameter from the command line.
 When either of these options are activated, State Manager doesn't run the
 association immediately after you create it.
 
-For more information about cron and rate expressions, see [Reference: Cron and rate expressions
-for Systems Manager](reference-cron-and-rate-expressions.md "reference-cron-and-rate-expressions.md").
+For more information about cron and rate expressions, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md "reference-cron-and-rate-expressions.md").
 
-## Create an association
-
-(console)
+## Create an association (console)
 
 The following procedure describes how to use the Systems Manager console to create a
 State Manager association.
@@ -129,8 +115,7 @@ Note the following information.
   either a `Command` or a `Policy` document to
   target managed nodes. For information about creating an association
   that uses an Automation runbook to target nodes or other types of
-  AWS resources, see [Scheduling
-  automations with State Manager associations](scheduling-automations-state-manager-associations.md "scheduling-automations-state-manager-associations.md").
+  AWS resources, see [Scheduling automations with State Manager associations](scheduling-automations-state-manager-associations.md "scheduling-automations-state-manager-associations.md").
 - When creating an association, you can specify a maximum of five
   tag keys by using the AWS Management Console. _All_ tag keys
   specified for the association must be currently assigned to the
@@ -147,8 +132,7 @@ Note the following information.
    document name. Note the document type. This procedure applies to
    `Command` and `Policy` documents. For
    information about creating an association that uses an Automation
-   runbook, see [Scheduling
-   automations with State Manager associations](scheduling-automations-state-manager-associations.md "scheduling-automations-state-manager-associations.md").
+   runbook, see [Scheduling automations with State Manager associations](scheduling-automations-state-manager-associations.md "scheduling-automations-state-manager-associations.md").
 
 ###### Important
 
@@ -169,8 +153,7 @@ Note the following information about this step.
 
     * The alarms list displays a maximum of 100 alarms. If you
      don't see your alarm in the list, use the AWS Command Line Interface to
-     create the association. For more information, see [Create an
-     association (command line)](#create-state-manager-association-commandline "#create-state-manager-association-commandline").
+     create the association. For more information, see [Create an association (command line)](#create-state-manager-association-commandline "#create-state-manager-association-commandline").
     * To attach a CloudWatch alarm to your command, the IAM
      principal that creates the association must have permission
      for the `iam:createServiceLinkedRole` action. For
@@ -185,8 +168,7 @@ Note the following information about this step.
 
 In order for associations that are created with Automation
 runbooks to be applied when new target nodes are detected, certain
-conditions must be met. For information, see [About target updates with Automation
-runbooks](state-manager-about.md#runbook-target-updates "state-manager-about.md#runbook-target-updates"). 9. In the **Specify schedule** section, choose either
+conditions must be met. For information, see [About target updates with Automation runbooks](state-manager-about.md#runbook-target-updates "state-manager-about.md#runbook-target-updates"). 9. In the **Specify schedule** section, choose either
 **On Schedule** or **No
 schedule**. If you choose **On Schedule**, use
 the buttons provided to create a cron or rate schedule for the
@@ -202,8 +184,7 @@ choose a change calendar for the association.
 
 Compliance reporting indicates whether the association state is
 compliant or noncompliant, along with the severity level you indicate
-here. For more information, see [About State Manager association
-compliance](compliance-about.md#compliance-about-association "compliance-about.md#compliance-about-association").
+here. For more information, see [About State Manager association compliance](compliance-about.md#compliance-about-association "compliance-about.md#compliance-about-association").
 
 The change calendar determines when the association runs. If the
 calendar is closed, the association isn't applied. If the calendar is
@@ -286,9 +267,7 @@ association run are not logged in AWS CloudTrail. 14. Choose **Create Associatio
 If you delete the association you created, the association no longer runs
 on any targets of that association.
 
-## Create an
-
-association (command line)
+## Create an association (command line)
 
 The following procedure describes how to use the AWS CLI (on Linux or Windows Server)
 or Tools for PowerShell to create a State Manager association. This section includes several
@@ -302,8 +281,7 @@ targets and rate controls, see [Understanding targets and rate controls in State
 This procedure describes how to create an association that uses either a
 `Command` or a `Policy` document to target managed
 nodes. For information about creating an association that uses an Automation
-runbook to target nodes or other types of AWS resources, see [Scheduling
-automations with State Manager associations](scheduling-automations-state-manager-associations.md "scheduling-automations-state-manager-associations.md").
+runbook to target nodes or other types of AWS resources, see [Scheduling automations with State Manager associations](scheduling-automations-state-manager-associations.md "scheduling-automations-state-manager-associations.md").
 
 ###### Before you begin
 
@@ -361,8 +339,13 @@ Note the following information.
   an association using a new version of a document shared form another
   account, you must set the document version to
   `default`.
-- State Manager doesn't support the
-  `IncludeChildOrganizationUnits` parameter for [TargetLocation](../APIReference/API_TargetLocation.md "../APIReference/API_TargetLocation.md").
+- State Manager doesn't support
+  `IncludeChildOrganizationUnits`,
+  `ExcludeAccounts`,
+  `TargetsMaxErrors`,
+  `TargetsMaxConcurrency`,
+  `Targets`,
+  `TargetLocationAlarmConfiguration` parameters for [TargetLocation](../APIReference/API_TargetLocation.md "../APIReference/API_TargetLocation.md").
 - You can specify a maximum of five tag keys by using the AWS CLI. If
   you use the AWS CLI, _all_ tag keys specified in
   the `create-association` command must be currently
@@ -370,12 +353,10 @@ Note the following information.
   node for an association.
 - When you create an association, you specify when the schedule
   runs. Specify the schedule by using a cron or rate expression. For
-  more information about cron and rate expressions, see [Cron and rate
-  expressions for associations](reference-cron-and-rate-expressions.md#reference-cron-and-rate-expressions-association "reference-cron-and-rate-expressions.md#reference-cron-and-rate-expressions-association").
+  more information about cron and rate expressions, see [Cron and rate expressions for associations](reference-cron-and-rate-expressions.md#reference-cron-and-rate-expressions-association "reference-cron-and-rate-expressions.md#reference-cron-and-rate-expressions-association").
 - In order for associations that are created with Automation
   runbooks to be applied when new target nodes are detected, certain
-  conditions must be met. For information, see [About target updates with Automation
-  runbooks](state-manager-about.md#runbook-target-updates "state-manager-about.md#runbook-target-updates").
+  conditions must be met. For information, see [About target updates with Automation runbooks](state-manager-about.md#runbook-target-updates "state-manager-about.md#runbook-target-updates").
 
 ###### To create an association
 

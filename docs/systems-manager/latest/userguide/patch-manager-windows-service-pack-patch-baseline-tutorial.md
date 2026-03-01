@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Tutorial: Create a patch baseline for installing Windows Service Packs using
-
-the console
+# Tutorial: Create a patch baseline for installing Windows Service Packs using the console
 
 When you create a custom patch baseline, you can specify that all, some, or only
 one type of supported patch is installed.
@@ -26,9 +16,7 @@ Windows versions are installed, or just those for specific versions, such as Win
 Use the following procedure to create a custom patch baseline to be used
 exclusively for installing all Service Packs on your Windows managed nodes.
 
-###### To create a patch baseline for installing Windows Service Packs
-
-(console)
+###### To create a patch baseline for installing Windows Service Packs (console)
 
 1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
 2. In the navigation pane, choose **Patch Manager**.
@@ -51,8 +39,7 @@ the [patch policies](patch-manager-policies.md "patch-manager-policies.md") rele
 on December 22, 2022.
 
 For information about setting an existing patch baseline as the
-default, see [Setting an existing patch
-baseline as the default](patch-manager-default-patch-baseline.md "patch-manager-default-patch-baseline.md"). 8. In the **Approval rules for operating systems** section,
+default, see [Setting an existing patch baseline as the default](patch-manager-default-patch-baseline.md "patch-manager-default-patch-baseline.md"). 8. In the **Approval rules for operating systems** section,
 use the fields to create one or more auto-approval rules.
 
     * **Products**: The operating system versions that

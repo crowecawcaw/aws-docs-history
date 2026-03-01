@@ -1,21 +1,11 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Creating a resource data sync for
-
-Compliance
+# Creating a resource data sync for Compliance
 
 You can use the resource data sync feature in AWS Systems Manager to send compliance data from
 all of your managed nodes to a target Amazon Simple Storage Service (Amazon S3) bucket. When you create the sync,
 you can specify managed nodes from multiple AWS accounts, AWS Regions, and your
 [hybrid and multicloud](operating-systems-and-machine-types.md#supported-machine-types "operating-systems-and-machine-types.md#supported-machine-types") environment. Resource data sync then automatically updates the centralized
 data when new compliance data is collected. With all compliance data stored in a target
-S3 bucket, you can use services like Amazon Athena and Amazon Quick Suite to query and analyze the
+S3 bucket, you can use services like Amazon Athena and Amazon Quick to query and analyze the
 aggregated data. Configuring resource data sync for Compliance is a one-time
 operation.
 

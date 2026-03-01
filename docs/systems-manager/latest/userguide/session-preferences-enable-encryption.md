@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Turn on KMS key
-
-encryption of session data (console)
+# Turn on KMS key encryption of session data (console)
 
 Use AWS Key Management Service (AWS KMS) to create and manage encryption keys. With AWS KMS, you
 can control the use of encryption across a wide range of AWS services and in
@@ -27,8 +17,7 @@ managed node.
 ###### Note
 
 You must allow AWS KMS encryption in order to reset passwords on your
-managed nodes from the AWS Systems Manager console. For more information, see [Reset a password on a
-managed node](fleet-manager-reset-password.md#managed-instance-reset-a-password "fleet-manager-reset-password.md#managed-instance-reset-a-password").
+managed nodes from the AWS Systems Manager console. For more information, see [Reset a password on a managed node](fleet-manager-reset-password.md#managed-instance-reset-a-password "fleet-manager-reset-password.md#managed-instance-reset-a-password").
 
 You can use a key that you created in your AWS account. You can also use a
 key that was created in a different AWS account. The creator of the key in a
@@ -41,16 +30,12 @@ permission to use the key. You provide permission to use the KMS key with
 Session Manager through AWS Identity and Access Management (IAM) policies. For information, see the following
 topics:
 
-- Add AWS KMS permissions for users in your account: [Sample IAM
-  policies for Session Manager](getting-started-restrict-access-quickstart.md "getting-started-restrict-access-quickstart.md").
-- Add AWS KMS permissions for managed nodes in your account: [Step 2: Verify or
-  add instance permissions for Session Manager](session-manager-getting-started-instance-profile.md "session-manager-getting-started-instance-profile.md").
+- Add AWS KMS permissions for users in your account: [Sample IAM policies for Session Manager](getting-started-restrict-access-quickstart.md "getting-started-restrict-access-quickstart.md").
+- Add AWS KMS permissions for managed nodes in your account: [Step 2: Verify or add instance permissions for Session Manager](session-manager-getting-started-instance-profile.md "session-manager-getting-started-instance-profile.md").
   For more information about creating and managing KMS keys, see the [_AWS Key Management Service Developer Guide_](../../../kms/latest/developerguide.md "../../../kms/latest/developerguide.md").
 
 For information about using the AWS CLI to turn on KMS key encryption of
-session data in your account, see [Create a Session Manager
-preferences document (command line)](getting-started-create-preferences-cli.md "getting-started-create-preferences-cli.md") or [Update Session Manager
-preferences (command line)](getting-started-configure-preferences-cli.md "getting-started-configure-preferences-cli.md").
+session data in your account, see [Create a Session Manager preferences document (command line)](getting-started-create-preferences-cli.md "getting-started-create-preferences-cli.md") or [Update Session Manager preferences (command line)](getting-started-configure-preferences-cli.md "getting-started-configure-preferences-cli.md").
 
 ###### Note
 

@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Install SSM Agent on RHEL 8.x,
-
-9.x, and 10.x
+# Install SSM Agent on RHEL 8.x, 9.x, and 10.x
 
 The Amazon Machine Images (AMIs) for RHEL 8 and 9 that are provided by AWS
 do not come with AWS Systems Manager Agent (SSM Agent) preinstalled by default. Use the
@@ -26,14 +16,10 @@ following:
 
 ###### Topics
 
-- [Quick installation commands for
-  SSM Agent on RHEL 8, 9, and 10](#quick-install-rhel-8-9 "#quick-install-rhel-8-9")
-- [Create custom agent installation
-  commands for RHEL 8, 9, and 10 in your Region](#custom-url-rhel-8-9 "#custom-url-rhel-8-9")
+- [Quick installation commands for SSM Agent on RHEL 8, 9, and 10](#quick-install-rhel-8-9 "#quick-install-rhel-8-9")
+- [Create custom agent installation commands for RHEL 8, 9, and 10 in your Region](#custom-url-rhel-8-9 "#custom-url-rhel-8-9")
 
-## Quick installation commands for
-
-SSM Agent on RHEL 8, 9, and 10
+## Quick installation commands for SSM Agent on RHEL 8, 9, and 10
 
 Use the following steps to manually install SSM Agent on a single
 instance. This procedure uses globally available installation files.
@@ -108,9 +94,7 @@ sudo systemctl enable amazon-ssm-agent
 sudo systemctl start amazon-ssm-agent
 ```
 
-## Create custom agent installation
-
-commands for RHEL 8, 9, and 10 in your Region
+## Create custom agent installation commands for RHEL 8, 9, and 10 in your Region
 
 When you install SSM Agent on multiple instances using a script or
 template, we recommend using installation files that are stored in the
@@ -121,8 +105,7 @@ accessible S3 bucket in the US East (Ohio) Region (`us-east-2`).
 
 ###### Tip
 
-You can also replace a global URL in the procedure [Quick installation commands for
-SSM Agent on RHEL 8, 9, and 10](#quick-install-rhel-8-9 "#quick-install-rhel-8-9") earlier in this topic
+You can also replace a global URL in the procedure [Quick installation commands for SSM Agent on RHEL 8, 9, and 10](#quick-install-rhel-8-9 "#quick-install-rhel-8-9") earlier in this topic
 with a custom Regional URL you construct.
 
 In the following command, replace `region` with your own

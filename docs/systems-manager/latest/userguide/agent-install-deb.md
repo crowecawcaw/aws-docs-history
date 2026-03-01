@@ -1,19 +1,8 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Manually installing SSM Agent on Debian Server
-
-instances
+# Manually installing SSM Agent on Debian Server instances
 
 The Amazon Machine Images (AMIs) for Debian Server that are provided by AWS do not
 come with AWS Systems Manager Agent (SSM Agent) preinstalled by default. For a list of
-AWS managed AMIs on which the agent might be preinstalled, see [Find AMIs with the SSM Agent
-preinstalled](ami-preinstalled-agent.md "ami-preinstalled-agent.md").
+AWS managed AMIs on which the agent might be preinstalled, see [Find AMIs with the SSM Agent preinstalled](ami-preinstalled-agent.md "ami-preinstalled-agent.md").
 
 Use the information in this section to help you manually install or reinstall
 SSM Agent on a Debian Server instance.
@@ -24,19 +13,14 @@ Before you install SSM Agent on a Debian Server instance, note the
 following:
 
 - For important information that applies to installation of SSM Agent on
-  all Linux-based operating systems, see [Manually installing and
-  uninstalling SSM Agent on EC2 instances for Linux](manually-install-ssm-agent-linux.md "manually-install-ssm-agent-linux.md").
+  all Linux-based operating systems, see [Manually installing and uninstalling SSM Agent on EC2 instances for Linux](manually-install-ssm-agent-linux.md "manually-install-ssm-agent-linux.md").
 
 ###### Topics
 
-- [Quick installation commands for
-  SSM Agent on Debian Server](#quick-install-debian "#quick-install-debian")
-- [Create custom agent installation
-  commands for Debian Server in your Region](#custom-url-debian "#custom-url-debian")
+- [Quick installation commands for SSM Agent on Debian Server](#quick-install-debian "#quick-install-debian")
+- [Create custom agent installation commands for Debian Server in your Region](#custom-url-debian "#custom-url-debian")
 
-## Quick installation commands for
-
-SSM Agent on Debian Server
+## Quick installation commands for SSM Agent on Debian Server
 
 Use the following steps to manually install SSM Agent on a single instance.
 This procedure uses globally available installation files.
@@ -132,9 +116,7 @@ sudo systemctl enable amazon-ssm-agent
 sudo systemctl start amazon-ssm-agent
 ```
 
-## Create custom agent installation
-
-commands for Debian Server in your Region
+## Create custom agent installation commands for Debian Server in your Region
 
 When you install SSM Agent on multiple instances using a script or
 template, we recommend using installation files that are stored in the
@@ -145,8 +127,7 @@ accessible S3 bucket in the US East (Ohio) Region (`us-east-2`).
 
 ###### Tip
 
-You can also replace a global URL in the procedure [Quick installation commands for
-SSM Agent on Debian Server](#quick-install-debian "#quick-install-debian") earlier in this topic with a custom Regional URL you
+You can also replace a global URL in the procedure [Quick installation commands for SSM Agent on Debian Server](#quick-install-debian "#quick-install-debian") earlier in this topic with a custom Regional URL you
 construct.
 
 In the following command, replace `region` with your own

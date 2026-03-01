@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Configuring SSM Agent to use a proxy on
-
-Linux nodes
+# Configuring SSM Agent to use a proxy on Linux nodes
 
 You can configure AWS Systems Manager Agent (SSM Agent) to communicate through an HTTP proxy
 by creating an override configuration file and adding `http_proxy`, `https_proxy`, and `no_proxy` settings to the file. An override file also
@@ -19,14 +9,10 @@ you intend to use Session Manager, note that HTTPS proxy servers aren't supporte
 
 ###### Topics
 
-- [Configure SSM Agent to use a proxy
-  (upstart)](#ssm-agent-proxy-upstart "#ssm-agent-proxy-upstart")
-- [Configure SSM Agent to use a proxy
-  (systemd)](#ssm-agent-proxy-systemd "#ssm-agent-proxy-systemd")
+- [Configure SSM Agent to use a proxy (upstart)](#ssm-agent-proxy-upstart "#ssm-agent-proxy-upstart")
+- [Configure SSM Agent to use a proxy (systemd)](#ssm-agent-proxy-systemd "#ssm-agent-proxy-systemd")
 
-## Configure SSM Agent to use a proxy
-
-(upstart)
+## Configure SSM Agent to use a proxy (upstart)
 
 Use the following procedure to create an override configuration file for an
 `upstart` environment.
@@ -86,9 +72,7 @@ For more information about working with `.override`
 files in Upstart environments, see [init: Upstart
 init daemon job configuration](https://www.systutorials.com/docs/linux/man/5-init/ "https://www.systutorials.com/docs/linux/man/5-init/").
 
-## Configure SSM Agent to use a proxy
-
-(systemd)
+## Configure SSM Agent to use a proxy (systemd)
 
 Use the following procedure to configure SSM Agent to use a proxy in a
 `systemd` environment.

@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Security in AWS Systems Manager
 
 Cloud security at Amazon Web Services is the highest priority. As an AWS customer, you benefit
@@ -37,18 +29,11 @@ cloud and security _in_ the cloud:
 
 - [Data protection in AWS Systems Manager](data-protection.md "data-protection.md")
 - [Data perimeters in AWS Systems Manager](data-perimeters.md "data-perimeters.md")
-- [Identity and access management for
-  AWS Systems Manager](security-iam.md "security-iam.md")
-- [Using service-linked roles for
-  Systems Manager](using-service-linked-roles.md "using-service-linked-roles.md")
-- [Logging and monitoring in
-  AWS Systems Manager](logging-and-monitoring.md "logging-and-monitoring.md")
-- [Compliance validation for
-  AWS Systems Manager](compliance-validation.md "compliance-validation.md")
+- [Identity and access management for AWS Systems Manager](security-iam.md "security-iam.md")
+- [Using service-linked roles for Systems Manager](using-service-linked-roles.md "using-service-linked-roles.md")
+- [Logging and monitoring in AWS Systems Manager](logging-and-monitoring.md "logging-and-monitoring.md")
+- [Compliance validation for AWS Systems Manager](compliance-validation.md "compliance-validation.md")
 - [Resilience in AWS Systems Manager](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
-- [Infrastructure security in
-  AWS Systems Manager](infrastructure-security.md "infrastructure-security.md")
-- [Configuration and vulnerability
-  analysis in AWS Systems Manager](vulnerability-analysis-and-management.md "vulnerability-analysis-and-management.md")
-- [Security best practices for
-  Systems Manager](security-best-practices.md "security-best-practices.md")
+- [Infrastructure security in AWS Systems Manager](infrastructure-security.md "infrastructure-security.md")
+- [Configuration and vulnerability analysis in AWS Systems Manager](vulnerability-analysis-and-management.md "vulnerability-analysis-and-management.md")
+- [Security best practices for Systems Manager](security-best-practices.md "security-best-practices.md")

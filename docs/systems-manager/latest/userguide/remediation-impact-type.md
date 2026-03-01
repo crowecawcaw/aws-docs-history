@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Remediation impact types of runbook
-
-actions
+# Remediation impact types of runbook actions
 
 Systems Manager can run diagnosis operations that discover certain types of failed deployments
 and drifted configurations, as well as certain types of configuration issues that are
@@ -17,12 +7,9 @@ recommendations for Automation runbooks that you can execute to attempt to remed
 problem. For more information about these diagnosis operations, see the following
 topics:
 
-- [Diagnosing and remediating failed
-  deployments](remediating-deployment-issues.md "remediating-deployment-issues.md")
-- [Diagnosing and remediating drifted
-  configurations](remediating-configuration-drift.md "remediating-configuration-drift.md")
-- [Diagnosing and remediating unmanaged
-  Amazon EC2 instances in Systems Manager](remediating-unmanaged-instances.md "remediating-unmanaged-instances.md")
+- [Diagnosing and remediating failed deployments](remediating-deployment-issues.md "remediating-deployment-issues.md")
+- [Diagnosing and remediating drifted configurations](remediating-configuration-drift.md "remediating-configuration-drift.md")
+- [Diagnosing and remediating unmanaged Amazon EC2 instances in Systems Manager](remediating-unmanaged-instances.md "remediating-unmanaged-instances.md")
   When Systems Manager identifies an issue that might be fixed by running an Automation runbook on
   the affected resources, it provides you with an _execution
   preview_. The execution preview provides information about the _types_ of changes the runbook execution would make to your
@@ -48,9 +35,7 @@ These change types are as follows:
 See the following table for information about the impact type of supported
 Automation actions.
 
-## Impact types of supported remediation
-
-actions
+## Impact types of supported remediation actions
 
 The table presents the impact type—Mutating, Non-mutating, and
 Undetermined—of various actions that can be included in a remediation

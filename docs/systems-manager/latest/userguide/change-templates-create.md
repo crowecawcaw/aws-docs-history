@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Creating change templates
 
 ###### Change Manager availability change
@@ -25,20 +17,13 @@ command line tools.
 
 ###### Topics
 
-- [About approvals in your
-  change templates](cm-approvals-templates.md "cm-approvals-templates.md")
-- [Creating change templates
-  using Builder](change-templates-custom-builder.md "change-templates-custom-builder.md")
-- [Creating change templates
-  using Editor](change-templates-custom-editor.md "change-templates-custom-editor.md")
-- [Creating change templates using
-  command line tools](change-templates-tools.md "change-templates-tools.md")
+- [About approvals in your change templates](cm-approvals-templates.md "cm-approvals-templates.md")
+- [Creating change templates using Builder](change-templates-custom-builder.md "change-templates-custom-builder.md")
+- [Creating change templates using Editor](change-templates-custom-editor.md "change-templates-custom-editor.md")
+- [Creating change templates using command line tools](change-templates-tools.md "change-templates-tools.md")
 
 ###### Topics
 
-- [Creating change templates
-  using Builder](change-templates-custom-builder.md "change-templates-custom-builder.md")
-- [Creating change templates
-  using Editor](change-templates-custom-editor.md "change-templates-custom-editor.md")
-- [Creating change templates using
-  command line tools](change-templates-tools.md "change-templates-tools.md")
+- [Creating change templates using Builder](change-templates-custom-builder.md "change-templates-custom-builder.md")
+- [Creating change templates using Editor](change-templates-custom-editor.md "change-templates-custom-editor.md")
+- [Creating change templates using command line tools](change-templates-tools.md "change-templates-tools.md")

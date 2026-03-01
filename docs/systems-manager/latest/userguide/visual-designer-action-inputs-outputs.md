@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Configuring inputs and outputs for
-
-your actions
+# Configuring inputs and outputs for your actions
 
 Each automation action responds based on input that it receives. In most cases, you then
 pass output to the subsequent actions. In the visual design experience, you can configure an action's input
@@ -16,8 +6,7 @@ and output data in the **Inputs** and **Outputs** tabs of
 the **Form** panel.
 
 For detailed information about how to define and use output for automation
-actions, see [Using action outputs as
-inputs](automation-action-outputs-inputs.md "automation-action-outputs-inputs.md").
+actions, see [Using action outputs as inputs](automation-action-outputs-inputs.md "automation-action-outputs-inputs.md").
 
 ## Provide input data for an action
 

@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# AWS Systems Manager
-
-identity-based policy examples
+# AWS Systems Manager identity-based policy examples
 
 By default, AWS Identity and Access Management (IAM) entities (users and roles) don't have permission to
 create or modify AWS Systems Manager resources. They also can't perform tasks using the Systems Manager
@@ -47,21 +37,15 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [Policy
-  best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Example:
-  Permission to using the Systems Manager console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Example: Permission to using the Systems Manager console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
 - [Example: Permission to allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
 - [Example: Permission to read and describe individual parameters](#security_iam_id-based-policy-examples-view-one-parameter "#security_iam_id-based-policy-examples-view-one-parameter")
-- [Cross-service
-  confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
-- [Customer managed policy
-  examples](#customer-managed-policies "#customer-managed-policies")
+- [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Customer managed policy examples](#customer-managed-policies "#customer-managed-policies")
 - [Viewing Systems Manager documents based on tags](#security_iam_id-based-policy-examples-view-documents-tags "#security_iam_id-based-policy-examples-view-documents-tags")
 
-## Policy
-
-best practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Systems Manager resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -94,9 +78,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Example:
-
-Permission to using the Systems Manager console
+## Example: Permission to using the Systems Manager console
 
 To access the Systems Manager console, you must have a minimum set of permissions. These
 permissions must allow you to list and view details about the Systems Manager
@@ -181,9 +163,7 @@ JSON
 
 ```
 
-## Customer managed policy
-
-examples
+## Customer managed policy examples
 
 You can create standalone policies that you administer in your own
 AWS account. We refer to these as _customer managed
@@ -197,8 +177,7 @@ actions. Use them to limit the Systems Manager access for your IAM entities
 (users and roles). These policies work when performing actions in the
 Systems Manager API, AWS SDKs, or the AWS CLI. For users who use the console,
 you need to grant additional permissions specific to the console. For more
-information, see [Example:
-Permission to using the Systems Manager console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console").
+information, see [Example: Permission to using the Systems Manager console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console").
 
 ###### Note
 
@@ -209,14 +188,10 @@ Name (ARN) for AWS public documents (documents that begin with
 
 **Examples**
 
-- [Example 1: Allow a user
-  to perform Systems Manager operations in a single Region](#identity-based-policies-example-1 "#identity-based-policies-example-1")
-- [Example 2: Allow a user
-  to list documents for a single Region](#identity-based-policies-example-2 "#identity-based-policies-example-2")
+- [Example 1: Allow a user to perform Systems Manager operations in a single Region](#identity-based-policies-example-1 "#identity-based-policies-example-1")
+- [Example 2: Allow a user to list documents for a single Region](#identity-based-policies-example-2 "#identity-based-policies-example-2")
 
-### Example 1: Allow a user
-
-to perform Systems Manager operations in a single Region
+### Example 1: Allow a user to perform Systems Manager operations in a single Region
 
 The following example grants permissions to perform Systems Manager
 operations only in the US East (Ohio) Region
@@ -242,9 +217,7 @@ JSON
 
 ```
 
-### Example 2: Allow a user
-
-to list documents for a single Region
+### Example 2: Allow a user to list documents for a single Region
 
 The following example grants permissions to list all document names that
 begin with `Update` in the
@@ -270,10 +243,7 @@ JSON
 
 ```
 
-### Example 3: Allow a user
-
-to use a specific SSM document to run commands on specific
-nodes
+### Example 3: Allow a user to use a specific SSM document to run commands on specific nodes
 
 The following example IAM policy allows a user to do the following in
 the US East (Ohio) Region (us-east-2):

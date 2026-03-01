@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Adding or removing widgets
-
-from the **Review node insights** page
+# Adding or removing widgets from the **Review node insights** page
 
 You can customize the layout in the Systems Manager **Review node insights**
 page by adding and removing widgets.
@@ -17,9 +7,7 @@ page by adding and removing widgets.
 
 By default, the page displays all available widgets.
 
-###### To add or remove widgets from the **Review node insights**
-
-page
+###### To add or remove widgets from the **Review node insights** page
 
 1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
 2. In the left navigation, choose **Review node

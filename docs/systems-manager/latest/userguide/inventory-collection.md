@@ -1,17 +1,8 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Configuring inventory collection
 
 This section describes how to configure AWS Systems Manager Inventory collection on one or more
 managed nodes by using the Systems Manager console. For an example of how to configure inventory
-collection by using the AWS Command Line Interface (AWS CLI), see [Using the AWS CLI to configure inventory data
-collection](inventory-collection-cli.md "inventory-collection-cli.md").
+collection by using the AWS Command Line Interface (AWS CLI), see [Using the AWS CLI to configure inventory data collection](inventory-collection-cli.md "inventory-collection-cli.md").
 
 When you configure inventory collection, you start by creating a AWS Systems Manager State Manager
 association. Systems Manager collects the inventory data when the association is run. If you don't
@@ -46,26 +37,21 @@ Before you configure inventory collection, complete the following tasks.
 - Update AWS Systems Manager SSM Agent on the nodes you want to inventory. By running the
   latest version of SSM Agent, you ensure that you can collect metadata for all
   supported inventory types. For information about how to update SSM Agent by using
-  State Manager, see [Walkthrough: Automatically update
-  SSM Agent with the AWS CLI](state-manager-update-ssm-agent-cli.md "state-manager-update-ssm-agent-cli.md").
+  State Manager, see [Walkthrough: Automatically update SSM Agent with the AWS CLI](state-manager-update-ssm-agent-cli.md "state-manager-update-ssm-agent-cli.md").
 - Verify that you have completed the setup requirements for your Amazon Elastic Compute Cloud
   (Amazon EC2) instances and non-EC2 machines in a [hybrid and multicloud](operating-systems-and-machine-types.md#supported-machine-types "operating-systems-and-machine-types.md#supported-machine-types") environment. For
-  information, see [Setting up managed nodes for
-  AWS Systems Manager](systems-manager-setting-up-nodes.md "systems-manager-setting-up-nodes.md").
+  information, see [Setting up managed nodes for AWS Systems Manager](systems-manager-setting-up-nodes.md "systems-manager-setting-up-nodes.md").
 - For Microsoft Windows Server nodes, verify that your managed node is configured with
   Windows PowerShell 3.0 (or later). SSM Agent uses the `ConvertTo-Json`
   cmdlet in PowerShell to convert Windows update inventory data to the required
   format.
 - (Optional) Create a resource data sync to centrally store inventory data in an
   Amazon S3 bucket. resource data sync then automatically updates the centralized data
-  when new inventory data is collected. For more information, see [Walkthrough: Using resource data sync to
-  aggregate inventory data](inventory-resource-data-sync.md "inventory-resource-data-sync.md").
+  when new inventory data is collected. For more information, see [Walkthrough: Using resource data sync to aggregate inventory data](inventory-resource-data-sync.md "inventory-resource-data-sync.md").
 - (Optional) Create a JSON file to collect custom inventory. For more
   information, see [Working with custom inventory](inventory-custom.md "inventory-custom.md").
 
-## Inventory all managed nodes in
-
-your AWS account
+## Inventory all managed nodes in your AWS account
 
 You can inventory all managed nodes in your AWS account by creating a global
 inventory association. A global inventory association performs the following
@@ -89,19 +75,14 @@ actions:
   association.
 - Global inventory associations are available in SSM Agent version
   2.0.790.0 or later. For information about how to update SSM Agent on your
-  nodes, see [Updating the SSM Agent using
-  Run Command](run-command-tutorial-update-software.md#rc-console-agentexample "run-command-tutorial-update-software.md#rc-console-agentexample").
+  nodes, see [Updating the SSM Agent using Run Command](run-command-tutorial-update-software.md#rc-console-agentexample "run-command-tutorial-update-software.md#rc-console-agentexample").
 
-### Configuring inventory
-
-collection with one click (console)
+### Configuring inventory collection with one click (console)
 
 Use the following procedure to configure Systems Manager Inventory for all managed nodes
 in your AWS account and in a single AWS Region.
 
-###### To configure all of your managed nodes in the current Region for Systems Manager
-
-inventory
+###### To configure all of your managed nodes in the current Region for Systems Manager inventory
 
 1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
 2. In the navigation pane, choose **Inventory**.
@@ -121,9 +102,7 @@ a few minutes and then refresh the page. Verify that the graphic changes
 to reflect that inventory is configured on all of your managed
 nodes.
 
-### Configuring collection by using
-
-the console
+### Configuring collection by using the console
 
 This section includes information about how to configure Systems Manager Inventory to
 collect metadata from your managed nodes by using the Systems Manager console. You can
@@ -151,8 +130,7 @@ to it, and the new instance will be inventoried.
      choose this option, nodes that already had inventory
      associations are skipped during inventory collection, and shown
      with a status of **Skipped** in inventory
-     results. For more information, see [Inventory all managed nodes in
-     your AWS account](#inventory-management-inventory-all "#inventory-management-inventory-all").
+     results. For more information, see [Inventory all managed nodes in your AWS account](#inventory-management-inventory-all "#inventory-management-inventory-all").
    - **Specifying a tag** - Use this option to
      specify a single tag to identify nodes in your account from
      which you want to collect inventory. If you use a tag, any nodes
@@ -174,8 +152,7 @@ to it, and the new instance will be inventoried.
 
    ###### Note
 
-   If a managed node you expect to see isn't listed, see [Troubleshooting managed
-   node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for troubleshooting
+   If a managed node you expect to see isn't listed, see [Troubleshooting managed node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for troubleshooting
    tips.
 
 5. In the **Schedule** section, choose how often you
@@ -183,8 +160,7 @@ to it, and the new instance will be inventoried.
 6. In the **Parameters** section, use the lists to turn
    on or turn off different types of inventory collection. For more
    information about collecting File and Windows Registry inventory, see
-   [Working with file and Windows registry
-   inventory](inventory-file-and-registry.md "inventory-file-and-registry.md").
+   [Working with file and Windows registry inventory](inventory-file-and-registry.md "inventory-file-and-registry.md").
 7. In the **Advanced** section, choose **Sync
    inventory execution logs to an Amazon S3 bucket** if you want to
    store the association execution status in an Amazon S3 bucket.

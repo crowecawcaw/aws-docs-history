@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# `aws:executeAutomation`
-
-– Run another automation
+# `aws:executeAutomation` – Run another automation
 
 Runs a secondary automation by calling a secondary runbook. With this action, you can
 create runbooks for your most common operations, and reference those runbooks during an
@@ -25,8 +15,7 @@ If you specify parameters in a secondary automation that use an assume role (a
 role that uses the iam:passRole policy), then the user or role that initiated the
 primary automation must have permission to pass the assume role specified in the
 secondary automation. For more information about setting up an assume role for
-Automation, see [Create the service roles for Automation using
-the console](automation-setup-iam.md "automation-setup-iam.md").
+Automation, see [Create the service roles for Automation using the console](automation-setup-iam.md "automation-setup-iam.md").
 
 **Input**
 

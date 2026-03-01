@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Approving and denying just-in-time node access requests
 
 Access request approvers can approve or deny just-in-time node access requests
@@ -15,9 +7,7 @@ permissions required to approve or reject access requests, contact your
 administrator. The following procedures describe how to approve or deny just-in-time
 node access requests.
 
-###### To approve or deny just-in-time node access requests using the
-
-console
+###### To approve or deny just-in-time node access requests using the console
 
 1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
 2. Select **Manage node access** in the navigation
@@ -30,9 +20,7 @@ console
    After approving an access request you can revoke your approval at any time by
    selecting **Revoke**.
 
-###### To approve or deny just-in-time node access requests using the command
-
-line
+###### To approve or deny just-in-time node access requests using the command line
 
 1. Note the access request ID from the notification. For example,
    `oi-12345abcdef`.

@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Connecting to a Windows Server
-
-managed instance using Remote Desktop
+# Connecting to a Windows Server managed instance using Remote Desktop
 
 You can use Fleet Manager, a tool in AWS Systems Manager, to connect to your Windows Server Amazon Elastic Compute Cloud
 (Amazon EC2) instances using the Remote Desktop Protocol (RDP). Fleet Manager
@@ -33,8 +23,7 @@ a shell, you can use Session Manager, another tool in AWS Systems Manager. For m
 The duration of an RDP connection is not determined by the duration of your
 AWS Identity and Access Management (IAM) credentials. Instead, the connection persists until the maximum
 connection duration or idle time limit is met, whichever comes first. For more
-information, see [Remote connection duration and
-concurrency](#rdp-duration-concurrency "#rdp-duration-concurrency").
+information, see [Remote connection duration and concurrency](#rdp-duration-concurrency "#rdp-duration-concurrency").
 
 For information about configuring AWS Identity and Access Management (IAM) permissions to allow your
 instances to interact with Systems Manager, see [Configure instance permissions for Systems Manager](setup-instance-permissions.md "setup-instance-permissions.md").
@@ -42,18 +31,12 @@ instances to interact with Systems Manager, see [Configure instance permissions 
 ###### Topics
 
 - [Setting up your environment](#rdp-prerequisites "#rdp-prerequisites")
-- [Configuring IAM permissions for Remote
-  Desktop](#rdp-iam-policy-examples "#rdp-iam-policy-examples")
-- [Authenticating Remote Desktop
-  connections](#rdp-authentication "#rdp-authentication")
-- [Remote connection duration and
-  concurrency](#rdp-duration-concurrency "#rdp-duration-concurrency")
-- [Systems Manager GUI Connect handling of
-  AWS IAM Identity Center attributes](#iam-identity-center-attribute-handling "#iam-identity-center-attribute-handling")
-- [Connect to a managed node using Remote
-  Desktop](#rdp-connect-to-node "#rdp-connect-to-node")
-- [Viewing information about current and completed
-  connections](#list-connections "#list-connections")
+- [Configuring IAM permissions for Remote Desktop](#rdp-iam-policy-examples "#rdp-iam-policy-examples")
+- [Authenticating Remote Desktop connections](#rdp-authentication "#rdp-authentication")
+- [Remote connection duration and concurrency](#rdp-duration-concurrency "#rdp-duration-concurrency")
+- [Systems Manager GUI Connect handling of AWS IAM Identity Center attributes](#iam-identity-center-attribute-handling "#iam-identity-center-attribute-handling")
+- [Connect to a managed node using Remote Desktop](#rdp-connect-to-node "#rdp-connect-to-node")
+- [Viewing information about current and completed connections](#list-connections "#list-connections")
 
 ## Setting up your environment
 
@@ -123,9 +106,7 @@ Setting up data channel with id SESSION_ID failed: failed to create websocket fo
 </BadRequest>
 ```
 
-## Configuring IAM permissions for Remote
-
-Desktop
+## Configuring IAM permissions for Remote Desktop
 
 In addition to the required IAM permissions for Systems Manager and Session Manager, the user or
 role you use must be allowed permissions for initiating connections.
@@ -407,9 +388,7 @@ JSON
 
 ```
 
-## Authenticating Remote Desktop
-
-connections
+## Authenticating Remote Desktop connections
 
 When establishing a remote connection, you can authenticate using
 Windows credentials or the Amazon EC2 key pair
@@ -419,8 +398,7 @@ Windows instances](../../../AWSEC2/latest/WindowsGuide/ec2-key-pairs.md "../../.
 
 Alternatively, if you're authenticated to the AWS Management Console using AWS IAM Identity Center, you can
 connect to your instances without providing additional credentials. For an example
-of a policy to allow remote connection authentication using IAM Identity Center, see [Configuring IAM permissions for Remote
-Desktop](#rdp-iam-policy-examples "#rdp-iam-policy-examples").
+of a policy to allow remote connection authentication using IAM Identity Center, see [Configuring IAM permissions for Remote Desktop](#rdp-iam-policy-examples "#rdp-iam-policy-examples").
 
 ###### Before you begin
 
@@ -498,9 +476,7 @@ supported in the following AWS Regions:
 - AWS GovCloud (US-East) (us-gov-east-1)
 - AWS GovCloud (US-West) (us-gov-west-1)
 
-## Remote connection duration and
-
-concurrency
+## Remote connection duration and concurrency
 
 The following conditions apply to active Remote Desktop connections:
 
@@ -547,9 +523,7 @@ licensing, see the following topics:
      products](../../../license-manager/latest/userguide/user-based-subscriptions.md "../../../license-manager/latest/userguide/user-based-subscriptions.md") in the
      *License Manager User Guide*
 
-## Systems Manager GUI Connect handling of
-
-AWS IAM Identity Center attributes
+## Systems Manager GUI Connect handling of AWS IAM Identity Center attributes
 
 Systems Manager GUI Connect is the API that supports Fleet Manager connections to EC2 instances using RDP.
 The following IAM Identity Center user data is retained after a connection is closed:
@@ -563,9 +537,7 @@ If you delete a user in your IAM Identity Center instance, Systems Manager GUI C
 after which it is deleted. This data is retained to support auditing events, such as
 listing Systems Manager GUI Connect connection history. The data can't be deleted manually.
 
-## Connect to a managed node using Remote
-
-Desktop
+## Connect to a managed node using Remote Desktop
 
 ###### Browser copy/paste support for text
 
@@ -613,9 +585,7 @@ not supported.
     The **Adapt Automatically** option sets the resolution
     based on your detected screen size.
 
-## Viewing information about current and completed
-
-connections
+## Viewing information about current and completed connections
 
 You can use the Fleet Manager section of the Systems Manager console to view information about
 RDP connections that have been made in your account. Using a set of filters, you can

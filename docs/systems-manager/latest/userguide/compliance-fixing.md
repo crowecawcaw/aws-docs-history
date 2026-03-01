@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Remediating compliance issues using EventBridge
 
 You can quickly remediate patch and association compliance issues by using Run Command, a
@@ -16,8 +8,7 @@ re-running the patch baseline fails to resolve the compliance issue, then you ne
 investigate your associations, patch baselines, or instance configurations to understand
 why the Run Command operations didn't resolve the problem.
 
-For more information about patching, see [AWS Systems Manager Patch Manager](patch-manager.md "patch-manager.md") and [SSM Command document for
-patching: AWS-RunPatchBaseline](patch-manager-aws-runpatchbaseline.md "patch-manager-aws-runpatchbaseline.md").
+For more information about patching, see [AWS Systems Manager Patch Manager](patch-manager.md "patch-manager.md") and [SSM Command document for patching: AWS-RunPatchBaseline](patch-manager-aws-runpatchbaseline.md "patch-manager-aws-runpatchbaseline.md").
 
 For more information about associations, see [Working with associations in Systems Manager](state-manager-associations.md "state-manager-associations.md").
 

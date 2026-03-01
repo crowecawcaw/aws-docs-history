@@ -1,19 +1,9 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Using roles to export Explorer OpsData
 
 AWS Systems Manager Explorer uses the **AmazonSSMExplorerExportRole** service role to export operations data (OpsData) using the
 `AWS-ExportOpsDataToS3` automation runbook.
 
-## Service-linked
-
-role permissions for Explorer
+## Service-linked role permissions for Explorer
 
 The `AmazonSSMExplorerExportRole` service-linked role trusts only
 `ssm.amazonaws.com` to assume this role.
@@ -42,23 +32,16 @@ group, or role) to create, edit, or delete a service-linked role. For more
 information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the
 _IAM User Guide_.
 
-## Creating the
-
-`AmazonSSMExplorerExportRole` service-linked role for
-Systems Manager
+## Creating the `AmazonSSMExplorerExportRole` service-linked role for Systems Manager
 
 Systems Manager creates the `AmazonSSMExplorerExportRole` service-linked role when you
 export OpsData using Explorer in the Systems Manager console. For more information, see
-[Exporting OpsData from Systems Manager
-Explorer](Explorer-exporting-OpsData.md "Explorer-exporting-OpsData.md").
+[Exporting OpsData from Systems Manager Explorer](Explorer-exporting-OpsData.md "Explorer-exporting-OpsData.md").
 
 If you delete this service-linked role, and then need to create it again, you
 can use the same process to recreate the role in your account.
 
-## Editing the
-
-`AmazonSSMExplorerExportRole` service-linked role for
-Systems Manager
+## Editing the `AmazonSSMExplorerExportRole` service-linked role for Systems Manager
 
 Systems Manager doesn't allow you to edit the `AmazonSSMExplorerExportRole`
 service-linked role. After you create a service-linked role, you can't change
@@ -67,10 +50,7 @@ you can edit the description of the role using IAM. For more information, see
 [Editing a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the
 _IAM User Guide_.
 
-## Deleting the
-
-`AmazonSSMExplorerExportRole` service-linked role for
-Systems Manager
+## Deleting the `AmazonSSMExplorerExportRole` service-linked role for Systems Manager
 
 If you no longer need to use any feature or service that requires a
 service-linked role, then we recommend that you delete that role. That way you
@@ -85,9 +65,7 @@ If the Systems Manager service is using the role when you try to delete tags
 or resource groups, then the deletion might fail. If that happens, wait for
 a few minutes and try the operation again.
 
-###### To delete Systems Manager resources used by the
-
-`AmazonSSMExplorerExportRole`
+###### To delete Systems Manager resources used by the `AmazonSSMExplorerExportRole`
 
 1. To delete tags, see [Add and delete tags on an individual resource](../../../AWSEC2/latest/UserGuide/Using_Tags.md#adding-or-deleting-tags "../../../AWSEC2/latest/UserGuide/Using_Tags.md#adding-or-deleting-tags").
 2. To delete resource groups, see [Delete
@@ -101,9 +79,7 @@ Use the IAM console, the AWS CLI, or the IAM API to delete the
 [Deleting a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the
 _IAM User Guide_.
 
-## Supported Regions for the
-
-Systems Manager  `AmazonSSMExplorerExportRole` service-linked role
+## Supported Regions for the Systems Manager  `AmazonSSMExplorerExportRole` service-linked role
 
 Systems Manager supports using the `AmazonSSMExplorerExportRole` service-linked
 role in all of the AWS Regions where the service is available. For more

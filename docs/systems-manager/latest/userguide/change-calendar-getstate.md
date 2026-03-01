@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Getting the state of a change
-
-calendar
+# Getting the state of a change calendar
 
 You can get the overall state of a calendar or the state of a calendar at a
 specific time in Change Calendar, a tool in AWS Systems Manager. You can also show the next time that
@@ -18,8 +8,7 @@ reverse.
 ###### Note
 
 For information about integrating Change Calendar with Amazon EventBridge for automated
-monitoring of calendar state changes, see [Change Calendar integration
-with Amazon EventBridge](monitoring-systems-manager-event-examples.md#change-calendar-eventbridge-integration "monitoring-systems-manager-event-examples.md#change-calendar-eventbridge-integration"). EventBridge integration
+monitoring of calendar state changes, see [Change Calendar integration with Amazon EventBridge](monitoring-systems-manager-event-examples.md#change-calendar-eventbridge-integration "monitoring-systems-manager-event-examples.md#change-calendar-eventbridge-integration"). EventBridge integration
 provides event-driven notifications when calendar states transition,
 complementing the polling-based approach of the `GetCalendarState`
 API action.

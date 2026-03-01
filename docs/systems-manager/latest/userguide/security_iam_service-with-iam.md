@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# How AWS Systems Manager works with
-
-IAM
+# How AWS Systems Manager works with IAM
 
 Before you use AWS Identity and Access Management (IAM) to manage access to AWS Systems Manager, you should
 understand what IAM features are available to use with Systems Manager. To get a
@@ -20,10 +10,8 @@ _IAM User Guide_.
 
 - [Systems Manager identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
 - [Systems Manager resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
-- [Authorization based on
-  Systems Manager tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
-- [Systems Manager IAM
-  roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
+- [Authorization based on Systems Manager tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
+- [Systems Manager IAM roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
 
 ## Systems Manager identity-based policies
 
@@ -195,10 +183,8 @@ Note the following exceptions to ARN formats.
   following topics:
 
       + [Working with documents](documents-using.md "documents-using.md")
-      + [Run an automated operation powered by Systems Manager
-       Automation](running-simple-automations.md "running-simple-automations.md")
-      + [Working with public parameters in
-       Parameter Store](parameter-store-public-parameters.md "parameter-store-public-parameters.md")
+      + [Run an automated operation powered by Systems Manager Automation](running-simple-automations.md "running-simple-automations.md")
+      + [Working with public parameters in Parameter Store](parameter-store-public-parameters.md "parameter-store-public-parameters.md")
 
 - Quick Setup uses the prefix `ssm-quicksetup:` before
   actions.
@@ -249,8 +235,7 @@ hierarchical construction. With hierarchical construction, a parameter name
 can include a path that you define by using forward slashes. You can name a
 parameter resource with a maximum of fifteen levels. We suggest that you
 create hierarchies that reflect an existing hierarchical structure in your
-environment. For more information, see [Creating Parameter Store parameters in
-Systems Manager](sysman-paramstore-su-create.md "sysman-paramstore-su-create.md").
+environment. For more information, see [Creating Parameter Store parameters in Systems Manager](sysman-paramstore-su-create.md "sysman-paramstore-su-create.md").
 
 **3** In most
 cases, the session ID is constructed using the ID of the account user who
@@ -294,21 +279,18 @@ learn with which actions and resources you can use a condition key, see
 For information about using the `ssm:resourceTag/*` condition
 key, see the following topics:
 
-- [Restricting access to
-  root-level commands through SSM Agent](ssm-agent-restrict-root-level-commands.md "ssm-agent-restrict-root-level-commands.md")
+- [Restricting access to root-level commands through SSM Agent](ssm-agent-restrict-root-level-commands.md "ssm-agent-restrict-root-level-commands.md")
 - [Restricting Run Command access based on tags](run-command-setting-up.md#tag-based-access "run-command-setting-up.md#tag-based-access")
 - [Restrict
   session access based on instance tags](getting-started-restrict-access-examples.md#restrict-access-example-instance-tags "getting-started-restrict-access-examples.md#restrict-access-example-instance-tags")
 
 For information about using the `ssm:Recursive`,
 `ssm:Policies`, and `ssm:Overwrite` condition
-keys, see [Preventing access to Parameter Store
-API operations](parameter-store-policy-conditions.md "parameter-store-policy-conditions.md").
+keys, see [Preventing access to Parameter Store API operations](parameter-store-policy-conditions.md "parameter-store-policy-conditions.md").
 
 ### Examples
 
-To view examples of Systems Manager identity-based policies, see [AWS Systems Manager
-identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Systems Manager identity-based policies, see [AWS Systems Manager identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Systems Manager resource-based policies
 
@@ -318,9 +300,7 @@ bucket to manage access permissions to that bucket.
 
 Systems Manager doesn't support resource-based policies.
 
-## Authorization based on
-
-Systems Manager tags
+## Authorization based on Systems Manager tags
 
 You can attach tags to Systems Manager resources or pass tags in a request to
 Systems Manager. To control access based on tags, you provide tag information
@@ -341,17 +321,13 @@ resource types when you create or update them:
 To view an example identity-based policy for limiting access to a resource
 based on the tags on that resource, see [Viewing Systems Manager documents based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-documents-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-documents-tags").
 
-## Systems Manager IAM
-
-roles
+## Systems Manager IAM roles
 
 An [IAM
 role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within your AWS account that has specific
 permissions.
 
-### Using
-
-temporary credentials with Systems Manager
+### Using temporary credentials with Systems Manager
 
 You can use temporary credentials to sign in with federation, assume an
 IAM role, or to assume a cross-account role. You obtain temporary security
@@ -368,12 +344,9 @@ administrator can view but not edit the permissions for service-linked
 roles.
 
 Systems Manager supports service-linked roles. For details about creating
-or managing Systems Manager service-linked roles, see [Using service-linked roles for
-Systems Manager](using-service-linked-roles.md "using-service-linked-roles.md").
+or managing Systems Manager service-linked roles, see [Using service-linked roles for Systems Manager](using-service-linked-roles.md "using-service-linked-roles.md").
 
-### Service
-
-roles
+### Service roles
 
 This feature allows a service to assume a [service role](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-role") on your behalf. This role allows the service to
 access resources in other services to complete an action on your behalf.
@@ -384,9 +357,7 @@ service.
 
 Systems Manager supports service roles.
 
-### Choosing an
-
-IAM role in Systems Manager
+### Choosing an IAM role in Systems Manager
 
 For Systems Manager to interact with your managed nodes, you must choose
 a role to allow Systems Manager to access nodes on your behalf. If you have
@@ -405,12 +376,9 @@ An Automation workflow can be initiated under the context of a service
 role (or assume role). This allows the service to perform actions on your
 behalf. If you don't specify an assume role, Automation uses the context of
 the user who invoked the execution. However, certain situations require that
-you specify a service role for Automation. For more information, see [Configuring a service role (assume
-role) access for automations](automation-setup.md#automation-setup-configure-role "automation-setup.md#automation-setup-configure-role").
+you specify a service role for Automation. For more information, see [Configuring a service role (assume role) access for automations](automation-setup.md#automation-setup-configure-role "automation-setup.md#automation-setup-configure-role").
 
-### AWS Systems Manager managed
-
-policies
+### AWS Systems Manager managed policies
 
 AWS addresses many common use cases by providing standalone IAM
 policies that are created and administered by AWS. These AWS
@@ -419,8 +387,7 @@ common use cases so you can avoid having to investigate which permissions
 are needed. (You can also create your own custom IAM policies to allow
 permissions for Systems Manager actions and resources.)
 
-For more information about managed policies for Systems Manager, see [AWS managed policies for
-AWS Systems Manager](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
+For more information about managed policies for Systems Manager, see [AWS managed policies for AWS Systems Manager](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 
 For general information about managed policies, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.

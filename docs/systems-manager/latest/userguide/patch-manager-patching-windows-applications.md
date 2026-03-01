@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Patching applications
-
-released by Microsoft on Windows Server
+# Patching applications released by Microsoft on Windows Server
 
 Use the information in this topic to help you prepare to patch applications on
 Windows Server using Patch Manager, a tool in AWS Systems Manager.
@@ -41,16 +31,13 @@ Microsoft.
 You can also create a custom patch baseline to update applications released by
 Microsoft on Windows Server machines.
 
-###### Support for patching applications released by Microsoft on on-premises
-
-servers, edge devices, VMs, and other non-EC2 nodes
+###### Support for patching applications released by Microsoft on on-premises servers, edge devices, VMs, and other non-EC2 nodes
 
 To patch applications released by Microsoft on virtual machines (VMs) and
 other non-EC2 managed nodes, you must turn on the advanced-instances tier. There
 is a charge to use the advanced-instances tier. **However,
 there is no additional charge to patch applications released by Microsoft on
-Amazon Elastic Compute Cloud (Amazon EC2) instances.** For more information, see [Configuring instance
-tiers](fleet-manager-configure-instance-tiers.md "fleet-manager-configure-instance-tiers.md").
+Amazon Elastic Compute Cloud (Amazon EC2) instances.** For more information, see [Configuring instance tiers](fleet-manager-configure-instance-tiers.md "fleet-manager-configure-instance-tiers.md").
 
 ###### Windows update option for "other Microsoft products"
 
@@ -139,6 +126,5 @@ aws ssm create-patch-baseline ^
 ###### Note
 
 If you receive an error message about a mismatched product and family pairing,
-see [Issue:
-mismatched product family/product pairs](patch-manager-troubleshooting.md#patch-manager-troubleshooting-product-family-mismatch "patch-manager-troubleshooting.md#patch-manager-troubleshooting-product-family-mismatch") for
+see [Issue: mismatched product family/product pairs](patch-manager-troubleshooting.md#patch-manager-troubleshooting-product-family-mismatch "patch-manager-troubleshooting.md#patch-manager-troubleshooting-product-family-mismatch") for
 help resolving the issue.

@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Reference: Amazon S3 buckets for patching
-
-operations
+# Reference: Amazon S3 buckets for patching operations
 
 In the course of performing various Patch Manager patching operations, AWS Systems Manager Agent
 (SSM Agent) accesses certain Amazon Simple Storage Service (Amazon S3) buckets that are owned and maintained by
@@ -23,24 +13,17 @@ resources can't access these public buckets.
 This reference topic lists the patching-related buckets for each supported
 AWS Region.
 
-For information about specifying these S3 buckets in EC2 instance profiles, see [SSM Agent communications with
-AWS managed S3 buckets](ssm-agent-technical-details.md#ssm-agent-minimum-s3-permissions "ssm-agent-technical-details.md#ssm-agent-minimum-s3-permissions").
+For information about specifying these S3 buckets in EC2 instance profiles, see [SSM Agent communications with AWS managed S3 buckets](ssm-agent-technical-details.md#ssm-agent-minimum-s3-permissions "ssm-agent-technical-details.md#ssm-agent-minimum-s3-permissions").
 
-For information about using VPC endpoints with Systems Manager, see [Improve the security of EC2 instances by using VPC
-endpoints for Systems Manager](setup-create-vpc.md "setup-create-vpc.md").
+For information about using VPC endpoints with Systems Manager, see [Improve the security of EC2 instances by using VPC endpoints for Systems Manager](setup-create-vpc.md "setup-create-vpc.md").
 
 ###### Topics
 
-- [Buckets containing SSM
-  Command documents for patching operations (Linux and Windows Server)](#aws-patch-manager-buckets-linux-windows "#aws-patch-manager-buckets-linux-windows")
-- [Buckets containing SSM Command
-  documents for patching operations (macOS)](#aws-patch-manager-buckets-macos "#aws-patch-manager-buckets-macos")
-- [Buckets containing AWS
-  managed patch baseline snapshots](#aws-patch-manager-buckets-baseline-snapshots "#aws-patch-manager-buckets-baseline-snapshots")
+- [Buckets containing SSM Command documents for patching operations (Linux and Windows Server)](#aws-patch-manager-buckets-linux-windows "#aws-patch-manager-buckets-linux-windows")
+- [Buckets containing SSM Command documents for patching operations (macOS)](#aws-patch-manager-buckets-macos "#aws-patch-manager-buckets-macos")
+- [Buckets containing AWS managed patch baseline snapshots](#aws-patch-manager-buckets-baseline-snapshots "#aws-patch-manager-buckets-baseline-snapshots")
 
-## Buckets containing SSM
-
-Command documents for patching operations (Linux and Windows Server)
+## Buckets containing SSM Command documents for patching operations (Linux and Windows Server)
 
 Buckets with the format
 `aws-patch-manager-`region`-`unique-suffix``
@@ -86,9 +69,7 @@ Windows Server operating systems:
 | Middle East (UAE)         | me-central-1   | aws-patch-manager-me-central-1-2932f2f80        |
 | South America (São Paulo) | sa-east-1      | aws-patch-manager-sa-east-1-ddf4b6a09           |
 
-## Buckets containing SSM Command
-
-documents for patching operations (macOS)
+## Buckets containing SSM Command documents for patching operations (macOS)
 
 Buckets with the format
 `aws-patchmanager-macos-`region`-`unique-suffix``
@@ -134,9 +115,7 @@ operating system:
 | Middle East (UAE)         | me-central-1   | aws-patchmanager-macos-me-central-1-2932f2f80        |
 | South America (São Paulo) | sa-east-1      | aws-patchmanager-macos-sa-east-1-ddf4b6a09           |
 
-## Buckets containing AWS
-
-managed patch baseline snapshots
+## Buckets containing AWS managed patch baseline snapshots
 
 Buckets with the format
 `patch-baseline-snapshot-`region`` or

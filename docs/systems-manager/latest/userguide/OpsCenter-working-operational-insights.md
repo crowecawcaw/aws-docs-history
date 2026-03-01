@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Analyzing operational
-
-insights to reduce OpsItems
+# Analyzing operational insights to reduce OpsItems
 
 OpsCenter _operational insights_ display
 information about duplicate OpsItems. OpsCenter automatically analyzes OpsItems in your
@@ -59,16 +49,11 @@ with operational insights, see the following topics.
 
 ###### Topics
 
-- [Enabling
-  operational insights](#OpsCenter-working-operational-insights-viewing "#OpsCenter-working-operational-insights-viewing")
-- [Resolving
-  duplicate OpsItems based on insights](#OpsCenter-working-operational-insights-resolve "#OpsCenter-working-operational-insights-resolve")
-- [Disabling
-  operational insights](#OpsCenter-working-operational-insights-disable "#OpsCenter-working-operational-insights-disable")
+- [Enabling operational insights](#OpsCenter-working-operational-insights-viewing "#OpsCenter-working-operational-insights-viewing")
+- [Resolving duplicate OpsItems based on insights](#OpsCenter-working-operational-insights-resolve "#OpsCenter-working-operational-insights-resolve")
+- [Disabling operational insights](#OpsCenter-working-operational-insights-disable "#OpsCenter-working-operational-insights-disable")
 
-## Enabling
-
-operational insights
+## Enabling operational insights
 
 You can enable operational insights on the **OpsCenter** page
 in the Systems Manager console. When you enable operational insights, Systems Manager creates an
@@ -111,9 +96,7 @@ OpsCenter.
    operational insights**.
 6. Choose an insight ID to view more information.
 
-## Resolving
-
-duplicate OpsItems based on insights
+## Resolving duplicate OpsItems based on insights
 
 To resolve insights, you must first resolve all OpsItems associated with an
 insight. You can use the `AWS-BulkResolveOpsItemsForInsight` runbook
@@ -141,9 +124,7 @@ a source, Systems Manager provides the following automation runbooks:
 5. Choose an insight ID to view more information.
 6. Choose a runbook and choose **Execute**.
 
-## Disabling
-
-operational insights
+## Disabling operational insights
 
 When you turn off operational insights, the system stops creating new insights
 and stops displaying insights in the console. Any active insights remain

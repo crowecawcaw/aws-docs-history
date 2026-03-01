@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Exploring nodes using text prompts in
-
-Amazon Q
+# Exploring nodes using text prompts in Amazon Q
 
 Using Systems Manager integration with Amazon Q Developer, you can use text prompts to view information
 created by generative AI about your managed nodes.
@@ -49,7 +39,5 @@ refine the filters for your request, as described in [Exploring nodes](view-aggr
 
 ###### Topics
 
-- [Learning to craft effective
-  prompts to ask Amazon Q about your fleet](view-aggregated-node-details-Q-prompts.md "view-aggregated-node-details-Q-prompts.md")
-- [Exploring managed nodes using
-  Amazon Q](explore-managed-nodes-using-Q.md "explore-managed-nodes-using-Q.md")
+- [Learning to craft effective prompts to ask Amazon Q about your fleet](view-aggregated-node-details-Q-prompts.md "view-aggregated-node-details-Q-prompts.md")
+- [Exploring managed nodes using Amazon Q](explore-managed-nodes-using-Q.md "explore-managed-nodes-using-Q.md")

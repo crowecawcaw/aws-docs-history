@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Troubleshooting Systems Manager Automation
 
 Use the following information to help you troubleshoot problems with AWS Systems Manager
@@ -15,10 +7,8 @@ based on Automation error messages.
 ###### Topics
 
 - [Common Automation errors](#automation-trbl-common "#automation-trbl-common")
-- [Automation execution failed to
-  start](#automation-trbl-access "#automation-trbl-access")
-- [Execution started, but status is
-  failed](#automation-trbl-exstrt "#automation-trbl-exstrt")
+- [Automation execution failed to start](#automation-trbl-access "#automation-trbl-access")
+- [Execution started, but status is failed](#automation-trbl-exstrt "#automation-trbl-exstrt")
 - [Execution started, but timed out](#automation-trbl-to "#automation-trbl-to")
 
 ## Common Automation errors
@@ -37,9 +27,7 @@ default VPC, you will receive the following error:
 To solve this problem, you must specify a value for the `SubnetId`
 input parameter.
 
-## Automation execution failed to
-
-start
+## Automation execution failed to start
 
 An automation can fail with an access denied error or an invalid assume role error
 if you haven't properly configured AWS Identity and Access Management (IAM) roles, and policies for
@@ -79,8 +67,7 @@ with an access denied error.
 The user attempting to start the automation doesn't have PassRole permission
 for the assume role. To resolve this issue, attach the iam:PassRole policy to
 the role of the user attempting to start the automation. For more information,
-see [Task 2: Attach the iam:PassRole policy
-to your Automation role](automation-setup-iam.md#attach-passrole-policy "automation-setup-iam.md#attach-passrole-policy").
+see [Task 2: Attach the iam:PassRole policy to your Automation role](automation-setup-iam.md#attach-passrole-policy "automation-setup-iam.md#attach-passrole-policy").
 
 ### Invalid assume role
 
@@ -106,16 +93,13 @@ starting the automation.
 
 - Possible cause 1: The assume role doesn't exist. To resolve this
   issue, create the role. For more information, see [Setting up Automation](automation-setup.md "automation-setup.md"). Specific details for creating this
-  role are described in the following topic, [Task 1: Create a service role for
-  Automation](automation-setup-iam.md#create-service-role "automation-setup-iam.md#create-service-role").
+  role are described in the following topic, [Task 1: Create a service role for Automation](automation-setup-iam.md#create-service-role "automation-setup-iam.md#create-service-role").
 - Possible cause 2: The assume role doesn't have a trust relationship
   with the Systems Manager service. To resolve this issue, create the trust
   relationship. For more information, see [I Can't Assume A Role](../../../IAM/latest/UserGuide/troubleshoot_roles.md#troubleshoot_roles_cant-assume-role "../../../IAM/latest/UserGuide/troubleshoot_roles.md#troubleshoot_roles_cant-assume-role") in the
   _IAM User Guide_.
 
-## Execution started, but status is
-
-failed
+## Execution started, but status is failed
 
 ### Action-specific failures
 
@@ -160,8 +144,7 @@ ID.
 The assume role doesn't have sufficient permission to invoke the `RunInstances` API on EC2 instances. To resolve this
 problem, attach an IAM policy to the assume role that has permission to invoke
 the `RunInstances` API. For more information, see the
-[Create the service roles for Automation using
-the console](automation-setup-iam.md "automation-setup-iam.md").
+[Create the service roles for Automation using the console](automation-setup-iam.md "automation-setup-iam.md").
 
 ###### Unexpected State
 
@@ -191,7 +174,7 @@ information about each service.
 | -------------------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `aws:runInstances`         | Amazon EC2                          | [Amazon EC2 User Guide](../../../AWSEC2/latest/UserGuide.md "../../../AWSEC2/latest/UserGuide.md")                                               | [Troubleshooting EC2 Instances](../../../AWSEC2/latest/UserGuide/ec2-instance-troubleshoot.md "../../../AWSEC2/latest/UserGuide/ec2-instance-troubleshoot.md")    |
 | `aws:changeInstanceState`  | Amazon EC2                          | [Amazon EC2 User Guide](../../../AWSEC2/latest/UserGuide.md "../../../AWSEC2/latest/UserGuide.md")                                               | [Troubleshooting EC2 instances](../../../AWSEC2/latest/UserGuide/ec2-instance-troubleshoot.md "../../../AWSEC2/latest/UserGuide/ec2-instance-troubleshoot.md")    |
-| `aws:runCommand`           | Systems Manager                     | [AWS Systems Manager Run Command](run-command.md "run-command.md")                                                                               | [Troubleshooting Systems Manager Run<br>Command](troubleshooting-remote-commands.md "troubleshooting-remote-commands.md")                                         |
+| `aws:runCommand`           | Systems Manager                     | [AWS Systems Manager Run Command](run-command.md "run-command.md")                                                                               | [Troubleshooting Systems Manager Run Command](troubleshooting-remote-commands.md "troubleshooting-remote-commands.md")                                            |
 | `aws:createImage`          | Amazon EC2                          | [Amazon Machine Images](../../../AWSEC2/latest/UserGuide/AMIs.md "../../../AWSEC2/latest/UserGuide/AMIs.md")                                     |                                                                                                                                                                   |
 | `aws:createStack`          | CloudFormation                      | [AWS CloudFormation User Guide](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md") | [Troubleshooting CloudFormation](../../../AWSCloudFormation/latest/UserGuide/troubleshooting.md "../../../AWSCloudFormation/latest/UserGuide/troubleshooting.md") |
 | `aws:deleteStack`          | CloudFormation                      | [AWS CloudFormation User Guide](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md") | [Troubleshooting CloudFormation](../../../AWSCloudFormation/latest/UserGuide/troubleshooting.md "../../../AWSCloudFormation/latest/UserGuide/troubleshooting.md") |

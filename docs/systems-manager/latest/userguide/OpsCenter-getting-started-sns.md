@@ -1,38 +1,22 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# (Optional) Set up Amazon SNS to receive
-
-notifications about OpsItems
+# (Optional) Set up Amazon SNS to receive notifications about OpsItems
 
 You can configure OpsCenter to send notifications to an Amazon Simple Notification Service (Amazon SNS) topic
 when the system creates an OpsItem or updates an existing OpsItem.
 
 Complete the following steps to receive notifications for OpsItems.
 
-- [Step 1: Creating
-  and subscribing to an Amazon SNS topic](#OpsCenter-getting-started-sns-create-topic "#OpsCenter-getting-started-sns-create-topic")
-- [Step 2:
-  Updating the Amazon SNS access policy](#OpsCenter-getting-started-sns-encryption-policy "#OpsCenter-getting-started-sns-encryption-policy")
-- [Step 3: Updating the
-  AWS KMS access policy](#OpsCenter-getting-started-sns-KMS-policy "#OpsCenter-getting-started-sns-KMS-policy")
+- [Step 1: Creating and subscribing to an Amazon SNS topic](#OpsCenter-getting-started-sns-create-topic "#OpsCenter-getting-started-sns-create-topic")
+- [Step 2: Updating the Amazon SNS access policy](#OpsCenter-getting-started-sns-encryption-policy "#OpsCenter-getting-started-sns-encryption-policy")
+- [Step 3: Updating the AWS KMS access policy](#OpsCenter-getting-started-sns-KMS-policy "#OpsCenter-getting-started-sns-KMS-policy")
 
 ###### Note
 
 If you turn on AWS Key Management Service (AWS KMS) server-side encryption in Step 2,
 then you must complete Step 3. Otherwise, you can skip Step 3.
 
-- [Step 4: Turning on
-  default OpsItems rules to send notifications for new OpsItems](#OpsCenter-getting-started-sns-default-rules "#OpsCenter-getting-started-sns-default-rules")
+- [Step 4: Turning on default OpsItems rules to send notifications for new OpsItems](#OpsCenter-getting-started-sns-default-rules "#OpsCenter-getting-started-sns-default-rules")
 
-## Step 1: Creating
-
-and subscribing to an Amazon SNS topic
+## Step 1: Creating and subscribing to an Amazon SNS topic
 
 To receive notifications, you must create and subscribe to an Amazon SNS topic. For
 more information, see [Creating an
@@ -45,9 +29,7 @@ If you're using OpsCenter in multiple AWS Regions or accounts, you must
 create and subscribe to an Amazon SNS topic in _each_ Region or account where you want to receive OpsItem
 notifications.
 
-## Step 2:
-
-Updating the Amazon SNS access policy
+## Step 2: Updating the Amazon SNS access policy
 
 You have to associate an Amazon SNS topic with OpsItems. Use the following procedure
 to set up an Amazon SNS access policy so that Systems Manager can publish OpsItems notifications
@@ -97,9 +79,7 @@ If you configure the Amazon SNS topic with an AWS Key Management Service (AWS KM
 encryption key in the Step 2, then complete Step 3. Otherwise, you can skip
 Step 3.
 
-## Step 3: Updating the
-
-AWS KMS access policy
+## Step 3: Updating the AWS KMS access policy
 
 If you turned on AWS KMS server-side encryption for your Amazon SNS topic, you must
 also update the access policy of the AWS KMS key that you chose when you
@@ -141,9 +121,7 @@ In the following example, the new block is entered at line 14.
 
 ![Editing the AWS KMS access policy of an Amazon SNS topic.](images/OpsItems_SNS_KMS_access_policy.png) 8. Choose **Save changes**.
 
-## Step 4: Turning on
-
-default OpsItems rules to send notifications for new OpsItems
+## Step 4: Turning on default OpsItems rules to send notifications for new OpsItems
 
 Default OpsItems rules in Amazon EventBridge aren't configured with an Amazon Resource Name
 (ARN) for Amazon SNS notifications. Use the following procedure to edit a rule in

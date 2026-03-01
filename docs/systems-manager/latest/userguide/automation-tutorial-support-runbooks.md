@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Using AWS Support self-service
-
-runbooks
+# Using AWS Support self-service runbooks
 
 This section describes how to use some of the self-service automations created by
 the AWS Support team. These automations help you manage your AWS resources.
@@ -32,7 +22,5 @@ AWS Support](../../../awssupport/latest/user/getting-started.md "../../../awssup
 
 ###### Topics
 
-- [Run the EC2Rescue tool on unreachable
-  instances](automation-ec2rescue.md "automation-ec2rescue.md")
-- [Reset passwords and SSH keys on EC2
-  instances](automation-ec2reset.md "automation-ec2reset.md")
+- [Run the EC2Rescue tool on unreachable instances](automation-ec2rescue.md "automation-ec2rescue.md")
+- [Reset passwords and SSH keys on EC2 instances](automation-ec2reset.md "automation-ec2reset.md")

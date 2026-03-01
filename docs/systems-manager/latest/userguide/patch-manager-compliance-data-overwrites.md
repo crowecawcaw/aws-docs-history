@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Identifying the
-
-execution that created patch compliance data
+# Identifying the execution that created patch compliance data
 
 Patch compliance data represents a point-in-time snapshot from the latest
 successful patching operation. Each compliance report includes both an execution
@@ -42,10 +32,8 @@ you should delete or deactivate other methods of scanning for patch compliance.
 For more information, see the following topics:
 
 - To remove a patching operation task from a maintenance window –
-  [Updating or deregistering
-  maintenance window tasks using the console](sysman-maintenance-update.md#sysman-maintenance-update-tasks "sysman-maintenance-update.md#sysman-maintenance-update-tasks")
-- To delete a State Manager association – [Deleting
-  associations](systems-manager-state-manager-delete-association.md "systems-manager-state-manager-delete-association.md").
+  [Updating or deregistering maintenance window tasks using the console](sysman-maintenance-update.md#sysman-maintenance-update-tasks "sysman-maintenance-update.md#sysman-maintenance-update-tasks")
+- To delete a State Manager association – [Deleting associations](systems-manager-state-manager-delete-association.md "systems-manager-state-manager-delete-association.md").
   To deactivate daily patch compliance scans in a Host Management configuration,
   do the following in Quick Setup:
 

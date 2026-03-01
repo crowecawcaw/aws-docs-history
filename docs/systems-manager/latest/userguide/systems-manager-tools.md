@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Using AWS Systems Manager tools
 
 Systems Manager groups tools into four categories. The following documentation describes the various
@@ -106,8 +98,7 @@ to edge devices and instances, strict security practices, and fully
 auditable logs with edge device and instance access details, while still
 providing end users with simple one-click cross-platform access to your edge
 devices and EC2 instances. To use Session Manager, you must enable the
-advanced-instances tier. For more information, see [Turning on the
-advanced-instances tier](fleet-manager-enable-advanced-instances-tier.md "fleet-manager-enable-advanced-instances-tier.md").
+advanced-instances tier. For more information, see [Turning on the advanced-instances tier](fleet-manager-enable-advanced-instances-tier.md "fleet-manager-enable-advanced-instances-tier.md").
 
 State Manager
 Use [State Manager](systems-manager-state.md "systems-manager-state.md") to automate the

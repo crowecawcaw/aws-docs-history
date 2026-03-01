@@ -1,15 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Tutorial: Update
-
-application dependencies, patch a managed node, and perform an
-application-specific health check using the console
+# Tutorial: Update application dependencies, patch a managed node, and perform an application-specific health check using the console
 
 In many cases, a managed node must be rebooted after it has been patched with the
 latest software update. However, rebooting a node in production without safeguards
@@ -58,9 +47,7 @@ complex, multi-step patching operation that accomplishes the following:
   applications, and so on) on Windows Server machines after operating system (OS)
   updates are applied, but before the managed node reboots.
 
-###### To update application dependencies, patch a managed node, and perform an
-
-application-specific health check
+###### To update application dependencies, patch a managed node, and perform an application-specific health check
 
 1. Create an SSM document for your preinstallation script with the
    following contents and name it `NodeJSAppPrePatch`.

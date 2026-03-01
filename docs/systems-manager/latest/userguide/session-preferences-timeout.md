@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Specify an idle session timeout
-
-value
+# Specify an idle session timeout value
 
 Session Manager, a tool in AWS Systems Manager, allows you to specify the amount of time to
 allow a user to be inactive before the system ends a session. By default,
@@ -28,8 +18,7 @@ The idle session timeout timer resets when Session Manager receives client-side 
 
 ###### Enforcing strict session limits
 
-If your security requirements mandate strict session duration limits regardless of activity, use the _Maximum session duration_ setting in addition to idle timeout. For more information, see [Specify maximum session
-duration](session-preferences-max-timeout.md "session-preferences-max-timeout.md").
+If your security requirements mandate strict session duration limits regardless of activity, use the _Maximum session duration_ setting in addition to idle timeout. For more information, see [Specify maximum session duration](session-preferences-max-timeout.md "session-preferences-max-timeout.md").
 
 ###### To allow idle session timeout (console)
 

@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # AWS Systems Manager Change Manager
 
 ###### Change Manager availability change
@@ -111,9 +103,7 @@ who requested and approved the changes, and how the changes were implemented.
 [Introducing AWS Systems Manager Change Manager](https://aws.amazon.com/blogs/aws/introducing-systems-manager-change-manager/ "https://aws.amazon.com/blogs/aws/introducing-systems-manager-change-manager/") on the _AWS News
 Blog_
 
-## How can Change Manager benefit my
-
-operations?
+## How can Change Manager benefit my operations?
 
 Benefits of Change Manager include the following:
 
@@ -170,9 +160,7 @@ Change Manager is appropriate for the following AWS customers and organizations:
 - Customers who need a fully auditable history of changes made to their
   application configuration and infrastructure.
 
-## What are the main features of
-
-Change Manager?
+## What are the main features of Change Manager?
 
 Primary features of Change Manager include the following:
 
@@ -267,9 +255,7 @@ Yes. Change Manager is priced on a pay-per-use basis. You pay only for what you 
 more information, see [AWS Systems Manager
 Pricing](https://aws.amazon.com/systems-manager/pricing/ "https://aws.amazon.com/systems-manager/pricing/").
 
-## What are the primary components of
-
-Change Manager?
+## What are the primary components of Change Manager?
 
 Change Manager components that you use to manage the change process in your organization or
 account include the following:

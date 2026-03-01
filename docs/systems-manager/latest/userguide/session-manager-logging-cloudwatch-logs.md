@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Logging session data using
-
-Amazon CloudWatch Logs (console)
+# Logging session data using Amazon CloudWatch Logs (console)
 
 With Amazon CloudWatch Logs, you can monitor, store, and access log files from various
 AWS services. You can send session log data to a CloudWatch Logs log group for debugging and
@@ -22,8 +12,7 @@ CloudWatch Logs log group at the end of your sessions.
 ###### Note
 
 You can also use the AWS CLI to specify or change the CloudWatch Logs log group that
-session data is sent to. For information, see [Update Session Manager
-preferences (command line)](getting-started-configure-preferences-cli.md "getting-started-configure-preferences-cli.md").
+session data is sent to. For information, see [Update Session Manager preferences (command line)](getting-started-configure-preferences-cli.md "getting-started-configure-preferences-cli.md").
 
 ###### To log session data using Amazon CloudWatch Logs (console)
 

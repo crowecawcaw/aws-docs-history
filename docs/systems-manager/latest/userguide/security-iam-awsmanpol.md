@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# AWS managed policies for
-
-AWS Systems Manager
+# AWS managed policies for AWS Systems Manager
 
 An AWS managed policy is a standalone policy that is created and administered by AWS. AWS managed policies are designed
 to provide permissions for many common use cases so that you can start assigning permissions to users, groups, and roles.
@@ -27,73 +17,50 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [AWS managed
-  policy: AmazonSSMServiceRolePolicy](#security-iam-awsmanpol-AmazonSSMServiceRolePolicy "#security-iam-awsmanpol-AmazonSSMServiceRolePolicy")
-- [AWS managed policy:
-  AmazonSSMAutomationRole](#security-iam-awsmanpol-AmazonSSMAutomationRole "#security-iam-awsmanpol-AmazonSSMAutomationRole")
-- [AWS managed policy:
-  AmazonSSMReadOnlyAccess](#security-iam-awsmanpol-AmazonSSMReadOnlyAccess "#security-iam-awsmanpol-AmazonSSMReadOnlyAccess")
+- [AWS managed policy: AmazonSSMServiceRolePolicy](#security-iam-awsmanpol-AmazonSSMServiceRolePolicy "#security-iam-awsmanpol-AmazonSSMServiceRolePolicy")
+- [AWS managed policy: AmazonSSMAutomationRole](#security-iam-awsmanpol-AmazonSSMAutomationRole "#security-iam-awsmanpol-AmazonSSMAutomationRole")
+- [AWS managed policy: AmazonSSMReadOnlyAccess](#security-iam-awsmanpol-AmazonSSMReadOnlyAccess "#security-iam-awsmanpol-AmazonSSMReadOnlyAccess")
 - [AWS managed policy: AWSSystemsManagerOpsDataSyncServiceRolePolicy](#security-iam-awsmanpol-AWSSystemsManagerOpsDataSyncServiceRolePolicy "#security-iam-awsmanpol-AWSSystemsManagerOpsDataSyncServiceRolePolicy")
-- [AWS
-  managed policy: AmazonSSMManagedEC2InstanceDefaultPolicy](#security-iam-awsmanpol-AmazonSSMManagedEC2InstanceDefaultPolicy "#security-iam-awsmanpol-AmazonSSMManagedEC2InstanceDefaultPolicy")
-- [AWS managed policy:
-  SSMQuickSetupRolePolicy](#security-iam-awsmanpol-SSMQuickSetupRolePolicy "#security-iam-awsmanpol-SSMQuickSetupRolePolicy")
-- [AWS managed
-  policy: AWSQuickSetupDeploymentRolePolicy](#security-iam-awsmanpol-AWSQuickSetupDeploymentRolePolicy "#security-iam-awsmanpol-AWSQuickSetupDeploymentRolePolicy")
+- [AWS managed policy: AmazonSSMManagedEC2InstanceDefaultPolicy](#security-iam-awsmanpol-AmazonSSMManagedEC2InstanceDefaultPolicy "#security-iam-awsmanpol-AmazonSSMManagedEC2InstanceDefaultPolicy")
+- [AWS managed policy: SSMQuickSetupRolePolicy](#security-iam-awsmanpol-SSMQuickSetupRolePolicy "#security-iam-awsmanpol-SSMQuickSetupRolePolicy")
+- [AWS managed policy: AWSQuickSetupDeploymentRolePolicy](#security-iam-awsmanpol-AWSQuickSetupDeploymentRolePolicy "#security-iam-awsmanpol-AWSQuickSetupDeploymentRolePolicy")
 - [AWS managed policy: AWSQuickSetupPatchPolicyDeploymentRolePolicy](#security-iam-awsmanpol-AWSQuickSetupPatchPolicyDeploymentRolePolicy "#security-iam-awsmanpol-AWSQuickSetupPatchPolicyDeploymentRolePolicy")
-- [AWS
-  managed policy: AWSQuickSetupPatchPolicyBaselineAccess](#security-iam-awsmanpol-AWSQuickSetupPatchPolicyBaselineAccess "#security-iam-awsmanpol-AWSQuickSetupPatchPolicyBaselineAccess")
-- [AWS managed policy:
-  AWSSystemsManagerEnableExplorerExecutionPolicy](#security-iam-awsmanpol-AWSSystemsManagerEnableExplorerExecutionPolicy "#security-iam-awsmanpol-AWSSystemsManagerEnableExplorerExecutionPolicy")
-- [AWS managed policy:
-  AWSSystemsManagerEnableConfigRecordingExecutionPolicy](#security-iam-awsmanpol-AWSSystemsManagerEnableConfigRecordingExecutionPolicy "#security-iam-awsmanpol-AWSSystemsManagerEnableConfigRecordingExecutionPolicy")
+- [AWS managed policy: AWSQuickSetupPatchPolicyBaselineAccess](#security-iam-awsmanpol-AWSQuickSetupPatchPolicyBaselineAccess "#security-iam-awsmanpol-AWSQuickSetupPatchPolicyBaselineAccess")
+- [AWS managed policy: AWSSystemsManagerEnableExplorerExecutionPolicy](#security-iam-awsmanpol-AWSSystemsManagerEnableExplorerExecutionPolicy "#security-iam-awsmanpol-AWSSystemsManagerEnableExplorerExecutionPolicy")
+- [AWS managed policy: AWSSystemsManagerEnableConfigRecordingExecutionPolicy](#security-iam-awsmanpol-AWSSystemsManagerEnableConfigRecordingExecutionPolicy "#security-iam-awsmanpol-AWSSystemsManagerEnableConfigRecordingExecutionPolicy")
 - [AWS managed policy: AWSQuickSetupDevOpsGuruPermissionsBoundary](#security-iam-awsmanpol-AWSQuickSetupDevOpsGuruPermissionsBoundary "#security-iam-awsmanpol-AWSQuickSetupDevOpsGuruPermissionsBoundary")
 - [AWS managed policy: AWSQuickSetupDistributorPermissionsBoundary](#security-iam-awsmanpol-AWSQuickSetupDistributorPermissionsBoundary "#security-iam-awsmanpol-AWSQuickSetupDistributorPermissionsBoundary")
 - [AWS managed policy: AWSQuickSetupSSMHostMgmtPermissionsBoundary](#security-iam-awsmanpol-AWSQuickSetupSSMHostMgmtPermissionsBoundary "#security-iam-awsmanpol-AWSQuickSetupSSMHostMgmtPermissionsBoundary")
 - [AWS managed policy: AWSQuickSetupPatchPolicyPermissionsBoundary](#security-iam-awsmanpol-AWSQuickSetupPatchPolicyPermissionsBoundary "#security-iam-awsmanpol-AWSQuickSetupPatchPolicyPermissionsBoundary")
-- [AWS
-  managed policy: AWSQuickSetupSchedulerPermissionsBoundary](#security-iam-awsmanpol-AWSQuickSetupSchedulerPermissionsBoundary "#security-iam-awsmanpol-AWSQuickSetupSchedulerPermissionsBoundary")
-- [AWS
-  managed policy: AWSQuickSetupCFGCPacksPermissionsBoundary](#security-iam-awsmanpol-AWSQuickSetupCFGCPacksPermissionsBoundary "#security-iam-awsmanpol-AWSQuickSetupCFGCPacksPermissionsBoundary")
+- [AWS managed policy: AWSQuickSetupSchedulerPermissionsBoundary](#security-iam-awsmanpol-AWSQuickSetupSchedulerPermissionsBoundary "#security-iam-awsmanpol-AWSQuickSetupSchedulerPermissionsBoundary")
+- [AWS managed policy: AWSQuickSetupCFGCPacksPermissionsBoundary](#security-iam-awsmanpol-AWSQuickSetupCFGCPacksPermissionsBoundary "#security-iam-awsmanpol-AWSQuickSetupCFGCPacksPermissionsBoundary")
 - [AWS managed policy: AWSQuickSetupStartStopInstancesExecutionPolicy](#security-iam-awsmanpol-AWSQuickSetupStartStopInstancesExecutionPolicy "#security-iam-awsmanpol-AWSQuickSetupStartStopInstancesExecutionPolicy")
 - [AWS managed policy: AWSQuickSetupStartSSMAssociationsExecutionPolicy](#security-iam-awsmanpol-AWSQuickSetupStartSSMAssociationsExecutionPolicy "#security-iam-awsmanpol-AWSQuickSetupStartSSMAssociationsExecutionPolicy")
 - [AWS managed policy: AWS-SSM-DiagnosisAutomation-AdministrationRolePolicy](#security-iam-awsmanpol-AWS-SSM-DiagnosisAutomation-AdministrationRolePolicy "#security-iam-awsmanpol-AWS-SSM-DiagnosisAutomation-AdministrationRolePolicy")
 - [AWS managed policy: AWS-SSM-DiagnosisAutomation-ExecutionRolePolicy](#security-iam-awsmanpol-AWS-SSM-DiagnosisAutomation-ExecutionRolePolicy "#security-iam-awsmanpol-AWS-SSM-DiagnosisAutomation-ExecutionRolePolicy")
-- [AWS managed policy:
-  AWS-SSM-RemediationAutomation-AdministrationRolePolicy](#security-iam-awsmanpol-AWS-SSM-RemediationAutomation-AdministrationRolePolicy "#security-iam-awsmanpol-AWS-SSM-RemediationAutomation-AdministrationRolePolicy")
+- [AWS managed policy: AWS-SSM-RemediationAutomation-AdministrationRolePolicy](#security-iam-awsmanpol-AWS-SSM-RemediationAutomation-AdministrationRolePolicy "#security-iam-awsmanpol-AWS-SSM-RemediationAutomation-AdministrationRolePolicy")
 - [AWS managed policy: AWS-SSM-RemediationAutomation-ExecutionRolePolicy](#security-iam-awsmanpol-AWS-SSM-RemediationAutomation-ExecutionRolePolicy "#security-iam-awsmanpol-AWS-SSM-RemediationAutomation-ExecutionRolePolicy")
 - [AWS managed policy: AWSQuickSetupSSMManageResourcesExecutionPolicy](#security-iam-awsmanpol-AWSQuickSetupSSMManageResourcesExecutionPolicy "#security-iam-awsmanpol-AWSQuickSetupSSMManageResourcesExecutionPolicy")
 - [AWS managed policy: AWSQuickSetupSSMLifecycleManagementExecutionPolicy](#security-iam-awsmanpol-AWSQuickSetupSSMLifecycleManagementExecutionPolicy "#security-iam-awsmanpol-AWSQuickSetupSSMLifecycleManagementExecutionPolicy")
-- [AWS
-  managed policy: AWSQuickSetupSSMDeploymentRolePolicy](#security-iam-awsmanpol-AWSQuickSetupSSMDeploymentRolePolicy "#security-iam-awsmanpol-AWSQuickSetupSSMDeploymentRolePolicy")
+- [AWS managed policy: AWSQuickSetupSSMDeploymentRolePolicy](#security-iam-awsmanpol-AWSQuickSetupSSMDeploymentRolePolicy "#security-iam-awsmanpol-AWSQuickSetupSSMDeploymentRolePolicy")
 - [AWS managed policy: AWSQuickSetupSSMDeploymentS3BucketRolePolicy](#security-iam-awsmanpol-AWSQuickSetupSSMDeploymentS3BucketRolePolicy "#security-iam-awsmanpol-AWSQuickSetupSSMDeploymentS3BucketRolePolicy")
-- [AWS
-  managed policy: AWSQuickSetupEnableDHMCExecutionPolicy](#security-iam-awsmanpol-AWSQuickSetupEnableDHMCExecutionPolicy "#security-iam-awsmanpol-AWSQuickSetupEnableDHMCExecutionPolicy")
-- [AWS
-  managed policy: AWSQuickSetupEnableAREXExecutionPolicy](#security-iam-awsmanpol-AWSQuickSetupEnableAREXExecutionPolicy "#security-iam-awsmanpol-AWSQuickSetupEnableAREXExecutionPolicy")
+- [AWS managed policy: AWSQuickSetupEnableDHMCExecutionPolicy](#security-iam-awsmanpol-AWSQuickSetupEnableDHMCExecutionPolicy "#security-iam-awsmanpol-AWSQuickSetupEnableDHMCExecutionPolicy")
+- [AWS managed policy: AWSQuickSetupEnableAREXExecutionPolicy](#security-iam-awsmanpol-AWSQuickSetupEnableAREXExecutionPolicy "#security-iam-awsmanpol-AWSQuickSetupEnableAREXExecutionPolicy")
 - [AWS managed policy: AWSQuickSetupManagedInstanceProfileExecutionPolicy](#security-iam-awsmanpol-AWSQuickSetupManagedInstanceProfileExecutionPolicy "#security-iam-awsmanpol-AWSQuickSetupManagedInstanceProfileExecutionPolicy")
 - [AWS managed policy: AWSQuickSetupManageJITNAResourcesExecutionPolicy](#security-iam-awsmanpol-AWSQuickSetupManageJITNAResourcesExecutionPolicy "#security-iam-awsmanpol-AWSQuickSetupManageJITNAResourcesExecutionPolicy")
-- [AWS
-  managed policy: AWSQuickSetupJITNADeploymentRolePolicy](#security-iam-awsmanpol-AWSQuickSetupJITNADeploymentRolePolicy "#security-iam-awsmanpol-AWSQuickSetupJITNADeploymentRolePolicy")
+- [AWS managed policy: AWSQuickSetupJITNADeploymentRolePolicy](#security-iam-awsmanpol-AWSQuickSetupJITNADeploymentRolePolicy "#security-iam-awsmanpol-AWSQuickSetupJITNADeploymentRolePolicy")
 - [AWS managed policy: AWSSystemsManagerJustInTimeAccessServicePolicy](#security-iam-awsmanpol-AWSSystemsManagerJustInTimeAccessServicePolicy "#security-iam-awsmanpol-AWSSystemsManagerJustInTimeAccessServicePolicy")
 - [AWS managed policy: AWSSystemsManagerJustInTimeAccessTokenPolicy](#security-iam-awsmanpol-AWSSystemsManagerJustInTimeAccessTokenPolicy "#security-iam-awsmanpol-AWSSystemsManagerJustInTimeAccessTokenPolicy")
 - [AWS managed policy: AWSSystemsManagerJustInTimeAccessTokenSessionPolicy](#security-iam-awsmanpol-AWSSystemsManagerJustInTimeAccessTokenSessionPolicy "#security-iam-awsmanpol-AWSSystemsManagerJustInTimeAccessTokenSessionPolicy")
-- [AWS managed policy:
-  AWSSystemsManagerJustInTimeNodeAccessRolePropagationPolicy](#security-iam-awsmanpol-AWSSystemsManagerJustInTimeNodeAccessRolePropagationPolicy "#security-iam-awsmanpol-AWSSystemsManagerJustInTimeNodeAccessRolePropagationPolicy")
+- [AWS managed policy: AWSSystemsManagerJustInTimeNodeAccessRolePropagationPolicy](#security-iam-awsmanpol-AWSSystemsManagerJustInTimeNodeAccessRolePropagationPolicy "#security-iam-awsmanpol-AWSSystemsManagerJustInTimeNodeAccessRolePropagationPolicy")
 - [AWS managed policy: AWSSystemsManagerNotificationsServicePolicy](#security-iam-awsmanpol-AWSSystemsManagerNotificationsServicePolicy "#security-iam-awsmanpol-AWSSystemsManagerNotificationsServicePolicy")
-- [AWS
-  managed policy: AWS-SSM-Automation-DiagnosisBucketPolicy](#security-iam-awsmanpol-AWS-SSM-Automation-DiagnosisBucketPolicy "#security-iam-awsmanpol-AWS-SSM-Automation-DiagnosisBucketPolicy")
-- [AWS managed policy:
-  AWS-SSM-RemediationAutomation-OperationalAccountAdministrationRolePolicy](#security-iam-awsmanpol-AWS-SSM-RemediationAutomation-OperationalAccountAdministrationRolePolicy "#security-iam-awsmanpol-AWS-SSM-RemediationAutomation-OperationalAccountAdministrationRolePolicy")
-- [AWS managed policy:
-  AWS-SSM-DiagnosisAutomation-OperationalAccountAdministrationRolePolicy](#security-iam-awsmanpol-AWS-SSM-DiagnosisAutomation-OperationalAccountAdministrationRolePolicy "#security-iam-awsmanpol-AWS-SSM-DiagnosisAutomation-OperationalAccountAdministrationRolePolicy")
-- [Systems Manager updates to AWS managed
-  policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
+- [AWS managed policy: AWS-SSM-Automation-DiagnosisBucketPolicy](#security-iam-awsmanpol-AWS-SSM-Automation-DiagnosisBucketPolicy "#security-iam-awsmanpol-AWS-SSM-Automation-DiagnosisBucketPolicy")
+- [AWS managed policy: AWS-SSM-RemediationAutomation-OperationalAccountAdministrationRolePolicy](#security-iam-awsmanpol-AWS-SSM-RemediationAutomation-OperationalAccountAdministrationRolePolicy "#security-iam-awsmanpol-AWS-SSM-RemediationAutomation-OperationalAccountAdministrationRolePolicy")
+- [AWS managed policy: AWS-SSM-DiagnosisAutomation-OperationalAccountAdministrationRolePolicy](#security-iam-awsmanpol-AWS-SSM-DiagnosisAutomation-OperationalAccountAdministrationRolePolicy "#security-iam-awsmanpol-AWS-SSM-DiagnosisAutomation-OperationalAccountAdministrationRolePolicy")
+- [Systems Manager updates to AWS managed policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
 - [Additional managed policies for Systems Manager](#policies-list "#policies-list")
 
-## AWS managed
-
-policy: AmazonSSMServiceRolePolicy
+## AWS managed policy: AmazonSSMServiceRolePolicy
 
 This policy provides access to a number of AWS resources that are managed by
 AWS Systems Manager or used in Systems Manager operations.
@@ -173,9 +140,7 @@ To view more details about the policy, including the latest version of the JSON 
 document, see [AmazonSSMServiceRolePolicy](../../../aws-managed-policy/latest/reference/AmazonSSMServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AmazonSSMServiceRolePolicy.md") in the _AWS Managed Policy Reference
 Guide_.
 
-## AWS managed policy:
-
-AmazonSSMAutomationRole
+## AWS managed policy: AmazonSSMAutomationRole
 
 You can attach the `AmazonSSMAutomationRole` policy to your IAM
 identities. This policy provides permissions for the AWS Systems Manager Automation service to run
@@ -210,9 +175,7 @@ To view more details about the policy, including the latest version of the JSON 
 document, see [AmazonSSMAutomationRole](../../../aws-managed-policy/latest/reference/AmazonSSMAutomationRole.md "../../../aws-managed-policy/latest/reference/AmazonSSMAutomationRole.md") in the _AWS Managed Policy Reference
 Guide_.
 
-## AWS managed policy:
-
-AmazonSSMReadOnlyAccess
+## AWS managed policy: AmazonSSMReadOnlyAccess
 
 You can attach the `AmazonSSMReadOnlyAccess` policy to your IAM
 identities. This policy grants read-only access to AWS Systems Manager API operations including
@@ -381,16 +344,13 @@ To view more details about the policy, including the latest version of the JSON 
 document, see [AWSSystemsManagerOpsDataSyncServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSSystemsManagerOpsDataSyncServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSSystemsManagerOpsDataSyncServiceRolePolicy.md") in the _AWS
 Managed Policy Reference Guide_.
 
-## AWS
-
-managed policy: AmazonSSMManagedEC2InstanceDefaultPolicy
+## AWS managed policy: AmazonSSMManagedEC2InstanceDefaultPolicy
 
 You should only attach `AmazonSSMManagedEC2InstanceDefaultPolicy` to IAM
 roles for Amazon EC2 instances that you want to have permission to use Systems Manager
 functionality. You shouldn't attached this role to other IAM entities, such as IAM
 users and IAM groups, or to IAM roles that serve other purposes. For more
-information, see [Managing EC2
-instances automatically with Default Host Management Configuration](fleet-manager-default-host-management-configuration.md "fleet-manager-default-host-management-configuration.md").
+information, see [Managing EC2 instances automatically with Default Host Management Configuration](fleet-manager-default-host-management-configuration.md "fleet-manager-default-host-management-configuration.md").
 
 This policy grants permissions that allow SSM Agent on your Amazon EC2 instance to
 communicate with the Systems Manager service in the cloud in order to perform a variety of tasks.
@@ -418,16 +378,13 @@ This policy includes the following permissions.
 
 For related information about the `ssmmessages` and
 `ec2messages` endpoints, including the differences between the two, see
-[Agent-related API operations
-(ssmmessages and ec2messages endpoints)](systems-manager-setting-up-messageAPIs.md#message-services "systems-manager-setting-up-messageAPIs.md#message-services").
+[Agent-related API operations (ssmmessages and ec2messages endpoints)](systems-manager-setting-up-messageAPIs.md#message-services "systems-manager-setting-up-messageAPIs.md#message-services").
 
 To view more details about the policy, including the latest version of the JSON policy
 document, see [AmazonSSMManagedEC2InstanceDefaultPolicy](../../../aws-managed-policy/latest/reference/AmazonSSMManagedEC2InstanceDefaultPolicy.md "../../../aws-managed-policy/latest/reference/AmazonSSMManagedEC2InstanceDefaultPolicy.md") in the _AWS Managed
 Policy Reference Guide_.
 
-## AWS managed policy:
-
-SSMQuickSetupRolePolicy
+## AWS managed policy: SSMQuickSetupRolePolicy
 
 You can't attach SSMQuickSetupRolePolicy to your IAM entities. This policy is
 attached to a service-linked role that allows Systems Manager to perform actions on your
@@ -458,9 +415,7 @@ To view more details about the policy, including the latest version of the JSON 
 document, see [SSMQuickSetupRolePolicy](../../../aws-managed-policy/latest/reference/SSMQuickSetupRolePolicy.md "../../../aws-managed-policy/latest/reference/SSMQuickSetupRolePolicy.md") in the _AWS Managed Policy Reference
 Guide_.
 
-## AWS managed
-
-policy: AWSQuickSetupDeploymentRolePolicy
+## AWS managed policy: AWSQuickSetupDeploymentRolePolicy
 
 The managed policy `AWSQuickSetupDeploymentRolePolicy` supports
 multiple Quick Setup configuration types. These configuration types create IAM roles and
@@ -473,17 +428,12 @@ entities.
 This policy grants administrative permissions needed to create resources associated
 with the following Quick Setup configurations:
 
-- [Set up Amazon EC2 host management using
-  Quick Setup](quick-setup-host-management.md "quick-setup-host-management.md")
-- [Create an AWS Config configuration recorder
-  using Quick Setup](quick-setup-config.md "quick-setup-config.md")
-- [Deploy AWS Config conformance pack using
-  Quick Setup](quick-setup-cpack.md "quick-setup-cpack.md")
+- [Set up Amazon EC2 host management using Quick Setup](quick-setup-host-management.md "quick-setup-host-management.md")
+- [Create an AWS Config configuration recorder using Quick Setup](quick-setup-config.md "quick-setup-config.md")
+- [Deploy AWS Config conformance pack using Quick Setup](quick-setup-cpack.md "quick-setup-cpack.md")
 - [Set up DevOps Guru using Quick Setup](quick-setup-devops.md "quick-setup-devops.md")
-- [Deploy Distributor packages using
-  Quick Setup](quick-setup-distributor.md "quick-setup-distributor.md")
-- [Stop and start EC2 instances automatically
-  on a schedule using Quick Setup](quick-setup-scheduler.md "quick-setup-scheduler.md")
+- [Deploy Distributor packages using Quick Setup](quick-setup-distributor.md "quick-setup-distributor.md")
+- [Stop and start EC2 instances automatically on a schedule using Quick Setup](quick-setup-scheduler.md "quick-setup-scheduler.md")
 
 **Permissions details**
 
@@ -529,8 +479,7 @@ Reference Guide_.
 ## AWS managed policy: AWSQuickSetupPatchPolicyDeploymentRolePolicy
 
 The managed policy `AWSQuickSetupPatchPolicyDeploymentRolePolicy`
-supports the [Configure patching for instances in an
-organization using a Quick Setup patch policy](quick-setup-patch-manager.md "quick-setup-patch-manager.md") Quick Setup type. This configuration type
+supports the [Configure patching for instances in an organization using a Quick Setup patch policy](quick-setup-patch-manager.md "quick-setup-patch-manager.md") Quick Setup type. This configuration type
 helps automate patching of applications and nodes in a single account or across your
 organization.
 
@@ -570,13 +519,10 @@ To view more details about the policy, including the latest version of the JSON 
 document, see [AWSQuickSetupPatchPolicyDeploymentRolePolicy](../../../aws-managed-policy/latest/reference/AWSQuickSetupPatchPolicyDeploymentRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSQuickSetupPatchPolicyDeploymentRolePolicy.md") in the _AWS Managed
 Policy Reference Guide_.
 
-## AWS
-
-managed policy: AWSQuickSetupPatchPolicyBaselineAccess
+## AWS managed policy: AWSQuickSetupPatchPolicyBaselineAccess
 
 The managed policy `AWSQuickSetupPatchPolicyBaselineAccess`
-supports the [Configure patching for instances in an
-organization using a Quick Setup patch policy](quick-setup-patch-manager.md "quick-setup-patch-manager.md") Quick Setup type. This configuration type
+supports the [Configure patching for instances in an organization using a Quick Setup patch policy](quick-setup-patch-manager.md "quick-setup-patch-manager.md") Quick Setup type. This configuration type
 helps automate patching of applications and nodes in a single account or across your
 organization.
 
@@ -600,9 +546,7 @@ To view more details about the policy, including the latest version of the JSON 
 document, see [AWSQuickSetupPatchPolicyBaselineAccess](../../../aws-managed-policy/latest/reference/AWSQuickSetupPatchPolicyBaselineAccess.md "../../../aws-managed-policy/latest/reference/AWSQuickSetupPatchPolicyBaselineAccess.md") in the _AWS Managed
 Policy Reference Guide_.
 
-## AWS managed policy:
-
-`AWSSystemsManagerEnableExplorerExecutionPolicy`
+## AWS managed policy: `AWSSystemsManagerEnableExplorerExecutionPolicy`
 
 The managed policy `AWSSystemsManagerEnableExplorerExecutionPolicy`
 supports enabling Explorer, a tool in AWS Systems Manager.
@@ -629,14 +573,11 @@ To view more details about the policy, including the latest version of the JSON 
 document, see [AWSSystemsManagerEnableExplorerExecutionPolicy](../../../aws-managed-policy/latest/reference/AWSSystemsManagerEnableExplorerExecutionPolicy.md "../../../aws-managed-policy/latest/reference/AWSSystemsManagerEnableExplorerExecutionPolicy.md") in the _AWS
 Managed Policy Reference Guide_.
 
-## AWS managed policy:
-
-`AWSSystemsManagerEnableConfigRecordingExecutionPolicy`
+## AWS managed policy: `AWSSystemsManagerEnableConfigRecordingExecutionPolicy`
 
 The managed policy
 `AWSSystemsManagerEnableConfigRecordingExecutionPolicy` supports
-the [Create an AWS Config configuration recorder
-using Quick Setup](quick-setup-config.md "quick-setup-config.md") Quick Setup
+the [Create an AWS Config configuration recorder using Quick Setup](quick-setup-config.md "quick-setup-config.md") Quick Setup
 configuration type. This configuration type enables Quick Setup to track and record changes
 to the AWS resource types you choose for AWS Config. It also enables Quick Setup to configure
 delivery and notifications options for the recorded data.
@@ -742,8 +683,7 @@ boundaries for IAM entities](../../../IAM/latest/UserGuide/access_policies_bound
 _IAM User Guide_.
 
 The managed policy `AWSQuickSetupDistributorPermissionsBoundary`
-supports the [Deploy Distributor packages using
-Quick Setup](quick-setup-distributor.md "quick-setup-distributor.md") Quick Setup configuration type. The
+supports the [Deploy Distributor packages using Quick Setup](quick-setup-distributor.md "quick-setup-distributor.md") Quick Setup configuration type. The
 configuration type helps enable the distribution of software packages, such as agents,
 to your Amazon Elastic Compute Cloud (Amazon EC2) instances, using Distributor, a tool in AWS Systems Manager.
 
@@ -800,8 +740,7 @@ boundaries for IAM entities](../../../IAM/latest/UserGuide/access_policies_bound
 _IAM User Guide_.
 
 The managed policy `AWSQuickSetupSSMHostMgmtPermissionsBoundary`
-supports the [Set up Amazon EC2 host management using
-Quick Setup](quick-setup-host-management.md "quick-setup-host-management.md") Quick Setup configuration type. This
+supports the [Set up Amazon EC2 host management using Quick Setup](quick-setup-host-management.md "quick-setup-host-management.md") Quick Setup configuration type. This
 configuration type configures IAM roles and enables commonly used Systems Manager tools to
 securely manage your Amazon EC2 instances.
 
@@ -854,8 +793,7 @@ boundaries for IAM entities](../../../IAM/latest/UserGuide/access_policies_bound
 _IAM User Guide_.
 
 The managed policy `AWSQuickSetupPatchPolicyPermissionsBoundary`
-supports the [Configure patching for instances in an
-organization using a Quick Setup patch policy](quick-setup-patch-manager.md "quick-setup-patch-manager.md") Quick Setup type. This configuration type
+supports the [Configure patching for instances in an organization using a Quick Setup patch policy](quick-setup-patch-manager.md "quick-setup-patch-manager.md") Quick Setup type. This configuration type
 helps automate patching of applications and nodes in a single account or across your
 organization.
 
@@ -910,9 +848,7 @@ To view more details about the policy, including the latest version of the JSON 
 document, see [AWSQuickSetupPatchPolicyPermissionsBoundary](../../../aws-managed-policy/latest/reference/AWSQuickSetupPatchPolicyPermissionsBoundary.md "../../../aws-managed-policy/latest/reference/AWSQuickSetupPatchPolicyPermissionsBoundary.md") in the _AWS Managed
 Policy Reference Guide_.
 
-## AWS
-
-managed policy: AWSQuickSetupSchedulerPermissionsBoundary
+## AWS managed policy: AWSQuickSetupSchedulerPermissionsBoundary
 
 ###### Note
 
@@ -926,8 +862,7 @@ boundaries for IAM entities](../../../IAM/latest/UserGuide/access_policies_bound
 _IAM User Guide_.
 
 The managed policy `AWSQuickSetupSchedulerPermissionsBoundary`
-supports the [Stop and start EC2 instances automatically
-on a schedule using Quick Setup](quick-setup-scheduler.md "quick-setup-scheduler.md") Quick Setup configuration type. This configuration type lets you stop and start your EC2
+supports the [Stop and start EC2 instances automatically on a schedule using Quick Setup](quick-setup-scheduler.md "quick-setup-scheduler.md") Quick Setup configuration type. This configuration type lets you stop and start your EC2
 instances and other resources at the times you specify.
 
 When you create an `AWSQuickSetupSchedulerPermissionsBoundary`
@@ -966,9 +901,7 @@ To view more details about the policy, including the latest version of the JSON 
 document, see [AWSQuickSetupSchedulerPermissionsBoundary](../../../aws-managed-policy/latest/reference/AWSQuickSetupSchedulerPermissionsBoundary.md "../../../aws-managed-policy/latest/reference/AWSQuickSetupSchedulerPermissionsBoundary.md") in the _AWS Managed
 Policy Reference Guide_.
 
-## AWS
-
-managed policy: AWSQuickSetupCFGCPacksPermissionsBoundary
+## AWS managed policy: AWSQuickSetupCFGCPacksPermissionsBoundary
 
 ###### Note
 
@@ -982,8 +915,7 @@ boundaries for IAM entities](../../../IAM/latest/UserGuide/access_policies_bound
 _IAM User Guide_.
 
 The managed policy
-`AWSQuickSetupCFGCPacksPermissionsBoundary`supports the [Deploy AWS Config conformance pack using
-Quick Setup](quick-setup-cpack.md "quick-setup-cpack.md") Quick Setup
+`AWSQuickSetupCFGCPacksPermissionsBoundary`supports the [Deploy AWS Config conformance pack using Quick Setup](quick-setup-cpack.md "quick-setup-cpack.md") Quick Setup
 configuration type. This configuration type deploys AWS Config conformance packs.
 Conformance packs are collections of AWS Config rules and remediation actions that can be
 deployed as a single entity.
@@ -1157,9 +1089,7 @@ To view more details about the policy, including the latest version of the JSON 
 document, see [AWS-SSM-DiagnosisAutomation-ExecutionRolePolicy](../../../aws-managed-policy/latest/reference/AWS-SSM-DiagnosisAutomation-ExecutionRolePolicy.md "../../../aws-managed-policy/latest/reference/AWS-SSM-DiagnosisAutomation-ExecutionRolePolicy.md") in the _AWS
 Managed Policy Reference Guide_.
 
-## AWS managed policy:
-
-AWS-SSM-RemediationAutomation-AdministrationRolePolicy
+## AWS managed policy: AWS-SSM-RemediationAutomation-AdministrationRolePolicy
 
 The policy `AWS-SSM-RemediationAutomation-AdministrationRolePolicy`
 provides permissions for remediating issues with Systems Manager services by executing activities
@@ -1310,9 +1240,7 @@ To view more details about the policy, including the latest version of the JSON 
 document, see [AWSQuickSetupSSMLifecycleManagementExecutionPolicy](../../../aws-managed-policy/latest/reference/AWSQuickSetupSSMLifecycleManagementExecutionPolicy.md "../../../aws-managed-policy/latest/reference/AWSQuickSetupSSMLifecycleManagementExecutionPolicy.md") in the _AWS
 Managed Policy Reference Guide_.
 
-## AWS
-
-managed policy: AWSQuickSetupSSMDeploymentRolePolicy
+## AWS managed policy: AWSQuickSetupSSMDeploymentRolePolicy
 
 The managed policy `AWSQuickSetupSSMDeploymentRolePolicy` grants
 administrative permissions that allow Quick Setup to create resources that are used during
@@ -1371,9 +1299,7 @@ To view more details about the policy, including the latest version of the JSON 
 document, see [AWSQuickSetupSSMDeploymentS3BucketRolePolicy](../../../aws-managed-policy/latest/reference/AWSQuickSetupSSMDeploymentS3BucketRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSQuickSetupSSMDeploymentS3BucketRolePolicy.md") in the _AWS Managed
 Policy Reference Guide_.
 
-## AWS
-
-managed policy: AWSQuickSetupEnableDHMCExecutionPolicy
+## AWS managed policy: AWSQuickSetupEnableDHMCExecutionPolicy
 
 This policy grants administrative permissions that allow principals to run the
 `AWSQuickSetupType-EnableDHMC` Automation runbook, which enables
@@ -1401,9 +1327,7 @@ To view more details about the policy, including the latest version of the JSON 
 document, see [AWSQuickSetupEnableDHMCExecutionPolicy](../../../aws-managed-policy/latest/reference/AWSQuickSetupEnableDHMCExecutionPolicy.md "../../../aws-managed-policy/latest/reference/AWSQuickSetupEnableDHMCExecutionPolicy.md") in the
 _AWS Managed Policy Reference Guide_.
 
-## AWS
-
-managed policy: AWSQuickSetupEnableAREXExecutionPolicy
+## AWS managed policy: AWSQuickSetupEnableAREXExecutionPolicy
 
 This policy grants administrative permissions that allow Systems Manager to run the
 `AWSQuickSetupType-EnableAREX` Automation runbook, which enables
@@ -1488,9 +1412,7 @@ To view more details about the policy, including the latest version of the JSON 
 document, see [AWSQuickSetupManageJITNAResourcesExecutionPolicy](../../../aws-managed-policy/latest/reference/AWSQuickSetupManageJITNAResourcesExecutionPolicy.md "../../../aws-managed-policy/latest/reference/AWSQuickSetupManageJITNAResourcesExecutionPolicy.md") in the _AWS
 Managed Policy Reference Guide_.
 
-## AWS
-
-managed policy: AWSQuickSetupJITNADeploymentRolePolicy
+## AWS managed policy: AWSQuickSetupJITNADeploymentRolePolicy
 
 The managed policy `AWSQuickSetupJITNADeploymentRolePolicy` allows
 Quick Setup to deploy the configuration type required to set up just-in-time node
@@ -1636,9 +1558,7 @@ To view more details about the policy, including the latest version of the JSON 
 document, see [AWSSystemsManagerJustInTimeAccessTokenSessionPolicy](../../../aws-managed-policy/latest/reference/AWSSystemsManagerJustInTimeAccessTokenSessionPolicy.md "../../../aws-managed-policy/latest/reference/AWSSystemsManagerJustInTimeAccessTokenSessionPolicy.md") in the _AWS
 Managed Policy Reference Guide_.
 
-## AWS managed policy:
-
-AWSSystemsManagerJustInTimeNodeAccessRolePropagationPolicy
+## AWS managed policy: AWSSystemsManagerJustInTimeNodeAccessRolePropagationPolicy
 
 The managed policy
 `AWSSystemsManagerJustInTimeNodeAccessRolePropagationPolicy`
@@ -1702,9 +1622,7 @@ To view more details about the policy, including the latest version of the JSON 
 document, see [AWSSystemsManagerNotificationsServicePolicy](../../../aws-managed-policy/latest/reference/AWSSystemsManagerNotificationsServicePolicy.md "../../../aws-managed-policy/latest/reference/AWSSystemsManagerNotificationsServicePolicy.md") in the _AWS Managed
 Policy Reference Guide_.
 
-## AWS
-
-managed policy: AWS-SSM-Automation-DiagnosisBucketPolicy
+## AWS managed policy: AWS-SSM-Automation-DiagnosisBucketPolicy
 
 The managed policy `AWS-SSM-Automation-DiagnosisBucketPolicy` provides
 permissions for diagnosing issues with nodes that interact with AWS Systems Manager services, by
@@ -1726,9 +1644,7 @@ To view more details about the policy, including the latest version of the JSON 
 document, see [AWS-SSM-Automation-DiagnosisBucketPolicy](../../../aws-managed-policy/latest/reference/AWS-SSM-Automation-DiagnosisBucketPolicy.md "../../../aws-managed-policy/latest/reference/AWS-SSM-Automation-DiagnosisBucketPolicy.md") in the _AWS Managed
 Policy Reference Guide_.
 
-## AWS managed policy:
-
-AWS-SSM-RemediationAutomation-OperationalAccountAdministrationRolePolicy
+## AWS managed policy: AWS-SSM-RemediationAutomation-OperationalAccountAdministrationRolePolicy
 
 The managed policy
 `AWS-SSM-RemediationAutomation-OperationalAccountAdministrationRolePolicy`
@@ -1754,9 +1670,7 @@ To view more details about the policy, including the latest version of the JSON 
 document, see [AWS-SSM-RemediationAutomation-OperationalAccountAdministrationRolePolicy](../../../aws-managed-policy/latest/reference/AWS-SSM-RemediationAutomation-OperationalAccountAdministrationRolePolicy.md "../../../aws-managed-policy/latest/reference/AWS-SSM-RemediationAutomation-OperationalAccountAdministrationRolePolicy.md") in
 the _AWS Managed Policy Reference Guide_.
 
-## AWS managed policy:
-
-AWS-SSM-DiagnosisAutomation-OperationalAccountAdministrationRolePolicy
+## AWS managed policy: AWS-SSM-DiagnosisAutomation-OperationalAccountAdministrationRolePolicy
 
 The managed policy
 `AWS-SSM-DiagnosisAutomation-OperationalAccountAdministrationRolePolicy`
@@ -1782,9 +1696,7 @@ To view more details about the policy, including the latest version of the JSON 
 document, see [AWS-SSM-DiagnosisAutomation-OperationalAccountAdministrationRolePolicy](../../../aws-managed-policy/latest/reference/AWS-SSM-DiagnosisAutomation-OperationalAccountAdministrationRolePolicy.md "../../../aws-managed-policy/latest/reference/AWS-SSM-DiagnosisAutomation-OperationalAccountAdministrationRolePolicy.md") in
 the _AWS Managed Policy Reference Guide_.
 
-## Systems Manager updates to AWS managed
-
-policies
+## Systems Manager updates to AWS managed policies
 
 In the following table, view details about updates to AWS managed policies for
 Systems Manager since this service began tracking these changes on March 12, 2021. For

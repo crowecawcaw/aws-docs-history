@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Aggregating inventory data
 
 After you configure your managed nodes for AWS Systems Manager Inventory, you can view
@@ -42,20 +34,14 @@ data:
   have passed.
   For information about how to quickly configure and collect inventory data from all
   nodes in a specific AWS account (and any future nodes that might be created in that
-  account), see [Inventory all managed nodes in
-  your AWS account](inventory-collection.md#inventory-management-inventory-all "inventory-collection.md#inventory-management-inventory-all").
+  account), see [Inventory all managed nodes in your AWS account](inventory-collection.md#inventory-management-inventory-all "inventory-collection.md#inventory-management-inventory-all").
 
 ###### Topics
 
-- [Aggregating inventory data to see counts
-  of nodes that collect specific types of data](#inventory-aggregate-type "#inventory-aggregate-type")
-- [Aggregating inventory data with groups
-  to see which nodes are and aren't configured to collect an inventory
-  type](#inventory-aggregate-groups "#inventory-aggregate-groups")
+- [Aggregating inventory data to see counts of nodes that collect specific types of data](#inventory-aggregate-type "#inventory-aggregate-type")
+- [Aggregating inventory data with groups to see which nodes are and aren't configured to collect an inventory type](#inventory-aggregate-groups "#inventory-aggregate-groups")
 
-## Aggregating inventory data to see counts
-
-of nodes that collect specific types of data
+## Aggregating inventory data to see counts of nodes that collect specific types of data
 
 You can use the AWS Systems Manager [GetInventory](../APIReference/API_GetInventory.md "../APIReference/API_GetInventory.md") API operation to view aggregated counts of nodes that
 collect one or more inventory types and data types. For example, the
@@ -346,10 +332,7 @@ The command returns information like the following.
 }
 ```
 
-## Aggregating inventory data with groups
-
-to see which nodes are and aren't configured to collect an inventory
-type
+## Aggregating inventory data with groups to see which nodes are and aren't configured to collect an inventory type
 
 Groups in Systems Manager Inventory allow you to quickly see a count of which managed nodes
 are and aren’t configured to collect one or more inventory types. With groups, you

@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Patching operation
-
-differences between Linux and Windows Server
+# Patching operation differences between Linux and Windows Server
 
 This topic describes important differences between Linux and Windows Server patching in
 Patch Manager, a tool in AWS Systems Manager.
@@ -46,9 +36,7 @@ approved and rejected patches _directly in the service_.
 It can do this because Windows patches are pulled from a single repository
 (Windows Update).
 
-## Difference 2: `Not Applicable`
-
-patches
+## Difference 2: `Not Applicable` patches
 
 Due to the large number of available packages for Linux operating systems,
 Systems Manager doesn't report details about patches in the _Not
@@ -59,20 +47,14 @@ in the summary, but if you call the [DescribeInstancePatches](../APIReference/AP
 doesn't include patches with a state of `Not Applicable`. This
 behavior is different from Windows.
 
-## Difference 3: SSM document
-
-support
+## Difference 3: SSM document support
 
 The `AWS-ApplyPatchBaseline` Systems Manager document (SSM document)
 doesn't support Linux managed nodes. For applying patch baselines to Linux,
 macOS, and Windows Server managed nodes, the recommended SSM document is
-`AWS-RunPatchBaseline`. For more information, see [SSM Command documents for patching
-managed nodes](patch-manager-ssm-documents.md "patch-manager-ssm-documents.md") and [SSM Command document for
-patching: AWS-RunPatchBaseline](patch-manager-aws-runpatchbaseline.md "patch-manager-aws-runpatchbaseline.md").
+`AWS-RunPatchBaseline`. For more information, see [SSM Command documents for patching managed nodes](patch-manager-ssm-documents.md "patch-manager-ssm-documents.md") and [SSM Command document for patching: AWS-RunPatchBaseline](patch-manager-aws-runpatchbaseline.md "patch-manager-aws-runpatchbaseline.md").
 
-## Difference 4: Application
-
-patches
+## Difference 4: Application patches
 
 The primary focus of Patch Manager is applying patches to operating systems.
 However, you can also use Patch Manager to apply patches to some applications on your
@@ -83,20 +65,16 @@ managed nodes.
 On Linux operating systems, Patch Manager uses the configured repositories for
 updates, and doesn't differentiate between operating systems and application
 patches. You can use Patch Manager to define which repositories to fetch updates
-from. For more information, see [How to specify an
-alternative patch source repository (Linux)](patch-manager-alternative-source-repository.md "patch-manager-alternative-source-repository.md").
+from. For more information, see [How to specify an alternative patch source repository (Linux)](patch-manager-alternative-source-repository.md "patch-manager-alternative-source-repository.md").
 
 ###### Windows
 
 On Windows Server managed nodes, you can apply approval rules, as well as
 _Approved_ and _Rejected_ patch exceptions, for applications released by
 Microsoft, such as Microsoft Word 2016 and Microsoft Exchange Server 2016.
-For more information, see [Working with custom patch
-baselines](patch-manager-manage-patch-baselines.md "patch-manager-manage-patch-baselines.md").
+For more information, see [Working with custom patch baselines](patch-manager-manage-patch-baselines.md "patch-manager-manage-patch-baselines.md").
 
-## Difference 5: Rejected patch list
-
-options in custom patch baselines
+## Difference 5: Rejected patch list options in custom patch baselines
 
 When you create a custom patch baseline, you can specify one or more patches
 for a **Rejected patches** list. For Linux managed nodes, you

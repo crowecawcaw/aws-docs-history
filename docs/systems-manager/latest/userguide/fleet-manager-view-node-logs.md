@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Viewing logs on managed nodes
 
 You can use Fleet Manager, a tool in AWS Systems Manager, to view log data stored on your managed
@@ -14,8 +6,7 @@ details from the console. To help you search events, filter Windows event logs b
 **Event level**, **Event ID**, **Event
 source**, and **Time created**. You can also view
 other log data using the procedure to view the file system. For more information
-about viewing the file system with Fleet Manager, see [Working with OS file systems
-using Fleet Manager](fleet-manager-file-system-management.md "fleet-manager-file-system-management.md").
+about viewing the file system with Fleet Manager, see [Working with OS file systems using Fleet Manager](fleet-manager-file-system-management.md "fleet-manager-file-system-management.md").
 
 ###### To view Windows event logs with Fleet Manager
 

@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Logging AWS Systems Manager API calls with AWS CloudTrail
 
 AWS Systems Manager is integrated with [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md"), a service
@@ -68,10 +60,10 @@ value, which you would specify when configuring advanced event selectors using t
 CloudTrail APIs. The **Data APIs logged to CloudTrail** column shows the API
 calls logged to CloudTrail for the resource type.
 
-| Data event type (console)        | resources.type value               | Data APIs logged to CloudTrail                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| -------------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Systems Manager**              | `AWS::SSMMessages::ControlChannel` | • `CreateControlChannel`<br>• `OpenControlChannel`<br>For more information about these operations, see [Actions defined by Amazon Message Gateway Service](../../../service-authorization/latest/reference/list_amazonmessagegatewayservice.md#amazonmessagegatewayservice-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonmessagegatewayservice.md#amazonmessagegatewayservice-actions-as-permissions") in the<br>_Service Authorization Reference_.                      |
-| **Systems Manager managed node** | `AWS::SSM::ManagedNode`            | • `RequestManagedInstanceRoleToken` – This event is<br>generated when the AWS Systems Manager Agent (SSM Agent) running on a node managed by Systems Manager<br>requests credentials from the Systems Manager credential service.<br>For more information about the<br>`RequestManagedInstanceRoleToken` operation, see [Validating hybrid-activated machines<br>using a hardware fingerprint](ssm-agent-technical-details.md#fingerprint-validation "ssm-agent-technical-details.md#fingerprint-validation") |
+| Data event type (console)        | resources.type value               | Data APIs logged to CloudTrail                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| -------------------------------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Systems Manager**              | `AWS::SSMMessages::ControlChannel` | • `CreateControlChannel`<br>• `OpenControlChannel`<br>For more information about these operations, see [Actions defined by Amazon Message Gateway Service](../../../service-authorization/latest/reference/list_amazonmessagegatewayservice.md#amazonmessagegatewayservice-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonmessagegatewayservice.md#amazonmessagegatewayservice-actions-as-permissions") in the<br>_Service Authorization Reference_.                   |
+| **Systems Manager managed node** | `AWS::SSM::ManagedNode`            | • `RequestManagedInstanceRoleToken` – This event is<br>generated when the AWS Systems Manager Agent (SSM Agent) running on a node managed by Systems Manager<br>requests credentials from the Systems Manager credential service.<br>For more information about the<br>`RequestManagedInstanceRoleToken` operation, see [Validating hybrid-activated machines using a hardware fingerprint](ssm-agent-technical-details.md#fingerprint-validation "ssm-agent-technical-details.md#fingerprint-validation") |
 
 You can configure advanced event selectors to filter on the `eventName`,
 `readOnly`, and `resources.ARN` fields to log only those events that
@@ -86,8 +78,7 @@ Systems Manager logs all control plane operations to CloudTrail as management ev
 are documented in the [AWS Systems Manager API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md"). For example, calls to the
 `CreateMaintenanceWindows`, `PutInventory`, `SendCommand`,
 and `StartSession` actions generate entries in the CloudTrail log files. For an example
-of setting up CloudTrail to monitor a Systems Manager API call, see [Monitoring session
-activity using Amazon EventBridge (console)](session-manager-auditing.md#session-manager-auditing-eventbridge-events "session-manager-auditing.md#session-manager-auditing-eventbridge-events").
+of setting up CloudTrail to monitor a Systems Manager API call, see [Monitoring session activity using Amazon EventBridge (console)](session-manager-auditing.md#session-manager-auditing-eventbridge-events "session-manager-auditing.md#session-manager-auditing-eventbridge-events").
 
 ## Systems Manager event examples
 
@@ -95,14 +86,10 @@ An event represents a single request from any source and includes information ab
 
 ###### Examples:
 
-- [Management event
-  examples](#monitoring-cloudtrail-logs-log-entries-example-mgmt "#monitoring-cloudtrail-logs-log-entries-example-mgmt")
-- [Data event
-  examples](#monitoring-cloudtrail-logs-log-entries-example-data "#monitoring-cloudtrail-logs-log-entries-example-data")
+- [Management event examples](#monitoring-cloudtrail-logs-log-entries-example-mgmt "#monitoring-cloudtrail-logs-log-entries-example-mgmt")
+- [Data event examples](#monitoring-cloudtrail-logs-log-entries-example-data "#monitoring-cloudtrail-logs-log-entries-example-data")
 
-### Management event
-
-examples
+### Management event examples
 
 ###### Example 1: `DeleteDocument`
 
@@ -215,9 +202,7 @@ Fleet Manager in the US East (Ohio) Region (us-east-2). The underlying API actio
 }
 ```
 
-### Data event
-
-examples
+### Data event examples
 
 ###### Example 1: `CreateControlChannel`
 

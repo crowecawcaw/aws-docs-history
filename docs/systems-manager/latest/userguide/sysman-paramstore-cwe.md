@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Setting up notifications or triggering
-
-actions based on Parameter Store events
+# Setting up notifications or triggering actions based on Parameter Store events
 
 The topics in this section explain how to use Amazon EventBridge and Amazon Simple Notification Service (Amazon SNS) to
 notify you about changes to AWS Systems Manager parameters. You can create an EventBridge rule to
@@ -20,9 +10,7 @@ is going to expire, or hasn't changed for a specified period of time.
 ###### Note
 
 Parameter policies are available for parameters that use the advanced
-parameters tier. Charges apply. For more information, see [Assigning parameter policies in
-Parameter Store](parameter-store-policies.md "parameter-store-policies.md") and [Managing parameter
-tiers](parameter-store-advanced-parameters.md "parameter-store-advanced-parameters.md").
+parameters tier. Charges apply. For more information, see [Assigning parameter policies in Parameter Store](parameter-store-policies.md "parameter-store-policies.md") and [Managing parameter tiers](parameter-store-advanced-parameters.md "parameter-store-advanced-parameters.md").
 
 The topics in this section also explain how to initiate other actions on a target
 for specific parameter events. For example, you can run an AWS Lambda function to
@@ -42,9 +30,7 @@ create an Amazon SNS topic. For more information, see [Getting
 started with Amazon SNS](../../../sns/latest/dg/sns-getting-started.md "../../../sns/latest/dg/sns-getting-started.md") in the
 _Amazon Simple Notification Service Developer Guide_.
 
-## Configuring EventBridge rules for parameters
-
-and parameter policies
+## Configuring EventBridge rules for parameters and parameter policies
 
 This topic explains the following:
 
@@ -56,13 +42,9 @@ This topic explains the following:
   to receive notification before a parameter expires, and how long to wait
   before notification should be sent that a parameter hasn't changed. You
   set up notification for these events using the following procedure. For
-  more information, see [Assigning parameter policies in
-  Parameter Store](parameter-store-policies.md "parameter-store-policies.md") and [Managing parameter
-  tiers](parameter-store-advanced-parameters.md "parameter-store-advanced-parameters.md").
+  more information, see [Assigning parameter policies in Parameter Store](parameter-store-policies.md "parameter-store-policies.md") and [Managing parameter tiers](parameter-store-advanced-parameters.md "parameter-store-advanced-parameters.md").
 
-###### To configure an EventBridge rule for a Systems Manager parameter or parameter
-
-policy
+###### To configure an EventBridge rule for a Systems Manager parameter or parameter policy
 
 1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
 2. In the navigation pane, choose **Rules**, and then

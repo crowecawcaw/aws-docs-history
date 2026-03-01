@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Install the Session Manager plugin
-
-for the AWS CLI
+# Install the Session Manager plugin for the AWS CLI
 
 To initiate Session Manager sessions with your managed nodes by using the AWS Command Line Interface
 (AWS CLI), you must install the _Session Manager plugin_ on your
@@ -22,15 +12,10 @@ installed on your local machine. For more information, see [Installing or updati
 
 ###### Topics
 
-- [Session Manager plugin latest version and release
-  history](plugin-version-history.md "plugin-version-history.md")
-- [Install the Session Manager plugin on
-  Windows](install-plugin-windows.md "install-plugin-windows.md")
-- [Install the Session Manager plugin on
-  macOS](install-plugin-macos-overview.md "install-plugin-macos-overview.md")
-- [Install the Session Manager plugin on
-  Linux](install-plugin-linux-overview.md "install-plugin-linux-overview.md")
+- [Session Manager plugin latest version and release history](plugin-version-history.md "plugin-version-history.md")
+- [Install the Session Manager plugin on Windows](install-plugin-windows.md "install-plugin-windows.md")
+- [Install the Session Manager plugin on macOS](install-plugin-macos-overview.md "install-plugin-macos-overview.md")
+- [Install the Session Manager plugin on Linux](install-plugin-linux-overview.md "install-plugin-linux-overview.md")
 - [Verify the Session Manager plugin installation](install-plugin-verify.md "install-plugin-verify.md")
 - [Session Manager plugin on GitHub](plugin-github.md "plugin-github.md")
-- [(Optional) Turn on Session Manager plugin
-  logging](install-plugin-configure-logs.md "install-plugin-configure-logs.md")
+- [(Optional) Turn on Session Manager plugin logging](install-plugin-configure-logs.md "install-plugin-configure-logs.md")

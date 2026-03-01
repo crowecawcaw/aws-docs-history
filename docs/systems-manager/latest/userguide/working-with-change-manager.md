@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Working with Change Manager
 
 ###### Change Manager availability change
@@ -36,14 +28,11 @@ using a change template.
 - Edit configuration settings, such as how user identities are managed in
   Change Manager and which of the available _best practice_ options
   are enforced in your Change Manager operations. For information about configuring
-  these settings, see [Configuring Change Manager options and best
-  practices](change-manager-account-setup.md "change-manager-account-setup.md").
+  these settings, see [Configuring Change Manager options and best practices](change-manager-account-setup.md "change-manager-account-setup.md").
 
 ###### Topics
 
 - [Working with change templates](change-templates.md "change-templates.md")
 - [Working with change requests](change-requests.md "change-requests.md")
-- [Reviewing change request details, tasks, and
-  timelines (console)](reviewing-changes.md "reviewing-changes.md")
-- [Viewing aggregated
-  counts of change requests (command line)](change-requests-review-aggregate-command-line.md "change-requests-review-aggregate-command-line.md")
+- [Reviewing change request details, tasks, and timelines (console)](reviewing-changes.md "reviewing-changes.md")
+- [Viewing aggregated counts of change requests (command line)](change-requests-review-aggregate-command-line.md "change-requests-review-aggregate-command-line.md")

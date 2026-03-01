@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Using action outputs as
-
-inputs
+# Using action outputs as inputs
 
 Several automation actions return pre-defined outputs. You can pass these outputs
 as inputs to later steps in your runbook using the format
@@ -145,12 +135,9 @@ following page: [Amazon RDS methods](https://boto3.amazonaws.com/v1/documentatio
 You can view the schema for each automation action in the following
 locations:
 
-- [aws:assertAwsResourceProperty – Assert an AWS resource
-  state or event state](automation-action-assertAwsResourceProperty.md "automation-action-assertAwsResourceProperty.md")
-- [aws:executeAwsApi
-  – Call and run AWS API operations](automation-action-executeAwsApi.md "automation-action-executeAwsApi.md")
-- [aws:waitForAwsResourceProperty – Wait on an AWS resource
-  property](automation-action-waitForAwsResourceProperty.md "automation-action-waitForAwsResourceProperty.md")
+- [aws:assertAwsResourceProperty – Assert an AWS resource state or event state](automation-action-assertAwsResourceProperty.md "automation-action-assertAwsResourceProperty.md")
+- [aws:executeAwsApi – Call and run AWS API operations](automation-action-executeAwsApi.md "automation-action-executeAwsApi.md")
+- [aws:waitForAwsResourceProperty – Wait on an AWS resource property](automation-action-waitForAwsResourceProperty.md "automation-action-waitForAwsResourceProperty.md")
   The schemas include descriptions of the required fields for using each
   action.
 

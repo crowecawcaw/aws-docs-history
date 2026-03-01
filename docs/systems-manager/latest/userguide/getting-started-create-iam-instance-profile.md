@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Create a custom
-
-IAM role for Session Manager
+# Create a custom IAM role for Session Manager
 
 You can create an AWS Identity and Access Management (IAM) role that grants Session Manager the permission
 to perform actions on your Amazon EC2 managed instances. You can also include a
@@ -24,22 +14,16 @@ role for on-premises machines, see [Create the IAM service role required for Sys
 
 ###### Topics
 
-- [Creating an IAM role with
-  minimal Session Manager permissions (console)](#create-iam-instance-profile-ssn-only "#create-iam-instance-profile-ssn-only")
-- [Creating an IAM
-  role with permissions for Session Manager and Amazon S3 and CloudWatch Logs (console)](#create-iam-instance-profile-ssn-logging "#create-iam-instance-profile-ssn-logging")
+- [Creating an IAM role with minimal Session Manager permissions (console)](#create-iam-instance-profile-ssn-only "#create-iam-instance-profile-ssn-only")
+- [Creating an IAM role with permissions for Session Manager and Amazon S3 and CloudWatch Logs (console)](#create-iam-instance-profile-ssn-logging "#create-iam-instance-profile-ssn-logging")
 
-## Creating an IAM role with
-
-minimal Session Manager permissions (console)
+## Creating an IAM role with minimal Session Manager permissions (console)
 
 Use the following procedure to create a custom IAM role with a policy
 that provides permissions for only Session Manager actions on your
 instances.
 
-###### To create an instance profile with minimal Session Manager permissions
-
-(console)
+###### To create an instance profile with minimal Session Manager permissions (console)
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the navigation pane, choose **Policies**, and
@@ -92,8 +76,7 @@ JSON
 ```
 
 For information about using a KMS key to encrypt session data,
-see [Turn on KMS key
-encryption of session data (console)](session-preferences-enable-encryption.md "session-preferences-enable-encryption.md").
+see [Turn on KMS key encryption of session data (console)](session-preferences-enable-encryption.md "session-preferences-enable-encryption.md").
 
 If you won't use AWS KMS encryption for your session data, you can
 remove the following content from the policy.
@@ -139,12 +122,9 @@ remove the following content from the policy.
 
 Choose **Create role**.
 
-For information about `ssmmessages` actions, see [Reference: ec2messages,
-ssmmessages, and other API operations](systems-manager-setting-up-messageAPIs.md "systems-manager-setting-up-messageAPIs.md").
+For information about `ssmmessages` actions, see [Reference: ec2messages, ssmmessages, and other API operations](systems-manager-setting-up-messageAPIs.md "systems-manager-setting-up-messageAPIs.md").
 
-## Creating an IAM
-
-role with permissions for Session Manager and Amazon S3 and CloudWatch Logs (console)
+## Creating an IAM role with permissions for Session Manager and Amazon S3 and CloudWatch Logs (console)
 
 Use the following procedure to create a custom IAM role with a policy
 that provides permissions for Session Manager actions on your instances. The policy
@@ -168,9 +148,7 @@ access the session output logs.
 For information about specifying preferences for storing session logs, see
 [Enabling and disabling session logging](session-manager-logging.md "session-manager-logging.md").
 
-###### To create an IAM role with permissions for Session Manager and Amazon S3 and
-
-CloudWatch Logs (console)
+###### To create an IAM role with permissions for Session Manager and Amazon S3 and CloudWatch Logs (console)
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the navigation pane, choose **Policies**, and

@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Disabling Session Manager
-
-logging in CloudWatch Logs and Amazon S3
+# Disabling Session Manager logging in CloudWatch Logs and Amazon S3
 
 You can use the Systems Manager console or AWS CLI to disable session logging in your
 account.
@@ -27,8 +17,7 @@ account.
 
 ###### To disable session logging (AWS CLI)
 
-To disable session logging using the AWS CLI, follow the instructions in [Update Session Manager
-preferences (command line)](getting-started-configure-preferences-cli.md "getting-started-configure-preferences-cli.md").
+To disable session logging using the AWS CLI, follow the instructions in [Update Session Manager preferences (command line)](getting-started-configure-preferences-cli.md "getting-started-configure-preferences-cli.md").
 
 In your JSON file, ensure that the `s3BucketName` and
 `cloudWatchLogGroupName` inputs contain no values. For example:
@@ -49,5 +38,4 @@ Alternatively, to disable logging, you can remove all `S3*` and
 
 Depending on your configuration, after you disable CloudWatch or S3, a temporary log
 file might still be generated to disk by SSM Agent. For information about how to
-disable logging to disk, see [Configuring session logging to
-disk](session-manager-logging-disk.md "session-manager-logging-disk.md").
+disable logging to disk, see [Configuring session logging to disk](session-manager-logging-disk.md "session-manager-logging-disk.md").

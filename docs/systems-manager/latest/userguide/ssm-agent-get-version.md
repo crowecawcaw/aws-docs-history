@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Checking the SSM Agent version number
 
 Certain AWS Systems Manager functionalities have prerequisites that include a minimum Systems Manager
@@ -27,9 +19,7 @@ on your managed nodes.
 3. In the **SSM Agent version** column, note the **Agent
    version** number.
 
-###### To get the currently installed SSM Agent version from within the operating
-
-system
+###### To get the currently installed SSM Agent version from within the operating system
 
 Choose from the following tabs to get the currently installed SSM Agent version
 from within an operating system.
@@ -137,8 +127,7 @@ Ubuntu Server
 ###### Note
 
 To check if your Ubuntu Server 16.04 instance uses deb or Snap
-packages, see [Manually installing SSM Agent on
-Ubuntu Server instances](agent-install-ubuntu.md "agent-install-ubuntu.md").
+packages, see [Manually installing SSM Agent on Ubuntu Server instances](agent-install-ubuntu.md "agent-install-ubuntu.md").
 
 1. Log in to your managed node.
 2. Run the following command for Ubuntu Server 16.04 64-bit (with deb

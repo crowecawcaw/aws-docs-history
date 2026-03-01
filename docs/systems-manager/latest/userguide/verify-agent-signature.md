@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Verifying the signature of SSM Agent
 
 The AWS Systems Manager Agent (SSM Agent) deb and rpm installer packages for Linux instances
@@ -29,9 +21,7 @@ _Amazon Web Services General Reference_.
 | x86_64       | Debian Server, Ubuntu Server                                                     | `https://s3.`region`.amazonaws.com/amazon-ssm-`region`/latest/debian_amd64/amazon-ssm-agent.deb.sig`<br>`https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_amd64/amazon-ssm-agent.deb.sig` | `amazon-ssm-agent.deb`   |
 | ARM64        | Amazon Linux 2, Amazon Linux 2023, RHEL                                          | `https://s3.`region`.amazonaws.com/amazon-ssm-`region`/latest/linux_arm64/amazon-ssm-agent.rpm.sig`<br>`https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_arm64/amazon-ssm-agent.rpm.sig`   | `amazon-ssm-agent.rpm`   |
 
-## Verifying the SSM Agent package
-
-on a Linux server (v3.3.1802.0 and later)
+## Verifying the SSM Agent package on a Linux server (v3.3.1802.0 and later)
 
 ###### Before you begin
 
@@ -40,18 +30,14 @@ The procedures for **GPG** and **RPM** in this section apply to SSM Agent versio
 following procedure, ensure that you have downloaded the latest agent
 package for your operating system. For example,
 `https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_arm64/amazon-ssm-agent.rpm`.
-For more information about downloading SSM Agent packages, see [Manually installing and
-uninstalling SSM Agent on EC2 instances for Linux](manually-install-ssm-agent-linux.md "manually-install-ssm-agent-linux.md").
+For more information about downloading SSM Agent packages, see [Manually installing and uninstalling SSM Agent on EC2 instances for Linux](manually-install-ssm-agent-linux.md "manually-install-ssm-agent-linux.md").
 
 If you have a reason to continue using agent version 3.3.1611.0 or earlier,
-follow the instructions in [Verifying the SSM Agent package
-on a Linux server (v3.3.1611.0 and earlier)](#verify-agent-signature-previous "#verify-agent-signature-previous") instead.
+follow the instructions in [Verifying the SSM Agent package on a Linux server (v3.3.1611.0 and earlier)](#verify-agent-signature-previous "#verify-agent-signature-previous") instead.
 
 GPG
 
-###### To verify the SSM Agent package on a Linux server (v3.3.1802.0
-
-and later)
+###### To verify the SSM Agent package on a Linux server (v3.3.1802.0 and later)
 
 1. Copy one the following public key and save it to a file
    named `amazon-ssm-agent.gpg`.
@@ -184,9 +170,7 @@ downloaded SSM Agent version 3.1.1141.0 or later.
 
 RPM
 
-###### To verify the SSM Agent package on a Linux server (v3.3.1802.0
-
-and later)
+###### To verify the SSM Agent package on a Linux server (v3.3.1802.0 and later)
 
 1. Copy the following public key and save it to a file named
    `amazon-ssm-agent.gpg`.
@@ -304,24 +288,19 @@ verify you downloaded SSM Agent version 3.1.1141.0 or later.
 If you continue to get this response, contact Support and
 don't install the agent.
 
-## Verifying the SSM Agent package
-
-on a Linux server (v3.3.1611.0 and earlier)
+## Verifying the SSM Agent package on a Linux server (v3.3.1611.0 and earlier)
 
 ###### Before you begin
 
 The procedures for **GPG** and **RPM** in this section apply to SSM Agent version
 3.3.1611.0 and earlier versions. We recommend always using the latest
-version of the agent. For information, see [Verifying the SSM Agent package
-on a Linux server (v3.3.1802.0 and later)](#verify-agent-signature-current "#verify-agent-signature-current"). However, if you have a
+version of the agent. For information, see [Verifying the SSM Agent package on a Linux server (v3.3.1802.0 and later)](#verify-agent-signature-current "#verify-agent-signature-current"). However, if you have a
 specific reason to continue using agent version 3.3.1611.0 or earlier,
 follow the instructions in one of the following procedures.
 
 GPG
 
-###### To verify the SSM Agent package on a Linux server (v3.3.1611.0
-
-and earlier)
+###### To verify the SSM Agent package on a Linux server (v3.3.1611.0 and earlier)
 
 1. Copy the following public keys and save it to a file named
    `amazon-ssm-agent.gpg`.
@@ -446,9 +425,7 @@ downloaded SSM Agent version 3.1.1141.0 or later.
 
 RPM
 
-###### To verify the SSM Agent package on a Linux server (v3.3.1611.0
-
-and earlier)
+###### To verify the SSM Agent package on a Linux server (v3.3.1611.0 and earlier)
 
 1. Copy the following public key and save it to a file named
    `amazon-ssm-agent.gpg`.

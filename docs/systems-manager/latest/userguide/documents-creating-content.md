@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Creating SSM document content
 
 If the AWS Systems Manager public documents don't perform all the actions you want to perform on
@@ -25,20 +17,16 @@ different schemas, features, plugins, and syntax available for SSM documents. We
 recommend becoming familiar with the following resources.
 
 - [Writing your own AWS Systems Manager documents](https://aws.amazon.com/blogs//mt/writing-your-own-aws-systems-manager-documents/ "https://aws.amazon.com/blogs//mt/writing-your-own-aws-systems-manager-documents/")
-- [Data elements and
-  parameters](documents-syntax-data-elements-parameters.md "documents-syntax-data-elements-parameters.md")
+- [Data elements and parameters](documents-syntax-data-elements-parameters.md "documents-syntax-data-elements-parameters.md")
 - [Schemas, features, and examples](documents-schemas-features.md "documents-schemas-features.md")
-- [Command document plugin
-  reference](documents-command-ssm-plugin-reference.md "documents-command-ssm-plugin-reference.md")
+- [Command document plugin reference](documents-command-ssm-plugin-reference.md "documents-command-ssm-plugin-reference.md")
 - [Systems Manager Automation actions reference](automation-actions.md "automation-actions.md")
 - [Automation system variables](automation-variables.md "automation-variables.md")
-- [Additional runbook
-  examples](automation-document-examples.md "automation-document-examples.md")
+- [Additional runbook examples](automation-document-examples.md "automation-document-examples.md")
 - [Working with Systems Manager Automation runbooks](../../../toolkit-for-vscode/latest/userguide/systems-manager-automation-docs.md "../../../toolkit-for-vscode/latest/userguide/systems-manager-automation-docs.md") using the
   AWS Toolkit for Visual Studio Code
 - [Visual design experience for Automation runbooks](automation-visual-designer.md "automation-visual-designer.md")
-- [Using scripts in
-  runbooks](automation-document-script-considerations.md "automation-document-script-considerations.md")
+- [Using scripts in runbooks](automation-document-script-considerations.md "automation-document-script-considerations.md")
 
 AWS pre-defined SSM documents might perform some of the actions you require.
 You can call these documents by using the `aws:runDocument`,
@@ -105,9 +93,7 @@ Update-SSMDocumentDefaultVersion `
     -DocumentVersion $latestDocVersion
 ```
 
-### Security best practices for
-
-SSM documents
+### Security best practices for SSM documents
 
 When creating SSM documents, follow these security best practices to help
 prevent command injection and ensure secure parameter handling:
@@ -313,11 +299,8 @@ performs the following actions:
 **More info**
 
 - For information about rebooting servers and instances when
-  using Run Command to call scripts, see [Handling reboots when running
-  commands](send-commands-reboot.md "send-commands-reboot.md").
+  using Run Command to call scripts, see [Handling reboots when running commands](send-commands-reboot.md "send-commands-reboot.md").
 - For more information about the plugins you can add to a custom
-  SSM document, see [Command document plugin
-  reference](documents-command-ssm-plugin-reference.md "documents-command-ssm-plugin-reference.md").
+  SSM document, see [Command document plugin reference](documents-command-ssm-plugin-reference.md "documents-command-ssm-plugin-reference.md").
 - If you simply want to run a document from a remote location
-  (without creating a composite document), see [Running documents from remote
-  locations](documents-running-remote-github-s3.md "documents-running-remote-github-s3.md").
+  (without creating a composite document), see [Running documents from remote locations](documents-running-remote-github-s3.md "documents-running-remote-github-s3.md").

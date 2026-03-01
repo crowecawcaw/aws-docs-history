@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Troubleshooting Session Manager
 
 Use the following information to help you troubleshoot problems with AWS Systems Manager
@@ -14,29 +6,19 @@ Session Manager.
 ###### Topics
 
 - [AccessDeniedException when calling the TerminateSession operation](#session-manager-troubleshooting-access-denied-exception "#session-manager-troubleshooting-access-denied-exception")
-- [Document
-  process failed unexpectedly: document worker timed out](#session-manager-troubleshooting-document-worker-timed-out "#session-manager-troubleshooting-document-worker-timed-out")
-- [Session Manager can't connect
-  from the Amazon EC2 console](#session-manager-troubleshooting-EC2-console "#session-manager-troubleshooting-EC2-console")
-- [No permission to
-  start a session](#session-manager-troubleshooting-start-permissions "#session-manager-troubleshooting-start-permissions")
-- [SSM Agent not
-  online](#session-manager-troubleshooting-agent-not-online "#session-manager-troubleshooting-agent-not-online")
-- [No
-  permission to change session preferences](#session-manager-troubleshooting-preferences-permissions "#session-manager-troubleshooting-preferences-permissions")
-- [Managed node not
-  available or not configured for Session Manager](#session-manager-troubleshooting-instances "#session-manager-troubleshooting-instances")
+- [Document process failed unexpectedly: document worker timed out](#session-manager-troubleshooting-document-worker-timed-out "#session-manager-troubleshooting-document-worker-timed-out")
+- [Session Manager can't connect from the Amazon EC2 console](#session-manager-troubleshooting-EC2-console "#session-manager-troubleshooting-EC2-console")
+- [No permission to start a session](#session-manager-troubleshooting-start-permissions "#session-manager-troubleshooting-start-permissions")
+- [SSM Agent not online](#session-manager-troubleshooting-agent-not-online "#session-manager-troubleshooting-agent-not-online")
+- [No permission to change session preferences](#session-manager-troubleshooting-preferences-permissions "#session-manager-troubleshooting-preferences-permissions")
+- [Managed node not available or not configured for Session Manager](#session-manager-troubleshooting-instances "#session-manager-troubleshooting-instances")
 - [Session Manager plugin not found](#plugin-not-found "#plugin-not-found")
-- [Session Manager plugin not automatically added to
-  command line path (Windows)](#windows-plugin-env-var-not-set "#windows-plugin-env-var-not-set")
+- [Session Manager plugin not automatically added to command line path (Windows)](#windows-plugin-env-var-not-set "#windows-plugin-env-var-not-set")
 - [Session Manager plugin becomes unresponsive](#plugin-unresponsive "#plugin-unresponsive")
 - [TargetNotConnected](#ssh-target-not-connected "#ssh-target-not-connected")
-- [Blank screen
-  displays after starting a session](#session-manager-troubleshooting-start-blank-screen "#session-manager-troubleshooting-start-blank-screen")
-- [Managed node becomes
-  unresponsive during long running sessions](#session-manager-troubleshooting-log-retention "#session-manager-troubleshooting-log-retention")
-- [An error occurred
-  (InvalidDocument) when calling the StartSession operation](#session-manager-troubleshooting-invalid-document "#session-manager-troubleshooting-invalid-document")
+- [Blank screen displays after starting a session](#session-manager-troubleshooting-start-blank-screen "#session-manager-troubleshooting-start-blank-screen")
+- [Managed node becomes unresponsive during long running sessions](#session-manager-troubleshooting-log-retention "#session-manager-troubleshooting-log-retention")
+- [An error occurred (InvalidDocument) when calling the StartSession operation](#session-manager-troubleshooting-invalid-document "#session-manager-troubleshooting-invalid-document")
 
 ## AccessDeniedException when calling the TerminateSession operation
 
@@ -61,8 +43,7 @@ session-manager-plugin --version
 **Solution B: Install or reinstall the latest version of the
 plugin**
 
-For more information, see [Install the Session Manager plugin
-for the AWS CLI](session-manager-working-with-install-plugin.md "session-manager-working-with-install-plugin.md").
+For more information, see [Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md "session-manager-working-with-install-plugin.md").
 
 **Solution C: Attempt to reestablish a connection to the
 node**
@@ -71,9 +52,7 @@ Verify that the node is responding to requests. Try reestablishing the session.
 Or, if necessary, open the Amazon EC2 console and verify the status of the instance is
 running.
 
-## Document
-
-process failed unexpectedly: document worker timed out
+## Document process failed unexpectedly: document worker timed out
 
 **Problem**: When starting a session to a Linux host,
 Systems Manager returns the following error:
@@ -140,9 +119,7 @@ aws ssm send-command --document-name AWS-RunShellScript \
 
 ```
 
-## Session Manager can't connect
-
-from the Amazon EC2 console
+## Session Manager can't connect from the Amazon EC2 console
 
 **Problem**: After creating a new instance, the
 **Connect** button > **Session Manager** tab
@@ -176,14 +153,10 @@ If you still can't connect after creating a host management configuration, or if
 you receive an error, including an error about SSM Agent, see one of the following
 solutions:
 
-- [Solution
-  B: No error, but still can't connect](#session-manager-troubleshooting-EC2-console-no-error "#session-manager-troubleshooting-EC2-console-no-error")
-- [Solution
-  C: Error about missing SSM Agent](#session-manager-troubleshooting-EC2-console-no-agent "#session-manager-troubleshooting-EC2-console-no-agent")
+- [Solution B: No error, but still can't connect](#session-manager-troubleshooting-EC2-console-no-error "#session-manager-troubleshooting-EC2-console-no-error")
+- [Solution C: Error about missing SSM Agent](#session-manager-troubleshooting-EC2-console-no-agent "#session-manager-troubleshooting-EC2-console-no-agent")
 
-### Solution
-
-B: No error, but still can't connect
+### Solution B: No error, but still can't connect
 
 If you created the host management configuration, waited several minutes
 before trying to connect, and still can't connect, then you might need to
@@ -211,9 +184,7 @@ Wait a few minutes for EC2 to refresh the **Session Manager**
 tab. If you still can't connect or if you receive an error, review the remaining
 solutions for this issue.
 
-### Solution
-
-C: Error about missing SSM Agent
+### Solution C: Error about missing SSM Agent
 
 If you weren't able to create a host management configuration by using
 Quick Setup, or if you received an error about SSM Agent not being installed, you
@@ -237,9 +208,7 @@ following topic that corresponds to your instance operating system.
 
 For issues with SSM Agent, see [Troubleshooting SSM Agent](troubleshooting-ssm-agent.md "troubleshooting-ssm-agent.md").
 
-## No permission to
-
-start a session
+## No permission to start a session
 
 **Problem**: You try to start a session, but the
 system tells you that you don't have the necessary permissions.
@@ -248,9 +217,7 @@ system tells you that you don't have the necessary permissions.
   granted you AWS Identity and Access Management (IAM) policy permissions for starting Session Manager
   sessions. For information, see [Control user session access to instances](session-manager-getting-started-restrict-access.md "session-manager-getting-started-restrict-access.md").
 
-## SSM Agent not
-
-online
+## SSM Agent not online
 
 **Problem**: You see a message on the Amazon EC2 instance
 **Session Manager** tab that states: "SSM Agent is not online. The
@@ -262,14 +229,11 @@ on Amazon EC2 instances so that Session Manager can connect to them. If you see 
 SSM Agent is unable to establish a connection with the Systems Manager endpoint. Possible
 sources of the problem could be firewall restrictions, routing problems, or lack of
 internet connectivity. To resolve this issue, investigate network connectivity
-problems. For more information, see [Troubleshooting SSM Agent](troubleshooting-ssm-agent.md "troubleshooting-ssm-agent.md") and [Troubleshooting managed
-node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md"). For information
+problems. For more information, see [Troubleshooting SSM Agent](troubleshooting-ssm-agent.md "troubleshooting-ssm-agent.md") and [Troubleshooting managed node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md"). For information
 about Systems Manager endpoints, see [AWS Systems Manager endpoints and quotas](../../../general/latest/gr/ssm.md "../../../general/latest/gr/ssm.md") in the
 AWS General Reference.
 
-## No
-
-permission to change session preferences
+## No permission to change session preferences
 
 **Problem**: You try to update global session
 preferences for your organization, but the system tells you that you don't have the
@@ -277,12 +241,9 @@ necessary permissions.
 
 - **Solution**: A system administrator hasn't
   granted you IAM policy permissions for setting Session Manager preferences. For
-  information, see [Grant or deny a user
-  permissions to update Session Manager preferences](preference-setting-permissions.md "preference-setting-permissions.md").
+  information, see [Grant or deny a user permissions to update Session Manager preferences](preference-setting-permissions.md "preference-setting-permissions.md").
 
-## Managed node not
-
-available or not configured for Session Manager
+## Managed node not available or not configured for Session Manager
 
 **Problem 1**: You want to start a session on the
 **Start a session** console page, but a managed node isn't in
@@ -290,8 +251,7 @@ the list.
 
 - **Solution A**: The managed node you want to
   connect to might not have been configured for AWS Systems Manager. For more
-  information, see [Setting up Systems Manager unified console
-  for an organization](systems-manager-setting-up-organizations.md "systems-manager-setting-up-organizations.md").
+  information, see [Setting up Systems Manager unified console for an organization](systems-manager-setting-up-organizations.md "systems-manager-setting-up-organizations.md").
 
 ###### Note
 
@@ -304,9 +264,7 @@ session** console page.
   applied to the SSM Agent on your managed node might be incorrect. If the
   proxy configuration is incorrect, the managed node won't be able to reach
   the needed service endpoints, or the node might report as a different
-  operating system to Systems Manager. For more information, see [Configuring SSM Agent to use a proxy on
-  Linux nodes](configure-proxy-ssm-agent.md "configure-proxy-ssm-agent.md") and [Configure SSM Agent to use a
-  proxy for Windows Server instances](configure-proxy-ssm-agent-windows.md "configure-proxy-ssm-agent-windows.md").
+  operating system to Systems Manager. For more information, see [Configuring SSM Agent to use a proxy on Linux nodes](configure-proxy-ssm-agent.md "configure-proxy-ssm-agent.md") and [Configure SSM Agent to use a proxy for Windows Server instances](configure-proxy-ssm-agent-windows.md "configure-proxy-ssm-agent-windows.md").
 
 **Problem 2**: A managed node you want to connect is
 in the list on the **Start a session** console page, but the page
@@ -322,16 +280,12 @@ reports that "The instance you selected isn't configured to use Session Manager.
   running a version of SSM Agent that supports Session Manager. Update SSM Agent on the
   node to version 2.3.68.0 or later.
 
-Update SSM Agent manually on a managed node by following the steps in [Manually installing and
-uninstalling SSM Agent on EC2 instances for Windows Server](manually-install-ssm-agent-windows.md "manually-install-ssm-agent-windows.md"), [Manually installing and
-uninstalling SSM Agent on EC2 instances for Linux](manually-install-ssm-agent-linux.md "manually-install-ssm-agent-linux.md"), or [Manually installing and
-uninstalling SSM Agent on EC2 instances for macOS](manually-install-ssm-agent-macos.md "manually-install-ssm-agent-macos.md"), depending on the
+Update SSM Agent manually on a managed node by following the steps in [Manually installing and uninstalling SSM Agent on EC2 instances for Windows Server](manually-install-ssm-agent-windows.md "manually-install-ssm-agent-windows.md"), [Manually installing and uninstalling SSM Agent on EC2 instances for Linux](manually-install-ssm-agent-linux.md "manually-install-ssm-agent-linux.md"), or [Manually installing and uninstalling SSM Agent on EC2 instances for macOS](manually-install-ssm-agent-macos.md "manually-install-ssm-agent-macos.md"), depending on the
 operating system.
 
 Alternatively, use the Run Command document `AWS-UpdateSSMAgent`
 to update the agent version on one or more managed nodes at a time. For
-information, see [Updating the SSM Agent using
-Run Command](run-command-tutorial-update-software.md#rc-console-agentexample "run-command-tutorial-update-software.md#rc-console-agentexample").
+information, see [Updating the SSM Agent using Run Command](run-command-tutorial-update-software.md#rc-console-agentexample "run-command-tutorial-update-software.md#rc-console-agentexample").
 
 ###### Tip
 
@@ -340,13 +294,10 @@ to the latest version on an automated schedule that you define using
 either of the following methods:
 
     + Run `AWS-UpdateSSMAgent` as part of a State Manager
-     association. For information, see [Walkthrough: Automatically update
-     SSM Agent with the AWS CLI](state-manager-update-ssm-agent-cli.md "state-manager-update-ssm-agent-cli.md").
+     association. For information, see [Walkthrough: Automatically update SSM Agent with the AWS CLI](state-manager-update-ssm-agent-cli.md "state-manager-update-ssm-agent-cli.md").
     + Run `AWS-UpdateSSMAgent` as part of a maintenance
      window. For information about working with maintenance windows,
-     see [Create and manage maintenance windows using
-     the console](sysman-maintenance-working.md "sysman-maintenance-working.md") and [Tutorial: Create and
-     configure a maintenance window using the AWS CLI](maintenance-windows-cli-tutorials-create.md "maintenance-windows-cli-tutorials-create.md").
+     see [Create and manage maintenance windows using the console](sysman-maintenance-working.md "sysman-maintenance-working.md") and [Tutorial: Create and configure a maintenance window using the AWS CLI](maintenance-windows-cli-tutorials-create.md "maintenance-windows-cli-tutorials-create.md").
 
 - **Solution C**: The managed node can't reach
   the requisite service endpoints. You can improve the security posture of
@@ -362,12 +313,9 @@ either of the following methods:
 ## Session Manager plugin not found
 
 To use the AWS CLI to run session commands, the Session Manager plugin must also be installed on your
-local machine. For information, see [Install the Session Manager plugin
-for the AWS CLI](session-manager-working-with-install-plugin.md "session-manager-working-with-install-plugin.md").
+local machine. For information, see [Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md "session-manager-working-with-install-plugin.md").
 
-## Session Manager plugin not automatically added to
-
-command line path (Windows)
+## Session Manager plugin not automatically added to command line path (Windows)
 
 When you install the Session Manager plugin on Windows, the
 `session-manager-plugin` executable should be automatically
@@ -407,8 +355,7 @@ During a port forwarding session, traffic might stop forwarding if you have
 antivirus software installed on your local machine. In some cases, antivirus
 software interferes with the Session Manager plugin causing process deadlocks. To resolve this
 issue, allow or exclude the Session Manager plugin from the antivirus software. For information
-about the default installation path for the Session Manager plugin, see [Install the Session Manager plugin
-for the AWS CLI](session-manager-working-with-install-plugin.md "session-manager-working-with-install-plugin.md").
+about the default installation path for the Session Manager plugin, see [Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md "session-manager-working-with-install-plugin.md").
 
 ## TargetNotConnected
 
@@ -424,9 +371,7 @@ connected."
   if you attempt to start a session on a managed node that is located in a
   different AWS account or AWS Region.
 
-## Blank screen
-
-displays after starting a session
+## Blank screen displays after starting a session
 
 **Problem**: You start a session and Session Manager
 displays a blank screen.
@@ -472,9 +417,7 @@ https://**us-west-2**.console.aws.amazon.com/systems-manager/session-manager/ses
   scenario is only applicable to customers who create session preferences
   using command line tools.
 
-## Managed node becomes
-
-unresponsive during long running sessions
+## Managed node becomes unresponsive during long running sessions
 
 **Problem**: Your managed node becomes unresponsive
 or crashes during a long running session.
@@ -496,9 +439,7 @@ duration for Session Manager.
    `SSM` property, and save the file.
 4. Restart the SSM Agent.
 
-## An error occurred
-
-(InvalidDocument) when calling the StartSession operation
+## An error occurred (InvalidDocument) when calling the StartSession operation
 
 **Problem**: You receive the following error when
 starting a session by using the AWS CLI.

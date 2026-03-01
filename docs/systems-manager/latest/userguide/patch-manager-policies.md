@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Patch policy configurations in Quick Setup
 
 AWS recommends the use of _patch policies_ to
@@ -17,12 +9,9 @@ Patch policies provide more extensive and more centralized control over your pat
 operations than is available with previous methods of configuring patching. Patch
 policies can be used with [all operating systems supported by
 Patch Manager](patch-manager-prerequisites.md#pm-prereqs "patch-manager-prerequisites.md#pm-prereqs"), including supported versions of Linux, macOS, and Windows Server. For
-instructions for creating a patch policy, see [Configure patching for instances in an
-organization using a Quick Setup patch policy](quick-setup-patch-manager.md "quick-setup-patch-manager.md").
+instructions for creating a patch policy, see [Configure patching for instances in an organization using a Quick Setup patch policy](quick-setup-patch-manager.md "quick-setup-patch-manager.md").
 
-## Major features of patch
-
-policies
+## Major features of patch policies
 
 Instead of using other methods of patching your nodes, use a patch policy to take
 advantage of these major features:
@@ -66,17 +55,14 @@ advantage of these major features:
 
 When patching operations based on a patch policy run, they use the
 `AWS-RunPatchBaseline` SSM document. For more
-information, see [SSM Command document for
-patching: AWS-RunPatchBaseline](patch-manager-aws-runpatchbaseline.md "patch-manager-aws-runpatchbaseline.md").
+information, see [SSM Command document for patching: AWS-RunPatchBaseline](patch-manager-aws-runpatchbaseline.md "patch-manager-aws-runpatchbaseline.md").
 
 ###### Related information
 
 [Centrally deploy patching operations across your AWS Organization using
 Systems Manager Quick Setup](https://aws.amazon.com/blogs/mt/centrally-deploy-patching-operations-across-your-aws-organization-using-systems-manager-quick-setup/ "https://aws.amazon.com/blogs/mt/centrally-deploy-patching-operations-across-your-aws-organization-using-systems-manager-quick-setup/") (AWS Cloud Operations and Migrations Blog)
 
-## Other differences with patch
-
-policies
+## Other differences with patch policies
 
 Here are some other differences to note when using patch policies instead of
 previous methods of configuring patching:
@@ -103,8 +89,7 @@ using patch groups before this date.
   from Patch Manager. These options are now specified in patch policies.
 - **No ‘Patch now’ support** – The
   ability to patch nodes on demand is still limited to a single
-  AWS account-AWS Region pair at a time. For information, see [Patching managed nodes on
-  demand](patch-manager-patch-now-on-demand.md "patch-manager-patch-now-on-demand.md").
+  AWS account-AWS Region pair at a time. For information, see [Patching managed nodes on demand](patch-manager-patch-now-on-demand.md "patch-manager-patch-now-on-demand.md").
 - **Patch policies and compliance information**
   – When your managed nodes are scanned for compliance according to a
   patching policy configuration, compliance data is made available to you. You
@@ -112,8 +97,7 @@ using patch groups before this date.
   compliance scanning. Although you can set up a patch policy for an entire
   organization or multiple organizational units, compliance information is
   reported individually for each AWS account-AWS Region pair. For more
-  information, see [Working with patch compliance
-  reports](patch-manager-compliance-reports.md "patch-manager-compliance-reports.md").
+  information, see [Working with patch compliance reports](patch-manager-compliance-reports.md "patch-manager-compliance-reports.md").
 - **Association compliance status and patch
   policies** – The patching status for a managed node
   that's under a Quick Setup patch policy matches the status of the State Manager
@@ -123,9 +107,7 @@ using patch groups before this date.
   `Non-Compliant`, the patching status for the managed node is
   also marked `Non-Compliant`.
 
-## AWS Regions supported for patch
-
-policies
+## AWS Regions supported for patch policies
 
 Patch policy configurations in Quick Setup are currently supported in the following
 Regions:

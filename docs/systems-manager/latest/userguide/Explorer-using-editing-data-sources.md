@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Editing Systems Manager Explorer data
-
-sources
+# Editing Systems Manager Explorer data sources
 
 For AWS Regions that are available [by default](../../../global-infrastructure/latest/regions/aws-regions.md "../../../global-infrastructure/latest/regions/aws-regions.md"),
 AWS Systems Manager Explorer displays data from the following sources. You can edit Explorer settings
@@ -52,8 +42,7 @@ sources:
 ###### Before you begin
 
 Verify that you set up and configured services that populate Explorer widgets
-with data. For more information, see [Setting up related services for
-Explorer](Explorer-setup-related-services.md "Explorer-setup-related-services.md").
+with data. For more information, see [Setting up related services for Explorer](Explorer-setup-related-services.md "Explorer-setup-related-services.md").
 
 ###### To edit data sources
 

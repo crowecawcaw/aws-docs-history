@@ -1,22 +1,10 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Run Python scripts from
-
-GitHub
+# Run Python scripts from GitHub
 
 This section includes procedures to help you run Python scripts from
 GitHub by using either the AWS Systems Manager console or the AWS Command Line Interface
 (AWS CLI).
 
-## Run a Python script from
-
-GitHub (console)
+## Run a Python script from GitHub (console)
 
 ###### Run a Python script from GitHub
 
@@ -93,8 +81,7 @@ GitHub (console)
 
 ###### Tip
 
-If a managed node you expect to see isn't listed, see [Troubleshooting managed
-node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for troubleshooting
+If a managed node you expect to see isn't listed, see [Troubleshooting managed node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for troubleshooting
 tips. 7. For **Other parameters**:
 
     * For **Comment**, enter information about this command.
@@ -133,12 +120,9 @@ the managed node has the necessary permissions to write to that bucket. 10. In t
 about the status of the command execution, select the **Enable SNS
 notifications** check box.
 
-For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager status changes using
-Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifications.md"). 11. Choose **Run**.
+For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifications.md"). 11. Choose **Run**.
 
-## Run a Python script from
-
-GitHub by using the AWS CLI
+## Run a Python script from GitHub by using the AWS CLI
 
 1. Install and configure the AWS Command Line Interface (AWS CLI), if you haven't already.
 

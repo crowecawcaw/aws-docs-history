@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Viewing association
-
-histories
+# Viewing association histories
 
 You can view all executions for a specific association ID by using the [DescribeAssociationExecutions](../APIReference/API_DescribeAssociationExecutions.md "../APIReference/API_DescribeAssociationExecutions.md") API operation. Use this operation to see
 the status, detailed status, results, last execution time, and more information for
@@ -36,9 +26,7 @@ successfully.
 API operations that are initiated by the SSM document during an association
 run are not logged in AWS CloudTrail.
 
-## Viewing association
-
-histories (console)
+## Viewing association histories (console)
 
 Use the following procedure to view the execution history for a specific
 association ID and then view execution details for one or more resources.
@@ -76,9 +64,7 @@ breadcrumb. 10. Choose the **Apply association now** button. After
 the execution is complete, verify that the association execution
 succeeded.
 
-## Viewing
-
-association histories (command line)
+## Viewing association histories (command line)
 
 The following procedure describes how to use the AWS Command Line Interface (AWS CLI) (on Linux
 or Windows Server) or AWS Tools for PowerShell to view the execution history for a specific

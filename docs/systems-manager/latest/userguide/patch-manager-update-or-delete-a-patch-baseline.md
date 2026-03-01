@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Updating
-
-or deleting a custom patch baseline
+# Updating or deleting a custom patch baseline
 
 You can update or delete a custom patch baseline that you have created in
 Patch Manager, a tool in AWS Systems Manager. When you update a patch baseline, you can
@@ -18,9 +8,7 @@ to the patch baseline. You can't change the operating system type that a
 patch baseline has been created for, and you can't make changes to a
 predefined patch baseline provided by AWS.
 
-## Updating or deleting a
-
-patch baseline
+## Updating or deleting a patch baseline
 
 Follow these steps to update or delete a patch baseline.
 
@@ -66,5 +54,4 @@ affected operating system.
          **Save changes**.
 
     For information about the configuration choices you can make,
-    see [Working with custom patch
-    baselines](patch-manager-manage-patch-baselines.md "patch-manager-manage-patch-baselines.md").
+    see [Working with custom patch baselines](patch-manager-manage-patch-baselines.md "patch-manager-manage-patch-baselines.md").

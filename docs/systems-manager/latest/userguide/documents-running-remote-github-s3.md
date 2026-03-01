@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Running documents from remote
-
-locations
+# Running documents from remote locations
 
 You can run AWS Systems Manager (SSM) documents from remote locations by using the
 `AWS-RunDocument` pre-defined SSM document. This document supports
@@ -75,12 +65,9 @@ tasks.
   GitHub repository by manually passing your token over
   SSH. The access token must be passed as a Systems Manager `SecureString`
   parameter. For more information about creating a `SecureString`
-  parameter, see [Creating Parameter Store parameters in
-  Systems Manager](sysman-paramstore-su-create.md "sysman-paramstore-su-create.md").
+  parameter, see [Creating Parameter Store parameters in Systems Manager](sysman-paramstore-su-create.md "sysman-paramstore-su-create.md").
 
-## Run a remote
-
-document (console)
+## Run a remote document (console)
 
 ###### To run a remote document
 
@@ -188,8 +175,7 @@ specify:
 
 ###### Tip
 
-If a managed node you expect to see isn't listed, see [Troubleshooting managed
-node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for troubleshooting
+If a managed node you expect to see isn't listed, see [Troubleshooting managed node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for troubleshooting
 tips. 8. For **Other parameters**:
 
     * For **Comment**, enter information about this command.
@@ -228,11 +214,9 @@ the managed node has the necessary permissions to write to that bucket. 11. In t
 about the status of the command execution, select the **Enable SNS
 notifications** check box.
 
-For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager status changes using
-Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifications.md"). 12. Choose **Run**.
+For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifications.md"). 12. Choose **Run**.
 
 ###### Note
 
 For information about rebooting servers and instances when using Run Command
-to call scripts, see [Handling reboots when running
-commands](send-commands-reboot.md "send-commands-reboot.md").
+to call scripts, see [Handling reboots when running commands](send-commands-reboot.md "send-commands-reboot.md").

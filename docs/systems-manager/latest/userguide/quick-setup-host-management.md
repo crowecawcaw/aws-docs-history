@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Set up Amazon EC2 host management using
-
-Quick Setup
+# Set up Amazon EC2 host management using Quick Setup
 
 Use Quick Setup, a tool in AWS Systems Manager, to quickly configure required security roles
 and commonly used Systems Manager tools on your Amazon Elastic Compute Cloud (Amazon EC2) instances. You can use
@@ -51,12 +41,9 @@ or a single account. One of these options is to check for and apply updates to
 SSM Agent every two weeks. If you are an organization administrator, you can also
 choose to update _all_ EC2 instances in your organization
 with agent updates every two weeks using the Default Host Management
-Configuration type. For information, see [Set up the
-Default Host Management Configuration for an organization using Quick Setup](quick-setup-default-host-management-configuration.md "quick-setup-default-host-management-configuration.md").
+Configuration type. For information, see [Set up the Default Host Management Configuration for an organization using Quick Setup](quick-setup-default-host-management-configuration.md "quick-setup-default-host-management-configuration.md").
 
-## Configuring host management
-
-options for EC2 instances
+## Configuring host management options for EC2 instances
 
 To set up host management, perform the following tasks in the AWS Systems Manager
 Quick Setup console.
@@ -92,8 +79,7 @@ of the agent. If there is a new version, then Systems Manager
 automatically updates the agent on your managed node to the
 latest released version. Quick Setup doesn't install the agent
 on instances where it's not already present. For information
-about which AMIs have SSM Agent preinstalled, see [Find AMIs with the SSM Agent
-preinstalled](ami-preinstalled-agent.md "ami-preinstalled-agent.md").
+about which AMIs have SSM Agent preinstalled, see [Find AMIs with the SSM Agent preinstalled](ami-preinstalled-agent.md "ami-preinstalled-agent.md").
 
 We encourage you to choose this option to ensure that your
 nodes are always running the most up-to-date version of
@@ -156,8 +142,7 @@ For information about patch compliance, see the Systems Manager
 [Compliance](https://console.aws.amazon.com/systems-manager/compliance "https://console.aws.amazon.com/systems-manager/compliance") page.
 
 For information about patching managed nodes in multiple
-accounts and Regions in one configuration, see [Patch policy configurations in Quick Setup](patch-manager-policies.md "patch-manager-policies.md") and [Configure patching for instances in an
-organization using a Quick Setup patch policy](quick-setup-patch-manager.md "quick-setup-patch-manager.md").
+accounts and Regions in one configuration, see [Patch policy configurations in Quick Setup](patch-manager-policies.md "patch-manager-policies.md") and [Configure patching for instances in an organization using a Quick Setup patch policy](quick-setup-patch-manager.md "quick-setup-patch-manager.md").
 
 ###### Important
 
@@ -169,8 +154,7 @@ recent scan. Results from previous scans are
 overwritten. If the scanning methods use different patch
 baselines, with different approval rules, the patch
 compliance information can change unexpectedly. For more
-information, see [Identifying the
-execution that created patch compliance data](patch-manager-compliance-data-overwrites.md "patch-manager-compliance-data-overwrites.md").
+information, see [Identifying the execution that created patch compliance data](patch-manager-compliance-data-overwrites.md "patch-manager-compliance-data-overwrites.md").
 
 ###### To configure Amazon CloudWatch host management options
 
@@ -237,9 +221,7 @@ the following topics:
     + [cloud-init Documentation](https://cloudinit.readthedocs.io/en/22.2.2/index.html "https://cloudinit.readthedocs.io/en/22.2.2/index.html")
     + [ec2-macos-init](https://github.com/aws/ec2-macos-init "https://github.com/aws/ec2-macos-init")
 
-###### To select the EC2 instances to be updated by the host management
-
-configuration
+###### To select the EC2 instances to be updated by the host management configuration
 
 - In the **Targets** section, choose the method to
   determine the accounts and Regions where the configuration is to be

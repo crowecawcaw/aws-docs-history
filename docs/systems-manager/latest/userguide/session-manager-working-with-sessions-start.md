@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Start a
-
-session
+# Start a session
 
 You can use the AWS Systems Manager console, the Amazon Elastic Compute Cloud (Amazon EC2) console, the AWS Command Line Interface
 (AWS CLI), or SSH to start a session.
@@ -16,16 +6,12 @@ You can use the AWS Systems Manager console, the Amazon Elastic Compute Cloud (A
 ###### Topics
 
 - [Starting a session (Systems Manager console)](#start-sys-console "#start-sys-console")
-- [Starting a session (Amazon EC2
-  console)](#start-ec2-console "#start-ec2-console")
+- [Starting a session (Amazon EC2 console)](#start-ec2-console "#start-ec2-console")
 - [Starting a session (AWS CLI)](#sessions-start-cli "#sessions-start-cli")
 - [Starting a session (SSH)](#sessions-start-ssh "#sessions-start-ssh")
-- [Starting a session (port
-  forwarding)](#sessions-start-port-forwarding "#sessions-start-port-forwarding")
-- [Starting a session (port
-  forwarding to remote host)](#sessions-remote-port-forwarding "#sessions-remote-port-forwarding")
-- [Starting a session
-  (interactive and noninteractive commands)](#sessions-start-interactive-commands "#sessions-start-interactive-commands")
+- [Starting a session (port forwarding)](#sessions-start-port-forwarding "#sessions-start-port-forwarding")
+- [Starting a session (port forwarding to remote host)](#sessions-remote-port-forwarding "#sessions-remote-port-forwarding")
+- [Starting a session (interactive and noninteractive commands)](#sessions-start-interactive-commands "#sessions-start-interactive-commands")
 
 ## Starting a session (Systems Manager console)
 
@@ -48,8 +34,7 @@ Session Manager. For information, see [Setting up Session Manager](session-manag
    the left of the managed node that you want to connect to.
 
 If the node that you want isn't in the list, or if you select a node
-and receive a configuration error, see [Managed node not
-available or not configured for Session Manager](session-manager-troubleshooting.md#session-manager-troubleshooting-instances "session-manager-troubleshooting.md#session-manager-troubleshooting-instances") for
+and receive a configuration error, see [Managed node not available or not configured for Session Manager](session-manager-troubleshooting.md#session-manager-troubleshooting-instances "session-manager-troubleshooting.md#session-manager-troubleshooting-instances") for
 troubleshooting steps. 6. Choose **Start session** to launch the session
 immediately.
 
@@ -77,9 +62,7 @@ the Session Manager console, note the following:
   `sessionType` defined as
   `Standard_Stream`. For more information, see [Session document schema](session-manager-schema.md "session-manager-schema.md").
 
-## Starting a session (Amazon EC2
-
-console)
+## Starting a session (Amazon EC2 console)
 
 You can use the Amazon Elastic Compute Cloud (Amazon EC2) console to start a session with an instance
 in your account.
@@ -91,8 +74,7 @@ Systems Manager actions (`ssm:`command-name``,
 then you must contact your administrator for assistance. Your administrator
 is the person that provided you with your sign-in credentials. Ask that
 person to update your policies to allow you to start sessions from the Amazon EC2
-console. If you're an administrator, see [Sample IAM
-policies for Session Manager](getting-started-restrict-access-quickstart.md "getting-started-restrict-access-quickstart.md") for more
+console. If you're an administrator, see [Sample IAM policies for Session Manager](getting-started-restrict-access-quickstart.md "getting-started-restrict-access-quickstart.md") for more
 information.
 
 ###### To start a session (Amazon EC2 console)
@@ -120,8 +102,7 @@ Before you start a session, make sure that you have completed the setup steps fo
 Session Manager. For information, see [Setting up Session Manager](session-manager-getting-started.md "session-manager-getting-started.md").
 
 To use the AWS CLI to run session commands, the Session Manager plugin must also be installed on your
-local machine. For information, see [Install the Session Manager plugin
-for the AWS CLI](session-manager-working-with-install-plugin.md "session-manager-working-with-install-plugin.md").
+local machine. For information, see [Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md "session-manager-working-with-install-plugin.md").
 
 To start a session using the AWS CLI, run the following command replacing
 `instance-id` with your own information.
@@ -185,9 +166,7 @@ For information about other options you can use with the
 **start-session** command, see [start-session](../../../cli/latest/reference/ssm/start-session.md "../../../cli/latest/reference/ssm/start-session.md")
 in the AWS Systems Manager section of the AWS CLI Command Reference.
 
-## Starting a session (port
-
-forwarding)
+## Starting a session (port forwarding)
 
 To start a Session Manager port forwarding session, version 2.3.672.0 or later of
 SSM Agent must be installed on the managed node.
@@ -198,8 +177,7 @@ Before you start a session, make sure that you have completed the setup steps fo
 Session Manager. For information, see [Setting up Session Manager](session-manager-getting-started.md "session-manager-getting-started.md").
 
 To use the AWS CLI to run session commands, you must install the Session Manager plugin on
-your local machine. For information, see [Install the Session Manager plugin
-for the AWS CLI](session-manager-working-with-install-plugin.md "session-manager-working-with-install-plugin.md").
+your local machine. For information, see [Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md "session-manager-working-with-install-plugin.md").
 
 Depending on your operating system and command line tool, the placement of
 quotation marks can differ and escape characters might be required.
@@ -243,9 +221,7 @@ in the AWS Systems Manager section of the AWS CLI Command Reference.
 
 For more information about port forwarding sessions, see [Port Forwarding Using AWS Systems Manager Session Manager](https://aws.amazon.com/blogs/aws/new-port-forwarding-using-aws-system-manager-sessions-manager/ "https://aws.amazon.com/blogs/aws/new-port-forwarding-using-aws-system-manager-sessions-manager/") in the _AWS News Blog_.
 
-## Starting a session (port
-
-forwarding to remote host)
+## Starting a session (port forwarding to remote host)
 
 To start a Session Manager port forwarding session to a remote host, version
 3.1.1374.0 or later of SSM Agent must be installed on the managed node. The
@@ -257,8 +233,7 @@ Before you start a session, make sure that you have completed the setup steps fo
 Session Manager. For information, see [Setting up Session Manager](session-manager-getting-started.md "session-manager-getting-started.md").
 
 To use the AWS CLI to run session commands, you must install the Session Manager plugin on
-your local machine. For information, see [Install the Session Manager plugin
-for the AWS CLI](session-manager-working-with-install-plugin.md "session-manager-working-with-install-plugin.md").
+your local machine. For information, see [Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md "session-manager-working-with-install-plugin.md").
 
 Depending on your operating system and command line tool, the placement of
 quotation marks can differ and escape characters might be required.
@@ -305,9 +280,7 @@ For information about other options you can use with the
 **start-session** command, see [start-session](../../../cli/latest/reference/ssm/start-session.md "../../../cli/latest/reference/ssm/start-session.md")
 in the AWS Systems Manager section of the AWS CLI Command Reference.
 
-### Starting a
-
-session with an Amazon ECS task
+### Starting a session with an Amazon ECS task
 
 Session Manager supports starting a port forwarding session with a task inside an
 Amazon Elastic Container Service (Amazon ECS) cluster. To do so, enable ECS Exec. For more information,
@@ -367,16 +340,13 @@ aws ssm start-session ^
     --parameters host="`URL`",portNumber="`port_number`",localPortNumber="`port_number`"
 ```
 
-## Starting a session
-
-(interactive and noninteractive commands)
+## Starting a session (interactive and noninteractive commands)
 
 Before you start a session, make sure that you have completed the setup steps for
 Session Manager. For information, see [Setting up Session Manager](session-manager-getting-started.md "session-manager-getting-started.md").
 
 To use the AWS CLI to run session commands, the Session Manager plugin must also be installed
-on your local machine. For information, see [Install the Session Manager plugin
-for the AWS CLI](session-manager-working-with-install-plugin.md "session-manager-working-with-install-plugin.md").
+on your local machine. For information, see [Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md "session-manager-working-with-install-plugin.md").
 
 To start an interactive command session, run the following command. Replace
 each `example resource placeholder` with your own

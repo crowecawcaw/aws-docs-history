@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Set up the
-
-Default Host Management Configuration for an organization using Quick Setup
+# Set up the Default Host Management Configuration for an organization using Quick Setup
 
 With Quick Setup, a tool in AWS Systems Manager, you can activate Default Host Management
 Configuration for all accounts and Regions that have been added to your organization
@@ -43,9 +33,7 @@ set this role yet, Quick Setup will create and apply the role for you.
 To check whether this role has already been specified for your organization, use
 the [get-service-setting](../../../cli/latest/reference/ssm/get-service-setting.md "../../../cli/latest/reference/ssm/get-service-setting.md") command.
 
-## Enable automatic updates of
-
-SSM Agent every two weeks
+## Enable automatic updates of SSM Agent every two weeks
 
 Use the following procedure to enable the Default Host Management
 Configuration option for your entire AWS Organizations organization.

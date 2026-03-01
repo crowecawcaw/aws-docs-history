@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Create a maintenance window using the
-
-console
+# Create a maintenance window using the console
 
 In this procedure, you create a maintenance window in Maintenance Windows, a tool in
 AWS Systems Manager. You can specify its basic options, such as name, schedule, and duration.
@@ -18,11 +8,9 @@ that run when the maintenance window runs.
 ###### Note
 
 For an explanation of how the various schedule-related options for maintenance windows
-relate to one another, see [Maintenance window scheduling and
-active period options](maintenance-windows-schedule-options.md "maintenance-windows-schedule-options.md").
+relate to one another, see [Maintenance window scheduling and active period options](maintenance-windows-schedule-options.md "maintenance-windows-schedule-options.md").
 
-For more information about working with the `--schedule` option, see [Reference: Cron and rate expressions
-for Systems Manager](reference-cron-and-rate-expressions.md "reference-cron-and-rate-expressions.md").
+For more information about working with the `--schedule` option, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md "reference-cron-and-rate-expressions.md").
 
 ###### To create a maintenance window using the console
 
@@ -45,8 +33,7 @@ registered targets when you register a task with the maintenance
 window. 7. Specify a schedule for the maintenance window by using one of the three
 scheduling options.
 
-For information about building cron/rate expressions, see [Reference: Cron and rate expressions
-for Systems Manager](reference-cron-and-rate-expressions.md "reference-cron-and-rate-expressions.md"). 8. For **Duration**, enter the number of hours the
+For information about building cron/rate expressions, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md "reference-cron-and-rate-expressions.md"). 8. For **Duration**, enter the number of hours the
 maintenance window will run. The value you specify determines the specific
 end time for the maintenance window based on the time it begins. No
 maintenance window tasks are permitted to start after the resulting endtime

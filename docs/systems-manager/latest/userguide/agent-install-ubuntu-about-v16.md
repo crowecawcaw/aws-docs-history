@@ -1,15 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Determining the correct
-
-SSM Agent version to install on 64-bit Ubuntu Server 16.04
-instances
+# Determining the correct SSM Agent version to install on 64-bit Ubuntu Server 16.04 instances
 
 ###### Important
 
@@ -18,9 +7,7 @@ that you are using the correction installation tools. Beginning with
 Amazon Machine Images (AMIs) that are identified with 20180627, SSM Agent
 is pre-installed on version 16.04 using Snap packages. On instances
 created from earlier AMIs, SSM Agent must be installed using deb
-installer packages. For more information, see Determining the correct
-SSM Agent version to install on 64-bit Ubuntu Server 16.04
-instances
+installer packages. For more information, see Determining the correct SSM Agent version to install on 64-bit Ubuntu Server 16.04 instances
 
 Be aware that if an instance has more than one installation of the
 SSM Agent (for example, one installed using a Snap and one installed

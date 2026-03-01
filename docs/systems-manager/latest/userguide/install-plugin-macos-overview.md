@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Install the Session Manager plugin on
-
-macOS
+# Install the Session Manager plugin on macOS
 
 Choose one of the following topics to install the Session Manager plugin on macOS.
 
@@ -18,9 +8,7 @@ The signed installer is a signed `.pkg` file. The
 bundled installer uses a `.zip` file. After the file is
 unzipped, you can install the plugin using the binary.
 
-## Install the Session Manager plugin on
-
-macOS with the signed installer
+## Install the Session Manager plugin on macOS with the signed installer
 
 This section describes how to install the Session Manager plugin on macOS using the
 signed installer.
@@ -53,9 +41,7 @@ sudo ln -s /usr/local/sessionmanagerplugin/bin/session-manager-plugin /usr/local
 3. Verify that the installation was successful. For information, see
    [Verify the Session Manager plugin installation](install-plugin-verify.md "install-plugin-verify.md").
 
-## Install the Session Manager plugin on
-
-macOS
+## Install the Session Manager plugin on macOS
 
 This section describes how to install the Session Manager plugin on macOS using the
 bundled installer.

@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Running scripts from Amazon S3
 
 This section describes how to download and run scripts from Amazon Simple Storage Service (Amazon S3). The
@@ -40,9 +32,7 @@ Amazon Simple Storage Service (Amazon S3) by using either the AWS Systems Manage
 Though shell scripts are used in the examples, other types of scripts can be
 substituted.
 
-### Run a shell script from Amazon S3
-
-(console)
+### Run a shell script from Amazon S3 (console)
 
 ###### Run a shell script from Amazon S3
 
@@ -97,8 +87,7 @@ placeholder` with your own
 
 ###### Tip
 
-If a managed node you expect to see isn't listed, see [Troubleshooting managed
-node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for troubleshooting
+If a managed node you expect to see isn't listed, see [Troubleshooting managed node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for troubleshooting
 tips. 7. For **Other parameters**:
 
     * For **Comment**, enter information about this command.
@@ -137,12 +126,9 @@ the managed node has the necessary permissions to write to that bucket. 10. In t
 about the status of the command execution, select the **Enable SNS
 notifications** check box.
 
-For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager status changes using
-Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifications.md"). 11. Choose **Run**.
+For more information about configuring Amazon SNS notifications for Run Command, see [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifications.md"). 11. Choose **Run**.
 
-### Run a shell script from Amazon S3
-
-(command line)
+### Run a shell script from Amazon S3 (command line)
 
 1. Install and configure the AWS Command Line Interface (AWS CLI), if you haven't already.
 

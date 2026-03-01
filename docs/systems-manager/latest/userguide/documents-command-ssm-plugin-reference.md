@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Command document plugin
-
-reference
+# Command document plugin reference
 
 This reference describes the plugins that you can specify in an AWS Systems Manager (SSM)
 Command type document. These plugins can't be used in SSM Automation runbooks,
@@ -346,10 +336,8 @@ Amazon CloudWatch Logs. The SSM Agent aws:cloudWatch plugin is not supported. We
 the unified CloudWatch agent for your log collection processes. For more information, see the
 following topics:
 
-- [Sending node logs to unified CloudWatch Logs
-  (CloudWatch agent)](monitoring-cloudwatch-agent.md "monitoring-cloudwatch-agent.md")
-- [Migrate Windows Server node
-  log collection to the CloudWatch agent](monitoring-cloudwatch-agent.md#monitoring-cloudwatch-agent-migrate "monitoring-cloudwatch-agent.md#monitoring-cloudwatch-agent-migrate")
+- [Sending node logs to unified CloudWatch Logs (CloudWatch agent)](monitoring-cloudwatch-agent.md "monitoring-cloudwatch-agent.md")
+- [Migrate Windows Server node log collection to the CloudWatch agent](monitoring-cloudwatch-agent.md#monitoring-cloudwatch-agent-migrate "monitoring-cloudwatch-agent.md#monitoring-cloudwatch-agent-migrate")
 - [Collecting metrics, logs, and traces with the CloudWatch agent](../../../AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.md "../../../AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.md") in the
   _Amazon CloudWatch User Guide_.
 
@@ -2439,8 +2427,7 @@ Required: No
 Collect metadata for files, including file names, the time files
 were created, the time files were last modified and accessed,
 and file sizes, to name a few. For more information about
-collecting file inventory, see [Working with file and Windows registry
-inventory](inventory-file-and-registry.md "inventory-file-and-registry.md").
+collecting file inventory, see [Working with file and Windows registry inventory](inventory-file-and-registry.md "inventory-file-and-registry.md").
 
 Type: String
 
@@ -2499,8 +2486,7 @@ choose a key path and collect all keys and values recursively.
 You can also collect a specific registry key and its value for a
 specific path. Inventory collects the key path, name, type, and
 the value. For more information about collecting Windows
-Registry inventory, see [Working with file and Windows registry
-inventory](inventory-file-and-registry.md "inventory-file-and-registry.md").
+Registry inventory, see [Working with file and Windows registry inventory](inventory-file-and-registry.md "inventory-file-and-registry.md").
 
 Type: String
 

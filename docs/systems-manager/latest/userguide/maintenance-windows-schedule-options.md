@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Maintenance window scheduling and
-
-active period options
+# Maintenance window scheduling and active period options
 
 When you create a maintenance window, you must specify how often the maintenance
 window runs by using a [Cron or rate
@@ -34,18 +24,12 @@ example: `America/Chicago`, `Europe/Berlin` or
 
 ###### Examples
 
-- [Example 1: Specify a maintenance
-  window start date](#schedule-example-start-date "#schedule-example-start-date")
-- [Example 2: Specify a maintenance
-  window start date and end date](#schedule-example-start-end-date "#schedule-example-start-end-date")
-- [Example 3: Create a maintenance window
-  that runs only once](#schedule-example-one-time "#schedule-example-one-time")
-- [Example 4: Specify the number of
-  schedule offset days for a maintenance window](#schedule-example-schedule-offset "#schedule-example-schedule-offset")
+- [Example 1: Specify a maintenance window start date](#schedule-example-start-date "#schedule-example-start-date")
+- [Example 2: Specify a maintenance window start date and end date](#schedule-example-start-end-date "#schedule-example-start-end-date")
+- [Example 3: Create a maintenance window that runs only once](#schedule-example-one-time "#schedule-example-one-time")
+- [Example 4: Specify the number of schedule offset days for a maintenance window](#schedule-example-schedule-offset "#schedule-example-schedule-offset")
 
-## Example 1: Specify a maintenance
-
-window start date
+## Example 1: Specify a maintenance window start date
 
 Say that you use the AWS Command Line Interface (AWS CLI) to create a maintenance window with the
 following options:
@@ -94,9 +78,7 @@ the maintenance window runs at 9 AM every Wednesday in the US Pacific Time Zone
 allowed period will be on Wednesday, January 4, 2021, at 9 AM US Pacific
 Time.
 
-## Example 2: Specify a maintenance
-
-window start date and end date
+## Example 2: Specify a maintenance window start date and end date
 
 Suppose that next you create a maintenance window with these options:
 
@@ -149,9 +131,7 @@ becomes active at 3:15 AM on Tuesday, January 1. The last execution is at 3:15 A
 Japan Standard Time on Tuesday, June 25, 2019. This is the last Tuesday before the
 allowed maintenance window period ends five days later.
 
-## Example 3: Create a maintenance window
-
-that runs only once
+## Example 3: Create a maintenance window that runs only once
 
 Now you create a maintenance window with this option:
 
@@ -186,9 +166,7 @@ maintenance window is allowed to run up to five hours, as needed, but new tasks 
 prevented from starting two hours before the end of the maintenance window
 period.
 
-## Example 4: Specify the number of
-
-schedule offset days for a maintenance window
+## Example 4: Specify the number of schedule offset days for a maintenance window
 
 Now you create a maintenance window with this option:
 
@@ -240,12 +218,9 @@ Schedule offsets are supported for CRON expressions only.
 
 **More info**
 
-- [Reference: Cron and rate expressions
-  for Systems Manager](reference-cron-and-rate-expressions.md "reference-cron-and-rate-expressions.md")
-- [Create a maintenance window using the
-  console](sysman-maintenance-create-mw.md "sysman-maintenance-create-mw.md")
-- [Tutorial: Create and
-  configure a maintenance window using the AWS CLI](maintenance-windows-cli-tutorials-create.md "maintenance-windows-cli-tutorials-create.md")
+- [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md "reference-cron-and-rate-expressions.md")
+- [Create a maintenance window using the console](sysman-maintenance-create-mw.md "sysman-maintenance-create-mw.md")
+- [Tutorial: Create and configure a maintenance window using the AWS CLI](maintenance-windows-cli-tutorials-create.md "maintenance-windows-cli-tutorials-create.md")
 - [CreateMaintenanceWindow](../APIReference/API_CreateMaintenanceWindow.md "../APIReference/API_CreateMaintenanceWindow.md") in the
   _AWS Systems Manager API Reference_
 - [create-maintenance-window](../../../cli/latest/reference/ssm/create-maintenance-window.md "../../../cli/latest/reference/ssm/create-maintenance-window.md") in the

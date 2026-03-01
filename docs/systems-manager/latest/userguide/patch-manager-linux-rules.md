@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# How patch baseline rules work on
-
-Linux-based systems
+# How patch baseline rules work on Linux-based systems
 
 The rules in a patch baseline for Linux distributions operate differently based on
 the distribution type. Unlike patch updates on Windows Server managed nodes, rules are
@@ -25,26 +15,16 @@ Scoring System](https://www.first.org/cvss/ "https://www.first.org/cvss/") (CVSS
 
 ###### Topics
 
-- [How patch baseline rules work on
-  Amazon Linux 2 and Amazon Linux 2023](#linux-rules-amazon-linux "#linux-rules-amazon-linux")
-- [How patch baseline rules work on
-  CentOS Stream](#linux-rules-centos "#linux-rules-centos")
-- [How patch baseline rules work on
-  Debian Server](#linux-rules-debian "#linux-rules-debian")
-- [How patch baseline rules work on
-  macOS](#linux-rules-macos "#linux-rules-macos")
-- [How patch baseline rules work on
-  Oracle Linux](#linux-rules-oracle "#linux-rules-oracle")
-- [How patch baseline rules work on AlmaLinux,
-  RHEL, and Rocky Linux](#linux-rules-rhel "#linux-rules-rhel")
-- [How patch baseline rules work on
-  SUSE Linux Enterprise Server](#linux-rules-sles "#linux-rules-sles")
-- [How patch baseline rules work on
-  Ubuntu Server](#linux-rules-ubuntu "#linux-rules-ubuntu")
+- [How patch baseline rules work on Amazon Linux 2 and Amazon Linux 2023](#linux-rules-amazon-linux "#linux-rules-amazon-linux")
+- [How patch baseline rules work on CentOS Stream](#linux-rules-centos "#linux-rules-centos")
+- [How patch baseline rules work on Debian Server](#linux-rules-debian "#linux-rules-debian")
+- [How patch baseline rules work on macOS](#linux-rules-macos "#linux-rules-macos")
+- [How patch baseline rules work on Oracle Linux](#linux-rules-oracle "#linux-rules-oracle")
+- [How patch baseline rules work on AlmaLinux, RHEL, and Rocky Linux](#linux-rules-rhel "#linux-rules-rhel")
+- [How patch baseline rules work on SUSE Linux Enterprise Server](#linux-rules-sles "#linux-rules-sles")
+- [How patch baseline rules work on Ubuntu Server](#linux-rules-ubuntu "#linux-rules-ubuntu")
 
-## How patch baseline rules work on
-
-Amazon Linux 2 and Amazon Linux 2023
+## How patch baseline rules work on Amazon Linux 2 and Amazon Linux 2023
 
 ###### Note
 
@@ -80,8 +60,7 @@ notice, as described in the following table.
 | updated                  | Corresponds to [ApproveAfterDays](../APIReference/API_PatchRule.md#EC2-Type-PatchRule-ApproveAfterDays "../APIReference/API_PatchRule.md#EC2-Type-PatchRule-ApproveAfterDays") in the<br>patch baseline. Denotes the released date (updated<br>date) of the packages included in the update notice.<br>A comparison between the current timestamp and the<br>value of this attribute plus the<br>`ApproveAfterDays` is used to determine<br>if the patch is approved for deployment.                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 
 For information about accepted formats for lists of approved patches and rejected patches,
-see [Package name
-formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md "patch-manager-approved-rejected-package-name-formats.md"). 3. The product of the managed node is determined by SSM Agent. This
+see [Package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md "patch-manager-approved-rejected-package-name-formats.md"). 3. The product of the managed node is determined by SSM Agent. This
 attribute corresponds to the value of the Product key attribute in the
 patch baseline's [PatchFilter](../APIReference/API_PatchFilter.md "../APIReference/API_PatchFilter.md") data type. 4. Packages are selected for the update according to the following
 guidelines.
@@ -91,12 +70,9 @@ guidelines.
 | Pre-defined default patch baselines provided by<br>AWS and custom patch baselines where the<br>**Include non-security updates**<br>check box is _not_<br>selected                                                 | For each update notice in<br>`updateinfo.xml`, the patch<br>baseline is used as a filter, allowing only the<br>qualified packages to be included in the update. If<br>multiple packages are applicable after applying the<br>patch baseline definition, the latest version is<br>used.<br>For Amazon Linux 2, the equivalent yum command for this<br>workflow is:<br>`<br>sudo yum update-minimal --sec-severity=Critical,Important --bugfix -y<br>`<br>For Amazon Linux 2023, the equivalent dnf command for<br>this workflow is:<br>`<br>sudo dnf upgrade-minimal --sec-severity=Critical --sec-severity=Important --bugfix -y<br>`                                                                                                                                                                     |
 | Custom patch baselines where the \*_Include<br>non-security updates_<br>• check box<br>\*is<br>• selected<br>with a SEVERITY list of `[Critical, Important]` and a CLASSIFICATION list of `[Security,<br>Bugfix]` | In addition to applying the security updates that<br>were selected from<br>`updateinfo.xml`, Patch Manager<br>applies nonsecurity updates that otherwise meet the<br>patch filtering rules.<br>For Amazon Linux 2, the equivalent yum command for this<br>workflow is:<br>`<br>sudo yum update --security --sec-severity=Critical,Important --bugfix -y<br>`<br>For Amazon Linux 2023, the equivalent dnf command for<br>this workflow is:<br>`<br>sudo dnf upgrade --security --sec-severity=Critical --sec-severity=Important --bugfix -y<br>`<br>NoteNew packages that replace now-obsolete packages with different names are installed if<br>you run these `yum` or `dnf` commands outside of Patch Manager.<br>However, they are \*not<br>• installed by the equivalent Patch Manager<br>operations. |
 
-For information about patch compliance status values, see [Patch compliance state
-values](patch-manager-compliance-states.md "patch-manager-compliance-states.md").
+For information about patch compliance status values, see [Patch compliance state values](patch-manager-compliance-states.md "patch-manager-compliance-states.md").
 
-## How patch baseline rules work on
-
-CentOS Stream
+## How patch baseline rules work on CentOS Stream
 
 The CentOS Stream default repositories do not include an
 `updateinfo.xml` file. However, custom repositories that
@@ -131,8 +107,7 @@ the packages in the notice, as described in the following table.
 | updated                  | Corresponds to [ApproveAfterDays](../APIReference/API_PatchRule.md#EC2-Type-PatchRule-ApproveAfterDays "../APIReference/API_PatchRule.md#EC2-Type-PatchRule-ApproveAfterDays") in the<br>patch baseline. Denotes the released date (updated<br>date) of the packages included in the update notice.<br>A comparison between the current timestamp and the<br>value of this attribute plus the<br>`ApproveAfterDays` is used to determine<br>if the patch is approved for deployment.                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 
 For information about accepted formats for lists of approved patches and rejected patches,
-see [Package name
-formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md "patch-manager-approved-rejected-package-name-formats.md"). 3. In all cases, the product of the managed node is determined by
+see [Package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md "patch-manager-approved-rejected-package-name-formats.md"). 3. In all cases, the product of the managed node is determined by
 SSM Agent. This attribute corresponds to the value of the Product key
 attribute in the patch baseline's [PatchFilter](../APIReference/API_PatchFilter.md "../APIReference/API_PatchFilter.md") data type. 4. Packages are selected for the update according to the following
 guidelines.
@@ -142,12 +117,9 @@ guidelines.
 | Pre-defined default patch baselines provided by<br>AWS and custom patch baselines where the<br>**Include non-security updates**<br>check box is _not_<br>selected                                                    | For each update notice in<br>`updateinfo.xml`, if it exists<br>in a custom repository, the patch baseline is used<br>as a filter, allowing only the qualified packages to<br>be included in the update. If multiple packages are<br>applicable after applying the patch baseline<br>definition, the latest version is used.<br>For CentOS Stream where<br>`updateinfo.xml` is present,<br>the equivalent dnf command for this workflow<br>is:<br>`<br>sudo dnf upgrade-minimal ‐‐sec-severity=Critical ‐‐sec-severity=Important ‐‐bugfix -y<br>`                                                                                                                                                                                                                                                                                                                                                                     |
 | Custom patch baselines where the \*_Include<br>non-security updates_<br>• check box<br>\*is<br>• selected<br>with a SEVERITY list of `[Critical,<br>Important]` and a CLASSIFICATION list of<br>`[Security, Bugfix]` | In addition to applying the security updates that<br>were selected from<br>`updateinfo.xml`, if it exists<br>in a custom repository, Patch Manager applies nonsecurity<br>updates that otherwise meet the patch filtering<br>rules.<br>For CentOS Stream where<br>`updateinfo.xml` is present,<br>the equivalent dnf command for this workflow<br>is:<br>`<br>sudo dnf upgrade ‐‐security ‐‐sec-severity=Critical ‐‐sec-severity=Important ‐‐bugfix -y<br>`<br>For default repos and custom repos without<br>`updateinfo.xml`, you *must<br>• select the<br>**Include non-security updates**<br>check box in order to update operating system (OS)<br>packages. NoteNew packages that replace now-obsolete packages with different names are installed if<br>you run these `yum` or `dnf` commands outside of Patch Manager.<br>However, they are *not<br>• installed by the equivalent Patch Manager<br>operations. |
 
-For information about patch compliance status values, see [Patch compliance state
-values](patch-manager-compliance-states.md "patch-manager-compliance-states.md").
+For information about patch compliance status values, see [Patch compliance state values](patch-manager-compliance-states.md "patch-manager-compliance-states.md").
 
-## How patch baseline rules work on
-
-Debian Server
+## How patch baseline rules work on Debian Server
 
 On Debian Server , the patch baseline service offers filtering on the _Priority_ and _Section_ fields. These fields are typically present for all Debian Server
 packages. To determine whether a patch is selected by the patch baseline,
@@ -194,8 +166,7 @@ If nonsecurity updates are included, patches from other repositories
 are considered as well.
 
 For information about accepted formats for lists of approved patches and rejected patches,
-see [Package name
-formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md "patch-manager-approved-rejected-package-name-formats.md").
+see [Package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md "patch-manager-approved-rejected-package-name-formats.md").
 
 To view the contents of the _Priority_ and
 _Section_ fields, run the following
@@ -216,12 +187,9 @@ format:
 name, priority, section, archive, candidate version
 ```
 
-For information about patch compliance status values, see [Patch compliance state
-values](patch-manager-compliance-states.md "patch-manager-compliance-states.md").
+For information about patch compliance status values, see [Patch compliance state values](patch-manager-compliance-states.md "patch-manager-compliance-states.md").
 
-## How patch baseline rules work on
-
-macOS
+## How patch baseline rules work on macOS
 
 On macOS, the patch selection process is as follows:
 
@@ -240,12 +208,9 @@ guidelines.
 | Pre-defined default patch baselines provided by<br>AWS and custom patch baselines where the<br>**Include non-security updates**<br>check box is _not_<br>selected | For each available package update, the patch<br>baseline is used as a filter, allowing only the<br>qualified packages to be included in the update. If<br>multiple packages are applicable after applying the<br>patch baseline definition, the latest version is<br>used. |
 | Custom patch baselines where the \*_Include<br>non-security updates_<br>• check box<br>_is_<br>selected                                                           | In addition to applying the security updates that<br>were identified by using<br>`InstallHistory.plist` , Patch<br>Manager applies nonsecurity updates that otherwise<br>meet the patch filtering rules.                                                                   |
 
-For information about patch compliance status values, see [Patch compliance state
-values](patch-manager-compliance-states.md "patch-manager-compliance-states.md").
+For information about patch compliance status values, see [Patch compliance state values](patch-manager-compliance-states.md "patch-manager-compliance-states.md").
 
-## How patch baseline rules work on
-
-Oracle Linux
+## How patch baseline rules work on Oracle Linux
 
 On Oracle Linux, the patch selection process is as follows:
 
@@ -275,8 +240,7 @@ notice, as described in the following table.
 | updated                  | Corresponds to [ApproveAfterDays](../APIReference/API_PatchRule.md#EC2-Type-PatchRule-ApproveAfterDays "../APIReference/API_PatchRule.md#EC2-Type-PatchRule-ApproveAfterDays") in the<br>patch baseline. Denotes the released date (updated<br>date) of the packages included in the update notice.<br>A comparison between the current timestamp and the<br>value of this attribute plus the<br>`ApproveAfterDays` is used to determine<br>if the patch is approved for deployment.                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 
 For information about accepted formats for lists of approved patches and rejected patches,
-see [Package name
-formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md "patch-manager-approved-rejected-package-name-formats.md"). 3. The product of the managed node is determined by SSM Agent. This
+see [Package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md "patch-manager-approved-rejected-package-name-formats.md"). 3. The product of the managed node is determined by SSM Agent. This
 attribute corresponds to the value of the Product key attribute in the
 patch baseline's [PatchFilter](../APIReference/API_PatchFilter.md "../APIReference/API_PatchFilter.md") data type. 4. Packages are selected for the update according to the following
 guidelines.
@@ -286,12 +250,9 @@ guidelines.
 | Pre-defined default patch baselines provided by<br>AWS and custom patch baselines where the<br>**Include non-security updates**<br>check box is _not_<br>selected                                                    | For each update notice in<br>`updateinfo.xml`, the patch<br>baseline is used as a filter, allowing only the<br>qualified packages to be included in the update. If<br>multiple packages are applicable after applying the<br>patch baseline definition, the latest version is<br>used.<br>For version 7 managed nodes, the equivalent yum<br>command for this workflow is:<br>`<br>sudo yum update-minimal --sec-severity=Important,Moderate --bugfix -y<br>`<br>For version 8 and 9 managed nodes, the equivalent<br>dnf command for this workflow is:<br>`<br>sudo dnf upgrade-minimal --security --sec-severity=Moderate --sec-severity=Important<br>`                                                                                                                                                                      |
 | Custom patch baselines where the \*_Include<br>non-security updates_<br>• check box<br>\*is<br>• selected<br>with a SEVERITY list of `[Critical,<br>Important]` and a CLASSIFICATION list of<br>`[Security, Bugfix]` | In addition to applying the security updates that<br>were selected from<br>`updateinfo.xml`, Patch Manager<br>applies nonsecurity updates that otherwise meet the<br>patch filtering rules.<br>For version 7 managed nodes, the equivalent yum<br>command for this workflow is:<br>`<br>sudo yum update --security --sec-severity=Critical,Important --bugfix -y<br>`<br>For version 8 and 9 managed nodes, the equivalent<br>dnf command for this workflow is:<br>`<br>sudo dnf upgrade --security --sec-severity=Critical, --sec-severity=Important --bugfix y<br>`<br>NoteNew packages that replace now-obsolete packages with different names are installed if<br>you run these `yum` or `dnf` commands outside of Patch Manager.<br>However, they are \*not<br>• installed by the equivalent Patch Manager<br>operations. |
 
-For information about patch compliance status values, see [Patch compliance state
-values](patch-manager-compliance-states.md "patch-manager-compliance-states.md").
+For information about patch compliance status values, see [Patch compliance state values](patch-manager-compliance-states.md "patch-manager-compliance-states.md").
 
-## How patch baseline rules work on AlmaLinux,
-
-RHEL, and Rocky Linux
+## How patch baseline rules work on AlmaLinux, RHEL, and Rocky Linux
 
 On AlmaLinux, Red Hat Enterprise Linux (RHEL), and Rocky Linux, the patch selection process is
 as follows:
@@ -319,8 +280,7 @@ notice, as described in the following table.
 | updated                  | Corresponds to [ApproveAfterDays](../APIReference/API_PatchRule.md#EC2-Type-PatchRule-ApproveAfterDays "../APIReference/API_PatchRule.md#EC2-Type-PatchRule-ApproveAfterDays") in the<br>patch baseline. Denotes the released date (updated<br>date) of the packages included in the update notice.<br>A comparison between the current timestamp and the<br>value of this attribute plus the<br>`ApproveAfterDays` is used to determine<br>if the patch is approved for deployment.                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 
 For information about accepted formats for lists of approved patches and rejected patches,
-see [Package name
-formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md "patch-manager-approved-rejected-package-name-formats.md"). 3. The product of the managed node is determined by SSM Agent. This
+see [Package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md "patch-manager-approved-rejected-package-name-formats.md"). 3. The product of the managed node is determined by SSM Agent. This
 attribute corresponds to the value of the Product key attribute in the
 patch baseline's [PatchFilter](../APIReference/API_PatchFilter.md "../APIReference/API_PatchFilter.md") data type. 4. Packages are selected for the update according to the following
 guidelines.
@@ -330,12 +290,9 @@ guidelines.
 | Pre-defined default patch baselines provided by<br>AWS and custom patch baselines where the<br>**Include non-security updates**<br>check box is _not_<br>selected in any rule                                        | For each update notice in<br>`updateinfo.xml`, the patch<br>baseline is used as a filter, allowing only the<br>qualified packages to be included in the update. If<br>multiple packages are applicable after applying the<br>patch baseline definition, the latest version is<br>used.<br>For RHEL 7, the equivalent yum command for this<br>workflow is:<br>`<br>sudo yum update-minimal --sec-severity=Critical,Important --bugfix -y<br>`<br>For AlmaLinux 8 and 9, RHEL 8, 9, and 10, and<br>Rocky Linux 8 and 9, the equivalent dnf command for this<br>workflow is:<br>`<br>sudo dnf upgrade-minimal --sec-severity=Critical --sec-severity=Important --bugfix -y<br>`                                                                                                                                                          |
 | Custom patch baselines where the \*_Include<br>non-security updates_<br>• check box<br>\*is<br>• selected<br>with a SEVERITY list of `[Critical,<br>Important]` and a CLASSIFICATION list of<br>`[Security, Bugfix]` | In addition to applying the security updates that<br>were selected from<br>`updateinfo.xml`, Patch Manager<br>applies nonsecurity updates that otherwise meet the<br>patch filtering rules.<br>For RHEL 7, the equivalent yum command for this<br>workflow is:<br>`<br>sudo yum update --security --sec-severity=Critical,Important --bugfix -y<br>`<br>For AlmaLinux 8 and 9, RHEL 8, 9, and 10, and<br>Rocky Linux 8 and 9, the equivalent dnf command for this<br>workflow is:<br>`<br>sudo dnf upgrade --sec-severity=Critical --sec-severity=Important --bugfix -y<br>`<br>NoteNew packages that replace now-obsolete packages with different names are installed if<br>you run these `yum` or `dnf` commands outside of Patch Manager.<br>However, they are \*not<br>• installed by the equivalent Patch Manager<br>operations. |
 
-For information about patch compliance status values, see [Patch compliance state
-values](patch-manager-compliance-states.md "patch-manager-compliance-states.md").
+For information about patch compliance status values, see [Patch compliance state values](patch-manager-compliance-states.md "patch-manager-compliance-states.md").
 
-## How patch baseline rules work on
-
-SUSE Linux Enterprise Server
+## How patch baseline rules work on SUSE Linux Enterprise Server
 
 On SLES, each patch includes the following attributes that denote the
 properties of the packages in the patch:
@@ -374,12 +331,9 @@ applicable after applying the patch baseline definition, the latest version is
 used.
 
 For information about accepted formats for lists of approved patches and rejected patches,
-see [Package name
-formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md "patch-manager-approved-rejected-package-name-formats.md").
+see [Package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md "patch-manager-approved-rejected-package-name-formats.md").
 
-## How patch baseline rules work on
-
-Ubuntu Server
+## How patch baseline rules work on Ubuntu Server
 
 On Ubuntu Server, the patch baseline service offers filtering on the _Priority_ and _Section_ fields. These fields are typically present for all Ubuntu Server
 packages. To determine whether a patch is selected by the patch baseline,
@@ -432,8 +386,7 @@ If nonsecurity updates are included, patches from other repositories
 are considered as well.
 
 For information about accepted formats for lists of approved patches and rejected patches,
-see [Package name
-formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md "patch-manager-approved-rejected-package-name-formats.md").
+see [Package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md "patch-manager-approved-rejected-package-name-formats.md").
 
 To view the contents of the _Priority_ and
 _Section_ fields, run the following
@@ -454,5 +407,4 @@ format:
 name, priority, section, archive, candidate version
 ```
 
-For information about patch compliance status values, see [Patch compliance state
-values](patch-manager-compliance-states.md "patch-manager-compliance-states.md").
+For information about patch compliance status values, see [Patch compliance state values](patch-manager-compliance-states.md "patch-manager-compliance-states.md").

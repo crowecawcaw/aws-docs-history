@@ -1,18 +1,8 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Using roles to create OpsData and OpsItems for Explorer
 
 Systems Manager uses the service-linked role named **`AWSServiceRoleForSystemsManagerOpsDataSync`**. AWS Systems Manager uses this IAM service role for Explorer to create OpsData and OpsItems.
 
-## Service-linked role permissions
-
-for Systems Manager OpsData sync
+## Service-linked role permissions for Systems Manager OpsData sync
 
 The `AWSServiceRoleForSystemsManagerOpsDataSync` service-linked role trusts the following
 services to assume the role:
@@ -37,10 +27,7 @@ group, or role) to create, edit, or delete a service-linked role. For more
 information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the
 _IAM User Guide_.
 
-## Creating the
-
-`AWSServiceRoleForSystemsManagerOpsDataSync` service-linked role for
-Systems Manager
+## Creating the `AWSServiceRoleForSystemsManagerOpsDataSync` service-linked role for Systems Manager
 
 You don't need to manually create a service-linked role. When you enable
 Explorer in the AWS Management Console, Systems Manager creates the service-linked role for
@@ -68,9 +55,7 @@ see [Creating a service-linked role](../../../IAM/latest/UserGuide/using-service
 _IAM User Guide_. If you delete this service-linked
 role, you can use this same process to create the role again.
 
-## Editing the `AWSServiceRoleForSystemsManagerOpsDataSync`
-
-service-linked role for Systems Manager
+## Editing the `AWSServiceRoleForSystemsManagerOpsDataSync` service-linked role for Systems Manager
 
 Systems Manager doesn't allow you to edit the `AWSServiceRoleForSystemsManagerOpsDataSync`
 service-linked role. After you create a service-linked role, you can't change
@@ -79,10 +64,7 @@ you can edit the description of the role using IAM. For more information, see
 [Editing a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the
 _IAM User Guide_.
 
-## Deleting the
-
-`AWSServiceRoleForSystemsManagerOpsDataSync` service-linked role for
-Systems Manager
+## Deleting the `AWSServiceRoleForSystemsManagerOpsDataSync` service-linked role for Systems Manager
 
 If you no longer need to use a feature or service that requires a
 service-linked role, we recommend that you delete that role. That way you don’t
@@ -100,12 +82,9 @@ The procedure for deleting Systems Manager resources used by the
 `AWSServiceRoleForSystemsManagerOpsDataSync` role depends on if you've configured Explorer or
 OpsCenter to integrate with Security Hub CSPM.
 
-###### To delete Systems Manager resources used by the `AWSServiceRoleForSystemsManagerOpsDataSync`
+###### To delete Systems Manager resources used by the `AWSServiceRoleForSystemsManagerOpsDataSync` role
 
-role
-
-- To stop Explorer from creating new OpsItems for Security Hub CSPM findings, see [How to stop
-  receiving findings](explorer-securityhub-integration.md#explorer-securityhub-integration-disable-receive "explorer-securityhub-integration.md#explorer-securityhub-integration-disable-receive").
+- To stop Explorer from creating new OpsItems for Security Hub CSPM findings, see [How to stop receiving findings](explorer-securityhub-integration.md#explorer-securityhub-integration-disable-receive "explorer-securityhub-integration.md#explorer-securityhub-integration-disable-receive").
 - To stop OpsCenter from creating new OpsItems for Security Hub CSPM findings, see
 
 **To manually delete the `AWSServiceRoleForSystemsManagerOpsDataSync`
@@ -116,9 +95,7 @@ Use the IAM console, the AWS CLI, or the AWS API to delete the
 [Deleting a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the
 _IAM User Guide_.
 
-## Supported Regions for the
-
-Systems Manager  `AWSServiceRoleForSystemsManagerOpsDataSync` service-linked role
+## Supported Regions for the Systems Manager  `AWSServiceRoleForSystemsManagerOpsDataSync` service-linked role
 
 Systems Manager supports using service-linked roles in all of the Regions where
 the service is available. For more information, see [AWS Systems Manager endpoints and quotas](../../../general/latest/gr/ssm.md "../../../general/latest/gr/ssm.md").

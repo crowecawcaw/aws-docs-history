@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Restricting access to Parameter Store parameters
-
-using IAM policies
+# Restricting access to Parameter Store parameters using IAM policies
 
 You restrict access to AWS Systems Manager parameters by using AWS Identity and Access Management (IAM). More
 specifically, you create IAM policies that restrict access to the following API
@@ -179,9 +169,7 @@ current one. Therefore, if a user is denied permission for
 including `SecureString` parameters, using
 `GetParameterHistory`.
 
-## Allowing only specific
-
-parameters to run on nodes
+## Allowing only specific parameters to run on nodes
 
 You can control access so that managed nodes can run only parameters that you
 specify.
@@ -239,9 +227,7 @@ JSON
 
 ```
 
-## IAM permissions for using AWS default
-
-keys and customer managed keys
+## IAM permissions for using AWS default keys and customer managed keys
 
 Parameter Store `SecureString` parameters are encrypted and decrypted
 using AWS KMS keys. You can choose to encrypt your `SecureString`

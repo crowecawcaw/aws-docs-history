@@ -1,19 +1,8 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Manually installing SSM Agent on Red Hat Enterprise Linux
-
-instances
+# Manually installing SSM Agent on Red Hat Enterprise Linux instances
 
 The Amazon Machine Images (AMIs) for Red Hat Enterprise Linux (RHEL) that are provided by AWS
 do not come with AWS Systems Manager Agent (SSM Agent) preinstalled by default. For a list
-of AWS managed AMIs on which the agent might be preinstalled, see [Find AMIs with the SSM Agent
-preinstalled](ami-preinstalled-agent.md "ami-preinstalled-agent.md").
+of AWS managed AMIs on which the agent might be preinstalled, see [Find AMIs with the SSM Agent preinstalled](ami-preinstalled-agent.md "ami-preinstalled-agent.md").
 
 Use the information in this section to help you manually install or reinstall
 SSM Agent on a RHEL instance.
@@ -24,8 +13,7 @@ Before you install SSM Agent on a RHEL instance, note the
 following:
 
 - For important information that applies to installation of SSM Agent on
-  all Linux-based operating systems, see [Manually installing and
-  uninstalling SSM Agent on EC2 instances for Linux](manually-install-ssm-agent-linux.md "manually-install-ssm-agent-linux.md").
+  all Linux-based operating systems, see [Manually installing and uninstalling SSM Agent on EC2 instances for Linux](manually-install-ssm-agent-linux.md "manually-install-ssm-agent-linux.md").
 - If you use a `yum` command to update SSM Agent on a managed node after the agent
   has been installed or updated using the SSM document `AWS-UpdateSSMAgent`, you
   might see the following message: `"Warning: RPMDB altered outside of yum."` This
@@ -33,7 +21,5 @@ following:
 
 ###### Topics
 
-- [Install SSM Agent on RHEL 8.x,
-  9.x, and 10.x](agent-install-rhel-8-9.md "agent-install-rhel-8-9.md")
-- [Install SSM Agent on RHEL
-  7.x](agent-install-rhel-7.md "agent-install-rhel-7.md")
+- [Install SSM Agent on RHEL 8.x, 9.x, and 10.x](agent-install-rhel-8-9.md "agent-install-rhel-8-9.md")
+- [Install SSM Agent on RHEL 7.x](agent-install-rhel-7.md "agent-install-rhel-7.md")

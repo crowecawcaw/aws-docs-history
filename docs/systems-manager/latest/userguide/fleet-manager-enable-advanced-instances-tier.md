@@ -1,22 +1,11 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Turning on the
-
-advanced-instances tier
+# Turning on the advanced-instances tier
 
 AWS Systems Manager offers a standard-instances tier and an advanced-instances tier for
 non-EC2 machines in a [hybrid and multicloud](operating-systems-and-machine-types.md#supported-machine-types "operating-systems-and-machine-types.md#supported-machine-types") environment. The standard-instances tier lets
 you register a maximum of 1,000 hybrid-activated machines per AWS account per
 AWS Region. The advanced-instances tier is also required to use Patch Manager to
 patch Microsoft-released applications on non-EC2 nodes, and to connect to
-non-EC2 nodes using Session Manager. For more information, see Turning on the
-advanced-instances tier.
+non-EC2 nodes using Session Manager. For more information, see Turning on the advanced-instances tier.
 
 This section describes how to configure your hybrid and multicloud environment
 to use the advanced-instances tier.
@@ -27,9 +16,7 @@ Review pricing details for advanced instances. Advanced instances are
 available on a per-use-basis. For more information see, [AWS Systems Manager
 Pricing](https://aws.amazon.com/systems-manager/pricing/ "https://aws.amazon.com/systems-manager/pricing/").
 
-## Configuring
-
-permissions to turn on the advanced-instances tier
+## Configuring permissions to turn on the advanced-instances tier
 
 Verify that you have permission in AWS Identity and Access Management (IAM) to change your
 environment from the standard-instances tier to the advanced-instances tier.
@@ -122,9 +109,7 @@ JSON
 For more information about creating and editing IAM policies, see [Creating IAM
 Policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in the _IAM User Guide_.
 
-## Turning on the
-
-advanced-instances tier (console)
+## Turning on the advanced-instances tier (console)
 
 The following procedure shows you how to use the Systems Manager console to change
 _all_ non-EC2 nodes that were added using
@@ -139,8 +124,7 @@ top, right corner of the console.
 
 Verify that you have completed the setup requirements for your Amazon Elastic Compute Cloud
 (Amazon EC2) instances and non-EC2 machines in a [hybrid and multicloud](operating-systems-and-machine-types.md#supported-machine-types "operating-systems-and-machine-types.md#supported-machine-types") environment. For
-information, see [Setting up managed nodes for
-AWS Systems Manager](systems-manager-setting-up-nodes.md "systems-manager-setting-up-nodes.md").
+information, see [Setting up managed nodes for AWS Systems Manager](systems-manager-setting-up-nodes.md "systems-manager-setting-up-nodes.md").
 
 ###### Important
 
@@ -166,12 +150,9 @@ tier.
 ###### Note
 
 For information about changing back to the standard-instances tier,
-see [Reverting from the
-advanced-instances tier to the standard-instances tier](fleet-manager-revert-to-standard-tier.md "fleet-manager-revert-to-standard-tier.md").
+see [Reverting from the advanced-instances tier to the standard-instances tier](fleet-manager-revert-to-standard-tier.md "fleet-manager-revert-to-standard-tier.md").
 
-## Turning on the
-
-advanced-instances tier (AWS CLI)
+## Turning on the advanced-instances tier (AWS CLI)
 
 The following procedure shows you how to use the AWS Command Line Interface to change
 _all_ on-premises servers and VMs that were added
@@ -238,9 +219,7 @@ The command returns information like the following.
 }
 ```
 
-## Turning on the
-
-advanced-instances tier (PowerShell)
+## Turning on the advanced-instances tier (PowerShell)
 
 The following procedure shows you how to use the AWS Tools for Windows PowerShell to change
 _all_ on-premises servers and VMs that were added
@@ -291,5 +270,4 @@ tier.
 ###### Note
 
 For information about changing back to the standard-instances tier,
-see [Reverting from the
-advanced-instances tier to the standard-instances tier](fleet-manager-revert-to-standard-tier.md "fleet-manager-revert-to-standard-tier.md").
+see [Reverting from the advanced-instances tier to the standard-instances tier](fleet-manager-revert-to-standard-tier.md "fleet-manager-revert-to-standard-tier.md").

@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # AWS Systems Manager Session Manager
 
 Session Manager is a fully managed AWS Systems Manager tool. With Session Manager, you can manage your Amazon Elastic Compute Cloud
@@ -18,9 +10,7 @@ access details, while providing end users with simple one-click cross-platform a
 your managed nodes. To get started with Session Manager, open the [Systems Manager console](https://console.aws.amazon.com/systems-manager/session-manager "https://console.aws.amazon.com/systems-manager/session-manager"). In the navigation pane,
 choose **Session Manager**.
 
-## How can Session Manager benefit my
-
-organization?
+## How can Session Manager benefit my organization?
 
 Session Manager offers these benefits:
 
@@ -59,8 +49,7 @@ You can connect to both Amazon Elastic Compute Cloud (Amazon EC2) instances and 
 To connect to non-EC2 nodes using Session Manager, you must first activate the
 advanced-instances tier. **There is a charge to use the
 advanced-instances tier.** However, there is no additional charge
-to connect to EC2 instances using Session Manager. For information, see [Configuring instance
-tiers](fleet-manager-configure-instance-tiers.md "fleet-manager-configure-instance-tiers.md").
+to connect to EC2 instances using Session Manager. For information, see [Configuring instance tiers](fleet-manager-configure-instance-tiers.md "fleet-manager-configure-instance-tiers.md").
 
 - **Port forwarding**
 
@@ -95,22 +84,19 @@ AWS services:
      session log data in an Amazon S3 bucket of your choice for debugging and
      troubleshooting purposes. Log data can be sent to your Amazon S3 bucket with
      or without encryption using your AWS KMS key. For more information,
-     see [Logging session data using Amazon S3
-     (console)](session-manager-logging-s3.md "session-manager-logging-s3.md").
+     see [Logging session data using Amazon S3 (console)](session-manager-logging-s3.md "session-manager-logging-s3.md").
     + **Amazon CloudWatch Logs** – CloudWatch Logs allows you to
      monitor, store, and access log files from various AWS services. You
      can send session log data to a CloudWatch Logs log group for debugging and
      troubleshooting purposes. Log data can be sent to your log group with or
      without AWS KMS encryption using your KMS key. For more information, see
-     [Logging session data using
-     Amazon CloudWatch Logs (console)](session-manager-logging-cloudwatch-logs.md "session-manager-logging-cloudwatch-logs.md").
+     [Logging session data using Amazon CloudWatch Logs (console)](session-manager-logging-cloudwatch-logs.md "session-manager-logging-cloudwatch-logs.md").
     + **Amazon EventBridge** and **Amazon Simple Notification Service** – EventBridge allows you to set up rules to detect
      when changes happen to AWS resources that you specify. You can create
      a rule to detect when a user in your organization starts or stops a
      session, and then receive a notification through Amazon SNS (for example, a
      text or email message) about the event. You can also configure a CloudWatch
-     event to initiate other responses. For more information, see [Monitoring session
-     activity using Amazon EventBridge (console)](session-manager-auditing.md#session-manager-auditing-eventbridge-events "session-manager-auditing.md#session-manager-auditing-eventbridge-events").
+     event to initiate other responses. For more information, see [Monitoring session activity using Amazon EventBridge (console)](session-manager-auditing.md#session-manager-auditing-eventbridge-events "session-manager-auditing.md#session-manager-auditing-eventbridge-events").
 
 ###### Note
 
@@ -133,9 +119,7 @@ SSH connections.
 - Users who want to connect to a managed node with just one click from the
   browser or AWS CLI without having to provide SSH keys.
 
-## What are the main features of
-
-Session Manager?
+## What are the main features of Session Manager?
 
 - **Support for Windows Server, Linux and macOS
   managed nodes**
@@ -147,8 +131,7 @@ operating system types, see [Setting up Session Manager](session-manager-getting
 ###### Note
 
 Session Manager support for on-premises machines is provided for the advanced-instances tier
-only. For information, see [Turning on the
-advanced-instances tier](fleet-manager-enable-advanced-instances-tier.md "fleet-manager-enable-advanced-instances-tier.md").
+only. For information, see [Turning on the advanced-instances tier](fleet-manager-enable-advanced-instances-tier.md "fleet-manager-enable-advanced-instances-tier.md").
 
 - **Console, CLI, and SDK access to Session Manager
   capabilities**
@@ -170,8 +153,7 @@ and permanently end a session by using the AWS CLI.
 
 To use the AWS CLI to run session commands, you must be using version
 1.16.12 of the CLI (or later), and you must have installed the
-Session Manager plugin on your local machine. For information, see [Install the Session Manager plugin
-for the AWS CLI](session-manager-working-with-install-plugin.md "session-manager-working-with-install-plugin.md"). To view
+Session Manager plugin on your local machine. For information, see [Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md "session-manager-working-with-install-plugin.md"). To view
 the plugin on GitHub, see [session-manager-plugin](https://github.com/aws/session-manager-plugin "https://github.com/aws/session-manager-plugin").
 
 - **IAM access control**

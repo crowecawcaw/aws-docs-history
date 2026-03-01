@@ -1,21 +1,10 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Creating OpsItems manually
-
-(console)
+# Creating OpsItems manually (console)
 
 You can manually create OpsItems using the AWS Systems Manager console. When you create an
 OpsItem, it's displayed in your OpsCenter account. If you set up OpsCenter for
 cross-account administration, OpsCenter provides the delegated administrator or
 management account with the option to create OpsItems for selected member accounts.
-For more information, see [(Optional)
-Manually set up OpsCenter to centrally manage OpsItems across accounts](OpsCenter-getting-started-multiple-accounts.md "OpsCenter-getting-started-multiple-accounts.md").
+For more information, see [(Optional) Manually set up OpsCenter to centrally manage OpsItems across accounts](OpsCenter-getting-started-multiple-accounts.md "OpsCenter-getting-started-multiple-accounts.md").
 
 ###### To create an OpsItem using the AWS Systems Manager console
 

@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Viewing patch compliance
-
-results
+# Viewing patch compliance results
 
 Use these procedures to view patch compliance information about your managed
 nodes.
@@ -16,8 +6,7 @@ nodes.
 This procedure applies to patch operations that use the
 `AWS-RunPatchBaseline` document. For information about viewing
 patch compliance information for patch operations that use the
-`AWS-RunPatchBaselineAssociation` document, see [Identifying
-noncompliant managed nodes](patch-manager-find-noncompliant-nodes.md "patch-manager-find-noncompliant-nodes.md").
+`AWS-RunPatchBaselineAssociation` document, see [Identifying noncompliant managed nodes](patch-manager-find-noncompliant-nodes.md "patch-manager-find-noncompliant-nodes.md").
 
 ###### Note
 
@@ -59,12 +48,9 @@ patch baselines, as the situation and your patching goals warrant.
 For information about working with approved and rejected patch lists, see the
 following topics:
 
-- [Working with custom patch
-  baselines](patch-manager-manage-patch-baselines.md "patch-manager-manage-patch-baselines.md")
-- [Package name
-  formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md "patch-manager-approved-rejected-package-name-formats.md")
-- [How patch baseline rules work on
-  Linux-based systems](patch-manager-linux-rules.md "patch-manager-linux-rules.md")
+- [Working with custom patch baselines](patch-manager-manage-patch-baselines.md "patch-manager-manage-patch-baselines.md")
+- [Package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md "patch-manager-approved-rejected-package-name-formats.md")
+- [How patch baseline rules work on Linux-based systems](patch-manager-linux-rules.md "patch-manager-linux-rules.md")
 - [How patches are installed](patch-manager-installing-patches.md "patch-manager-installing-patches.md")
 
 ###### Note
@@ -73,9 +59,7 @@ In some cases, Microsoft releases patches for applications that don't specify an
 updated date and time. In these cases, an updated date and time of
 `01/01/1970` is supplied by default.
 
-## Viewing patching
-
-compliance results
+## Viewing patching compliance results
 
 Use the following procedures to view patch compliance results in the
 AWS Systems Manager console.
@@ -83,8 +67,7 @@ AWS Systems Manager console.
 ###### Note
 
 For information about generating patch compliance reports that are
-downloaded to an Amazon Simple Storage Service (Amazon S3) bucket, see [Generating .csv
-patch compliance reports](patch-manager-store-compliance-results-in-s3.md "patch-manager-store-compliance-results-in-s3.md").
+downloaded to an Amazon Simple Storage Service (Amazon S3) bucket, see [Generating .csv patch compliance reports](patch-manager-store-compliance-results-in-s3.md "patch-manager-store-compliance-results-in-s3.md").
 
 ###### To view patch compliance results
 
@@ -98,7 +81,8 @@ Navigate from Patch Manager, a tool in AWS Systems Manager:
      tab.
     * In the **Node patching details** area,
      choose the node ID of the managed node for which you want to
-     review patch compliance results.
+     review patch compliance results. Nodes that are `stopped`
+     or `terminated` will not be displayed here.
     * In the **Details** area, in the
      **Properties** list, choose
      **Patches**.
@@ -163,8 +147,6 @@ choose what action to take to remedy any noncompliant nodes.
 
 For example, you can choose to patch your noncompliant managed
 nodes immediately. For information about patching your managed nodes
-on demand, see [Patching managed nodes on
-demand](patch-manager-patch-now-on-demand.md "patch-manager-patch-now-on-demand.md").
+on demand, see [Patching managed nodes on demand](patch-manager-patch-now-on-demand.md "patch-manager-patch-now-on-demand.md").
 
-For information about patch compliance states, see [Patch compliance state
-values](patch-manager-compliance-states.md "patch-manager-compliance-states.md").
+For information about patch compliance states, see [Patch compliance state values](patch-manager-compliance-states.md "patch-manager-compliance-states.md").

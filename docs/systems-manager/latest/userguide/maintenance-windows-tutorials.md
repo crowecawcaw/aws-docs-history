@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Tutorials
 
 The tutorials in this section show you how to perform common tasks when working with
@@ -31,16 +23,13 @@ Before trying these tutorials, complete the following prerequisites.
   is attached to the instance.
 
 We recommend launching an instance from one AWS managed Amazon Machine Image (AMI)
-with the agent preinstalled. For more information, see [Find AMIs with the SSM Agent
-preinstalled](ami-preinstalled-agent.md "ami-preinstalled-agent.md").
+with the agent preinstalled. For more information, see [Find AMIs with the SSM Agent preinstalled](ami-preinstalled-agent.md "ami-preinstalled-agent.md").
 
 For information about installing SSM Agent on an instance, see the following
 topics:
 
-    + [Manually installing and
-     uninstalling SSM Agent on EC2 instances for Windows Server](manually-install-ssm-agent-windows.md "manually-install-ssm-agent-windows.md")
-    + [Manually installing and
-     uninstalling SSM Agent on EC2 instances for Linux](manually-install-ssm-agent-linux.md "manually-install-ssm-agent-linux.md")
+    + [Manually installing and uninstalling SSM Agent on EC2 instances for Windows Server](manually-install-ssm-agent-windows.md "manually-install-ssm-agent-windows.md")
+    + [Manually installing and uninstalling SSM Agent on EC2 instances for Linux](manually-install-ssm-agent-linux.md "manually-install-ssm-agent-linux.md")
 
 For information about configuring IAM permissions for Systems Manager to your
 instance, see [Configure instance permissions required for Systems Manager](setup-instance-permissions.md "setup-instance-permissions.md").
@@ -68,7 +57,5 @@ command output to (if you plan to do so); and so on.
 
 ###### Tutorials
 
-- [Tutorials: Create and manage
-  maintenance windows using the AWS CLI](maintenance-window-tutorial-cli.md "maintenance-window-tutorial-cli.md")
-- [Tutorial: Create a
-  maintenance window for patching using the console](maintenance-window-tutorial-patching.md "maintenance-window-tutorial-patching.md")
+- [Tutorials: Create and manage maintenance windows using the AWS CLI](maintenance-window-tutorial-cli.md "maintenance-window-tutorial-cli.md")
+- [Tutorial: Create a maintenance window for patching using the console](maintenance-window-tutorial-patching.md "maintenance-window-tutorial-patching.md")

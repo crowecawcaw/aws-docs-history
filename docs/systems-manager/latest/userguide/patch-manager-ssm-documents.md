@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# SSM Command documents for patching
-
-managed nodes
+# SSM Command documents for patching managed nodes
 
 This topic describes the nine Systems Manager documents (SSM documents) available to help you
 keep your managed nodes patched with the latest security-related updates.
@@ -43,35 +33,23 @@ these documents for patching operations.
 - `AWS-InstallMissingWindowsUpdates`
 - `AWS-InstallSpecificWindowsUpdates`
   For steps to set up patching operations in an environment that supportsonly IPv6, see
-  [Tutorial: Patching a
-  server in an IPv6 only environment](patch-manager-server-patching-iPv6-tutorial.md "patch-manager-server-patching-iPv6-tutorial.md").
+  [Tutorial: Patching a server in an IPv6 only environment](patch-manager-server-patching-iPv6-tutorial.md "patch-manager-server-patching-iPv6-tutorial.md").
 
 Refer to the following sections for more information about using these SSM documents
 in your patching operations.
 
 ###### Topics
 
-- [SSM documents
-  recommended for patching managed nodes](#patch-manager-ssm-documents-recommended "#patch-manager-ssm-documents-recommended")
-- [Legacy SSM documents for
-  patching managed nodes](#patch-manager-ssm-documents-legacy "#patch-manager-ssm-documents-legacy")
-- [Known limitations of the SSM documents for
-  patching managed nodes](#patch-manager-ssm-documents-known-limitations "#patch-manager-ssm-documents-known-limitations")
-- [SSM Command document for
-  patching: AWS-RunPatchBaseline](patch-manager-aws-runpatchbaseline.md "patch-manager-aws-runpatchbaseline.md")
-- [SSM Command
-  document for patching: AWS-RunPatchBaselineAssociation](patch-manager-aws-runpatchbaselineassociation.md "patch-manager-aws-runpatchbaselineassociation.md")
-- [SSM Command document
-  for patching: AWS-RunPatchBaselineWithHooks](patch-manager-aws-runpatchbaselinewithhooks.md "patch-manager-aws-runpatchbaselinewithhooks.md")
-- [Sample scenario for using the
-  InstallOverrideList parameter in AWS-RunPatchBaseline or
-  AWS-RunPatchBaselineAssociation](patch-manager-override-lists.md "patch-manager-override-lists.md")
-- [Using the
-  BaselineOverride parameter](patch-manager-baselineoverride-parameter.md "patch-manager-baselineoverride-parameter.md")
+- [SSM documents recommended for patching managed nodes](#patch-manager-ssm-documents-recommended "#patch-manager-ssm-documents-recommended")
+- [Legacy SSM documents for patching managed nodes](#patch-manager-ssm-documents-legacy "#patch-manager-ssm-documents-legacy")
+- [Known limitations of the SSM documents for patching managed nodes](#patch-manager-ssm-documents-known-limitations "#patch-manager-ssm-documents-known-limitations")
+- [SSM Command document for patching: AWS-RunPatchBaseline](patch-manager-aws-runpatchbaseline.md "patch-manager-aws-runpatchbaseline.md")
+- [SSM Command document for patching: AWS-RunPatchBaselineAssociation](patch-manager-aws-runpatchbaselineassociation.md "patch-manager-aws-runpatchbaselineassociation.md")
+- [SSM Command document for patching: AWS-RunPatchBaselineWithHooks](patch-manager-aws-runpatchbaselinewithhooks.md "patch-manager-aws-runpatchbaselinewithhooks.md")
+- [Sample scenario for using the InstallOverrideList parameter in AWS-RunPatchBaseline or AWS-RunPatchBaselineAssociation](patch-manager-override-lists.md "patch-manager-override-lists.md")
+- [Using the BaselineOverride parameter](patch-manager-baselineoverride-parameter.md "patch-manager-baselineoverride-parameter.md")
 
-## SSM documents
-
-recommended for patching managed nodes
+## SSM documents recommended for patching managed nodes
 
 The following five SSM documents are recommended for use in your managed node
 patching operations.
@@ -125,8 +103,7 @@ categories but don't need patch compliance information.
 The three legacy documents perform different functions, but you can achieve
 the same results by using different parameter settings with the newer SSM
 document `AWS-InstallWindowsUpdates`. These parameter settings are
-described in [Legacy SSM documents for
-patching managed nodes](#patch-manager-ssm-documents-legacy "#patch-manager-ssm-documents-legacy").
+described in [Legacy SSM documents for patching managed nodes](#patch-manager-ssm-documents-legacy "#patch-manager-ssm-documents-legacy").
 
 ### `AWS-RunPatchBaseline`
 
@@ -145,8 +122,7 @@ using the `PutInventory` API command. For Linux operating systems,
 compliance information is provided for patches from both the default source
 repository configured on a managed node and from any alternative source
 repositories you specify in a custom patch baseline. For more information about
-alternative source repositories, see [How to specify an
-alternative patch source repository (Linux)](patch-manager-alternative-source-repository.md "patch-manager-alternative-source-repository.md"). For more
+alternative source repositories, see [How to specify an alternative patch source repository (Linux)](patch-manager-alternative-source-repository.md "patch-manager-alternative-source-repository.md"). For more
 information about the Systems Manager Compliance tools, see [AWS Systems Manager Compliance](systems-manager-compliance.md "systems-manager-compliance.md").
 
 **Replaces legacy documents:**
@@ -161,8 +137,7 @@ SSM Agent is required in order to use the `AWS-RunPatchBaseline`
 document.
 
 For more information about the `AWS-RunPatchBaseline` SSM
-document, see [SSM Command document for
-patching: AWS-RunPatchBaseline](patch-manager-aws-runpatchbaseline.md "patch-manager-aws-runpatchbaseline.md").
+document, see [SSM Command document for patching: AWS-RunPatchBaseline](patch-manager-aws-runpatchbaseline.md "patch-manager-aws-runpatchbaseline.md").
 
 ### `AWS-RunPatchBaselineAssociation`
 
@@ -187,8 +162,7 @@ you should choose [AWS-RunPatchBaseline](patch-manager-aws-runpatchbaseline.md "
 For more information, see the following topics:
 
     + [AWS Systems Manager Quick Setup](systems-manager-quick-setup.md "systems-manager-quick-setup.md")
-    + [SSM Command
-     document for patching: AWS-RunPatchBaselineAssociation](patch-manager-aws-runpatchbaselineassociation.md "patch-manager-aws-runpatchbaselineassociation.md")
+    + [SSM Command document for patching: AWS-RunPatchBaselineAssociation](patch-manager-aws-runpatchbaselineassociation.md "patch-manager-aws-runpatchbaselineassociation.md")
 
 - `AWS-RunPatchBaselineAssociation` supports the use of tags
   to identify which patch baseline to use with a set of targets when it
@@ -207,8 +181,7 @@ For Linux operating systems, compliance information is provided for
 patches from both the default source repository configured on an
 instance and from any alternative source repositories you specify in a
 custom patch baseline. For more information about alternative source
-repositories, see [How to specify an
-alternative patch source repository (Linux)](patch-manager-alternative-source-repository.md "patch-manager-alternative-source-repository.md"). For
+repositories, see [How to specify an alternative patch source repository (Linux)](patch-manager-alternative-source-repository.md "patch-manager-alternative-source-repository.md"). For
 more information about the Systems Manager Compliance tools, see [AWS Systems Manager Compliance](systems-manager-compliance.md "systems-manager-compliance.md").
 
 **Replaces legacy documents:**
@@ -216,8 +189,7 @@ more information about the Systems Manager Compliance tools, see [AWS Systems Ma
 - **None**
 
 For more information about the `AWS-RunPatchBaselineAssociation`
-SSM document, see [SSM Command
-document for patching: AWS-RunPatchBaselineAssociation](patch-manager-aws-runpatchbaselineassociation.md "patch-manager-aws-runpatchbaselineassociation.md").
+SSM document, see [SSM Command document for patching: AWS-RunPatchBaselineAssociation](patch-manager-aws-runpatchbaselineassociation.md "patch-manager-aws-runpatchbaselineassociation.md").
 
 ### `AWS-RunPatchBaselineWithHooks`
 
@@ -243,17 +215,13 @@ hook is available after the reboot of the node.
 - **None**
 
 For more information about the `AWS-RunPatchBaselineWithHooks`
-SSM document, see [SSM Command document
-for patching: AWS-RunPatchBaselineWithHooks](patch-manager-aws-runpatchbaselinewithhooks.md "patch-manager-aws-runpatchbaselinewithhooks.md").
+SSM document, see [SSM Command document for patching: AWS-RunPatchBaselineWithHooks](patch-manager-aws-runpatchbaselinewithhooks.md "patch-manager-aws-runpatchbaselinewithhooks.md").
 
-## Legacy SSM documents for
-
-patching managed nodes
+## Legacy SSM documents for patching managed nodes
 
 The following four SSM documents are still available in some AWS Regions.
 However, they are no longer updated and might be no longer supported in the future,
-so we don't recommend their use. Instead, use the documents described in [SSM documents
-recommended for patching managed nodes](#patch-manager-ssm-documents-recommended "#patch-manager-ssm-documents-recommended").
+so we don't recommend their use. Instead, use the documents described in [SSM documents recommended for patching managed nodes](#patch-manager-ssm-documents-recommended "#patch-manager-ssm-documents-recommended").
 
 ###### Legacy SSM Documents
 
@@ -315,9 +283,7 @@ the following parameter configuration with the recommended replacement document,
 - `Include Kbs` = `comma-separated list of KB
 articles`
 
-## Known limitations of the SSM documents for
-
-patching managed nodes
+## Known limitations of the SSM documents for patching managed nodes
 
 ### External reboot interruptions
 

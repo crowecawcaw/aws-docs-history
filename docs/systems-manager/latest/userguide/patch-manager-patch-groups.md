@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Patch groups
 
 ###### Note
@@ -96,12 +88,10 @@ baseline ensures that the nodes within the patch group use the rules defined in
 the associated patch baseline.
 
 For more information about how to create a patch group and associate the patch
-group to a patch baseline, see [Creating and managing patch
-groups](patch-manager-tag-a-patch-group.md "patch-manager-tag-a-patch-group.md") and [Add a patch group to a patch baseline](patch-manager-tag-a-patch-group.md#sysman-patch-group-patchbaseline "patch-manager-tag-a-patch-group.md#sysman-patch-group-patchbaseline").
+group to a patch baseline, see [Creating and managing patch groups](patch-manager-tag-a-patch-group.md "patch-manager-tag-a-patch-group.md") and [Add a patch group to a patch baseline](patch-manager-tag-a-patch-group.md#sysman-patch-group-patchbaseline "patch-manager-tag-a-patch-group.md#sysman-patch-group-patchbaseline").
 
 To view an example of creating a patch baseline and patch groups by using the
-AWS Command Line Interface (AWS CLI), see [Tutorial: Patch a
-server environment using the AWS CLI](patch-manager-patch-servers-using-the-aws-cli.md "patch-manager-patch-servers-using-the-aws-cli.md"). For more
+AWS Command Line Interface (AWS CLI), see [Tutorial: Patch a server environment using the AWS CLI](patch-manager-patch-servers-using-the-aws-cli.md "patch-manager-patch-servers-using-the-aws-cli.md"). For more
 information about Amazon EC2 tags, see [Tag your Amazon EC2
 resources](../../../AWSEC2/latest/UserGuide/Using_Tags.md "../../../AWSEC2/latest/UserGuide/Using_Tags.md") in the _Amazon EC2 User Guide_.
 
@@ -230,5 +220,4 @@ AWS Systems Manager, and Patch Manager is as follows:
 
 **More info**
 
-- [Patch compliance state
-  values](patch-manager-compliance-states.md "patch-manager-compliance-states.md")
+- [Patch compliance state values](patch-manager-compliance-states.md "patch-manager-compliance-states.md")

@@ -1,42 +1,17 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Troubleshooting maintenance
-
-windows
+# Troubleshooting maintenance windows
 
 Use the following information to help you troubleshoot problems with maintenance
 windows.
 
 ###### Topics
 
-- [Edit task error: On the
-  page for editing a maintenance window task, the IAM role list returns an error
-  message: "We couldn't find the IAM maintenance window role specified for this
-  task. It might have been deleted, or it might not have been created
-  yet."](#maintenance-window-role-troubleshooting "#maintenance-window-role-troubleshooting")
-- [Not all maintenance window targets are
-  updated](#targets-not-updated "#targets-not-updated")
-- [Task fails with task invocation status:
-  "The provided role does not contain the correct SSM permissions."](#incorrect-ssm-permissions "#incorrect-ssm-permissions")
-- [Task fails with error message: "Step fails when it is
-  validating and resolving the step inputs"](#step-fails "#step-fails")
-- [Error messages:
-  "Maintenance window tasks without targets don't support MaxConcurrency values"
-  and "Maintenance window tasks without targets don't support MaxErrors
-  values"](#maxconcurrency-maxerrors-not-supported "#maxconcurrency-maxerrors-not-supported")
+- [Edit task error: On the page for editing a maintenance window task, the IAM role list returns an error message: "We couldn't find the IAM maintenance window role specified for this task. It might have been deleted, or it might not have been created yet."](#maintenance-window-role-troubleshooting "#maintenance-window-role-troubleshooting")
+- [Not all maintenance window targets are updated](#targets-not-updated "#targets-not-updated")
+- [Task fails with task invocation status: "The provided role does not contain the correct SSM permissions."](#incorrect-ssm-permissions "#incorrect-ssm-permissions")
+- [Task fails with error message: "Step fails when it is validating and resolving the step inputs"](#step-fails "#step-fails")
+- [Error messages: "Maintenance window tasks without targets don't support MaxConcurrency values" and "Maintenance window tasks without targets don't support MaxErrors values"](#maxconcurrency-maxerrors-not-supported "#maxconcurrency-maxerrors-not-supported")
 
-## Edit task error: On the
-
-page for editing a maintenance window task, the IAM role list returns an error
-message: "We couldn't find the IAM maintenance window role specified for this
-task. It might have been deleted, or it might not have been created
-yet."
+## Edit task error: On the page for editing a maintenance window task, the IAM role list returns an error message: "We couldn't find the IAM maintenance window role specified for this task. It might have been deleted, or it might not have been created yet."
 
 **Problem 1**: The AWS Identity and Access Management (IAM) maintenance window role you
 originally specified was deleted after you created the task.
@@ -55,9 +30,7 @@ typed incorrectly, such as `myrole` instead of
 maintenance window role you want to use, or create a new one to specify for the
 task.
 
-## Not all maintenance window targets are
-
-updated
+## Not all maintenance window targets are updated
 
 **Problem:** You notice that maintenance window tasks
 didn't run on all the resources targeted by your maintenance window. For example, in
@@ -77,17 +50,14 @@ You can wait for the next scheduled maintenance window time to run tasks on the
 resources. You can manually run the maintenance window tasks on the resources that
 weren't available or were offline.
 
-## Task fails with task invocation status:
-
-"The provided role does not contain the correct SSM permissions."
+## Task fails with task invocation status: "The provided role does not contain the correct SSM permissions."
 
 **Problem**: You have specified a maintenance window
 service role for a task, but the task fails to run successfully and the task
 invocation status reports that "The provided role does not contain the correct SSM
 permissions."
 
-- **Solution**: In [Task 1: Create a custom policy
-  for your maintenance window service role using the console](configuring-maintenance-window-permissions-console.md#create-custom-policy-console "configuring-maintenance-window-permissions-console.md#create-custom-policy-console"), we provide a basic
+- **Solution**: In [Task 1: Create a custom policy for your maintenance window service role using the console](configuring-maintenance-window-permissions-console.md#create-custom-policy-console "configuring-maintenance-window-permissions-console.md#create-custom-policy-console"), we provide a basic
   policy you can attach to your [custom maintenance window service role](configuring-maintenance-window-permissions-console.md#create-custom-role-console "configuring-maintenance-window-permissions-console.md#create-custom-role-console"). The policy includes the
   permissions needed for many task scenarios. However, due to the wide variety
   of tasks you can run, you might need to provide additional permissions in
@@ -116,9 +86,7 @@ For information about the role permissions needed for Step Functions tasks, Lamb
 tasks, and custom Automation runbooks and SSM documents, verify permission
 requirements with the author of those resources.
 
-## Task fails with error message: "Step fails when it is
-
-validating and resolving the step inputs"
+## Task fails with error message: "Step fails when it is validating and resolving the step inputs"
 
 **Problem**: An Automation runbook or Systems Manager Command
 document you're using in a task requires that you specify inputs such as
@@ -176,14 +144,9 @@ aws ssm register-task-with-maintenance-window ^
 ```
 
 For more information about working with pseudo parameters for maintenance
-window tasks, see [Using pseudo parameters
-when registering maintenance window tasks](maintenance-window-tasks-pseudo-parameters.md "maintenance-window-tasks-pseudo-parameters.md") and [Task registration examples](mw-cli-register-tasks-examples.md#task-examples "mw-cli-register-tasks-examples.md#task-examples").
+window tasks, see [Using pseudo parameters when registering maintenance window tasks](maintenance-window-tasks-pseudo-parameters.md "maintenance-window-tasks-pseudo-parameters.md") and [Task registration examples](mw-cli-register-tasks-examples.md#task-examples "mw-cli-register-tasks-examples.md#task-examples").
 
-## Error messages:
-
-"Maintenance window tasks without targets don't support MaxConcurrency values"
-and "Maintenance window tasks without targets don't support MaxErrors
-values"
+## Error messages: "Maintenance window tasks without targets don't support MaxConcurrency values" and "Maintenance window tasks without targets don't support MaxErrors values"
 
 **Problem:** When you register a Run Command-type task,
 you must specify at least one target for the task to run on. For other task types
@@ -199,6 +162,5 @@ when no task target is specified.
 remove the values for concurrency and error threshold before continuing to register
 or update the maintenance window task.
 
-For more information about running tasks that don't specify targets, see [Registering maintenance window
-tasks without targets](maintenance-windows-targetless-tasks.md "maintenance-windows-targetless-tasks.md") in the
+For more information about running tasks that don't specify targets, see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md "maintenance-windows-targetless-tasks.md") in the
 _AWS Systems Manager User Guide_.

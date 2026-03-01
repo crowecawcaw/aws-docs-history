@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Example Amazon SNS notifications for
-
-AWS Systems Manager
+# Example Amazon SNS notifications for AWS Systems Manager
 
 You can configure Amazon Simple Notification Service (Amazon SNS) to send notifications about the status of
 commands that you send using Run Command or Maintenance Windows, which are tools in
@@ -18,8 +8,7 @@ AWS Systems Manager.
 
 This guide doesn't address how to configure notifications for Run Command or
 Maintenance Windows. For information about configuring Run Command or Maintenance Windows to send Amazon SNS
-notifications about the status of commands, see [Configure Amazon SNS notifications for
-AWS Systems Manager](monitoring-sns-notifications.md#monitoring-sns-configure "monitoring-sns-notifications.md#monitoring-sns-configure").
+notifications about the status of commands, see [Configure Amazon SNS notifications for AWS Systems Manager](monitoring-sns-notifications.md#monitoring-sns-configure "monitoring-sns-notifications.md#monitoring-sns-configure").
 
 The following examples show the structure of the JSON output returned by Amazon SNS
 notifications when configured for Run Command or Maintenance Windows.

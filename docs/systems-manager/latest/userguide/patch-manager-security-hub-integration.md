@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Integrating Patch Manager with
-
-AWS Security Hub CSPM
+# Integrating Patch Manager with AWS Security Hub CSPM
 
 [AWS Security Hub CSPM](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md")
 provides you with a comprehensive view of your security state in AWS. Security Hub CSPM
@@ -34,27 +24,17 @@ configuration you are using for your patching operations:
 
 ###### Contents
 
-- [How Patch Manager sends
-  findings to Security Hub CSPM](patch-manager-security-hub-integration.md#securityhub-integration-sending-findings "patch-manager-security-hub-integration.md#securityhub-integration-sending-findings")
-  - [Types of findings
-    that Patch Manager sends](patch-manager-security-hub-integration.md#securityhub-integration-finding-types "patch-manager-security-hub-integration.md#securityhub-integration-finding-types")
-  - [Latency for
-    sending findings](patch-manager-security-hub-integration.md#securityhub-integration-finding-latency "patch-manager-security-hub-integration.md#securityhub-integration-finding-latency")
-  - [Retrying when Security Hub CSPM
-    isn't available](patch-manager-security-hub-integration.md#securityhub-integration-retry-send "patch-manager-security-hub-integration.md#securityhub-integration-retry-send")
-  - [Viewing findings in
-    Security Hub CSPM](patch-manager-security-hub-integration.md#securityhub-integration-view-findings "patch-manager-security-hub-integration.md#securityhub-integration-view-findings")
+- [How Patch Manager sends findings to Security Hub CSPM](patch-manager-security-hub-integration.md#securityhub-integration-sending-findings "patch-manager-security-hub-integration.md#securityhub-integration-sending-findings")
+  - [Types of findings that Patch Manager sends](patch-manager-security-hub-integration.md#securityhub-integration-finding-types "patch-manager-security-hub-integration.md#securityhub-integration-finding-types")
+  - [Latency for sending findings](patch-manager-security-hub-integration.md#securityhub-integration-finding-latency "patch-manager-security-hub-integration.md#securityhub-integration-finding-latency")
+  - [Retrying when Security Hub CSPM isn't available](patch-manager-security-hub-integration.md#securityhub-integration-retry-send "patch-manager-security-hub-integration.md#securityhub-integration-retry-send")
+  - [Viewing findings in Security Hub CSPM](patch-manager-security-hub-integration.md#securityhub-integration-view-findings "patch-manager-security-hub-integration.md#securityhub-integration-view-findings")
 
-- [Typical finding from
-  Patch Manager](patch-manager-security-hub-integration.md#securityhub-integration-finding-example "patch-manager-security-hub-integration.md#securityhub-integration-finding-example")
-- [Turning on and configuring the
-  integration](patch-manager-security-hub-integration.md#securityhub-integration-enable "patch-manager-security-hub-integration.md#securityhub-integration-enable")
-- [How to stop sending
-  findings](patch-manager-security-hub-integration.md#securityhub-integration-disable "patch-manager-security-hub-integration.md#securityhub-integration-disable")
+- [Typical finding from Patch Manager](patch-manager-security-hub-integration.md#securityhub-integration-finding-example "patch-manager-security-hub-integration.md#securityhub-integration-finding-example")
+- [Turning on and configuring the integration](patch-manager-security-hub-integration.md#securityhub-integration-enable "patch-manager-security-hub-integration.md#securityhub-integration-enable")
+- [How to stop sending findings](patch-manager-security-hub-integration.md#securityhub-integration-disable "patch-manager-security-hub-integration.md#securityhub-integration-disable")
 
-## How Patch Manager sends
-
-findings to Security Hub CSPM
+## How Patch Manager sends findings to Security Hub CSPM
 
 In Security Hub CSPM, security issues are tracked as findings. Some findings come from
 issues that are detected by other AWS services or by third-party partners.
@@ -84,9 +64,7 @@ the affected resources, and the current status of the finding. For more
 information, see [AWS
 Security Finding Format (ASFF)](../../../securityhub/latest/userguide/securityhub-findings-format.md "../../../securityhub/latest/userguide/securityhub-findings-format.md") in the _AWS Security Hub User Guide_.
 
-### Types of findings
-
-that Patch Manager sends
+### Types of findings that Patch Manager sends
 
 Patch Manager sends the findings to Security Hub CSPM using the [AWS Security Finding Format (ASFF)](../../../securityhub/latest/userguide/securityhub-findings-format.md "../../../securityhub/latest/userguide/securityhub-findings-format.md"). In ASFF, the
 `Types` field provides the finding type. Findings from
@@ -108,22 +86,17 @@ update to Security Hub CSPM after the node is made compliant. You can manually
 resolve findings in Security Hub CSPM after the required patches have been applied
 to the managed node.
 
-For more information about compliance definitions, see [Patch compliance state
-values](patch-manager-compliance-states.md "patch-manager-compliance-states.md"). For more information about
+For more information about compliance definitions, see [Patch compliance state values](patch-manager-compliance-states.md "patch-manager-compliance-states.md"). For more information about
 `PatchSummary`, see [PatchSummary](../../../securityhub/1.0/APIReference/API_PatchSummary.md "../../../securityhub/1.0/APIReference/API_PatchSummary.md") in the
 _AWS Security Hub API Reference_.
 
-### Latency for
-
-sending findings
+### Latency for sending findings
 
 When Patch Manager creates a new finding, it's usually sent to Security Hub CSPM within a
 few seconds to 2 hours. The speed depends on the traffic in the AWS Region
 being processed at that time.
 
-### Retrying when Security Hub CSPM
-
-isn't available
+### Retrying when Security Hub CSPM isn't available
 
 If there is a service outage, an AWS Lambda function is run to put the
 messages back into the main queue after the service is running again. After
@@ -132,9 +105,7 @@ the messages are in the main queue, the retry is automatic.
 If Security Hub CSPM isn't available, Patch Manager retries sending the findings until
 they're received.
 
-### Viewing findings in
-
-Security Hub CSPM
+### Viewing findings in Security Hub CSPM
 
 This procedure describes how to view findings in Security Hub CSPM about managed nodes
 in your fleet that are out of patch compliance.
@@ -208,9 +179,7 @@ Summary level.
   Hub](https://aws.amazon.com/blogs/mt/multi-account-patch-compliance-with-patch-manager-and-security-hub/ "https://aws.amazon.com/blogs/mt/multi-account-patch-compliance-with-patch-manager-and-security-hub/") in the _AWS Management & Governance
   Blog_
 
-## Typical finding from
-
-Patch Manager
+## Typical finding from Patch Manager
 
 Patch Manager sends findings to Security Hub CSPM using the [AWS
 Security Finding Format (ASFF)](../../../securityhub/latest/userguide/securityhub-findings-format.md "../../../securityhub/latest/userguide/securityhub-findings-format.md").
@@ -276,9 +245,7 @@ Here is an example of a typical finding from Patch Manager.
 }
 ```
 
-## Turning on and configuring the
-
-integration
+## Turning on and configuring the integration
 
 To use the Patch Manager integration with Security Hub CSPM, you must turn on Security Hub CSPM. For
 information about how to turn on Security Hub CSPM, see [Setting up
@@ -301,9 +268,7 @@ then choose the **Settings** tab. 3. Under the **Export to Security Hub CSPM** s
 of **Patch compliance findings aren't being exported to Security
 Hub**, choose **Enable**.
 
-## How to stop sending
-
-findings
+## How to stop sending findings
 
 To stop sending findings to Security Hub CSPM, you can use either the Security Hub CSPM console or the
 API.

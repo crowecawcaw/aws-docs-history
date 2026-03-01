@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Searching for Parameter Store parameters in
-
-Systems Manager
+# Searching for Parameter Store parameters in Systems Manager
 
 When you have a lot of parameters in your account, it can be difficult to find
 information about a single or several parameters at a time. In this case, you can
@@ -19,14 +9,10 @@ search for parameters.
 
 ###### Topics
 
-- [Searching for a parameter using the
-  console](#parameter-search-console "#parameter-search-console")
-- [Searching for a parameter using the
-  AWS CLI](#parameter-search-cli "#parameter-search-cli")
+- [Searching for a parameter using the console](#parameter-search-console "#parameter-search-console")
+- [Searching for a parameter using the AWS CLI](#parameter-search-cli "#parameter-search-cli")
 
-## Searching for a parameter using the
-
-console
+## Searching for a parameter using the console
 
 1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
 2. In the navigation pane, choose **Parameter Store**.
@@ -58,9 +44,7 @@ page of results. Use the right arrow (**>**) at
 the topic of the parameter list (if available) to view the next set of
 results.
 
-## Searching for a parameter using the
-
-AWS CLI
+## Searching for a parameter using the AWS CLI
 
 Use the `describe-parameters` command to view information about one
 or more parameters in the AWS CLI.
@@ -136,8 +120,7 @@ the ID of an AWS Key Management Service (AWS KMS) key used to encrypt a
 `SecureString` parameter created in your account.
 Alternatively, you can enter `alias/aws/ssm` to
 use the default AWS KMS key for your account. For more information,
-see [Creating a SecureString
-parameter using the AWS CLI](param-create-cli.md#param-create-cli-securestring "param-create-cli.md#param-create-cli-securestring").
+see [Creating a SecureString parameter using the AWS CLI](param-create-cli.md#param-create-cli-securestring "param-create-cli.md#param-create-cli-securestring").
 
 If successful, the command returns output similar to the
 following.

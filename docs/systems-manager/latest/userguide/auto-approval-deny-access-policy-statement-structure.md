@@ -1,15 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Statement
-
-structure and built-in operators for auto-approval and deny-access
-policies
+# Statement structure and built-in operators for auto-approval and deny-access policies
 
 The following table shows the structure of auto-approval and deny-access
 policies.
@@ -90,8 +79,7 @@ when {
 }
 ```
 
-For additional examples, see [Example policy
-statements](#policy-statement-examples "#policy-statement-examples").
+For additional examples, see [Example policy statements](#policy-statement-examples "#policy-statement-examples").
 
 ## Just-in-time node access schema
 
@@ -171,9 +159,7 @@ following table contains all the built-in operators for reference.
 | .containsAll()                  | (set, set) → Boolean                                           | Tests if set A contains all of the elements in set<br>B.                                                                                                                                                                                                                                         |
 | .containsAny()                  | (set, set) → Boolean                                           | Tests if set A contains any of the elements in set<br>B.                                                                                                                                                                                                                                         |
 
-## Example policy
-
-statements
+## Example policy statements
 
 The following are policy statement examples.
 

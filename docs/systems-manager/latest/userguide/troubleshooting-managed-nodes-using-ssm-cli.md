@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Troubleshooting
-
-managed node availability using `ssm-cli`
+# Troubleshooting managed node availability using `ssm-cli`
 
 The `ssm-cli` is a standalone command line tool included in the SSM Agent
 installation. When you install SSM Agent 3.1.501.0 or later on a machine, you can run
@@ -30,8 +20,7 @@ requirements:
 Some AWS managed Amazon Machine Images (AMIs) for EC2 are configured to
 launch instances with [SSM Agent](ssm-agent.md "ssm-agent.md")
 preinstalled. (You can also configure a custom AMI to preinstall
-SSM Agent.) For more information, see [Find AMIs with the SSM Agent
-preinstalled](ami-preinstalled-agent.md "ami-preinstalled-agent.md").
+SSM Agent.) For more information, see [Find AMIs with the SSM Agent preinstalled](ami-preinstalled-agent.md "ami-preinstalled-agent.md").
 
 - An AWS Identity and Access Management (IAM) instance profile (for EC2 instances) or IAM service
   role (for non-EC2 machines) that supplies the required permissions to

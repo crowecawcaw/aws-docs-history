@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Setting up Systems Manager Explorer to display data from
-
-multiple accounts and Regions
+# Setting up Systems Manager Explorer to display data from multiple accounts and Regions
 
 AWS Systems Manager uses an integrated setup experience to help you get started with
 AWS Systems Manager Explorer _and_ AWS Systems Manager OpsCenter. After completing Integrated
@@ -24,8 +14,6 @@ For more information about Integrated Setup, see [Getting started with Systems M
 
 ###### Topics
 
-- [Understanding
-  resource data syncs for Explorer](Explorer-resource-data-sync-understanding.md "Explorer-resource-data-sync-understanding.md")
+- [Understanding resource data syncs for Explorer](Explorer-resource-data-sync-understanding.md "Explorer-resource-data-sync-understanding.md")
 - [Understanding multiple account and Region resource data syncs](Explorer-resource-data-sync-multiple-accounts-and-regions.md "Explorer-resource-data-sync-multiple-accounts-and-regions.md")
-- [Creating a
-  resource data sync](Explorer-resource-data-sync-configuring-multi.md "Explorer-resource-data-sync-configuring-multi.md")
+- [Creating a resource data sync](Explorer-resource-data-sync-configuring-multi.md "Explorer-resource-data-sync-configuring-multi.md")

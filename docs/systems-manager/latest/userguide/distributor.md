@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # AWS Systems Manager Distributor
 
 Distributor, a tool in AWS Systems Manager, helps you package and publish software to AWS Systems Manager managed
@@ -44,8 +36,7 @@ run Distributor, the system processes the instructions in the SSM document and
 installs the software package in the .zip file on the specified targets.
 Distributor supports multiple operating systems, including Windows, Ubuntu Server,
 Debian Server, and Red Hat Enterprise Linux. For more information about supported platforms, see
-[Supported package platforms and
-architectures](#what-is-a-package-platforms "#what-is-a-package-platforms").
+[Supported package platforms and architectures](#what-is-a-package-platforms "#what-is-a-package-platforms").
 
 - **Control package access across groups of managed
   instances**
@@ -86,8 +77,7 @@ launched.
 
 With Distributor, you can deploy software packages to Amazon Elastic Compute Cloud (Amazon EC2) instances
 and AWS IoT Greengrass core devices for Linux and Windows Server. For a list of supported
-instance operating system types, see [Supported package platforms and
-architectures](#what-is-a-package-platforms "#what-is-a-package-platforms").
+instance operating system types, see [Supported package platforms and architectures](#what-is-a-package-platforms "#what-is-a-package-platforms").
 
 ###### Note
 
@@ -126,8 +116,7 @@ packages, but not to change packages or create new package versions.
 - **Logging and auditing capability support**
 
 You can audit and log Distributor user actions in your AWS account through
-integration with other AWS services. For more information, see [Auditing and logging Distributor
-activity](distributor-logging-auditing.md "distributor-logging-auditing.md").
+integration with other AWS services. For more information, see [Auditing and logging Distributor activity](distributor-logging-auditing.md "distributor-logging-auditing.md").
 
 ## What is a package in Distributor?
 
@@ -152,23 +141,19 @@ includes the following.
   (Amazon S3) bucket as the .zip files that form the package. The manifest identifies
   the package version and maps the .zip files in the package to target managed
   node attributes, such as operating system version or architecture. For
-  information about how to create the manifest, see [Step 2: Create the JSON package
-  manifest](distributor-working-with-packages-create.md#packages-manifest "distributor-working-with-packages-create.md#packages-manifest").
+  information about how to create the manifest, see [Step 2: Create the JSON package manifest](distributor-working-with-packages-create.md#packages-manifest "distributor-working-with-packages-create.md#packages-manifest").
 
 When you choose **Simple** package creation in the Distributor console,
 Distributor generates the installation and uninstallation scripts, file hashes, and the
 JSON package manifest for you, based on the software executable file name and target
 platforms and architectures.
 
-### Supported package platforms and
-
-architectures
+### Supported package platforms and architectures
 
 You can use Distributor to publish packages to the following Systems Manager managed node
 platforms. A version value must match the exact release version of the operating
 system Amazon Machine Image (AMI) that you're targeting. For more information about
-determining this version, see step 4 of [Step 2: Create the JSON package
-manifest](distributor-working-with-packages-create.md#packages-manifest "distributor-working-with-packages-create.md#packages-manifest").
+determining this version, see step 4 of [Step 2: Create the JSON package manifest](distributor-working-with-packages-create.md#packages-manifest "distributor-working-with-packages-create.md#packages-manifest").
 
 ###### Note
 
@@ -194,7 +179,5 @@ devices](../../../greengrass/v2/developerguide/setting-up.md "../../../greengras
 
 - [Setting up Distributor](distributor-getting-started.md "distributor-getting-started.md")
 - [Working with Distributor packages](distributor-working-with.md "distributor-working-with.md")
-- [Auditing and logging Distributor
-  activity](distributor-logging-auditing.md "distributor-logging-auditing.md")
-- [Troubleshooting
-  AWS Systems Manager Distributor](distributor-troubleshooting.md "distributor-troubleshooting.md")
+- [Auditing and logging Distributor activity](distributor-logging-auditing.md "distributor-logging-auditing.md")
+- [Troubleshooting AWS Systems Manager Distributor](distributor-troubleshooting.md "distributor-troubleshooting.md")

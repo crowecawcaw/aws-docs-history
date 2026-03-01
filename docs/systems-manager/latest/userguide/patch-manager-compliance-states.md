@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Patch compliance state
-
-values
+# Patch compliance state values
 
 The information about patches for a managed node include a report of the
 state, or status, of each individual patch.
@@ -23,9 +13,7 @@ Assigning compliance state isn't supported in the console.
 Use the information in the following tables to help you identify why a
 managed node might be out of patch compliance.
 
-## Patch compliance values
-
-for Debian Server and Ubuntu Server
+## Patch compliance values for Debian Server and Ubuntu Server
 
 For Debian Server and Ubuntu Server, the rules for package classification
 into the different compliance states are described in the following
@@ -66,9 +54,7 @@ limited to patches in the following repositories: .
 | **`MISSING`**                  | Packages that are filtered through the baseline<br>and not already installed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Non-Compliant     |
 | **`FAILED`**                   | Packages that failed to install during the patch<br>operation.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Non-Compliant     |
 
-## Patch compliance values for
-
-other operating systems
+## Patch compliance values for other operating systems
 
 For all operating systems besides Debian Server and Ubuntu Server, the
 rules for package classification into the different compliance states

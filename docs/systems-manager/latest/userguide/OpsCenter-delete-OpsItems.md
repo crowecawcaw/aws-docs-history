@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Delete OpsItems
 
 You can delete an individual OpsItem by calling the [DeleteOpsItem](../APIReference/API_DeleteOpsItem.md "../APIReference/API_DeleteOpsItem.md")
@@ -29,12 +21,10 @@ Note the following important information about this operation.
 - This operation doesn't support cross-account calls. A delegated
   administrator or management account can't delete OpsItems in other accounts,
   even if OpsCenter has been set up for cross-account administration. For more
-  information about cross-account administration, see [(Optional) Setting up OpsCenter
-  to centrally manage OpsItems across accounts](OpsCenter-setting-up-cross-account.md "OpsCenter-setting-up-cross-account.md").
+  information about cross-account administration, see [(Optional) Setting up OpsCenter to centrally manage OpsItems across accounts](OpsCenter-setting-up-cross-account.md "OpsCenter-setting-up-cross-account.md").
 - If you receive the `OpsItemLimitExceededException`, you can
   delete one or more OpsItems to reduce your total number of OpsItems below the
-  quota limits. For more information about this exception, see [Troubleshooting issues with
-  OpsCenter](OpsCenter-troubleshooting.md "OpsCenter-troubleshooting.md").
+  quota limits. For more information about this exception, see [Troubleshooting issues with OpsCenter](OpsCenter-troubleshooting.md "OpsCenter-troubleshooting.md").
 
 ## Deleting an OpsItem
 

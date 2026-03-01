@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Viewing individual node details and taking action
-
-on a node
+# Viewing individual node details and taking action on a node
 
 From a list in the **Explore nodes** page in Systems Manager, you can select an
 individual node in order to view comprehensive details about the machine or perform a
@@ -19,8 +9,7 @@ presents comprehensive information about the node.
 
 1.  Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
 2.  In the navigation pane, choose **Explore nodes**.
-3.  (Optional) Follow the steps in [Choosing a filter view for managed node
-    summaries](explore-nodes-filter-view.md "explore-nodes-filter-view.md") to refine the list of managed
+3.  (Optional) Follow the steps in [Choosing a filter view for managed node summaries](explore-nodes-filter-view.md "explore-nodes-filter-view.md") to refine the list of managed
     nodes displayed for your organization or account.
 4.  In the **Node ID** column, choose the linked ID of a
     node.

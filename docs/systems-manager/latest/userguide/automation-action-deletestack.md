@@ -1,22 +1,11 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# `aws:deleteStack` –
-
-Delete an CloudFormation stack
+# `aws:deleteStack` – Delete an CloudFormation stack
 
 Deletes an AWS CloudFormation stack.
 
 ###### Note
 
 The `aws:deleteStack` action supports automatic throttling retry. For
-more information, see [Configuring automatic retry for
-throttled operations](automation-throttling-retry.md "automation-throttling-retry.md").
+more information, see [Configuring automatic retry for throttled operations](automation-throttling-retry.md "automation-throttling-retry.md").
 
 **Input**
 
@@ -102,14 +91,11 @@ Type: String
 
 Required: Yes
 
-## Security
-
-considerations
+## Security considerations
 
 Before you can use the `aws:deleteStack` action, you must
 assign the following policy to the IAM Automation assume role. For more
-information about the assume role, see [Task 1: Create a service role for
-Automation](automation-setup-iam.md#create-service-role "automation-setup-iam.md#create-service-role").
+information about the assume role, see [Task 1: Create a service role for Automation](automation-setup-iam.md#create-service-role "automation-setup-iam.md#create-service-role").
 
 JSON
 

@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # AWS Systems Manager Application Manager
 
 Application Manager, a tool in AWS Systems Manager, helps DevOps engineers investigate and remediate issues
@@ -52,9 +44,7 @@ For **Applications**, the list includes the following:
   the [Systems Manager console](https://console.aws.amazon.com//systems-manager/appmanager "https://console.aws.amazon.com//systems-manager/appmanager"). In the
   navigation pane, choose **Application Manager**.
 
-## What are the benefits of using
-
-Application Manager?
+## What are the benefits of using Application Manager?
 
 Application Manager reduces the time it takes for DevOps engineers to detect and investigate
 issues with AWS resources. To do this, Application Manager displays many types of operations
@@ -62,9 +52,7 @@ information in the context of an application in one console. Application Manager
 time it takes to remediate issues by providing runbooks that perform common remediation
 tasks on AWS resources.
 
-## What are the features of
-
-Application Manager?
+## What are the features of Application Manager?
 
 Application Manager includes the following features:
 
@@ -210,15 +198,11 @@ Application Manager includes predefined Systems Manager runbooks for remediating
 with AWS resources. You can execute a runbook against all of the applicable
 resources in an application without having to leave Application Manager.
 
-## Is there a charge to use
-
-Application Manager?
+## Is there a charge to use Application Manager?
 
 Application Manager is available at no additional charge.
 
-## What are the resource quotas for
-
-Application Manager?
+## What are the resource quotas for Application Manager?
 
 You can view quotas for all Systems Manager tools in the [Systems Manager service quotas](../../../general/latest/gr/ssm.md#limits_ssm "../../../general/latest/gr/ssm.md#limits_ssm") in the
 _Amazon Web Services General Reference_. Unless otherwise
@@ -226,11 +210,7 @@ noted, each quota is Region specific.
 
 ###### Topics
 
-- [Setting up
-  related services](application-manager-getting-started-related-services.md "application-manager-getting-started-related-services.md")
-- [Configuring
-  permissions for Systems Manager Application Manager](application-manager-getting-started-permissions.md "application-manager-getting-started-permissions.md")
-- [Adding
-  applications and container clusters to Application Manager](application-manager-getting-started-adding-applications.md "application-manager-getting-started-adding-applications.md")
-- [Working with
-  applications](application-manager-working-applications.md "application-manager-working-applications.md")
+- [Setting up related services](application-manager-getting-started-related-services.md "application-manager-getting-started-related-services.md")
+- [Configuring permissions for Systems Manager Application Manager](application-manager-getting-started-permissions.md "application-manager-getting-started-permissions.md")
+- [Adding applications and container clusters to Application Manager](application-manager-getting-started-adding-applications.md "application-manager-getting-started-adding-applications.md")
+- [Working with applications](application-manager-working-applications.md "application-manager-working-applications.md")

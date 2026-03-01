@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Working with
-
-runbooks for clusters
+# Working with runbooks for clusters
 
 You can remediate issues with AWS resources from Application Manager, a tool in
 AWS Systems Manager, by using Systems Manager Automation runbooks. When you choose **Start
@@ -24,8 +14,7 @@ Before you start a runbook from Application Manager, do the following:
 - Verify that you have the correct permissions for starting runbooks.
   For more information, see [Setting up Automation](automation-setup.md "automation-setup.md").
 - Review the Automation procedure documentation about starting runbooks.
-  For more information, see [Run an automated operation powered by Systems Manager
-  Automation](running-simple-automations.md "running-simple-automations.md").
+  For more information, see [Run an automated operation powered by Systems Manager Automation](running-simple-automations.md "running-simple-automations.md").
 - If you intend to start runbooks on multiple resources at one time,
   review the documentation about using targets and rate controls. For more
   information, see [Run automated operations at scale](running-automations-scale.md "running-automations-scale.md").
@@ -42,5 +31,4 @@ Before you start a runbook from Application Manager, do the following:
    runbook**. Application Manager opens the **Execute automation
    document** page in a new tab. For information about the
    options in the **Execute automation document** page,
-   see [Run an automated operation powered by Systems Manager
-   Automation](running-simple-automations.md "running-simple-automations.md").
+   see [Run an automated operation powered by Systems Manager Automation](running-simple-automations.md "running-simple-automations.md").

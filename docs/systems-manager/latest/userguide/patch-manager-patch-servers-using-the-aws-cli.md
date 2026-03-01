@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Tutorial: Patch a
-
-server environment using the AWS CLI
+# Tutorial: Patch a server environment using the AWS CLI
 
 The following procedure describes how to patch a server environment by using a
 custom patch baseline, patch groups, and a maintenance window.
@@ -17,8 +7,7 @@ custom patch baseline, patch groups, and a maintenance window.
 
 - Install or update the SSM Agent on your managed nodes. To patch Linux
   managed nodes, your nodes must be running SSM Agent version
-  2.0.834.0 or later. For more information, see [Updating the SSM Agent using
-  Run Command](run-command-tutorial-update-software.md#rc-console-agentexample "run-command-tutorial-update-software.md#rc-console-agentexample").
+  2.0.834.0 or later. For more information, see [Updating the SSM Agent using Run Command](run-command-tutorial-update-software.md#rc-console-agentexample "run-command-tutorial-update-software.md#rc-console-agentexample").
 - Configure roles and permissions for Maintenance Windows, a tool in AWS Systems Manager. For
   more information, see [Setting up Maintenance Windows](setting-up-maintenance-windows.md "setting-up-maintenance-windows.md").
 - Install and configure the AWS Command Line Interface (AWS CLI), if you haven't already.
@@ -423,5 +412,4 @@ The system returns information like the following.
 ```
 
 For examples of other AWS CLI commands you can use for your Patch Manager configuration
-tasks, see [Working with Patch Manager resources using
-the AWS CLI](patch-manager-cli-commands.md "patch-manager-cli-commands.md").
+tasks, see [Working with Patch Manager resources using the AWS CLI](patch-manager-cli-commands.md "patch-manager-cli-commands.md").

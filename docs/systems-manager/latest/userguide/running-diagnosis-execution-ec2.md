@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Running a diagnosis and optional
-
-remediation for unmanaged EC2 instances
+# Running a diagnosis and optional remediation for unmanaged EC2 instances
 
 Use the following procedure to diagnose the network-related and VPC-related issues
 that might be preventing Systems Manager from managing your EC2 instances.
@@ -20,8 +10,7 @@ types:
   networking issues that might be preventing EC2 instances from communicating
   with the Systems Manager service in the cloud. Remediation operations might be
   available for these issues. For more information about the network
-  configuration issues, see [Categories of diagnosable unmanaged
-  EC2 instance issues](diagnosing-ec2-category-types.md "diagnosing-ec2-category-types.md").
+  configuration issues, see [Categories of diagnosable unmanaged EC2 instance issues](diagnosing-ec2-category-types.md "diagnosing-ec2-category-types.md").
 - **Unidentified issues** – A list of findings for
   cases where the diagnostic operation was unable to determine why EC2
   instances are not able to communicate with the Systems Manager service in the
@@ -47,8 +36,7 @@ If this is your first time to diagnose unmanaged EC2 issues, in the
 While the diagnosis is running, choose **View
 progress** or **View executions** to
 monitor the current state of the execution. For more information, see
-[Viewing execution progress
-and history for remediations in Systems Manager](diagnose-and-remediate-execution-history.md "diagnose-and-remediate-execution-history.md"). 5. After the diagnosis completes, do the following:
+[Viewing execution progress and history for remediations in Systems Manager](diagnose-and-remediate-execution-history.md "diagnose-and-remediate-execution-history.md"). 5. After the diagnosis completes, do the following:
 
     * For any issues reported in the **Unidentified
      issues** section, choose the **Learn
@@ -138,5 +126,4 @@ and history for remediations in Systems Manager](diagnose-and-remediate-executio
              with the options you have already selected.If you choose to run the operation, choose **View
 
         progress** or **View executions\*\* to monitor
-        the current state of the execution. For more information, see [Viewing execution progress
-        and history for remediations in Systems Manager](diagnose-and-remediate-execution-history.md "diagnose-and-remediate-execution-history.md").
+        the current state of the execution. For more information, see [Viewing execution progress and history for remediations in Systems Manager](diagnose-and-remediate-execution-history.md "diagnose-and-remediate-execution-history.md").

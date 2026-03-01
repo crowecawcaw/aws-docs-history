@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Using Chef InSpec profiles
-
-with Systems Manager Compliance
+# Using Chef InSpec profiles with Systems Manager Compliance
 
 AWS Systems Manager integrates with [Chef InSpec](https://www.chef.io/products/chef-inspec "https://www.chef.io/products/chef-inspec"). Chef InSpec is an
 open-source testing framework that allows you to create human-readable profiles to
@@ -83,22 +73,16 @@ Note the following information.
   `Custom:Inspec` to each targeted node. To assign this
   compliance type, the document calls the [PutComplianceItems](../APIReference/API_PutComplianceItems.md "../APIReference/API_PutComplianceItems.md") API operation.
 
-## Running an InSpec compliance
-
-scan
+## Running an InSpec compliance scan
 
 This section includes information about how to run an InSpec compliance scan
 by using the Systems Manager console and the AWS Command Line Interface (AWS CLI). The console procedure
 shows how to configure State Manager to run the scan. The AWS CLI procedure shows how
 to configure Run Command to run the scan.
 
-### Running an InSpec
+### Running an InSpec compliance scan with State Manager (console)
 
-compliance scan with State Manager (console)
-
-###### To run an InSpec compliance scan with State Manager by using the AWS Systems Manager
-
-console
+###### To run an InSpec compliance scan with State Manager by using the AWS Systems Manager console
 
 1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
 2. In the navigation pane, choose **State Manager**.
@@ -130,15 +114,13 @@ an InSpec profile in an S3 bucket in the **Source
 Info** field.
 
 For more information about how Systems Manager integrates with
-GitHub and Amazon S3, see [Running scripts from
-GitHub](integration-remote-scripts.md "integration-remote-scripts.md"). 8. In the **Targets** section, choose the managed nodes on which you want to
+GitHub and Amazon S3, see [Running scripts from GitHub](integration-remote-scripts.md "integration-remote-scripts.md"). 8. In the **Targets** section, choose the managed nodes on which you want to
 run this operation by specifying tags, selecting instances or edge devices manually, or
 specifying a resource group.
 
 ###### Tip
 
-If a managed node you expect to see isn't listed, see [Troubleshooting managed
-node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for troubleshooting
+If a managed node you expect to see isn't listed, see [Troubleshooting managed node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for troubleshooting
 tips. 9. In the **Specify schedule** section, use the
 schedule builder options to create a schedule that specifies when
 you want the Compliance scan to run. 10. For **Rate control**:
@@ -178,9 +160,7 @@ nodes where the **Compliance Type** column is
 **Custom:Inspec**. 15. Choose a node ID to view the details of noncompliant
 statuses.
 
-### Running an InSpec
-
-compliance scan with Run Command (AWS CLI)
+### Running an InSpec compliance scan with Run Command (AWS CLI)
 
 1. Install and configure the AWS Command Line Interface (AWS CLI), if you haven't already.
 

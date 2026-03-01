@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Manually installing and
-
-uninstalling SSM Agent on EC2 instances for Linux
+# Manually installing and uninstalling SSM Agent on EC2 instances for Linux
 
 Before you manually install AWS Systems Manager Agent (SSM Agent) on an Amazon Elastic Compute Cloud (Amazon EC2)
 Linux operating system, review the following information.
@@ -50,8 +40,7 @@ commands** procedures in the installation topics.
 ###### Amazon Machine Images with the agent preinstalled
 
 SSM Agent is preinstalled on some Amazon Machine Images (AMIs) provided by AWS.
-For information, see [Find AMIs with the SSM Agent
-preinstalled](ami-preinstalled-agent.md "ami-preinstalled-agent.md").
+For information, see [Find AMIs with the SSM Agent preinstalled](ami-preinstalled-agent.md "ami-preinstalled-agent.md").
 
 ###### Keeping the agent up to date
 
@@ -71,8 +60,7 @@ operating system, choose a link from the following list:
 ###### Note
 
 For a list of supported versions of each of the following operating systems,
-see [Supported operating systems for
-Systems Manager](operating-systems-and-machine-types.md#prereqs-operating-systems "operating-systems-and-machine-types.md#prereqs-operating-systems").
+see [Supported operating systems for Systems Manager](operating-systems-and-machine-types.md#prereqs-operating-systems "operating-systems-and-machine-types.md#prereqs-operating-systems").
 
 - [AlmaLinux](agent-install-alma.md "agent-install-alma.md")
 - [Amazon Linux 2 and Amazon Linux 2023](agent-install-al2.md "agent-install-al2.md")
@@ -82,9 +70,7 @@ Systems Manager](operating-systems-and-machine-types.md#prereqs-operating-system
 - [Rocky Linux](agent-install-rocky.md "agent-install-rocky.md")
 - [Ubuntu Server](agent-install-ubuntu.md "agent-install-ubuntu.md")
 
-## Uninstalling SSM Agent from Linux
-
-instances
+## Uninstalling SSM Agent from Linux instances
 
 Use the package manager for your operating system to uninstall SSM Agent from
 Linux instances. Depending on the operating system, the uninstall command will

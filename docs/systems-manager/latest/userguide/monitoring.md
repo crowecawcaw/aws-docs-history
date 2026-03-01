@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Logging and monitoring in AWS Systems Manager
 
 Monitoring is an important part of maintaining the reliability, availability, and
@@ -40,26 +32,19 @@ Amazon EC2](../../../AWSEC2/latest/UserGuide/monitoring_ec2.md "../../../AWSEC2/
 ###### Topics
 
 - [Monitoring tools](#monitoring-tools "#monitoring-tools")
-- [Sending node logs to unified CloudWatch Logs
-  (CloudWatch agent)](monitoring-cloudwatch-agent.md "monitoring-cloudwatch-agent.md")
+- [Sending node logs to unified CloudWatch Logs (CloudWatch agent)](monitoring-cloudwatch-agent.md "monitoring-cloudwatch-agent.md")
 - [Sending SSM Agent logs to CloudWatch Logs](monitoring-ssm-agent.md "monitoring-ssm-agent.md")
-- [Monitoring your change request
-  events](monitoring-change-request-events.md "monitoring-change-request-events.md")
+- [Monitoring your change request events](monitoring-change-request-events.md "monitoring-change-request-events.md")
 - [Monitoring your automations](monitoring-automation-metrics.md "monitoring-automation-metrics.md")
-- [Monitoring Run Command metrics using
-  Amazon CloudWatch](monitoring-cloudwatch-metrics.md "monitoring-cloudwatch-metrics.md")
+- [Monitoring Run Command metrics using Amazon CloudWatch](monitoring-cloudwatch-metrics.md "monitoring-cloudwatch-metrics.md")
 - [Logging AWS Systems Manager API calls with AWS CloudTrail](monitoring-cloudtrail-logs.md "monitoring-cloudtrail-logs.md")
-- [Logging Automation action output with
-  CloudWatch Logs](automation-action-logging.md "automation-action-logging.md")
+- [Logging Automation action output with CloudWatch Logs](automation-action-logging.md "automation-action-logging.md")
 - [Configuring Amazon CloudWatch Logs for Run Command](sysman-rc-setting-up-cwlogs.md "sysman-rc-setting-up-cwlogs.md")
-- [Monitoring Systems Manager events with
-  Amazon EventBridge](monitoring-eventbridge-events.md "monitoring-eventbridge-events.md")
-- [Monitoring Systems Manager status changes using
-  Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifications.md")
+- [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md "monitoring-eventbridge-events.md")
+- [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifications.md")
 
 ## Monitoring tools
 
 The content in this chapter provides information for using tools available for
 monitoring your Systems Manager and other AWS resources. For a more complete list of tools, see
-[Logging and monitoring in
-AWS Systems Manager](logging-and-monitoring.md "logging-and-monitoring.md").
+[Logging and monitoring in AWS Systems Manager](logging-and-monitoring.md "logging-and-monitoring.md").

@@ -1,21 +1,9 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Troubleshooting issues with
-
-OpsCenter
+# Troubleshooting issues with OpsCenter
 
 This topic includes information to help you troubleshoot common errors and issues with
 OpsCenter.
 
-## You
-
-receive the OpsItemLimitExceededException
+## You receive the OpsItemLimitExceededException
 
 If your AWS account has reached the maximum number of OpsItems allowed when you
 call the CreateOpsItem API operation, you receive an
@@ -42,9 +30,7 @@ Again, deleting OpsItems created for Security Hub CSPM findings or Incident Mana
 reduce your total number of OpsItems enforced by the quotas. You must delete OpsItems from
 other sources. For information about how to delete an OpsItem, see [Delete OpsItems](OpsCenter-delete-OpsItems.md "OpsCenter-delete-OpsItems.md").
 
-## You receive a
-
-large bill from AWS for large numbers of auto-generated OpsItems
+## You receive a large bill from AWS for large numbers of auto-generated OpsItems
 
 If you configured integration with AWS Security Hub CSPM, OpsCenter creates OpsItems for Security Hub CSPM
 findings. Depending on the number of finding Security Hub CSPM generates and the account you

@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Updating AMIs using Automation and Jenkins
 
 If your organization uses Jenkins software in a CI/CD pipeline,
@@ -30,8 +22,7 @@ configuring your instance.
 Complete the following tasks before you configure Automation with
 Jenkins:
 
-- Complete the [Update a golden
-  AMI using Automation, AWS Lambda, and Parameter Store](automation-tutorial-update-patch-golden-ami.md "automation-tutorial-update-patch-golden-ami.md")
+- Complete the [Update a golden AMI using Automation, AWS Lambda, and Parameter Store](automation-tutorial-update-patch-golden-ami.md "automation-tutorial-update-patch-golden-ami.md")
   example. The following example uses the **UpdateMyLatestWindowsAmi** runbook created in that
   example.
 - Configure IAM roles for Automation. Systems Manager requires an instance
@@ -124,9 +115,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
     Use the following procedure to configure your Jenkins project
     to invoke Automation.
 
-###### To configure your Jenkins server to invoke
-
-Automation
+###### To configure your Jenkins server to invoke Automation
 
 1. Open the Jenkins console in a web browser.
 2. Choose the project that you want to configure with Automation, and
@@ -148,8 +137,7 @@ aws ssm start-automation-execution \
 ```
 
 The following example command uses the **UpdateMyLatestWindowsAmi** runbook and the Systems Manager Parameter
-`latestAmi` created in [Update a golden
-AMI using Automation, AWS Lambda, and Parameter Store](automation-tutorial-update-patch-golden-ami.md "automation-tutorial-update-patch-golden-ami.md").
+`latestAmi` created in [Update a golden AMI using Automation, AWS Lambda, and Parameter Store](automation-tutorial-update-patch-golden-ami.md "automation-tutorial-update-patch-golden-ami.md").
 
 ```
 aws ssm start-automation-execution \

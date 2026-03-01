@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Logging session data using Amazon S3
-
-(console)
+# Logging session data using Amazon S3 (console)
 
 You can choose to store session log data in a specified Amazon Simple Storage Service (Amazon S3) bucket for
 debugging and troubleshooting purposes. The default option is for logs to be sent to
@@ -45,8 +35,7 @@ bucket.
 ###### Note
 
 You can also use the AWS CLI to specify or change the Amazon S3 bucket that session
-data is sent to. For information, see [Update Session Manager
-preferences (command line)](getting-started-configure-preferences-cli.md "getting-started-configure-preferences-cli.md").
+data is sent to. For information, see [Update Session Manager preferences (command line)](getting-started-configure-preferences-cli.md "getting-started-configure-preferences-cli.md").
 
 ###### To log session data using Amazon S3 (console)
 

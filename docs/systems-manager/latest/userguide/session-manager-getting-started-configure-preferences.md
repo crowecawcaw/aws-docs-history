@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Step 4:
-
-Configure session preferences
+# Step 4: Configure session preferences
 
 Users that have been granted administrative permissions in their AWS Identity and Access Management (IAM)
 policy can configure session preferences, including the following:
@@ -32,33 +22,21 @@ policy can configure session preferences, including the following:
   preferences, environment variables, working directories, and running
   multiple commands when a session is started.
   For more information about the permissions needed to configue Session Manager
-  preferences, see [Grant or deny a user
-  permissions to update Session Manager preferences](preference-setting-permissions.md "preference-setting-permissions.md").
+  preferences, see [Grant or deny a user permissions to update Session Manager preferences](preference-setting-permissions.md "preference-setting-permissions.md").
 
 ###### Topics
 
-- [Grant or deny a user
-  permissions to update Session Manager preferences](preference-setting-permissions.md "preference-setting-permissions.md")
-- [Specify an idle session timeout
-  value](session-preferences-timeout.md "session-preferences-timeout.md")
-- [Specify maximum session
-  duration](session-preferences-max-timeout.md "session-preferences-max-timeout.md")
-- [Allow configurable shell
-  profiles](session-preferences-shell-config.md "session-preferences-shell-config.md")
-- [Turn on Run As support for
-  Linux and macOS managed nodes](session-preferences-run-as.md "session-preferences-run-as.md")
-- [Turn on KMS key
-  encryption of session data (console)](session-preferences-enable-encryption.md "session-preferences-enable-encryption.md")
-- [Create a Session Manager
-  preferences document (command line)](getting-started-create-preferences-cli.md "getting-started-create-preferences-cli.md")
-- [Update Session Manager
-  preferences (command line)](getting-started-configure-preferences-cli.md "getting-started-configure-preferences-cli.md")
+- [Grant or deny a user permissions to update Session Manager preferences](preference-setting-permissions.md "preference-setting-permissions.md")
+- [Specify an idle session timeout value](session-preferences-timeout.md "session-preferences-timeout.md")
+- [Specify maximum session duration](session-preferences-max-timeout.md "session-preferences-max-timeout.md")
+- [Allow configurable shell profiles](session-preferences-shell-config.md "session-preferences-shell-config.md")
+- [Turn on Run As support for Linux and macOS managed nodes](session-preferences-run-as.md "session-preferences-run-as.md")
+- [Turn on KMS key encryption of session data (console)](session-preferences-enable-encryption.md "session-preferences-enable-encryption.md")
+- [Create a Session Manager preferences document (command line)](getting-started-create-preferences-cli.md "getting-started-create-preferences-cli.md")
+- [Update Session Manager preferences (command line)](getting-started-configure-preferences-cli.md "getting-started-configure-preferences-cli.md")
   For information about using the Systems Manager console to configure options for logging
   session data, see the following topics:
 
-- [Logging session data using Amazon S3
-  (console)](session-manager-logging-s3.md "session-manager-logging-s3.md")
-- [Streaming session data using
-  Amazon CloudWatch Logs (console)](session-manager-logging-cwl-streaming.md "session-manager-logging-cwl-streaming.md")
-- [Logging session data using
-  Amazon CloudWatch Logs (console)](session-manager-logging-cloudwatch-logs.md "session-manager-logging-cloudwatch-logs.md")
+- [Logging session data using Amazon S3 (console)](session-manager-logging-s3.md "session-manager-logging-s3.md")
+- [Streaming session data using Amazon CloudWatch Logs (console)](session-manager-logging-cwl-streaming.md "session-manager-logging-cwl-streaming.md")
+- [Logging session data using Amazon CloudWatch Logs (console)](session-manager-logging-cloudwatch-logs.md "session-manager-logging-cloudwatch-logs.md")

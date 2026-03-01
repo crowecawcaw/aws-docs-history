@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# `aws:createImage` – Create
-
-an Amazon Machine Image
+# `aws:createImage` – Create an Amazon Machine Image
 
 Creates an Amazon Machine Image (AMI) from an instance that is either running, stopping, or
 stopped, and polls for the `ImageState` to be `available`.
@@ -16,8 +6,7 @@ stopped, and polls for the `ImageState` to be `available`.
 ###### Note
 
 The `aws:createImage` action supports automatic throttling retry. For
-more information, see [Configuring automatic retry for
-throttled operations](automation-throttling-retry.md "automation-throttling-retry.md").
+more information, see [Configuring automatic retry for throttled operations](automation-throttling-retry.md "automation-throttling-retry.md").
 
 ###### Input
 
@@ -90,8 +79,7 @@ before creating the image. When this option is used, file system integrity
 on the created image can't be guaranteed.
 
 If you don't want the instance to run after you create an AMI from it,
-first use the [aws:changeInstanceState
-– Change or assert instance state](automation-action-changestate.md "automation-action-changestate.md") action to stop the
+first use the [aws:changeInstanceState – Change or assert instance state](automation-action-changestate.md "automation-action-changestate.md") action to stop the
 instance, and then use this `aws:createImage` action with the
 **NoReboot** option set to `true`.
 

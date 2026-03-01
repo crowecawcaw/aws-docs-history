@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Cross-service
-
-confused deputy prevention
+# Cross-service confused deputy prevention
 
 The confused deputy problem is a security issue where an entity that doesn't
 have permission to perform an action can coerce a more-privileged entity to
@@ -37,9 +27,7 @@ account to be associated with the cross-service use.
 The following sections provide example policies for AWS Systems Manager
 tools.
 
-## Hybrid
-
-activation policy example
+## Hybrid activation policy example
 
 For service roles used in a [hybrid
 activation](activations.md "activations.md"), the value of `aws:SourceArn` must be the
@@ -82,9 +70,7 @@ JSON
 
 ```
 
-## Resource data
-
-sync policy example
+## Resource data sync policy example
 
 Systems Manager Inventory, Explorer, and Compliance enable you to create a resource
 data sync to centralize storage of your operations data (OpsData) in a

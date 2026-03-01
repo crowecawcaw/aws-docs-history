@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# `aws:assertAwsResourceProperty` – Assert an AWS resource
-
-state or event state
+# `aws:assertAwsResourceProperty` – Assert an AWS resource state or event state
 
 The `aws:assertAwsResourceProperty` action allows you to assert a specific
 resource state or event state for a specific Automation step.
@@ -16,11 +6,9 @@ resource state or event state for a specific Automation step.
 ###### Note
 
 The `aws:assertAwsResourceProperty` action supports automatic
-throttling retry. For more information, see [Configuring automatic retry for
-throttled operations](automation-throttling-retry.md "automation-throttling-retry.md").
+throttling retry. For more information, see [Configuring automatic retry for throttled operations](automation-throttling-retry.md "automation-throttling-retry.md").
 
-For more examples of how to use this action, see [Additional runbook
-examples](automation-document-examples.md "automation-document-examples.md").
+For more examples of how to use this action, see [Additional runbook examples](automation-document-examples.md "automation-document-examples.md").
 
 ###### Input
 

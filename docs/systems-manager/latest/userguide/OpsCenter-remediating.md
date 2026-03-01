@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Remediate OpsItem issues
 
 Using AWS Systems Manager Automation runbooks, you can remediate issues with AWS resources
@@ -34,9 +26,7 @@ AWS Config.
 You can view information about an Automation runbook by either choosing its name in
 the console or by using the [Systems Manager Automation Runbook Reference](automation-documents-reference.md "automation-documents-reference.md").
 
-## Remediating an OpsItem using a
-
-runbook
+## Remediating an OpsItem using a runbook
 
 Before you use an Automation runbook to remediate an OpsItem issue, do the
 following:
@@ -63,9 +53,7 @@ displays the status. 8. In the **Automation executions in the last 30 days**
 section, choose the **Execution ID** link to view steps and
 the status of the execution.
 
-## Remediating an OpsItem
-
-using an associated runbook
+## Remediating an OpsItem using an associated runbook
 
 After you run an Automation runbook from an OpsItem, OpsCenter associates the runbook
 with the OpsItem. An _associated_ runbook is ranked

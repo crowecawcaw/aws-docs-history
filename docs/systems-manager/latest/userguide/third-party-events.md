@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Importing and managing events from third-party
-
-calendars
+# Importing and managing events from third-party calendars
 
 As an alternative to creating events directly in the AWS Systems Manager console, you can
 import an iCalendar (`.ics`) file from a supported third-party
@@ -63,9 +53,6 @@ been deleted in the source calendar, the import fails.
 
 ###### Topics
 
-- [Importing events from third-party
-  calendar providers](change-calendar-import.md "change-calendar-import.md")
-- [Updating all events from a
-  third-party calendar provider](change-calendar-import-add-remove.md "change-calendar-import-add-remove.md")
-- [Deleting all events imported from a
-  third-party calendar](change-calendar-delete-ics.md "change-calendar-delete-ics.md")
+- [Importing events from third-party calendar providers](change-calendar-import.md "change-calendar-import.md")
+- [Updating all events from a third-party calendar provider](change-calendar-import-add-remove.md "change-calendar-import-add-remove.md")
+- [Deleting all events imported from a third-party calendar](change-calendar-delete-ics.md "change-calendar-delete-ics.md")

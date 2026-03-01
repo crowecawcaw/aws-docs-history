@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Working with parameter hierarchies
-
-in Parameter Store
+# Working with parameter hierarchies in Parameter Store
 
 Managing dozens or hundreds of parameters as a flat list is time consuming and
 prone to errors. It can also be difficult to identify the correct parameter for a
@@ -21,16 +11,11 @@ slashes (/).
 
 ###### Topics
 
-- [Understanding parameter hierarchy
-  through examples](#ps-hierarchy-examples "#ps-hierarchy-examples")
-- [Querying parameters in a
-  hierarchy](#ps-hierarchy-queries "#ps-hierarchy-queries")
-- [Managing parameters using
-  hierarchies using the AWS CLI](#sysman-paramstore-walk-hierarchy "#sysman-paramstore-walk-hierarchy")
+- [Understanding parameter hierarchy through examples](#ps-hierarchy-examples "#ps-hierarchy-examples")
+- [Querying parameters in a hierarchy](#ps-hierarchy-queries "#ps-hierarchy-queries")
+- [Managing parameters using hierarchies using the AWS CLI](#sysman-paramstore-walk-hierarchy "#sysman-paramstore-walk-hierarchy")
 
-## Understanding parameter hierarchy
-
-through examples
+## Understanding parameter hierarchy through examples
 
 The following example uses three hierarchy levels in the name to identify the
 following:
@@ -92,9 +77,7 @@ following parameters as root parameters.
 
 `parameter-name`
 
-## Querying parameters in a
-
-hierarchy
+## Querying parameters in a hierarchy
 
 Another benefit of using hierarchies is the ability to query for all
 parameters _under_ a certain level in a
@@ -141,9 +124,7 @@ the following example.
 aws ssm get-parameters-by-path --path /Prod/ERP/SAP --with-decryption
 ```
 
-## Managing parameters using
-
-hierarchies using the AWS CLI
+## Managing parameters using hierarchies using the AWS CLI
 
 This procedure shows how to work with parameters and parameter hierarchies by
 using the AWS CLI.

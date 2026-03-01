@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Run automations based on EventBridge
-
-events
+# Run automations based on EventBridge events
 
 You can start an automation by specifying a runbook as the target of an Amazon EventBridge
 event. You can start automations according to a schedule, or when a specific AWS
@@ -25,9 +15,7 @@ instance starts, the system runs the automation and installs software.
 
 For information about creating runbooks, see [Creating your own runbooks](automation-documents.md "automation-documents.md").
 
-## Creating an EventBridge event that uses a
-
-runbook (console)
+## Creating an EventBridge event that uses a runbook (console)
 
 Use the following procedure to configure a runbook as the target of a EventBridge
 event.
@@ -109,9 +97,7 @@ JSON
 16. Review the details of the rule and choose **Create
     rule**.
 
-## Create an EventBridge event that uses a
-
-runbook (command line)
+## Create an EventBridge event that uses a runbook (command line)
 
 The following procedure describes how to use the AWS CLI (on Linux or Windows) or
 AWS Tools for PowerShell to create an EventBridge event rule and configure a runbook as the

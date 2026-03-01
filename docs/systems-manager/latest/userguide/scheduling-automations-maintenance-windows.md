@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Schedule automations with
-
-maintenance windows
+# Schedule automations with maintenance windows
 
 You can start an automation by configuring a runbook as a registered task for a
 maintenance window. By registering the runbook as a registered task, the maintenance
@@ -29,9 +19,7 @@ a tool in AWS Systems Manager.
 Use the following procedures to configure an automation as a registered task for a
 maintenance window using the AWS Systems Manager console, AWS Command Line Interface (AWS CLI), or AWS Tools for Windows PowerShell.
 
-## Registering an
-
-automation task to a maintenance window (console)
+## Registering an automation task to a maintenance window (console)
 
 The following procedure describes how to use the Systems Manager console to configure an
 automation as a registered task for a maintenance window.
@@ -42,14 +30,10 @@ Before you complete the following procedure, you must create a maintenance
 window and register at least one target. For more information, see the following
 procedures:
 
-- [Create a maintenance window using the
-  console](sysman-maintenance-create-mw.md "sysman-maintenance-create-mw.md").
-- [Assign targets to a maintenance
-  window using the console](sysman-maintenance-assign-targets.md "sysman-maintenance-assign-targets.md")
+- [Create a maintenance window using the console](sysman-maintenance-create-mw.md "sysman-maintenance-create-mw.md").
+- [Assign targets to a maintenance window using the console](sysman-maintenance-assign-targets.md "sysman-maintenance-assign-targets.md")
 
-###### To configure an automation as a registered task for a maintenance
-
-window
+###### To configure an automation as a registered task for a maintenance window
 
 1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
 2. In the left navigation pane, choose **Maintenance Windows**, and
@@ -87,8 +71,7 @@ the AMI to be updated is specified in the input parameters for the runbook, ther
 need to specify a target again in the maintenance window task.
 
 For information about maintenance window tasks that don't require targets,
-see [Registering maintenance window
-tasks without targets](maintenance-windows-targetless-tasks.md "maintenance-windows-targetless-tasks.md"). 10. (Optional) For **Rate control**:
+see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md "maintenance-windows-targetless-tasks.md"). 10. (Optional) For **Rate control**:
 
 ###### Note
 
@@ -142,9 +125,7 @@ provide permissions for Systems Manager to start the automation.
 
 To create a service role for maintenance window tasks, see [Setting up Maintenance Windows](setting-up-maintenance-windows.md "setting-up-maintenance-windows.md"). 13. Choose **Register Automation task**.
 
-## Registering an
-
-Automation task to a maintenance window (command line)
+## Registering an Automation task to a maintenance window (command line)
 
 The following procedure describes how to use the AWS CLI (on Linux or Windows Server) or
 AWS Tools for PowerShell to configure an automation as a registered task for a maintenance
@@ -156,14 +137,10 @@ Before you complete the following procedure, you must create a maintenance
 window and register at least one target. For more information, see the following
 procedures:
 
-- [Step 1: Create the maintenance
-  window using the AWS CLI](mw-cli-tutorial-create-mw.md "mw-cli-tutorial-create-mw.md").
-- [Step 2: Register a target node
-  with the maintenance window using the AWS CLI](mw-cli-tutorial-targets.md "mw-cli-tutorial-targets.md")
+- [Step 1: Create the maintenance window using the AWS CLI](mw-cli-tutorial-create-mw.md "mw-cli-tutorial-create-mw.md").
+- [Step 2: Register a target node with the maintenance window using the AWS CLI](mw-cli-tutorial-targets.md "mw-cli-tutorial-targets.md")
 
-###### To configure an automation as a registered task for a maintenance
-
-window
+###### To configure an automation as a registered task for a maintenance window
 
 1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you haven't already.
 
@@ -207,8 +184,7 @@ commands such as [describe-maintenance-window-tasks](../../../cli/latest/referen
 your task and can be ignored.
 
 For information about maintenance window tasks that don't
-require targets, see [Registering maintenance window
-tasks without targets](maintenance-windows-targetless-tasks.md "maintenance-windows-targetless-tasks.md").
+require targets, see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md "maintenance-windows-targetless-tasks.md").
 
 Windows
 
@@ -244,8 +220,7 @@ commands such as [describe-maintenance-window-tasks](../../../cli/latest/referen
 your task and can be ignored.
 
 For information about maintenance window tasks that don't
-require targets, see [Registering maintenance window
-tasks without targets](maintenance-windows-targetless-tasks.md "maintenance-windows-targetless-tasks.md").
+require targets, see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md "maintenance-windows-targetless-tasks.md").
 
 PowerShell
 
@@ -284,8 +259,7 @@ don't affect the running of your task and can be
 ignored.
 
 For information about maintenance window tasks that don't
-require targets, see [Registering maintenance window
-tasks without targets](maintenance-windows-targetless-tasks.md "maintenance-windows-targetless-tasks.md").
+require targets, see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md "maintenance-windows-targetless-tasks.md").
 
 The following example configures an automation as a registered task to a
 maintenance window with priority 1. It also demonstrates omitting the

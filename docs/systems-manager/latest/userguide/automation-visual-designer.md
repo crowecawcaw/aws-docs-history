@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Visual design experience for Automation runbooks
 
 AWS Systems Manager Automation provides a low-code visual design experience that helps you create automation
@@ -29,7 +21,5 @@ following:
 - [Interface overview](visual-designer-interface-overview.md "visual-designer-interface-overview.md")
 - [Using the visual design experience](visual-designer-use.md "visual-designer-use.md")
 - [Configure inputs and outputs](visual-designer-action-inputs-outputs.md "visual-designer-action-inputs-outputs.md")
-- [Error handling with the visual design
-  experience](visual-designer-error-handling.md "visual-designer-error-handling.md")
-- [Tutorial: Create a runbook using the
-  visual design experience](visual-designer-tutorial.md "visual-designer-tutorial.md")
+- [Error handling with the visual design experience](visual-designer-error-handling.md "visual-designer-error-handling.md")
+- [Tutorial: Create a runbook using the visual design experience](visual-designer-tutorial.md "visual-designer-tutorial.md")

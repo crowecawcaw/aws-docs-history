@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Reviewing and approving or rejecting
-
-change templates
+# Reviewing and approving or rejecting change templates
 
 ###### Change Manager availability change
 
@@ -27,8 +17,7 @@ notifications.
 This functionality depends on whether your account has been configured to
 use an Amazon SNS topic to send change template review notifications. For
 information about specifying a template reviewer notification topic, see
-[Task 1: Configuring Change Manager user
-identity management and template reviewers](change-manager-account-setup.md#cm-configure-account-task-1 "change-manager-account-setup.md#cm-configure-account-task-1").
+[Task 1: Configuring Change Manager user identity management and template reviewers](change-manager-account-setup.md#cm-configure-account-task-1 "change-manager-account-setup.md#cm-configure-account-task-1").
 
 To review the change template, follow the link in your notification, sign in
 to the AWS Management Console, and follow the steps in this procedure.

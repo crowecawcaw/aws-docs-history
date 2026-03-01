@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Receiving findings from AWS Security Hub CSPM
-
-in Explorer
+# Receiving findings from AWS Security Hub CSPM in Explorer
 
 [AWS Security Hub CSPM](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md")
 provides a comprehensive view of your security state in AWS. The service collects
@@ -36,20 +26,16 @@ Note the following important information:
 Before you continue, read about OpsCenter integration with Security Hub CSPM. The
 topic includes specific details about how changes and updates to
 findings and OpsItems are charged to your account. For more information,
-see [Understanding OpsCenter
-integration with AWS Security Hub CSPM](OpsCenter-applications-that-integrate.md#OpsCenter-integrate-with-security-hub "OpsCenter-applications-that-integrate.md#OpsCenter-integrate-with-security-hub"). For
+see [Understanding OpsCenter integration with AWS Security Hub CSPM](OpsCenter-applications-that-integrate.md#OpsCenter-integrate-with-security-hub "OpsCenter-applications-that-integrate.md#OpsCenter-integrate-with-security-hub"). For
 OpsCenter pricing information, see [AWS Systems Manager Pricing](https://aws.amazon.com/systems-manager/pricing/ "https://aws.amazon.com/systems-manager/pricing/").
 
 - If you create a resource data sync in Explorer while logged into the
   administrator account, Security Hub CSPM integration is automatically enabled for
   the administrator and all member accounts in the sync. Once enabled,
   OpsCenter automatically creates OpsItems for Security Hub CSPM findings, at a cost. For
-  more information about creating a resource data sync, see [Setting up Systems Manager Explorer to display data from
-  multiple accounts and Regions](Explorer-resource-data-sync.md "Explorer-resource-data-sync.md").
+  more information about creating a resource data sync, see [Setting up Systems Manager Explorer to display data from multiple accounts and Regions](Explorer-resource-data-sync.md "Explorer-resource-data-sync.md").
 
-## Types
-
-of findings that Explorer receives
+## Types of findings that Explorer receives
 
 Explorer receives [all findings](../../../securityhub/latest/userguide/securityhub-cwe-integration-types.md#securityhub-cwe-integration-types-all-findings "../../../securityhub/latest/userguide/securityhub-cwe-integration-types.md#securityhub-cwe-integration-types-all-findings") from Security Hub CSPM. You can see all findings based on severity
 in the Explorer widget when you turn on the Security Hub CSPM default settings. By default,
@@ -62,9 +48,7 @@ Explorer creates OpsData for all findings regardless of severity. For more
 information about Security Hub CSPM severity levels, see [Severity](../../../securityhub/1.0/APIReference/API_Severity.md "../../../securityhub/1.0/APIReference/API_Severity.md") in
 the _AWS Security Hub API Reference_.
 
-## Enabling
-
-integration
+## Enabling integration
 
 This section describes how to enable and configure Explorer to start receiving
 Security Hub CSPM findings.
@@ -101,9 +85,7 @@ choose **Enable access**. If you don't see this button,
 log in to the AWS Organizations management account and return to this page to
 select the button.
 
-## How to
-
-view findings from Security Hub CSPM
+## How to view findings from Security Hub CSPM
 
 The following procedure describes how to view Security Hub CSPM findings.
 
@@ -115,9 +97,7 @@ The following procedure describes how to view Security Hub CSPM findings.
    displays your Security Hub CSPM findings. You can select a severity level to view a
    detailed description of the corresponding OpsItem.
 
-## How to stop
-
-receiving findings
+## How to stop receiving findings
 
 The following procedure describes how to stop receiving Security Hub CSPM findings.
 

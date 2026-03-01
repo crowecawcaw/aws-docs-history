@@ -1,22 +1,11 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Creating an OS user or group
-
-using Fleet Manager
+# Creating an OS user or group using Fleet Manager
 
 ###### Note
 
 Fleet Manager uses Session Manager to set passwords for new users. For Amazon EC2
 instances, the instance profile attached to your managed instances must
 provide permissions for Session Manager to use this feature. For more information
-about adding Session Manager permissions to an instance profile, see [Add
-Session Manager permissions to an existing IAM role](getting-started-add-permissions-to-existing-profile.md "getting-started-add-permissions-to-existing-profile.md").
+about adding Session Manager permissions to an instance profile, see [Add Session Manager permissions to an existing IAM role](getting-started-add-permissions-to-existing-profile.md "getting-started-add-permissions-to-existing-profile.md").
 
 Instead of logging on directly to a server to create a user account or group,
 you can use the Fleet Manager console to perform the same tasks.

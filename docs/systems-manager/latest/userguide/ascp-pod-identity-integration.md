@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Use AWS Secrets and Configuration Provider CSI with Pod
-
-Identity for Amazon EKS
+# Use AWS Secrets and Configuration Provider CSI with Pod Identity for Amazon EKS
 
 The AWS Secrets and Configuration Provider integration with the Pod Identity Agent for Amazon Elastic Kubernetes Service provides
 enhanced security, simplified configuration, and improved performance for
@@ -50,9 +40,7 @@ instances.
 - (Optional) Access to two AWS accounts for cross-account
   access
 
-## Install the Amazon EKS Pod Identity
-
-Agent
+## Install the Amazon EKS Pod Identity Agent
 
 To use Pod Identity with your cluster, you must install the Amazon EKS Pod
 Identity Agent add-on.
@@ -161,8 +149,7 @@ kubectl exec -it $(kubectl get pods | awk '/`pod-identity-deployment`/{print $1}
    and `ssm:DescribeParameters` permission to the parameters
    that the Pod needs to access.
 2. Create a parameter in Parameter Store, if you do not already have one. For
-   information, see [Creating Parameter Store parameters in
-   Systems Manager](sysman-paramstore-su-create.md "sysman-paramstore-su-create.md").
+   information, see [Creating Parameter Store parameters in Systems Manager](sysman-paramstore-su-create.md "sysman-paramstore-su-create.md").
 
 ## Troubleshoot
 

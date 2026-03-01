@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Understanding targets and rate controls in State Manager associations
 
 This topic describes State Manager features that help you deploy an association to
@@ -52,15 +44,12 @@ longer runs the association on those nodes.
 
 If you use Automation runbooks with State Manager and the tagging limitation
 prevents you from achieving a specific goal, consider using Automation
-runbooks with Amazon EventBridge. For more information, see [Run automations based on EventBridge
-events](running-automations-event-bridge.md "running-automations-event-bridge.md"). For more information
-about using runbooks with State Manager, see [Scheduling
-automations with State Manager associations](scheduling-automations-state-manager-associations.md "scheduling-automations-state-manager-associations.md").
+runbooks with Amazon EventBridge. For more information, see [Run automations based on EventBridge events](running-automations-event-bridge.md "running-automations-event-bridge.md"). For more information
+about using runbooks with State Manager, see [Scheduling automations with State Manager associations](scheduling-automations-state-manager-associations.md "scheduling-automations-state-manager-associations.md").
 
 As a best practice, we recommend using tags when creating associations that
 use a Command or Policy document. We also recommend using tags when creating
-associations to run Auto Scaling groups. For more information, see [Running Auto Scaling groups with
-associations](systems-manager-state-manager-asg.md "systems-manager-state-manager-asg.md").
+associations to run Auto Scaling groups. For more information, see [Running Auto Scaling groups with associations](systems-manager-state-manager-asg.md "systems-manager-state-manager-asg.md").
 
 ###### Note
 
@@ -96,8 +85,7 @@ runs the association according to the schedule you specified.
 
 ###### Note
 
-If a managed node you expect to see isn't listed, see [Troubleshooting managed
-node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for troubleshooting
+If a managed node you expect to see isn't listed, see [Troubleshooting managed node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for troubleshooting
 tips.
 
 ###### Choose a resource group

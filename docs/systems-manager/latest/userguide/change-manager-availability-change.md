@@ -1,22 +1,10 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# AWS Systems Manager Change Manager availability
-
-change
+# AWS Systems Manager Change Manager availability change
 
 After careful consideration, we decided to close AWS Systems Manager Change Manager to new customers
 starting November 7, 2025. If you would like to use Change Manager, sign up prior to that date.
 Existing customers can continue to use the service as normal.
 
-## Alternative services
-
-evaluation
+## Alternative services evaluation
 
 For customers requiring an enterprise-grade change management solution as a
 replacement for AWS Systems Manager Change Manager, we recommend transitioning to one of AWS

@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Step 2: Register a target node
-
-with the maintenance window using the AWS CLI
+# Step 2: Register a target node with the maintenance window using the AWS CLI
 
 In this step, you register a target with your new maintenance window. In
 this case, you specify which node to update when the maintenance window
@@ -16,8 +6,7 @@ runs.
 
 For an example of registering more than one node at a time using node IDs,
 examples of using tags to identify multiple nodes, and examples of
-specifying resource groups as targets, see [Examples: Register
-targets with a maintenance window](mw-cli-tutorial-targets-examples.md "mw-cli-tutorial-targets-examples.md").
+specifying resource groups as targets, see [Examples: Register targets with a maintenance window](mw-cli-tutorial-targets-examples.md "mw-cli-tutorial-targets-examples.md").
 
 ###### Note
 
@@ -25,9 +14,7 @@ You should already have created an Amazon Elastic Compute Cloud (Amazon EC2) ins
 in this step, as described in the [Maintenance Windows tutorial
 prerequisites](maintenance-windows-tutorials.md "maintenance-windows-tutorials.md").
 
-###### To register a target node with a maintenance window using the
-
-AWS CLI
+###### To register a target node with a maintenance window using the AWS CLI
 
 1. Run the following command on your local machine. Replace each
    `example resource placeholder` with
@@ -98,5 +85,4 @@ The system returns information similar to the following.
 }
 ```
 
-Continue to [Step 3: Register a task with the
-maintenance window using the AWS CLI](mw-cli-tutorial-tasks.md "mw-cli-tutorial-tasks.md").
+Continue to [Step 3: Register a task with the maintenance window using the AWS CLI](mw-cli-tutorial-tasks.md "mw-cli-tutorial-tasks.md").

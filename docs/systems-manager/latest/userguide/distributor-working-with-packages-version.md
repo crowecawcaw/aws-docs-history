@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Add a version to a
-
-Distributor package
+# Add a version to a Distributor package
 
 To add a package version, [create a package](distributor-working-with-packages-create.md "distributor-working-with-packages-create.md"), and then use Distributor to add a package version by
 adding an entry to the AWS Systems Manager (SSM) document that already exists for older
@@ -42,23 +32,16 @@ are no longer required.
 
 ###### Topics
 
-- [Adding a package version using the
-  console](#add-pkg-version "#add-pkg-version")
-- [Adding a package version using the
-  AWS CLI](#add-pkg-version-cli "#add-pkg-version-cli")
+- [Adding a package version using the console](#add-pkg-version "#add-pkg-version")
+- [Adding a package version using the AWS CLI](#add-pkg-version-cli "#add-pkg-version-cli")
 
-## Adding a package version using the
+## Adding a package version using the console
 
-console
-
-Before you perform these steps, follow the instructions in [Create a package in
-Distributor](distributor-working-with-packages-create.md "distributor-working-with-packages-create.md") to create a new
+Before you perform these steps, follow the instructions in [Create a package in Distributor](distributor-working-with-packages-create.md "distributor-working-with-packages-create.md") to create a new
 package for the version. Then, use the Systems Manager console to add a new package
 version to Distributor.
 
-### Adding a package version using the
-
-Simple workflow
+### Adding a package version using the Simple workflow
 
 To add a package version by using the **Simple**
 workflow, prepare updated installable files or add installable files to
@@ -114,26 +97,22 @@ this limitation.
      you begin, and manually author the manifest so that one
      installable file can be targeted at multiple operating
      system platforms or versions. For more information, see
-     [Adding a package version using the
-     Advanced workflow](#add-pkg-version-adv "#add-pkg-version-adv").
+     [Adding a package version using the Advanced workflow](#add-pkg-version-adv "#add-pkg-version-adv").
     * Manually edit the manifest file in the
      **Simple** workflow so that your .zip
      file is targeted at multiple operating system platforms or
      versions. For more information about how to do this, see the
-     end of step 4 in [Step 2: Create the JSON package
-     manifest](distributor-working-with-packages-create.md#packages-manifest "distributor-working-with-packages-create.md#packages-manifest").
+     end of step 4 in [Step 2: Create the JSON package manifest](distributor-working-with-packages-create.md#packages-manifest "distributor-working-with-packages-create.md#packages-manifest").
 
 10. For **Platform version**, verify that the
     operating system platform version shown is either
     `_any`, a major release version followed by
     a wildcard (8.\*), or the exact operating system release version to
     which you want your software to apply. For more information about
-    specifying a platform version, see step 4 in [Step 2: Create the JSON package
-    manifest](distributor-working-with-packages-create.md#packages-manifest "distributor-working-with-packages-create.md#packages-manifest").
+    specifying a platform version, see step 4 in [Step 2: Create the JSON package manifest](distributor-working-with-packages-create.md#packages-manifest "distributor-working-with-packages-create.md#packages-manifest").
 11. For **Architecture**, choose the correct
     processor architecture for each installable file from the drop-down
-    list. For more information about supported architectures, see [Supported package platforms and
-    architectures](distributor.md#what-is-a-package-platforms "distributor.md#what-is-a-package-platforms").
+    list. For more information about supported architectures, see [Supported package platforms and architectures](distributor.md#what-is-a-package-platforms "distributor.md#what-is-a-package-platforms").
 12. (Optional) Expand **Scripts**, and review the
     installation and uninstallation scripts that Distributor generates for
     your installable software.
@@ -150,8 +129,7 @@ this limitation.
 You can edit the manifest manually if you want to target a
 software installable at more than one operating system, as described
 in step 9. For more information about editing the manifest, see
-[Step 2: Create the JSON package
-manifest](distributor-working-with-packages-create.md#packages-manifest "distributor-working-with-packages-create.md#packages-manifest"). 15. When you finish adding software and reviewing the target platform,
+[Step 2: Create the JSON package manifest](distributor-working-with-packages-create.md#packages-manifest "distributor-working-with-packages-create.md#packages-manifest"). 15. When you finish adding software and reviewing the target platform,
 version, and architecture data, choose **Add
 version**. 16. Wait for Distributor to finish uploading your software and creating
 the new package version. Distributor shows upload status for each
@@ -167,8 +145,7 @@ upload**. 17. If Distributor can't upload any of the software installable files,
 displays an **Upload failed** message. To retry the
 upload, choose **Retry upload**. For more
 information about how to troubleshoot package version creation
-failures, see [Troubleshooting
-AWS Systems Manager Distributor](distributor-troubleshooting.md "distributor-troubleshooting.md"). 18. When Distributor is finished creating the new package version, on the
+failures, see [Troubleshooting AWS Systems Manager Distributor](distributor-troubleshooting.md "distributor-troubleshooting.md"). 18. When Distributor is finished creating the new package version, on the
 package's **Details** page, on the
 **Versions** tab, view the new version in the
 list of available package versions. Set a default version of the
@@ -178,9 +155,7 @@ default version**.
 If you don't set a default version, the newest package version is
 the default version.
 
-### Adding a package version using the
-
-Advanced workflow
+### Adding a package version using the Advanced workflow
 
 To add a package version, [create a
 package](distributor-working-with-packages-create.md "distributor-working-with-packages-create.md"), and then use Distributor to add a package version by adding
@@ -216,8 +191,7 @@ package version by using the **Advanced** workflow.
 Amazon S3 bucket where you stored your .zip files, choose **New
 manifest**. You can author or paste the entire manifest
 in the JSON editor field. For more information about how to create
-the JSON manifest, see [Step 2: Create the JSON package
-manifest](distributor-working-with-packages-create.md#packages-manifest "distributor-working-with-packages-create.md#packages-manifest"). 8. When you're finished with the manifest, choose **Add
+the JSON manifest, see [Step 2: Create the JSON package manifest](distributor-working-with-packages-create.md#packages-manifest "distributor-working-with-packages-create.md#packages-manifest"). 8. When you're finished with the manifest, choose **Add
 package version**. 9. On the package's **Details** page, on the
 **Versions** tab, view the new version in the
 list of available package versions. Set a default version of the
@@ -227,9 +201,7 @@ default version**.
 If you don't set a default version, the newest package version is
 the default version.
 
-## Adding a package version using the
-
-AWS CLI
+## Adding a package version using the AWS CLI
 
 You can use the AWS CLI to add a new package version to Distributor. Before you run
 these commands, you must create a new package version and upload it to S3, as
@@ -241,8 +213,7 @@ described at the start of this topic.
    for a new package version. Replace
    `document-name` with the name of your
    document. Replace `amzn-s3-demo-bucket` with
-   the URL of the JSON manifest that you copied in [Step 3: Upload the package and manifest
-   to an Amazon S3 bucket](distributor-working-with-packages-create.md#packages-upload-s3 "distributor-working-with-packages-create.md#packages-upload-s3").
+   the URL of the JSON manifest that you copied in [Step 3: Upload the package and manifest to an Amazon S3 bucket](distributor-working-with-packages-create.md#packages-upload-s3 "distributor-working-with-packages-create.md#packages-upload-s3").
    `S3-bucket-URL-of-package` is the URL of
    the Amazon S3 bucket where the entire package is stored. Replace
    `version-name-from-updated-manifest` with

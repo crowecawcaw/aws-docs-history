@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Updating AMIs
 
 The following tutorials explain how to update Amazon Machine Image (AMIs) to include the
@@ -13,13 +5,10 @@ latest patches.
 
 ###### Topics
 
-- [Update a Linux
-  AMI](automation-tutorial-update-patch-linux-ami.md "automation-tutorial-update-patch-linux-ami.md")
+- [Update a Linux AMI](automation-tutorial-update-patch-linux-ami.md "automation-tutorial-update-patch-linux-ami.md")
 - [Update a Linux AMI (AWS CLI)](#update-patch-linux-ami-cli "#update-patch-linux-ami-cli")
-- [Update a
-  Windows Server AMI](automation-tutorial-update-patch-windows-ami.md "automation-tutorial-update-patch-windows-ami.md")
-- [Update a golden
-  AMI using Automation, AWS Lambda, and Parameter Store](automation-tutorial-update-patch-golden-ami.md "automation-tutorial-update-patch-golden-ami.md")
+- [Update a Windows Server AMI](automation-tutorial-update-patch-windows-ami.md "automation-tutorial-update-patch-windows-ami.md")
+- [Update a golden AMI using Automation, AWS Lambda, and Parameter Store](automation-tutorial-update-patch-golden-ami.md "automation-tutorial-update-patch-golden-ami.md")
 - [Updating AMIs using Automation and Jenkins](automation-tutorial-update-patch-ami-jenkins-integration.md "automation-tutorial-update-patch-ami-jenkins-integration.md")
 - [Updating AMIs for Auto Scaling groups](automation-tutorial-update-patch-windows-ami-autoscaling.md "automation-tutorial-update-patch-windows-ami-autoscaling.md")
 

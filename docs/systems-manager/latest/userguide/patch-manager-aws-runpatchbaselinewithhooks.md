@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# SSM Command document
-
-for patching: `AWS-RunPatchBaselineWithHooks`
+# SSM Command document for patching: `AWS-RunPatchBaselineWithHooks`
 
 AWS Systems Manager supports `AWS-RunPatchBaselineWithHooks`, a Systems Manager document
 (SSM document) for Patch Manager, a tool in AWS Systems Manager. This SSM document performs
@@ -412,8 +402,7 @@ different AWS account, you must specify the full resource ARN, such as
 The SSM document you specify is run before the `Install`
 operation and performs any actions supported by SSM Agent, such as a shell
 script to check application health check before patching is performed on the
-managed node. (For a list of actions, see [Command document plugin
-reference](documents-command-ssm-plugin-reference.md "documents-command-ssm-plugin-reference.md")). The default
+managed node. (For a list of actions, see [Command document plugin reference](documents-command-ssm-plugin-reference.md "documents-command-ssm-plugin-reference.md")). The default
 SSM document name is `AWS-Noop`, which doesn't perform any
 operation on the managed node.
 
@@ -436,8 +425,7 @@ different AWS account, you must specify the full resource ARN, such as
 The SSM document you specify is run after the `Install with
  NoReboot` operation and performs any actions supported by
 SSM Agent, such as a shell script for installing third party updates before
-reboot. (For a list of actions, see [Command document plugin
-reference](documents-command-ssm-plugin-reference.md "documents-command-ssm-plugin-reference.md")). The default
+reboot. (For a list of actions, see [Command document plugin reference](documents-command-ssm-plugin-reference.md "documents-command-ssm-plugin-reference.md")). The default
 SSM document name is `AWS-Noop`, which doesn't perform any
 operation on the managed node.
 
@@ -460,8 +448,7 @@ AWS account, you must specify the full resource ARN, such as
 The SSM document you specify is run after the managed node reboot
 operation and performs any actions supported by SSM Agent, such as a shell
 script to verify node health after the patching operation is complete. (For
-a list of actions, see [Command document plugin
-reference](documents-command-ssm-plugin-reference.md "documents-command-ssm-plugin-reference.md")). The default
+a list of actions, see [Command document plugin reference](documents-command-ssm-plugin-reference.md "documents-command-ssm-plugin-reference.md")). The default
 SSM document name is `AWS-Noop`, which doesn't perform any
 operation on the managed node.
 

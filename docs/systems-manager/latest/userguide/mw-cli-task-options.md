@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Parameter options for the
-
-register-task-with-maintenance-windows command
+# Parameter options for the register-task-with-maintenance-windows command
 
 The **register-task-with-maintenance-window** command
 provides several options for configuring a task according to your needs.
@@ -52,8 +42,7 @@ described in the following table.
 
 For information about using pseudo parameters in
 `--task-invocation-parameters` content, such as
-{{TARGET\_ID}}, see [Using pseudo parameters
-when registering maintenance window tasks](maintenance-window-tasks-pseudo-parameters.md "maintenance-window-tasks-pseudo-parameters.md").
+{{TARGET\_ID}}, see [Using pseudo parameters when registering maintenance window tasks](maintenance-window-tasks-pseudo-parameters.md "maintenance-window-tasks-pseudo-parameters.md").
 
 Task invocation parameters options for maintenance window tasks
 

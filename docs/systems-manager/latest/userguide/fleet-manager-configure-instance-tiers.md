@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Configuring instance
-
-tiers
+# Configuring instance tiers
 
 This topic describes the scenarios when you must activate the advanced-instanced
 tier.
@@ -76,8 +66,7 @@ incurred for all on-premises nodes, even if you have fewer than
 
 There is no additional charge to patch applications released by
 Microsoft on Amazon Elastic Compute Cloud (Amazon EC2) instances. For more information, see
-[Patching applications
-released by Microsoft on Windows Server](patch-manager-patching-windows-applications.md "patch-manager-patching-windows-applications.md").
+[Patching applications released by Microsoft on Windows Server](patch-manager-patching-windows-applications.md "patch-manager-patching-windows-applications.md").
 
 Scenario 3: Connecting to hybrid-activated nodes using Session Manager
 
@@ -101,7 +90,5 @@ tier, and for which scenarios additional charges apply.
 
 ###### Topics
 
-- [Turning on the
-  advanced-instances tier](fleet-manager-enable-advanced-instances-tier.md "fleet-manager-enable-advanced-instances-tier.md")
-- [Reverting from the
-  advanced-instances tier to the standard-instances tier](fleet-manager-revert-to-standard-tier.md "fleet-manager-revert-to-standard-tier.md")
+- [Turning on the advanced-instances tier](fleet-manager-enable-advanced-instances-tier.md "fleet-manager-enable-advanced-instances-tier.md")
+- [Reverting from the advanced-instances tier to the standard-instances tier](fleet-manager-revert-to-standard-tier.md "fleet-manager-revert-to-standard-tier.md")

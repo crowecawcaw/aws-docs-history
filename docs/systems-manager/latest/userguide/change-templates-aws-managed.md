@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Try out the AWS managed
-
-`Hello World` change template
+# Try out the AWS managed `Hello World` change template
 
 ###### Change Manager availability change
 
@@ -36,11 +26,9 @@ Automation step.
 Before you begin, ensure you have completed the following tasks:
 
 - If you're using AWS Organizations to manage change across an organization,
-  complete the organization setup tasks described in [Setting up Change Manager for an
-  organization (management account)](change-manager-organization-setup.md "change-manager-organization-setup.md").
+  complete the organization setup tasks described in [Setting up Change Manager for an organization (management account)](change-manager-organization-setup.md "change-manager-organization-setup.md").
 - Configure Change Manager for your delegated administrator account or single account, as
-  described in [Configuring Change Manager options and best
-  practices](change-manager-account-setup.md "change-manager-account-setup.md").
+  described in [Configuring Change Manager options and best practices](change-manager-account-setup.md "change-manager-account-setup.md").
 
 ###### Note
 
@@ -65,8 +53,7 @@ change template.
 
 ###### Next steps
 
-For information about approving change requests, see [Reviewing and approving or rejecting
-change requests](change-requests-review.md "change-requests-review.md").
+For information about approving change requests, see [Reviewing and approving or rejecting change requests](change-requests-review.md "change-requests-review.md").
 
 To view the status and results of your change request, choose the name of
 your change request on the **Requests** tab in Change Manager.

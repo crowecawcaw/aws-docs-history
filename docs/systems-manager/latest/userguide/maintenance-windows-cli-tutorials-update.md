@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Tutorial: Update a
-
-maintenance window using the AWS CLI
+# Tutorial: Update a maintenance window using the AWS CLI
 
 This tutorial demonstrates how to use the AWS Command Line Interface (AWS CLI) to update a
 maintenance window. It also shows you how to update different task types,
@@ -22,8 +12,7 @@ maintenance window:
 - [UpdateMaintenanceWindowTask](../APIReference/API_UpdateMaintenanceWindowTask.md "../APIReference/API_UpdateMaintenanceWindowTask.md")
 - [DeregisterTargetFromMaintenanceWindow](../APIReference/API_DeregisterTargetFromMaintenanceWindow.md "../APIReference/API_DeregisterTargetFromMaintenanceWindow.md")
   For information about using the Systems Manager console to update a maintenance window,
-  see [Update or delete maintenance window
-  resources using the console](sysman-maintenance-update.md "sysman-maintenance-update.md").
+  see [Update or delete maintenance window resources using the console](sysman-maintenance-update.md "sysman-maintenance-update.md").
 
 As you follow the steps in this tutorial, replace the values in italicized
 `red` text with your own options and IDs. For example, replace

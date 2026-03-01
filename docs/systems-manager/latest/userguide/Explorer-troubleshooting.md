@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Troubleshooting Systems Manager Explorer
 
 This topic includes information about how to troubleshoot common problems with
@@ -45,9 +37,7 @@ and configured AWS Organizations. If you set up and configured AWS Organizations
 management account or an Explorer delegated administrator can create resource data syncs
 that use these options.
 
-For more information, see [Setting up Systems Manager Explorer to display data from
-multiple accounts and Regions](Explorer-resource-data-sync.md "Explorer-resource-data-sync.md") and [Configuring a delegated
-administrator for Explorer](Explorer-setup-delegated-administrator.md "Explorer-setup-delegated-administrator.md").
+For more information, see [Setting up Systems Manager Explorer to display data from multiple accounts and Regions](Explorer-resource-data-sync.md "Explorer-resource-data-sync.md") and [Configuring a delegated administrator for Explorer](Explorer-setup-delegated-administrator.md "Explorer-setup-delegated-administrator.md").
 
 **Explorer doesn't display any data at all**
 

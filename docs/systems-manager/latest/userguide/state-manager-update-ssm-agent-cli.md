@@ -1,20 +1,9 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Walkthrough: Automatically update
-
-SSM Agent with the AWS CLI
+# Walkthrough: Automatically update SSM Agent with the AWS CLI
 
 The following procedure walks you through the process of creating a State Manager
 association using the AWS Command Line Interface. The association automatically updates the SSM Agent
 according to a schedule that you specify. For more information about SSM Agent, see [Working with SSM Agent](ssm-agent.md "ssm-agent.md"). To customize the update schedule
-for SSM Agent using the console, see [Automatically updating
-SSM Agent](ssm-agent-automatic-updates.md#ssm-agent-automatic-updates-console "ssm-agent-automatic-updates.md#ssm-agent-automatic-updates-console").
+for SSM Agent using the console, see [Automatically updating SSM Agent](ssm-agent-automatic-updates.md#ssm-agent-automatic-updates-console "ssm-agent-automatic-updates.md#ssm-agent-automatic-updates-console").
 
 To be notified about SSM Agent updates, subscribe to the [SSM Agent Release
 Notes](https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md "https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md") page on GitHub.
@@ -23,8 +12,7 @@ Notes](https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md "http
 
 Before you complete the following procedure, verify that you have at least one
 running Amazon Elastic Compute Cloud (Amazon EC2) instance for Linux, macOS, or Windows Server that is
-configured for Systems Manager. For more information, see [Setting up managed nodes for
-AWS Systems Manager](systems-manager-setting-up-nodes.md "systems-manager-setting-up-nodes.md").
+configured for Systems Manager. For more information, see [Setting up managed nodes for AWS Systems Manager](systems-manager-setting-up-nodes.md "systems-manager-setting-up-nodes.md").
 
 If you create an association by using either the AWS CLI or AWS Tools for Windows PowerShell, use the
 `--Targets` parameter to target instances, as shown in the following
@@ -43,8 +31,7 @@ using Amazon Elastic Compute Cloud (Amazon EC2) tags. Replace each `example reso
 Sunday morning at 2:00 a.m. (UTC).
 
 State Manager associations don't support all cron and rate expressions. For more
-information about creating cron and rate expressions for associations, see [Reference: Cron and rate expressions
-for Systems Manager](reference-cron-and-rate-expressions.md "reference-cron-and-rate-expressions.md").
+information about creating cron and rate expressions for associations, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md "reference-cron-and-rate-expressions.md").
 
 Linux & macOS
 

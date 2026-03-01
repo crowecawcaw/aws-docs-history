@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Enabling and disabling session logging
 
 Session logging records information about current and completed sessions in the Systems Manager
@@ -58,23 +50,16 @@ screen` or `sudo apt-get install screen`.
   and Session Manager endpoints, and Session Manager only serves as a tunnel for
   SSH connections.
   For more information about the permissions required to use Amazon S3 or Amazon CloudWatch Logs for
-  logging session data, see [Creating an IAM
-  role with permissions for Session Manager and Amazon S3 and CloudWatch Logs (console)](getting-started-create-iam-instance-profile.md#create-iam-instance-profile-ssn-logging "getting-started-create-iam-instance-profile.md#create-iam-instance-profile-ssn-logging").
+  logging session data, see [Creating an IAM role with permissions for Session Manager and Amazon S3 and CloudWatch Logs (console)](getting-started-create-iam-instance-profile.md#create-iam-instance-profile-ssn-logging "getting-started-create-iam-instance-profile.md#create-iam-instance-profile-ssn-logging").
 
 Refer to the following topics for more information about logging options for
 Session Manager.
 
 ###### Topics
 
-- [Streaming session data using
-  Amazon CloudWatch Logs (console)](session-manager-logging-cwl-streaming.md "session-manager-logging-cwl-streaming.md")
-- [Logging session data using Amazon S3
-  (console)](session-manager-logging-s3.md "session-manager-logging-s3.md")
-- [Logging session data using
-  Amazon CloudWatch Logs (console)](session-manager-logging-cloudwatch-logs.md "session-manager-logging-cloudwatch-logs.md")
-- [Configuring session logging to
-  disk](session-manager-logging-disk.md "session-manager-logging-disk.md")
-- [Adjusting how long the
-  Session Manager temporary log file is stored on disk](session-manager-logging-disk-retention.md "session-manager-logging-disk-retention.md")
-- [Disabling Session Manager
-  logging in CloudWatch Logs and Amazon S3](session-manager-enable-and-disable-logging.md "session-manager-enable-and-disable-logging.md")
+- [Streaming session data using Amazon CloudWatch Logs (console)](session-manager-logging-cwl-streaming.md "session-manager-logging-cwl-streaming.md")
+- [Logging session data using Amazon S3 (console)](session-manager-logging-s3.md "session-manager-logging-s3.md")
+- [Logging session data using Amazon CloudWatch Logs (console)](session-manager-logging-cloudwatch-logs.md "session-manager-logging-cloudwatch-logs.md")
+- [Configuring session logging to disk](session-manager-logging-disk.md "session-manager-logging-disk.md")
+- [Adjusting how long the Session Manager temporary log file is stored on disk](session-manager-logging-disk-retention.md "session-manager-logging-disk-retention.md")
+- [Disabling Session Manager logging in CloudWatch Logs and Amazon S3](session-manager-enable-and-disable-logging.md "session-manager-enable-and-disable-logging.md")

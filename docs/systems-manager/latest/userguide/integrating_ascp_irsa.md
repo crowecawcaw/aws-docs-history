@@ -1,19 +1,10 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # Use AWS Secrets and Configuration Provider CSI with IAM Roles for Service Accounts (IRSA)
 
 ###### Topics
 
 - [Prerequisites](#prerequisites "#prerequisites")
 - [Set up access control](#integrating_ascp_irsa_access "#integrating_ascp_irsa_access")
-- [Identify which parameters to
-  mount](#integrating_ascp_irsa_mount "#integrating_ascp_irsa_mount")
+- [Identify which parameters to mount](#integrating_ascp_irsa_mount "#integrating_ascp_irsa_mount")
 - [Troubleshoot](#integrating_ascp_irsa_trouble "#integrating_ascp_irsa_trouble")
 
 ## Prerequisites
@@ -46,9 +37,7 @@ associate them with the IAM role.
    creating an endpoint, see [Interface VPC endpoints](../../../IAM/latest/UserGuide/reference_interface_vpc_endpoints.md "../../../IAM/latest/UserGuide/reference_interface_vpc_endpoints.md") in the _AWS Identity and Access Management User
    Guide_.
 
-## Identify which parameters to
-
-mount
+## Identify which parameters to mount
 
 To determine which parameters the ASCP mounts in Amazon EKS as files on the
 filesystem, you create a [SecretProviderClass](ascp-examples.md#ascp-examples-secretproviderclass "ascp-examples.md#ascp-examples-secretproviderclass")
@@ -113,8 +102,7 @@ kubectl -n kube-system get pods
 kubectl -n kube-system logs Pod/`pod-id`
 ```
 
-- ###### Verify that the `SecretProviderClass` CRD is
-  installed:
+- ###### Verify that the `SecretProviderClass` CRD is installed:
 
 ```
 kubectl get crd secretproviderclasses.secrets-store.csi.x-k8s.io

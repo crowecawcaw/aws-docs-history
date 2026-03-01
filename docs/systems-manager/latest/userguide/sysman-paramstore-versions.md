@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Working with parameter versions in
-
-Parameter Store
+# Working with parameter versions in Parameter Store
 
 Each time you edit the value of a parameter, Parameter Store, a tool in AWS Systems Manager creates
 a new _version_ of the parameter and retains the
@@ -39,9 +29,7 @@ parameter version fails. This safeguard is to prevent parameter versions with
 mission critical labels assigned to them from being deleted. To continue creating
 new parameters, first move the label from the oldest version of the parameter to a
 newer one for use in your operations. For information about moving parameter labels,
-see [Moving a parameter
-label using the console](sysman-paramstore-labels.md#sysman-paramstore-labels-console-move "sysman-paramstore-labels.md#sysman-paramstore-labels-console-move") and [Moving a parameter label
-using the AWS CLI](sysman-paramstore-labels.md#sysman-paramstore-labels-cli-move "sysman-paramstore-labels.md#sysman-paramstore-labels-cli-move").
+see [Moving a parameter label using the console](sysman-paramstore-labels.md#sysman-paramstore-labels-console-move "sysman-paramstore-labels.md#sysman-paramstore-labels-console-move") and [Moving a parameter label using the AWS CLI](sysman-paramstore-labels.md#sysman-paramstore-labels-cli-move "sysman-paramstore-labels.md#sysman-paramstore-labels-cli-move").
 
 The following procedures show you how to edit a parameter and then verify that you
 created a new version. You can use the `get-parameter` and
@@ -50,14 +38,10 @@ using these commands, see [GetParameter](../APIReference/API_GetParameter.md#API
 
 ###### Topics
 
-- [Creating a new version of a
-  parameter using the console](#sysman-paramstore-version-console "#sysman-paramstore-version-console")
-- [Referencing a parameter
-  version](#reference-parameter-version "#reference-parameter-version")
+- [Creating a new version of a parameter using the console](#sysman-paramstore-version-console "#sysman-paramstore-version-console")
+- [Referencing a parameter version](#reference-parameter-version "#reference-parameter-version")
 
-## Creating a new version of a
-
-parameter using the console
+## Creating a new version of a parameter using the console
 
 You can use the Systems Manager console to create a new version of a parameter and view
 the version history of a parameter.
@@ -67,8 +51,7 @@ the version history of a parameter.
 1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
 2. In the navigation pane, choose **Parameter Store**.
 3. Choose the name of a parameter that you created earlier. For
-   information about creating a new parameter, see [Creating Parameter Store parameters in
-   Systems Manager](sysman-paramstore-su-create.md "sysman-paramstore-su-create.md").
+   information about creating a new parameter, see [Creating Parameter Store parameters in Systems Manager](sysman-paramstore-su-create.md "sysman-paramstore-su-create.md").
 4. Choose **Edit**.
 5. In the **Value** box, enter a new value, and then
    choose **Save changes**.
@@ -78,9 +61,7 @@ the version history of a parameter.
 7. To view the history of all versions of a parameter, choose the
    **History** tab.
 
-## Referencing a parameter
-
-version
+## Referencing a parameter version
 
 You can reference specific parameter versions in commands, API calls, and SSM
 documents by using the following format:
@@ -115,8 +96,7 @@ aws ec2 run-instances ^
 
 Using `resolve` and a parameter value only works with the
 `--image-id` option and a parameter that contains an
-Amazon Machine Image (AMI) as its value. For more information, see [Using native parameter support in
-Parameter Store for Amazon Machine Image IDs](parameter-store-ec2-aliases.md "parameter-store-ec2-aliases.md").
+Amazon Machine Image (AMI) as its value. For more information, see [Using native parameter support in Parameter Store for Amazon Machine Image IDs](parameter-store-ec2-aliases.md "parameter-store-ec2-aliases.md").
 
 Here is an example for specifying version 2 of a parameter named
 `MyRunCommandParameter` in an SSM document.

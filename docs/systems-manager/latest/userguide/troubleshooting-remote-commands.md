@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Troubleshooting Systems Manager Run
-
-Command
+# Troubleshooting Systems Manager Run Command
 
 Run Command, a tool in AWS Systems Manager, provides status details with each command execution.
 For more information about the details of command statuses, see [Understanding command statuses](monitor-commands.md "monitor-commands.md"). You can also use the
@@ -17,8 +7,7 @@ information in this topic to help troubleshoot problems with Run Command.
 ###### Topics
 
 - [Some of my managed nodes are missing](#where-are-instances "#where-are-instances")
-- [A step in my script failed, but the overall status
-  is 'succeeded'](#ts-exit-codes "#ts-exit-codes")
+- [A step in my script failed, but the overall status is 'succeeded'](#ts-exit-codes "#ts-exit-codes")
 - [SSM Agent isn't running properly](#ts-ssmagent-linux "#ts-ssmagent-linux")
 
 ## Some of my managed nodes are missing
@@ -28,17 +17,14 @@ to run and select **Manually selecting instances** in the
 **Targets** section, a list is displayed of managed nodes you
 can choose to run the command on.
 
-If a managed node you expect to see isn't listed, see [Troubleshooting managed
-node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for troubleshooting
+If a managed node you expect to see isn't listed, see [Troubleshooting managed node availability](fleet-manager-troubleshooting-managed-nodes.md "fleet-manager-troubleshooting-managed-nodes.md") for troubleshooting
 tips.
 
 After you create, activate, reboot, or restart a managed node, install Run Command on
 a node, or attach an AWS Identity and Access Management (IAM) instance profile to a node, it can take a few
 minutes for the managed node to be added to the list.
 
-## A step in my script failed, but the overall status
-
-is 'succeeded'
+## A step in my script failed, but the overall status is 'succeeded'
 
 Using Run Command, you can define how your scripts handle exit codes. By default, the
 exit code of the last command run in a script is reported as the exit code for the

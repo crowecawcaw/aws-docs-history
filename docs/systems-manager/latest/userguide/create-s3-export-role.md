@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Creating a custom service role to export
-
-diagnosis reports to S3
+# Creating a custom service role to export diagnosis reports to S3
 
 When you are viewing filtered or unfiltered lists of managed nodes for your AWS
 organization or account in the Systems Manager **Explore nodes** page, you
@@ -109,5 +99,4 @@ required policy yourself.
 
 3. For step 10, choose **Step 2: Add permissions** and
    select the name of the policy you created in the previous step.
-   After you create the role, you can select it when following the steps in [Downloading or exporting a managed node
-   report](explore-nodes-download-report.md "explore-nodes-download-report.md").
+   After you create the role, you can select it when following the steps in [Downloading or exporting a managed node report](explore-nodes-download-report.md "explore-nodes-download-report.md").

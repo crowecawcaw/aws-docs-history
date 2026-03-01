@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # What is AWS Systems Manager?
 
 AWS Systems Manager helps you centrally view, manage, and operate nodes at scale in AWS,
@@ -37,8 +29,7 @@ at a specific account level or application level across your entire organization
 - [Supported AWS Regions](#regions "#regions")
 - [Accessing Systems Manager](#access-methods "#access-methods")
 - [Systems Manager service name history](#service-naming-history "#service-naming-history")
-- [Supported operating systems and
-  machine types](operating-systems-and-machine-types.md "operating-systems-and-machine-types.md")
+- [Supported operating systems and machine types](operating-systems-and-machine-types.md "operating-systems-and-machine-types.md")
 - [What is the unified console?](systems-manager-unified-console.md "systems-manager-unified-console.md")
 
 ## How can Systems Manager benefit my operations?

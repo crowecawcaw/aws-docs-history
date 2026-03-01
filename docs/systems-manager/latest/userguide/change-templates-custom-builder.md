@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Creating change templates
-
-using Builder
+# Creating change templates using Builder
 
 ###### Change Manager availability change
 
@@ -125,8 +115,7 @@ the following:
      If you want to restrict a particular user, group, or
      IAM role from submitting auto-approval requests, you
      can use a condition in an IAM policy for this purpose.
-     For more information, see [Controlling access to
-     auto-approval runbook workflows](change-manager-auto-approval-access.md "change-manager-auto-approval-access.md").
+     For more information, see [Controlling access to auto-approval runbook workflows](change-manager-auto-approval-access.md "change-manager-auto-approval-access.md").
     * For **Number of approvals required at this
      level**, choose the number of approvals that
      change requests created from this change template must
@@ -167,8 +156,7 @@ the following:
      only per-level approvals in your Change Manager
      operations.
 
-    For more information, see [About approvals in your
-     change templates](cm-approvals-templates.md "cm-approvals-templates.md").
+    For more information, see [About approvals in your change templates](cm-approvals-templates.md "cm-approvals-templates.md").
     * For **SNS topic to notify approvers**, do
      the following:
 
@@ -203,8 +191,7 @@ the following:
 
     	The Amazon SNS topic you select must be configured to specify the notifications it sends
     	 and the subscribers they're sent to. Its access policy must also grant permissions
-    	 to Systems Manager so Change Manager can send notifications. For information, see [Configuring Amazon SNS topics for Change Manager
-    	 notifications](change-manager-sns-setup.md "change-manager-sns-setup.md").
+    	 to Systems Manager so Change Manager can send notifications. For information, see [Configuring Amazon SNS topics for Change Manager notifications](change-manager-sns-setup.md "change-manager-sns-setup.md").
     	2. Choose **Add
     	 notification**.
 
@@ -258,8 +245,7 @@ following:
 
     The Amazon SNS topic you select must be configured to specify the notifications it sends
      and the subscribers they're sent to. Its access policy must also grant permissions
-     to Systems Manager so Change Manager can send notifications. For information, see [Configuring Amazon SNS topics for Change Manager
-     notifications](change-manager-sns-setup.md "change-manager-sns-setup.md").
+     to Systems Manager so Change Manager can send notifications. For information, see [Configuring Amazon SNS topics for Change Manager notifications](change-manager-sns-setup.md "change-manager-sns-setup.md").
     2. Choose **Add notification**.
 
 11. (Optional) In the **Tags** section, apply one or

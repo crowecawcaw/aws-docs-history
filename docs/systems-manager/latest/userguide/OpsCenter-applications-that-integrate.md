@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Integrate OpsCenter with other
-
-AWS services
+# Integrate OpsCenter with other AWS services
 
 OpsCenter, a tool in AWS Systems Manager, integrates with multiple AWS services to diagnose
 and remediate issues with AWS resources. You must set up the AWS service before you
@@ -35,24 +25,15 @@ see the following topics.
 
 ###### Topics
 
-- [Understanding OpsCenter integration
-  with Amazon CloudWatch](#OpsCenter-about-cloudwatch "#OpsCenter-about-cloudwatch")
-- [Understanding OpsCenter
-  integration with Amazon CloudWatch Application Insights](#OpsCenter-about-cloudwatch-insights "#OpsCenter-about-cloudwatch-insights")
-- [Understanding OpsCenter
-  integration with Amazon DevOps Guru](#OpsCenter-integrate-with-devops-guru "#OpsCenter-integrate-with-devops-guru")
-- [Understanding OpsCenter integration
-  with Amazon EventBridge](#OpsCenter-about-eventbridge "#OpsCenter-about-eventbridge")
-- [Understanding OpsCenter integration
-  with AWS Config](#OpsCenter-about-AWS-config "#OpsCenter-about-AWS-config")
-- [Understanding OpsCenter
-  integration with AWS Security Hub CSPM](#OpsCenter-integrate-with-security-hub "#OpsCenter-integrate-with-security-hub")
-- [Understanding OpsCenter
-  integration with Incident Manager](#OpsCenter-about-incident-manager "#OpsCenter-about-incident-manager")
+- [Understanding OpsCenter integration with Amazon CloudWatch](#OpsCenter-about-cloudwatch "#OpsCenter-about-cloudwatch")
+- [Understanding OpsCenter integration with Amazon CloudWatch Application Insights](#OpsCenter-about-cloudwatch-insights "#OpsCenter-about-cloudwatch-insights")
+- [Understanding OpsCenter integration with Amazon DevOps Guru](#OpsCenter-integrate-with-devops-guru "#OpsCenter-integrate-with-devops-guru")
+- [Understanding OpsCenter integration with Amazon EventBridge](#OpsCenter-about-eventbridge "#OpsCenter-about-eventbridge")
+- [Understanding OpsCenter integration with AWS Config](#OpsCenter-about-AWS-config "#OpsCenter-about-AWS-config")
+- [Understanding OpsCenter integration with AWS Security Hub CSPM](#OpsCenter-integrate-with-security-hub "#OpsCenter-integrate-with-security-hub")
+- [Understanding OpsCenter integration with Incident Manager](#OpsCenter-about-incident-manager "#OpsCenter-about-incident-manager")
 
-## Understanding OpsCenter integration
-
-with Amazon CloudWatch
+## Understanding OpsCenter integration with Amazon CloudWatch
 
 Amazon CloudWatch monitors your AWS resources and services, and displays metrics on every
 AWS service that you use. CloudWatch creates an OpsItem when an alarm enters the alarm
@@ -69,15 +50,12 @@ following list:
 - Amazon Elastic Block Store (EBS): disk space utilization reaches a threshold
 
 You can either create an alarm or edit an existing alarm to create an OpsItem. For
-more information, see [Configure CloudWatch
-alarms to create OpsItems](OpsCenter-create-OpsItems-from-CloudWatch-Alarms.md "OpsCenter-create-OpsItems-from-CloudWatch-Alarms.md").
+more information, see [Configure CloudWatch alarms to create OpsItems](OpsCenter-create-OpsItems-from-CloudWatch-Alarms.md "OpsCenter-create-OpsItems-from-CloudWatch-Alarms.md").
 
 When you enable OpsCenter using Integrated Setup, it integrates CloudWatch with
 OpsCenter.
 
-## Understanding OpsCenter
-
-integration with Amazon CloudWatch Application Insights
+## Understanding OpsCenter integration with Amazon CloudWatch Application Insights
 
 Using Amazon CloudWatch Application Insights, you can set up the most appropriate monitors for your application
 resources to continuously analyze data for signs of problems with your applications.
@@ -108,9 +86,7 @@ Here is an example:
 
 ![Screen shot showing the new format of an OpsItem created from a CloudWatch Insight.](images/OpsItem-CWinsight.png)
 
-## Understanding OpsCenter
-
-integration with Amazon DevOps Guru
+## Understanding OpsCenter integration with Amazon DevOps Guru
 
 Amazon DevOps Guru applies machine learning to analyze your operational data, application
 metrics, and application events to identify behaviors that deviate from normal
@@ -134,9 +110,7 @@ role.
    AWS Systems Manager OpsItems.**
 6. Select **Create** after you complete the setup.
 
-## Understanding OpsCenter integration
-
-with Amazon EventBridge
+## Understanding OpsCenter integration with Amazon EventBridge
 
 Amazon EventBridge delivers a stream of events that describe changes in AWS resources.
 When you enable OpsCenter using Integrated Setup, it integrates EventBridge with OpsCenter,
@@ -161,12 +135,9 @@ Following are some rules that you can configure in EventBridge to create an OpsI
 
 Based on your requirements, you can either create a rule or edit an existing rule
 to create an OpsItems. For instructions on how to edit a rule to create an OpsItem, see
-[Configure EventBridge rules to
-create OpsItems](OpsCenter-automatically-create-OpsItems-2.md "OpsCenter-automatically-create-OpsItems-2.md").
+[Configure EventBridge rules to create OpsItems](OpsCenter-automatically-create-OpsItems-2.md "OpsCenter-automatically-create-OpsItems-2.md").
 
-## Understanding OpsCenter integration
-
-with AWS Config
+## Understanding OpsCenter integration with AWS Config
 
 AWS Config provides a detailed view of the configuration of AWS resources in your
 AWS account.
@@ -182,15 +153,12 @@ investigative actions, and provide access to consistent remediation actions.
 
 **Related info**
 
-[Configure EventBridge rules to
-create OpsItems](OpsCenter-automatically-create-OpsItems-2.md "OpsCenter-automatically-create-OpsItems-2.md")
+[Configure EventBridge rules to create OpsItems](OpsCenter-automatically-create-OpsItems-2.md "OpsCenter-automatically-create-OpsItems-2.md")
 
 [Using AWS Systems Manager OpsCenter and AWS Config for compliance
 monitoring](https://aws.amazon.com/blogs/mt/using-aws-systems-manager-opscenter-and-aws-config-for-compliance-monitoring/ "https://aws.amazon.com/blogs/mt/using-aws-systems-manager-opscenter-and-aws-config-for-compliance-monitoring/")
 
-## Understanding OpsCenter
-
-integration with AWS Security Hub CSPM
+## Understanding OpsCenter integration with AWS Security Hub CSPM
 
 AWS Security Hub CSPM collects security data, called _findings_, from across AWS accounts and services. Using a set of
 rules to detect and generate findings, Security Hub CSPM helps you identify, prioritize, and
@@ -298,12 +266,9 @@ findings. To stop creating OpsItems for Security Hub CSPM findings in a member a
 by a resource data sync, contact your administrator and ask them to remove your
 account from the resource data sync or turn off the **Security Hub CSPM**
 source in Explorer. For information about changing settings in Explorer, see
-[Editing Systems Manager Explorer data
-sources](Explorer-using-editing-data-sources.md "Explorer-using-editing-data-sources.md").
+[Editing Systems Manager Explorer data sources](Explorer-using-editing-data-sources.md "Explorer-using-editing-data-sources.md").
 
-## Understanding OpsCenter
-
-integration with Incident Manager
+## Understanding OpsCenter integration with Incident Manager
 
 Incident Manager, a tool in AWS Systems Manager, provides an incident management console that
 helps you mitigate and recover from incidents affecting your AWS hosted
@@ -322,5 +287,4 @@ remediation process for similar issues.
 By default, OpsCenter integrates with Incident Manager. If Incident Manager is not set up,
 the OpsCenter page displays a message to set up Incident Manager. When Incident Manager
 creates an OpsItem, you can manage and remediate the OpsItem from OpsCenter. For
-instructions on creating an incident for an OpsItem, see [Creating an
-incident for an OpsItem](OpsCenter-working-with-OpsItems-create-an-incident.md "OpsCenter-working-with-OpsItems-create-an-incident.md").
+instructions on creating an incident for an OpsItem, see [Creating an incident for an OpsItem](OpsCenter-working-with-OpsItems-create-an-incident.md "OpsCenter-working-with-OpsItems-create-an-incident.md").

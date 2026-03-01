@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Using EventBridge to
-
-monitor Inventory events
+# Using EventBridge to monitor Inventory events
 
 You can configure a rule in Amazon EventBridge to create an event in response to AWS Systems Manager
 Inventory resource state changes. EventBridge supports events for the following Inventory
@@ -98,5 +88,4 @@ pattern.
 }
 ```
 
-For information about how to configure EventBridge to monitor for these events, see [Configuring EventBridge for Systems Manager
-events](monitoring-systems-manager-events.md "monitoring-systems-manager-events.md").
+For information about how to configure EventBridge to monitor for these events, see [Configuring EventBridge for Systems Manager events](monitoring-systems-manager-events.md "monitoring-systems-manager-events.md").

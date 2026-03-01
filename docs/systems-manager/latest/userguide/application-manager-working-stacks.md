@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Working with CloudFormation templates
-
-and stacks in Application Manager
+# Working with CloudFormation templates and stacks in Application Manager
 
 Application Manager, a tool in AWS Systems Manager, helps you provision and manage resources for your
 applications by integrating with AWS CloudFormation. You can create, edit, and delete CloudFormation
@@ -65,9 +55,7 @@ deployed will not be reflected after the user tag is added. For more information
 about resource update behaviors, see [Update behaviors of stack resources](../../../AWSCloudFormation/latest/UserGuide/ using-cfn-updating-stacks-update-behaviors.md "../../../AWSCloudFormation/latest/UserGuide/ using-cfn-updating-stacks-update-behaviors.md") in the
 _AWS CloudFormation User Guide_
 
-## Before you
-
-begin
+## Before you begin
 
 Use the following links to learn about CloudFormation concepts before you create,
 edit, or delete CloudFormation templates and stacks by using Application Manager.
@@ -87,7 +75,5 @@ edit, or delete CloudFormation templates and stacks by using Application Manager
 
 ###### Topics
 
-- [Using Application Manager
-  to manage CloudFormation templates](application-manager-working-templates-overview.md "application-manager-working-templates-overview.md")
-- [Using Application Manager to
-  manage CloudFormation stacks](application-manager-working-stacks-overview.md "application-manager-working-stacks-overview.md")
+- [Using Application Manager to manage CloudFormation templates](application-manager-working-templates-overview.md "application-manager-working-templates-overview.md")
+- [Using Application Manager to manage CloudFormation stacks](application-manager-working-stacks-overview.md "application-manager-working-stacks-overview.md")

@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Creating a Parameter Store parameter using
-
-Tools for Windows PowerShell
+# Creating a Parameter Store parameter using Tools for Windows PowerShell
 
 You can use AWS Tools for Windows PowerShell to create `String`, `StringList`, and `SecureString`
 parameter types. After deleting a parameter, wait for at least 30 seconds to
@@ -26,16 +16,11 @@ created.
 
 ###### Topics
 
-- [Creating a String parameter
-  (Tools for Windows PowerShell)](#param-create-ps-string "#param-create-ps-string")
-- [Creating a StringList parameter
-  (Tools for Windows PowerShell)](#param-create-ps-stringlist "#param-create-ps-stringlist")
-- [Creating a SecureString
-  parameter (Tools for Windows PowerShell)](#param-create-ps-securestring "#param-create-ps-securestring")
+- [Creating a String parameter (Tools for Windows PowerShell)](#param-create-ps-string "#param-create-ps-string")
+- [Creating a StringList parameter (Tools for Windows PowerShell)](#param-create-ps-stringlist "#param-create-ps-stringlist")
+- [Creating a SecureString parameter (Tools for Windows PowerShell)](#param-create-ps-securestring "#param-create-ps-securestring")
 
-## Creating a String parameter
-
-(Tools for Windows PowerShell)
+## Creating a String parameter (Tools for Windows PowerShell)
 
 1. Install and configure the AWS Tools for PowerShell (Tools for Windows PowerShell), if you haven't already.
 
@@ -79,8 +64,7 @@ Write-SSMParameter `
 The `-DataType` option must be specified only if you
 are creating a parameter that contains an AMI ID. For all other
 parameters, the default data type is `text`. For more
-information, see [Using native parameter support in
-Parameter Store for Amazon Machine Image IDs](parameter-store-ec2-aliases.md "parameter-store-ec2-aliases.md").
+information, see [Using native parameter support in Parameter Store for Amazon Machine Image IDs](parameter-store-ec2-aliases.md "parameter-store-ec2-aliases.md").
 
 Here is an example that uses a parameter hierarchy.
 
@@ -99,9 +83,7 @@ Write-SSMParameter `
 (Get-SSMParameterValue -Name "`the-parameter-name-you-specified`").Parameters
 ```
 
-## Creating a StringList parameter
-
-(Tools for Windows PowerShell)
+## Creating a StringList parameter (Tools for Windows PowerShell)
 
 1. Install and configure the AWS Tools for PowerShell (Tools for Windows PowerShell), if you haven't already.
 
@@ -154,13 +136,10 @@ parameter.
 (Get-SSMParameterValue -Name "`the-parameter-name-you-specified`").Parameters
 ```
 
-## Creating a SecureString
-
-parameter (Tools for Windows PowerShell)
+## Creating a SecureString parameter (Tools for Windows PowerShell)
 
 Before you create a `SecureString` parameter, read about the
-requirements for this type of parameter. For more information, see [Creating a SecureString
-parameter using the AWS CLI](param-create-cli.md#param-create-cli-securestring "param-create-cli.md#param-create-cli-securestring").
+requirements for this type of parameter. For more information, see [Creating a SecureString parameter using the AWS CLI](param-create-cli.md#param-create-cli-securestring "param-create-cli.md#param-create-cli-securestring").
 
 ###### Important
 

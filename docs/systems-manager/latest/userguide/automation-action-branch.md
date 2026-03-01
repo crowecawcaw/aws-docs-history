@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# `aws:branch` – Run
-
-conditional automation steps
+# `aws:branch` – Run conditional automation steps
 
 The `aws:branch` action allows you to create a dynamic automation that
 evaluates different choices in a single step and then jumps to a different step in the
@@ -33,8 +23,7 @@ runbook.
 The `aws:branch` action supports complex choice evaluations by using a
 combination of `And`, `Not`, and `Or` operators. For
 more information about how to use `aws:branch`, including example runbooks
-and examples that use different operators, see [Using conditional statements in
-runbooks](automation-branch-condition.md "automation-branch-condition.md").
+and examples that use different operators, see [Using conditional statements in runbooks](automation-branch-condition.md "automation-branch-condition.md").
 
 ###### Input
 
@@ -89,8 +78,7 @@ Boolean expression. Each choice must define the following options:
   of a parameter that is defined in the `Parameters`
   section of the runbook. Or specify an output object from a previous
   step in the runbook. For more information about creating variables
-  for `aws:branch`, see [About creating the output
-  variable](automation-branch-condition.md#branch-action-output "automation-branch-condition.md#branch-action-output").
+  for `aws:branch`, see [About creating the output variable](automation-branch-condition.md#branch-action-output "automation-branch-condition.md#branch-action-output").
 - **Operation**: The criteria used to
   evaluate the choice. The `aws:branch` action supports the
   following operations:
@@ -135,5 +123,4 @@ Required: No
 
 The `aws:branch` action supports `And`, `Or`, and
 `Not` operators. For examples of `aws:branch` that use
-operators, see [Using conditional statements in
-runbooks](automation-branch-condition.md "automation-branch-condition.md").
+operators, see [Using conditional statements in runbooks](automation-branch-condition.md "automation-branch-condition.md").

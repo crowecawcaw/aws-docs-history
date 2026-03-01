@@ -1,11 +1,3 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
 # How Patch Manager operations work
 
 This section provides technical details that explain how Patch Manager, a tool in
@@ -29,14 +21,9 @@ configuration you are using for your patching operations:
 
 ###### Topics
 
-- [How package release dates and update
-  dates are calculated](patch-manager-release-dates.md "patch-manager-release-dates.md")
-- [How security patches are
-  selected](patch-manager-selecting-patches.md "patch-manager-selecting-patches.md")
-- [How to specify an
-  alternative patch source repository (Linux)](patch-manager-alternative-source-repository.md "patch-manager-alternative-source-repository.md")
+- [How package release dates and update dates are calculated](patch-manager-release-dates.md "patch-manager-release-dates.md")
+- [How security patches are selected](patch-manager-selecting-patches.md "patch-manager-selecting-patches.md")
+- [How to specify an alternative patch source repository (Linux)](patch-manager-alternative-source-repository.md "patch-manager-alternative-source-repository.md")
 - [How patches are installed](patch-manager-installing-patches.md "patch-manager-installing-patches.md")
-- [How patch baseline rules work on
-  Linux-based systems](patch-manager-linux-rules.md "patch-manager-linux-rules.md")
-- [Patching operation
-  differences between Linux and Windows Server](patch-manager-windows-and-linux-differences.md "patch-manager-windows-and-linux-differences.md")
+- [How patch baseline rules work on Linux-based systems](patch-manager-linux-rules.md "patch-manager-linux-rules.md")
+- [Patching operation differences between Linux and Windows Server](patch-manager-windows-and-linux-differences.md "patch-manager-windows-and-linux-differences.md")

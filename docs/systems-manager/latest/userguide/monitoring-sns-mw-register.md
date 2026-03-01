@@ -1,14 +1,4 @@
-• AWS Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see
-[AWS Systems Manager Change Manager availability change](change-manager-availability-change.md "change-manager-availability-change.md").
-
- 
-
-• The AWS Systems Manager CloudWatch Dashboard will no longer be available after April 30, 2026. Customers can continue to use Amazon CloudWatch console to view, create, and manage their Amazon CloudWatch dashboards, just as they do today. For more information, see
-[Amazon CloudWatch Dashboard documentation](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md").
-
-# Use a maintenance window to send a
-
-command that returns status notifications
+# Use a maintenance window to send a command that returns status notifications
 
 The following procedures show how to register a Run Command task with your
 maintenance window using the AWS Systems Manager console or the AWS Command Line Interface (AWS CLI). Run Command is
@@ -17,27 +7,21 @@ to return status notifications.
 
 ###### Before you begin
 
-If you haven't created a maintenance window or registered targets, see [Create and manage maintenance windows using
-the console](sysman-maintenance-working.md "sysman-maintenance-working.md") for steps on how to create a
+If you haven't created a maintenance window or registered targets, see [Create and manage maintenance windows using the console](sysman-maintenance-working.md "sysman-maintenance-working.md") for steps on how to create a
 maintenance window and register targets.
 
 To receive notifications from the Amazon Simple Notification Service (Amazon SNS) service, attach an
 `iam:PassRole` policy to the Maintenance Windows service role specified in the
 registered task. If you haven't added `iam:PassRole` permissions to your
-Maintenance Windows service role, see [Task 5: Attach the iam:PassRole
-policy to your maintenance window role](monitoring-sns-notifications.md#monitoring-sns-passpolicy-mw "monitoring-sns-notifications.md#monitoring-sns-passpolicy-mw").
+Maintenance Windows service role, see [Task 5: Attach the iam:PassRole policy to your maintenance window role](monitoring-sns-notifications.md#monitoring-sns-passpolicy-mw "monitoring-sns-notifications.md#monitoring-sns-passpolicy-mw").
 
-## Registering a Run Command task
-
-to a maintenance window that returns notifications (console)
+## Registering a Run Command task to a maintenance window that returns notifications (console)
 
 Use the following procedure to register a Run Command task that is configured to
 return status notifications to your maintenance window using the Systems Manager
 console.
 
-###### To register a Run Command task with your maintenance window that returns
-
-notifications (console)
+###### To register a Run Command task with your maintenance window that returns notifications (console)
 
 1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
 2. In the navigation pane, choose **Maintenance Windows**.
@@ -82,8 +66,7 @@ notifications (console)
 Add `iam:PassRole` permissions to the Maintenance Windows role to
 allow Systems Manager to pass the SNS role to Amazon SNS. If you haven't added
 `iam:PassRole` permissions, see Task 5 in the topic
-[Monitoring Systems Manager status changes using
-Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifications.md"). 12. (Optional) For **Output options**, to save the command output to a file,
+[Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifications.md"). 12. (Optional) For **Output options**, to save the command output to a file,
 select the **Enable writing output to S3** box. Enter the bucket and prefix
 (folder) names in the boxes.
 
@@ -100,8 +83,7 @@ following:
 
     * Choose **Enable SNS Notifications**.
     * For **IAM role**, choose the Amazon SNS IAM
-     role Amazon Resource Name (ARN) you created in Task 3 in [Monitoring Systems Manager status changes using
-     Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifications.md") to initiate
+     role Amazon Resource Name (ARN) you created in Task 3 in [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md "monitoring-sns-notifications.md") to initiate
      Amazon SNS.
     * For **SNS topic**, enter the Amazon SNS topic ARN
      to be used.
@@ -118,16 +100,12 @@ following:
     a message from Amazon SNS and open the email message. Amazon SNS can take a few
     minutes to send the email message.
 
-## Registering a Run Command task to
-
-a maintenance window that returns notifications (CLI)
+## Registering a Run Command task to a maintenance window that returns notifications (CLI)
 
 Use the following procedure to register a Run Command task that is configured to
 return status notifications to your maintenance window using the AWS CLI.
 
-###### To register a Run Command task with your maintenance window that returns
-
-notifications (CLI)
+###### To register a Run Command task with your maintenance window that returns notifications (CLI)
 
 ###### Note
 
