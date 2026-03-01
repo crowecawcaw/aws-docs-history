@@ -1,6 +1,4 @@
-# Turn on the Amazon Braket Boto3
-
-client
+# Turn on the Amazon Braket Boto3 client
 
 To use Boto3 with Amazon Braket, you must import Boto3 and then
 define a client that you use to connect to the Amazon Braket
@@ -28,18 +26,14 @@ detail on request and response data in the [API Reference](https://boto3.amazona
 
 tasks.
 
-- [Search for
-  devices](#braket-using-boto3-example-search-devices "#braket-using-boto3-example-search-devices")
-- [Retrieve a
-  device](#braket-using-boto3-example-retrieve-devices "#braket-using-boto3-example-retrieve-devices")
+- [Search for devices](#braket-using-boto3-example-search-devices "#braket-using-boto3-example-search-devices")
+- [Retrieve a device](#braket-using-boto3-example-retrieve-devices "#braket-using-boto3-example-retrieve-devices")
 - [Create a quantum task](#braket-using-boto3-example-create-task "#braket-using-boto3-example-create-task")
 - [Retrieve a quantum task](#braket-using-boto3-example-retrieve-task "#braket-using-boto3-example-retrieve-task")
 - [Search for quantum tasks](#braket-using-boto3-example-search-tasks "#braket-using-boto3-example-search-tasks")
 - [Cancel quantum task](#braket-using-boto3-example-cancel-task "#braket-using-boto3-example-cancel-task")
 
-## Search for
-
-devices
+## Search for devices
 
 - `search_devices(**kwargs)`
 
@@ -60,9 +54,7 @@ for i in range(len(response['devices'])):
     print(device['deviceArn'])
 ```
 
-## Retrieve a
-
-device
+## Retrieve a device
 
 - `get_device(deviceArn)`
 

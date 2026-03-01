@@ -1,6 +1,4 @@
-# Create an Amazon Braket notebook
-
-instance
+# Create an Amazon Braket notebook instance
 
 ###### Tip
 

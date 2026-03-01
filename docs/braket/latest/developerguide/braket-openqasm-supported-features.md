@@ -1,6 +1,4 @@
-# What OpenQASM features does
-
-Braket support?
+# What OpenQASM features does Braket support?
 
 The following section lists the OpenQASM 3.0 data types, statements, and pragma
 instructions supported by Braket.
@@ -11,8 +9,7 @@ instructions supported by Braket.
 - [Supported OpenQASM statements](#braket-openqasm-supported-features-statements "#braket-openqasm-supported-features-statements")
 - [Braket OpenQASM pragmas](#braket-openqasm-supported-features-pragmas "#braket-openqasm-supported-features-pragmas")
 - [Advanced feature support for OpenQASM on the Local Simulator](#braket-openqasm-supported-features-advanced-feature-local-simulator "#braket-openqasm-supported-features-advanced-feature-local-simulator")
-- [Supported operations
-  and grammar with OpenPulse](#braket-openpulse-supported-operations-grammar "#braket-openpulse-supported-operations-grammar")
+- [Supported operations and grammar with OpenPulse](#braket-openpulse-supported-operations-grammar "#braket-openpulse-supported-operations-grammar")
 
 ## Supported OpenQASM data types
 
@@ -85,6 +82,11 @@ box{
   - `b = measure q;`
   - `measure q → b;`
 
+- Barrier statements provide explicit control over circuit compilation and execution by preventing gate reordering and optimizations across barrier boundaries. They also enforce strict temporal ordering during execution, ensuring all operations before a barrier complete before subsequent operations begin.
+  - `barrier;`
+  - `barrier q[0], q[1];`
+  - `barrier $3, $6;`
+
 ## Braket OpenQASM pragmas
 
 The following OpenQASM pragma instructions are supported by Amazon Braket.
@@ -145,9 +147,7 @@ features are only supported in the `LocalSimulator`:
 
 For examples of each advanced feature, see this [sample notebook](https://github.com/aws/amazon-braket-examples/blob/main/examples/braket_features/Simulating_Advanced_OpenQASM_Programs_with_the_Local_Simulator.ipynb "https://github.com/aws/amazon-braket-examples/blob/main/examples/braket_features/Simulating_Advanced_OpenQASM_Programs_with_the_Local_Simulator.ipynb"). For the full OpenQASM specification, see the [OpenQASM website](https://openqasm.com/language/index.html "https://openqasm.com/language/index.html").
 
-## Supported operations
-
-and grammar with OpenPulse
+## Supported operations and grammar with OpenPulse
 
 **Supported OpenPulse Data Types**
 

@@ -1,29 +1,21 @@
-# Hello AHS: Run your first Analog Hamiltonian
-
-Simulation
+# Hello AHS: Run your first Analog Hamiltonian Simulation
 
 This section provides information on running your first Analog Hamiltonian Simulation.
 
 ###### In this section:
 
-- [Interacting spin
-  chain](#braket-get-started-interacting-spin-chain "#braket-get-started-interacting-spin-chain")
+- [Interacting spin chain](#braket-get-started-interacting-spin-chain "#braket-get-started-interacting-spin-chain")
 - [Arrangement](#braket-get-started-arrangement "#braket-get-started-arrangement")
 - [Interaction](#braket-get-started-interaction "#braket-get-started-interaction")
 - [Driving field](#braket-get-started-driving-field "#braket-get-started-driving-field")
 - [AHS program](#braket-get-started-ahs-program "#braket-get-started-ahs-program")
-- [Running on local
-  simulator](#braket-get-started-running-local-simulator "#braket-get-started-running-local-simulator")
-- [Analyzing simulator
-  results](#braket-get-started-analyzing-simulator-results "#braket-get-started-analyzing-simulator-results")
-- [Running on QuEra's Aquila
-  QPU](#braket-get-started-running-aquila-qpu "#braket-get-started-running-aquila-qpu")
+- [Running on local simulator](#braket-get-started-running-local-simulator "#braket-get-started-running-local-simulator")
+- [Analyzing simulator results](#braket-get-started-analyzing-simulator-results "#braket-get-started-analyzing-simulator-results")
+- [Running on QuEra's Aquila QPU](#braket-get-started-running-aquila-qpu "#braket-get-started-running-aquila-qpu")
 - [Analyzing QPU results](#braket-get-started-analyzing-qpu-results "#braket-get-started-analyzing-qpu-results")
 - [Next steps](#braket-get-started-ahs-next "#braket-get-started-ahs-next")
 
-## Interacting spin
-
-chain
+## Interacting spin chain
 
 For a canonical example of a system of many interacting particles, let us consider a
 ring of eight spins (each of which can be in “up” ∣↑⟩ and “down” ∣↓⟩ states). Albeit
@@ -202,9 +194,7 @@ ahs_program = AnalogHamiltonianSimulation(
 )
 ```
 
-## Running on local
-
-simulator
+## Running on local simulator
 
 Since this example is small (less than 15 spins), before running it on an
 AHS-compatible QPU, we can run it on the local AHS simulator which comes with the
@@ -227,9 +217,7 @@ result_simulator = device.run(
 ).result()  # Takes about 5 seconds
 ```
 
-## Analyzing simulator
-
-results
+## Analyzing simulator results
 
 We can aggregate the shot results with the following function that infers the state
 of each spin (which may be “d” for “down”, “u” for “up”, or “e” for empty site), and
@@ -344,9 +332,7 @@ successfully prepared the anti-ferromagnetic phase.
    Waals interaction has an affect (albeit much smaller) on next-nearest neighbors
    too.
 
-## Running on QuEra's Aquila
-
-QPU
+## Running on QuEra's Aquila QPU
 
 **Prerequisites**: Apart from pip installing the Braket
 [SDK](https://github.com/aws/amazon-braket-sdk-python#installing-the-amazon-braket-python-sdk "https://github.com/aws/amazon-braket-sdk-python#installing-the-amazon-braket-python-sdk"), if you are new to Amazon Braket, make sure that you have

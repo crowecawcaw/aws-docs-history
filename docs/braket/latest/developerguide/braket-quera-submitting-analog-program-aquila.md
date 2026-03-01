@@ -13,10 +13,8 @@ following:
 
 - [Hamiltonian](#braket-quera-aquila-device-hamiltonian "#braket-quera-aquila-device-hamiltonian")
 - [Braket AHS program schema](#braket-quera-ahs-program-schema "#braket-quera-ahs-program-schema")
-- [Braket AHS task result
-  schema](#braket-quera-ahs-task-result-schema "#braket-quera-ahs-task-result-schema")
-- [QuEra device properties
-  schema](#braket-quera-device-properties-schema "#braket-quera-device-properties-schema")
+- [Braket AHS task result schema](#braket-quera-ahs-task-result-schema "#braket-quera-ahs-task-result-schema")
+- [QuEra device properties schema](#braket-quera-device-properties-schema "#braket-quera-device-properties-schema")
 
 ## Hamiltonian
 
@@ -235,9 +233,7 @@ feature is not enabled for your account, use `"localDetuning": []` in the follow
 | braketSchemaHeader.name    | str           | name of the schema; must be 'braket.ir.ahs.program' |
 | braketSchemaHeader.version | str           | version of the schema                               |
 
-## Braket AHS task result
-
-schema
+## Braket AHS task result schema
 
 **braket.tasks.analog_hamiltonian_simulation_quantum_task_result.AnalogHamiltonianSimulationQuantumTaskResult**
 (example)
@@ -351,9 +347,7 @@ AnalogHamiltonianSimulationQuantumTaskResult(
 | additionalMetadata.action.numSuccessfulShots                       | int                              | number of completely successful shots; must be equal to the requested<br>number of shots                                                            |
 | measurements[].shotMetadata.shotStatus                             | int                              | The status of the shot, (Success, Partial success, Failure); must be<br>"Success"                                                                   |
 
-## QuEra device properties
-
-schema
+## QuEra device properties schema
 
 **braket.device_schema.quera.quera_device_capabilities_v1.QueraDeviceCapabilities**
 (example)

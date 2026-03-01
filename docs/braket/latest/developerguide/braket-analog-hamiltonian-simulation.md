@@ -20,6 +20,5 @@ and tackle problems beyond the reach of conventional digital quantum computing a
 
 ###### In this section:
 
-- [Hello AHS: Run your first Analog Hamiltonian
-  Simulation](braket-get-started-hello-ahs.md "braket-get-started-hello-ahs.md")
+- [Hello AHS: Run your first Analog Hamiltonian Simulation](braket-get-started-hello-ahs.md "braket-get-started-hello-ahs.md")
 - [Submit an analog program using QuEra Aquila](braket-quera-submitting-analog-program-aquila.md "braket-quera-submitting-analog-program-aquila.md")

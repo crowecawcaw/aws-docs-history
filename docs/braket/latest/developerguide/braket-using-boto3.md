@@ -17,7 +17,5 @@ API.
 
 ###### In this section:
 
-- [Turn on the Amazon Braket Boto3
-  client](braket-using-boto3-client.md "braket-using-boto3-client.md")
-- [Configure AWS CLI profiles for Boto3 and the
-  Braket SDK](braket-using-boto3-profiles.md "braket-using-boto3-profiles.md")
+- [Turn on the Amazon Braket Boto3 client](braket-using-boto3-client.md "braket-using-boto3-client.md")
+- [Configure AWS CLI profiles for Boto3 and the Braket SDK](braket-using-boto3-profiles.md "braket-using-boto3-profiles.md")

@@ -9,9 +9,7 @@ hybrid quantum computations on Amazon Braket.
 
 ###### In this section:
 
-- [Define the environment for your algorithm
-  script](braket-jobs-script-environment.md "braket-jobs-script-environment.md")
+- [Define the environment for your algorithm script](braket-jobs-script-environment.md "braket-jobs-script-environment.md")
 - [Using hyperparameters](braket-jobs-hyperparameters.md "braket-jobs-hyperparameters.md")
 - [Configure your hybrid job instance](braket-jobs-configure-job-instance-for-script.md "braket-jobs-configure-job-instance-for-script.md")
-- [Using parametric compilation to speed
-  up Hybrid Jobs](braket-jobs-parametric-compilation.md "braket-jobs-parametric-compilation.md")
+- [Using parametric compilation to speed up Hybrid Jobs](braket-jobs-parametric-compilation.md "braket-jobs-parametric-compilation.md")

@@ -1,6 +1,4 @@
-# Create and submit an example
-
-OpenQASM 3.0 quantum task
+# Create and submit an example OpenQASM 3.0 quantum task
 
 You can use the Amazon Braket Python SDK, Boto3, or the AWS CLI to
 submit OpenQASM 3.0 quantum tasks to an Amazon Braket device.
@@ -8,12 +6,9 @@ submit OpenQASM 3.0 quantum tasks to an Amazon Braket device.
 ###### In this section:
 
 - [An example OpenQASM 3.0 program](#braket-openqasm-example-program "#braket-openqasm-example-program")
-- [Use the Python SDK to
-  create OpenQASM 3.0 quantum tasks](#braket-openqasm-create-tasks-with-python-sdk "#braket-openqasm-create-tasks-with-python-sdk")
-- [Use Boto3 to create
-  OpenQASM 3.0 quantum tasks](#braket-openqasm-create-tasks-with-boto3 "#braket-openqasm-create-tasks-with-boto3")
-- [Use the AWS CLI to create
-  OpenQASM 3.0 tasks](#braket-openqasm-create-tasks-with-aws-cli "#braket-openqasm-create-tasks-with-aws-cli")
+- [Use the Python SDK to create OpenQASM 3.0 quantum tasks](#braket-openqasm-create-tasks-with-python-sdk "#braket-openqasm-create-tasks-with-python-sdk")
+- [Use Boto3 to create OpenQASM 3.0 quantum tasks](#braket-openqasm-create-tasks-with-boto3 "#braket-openqasm-create-tasks-with-boto3")
+- [Use the AWS CLI to create OpenQASM 3.0 tasks](#braket-openqasm-create-tasks-with-aws-cli "#braket-openqasm-create-tasks-with-aws-cli")
 
 ## An example OpenQASM 3.0 program
 
@@ -35,9 +30,7 @@ cnot q[1], q[2];
 c = measure q;
 ```
 
-## Use the Python SDK to
-
-create OpenQASM 3.0 quantum tasks
+## Use the Python SDK to create OpenQASM 3.0 quantum tasks
 
 You can use the [Amazon Braket Python SDK](https://github.com/aws/amazon-braket-sdk-python "https://github.com/aws/amazon-braket-sdk-python") to submit this program to an Amazon Braket device with the following code.
 Be sure to replace the example Amazon S3 bucket location “amzn-s3-demo-bucket” with your own Amazon S3 bucket name.
@@ -64,9 +57,7 @@ my_task = device.run(
 )
 ```
 
-## Use Boto3 to create
-
-OpenQASM 3.0 quantum tasks
+## Use Boto3 to create OpenQASM 3.0 quantum tasks
 
 You can also use [AWS Python SDK for Braket (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/braket.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/braket.html") to create the quantum tasks using
 OpenQASM 3.0 strings, as shown in the following example. The following code snippet
@@ -108,9 +99,7 @@ rsp = braket_client.create_quantum_task(
 )
 ```
 
-## Use the AWS CLI to create
-
-OpenQASM 3.0 tasks
+## Use the AWS CLI to create OpenQASM 3.0 tasks
 
 The [AWS Command Line Interface (CLI)](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/") can also be
 used to submit OpenQASM 3.0 programs, as shown in the following example.

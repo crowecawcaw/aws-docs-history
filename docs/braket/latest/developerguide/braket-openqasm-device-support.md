@@ -1,6 +1,4 @@
-# Support for OpenQASM on different
-
-Braket devices
+# Support for OpenQASM on different Braket devices
 
 For devices supporting OpenQASM 3.0, the `action` field supports a new
 action through the `GetDevice` response, as shown in the following example
@@ -328,9 +326,7 @@ Describes pulse element validation boundaries, including:
 - Minimum pulse length/duration in seconds
 - Maximum pulse length/duration in seconds
 
-## Supported
-
-Operations, Results and Result Types with OpenQASM
+## Supported Operations, Results and Result Types with OpenQASM
 
 To find out which OpenQASM 3.0 features each device supports, you can refer to the
 `braket.ir.openqasm.program` key in the `action` field on

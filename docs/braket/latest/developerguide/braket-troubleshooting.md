@@ -5,8 +5,7 @@ Use the troubleshooting information and solutions in this section to help resolv
 ###### In this section:
 
 - [AccessDeniedException](#braket-troubleshooting-access-denied "#braket-troubleshooting-access-denied")
-- [An error occurred (ValidationException) when calling
-  the CreateQuantumTask operation](#braket-troubleshooting-create-fail "#braket-troubleshooting-create-fail")
+- [An error occurred (ValidationException) when calling the CreateQuantumTask operation](#braket-troubleshooting-create-fail "#braket-troubleshooting-create-fail")
 - [An SDK feature does not work](#braket-troubleshooting-sdk "#braket-troubleshooting-sdk")
 - [Hybrid job fails due to ServiceQuotaExceededException](#braket-jobs-quota-troubleshoot "#braket-jobs-quota-troubleshoot")
 - [Components stopped working in notebook instance](#braket-troubleshooting-notebook-issue "#braket-troubleshooting-notebook-issue")
@@ -26,9 +25,7 @@ In such cases, contact your internal AWS administrator to understand which of th
 
 If your role does not have access to a given region when using Braket, then you will be unable to use devices in that particular region.
 
-## An error occurred (ValidationException) when calling
-
-the CreateQuantumTask operation
+## An error occurred (ValidationException) when calling the CreateQuantumTask operation
 
 If you receive an error similar to: `An error occurred (ValidationException) when calling the CreateQuantumTask 
  operation: Caller doesn't have access to amazon-braket-…​` Check that you are referring to an existing s3_folder.

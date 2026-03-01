@@ -27,16 +27,12 @@ following quantum tasks.
 - [When to use OpenQASM 3.0](#braket-openqasm-when-to-use "#braket-openqasm-when-to-use")
 - [How OpenQASM 3.0 works](#braket-openqasm-how-it-works "#braket-openqasm-how-it-works")
 - [Prerequisites](#braket-openqasm-prerequisites "#braket-openqasm-prerequisites")
-- [What OpenQASM features does
-  Braket support?](braket-openqasm-supported-features.md "braket-openqasm-supported-features.md")
-- [Create and submit an example
-  OpenQASM 3.0 quantum task](braket-openqasm-create-submit-task.md "braket-openqasm-create-submit-task.md")
-- [Support for OpenQASM on different
-  Braket devices](braket-openqasm-device-support.md "braket-openqasm-device-support.md")
+- [What OpenQASM features does Braket support?](braket-openqasm-supported-features.md "braket-openqasm-supported-features.md")
+- [Create and submit an example OpenQASM 3.0 quantum task](braket-openqasm-create-submit-task.md "braket-openqasm-create-submit-task.md")
+- [Support for OpenQASM on different Braket devices](braket-openqasm-device-support.md "braket-openqasm-device-support.md")
 - [Simulate noise with OpenQASM 3.0](braket-openqasm-noise-simulation.md "braket-openqasm-noise-simulation.md")
 - [Qubit rewiring with OpenQASM 3.0](braket-openqasm-rewire-qubits.md "braket-openqasm-rewire-qubits.md")
-- [Verbatim compilation with
-  OpenQASM 3.0](braket-openqasm-verbatim-compilation.md "braket-openqasm-verbatim-compilation.md")
+- [Verbatim compilation with OpenQASM 3.0](braket-openqasm-verbatim-compilation.md "braket-openqasm-verbatim-compilation.md")
 - [The Braket console](#braket-openqasm-braket-console "#braket-openqasm-braket-console")
 - [Additional resources](#braket-openqasm-more-resources "#braket-openqasm-more-resources")
 - [Computing gradients with OpenQASM 3.0](braket-openqasm-computing-gradients.md "braket-openqasm-computing-gradients.md")

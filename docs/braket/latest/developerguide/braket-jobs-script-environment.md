@@ -1,6 +1,4 @@
-# Define the environment for your algorithm
-
-script
+# Define the environment for your algorithm script
 
 Amazon Braket supports environments defined by containers for your
 algorithm script:

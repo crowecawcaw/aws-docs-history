@@ -1,6 +1,4 @@
-# Using parametric compilation to speed
-
-up Hybrid Jobs
+# Using parametric compilation to speed up Hybrid Jobs
 
 Amazon Braket supports parametric compilation on certain QPUs. This enables you to
 reduce the overhead associated with the computationally expensive compilation step by

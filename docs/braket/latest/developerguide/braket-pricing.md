@@ -50,7 +50,7 @@ aws --region {device_region} braket search-spending-limits --filters name=device
 **Create**
 
 With the following AWS CLI command, you can create a new spending limit for a specified quantum device in a specific region.
-The reuqest is rejected if a spending limit already exists for the device.
+The request is rejected if a spending limit already exists for the device.
 
 ```
 aws --region {device_region} braket create-spending-limit --device-arn {device_arn} --spending-limit {max_spend}
@@ -59,7 +59,7 @@ aws --region {device_region} braket create-spending-limit --device-arn {device_a
 **Update**
 
 With the following AWS CLI command, you can update an existing spending limit to a new maximum spend value.
-The reuqest is rejected if the sum of the current spend and queued spend is already higher than the
+The request is rejected if the sum of the current spend and queued spend is already higher than the
 requested new maximum spend.
 
 ```

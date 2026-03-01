@@ -1,6 +1,4 @@
-# Verbatim compilation with
-
-OpenQASM 3.0
+# Verbatim compilation with OpenQASM 3.0
 
 When you run a quantum circuit on quantum computers provided by vendors such as Rigetti,
 and IonQ, you can direct the compiler to run your

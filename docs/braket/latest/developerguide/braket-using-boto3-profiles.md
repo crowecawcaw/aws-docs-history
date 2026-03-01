@@ -1,6 +1,4 @@
-# Configure AWS CLI profiles for Boto3 and the
-
-Braket SDK
+# Configure AWS CLI profiles for Boto3 and the Braket SDK
 
 The Amazon Braket SDK relies upon the default AWS CLI credentials,
 unless you explicitly specify otherwise. We recommend that you keep the default when you
@@ -20,8 +18,7 @@ profile.
 
 - [Step 1: Configure a local AWS CLI profile](#braket-using-boto3-profiles-step-1 "#braket-using-boto3-profiles-step-1")
 - [Step 2: Establish a Boto3 session object](#braket-using-boto3-profiles-step-2 "#braket-using-boto3-profiles-step-2")
-- [Step 3: Incorporate the Boto3
-  session into the Braket AwsSession](#braket-using-boto3-profiles-step-3 "#braket-using-boto3-profiles-step-3")
+- [Step 3: Incorporate the Boto3 session into the Braket AwsSession](#braket-using-boto3-profiles-step-3 "#braket-using-boto3-profiles-step-3")
 
 ## Step 1: Configure a local AWS CLI `profile`
 
@@ -62,9 +59,7 @@ corresponds to one of the AWS Regions in which Amazon Braket is
 available such as `us-east-1`, `us-west-1`, and so
 forth.
 
-## Step 3: Incorporate the Boto3
-
-session into the Braket AwsSession
+## Step 3: Incorporate the Boto3 session into the Braket AwsSession
 
 The following example shows how to initialize a Boto3 Braket session and
 instantiate a device in that session.

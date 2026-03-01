@@ -21,26 +21,18 @@ to be cancelled successfully during QPU availability windows.
 
 ###### In this section:
 
-- [Local state vector simulator
-  (braket_sv)](#braket-simulator-sv "#braket-simulator-sv")
-- [Local density matrix simulator
-  (braket_dm)](#braket-simulator-dm "#braket-simulator-dm")
-- [Local AHS simulator
-  (braket_ahs)](#braket-simulator-ahs-local "#braket-simulator-ahs-local")
+- [Local state vector simulator (braket_sv)](#braket-simulator-sv "#braket-simulator-sv")
+- [Local density matrix simulator (braket_dm)](#braket-simulator-dm "#braket-simulator-dm")
+- [Local AHS simulator (braket_ahs)](#braket-simulator-ahs-local "#braket-simulator-ahs-local")
 - [State vector simulator (SV1)](#braket-simulator-sv1 "#braket-simulator-sv1")
-- [Density matrix simulator
-  (DM1)](#braket-simulator-dm1 "#braket-simulator-dm1")
-- [Tensor network simulator
-  (TN1)](#braket-simulator-tn1 "#braket-simulator-tn1")
+- [Density matrix simulator (DM1)](#braket-simulator-dm1 "#braket-simulator-dm1")
+- [Tensor network simulator (TN1)](#braket-simulator-tn1 "#braket-simulator-tn1")
 - [About embedded simulators](embedded-simulator.md "embedded-simulator.md")
 - [Compare Amazon Braket simulators](choose-a-simulator.md "choose-a-simulator.md")
 - [Example quantum tasks on Amazon Braket](braket-submit-tasks-to-braket.md "braket-submit-tasks-to-braket.md")
-- [Testing a quantum task with the local
-  simulator](braket-send-to-local-simulator.md "braket-send-to-local-simulator.md")
+- [Testing a quantum task with the local simulator](braket-send-to-local-simulator.md "braket-send-to-local-simulator.md")
 
-## Local state vector simulator
-
-(`braket_sv`)
+## Local state vector simulator (`braket_sv`)
 
 The local state vector simulator (`braket_sv`) is part of the
 Amazon Braket SDK that runs locally in your environment. It is
@@ -60,9 +52,7 @@ examples provided in the [OpenQASM Local Simulator notebook](https://github.com/
 
 For more information about how to work with simulators, see [the Amazon Braket examples](https://github.com/aws/amazon-braket-examples/blob/main/examples/getting_started/1_Running_quantum_circuits_on_simulators/1_Running_quantum_circuits_on_simulators.ipynb "https://github.com/aws/amazon-braket-examples/blob/main/examples/getting_started/1_Running_quantum_circuits_on_simulators/1_Running_quantum_circuits_on_simulators.ipynb").
 
-## Local density matrix simulator
-
-(`braket_dm`)
+## Local density matrix simulator (`braket_dm`)
 
 The local density matrix simulator (`braket_dm`) is part of the
 Amazon Braket SDK that runs locally in your environment. It is
@@ -88,9 +78,7 @@ the examples provided in the [OpenQASM Local Simulator notebook](https://github.
 
 To learn more about the local density matrix simulator, see [the Braket introductory noise simulator example](https://github.com/aws/amazon-braket-examples/blob/main/examples/braket_features/Simulating_Noise_On_Amazon_Braket.ipynb "https://github.com/aws/amazon-braket-examples/blob/main/examples/braket_features/Simulating_Noise_On_Amazon_Braket.ipynb").
 
-## Local AHS simulator
-
-(`braket_ahs`)
+## Local AHS simulator (`braket_ahs`)
 
 The local AHS (Analog Hamiltonian Simulation) simulator (`braket_ahs`) is
 part of the Amazon Braket SDK that runs locally in your environment. It can be used to
@@ -139,9 +127,7 @@ shots has a small impact on the runtime. To learn more, visit [Compare simulator
 Simulators support all gates in the Braket SDK, but QPU devices support a smaller
 subset. You can find the supported gates of a device in the device properties.
 
-## Density matrix simulator
-
-(DM1)
+## Density matrix simulator (DM1)
 
 DM1 is an on-demand, high-performance, density matrix simulator. It can
 simulate circuits of up to 17 qubits.
@@ -194,9 +180,7 @@ TwoQubitDepolarizing
     Probability has to be within [0,0.9375]
 ```
 
-## Tensor network simulator
-
-(TN1)
+## Tensor network simulator (TN1)
 
 TN1 is an on-demand, high-performance, tensor network simulator.
 TN1 can simulate certain circuit types with up to 50

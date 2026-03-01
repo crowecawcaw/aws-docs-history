@@ -1,6 +1,4 @@
-# Testing a quantum task with the local
-
-simulator
+# Testing a quantum task with the local simulator
 
 You can send quantum tasks directly to a local simulator for rapid prototyping and testing.
 This simulator runs in your local environment, so you do not need to specify an Amazon S3

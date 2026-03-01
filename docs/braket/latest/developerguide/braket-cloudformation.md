@@ -30,16 +30,11 @@ steps:
 
 ###### In this section:
 
-- [Step 1: Create a SageMaker AI
-  lifecycle configuration script](#braket-create-cloudformation-template-step-1 "#braket-create-cloudformation-template-step-1")
-- [Step 2: Create the IAM role
-  assumed by Amazon SageMaker AI](#braket-create-cloudformation-template-step-2 "#braket-create-cloudformation-template-step-2")
-- [Step 3: Create a SageMaker AI
-  notebook instance with the prefix amazon-braket-](#braket-create-cloudformation-template-step-3 "#braket-create-cloudformation-template-step-3")
+- [Step 1: Create a SageMaker AI lifecycle configuration script](#braket-create-cloudformation-template-step-1 "#braket-create-cloudformation-template-step-1")
+- [Step 2: Create the IAM role assumed by Amazon SageMaker AI](#braket-create-cloudformation-template-step-2 "#braket-create-cloudformation-template-step-2")
+- [Step 3: Create a SageMaker AI notebook instance with the prefix amazon-braket-](#braket-create-cloudformation-template-step-3 "#braket-create-cloudformation-template-step-3")
 
-## Step 1: Create a SageMaker AI
-
-lifecycle configuration script
+## Step 1: Create a SageMaker AI lifecycle configuration script
 
 Use the following template to create a [SageMaker AI lifecycle configuration
 script](../../../sagemaker/latest/dg/notebook-lifecycle-config.md "../../../sagemaker/latest/dg/notebook-lifecycle-config.md"). The script customizes a SageMaker AI notebook instance for Braket. For
@@ -64,9 +59,7 @@ BraketNotebookInstanceLifecycleConfig:
             exit 0
 ```
 
-## Step 2: Create the IAM role
-
-assumed by Amazon SageMaker AI
+## Step 2: Create the IAM role assumed by Amazon SageMaker AI
 
 When you use a Braket notebook instance, SageMaker AI performs operations on your behalf. For
 example, suppose you run a Braket notebook using a circuit on a supported device. Within
@@ -131,9 +124,7 @@ ExecutionRole:
                 Resource: "*"
 ```
 
-## Step 3: Create a SageMaker AI
-
-notebook instance with the prefix `amazon-braket-`
+## Step 3: Create a SageMaker AI notebook instance with the prefix `amazon-braket-`
 
 Use the SageMaker AI lifecycle script and the IAM role created in step 1 and step 2 to create
 a SageMaker AI notebook instance. The notebook instance is customized for Braket and can be

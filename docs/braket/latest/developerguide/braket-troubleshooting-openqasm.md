@@ -14,8 +14,7 @@ This section provides troubleshooting pointers that might be useful when encount
 - [Verbatim boxes missing physical qubits error](#braket-troubleshooting-openqasm-verbatim-box-missing-physical-qubits-error "#braket-troubleshooting-openqasm-verbatim-box-missing-physical-qubits-error")
 - [The verbatim pragma is missing "braket" error](#braket-troubleshooting-openqasm-pragma-naming-error "#braket-troubleshooting-openqasm-pragma-naming-error")
 - [Single qubits cannot be indexed error](#braket-troubleshooting-openqasm-qubit-index-error "#braket-troubleshooting-openqasm-qubit-index-error")
-- [The physical qubits
-  in a two qubit gate are not connected error](#braket-troubleshooting-openqasm-disconnected-physical-qubits-error "#braket-troubleshooting-openqasm-disconnected-physical-qubits-error")
+- [The physical qubits in a two qubit gate are not connected error](#braket-troubleshooting-openqasm-disconnected-physical-qubits-error "#braket-troubleshooting-openqasm-disconnected-physical-qubits-error")
 - [Local simulator support warning](#braket-troubleshooting-openqasm-local-simulator-support-warning "#braket-troubleshooting-openqasm-local-simulator-support-warning")
 
 ## Include statement error
@@ -167,9 +166,7 @@ qubit[1] q;
 h q[0];   // This is valid
 ```
 
-## The physical qubits
-
-in a two qubit gate are not connected error
+## The physical qubits in a two qubit gate are not connected error
 
 To use physical qubits, first confirm that the device uses physical
 qubits by checking `device.properties.action[DeviceActionType.OPENQASM].supportPhysicalQubits`
