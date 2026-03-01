@@ -15,9 +15,7 @@ There are two types of service views:
   AWS service during onboarding to access specific resource data. Customers cannot
   use this view directly to view resources.
 
-## Key characteristics of service
-
-views
+## Key characteristics of service views
 
 AWS service views have the following key characteristics:
 
@@ -105,7 +103,6 @@ Service views maintain strong security controls:
 
 ## Related topics
 
-- [Configuring a Resource Explorer view to provide access to
-  resource searches](customer-views.md#configure-views "customer-views.md#configure-views")
+- [Configuring a Resource Explorer view to provide access to resource searches](customer-views.md#configure-views "customer-views.md#configure-views")
 - [Identity and access management for AWS Resource Explorer](security_iam.md "security_iam.md")
 - [Terms and concepts for Resource Explorer](getting-started-terms-and-concepts.md "getting-started-terms-and-concepts.md")

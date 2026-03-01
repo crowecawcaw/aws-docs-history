@@ -1,30 +1,21 @@
-# Troubleshooting Resource Explorer setup and configuration
-
-issues
+# Troubleshooting Resource Explorer setup and configuration issues
 
 Use the information here to help you diagnose and fix issues that can occur when you
 initially set up or configure AWS Resource Explorer.
 
 ###### Topics
 
-- [Troubleshooting
-  permission-based access issues](#troubleshoot_setup_permission-based-access "#troubleshoot_setup_permission-based-access")
-- [I get an "access denied" message when
-  I make a request to Resource Explorer](#troubleshoot_setup_access-denied "#troubleshoot_setup_access-denied")
-- [I get an "access
-  denied" message when I make a request with temporary security credentials](#troubleshooting_setup_access-denied-temp-creds "#troubleshooting_setup_access-denied-temp-creds")
+- [Troubleshooting permission-based access issues](#troubleshoot_setup_permission-based-access "#troubleshoot_setup_permission-based-access")
+- [I get an "access denied" message when I make a request to Resource Explorer](#troubleshoot_setup_access-denied "#troubleshoot_setup_access-denied")
+- [I get an "access denied" message when I make a request with temporary security credentials](#troubleshooting_setup_access-denied-temp-creds "#troubleshooting_setup_access-denied-temp-creds")
 
-## Troubleshooting
-
-permission-based access issues
+## Troubleshooting permission-based access issues
 
 Resource Explorer provides different user experiences based on your IAM permissions. Use this
 section to troubleshoot issues related to permission-based access and search
 results.
 
-### I'm getting partial search
-
-results instead of complete results
+### I'm getting partial search results instead of complete results
 
 If you're receiving partial search results, this indicates you have, at minimum,
 the permissions in the `AWSResourceExplorerReadOnlyAccess` managed policy but lack
@@ -53,9 +44,7 @@ deleted or the aggregator index already exists
   complete results, while Regions with only Resource Explorer-owned indexes provide
   partial results.
 
-### Service-linked role creation
-
-issues
+### Service-linked role creation issues
 
 If you receive an error when Resource Explorer attempts to create the service-linked role
 during your first search, this indicates you lack the
@@ -74,9 +63,7 @@ permissions in the `AWSResourceExplorerReadOnlyAccess` managed policy
 are able to create an index and view for full results in a Region on
 first search.
 
-### I can't access Resource Explorer search
-
-functionality
+### I can't access Resource Explorer search functionality
 
 If you receive access denied errors when trying to use Resource Explorer search, you lack at
 minimum the permissions in the `AWSResourceExplorerReadOnlyAccess` managed policy.
@@ -90,9 +77,7 @@ minimum the permissions in the `AWSResourceExplorerReadOnlyAccess` managed polic
   administrators can disallow the permissions in the `AWSResourceExplorerReadOnlyAccess` managed
   policy.
 
-### Indexing progress and completion
-
-issues
+### Indexing progress and completion issues
 
 When Resource Explorer automatically creates indexes and views, you may see indexing progress
 indicators in the console.
@@ -110,9 +95,7 @@ indicators in the console.
   automatically in the background. If you don't see progress after several
   hours, verify your permissions and try refreshing the console.
 
-## I get an "access denied" message when
-
-I make a request to Resource Explorer
+## I get an "access denied" message when I make a request to Resource Explorer
 
 Access denied errors can occur when accessing Resource Explorer search functionality or when
 trying to configure enhanced features like custom views or cross-Region search.
@@ -160,9 +143,7 @@ policies](../../../IAM/latest/UserGuide/access_policies_manage.md "../../../IAM/
 - If you're signing API requests manually (without using the [AWS SDKs](http://aws.amazon.com/tools/ "http://aws.amazon.com/tools/")), verify that you [signed the request](../../../general/latest/gr/signing_aws_api_requests.md "../../../general/latest/gr/signing_aws_api_requests.md")
   correctly.
 
-## I get an "access
-
-denied" message when I make a request with temporary security credentials
+## I get an "access denied" message when I make a request with temporary security credentials
 
 - Verify that the IAM principal that you're using to make the request has the
   correct permissions. Permissions for temporary security credentials are derived

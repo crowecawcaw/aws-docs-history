@@ -24,8 +24,7 @@ Then, you could choose to grant access for that view to only those users who hav
 business reason to view those resources. A separate view that includes the
 `Alpha` or `Beta` environment resources could be accessed by
 different users who need to view those resources. For information about controlling who
-gets access to which views, see [Granting access to Resource Explorer views for
-search](configure-views-grant-access.md "configure-views-grant-access.md").
+gets access to which views, see [Granting access to Resource Explorer views for search](configure-views-grant-access.md "configure-views-grant-access.md").
 
 ## Query string syntax
 

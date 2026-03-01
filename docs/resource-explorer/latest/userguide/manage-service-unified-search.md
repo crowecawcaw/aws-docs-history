@@ -1,6 +1,4 @@
-# Supporting Unified Search in the
-
-AWS Management Console
+# Supporting Unified Search in the AWS Management Console
 
 The AWS Management Console has a search bar at the top of every console page. This provides a
 [Unified Search](../../../awsconsolehelpdocs/latest/gsg/using-search.md "../../../awsconsolehelpdocs/latest/gsg/using-search.md") experience across all AWS services. Unified Search results can
@@ -27,5 +25,4 @@ include such things as:
   Unified Search always uses the default view in the AWS Region that contains the
   aggregator index to perform all searches when present.
 
-For more information about resourcer views, see [Permission tiers and user
-experiences](manage-immediate-resource-discovery-experience.md#immediate-permission-tiers "manage-immediate-resource-discovery-experience.md#immediate-permission-tiers").
+For more information about resourcer views, see [Permission tiers and user experiences](manage-immediate-resource-discovery-experience.md#immediate-permission-tiers "manage-immediate-resource-discovery-experience.md#immediate-permission-tiers").

@@ -10,9 +10,7 @@ domain where Resource Explorer APIs are hosted is being upgraded to support IPv6
 IP address filtering policies that are not updated to handle IPv6 addresses might result
 in clients losing access to the resources on the Resource Explorer API domain.
 
-## Customers impacted by upgrade from IPv4 to
-
-IPv6
+## Customers impacted by upgrade from IPv4 to IPv6
 
 Customers who are using dual addressing with policies containing
 _aws:sourceIp_ are impacted by this upgrade. Dual addressing

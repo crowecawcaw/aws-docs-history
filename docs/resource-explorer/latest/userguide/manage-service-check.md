@@ -1,6 +1,4 @@
-# Identifying which Regions display full versus partial
-
-resource results
+# Identifying which Regions display full versus partial resource results
 
 AWS Resource Explorer provides different levels of search results depending on your permissions and
 the type of index in each Region. All Regions have Resource Explorer-owned indexes that provide partial
@@ -29,9 +27,7 @@ only Resource Explorer-owned indexes provide partial results (all tagged resourc
 untagged resources created after the [immediate resource discovery](manage-immediate-resource-discovery-experience.md "manage-immediate-resource-discovery-experience.md") release) but are not included in
 cross-Region search replication.
 
-## Checking index types and result
-
-completeness in Regions
+## Checking index types and result completeness in Regions
 
 You can check which Regions have user-owned indexes (providing full results) versus
 Resource Explorer-owned indexes (providing partial results) by using the AWS Management Console, by using

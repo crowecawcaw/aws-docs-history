@@ -8,8 +8,7 @@ indexes in your AWS Organizations or organizational unit (OU).
 - [Prerequisites](#getting-started-prerequisites "#getting-started-prerequisites")
 - [Enable multi-account search](#enable-multi-account-search "#enable-multi-account-search")
 - [Multi-account Quick Setup](#getting-started-quick-setup "#getting-started-quick-setup")
-- [Effect of account actions on Resource Explorer
-  multi-account search](manage-service-account-actions.md "manage-service-account-actions.md")
+- [Effect of account actions on Resource Explorer multi-account search](manage-service-account-actions.md "manage-service-account-actions.md")
 
 ## Prerequisites
 

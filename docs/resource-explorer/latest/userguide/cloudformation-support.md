@@ -16,8 +16,7 @@ resources over and over in multiple AWS accounts and Regions.
 You can use CloudFormation StackSets to deploy Resource Explorer to all of the accounts in your
 organization. When you add or create member accounts in your organization, StackSets can
 automatically configure indexes in each AWS Region, including an aggregator index where
-you specify, to each new member account. For instructions, see [Deploying Resource Explorer to the accounts in
-an organization](manage-service-all-org-with-stacksets.md "manage-service-all-org-with-stacksets.md").
+you specify, to each new member account. For instructions, see [Deploying Resource Explorer to the accounts in an organization](manage-service-all-org-with-stacksets.md "manage-service-all-org-with-stacksets.md").
 
 ## Resource Explorer and CloudFormation templates
 
@@ -33,14 +32,11 @@ Resource Explorer supports creating the following resource types in CloudFormati
 
 - **[Index](../../../AWSCloudFormation/latest/UserGuide/aws-resource-resourceexplorer2-index.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-resourceexplorer2-index.md")** – Creates an index in a Region and
   turns on Resource Explorer in that Region. You can specify that the index be either local
-  or the aggregator index for the AWS account. For more information, see [Creating user-owned indexes for enhanced
-  Resource Explorer functionality](manage-service-turn-on-region.md "manage-service-turn-on-region.md") and [Enabling cross-Region search by creating an
-  aggregator index](manage-aggregator-region.md "manage-aggregator-region.md").
+  or the aggregator index for the AWS account. For more information, see [Creating user-owned indexes for enhanced Resource Explorer functionality](manage-service-turn-on-region.md "manage-service-turn-on-region.md") and [Enabling cross-Region search by creating an aggregator index](manage-aggregator-region.md "manage-aggregator-region.md").
 - **[View](../../../AWSCloudFormation/latest/UserGuide/aws-resource-resourceexplorer2-view.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-resourceexplorer2-view.md")** – Creates a view that determines what
   results can appear when a user performs a search. Every search operation must
   specify a view. You must grant users permission to use the views that you want
-  them to access. For more information, see [Configuring a Resource Explorer view to provide access to
-  resource searches](customer-views.md#configure-views "customer-views.md#configure-views").
+  them to access. For more information, see [Configuring a Resource Explorer view to provide access to resource searches](customer-views.md#configure-views "customer-views.md#configure-views").
 
 ###### Note
 
@@ -54,8 +50,7 @@ first.
   specified view to be the default in its Region. When a user doesn't explicitly
   specify the view to use for a search operation, Resource Explorer attempts to use the
   default view associated with the Region in which the user performs the search.
-  For more information, see [Setting a default view in an
-  AWS Region](configure-views-set-default.md "configure-views-set-default.md")
+  For more information, see [Setting a default view in an AWS Region](configure-views-set-default.md "configure-views-set-default.md")
 
 The following example illustrates how you might create one index and a view in the
 same Region, and set the view to be the default for the Region.

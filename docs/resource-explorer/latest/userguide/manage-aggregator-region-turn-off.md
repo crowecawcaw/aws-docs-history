@@ -1,6 +1,4 @@
-# Demoting the aggregator index to a local
-
-index
+# Demoting the aggregator index to a local index
 
 You can demote an aggregator index to a local index, such as when you want to move the
 aggregator index to a different AWS Region.

@@ -121,9 +121,7 @@ individual Region.
 region:global
 ```
 
-## Search for resources of a certain type that are located in a
-
-specific Region
+## Search for resources of a certain type that are located in a specific Region
 
 When you use multiple filters, Resource Explorer evaluates the expression by combining the
 prefixes with implicit logical `AND` operators. The following example returns
@@ -164,9 +162,7 @@ resources that match the word "wing" without the word "west".
 "west wing"
 ```
 
-## Search for resources that are part of a specified CloudFormation
-
-stack
+## Search for resources that are part of a specified CloudFormation stack
 
 When you create a resource as part of an CloudFormation stack, they are all tagged with the
 stack's name _automatically_. The following example

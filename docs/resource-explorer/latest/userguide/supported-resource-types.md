@@ -1,6 +1,4 @@
-# Resource types you can search for with
-
-Resource Explorer
+# Resource types you can search for with Resource Explorer
 
 Resource Explorer supports resource types across numerous AWS services. Resource discovery happens
 automatically when you access Resource Explorer with appropriate permissions. If you have, at minimum,
@@ -15,14 +13,11 @@ results.
 ###### Topics
 
 - [Supported services and resource types](#types-list "#types-list")
-- [Programmatically accessing the list of supported
-  resource types](#programmatic-access "#programmatic-access")
-- [Resource types that appear as other
-  types](#resource-type-exceptions "#resource-type-exceptions")
+- [Programmatically accessing the list of supported resource types](#programmatic-access "#programmatic-access")
+- [Resource types that appear as other types](#resource-type-exceptions "#resource-type-exceptions")
   Some resource types are identified by [Amazon resource name (ARN)](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md") strings that share a common format
   with another resource type. When this happens, Resource Explorer can report such resources as that
-  other resource type. For list of resource types affected by this issue, see [Resource types that appear as other
-  types](#resource-type-exceptions "#resource-type-exceptions").
+  other resource type. For list of resource types affected by this issue, see [Resource types that appear as other types](#resource-type-exceptions "#resource-type-exceptions").
 
 At this time, tags attached to AWS Identity and Access Management (IAM) resources, such as roles or users, can't
 be used for searching.
@@ -239,7 +234,7 @@ As of February 10, 2026, Resource Explorer no longer supports the following reso
 - [Amazon Personalize](#services-personalize "#services-personalize")
 - [AWS Private Certificate Authority](#services-acm-pca "#services-acm-pca")
 - [AWS Proton](#services-proton "#services-proton")
-- [Amazon Quick Suite](#services-quicksight "#services-quicksight")
+- [Amazon Quick](#services-quicksight "#services-quicksight")
 - [Amazon Redshift](#services-redshift "#services-redshift")
 - [Amazon Rekognition](#services-rekognition "#services-rekognition")
 - [Amazon Relational Database Service (Amazon RDS)](#services-rds "#services-rds")
@@ -1192,7 +1187,7 @@ As of February 10, 2026, Resource Explorer no longer supports the following reso
 - `proton:environment-template`
 - `proton:service-template`
 
-### Amazon Quick Suite
+### Amazon Quick
 
 - `quicksight:dataset`
 - `quicksight:datasource`
@@ -1392,9 +1387,7 @@ As of February 10, 2026, Resource Explorer no longer supports the following reso
 - `workspaces:connectionalias`
 - `workspaces:workspace`
 
-## Programmatically accessing the list of supported
-
-resource types
+## Programmatically accessing the list of supported resource types
 
 To access the list of supported resource types from code, you can invoke the [ListSupportedResourceTypes](../apireference/API_ListSupportedResourceTypes.md "../apireference/API_ListSupportedResourceTypes.md") operation from any AWS SDK.
 
@@ -1419,9 +1412,7 @@ following example.
 ***... truncated for brevity ...***`
 ```
 
-## Resource types that appear as other
-
-types
+## Resource types that appear as other types
 
 Some resource types are identified by [Amazon resource name (ARN)](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md") strings that share a common
 format with another resource type. When this happens, Resource Explorer can report such resources

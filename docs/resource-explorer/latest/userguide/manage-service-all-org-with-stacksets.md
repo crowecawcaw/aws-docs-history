@@ -1,6 +1,4 @@
-# Deploying Resource Explorer to the accounts in
-
-an organization
+# Deploying Resource Explorer to the accounts in an organization
 
 By using AWS CloudFormation StackSets, you can define and deploy to all of the accounts managed in
 an organization by AWS Organizations. When you define a stack set, you specify AWS resources that

@@ -43,8 +43,7 @@ Region that contains the _aggregator index_ for the account. The
 with the aggregator index and with filters that include all resources in all
 AWS Regions used by the account.
 
-For information about how to create views, see [Configuring a Resource Explorer view to provide access to
-resource searches](customer-views.md#configure-views "customer-views.md#configure-views"). For information about how to use views in a
+For information about how to create views, see [Configuring a Resource Explorer view to provide access to resource searches](customer-views.md#configure-views "customer-views.md#configure-views"). For information about how to use views in a
 query, see [Using AWS Resource Explorer to search for resources](using-search.md "using-search.md").
 
 Every view has an [Amazon resource name (ARN)](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md") that you can reference in permission policies to

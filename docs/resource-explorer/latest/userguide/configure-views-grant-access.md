@@ -1,6 +1,4 @@
-# Granting access to Resource Explorer views for
-
-search
+# Granting access to Resource Explorer views for search
 
 Before users can search with a new view, you must grant access to AWS Resource Explorer views. To do
 this, use an identity-based permission policy to the AWS Identity and Access Management (IAM) principals that need
@@ -67,9 +65,7 @@ policies, see the following topics:
     + [Understanding
      permissions granted by a policy](../../../IAM/latest/UserGuide/access_policies_understand.md "../../../IAM/latest/UserGuide/access_policies_understand.md")
 
-## Using tag-based authorization to
-
-control access to your views
+## Using tag-based authorization to control access to your views
 
 If you choose to create multiple views with filters that return results with only
 certain resources, then you might also want to restrict access to those views to only
@@ -128,7 +124,5 @@ tags to control who can search using the Resource Explorer views in your account
 policies that illustrate the principle, see the following example permission
 policies:
 
-- [Granting access to a
-  view based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-abac-views "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-abac-views")
-- [Granting access
-  to create a view based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-abac-createview "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-abac-createview")
+- [Granting access to a view based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-abac-views "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-abac-views")
+- [Granting access to create a view based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-abac-createview "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-abac-createview")

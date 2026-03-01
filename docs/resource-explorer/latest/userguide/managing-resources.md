@@ -4,9 +4,7 @@ The Resource Explorer console supports resource quick-actions and integrations w
 AWS services, allowing you to perform the most common resource management tasks and
 providing additional resource information from one console.
 
-## Resource Explorer console integrations with other AWS
-
-services
+## Resource Explorer console integrations with other AWS services
 
 **Amazon Q Developer Ask Amazon Q** — When you select one or
 more resources, choosing **Actions**, **Help me with this

@@ -41,9 +41,7 @@ organization scope view, organizational unit (OU) scope views, and account-level
 views. They can share with organizations, OUs, or accounts. When accounts join or leave the
 organization, AWS RAM automatically grants or revokes the shared view.
 
-## Permissions policy to share view
-
-with AWS accounts
+## Permissions policy to share view with AWS accounts
 
 The following example policy shows how you can make a view available to the principals
 in two different AWS accounts:

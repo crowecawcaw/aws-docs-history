@@ -1,6 +1,4 @@
-# Promoting a local index to be the
-
-aggregator index for the account
+# Promoting a local index to be the aggregator index for the account
 
 For cross-region search functionality, Resource Explorer provides a streamlined banner workflow that
 allows you to enable cross-region search with a single click. If you see a
@@ -23,9 +21,7 @@ aggregator index for the account.
 
 AWS Management Console
 
-###### To promote a user-owned (local) index to be the aggregator index for the
-
-account
+###### To promote a user-owned (local) index to be the aggregator index for the account
 
 1. **Primary method - Banner workflow:** If
    you see a **Complete setup and enable cross-Region
@@ -50,9 +46,7 @@ account
 
 AWS CLI
 
-###### To promote a user-owned (local) index to be the aggregator index for the
-
-account
+###### To promote a user-owned (local) index to be the aggregator index for the account
 
 The following example command updates the index in the specified
 AWS Region from type `LOCAL` to type `AGGREGATOR`.

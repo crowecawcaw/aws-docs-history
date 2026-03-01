@@ -1,6 +1,4 @@
-# AWS Resource Explorer identity-based policy
-
-examples
+# AWS Resource Explorer identity-based policy examples
 
 By default, AWS Identity and Access Management (IAM) principals, such as roles, groups, and users, don't have
 permission to create or modify Resource Explorer resources. They also can't perform tasks using the
@@ -31,20 +29,13 @@ in the _IAM User Guide_.
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the Resource Explorer
-  console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Granting access to a
-  view based on tags](#security_iam_id-based-policy-examples-abac-views "#security_iam_id-based-policy-examples-abac-views")
-- [Granting access
-  to create a view based on tags](#security_iam_id-based-policy-examples-abac-createview "#security_iam_id-based-policy-examples-abac-createview")
-- [Allow
-  principals to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the Resource Explorer console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Granting access to a view based on tags](#security_iam_id-based-policy-examples-abac-views "#security_iam_id-based-policy-examples-abac-views")
+- [Granting access to create a view based on tags](#security_iam_id-based-policy-examples-abac-createview "#security_iam_id-based-policy-examples-abac-createview")
+- [Allow principals to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Resource Explorer resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -77,9 +68,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the Resource Explorer
-
-console
+## Using the Resource Explorer console
 
 For principals to search in the AWS Resource Explorer console, they must have a minimum set of
 permissions. If you don't create an identity-based policy with the minimum required
@@ -88,17 +77,14 @@ account.
 
 You can use the AWS managed policy named `AWSResourceExplorerReadOnlyAccess` to
 grant the ability to use the Resource Explorer console to search using any view in the account. To
-grant permissions to search with only a single view, see [Granting access to Resource Explorer views for
-search](configure-views-grant-access.md "configure-views-grant-access.md"), and the examples in the following two sections.
+grant permissions to search with only a single view, see [Granting access to Resource Explorer views for search](configure-views-grant-access.md "configure-views-grant-access.md"), and the examples in the following two sections.
 
 You don't need to allow minimum console permissions for principals that are making
 calls only to the AWS CLI or the AWS API. Instead, you can choose to grant access to
 only those actions that match the API operations that the principals need to
 perform.
 
-## Granting access to a
-
-view based on tags
+## Granting access to a view based on tags
 
 In this example, you want to grant access to a Resource Explorer view in your AWS account to
 principals in the account. To do this you assign IAM identity-based policies to the
@@ -150,9 +136,7 @@ For this scenario, you could consider setting the default view to filter out
 sensitive resources and then setting up additional views to which you grant
 tag-based access as described in the previous example.
 
-## Granting access
-
-to create a view based on tags
+## Granting access to create a view based on tags
 
 In this example, you want to allow only principals that are tagged the same as the
 index to be able to create views in the AWS Region that contains the index. To do
@@ -187,9 +171,7 @@ JSON
 
 ```
 
-## Allow
-
-principals to view their own permissions
+## Allow principals to view their own permissions
 
 JSON
 

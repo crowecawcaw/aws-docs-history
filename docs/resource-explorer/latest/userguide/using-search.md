@@ -44,8 +44,7 @@ Resource Explorer-owned views do not include resource tags in search results. If
 user-owned view is available, Resource Explorer automatically falls back to using a Resource
 Explorer-owned view to ensure search functionality remains available.
 
-For more information about views, see [Configuring a Resource Explorer view to provide access to
-resource searches](customer-views.md#configure-views "customer-views.md#configure-views").
+For more information about views, see [Configuring a Resource Explorer view to provide access to resource searches](customer-views.md#configure-views "customer-views.md#configure-views").
 
 - **Resource Explorer uses asynchronous background processes to maintain
   its indexes.**

@@ -5,20 +5,13 @@ you search for resources by using Resource Explorer.
 
 ###### Topics
 
-- [Why are some resources
-  missing from my Resource Explorer search results?](#troubleshooting_search_missing-resources "#troubleshooting_search_missing-resources")
-- [Why are some searches limited to 1,000
-  results?](#troubleshooting_limited_results "#troubleshooting_limited_results")
-- [Why are my resources not appearing in
-  Unified Search results in the console?](#troubleshooting_search_unified "#troubleshooting_search_unified")
-- [Why does Unified Search in
-  the console and Resource Explorer sometimes give different results?](#troubleshooting_search_unified_different "#troubleshooting_search_unified_different")
-- [What permissions do I need to be
-  able to search for resources?](#troubleshooting_search_permissions "#troubleshooting_search_permissions")
+- [Why are some resources missing from my Resource Explorer search results?](#troubleshooting_search_missing-resources "#troubleshooting_search_missing-resources")
+- [Why are some searches limited to 1,000 results?](#troubleshooting_limited_results "#troubleshooting_limited_results")
+- [Why are my resources not appearing in Unified Search results in the console?](#troubleshooting_search_unified "#troubleshooting_search_unified")
+- [Why does Unified Search in the console and Resource Explorer sometimes give different results?](#troubleshooting_search_unified_different "#troubleshooting_search_unified_different")
+- [What permissions do I need to be able to search for resources?](#troubleshooting_search_permissions "#troubleshooting_search_permissions")
 
-## Why are some resources
-
-missing from my Resource Explorer search results?
+## Why are some resources missing from my Resource Explorer search results?
 
 The following list provides reasons why some resources might not appear in your search
 results as expected:
@@ -64,15 +57,13 @@ using to search. For more about filters, see [Filters](using-search-query-syntax
 Resource Explorer**
 
 Some resource types aren't supported by Resource Explorer. For more information, see
-[Resource types you can search for with
-Resource Explorer](supported-resource-types.md "supported-resource-types.md").
+[Resource types you can search for with Resource Explorer](supported-resource-types.md "supported-resource-types.md").
 
 **User indexes aren't configured in the console
 Region**
 
 If a user index isn't configured in a Region, you will see partial results.
-For more information, see [Understanding the immediate
-resource discovery experience](manage-immediate-resource-discovery-experience.md "manage-immediate-resource-discovery-experience.md").
+For more information, see [Understanding the immediate resource discovery experience](manage-immediate-resource-discovery-experience.md "manage-immediate-resource-discovery-experience.md").
 
 **Your views don't include tags**
 
@@ -117,9 +108,7 @@ are:
 - `rds:global-cluster`
 - `s3:accesspoint`
 
-## Why are some searches limited to 1,000
-
-results?
+## Why are some searches limited to 1,000 results?
 
 If your query includes free-form text, the Resource Explorer console will use the
 `Search` operation, but if your query does not include free-form text,
@@ -129,9 +118,7 @@ operations have no upper limit and are not sorted by relevancy. To see resources
 1,000 results when using free-form text (and the `Search` operation), you
 must use additional filters.
 
-## Why are my resources not appearing in
-
-Unified Search results in the console?
+## Why are my resources not appearing in Unified Search results in the console?
 
 [Unified Search](../../../awsconsolehelpdocs/latest/gsg/using-search.md "../../../awsconsolehelpdocs/latest/gsg/using-search.md") results are available in the search bar at the top of every
 AWS Management Console page when you have, at minimum, the permissions in the
@@ -139,9 +126,7 @@ AWS Management Console page when you have, at minimum, the permissions in the
 access to resource results, obtain permission from your administrator or sign in with a
 role that has this permission.
 
-## Why does Unified Search in
-
-the console and Resource Explorer sometimes give different results?
+## Why does Unified Search in the console and Resource Explorer sometimes give different results?
 
 Unified Search results are available in the search bar at the top of every AWS Management Console
 page. When you use Unified Search, the Unified Search process automatically inserts a
@@ -160,9 +145,7 @@ Resource Explorer console does **_not_**
 automatically append a wildcard character. You can insert a `*` manually after
 any term in the search string.
 
-## What permissions do I need to be
-
-able to search for resources?
+## What permissions do I need to be able to search for resources?
 
 To search, you must have permission to perform _both_
 of the following operations on a view that resides in the Region in which you call the

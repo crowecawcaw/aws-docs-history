@@ -1,6 +1,4 @@
-# Example service control policies for AWS Organizations and
-
-Resource Explorer
+# Example service control policies for AWS Organizations and Resource Explorer
 
 AWS Resource Explorer supports service control policies (SCPs). SCPs are policies that you attach to
 elements in an organization to manage permissions within that organization. An SCP applies
@@ -31,8 +29,7 @@ operations except the two permissions required to search,
 `resource-explorer-2:Search` and `resource-explorer-2:GetView`,
 unless the IAM principal making the request is tagged
 `ResourceExplorerAdmin=TRUE`. For a more complete discussion of using
-ABAC with Resource Explorer, see [Using tag-based authorization to
-control access to your views](configure-views-grant-access.md#configure-views-grant-access-abac "configure-views-grant-access.md#configure-views-grant-access-abac").
+ABAC with Resource Explorer, see [Using tag-based authorization to control access to your views](configure-views-grant-access.md#configure-views-grant-access-abac "configure-views-grant-access.md#configure-views-grant-access-abac").
 
 JSON
 

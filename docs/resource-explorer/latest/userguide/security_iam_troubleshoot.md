@@ -5,14 +5,10 @@ encounter when working with Resource Explorer and AWS Identity and Access Manage
 
 ###### Topics
 
-- [I am not authorized to
-  perform an action in Resource Explorer](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
-- [I want to allow people
-  outside of my AWS account to access my Resource Explorer resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
+- [I am not authorized to perform an action in Resource Explorer](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
+- [I want to allow people outside of my AWS account to access my Resource Explorer resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
 
-## I am not authorized to
-
-perform an action in Resource Explorer
+## I am not authorized to perform an action in Resource Explorer
 
 If the AWS Management Console tells you that you're not authorized to perform an action, then you
 must contact your administrator for assistance. Your administrator is the person that
@@ -30,9 +26,7 @@ In this case, the person using the role must ask the administrator to update the
 role's permission policies to allow access to the view using the
 `resource-explorer-2:GetView` action.
 
-## I want to allow people
-
-outside of my AWS account to access my Resource Explorer resources
+## I want to allow people outside of my AWS account to access my Resource Explorer resources
 
 You can create a role that users in other accounts or people outside of your organization can use to access your resources. You can specify who
 is trusted to assume the role. For services that support resource-based policies or access control lists (ACLs), you can use those policies to grant

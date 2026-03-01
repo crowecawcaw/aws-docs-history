@@ -1,6 +1,4 @@
-# Setting a default view in an
-
-AWS Region
+# Setting a default view in an AWS Region
 
 In AWS Resource Explorer, you can define many views in an AWS Region, where each view addresses
 different search requirements. We recommend that you set **_one_** view in each Region as the _default

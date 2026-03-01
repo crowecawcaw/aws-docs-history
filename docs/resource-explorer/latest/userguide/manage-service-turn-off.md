@@ -17,9 +17,7 @@ console to delete the SLR if you won't use Resource Explorer in the future. If y
 role and you then choose to access Resource Explorer again in at least one AWS Region, Resource Explorer
 re-creates the service-linked role automatically.
 
-## Turning off Resource Explorer in one
-
-AWS Region
+## Turning off Resource Explorer in one AWS Region
 
 You can turn off Resource Explorer in an AWS Region by using the AWS Management Console, by using commands
 in the AWS Command Line Interface (AWS CLI), or by using API operations in an AWS SDK.
@@ -101,9 +99,7 @@ change to `DELETED`.
 }`
 ```
 
-## Turning off Resource Explorer in all
-
-AWS Regions
+## Turning off Resource Explorer in all AWS Regions
 
 If you want to turn off AWS Resource Explorer completely, perform the following procedure.
 

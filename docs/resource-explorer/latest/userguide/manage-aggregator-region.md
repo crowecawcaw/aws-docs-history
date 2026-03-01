@@ -1,6 +1,4 @@
-# Enabling cross-Region search by creating an
-
-aggregator index
+# Enabling cross-Region search by creating an aggregator index
 
 With cross-region search enabled, you can search for resources across all of the Regions
 in your AWS account.
@@ -8,10 +6,8 @@ in your AWS account.
 ###### Topics
 
 - [About the aggregator index](#manage-aggregator-region-about "#manage-aggregator-region-about")
-- [Promoting a local index to be the
-  aggregator index for the account](manage-aggregator-region-turn-on.md "manage-aggregator-region-turn-on.md")
-- [Demoting the aggregator index to a local
-  index](manage-aggregator-region-turn-off.md "manage-aggregator-region-turn-off.md")
+- [Promoting a local index to be the aggregator index for the account](manage-aggregator-region-turn-on.md "manage-aggregator-region-turn-on.md")
+- [Demoting the aggregator index to a local index](manage-aggregator-region-turn-off.md "manage-aggregator-region-turn-off.md")
 
 ## About the aggregator index
 

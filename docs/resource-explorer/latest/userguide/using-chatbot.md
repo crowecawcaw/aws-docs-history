@@ -27,9 +27,7 @@ To ask Amazon Q Developer in chat applications resource related questions you mu
 - Verify that your channel guardrail policies allow
   AWSResourceExplorerReadOnlyAccess permissions.
 
-### Commonly asked resource
-
-questions
+### Commonly asked resource questions
 
 You can ask these questions directly from your chat channels. Replace the words
 with red text with your own information.

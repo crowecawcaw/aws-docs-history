@@ -8,22 +8,17 @@ the **Security** section of this guide.
 
 - [General issues](#troubleshooting_general "#troubleshooting_general")
   (_this page_)
-- [Troubleshooting Resource Explorer setup and configuration
-  issues](troubleshooting_setup.md "troubleshooting_setup.md")
+- [Troubleshooting Resource Explorer setup and configuration issues](troubleshooting_setup.md "troubleshooting_setup.md")
 - [Troubleshooting Resource Explorer search issues](troubleshooting_search.md "troubleshooting_search.md")
 
 ## General issues
 
 ###### Topics
 
-- [I received a link to Resource Explorer
-  but when I open it, the console shows only an error.](#troubleshooting_general_url-no-region "#troubleshooting_general_url-no-region")
-- [Why does Unified Search
-  in the console cause "access denied" errors in my CloudTrail logs?](#troubleshooting_general_us-access-denied "#troubleshooting_general_us-access-denied")
+- [I received a link to Resource Explorer but when I open it, the console shows only an error.](#troubleshooting_general_url-no-region "#troubleshooting_general_url-no-region")
+- [Why does Unified Search in the console cause "access denied" errors in my CloudTrail logs?](#troubleshooting_general_us-access-denied "#troubleshooting_general_us-access-denied")
 
-### I received a link to Resource Explorer
-
-but when I open it, the console shows only an error.
+### I received a link to Resource Explorer but when I open it, the console shows only an error.
 
 Some third-party tools produce link URLs to pages in Resource Explorer. In some cases, those
 URLs don't include the parameter that directs the console to a specific
@@ -72,9 +67,7 @@ to all users who need to use Resource Explorer. That grants these required permi
 the permissions needed see the available views in the Region and search using those
 views.
 
-### Why does Unified Search
-
-in the console cause "access denied" errors in my CloudTrail logs?
+### Why does Unified Search in the console cause "access denied" errors in my CloudTrail logs?
 
 [Unified Search in the AWS Management Console](using-unified-search.md "using-unified-search.md") lets
 principals search from any page in the AWS Management Console. The results can include resources

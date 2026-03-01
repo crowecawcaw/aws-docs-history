@@ -112,21 +112,17 @@ initial replication to a new aggregator index from all of the existing local ind
 
 **Next steps:** Before your users can search
 with the default view you just created, you must grant them permissions to
-search with it. For more information, see [Granting access to Resource Explorer views for
-search](configure-views-grant-access.md "configure-views-grant-access.md").
+search with it. For more information, see [Granting access to Resource Explorer views for search](configure-views-grant-access.md "configure-views-grant-access.md").
 
 AWS CLI
 Setting up Resource Explorer in your AWS account by using the AWS CLI is, by
 definition, equivalent to the **Advanced setup** option.
 This is because the Resource Explorer CLI operations don't perform any of the steps for
 you automatically like the Resource Explorer console does. See the AWS CLI tab on the
-[Using enhanced configuration
-options](#getting-started-setting-up-advanced "#getting-started-setting-up-advanced") to see what
+[Using enhanced configuration options](#getting-started-setting-up-advanced "#getting-started-setting-up-advanced") to see what
 commands are the equivalent of using the console.
 
-## Using enhanced configuration
-
-options
+## Using enhanced configuration options
 
 For more granular control over your Resource Explorer configuration, you can use Advanced setup
 options to:
@@ -140,8 +136,7 @@ options to:
 - Choose whether to create a default view. That view allows searching
   automatically for any AWS resource in the Regions where you have user-owned
   indexes. You must ensure that any principals who need to use the default view to
-  search in Resource Explorer have permissions on the view. For more information, see [Granting access to Resource Explorer views for
-  search](configure-views-grant-access.md "configure-views-grant-access.md").
+  search in Resource Explorer have permissions on the view. For more information, see [Granting access to Resource Explorer views for search](configure-views-grant-access.md "configure-views-grant-access.md").
 
 **Minimum permissions**
 
@@ -187,9 +182,7 @@ based on the choices you make. The following example AWS CLI commands
 illustrate how to perform the same basic procedures outside of the
 console using the AWS CLI.
 
-###### Example Step 1: Create user-owned indexes in the desired
-
-AWS Regions
+###### Example Step 1: Create user-owned indexes in the desired AWS Regions
 
 Run the following command in each AWS Region in which you want to
 activate Resource Explorer. The following example command enables Resource Explorer in the
@@ -204,9 +197,7 @@ AWS Region that is the default for the AWS CLI.
 }`
 ```
 
-###### Example Step 2: Update the index in one AWS Region to be the aggregator
-
-index for the account
+###### Example Step 2: Update the index in one AWS Region to be the aggregator index for the account
 
 Run the following command in the AWS Region in which you want Resource Explorer
 to update the local index to the aggregator index for the account. The
@@ -225,9 +216,7 @@ US East (N. Virginia) (`us-east-1`).
 }`
 ```
 
-###### Example Step 3: Create a view in the AWS Region that contains the
-
-aggregator index
+###### Example Step 3: Create a view in the AWS Region that contains the aggregator index
 
 Run the following command in the AWS Region in which you created the
 aggregator index. The following example command creates a view identical
@@ -270,8 +259,7 @@ same AWS Region in which you created the default view.
 ```
 
 Before your users can search with a view, you must grant them
-permissions to use that view. For more information, see [Granting access to Resource Explorer views for
-search](configure-views-grant-access.md "configure-views-grant-access.md").
+permissions to use that view. For more information, see [Granting access to Resource Explorer views for search](configure-views-grant-access.md "configure-views-grant-access.md").
 
 After you run those commands, Resource Explorer is running in the specified Regions
 in your AWS account. Resource Explorer builds and maintains an index in each Region

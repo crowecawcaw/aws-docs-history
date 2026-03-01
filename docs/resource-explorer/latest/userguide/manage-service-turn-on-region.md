@@ -1,6 +1,4 @@
-# Creating user-owned indexes for enhanced
-
-Resource Explorer functionality
+# Creating user-owned indexes for enhanced Resource Explorer functionality
 
 AWS Resource Explorer automatically enables basic search functionality when you search with
 appropriate permissions. However, you may need to manually complete setup in specific
@@ -16,8 +14,7 @@ option, you can specify the Regions in which to create indexes.
 ###### Topics
 
 - [Create a Resource Explorer index in a Region](#manage-service-turn-on-region-region "#manage-service-turn-on-region-region")
-- [Considerations for AWS opt-in
-  Regions](opt-in-region-considerations.md "opt-in-region-considerations.md")
+- [Considerations for AWS opt-in Regions](opt-in-region-considerations.md "opt-in-region-considerations.md")
   When you complete setup for Resource Explorer in an AWS Region, the service performs the following
   actions:
 
@@ -135,8 +132,7 @@ However, if you want users to be able to search for resources in **_only_** the 
 indexed Region, then you can also create a view for users in that Region
 and grant your users permissions to that view or users can search using the
 service view in that Region.. For instructions on how to create a view, see
-[Configuring a Resource Explorer view to provide access to
-resource searches](customer-views.md#configure-views "customer-views.md#configure-views").
+[Configuring a Resource Explorer view to provide access to resource searches](customer-views.md#configure-views "customer-views.md#configure-views").
 
 AWS CLI
 
@@ -198,5 +194,4 @@ However, if you want users to be able to search for resources in **_only_** the 
 indexed Region, then you can also create a view for users in that Region
 and grant your users permissions to that view or users can search using the
 service view in that Region. For instructions on how to create a view, see
-[Configuring a Resource Explorer view to provide access to
-resource searches](customer-views.md#configure-views "customer-views.md#configure-views").
+[Configuring a Resource Explorer view to provide access to resource searches](customer-views.md#configure-views "customer-views.md#configure-views").

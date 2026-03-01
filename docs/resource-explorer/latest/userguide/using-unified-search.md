@@ -57,12 +57,9 @@ appropriate Resource Explorer permissions. To enhance Unified Search functionali
 results, cross-Region results, or custom views, you can optionally complete the
 following steps:
 
-1. (Optional) [Creating user-owned indexes for enhanced
-   Resource Explorer functionality](manage-service-turn-on-region.md "manage-service-turn-on-region.md") to create
+1. (Optional) [Creating user-owned indexes for enhanced Resource Explorer functionality](manage-service-turn-on-region.md "manage-service-turn-on-region.md") to create
    user-owned indexes for complete search results.
-2. (Optional) [Enabling cross-Region search by creating an
-   aggregator index](manage-aggregator-region.md "manage-aggregator-region.md") to enable cross-Region
+2. (Optional) [Enabling cross-Region search by creating an aggregator index](manage-aggregator-region.md "manage-aggregator-region.md") to enable cross-Region
    search results.
-3. (Optional) [Configuring a Resource Explorer view to provide access to
-   resource searches](customer-views.md#configure-views "customer-views.md#configure-views") for specific filtering
+3. (Optional) [Configuring a Resource Explorer view to provide access to resource searches](customer-views.md#configure-views "customer-views.md#configure-views") for specific filtering
    requirements or access control.

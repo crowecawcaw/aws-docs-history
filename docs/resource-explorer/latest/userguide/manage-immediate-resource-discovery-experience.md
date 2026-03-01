@@ -1,6 +1,4 @@
-# Understanding the immediate
-
-resource discovery experience
+# Understanding the immediate resource discovery experience
 
 ## Immediate resource discovery experience
 
@@ -34,9 +32,7 @@ explicitly configure indexes and views before they could search for resources. N
 basic search functionality is available immediately, with enhanced features accessible
 through progressive permission-based upgrades.
 
-## Permission tiers and user
-
-experiences
+## Permission tiers and user experiences
 
 Resource Explorer provides three distinct user experiences based on your IAM
 permissions:
@@ -62,9 +58,7 @@ an index and view for full results on first search in each Region.
 `AdministratorAccess`, `AWSResourceExplorerFullAccess`, or
 custom policies with both permissions.
 
-### Tier 2: Partial search
-
-experience
+### Tier 2: Partial search experience
 
 **Required permissions:** At minimum, the permissions
 in the `AWSResourceExplorerReadOnlyAccess` managed policy only
@@ -101,9 +95,7 @@ control.
 in the `AWSResourceExplorerReadOnlyAccess` managed policy from your
 administrator to access basic search functionality.
 
-### Troubleshooting permission
-
-issues
+### Troubleshooting permission issues
 
 If you encounter permission-related issues:
 
@@ -121,9 +113,7 @@ If you encounter permission-related issues:
   `iam:CreateServiceLinkedRole` permission or must sign in with
   a role that has this permission.
 
-## Understanding indexing progress and
-
-completion
+## Understanding indexing progress and completion
 
 When Resource Explorer automatically creates infrastructure for complete search functionality,
 indexing happens in the background. Understanding the progress indicators helps you know

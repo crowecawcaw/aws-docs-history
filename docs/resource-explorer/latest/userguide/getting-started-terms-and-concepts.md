@@ -244,8 +244,7 @@ AWS account.
 When you complete setup for Resource Explorer, you can specify which AWS Region
 contains the aggregator index. You can also change the AWS Region used for
 the aggregator index later. For information about how to promote a local
-index to make it the aggregator index for its AWS account, see [Enabling cross-Region search by creating an
-aggregator index](manage-aggregator-region.md "manage-aggregator-region.md").
+index to make it the aggregator index for its AWS account, see [Enabling cross-Region search by creating an aggregator index](manage-aggregator-region.md "manage-aggregator-region.md").
 
 After the service-linked role has been created in the account (created by a user with
 the `iam:CreateServiceLinkedRole` permission, which is included in the [AWSResourceExplorerFullAccess](../../../aws-managed-policy/latest/reference/AWSResourceExplorerFullAccess.md "../../../aws-managed-policy/latest/reference/AWSResourceExplorerFullAccess.md") managed policy), automatic index creation

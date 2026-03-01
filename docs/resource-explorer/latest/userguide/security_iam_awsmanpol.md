@@ -37,9 +37,7 @@ contain only one index and one default view.
 - [AWSResourceExplorerReadOnlyAccess](#security_iam_awsmanpol_AWSResourceExplorerReadOnlyAccess "#security_iam_awsmanpol_AWSResourceExplorerReadOnlyAccess")
 - [AWSResourceExplorerServiceRolePolicy](#security_iam_awsmanpol_AWSResourceExplorerServiceRolePolicy "#security_iam_awsmanpol_AWSResourceExplorerServiceRolePolicy")
 
-## AWS managed policy:
-
-AWSResourceExplorerFullAccess
+## AWS managed policy: AWSResourceExplorerFullAccess
 
 You can assign the `AWSResourceExplorerFullAccess` policy to your IAM
 identities.
@@ -72,9 +70,7 @@ includes permissions that are not part of Resource Explorer:
 To see the latest version of this AWS managed policy, see `AWSResourceExplorerFullAccess` in the _AWS Managed Policy
 Reference Guide_.
 
-## AWS managed policy:
-
-AWSResourceExplorerReadOnlyAccess
+## AWS managed policy: AWSResourceExplorerReadOnlyAccess
 
 You can assign the `AWSResourceExplorerReadOnlyAccess` policy to your IAM
 identities.
@@ -103,14 +99,11 @@ are not part of Resource Explorer:
 To see the latest version of this AWS managed policy, see `AWSResourceExplorerReadOnlyAccess` in the _AWS Managed Policy
 Reference Guide_.
 
-## AWS managed policy:
-
-AWSResourceExplorerServiceRolePolicy
+## AWS managed policy: AWSResourceExplorerServiceRolePolicy
 
 You can't attach `AWSResourceExplorerServiceRolePolicy` to any IAM entities yourself.
 This policy can be attached only to a service-linked role that allows Resource Explorer to perform
-actions on your behalf. For more information, see [Using service-linked roles for
-Resource Explorer](security_iam_service-linked-roles.md "security_iam_service-linked-roles.md").
+actions on your behalf. For more information, see [Using service-linked roles for Resource Explorer](security_iam_service-linked-roles.md "security_iam_service-linked-roles.md").
 
 This policy grants the permissions required for Resource Explorer to retrieve information about
 your resources. Resource Explorer populates the indexes it maintains in each AWS Region that you
@@ -119,9 +112,7 @@ register.
 To see the latest version of this AWS managed policy, [`AWSResourceExplorerServiceRolePolicy`](../../../aws-managed-policy/latest/reference/AWSResourceExplorerServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSResourceExplorerServiceRolePolicy.md") in the _AWS Managed Policy
 Reference Guide_.
 
-## AWS managed policy:
-
-AWSResourceExplorerOrganizationsAccess
+## AWS managed policy: AWSResourceExplorerOrganizationsAccess
 
 You can assign `AWSResourceExplorerOrganizationsAccess` to your IAM identities.
 
@@ -181,9 +172,7 @@ search for the organization:
 To see the latest version of this AWS managed policy, see `AWSResourceExplorerOrganizationsAccess` in the _AWS Managed Policy
 Reference Guide_.
 
-## Resource Explorer updates to AWS managed
-
-policies
+## Resource Explorer updates to AWS managed policies
 
 View details about updates to AWS managed policies for Resource Explorer since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe

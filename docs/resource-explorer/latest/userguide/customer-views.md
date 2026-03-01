@@ -39,9 +39,7 @@ in the _IAM User Guide_.
   view to those users who need to see the information included by that view's
   results.
 
-## Configuring a Resource Explorer view to provide access to
-
-resource searches
+## Configuring a Resource Explorer view to provide access to resource searches
 
 Views are the key to searching for your resources. Every AWS Resource Explorer search
 operation must use a view. Views are the method the administrator can use to
@@ -105,8 +103,7 @@ in the _IAM User Guide_.
   - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
   - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
 
-For more information about permissions related to views, see [Granting access to Resource Explorer views for
-search](configure-views-grant-access.md "configure-views-grant-access.md").
+For more information about permissions related to views, see [Granting access to Resource Explorer views for search](configure-views-grant-access.md "configure-views-grant-access.md").
 
 **Filtering the search**
 
@@ -175,10 +172,8 @@ Resource Explorer automatically creates a default view as follows:
 ###### Topics
 
 - [Creating Resource Explorer views to use for search](configure-views-create.md "configure-views-create.md")
-- [Granting access to Resource Explorer views for
-  search](configure-views-grant-access.md "configure-views-grant-access.md")
-- [Setting a default view in an
-  AWS Region](configure-views-set-default.md "configure-views-set-default.md")
+- [Granting access to Resource Explorer views for search](configure-views-grant-access.md "configure-views-grant-access.md")
+- [Setting a default view in an AWS Region](configure-views-set-default.md "configure-views-set-default.md")
 - [Adding tags to views](configure-views-tag.md "configure-views-tag.md")
 - [Sharing Resource Explorer views](configure-views-share.md "configure-views-share.md")
 - [Deleting views in Resource Explorer](configure-views-delete.md "configure-views-delete.md")

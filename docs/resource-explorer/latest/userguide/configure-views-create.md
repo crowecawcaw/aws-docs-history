@@ -100,8 +100,7 @@ can use your new view to perform a search.
 
 **Next step:** Grant the principals in
 your account permissions to search with your new view. For more
-information, see [Granting access to Resource Explorer views for
-search](configure-views-grant-access.md "configure-views-grant-access.md")
+information, see [Granting access to Resource Explorer views for search](configure-views-grant-access.md "configure-views-grant-access.md")
 
 AWS CLI
 
@@ -196,5 +195,4 @@ management account, or a delegated administrator account.
 
 **Next step:** Grant the principals in your
 account permissions to search with your new view. For more information, see
-[Granting access to Resource Explorer views for
-search](configure-views-grant-access.md "configure-views-grant-access.md")
+[Granting access to Resource Explorer views for search](configure-views-grant-access.md "configure-views-grant-access.md")

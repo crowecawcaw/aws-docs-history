@@ -1,6 +1,4 @@
-# Effect of account actions on Resource Explorer
-
-multi-account search
+# Effect of account actions on Resource Explorer multi-account search
 
 ###### Note
 
@@ -20,9 +18,7 @@ After 24 hours, resources from this account won't appear in search results.
 
 Other Resource Explorer data and settings are not removed.
 
-## Member account is removed from an
-
-organization
+## Member account is removed from an organization
 
 When a member account is removed from an organization, the Resource Explorer administrator
 account loses permissions to view resources in the member account.

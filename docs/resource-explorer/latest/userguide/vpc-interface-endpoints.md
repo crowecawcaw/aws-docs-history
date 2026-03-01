@@ -1,6 +1,4 @@
-# Access AWS Resource Explorer using an interface endpoint
-
-(AWS PrivateLink)
+# Access AWS Resource Explorer using an interface endpoint (AWS PrivateLink)
 
 You can use AWS PrivateLink to create a private connection between your VPC and
 AWS Resource Explorer. You can access Resource Explorer as if it were in your VPC, without the use of an
@@ -44,9 +42,7 @@ Resource Explorer using its default Regional DNS name. For example,
 `resource-explorer-2.us-east-1.amazonaws.com` and
 `resource-explorer-2.us-east-1.api.aws`.
 
-## Create an endpoint policy for your interface
-
-endpoint
+## Create an endpoint policy for your interface endpoint
 
 An endpoint policy is an IAM resource that you can attach to an interface endpoint.
 The default endpoint policy allows full access to Resource Explorer through the interface

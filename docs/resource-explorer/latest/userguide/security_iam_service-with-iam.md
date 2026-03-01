@@ -7,10 +7,8 @@ work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-wi
 
 ###### Topics
 
-- [Resource Explorer identity-based
-  policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
-- [Authorization based on Resource Explorer
-  tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
+- [Resource Explorer identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
+- [Authorization based on Resource Explorer tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
 - [Resource Explorer IAM roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
   Like any other AWS service, Resource Explorer requires permissions to use its operations to
   interact with your resources. To create indexes or views, or to modify them or any other
@@ -32,9 +30,7 @@ Assign IAM identity-based policies that grant those
 permissions to the appropriate IAM principals. Resource Explorer provides [several managed policies](security_iam_awsmanpol.md "security_iam_awsmanpol.md") that pre-define common
 sets of permissions. You can assign these to your IAM principals.
 
-## Resource Explorer identity-based
-
-policies
+## Resource Explorer identity-based policies
 
 With IAM identity-based policies, you can specify allowed or denied actions against
 specific resources and the conditions under which those actions are allowed or denied.
@@ -252,12 +248,9 @@ Defined by AWS Resource Explorer](../../../service-authorization/latest/referenc
 
 ### Examples
 
-To view examples of Resource Explorer identity-based policies, see [AWS Resource Explorer identity-based policy
-examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Resource Explorer identity-based policies, see [AWS Resource Explorer identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Authorization based on Resource Explorer
-
-tags
+## Authorization based on Resource Explorer tags
 
 You can attach tags to Resource Explorer views or pass tags in a request to Resource Explorer. To control
 access based on tags, you provide tag information in the [condition
@@ -265,17 +258,14 @@ element](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md 
 `resource-explorer-2:ResourceTag/`key-name``,
  `aws:RequestTag/`key-name``, or
 `aws:TagKeys` condition keys. For more information about tagging Resource Explorer
-resources, see [Adding tags to views](configure-views-tag.md "configure-views-tag.md"). For using tag-based authorization in Resource Explorer, see [Using tag-based authorization to
-control access to your views](configure-views-grant-access.md#configure-views-grant-access-abac "configure-views-grant-access.md#configure-views-grant-access-abac").
+resources, see [Adding tags to views](configure-views-tag.md "configure-views-tag.md"). For using tag-based authorization in Resource Explorer, see [Using tag-based authorization to control access to your views](configure-views-grant-access.md#configure-views-grant-access-abac "configure-views-grant-access.md#configure-views-grant-access-abac").
 
 ## Resource Explorer IAM roles
 
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is a principal within
 your AWS account that has specific permissions.
 
-### Using temporary
-
-credentials with Resource Explorer
+### Using temporary credentials with Resource Explorer
 
 You can use temporary credentials to sign in with federation, assume an IAM
 role, or to assume a cross-account role. You obtain temporary security credentials
@@ -283,9 +273,7 @@ by calling AWS Security Token Service (AWS STS) API operations such as [AssumeRo
 
 Resource Explorer supports using temporary credentials.
 
-### Service-linked
-
-roles
+### Service-linked roles
 
 [Service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role") allow AWS services to access resources in other
 services to complete an action on your behalf. Service-linked roles appear in your
@@ -298,8 +286,7 @@ minimum, the permissions in the `AWSResourceExplorerReadOnlyAccess` managed poli
 resource search, Resource Explorer automatically creates the service-linked role at the account
 level. Once the service-linked role exists, subsequent regions are automatically
 enabled when users with search permissions invoke search operations. For details
-about Resource Explorer service-linked roles, see [Using service-linked roles for
-Resource Explorer](security_iam_service-linked-roles.md "security_iam_service-linked-roles.md").
+about Resource Explorer service-linked roles, see [Using service-linked roles for Resource Explorer](security_iam_service-linked-roles.md "security_iam_service-linked-roles.md").
 
 **Troubleshooting service-linked role creation:** If
 users lack the `iam:CreateServiceLinkedRole` permission (included in the
