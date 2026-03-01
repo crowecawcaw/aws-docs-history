@@ -1,6 +1,4 @@
-# Getting patient data with
-
-`Patient/$everything`
+# Getting patient data with `Patient/$everything`
 
 The `Patient/$everything` operation is used to query a FHIR
 `Patient` resource, along with any other resources related to that
@@ -23,9 +21,7 @@ Resources in response are sorted by resource type and resource `id`.
 
 Response is always populated with `Bundle.total`.
 
-## `Patient/$everything`
-
-parameters
+## `Patient/$everything` parameters
 
 HealthLake supports the following query parameters
 
@@ -82,9 +78,7 @@ Patient $everything can use the `_count` to set the page size.
 GET https://healthlake.`region`.amazonaws.com/datastore/`datastoreId`/r4/Patient/`id`/$everything?_count=15
 ```
 
-## `Patient/$everything`  `start` and `end`
-
-attributes
+## `Patient/$everything`  `start` and `end` attributes
 
 HealthLake supports the following resource attributes for the `Patient/
  $everything`

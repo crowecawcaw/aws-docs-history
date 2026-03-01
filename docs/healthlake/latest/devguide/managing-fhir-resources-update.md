@@ -108,9 +108,7 @@ AWS Console
 
 3. Choose **Run query**.
 
-## Updating FHIR resources based
-
-on conditions
+## Updating FHIR resources based on conditions
 
 Conditional update allows you to update an existing resource based on some identification
 search criteria, rather than by logical FHIR `id`. When the server processes the

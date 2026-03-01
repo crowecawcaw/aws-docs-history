@@ -15,9 +15,7 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## AWS managed policy:
-
-AmazonHealthLakeFullAccess
+## AWS managed policy: AmazonHealthLakeFullAccess
 
 The `AmazonHealthLakeFullAccess` policy provides full access to HealthLake.
 With this policy attached to their user or role, users can use HealthLake to access, query,
@@ -70,9 +68,7 @@ JSON
 
 ```
 
-## AWS managed
-
-policy: AmazonHealthLakeReadOnlyAccess
+## AWS managed policy: AmazonHealthLakeReadOnlyAccess
 
 `AmazonHealthLakeReadOnlyAccess` policy grants read-only access and
 permissions to HealthLake and related resources in other AWS services. Apply this policy
@@ -115,9 +111,7 @@ JSON
 
 ```
 
-## HealthLake operations and
-
-permissions
+## HealthLake operations and permissions
 
 The following table lists typical operations in HealthLake and the permissions needed to
 perform them.
@@ -128,12 +122,10 @@ perform them.
 | Delete a data store in HealthLake                 | `AmazonHealthLakeFullAccess`,<br>`AmazonLakeFormationDataAdmin`, [inline policy](getting-started-setting-up.md "getting-started-setting-up.md"), and<br>AWS Lake Formation Administrator permissions managed by<br>AWS Lake Formation |
 | List, search, or query a data store in HealthLake | `AmazonHealthLakeReadOnlyAccess`                                                                                                                                                                                                      |
 | Query a data store using Amazon Athena            | `AmazonAthenaFullAccess`, `AmazonS3FullAccess`,<br>AWS Lake Formation `Select` and `Describe`<br>permissions on tables managed by AWS Lake Formation                                                                                  |
-| Import data from HealthLake                       | See [Setting up permissions for import<br>jobs](getting-started-setting-up.md#setting-up-import-permissions "getting-started-setting-up.md#setting-up-import-permissions").                                                           |
-| Export data from HealthLake                       | See [Setting up permissions for export<br>jobs](getting-started-setting-up.md#setting-up-export-permissions "getting-started-setting-up.md#setting-up-export-permissions").                                                           |
+| Import data from HealthLake                       | See [Setting up permissions for import jobs](getting-started-setting-up.md#setting-up-import-permissions "getting-started-setting-up.md#setting-up-import-permissions").                                                              |
+| Export data from HealthLake                       | See [Setting up permissions for export jobs](getting-started-setting-up.md#setting-up-export-permissions "getting-started-setting-up.md#setting-up-export-permissions").                                                              |
 
-## HealthLake updates to AWS managed
-
-policies
+## HealthLake updates to AWS managed policies
 
 View details about updates to AWS managed policies for HealthLake from the time that
 this service began tracking these changes. For automatic alerts about changes to this page,

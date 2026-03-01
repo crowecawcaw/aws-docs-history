@@ -1,6 +1,4 @@
-# FHIR R4 Capability Statement for
-
-AWS HealthLake
+# FHIR R4 Capability Statement for AWS HealthLake
 
 To find the FHIR-related capabilities (behaviors) of an active HealthLake data store, you must
 retrieve its Capability Statement. The Capability Statement is used as a statement of actual

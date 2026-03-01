@@ -164,9 +164,7 @@ Both use Bundle resource type but differ in 'type' field:
 }
 ```
 
-## Bundling FHIR resources as
-
-independent entities
+## Bundling FHIR resources as independent entities
 
 ###### To bundle FHIR resources as independent entities
 
@@ -458,9 +456,7 @@ In the example Bundle with conditional update, the Patient resource with FHIR ID
 
 ```
 
-## Bundling FHIR resources as a
-
-single entity
+## Bundling FHIR resources as a single entity
 
 ###### To bundle FHIR resources as a single entity
 

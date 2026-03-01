@@ -11,16 +11,12 @@ data store, you can set up permissions for importing and exporting files.
 
 - [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [Create a user with administrative access](#create-an-admin "#create-an-admin")
-- [Configure an IAM user or role to use HealthLake
-  (IAM Administrator)](#setting-up-configure-iam "#setting-up-configure-iam")
-- [Add a user or role as the Data Lake
-  Administrator in Lake Formation (IAM Administrator)](#setting-up-add-lake-formation "#setting-up-add-lake-formation")
+- [Configure an IAM user or role to use HealthLake (IAM Administrator)](#setting-up-configure-iam "#setting-up-configure-iam")
+- [Add a user or role as the Data Lake Administrator in Lake Formation (IAM Administrator)](#setting-up-add-lake-formation "#setting-up-add-lake-formation")
 - [Create S3 buckets](#setting-up-create-s3-buckets "#setting-up-create-s3-buckets")
 - [Create a data store](#setting-up-create-data-store "#setting-up-create-data-store")
-- [Setting up permissions for import
-  jobs](#setting-up-import-permissions "#setting-up-import-permissions")
-- [Setting up permissions for export
-  jobs](#setting-up-export-permissions "#setting-up-export-permissions")
+- [Setting up permissions for import jobs](#setting-up-import-permissions "#setting-up-import-permissions")
+- [Setting up permissions for export jobs](#setting-up-export-permissions "#setting-up-export-permissions")
 - [Install the AWS CLI](#setting-up-install-cli "#setting-up-install-cli")
 
 ## Sign up for an AWS account
@@ -81,9 +77,7 @@ For instructions, see [Create a permission set](../../../singlesignon/latest/use
 
 For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgroups.md "../../../singlesignon/latest/userguide/addgroups.md") in the _AWS IAM Identity Center User Guide_.
 
-## Configure an IAM user or role to use HealthLake
-
-(IAM Administrator)
+## Configure an IAM user or role to use HealthLake (IAM Administrator)
 
 ###### Persona: IAM Administrator
 
@@ -164,9 +158,7 @@ JSON
 For more information on the `AWSLakeFormationDataAdmin` policy, see [Lake Formation Personas and IAM Permissions Reference](../../../index.md "../../../index.md") in
 the _AWS Lake Formation Developer Guide_.
 
-## Add a user or role as the Data Lake
-
-Administrator in Lake Formation (IAM Administrator)
+## Add a user or role as the Data Lake Administrator in Lake Formation (IAM Administrator)
 
 ###### Note
 
@@ -267,9 +259,7 @@ section.
 
 To create a HealthLake data store, see [Creating a HealthLake data store](managing-data-stores-create.md "managing-data-stores-create.md").
 
-## Setting up permissions for import
-
-jobs
+## Setting up permissions for import jobs
 
 Before you import files into a data store, you must grant HealthLake permission to access
 your input and output buckets in Amazon S3. To grant HealthLake access, you create an IAM
@@ -367,9 +357,7 @@ JSON
 
 ```
 
-## Setting up permissions for export
-
-jobs
+## Setting up permissions for export jobs
 
 Before you export files from a data store, you must grant HealthLake permission to access
 your output bucket in Amazon S3. To grant HealthLake access, you create an IAM service role for
@@ -463,8 +451,7 @@ JSON
    [Amazon Key Management Service](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md").
 2. If you haven't already, create a data access service role for HealthLake and give
    the HealthLake service permission to assume it with the following trust policy. HealthLake
-   uses this to write the output Amazon S3 bucket. If you already created one in [Setting up permissions for import
-   jobs](#setting-up-import-permissions "#setting-up-import-permissions"), you can reuse it and grant
+   uses this to write the output Amazon S3 bucket. If you already created one in [Setting up permissions for import jobs](#setting-up-import-permissions "#setting-up-import-permissions"), you can reuse it and grant
    it permissions for your Amazon S3 bucket in the next step.
 
 JSON

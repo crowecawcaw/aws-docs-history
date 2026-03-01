@@ -89,9 +89,7 @@ The caller can assign permissions in the authorization lambda. For more
 information, see [OAuth 2.0
 scopes](reference-smart-on-fhir-oauth-scopes.md "reference-smart-on-fhir-oauth-scopes.md").
 
-## Examples: search with
-
-POST
+## Examples: search with POST
 
 The following tabs provide examples for searching on specific FHIR resource types
 with `POST`. The examples show how to specify a request in the URLs.

@@ -12,8 +12,7 @@ data to FHIR R4 format prior to import.
 
 When starting a FHIR import job, you specify an Amazon S3 bucket input location, an Amazon S3 bucket
 output location (for job processing results), an IAM role that grants HealthLake access to your
-Amazon S3 buckets, and a customer owned or AWS owned AWS Key Management Service key. For more information, see [Setting up permissions for import
-jobs](getting-started-setting-up.md#setting-up-import-permissions "getting-started-setting-up.md#setting-up-import-permissions").
+Amazon S3 buckets, and a customer owned or AWS owned AWS Key Management Service key. For more information, see [Setting up permissions for import jobs](getting-started-setting-up.md#setting-up-import-permissions "getting-started-setting-up.md#setting-up-import-permissions").
 
 ###### Note
 

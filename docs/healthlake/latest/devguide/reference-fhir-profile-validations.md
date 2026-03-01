@@ -1,6 +1,4 @@
-# FHIR profile validations for
-
-HealthLake
+# FHIR profile validations for HealthLake
 
 AWS HealthLake supports the base [FHIR R4
 specification](https://hl7.org/fhir/R4 "https://hl7.org/fhir/R4"). Included in the base FHIR R4 specification are FHIR Profiles.
@@ -51,9 +49,7 @@ HealthLake validates FHIR Profiles defined in the following implementation guide
 | AU Core                                                            | 1.0.0        | [https://hl7.org.au/fhir/core/](https://hl7.org.au/fhir/core/ "https://hl7.org.au/fhir/core/")                                                                                                                                                                                                                                                                         | Supported            |            |                |                       |                  | X                     |                       |                  |                  |
 | Magentus Practice Management                                       | 1.2.16       | [https://fhir-versions.dev.geniesolutions.io/1.2.16/downloads.html](https://fhir-versions.dev.geniesolutions.io/1.2.16/downloads.html "https://fhir-versions.dev.geniesolutions.io/1.2.16/downloads.html")                                                                                                                                                             | Supported            |            |                |                       |                  | X                     |                       |                  |                  |
 
-## Validating FHIR profiles specified in a
-
-resource
+## Validating FHIR profiles specified in a resource
 
 For a FHIR Profile to be validated add it to the `profile` element of
 individual resources using the profile URL designated in the implementation guide.

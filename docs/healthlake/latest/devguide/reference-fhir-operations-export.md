@@ -1,6 +1,4 @@
-# Exporting HealthLake data with FHIR
-
-`$export`
+# Exporting HealthLake data with FHIR `$export`
 
 You can export data in bulk from your HealthLake data store using the FHIR $export operation.
  HealthLake supports FHIR `$export`using`POST`and`GET` requests. To make an export request with`POST`, you must have a IAM user, group,
@@ -33,8 +31,7 @@ HealthLake.
   make the export request. To learn more, see [Authorizing an $export request](#export-rest-auth "#export-rest-auth").
 - You must have created a service role that grants HealthLake access to the Amazon S3 bucket to
   which you want your data to be exported. The service role must also specify HealthLake as the
-  service principal. For more information about setting up permissions, see [Setting up permissions for export
-  jobs](getting-started-setting-up.md#setting-up-export-permissions "getting-started-setting-up.md#setting-up-export-permissions").
+  service principal. For more information about setting up permissions, see [Setting up permissions for export jobs](getting-started-setting-up.md#setting-up-export-permissions "getting-started-setting-up.md#setting-up-export-permissions").
 
 ## Authorizing an `$export` request
 
@@ -44,14 +41,12 @@ group, or role using either IAM or OAuth2.0. You must also have a service role.
 ###### Authorizing a request using IAM
 
 When you make an `$export` request, the user, group, or role must have
-IAM actions included in the policy. For more information, see [Setting up permissions for export
-jobs](getting-started-setting-up.md#setting-up-export-permissions "getting-started-setting-up.md#setting-up-export-permissions").
+IAM actions included in the policy. For more information, see [Setting up permissions for export jobs](getting-started-setting-up.md#setting-up-export-permissions "getting-started-setting-up.md#setting-up-export-permissions").
 
 ###### Authorizing a request using SMART on FHIR (OAuth 2.0)
 
 When you make an `$export` request on a SMART on FHIR-enabled HealthLake data
-store, you must have the appropriate scopes assigned. For more information, see [SMART on FHIR resource scopes for
-HealthLake](reference-smart-on-fhir-oauth-scopes.md#smart-on-fhir-scopes-rest "reference-smart-on-fhir-oauth-scopes.md#smart-on-fhir-scopes-rest").
+store, you must have the appropriate scopes assigned. For more information, see [SMART on FHIR resource scopes for HealthLake](reference-smart-on-fhir-oauth-scopes.md#smart-on-fhir-scopes-rest "reference-smart-on-fhir-oauth-scopes.md#smart-on-fhir-scopes-rest").
 
 ###### Note
 
@@ -75,9 +70,7 @@ To make the request, you must do the following:
 2. Specify the required header parameters.
 3. Specify a request body that defines the required parameters.
 
-### Step 1: Specify `$export` in the
-
-`POST` request URL for a supported [endpoint](reference-healthlake-endpoints-quotas.md#reference-healthlake-endpoints "reference-healthlake-endpoints-quotas.md#reference-healthlake-endpoints").
+### Step 1: Specify `$export` in the `POST` request URL for a supported [endpoint](reference-healthlake-endpoints-quotas.md#reference-healthlake-endpoints "reference-healthlake-endpoints-quotas.md#reference-healthlake-endpoints").
 
 HealthLake supports three types of bulk export endpoint requests. To make a bulk export
 request, you must make a `POST`-based request on one of the three supported
@@ -104,9 +97,7 @@ submitting your request.
 | `_type`         | No        | A string of comma delimited FHIR resource types that you want included in<br>your export job. We recommend including `_type` because this can have<br>a cost implication when all resources are exported. | `&_type=MedicationStatement, Observation` |
 | `_since`        | No        | Resource types modified on or after the date time stamp. If a resource type<br>does \*not<br>• have a last updated time they will be included in<br>your response.                                        | `&_since=2024-05-09T00%3A00%3A00Z`        |
 
-### Step 2: Specify the required header
-
-parameters
+### Step 2: Specify the required header parameters
 
 To make an export request using the FHIR REST API, you must specify the following
 header parameters.
@@ -116,9 +107,7 @@ header parameters.
 
 Next, you must specify the required elements in the request body.
 
-### Step 3: Specify a request body the defines
-
-the required parameters.
+### Step 3: Specify a request body the defines the required parameters.
 
 The export request also requires a body in `JSON` format. The body can
 include the following parameters.

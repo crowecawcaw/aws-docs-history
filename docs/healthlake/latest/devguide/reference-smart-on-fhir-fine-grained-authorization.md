@@ -1,6 +1,4 @@
-# Using fine-grained
-
-authorization with a SMART on FHIR enabled HealthLake data store
+# Using fine-grained authorization with a SMART on FHIR enabled HealthLake data store
 
 [Scopes](reference-smart-on-fhir-oauth-scopes.md#smart-on-fhir-scopes-rest "reference-smart-on-fhir-oauth-scopes.md#smart-on-fhir-scopes-rest") alone do not provide you with the
 necessary specificity about what data a requester is authorized to access in a data store.

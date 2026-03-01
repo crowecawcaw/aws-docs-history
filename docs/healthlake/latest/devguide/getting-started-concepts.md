@@ -5,14 +5,11 @@ AWS HealthLake.
 
 ###### Concepts
 
-- [Data store authorization
-  strategy](#concept-data-store-authorization-strategy "#concept-data-store-authorization-strategy")
+- [Data store authorization strategy](#concept-data-store-authorization-strategy "#concept-data-store-authorization-strategy")
 - [Integrated NLP](#concept-integrated-nlp "#concept-integrated-nlp")
 - [Integrated analytics](#concept-integrated-analytics "#concept-integrated-analytics")
 
-## Data store authorization
-
-strategy
+## Data store authorization strategy
 
 A HealthLake data store is a repository of FHIR R4 health data that resides within a single
 AWS Region. HealthLake supports the following data store authorization strategies.

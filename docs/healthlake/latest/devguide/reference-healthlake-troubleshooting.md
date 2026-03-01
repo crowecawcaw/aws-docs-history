@@ -24,8 +24,7 @@ AccessDeniedException: Insufficient Lake Formation permission(s): Required Datab
 ```
 
 On November 14, 2022, HealthLake updated the required IAM permissions to create a new
-data store. For more information, see [Configure an IAM user or role to use HealthLake
-(IAM Administrator)](getting-started-setting-up.md#setting-up-configure-iam "getting-started-setting-up.md#setting-up-configure-iam").
+data store. For more information, see [Configure an IAM user or role to use HealthLake (IAM Administrator)](getting-started-setting-up.md#setting-up-configure-iam "getting-started-setting-up.md#setting-up-configure-iam").
 
 **Issue:**
 _When creating a HealthLake data store using the AWS SDKs, the data store creation
@@ -99,8 +98,7 @@ as follows:
 **Issue:** _How do I implement authorization for
 the FHIR RESTful APIs?_
 
-Determine the [Data store authorization
-strategy](getting-started-concepts.md#concept-data-store-authorization-strategy "getting-started-concepts.md#concept-data-store-authorization-strategy") to use.
+Determine the [Data store authorization strategy](getting-started-concepts.md#concept-data-store-authorization-strategy "getting-started-concepts.md#concept-data-store-authorization-strategy") to use.
 
 To create SigV4 authorization using the AWS SDK for Python (Boto3), create a script similar to the
 following example.

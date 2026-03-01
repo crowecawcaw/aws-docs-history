@@ -1,6 +1,4 @@
-# Example SQL queries with complex
-
-filtering
+# Example SQL queries with complex filtering
 
 The following examples demonstrate how to use Amazon Athena SQL queries with complex filtering
 to locate FHIR data from a HealthLake data store.

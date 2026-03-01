@@ -10,8 +10,7 @@ types](reference-healthlake-preloaded-data-types.md "reference-healthlake-preloa
 
 HealthLake supports two types of FHIR data store authorization strategies, AWS SigV4 or
 SMART on FHIR. You must choose one of the authorization strategies prior to creating a HealthLake
-FHIR data store. For more information, see [Data store authorization
-strategy](getting-started-concepts.md#concept-data-store-authorization-strategy "getting-started-concepts.md#concept-data-store-authorization-strategy").
+FHIR data store. For more information, see [Data store authorization strategy](getting-started-concepts.md#concept-data-store-authorization-strategy "getting-started-concepts.md#concept-data-store-authorization-strategy").
 
 When you create a HealthLake data store, a FHIR data repository is made available via a RESTful
 API [endpoint](reference-healthlake-endpoints-quotas.md#reference-healthlake-endpoints "reference-healthlake-endpoints-quotas.md#reference-healthlake-endpoints"). After you've created your
@@ -260,8 +259,7 @@ HealthLake Console does not support the creation of a SMART on FHIR data store.
    name**, specify a name.
 4. (Optional) In the **Data Store settings** section, for
    **Preload sample data**, select the check box to preload Synthea
-   data. Synthea data is an open-source sample dataset. For more information, see [Synthea preloaded data types for
-   HealthLake](reference-healthlake-preloaded-data-types.md "reference-healthlake-preloaded-data-types.md").
+   data. Synthea data is an open-source sample dataset. For more information, see [Synthea preloaded data types for HealthLake](reference-healthlake-preloaded-data-types.md "reference-healthlake-preloaded-data-types.md").
 5. In the **Data Store encryption** section, choose either
    **Use AWS owned key (default)** or **Choose a different AWS
    KMS key (advanced)**.

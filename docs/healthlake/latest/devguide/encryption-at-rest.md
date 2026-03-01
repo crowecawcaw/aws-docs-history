@@ -100,9 +100,7 @@ with a data store in AWS HealthLake which is encrypted by that key:
 
 ```
 
-## Required IAM permissions for using a customer managed KMS
-
-key
+## Required IAM permissions for using a customer managed KMS key
 
 When creating a data store with AWS KMS encryption enabled using a customer managed KMS key,
 there are required permissions for both the key policy and the IAM policy for the user or

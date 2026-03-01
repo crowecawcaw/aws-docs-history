@@ -8,9 +8,7 @@ them access to FHIR resources located within a HealthLake data store.
 - [Setting up an Athena
   account](#getting-started-athena-user "#getting-started-athena-user")
 
-## Granting a user, group, or role access to
-
-a HealthLake data store (AWS Lake Formation Console)
+## Granting a user, group, or role access to a HealthLake data store (AWS Lake Formation Console)
 
 ###### Persona: HealthLake administrator
 
@@ -34,9 +32,7 @@ For a user, group, or role to be able to query data in Athena, you must grant
 grant **Select** and **Describe** on the
 tables.
 
-###### STEP 1: To grant **DESCRIBE** permissions on a HealthLake data store
-
-resource link database
+###### STEP 1: To grant **DESCRIBE** permissions on a HealthLake data store resource link database
 
 1. Open the AWS Lake Formation console: [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com//lakeformation "https://console.aws.amazon.com//lakeformation")
 2. In the primary navigation bar, choose **Databases**.
@@ -108,8 +104,7 @@ data store shared with them by the HealthLake administrator.
 To query a data store using Athena, you must do the following three things.
 
 - Grant the IAM user or role access to the HealthLake data store via Lake Formation. To learn
-  more, see [Granting a user, group, or role access to
-  a HealthLake data store (AWS Lake Formation Console)](#getting-started-athena-admin "#getting-started-athena-admin").
+  more, see [Granting a user, group, or role access to a HealthLake data store (AWS Lake Formation Console)](#getting-started-athena-admin "#getting-started-athena-admin").
 - Create a workgroup for your HealthLake data store.
 - Designate an Amazon S3 bucket to store your query results.
 

@@ -90,9 +90,7 @@ with GET`.
 
 3. Choose **Run query**.
 
-## Examples: search with
-
-GET
+## Examples: search with GET
 
 The following tabs provide examples for searching on specific FHIR resource types
 with `GET`. The examples show how to specify search parameters in the request

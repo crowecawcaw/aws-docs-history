@@ -1,6 +1,4 @@
-# Fetching the SMART on FHIR
-
-Discovery Document
+# Fetching the SMART on FHIR Discovery Document
 
 SMART defines a Discovery Document that allows clients to learn the authorization endpoint
 URLs and features a HealthLake data store supports. This information helps clients direct

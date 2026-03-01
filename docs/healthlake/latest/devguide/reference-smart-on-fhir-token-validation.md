@@ -1,6 +1,4 @@
-# Token validation using
-
-AWS Lambda
+# Token validation using AWS Lambda
 
 When you create a HealthLake SMART on FHIR enabled data store, you must provide the ARN of the
 AWS Lambda function in the `CreateFHIRDatastore` request. The ARN of the Lambda
@@ -12,9 +10,7 @@ store. Once you create the data store, the Lambda ARN cannot be changed. To see 
 ARN you specified when the data store was created, use the
 `DescribeFHIRDatastore` API action.
 
-###### For a FHIR REST request to succeed on a SMART on FHIR enabled data store, your
-
-Lambda function must do the following:
+###### For a FHIR REST request to succeed on a SMART on FHIR enabled data store, your Lambda function must do the following:
 
 - Return a response in less than 1 second to the HealthLake data store endpoint.
 - Decode the access token provided in the authorization header of the REST API
@@ -70,8 +66,7 @@ login details directly in a Lambda function.
 
 The example Lambda function shows you how to validate an FHIR REST request sent to
 a SMART on FHIR enabled data store. To see step-by-steps directions on how to
-implement this Lambda function, see [Creating a Lambda function using the
-AWS Management Console](#create-lambda-console "#create-lambda-console").
+implement this Lambda function, see [Creating a Lambda function using the AWS Management Console](#create-lambda-console "#create-lambda-console").
 
 If the FHIR REST API request does not contain a valid data store endpoint, access
 token, and REST operation the Lambda function will fail. To learn more about the
@@ -136,8 +131,7 @@ you want HealthLake to assume when handling a FHIR REST API request on a
 SMART on FHIR enabled data store. If you have not created the service role, you
 can still create the Lambda function. You must add the ARN of service role before
 the Lambda function will work. To learn more about creating a service role and
-specifying it in the Lambda function, see [Creating a HealthLake service role for
-use in the AWS Lambda function used to decode a JWT](#smart-on-fhir-lambda-service-role "#smart-on-fhir-lambda-service-role")
+specifying it in the Lambda function, see [Creating a HealthLake service role for use in the AWS Lambda function used to decode a JWT](#smart-on-fhir-lambda-service-role "#smart-on-fhir-lambda-service-role")
 
 ###### To create a Lambda function (AWS Management Console)
 
@@ -161,8 +155,7 @@ function.
 If you've not yet created the service role for the Lambda function to
 use you'll need to create it before the sample Lambda function will work.
 To learn more about creating a service role for the Lambda function, see
-[Creating a HealthLake service role for
-use in the AWS Lambda function used to decode a JWT](#smart-on-fhir-lambda-service-role "#smart-on-fhir-lambda-service-role").
+[Creating a HealthLake service role for use in the AWS Lambda function used to decode a JWT](#smart-on-fhir-lambda-service-role "#smart-on-fhir-lambda-service-role").
 
 ```
 import base64
@@ -218,9 +211,7 @@ def auth_with_provider(token):
     return resp.read().decode()
 ```
 
-### Modifying a Lambda function's
-
-execution role
+### Modifying a Lambda function's execution role
 
 After creating the Lambda function, you need to update the execution role to
 include the necessary permissions to call Secrets Manager. In Secrets Manager, each secret you create
@@ -229,12 +220,9 @@ to the resources needed for the Lambda function to execute.
 
 You can modify a Lambda function's execution role by searching for it in the IAM
 console or by choosing **Configuration** in the Lambda console. To
-learn more about managing your Lambda functions execution role, see [Lambda execution
-role](#smart-on-fhir-lambda-service-role-execution-role "#smart-on-fhir-lambda-service-role-execution-role").
+learn more about managing your Lambda functions execution role, see [Lambda execution role](#smart-on-fhir-lambda-service-role-execution-role "#smart-on-fhir-lambda-service-role-execution-role").
 
-###### Example Lambda function execution role that grants access to
-
-`GetSecretValue`
+###### Example Lambda function execution role that grants access to `GetSecretValue`
 
 Adding the IAM action `GetSecretValue` to execution role grants
 the necessary permission for the sample Lambda function to work.
@@ -259,9 +247,7 @@ At this point you've created a Lambda function that can be used to validate the 
 token provided as part of the FHIR REST request sent to your SMART on FHIR enabled data
 store.
 
-## Creating a HealthLake service role for
-
-use in the AWS Lambda function used to decode a JWT
+## Creating a HealthLake service role for use in the AWS Lambda function used to decode a JWT
 
 ###### Persona: IAM Administrator
 
@@ -330,9 +316,7 @@ To learn more about creating a custom policy using the AWS Management Console, A
 SDKs, see [Creating IAM](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md")
 policies in the _IAM User Guide_.
 
-### Creating a service role for HealthLake
-
-(IAM console)
+### Creating a service role for HealthLake (IAM console)
 
 Use this procedure to create a service role. When you create a service you will
 also need to designate an IAM policy.
@@ -397,9 +381,7 @@ JSON
 
 To learn how to specify the role ARN in the sample Lambda function, see [Creating an AWS Lambda function](#smart-on-fhir-lambda-create "#smart-on-fhir-lambda-create").
 
-## Lambda execution
-
-role
+## Lambda execution role
 
 A Lambda function's execution role is an IAM role that grants the function permission
 to access AWS services and resources. This page provides information on how to create,
@@ -420,9 +402,7 @@ best practice, adjust the policy to include only the required permissions. For m
 information, see [Apply
 least-privilege](../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege "../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege") in the _IAM User Guide_.
 
-## Allow HealthLake to trigger your
-
-Lambda function
+## Allow HealthLake to trigger your Lambda function
 
 So HealthLake can invoke the Lambda function on your behalf, you must do following:
 
@@ -438,9 +418,7 @@ behalf. To grant HealthLake access, you'll use a resource-based policy. To learn
 creating a resource-based policy for a Lambda function, see [Allowing an AWS service to call a Lambda function](../../../lambda/latest/dg/access-control-resource-based.md#permissions-resource-serviceinvoke "../../../lambda/latest/dg/access-control-resource-based.md#permissions-resource-serviceinvoke") in the
 _AWS Lambda Developer Guide_.
 
-## Provisioning concurrency for
-
-your Lambda function
+## Provisioning concurrency for your Lambda function
 
 ###### Important
 

@@ -10,8 +10,7 @@ types](reference-healthlake-preloaded-data-types.md "reference-healthlake-preloa
 
 HealthLake supports two types of FHIR data store authorization strategies, AWS SigV4 or
 SMART on FHIR. You must choose one of the authorization strategies prior to creating a HealthLake
-FHIR data store. For more information, see [Data store authorization
-strategy](getting-started-concepts.md#concept-data-store-authorization-strategy "getting-started-concepts.md#concept-data-store-authorization-strategy").
+FHIR data store. For more information, see [Data store authorization strategy](getting-started-concepts.md#concept-data-store-authorization-strategy "getting-started-concepts.md#concept-data-store-authorization-strategy").
 
 To find the FHIR-related capabilities (behaviors) of an active HealthLake data store, retrieve
 its [Capability Statement](reference-fhir-capability-statement.md "reference-fhir-capability-statement.md").

@@ -1,6 +1,4 @@
-# Making a FHIR REST API request on a
-
-SMART-enabled HealthLake data store
+# Making a FHIR REST API request on a SMART-enabled HealthLake data store
 
 You can make FHIR REST API requests on a SMART on FHIR-enabled HealthLake data store. The
 following example shows a request from client application containing a JWT in the authorization

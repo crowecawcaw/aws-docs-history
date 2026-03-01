@@ -30,9 +30,7 @@ _in_ the cloud:
 - [Identity and access management for AWS HealthLake](security-iam.md "security-iam.md")
 - [Compliance validation for AWS HealthLake](compliance.md "compliance.md")
 - [Infrastructure security in AWS HealthLake](infrastructure-security.md "infrastructure-security.md")
-- [Creating AWS HealthLake resources with
-  AWS CloudFormation](creating-resources-with-cloudformation.md "creating-resources-with-cloudformation.md")
-- [AWS HealthLake and interface VPC endpoints
-  (AWS PrivateLink)](vpc-endpoints.md "vpc-endpoints.md")
+- [Creating AWS HealthLake resources with AWS CloudFormation](creating-resources-with-cloudformation.md "creating-resources-with-cloudformation.md")
+- [AWS HealthLake and interface VPC endpoints (AWS PrivateLink)](vpc-endpoints.md "vpc-endpoints.md")
 - [Security best practices in AWS HealthLake](best-practices-security.md "best-practices-security.md")
 - [Resilience in AWS HealthLake](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")

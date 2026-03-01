@@ -16,10 +16,8 @@ _AWS General Reference Guide_.
 ###### Topics
 
 - [Tagging a HealthLake data store](#tagresource "#tagresource")
-- [Listing tags for a HealthLake data
-  store](#listtagsforresource "#listtagsforresource")
-- [Untagging a HealthLake data
-  store](#untagresource "#untagresource")
+- [Listing tags for a HealthLake data store](#listtagsforresource "#listtagsforresource")
+- [Untagging a HealthLake data store](#untagresource "#untagresource")
 
 ## Tagging a HealthLake data store
 
@@ -146,9 +144,7 @@ tags**.
 
 The **Manage tags** page opens. 4. Choose **Add new tag**. 5. Enter a **Key** and **Value** (optional). 6. Choose **Save**.
 
-## Listing tags for a HealthLake data
-
-store
+## Listing tags for a HealthLake data store
 
 Use `ListTagsForResource` to list tags for a HealthLake data store. The following
 menus provide a procedure for the AWS Management Console and code examples for the AWS CLI and AWS SDKs.
@@ -284,9 +280,7 @@ feedback** link on the right sidebar of this page.
 The **Data store details** page opens. Under the
 **Tags** section, all data store tags are listed.
 
-## Untagging a HealthLake data
-
-store
+## Untagging a HealthLake data store
 
 Use `UntagResource` to remove a tag from a HealthLake data store. The following
 menus provide a procedure for the AWS Management Console and code examples for the AWS CLI and AWS SDKs.

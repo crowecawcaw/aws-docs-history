@@ -9,8 +9,7 @@ progress.
 ###### Note
 
 You can also export FHIR data from a HealthLake data store using the FHIR R4
-`$export` operation. For more information, see [Exporting HealthLake data with FHIR
-$export](reference-fhir-operations-export.md "reference-fhir-operations-export.md").
+`$export` operation. For more information, see [Exporting HealthLake data with FHIR $export](reference-fhir-operations-export.md "reference-fhir-operations-export.md").
 
 ###### Topics
 

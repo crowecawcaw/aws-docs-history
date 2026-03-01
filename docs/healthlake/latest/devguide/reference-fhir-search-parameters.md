@@ -56,9 +56,7 @@ encoded.
 | URI                       | Searches for a string of characters that unambiguously identifies a particular<br>resource.                                                                                                                                                                                                                                                                                                                                                                                                                                | `[base]/ValueSet?url=http://acme.org/fhir/ValueSet/123`                                              |
 | Special                   | Searches based on integrated medical NLP extensions.                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 
-## Advanced search parameters supported by
-
-HealthLake
+## Advanced search parameters supported by HealthLake
 
 HealthLake supports the following advanced search parameters.
 
@@ -80,9 +78,7 @@ Using `_include` in a search query allows for additional specified FHIR
 resources to also be returned. Use `_include` to include resources that are linked
 forward.
 
-###### Example– To use `_include` to find the patients or the group of patients who
-
-have been diagnosed with a cough
+###### Example– To use `_include` to find the patients or the group of patients who have been diagnosed with a cough
 
 You would search on the `Condition` resource type specifying the diagnostic
 code for cough, and then using `_include` specify that you want the
@@ -104,9 +100,7 @@ Using `_revinclude` in a search query allows for additional specified FHIR
 resources to also be returned. Use `_revinclude` to include resources that are
 linked backwards.
 
-###### Example– To use `_revinclude` to include related Encounter and Observation
-
-resource types linked to a specific Patient
+###### Example– To use `_revinclude` to include related Encounter and Observation resource types linked to a specific Patient
 
 To make this search, you would first define the individual `Patient` by
 specifying their identifier in the `_id` search parameter. Then you would specify
@@ -161,9 +155,7 @@ whose search mode is `include`).
 In a single search request, `_elements` cannot be combined with
 `_summary` search parameters.
 
-###### Example– Get “identifier”, “active”, “link” elements of Patient resources in your
-
-HealthLake data store.
+###### Example– Get “identifier”, “active”, “link” elements of Patient resources in your HealthLake data store.
 
 ```
 GET https://healthlake.`region`.amazonaws.com/datastore/`datastoreId`/r4/Patient?_elements=identifier,active,link
@@ -203,9 +195,7 @@ this search parameter is not supported for sort. For example, search on 'name' o
 type Patient refers to Patient.name element with HumanName data type is considered as nested.
 Thus, sort on Patient resources by 'name' is not supported.
 
-###### Example– Get Patient resources in a data store and sort them by birthdate in ascending
-
-order:
+###### Example– Get Patient resources in a data store and sort them by birthdate in ascending order:
 
 ```
 GET https://healthlake.`region`.amazonaws.com/datastore/`datastoreId`/r4/Patient?_sort=birthdate
@@ -234,18 +224,13 @@ more convenient for developers and users.
 If any level of recursion return more than 100 results, HealthLake will return 4xx to
 protect data store from being overloaded and causing multiple paginations.
 
-###### Example– Chaining - Gets all DiagnosticReport which refer to a Patient where Patient
-
-name is peter.
+###### Example– Chaining - Gets all DiagnosticReport which refer to a Patient where Patient name is peter.
 
 ```
 GET https://healthlake.`region`.amazonaws.com/datastore/`datastoreId`/r4/DiagnosticReport?subject:Patient.name=peter
 ```
 
-###### Example– Reverse Chaining - Get Patient resources, where the patient resource is
-
-referred to by at least one Observation where the observation has a code of 1234, and where
-the Observation refers to the patient resource in the patient search parameter.
+###### Example– Reverse Chaining - Get Patient resources, where the patient resource is referred to by at least one Observation where the observation has a code of 1234, and where the Observation refers to the patient resource in the patient search parameter.
 
 ```
 GET https://healthlake.`region`.amazonaws.com/datastore/`datastoreId`/r4/Patient?_has:Observation:patient:code=1234

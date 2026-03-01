@@ -1,6 +1,4 @@
-# SMART on FHIR OAuth 2.0 scopes
-
-supported by HealthLake
+# SMART on FHIR OAuth 2.0 scopes supported by HealthLake
 
 HealthLake uses OAuth 2.0 as an authorization protocol. Using this protocol on your
 authorization server allows you to define HealthLake data store permissions (create, read,
@@ -42,9 +40,7 @@ provided alongside the access token in the authorization server's response.
 | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ----------- |
 | `launch/patient`             | A parameter in a OAuth 2.0 authorization request requesting<br>that patient data be returned in the authorization<br>response. |
 
-## SMART on FHIR resource scopes for
-
-HealthLake
+## SMART on FHIR resource scopes for HealthLake
 
 HealthLake defines three levels of SMART on FHIR resource scopes.
 
@@ -64,9 +60,7 @@ The SMART on FHIR authorization strategy is set when your data store is created.
 For more information, see [`AuthorizationStrategy`](../APIReference/API_IdentityProviderConfiguration.md#HealthLake-Type-IdentityProviderConfiguration-AuthorizationStrategy "../APIReference/API_IdentityProviderConfiguration.md#HealthLake-Type-IdentityProviderConfiguration-AuthorizationStrategy") in the _AWS HealthLake API
 Reference_.
 
-### SMART on FHIR V1 scopes supported by
-
-HealthLake
+### SMART on FHIR V1 scopes supported by HealthLake
 
 When using SMART on FHIR V1, the general syntax for constructing FHIR resource
 scopes for HealthLake follows. To view the entire URL path in the following example,
@@ -82,9 +76,7 @@ scroll over the **Copy** button.
 | `user/(fhir-resource                            | '\*').('read' | 'write'       | <br>'\*')`   | `user/Observation.read`                                                           | The user client application has instance-level read/write access<br>to all recorded observations. |
 | `system/('read'                                 | 'write'       | \*)`          | `system/*.*` | The system client application has read/write access to all FHIR<br>resource data. |
 
-### SMART on FHIR V2 scopes supported by
-
-HealthLake
+### SMART on FHIR V2 scopes supported by HealthLake
 
 When using SMART on FHIR V2, the general syntax for constructing FHIR resource
 scopes for HealthLake follows. To view the entire URL path in the following example,
