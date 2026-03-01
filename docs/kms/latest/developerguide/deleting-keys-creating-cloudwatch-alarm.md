@@ -1,6 +1,4 @@
-# Create an alarm that detects use of a
-
-KMS key pending deletion
+# Create an alarm that detects use of a KMS key pending deletion
 
 You can combine the features of AWS CloudTrail, Amazon CloudWatch Logs, and Amazon Simple Notification Service (Amazon SNS) to create an
 Amazon CloudWatch alarm that notifies you when someone in your account tries to use a KMS key that is

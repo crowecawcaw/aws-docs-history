@@ -20,20 +20,15 @@ this section, consult your proxy and key manager documentation.
 
 ###### Topics
 
-- [Requirements for VPC endpoint
-  service connectivity](#xks-vpce-service-requirements "#xks-vpce-service-requirements")
+- [Requirements for VPC endpoint service connectivity](#xks-vpce-service-requirements "#xks-vpce-service-requirements")
 - [Step 1: Create an Amazon VPC and subnets](#xks-create-vpc "#xks-create-vpc")
 - [Step 2: Create a target group](#xks-target-group "#xks-target-group")
 - [Step 3: Create a network load balancer](#xks-nlb "#xks-nlb")
 - [Step 4: Create a VPC endpoint service](#xks-vpc-svc "#xks-vpc-svc")
-- [Step 5: Verify your private DNS name
-  domain](#xks-private-dns "#xks-private-dns")
-- [Step 6: Authorize AWS KMS to connect to the
-  VPC endpoint service](#xks-vpc-authorize-kms "#xks-vpc-authorize-kms")
+- [Step 5: Verify your private DNS name domain](#xks-private-dns "#xks-private-dns")
+- [Step 6: Authorize AWS KMS to connect to the VPC endpoint service](#xks-vpc-authorize-kms "#xks-vpc-authorize-kms")
 
-## Requirements for VPC endpoint
-
-service connectivity
+## Requirements for VPC endpoint service connectivity
 
 If you choose VPC endpoint service connectivity for your external key store, the
 following resources are required.
@@ -107,9 +102,7 @@ list, see [Connect your VPC to other
 networks](../../../vpc/latest/userguide/extend-intro.md "../../../vpc/latest/userguide/extend-intro.md") and [Network-to-Amazon VPC connectivity options](../../../whitepapers/latest/aws-vpc-connectivity-options/network-to-amazon-vpc-connectivity-options.md "../../../whitepapers/latest/aws-vpc-connectivity-options/network-to-amazon-vpc-connectivity-options.md"). For more details, see
 [Direct Connect](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md"), and the [AWS Site-to-Site VPN User Guide](../../../vpn/latest/s2svpn.md "../../../vpn/latest/s2svpn.md").
 
-### Creating an Amazon VPC for your external key
-
-store
+### Creating an Amazon VPC for your external key store
 
 Use the following instructions to create the Amazon VPC for your external key
 store. An Amazon VPC is required only if you choose the [VPC endpoint service connectivity](choose-xks-connectivity.md "choose-xks-connectivity.md")
@@ -135,9 +128,7 @@ store proxy is not located in your Amazon VPC, create an Amazon EC2 instance in 
 Amazon VPC, verify that the Amazon VPC can communicate with your external key store
 proxy.
 
-### Connecting the VPC to the external key
-
-manager
+### Connecting the VPC to the external key manager
 
 Connect the VPC to the data center that hosts your external key manager using
 any of the [network connectivity options](../../../whitepapers/latest/aws-vpc-connectivity-options/network-to-amazon-vpc-connectivity-options.md "../../../whitepapers/latest/aws-vpc-connectivity-options/network-to-amazon-vpc-connectivity-options.md") that Amazon VPC supports. Ensure that the
@@ -211,9 +202,7 @@ with the following required values. For other fields, accept the default values 
 | Private DNS name           | Enter a private DNS name that is unique in its AWS Region.<br>The private DNS name must be a subdomain of a higher level<br>public domain. For example, if the private DNS name is<br>`myproxy-private.xks.example.com`, it must be a<br>subdomain of a public domain such as<br>`xks.example.com` or<br>`example.com`.This private DNS name must<br>match the subject common name (CN) in the TLS certificate<br>configured on your external key store proxy. For example, if the<br>private DNS name is `myproxy-private.xks.example.com`, the<br>CN on the TLS certificate must be<br>`myproxy-private.xks.example.com` or<br>`*.xks.example.com`.If the certificate and private<br>DNS name do not match, attempts to connect an external key store<br>to its external key store proxy fail with a connection error<br>code of `XKS_PROXY_INVALID_TLS_CONFIGURATION`. For<br>details, see [General configuration errors](xks-troubleshooting.md#fix-xks-gen-configuration "xks-troubleshooting.md#fix-xks-gen-configuration"). |
 | Supported IP address types | IPv4                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 
-## Step 5: Verify your private DNS name
-
-domain
+## Step 5: Verify your private DNS name domain
 
 When you create your VPC endpoint service, its domain verification status is
 `pendingVerification`. Before using the VPC endpoint service to
@@ -259,9 +248,7 @@ domain name in the AWS KMS VPC. For external key stores with VPC endpoint servic
 connectivity, this happens when you [connect
 your external key store](xks-connect-disconnect.md "xks-connect-disconnect.md") to its external key store proxy.
 
-## Step 6: Authorize AWS KMS to connect to the
-
-VPC endpoint service
+## Step 6: Authorize AWS KMS to connect to the VPC endpoint service
 
 See the following procedures for managing your Amazon VPC endpoint service permissions.
 Each step depends on your connectivity and configuration between your external key

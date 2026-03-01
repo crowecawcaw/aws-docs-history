@@ -9,8 +9,7 @@ When you call the [Decrypt](../APIReference/API_Decrypt.md "../APIReference/API_
 signed attestation document, these APIs encrypt the plaintext in the response under the
 public key from the attestation document, and return ciphertext instead of plaintext. This
 ciphertext can be decrypted only by using the private key in the enclave. For more
-information, see [Cryptographic attestation support in
-AWS KMS](cryptographic-attestation.md "cryptographic-attestation.md").
+information, see [Cryptographic attestation support in AWS KMS](cryptographic-attestation.md "cryptographic-attestation.md").
 
 ###### Note
 

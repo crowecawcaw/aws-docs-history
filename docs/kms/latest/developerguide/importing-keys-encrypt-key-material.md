@@ -1,6 +1,4 @@
-# Step 3: Encrypt the
-
-key material
+# Step 3: Encrypt the key material
 
 After you [download the public key
 and import token](importing-keys-get-public-key-and-token.md "importing-keys-get-public-key-and-token.md"), encrypt your key material using the public key that you downloaded
@@ -8,8 +6,7 @@ and the wrapping algorithm that you specified. If you need to replace the public
 token, or change the wrapping algorithm, you must download a new public key and import token.
 For information about the public keys and wrapping algorithms that AWS KMS supports, see [Select a wrapping public key spec](importing-keys-get-public-key-and-token.md#select-wrapping-key-spec "importing-keys-get-public-key-and-token.md#select-wrapping-key-spec") and [Select a wrapping algorithm](importing-keys-get-public-key-and-token.md#select-wrapping-algorithm "importing-keys-get-public-key-and-token.md#select-wrapping-algorithm").
 
-The key material must be in binary format. For detailed information, see [Requirements for imported key
-material](importing-keys-conceptual.md#importing-keys-material-requirements "importing-keys-conceptual.md#importing-keys-material-requirements").
+The key material must be in binary format. For detailed information, see [Requirements for imported key material](importing-keys-conceptual.md#importing-keys-material-requirements "importing-keys-conceptual.md#importing-keys-material-requirements").
 
 ###### Note
 
@@ -118,9 +115,7 @@ openssl genpkey -algorithm ec -pkeyopt ec_paramgen_curve:**sm2** | openssl pkcs8
 
 [Show moreShow less](# "#")
 
-## Examples of encrypting key
-
-material with OpenSSL
+## Examples of encrypting key material with OpenSSL
 
 The following examples show how to use [OpenSSL](https://openssl.org/ "https://openssl.org/")
 to encrypt your key material with the public key that you downloaded. To encrypt your key

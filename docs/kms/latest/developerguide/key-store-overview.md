@@ -30,9 +30,7 @@ material in the standard key store type lets you take full advantage of the scal
 availability, and durability of AWS KMS with the lowest operational burden and cost of the AWS
 key stores.
 
-## AWS KMS standard key store with imported key
-
-material
+## AWS KMS standard key store with imported key material
 
 Instead of asking AWS KMS to both generate and store the only copies of a given key, you can
 choose to import key material into AWS KMS, allowing you to generate your own 256-bit symmetric

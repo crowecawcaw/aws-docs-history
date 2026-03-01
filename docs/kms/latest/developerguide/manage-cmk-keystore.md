@@ -90,7 +90,6 @@ again. For details about the custom key store request quota, see [Custom key sto
 - To learn more about AWS CloudHSM key stores, see [AWS CloudHSM key stores](keystore-cloudhsm.md "keystore-cloudhsm.md").
 - To create KMS keys in an AWS CloudHSM key store, see [Create a KMS key in an AWS CloudHSM key store](create-cmk-keystore.md "create-cmk-keystore.md").
 - To identify and view KMS keys in an AWS CloudHSM key store, see [Identify KMS keys in AWS CloudHSM key stores](identify-key-types.md#identify-key-hsm-keystore "identify-key-types.md#identify-key-hsm-keystore").
-- To find KMS keys and key material in an AWS CloudHSM key store, see [Find KMS keys and key material in an AWS CloudHSM key
-  store](find-key-material.md "find-key-material.md").
+- To find KMS keys and key material in an AWS CloudHSM key store, see [Find KMS keys and key material in an AWS CloudHSM key store](find-key-material.md "find-key-material.md").
 - To learn about special considerations for deleting KMS keys in an AWS CloudHSM key store, see
   [Deleting KMS keys from an AWS CloudHSM key store](deleting-keys.md#delete-cmk-keystore "deleting-keys.md#delete-cmk-keystore").

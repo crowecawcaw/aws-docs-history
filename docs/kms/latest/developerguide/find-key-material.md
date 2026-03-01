@@ -1,6 +1,4 @@
-# Find KMS keys and key material in an AWS CloudHSM key
-
-store
+# Find KMS keys and key material in an AWS CloudHSM key store
 
 If you manage an AWS CloudHSM key store, you might need to identify the KMS keys in each AWS CloudHSM
 key store. For example, you might need to do some of the following tasks.

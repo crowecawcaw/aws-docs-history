@@ -105,9 +105,7 @@ message signature.
 
 ![Verify a cryptographic signature with the public key in a data key pair outside of AWS KMS.](images/verify-with-data-key-pair.png)
 
-### Derive a shared secret with data key
-
-pairs
+### Derive a shared secret with data key pairs
 
 Key agreement enables two peers, each having an elliptic-curve public–private key pair,
 to establish a shared secret over an insecure channel. To [derive a shared secret](../APIReference/API_DeriveSharedSecret.md "../APIReference/API_DeriveSharedSecret.md"), the two

@@ -148,9 +148,7 @@ Cryptographic operations on KMS keys with different RSA key specs are priced
 differently. For information about AWS KMS pricing, see [AWS Key Management Service Pricing](https://aws.amazon.com/kms/pricing/ "https://aws.amazon.com/kms/pricing/"). For
 information about request quotas, see [Request quotas](requests-per-second.md "requests-per-second.md").
 
-### RSA key specs for encryption and
-
-decryption
+### RSA key specs for encryption and decryption
 
 When an RSA asymmetric KMS key is used for encryption and decryption, you
 encrypt with the public key and decrypt with the private key. When you call the
@@ -205,9 +203,7 @@ with SHA-256, the maximum plaintext size in bytes is (2048/8) - (2 \* 256/8) -2 
 | **RSA_3072**                                              | 342              | 318                  |
 | **RSA_4096**                                              | 470              | 446                  |
 
-### RSA key specs for signing and
-
-verification
+### RSA key specs for signing and verification
 
 When an RSA asymmetric KMS key is used for signing and verification, you
 generate the signature for a message with the private key and verify the signature
@@ -350,8 +346,7 @@ specifications published by [China's Office of State Commercial
 Cryptography Administration (OSCCA)](https://www.oscca.gov.cn/ "https://www.oscca.gov.cn/"). The SM2 key spec is available only in
 China Regions. When you use the SM2 key spec, AWS KMS creates an asymmetric KMS key
 with an SM2 key pair. You can use your SM2 key pair within AWS KMS, or download the public
-key for use outside of AWS KMS. For more information, see [Offline verification with SM2 key pairs
-(China Regions only)](offline-operations.md#key-spec-sm-offline-verification "offline-operations.md#key-spec-sm-offline-verification").
+key for use outside of AWS KMS. For more information, see [Offline verification with SM2 key pairs (China Regions only)](offline-operations.md#key-spec-sm-offline-verification "offline-operations.md#key-spec-sm-offline-verification").
 
 Each KMS key can have only one [Key usage](create-keys.md#key-usage "create-keys.md#key-usage"). You can use an SM2 KMS key for signing and verification, encryption and
 decryption, _or_ deriving shared secrets. You must specify the key

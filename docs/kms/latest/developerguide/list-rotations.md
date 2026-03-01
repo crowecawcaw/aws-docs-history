@@ -10,14 +10,10 @@ including those from completed automatic and on-demand rotations.
 
 ###### Topics
 
-- [List rotations and key materials
-  (console)](#list-rotations-console "#list-rotations-console")
-- [List rotations and key materials
-  (AWS KMS API)](#list-rotations-api "#list-rotations-api")
+- [List rotations and key materials (console)](#list-rotations-console "#list-rotations-console")
+- [List rotations and key materials (AWS KMS API)](#list-rotations-api "#list-rotations-api")
 
-## List rotations and key materials
-
-(console)
+## List rotations and key materials (console)
 
 1. Sign in to the AWS Management Console and open the AWS Key Management Service (AWS KMS) console at [https://console.aws.amazon.com/kms](https://console.aws.amazon.com/kms "https://console.aws.amazon.com/kms").
 2. To change the AWS Region, use the Region selector in the upper-right corner of the page.
@@ -66,9 +62,7 @@ including those from completed automatic and on-demand rotations.
      available. You do not need to wait for a key material to expire or
      be deleted before reimporting it.
 
-## List rotations and key materials
-
-(AWS KMS API)
+## List rotations and key materials (AWS KMS API)
 
 You can use the [AWS Key Management Service (AWS KMS) API](../APIReference.md "../APIReference.md") to
 initiate on-demand key rotation and view the current rotation status of any

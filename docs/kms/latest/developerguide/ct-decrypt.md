@@ -9,21 +9,14 @@ plaintext in the response are omitted.
 
 ###### Topics
 
-- [Decrypt with a standard symmetric encryption
-  key](#ct-decrypt-default "#ct-decrypt-default")
-- [Decrypt failure with a standard symmetric encryption
-  key](#ct-decrypt-fail "#ct-decrypt-fail")
+- [Decrypt with a standard symmetric encryption key](#ct-decrypt-default "#ct-decrypt-default")
+- [Decrypt failure with a standard symmetric encryption key](#ct-decrypt-fail "#ct-decrypt-fail")
 - [Decrypt with a KMS key in an AWS CloudHSM key store](#ct-decrypt-hsm "#ct-decrypt-hsm")
-- [Decrypt with a KMS key in an external key
-  store](#ct-decrypt-xks "#ct-decrypt-xks")
-- [Decrypt failure with a KMS key in an external key
-  store](#ct-decrypt-xks-fail "#ct-decrypt-xks-fail")
-- [Decrypt with a standard symmetric encryption
-  key over a post-quantum TLS connection](#ct-decrypt-default-pqtls "#ct-decrypt-default-pqtls")
+- [Decrypt with a KMS key in an external key store](#ct-decrypt-xks "#ct-decrypt-xks")
+- [Decrypt failure with a KMS key in an external key store](#ct-decrypt-xks-fail "#ct-decrypt-xks-fail")
+- [Decrypt with a standard symmetric encryption key over a post-quantum TLS connection](#ct-decrypt-default-pqtls "#ct-decrypt-default-pqtls")
 
-## Decrypt with a standard symmetric encryption
-
-key
+## Decrypt with a standard symmetric encryption key
 
 The following is an example CloudTrail log entry for a `Decrypt` operation with a
 standard symmetric encryption key.
@@ -79,9 +72,7 @@ standard symmetric encryption key.
 }
 ```
 
-## Decrypt failure with a standard symmetric encryption
-
-key
+## Decrypt failure with a standard symmetric encryption key
 
 The following example CloudTrail log entry records a failed `Decrypt` operation
 with a standard symmetric encryption KMS key. The exception (`errorCode`)
@@ -190,9 +181,7 @@ specified in the request.
 }
 ```
 
-## Decrypt with a KMS key in an external key
-
-store
+## Decrypt with a KMS key in an external key store
 
 The following example CloudTrail log entry records a `Decrypt` operation with a
 KMS key in an [external key store](keystore-external.md "keystore-external.md"). In addition
@@ -247,9 +236,7 @@ request.
 }
 ```
 
-## Decrypt failure with a KMS key in an external key
-
-store
+## Decrypt failure with a KMS key in an external key store
 
 The following example CloudTrail log entry records a failed request for a
 `Decrypt` operation with a KMS key in an [external key store](keystore-external.md "keystore-external.md"). CloudWatch logs requests that fail,
@@ -313,9 +300,7 @@ For help with `Decrypt` requests in external key stores, see [Decryption errors]
 }
 ```
 
-## Decrypt with a standard symmetric encryption
-
-key over a post-quantum TLS connection
+## Decrypt with a standard symmetric encryption key over a post-quantum TLS connection
 
 The following is an example CloudTrail log entry for a `Decrypt` operation with a
 standard symmetric encryption key over a post-quantum TLS connection. The keyExchange

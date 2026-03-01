@@ -12,8 +12,7 @@ or grant.
 Unless the key policy explicitly allows it, you cannot use IAM policies to _allow_ access to a KMS key. Without permission from the key policy,
 IAM policies that allow permissions have no effect. (You can use an IAM policy to _deny_ a permission to a KMS key without permission from a key
 policy.) The default key policy enables IAM policies. To enable IAM policies in your key
-policy, add the policy statement described in [Allows access to the
-AWS account and enables IAM policies](key-policy-default.md#key-policy-default-allow-root-enable-iam "key-policy-default.md#key-policy-default-allow-root-enable-iam").
+policy, add the policy statement described in [Allows access to the AWS account and enables IAM policies](key-policy-default.md#key-policy-default-allow-root-enable-iam "key-policy-default.md#key-policy-default-allow-root-enable-iam").
 
 Unlike IAM policies, which are global, key policies are Regional. A key policy controls
 access only to a KMS key in the same Region. It has no effect on KMS keys in other

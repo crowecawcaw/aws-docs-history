@@ -87,10 +87,8 @@ set operators, see [Using multiple keys and values](../../../IAM/latest/UserGuid
 
 - [kms:BypassPolicyLockoutSafetyCheck](#conditions-kms-bypass-policy-lockout-safety-check "#conditions-kms-bypass-policy-lockout-safety-check")
 - [kms:CallerAccount](#conditions-kms-caller-account "#conditions-kms-caller-account")
-- [kms:CustomerMasterKeySpec
-  (deprecated)](#conditions-kms-key-spec-replaced "#conditions-kms-key-spec-replaced")
-- [kms:CustomerMasterKeyUsage
-  (deprecated)](#conditions-kms-key-usage-replaced "#conditions-kms-key-usage-replaced")
+- [kms:CustomerMasterKeySpec (deprecated)](#conditions-kms-key-spec-replaced "#conditions-kms-key-spec-replaced")
+- [kms:CustomerMasterKeyUsage (deprecated)](#conditions-kms-key-usage-replaced "#conditions-kms-key-usage-replaced")
 - [kms:DataKeyPairSpec](#conditions-kms-data-key-spec "#conditions-kms-data-key-spec")
 - [kms:EncryptionAlgorithm](#conditions-kms-encryption-algorithm "#conditions-kms-encryption-algorithm")
 - [kms:EncryptionContext:context-key](#conditions-kms-encryption-context "#conditions-kms-encryption-context")
@@ -233,9 +231,7 @@ the permissions by only allowing requests that come through Amazon EBS. For more
 }
 ```
 
-## kms:CustomerMasterKeySpec
-
-(deprecated)
+## kms:CustomerMasterKeySpec (deprecated)
 
 The `kms:CustomerMasterKeySpec` condition key is deprecated. Instead, use the
 [kms:KeySpec](#conditions-kms-key-spec "#conditions-kms-key-spec") condition key.
@@ -245,9 +241,7 @@ work the same way. Only the names differ. We recommend that you use
 `kms:KeySpec`. However, to avoid breaking changes, AWS KMS supports both condition
 keys.
 
-## kms:CustomerMasterKeyUsage
-
-(deprecated)
+## kms:CustomerMasterKeyUsage (deprecated)
 
 The `kms:CustomerMasterKeyUsage` condition key is deprecated. Instead, use
 the [kms:KeyUsage](#conditions-kms-key-usage "#conditions-kms-key-usage") condition key.
@@ -473,8 +467,7 @@ in the request includes the `AppName:ExampleApp` pair. Other encryption context
 pairs are permitted.
 
 The key name is not case sensitive. The case sensitivity of the value is determined by
-the condition operator, such as `StringEquals`. For details, see [Case sensitivity of the
-encryption context condition](#conditions-kms-encryption-context-case "#conditions-kms-encryption-context-case").
+the condition operator, such as `StringEquals`. For details, see [Case sensitivity of the encryption context condition](#conditions-kms-encryption-context-case "#conditions-kms-encryption-context-case").
 
 ```
 {
@@ -551,9 +544,7 @@ request with other encryption context pairs, including encryption context pairs 
 }
 ```
 
-### Using multiple encryption context
-
-pairs
+### Using multiple encryption context pairs
 
 You can require or forbid multiple encryption context pairs. You can also require one
 of several encryption context pairs. For details about the logic used to interpret these
@@ -703,9 +694,7 @@ details, see [Evaluation logic for conditions with multiple keys or values](../.
 }
 ```
 
-### Case sensitivity of the
-
-encryption context condition
+### Case sensitivity of the encryption context condition
 
 The encryption context that is specified in a decryption operation must be an exact,
 case-sensitive match for the encryption context that is specified in the encryption
@@ -796,9 +785,7 @@ and the encryption context value are case sensitive.
 }
 ```
 
-### Using variables in an
-
-encryption context condition
+### Using variables in an encryption context condition
 
 The key and value in an encryption context pair must be simple literal strings. They
 cannot be integers or objects, or any type that is not fully resolved. If you use a
@@ -1484,8 +1471,7 @@ KMS key resource operations, but only with symmetric encryption KMS keys in the 
 **See also**
 
 - [kms:BypassPolicyLockoutSafetyCheck](#conditions-kms-bypass-policy-lockout-safety-check "#conditions-kms-bypass-policy-lockout-safety-check")
-- [kms:CustomerMasterKeySpec
-  (deprecated)](#conditions-kms-key-spec-replaced "#conditions-kms-key-spec-replaced")
+- [kms:CustomerMasterKeySpec (deprecated)](#conditions-kms-key-spec-replaced "#conditions-kms-key-spec-replaced")
 - [kms:DataKeyPairSpec](#conditions-kms-data-key-spec "#conditions-kms-data-key-spec")
 - [kms:KeyOrigin](#conditions-kms-key-origin "#conditions-kms-key-origin")
 - [kms:KeyUsage](#conditions-kms-key-usage "#conditions-kms-key-usage")
@@ -1556,8 +1542,7 @@ signing and verification.
 **See also**
 
 - [kms:BypassPolicyLockoutSafetyCheck](#conditions-kms-bypass-policy-lockout-safety-check "#conditions-kms-bypass-policy-lockout-safety-check")
-- [kms:CustomerMasterKeyUsage
-  (deprecated)](#conditions-kms-key-usage-replaced "#conditions-kms-key-usage-replaced")
+- [kms:CustomerMasterKeyUsage (deprecated)](#conditions-kms-key-usage-replaced "#conditions-kms-key-usage-replaced")
 - [kms:KeyOrigin](#conditions-kms-key-origin "#conditions-kms-key-origin")
 - [kms:KeySpec](#conditions-kms-key-spec "#conditions-kms-key-spec")
 
@@ -2293,9 +2278,7 @@ The `kms:ViaService` condition key is valid in IAM and key policy
 statements. The services that you specify must be [integrated with AWS KMS](https://aws.amazon.com/kms/features/#AWS_Service_Integration "https://aws.amazon.com/kms/features/#AWS_Service_Integration") and support the `kms:ViaService` condition
 key.
 
-### Services that support the `kms:ViaService`
-
-condition key
+### Services that support the `kms:ViaService` condition key
 
 The following table lists AWS services that are integrated with AWS KMS and support
 the use of the `kms:ViaService` condition key in customer managed keys The services in

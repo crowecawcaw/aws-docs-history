@@ -89,8 +89,7 @@ in a AWS CloudHSM key store](keystore-cloudhsm.md "keystore-cloudhsm.md")), or `
 - [Create an HMAC KMS key](hmac-create-key.md "hmac-create-key.md")
 - [Create multi-Region primary keys](create-primary-keys.md "create-primary-keys.md")
 - [Create multi-Region replica keys](multi-region-keys-replicate.md "multi-region-keys-replicate.md")
-- [Create a KMS key with imported key
-  material](importing-keys-conceptual.md "importing-keys-conceptual.md")
+- [Create a KMS key with imported key material](importing-keys-conceptual.md "importing-keys-conceptual.md")
 - [Create a KMS key in an AWS CloudHSM key store](create-cmk-keystore.md "create-cmk-keystore.md")
 - [Create a KMS key in external key stores](create-xks-keys.md "create-xks-keys.md")
 

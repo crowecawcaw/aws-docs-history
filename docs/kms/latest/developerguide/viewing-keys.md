@@ -9,5 +9,4 @@ Region, including KMS keys that you manage and KMS keys that are managed by AWS.
 - [Access and list KMS key details](finding-keys.md "finding-keys.md")
 - [Identify different key types](identify-key-types.md "identify-key-types.md")
 - [Customize your console view](viewing-console-customize.md "viewing-console-customize.md")
-- [Find KMS keys and key material in an AWS CloudHSM key
-  store](find-key-material.md "find-key-material.md")
+- [Find KMS keys and key material in an AWS CloudHSM key store](find-key-material.md "find-key-material.md")

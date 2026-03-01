@@ -70,9 +70,7 @@ policy.
 For a table showing all of the AWS KMS API actions and the resources that they apply to, see
 the [Permissions reference](kms-api-permissions-reference.md "kms-api-permissions-reference.md").
 
-## Allowing multiple IAM principals
-
-to access a KMS key
+## Allowing multiple IAM principals to access a KMS key
 
 IAM groups are not valid principals in a key policy. To allow multiple users and roles
 to access a KMS key, do one of the following:

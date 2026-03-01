@@ -1,6 +1,4 @@
-# Create a KMS key with imported key
-
-material
+# Create a KMS key with imported key material
 
 Imported key material lets you protect your AWS resources under cryptographic keys that
 you generate. The following overview explains how to import your key material into AWS KMS.
@@ -13,8 +11,7 @@ For more details about each step in the process, see the corresponding topics.
    later step you will import your own key material into this KMS key.
 
 The key material that you import must be compatible with the key spec of the
-associated AWS KMS key. For more information about compatibility, see [Requirements for imported key
-material](#importing-keys-material-requirements "#importing-keys-material-requirements"). 2. [Download the wrapping
+associated AWS KMS key. For more information about compatibility, see [Requirements for imported key material](#importing-keys-material-requirements "#importing-keys-material-requirements"). 2. [Download the wrapping
 public key and import token](importing-keys-get-public-key-and-token.md "importing-keys-get-public-key-and-token.md") – After completing step 1, download a
 wrapping public key and an import token. These items protect your key material while
 it's imported to AWS KMS.
@@ -43,9 +40,7 @@ key material](ct-importkeymaterial.md "ct-importkeymaterial.md"). AWS KMS also r
 or when AWS KMS [deletes expired key
 material](ct-deleteexpiredkeymaterial.md "ct-deleteexpiredkeymaterial.md").
 
-## Permissions for importing key
-
-material
+## Permissions for importing key material
 
 To create and manage KMS keys with imported key material, the user needs permission
 for the operations in this process. You can provide the
@@ -112,9 +107,7 @@ the following one in the key policy of the KMS key.
 }
 ```
 
-## Requirements for imported key
-
-material
+## Requirements for imported key material
 
 The key material that you import must be compatible with the [key spec](create-keys.md#key-spec "create-keys.md#key-spec") of the associated KMS key. For asymmetric key pairs, import only
 the private key of the pair. AWS KMS derives the public key from the private key.

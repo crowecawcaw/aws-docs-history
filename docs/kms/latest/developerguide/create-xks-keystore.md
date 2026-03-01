@@ -3,8 +3,7 @@
 You can create one or many external key stores in each AWS account and Region. Each
 external key store must be associated with an external key manager outside of AWS, and an
 external key store proxy (XKS proxy) that mediates communication between AWS KMS and your
-external key manager. For details, see [Choose an external key store proxy connectivity
-option](choose-xks-connectivity.md "choose-xks-connectivity.md"). Before you begin, [confirm that you need an external key
+external key manager. For details, see [Choose an external key store proxy connectivity option](choose-xks-connectivity.md "choose-xks-connectivity.md"). Before you begin, [confirm that you need an external key
 store](keystore-external.md#do-i-need-xks "keystore-external.md#do-i-need-xks"). Most customer can use KMS keys backed by AWS KMS key material.
 
 ###### Tip
@@ -190,8 +189,7 @@ external key store. Otherwise, AWS KMS cannot decrypt any ciphertext encrypted w
 those KMS keys.
 
 For help deciding which proxy connectivity option is best for your external key
-store, see [Choose an external key store proxy connectivity
-option](choose-xks-connectivity.md "choose-xks-connectivity.md"). For help creating an configuring VPC
+store, see [Choose an external key store proxy connectivity option](choose-xks-connectivity.md "choose-xks-connectivity.md"). For help creating an configuring VPC
 endpoint service connectivity, see [Configure VPC endpoint service connectivity](vpc-connectivity.md "vpc-connectivity.md").
 
 ### Proxy URI endpoint
@@ -380,8 +378,7 @@ Do not include confidential or sensitive information in this field. This field m
 connectivity](#require-connectivity "#require-connectivity") type.
 
 Your proxy connectivity choice determines the [components required](#xks-requirements "#xks-requirements") for your
-external key store proxy. For help making this choice, see [Choose an external key store proxy connectivity
-option](choose-xks-connectivity.md "choose-xks-connectivity.md").
+external key store proxy. For help making this choice, see [Choose an external key store proxy connectivity option](choose-xks-connectivity.md "choose-xks-connectivity.md").
 
     1. Select **Cross-account VPC endpoint service**
      if your VPC endpoint service resides in a different
@@ -483,8 +480,7 @@ or enter the values manually.
     When the procedure is successful, the new external key store appears in the
     list of external key stores in the account and Region. If it is unsuccessful, an
     error message appears that describes the problem and provides help on how to fix
-    it. If you need more help, see [CreateKey errors for the external
-    key](xks-troubleshooting.md#fix-external-key-create "xks-troubleshooting.md#fix-external-key-create").
+    it. If you need more help, see [CreateKey errors for the external key](xks-troubleshooting.md#fix-external-key-create "xks-troubleshooting.md#fix-external-key-create").
 
 **Next**: New external key stores are not
 automatically connected. Before you can create AWS KMS keys in your external

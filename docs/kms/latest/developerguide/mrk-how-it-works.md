@@ -86,8 +86,7 @@ multi-Region keys must have exactly one primary key. The [primary key](multi-reg
 the shared properties of its replica keys. But you can change the primary key to a
 replica and promote one of the replica keys to primary. You might do this so you can
 delete a multi-Region primary key from a particular Region, or locate the primary key in
-a Region closer to project administrators. For details, see [Change the primary key in a set of multi-Region
-keys](multi-region-update.md "multi-region-update.md").
+a Region closer to project administrators. For details, see [Change the primary key in a set of multi-Region keys](multi-region-update.md "multi-region-update.md").
 
 _Deleting multi-Region keys_ — Like all
 KMS keys, you must schedule the deletion of multi-Region keys before AWS KMS deletes

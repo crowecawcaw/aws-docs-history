@@ -18,5 +18,4 @@ signing is different from the "pre-hash" ML-DSA or HashML-DSA from section 5.4 o
 
 For more information about using ML-DSA and the EXTERNAL_MU message type, see [ML-DSA key specs](symm-asymm-choose-key-spec.md#key-spec-mldsa "symm-asymm-choose-key-spec.md#key-spec-mldsa").
 
-For an example of using ML-DSA and the EXTERNAL_MU message type, see [Offline verification with ML-DSA key
-pairs](offline-operations.md#mldsa-offline-verification "offline-operations.md#mldsa-offline-verification").
+For an example of using ML-DSA and the EXTERNAL_MU message type, see [Offline verification with ML-DSA key pairs](offline-operations.md#mldsa-offline-verification "offline-operations.md#mldsa-offline-verification").

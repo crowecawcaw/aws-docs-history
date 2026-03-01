@@ -137,9 +137,7 @@ Error parsing parameter '--xks-proxy-uri-endpoint': Unable to retrieve
 https:// : received non 200 status code of 404
 ```
 
-#### Change the name of the external key
-
-store
+#### Change the name of the external key store
 
 The first example uses the [UpdateCustomKeyStore](../APIReference/API_UpdateCustomKeyStore.md "../APIReference/API_UpdateCustomKeyStore.md") operation to change the friendly name of
 the external key store to `XksKeyStore`. The command uses the
@@ -152,9 +150,7 @@ external key store.
 `$` `aws kms update-custom-key-store --custom-key-store-id `cks-1234567890abcdef0` --new-custom-key-store-name `XksKeyStore``
 ```
 
-#### Change the proxy authentication
-
-credential
+#### Change the proxy authentication credential
 
 The following example updates the proxy authentication credential that
 AWS KMS uses to authenticate to the external key store proxy. You can use a
@@ -199,9 +195,7 @@ store.
  --xks-proxy-uri-path `/kms/xks/v1``
 ```
 
-#### Change to VPC endpoint service
-
-connectivity
+#### Change to VPC endpoint service connectivity
 
 The following example uses the [UpdateCustomKeyStore](../APIReference/API_UpdateCustomKeyStore.md "../APIReference/API_UpdateCustomKeyStore.md") operation to change the external key store
 proxy connectivity type to `VPC_ENDPOINT_SERVICE`. To make this
@@ -219,9 +213,7 @@ values for your external key store.
  --xks-proxy-vpc-endpoint-service-name `com.amazonaws.vpce.us-east-1.vpce-svc-example``
 ```
 
-#### Change to public endpoint
-
-connectivity
+#### Change to public endpoint connectivity
 
 The following example changes the external key store proxy connectivity
 type to `PUBLIC_ENDPOINT`. When you make this change, you must

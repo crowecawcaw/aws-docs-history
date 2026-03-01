@@ -13,8 +13,7 @@ in an IAM policy to allow access to KMS keys with a particular tag.
 
 To help prevent an AWS service from being used as a confused deputy in a policy where
 the principal is an [AWS
-service principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md#principal-services "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md#principal-services"), you can use the [aws:SourceArn](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn") or [aws:SourceAccount](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceaccount "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceaccount") global condition keys. For details, see [Using aws:SourceArn or
-aws:SourceAccount condition keys](least-privilege.md#least-privilege-source-arn "least-privilege.md#least-privilege-source-arn").
+service principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md#principal-services "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md#principal-services"), you can use the [aws:SourceArn](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn") or [aws:SourceAccount](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceaccount "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceaccount") global condition keys. For details, see [Using aws:SourceArn or aws:SourceAccount condition keys](least-privilege.md#least-privilege-source-arn "least-privilege.md#least-privilege-source-arn").
 
 For information about AWS global condition keys, including the types of requests in
 which they are available, see [AWS Global Condition Context Keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the _IAM User Guide_. For examples of using global condition keys in IAM policies,
@@ -27,16 +26,11 @@ addresses and VPC endpoints.
 
 ###### Topics
 
-- [Using the IP address condition in policies with
-  AWS KMS permissions](#conditions-aws-ip-address "#conditions-aws-ip-address")
-- [Using VPC endpoint conditions in policies with AWS KMS
-  permissions](#conditions-aws-vpce "#conditions-aws-vpce")
-- [Using IPv6 addresses in IAM and AWS KMS key
-  policies](#KMS-IPv6-policies "#KMS-IPv6-policies")
+- [Using the IP address condition in policies with AWS KMS permissions](#conditions-aws-ip-address "#conditions-aws-ip-address")
+- [Using VPC endpoint conditions in policies with AWS KMS permissions](#conditions-aws-vpce "#conditions-aws-vpce")
+- [Using IPv6 addresses in IAM and AWS KMS key policies](#KMS-IPv6-policies "#KMS-IPv6-policies")
 
-## Using the IP address condition in policies with
-
-AWS KMS permissions
+## Using the IP address condition in policies with AWS KMS permissions
 
 You can use AWS KMS to protect your data in an [integrated AWS service](service-integration.md "service-integration.md"). But use caution when specifying the [IP address condition operators](../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md#Conditions_IPAddress "../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md#Conditions_IPAddress") or the `aws:SourceIp` condition key in
 the same policy statement that allows or denies access to AWS KMS. For example, the policy in
@@ -69,9 +63,7 @@ condition keys. For more information, see [VPC Endpoints -
 Controlling the Use of Endpoints](../../../vpc/latest/userguide/vpc-endpoints.md#vpc-endpoints-iam-access "../../../vpc/latest/userguide/vpc-endpoints.md#vpc-endpoints-iam-access") in the _Amazon VPC User
 Guide_.
 
-## Using VPC endpoint conditions in policies with AWS KMS
-
-permissions
+## Using VPC endpoint conditions in policies with AWS KMS permissions
 
 [AWS KMS supports Amazon Virtual Private Cloud (Amazon VPC) endpoints](kms-vpc-endpoint.md "kms-vpc-endpoint.md") that
 are powered by [AWS
@@ -92,9 +84,7 @@ or VPC endpoint, calls to AWS KMS from an integrated service, such as Amazon S3 
 fail. This can happen even if the source request ultimately originates in the VPC or from
 the VPC endpoint.
 
-## Using IPv6 addresses in IAM and AWS KMS key
-
-policies
+## Using IPv6 addresses in IAM and AWS KMS key policies
 
 Before trying to access AWS KMS over IPv6, ensure any key and IAM policies containing IP
 address restrictions are updated to include IPv6 address ranges. IP based policies that are

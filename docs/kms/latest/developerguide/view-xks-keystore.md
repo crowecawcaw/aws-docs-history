@@ -67,9 +67,7 @@ store. The connection state is `DISCONNECTED` only if the
 custom key store has never been connected to its backing key store, or
 it has been intentionally disconnected. For details, see [Connection state](xks-connect-disconnect.md#xks-connection-state "xks-connect-disconnect.md#xks-connection-state").
 
-### External key store configuration
-
-properties
+### External key store configuration properties
 
 The following values appear in the **External key store proxy
 configuration** section of the detail page for each external key store
@@ -140,8 +138,7 @@ For custom key stores, the output consists of the custom key store ID, name, and
 and the [connection state](xks-connect-disconnect.md#xks-connection-state "xks-connect-disconnect.md#xks-connection-state") of the key store.
 If the connection state is `FAILED`, the output also includes a
 `ConnectionErrorCode` that describes the reason for the error. For help
-interpreting the `ConnectionErrorCode` for an external key store, see [Connection error codes for external key
-stores](xks-troubleshooting.md#xks-connection-error-codes "xks-troubleshooting.md#xks-connection-error-codes").
+interpreting the `ConnectionErrorCode` for an external key store, see [Connection error codes for external key stores](xks-troubleshooting.md#xks-connection-error-codes "xks-troubleshooting.md#xks-connection-error-codes").
 
 For external key stores, the output also includes the
 `XksProxyConfiguration` element. This element includes the [connectivity type](create-xks-keystore.md#require-connectivity "create-xks-keystore.md#require-connectivity"), [proxy URI endpoint](create-xks-keystore.md#require-endpoint "create-xks-keystore.md#require-endpoint"), [proxy URI path](create-xks-keystore.md#require-path "create-xks-keystore.md#require-path"), and the access key ID of the [proxy authentication credential](keystore-external.md#concept-xks-credential "keystore-external.md#concept-xks-credential").

@@ -11,8 +11,7 @@ Encryption](../../../AWSEC2/latest/UserGuide/EBSEncryption.md "../../../AWSEC2/l
 - [Using KMS keys and data keys](#ebs-cmk "#ebs-cmk")
 - [Amazon EBS encryption context](#ebs-encryption-context "#ebs-encryption-context")
 - [Detecting Amazon EBS failures](#ebs-failures "#ebs-failures")
-- [Using AWS CloudFormation to create encrypted
-  Amazon EBS volumes](#ebs-encryption-using-cloudformation "#ebs-encryption-using-cloudformation")
+- [Using AWS CloudFormation to create encrypted Amazon EBS volumes](#ebs-encryption-using-cloudformation "#ebs-encryption-using-cloudformation")
 
 ## Amazon EBS encryption
 
@@ -120,9 +119,7 @@ in the AWS Management Console). Then, see the information at one of the followin
   key material](importing-keys.md "importing-keys.md").
 - If the KMS key's key state is pending deletion, [cancel key deletion](deleting-keys-scheduling-key-deletion.md "deleting-keys-scheduling-key-deletion.md").
 
-## Using AWS CloudFormation to create encrypted
-
-Amazon EBS volumes
+## Using AWS CloudFormation to create encrypted Amazon EBS volumes
 
 You can use [AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide.md "../../../AWSCloudFormation/latest/UserGuide.md") to create
 encrypted Amazon EBS volumes. For more information, see [AWS::EC2::Volume](../../../AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.md") in the

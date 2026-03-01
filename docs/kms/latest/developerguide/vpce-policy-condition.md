@@ -14,8 +14,7 @@ keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#Availab
 Use caution when creating key policies and IAM policies based on your VPC endpoint. If
 a policy statement requires that requests come from a particular VPC or VPC endpoint,
 requests from integrated AWS services that use an AWS KMS resource on your behalf might
-fail. For help, see [Using VPC endpoint conditions in policies with AWS KMS
-permissions](conditions-aws.md#conditions-aws-vpce "conditions-aws.md#conditions-aws-vpce").
+fail. For help, see [Using VPC endpoint conditions in policies with AWS KMS permissions](conditions-aws.md#conditions-aws-vpce "conditions-aws.md#conditions-aws-vpce").
 
 Also, the `aws:sourceIP` condition key is not effective when the request
 comes from an [Amazon VPC endpoint](../../../vpc/latest/userguide/vpc-endpoints.md "../../../vpc/latest/userguide/vpc-endpoints.md"). To

@@ -124,8 +124,7 @@ and manage KMS keys in an external key store in much the same way that you manag
 [customer managed keys](concepts.md#customer-mgn-key "concepts.md#customer-mgn-key"), including [setting access control policies](authorize-xks-key-store.md "authorize-xks-key-store.md") and [monitoring key use](monitoring-overview.md "monitoring-overview.md"). You use the same APIs with the
 same parameters to request a cryptographic operation with a KMS key in an external key
 store that you use for any KMS key. Pricing is also the same as for standard KMS keys.
-For details, see [KMS keys in external key
-stores](keystore-external-key-manage.md "keystore-external-key-manage.md") and [AWS Key Management Service
+For details, see [KMS keys in external key stores](keystore-external-key-manage.md "keystore-external-key-manage.md") and [AWS Key Management Service
 Pricing](https://aws.amazon.com/kms/pricing/ "https://aws.amazon.com/kms/pricing/").
 
 However, with external key stores the following principles change:
@@ -235,8 +234,7 @@ premises, in a local or remote data center, or in any cloud. Your external key s
 be backed by a single external key manager or multiple related key manager instances
 that share cryptographic keys, such as an HSM cluster. External key stores are designed
 to support a variety of external managers from different vendors. For details about
-connecting to your external key manager, see [Choose an external key store proxy connectivity
-option](choose-xks-connectivity.md "choose-xks-connectivity.md").
+connecting to your external key manager, see [Choose an external key store proxy connectivity option](choose-xks-connectivity.md "choose-xks-connectivity.md").
 
 ### External key
 
@@ -251,8 +249,7 @@ is lost or deleted, ciphertext encrypted under the associated KMS key is
 unrecoverable.
 
 For external key stores, an external key must be a 256-bit AES key that is enabled and
-can perform encryption and decryption. For detailed external key requirements, see [Requirements for a KMS key in an external key
-store](create-xks-keys.md#xks-key-requirements "create-xks-keys.md#xks-key-requirements").
+can perform encryption and decryption. For detailed external key requirements, see [Requirements for a KMS key in an external key store](create-xks-keys.md#xks-key-requirements "create-xks-keys.md#xks-key-requirements").
 
 AWS KMS cannot create, delete, or manage any external keys. Your cryptographic key
 material never leaves your external key manager.When you create a KMS key in an
@@ -349,12 +346,9 @@ AWS KMS supports the following connectivity options.
   only for communication. You can also connect your external key store to an Amazon VPC
   endpoint service owned by another AWS account.
 
-For details about the external key store proxy connectivity options, see [Choose an external key store proxy connectivity
-option](choose-xks-connectivity.md "choose-xks-connectivity.md").
+For details about the external key store proxy connectivity options, see [Choose an external key store proxy connectivity option](choose-xks-connectivity.md "choose-xks-connectivity.md").
 
-### External key store proxy authentication
-
-credential
+### External key store proxy authentication credential
 
 To authenticate to your external key store proxy, AWS KMS signs all requests to your
 external key store proxy with a [Signature V4 (SigV4)](../../../general/latest/gr/signature-version-4.md "../../../general/latest/gr/signature-version-4.md") authentication credential. You establish and maintain

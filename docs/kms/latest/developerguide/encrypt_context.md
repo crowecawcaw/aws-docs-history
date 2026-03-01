@@ -60,9 +60,7 @@ AWS KMS enforces the following rules for encryption context keys and values.
   policy document rules, see [IAM name
   requirements](../../../IAM/latest/UserGuide/reference_iam-quotas.md#reference_iam-quotas-names "../../../IAM/latest/UserGuide/reference_iam-quotas.md#reference_iam-quotas-names") in the _IAM User Guide_.
 
-## Encryption context in
-
-policies
+## Encryption context in policies
 
 The encryption context is used primarily to verify integrity and authenticity. But you
 can also use the encryption context to control access to symmetric encryption

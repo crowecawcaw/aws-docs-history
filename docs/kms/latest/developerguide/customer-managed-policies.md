@@ -12,21 +12,14 @@ For help writing and formatting a JSON policy document, see the [IAM JSON Policy
 
 ###### Examples
 
-- [Allow a user to view KMS keys in
-  the AWS KMS console](#iam-policy-example-read-only-console "#iam-policy-example-read-only-console")
+- [Allow a user to view KMS keys in the AWS KMS console](#iam-policy-example-read-only-console "#iam-policy-example-read-only-console")
 - [Allow a user to create KMS keys](#iam-policy-example-create-key "#iam-policy-example-create-key")
-- [Allow a user to encrypt and
-  decrypt with any KMS key in a specific AWS account](#iam-policy-example-encrypt-decrypt-one-account "#iam-policy-example-encrypt-decrypt-one-account")
-- [Allow a user to
-  encrypt and decrypt with any KMS key in a specific AWS account and Region](#iam-policy-example-encrypt-decrypt-one-account-one-region "#iam-policy-example-encrypt-decrypt-one-account-one-region")
-- [Allow a user to encrypt
-  and decrypt with specific KMS keys](#iam-policy-example-encrypt-decrypt-specific-cmks "#iam-policy-example-encrypt-decrypt-specific-cmks")
-- [Prevent a user from disabling or
-  deleting any KMS keys](#iam-policy-example-deny-disable-delete "#iam-policy-example-deny-disable-delete")
+- [Allow a user to encrypt and decrypt with any KMS key in a specific AWS account](#iam-policy-example-encrypt-decrypt-one-account "#iam-policy-example-encrypt-decrypt-one-account")
+- [Allow a user to encrypt and decrypt with any KMS key in a specific AWS account and Region](#iam-policy-example-encrypt-decrypt-one-account-one-region "#iam-policy-example-encrypt-decrypt-one-account-one-region")
+- [Allow a user to encrypt and decrypt with specific KMS keys](#iam-policy-example-encrypt-decrypt-specific-cmks "#iam-policy-example-encrypt-decrypt-specific-cmks")
+- [Prevent a user from disabling or deleting any KMS keys](#iam-policy-example-deny-disable-delete "#iam-policy-example-deny-disable-delete")
 
-## Allow a user to view KMS keys in
-
-the AWS KMS console
+## Allow a user to view KMS keys in the AWS KMS console
 
 The following IAM policy allows users read-only access to the AWS KMS console. Users
 with these permissions can view all KMS keys in their AWS account, but they cannot
@@ -175,9 +168,7 @@ JSON
 
 ```
 
-## Allow a user to encrypt and
-
-decrypt with any KMS key in a specific AWS account
+## Allow a user to encrypt and decrypt with any KMS key in a specific AWS account
 
 The following IAM policy allows a user to encrypt and decrypt data with any KMS key
 in AWS account 111122223333.
@@ -199,9 +190,7 @@ JSON
 
 ```
 
-## Allow a user to
-
-encrypt and decrypt with any KMS key in a specific AWS account and Region
+## Allow a user to encrypt and decrypt with any KMS key in a specific AWS account and Region
 
 The following IAM policy allows a user to encrypt and decrypt data with any KMS key
 in AWS account `111122223333` in the US West (Oregon)
@@ -226,9 +215,7 @@ JSON
 
 ```
 
-## Allow a user to encrypt
-
-and decrypt with specific KMS keys
+## Allow a user to encrypt and decrypt with specific KMS keys
 
 The following IAM policy allows a user to encrypt and decrypt data with the two
 KMS keys specified in the `Resource` element. When specifying a KMS key in an
@@ -255,9 +242,7 @@ JSON
 
 ```
 
-## Prevent a user from disabling or
-
-deleting any KMS keys
+## Prevent a user from disabling or deleting any KMS keys
 
 The following IAM policy prevents a user from disabling or deleting any KMS keys,
 even when another IAM policy or a key policy allows these permissions. A policy that

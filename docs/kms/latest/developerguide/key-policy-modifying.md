@@ -13,12 +13,10 @@ When changing a key policy, keep in mind the following rules:
   and change the actions that are allowed or denied for those principals. For more information
   about the ways to specify principals and permissions in a key policy, see [Key policies](key-policies.md "key-policies.md").
 - You cannot add IAM groups to a key policy, but you can add multiple IAM users and
-  IAM roles. For more information, see [Allowing multiple IAM principals
-  to access a KMS key](iam-policies.md#key-policy-modifying-multiple-iam-users "iam-policies.md#key-policy-modifying-multiple-iam-users").
+  IAM roles. For more information, see [Allowing multiple IAM principals to access a KMS key](iam-policies.md#key-policy-modifying-multiple-iam-users "iam-policies.md#key-policy-modifying-multiple-iam-users").
 - If you add external AWS accounts to a key policy, you must also use IAM policies in
   the external accounts to give permissions to IAM users, groups, or roles in those
-  accounts. For more information, see [Allowing users in other accounts to
-  use a KMS key](key-policy-modifying-external-accounts.md "key-policy-modifying-external-accounts.md").
+  accounts. For more information, see [Allowing users in other accounts to use a KMS key](key-policy-modifying-external-accounts.md "key-policy-modifying-external-accounts.md").
 - The resulting key policy document cannot exceed 32 KB (32,768 bytes).
 
 ## How to change a key policy
@@ -28,15 +26,11 @@ following sections.
 
 ###### Topics
 
-- [Using the AWS Management Console
-  default view](#key-policy-modifying-how-to-console-default-view "#key-policy-modifying-how-to-console-default-view")
-- [Using the AWS Management Console policy
-  view](#key-policy-modifying-how-to-console-policy-view "#key-policy-modifying-how-to-console-policy-view")
+- [Using the AWS Management Console default view](#key-policy-modifying-how-to-console-default-view "#key-policy-modifying-how-to-console-default-view")
+- [Using the AWS Management Console policy view](#key-policy-modifying-how-to-console-policy-view "#key-policy-modifying-how-to-console-policy-view")
 - [Using the AWS KMS API](#key-policy-modifying-how-to-api "#key-policy-modifying-how-to-api")
 
-### Using the AWS Management Console
-
-default view
+### Using the AWS Management Console default view
 
 You can use the console to change a key policy with a graphical interface called the
 _default view_.
@@ -44,8 +38,7 @@ _default view_.
 If the following steps don't match what you see in the console, it might mean that this
 key policy was not created by the console. Or it might mean that the key policy has been
 modified in a way that the console's default view does not support. In that case, follow the
-steps at [Using the AWS Management Console policy
-view](#key-policy-modifying-how-to-console-policy-view "#key-policy-modifying-how-to-console-policy-view") or [Using the AWS KMS API](#key-policy-modifying-how-to-api "#key-policy-modifying-how-to-api").
+steps at [Using the AWS Management Console policy view](#key-policy-modifying-how-to-console-policy-view "#key-policy-modifying-how-to-console-policy-view") or [Using the AWS KMS API](#key-policy-modifying-how-to-api "#key-policy-modifying-how-to-api").
 
 1. View the key policy for a customer managed key as described in [Using the AWS KMS console](key-policy-viewing.md#key-policy-viewing-console "key-policy-viewing.md#key-policy-viewing-console"). (You cannot change the key policies of AWS managed keys.)
 2. Decide what to change.
@@ -60,9 +53,7 @@ view](#key-policy-modifying-how-to-console-policy-view "#key-policy-modifying-ho
      operations](kms-cryptography.md#cryptographic-operations "kms-cryptography.md#cryptographic-operations"), such as encrypting, decrypting, re-encrypting, and generating
      data keys.
 
-### Using the AWS Management Console policy
-
-view
+### Using the AWS Management Console policy view
 
 You can use the console to change a key policy document with the console's
 _policy view_.

@@ -49,9 +49,7 @@ exclusive control over the authorization policies that control access to the key
 AWS managed keys, the AWS account has complete control over the IAM policies that
 authorize requests to the AWS service.
 
-### Protecting key material generated outside of
-
-AWS KMS
+### Protecting key material generated outside of AWS KMS
 
 AWS KMS provides alternatives to key material generated in AWS KMS.
 

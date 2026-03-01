@@ -39,9 +39,7 @@ mitigate the vulnerability of long-term credentials. You can use MFA to do the f
   policies for job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md "../../../IAM/latest/UserGuide/access_policies_job-functions.md")
 - [Techniques for writing least privilege IAM policies](https://aws.amazon.com//blogs/security/techniques-for-writing-least-privilege-iam-policies/ "https://aws.amazon.com//blogs/security/techniques-for-writing-least-privilege-iam-policies/")
 
-## Implementing least privileged
-
-permissions
+## Implementing least privileged permissions
 
 When you give an AWS service permission to use a KMS key, ensure that the
 permission is valid only for the resources that the service must access on your behalf.
@@ -52,9 +50,7 @@ To implement a least privilege strategy, use we recommend using AWS KMS encrypti
 context condition keys and the global source ARN or source account condition
 keys.
 
-### Using encryption context
-
-condition keys
+### Using encryption context condition keys
 
 The most effective way to implement least privileged permissions when using AWS KMS
 resources is to include the [kms:EncryptionContext:context-key](conditions-kms.md#conditions-kms-encryption-context "conditions-kms.md#conditions-kms-encryption-context") or [kms:EncryptionContextKeys](conditions-kms.md#conditions-kms-encryption-context-keys "conditions-kms.md#conditions-kms-encryption-context-keys") condition keys in the
@@ -102,9 +98,7 @@ particular tracker resource.
 }
 ```
 
-### Using `aws:SourceArn` or
-
-`aws:SourceAccount` condition keys
+### Using `aws:SourceArn` or `aws:SourceAccount` condition keys
 
 When the principal in a key policy statement is an [AWS service principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md#principal-services "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md#principal-services"), we strongly recommend that you use the [aws:SourceArn](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn") or [aws:SourceAccount](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceaccount "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceaccount") global condition keys, in addition
 to the `kms:EncryptionContext:*context-key*` condition key. The ARN and account values

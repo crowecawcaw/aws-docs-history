@@ -8,8 +8,7 @@ must have the `iam:CreateServiceLinkedRole` permission that allows them to creat
 service-linked roles.
 
 To view details about updates to the **AWSKeyManagementServiceCustomKeyStoresServiceRolePolicy** managed policy, see
-[AWS KMS updates to AWS managed
-policies](security-iam-awsmanpol.md#security-iam-awsmanpol-updates "security-iam-awsmanpol.md#security-iam-awsmanpol-updates").
+[AWS KMS updates to AWS managed policies](security-iam-awsmanpol.md#security-iam-awsmanpol-updates "security-iam-awsmanpol.md#security-iam-awsmanpol-updates").
 
 ###### Topics
 
@@ -24,8 +23,7 @@ A [service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles
 is an IAM role that gives one AWS service permission to call other AWS services on
 your behalf. It's designed to make it easier for you to use the features of multiple
 integrated AWS services without having to create and maintain complex IAM policies. For
-more information, see [Using service-linked roles for
-AWS KMS](using-service-linked-roles.md "using-service-linked-roles.md").
+more information, see [Using service-linked roles for AWS KMS](using-service-linked-roles.md "using-service-linked-roles.md").
 
 For AWS CloudHSM key stores, AWS KMS creates the **AWSServiceRoleForKeyManagementServiceCustomKeyStores** service-linked role with the
 **AWSKeyManagementServiceCustomKeyStoresServiceRolePolicy** managed

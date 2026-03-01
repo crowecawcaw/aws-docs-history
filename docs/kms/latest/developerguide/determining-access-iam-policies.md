@@ -9,14 +9,10 @@ Simulator](https://policysim.aws.amazon.com/ "https://policysim.aws.amazon.com/"
 
 ###### Ways to examine IAM policies
 
-- [Examining IAM policies with the
-  IAM policy simulator](determining-access-iam-policies.md#determining-access-iam-policy-simulator "determining-access-iam-policies.md#determining-access-iam-policy-simulator")
-- [Examining IAM policies with the IAM
-  API](determining-access-iam-policies.md#determining-access-iam-api "determining-access-iam-policies.md#determining-access-iam-api")
+- [Examining IAM policies with the IAM policy simulator](determining-access-iam-policies.md#determining-access-iam-policy-simulator "determining-access-iam-policies.md#determining-access-iam-policy-simulator")
+- [Examining IAM policies with the IAM API](determining-access-iam-policies.md#determining-access-iam-api "determining-access-iam-policies.md#determining-access-iam-api")
 
-## Examining IAM policies with the
-
-IAM policy simulator
+## Examining IAM policies with the IAM policy simulator
 
 The IAM Policy Simulator can help you learn which principals have access to a KMS key
 through an IAM policy.
@@ -44,9 +40,7 @@ through an IAM policy.
 You can view the results of the simulation in the **Results** section.
 Repeat steps 2 through 6 for every user, group, and role in the AWS account.
 
-## Examining IAM policies with the IAM
-
-API
+## Examining IAM policies with the IAM API
 
 You can use the IAM API to examine IAM policies programmatically. The following
 steps provide a general overview of how to do this:

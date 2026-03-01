@@ -157,8 +157,7 @@ AWS KMS. This field appears only when the **Key type** is
 **Asymmetric** and the **Key
 usage** is **Encrypt and decrypt**. For
 information about the encryption algorithms that AWS KMS supports, see
-[SYMMETRIC_DEFAULT key spec](symm-asymm-choose-key-spec.md#symmetric-cmks "symm-asymm-choose-key-spec.md#symmetric-cmks") and [RSA key specs for encryption and
-decryption](symm-asymm-choose-key-spec.md#key-spec-rsa-encryption "symm-asymm-choose-key-spec.md#key-spec-rsa-encryption").
+[SYMMETRIC_DEFAULT key spec](symm-asymm-choose-key-spec.md#symmetric-cmks "symm-asymm-choose-key-spec.md#symmetric-cmks") and [RSA key specs for encryption and decryption](symm-asymm-choose-key-spec.md#key-spec-rsa-encryption "symm-asymm-choose-key-spec.md#key-spec-rsa-encryption").
 
 **Expiration date**
 
@@ -334,8 +333,7 @@ Lists the signing algorithms that can be used with the KMS key in
 AWS KMS. This field appears only when the **Key type** is
 **Asymmetric** and the **Key
 usage** is **Sign and verify**. For
-information about the signing algorithms that AWS KMS supports, see [RSA key specs for signing and
-verification](symm-asymm-choose-key-spec.md#key-spec-rsa-sign "symm-asymm-choose-key-spec.md#key-spec-rsa-sign") and
+information about the signing algorithms that AWS KMS supports, see [RSA key specs for signing and verification](symm-asymm-choose-key-spec.md#key-spec-rsa-sign "symm-asymm-choose-key-spec.md#key-spec-rsa-sign") and
 [Elliptic curve key specs](symm-asymm-choose-key-spec.md#key-spec-ecc "symm-asymm-choose-key-spec.md#key-spec-ecc").
 
 **Status**

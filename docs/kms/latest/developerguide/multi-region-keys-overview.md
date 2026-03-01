@@ -116,8 +116,7 @@ You can create the following types of multi-Region KMS keys:
 - To learn how to control access to multi-Region KMS keys, see [Control access to multi-Region keys](multi-region-keys-auth.md "multi-region-keys-auth.md").
 - To create multi-Region primary KMS keys of any type, see [Create multi-Region primary keys](create-primary-keys.md "create-primary-keys.md").
 - To create multi-Region replica KMS keys, see [Create multi-Region replica keys](multi-region-keys-replicate.md "multi-region-keys-replicate.md").
-- To update the primary Region, see [Change the primary key in a set of multi-Region
-  keys](multi-region-update.md "multi-region-update.md").
+- To update the primary Region, see [Change the primary key in a set of multi-Region keys](multi-region-update.md "multi-region-update.md").
 - To identify and view multi-Region KMS keys, see [Identify HMAC KMS keys](identify-key-types.md#hmac-view "identify-key-types.md#hmac-view").
 - To learn about special considerations for deleting multi-Region KMS keys, see
   [Deleting multi-Region keys](deleting-keys.md#deleting-mrks "deleting-keys.md#deleting-mrks").

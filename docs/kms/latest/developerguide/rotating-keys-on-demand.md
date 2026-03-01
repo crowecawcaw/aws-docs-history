@@ -1,6 +1,4 @@
-# Perform on-demand key
-
-rotation
+# Perform on-demand key rotation
 
 You can perform on-demand rotation of the key material in customer managed KMS keys,
 regardless of whether or not automatic key rotation is enabled. Disabling automatic
@@ -29,14 +27,10 @@ completed rotations for a KMS key.
 
 ###### Topics
 
-- [Initiating on-demand key rotation
-  (console)](#rotate-on-demand-console "#rotate-on-demand-console")
-- [Initiating on-demand key rotation
-  (AWS KMS API)](#rotate-on-demand-api "#rotate-on-demand-api")
+- [Initiating on-demand key rotation (console)](#rotate-on-demand-console "#rotate-on-demand-console")
+- [Initiating on-demand key rotation (AWS KMS API)](#rotate-on-demand-api "#rotate-on-demand-api")
 
-## Initiating on-demand key rotation
-
-(console)
+## Initiating on-demand key rotation (console)
 
 1. Sign in to the AWS Management Console and open the AWS Key Management Service (AWS KMS) console at [https://console.aws.amazon.com/kms](https://console.aws.amazon.com/kms "https://console.aws.amazon.com/kms").
 2. To change the AWS Region, use the Region selector in the upper-right corner of the page.
@@ -77,9 +71,7 @@ before the new key material is available throughout AWS KMS. The banner at
 the top of the console notifies you when the on-demand rotation is
 complete.
 
-## Initiating on-demand key rotation
-
-(AWS KMS API)
+## Initiating on-demand key rotation (AWS KMS API)
 
 You can use the [AWS Key Management Service (AWS KMS) API](../APIReference.md "../APIReference.md") to
 initiate on-demand key rotation, and view the current rotation status of any

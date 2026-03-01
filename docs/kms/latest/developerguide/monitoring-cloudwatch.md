@@ -90,8 +90,7 @@ When that time falls below a threshold that you define, you should reimport the 
 expiration date to keep the KMS key usable. The `SecondsUntilKeyMaterialExpiration`
 metric is specific to a KMS key. You cannot use this metric to monitor multiple KMS keys
 or KMS keys that you might create in the future. For help with creating a CloudWatch alarm to
-monitor this metric, see [Create a CloudWatch alarm for expiration of
-imported key material](imported-key-material-expiration-alarm.md "imported-key-material-expiration-alarm.md").
+monitor this metric, see [Create a CloudWatch alarm for expiration of imported key material](imported-key-material-expiration-alarm.md "imported-key-material-expiration-alarm.md").
 
 The most useful statistic for this metric is `Minimum`, which tells you the
 smallest amount of time remaining for all data points in the specified statistical period.
@@ -111,8 +110,7 @@ alarm to warn you if a person or application attempts to use the KMS key in a [c
 period. If you receive a notification from such an alarm, you might want to cancel deletion
 of the KMS key.
 
-For instructions, see [Create an alarm that detects use of a
-KMS key pending deletion](deleting-keys-creating-cloudwatch-alarm.md "deleting-keys-creating-cloudwatch-alarm.md").
+For instructions, see [Create an alarm that detects use of a KMS key pending deletion](deleting-keys-creating-cloudwatch-alarm.md "deleting-keys-creating-cloudwatch-alarm.md").
 
 ### CloudHSMKeyStoreThrottle
 

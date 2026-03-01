@@ -11,8 +11,7 @@ details page for a KMS key, see [Access and list KMS key details](finding-keys.m
 - [Identify asymmetric KMS keys](#identify-asymm-keys "#identify-asymm-keys")
 - [Identify HMAC KMS keys](#hmac-view "#hmac-view")
 - [Identify multi-Region KMS keys](#multi-region-keys-view "#multi-region-keys-view")
-- [Identify KMS keys with imported key
-  material](#identify-imported-keys "#identify-imported-keys")
+- [Identify KMS keys with imported key material](#identify-imported-keys "#identify-imported-keys")
 - [Identify KMS keys in AWS CloudHSM key stores](#identify-key-hsm-keystore "#identify-key-hsm-keystore")
 - [Identify KMS keys in external key stores](#view-xks-key "#view-xks-key")
 
@@ -125,9 +124,7 @@ other AWS Regions in the `MultiRegionConfiguration` element.
 
 For more information on multi-Region KMS keys, see [Multi-Region keys in AWS KMS](multi-region-keys-overview.md "multi-region-keys-overview.md").
 
-## Identify KMS keys with imported key
-
-material
+## Identify KMS keys with imported key material
 
 **In the AWS KMS console**
 

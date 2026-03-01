@@ -12,8 +12,7 @@ derive a shared secret.
 When you use the public key in your asymmetric KMS key within AWS KMS, you benefit from the
 authentication, authorization, and logging that are part of every AWS KMS operation. You also
 reduce of risk of encrypting data that cannot be decrypted. These features are not effective
-outside of AWS KMS. For details, see [Special considerations for downloading
-public keys](#download-public-key-considerations "#download-public-key-considerations").
+outside of AWS KMS. For details, see [Special considerations for downloading public keys](#download-public-key-considerations "#download-public-key-considerations").
 
 ###### Tip
 
@@ -25,14 +24,11 @@ and [Amazon EC2 User Guide](../../../AWSEC2/latest/WindowsGuide/describe-keys.md
 
 ###### Topics
 
-- [Special considerations for downloading
-  public keys](#download-public-key-considerations "#download-public-key-considerations")
+- [Special considerations for downloading public keys](#download-public-key-considerations "#download-public-key-considerations")
 - [Download public key](download-public-key.md "download-public-key.md")
 - [Example offline operations](offline-operations.md "offline-operations.md")
 
-## Special considerations for downloading
-
-public keys
+## Special considerations for downloading public keys
 
 To protect your KMS keys, AWS KMS provides access controls, authenticated encryption, and
 detailed logs of every operation. AWS KMS also allows you to prevent the use of KMS keys,

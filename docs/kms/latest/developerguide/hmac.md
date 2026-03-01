@@ -71,8 +71,7 @@ HMAC KMS keys are supported in all AWS Regions that AWS KMS supports.
 - To create HMAC KMS keys, see [Create an HMAC KMS key](hmac-create-key.md "hmac-create-key.md").
 - To create multi-Region HMAC KMS keys, see [Multi-Region keys in AWS KMS](multi-region-keys-overview.md "multi-region-keys-overview.md").
 - To examine the difference in the default key policy that the AWS KMS console sets
-  for HMAC KMS keys, see [Allows key users to use a KMS key for
-  cryptographic operations](key-policy-default.md#key-policy-users-crypto "key-policy-default.md#key-policy-users-crypto").
+  for HMAC KMS keys, see [Allows key users to use a KMS key for cryptographic operations](key-policy-default.md#key-policy-users-crypto "key-policy-default.md#key-policy-users-crypto").
 - To identify and view HMAC KMS keys, see [Identify HMAC KMS keys](identify-key-types.md#hmac-view "identify-key-types.md#hmac-view").
 - To learn about using HMACs to create JSON web tokens, see [How to
   protect HMACs inside AWS KMS](https://aws.amazon.com/blogs/security/how-to-protect-hmacs-inside-aws-kms/ "https://aws.amazon.com/blogs/security/how-to-protect-hmacs-inside-aws-kms/") in the _AWS Security

@@ -1,6 +1,4 @@
-# Allowing users in other accounts to
-
-use a KMS key
+# Allowing users in other accounts to use a KMS key
 
 You can allow users or roles in a different AWS account to use a KMS key in your
 account. Cross-account access requires permission in the key policy of the KMS key and in
@@ -63,8 +61,7 @@ AWS Management Console or use the [CreateKey](../APIReference/API_CreateKey.md "
 For help with editing IAM policies, see [Using IAM policies with AWS KMS](iam-policies.md "iam-policies.md").
 
 For an example that shows how the key policy and IAM policies work together to allow use
-of a KMS key in a different account, see [Example 2: User assumes role with permission to use a KMS key
-in a different AWS account](policy-evaluation.md#example-cross-acct "policy-evaluation.md#example-cross-acct").
+of a KMS key in a different account, see [Example 2: User assumes role with permission to use a KMS key in a different AWS account](policy-evaluation.md#example-cross-acct "policy-evaluation.md#example-cross-acct").
 
 You can view the resulting cross-account AWS KMS operations on the KMS key in your [AWS CloudTrail logs](logging-using-cloudtrail.md "logging-using-cloudtrail.md"). Operations that use KMS keys
 in other accounts are logged in both the caller's account and the KMS key owner
@@ -72,12 +69,9 @@ account.
 
 ###### Topics
 
-- [Step 1: Add a key policy statement in the
-  local account](#cross-account-key-policy "#cross-account-key-policy")
-- [Step 2: Add IAM policies in the external
-  account](#cross-account-iam-policy "#cross-account-iam-policy")
-- [Allowing use of external KMS keys with
-  AWS services](#cross-account-service "#cross-account-service")
+- [Step 1: Add a key policy statement in the local account](#cross-account-key-policy "#cross-account-key-policy")
+- [Step 2: Add IAM policies in the external account](#cross-account-iam-policy "#cross-account-iam-policy")
+- [Allowing use of external KMS keys with AWS services](#cross-account-service "#cross-account-service")
 - [Using KMS keys in other accounts](#cross-account-use "#cross-account-use")
 
 ###### Note
@@ -88,9 +82,7 @@ represent the permissions that any particular AWS service requires on a KMS key.
 information about the permissions that an AWS service requires, see the encryption
 topic in the service documentation.
 
-## Step 1: Add a key policy statement in the
-
-local account
+## Step 1: Add a key policy statement in the local account
 
 The key policy for a KMS key is the primary determinant of who can access the
 KMS key and which operations they can perform. The key policy is always in the account
@@ -234,9 +226,7 @@ other AWS services that encrypt user data to use the KMS key. These
 permissions are designed for KMS keys that encrypt user data in AWS
 services
 
-## Step 2: Add IAM policies in the external
-
-account
+## Step 2: Add IAM policies in the external account
 
 The key policy in the account that owns the KMS key sets the valid range for
 permissions. But, users and roles in the external account cannot use the KMS key until
@@ -295,14 +285,11 @@ Note the following details about this policy:
   intend.
 - To allow the external user to use the KMS key with [AWS services that integrate with
   AWS KMS,](https://aws.amazon.com/kms/features/#AWS_Service_Integration "https://aws.amazon.com/kms/features/#AWS_Service_Integration") you might need to add permissions to the key policy or the
-  IAM policy. For details, see [Allowing use of external KMS keys with
-  AWS services](#cross-account-service "#cross-account-service").
+  IAM policy. For details, see [Allowing use of external KMS keys with AWS services](#cross-account-service "#cross-account-service").
 
 For more information about working with IAM policies, see [IAM policies](iam-policies.md "iam-policies.md").
 
-## Allowing use of external KMS keys with
-
-AWS services
+## Allowing use of external KMS keys with AWS services
 
 You can give a user in a different account permission to use your KMS key with a
 service that is integrated with AWS KMS. For example, a user in an external account can

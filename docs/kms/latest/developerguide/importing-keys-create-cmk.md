@@ -1,6 +1,4 @@
-# Step 1: Create an
-
-AWS KMS key without key material
+# Step 1: Create an AWS KMS key without key material
 
 By default, AWS KMS creates key material for you when you create a KMS key. To import your
 own key material instead, start by creating a KMS key with no key material. Then import the
@@ -27,19 +25,14 @@ key material](ct-deleteexpiredkeymaterial.md "ct-deleteexpiredkeymaterial.md").
 
 ###### Topics
 
-- [Creating a KMS key with no key material
-  (console)](#importing-keys-create-cmk-console "#importing-keys-create-cmk-console")
-- [Creating a KMS key with no key material
-  (AWS KMS API)](#importing-keys-create-cmk-api "#importing-keys-create-cmk-api")
+- [Creating a KMS key with no key material (console)](#importing-keys-create-cmk-console "#importing-keys-create-cmk-console")
+- [Creating a KMS key with no key material (AWS KMS API)](#importing-keys-create-cmk-api "#importing-keys-create-cmk-api")
 
-## Creating a KMS key with no key material
-
-(console)
+## Creating a KMS key with no key material (console)
 
 You only need to create a KMS key for the imported key material once. You can import and
 reimport the same key material into the existing KMS key as often as you need to, but you
-cannot import different key material into a KMS key. For details, see [Step 2:
-Download the wrapping public key and import token](importing-keys-get-public-key-and-token.md "importing-keys-get-public-key-and-token.md").
+cannot import different key material into a KMS key. For details, see [Step 2: Download the wrapping public key and import token](importing-keys-get-public-key-and-token.md "importing-keys-get-public-key-and-token.md").
 
 To find existing KMS keys with imported key material in your **Customer managed
 keys** table, use the gear icon in the upper right corner to show the
@@ -74,12 +67,9 @@ to import your key material. You can continue with the download step now, or cho
 **Cancel** to stop at this point. You can return to this download step at
 any time.
 
-Next: [Step 2:
-Download the wrapping public key and import token](importing-keys-get-public-key-and-token.md "importing-keys-get-public-key-and-token.md").
+Next: [Step 2: Download the wrapping public key and import token](importing-keys-get-public-key-and-token.md "importing-keys-get-public-key-and-token.md").
 
-## Creating a KMS key with no key material
-
-(AWS KMS API)
+## Creating a KMS key with no key material (AWS KMS API)
 
 To use the [AWS KMS API](../APIReference.md "../APIReference.md") to create a symmetric encryption
 KMS key with no key material, send a [CreateKey](../APIReference/API_CreateKey.md "../APIReference/API_CreateKey.md") request with the `Origin` parameter set to
@@ -122,8 +112,7 @@ or a `NotFoundException`. You can retry the request.
 ```
 
 Copy the `KeyId` value from your command output to use in later steps, and then
-proceed to [Step 2:
-Download the wrapping public key and import token](importing-keys-get-public-key-and-token.md "importing-keys-get-public-key-and-token.md").
+proceed to [Step 2: Download the wrapping public key and import token](importing-keys-get-public-key-and-token.md "importing-keys-get-public-key-and-token.md").
 
 ###### Note
 

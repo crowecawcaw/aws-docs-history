@@ -1,6 +1,4 @@
-# Using service-linked roles for
-
-AWS KMS
+# Using service-linked roles for AWS KMS
 
 AWS Key Management Service uses AWS Identity and Access Management (IAM)[service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
 linked directly to AWS KMS. Service-linked roles are defined by AWS KMS and include all the
@@ -21,11 +19,9 @@ with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-ia
 the **Service-Linked Role** column. Choose a **Yes** with a link to view the service-linked role documentation for that
 service.
 
-To view details about updates to the service-linked roles discussed in this topic, see [AWS KMS updates to AWS managed
-policies](security-iam-awsmanpol.md#security-iam-awsmanpol-updates "security-iam-awsmanpol.md#security-iam-awsmanpol-updates").
+To view details about updates to the service-linked roles discussed in this topic, see [AWS KMS updates to AWS managed policies](security-iam-awsmanpol.md#security-iam-awsmanpol-updates "security-iam-awsmanpol.md#security-iam-awsmanpol-updates").
 
 ###### Topics
 
 - [Authorizing AWS KMS to manage AWS CloudHSM and Amazon EC2 resources](authorize-kms.md "authorize-kms.md")
-- [Authorizing AWS KMS to synchronize multi-Region
-  keys](multi-region-auth-slr.md "multi-region-auth-slr.md")
+- [Authorizing AWS KMS to synchronize multi-Region keys](multi-region-auth-slr.md "multi-region-auth-slr.md")

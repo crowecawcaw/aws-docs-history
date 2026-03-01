@@ -31,14 +31,10 @@ fail. This action can prevent users from storing and accessing sensitive data.
 
 ###### Topics
 
-- [Identify the KMS key associated with a key
-  reference](#key-reference-filter "#key-reference-filter")
-- [Identify the KMS key associated with a backing key
-  ID](#backing-key-id-filter "#backing-key-id-filter")
+- [Identify the KMS key associated with a key reference](#key-reference-filter "#key-reference-filter")
+- [Identify the KMS key associated with a backing key ID](#backing-key-id-filter "#backing-key-id-filter")
 
-## Identify the KMS key associated with a key
-
-reference
+## Identify the KMS key associated with a key reference
 
 The following procedures demonstrate how to use the [**key
 list**](../../../cloudhsm/latest/userguide/cloudhsm_cli-key-list.md "../../../cloudhsm/latest/userguide/cloudhsm_cli-key-list.md") command in CloudHSM CLI with the `key-reference` attribute filter to find
@@ -114,9 +110,7 @@ with a valid one from your account.
 
 [Show moreShow less](# "#")
 
-## Identify the KMS key associated with a backing key
-
-ID
+## Identify the KMS key associated with a backing key ID
 
 All CloudTrail log entries for cryptographic operations with a KMS key in an AWS CloudHSM key store
 include an `additionalEventData` field with the `customKeyStoreId` and

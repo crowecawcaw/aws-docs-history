@@ -1,6 +1,4 @@
-# Special considerations for imported key
-
-material
+# Special considerations for imported key material
 
 Before you decide to import key material into AWS KMS, you should understand the following
 characteristics of imported key material.

@@ -1,6 +1,4 @@
-# Basic examples for
-
-AWS KMS using AWS SDKs
+# Basic examples for AWS KMS using AWS SDKs
 
 The following code examples show how to use the basics of AWS Key Management Service with AWS
 SDKs.

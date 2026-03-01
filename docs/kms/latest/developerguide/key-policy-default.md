@@ -11,8 +11,7 @@ When you create a KMS key programmatically with the [AWS KMS API](../APIReferenc
 simple default key policy. This default key policy has one policy statement that gives
 the AWS account that owns the KMS key permission to use IAM policies to allow
 access to all AWS KMS operations on the KMS key. For more information about this policy
-statement, see [Allows access to the
-AWS account and enables IAM policies](#key-policy-default-allow-root-enable-iam "#key-policy-default-allow-root-enable-iam").
+statement, see [Allows access to the AWS account and enables IAM policies](#key-policy-default-allow-root-enable-iam "#key-policy-default-allow-root-enable-iam").
 
 **Default key policy when you create a KMS key with the AWS Management Console**
 
@@ -26,20 +25,13 @@ AWS accounts who are key administrators and those who are key users (or both).
 
 **Permissions**
 
-- [Allows access to the
-  AWS account and enables IAM policies](#key-policy-default-allow-root-enable-iam "#key-policy-default-allow-root-enable-iam")
-- [Allows key administrators to
-  administer the KMS key](#key-policy-default-allow-administrators "#key-policy-default-allow-administrators")
-- [Allows key users to use the
-  KMS key](#key-policy-default-allow-users "#key-policy-default-allow-users")
-  - [Allows key users to use a KMS key for
-    cryptographic operations](#key-policy-users-crypto "#key-policy-users-crypto")
-  - [Allows key users to use the KMS key with
-    AWS services](#key-policy-service-integration "#key-policy-service-integration")
+- [Allows access to the AWS account and enables IAM policies](#key-policy-default-allow-root-enable-iam "#key-policy-default-allow-root-enable-iam")
+- [Allows key administrators to administer the KMS key](#key-policy-default-allow-administrators "#key-policy-default-allow-administrators")
+- [Allows key users to use the KMS key](#key-policy-default-allow-users "#key-policy-default-allow-users")
+  - [Allows key users to use a KMS key for cryptographic operations](#key-policy-users-crypto "#key-policy-users-crypto")
+  - [Allows key users to use the KMS key with AWS services](#key-policy-service-integration "#key-policy-service-integration")
 
-## Allows access to the
-
-AWS account and enables IAM policies
+## Allows access to the AWS account and enables IAM policies
 
 The following default key policy statement is critical.
 
@@ -114,9 +106,7 @@ best practices discourage acting on behalf of the account root user, except in a
 emergency. However, you might need to act as the account root user if you delete all
 other users and roles with access to the KMS key.
 
-## Allows key administrators to
-
-administer the KMS key
+## Allows key administrators to administer the KMS key
 
 The default key policy created by the console allows you to choose IAM users and roles
 in the account and make them _key administrators_. This statement is
@@ -314,9 +304,7 @@ to [change a multi-Region replica key to a
 multi-Region primary key](multi-region-update.md "multi-region-update.md"). This permission is included in the key policy only
 when you create a multi-Region primary or replica key.
 
-## Allows key users to use the
-
-KMS key
+## Allows key users to use the KMS key
 
 The default key policy that the console creates for KMS keys allows you to choose
 IAM users and IAM roles in the account, and external AWS accounts, and make them
@@ -337,8 +325,7 @@ You can add IAM users, IAM roles, and other AWS accounts to the list of key user
 when you create the KMS key. You can also edit the list with the console's default view
 for key policies, as shown in the following image. The default view for key policies is on
 the key details page. For more information about allowing users in other AWS accounts to
-use the KMS key, see [Allowing users in other accounts to
-use a KMS key](key-policy-modifying-external-accounts.md "key-policy-modifying-external-accounts.md").
+use the KMS key, see [Allowing users in other accounts to use a KMS key](key-policy-modifying-external-accounts.md "key-policy-modifying-external-accounts.md").
 
 ###### Note
 
@@ -395,9 +382,7 @@ impact how the console displays updates that you make to the statement.
 }
 ```
 
-## Allows key users to use a KMS key for
-
-cryptographic operations
+## Allows key users to use a KMS key for cryptographic operations
 
 Key users have permission to use the KMS key directly in all [cryptographic operations](kms-cryptography.md#cryptographic-operations "kms-cryptography.md#cryptographic-operations") supported on the
 KMS key. They can also use the [DescribeKey](../APIReference/API_DescribeKey.md "../APIReference/API_DescribeKey.md") operation to get detailed information about the KMS key in the AWS KMS console or by
@@ -572,9 +557,7 @@ Allows key users to verify signatures with this KMS key.
 
 Allows key users to use an HMAC KMS key to verify an HMAC tag.
 
-## Allows key users to use the KMS key with
-
-AWS services
+## Allows key users to use the KMS key with AWS services
 
 The default key policy in the console also gives key users the grant permissions they
 need to protect their data in AWS services that use grants. AWS services often use

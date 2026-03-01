@@ -15,22 +15,16 @@ cryptography, including creating ciphertexts that cannot be decrypted, see [Dele
 
 ###### Topics
 
-- [Examine KMS key permissions to determine the
-  scope of potential usage](#deleting-keys-usage-key-permissions "#deleting-keys-usage-key-permissions")
-- [Examine AWS CloudTrail logs to determine actual
-  usage](#deleting-keys-usage-cloudtrail "#deleting-keys-usage-cloudtrail")
+- [Examine KMS key permissions to determine the scope of potential usage](#deleting-keys-usage-key-permissions "#deleting-keys-usage-key-permissions")
+- [Examine AWS CloudTrail logs to determine actual usage](#deleting-keys-usage-cloudtrail "#deleting-keys-usage-cloudtrail")
 
-## Examine KMS key permissions to determine the
-
-scope of potential usage
+## Examine KMS key permissions to determine the scope of potential usage
 
 Determining who or what currently has access to a KMS key might help you
 determine how widely the KMS key was used and whether it is still needed. To learn how to
 determine who or what currently has access to a KMS key, go to [Determining access to AWS KMS keys](determining-access.md "determining-access.md").
 
-## Examine AWS CloudTrail logs to determine actual
-
-usage
+## Examine AWS CloudTrail logs to determine actual usage
 
 You might be able to use a KMS key usage history to help you determine whether you have
 ciphertexts encrypted under a particular KMS key.

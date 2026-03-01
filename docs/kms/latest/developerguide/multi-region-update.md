@@ -1,6 +1,4 @@
-# Change the primary key in a set of multi-Region
-
-keys
+# Change the primary key in a set of multi-Region keys
 
 Every set of related multi-Region keys must have a primary key. But you can change the
 primary key. This action, known as _updating the primary

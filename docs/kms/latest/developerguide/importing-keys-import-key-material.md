@@ -2,10 +2,8 @@
 
 After you [encrypt your key
 material](importing-keys-encrypt-key-material.md "importing-keys-encrypt-key-material.md"), you can import the key material to use with an AWS KMS key. To import key
-material, you upload the encrypted key material from [Step 3: Encrypt the
-key material](importing-keys-encrypt-key-material.md "importing-keys-encrypt-key-material.md") and the import token that you downloaded
-at [Step 2:
-Download the wrapping public key and import token](importing-keys-get-public-key-and-token.md "importing-keys-get-public-key-and-token.md"). You must import key material into
+material, you upload the encrypted key material from [Step 3: Encrypt the key material](importing-keys-encrypt-key-material.md "importing-keys-encrypt-key-material.md") and the import token that you downloaded
+at [Step 2: Download the wrapping public key and import token](importing-keys-get-public-key-and-token.md "importing-keys-get-public-key-and-token.md"). You must import key material into
 the same KMS key that you specified when you [downloaded the public key and import
 token](importing-keys-get-public-key-and-token.md "importing-keys-get-public-key-and-token.md"). When key material is successfully imported, the [key
 state](key-state.md "key-state.md") of the KMS key changes to `Enabled`, and you can use the KMS key
@@ -153,9 +151,7 @@ import token](importing-keys-get-public-key-and-token.md "importing-keys-get-pub
 the key material, so you can use different wrapping public keys and different wrapping
 algorithms to import the same key material.
 
-## Import key material
-
-(console)
+## Import key material (console)
 
 You can use the AWS Management Console to import key material.
 
@@ -224,9 +220,7 @@ following.
     material being imported.
 13. Choose **Import key material**.
 
-## Import key material
-
-(AWS KMS API)
+## Import key material (AWS KMS API)
 
 To import key material, use the [ImportKeyMaterial](../APIReference/API_ImportKeyMaterial.md "../APIReference/API_ImportKeyMaterial.md") operation. The following example uses the [AWS CLI](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/"), but you can use any supported programming
 language.

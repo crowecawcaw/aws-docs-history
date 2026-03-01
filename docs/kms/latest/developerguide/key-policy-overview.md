@@ -130,8 +130,7 @@ by default ("opt-in Regions"), see [Managing AWS Regions](../../../general/lates
 
 To allow a different AWS account or its principals to use a KMS key, you
 must provide permission in a key policy and in an IAM policy in the other
-account. For details, see [Allowing users in other accounts to
-use a KMS key](key-policy-modifying-external-accounts.md "key-policy-modifying-external-accounts.md").
+account. For details, see [Allowing users in other accounts to use a KMS key](key-policy-modifying-external-accounts.md "key-policy-modifying-external-accounts.md").
 
 **Action**
 

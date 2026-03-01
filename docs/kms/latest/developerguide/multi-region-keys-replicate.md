@@ -179,8 +179,7 @@ external accounts, repeat this step.
 
 To allow principals in the external accounts to use the KMS key,
 Administrators of the external account must create IAM policies that
-provide these permissions. For more information, see [Allowing users in other accounts to
-use a KMS key](key-policy-modifying-external-accounts.md "key-policy-modifying-external-accounts.md"). 16. Choose **Next**. 17. Review the key policy statements for the key. To make changes to the key policy,
+provide these permissions. For more information, see [Allowing users in other accounts to use a KMS key](key-policy-modifying-external-accounts.md "key-policy-modifying-external-accounts.md"). 16. Choose **Next**. 17. Review the key policy statements for the key. To make changes to the key policy,
 select **Edit**. 18. Choose **Next**. 19. Review the key settings that you chose. You can still go back and change
 all settings. 20. Choose **Finish** to create the multi-Region replica key.
 To create a multi-Region replica key, use the [ReplicateKey](../APIReference/API_ReplicateKey.md "../APIReference/API_ReplicateKey.md") operation. You cannot

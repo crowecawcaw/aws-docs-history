@@ -1,6 +1,4 @@
-# Cryptographic attestation support in
-
-AWS KMS
+# Cryptographic attestation support in AWS KMS
 
 AWS KMS supports _cryptographic attestation_ for [AWS Nitro Enclaves](../../../enclaves/latest/user.md "../../../enclaves/latest/user.md") and [AWS NitroTPM](../../../AWSEC2/latest/UserGuide/nitrotpm-attestation.md "../../../AWSEC2/latest/UserGuide/nitrotpm-attestation.md"). Applications that support these
 attestation methods call the following AWS KMS cryptographic operations with a signed

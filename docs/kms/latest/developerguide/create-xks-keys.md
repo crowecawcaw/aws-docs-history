@@ -53,14 +53,10 @@ external key store, see [CreateKey](ct-createkey.md "ct-createkey.md").
 
 ###### Topics
 
-- [Requirements for a KMS key in an external key
-  store](#xks-key-requirements "#xks-key-requirements")
-- [Create a new KMS key in your external key
-  store](#create-key-xks "#create-key-xks")
+- [Requirements for a KMS key in an external key store](#xks-key-requirements "#xks-key-requirements")
+- [Create a new KMS key in your external key store](#create-key-xks "#create-key-xks")
 
-## Requirements for a KMS key in an external key
-
-store
+## Requirements for a KMS key in an external key store
 
 To create a KMS key in an external key store, the following properties are required
 of the external key store, the KMS key, and the external key that serves as the
@@ -72,8 +68,7 @@ external cryptographic key material for the KMS key.
 
 To view the [connection state](xks-connect-disconnect.md#xks-connection-state "xks-connect-disconnect.md#xks-connection-state") of
 your external key store, see [View external key stores](view-xks-keystore.md "view-xks-keystore.md"). To connect your external key store, see
-[Connect and disconnect external key
-stores](xks-connect-disconnect.md "xks-connect-disconnect.md").
+[Connect and disconnect external key stores](xks-connect-disconnect.md "xks-connect-disconnect.md").
 
 **KMS key requirements**
 
@@ -109,9 +104,7 @@ external key ID, the `CreateKey` operation fails.
   AWS KMS recommends that external keys be prepared to handle up to 1800 requests
   per second.
 
-## Create a new KMS key in your external key
-
-store
+## Create a new KMS key in your external key store
 
 You can create a new KMS key in your external key store in the AWS KMS console or by
 using the [CreateKey](../APIReference/API_CreateKey.md "../APIReference/API_CreateKey.md")
@@ -216,8 +209,7 @@ multiple external accounts, repeat this step.
 
 Administrators of the other AWS accounts must also allow
 access to the KMS key by creating IAM policies for their
-users. For more information, see [Allowing users in other accounts to
-use a KMS key](key-policy-modifying-external-accounts.md "key-policy-modifying-external-accounts.md"). 17. Choose **Next**. 18. Review the key settings that you chose. You can still go back and
+users. For more information, see [Allowing users in other accounts to use a KMS key](key-policy-modifying-external-accounts.md "key-policy-modifying-external-accounts.md"). 17. Choose **Next**. 18. Review the key settings that you chose. You can still go back and
 change all settings. 19. When you're done, choose **Finish** to create the
 key.
 
@@ -300,8 +292,7 @@ multiple external accounts, repeat this step.
 
 Administrators of the other AWS accounts must also allow
 access to the KMS key by creating IAM policies for their
-users. For more information, see [Allowing users in other accounts to
-use a KMS key](key-policy-modifying-external-accounts.md "key-policy-modifying-external-accounts.md"). 22. Choose **Next**. 23. Review the key settings that you chose. You can still go back and
+users. For more information, see [Allowing users in other accounts to use a KMS key](key-policy-modifying-external-accounts.md "key-policy-modifying-external-accounts.md"). 22. Choose **Next**. 23. Review the key settings that you chose. You can still go back and
 change all settings. 24. When you're done, choose **Finish** to create the
 key.
 

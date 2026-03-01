@@ -36,9 +36,7 @@ have the two active HSMs that are required for this operation
 For an example of the AWS CloudTrail log of the operation that creates a KMS key in an AWS CloudHSM key
 store, see [CreateKey](ct-createkey.md "ct-createkey.md").
 
-## Create a new KMS key in your CloudHSM key
-
-store
+## Create a new KMS key in your CloudHSM key store
 
 You can create a symmetric encryption KMS key in your AWS CloudHSM key store in the AWS KMS
 console or by using the [CreateKey](../APIReference/API_CreateKey.md "../APIReference/API_CreateKey.md")
@@ -113,8 +111,7 @@ accounts, repeat this step.
 ###### Note
 
 Administrators of the other AWS accounts must also allow access to the KMS key
-by creating IAM policies for their users. For more information, see [Allowing users in other accounts to
-use a KMS key](key-policy-modifying-external-accounts.md "key-policy-modifying-external-accounts.md"). 20. Choose **Next**. 21. Review the key policy statements for the key. To make changes to the key policy,
+by creating IAM policies for their users. For more information, see [Allowing users in other accounts to use a KMS key](key-policy-modifying-external-accounts.md "key-policy-modifying-external-accounts.md"). 20. Choose **Next**. 21. Review the key policy statements for the key. To make changes to the key policy,
 select **Edit**. 22. Choose **Next**. 23. Review the key settings that you chose. You can still go back and change all
 settings. 24. When you're done, choose **Finish** to create the key.
 When the procedure succeeds, the display shows the new KMS key in the AWS CloudHSM key store

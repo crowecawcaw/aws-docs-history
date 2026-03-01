@@ -110,8 +110,7 @@ external accounts, repeat this step.
 
 To allow principals in the external accounts to use the KMS key,
 administrators of the external account must create IAM policies that
-provide these permissions. For more information, see [Allowing users in other accounts to
-use a KMS key](key-policy-modifying-external-accounts.md "key-policy-modifying-external-accounts.md"). 18. Choose **Next**. 19. Review the key policy statements for the key. To make changes to the key policy,
+provide these permissions. For more information, see [Allowing users in other accounts to use a KMS key](key-policy-modifying-external-accounts.md "key-policy-modifying-external-accounts.md"). 18. Choose **Next**. 19. Review the key policy statements for the key. To make changes to the key policy,
 select **Edit**. 20. Choose **Next**. 21. Review the key settings that you chose. You can still go back and change
 all settings. 22. Choose **Finish** to create the KMS key.
 You can use the [CreateKey](../APIReference/API_CreateKey.md "../APIReference/API_CreateKey.md")

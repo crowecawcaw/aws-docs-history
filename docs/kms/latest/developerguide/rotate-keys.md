@@ -74,12 +74,10 @@ For detailed information about key material and rotation, see
 - [How key rotation works](#rotate-keys-how-it-works "#rotate-keys-how-it-works")
 - [Enable automatic key rotation](rotating-keys-enable.md "rotating-keys-enable.md")
 - [Disable automatic key rotation](rotating-keys-disable.md "rotating-keys-disable.md")
-- [Perform on-demand key
-  rotation](rotating-keys-on-demand.md "rotating-keys-on-demand.md")
+- [Perform on-demand key rotation](rotating-keys-on-demand.md "rotating-keys-on-demand.md")
 - [List rotations and key materials](list-rotations.md "list-rotations.md")
 - [Rotate keys manually](rotate-keys-manually.md "rotate-keys-manually.md")
-- [Change the primary key in a set of multi-Region
-  keys](multi-region-update.md "multi-region-update.md")
+- [Change the primary key in a set of multi-Region keys](multi-region-update.md "multi-region-update.md")
 
 ## Why rotate KMS keys?
 

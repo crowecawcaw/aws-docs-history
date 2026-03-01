@@ -41,8 +41,7 @@ differs based on the connectivity of the external key store.
 
 When the connection state is `FAILED`, a connection error code is displayed
 in the AWS KMS console and is added to the `DescribeCustomKeyStore` response.
-For help interpreting connection error codes, see [Connection error codes for external key
-stores](xks-troubleshooting.md#xks-connection-error-codes "xks-troubleshooting.md#xks-connection-error-codes").
+For help interpreting connection error codes, see [Connection error codes for external key stores](xks-troubleshooting.md#xks-connection-error-codes "xks-troubleshooting.md#xks-connection-error-codes").
 
 ## Connect and reconnect to your external key store
 
@@ -68,8 +67,7 @@ changes to **CONNECTED**.
 If the connection state is **Failed**, hover over the connection
 state to see the _connection error code_, which
 explains the cause of the error. For help responding to a connection error code, see
-[Connection error codes for external key
-stores](xks-troubleshooting.md#xks-connection-error-codes "xks-troubleshooting.md#xks-connection-error-codes"). To connect an external key store with
+[Connection error codes for external key stores](xks-troubleshooting.md#xks-connection-error-codes "xks-troubleshooting.md#xks-connection-error-codes"). To connect an external key store with
 a **Failed** connection state, you must first [disconnect the custom key store](disconnect-keystore.md#disconnect-keystore-console "disconnect-keystore.md#disconnect-keystore-console").
 
 To connect a disconnected external key store, use the [ConnectCustomKeyStore](../APIReference/API_ConnectCustomKeyStore.md "../APIReference/API_ConnectCustomKeyStore.md")
@@ -138,8 +136,7 @@ endpoint service that it uses to communicate with the external key store proxy. 
 that the `XksProxyVpcEndpointServiceName` is correct, the AWS KMS service
 principal is an allowed principal on the Amazon VPC endpoint service, and that the VPC
 endpoint service does not require acceptance of connection requests. For help responding
-to a connection error code, see [Connection error codes for external key
-stores](xks-troubleshooting.md#xks-connection-error-codes "xks-troubleshooting.md#xks-connection-error-codes").
+to a connection error code, see [Connection error codes for external key stores](xks-troubleshooting.md#xks-connection-error-codes "xks-troubleshooting.md#xks-connection-error-codes").
 
 ```
 `$` `aws kms describe-custom-key-stores --custom-key-store-name `ExampleXksVpc``

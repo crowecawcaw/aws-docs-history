@@ -70,8 +70,7 @@ call AWS KMS.
 - View the `tlsDetails` section in the CloudTrail log entry for an
   AWS KMS API call made by your application. The `keyExchange` field should
   mention a hybrid algorithm such as `X25519MLKEM768`. For an example, see
-  [Decrypt with a standard symmetric encryption
-  key over a post-quantum TLS connection](ct-decrypt.md#ct-decrypt-default-pqtls "ct-decrypt.md#ct-decrypt-default-pqtls").
+  [Decrypt with a standard symmetric encryption key over a post-quantum TLS connection](ct-decrypt.md#ct-decrypt-default-pqtls "ct-decrypt.md#ct-decrypt-default-pqtls").
 - Run benchmarks using hybrid post-quantum TLS. Hybrid key exchange increases the
   size and processing time of some messages in the TLS handshake, but the overall performance
   impact should be imperceptible in most cases.

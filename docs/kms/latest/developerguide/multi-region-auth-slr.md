@@ -1,6 +1,4 @@
-# Authorizing AWS KMS to synchronize multi-Region
-
-keys
+# Authorizing AWS KMS to synchronize multi-Region keys
 
 To support [multi-Region keys](multi-region-keys-auth.md "multi-region-keys-auth.md"), AWS KMS needs
 permission to synchronize the [shared properties](multi-region-keys-overview.md#mrk-sync-properties "multi-region-keys-overview.md#mrk-sync-properties") of
@@ -13,20 +11,16 @@ You can view the [SynchronizeMultiRegionKey](ct-synchronize-multi-region-key.md 
 records AWS KMS synchronizing shared properties in your AWS CloudTrail logs.
 
 To view details about updates to the **AWSKeyManagementServiceMultiRegionKeysServiceRolePolicy** managed policy, see
-[AWS KMS updates to AWS managed
-policies](security-iam-awsmanpol.md#security-iam-awsmanpol-updates "security-iam-awsmanpol.md#security-iam-awsmanpol-updates").
+[AWS KMS updates to AWS managed policies](security-iam-awsmanpol.md#security-iam-awsmanpol-updates "security-iam-awsmanpol.md#security-iam-awsmanpol-updates").
 
 ###### Topics
 
-- [About the service-linked role for multi-Region
-  keys](#about-multi-region-slr "#about-multi-region-slr")
+- [About the service-linked role for multi-Region keys](#about-multi-region-slr "#about-multi-region-slr")
 - [Create the service-linked role](#create-mrk-slr "#create-mrk-slr")
 - [Edit the service-linked role description](#edit-mrk-slr "#edit-mrk-slr")
 - [Delete the service-linked role](#delete-mrk-slr "#delete-mrk-slr")
 
-## About the service-linked role for multi-Region
-
-keys
+## About the service-linked role for multi-Region keys
 
 A [service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md")
 is an IAM role that gives one AWS service permission to call other AWS services on

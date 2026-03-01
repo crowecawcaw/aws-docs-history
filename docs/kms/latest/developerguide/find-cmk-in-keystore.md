@@ -5,9 +5,7 @@ key store. You can use this information to track the KMS key operations in AWS C
 predict the effect of disconnecting a custom key store on KMS keys, or schedule deletion of
 KMS keys before you delete an AWS CloudHSM key store.
 
-## To find the KMS keys in an AWS CloudHSM key store
-
-(console)
+## To find the KMS keys in an AWS CloudHSM key store (console)
 
 To find the KMS keys in a particular AWS CloudHSM key store, on the
 **Customer managed keys** page, view the values in the **Custom Key
@@ -16,9 +14,7 @@ KMS keys in any AWS CloudHSM key store, look for KMS keys with an **Origin**
 value of **AWS CloudHSM**. To add optional columns to the display, choose the gear
 icon in the upper right corner of the page.
 
-## To find the KMS keys in an AWS CloudHSM key store
-
-(API)
+## To find the KMS keys in an AWS CloudHSM key store (API)
 
 To find the KMS keys in an AWS CloudHSM key store, use the [ListKeys](../APIReference/API_ListKeys.md "../APIReference/API_ListKeys.md") and [DescribeKey](../APIReference/API_DescribeKey.md "../APIReference/API_DescribeKey.md") operations and then filter by
 `CustomKeyStoreId` value. Before running the following examples, replace the

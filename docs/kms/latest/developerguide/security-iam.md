@@ -18,5 +18,4 @@ which KMS key they can access.
 ###### Topics
 
 - [AWS managed policies for AWS Key Management Service](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
-- [Using service-linked roles for
-  AWS KMS](using-service-linked-roles.md "using-service-linked-roles.md")
+- [Using service-linked roles for AWS KMS](using-service-linked-roles.md "using-service-linked-roles.md")

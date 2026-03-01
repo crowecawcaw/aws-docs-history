@@ -52,8 +52,7 @@ operation, see [EnableKeyRotation](ct-enablekeyrotation.md "ct-enablekeyrotation
 The following example shows a CloudTrail log entry for an on-demand rotation initiated by the
 [RotateKeyOnDemand](../APIReference/API_RotateKeyOnDemand.md "../APIReference/API_RotateKeyOnDemand.md") operation. For information
 about rotating symmetric encryption KMS keys on demand, see
-[Perform on-demand key
-rotation](rotating-keys-on-demand.md "rotating-keys-on-demand.md").
+[Perform on-demand key rotation](rotating-keys-on-demand.md "rotating-keys-on-demand.md").
 
 For an example of the CloudTrail log entry that records the `RotateKeyOnDemand`
 operation, see [RotateKeyOnDemand](ct-rotatekeyondemand.md "ct-rotatekeyondemand.md").

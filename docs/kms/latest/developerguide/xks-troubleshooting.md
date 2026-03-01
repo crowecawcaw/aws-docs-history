@@ -34,8 +34,7 @@ that explains the cause and suggests a remedy.
 
 ###### Topics
 
-- [Troubleshooting tools for external key
-  stores](#xks-troubleshooting-tools "#xks-troubleshooting-tools")
+- [Troubleshooting tools for external key stores](#xks-troubleshooting-tools "#xks-troubleshooting-tools")
 - [Configuration errors](#fix-xks-configuration "#fix-xks-configuration")
 - [External key store connection errors](#fix-xks-connection "#fix-xks-connection")
 - [Latency and timeout errors](#fix-xks-latency "#fix-xks-latency")
@@ -46,9 +45,7 @@ that explains the cause and suggests a remedy.
 - [Proxy issues](#fix-xks-proxy "#fix-xks-proxy")
 - [Proxy authorization issues](#fix-xks-authorization "#fix-xks-authorization")
 
-## Troubleshooting tools for external key
-
-stores
+## Troubleshooting tools for external key stores
 
 AWS KMS provides several tools to help you identify and resolve problems with your
 external key store and its keys. Use these tools in conjunction with the tools provided
@@ -92,8 +89,7 @@ recorded in AWS CloudTrail logs. AWS KMS records a log entry for successful and
 failed operations. For failed operations, the log entry includes the AWS KMS
 exception name (`errorCode`) and the error message
 (`errorMessage`). You can use this information to help you
-identify and resolve the error. For an example, see [Decrypt failure with a KMS key in an external key
-store](ct-decrypt.md#ct-decrypt-xks-fail "ct-decrypt.md#ct-decrypt-xks-fail").
+identify and resolve the error. For an example, see [Decrypt failure with a KMS key in an external key store](ct-decrypt.md#ct-decrypt-xks-fail "ct-decrypt.md#ct-decrypt-xks-fail").
 
 The log entry also includes the request ID. If the request reached your
 external key store proxy, you can use the request ID in the log entry to
@@ -235,9 +231,7 @@ error messages.
   configuration. TLS connection errors can result from incorrect certificate
   chaining.
 
-### VPC endpoint service connectivity
-
-configuration errors
+### VPC endpoint service connectivity configuration errors
 
 **Exceptions**:
 `XksProxyVpcEndpointServiceNotFoundException`,
@@ -308,8 +302,7 @@ requirements:
   VPC endpoint services](../../../vpc/latest/privatelink/manage-dns-names.md "../../../vpc/latest/privatelink/manage-dns-names.md") in the _AWS PrivateLink Guide_.
 - The **Domain verification status** of the domain for your
   private DNS name must be `verified`. To view and update the
-  verification status of the private DNS name domain, see [Step 5: Verify your private DNS name
-  domain](vpc-connectivity.md#xks-private-dns "vpc-connectivity.md#xks-private-dns"). It might
+  verification status of the private DNS name domain, see [Step 5: Verify your private DNS name domain](vpc-connectivity.md#xks-private-dns "vpc-connectivity.md#xks-private-dns"). It might
   take a few minutes for the updated verification status to appear after
   you've added the required text record.
 
@@ -370,9 +363,7 @@ To view the connection error code:
 
 ![Connection error code on the custom key store details page](images/connection-error-code.png)
 
-### Connection error codes for external key
-
-stores
+### Connection error codes for external key stores
 
 The following connection error codes apply to external key stores
 
@@ -506,8 +497,7 @@ latency and timeouts.
 Latency and timeout errors often manifest as connection failures. When the [ConnectCustomKeyStore](../APIReference/API_ConnectCustomKeyStore.md "../APIReference/API_ConnectCustomKeyStore.md")
 operation fails, the _connection state_ of the external
 key store changes to `FAILED` and AWS KMS returns a _connection error code_ that explains the error. For a list of connection
-error codes and suggestions for resolving the errors, see [Connection error codes for external key
-stores](#xks-connection-error-codes "#xks-connection-error-codes").
+error codes and suggestions for resolving the errors, see [Connection error codes for external key stores](#xks-connection-error-codes "#xks-connection-error-codes").
 The connection codes lists for **All custom key stores** and
 **External key stores** apply to external key stores. The following
 connection errors are related to latency and timeouts.
@@ -740,9 +730,7 @@ fails because of a problem with the external key, the operation fails and return
 `KMSInvalidStateException` with an error message that indicates the
 problem.
 
-### CreateKey errors for the external
-
-key
+### CreateKey errors for the external key
 
 **Exceptions**:
 `XksKeyAlreadyInUseException`, `XksKeyNotFoundException`,
@@ -785,8 +773,7 @@ This error might occur for the following reasons:
 - The external key might have been deleted from your external key manager.
   To investigate, use your external key manager tools. If the external key is
   permanently deleted, use a different external key with the KMS key. For a
-  list or requirements for the external key, see [Requirements for a KMS key in an external key
-  store](create-xks-keys.md#xks-key-requirements "create-xks-keys.md#xks-key-requirements").
+  list or requirements for the external key, see [Requirements for a KMS key in an external key store](create-xks-keys.md#xks-key-requirements "create-xks-keys.md#xks-key-requirements").
 
 **External key requirements not met**
 
@@ -820,9 +807,7 @@ messages.
   operations, use your external key manager tools to change the operations, or
   specify a different external key.
 
-### Cryptographic operation errors for the
-
-external key
+### Cryptographic operation errors for the external key
 
 **Exceptions**:
 `KMSInvalidStateException`
@@ -976,8 +961,7 @@ its external keys. An external key store proxy is permitted, but not required, t
 and implement an authorization scheme that allows particular users to request particular
 operations under certain conditions. For example, a proxy might allow a user to encrypt
 with a particular external key, but not to decrypt with it. For more information, see
-[External key store proxy authorization
-(optional)](authorize-xks-key-store.md#xks-proxy-authorization "authorize-xks-key-store.md#xks-proxy-authorization").
+[External key store proxy authorization (optional)](authorize-xks-key-store.md#xks-proxy-authorization "authorize-xks-key-store.md#xks-proxy-authorization").
 
 Proxy authorization is based on metadata that AWS KMS includes in its requests to the
 proxy. The `awsSourceVpc` and `awsSourceVpce` fields are included

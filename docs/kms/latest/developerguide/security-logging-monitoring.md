@@ -45,8 +45,7 @@ based on the value of the metric relative to a threshold over a number of time p
 For example, you can create a CloudWatch alarm that is triggered when someone tries to use a
 KMS key that is scheduled to be deleted in a cryptographic operation. This indicates
 that the KMS key is still being used and probably should not be deleted. For more
-information, see [Create an alarm that detects use of a
-KMS key pending deletion](deleting-keys-creating-cloudwatch-alarm.md "deleting-keys-creating-cloudwatch-alarm.md").
+information, see [Create an alarm that detects use of a KMS key pending deletion](deleting-keys-creating-cloudwatch-alarm.md "deleting-keys-creating-cloudwatch-alarm.md").
 
 **AWS Security Hub CSPM**
 

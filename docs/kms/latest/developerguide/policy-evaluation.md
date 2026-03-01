@@ -40,8 +40,7 @@ The flowchart can explain some common permission scenarios.
 ###### Permission Examples
 
 - [Example 1: User is denied access to a KMS key in their AWS account](#example-no-iam "#example-no-iam")
-- [Example 2: User assumes role with permission to use a KMS key
-  in a different AWS account](#example-cross-acct "#example-cross-acct")
+- [Example 2: User assumes role with permission to use a KMS key in a different AWS account](#example-cross-acct "#example-cross-acct")
 
 ## Example 1: User is denied access to a KMS key in their AWS account
 
@@ -88,9 +87,7 @@ JSON
 
 [Show moreShow less](# "#")
 
-## Example 2: User assumes role with permission to use a KMS key
-
-in a different AWS account
+## Example 2: User assumes role with permission to use a KMS key in a different AWS account
 
 Bob is a user in account 1 (111122223333). He is allowed to use a KMS key in
 account 2 (444455556666) in [cryptographic
@@ -101,8 +98,7 @@ operations](kms-cryptography.md#cryptographic-operations "kms-cryptography.md#cr
 When evaluating cross-account permissions, remember that the key policy is specified
 in the KMS key's account. The IAM policy is specified in the caller's account, even when
 the caller is in a different account. For details about providing cross-account access to
-KMS keys, see [Allowing users in other accounts to
-use a KMS key](key-policy-modifying-external-accounts.md "key-policy-modifying-external-accounts.md").
+KMS keys, see [Allowing users in other accounts to use a KMS key](key-policy-modifying-external-accounts.md "key-policy-modifying-external-accounts.md").
 
 - The key policy for the KMS key in account 2 allows account 2 to use IAM policies to
   control access to the KMS key.

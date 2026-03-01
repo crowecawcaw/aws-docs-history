@@ -25,19 +25,14 @@ authorization strategy.
 
 To support multi-Region keys, AWS KMS uses an IAM service linked role. This role gives
 AWS KMS the permissions it needs to synchronize [shared
-properties](multi-region-keys-overview.md#mrk-sync-properties "multi-region-keys-overview.md#mrk-sync-properties"). For more information, see [Authorizing AWS KMS to synchronize multi-Region
-keys](multi-region-auth-slr.md "multi-region-auth-slr.md").
+properties](multi-region-keys-overview.md#mrk-sync-properties "multi-region-keys-overview.md#mrk-sync-properties"). For more information, see [Authorizing AWS KMS to synchronize multi-Region keys](multi-region-auth-slr.md "multi-region-auth-slr.md").
 
 ###### Topics
 
-- [Authorization basics for multi-Region
-  keys](#multi-region-auth-about "#multi-region-auth-about")
-- [Authorizing multi-Region key administrators
-  and users](#multi-region-auth-users "#multi-region-auth-users")
+- [Authorization basics for multi-Region keys](#multi-region-auth-about "#multi-region-auth-about")
+- [Authorizing multi-Region key administrators and users](#multi-region-auth-users "#multi-region-auth-users")
 
-## Authorization basics for multi-Region
-
-keys
+## Authorization basics for multi-Region keys
 
 When designing key policies and IAM policies for multi-Region keys, consider the
 following principles.
@@ -114,9 +109,7 @@ recreates it, which has no harmful effect.) The role is valid in all Regions. To
 allow AWS KMS to create (or recreate) the service-linked role, principals who
 create multi-Region primary keys must have [iam:CreateServiceLinkedRole](../../../IAM/latest/APIReference/API_CreateServiceLinkedRole.md "../../../IAM/latest/APIReference/API_CreateServiceLinkedRole.md") permission.
 
-## Authorizing multi-Region key administrators
-
-and users
+## Authorizing multi-Region key administrators and users
 
 Principals who create and manage multi-Region keys need the following permissions in
 the primary and replica Regions:

@@ -15,12 +15,9 @@ the tasks that they are likely to perform.
 ###### Topics
 
 - [Authorizing external key store managers](#authorize-xks-managers "#authorize-xks-managers")
-- [Authorizing users of KMS keys in external key
-  stores](#authorize-xks-users "#authorize-xks-users")
-- [Authorizing AWS KMS to communicate with your external
-  key store proxy](#allowlist-kms-xks "#allowlist-kms-xks")
-- [External key store proxy authorization
-  (optional)](#xks-proxy-authorization "#xks-proxy-authorization")
+- [Authorizing users of KMS keys in external key stores](#authorize-xks-users "#authorize-xks-users")
+- [Authorizing AWS KMS to communicate with your external key store proxy](#allowlist-kms-xks "#allowlist-kms-xks")
+- [External key store proxy authorization (optional)](#xks-proxy-authorization "#xks-proxy-authorization")
 - [mTLS authentication (optional)](#xks-mtls "#xks-mtls")
 
 ## Authorizing external key store managers
@@ -59,9 +56,7 @@ management for Amazon VPC](../../../vpc/latest/userguide/security-iam.md "../../
 VPC endpoints and VPC endpoint services](../../../vpc/latest/privatelink/vpc-endpoints-iam.md "../../../vpc/latest/privatelink/vpc-endpoints-iam.md") and [Elastic Load Balancing API
 permissions](../../../elasticloadbalancing/latest/userguide/elb-api-permissions.md "../../../elasticloadbalancing/latest/userguide/elb-api-permissions.md").
 
-## Authorizing users of KMS keys in external key
-
-stores
+## Authorizing users of KMS keys in external key stores
 
 Principals who create and manage AWS KMS keys in your external key store require
 [the same permissions](create-keys.md#create-key-permissions "create-keys.md#create-key-permissions") as those who
@@ -107,9 +102,7 @@ account.
 }
 ```
 
-## Authorizing AWS KMS to communicate with your external
-
-key store proxy
+## Authorizing AWS KMS to communicate with your external key store proxy
 
 AWS KMS communicates with your external key manager only through the [external key store proxy](keystore-external.md#concept-xks-proxy "keystore-external.md#concept-xks-proxy") that you provide. AWS KMS
 authenticates to your proxy by signing its requests using the [Signature Version 4 (SigV4)
@@ -181,9 +174,7 @@ modify-vpc-endpoint-service-permissions
 To remove this permission, use the [Amazon VPC console](../../../vpc/latest/privatelink/configure-endpoint-service.md#add-remove-permissions "../../../vpc/latest/privatelink/configure-endpoint-service.md#add-remove-permissions") or the [ModifyVpcEndpointServicePermissions](../../../AWSEC2/latest/APIReference/API_ModifyVpcEndpointServicePermissions.md "../../../AWSEC2/latest/APIReference/API_ModifyVpcEndpointServicePermissions.md") with the
 `RemoveAllowedPrincipals` parameter.
 
-## External key store proxy authorization
-
-(optional)
+## External key store proxy authorization (optional)
 
 Some external key store proxies implement authorization requirements for the use of
 its external keys. An external key store proxy is permitted, but not required, to design

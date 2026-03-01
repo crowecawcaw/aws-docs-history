@@ -1,6 +1,4 @@
-# KMS keys in external key
-
-stores
+# KMS keys in external key stores
 
 To create, view, manage, use, and schedule deletion of the KMS keys in an external key
 store, you use procedures that are very similar to those you use for other KMS keys.
@@ -90,8 +88,7 @@ field in the **Custom key store** section.
 
 If the connection state is `DISCONNECTED`, you must first connect it.
 If the connection state is `FAILED`, you must resolve the problem,
-disconnect the external key store, and then connect it. For instructions, see [Connect and disconnect external key
-stores](xks-connect-disconnect.md "xks-connect-disconnect.md").
+disconnect the external key store, and then connect it. For instructions, see [Connect and disconnect external key stores](xks-connect-disconnect.md "xks-connect-disconnect.md").
 
 - The external key store proxy must be able to find the external key.
 - The external key must be enabled and it must perform encryption and decryption.

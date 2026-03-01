@@ -11,18 +11,12 @@ _Amazon CloudWatch User Guide_.
 
 ###### Topics
 
-- [Create an alarm for certificate
-  expiration](#cert-expire-alarm "#cert-expire-alarm")
-- [Create an alarm for response
-  timeout](#latency-alarm "#latency-alarm")
-- [Create an alarm for retryable
-  errors](#retryable-errors-alarm "#retryable-errors-alarm")
-- [Create an alarm for
-  non-retryable errors](#nonretryable-errors-alarm "#nonretryable-errors-alarm")
+- [Create an alarm for certificate expiration](#cert-expire-alarm "#cert-expire-alarm")
+- [Create an alarm for response timeout](#latency-alarm "#latency-alarm")
+- [Create an alarm for retryable errors](#retryable-errors-alarm "#retryable-errors-alarm")
+- [Create an alarm for non-retryable errors](#nonretryable-errors-alarm "#nonretryable-errors-alarm")
 
-## Create an alarm for certificate
-
-expiration
+## Create an alarm for certificate expiration
 
 This alarm uses the [XksProxyCertificateDaysToExpire](monitoring-cloudwatch.md#metric-xks-proxy-certificate-days-to-expire "monitoring-cloudwatch.md#metric-xks-proxy-certificate-days-to-expire") metric that AWS KMS
 publishes to CloudWatch to record the anticipated expiration of the TLS certificate
@@ -47,9 +41,7 @@ values. For other fields, accept the default values and provide names as request
 | Threshold type | Static                                                                                                                                                                                            |
 | Whenever ...   | Whenever \*_XksProxyCertificateDaysToExpire_<br>• is<br>`Lower` than `10`.                                                                                                                        |
 
-## Create an alarm for response
-
-timeout
+## Create an alarm for response timeout
 
 This alarm uses the [XksProxyLatency](monitoring-cloudwatch.md#metric-xks-proxy-latency "monitoring-cloudwatch.md#metric-xks-proxy-latency") metric that AWS KMS publishes to CloudWatch
 to record the number of milliseconds it takes for an external key store proxy to
@@ -76,9 +68,7 @@ values. For other fields, accept the default values and provide names as request
 | Threshold type | Static                                                                                                                                                                          |
 | Whenever ...   | Whenever \*_XksProxyLatency_<br>• is<br>`Greater` than `200`.                                                                                                                   |
 
-## Create an alarm for retryable
-
-errors
+## Create an alarm for retryable errors
 
 This alarm uses the [XksProxyErrors](monitoring-cloudwatch.md#metric-xks-proxy-errors "monitoring-cloudwatch.md#metric-xks-proxy-errors") metric that AWS KMS publishes to CloudWatch to
 record the number of exceptions related to AWS KMS requests to your external key store
@@ -102,9 +92,7 @@ values. For other fields, accept the default values and provide names as request
 | Threshold type | Static                                                                                                                                                                                                                                        |
 | Whenever ...   | Whenever \*_q1_<br>• is `Greater` than<br>`5`.                                                                                                                                                                                                |
 
-## Create an alarm for
-
-non-retryable errors
+## Create an alarm for non-retryable errors
 
 This alarm uses the [XksProxyErrors](monitoring-cloudwatch.md#metric-xks-proxy-errors "monitoring-cloudwatch.md#metric-xks-proxy-errors") metric that AWS KMS publishes to CloudWatch to
 record the number of exceptions related to AWS KMS requests to your external key store

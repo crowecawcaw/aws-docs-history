@@ -22,8 +22,7 @@ _Amazon EMR Management Guide_.
 ###### Topics
 
 - [Encrypting data on the EMR file system (EMRFS)](#emrfs-encryption "#emrfs-encryption")
-- [Encrypting data on the storage volumes of cluster
-  nodes](#emr-local-disk-encryption "#emr-local-disk-encryption")
+- [Encrypting data on the storage volumes of cluster nodes](#emr-local-disk-encryption "#emr-local-disk-encryption")
 - [Encryption context](#emr-encryption-context "#emr-encryption-context")
 
 ## Encrypting data on the EMR file system (EMRFS)
@@ -45,12 +44,10 @@ offered by Amazon S3:
 - [Protecting data using server-side encryption
   with AWS Key Management Service (SSE-KMS)](../../../AmazonS3/latest/userguide/UsingKMSEncryption.md "../../../AmazonS3/latest/userguide/UsingKMSEncryption.md"). The Amazon EMR cluster sends data to Amazon S3. Amazon S3 uses a
   KMS key to encrypt the data before saving it to an S3 bucket. For more information about
-  how this works, see [Process for encrypting data on EMRFS with
-  SSE-KMS](#emrfs-encryption-sse-kms "#emrfs-encryption-sse-kms").
+  how this works, see [Process for encrypting data on EMRFS with SSE-KMS](#emrfs-encryption-sse-kms "#emrfs-encryption-sse-kms").
 - [Protecting data using client-side
   encryption](../../../AmazonS3/latest/userguide/UsingClientSideEncryption.md "../../../AmazonS3/latest/userguide/UsingClientSideEncryption.md") (CSE-KMS). Data in an Amazon EMR is encrypted under an AWS KMS key
-  before it's sent to Amazon S3 for storage. For more information about how this works, see [Process for encrypting data on EMRFS with
-  CSE-KMS](#emrfs-encryption-cse-kms "#emrfs-encryption-cse-kms").
+  before it's sent to Amazon S3 for storage. For more information about how this works, see [Process for encrypting data on EMRFS with CSE-KMS](#emrfs-encryption-cse-kms "#emrfs-encryption-cse-kms").
 
 When you configure an Amazon EMR cluster to encrypt data on EMRFS with a KMS key, you choose
 the KMS key that you want Amazon S3 or the Amazon EMR cluster to use. With SSE-KMS, you can choose the
@@ -69,14 +66,10 @@ following topics.
 
 ###### Topics
 
-- [Process for encrypting data on EMRFS with
-  SSE-KMS](#emrfs-encryption-sse-kms "#emrfs-encryption-sse-kms")
-- [Process for encrypting data on EMRFS with
-  CSE-KMS](#emrfs-encryption-cse-kms "#emrfs-encryption-cse-kms")
+- [Process for encrypting data on EMRFS with SSE-KMS](#emrfs-encryption-sse-kms "#emrfs-encryption-sse-kms")
+- [Process for encrypting data on EMRFS with CSE-KMS](#emrfs-encryption-cse-kms "#emrfs-encryption-cse-kms")
 
-### Process for encrypting data on EMRFS with
-
-SSE-KMS
+### Process for encrypting data on EMRFS with SSE-KMS
 
 When you configure an Amazon EMR cluster to use SSE-KMS, the encryption process works like
 this:
@@ -104,9 +97,7 @@ The decryption process works like this:
    plaintext data key from memory as soon as possible after use.
 5. Amazon S3 sends the decrypted data to the cluster.
 
-### Process for encrypting data on EMRFS with
-
-CSE-KMS
+### Process for encrypting data on EMRFS with CSE-KMS
 
 When you configure an Amazon EMR cluster to use CSE-KMS, the encryption process works like
 this:
@@ -134,9 +125,7 @@ The decryption process works like this:
 5. The cluster uses the plaintext data key to decrypt the encrypted data, and then
    removes the plaintext data key from memory as soon as possible after use.
 
-## Encrypting data on the storage volumes of cluster
-
-nodes
+## Encrypting data on the storage volumes of cluster nodes
 
 An Amazon EMR cluster is a collection of Amazon Elastic Compute Cloud (Amazon EC2) instances. Each instance in the
 cluster is called a _cluster node_ or _node_. Each node
@@ -179,9 +168,7 @@ which can help you understand why a specific KMS key was used.
 The following section explain the encryption context that is used in each Amazon EMR encryption
 scenario that uses a KMS key.
 
-### Encryption context for EMRFS encryption with
-
-SSE-KMS
+### Encryption context for EMRFS encryption with SSE-KMS
 
 With SSE-KMS, the Amazon EMR cluster sends data to Amazon S3, and then Amazon S3 uses a KMS key to encrypt
 the data before saving it to an S3 bucket. In this case, Amazon S3 uses the Amazon Resource Name
@@ -193,9 +180,7 @@ uses.
 { "aws:s3:arn" : "arn:aws:s3:::`S3_bucket_name`/`S3_object_key`" }
 ```
 
-### Encryption context for EMRFS encryption with
-
-CSE-KMS
+### Encryption context for EMRFS encryption with CSE-KMS
 
 With CSE-KMS, the Amazon EMR cluster uses a KMS key to encrypt data before sending it to Amazon S3 for
 storage. In this case, the cluster uses the Amazon Resource Name (ARN) of the KMS key as
@@ -207,9 +192,7 @@ encryption context that the cluster uses.
 { "kms_cmk_id" : "`arn:aws:kms:us-east-2:111122223333:key/0987ab65-43cd-21ef-09ab-87654321cdef`" }
 ```
 
-### Encryption context for local disk encryption
-
-with LUKS
+### Encryption context for local disk encryption with LUKS
 
 When an Amazon EMR cluster uses local disk encryption with LUKS, the cluster nodes do not
 specify encryption context with the [GenerateDataKey](../APIReference/API_GenerateDataKey.md "../APIReference/API_GenerateDataKey.md") and [Decrypt](../APIReference/API_Decrypt.md "../APIReference/API_Decrypt.md")

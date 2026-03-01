@@ -30,8 +30,7 @@ create an IAM policy that is more restrictive than the minimum required permissi
 AWS KMS console won't function as intended for users with that IAM policy.
 
 For the minimum permissions required to allow a user read-only access to the AWS KMS
-console, see [Allow a user to view KMS keys in
-the AWS KMS console](customer-managed-policies.md#iam-policy-example-read-only-console "customer-managed-policies.md#iam-policy-example-read-only-console").
+console, see [Allow a user to view KMS keys in the AWS KMS console](customer-managed-policies.md#iam-policy-example-read-only-console "customer-managed-policies.md#iam-policy-example-read-only-console").
 
 To allow users to work with the AWS KMS console to create and manage KMS keys, attach
 the **AWSKeyManagementServicePowerUser** managed policy to the

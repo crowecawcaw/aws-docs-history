@@ -1,6 +1,4 @@
-# Specifying KMS keys in IAM policy
-
-statements
+# Specifying KMS keys in IAM policy statements
 
 You can use an IAM policy to allow a principal to use or manage KMS keys. KMS keys
 are specified in the `Resource` element of the policy statement.

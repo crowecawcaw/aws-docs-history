@@ -15,9 +15,7 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## AWS managed
-
-policy: AWSKeyManagementServicePowerUser
+## AWS managed policy: AWSKeyManagementServicePowerUser
 
 You can attach the `AWSKeyManagementServicePowerUser` policy to your IAM
 identities.
@@ -44,8 +42,7 @@ determine whether a permission is specific to a KMS key, see [AWS KMS permission
 This policy gives a power user permissions on any KMS key with a key policy that
 permits the operation. For cross-account permissions, such as
 `kms:DescribeKey` and `kms:ListGrants`, this might include
-KMS keys in untrusted AWS accounts. For details, see [Best practices for IAM policies](iam-policies-best-practices.md "iam-policies-best-practices.md") and [Allowing users in other accounts to
-use a KMS key](key-policy-modifying-external-accounts.md "key-policy-modifying-external-accounts.md"). To determine whether a
+KMS keys in untrusted AWS accounts. For details, see [Best practices for IAM policies](iam-policies-best-practices.md "iam-policies-best-practices.md") and [Allowing users in other accounts to use a KMS key](key-policy-modifying-external-accounts.md "key-policy-modifying-external-accounts.md"). To determine whether a
 permission is valid on KMS keys in other accounts, see [AWS KMS permissions](kms-api-permissions-reference.md "kms-api-permissions-reference.md") and look for a value of
 **Yes** in the **Cross-account use** column.
 
@@ -85,12 +82,9 @@ For more information, see [Authorizing AWS KMS to manage AWS CloudHSM and Amazon
 You can't attach `AWSServiceRoleForKeyManagementServiceMultiRegionKeys` to
 your IAM entities. This policy is attached to a service-linked role that gives AWS KMS
 permission to synchronize any changes to the key material of a multi-Region primary key
-to its replica keys. For more information, see [Authorizing AWS KMS to synchronize multi-Region
-keys](multi-region-auth-slr.md "multi-region-auth-slr.md").
+to its replica keys. For more information, see [Authorizing AWS KMS to synchronize multi-Region keys](multi-region-auth-slr.md "multi-region-auth-slr.md").
 
-## AWS KMS updates to AWS managed
-
-policies
+## AWS KMS updates to AWS managed policies
 
 View details about updates to AWS managed policies for AWS KMS since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe

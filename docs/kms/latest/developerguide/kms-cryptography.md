@@ -40,9 +40,7 @@ encrypted using [RSAES-OAEP](https://datatracker.ietf.org/doc/html/rfc8017#secti
 pairs are generated on AWS KMS HSMs. The imported key material is decrypted on an AWS KMS HSM
 and re-encrypted under AES-GCM before being stored by the service.
 
-## Asymmetric key operations (encryption, digital signing
-
-and signature verification)
+## Asymmetric key operations (encryption, digital signing and signature verification)
 
 AWS KMS supports the use of asymmetric key operations for both encryption, digital
 signature, and key agreement operations. Asymmetric key operations rely on a mathematically

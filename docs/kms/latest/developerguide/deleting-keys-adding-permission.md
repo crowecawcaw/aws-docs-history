@@ -13,9 +13,7 @@ the key policy or an IAM policy. You can also use the [kms:ScheduleKeyDeletionPe
 constrain the values that principals can specify in the `PendingWindowInDays`
 parameter of a [ScheduleKeyDeletion](../APIReference/API_ScheduleKeyDeletion.md "../APIReference/API_ScheduleKeyDeletion.md") request.
 
-## Allow key administrators to schedule and cancel key
-
-deletion
+## Allow key administrators to schedule and cancel key deletion
 
 To give key administrators permission to schedule and cancel key deletion.
 

@@ -13,10 +13,8 @@ make offline operations easier.
 ###### Topics
 
 - [Deriving shared secrets offline](#key-spec-ecc-offline "#key-spec-ecc-offline")
-- [Offline verification with ML-DSA key
-  pairs](#mldsa-offline-verification "#mldsa-offline-verification")
-- [Offline verification with SM2 key pairs
-  (China Regions only)](#key-spec-sm-offline-verification "#key-spec-sm-offline-verification")
+- [Offline verification with ML-DSA key pairs](#mldsa-offline-verification "#mldsa-offline-verification")
+- [Offline verification with SM2 key pairs (China Regions only)](#key-spec-sm-offline-verification "#key-spec-sm-offline-verification")
 
 ## Deriving shared secrets offline
 
@@ -80,9 +78,7 @@ openssl pkeyutl -derive -inkey ${OPENSSL_KEY1_PRIV_PEM} \
 
 [Show moreShow less](# "#")
 
-## Offline verification with ML-DSA key
-
-pairs
+## Offline verification with ML-DSA key pairs
 
 AWS KMS supports a hedged variant of ML-DSA signing, as described in [Federal Information Processing Standards
 (FIPS) 204 standard](https://csrc.nist.gov/pubs/fips/204/final "https://csrc.nist.gov/pubs/fips/204/final") section 3.4 for messages up to 4 KB bytes.
@@ -122,9 +118,7 @@ aws kms get-public-key \
     --query PublicKey | base64 --decode > public_key.der
 ```
 
-### Message size less than
-
-4KB
+### Message size less than 4KB
 
 For messages under 4 KB, use the `RAW` message type with AWS KMS. While you
 can use `EXTERNAL_MU`, it isn't necessary for messages within the size
@@ -148,9 +142,7 @@ To verify this message using OpenSSL use the following command:
 echo -n 'your message' | ./openssl dgst -verify public_key.der -signature ExampleSignature.bin
 ```
 
-### Message size more than
-
-4KB
+### Message size more than 4KB
 
 To sign messages larger than 4KB, use the `EXTERNAL_MU` message type. When
 you use `EXTERNAL_MU`, you pre-hash the message externally to a 64-byte
@@ -198,9 +190,7 @@ message. You can use the same OpenSSL 3.5 command to verify the message:
 echo -n 'your message' | ./openssl dgst -verify public_key.der -signature ExampleSignature.bin
 ```
 
-## Offline verification with SM2 key pairs
-
-(China Regions only)
+## Offline verification with SM2 key pairs (China Regions only)
 
 To verify a signature outside of AWS KMS with an SM2 public key, you must specify the
 distinguishing ID. When you pass a raw message, [`MessageType:RAW`](../APIReference/API_Sign.md#KMS-Sign-request-MessageType "../APIReference/API_Sign.md#KMS-Sign-request-MessageType"), to the [Sign](../APIReference/API_Sign.md "../APIReference/API_Sign.md") API, AWS KMS uses the default distinguishing ID,
@@ -220,9 +210,7 @@ The `SM2OfflineOperationHelper` reference code is designed to be compatible
 with [Bouncy
 Castle](https://www.bouncycastle.org/documentation/documentation-java/ "https://www.bouncycastle.org/documentation/documentation-java/") version 1.68. For help with other versions, contact [bouncycastle.org](https://www.bouncycastle.org "https://www.bouncycastle.org").
 
-### `SM2OfflineOperationHelper`
-
-class
+### `SM2OfflineOperationHelper` class
 
 To help you with offline operations with SM2 keys, the
 `SM2OfflineOperationHelper` class for Java has methods that perform the tasks

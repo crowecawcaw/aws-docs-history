@@ -1,6 +1,4 @@
-# Step 2:
-
-Download the wrapping public key and import token
+# Step 2: Download the wrapping public key and import token
 
 After you [create a AWS KMS key with no key
 material](importing-keys-create-cmk.md "importing-keys-create-cmk.md"), download a wrapping public key and an import token for that KMS key by
@@ -56,7 +54,7 @@ offer several wrapping public key specs to support a variety of HSMs and key man
 AWS KMS supports the following key specs for the RSA wrapping keys used to import key
 material of all types, except as noted.
 
-- RSA_4096 (preferred)
+- RSA_4096 (recommended)
 - RSA_3072
 - RSA_2048
 
@@ -128,14 +126,10 @@ private key material, except in China Regions, where you must use the `SM2PKE` w
 
 ###### Topics
 
-- [Downloading the wrapping
-  public key and import token (console)](#importing-keys-get-public-key-and-token-console "#importing-keys-get-public-key-and-token-console")
-- [Downloading the wrapping public
-  key and import token (AWS KMS API)](#importing-keys-get-public-key-and-token-api "#importing-keys-get-public-key-and-token-api")
+- [Downloading the wrapping public key and import token (console)](#importing-keys-get-public-key-and-token-console "#importing-keys-get-public-key-and-token-console")
+- [Downloading the wrapping public key and import token (AWS KMS API)](#importing-keys-get-public-key-and-token-api "#importing-keys-get-public-key-and-token-api")
 
-## Downloading the wrapping
-
-public key and import token (console)
+## Downloading the wrapping public key and import token (console)
 
 You can use the AWS KMS console to download the wrapping public key and import token.
 
@@ -207,9 +201,7 @@ The folder contains the following files:
 
 13. To continue the process, see [encrypt your key material](importing-keys-encrypt-key-material.md "importing-keys-encrypt-key-material.md").
 
-## Downloading the wrapping public
-
-key and import token (AWS KMS API)
+## Downloading the wrapping public key and import token (AWS KMS API)
 
 To download the public key and import token, use the [GetParametersForImport](../APIReference/API_GetParametersForImport.md "../APIReference/API_GetParametersForImport.md") API.
 Specify the KMS key that will be associated with the imported key material. This KMS key
@@ -272,5 +264,4 @@ encoded)` in the example output), paste it into a new file, and then save
 `$` `openssl enc -d -base64 -A -in importtoken.b64 -out ImportToken.bin`
 ```
 
-Proceed to [Step 3: Encrypt the
-key material](importing-keys-encrypt-key-material.md "importing-keys-encrypt-key-material.md").
+Proceed to [Step 3: Encrypt the key material](importing-keys-encrypt-key-material.md "importing-keys-encrypt-key-material.md").

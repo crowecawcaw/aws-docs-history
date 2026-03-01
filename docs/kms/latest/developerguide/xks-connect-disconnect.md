@@ -1,6 +1,4 @@
-# Connect and disconnect external key
-
-stores
+# Connect and disconnect external key stores
 
 New external key stores are not connected. To create and use AWS KMS keys in your
 external key store, you need to connect your external key store to its [external key store proxy](keystore-external.md#concept-xks-proxy "keystore-external.md#concept-xks-proxy"). You can connect and
@@ -91,8 +89,7 @@ To connect an custom key store, its connection state must be
 `ConnectionErrorCode` to identify and resolve the problem. Then
 disconnect the custom key store before trying to connect it again. For help with
 connection failures, see [External key store connection errors](xks-troubleshooting.md#fix-xks-connection "xks-troubleshooting.md#fix-xks-connection"). For help responding to a
-connection error code, see [Connection error codes for external key
-stores](xks-troubleshooting.md#xks-connection-error-codes "xks-troubleshooting.md#xks-connection-error-codes").
+connection error code, see [Connection error codes for external key stores](xks-troubleshooting.md#xks-connection-error-codes "xks-troubleshooting.md#xks-connection-error-codes").
 
 To view the connection error code:
 
