@@ -7,16 +7,11 @@ interface, the AWS Command Line Interface (AWS CLI), or the Mechanical Turk API.
 
 ###### Topics
 
-- [Use
-  the Mechanical Turk Requester UI](#access-mturk-req-ui "#access-mturk-req-ui")
-- [Use
-  the
-  Mechanical Turk API](#access-mturk-use-api "#access-mturk-use-api")
+- [Use the Mechanical Turk Requester UI](#access-mturk-req-ui "#access-mturk-req-ui")
+- [Use the Mechanical Turk API](#access-mturk-use-api "#access-mturk-use-api")
 - [Use the AWS CLI](#access-mturk-use-cli "#access-mturk-use-cli")
 
-## Use
-
-the Mechanical Turk Requester UI
+## Use the Mechanical Turk Requester UI
 
 The Mechanical Turk Requester User Interface (RUI) provides access to
 Mechanical Turk
@@ -39,10 +34,7 @@ Mechanical Turk Requester UI Guide](../RequesterUI/index.md "../RequesterUI/inde
 HITs
 created from the API or AWS CLI cannot be viewed from the Requester UI.
 
-## Use
-
-the
-Mechanical Turk API
+## Use the Mechanical Turk API
 
 The AWS SDKs provide broad support for Mechanical Turk in [Java](https://aws.amazon.com/sdk-for-java "https://aws.amazon.com/sdk-for-java"), [JavaScript in the browser](https://aws.amazon.com/sdk-for-browser "https://aws.amazon.com/sdk-for-browser"),
 [.NET](https://aws.amazon.com/sdk-for-net "https://aws.amazon.com/sdk-for-net"), [Node.js](https://aws.amazon.com/sdk-for-node-js "https://aws.amazon.com/sdk-for-node-js"), [PHP](https://aws.amazon.com/sdk-for-php "https://aws.amazon.com/sdk-for-php"), [Python](https://aws.amazon.com/sdk-for-python "https://aws.amazon.com/sdk-for-python"), [Ruby](https://aws.amazon.com/sdk-for-ruby "https://aws.amazon.com/sdk-for-ruby"), [C++](https://aws.amazon.com/sdk-for-cpp "https://aws.amazon.com/sdk-for-cpp"), and [Go](https://aws.amazon.com/sdk-for-go "https://aws.amazon.com/sdk-for-go"). To get started quickly with many
@@ -71,10 +63,7 @@ For a
 complete listing of all the commands available for Mechanical Turk in the AWS CLI, see the [AWS CLI
 Command Reference](../../../cli/latest/reference/mturk/index.md "../../../cli/latest/reference/mturk/index.md").
 
-### Download and
-
-configure
-the AWS CLI
+### Download and configure the AWS CLI
 
 The AWS CLI is available at [https://aws.amazon.com/cli](https://aws.amazon.com/cli "https://aws.amazon.com/cli"). It runs on Windows,
 MacOS,

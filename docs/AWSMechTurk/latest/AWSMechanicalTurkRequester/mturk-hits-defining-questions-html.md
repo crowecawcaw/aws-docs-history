@@ -9,8 +9,6 @@ an HTML task interface.
 
 - [How Mechanical Turk tasks are rendered](mturk-hits-defining-questions-html-rendered.md "mturk-hits-defining-questions-html-rendered.md")
 - [Defining an HTML form](mturk-hits-defining-questions-html-define.md "mturk-hits-defining-questions-html-define.md")
-- [Crowd HTML
-  Elements](mturk-hits-defining-questions-html-crowd-html-elements.md "mturk-hits-defining-questions-html-crowd-html-elements.md")
+- [Crowd HTML Elements](mturk-hits-defining-questions-html-crowd-html-elements.md "mturk-hits-defining-questions-html-crowd-html-elements.md")
 - [Templating](mturk-hits-defining-questions-html-templating.md "mturk-hits-defining-questions-html-templating.md")
-- [Submitting from
-  JavaScript](mturk-hits-defining-questions-html-javascript.md "mturk-hits-defining-questions-html-javascript.md")
+- [Submitting from JavaScript](mturk-hits-defining-questions-html-javascript.md "mturk-hits-defining-questions-html-javascript.md")

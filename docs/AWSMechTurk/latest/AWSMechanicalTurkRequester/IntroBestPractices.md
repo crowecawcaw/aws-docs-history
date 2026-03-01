@@ -2,9 +2,7 @@
 
 Keep the following best practices in mind when you design and create your HITs.
 
-## Allow workers to be as efficient as
-
-possible
+## Allow workers to be as efficient as possible
 
 When you post tasks to Mechanical Turk, the reward amount you set is primarily for the worker's time
 and attention to your task. If your task interface is inefficient and requires
@@ -13,9 +11,7 @@ reward amount to compensate for the time they need to spend performing those ste
 Investing time to make your interface as efficient as possible pays dividends in
 higher accuracy and lower costs.
 
-## Build tasks with family and friends in
-
-mind
+## Build tasks with family and friends in mind
 
 When building tasks, it’s a common mistake to assume that workers have the same knowledge
 you do about your area of expertise. Very few workers have the expertise you do and
@@ -43,8 +39,7 @@ The easiest way to test your task interface is to save it to an HTML file and op
 browser. From the browser, you can go through all of the steps that a worker would
 follow in completing the task. If your task interface is built around a standard
 form element, you won't be able to test submitting it, but can test to ensure it
-works as you expect. If you use the crowd-form element from [Crowd HTML
-Elements](mturk-hits-defining-questions-html-crowd-html-elements.md "mturk-hits-defining-questions-html-crowd-html-elements.md"), you can test it
+works as you expect. If you use the crowd-form element from [Crowd HTML Elements](mturk-hits-defining-questions-html-crowd-html-elements.md "mturk-hits-defining-questions-html-crowd-html-elements.md"), you can test it
 by selecting **Submit**. When you submit from outside of Mechanical Turk, the
 results are displayed at the top of the window.
 
@@ -90,9 +85,7 @@ task.
 
 ![Table showing HITs with identical titles, rewards, and creation dates for ad tagging tasks.](images/mturk_ad_tagger.png)
 
-## Specify that links open new browser, windows or
-
-tabs
+## Specify that links open new browser, windows or tabs
 
 When you add links to your task HTML, you should include a _target_
 attribute to let the browser know that it should open a new window or tab when
@@ -119,9 +112,7 @@ blocked by requesters. If the worker community believes that you are blocking
 workers unfairly, they may choose to avoid accepting your tasks in the
 future.
 
-## Include clear reasons for rejections and
-
-blocks
+## Include clear reasons for rejections and blocks
 
 Workers take a lot of pride in the quality of their work and pay close attention to
 rejections and blocks they receive. When you decide to reject an assignment or block

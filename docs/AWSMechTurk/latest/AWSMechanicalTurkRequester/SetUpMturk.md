@@ -10,8 +10,7 @@ steps described in the [Requester UI Guide](../RequesterUI/GettingStarted.md "..
 ###### Topics
 
 - [Step 1: Create a Mechanical Turk account](#set-up-create-account "#set-up-create-account")
-- [Step 2: Link your AWS account to your Mechanical Turk requester
-  account](#set-up-link "#set-up-link")
+- [Step 2: Link your AWS account to your Mechanical Turk requester account](#set-up-link "#set-up-link")
 - [Step 3: Select a payment option](#set-up-payment.title "#set-up-payment.title")
 - [Step 4: Get an AWS access key](#set-up-aws-access-key "#set-up-aws-access-key")
 - [Step 5: Configure Your Credentials](#set-up-credentials "#set-up-credentials")
@@ -45,9 +44,7 @@ and resources in the account. As a security best practice, assign administrative
 
 Note your AWS account ID. You need it for the next step.
 
-## Step 2: Link your AWS account to your Mechanical Turk requester
-
-account
+## Step 2: Link your AWS account to your Mechanical Turk requester account
 
 You need to link your AWS account to your Mechanical Turk requester account. This operation
 grants permission to your AWS account to access your requester account using the Mechanical Turk
@@ -161,8 +158,7 @@ to view your sandbox HITs as a worker. There is no charge for using the Mechanic
 sites.
 
 To create HITs in the sandbox using the Mechanical Turk APIs, you also need to link your AWS
-account to your sandbox requester account, as described in [Step 2: Link your AWS account to your Mechanical Turk requester
-account](#set-up-link "#set-up-link"), on the [requester sandbox
+account to your sandbox requester account, as described in [Step 2: Link your AWS account to your Mechanical Turk requester account](#set-up-link "#set-up-link"), on the [requester sandbox
 website](https://requestersandbox.mturk.com/developer "https://requestersandbox.mturk.com/developer").
 
 To configure the AWS CLI or SDKs to access the sandbox instead of the production

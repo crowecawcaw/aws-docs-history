@@ -1,6 +1,4 @@
-# Tutorial: Creating a qualification type
-
-to exclude workers from selected tasks
+# Tutorial: Creating a qualification type to exclude workers from selected tasks
 
 In the following example, we create a qualification type that describes a group of
 workers that have demonstrated they don't perform well at our tasks and excludes

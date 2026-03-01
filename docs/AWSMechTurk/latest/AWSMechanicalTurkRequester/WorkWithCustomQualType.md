@@ -16,13 +16,9 @@ more information can be found in the [API Documentation](../AWSMturkAPI/ApiRefer
 - [Create a qualification type](#CreateCustomQualType "#CreateCustomQualType")
 - [Assign or remove a worker qualification](#AssignRemoveQualWorker "#AssignRemoveQualWorker")
 - [Qualification requests](#QualRequest "#QualRequest")
-- [Tutorial: Creating a qualification
-  requirement that requires workers be in a group](CustomQualTutorialGroup.md "CustomQualTutorialGroup.md")
-- [Tutorial: Create a qualification
-  requirement that workers have achieved at least 80% accuracy on previous
-  tasks](CustomQualTutorialAccuracy.md "CustomQualTutorialAccuracy.md")
-- [Tutorial: Creating a qualification type
-  to exclude workers from selected tasks](CustomQualTutorialExclude.md "CustomQualTutorialExclude.md")
+- [Tutorial: Creating a qualification requirement that requires workers be in a group](CustomQualTutorialGroup.md "CustomQualTutorialGroup.md")
+- [Tutorial: Create a qualification requirement that workers have achieved at least 80% accuracy on previous tasks](CustomQualTutorialAccuracy.md "CustomQualTutorialAccuracy.md")
+- [Tutorial: Creating a qualification type to exclude workers from selected tasks](CustomQualTutorialExclude.md "CustomQualTutorialExclude.md")
 
 ## Create a qualification type
 

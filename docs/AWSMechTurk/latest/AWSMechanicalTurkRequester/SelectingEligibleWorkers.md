@@ -118,9 +118,7 @@ Each of these qualification types has an associated
 `QualificationTypeId` which can be found in the documentation for
 [`QualificationRequirement`](../AWSMturkAPI/ApiReference_QualificationRequirementDataStructureArticle.md#ApiReference_QualificationType-IDs "../AWSMturkAPI/ApiReference_QualificationRequirementDataStructureArticle.md#ApiReference_QualificationType-IDs").
 
-### Using the HITs Approved qualification
-
-type
+### Using the HITs Approved qualification type
 
 The `NumberHITsApproved` qualification type restricts tasks to
 workers with more or less experience based on their past work on Mechanical Turk.  For
@@ -178,9 +176,7 @@ QualificationRequirements: [
 
 ```
 
-### Using the Percentage Approved
-
-type
+### Using the Percentage Approved type
 
 The `PercentAssignmentsApproved` qualification type restricts tasks
 based on how often you have approved or rejected past work a worker has done for
@@ -206,9 +202,7 @@ many percentage points. To ensure that a new worker's approval rate is
 unaffected by these statistically meaningless changes, if a worker has submitted
 fewer than 100 assignments for you, the worker's approval rate is 100%.
 
-### Using the Locale qualification
-
-type
+### Using the Locale qualification type
 
 Locale is a Mechanical Turk qualification type that specifies the workers that are
 eligible for your task based on where they are located. To use Locale, you must

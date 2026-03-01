@@ -1,7 +1,4 @@
-# Tutorial: Create a qualification
-
-requirement that workers have achieved at least 80% accuracy on previous
-tasks
+# Tutorial: Create a qualification requirement that workers have achieved at least 80% accuracy on previous tasks
 
 In the following example, we create a qualification type that we can use to record
 how well workers did on a previous set of tasks and then build a qualification

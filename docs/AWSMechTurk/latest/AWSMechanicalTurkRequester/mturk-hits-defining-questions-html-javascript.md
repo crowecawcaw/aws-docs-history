@@ -1,6 +1,4 @@
-# Submitting from
-
-JavaScript
+# Submitting from JavaScript
 
 In some cases, it's necessary to collect data using mechanisms other than form fields.
 For example, a task interface that prompts workers to draw a bounding box on an image

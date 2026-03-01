@@ -1,6 +1,4 @@
-# Tutorial: Creating a qualification
-
-requirement that requires workers be in a group
+# Tutorial: Creating a qualification requirement that requires workers be in a group
 
 In the following example, we create a qualification type that describes a group of
 workers that have demonstrated expertise at a task and add it to our qualification

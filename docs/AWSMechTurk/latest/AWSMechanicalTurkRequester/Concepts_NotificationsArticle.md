@@ -247,9 +247,7 @@ configuration you want to use and the event you would like to test.
 
 ```
 
-## HIT references using requester
-
-annotation
+## HIT references using requester annotation
 
 When building processes that leverage Amazon Mechanical Turk (Mechanical Turk), it's often valuable to keep track
 of identifiers associated with the data in each HIT, particularly when handling HIT responses

@@ -52,7 +52,7 @@ To use `ExternalQuestion`, your URL must meet the following criteria:
   accept or preview your task.
 - The URL cannot include any of the reserved query parameters
   (`assignmentId`, `hitId`, `turkSubmitTo`, and
-  `workerId`) that is appended by Mechanical Turk, as described in [How Mechanical Turk tasks are rendered](mturk-hits-defining-questions-html-rendered.md "mturk-hits-defining-questions-html-rendered.md") .
+  `workerId`) that is appended by Mechanical Turk, as described in [How Mechanical Turk tasks are rendered](mturk-hits-defining-questions-html-rendered.md "mturk-hits-defining-questions-html-rendered.md").
 - The location specified by the URL must perform a form `POST` operation
   with the `assignmentId` when the task is completed, as described in [Use HTML to define questions](mturk-hits-defining-questions-html.md "mturk-hits-defining-questions-html.md").
 

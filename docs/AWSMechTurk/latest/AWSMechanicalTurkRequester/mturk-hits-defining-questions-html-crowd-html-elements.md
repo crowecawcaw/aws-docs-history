@@ -1,6 +1,4 @@
-# Crowd HTML
-
-Elements
+# Crowd HTML Elements
 
 [Crowd HTML Elements](../AWSMturkAPI/ApiReference_HTMLCustomElementsArticle.md "../AWSMturkAPI/ApiReference_HTMLCustomElementsArticle.md") are web components, a web standard that abstracts HTML
 markup, CSS, and JavaScript functionality into an HTML tag or set of tags. This allows you

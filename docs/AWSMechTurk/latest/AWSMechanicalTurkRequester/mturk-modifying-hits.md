@@ -9,8 +9,7 @@ operations you can perform to modify HITs.
 ###### Topics
 
 - [Modify expiration time](#mturk-creating-hits-modify-expiration "#mturk-creating-hits-modify-expiration")
-- [Add additional
-  assignments](#mturk-creating-hits-modify-add-assignments "#mturk-creating-hits-modify-add-assignments")
+- [Add additional assignments](#mturk-creating-hits-modify-add-assignments "#mturk-creating-hits-modify-add-assignments")
 - [Modify the HIT Type](#mturk-creating-hits-modify-type "#mturk-creating-hits-modify-type")
 - [Delete](#mturk-creating-hits-modify-delete "#mturk-creating-hits-modify-delete")
 
@@ -28,9 +27,7 @@ mistake in your HIT definition and immediately need to remove the task from the 
 Note that this won't prevent workers who have already accepted your HIT from completing and
 submitting it.
 
-## Add additional
-
-assignments
+## Add additional assignments
 
 When a HIT is created, the `MaxAssignments` value is provided and informs
 Mechanical Turk of how many workers can submit responses for the task. If you need to allow additional
