@@ -27,8 +27,8 @@ practices for security and availability.
    function for data transformation. The **Lambda** function
    extracts relevant data to each metric and sends it to an **Amazon S3** bucket for downstream processing.
 4. The data in **Amazon S3** is linked to an **Amazon Athena** database, which runs queries against this data and
-   returns query results to **Quick Suite**.
-5. **Quick Suite** obtains the query results and builds dashboard
+   returns query results to **Quick**.
+5. **Quick** obtains the query results and builds dashboard
    visualizations for your management team.
 
 ## Download editable diagram
