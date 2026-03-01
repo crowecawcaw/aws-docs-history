@@ -1,6 +1,4 @@
-# Transferring specific files, objects, and folders by using
-
-filters
+# Transferring specific files, objects, and folders by using filters
 
 AWS DataSync lets you apply filters to include or exclude data from your source location in a
 transfer. For example, if you don't want to transfer temporary files that end with
@@ -145,8 +143,7 @@ in a pattern. For example,
    then choose **Create task**.
 3. Configure your task's source and destination locations.
 
-For more information, see [Where can I transfer my data with
-AWS DataSync?](working-with-locations.md "working-with-locations.md") 4. For **Contents to scan**, choose **Specific
+For more information, see [Where can I transfer my data with AWS DataSync?](working-with-locations.md "working-with-locations.md") 4. For **Contents to scan**, choose **Specific
 files, objects, and folders**, then select **Using
 filters**. 5. For **Includes**, enter your filter (for example,
 `/important_folders` to include an important
@@ -174,12 +171,9 @@ or start a task.
 
 ###### Topics
 
-- [Data excluded by
-  default](#directories-ignored-during-transfers "#directories-ignored-during-transfers")
+- [Data excluded by default](#directories-ignored-during-transfers "#directories-ignored-during-transfers")
 
-### Data excluded by
-
-default
+### Data excluded by default
 
 DataSync automatically excludes some data from being transferred:
 
@@ -197,8 +191,7 @@ DataSync automatically excludes some data from being transferred:
    then choose **Create task**.
 3. Configure your task's source and destination locations.
 
-For more information, see [Where can I transfer my data with
-AWS DataSync?](working-with-locations.md "working-with-locations.md") 4. For **Excludes**, enter your filter (for example,
+For more information, see [Where can I transfer my data with AWS DataSync?](working-with-locations.md "working-with-locations.md") 4. For **Excludes**, enter your filter (for example,
 `*/temp` to exclude temporary folders), then
 choose **Add pattern**. 5. Add other exclude filters as needed. 6. If needed, add [include
 filters](#include-filters "#include-filters").

@@ -4,9 +4,7 @@ You can monitor your AWS DataSync transfer by using CloudWatch Logs. We recommen
 your task to at least log basic information (such as transfer
 errors).
 
-## Allowing DataSync to upload logs to a CloudWatch log
-
-group
+## Allowing DataSync to upload logs to a CloudWatch log group
 
 To [configure logging](#configure-logging-for-task "#configure-logging-for-task") for your DataSync
 task, you need a CloudWatch log group that DataSync has permission to send logs to. You set up
@@ -70,8 +68,7 @@ statements to help ensure that only DataSync tasks from the specified account
 have access to the specified CloudWatch log group. We recommend using the
 [aws:SourceArn](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn") and [aws:SourceAccount](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceaccount "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceaccount") global condition context
 keys in these `Condition` statements to protect against the
-confused deputy problem. For more information, see [Cross-service confused deputy
-prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md").
+confused deputy problem. For more information, see [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md").
 
 To specify the DataSync task or tasks, replace
 `region` with the Region code
@@ -101,9 +98,7 @@ where you activated your DataSync agent.
 
 For more information, see the [_Amazon CloudWatch Logs User Guide_](../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md "../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md").
 
-## Configuring logging for your DataSync
-
-task
+## Configuring logging for your DataSync task
 
 We recommend that you configure at least some level of logging for your DataSync
 task.
@@ -111,8 +106,7 @@ task.
 ###### Before you begin
 
 DataSync needs permission to upload logs to a CloudWatch log group. For more information,
-see [Allowing DataSync to upload logs to a CloudWatch log
-group](#cloudwatchlogs "#cloudwatchlogs").
+see [Allowing DataSync to upload logs to a CloudWatch log group](#cloudwatchlogs "#cloudwatchlogs").
 
 The following instructions describe how to configure CloudWatch logging when
 creating a task. You also can configure logging when editing a task.
@@ -122,8 +116,7 @@ creating a task. You also can configure logging when editing a task.
    then choose **Create task**.
 3. Configure your task's source and destination locations.
 
-For more information, see [Where can I transfer my data with
-AWS DataSync?](working-with-locations.md "working-with-locations.md") 4. On the **Configure settings** page, choose a [task mode](choosing-task-mode.md "choosing-task-mode.md") and any other
+For more information, see [Where can I transfer my data with AWS DataSync?](working-with-locations.md "working-with-locations.md") 4. On the **Configure settings** page, choose a [task mode](choosing-task-mode.md "choosing-task-mode.md") and any other
 options.
 
 You might be interested in some of the following options:
@@ -208,8 +201,7 @@ options:
 ###### Important
 
 If your `--task-mode` is `ENHANCED`, you
-don't need to specify this option. For more information, see [Allowing DataSync to upload logs to a CloudWatch log
-group](#cloudwatchlogs "#cloudwatchlogs"). 8. Run the `create-task` command.
+don't need to specify this option. For more information, see [Allowing DataSync to upload logs to a CloudWatch log group](#cloudwatchlogs "#cloudwatchlogs"). 8. Run the `create-task` command.
 
 If the command is successful, you get a response that shows you the
 ARN of the task that you created. For example:
@@ -229,9 +221,7 @@ operations:
 - [CreateTask](API_CreateTask.md "API_CreateTask.md")
 - [UpdateTask](API_UpdateTask.md "API_UpdateTask.md")
 
-## Viewing DataSync task
-
-logs
+## Viewing DataSync task logs
 
 When you [start your task](run-task.md "run-task.md"), you can view the task
 execution's logs by using the CloudWatch console or AWS CLI (among other options). For more

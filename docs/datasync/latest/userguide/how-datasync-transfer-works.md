@@ -6,21 +6,15 @@ gets transferred from on-premises and cloud locations.
 ## DataSync transfer architecture
 
 The following diagrams show how and where DataSync commonly transfers storage data. For a
-full list of DataSync supported storage systems and services, see [Where can I transfer my data with
-AWS DataSync?](working-with-locations.md "working-with-locations.md")
+full list of DataSync supported storage systems and services, see [Where can I transfer my data with AWS DataSync?](working-with-locations.md "working-with-locations.md")
 
 ###### Topics
 
-- [Transferring between on-premises storage and
-  AWS](#onprem-aws "#onprem-aws")
-- [Transferring between AWS storage
-  services](#in-cloud-transfer "#in-cloud-transfer")
-- [Transferring between AWS storage services
-  and storage systems in other clouds](#ec2-agent-in-region "#ec2-agent-in-region")
+- [Transferring between on-premises storage and AWS](#onprem-aws "#onprem-aws")
+- [Transferring between AWS storage services](#in-cloud-transfer "#in-cloud-transfer")
+- [Transferring between AWS storage services and storage systems in other clouds](#ec2-agent-in-region "#ec2-agent-in-region")
 
-### Transferring between on-premises storage and
-
-AWS
+### Transferring between on-premises storage and AWS
 
 The following diagram shows a high-level overview of DataSync transferring files
 between self-managed, on-premises storage systems and AWS services.
@@ -34,9 +28,7 @@ The diagram illustrates a common DataSync use case:
   (TLS).
 - DataSync copying data to a supported AWS storage service.
 
-### Transferring between AWS storage
-
-services
+### Transferring between AWS storage services
 
 The following diagram shows a high-level overview of DataSync transferring files
 between AWS services in the same AWS account.
@@ -60,9 +52,7 @@ transfer OUT from your source Region to your destination Region. For more
 information, see [Data transfer
 pricing](https://aws.amazon.com/ec2/pricing/on-demand/#Data_Transfer "https://aws.amazon.com/ec2/pricing/on-demand/#Data_Transfer").
 
-### Transferring between AWS storage services
-
-and storage systems in other clouds
+### Transferring between AWS storage services and storage systems in other clouds
 
 With DataSync, you can transfer data between other cloud storage systems and
 AWS services. In this context, cloud storage systems can include:
@@ -70,8 +60,7 @@ AWS services. In this context, cloud storage systems can include:
 - Self-managed storage systems, such as an NFS file server in your virtual
   private cloud (VPC) within AWS.
 - Storage systems or services hosted by another cloud provider. For more
-  information, see [Transferring to or from other cloud
-  storage with AWS DataSync](transferring-other-cloud-storage.md "transferring-other-cloud-storage.md").
+  information, see [Transferring to or from other cloud storage with AWS DataSync](transferring-other-cloud-storage.md "transferring-other-cloud-storage.md").
 
 DataSync can copy data to and from other clouds with or without using an agent. For
 more information about when to use an agent, see [Do I need an
@@ -110,8 +99,7 @@ To get started, see [Do I need an AWS DataSync agent?](do-i-need-datasync-agent.
 
 A _location_ describes where you're copying data
 from or to. Each DataSync transfer (also known as a _task_) has a
-source and destination location. For more information, see [Where can I transfer my data with
-AWS DataSync?](working-with-locations.md "working-with-locations.md")
+source and destination location. For more information, see [Where can I transfer my data with AWS DataSync?](working-with-locations.md "working-with-locations.md")
 
 ### Task
 
@@ -126,9 +114,7 @@ A _task execution_ is an individual run of a
 DataSync transfer task. There are several phases involved in a task execution. For more
 information, see [Task execution statuses](run-task.md#understand-task-execution-statuses "run-task.md#understand-task-execution-statuses").
 
-## How DataSync transfers files, objects, and
-
-directories
+## How DataSync transfers files, objects, and directories
 
 During a [task execution](run-task.md "run-task.md"), DataSync prepares, transfers,
 and verifies your data. How DataSync performs these actions depends on how you configure
@@ -137,18 +123,13 @@ sequentially, while Enhanced mode tasks do these in parallel.
 
 ###### Topics
 
-- [How DataSync prepares your data
-  transfer](#how-datasync-prepares "#how-datasync-prepares")
+- [How DataSync prepares your data transfer](#how-datasync-prepares "#how-datasync-prepares")
 - [How DataSync transfers your data](#how-datasync-transfers "#how-datasync-transfers")
-- [How DataSync verifies your data's
-  integrity](#how-verifying-works "#how-verifying-works")
-- [How DataSync works with open and locked
-  files](#open-locked-files "#open-locked-files")
+- [How DataSync verifies your data's integrity](#how-verifying-works "#how-verifying-works")
+- [How DataSync works with open and locked files](#open-locked-files "#open-locked-files")
 - [Recurring transfer options](#how-recurring-transfers-work "#how-recurring-transfers-work")
 
-### How DataSync prepares your data
-
-transfer
+### How DataSync prepares your data transfer
 
 DataSync by default prepares your transfer by examining your source and
 destination locations to determine what to transfer. This is done by scanning the
@@ -205,14 +186,11 @@ might skip some items during the transfer. If you configure your task to [transf
 with an object in your source location that's using an [archival storage class](create-s3-location.md#using-storage-classes "create-s3-location.md#using-storage-classes") and isn't
 restored.
 
-### How DataSync verifies your data's
-
-integrity
+### How DataSync verifies your data's integrity
 
 DataSync always performs integrity checks on your data during a transfer. At the end
 of a transfer, DataSync can also perform additional checks on just the transferred data
-or the entire dataset in both locations. For more information, see [Configuring how AWS DataSync verifies
-data integrity](configure-data-verification-options.md "configure-data-verification-options.md").
+or the entire dataset in both locations. For more information, see [Configuring how AWS DataSync verifies data integrity](configure-data-verification-options.md "configure-data-verification-options.md").
 
 When checking data integrity, DataSync calculates and compares the checksum and
 metadata of the files, objects, or directories in your locations. If DataSync notices
@@ -228,9 +206,7 @@ to verify data integrity at the end of your transfer.
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | DataSync verifies each<br>object<br>as it's transferred to your<br>destination.<br>With Enhanced mode, DataSync [verifies only<br>transferred data](configure-data-verification-options.md "configure-data-verification-options.md"). | At the end of your transfer, DataSync verifies the integrity of<br>your data.<br>Depending on how you [configure data<br>verification](configure-data-verification-options.md "configure-data-verification-options.md"), this can take a significant amount of<br>time for large datasets. |
 
-### How DataSync works with open and locked
-
-files
+### How DataSync works with open and locked files
 
 Keep in mind the following when trying to transfer files that are open (in use) or
 locked:

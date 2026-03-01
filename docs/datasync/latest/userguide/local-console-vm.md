@@ -151,9 +151,7 @@ Machine (KVM), and VMware VMs.
 VMware agents are also checked for supported version; unsupported versions cause a red
 banner error. Supported versions include VMware versions 6.5 and 6.7.
 
-## View and manage agent system time server
-
-configuration
+## View and manage agent system time server configuration
 
 You can view and manage your agent's system time server configuration.
 

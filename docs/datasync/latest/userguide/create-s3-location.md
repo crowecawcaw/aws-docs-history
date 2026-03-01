@@ -4,9 +4,7 @@ To transfer data to or from your Amazon S3 bucket, you create an AWS DataSync tr
 _location_. DataSync can use this location as a source
 or destination for transferring data.
 
-## Providing DataSync access to S3
-
-buckets
+## Providing DataSync access to S3 buckets
 
 DataSync needs access to the S3 bucket that you're transferring to or from. To do
 this, you must create an AWS Identity and Access Management (IAM) role that DataSync assumes with the
@@ -15,19 +13,13 @@ DataSync](#create-s3-location-how-to "#create-s3-location-how-to").
 
 ###### Contents
 
-- [Required
-  permissions](create-s3-location.md#create-s3-location-required-permissions "create-s3-location.md#create-s3-location-required-permissions")
-- [Creating an IAM role for DataSync to
-  access your Amazon S3 location](create-s3-location.md#create-role-manually "create-s3-location.md#create-role-manually")
-- [Accessing S3 buckets using
-  server-side encryption](create-s3-location.md#create-s3-location-encryption "create-s3-location.md#create-s3-location-encryption")
+- [Required permissions](create-s3-location.md#create-s3-location-required-permissions "create-s3-location.md#create-s3-location-required-permissions")
+- [Creating an IAM role for DataSync to access your Amazon S3 location](create-s3-location.md#create-role-manually "create-s3-location.md#create-role-manually")
+- [Accessing S3 buckets using server-side encryption](create-s3-location.md#create-s3-location-encryption "create-s3-location.md#create-s3-location-encryption")
 - [Accessing restricted S3 buckets](create-s3-location.md#denying-s3-access "create-s3-location.md#denying-s3-access")
-- [Accessing S3 buckets with
-  restricted VPC access](create-s3-location.md#create-s3-location-restricted-vpc "create-s3-location.md#create-s3-location-restricted-vpc")
+- [Accessing S3 buckets with restricted VPC access](create-s3-location.md#create-s3-location-restricted-vpc "create-s3-location.md#create-s3-location-restricted-vpc")
 
-### Required
-
-permissions
+### Required permissions
 
 The permissions that your IAM role needs can depend on whether bucket is a
 DataSync source or destination location. Amazon S3 on Outposts requires a different
@@ -152,9 +144,7 @@ Amazon S3 on Outposts
 
 ```
 
-### Creating an IAM role for DataSync to
-
-access your Amazon S3 location
+### Creating an IAM role for DataSync to access your Amazon S3 location
 
 When [creating your Amazon S3
 location](#create-s3-location-how-to "#create-s3-location-how-to") in the console, DataSync can automatically create and assume an
@@ -237,9 +227,7 @@ bucket in a different AWS accounts).
 
     You can specify this role when creating your Amazon S3 location.
 
-### Accessing S3 buckets using
-
-server-side encryption
+### Accessing S3 buckets using server-side encryption
 
 DataSync can transfer data to or from [S3 buckets that
 use server-side encryption](../../../AmazonS3/latest/userguide/serv-side-encryption.md "../../../AmazonS3/latest/userguide/serv-side-encryption.md"). The type of encryption key a bucket uses
@@ -432,9 +420,7 @@ JSON
    remove the conditions for both IAM roles from the bucket
    policy.
 
-### Accessing S3 buckets with
-
-restricted VPC access
+### Accessing S3 buckets with restricted VPC access
 
 An Amazon S3 bucket that [limits access to specific virtual private cloud (VPC) endpoints or
 VPCs](../../../AmazonS3/latest/userguide/example-bucket-policies-vpc-endpoint.md "../../../AmazonS3/latest/userguide/example-bucket-policies-vpc-endpoint.md") will deny DataSync from transferring to or from that bucket. To
@@ -522,9 +508,7 @@ role.
 
 ```
 
-## Storage class considerations with Amazon S3
-
-transfers
+## Storage class considerations with Amazon S3 transfers
 
 When Amazon S3 is your destination location, DataSync can transfer your data directly into
 a specific [Amazon S3 storage
@@ -557,9 +541,7 @@ used for all objects.
 | S3 Glacier Deep Archive       | Choose S3 Glacier Deep Archive to archive your objects<br>for long-term data retention and digital preservation where data<br>is accessed once or twice a year.<br>Objects stored in S3 Glacier Deep Archive can incur<br>additional charges for overwriting, deleting, or retrieving.<br>Consider how often these objects change, how long you plan to<br>keep these objects, and how often you need to access them.<br>Changes to object data or metadata are equivalent to deleting an<br>object and creating a new one to replace it. This results in<br>additional charges for objects stored in the<br>S3 Glacier Deep Archive storage class.<br>The S3 Glacier Deep Archive storage class requires 40<br>KB of additional metadata for each archived object. DataSync puts<br>objects that are less than 40 KB in the S3 Standard storage<br>class.<br>You must restore objects archived in this storage class before<br>DataSync can read them. For information, see [Working with archived objects](../../../AmazonS3/latest/userguide/archived-objects.md "../../../AmazonS3/latest/userguide/archived-objects.md")<br>in the _Amazon S3 User Guide_.<br>When using S3 Glacier Deep Archive, choose the<br>**Verify only the data transferred\*<br>• task<br>option to compare data and metadata checksums at the end of the<br>transfer. You can't use the **Verify all data in the<br>destination\*<br>• option for this storage class because<br>it requires retrieving all existing objects from the<br>destination. |
 | S3 Outposts                   | The storage class for Amazon S3 on Outposts.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 
-## Evaluating S3 request costs when
-
-using DataSync
+## Evaluating S3 request costs when using DataSync
 
 With Amazon S3 locations, you incur costs related to S3 API requests made by DataSync.
 This section can help you understand how DataSync uses these requests and how they
@@ -568,14 +550,10 @@ costs](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
 
 ###### Topics
 
-- [S3 requests made by
-  DataSync](#create-s3-location-s3-requests-made "#create-s3-location-s3-requests-made")
-- [Cost
-  considerations](#create-s3-location-s3-requests-cost "#create-s3-location-s3-requests-cost")
+- [S3 requests made by DataSync](#create-s3-location-s3-requests-made "#create-s3-location-s3-requests-made")
+- [Cost considerations](#create-s3-location-s3-requests-cost "#create-s3-location-s3-requests-cost")
 
-### S3 requests made by
-
-DataSync
+### S3 requests made by DataSync
 
 The following table describes the S3 requests that DataSync can make when you’re
 copying data to or from an Amazon S3 location.
@@ -590,9 +568,7 @@ copying data to or from an Amazon S3 location.
 | [PutObjectTagging](../../../AmazonS3/latest/API/API_PutObjectTagging.md "../../../AmazonS3/latest/API/API_PutObjectTagging.md") | If your source objects have tags and you configure your<br>task to [copy object<br>tags](configure-metadata.md "configure-metadata.md"), DataSync makes these `PUT` requests<br>when [transferring](run-task.md#understand-task-execution-statuses "run-task.md#understand-task-execution-statuses") those tags.                                                                                                                                                                                                                                                                                    |
 | [CopyObject](../../../AmazonS3/latest/API/API_CopyObject.md "../../../AmazonS3/latest/API/API_CopyObject.md")                   | DataSync makes a `COPY` request to create a copy<br>of an object only if that object’s metadata changes. This<br>can happen if you originally copied data to the S3 bucket<br>using another service or tool that didn’t carry over its<br>metadata.                                                                                                                                                                                                                                                                                                                                                 |
 
-### Cost
-
-considerations
+### Cost considerations
 
 DataSync makes S3 requests on S3 buckets every time you run your task. This can
 lead to charges adding up in certain situations. For example:
@@ -609,14 +585,10 @@ following:
 
 ###### Topics
 
-- [What S3
-  storage classes am I using?](#create-s3-location-s3-requests-storage-classes "#create-s3-location-s3-requests-storage-classes")
-- [How
-  often do I need to transfer my data?](#create-s3-location-s3-requests-recurring-transfers "#create-s3-location-s3-requests-recurring-transfers")
+- [What S3 storage classes am I using?](#create-s3-location-s3-requests-storage-classes "#create-s3-location-s3-requests-storage-classes")
+- [How often do I need to transfer my data?](#create-s3-location-s3-requests-recurring-transfers "#create-s3-location-s3-requests-recurring-transfers")
 
-#### What S3
-
-storage classes am I using?
+#### What S3 storage classes am I using?
 
 S3 request charges can vary based on the Amazon S3 storage class your objects
 are using, particularly for classes that archive objects (such as
@@ -647,9 +619,7 @@ request charges when using DataSync:
 For more information, see [Amazon S3
 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
 
-#### How
-
-often do I need to transfer my data?
+#### How often do I need to transfer my data?
 
 If you need to move data on a recurring basis, think about a [schedule](task-scheduling.md "task-scheduling.md") that doesn't run more tasks
 than you need.
@@ -659,9 +629,7 @@ you can configure DataSync to focus on objects in certain prefixes or [filter wh
 options can help reduce the number of S3 requests made each time you run
 your DataSync task.
 
-## Object considerations with Amazon S3
-
-transfers
+## Object considerations with Amazon S3 transfers
 
 - If you're transferring from an S3 bucket, use [S3 Storage Lens](../../../AmazonS3/latest/userguide/storage_lens_basics_metrics_recommendations.md "../../../AmazonS3/latest/userguide/storage_lens_basics_metrics_recommendations.md") to determine how many objects you're
   moving.
@@ -685,9 +653,7 @@ transfers
   objects that have been modified but are the same size they were during the
   first transfer.
 
-## Creating your transfer location for an
-
-Amazon S3 general purpose bucket
+## Creating your transfer location for an Amazon S3 general purpose bucket
 
 To create a location for your transfer, you need an existing S3 general purpose
 bucket. If you don't have one, see the [_Amazon S3 User Guide_](../../../AmazonS3/latest/userguide/GetStartedWithS3.md "../../../AmazonS3/latest/userguide/GetStartedWithS3.md").
@@ -696,10 +662,8 @@ bucket. If you don't have one, see the [_Amazon S3 User Guide_](../../../AmazonS
 
 Before you create your location, make sure that you read the following sections:
 
-- [Storage class considerations with Amazon S3
-  transfers](#using-storage-classes "#using-storage-classes")
-- [Evaluating S3 request costs when
-  using DataSync](#create-s3-location-s3-requests "#create-s3-location-s3-requests")
+- [Storage class considerations with Amazon S3 transfers](#using-storage-classes "#using-storage-classes")
+- [Evaluating S3 request costs when using DataSync](#create-s3-location-s3-requests "#create-s3-location-s3-requests")
 
 1. Open the AWS DataSync console at [https://console.aws.amazon.com/datasync/](https://console.aws.amazon.com/datasync/ "https://console.aws.amazon.com/datasync/").
 2. In the left navigation pane, expand **Data transfer**,
@@ -726,8 +690,7 @@ DataSync can't transfer objects with a prefix that begins with a slash
    destination**, choose a storage class that you want
    your objects to use when Amazon S3 is a transfer destination.
 
-For more information, see [Storage class considerations with Amazon S3
-transfers](#using-storage-classes "#using-storage-classes"). 6. For **IAM role**, do one of the
+For more information, see [Storage class considerations with Amazon S3 transfers](#using-storage-classes "#using-storage-classes"). 6. For **IAM role**, do one of the
 following:
 
     * Choose **Autogenerate** for DataSync to
@@ -738,8 +701,7 @@ following:
     If DataSync previously created an IAM role for this S3
      bucket, that role is chosen by default.
     * Choose a custom IAM role that you created. For more
-     information, see [Creating an IAM role for DataSync to
-     access your Amazon S3 location](#create-role-manually "#create-role-manually").
+     information, see [Creating an IAM role for DataSync to access your Amazon S3 location](#create-role-manually "#create-role-manually").
 
 7. (Optional) Choose **Add new tag** to tag your
    Amazon S3 location.
@@ -765,8 +727,7 @@ aws datasync create-location-s3 \
 4. For `--s3-config`, specify the ARN of the IAM role
    that DataSync needs to access your bucket.
 
-For more information, see [Creating an IAM role for DataSync to
-access your Amazon S3 location](#create-role-manually "#create-role-manually"). 5. For `--subdirectory`, specify a prefix in the S3 bucket
+For more information, see [Creating an IAM role for DataSync to access your Amazon S3 location](#create-role-manually "#create-role-manually"). 5. For `--subdirectory`, specify a prefix in the S3 bucket
 that DataSync reads from or writes to (depending on whether the bucket
 is a source or destination location).
 
@@ -794,9 +755,7 @@ the ARN of the location that you created. For example:
 
 You can use this location as a source or destination for your DataSync task.
 
-## Creating your transfer location
-
-for an S3 on Outposts bucket
+## Creating your transfer location for an S3 on Outposts bucket
 
 To create a location for your transfer, you need an existing Amazon S3 on Outposts
 bucket. If you don't have one, see the [_Amazon S3 on Outposts
@@ -824,8 +783,7 @@ Guide_](../../../AmazonS3/latest/userguide/access-points.md "../../../AmazonS3/l
 destination**, choose a storage class that you want
 your objects to use when Amazon S3 is a transfer destination.
 
-For more information, see [Storage class considerations with Amazon S3
-transfers](#using-storage-classes "#using-storage-classes"). DataSync by default uses
+For more information, see [Storage class considerations with Amazon S3 transfers](#using-storage-classes "#using-storage-classes"). DataSync by default uses
 the S3 Outposts storage class for Amazon S3 on Outposts. 6. For **Agents**, specify the Amazon Resource Name
 (ARN) of the DataSync agent on your Outpost. 7. For **Folder**, enter a prefix in the S3 bucket
 that DataSync reads from or writes to (depending on whether the bucket
@@ -851,8 +809,7 @@ DataSync can't transfer objects with a prefix that begins with a slash
    If DataSync previously created an IAM role for this S3
    bucket, that role is chosen by default.
    - Choose a custom IAM role that you created. For more
-     information, see [Creating an IAM role for DataSync to
-     access your Amazon S3 location](#create-role-manually "#create-role-manually").
+     information, see [Creating an IAM role for DataSync to access your Amazon S3 location](#create-role-manually "#create-role-manually").
 
 9. (Optional) Choose **Add new tag** to tag your
    Amazon S3 location.
@@ -879,13 +836,11 @@ Guide_](../../../AmazonS3/latest/userguide/access-points.md "../../../AmazonS3/l
 you want your objects to use when Amazon S3 is a transfer
 destination.
 
-For more information, see [Storage class considerations with Amazon S3
-transfers](#using-storage-classes "#using-storage-classes"). DataSync by default uses
+For more information, see [Storage class considerations with Amazon S3 transfers](#using-storage-classes "#using-storage-classes"). DataSync by default uses
 the S3 Outposts storage class for S3 on Outposts. 4. For `--s3-config`, specify the ARN of the IAM role
 that DataSync needs to access your bucket.
 
-For more information, see [Creating an IAM role for DataSync to
-access your Amazon S3 location](#create-role-manually "#create-role-manually"). 5. For `--subdirectory`, specify a prefix in the S3 bucket
+For more information, see [Creating an IAM role for DataSync to access your Amazon S3 location](#create-role-manually "#create-role-manually"). 5. For `--subdirectory`, specify a prefix in the S3 bucket
 that DataSync reads from or writes to (depending on whether the bucket
 is a source or destination location).
 
@@ -915,9 +870,7 @@ the ARN of the location that you created. For example:
 
 You can use this location as a source or destination for your DataSync task.
 
-## Amazon S3 transfers across
-
-AWS accounts
+## Amazon S3 transfers across AWS accounts
 
 With DataSync, you can move data to or from S3 buckets in [different
 AWS accounts](working-with-locations.md#working-with-locations-across-accounts "working-with-locations.md#working-with-locations-across-accounts"). For more information, see the following tutorials:
@@ -927,9 +880,7 @@ AWS accounts](working-with-locations.md#working-with-locations-across-accounts "
 - [Transferring data
   from Amazon S3 to Amazon S3 across AWS accounts](tutorial_s3-s3-cross-account-transfer.md "tutorial_s3-s3-cross-account-transfer.md")
 
-## Amazon S3 transfers between commercial and
-
-AWS GovCloud (US) Regions
+## Amazon S3 transfers between commercial and AWS GovCloud (US) Regions
 
 By default, DataSync doesn't transfer between S3 buckets in commercial and
 AWS GovCloud (US) Regions. You can still set up this kind of transfer, though, by
@@ -945,29 +896,21 @@ Pricing](https://aws.amazon.com/datasync/pricing/ "https://aws.amazon.com/datasy
 
 ###### Contents
 
-- [Providing DataSync access to your
-  object storage location's bucket](create-s3-location.md#create-s3-location-govcloud-iam "create-s3-location.md#create-s3-location-govcloud-iam")
-- [Creating your DataSync
-  agent (optional)](create-s3-location.md#create-s3-location-govcloud-create-agent "create-s3-location.md#create-s3-location-govcloud-create-agent")
-- [Creating an object storage
-  location for your S3 bucket](create-s3-location.md#create-s3-location-govcloud-how-to "create-s3-location.md#create-s3-location-govcloud-how-to")
+- [Providing DataSync access to your object storage location's bucket](create-s3-location.md#create-s3-location-govcloud-iam "create-s3-location.md#create-s3-location-govcloud-iam")
+- [Creating your DataSync agent (optional)](create-s3-location.md#create-s3-location-govcloud-create-agent "create-s3-location.md#create-s3-location-govcloud-create-agent")
+- [Creating an object storage location for your S3 bucket](create-s3-location.md#create-s3-location-govcloud-how-to "create-s3-location.md#create-s3-location-govcloud-how-to")
 
-### Providing DataSync access to your
-
-object storage location's bucket
+### Providing DataSync access to your object storage location's bucket
 
 When creating the object storage location for this transfer, you must provide
 DataSync the credentials of an IAM user with permission to access the location's
-S3 bucket. For more information, see [Required
-permissions](#create-s3-location-required-permissions "#create-s3-location-required-permissions").
+S3 bucket. For more information, see [Required permissions](#create-s3-location-required-permissions "#create-s3-location-required-permissions").
 
 ###### Warning
 
 IAM users have long-term credentials, which presents a security risk. To help mitigate this risk, we recommend that you provide these users with only the permissions they require to perform the task and that you remove these users when they are no longer needed.
 
-### Creating your DataSync
-
-agent (optional)
+### Creating your DataSync agent (optional)
 
 If you want to run your transfer using **Basic** mode, then
 you will need to use an agent. Because you're transferring between a commercial
@@ -1030,9 +973,7 @@ from the AWS GovCloud (US) Region to the commercial Region.
    [Move data
    in and out of AWS GovCloud (US) with AWS DataSync](https://aws.amazon.com/blogs/publicsector/move-data-in-out-aws-govcloud-datasync/ "https://aws.amazon.com/blogs/publicsector/move-data-in-out-aws-govcloud-datasync/") blog.
 
-### Creating an object storage
-
-location for your S3 bucket
+### Creating an object storage location for your S3 bucket
 
 You need an object storage location for the S3 bucket that's in the Region
 where you aren't running your DataSync task.
@@ -1162,8 +1103,7 @@ an Amazon S3 location](#create-s3-location-how-to "#create-s3-location-how-to").
 
 Some possible next steps include:
 
-1. If needed, create your other location. For more information, see [Where can I transfer my data with
-   AWS DataSync?](working-with-locations.md "working-with-locations.md")
+1. If needed, create your other location. For more information, see [Where can I transfer my data with AWS DataSync?](working-with-locations.md "working-with-locations.md")
 2. [Configure DataSync task settings](task-options.md "task-options.md"), such as
    what files to transfer, how to handle metadata, among other options.
 3. [Set a schedule](task-scheduling.md "task-scheduling.md") for your DataSync

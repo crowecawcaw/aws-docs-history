@@ -1,6 +1,4 @@
-# DataSync architecture and routing examples with
-
-Direct Connect
+# DataSync architecture and routing examples with Direct Connect
 
 Consider the following network architectures when using [Direct Connect](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md") with your AWS DataSync
 transfers.
@@ -16,24 +14,18 @@ traffic between your on-premises networks and virtual private clouds (VPCs), you
 configure your network so that DataSync traffic bypasses the transit gateway and its data
 processing charges.
 
-## Using Direct Connect with a DataSync VPC
-
-service endpoint
+## Using Direct Connect with a DataSync VPC service endpoint
 
 If your DataSync agent uses a [VPC service endpoint](choose-service-endpoint.md#datasync-in-vpc "choose-service-endpoint.md#datasync-in-vpc"), you need a [Direct
 Connect gateway](../../../directconnect/latest/UserGuide/direct-connect-gateways-intro.md "../../../directconnect/latest/UserGuide/direct-connect-gateways-intro.md") to connect to your VPC.
 
 ###### Contents
 
-- [Direct Connect architecture with VPC endpoint and S3
-  destination](direct-connect-architecture.md#direct-connect-example-vpc-s3 "direct-connect-architecture.md#direct-connect-example-vpc-s3")
-- [Direct Connect architecture with VPC endpoint and file system
-  destination in same subnet](direct-connect-architecture.md#direct-connect-example-vpc-file-same-subnet "direct-connect-architecture.md#direct-connect-example-vpc-file-same-subnet")
+- [Direct Connect architecture with VPC endpoint and S3 destination](direct-connect-architecture.md#direct-connect-example-vpc-s3 "direct-connect-architecture.md#direct-connect-example-vpc-s3")
+- [Direct Connect architecture with VPC endpoint and file system destination in same subnet](direct-connect-architecture.md#direct-connect-example-vpc-file-same-subnet "direct-connect-architecture.md#direct-connect-example-vpc-file-same-subnet")
 - [Direct Connect architecture with VPC endpoint and file system destination in different subnets](direct-connect-architecture.md#direct-connect-example-vpc-file-different-subnet "direct-connect-architecture.md#direct-connect-example-vpc-file-different-subnet")
 
-### Direct Connect architecture with VPC endpoint and S3
-
-destination
+### Direct Connect architecture with VPC endpoint and S3 destination
 
 The following Direct Connect architecture shows a DataSync transfer from an on-premises storage system to an S3 bucket.
 
@@ -58,9 +50,7 @@ The following Direct Connect architecture shows a DataSync transfer from an on-p
 5. DataSync traffic routes through the DataSync service to the S3 bucket
    (destination location).
 
-### Direct Connect architecture with VPC endpoint and file system
-
-destination in same subnet
+### Direct Connect architecture with VPC endpoint and file system destination in same subnet
 
 When transferring to or from an Amazon EFS or Amazon FSx file system, your file system and
 DataSync VPC endpoint can be in the same subnet.

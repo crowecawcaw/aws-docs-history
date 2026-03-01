@@ -1,6 +1,4 @@
-# Choosing a service endpoint for your AWS DataSync
-
-agent
+# Choosing a service endpoint for your AWS DataSync agent
 
 A [service
 endpoint](../../../general/latest/gr/rande.md#datasync-region "../../../general/latest/gr/rande.md#datasync-region") is how your AWS DataSync [agent communicates with the DataSync
@@ -25,9 +23,7 @@ service](networking-datasync.md#2-network-between-agent-service "networking-data
   network to AWS](networking-datasync.md#connecting-options-to-amazon "networking-datasync.md#connecting-options-to-amazon") determines what service endpoints you can
   use.
 
-## Choosing a public service
-
-endpoint
+## Choosing a public service endpoint
 
 If you use a public service endpoint, all communication between your DataSync agent
 and the DataSync service occurs over the public internet.
@@ -39,9 +35,7 @@ and the DataSync service occurs over the public internet.
 
 **Next step: [Activating your AWS DataSync agent](activate-agent.md "activate-agent.md")**
 
-## Choosing a FIPS service
-
-endpoint
+## Choosing a FIPS service endpoint
 
 DataSync provides some service endpoints that comply with FIPS. For more information,
 see [FIPS endpoints](../../../general/latest/gr/rande.md#FIPS-endpoints "../../../general/latest/gr/rande.md#FIPS-endpoints") in the _AWS General Reference_.
@@ -60,15 +54,11 @@ DataSync instead transfers data through a VPC that's based on the Amazon VPC ser
 
 ###### Contents
 
-- [How DataSync agents work with VPC service
-  endpoints](choose-service-endpoint.md#working-with-endpoints "choose-service-endpoint.md#working-with-endpoints")
+- [How DataSync agents work with VPC service endpoints](choose-service-endpoint.md#working-with-endpoints "choose-service-endpoint.md#working-with-endpoints")
 - [DataSync limitations with VPCs](choose-service-endpoint.md#datasync-in-vpc-limitations "choose-service-endpoint.md#datasync-in-vpc-limitations")
-- [Creating a VPC service endpoint for
-  DataSync](choose-service-endpoint.md#create-agent-steps-vpc "choose-service-endpoint.md#create-agent-steps-vpc")
+- [Creating a VPC service endpoint for DataSync](choose-service-endpoint.md#create-agent-steps-vpc "choose-service-endpoint.md#create-agent-steps-vpc")
 
-### How DataSync agents work with VPC service
-
-endpoints
+### How DataSync agents work with VPC service endpoints
 
 VPC service endpoints are provided by AWS PrivateLink. These types of endpoints let you
 privately connect supported AWS services to your VPC. When you use a VPC service
@@ -76,8 +66,7 @@ endpoint with DataSync, all communication between your DataSync agent and the Da
 remains in your VPC.
 
 The VPC service endpoint (along with the [network interfaces](required-network-interfaces.md "required-network-interfaces.md") DataSync creates for data transfer traffic) uses private IP
-addresses that are only accessible from inside your VPC. For more information, see [Connecting your network for AWS DataSync
-transfers](networking-datasync.md "networking-datasync.md").
+addresses that are only accessible from inside your VPC. For more information, see [Connecting your network for AWS DataSync transfers](networking-datasync.md "networking-datasync.md").
 
 ### DataSync limitations with VPCs
 
@@ -85,9 +74,7 @@ transfers](networking-datasync.md "networking-datasync.md").
   aren't supported.
 - DataSync doesn't support [shared VPCs](../../../vpc/latest/userguide/vpc-sharing.md "../../../vpc/latest/userguide/vpc-sharing.md").
 
-### Creating a VPC service endpoint for
-
-DataSync
+### Creating a VPC service endpoint for DataSync
 
 You create a VPC service endpoint for DataSync in a VPC that you manage. Your service
 endpoint, VPC, and DataSync agent must belong to the same AWS account.

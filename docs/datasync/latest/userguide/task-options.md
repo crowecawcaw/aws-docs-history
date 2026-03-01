@@ -15,13 +15,8 @@ options include:
 
 ###### Topics
 
-- [Transferring specific files or objects by using
-  a manifest](transferring-with-manifest.md "transferring-with-manifest.md")
-- [Transferring specific files, objects, and folders by using
-  filters](filtering.md "filtering.md")
-- [Understanding how DataSync handles file and object
-  metadata](metadata-copied.md "metadata-copied.md")
-- [Links and directories copied by
-  AWS DataSync](special-files-copied.md "special-files-copied.md")
-- [Configuring how to handle files, objects, and
-  metadata](configure-metadata.md "configure-metadata.md")
+- [Transferring specific files or objects by using a manifest](transferring-with-manifest.md "transferring-with-manifest.md")
+- [Transferring specific files, objects, and folders by using filters](filtering.md "filtering.md")
+- [Understanding how DataSync handles file and object metadata](metadata-copied.md "metadata-copied.md")
+- [Links and directories copied by AWS DataSync](special-files-copied.md "special-files-copied.md")
+- [Configuring how to handle files, objects, and metadata](configure-metadata.md "configure-metadata.md")

@@ -1,6 +1,4 @@
-# Transferring specific files or objects by using
-
-a manifest
+# Transferring specific files or objects by using a manifest
 
 A _manifest_ is a list of files or objects that you want AWS DataSync to
 transfer. For example, instead of having to transfer everything in an S3 bucket with
@@ -184,9 +182,7 @@ documents/résumé2.pdf
 documents/résumé3.pdf
 ```
 
-## Providing DataSync access to your
-
-manifest
+## Providing DataSync access to your manifest
 
 You need an AWS Identity and Access Management (IAM) role that gives DataSync access to your manifest in its S3
 bucket. This role must include the following permissions:
@@ -499,9 +495,7 @@ located.
    other account. Specify this role when [creating](#manifest-creating-task "#manifest-creating-task") or [starting](#manifest-starting-task "#manifest-starting-task")
    your task.
 
-## Specifying your manifest when creating a
-
-task
+## Specifying your manifest when creating a task
 
 You can specify the manifest that you want DataSync to use when creating a task.
 
@@ -510,8 +504,7 @@ You can specify the manifest that you want DataSync to use when creating a task.
    then choose **Create task**.
 3. Configure your task's source and destination locations.
 
-For more information, see [Where can I transfer my data with
-AWS DataSync?](working-with-locations.md "working-with-locations.md") 4. For **Contents to scan**, choose **Specific
+For more information, see [Where can I transfer my data with AWS DataSync?](working-with-locations.md "working-with-locations.md") 4. For **Contents to scan**, choose **Specific
 files, objects, and folders**, then select **Using
 a manifest**. 5. For **S3 URI**, choose your manifest that's hosted on
 an S3 bucket.
@@ -529,8 +522,7 @@ following:
     * Choose an existing IAM role that can access your
      manifest.
 
-For more information, see [Providing DataSync access to your
-manifest](#transferring-with-manifest-access "#transferring-with-manifest-access"). 8. Configure any other task settings you need, then choose
+For more information, see [Providing DataSync access to your manifest](#transferring-with-manifest-access "#transferring-with-manifest-access"). 8. Configure any other task settings you need, then choose
 **Next**. 9. Choose **Create task**.
 
 1. Copy the following `create-task` command:
@@ -564,8 +556,7 @@ aws datasync create-task \
      role that allows DataSync to access your manifest in its S3
      bucket.
 
-   For more information, see [Providing DataSync access to your
-   manifest](#transferring-with-manifest-access "#transferring-with-manifest-access").
+   For more information, see [Providing DataSync access to your manifest](#transferring-with-manifest-access "#transferring-with-manifest-access").
    - `S3BucketArn` – Specify the ARN of the S3
      bucket that's hosting your manifest.
    - `ManifestObjectVersionId` – Specify the
@@ -578,9 +569,7 @@ aws datasync create-task \
    When you're ready, you can [start your transfer
    task](run-task.md "run-task.md").
 
-## Specifying your manifest when starting a
-
-task
+## Specifying your manifest when starting a task
 
 You can specify the manifest that you want DataSync to use when executing a task.
 
@@ -608,8 +597,7 @@ following:
     * Choose an existing IAM role that can access your
      manifest.
 
-For more information, see [Providing DataSync access to your
-manifest](#transferring-with-manifest-access "#transferring-with-manifest-access"). 8. Choose **Start** to begin your transfer.
+For more information, see [Providing DataSync access to your manifest](#transferring-with-manifest-access "#transferring-with-manifest-access"). 8. Choose **Start** to begin your transfer.
 
 1. Copy the following `start-task-execution` command:
 
@@ -638,8 +626,7 @@ aws datasync start-task-execution \
      role that allows DataSync to access your manifest in its S3
      bucket.
 
-   For more information, see [Providing DataSync access to your
-   manifest](#transferring-with-manifest-access "#transferring-with-manifest-access").
+   For more information, see [Providing DataSync access to your manifest](#transferring-with-manifest-access "#transferring-with-manifest-access").
    - `S3BucketArn` – Specify the ARN of the S3
      bucket that's hosting your manifest.
    - `ManifestObjectVersionId` – Specify the
@@ -681,8 +668,7 @@ If you see either of these errors, validate that the IAM role that DataSync uses
 - `s3:GetObjectVersion`
 - `s3:GetObjectVersionTagging`
 
-If you need to update your role with these permissions, see [Creating an IAM role for DataSync to
-access your Amazon S3 location](create-s3-location.md#create-role-manually "create-s3-location.md#create-role-manually").
+If you need to update your role with these permissions, see [Creating an IAM role for DataSync to access your Amazon S3 location](create-s3-location.md#create-role-manually "create-s3-location.md#create-role-manually").
 
 ###### Error: `ManifestFileDoesNotExist`
 

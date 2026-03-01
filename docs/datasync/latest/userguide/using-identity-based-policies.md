@@ -1,6 +1,4 @@
-# IAM customer managed policies for
-
-AWS DataSync
+# IAM customer managed policies for AWS DataSync
 
 In addition to AWS managed policies, you also can create your own identity-based
 policies for AWS DataSync and attach them to the AWS Identity and Access Management (IAM) identities that require those
@@ -56,16 +54,11 @@ these policies in the console, you must also use the managed policy
 
 ###### Topics
 
-- [Example 1: Create a trust relationship that allows
-  DataSync to access your Amazon S3 bucket](#datasync-example1 "#datasync-example1")
-- [Example 2: Allow DataSync to read and write to your Amazon S3
-  bucket](#datasync-example2 "#datasync-example2")
-- [Example 3: Allow DataSync to upload logs to CloudWatch log
-  groups](#datasync-example4 "#datasync-example4")
+- [Example 1: Create a trust relationship that allows DataSync to access your Amazon S3 bucket](#datasync-example1 "#datasync-example1")
+- [Example 2: Allow DataSync to read and write to your Amazon S3 bucket](#datasync-example2 "#datasync-example2")
+- [Example 3: Allow DataSync to upload logs to CloudWatch log groups](#datasync-example4 "#datasync-example4")
 
-### Example 1: Create a trust relationship that allows
-
-DataSync to access your Amazon S3 bucket
+### Example 1: Create a trust relationship that allows DataSync to access your Amazon S3 bucket
 
 The following is an example of a trust policy that allows DataSync to assume an IAM
 role. This role allows DataSync to access an Amazon S3 bucket. To prevent the [cross-service confused deputy
@@ -98,9 +91,7 @@ JSON
 
 ```
 
-### Example 2: Allow DataSync to read and write to your Amazon S3
-
-bucket
+### Example 2: Allow DataSync to read and write to your Amazon S3 bucket
 
 The following example policy grants DataSync the minimum permissions to read and write
 data to an S3 bucket that's used as a destination location.
@@ -152,12 +143,9 @@ the Amazon S3 bucket specified in the policy.
 }
 ```
 
-### Example 3: Allow DataSync to upload logs to CloudWatch log
-
-groups
+### Example 3: Allow DataSync to upload logs to CloudWatch log groups
 
 DataSync requires permissions to be able to upload logs to your Amazon CloudWatch log groups. You
 can use CloudWatch log groups to monitor and debug your tasks.
 
-For an example of an IAM policy that grants such permissions, see [Allowing DataSync to upload logs to a CloudWatch log
-group](configure-logging.md#cloudwatchlogs "configure-logging.md#cloudwatchlogs").
+For an example of an IAM policy that grants such permissions, see [Allowing DataSync to upload logs to a CloudWatch log group](configure-logging.md#cloudwatchlogs "configure-logging.md#cloudwatchlogs").

@@ -171,9 +171,7 @@ system.
 }
 ```
 
-### Sample Response: Describing a location for a restricted Amazon EFS file
-
-system
+### Sample Response: Describing a location for a restricted Amazon EFS file system
 
 The following example returns location details about an Amazon EFS file system
 with restricted access, including the `AccessPointArn`,

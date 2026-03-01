@@ -23,8 +23,7 @@ your DataSync proof of concept (POC):
    usage.
 
 DataSync has a few options for partitioning your dataset. For more
-information, see [Accelerating your
-migration with data partitioning](datasync-large-migration-data-partitioning.md "datasync-large-migration-data-partitioning.md"). 3. Calculate how many days a transfer takes by using the following formula,
+information, see [Accelerating your migration with data partitioning](datasync-large-migration-data-partitioning.md "datasync-large-migration-data-partitioning.md"). 3. Calculate how many days a transfer takes by using the following formula,
 which provides a theoretical minimum transfer time:
 
 ```
@@ -82,8 +81,7 @@ this information, run the [DescribeTaskExecution](API_DescribeTaskExecution.md "
 milliseconds). 3. Estimate how long a cutover might take by measuring the time delta
 across parallel tasks.
 
-For more information on parallel tasks, see [Accelerating your
-migration with data partitioning](datasync-large-migration-data-partitioning.md "datasync-large-migration-data-partitioning.md"). 4. Use your cutover estimation to schedule your cutovers. These essentially
+For more information on parallel tasks, see [Accelerating your migration with data partitioning](datasync-large-migration-data-partitioning.md "datasync-large-migration-data-partitioning.md"). 4. Use your cutover estimation to schedule your cutovers. These essentially
 are maintenance windows when your source data can't be modified.
 
 ## Next steps

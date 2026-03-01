@@ -1,6 +1,4 @@
-# Troubleshooting issues with DataSync
-
-locations
+# Troubleshooting issues with DataSync locations
 
 Use the following information to help you troubleshoot issues with AWS DataSync locations.
 Some of these issues can include:
@@ -11,9 +9,7 @@ Some of these issues can include:
 - Permission and access issues with object storage, such as Amazon S3 and Microsoft Azure
   Blob locations
 
-## My task failed with an NFS permissions denied
-
-error
+## My task failed with an NFS permissions denied error
 
 You can get a "permissions denied" error message if you configure your NFS file server
 with `root_squash` or `all_squash` and your files don't all have
@@ -37,9 +33,7 @@ command:
 
 If the issue still isn't resolved, contact [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
 
-## My task failed with an NFS mount
-
-error
+## My task failed with an NFS mount error
 
 You might see the following error when running a DataSync task that involves an NFS file
 server location:
@@ -54,19 +48,15 @@ Do the following until the error is resolved.
 1. Make sure that the NFS file server and export that you specify in your DataSync
    location are valid. If they aren't, delete your location and task, then create a
    new location and task that use a valid NFS file server and export. For more
-   information, see [Using the DataSync
-   console](create-nfs-location.md#create-nfs-location-console "create-nfs-location.md#create-nfs-location-console").
+   information, see [Using the DataSync console](create-nfs-location.md#create-nfs-location-console "create-nfs-location.md#create-nfs-location-console").
 2. Check your firewall configuration between your agent and NFS file server. For
    more information, see [Network requirements for on-premises, self-managed, and other cloud storage](datasync-network.md#on-premises-network-requirements "datasync-network.md#on-premises-network-requirements").
 3. Make sure that your agent can access the NFS file server and mount the export.
    For more information, see [Providing DataSync access to NFS file servers](create-nfs-location.md#accessing-nfs "create-nfs-location.md#accessing-nfs").
 4. If you still see the error, open a support channel with Support. For more
-   information, see [I don't know what's going on with my agent.
-   Can someone help me?](troubleshooting-datasync-agents.md#enable-support-access "troubleshooting-datasync-agents.md#enable-support-access").
+   information, see [I don't know what's going on with my agent. Can someone help me?](troubleshooting-datasync-agents.md#enable-support-access "troubleshooting-datasync-agents.md#enable-support-access").
 
-## My task failed with an Amazon EFS mount
-
-error
+## My task failed with an Amazon EFS mount error
 
 You might see the following error when running a DataSync task that involves an Amazon EFS
 location:
@@ -81,9 +71,7 @@ location gets updated or deleted. DataSync isn't aware of these changes in the f
 
 Delete your location and task and [create a new Amazon EFS location](create-efs-location.md#create-efs-location-how-to "create-efs-location.md#create-efs-location-how-to") with the new mount path.
 
-## File ownership isn't maintained with NFS
-
-transfer
+## File ownership isn't maintained with NFS transfer
 
 After your transfer, you might notice that the files in your DataSync destination
 location have different user IDs (UIDs) or group IDs (GIDs) than the same files in your
@@ -204,9 +192,7 @@ following configuration files:
 </property>
 ```
 
-## Error:
-
-`FsS3UnableToConnectToEndpoint`
+## Error: `FsS3UnableToConnectToEndpoint`
 
 DataSync can't connect to your [Amazon S3 location](create-s3-location.md "create-s3-location.md").
 This could mean the location's S3 bucket isn't reachable or the location isn't
@@ -219,18 +205,13 @@ Do the following until you resolve the issue:
 - Make your sure location is configured correctly by using the DataSync console or
   [DescribeLocationS3](API_DescribeLocationS3.md "API_DescribeLocationS3.md") operation.
 
-## Error:
-
-`FsS3HeadBucketFailed`
+## Error: `FsS3HeadBucketFailed`
 
 DataSync can't access the S3 bucket that you're transferring to or from. Check if DataSync
 has permission to access the bucket by using the Amazon S3 [HeadBucket](../../../AmazonS3/latest/API/API_HeadBucket.md "../../../AmazonS3/latest/API/API_HeadBucket.md") operation. If you
-need to adjust your permissions, see [Providing DataSync access to S3
-buckets](create-s3-location.md#create-s3-location-access "create-s3-location.md#create-s3-location-access").
+need to adjust your permissions, see [Providing DataSync access to S3 buckets](create-s3-location.md#create-s3-location-access "create-s3-location.md#create-s3-location-access").
 
-## Task fails with an
-
-`Unable to list Azure Blobs on the volume root` error
+## Task fails with an `Unable to list Azure Blobs on the volume root` error
 
 If your DataSync transfer task fails with an `Unable to list Azure Blobs on the
  volume root` error, there might be an issue with your shared access signature
@@ -252,9 +233,7 @@ Try the following and run your task again until you fix the issue:
 For information on how to configure your Azure storage account's
 network, see the [Azure Blob Storage documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security "https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security").
 
-## Error:
-
-`FsAzureBlobVolRootListBlobsFailed`
+## Error: `FsAzureBlobVolRootListBlobsFailed`
 
 The shared access signature (SAS) token that DataSync uses to access your
 Microsoft Azure Blob Storage doesn't have the List permission.
@@ -263,23 +242,17 @@ To resolve the issue, [update your
 location](creating-azure-blob-location.md#azure-blob-update-location "creating-azure-blob-location.md#azure-blob-update-location") with a token that has the List permission and try running your task
 again.
 
-## Error:
-
-`SrcLocHitAccess`
+## Error: `SrcLocHitAccess`
 
 DataSync can't access your source location. Check that DataSync has permission to access the
 location and try running your task again.
 
-## Error:
-
-`SyncTaskErrorLocationNotAdded`
+## Error: `SyncTaskErrorLocationNotAdded`
 
 DataSync can't access your location. Check that DataSync has permission to access the
 location and try running your task again.
 
-## Error: `S3 location creation failed with (InvalidRequestException) when calling the
-
-CreateLocationS3 operation`
+## Error: `S3 location creation failed with (InvalidRequestException) when calling the CreateLocationS3 operation`
 
 This error could be related to IAM permissions, Amazon S3 bucket policies, AWS KMS permissions or other permission issues. If you get this error, use the following
 information to troubleshoot:
@@ -288,9 +261,7 @@ information to troubleshoot:
   _Amazon Simple Storage Service User Guide_
 - [How do I troubleshoot 403 Access Denied errors from Amazon S3?](https://repost.aws/knowledge-center/s3-troubleshoot-403 "https://repost.aws/knowledge-center/s3-troubleshoot-403") on AWS re:Post
 
-## Task with S3 source location fails with
-
-`HeadObject` or `GetObjectTagging` error
+## Task with S3 source location fails with `HeadObject` or `GetObjectTagging` error
 
 ###### Errors related to `HeadObject` or `GetObjectTagging`
 
@@ -309,5 +280,4 @@ If you see either of these errors, validate that the IAM role that DataSync uses
 - `s3:GetObjectVersion`
 - `s3:GetObjectVersionTagging`
 
-If you need to update your role with these permissions, see [Creating an IAM role for DataSync to
-access your Amazon S3 location](create-s3-location.md#create-role-manually "create-s3-location.md#create-role-manually").
+If you need to update your role with these permissions, see [Creating an IAM role for DataSync to access your Amazon S3 location](create-s3-location.md#create-role-manually "create-s3-location.md#create-role-manually").

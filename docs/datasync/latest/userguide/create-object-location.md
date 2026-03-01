@@ -1,6 +1,4 @@
-# Configuring DataSync transfers with an object
-
-storage system
+# Configuring DataSync transfers with an object storage system
 
 With AWS DataSync, you can transfer data between your object storage system and one of
 the following AWS storage services using Basic mode tasks:
@@ -37,9 +35,7 @@ operations](../../../AmazonS3/latest/API/API_Operations.md "../../../AmazonS3/la
 - `PutObjectTagging`
 - `UploadPart`
 
-## Creating your object storage
-
-transfer location
+## Creating your object storage transfer location
 
 Before you begin, you need an object storage system that you plan to transfer data
 to or from.
@@ -61,8 +57,7 @@ agents**, then choose the DataSync agent that connects to
 your object storage system.
 
 Some transfers don't require agents. In other scenarios, you might
-want to use more than one agent. For more information, see [Situations when you don't need a DataSync
-agent](do-i-need-datasync-agent.md#when-agent-not-required "do-i-need-datasync-agent.md#when-agent-not-required") and [Using multiple DataSync agents](do-i-need-datasync-agent.md#multiple-agents "do-i-need-datasync-agent.md#multiple-agents"). 8. To configure the connection to the object storage server, expand
+want to use more than one agent. For more information, see [Situations when you don't need a DataSync agent](do-i-need-datasync-agent.md#when-agent-not-required "do-i-need-datasync-agent.md#when-agent-not-required") and [Using multiple DataSync agents](do-i-need-datasync-agent.md#multiple-agents "do-i-need-datasync-agent.md#multiple-agents"). 8. To configure the connection to the object storage server, expand
 **Additional settings** and do the
 following:
 

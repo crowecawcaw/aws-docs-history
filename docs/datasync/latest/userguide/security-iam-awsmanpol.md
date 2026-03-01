@@ -22,9 +22,7 @@ read-only permissions for new operations and resources. For a list and descripti
 function policies, see [AWS managed policies for
 job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md "../../../IAM/latest/UserGuide/access_policies_job-functions.md") in the _IAM User Guide_.
 
-## AWS managed policy:
-
-AWSDataSyncReadOnlyAccess
+## AWS managed policy: AWSDataSyncReadOnlyAccess
 
 You can attach the `AWSDataSyncReadOnlyAccess` policy to your IAM
 identities. This policy grants read-only permissions for DataSync.
@@ -32,9 +30,7 @@ identities. This policy grants read-only permissions for DataSync.
 To view the permissions for this policy, see [AWSDataSyncReadOnlyAccess](../../../aws-managed-policy/latest/reference/AWSDataSyncReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AWSDataSyncReadOnlyAccess.md")
 in the _AWS Managed Policy Reference_ .
 
-## AWS managed policy:
-
-AWSDataSyncFullAccess
+## AWS managed policy: AWSDataSyncFullAccess
 
 You can attach the `AWSDataSyncFullAccess` policy to your IAM identities. This policy grants administrative permissions for DataSync and is required for
 AWS Management Console access to the service. `AWSDataSyncFullAccess` provides full
@@ -46,14 +42,11 @@ resource policy.
 To view the permissions for this policy, see [AWSDataSyncFullAccess](../../../aws-managed-policy/latest/reference/AWSDataSyncFullAccess.md "../../../aws-managed-policy/latest/reference/AWSDataSyncFullAccess.md")
 in the _AWS Managed Policy Reference_ .
 
-## AWS managed policy:
-
-AWSDataSyncServiceRolePolicy
+## AWS managed policy: AWSDataSyncServiceRolePolicy
 
 You can't attach the `AWSDataSyncServiceRolePolicy` policy to your IAM
 identities. This policy is attached to a service-linked role that allows DataSync to perform
-actions on your behalf. For more information, see [Using service-linked roles for
-DataSync](using-service-linked-roles.md "using-service-linked-roles.md").
+actions on your behalf. For more information, see [Using service-linked roles for DataSync](using-service-linked-roles.md "using-service-linked-roles.md").
 
 This policy grants administrative permissions that allow the service-linked role to
 create Amazon CloudWatch logs for DataSync tasks using Enhanced mode.

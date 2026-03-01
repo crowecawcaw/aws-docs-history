@@ -1,6 +1,4 @@
-# Configuring how to handle files, objects, and
-
-metadata
+# Configuring how to handle files, objects, and metadata
 
 You can configure how AWS DataSync handles your files, objects, and their associated
 metadata when transferring between locations.
@@ -22,22 +20,18 @@ what's changed since your previous task execution.
 | **Transfer only data that has<br>changed** | [TransferMode](API_Options.md#DataSync-Type-Options-TransferMode "API_Options.md#DataSync-Type-Options-TransferMode") set to<br>`CHANGED` | After your initial full transfer, DataSync copies only the data<br>and metadata that differs between the source and destination<br>location. |
 | **Transfer all data**                      | [TransferMode](API_Options.md#DataSync-Type-Options-TransferMode "API_Options.md#DataSync-Type-Options-TransferMode") set to<br>`ALL`     | DataSync copies everything in the source to the destination<br>without comparing differences between the locations.                          |
 
-## File and object handling
-
-options
+## File and object handling options
 
 You can control some aspects of how DataSync treats your files or objects in the
 destination location. For example, DataSync can delete files in the destination
 that aren't in the source.
 
-| Option in console      | Option in API                                                                                                                                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Keep deleted files** | [PreserveDeletedFiles](API_Options.md#DataSync-Type-Options-PreserveDeletedFiles "API_Options.md#DataSync-Type-Options-PreserveDeletedFiles") | Specifies whether DataSync maintains files or objects in the<br>destination location that don't exist in the<br>source.<br>If you configure your task to delete objects from your<br>Amazon S3 bucket, you might incur minimum storage duration<br>charges for certain storage classes. For detailed<br>information, see [Storage class considerations with Amazon S3<br>transfers](create-s3-location.md#using-storage-classes "create-s3-location.md#using-storage-classes").<br>WarningYou can't configure your task to delete data in the<br>destination and also [transfer all<br>data](#task-option-transfer-mode "#task-option-transfer-mode"). When you transfer all data, DataSync<br>doesn't scan your destination location and doesn't know<br>what to delete. |
-| **Overwrite files**    | [OverwriteMode](API_Options.md#DataSync-Type-Options-OverwriteMode "API_Options.md#DataSync-Type-Options-OverwriteMode")                      | Specifies whether DataSync modifies data in the destination<br>location when the source data or metadata has changed. If<br>you don't configure your task to overwrite data, the<br>destination data isn't overwritten even if the source data<br>differs.<br>If your task overwrites objects, you might incur<br>additional charges for certain storage classes (for example,<br>for retrieval or early deletion). For detailed information,<br>see [Storage class considerations with Amazon S3<br>transfers](create-s3-location.md#using-storage-classes "create-s3-location.md#using-storage-classes").                                                                                                                                                               |
+| Option in console      | Option in API                                                                                                                                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Keep deleted files** | [PreserveDeletedFiles](API_Options.md#DataSync-Type-Options-PreserveDeletedFiles "API_Options.md#DataSync-Type-Options-PreserveDeletedFiles") | Specifies whether DataSync maintains files or objects in the<br>destination location that don't exist in the<br>source.<br>If you configure your task to delete objects from your<br>Amazon S3 bucket, you might incur minimum storage duration<br>charges for certain storage classes. For detailed<br>information, see [Storage class considerations with Amazon S3 transfers](create-s3-location.md#using-storage-classes "create-s3-location.md#using-storage-classes").<br>WarningYou can't configure your task to delete data in the<br>destination and also [transfer all<br>data](#task-option-transfer-mode "#task-option-transfer-mode"). When you transfer all data, DataSync<br>doesn't scan your destination location and doesn't know<br>what to delete. |
+| **Overwrite files**    | [OverwriteMode](API_Options.md#DataSync-Type-Options-OverwriteMode "API_Options.md#DataSync-Type-Options-OverwriteMode")                      | Specifies whether DataSync modifies data in the destination<br>location when the source data or metadata has changed. If<br>you don't configure your task to overwrite data, the<br>destination data isn't overwritten even if the source data<br>differs.<br>If your task overwrites objects, you might incur<br>additional charges for certain storage classes (for example,<br>for retrieval or early deletion). For detailed information,<br>see [Storage class considerations with Amazon S3 transfers](create-s3-location.md#using-storage-classes "create-s3-location.md#using-storage-classes").                                                                                                                                                               |
 
-## Metadata handling
-
-options
+## Metadata handling options
 
 DataSync can preserve file and object metadata during a transfer. The metadata
 that DataSync can preserve depends on the storage systems involved and whether
@@ -68,9 +62,7 @@ attributes, they will be ignored during task verification.
 | **Copy ownership and DACLs**         | [SecurityDescriptorCopyFlags](API_Options.md#DataSync-Type-Options-SecurityDescriptorCopyFlags "API_Options.md#DataSync-Type-Options-SecurityDescriptorCopyFlags")<br>set to `OWNER_DACL`             | DataSync copies the following:<br>• The object owner.<br>• DACLs, which determine whether to grant access to<br>an object.<br>DataSync won't copy SACLs when you choose this option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | **Do not copy ownership or ACLs**    | [SecurityDescriptorCopyFlags](API_Options.md#DataSync-Type-Options-SecurityDescriptorCopyFlags "API_Options.md#DataSync-Type-Options-SecurityDescriptorCopyFlags")<br>set to `NONE`                   | DataSync doesn't copy any ownership or permissions data. The<br>objects that DataSync writes to your destination location are<br>owned by the user whose credentials are provided for DataSync<br>to access the destination. Destination object permissions<br>are determined based on the permissions configured on the<br>destination server.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 
-## Configuring file, object, and
-
-metadata handling options
+## Configuring file, object, and metadata handling options
 
 You can configure how DataSync handles files, objects, and metadata when
 creating, editing, or starting your transfer task.
@@ -83,8 +75,7 @@ metadata handling options when creating a task.
    then choose **Create task**.
 3. Configure your task's source and destination locations.
 
-For more information, see [Where can I transfer my data with
-AWS DataSync?](working-with-locations.md "working-with-locations.md") 4. For **Transfer mode**, choose one of the
+For more information, see [Where can I transfer my data with AWS DataSync?](working-with-locations.md "working-with-locations.md") 4. For **Transfer mode**, choose one of the
 following options:
 
     * **Transfer only data that has
@@ -98,8 +89,7 @@ that don't exist in the source.
 If you don't choose this option and your task deletes objects
 from your Amazon S3 bucket, you might incur minimum storage duration
 charges for certain storage classes. For detailed information,
-see [Storage class considerations with Amazon S3
-transfers](create-s3-location.md#using-storage-classes "create-s3-location.md#using-storage-classes").
+see [Storage class considerations with Amazon S3 transfers](create-s3-location.md#using-storage-classes "create-s3-location.md#using-storage-classes").
 
 ###### Warning
 
@@ -112,14 +102,12 @@ or metadata has changed.
 
 If your task overwrites objects, you might incur additional
 charges for certain storage classes (for example, for retrieval
-or early deletion). For detailed information, see [Storage class considerations with Amazon S3
-transfers](create-s3-location.md#using-storage-classes "create-s3-location.md#using-storage-classes").
+or early deletion). For detailed information, see [Storage class considerations with Amazon S3 transfers](create-s3-location.md#using-storage-classes "create-s3-location.md#using-storage-classes").
 
 If you don't choose this option, the destination data isn't
 overwritten even if the source data differs. 7. Under **Transfer options**, select how you
 want DataSync to handle metadata. For more information about the
-options, see [Metadata handling
-options](#task-option-metadata-handling "#task-option-metadata-handling").
+options, see [Metadata handling options](#task-option-metadata-handling "#task-option-metadata-handling").
 
 ###### Important
 

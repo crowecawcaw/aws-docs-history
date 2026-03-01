@@ -6,9 +6,7 @@ information across your organization.
 This information helps you create a migration [process](../../../prescriptive-guidance/latest/strategy-large-scale-migrations/process.md "../../../prescriptive-guidance/latest/strategy-large-scale-migrations/process.md"), which for large migrations can include multiple transfers and
 procedures for cutting over operations (done in [waves](../../../prescriptive-guidance/latest/application-portfolio-assessment-guide/wave-planning.md "../../../prescriptive-guidance/latest/application-portfolio-assessment-guide/wave-planning.md")) from your source to your destination storage.
 
-## Understanding why you want to
-
-migrate
+## Understanding why you want to migrate
 
 Before you can start migrating to AWS, you need to clearly understand why
 you're migrating your data. This helps address common migration challenges such
@@ -26,9 +24,7 @@ questions:
 - Is this for data archival?
 - Do applications or users need regular access to this data?
 
-## Figuring out
-
-logistics
+## Figuring out logistics
 
 Address some basic logistics about your storage environment, the migration,
 and your organization:
@@ -73,17 +69,12 @@ that you can execute with DataSync.
 
 ###### Contents
 
-- [Determining data usage
-  patterns](gathering-migration-requirements.md#review-migration-data-usage "gathering-migration-requirements.md#review-migration-data-usage")
-- [Identifying data structure and
-  layout](gathering-migration-requirements.md#review-migration-data-structure "gathering-migration-requirements.md#review-migration-data-structure")
-- [Documenting shares and
-  folders](gathering-migration-requirements.md#review-migration-data-document-shares "gathering-migration-requirements.md#review-migration-data-document-shares")
+- [Determining data usage patterns](gathering-migration-requirements.md#review-migration-data-usage "gathering-migration-requirements.md#review-migration-data-usage")
+- [Identifying data structure and layout](gathering-migration-requirements.md#review-migration-data-structure "gathering-migration-requirements.md#review-migration-data-structure")
+- [Documenting shares and folders](gathering-migration-requirements.md#review-migration-data-document-shares "gathering-migration-requirements.md#review-migration-data-document-shares")
 - [Analyzing file sizes](gathering-migration-requirements.md#review-migration-data-file-sizes "gathering-migration-requirements.md#review-migration-data-file-sizes")
 
-### Determining data usage
-
-patterns
+### Determining data usage patterns
 
 - For actively used data with frequent modifications, plan for
   multiple waves of incremental transfers to avoid disrupting
@@ -95,9 +86,7 @@ patterns
   wave for archive data, with the rest of the waves dedicated to
   migrating active data.
 
-### Identifying data structure and
-
-layout
+### Identifying data structure and layout
 
 - Determine if data is organized by time periods (year, month, day)
   or other patterns.
@@ -105,9 +94,7 @@ layout
   example, you might migrate a year's worth of archive data during
   one wave.
 
-### Documenting shares and
-
-folders
+### Documenting shares and folders
 
 - Create an inventory of shares and folders (including file or
   object counts for each).
@@ -128,9 +115,7 @@ folders
   performs these operations when comparing and verifying your source
   and destination locations.
 
-## Identifying storage
-
-requirements
+## Identifying storage requirements
 
 To choose a compatible AWS storage service to migrate your data, you need to
 evaluate your source storage system's characteristics and performance.
@@ -141,29 +126,20 @@ migration.
 
 ###### Contents
 
-- [Determining source
-  storage support](gathering-migration-requirements.md#determine-storage-requirements-protocols "gathering-migration-requirements.md#determine-storage-requirements-protocols")
-- [Reviewing metadata
-  preservation requirements](gathering-migration-requirements.md#determine-storage-requirements-metadata "gathering-migration-requirements.md#determine-storage-requirements-metadata")
-- [Collecting
-  performance metrics from source storage](gathering-migration-requirements.md#determine-storage-requirements-performance "gathering-migration-requirements.md#determine-storage-requirements-performance")
-- [Choosing a
-  destination AWS storage service](gathering-migration-requirements.md#determine-storage-requirements-destination "gathering-migration-requirements.md#determine-storage-requirements-destination")
+- [Determining source storage support](gathering-migration-requirements.md#determine-storage-requirements-protocols "gathering-migration-requirements.md#determine-storage-requirements-protocols")
+- [Reviewing metadata preservation requirements](gathering-migration-requirements.md#determine-storage-requirements-metadata "gathering-migration-requirements.md#determine-storage-requirements-metadata")
+- [Collecting performance metrics from source storage](gathering-migration-requirements.md#determine-storage-requirements-performance "gathering-migration-requirements.md#determine-storage-requirements-performance")
+- [Choosing a destination AWS storage service](gathering-migration-requirements.md#determine-storage-requirements-destination "gathering-migration-requirements.md#determine-storage-requirements-destination")
 
-### Determining source
-
-storage support
+### Determining source storage support
 
 DataSync can work with a variety of storage systems that allow access through
 NFS, SMB, HDFS, and S3 compatible object storage clients.
 
 If you're migrating from other cloud storage, verify that DataSync can work
-with that provider. For a list of supported source locations, see [Where can I transfer my data with
-AWS DataSync?](working-with-locations.md "working-with-locations.md")
+with that provider. For a list of supported source locations, see [Where can I transfer my data with AWS DataSync?](working-with-locations.md "working-with-locations.md")
 
-### Reviewing metadata
-
-preservation requirements
+### Reviewing metadata preservation requirements
 
 DataSync can preserve your file or object metadata during a transfer. How
 your metadata gets preserved depends on your transfer locations and if those
@@ -172,12 +148,9 @@ locations use similar types of metadata.
 DataSync in some cases needs additional permissions to preserve file
 metadata, such as NTFS discretionary access lists (DACLs).
 
-For more information, see [Understanding how DataSync handles file and object
-metadata](metadata-copied.md "metadata-copied.md").
+For more information, see [Understanding how DataSync handles file and object metadata](metadata-copied.md "metadata-copied.md").
 
-### Collecting
-
-performance metrics from source storage
+### Collecting performance metrics from source storage
 
 Measure baseline IOPS and disk throughput during average and peak workloads
 for your source storage. Transferring data adds I/O overhead to both your
@@ -187,9 +160,7 @@ Compare
 this performance data against your storage system's specifications to
 determine available performance resources.
 
-### Choosing a
-
-destination AWS storage service
+### Choosing a destination AWS storage service
 
 At this point, you might have an idea what AWS storage service makes sense
 for your data. If not, data usage patterns and storage performance are a
@@ -199,9 +170,7 @@ Amazon S3 if you have archive data and Amazon FSx or Amazon EFS for active data.
 To help you decide the right object or file-based storage for your data,
 see [Choosing an AWS storage service](../../../decision-guides/latest/storage-on-aws-how-to-choose/choosing-aws-storage-service.md "../../../decision-guides/latest/storage-on-aws-how-to-choose/choosing-aws-storage-service.md").
 
-## Determining network
-
-requirements
+## Determining network requirements
 
 To migrate your data with DataSync, you must establish network connections
 between your source storage, agent, and AWS. You also need to plan for enough
@@ -212,18 +181,12 @@ following network requirements.
 
 ###### Contents
 
-- [Assessing your
-  available network bandwidth](gathering-migration-requirements.md#datasync-migration-network-bandwidth "gathering-migration-requirements.md#datasync-migration-network-bandwidth")
-- [Considering
-  options for connecting your network to AWS](gathering-migration-requirements.md#datasync-migration-network-connection-options "gathering-migration-requirements.md#datasync-migration-network-connection-options")
-- [Choosing a
-  service endpoint for agent communication](gathering-migration-requirements.md#datasync-migration-network-service-endpoint "gathering-migration-requirements.md#datasync-migration-network-service-endpoint")
-- [Planning for enough
-  network infrastructure](gathering-migration-requirements.md#datasync-migration-network-interfaces "gathering-migration-requirements.md#datasync-migration-network-interfaces")
+- [Assessing your available network bandwidth](gathering-migration-requirements.md#datasync-migration-network-bandwidth "gathering-migration-requirements.md#datasync-migration-network-bandwidth")
+- [Considering options for connecting your network to AWS](gathering-migration-requirements.md#datasync-migration-network-connection-options "gathering-migration-requirements.md#datasync-migration-network-connection-options")
+- [Choosing a service endpoint for agent communication](gathering-migration-requirements.md#datasync-migration-network-service-endpoint "gathering-migration-requirements.md#datasync-migration-network-service-endpoint")
+- [Planning for enough network infrastructure](gathering-migration-requirements.md#datasync-migration-network-interfaces "gathering-migration-requirements.md#datasync-migration-network-interfaces")
 
-### Assessing your
-
-available network bandwidth
+### Assessing your available network bandwidth
 
 Your available network bandwidth factors into your transfer speeds and
 overall migration time. If you're transferring from an on-premises storage
@@ -236,16 +199,13 @@ system, do the following:
   cutovers happen.
 
 You can control how much bandwidth DataSync uses. For more information, see
-[Setting bandwidth limits for your AWS DataSync
-task](configure-bandwidth.md "configure-bandwidth.md").
+[Setting bandwidth limits for your AWS DataSync task](configure-bandwidth.md "configure-bandwidth.md").
 
 Since transfers from other cloud storage typically happen over the public
 internet, there usually are less bandwidth restrictions and considerations
 with these transfers.
 
-### Considering
-
-options for connecting your network to AWS
+### Considering options for connecting your network to AWS
 
 Consider the following options for establishing network connectivity for
 your DataSync transfer:
@@ -260,18 +220,14 @@ your DataSync transfer:
   network
   usage data.
 
-### Choosing a
-
-service endpoint for agent communication
+### Choosing a service endpoint for agent communication
 
 DataSync agents use [service
 endpoints](choose-service-endpoint.md "choose-service-endpoint.md") to communicate with the DataSync service. The type of
 endpoint you use depends on the how you're connecting for your network to
 AWS.
 
-### Planning for enough
-
-network infrastructure
+### Planning for enough network infrastructure
 
 For every transfer task that you create, DataSync automatically generates and
 manages the network infrastructure for your data transfers. This

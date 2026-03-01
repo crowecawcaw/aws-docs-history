@@ -4,9 +4,7 @@ Use the following information to help you troubleshoot issues with AWS DataSync 
 task executions. These issues might include task setup problems, stuck task executions, and
 data not transferring as expected.
 
-## Error: \*\*`Invalid SyncOption value. Option:
-
-TransferMode,PreserveDeletedFiles, Value: ALL,REMOVE.`\*\*
+## Error: **`Invalid SyncOption value. Option: TransferMode,PreserveDeletedFiles, Value: ALL,REMOVE.`**
 
 This error occurs when you're creating or editing your DataSync task and you select the
 **Transfer all data** option and deselect the **Keep
@@ -15,9 +13,7 @@ deleted files** option.
 When you transfer all data, DataSync doesn't scan your destination location and doesn't
 know what to delete.
 
-## Task execution fails with an
-
-**`EniNotFound`** error
+## Task execution fails with an **`EniNotFound`** error
 
 This error occurs if you delete one of your task's network interfaces in your virtual
 private cloud (VPC). If your task is scheduled or queued, the task will fail if it's
@@ -49,9 +45,7 @@ following:
   disabling task queueing or scheduling (through DataSync or custom
   automation).
 
-## Task execution fails with a
-
-**`Cannot allocate memory`** error
+## Task execution fails with a **`Cannot allocate memory`** error
 
 When your DataSync task fails with a **`Cannot allocate memory`** error,
 it can mean a few different things.
@@ -125,14 +119,11 @@ system's throughput capacity using the following methods:
 Then, make sure that the task doesn't use all of the file system's available
 throughput capacity by doing one of the following:
 
-- Set the task execution's bandwidth limit to an amount that is less than the FSx for ONTAP file system's provisioned throughput capacity. For more information, see [Setting bandwidth limits for your AWS DataSync
-  task](configure-bandwidth.md "configure-bandwidth.md").
+- Set the task execution's bandwidth limit to an amount that is less than the FSx for ONTAP file system's provisioned throughput capacity. For more information, see [Setting bandwidth limits for your AWS DataSync task](configure-bandwidth.md "configure-bandwidth.md").
 - Increase the file system’s provisioned throughput capacity. For more information, see [Updating throughput capacity](../../../fsx/latest/ONTAPGuide/increase-throughput-capacity.md "../../../fsx/latest/ONTAPGuide/increase-throughput-capacity.md")
   in the _FSx for ONTAP User Guide_.
 
-## Task fails with `Connection Reset by peer` or `Host is down` message
-
-for FSx for ONTAP file system
+## Task fails with `Connection Reset by peer` or `Host is down` message for FSx for ONTAP file system
 
 If your DataSync task fails with a `Connection Reset by peer` or `Host is
  down` message when transferring data with an FSx for ONTAP file system, it can be
@@ -156,9 +147,7 @@ in the FSx for ONTAP User Guide.
 
 Restart the task.
 
-## Task execution has a launching status but nothing
-
-seems to be happening
+## Task execution has a launching status but nothing seems to be happening
 
 Your DataSync task can get stuck with a **Launching** status typically
 because the agent is powered off or has lost network connectivity.
@@ -170,15 +159,11 @@ Make sure that your agent's status is **ONLINE**. If the agent is
 
 If the agent is powered on and the task is still **Launching**, then
 there's likely a network connection problem between your agent and AWS. For
-information about how to test network connectivity, see [Verifying your agent's connection to the DataSync
-service](test-agent-connections.md#test-network "test-agent-connections.md#test-network").
+information about how to test network connectivity, see [Verifying your agent's connection to the DataSync service](test-agent-connections.md#test-network "test-agent-connections.md#test-network").
 
-If you're still having this issue, see [I don't know what's going on with my agent.
-Can someone help me?](troubleshooting-datasync-agents.md#enable-support-access "troubleshooting-datasync-agents.md#enable-support-access").
+If you're still having this issue, see [I don't know what's going on with my agent. Can someone help me?](troubleshooting-datasync-agents.md#enable-support-access "troubleshooting-datasync-agents.md#enable-support-access").
 
-## Task execution seems stuck in the preparing
-
-status
+## Task execution seems stuck in the preparing status
 
 The amount of time your DataSync transfer task has the
 **Preparing** status depends on the amount of data in your transfer
@@ -195,9 +180,7 @@ You shouldn't have to do anything. Continue to wait for the task status to chang
 to **Transferring**. If the status still doesn't change, contact
 [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
 
-## Task execution stops before the
-
-transfer finishes
+## Task execution stops before the transfer finishes
 
 If your DataSync task execution stops early, your task configuration might include an
 AWS Region that's disabled in your AWS account.
@@ -210,9 +193,7 @@ Do the following to run your task again:
    status](../../../accounts/latest/reference/manage-acct-regions.md "../../../accounts/latest/reference/manage-acct-regions.md") of your task's Regions and make sure they're enabled.
 2. [Start the task](run-task.md "run-task.md") again.
 
-## Task execution fails
-
-when transferring from a Google Cloud Storage bucket
+## Task execution fails when transferring from a Google Cloud Storage bucket
 
 Because DataSync communicates with Google Cloud Storage by using the Amazon S3 API, there's a
 limitation that might cause your DataSync transfer to fail if you try to copy object tags.
@@ -225,9 +206,7 @@ The following message related to the issue appears in your CloudWatch logs:
 To prevent this, deselect the **Copy object tags** option when
 configuring your transfer task settings.
 
-## There are mismatches between task
-
-execution's timestamps
+## There are mismatches between task execution's timestamps
 
 When looking at the DataSync console or Amazon CloudWatch logs, you might notice that the start
 and end times for your DataSync task execution don't match the timestamps you see in other
@@ -243,24 +222,17 @@ DataSync console or CloudWatch logs and the following places:
 - Network traffic coming from the DataSync agent
 - Amazon EventBridge events
 
-## Task execution fails with `NoMem`
-
-error
+## Task execution fails with `NoMem` error
 
 The set of data you're trying to transfer may be too large for DataSync. If you see this
 error, contact [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
 
-## Task execution fails with `FsNfsIdMappingEnabled`
-
-error
+## Task execution fails with `FsNfsIdMappingEnabled` error
 
 DataSync does not support NFSv4 ID mapping. To work around this,
 [configure your NFS location to use NFSv3](create-nfs-location.md#configure-network-nfs-location "create-nfs-location.md#configure-network-nfs-location").
 
-## Object fails to transfer to
-
-Azure Blob Storage with `user metadata key`
-error
+## Object fails to transfer to Azure Blob Storage with `user metadata key` error
 
 When transferring from an S3 bucket to Azure Blob Storage, you might
 see the following error:
@@ -273,9 +245,7 @@ This means that `/user-metadata/file1` includes
 user metadata that doesn't use a valid C# identifier. For more information, see the
 [Microsoft documentation](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/identifier-names "https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/identifier-names").
 
-## There's an `/.aws-datasync`
-
-folder in the destination location
+## There's an `/.aws-datasync` folder in the destination location
 
 DataSync creates a folder called `/.aws-datasync` in your destination location
 to help facilitate your data transfer.
@@ -288,9 +258,7 @@ situations where this doesn't happen.
 Delete this folder anytime as long as you don't have a running task execution
 copying to that location.
 
-## Can't transfer symbolic links
-
-between locations using SMB
+## Can't transfer symbolic links between locations using SMB
 
 When your task execution finishes, you see the following error:
 
@@ -311,8 +279,7 @@ CloudWatch logs:
 
 DataSync doesn't support transferring symbolic links (or hard links) when
 transferring between these location types. For more information, see
-[Links and directories copied by
-AWS DataSync](special-files-copied.md "special-files-copied.md").
+[Links and directories copied by AWS DataSync](special-files-copied.md "special-files-copied.md").
 
 ## Task report errors
 

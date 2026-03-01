@@ -1,6 +1,4 @@
-# Configuring transfers with other
-
-cloud object storage
+# Configuring transfers with other cloud object storage
 
 With AWS DataSync, you can transfer data between [AWS storage services](transferring-aws-storage.md "transferring-aws-storage.md") and the following cloud object storage providers:
 
@@ -28,9 +26,7 @@ Regardless of whether you use an agent, you must also create a transfer [locatio
 **Object storage** location). DataSync can use this location as a source
 or destination for your transfer.
 
-## Providing DataSync access to your other cloud object
-
-storage
+## Providing DataSync access to your other cloud object storage
 
 How DataSync accesses your cloud object storage depends on several factors, including
 whether your storage is compatible with the Amazon S3 API and the permissions and credentials
@@ -101,9 +97,7 @@ depending on how your cloud storage provider refers to these credentials.
 
 For more information, see your cloud provider's documentation.
 
-## Considerations when transferring from other
-
-cloud object storage
+## Considerations when transferring from other cloud object storage
 
 When planning to transfer objects to or from another cloud storage provider by using
 DataSync, there are some things to keep in mind.
@@ -172,9 +166,7 @@ AWS.
 In this situation, we recommend using a VPC service endpoint. 3. Configure your network to work with [VPC
 service endpoints](datasync-network.md#using-vpc-endpoint "datasync-network.md#using-vpc-endpoint"). 4. [Activate the agent](activate-agent.md "activate-agent.md").
 
-## Creating a transfer location for
-
-your other cloud object storage
+## Creating a transfer location for your other cloud object storage
 
 You can configure DataSync to use your cloud object storage as a source or destination
 location.

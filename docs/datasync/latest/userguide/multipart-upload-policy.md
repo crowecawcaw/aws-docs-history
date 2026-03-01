@@ -18,8 +18,7 @@ AWS DataSync transfer, it might be due to one or more of the following reasons:
 In these cases, you can take the following steps:
 
 - Make sure you understand how DataSync uses S3 requests and how they might be
-  affecting your storage costs. For more information, see [Evaluating S3 request costs when
-  using DataSync](create-s3-location.md#create-s3-location-s3-requests "create-s3-location.md#create-s3-location-s3-requests").
+  affecting your storage costs. For more information, see [Evaluating S3 request costs when using DataSync](create-s3-location.md#create-s3-location-s3-requests "create-s3-location.md#create-s3-location-s3-requests").
 - If the issue is related to multipart uploads, configure a policy for multipart
   uploads for your S3 bucket to clean up incomplete multipart uploads to reduce
   storage cost. For more information, see the AWS blog post [S3 Lifecycle Management Update - Support for Multipart Uploads and Delete

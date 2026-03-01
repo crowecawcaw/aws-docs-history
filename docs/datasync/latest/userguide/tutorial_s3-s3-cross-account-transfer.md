@@ -1,6 +1,4 @@
-# Tutorial: Transferring data between
-
-Amazon S3 buckets across AWS accounts
+# Tutorial: Transferring data between Amazon S3 buckets across AWS accounts
 
 With AWS DataSync, you can transfer data between Amazon S3 buckets that belong to different
 AWS accounts.
@@ -36,9 +34,7 @@ Region.
 
 ![An example DataSync scenario of data moving from an S3 bucket in one AWS account (your source account) and Region before making it into an S3 bucket in a different AWS account (your destination account) and Region.](images/s3-s3-cross-account-diff-region-diagram.png)
 
-## Prerequisite:
-
-Required source account permissions
+## Prerequisite: Required source account permissions
 
 For your source AWS account, there are two sets of permissions to consider with this
 kind of cross-account transfer:
@@ -172,17 +168,13 @@ JSON
 
 ```
 
-## Prerequisite:
-
-Required destination account permissions
+## Prerequisite: Required destination account permissions
 
 In your destination account, your _user permissions_ must allow you
 to update your destination bucket's policy and disable its access control lists (ACLs).
 For more information on these specific permissions, see the [_[Amazon S3 User Guide](../../../AmazonS3/latest/userguide.md "../../../AmazonS3/latest/userguide.md")_](../../../AmazonS3/latest/userguide/Welcome.md "../../../AmazonS3/latest/userguide/Welcome.md").
 
-## Step 1: In your
-
-source account, create a DataSync IAM role for destination bucket access
+## Step 1: In your source account, create a DataSync IAM role for destination bucket access
 
 In your source AWS account, you need an IAM role that gives DataSync the permissions
 to transfer data to your destination account bucket.
@@ -283,9 +275,7 @@ transfer data to the S3 bucket in your destination account.
 4. Choose **Next**. Give your policy a name and choose
    **Create policy**.
 
-## Step 2: In
-
-your destination account, update your S3 bucket policy
+## Step 2: In your destination account, update your S3 bucket policy
 
 In your destination account, modify the destination S3 bucket policy to include the
 [DataSync IAM
@@ -356,9 +346,7 @@ for your destination account](#s3-s3-cross-account-required-permissions-dest-acc
 
 7. Choose **Save changes**.
 
-## Step 3: In your
-
-destination account, disable ACLs for your S3 bucket
+## Step 3: In your destination account, disable ACLs for your S3 bucket
 
 It's important that all the data that you transfer to the S3 bucket belongs to your
 destination account. To ensure that this account owns the data, disable the bucket's
@@ -379,9 +367,7 @@ for your destination account](#s3-s3-cross-account-required-permissions-dest-acc
    (recommended)** option.
 5. Choose **Save changes**.
 
-## Step 4: In your source account,
-
-create your DataSync locations
+## Step 4: In your source account, create your DataSync locations
 
 In your source account, create the DataSync locations for your source and destination S3
 buckets.
@@ -462,9 +448,7 @@ successfully created the location:
    From your source account, you can see the S3 location that you just created
    for your destination account bucket.
 
-## Step 5: In your source
-
-account, create and start your DataSync task
+## Step 5: In your source account, create and start your DataSync task
 
 Before starting a DataSync task to transfer your data, let's recap what you've done so
 far:
@@ -536,9 +520,7 @@ cross-account transfer.
 
 When transferring between S3 buckets in different AWS accounts and Regions with Basic mode tasks, you might get a network connection error when starting your DataSync task. To resolve this, use an Enhanced mode task. Alternatively, create a Basic mode task in the same Region as your destination location and try running that task.
 
-## Related: Cross-account
-
-transfers with S3 buckets using server-side encryption
+## Related: Cross-account transfers with S3 buckets using server-side encryption
 
 If you're trying to do this transfer with S3 buckets using server-side encryption, see
 the [AWS Storage Blog](https://aws.amazon.com/blogs/storage/transfer-customer-managed-sse-kms-encrypted-objects-across-aws-accounts-and-regions-using-aws-datasync/ "https://aws.amazon.com/blogs/storage/transfer-customer-managed-sse-kms-encrypted-objects-across-aws-accounts-and-regions-using-aws-datasync/") for instructions.

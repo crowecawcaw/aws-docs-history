@@ -14,9 +14,7 @@ was made, and additional details.
 
 To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
 
-## Working with DataSync information in
-
-CloudTrail
+## Working with DataSync information in CloudTrail
 
 CloudTrail is enabled on your AWS account when you create the account. When activity
 occurs in AWS DataSync, that activity is recorded in a CloudTrail event along with other
@@ -57,9 +55,7 @@ identity information helps you determine the following:
 For more information, see [CloudTrail
 userIdentity element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md") in the _AWS CloudTrail User Guide._
 
-## Understanding DataSync log file
-
-entries
+## Understanding DataSync log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3
 bucket that you specify. CloudTrail log files contain one or more log entries. An event

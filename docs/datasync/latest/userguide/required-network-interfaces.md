@@ -1,6 +1,4 @@
-# Network interfaces for AWS DataSync
-
-transfers
+# Network interfaces for AWS DataSync transfers
 
 For every task you create, AWS DataSync automatically generates and manages [network
 interfaces](../../../AWSEC2/latest/UserGuide/using-eni.md "../../../AWSEC2/latest/UserGuide/using-eni.md") for data transfer traffic. How many network interfaces DataSync
@@ -16,9 +14,7 @@ task:
   interfaces there are, the more IP addresses you need). Use the following tables to make
   sure your subnet has enough IP addresses for your task.
 
-## Network interfaces for transfers with
-
-agents
+## Network interfaces for transfers with agents
 
 In general, you need a DataSync agent when copying data between an AWS storage
 service and storage system that isn't AWS.
@@ -35,9 +31,7 @@ service and storage system that isn't AWS.
 1 Network interfaces aren't needed because the DataSync
 service communicates directly with the S3 bucket.
 
-## Network interfaces for transfers
-
-without agents
+## Network interfaces for transfers without agents
 
 You don’t need a DataSync agent when copying data between AWS services.
 

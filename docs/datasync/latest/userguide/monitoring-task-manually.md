@@ -1,12 +1,8 @@
-# Monitoring AWS DataSync with manual
-
-tools
+# Monitoring AWS DataSync with manual tools
 
 You can track your AWS DataSync transfers from the console or the command line.
 
-## Monitoring your transfer by using the
-
-DataSync console
+## Monitoring your transfer by using the DataSync console
 
 You can monitor your DataSync transfer by using the console, which provides real-time
 metrics such as data transferred, data and file throughput, and data
@@ -18,9 +14,7 @@ compression.
    choose **See execution details**.
 2. View metrics about your transfer.
 
-## Monitoring your transfer by using the
-
-AWS CLI
+## Monitoring your transfer by using the AWS CLI
 
 You can monitor your DataSync transfer by using the AWS Command Line Interface (AWS CLI).
 
@@ -107,9 +101,7 @@ following.
 - If the task execution fails, the result sends error codes that can help
   you troubleshoot issues. For information about the error codes, see [TaskExecutionResultDetail](API_TaskExecutionResultDetail.md "API_TaskExecutionResultDetail.md").
 
-## Monitoring your transfer by using the
-
-`watch` utility
+## Monitoring your transfer by using the `watch` utility
 
 To monitor the progress of your task in real time from the command line, you can
 use the standard Unix `watch` utility. Task execution duration values are

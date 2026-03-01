@@ -10,9 +10,7 @@ general process:
 4. Cut over operations to your destination location.
 5. Review cutover results.
 
-## Running your
-
-tasks
+## Running your tasks
 
 You likely will need to run your DataSync transfer tasks during business hours to
 minimize your overall migration time. It's common in these situations to run an
@@ -20,8 +18,7 @@ initial full transfer followed by incremental transfers that account for changes
 to your source location from users and applications.
 
 To avoid network-related issues during business hours, you can limit the
-amount of bandwidth that your tasks use. For more information, see [Setting bandwidth limits for your AWS DataSync
-task](configure-bandwidth.md "configure-bandwidth.md").
+amount of bandwidth that your tasks use. For more information, see [Setting bandwidth limits for your AWS DataSync task](configure-bandwidth.md "configure-bandwidth.md").
 
 1. Run an initial full transfer:
    1. [Start your DataSync task](run-task.md "run-task.md") (or tasks if
@@ -36,9 +33,7 @@ task](configure-bandwidth.md "configure-bandwidth.md").
       periodically.
    2. Monitor your task executions and fix errors if encountered.
 
-## Performing a
-
-cutover
+## Performing a cutover
 
 After your initial and incremental transfers, you can start the process of
 cutting over operations to your destination location.

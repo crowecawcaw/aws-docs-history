@@ -23,9 +23,7 @@ another cloud provider.
 - Transferring between a commercial AWS Region and an AWS GovCloud (US) Region where the
   source and destination are either Amazon EFS or Amazon FSx
 
-## Situations when you don't need a DataSync
-
-agent
+## Situations when you don't need a DataSync agent
 
 The situations that don't require an agent apply whether you're transferring in the
 [same AWS Region](working-with-locations.md#working-with-locations-same-region "working-with-locations.md#working-with-locations-same-region") or [across Regions](working-with-locations.md#working-with-locations-cross-regions "working-with-locations.md#working-with-locations-cross-regions").
@@ -64,8 +62,7 @@ While most transfers only need one agent, using multiple agents can speed up tra
 for large datasets with millions of files or objects. In these situations, we recommend
 running transfer tasks in parallel, using one agent per task. This approach spreads the
 transfer workload across multiple tasks, with each task using its own agent. It also helps
-reduce the time it takes DataSync to prepare and transfer your data. For more information, see [Partitioning large datasets with multiple
-tasks](create-task-how-to.md#multiple-tasks-large-dataset "create-task-how-to.md#multiple-tasks-large-dataset").
+reduce the time it takes DataSync to prepare and transfer your data. For more information, see [Partitioning large datasets with multiple tasks](create-task-how-to.md#multiple-tasks-large-dataset "create-task-how-to.md#multiple-tasks-large-dataset").
 
 Another option—especially if you have millions of small files—is to use
 multiple agents with a transfer location. For example, you can connect up to four agents

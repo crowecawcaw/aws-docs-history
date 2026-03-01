@@ -16,5 +16,5 @@ To help locate task reports in your S3 bucket, use these examples:
 - View a report by using [Amazon S3
   Select](../../../AmazonS3/latest/userguide/selecting-content-from-objects.md "../../../AmazonS3/latest/userguide/selecting-content-from-objects.md").
 - Visualize reports by using AWS services such as AWS Glue, Amazon Athena, and
-  Amazon Quick Suite. For more information about visualizing your task reports, see the
+  Amazon Quick. For more information about visualizing your task reports, see the
   [AWS Storage Blog](https://aws.amazon.com/blogs/storage/derive-insights-from-aws-datasync-task-reports-using-aws-glue-amazon-athena-and-amazon-quicksight/ "https://aws.amazon.com/blogs/storage/derive-insights-from-aws-datasync-task-reports-using-aws-glue-amazon-athena-and-amazon-quicksight/").

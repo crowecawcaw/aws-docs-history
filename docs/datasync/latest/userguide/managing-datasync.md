@@ -7,9 +7,7 @@ Learn how to manage your AWS DataSync resources, such as agents, locations, and 
 Once you activate a DataSync agent, AWS manages the agent for you (including software
 updates). [Learn more](managing-agent.md "managing-agent.md")
 
-## Testing your DataSync agent's connectivity and
-
-system resources
+## Testing your DataSync agent's connectivity and system resources
 
 While AWS manages your DataSync agent once it's deployed and activated, there might be
 cases where you need to change your agent's settings or troubleshoot an issue. [Learn more](local-console-vm.md "local-console-vm.md")

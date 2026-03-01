@@ -61,8 +61,7 @@ dependencies.
    then choose **Create task**.
 3. Configure your task's source and destination locations.
 
-For more information, see [Where can I transfer my data with
-AWS DataSync?](working-with-locations.md "working-with-locations.md") 4. For
+For more information, see [Where can I transfer my data with AWS DataSync?](working-with-locations.md "working-with-locations.md") 4. For
 **Task
 mode**, choose one of the following
 options:

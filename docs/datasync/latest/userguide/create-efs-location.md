@@ -4,9 +4,7 @@ To transfer data to or from your Amazon EFS file system, you must create an AWS 
 transfer _location_. DataSync can use this location as a
 source or destination for transferring data.
 
-## Providing DataSync access to Amazon EFS file
-
-systems
+## Providing DataSync access to Amazon EFS file systems
 
 [Creating a location](#create-efs-location-how-to "#create-efs-location-how-to") involves
 understanding how DataSync can access your storage. For Amazon EFS, DataSync mounts your file
@@ -14,18 +12,12 @@ system as a root user from your virtual private cloud (VPC) using [network inter
 
 ###### Contents
 
-- [Determining the subnet and
-  security groups for your mount target](create-efs-location.md#create-efs-location-mount-target "create-efs-location.md#create-efs-location-mount-target")
-- [Accessing restricted file
-  systems](create-efs-location.md#create-efs-location-iam "create-efs-location.md#create-efs-location-iam")
-  - [Creating a DataSync IAM role
-    for file system access](create-efs-location.md#create-efs-location-iam-role "create-efs-location.md#create-efs-location-iam-role")
-  - [Example file system policy
-    allowing DataSync access](create-efs-location.md#create-efs-location-iam-policy "create-efs-location.md#create-efs-location-iam-policy")
+- [Determining the subnet and security groups for your mount target](create-efs-location.md#create-efs-location-mount-target "create-efs-location.md#create-efs-location-mount-target")
+- [Accessing restricted file systems](create-efs-location.md#create-efs-location-iam "create-efs-location.md#create-efs-location-iam")
+  - [Creating a DataSync IAM role for file system access](create-efs-location.md#create-efs-location-iam-role "create-efs-location.md#create-efs-location-iam-role")
+  - [Example file system policy allowing DataSync access](create-efs-location.md#create-efs-location-iam-policy "create-efs-location.md#create-efs-location-iam-policy")
 
-### Determining the subnet and
-
-security groups for your mount target
+### Determining the subnet and security groups for your mount target
 
 When creating your location, you specify the subnet and security groups that
 allow DataSync to connect to one of your Amazon EFS file system's [mount
@@ -120,9 +112,7 @@ aws efs describe-mount-target-security-groups \
 
 You specify this security group when [creating your location](#create-efs-location-how-to "#create-efs-location-how-to").
 
-### Accessing restricted file
-
-systems
+### Accessing restricted file systems
 
 DataSync can transfer to or from Amazon EFS file systems that restrict access through
 [access points](../../../efs/latest/ug/efs-access-points.md "../../../efs/latest/ug/efs-access-points.md") and [IAM
@@ -139,14 +129,10 @@ mismatch between metadata in the source and destination locations.
 
 ###### Contents
 
-- [Creating a DataSync IAM role
-  for file system access](create-efs-location.md#create-efs-location-iam-role "create-efs-location.md#create-efs-location-iam-role")
-- [Example file system policy
-  allowing DataSync access](create-efs-location.md#create-efs-location-iam-policy "create-efs-location.md#create-efs-location-iam-policy")
+- [Creating a DataSync IAM role for file system access](create-efs-location.md#create-efs-location-iam-role "create-efs-location.md#create-efs-location-iam-role")
+- [Example file system policy allowing DataSync access](create-efs-location.md#create-efs-location-iam-policy "create-efs-location.md#create-efs-location-iam-policy")
 
-#### Creating a DataSync IAM role
-
-for file system access
+#### Creating a DataSync IAM role for file system access
 
 If you have an Amazon EFS file system that restricts access through an IAM
 policy, you can create an IAM role that provides DataSync permission to read
@@ -190,9 +176,7 @@ JSON
 
 You specify this role when [creating your location](#create-efs-location-how-to "#create-efs-location-how-to").
 
-#### Example file system policy
-
-allowing DataSync access
+#### Example file system policy allowing DataSync access
 
 The following example file system policy shows how access to an Amazon EFS file
 system (identified in the policy as
@@ -241,16 +225,12 @@ JSON
   access to the file system only through a specific access
   point.
 
-## Network considerations with Amazon EFS
-
-transfers
+## Network considerations with Amazon EFS transfers
 
 VPCs that you use with DataSync must have default tenancy. VPCs with dedicated tenancy
 aren't supported.
 
-## Performance considerations with Amazon EFS
-
-transfers
+## Performance considerations with Amazon EFS transfers
 
 Your Amazon EFS file system's throughput mode can affect transfer duration and file
 system performance during the transfer. Consider the following:
@@ -267,9 +247,7 @@ system performance during the transfer. Consider the following:
 For more information, see [Amazon EFS
 performance](../../../efs/latest/ug/performance.md "../../../efs/latest/ug/performance.md") in the _Amazon Elastic File System User Guide_ and the [Amazon EFS Pricing](https://aws.amazon.com/efs/pricing/ "https://aws.amazon.com/efs/pricing/") page.
 
-## Creating your Amazon EFS transfer
-
-location
+## Creating your Amazon EFS transfer location
 
 To create the transfer location, you need an existing Amazon EFS file system. If you
 don't have one, see [Getting started with Amazon EFS](../../../efs/latest/ug/getting-started.md "../../../efs/latest/ug/getting-started.md") in
@@ -313,8 +291,7 @@ choose more than one security group.
 ###### Note
 
 The security groups that you specify must allow inbound
-traffic on NFS port 2049. For more information, see [Determining the subnet and
-security groups for your mount target](#create-efs-location-mount-target "#create-efs-location-mount-target"). 8. For **In-transit encryption**, choose whether you
+traffic on NFS port 2049. For more information, see [Determining the subnet and security groups for your mount target](#create-efs-location-mount-target "#create-efs-location-mount-target"). 8. For **In-transit encryption**, choose whether you
 want DataSync to use Transport Layer Security (TLS) encryption when it
 transfers data to or from your file system.
 
@@ -324,12 +301,10 @@ You must enable this setting to configure an access point,
 IAM role, or both with your Amazon EFS location. 9. (Optional) For **EFS access point**, choose an
 access point that DataSync can use to mount your file system.
 
-For more information, see [Accessing restricted file
-systems](#create-efs-location-iam "#create-efs-location-iam"). 10. (Optional) For **IAM role**, specify a role
+For more information, see [Accessing restricted file systems](#create-efs-location-iam "#create-efs-location-iam"). 10. (Optional) For **IAM role**, specify a role
 that allows DataSync to access your file system.
 
-For information on creating this role, see [Creating a DataSync IAM role
-for file system access](#create-efs-location-iam-role "#create-efs-location-iam-role"). 11. (Optional) Select **Add tag** to tag your file
+For information on creating this role, see [Creating a DataSync IAM role for file system access](#create-efs-location-iam-role "#create-efs-location-iam-role"). 11. (Optional) Select **Add tag** to tag your file
 system.
 
 A _tag_ is a key-value pair that helps you
@@ -372,8 +347,7 @@ subdirectories using forward slashes (for example,
 
     The security groups that you specify must allow
      inbound traffic on NFS port 2049. For more information,
-     see [Determining the subnet and
-     security groups for your mount target](#create-efs-location-mount-target "#create-efs-location-mount-target").
+     see [Determining the subnet and security groups for your mount target](#create-efs-location-mount-target "#create-efs-location-mount-target").
     * For `SubnetArn`, specify the ARN of the subnet
      where you want DataSync to create the [network
      interfaces](required-network-interfaces.md "required-network-interfaces.md") for managing your data transfer
@@ -404,13 +378,11 @@ access point, IAM role, or both with your Amazon EFS
 location. 6. (Optional) For `--access-point-arn`, specify the ARN of
 an access point that DataSync can use to mount your file system.
 
-For more information, see [Accessing restricted file
-systems](#create-efs-location-iam "#create-efs-location-iam"). 7. (Optional) For `--file-system-access-role-arn`, specify
+For more information, see [Accessing restricted file systems](#create-efs-location-iam "#create-efs-location-iam"). 7. (Optional) For `--file-system-access-role-arn`, specify
 the ARN of an IAM role that allows DataSync to access your file
 system.
 
-For information on creating this role, see [Creating a DataSync IAM role
-for file system access](#create-efs-location-iam-role "#create-efs-location-iam-role"). 8. Run the `create-location-efs` command.
+For information on creating this role, see [Creating a DataSync IAM role for file system access](#create-efs-location-iam-role "#create-efs-location-iam-role"). 8. Run the `create-location-efs` command.
 
 If the command is successful, you get a response that shows you
 the ARN of the location that you created. For example:

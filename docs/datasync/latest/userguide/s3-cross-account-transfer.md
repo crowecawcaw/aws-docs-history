@@ -1,6 +1,4 @@
-# Tutorial: Transferring data from on-premises
-
-storage to Amazon S3 across AWS accounts
+# Tutorial: Transferring data from on-premises storage to Amazon S3 across AWS accounts
 
 When using AWS DataSync with on-premises storage, you typically transfer data to an AWS
 storage service that belongs to the same AWS account as your DataSync agent. There are
@@ -28,9 +26,7 @@ The following diagram illustrates this kind of scenario.
 
 ![An example DataSync scenario of data moving from an on-premises storage system through an Direct Connect connection across the internet into AWS. The data is first transferred into one AWS account (your source account), before finally making it into an Amazon S3 bucket in a different AWS account (your destination account).](images/s3-cross-account-diagram.png)
 
-## Prerequisite:
-
-Required source account permissions
+## Prerequisite: Required source account permissions
 
 For your source AWS account, there are two sets of permissions to consider with this
 kind of cross-account transfer:
@@ -165,17 +161,13 @@ DataSync destination location](#s3-cross-account-create-datasync-destination "#s
 
 ```
 
-## Prerequisite:
-
-Required destination account permissions
+## Prerequisite: Required destination account permissions
 
 In your destination account, your _user permissions_ must allow you
 to update your destination bucket's policy and disable its access control lists (ACLs).
 For more information on these specific permissions, see the [_[Amazon S3 User Guide](../../../AmazonS3/latest/userguide.md "../../../AmazonS3/latest/userguide.md")_](../../../AmazonS3/latest/userguide/Welcome.md "../../../AmazonS3/latest/userguide/Welcome.md").
 
-## Step 1: In your source account, create a
-
-DataSync agent
+## Step 1: In your source account, create a DataSync agent
 
 To get started, you must create a DataSync agent that can read from your on-premises
 storage system and communicate with the DataSync service. This process includes deploying
@@ -196,9 +188,7 @@ you use.
 3. [Activate your agent](activate-agent.md "activate-agent.md") in your source
    account.
 
-## Step 2: In your source
-
-account, create a DataSync IAM role for destination bucket access
+## Step 2: In your source account, create a DataSync IAM role for destination bucket access
 
 In your source account, you need an IAM role that gives DataSync the permissions to
 transfer data to your destination account bucket.
@@ -207,9 +197,7 @@ Since you're transferring across accounts, you must create the role manually. (D
 can create this role for you in the console when transferring in the same
 account.)
 
-### Create the DataSync IAM
-
-role
+### Create the DataSync IAM role
 
 Create an IAM role with DataSync as the trusted entity.
 
@@ -234,9 +222,7 @@ Create an IAM role with DataSync as the trusted entity.
 For more information, see [Creating a role for an AWS service (console)](../../../IAM/latest/UserGuide/id_roles_create_for-service.md#roles-creatingrole-service-console "../../../IAM/latest/UserGuide/id_roles_create_for-service.md#roles-creatingrole-service-console") in the
 _IAM User Guide_.
 
-### Add permissions to the DataSync
-
-IAM role
+### Add permissions to the DataSync IAM role
 
 The IAM role that you just created needs the permissions that allow DataSync to
 transfer data to the S3 bucket in your destination account.
@@ -309,9 +295,7 @@ transfer data to the S3 bucket in your destination account.
 4. Choose **Next**. Give your policy a name and choose
    **Create policy**.
 
-## Step 3: In your
-
-destination account, update your S3 bucket policy
+## Step 3: In your destination account, update your S3 bucket policy
 
 In your destination account, modify the destination S3 bucket policy to include the
 [DataSync IAM
@@ -381,9 +365,7 @@ permissions for your destination account](#onprem-s3-cross-account-required-perm
 
 7. Choose **Save changes**.
 
-## Step 4: In your
-
-destination account, disable ACLs for your S3 bucket
+## Step 4: In your destination account, disable ACLs for your S3 bucket
 
 It's important that all the data that you copy to the S3 bucket belongs to your
 destination account. To ensure that this account owns the data, disable the bucket's
@@ -403,18 +385,14 @@ _Amazon S3 User Guide_.
    (recommended)** option.
 5. Choose **Save changes**.
 
-## Step 5: In your source
-
-account, create a DataSync source location for your on-premises storage
+## Step 5: In your source account, create a DataSync source location for your on-premises storage
 
 In your source account, create a [DataSync source
 location](working-with-locations.md "working-with-locations.md") for the on-premises storage system that you're transferring data
 from. This location uses the [agent that
 you activated](#s3-cross-account-deploy-agent "#s3-cross-account-deploy-agent") in your source account.
 
-## Step 6: In your source
-
-account, create a DataSync destination location for your S3 bucket
+## Step 6: In your source account, create a DataSync destination location for your S3 bucket
 
 While still in your source account, create a location for the S3 bucket that you're
 transferring data to.
@@ -481,9 +459,7 @@ created the location:
 From your source account, you can see the S3 location that you just created for your
 destination account bucket.
 
-## Step 7: In your source
-
-account, create and start your DataSync task
+## Step 7: In your source account, create and start your DataSync task
 
 Before starting a DataSync task to transfer your data, let's recap what you've done so
 far:

@@ -1,14 +1,10 @@
-# Configuring transfers with
-
-Amazon FSx for NetApp ONTAP
+# Configuring transfers with Amazon FSx for NetApp ONTAP
 
 To transfer data to or from your Amazon FSx for NetApp ONTAP file system, you must create an
 AWS DataSync transfer _location_. DataSync can use this
 location as a source or destination for transferring data.
 
-## Providing DataSync access to FSx for ONTAP
-
-file systems
+## Providing DataSync access to FSx for ONTAP file systems
 
 To access an FSx for ONTAP file system, DataSync mounts a storage virtual machine (SVM)
 on your file system using [network
@@ -26,19 +22,13 @@ Network File System (NFS) or Server Message Block (SMB) protocol.
 
 ###### Topics
 
-- [Using the NFS
-  protocol](#create-ontap-location-supported-protocols "#create-ontap-location-supported-protocols")
+- [Using the NFS protocol](#create-ontap-location-supported-protocols "#create-ontap-location-supported-protocols")
 - [Using the SMB protocol](#create-ontap-location-smb "#create-ontap-location-smb")
-- [Unsupported
-  protocols](#create-ontap-location-unsupported-protocols "#create-ontap-location-unsupported-protocols")
-- [Choosing the right
-  protocol](#create-ontap-location-choosing-protocol "#create-ontap-location-choosing-protocol")
-- [Accessing SnapLock
-  volumes](#create-ontap-location-snaplock "#create-ontap-location-snaplock")
+- [Unsupported protocols](#create-ontap-location-unsupported-protocols "#create-ontap-location-unsupported-protocols")
+- [Choosing the right protocol](#create-ontap-location-choosing-protocol "#create-ontap-location-choosing-protocol")
+- [Accessing SnapLock volumes](#create-ontap-location-snaplock "#create-ontap-location-snaplock")
 
-### Using the NFS
-
-protocol
+### Using the NFS protocol
 
 With the NFS protocol, DataSync uses the `AUTH_SYS` security mechanism
 with a user ID (UID) and group ID (GID) of `0` to authenticate with
@@ -127,21 +117,16 @@ systems that use Kerberos authentication.
 **DFS Namespaces**
 DataSync doesn't support Microsoft Distributed File System (DFS) Namespaces. We recommend specifying an underlying file server or share instead when creating your DataSync location.
 
-### Unsupported
-
-protocols
+### Unsupported protocols
 
 DataSync can't access FSx for ONTAP file systems using the iSCSI (Internet Small
 Computer Systems Interface) protocol.
 
-### Choosing the right
-
-protocol
+### Choosing the right protocol
 
 To preserve file metadata in FSx for ONTAP migrations, configure your DataSync
 source and destination locations to use the same protocol. Between the supported
-protocols, SMB preserves metadata with the highest fidelity (see [Understanding how DataSync handles file and object
-metadata](metadata-copied.md "metadata-copied.md") for
+protocols, SMB preserves metadata with the highest fidelity (see [Understanding how DataSync handles file and object metadata](metadata-copied.md "metadata-copied.md") for
 details).
 
 When migrating from a Unix (Linux) server or network-attached storage (NAS)
@@ -171,9 +156,7 @@ an AWS storage specialist. To learn about best practices for multiprotocol acces
 see [Enabling multiprotocol workloads with Amazon FSx for NetApp
 ONTAP](https://aws.amazon.com/blogs/storage/enabling-multiprotocol-workloads-with-amazon-fsx-for-netapp-ontap/ "https://aws.amazon.com/blogs/storage/enabling-multiprotocol-workloads-with-amazon-fsx-for-netapp-ontap/").
 
-### Accessing SnapLock
-
-volumes
+### Accessing SnapLock volumes
 
 If you're transferring data to a [SnapLock volume](../../../fsx/latest/ONTAPGuide/snaplock.md "../../../fsx/latest/ONTAPGuide/snaplock.md") on an
 FSx for ONTAP file system, make sure the SnapLock settings
@@ -181,9 +164,7 @@ FSx for ONTAP file system, make sure the SnapLock settings
 are disabled on the volume during your transfer. You can re-enable these
 settings when you're done transferring data.
 
-## Creating your FSx for ONTAP transfer
-
-location
+## Creating your FSx for ONTAP transfer location
 
 To create the location, you need an existing FSx for ONTAP file system. If you don't
 have one, see [Getting started with
@@ -230,8 +211,7 @@ Your file system's security groups must also allow inbound traffic
 on the same ports. 8. For **Protocol**, choose the data transfer
 protocol that DataSync uses to access your file system's SVM.
 
-For more information, see [Choosing the right
-protocol](#create-ontap-location-choosing-protocol "#create-ontap-location-choosing-protocol").
+For more information, see [Choosing the right protocol](#create-ontap-location-choosing-protocol "#create-ontap-location-choosing-protocol").
 
 NFS
 DataSync uses NFS version 3.

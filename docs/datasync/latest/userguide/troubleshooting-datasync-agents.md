@@ -1,6 +1,4 @@
-# Troubleshooting issues with DataSync
-
-agents
+# Troubleshooting issues with DataSync agents
 
 Use the following information to help you troubleshoot issues with AWS DataSync agents.
 Some of these issues can include:
@@ -30,9 +28,7 @@ ssh -i `/path/key-pair-name`.pem `instance-user-name`@`instance-public-ip-addres
 - For `instance-public-ip-address`, specify the
   public IP address of your instance.
 
-## What does the \*\*`Failed to retrieve agent
-
-activation key`\*\* error mean?
+## What does the **`Failed to retrieve agent activation key`** error mean?
 
 When activating your DataSync agent, the agent connects to the service endpoint that
 you specify to request an activation key. This error likely means that your network
@@ -46,20 +42,14 @@ For information about required ports, see [Network requirements for VPC or FIPS 
 
 If you're using a public or Federal Information Processing
 Standard (FIPS) endpoint, check that your firewall and router settings allow your
-agent to connect to the endpoint. For information, see [Network requirements for public or FIPS
-service endpoints](datasync-network.md#using-public-endpoints "datasync-network.md#using-public-endpoints").
+agent to connect to the endpoint. For information, see [Network requirements for public or FIPS service endpoints](datasync-network.md#using-public-endpoints "datasync-network.md#using-public-endpoints").
 
-## I still can't activate an agent by using a
-
-VPC service endpoint
+## I still can't activate an agent by using a VPC service endpoint
 
 If you're still having issues activating a DataSync agent with a VPC service
-endpoint, see [I don't know what's going on with my agent.
-Can someone help me?](#enable-support-access "#enable-support-access")
+endpoint, see [I don't know what's going on with my agent. Can someone help me?](#enable-support-access "#enable-support-access")
 
-## What do I do if my agent is
-
-offline?
+## What do I do if my agent is offline?
 
 Your DataSync agent can be offline for a few reasons, but you might be able to get it
 back online. Before you delete the agent and create a new one, go through the
@@ -93,9 +83,7 @@ following checklist to help you understand what might have happened.
 If none of these seem to be the reason that the agent is offline, you likely need
 to [replace the agent](replacing-agent.md "replacing-agent.md").
 
-## I don't know what's going on with my agent.
-
-Can someone help me?
+## I don't know what's going on with my agent. Can someone help me?
 
 You can allow AWS Support to access your DataSync agent and help troubleshoot
 agent-related issues. You must enable this access through the agent's local

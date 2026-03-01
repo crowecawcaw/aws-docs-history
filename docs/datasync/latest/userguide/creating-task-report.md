@@ -10,8 +10,7 @@ Before you can create a task report, you must do the following.
 ###### Topics
 
 - [Create an S3 bucket for your task reports](#setting-up-task-report-create-bucket "#setting-up-task-report-create-bucket")
-- [Allow DataSync to upload task reports to your S3
-  bucket](#task-report-access "#task-report-access")
+- [Allow DataSync to upload task reports to your S3 bucket](#task-report-access "#task-report-access")
 
 ### Create an S3 bucket for your task reports
 
@@ -26,9 +25,7 @@ We recommend the following for this bucket:
   report bucket is in the same AWS account and Region as your DataSync transfer
   task.
 
-### Allow DataSync to upload task reports to your S3
-
-bucket
+### Allow DataSync to upload task reports to your S3 bucket
 
 You must configure an AWS Identity and Access Management (IAM) role that allows DataSync to upload a task
 report to your S3 bucket.
@@ -100,12 +97,9 @@ JSON
   policy](../../../kms/latest/developerguide/key-policy-modifying.md "../../../kms/latest/developerguide/key-policy-modifying.md") must include the IAM role that DataSync uses to access the
   bucket.
 
-For more information, see [Accessing S3 buckets using
-server-side encryption](create-s3-location.md#create-s3-location-encryption "create-s3-location.md#create-s3-location-encryption").
+For more information, see [Accessing S3 buckets using server-side encryption](create-s3-location.md#create-s3-location-encryption "create-s3-location.md#create-s3-location-encryption").
 
-## Creating a summary only task
-
-report
+## Creating a summary only task report
 
 You can configure a task report that includes a [summary only](task-reports.md#task-report-types-summary "task-reports.md#task-report-types-summary") when creating your DataSync
 task, starting your task, or updating your task.
@@ -118,8 +112,7 @@ task.
    then choose **Create task**.
 3. Configure your task's source and destination locations.
 
-For more information, see [Where can I transfer my data with
-AWS DataSync?](working-with-locations.md "working-with-locations.md") 4. Scroll down to the **Task report** section. For
+For more information, see [Where can I transfer my data with AWS DataSync?](working-with-locations.md "working-with-locations.md") 4. Scroll down to the **Task report** section. For
 **Report type**, choose **Summary
 only**. 5. For **S3 bucket for reports**, choose an S3 bucket
 where you want DataSync to upload your task report.
@@ -146,8 +139,7 @@ objects by using prefixes](../../../AmazonS3/latest/userguide/using-prefixes.md 
 
 
     In some cases, you might need to create the role yourself. For
-     more information, see [Allow DataSync to upload task reports to your S3
-     bucket](#task-report-access "#task-report-access").
+     more information, see [Allow DataSync to upload task reports to your S3 bucket](#task-report-access "#task-report-access").
 
 
     ###### Important
@@ -156,8 +148,7 @@ objects by using prefixes](../../../AmazonS3/latest/userguide/using-prefixes.md 
      SSE-KMS key, the key's policy must include the IAM role
      that DataSync uses to access the bucket.
 
-    For more information, see [Accessing S3 buckets using
-     server-side encryption](create-s3-location.md#create-s3-location-encryption "create-s3-location.md#create-s3-location-encryption").
+    For more information, see [Accessing S3 buckets using server-side encryption](create-s3-location.md#create-s3-location-encryption "create-s3-location.md#create-s3-location-encryption").
 
 8. Finish creating your task, and then [start the
    task](run-task.md "run-task.md") to begin transferring your data.
@@ -220,8 +211,7 @@ aws datasync create-task \
      role that allows DataSync to upload a task report to your S3
      bucket.
 
-   For more information, see [Allow DataSync to upload task reports to your S3
-   bucket](#task-report-access "#task-report-access").
+   For more information, see [Allow DataSync to upload task reports to your S3 bucket](#task-report-access "#task-report-access").
 
    ###### Important
 
@@ -229,8 +219,7 @@ aws datasync create-task \
    SSE-KMS key, the key's policy must include the IAM role
    that DataSync uses to access the bucket.
 
-   For more information, see [Accessing S3 buckets using
-   server-side encryption](create-s3-location.md#create-s3-location-encryption "create-s3-location.md#create-s3-location-encryption").
+   For more information, see [Accessing S3 buckets using server-side encryption](create-s3-location.md#create-s3-location-encryption "create-s3-location.md#create-s3-location-encryption").
    - `OutputType` – Specify
      `SUMMARY_ONLY`.
 
@@ -276,8 +265,7 @@ task.
    then choose **Create task**.
 3. Configure your task's source and destination locations.
 
-For more information, see [Where can I transfer my data with
-AWS DataSync?](working-with-locations.md "working-with-locations.md") 4. Scroll down to the **Task report** section. For
+For more information, see [Where can I transfer my data with AWS DataSync?](working-with-locations.md "working-with-locations.md") 4. Scroll down to the **Task report** section. For
 **Report type**, choose **Standard
 report**. 5. For **Report level**, choose one of the
 following:
@@ -326,8 +314,7 @@ objects by using prefixes](../../../AmazonS3/latest/userguide/using-prefixes.md 
 
 
     In some cases, you might need to create the role yourself. For
-     more information, see [Allow DataSync to upload task reports to your S3
-     bucket](#task-report-access "#task-report-access").
+     more information, see [Allow DataSync to upload task reports to your S3 bucket](#task-report-access "#task-report-access").
 
 
     ###### Important
@@ -336,8 +323,7 @@ objects by using prefixes](../../../AmazonS3/latest/userguide/using-prefixes.md 
      SSE-KMS key, the key's policy must include the IAM role
      that DataSync uses to access the bucket.
 
-    For more information, see [Accessing S3 buckets using
-     server-side encryption](create-s3-location.md#create-s3-location-encryption "create-s3-location.md#create-s3-location-encryption").
+    For more information, see [Accessing S3 buckets using server-side encryption](create-s3-location.md#create-s3-location-encryption "create-s3-location.md#create-s3-location-encryption").
 
 10. Finish creating your task and [start the
     task](run-task.md "run-task.md") to begin transferring your data.
@@ -399,8 +385,7 @@ aws datasync create-task \
      role that allows DataSync to upload a task report to your S3
      bucket.
 
-   For more information, see [Allow DataSync to upload task reports to your S3
-   bucket](#task-report-access "#task-report-access").
+   For more information, see [Allow DataSync to upload task reports to your S3 bucket](#task-report-access "#task-report-access").
 
    ###### Important
 
@@ -408,8 +393,7 @@ aws datasync create-task \
    SSE-KMS key, the key's policy must include the IAM role
    that DataSync uses to access the bucket.
 
-   For more information, see [Accessing S3 buckets using
-   server-side encryption](create-s3-location.md#create-s3-location-encryption "create-s3-location.md#create-s3-location-encryption").
+   For more information, see [Accessing S3 buckets using server-side encryption](create-s3-location.md#create-s3-location-encryption "create-s3-location.md#create-s3-location-encryption").
    - `OutputType` – Specify `STANDARD`
      report.
 

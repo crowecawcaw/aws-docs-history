@@ -197,9 +197,7 @@ The following example creates a location for an Amazon EFS file system.
 }
 ```
 
-### Sample Request: Creating a location for a restricted Amazon EFS file
-
-system
+### Sample Request: Creating a location for a restricted Amazon EFS file system
 
 The following example creates a location for an Amazon EFS file system with
 restricted access. In this kind of scenario, you might have to specify values for

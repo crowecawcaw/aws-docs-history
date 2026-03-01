@@ -1,14 +1,10 @@
-# Configuring DataSync transfers with
-
-Amazon FSx for OpenZFS
+# Configuring DataSync transfers with Amazon FSx for OpenZFS
 
 To transfer data to or from your Amazon FSx for OpenZFS file system, you must create an
 AWS DataSync transfer _location_. DataSync can use this
 location as a source or destination for transferring data.
 
-## Providing DataSync access to FSx for OpenZFS file
-
-systems
+## Providing DataSync access to FSx for OpenZFS file systems
 
 DataSync mounts your FSx for OpenZFS file system from your virtual private cloud (VPC)
 using [network interfaces](required-network-interfaces.md "required-network-interfaces.md"). DataSync
@@ -20,9 +16,7 @@ your behalf.
 VPCs that you use with DataSync must have default tenancy. VPCs with dedicated tenancy
 aren't supported.
 
-## Configuring FSx for OpenZFS file
-
-system authorization
+## Configuring FSx for OpenZFS file system authorization
 
 DataSync accesses your FSx for OpenZFS file system as an NFS client, mounting the file
 system as a root user with a user ID (UID) and group ID (GID) of
@@ -36,9 +30,7 @@ For more information, see [Volume
 properties](../../../fsx/latest/OpenZFSGuide/managing-volumes.md#volume-properties "../../../fsx/latest/OpenZFSGuide/managing-volumes.md#volume-properties") in the _Amazon FSx for OpenZFS User
 Guide_.
 
-### Configuring NFS exports
-
-specific to DataSync (recommended)
+### Configuring NFS exports specific to DataSync (recommended)
 
 You can configure an NFS export specific to each volume that’s accessed only
 by your DataSync task. Do this for the most recent ancestor volume of the mount
@@ -60,9 +52,7 @@ export settings for each of the task’s network interfaces:
     * NFS options: Enter
      `rw,no_root_squash`.
 
-### Configuring NFS exports for all
-
-clients
+### Configuring NFS exports for all clients
 
 You can specify an NFS export that allows root access to all clients.
 
@@ -75,9 +65,7 @@ You can specify an NFS export that allows root access to all clients.
   - NFS options: Enter
     `rw,no_root_squash`.
 
-## Creating your FSx for OpenZFS transfer
-
-location
+## Creating your FSx for OpenZFS transfer location
 
 To create the location, you need an existing FSx for OpenZFS file system. If you
 don't have one, see [Getting started with

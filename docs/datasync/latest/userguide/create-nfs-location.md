@@ -1,6 +1,4 @@
-# Configuring AWS DataSync transfers with an NFS file
-
-server
+# Configuring AWS DataSync transfers with an NFS file server
 
 With AWS DataSync, you can transfer data between your Network File System (NFS) file
 server and the following AWS storage services. Supported storage services depend on
@@ -21,13 +19,10 @@ desired task mode.
 
 ###### Topics
 
-- [Configuring your NFS
-  export](#accessing-nfs-configuring-export "#accessing-nfs-configuring-export")
+- [Configuring your NFS export](#accessing-nfs-configuring-export "#accessing-nfs-configuring-export")
 - [Supported NFS versions](#supported-nfs-versions "#supported-nfs-versions")
 
-### Configuring your NFS
-
-export
+### Configuring your NFS export
 
 The export that DataSync needs for your transfer depends on if your NFS file
 server is a source or destination location and how your file server's
@@ -78,9 +73,7 @@ read-only permissions on the export:
 By default, DataSync uses NFS version 4.1. DataSync also supports NFS 4.0 and
 3.x.
 
-## Configuring your network for NFS
-
-transfers
+## Configuring your network for NFS transfers
 
 For your DataSync transfer, you must configure traffic for a few network connections:
 
@@ -102,9 +95,7 @@ For your DataSync transfer, you must configure traffic for a few network connect
 3.  Allow traffic from the DataSync service to the [AWS storage
     service](datasync-network.md#storage-service-network-requirements "datasync-network.md#storage-service-network-requirements") you're transferring to or from.
 
-## Creating your NFS transfer
-
-location
+## Creating your NFS transfer location
 
 Before you begin, note the following:
 
@@ -130,8 +121,7 @@ agent connects to. 6. For **Mount path**, enter the NFS export path
 that you want DataSync to mount.
 
 This path (or a subdirectory of the path) is where DataSync transfers
-data to or from. For more information, see [Configuring your NFS
-export](#accessing-nfs-configuring-export "#accessing-nfs-configuring-export"). 7. (Optional) Expand **Additional settings** and
+data to or from. For more information, see [Configuring your NFS export](#accessing-nfs-configuring-export "#accessing-nfs-configuring-export"). 7. (Optional) Expand **Additional settings** and
 choose a specific **NFS version** for DataSync to use
 when accessing your file server.
 

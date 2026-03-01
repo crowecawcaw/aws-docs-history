@@ -1,14 +1,10 @@
-# Configuring DataSync transfers with
-
-FSx for Lustre
+# Configuring DataSync transfers with FSx for Lustre
 
 To transfer data to or from your Amazon FSx for Lustre file system, you must create an
 AWS DataSync transfer _location_. DataSync can use this
 location as a source or destination for transferring data.
 
-## Providing DataSync access to
-
-FSx for Lustre file systems
+## Providing DataSync access to FSx for Lustre file systems
 
 DataSync accesses your FSx for Lustre file system using the Lustre client. DataSync
 requires access to all data on your FSx for Lustre file system. To have this level of
@@ -24,9 +20,7 @@ behalf.
 VPCs that you use with DataSync must have default tenancy. VPCs with dedicated tenancy
 aren't supported.
 
-## Creating your FSx for Lustre transfer
-
-location
+## Creating your FSx for Lustre transfer location
 
 To create the transfer location, you need an existing FSx for Lustre file system. For
 more information, see [Getting started with

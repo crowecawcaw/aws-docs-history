@@ -17,12 +17,10 @@ however, create a monitoring plan that includes answers to the following questio
 
 ###### Topics
 
-- [Understanding data transfer performance
-  counters](transfer-performance-counters.md "transfer-performance-counters.md")
+- [Understanding data transfer performance counters](transfer-performance-counters.md "transfer-performance-counters.md")
 - [Monitoring data transfers with Amazon CloudWatch metrics](monitor-datasync.md "monitor-datasync.md")
 - [Monitoring your data transfers with task reports](task-reports.md "task-reports.md")
 - [Monitoring data transfers with Amazon CloudWatch Logs](configure-logging.md "configure-logging.md")
 - [Logging AWS DataSync API calls with AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
 - [Monitoring events by using Amazon EventBridge](events.md "events.md")
-- [Monitoring AWS DataSync with manual
-  tools](monitoring-task-manually.md "monitoring-task-manually.md")
+- [Monitoring AWS DataSync with manual tools](monitoring-task-manually.md "monitoring-task-manually.md")

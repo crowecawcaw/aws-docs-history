@@ -1,6 +1,4 @@
-# Configuring AWS DataSync transfers with an HDFS
-
-cluster
+# Configuring AWS DataSync transfers with an HDFS cluster
 
 With AWS DataSync, you can transfer data between your Hadoop Distributed File System
 (HDFS) cluster and one of the following AWS storage services using Basic mode tasks:
@@ -79,9 +77,7 @@ The following HDFS capabilities aren't currently supported by DataSync:
 - HDFS extended attributes (xattrs)
 - HDFS clusters using Apache HBase
 
-## Creating your HDFS transfer
-
-location
+## Creating your HDFS transfer location
 
 You can use your location as a source or destination for your DataSync
 transfer.
@@ -91,8 +87,7 @@ between your agent and Hadoop cluster by doing the following:
 
 - Test access to the TCP ports listed in [Network requirements for on-premises, self-managed, and other cloud storage](datasync-network.md#on-premises-network-requirements "datasync-network.md#on-premises-network-requirements").
 - Test access between your local agent and your Hadoop cluster. For
-  instructions, see [Verifying your agent's
-  connection to your storage system](test-agent-connections.md#self-managed-storage-connectivity "test-agent-connections.md#self-managed-storage-connectivity").
+  instructions, see [Verifying your agent's connection to your storage system](test-agent-connections.md#self-managed-storage-connectivity "test-agent-connections.md#self-managed-storage-connectivity").
 
 1. Open the AWS DataSync console at [https://console.aws.amazon.com/datasync/](https://console.aws.amazon.com/datasync/ "https://console.aws.amazon.com/datasync/").
 2. In the left navigation pane, expand **Data transfer**,

@@ -1,13 +1,9 @@
-# Verifying your agent's network
-
-connections
+# Verifying your agent's network connections
 
 Once you activate your AWS DataSync agent, make sure that the agent has network
 connectivity to your storage system and the DataSync service.
 
-## Accessing your agent's local
-
-console
+## Accessing your agent's local console
 
 How you access your agent's local console depends on the type of agent you're
 using.
@@ -52,13 +48,10 @@ ssh -i `/path/key-pair-name`.pem `instance-user-name`@`instance-public-ip-addres
    Once connected, the main menu of the agent's local console
    displays.
 
-## Verifying your agent's
-
-connection to your storage system
+## Verifying your agent's connection to your storage system
 
 Test whether your DataSync agent can connect to your storage system. For more
-information, see [1. Network connection between your
-storage system and agent](networking-datasync.md#1-network-between-storage-agent "networking-datasync.md#1-network-between-storage-agent").
+information, see [1. Network connection between your storage system and agent](networking-datasync.md#1-network-between-storage-agent "networking-datasync.md#1-network-between-storage-agent").
 
 1. [Access your
    agent's local console](#local-console-login-getting-started "#local-console-login-getting-started").
@@ -91,13 +84,10 @@ Remember the following when entering the IP address or domain name:
 See if the connectivity test **PASSED** or
 **FAILED**.
 
-## Verifying your agent's connection to the DataSync
-
-service
+## Verifying your agent's connection to the DataSync service
 
 Test whether your DataSync agent can connect to the DataSync service. For more
-information, see [2. Network connection between your
-agent and DataSync service](networking-datasync.md#2-network-between-agent-service "networking-datasync.md#2-network-between-agent-service").
+information, see [2. Network connection between your agent and DataSync service](networking-datasync.md#2-network-between-agent-service "networking-datasync.md#2-network-between-agent-service").
 
 1. [Access your
    agent's local console](#local-console-login-getting-started "#local-console-login-getting-started").

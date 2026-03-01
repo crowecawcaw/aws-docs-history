@@ -23,9 +23,7 @@ available:
 
 You are charged for the use of secrets only when you create secrets outside of DataSync or make API calls to service-managed secrets from services other than DataSync.
 
-## Using a service-managed secret encrypted
-
-with a default key
+## Using a service-managed secret encrypted with a default key
 
 When you create your DataSync location, you simply provide the secret string. DataSync
 creates a secret resource in Secrets Manager to store the secret you provide, and encrypts the
@@ -39,9 +37,7 @@ deletes the secret resource automatically.
 To create, modify, and delete secret resources in Secrets Manager, DataSync must have the
 appropriate permissions. For more information, see [AWS managed policies for DataSync](security-iam-awsmanpol.md#security-iam-awsmanpol-awsdatasyncfullaccess "security-iam-awsmanpol.md#security-iam-awsmanpol-awsdatasyncfullaccess").
 
-## Using a service-managed secret encrypted
-
-with a custom AWS KMS key
+## Using a service-managed secret encrypted with a custom AWS KMS key
 
 When you create your DataSync location, you provide the secret and the ARN of your AWS KMS
 key. DataSync automatically creates a secret resource in Secrets Manager to store the secret you

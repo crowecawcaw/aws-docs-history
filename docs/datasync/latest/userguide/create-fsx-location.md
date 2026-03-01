@@ -4,9 +4,7 @@ To transfer data to or from your Amazon FSx for Windows File Server file system,
 AWS DataSync transfer _location_. DataSync can use this
 location as a source or destination for transferring data.
 
-## Providing DataSync access to FSx for Windows File Server
-
-file systems
+## Providing DataSync access to FSx for Windows File Server file systems
 
 DataSync connects to your FSx for Windows File Server file system with the Server Message Block
 (SMB) protocol and mounts it from your virtual private cloud (VPC) using [network interfaces](required-network-interfaces.md "required-network-interfaces.md").
@@ -18,15 +16,11 @@ aren't supported.
 
 ###### Topics
 
-- [Required
-  permissions](#create-fsx-windows-location-permissions "#create-fsx-windows-location-permissions")
-- [Required
-  authentication protocols](#configuring-fsx-windows-authentication-protocols "#configuring-fsx-windows-authentication-protocols")
+- [Required permissions](#create-fsx-windows-location-permissions "#create-fsx-windows-location-permissions")
+- [Required authentication protocols](#configuring-fsx-windows-authentication-protocols "#configuring-fsx-windows-authentication-protocols")
 - [DFS Namespaces](#configuring-fsx-windows-location-dfs "#configuring-fsx-windows-location-dfs")
 
-### Required
-
-permissions
+### Required permissions
 
 You must provide DataSync a user with the necessary rights to mount and access
 your FSx for Windows File Server files, folders, and file metadata.
@@ -75,9 +69,7 @@ file share inaccessible and prevents file system backups from being usable.
 For more information on file- and folder-level access, see
 the*[Amazon FSx for Windows File Server User Guide](../../../fsx/latest/WindowsGuide/limit-access-file-folder.md "../../../fsx/latest/WindowsGuide/limit-access-file-folder.md")*.
 
-### Required
-
-authentication protocols
+### Required authentication protocols
 
 Your FSx for Windows File Server must use NTLM authentication for DataSync to access it. DataSync
 can't access a file server that uses Kerberos authentication.
@@ -90,9 +82,7 @@ For more information, see [Grouping multiple file
 systems with DFS Namespaces](../../../fsx/latest/WindowsGuide/group-file-systems.md "../../../fsx/latest/WindowsGuide/group-file-systems.md") in the
 _Amazon FSx for Windows File Server User Guide_.
 
-## Creating your FSx for Windows File Server transfer
-
-location
+## Creating your FSx for Windows File Server transfer location
 
 Before you begin, make sure that you have an existing FSx for Windows File Server in your
 AWS Region. For more information, see [Getting started with Amazon FSx](../../../fsx/latest/WindowsGuide/getting-started.md "../../../fsx/latest/WindowsGuide/getting-started.md") in
@@ -135,8 +125,7 @@ from within itself, do one of the following:
 7. For **User**, enter the name of a user that can
    access your FSx for Windows File Server.
 
-For more information, see [Required
-permissions](#create-fsx-windows-location-permissions "#create-fsx-windows-location-permissions"). 8. For **Password**, enter password of the user
+For more information, see [Required permissions](#create-fsx-windows-location-permissions "#create-fsx-windows-location-permissions"). 8. For **Password**, enter password of the user
 name. 9. (Optional) For **Domain**, enter the name of the
 Windows domain that your FSx for Windows File Server file system belongs to.
 

@@ -41,8 +41,7 @@ The agent VM's default credentials are login
 `password`. If needed, change the password through
 the [VM's local console](local-console-vm.md "local-console-vm.md").
 
-**Next step: [Choosing a service endpoint for your AWS DataSync
-agent](choose-service-endpoint.md "choose-service-endpoint.md")**
+**Next step: [Choosing a service endpoint for your AWS DataSync agent](choose-service-endpoint.md "choose-service-endpoint.md")**
 
 ## Deploying your agent on KVM
 
@@ -91,12 +90,9 @@ The agent VM's default credentials are login
 `password`. If needed, change the password through
 the [VM's local console](local-console-vm.md "local-console-vm.md").
 
-**Next step: [Choosing a service endpoint for your AWS DataSync
-agent](choose-service-endpoint.md "choose-service-endpoint.md")**
+**Next step: [Choosing a service endpoint for your AWS DataSync agent](choose-service-endpoint.md "choose-service-endpoint.md")**
 
-## Deploying your Basic mode agent on Microsoft
-
-Hyper-V
+## Deploying your Basic mode agent on Microsoft Hyper-V
 
 You can download a Basic mode agent from the DataSync console and deploy it in your Microsoft
 Hyper-V environment.
@@ -131,8 +127,7 @@ The agent VM's default credentials are login
 `password`. If needed, change the password through
 the [VM's local console](local-console-vm.md "local-console-vm.md").
 
-**Next step: [Choosing a service endpoint for your AWS DataSync
-agent](choose-service-endpoint.md "choose-service-endpoint.md")**
+**Next step: [Choosing a service endpoint for your AWS DataSync agent](choose-service-endpoint.md "choose-service-endpoint.md")**
 
 ## Deploying your Amazon EC2 agent
 
@@ -275,14 +270,10 @@ DataSync agent in an AWS Region.
 
 ###### Topics
 
-- [Deploying your Basic mode agent for transfers between
-  cloud storage and AWS storage services](#efs-efs "#efs-efs")
-- [Deploying your Basic mode agent for transfers
-  between Amazon S3 and AWS file systems](#s3-cloud-nfs "#s3-cloud-nfs")
+- [Deploying your Basic mode agent for transfers between cloud storage and AWS storage services](#efs-efs "#efs-efs")
+- [Deploying your Basic mode agent for transfers between Amazon S3 and AWS file systems](#s3-cloud-nfs "#s3-cloud-nfs")
 
-#### Deploying your Basic mode agent for transfers between
-
-cloud storage and AWS storage services
+#### Deploying your Basic mode agent for transfers between cloud storage and AWS storage services
 
 To transfer data between AWS accounts, or between cloud storage
 systems, the DataSync agent must be located in the same AWS Region and
@@ -324,9 +315,7 @@ services across AWS accounts:
 - When transferring between Amazon FSx file systems using the SMB
   protocol, configure your source file system as an [SMB location](create-smb-location.md "create-smb-location.md").
 
-#### Deploying your Basic mode agent for transfers
-
-between Amazon S3 and AWS file systems
+#### Deploying your Basic mode agent for transfers between Amazon S3 and AWS file systems
 
 The following diagram provides a high-level view of the DataSync
 architecture for transferring data from Amazon S3 to an AWS file system,

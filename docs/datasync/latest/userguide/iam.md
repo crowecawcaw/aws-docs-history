@@ -16,11 +16,7 @@ elements for a policy, see [Access management for AWS DataSync](managing-access-
 
 - [Access management for AWS DataSync](managing-access-overview.md "managing-access-overview.md")
 - [AWS managed policies for AWS DataSync](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
-- [IAM customer managed policies for
-  AWS DataSync](using-identity-based-policies.md "using-identity-based-policies.md")
-- [Using service-linked roles for
-  DataSync](using-service-linked-roles.md "using-service-linked-roles.md")
-- [Permissions for tagging DataSync resources during
-  creation](supported-iam-actions-tagging.md "supported-iam-actions-tagging.md")
-- [Cross-service confused deputy
-  prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [IAM customer managed policies for AWS DataSync](using-identity-based-policies.md "using-identity-based-policies.md")
+- [Using service-linked roles for DataSync](using-service-linked-roles.md "using-service-linked-roles.md")
+- [Permissions for tagging DataSync resources during creation](supported-iam-actions-tagging.md "supported-iam-actions-tagging.md")
+- [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")

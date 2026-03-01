@@ -22,9 +22,7 @@ benefits of using DataSync for your migration include:
 - A purpose-built network protocol and a parallel, multi-threaded architecture
   to speed up migrations.
 
-## Key stages of a large data
-
-migration
+## Key stages of a large data migration
 
 You can usually break down a large migration into the following stages:
 

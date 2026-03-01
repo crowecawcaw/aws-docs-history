@@ -1,6 +1,4 @@
-# Planning transfers to or from
-
-third-party cloud storage systems
+# Planning transfers to or from third-party cloud storage systems
 
 When planning cross-cloud data transfers, consider the following:
 

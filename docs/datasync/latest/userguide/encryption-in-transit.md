@@ -7,9 +7,7 @@ When connecting with a location, DataSync uses the most secure options provided 
 location's data access protocol. For example, when connecting with a file system using
 Server Message Block (SMB), DataSync uses the security features provided by SMB.
 
-## Network connections
-
-in a transfer
+## Network connections in a transfer
 
 DataSync requires three network connections to copy data: a connection to read data
 from a source location, another to transfer data between locations, and one more to
@@ -42,18 +40,14 @@ AWS storage services:
 
 When transferring data between locations, DataSync uses different TLS ciphers. The
 TLS cipher depends on the type of service endpoint that your agent uses to
-communicate with DataSync. (For more information, see [Choosing a service endpoint for your AWS DataSync
-agent](choose-service-endpoint.md "choose-service-endpoint.md").)
+communicate with DataSync. (For more information, see [Choosing a service endpoint for your AWS DataSync agent](choose-service-endpoint.md "choose-service-endpoint.md").)
 
 ###### Contents
 
-- [Public or VPC
-  endpoints](encryption-in-transit.md#tls-ciphers-in-transit-non-fips "encryption-in-transit.md#tls-ciphers-in-transit-non-fips")
+- [Public or VPC endpoints](encryption-in-transit.md#tls-ciphers-in-transit-non-fips "encryption-in-transit.md#tls-ciphers-in-transit-non-fips")
 - [FIPS endpoints](encryption-in-transit.md#tls-ciphers-in-transit-fips "encryption-in-transit.md#tls-ciphers-in-transit-fips")
 
-### Public or VPC
-
-endpoints
+### Public or VPC endpoints
 
 For public and virtual private cloud (VPC) service endpoints, DataSync uses one
 of the following TLS ciphers:

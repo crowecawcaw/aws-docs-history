@@ -1,6 +1,4 @@
-# Troubleshooting data verification
-
-issues
+# Troubleshooting data verification issues
 
 By default, AWS DataSync [verifies the integrity](how-datasync-transfer-works.md#how-verifying-works "how-datasync-transfer-works.md#how-verifying-works") of
 your data at the end of a transfer. Use the following information to help you diagnose
@@ -12,9 +10,7 @@ reports](task-reports.md "task-reports.md")) in addition to the task execution e
 provides JSON-structured logs for Enhanced mode tasks, while Basic mode tasks have
 unstructured logs.
 
-## There are mismatches between a
-
-file's contents
+## There are mismatches between a file's contents
 
 When your task execution finishes, you see the following error:
 
@@ -58,9 +54,7 @@ Do the following:
    task](task-scheduling.md "task-scheduling.md") to run during a maintenance window when there's no activity at
    your source and destination.
 
-## There's a mismatch between a
-
-file's SMB metadata
+## There's a mismatch between a file's SMB metadata
 
 When your task execution finishes, you see the following error:
 
@@ -99,9 +93,7 @@ This error typically occurs when there are insufficient permissions to copy acce
 - [Required permissions](create-ontap-location.md#create-ontap-location-smb "create-ontap-location.md#create-ontap-location-smb") with
   FSx for ONTAP file systems that use SMB
 
-## Files to transfer are no longer at
-
-source location
+## Files to transfer are no longer at source location
 
 When your task execution finishes, you see the following error:
 
@@ -130,9 +122,7 @@ For example, you can run your task during a maintenance window when users and ap
 In some cases, you might not see logs associated with this error. If that happens,
 contact [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
 
-## DataSync can't verify destination
-
-data
+## DataSync can't verify destination data
 
 When your task execution finishes, you see the following error:
 
@@ -196,15 +186,11 @@ To fix this issue, verify whether DataSync has the right level of permissions to
 with your S3 bucket:
 
 - Make sure that the IAM role that DataSync uses to access your Amazon S3 locations
-  allows the `s3:GetObject` permission. For more information, see [Required
-  permissions](create-s3-location.md#create-s3-location-required-permissions "create-s3-location.md#create-s3-location-required-permissions").
+  allows the `s3:GetObject` permission. For more information, see [Required permissions](create-s3-location.md#create-s3-location-required-permissions "create-s3-location.md#create-s3-location-required-permissions").
 - If your S3 bucket uses server-side encryption, make sure that DataSync is allowed
-  to access the objects in that bucket. For more information, see [Accessing S3 buckets using
-  server-side encryption](create-s3-location.md#create-s3-location-encryption "create-s3-location.md#create-s3-location-encryption").
+  to access the objects in that bucket. For more information, see [Accessing S3 buckets using server-side encryption](create-s3-location.md#create-s3-location-encryption "create-s3-location.md#create-s3-location-encryption").
 
-## There's a mismatch
-
-in an object's system-defined metadata
+## There's a mismatch in an object's system-defined metadata
 
 When your Enhanced mode task execution between S3 buckets finishes, you see the
 following error:
@@ -270,9 +256,7 @@ there.
 To avoid this error, update your source location objects to include the
 `Content-Type` metadata property.
 
-## Understanding data verification
-
-duration
+## Understanding data verification duration
 
 DataSync verification includes an SHA256 checksum on file content and an exact comparison
 of file metadata between locations. How long verification takes depends on several

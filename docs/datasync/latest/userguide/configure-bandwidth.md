@@ -1,6 +1,4 @@
-# Setting bandwidth limits for your AWS DataSync
-
-task
+# Setting bandwidth limits for your AWS DataSync task
 
 You can configure network bandwidth limits for your AWS DataSync task and each of its
 executions.
@@ -23,8 +21,7 @@ your task when you're creating it.
    then choose **Create task**.
 3. Configure your task's source and destination locations.
 
-For more information, see [Where can I transfer my data with
-AWS DataSync?](working-with-locations.md "working-with-locations.md") 4. For **Bandwidth limit**, choose one of the
+For more information, see [Where can I transfer my data with AWS DataSync?](working-with-locations.md "working-with-locations.md") 4. For **Bandwidth limit**, choose one of the
 following:
 
     * Select **Use available** to use all of
@@ -42,9 +39,7 @@ operations:
 - [UpdateTask](API_UpdateTask.md "API_UpdateTask.md")
 - [StartTaskExecution](API_StartTaskExecution.md "API_StartTaskExecution.md")
 
-## Throttling bandwidth for a task
-
-execution
+## Throttling bandwidth for a task execution
 
 You can modify the bandwidth limit for a running or queued task execution.
 

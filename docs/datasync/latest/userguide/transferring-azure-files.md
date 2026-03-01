@@ -1,6 +1,4 @@
-# Configuring AWS DataSync transfers with
-
-Microsoft Azure Files SMB shares
+# Configuring AWS DataSync transfers with Microsoft Azure Files SMB shares
 
 You can configure AWS DataSync to transfer data to or from a Microsoft Azure
 Files Server Message Block (SMB) share.
@@ -10,9 +8,7 @@ Files Server Message Block (SMB) share.
 For a full walkthrough on moving data from Azure Files SMB shares to AWS, see the [AWS
 Storage Blog](https://aws.amazon.com/blogs/storage/how-to-move-data-from-azure-files-smb-shares-to-aws-using-aws-datasync/ "https://aws.amazon.com/blogs/storage/how-to-move-data-from-azure-files-smb-shares-to-aws-using-aws-datasync/").
 
-## Providing DataSync access to SMB
-
-shares
+## Providing DataSync access to SMB shares
 
 DataSync connects to your SMB share using the SMB protocol and authenticates with
 credentials that you provide it.
@@ -59,17 +55,14 @@ Additional privileges are required to copy SACLs. Specifically, this requires
 the Windows `SE_SECURITY_NAME` privilege, which is granted to members
 of the **Domain Admins** group. If you configure your task to
 copy SACLs, make sure that the user has the required privileges. To learn more
-about configuring a task to copy SACLs, see [Configuring how to handle files, objects, and
-metadata](configure-metadata.md "configure-metadata.md").
+about configuring a task to copy SACLs, see [Configuring how to handle files, objects, and metadata](configure-metadata.md "configure-metadata.md").
 
 When you copy data between an SMB file server and Amazon FSx for Windows File Server file system,
 the source and destination locations must belong to the same Microsoft Active
 Directory domain or have an Active Directory trust relationship between their
 domains.
 
-## Creating your Azure Files transfer location
-
-by using the console
+## Creating your Azure Files transfer location by using the console
 
 1. Open the AWS DataSync console at [https://console.aws.amazon.com/datasync/](https://console.aws.amazon.com/datasync/ "https://console.aws.amazon.com/datasync/").
 2. In the left navigation pane, expand **Data transfer**,

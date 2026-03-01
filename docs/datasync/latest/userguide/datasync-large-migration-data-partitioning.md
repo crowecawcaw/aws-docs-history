@@ -1,6 +1,4 @@
-# Accelerating your
-
-migration with data partitioning
+# Accelerating your migration with data partitioning
 
 With a large migration, we recommend partitioning your dataset with multiple DataSync
 tasks. Partitioning your source data across multiple tasks (and possibly agents)
@@ -16,9 +14,7 @@ architectures](https://aws.amazon.com/blogs/storage/how-to-accelerate-your-data-
 
 ![A diagram that shows one approach with DataSync for partitioning your source data to help accelerate a large migration.](images/datasync-partition-by-folder.png)
 
-## Partitioning your dataset by folder
-
-or prefix
+## Partitioning your dataset by folder or prefix
 
 When creating your DataSync source location, you can specify a folder, directory,
 or prefix that DataSync reads from. For example, if you're migrating a file share
@@ -26,9 +22,7 @@ with top-level directories, you can create multiple locations that specify a
 different directory path. You can then use these locations to run multiple DataSync
 tasks during your migration.
 
-## Partitioning your dataset with
-
-filters
+## Partitioning your dataset with filters
 
 You can apply [filters](filtering.md "filtering.md") to include or exclude
 data from your source location in a transfer. In the context of a large
@@ -40,9 +34,7 @@ can create an include filter to match for a specific year or multiple years. You
 also can modify the filter each time you run the task to match a different
 year.
 
-## Partitioning your dataset with
-
-manifests
+## Partitioning your dataset with manifests
 
 A [manifest](transferring-with-manifest.md "transferring-with-manifest.md") is a list of
 files or objects that you want DataSync to transfer. With a manifest, DataSync doesn't

@@ -1,6 +1,4 @@
-# Configuring AWS DataSync transfers with an SMB file
-
-server
+# Configuring AWS DataSync transfers with an SMB file server
 
 With AWS DataSync, you can transfer data between your Server Message Block (SMB) file
 server and the following AWS storage services. Supported storage services depend on
@@ -21,10 +19,8 @@ with NTLM or Kerberos.
 ###### Topics
 
 - [Supported SMB versions](#configuring-smb-version "#configuring-smb-version")
-- [Using NTLM
-  authentication](#configuring-smb-ntlm-authentication "#configuring-smb-ntlm-authentication")
-- [Using Kerberos
-  authentication](#configuring-smb-kerberos-authentication "#configuring-smb-kerberos-authentication")
+- [Using NTLM authentication](#configuring-smb-ntlm-authentication "#configuring-smb-ntlm-authentication")
+- [Using Kerberos authentication](#configuring-smb-kerberos-authentication "#configuring-smb-kerberos-authentication")
 - [Required permissions](#configuring-smb-permissions "#configuring-smb-permissions")
 - [DFS Namespaces](#configuring-smb-location-dfs "#configuring-smb-location-dfs")
 
@@ -48,18 +44,14 @@ console and API:
 | SMB 2.0        | `SMB2_0`    | Restricts the protocol negotiation to only SMB version<br>2.0.                                                                                                                                                                                                                                                        |
 | SMB 1.0        | `SMB1`      | Restricts the protocol negotiation to only SMB version<br>1.0.                                                                                                                                                                                                                                                        |
 
-### Using NTLM
-
-authentication
+### Using NTLM authentication
 
 To use NTLM authentication, you provide a user name and password that allows
 DataSync to access the SMB file server that you're transferring to or from. The
 user can be a local user on your file server or a domain user in your Microsoft
 Active Directory.
 
-### Using Kerberos
-
-authentication
+### Using Kerberos authentication
 
 To use Kerberos authentication, you provide a Kerberos principal, Kerberos key
 table (keytab) file, and Kerberos configuration file that allows DataSync to access
@@ -68,8 +60,7 @@ the SMB file server that you're transferring to or from.
 ###### Topics
 
 - [Prerequisites](#configuring-smb-kerberos-prerequisites "#configuring-smb-kerberos-prerequisites")
-- [DataSync configuration
-  options for Kerberos](#configuring-smb-kerberos-options "#configuring-smb-kerberos-options")
+- [DataSync configuration options for Kerberos](#configuring-smb-kerberos-options "#configuring-smb-kerberos-options")
 
 #### Prerequisites
 
@@ -117,9 +108,7 @@ example:
   Distribution Center (KDC) server port is open. The KDC port is
   typically TCP port 88.
 
-#### DataSync configuration
-
-options for Kerberos
+#### DataSync configuration options for Kerberos
 
 When creating an SMB location that uses Kerberos, you configure the
 following options.
@@ -157,9 +146,7 @@ domains.
 
 DataSync doesn't support Microsoft Distributed File System (DFS) Namespaces. We recommend specifying an underlying file server or share instead when creating your DataSync location.
 
-## Creating your SMB transfer
-
-location
+## Creating your SMB transfer location
 
 Before you begin, you need an SMB file server that you want to transfer data
 from.

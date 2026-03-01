@@ -123,16 +123,14 @@ You're ready to [start your task](run-task.md "run-task.md").
 When you create a DataSync task, you can check its status to see if it's ready to
 run.
 
-| Console status | API status    | Description                                                                                                                                                                                                                                         |
-| -------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Available      | `AVAILABLE`   | The task is ready to start transferring data.                                                                                                                                                                                                       |
-| Running        | `RUNNING`     | A task execution is in progress. For more information, see [Task execution statuses](run-task.md#understand-task-execution-statuses "run-task.md#understand-task-execution-statuses").                                                              |
-| Unavailable    | `UNAVAILABLE` | A DataSync agent used by the task is offline. For more information,<br>see [What do I do if my agent is<br>offline?](troubleshooting-datasync-agents.md#troubleshoot-agent-offline "troubleshooting-datasync-agents.md#troubleshoot-agent-offline") |
-| Queued         | `QUEUED`      | Another task execution that uses the same DataSync agent is in<br>progress. For more information, see [Knowing when your task is queued](run-task.md#queue-task-execution "run-task.md#queue-task-execution").                                      |
+| Console status | API status    | Description                                                                                                                                                                                                                                      |
+| -------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Available      | `AVAILABLE`   | The task is ready to start transferring data.                                                                                                                                                                                                    |
+| Running        | `RUNNING`     | A task execution is in progress. For more information, see [Task execution statuses](run-task.md#understand-task-execution-statuses "run-task.md#understand-task-execution-statuses").                                                           |
+| Unavailable    | `UNAVAILABLE` | A DataSync agent used by the task is offline. For more information,<br>see [What do I do if my agent is offline?](troubleshooting-datasync-agents.md#troubleshoot-agent-offline "troubleshooting-datasync-agents.md#troubleshoot-agent-offline") |
+| Queued         | `QUEUED`      | Another task execution that uses the same DataSync agent is in<br>progress. For more information, see [Knowing when your task is queued](run-task.md#queue-task-execution "run-task.md#queue-task-execution").                                   |
 
-## Partitioning large datasets with multiple
-
-tasks
+## Partitioning large datasets with multiple tasks
 
 If you're transferring a large dataset, such as [migrating](datasync-large-migration.md "datasync-large-migration.md") millions of files or objects, we recommend
 using DataSync Enhanced mode for your transfer, which can transfer datasets with virtually
@@ -155,9 +153,7 @@ Be mindful that this approach can increase the I/O operations on your storage an
 affect your network bandwidth. For more information, see the blog on [How to accelerate your data transfers with DataSync scale out
 architectures](https://aws.amazon.com/blogs/storage/how-to-accelerate-your-data-transfers-with-aws-datasync-scale-out-architectures/ "https://aws.amazon.com/blogs/storage/how-to-accelerate-your-data-transfers-with-aws-datasync-scale-out-architectures/").
 
-## Segmenting transferred data with
-
-multiple tasks
+## Segmenting transferred data with multiple tasks
 
 If you're transferring different sets of data to the same destination, you can create
 multiple tasks to help segment the data that you transfer.

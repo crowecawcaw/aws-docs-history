@@ -34,10 +34,10 @@ AWS updates the agent.
 
 The following table describes the status of DataSync agents.
 
-| Agent status | Meaning                                                                                                                                                                                                                                                                                                                             |
-| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Online       | The agent is configured properly and ready to use. This is the<br>normal running status for an agent.                                                                                                                                                                                                                               |
-| Offline      | The agent has been out of contact with the DataSync service for five<br>minutes or longer. This can happen for a few reasons. For more<br>information, see [What do I do if my agent is<br>offline?](troubleshooting-datasync-agents.md#troubleshoot-agent-offline "troubleshooting-datasync-agents.md#troubleshoot-agent-offline") |
+| Agent status | Meaning                                                                                                                                                                                                                                                                                                                          |
+| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Online       | The agent is configured properly and ready to use. This is the<br>normal running status for an agent.                                                                                                                                                                                                                            |
+| Offline      | The agent has been out of contact with the DataSync service for five<br>minutes or longer. This can happen for a few reasons. For more<br>information, see [What do I do if my agent is offline?](troubleshooting-datasync-agents.md#troubleshoot-agent-offline "troubleshooting-datasync-agents.md#troubleshoot-agent-offline") |
 
 ## Troubleshooting your agent
 

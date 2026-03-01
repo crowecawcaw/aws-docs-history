@@ -12,18 +12,14 @@ an AWS account. For more information, see [IAM best practices](../../../IAM/late
 
 ###### Topics
 
-- [DataSync resources and
-  operations](#access-control-specify-datasync-actions "#access-control-specify-datasync-actions")
+- [DataSync resources and operations](#access-control-specify-datasync-actions "#access-control-specify-datasync-actions")
 - [Understanding resource ownership](#access-control-owner "#access-control-owner")
 - [Managing access to resources](#access-control-managing-permissions "#access-control-managing-permissions")
-- [Specifying policy elements: Actions, effects, resources,
-  and principals](#policy-elements "#policy-elements")
+- [Specifying policy elements: Actions, effects, resources, and principals](#policy-elements "#policy-elements")
 - [Specifying conditions in a policy](#specifying-conditions "#specifying-conditions")
 - [Creating an VPC endpoint policy](#endpoint-policy-example "#endpoint-policy-example")
 
-## DataSync resources and
-
-operations
+## DataSync resources and operations
 
 In DataSync, the primary resources are agent, location, task, and task execution.
 
@@ -140,9 +136,7 @@ Other services, such as Amazon S3, support resource-based permissions policies. 
 example, you can attach a policy to an Amazon S3 bucket to manage access permissions to that
 bucket. However, DataSync doesn't support resource-based policies.
 
-## Specifying policy elements: Actions, effects, resources,
-
-and principals
+## Specifying policy elements: Actions, effects, resources, and principals
 
 For each DataSync resource, the service defines a set of API operations (see [Actions](API_Operations.md "API_Operations.md")).
 To grant permissions for these API operations, DataSync defines a set of actions that you can
@@ -155,8 +149,7 @@ The following are the most basic policy elements:
 - **Resource** – In a policy, you use an Amazon
   Resource Name (ARN) to identify the resource to which the policy applies. For DataSync
   resources, you can use the wildcard character `(*)` in IAM policies. For
-  more information, see [DataSync resources and
-  operations](#access-control-specify-datasync-actions "#access-control-specify-datasync-actions").
+  more information, see [DataSync resources and operations](#access-control-specify-datasync-actions "#access-control-specify-datasync-actions").
 - **Action** – You use action keywords to identify
   resource operations that you want to allow or deny. For example, depending on the
   specified `Effect` element, the `datasync:CreateTask` permission

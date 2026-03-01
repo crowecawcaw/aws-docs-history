@@ -2,8 +2,7 @@
 
 _Task reports_ provide detailed information about what AWS DataSync
 attempts to transfer, skip, verify, and delete during a task execution. For more
-information, see [How DataSync transfers files, objects, and
-directories](how-datasync-transfer-works.md#transferring-files "how-datasync-transfer-works.md#transferring-files").
+information, see [How DataSync transfers files, objects, and directories](how-datasync-transfer-works.md#transferring-files "how-datasync-transfer-works.md#transferring-files").
 
 Task reports are generated in JSON format. You can customize the level of detail in your
 reports:
@@ -250,8 +249,7 @@ object named `object1.txt`.
 Enhanced mode
 This report shows that DataSync can't access an object named
 `object1.txt` because of an AWS KMS
-permissions issue. (If you get an error like this, see [Accessing S3 buckets using
-server-side encryption](create-s3-location.md#create-s3-location-encryption "create-s3-location.md#create-s3-location-encryption").)
+permissions issue. (If you get an error like this, see [Accessing S3 buckets using server-side encryption](create-s3-location.md#create-s3-location-encryption "create-s3-location.md#create-s3-location-encryption").)
 
 ```
 {
@@ -284,8 +282,7 @@ Basic mode
 This report shows that an object named
 `object1.txt` didn't transfer because of
 an S3 bucket permissions issue. (If you get an error like this,
-see [Providing DataSync access to S3
-buckets](create-s3-location.md#create-s3-location-access "create-s3-location.md#create-s3-location-access").)
+see [Providing DataSync access to S3 buckets](create-s3-location.md#create-s3-location-access "create-s3-location.md#create-s3-location-access").)
 
 ```
 {

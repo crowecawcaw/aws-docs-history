@@ -1,6 +1,4 @@
-# Configuring AWS DataSync transfers
-
-with Google Cloud Storage
+# Configuring AWS DataSync transfers with Google Cloud Storage
 
 With AWS DataSync, you can transfer data between Google Cloud Storage and the following AWS storage services:
 
@@ -83,9 +81,7 @@ Before you begin, do the following if you haven’t already:
 - [Create an Amazon S3
   bucket](../../../AmazonS3/latest/userguide/create-bucket-overview.md "../../../AmazonS3/latest/userguide/create-bucket-overview.md") for storing your objects after they're in AWS.
 
-## Creating an HMAC key for
-
-your Google Cloud Storage bucket
+## Creating an HMAC key for your Google Cloud Storage bucket
 
 DataSync uses an HMAC key that's associated with your Google service account to
 authenticate with and read the bucket that you’re transferring data from. (For detailed
@@ -102,9 +98,7 @@ Viewer` permissions.
 
 You'll need these items later to configure your DataSync source location.
 
-## Step 2: Configure your
-
-network
+## Step 2: Configure your network
 
 Network configuration is required only when using a DataSync agent with your transfer.
 The network requirements for this migration depend on where you choose to deploy your
@@ -132,9 +126,7 @@ To do this, modify the [security
 group](../../../vpc/latest/userguide/vpc-security-groups.md "../../../vpc/latest/userguide/vpc-security-groups.md") that's associated with your VPC service
 endpoint.
 
-## Step 3: Create a DataSync
-
-agent (optional)
+## Step 3: Create a DataSync agent (optional)
 
 A DataSync agent is only required when using **Basic** mode tasks. If
 you are using **Enhanced** mode to transfer between Google Cloud
@@ -283,9 +275,7 @@ agents](agent-requirements.md#ec2-instance-types "agent-requirements.md#ec2-inst
 create a new one. 8. For **Network settings**, choose the VPC and subnet
 where you want to deploy the agent. 9. Choose **Launch instance**. 10. Once the Amazon EC2 instance is running, [choose your VPC endpoint](choose-service-endpoint.md#datasync-in-vpc "choose-service-endpoint.md#datasync-in-vpc"). 11. [Activate your agent](activate-agent.md "activate-agent.md").
 
-## Step 4: Create a DataSync
-
-source location for your Google Cloud Storage bucket
+## Step 4: Create a DataSync source location for your Google Cloud Storage bucket
 
 To set up a DataSync location for your Google Cloud Storage bucket, you need the access
 ID and secret for the HMAC key that you created in [Step 1](#transfer-google-cloud-storage-create-hmac-key "#transfer-google-cloud-storage-create-hmac-key").
@@ -320,9 +310,7 @@ the following:
 
 10. Choose **Create location**.
 
-## Step 5: Create a
-
-DataSync destination location for your S3 bucket
+## Step 5: Create a DataSync destination location for your S3 bucket
 
 You need a DataSync location for where you want your data to end up.
 
@@ -338,9 +326,7 @@ You need a DataSync location for where you want your data to end up.
 If you deployed the DataSync agent in your VPC, this tutorial assumes that the S3
 bucket is in the same AWS Region as your VPC and DataSync agent.
 
-## Step 6: Create and start a
-
-DataSync task
+## Step 6: Create and start a DataSync task
 
 With your source and destinations locations configured, you can start moving your data
 into AWS.

@@ -1,6 +1,4 @@
-# Transferring your data with
-
-AWS DataSync
+# Transferring your data with AWS DataSync
 
 With AWS DataSync, you can transfer data to or from storage that's on-premises, in AWS, or in
 other clouds.
@@ -28,13 +26,9 @@ that includes your source and destination locations.
 
 ###### Topics
 
-- [Where can I transfer my data with
-  AWS DataSync?](working-with-locations.md "working-with-locations.md")
-- [Transferring to or from on-premises
-  storage with AWS DataSync](transferring-on-premises-storage.md "transferring-on-premises-storage.md")
-- [Transferring to or from AWS storage with
-  AWS DataSync](transferring-aws-storage.md "transferring-aws-storage.md")
-- [Transferring to or from other cloud
-  storage with AWS DataSync](transferring-other-cloud-storage.md "transferring-other-cloud-storage.md")
+- [Where can I transfer my data with AWS DataSync?](working-with-locations.md "working-with-locations.md")
+- [Transferring to or from on-premises storage with AWS DataSync](transferring-on-premises-storage.md "transferring-on-premises-storage.md")
+- [Transferring to or from AWS storage with AWS DataSync](transferring-aws-storage.md "transferring-aws-storage.md")
+- [Transferring to or from other cloud storage with AWS DataSync](transferring-other-cloud-storage.md "transferring-other-cloud-storage.md")
 - [Creating a task for transferring your data](create-task-how-to.md "create-task-how-to.md")
 - [Starting a task to transfer your data](run-task.md "run-task.md")

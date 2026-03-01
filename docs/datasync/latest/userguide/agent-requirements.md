@@ -42,9 +42,7 @@ see [Should I create a generation 1 or 2 virtual machine in Hyper-V?](https://do
   Image (AMI) that contains the DataSync image. For the recommended instance
   types, see [Amazon EC2 instance requirements](#ec2-instance-types "#ec2-instance-types").
 
-## Agent requirements for DataSync
-
-transfers
+## Agent requirements for DataSync transfers
 
 For DataSync transfers, your agent must meet the following resource
 requirements.
@@ -86,17 +84,13 @@ upon whether you use a Basic mode agent or an Enhanced mode agent:
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- |
 | For task executions working with up to 20 million files, objects, or directories, use<br>**m5.2xlarge.**<br>For task executions working with more than 20 million files, objects, or directories, use<br>**m5.4xlarge.** | Use \*_m6a.2xlarge_<br>• regardless of the number of files,<br>objects, or directories in your dataset. |
 
-## Agent requirements for AWS Region
-
-partitions
+## Agent requirements for AWS Region partitions
 
 DataSync agent images are associated with specific [AWS Region partitions](../../../glossary/latest/reference/glos-chap.md#partition "../../../glossary/latest/reference/glos-chap.md#partition"). For example, by default you can't download an
 agent in a commercial AWS Region and then activate it in an
 AWS GovCloud (US) Region.
 
-## Agent management
-
-requirements
+## Agent management requirements
 
 Once you [activate](activate-agent.md "activate-agent.md") your DataSync agent, AWS
 manages the agent for you. For more information, see [Managing your AWS DataSync agent](managing-agent.md "managing-agent.md").

@@ -1,6 +1,4 @@
-# Configuring transfers with Microsoft
-
-Azure Blob Storage
+# Configuring transfers with Microsoft Azure Blob Storage
 
 With AWS DataSync, you can transfer data between Microsoft Azure Blob Storage
 (including Azure Data Lake Storage Gen2 blob storage) and the following AWS
@@ -18,9 +16,7 @@ storage services:
   You don't need an agent to transfer data between Azure Blob and Amazon S3 using
   **Enhanced** mode.
 
-## Providing DataSync access to your Azure Blob
-
-Storage
+## Providing DataSync access to your Azure Blob Storage
 
 How DataSync accesses your Azure Blob Storage depends on several factors,
 including whether you're transferring to or from blob storage and what kind of [shared access signature (SAS) token](#azure-blob-sas-tokens "#azure-blob-sas-tokens") you're
@@ -50,16 +46,11 @@ Storage but your SAS token doesn't have tag permissions.
 
 ###### Topics
 
-- [SAS token permissions for account-level
-  access](#account-sas-tokens "#account-sas-tokens")
-- [SAS token permissions for container-level
-  access](#container-sas-tokens "#container-sas-tokens")
-- [SAS expiration
-  policies](#azure-blob-sas-expiration-policies "#azure-blob-sas-expiration-policies")
+- [SAS token permissions for account-level access](#account-sas-tokens "#account-sas-tokens")
+- [SAS token permissions for container-level access](#container-sas-tokens "#container-sas-tokens")
+- [SAS expiration policies](#azure-blob-sas-expiration-policies "#azure-blob-sas-expiration-policies")
 
-#### SAS token permissions for account-level
-
-access
+#### SAS token permissions for account-level access
 
 DataSync needs an account-level access token with the following permissions
 (depending on whether you're transferring to or from Azure Blob
@@ -102,9 +93,7 @@ tags](#azure-blob-considerations-object-tags "#azure-blob-considerations-object-
   DataSync to copy [object
   tags](#azure-blob-considerations-object-tags "#azure-blob-considerations-object-tags"))
 
-#### SAS token permissions for container-level
-
-access
+#### SAS token permissions for container-level access
 
 DataSync needs a container-level access token with the following permissions
 (depending on whether you're transferring to or from Azure Blob
@@ -147,9 +136,7 @@ or generate a [SAS
 token that provides account-level
 access](#account-sas-tokens "#account-sas-tokens").
 
-#### SAS expiration
-
-policies
+#### SAS expiration policies
 
 Make sure that your SAS doesn't expire before you expect to finish your
 transfer. For information about configuring a SAS expiration policy, see the
@@ -175,9 +162,7 @@ destination](configure-data-verification-options.md "configure-data-verification
 DataSync doesn't support the cold access tier. For more information about access
 tiers, see the [Azure Blob Storage documentation](https://learn.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview?tabs=azure-portal "https://learn.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview?tabs=azure-portal").
 
-## Considerations with Azure Blob
-
-Storage transfers
+## Considerations with Azure Blob Storage transfers
 
 When planning to transfer data to or from Azure Blob Storage with
 DataSync, there are some things to keep in mind.
@@ -186,12 +171,10 @@ DataSync, there are some things to keep in mind.
 
 - [Costs](#azure-blob-considerations-costs "#azure-blob-considerations-costs")
 - [Blob types](#blob-types "#blob-types")
-- [AWS Region
-  availability](#azure-blob-considerations-regions "#azure-blob-considerations-regions")
+- [AWS Region availability](#azure-blob-considerations-regions "#azure-blob-considerations-regions")
 - [Copying object tags](#azure-blob-considerations-object-tags "#azure-blob-considerations-object-tags")
 - [Transferring to Amazon S3](#azure-blob-considerations-s3 "#azure-blob-considerations-s3")
-- [Deleting directories in a
-  transfer destination](#azure-blob-considerations-deleted-files "#azure-blob-considerations-deleted-files")
+- [Deleting directories in a transfer destination](#azure-blob-considerations-deleted-files "#azure-blob-considerations-deleted-files")
 - [Limitations](#azure-blob-limitations "#azure-blob-limitations")
 
 ### Costs
@@ -220,9 +203,7 @@ blobs.
 
 For more information about blob types, see the [Azure Blob Storage documentation](https://learn.microsoft.com/en-us/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs "https://learn.microsoft.com/en-us/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs").
 
-### AWS Region
-
-availability
+### AWS Region availability
 
 You can create an Azure Blob Storage transfer location in any
 [AWS Region that's
@@ -256,9 +237,7 @@ Azure Blob Storage depends on the following factors:
 When transferring to Amazon S3, DataSync won't transfer Azure Blob Storage
 objects larger than 5 TB or objects with metadata larger than 2 KB.
 
-### Deleting directories in a
-
-transfer destination
+### Deleting directories in a transfer destination
 
 When transferring to Azure Blob Storage, DataSync can [remove objects in your blob storage that aren't
 present in your transfer source](configure-metadata.md "configure-metadata.md"). (You can configure this option by
@@ -313,20 +292,15 @@ Before you continue, consider using a shell script that might help you
 deploy your Hyper-V agent in Azure quicker. You can get more
 information and download the code on [GitHub](https://github.com/aws-samples/aws-datasync-deploy-agent-azure "https://github.com/aws-samples/aws-datasync-deploy-agent-azure").
 
-If you use the script, you can skip ahead to the section about [Getting your agent's
-activation key](#azure-blob-creating-agent-hyper-v-3 "#azure-blob-creating-agent-hyper-v-3").
+If you use the script, you can skip ahead to the section about [Getting your agent's activation key](#azure-blob-creating-agent-hyper-v-3 "#azure-blob-creating-agent-hyper-v-3").
 
 ###### Topics
 
 - [Prerequisites](#azure-blob-creating-agent-hyper-v-0 "#azure-blob-creating-agent-hyper-v-0")
-- [Downloading and
-  preparing your agent](#azure-blob-creating-agent-hyper-v-1 "#azure-blob-creating-agent-hyper-v-1")
-- [Deploying your agent
-  in Azure](#azure-blob-creating-agent-hyper-v-2 "#azure-blob-creating-agent-hyper-v-2")
-- [Getting your agent's
-  activation key](#azure-blob-creating-agent-hyper-v-3 "#azure-blob-creating-agent-hyper-v-3")
-- [Activating your
-  agent](#azure-blob-creating-agent-hyper-v-4 "#azure-blob-creating-agent-hyper-v-4")
+- [Downloading and preparing your agent](#azure-blob-creating-agent-hyper-v-1 "#azure-blob-creating-agent-hyper-v-1")
+- [Deploying your agent in Azure](#azure-blob-creating-agent-hyper-v-2 "#azure-blob-creating-agent-hyper-v-2")
+- [Getting your agent's activation key](#azure-blob-creating-agent-hyper-v-3 "#azure-blob-creating-agent-hyper-v-3")
+- [Activating your agent](#azure-blob-creating-agent-hyper-v-4 "#azure-blob-creating-agent-hyper-v-4")
 
 #### Prerequisites
 
@@ -339,9 +313,7 @@ must do the following:
 - Install the [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli "https://learn.microsoft.com/en-us/cli/azure/install-azure-cli").
 - Install [AzCopy](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json "https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json").
 
-#### Downloading and
-
-preparing your agent
+#### Downloading and preparing your agent
 
 Download an agent from the DataSync console. Before you can deploy the agent
 in Azure, you must convert it to a fixed-size virtual hard
@@ -377,9 +349,7 @@ machine. 5. Open PowerShell and do the following:
 `.vhd` file format) and ready to deploy in
 Azure.
 
-#### Deploying your agent
-
-in Azure
+#### Deploying your agent in Azure
 
 Deploying your DataSync agent in Azure involves:
 
@@ -525,9 +495,7 @@ az disk revoke-access -n `your-managed-disk` -g `your-resource-group`
 You've deployed your agent. Before you can start configuring your data
 transfer, you must activate the agent.
 
-#### Getting your agent's
-
-activation key
+#### Getting your agent's activation key
 
 To manually get your DataSync agent's activation key, follow these steps.
 
@@ -562,9 +530,7 @@ key. 5. Enter the AWS Region where you're using DataSync (for example,
 `us-east-1`). 6. Choose the [service
 endpoint](choose-service-endpoint.md "choose-service-endpoint.md") that the agent will use to connect with AWS. 7. Save the value of the `Activation key` output.
 
-#### Activating your
-
-agent
+#### Activating your agent
 
 After you have the activation key, you can finish creating your DataSync
 agent.
@@ -601,8 +567,7 @@ name`**).
 7. Choose **Create agent**.
 
 Your agent is ready to connect with your Azure Blob
-Storage. For more information, see [Creating your Azure Blob
-Storage transfer location](#creating-azure-blob-location-how-to "#creating-azure-blob-location-how-to").
+Storage. For more information, see [Creating your Azure Blob Storage transfer location](#creating-azure-blob-location-how-to "#creating-azure-blob-location-how-to").
 
 You can deploy your DataSync agent on an Amazon EC2 instance.
 
@@ -617,9 +582,7 @@ In this situation, we recommend using a virtual private cloud (VPC)
 service endpoint. 3. Configure your network to work with [VPC service endpoints](datasync-network.md#using-vpc-endpoint "datasync-network.md#using-vpc-endpoint"). 4. [Activate the
 agent](activate-agent.md "activate-agent.md").
 
-## Creating your Azure Blob
-
-Storage transfer location
+## Creating your Azure Blob Storage transfer location
 
 You can configure DataSync to use your Azure Blob Storage as a transfer
 source or destination.
@@ -737,9 +700,7 @@ ARN of the location that you created. For example:
 }
 ```
 
-## Viewing your Azure Blob
-
-Storage transfer location
+## Viewing your Azure Blob Storage transfer location
 
 You can get details about the existing DataSync transfer location for your Azure
 Blob Storage.
@@ -779,9 +740,7 @@ example:
 }
 ```
 
-## Updating your Azure Blob
-
-Storage transfer location
+## Updating your Azure Blob Storage transfer location
 
 If needed, you can modify your location's configuration in the console or by using the
 AWS CLI.
@@ -836,9 +795,7 @@ you want your objects to be transferred into.
 This parameter applies only when you're using this location as a
 transfer destination.
 
-## Next
-
-steps
+## Next steps
 
 After you finish creating a DataSync location for your Azure Blob Storage,
 you can continue setting up your transfer. Here are some next steps to consider:

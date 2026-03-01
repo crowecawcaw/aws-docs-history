@@ -20,8 +20,7 @@ You can tag your DataSync task only when creating the task.
    then choose **Create task**.
 3. Configure your task's source and destination locations.
 
-For more information, see [Where can I transfer my data with
-AWS DataSync?](working-with-locations.md "working-with-locations.md") 4. On the **Configure settings** page, choose
+For more information, see [Where can I transfer my data with AWS DataSync?](working-with-locations.md "working-with-locations.md") 4. On the **Configure settings** page, choose
 **Add new tag** to tag your task.
 
 1. Copy the following `create-task` command:
@@ -61,9 +60,7 @@ created.
 
 To view the tags you added to this task, you can use the [list-tags-for-resource](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/datasync/list-tags-for-resource.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/datasync/list-tags-for-resource.html") command.
 
-## Tagging your DataSync task
-
-execution
+## Tagging your DataSync task execution
 
 You can tag each run of your DataSync task.
 

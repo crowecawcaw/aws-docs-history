@@ -62,9 +62,7 @@ For instructions, see [Create a permission set](../../../singlesignon/latest/use
 
 For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgroups.md "../../../singlesignon/latest/userguide/addgroups.md") in the _AWS IAM Identity Center User Guide_.
 
-## Required IAM permissions for using
-
-DataSync
+## Required IAM permissions for using DataSync
 
 DataSync can transfer your data to or from an Amazon S3 bucket, Amazon EFS file system, or Amazon FSx file system.
 To get your data where you want it to go, you need the right IAM permissions granted to
@@ -77,8 +75,7 @@ your own policies.
 ###### Contents
 
 - [AWS managed policies](setting-up.md#permissions-requirements-managed "setting-up.md#permissions-requirements-managed")
-- [Customer managed
-  policies](setting-up.md#permissions-requirements-customer-managed "setting-up.md#permissions-requirements-customer-managed")
+- [Customer managed policies](setting-up.md#permissions-requirements-customer-managed "setting-up.md#permissions-requirements-customer-managed")
 
 ### AWS managed policies
 
@@ -91,13 +88,10 @@ AWS provides the following managed policies for common DataSync use cases:
 
 For more information, see [AWS managed policies for AWS DataSync](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
 
-### Customer managed
-
-policies
+### Customer managed policies
 
 You can create custom IAM policies to use with DataSync. For more information, see
-[IAM customer managed policies for
-AWS DataSync](using-identity-based-policies.md "using-identity-based-policies.md").
+[IAM customer managed policies for AWS DataSync](using-identity-based-policies.md "using-identity-based-policies.md").
 
 ## Where can I use DataSync?
 
