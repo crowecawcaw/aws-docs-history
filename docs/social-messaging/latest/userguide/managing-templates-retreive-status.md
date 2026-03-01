@@ -1,6 +1,4 @@
-# Get feedback on a template's
-
-lowered status with WhatsApp Manager
+# Get feedback on a template's lowered status with WhatsApp Manager
 
 Meta provides information on the reason a template's status was lowered. Use the
 feedback from Meta to edit the template and submit it for reapproval, use a different

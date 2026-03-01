@@ -27,8 +27,6 @@ _of_ the cloud and security _in_ the cloud:
 - [Compliance validation for AWS End User Messaging Social](compliance-validation.md "compliance-validation.md")
 - [Resilience in AWS End User Messaging Social](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure Security in AWS End User Messaging Social](infrastructure-security.md "infrastructure-security.md")
-- [Cross-service confused deputy
-  prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
 - [Security best practices](security-best-practices.md "security-best-practices.md")
-- [Using service-linked roles for
-  AWS End User Messaging Social](using-service-linked-roles.md "using-service-linked-roles.md")
+- [Using service-linked roles for AWS End User Messaging Social](using-service-linked-roles.md "using-service-linked-roles.md")

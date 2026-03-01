@@ -12,8 +12,7 @@ For the most recent list of WhatsApp best practices, see the [WhatsApp Business 
 - [Obtain permission](#best-practices-whatsapp-obtain-permission "#best-practices-whatsapp-obtain-permission")
 - [Prohibited message content](#best-practices-whatsapp-message-content "#best-practices-whatsapp-message-content")
 - [Audit your customer lists](#best-practices-whatsapp-audit-lists "#best-practices-whatsapp-audit-lists")
-- [Adjust your sending based on
-  engagement](#best-practices-whatsapp-adjust-engagement "#best-practices-whatsapp-adjust-engagement")
+- [Adjust your sending based on engagement](#best-practices-whatsapp-adjust-engagement "#best-practices-whatsapp-adjust-engagement")
 - [Send at appropriate times](#best-practices-whatsapp-appropriate-times "#best-practices-whatsapp-appropriate-times")
 
 ## Up-to-date business profile
@@ -101,9 +100,7 @@ messages are those who want to receive them.
 When you audit your list, send each opted-in customer a message that reminds them that
 they're subscribed, and provides them with information about unsubscribing.
 
-## Adjust your sending based on
-
-engagement
+## Adjust your sending based on engagement
 
 Your customers' priorities can change over time. If customers no longer find your
 messages to be useful, they might opt out of your messages entirely, or even report your

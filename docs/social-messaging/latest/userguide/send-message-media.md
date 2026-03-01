@@ -1,6 +1,4 @@
-# Example of sending a media message in
-
-AWS End User Messaging Social
+# Example of sending a media message in AWS End User Messaging Social
 
 The following example shows how to send a media message to your customer using the
 AWS CLI. For more information on configuring the AWS CLI, see [Configure

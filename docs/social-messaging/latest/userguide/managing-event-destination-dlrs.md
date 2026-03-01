@@ -44,9 +44,7 @@ In the preceding example event:
 - `fb2594b8a7974770b128a409e2example` is the ID of the WhatsApp Business Account (WABA).
 - `976c72a700aac43eaf573ae050example` is the ID of the phone number.
 
-## Example WhatsApp JSON
-
-for receiving a message
+## Example WhatsApp JSON for receiving a message
 
 The following shows the event record for an incoming message from WhatsApp. The JSON
 received from WhatsApp in the `whatsAppWebhookEntry` is received as a JSON string

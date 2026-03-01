@@ -70,9 +70,7 @@ connections and traffic between AWS End User Messaging Social and your on-premis
 between AWS End User Messaging Social and other AWS resources in the same AWS Region. The following features and
 practices can help you secure internetwork traffic privacy for AWS End User Messaging Social.
 
-### Traffic between
-
-AWS End User Messaging Social and on-premises clients and applications
+### Traffic between AWS End User Messaging Social and on-premises clients and applications
 
 To establish a private connection between AWS End User Messaging Social and clients and applications on your
 on-premises network, you can use Direct Connect. This enables you to link your network to an

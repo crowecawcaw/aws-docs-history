@@ -1,6 +1,4 @@
-# Example of responding to a message with a read receipt
-
-and reaction
+# Example of responding to a message with a read receipt and reaction
 
 In this example, your customer, Diego, sent you a message saying "Hi" and you respond to
 him with a read receipt and hand wave emoji.
@@ -23,8 +21,7 @@ initiated conversations.
 
 The `whatsAppWebhookEntry` in this example is shown in JSON
 notation. For an example of converting the
-`whatsAppWebhookEntry` from JSON sting to JSON, see [Example WhatsApp JSON
-for receiving a message](managing-event-destination-dlrs.md#managing-event-destination-dlrs-example-receive-text "managing-event-destination-dlrs.md#managing-event-destination-dlrs-example-receive-text").
+`whatsAppWebhookEntry` from JSON sting to JSON, see [Example WhatsApp JSON for receiving a message](managing-event-destination-dlrs.md#managing-event-destination-dlrs-example-receive-text "managing-event-destination-dlrs.md#managing-event-destination-dlrs-example-receive-text").
 
 ```
 {

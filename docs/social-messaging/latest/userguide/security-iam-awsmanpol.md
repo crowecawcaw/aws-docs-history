@@ -22,9 +22,7 @@ a new feature, AWS adds read-only permissions for new operations and resources. 
 and descriptions of job function policies, see [AWS managed policies for
 job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md "../../../IAM/latest/UserGuide/access_policies_job-functions.md") in the _IAM User Guide_.
 
-## AWS End User Messaging Social updates to AWS managed
-
-policies
+## AWS End User Messaging Social updates to AWS managed policies
 
 View details about updates to AWS managed policies for AWS End User Messaging Social since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

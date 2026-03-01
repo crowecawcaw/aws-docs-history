@@ -1,6 +1,4 @@
-# Increase message throughput in
-
-WhatsApp
+# Increase message throughput in WhatsApp
 
 Message throughput is the number of incoming and outgoing messages per second (MPS) for a
 phone number. By default, each phone number has an MPS of 80. Meta can increase your MPS to

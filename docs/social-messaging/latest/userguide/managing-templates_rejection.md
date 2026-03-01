@@ -1,6 +1,4 @@
-# Reasons why a template is rejected in
-
-WhatsApp
+# Reasons why a template is rejected in WhatsApp
 
 If your message template is reviewed and rejected by Meta, you will receive an email
 explaining why the template was rejected. You can appeal the rejection or modify your

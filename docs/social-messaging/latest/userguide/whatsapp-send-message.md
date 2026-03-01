@@ -36,5 +36,4 @@ in the _WhatsApp Business Platform Cloud API Reference_.
 ###### Topics
 
 - [Example of sending a template message in AWS End User Messaging Social](send-message-text.md "send-message-text.md")
-- [Example of sending a media message in
-  AWS End User Messaging Social](send-message-media.md "send-message-media.md")
+- [Example of sending a media message in AWS End User Messaging Social](send-message-media.md "send-message-media.md")

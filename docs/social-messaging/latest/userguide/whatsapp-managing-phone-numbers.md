@@ -11,6 +11,5 @@ associated with a WhatsApp Business Account (WABA) and use each phone number for
 - [View a phone number's status](managing-phone-numbers-status.md "managing-phone-numbers-status.md")
 - [View a phone number's ID in AWS End User Messaging Social](managing-phone-numbers-id.md "managing-phone-numbers-id.md")
 - [Increase messaging conversation limits in WhatsApp](increase-message-limit.md "increase-message-limit.md")
-- [Increase message throughput in
-  WhatsApp](increase-message-throughput.md "increase-message-throughput.md")
+- [Increase message throughput in WhatsApp](increase-message-throughput.md "increase-message-throughput.md")
 - [Understanding phone number quality rating in WhatsApp](understanding-phone-number-quality-rating.md "understanding-phone-number-quality-rating.md")
