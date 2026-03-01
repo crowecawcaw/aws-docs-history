@@ -41,9 +41,7 @@ What you will learn on your journey to building applications with Lambda:
 
 ![Image of learning path. Described in detail in the following text.](images/s_lambda/path-lambda-fun.png)
 
-### Fundamentals -
-
-conceptual and practical paths
+### Fundamentals - conceptual and practical paths
 
 The following is a text representation of the key concepts in the preceding
 diagram.
