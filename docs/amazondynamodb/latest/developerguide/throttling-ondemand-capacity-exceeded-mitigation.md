@@ -1,21 +1,16 @@
-# 4- On-demand maximum
-
-throughput exceeded
+# 4- On-demand maximum throughput exceeded
 
 When you configure an [on-demand](on-demand-capacity-mode.md "on-demand-capacity-mode.md") table or
 GSI, you can optionally set a maximum throughput limit ([`MaxReadRequestUnits`](../APIReference/API_OnDemandThroughput.md#DDB-Type-OnDemandThroughput-MaxReadRequestUnits "../APIReference/API_OnDemandThroughput.md#DDB-Type-OnDemandThroughput-MaxReadRequestUnits") and [`MaxWriteRequestUnits`](../APIReference/API_OnDemandThroughput.md#DDB-Type-OnDemandThroughput-MaxWriteRequestUnits "../APIReference/API_OnDemandThroughput.md#DDB-Type-OnDemandThroughput-MaxWriteRequestUnits")) at the table or index level to prevent
 runaway costs or protect downstream systems from being overwhelmed. For more information
-about maximum throughput, see [DynamoDB maximum throughput
-for on-demand tables](on-demand-capacity-mode-max-throughput.md "on-demand-capacity-mode-max-throughput.md").
+about maximum throughput, see [DynamoDB maximum throughput for on-demand tables](on-demand-capacity-mode-max-throughput.md "on-demand-capacity-mode-max-throughput.md").
 
 When your read or write consumption exceeds these self-imposed limits, additional
 requests that would exceed the limit receive quick throttle responses. DynamoDB returns
 exceptions with a `MaxOnDemandThroughputExceeded` throttling reason type,
 indicating which resource has reached its throughput boundary.
 
-## On-demand maximum throughput
-
-exceeded throttling
+## On-demand maximum throughput exceeded throttling
 
 This section provides resolution guidance for on-demand maximum throughput exceeded
 throttling scenarios. Before using this guide, ensure you have identified the specific
@@ -58,8 +53,7 @@ options:
 ###### When this occurs
 
 Your on-demand table has exceeded its configured maximum read throughput
-capacity. You can monitor the CloudWatch metrics in [Common diagnosis and
-monitoring](#ondemand-capacity-exceeded-diagnosis-monitoring "#ondemand-capacity-exceeded-diagnosis-monitoring") to analyze your
+capacity. You can monitor the CloudWatch metrics in [Common diagnosis and monitoring](#ondemand-capacity-exceeded-diagnosis-monitoring "#ondemand-capacity-exceeded-diagnosis-monitoring") to analyze your
 throttling event.
 
 ###### Remediation options
@@ -83,8 +77,7 @@ Consider these steps to address your throttling events:
 ###### When this occurs
 
 Your on-demand table has exceeded its configured maximum write throughput
-capacity. You can monitor the CloudWatch metrics in [Common diagnosis and
-monitoring](#ondemand-capacity-exceeded-diagnosis-monitoring "#ondemand-capacity-exceeded-diagnosis-monitoring") to analyze your
+capacity. You can monitor the CloudWatch metrics in [Common diagnosis and monitoring](#ondemand-capacity-exceeded-diagnosis-monitoring "#ondemand-capacity-exceeded-diagnosis-monitoring") to analyze your
 throttling event.
 
 ###### Remediation options
@@ -107,8 +100,7 @@ Consider these steps to address your throttling events:
 ###### When this occurs
 
 Read requests to a GSI in on-demand mode have exceeded the GSI's configured
-maximum read throughput capacity. You can monitor the CloudWatch metrics in [Common diagnosis and
-monitoring](#ondemand-capacity-exceeded-diagnosis-monitoring "#ondemand-capacity-exceeded-diagnosis-monitoring") to analyze your
+maximum read throughput capacity. You can monitor the CloudWatch metrics in [Common diagnosis and monitoring](#ondemand-capacity-exceeded-diagnosis-monitoring "#ondemand-capacity-exceeded-diagnosis-monitoring") to analyze your
 throttling event.
 
 ###### Remediation options
@@ -132,8 +124,7 @@ Consider these steps to address your throttling events:
 Updates to items in the base table trigger writes to a GSI in on-demand mode
 that exceed the GSI's configured maximum write throughput capacity, causing
 [back-pressure throttling](gsi-throttling.md "gsi-throttling.md"). You can
-monitor the CloudWatch metrics in [Common diagnosis and
-monitoring](#ondemand-capacity-exceeded-diagnosis-monitoring "#ondemand-capacity-exceeded-diagnosis-monitoring") to analyze your
+monitor the CloudWatch metrics in [Common diagnosis and monitoring](#ondemand-capacity-exceeded-diagnosis-monitoring "#ondemand-capacity-exceeded-diagnosis-monitoring") to analyze your
 throttling event.
 
 ###### Remediation options
@@ -150,9 +141,7 @@ Consider these steps to address your throttling events:
   maintains AWS's account-level safeguards. However, it's important to
   monitor spending closely after removing this limit.
 
-## Common diagnosis and
-
-monitoring
+## Common diagnosis and monitoring
 
 When troubleshooting on-demand maximum throughput exceeded throttling events, several
 CloudWatch metrics can help identify the root cause and scaling patterns.

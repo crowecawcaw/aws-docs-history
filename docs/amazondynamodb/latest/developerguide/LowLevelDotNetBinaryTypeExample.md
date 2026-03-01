@@ -1,6 +1,4 @@
-# Example: Handling binary type attributes
-
-using the AWS SDK for .NET low-level API
+# Example: Handling binary type attributes using the AWS SDK for .NET low-level API
 
 The following C# code example illustrates the handling of binary type attributes. The
 example adds an item to the `Reply` table. The item includes a binary type

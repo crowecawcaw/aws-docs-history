@@ -42,8 +42,7 @@ the AWS SDKs.
 - [Using time to live (TTL) in DynamoDB](TTL.md "TTL.md")
 - [Querying tables in DynamoDB](Query.md "Query.md")
 - [Scanning tables in DynamoDB](Scan.md "Scan.md")
-- [PartiQL - a SQL-compatible query language for
-  Amazon DynamoDB](ql-reference.md "ql-reference.md")
+- [PartiQL - a SQL-compatible query language for Amazon DynamoDB](ql-reference.md "ql-reference.md")
 - [Working with items: Java](JavaDocumentAPIItemCRUD.md "JavaDocumentAPIItemCRUD.md")
 - [Working with items: .NET](LowLevelDotNetItemCRUD.md "LowLevelDotNetItemCRUD.md")
 
@@ -77,8 +76,7 @@ up-to-date version of the item.)
 
 `GetItem` returns all of the item's attributes. You can use a
 _projection expression_ to return only some of the attributes.
-For more information, see [Using projection expressions in
-DynamoDB](Expressions.md "Expressions.md").
+For more information, see [Using projection expressions in DynamoDB](Expressions.md "Expressions.md").
 
 To return the number of read capacity units consumed by `GetItem`, set the
 `ReturnConsumedCapacity` parameter to `TOTAL`.
@@ -160,8 +158,7 @@ You use an _update expression_ to specify the attributes that
 you want to modify and their new values. For more information, see [Using update expressions in DynamoDB](Expressions.md "Expressions.md").
 
 Within the update expression, you use expression attribute values as placeholders
-for the actual values. For more information, see [Using expression attribute
-values in DynamoDB](Expressions.md "Expressions.md").
+for the actual values. For more information, see [Using expression attribute values in DynamoDB](Expressions.md "Expressions.md").
 
 ###### Example
 
@@ -536,9 +533,7 @@ expression evaluates to false, and Bob's update fails.
 
 For more information, see [DynamoDB condition expression CLI example](Expressions.md "Expressions.md").
 
-### Conditional write
-
-idempotence
+### Conditional write idempotence
 
 Conditional writes can be _idempotent_ if the conditional check
 is on the same attribute that is being updated. This means that DynamoDB performs a
@@ -552,9 +547,7 @@ network error occurs, and you don't know whether the request was successful. Bec
 this conditional write is idempotent, you can retry the same `UpdateItem`
 request, and DynamoDB updates the item only if the `Price` is currently 20.
 
-### Capacity
-
-units consumed by conditional writes
+### Capacity units consumed by conditional writes
 
 If a `ConditionExpression` evaluates to false during a conditional
 write, DynamoDB still consumes write capacity from the table. The amount consumed is

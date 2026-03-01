@@ -23,8 +23,7 @@ about how to get started with global tables, see [Tutorials: Creating global tab
 There are two versions of DynamoDB global tables available: Version 2019.11.21 (Current)
 and [Version 2017.11.29 (Legacy)](globaltables.md "globaltables.md"). You should use
 Version 2019.11.21 (Current) whenever possible. The information in this documentation
-section is for Version 2019.11.21 (Current). For more information, see [Determining the version of a global
-table](V2globaltables_versions.md#globaltables.DetermineVersion "V2globaltables_versions.md#globaltables.DetermineVersion").
+section is for Version 2019.11.21 (Current). For more information, see [Determining the version of a global table](V2globaltables_versions.md#globaltables.DetermineVersion "V2globaltables_versions.md#globaltables.DetermineVersion").
 
 ## Availability
 
@@ -48,9 +47,7 @@ table defaults to multi-Region eventual consistency (MREC). A global table canno
 contain replicas configured with different consistency modes. You cannot change a global
 table's consistency mode after creation.
 
-### Multi-Region
-
-eventual consistency (MREC)
+### Multi-Region eventual consistency (MREC)
 
 Multi-Region eventual consistency (MREC) is the default consistency mode for
 global tables. Item changes in an MREC global table replica are asynchronously
@@ -80,9 +77,7 @@ Region where DynamoDB is available, and can have as many replicas as there are R
 in the [AWS
 partition.](../../../whitepapers/latest/aws-fault-isolation-boundaries/partitions.md "../../../whitepapers/latest/aws-fault-isolation-boundaries/partitions.md")
 
-### Multi-Region
-
-strong consistency (MRSC)
+### Multi-Region strong consistency (MRSC)
 
 You can configure multi-Region strong consistency (MRSC) mode when you create a
 global table. Item changes in an MRSC global table replica are synchronously
@@ -130,9 +125,7 @@ The following considerations apply to MRSC global tables:
 - CloudWatch Contributor Insights information is only reported for the Region in
   which an operation occurred.
 
-## Choosing a
-
-consistency mode
+## Choosing a consistency mode
 
 The key criteria for choosing a multi-Region consistency mode is whether your
 application prioritizes lower latency writes and strongly consistent reads, or
@@ -300,9 +293,7 @@ For global tables configured for on-demand mode, write capacity is automatically
 across all replicas. DynamoDB automatically adjusts capacity based on traffic, and there are no
 replica-specific read or write capacity settings to manage.
 
-## Settings
-
-synchronization
+## Settings synchronization
 
 Settings in DynamoDB global tables are configuration parameters that control various
 aspects of table behavior and replication. These settings are managed through the DynamoDB
@@ -372,9 +363,7 @@ a result, DAX caches can become stale as writes are not updating the DAX cache.
 DAX caches configured for global table replicas will only be refreshed when the cache
 TTL expires.
 
-## Considerations for managing global
-
-tables
+## Considerations for managing global tables
 
 You can't delete a table used to add a new global table replica until 24 hours have
 elapsed since the new replica was created.

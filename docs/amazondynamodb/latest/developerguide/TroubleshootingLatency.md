@@ -107,8 +107,7 @@ For a helpful discussion on this topic, see [Tuning AWS Java SDK HTTP request se
 applications](https://aws.amazon.com/blogs/database/tuning-aws-java-sdk-http-request-settings-for-latency-aware-amazon-dynamodb-applications/ "https://aws.amazon.com/blogs/database/tuning-aws-java-sdk-http-request-settings-for-latency-aware-amazon-dynamodb-applications/").
 
 - **Reduce the distance between the client and DynamoDB
-  endpoint:** If you have globally dispersed users, consider using [Global tables - multi-active, multi-Region
-  replication](GlobalTables.md "GlobalTables.md"). With global tables, you
+  endpoint:** If you have globally dispersed users, consider using [Global tables - multi-active, multi-Region replication](GlobalTables.md "GlobalTables.md"). With global tables, you
   can replicate your table to specified AWS Regions where you want the table to be
   available. You can place a copy of the data closer to the end user to reduce network
   latency during read and write operations. For more information about using DynamoDB

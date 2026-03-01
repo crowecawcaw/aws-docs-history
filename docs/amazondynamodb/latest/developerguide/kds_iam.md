@@ -115,9 +115,7 @@ JSON
 
 ```
 
-## Example: Selectively apply permissions for
-
-Amazon Kinesis Data Streams for Amazon DynamoDB based on resource
+## Example: Selectively apply permissions for Amazon Kinesis Data Streams for Amazon DynamoDB based on resource
 
 The following IAM policy grants permissions to enable and describe Amazon Kinesis Data Streams for Amazon DynamoDB for the `Music` table,
 and denies permissions to disable Amazon Kinesis Data Streams for Amazon DynamoDB for the `Orders` table.

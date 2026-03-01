@@ -15,24 +15,15 @@ retention](../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md#me
 
 ###### Topics
 
-- [How to identify unused
-  resources](#CostOptimization_UnusedResources_Identifying "#CostOptimization_UnusedResources_Identifying")
-- [Identifying unused table
-  resources](#CostOptimization_UnusedResources_Tables "#CostOptimization_UnusedResources_Tables")
-- [Cleaning up unused table
-  resources](#CostOptimization_UnusedResources_Tables_Cleanup "#CostOptimization_UnusedResources_Tables_Cleanup")
-- [Identifying unused GSI
-  resources](#CostOptimization_UnusedResources_GSI "#CostOptimization_UnusedResources_GSI")
-- [Cleaning up unused GSI
-  resources](#CostOptimization_UnusedResources_GSI_Cleanup "#CostOptimization_UnusedResources_GSI_Cleanup")
-- [Cleaning up unused global
-  tables](#CostOptimization_UnusedResources_GlobalTables "#CostOptimization_UnusedResources_GlobalTables")
-- [Cleaning up unused backups or
-  point-in-time recovery (PITR)](#CostOptimization_UnusedResources_Backups "#CostOptimization_UnusedResources_Backups")
+- [How to identify unused resources](#CostOptimization_UnusedResources_Identifying "#CostOptimization_UnusedResources_Identifying")
+- [Identifying unused table resources](#CostOptimization_UnusedResources_Tables "#CostOptimization_UnusedResources_Tables")
+- [Cleaning up unused table resources](#CostOptimization_UnusedResources_Tables_Cleanup "#CostOptimization_UnusedResources_Tables_Cleanup")
+- [Identifying unused GSI resources](#CostOptimization_UnusedResources_GSI "#CostOptimization_UnusedResources_GSI")
+- [Cleaning up unused GSI resources](#CostOptimization_UnusedResources_GSI_Cleanup "#CostOptimization_UnusedResources_GSI_Cleanup")
+- [Cleaning up unused global tables](#CostOptimization_UnusedResources_GlobalTables "#CostOptimization_UnusedResources_GlobalTables")
+- [Cleaning up unused backups or point-in-time recovery (PITR)](#CostOptimization_UnusedResources_Backups "#CostOptimization_UnusedResources_Backups")
 
-## How to identify unused
-
-resources
+## How to identify unused resources
 
 To identify unused tables or indexes, we'll look at the following CloudWatch metrics over a
 period of 30 days to understand if there are any active reads or writes on the table or any
@@ -52,9 +43,7 @@ track how much consumed capacity you have used. You can retrieve the total consu
 capacity for a table and all of its global secondary indexes, or for a particular global
 secondary index.
 
-## Identifying unused table
-
-resources
+## Identifying unused table resources
 
 Amazon CloudWatch is a monitoring and observability service which provides the DynamoDB table metrics
 you’ll use to identify unused resources. CloudWatch metrics can be viewed through the AWS Management Console
@@ -202,9 +191,7 @@ The following image shows a table without read traffic:
 
 ![Graph showing no read activity for a DynamoDB table, suggesting the table isn't in use.](images/CostOptimization/TableWithoutReadTraffic.png)
 
-## Cleaning up unused table
-
-resources
+## Cleaning up unused table resources
 
 If you have identified unused table resources, you can reduce their ongoing costs in the
 following ways.
@@ -260,9 +247,7 @@ lifecycle](../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md "../../..
 After your table has been backed up, you may choose to delete it either through the
 AWS Management Console or through the AWS Command Line Interface.
 
-## Identifying unused GSI
-
-resources
+## Identifying unused GSI resources
 
 The steps for identifying an unused global secondary are similar to those for identifying
 an unused table. Since DynamoDB replicates items written to your base table into your GSI if they
@@ -338,9 +323,7 @@ The following result shows a GSI receiving no read traffic in the evaluated peri
 
 ```
 
-## Cleaning up unused GSI
-
-resources
+## Cleaning up unused GSI resources
 
 If you've identified an unused GSI, you can choose to delete it. Since all data present in
 a GSI is also present in the base table, additional backup is not necessary before deleting a
@@ -357,9 +340,7 @@ projecting a more limited set of attributes. While this may require subsequent q
 the base table to support your infrequent access patterns, it can potentially offer a
 significant reduction in storage and write costs.
 
-## Cleaning up unused global
-
-tables
+## Cleaning up unused global tables
 
 Amazon DynamoDB global tables provide a fully managed solution for deploying a multi-Region,
 multi-active database, without having to build and maintain your own replication
@@ -376,9 +357,7 @@ serve read traffic, it may be an unused resource.
 If global tables are part of your disaster recovery strategy, one replica not receiving
 read traffic may be expected under an active/standby pattern.
 
-## Cleaning up unused backups or
-
-point-in-time recovery (PITR)
+## Cleaning up unused backups or point-in-time recovery (PITR)
 
 DynamoDB offers two styles of backup. Point-in-time recovery provides continuous backups for
 up to 35 days to help you protect against accidental writes or deletes while on-demand backup allows

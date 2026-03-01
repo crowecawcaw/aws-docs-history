@@ -1214,9 +1214,7 @@ Valid Statistics:
 - `Sum`
 - `SampleCount`
 
-## Understanding metrics and
-
-dimensions for DynamoDB
+## Understanding metrics and dimensions for DynamoDB
 
 The metrics for DynamoDB are qualified by the values for the account, table name, global
 secondary index name, or operation. You can use the CloudWatch console to retrieve DynamoDB data

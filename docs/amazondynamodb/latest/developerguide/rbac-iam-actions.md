@@ -1,6 +1,4 @@
-# DynamoDB API operations supported by resource-based
-
-policies
+# DynamoDB API operations supported by resource-based policies
 
 This topic lists the API operations that are supported by resource-based policies.
 However, for cross-account access, you can only use a certain set of DynamoDB APIs through
@@ -22,16 +20,12 @@ of these APIs support cross-account access.
 - [Data plane API operations](#rbac-data-plane-actions "#rbac-data-plane-actions")
 - [PartiQL API operations](#rbac-partiql-actions "#rbac-partiql-actions")
 - [Control plane API operations](#rbac-control-plane-actions "#rbac-control-plane-actions")
-- [Version 2019.11.21 (Current) global
-  tables API operations](#rbac-current-global-table-actions "#rbac-current-global-table-actions")
-- [Version 2017.11.29 (Legacy) global tables
-  API operations](#rbac-legacy-global-table-actions "#rbac-legacy-global-table-actions")
+- [Version 2019.11.21 (Current) global tables API operations](#rbac-current-global-table-actions "#rbac-current-global-table-actions")
+- [Version 2017.11.29 (Legacy) global tables API operations](#rbac-legacy-global-table-actions "#rbac-legacy-global-table-actions")
 - [Tags API operations](#rbac-tags-actions "#rbac-tags-actions")
 - [Backup and Restore API operations](#rbac-backup-restore-actions "#rbac-backup-restore-actions")
-- [Continuous Backup/Restore (PITR)
-  API operations](#rbac-continuous-backup-restore-actions "#rbac-continuous-backup-restore-actions")
-- [Contributor Insights API
-  operations](#rbac-contributor-insights-actions "#rbac-contributor-insights-actions")
+- [Continuous Backup/Restore (PITR) API operations](#rbac-continuous-backup-restore-actions "#rbac-continuous-backup-restore-actions")
+- [Contributor Insights API operations](#rbac-contributor-insights-actions "#rbac-contributor-insights-actions")
 - [Export API operations](#rbac-export-actions "#rbac-export-actions")
 - [Import API operations](#rbac-import-actions "#rbac-import-actions")
 - [Amazon Kinesis Data Streams API operations](#rbac-kinesis-actions "#rbac-kinesis-actions")
@@ -81,9 +75,7 @@ resource-based policies and cross-account access.
 | [DescribeTable](../APIReference/API_DescribeTable.md "../APIReference/API_DescribeTable.md") | Yes                           | Yes                   |
 | [UpdateTable](../APIReference/API_UpdateTable.md "../APIReference/API_UpdateTable.md")       | Yes                           | Yes                   |
 
-## Version 2019.11.21 (Current) global
-
-tables API operations
+## Version 2019.11.21 (Current) global tables API operations
 
 The following table lists the API-level support provided by [Version 2019.11.21 (Current) global tables](GlobalTables.md "GlobalTables.md") API operations for resource-based
 policies and cross-account access.
@@ -93,9 +85,7 @@ policies and cross-account access.
 | [DescribeTableReplicaAutoScaling](../APIReference/API_DescribeTableReplicaAutoScaling.md "../APIReference/API_DescribeTableReplicaAutoScaling.md") | Yes                           | No                    |
 | [UpdateTableReplicaAutoScaling](../APIReference/API_UpdateTableReplicaAutoScaling.md "../APIReference/API_UpdateTableReplicaAutoScaling.md")       | Yes                           | No                    |
 
-## Version 2017.11.29 (Legacy) global tables
-
-API operations
+## Version 2017.11.29 (Legacy) global tables API operations
 
 The following table lists the API-level support provided by [Version 2017.11.29 (Legacy) global tables](globaltables.md "globaltables.md") API operations
 for resource-based policies and cross-account access.
@@ -134,9 +124,7 @@ and cross-account access.
 | [DeleteBackup](../APIReference/API_DeleteBackup.md "../APIReference/API_DeleteBackup.md")                               | No                            | No                    |
 | [RestoreTableFromBackup](../APIReference/API_RestoreTableFromBackup.md "../APIReference/API_RestoreTableFromBackup.md") | No                            | No                    |
 
-## Continuous Backup/Restore (PITR)
-
-API operations
+## Continuous Backup/Restore (PITR) API operations
 
 The following table lists the API-level support provided by API operations related to
 [Continuous Backup/Restore (PITR)](Point-in-time-recovery.md "Point-in-time-recovery.md") for
@@ -148,9 +136,7 @@ resource-based policies and cross-account access.
 | [RestoreTableToPointInTime](../APIReference/API_RestoreTableToPointInTime.md "../APIReference/API_RestoreTableToPointInTime.md") | Yes                           | No                    |
 | [UpdateContinuousBackups](../APIReference/API_UpdateContinuousBackups.md "../APIReference/API_UpdateContinuousBackups.md")       | Yes                           | No                    |
 
-## Contributor Insights API
-
-operations
+## Contributor Insights API operations
 
 The following table lists the API-level support provided by API operations related to
 [Continuous Backup/Restore (PITR)](Point-in-time-recovery.md "Point-in-time-recovery.md") for

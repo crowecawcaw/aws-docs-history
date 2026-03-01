@@ -5,15 +5,12 @@ resources. The `CreateBackup` and `RestoreTableFromBackup` APIs
 operate on a per-table basis.
 
 For more information about using IAM policies in DynamoDB, see
-[Identity-based
-policies for DynamoDB](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies").
+[Identity-based policies for DynamoDB](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies").
 
 The following are examples of IAM policies that you can use to configure specific backup
 and restore functionality in DynamoDB.
 
-## Example 1: Allow the CreateBackup and
-
-RestoreTableFromBackup actions
+## Example 1: Allow the CreateBackup and RestoreTableFromBackup actions
 
 The following IAM policy grants permissions to allow the `CreateBackup`
 and `RestoreTableFromBackup` DynamoDB actions on all tables:
@@ -52,9 +49,7 @@ permissions on the target table are necessary for restore functionality.
 DynamoDB RestoreTableToPointInTime permissions are necessary on the source table, and DynamoDB read and write
 permissions on the target table are necessary for restore functionality.
 
-## Example 2: Allow CreateBackup and deny
-
-RestoreTableFromBackup
+## Example 2: Allow CreateBackup and deny RestoreTableFromBackup
 
 The following IAM policy grants permissions for the `CreateBackup` action
 and denies the `RestoreTableFromBackup` action:
@@ -81,9 +76,7 @@ JSON
 
 ```
 
-## Example 3: Allow ListBackups and deny
-
-CreateBackup and RestoreTableFromBackup
+## Example 3: Allow ListBackups and deny CreateBackup and RestoreTableFromBackup
 
 The following IAM policy grants permissions for the `ListBackups` action
 and denies the `CreateBackup` and `RestoreTableFromBackup`
@@ -114,9 +107,7 @@ JSON
 
 ```
 
-## Example 4: Allow ListBackups and deny
-
-DeleteBackup
+## Example 4: Allow ListBackups and deny DeleteBackup
 
 The following IAM policy grants permissions for the `ListBackups` action
 and denies the `DeleteBackup` action:
@@ -143,9 +134,7 @@ JSON
 
 ```
 
-## Example 5: Allow RestoreTableFromBackup and
-
-DescribeBackup for all resources and deny DeleteBackup for a specific backup
+## Example 5: Allow RestoreTableFromBackup and DescribeBackup for all resources and deny DeleteBackup for a specific backup
 
 The following IAM policy grants permissions for the
 `RestoreTableFromBackup` and `DescribeBackup` actions and
@@ -198,9 +187,7 @@ permissions on the target table are necessary for restore functionality.
 DynamoDB RestoreTableToPointInTime permissions are necessary on the source table, and DynamoDB read and write
 permissions on the target table are necessary for restore functionality.
 
-## Example 6: Allow CreateBackup for a specific
-
-table
+## Example 6: Allow CreateBackup for a specific table
 
 The following IAM policy grants permissions for the `CreateBackup` action
 on the `Movies` table only:

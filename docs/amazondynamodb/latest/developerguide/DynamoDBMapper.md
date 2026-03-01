@@ -1,94 +1,200 @@
-# Optional configuration settings for
+# Mapping arbitrary data in DynamoDB
 
-DynamoDBMapper
+In addition to the supported Java types (see [Supported data types for DynamoDBMapper for Java](DynamoDBMapper.md "DynamoDBMapper.md")), you can use types in your application
+for which there is no direct mapping to the Amazon DynamoDB types. To map these types, you
+must provide an implementation that converts your complex type to a DynamoDB supported type
+and vice versa, and annotate the complex type accessor method using the
+`@DynamoDBTypeConverted` annotation. The converter code transforms data
+when objects are saved or loaded. It is also used for all operations that consume
+complex types. Note that when comparing data during query and scan operations, the
+comparisons are made against the data stored in DynamoDB.
 
-When you create an instance of `DynamoDBMapper`, it has certain default
-behaviors; you can override these defaults by using the
-`DynamoDBMapperConfig` class.
-
-The following code snippet creates a `DynamoDBMapper` with custom
-settings:
-
-```
-AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
-
-DynamoDBMapperConfig mapperConfig = DynamoDBMapperConfig.builder()
-        .withSaveBehavior(DynamoDBMapperConfig.SaveBehavior.CLOBBER)
-        .withConsistentReads(DynamoDBMapperConfig.ConsistentReads.CONSISTENT)
-        .withTableNameOverride(null)
-        .withPaginationLoadingStrategy(DynamoDBMapperConfig.PaginationLoadingStrategy.EAGER_LOADING)
-    .build();
-
-DynamoDBMapper mapper = new DynamoDBMapper(client, mapperConfig);
-```
-
-For more information, see [_DynamoDBMapperConfig_](../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/dynamodbv2/datamodeling/DynamoDBMapperConfig.md "../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/dynamodbv2/datamodeling/DynamoDBMapperConfig.md") in the
-[AWS SDK for Java API Reference](../../../sdk-for-java/latest/reference.md "../../../sdk-for-java/latest/reference.md").
-
-You can use the following arguments for an instance of
-`DynamoDBMapperConfig`:
-
-- A `DynamoDBMapperConfig.ConsistentReads` enumeration value:
-
-      + `EVENTUAL`—the mapper instance uses an eventually
-       consistent read request.
-      + `CONSISTENT`—the mapper instance uses a strongly
-       consistent read request. You can use this optional setting with
-       `load`, `query`, or `scan`
-       operations. Strongly consistent reads have implications for performance
-       and billing; see the DynamoDB [product
-       detail page](https://aws.amazon.com/dynamodb "https://aws.amazon.com/dynamodb") for more information.
-
-  If you do not specify a read consistency setting for your mapper instance, the
-  default is `EVENTUAL`.
+For example, consider the following `CatalogItem` class that defines a
+property, `Dimension`, that is of `DimensionType`. This property
+stores the item dimensions as height, width, and thickness. Assume that you decide to
+store these item dimensions as a string (such as 8.5x11x.05) in DynamoDB. The following
+example provides converter code that converts the `DimensionType` object to a
+string and a string to the `DimensionType`.
 
 ###### Note
 
-This value is applied in the `query`, `querypage`,
-`load`, and `batch load` operations of the
-DynamoDBMapper.
+This code example assumes that you have already loaded data into DynamoDB for your account by following the instructions in the [Creating tables and loading data for code examples in DynamoDB](SampleData.md "SampleData.md") section.
 
-- A `DynamoDBMapperConfig.PaginationLoadingStrategy` enumeration
-  value—Controls how the mapper instance processes a paginated list of data,
-  such as the results from a `query` or `scan`:
+For step-by-step instructions to run the following example, see [Java code examples](CodeSamples.md "CodeSamples.md").
 
-      + `LAZY_LOADING`—the mapper instance loads data when
-       possible, and keeps all loaded results in memory.
-      + `EAGER_LOADING`—the mapper instance loads the data as
-       soon as the list is initialized.
-      + `ITERATION_ONLY`—you can only use an Iterator to read
-       from the list. During the iteration, the list will clear all the
-       previous results before loading the next page, so that the list will
-       keep at most one page of the loaded results in memory. This also means
-       the list can only be iterated once. This strategy is recommended when
-       handling large items, in order to reduce memory overhead.
+###### Example
 
-  If you do not specify a pagination loading strategy for your mapper instance,
-  the default is `LAZY_LOADING`.
+```
+public class DynamoDBMapperExample {
 
-- A `DynamoDBMapperConfig.SaveBehavior` enumeration value - Specifies
-  how the mapper instance should deal with attributes during save
-  operations:
-  - `UPDATE`—during a save operation, all modeled
-    attributes are updated, and unmodeled attributes are unaffected.
-    Primitive number types (byte, int, long) are set to 0. Object types are
-    set to null.
-  - `CLOBBER`—clears and replaces all attributes,
-    included unmodeled ones, during a save operation. This is done by
-    deleting the item and re-creating it. Versioned field constraints are
-    also disregarded.
-    If you do not specify the save behavior for your mapper instance, the default
-    is `UPDATE`.
+    static AmazonDynamoDB client;
 
-###### Note
+    public static void main(String[] args) throws IOException {
 
-DynamoDBMapper transactional operations do not support
-`DynamoDBMapperConfig.SaveBehavior` enumeration.
+        // Set the AWS region you want to access.
+        Regions usWest2 = Regions.US_WEST_2;
+        client = AmazonDynamoDBClientBuilder.standard().withRegion(usWest2).build();
 
-- A `DynamoDBMapperConfig.TableNameOverride` object—Instructs
-  the mapper instance to ignore the table name specified by a class's
-  `DynamoDBTable` annotation, and instead use a different table
-  name that you supply. This is useful when partitioning your data into multiple
-  tables at runtime.
-  You can override the default configuration object for `DynamoDBMapper` per
-  operation, as needed.
+        DimensionType dimType = new DimensionType();
+        dimType.setHeight("8.00");
+        dimType.setLength("11.0");
+        dimType.setThickness("1.0");
+
+        Book book = new Book();
+        book.setId(502);
+        book.setTitle("Book 502");
+        book.setISBN("555-5555555555");
+        book.setBookAuthors(new HashSet<String>(Arrays.asList("Author1", "Author2")));
+        book.setDimensions(dimType);
+
+        DynamoDBMapper mapper = new DynamoDBMapper(client);
+        mapper.save(book);
+
+        Book bookRetrieved = mapper.load(Book.class, 502);
+        System.out.println("Book info: " + "\n" + bookRetrieved);
+
+        bookRetrieved.getDimensions().setHeight("9.0");
+        bookRetrieved.getDimensions().setLength("12.0");
+        bookRetrieved.getDimensions().setThickness("2.0");
+
+        mapper.save(bookRetrieved);
+
+        bookRetrieved = mapper.load(Book.class, 502);
+        System.out.println("Updated book info: " + "\n" + bookRetrieved);
+    }
+
+    @DynamoDBTable(tableName = "ProductCatalog")
+    public static class Book {
+        private int id;
+        private String title;
+        private String ISBN;
+        private Set<String> bookAuthors;
+        private DimensionType dimensionType;
+
+        // Partition key
+        @DynamoDBHashKey(attributeName = "Id")
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        @DynamoDBAttribute(attributeName = "Title")
+        public String getTitle() {
+            return title;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
+        @DynamoDBAttribute(attributeName = "ISBN")
+        public String getISBN() {
+            return ISBN;
+        }
+
+        public void setISBN(String ISBN) {
+            this.ISBN = ISBN;
+        }
+
+        @DynamoDBAttribute(attributeName = "Authors")
+        public Set<String> getBookAuthors() {
+            return bookAuthors;
+        }
+
+        public void setBookAuthors(Set<String> bookAuthors) {
+            this.bookAuthors = bookAuthors;
+        }
+
+        @DynamoDBTypeConverted(converter = DimensionTypeConverter.class)
+        @DynamoDBAttribute(attributeName = "Dimensions")
+        public DimensionType getDimensions() {
+            return dimensionType;
+        }
+
+        @DynamoDBAttribute(attributeName = "Dimensions")
+        public void setDimensions(DimensionType dimensionType) {
+            this.dimensionType = dimensionType;
+        }
+
+        @Override
+        public String toString() {
+            return "Book [ISBN=" + ISBN + ", bookAuthors=" + bookAuthors + ", dimensionType= "
+                    + dimensionType.getHeight() + " X " + dimensionType.getLength() + " X "
+                    + dimensionType.getThickness()
+                    + ", Id=" + id + ", Title=" + title + "]";
+        }
+    }
+
+    static public class DimensionType {
+
+        private String length;
+        private String height;
+        private String thickness;
+
+        public String getLength() {
+            return length;
+        }
+
+        public void setLength(String length) {
+            this.length = length;
+        }
+
+        public String getHeight() {
+            return height;
+        }
+
+        public void setHeight(String height) {
+            this.height = height;
+        }
+
+        public String getThickness() {
+            return thickness;
+        }
+
+        public void setThickness(String thickness) {
+            this.thickness = thickness;
+        }
+    }
+
+    // Converts the complex type DimensionType to a string and vice-versa.
+    static public class DimensionTypeConverter implements DynamoDBTypeConverter<String, DimensionType> {
+
+        @Override
+        public String convert(DimensionType object) {
+            DimensionType itemDimensions = (DimensionType) object;
+            String dimension = null;
+            try {
+                if (itemDimensions != null) {
+                    dimension = String.format("%s x %s x %s", itemDimensions.getLength(), itemDimensions.getHeight(),
+                            itemDimensions.getThickness());
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return dimension;
+        }
+
+        @Override
+        public DimensionType unconvert(String s) {
+
+            DimensionType itemDimension = new DimensionType();
+            try {
+                if (s != null && s.length() != 0) {
+                    String[] data = s.split("x");
+                    itemDimension.setLength(data[0].trim());
+                    itemDimension.setHeight(data[1].trim());
+                    itemDimension.setThickness(data[2].trim());
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return itemDimension;
+        }
+    }
+}
+
+```

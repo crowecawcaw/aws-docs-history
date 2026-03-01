@@ -41,8 +41,7 @@ expression—including partition key and sort key attributes.
 
 The syntax for a filter expression is identical to that of a condition expression.
 Filter expressions can use the same comparators, functions, and logical operators as a
-condition expression. See [Condition and filter expressions,
-operators, and functions in DynamoDB](Expressions.md "Expressions.md") for more information about
+condition expression. See [Condition and filter expressions, operators, and functions in DynamoDB](Expressions.md "Expressions.md") for more information about
 logical operators.
 
 ###### Example

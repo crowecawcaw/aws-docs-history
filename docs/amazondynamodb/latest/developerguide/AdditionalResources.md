@@ -7,10 +7,8 @@ You can use the following additional resources to understand and work with Dynam
 - [Tools for coding and visualization](#AdditionalResources.Tools "#AdditionalResources.Tools")
 - [Prescriptive Guidance articles](#AdditionalResources.PrescriptiveGuidance "#AdditionalResources.PrescriptiveGuidance")
 - [Knowledge Center articles](#AdditionalResources.KnowledgeCenter "#AdditionalResources.KnowledgeCenter")
-- [Blog posts, repositories, and
-  guides](#AdditionalResources.Guides "#AdditionalResources.Guides")
-- [Data modeling and design
-  pattern presentations](#AdditionalResources.DataModeling "#AdditionalResources.DataModeling")
+- [Blog posts, repositories, and guides](#AdditionalResources.Guides "#AdditionalResources.Guides")
+- [Data modeling and design pattern presentations](#AdditionalResources.DataModeling "#AdditionalResources.DataModeling")
 - [Training courses](#AdditionalResources.Training "#AdditionalResources.Training")
 
 ## Tools for coding and visualization
@@ -116,9 +114,7 @@ Center articles on specific tasks that relate to DynamoDB:
 For additional articles and videos for DynamoDB, see the [Knowledge
 Center articles](https://repost.aws/search/knowledge-center?globalSearch=dynamodb "https://repost.aws/search/knowledge-center?globalSearch=dynamodb").
 
-## Blog posts, repositories, and
-
-guides
+## Blog posts, repositories, and guides
 
 In addition to the [DynamoDB Developer Guide](Introduction.md "Introduction.md"), there
 are many useful resources for working with DynamoDB. Here are some selected blog posts,
@@ -143,9 +139,7 @@ repositories, and guides for working with DynamoDB:
 - [DynamoDB Core Concept Videos](https://www.youtube.com/playlist?list=PLJo-rJlep0EDNtcDeHDMqsXJcuKMcrC5F "https://www.youtube.com/playlist?list=PLJo-rJlep0EDNtcDeHDMqsXJcuKMcrC5F") – This playlist covers many of
   the core concepts of DynamoDB.
 
-## Data modeling and design
-
-pattern presentations
+## Data modeling and design pattern presentations
 
 You can use the following resources on data modeling and design patterns to help you
 get the most out of DynamoDB:

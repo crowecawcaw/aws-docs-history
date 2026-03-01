@@ -50,8 +50,6 @@ resolution strategy.
 ###### Topics
 
 - [Diagnosing throttling](throttling-diagnosing-workflow.md "throttling-diagnosing-workflow.md")
-- [DynamoDB throttling
-  resolution guide](troubleshooting-throttling-diagnostics.md "troubleshooting-throttling-diagnostics.md")
-- [Understanding Global Secondary Index (GSI) write
-  throttling and back pressure in DynamoDB](gsi-throttling.md "gsi-throttling.md")
+- [DynamoDB throttling resolution guide](troubleshooting-throttling-diagnostics.md "troubleshooting-throttling-diagnostics.md")
+- [Understanding Global Secondary Index (GSI) write throttling and back pressure in DynamoDB](gsi-throttling.md "gsi-throttling.md")
 - [CloudWatch throttling metrics](TroubleshootingThrottling-cloudwatch.md "TroubleshootingThrottling-cloudwatch.md")

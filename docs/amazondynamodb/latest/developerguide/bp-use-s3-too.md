@@ -25,10 +25,8 @@ filtering.
 For sample code that demonstrates how to compress such messages in DynamoDB, see the
 following:
 
-- [Example: Handling binary type attributes
-  using the AWS SDK for Java document API](JavaDocumentAPIBinaryTypeExample.md "JavaDocumentAPIBinaryTypeExample.md")
-- [Example: Handling binary type attributes
-  using the AWS SDK for .NET low-level API](LowLevelDotNetBinaryTypeExample.md "LowLevelDotNetBinaryTypeExample.md")
+- [Example: Handling binary type attributes using the AWS SDK for Java document API](JavaDocumentAPIBinaryTypeExample.md "JavaDocumentAPIBinaryTypeExample.md")
+- [Example: Handling binary type attributes using the AWS SDK for .NET low-level API](LowLevelDotNetBinaryTypeExample.md "LowLevelDotNetBinaryTypeExample.md")
 
 ## Vertical partitioning
 

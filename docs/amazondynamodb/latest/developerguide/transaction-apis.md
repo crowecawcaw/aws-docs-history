@@ -10,15 +10,12 @@ practices, and other details about using transactional operations in DynamoDB.
 - [TransactWriteItems API](#transaction-apis-txwriteitems "#transaction-apis-txwriteitems")
 - [TransactGetItems API](#transaction-apis-txgetitems "#transaction-apis-txgetitems")
 - [Isolation levels for DynamoDB transactions](#transaction-isolation "#transaction-isolation")
-- [Transaction conflict handling in
-  DynamoDB](#transaction-conflict-handling "#transaction-conflict-handling")
+- [Transaction conflict handling in DynamoDB](#transaction-conflict-handling "#transaction-conflict-handling")
 - [Using transactional APIs in DynamoDB Accelerator (DAX)](#transaction-apis-dax "#transaction-apis-dax")
 - [Capacity management for transactions](#transaction-capacity-handling "#transaction-capacity-handling")
 - [Best practices for transactions](#transaction-best-practices "#transaction-best-practices")
-- [Using transactional APIs with global
-  tables](#transaction-integration "#transaction-integration")
-- [DynamoDB Transactions vs. the AWSLabs transactions
-  client library](#transaction-vs-library "#transaction-vs-library")
+- [Using transactional APIs with global tables](#transaction-integration "#transaction-integration")
+- [DynamoDB Transactions vs. the AWSLabs transactions client library](#transaction-vs-library "#transaction-vs-library")
 
 ## TransactWriteItems API
 
@@ -113,8 +110,7 @@ Write transactions don't succeed under the following circumstances:
 - When there is a user error, such as an invalid data format.
 
 For more information about how conflicts with `TransactWriteItems`
-operations are handled, see [Transaction conflict handling in
-DynamoDB](#transaction-conflict-handling "#transaction-conflict-handling").
+operations are handled, see [Transaction conflict handling in DynamoDB](#transaction-conflict-handling "#transaction-conflict-handling").
 
 ## TransactGetItems API
 
@@ -143,8 +139,7 @@ Read transactions don't succeed under the following circumstances:
 - When there is a user error, such as an invalid data format.
 
 For more information about how conflicts with `TransactGetItems`
-operations are handled, see [Transaction conflict handling in
-DynamoDB](#transaction-conflict-handling "#transaction-conflict-handling").
+operations are handled, see [Transaction conflict handling in DynamoDB](#transaction-conflict-handling "#transaction-conflict-handling").
 
 ## Isolation levels for DynamoDB transactions
 
@@ -251,9 +246,7 @@ Levels marked with an asterisk (\*) apply to the operation as a unit. However,
 individual actions within those operations have a _serializable_
 isolation level.
 
-## Transaction conflict handling in
-
-DynamoDB
+## Transaction conflict handling in DynamoDB
 
 A transactional conflict can occur during concurrent item-level requests on an item
 within a transaction. Transaction conflicts can occur in the following scenarios:
@@ -357,9 +350,7 @@ Consider the following recommended practices when using DynamoDB transactions.
 - Avoid using transactions for ingesting data in bulk. For bulk writes, it is better
   to use `BatchWriteItem`.
 
-## Using transactional APIs with global
-
-tables
+## Using transactional APIs with global tables
 
 Transactional operations provide atomicity, consistency, isolation, and durability
 (ACID) guarantees only within the AWS Region where the write API was invoked.
@@ -370,9 +361,7 @@ Region. You may observe partially completed transactions in the US West (Oregon)
 as changes are replicated. Changes are replicated to other Regions only after they've
 been committed in the source Region.
 
-## DynamoDB Transactions vs. the AWSLabs transactions
-
-client library
+## DynamoDB Transactions vs. the AWSLabs transactions client library
 
 DynamoDB transactions provide a more cost-effective, robust, and performant replacement for
 the [AWSLabs](https://github.com/awslabs "https://github.com/awslabs") transactions client library. We

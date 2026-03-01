@@ -58,9 +58,7 @@ second for items up to 1 KB.
 
 ## Secondary indexes
 
-### Projected Secondary Index
-
-attributes per table
+### Projected Secondary Index attributes per table
 
 You can project a total of up to 100 attributes into all of a table's local and global
 secondary indexes. This only applies to user-specified projected attributes.
@@ -111,9 +109,7 @@ more detailed information, see [Item collection size limit](LSI.md#LSI.ItemColle
 
 ## Naming rules
 
-### Table names and Secondary Index
-
-names
+### Table names and Secondary Index names
 
 Names for tables and secondary indexes must be at least 3 characters long, but no
 greater than 255 characters long. The following are the allowed characters:
@@ -192,9 +188,7 @@ For example, consider an item with two attributes: one attribute named
 "shirt-color" with value "R" and another attribute named "shirt-size" with value
 "M". The total size of that item is 23 bytes.
 
-### Item size for tables with
-
-Local Secondary Indexes
+### Item size for tables with Local Secondary Indexes
 
 For each local secondary index on a table, there is a 400 KB limit on the total of the
 following:
@@ -205,16 +199,12 @@ following:
 
 ## Attributes
 
-### Attribute name-value pairs per
-
-item
+### Attribute name-value pairs per item
 
 The cumulative size of attributes per item must fit within the maximum DynamoDB item
 size (400 KB).
 
-### Number of values in list, map, or
-
-set
+### Number of values in list, map, or set
 
 There is no limit on the number of values in a List, a Map, or a Set, as long as
 the item containing the values fits within the 400 KB item size
@@ -253,9 +243,7 @@ The maximum length of all substitution variables in an expression is 2 MB. This 
 the sum of the lengths of all `ExpressionAttributeNames` and
 `ExpressionAttributeValues`.
 
-### Operators and
-
-operands
+### Operators and operands
 
 The maximum number of operators or functions allowed in an
 `UpdateExpression` is 300. For example, the
@@ -271,8 +259,7 @@ DynamoDB does not prevent you from using names that conflict with reserved words
 (For a complete list, see [Reserved words in DynamoDB](ReservedWords.md "ReservedWords.md").)
 
 However, if you use a reserved word in an expression parameter, you must also
-specify `ExpressionAttributeNames`. For more information, see [Expression attribute names (aliases)
-in DynamoDB](Expressions.md "Expressions.md").
+specify `ExpressionAttributeNames`. For more information, see [Expression attribute names (aliases) in DynamoDB](Expressions.md "Expressions.md").
 
 ## DynamoDB transactions
 
@@ -297,9 +284,7 @@ DynamoDB transactional API operations have the following constraints:
 
 ## DynamoDB Streams
 
-### Simultaneous readers of a
-
-shard in DynamoDB Streams
+### Simultaneous readers of a shard in DynamoDB Streams
 
 For single-Region tables that are not global tables, you can design for up
 to two processes to read from the same DynamoDB Streams shard at the same time. Exceeding this limit can

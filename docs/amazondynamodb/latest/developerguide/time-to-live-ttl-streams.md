@@ -39,9 +39,7 @@ The following JSON shows the relevant portion of a single streams record.
 ]
 ```
 
-## Using DynamoDB Streams and Lambda to archive TTL
-
-deleted items
+## Using DynamoDB Streams and Lambda to archive TTL deleted items
 
 Combining [DynamoDB Time to Live (TTL)](TTL.md "TTL.md"),
 [DynamoDB Streams](Streams.md "Streams.md"), and [AWS Lambda](https://aws.amazon.com/lambda/ "https://aws.amazon.com/lambda/") can
@@ -87,9 +85,7 @@ invocation of your Lambda function only for TTL deleted items:
 
 ```
 
-### Create an AWS Lambda event source
-
-mapping
+### Create an AWS Lambda event source mapping
 
 Use the following code snippets to create a filtered event source mapping which
 you can connect to a table's DynamoDB stream. Each code block includes the event filter

@@ -10,8 +10,7 @@ _Amazon CloudWatch User Guide_.
 ###### Topics
 
 - [How do I use DAX metrics?](#dax-how-to-use-metrics "#dax-how-to-use-metrics")
-- [Viewing DAX metrics and
-  dimensions](dax-metrics-dimensions-dax.md "dax-metrics-dimensions-dax.md")
+- [Viewing DAX metrics and dimensions](dax-metrics-dimensions-dax.md "dax-metrics-dimensions-dax.md")
 - [Creating CloudWatch alarms to monitor DAX](dax-creating-alarms.md "dax-creating-alarms.md")
 - [Production monitoring](dax-production-monitoring.md "dax-production-monitoring.md")
 

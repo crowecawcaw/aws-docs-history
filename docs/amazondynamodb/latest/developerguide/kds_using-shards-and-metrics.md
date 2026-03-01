@@ -1,8 +1,6 @@
 # Using shards and metrics with DynamoDB Streams and Kinesis Data Streams
 
-## Shard management
-
-considerations for Kinesis Data Streams
+## Shard management considerations for Kinesis Data Streams
 
 A Kinesis data stream counts its throughput in [shards](../../../streams/latest/dev/key-concepts.md "../../../streams/latest/dev/key-concepts.md"). In Amazon Kinesis Data
 streams, you can choose between an **on-demand** mode and a
@@ -69,9 +67,7 @@ To learn more about capacity modes on Kinesis Data Stream see [Choosing
 the Data Stream Capacity Mode](../../../streams/latest/dev/how-do-i-size-a-stream.md "../../../streams/latest/dev/how-do-i-size-a-stream.md"). To learn more about pricing difference
 between different capacity modes, see [Amazon Kinesis Data Streams pricing](https://aws.amazon.com/kinesis/data-streams/pricing/ "https://aws.amazon.com/kinesis/data-streams/pricing/") .
 
-## Monitoring change data capture
-
-with Kinesis Data Streams
+## Monitoring change data capture with Kinesis Data Streams
 
 DynamoDB provides several Amazon CloudWatch metrics to help you monitor the replication of change
 data capture to Kinesis. For a full list of CloudWatch metrics, see [DynamoDB Metrics and dimensions](metrics-dimensions.md "metrics-dimensions.md").

@@ -1681,5 +1681,4 @@ import AWSDynamoDB
 
 For more DynamoDB examples, see [Code examples for DynamoDB using AWS SDKs](service_code_examples.md "service_code_examples.md").
 
-To create a global secondary index for your table, proceed to [Step 6: (Optional) Delete your DynamoDB table to clean up
-resources](getting-started-step-6.md "getting-started-step-6.md").
+To create a global secondary index for your table, proceed to [Step 6: (Optional) Delete your DynamoDB table to clean up resources](getting-started-step-6.md "getting-started-step-6.md").

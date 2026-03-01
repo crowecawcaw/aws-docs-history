@@ -7,18 +7,12 @@ cost.
 
 ###### Topics
 
-- [What table classes are
-  available](#CostOptimization_TableClass_Overview "#CostOptimization_TableClass_Overview")
-- [When to select the DynamoDB Standard table
-  class](#CostOptimization_TableClass_Standard "#CostOptimization_TableClass_Standard")
-- [When to select DynamoDB Standard-IA
-  table class](#CostOptimization_TableClass_StandardIA "#CostOptimization_TableClass_StandardIA")
-- [Additional factors to consider
-  when choosing a table class](#CostOptimization_TableClass_AdditionalFactors "#CostOptimization_TableClass_AdditionalFactors")
+- [What table classes are available](#CostOptimization_TableClass_Overview "#CostOptimization_TableClass_Overview")
+- [When to select the DynamoDB Standard table class](#CostOptimization_TableClass_Standard "#CostOptimization_TableClass_Standard")
+- [When to select DynamoDB Standard-IA table class](#CostOptimization_TableClass_StandardIA "#CostOptimization_TableClass_StandardIA")
+- [Additional factors to consider when choosing a table class](#CostOptimization_TableClass_AdditionalFactors "#CostOptimization_TableClass_AdditionalFactors")
 
-## What table classes are
-
-available
+## What table classes are available
 
 When you create a DynamoDB Table, you must select either DynamoDB Standard or DynamoDB Standard-IA
 for the table class. The table class can be changed twice in a 30-day period, so you can
@@ -40,17 +34,13 @@ require long-term storage of data with infrequent updates or reads. Since the cl
 optimized for infrequent access, reads and writes will be billed at a slightly higher cost
 (~25% higher) than the Standard table class.
 
-## When to select the DynamoDB Standard table
-
-class
+## When to select the DynamoDB Standard table class
 
 DynamoDB Standard table class is best suited for tables whose storage cost is approximately
 50% or less of the overall monthly cost of the table. This cost balance is indicative of a
 workload that regularly accesses or updates items already stored within DynamoDB.
 
-## When to select DynamoDB Standard-IA
-
-table class
+## When to select DynamoDB Standard-IA table class
 
 DynamoDB Standard-IA table class is best suited for tables whose storage cost is
 approximately 50% or more of the overall monthly cost of the table. This cost balance is
@@ -61,9 +51,7 @@ A common use for the Standard-IA table class is moving
 less frequently accessed data to individual Standard-IA tables. For further information, see
 [Optimizing the storage costs of your workloads with Amazon DynamoDB Standard-IA table class](https://aws.amazon.com/blogs/database/optimize-the-storage-costs-of-your-workloads-with-amazon-dynamodb-standard-ia-table-class/ "https://aws.amazon.com/blogs/database/optimize-the-storage-costs-of-your-workloads-with-amazon-dynamodb-standard-ia-table-class/").
 
-## Additional factors to consider
-
-when choosing a table class
+## Additional factors to consider when choosing a table class
 
 When deciding between the two table classes, there are some additional factors worth
 considering as part of your decision.

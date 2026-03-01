@@ -15,8 +15,7 @@ with generative AI](https://aws.amazon.com/ai/generative-ai/ "https://aws.amazon
 
 - [Generative AI use cases for DynamoDB](#gen-ai-use-case-ddb "#gen-ai-use-case-ddb")
 - [Generative AI blogs for DynamoDB](#gen-ai-blogs "#gen-ai-blogs")
-- [Leveraging DynamoDB Zero-ETL integration with
-  OpenSearch Service](ddb-and-amazon-bedrock.md "ddb-and-amazon-bedrock.md")
+- [Leveraging DynamoDB Zero-ETL integration with OpenSearch Service](ddb-and-amazon-bedrock.md "ddb-and-amazon-bedrock.md")
 
 ## Generative AI use cases for DynamoDB
 

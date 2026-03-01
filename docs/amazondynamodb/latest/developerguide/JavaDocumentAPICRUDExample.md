@@ -1,6 +1,4 @@
-# Example: CRUD operations using the AWS SDK for Java
-
-document API
+# Example: CRUD operations using the AWS SDK for Java document API
 
 The following code example illustrates CRUD operations on an Amazon DynamoDB item. The example
 creates an item, retrieves it, performs various updates, and finally deletes the item.

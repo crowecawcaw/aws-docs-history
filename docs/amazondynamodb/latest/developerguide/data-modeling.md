@@ -17,8 +17,7 @@ For more details and best practices on DynamoDB key schema, you can refer to the
 following:
 
 - [Partitions and data distribution in DynamoDB](HowItWorks.md "HowItWorks.md")
-- [Best practices for designing and using partition keys
-  effectively in DynamoDB](bp-partition-key-design.md "bp-partition-key-design.md")
+- [Best practices for designing and using partition keys effectively in DynamoDB](bp-partition-key-design.md "bp-partition-key-design.md")
 - [Best practices for using sort keys to organize data in DynamoDB](bp-sort-keys.md "bp-sort-keys.md")
 - [Choosing the right DynamoDB partition key](https://aws.amazon.com/blogs/database/choosing-the-right-dynamodb-partition-key/ "https://aws.amazon.com/blogs/database/choosing-the-right-dynamodb-partition-key/")
   Secondary indexes are often needed to support additional query patterns in DynamoDB. Secondary
@@ -32,8 +31,7 @@ following:
 For more details on secondary indexes and best practices, you can refer to the
 following:
 
-- [Improving data access with secondary indexes in
-  DynamoDB](SecondaryIndexes.md "SecondaryIndexes.md")
+- [Improving data access with secondary indexes in DynamoDB](SecondaryIndexes.md "SecondaryIndexes.md")
 - [Best practices for using secondary indexes in DynamoDB](bp-indexes.md "bp-indexes.md")
   Let's now look at data modeling a little closer. The process of designing a flexible and
   highly-optimized schema on DynamoDB, or any NoSQL database for that matter, can be a challenging
@@ -48,10 +46,8 @@ following:
 
 ###### Topics
 
-- [Item collections - how to model one-to-many
-  relationships in DynamoDB](WorkingWithItemCollections.md "WorkingWithItemCollections.md")
+- [Item collections - how to model one-to-many relationships in DynamoDB](WorkingWithItemCollections.md "WorkingWithItemCollections.md")
 - [Data Modeling foundations in DynamoDB](data-modeling-foundations.md "data-modeling-foundations.md")
 - [Data modeling building blocks in DynamoDB](data-modeling-blocks.md "data-modeling-blocks.md")
 - [Data modeling schema design packages in DynamoDB](data-modeling-schemas.md "data-modeling-schemas.md")
-- [Best practices for modeling relational data in
-  DynamoDB](bp-relational-modeling.md "bp-relational-modeling.md")
+- [Best practices for modeling relational data in DynamoDB](bp-relational-modeling.md "bp-relational-modeling.md")

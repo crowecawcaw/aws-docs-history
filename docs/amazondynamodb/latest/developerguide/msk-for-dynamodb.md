@@ -21,8 +21,7 @@ single-digit millisecond performance.
 ###### Topics
 
 - [How it works](#msk-for-dynamodb-how-it-works "#msk-for-dynamodb-how-it-works")
-- [Set up an integration between Amazon MSK and
-  DynamoDB](#msk-for-dynamodb-example "#msk-for-dynamodb-example")
+- [Set up an integration between Amazon MSK and DynamoDB](#msk-for-dynamodb-example "#msk-for-dynamodb-example")
 - [Next steps](#msk-for-dynamodb-next-steps "#msk-for-dynamodb-next-steps")
 
 ## How it works
@@ -37,9 +36,7 @@ target Lambda function. The Lambda function’s event payload contains batches o
 from Amazon MSK. For the integration between Amazon MSK and DynamoDB, the Lambda function writes these
 messages to DynamoDB.
 
-## Set up an integration between Amazon MSK and
-
-DynamoDB
+## Set up an integration between Amazon MSK and DynamoDB
 
 ###### Note
 

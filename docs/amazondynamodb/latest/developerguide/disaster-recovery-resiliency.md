@@ -1,6 +1,4 @@
-# Resilience and disaster recovery in
-
-Amazon DynamoDB
+# Resilience and disaster recovery in Amazon DynamoDB
 
 The AWS global infrastructure is built around AWS Regions and Availability Zones.
 AWS Regions provide multiple physically separated and isolated Availability Zones, which

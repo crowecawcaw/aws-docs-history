@@ -1,6 +1,4 @@
-# Best practices for modeling relational data in
-
-DynamoDB
+# Best practices for modeling relational data in DynamoDB
 
 This section provides best practices for modeling relational data in Amazon DynamoDB. First, we
 introduce traditional data modeling concepts. Then, we describe the advantages of using DynamoDB
@@ -12,18 +10,13 @@ example of how to model relational data in DynamoDB.
 
 ###### Topics
 
-- [Traditional relational database
-  models](#SQLtoNoSQL.relational-modeling2 "#SQLtoNoSQL.relational-modeling2")
-- [How DynamoDB eliminates the need for JOIN
-  operations](#bp-relational-modeling-joins "#bp-relational-modeling-joins")
-- [How DynamoDB transactions eliminate
-  overhead to the write process](#bp-relational-modeling-transactions "#bp-relational-modeling-transactions")
+- [Traditional relational database models](#SQLtoNoSQL.relational-modeling2 "#SQLtoNoSQL.relational-modeling2")
+- [How DynamoDB eliminates the need for JOIN operations](#bp-relational-modeling-joins "#bp-relational-modeling-joins")
+- [How DynamoDB transactions eliminate overhead to the write process](#bp-relational-modeling-transactions "#bp-relational-modeling-transactions")
 - [First steps for modeling relational data in DynamoDB](bp-modeling-nosql.md "bp-modeling-nosql.md")
 - [Example of modeling relational data in DynamoDB](bp-modeling-nosql-B.md "bp-modeling-nosql-B.md")
 
-## Traditional relational database
-
-models
+## Traditional relational database models
 
 A traditional relational database management system (RDBMS) stores data in a normalized
 relational structure. The objective of the relational data model is to reduce the duplication
@@ -38,9 +31,7 @@ business support systems of a theoretical manufacturer.
 As a non-relational database service, DynamoDB offers many advantages over traditional
 relational database management systems.
 
-## How DynamoDB eliminates the need for JOIN
-
-operations
+## How DynamoDB eliminates the need for JOIN operations
 
 An RDBMS uses a structure query language (SQL) to return data to the application. Because
 of the normalization of the data model, such queries typically require the use of the
@@ -82,9 +73,7 @@ an application query with a single request to an item. These qualities enable Dy
 single-digit, millisecond performance at any scale. This is because the runtime complexity for
 DynamoDB operations is constant, regardless of data size, for common access patterns.
 
-## How DynamoDB transactions eliminate
-
-overhead to the write process
+## How DynamoDB transactions eliminate overhead to the write process
 
 Another factor that can slow down an RDBMS is the use of transactions to write to a
 normalized schema. As shown in the example, relational data structures used by most online

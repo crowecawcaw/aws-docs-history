@@ -68,9 +68,7 @@ when you create a DynamoDB table, it's instantly ready for production workloads.
 constantly improves its availability, reliability, performance, security, and
 functionality without requiring upgrades or downtime.
 
-### Single-digit millisecond
-
-performance at any scale
+### Single-digit millisecond performance at any scale
 
 DynamoDB was purpose-built to improve upon the performance and scalability of
 relational databases to deliver single-digit millisecond performance at any scale.
@@ -127,9 +125,7 @@ To learn more about how customers from different industries use DynamoDB, see [A
 
 ## Capabilities of DynamoDB
 
-### Multi-active replication with global
-
-tables
+### Multi-active replication with global tables
 
 [Global tables](GlobalTables.md "GlobalTables.md") provide multi-active replication
 of your data across your chosen AWS Regions with [99.999% availability](https://aws.amazon.com/dynamodb/sla/ "https://aws.amazon.com/dynamodb/sla/"). Global
@@ -151,9 +147,7 @@ that require complex business logic. DynamoDB provides native, server-side suppo
 transactions, simplifying the developer experience of making coordinated,
 all-or-nothing changes to multiple items within and across tables.
 
-### Change data capture for event-driven
-
-architectures
+### Change data capture for event-driven architectures
 
 DynamoDB supports streaming of item-level change data capture (CDC) records in
 near-real time. It offers two streaming models for CDC: [DynamoDB Streams](Streams.md "Streams.md") and [Kinesis Data Streams for DynamoDB](kds.md "kds.md"). Whenever an
@@ -178,9 +172,7 @@ scale. Some examples are: AWS CloudFormation, Amazon CloudWatch, Amazon S3, AWS 
 AWS Auto Scaling. The following sections describe some of the service integrations that you
 can perform using DynamoDB:
 
-### Serverless
-
-integrations
+### Serverless integrations
 
 To build end-to-end serverless applications, DynamoDB integrates natively with a
 number of serverless AWS services. For example, you can integrate DynamoDB with
@@ -200,9 +192,7 @@ DynamoDB:
 - [Lambda](../../../lambda/latest/dg/welcome.md "../../../lambda/latest/dg/welcome.md") for serverless compute
 - [Amazon Kinesis Data Streams](../../../streams/latest/dev/introduction.md "../../../streams/latest/dev/introduction.md") for change data capture (CDC)
 
-### Importing and exporting data to
-
-Amazon S3
+### Importing and exporting data to Amazon S3
 
 Integrating DynamoDB with Amazon S3 enables you to easily export data to an Amazon S3 bucket
 for analytics and machine learning. DynamoDB supports [full table exports and incremental
@@ -272,10 +262,8 @@ needs:
 ###### Features
 
 - [Global tables](#ddb-resilience-gt "#ddb-resilience-gt")
-- [Continuous backups and point-in-time
-  recovery](#ddb-resilience-backups-pitr "#ddb-resilience-backups-pitr")
-- [On-demand backup and
-  restore](#ddb-resilience-ondemand-backup-restore "#ddb-resilience-ondemand-backup-restore")
+- [Continuous backups and point-in-time recovery](#ddb-resilience-backups-pitr "#ddb-resilience-backups-pitr")
+- [On-demand backup and restore](#ddb-resilience-ondemand-backup-restore "#ddb-resilience-ondemand-backup-restore")
 
 ### Global tables
 
@@ -286,9 +274,7 @@ resilient applications and optimize them for the lowest recovery time objective
 (AWS FIS)](../../../fis/latest/userguide/what-is.md "../../../fis/latest/userguide/what-is.md") to perform fault injection experiments on your global table
 workloads. For example, [pausing global table replication](../../../fis/latest/userguide/fis-actions-reference.md#dynamodb-actions-reference "../../../fis/latest/userguide/fis-actions-reference.md#dynamodb-actions-reference") to any replica table.
 
-### Continuous backups and point-in-time
-
-recovery
+### Continuous backups and point-in-time recovery
 
 [Continuous backups](Point-in-time-recovery.md "Point-in-time-recovery.md") provide you
 per-second granularity and the ability to initiate a point-in-time recovery. With
@@ -299,9 +285,7 @@ Continuous backups and initiating a point-in-time restore doesn't use provisione
 capacity. They also don't have any impact on the performance or availability of your
 applications.
 
-### On-demand backup and
-
-restore
+### On-demand backup and restore
 
 [On-demand backup and restore](Backup-and-Restore.md "Backup-and-Restore.md") let you
 create full backups of a table for long-term retention and archival for regulatory
@@ -343,8 +327,7 @@ following topics:
   operations using the AWS Management Console, AWS CLI, NoSQL Workbench, and DynamoDB APIs.
 - [DynamoDB core components](HowItWorks.md "HowItWorks.md")
   – Describes the basic DynamoDB concepts.
-- [Best practices for designing and architecting with
-  DynamoDB](best-practices.md "best-practices.md") –
+- [Best practices for designing and architecting with DynamoDB](best-practices.md "best-practices.md") –
   Provides recommendations about NoSQL design, DynamoDB Well-Architected Lens, table
   design and several other DynamoDB features. These best practices help you maximize
   performance and minimize throughput costs when working with DynamoDB.

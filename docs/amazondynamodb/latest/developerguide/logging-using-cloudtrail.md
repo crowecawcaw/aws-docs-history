@@ -1,6 +1,4 @@
-# Logging DynamoDB operations by using
-
-AWS CloudTrail
+# Logging DynamoDB operations by using AWS CloudTrail
 
 DynamoDB is integrated with AWS CloudTrail, a service that provides a record of actions taken by a
 user, role, or an AWS service in DynamoDB. CloudTrail captures all API calls for DynamoDB as events.
@@ -23,8 +21,7 @@ To learn more about CloudTrail, including how to configure and enable it, see th
 ###### Topics
 
 - [DynamoDB information in CloudTrail](#service-name-info-in-cloudtrail "#service-name-info-in-cloudtrail")
-- [Understanding DynamoDB log file
-  entries](understanding-ddb-log-entries.md "understanding-ddb-log-entries.md")
+- [Understanding DynamoDB log file entries](understanding-ddb-log-entries.md "understanding-ddb-log-entries.md")
 
 ## DynamoDB information in CloudTrail
 
@@ -48,9 +45,7 @@ in CloudTrail logs. For more information, see the following:
   Amazon SNS notifications for CloudTrail](../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md "../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md")
 - [Receiving CloudTrail log files from multiple regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md") and [Receiving CloudTrail log files from multiple accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
 
-### Control plane events in
-
-CloudTrail
+### Control plane events in CloudTrail
 
 The following API actions are logged by default as events in CloudTrail files:
 
@@ -113,9 +108,7 @@ The following API actions are logged by default as events in CloudTrail files:
 - [UpdateParameterGroup](../APIReference/API_dax_UpdateParameterGroup.md "../APIReference/API_dax_UpdateParameterGroup.md")
 - [UpdateSubnetGroup](../APIReference/API_dax_UpdateSubnetGroup.md "../APIReference/API_dax_UpdateSubnetGroup.md")
 
-### DynamoDB data plane events in
-
-CloudTrail
+### DynamoDB data plane events in CloudTrail
 
 To enable logging of the following API actions in CloudTrail files, you'll need to
 enable logging of data plane API activity in CloudTrail.

@@ -31,8 +31,7 @@ _in_ the cloud:
 - [Data protection in DynamoDB](data-protection.md "data-protection.md")
 - [AWS Identity and Access Management (IAM) and DynamoDB](identity-and-access-mgmt.md "identity-and-access-mgmt.md")
 - [Compliance validation by industry for DynamoDB](Compliance.md "Compliance.md")
-- [Resilience and disaster recovery in
-  Amazon DynamoDB](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
+- [Resilience and disaster recovery in Amazon DynamoDB](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in Amazon DynamoDB](network-isolation.md "network-isolation.md")
 - [AWS PrivateLink for DynamoDB](privatelink-interface-endpoints.md "privatelink-interface-endpoints.md")
 - [Configuration and vulnerability analysis in Amazon DynamoDB](configuration-vulnerability.md "configuration-vulnerability.md")

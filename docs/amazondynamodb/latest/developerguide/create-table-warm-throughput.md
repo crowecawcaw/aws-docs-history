@@ -1,6 +1,4 @@
-# Create a new DynamoDB table with higher
-
-warm throughput
+# Create a new DynamoDB table with higher warm throughput
 
 You can adjust the warm throughput values when you create your DynamoDB table by
 following the steps below. These steps also apply when creating a [global table](GlobalTables.md "GlobalTables.md") or [secondary index](SecondaryIndexes.md "SecondaryIndexes.md").

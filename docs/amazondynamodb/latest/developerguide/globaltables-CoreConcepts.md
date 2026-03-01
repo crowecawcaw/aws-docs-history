@@ -17,8 +17,7 @@ see [Tutorials: Creating global tables](V2globaltables.md "V2globaltables.md") o
 ## Versions
 
 There are two versions of DynamoDB global tables available: [Global Tables version 2019.11.21 (Current)](GlobalTables.md "GlobalTables.md") and [Global tables version 2017.11.29 (Legacy)](globaltables.md "globaltables.md"). You should use Global Tables version 2019.11.21 (Current)
-whenever possible. The information in this documentation section is for Version 2019.11.21 (Current). For more information, see Determining the version of a global table [Determining the version of a global
-table](V2globaltables_versions.md#globaltables.DetermineVersion "V2globaltables_versions.md#globaltables.DetermineVersion").
+whenever possible. The information in this documentation section is for Version 2019.11.21 (Current). For more information, see Determining the version of a global table [Determining the version of a global table](V2globaltables_versions.md#globaltables.DetermineVersion "V2globaltables_versions.md#globaltables.DetermineVersion").
 
 ## Availability
 
@@ -169,9 +168,7 @@ different AWS Region.
 Global tables configured for multi-Region strong consistency (MRSC) do not publish a
 `ReplicationLatency` metric.
 
-## Considerations for managing global
-
-tables
+## Considerations for managing global tables
 
 You can't delete a table used to add a new global table replica until 24 hours have
 elapsed since the new replica was created.

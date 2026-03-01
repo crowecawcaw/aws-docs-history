@@ -11,25 +11,20 @@ use with no additional charge.
 - [Authenticating with identities](#security_iam_authentication "#security_iam_authentication")
 - [Managing access using policies](#security_iam_access-manage "#security_iam_access-manage")
 - [How Amazon DynamoDB works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
-- [Identity-based policy
-  examples for Amazon DynamoDB](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
-- [Troubleshooting Amazon DynamoDB identity and
-  access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
-- [IAM policy to
-  prevent the purchase of DynamoDB reserved capacity](iam-policy-prevent-purchase-reserved-capacity.md "iam-policy-prevent-purchase-reserved-capacity.md")
+- [Identity-based policy examples for Amazon DynamoDB](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
+- [Troubleshooting Amazon DynamoDB identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
+- [IAM policy to prevent the purchase of DynamoDB reserved capacity](iam-policy-prevent-purchase-reserved-capacity.md "iam-policy-prevent-purchase-reserved-capacity.md")
 
 ## Audience
 
 How you use AWS Identity and Access Management (IAM) differs based on your role:
 
 - **Service user** - request permissions from your
-  administrator if you cannot access features (see [Troubleshooting Amazon DynamoDB identity and
-  access](security_iam_troubleshoot.md "security_iam_troubleshoot.md"))
+  administrator if you cannot access features (see [Troubleshooting Amazon DynamoDB identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md"))
 - **Service administrator** - determine user access and
   submit permission requests (see [How Amazon DynamoDB works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md"))
 - **IAM administrator** - write policies to manage
-  access (see [Identity-based policy
-  examples for Amazon DynamoDB](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"))
+  access (see [Identity-based policy examples for Amazon DynamoDB](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"))
 
 ## Authenticating with identities
 
@@ -71,17 +66,13 @@ Using policies, administrators specify who has access to what by defining which 
 
 By default, users and roles have no permissions. An IAM administrator creates IAM policies and adds them to roles, which users can then assume. IAM policies define permissions regardless of the method used to perform the operation.
 
-### Identity-based
-
-policies
+### Identity-based policies
 
 Identity-based policies are JSON permissions policy documents that you attach to an identity (user, group, or role). These policies control what actions identities can perform, on which resources, and under what conditions. To learn how to create an identity-based policy, see [Define custom IAM permissions with customer managed policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in the _IAM User Guide_.
 
 Identity-based policies can be _inline policies_ (embedded directly into a single identity) or _managed policies_ (standalone policies attached to multiple identities). To learn how to choose between managed and inline policies, see [Choose between managed policies and inline policies](../../../IAM/latest/UserGuide/access_policies-choosing-managed-or-inline.md "../../../IAM/latest/UserGuide/access_policies-choosing-managed-or-inline.md") in the _IAM User Guide_.
 
-### Resource-based
-
-policies
+### Resource-based policies
 
 Resource-based policies are JSON policy documents that you attach to a resource. Examples include IAM _role trust policies_ and Amazon S3 _bucket policies_. In services that support resource-based policies, service administrators can use them to control access to a specific resource. You must [specify a principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md") in a resource-based policy.
 
@@ -96,8 +87,6 @@ AWS supports additional policy types that can set the maximum permissions grante
 - **Resource control policies (RCPs)** – Set the maximum available permissions for resources in your accounts. For more information, see [Resource control policies (RCPs)](../../../organizations/latest/userguide/orgs_manage_policies_rcps.md "../../../organizations/latest/userguide/orgs_manage_policies_rcps.md") in the _AWS Organizations User Guide_.
 - **Session policies** – Advanced policies passed as a parameter when creating a temporary session for a role or federated user. For more information, see [Session policies](../../../IAM/latest/UserGuide/access_policies.md#policies_session "../../../IAM/latest/UserGuide/access_policies.md#policies_session") in the _IAM User Guide_.
 
-### Multiple policy
-
-types
+### Multiple policy types
 
 When multiple types of policies apply to a request, the resulting permissions are more complicated to understand. To learn how AWS determines whether to allow a request when multiple policy types are involved, see [Policy evaluation logic](../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md "../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md") in the _IAM User Guide_.

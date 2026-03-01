@@ -17,9 +17,7 @@ Multi-account global tables provide the following benefits:
   For more information, see [Benefits of using multiple AWS accounts](../../../whitepapers/latest/organizing-your-aws-environment/benefits-of-using-multiple-aws-accounts.md "../../../whitepapers/latest/organizing-your-aws-environment/benefits-of-using-multiple-aws-accounts.md"). If your workloads don't require multi-account replication,
   or you want simpler replica management with local overrides, you can continue to use same-account global tables.
 
-You can configure multi-account global tables with [Multi-Region
-eventual consistency (MREC)](V2globaltables_HowItWorks.md#V2globaltables_HowItWorks.consistency-modes.mrec "V2globaltables_HowItWorks.md#V2globaltables_HowItWorks.consistency-modes.mrec"). Global tables configured for [Multi-Region
-strong consistency (MRSC)](V2globaltables_HowItWorks.md#V2globaltables_HowItWorks.consistency-modes.mrsc "V2globaltables_HowItWorks.md#V2globaltables_HowItWorks.consistency-modes.mrsc") do not support the multi-account model.
+You can configure multi-account global tables with [Multi-Region eventual consistency (MREC)](V2globaltables_HowItWorks.md#V2globaltables_HowItWorks.consistency-modes.mrec "V2globaltables_HowItWorks.md#V2globaltables_HowItWorks.consistency-modes.mrec"). Global tables configured for [Multi-Region strong consistency (MRSC)](V2globaltables_HowItWorks.md#V2globaltables_HowItWorks.consistency-modes.mrsc "V2globaltables_HowItWorks.md#V2globaltables_HowItWorks.consistency-modes.mrsc") do not support the multi-account model.
 
 ###### Topics
 

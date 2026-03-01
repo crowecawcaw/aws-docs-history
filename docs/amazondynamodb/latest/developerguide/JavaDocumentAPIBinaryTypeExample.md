@@ -1,6 +1,4 @@
-# Example: Handling binary type attributes
-
-using the AWS SDK for Java document API
+# Example: Handling binary type attributes using the AWS SDK for Java document API
 
 The following Java code example illustrates handling binary type attributes. The example
 adds an item to the `Reply` table. The item includes a binary type attribute
@@ -18,8 +16,7 @@ have to write. For more information, see [Java 1.x: DynamoDBMapper](DynamoDBMapp
 
 If you followed the [Creating tables and loading data for code examples in DynamoDB](SampleData.md "SampleData.md") section, you
 should already have created the `Reply` table. You can also create this table
-programmatically. For more information, see [Creating example
-tables and uploading data using the AWS SDK for Java](AppendixSampleDataCodeJava.md "AppendixSampleDataCodeJava.md").
+programmatically. For more information, see [Creating example tables and uploading data using the AWS SDK for Java](AppendixSampleDataCodeJava.md "AppendixSampleDataCodeJava.md").
 
 For step-by-step instructions for testing the following sample, see [Java code examples](CodeSamples.md "CodeSamples.md").
 

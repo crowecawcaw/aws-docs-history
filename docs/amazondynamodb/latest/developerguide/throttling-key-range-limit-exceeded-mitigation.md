@@ -1,6 +1,4 @@
-# 1- Key range throughput
-
-exceeded (hot partitions)
+# 1- Key range throughput exceeded (hot partitions)
 
 Amazon DynamoDB enforces specific throughput limits at the partition level for both table and
 global secondary index (GSI). Each partition has a maximum number of read capacity units
@@ -22,9 +20,7 @@ sufficient overall capacity. To learn more about:
   exception. The information identifies that a partition is experiencing high traffic and
   which operation type (read or write) is causing the issue.
 
-## Key range throughput exceeded
-
-mitigation measures
+## Key range throughput exceeded mitigation measures
 
 This section provides resolution guidance for partition-level throttling scenarios.
 Before using this guide, ensure you have identified the specific throttling reasons from
@@ -60,8 +56,7 @@ targeted remediation options:
 The consumption rate of one or more partitions in your DynamoDB table exceeds the
 partition's read throughput limit. This throttling occurs regardless of your
 table's total provisioned capacity and affects both provisioned and on-demand
-tables. You can monitor the CloudWatch metrics in [Common diagnosis and
-monitoring](#key-range-exceeded-diagnosis-monitoring "#key-range-exceeded-diagnosis-monitoring") to analyze your
+tables. You can monitor the CloudWatch metrics in [Common diagnosis and monitoring](#key-range-exceeded-diagnosis-monitoring "#key-range-exceeded-diagnosis-monitoring") to analyze your
 throttling event.
 
 ###### Remediation options
@@ -79,8 +74,7 @@ Consider these steps to address your throttling events:
   split busy partitions based on observed usage patterns.
 - **Identify your hot keys:** If the table
   didn't resolve it automatically and your warm throughput is high or raising
-  it didn't help, you'll need to identify specific hot keys. Use [Identifying hot keys using CloudWatch
-  Contributor Insights](#key-range-identify-hot-keys "#key-range-identify-hot-keys") to determine if any particular
+  it didn't help, you'll need to identify specific hot keys. Use [Identifying hot keys using CloudWatch Contributor Insights](#key-range-identify-hot-keys "#key-range-identify-hot-keys") to determine if any particular
   partition key values are hot. This is a first step to target your mitigation
   efforts effectively. Note that identification may not always be
   straightforward, particularly with rolling hot partitions (where different
@@ -95,8 +89,7 @@ Consider these steps to address your throttling events:
   implementing eventually consistent reads to reduce read capacity
   consumption, see [DynamoDB read consistency](HowItWorks.md "HowItWorks.md").
 - **Improve partition key design:** As a
-  long-term solution, consider [Improving partition key
-  design](#key-range-improve-partition-key-design "#key-range-improve-partition-key-design") to distribute access
+  long-term solution, consider [Improving partition key design](#key-range-improve-partition-key-design "#key-range-improve-partition-key-design") to distribute access
   more evenly across partitions. This approach often provides the most
   comprehensive resolution to hot partition issues by addressing the root
   cause. However, it requires careful planning as it involves significant
@@ -109,8 +102,7 @@ Consider these steps to address your throttling events:
 The consumption rate of one or more partitions in your DynamoDB table exceeds the
 partition's write throughput limit. This throttling occurs regardless of your
 table's total provisioned capacity and affects both provisioned and on-demand
-tables. You can monitor the CloudWatch metrics in [Common diagnosis and
-monitoring](#key-range-exceeded-diagnosis-monitoring "#key-range-exceeded-diagnosis-monitoring") to analyze your
+tables. You can monitor the CloudWatch metrics in [Common diagnosis and monitoring](#key-range-exceeded-diagnosis-monitoring "#key-range-exceeded-diagnosis-monitoring") to analyze your
 throttling event.
 
 ###### Remediation options
@@ -128,8 +120,7 @@ Consider these steps to address your throttling events:
   levels, DynamoDB may split busy partitions based on observed usage patterns.
 - **Identify your hot keys:** If the table
   didn't resolve it automatically and your warm throughput is high or raising
-  it didn't help, you'll need to identify specific hot keys. Use [Identifying hot keys using CloudWatch
-  Contributor Insights](#key-range-identify-hot-keys "#key-range-identify-hot-keys") to determine if any particular
+  it didn't help, you'll need to identify specific hot keys. Use [Identifying hot keys using CloudWatch Contributor Insights](#key-range-identify-hot-keys "#key-range-identify-hot-keys") to determine if any particular
   partition key values are hot. This is a first step to target your mitigation
   efforts effectively. Consider these common patterns:
 
@@ -155,8 +146,7 @@ Consider these steps to address your throttling events:
   handling strategies.
 
 - **Improve partition key design:** As a
-  long-term solution, consider [Improving partition key
-  design](#key-range-improve-partition-key-design "#key-range-improve-partition-key-design") to distribute access
+  long-term solution, consider [Improving partition key design](#key-range-improve-partition-key-design "#key-range-improve-partition-key-design") to distribute access
   more evenly across partitions. This approach often provides the most
   comprehensive resolution to hot partition issues by addressing the root
   cause. However, it requires careful planning as it involves significant
@@ -169,8 +159,7 @@ Consider these steps to address your throttling events:
 The consumption rate of one or more partitions in your DynamoDB GSI exceeds the
 partition's read throughput limit. This throttling occurs regardless of your
 GSI's total provisioned capacity and affects both provisioned and on-demand
-tables. You can monitor the CloudWatch metrics in [Common diagnosis and
-monitoring](#key-range-exceeded-diagnosis-monitoring "#key-range-exceeded-diagnosis-monitoring") to analyze your
+tables. You can monitor the CloudWatch metrics in [Common diagnosis and monitoring](#key-range-exceeded-diagnosis-monitoring "#key-range-exceeded-diagnosis-monitoring") to analyze your
 throttling event.
 
 ###### Remediation options
@@ -186,8 +175,7 @@ Consider these steps to address your throttling events:
   levels, DynamoDB may split busy partitions based on observed usage patterns.
 - **Identify your hot keys:** If the GSI didn't
   resolve it automatically and your warm throughput is high or raising it
-  didn't help, you'll need to identify specific hot keys. Use [Identifying hot keys using CloudWatch
-  Contributor Insights](#key-range-identify-hot-keys "#key-range-identify-hot-keys") to determine if any particular
+  didn't help, you'll need to identify specific hot keys. Use [Identifying hot keys using CloudWatch Contributor Insights](#key-range-identify-hot-keys "#key-range-identify-hot-keys") to determine if any particular
   partition key values are hot. This is a first step to target your mitigation
   efforts effectively. Note that for GSIs, the partition key distribution may
   differ significantly from your base table, creating different hot key
@@ -197,8 +185,7 @@ Consider these steps to address your throttling events:
   status flags, date-only keys, or boolean attributes) that concentrate reads
   on a small number of partitions. Consider using composite keys that combine
   the low-cardinality attribute with a high-cardinality attribute (e.g.,
-  "ACTIVE#customer123" instead of just "ACTIVE") or apply [Using write sharding to distribute workloads
-  evenly in your DynamoDB table](bp-partition-key-sharding.md "bp-partition-key-sharding.md") techniques to the base table items
+  "ACTIVE#customer123" instead of just "ACTIVE") or apply [Using write sharding to distribute workloads evenly in your DynamoDB table](bp-partition-key-sharding.md "bp-partition-key-sharding.md") techniques to the base table items
   that affect GSI distribution to distribute writes across multiple
   partitions. While querying sharded data requires additional application
   logic to aggregate results, this approach prevents throttling by
@@ -211,8 +198,7 @@ Consider these steps to address your throttling events:
 The consumption rate of one or more partitions in your DynamoDB GSI exceeds the
 partition's write throughput limit. This throttling occurs regardless of your
 GSI's total provisioned capacity and affects both provisioned and on-demand
-tables. You can monitor the CloudWatch metrics in [Common diagnosis and
-monitoring](#key-range-exceeded-diagnosis-monitoring "#key-range-exceeded-diagnosis-monitoring") to analyze your
+tables. You can monitor the CloudWatch metrics in [Common diagnosis and monitoring](#key-range-exceeded-diagnosis-monitoring "#key-range-exceeded-diagnosis-monitoring") to analyze your
 throttling event.
 
 ###### Remediation options
@@ -229,8 +215,7 @@ Consider these steps to address your throttling events:
   values. For example, if 80% of your items have status="ACTIVE", this creates
   a severe hot partition in a status-based GSI. Consider using composite keys
   that combine the low-cardinality attribute with a high-cardinality attribute
-  (e.g., "ACTIVE#customer123" instead of just "ACTIVE") or apply [Using write sharding to distribute workloads
-  evenly in your DynamoDB table](bp-partition-key-sharding.md "bp-partition-key-sharding.md") techniques to the base table items
+  (e.g., "ACTIVE#customer123" instead of just "ACTIVE") or apply [Using write sharding to distribute workloads evenly in your DynamoDB table](bp-partition-key-sharding.md "bp-partition-key-sharding.md") techniques to the base table items
   that affect GSI distribution to distribute writes across multiple
   partitions. While querying sharded data requires additional application
   logic to aggregate results, this approach prevents throttling by
@@ -242,14 +227,11 @@ Consider these steps to address your throttling events:
   sudden traffic spikes before throttling occurs. Over time, if your actual
   throughput consistently approaches the warm throughput levels, DynamoDB may
   split busy partitions based on observed usage patterns.
-- **Optimize GSI projections:** Apply [Optimizing GSI
-  projections](#key-range-optimize-gsi-projections "#key-range-optimize-gsi-projections") techniques to reduce
+- **Optimize GSI projections:** Apply [Optimizing GSI projections](#key-range-optimize-gsi-projections "#key-range-optimize-gsi-projections") techniques to reduce
   write volume to GSIs. Projecting fewer attributes can significantly reduce
   the write capacity consumed by each GSI update.
 
-## Common diagnosis and
-
-monitoring
+## Common diagnosis and monitoring
 
 When troubleshooting partition-level throttling, several CloudWatch metrics can help
 identify hot partitions and confirm the root cause.
@@ -268,9 +250,7 @@ Monitor these key metrics to diagnose partition-level throttling:
 
 ## Resolution procedures
 
-### Identifying hot keys using CloudWatch
-
-Contributor Insights
+### Identifying hot keys using CloudWatch Contributor Insights
 
 Use this procedure to identify which partition keys are causing throttling.
 
@@ -288,9 +268,7 @@ Use this procedure to identify which partition keys are causing throttling.
    determine if hot keys are consistent or occur during specific
    periods.
 
-### Improving partition key
-
-design
+### Improving partition key design
 
 Use this approach when you can modify your table schema to better distribute
 traffic across partitions. When possible, this is the most effective long-term
@@ -311,13 +289,9 @@ carefully consider these significant limitations:
   design often requires downtime or complex dual-write strategies during
   transition.
 
-For comprehensive guidance and principles on partition key design, see [Best practices for designing and using partition keys
-effectively in DynamoDB](bp-partition-key-design.md "bp-partition-key-design.md") and [Designing partition keys to distribute your
-workload in DynamoDB](bp-partition-key-uniform-load.md "bp-partition-key-uniform-load.md").
+For comprehensive guidance and principles on partition key design, see [Best practices for designing and using partition keys effectively in DynamoDB](bp-partition-key-design.md "bp-partition-key-design.md") and [Designing partition keys to distribute your workload in DynamoDB](bp-partition-key-uniform-load.md "bp-partition-key-uniform-load.md").
 
-### Optimizing GSI
-
-projections
+### Optimizing GSI projections
 
 Review your application's query patterns to determine exactly which attributes
 need to be available when querying the GSI, and limit your projections to just those
@@ -341,5 +315,4 @@ concepts covered in this guide:
   impact performance](https://aws.amazon.com/blogs/database/part-1-scaling-dynamodb-how-partitions-hot-keys-and-split-for-heat-impact-performance/ "https://aws.amazon.com/blogs/database/part-1-scaling-dynamodb-how-partitions-hot-keys-and-split-for-heat-impact-performance/").
 - For detailed information about how DynamoDB's split-for-heat mechanism works, its
   benefits, and implementation details, see [Part 3: Summary and best practices](https://aws.amazon.com/blogs/database/part-3-scaling-dynamodb-how-partitions-hot-keys-and-split-for-heat-impact-performance/ "https://aws.amazon.com/blogs/database/part-3-scaling-dynamodb-how-partitions-hot-keys-and-split-for-heat-impact-performance/").
-- For detailed write sharding strategies, see [Using write sharding to distribute workloads
-  evenly in your DynamoDB table](bp-partition-key-sharding.md "bp-partition-key-sharding.md").
+- For detailed write sharding strategies, see [Using write sharding to distribute workloads evenly in your DynamoDB table](bp-partition-key-sharding.md "bp-partition-key-sharding.md").

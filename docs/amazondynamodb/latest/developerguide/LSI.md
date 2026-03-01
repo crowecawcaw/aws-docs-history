@@ -13,8 +13,7 @@ indexes.
 - [Creating a Local Secondary Index](#LSI.Creating "#LSI.Creating")
 - [Reading data from a Local Secondary Index](#LSI.Reading "#LSI.Reading")
 - [Item writes and Local Secondary Indexes](#LSI.Writes "#LSI.Writes")
-- [Provisioned throughput considerations for
-  Local Secondary Indexes](#LSI.ThroughputConsiderations "#LSI.ThroughputConsiderations")
+- [Provisioned throughput considerations for Local Secondary Indexes](#LSI.ThroughputConsiderations "#LSI.ThroughputConsiderations")
 - [Storage considerations for Local Secondary Indexes](#LSI.StorageConsiderations "#LSI.StorageConsiderations")
 - [Item collections in Local Secondary Indexes](#LSI.ItemCollections "#LSI.ItemCollections")
 - [Working with Local Secondary Indexes: Java](LSIJavaDocumentAPI.md "LSIJavaDocumentAPI.md")
@@ -296,8 +295,7 @@ table and the items in a local secondary index. In fact, this behavior can be ad
 applications.
 
 A table with many local secondary indexes incurs higher costs for write activity than
-tables with fewer indexes. For more information, see [Provisioned throughput considerations for
-Local Secondary Indexes](#LSI.ThroughputConsiderations "#LSI.ThroughputConsiderations").
+tables with fewer indexes. For more information, see [Provisioned throughput considerations for Local Secondary Indexes](#LSI.ThroughputConsiderations "#LSI.ThroughputConsiderations").
 
 ###### Important
 
@@ -306,9 +304,7 @@ per partition key value. A table with local secondary indexes can store any numb
 of items, as long as the total size for any one partition key value does not exceed
 10 GB. For more information, see [Item collection size limit](#LSI.ItemCollections.SizeLimit "#LSI.ItemCollections.SizeLimit").
 
-## Provisioned throughput considerations for
-
-Local Secondary Indexes
+## Provisioned throughput considerations for Local Secondary Indexes
 
 When you create a table in DynamoDB, you provision read and write capacity units for the
 table's expected workload. That workload includes read and write activity on the table's
@@ -528,9 +524,7 @@ example). Setting a limit that is less than 10 GB would provide an early
 warning system so you know that an item collection is approaching the limit in time
 to do something about it.
 
-### Item collections and
-
-partitions
+### Item collections and partitions
 
 In a table with one or more local secondary indexes, each item collection is stored in one partition.
 The total size of such an item collection is limited to the capability of that partition:

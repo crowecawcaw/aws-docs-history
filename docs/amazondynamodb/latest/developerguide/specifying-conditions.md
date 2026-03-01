@@ -1,6 +1,4 @@
-# Using IAM policy conditions for fine-grained
-
-access control
+# Using IAM policy conditions for fine-grained access control
 
 When you grant permissions in DynamoDB, you can specify conditions that determine how a
 permissions policy takes effect.
@@ -71,9 +69,7 @@ Fine-grained access control in DynamoDB allows you to create precise permissions
 
 These controls are implemented through IAM policies using DynamoDB-specific condition keys.
 
-## Specifying conditions: Using condition
-
-keys
+## Specifying conditions: Using condition keys
 
 AWS provides a set of predefined condition keys (AWS-wide condition keys) for all
 AWS services that support IAM for access control. For example, you can use the
@@ -201,9 +197,7 @@ correctly, compared to allow-based policies. In addition, future changes to the
 DynamoDB API (or changes to existing API inputs) can render a deny-based policy
 ineffective.
 
-### Example policies: Using conditions for
-
-fine-grained access control
+### Example policies: Using conditions for fine-grained access control
 
 This section shows several policies for implementing fine-grained access control
 on DynamoDB tables and indexes.
@@ -649,5 +643,4 @@ JSON
 ## Related topics
 
 - [Identity and Access Management for Amazon DynamoDB](security-iam.md "security-iam.md")
-- [DynamoDB API permissions: Actions, resources,
-  and conditions reference](api-permissions-reference.md "api-permissions-reference.md")
+- [DynamoDB API permissions: Actions, resources, and conditions reference](api-permissions-reference.md "api-permissions-reference.md")

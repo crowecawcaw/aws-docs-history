@@ -9,7 +9,6 @@ Center](https://aws.amazon.com//premiumsupport/knowledge-center/#AWS_DynamoDB "h
 
 ###### Topics
 
-- [Troubleshooting internal server errors in
-  Amazon DynamoDB](TroubleshootingInternalServerErrors.md "TroubleshootingInternalServerErrors.md")
+- [Troubleshooting internal server errors in Amazon DynamoDB](TroubleshootingInternalServerErrors.md "TroubleshootingInternalServerErrors.md")
 - [Troubleshooting latency issues in Amazon DynamoDB](TroubleshootingLatency.md "TroubleshootingLatency.md")
 - [Troubleshooting throttling in Amazon DynamoDB](TroubleshootingThrottling.md "TroubleshootingThrottling.md")

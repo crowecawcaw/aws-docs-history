@@ -1,19 +1,13 @@
-# Example: Batch operations using the
-
-AWS SDK for .NET low-level API
+# Example: Batch operations using the AWS SDK for .NET low-level API
 
 ###### Topics
 
-- [Example: Batch write operation using the
-  AWS SDK for .NET low-level API](#batch-write-low-level-dotnet "#batch-write-low-level-dotnet")
-- [Example: Batch get operation using the AWS SDK for .NET
-  low-level API](#LowLevelDotNetBatchGet "#LowLevelDotNetBatchGet")
+- [Example: Batch write operation using the AWS SDK for .NET low-level API](#batch-write-low-level-dotnet "#batch-write-low-level-dotnet")
+- [Example: Batch get operation using the AWS SDK for .NET low-level API](#LowLevelDotNetBatchGet "#LowLevelDotNetBatchGet")
   This section provides examples of batch operations, _batch write_ and
   _batch get_, that Amazon DynamoDB supports.
 
-## Example: Batch write operation using the
-
-AWS SDK for .NET low-level API
+## Example: Batch write operation using the AWS SDK for .NET low-level API
 
 The following C# code example uses the `BatchWriteItem` method to perform the
 following put and delete operations:
@@ -32,8 +26,7 @@ response.
 The following example checks the response to see if it has any unprocessed request
 items. If it does, it loops back and resends the `BatchWriteItem` request with
 unprocessed items in the request. You can also create these sample tables and upload
-sample data programmatically. For more information, see [Creating example
-tables and uploading data using the AWS SDK for .NET](AppendixSampleDataCodeDotNET.md "AppendixSampleDataCodeDotNET.md").
+sample data programmatically. For more information, see [Creating example tables and uploading data using the AWS SDK for .NET](AppendixSampleDataCodeDotNET.md "AppendixSampleDataCodeDotNET.md").
 
 For step-by-step instructions for testing the following sample, see [.NET code examples](CodeSamples.md "CodeSamples.md").
 
@@ -183,9 +176,7 @@ namespace com.amazonaws.codesamples
 
 ```
 
-## Example: Batch get operation using the AWS SDK for .NET
-
-low-level API
+## Example: Batch get operation using the AWS SDK for .NET low-level API
 
 The following C# code example uses the `BatchGetItem` method to retrieve
 multiple items from the `Forum` and the `Thread` tables in Amazon DynamoDB.

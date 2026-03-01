@@ -1,6 +1,4 @@
-# Evaluate your DynamoDB table's capacity
-
-mode
+# Evaluate your DynamoDB table's capacity mode
 
 This section provides an overview of how to select the appropriate capacity mode for your
 DynamoDB table. Each mode is tuned to meet the needs of a different workload in terms of
@@ -9,18 +7,12 @@ these factors when making your decision.
 
 ###### Topics
 
-- [What table capacity modes are
-  available](#CostOptimization_TableCapacityMode_Overview "#CostOptimization_TableCapacityMode_Overview")
-- [When to select on-demand
-  capacity mode](#CostOptimization_TableCapacityMode_OnDemand "#CostOptimization_TableCapacityMode_OnDemand")
-- [When to select provisioned
-  capacity mode](#CostOptimization_TableCapacityMode_Provisioned "#CostOptimization_TableCapacityMode_Provisioned")
-- [Additional factors to
-  consider when choosing a table capacity mode](#CostOptimization_TableCapacityMode_AdditionalFactors "#CostOptimization_TableCapacityMode_AdditionalFactors")
+- [What table capacity modes are available](#CostOptimization_TableCapacityMode_Overview "#CostOptimization_TableCapacityMode_Overview")
+- [When to select on-demand capacity mode](#CostOptimization_TableCapacityMode_OnDemand "#CostOptimization_TableCapacityMode_OnDemand")
+- [When to select provisioned capacity mode](#CostOptimization_TableCapacityMode_Provisioned "#CostOptimization_TableCapacityMode_Provisioned")
+- [Additional factors to consider when choosing a table capacity mode](#CostOptimization_TableCapacityMode_AdditionalFactors "#CostOptimization_TableCapacityMode_AdditionalFactors")
 
-## What table capacity modes are
-
-available
+## What table capacity modes are available
 
 When you create a DynamoDB table, you must select either on-demand or provisioned capacity
 mode.
@@ -52,9 +44,7 @@ Provisioned capacity mode requires constant monitoring to find a balance between
 over-provisioning or under-provisioning the table to keep both throttling low and costs
 tuned.
 
-## When to select on-demand
-
-capacity mode
+## When to select on-demand capacity mode
 
 When optimizing for cost, on-demand mode is your best choice when you have a workload
 similar to the following graphs.
@@ -83,9 +73,7 @@ both) throughput per second for individual on-demand tables and global secondary
 help keep costs and usage bounded. For more information, see [maximum throughput for on-demand
 tables](on-demand-capacity-mode-max-throughput.md "on-demand-capacity-mode-max-throughput.md") .
 
-## When to select provisioned
-
-capacity mode
+## When to select provisioned capacity mode
 
 An ideal workload for provisioned capacity mode is one with a more steady and predictable
 usage pattern like the graph below.
@@ -143,9 +131,7 @@ the table is overprovisioned, increasing cost, but reducing the risk of throttli
 a higher percent value will decrease how much the table is overprovisioned, but increase the
 risk of throttling.
 
-## Additional factors to
-
-consider when choosing a table capacity mode
+## Additional factors to consider when choosing a table capacity mode
 
 When deciding between the two modes, there are some additional factors worth
 considering.

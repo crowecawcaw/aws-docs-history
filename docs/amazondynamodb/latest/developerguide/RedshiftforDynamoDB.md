@@ -12,7 +12,5 @@ See the topics below for more detailed topics on how to integrate DynamoDB with 
 ###### Topics
 
 - [Cross-account integration considerations with CMK](cross-account-integration-considerations.md "cross-account-integration-considerations.md")
-- [DynamoDB zero-ETL integration with
-  Amazon Redshift](RedshiftforDynamoDB-zero-etl.md "RedshiftforDynamoDB-zero-etl.md")
-- [Loading data from DynamoDB into Amazon Redshift with
-  the COPY command](RedshiftforDynamoDB-copy-data.md "RedshiftforDynamoDB-copy-data.md")
+- [DynamoDB zero-ETL integration with Amazon Redshift](RedshiftforDynamoDB-zero-etl.md "RedshiftforDynamoDB-zero-etl.md")
+- [Loading data from DynamoDB into Amazon Redshift with the COPY command](RedshiftforDynamoDB-copy-data.md "RedshiftforDynamoDB-copy-data.md")

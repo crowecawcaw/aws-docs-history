@@ -1,85 +1,136 @@
-# Adding tags and labels to resources in DynamoDB
+# Tagging resources in DynamoDB
 
-You can label Amazon DynamoDB resources using _tags_. Tags let you
-categorize your resources in different ways, for example, by purpose, owner, environment, or
-other criteria. Tags can help you do the following:
+You can use the Amazon DynamoDB console or the AWS Command Line Interface (AWS CLI) to add, list, edit, or delete
+tags. You can then activate these user-defined tags so that they appear on the AWS Billing and Cost Management
+console for cost allocation tracking. For more information, see [Using DynamoDB tags to create cost allocation reports](Tagging.md#CostAllocationReports "Tagging.md#CostAllocationReports").
 
-- Quickly identify a resource based on the tags that you assigned to it.
-- See AWS bills broken down by tags.
+For bulk editing, you can also use Tag Editor on the AWS Management Console. For more information, see
+[Working with Tag Editor](../../../awsconsolehelpdocs/latest/gsg/tag-editor.md "../../../awsconsolehelpdocs/latest/gsg/tag-editor.md").
 
-###### Note
+To use the DynamoDB API instead, see the following operations in the
+[Amazon DynamoDB API Reference](../APIReference.md "../APIReference.md"):
 
-Any local secondary indexes (LSI) and global secondary indexes (GSI) related
-to tagged tables are labeled with the same tags automatically. Currently, DynamoDB
-Streams usage cannot be tagged.
-Tagging is supported by AWS services like Amazon EC2, Amazon S3, DynamoDB, and more. Efficient
-tagging can provide cost insights by enabling you to create reports across services that
-carry a specific tag.
+- [TagResource](../APIReference/API_TagResource.md "../APIReference/API_TagResource.md")
+- [UntagResource](../APIReference/API_UntagResource.md "../APIReference/API_UntagResource.md")
+- [ListTagsOfResource](../APIReference/API_ListTagsOfResource.md "../APIReference/API_ListTagsOfResource.md")
 
-To get started with tagging, do the following:
+###### Topics
 
-1. Understand [Tagging restrictions in DynamoDB](#TaggingRestrictions "#TaggingRestrictions").
-2. Create tags by using [Tagging resources in DynamoDB](Tagging.md "Tagging.md").
-3. Use [Using DynamoDB tags to create cost allocation reports](#CostAllocationReports "#CostAllocationReports")
-   to track your AWS costs per active tag.
-   Finally, it is good practice to follow optimal tagging strategies. For information, see
-   [AWS tagging
-   strategies](https://d0.awsstatic.com/aws-answers/AWS_Tagging_Strategies.pdf "https://d0.awsstatic.com/aws-answers/AWS_Tagging_Strategies.pdf").
+- [Setting permissions to filter by tags](#Tagging.Operations.permissions "#Tagging.Operations.permissions")
+- [Adding tags to new or existing tables (AWS Management Console)](#Tagging.Operations.using-console "#Tagging.Operations.using-console")
+- [Adding tags to new or existing tables (AWS CLI)](#Tagging.Operations.using-cli "#Tagging.Operations.using-cli")
 
-## Tagging restrictions in DynamoDB
+## Setting permissions to filter by tags
 
-Each tag consists of a key and a value, both of which you define. The following restrictions apply:
+To use tags to filter your table list in the DynamoDB console, make sure your
+user's policies include access to the following operations:
 
-- Each DynamoDB table can have only one tag with the same key. If you try to add an existing
-  tag (same key), the existing tag value is updated to the new value.
-- Tag keys and values are case sensitive.
-- The maximum key length is 128 Unicode characters.
-- The maximum value length is 256 Unicode characters.
-- The allowed characters are letters, white space, and numbers, plus the following special
-  characters: `+ - = . _ : /`
-- The maximum number of tags per resource is 50.
-- The maximum size supported for all the tags in a table is 10 KB.
-- AWS-assigned tag names and values are automatically assigned the `aws:`
-  prefix, which you can't assign. AWS-assigned tag names don't count toward the tag
-  limit of 50 or the 10 KB maximum size limit. User-assigned tag names have the prefix `user:` in the cost
-  allocation report.
-- You can't backdate the application of a tag.
+- `tag:GetTagKeys`
+- `tag:GetTagValues`
 
-## Using DynamoDB tags to create cost allocation reports
+You can access these operations by attaching a new IAM policy to your user by
+following the steps below.
 
-AWS uses tags to organize resource costs on your cost allocation report. AWS provides two
-types of cost allocation tags:
+1. Go to the [IAM console](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/") with an
+   Admin user.
+2. Select "Policies" in the left navigation menu.
+3. Select "Create policy."
+4. Paste the following policy into the JSON editor.
 
-- An AWS-generated tag. AWS defines, creates, and applies this tag for you.
-- User-defined tags. You define, create, and apply these tags.
-  You must activate both types of tags separately before they can appear in Cost
-  Explorer or on a cost allocation report.
+JSON
 
-To activate AWS-generated tags:
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "tag:GetTagKeys",
+ "tag:GetTagValues"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
 
-1. Sign in to the AWS Management Console and open the Billing and Cost Management console at
-   [https://console.aws.amazon.com/billing/home#/.](https://console.aws.amazon.com/billing/home#/. "https://console.aws.amazon.com/billing/home#/.")
-2. In the navigation pane, choose **Cost Allocation Tags**.
-3. Under **AWS-Generated Cost Allocation Tags**, choose
-   **Activate**.
+```
 
-To activate user-defined tags:
+5. Complete the wizard and assign a name to the policy (for example,
+   `TagKeysAndValuesReadAccess`).
+6. Select "Users" in the left navigation menu.
+7. From the list, select the user you normally use to access the DynamoDB
+   console.
+8. Select "Add permissions."
+9. Select "Attach existing policies directly."
+10. From the list, select the policy you created previously.
+11. Complete the wizard.
 
-1. Sign in to the AWS Management Console and open the Billing and Cost Management console at
-   [https://console.aws.amazon.com/billing/home#/.](https://console.aws.amazon.com/billing/home#/. "https://console.aws.amazon.com/billing/home#/.")
-2. In the navigation pane, choose **Cost Allocation Tags**.
-3. Under **User-Defined Cost Allocation Tags**, choose
-   **Activate**.
+## Adding tags to new or existing tables (AWS Management Console)
 
-After you create and activate tags, AWS generates a cost allocation report
-with your usage and costs grouped by your active tags. The cost allocation report includes
-all of your AWS costs for each billing period. The report includes both tagged and untagged resources,
-so that you can clearly organize the charges for resources.
+You can use the DynamoDB console to add tags to new tables when you create them, or to
+add, edit, or delete tags for existing tables.
 
-###### Note
+###### To tag resources on creation (console)
 
-Currently, any data transferred out from DynamoDB won't be broken down by tags on cost
-allocation reports.
+1. Sign in to the AWS Management Console and open the DynamoDB console at
+   [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
+2. In the navigation pane, choose **Tables**, and then choose
+   **Create table**.
+3. On the **Create DynamoDB table** page, provide a name and
+   primary key. In the **Tags** section, choose **Add new
+   tag** and enter the tags that you want to use.
 
-For more information, see
-[Using cost allocation tags](../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md "../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md").
+For information about tag structure, see [Tagging restrictions in DynamoDB](Tagging.md#TaggingRestrictions "Tagging.md#TaggingRestrictions").
+
+For more information about creating tables, see [Basic operations on DynamoDB tables](WorkingWithTables.md "WorkingWithTables.md").
+
+###### To tag existing resources (console)
+
+Open the DynamoDB console at
+[https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
+
+1. In the navigation pane, choose **Tables**.
+2. Choose a table in the list, and then choose the **Additional
+   settings** tab. You can add, edit, or delete your tags in the
+   **Tags** section at the bottom of the page.
+
+## Adding tags to new or existing tables (AWS CLI)
+
+The following examples show how to use the AWS CLI to specify tags when you create
+tables and indexes, and to tag existing resources.
+
+###### To tag resources on creation (AWS CLI)
+
+- The following example creates a new `Movies` table and adds the
+  `Owner` tag with a value of `blueTeam`:
+
+```
+aws dynamodb create-table \
+    --table-name Movies \
+    --attribute-definitions AttributeName=Title,AttributeType=S \
+    --key-schema AttributeName=Title,KeyType=HASH \
+    --provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=5 \
+    --tags Key=Owner,Value=blueTeam
+```
+
+###### To tag existing resources (AWS CLI)
+
+- The following example adds the `Owner` tag with a value of
+  `blueTeam` for the `Movies` table:
+
+```
+aws dynamodb tag-resource \
+    --resource-arn arn:aws:dynamodb:us-east-1:123456789012:table/Movies \
+    --tags Key=Owner,Value=blueTeam
+```
+
+###### To list all tags for a table (AWS CLI)
+
+- The following example lists all the tags that are associated with the
+  `Movies` table:
+
+```
+aws dynamodb list-tags-of-resource \
+    --resource-arn arn:aws:dynamodb:us-east-1:123456789012:table/Movies
+```

@@ -56,9 +56,7 @@ it can sustain the higher workload of 150 WCU/sec without being throttled.
 Adaptive capacity is enabled automatically for every DynamoDB table, at no additional
 cost. You don't need to explicitly enable or disable it.
 
-### Isolate frequently accessed
-
-items
+### Isolate frequently accessed items
 
 If your application drives disproportionately high traffic to one or more
 items, adaptive capacity rebalances your partitions such that frequently

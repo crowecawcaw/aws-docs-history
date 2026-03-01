@@ -1,6 +1,4 @@
-# Global tables - multi-active, multi-Region
-
-replication
+# Global tables - multi-active, multi-Region replication
 
 _Amazon DynamoDB global tables_ is a fully managed,
 multi-Region, and multi-active database feature that provides easy to use data replication
@@ -60,7 +58,6 @@ commitments.
 - [Global tables core concepts](globaltables-CoreConcepts.md "globaltables-CoreConcepts.md")
 - [DynamoDB same-account global table](globaltables-SameAccount.md "globaltables-SameAccount.md")
 - [DynamoDB multi-account global tables](globaltables-MultiAccount.md "globaltables-MultiAccount.md")
-- [Understanding Amazon DynamoDB billing for global
-  tables](global-tables-billing.md "global-tables-billing.md")
+- [Understanding Amazon DynamoDB billing for global tables](global-tables-billing.md "global-tables-billing.md")
 - [DynamoDB global tables versions](V2globaltables_versions.md "V2globaltables_versions.md")
 - [Best practices for global tables](globaltables-bestpractices.md "globaltables-bestpractices.md")

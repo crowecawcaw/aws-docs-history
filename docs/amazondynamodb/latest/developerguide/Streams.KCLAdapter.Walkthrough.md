@@ -1,6 +1,4 @@
-# Complete program: DynamoDB Streams
-
-Kinesis adapter
+# Complete program: DynamoDB Streams Kinesis adapter
 
 The following is the complete Java program that performs the tasks described in [Walkthrough: DynamoDB Streams Kinesis adapter](Streams.KCLAdapter.md "Streams.KCLAdapter.md"). When you run it, you should see
 output similar to the following.
@@ -20,8 +18,7 @@ Done.
 
 To run this program, ensure that the client application has access to DynamoDB and
 Amazon CloudWatch using policies. For more information, see
-[Identity-based
-policies for DynamoDB](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies").
+[Identity-based policies for DynamoDB](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies").
 
 The source code consists of four `.java` files. To build this program,
 add the following dependency, which includes the Amazon Kinesis Client Library (KCL) 3.x and

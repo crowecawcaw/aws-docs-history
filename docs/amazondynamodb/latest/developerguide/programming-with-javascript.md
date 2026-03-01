@@ -7,17 +7,12 @@ connections, handling errors, defining retry policies, managing keep-alive, and 
 ###### Topics
 
 - [About AWS SDK for JavaScript](#programming-with-javascript-about "#programming-with-javascript-about")
-- [Using the AWS SDK for JavaScript
-  V3](#programming-with-javascript-using-the-sdk "#programming-with-javascript-using-the-sdk")
-- [Accessing JavaScript
-  documentation](#programming-with-javascript-documentation "#programming-with-javascript-documentation")
-- [Abstraction
-  layers](#programming-with-javascript-abstraction-layers "#programming-with-javascript-abstraction-layers")
-- [Using the marshall
-  utility function](#programming-with-javascript-using-marshall-utility "#programming-with-javascript-using-marshall-utility")
+- [Using the AWS SDK for JavaScript V3](#programming-with-javascript-using-the-sdk "#programming-with-javascript-using-the-sdk")
+- [Accessing JavaScript documentation](#programming-with-javascript-documentation "#programming-with-javascript-documentation")
+- [Abstraction layers](#programming-with-javascript-abstraction-layers "#programming-with-javascript-abstraction-layers")
+- [Using the marshall utility function](#programming-with-javascript-using-marshall-utility "#programming-with-javascript-using-marshall-utility")
 - [Reading items](#programming-with-javascript-reading-items "#programming-with-javascript-reading-items")
-- [Conditional
-  writes](#programming-with-javascript-conditional-writes "#programming-with-javascript-conditional-writes")
+- [Conditional writes](#programming-with-javascript-conditional-writes "#programming-with-javascript-conditional-writes")
 - [Pagination](#programming-with-javascript-pagination "#programming-with-javascript-pagination")
 - [Specifying configuration](#programming-with-javascript-config "#programming-with-javascript-config")
 - [Waiters](#programming-with-javascript-waiters "#programming-with-javascript-waiters")
@@ -36,9 +31,7 @@ JavaScript V2 is similar to V3, but contains syntax differences. V3 is more modu
 making it easier to ship smaller dependencies, and has first-class TypeScript support.
 We recommend using the latest version of the SDK.
 
-## Using the AWS SDK for JavaScript
-
-V3
+## Using the AWS SDK for JavaScript V3
 
 You can add the SDK to your Node.js application using the Node Package Manager. The
 examples below show how to add the most common SDK packages for working with
@@ -52,9 +45,7 @@ Installing packages adds references to the dependency section of your package.js
 project file. You have the option to use the newer ECMAScript module syntax. For further
 details on these two approaches, see the Considerations section.
 
-## Accessing JavaScript
-
-documentation
+## Accessing JavaScript documentation
 
 Get started with JavaScript documentation with the following resources:
 
@@ -71,23 +62,17 @@ Get started with JavaScript documentation with the following resources:
       layers that you have the choice to use. See the section below for more
       information about abstraction layers.
 
-## Abstraction
-
-layers
+## Abstraction layers
 
 The SDK for JavaScript V3 has a low-level client (`DynamoDBClient`) and a
 high-level client (`DynamoDBDocumentClient`).
 
 ###### Topics
 
-- [Low-level client
-  (DynamoDBClient)](#programming-with-javascript-low-level-client "#programming-with-javascript-low-level-client")
-- [High-level client
-  (DynamoDBDocumentClient)](#programming-with-javascript-high-level-client "#programming-with-javascript-high-level-client")
+- [Low-level client (DynamoDBClient)](#programming-with-javascript-low-level-client "#programming-with-javascript-low-level-client")
+- [High-level client (DynamoDBDocumentClient)](#programming-with-javascript-high-level-client "#programming-with-javascript-high-level-client")
 
-### Low-level client
-
-(`DynamoDBClient`)
+### Low-level client (`DynamoDBClient`)
 
 The low-level client provides no extra abstractions over the underlying wire
 protocol. It gives you full control over all aspects of communication, but because
@@ -131,9 +116,7 @@ addProduct();
 
 ```
 
-### High-level client
-
-(`DynamoDBDocumentClient`)
+### High-level client (`DynamoDBDocumentClient`)
 
 The high-level DynamoDB document client offers built-in convenience features, such as
 eliminating the need to manually marshal data and allowing for direct reads and
@@ -183,9 +166,7 @@ addProduct();
 The pattern of usage is consistent when you're reading items using API operations
 such as `GetItem`, `Query`, or `Scan`.
 
-## Using the marshall
-
-utility function
+## Using the marshall utility function
 
 You can use the low-level client and marshall or unmarshall the data types on your
 own. The utility package, [util-dynamodb](../../../AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-util-dynamodb.md "../../../AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-util-dynamodb.md"), has a `marshall()` utility function that accepts
@@ -298,9 +279,7 @@ productSearch();
 
 ```
 
-## Conditional
-
-writes
+## Conditional writes
 
 DynamoDB write operations can specify a logical condition expression that must evaluate
 to true for the write to proceed. If the condition does not evaluate to true, the write
@@ -340,8 +319,7 @@ available in the [JavaScript SDK V3 Documentation](../../../sdk-for-javascript/v
 
 ###### Topics
 
-- [Using the
-  paginateScan convenience method](#using-the-paginatescan-convenience-method "#using-the-paginatescan-convenience-method")
+- [Using the paginateScan convenience method](#using-the-paginatescan-convenience-method "#using-the-paginatescan-convenience-method")
 
 Read requests such as `Scan` or `Query` will likely return
 multiple items in a dataset. If you perform a `Scan` or `Query`
@@ -395,9 +373,7 @@ paginatedScan().catch((err) => {
 
 ```
 
-### Using the
-
-`paginateScan` convenience method
+### Using the `paginateScan` convenience method
 
 The SDK provides convenience methods called `paginateScan` and
 `paginateQuery` that do this work for you and makes the repeated
@@ -440,12 +416,9 @@ the table is small.
 
 ###### Topics
 
-- [Config for
-  timeouts](#programming-with-javascript-config-timeouts "#programming-with-javascript-config-timeouts")
-- [Config for
-  keep-alive](#programming-with-javascript-config-keep-alive "#programming-with-javascript-config-keep-alive")
-- [Config for
-  retries](#programming-with-javascript-config-retries "#programming-with-javascript-config-retries")
+- [Config for timeouts](#programming-with-javascript-config-timeouts "#programming-with-javascript-config-timeouts")
+- [Config for keep-alive](#programming-with-javascript-config-keep-alive "#programming-with-javascript-config-keep-alive")
+- [Config for retries](#programming-with-javascript-config-retries "#programming-with-javascript-config-retries")
 
 When setting up the `DynamoDBClient`, you can specify various configuration
 overrides by passing a configuration object to the constructor. For example, you can
@@ -461,9 +434,7 @@ const client = new DynamoDBClient({
 
 ```
 
-### Config for
-
-timeouts
+### Config for timeouts
 
 DynamoDB uses HTTPS for client-server communication. You can control some aspects of
 the HTTP layer by providing a `NodeHttpHandler` object. For example, you
@@ -503,9 +474,7 @@ In addition to configuring timeout values, you can set the maximum number of
 sockets, which allows for an increased number of concurrent connections per origin.
 The developer guide includes [details on configuring the `maxSockets` parameter](../../../sdk-for-javascript/v3/developer-guide/node-configuring-maxsockets.md "../../../sdk-for-javascript/v3/developer-guide/node-configuring-maxsockets.md").
 
-### Config for
-
-keep-alive
+### Config for keep-alive
 
 When using HTTPS, the first request always takes some back-and-forth communication
 to establish a secure connection. HTTP Keep-Alive allows subsequent requests to
@@ -522,9 +491,7 @@ Note that in the older V2 of the SDK, keep-alive was off by default, meaning
 each connection would get closed immediately after use. If using V2, you can
 override this setting.
 
-### Config for
-
-retries
+### Config for retries
 
 When the SDK receives an error response and the error is resumable as determined
 by the SDK, such as a throttling exception or a temporary service exception, it will

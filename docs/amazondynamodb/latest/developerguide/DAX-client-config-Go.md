@@ -1,6 +1,4 @@
-# Default client configuration for
-
-Go
+# Default client configuration for Go
 
 This guide will walk you through the configuration options that allow you to
 fine-tune your DAX client's performance, connection management, and logging
@@ -9,14 +7,10 @@ can optimize your Go application's interaction with DAX.
 
 ###### In this section
 
-- [DAX Go SDK
-  Client Defaults](#DAX-client-config-Go-sdk-client-defaults "#DAX-client-config-Go-sdk-client-defaults")
-- [Client
-  creation](#DAX-client-config-Go-client-creation "#DAX-client-config-Go-client-creation")
+- [DAX Go SDK Client Defaults](#DAX-client-config-Go-sdk-client-defaults "#DAX-client-config-Go-sdk-client-defaults")
+- [Client creation](#DAX-client-config-Go-client-creation "#DAX-client-config-Go-client-creation")
 
-## DAX Go SDK
-
-Client Defaults
+## DAX Go SDK Client Defaults
 
 | Parameter                                                       | Type                      | Description                                                                                                                                                                                                                                                                                                                                                                     |
 | --------------------------------------------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -46,9 +40,7 @@ nano seconds: `daxCfg.ClusterUpdateInterval = 10` means 10
 nano seconds. (`daxCfg.ClusterUpdateInterval = 10 *
  time.Millisecond` means 10 milliseconds).
 
-## Client
-
-creation
+## Client creation
 
 ###### To create a DAX client:
 

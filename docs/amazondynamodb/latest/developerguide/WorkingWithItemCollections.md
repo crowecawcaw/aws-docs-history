@@ -1,6 +1,4 @@
-# Item collections - how to model one-to-many
-
-relationships in DynamoDB
+# Item collections - how to model one-to-many relationships in DynamoDB
 
 In DynamoDB, an _item collection_ is a group of items that share the same
 partition key value, which means the items are related. Item collections are the primary mechanism
@@ -32,9 +30,7 @@ following:
 - Retrieve only one item from a particular user
 - Retrieve all the items of a specific type belonging to a particular user
 
-## Speed up queries by organizing your data
-
-with item collections
+## Speed up queries by organizing your data with item collections
 
 In this example, each of the items in these three item collections represents a player and
 the data model we have chosen, based off the game’s and player’s access patterns. What data does

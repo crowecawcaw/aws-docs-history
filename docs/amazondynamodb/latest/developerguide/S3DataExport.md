@@ -35,9 +35,7 @@ the same directory as the manifest files. This file verifies that the
 destination bucket is writable and that the export has begun. It can safely
 be deleted.
 
-#### The summary
-
-manifest
+#### The summary manifest
 
 The `manifest-summary.json` file contains summary
 information about the export job. This allows you to know which data files
@@ -65,9 +63,7 @@ follows:
 }
 ```
 
-#### The files
-
-manifest
+#### The files manifest
 
 The `manifest-files.json` file contains information
 about the files that contain your exported table data. The file is in [JSON lines](https://jsonlines.org/ "https://jsonlines.org/") format, so newlines are
@@ -237,9 +233,7 @@ the same directory as the manifest files. This file verifies that the
 destination bucket is writable and that the export has begun. It can safely
 be deleted.
 
-#### The
-
-summary manifest
+#### The summary manifest
 
 The `manifest-summary.json` file contains summary
 information about the export job. This allows you to know which data files
@@ -269,9 +263,7 @@ follows:
 }
 ```
 
-#### The files
-
-manifest
+#### The files manifest
 
 The `manifest-files.json` file contains information
 about the files that contain your exported table data. The file is in [JSON lines](https://jsonlines.org/ "https://jsonlines.org/") format, so newlines are
@@ -353,9 +345,7 @@ types.
 | Delete          | Keys             | Keys + old image             |
 | Insert + delete | No output        | No output                    |
 
-#### DynamoDB
-
-JSON
+#### DynamoDB JSON
 
 A table export in DynamoDB JSON format consists of a metadata timestamp that
 indicates the write time of the item, followed by the keys of the item and

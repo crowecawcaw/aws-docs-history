@@ -1,6 +1,4 @@
-# Using IAM with CloudWatch contributor insights for
-
-DynamoDB
+# Using IAM with CloudWatch contributor insights for DynamoDB
 
 The first time that you enable Amazon CloudWatch Contributor Insights for Amazon DynamoDB, DynamoDB
 automatically creates an AWS Identity and Access Management (IAM) service-linked role for you. This role,
@@ -26,9 +24,7 @@ The following permissions are required:
   secondary index, you must have `dynamodb:ListContributorInsights`
   permission.
 
-## Example: Enable or disable
-
-CloudWatch contributor insights for DynamoDB
+## Example: Enable or disable CloudWatch contributor insights for DynamoDB
 
 The following IAM policy grants permissions to enable or disable CloudWatch Contributor
 Insights for DynamoDB.
@@ -95,9 +91,7 @@ JSON
 
 ```
 
-## Example: Retrieve CloudWatch
-
-contributor insights rule report
+## Example: Retrieve CloudWatch contributor insights rule report
 
 The following IAM policy grants permissions to retrieve CloudWatch Contributor Insights
 rule report.
@@ -120,9 +114,7 @@ JSON
 
 ```
 
-## Example: Selectively apply
-
-CloudWatch contributor insights for DynamoDB permissions based on resource
+## Example: Selectively apply CloudWatch contributor insights for DynamoDB permissions based on resource
 
 The following IAM policy grants permissions to allow the
 `ListContributorInsights` and `DescribeContributorInsights`
@@ -155,9 +147,7 @@ JSON
 
 ```
 
-## Using service-linked roles for
-
-CloudWatch Contributor Insights for DynamoDB
+## Using service-linked roles for CloudWatch Contributor Insights for DynamoDB
 
 CloudWatch Contributor Insights for DynamoDB uses AWS Identity and Access Management (IAM)[service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
 linked directly to CloudWatch Contributor Insights for DynamoDB. Service-linked roles are predefined by CloudWatch Contributor Insights for DynamoDB and
@@ -175,9 +165,7 @@ IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md 
 **Service-Linked Role** column. Choose a **Yes** with a link to view the service-linked role documentation for that
 service.
 
-### Service-linked role permissions for
-
-CloudWatch Contributor Insights for DynamoDB
+### Service-linked role permissions for CloudWatch Contributor Insights for DynamoDB
 
 CloudWatch Contributor Insights for DynamoDB uses the service-linked role named **AWSServiceRoleForDynamoDBCloudWatchContributorInsights**.
 The purpose of the service-linked role is to allow Amazon DynamoDB to manage Amazon CloudWatch Contributor Insights rules created for DynamoDB tables and global secondary indexes, on your behalf.
@@ -196,9 +184,7 @@ specified resources:
 You must configure permissions to allow an IAM entity (such as a user, group, or role)
 to create, edit, or delete a service-linked role. For more information, see [Service-Linked Role Permissions](../../../IAM/latest/UserGuide/contributorinsights-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/contributorinsights-service-linked-roles.md#service-linked-role-permissions") in the _IAM User Guide_.
 
-### Creating a service-linked role for
-
-CloudWatch Contributor Insights for DynamoDB
+### Creating a service-linked role for CloudWatch Contributor Insights for DynamoDB
 
 You don't need to manually create a service-linked role. When you
 enable Contributor Insights in the AWS Management Console, the AWS CLI, or the AWS API, CloudWatch Contributor Insights for DynamoDB
@@ -208,18 +194,14 @@ If you delete this service-linked role, and then need to create it again, you ca
 same process to recreate the role in your account. When you enable Contributor Insights,
 CloudWatch Contributor Insights for DynamoDB creates the service-linked role for you again.
 
-### Editing a service-linked role for
-
-CloudWatch Contributor Insights for DynamoDB
+### Editing a service-linked role for CloudWatch Contributor Insights for DynamoDB
 
 CloudWatch Contributor Insights for DynamoDB does not allow you to edit the `AWSServiceRoleForDynamoDBCloudWatchContributorInsights` service-linked role.
 After you create a service-linked role, you cannot change the name of the role because various
 entities might reference the role. However, you can edit the description of the role using
 IAM. For more information, see [Editing a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the _IAM User Guide_.
 
-### Deleting a service-linked role for
-
-CloudWatch Contributor Insights for DynamoDB
+### Deleting a service-linked role for CloudWatch Contributor Insights for DynamoDB
 
 You don't need to manually delete the `AWSServiceRoleForDynamoDBCloudWatchContributorInsights` role. When you
 disable Contributor Insights in the AWS Management Console, the AWS CLI, or the AWS API, CloudWatch Contributor Insights for DynamoDB cleans

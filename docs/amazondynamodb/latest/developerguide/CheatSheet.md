@@ -188,9 +188,7 @@ For a full list of supported data types, see [Data types](HowItWorks.md#HowItWor
 For more information, also see [Service
 quotas](ServiceQuotas.md#limits-items "ServiceQuotas.md#limits-items").
 
-### Items, attributes, and expression
-
-parameters
+### Items, attributes, and expression parameters
 
 The maximum item size in DynamoDB is 400 KB, which includes both attribute name
 binary length (UTF-8 length) and attribute value binary lengths (UTF-8 length). The

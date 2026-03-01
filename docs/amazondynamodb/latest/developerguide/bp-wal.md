@@ -1,6 +1,4 @@
-# Using the DynamoDB Well-Architected Lens to optimize your DynamoDB
-
-workload
+# Using the DynamoDB Well-Architected Lens to optimize your DynamoDB workload
 
 This section describes the Amazon DynamoDB Well-Architected Lens, a collection of design
 principles and guidance for designing well-architected DynamoDB workloads.
@@ -22,9 +20,7 @@ various industries, segments, sizes and geographies.
 As a direct outcome of the Well-Architected Lens review, you will receive a summary of
 actionable recommendations to optimize and improve your DynamoDB workload.
 
-## Conducting the Amazon DynamoDB Well-Architected Lens
-
-review
+## Conducting the Amazon DynamoDB Well-Architected Lens review
 
 The DynamoDB Well-Architected Lens review is usually performed by an AWS Solutions
 Architect together with the customer, but can also be performed by the customer as a

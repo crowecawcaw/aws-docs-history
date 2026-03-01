@@ -16,17 +16,13 @@ several complete working examples.
 
 - [Putting an item](#PutDocumentAPIJava "#PutDocumentAPIJava")
 - [Getting an item](#JavaDocumentAPIGetItem "#JavaDocumentAPIGetItem")
-- [Batch write: Putting and deleting multiple
-  items](#BatchWriteDocumentAPIJava "#BatchWriteDocumentAPIJava")
+- [Batch write: Putting and deleting multiple items](#BatchWriteDocumentAPIJava "#BatchWriteDocumentAPIJava")
 - [Batch get: Getting multiple items](#JavaDocumentAPIBatchGetItem "#JavaDocumentAPIBatchGetItem")
 - [Updating an item](#JavaDocumentAPIItemUpdate "#JavaDocumentAPIItemUpdate")
 - [Deleting an item](#DeleteMidLevelJava "#DeleteMidLevelJava")
-- [Example: CRUD operations using the AWS SDK for Java
-  document API](JavaDocumentAPICRUDExample.md "JavaDocumentAPICRUDExample.md")
-- [Example: Batch operations using AWS SDK for Java
-  document API](batch-operation-document-api-java.md "batch-operation-document-api-java.md")
-- [Example: Handling binary type attributes
-  using the AWS SDK for Java document API](JavaDocumentAPIBinaryTypeExample.md "JavaDocumentAPIBinaryTypeExample.md")
+- [Example: CRUD operations using the AWS SDK for Java document API](JavaDocumentAPICRUDExample.md "JavaDocumentAPICRUDExample.md")
+- [Example: Batch operations using AWS SDK for Java document API](batch-operation-document-api-java.md "batch-operation-document-api-java.md")
+- [Example: Handling binary type attributes using the AWS SDK for Java document API](JavaDocumentAPIBinaryTypeExample.md "JavaDocumentAPIBinaryTypeExample.md")
 
 ## Putting an item
 
@@ -348,8 +344,7 @@ reads. (To learn more about read consistency, see [DynamoDB read consistency](Ho
 
 You can use a `ProjectionExpression` to retrieve only specific attributes or
 elements, rather than an entire item. A `ProjectionExpression` can specify
-top-level or nested attributes using document paths. For more information, see [Using projection expressions in
-DynamoDB](Expressions.md "Expressions.md").
+top-level or nested attributes using document paths. For more information, see [Using projection expressions in DynamoDB](Expressions.md "Expressions.md").
 
 The parameters of the `getItem` method don't let you specify read
 consistency. However, you can create a `GetItemSpec`, which provides full access
@@ -445,9 +440,7 @@ The output looks like the following.
 
 ```
 
-## Batch write: Putting and deleting multiple
-
-items
+## Batch write: Putting and deleting multiple items
 
 _Batch write_ refers to putting and deleting multiple items in a batch.
 The `batchWriteItem` method enables you to put and delete multiple items from one
@@ -498,8 +491,7 @@ BatchWriteItemOutcome outcome = dynamoDB.batchWriteItem(forumTableWriteItems, th
 // Code for checking unprocessed items is omitted in this example
 ```
 
-For a working example, see [Example: Batch write operation using the
-AWS SDK for Java document API](batch-operation-document-api-java.md#JavaDocumentAPIBatchWrite "batch-operation-document-api-java.md#JavaDocumentAPIBatchWrite").
+For a working example, see [Example: Batch write operation using the AWS SDK for Java document API](batch-operation-document-api-java.md#JavaDocumentAPIBatchWrite "batch-operation-document-api-java.md#JavaDocumentAPIBatchWrite").
 
 ## Batch get: Getting multiple items
 

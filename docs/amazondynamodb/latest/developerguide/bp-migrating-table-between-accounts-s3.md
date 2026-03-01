@@ -1,12 +1,9 @@
-# Migrate a table using export to S3
-
-and import from S3
+# Migrate a table using export to S3 and import from S3
 
 **Prerequisites**
 
 - You must enable Point-in-Time Recovery (PITR) for your table in order to perform the
-  export to S3. For more information, see [Enable point-in-time recovery in
-  DynamoDB](PointInTimeRecovery_Howitworks.md "PointInTimeRecovery_Howitworks.md").
+  export to S3. For more information, see [Enable point-in-time recovery in DynamoDB](PointInTimeRecovery_Howitworks.md "PointInTimeRecovery_Howitworks.md").
 - Valid IAM permissions to perform the export. For more information, see [Requesting a table export in DynamoDB](S3DataExport_Requesting.md "S3DataExport_Requesting.md").
 - Valid IAM permissions sufficient to perform the import. For more information, see
   [Requesting a table import in DynamoDB](S3DataImport.md "S3DataImport.md").
@@ -24,9 +21,7 @@ For more information about DynamoDB pricing, see [DynamoDB pricing](https://aws.
 There are limits on the size and number of objects when importing from S3 to DynamoDB. For
 more information, see [Import quotas](S3DataImport.md#S3DataImport.Validation.limits "S3DataImport.md#S3DataImport.Validation.limits").
 
-## Requesting a
-
-table export to Amazon S3
+## Requesting a table export to Amazon S3
 
 1. Sign in to the AWS Management Console and open the DynamoDB console.
 2. In the navigation pane on the left side of the console, choose **Exports to S3**.
@@ -44,9 +39,7 @@ table export to Amazon S3
 6. Small table exports should complete in a few minutes, but tables in the
    terabyte range can take more than an hour.
 
-## Requesting a
-
-table import from Amazon S3
+## Requesting a table import from Amazon S3
 
 1. Sign in to the AWS Management Console and open the DynamoDB console.
 2. In the navigation pane on the left side of the console, choose **Import from S3**.
@@ -71,9 +64,7 @@ table import from Amazon S3
 11. After the import completes, the status shows as **Active**,
     and you can start using the table.
 
-## Keeping tables in sync
-
-during migration
+## Keeping tables in sync during migration
 
 If you can pause write operations on the source table for the duration of the migration,
 then the source and output should match up exactly after the migration. If you can't pause

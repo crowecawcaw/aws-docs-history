@@ -1,6 +1,4 @@
-# Monitoring device status updates in
-
-DynamoDB
+# Monitoring device status updates in DynamoDB
 
 This use case talks about using DynamoDB to monitor device status updates (or changes in
 device state) in DynamoDB.
@@ -26,18 +24,14 @@ Some typical access patterns for this system include:
 - Get all escalated logs with a specific device state for a given supervisor for
   a specific date
 
-## Entity relationship
-
-diagram
+## Entity relationship diagram
 
 This is the entity relationship diagram (ERD) we'll be using for monitoring device
 status updates.
 
 ![ERD of device status updates. It shows the entities: Device and Operator.](images/DataModeling/DeviceStatus-1-ERD.jpg)
 
-## Access
-
-patterns
+## Access patterns
 
 These are the access patterns we'll be considering for monitoring device status
 updates.
@@ -50,9 +44,7 @@ updates.
 6. `getEscalatedLogsWithSpecificStatusForSupervisor`
 7. `getEscalatedLogsWithSpecificStatusForSupervisorForDate`
 
-## Schema design
-
-evolution
+## Schema design evolution
 
 **Step 1: Address access patterns 1
 (`createLogEntryForSpecificDevice`) and 2
@@ -180,9 +172,7 @@ Here are the final schema designs. To download this schema design as a JSON file
 
 ![GSI-2 design. It shows the primary key and attributes: DeviceID, Operator, Date, and State.](images/DataModeling/DeviceStatus-11-GSI2.png)
 
-## Using NoSQL Workbench with
-
-this schema design
+## Using NoSQL Workbench with this schema design
 
 You can import this final schema into [NoSQL
 Workbench](workbench.md "workbench.md"), a visual tool that provides data modeling, data visualization, and

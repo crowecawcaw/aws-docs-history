@@ -7,22 +7,15 @@ application.
 
 ###### Topics
 
-- [Composite sort key building
-  block](#data-modeling-blocks-composite "#data-modeling-blocks-composite")
-- [Multi-tenancy building
-  block](#data-modeling-blocks-multi-tenancy "#data-modeling-blocks-multi-tenancy")
+- [Composite sort key building block](#data-modeling-blocks-composite "#data-modeling-blocks-composite")
+- [Multi-tenancy building block](#data-modeling-blocks-multi-tenancy "#data-modeling-blocks-multi-tenancy")
 - [Sparse index building block](#data-modeling-blocks-sparse-index "#data-modeling-blocks-sparse-index")
 - [Time to live building block](#data-modeling-blocks-ttl "#data-modeling-blocks-ttl")
-- [Time to live for archival building
-  block](#data-modeling-blocks-ttl-archival "#data-modeling-blocks-ttl-archival")
-- [Vertical partitioning
-  building block](#data-modeling-blocks-vertical-partitioning "#data-modeling-blocks-vertical-partitioning")
-- [Write sharding building
-  block](#data-modeling-blocks-write-sharding "#data-modeling-blocks-write-sharding")
+- [Time to live for archival building block](#data-modeling-blocks-ttl-archival "#data-modeling-blocks-ttl-archival")
+- [Vertical partitioning building block](#data-modeling-blocks-vertical-partitioning "#data-modeling-blocks-vertical-partitioning")
+- [Write sharding building block](#data-modeling-blocks-write-sharding "#data-modeling-blocks-write-sharding")
 
-## Composite sort key building
-
-block
+## Composite sort key building block
 
 When people think of NoSQL, they may also think of it as non-relational. Ultimately,
 there is no reason relationships cannot be placed into a DynamoDB schema, they just look
@@ -57,9 +50,7 @@ application.
 - Different parts of the application can store their items under a specific
   prefix preventing overwritten items or conflicting writes
 
-## Multi-tenancy building
-
-block
+## Multi-tenancy building block
 
 Many customers use DynamoDB to host data for their multi-tenant applications. For these
 scenarios, we want to design the schema in a way that keeps all data from a single
@@ -173,9 +164,7 @@ the epoch timestamp to.
 - You can name the TTL attribute a valid attribute name, but the value must be a
   number type
 
-## Time to live for archival building
-
-block
+## Time to live for archival building block
 
 While TTL is an effective tool for deleting older data from DynamoDB, many use cases
 require an archive of the data be kept for a longer period of time than the primary
@@ -199,9 +188,7 @@ an archival store like Amazon Glacier.
 - If the data is persisted into Amazon S3, cost-efficient analytics tools like
   Amazon Athena or Redshift Spectrum can be used to perform historical analysis of the data
 
-## Vertical partitioning
-
-building block
+## Vertical partitioning building block
 
 Users familiar with a document model database will be familar with the idea of storing
 all related data within a single JSON document. While DynamoDB supports JSON data types, it
@@ -234,9 +221,7 @@ results in items under 1KB.
   size limit in DynamoDB and vertical partitioning helps work around this
   limit
 
-## Write sharding building
-
-block
+## Write sharding building block
 
 One of the very few hard limits DynamoDB has in place is the restriction of how much
 throughput a single physical partition can maintain per second (not necessarily a single

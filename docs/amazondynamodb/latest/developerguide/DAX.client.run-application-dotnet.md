@@ -1,16 +1,16 @@
-# 01-CreateTable.cs
+# 03-GetItem-Test.cs
 
-The `01-CreateTable.cs` program creates a table
-(`TryDaxTable`). The remaining .NET programs in this
-section depend on this table.
+The `03-GetItem-Test.cs` program performs `GetItem`
+operations on `TryDaxTable`.
 
 ```
 
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Amazon.DynamoDBv2;
+using Amazon.DAX;
 using Amazon.DynamoDBv2.Model;
+using Amazon.Runtime;
 
 namespace ClientTest
 {
@@ -18,30 +18,46 @@ namespace ClientTest
     {
         public static async Task Main(string[] args)
         {
-            AmazonDynamoDBClient client = new AmazonDynamoDBClient();
+            string endpointUri = args[0];
+            Console.WriteLine($"Using DAX client - endpointUri={endpointUri}");
+
+            var clientConfig = new DaxClientConfig(endpointUri)
+            {
+                AwsCredentials = FallbackCredentialsFactory.GetCredentials()
+            };
+            var client = new ClusterDaxClient(clientConfig);
 
             var tableName = "TryDaxTable";
 
-            var request = new CreateTableRequest()
-            {
-                TableName = tableName,
-                KeySchema = new List<KeySchemaElement>()
-                {
-                    new KeySchemaElement{ AttributeName = "pk",KeyType = "HASH"},
-                    new KeySchemaElement{ AttributeName = "sk",KeyType = "RANGE"}
-                },
-                AttributeDefinitions = new List<AttributeDefinition>() {
-                    new AttributeDefinition{ AttributeName = "pk",AttributeType = "N"},
-                    new AttributeDefinition{ AttributeName = "sk",AttributeType  = "N"}
-                },
-                ProvisionedThroughput = new ProvisionedThroughput()
-                {
-                    ReadCapacityUnits = 10,
-                    WriteCapacityUnits = 10
-                }
-            };
+            var pk = 1;
+            var sk = 10;
+            var iterations = 5;
 
-            var response = await client.CreateTableAsync(request);
+            var startTime = System.DateTime.Now;
+
+            for (var i = 0; i < iterations; i++)
+            {
+                for (var ipk = 1; ipk <= pk; ipk++)
+                {
+                    for (var isk = 1; isk <= sk; isk++)
+                    {
+                        var request = new GetItemRequest()
+                        {
+                            TableName = tableName,
+                            Key = new Dictionary<string, AttributeValue>() {
+                            {"pk", new AttributeValue {N = ipk.ToString()} },
+                            {"sk", new AttributeValue {N = isk.ToString() } }
+                        }
+                        };
+                        var response = await client.GetItemAsync(request);
+                        Console.WriteLine($"GetItem succeeded for pk: {ipk},sk: {isk}");
+                    }
+                }
+            }
+
+            var endTime = DateTime.Now;
+            TimeSpan timeSpan = endTime - startTime;
+            Console.WriteLine($"Total time: {timeSpan.TotalMilliseconds} milliseconds");
 
             Console.WriteLine("Hit <enter> to continue...");
             Console.ReadLine();

@@ -1,6 +1,4 @@
-# Querying global secondary indexes with SDK for Java
-
-1.x
+# Querying global secondary indexes with SDK for Java 1.x
 
 You can use Amazon DynamoDB Accelerator (DAX) to query [global secondary indexes](GSI.md "GSI.md")
 using DynamoDB [programmatic

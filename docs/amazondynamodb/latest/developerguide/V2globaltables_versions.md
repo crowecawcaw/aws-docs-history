@@ -5,15 +5,11 @@ There are two versions of DynamoDB global tables available: Global Tables versio
 version 2019.11.21 (Current), as it is easier to use, supported in more Regions, and lower
 cost for most workloads compared to version 2017.11.29 (Legacy).
 
-## Determining the version of a global
-
-table
+## Determining the version of a global table
 
 ### Determining the version using the AWS CLI
 
-#### Identifying a version 2019.11.21
-
-(Current) global table replica
+#### Identifying a version 2019.11.21 (Current) global table replica
 
 To determine if a table is a global tables version 2019.11.21 (Current)
 replica, invoke the `describe-table` command for the table. If the
@@ -60,9 +56,7 @@ global table replica.
 }
 ```
 
-#### Identifying a version 2017.11.29
-
-(Legacy) global table replica
+#### Identifying a version 2017.11.29 (Legacy) global table replica
 
 Global tables version 2017.11.29 (Legacy) uses a dedicated set of commands for
 global table management. To determine if a table is a global tables version
@@ -103,9 +97,7 @@ The command returns a successful response, so this table is a version
 }
 ```
 
-### Determining the version using the DynamoDB
-
-Console
+### Determining the version using the DynamoDB Console
 
 To identify the version of a global table replica, perform the following:
 
@@ -119,9 +111,7 @@ To identify the version of a global table replica, perform the following:
 The _Summary_ section displays the
 version of global tables in use.
 
-## Differences in behavior between Legacy and Current
-
-versions
+## Differences in behavior between Legacy and Current versions
 
 The following list describes the differences in behavior between the Legacy and
 Current versions of global tables.
@@ -197,9 +187,7 @@ Current versions of global tables.
 
 ## Upgrading to the current version
 
-### Required permissions for
-
-global tables upgrade
+### Required permissions for global tables upgrade
 
 To upgrade to version 2019.11.21 (Current), you must have
 `dynamodb:UpdateGlobalTableversion` permissions in all Regions with
@@ -243,9 +231,7 @@ The following IAM policy grants permissions to upgrade only the
 }
 ```
 
-### What to expect during the
-
-upgrade
+### What to expect during the upgrade
 
 - All global table replicas will continue to process read and write traffic
   while upgrading.
@@ -267,9 +253,7 @@ upgrade
 - When the upgrade process is complete, your table status will change to
   `ACTIVE`.
 
-### DynamoDB Streams behavior before,
-
-during, and after upgrade
+### DynamoDB Streams behavior before, during, and after upgrade
 
 | Operation                                                                                                                                                                                                    | Replica Region                                                                                                                                             | Behavior before upgrade                                                                                                           | Behavior during upgrade                                                                                        | Behavior after upgrade                                   |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
@@ -290,9 +274,7 @@ during, and after upgrade
 | Two rWCUs are consumed for each customer delete.                                                                                                                                                             | One rWCU is consumed for each customer delete.                                                                                                             | One rWCU is consumed for each customer delete.                                                                                    |
 | `ReplicationLatency` and<br>`PendingReplicationCount` metrics are published in<br>CloudWatch.                                                                                                                | `ReplicationLatency` metric is published in<br>CloudWatch.                                                                                                 | `ReplicationLatency` metric is published in<br>CloudWatch.                                                                        |
 
-### Upgrading to version 2019.11.21
-
-(Current)
+### Upgrading to version 2019.11.21 (Current)
 
 Perform the following steps to upgrade your version of DynamoDB global tables using
 the AWS Management Console.

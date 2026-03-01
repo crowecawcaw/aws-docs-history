@@ -6,20 +6,14 @@ room for optimization from both a performance and cost perspective.
 
 ###### Topics
 
-- [Perform fewer
-  strongly-consistent read operations](#CostOptimization_TableUsagePatterns_StronglyConsistentReads "#CostOptimization_TableUsagePatterns_StronglyConsistentReads")
-- [Perform fewer transactions
-  for read operations](#CostOptimization_TableUsagePatterns_Transactions "#CostOptimization_TableUsagePatterns_Transactions")
+- [Perform fewer strongly-consistent read operations](#CostOptimization_TableUsagePatterns_StronglyConsistentReads "#CostOptimization_TableUsagePatterns_StronglyConsistentReads")
+- [Perform fewer transactions for read operations](#CostOptimization_TableUsagePatterns_Transactions "#CostOptimization_TableUsagePatterns_Transactions")
 - [Perform fewer scans](#CostOptimization_TableUsagePatterns_Scans "#CostOptimization_TableUsagePatterns_Scans")
-- [Shorten attribute
-  names](#CostOptimization_TableUsagePatterns_AttributeNames "#CostOptimization_TableUsagePatterns_AttributeNames")
+- [Shorten attribute names](#CostOptimization_TableUsagePatterns_AttributeNames "#CostOptimization_TableUsagePatterns_AttributeNames")
 - [Enable Time to Live (TTL)](#CostOptimization_TableUsagePatterns_TTL "#CostOptimization_TableUsagePatterns_TTL")
-- [Replace global tables with
-  cross-Region backups](#CostOptimization_TableUsagePatterns_GlobalTables "#CostOptimization_TableUsagePatterns_GlobalTables")
+- [Replace global tables with cross-Region backups](#CostOptimization_TableUsagePatterns_GlobalTables "#CostOptimization_TableUsagePatterns_GlobalTables")
 
-## Perform fewer
-
-strongly-consistent read operations
+## Perform fewer strongly-consistent read operations
 
 DynamoDB allows you to configure [read
 consistency](HowItWorks.md "HowItWorks.md") on a per-request basis. Read requests are eventually consistent by
@@ -33,9 +27,7 @@ provides you with the flexibility to use both consistency models on the same tab
 You can evaluate your workload and application code to confirm if strongly consistent
 reads are used only where required.
 
-## Perform fewer transactions
-
-for read operations
+## Perform fewer transactions for read operations
 
 DynamoDB allows you to group certain actions in an all-or-nothing manner, which means you
 have the ability to execute ACID transactions with DynamoDB. However, as is the case with
@@ -69,9 +61,7 @@ The frequency for `Scan` operations can be determined using the
 for `Scan`. If `Scan` operations are indeed very frequent, the access
 patterns and data model should be re-evaluated.
 
-## Shorten attribute
-
-names
+## Shorten attribute names
 
 The total size of an item in DynamoDB is the sum of its attribute name lengths and values.
 Having long attribute names not only contributes towards storage costs, but it might also lead
@@ -92,9 +82,7 @@ the stream and archive them to a lower cost storage tier. Additionally, deleting
 comes at no additional cost — it does not consume capacity, and there’s no overhead of
 designing a clean up application.
 
-## Replace global tables with
-
-cross-Region backups
+## Replace global tables with cross-Region backups
 
 [Global tables](GlobalTables.md#GlobalTables.title "GlobalTables.md#GlobalTables.title") allow you to maintain multiple
 active replica tables in different Regions — they can all accept write operations and

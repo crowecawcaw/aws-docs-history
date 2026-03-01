@@ -25,10 +25,8 @@ following:
   (US) Regions. You pay only for the data you transfer out of the source Region and for
   restoring to a new table in the destination Region.
 - AWS CloudTrail logs all console and API actions for point-in-time recovery to enable logging,
-  continuous monitoring, and auditing. For more information, see [Logging DynamoDB operations by using
-  AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
+  continuous monitoring, and auditing. For more information, see [Logging DynamoDB operations by using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
 
 ###### Topics
 
-- [Enable point-in-time recovery in
-  DynamoDB](PointInTimeRecovery_Howitworks.md "PointInTimeRecovery_Howitworks.md")
+- [Enable point-in-time recovery in DynamoDB](PointInTimeRecovery_Howitworks.md "PointInTimeRecovery_Howitworks.md")

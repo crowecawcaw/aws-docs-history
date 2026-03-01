@@ -1,6 +1,4 @@
-# Best practices for managing the control plane in
-
-DynamoDB
+# Best practices for managing the control plane in DynamoDB
 
 ###### Note
 

@@ -38,6 +38,4 @@ DynamoDB.
 | `NOT`     | Reverses the value of a given Boolean expression                                                                                                                                                                                                                                                                                       |
 | `OR`      | `TRUE` if any of the conditions separated by<br>`OR` are `TRUE`                                                                                                                                                                                                                                                                        |
 
-For more information about using logical operators, see [Making
-comparisons](Expressions.md#Expressions.OperatorsAndFunctions.Comparators "Expressions.md#Expressions.OperatorsAndFunctions.Comparators") and [Logical
-evaluations](Expressions.md#Expressions.OperatorsAndFunctions.LogicalEvaluations "Expressions.md#Expressions.OperatorsAndFunctions.LogicalEvaluations").
+For more information about using logical operators, see [Making comparisons](Expressions.md#Expressions.OperatorsAndFunctions.Comparators "Expressions.md#Expressions.OperatorsAndFunctions.Comparators") and [Logical evaluations](Expressions.md#Expressions.OperatorsAndFunctions.LogicalEvaluations "Expressions.md#Expressions.OperatorsAndFunctions.LogicalEvaluations").

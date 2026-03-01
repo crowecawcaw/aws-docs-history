@@ -1,6 +1,4 @@
-# Best practices for designing and using partition keys
-
-effectively in DynamoDB
+# Best practices for designing and using partition keys effectively in DynamoDB
 
 The primary key that uniquely identifies each item in an Amazon DynamoDB table can be simple (a
 partition key only) or composite (a partition key combined with a sort key).
@@ -28,9 +26,6 @@ information.
 
 ###### Topics
 
-- [Designing partition keys to distribute your
-  workload in DynamoDB](bp-partition-key-uniform-load.md "bp-partition-key-uniform-load.md")
-- [Using write sharding to distribute workloads
-  evenly in your DynamoDB table](bp-partition-key-sharding.md "bp-partition-key-sharding.md")
-- [Distributing write activity efficiently during
-  data upload in DynamoDB](bp-partition-key-data-upload.md "bp-partition-key-data-upload.md")
+- [Designing partition keys to distribute your workload in DynamoDB](bp-partition-key-uniform-load.md "bp-partition-key-uniform-load.md")
+- [Using write sharding to distribute workloads evenly in your DynamoDB table](bp-partition-key-sharding.md "bp-partition-key-sharding.md")
+- [Distributing write activity efficiently during data upload in DynamoDB](bp-partition-key-data-upload.md "bp-partition-key-data-upload.md")

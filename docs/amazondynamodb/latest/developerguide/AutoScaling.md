@@ -26,12 +26,9 @@ basic steps [here](../../../autoscaling/application/userguide/get-started-exerci
 
 - [Before you begin](#AutoScaling.CLI.BeforeYouBegin "#AutoScaling.CLI.BeforeYouBegin")
 - [Step 1: Create a DynamoDB table](#AutoScaling.CLI.CreateTable "#AutoScaling.CLI.CreateTable")
-- [Step 2: Register a scalable
-  target](#AutoScaling.CLI.RegisterScalableTarget "#AutoScaling.CLI.RegisterScalableTarget")
-- [Step 3: Create a scaling
-  policy](#AutoScaling.CLI.CreateScalingPolicy "#AutoScaling.CLI.CreateScalingPolicy")
-- [Step 4: Drive write traffic to
-  TestTable](#AutoScaling.CLI.DriveTraffic "#AutoScaling.CLI.DriveTraffic")
+- [Step 2: Register a scalable target](#AutoScaling.CLI.RegisterScalableTarget "#AutoScaling.CLI.RegisterScalableTarget")
+- [Step 3: Create a scaling policy](#AutoScaling.CLI.CreateScalingPolicy "#AutoScaling.CLI.CreateScalingPolicy")
+- [Step 4: Drive write traffic to TestTable](#AutoScaling.CLI.DriveTraffic "#AutoScaling.CLI.DriveTraffic")
 - [Step 5: View Application Auto Scaling actions](#AutoScaling.CLI.ViewCWAlarms "#AutoScaling.CLI.ViewCWAlarms")
 - [(Optional) Step 6: Clean up](#AutoScaling.CLI.CleanUp "#AutoScaling.CLI.CleanUp")
 
@@ -39,9 +36,7 @@ basic steps [here](../../../autoscaling/application/userguide/get-started-exerci
 
 Complete the following tasks before starting the tutorial.
 
-### Install the
-
-AWS CLI
+### Install the AWS CLI
 
 If you haven't already done so, you must install and configure the AWS CLI. To do
 this, follow these instructions in the _AWS Command Line Interface User Guide_:
@@ -51,12 +46,9 @@ this, follow these instructions in the _AWS Command Line Interface User Guide_:
 - [Configuring the
   AWS CLI](../../../cli/latest/userguide/cli-chap-getting-started.md "../../../cli/latest/userguide/cli-chap-getting-started.md")
 
-### Install
+### Install Python
 
-Python
-
-Part of this tutorial requires you to run a Python program (see [Step 4: Drive write traffic to
-TestTable](#AutoScaling.CLI.DriveTraffic "#AutoScaling.CLI.DriveTraffic")). If you don't already have it
+Part of this tutorial requires you to run a Python program (see [Step 4: Drive write traffic to TestTable](#AutoScaling.CLI.DriveTraffic "#AutoScaling.CLI.DriveTraffic")). If you don't already have it
 installed, you can [download
 Python](https://www.python.org/downloads "https://www.python.org/downloads").
 
@@ -91,9 +83,7 @@ aws dynamodb describe-table \
 
 The table is ready for use when its status is `ACTIVE`.
 
-## Step 2: Register a scalable
-
-target
+## Step 2: Register a scalable target
 
 Next you register the table's write capacity as a scalable target with Application Auto Scaling. This
 allows Application Auto Scaling to adjust the provisioned write capacity for
@@ -142,9 +132,7 @@ aws application-autoscaling register-scalable-target \
     --max-capacity 10
 ```
 
-## Step 3: Create a scaling
-
-policy
+## Step 3: Create a scaling policy
 
 In this step, you create a scaling policy for `TestTable`. The policy
 defines the details under which Application Auto Scaling can adjust your table's provisioned throughput,
@@ -189,8 +177,7 @@ exceeding it.
 
 For `TestTable`, you set `TargetValue` to 50 percent. Application Auto Scaling
 adjusts the table's provisioned throughput within the range of 5–10 capacity
-units (see [Step 2: Register a scalable
-target](#AutoScaling.CLI.RegisterScalableTarget "#AutoScaling.CLI.RegisterScalableTarget")) so that the
+units (see [Step 2: Register a scalable target](#AutoScaling.CLI.RegisterScalableTarget "#AutoScaling.CLI.RegisterScalableTarget")) so that the
 consumed-to-provisioned ratio remains at or near 50 percent. You set the values for
 `ScaleOutCooldown` and `ScaleInCooldown` to 60 seconds.
 
@@ -233,13 +220,9 @@ aws application-autoscaling describe-scaling-policies \
 ```
 
 5. In the output, verify that the policy settings match your specifications from
-   [Step 2: Register a scalable
-   target](#AutoScaling.CLI.RegisterScalableTarget "#AutoScaling.CLI.RegisterScalableTarget") and Step 3: Create a scaling
-   policy.
+   [Step 2: Register a scalable target](#AutoScaling.CLI.RegisterScalableTarget "#AutoScaling.CLI.RegisterScalableTarget") and Step 3: Create a scaling policy.
 
-## Step 4: Drive write traffic to
-
-TestTable
+## Step 4: Drive write traffic to TestTable
 
 Now you can test your scaling policy by writing data to `TestTable`. To do
 this, you run a Python program.

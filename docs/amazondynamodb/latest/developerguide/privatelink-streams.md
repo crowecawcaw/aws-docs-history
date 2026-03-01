@@ -22,20 +22,15 @@ Only interface endpoints are supported for DynamoDB Streams. Gateway endpoints a
 
 ###### Topics
 
-- [Considerations when using
-  AWS PrivateLink for Amazon DynamoDB Streams](#privatelink-streams-considerations "#privatelink-streams-considerations")
+- [Considerations when using AWS PrivateLink for Amazon DynamoDB Streams](#privatelink-streams-considerations "#privatelink-streams-considerations")
 - [Creating an Amazon VPC endpoint](#privatelink-streams-vpc-endpoint "#privatelink-streams-vpc-endpoint")
 - [Accessing Amazon DynamoDB Streams interface endpoints](#privatelink-streams-accessing-ddb-interface-endpoints "#privatelink-streams-accessing-ddb-interface-endpoints")
 - [Accessing DynamoDB Streams API operations from DynamoDB Streams interface endpoints](#privatelink-streams-accessing-api-operations-from-interface-endpoints "#privatelink-streams-accessing-api-operations-from-interface-endpoints")
 - [AWS SDK examples](#privatelink-streams-aws-sdk-examples "#privatelink-streams-aws-sdk-examples")
-- [Creating an Amazon VPC endpoint policy for
-  DynamoDB Streams](#privatelink-streams-creating-vpc-endpoint-policy "#privatelink-streams-creating-vpc-endpoint-policy")
-- [Using DynamoDB endpoints with
-  AWS Management Console Private Access](#ddb-streams-endpoints-private-access "#ddb-streams-endpoints-private-access")
+- [Creating an Amazon VPC endpoint policy for DynamoDB Streams](#privatelink-streams-creating-vpc-endpoint-policy "#privatelink-streams-creating-vpc-endpoint-policy")
+- [Using DynamoDB endpoints with AWS Management Console Private Access](#ddb-streams-endpoints-private-access "#ddb-streams-endpoints-private-access")
 
-## Considerations when using
-
-AWS PrivateLink for Amazon DynamoDB Streams
+## Considerations when using AWS PrivateLink for Amazon DynamoDB Streams
 
 Amazon VPC considerations apply to AWS PrivateLink for Amazon DynamoDB Streams. For more information, see
 [interface endpoint
@@ -178,9 +173,7 @@ dynamoDbStreamsClient = DynamoDbStreamsClient.builder().region(region)
 
 ```
 
-## Creating an Amazon VPC endpoint policy for
-
-DynamoDB Streams
+## Creating an Amazon VPC endpoint policy for DynamoDB Streams
 
 You can attach an endpoint policy to your Amazon VPC endpoint that controls access to DynamoDB Streams.
 The policy specifies the following information:
@@ -191,12 +184,9 @@ The policy specifies the following information:
 
 ###### Topics
 
-- [Example:
-  Restricting access to a specific stream from an Amazon VPC endpoint](#privatelink-streams-example-restrict-access-to-bucket "#privatelink-streams-example-restrict-access-to-bucket")
+- [Example: Restricting access to a specific stream from an Amazon VPC endpoint](#privatelink-streams-example-restrict-access-to-bucket "#privatelink-streams-example-restrict-access-to-bucket")
 
-### Example:
-
-Restricting access to a specific stream from an Amazon VPC endpoint
+### Example: Restricting access to a specific stream from an Amazon VPC endpoint
 
 You can create an endpoint policy that restricts access to only specific DynamoDB Streams.
 This type of policy is useful if you have other AWS services in your Amazon VPC that use
@@ -231,9 +221,7 @@ JSON
 
 Gateway endpoints aren't supported in DynamoDB Streams.
 
-## Using DynamoDB endpoints with
-
-AWS Management Console Private Access
+## Using DynamoDB endpoints with AWS Management Console Private Access
 
 You must set up DNS configuration for DynamoDB and DynamoDB Streams when using VPC endpoints with the
 [DynamoDB console](https://console.aws.amazon.com/dynamodb "https://console.aws.amazon.com/dynamodb") in [AWS Management Console Private

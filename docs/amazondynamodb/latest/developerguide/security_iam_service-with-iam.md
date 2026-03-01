@@ -21,9 +21,7 @@ To get a high-level view of how DynamoDB and other AWS services work with most I
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for DynamoDB
+## Identity-based policies for DynamoDB
 
 **Supports identity-based policies:**
 
@@ -40,16 +38,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for DynamoDB
 
-Identity-based policy examples for DynamoDB
+To view examples of DynamoDB identity-based policies, see [Identity-based policy examples for Amazon DynamoDB](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of DynamoDB identity-based policies, see [Identity-based policy
-examples for Amazon DynamoDB](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within DynamoDB
+## Resource-based policies within DynamoDB
 
 **Supports resource-based policies:**
 
@@ -65,9 +58,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions
-
-for DynamoDB
+## Policy actions for DynamoDB
 
 **Supports policy actions:**
 
@@ -97,12 +88,9 @@ To specify multiple actions in a single statement, separate them with commas.
          ]
 ```
 
-To view examples of DynamoDB identity-based policies, see [Identity-based policy
-examples for Amazon DynamoDB](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of DynamoDB identity-based policies, see [Identity-based policy examples for Amazon DynamoDB](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for DynamoDB
+## Policy resources for DynamoDB
 
 **Supports policy resources:**
 
@@ -122,12 +110,9 @@ To see a list of DynamoDB resource types and their ARNs, see
 which actions you can specify the ARN of each resource, see
 [Actions defined by Amazon DynamoDB](../../../service-authorization/latest/reference/list_amazondynamodb.md#amazondynamodb-actions-as-permissions "../../../service-authorization/latest/reference/list_amazondynamodb.md#amazondynamodb-actions-as-permissions").
 
-To view examples of DynamoDB identity-based policies, see [Identity-based policy
-examples for Amazon DynamoDB](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of DynamoDB identity-based policies, see [Identity-based policy examples for Amazon DynamoDB](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for DynamoDB
+## Policy condition keys for DynamoDB
 
 **Supports service-specific policy condition keys:**
 
@@ -146,12 +131,9 @@ To see a list of DynamoDB condition keys, see [Condition keys for Amazon DynamoD
 _Service Authorization Reference_. To learn with which actions and resources you
 can use a condition key, see [Actions defined by Amazon DynamoDB](../../../service-authorization/latest/reference/list_amazondynamodb.md#amazondynamodb-actions-as-permissions "../../../service-authorization/latest/reference/list_amazondynamodb.md#amazondynamodb-actions-as-permissions").
 
-To view examples of DynamoDB identity-based policies, see [Identity-based policy
-examples for Amazon DynamoDB](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of DynamoDB identity-based policies, see [Identity-based policy examples for Amazon DynamoDB](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Access control lists (ACLs) in
-
-DynamoDB
+## Access control lists (ACLs) in DynamoDB
 
 **Supports ACLs:**
 
@@ -160,9 +142,7 @@ No
 Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
 similar to resource-based policies, although they do not use the JSON policy document format.
 
-## Attribute-based access control
-
-(ABAC) with DynamoDB
+## Attribute-based access control (ABAC) with DynamoDB
 
 **Supports ABAC (tags in policies):**
 
@@ -179,9 +159,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using Temporary
-
-credentials with DynamoDB
+## Using Temporary credentials with DynamoDB
 
 **Supports temporary credentials:**
 
@@ -193,9 +171,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for DynamoDB
+## Cross-service principal permissions for DynamoDB
 
 **Supports forward access sessions (FAS):**
 
@@ -204,9 +180,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-DynamoDB
+## Service roles for DynamoDB
 
 **Supports service roles:**
 
@@ -221,9 +195,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break DynamoDB functionality.
 Edit service roles only when DynamoDB provides guidance to do so.
 
-## Service-linked
-
-roles for DynamoDB
+## Service-linked roles for DynamoDB
 
 **Supports service-linked roles:**
 

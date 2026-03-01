@@ -7,8 +7,7 @@ should be avoided for new global tables. Customers should use [Global Tables ver
 as it provides greater flexibility, higher efficiency and consumes less write capacity than
 2017.11.29 (Legacy).
 
-To determine which version you are using, see [Determining the version of a global
-table](V2globaltables_versions.md#globaltables.DetermineVersion "V2globaltables_versions.md#globaltables.DetermineVersion").
+To determine which version you are using, see [Determining the version of a global table](V2globaltables_versions.md#globaltables.DetermineVersion "V2globaltables_versions.md#globaltables.DetermineVersion").
 To update existing global tables from version 2017.11.29 (Legacy) to version 2019.11.21 (Current), see
 [DynamoDB global tables versions](V2globaltables_versions.md "V2globaltables_versions.md").
 
@@ -53,9 +52,7 @@ effect, the user can (indirectly) write to all of the other replicas in the glob
 table. This scenario can be avoided by using consistent IAM policies on all of the
 replica tables.
 
-## Example: Allow the CreateGlobalTable
-
-action
+## Example: Allow the CreateGlobalTable action
 
 Before you can add a replica to a global table, you must have the
 `dynamodb:CreateGlobalTable` permission for the global table and for each
@@ -80,10 +77,7 @@ JSON
 
 ```
 
-## Example: Allow the UpdateGlobalTable,
-
-DescribeLimits, application-autoscaling:DeleteScalingPolicy, and
-application-autoscaling:DeregisterScalableTarget actions
+## Example: Allow the UpdateGlobalTable, DescribeLimits, application-autoscaling:DeleteScalingPolicy, and application-autoscaling:DeregisterScalableTarget actions
 
 To update the settings (`UpdateGlobalTableSettings`) for a global table in
 DynamoDB, you must have the `dynamodb:UpdateGlobalTable`,
@@ -115,10 +109,7 @@ JSON
 
 ```
 
-## Example: Allow the CreateGlobalTable action
-
-for a specific global table name with replicas allowed in certain regions
-only
+## Example: Allow the CreateGlobalTable action for a specific global table name with replicas allowed in certain regions only
 
 The following IAM policy grants permissions to allow the
 `CreateGlobalTable` action to create a global table named

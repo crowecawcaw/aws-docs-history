@@ -1,6 +1,4 @@
-# Migrate a table using AWS Backup for
-
-cross-account backup and restore
+# Migrate a table using AWS Backup for cross-account backup and restore
 
 **Prerequisites**
 
@@ -19,9 +17,7 @@ need it after the restore.
 
 For more information about pricing, see [AWS Backup pricing](https://aws.amazon.com/backup/pricing/ "https://aws.amazon.com/backup/pricing/") .
 
-## Step
-
-1: Enable advanced features for DynamoDB and cross-account backup
+## Step 1: Enable advanced features for DynamoDB and cross-account backup
 
 1. In both the source and target AWS account, access the AWS Management Console and
    open the AWS Backup console.
@@ -32,9 +28,7 @@ For more information about pricing, see [AWS Backup pricing](https://aws.amazon.
 4. Under **Cross-account management**, for **Cross-account backup**, choose **Turn
    On**.
 
-## Step 2:
-
-Create a backup vault in the source account and target account
+## Step 2: Create a backup vault in the source account and target account
 
 1. In the source AWS accounts, open the AWS Backup console.
 2. Choose **Backup vaults**.
@@ -44,9 +38,7 @@ Create a backup vault in the source account and target account
 5. You'll need the ARNs of both the source and target backup vaults when copying the
    DynamoDB table backup between accounts.
 
-## Step 3:
-
-Create a DynamoDB table backup in the source account
+## Step 3: Create a DynamoDB table backup in the source account
 
 1. On the **AWS Backup Dashboard page**, choose
    **Create on-demand backup**.
@@ -59,9 +51,7 @@ Create a DynamoDB table backup in the source account
 6. Monitor the status of the backup job on the **Backup
    Jobs** tab of the **AWS Backup Jobs** page.
 
-## Step 4: Copy
-
-the DynamoDB table backup from the source account to the target account
+## Step 4: Copy the DynamoDB table backup from the source account to the target account
 
 1. After the backup job completes, open the AWS Backup console in the source account and
    choose **Backup vaults**.
@@ -73,9 +63,7 @@ the DynamoDB table backup from the source account to the target account
 5. In the target account backup vault, enable access from a source account to allow
    copying backups.
 
-## Step 5:
-
-Restore the DynamoDB table backup in the target account
+## Step 5: Restore the DynamoDB table backup in the target account
 
 1. In the target AWS account, open the AWS Backup console and choose **Backup vaults**
 2. Under **Backups**, select the backup you copied from

@@ -5,8 +5,7 @@ attribute names in expressions. This list isn't case-sensitive.
 
 If you need to write an expression containing an attribute name that conflicts with a
 DynamoDB reserved word, you can define an expression attribute name to use in the place of the
-reserved word. For more information, see [Expression attribute names (aliases)
-in DynamoDB](Expressions.md "Expressions.md").
+reserved word. For more information, see [Expression attribute names (aliases) in DynamoDB](Expressions.md "Expressions.md").
 
 ```
 

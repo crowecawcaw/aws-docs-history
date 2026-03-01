@@ -20,14 +20,11 @@ IDs.
 ###### Topics
 
 - [Step 1: Create a service role](#DAX.create-cluster.cli.create-service-role "#DAX.create-cluster.cli.create-service-role")
-- [Step 2: Create a subnet
-  group](#DAX.create-cluster.cli.create-subnet-group "#DAX.create-cluster.cli.create-subnet-group")
+- [Step 2: Create a subnet group](#DAX.create-cluster.cli.create-subnet-group "#DAX.create-cluster.cli.create-subnet-group")
 - [Step 3: Create a DAX cluster](#DAX.create-cluster.cli.create-cluster "#DAX.create-cluster.cli.create-cluster")
 - [Step 4: Configure security group inbound rules](#DAX.create-cluster.cli.configure-inbound-rules "#DAX.create-cluster.cli.configure-inbound-rules")
 
-## Step 1: Create an IAM
-
-service role for DAX to access DynamoDB using the AWS CLI
+## Step 1: Create an IAM service role for DAX to access DynamoDB using the AWS CLI
 
 Before you can create an Amazon DynamoDB Accelerator (DAX) cluster, you must create a service
 role for it. A _service role_ is an AWS Identity and Access Management (IAM) role that
@@ -128,12 +125,9 @@ aws iam attach-role-policy \
 ```
 
 Next, you specify a subnet group for your default VPC. A _subnet group_ is a collection of one or more subnets within your VPC. See
-[Step 2: Create a subnet
-group](#DAX.create-cluster.cli.create-subnet-group "#DAX.create-cluster.cli.create-subnet-group").
+[Step 2: Create a subnet group](#DAX.create-cluster.cli.create-subnet-group "#DAX.create-cluster.cli.create-subnet-group").
 
-## Step 2: Create a subnet
-
-group
+## Step 2: Create a subnet group
 
 Follow this procedure to create a subnet group for your Amazon DynamoDB Accelerator (DAX)
 cluster using the AWS Command Line Interface (AWS CLI).
@@ -180,12 +174,9 @@ aws dax create-subnet-group \
     --subnet-ids `subnet-11111111` `subnet-22222222` `subnet-33333333` `subnet-44444444`
 ```
 
-To create the cluster, see [Step 3: Create a DAX cluster
-using the AWS CLI](#DAX.create-cluster.cli.create-cluster "#DAX.create-cluster.cli.create-cluster").
+To create the cluster, see [Step 3: Create a DAX cluster using the AWS CLI](#DAX.create-cluster.cli.create-cluster "#DAX.create-cluster.cli.create-cluster").
 
-## Step 3: Create a DAX cluster
-
-using the AWS CLI
+## Step 3: Create a DAX cluster using the AWS CLI
 
 Follow this procedure to use the AWS Command Line Interface (AWS CLI) to create an Amazon DynamoDB Accelerator
 (DAX) cluster in your default Amazon VPC.
@@ -241,13 +232,10 @@ The status is shown in the output—for example, `"Status":
 ###### Note
 
 Creating the cluster takes several minutes. When the cluster is ready, its status
-changes to `available`. In the meantime, proceed to [Step 4: Configure
-security group inbound rules using the AWS CLI](#DAX.create-cluster.cli.configure-inbound-rules "#DAX.create-cluster.cli.configure-inbound-rules") and follow the
+changes to `available`. In the meantime, proceed to [Step 4: Configure security group inbound rules using the AWS CLI](#DAX.create-cluster.cli.configure-inbound-rules "#DAX.create-cluster.cli.configure-inbound-rules") and follow the
 instructions there.
 
-## Step 4: Configure
-
-security group inbound rules using the AWS CLI
+## Step 4: Configure security group inbound rules using the AWS CLI
 
 The nodes in your Amazon DynamoDB Accelerator (DAX) cluster use the default security group for
 your Amazon VPC. For the default security group, you must authorize inbound traffic on TCP
@@ -264,8 +252,7 @@ instead.
 
 1. To determine the default security group identifier, enter the following
    command. Replace `vpcID` with your actual
-   VPC ID (from [Step 2: Create a subnet
-   group](#DAX.create-cluster.cli.create-subnet-group "#DAX.create-cluster.cli.create-subnet-group")).
+   VPC ID (from [Step 2: Create a subnet group](#DAX.create-cluster.cli.create-subnet-group "#DAX.create-cluster.cli.create-subnet-group")).
 
 ```
 aws ec2 describe-security-groups \

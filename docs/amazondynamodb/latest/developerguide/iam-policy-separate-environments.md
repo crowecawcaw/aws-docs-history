@@ -1,6 +1,4 @@
-# IAM policy to separate DynamoDB
-
-environments in the same AWS account
+# IAM policy to separate DynamoDB environments in the same AWS account
 
 Suppose that you have separate environments where each environment maintains its
 own version of a table named `ProductCatalog`. If you create two

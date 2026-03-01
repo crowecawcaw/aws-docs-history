@@ -1,6 +1,4 @@
-# Using the AWS SDK to configure auto scaling on
-
-Amazon DynamoDB tables
+# Using the AWS SDK to configure auto scaling on Amazon DynamoDB tables
 
 In addition to using the AWS Management Console and the AWS Command Line Interface (AWS CLI), you can write applications
 that interact with Amazon DynamoDB auto scaling. This section contains two Java programs that you

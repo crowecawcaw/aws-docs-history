@@ -29,8 +29,7 @@ up for an AWS account or accessing the DynamoDB web service.
 - [Step 3: Read data from a DynamoDB table](getting-started-step-3.md "getting-started-step-3.md")
 - [Step 4: Update data in a DynamoDB table](getting-started-step-4.md "getting-started-step-4.md")
 - [Step 5: Query data in a DynamoDB table](getting-started-step-5.md "getting-started-step-5.md")
-- [Step 6: (Optional) Delete your DynamoDB table to clean up
-  resources](getting-started-step-6.md "getting-started-step-6.md")
+- [Step 6: (Optional) Delete your DynamoDB table to clean up resources](getting-started-step-6.md "getting-started-step-6.md")
 - [Continue learning about DynamoDB](getting-started-NextSteps.md "getting-started-NextSteps.md")
 - [Generate infrastructure code for Amazon DynamoDB using Console-to-Code](console-to-code.md "console-to-code.md")
 
@@ -38,7 +37,7 @@ up for an AWS account or accessing the DynamoDB web service.
 
 Before starting the Amazon DynamoDB tutorial, learn about the ways you can access DynamoDB in
 [Accessing DynamoDB](AccessingDynamoDB.md "AccessingDynamoDB.md"). Then, set up
-DynamoDB through either the web service or the locally downloaded version in [Setting up DynamoDB](SettingUp.md "SettingUp.md") . After
+DynamoDB through either the web service or the locally downloaded version in [Setting up DynamoDB](SettingUp.md "SettingUp.md"). After
 that, continue on to [Step 1: Create a table in DynamoDB](getting-started-step-1.md "getting-started-step-1.md").
 
 ###### Note

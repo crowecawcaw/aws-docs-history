@@ -1,6 +1,4 @@
-# Best practices and requirements for managing
-
-global tables
+# Best practices and requirements for managing global tables
 
 ###### Important
 
@@ -9,8 +7,7 @@ should be avoided for new global tables. Customers should use [Global Tables ver
 as it provides greater flexibility, higher efficiency and consumes less write capacity than
 2017.11.29 (Legacy).
 
-To determine which version you are using, see [Determining the version of a global
-table](V2globaltables_versions.md#globaltables.DetermineVersion "V2globaltables_versions.md#globaltables.DetermineVersion").
+To determine which version you are using, see [Determining the version of a global table](V2globaltables_versions.md#globaltables.DetermineVersion "V2globaltables_versions.md#globaltables.DetermineVersion").
 To update existing global tables from version 2017.11.29 (Legacy) to version 2019.11.21 (Current), see
 [DynamoDB global tables versions](V2globaltables_versions.md "V2globaltables_versions.md").
 
@@ -21,10 +18,8 @@ write capacity settings to ensure proper replication of data.
 ###### Topics
 
 - [Global tables version](#globaltables_version.tables "#globaltables_version.tables")
-- [Requirements for adding a new
-  replica table](#globaltables_reqs_bestpractices.requirements "#globaltables_reqs_bestpractices.requirements")
-- [Best practices and requirements for
-  managing capacity](#globaltables_reqs_bestpractices.tables "#globaltables_reqs_bestpractices.tables")
+- [Requirements for adding a new replica table](#globaltables_reqs_bestpractices.requirements "#globaltables_reqs_bestpractices.requirements")
+- [Best practices and requirements for managing capacity](#globaltables_reqs_bestpractices.tables "#globaltables_reqs_bestpractices.tables")
 
 ## Global tables version
 
@@ -32,15 +27,12 @@ There are two versions of DynamoDB global tables available: [Global Tables versi
 (Current) when possible, as it provides greater flexibility, higher efficiency and consumes
 less write capacity than 2017.11.29 (Legacy).
 
-To determine which version you are using, see [Determining the version of a global
-table](V2globaltables_versions.md#globaltables.DetermineVersion "V2globaltables_versions.md#globaltables.DetermineVersion"). To
+To determine which version you are using, see [Determining the version of a global table](V2globaltables_versions.md#globaltables.DetermineVersion "V2globaltables_versions.md#globaltables.DetermineVersion"). To
 update existing global tables from Version 2017.11.29 (Legacy) to Version 2019.11.21
 (Current), see [Upgrading global
 tables](V2globaltables_versions.md#upgrading-to-current-version "V2globaltables_versions.md#upgrading-to-current-version").
 
-## Requirements for adding a new
-
-replica table
+## Requirements for adding a new replica table
 
 If you want to add a new replica table to a global table, each of the following conditions
 must be true:
@@ -81,21 +73,16 @@ replicated write capacity units to matching secondary indexes across your global
 You must also have appropriate AWS Identity and Access Management (IAM) permissions. For more information, see
 [Using IAM with global tables](gt_IAM.md "gt_IAM.md").
 
-## Best practices and requirements for
-
-managing capacity
+## Best practices and requirements for managing capacity
 
 Consider the following when managing capacity settings for replica tables in DynamoDB.
 
-### Using DynamoDB auto
-
-scaling
+### Using DynamoDB auto scaling
 
 Using DynamoDB auto scaling is the recommended way to manage throughput capacity settings
 for replica tables that use the provisioned mode. DynamoDB auto scaling automatically adjusts
 read capacity units (RCUs) and write capacity units (WCUs) for each replica table based upon
-your actual application workload. For more information, see [Managing throughput capacity automatically with DynamoDB auto
-scaling](AutoScaling.md "AutoScaling.md").
+your actual application workload. For more information, see [Managing throughput capacity automatically with DynamoDB auto scaling](AutoScaling.md "AutoScaling.md").
 
 If you create your replica tables using the AWS Management Console, auto scaling is enabled by
 default for each replica table, with default auto scaling settings for managing read
@@ -125,9 +112,7 @@ write request units include the extra write consumed by global tables Version 20
 (Legacy) to update the `aws:rep:deleting`, `aws:rep:updatetime`, and
 `aws:rep:updateregion` attributes.
 
-### Managing
-
-capacity manually
+### Managing capacity manually
 
 If you decide not to use DynamoDB auto scaling, you must manually set the read capacity and
 write capacity settings on each replica table and secondary index.

@@ -10,12 +10,9 @@ solutions so you can easily debug a multi-point failure.
 - [Performance baseline](#performance-baseline "#performance-baseline")
 - [Integrated services](#integrated-services "#integrated-services")
 - [Automated monitoring tools](#automated-monitoring-tools "#automated-monitoring-tools")
-- [Monitoring metrics in DynamoDB with
-  Amazon CloudWatch](Monitoring-metrics-with-Amazon-CloudWatch.md "Monitoring-metrics-with-Amazon-CloudWatch.md")
-- [Logging DynamoDB operations by using
-  AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
-- [Analyzing data access using CloudWatch contributor insights for
-  DynamoDB](contributorinsights.md "contributorinsights.md")
+- [Monitoring metrics in DynamoDB with Amazon CloudWatch](Monitoring-metrics-with-Amazon-CloudWatch.md "Monitoring-metrics-with-Amazon-CloudWatch.md")
+- [Logging DynamoDB operations by using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
+- [Analyzing data access using CloudWatch contributor insights for DynamoDB](contributorinsights.md "contributorinsights.md")
 
 ## Monitoring plan
 
@@ -54,12 +51,10 @@ you monitor and troubleshoot your DynamoDB resources.
 
 - AWS CloudTrail captures API calls and related events made by or on behalf of your
   AWS account and delivers the log files to an Amazon S3 bucket that you specify. For
-  more information, see [Logging DynamoDB operations by using
-  AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
+  more information, see [Logging DynamoDB operations by using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
 - Contributor Insights is a diagnostic tool for identifying the most frequently
   accessed and throttled keys in your table or index at a glance. For more information,
-  see [Analyzing data access using CloudWatch contributor insights for
-  DynamoDB](contributorinsights.md "contributorinsights.md").
+  see [Analyzing data access using CloudWatch contributor insights for DynamoDB](contributorinsights.md "contributorinsights.md").
 
 ## Automated monitoring tools
 
@@ -75,8 +70,7 @@ The action is a notification sent to an Amazon Simple Notification Service (Amaz
 Scaling policy. Amazon CloudWatch alarms do not invoke actions simply because they are in a particular
 state; the state must have changed and been maintained for a specified number of periods.
 For more information, see
-[Monitoring metrics in DynamoDB with
-Amazon CloudWatch](Monitoring-metrics-with-Amazon-CloudWatch.md "Monitoring-metrics-with-Amazon-CloudWatch.md").
+[Monitoring metrics in DynamoDB with Amazon CloudWatch](Monitoring-metrics-with-Amazon-CloudWatch.md "Monitoring-metrics-with-Amazon-CloudWatch.md").
 
 - **AWS CloudTrail log monitoring** – Share log files between
   accounts, monitor AWS CloudTrail log files in real time by sending them to AWS CloudTrail Logs, write

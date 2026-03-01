@@ -1,6 +1,4 @@
-# Cross-account access with resource-based policies
-
-in DynamoDB
+# Cross-account access with resource-based policies in DynamoDB
 
 Using a resource-based policy, you can provide cross-account access to resources available
 in different AWS accounts. All cross-account access allowed by the resource-based policies
@@ -36,8 +34,7 @@ The table name parameter in the DynamoDB data plane and control plane APIs accep
 Amazon Resource Name (ARN) of the table to support cross-account operations. If you only
 provide the table name parameter instead of a complete ARN, the API operation will be
 performed on the table in the account to which the requestor belongs. For an example of a
-policy that uses cross-account access, see [Resource-based policy for cross-account
-access](rbac-examples.md#rbac-examples-cross-account "rbac-examples.md#rbac-examples-cross-account").
+policy that uses cross-account access, see [Resource-based policy for cross-account access](rbac-examples.md#rbac-examples-cross-account "rbac-examples.md#rbac-examples-cross-account").
 
 The resource owner’s account will be charged even when a principal from another account is
 reading from or writing to the DynamoDB table in the owner’s account. If the table has

@@ -22,8 +22,7 @@ rules and targets.
 ###### Topics
 
 - [How it works](#eventbridge-for-dynamodb-how-it-works "#eventbridge-for-dynamodb-how-it-works")
-- [Creating an
-  integration through the console](#eventbridge-for-dynamodb-create-integration-console "#eventbridge-for-dynamodb-create-integration-console")
+- [Creating an integration through the console](#eventbridge-for-dynamodb-create-integration-console "#eventbridge-for-dynamodb-create-integration-console")
 - [Next steps](#eventbridge-for-dynamodb-next-steps "#eventbridge-for-dynamodb-next-steps")
 
 ## How it works
@@ -45,9 +44,7 @@ common choice when implementing a fan-out design is to use a Lambda function as 
 target. The following example demonstrates an integration with a Lambda function
 target.
 
-## Creating an
-
-integration through the console
+## Creating an integration through the console
 
 Follow the steps below to create an integration through the AWS Management Console.
 

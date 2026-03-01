@@ -1,6 +1,4 @@
-# Understanding Amazon DynamoDB billing for global
-
-tables
+# Understanding Amazon DynamoDB billing for global tables
 
 This guide describes how DynamoDB billing works for global tables, identifying the
 components that contribute to the cost of global tables, including a practical example.
@@ -56,9 +54,7 @@ following units::
 - Read Capacity Units (RCUs) for provisioned tables, where one RCU provides
   one strongly consistent read per second for up to 4KB
 
-## Consistency modes and
-
-billing
+## Consistency modes and billing
 
 The replicated write units (rWCUs and rWRUs) used to bill for write operations are
 identical for both multi-Region strong consistency (MRSC) and multi-Region eventual
@@ -66,9 +62,7 @@ consistency (MREC) modes. Global tables using multi-Region strong consistency (M
 mode configured with a witness don't incur replicated write unit costs
 (rWCUs and rWRUs), storage costs, or data transfer costs for replication to the witness.
 
-## DynamoDB global tables billing
-
-example
+## DynamoDB global tables billing example
 
 Let's walk through a multi-day example scenario to see how global table write
 request billing works in practice (note that this example only considers write

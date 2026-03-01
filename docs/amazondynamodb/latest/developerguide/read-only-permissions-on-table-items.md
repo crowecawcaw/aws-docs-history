@@ -1,6 +1,4 @@
-# IAM policy to grant read-only
-
-permissions on items in a DynamoDB table
+# IAM policy to grant read-only permissions on items in a DynamoDB table
 
 The following permissions policy grants permissions for the `GetItem`,
 `BatchGetItem`, `Scan`, `Query`, and

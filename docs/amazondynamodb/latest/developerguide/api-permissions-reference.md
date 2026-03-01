@@ -1,6 +1,4 @@
-# DynamoDB API permissions: Actions, resources,
-
-and conditions reference
+# DynamoDB API permissions: Actions, resources, and conditions reference
 
 When you are setting up
 [Identity and Access Management for Amazon DynamoDB](security-iam.md "security-iam.md") and writing a permissions policy that you can attach to an IAM identity
@@ -17,11 +15,9 @@ conditions. For a complete list of AWS-wide keys, see the [IAM JSON policy
 elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md#AvailableKeys "../../../IAM/latest/UserGuide/reference_policies_elements.md#AvailableKeys") in the _IAM User Guide_.
 
 In addition to the AWS-wide condition keys, DynamoDB has its own specific keys that you
-can use in conditions. For more information, see [Using IAM policy conditions for fine-grained
-access control](specifying-conditions.md "specifying-conditions.md").
+can use in conditions. For more information, see [Using IAM policy conditions for fine-grained access control](specifying-conditions.md "specifying-conditions.md").
 
 ## Related topics
 
 - [Identity and Access Management for Amazon DynamoDB](security-iam.md "security-iam.md")
-- [Using IAM policy conditions for fine-grained
-  access control](specifying-conditions.md "specifying-conditions.md")
+- [Using IAM policy conditions for fine-grained access control](specifying-conditions.md "specifying-conditions.md")

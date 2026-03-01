@@ -1,6 +1,4 @@
-# DynamoDB zero-ETL integration with
-
-Amazon Redshift
+# DynamoDB zero-ETL integration with Amazon Redshift
 
 Amazon DynamoDB zero-ETL integration with Amazon Redshift enables seamless analytics on
 DynamoDB data without any coding. This fully-managed feature automatically replicates DynamoDB
@@ -22,25 +20,16 @@ through Amazon Redshift analytics and machine learning capabilities.
 
 ###### Topics
 
-- [Prerequisites before creating
-  a DynamoDB zero-ETL integration with Amazon Redshift](#RedshiftforDynamoDB-zero-etl-prereqs "#RedshiftforDynamoDB-zero-etl-prereqs")
-- [Limitations when using
-  DynamoDB zero-ETL integrations with Amazon Redshift](#RedshiftforDynamoDB-zero-etl-limitations "#RedshiftforDynamoDB-zero-etl-limitations")
-- [Creating a DynamoDB
-  zero-ETL integration with Amazon Redshift](RedshiftforDynamoDB-zero-etl-getting-started.md "RedshiftforDynamoDB-zero-etl-getting-started.md")
-- [Viewing DynamoDB zero-ETL
-  integrations with Amazon Redshift](RedshiftforDynamoDB-zero-etl-viewing.md "RedshiftforDynamoDB-zero-etl-viewing.md")
-- [Deleting DynamoDB zero-ETL
-  integrations with Amazon Redshift](RedshiftforDynamoDB-zero-etl-deleting.md "RedshiftforDynamoDB-zero-etl-deleting.md")
+- [Prerequisites before creating a DynamoDB zero-ETL integration with Amazon Redshift](#RedshiftforDynamoDB-zero-etl-prereqs "#RedshiftforDynamoDB-zero-etl-prereqs")
+- [Limitations when using DynamoDB zero-ETL integrations with Amazon Redshift](#RedshiftforDynamoDB-zero-etl-limitations "#RedshiftforDynamoDB-zero-etl-limitations")
+- [Creating a DynamoDB zero-ETL integration with Amazon Redshift](RedshiftforDynamoDB-zero-etl-getting-started.md "RedshiftforDynamoDB-zero-etl-getting-started.md")
+- [Viewing DynamoDB zero-ETL integrations with Amazon Redshift](RedshiftforDynamoDB-zero-etl-viewing.md "RedshiftforDynamoDB-zero-etl-viewing.md")
+- [Deleting DynamoDB zero-ETL integrations with Amazon Redshift](RedshiftforDynamoDB-zero-etl-deleting.md "RedshiftforDynamoDB-zero-etl-deleting.md")
 
-## Prerequisites before creating
-
-a DynamoDB zero-ETL integration with Amazon Redshift
+## Prerequisites before creating a DynamoDB zero-ETL integration with Amazon Redshift
 
 1. You must have your source DynamoDB table and target Amazon Redshift cluster created
-   before creating an integration. This information is covered in [Step
-   1: Configuring a source DynamoDB table](RedshiftforDynamoDB-zero-etl-getting-started.md#RedshiftforDynamoDB-zero-etl-getting-started-configuring "RedshiftforDynamoDB-zero-etl-getting-started.md#RedshiftforDynamoDB-zero-etl-getting-started-configuring") and [Step 2:
-   Creating an Amazon Redshift data warehouse](RedshiftforDynamoDB-zero-etl-getting-started.md#RedshiftforDynamoDB-zero-etl-getting-started-creating "RedshiftforDynamoDB-zero-etl-getting-started.md#RedshiftforDynamoDB-zero-etl-getting-started-creating").
+   before creating an integration. This information is covered in [Step 1: Configuring a source DynamoDB table](RedshiftforDynamoDB-zero-etl-getting-started.md#RedshiftforDynamoDB-zero-etl-getting-started-configuring "RedshiftforDynamoDB-zero-etl-getting-started.md#RedshiftforDynamoDB-zero-etl-getting-started-configuring") and [Step 2: Creating an Amazon Redshift data warehouse](RedshiftforDynamoDB-zero-etl-getting-started.md#RedshiftforDynamoDB-zero-etl-getting-started-creating "RedshiftforDynamoDB-zero-etl-getting-started.md#RedshiftforDynamoDB-zero-etl-getting-started-creating").
 2. A zero-ETL integration between Amazon DynamoDB and Amazon Redshift requires your
    source DynamoDB table to have [Point-in-time recovery (PITR)](Point-in-time-recovery.md "Point-in-time-recovery.md") enabled.
 3. For **resource-based policies**, if you
@@ -259,9 +248,7 @@ using your KMS key.
 You can also follow the steps on [Getting started with zero-ETL integrations](../../../redshift/latest/mgmt/zero-etl-using.md#zero-etl-using.redshift-iam "../../../redshift/latest/mgmt/zero-etl-using.md#zero-etl-using.redshift-iam") in the Amazon Redshift management
 guide to configure the permissions of the Amazon Redshift namespace.
 
-## Limitations when using
-
-DynamoDB zero-ETL integrations with Amazon Redshift
+## Limitations when using DynamoDB zero-ETL integrations with Amazon Redshift
 
 The following general limitations apply to the current release of this
 integration. These limitations can change in subsequent releases.

@@ -475,9 +475,7 @@ update_dynamodb_item_ttl(
   [UpdateItem](../../../goto/boto3/dynamodb-2012-08-10/UpdateItem.md "../../../goto/boto3/dynamodb-2012-08-10/UpdateItem.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
-## Identifying deleted items in DynamoDB
-
-Streams
+## Identifying deleted items in DynamoDB Streams
 
 The streams record contains a user identity field
 `Records[<index>].userIdentity`. Items that are deleted by the TTL

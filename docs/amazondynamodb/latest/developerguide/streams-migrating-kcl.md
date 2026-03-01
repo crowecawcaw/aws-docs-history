@@ -15,11 +15,9 @@ migration steps for KCL 1.x to KCL 3.x migration.
 ###### Topics
 
 - [Step 1: Migrate the record processor](#step1-record-processor "#step1-record-processor")
-- [Step 2: Migrate the record processor
-  factory](#step2-record-processor-factory "#step2-record-processor-factory")
+- [Step 2: Migrate the record processor factory](#step2-record-processor-factory "#step2-record-processor-factory")
 - [Step 3: Migrate the worker](#step3-worker-migration "#step3-worker-migration")
-- [Step 4: KCL 3.x configuration overview and
-  recommendations](#step4-configuration-migration "#step4-configuration-migration")
+- [Step 4: KCL 3.x configuration overview and recommendations](#step4-configuration-migration "#step4-configuration-migration")
 - [Step 5: Migrate from KCL 2.x to KCL 3.x](#step5-kcl2-to-kcl3 "#step5-kcl2-to-kcl3")
 
 ### Step 1: Migrate the record processor
@@ -234,9 +232,7 @@ DynamoDB Streams Kinesis Adapter now uses SDKv2 Record model. In SDKv2, complex
 `hasNs()`, `hasM()`, `hasL()`, `hasSs()`
 methods to verify if these values exist.
 
-### Step 2: Migrate the record processor
-
-factory
+### Step 2: Migrate the record processor factory
 
 The record processor factory is responsible for creating record processors when a lease
 is acquired. The following is an example of a KCL 1.x factory:
@@ -432,9 +428,7 @@ The `CLIENT_VERSION_CONFIG_COMPATIBLE_WITH_2X` setting maintains
 compatibility between DynamoDB Streams Kinesis Adapter for KCL v3 and KCL v1, not between KCL v2 and
 v3.
 
-### Step 4: KCL 3.x configuration overview and
-
-recommendations
+### Step 4: KCL 3.x configuration overview and recommendations
 
 For a detailed description of the configurations introduced post KCL 1.x that are
 relevant in KCL 3.x see [KCL configurations](../../../streams/latest/dev/kcl-configuration.md "../../../streams/latest/dev/kcl-configuration.md") and [KCL
@@ -450,9 +444,7 @@ configurations in KCL 3.x and later versions to avoid Scheduler initialization i
 `ConfigsBuilder` provides a more flexible and maintainable way to configure
 your KCL application.
 
-#### Configurations with update default value in
-
-KCL 3.x
+#### Configurations with update default value in KCL 3.x
 
 `**billingMode**`
 

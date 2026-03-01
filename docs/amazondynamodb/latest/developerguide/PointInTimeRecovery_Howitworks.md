@@ -1,6 +1,4 @@
-# Enable point-in-time recovery in
-
-DynamoDB
+# Enable point-in-time recovery in DynamoDB
 
 Amazon DynamoDB point-in-time recovery (PITR) provides automatic backups of your DynamoDB table
 data. This section provides an overview of how the process works in DynamoDB.
@@ -24,8 +22,7 @@ until you turn off PITR for each table.
 - [Enable PITR (API)](#howitworks-enable-pitr-api "#howitworks-enable-pitr-api")
 - [Recovery Period](#howitworks-pitr-recovery-period "#howitworks-pitr-recovery-period")
 - [Edit PITR](#howitworks-pitr-editing "#howitworks-pitr-editing")
-- [Delete a table with PITR
-  enabled](#howitworks-pitr-deleting-table "#howitworks-pitr-deleting-table")
+- [Delete a table with PITR enabled](#howitworks-pitr-deleting-table "#howitworks-pitr-deleting-table")
 
 ## Enabling point-in-time recovery
 
@@ -36,8 +33,7 @@ explicitly turn it off.
 After you enable point-in-time recovery, you can restore to any point in time within
 `EarliestRestorableDateTime` and `LatestRestorableDateTime`.
 `LatestRestorableDateTime` is typically five minutes before the current
-time. For more information, see [Restoring a DynamoDB table to a point in
-time](PointInTimeRecovery.md "PointInTimeRecovery.md").
+time. For more information, see [Restoring a DynamoDB table to a point in time](PointInTimeRecovery.md "PointInTimeRecovery.md").
 
 ###### Note
 
@@ -169,9 +165,7 @@ lower than previously set, your `EarliestRestorePoint` will immediately
 decrease to match your recovery period, and any continuous backups that fall outside of
 the new set value will not be recoverable.
 
-## Delete a table with PITR
-
-enabled
+## Delete a table with PITR enabled
 
 When you delete a table that has point-in-time recovery enabled, DynamoDB automatically
 creates a backup snapshot called a _system backup_ and retains it for

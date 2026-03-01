@@ -3,18 +3,14 @@
 This topic describes the best practices for defining access permissions for your DynamoDB
 resources and the actions allowed on these resources.
 
-## Simplify access control to DynamoDB
-
-resources
+## Simplify access control to DynamoDB resources
 
 If the AWS Identity and Access Management principals that need access to a DynamoDB resource are part of the same
 AWS account as the resource owner, an IAM identity-based policy is not required for each
 principal. A resource-based policy that is attached to the given resources will suffice.
 This type of configuration simplifies access control.
 
-## Protect your DynamoDB resources with resource-based
-
-policies
+## Protect your DynamoDB resources with resource-based policies
 
 For all DynamoDB tables and streams, create resource-based policies to enforce access
 control for these resources. Resource-based policies enable you to centralize permissions at
@@ -32,17 +28,13 @@ permissions. You might start with broad permissions while you explore the permis
 are required for your workload or use case. As your use case matures, you can work to reduce
 the permissions that you grant to work toward least privilege.
 
-## Analyze cross-account access activity
-
-for generating least-privilege policies
+## Analyze cross-account access activity for generating least-privilege policies
 
 IAM Access Analyzer reports cross-account access to external entities specified in
 resource-based policies, and provides visibility to help you refine permissions and conform
 to least privilege. For more information about policy generation, see [IAM Access Analyzer policy generation](../../../IAM/latest/UserGuide/access-analyzer-policy-generation.md "../../../IAM/latest/UserGuide/access-analyzer-policy-generation.md").
 
-## Use IAM Access Analyzer to generate least-privilege
-
-policies
+## Use IAM Access Analyzer to generate least-privilege policies
 
 To grant only the permissions required to perform a task, you can generate policies
 based on your access activity that is logged in AWS CloudTrail. IAM Access Analyzer analyzes the

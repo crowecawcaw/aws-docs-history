@@ -48,9 +48,7 @@ You can increase or decrease the threshold to one that makes sense for your
 application. You can also use [CloudWatch Metric Math](../../../AmazonCloudWatch/latest/monitoring/using-metric-math.md "../../../AmazonCloudWatch/latest/monitoring/using-metric-math.md") to define a cache miss rate metric and
 set an alarm over that metric.
 
-## How can I be notified if requests cause
-
-an internal error in the cluster?
+## How can I be notified if requests cause an internal error in the cluster?
 
 1. Create an Amazon SNS topic,
    `arn:aws:sns:us-west-2:123456789012:notify-on-system-errors`.

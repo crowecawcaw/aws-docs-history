@@ -1,163 +1,128 @@
-# Routing
+# Evacuation processes
 
-strategies in DynamoDB
+Evacuating a Region is the process of migrating activity, usually read and write
+activity or read activity, away from that Region.
 
-Perhaps the most complex piece of a global table deployment is managing request routing.
-Requests must first go from an end user to a Region that’s chosen and routed in some manner.
-The request encounters some stack of services in that Region, including a compute layer that
-perhaps consists of a load balancer backed by an AWS Lambdafunction, container, or Amazon Elastic Compute Cloud
-(Amazon EC2) node, and possibly other services including another database. That compute layer
-communicates with DynamoDB It should do that by using the local endpoint for that Region. The
-data in the global table replicates to all other participating Regions, and each Region has a
-similar stack of services around its DynamoDB table.
+## Evacuating a live Region
 
-The global table provides each stack in the various Regions with a local copy of the
-same data. You might consider designing for a single stack in a single Region and anticipate
-making remote calls to a secondary Region’s DynamoDB endpoint if there’s an issue with the local
-DynamoDB table. This is not best practice. If there’s an issue in one Region that’s caused by
-DynamoDB (or, more likely, caused by something else in the stack or by another service that
-depends on DynamoDB), it’s best to route the end user to another Region for processing and use
-that other Region’s compute layer, which will talk to its local DynamoDB endpoint. This approach
-routes around the problematic Region entirely. To ensure resiliency, you need replication
-across multiple Regions: replication of the compute layer as well as the data layer.
+You might decide to evacuate a live Region for a number of reasons: as part of usual
+business activity (for example, if you’re using a follow-the-sun, write to one Region mode),
+due to a business decision to change the currently active Region, in response to failures in
+the software stack outside DynamoDB, or because you’re encountering general issues such as
+higher than usual latencies within the Region.
 
-There are numerous alternative techniques to route an end user request to a Region for processing. The
-optimum choice depends on your write mode and your failover considerations. This section discusses four
-options: client-driven, compute-layer, Route 53, and Global Accelerator.
+With _write to any Region_ mode, evacuating a live
+Region is straightforward. You can route traffic to alternative Regions by using any routing
+system and let the write operations in the evacuated Region replicate over as usual.
 
-## Client-driven request routing
+The write to one Region and write to your Region modes are usually used with MREC
+tables. Therefore, you must make sure that all write operations to the active Region have
+been fully recorded, stream processed, and globally propagated before starting write
+operations in the new active Region, to ensure that future write operations are processed
+against the latest version of the data.
 
-With client-driven request routing, illustrated in the following diagram, the end user
-client (an application, a web page with JavaScript, or another client) keeps track of the
-valid application endpoints (for example, an Amazon API Gateway endpoint rather than a
-literal DynamoDB endpoint) and uses its own embedded logic to choose the Region to communicate
-with. It might choose based on random selection, lowest observed latencies, highest observed
-bandwidth measurements, or locally performed health checks.
+Let’s say that Region A is active and Region B is passive (either for the full table
+or for items that are homed in Region A). The typical mechanism to perform an evacuation is
+to pause write operations to A, wait long enough for those operations to have fully
+propagated to B, update the architecture stack to recognize B as active, and then resume
+write operations to B. There is no metric to indicate with absolute certainty that Region A
+has fully replicated its data to Region B. If Region A is healthy, pausing write operations
+to Region A and waiting 10 times the recent maximum value of the
+`ReplicationLatency` metric would typically be sufficient to determine that
+replication is complete. If Region A is unhealthy and shows other areas of increased
+latencies, you would choose a larger multiple for the wait time.
 
-![Diagram of how writing to a client's chosen target works.](images/gt-routing-is-clients-choice2_v2.png)
+## Evacuating an offline Region
 
-As an advantage, client-driven request routing can adapt to things such as real-world
-public internet traffic conditions to switch Regions if it notices any degraded performance.
-The client must be aware of all potential endpoints, but launching a new Regional endpoint
-is not a frequent occurrence.
+There’s a special case to consider: What if Region A goes fully offline without
+notice? This is extremely unlikely but should be considered nevertheless.
 
-With _write to any Region_ mode, a client can
-unilaterally select its preferred endpoint. If its access to one Region becomes impaired,
-the client can route to another endpoint.
+Evacuating an offline MRSC table
 
-With the _write to one Region_ mode, the client will
-need a mechanism to route its writes to the currently active region. This could be as basic
-as empirically testing which region is presently accepting writes (noting any write
-rejections and falling back to an alternate) or as complex as calling a global coordinator
-to query for the current application state (perhaps built on the Amazon Application Recovery Controller (ARC) (ARC) routing
-control which provides a 5-region quorum-driven system to maintain global state for needs
-such as this). The client can decide if reads can go to any Region for eventual consistency
-or must be routed to the active region for strong consistency. For further information see
-[How
-Route 53 works](../../../r53recovery/latest/dg/introduction-how-it-works.md "../../../r53recovery/latest/dg/introduction-how-it-works.md").
+If this happens with an MRSC table, there is nothing special you need to do. MRSC
+tables support a recovery point objective (RPO) of zero. All successful write
+operations made to the MRSC table in the offline Region will be available in all other
+Region tables, so there's no potential gap in data even if the Region goes fully
+offline without notice. Business can continue using replicas located in the other
+Regions.
 
-With the _write to your Region_ mode, the client needs to determine the home region for the data set it’s
-working against. For example, if the client corresponds to a user account and each user account is
-homed to a Region, the client can request the appropriate endpoint from a global login system.
+Evacuating an offline MREC table
 
-For example, a financial services company that helps users manage their business finances via the
-web could use global tables with a _write to your Region_ mode.
-Each user must login to a central service. That service returns credentials and the endpoint for the Region where those
-credentials will work. The credentials are valid
-for a short time. After that the webpage auto-negotiates a new login, which provides an opportunity to
-potentially redirect the user’s activity to a new Region.
+If this happens with an MREC table, any write operations in Region A that were not
+yet propagated are held and propagated after Region A comes back online. The write
+operations aren’t lost, but their propagation is indefinitely delayed.
 
-## Compute-layer request routing
+How to proceed in this event is the application’s decision. For business
+continuity, write operations might need to proceed to the new primary Region B.
+However, if an item in Region B receives an update while there is a pending
+propagation of a write operation for that item from Region A, the propagation is
+suppressed under the _last writer wins_ model. Any
+update in Region B might suppress an incoming write request.
 
-With compute-layer request routing, illustrated in the following diagram, the code that
-runs in the compute layer determines whether to process the request locally or pass it to a
-copy of itself that’s running in another Region. When you use the _write to one Region_ mode, the compute layer might detect that it’s not the
-active Region and allow local read operations while forwarding all write operations to
-another Region. This compute layer code must be aware of data topology and routing rules,
-and enforce them reliably, based on the latest settings that specify which Regions are
-active for which data. The outer software stack within the Region doesn’t have to be aware
-of how read and write requests are routed by the micro service. In a robust design, the
-receiving Region validates whether it is the current primary for the write operation. If it
-isn’t, it generates an error that indicates that the global state needs to be corrected. The
-receiving Region might also buffer the write operation for a while if the primary Region is
-in the process of changing. In all cases, the compute stack in a Region writes only to its
-local DynamoDB endpoint, but the compute stacks might communicate with one another.
+With the _write to any Region_ mode, read and
+write operations can continue in Region B, trusting that the items in Region A will
+propagate to Region B eventually and recognizing the potential for missing items until
+Region A comes back online. When possible, such as with idempotent write operations,
+you should consider replaying recent write traffic (for example, by using an upstream
+event source) to fill in the gap of any potentially missing write operations and let
+the last writer wins conflict resolution suppress the eventual propagation of the
+incoming write operation.
 
-![Diagram of compute layer request routing.](images/gt-compute-layer-routing2.png)
+With the other write modes, you have to consider the degree to which work can
+continue with a slightly out-of-date view of the world. Some small duration of write
+operations, as tracked by `ReplicationLatency`, will be missing until
+Region A comes back online. Can business move forward? In some use cases it can, but
+in others it might not without additional mitigation mechanisms.
 
-The Vanguard Group uses a system called Global Orchestration and Status Tool (GOaST) and
-a library called Global Multi-Region library (GMRlib) for this routing process, as presented
-at [re:Invent
-2022](https://www.youtube.com/watch?v=ilgpzlE7Hds&t=1882s "https://www.youtube.com/watch?v=ilgpzlE7Hds&t=1882s"). They use a follow-the-sun single primary model. GOaST maintains the global
-state, similar to the ARC routing control discussed in the previous section. It uses a
-global table to track which Region is the primary Region and when the next primary switch is
-scheduled. All read and write operations go through GMRlib, which coordinates with GOaST.
-GMRlib allows read operations to be performed locally, at low latency. For write operations,
-GMRlib checks if the local Region is the current primary Region. If so, the write operation
-completes directly. If not, GMRlib forwards the write task to the GMRlib in the primary
-Region. That receiving library confirms that it also considers itself the primary Region and
-raises an error if it isn’t, which indicates a propagation delay with the global state. This
-approach provides a validation benefit by not writing directly to a remote DynamoDB
-endpoint.
+For example, imagine that you have to maintain an available credit balance without
+interruption even after a full outage of a Region. You could split the balance into
+two different items, one homed in Region A and one in Region B, and start each with
+half the available balance. This would use the _write to your
+Region_ mode. Transactional updates processed in each Region would write
+against the local copy of the balance. If Region A goes fully offline, work could
+still proceed with transaction processing in Region B, and write operations would be
+limited to the balance portion held in Region B. Splitting the balance like this
+introduces complexities when the balance gets low or the credit has to be rebalanced,
+but it does provide one example of safe business recovery even with uncertain pending
+write operations.
 
-## Route 53 request routing
+As another example, imagine that you’re capturing web form data. You can use
+[Optimistic Concurrency
+Control (OCC)](DynamoDBMapper.md "DynamoDBMapper.md") (OCC) to assign versions to data items and embed the
+latest version into the web form as a hidden field. On each submit, the write
+operation succeeds only if the version in the database still matches the version that
+the form was built against. If the versions don’t match, the web form can be refreshed
+(or carefully merged) based on the current version in the database, and the user can
+proceed again. The OCC model usually protects against another client overwriting and
+producing a new version of the data, but it can also help during failover where a
+client might encounter older versions of data. Let’s imagine that you’re using the
+timestamp as the version. The form was first built against Region A at 12:00 but
+(after failover) tries to write to Region B and notices that the latest version in the
+database is 11:59. In this scenario, the client can either wait for the 12:00 version
+to propagate to Region B and then write on top of that version, or build on 11:59 and
+create a new 12:01 version (which, after writing, would suppress the incoming version
+after Region A recovers).
 
-Amazon Application Recovery Controller (ARC) is a Domain Name Service (DNS) technology. With Route 53, the client requests
-its endpoint by looking up a well-known DNS domain name, and Route 53 returns the IP address
-corresponding to the regional endpoint(s) it thinks most appropriate. This is illustrated in
-the following diagram. Route 53 has a long list of routing policies it uses to determine the
-appropriate Region. It also can do failover routing to route traffic away from Regions that
-fail health checks.
-
-![Diagram of compute layer request routing.](images/gt-rt-53-anycast2_v2.png)
-
-With _write to any Region_ mode,
-or if combined with the compute-layer request routing on the backend, Route 53 can be given full access to
-return the Region based on any complex internal rules such
-as the Region in closest network proximity, or closest geographic proximity, or any other choice.
-
-With _write to one Region_ mode, you can configure Route 53 to
-return the currently active Region (using Route 53 ARC). If the client wants to connect to
-a passive Region (for example, for read operations), it could look up a different DNS
-name.
-
-###### Note
-
-Clients cache the IP addresses in the response from Route 53 for a time indicated by the time to
-live (TTL) setting on the domain name. A longer TTL extends the recovery time
-objective (RTO) for all clients to recognize the new endpoint. A value of 60 seconds
-is typical for failover use. Not all software perfectly adheres to DNS TTL expiration,
-and there might be multiple levels of DNS caching, such as at the operating system,
-virtual machine, and application.
-
-With _write to your Region_ mode, it’s best to avoid Route 53
-unless you're also using compute-layer request routing.
-
-## Global Accelerator request routing
-
-With [AWS Global Accelerator](https://aws.amazon.com/global-accelerator/ "https://aws.amazon.com/global-accelerator/"),
-illustrated in the following diagram, a client looks up the well-known domain name in Route 53.
-However, instead of getting back an IP address that corresponds to a Regional endpoint, the
-client receives an anycast static IP address which routes to the nearest AWS edge
-location. Starting from that edge location, all traffic gets routed on the private AWS
-network and to some endpoint (such as a load balancer or API Gateway) in a Region chosen by
-routing rules that are maintained within Global Accelerator. Compared with routing based on Route 53 rules,
-Global Accelerator request routing has lower latencies because it reduces the amount of traffic on the
-public internet. In addition, because Global Accelerator doesn’t depend on DNS TTL expiration to change
-routing rules, it can adjust routing more quickly.
-
-![Diagram of how client writing with Global Accelerator can work.](images/gt-routing-gax-excerpt2_v2.png)
-
-With _write to any Region_ mode, or if combined with the
-compute-layer request routing on the back- end, Global Accelerator works seamlessly. The client
-connects to the nearest edge location and need not be concerned with which Region
-receives the request.
-
-With _write to one Region_ Global Accelerator routing rules must send
-requests to the currently active Region. You can use health checks that artificially
-report a failure on any Region that’s not considered by your global system to be the
-active Region. As with DNS, it’s possible to use an alternative DNS domain name for
-routing read requests if the requests can be from any Region.
-
-With _write to your Region_ mode, it’s best to avoid Global Accelerator
-unless you're also using compute-layer request routing.
+As a third example, a financial services company holds data about customer
+accounts and their financial transactions in a DynamoDB database. In the event of a
+complete Region A outage, they want to make sure that any write activity related to
+their accounts is either fully available in Region B, or they want to quarantine their
+accounts as known partial until Region A comes back online. Instead of pausing all
+business, they decided to pause business only to the tiny fraction of accounts that
+they determined had unpropagated transactions. To achieve this, they used a third
+Region, which we will call Region C. Before they processed any write operations in
+Region A, they placed a succinct summary of those pending operations (for example, a
+new transaction count for an account) in Region C. This summary was sufficient for
+Region B to determine if its view was fully up to date. This action effectively locked
+the account from the time of writing in Region C until Region A accepted the write
+operations and Region B received them. The data in Region C wasn’t used except as part
+of a failover process, after which Region B could cross-check its data with Region C
+to check if any of its accounts were out of date. Those accounts would be marked as
+quarantined until the Region A recovery propagated the partial data to Region B. If
+Region C were to fail, a new Region D could be spun up for use instead. The data in
+Region C was very transient, and after a few minutes Region D would have a
+sufficiently up-to-date record of the in-flight write operations to be fully useful.
+If Region B were to fail, Region A could continue accepting write requests in
+cooperation with Region C. This company was willing to accept higher latency writes
+(to two Regions: C and then A) and was fortunate to have a data model where the state
+of an account could be succinctly summarized.

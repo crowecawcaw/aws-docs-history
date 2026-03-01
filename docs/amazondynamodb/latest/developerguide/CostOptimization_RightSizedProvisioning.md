@@ -1,6 +1,4 @@
-# Evaluate your provisioned capacity for
-
-right-sized provisioning in your DynamoDB table
+# Evaluate your provisioned capacity for right-sized provisioning in your DynamoDB table
 
 This section provides an overview of how to evaluate if you have right-sized provisioning on
 your DynamoDB tables. As your workload evolves, you should modify your operational procedures
@@ -29,16 +27,11 @@ Local Secondary Indexes (LSI) consume capacity from the base table.
 
 ###### Topics
 
-- [How to retrieve
-  consumption metrics on your DynamoDB tables](#CostOptimization_RightSizedProvisioning_ConsumptionMetrics "#CostOptimization_RightSizedProvisioning_ConsumptionMetrics")
-- [How to
-  identify under-provisioned DynamoDB tables](#CostOptimization_RightSizedProvisioning_UnderProvisionedTables "#CostOptimization_RightSizedProvisioning_UnderProvisionedTables")
-- [How to
-  identify over-provisioned DynamoDB tables](#CostOptimization_RightSizedProvisioning_OverProvisionedTables "#CostOptimization_RightSizedProvisioning_OverProvisionedTables")
+- [How to retrieve consumption metrics on your DynamoDB tables](#CostOptimization_RightSizedProvisioning_ConsumptionMetrics "#CostOptimization_RightSizedProvisioning_ConsumptionMetrics")
+- [How to identify under-provisioned DynamoDB tables](#CostOptimization_RightSizedProvisioning_UnderProvisionedTables "#CostOptimization_RightSizedProvisioning_UnderProvisionedTables")
+- [How to identify over-provisioned DynamoDB tables](#CostOptimization_RightSizedProvisioning_OverProvisionedTables "#CostOptimization_RightSizedProvisioning_OverProvisionedTables")
 
-## How to retrieve
-
-consumption metrics on your DynamoDB tables
+## How to retrieve consumption metrics on your DynamoDB tables
 
 To evaluate the table and GSI capacity, monitor the following CloudWatch metrics and select the
 appropriate dimension to retrieve either table or GSI information:
@@ -335,9 +328,7 @@ It all depends on the data from your workload. Intervals with more than 100% uti
 are prone to throttling events. DynamoDB offers [burst capacity](burst-adaptive-capacity.md#burst-capacity "burst-adaptive-capacity.md#burst-capacity"), but as soon as
 the burst capacity is done anything above 100% will be throttled.
 
-## How to
-
-identify under-provisioned DynamoDB tables
+## How to identify under-provisioned DynamoDB tables
 
 For most workloads, a table is considered under-provisioned when it constantly consumes
 more than 80% of their provisioned capacity.
@@ -378,9 +369,7 @@ less pronounced.
 When you create a DynamoDB auto scaling configuration for your base table, remember to
 include another configuration for any GSI that is associated with the table.
 
-## How to
-
-identify over-provisioned DynamoDB tables
+## How to identify over-provisioned DynamoDB tables
 
 The query results obtained from the scripts above provide the data points required to
 perform some initial analysis. If your data set presents values lower than 20% utilization for

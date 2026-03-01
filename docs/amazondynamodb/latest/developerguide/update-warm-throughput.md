@@ -1,6 +1,4 @@
-# Increase your existing DynamoDB table's warm
-
-throughput
+# Increase your existing DynamoDB table's warm throughput
 
 Once you've checked your DynamoDB table's current warm throughput value, you can
 update it with the following steps:

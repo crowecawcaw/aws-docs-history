@@ -8,7 +8,5 @@ than prescriptions.
 
 ###### Topics
 
-- [DynamoDB preventative security best
-  practices](best-practices-security-preventative.md "best-practices-security-preventative.md")
-- [DynamoDB detective security best
-  practices](best-practices-security-detective.md "best-practices-security-detective.md")
+- [DynamoDB preventative security best practices](best-practices-security-preventative.md "best-practices-security-preventative.md")
+- [DynamoDB detective security best practices](best-practices-security-detective.md "best-practices-security-detective.md")

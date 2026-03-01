@@ -1,7 +1,7 @@
-# 06-delete-table.js
+# 02-write-data.js
 
-The `06-delete-table.js` program deletes `TryDaxTable`.
-Run this program after you have finished testing.
+The `02-write-data.js` program writes test data to
+`TryDaxTable`.
 
 ```
 const AmazonDaxClient = require("amazon-dax-client");
@@ -13,27 +13,37 @@ AWS.config.update({
   region: region,
 });
 
-var dynamodb = new AWS.DynamoDB(); //low-level client
+var ddbClient = new AWS.DynamoDB.DocumentClient();
 
 var tableName = "TryDaxTable";
 
-var params = {
-  TableName: tableName,
-};
+var someData = "X".repeat(1000);
+var pkmax = 10;
+var skmax = 10;
 
-dynamodb.deleteTable(params, function (err, data) {
-  if (err) {
-    console.error(
-      "Unable to delete table. Error JSON:",
-      JSON.stringify(err, null, 2)
-    );
-  } else {
-    console.log(
-      "Deleted table. Table description JSON:",
-      JSON.stringify(data, null, 2)
-    );
+for (var ipk = 1; ipk <= pkmax; ipk++) {
+  for (var isk = 1; isk <= skmax; isk++) {
+    var params = {
+      TableName: tableName,
+      Item: {
+        pk: ipk,
+        sk: isk,
+        someData: someData,
+      },
+    };
+
+    //
+    //put item
+
+    ddbClient.put(params, function (err, data) {
+      if (err) {
+        console.error("Unable to write data: ", JSON.stringify(err, null, 2));
+      } else {
+        console.log("PutItem succeeded");
+      }
+    });
   }
-});
+}
 
 
 ```

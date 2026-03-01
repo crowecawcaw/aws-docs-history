@@ -21,9 +21,7 @@ roles serve all global tables in your account. For more information about servic
 roles, see [Using service-linked
 roles](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") in the _IAM User Guide_.
 
-### Replication service-linked
-
-role
+### Replication service-linked role
 
 Amazon DynamoDB automatically creates the
 `AWSServiceRoleForDynamoDBReplication` service-linked role (SLR) when
@@ -49,9 +47,7 @@ to and from affected replicas will stop, and the replica table status will chang
   consistent read operations will continue to fail with an error. Some
   management operations like replica deletion will succeed.
 
-### Auto scaling service-linked
-
-role
+### Auto scaling service-linked role
 
 When configuring a global table for provisioned capacity mode, auto scaling must
 be configured for the global table. DynamoDB auto scaling uses the AWS Application
@@ -67,9 +63,7 @@ permissions defined in the [`AWSApplicationAutoscalingDynamoDBTablePolicy`](../.
 Application Auto Scaling SLR principal, as this will interrupt auto scaling
 functionality.
 
-### Example IAM policies for service-linked
-
-roles
+### Example IAM policies for service-linked roles
 
 An IAM policy with the following condition does not impact required permissions
 to the DynamoDB replication SLR and AWS Auto Scaling SLR. This condition can be added
@@ -105,15 +99,11 @@ to specify your actual Region, account ID, and table name values.
 
 ###### Topics
 
-- [Creating global tables and adding
-  replicas](#globaltables-creation-iam "#globaltables-creation-iam")
+- [Creating global tables and adding replicas](#globaltables-creation-iam "#globaltables-creation-iam")
 - [Updating global tables](#globaltables-update-iam "#globaltables-update-iam")
-- [Deleting global tables and removing
-  replicas](#globaltables-delete-iam "#globaltables-delete-iam")
+- [Deleting global tables and removing replicas](#globaltables-delete-iam "#globaltables-delete-iam")
 
-### Creating global tables and adding
-
-replicas
+### Creating global tables and adding replicas
 
 DynamoDB global tables support two consistency modes: multi-Region eventual
 consistency (MREC) and multi-Region strong consistency (MRSC). MREC global tables
@@ -125,9 +115,7 @@ objective (RPO).
 The permissions required to create global tables depend on whether you're creating
 a global table with or without a witness.
 
-#### Permissions for creating
-
-global tables
+#### Permissions for creating global tables
 
 The following permissions are required both for initial global table creation
 and for adding replicas later. These permissions apply to both Multi-Region
@@ -157,9 +145,7 @@ tables.
   - `dynamodb:DeleteItem`
   - `dynamodb:BatchWriteItem`
 
-#### Additional permissions for
-
-MRSC global tables using a witness
+#### Additional permissions for MRSC global tables using a witness
 
 When creating a Multi-Region Strong Consistency (MRSC) global table with a
 witness Region, you must have the following permission on the table resource in
@@ -168,9 +154,7 @@ Region):
 
 - `dynamodb:CreateGlobalTableWitness`
 
-#### Example IAM policies for
-
-creating global tables
+#### Example IAM policies for creating global tables
 
 The following identity-based policy allows you to create an MREC or
 MRSC global table named "users" across three Regions, including creating
@@ -424,17 +408,13 @@ for these additional update operations:
   configured with Multi-Region Eventual Consistency (MREC). For more
   information about how global tables work with TTL, see [How DynamoDB global tables work](V2globaltables_HowItWorks.md "V2globaltables_HowItWorks.md").
 
-### Deleting global tables and removing
-
-replicas
+### Deleting global tables and removing replicas
 
 To delete a global table, you must remove all replicas. The permissions required
 for this operation differ depending on whether you're deleting a global table with
 or without a witness Region.
 
-#### Permissions for deleting
-
-global tables and removing replicas
+#### Permissions for deleting global tables and removing replicas
 
 The following permissions are required both for removing individual replicas
 and for completely deleting global tables. Deleting a global table configuration
@@ -454,9 +434,7 @@ Consistency (MREC) and Multi-Region Strong Consistency (MRSC) global tables.
   - `dynamodb:DeleteTable`
   - `dynamodb:DeleteTableReplica`
 
-#### Additional permissions for
-
-MRSC global tables using a witness
+#### Additional permissions for MRSC global tables using a witness
 
 To delete a multi-Region strong consistency (MRSC) global table with a
 witness, you must have the following permission on the table resource in all
@@ -465,9 +443,7 @@ Region):
 
 - `dynamodb:DeleteGlobalTableWitness`
 
-#### Examples IAM policies to
-
-delete a global table replicas
+#### Examples IAM policies to delete a global table replicas
 
 This identity-based policy allows you to delete a DynamoDB global table
 named "users" and its replicas across three Regions:

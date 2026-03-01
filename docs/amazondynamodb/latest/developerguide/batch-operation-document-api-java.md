@@ -1,6 +1,4 @@
-# Example: Batch operations using AWS SDK for Java
-
-document API
+# Example: Batch operations using AWS SDK for Java document API
 
 This section provides examples of batch write and batch get operations in Amazon DynamoDB using
 the AWS SDK for Java Document API.
@@ -13,14 +11,10 @@ have to write. For more information, see [Java 1.x: DynamoDBMapper](DynamoDBMapp
 
 ###### Topics
 
-- [Example: Batch write operation using the
-  AWS SDK for Java document API](#JavaDocumentAPIBatchWrite "#JavaDocumentAPIBatchWrite")
-- [Example: Batch get operation using the AWS SDK for Java
-  document API](#JavaDocumentAPIBatchGet "#JavaDocumentAPIBatchGet")
+- [Example: Batch write operation using the AWS SDK for Java document API](#JavaDocumentAPIBatchWrite "#JavaDocumentAPIBatchWrite")
+- [Example: Batch get operation using the AWS SDK for Java document API](#JavaDocumentAPIBatchGet "#JavaDocumentAPIBatchGet")
 
-## Example: Batch write operation using the
-
-AWS SDK for Java document API
+## Example: Batch write operation using the AWS SDK for Java document API
 
 The following Java code example uses the `batchWriteItem` method to perform
 the following put and delete operations:
@@ -39,8 +33,7 @@ The following example checks the response to see if it has any unprocessed reque
 items. If it does, it loops back and resends the `batchWriteItem` request with
 unprocessed items in the request. If you followed the examples in this guide, you should
 already have created the `Forum` and `Thread` tables. You can also
-create these tables and upload sample data programmatically. For more information, see [Creating example
-tables and uploading data using the AWS SDK for Java](AppendixSampleDataCodeJava.md "AppendixSampleDataCodeJava.md").
+create these tables and upload sample data programmatically. For more information, see [Creating example tables and uploading data using the AWS SDK for Java](AppendixSampleDataCodeJava.md "AppendixSampleDataCodeJava.md").
 
 For step-by-step instructions for testing the following sample, see [Java code examples](CodeSamples.md "CodeSamples.md").
 
@@ -126,9 +119,7 @@ public class DocumentAPIBatchWrite {
 
 ```
 
-## Example: Batch get operation using the AWS SDK for Java
-
-document API
+## Example: Batch get operation using the AWS SDK for Java document API
 
 The following Java code example uses the `batchGetItem` method to retrieve
 multiple items from the `Forum` and the `Thread` tables. The

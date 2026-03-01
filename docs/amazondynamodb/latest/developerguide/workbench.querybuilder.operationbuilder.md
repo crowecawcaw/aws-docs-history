@@ -1,6 +1,4 @@
-# Building API
-
-operations
+# Building API operations
 
 To use NoSQL Workbench to build DynamoDB CRUD APIs, select **Operation
 builder** from the left of the NoSQL Workbench user interface.
@@ -27,9 +25,7 @@ You can perform the following operations in the operation builder.
 - [Transact Get Items](#workbench.querybuilder.operationbuilder.transactget "#workbench.querybuilder.operationbuilder.transactget")
 - [Transact Write Items](#workbench.querybuilder.operationbuilder.transactwrite "#workbench.querybuilder.operationbuilder.transactwrite")
 
-## Delete
-
-table
+## Delete table
 
 To run a `Delete Table` operation, do the following.
 
@@ -42,9 +38,7 @@ To run a `Delete Table` operation, do the following.
 For more information about this operation, see [Delete
 table](../APIReference/API_DeleteTable.md "../APIReference/API_DeleteTable.md") in the _Amazon DynamoDB API Reference_.
 
-## Delete
-
-GSI
+## Delete GSI
 
 To run a `Delete GSI` operation, do the following.
 
@@ -57,9 +51,7 @@ To run a `Delete GSI` operation, do the following.
 For more information about this operation, see [Delete
 table](../APIReference/API_DeleteTable.md "../APIReference/API_DeleteTable.md") in the _Amazon DynamoDB API Reference_.
 
-## Create
-
-table
+## Create table
 
 To run a `Create Table` operation, do the following.
 
@@ -89,9 +81,7 @@ To run a `Create Table` operation, do the following.
 For more information about this operation, see [Create
 table](../APIReference/API_CreateTable.md "../APIReference/API_CreateTable.md") in the _Amazon DynamoDB API Reference_.
 
-## Create
-
-GSI
+## Create GSI
 
 To run a `Create GSI` operation, do the following.
 
@@ -108,9 +98,7 @@ To run a `Create GSI` operation, do the following.
 For more information about this operation, see [Create
 table](../APIReference/API_CreateTable.md "../APIReference/API_CreateTable.md") in the _Amazon DynamoDB API Reference_.
 
-## Update
-
-table
+## Update table
 
 To update capacity settings for a table with an `Update Table`
 operation, do the following.
@@ -128,9 +116,7 @@ enable or disable auto scaling. 4. Select **Update**.
 For more information about this operation, see [Update
 table](../APIReference/API_UpdateTable.md "../APIReference/API_UpdateTable.md") in the _Amazon DynamoDB API Reference_.
 
-## Update
-
-GSI
+## Update GSI
 
 To update capacity settings for a GSI with an `Update Table`
 operation, do the following.
@@ -192,9 +178,7 @@ operation and choose **Save**.
 For more information about this operation, see [PutItem](../APIReference/API_PutItem.md "../APIReference/API_PutItem.md") in
 the _Amazon DynamoDB API Reference_.
 
-## Update
-
-item
+## Update item
 
 To run or generate code for an `Update Item` operation, do the
 following:
@@ -225,9 +209,7 @@ operation and choose **Save**.
 
 For more information about this operation, see [UpdateItem](../APIReference/API_UpdateItem.md "../APIReference/API_UpdateItem.md") in the _Amazon DynamoDB API Reference_.
 
-## Delete
-
-item
+## Delete item
 
 To run a `Delete Item` operation, do the following.
 
@@ -239,9 +221,7 @@ To run a `Delete Item` operation, do the following.
 
 For more information about this operation, see [DeleteItem](../APIReference/API_DeleteItem.md "../APIReference/API_DeleteItem.md") in the _Amazon DynamoDB API Reference_.
 
-## Duplicate
-
-item
+## Duplicate item
 
 You can duplicate an item by creating a new item with the same attributes. To
 duplicate an item, do the following.
@@ -359,13 +339,11 @@ the following.
     that you want to perform.
 
         * For `DeleteItem`, follow the instructions for the
-         [Delete
-         item](#workbench.querybuilder.operationbuilder.Delete "#workbench.querybuilder.operationbuilder.Delete") operation.
+         [Delete item](#workbench.querybuilder.operationbuilder.Delete "#workbench.querybuilder.operationbuilder.Delete") operation.
         * For `PutItem`, follow the instructions for the
          [Put item](#workbench.querybuilder.operationbuilder.Put "#workbench.querybuilder.operationbuilder.Put") operation.
         * For `UpdateItem`, follow the instructions for the
-         [Update
-         item](#workbench.querybuilder.operationbuilder.update "#workbench.querybuilder.operationbuilder.update") operation.
+         [Update item](#workbench.querybuilder.operationbuilder.update "#workbench.querybuilder.operationbuilder.update") operation.
 
     To change the order of actions, choose an action in the list on the
     left side, and then choose the up or down arrows to move it up or down

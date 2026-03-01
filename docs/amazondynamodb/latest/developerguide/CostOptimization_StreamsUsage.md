@@ -13,16 +13,11 @@ You have two native streaming integrations for streaming and event-driven use ca
 
 ###### Topics
 
-- [Optimizing costs for DynamoDB
-  Streams](#CostOptimization_StreamsUsage_Options_DDBStreams "#CostOptimization_StreamsUsage_Options_DDBStreams")
-- [Optimizing costs for Kinesis Data
-  Streams](#CostOptimization_StreamsUsage_Options_KDS "#CostOptimization_StreamsUsage_Options_KDS")
-- [Cost optimization strategies
-  for both types of Streams usage](#CostOptimization_StreamsUsage_GuidanceForBoth "#CostOptimization_StreamsUsage_GuidanceForBoth")
+- [Optimizing costs for DynamoDB Streams](#CostOptimization_StreamsUsage_Options_DDBStreams "#CostOptimization_StreamsUsage_Options_DDBStreams")
+- [Optimizing costs for Kinesis Data Streams](#CostOptimization_StreamsUsage_Options_KDS "#CostOptimization_StreamsUsage_Options_KDS")
+- [Cost optimization strategies for both types of Streams usage](#CostOptimization_StreamsUsage_GuidanceForBoth "#CostOptimization_StreamsUsage_GuidanceForBoth")
 
-## Optimizing costs for DynamoDB
-
-Streams
+## Optimizing costs for DynamoDB Streams
 
 As mentioned in the [pricing
 page](https://aws.amazon.com/dynamodb/pricing/on-demand/ "https://aws.amazon.com/dynamodb/pricing/on-demand/") for DynamoDB Streams, regardless of the table’s throughput capacity mode, DynamoDB
@@ -90,9 +85,7 @@ near real-time processing is not required, this parameter could be increased to 
 consumer application make fewer `GetRecords` calls and optimize on DynamoDB Streams
 calls.
 
-## Optimizing costs for Kinesis Data
-
-Streams
+## Optimizing costs for Kinesis Data Streams
 
 When a Kinesis Data Stream is set as the destination to deliver change data capture events
 for a DynamoDB table, the Kinesis Data Stream may need separate sizing management which will
@@ -118,8 +111,7 @@ Streams capacity, or by dependent components like a AWS KMS service that may be 
 encrypt the Kinesis Data Stream data at rest.
 
 To learn more about CloudWatch metrics published by DynamoDB service for the Kinesis Data Stream,
-see [Monitoring change data capture
-with Kinesis Data Streams](kds_using-shards-and-metrics.md#kds_using-shards-and-metrics.monitoring "kds_using-shards-and-metrics.md#kds_using-shards-and-metrics.monitoring"). In order to avoid additional
+see [Monitoring change data capture with Kinesis Data Streams](kds_using-shards-and-metrics.md#kds_using-shards-and-metrics.monitoring "kds_using-shards-and-metrics.md#kds_using-shards-and-metrics.monitoring"). In order to avoid additional
 costs of service retries due to throttles, it is important to right size the Kinesis Data
 Stream in case of Provisioned Mode.
 
@@ -154,9 +146,7 @@ provisioned mode Kinesis Data Streams, reads are not charged if the data is less
 old. In the case of Lambda functions as Kinesis Data Streams consumers, Lambda polls each
 shard in your Kinesis Stream for records at a base rate of once per second.
 
-## Cost optimization strategies
-
-for both types of Streams usage
+## Cost optimization strategies for both types of Streams usage
 
 ###### Event filtering for AWS Lambda consumers
 

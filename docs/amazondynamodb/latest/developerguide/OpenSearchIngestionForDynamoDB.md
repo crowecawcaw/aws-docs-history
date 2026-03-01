@@ -1,6 +1,4 @@
-# DynamoDB zero-ETL integration with
-
-Amazon OpenSearch Service
+# DynamoDB zero-ETL integration with Amazon OpenSearch Service
 
 Amazon DynamoDB offers a zero-ETL integration with Amazon OpenSearch Service through the **DynamoDB plugin for OpenSearch Ingestion**. Amazon OpenSearch Ingestion offers a
 fully managed, no-code experience for ingesting data into Amazon OpenSearch Service.
@@ -53,9 +51,7 @@ due to the dropped events unless they were in the dead-letter queue.
 For all the settings and details for the plugin, see [OpenSearch
 Ingestion DynamoDB plugin documentation](../../../opensearch-service/latest/developerguide/configure-client-ddb.md "../../../opensearch-service/latest/developerguide/configure-client-ddb.md").
 
-## Integrated create experience through
-
-the console
+## Integrated create experience through the console
 
 DynamoDB and OpenSearch Service have an integrated experience in the AWS Management Console, which streamlines the
 getting started process. When you go through these steps, the service will automatically

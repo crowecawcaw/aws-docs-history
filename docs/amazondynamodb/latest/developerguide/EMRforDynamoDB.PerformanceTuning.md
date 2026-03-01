@@ -1,6 +1,4 @@
-# DynamoDB provisioned
-
-throughput
+# DynamoDB provisioned throughput
 
 When you issue HiveQL statements against the external DynamoDB table, the
 `DynamoDBStorageHandler` class makes the appropriate low-level DynamoDB
@@ -36,9 +34,7 @@ in the DynamoDB console, choose your table and then choose the
 **Metrics** tab. From here, you can view read and write
 capacity units consumed and read and write requests that have been throttled.
 
-## Read
-
-capacity
+## Read capacity
 
 Amazon EMR manages the request load against your DynamoDB table, according to the
 table's provisioned throughput settings. However, if you notice a large number
@@ -117,5 +113,4 @@ To determine the number of mappers for Amazon EMR node types, see [Task
 Configuration](../../../emr/latest/ReleaseGuide/emr-hadoop-task-config.md "../../../emr/latest/ReleaseGuide/emr-hadoop-task-config.md") in the _Amazon EMR Developer
 Guide_.
 
-For more information on mappers, see [Adjusting the
-mappers](EMRforDynamoDB.PerformanceTuning.md "EMRforDynamoDB.PerformanceTuning.md").
+For more information on mappers, see [Adjusting the mappers](EMRforDynamoDB.PerformanceTuning.md "EMRforDynamoDB.PerformanceTuning.md").

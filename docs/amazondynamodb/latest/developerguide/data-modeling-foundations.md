@@ -5,9 +5,7 @@ single table and multiple table.
 
 ![Image showing the conceptual relationship between the data, the blocks that sit under them, and then the foundation that sits under the blocks. Emphasis on the foundation.](images/DataModeling/SchemaDesignFoundation.png)
 
-## Single table design
-
-foundation
+## Single table design foundation
 
 One choice for the foundation of our DynamoDB schema is **single
 table design**. Single table design is a pattern that allows you to store
@@ -79,9 +77,7 @@ types together or need to maintain relationships between different data types. I
 particularly effective when your access patterns benefit from data locality and when you
 want to minimize the overhead of managing multiple tables.
 
-## Multiple table design
-
-foundation
+## Multiple table design foundation
 
 The second choice for the foundation of our DynamoDB schema is multiple table
 design. Multiple table design is a pattern that is more like

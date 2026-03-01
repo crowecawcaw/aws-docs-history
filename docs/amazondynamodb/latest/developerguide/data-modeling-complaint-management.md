@@ -1,10 +1,6 @@
-# Complaint management system schema
+# Complaint management system schema design in DynamoDB
 
-design in DynamoDB
-
-## Complaint management system
-
-business use case
+## Complaint management system business use case
 
 DynamoDB is a database well-suited for a complaint management system (or contact center)
 use case as most access patterns associated with them would be key-value based
@@ -23,9 +19,7 @@ queries to find complaint distribution by severity (or agent performance) per we
 additional requirement related to lifecycle management or compliance would be to archive
 complaint data after three years of logging the complaint.
 
-## Complaint management system
-
-architecture diagram
+## Complaint management system architecture diagram
 
 The following diagram shows the architecture diagram of the complaint management system. This diagram shows the different AWS service integrations that the complaint management system uses.
 
@@ -95,18 +89,14 @@ requirement is as follows:
 
 ![Workflow to archive old data in an Amazon S3 bucket using the TTL feature and DynamoDB Streams.](images/DataModeling/ComplaintManagement-5-Workflow3.jpg)
 
-## Complaint management system
-
-entity relationship diagram
+## Complaint management system entity relationship diagram
 
 This is the entity relationship diagram (ERD) we'll be using for the complaint
 management system schema design.
 
 ![Complaint management system ERD that shows the entities Customer, Complaint, Comment, and Agent.](images/DataModeling/ComplaintManagement-6-ERD.jpg)
 
-## Complaint
-
-management system access patterns
+## Complaint management system access patterns
 
 These are the access patterns we'll be considering for the complaint management schema
 design.
@@ -125,9 +115,7 @@ design.
 12. getEscalatedComplaintsByAgentID (order from newest to oldest)
 13. getCommentsByAgentID (between two dates)
 
-## Complaint
-
-management system schema design evolution
+## Complaint management system schema design evolution
 
 Since this is a complaint management system, most access patterns revolve around a
 complaint as the primary entity. The `ComplaintID` being highly cardinal will
@@ -327,9 +315,7 @@ table below:
 | getEscalatedComplaintsByAgentID (order from newest to oldest) | Escalations_GSI        | Query              | escalated_to=agent_id   | N/A                                    | scan_index_forward=False          |
 | getCommentsByAgentID (between two dates)                      | Agents_Comments_GSI    | Query              | agent_id=agent_id       | SK between (date1, date2)              |                                   |
 
-## Complaint management
-
-system final schema
+## Complaint management system final schema
 
 Here are the final schema designs. To download this schema design as a JSON file, see
 [DynamoDB Examples](https://github.com/aws-samples/aws-dynamodb-examples/blob/master/schema_design/SchemaExamples/ComplainManagement/ComplaintManagementSchema.json "https://github.com/aws-samples/aws-dynamodb-examples/blob/master/schema_design/SchemaExamples/ComplainManagement/ComplaintManagementSchema.json") on GitHub.
@@ -350,9 +336,7 @@ Here are the final schema designs. To download this schema design as a JSON file
 
 ![GSI design showing comments made by a given agent.](images/DataModeling/ComplaintManagement-23-Comments_GSI.png)
 
-## Using NoSQL Workbench
-
-with this schema design
+## Using NoSQL Workbench with this schema design
 
 You can import this final schema into [NoSQL
 Workbench](workbench.md "workbench.md"), a visual tool that provides data modeling, data visualization, and

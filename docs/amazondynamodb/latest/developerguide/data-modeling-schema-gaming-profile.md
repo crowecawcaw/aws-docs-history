@@ -1,10 +1,6 @@
-# Gaming profile schema design in
+# Gaming profile schema design in DynamoDB
 
-DynamoDB
-
-## Gaming profile business
-
-use case
+## Gaming profile business use case
 
 This use case talks about using DynamoDB to store player profiles for a gaming system.
 Users (in this case, players) need to create profiles before they can interact with many
@@ -35,18 +31,14 @@ depend various on factors such as: number of players, number of games played per
 and seasonality of the workload. Typically for a newly launched game, the number of
 players and the level of popularity are unknown so we will start with the [on-demand throughput mode](capacity-mode.md#capacity-mode-on-demand "capacity-mode.md#capacity-mode-on-demand").
 
-## Gaming profile entity
-
-relationship diagram
+## Gaming profile entity relationship diagram
 
 This is the entity relationship diagram (ERD) we'll be using for the gaming profile
 schema design.
 
 ![ER diagram for a gaming profile, showing relationships between entities, such as User, Game, and Score.](images/DataModeling/GamingProfileERD.png)
 
-## Gaming profile
-
-access patterns
+## Gaming profile access patterns
 
 These are the access patterns we'll be considering for the social network schema
 design.
@@ -58,9 +50,7 @@ design.
 - `updateCharacterAttributes`
 - `updateItemCount`
 
-## Gaming profile
-
-schema design evolution
+## Gaming profile schema design evolution
 
 From the above ERD, we can see that this is a one-to-many relationship type of data
 modeling. In DynamoDB, one-to-many data models can be organized into item collections,
@@ -198,9 +188,7 @@ table below:
 | updateCharacterAttributes | Base table         | UpdateItem | PK=PlayerID         | SK=“#METADATA#playerID” | UpdateExpression: "SET currency = currency<br>• :amount"<br>ConditionExpression: "currency >= :minAmount"       |
 | updateItemCount           | Base table         | UpdateItem | PK=PlayerID         | SK =“ITEMS#ItemID”      | update-expression: "SET ItemCount = ItemCount<br>• :incr"<br>expression-attribute-values: '{":incr":{"N":"1"}}' |
 
-## Gaming profile final
-
-schema
+## Gaming profile final schema
 
 Here is the final schema design. To download this schema design as a JSON file, see
 [DynamoDB Examples](https://github.com/aws-samples/aws-dynamodb-examples/blob/master/schema_design/SchemaExamples/GamingPlayerProfiles/GamePlayerProfilesSchema.json "https://github.com/aws-samples/aws-dynamodb-examples/blob/master/schema_design/SchemaExamples/GamingPlayerProfiles/GamePlayerProfilesSchema.json") on GitHub.
@@ -209,9 +197,7 @@ Here is the final schema design. To download this schema design as a JSON file, 
 
 ![Final schema design of a table that contains results of the preceding access pattern implementations.](images/DataModeling/GamingProfile6-FinalSchema.png)
 
-## Using NoSQL Workbench with
-
-this schema design
+## Using NoSQL Workbench with this schema design
 
 You can import this final schema into [NoSQL
 Workbench](workbench.md "workbench.md"), a visual tool that provides data modeling, data visualization, and

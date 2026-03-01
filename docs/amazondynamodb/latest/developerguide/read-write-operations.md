@@ -7,14 +7,10 @@ explains capacity unit consumption for these two operations.
 
 ###### Topics
 
-- [Capacity unit consumption for read
-  operations](#read-operation-consumption "#read-operation-consumption")
-- [Capacity unit consumption for write
-  operations](#write-operation-consumption "#write-operation-consumption")
+- [Capacity unit consumption for read operations](#read-operation-consumption "#read-operation-consumption")
+- [Capacity unit consumption for write operations](#write-operation-consumption "#write-operation-consumption")
 
-## Capacity unit consumption for read
-
-operations
+## Capacity unit consumption for read operations
 
 DynamoDB read requests can be either strongly consistent, eventually consistent, or
 transactional.
@@ -88,9 +84,7 @@ attribute values. Getting the count of items uses the same quantity of read unit
 and is subject to the same item size calculations. This is because DynamoDB has to read
 each item in order to increment the count.
 
-## Capacity unit consumption for write
-
-operations
+## Capacity unit consumption for write operations
 
 One write unit represents one write for an item up to 1 KB in size. If you need to
 write an item that is larger than 1 KB, DynamoDB needs to consume additional write

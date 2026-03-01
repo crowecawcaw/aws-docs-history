@@ -44,9 +44,7 @@ re-create the cluster to enable encryption at rest if it was not enabled at crea
 DAX encryption at rest is offered at no additional cost (AWS KMS encryption key usage
 charges apply). For information about pricing, see [Amazon DynamoDB pricing](https://aws.amazon.com/dynamodb/pricing "https://aws.amazon.com/dynamodb/pricing").
 
-## Enabling encryption at rest using the
-
-AWS Management Console
+## Enabling encryption at rest using the AWS Management Console
 
 Follow these steps to enable DAX encryption at rest on a table using the
 console.

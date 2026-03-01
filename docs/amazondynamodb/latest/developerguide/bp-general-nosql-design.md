@@ -7,15 +7,12 @@ and specific design approaches.
 
 ###### Topics
 
-- [Differences between relational data
-  design and NoSQL](#bp-general-nosql-design-vs-relational "#bp-general-nosql-design-vs-relational")
+- [Differences between relational data design and NoSQL](#bp-general-nosql-design-vs-relational "#bp-general-nosql-design-vs-relational")
 - [Two key concepts for NoSQL design](#bp-general-nosql-design-concepts "#bp-general-nosql-design-concepts")
 - [Approaching NoSQL design](#bp-general-nosql-design-approach "#bp-general-nosql-design-approach")
 - [NoSQL Workbench for DynamoDB](#bp-general-nosql-workbench "#bp-general-nosql-workbench")
 
-## Differences between relational data
-
-design and NoSQL
+## Differences between relational data design and NoSQL
 
 Relational database systems (RDBMS) and NoSQL databases have different strengths and
 weaknesses:

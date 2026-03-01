@@ -28,8 +28,7 @@ The idea is to allocate the required resources for the current period that will 
 the highest volume of traffic and scale down provisioning for older tables that are not used
 actively, therefore saving costs. Depending on your business needs, you might consider write
 sharding to distribute traffic evenly to the logical partition key. For more information, see
-[Using write sharding to distribute workloads
-evenly in your DynamoDB table](bp-partition-key-sharding.md "bp-partition-key-sharding.md").
+[Using write sharding to distribute workloads evenly in your DynamoDB table](bp-partition-key-sharding.md "bp-partition-key-sharding.md").
 
 ## Time series table examples
 

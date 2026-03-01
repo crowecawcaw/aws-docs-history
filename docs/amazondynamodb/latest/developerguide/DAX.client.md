@@ -1,76 +1,140 @@
-# Step 1: Launch an Amazon EC2
+# Step 2: Create a user and policy
 
-instance
+In this step, you create a user with a policy that grants access to your Amazon
+DynamoDB Accelerator (DAX) cluster and to DynamoDB using AWS Identity and Access Management. You can then run applications
+that interact with your DAX cluster.
 
-When your Amazon DynamoDB Accelerator (DAX) cluster is available, you can launch an Amazon EC2
-instance in your default Amazon Virtual Private Cloud (Amazon VPC). You can then install and run DAX client
-software on that instance.
+## Sign up for an AWS account
 
-###### To launch an EC2 instance
+If you do not have an AWS account, complete the following steps to create one.
 
-1. Sign in to the AWS Management Console and open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. Choose **Launch Instance**, and do the following:
+###### To sign up for an AWS account
 
-**Step 1: Choose an Amazon Machine Image
-(AMI)**
+1. Open [https://portal.aws.amazon.com/billing/signup](https://portal.aws.amazon.com/billing/signup "https://portal.aws.amazon.com/billing/signup").
+2. Follow the online instructions.
 
-    1. In the list of AMIs, find the **Amazon Linux AMI**,
-     and choose **Select**.
+Part of the sign-up procedure involves receiving a phone call or text message and entering
+a verification code on the phone keypad.
 
-**Step 2: Choose an Instance Type**
+When you sign up for an AWS account, an _AWS account root user_ is created. The root user has access to all AWS services
+and resources in the account. As a security best practice, assign administrative access to a user, and use only the root user to perform [tasks that require root user access](../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks "../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks").
 
-    1. In the list of instance types, choose
-     **t2.micro**.
-    2. Choose **Next: Configure Instance Details**.
+AWS sends you a confirmation email after the sign-up process is
+complete. At any time, you can view your current account activity and manage your account by
+going to [https://aws.amazon.com/](https://aws.amazon.com/ "https://aws.amazon.com/") and choosing **My
+Account**.
 
-**Step 3: Configure Instance Details**
+## Create a user with administrative access
 
-    1. For **Network**, choose your default VPC.
-    2. Choose **Next: Add Storage**.
+After you sign up for an AWS account, secure your AWS account root user, enable AWS IAM Identity Center, and create an administrative user so that you
+don't use the root user for everyday tasks.
 
-**Step 4: Add Storage**
+###### Secure your AWS account root user
 
-    1. Skip this step by choosing **Next: Add Tags**.
+1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/") as the account owner by choosing **Root user** and entering your AWS account email address. On the next page, enter your password.
 
-**Step 5: Add Tags**
+For help signing in by using root user, see [Signing in as the root user](../../../signin/latest/userguide/console-sign-in-tutorials.md#introduction-to-root-user-sign-in-tutorial "../../../signin/latest/userguide/console-sign-in-tutorials.md#introduction-to-root-user-sign-in-tutorial") in the _AWS Sign-In User Guide_. 2. Turn on multi-factor authentication (MFA) for your root user.
 
-    1. Skip this step by choosing **Next: Configure Security
-     Group**.
+For instructions, see [Enable a virtual MFA device for your AWS account root user (console)](../../../IAM/latest/UserGuide/enable-virt-mfa-for-root.md "../../../IAM/latest/UserGuide/enable-virt-mfa-for-root.md") in the _IAM User Guide_.
 
-**Step 6: Configure Security Group**
+###### Create a user with administrative access
 
-    1. Choose **Select an existing security group**.
-    2. In the list of security groups, choose **default**.
-     This is the default security group for your VPC.
-    3. Choose **Next: Review and Launch**.
+1. Enable IAM Identity Center.
 
-**Step 7: Review Instance Launch**
+For instructions, see [Enabling
+AWS IAM Identity Center](../../../singlesignon/latest/userguide/get-set-up-for-idc.md "../../../singlesignon/latest/userguide/get-set-up-for-idc.md") in the
+_AWS IAM Identity Center User Guide_. 2. In IAM Identity Center, grant administrative access to a user.
 
-    1. Choose **Launch**.
+For a tutorial about using the IAM Identity Center directory as your identity source, see [Configure user access with the default IAM Identity Center directory](../../../singlesignon/latest/userguide/quick-start-default-idc.md "../../../singlesignon/latest/userguide/quick-start-default-idc.md") in the
+_AWS IAM Identity Center User Guide_.
 
-3. In the **Select an existing key pair or create a new key
-   pair** window, do one of the following:
-   - If you don't have an Amazon EC2 key pair, choose **Create a new key
-     pair** and follow the instructions. You are asked to
-     download a private key file (`.pem` file). You need
-     this file later when you log in to your Amazon EC2 instance.
-   - If you already have an existing Amazon EC2 key pair, go to **Select a key pair** and choose your key pair from the list.
-     You must already have the private key file (`.pem`
-     file) available in order to log in to your Amazon EC2 instance.
+###### Sign in as the user with administrative access
 
-4. After configuring your key pair, choose **Launch
-   Instances**.
-5. In the console navigation pane, choose **EC2 Dashboard**, and
-   then choose the instance that you launched. In the lower pane, on the
-   **Description** tab, find the **Public
-   DNS** for your instance, for example:
-   `ec2-11-22-33-44.us-west-2.compute.amazonaws.com`. Make a note of
-   this public DNS name because you need it for [Step 3: Configure an Amazon EC2
-   instance](DAX.client.md "DAX.client.md").
+- To sign in with your IAM Identity Center user, use the sign-in URL that was sent to your email address when you created the IAM Identity Center user.
+
+For help signing in using an IAM Identity Center user, see [Signing in to the AWS access portal](../../../signin/latest/userguide/iam-id-center-sign-in-tutorial.md "../../../signin/latest/userguide/iam-id-center-sign-in-tutorial.md") in the _AWS Sign-In User Guide_.
+
+###### Assign access to additional users
+
+1. In IAM Identity Center, create a permission set that follows the best practice of applying least-privilege permissions.
+
+For instructions, see [Create a permission set](../../../singlesignon/latest/userguide/get-started-create-a-permission-set.md "../../../singlesignon/latest/userguide/get-started-create-a-permission-set.md") in the _AWS IAM Identity Center User Guide_. 2. Assign users to a group, and then assign single sign-on access to the group.
+
+For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgroups.md "../../../singlesignon/latest/userguide/addgroups.md") in the _AWS IAM Identity Center User Guide_.
+
+To provide access, add permissions to your users, groups, or roles:
+
+- Users and groups in AWS IAM Identity Center:
+
+Create a permission set. Follow the instructions in [Create a permission set](../../../singlesignon/latest/userguide/howtocreatepermissionset.md "../../../singlesignon/latest/userguide/howtocreatepermissionset.md") in the _AWS IAM Identity Center User Guide_.
+
+- Users managed in IAM through an identity provider:
+
+Create a role for identity federation. Follow the instructions in [Create a role for a third-party identity provider (federation)](../../../IAM/latest/UserGuide/id_roles_create_for-idp.md "../../../IAM/latest/UserGuide/id_roles_create_for-idp.md")
+in the _IAM User Guide_.
+
+- IAM users:
+  - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
+  - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
+
+###### To use the JSON policy editor to create a policy
+
+1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+2. In the navigation pane on the left, choose **Policies**.
+
+If this is your first time choosing **Policies**, the
+**Welcome to Managed Policies** page appears. Choose **Get
+Started**. 3. At the top of the page, choose **Create policy**. 4. In the **Policy editor** section, choose the
+**JSON** option. 5. Enter or paste a JSON policy document. For details about the IAM policy language, see
+[IAM JSON policy reference](../../../IAM/latest/UserGuide/reference_policies.md "../../../IAM/latest/UserGuide/reference_policies.md"). 6. Resolve any security warnings, errors, or general warnings generated during [policy validation](../../../IAM/latest/UserGuide/access_policies_policy-validator.md "../../../IAM/latest/UserGuide/access_policies_policy-validator.md"), and then choose **Next**.
 
 ###### Note
 
-It takes a few minutes for your Amazon EC2 instance to become available. In the
-meantime, proceed to [Step 2: Create a user and policy](DAX.client.md "DAX.client.md") and follow the instructions
-there.
+You can switch between the **Visual** and **JSON**
+editor options anytime. However, if you make changes or choose **Next**
+in the **Visual** editor, IAM might restructure your policy to
+optimize it for the visual editor. For more information, see [Policy restructuring](../../../IAM/latest/UserGuide/troubleshoot_policies.md#troubleshoot_viseditor-restructure "../../../IAM/latest/UserGuide/troubleshoot_policies.md#troubleshoot_viseditor-restructure")
+in the _IAM User Guide_. 7. (Optional) When you create or edit a policy in the AWS Management Console, you can generate a JSON
+or YAML policy template that you can use in CloudFormation templates.
+
+To do this, in the **Policy editor** choose
+**Actions**, and then choose **Generate CloudFormation
+template**. To learn more about CloudFormation, see [AWS Identity and Access Management resource type reference](../../../AWSCloudFormation/latest/UserGuide/AWS_IAM.md "../../../AWSCloudFormation/latest/UserGuide/AWS_IAM.md") in the
+_AWS CloudFormation User Guide_. 8. When you are finished adding permissions to the policy, choose
+**Next**. 9. On the **Review and create** page, enter a **Policy
+name** and a **Description** (optional) for the policy that
+you are creating. Review **Permissions defined in this policy** to see
+the permissions that are granted by your policy. 10. (Optional) Add metadata to the policy by attaching tags as key-value pairs. For more
+information about using tags in IAM, see [Tags for AWS Identity and Access Management resources](../../../IAM/latest/UserGuide/id_tags.md "../../../IAM/latest/UserGuide/id_tags.md") in the _IAM User Guide_. 11. Choose **Create policy** to save your new policy.
+
+**Policy document** – Copy and paste the following document to
+create the JSON policy.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Action": [
+ "dax:*"
+ ],
+ "Effect": "Allow",
+ "Resource": [
+ "*"
+ ]
+ },
+ {
+ "Action": [
+ "dynamodb:*"
+ ],
+ "Effect": "Allow",
+ "Resource": [
+ "*"
+ ]
+ }
+ ]
+}`
+
+```

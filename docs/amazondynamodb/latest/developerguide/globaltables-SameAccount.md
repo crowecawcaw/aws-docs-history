@@ -11,10 +11,8 @@ Same-account global tables provide the following benefits:
 - Replicate DynamoDB table data automatically across your choice of AWS Regions to locate data closer to your users
 - Enable higher application availability during regional isolation or degradation
 - Use built-in conflict resolution so you can focus on your application's business logic
-- When creating a same-account global table, you can choose either [Multi-Region
-  eventual consistency (MREC)](V2globaltables_HowItWorks.md#V2globaltables_HowItWorks.consistency-modes.mrec "V2globaltables_HowItWorks.md#V2globaltables_HowItWorks.consistency-modes.mrec") or
-  [Multi-Region
-  strong consistency (MRSC)](V2globaltables_HowItWorks.md#V2globaltables_HowItWorks.consistency-modes.mrsc "V2globaltables_HowItWorks.md#V2globaltables_HowItWorks.consistency-modes.mrsc")
+- When creating a same-account global table, you can choose either [Multi-Region eventual consistency (MREC)](V2globaltables_HowItWorks.md#V2globaltables_HowItWorks.consistency-modes.mrec "V2globaltables_HowItWorks.md#V2globaltables_HowItWorks.consistency-modes.mrec") or
+  [Multi-Region strong consistency (MRSC)](V2globaltables_HowItWorks.md#V2globaltables_HowItWorks.consistency-modes.mrsc "V2globaltables_HowItWorks.md#V2globaltables_HowItWorks.consistency-modes.mrsc")
 
 ###### Topics
 

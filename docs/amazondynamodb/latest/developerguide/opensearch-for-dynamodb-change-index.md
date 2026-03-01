@@ -1,6 +1,4 @@
-# Handling breaking changes to your
-
-index
+# Handling breaking changes to your index
 
 OpenSearch can dynamically add new attributes to your index. However, after your mapping
 template has been set for a given key, you’ll need to take additional action to change it.
@@ -18,14 +16,10 @@ OpenSearch.
 ###### Topics
 
 - [How it works](#opensearch-for-dynamodb-change-index-howitworks "#opensearch-for-dynamodb-change-index-howitworks")
-- [Delete your index and reset
-  the pipeline (pipeline-centric option)](#opensearch-for-dynamodb-change-index-delete "#opensearch-for-dynamodb-change-index-delete")
-- [Recreate your index and
-  reset the pipeline (index-centric option)](#opensearch-for-dynamodb-change-index-recreate "#opensearch-for-dynamodb-change-index-recreate")
-- [Create a new index and sink
-  (online option)](#opensearch-for-dynamodb-change-index-create "#opensearch-for-dynamodb-change-index-create")
-- [Best practices for avoiding and
-  debugging type conflicts](#opensearch-for-dynamodb-change-index-bp "#opensearch-for-dynamodb-change-index-bp")
+- [Delete your index and reset the pipeline (pipeline-centric option)](#opensearch-for-dynamodb-change-index-delete "#opensearch-for-dynamodb-change-index-delete")
+- [Recreate your index and reset the pipeline (index-centric option)](#opensearch-for-dynamodb-change-index-recreate "#opensearch-for-dynamodb-change-index-recreate")
+- [Create a new index and sink (online option)](#opensearch-for-dynamodb-change-index-create "#opensearch-for-dynamodb-change-index-create")
+- [Best practices for avoiding and debugging type conflicts](#opensearch-for-dynamodb-change-index-bp "#opensearch-for-dynamodb-change-index-bp")
 
 ## How it works
 
@@ -51,9 +45,7 @@ index. See the step-by-step procedures in the sections that follow.
   after you’ve updated your pipeline. Otherwise, your index might be recreated before you
   update your settings.
 
-## Delete your index and reset
-
-the pipeline (pipeline-centric option)
+## Delete your index and reset the pipeline (pipeline-centric option)
 
 This method is often the fastest option if you’re still in development. You’ll delete
 your index in OpenSearch Service, and then [stop and
@@ -78,9 +70,7 @@ new index. 6. Confirm that the index matches your expectations in OpenSearch Ser
 After the export has completed and it resumes reading from the stream, your DynamoDB table
 data will now be available in the index.
 
-## Recreate your index and
-
-reset the pipeline (index-centric option)
+## Recreate your index and reset the pipeline (index-centric option)
 
 This method works well if you need to do a lot of iterations on the index design in
 OpenSearch Service before resuming the pipeline from DynamoDB. This can be useful for development when you
@@ -107,9 +97,7 @@ new index.
 After the export has completed and it resumes reading from the stream, you should be
 your DynamoDB table data will now be available in the index.
 
-## Create a new index and sink
-
-(online option)
+## Create a new index and sink (online option)
 
 This method works well if you need to update your mapping template but are currently
 using your index in production. This creates a brand new index, which you’ll need to move
@@ -128,9 +116,7 @@ existing pipeline to create capacity to load the new index.
 4. Stop and delete the old pipeline after validating that everything is working
    correctly.
 
-## Best practices for avoiding and
-
-debugging type conflicts
+## Best practices for avoiding and debugging type conflicts
 
 - Always use a dead-letter queue (DLQ) to make it easier to debug when there are type
   conflicts.

@@ -1,6 +1,4 @@
-# DynamoDB maximum throughput
-
-for on-demand tables
+# DynamoDB maximum throughput for on-demand tables
 
 For on-demand tables, you can optionally specify maximum read or write (or both)
 throughput per second on individual tables and associated global secondary indexes
@@ -57,14 +55,10 @@ requests can succeed where they otherwise would be throttled.
 
 ###### Topics
 
-- [Considerations when
-  using maximum throughput for on-demand mode](#consideration-use-max-throughput-ondemand "#consideration-use-max-throughput-ondemand")
-- [Request throttling
-  and CloudWatch metrics](#max-throughput-ondemand-request-throttle "#max-throughput-ondemand-request-throttle")
+- [Considerations when using maximum throughput for on-demand mode](#consideration-use-max-throughput-ondemand "#consideration-use-max-throughput-ondemand")
+- [Request throttling and CloudWatch metrics](#max-throughput-ondemand-request-throttle "#max-throughput-ondemand-request-throttle")
 
-## Considerations when
-
-using maximum throughput for on-demand mode
+## Considerations when using maximum throughput for on-demand mode
 
 When you use maximum throughput for tables in on-demand mode, the following
 considerations apply:
@@ -87,9 +81,7 @@ considerations apply:
   throughput quota that is available for any on-demand table, or
   individual global secondary index within that table.
 
-## Request throttling
-
-and CloudWatch metrics
+## Request throttling and CloudWatch metrics
 
 If your application exceeds the maximum read or write throughput you've set on
 your on-demand table, DynamoDB begins to throttle those requests. When DynamoDB

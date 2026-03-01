@@ -1,6 +1,4 @@
-# Programmatic interfaces that work with
-
-DynamoDB
+# Programmatic interfaces that work with DynamoDB
 
 Every [AWS SDK](https://aws.amazon.com/tools "https://aws.amazon.com/tools") provides one or more
 programmatic interfaces for working with Amazon DynamoDB. These interfaces range from
@@ -15,24 +13,18 @@ SDKs.)
 
 ###### Topics
 
-- [Low-level interfaces that
-  work with DynamoDB](#Programming.SDKs.Interfaces.LowLevel "#Programming.SDKs.Interfaces.LowLevel")
-- [Document interfaces that
-  work with DynamoDB](#Programming.SDKs.Interfaces.Document "#Programming.SDKs.Interfaces.Document")
-- [Object persistence
-  interfaces that work with DynamoDB](#Programming.SDKs.Interfaces.Mapper "#Programming.SDKs.Interfaces.Mapper")
+- [Low-level interfaces that work with DynamoDB](#Programming.SDKs.Interfaces.LowLevel "#Programming.SDKs.Interfaces.LowLevel")
+- [Document interfaces that work with DynamoDB](#Programming.SDKs.Interfaces.Document "#Programming.SDKs.Interfaces.Document")
+- [Object persistence interfaces that work with DynamoDB](#Programming.SDKs.Interfaces.Mapper "#Programming.SDKs.Interfaces.Mapper")
 
-## Low-level interfaces that
-
-work with DynamoDB
+## Low-level interfaces that work with DynamoDB
 
 Every language-specific AWS SDK provides a low-level interface for
 Amazon DynamoDB, with methods that closely resemble low-level DynamoDB API
 requests.
 
 In some cases, you will need to identify the data types of the attributes
-using [Data type
-descriptors](Programming.md#Programming.LowLevelAPI.DataTypeDescriptors "Programming.md#Programming.LowLevelAPI.DataTypeDescriptors"), such as
+using [Data type descriptors](Programming.md#Programming.LowLevelAPI.DataTypeDescriptors "Programming.md#Programming.LowLevelAPI.DataTypeDescriptors"), such as
 `S` for string or `N` for number.
 
 ###### Note
@@ -128,14 +120,11 @@ public class GetItem {
 
 ```
 
-## Document interfaces that
-
-work with DynamoDB
+## Document interfaces that work with DynamoDB
 
 Many AWS SDKs provide a document interface, allowing you to perform data
 plane operations (create, read, update, delete) on tables and indexes. With a
-document interface, you do not need to specify [Data type
-descriptors](Programming.md#Programming.LowLevelAPI.DataTypeDescriptors "Programming.md#Programming.LowLevelAPI.DataTypeDescriptors"). The data
+document interface, you do not need to specify [Data type descriptors](Programming.md#Programming.LowLevelAPI.DataTypeDescriptors "Programming.md#Programming.LowLevelAPI.DataTypeDescriptors"). The data
 types are implied by the semantics of the data itself. These AWS SDKs also
 provide methods to easily convert JSON documents to and from native Amazon DynamoDB
 data types.
@@ -184,9 +173,7 @@ public class MusicDocumentDemo {
 
 ```
 
-## Object persistence
-
-interfaces that work with DynamoDB
+## Object persistence interfaces that work with DynamoDB
 
 Some AWS SDKs provide an object persistence interface where you do not
 directly perform data plane operations. Instead, you create objects that
@@ -197,8 +184,7 @@ database-centric code.
 ###### Note
 
 Object persistence interfaces are available in the AWS SDKs for Java and
-.NET. For more information, see [Higher-level programming interfaces for
-DynamoDB](HigherLevelInterfaces.md "HigherLevelInterfaces.md") for DynamoDB.
+.NET. For more information, see [Higher-level programming interfaces for DynamoDB](HigherLevelInterfaces.md "HigherLevelInterfaces.md") for DynamoDB.
 
 ```
 import com.example.dynamodb.Customer;

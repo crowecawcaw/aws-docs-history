@@ -3,9 +3,7 @@
 This section describes how to use Kinesis Data Streams for Amazon DynamoDB tables with the Amazon DynamoDB console,
 the AWS Command Line Interface (AWS CLI), and the API.
 
-## Creating an active Amazon Kinesis
-
-data stream
+## Creating an active Amazon Kinesis data stream
 
 All of these examples use the `Music` DynamoDB table that was created as part
 of the [Getting
@@ -46,8 +44,7 @@ AWS CLI
 aws kinesis create-stream --stream-name samplestream --shard-count 3
 ```
 
-See [Shard management
-considerations for Kinesis Data Streams](kds_using-shards-and-metrics.md#kds_using-shards-and-metrics.shardmanagment "kds_using-shards-and-metrics.md#kds_using-shards-and-metrics.shardmanagment")
+See [Shard management considerations for Kinesis Data Streams](kds_using-shards-and-metrics.md#kds_using-shards-and-metrics.shardmanagment "kds_using-shards-and-metrics.md#kds_using-shards-and-metrics.shardmanagment")
 before setting the number of shards for the Kinesis data stream. 2. Check that the Kinesis stream is active and ready for use by using
 the [describe-stream command](../../../cli/latest/reference/kinesis/describe-stream.md "../../../cli/latest/reference/kinesis/describe-stream.md").
 
@@ -144,8 +141,7 @@ Java
 1. Follow the instructions in the Kinesis Data Streams developer guide to [create](../../../streams/latest/dev/kinesis-using-sdk-java-create-stream.md "../../../streams/latest/dev/kinesis-using-sdk-java-create-stream.md") a Kinesis data stream named
    `samplestream` using Java.
 
-See [Shard management
-considerations for Kinesis Data Streams](kds_using-shards-and-metrics.md#kds_using-shards-and-metrics.shardmanagment "kds_using-shards-and-metrics.md#kds_using-shards-and-metrics.shardmanagment")
+See [Shard management considerations for Kinesis Data Streams](kds_using-shards-and-metrics.md#kds_using-shards-and-metrics.shardmanagment "kds_using-shards-and-metrics.md#kds_using-shards-and-metrics.shardmanagment")
 before setting the number of shards for the Kinesis data stream. 2. Use the following code snippet to enable Kinesis streaming on the
 DynamoDB table. Optionally, enable streaming with a more granular
 (microsecond) precision of timestamp values returned on each record.
@@ -216,9 +212,7 @@ private Instant fetchTimestamp(JsonNode dynamoDBRecord) {
 }
 ```
 
-## Making changes to an active Amazon Kinesis
-
-data stream
+## Making changes to an active Amazon Kinesis data stream
 
 This section describes how to make changes to an active Kinesis Data Streams for DynamoDB setup by using
 the console, AWS CLI and the API.

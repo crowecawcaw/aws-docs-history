@@ -20,8 +20,7 @@ DAX and report when something is wrong:
   to a given threshold over a number of time periods. The action is a notification sent to an
   Amazon Simple Notification Service (Amazon SNS) topic or Amazon EC2 Auto Scaling policy. CloudWatch alarms do not invoke actions simply because
   they are in a particular state; the state must have changed and been maintained for a specified
-  number of periods. For more information, see [Monitoring metrics in DynamoDB with
-  Amazon CloudWatch](Monitoring-metrics-with-Amazon-CloudWatch.md "Monitoring-metrics-with-Amazon-CloudWatch.md").
+  number of periods. For more information, see [Monitoring metrics in DynamoDB with Amazon CloudWatch](Monitoring-metrics-with-Amazon-CloudWatch.md "Monitoring-metrics-with-Amazon-CloudWatch.md").
 - **Amazon CloudWatch Logs** – Monitor, store, and access your log files from AWS CloudTrail
   or other sources. For more information, see [Monitoring Log Files](../../../AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatchLogs.md") in the _Amazon CloudWatch User Guide_.
 - **Amazon CloudWatch Events** – Match events and route them to one

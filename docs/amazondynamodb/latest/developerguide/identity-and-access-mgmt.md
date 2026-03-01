@@ -8,5 +8,4 @@ additional charge.
 ###### Topics
 
 - [Identity and Access Management for Amazon DynamoDB](security-iam.md "security-iam.md")
-- [Using IAM policy conditions for fine-grained
-  access control](specifying-conditions.md "specifying-conditions.md")
+- [Using IAM policy conditions for fine-grained access control](specifying-conditions.md "specifying-conditions.md")

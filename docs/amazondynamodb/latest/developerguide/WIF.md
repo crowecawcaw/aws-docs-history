@@ -1,6 +1,4 @@
-# Writing your app to use web identity
-
-federation
+# Writing your app to use web identity federation
 
 To use web identity federation, your app must assume the IAM role that you
 created. From that point on, the app honors the access policy that you attached to
@@ -97,8 +95,7 @@ URL: https://sts.amazonaws.com/?ProviderId=www.amazon.com
         | `${graph.facebook.com:id}` | `123456789` |
         | `${accounts.google.com:sub}` | `123456789012345678901` |
 
-    For example IAM policies where these policy variables are used, see [Example policies: Using conditions for
-    fine-grained access control](specifying-conditions.md#FGAC_DDB.Examples "specifying-conditions.md#FGAC_DDB.Examples").
+    For example IAM policies where these policy variables are used, see [Example policies: Using conditions for fine-grained access control](specifying-conditions.md#FGAC_DDB.Examples "specifying-conditions.md#FGAC_DDB.Examples").
 
 For more information about how AWS STS generates temporary access credentials, see
 [Requesting Temporary

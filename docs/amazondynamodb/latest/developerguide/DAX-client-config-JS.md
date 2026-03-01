@@ -1,6 +1,4 @@
-# Default client configuration for
-
-Node.js
+# Default client configuration for Node.js
 
 When configuring the DAX JavaScript SDK client, you can customize various
 parameters to optimize performance, connection handling, and error resilience.

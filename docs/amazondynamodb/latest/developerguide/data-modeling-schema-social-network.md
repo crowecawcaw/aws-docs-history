@@ -1,10 +1,6 @@
-# Social network schema design in
+# Social network schema design in DynamoDB
 
-DynamoDB
-
-## Social network business
-
-use case
+## Social network business use case
 
 This use case talks about using DynamoDB as a social network. A social network is an
 online service that lets different users interact with each other. The social network
@@ -20,18 +16,14 @@ access patterns for this schema design are:
 - Get the like count for a given postID
 - Get the timeline for a given userID
 
-## Social network entity
-
-relationship diagram
+## Social network entity relationship diagram
 
 This is the entity relationship diagram (ERD) we'll be using for the social network
 schema design.
 
 ![ERD for a social network application that shows entities, such as User, Post, and Follower.](images/DataModeling/SocialNetworkERD.png)
 
-## Social network
-
-access patterns
+## Social network access patterns
 
 These are the access patterns we'll be considering for the social network schema
 design.
@@ -44,9 +36,7 @@ design.
 - `getLikeCountByPostID`
 - `getTimelineByUserID`
 
-## Social network
-
-schema design evolution
+## Social network schema design evolution
 
 DynamoDB is a NoSQL database, so it does not allow you to perform a join - an operation
 that combines data from multiple databases. Customers unfamiliar with DynamoDB might apply
@@ -181,9 +171,7 @@ table below:
 | getLikeCountByPostID     | Base table         | GetItem   | PK=<postID>#likecount |                |                          |
 | getTimelineByUserID      | Base table         | Query     | PK=<userID>#timeline  |                |                          |
 
-## Social network final
-
-schema
+## Social network final schema
 
 Here is the final schema design. To download this schema design as a JSON file, see
 [DynamoDB Examples](https://github.com/aws-samples/aws-dynamodb-examples/blob/master/schema_design/SchemaExamples/SocialNetwork/SocialNetworkSchema.json "https://github.com/aws-samples/aws-dynamodb-examples/blob/master/schema_design/SchemaExamples/SocialNetwork/SocialNetworkSchema.json") on GitHub.
@@ -192,9 +180,7 @@ Here is the final schema design. To download this schema design as a JSON file, 
 
 ![Final schema design of a table that contains results of the preceding Query and GetItem operations.](images/DataModeling/SocialNetwork8.png)
 
-## Using NoSQL Workbench with
-
-this schema design
+## Using NoSQL Workbench with this schema design
 
 You can import this final schema into [NoSQL
 Workbench](workbench.md "workbench.md"), a visual tool that provides data modeling, data visualization, and

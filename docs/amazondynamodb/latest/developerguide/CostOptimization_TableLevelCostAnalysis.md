@@ -12,16 +12,11 @@ tagging to perform individual table cost analysis in Cost Explorer.
 
 ###### Topics
 
-- [How to view the costs of a
-  single DynamoDB table](#CostOptimization_TableLevelCostAnalysis_ViewInfo "#CostOptimization_TableLevelCostAnalysis_ViewInfo")
-- [Cost Explorer's default
-  view](#CostOptimization_TableLevelCostAnalysis_CostExplorer "#CostOptimization_TableLevelCostAnalysis_CostExplorer")
-- [How to use and apply table
-  tags in Cost Explorer](#CostOptimization_TableLevelCostAnalysis_Tagging "#CostOptimization_TableLevelCostAnalysis_Tagging")
+- [How to view the costs of a single DynamoDB table](#CostOptimization_TableLevelCostAnalysis_ViewInfo "#CostOptimization_TableLevelCostAnalysis_ViewInfo")
+- [Cost Explorer's default view](#CostOptimization_TableLevelCostAnalysis_CostExplorer "#CostOptimization_TableLevelCostAnalysis_CostExplorer")
+- [How to use and apply table tags in Cost Explorer](#CostOptimization_TableLevelCostAnalysis_Tagging "#CostOptimization_TableLevelCostAnalysis_Tagging")
 
-## How to view the costs of a
-
-single DynamoDB table
+## How to view the costs of a single DynamoDB table
 
 Both the Amazon DynamoDB AWS Management Console and the `DescribeTable` API will show you
 information about a single table, including the primary key schema, any indexes on the table,
@@ -40,9 +35,7 @@ If the table is in on-demand capacity mode, then `DescribeTable` will not
 help estimate throughput costs, as these are billed based on actual, not provisioned usage
 in any one period.
 
-## Cost Explorer's default
-
-view
+## Cost Explorer's default view
 
 Cost Explorer's default view provides charts showing the cost of consumed resources such as
 throughput and storage. You can choose to group costs by period, such as totals by month or by
@@ -51,9 +44,7 @@ well.
 
 ![Cost Explorer's default view showing the cost of consumed resources grouped by usage type.](images/CostOptimization/CostExplorerView.png)
 
-## How to use and apply table
-
-tags in Cost Explorer
+## How to use and apply table tags in Cost Explorer
 
 By default, Cost Explorer does not provide a summary of the costs for any one specific table, as it
 will combine the costs of multiple tables into a total. However, you can use [AWS resource

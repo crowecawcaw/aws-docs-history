@@ -7,12 +7,9 @@ perform operations on Amazon DynamoDB resources.
 
 The sections in this topic cover the following:
 
-- [IAM permissions required to use the Amazon DynamoDB
-  console](#console-permissions "#console-permissions")
-- [AWS managed (predefined)
-  IAM policies for Amazon DynamoDB](#access-policy-examples-aws-managed "#access-policy-examples-aws-managed")
-- [Customer managed policy
-  examples](#access-policy-examples-for-sdk-cli "#access-policy-examples-for-sdk-cli")
+- [IAM permissions required to use the Amazon DynamoDB console](#console-permissions "#console-permissions")
+- [AWS managed (predefined) IAM policies for Amazon DynamoDB](#access-policy-examples-aws-managed "#access-policy-examples-aws-managed")
+- [Customer managed policy examples](#access-policy-examples-for-sdk-cli "#access-policy-examples-for-sdk-cli")
   The following is an example of a permissions policy.
 
 JSON
@@ -44,9 +41,7 @@ which is owned by the AWS account specified by
 Resource Name (ARN)_ in the `Resource` value specifies the
 table that the permissions apply to.
 
-## IAM permissions required to use the Amazon DynamoDB
-
-console
+## IAM permissions required to use the Amazon DynamoDB console
 
 To work with the DynamoDB console, a user must have a minimum set of permissions that
 allow the user to work with their AWS account's DynamoDB resources. In addition to
@@ -64,8 +59,7 @@ If you create an IAM policy that is more restrictive than the minimum required
 permissions, the console won't function as intended for users with that IAM policy.
 To ensure that those users can still use the DynamoDB console, also attach the
 `AmazonDynamoDBReadOnlyAccess` AWS managed policy to the user, as
-described in [AWS managed (predefined)
-IAM policies for Amazon DynamoDB](#access-policy-examples-aws-managed "#access-policy-examples-aws-managed").
+described in [AWS managed (predefined) IAM policies for Amazon DynamoDB](#access-policy-examples-aws-managed "#access-policy-examples-aws-managed").
 
 You don't need to allow minimum console permissions for users who are making calls
 only to the AWS CLI or the Amazon DynamoDB API.
@@ -76,9 +70,7 @@ If you refer to a VPC endpoint, you will also need to authorize the DescribeEndp
 for the requesting IAM principal(s) with the IAM action (dynamodb:DescribeEndpoints).
 For more information see [Required policy for endpoints](inter-network-traffic-privacy.md#inter-network-traffic-DescribeEndpoints "inter-network-traffic-privacy.md#inter-network-traffic-DescribeEndpoints").
 
-## AWS managed (predefined)
-
-IAM policies for Amazon DynamoDB
+## AWS managed (predefined) IAM policies for Amazon DynamoDB
 
 AWS addresses some common use cases by providing standalone IAM policies that
 are created and administered by AWS. These AWS managed policies grant necessary
@@ -101,15 +93,12 @@ console and searching for specific policies there.
 
 The best practice is to create custom IAM policies that grant [least-privilege](../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege "../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege") to the users, roles, or groups that require them.
 
-## Customer managed policy
-
-examples
+## Customer managed policy examples
 
 In this section, you can find policy examples that grant permissions for various
 DynamoDB actions. These policies work when you use AWS SDKs or the AWS CLI. When you
 use the console, you need to grant additional permissions that are specific to the
-console. For more information, see [IAM permissions required to use the Amazon DynamoDB
-console](#console-permissions "#console-permissions").
+console. For more information, see [IAM permissions required to use the Amazon DynamoDB console](#console-permissions "#console-permissions").
 
 ###### Note
 
@@ -118,24 +107,15 @@ fictitious account IDs and table names.
 
 Examples:
 
-- [IAM policy to grant
-  permissions to all DynamoDB actions on a table](grant-permissions-to-any-action-on-table.md "grant-permissions-to-any-action-on-table.md")
-- [IAM policy to grant read-only
-  permissions on items in a DynamoDB table](read-only-permissions-on-table-items.md "read-only-permissions-on-table-items.md")
-- [IAM policy to grant access to a
-  specific DynamoDB table and its indexes](iam-policy-specific-table-indexes.md "iam-policy-specific-table-indexes.md")
-- [IAM policy to read, write, update,
-  and delete access on a DynamoDB table](iam-policy-example-data-crud.md "iam-policy-example-data-crud.md")
-- [IAM policy to separate DynamoDB
-  environments in the same AWS account](iam-policy-separate-environments.md "iam-policy-separate-environments.md")
-- [IAM policy to
-  prevent the purchase of DynamoDB reserved capacity](iam-prevent-purchase-reserved-capacity.md "iam-prevent-purchase-reserved-capacity.md")
-- [IAM policy to grant read access for a
-  DynamoDB stream only (not for the table)](iam-policy-read-stream-only.md "iam-policy-read-stream-only.md")
-- [IAM policy to
-  allow an AWS Lambda function to access DynamoDB stream records](iam-policy-example-lamda-process-dynamodb-streams.md "iam-policy-example-lamda-process-dynamodb-streams.md")
-- [IAM policy for read and
-  write access to a DynamoDB Accelerator (DAX) cluster](iam-policy-example-read-write-dax-access.md "iam-policy-example-read-write-dax-access.md")
+- [IAM policy to grant permissions to all DynamoDB actions on a table](grant-permissions-to-any-action-on-table.md "grant-permissions-to-any-action-on-table.md")
+- [IAM policy to grant read-only permissions on items in a DynamoDB table](read-only-permissions-on-table-items.md "read-only-permissions-on-table-items.md")
+- [IAM policy to grant access to a specific DynamoDB table and its indexes](iam-policy-specific-table-indexes.md "iam-policy-specific-table-indexes.md")
+- [IAM policy to read, write, update, and delete access on a DynamoDB table](iam-policy-example-data-crud.md "iam-policy-example-data-crud.md")
+- [IAM policy to separate DynamoDB environments in the same AWS account](iam-policy-separate-environments.md "iam-policy-separate-environments.md")
+- [IAM policy to prevent the purchase of DynamoDB reserved capacity](iam-prevent-purchase-reserved-capacity.md "iam-prevent-purchase-reserved-capacity.md")
+- [IAM policy to grant read access for a DynamoDB stream only (not for the table)](iam-policy-read-stream-only.md "iam-policy-read-stream-only.md")
+- [IAM policy to allow an AWS Lambda function to access DynamoDB stream records](iam-policy-example-lamda-process-dynamodb-streams.md "iam-policy-example-lamda-process-dynamodb-streams.md")
+- [IAM policy for read and write access to a DynamoDB Accelerator (DAX) cluster](iam-policy-example-read-write-dax-access.md "iam-policy-example-read-write-dax-access.md")
 
 The _IAM User Guide_, includes
 [three additional DynamoDB

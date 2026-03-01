@@ -1,6 +1,4 @@
-# Using Global Secondary Indexes for materialized aggregation
-
-queries in DynamoDB
+# Using Global Secondary Indexes for materialized aggregation queries in DynamoDB
 
 Maintaining near real-time aggregations and key metrics on top of rapidly changing data is
 becoming increasingly valuable to businesses for making rapid decisions. For example, a music
@@ -19,8 +17,7 @@ aggregation_.
 - [Example scenario and access patterns](#bp-gsi-aggregation-scenario "#bp-gsi-aggregation-scenario")
 - [Why pre-compute aggregations](#bp-gsi-aggregation-why "#bp-gsi-aggregation-why")
 - [Table design](#bp-gsi-aggregation-table-design "#bp-gsi-aggregation-table-design")
-- [Aggregation pipeline with Streams and
-  AWS Lambda](#bp-gsi-aggregation-pipeline "#bp-gsi-aggregation-pipeline")
+- [Aggregation pipeline with Streams and AWS Lambda](#bp-gsi-aggregation-pipeline "#bp-gsi-aggregation-pipeline")
 - [Sparse GSI design](#bp-gsi-aggregation-sparse-gsi "#bp-gsi-aggregation-sparse-gsi")
 - [Querying the GSI](#bp-gsi-aggregation-querying "#bp-gsi-aggregation-querying")
 - [Considerations](#bp-gsi-aggregation-considerations "#bp-gsi-aggregation-considerations")
@@ -81,9 +78,7 @@ The following diagram shows the table layout with both item types:
 | Download record     | `song1`                | `download-abc123` | `UserID`, `Timestamp`                             |
 | Monthly aggregation | `song1`                | `2018-01`         | `Month`=`2018-01`,<br>`DownloadCount`=`1,746,992` |
 
-## Aggregation pipeline with Streams and
-
-AWS Lambda
+## Aggregation pipeline with Streams and AWS Lambda
 
 The aggregation pipeline works as follows:
 

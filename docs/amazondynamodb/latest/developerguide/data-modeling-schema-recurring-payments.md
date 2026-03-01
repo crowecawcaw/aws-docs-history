@@ -1,10 +1,6 @@
-# Recurring payments schema design in
+# Recurring payments schema design in DynamoDB
 
-DynamoDB
-
-## Recurring payments
-
-business use case
+## Recurring payments business use case
 
 This use case talks about using DynamoDB to implement a recurring payments system. The
 data model has the following entities: _accounts_,
@@ -24,18 +20,14 @@ _subscriptions_, and _receipts_. The specifics for our use case include the foll
   stored in the table and are set to expire after a period of time by using a
   [TTL](TTL.md "TTL.md") attribute
 
-## Recurring payments entity
-
-relationship diagram
+## Recurring payments entity relationship diagram
 
 This is the entity relationship diagram (ERD) we'll be using for the recurring
 payments system schema design.
 
 ![Recurring payments system ERD showing entities: Account, Subscription, and Receipt.](images/DataModeling/ReoccurringPayments-1-ERD.png)
 
-## Recurring
-
-payments system access patterns
+## Recurring payments system access patterns
 
 These are the access patterns we'll be considering for the recurring payments system
 schema design.
@@ -48,9 +40,7 @@ schema design.
 6. `getSubscriptionsByAccount`
 7. `getReceiptsByAccount`
 
-## Recurring
-
-payments schema design
+## Recurring payments schema design
 
 The generic names `PK` and `SK` are used for key attributes to
 allow storing different types of entities in the same table such as the account,
@@ -142,9 +132,7 @@ table below:
 | getSubscriptionsByAccount | Base table         | Query      | ACC#account_id      | SK begins_with “SUB#”        |
 | getReceiptsByAccount      | Base table         | Query      | ACC#account_id      | SK begins_with “REC#”        |
 
-## Recurring
-
-payments final schema
+## Recurring payments final schema
 
 Here are the final schema designs. To download this schema design as a JSON file, see
 [DynamoDB Examples](https://github.com/aws-samples/aws-dynamodb-examples/blob/master/schema_design/SchemaExamples/ReocurringPayments/ReocurringPaymentsSchema.json "https://github.com/aws-samples/aws-dynamodb-examples/blob/master/schema_design/SchemaExamples/ReocurringPayments/ReocurringPaymentsSchema.json") on GitHub.
@@ -161,9 +149,7 @@ Here are the final schema designs. To download this schema design as a JSON file
 
 ![GSI-2 schema with payment details, such as PaymentAmount and PaymentDay.](images/DataModeling/ReoccurringPayments-9-GSI2.png)
 
-## Using NoSQL Workbench
-
-with this schema design
+## Using NoSQL Workbench with this schema design
 
 You can import this final schema into [NoSQL
 Workbench](workbench.md "workbench.md"), a visual tool that provides data modeling, data visualization, and

@@ -1,6 +1,4 @@
-# 2- Provisioned
-
-throughput exceeded
+# 2- Provisioned throughput exceeded
 
 Provisioned capacity throttling occurs when your application's consumption rate exceeds
 the read or write capacity units (RCUs/WCUs) configured for your tables or global secondary
@@ -15,9 +13,7 @@ increases in consumption, but it does not respond instantly and it is constraine
 maximum capacity limits you configure. This means throttling can still occur during sudden
 traffic spikes or when consumption exceeds your maximum Auto Scaling limits.
 
-## Provisioned throughput
-
-exceeded mitigation measures
+## Provisioned throughput exceeded mitigation measures
 
 This section provides resolution guidance for provisioned capacity throttling
 scenarios. Before using this guide, ensure you have identified the specific throttling
@@ -61,8 +57,7 @@ For continuous high traffic, consider the capacity adjustment options below:
 ###### When this occurs
 
 Your application's read consumption rate exceeds the [provisioned read capacity units](../APIReference/API_ProvisionedThroughput.md#DDB-Type-ProvisionedThroughput-ReadCapacityUnits "../APIReference/API_ProvisionedThroughput.md#DDB-Type-ProvisionedThroughput-ReadCapacityUnits") (RCUs) configured for your table.
-You can monitor the CloudWatch metrics in [Common diagnosis
-and monitoring](#provisioned-capacity-exceeded-diagnosis-monitoring "#provisioned-capacity-exceeded-diagnosis-monitoring") to analyze
+You can monitor the CloudWatch metrics in [Common diagnosis and monitoring](#provisioned-capacity-exceeded-diagnosis-monitoring "#provisioned-capacity-exceeded-diagnosis-monitoring") to analyze
 your throttling event.
 
 ###### Resolution approach
@@ -90,8 +85,7 @@ Consider these strategies to resolve read capacity throttling:
 ###### When this occurs
 
 Your application's write consumption rate exceeds the [provisioned write capacity units](../APIReference/API_ProvisionedThroughput.md#DDB-Type-ProvisionedThroughput-WriteCapacityUnits "../APIReference/API_ProvisionedThroughput.md#DDB-Type-ProvisionedThroughput-WriteCapacityUnits") (WCUs) configured for your table.
-You can monitor the CloudWatch metrics in [Common diagnosis
-and monitoring](#provisioned-capacity-exceeded-diagnosis-monitoring "#provisioned-capacity-exceeded-diagnosis-monitoring") to analyze
+You can monitor the CloudWatch metrics in [Common diagnosis and monitoring](#provisioned-capacity-exceeded-diagnosis-monitoring "#provisioned-capacity-exceeded-diagnosis-monitoring") to analyze
 your throttling event.
 
 ###### Resolution approach
@@ -119,8 +113,7 @@ Consider these strategies to resolve write capacity throttling:
 ###### When this occurs
 
 Read consumption on a Global Secondary Index (GSI) exceeds the GSI's [provisioned read capacity units](../APIReference/API_ProvisionedThroughput.md#DDB-Type-ProvisionedThroughput-ReadCapacityUnits "../APIReference/API_ProvisionedThroughput.md#DDB-Type-ProvisionedThroughput-ReadCapacityUnits") (RCUs). You can monitor the CloudWatch
-metrics in [Common diagnosis
-and monitoring](#provisioned-capacity-exceeded-diagnosis-monitoring "#provisioned-capacity-exceeded-diagnosis-monitoring")
+metrics in [Common diagnosis and monitoring](#provisioned-capacity-exceeded-diagnosis-monitoring "#provisioned-capacity-exceeded-diagnosis-monitoring")
 to analyze your throttling event.
 
 ###### Resolution approach
@@ -148,8 +141,7 @@ Consider these strategies to resolve GSI read capacity throttling:
 
 Updates to items in the base table trigger writes to a GSI that exceed the
 [GSI's provisioned write capacity](../APIReference/API_ProvisionedThroughput.md#DDB-Type-ProvisionedThroughput-WriteCapacityUnits "../APIReference/API_ProvisionedThroughput.md#DDB-Type-ProvisionedThroughput-WriteCapacityUnits"). This causes [back-pressure throttling](gsi-throttling.md "gsi-throttling.md") on base table
-writes. You can monitor the CloudWatch metrics in [Common diagnosis
-and monitoring](#provisioned-capacity-exceeded-diagnosis-monitoring "#provisioned-capacity-exceeded-diagnosis-monitoring") to analyze
+writes. You can monitor the CloudWatch metrics in [Common diagnosis and monitoring](#provisioned-capacity-exceeded-diagnosis-monitoring "#provisioned-capacity-exceeded-diagnosis-monitoring") to analyze
 your throttling event.
 
 ###### Resolution approach
@@ -172,9 +164,7 @@ Consider these strategies to resolve GSI write capacity throttling:
   - [Optimize your GSI's write Auto Scaling
     parameters](#provisioned-capacity-optimize-autoscaling-settings "#provisioned-capacity-optimize-autoscaling-settings").
 
-## Common diagnosis
-
-and monitoring
+## Common diagnosis and monitoring
 
 When troubleshooting throughput errors, several CloudWatch metrics can help identify the
 root cause.
@@ -196,9 +186,7 @@ Monitor these key metrics to diagnose provisioned capacity throttling:
 
 ## Resolution procedures
 
-### Increasing
-
-table throughput capacity
+### Increasing table throughput capacity
 
 Use this procedure when Auto Scaling is not enabled and you need immediate
 capacity increase.
@@ -218,9 +206,7 @@ capacity increase.
    total account consumption remains below the [per-account throughput quotas](ServiceQuotas.md "ServiceQuotas.md") for your Region. If you're
    approaching these limits, consider [switching to on-demand capacity mode](#procedure-switch-ondemand "#procedure-switch-ondemand") instead.
 
-### Configuring table Auto
-
-Scaling to adjust the read or write capacity of your table or GSI
+### Configuring table Auto Scaling to adjust the read or write capacity of your table or GSI
 
 Configure DynamoDB [Auto Scaling](AutoScaling.md "AutoScaling.md") to automatically
 adjust read or write capacity based on traffic patterns. You can configure Auto
@@ -255,9 +241,7 @@ protection while Auto Scaling adjusts. Configure target utilization with
 adequate headroom to allow time for scaling operations and to preserve burst
 capacity for unexpected demand.
 
-### Optimizing your
-
-table's or index's read or write Auto Scaling settings
+### Optimizing your table's or index's read or write Auto Scaling settings
 
 Use this procedure when [Auto Scaling](AutoScaling.md "AutoScaling.md") is enabled
 but throttling still occurs. You can tune Auto Scaling independently for both tables
@@ -267,24 +251,19 @@ capacity units.
 - **Adjust target utilization:** Consider
   lowering the target utilization for your table or GSIs to trigger scaling
   earlier before throttling occurs. Ensure that you monitor your traffic after
-  making these adjustments. See [Configuring table Auto
-  Scaling to adjust the read or write capacity of your table or GSI](#provisioned-capacity-configure-autoscaling "#provisioned-capacity-configure-autoscaling") for more
+  making these adjustments. See [Configuring table Auto Scaling to adjust the read or write capacity of your table or GSI](#provisioned-capacity-configure-autoscaling "#provisioned-capacity-configure-autoscaling") for more
   information about capacity consumption and cost implications.
 - **Review capacity boundaries:** Ensure your
   minimum and maximum capacity settings align with your actual workload
   patterns.
 
-### Switching to on-demand capacity
-
-mode
+### Switching to on-demand capacity mode
 
 For general information about switching capacity modes, see [Considerations when switching capacity modes in DynamoDB](bp-switching-capacity-modes.md "bp-switching-capacity-modes.md"). Refer to the Service Quotas to learn
 about specific [constraints
 when switching mode](troubleshooting-throttling-diagnostics.md "troubleshooting-throttling-diagnostics.md").
 
-### Increasing
-
-GSI throughput capacity
+### Increasing GSI throughput capacity
 
 Use this procedure when Auto Scaling is not enabled on your GSI or you need
 immediate capacity increase.

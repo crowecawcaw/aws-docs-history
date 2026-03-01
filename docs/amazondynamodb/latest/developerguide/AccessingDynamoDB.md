@@ -10,8 +10,7 @@ API.
 - [Using the API](#Using.API "#Using.API")
 - [Using the NoSQL workbench for DynamoDB](#Using.Workbench "#Using.Workbench")
 - [IP address ranges](#Using.IPRanges "#Using.IPRanges")
-- [Dual-stack endpoints for Internet Protocol version 6
-  (IPv6)](#dual-stackipv4-6 "#dual-stackipv4-6")
+- [Dual-stack endpoints for Internet Protocol version 6 (IPv6)](#dual-stackipv4-6 "#dual-stackipv4-6")
 
 ## Using the console
 
@@ -40,8 +39,7 @@ such as creating a table. You can also use it to embed Amazon DynamoDB operation
 utility scripts.
 
 Before you can use the AWS CLI with DynamoDB, you must get an access key ID and secret
-access key. For more information, see [Granting programmatic
-access](SettingUp.md#SettingUp.DynamoWebService.GetCredentials "SettingUp.md#SettingUp.DynamoWebService.GetCredentials") .
+access key. For more information, see [Granting programmatic access](SettingUp.md#SettingUp.DynamoWebService.GetCredentials "SettingUp.md#SettingUp.DynamoWebService.GetCredentials").
 
 For a complete listing of all the commands available for DynamoDB in the AWS CLI, see the
 [AWS CLI command
@@ -161,7 +159,7 @@ The AWS SDKs provide broad support for DynamoDB in [Java](https://aws.amazon.com
 .
 
 Before you can use the AWS SDKs with DynamoDB, you must get an AWS access key ID and
-secret access key. For more information, see [Setting up DynamoDB (web service)](SettingUp.md "SettingUp.md") .
+secret access key. For more information, see [Setting up DynamoDB (web service)](SettingUp.md "SettingUp.md").
 
 For a high-level overview of DynamoDB application programming with the AWS SDKs, see
 [Programming with DynamoDB and the AWS SDKs](Programming.md "Programming.md").
@@ -176,7 +174,7 @@ macOS, and Linux. NoSQL Workbench is a visual development tool that provides dat
 modeling, data visualization, and query development features to help you design, create,
 query, and manage DynamoDB tables. NoSQL Workbench now includes DynamoDB local as an optional
 part of the installation process, which makes it easier to model your data in
-DynamoDB local. To learn more about DynamoDB local and its requirements, see [Setting up DynamoDB local (downloadable version)](DynamoDBLocal.md "DynamoDBLocal.md") .
+DynamoDB local. To learn more about DynamoDB local and its requirements, see [Setting up DynamoDB local (downloadable version)](DynamoDBLocal.md "DynamoDBLocal.md").
 
 ###### Note
 
@@ -197,8 +195,7 @@ develop and test queries. You can use the _operation
 builder_ to view, explore, and query live datasets. You can
 also use the structured operation builder to build and perform data plane
 operations. It supports projection and condition expression, and lets you
-generate sample code in multiple languages. For more information, see [Exploring datasets and building operations with
-NoSQL Workbench](workbench.md "workbench.md").
+generate sample code in multiple languages. For more information, see [Exploring datasets and building operations with NoSQL Workbench](workbench.md "workbench.md").
 
 ## IP address ranges
 
@@ -215,9 +212,7 @@ following string: `"service": "DYNAMODB"`.
 The IP address ranges do not apply to DynamoDB Streams or DynamoDB Accelerator
 (DAX).
 
-## Dual-stack endpoints for Internet Protocol version 6
-
-(IPv6)
+## Dual-stack endpoints for Internet Protocol version 6 (IPv6)
 
 DynamoDB offers dual-stack endpoints that are compatible with both IPv4 and IPv6. The
 endpoint naming conventions are:

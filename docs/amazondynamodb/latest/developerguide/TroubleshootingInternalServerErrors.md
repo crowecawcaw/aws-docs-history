@@ -1,6 +1,4 @@
-# Troubleshooting internal server errors in
-
-Amazon DynamoDB
+# Troubleshooting internal server errors in Amazon DynamoDB
 
 In DynamoDB, internal server errors (500 errors) indicate that the service is unable to serve
 the request. These errors can occur for various reasons, such as transient network issues in the
@@ -79,8 +77,7 @@ optimized for performance, security, and reliability.
 You should have CloudWatch alarms set on your DynamoDB tables to receive notifications for consistently high numbers of
 internal server errors instead of observing the metrics manually. This ties with the operational excellence pillar of
 the Well-Architected framework for any workload on AWS.
-See [Using the DynamoDB Well-Architected Lens to optimize your DynamoDB
-workload](bp-wal.md "bp-wal.md") to learn more about Well-Architecting
+See [Using the DynamoDB Well-Architected Lens to optimize your DynamoDB workload](bp-wal.md "bp-wal.md") to learn more about Well-Architecting
 your DynamoDB tables.
 
 These alarms use custom metric math to calculate the failed request percentage for a 5-minute window. The recommended best practice

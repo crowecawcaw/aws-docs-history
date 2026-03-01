@@ -21,14 +21,10 @@ DynamoDB supports both full export and incremental export:
 ###### Topics
 
 - [Prerequisites](#S3DataExport_Requesting_Permissions "#S3DataExport_Requesting_Permissions")
-- [Requesting an export using the
-  AWS Management Console](#S3DataExport_Requesting_Console "#S3DataExport_Requesting_Console")
-- [Getting details about past
-  exports in the AWS Management Console](#S3DataExport_Requesting_Console_Details "#S3DataExport_Requesting_Console_Details")
-- [Requesting an export using the AWS CLI and
-  AWS SDKs](#S3DataExport_Requesting_CLI "#S3DataExport_Requesting_CLI")
-- [Getting details about past exports
-  using the AWS CLI and AWS SDKs](#S3DataExport_Requesting_CLI_Details "#S3DataExport_Requesting_CLI_Details")
+- [Requesting an export using the AWS Management Console](#S3DataExport_Requesting_Console "#S3DataExport_Requesting_Console")
+- [Getting details about past exports in the AWS Management Console](#S3DataExport_Requesting_Console_Details "#S3DataExport_Requesting_Console_Details")
+- [Requesting an export using the AWS CLI and AWS SDKs](#S3DataExport_Requesting_CLI "#S3DataExport_Requesting_CLI")
+- [Getting details about past exports using the AWS CLI and AWS SDKs](#S3DataExport_Requesting_CLI_Details "#S3DataExport_Requesting_CLI_Details")
 
 ## Prerequisites
 
@@ -114,9 +110,7 @@ through the IAM User/Role that triggers the export job. For more information on
 encryption including best practices, see [How DynamoDB uses
 AWS KMS](../../../kms/latest/developerguide/services-dynamodb.md "../../../kms/latest/developerguide/services-dynamodb.md") and [Using a custom KMS key](encryption.md#managed-key-customer-managed "encryption.md#managed-key-customer-managed").
 
-## Requesting an export using the
-
-AWS Management Console
+## Requesting an export using the AWS Management Console
 
 The following example demonstrates how to use the DynamoDB console to export an existing
 table named `MusicCollection`.
@@ -225,9 +219,7 @@ transaction in your next contiguous export, without duplicates. The time periods
 for exports are based on an internal system clock and can vary by one minute of your
 application’s local clock.
 
-## Getting details about past
-
-exports in the AWS Management Console
+## Getting details about past exports in the AWS Management Console
 
 You can find information about export tasks you've run in the past by choosing the
 **Exports to S3** section in the navigation sidebar. This section
@@ -239,9 +231,7 @@ in this list, the objects in your S3 bucket remain as long as their bucket polic
 allow. DynamoDB never deletes any of the objects it creates in your S3 bucket during an
 export.
 
-## Requesting an export using the AWS CLI and
-
-AWS SDKs
+## Requesting an export using the AWS CLI and AWS SDKs
 
 The following examples show how to export an existing table to an S3 bucket.
 
@@ -483,9 +473,7 @@ client.ExportTableToPointInTime(context.TODO(), &dynamodb.ExportTableToPointInTi
 If you choose to encrypt your export using a key protected by AWS Key Management Service (AWS KMS),
 the key must be in the same Region as the destination S3 bucket.
 
-## Getting details about past exports
-
-using the AWS CLI and AWS SDKs
+## Getting details about past exports using the AWS CLI and AWS SDKs
 
 You can find information about export requests you've run in the past by using the
 `list-exports` command. This command returns a list of all exports you've

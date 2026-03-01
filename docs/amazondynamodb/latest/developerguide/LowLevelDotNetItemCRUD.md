@@ -25,15 +25,11 @@ CRUD operations.
 - [Updating an item](#UpdateItemLowLevelDotNet "#UpdateItemLowLevelDotNet")
 - [Atomic counter](#AtomicCounterLowLevelDotNet "#AtomicCounterLowLevelDotNet")
 - [Deleting an item](#DeleteMidLevelDotNet "#DeleteMidLevelDotNet")
-- [Batch write: Putting and deleting multiple
-  items](#BatchWriteLowLevelDotNet "#BatchWriteLowLevelDotNet")
+- [Batch write: Putting and deleting multiple items](#BatchWriteLowLevelDotNet "#BatchWriteLowLevelDotNet")
 - [Batch get: Getting multiple items](#BatchGetLowLevelDotNet "#BatchGetLowLevelDotNet")
-- [Example: CRUD operations using the AWS SDK for .NET
-  low-level API](LowLevelDotNetItemsExample.md "LowLevelDotNetItemsExample.md")
-- [Example: Batch operations using the
-  AWS SDK for .NET low-level API](batch-operation-lowlevel-dotnet.md "batch-operation-lowlevel-dotnet.md")
-- [Example: Handling binary type attributes
-  using the AWS SDK for .NET low-level API](LowLevelDotNetBinaryTypeExample.md "LowLevelDotNetBinaryTypeExample.md")
+- [Example: CRUD operations using the AWS SDK for .NET low-level API](LowLevelDotNetItemsExample.md "LowLevelDotNetItemsExample.md")
+- [Example: Batch operations using the AWS SDK for .NET low-level API](batch-operation-lowlevel-dotnet.md "batch-operation-lowlevel-dotnet.md")
+- [Example: Handling binary type attributes using the AWS SDK for .NET low-level API](LowLevelDotNetBinaryTypeExample.md "LowLevelDotNetBinaryTypeExample.md")
 
 ## Putting an item
 
@@ -421,9 +417,7 @@ var response = client.DeleteItem(request);
 
 For more information, see [DeleteItem](../APIReference/API_DeleteItem.md "../APIReference/API_DeleteItem.md").
 
-## Batch write: Putting and deleting multiple
-
-items
+## Batch write: Putting and deleting multiple items
 
 _Batch write_ refers to putting and deleting multiple items in a batch.
 The `BatchWriteItem` method enables you to put and delete multiple items from one
@@ -509,8 +503,7 @@ var request = new BatchWriteItemRequest
 response = client.BatchWriteItem(request);
 ```
 
-For a working example, see [Example: Batch operations using the
-AWS SDK for .NET low-level API](batch-operation-lowlevel-dotnet.md "batch-operation-lowlevel-dotnet.md").
+For a working example, see [Example: Batch operations using the AWS SDK for .NET low-level API](batch-operation-lowlevel-dotnet.md "batch-operation-lowlevel-dotnet.md").
 
 ## Batch get: Getting multiple items
 

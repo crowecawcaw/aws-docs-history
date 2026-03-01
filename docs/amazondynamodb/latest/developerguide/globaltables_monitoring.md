@@ -7,8 +7,7 @@ should be avoided for new global tables. Customers should use [Global Tables ver
 as it provides greater flexibility, higher efficiency and consumes less write capacity than
 2017.11.29 (Legacy).
 
-To determine which version you are using, see [Determining the version of a global
-table](V2globaltables_versions.md#globaltables.DetermineVersion "V2globaltables_versions.md#globaltables.DetermineVersion").
+To determine which version you are using, see [Determining the version of a global table](V2globaltables_versions.md#globaltables.DetermineVersion "V2globaltables_versions.md#globaltables.DetermineVersion").
 To update existing global tables from version 2017.11.29 (Legacy) to version 2019.11.21 (Current), see
 [DynamoDB global tables versions](V2globaltables_versions.md "V2globaltables_versions.md").
 

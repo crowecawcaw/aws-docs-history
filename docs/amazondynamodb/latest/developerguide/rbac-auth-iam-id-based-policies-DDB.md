@@ -1,6 +1,4 @@
-# Authorization with IAM identity-based
-
-policies and DynamoDB resource-based policies
+# Authorization with IAM identity-based policies and DynamoDB resource-based policies
 
 **Identity-based policies** are attached to an identity, such
 as IAM users, groups of users, and roles. These are IAM policy documents that control what
@@ -21,8 +19,7 @@ If the IAM principal is from the same account as the resource owner, a resource-
 policy is sufficient to specify access permissions to the resource. You can still choose to
 have an IAM identity-based policy along with a resource-based policy. For cross-account
 access, you must explicitly allow access in both the identity and resource policies as
-specified in [Cross-account access with resource-based policies
-in DynamoDB](rbac-cross-account-access.md "rbac-cross-account-access.md"). When you use both types of policies, a policy
+specified in [Cross-account access with resource-based policies in DynamoDB](rbac-cross-account-access.md "rbac-cross-account-access.md"). When you use both types of policies, a policy
 is evaluated as described in [Determining whether a request is allowed or denied within an account](../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md#policy-eval-denyallow "../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md#policy-eval-denyallow").
 
 ###### Important

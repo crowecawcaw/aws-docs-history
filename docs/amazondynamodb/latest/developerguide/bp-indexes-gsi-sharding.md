@@ -1,6 +1,4 @@
-# Using Global Secondary Index write sharding for
-
-selective table queries in DynamoDB
+# Using Global Secondary Index write sharding for selective table queries in DynamoDB
 
 When you need to query recent data within a specific time window, DynamoDB's requirement of providing a partition key for most read
 operations can present a challenge. To address this scenario, you can implement an effective query pattern using a combination of write

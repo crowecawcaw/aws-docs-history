@@ -82,9 +82,7 @@ JSON
 
 ```
 
-## Resource-based policy for access to perform all
-
-actions on specified resources
+## Resource-based policy for access to perform all actions on specified resources
 
 To allow a user to perform all actions on a table and all associated indexes with a
 table, you can use a wildcard (\*) to represent the actions and the resources associated with
@@ -118,9 +116,7 @@ JSON
 
 ```
 
-## Resource-based policy for cross-account
-
-access
+## Resource-based policy for cross-account access
 
 You can specify permissions for a cross-account IAM identity to access DynamoDB
 resources. For example, you might need a user from a trusted account to get access to read
@@ -224,9 +220,7 @@ aws dynamodb get-item \
     --return-consumed-capacity TOTAL
 ```
 
-## Resource-based policy with IP address
-
-conditions
+## Resource-based policy with IP address conditions
 
 You can apply a condition to restrict source IP addresses, virtual private clouds
 (VPCs), and VPC endpoint (VPCE). You can specify permissions based on the source addresses

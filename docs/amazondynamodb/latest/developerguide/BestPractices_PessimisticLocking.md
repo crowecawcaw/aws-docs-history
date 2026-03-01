@@ -1,6 +1,4 @@
-# Pessimistic locking with DynamoDB
-
-transactions
+# Pessimistic locking with DynamoDB transactions
 
 DynamoDB [transactions](transactions.md "transactions.md") provide an all-or-nothing approach
 to grouped operations. When you use `TransactWriteItems`, DynamoDB monitors all items in
@@ -9,9 +7,7 @@ transaction is canceled and DynamoDB returns a `TransactionCanceledException`. T
 behavior provides a form of pessimistic concurrency control because conflicting concurrent
 modifications are prevented rather than detected after the fact.
 
-## When to use transactions for
-
-locking
+## When to use transactions for locking
 
 Transactions are a good fit when:
 

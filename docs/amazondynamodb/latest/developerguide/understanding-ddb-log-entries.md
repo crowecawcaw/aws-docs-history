@@ -1,6 +1,4 @@
-# Understanding DynamoDB log file
-
-entries
+# Understanding DynamoDB log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3
 bucket that you specify. CloudTrail log files contain one or more log entries. An event
@@ -30,13 +28,10 @@ The following examples demonstrate CloudTrail logs of these event types:
 - [UpdateTable](#understanding-ddb-log-entries.update-table "#understanding-ddb-log-entries.update-table")
 - [DeleteTable](#understanding-ddb-log-entries.delete-table "#understanding-ddb-log-entries.delete-table")
 - [CreateCluster](#understanding-ddb-log-entries.create-cluster "#understanding-ddb-log-entries.create-cluster")
-- [PutItem
-  (Successful)](#understanding-ddb-log-entries.put-item "#understanding-ddb-log-entries.put-item")
-- [UpdateItem
-  (Unsuccessful)](#understanding-ddb-log-entries.update-item "#understanding-ddb-log-entries.update-item")
+- [PutItem (Successful)](#understanding-ddb-log-entries.put-item "#understanding-ddb-log-entries.put-item")
+- [UpdateItem (Unsuccessful)](#understanding-ddb-log-entries.update-item "#understanding-ddb-log-entries.update-item")
 - [TransactWriteItems (Successful)](#understanding-ddb-log-entries.transact-write-items "#understanding-ddb-log-entries.transact-write-items")
-- [TransactWriteItems (With
-  TransactionCanceledException)](#understanding-ddb-log-entries.transact-write-items.exception "#understanding-ddb-log-entries.transact-write-items.exception")
+- [TransactWriteItems (With TransactionCanceledException)](#understanding-ddb-log-entries.transact-write-items.exception "#understanding-ddb-log-entries.transact-write-items.exception")
 - [ExecuteStatement](#understanding-ddb-log-entries.execute-statement "#understanding-ddb-log-entries.execute-statement")
 - [BatchExecuteStatement](#understanding-ddb-log-entries.batch-execute-statement "#understanding-ddb-log-entries.batch-execute-statement")
   **DynamoDB Streams**
@@ -256,9 +251,7 @@ The following examples demonstrate CloudTrail logs of these event types:
 }
 ```
 
-## `PutItem`
-
-(Successful)
+## `PutItem` (Successful)
 
 ```
 {
@@ -325,9 +318,7 @@ The following examples demonstrate CloudTrail logs of these event types:
 }
 ```
 
-## `UpdateItem`
-
-(Unsuccessful)
+## `UpdateItem` (Unsuccessful)
 
 ```
 {
@@ -515,9 +506,7 @@ The following examples demonstrate CloudTrail logs of these event types:
 }
 ```
 
-## `TransactWriteItems` (With
-
-`TransactionCanceledException`)
+## `TransactWriteItems` (With `TransactionCanceledException`)
 
 ```
 {

@@ -126,10 +126,7 @@ JSON
 
 ```
 
-## Example: Allow PartiQL for DynamoDB
-
-non-transactional reads and writes and block PartiQL transactional reads and writes
-transactional statements on a table.
+## Example: Allow PartiQL for DynamoDB non-transactional reads and writes and block PartiQL transactional reads and writes transactional statements on a table.
 
 The following IAM policy grants permissions to run PartiQL for DynamoDB
 non-transactional reads and writes while blocking PartiQL for DynamoDB transactional reads and
@@ -177,9 +174,7 @@ JSON
 
 ```
 
-## Example: Allow select statements and
-
-deny full table scan statements in PartiQL for DynamoDB
+## Example: Allow select statements and deny full table scan statements in PartiQL for DynamoDB
 
 The following IAM policy grants permissions to run the `select`
 statement on a specific table while blocking `select` statements that result in a full table scan.

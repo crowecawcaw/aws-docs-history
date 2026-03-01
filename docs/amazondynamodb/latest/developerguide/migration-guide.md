@@ -8,21 +8,14 @@ your requirements.
 ###### Topics
 
 - [Reasons to migrate to DynamoDB](#migration-guide-reasons-to-migrate "#migration-guide-reasons-to-migrate")
-- [Considerations when migrating a relational
-  database to DynamoDB](#migration-guide-considerations "#migration-guide-considerations")
-- [Understanding how a migration to DynamoDB
-  works](#migration-guide-how-it-works "#migration-guide-how-it-works")
+- [Considerations when migrating a relational database to DynamoDB](#migration-guide-considerations "#migration-guide-considerations")
+- [Understanding how a migration to DynamoDB works](#migration-guide-how-it-works "#migration-guide-how-it-works")
 - [Tools to help migrate to DynamoDB](#migration-guide-tools "#migration-guide-tools")
-- [Choosing the appropriate strategy to migrate
-  to DynamoDB](#migration-guide-choosing-a-strategy "#migration-guide-choosing-a-strategy")
-- [Performing an offline migration to
-  DynamoDB](#migration-guide-offline-migration "#migration-guide-offline-migration")
-- [Performing a hybrid migration to
-  DynamoDB](#migration-guide-hybrid-migration "#migration-guide-hybrid-migration")
-- [Performing an online migration to DynamoDB by
-  migrating each table 1:1](#migration-guide-online-migration "#migration-guide-online-migration")
-- [Perform an online migration to DynamoDB
-  using a custom staging table](#migration-guide-online-migration-custom "#migration-guide-online-migration-custom")
+- [Choosing the appropriate strategy to migrate to DynamoDB](#migration-guide-choosing-a-strategy "#migration-guide-choosing-a-strategy")
+- [Performing an offline migration to DynamoDB](#migration-guide-offline-migration "#migration-guide-offline-migration")
+- [Performing a hybrid migration to DynamoDB](#migration-guide-hybrid-migration "#migration-guide-hybrid-migration")
+- [Performing an online migration to DynamoDB by migrating each table 1:1](#migration-guide-online-migration "#migration-guide-online-migration")
+- [Perform an online migration to DynamoDB using a custom staging table](#migration-guide-online-migration-custom "#migration-guide-online-migration-custom")
 
 ## Reasons to migrate to DynamoDB
 
@@ -70,9 +63,7 @@ migration:
   architectures, leverage infrastructure as code, and create real-time data-driven
   applications.
 
-## Considerations when migrating a relational
-
-database to DynamoDB
+## Considerations when migrating a relational database to DynamoDB
 
 Relational database systems and NoSQL databases have different strengths and weaknesses.
 These differences make database design different between the two systems.
@@ -109,16 +100,13 @@ If your application needs to store more data in an item than the DynamoDB size l
 break the item into an item collection, compress the item data, or store the item as an object
 in Amazon Simple Storage Service (Amazon S3) while storing the Amazon S3 object identifier in your DynamoDB item. See [Best practices for storing large items and attributes in DynamoDB](bp-use-s3-too.md "bp-use-s3-too.md"). The cost to update an item is based on the full size of the item.
 For workloads that require frequent updates to existing items, having small items of one or
-two KB will cost less to update than larger items. See [Item collections - how to model one-to-many
-relationships in DynamoDB](WorkingWithItemCollections.md "WorkingWithItemCollections.md") for more information on item collections.
+two KB will cost less to update than larger items. See [Item collections - how to model one-to-many relationships in DynamoDB](WorkingWithItemCollections.md "WorkingWithItemCollections.md") for more information on item collections.
 
 When choosing the partition and sort key attributes, other table settings, item size and
 structure, and whether to create secondary indexes, be sure to review the [DynamoDB Modeling documentation](../../../prescriptive-guidance/latest/dynamodb-data-modeling/welcome.md "../../../prescriptive-guidance/latest/dynamodb-data-modeling/welcome.md") as well as the guide for [Optimizing costs on DynamoDB tables](bp-cost-optimization.md "bp-cost-optimization.md"). Be sure to test your migration plan so your DynamoDB solution
 is cost efficient and fits within DynamoDB's features and limitations.
 
-## Understanding how a migration to DynamoDB
-
-works
+## Understanding how a migration to DynamoDB works
 
 Before reviewing the migration tools available to us, consider how writes are processed by
 DynamoDB.
@@ -175,9 +163,7 @@ migration code yourself to get more familiar with the behavior of DynamoDB under
 write traffic. Scenarios such as throttle handling and efficient table provisioning can be
 experienced early in the project when performing a practice migration.
 
-## Choosing the appropriate strategy to migrate
-
-to DynamoDB
+## Choosing the appropriate strategy to migrate to DynamoDB
 
 A large relational database application may span a hundred or more tables and support
 several different application functions. When approaching a large migration, consider breaking
@@ -212,9 +198,7 @@ to us given our requirements and resources available. The concepts are briefly m
 | You require a migration with minimal downtime. This is an \*_online_<br>• migration.                                                                   | • You're combining source tables into fewer DynamoDB tables following single table philosophy. For example:<br>+ You don't have backend database development skills and spare capacity on the SQL host.    | Consider the hybrid or offline migration approaches.                                                                                                                |
 | You require a migration with minimal downtime. This is an \*_online_<br>• migration.                                                                   | You're okay to skip migrating historical transaction data, or can archive it in Amazon S3 in lieu of migrating it. You just need to migrate a few small static tables.                                     | Write a script or use any ETL tool to migrate the tables. Pre-shape the source data with a SQL `VIEW` if desired.                                                   |
 
-## Performing an offline migration to
-
-DynamoDB
+## Performing an offline migration to DynamoDB
 
 Offline migrations are suitable for when you can allow a downtime window to perform the
 migration. Relational databases commonly take at least some downtime each month for
@@ -273,9 +257,7 @@ reads to continue as normal. Application users could still safely browse and que
 existing data while the relational data is being migrated. If this is what you're looking for,
 continue reading to learn about [hybrid migrations](#migration-guide-hybrid-migration "#migration-guide-hybrid-migration").
 
-## Performing a hybrid migration to
-
-DynamoDB
+## Performing a hybrid migration to DynamoDB
 
 While all database applications perform read and write operations, the types of write
 operations being performed should be considered when planning a hybrid or online migration.
@@ -316,9 +298,7 @@ The backfill job writes directly from SQL to DynamoDB. We are unable to use the 
 feature as in the offline migration example, since that feature creates a new table that will not be
 live until after DynamoDB loads the data.
 
-## Performing an online migration to DynamoDB by
-
-migrating each table 1:1
+## Performing an online migration to DynamoDB by migrating each table 1:1
 
 Many relational databases have a feature called Change Data Capture (CDC), where the
 database allows users to request a list of the changes to a table that happened before or
@@ -362,9 +342,7 @@ Perform an online migration of each table into DynamoDB using AWS DMS
 
 ![Online migration process for moving data to DynamoDB from relational databases using AWS DMS.](images/OnlineMigration.png)
 
-## Perform an online migration to DynamoDB
-
-using a custom staging table
+## Perform an online migration to DynamoDB using a custom staging table
 
 Like in the offline migration scenario above, you can choose to combine tables to leverage unique NoSQL access patterns (for example,
 transforming four legacy tables into one single DynamoDB table). A SQL `VIEW` could do the work within

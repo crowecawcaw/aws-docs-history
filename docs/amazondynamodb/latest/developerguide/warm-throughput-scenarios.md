@@ -1,24 +1,16 @@
-# Understanding DynamoDB warm throughput in
-
-different scenarios
+# Understanding DynamoDB warm throughput in different scenarios
 
 Here are some different scenarios you might encounter when working with DynamoDB warm
 throughput.
 
 ###### Topics
 
-- [Warm throughput and uneven
-  access patterns](#warm-throughput-scenarios-uneven "#warm-throughput-scenarios-uneven")
-- [Warm throughput for a
-  provisioned table](#warm-throughput-scenarios-provisioned "#warm-throughput-scenarios-provisioned")
-- [Warm throughput for an
-  on-demand table](#warm-throughput-scenarios-ondemand "#warm-throughput-scenarios-ondemand")
-- [Warm throughput for an on-demand
-  table with maximum throughput configured](#warm-throughput-scenarios-max "#warm-throughput-scenarios-max")
+- [Warm throughput and uneven access patterns](#warm-throughput-scenarios-uneven "#warm-throughput-scenarios-uneven")
+- [Warm throughput for a provisioned table](#warm-throughput-scenarios-provisioned "#warm-throughput-scenarios-provisioned")
+- [Warm throughput for an on-demand table](#warm-throughput-scenarios-ondemand "#warm-throughput-scenarios-ondemand")
+- [Warm throughput for an on-demand table with maximum throughput configured](#warm-throughput-scenarios-max "#warm-throughput-scenarios-max")
 
-## Warm throughput and uneven
-
-access patterns
+## Warm throughput and uneven access patterns
 
 A table might have a warm throughput of 30,000 read units per second and
 10,000 write units per second, but you could still experience throttling on
@@ -30,9 +22,7 @@ a small portion of the table’s partitions, throttling can occur even before yo
 reach the table's warm throughput values. We recommend following [DynamoDB best practices](bp-partition-key-design.md "bp-partition-key-design.md") to ensure
 seamless scalability and avoid hot partitions.
 
-## Warm throughput for a
-
-provisioned table
+## Warm throughput for a provisioned table
 
 Consider a provisioned table that has a warm throughput of 30,000 read units
 per second and 10,000 write units per second but currently has a provisioned
@@ -58,9 +48,7 @@ increase to 50,000 read units per second.
 
 ```
 
-## Warm throughput for an
-
-on-demand table
+## Warm throughput for an on-demand table
 
 A new on-demand table starts with a warm throughput of 12,000 read units per
 second and 4,000 write units per second. Your table can instantly accommodate
@@ -76,9 +64,7 @@ automatically adjust to higher values.
     }
 ```
 
-## Warm throughput for an on-demand
-
-table with maximum throughput configured
+## Warm throughput for an on-demand table with maximum throughput configured
 
 Consider an on-demand table with a warm throughput of 30,000 read units per
 second but with a [maximum

@@ -22,15 +22,12 @@ service.
 
 ###### Topics
 
-- [Service-linked role permissions for
-  DAX](#service-linked-role-permissions "#service-linked-role-permissions")
+- [Service-linked role permissions for DAX](#service-linked-role-permissions "#service-linked-role-permissions")
 - [Creating a service-linked role for DAX](#create-service-linked-role "#create-service-linked-role")
 - [Editing a service-linked role for DAX](#edit-service-linked-role "#edit-service-linked-role")
 - [Deleting a service-linked role for DAX](#delete-service-linked-role "#delete-service-linked-role")
 
-## Service-linked role permissions for
-
-DAX
+## Service-linked role permissions for DAX
 
 DAX uses the service-linked role named `AWSServiceRoleForDAX`.
 This role allows DAX to call services on behalf of your DAX cluster.
@@ -115,16 +112,12 @@ recommend that you delete that role. That way you don’t have an unused entity 
 actively monitored or maintained. However, you must delete all of your DAX clusters before
 you can delete the service-linked role.
 
-### Cleaning up a service-linked
-
-role
+### Cleaning up a service-linked role
 
 Before you can use IAM to delete a service-linked role, you must first confirm that
 the role has no active sessions and remove any resources used by the role.
 
-###### To check whether the service-linked role has an active session in the IAM
-
-console
+###### To check whether the service-linked role has an active session in the IAM console
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the navigation pane of the IAM console, choose **Roles**. Then
@@ -145,9 +138,7 @@ session for a service-linked role.
 If you want to remove the `AWSServiceRoleForDAX` role, you must first delete all of
 your DAX clusters.
 
-#### Deleting all of your DAX
-
-clusters
+#### Deleting all of your DAX clusters
 
 Use one of these procedures to delete each of your DAX clusters.
 

@@ -2,8 +2,7 @@
 
 You can use AWS Identity and Access Management (IAM) to restrict the actions that transactional operations can
 perform in Amazon DynamoDB. For more information about using IAM policies in DynamoDB, see
-[Identity-based
-policies for DynamoDB](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies").
+[Identity-based policies for DynamoDB](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies").
 
 Permissions for `Put`, `Update`, `Delete`, and
 `Get` actions are governed by the permissions used for the underlying
@@ -74,9 +73,7 @@ JSON
 
 ```
 
-## Example 3: Allow nontransactional reads and writes,
-
-and block transactional reads and writes
+## Example 3: Allow nontransactional reads and writes, and block transactional reads and writes
 
 JSON
 
@@ -122,9 +119,7 @@ JSON
 
 ```
 
-## Example 4: Prevent information from being returned on
-
-a ConditionCheck failure
+## Example 4: Prevent information from being returned on a ConditionCheck failure
 
 JSON
 

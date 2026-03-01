@@ -1,6 +1,4 @@
-# Getting started with CloudWatch Contributor
-
-Insights for DynamoDB
+# Getting started with CloudWatch Contributor Insights for DynamoDB
 
 This section describes how to enable and use Amazon CloudWatch Contributor Insights in different
 modes to meet your monitoring needs using the Amazon DynamoDB console or the AWS Command Line Interface (AWS CLI).
@@ -10,15 +8,11 @@ with DynamoDB](GettingStartedDynamoDB.md "GettingStartedDynamoDB.md") tutorial.
 
 ###### Topics
 
-- [Choosing a Contributor Insights
-  mode](#contributorinsights_tutorial.modes "#contributorinsights_tutorial.modes")
-- [Using Contributor Insights
-  (console)](#usecontributorinsights_console "#usecontributorinsights_console")
+- [Choosing a Contributor Insights mode](#contributorinsights_tutorial.modes "#contributorinsights_tutorial.modes")
+- [Using Contributor Insights (console)](#usecontributorinsights_console "#usecontributorinsights_console")
 - [Using Contributor Insights (AWS CLI)](#usecontributorinsights_cli "#usecontributorinsights_cli")
 
-## Choosing a Contributor Insights
-
-mode
+## Choosing a Contributor Insights mode
 
 Before enabling Contributor Insights, you should understand the two available modes.
 Review the mode comparison to select the option that best aligns with your specific
@@ -31,9 +25,7 @@ requirements.
 | **Best for** | Targeted analysis and optimization                                                                   | Throttling monitoring                                                                                                                                                  |
 | **Use when** | You need complete visibility into access patterns. You're doing<br>short-term analysis or debugging. | Your primary concern is identifying and resolving throttling issues.<br>You want to keep Contributor Insights enabled continuously for real-time<br>throttling alerts. |
 
-## Using Contributor Insights
-
-(console)
+## Using Contributor Insights (console)
 
 The console provides an intuitive way to enable Contributor Insights and select the
 appropriate mode for your monitoring needs.
@@ -69,9 +61,7 @@ accessed and throttled item graphs.
 
 ![Console screenshot showing Contributor Insights tab with several graphs for the music table.](images/CI_Graphs.png)
 
-### Switching between
-
-modes
+### Switching between modes
 
 You can switch between modes at any time without disabling Contributor
 Insights.
@@ -140,9 +130,7 @@ The AWS CLI provides programmatic access to Contributor Insights with full suppo
 both modes. You can specify the mode when enabling Contributor Insights or switch modes
 later.
 
-### Basic operations with default
-
-mode
+### Basic operations with default mode
 
 ###### To use Contributor Insights with default settings
 
@@ -185,9 +173,7 @@ indexes.
 aws dynamodb list-contributor-insights --table-name Music
 ```
 
-### Enabling throttled keys
-
-mode
+### Enabling throttled keys mode
 
 ###### To enable Contributor Insights in throttled keys mode
 
@@ -223,9 +209,7 @@ The response will show `ContributorInsightsMode` as
 `THROTTLED_KEYS` and fewer rules compared to the default
 mode.
 
-### Switching between
-
-modes
+### Switching between modes
 
 ###### To switch Contributor Insights modes
 
@@ -259,9 +243,7 @@ During the mode switch, the `ContributorInsightsStatus` will
 show as `ENABLING`. Once complete, it will show as
 `ENABLED` with the new mode.
 
-### Managing Contributor
-
-Insights
+### Managing Contributor Insights
 
 ###### To manage Contributor Insights settings
 
@@ -310,9 +292,7 @@ Here are example responses showing the differences between modes:
 }
 ```
 
-#### Throttled
-
-keys mode response
+#### Throttled keys mode response
 
 ```
 {

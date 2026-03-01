@@ -1,6 +1,4 @@
-# DynamoDBContext class from the .NET object
-
-persistence model
+# DynamoDBContext class from the .NET object persistence model
 
 The `DynamoDBContext` class is the entry point to the Amazon DynamoDB database.
 It provides a connection to DynamoDB and enables you to access your data in various tables,
@@ -26,8 +24,7 @@ provides the following methods.
 - [Save](#w2aac17b9c21c23c39c35 "#w2aac17b9c21c23c39c35")
 - [Scan](#w2aac17b9c21c23c39c37 "#w2aac17b9c21c23c39c37")
 - [ToDocument](#w2aac17b9c21c23c39c39 "#w2aac17b9c21c23c39c39")
-- [Specifying optional parameters for
-  DynamoDBContext](#OptionalConfigParams "#OptionalConfigParams")
+- [Specifying optional parameters for DynamoDBContext](#OptionalConfigParams "#OptionalConfigParams")
 
 ## Create​MultiTable​BatchGet
 
@@ -286,8 +283,7 @@ object doesn't exist in the table, the method adds a new item to the table. If t
 primary key exists, the method updates the existing item.
 
 If you have optimistic locking configured, the update succeeds only if the client
-and the server-side versions of the item match. For more information, see [Optimistic locking using DynamoDB and the
-AWS SDK for .NET object persistence model](DynamoDBContext.md "DynamoDBContext.md").
+and the server-side versions of the item match. For more information, see [Optimistic locking using DynamoDB and the AWS SDK for .NET object persistence model](DynamoDBContext.md "DynamoDBContext.md").
 
 ###### Note
 
@@ -349,9 +345,7 @@ Forum forum101 = context.Load<Forum>(101); // Retrieve a forum by primary key.
 Document doc = context.ToDocument<Forum>(forum101);
 ```
 
-## Specifying optional parameters for
-
-DynamoDBContext
+## Specifying optional parameters for DynamoDBContext
 
 When using the object persistence model, you can specify the following optional
 parameters for the `DynamoDBContext`.
@@ -367,8 +361,7 @@ parameters for the `DynamoDBContext`.
   delete the specific attribute.
 - `SkipVersionCheck`— This
   parameter informs `DynamoDBContext` not to compare versions when
-  saving or deleting an item. For more information about versioning, see [Optimistic locking using DynamoDB and the
-  AWS SDK for .NET object persistence model](DynamoDBContext.md "DynamoDBContext.md").
+  saving or deleting an item. For more information about versioning, see [Optimistic locking using DynamoDB and the AWS SDK for .NET object persistence model](DynamoDBContext.md "DynamoDBContext.md").
 - `TableNamePrefix`—
   Prefixes all table names with a specific string. If this parameter is null
   (or if it is not set), then no prefix is used.

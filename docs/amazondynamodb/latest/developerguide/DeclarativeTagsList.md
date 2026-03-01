@@ -1,6 +1,4 @@
-# DynamoDB attributes from the .NET object persistence
-
-model
+# DynamoDB attributes from the .NET object persistence model
 
 This section describes the attributes that the object persistence model offers so that
 you can map your classes and properties to DynamoDB tables and attributes.
@@ -154,5 +152,4 @@ the `developerName`.
 ## DynamoDBVersion
 
 Identifies a class property for storing the item version number. For more
-information about versioning, see [Optimistic locking using DynamoDB and the
-AWS SDK for .NET object persistence model](DynamoDBContext.md "DynamoDBContext.md").
+information about versioning, see [Optimistic locking using DynamoDB and the AWS SDK for .NET object persistence model](DynamoDBContext.md "DynamoDBContext.md").

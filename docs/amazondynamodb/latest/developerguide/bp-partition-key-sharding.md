@@ -1,6 +1,4 @@
-# Using write sharding to distribute workloads
-
-evenly in your DynamoDB table
+# Using write sharding to distribute workloads evenly in your DynamoDB table
 
 One way to better distribute writes across a partition key space in Amazon DynamoDB is to expand
 the space. You can do this in several different ways. You can add a random number to the

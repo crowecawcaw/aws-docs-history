@@ -1,6 +1,4 @@
-# Using the DynamoDB Streams Kinesis adapter to process stream
-
-records
+# Using the DynamoDB Streams Kinesis adapter to process stream records
 
 Using the Amazon Kinesis Adapter is the recommended way to consume streams from Amazon DynamoDB. The
 DynamoDB Streams API is intentionally similar to that of Kinesis Data Streams. In both services, data streams are composed of shards,

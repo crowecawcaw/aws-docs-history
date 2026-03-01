@@ -1,6 +1,4 @@
-# Monitoring metrics in DynamoDB with
-
-Amazon CloudWatch
+# Monitoring metrics in DynamoDB with Amazon CloudWatch
 
 You can monitor DynamoDB using CloudWatch, which collects and processes raw data from
 DynamoDB into readable, near real-time metrics. These statistics are retained for a

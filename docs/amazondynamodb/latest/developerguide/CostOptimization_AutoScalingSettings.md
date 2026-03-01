@@ -1,6 +1,4 @@
-# Evaluate your DynamoDB table's auto scaling
-
-settings
+# Evaluate your DynamoDB table's auto scaling settings
 
 This section provides an overview of how to evaluate the auto scaling settings on your DynamoDB
 tables. [Amazon DynamoDB auto scaling](AutoScaling.md "AutoScaling.md") is a feature that manages
@@ -14,20 +12,13 @@ increase or decrease the capacity allocated.
 
 ###### Topics
 
-- [Understanding
-  your auto scaling settings](#CostOptimization_AutoScalingSettings_UnderProvisionedTables "#CostOptimization_AutoScalingSettings_UnderProvisionedTables")
-- [How to identify
-  tables with low target utilization (<=50%)](#CostOptimization_AutoScalingSettings_IdentifyLowUtilization "#CostOptimization_AutoScalingSettings_IdentifyLowUtilization")
-- [How to address
-  workloads with seasonal variance](#CostOptimization_AutoScalingSettings_SeasonalVariance "#CostOptimization_AutoScalingSettings_SeasonalVariance")
-- [How to address spiky
-  workloads with unknown patterns](#CostOptimization_AutoScalingSettings_UnknownPatterns "#CostOptimization_AutoScalingSettings_UnknownPatterns")
-- [How to address workloads
-  with linked applications](#CostOptimization_AutoScalingSettings_BetweenRanges "#CostOptimization_AutoScalingSettings_BetweenRanges")
+- [Understanding your auto scaling settings](#CostOptimization_AutoScalingSettings_UnderProvisionedTables "#CostOptimization_AutoScalingSettings_UnderProvisionedTables")
+- [How to identify tables with low target utilization (<=50%)](#CostOptimization_AutoScalingSettings_IdentifyLowUtilization "#CostOptimization_AutoScalingSettings_IdentifyLowUtilization")
+- [How to address workloads with seasonal variance](#CostOptimization_AutoScalingSettings_SeasonalVariance "#CostOptimization_AutoScalingSettings_SeasonalVariance")
+- [How to address spiky workloads with unknown patterns](#CostOptimization_AutoScalingSettings_UnknownPatterns "#CostOptimization_AutoScalingSettings_UnknownPatterns")
+- [How to address workloads with linked applications](#CostOptimization_AutoScalingSettings_BetweenRanges "#CostOptimization_AutoScalingSettings_BetweenRanges")
 
-## Understanding
-
-your auto scaling settings
+## Understanding your auto scaling settings
 
 Defining the correct value for the target utilization, initial step, and final values is
 an activity that requires involvement from your operations team. This allows you to properly
@@ -45,9 +36,7 @@ When you set a very **low utilization (a target less than
 capacity before it triggers an auto scaling policy. Unless your application traffic grows at
 a very aggressive rate, this usually translates into unused capacity and wasted resources.
 
-## How to identify
-
-tables with low target utilization (<=50%)
+## How to identify tables with low target utilization (<=50%)
 
 You can use either the AWS CLI or AWS Management Console to monitor and identify the
 `TargetValues` for your auto scaling policies in your DynamoDB resources:
@@ -142,9 +131,7 @@ If your target utilization values are less than or equal to 50%, you should expl
 table utilization metrics to see if they are [under-provisioned or
 over-provisioned](CostOptimization_RightSizedProvisioning.md "CostOptimization_RightSizedProvisioning.md").
 
-## How to address
-
-workloads with seasonal variance
+## How to address workloads with seasonal variance
 
 Consider the following scenario: your application is operating under a minimum average
 value most of the time, but the utilization target is low so your application can react
@@ -272,9 +259,7 @@ it is your responsibility to set them up.
 
 ![DynamoDB table's auto scaling configuration: Target utilization and minimum and maximum capacity values.](images/CostOptimization/AutoScalingSettings5.png)
 
-## How to address spiky
-
-workloads with unknown patterns
+## How to address spiky workloads with unknown patterns
 
 In this scenario, the application uses a very low utilization target because you don’t
 know the application patterns yet, and you want to ensure your workload is not
@@ -287,9 +272,7 @@ application performs on your tables. You do not need to specify how much read an
 throughput you expect your application to perform, as DynamoDB instantly accommodates your
 workloads as they ramp up or down.
 
-## How to address workloads
-
-with linked applications
+## How to address workloads with linked applications
 
 In this scenario, the application depends on other systems, like batch processing
 scenarios where you can have big spikes in traffic according to events in the application

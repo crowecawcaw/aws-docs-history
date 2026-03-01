@@ -1,6 +1,4 @@
-# Migrating a DynamoDB table from one account
-
-to another
+# Migrating a DynamoDB table from one account to another
 
 You can migrate an Amazon DynamoDB table from one account to another to implement a multi-account
 strategy or a backup strategy. You can also do it for testing, debugging, or compliance reasons.
@@ -23,12 +21,9 @@ DynamoDB offers two options for migrating tables from one AWS account to another
 ###### Note
 
 Import from Amazon S3 does not support tables with Local Secondary Indexes (LSIs), but it does
-support Global Secondary Indexes (GSIs). For more information on LSIs and GSIs, see [Improving data access with secondary indexes in
-DynamoDB](SecondaryIndexes.md "SecondaryIndexes.md").
+support Global Secondary Indexes (GSIs). For more information on LSIs and GSIs, see [Improving data access with secondary indexes in DynamoDB](SecondaryIndexes.md "SecondaryIndexes.md").
 
 ###### Topics
 
-- [Migrate a table using AWS Backup for
-  cross-account backup and restore](bp-migrating-table-between-accounts-backup.md "bp-migrating-table-between-accounts-backup.md")
-- [Migrate a table using export to S3
-  and import from S3](bp-migrating-table-between-accounts-s3.md "bp-migrating-table-between-accounts-s3.md")
+- [Migrate a table using AWS Backup for cross-account backup and restore](bp-migrating-table-between-accounts-backup.md "bp-migrating-table-between-accounts-backup.md")
+- [Migrate a table using export to S3 and import from S3](bp-migrating-table-between-accounts-s3.md "bp-migrating-table-between-accounts-s3.md")

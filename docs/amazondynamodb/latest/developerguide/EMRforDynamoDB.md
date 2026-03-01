@@ -1,129 +1,59 @@
-# Querying data in DynamoDB
+# Processing HiveQL statements
 
-The following examples show some ways that you can use HiveQL to query data stored in
-DynamoDB.
+Hive is an application that runs on Hadoop, which is a batch-oriented framework for
+running MapReduce jobs. When you issue a HiveQL statement, Hive determines whether it
+can return the results immediately or whether it must submit a MapReduce job.
 
-These examples refer to the _ddb_features_ table in the tutorial
-([Step 5: Copy data to
-DynamoDB](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")).
-
-###### Topics
-
-- [Using aggregate
-  functions](#EMRforDynamoDB.Querying.AggregateFunctions "#EMRforDynamoDB.Querying.AggregateFunctions")
-- [Using the GROUP BY and
-  HAVING clauses](#EMRforDynamoDB.Querying.GroupByAndHaving "#EMRforDynamoDB.Querying.GroupByAndHaving")
-- [Joining two DynamoDB
-  tables](#EMRforDynamoDB.Querying.JoiningTwoTables "#EMRforDynamoDB.Querying.JoiningTwoTables")
-- [Joining
-  tables from different sources](#EMRforDynamoDB.Querying.JoiningTablesFromDifferentSources "#EMRforDynamoDB.Querying.JoiningTablesFromDifferentSources")
-
-## Using aggregate
-
-functions
-
-HiveQL provides built-in functions for summarizing data values. For example, you
-can use the `MAX` function to find the largest value for a selected
-column. The following example returns the elevation of the highest feature in the
-state of Colorado.
+For example, consider the _ddb_features_ table (from [Tutorial: Working with Amazon DynamoDB and Apache Hive](EMRforDynamoDB.md "EMRforDynamoDB.md")). The
+following Hive query prints state abbreviations and the number of summits in
+each:
 
 ```
-SELECT MAX(elev_in_ft)
+SELECT state_alpha, count(*)
 FROM ddb_features
-WHERE state_alpha = 'CO';
+WHERE feature_class = 'Summit'
+GROUP BY state_alpha;
 ```
 
-## Using the GROUP BY and
-
-HAVING clauses
-
-You can use the `GROUP BY` clause to collect data across multiple
-records. This is often used with an aggregate function such as `SUM`,
-`COUNT`, `MIN`, or `MAX`. You can also use the
-`HAVING` clause to discard any results that do not meet certain
-criteria.
-
-The following example returns a list of the highest elevations from states that
-have more than five features in the _ddb_features_ table.
+Hive does not return the results immediately. Instead, it submits a MapReduce job,
+which is processed by the Hadoop framework. Hive will wait until the job is complete
+before it shows the results from the query:
 
 ```
-SELECT state_alpha, max(elev_in_ft)
-FROM ddb_features
-GROUP BY state_alpha
-HAVING count(*) >= 5;
+AK  2
+AL  2
+AR  2
+AZ  3
+CA  7
+CO  2
+CT  2
+ID  1
+KS  1
+ME  2
+MI  1
+MT  3
+NC  1
+NE  1
+NM  1
+NY  2
+OR  5
+PA  1
+TN  1
+TX  1
+UT  4
+VA  1
+VT  2
+WA  2
+WY  3
+Time taken: 8.753 seconds, Fetched: 25 row(s)
 ```
 
-## Joining two DynamoDB
+## Monitoring and canceling jobs
 
-tables
+When Hive launches a Hadoop job, it prints output from that job. The job
+completion status is updated as the job progresses. In some cases, the status might
+not be updated for a long time. (This can happen when you are querying a large
+DynamoDB table that has a low provisioned read capacity setting.)
 
-The following example maps another Hive table
-(_east_coast_states_) to a table in DynamoDB. The
-`SELECT` statement is a join across these two tables. The join is
-computed on the cluster and returned. The join does not take place in DynamoDB.
-
-Consider a DynamoDB table named EastCoastStates that contains the following
-data:
-
-```
-**StateName StateAbbrev**
-
-Maine           ME
-New Hampshire   NH
-Massachusetts   MA
-Rhode Island    RI
-Connecticut     CT
-New York        NY
-New Jersey      NJ
-Delaware        DE
-Maryland        MD
-Virginia        VA
-North Carolina  NC
-South Carolina  SC
-Georgia         GA
-Florida         FL
-```
-
-Let's assume the table is available as a Hive external table named
-east_coast_states:
-
-```
-CREATE EXTERNAL TABLE ddb_east_coast_states (state_name STRING, state_alpha STRING)
-STORED BY 'org.apache.hadoop.hive.dynamodb.DynamoDBStorageHandler'
-TBLPROPERTIES ("dynamodb.table.name" = "EastCoastStates",
-"dynamodb.column.mapping" = "state_name:StateName,state_alpha:StateAbbrev");
-```
-
-The following join returns the states on the East Coast of the United States that
-have at least three features:
-
-```
-SELECT ecs.state_name, f.feature_class, COUNT(*)
-FROM ddb_east_coast_states ecs
-JOIN ddb_features f on ecs.state_alpha = f.state_alpha
-GROUP BY ecs.state_name, f.feature_class
-HAVING COUNT(*) >= 3;
-```
-
-## Joining
-
-tables from different sources
-
-In the following example, s3_east_coast_states is a Hive table associated with a
-CSV file stored in Amazon S3. The _ddb_features_ table is associated
-with data in DynamoDB. The following example joins these two tables, returning the
-geographic features from states whose names begin with "New."
-
-```
-create external table s3_east_coast_states (state_name STRING, state_alpha STRING)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
-LOCATION 's3://`bucketname`/`path`/`subpath`/';
-```
-
-```
-SELECT ecs.state_name, f.feature_name, f.feature_class
-FROM s3_east_coast_states ecs
-JOIN ddb_features f
-ON ecs.state_alpha = f.state_alpha
-WHERE ecs.state_name LIKE 'New%';
-```
+If you need to cancel the job before it is complete, you can type
+`Ctrl+C` at any time.

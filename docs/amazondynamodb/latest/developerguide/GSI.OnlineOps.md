@@ -1,6 +1,4 @@
-# Detecting and correcting index key
-
-violations in DynamoDB
+# Detecting and correcting index key violations in DynamoDB
 
 During the backfill phase of global secondary index creation, Amazon DynamoDB examines each item in the table to
 determine whether it is eligible for inclusion in the index. Some items might not be
@@ -51,9 +49,7 @@ two different modes:
   items in the table. (Note that if you choose to update the items, you must edit the
   input file and set appropriate values for these updates.)
 
-## Downloading and running
-
-Violation Detector
+## Downloading and running Violation Detector
 
 Violation Detector is available as an executable Java Archive (`.jar` file), and
 runs on Windows, macOS, or Linux computers. Violation Detector requires Java 1.7 (or later) and
@@ -77,8 +73,7 @@ The Violation Detector command line accepts the following options:
   Violation Detector.
 - `-p | --configFilePath`
   `value` — The fully qualified name of a Violation Detector
-  configuration file. For more information, see [The Violation Detector
-  configuration file](#GSI.OnlineOps.ViolationDetection.ConfigFile "#GSI.OnlineOps.ViolationDetection.ConfigFile").
+  configuration file. For more information, see [The Violation Detector configuration file](#GSI.OnlineOps.ViolationDetection.ConfigFile "#GSI.OnlineOps.ViolationDetection.ConfigFile").
 - `-t | --detect`
   `value` — Detect index key violations in the table, and write
   them to the Violation Detector output file. If the value of this parameter is set to
@@ -92,9 +87,7 @@ The Violation Detector command line accepts the following options:
   with new, non-violating values. If the value is set to `delete`,
   items with key violations are deleted from the table.
 
-## The Violation Detector
-
-configuration file
+## The Violation Detector configuration file
 
 At runtime, the Violation Detector tool requires a configuration file. The parameters in this
 file determine which DynamoDB resources that Violation Detector can access, and how much

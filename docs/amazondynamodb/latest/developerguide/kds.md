@@ -68,9 +68,7 @@ larger of the “before” and “after” images of the item written to the str
 logic as [capacity unit consumption for write operations](read-write-operations.md#write-operation-consumption "read-write-operations.md#write-operation-consumption"). Similar to how DynamoDB [on-demand](capacity-mode.md#capacity-mode-on-demand "capacity-mode.md#capacity-mode-on-demand") mode works, you don't need to provision capacity throughput for
 change data capture units.
 
-### Turning on a Kinesis data stream for your DynamoDB
-
-table
+### Turning on a Kinesis data stream for your DynamoDB table
 
 You can enable or disable streaming to Kinesis from your existing DynamoDB table by using
 the AWS Management Console, the AWS SDK, or the AWS Command Line Interface (AWS CLI).

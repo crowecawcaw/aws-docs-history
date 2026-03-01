@@ -8,14 +8,10 @@ handling, controlling retry policies, managing keep-alive, and more.
 
 - [About Boto](#programming-with-python-about "#programming-with-python-about")
 - [Using the Boto documentation](#programming-with-python-documentation "#programming-with-python-documentation")
-- [Understanding the client and
-  resource abstraction layers](#programming-with-python-client-resource "#programming-with-python-client-resource")
-- [Using the table resource
-  batch_writer](#programming-with-python-batch-writer "#programming-with-python-batch-writer")
-- [Additional code examples that
-  explore the client and resource layers](#programming-with-python-additional-code "#programming-with-python-additional-code")
-- [Understanding how the Client
-  and Resource objects interact with sessions and threads](#programming-with-python-sessions-thread-safety "#programming-with-python-sessions-thread-safety")
+- [Understanding the client and resource abstraction layers](#programming-with-python-client-resource "#programming-with-python-client-resource")
+- [Using the table resource batch_writer](#programming-with-python-batch-writer "#programming-with-python-batch-writer")
+- [Additional code examples that explore the client and resource layers](#programming-with-python-additional-code "#programming-with-python-additional-code")
+- [Understanding how the Client and Resource objects interact with sessions and threads](#programming-with-python-sessions-thread-safety "#programming-with-python-sessions-thread-safety")
 - [Customizing the Config object](#programming-with-python-config "#programming-with-python-config")
 - [Error handling](#programming-with-python-error-handling "#programming-with-python-error-handling")
 - [Logging](#programming-with-python-logging "#programming-with-python-logging")
@@ -68,9 +64,7 @@ Get started with the Boto documentation with the following resources:
   tables, or obtain a `DynamoDB.ServiceResource.Table` instance for
   table-specific actions.
 
-## Understanding the client and
-
-resource abstraction layers
+## Understanding the client and resource abstraction layers
 
 The two interfaces you'll be working with are the **client** interface and the **resource**
 interface.
@@ -230,9 +224,7 @@ add new features to the resources interface in boto3. Existing interfaces will
 continue to operate during boto3’s lifecycle. Customers can find access to newer
 service features through the client interface.”
 
-## Using the table resource
-
-batch_writer
+## Using the table resource batch_writer
 
 One convenience available only with the higher-level table resource is the
 `batch_writer`. DynamoDB supports batch write operations allowing up to 25
@@ -263,9 +255,7 @@ with table.batch_writer() as writer:
 
 ```
 
-## Additional code examples that
-
-explore the client and resource layers
+## Additional code examples that explore the client and resource layers
 
 You can also refer to the following code sample repositories that explore usage of the various functions, using both client and resource:
 
@@ -274,9 +264,7 @@ You can also refer to the following code sample repositories that explore usage 
 - [Official AWS scenario-oriented code examples.](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python")
 - [Community-maintained single-action code examples.](https://github.com/aws-samples/aws-dynamodb-examples/tree/master/examples/SDK/python "https://github.com/aws-samples/aws-dynamodb-examples/tree/master/examples/SDK/python")
 
-## Understanding how the Client
-
-and Resource objects interact with sessions and threads
+## Understanding how the Client and Resource objects interact with sessions and threads
 
 The Resource object is not thread safe and should not be shared across threads or
 processes. Refer to the [guide on Resource](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/resources.html#multithreading-or-multiprocessing-with-resources "https://boto3.amazonaws.com/v1/documentation/api/latest/guide/resources.html#multithreading-or-multiprocessing-with-resources") for more details.

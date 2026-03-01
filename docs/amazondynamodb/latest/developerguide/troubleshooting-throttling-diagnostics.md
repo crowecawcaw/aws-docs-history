@@ -1,6 +1,4 @@
-# DynamoDB throttling
-
-resolution guide
+# DynamoDB throttling resolution guide
 
 This section provides targeted resolution guidance for each specific throttling reason
 that DynamoDB may return. Each entry includes suggested resolution approaches based on best
@@ -10,9 +8,7 @@ DynamoDB implements 16 distinct throttling reasons across four main categories. 
 throttling reasons from your application's exception to navigate directly to the relevant
 guidance.
 
-## Key range throughput exceeded (hot
-
-partitions)
+## Key range throughput exceeded (hot partitions)
 
 These throttling reasons occur when individual partitions exceed their throughput
 limits, affecting both provisioned and on-demand modes:
@@ -22,9 +18,7 @@ limits, affecting both provisioned and on-demand modes:
 - [IndexReadKeyRangeThroughputExceeded](throttling-key-range-limit-exceeded-mitigation.md#throttling-index-read-keyrange "throttling-key-range-limit-exceeded-mitigation.md#throttling-index-read-keyrange")
 - [IndexWriteKeyRangeThroughputExceeded](throttling-key-range-limit-exceeded-mitigation.md#throttling-index-write-keyrange "throttling-key-range-limit-exceeded-mitigation.md#throttling-index-write-keyrange")
 
-## Provisioned throughput
-
-exceeded
+## Provisioned throughput exceeded
 
 These throttling reasons occur when consumption rates exceed provisioned capacity
 limits in provisioned mode:
@@ -44,9 +38,7 @@ quotas in your AWS Region:
 - [IndexReadAccountLimitExceeded](throttling-account-limit-exceeded-mitigation.md#throttling-index-read-account-limit "throttling-account-limit-exceeded-mitigation.md#throttling-index-read-account-limit")
 - [IndexWriteAccountLimitExceeded](throttling-account-limit-exceeded-mitigation.md#throttling-index-write-account-limit "throttling-account-limit-exceeded-mitigation.md#throttling-index-write-account-limit")
 
-## On-demand maximum throughput
-
-exceeded
+## On-demand maximum throughput exceeded
 
 These throttling reasons occur when consumption rates exceed configured maximum
 throughput limits in on-demand mode:

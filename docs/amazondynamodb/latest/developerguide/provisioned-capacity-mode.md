@@ -17,8 +17,7 @@ monitors your table’s activity and adjusts its capacity settings up or down ba
 preconfigured thresholds. Auto scaling triggers when your consumed capacity breaches the
 configured target utilization for two consecutive minutes. CloudWatch alarms might have a
 short delay of up to a few minutes before triggering auto scaling. For more information,
-see [Managing throughput capacity automatically with DynamoDB auto
-scaling](AutoScaling.md "AutoScaling.md").
+see [Managing throughput capacity automatically with DynamoDB auto scaling](AutoScaling.md "AutoScaling.md").
 
 If you're using DynamoDB auto scaling, the throughput settings are automatically adjusted
 in response to actual workloads. You can also use the [UpdateTable](../APIReference/API_UpdateTable.md "../APIReference/API_UpdateTable.md")
@@ -42,18 +41,13 @@ For more information about switching between read and write capacity modes, see 
 
 ###### Topics
 
-- [Read capacity units and write capacity
-  units](#read-write-capacity-units "#read-write-capacity-units")
-- [Choosing initial throughput
-  settings](#choosing-initial-throughput "#choosing-initial-throughput")
+- [Read capacity units and write capacity units](#read-write-capacity-units "#read-write-capacity-units")
+- [Choosing initial throughput settings](#choosing-initial-throughput "#choosing-initial-throughput")
 - [DynamoDB auto scaling](#ddb-autoscaling "#ddb-autoscaling")
-- [Managing throughput capacity automatically with DynamoDB auto
-  scaling](AutoScaling.md "AutoScaling.md")
+- [Managing throughput capacity automatically with DynamoDB auto scaling](AutoScaling.md "AutoScaling.md")
 - [DynamoDB reserved capacity](reserved-capacity.md "reserved-capacity.md")
 
-## Read capacity units and write capacity
-
-units
+## Read capacity units and write capacity units
 
 For provisioned mode tables, you specify throughput requirements in terms of
 _capacity units_. These units represent the amount of data
@@ -69,9 +63,7 @@ A _write capacity unit_ (WCU) represents one
 write per second for an item up to 1 KB. For more information about the different
 read and write operations, see [DynamoDB read and write operations](read-write-operations.md "read-write-operations.md").
 
-## Choosing initial throughput
-
-settings
+## Choosing initial throughput settings
 
 Every application has different requirements for reading from and writing to a
 database. When you're determining the initial throughput settings for a DynamoDB table,
@@ -141,8 +133,7 @@ If you use the AWS Management Console to create a table or a global secondary in
 enabled by default.
 
 You can manage auto scaling settings at any time by using the console, the
-AWS CLI, or one of the AWS SDKs. For more information, see [Managing throughput capacity automatically with DynamoDB auto
-scaling](AutoScaling.md "AutoScaling.md").
+AWS CLI, or one of the AWS SDKs. For more information, see [Managing throughput capacity automatically with DynamoDB auto scaling](AutoScaling.md "AutoScaling.md").
 
 ### Utilization rate
 
@@ -156,5 +147,4 @@ scale](https://aws.amazon.com/blogs/database/amazon-dynamodb-auto-scaling-perfor
 If you’re using DynamoDB auto scaling, you’ll also need to set a target
 utilization percentage. Auto scaling will use this percentage as a target to
 adjust capacity upward or downward. We recommend setting target utilization to
-70%. For more information, see [Managing throughput capacity automatically with DynamoDB auto
-scaling](AutoScaling.md "AutoScaling.md").
+70%. For more information, see [Managing throughput capacity automatically with DynamoDB auto scaling](AutoScaling.md "AutoScaling.md").

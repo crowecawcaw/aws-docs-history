@@ -14,8 +14,7 @@ All size measurements in DynamoDB use binary-based units. DynamoDB denotes 1 KB 
 - [Tables](#limits-tables "#limits-tables")
 - [Global tables](#gt-limits-throughput "#gt-limits-throughput")
 - [Secondary indexes](#limits-secondary-indexes "#limits-secondary-indexes")
-- [Projected secondary index
-  attributes](#projected-secondary-index-attributes "#projected-secondary-index-attributes")
+- [Projected secondary index attributes](#projected-secondary-index-attributes "#projected-secondary-index-attributes")
 - [DynamoDB Streams](#limits-dynamodb-streams "#limits-dynamodb-streams")
 - [Import from Amazon S3](#import-limits "#import-limits")
 - [Table export to Amazon S3](#limits-table-export "#limits-table-export")
@@ -74,13 +73,9 @@ not maximum limits for your tables.
 | Per account                                                   | Not applicable                                              | 80,000 read capacity units and 80,000 write capacity<br>units | Yes        |
 | Minimum throughput for any table or global secondary<br>index | Not applicable                                              | 1 read capacity unit and 1 write capacity<br>unit             | Yes        |
 
-### Increasing or decreasing
+### Increasing or decreasing throughput (for provisioned tables)
 
-throughput (for provisioned tables)
-
-#### Increasing
-
-provisioned throughput
+#### Increasing provisioned throughput
 
 You can increase `ReadCapacityUnits` or
 `WriteCapacityUnits` as often as necessary, using the AWS Management Console
@@ -95,9 +90,7 @@ from these restrictions, you can increase the provisioned capacity for your
 tables as high as you need. For more information about per-account quotas, see
 the preceding section, [Throughput default quotas](#default-limits-throughput "#default-limits-throughput").
 
-#### Decreasing
-
-provisioned throughput
+#### Decreasing provisioned throughput
 
 For every table and global secondary index in an
 `UpdateTable` operation, you can decrease
@@ -157,9 +150,7 @@ this service quota limit.
 There is no practical limit on a table's size. Tables are unconstrained in terms
 of the number of items or the number of bytes.
 
-### Maximum number of tables per account per
-
-region
+### Maximum number of tables per account per region
 
 For any AWS account, there is an initial quota of 2,500 tables per AWS
 Region.
@@ -202,9 +193,7 @@ You can define up to 5 local secondary indexes per table.
 
 There is a default quota of 20 global secondary indexes per table.
 
-## Projected secondary index
-
-attributes
+## Projected secondary index attributes
 
 You can project up to 100 attributes combined for all of a table's local and global
 secondary indexes. This quota only applies to user-specified projected
@@ -221,18 +210,14 @@ This quota doesn't apply to secondary indexes with a `ProjectionType` of
 
 ## DynamoDB Streams
 
-### Simultaneous readers of a
-
-shard in DynamoDB Streams
+### Simultaneous readers of a shard in DynamoDB Streams
 
 For single-Region tables that are not global tables, you can design for up to two
 simultaneous processes to read from the same DynamoDB Streams shard at the same time. Exceeding
 this limit can result in request throttling. For global tables, we recommend you
 limit the number of simultaneous readers to one to avoid request throttling.
 
-### Maximum write capacity
-
-for a table with DynamoDB Streams enabled
+### Maximum write capacity for a table with DynamoDB Streams enabled
 
 AWS places some default quotas on the write capacity for DynamoDB tables with DynamoDB
 Streams enabled. These default quotas are applicable only for tables in provisioned

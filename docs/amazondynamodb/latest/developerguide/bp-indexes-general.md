@@ -21,8 +21,7 @@ Amazon DynamoDB supports two types of secondary indexes:
 Global secondary indexes are often more useful than local secondary indexes. Determining
 which type of index to use will also depend on your application's requirements. For a
 comparison of global secondary indexes and local secondary indexes, and more information on
-how to choose between them, see [Improving data access with secondary indexes in
-DynamoDB](SecondaryIndexes.md "SecondaryIndexes.md").
+how to choose between them, see [Improving data access with secondary indexes in DynamoDB](SecondaryIndexes.md "SecondaryIndexes.md").
 
 The following are some general principles and design patterns to keep in mind when
 creating indexes in DynamoDB:
@@ -31,10 +30,8 @@ creating indexes in DynamoDB:
 
 - [Use indexes efficiently](#bp-indexes-general-efficiency "#bp-indexes-general-efficiency")
 - [Choose projections carefully](#bp-indexes-general-projections "#bp-indexes-general-projections")
-- [Optimize frequent queries to avoid
-  fetches](#bp-indexes-general-fetches "#bp-indexes-general-fetches")
-- [Be aware of item-collection size
-  limits when creating local secondary indexes](#bp-indexes-general-expanding-collections "#bp-indexes-general-expanding-collections")
+- [Optimize frequent queries to avoid fetches](#bp-indexes-general-fetches "#bp-indexes-general-fetches")
+- [Be aware of item-collection size limits when creating local secondary indexes](#bp-indexes-general-expanding-collections "#bp-indexes-general-expanding-collections")
 
 ## Use indexes efficiently
 
@@ -72,9 +69,7 @@ practices:
 Balance the need to keep your indexes as small as possible against the need to keep
 fetches to a minimum, as explained in the next section.
 
-## Optimize frequent queries to avoid
-
-fetches
+## Optimize frequent queries to avoid fetches
 
 To get the fastest queries with the lowest possible latency, project all the attributes
 that you expect those queries to return. In particular, if you query a local secondary index
@@ -87,12 +82,9 @@ are attributes that you don't intend to project because you anticipate querying 
 occasionally, consider whether circumstances might change and you might regret not
 projecting those attributes after all.
 
-For more information about table fetches, see [Provisioned throughput considerations for
-Local Secondary Indexes](LSI.md#LSI.ThroughputConsiderations "LSI.md#LSI.ThroughputConsiderations").
+For more information about table fetches, see [Provisioned throughput considerations for Local Secondary Indexes](LSI.md#LSI.ThroughputConsiderations "LSI.md#LSI.ThroughputConsiderations").
 
-## Be aware of item-collection size
-
-limits when creating local secondary indexes
+## Be aware of item-collection size limits when creating local secondary indexes
 
 An _item collection_ is all the items in a table and its local
 secondary indexes that have the same partition key. No item collection can exceed

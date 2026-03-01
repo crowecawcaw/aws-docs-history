@@ -14,16 +14,12 @@ As a customer, you control whether telemetry is turned on, and you can change yo
 settings at any point in time. If telemetry remains on, DynamoDB local sends telemetry data in
 the background without requiring any additional customer interaction.
 
-##
-
-Turn off telemetry using command line options
+## Turn off telemetry using command line options
 
 You can turn off telemetry using command line options when starting DynamoDB local using
-the option `-disableTelemetry`. For more information, see [Command line options](DynamoDBLocal.md#DynamoDBLocal.CommandLineOptions "DynamoDBLocal.md#DynamoDBLocal.CommandLineOptions") .
+the option `-disableTelemetry`. For more information, see [Command line options](DynamoDBLocal.md#DynamoDBLocal.CommandLineOptions "DynamoDBLocal.md#DynamoDBLocal.CommandLineOptions").
 
-##
-
-Turn off telemetry for a single session
+## Turn off telemetry for a single session
 
 In macOS and Linux operating systems, you can turn off telemetry for a single session. To turn off telemetry
 for your current session, run the following command to set the environment variable `DDB_LOCAL_TELEMETRY`
@@ -33,9 +29,7 @@ to `false`. Repeat the command for each new terminal or session.
 export DDB_LOCAL_TELEMETRY=0
 ```
 
-## Turn off telemetry for your profile
-
-in all sessions
+## Turn off telemetry for your profile in all sessions
 
 Run the following commands to turn off telemetry for all sessions when you're running DynamoDB local on your operating
 system.
@@ -82,9 +76,7 @@ setx DDB_LOCAL_TELEMETRY 0
 refreshenv
 ```
 
-##
-
-Turn off telemetry using DynamoDB local embedded on Maven projects
+## Turn off telemetry using DynamoDB local embedded on Maven projects
 
 You can turn off telemetry using DynamoDB local embedded on Maven projects.
 

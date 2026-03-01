@@ -1,6 +1,4 @@
-# Using Global Secondary Indexes to create an eventually
-
-consistent replica in DynamoDB
+# Using Global Secondary Indexes to create an eventually consistent replica in DynamoDB
 
 You can use a global secondary index to create an eventually consistent replica of a table.
 Creating a replica can allow you to do the following:
@@ -21,8 +19,7 @@ query the replica instead of the table.
 - **Eliminate reads from a table entirely.** For example, you might
   have an application that captures a high volume of clickstream activity from a website, and
   you don't want to risk having reads interfere with that. You can isolate this table and
-  prevent reads by other applications (see [Using IAM policy conditions for fine-grained
-  access control](specifying-conditions.md "specifying-conditions.md")), while letting other applications read a replica
+  prevent reads by other applications (see [Using IAM policy conditions for fine-grained access control](specifying-conditions.md "specifying-conditions.md")), while letting other applications read a replica
   created using a global secondary index.
   To create a replica, set up a global secondary index that has the same key schema as the
   parent table, with some or all of the non-key attributes projected into it. In applications, you

@@ -15,8 +15,7 @@ simplifies building modern, serverless applications that can start small and sca
 millions of requests per second. Once your on-demand table is scaled out, you can
 instantly achieve the same throughput again in the future without throttling. If you are
 driving zero traffic to your table, then with on-demand, you are not charged for any
-throughput. For more information about on-demand mode's scaling properties, see [Initial throughput and scaling
-properties](#on-demand-capacity-mode-initial "#on-demand-capacity-mode-initial").
+throughput. For more information about on-demand mode's scaling properties, see [Initial throughput and scaling properties](#on-demand-capacity-mode-initial "#on-demand-capacity-mode-initial").
 
 Tables that use on-demand mode deliver the same single-digit millisecond latency,
 service-level agreement (SLA), and security that DynamoDB provisioned mode offers.
@@ -34,8 +33,7 @@ throughput, you can keep table-level usage and costs bounded, protect against an
 inadvertent surge in consumed resources, and prevent excessive use for predictable cost
 management. Throughput requests that exceed the maximum table throughput are throttled.
 You can modify the table-specific maximum throughput at any time based on your
-application requirements. For more information, see [DynamoDB maximum throughput
-for on-demand tables](on-demand-capacity-mode-max-throughput.md "on-demand-capacity-mode-max-throughput.md").
+application requirements. For more information, see [DynamoDB maximum throughput for on-demand tables](on-demand-capacity-mode-max-throughput.md "on-demand-capacity-mode-max-throughput.md").
 
 To get started, create or update a table to use on-demand mode. For more information,
 see [Basic operations on DynamoDB tables](WorkingWithTables.md "WorkingWithTables.md").
@@ -48,16 +46,11 @@ For on-demand table quotas, see [Read/write throughput](ServiceQuotas.md#default
 
 ###### Topics
 
-- [Read request units and write request
-  units](#read-write-request-units "#read-write-request-units")
-- [Initial throughput and scaling
-  properties](#on-demand-capacity-mode-initial "#on-demand-capacity-mode-initial")
-- [DynamoDB maximum throughput
-  for on-demand tables](on-demand-capacity-mode-max-throughput.md "on-demand-capacity-mode-max-throughput.md")
+- [Read request units and write request units](#read-write-request-units "#read-write-request-units")
+- [Initial throughput and scaling properties](#on-demand-capacity-mode-initial "#on-demand-capacity-mode-initial")
+- [DynamoDB maximum throughput for on-demand tables](on-demand-capacity-mode-max-throughput.md "on-demand-capacity-mode-max-throughput.md")
 
-## Read request units and write request
-
-units
+## Read request units and write request units
 
 DynamoDB charges you for the reads and writes that your application performs on your
 tables in terms of _read request units_ and _write
@@ -73,9 +66,7 @@ second, for an item up to 1 KB in size.
 
 For more information about how read and write units are consumed, see [DynamoDB read and write operations](read-write-operations.md "read-write-operations.md").
 
-## Initial throughput and scaling
-
-properties
+## Initial throughput and scaling properties
 
 DynamoDB tables using on-demand capacity mode automatically adapt to your
 application’s traffic volume. New on-demand tables will be able to sustain up to

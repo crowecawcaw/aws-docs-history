@@ -1,6 +1,4 @@
-# Using DynamoDB as a data store for an online
-
-shop
+# Using DynamoDB as a data store for an online shop
 
 This use case talks about using DynamoDB as a data store for an online shop (or
 e-store).
@@ -30,18 +28,14 @@ Typical access patterns for an online store include:
 - Get all invoices for a given customerId for a given date range
 - Get all products ordered by a given customerId for a given date range
 
-## Entity relationship
-
-diagram
+## Entity relationship diagram
 
 This is the entity relationship diagram (ERD) we'll be using to model DynamoDB as a data
 store for an online shop.
 
 ![ERD for an online store's data model with entities, such as Product, Order, Payment, and Customer.](images/DataModeling/OnlineShop-1-ERD.png)
 
-## Access
-
-patterns
+## Access patterns
 
 These are the access patterns we'll be considering when using DynamoDB as a data store
 for an online shop.
@@ -63,9 +57,7 @@ for an online shop.
 15. `getInvoiceByCustomerIdForDateRange`
 16. `getProductsByCustomerIdForDateRange`
 
-## Schema design
-
-evolution
+## Schema design evolution
 
 Using [NoSQL Workbench for DynamoDB](workbench.md "workbench.md") , import [AnOnlineShop_1.json](https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_1.json "https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/an-online-shop/json/AnOnlineShop_1.json") to create a new data model called
 `AnOnlineShop` and a new table called `OnlineShop`. Note that
@@ -346,9 +338,7 @@ table below:
 | getInvoiceByCustomerIdForDateRange  | GSI2               | Query     | PK=customerId       | SK between i#date1 and i#date2 |
 | getProductsByCustomerIdForDateRange | GSI2               | Query     | PK=customerId       | SK between p#date1 and p#date2 |
 
-### Online shop
-
-final schema
+### Online shop final schema
 
 Here are the final schema designs. To download this schema design as a JSON file,
 see [DynamoDB Design Patterns](https://github.com/aws-samples/aws-dynamodb-examples/tree/master/schema_design/SchemaExamples "https://github.com/aws-samples/aws-dynamodb-examples/tree/master/schema_design/SchemaExamples") on GitHub.
@@ -365,9 +355,7 @@ see [DynamoDB Design Patterns](https://github.com/aws-samples/aws-dynamodb-examp
 
 ![Final GSI2 schema for an online shop's base table with attributes, such as EntityType.](images/DataModeling/OnlineShop-19-Final-GSI2.png)
 
-## Using NoSQL Workbench with this
-
-schema design
+## Using NoSQL Workbench with this schema design
 
 You can import this final schema into [NoSQL
 Workbench](workbench.md "workbench.md"), a visual tool that provides data modeling, data visualization, and

@@ -23,16 +23,12 @@ AWS](https://www.youtube.com/watch?v=7IA48SOX20c "https://www.youtube.com/watch?
 - [Key facts about DynamoDB global table design](#bp-global-table-design.prescriptive-guidance.facts "#bp-global-table-design.prescriptive-guidance.facts")
 - [Key facts about MREC](#bp-global-table-design-MREC-facts "#bp-global-table-design-MREC-facts")
 - [Key facts about MRSC](#bp-global-table-design-MRSC-facts "#bp-global-table-design-MRSC-facts")
-- [MREC DynamoDB global
-  table use cases](#bp-global-table-design.prescriptive-guidance.usecases "#bp-global-table-design.prescriptive-guidance.usecases")
+- [MREC DynamoDB global table use cases](#bp-global-table-design.prescriptive-guidance.usecases "#bp-global-table-design.prescriptive-guidance.usecases")
 - [Write modes with DynamoDB global tables](bp-global-table-design.prescriptive-guidance.md "bp-global-table-design.prescriptive-guidance.md")
-- [Routing
-  strategies in DynamoDB](bp-global-table-design.prescriptive-guidance.md "bp-global-table-design.prescriptive-guidance.md")
-- [Evacuation
-  processes](bp-global-table-design.prescriptive-guidance.md "bp-global-table-design.prescriptive-guidance.md")
+- [Routing strategies in DynamoDB](bp-global-table-design.prescriptive-guidance.md "bp-global-table-design.prescriptive-guidance.md")
+- [Evacuation processes](bp-global-table-design.prescriptive-guidance.md "bp-global-table-design.prescriptive-guidance.md")
 - [Throughput capacity planning for DynamoDB global tables](bp-global-table-design.prescriptive-guidance.md "bp-global-table-design.prescriptive-guidance.md")
-- [Preparation
-  checklist for DynamoDB global tables](bp-global-table-design.prescriptive-guidance.md "bp-global-table-design.prescriptive-guidance.md")
+- [Preparation checklist for DynamoDB global tables](bp-global-table-design.prescriptive-guidance.md "bp-global-table-design.prescriptive-guidance.md")
 - [Conclusion and resources](#bp-global-table-design.prescriptive-guidance-resources-conclusion "#bp-global-table-design.prescriptive-guidance-resources-conclusion")
 
 ## Key facts about DynamoDB global table design
@@ -180,9 +176,7 @@ creation.
   so far been propagated into the Region, with usual local consistency behavior between the leader
   node and local replicas. No special action is required to bring the tables back in sync.
 
-## MREC DynamoDB global
-
-table use cases
+## MREC DynamoDB global table use cases
 
 MREC global tables provides these benefits:
 
@@ -192,8 +186,7 @@ MREC global tables provides these benefits:
 - **Lower-latency write operations.** You can write to a nearby
   region to reduce network latency and the time taken to achieve the write. The write
   traffic must be carefully routed to ensure no conflicts. Techniques for routing are
-  discussed in more detail in [Routing
-  strategies in DynamoDB](bp-global-table-design.prescriptive-guidance.md "bp-global-table-design.prescriptive-guidance.md").
+  discussed in more detail in [Routing strategies in DynamoDB](bp-global-table-design.prescriptive-guidance.md "bp-global-table-design.prescriptive-guidance.md").
 - **Seamless Region migration.** You can add a new Region
   and delete the old Region to migrate a deployment from one Region to another without
   downtime at the data layer.

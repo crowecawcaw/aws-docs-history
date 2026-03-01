@@ -11,9 +11,7 @@ We recommend that first time users begin by reading the following sections, and 
 | Example**[DynamoDB Design Patterns](best-practices.md "best-practices.md")**Best practices and data modeling examples for different use cases with practical code samples.                                                                                                                         | Example**[Hands-on Tutorials](https://aws.amazon.com/tutorials/create-nosql-table/ "https://aws.amazon.com/tutorials/create-nosql-table/")**Step-by-step tutorials in the AWS Management Console that guide you through common DynamoDB tasks.                                                                                                                       |
 | Example**[Migrating to DynamoDB](migration-guide.md "migration-guide.md")**Overview of the process, tools, and strategies for migrating a database into DynamoDB.                                                                                                                                  | Example**[AWS Well-Architected Lens for DynamoDB](bp-wal.md "bp-wal.md")**Architectural best practices for designing and operating reliable, secure, efficient, and cost-effective applications using DynamoDB.                                                                                                                                                      |
 
-## Amazon DynamoDB additional best practices for first-time
-
-users
+## Amazon DynamoDB additional best practices for first-time users
 
 After you complete the preceding sections, read these sections:
 
@@ -23,8 +21,7 @@ Provides an overview of the two throughput modes available for DynamoDB and cons
 selecting the appropriate capacity mode for your application. On-demand mode is the default and
 recommended throughput option for most DynamoDB workloads.
 
-- **[Best practices for designing and architecting with
-  DynamoDB](best-practices.md "best-practices.md")**
+- **[Best practices for designing and architecting with DynamoDB](best-practices.md "best-practices.md")**
 
 Identify and address issues to maximize performance and minimize costs when working with
 DynamoDB.

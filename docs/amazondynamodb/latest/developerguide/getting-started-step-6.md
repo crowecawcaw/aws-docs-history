@@ -1,6 +1,4 @@
-# Step 6: (Optional) Delete your DynamoDB table to clean up
-
-resources
+# Step 6: (Optional) Delete your DynamoDB table to clean up resources
 
 If you no longer need the Amazon DynamoDB table that you created for the tutorial, you can
 delete it. This step helps ensure that you aren't charged for resources that you aren't

@@ -74,12 +74,9 @@ DynamoDB.
 
 ![Workflow diagram showing an EC2 instance accessing DynamoDB through a router and VPC endpoint only.](images/ddb-yes-vpc-endpoint.png)
 
-For more information, see [Tutorial: Using a VPC endpoint for
-DynamoDB](#vpc-endpoints-dynamodb-tutorial "#vpc-endpoints-dynamodb-tutorial").
+For more information, see [Tutorial: Using a VPC endpoint for DynamoDB](#vpc-endpoints-dynamodb-tutorial "#vpc-endpoints-dynamodb-tutorial").
 
-### Sharing Amazon VPC endpoints and
-
-DynamoDB
+### Sharing Amazon VPC endpoints and DynamoDB
 
 In order to enable access to the DynamoDB service through a VPC subnet's gateway
 endpoint, you must have owner account permissions for that VPC subnet.
@@ -91,26 +88,18 @@ tables associated with a different account than the VPC subnet. The VPC subnet o
 still restrict any particular user within the subnet from using the DynamoDB service
 through the gateway endpoint, at their discretion.
 
-### Tutorial: Using a VPC endpoint for
-
-DynamoDB
+### Tutorial: Using a VPC endpoint for DynamoDB
 
 This section walks you through setting up and using a VPC endpoint for DynamoDB.
 
 ###### Topics
 
-- [Step 1: Launch
-  an Amazon EC2 instance](#vpc-endpoints-dynamodb-tutorial.launch-ec2-instance "#vpc-endpoints-dynamodb-tutorial.launch-ec2-instance")
-- [Step 2:
-  Configure your Amazon EC2 instance](#vpc-endpoints-dynamodb-tutorial.configure-ec2-instance "#vpc-endpoints-dynamodb-tutorial.configure-ec2-instance")
-- [Step 3: Create a
-  VPC endpoint for DynamoDB](#vpc-endpoints-dynamodb-tutorial.create-endpoint "#vpc-endpoints-dynamodb-tutorial.create-endpoint")
-- [Step 4: (Optional) Clean
-  up](#vpc-endpoints-dynamodb-tutorial.clean-up "#vpc-endpoints-dynamodb-tutorial.clean-up")
+- [Step 1: Launch an Amazon EC2 instance](#vpc-endpoints-dynamodb-tutorial.launch-ec2-instance "#vpc-endpoints-dynamodb-tutorial.launch-ec2-instance")
+- [Step 2: Configure your Amazon EC2 instance](#vpc-endpoints-dynamodb-tutorial.configure-ec2-instance "#vpc-endpoints-dynamodb-tutorial.configure-ec2-instance")
+- [Step 3: Create a VPC endpoint for DynamoDB](#vpc-endpoints-dynamodb-tutorial.create-endpoint "#vpc-endpoints-dynamodb-tutorial.create-endpoint")
+- [Step 4: (Optional) Clean up](#vpc-endpoints-dynamodb-tutorial.clean-up "#vpc-endpoints-dynamodb-tutorial.clean-up")
 
-#### Step 1: Launch
-
-an Amazon EC2 instance
+#### Step 1: Launch an Amazon EC2 instance
 
 In this step, you launch an Amazon EC2 instance in your default Amazon VPC. You can then
 create and use a VPC endpoint for DynamoDB.
@@ -184,8 +173,7 @@ Step 7: Review Instance Launch
    `ec2-00-00-00-00.us-east-1.compute.amazonaws.com`.
 
 Make a note of this public DNS name, because you will need it in the next
-step in this tutorial ([Step 2:
-Configure your Amazon EC2 instance](#vpc-endpoints-dynamodb-tutorial.configure-ec2-instance "#vpc-endpoints-dynamodb-tutorial.configure-ec2-instance")).
+step in this tutorial ([Step 2: Configure your Amazon EC2 instance](#vpc-endpoints-dynamodb-tutorial.configure-ec2-instance "#vpc-endpoints-dynamodb-tutorial.configure-ec2-instance")).
 
 ###### Note
 
@@ -194,9 +182,7 @@ you go on to the next step, ensure that the **Instance State**
 is `running` and that all of its **Status Checks**
 have passed.
 
-#### Step 2:
-
-Configure your Amazon EC2 instance
+#### Step 2: Configure your Amazon EC2 instance
 
 When your Amazon EC2 instance is available, you will be able to log into it and prepare
 it for first use.
@@ -239,8 +225,7 @@ Instance](../../../AWSEC2/latest/UserGuide/AccessingInstances.md "../../../AWSEC
 
     3.  In the navigation pane, choose
         **Instances**.
-    4.  Choose the Amazon EC2 instance that you launched in [Step 1: Launch
-        an Amazon EC2 instance](#vpc-endpoints-dynamodb-tutorial.launch-ec2-instance "#vpc-endpoints-dynamodb-tutorial.launch-ec2-instance").
+    4.  Choose the Amazon EC2 instance that you launched in [Step 1: Launch an Amazon EC2 instance](#vpc-endpoints-dynamodb-tutorial.launch-ec2-instance "#vpc-endpoints-dynamodb-tutorial.launch-ec2-instance").
     5.  Choose **Actions** -->
         **Networking** --> **Change Security
         Groups**.
@@ -259,8 +244,7 @@ ssh -i `my-keypair.pem` ec2-user@`public-dns-name`
 ```
 
 You will need to specify your private key file (_.pem_
-file) and the public DNS name of your instance. (See [Step 1: Launch
-an Amazon EC2 instance](#vpc-endpoints-dynamodb-tutorial.launch-ec2-instance "#vpc-endpoints-dynamodb-tutorial.launch-ec2-instance")).
+file) and the public DNS name of your instance. (See [Step 1: Launch an Amazon EC2 instance](#vpc-endpoints-dynamodb-tutorial.launch-ec2-instance "#vpc-endpoints-dynamodb-tutorial.launch-ec2-instance")).
 
 The login ID is `ec2-user`. No password is required. 3. Configure your AWS credentials as shown in the following example. Enter your AWS
 access key ID, secret key, and default Region name when prompted.
@@ -278,9 +262,7 @@ Default output format [None]:
 
 You are now ready to create a VPC endpoint for DynamoDB.
 
-#### Step 3: Create a
-
-VPC endpoint for DynamoDB
+#### Step 3: Create a VPC endpoint for DynamoDB
 
 In this step, you will create a VPC endpoint for DynamoDB and test it to make sure
 that it works.
@@ -365,9 +347,7 @@ parameter to associate the endpoint with your route tables.
 If you want, you can try some other AWS CLI commands for DynamoDB. For more
 information, see the [AWS CLI Command Reference](../../../cli/latest/reference.md "../../../cli/latest/reference.md").
 
-#### Step 4: (Optional) Clean
-
-up
+#### Step 4: (Optional) Clean up
 
 If you want to delete the resources you have created in this tutorial, follow
 these procedures:

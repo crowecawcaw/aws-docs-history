@@ -16,8 +16,7 @@ example, say that you set the expiration date to 1724241326 (which is Monday, Au
 ###### Topics
 
 - [Create an item and set the Time to Live](#time-to-live-ttl-before-you-start-create "#time-to-live-ttl-before-you-start-create")
-- [Update an item and refresh the
-  Time to Live](#time-to-live-ttl-before-you-start-update "#time-to-live-ttl-before-you-start-update")
+- [Update an item and refresh the Time to Live](#time-to-live-ttl-before-you-start-update "#time-to-live-ttl-before-you-start-update")
 
 ## Create an item and set the Time to Live
 
@@ -301,9 +300,7 @@ create_dynamodb_item(
   [PutItem](../../../goto/boto3/dynamodb-2012-08-10/PutItem.md "../../../goto/boto3/dynamodb-2012-08-10/PutItem.md")
   in _AWS SDK for Python (Boto3) API Reference_.
 
-## Update an item and refresh the
-
-Time to Live
+## Update an item and refresh the Time to Live
 
 This example is a continuation of the one from the [previous section](#time-to-live-ttl-before-you-start-create "#time-to-live-ttl-before-you-start-create"). The
 expiration time can be recomputed if the item is updated. The following example

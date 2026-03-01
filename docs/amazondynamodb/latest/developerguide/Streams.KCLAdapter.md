@@ -3,8 +3,7 @@
 This section is a walkthrough of a Java application that uses the Amazon Kinesis Client Library
 and the Amazon DynamoDB Streams Kinesis Adapter. The application shows an example of data replication, in
 which write activity from one table is applied to a second table, with both tables' contents
-staying in sync. For the source code, see [Complete program: DynamoDB Streams
-Kinesis adapter](Streams.KCLAdapter.Walkthrough.md "Streams.KCLAdapter.Walkthrough.md").
+staying in sync. For the source code, see [Complete program: DynamoDB Streams Kinesis adapter](Streams.KCLAdapter.Walkthrough.md "Streams.KCLAdapter.Walkthrough.md").
 
 The program does the following:
 
@@ -23,21 +22,14 @@ The program does the following:
 
 ###### Topics
 
-- [Step 1: Create DynamoDB
-  tables](#Streams.KCLAdapter.Walkthrough.Step1 "#Streams.KCLAdapter.Walkthrough.Step1")
-- [Step 2: Generate update activity
-  in source table](#Streams.KCLAdapter.Walkthrough.Step2 "#Streams.KCLAdapter.Walkthrough.Step2")
-- [Step 3: Process the
-  stream](#Streams.KCLAdapter.Walkthrough.Step3 "#Streams.KCLAdapter.Walkthrough.Step3")
-- [Step 4: Ensure that both tables
-  have identical contents](#Streams.KCLAdapter.Walkthrough.Step4 "#Streams.KCLAdapter.Walkthrough.Step4")
+- [Step 1: Create DynamoDB tables](#Streams.KCLAdapter.Walkthrough.Step1 "#Streams.KCLAdapter.Walkthrough.Step1")
+- [Step 2: Generate update activity in source table](#Streams.KCLAdapter.Walkthrough.Step2 "#Streams.KCLAdapter.Walkthrough.Step2")
+- [Step 3: Process the stream](#Streams.KCLAdapter.Walkthrough.Step3 "#Streams.KCLAdapter.Walkthrough.Step3")
+- [Step 4: Ensure that both tables have identical contents](#Streams.KCLAdapter.Walkthrough.Step4 "#Streams.KCLAdapter.Walkthrough.Step4")
 - [Step 5: Clean up](#Streams.KCLAdapter.Walkthrough.Step5 "#Streams.KCLAdapter.Walkthrough.Step5")
-- [Complete program: DynamoDB Streams
-  Kinesis adapter](Streams.KCLAdapter.Walkthrough.md "Streams.KCLAdapter.Walkthrough.md")
+- [Complete program: DynamoDB Streams Kinesis adapter](Streams.KCLAdapter.Walkthrough.md "Streams.KCLAdapter.Walkthrough.md")
 
-## Step 1: Create DynamoDB
-
-tables
+## Step 1: Create DynamoDB tables
 
 The first step is to create two DynamoDB tables—a source table and a destination
 table. The `StreamViewType` on the source table's stream is
@@ -68,9 +60,7 @@ CreateTableRequest createTableRequest = new CreateTableRequest().withTableName(t
 
 ```
 
-## Step 2: Generate update activity
-
-in source table
+## Step 2: Generate update activity in source table
 
 The next step is to generate some write activity on the source table. While this
 activity is taking place, the source table's stream is also updated in near-real
@@ -92,9 +82,7 @@ StreamsAdapterDemoHelper.deleteItem(dynamoDBClient, tableName, "102");
 
 ```
 
-## Step 3: Process the
-
-stream
+## Step 3: Process the stream
 
 Now the program begins processing the stream. The DynamoDB Streams Kinesis Adapter acts as a
 transparent layer between the KCL and the DynamoDB Streams endpoint, so that the code can fully use
@@ -158,9 +146,7 @@ for (Record record : records) {
 
 ```
 
-## Step 4: Ensure that both tables
-
-have identical contents
+## Step 4: Ensure that both tables have identical contents
 
 At this point, the source and destination tables' contents are in sync. The
 application issues `Scan` requests against both tables to verify that their

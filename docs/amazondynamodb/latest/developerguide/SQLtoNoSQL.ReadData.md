@@ -1,94 +1,129 @@
-# Differences in scanning a table
+# Differences in reading an item using its primary key
 
-In SQL, a `SELECT` statement without a `WHERE` clause will
-return every row in a table. In Amazon DynamoDB, the `Scan` operation does the
-same thing. In both cases, you can retrieve all of the items or just some of
-them.
-
-Whether you are using a SQL or a NoSQL database, scans should be used sparingly
-because they can consume large amounts of system resources. Sometimes a scan is
-appropriate (such as scanning a small table) or unavoidable (such as performing a
-bulk export of data). However, as a general rule, you should design your
-applications to avoid performing scans. For more information, see [Querying tables in DynamoDB](Query.md "Query.md").
-
-###### Note
-
-Doing a bulk export also creates at least 1 file per partition. All of the
-items in each file are from that particular partition's hashed keyspace.
+One common access pattern for databases is to read a single item from a table. You
+have to specify the primary key of the item you want.
 
 ###### Topics
 
-- [Scanning a table with SQL](#SQLtoNoSQL.ReadData.Scan.SQL "#SQLtoNoSQL.ReadData.Scan.SQL")
-- [Scanning a table in
-  DynamoDB](#SQLtoNoSQL.ReadData.Scan.DynamoDB "#SQLtoNoSQL.ReadData.Scan.DynamoDB")
+- [Reading an item using its primary key with SQL](#SQLtoNoSQL.ReadData.SingleItem.SQL "#SQLtoNoSQL.ReadData.SingleItem.SQL")
+- [Reading an item using its primary key in DynamoDB](#SQLtoNoSQL.ReadData.SingleItem.DynamoDB "#SQLtoNoSQL.ReadData.SingleItem.DynamoDB")
 
-## Scanning a table with SQL
+## Reading an item using its primary key with SQL
 
-When using SQL you can scan a table and retrieve all of its data by using a
-`SELECT` statement without specifying a `WHERE`
-clause. You can request one or more columns in the result. Or you can request
-all of them if you use the wildcard character (\*).
+In SQL, you would use the `SELECT` statement to retrieve data from
+a table. You can request one or more columns in the result (or all of them, if
+you use the `*` operator). The `WHERE` clause determines
+which rows to return.
 
-The following are examples of using a `SELECT` statement.
-
-```
-/* Return all of the data in the table */
-SELECT * FROM Music;
-```
+The following is a `SELECT` statement to retrieve a single row from
+the _Music_ table. The `WHERE` clause specifies
+the primary key values.
 
 ```
-/* Return all of the values for Artist and Title */
-SELECT Artist, Title FROM Music;
+SELECT *
+FROM Music
+WHERE Artist='No One You Know' AND SongTitle = 'Call Me Today'
 ```
 
-## Scanning a table in
-
-DynamoDB
-
-In Amazon DynamoDB, you can use either the DynamoDB API or [PartiQL](ql-reference.md "ql-reference.md") (a SQL-compatible query
-language) to perform a scan on a table.
-
-DynamoDB API
-With the DynamoDB API, you use the `Scan` operation to
-return one or more items and item attributes by accessing every item
-in a table or a secondary index.
-
-```
-// Return all of the data in the table
-{
-    TableName:  "Music"
-}
-```
-
-```
-// Return all of the values for Artist and Title
-{
-    TableName:  "Music",
-    ProjectionExpression: "Artist, Title"
-}
-```
-
-The `Scan` operation also provides a
-`FilterExpression` parameter, which you can use to
-discard items that you do not want to appear in the results. A
-`FilterExpression` is applied after the scan is
-performed, but before the results are returned to you. (This is not
-recommended with large tables. You are still charged for the entire
-`Scan`, even if only a few matching items are
-returned.)
-
-PartiQL for DynamoDB
-With PartiQL, you perform a scan by using the
-`ExecuteStatement` operation to return all the
-contents for a table using the `Select` statement.
+You can modify this query to retrieve only a subset of the columns.
 
 ```
 SELECT AlbumTitle, Year, Price
 FROM Music
+WHERE Artist='No One You Know' AND SongTitle = 'Call Me Today'
 ```
 
-Note that this statement will return all items for in the Music
-table.
+Note that the primary key for this table consists of
+_Artist_ and _SongTitle_.
+
+## Reading an item using its primary key in DynamoDB
+
+In Amazon DynamoDB, you can use either the DynamoDB API or [PartiQL](ql-reference.md "ql-reference.md") (a SQL-compatible query
+language) to read an item from a table.
+
+DynamoDB API
+With the DynamoDB API, you use the `PutItem` operation to
+add an item to a table.
+
+DynamoDB provides the `GetItem` operation for retrieving
+an item by its primary key. `GetItem` is highly efficient
+because it provides direct access to the physical location of the
+item. (For more information, see [Partitions and data distribution in DynamoDB](HowItWorks.md "HowItWorks.md").)
+
+By default, `GetItem` returns the entire item with all
+of its attributes.
+
+```
+{
+    TableName: "Music",
+    Key: {
+        "Artist": "No One You Know",
+        "SongTitle": "Call Me Today"
+    }
+}
+```
+
+You can add a `ProjectionExpression` parameter to
+return only some of the attributes.
+
+```
+{
+    TableName: "Music",
+    Key: {
+        "Artist": "No One You Know",
+        "SongTitle": "Call Me Today"
+    },
+    "ProjectionExpression": "AlbumTitle, Year, Price"
+}
+```
+
+Note that the primary key for this table consists of
+_Artist_ and
+_SongTitle_.
+
+The DynamoDB `GetItem` operation is very efficient. It
+uses the primary key values to determine the exact storage location
+of the item in question, and retrieves it directly from there. The
+SQL `SELECT` statement is similarly efficient, in the
+case of retrieving items by primary key values.
+
+The SQL `SELECT` statement supports many kinds of
+queries and table scans. DynamoDB provides similar functionality with
+its `Query` and `Scan` operations, which are
+described in [Differences in querying a table](SQLtoNoSQL.ReadData.md "SQLtoNoSQL.ReadData.md") and [Differences in scanning a table](SQLtoNoSQL.ReadData.md "SQLtoNoSQL.ReadData.md").
+
+The SQL `SELECT` statement can perform table joins,
+allowing you to retrieve data from multiple tables at the same time.
+Joins are most effective where the database tables are normalized
+and the relationships among the tables are clear. However, if you
+join too many tables in one `SELECT` statement
+application performance can be affected. You can work around such
+issues by using database replication, materialized views, or query
+rewrites.
+
+DynamoDB is a nonrelational database and doesn't support table joins.
+If you are migrating an existing application from a relational
+database to DynamoDB, you need to denormalize your data model to
+eliminate the need for joins.
+
+PartiQL for DynamoDB
+With PartiQL, you use the `ExecuteStatement` operation
+to read an item from a table, using the PartiQL `Select`
+statement.
+
+```
+SELECT AlbumTitle, Year, Price
+FROM Music
+WHERE Artist='No One You Know' AND SongTitle = 'Call Me Today'
+```
+
+Note that the primary key for this table consists of Artist and
+SongTitle.
+
+###### Note
+
+The select PartiQL statement can also be used to Query or
+Scan a DynamoDB table
 
 For code examples using `Select` and
 `ExecuteStatement`, see [PartiQL select statements for DynamoDB](ql-reference.md "ql-reference.md").

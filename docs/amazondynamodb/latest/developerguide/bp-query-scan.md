@@ -91,8 +91,7 @@ indicates you have exceeded your provisioned throughput. Or, increase the provis
 throughput for your table using the `UpdateTable` operation. If you have temporary
 spikes in your workload that cause your throughput to exceed, occasionally, beyond the
 provisioned level, retry the request with exponential backoff. For more information about
-implementing exponential backoff, see [Error retries and exponential
-backoff](Programming.md#Programming.Errors.RetryAndBackoff "Programming.md#Programming.Errors.RetryAndBackoff").
+implementing exponential backoff, see [Error retries and exponential backoff](Programming.md#Programming.Errors.RetryAndBackoff "Programming.md#Programming.Errors.RetryAndBackoff").
 
 ## Taking advantage of parallel scans
 

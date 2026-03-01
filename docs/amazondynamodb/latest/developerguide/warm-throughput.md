@@ -39,11 +39,7 @@ For more information about warm throughput, see the topics below:
 
 ###### Topics
 
-- [Check your DynamoDB table's current warm
-  throughput](check-warm-throughput.md "check-warm-throughput.md")
-- [Increase your existing DynamoDB table's warm
-  throughput](update-warm-throughput.md "update-warm-throughput.md")
-- [Create a new DynamoDB table with higher
-  warm throughput](create-table-warm-throughput.md "create-table-warm-throughput.md")
-- [Understanding DynamoDB warm throughput in
-  different scenarios](warm-throughput-scenarios.md "warm-throughput-scenarios.md")
+- [Check your DynamoDB table's current warm throughput](check-warm-throughput.md "check-warm-throughput.md")
+- [Increase your existing DynamoDB table's warm throughput](update-warm-throughput.md "update-warm-throughput.md")
+- [Create a new DynamoDB table with higher warm throughput](create-table-warm-throughput.md "create-table-warm-throughput.md")
+- [Understanding DynamoDB warm throughput in different scenarios](warm-throughput-scenarios.md "warm-throughput-scenarios.md")

@@ -1,7 +1,4 @@
-# Programming
-
-DynamoDB
-with the AWS SDK for Java 2.x
+# Programming DynamoDB with the AWS SDK for Java 2.x
 
 This
 programming
@@ -19,8 +16,7 @@ handling, controlling retry policies, and managing keep-alive.
 - [SDK for Java 2.x
   documentation](#ProgrammingWithJavaUseDoc "#ProgrammingWithJavaUseDoc")
 - [Supported interfaces](#JavaInterfaces "#JavaInterfaces")
-- [Additional
-  code examples](#AdditionalCodeEx "#AdditionalCodeEx")
+- [Additional code examples](#AdditionalCodeEx "#AdditionalCodeEx")
 - [Sync and async
   programming](#SyncAsyncProgramming "#SyncAsyncProgramming")
 - [HTTP clients](#HttpClients "#HttpClients")
@@ -75,9 +71,7 @@ low-level API.
 
 The AWS SDK for Java 2.x provides full support for long-term support (LTS) [Java releases](https://github.com/aws/aws-sdk-java-v2?tab=readme-ov-file#maintenance-and-support-for-java-versions "https://github.com/aws/aws-sdk-java-v2?tab=readme-ov-file#maintenance-and-support-for-java-versions").
 
-## Getting started with the
-
-AWS SDK for Java 2.x
+## Getting started with the AWS SDK for Java 2.x
 
 The following tutorial shows you how to use [Apache Maven](https://maven.apache.org/ "https://maven.apache.org/") for defining dependencies for the SDK for Java 2.x. This tutorial also
 shows you how to write the code that connects to DynamoDB for listing the available DynamoDB
@@ -479,9 +473,7 @@ You've successfully built your first Java application using the SDK for Java 2.x
 To clean up the resources that you created during this tutorial, delete the
 project folder `getstarted`.
 
-## Reviewing the AWS SDK for Java 2.x
-
-documentation
+## Reviewing the AWS SDK for Java 2.x documentation
 
 The [AWS SDK for Java 2.x Developer Guide](../../../sdk-for-java/latest/developer-guide/home.md "../../../sdk-for-java/latest/developer-guide/home.md") covers all aspects of the SDK across all AWS services.
 We
@@ -517,10 +509,7 @@ depending on the level of abstraction that you want.
 - [Low-level interface](#LowLevelInterface "#LowLevelInterface")
 - [High-level interface](#HighLevelInterface "#HighLevelInterface")
 - [Document interface](#DocumentInterface "#DocumentInterface")
-- [Comparing
-  interfaces with a
-  Query
-  example](#CompareJavaInterfacesQueryEx "#CompareJavaInterfacesQueryEx")
+- [Comparing interfaces with a Query example](#CompareJavaInterfacesQueryEx "#CompareJavaInterfacesQueryEx")
 
 ### Low-level interface
 
@@ -667,9 +656,7 @@ separate package (and Maven artifact) named
 `software.amazon.awssdk.enhanced.dynamodb`. The Java 2.x SDK is
 often referred to by its main class `DynamoDbEnhancedClient`.
 
-#### High-level interface
-
-using immutable data classes
+#### High-level interface using immutable data classes
 
 The mapping feature of the DynamoDB enhanced client API also works with immutable
 data classes. An immutable class has only getters and requires a builder class
@@ -769,10 +756,7 @@ class YourImmutableItem {
 }
 ```
 
-#### High-level
-
-interface using immutable data classes and third-party boilerplate
-generation libraries
+#### High-level interface using immutable data classes and third-party boilerplate generation libraries
 
 Immutable data classes (shown in the previous example) require some
 boilerplate code. For example, the getter and setter logic on the data classes,
@@ -918,11 +902,7 @@ the following utility methods:
   JSON string representation of the document that you can use in your
   application like any other JSON object.
 
-### Comparing
-
-interfaces with a
-`Query`
-example
+### Comparing interfaces with a `Query` example
 
 This section shows the same [`Query`](../APIReference/API_Query.md "../APIReference/API_Query.md") call expressed using the various interfaces. To fine
 tune the results of these queries,
@@ -947,9 +927,7 @@ the following:
   whether
   the item matches the filter.
 
-###### Example `Query`
-
-using the low-level interface
+###### Example `Query` using the low-level interface
 
 The following example queries a table named `YourTableName` using a
 `keyConditionExpression`. This limits the query to a specific
@@ -993,9 +971,7 @@ public class Query {
 }
 ```
 
-###### Example `Query`
-
-using the Document interface
+###### Example `Query` using the Document interface
 
 The following example queries a table named `YourTableName` using
 the Document interface.
@@ -1045,9 +1021,7 @@ public class DynamoDbEnhancedDocumentClientQuery {
 }
 ```
 
-###### Example `Query`
-
-using the high-level interface
+###### Example `Query` using the high-level interface
 
 The following example queries a table named `YourTableName` using
 the DynamoDB enhanced client API.
@@ -1140,9 +1114,7 @@ high-level interface example except for the construction of the entity class
 `YourItem` or `YourImmutableItem`. For more
 information, see the [PutItem](#HighLevelImmutableDataClassEg "#HighLevelImmutableDataClassEg") example.
 
-###### High-level interface using immutable data classes and third-party
-
-boilerplate generation libraries
+###### High-level interface using immutable data classes and third-party boilerplate generation libraries
 
 When you perform a `Query` with the high-level immutable data
 classes, the code is the same as the high-level interface example except for
@@ -1151,9 +1123,7 @@ the construction of the entity class `YourItem` or
 [PutItem](#HighLevelImmutableDataClassEg "#HighLevelImmutableDataClassEg")
 example.
 
-## Additional
-
-code examples
+## Additional code examples
 
 For additional examples of how to use DynamoDB with the SDK for Java 2.x, refer to the following
 code example repositories:
@@ -1219,8 +1189,7 @@ The following list presents some of the possible HTTP clients:
 ###### Topics
 
 - [Apache-based HTTP client](#ApacheHttpClient "#ApacheHttpClient")
-- [URLConnection-based HTTP
-  client](#URLConnHttpClient "#URLConnHttpClient")
+- [URLConnection-based HTTP client](#URLConnHttpClient "#URLConnHttpClient")
 - [Netty-based HTTP client](#NettyHttpClient "#NettyHttpClient")
 - [AWS CRT-based HTTP client](#AWSCRTHttpClient "#AWSCRTHttpClient")
 
@@ -1231,9 +1200,7 @@ clients. It's the default HTTP client for synchronous use. For information about
 configuring the `ApacheHttpClient` class, see [Configure the Apache-based HTTP client](../../../sdk-for-java/latest/developer-guide/http-configuration-apache.md "../../../sdk-for-java/latest/developer-guide/http-configuration-apache.md") in the
 _AWS SDK for Java 2.x Developer Guide_.
 
-### `URLConnection`-based HTTP
-
-client
+### `URLConnection`-based HTTP client
 
 The [`UrlConnectionHttpClient`](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/http/urlconnection/UrlConnectionHttpClient.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/http/urlconnection/UrlConnectionHttpClient.html") class is another option for
 synchronous clients. It loads more quickly than the Apache-based HTTP client, but
@@ -1559,9 +1526,7 @@ DynamoDbClient client = DynamoDbClient.builder()
 
 ```
 
-###### `URLConnection`-based
-
-HTTP client
+###### `URLConnection`-based HTTP client
 
 Any synchronous client that uses the `URLConnection`-based HTTP
 client [`HttpURLConnection`](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html "https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html") doesn't have a [mechanism](https://docs.oracle.com/javase/8/docs/api/java/net/doc-files/net-properties.html "https://docs.oracle.com/javase/8/docs/api/java/net/doc-files/net-properties.html") to enable keep-alive.
@@ -1705,9 +1670,7 @@ By default, the output goes to `System.out`. In the following example, we
 still override the default output Log4j appender to apply a tailored Log4j
 `PatternLayout`.
 
-###### Example of a
-
-`Log4j2.xml` configuration file
+###### Example of a `Log4j2.xml` configuration file
 
 The following configuration logs messages to the console at the `ERROR`
 and `WARN` levels for all logger hierarchies.

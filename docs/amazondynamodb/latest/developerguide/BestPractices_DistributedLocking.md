@@ -1,6 +1,4 @@
-# Distributed locking with the DynamoDB Lock
-
-Client
+# Distributed locking with the DynamoDB Lock Client
 
 For applications that require traditional lock-acquire-release semantics, the DynamoDB Lock
 Client is an open-source library that implements distributed locking using a DynamoDB table as the

@@ -1,6 +1,4 @@
-# IAM policy for read and
-
-write access to a DynamoDB Accelerator (DAX) cluster
+# IAM policy for read and write access to a DynamoDB Accelerator (DAX) cluster
 
 The following policy allows read, write, update, and delete access to a DynamoDB Accelerator
 (DAX) cluster, but not to the associated DynamoDB table. To use this policy,

@@ -29,9 +29,7 @@ There are two primary strategies for handling concurrent updates:
 | Pessimistic locking (transactions) | `TransactWriteItems`                          | Multi-item atomicity, moderate contention        |
 | Pessimistic locking (lock client)  | Dedicated lock table with lease and heartbeat | Long-running workflows, distributed coordination |
 
-## Choosing a concurrency control
-
-strategy
+## Choosing a concurrency control strategy
 
 Use the following guidelines to choose the right approach for your workload:
 

@@ -1,6 +1,4 @@
-# Higher-level programming interfaces for
-
-DynamoDB
+# Higher-level programming interfaces for DynamoDB
 
 The AWS SDKs provide applications with low-level interfaces for working with Amazon DynamoDB.
 These client-side classes and methods correspond directly to the low-level DynamoDB API.
@@ -28,5 +26,4 @@ and .NET.
   **.NET**
 
 - [Working with the .NET document model in DynamoDB](DotNetSDKMidLevel.md "DotNetSDKMidLevel.md")
-- [Working with the .NET object persistence model and
-  DynamoDB](DotNetSDKHighLevel.md "DotNetSDKHighLevel.md")
+- [Working with the .NET object persistence model and DynamoDB](DotNetSDKHighLevel.md "DotNetSDKHighLevel.md")

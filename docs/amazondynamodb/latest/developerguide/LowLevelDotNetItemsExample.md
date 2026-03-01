@@ -1,12 +1,9 @@
-# Example: CRUD operations using the AWS SDK for .NET
-
-low-level API
+# Example: CRUD operations using the AWS SDK for .NET low-level API
 
 The following C# code example illustrates CRUD operations on an Amazon DynamoDB item. The
 example adds an item to the `ProductCatalog` table, retrieves it, performs various
 updates, and finally deletes the item. If you haven't created this table, you can also create it programmatically. For more information, see
-[Creating example
-tables and uploading data using the AWS SDK for .NET](AppendixSampleDataCodeDotNET.md "AppendixSampleDataCodeDotNET.md").
+[Creating example tables and uploading data using the AWS SDK for .NET](AppendixSampleDataCodeDotNET.md "AppendixSampleDataCodeDotNET.md").
 
 For step-by-step instructions for testing the following sample, see [.NET code examples](CodeSamples.md "CodeSamples.md").
 

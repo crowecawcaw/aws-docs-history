@@ -1,6 +1,4 @@
-# Modifying an existing SDK for Java 1.x
-
-application to use DAX
+# Modifying an existing SDK for Java 1.x application to use DAX
 
 If you already have a Java application that uses Amazon DynamoDB, you have to modify it so that
 it can access your DynamoDB Accelerator (DAX) cluster. You don't have to rewrite the entire
@@ -10,8 +8,7 @@ in the AWS SDK for Java.
 ###### Note
 
 These instructions are for applications using AWS SDK for Java 1.x. For applications using
-AWS SDK for Java 2.x, see [Modifying an existing application to use
-DAX](DAX.client.md "DAX.client.md").
+AWS SDK for Java 2.x, see [Modifying an existing application to use DAX](DAX.client.md "DAX.client.md").
 
 Suppose that you have a DynamoDB table named `Music`. The partition key for the
 table is `Artist`, and its sort key is `SongTitle`. The following
@@ -85,9 +82,7 @@ public class GetMusicItem {
 }
 ```
 
-## Using the DynamoDB document
-
-API
+## Using the DynamoDB document API
 
 The AWS SDK for Java provides a document interface for DynamoDB. The document API acts as a
 wrapper around the low-level DynamoDB client. For more information, see [Document

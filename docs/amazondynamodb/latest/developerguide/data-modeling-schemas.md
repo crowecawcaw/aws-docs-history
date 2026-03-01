@@ -22,15 +22,9 @@ together the following list for each schema design:
 
 ###### Topics
 
-- [Social network schema design in
-  DynamoDB](data-modeling-schema-social-network.md "data-modeling-schema-social-network.md")
-- [Gaming profile schema design in
-  DynamoDB](data-modeling-schema-gaming-profile.md "data-modeling-schema-gaming-profile.md")
-- [Complaint management system schema
-  design in DynamoDB](data-modeling-complaint-management.md "data-modeling-complaint-management.md")
-- [Recurring payments schema design in
-  DynamoDB](data-modeling-schema-recurring-payments.md "data-modeling-schema-recurring-payments.md")
-- [Monitoring device status updates in
-  DynamoDB](data-modeling-device-status.md "data-modeling-device-status.md")
-- [Using DynamoDB as a data store for an online
-  shop](data-modeling-online-shop.md "data-modeling-online-shop.md")
+- [Social network schema design in DynamoDB](data-modeling-schema-social-network.md "data-modeling-schema-social-network.md")
+- [Gaming profile schema design in DynamoDB](data-modeling-schema-gaming-profile.md "data-modeling-schema-gaming-profile.md")
+- [Complaint management system schema design in DynamoDB](data-modeling-complaint-management.md "data-modeling-complaint-management.md")
+- [Recurring payments schema design in DynamoDB](data-modeling-schema-recurring-payments.md "data-modeling-schema-recurring-payments.md")
+- [Monitoring device status updates in DynamoDB](data-modeling-device-status.md "data-modeling-device-status.md")
+- [Using DynamoDB as a data store for an online shop](data-modeling-online-shop.md "data-modeling-online-shop.md")

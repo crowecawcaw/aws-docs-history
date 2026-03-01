@@ -1,6 +1,4 @@
-# DynamoDB preventative security best
-
-practices
+# DynamoDB preventative security best practices
 
 The following best practices can help you anticipate and prevent security incidents in
 Amazon DynamoDB.

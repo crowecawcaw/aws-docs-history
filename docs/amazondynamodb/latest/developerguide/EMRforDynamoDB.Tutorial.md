@@ -1,56 +1,33 @@
-# Step 2: Launch an Amazon EMR
+# Step 7: (Optional) clean up
 
-cluster
+Now that you have completed the tutorial, you can continue reading this section to
+learn more about working with DynamoDB data in Amazon EMR. You might decide to keep your
+Amazon EMR cluster up and running while you do this.
 
-In this step, you will configure and launch an Amazon EMR cluster. Hive and a storage
-handler for DynamoDB will already be installed on the cluster.
+If you don't need the cluster anymore, you should terminate it and remove any
+associated resources. This will help you avoid being charged for resources you don't
+need.
 
-1. Open the Amazon EMR console at
-   [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr/ "https://console.aws.amazon.com/emr/").
-2. Choose **Create Cluster**.
-3. On the **Create Cluster - Quick Options** page, do the
-   following:
-   1. In **Cluster name**, type a name for your cluster
-      (for example: `My EMR cluster`).
-   2. In **EC2 key pair**, choose the key pair you
-      created earlier.Leave the other settings at their defaults.
+1. Terminate the Amazon EMR cluster:
+   1. Open the Amazon EMR console at
+      [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr/ "https://console.aws.amazon.com/emr/").
+   2. Choose the Amazon EMR cluster, choose **Terminate**,
+      and then confirm.
 
-4. Choose **Create cluster**.
-   It will take several minutes to launch your cluster. You can use the
-   **Cluster Details** page in the Amazon EMR console to monitor its
-   progress.
+2. Delete the Features table in DynamoDB:
+   1. Open the DynamoDB console at
+      [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
+   2. In the navigation pane, choose **Tables**.
+   3. Choose the Features table. From the **Actions**
+      menu, choose **Delete Table**.
 
-When the status changes to `Waiting`, the cluster is ready for
-use.
-
-## Cluster
-
-log files and Amazon S3
-
-An Amazon EMR cluster generates log files that contain information about the
-cluster status and debugging information. The default settings for
-**Create Cluster - Quick Options** include setting up Amazon EMR
-logging.
-
-If one does not already exist, the AWS Management Console creates an Amazon S3 bucket. The
-bucket name is
-`aws-logs-`account-id`-`region`,
- where `account-id`is your AWS account number
- and`region``is the region in which you
- launched the cluster (for example,
-`aws-logs-123456789012-us-west-2`).
-
-###### Note
-
-You can use the Amazon S3 console to view the log files. For more information,
-see [View Log Files](../../../ElasticMapReduce/latest/ManagementGuide/emr-manage-view-web-log-files.md "../../../ElasticMapReduce/latest/ManagementGuide/emr-manage-view-web-log-files.md") in the _Amazon EMR Management
-Guide_.
-
-You can use this bucket for purposes in addition to logging. For example, you
-can use the bucket as a location for storing a Hive script or as a destination
-when exporting data from Amazon DynamoDB to Amazon S3.
-
-###### Next step
-
-[Step 3: Connect
-to the Leader node](EMRforDynamoDB.Tutorial.md "EMRforDynamoDB.Tutorial.md")
+3. Delete the Amazon S3 bucket containing the Amazon EMR log files:
+   1. Open the Amazon S3 console at
+      [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
+   2. From the list of buckets, choose `aws-logs-
+`accountID`-`region``,
+where `accountID`is your AWS account
+number and`region` is the region in which
+      you launched the cluster.
+   3. From the **Action** menu, choose
+      **Delete**.

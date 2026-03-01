@@ -1,6 +1,4 @@
-# Leveraging DynamoDB Zero-ETL integration with
-
-OpenSearch Service
+# Leveraging DynamoDB Zero-ETL integration with OpenSearch Service
 
 You can use Amazon Bedrock with DynamoDB to provide serverless access to [foundational models (FMs)](https://aws.amazon.com/what-is/foundation-models/ "https://aws.amazon.com/what-is/foundation-models/"), such as Amazon
 Titan and other third-party models. You can leverage the Zero-ETL integration with

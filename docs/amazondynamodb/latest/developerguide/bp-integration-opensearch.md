@@ -1,6 +1,4 @@
-# Best practices for working with DynamoDB zero-ETL
-
-integration and OpenSearch Service
+# Best practices for working with DynamoDB zero-ETL integration and OpenSearch Service
 
 DynamoDB has a [DynamoDB zero-ETL integration with](OpenSearchIngestionForDynamoDB.md "OpenSearchIngestionForDynamoDB.md") Amazon OpenSearch Service. For more information, see the [DynamoDB plugin for
 OpenSearch Ingestion](../../../opensearch-service/latest/developerguide/configure-client-ddb.md "../../../opensearch-service/latest/developerguide/configure-client-ddb.md") and [specific best practices for

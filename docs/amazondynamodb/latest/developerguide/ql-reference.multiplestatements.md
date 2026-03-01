@@ -1,6 +1,4 @@
-# Running batch operations with
-
-PartiQL for DynamoDB
+# Running batch operations with PartiQL for DynamoDB
 
 This section describes how to use batch statements with PartiQL for DynamoDB.
 

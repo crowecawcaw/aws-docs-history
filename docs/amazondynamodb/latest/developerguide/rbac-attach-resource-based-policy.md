@@ -1,6 +1,4 @@
-# Attach a policy to an DynamoDB existing
-
-table
+# Attach a policy to an DynamoDB existing table
 
 You can attach a resource-based policy to an existing table or modify an existing policy
 by using the DynamoDB console, [PutResourcePolicy](../APIReference/API_PutResourcePolicy.md "../APIReference/API_PutResourcePolicy.md") API, the AWS CLI, AWS SDK, or an [CloudFormation template](rbac-create-table.md#rbac-create-table-cfn "rbac-create-table.md#rbac-create-table-cfn").

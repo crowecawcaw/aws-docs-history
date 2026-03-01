@@ -21,26 +21,18 @@ supported for Amazon DynamoDB Streams endpoints. For more information, see [AWS 
 
 ###### Topics
 
-- [Types of Amazon VPC endpoints for
-  Amazon DynamoDB](#types-of-vpc-endpoints-for-ddb "#types-of-vpc-endpoints-for-ddb")
-- [Considerations when using AWS PrivateLink for
-  Amazon DynamoDB](#privatelink-considerations "#privatelink-considerations")
+- [Types of Amazon VPC endpoints for Amazon DynamoDB](#types-of-vpc-endpoints-for-ddb "#types-of-vpc-endpoints-for-ddb")
+- [Considerations when using AWS PrivateLink for Amazon DynamoDB](#privatelink-considerations "#privatelink-considerations")
 - [Creating an Amazon VPC endpoint](#ddb-creating-vpc "#ddb-creating-vpc")
 - [Accessing Amazon DynamoDB interface endpoints](#accessing-ddb-interface-endpoints "#accessing-ddb-interface-endpoints")
-- [Accessing DynamoDB tables and
-  control API operations from DynamoDB interface endpoints](#accessing-tables-apis-from-interface-endpoints "#accessing-tables-apis-from-interface-endpoints")
-- [Updating an on-premises DNS
-  configuration](#updating-on-premises-dns-config "#updating-on-premises-dns-config")
-- [Creating an Amazon VPC endpoint policy for
-  DynamoDB](#creating-vpc-endpoint-policy "#creating-vpc-endpoint-policy")
-- [Using DynamoDB endpoints with AWS Management Console
-  Private Access](#ddb-endpoints-private-access "#ddb-endpoints-private-access")
+- [Accessing DynamoDB tables and control API operations from DynamoDB interface endpoints](#accessing-tables-apis-from-interface-endpoints "#accessing-tables-apis-from-interface-endpoints")
+- [Updating an on-premises DNS configuration](#updating-on-premises-dns-config "#updating-on-premises-dns-config")
+- [Creating an Amazon VPC endpoint policy for DynamoDB](#creating-vpc-endpoint-policy "#creating-vpc-endpoint-policy")
+- [Using DynamoDB endpoints with AWS Management Console Private Access](#ddb-endpoints-private-access "#ddb-endpoints-private-access")
 - [AWS PrivateLink for DynamoDB Streams](privatelink-streams.md "privatelink-streams.md")
 - [Using AWS PrivateLink for DynamoDB Accelerator (DAX)](dax-private-link.md "dax-private-link.md")
 
-## Types of Amazon VPC endpoints for
-
-Amazon DynamoDB
+## Types of Amazon VPC endpoints for Amazon DynamoDB
 
 You can use two types of Amazon VPC endpoints to access Amazon DynamoDB: _gateway
 endpoints_ and _interface endpoints_ (by using AWS PrivateLink).
@@ -64,9 +56,7 @@ endpoint in the Amazon VPC, you can use both types of endpoints in the same Amaz
 For more information about gateway endpoints, see [Gateway Amazon VPC endpoints](../../../vpc/latest/privatelink/vpce-gateway.md "../../../vpc/latest/privatelink/vpce-gateway.md") in the
 _AWS PrivateLink Guide_.
 
-## Considerations when using AWS PrivateLink for
-
-Amazon DynamoDB
+## Considerations when using AWS PrivateLink for Amazon DynamoDB
 
 Amazon VPC considerations apply to AWS PrivateLink for Amazon DynamoDB. For more information, see
 [Interface
@@ -112,9 +102,7 @@ DynamoDB DNS names: _Regional_ and _Zonal_.
 
 To achieve optimal reliability, we recommend deploying your service across a minimum of three availability zones.
 
-## Accessing DynamoDB tables and
-
-control API operations from DynamoDB interface endpoints
+## Accessing DynamoDB tables and control API operations from DynamoDB interface endpoints
 
 You can use the AWS CLI or AWS SDKs to access DynamoDB tables and control API operations
 through DynamoDB interface endpoints.
@@ -218,17 +206,13 @@ dynamoDbClient = DynamoDbClient.builder().region(region)
 
 ```
 
-## Updating an on-premises DNS
-
-configuration
+## Updating an on-premises DNS configuration
 
 When using endpoint-specific DNS names to access the interface endpoints for DynamoDB, you
 don’t have to update your on-premises DNS resolver. You can resolve the endpoint-specific DNS
 name with the private IP address of the interface endpoint from the public DynamoDB DNS domain.
 
-### Using interface endpoints to access DynamoDB
-
-without a gateway endpoint or an internet gateway in the Amazon VPC
+### Using interface endpoints to access DynamoDB without a gateway endpoint or an internet gateway in the Amazon VPC
 
 Interface endpoints in your Amazon VPC can route both in-Amazon VPC applications and on-premises
 applications to DynamoDB over the Amazon network, as illustrated in the following
@@ -247,9 +231,7 @@ The diagram illustrates the following:
 - In-Amazon VPC applications also send traffic to the interface endpoint. AWS PrivateLink
   moves the data from the interface endpoint to DynamoDB over the AWS network.
 
-### Using gateway endpoints and
-
-interface endpoints together in the same Amazon VPC to access DynamoDB
+### Using gateway endpoints and interface endpoints together in the same Amazon VPC to access DynamoDB
 
 You can create interface endpoints and retain the existing gateway endpoint in the same
 Amazon VPC, as the following diagram shows. By taking this approach, you allow in-Amazon VPC
@@ -271,9 +253,7 @@ The diagram illustrates the following:
 For more information about gateway endpoints, see [Gateway Amazon VPC endpoints](../../../vpc/latest/privatelink/vpce-gateway.md "../../../vpc/latest/privatelink/vpce-gateway.md") in the
 _Amazon VPC User Guide_.
 
-## Creating an Amazon VPC endpoint policy for
-
-DynamoDB
+## Creating an Amazon VPC endpoint policy for DynamoDB
 
 You can attach an endpoint policy to your Amazon VPC endpoint that controls access to DynamoDB.
 The policy specifies the following information:
@@ -284,12 +264,9 @@ The policy specifies the following information:
 
 ###### Topics
 
-- [Example: Restricting access
-  to a specific table from an Amazon VPC endpoint](#privatelink-example-restrict-access-to-bucket "#privatelink-example-restrict-access-to-bucket")
+- [Example: Restricting access to a specific table from an Amazon VPC endpoint](#privatelink-example-restrict-access-to-bucket "#privatelink-example-restrict-access-to-bucket")
 
-### Example: Restricting access
-
-to a specific table from an Amazon VPC endpoint
+### Example: Restricting access to a specific table from an Amazon VPC endpoint
 
 You can create an endpoint policy that restricts access to only specific DynamoDB tables.
 This type of policy is useful if you have other AWS services in your Amazon VPC that use
@@ -320,9 +297,7 @@ JSON
 
 ```
 
-## Using DynamoDB endpoints with AWS Management Console
-
-Private Access
+## Using DynamoDB endpoints with AWS Management Console Private Access
 
 You must set up DNS configuration for DynamoDB and DynamoDB Streams when using VPC endpoints with the
 [DynamoDB console](https://console.aws.amazon.com/dynamodb "https://console.aws.amazon.com/dynamodb") in [AWS Management Console Private

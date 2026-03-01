@@ -66,9 +66,7 @@ caused it, and why the throttling occurred.
 
 ### Example exceptions
 
-#### Example 1: Provisioned capacity
-
-exceeded on a GSI
+#### Example 1: Provisioned capacity exceeded on a GSI
 
 ```
 {
@@ -96,9 +94,7 @@ In this example, the application receives a
 `OrderDateIndex` are being throttled because the write
 consumption has exceeded the GSI's configured provisioned write capacity.
 
-#### Example 2: On-demand maximum
-
-throughput exceeded
+#### Example 2: On-demand maximum throughput exceeded
 
 ```
 {
@@ -129,9 +125,7 @@ on the table.
 When your application encounters throttling, follow these steps to diagnose and
 resolve the issue.
 
-### Step 1 - Analyze the `ThrottlingReason`
-
-details
+### Step 1 - Analyze the `ThrottlingReason` details
 
 1. Check the **reason** field to
    identify the specific reason for throttling.
@@ -161,9 +155,7 @@ implement the appropriate mitigation strategy - in this case, addressing the
 hot partition rather than increasing the table's overall provisioned
 capacity.
 
-### Step 2 - Identify and analyze the
-
-related CloudWatch metrics
+### Step 2 - Identify and analyze the related CloudWatch metrics
 
 1. **Identify your metrics:** Each throttling
    reason in DynamoDB directly corresponds to specific CloudWatch metrics that you can
@@ -205,10 +197,7 @@ index. The metrics (`ReadThrottleEvents`,
 `WriteThrottleEvents`, and `ThrottledRequests`)
 aggregate all throttling events across your table and its indexes.
 
-### Step 3 - Identify your throttled keys
-
-and high access rates using CloudWatch Contributor Insights (for partition-related
-throttling)
+### Step 3 - Identify your throttled keys and high access rates using CloudWatch Contributor Insights (for partition-related throttling)
 
 If you identified partition-related issues in Step 1 (such as
 `KeyRangeThroughputExceeded` errors), CloudWatch Contributor Insights for
@@ -232,9 +221,7 @@ For detailed information about enabling and using CloudWatch Contributor Insight
 [Using CloudWatch Contributor Insights for
 DynamoDB](contributorinsights.md "contributorinsights.md").
 
-### Step 4 - Determine the appropriate
-
-solution
+### Step 4 - Determine the appropriate solution
 
 After diagnosing the specific cause of throttling, implement recommended solution
 based on your specific context. The appropriate solution depends on multiple
@@ -243,14 +230,11 @@ design decisions, access patterns and query efficiency, global and secondary ind
 configuration, and overall system architecture and integration points.
 
 For detailed solutions to address your specific throttling scenarios, see the
-[DynamoDB throttling
-resolution guide](troubleshooting-throttling-diagnostics.md "troubleshooting-throttling-diagnostics.md") section. This resource
+[DynamoDB throttling resolution guide](troubleshooting-throttling-diagnostics.md "troubleshooting-throttling-diagnostics.md") section. This resource
 provides targeted remediation strategies customized to your particular throttling
 reason and capacity mode configuration.
 
-### Step 5 - Monitor your
-
-progress
+### Step 5 - Monitor your progress
 
 1. Track your CloudWatch metrics that correspond to your throttling
    scenario.

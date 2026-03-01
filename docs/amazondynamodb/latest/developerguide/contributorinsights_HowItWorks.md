@@ -1,6 +1,4 @@
-# CloudWatch contributor insights for DynamoDB: How it
-
-works
+# CloudWatch contributor insights for DynamoDB: How it works
 
 Amazon DynamoDB integrates with [CloudWatch Contributor
 Insights](../../../AmazonCloudWatch/latest/monitoring/ContributorInsights.md "../../../AmazonCloudWatch/latest/monitoring/ContributorInsights.md") to provide information about the most accessed and throttled items in a
@@ -19,27 +17,18 @@ Insights for DynamoDB.
 
 ###### Topics
 
-- [CloudWatch contributor insights modes
-  for DynamoDB](#contributorinsights_HowItWorks.Modes "#contributorinsights_HowItWorks.Modes")
-- [CloudWatch contributor insights for
-  DynamoDB rules](#contributorinsights_HowItWorks.Rules "#contributorinsights_HowItWorks.Rules")
-- [Understanding CloudWatch contributor
-  insights for DynamoDB graphs](#contributorinsights_HowItWorks.Graphs "#contributorinsights_HowItWorks.Graphs")
-- [Interactions with other
-  DynamoDB features](#contributorinsights_HowItWorks.OtherFeatures "#contributorinsights_HowItWorks.OtherFeatures")
-- [CloudWatch contributor insights for
-  DynamoDB billing](#contributorinsights_HowItWorks.Billing "#contributorinsights_HowItWorks.Billing")
+- [CloudWatch contributor insights modes for DynamoDB](#contributorinsights_HowItWorks.Modes "#contributorinsights_HowItWorks.Modes")
+- [CloudWatch contributor insights for DynamoDB rules](#contributorinsights_HowItWorks.Rules "#contributorinsights_HowItWorks.Rules")
+- [Understanding CloudWatch contributor insights for DynamoDB graphs](#contributorinsights_HowItWorks.Graphs "#contributorinsights_HowItWorks.Graphs")
+- [Interactions with other DynamoDB features](#contributorinsights_HowItWorks.OtherFeatures "#contributorinsights_HowItWorks.OtherFeatures")
+- [CloudWatch contributor insights for DynamoDB billing](#contributorinsights_HowItWorks.Billing "#contributorinsights_HowItWorks.Billing")
 
-## CloudWatch contributor insights modes
-
-for DynamoDB
+## CloudWatch contributor insights modes for DynamoDB
 
 CloudWatch Contributor Insights for DynamoDB offers two distinct modes to meet different
 monitoring needs.
 
-### Throttled keys
-
-mode
+### Throttled keys mode
 
 This mode focuses exclusively on throttled requests by only processing events when
 throttling occurs. It delivers insights about performance issues without the
@@ -75,9 +64,7 @@ For comprehensive monitoring strategies, you can integrate these throttling
 insights with other CloudWatch metrics to create unified dashboards that correlate
 throttling events with overall table performance.
 
-### Accessed
-
-and throttled keys mode
+### Accessed and throttled keys mode
 
 This mode provides comprehensive monitoring of both accessed and throttled items.
 In this mode, DynamoDB tracks the:
@@ -91,9 +78,7 @@ This mode is ideal when you need complete visibility into your table's access
 patterns and want to understand both high-traffic items and throttling
 issues.
 
-### Switching between
-
-modes
+### Switching between modes
 
 You can switch between modes at any time using the DynamoDB console, AWS CLI, or APIs.
 When you switch modes:
@@ -113,9 +98,7 @@ When you switch modes:
 - Billing adjusts immediately to reflect the new mode's event
   processing
 
-## CloudWatch contributor insights for
-
-DynamoDB rules
+## CloudWatch contributor insights for DynamoDB rules
 
 When you enable CloudWatch Contributor Insights for DynamoDB on a table or global secondary
 index, DynamoDB creates [rules](../../../AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.md "../../../AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.md") on your behalf based on the selected mode.
@@ -125,9 +108,7 @@ index, DynamoDB creates [rules](../../../AmazonCloudWatch/latest/monitoring/Cont
 When you enable Contributor Insights on your DynamoDB table, you're subject to
 Contributor Insights rules limits. For more information, see [CloudWatch service quotas](../../../AmazonCloudWatch/latest/monitoring/cloudwatch_limits.md "../../../AmazonCloudWatch/latest/monitoring/cloudwatch_limits.md").
 
-### Rules
-
-for accessed and throttled keys mode
+### Rules for accessed and throttled keys mode
 
 In _accessed and throttled keys_ mode, DynamoDB
 creates the following rules:
@@ -163,9 +144,7 @@ CloudWatch rule name format:
 CloudWatch rule name format:
 `DynamoDBContributorInsights-SKT-[resource_name]-[creationtimestamp]`
 
-### Rules for
-
-throttled keys mode
+### Rules for throttled keys mode
 
 In _throttled keys_ mode, DynamoDB creates only the
 throttling-related rules:
@@ -211,16 +190,12 @@ specific threshold for `ConsumedThroughputUnits` or
 `ThrottleCount`. For more information, see [Setting an alarm on Contributor Insights metric
 data](../../../AmazonCloudWatch/latest/monitoring/ContributorInsights-GraphReportData.md#ContributorInsights-GraphReportData-Alarm "../../../AmazonCloudWatch/latest/monitoring/ContributorInsights-GraphReportData.md#ContributorInsights-GraphReportData-Alarm").
 
-## Understanding CloudWatch contributor
-
-insights for DynamoDB graphs
+## Understanding CloudWatch contributor insights for DynamoDB graphs
 
 CloudWatch Contributor Insights for DynamoDB displays different types of graphs on both the
 DynamoDB and CloudWatch consoles depending on the selected mode.
 
-### Graph
-
-availability by mode
+### Graph availability by mode
 
 The graphs displayed depend on your selected Contributor Insights mode.
 
@@ -230,9 +205,7 @@ The graphs displayed depend on your selected Contributor Insights mode.
 - **Throttled keys mode** displays only
   _Most Throttled Items_ graphs
 
-### Most accessed
-
-items
+### Most accessed items
 
 This graph is available only in accessed and throttled keys mode. Use this graph
 to identify the most accessed items in the table or global secondary index. The
@@ -270,9 +243,7 @@ sort keys pairs. You can see traffic at the partition keys level in the partitio
 key–only graph. You can see traffic at the item level in the partition + sort keys
 graphs.
 
-### Most
-
-throttled items
+### Most throttled items
 
 This graph is available in both modes. Use this graph to identify the most
 throttled items in the table or global secondary index. The graph displays
@@ -310,9 +281,7 @@ In _throttled keys_ mode, this is the only type of graph
 you'll see. The absence of data in these graphs indicates healthy table
 performance with no throttling occurring.
 
-### Report
-
-examples
+### Report examples
 
 The following example shows the reports generated for a table with both a
 partition keys and sort keys in _accessed and throttled
@@ -321,17 +290,13 @@ mode, you see only the throttling-related portion of this report.
 
 ![4 different Contributor Insights reports showing most accessed items and most throttled items.](images/CI_Graphs_Example.png)
 
-## Interactions with other
-
-DynamoDB features
+## Interactions with other DynamoDB features
 
 The following sections describe how CloudWatch Contributor Insights for DynamoDB behaves and
 interacts with several other features in DynamoDB. These behaviors apply to both modes
 unless otherwise specified.
 
-### Global
-
-tables
+### Global tables
 
 CloudWatch Contributor Insights for DynamoDB monitors global table replicas as distinct
 tables. The Contributor Insights graphs for a replica in one AWS Region might not
@@ -345,9 +310,7 @@ keys_ mode in your primary region for comprehensive monitoring, while
 using _throttled keys_ mode in secondary regions to maintain
 visibility into performance issues.
 
-### DynamoDB Accelerator
-
-(DAX)
+### DynamoDB Accelerator (DAX)
 
 CloudWatch Contributor Insights for DynamoDB doesn't show DAX cache responses. It only
 shows responses to accessing a table or a global secondary index.
@@ -356,9 +319,7 @@ shows responses to accessing a table or a global secondary index.
 
 DynamoDB CloudWatch Contributor Insights does not support PartiQL requests.
 
-### Encryption
-
-at rest
+### Encryption at rest
 
 CloudWatch Contributor Insights for DynamoDB doesn't affect how encryption works in DynamoDB.
 The primary key data that is published in CloudWatch is encrypted with the
@@ -375,9 +336,7 @@ If your DynamoDB table's primary key contains sensitive information and your
 organization's security policies require full control over encryption processes,
 enabling CloudWatch Contributor Insights may not be suitable.
 
-### Fine-grained
-
-access control
+### Fine-grained access control
 
 CloudWatch Contributor Insights for DynamoDB doesn't function differently for tables with
 fine-grained access control (FGAC). In other words, any user who has the appropriate
@@ -388,26 +347,20 @@ If the table's primary key contains FGAC-protected data that you don't want
 published to CloudWatch, you should not enable CloudWatch Contributor Insights for DynamoDB for
 that table.
 
-### Access
-
-control
+### Access control
 
 You control access to CloudWatch Contributor Insights for DynamoDB using AWS Identity and Access Management (IAM)
 by limiting DynamoDB control plane permissions and CloudWatch data plane permissions. For
 more information see, [Using
 IAM with CloudWatch Contributor Insights for DynamoDB](Contributor_Insights_IAM.md "Contributor_Insights_IAM.md").
 
-## CloudWatch contributor insights for
-
-DynamoDB billing
+## CloudWatch contributor insights for DynamoDB billing
 
 Charges for CloudWatch Contributor Insights for DynamoDB appear in the [CloudWatch](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/") section of your
 monthly bill. These charges are calculated based on the number of DynamoDB events that are
 processed, and the selected mode.
 
-### Billing by
-
-mode
+### Billing by mode
 
 The two Contributor Insights modes have different billing characteristics.
 
@@ -429,9 +382,7 @@ The two Contributor Insights modes have different billing characteristics.
   throttled item represents two events (partition keys tracking and partition +
   sort keys tracking).
 
-### Billing
-
-examples
+### Billing examples
 
 For example, assume that your application performs the following DynamoDB operations:
 a `GetItem`, a `PutItem`, and a `BatchWriteItem`
@@ -460,9 +411,7 @@ throttled, but all other operations succeed.
   The successful `GetItem` and `BatchWriteItem`
   operations generate no events in throttled keys mode.
 
-### Common
-
-billing factors
+### Common billing factors
 
 A`Query` operation always results in 1 event, regardless of the mode or
 number of items returned.

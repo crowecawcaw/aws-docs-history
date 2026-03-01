@@ -1,13 +1,9 @@
-# Viewing DynamoDB zero-ETL
-
-integrations with Amazon Redshift
+# Viewing DynamoDB zero-ETL integrations with Amazon Redshift
 
 You can view the details of a zero-ETL integration to see its configuration
 information and current status.
 
-###### To view the details of a zero-ETL integration in the Amazon DynamoDB
-
-console:
+###### To view the details of a zero-ETL integration in the Amazon DynamoDB console:
 
 1. Sign in to the AWS Management Console and open the Amazon DynamoDB console at
    [https://console.aws.amazon.com/dynamodbv2](https://console.aws.amazon.com/dynamodbv2 "https://console.aws.amazon.com/dynamodbv2").

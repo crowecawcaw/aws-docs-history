@@ -1,6 +1,4 @@
-# 3- Account limits
-
-exceeded
+# 3- Account limits exceeded
 
 On-demand tables do not have provisioned capacity levels to manage, but DynamoDB enforces
 account-level throughput limits to prevent runaway execution and ensure fair resource usage
@@ -13,9 +11,7 @@ maximum throughput settings for finer cost control and predictability, or reques
 increases through the [Quotas in Amazon DynamoDB](ServiceQuotas.md "ServiceQuotas.md") console if your application
 requirements exceed the default limits.
 
-## Account limit exceeded mitigation
-
-measures
+## Account limit exceeded mitigation measures
 
 This section provides resolution guidance for account limit throttling scenarios.
 Before using this guide, ensure you have identified the specific throttling reasons from
@@ -52,8 +48,7 @@ mitigation options:
 ###### When this occurs
 
 Your table's read consumption has exceeded the account-level per-table read
-throughput quota for your Region. You can monitor the CloudWatch metrics in [Common diagnosis and
-monitoring](#account-limit-exceeded-diagnosis-monitoring "#account-limit-exceeded-diagnosis-monitoring") to analyze your
+throughput quota for your Region. You can monitor the CloudWatch metrics in [Common diagnosis and monitoring](#account-limit-exceeded-diagnosis-monitoring "#account-limit-exceeded-diagnosis-monitoring") to analyze your
 throttling event.
 
 ###### Resolution approach
@@ -71,8 +66,7 @@ quota increases](#account-limit-request-per-table-quota "#account-limit-request-
 ###### When this occurs
 
 Your table's write consumption has exceeded the account-level per-table write
-throughput quota for your Region. You can monitor the CloudWatch metrics in [Common diagnosis and
-monitoring](#account-limit-exceeded-diagnosis-monitoring "#account-limit-exceeded-diagnosis-monitoring") to analyze your
+throughput quota for your Region. You can monitor the CloudWatch metrics in [Common diagnosis and monitoring](#account-limit-exceeded-diagnosis-monitoring "#account-limit-exceeded-diagnosis-monitoring") to analyze your
 throttling event.
 
 ###### Resolution approach
@@ -91,8 +85,7 @@ Use the following steps to resolve this throttling:
 The read operations directed at a Global Secondary Index (GSI) consume more
 throughput than your account's per-table read quota allows in your current AWS
 Region. The account-level per-table read throughput quota applies collectively
-to a table and all its GSIs combined. You can monitor the CloudWatch metrics in [Common diagnosis and
-monitoring](#account-limit-exceeded-diagnosis-monitoring "#account-limit-exceeded-diagnosis-monitoring") to analyze your
+to a table and all its GSIs combined. You can monitor the CloudWatch metrics in [Common diagnosis and monitoring](#account-limit-exceeded-diagnosis-monitoring "#account-limit-exceeded-diagnosis-monitoring") to analyze your
 throttling event.
 
 ###### Resolution approach
@@ -118,8 +111,7 @@ that collectively exceed the account-level per-table write throughput quota for
 your AWS Region. Every write to a base table item that contains attributes
 indexed by a GSI trigger a corresponding write operation to that GSI. These
 combined write operations count toward your per-table write throughput quota.
-You can monitor the CloudWatch metrics in [Common diagnosis and
-monitoring](#account-limit-exceeded-diagnosis-monitoring "#account-limit-exceeded-diagnosis-monitoring") to analyze the
+You can monitor the CloudWatch metrics in [Common diagnosis and monitoring](#account-limit-exceeded-diagnosis-monitoring "#account-limit-exceeded-diagnosis-monitoring") to analyze the
 patterns and timing of these throttling events and identify which operations are
 causing the excessive GSI write activity.
 
@@ -138,9 +130,7 @@ distribution:
   [Review GSI
   projections and design](#account-limit-optimize-gsi-projections "#account-limit-optimize-gsi-projections") to reduce write volume to GSIs.
 
-## Common diagnosis and
-
-monitoring
+## Common diagnosis and monitoring
 
 When troubleshooting account limit exceeded throttling events, several CloudWatch metrics
 can help identify whether you're hitting per-table or account-wide limits and understand
@@ -161,13 +151,9 @@ Monitor these key metrics to diagnose account limit throttling:
   math expressions to sum consumed capacity across all tables and GSIs to monitor
   total account usage.
 
-## Resolution
+## Resolution procedures
 
-procedures
-
-### Requesting per-table quota
-
-increases
+### Requesting per-table quota increases
 
 If your applications need to operate beyond the current per-table throughput
 limits, you should submit a quota increase request using the procedure below. Each
@@ -203,9 +189,7 @@ Quota increases typically take 24-48 hours to process. Plan your requests
 accordingly and consider temporary mitigation strategies while waiting for
 approval.
 
-### Optimizing GSI projections
-
-and design
+### Optimizing GSI projections and design
 
 Optimize your Global Secondary Index (GSI) projections and design to reduce
 capacity consumption and improve performance.

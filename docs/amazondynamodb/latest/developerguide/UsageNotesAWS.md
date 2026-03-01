@@ -1,6 +1,4 @@
-# Usage note differences between on-demand backups managed by
-
-AWS Backup and DynamoDB
+# Usage note differences between on-demand backups managed by AWS Backup and DynamoDB
 
 This section describes the technical differences between on-demand backups managed by
 AWS Backup and DynamoDB.
