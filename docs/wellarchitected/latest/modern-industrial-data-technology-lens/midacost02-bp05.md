@@ -1,6 +1,4 @@
-# MIDACOST02-BP05 Develop cloud resource policies aligned with manufacturing
-
-operations
+# MIDACOST02-BP05 Develop cloud resource policies aligned with manufacturing operations
 
 Create well-defined policies for cloud resource provisioning, usage, and management that
 reflect specific manufacturing processes, compliance requirements, and cost optimization

@@ -1,6 +1,4 @@
-# MIDAOPS01-BP01 Implement a process to periodically review compliance requirements
-
-relevant to your industrial data infrastructure
+# MIDAOPS01-BP01 Implement a process to periodically review compliance requirements relevant to your industrial data infrastructure
 
 Implement a process to periodically review compliance requirements relevant to your
 industrial data infrastructure. Regular assessment of compliance requirements is crucial for

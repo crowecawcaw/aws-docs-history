@@ -191,7 +191,7 @@ includes:
 
 8. **Analytics and continuous improvement**
    - Store historical inspection data in Amazon S3 for long-term analysis.
-   - Use Quick Suite for quality trend visualization.
+   - Use Quick for quality trend visualization.
    - Employ Amazon SageMaker AI for root cause analysis of quality issues.
    - Close the loop between quality detection and upstream process control.
 

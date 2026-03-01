@@ -12,6 +12,5 @@ designed for resilience.
 ###### Best practices
 
 - [MIDAREL02-BP01 Design resilient industrial integration patterns](midarel02-bp01.md "midarel02-bp01.md")
-- [MIDAREL02-BP02 Verify data consistency and availability across OT/IT systems through
-  redundancy and failover mechanisms](midarel02-bp02.md "midarel02-bp02.md")
+- [MIDAREL02-BP02 Verify data consistency and availability across OT/IT systems through redundancy and failover mechanisms](midarel02-bp02.md "midarel02-bp02.md")
 - [MIDAREL02-BP03 Enable automated recovery mechanisms](midarel02-bp03.md "midarel02-bp03.md")

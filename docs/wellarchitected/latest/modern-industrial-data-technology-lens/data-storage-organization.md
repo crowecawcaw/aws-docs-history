@@ -12,5 +12,4 @@ that could have been avoided through pattern recognition in historical data.
 
 ###### Best practices
 
-- [MIDAPERF06-BP01 Implement efficient storage and access for historical manufacturing
-  data](midaperf06-bp01.md "midaperf06-bp01.md")
+- [MIDAPERF06-BP01 Implement efficient storage and access for historical manufacturing data](midaperf06-bp01.md "midaperf06-bp01.md")

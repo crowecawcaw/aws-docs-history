@@ -1,6 +1,4 @@
-# MIDASEC09-BP03 Automate patch management for ICS and connected data
-
-infrastructure
+# MIDASEC09-BP03 Automate patch management for ICS and connected data infrastructure
 
 Patch known vulnerabilities in a timely manner across industrial control systems (ICS),
 gateways, and cloud services by automating patch management processes.

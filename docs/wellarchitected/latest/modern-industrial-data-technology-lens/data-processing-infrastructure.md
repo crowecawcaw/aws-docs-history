@@ -13,5 +13,4 @@ dashboard refresh rates to base operational decisions on timely information.
 ###### Best practices
 
 - [MIDAPERF03-BP01 Use cloud observability tools for manufacturing systems](midaperf03-bp01.md "midaperf03-bp01.md")
-- [MIDAPERF03-BP02 Implement comprehensive performance measurement for manufacturing data
-  infrastructure](midaperf03-bp02.md "midaperf03-bp02.md")
+- [MIDAPERF03-BP02 Implement comprehensive performance measurement for manufacturing data infrastructure](midaperf03-bp02.md "midaperf03-bp02.md")

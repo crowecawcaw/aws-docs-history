@@ -44,12 +44,12 @@ throughout operations.
 
 **Sustainability dashboard integration:**
 
-- Implement manufacturing dashboards using Quick Suite that combine traditional metrics (OEE, quality, throughput) with sustainability KPIs
+- Implement manufacturing dashboards using Quick that combine traditional metrics (OEE, quality, throughput) with sustainability KPIs
 
 **Resource utilization tracking:**
 
 - Deploy AWS Systems Manager to monitor resource consumption and maintain efficient software versions
-- Create automated reports using Quick Suite to highlight opportunities for improved resource efficiency across manufacturing systems
+- Create automated reports using Quick to highlight opportunities for improved resource efficiency across manufacturing systems
 
 **Predictive process optimization:**
 
@@ -63,7 +63,7 @@ throughout operations.
 
 ## Key AWS services
 
-- Quick Suite
+- Quick
 - AWS Systems Manager
 - Amazon SageMaker AI
 - AWS Cost Explorer
@@ -72,6 +72,6 @@ throughout operations.
 
 ## Resources
 
-- [Quick Suite: Publishing dashboards](../../../quicksight/latest/user/creating-a-dashboard.md "../../../quicksight/latest/user/creating-a-dashboard.md")
+- [Quick: Publishing dashboards](../../../quicksight/latest/user/creating-a-dashboard.md "../../../quicksight/latest/user/creating-a-dashboard.md")
 - [AWS Systems Manager Automation](../../../systems-manager/latest/userguide/systems-manager-automation.md "../../../systems-manager/latest/userguide/systems-manager-automation.md")
 - [Amazon SageMaker AI](https://aws.amazon.com/sagemaker/ "https://aws.amazon.com/sagemaker/")

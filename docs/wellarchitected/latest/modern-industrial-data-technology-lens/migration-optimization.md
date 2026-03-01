@@ -13,5 +13,4 @@ compromising operational efficiency.
 
 ###### Best practices
 
-- [MIDACOST03-BP01 Analyze all components of your industry workloads for migration and
-  modernization](midacost03-bp01.md "midacost03-bp01.md")
+- [MIDACOST03-BP01 Analyze all components of your industry workloads for migration and modernization](midacost03-bp01.md "midacost03-bp01.md")

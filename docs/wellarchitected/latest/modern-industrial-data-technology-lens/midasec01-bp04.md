@@ -1,6 +1,4 @@
-# MIDASEC01-BP04 Automate monitoring and reporting with cloud-ready compliance
-
-tools
+# MIDASEC01-BP04 Automate monitoring and reporting with cloud-ready compliance tools
 
 Automate the collection, evaluation, and reporting of compliance evidence using AWS Cloud
 tools. Tailor configurations to meet industry-specific regulatory requirements such as NIST,

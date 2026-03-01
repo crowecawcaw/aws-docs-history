@@ -111,13 +111,13 @@ different actions with the following services:
   databases and tables in a data catalog. If the consumer principal has access, AWS Lake Formation vends temporary credentials to Redshift Spectrum tables, and the query runs.
   Authentication is granted through IAM roles or users or web federated identities using
   SAML or OIDC. For more information, see [Redshift Spectrum and AWS Lake Formation](../../../redshift/latest/dg/spectrum-lake-formation.md "../../../redshift/latest/dg/spectrum-lake-formation.md").
-- [Quick Suite](https://aws.amazon.com/quicksight "https://aws.amazon.com/quicksight") with
+- [Quick](https://aws.amazon.com/quicksight "https://aws.amazon.com/quicksight") with
   Amazon Athena integrates with AWS Lake Formation permissions. If you're querying data
   with Amazon Athena, you can use AWS Lake Formation to simplify how you secure and
-  connect to your data from Quick Suite. AWS Lake Formation adds to the IAM
+  connect to your data from Quick. AWS Lake Formation adds to the IAM
   permissions model by providing its own permissions model that is applied to AWS
   analytics and ML services. Authentication is granted through IAM roles that are mapped
-  to Quick Suite user permissions. For more information, see [Authorizing connections through AWS Lake Formation](../../../quicksight/latest/user/lake-formation.md "../../../quicksight/latest/user/lake-formation.md").
+  to Quick user permissions. For more information, see [Authorizing connections through AWS Lake Formation](../../../quicksight/latest/user/lake-formation.md "../../../quicksight/latest/user/lake-formation.md").
 - [Amazon EMR
   Studio](https://aws.amazon.com/emr/features/studio/ "https://aws.amazon.com/emr/features/studio/") and EMR notebooks allow running Spark SQL against AWS Lake Formation's
   tables backed by a SAML authority. Beginning with [Amazon EMR](https://aws.amazon.com/emr "https://aws.amazon.com/emr") 5.31.0, you can launch a

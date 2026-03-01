@@ -1,6 +1,4 @@
-# MIDAPERF01-BP02 Compress, sample and summarize data at edge, before sending to the cloud
-
-environment
+# MIDAPERF01-BP02 Compress, sample and summarize data at edge, before sending to the cloud environment
 
 In manufacturing environments, IoT devices and sensors often generate massive volumes of
 high-frequency data that can overwhelm networking, processing, and storage resources.
@@ -57,7 +55,7 @@ To reduce network traffic and overhead to allow faster processing:
    1. **Manufacturing example:** Configure edge devices in automotive plants to compress
       daily production data (part counts, cycle times, energy consumption) from assembly
       line robots and quality inspection systems into Parquet files, then batch upload to
-      Amazon S3 for long-term storage and analysis with AWS analytics services like Amazon Athena and Quick Suite for operational intelligence reporting.
+      Amazon S3 for long-term storage and analysis with AWS analytics services like Amazon Athena and Quick for operational intelligence reporting.
 
 ### Implementation Steps
 

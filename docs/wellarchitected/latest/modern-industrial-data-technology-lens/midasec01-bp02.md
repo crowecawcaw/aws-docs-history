@@ -1,6 +1,4 @@
-# MIDASEC01-BP02 Standardize security baseline and implement role-based access
-
-controls
+# MIDASEC01-BP02 Standardize security baseline and implement role-based access controls
 
 Establish a standardized security configuration across accounts and workloads using AWS Organizations, AWS IAM, and control policies. Implement role-based access controls (RBAC) to
 limit access based on job function and responsibility, especially across IT and OT

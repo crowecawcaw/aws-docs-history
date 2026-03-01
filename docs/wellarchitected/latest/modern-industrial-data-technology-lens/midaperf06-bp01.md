@@ -1,6 +1,4 @@
-# MIDAPERF06-BP01 Implement efficient storage and access for historical manufacturing
-
-data
+# MIDAPERF06-BP01 Implement efficient storage and access for historical manufacturing data
 
 In manufacturing environments, historical data serves critical functions beyond immediate
 operational needs, supporting long-term trend analysis, root cause investigations, and
@@ -53,7 +51,7 @@ established:** Medium
 - Amazon Athena for serverless SQL queries
 - AWS Glue for data cataloging and ETL
 - Amazon Redshift for data warehousing
-- Quick Suite for business intelligence
+- Quick for business intelligence
 
 ## Resources
 

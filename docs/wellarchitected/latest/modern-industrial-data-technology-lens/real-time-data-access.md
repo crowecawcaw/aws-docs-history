@@ -12,7 +12,5 @@ overall equipment effectiveness and throughput.
 
 ###### Best practices
 
-- [MIDAPERF01-BP01 Use time series database for real-time analytics and data lake for
-  long-term storage](midaperf01-bp01.md "midaperf01-bp01.md")
-- [MIDAPERF01-BP02 Compress, sample and summarize data at edge, before sending to the cloud
-  environment](midaperf01-bp02..md "midaperf01-bp02..md")
+- [MIDAPERF01-BP01 Use time series database for real-time analytics and data lake for long-term storage](midaperf01-bp01.md "midaperf01-bp01.md")
+- [MIDAPERF01-BP02 Compress, sample and summarize data at edge, before sending to the cloud environment](midaperf01-bp02..md "midaperf01-bp02..md")

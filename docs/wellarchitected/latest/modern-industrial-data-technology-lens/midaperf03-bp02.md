@@ -1,6 +1,4 @@
-# MIDAPERF03-BP02 Implement comprehensive performance measurement for manufacturing data
-
-infrastructure
+# MIDAPERF03-BP02 Implement comprehensive performance measurement for manufacturing data infrastructure
 
 Understanding the performance characteristics of data processing infrastructure is
 essential for maintaining performance efficiency and planning for growth. Implementing robust
@@ -64,7 +62,7 @@ established:** High
 
 3. Establish a unified monitoring environment
    using Amazon CloudWatch Dashboards and AWS Grafana that aggregates metrics from the
-   infrastructure components. Create manufacturing-specific dashboards using Quick Suite that visualize performance metrics in the context of production operations
+   infrastructure components. Create manufacturing-specific dashboards using Quick that visualize performance metrics in the context of production operations
    rather than just technical indicators, integrated with AWS IoT SiteWise for operational
    technology data correlation.
 4. Enable comprehensive API activity logging

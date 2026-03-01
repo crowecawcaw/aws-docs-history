@@ -1,6 +1,4 @@
-# MIDAREL02-BP02 Verify data consistency and availability across OT/IT systems through
-
-redundancy and failover mechanisms
+# MIDAREL02-BP02 Verify data consistency and availability across OT/IT systems through redundancy and failover mechanisms
 
 Manufacturing environments operate with complex interactions between OT and IT systems.
 When these systems fail, the impact can cascade through production lines, quality control

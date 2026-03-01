@@ -129,4 +129,4 @@ _ADD FIGURE CAPTION HERE_
 13. Integrate with cloud-hosted manufacturing partner solutions (ERP, supply chain,
     maintenance), including MCP servers for industrial knowledge sources.
 14. Visualize your data with Amazon Managed Grafana natively from Amazon RedShift or
-    from Amazon S3 using Amazon Athena. Build dashboards with Quick Suite and Amazon Athena.
+    from Amazon S3 using Amazon Athena. Build dashboards with Quick and Amazon Athena.

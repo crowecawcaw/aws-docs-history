@@ -13,5 +13,4 @@ batches that may miss time-sensitive production issues.
 ###### Best practices
 
 - [MIDAPERF02-BP01 Implement event-driven architectures for manufacturing systems](midaperf02-bp01.md "midaperf02-bp01.md")
-- [MIDAPERF02-BP02 Use historical cloud usage data aligned with production schedules and
-  business forecasts](midaperf02-bp0.md "midaperf02-bp0.md")
+- [MIDAPERF02-BP02 Use historical cloud usage data aligned with production schedules and business forecasts](midaperf02-bp0.md "midaperf02-bp0.md")

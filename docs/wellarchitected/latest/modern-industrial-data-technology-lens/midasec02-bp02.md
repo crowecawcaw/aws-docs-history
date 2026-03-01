@@ -1,6 +1,4 @@
-# MIDASEC02-BP02 Enable multi-factor authentication (MFA) and token authorization
-
-(TA)
+# MIDASEC02-BP02 Enable multi-factor authentication (MFA) and token authorization (TA)
 
 Strengthen identity verification by enforcing MFA for human users and implementing
 token-based authorization for machines and services.

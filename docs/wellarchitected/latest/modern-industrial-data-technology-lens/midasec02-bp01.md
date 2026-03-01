@@ -1,6 +1,4 @@
-# MIDASEC02-BP01 Enforce least privilege and security policies to control system
-
-access
+# MIDASEC02-BP01 Enforce least privilege and security policies to control system access
 
 Minimize access rights for users and systems by enforcing least privilege principles.
 This reduces the risk of lateral movement and privilege escalation in manufacturing

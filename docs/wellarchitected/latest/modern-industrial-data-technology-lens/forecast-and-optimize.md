@@ -12,7 +12,5 @@ about resource allocation and optimization.
 
 ###### Best practices
 
-- [MIDACOST01-BP01 Implement data-driven cost management using AWS cost tools and
-  manufacturing data](midacost01-bp01.md "midacost01-bp01.md")
-- [MIDACOST01-BP02 Configure automated cost monitoring and alerts for manufacturing
-  workloads](midacost01-bp02.md "midacost01-bp02.md")
+- [MIDACOST01-BP01 Implement data-driven cost management using AWS cost tools and manufacturing data](midacost01-bp01.md "midacost01-bp01.md")
+- [MIDACOST01-BP02 Configure automated cost monitoring and alerts for manufacturing workloads](midacost01-bp02.md "midacost01-bp02.md")

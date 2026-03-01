@@ -1,6 +1,4 @@
-# MIDASEC09-BP01 Apply secure coding practices for applications and data
-
-integrations
+# MIDASEC09-BP01 Apply secure coding practices for applications and data integrations
 
 Implement secure coding guidelines across industrial application development and
 integration pipelines to help prevent common vulnerabilities.

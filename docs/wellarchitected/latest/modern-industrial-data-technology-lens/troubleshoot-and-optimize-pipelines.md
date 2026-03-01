@@ -13,6 +13,5 @@ maintaining the integrity of performance analytics used for critical production 
 
 ###### Best practices
 
-- [MIDAPERF04-BP01 Implement end-to-end observability for manufacturing data
-  pipelines](midaperf04-bp01.md "midaperf04-bp01.md")
+- [MIDAPERF04-BP01 Implement end-to-end observability for manufacturing data pipelines](midaperf04-bp01.md "midaperf04-bp01.md")
 - [MIDAPERF04-BP02 Decouple data ingestion from processing in manufacturing systems](midaperf04-bp02.md "midaperf04-bp02.md")

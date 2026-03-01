@@ -1,6 +1,4 @@
-# MIDACOST01-BP02 Configure automated cost monitoring and alerts for manufacturing
-
-workloads
+# MIDACOST01-BP02 Configure automated cost monitoring and alerts for manufacturing workloads
 
 Set up a comprehensive alerting system that notifies teams within 24 hours when costs
 exceed thresholds, generates cost reports by production line, identifies waste, and maintains

@@ -1,6 +1,4 @@
-# MIDAPERF02-BP02 Use historical cloud usage data aligned with production schedules and
-
-business forecasts
+# MIDAPERF02-BP02 Use historical cloud usage data aligned with production schedules and business forecasts
 
 Aligning cloud resource allocation with production schedules and business forecasts
 enables organizations to optimize system performance during critical periods while helping

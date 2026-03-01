@@ -19,6 +19,5 @@ managing your manufacturing data lifecycle while optimizing costs.
 - [MIDACOST02-BP02 Implement manufacturing-aware resource decommissioning process](midacost02-bp02.md "midacost02-bp02.md")
 - [MIDACOST02-BP03 Automate production-aware resource decommissioning](midacost02-bp03.md "midacost02-bp03.md")
 - [MIDACOST02-BP04 Implement manufacturing-specific data retention policies](midacost02-bp04.md "midacost02-bp04.md")
-- [MIDACOST02-BP05 Develop cloud resource policies aligned with manufacturing
-  operations](midacost02-bp05.md "midacost02-bp05.md")
+- [MIDACOST02-BP05 Develop cloud resource policies aligned with manufacturing operations](midacost02-bp05.md "midacost02-bp05.md")
 - [MIDACOST02-BP06 Implement manufacturing-aware cost controls](midacost02-bp06.md "midacost02-bp06.md")

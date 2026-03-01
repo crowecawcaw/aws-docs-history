@@ -1,6 +1,4 @@
-# MIDACOST03-BP01 Analyze all components of your industry workloads for migration and
-
-modernization
+# MIDACOST03-BP01 Analyze all components of your industry workloads for migration and modernization
 
 Develop an optimized migration strategy that reduces costs while maintaining or improving
 operational capabilities for manufacturing-specific workloads. This includes analyzing OT and IT

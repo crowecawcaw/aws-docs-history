@@ -69,7 +69,7 @@ considering both IT and OT systems for comprehensive resource planning.
 
 ## Key AWS services
 
-- Quick Suite
+- Quick
 - AWS Cost Explorer
 - Amazon CloudWatch
 - AWS Systems Manager
@@ -79,7 +79,7 @@ considering both IT and OT systems for comprehensive resource planning.
 
 **Related documents:**
 
-- [Quick Suite](../../../quicksight/latest/user/creating-visuals.md "../../../quicksight/latest/user/creating-visuals.md")
+- [Quick](../../../quicksight/latest/user/creating-visuals.md "../../../quicksight/latest/user/creating-visuals.md")
 - [Analyzing your costs and usage with AWS Cost Explorer](../../../cost-management/latest/userguide/ce-what-is.md "../../../cost-management/latest/userguide/ce-what-is.md")
 - [Metrics in Amazon CloudWatch](../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md "../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md")
 - [AWS Systems Manager Inventory](../../../systems-manager/latest/userguide/systems-manager-inventory.md "../../../systems-manager/latest/userguide/systems-manager-inventory.md")

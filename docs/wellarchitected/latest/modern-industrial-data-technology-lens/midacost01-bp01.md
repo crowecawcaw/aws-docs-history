@@ -1,6 +1,4 @@
-# MIDACOST01-BP01 Implement data-driven cost management using AWS cost tools and
-
-manufacturing data
+# MIDACOST01-BP01 Implement data-driven cost management using AWS cost tools and manufacturing data
 
 Create reliable cost forecasts by combining AWS usage data with manufacturing schedules
 to enhance resource provisioning and budget planning accuracy. This involves analyzing
@@ -69,7 +67,7 @@ To systematically analyze and optimize costs:
 - AWS Budgets
 - AWS Supply Chain
 - Amazon SageMaker AI Canvas
-- AWS Data Exports with Quick Suite
+- AWS Data Exports with Quick
 
 ## Resources
 

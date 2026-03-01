@@ -45,7 +45,7 @@ data locally, sending only anomalies or aggregated data to the cloud.
   manufacturers can extend the lifespan of their assets and avoid costly unplanned
   downtime. This holistic approach to asset management helps optimize CAPEX and OPEX.
 
-For example, Use AWS IoT Core and Quick Suite to create a real-time dashboard
+For example, Use AWS IoT Core and Quick to create a real-time dashboard
 of equipment health, enabling proactive maintenance scheduling.
 
 - **Optimize energy consumption:** Using cloud-based monitoring and optimization tools,

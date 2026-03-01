@@ -11,5 +11,4 @@ manufacturers can reduce environmental impact without compromising operational e
 
 ###### Best practices
 
-- [MIDASUS02-BP01 Actively manage workloads and resource allocation based on production
-  demands](midasus02-bp01..md "midasus02-bp01..md")
+- [MIDASUS02-BP01 Actively manage workloads and resource allocation based on production demands](midasus02-bp01..md "midasus02-bp01..md")

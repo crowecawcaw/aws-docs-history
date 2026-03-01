@@ -1,6 +1,4 @@
-# MIDAPERF01-BP01 Use time series database for real-time analytics and data lake for
-
-long-term storage
+# MIDAPERF01-BP01 Use time series database for real-time analytics and data lake for long-term storage
 
 In manufacturing environments, access patterns for operational data vary significantly
 based on data age. Current data requires high-performance, low-latency access for real-time

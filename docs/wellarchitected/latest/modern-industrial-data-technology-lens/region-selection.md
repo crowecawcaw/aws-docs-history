@@ -14,5 +14,4 @@ increasingly environmentally conscious world.
 
 ###### Best practices
 
-- [MIDASUS01-BP01 Select Regions that offer services required by Manufacturing organizations
-  that maximizes the reduction of your carbon footprint](midasus01-bp01.md "midasus01-bp01.md")
+- [MIDASUS01-BP01 Select Regions that offer services required by Manufacturing organizations that maximizes the reduction of your carbon footprint](midasus01-bp01.md "midasus01-bp01.md")
