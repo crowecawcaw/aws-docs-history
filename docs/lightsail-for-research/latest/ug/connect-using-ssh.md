@@ -1,6 +1,4 @@
-# Connect to a Lightsail for Research virtual computer using Secure
-
-Shell
+# Connect to a Lightsail for Research virtual computer using Secure Shell
 
 You can connect to a virtual computer in Amazon Lightsail for Research using the Secure Shell Protocol
 (SSH). You can use SSH to manage your virtual computer remotely so that you can sign in
@@ -10,14 +8,12 @@ to your computer over the internet and run commands.
 
 You can also establish a remote display protocol connection to your virtual
 computer using the browser-based Amazon DCV client. Amazon DCV is available in the Lightsail for Research
-console. For more information, see [Access your Lightsail for Research virtual computer's
-operating system](access-computer-operating-system.md "access-computer-operating-system.md").
+console. For more information, see [Access your Lightsail for Research virtual computer's operating system](access-computer-operating-system.md "access-computer-operating-system.md").
 
 ###### Topics
 
 - [Complete the prerequisites](#connect-using-ssh-prerequisites "#connect-using-ssh-prerequisites")
-- [Connect to a virtual computer
-  using SSH](#connect-virtual-computer-using-ssh "#connect-virtual-computer-using-ssh")
+- [Connect to a virtual computer using SSH](#connect-virtual-computer-using-ssh "#connect-virtual-computer-using-ssh")
 - [Continue to the next steps](#connect-using-ssh-next-steps "#connect-using-ssh-next-steps")
 
 ## Complete the prerequisites
@@ -39,8 +35,7 @@ Complete the following prerequisites before you get started.
 ###### Tip
 
 If you plan to use AWS CloudShell to connect to your
-virtual computer, see [Connect to a virtual computer
-using AWS CloudShell](#connect-using-cloudshell "#connect-using-cloudshell") in the next section. For
+virtual computer, see [Connect to a virtual computer using AWS CloudShell](#connect-using-cloudshell "#connect-using-cloudshell") in the next section. For
 more information, see [What is AWS CloudShell](../../../cloudshell/latest/userguide/welcome.md "../../../cloudshell/latest/userguide/welcome.md"). Otherwise, continue to the next
 prerequisite.
 
@@ -55,9 +50,7 @@ prerequisite.
   more information about downloading and installing jq, see [Download jq](https://stedolan.github.io/jq/download/ "https://stedolan.github.io/jq/download/") on the
   _jq website_.
 
-## Connect to a virtual computer
-
-using SSH
+## Connect to a virtual computer using SSH
 
 Complete one of the following procedures to establish an SSH connection to your
 virtual computer in Lightsail for Research.
@@ -111,8 +104,7 @@ Z shell
 
 If you switch to Z shell, the symbol at
 the command prompt updates to `%`. 3. To connect to a virtual computer from the CloudShell terminal
-window, see [Connect to a virtual computer
-using SSH on a Linux, Unix, or a macOS local computer](#connect-using-ssh-linux "#connect-using-ssh-linux").
+window, see [Connect to a virtual computer using SSH on a Linux, Unix, or a macOS local computer](#connect-using-ssh-linux "#connect-using-ssh-linux").
 For information about the pre-installed software in the CloudShell
 environment, see [AWS CloudShell compute environment](../../../cloudshell/latest/userguide/vm-specs.md#pre-installed-software "../../../cloudshell/latest/userguide/vm-specs.md#pre-installed-software") in the
 _AWS CloudShell User Guide_.
@@ -219,7 +211,7 @@ the virtual computer as shown in the following example. Note these
 values, because you need them in the following step of this
 procedure.
 
-![The username and public IP address of an virtual computer.](images/scp-public-ip-address-and-user-linux.png) 3. Enter the following command to establish an SSH connection with
+![The username and public IP address of an virtual computer.](/images/lightsail-for-research/latest/ug/images/scp-public-ip-address-and-user-linux.png) 3. Enter the following command to establish an SSH connection with
 your virtual computer. In the command, replace
 `user-name` with the
 sign-in username, and replace
@@ -252,5 +244,4 @@ You can complete the following additional next steps after you've successfully
 established an SSH connection to your virtual computer:
 
 - Connect to your virtual computer using SCP to securely transfer files. For
-  more information, see [Transfer files to Lightsail for Research virtual computers using
-  Secure Copy](connect-using-scp.md "connect-using-scp.md").
+  more information, see [Transfer files to Lightsail for Research virtual computers using Secure Copy](connect-using-scp.md "connect-using-scp.md").

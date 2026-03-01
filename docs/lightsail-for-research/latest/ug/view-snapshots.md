@@ -1,6 +1,4 @@
-# View and manage virtual computer and disk snapshots in
-
-Lightsail for Research
+# View and manage virtual computer and disk snapshots in Lightsail for Research
 
 Complete the following steps to view snapshots of your virtual computers and
 disks.

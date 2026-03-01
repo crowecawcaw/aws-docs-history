@@ -1,6 +1,4 @@
-# Access your Lightsail for Research virtual computer's
-
-operating system
+# Access your Lightsail for Research virtual computer's operating system
 
 Complete the following steps to access the operating system for your Lightsail for Research virtual
 computer.

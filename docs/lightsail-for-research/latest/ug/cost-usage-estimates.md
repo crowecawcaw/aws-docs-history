@@ -22,5 +22,4 @@ Sign in to the AWS Management Console and open the AWS Billing and Cost Manageme
 
 ###### Topics
 
-- [View cost and usage estimates for your
-  resources in Lightsail for Research](monitor-cost-usage-estimates.md "monitor-cost-usage-estimates.md")
+- [View cost and usage estimates for your resources in Lightsail for Research](monitor-cost-usage-estimates.md "monitor-cost-usage-estimates.md")

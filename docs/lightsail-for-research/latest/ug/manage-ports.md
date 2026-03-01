@@ -246,8 +246,6 @@ managed the firewall ports for your virtual computer:
   a connection using numerous SSH clients, such as OpenSSH, PuTTY, and Windows
   Subsystem for Linux. For more information, see [Get a key pair for a Lightsail for Research virtual computer](get-ssh-keys.md "get-ssh-keys.md").
 - Connect to your virtual computer using SSH to manage it using the command
-  line. For more information, see [Transfer files to Lightsail for Research virtual computers using
-  Secure Copy](connect-using-scp.md "connect-using-scp.md").
+  line. For more information, see [Transfer files to Lightsail for Research virtual computers using Secure Copy](connect-using-scp.md "connect-using-scp.md").
 - Connect to your virtual computer using SCP to securely transfer files. For
-  more information, see [Transfer files to Lightsail for Research virtual computers using
-  Secure Copy](connect-using-scp.md "connect-using-scp.md").
+  more information, see [Transfer files to Lightsail for Research virtual computers using Secure Copy](connect-using-scp.md "connect-using-scp.md").

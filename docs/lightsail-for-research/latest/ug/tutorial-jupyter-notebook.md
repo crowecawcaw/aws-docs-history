@@ -8,18 +8,12 @@ JupyterLab virtual computer in Amazon Lightsail for Research.
 - [Step 1: Complete the prerequisites](#jupyter-prerequisites "#jupyter-prerequisites")
 - [Step 2: (Optional) Add storage space](#jupyter-add-storage "#jupyter-add-storage")
 - [Step 3: Upload and download files](#jupyter-upload-download "#jupyter-upload-download")
-- [Step 4: Launch the JupyterLab
-  application](#jupyter-launch-application "#jupyter-launch-application")
-- [Step 5: Read the JupyterLab
-  documentation](#jupyter-read-documentation "#jupyter-read-documentation")
-- [Step 6: (Optional) Monitor usage and
-  costs](#jupyter-monitor-usage "#jupyter-monitor-usage")
-- [Step 7: (Optional) Create a cost
-  control rule](#jupyter-create-cost-control-rule "#jupyter-create-cost-control-rule")
-- [Step 8: (Optional) Create a
-  snapshot](#jupyter-create-snapshot "#jupyter-create-snapshot")
-- [Step 9: (Optional) Stop or delete
-  your virtual computer](#jupyter-stop-delete-computer "#jupyter-stop-delete-computer")
+- [Step 4: Launch the JupyterLab application](#jupyter-launch-application "#jupyter-launch-application")
+- [Step 5: Read the JupyterLab documentation](#jupyter-read-documentation "#jupyter-read-documentation")
+- [Step 6: (Optional) Monitor usage and costs](#jupyter-monitor-usage "#jupyter-monitor-usage")
+- [Step 7: (Optional) Create a cost control rule](#jupyter-create-cost-control-rule "#jupyter-create-cost-control-rule")
+- [Step 8: (Optional) Create a snapshot](#jupyter-create-snapshot "#jupyter-create-snapshot")
+- [Step 9: (Optional) Stop or delete your virtual computer](#jupyter-stop-delete-computer "#jupyter-stop-delete-computer")
 
 ## Step 1: Complete the prerequisites
 
@@ -61,19 +55,15 @@ it. To do so, you must complete the following steps:
 1. Obtain a key pair from Amazon Lightsail. For more information, see [Get a key pair for a Lightsail for Research virtual computer](get-ssh-keys.md "get-ssh-keys.md").
 2. After you have the key pair, you can use it to establish a connection
    using the Secure Copy (SCP) utility. SCP lets you upload and download files
-   using Command Prompt or Terminal. For more information, see [Transfer files to Lightsail for Research virtual computers using
-   Secure Copy](connect-using-scp.md "connect-using-scp.md").
+   using Command Prompt or Terminal. For more information, see [Transfer files to Lightsail for Research virtual computers using Secure Copy](connect-using-scp.md "connect-using-scp.md").
 3. (Optional) You can also use the key pair to connect to your virtual
-   computer with SSH. For more information, see [Connect to a Lightsail for Research virtual computer using Secure
-   Shell](connect-using-ssh.md "connect-using-ssh.md").
+   computer with SSH. For more information, see [Connect to a Lightsail for Research virtual computer using Secure Shell](connect-using-ssh.md "connect-using-ssh.md").
 
 ###### Note
 
 You can also access your virtual computer’s command line interface and
 transfer files by using the browser-based Amazon DCV client. Amazon DCV is
-available in the Lightsail for Research console. For more information, see [Access a Lightsail for Research virtual computer
-application](open-computer-application.md "open-computer-application.md") and [Access your Lightsail for Research virtual computer's
-operating system](access-computer-operating-system.md "access-computer-operating-system.md").
+available in the Lightsail for Research console. For more information, see [Access a Lightsail for Research virtual computer application](open-computer-application.md "open-computer-application.md") and [Access your Lightsail for Research virtual computer's operating system](access-computer-operating-system.md "access-computer-operating-system.md").
 
 To manage your project files in an attached storage disk, make sure to upload them
 to the correct mount directory for the attached disk. When you attach a disk to your
@@ -82,9 +72,7 @@ to the
 `/home/lightsail-user/`<disk-name>` directory.`<disk-name>`` is the name
 that you gave your disk.
 
-## Step 4: Launch the JupyterLab
-
-application
+## Step 4: Launch the JupyterLab application
 
 Complete the following procedure to launch the JupyterLab application on your new
 virtual computer.
@@ -149,13 +137,10 @@ In the following example, we have opened the
 
 ![An opened Jupyter notebook file.](images/tutorial-jupyter-rdp-notebook.png)
 
-For information about how to get started, continue to the [Step 5: Read the JupyterLab
-documentation](#jupyter-read-documentation "#jupyter-read-documentation") section of this
+For information about how to get started, continue to the [Step 5: Read the JupyterLab documentation](#jupyter-read-documentation "#jupyter-read-documentation") section of this
 tutorial.
 
-## Step 5: Read the JupyterLab
-
-documentation
+## Step 5: Read the JupyterLab documentation
 
 If you're not familiar with JupyterLab, we recommend that you read their official
 documentation. The following JupyterLab online resources are available:
@@ -168,9 +153,7 @@ documentation. The following JupyterLab online resources are available:
 - [JupyterLab on
   GitHub](https://github.com/jupyterlab "https://github.com/jupyterlab")
 
-## Step 6: (Optional) Monitor usage and
-
-costs
+## Step 6: (Optional) Monitor usage and costs
 
 Month to date cost and usage estimates for your Lightsail for Research resources are displayed in
 the following areas of the Lightsail for Research console.
@@ -188,9 +171,7 @@ resources, choose **Usage** in the navigation pane.
 
 ![The month to date cost and usage estimates for all of your Lightsail for Research resources.](/images/lightsail-for-research/latest/ug/images/tutorial-jupyter-usage-page.png)
 
-## Step 7: (Optional) Create a cost
-
-control rule
+## Step 7: (Optional) Create a cost control rule
 
 Manage the usage and cost of your virtual computers by creating cost control
 rules. You can create a **Stop virtual computer on idle** rule that
@@ -207,8 +188,7 @@ monitoring its CPU utilization for a few days. Take note of the CPU utilization
 while your virtual computer is under different loads. For example, when it's
 compiling code, processing an operation, and idling. This will help you
 determine an accurate threshold for the rule. For more information, see the
-[Step 6: (Optional) Monitor usage and
-costs](#jupyter-monitor-usage "#jupyter-monitor-usage") section of this tutorial.
+[Step 6: (Optional) Monitor usage and costs](#jupyter-monitor-usage "#jupyter-monitor-usage") section of this tutorial.
 
 If you create a rule with a CPU utilization threshold that's higher than your
 workload, the rule can consecutively stop your virtual computer. For example, if
@@ -219,14 +199,10 @@ Detailed instructions for creating, and managing cost control rules can be found
 in the following guides:
 
 - [Manage cost control rules in Lightsail for Research](cost-control.md "cost-control.md")
-- [Create cost control rules for your Lightsail for Research
-  virtual computers](create-cost-control-rules.md "create-cost-control-rules.md")
-- [Delete cost control rules for your Lightsail for Research
-  virtual computers](delete-cost-control-rules.md "delete-cost-control-rules.md")
+- [Create cost control rules for your Lightsail for Research virtual computers](create-cost-control-rules.md "create-cost-control-rules.md")
+- [Delete cost control rules for your Lightsail for Research virtual computers](delete-cost-control-rules.md "delete-cost-control-rules.md")
 
-## Step 8: (Optional) Create a
-
-snapshot
+## Step 8: (Optional) Create a snapshot
 
 Snapshots are a point-in-time copy of your data. You can create snapshots of your
 virtual computers and use them as baselines to create new computers or for data
@@ -236,17 +212,12 @@ backup. A snapshot contains all of the data that's needed to restore your comput
 Detailed instructions for creating, and managing snapshots can be found in the
 following guides:
 
-- [Create snapshots of Lightsail for Research virtual computers or
-  disks](create-snapshot.md "create-snapshot.md")
-- [View and manage virtual computer and disk snapshots in
-  Lightsail for Research](view-snapshots.md "view-snapshots.md")
-- [Create a virtual computer or disk from a
-  snapshot](create-computer-from-snapshot.md "create-computer-from-snapshot.md")
+- [Create snapshots of Lightsail for Research virtual computers or disks](create-snapshot.md "create-snapshot.md")
+- [View and manage virtual computer and disk snapshots in Lightsail for Research](view-snapshots.md "view-snapshots.md")
+- [Create a virtual computer or disk from a snapshot](create-computer-from-snapshot.md "create-computer-from-snapshot.md")
 - [Delete a snapshot in the Lightsail for Research console](delete-snapshot.md "delete-snapshot.md")
 
-## Step 9: (Optional) Stop or delete
-
-your virtual computer
+## Step 9: (Optional) Stop or delete your virtual computer
 
 After you're done with the virtual computer that you created for this tutorial,
 you can delete it. This stops incurring charges for the virtual computer if you

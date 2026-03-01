@@ -13,10 +13,7 @@ avoid permanent data loss.
 
 ###### Topics
 
-- [Create snapshots of Lightsail for Research virtual computers or
-  disks](create-snapshot.md "create-snapshot.md")
-- [View and manage virtual computer and disk snapshots in
-  Lightsail for Research](view-snapshots.md "view-snapshots.md")
-- [Create a virtual computer or disk from a
-  snapshot](create-computer-from-snapshot.md "create-computer-from-snapshot.md")
+- [Create snapshots of Lightsail for Research virtual computers or disks](create-snapshot.md "create-snapshot.md")
+- [View and manage virtual computer and disk snapshots in Lightsail for Research](view-snapshots.md "view-snapshots.md")
+- [Create a virtual computer or disk from a snapshot](create-computer-from-snapshot.md "create-computer-from-snapshot.md")
 - [Delete a snapshot in the Lightsail for Research console](delete-snapshot.md "delete-snapshot.md")

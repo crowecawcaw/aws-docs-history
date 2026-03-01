@@ -30,6 +30,5 @@ _in_ the cloud:
 - [Compliance validation for Amazon Lightsail for Research](SERVICE-compliance.md "SERVICE-compliance.md")
 - [Resilience in Amazon Lightsail for Research](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in Amazon Lightsail for Research](infrastructure-security.md "infrastructure-security.md")
-- [Configuration and vulnerability
-  analysis in Amazon Lightsail for Research](security-vulnerability-analysis-management.md "security-vulnerability-analysis-management.md")
+- [Configuration and vulnerability analysis in Amazon Lightsail for Research](security-vulnerability-analysis-management.md "security-vulnerability-analysis-management.md")
 - [Security best practices for Amazon Lightsail for Research](security-best-practices.md "security-best-practices.md")

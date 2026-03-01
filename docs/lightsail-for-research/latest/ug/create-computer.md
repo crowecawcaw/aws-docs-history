@@ -7,8 +7,7 @@ application.
 2. On the home page, choose **Create virtual computer**.
 3. Select an AWS Region for your virtual computer that is near your physical
    location.
-4. Choose an application and hardware plan. For more information, see [Choose application images and hardware plans for
-   Lightsail for Research](blueprints-plans.md "blueprints-plans.md").
+4. Choose an application and hardware plan. For more information, see [Choose application images and hardware plans for Lightsail for Research](blueprints-plans.md "blueprints-plans.md").
 5. Enter a name for your virtual computer. Valid characters include alphanumeric
    characters, numbers, periods, hyphens, and underscores.
 
@@ -22,8 +21,7 @@ Virtual computer names must also meet the following requirements:
    **Summary** panel.
    Within minutes, your Lightsail for Research virtual computer is ready and you can connect to it through
    a graphical user interface (GUI) session. For more information about connecting to your
-   Lightsail for Research virtual computer, see [Access a Lightsail for Research virtual computer
-   application](open-computer-application.md "open-computer-application.md").
+   Lightsail for Research virtual computer, see [Access a Lightsail for Research virtual computer application](open-computer-application.md "open-computer-application.md").
 
 ###### Important
 

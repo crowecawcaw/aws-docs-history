@@ -30,8 +30,7 @@ Amazon Lightsail for Research. For more information, see [Setting up Amazon Ligh
 You can create a virtual computer by using the [Lightsail for Research console](https://lfr.console.aws.amazon.com/ls/research "https://lfr.console.aws.amazon.com/ls/research") as described in the
 following procedure. This tutorial is intended to help you quickly launch your first virtual
 computer. We also recommend exploring the available applications and hardware plans. For more
-information, see [Choose application images and hardware plans for
-Lightsail for Research](blueprints-plans.md "blueprints-plans.md") and [Create a Lightsail for Research virtual computer](create-computer.md "create-computer.md").
+information, see [Choose application images and hardware plans for Lightsail for Research](blueprints-plans.md "blueprints-plans.md") and [Create a Lightsail for Research virtual computer](create-computer.md "create-computer.md").
 
 1. Sign in to the [Lightsail for Research console](https://lfr.console.aws.amazon.com/ls/research "https://lfr.console.aws.amazon.com/ls/research").
 2. On the home page, choose **Create virtual computer**.
@@ -101,17 +100,13 @@ For more information about connecting to your virtual computer, see the followin
 documentation:
 
 - Establish a remote display protocol connection:
-  - [Access a Lightsail for Research virtual computer
-    application](open-computer-application.md "open-computer-application.md")
-  - [Access your Lightsail for Research virtual computer's
-    operating system](access-computer-operating-system.md "access-computer-operating-system.md")
+  - [Access a Lightsail for Research virtual computer application](open-computer-application.md "open-computer-application.md")
+  - [Access your Lightsail for Research virtual computer's operating system](access-computer-operating-system.md "access-computer-operating-system.md")
 
 - Establish an SSH connection or transfer files using SCP:
   - [Get a key pair for a Lightsail for Research virtual computer](get-ssh-keys.md "get-ssh-keys.md")
-  - [Connect to a Lightsail for Research virtual computer using Secure
-    Shell](connect-using-ssh.md "connect-using-ssh.md")
-  - [Transfer files to Lightsail for Research virtual computers using
-    Secure Copy](connect-using-scp.md "connect-using-scp.md")
+  - [Connect to a Lightsail for Research virtual computer using Secure Shell](connect-using-ssh.md "connect-using-ssh.md")
+  - [Transfer files to Lightsail for Research virtual computers using Secure Copy](connect-using-scp.md "connect-using-scp.md")
 
 To learn about storage for your virtual computer, continue to the next step of this
 tutorial.
@@ -150,12 +145,9 @@ snapshot was taken).
 For more information about creating and managing snapshots, see the following
 documentation:
 
-- [Create snapshots of Lightsail for Research virtual computers or
-  disks](create-snapshot.md "create-snapshot.md")
-- [View and manage virtual computer and disk snapshots in
-  Lightsail for Research](view-snapshots.md "view-snapshots.md")
-- [Create a virtual computer or disk from a
-  snapshot](create-computer-from-snapshot.md "create-computer-from-snapshot.md")
+- [Create snapshots of Lightsail for Research virtual computers or disks](create-snapshot.md "create-snapshot.md")
+- [View and manage virtual computer and disk snapshots in Lightsail for Research](view-snapshots.md "view-snapshots.md")
+- [Create a virtual computer or disk from a snapshot](create-computer-from-snapshot.md "create-computer-from-snapshot.md")
 - [Delete a snapshot in the Lightsail for Research console](delete-snapshot.md "delete-snapshot.md")
 
 To learn about cleaning up your virtual computer resources, continue to the next step of

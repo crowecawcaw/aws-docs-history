@@ -12,7 +12,5 @@ hourly charges after the virtual computer is stopped.
 
 ###### Topics
 
-- [Create cost control rules for your Lightsail for Research
-  virtual computers](create-cost-control-rules.md "create-cost-control-rules.md")
-- [Delete cost control rules for your Lightsail for Research
-  virtual computers](delete-cost-control-rules.md "delete-cost-control-rules.md")
+- [Create cost control rules for your Lightsail for Research virtual computers](create-cost-control-rules.md "create-cost-control-rules.md")
+- [Delete cost control rules for your Lightsail for Research virtual computers](delete-cost-control-rules.md "delete-cost-control-rules.md")

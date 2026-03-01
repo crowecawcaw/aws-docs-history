@@ -1,6 +1,4 @@
-# Create cost control rules for your Lightsail for Research
-
-virtual computers
+# Create cost control rules for your Lightsail for Research virtual computers
 
 Complete the following steps to create a rule for your Lightsail for Research virtual computer.
 

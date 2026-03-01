@@ -27,9 +27,7 @@ securely transfer files from your local computer to your virtual computer.
 You can also establish a remote display protocol connection to your virtual
 computer using the browser-based Amazon DCV client. Amazon DCV is available in the Lightsail for Research
 console. That RDP client does not require that you obtain a key pair for your
-computer. For more information, see [Access a Lightsail for Research virtual computer
-application](open-computer-application.md "open-computer-application.md") and [Access your Lightsail for Research virtual computer's
-operating system](access-computer-operating-system.md "access-computer-operating-system.md").
+computer. For more information, see [Access a Lightsail for Research virtual computer application](open-computer-application.md "open-computer-application.md") and [Access your Lightsail for Research virtual computer's operating system](access-computer-operating-system.md "access-computer-operating-system.md").
 
 ###### Topics
 
@@ -170,8 +168,6 @@ You can complete the following additional next steps after you've successfully
 obtained the key pairs for your virtual computer:
 
 - Connect to your virtual computer using SSH to manage it using command
-  line. For more information, see [Connect to a Lightsail for Research virtual computer using Secure
-  Shell](connect-using-ssh.md "connect-using-ssh.md").
+  line. For more information, see [Connect to a Lightsail for Research virtual computer using Secure Shell](connect-using-ssh.md "connect-using-ssh.md").
 - Connect to your virtual computer using SCP to securely transfer files. For
-  more information, see [Transfer files to Lightsail for Research virtual computers using
-  Secure Copy](connect-using-scp.md "connect-using-scp.md").
+  more information, see [Transfer files to Lightsail for Research virtual computers using Secure Copy](connect-using-scp.md "connect-using-scp.md").

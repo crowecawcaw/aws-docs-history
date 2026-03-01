@@ -1,6 +1,4 @@
-# Transfer files to Lightsail for Research virtual computers using
-
-Secure Copy
+# Transfer files to Lightsail for Research virtual computers using Secure Copy
 
 You can transfer files from your local computer to a virtual computer in Amazon Lightsail for Research
 using Secure Copy (SCP). With this process, you can transfer multiple files, or entire
@@ -11,14 +9,12 @@ directories, at one time.
 You can also establish a remote display protocol connection to your virtual
 computer using the browser-based Amazon DCV client available in the Lightsail for Research console. With
 the Amazon DCV client, you can quickly transfer individual files. For more information,
-see [Access your Lightsail for Research virtual computer's
-operating system](access-computer-operating-system.md "access-computer-operating-system.md").
+see [Access your Lightsail for Research virtual computer's operating system](access-computer-operating-system.md "access-computer-operating-system.md").
 
 ###### Topics
 
 - [Complete the prerequisites](#connect-using-scp-prerequisites "#connect-using-scp-prerequisites")
-- [Connect to a virtual computer
-  using SCP](#connect-virtual-computer-using-scp "#connect-virtual-computer-using-scp")
+- [Connect to a virtual computer using SCP](#connect-virtual-computer-using-scp "#connect-virtual-computer-using-scp")
 
 ## Complete the prerequisites
 
@@ -46,9 +42,7 @@ Complete the following prerequisites before you get started.
 - Get the Lightsail default key pair (DKP) for your virtual computer. For
   more information, see [Create a Lightsail for Research virtual computer](create-computer.md "create-computer.md").
 
-## Connect to a virtual computer
-
-using SCP
+## Connect to a virtual computer using SCP
 
 Complete one of the following procedures to connect to your virtual computer in
 Lightsail for Research using SCP.
@@ -167,7 +161,7 @@ the virtual computer as shown in the following example. Note these
 values, because you need them in the following step of this
 procedure.
 
-![The username and public IP address of an virtual computer.](/images/lightsail-for-research/latest/ug/images/scp-public-ip-address-and-user-linux.png) 3. Enter the following command to establish an SCP connection with
+![The username and public IP address of an virtual computer.](images/scp-public-ip-address-and-user-linux.png) 3. Enter the following command to establish an SCP connection with
 your virtual computer and transfer files to it.
 
 ```
