@@ -6,9 +6,7 @@ multi-cloud environments, as shown in the following diagram.
 
 ![AWS Security Platform Overview](images/aws-security-platform-overview.png)
 
-## AWS CDK
-
-and multi-cloud integration
+## AWS CDK and multi-cloud integration
 
 You use the AWS Cloud Development Kit (AWS CDK) to deploy pre-built connectors for the
 third-party cloud integration. The AWS CDK automatically provisions AWS Lambda functions,
@@ -34,9 +32,7 @@ environments.
 
 ![](images/amazon-opensearch-security-analytics-dashboard.png)
 
-### Built-in multi-cloud
-
-integration connectors
+### Built-in multi-cloud integration connectors
 
 #### Microsoft Azure integration
 
@@ -56,9 +52,7 @@ Integration
 **Configuration reference**: See the [Azure CSPM integration settings](https://github.com/aws-samples/sample-aws-security-lake-integrations/blob/main/integrations/azure/microsoft_defender_cloud/README.md "https://github.com/aws-samples/sample-aws-security-lake-integrations/blob/main/integrations/azure/microsoft_defender_cloud/README.md") in the sample-aws-security-lake-integrations
 repository on GitHub.
 
-#### Google Cloud Platform
-
-integration
+#### Google Cloud Platform integration
 
 **Service**: AWS Security Hub CSPM with [Google Security Command
 Center](https://cloud.google.com/security-command-center "https://cloud.google.com/security-command-center") Integration
@@ -107,9 +101,7 @@ detection.
 
 ![](images/amazon-opensearch-security-analytics-timeline.png)
 
-### Built-in multi-cloud log
-
-integration connectors
+### Built-in multi-cloud log integration connectors
 
 #### Microsoft Azure log integration
 
@@ -128,9 +120,7 @@ Integration
 **Configuration reference**: See the [Azure SIEM log integration configuration file](https://github.com/aws-samples/sample-aws-security-lake-integrations/blob/main/integrations/security-lake/cdk/config.example.yaml "https://github.com/aws-samples/sample-aws-security-lake-integrations/blob/main/integrations/security-lake/cdk/config.example.yaml") in the
 sample-aws-security-lake-integrations repository on GitHub.
 
-#### Google Cloud Platform log
-
-integration
+#### Google Cloud Platform log integration
 
 **Service**: Amazon Security Lake with [GCP Cloud Logging](https://cloud.google.com/logging "https://cloud.google.com/logging") Integration
 
@@ -191,13 +181,9 @@ Manager.
 
 ![](images/multi-cloud-virtual-machine-inventory-dashboard.png)
 
-### Multi-cloud workload protection
+### Multi-cloud workload protection components
 
-components
-
-#### Threat detection across
-
-multi-cloud workloads
+#### Threat detection across multi-cloud workloads
 
 **Amazon GuardDuty** provides:
 
@@ -211,9 +197,7 @@ multi-cloud workloads
   analysis extended to [Azure VNet](https://azure.microsoft.com/en-us/products/virtual-network/ "https://azure.microsoft.com/en-us/products/virtual-network/")
   and [GCP VPC](https://cloud.google.com/vpc "https://cloud.google.com/vpc") networks
 
-#### Vulnerability
-
-management across multi-cloud workloads
+#### Vulnerability management across multi-cloud workloads
 
 **Amazon Inspector** integrated with **AWS Systems Manager** provides:
 
@@ -230,9 +214,7 @@ management across multi-cloud workloads
   limited to virtual machines with SSM Agent (container and serverless scanning
   requires cloud-native tools)
 
-#### Runtime protection
-
-across multi-cloud workloads
+#### Runtime protection across multi-cloud workloads
 
 **AWS Systems Manager** provides:
 
@@ -248,13 +230,9 @@ across multi-cloud workloads
   instances (containers and serverless functions require complementary security
   approaches)
 
-### Built-in multi-cloud workload
+### Built-in multi-cloud workload connectors
 
-connectors
-
-#### Microsoft Azure workload
-
-integration
+#### Microsoft Azure workload integration
 
 **Service**: AWS Systems Manager hybrid activations and
 Amazon Inspector
@@ -277,9 +255,7 @@ Amazon Inspector
 **Implementation reference**: See the [Azure workload integration setup](https://github.com/aws-samples/sample-aws-security-lake-integrations/blob/main/integrations/azure/microsoft_defender_cloud/README.md "https://github.com/aws-samples/sample-aws-security-lake-integrations/blob/main/integrations/azure/microsoft_defender_cloud/README.md") in the sample-aws-security-lake-integrations
 repository on GitHub.
 
-#### Google Cloud Platform
-
-workload integration
+#### Google Cloud Platform workload integration
 
 **Service**: AWS Systems Manager hybrid activations and
 Amazon Inspector

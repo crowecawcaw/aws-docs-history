@@ -74,9 +74,7 @@ terraform destroy
 
 ## Supporting documentation URLs
 
-### AWS security platform
-
-documentation
+### AWS security platform documentation
 
 - **Amazon OpenSearch Service**: [https://docs.aws.amazon.com/opensearch-service/](../../../opensearch-service.md "../../../opensearch-service.md")
 - **Amazon Security Lake**: [https://docs.aws.amazon.com/security-lake/](../../../security-lake.md "../../../security-lake.md")
@@ -84,9 +82,7 @@ documentation
 - **Amazon Inspector**: [https://docs.aws.amazon.com/inspector/](../../../inspector.md "../../../inspector.md")
 - **AWS Systems Manager**: [https://docs.aws.amazon.com/systems-manager/](../../../systems-manager.md "../../../systems-manager.md")
 
-### Multi-cloud integration
-
-documentation
+### Multi-cloud integration documentation
 
 - **Security Lake multi-cloud integration**: [https://docs.aws.amazon.com/security-lake/latest/userguide/custom-sources.html](../../../security-lake/latest/userguide/custom-sources.md "../../../security-lake/latest/userguide/custom-sources.md")
 - **Systems Manager hybrid activations**: [https://docs.aws.amazon.com/systems-manager/latest/userguide/activations.html](../../../systems-manager/latest/userguide/activations.md "../../../systems-manager/latest/userguide/activations.md")
