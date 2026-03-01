@@ -1,6 +1,4 @@
-# AWS X-Ray
-
-auto-instrumentation agent for Java
+# AWS X-Ray auto-instrumentation agent for Java
 
 ###### Note
 
@@ -100,9 +98,7 @@ An example configuration file is shown next.
 }
 ```
 
-### Configuration
-
-specification
+### Configuration specification
 
 The following table describes valid values for each property. Property names are case sensitive, but
 their keys are not. For properties that can be overridden by environment variables and system properties,
@@ -133,9 +129,7 @@ optional.
 The X-Ray agent's log level can be configured in the same way as the X-Ray SDK for Java.
 See [Logging](xray-sdk-java-configuration.md#xray-sdk-java-configuration-logging "xray-sdk-java-configuration.md#xray-sdk-java-configuration-logging") for more information on configuring logging with the X-Ray SDK for Java.
 
-### Manual
-
-instrumentation
+### Manual instrumentation
 
 If you’d like to perform manual instrumentation in addition to the agent’s auto-instrumentation,
 add the X-Ray SDK as a dependency to your project.
@@ -176,9 +170,7 @@ following problems and solutions. The X-Ray agent and SDK use Jakarta Commons Lo
 logging output, ensure that a bridge connecting JCL to your logging backend is on the classpath, as in the
 following example: `log4j-jcl` or `jcl-over-slf4j`.
 
-### Problem: I’ve enabled the Java agent on my application but don’t see anything on the
-
-X-Ray console
+### Problem: I’ve enabled the Java agent on my application but don’t see anything on the X-Ray console
 
 **Is the X-Ray daemon running on the same machine?**
 

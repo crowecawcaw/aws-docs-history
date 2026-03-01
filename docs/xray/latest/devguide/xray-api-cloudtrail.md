@@ -121,9 +121,7 @@ aws cloudtrail put-event-selectors --trail-name myTrail --advanced-event-selecto
 
 ## X-Ray event examples
 
-### Management event example,
-
-`GetEncryptionConfig`
+### Management event example, `GetEncryptionConfig`
 
 The following is an example of the X-Ray GetEncryptionConfig log entry in CloudTrail.
 

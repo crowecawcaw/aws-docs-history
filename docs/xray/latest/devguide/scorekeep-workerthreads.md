@@ -28,9 +28,7 @@ To fix this, the application uses `GetTraceEntity` to get a reference to the
 segment in the main thread, and `Entity.run()` to safely run the worker thread
 code with access to the segment's context.
 
-###### Example [`src/main/java/scorekeep/MoveFactory.java`](https://github.com/awslabs/eb-java-scorekeep/tree/xray/src/main/java/scorekeep/MoveFactory.java#L70 "https://github.com/awslabs/eb-java-scorekeep/tree/xray/src/main/java/scorekeep/MoveFactory.java#L70") – Passing
-
-trace context to a worker thread
+###### Example [`src/main/java/scorekeep/MoveFactory.java`](https://github.com/awslabs/eb-java-scorekeep/tree/xray/src/main/java/scorekeep/MoveFactory.java#L70 "https://github.com/awslabs/eb-java-scorekeep/tree/xray/src/main/java/scorekeep/MoveFactory.java#L70") – Passing trace context to a worker thread
 
 ```
 import com.amazonaws.xray.AWSXRay;
@@ -56,6 +54,5 @@ it records the response from Amazon SNS. If no subsegment is open when Scorekeep
 request, the response from Amazon SNS could be lost.
 
 ![Trace overview with asynchronous thread subsegment.](images/scorekeep-workerthread.png)
-See [Passing segment context between threads in a
-multithreaded application](xray-sdk-java-multithreading.md "xray-sdk-java-multithreading.md") for more information about
+See [Passing segment context between threads in a multithreaded application](xray-sdk-java-multithreading.md "xray-sdk-java-multithreading.md") for more information about
 multithreading.

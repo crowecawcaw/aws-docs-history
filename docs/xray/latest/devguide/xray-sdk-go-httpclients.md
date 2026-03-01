@@ -1,6 +1,4 @@
-# Tracing calls to downstream HTTP web services with the
-
-X-Ray SDK for Go
+# Tracing calls to downstream HTTP web services with the X-Ray SDK for Go
 
 ###### Note
 

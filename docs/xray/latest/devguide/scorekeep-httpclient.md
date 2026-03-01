@@ -8,9 +8,7 @@ X-Ray SDK/Daemon Maintenance Notice – On February 25th, 2026, the AWS X-Ray SD
 The user factory class shows how the application uses the X-Ray SDK for Java's version of
 `HTTPClientBuilder` to instrument outgoing HTTP calls.
 
-###### Example [`src/main/java/scorekeep/UserFactory.java`](https://github.com/awslabs/eb-java-scorekeep/tree/xray/src/main/java/scorekeep/UserFactory.java "https://github.com/awslabs/eb-java-scorekeep/tree/xray/src/main/java/scorekeep/UserFactory.java") – HTTPClient
-
-instrumentation
+###### Example [`src/main/java/scorekeep/UserFactory.java`](https://github.com/awslabs/eb-java-scorekeep/tree/xray/src/main/java/scorekeep/UserFactory.java "https://github.com/awslabs/eb-java-scorekeep/tree/xray/src/main/java/scorekeep/UserFactory.java") – HTTPClient instrumentation
 
 ```
 import com.amazonaws.xray.proxies.apache.http.HttpClientBuilder;

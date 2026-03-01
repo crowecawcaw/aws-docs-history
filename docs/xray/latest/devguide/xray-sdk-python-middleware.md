@@ -1,6 +1,4 @@
-# Tracing incoming requests with the X-Ray SDK for Python
-
-middleware
+# Tracing incoming requests with the X-Ray SDK for Python middleware
 
 ###### Note
 
@@ -63,19 +61,13 @@ that contains the following information:
 
 ###### Sections
 
-- [Adding the middleware to your
-  application (Django)](#xray-sdk-python-adding-middleware-django "#xray-sdk-python-adding-middleware-django")
-- [Adding the middleware to your
-  application (flask)](#xray-sdk-python-adding-middleware-flask "#xray-sdk-python-adding-middleware-flask")
-- [Adding the middleware to your application
-  (Bottle)](#xray-sdk-python-adding-middleware-bottle "#xray-sdk-python-adding-middleware-bottle")
+- [Adding the middleware to your application (Django)](#xray-sdk-python-adding-middleware-django "#xray-sdk-python-adding-middleware-django")
+- [Adding the middleware to your application (flask)](#xray-sdk-python-adding-middleware-flask "#xray-sdk-python-adding-middleware-flask")
+- [Adding the middleware to your application (Bottle)](#xray-sdk-python-adding-middleware-bottle "#xray-sdk-python-adding-middleware-bottle")
 - [Instrumenting Python code manually](#xray-sdk-python-middleware-manual "#xray-sdk-python-middleware-manual")
-- [Configuring a segment naming
-  strategy](#xray-sdk-python-middleware-naming "#xray-sdk-python-middleware-naming")
+- [Configuring a segment naming strategy](#xray-sdk-python-middleware-naming "#xray-sdk-python-middleware-naming")
 
-## Adding the middleware to your
-
-application (Django)
+## Adding the middleware to your application (Django)
 
 Add the middleware to the `MIDDLEWARE` list in your `settings.py` file. The
 X-Ray middleware should be the first line in your `settings.py` file to ensure that requests
@@ -133,9 +125,7 @@ settings file](xray-sdk-python-configuration.md#xray-sdk-python-middleware-confi
 
 Since `plugins` are passed in as a tuple, be sure to include a trailing `,` when specifying a single plugin. For example, `plugins = ('EC2Plugin',)`
 
-## Adding the middleware to your
-
-application (flask)
+## Adding the middleware to your application (flask)
 
 To instrument your Flask application, first configure a segment name on the
 `xray_recorder`. Then, use the `XRayMiddleware` function to patch your
@@ -157,9 +147,7 @@ This tells the X-Ray recorder to trace requests served by your Flask application
 default sampling rate. You can [configure the recorder in code](xray-sdk-python-configuration.md#xray-sdk-python-middleware-configuration-code "xray-sdk-python-configuration.md#xray-sdk-python-middleware-configuration-code") to apply custom sampling rules or change other
 settings.
 
-## Adding the middleware to your application
-
-(Bottle)
+## Adding the middleware to your application (Bottle)
 
 To instrument your Bottle application, first configure a segment name on the `xray_recorder`. Then,
 use the `XRayMiddleware` function to patch your Bottle application in code.
@@ -205,9 +193,7 @@ xray_recorder.end_subsegment()
 xray_recorder.end_segment()
 ```
 
-## Configuring a segment naming
-
-strategy
+## Configuring a segment naming strategy
 
 AWS X-Ray uses a _service name_ to
 identify your application and distinguish it from the other applications, databases, external APIs,

@@ -9,9 +9,7 @@ The X-Ray SDK for .NET provides a wrapper class for `System.Data.SqlClient.SqlCo
 `TraceableSqlCommand`, that you can use in place of `SqlCommand`. You can initialize an SQL
 command with the `TraceableSqlCommand` class.
 
-## Tracing SQL queries with synchronous and asynchronous
-
-methods
+## Tracing SQL queries with synchronous and asynchronous methods
 
 The following examples show how to use the `TraceableSqlCommand` to automatically trace SQL Server
 queries synchronously and asynchronously.
@@ -84,9 +82,7 @@ To set the `CollectSqlQueries` property to `true` in the global configuration of
 your application in .NET, modify the `appsettings` of your `App.config` or
 `Web.config` file, as shown.
 
-###### Example `App.config` Or `Web.config` – Enable SQL Query
-
-collection globally
+###### Example `App.config` Or `Web.config` – Enable SQL Query collection globally
 
 ```
 <configuration>

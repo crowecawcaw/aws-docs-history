@@ -8,9 +8,7 @@ analyze, and debug throughout downstream services and provides a more complete v
 
 For more information, see [EventBridge X-Ray Integration](../../../eventbridge/latest/userguide/eb-xray-integ.md "../../../eventbridge/latest/userguide/eb-xray-integ.md") in the _EventBridge User Guide_.
 
-## Viewing source and targets on the X-Ray service
-
-map
+## Viewing source and targets on the X-Ray service map
 
 The X-Ray [trace map](xray-console-servicemap.md "xray-console-servicemap.md") displays an EventBridge event node that connects source and target services, as in the following example:
 

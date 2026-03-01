@@ -1,6 +1,4 @@
-# Tracing calls to downstream HTTP web services using the
-
-X-Ray SDK for Python
+# Tracing calls to downstream HTTP web services using the X-Ray SDK for Python
 
 ###### Note
 
@@ -18,9 +16,7 @@ context](xray-sdk-python-patching.md#xray-sdk-python-patching-async "xray-sdk-py
 If you use `aiohttp` 3's client API, you also need to configure the `ClientSession`'s with
 an instance of the tracing configuration provided by the SDK.
 
-###### Example [`aiohttp` 3
-
-client API](https://github.com/aws/aws-xray-sdk-python#trace-aiohttp-client-requests "https://github.com/aws/aws-xray-sdk-python#trace-aiohttp-client-requests")
+###### Example [`aiohttp` 3 client API](https://github.com/aws/aws-xray-sdk-python#trace-aiohttp-client-requests "https://github.com/aws/aws-xray-sdk-python#trace-aiohttp-client-requests")
 
 ```
 from aws_xray_sdk.ext.aiohttp.client import aws_xray_trace_config

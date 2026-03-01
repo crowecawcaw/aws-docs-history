@@ -1,6 +1,4 @@
-# Tracing calls to downstream HTTP web services using
-
-the X-Ray SDK for Node.js
+# Tracing calls to downstream HTTP web services using the X-Ray SDK for Node.js
 
 ###### Note
 

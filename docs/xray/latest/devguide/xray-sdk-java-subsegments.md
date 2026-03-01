@@ -1,6 +1,4 @@
-# Generating custom subsegments with the
-
-X-Ray SDK for Java
+# Generating custom subsegments with the X-Ray SDK for Java
 
 ###### Note
 

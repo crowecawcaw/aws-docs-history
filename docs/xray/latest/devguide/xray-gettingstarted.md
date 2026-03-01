@@ -11,8 +11,7 @@ To use X-Ray, take the following steps:
    a request.
    - Use the X-Ray SDKs, X-Ray APIs, ADOT or CloudWatch Application Signals to
      send trace data to X-Ray. For more information about which interface to use, see [Choosing an interface](aws-xray-interface.md "aws-xray-interface.md").
-     For more information about instrumentation, see [Instrumenting your application
-     for AWS X-Ray](xray-instrumenting-your-app.md "xray-instrumenting-your-app.md").
+     For more information about instrumentation, see [Instrumenting your application for AWS X-Ray](xray-instrumenting-your-app.md "xray-instrumenting-your-app.md").
 
 2. (Optional) Configure X-Ray to work with other AWS services that integrate with
    X-Ray. You can sample traces and add headers to incoming requests, run an agent or

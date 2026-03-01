@@ -1,6 +1,4 @@
-# Passing segment context between threads in a
-
-multithreaded application
+# Passing segment context between threads in a multithreaded application
 
 ###### Note
 

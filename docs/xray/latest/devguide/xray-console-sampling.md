@@ -221,8 +221,7 @@ For more information about sampling statistics and how services use sampling rul
 ## Next steps
 
 You can use the X-Ray API to manage sampling rules. With the API, you can create and update rules programmatically on a schedule, or in response to
-alarms or notifications. See [Configuring sampling, groups, and encryption settings with the
-AWS X-Ray API](xray-api-configuration.md "xray-api-configuration.md") for instructions and additional rule
+alarms or notifications. See [Configuring sampling, groups, and encryption settings with the AWS X-Ray API](xray-api-configuration.md "xray-api-configuration.md") for instructions and additional rule
 examples.
 
 The AWS Distro for OpenTelemetry, X-Ray SDK and AWS services also use the X-Ray API to read sampling rules, report sampling results, and get sampling targets. Services must

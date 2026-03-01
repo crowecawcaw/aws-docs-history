@@ -8,9 +8,7 @@ X-Ray SDK/Daemon Maintenance Notice – On February 25th, 2026, the AWS X-Ray SD
 In the user model class, the application manually creates subsegments to group all
 downstream calls made within the `saveUser` function and adds metadata.
 
-###### Example [`src/main/java/scorekeep/UserModel.java`](https://github.com/awslabs/eb-java-scorekeep/tree/xray/src/main/java/scorekeep/UserModel.java "https://github.com/awslabs/eb-java-scorekeep/tree/xray/src/main/java/scorekeep/UserModel.java") - Custom
-
-subsegments
+###### Example [`src/main/java/scorekeep/UserModel.java`](https://github.com/awslabs/eb-java-scorekeep/tree/xray/src/main/java/scorekeep/UserModel.java "https://github.com/awslabs/eb-java-scorekeep/tree/xray/src/main/java/scorekeep/UserModel.java") - Custom subsegments
 
 ```
 import com.amazonaws.xray.AWSXRay;

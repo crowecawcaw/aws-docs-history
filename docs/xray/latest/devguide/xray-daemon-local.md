@@ -11,8 +11,7 @@ the daemon by using the instructions [here](xray-daemon.md#xray-daemon-downloadi
 
 When running locally, the daemon can read credentials from an AWS SDK credentials file
 (`.aws/credentials` in your user directory) or from environment variables. For more
-information, see [Giving the daemon permission to send data to
-X-Ray](xray-daemon.md#xray-daemon-permissions "xray-daemon.md#xray-daemon-permissions").
+information, see [Giving the daemon permission to send data to X-Ray](xray-daemon.md#xray-daemon-permissions "xray-daemon.md#xray-daemon-permissions").
 
 The daemon listens for UDP data on port 2000. You can change the port and other options by using a configuration
 file and command line options. For more information, see [Configuring the AWS X-Ray daemon](xray-daemon-configuration.md "xray-daemon-configuration.md").

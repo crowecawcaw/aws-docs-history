@@ -1,6 +1,4 @@
-# Add annotations and metadata to segments with the
-
-X-Ray SDK for .NET
+# Add annotations and metadata to segments with the X-Ray SDK for .NET
 
 ###### Note
 
@@ -24,14 +22,10 @@ but don't need to use with search.
 
 ###### Sections
 
-- [Recording annotations with the
-  X-Ray SDK for .NET](#xray-sdk-dotnet-segment-annotations "#xray-sdk-dotnet-segment-annotations")
-- [Recording metadata with the
-  X-Ray SDK for .NET](#xray-sdk-dotnet-segment-metadata "#xray-sdk-dotnet-segment-metadata")
+- [Recording annotations with the X-Ray SDK for .NET](#xray-sdk-dotnet-segment-annotations "#xray-sdk-dotnet-segment-annotations")
+- [Recording metadata with the X-Ray SDK for .NET](#xray-sdk-dotnet-segment-metadata "#xray-sdk-dotnet-segment-metadata")
 
-## Recording annotations with the
-
-X-Ray SDK for .NET
+## Recording annotations with the X-Ray SDK for .NET
 
 Use annotations to record information on segments or subsegments that you want indexed for
 search.
@@ -109,9 +103,7 @@ a previously recorded value on the same segment or subsegment.
 To find traces that have annotations with specific values, use the
 `annotation[`key`]` keyword in a [filter expression](xray-console-filters.md "xray-console-filters.md").
 
-## Recording metadata with the
-
-X-Ray SDK for .NET
+## Recording metadata with the X-Ray SDK for .NET
 
 Use metadata to record information on segments or subsegments that you don't need to index for use inside a search. Metadata values can be strings, numbers,
 booleans, or any other object that can be serialized into a JSON object or array.

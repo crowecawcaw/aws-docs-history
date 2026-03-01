@@ -57,10 +57,8 @@ all functions available in the X-Ray SDK including the following common actions:
 ###### Topics
 
 - [Using the AWS X-Ray API with the AWS CLI](xray-api-tutorial.md "xray-api-tutorial.md")
-- [Sending trace data to
-  AWS X-Ray](xray-api-sendingdata.md "xray-api-sendingdata.md")
+- [Sending trace data to AWS X-Ray](xray-api-sendingdata.md "xray-api-sendingdata.md")
 - [Getting data from AWS X-Ray](xray-api-gettingdata.md "xray-api-gettingdata.md")
-- [Configuring sampling, groups, and encryption settings with the
-  AWS X-Ray API](xray-api-configuration.md "xray-api-configuration.md")
+- [Configuring sampling, groups, and encryption settings with the AWS X-Ray API](xray-api-configuration.md "xray-api-configuration.md")
 - [Using sampling rules with the X-Ray API](xray-api-sampling.md "xray-api-sampling.md")
 - [AWS X-Ray segment documents](xray-api-segmentdocuments.md "xray-api-segmentdocuments.md")

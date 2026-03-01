@@ -1,6 +1,4 @@
-# Patching libraries to instrument downstream
-
-calls
+# Patching libraries to instrument downstream calls
 
 ###### Note
 

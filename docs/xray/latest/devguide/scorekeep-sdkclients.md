@@ -17,9 +17,7 @@ tracing handler to `AmazonDynamoDBClientBuilder` as a request handler in the use
 game, and session model. This code change tells the SDK to instrument all calls to DynamoDB using
 those clients.
 
-###### Example [`src/main/java/scorekeep/SessionModel.java`](https://github.com/awslabs/eb-java-scorekeep/tree/xray/src/main/java/scorekeep/SessionModel.java "https://github.com/awslabs/eb-java-scorekeep/tree/xray/src/main/java/scorekeep/SessionModel.java") – Manual AWS
-
-SDK client instrumentation
+###### Example [`src/main/java/scorekeep/SessionModel.java`](https://github.com/awslabs/eb-java-scorekeep/tree/xray/src/main/java/scorekeep/SessionModel.java "https://github.com/awslabs/eb-java-scorekeep/tree/xray/src/main/java/scorekeep/SessionModel.java") – Manual AWS SDK client instrumentation
 
 ```
 import com.amazonaws.xray.AWSXRay;

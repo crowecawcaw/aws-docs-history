@@ -79,9 +79,7 @@ and segment ID in a [tracing header](xray-concepts.md#xray-concepts-tracingheade
 application receives a request with this header, the X-Ray SDK for Java uses the same trace ID and
 makes the segment from the web app client the parent of its segment.
 
-###### Example [`public/app/services.js`](https://github.com/awslabs/eb-java-scorekeep/tree/xray-cognito/public/app/services.js "https://github.com/awslabs/eb-java-scorekeep/tree/xray-cognito/public/app/services.js") – Recording segments for angular
-
-resource calls and writing tracing headers
+###### Example [`public/app/services.js`](https://github.com/awslabs/eb-java-scorekeep/tree/xray-cognito/public/app/services.js "https://github.com/awslabs/eb-java-scorekeep/tree/xray-cognito/public/app/services.js") – Recording segments for angular resource calls and writing tracing headers
 
 ```
 var module = angular.module('scorekeep');

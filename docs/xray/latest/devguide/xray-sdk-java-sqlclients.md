@@ -27,9 +27,7 @@ SQL interceptors do not record the SQL query itself within subsegments for secur
 For Spring, add the interceptor in a properties file and build the data source with Spring
 Boot's `DataSourceBuilder`.
 
-###### Example `src/main/java/resources/application.properties` - PostgreSQL JDBC
-
-interceptor
+###### Example `src/main/java/resources/application.properties` - PostgreSQL JDBC interceptor
 
 ```
 spring.datasource.continue-on-error=true

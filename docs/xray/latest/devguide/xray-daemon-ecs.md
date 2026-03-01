@@ -39,8 +39,7 @@ on Amazon ECR that you can deploy alongside your application. See
 For custom configuration, you may need to define your own Docker image.
 
 Add managed policies to your task role to grant the daemon permission to upload trace data to X-Ray. For more
-information, see [Giving the daemon permission to send data to
-X-Ray](xray-daemon.md#xray-daemon-permissions "xray-daemon.md#xray-daemon-permissions").
+information, see [Giving the daemon permission to send data to X-Ray](xray-daemon.md#xray-daemon-permissions "xray-daemon.md#xray-daemon-permissions").
 
 Use one of the following Dockerfiles to create an image that runs the daemon.
 

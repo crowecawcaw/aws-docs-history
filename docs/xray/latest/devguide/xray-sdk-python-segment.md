@@ -1,6 +1,4 @@
-# Add annotations and metadata to segments with the
-
-X-Ray SDK for Python
+# Add annotations and metadata to segments with the X-Ray SDK for Python
 
 ###### Note
 
@@ -27,16 +25,11 @@ recorded in a separate field on segments and are indexed for use with search.
 
 ###### Sections
 
-- [Recording annotations with the
-  X-Ray SDK for Python](#xray-sdk-python-segment-annotations "#xray-sdk-python-segment-annotations")
-- [Recording metadata with the
-  X-Ray SDK for Python](#xray-sdk-python-segment-metadata "#xray-sdk-python-segment-metadata")
-- [Recording user IDs with the
-  X-Ray SDK for Python](#xray-sdk-python-segment-userid "#xray-sdk-python-segment-userid")
+- [Recording annotations with the X-Ray SDK for Python](#xray-sdk-python-segment-annotations "#xray-sdk-python-segment-annotations")
+- [Recording metadata with the X-Ray SDK for Python](#xray-sdk-python-segment-metadata "#xray-sdk-python-segment-metadata")
+- [Recording user IDs with the X-Ray SDK for Python](#xray-sdk-python-segment-userid "#xray-sdk-python-segment-userid")
 
-## Recording annotations with the
-
-X-Ray SDK for Python
+## Recording annotations with the X-Ray SDK for Python
 
 Use annotations to record information on segments or subsegments that you want indexed for
 search.
@@ -98,9 +91,7 @@ previously recorded values on the same segment or subsegment.
 To find traces that have annotations with specific values, use the
 `annotation[`key`]` keyword in a [filter expression](xray-console-filters.md "xray-console-filters.md").
 
-## Recording metadata with the
-
-X-Ray SDK for Python
+## Recording metadata with the X-Ray SDK for Python
 
 ###### Warning
 
@@ -155,9 +146,7 @@ If you don't specify a namespace, the SDK uses `default`. Calling
 `put_metadata` twice with the same key overwrites previously recorded values on
 the same segment or subsegment.
 
-## Recording user IDs with the
-
-X-Ray SDK for Python
+## Recording user IDs with the X-Ray SDK for Python
 
 Record user IDs on request segments to identify the user who sent the request.
 

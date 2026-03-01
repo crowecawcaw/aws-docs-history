@@ -1,6 +1,4 @@
-# Tracing calls to downstream HTTP web services with
-
-the X-Ray SDK for .NET
+# Tracing calls to downstream HTTP web services with the X-Ray SDK for .NET
 
 ###### Note
 

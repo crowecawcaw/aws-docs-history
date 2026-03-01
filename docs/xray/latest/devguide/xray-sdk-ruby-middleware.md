@@ -1,6 +1,4 @@
-# Tracing incoming requests with the X-Ray SDK for Ruby
-
-middleware
+# Tracing incoming requests with the X-Ray SDK for Ruby middleware
 
 ###### Note
 
@@ -101,9 +99,7 @@ XRay.recorder.end_subsegment
 XRay.recorder.end_segment
 ```
 
-## Configuring a segment naming
-
-strategy
+## Configuring a segment naming strategy
 
 AWS X-Ray uses a _service name_ to
 identify your application and distinguish it from the other applications, databases, external APIs,

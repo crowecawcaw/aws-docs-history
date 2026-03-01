@@ -11,8 +11,7 @@ You can run the X-Ray daemon on the following operating systems on Amazon EC2:
 - Ubuntu
 - Windows Server (2012 R2 and newer)
   Use an instance profile to grant the daemon permission to upload trace data to X-Ray. For
-  more information, see [Giving the daemon permission to send data to
-  X-Ray](xray-daemon.md#xray-daemon-permissions "xray-daemon.md#xray-daemon-permissions").
+  more information, see [Giving the daemon permission to send data to X-Ray](xray-daemon.md#xray-daemon-permissions "xray-daemon.md#xray-daemon-permissions").
 
 Use a user data script to run the daemon automatically when you launch the instance.
 

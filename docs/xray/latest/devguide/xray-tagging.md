@@ -43,8 +43,7 @@ request access, contact an AWS user in your enterprise who has
 - [Tag restrictions](#xray-tagging-restrictions "#xray-tagging-restrictions")
 - [Managing tags in the console](#xray-tagging-manage "#xray-tagging-manage")
 - [Managing tags in the AWS CLI](#xray-tagging-manage-cli "#xray-tagging-manage-cli")
-- [Control access to X-Ray resources based on
-  tags](#xray-tagging-policy "#xray-tagging-policy")
+- [Control access to X-Ray resources based on tags](#xray-tagging-policy "#xray-tagging-policy")
 
 ## Tag restrictions
 
@@ -73,18 +72,12 @@ sampling rules in the X-Ray console.
 
 ###### Topics
 
-- [Add tags to a new group
-  (console)](#xray-tagging-add-group-console "#xray-tagging-add-group-console")
-- [Add tags to a new sampling rule
-  (console)](#xray-tagging-add-rule-console "#xray-tagging-add-rule-console")
-- [Edit or delete tags for a group
-  (console)](#xray-tagging-change-group-console "#xray-tagging-change-group-console")
-- [Edit or delete tags for a
-  sampling rule (console)](#xray-tagging-change-rule-console "#xray-tagging-change-rule-console")
+- [Add tags to a new group (console)](#xray-tagging-add-group-console "#xray-tagging-add-group-console")
+- [Add tags to a new sampling rule (console)](#xray-tagging-add-rule-console "#xray-tagging-add-rule-console")
+- [Edit or delete tags for a group (console)](#xray-tagging-change-group-console "#xray-tagging-change-group-console")
+- [Edit or delete tags for a sampling rule (console)](#xray-tagging-change-rule-console "#xray-tagging-change-rule-console")
 
-### Add tags to a new group
-
-(console)
+### Add tags to a new group (console)
 
 As you create a new X-Ray group, you can add optional tags on the
 **Create group** page.
@@ -106,9 +99,7 @@ As you create a new X-Ray group, you can add optional tags on the
 6. When you are finished adding tags, choose **Create
    group**.
 
-### Add tags to a new sampling rule
-
-(console)
+### Add tags to a new sampling rule (console)
 
 As you create a new X-Ray sampling rule, you can add tags on the **Create
 sampling rule** page.
@@ -130,9 +121,7 @@ sampling rule** page.
 6. When you are finished adding tags, choose **Create sampling
    rule**.
 
-### Edit or delete tags for a group
-
-(console)
+### Edit or delete tags for a group (console)
 
 You can change or delete tags on an X-Ray group on the **Edit
 group** page.
@@ -154,9 +143,7 @@ group** page.
 6. When you are finished editing or deleting tags, choose **Update
    group**.
 
-### Edit or delete tags for a
-
-sampling rule (console)
+### Edit or delete tags for a sampling rule (console)
 
 You can change or delete tags on an X-Ray sampling rule on the **Edit
 sampling rule** page.
@@ -185,16 +172,12 @@ rule, use the AWS X-Ray console, or the [TagResource](../api/API_TagResource.md 
 
 ###### Topics
 
-- [Add tags to a new X-Ray group or sampling
-  rule (CLI)](#xray-tagging-cli-create "#xray-tagging-cli-create")
-- [Add tags to an existing resource
-  (CLI)](#xray-tagging-cli-add "#xray-tagging-cli-add")
+- [Add tags to a new X-Ray group or sampling rule (CLI)](#xray-tagging-cli-create "#xray-tagging-cli-create")
+- [Add tags to an existing resource (CLI)](#xray-tagging-cli-add "#xray-tagging-cli-add")
 - [List tags on a resource (CLI)](#xray-tagging-cli-list "#xray-tagging-cli-list")
 - [Delete tags on a resource (CLI)](#xray-tagging-cli-delete "#xray-tagging-cli-delete")
 
-### Add tags to a new X-Ray group or sampling
-
-rule (CLI)
+### Add tags to a new X-Ray group or sampling rule (CLI)
 
 To add optional tags as you're creating a new X-Ray group or sampling rule, use
 one of the following commands.
@@ -306,9 +289,7 @@ The following are the contents of the example
 }
 ```
 
-### Add tags to an existing resource
-
-(CLI)
+### Add tags to an existing resource (CLI)
 
 You can run the `tag-resource` command to add tags to an existing
 X-Ray group or sampling rule This method might be simpler than adding tags by
@@ -379,9 +360,7 @@ aws xray untag-resource \
    --tag-keys ["Stage","Department"]
 ```
 
-## Control access to X-Ray resources based on
-
-tags
+## Control access to X-Ray resources based on tags
 
 You can attach tags to X-Ray groups or sampling rules, or pass tags in a
 request to X-Ray. To control access based on tags, you provide tag
@@ -393,5 +372,4 @@ see [Controlling access to AWS resources
 using resource tags](../../../IAM/latest/UserGuide/access_tags.md "../../../IAM/latest/UserGuide/access_tags.md").
 
 To view an example identity-based policy for limiting access to a resource based on
-the tags on that resource, see [Managing
-access to X-Ray groups and sampling rules based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-manage-sampling-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-manage-sampling-tags").
+the tags on that resource, see [Managing access to X-Ray groups and sampling rules based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-manage-sampling-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-manage-sampling-tags").

@@ -1,6 +1,4 @@
-# Getting started with the Scorekeep sample
-
-application
+# Getting started with the Scorekeep sample application
 
 ###### Note
 
@@ -19,8 +17,7 @@ You can follow this tutorial using either the AWS Management Console or the AWS 
 ###### Sections
 
 - [Prerequisites](#xray-gettingstarted-prereqs "#xray-gettingstarted-prereqs")
-- [Install the Scorekeep application using
-  CloudFormation](#xray-gettingstarted-deploy "#xray-gettingstarted-deploy")
+- [Install the Scorekeep application using CloudFormation](#xray-gettingstarted-deploy "#xray-gettingstarted-deploy")
 - [Generate trace data](#xray-gettingstarted-generate-traces "#xray-gettingstarted-generate-traces")
 - [View the trace map in the AWS Management Console](#xray-gettingstarted-console "#xray-gettingstarted-console")
 - [Configuring Amazon SNS notifications](#xray-gettingstarted-notifications "#xray-gettingstarted-notifications")
@@ -64,9 +61,7 @@ through the tutorial:
 git clone https://github.com/aws-samples/eb-java-scorekeep.git xray-scorekeep -b xray-gettingstarted
 ```
 
-## Install the Scorekeep application using
-
-CloudFormation
+## Install the Scorekeep application using CloudFormation
 
 AWS Management Console
 

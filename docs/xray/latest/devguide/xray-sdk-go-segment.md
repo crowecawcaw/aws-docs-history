@@ -1,6 +1,4 @@
-# Add annotations and metadata to segments with the
-
-X-Ray SDK for Go
+# Add annotations and metadata to segments with the X-Ray SDK for Go
 
 ###### Note
 
@@ -27,15 +25,11 @@ recorded in a separate field on segments and are indexed for use with search.
 
 ###### Sections
 
-- [Recording annotations with the
-  X-Ray SDK for Go](#xray-sdk-go-segment-annotations "#xray-sdk-go-segment-annotations")
-- [Recording metadata with the
-  X-Ray SDK for Go](#xray-sdk-go-segment-metadata "#xray-sdk-go-segment-metadata")
+- [Recording annotations with the X-Ray SDK for Go](#xray-sdk-go-segment-annotations "#xray-sdk-go-segment-annotations")
+- [Recording metadata with the X-Ray SDK for Go](#xray-sdk-go-segment-metadata "#xray-sdk-go-segment-metadata")
 - [Recording user IDs with the X-Ray SDK for Go](#xray-sdk-go-segment-userid "#xray-sdk-go-segment-userid")
 
-## Recording annotations with the
-
-X-Ray SDK for Go
+## Recording annotations with the X-Ray SDK for Go
 
 Use annotations to record information on segments that you want indexed for search.
 
@@ -63,9 +57,7 @@ previously recorded values on the same segment.
 To find traces that have annotations with specific values, use the
 `annotation[`key`]` keyword in a [filter expression](xray-console-filters.md "xray-console-filters.md").
 
-## Recording metadata with the
-
-X-Ray SDK for Go
+## Recording metadata with the X-Ray SDK for Go
 
 Use metadata to record information on segments that you don't need indexed for
 search.

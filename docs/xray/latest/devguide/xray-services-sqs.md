@@ -40,12 +40,9 @@ supported SDKs:
 
 - Go – [Tracing AWS SDK calls with the X-Ray SDK for Go](xray-sdk-go-awssdkclients.md "xray-sdk-go-awssdkclients.md")
 - Java – [Tracing AWS SDK calls with the X-Ray SDK for Java](xray-sdk-java-awssdkclients.md "xray-sdk-java-awssdkclients.md")
-- Node.js – [Tracing AWS SDK calls with the
-  X-Ray SDK for Node.js](xray-sdk-nodejs-awssdkclients.md "xray-sdk-nodejs-awssdkclients.md")
-- Python – [Tracing AWS SDK calls with the
-  X-Ray SDK for Python](xray-sdk-python-awssdkclients.md "xray-sdk-python-awssdkclients.md")
-- Ruby – [Tracing AWS SDK calls with the
-  X-Ray SDK for Ruby](xray-sdk-ruby-awssdkclients.md "xray-sdk-ruby-awssdkclients.md")
+- Node.js – [Tracing AWS SDK calls with the X-Ray SDK for Node.js](xray-sdk-nodejs-awssdkclients.md "xray-sdk-nodejs-awssdkclients.md")
+- Python – [Tracing AWS SDK calls with the X-Ray SDK for Python](xray-sdk-python-awssdkclients.md "xray-sdk-python-awssdkclients.md")
+- Ruby – [Tracing AWS SDK calls with the X-Ray SDK for Ruby](xray-sdk-ruby-awssdkclients.md "xray-sdk-ruby-awssdkclients.md")
 - .NET – [Tracing AWS SDK calls with the X-Ray SDK for .NET](xray-sdk-dotnet-sdkclients.md "xray-sdk-dotnet-sdkclients.md")
 
 ## Retrieve the trace header and recover trace context

@@ -1,6 +1,4 @@
-# Tracing AWS SDK calls with the
-
-X-Ray SDK for Node.js
+# Tracing AWS SDK calls with the X-Ray SDK for Node.js
 
 ###### Note
 

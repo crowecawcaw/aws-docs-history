@@ -68,5 +68,4 @@ If X-Ray is unable to access your encryption key, it stops storing data. This ca
 access to the KMS key, or if you disable a key that's currently in use. When this happens, X-Ray shows a notification
 in the navigation bar.
 
-To configure encryption settings with the X-Ray API, see [Configuring sampling, groups, and encryption settings with the
-AWS X-Ray API](xray-api-configuration.md "xray-api-configuration.md").
+To configure encryption settings with the X-Ray API, see [Configuring sampling, groups, and encryption settings with the AWS X-Ray API](xray-api-configuration.md "xray-api-configuration.md").

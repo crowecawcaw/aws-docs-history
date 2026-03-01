@@ -31,23 +31,15 @@ For more information about how to read and interact with the X-Ray Analytics con
 
 ###### Topics
 
-- [View canaries with increased
-  error reporting in the trace map](#xray-services-cloudwatch-synthetics-workflows-which-canary "#xray-services-cloudwatch-synthetics-workflows-which-canary")
-- [Use trace details maps for individual
-  traces to view each request in detail](#xray-services-cloudwatch-synthetics-workflows-trace-map "#xray-services-cloudwatch-synthetics-workflows-trace-map")
-- [Determine the root cause of
-  ongoing failures in upstream and downstream services](#xray-services-cloudwatch-synthetics-workflows-root-cause "#xray-services-cloudwatch-synthetics-workflows-root-cause")
-- [Identify performance bottlenecks
-  and trends](#xray-services-cloudwatch-synthetics-workflows-bottlenecks "#xray-services-cloudwatch-synthetics-workflows-bottlenecks")
-- [Compare latency and error or fault
-  rates before and after changes](#xray-services-cloudwatch-synthetics-workflows-latency "#xray-services-cloudwatch-synthetics-workflows-latency")
-- [Determine the required canary
-  coverage for all APIs and URLs](#xray-services-cloudwatch-synthetics-workflows-impact "#xray-services-cloudwatch-synthetics-workflows-impact")
+- [View canaries with increased error reporting in the trace map](#xray-services-cloudwatch-synthetics-workflows-which-canary "#xray-services-cloudwatch-synthetics-workflows-which-canary")
+- [Use trace details maps for individual traces to view each request in detail](#xray-services-cloudwatch-synthetics-workflows-trace-map "#xray-services-cloudwatch-synthetics-workflows-trace-map")
+- [Determine the root cause of ongoing failures in upstream and downstream services](#xray-services-cloudwatch-synthetics-workflows-root-cause "#xray-services-cloudwatch-synthetics-workflows-root-cause")
+- [Identify performance bottlenecks and trends](#xray-services-cloudwatch-synthetics-workflows-bottlenecks "#xray-services-cloudwatch-synthetics-workflows-bottlenecks")
+- [Compare latency and error or fault rates before and after changes](#xray-services-cloudwatch-synthetics-workflows-latency "#xray-services-cloudwatch-synthetics-workflows-latency")
+- [Determine the required canary coverage for all APIs and URLs](#xray-services-cloudwatch-synthetics-workflows-impact "#xray-services-cloudwatch-synthetics-workflows-impact")
 - [Use groups to focus on synthetics tests](#xray-services-cloudwatch-synthetics-groups "#xray-services-cloudwatch-synthetics-groups")
 
-## View canaries with increased
-
-error reporting in the trace map
+## View canaries with increased error reporting in the trace map
 
 To see which canaries have an increase in errors, faults, throttling rates, or slow response times within
 your X-Ray trace map, you can highlight
@@ -62,9 +54,7 @@ button on side panel which redirects you to the Synthetics console where you can
 
 ![Example canary node in x-ray trace map with service details.](images/synthetics-canary-servicedetail.png)
 
-## Use trace details maps for individual
-
-traces to view each request in detail
+## Use trace details maps for individual traces to view each request in detail
 
 To determine which service results in the most latency or is causing an error, invoke the trace details map by
 selecting the trace in the trace map. Individual trace details maps display the end-to-end path of a single
@@ -72,9 +62,7 @@ request. Use this to understand the services invoked, and visualize the upstream
 
 ![Example canary node in x-ray trace details map.](images/synthetics-canary-tracemap.png)
 
-## Determine the root cause of
-
-ongoing failures in upstream and downstream services
+## Determine the root cause of ongoing failures in upstream and downstream services
 
 Once you receive a CloudWatch alarm for failures in a
 Synthetics
@@ -96,18 +84,14 @@ table.
 
 ![Example annotation filter indicating the canary node.](images/synthetics-canary-showannot.png)
 
-## Identify performance bottlenecks
-
-and trends
+## Identify performance bottlenecks and trends
 
 You can view trends in the performance of your endpoint over time using continuous traffic from your
 Synthetics canaries to populate a trace details map over a period of time.
 
 ![Example annotation filter indicating the canary node.](images/synthetics-canary-distribution.png)
 
-## Compare latency and error or fault
-
-rates before and after changes
+## Compare latency and error or fault rates before and after changes
 
 Pinpoint the time a change occurred to correlate that change to an increase in issues caught by your
 canaries. Use the X-Ray Analytics console to define the before and after time ranges as different trace
@@ -115,9 +99,7 @@ sets, creating a visual differentiation in the response time distribution.
 
 ![Example annotation filter indicating the canary node.](images/synthetics-canary-compare.png)
 
-## Determine the required canary
-
-coverage for all APIs and URLs
+## Determine the required canary coverage for all APIs and URLs
 
 Use X-Ray Analytics to compare the experience of canaries with the users. The UI below shows a blue trend
 line for canaries and a green line for the users. You can also identify that two out of the three URLs don’t

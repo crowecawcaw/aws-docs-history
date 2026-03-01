@@ -1,6 +1,4 @@
-# How AWS X-Ray works with
-
-IAM
+# How AWS X-Ray works with IAM
 
 Before you use IAM to manage access to X-Ray, you should understand what
 IAM features are available to use with X-Ray. To get a high-level view of how
@@ -32,19 +30,14 @@ use the key](#xray-permissions-encryption "#xray-permissions-encryption").
 
 ###### Topics
 
-- [X-Ray
-  identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
-- [X-Ray
-  resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
-- [Authorization based on
-  X-Ray tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
+- [X-Ray identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
+- [X-Ray resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
+- [Authorization based on X-Ray tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
 - [Running your application locally](#xray-permissions-local "#xray-permissions-local")
 - [Running your application in AWS](#xray-permissions-aws "#xray-permissions-aws")
 - [User permissions for encryption](#xray-permissions-encryption "#xray-permissions-encryption")
 
-## X-Ray
-
-identity-based policies
+## X-Ray identity-based policies
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources as well as the conditions under which actions are allowed or denied.
@@ -143,12 +136,9 @@ Context Keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md
 
 ### Examples
 
-To view examples of X-Ray identity-based policies, see [AWS X-Ray identity-based
-policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of X-Ray identity-based policies, see [AWS X-Ray identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## X-Ray
-
-resource-based policies
+## X-Ray resource-based policies
 
 X-Ray supports resource-based policies for current and future AWS service integration, such
 as [Amazon SNS active tracing](../../../sns/latest/dg/sns-active-tracing.md "../../../sns/latest/dg/sns-active-tracing.md").
@@ -202,9 +192,7 @@ To use these examples, replace `partition`,
 Amazon SNS topic name. To give all Amazon SNS topics permission to send trace data to X-Ray, replace the topic name with
 `*`.
 
-## Authorization based on
-
-X-Ray tags
+## Authorization based on X-Ray tags
 
 You can attach tags to X-Ray groups or sampling rules, or pass tags in a
 request to X-Ray. To control access based on tags, you provide tag information
@@ -216,8 +204,7 @@ element](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md 
 X-Ray resources, see [Tagging X-Ray sampling rules and groups](xray-tagging.md "xray-tagging.md").
 
 To view an example identity-based policy for limiting access to a resource based on
-the tags on that resource, see [Managing
-access to X-Ray groups and sampling rules based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-manage-sampling-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-manage-sampling-tags").
+the tags on that resource, see [Managing access to X-Ray groups and sampling rules based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-manage-sampling-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-manage-sampling-tags").
 
 ## Running your application locally
 

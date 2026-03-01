@@ -1,6 +1,4 @@
-# AOP with Spring and the
-
-X-Ray SDK for Java
+# AOP with Spring and the X-Ray SDK for Java
 
 ###### Note
 
@@ -65,8 +63,7 @@ compile 'org.springframework.boot:spring-boot-starter-aop:2.5.2'
 
 Add a `Filter` to your `WebConfig` class. Pass the
 segment name to the [`AWSXRayServletFilter`](../../../xray-sdk-for-java/latest/javadoc/com/amazonaws/xray/javax/servlet/AWSXRayServletFilter.md "../../../xray-sdk-for-java/latest/javadoc/com/amazonaws/xray/javax/servlet/AWSXRayServletFilter.md") constructor as a string. For more information about tracing filters and instrumenting incoming requests, see
-[Tracing incoming requests with the
-X-Ray SDK for Java](xray-sdk-java-filters.md "xray-sdk-java-filters.md").
+[Tracing incoming requests with the X-Ray SDK for Java](xray-sdk-java-filters.md "xray-sdk-java-filters.md").
 
 ###### Example src/main/java/myapp/WebConfig.java - spring
 

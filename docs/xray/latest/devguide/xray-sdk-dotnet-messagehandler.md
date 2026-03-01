@@ -1,6 +1,4 @@
-# Instrumenting incoming HTTP requests with the
-
-X-Ray SDK for .NET
+# Instrumenting incoming HTTP requests with the X-Ray SDK for .NET
 
 ###### Note
 
@@ -50,16 +48,11 @@ block that contains the following information:
 
 ###### Sections
 
-- [Instrumenting incoming requests
-  (.NET)](#xray-sdk-dotnet-messagehandler-globalasax "#xray-sdk-dotnet-messagehandler-globalasax")
-- [Instrumenting incoming requests
-  (.NET Core)](#xray-sdk-dotnet-messagehandler-startupcs "#xray-sdk-dotnet-messagehandler-startupcs")
-- [Configuring a segment naming
-  strategy](#xray-sdk-dotnet-messagehandler-naming "#xray-sdk-dotnet-messagehandler-naming")
+- [Instrumenting incoming requests (.NET)](#xray-sdk-dotnet-messagehandler-globalasax "#xray-sdk-dotnet-messagehandler-globalasax")
+- [Instrumenting incoming requests (.NET Core)](#xray-sdk-dotnet-messagehandler-startupcs "#xray-sdk-dotnet-messagehandler-startupcs")
+- [Configuring a segment naming strategy](#xray-sdk-dotnet-messagehandler-naming "#xray-sdk-dotnet-messagehandler-naming")
 
-## Instrumenting incoming requests
-
-(.NET)
+## Instrumenting incoming requests (.NET)
 
 To instrument requests served by your application, call `RegisterXRay` in the
 `Init` method of your `global.asax` file.
@@ -83,9 +76,7 @@ namespace SampleEBWebApplication
 }
 ```
 
-## Instrumenting incoming requests
-
-(.NET Core)
+## Instrumenting incoming requests (.NET Core)
 
 To instrument requests served by your application, call `UseXRay` method before any other middleware in the
 `Configure` method of your Startup class as ideally X-Ray middleware should be the first middleware to process
@@ -133,9 +124,7 @@ argument.
 app.UseXRay("MyApp", configuration);
 ```
 
-## Configuring a segment naming
-
-strategy
+## Configuring a segment naming strategy
 
 AWS X-Ray uses a _service name_ to
 identify your application and distinguish it from the other applications, databases, external APIs,

@@ -1,6 +1,4 @@
-# Instrumenting your application
-
-for AWS X-Ray
+# Instrumenting your application for AWS X-Ray
 
 ###### Note
 

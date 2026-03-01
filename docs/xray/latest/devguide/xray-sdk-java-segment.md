@@ -1,6 +1,4 @@
-# Add annotations and metadata to segments with the
-
-X-Ray SDK for Java
+# Add annotations and metadata to segments with the X-Ray SDK for Java
 
 ###### Note
 
@@ -27,16 +25,11 @@ recorded in a separate field on segments and are indexed for use with search.
 
 ###### Sections
 
-- [Recording annotations with the
-  X-Ray SDK for Java](#xray-sdk-java-segment-annotations "#xray-sdk-java-segment-annotations")
-- [Recording metadata with the
-  X-Ray SDK for Java](#xray-sdk-java-segment-metadata "#xray-sdk-java-segment-metadata")
-- [Recording user IDs with the
-  X-Ray SDK for Java](#xray-sdk-java-segment-userid "#xray-sdk-java-segment-userid")
+- [Recording annotations with the X-Ray SDK for Java](#xray-sdk-java-segment-annotations "#xray-sdk-java-segment-annotations")
+- [Recording metadata with the X-Ray SDK for Java](#xray-sdk-java-segment-metadata "#xray-sdk-java-segment-metadata")
+- [Recording user IDs with the X-Ray SDK for Java](#xray-sdk-java-segment-userid "#xray-sdk-java-segment-userid")
 
-## Recording annotations with the
-
-X-Ray SDK for Java
+## Recording annotations with the X-Ray SDK for Java
 
 Use annotations to record information on segments or subsegments that you want indexed for
 search.
@@ -92,9 +85,7 @@ previously recorded values on the same segment or subsegment.
 To find traces that have annotations with specific values, use the
 `annotation[`key`]` keyword in a [filter expression](xray-console-filters.md "xray-console-filters.md").
 
-###### Example [`src/main/java/scorekeep/GameModel.java`](https://github.com/awslabs/eb-java-scorekeep/tree/xray/src/main/java/scorekeep/GameModel.java "https://github.com/awslabs/eb-java-scorekeep/tree/xray/src/main/java/scorekeep/GameModel.java") – Annotations and
-
-metadata
+###### Example [`src/main/java/scorekeep/GameModel.java`](https://github.com/awslabs/eb-java-scorekeep/tree/xray/src/main/java/scorekeep/GameModel.java "https://github.com/awslabs/eb-java-scorekeep/tree/xray/src/main/java/scorekeep/GameModel.java") – Annotations and metadata
 
 ```
 import com.amazonaws.xray.AWSXRay;
@@ -123,9 +114,7 @@ import com.amazonaws.xray.entities.Subsegment;
   }
 ```
 
-## Recording metadata with the
-
-X-Ray SDK for Java
+## Recording metadata with the X-Ray SDK for Java
 
 Use metadata to record information on segments or subsegments that you don't need indexed
 for search. Metadata values can be strings, numbers, Booleans, or any object that can be
@@ -170,9 +159,7 @@ If you don't specify a namespace, the SDK uses `default`. Calling
 `putMetadata` twice with the same key overwrites previously recorded values on
 the same segment or subsegment.
 
-###### Example [`src/main/java/scorekeep/GameModel.java`](https://github.com/awslabs/eb-java-scorekeep/tree/xray/src/main/java/scorekeep/GameModel.java "https://github.com/awslabs/eb-java-scorekeep/tree/xray/src/main/java/scorekeep/GameModel.java") – Annotations and
-
-metadata
+###### Example [`src/main/java/scorekeep/GameModel.java`](https://github.com/awslabs/eb-java-scorekeep/tree/xray/src/main/java/scorekeep/GameModel.java "https://github.com/awslabs/eb-java-scorekeep/tree/xray/src/main/java/scorekeep/GameModel.java") – Annotations and metadata
 
 ```
 import com.amazonaws.xray.AWSXRay;
@@ -201,9 +188,7 @@ import com.amazonaws.xray.entities.Subsegment;
   }
 ```
 
-## Recording user IDs with the
-
-X-Ray SDK for Java
+## Recording user IDs with the X-Ray SDK for Java
 
 Record user IDs on request segments to identify the user who sent the request.
 

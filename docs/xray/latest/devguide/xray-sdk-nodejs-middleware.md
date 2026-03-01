@@ -1,6 +1,4 @@
-# Tracing incoming requests with the
-
-X-Ray SDK for Node.js
+# Tracing incoming requests with the X-Ray SDK for Node.js
 
 ###### Note
 
@@ -55,16 +53,11 @@ block that contains the following information:
 
 ###### Sections
 
-- [Tracing incoming requests with
-  Express](#xray-sdk-nodejs-middleware-express "#xray-sdk-nodejs-middleware-express")
-- [Tracing incoming requests with
-  restify](#xray-sdk-nodejs-middleware-restify "#xray-sdk-nodejs-middleware-restify")
-- [Configuring a segment naming
-  strategy](#xray-sdk-nodejs-middleware-naming "#xray-sdk-nodejs-middleware-naming")
+- [Tracing incoming requests with Express](#xray-sdk-nodejs-middleware-express "#xray-sdk-nodejs-middleware-express")
+- [Tracing incoming requests with restify](#xray-sdk-nodejs-middleware-restify "#xray-sdk-nodejs-middleware-restify")
+- [Configuring a segment naming strategy](#xray-sdk-nodejs-middleware-naming "#xray-sdk-nodejs-middleware-naming")
 
-## Tracing incoming requests with
-
-Express
+## Tracing incoming requests with Express
 
 To use the Express middleware, initialize the SDK client and use the middleware returned
 by the `express.openSegment` function before you define your routes.
@@ -87,9 +80,7 @@ app.get('/', function (req, res) {
 After you define your routes, use the output of `express.closeSegment` as shown
 to handle any errors returned by the X-Ray SDK for Node.js.
 
-## Tracing incoming requests with
-
-restify
+## Tracing incoming requests with restify
 
 To use the Restify middleware, initialize the SDK client and run `enable`. Pass
 it your Restify server and segment name.
@@ -109,9 +100,7 @@ server.get('/', function (req, res) {
 });
 ```
 
-## Configuring a segment naming
-
-strategy
+## Configuring a segment naming strategy
 
 AWS X-Ray uses a _service name_ to
 identify your application and distinguish it from the other applications, databases, external APIs,

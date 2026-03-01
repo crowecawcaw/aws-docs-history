@@ -170,9 +170,7 @@ For detailed platform-specific instructions, see the following topics:
 You can customize the daemon's behavior further by using command line options or a
 configuration file. See [Configuring the AWS X-Ray daemon](xray-daemon-configuration.md "xray-daemon-configuration.md") for details.
 
-## Giving the daemon permission to send data to
-
-X-Ray
+## Giving the daemon permission to send data to X-Ray
 
 The X-Ray daemon uses the AWS SDK to upload trace data to X-Ray, and it needs AWS
 credentials with permission to do that.

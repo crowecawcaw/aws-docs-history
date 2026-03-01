@@ -15,8 +15,7 @@ segments for incoming HTTP calls.
 - [Sampling rules](#xray-sdk-ruby-configuration-sampling "#xray-sdk-ruby-configuration-sampling")
 - [Logging](#xray-sdk-ruby-configuration-logging "#xray-sdk-ruby-configuration-logging")
 - [Recorder configuration in code](#xray-sdk-ruby-configuration-code "#xray-sdk-ruby-configuration-code")
-- [Recorder configuration with
-  rails](#xray-sdk-ruby-middleware-configuration-rails "#xray-sdk-ruby-middleware-configuration-rails")
+- [Recorder configuration with rails](#xray-sdk-ruby-middleware-configuration-rails "#xray-sdk-ruby-middleware-configuration-rails")
 - [Environment variables](#xray-sdk-ruby-configuration-envvars "#xray-sdk-ruby-configuration-envvars")
 
 ## Service plugins
@@ -234,9 +233,7 @@ config = {
 `XRay.recorder.configure(config)`
 ```
 
-## Recorder configuration with
-
-rails
+## Recorder configuration with rails
 
 If you use the Rails framework, you can configure options on the global recorder in a Ruby
 file under `app_root/initializers`. The X-Ray SDK supports an additional

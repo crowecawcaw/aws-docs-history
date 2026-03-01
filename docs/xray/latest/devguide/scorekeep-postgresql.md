@@ -8,9 +8,7 @@ X-Ray SDK/Daemon Maintenance Notice – On February 25th, 2026, the AWS X-Ray SD
 The `application-pgsql.properties` file adds the X-Ray PostgreSQL
 tracing interceptor to the data source created in [`RdsWebConfig.java`](https://github.com/awslabs/eb-java-scorekeep/tree/xray/src/main/java/scorekeep/RdsWebConfig.java "https://github.com/awslabs/eb-java-scorekeep/tree/xray/src/main/java/scorekeep/RdsWebConfig.java").
 
-###### Example [`application-pgsql.properties`](https://github.com/awslabs/eb-java-scorekeep/tree/xray/src/main/resources/application-pgsql.properties "https://github.com/awslabs/eb-java-scorekeep/tree/xray/src/main/resources/application-pgsql.properties") – PostgreSQL database
-
-instrumentation
+###### Example [`application-pgsql.properties`](https://github.com/awslabs/eb-java-scorekeep/tree/xray/src/main/resources/application-pgsql.properties "https://github.com/awslabs/eb-java-scorekeep/tree/xray/src/main/resources/application-pgsql.properties") – PostgreSQL database instrumentation
 
 ```
 spring.datasource.continue-on-error=true

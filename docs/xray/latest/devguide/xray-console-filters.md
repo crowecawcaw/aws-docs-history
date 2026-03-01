@@ -161,17 +161,13 @@ ok = false
 rootcause.fault.entity { last and name = "deserialize" }
 ```
 
-###### Example– requests with remote segments where coverage is greater than 0.7 and the
-
-service name is "traces"
+###### Example– requests with remote segments where coverage is greater than 0.7 and the service name is "traces"
 
 ```
 rootcause.responsetime.entity { remote and coverage > 0.7 and name = "traces" }
 ```
 
-###### Example– requests with inferred segments where the service type is
-
-"AWS:DynamoDB"
+###### Example– requests with inferred segments where the service type is "AWS:DynamoDB"
 
 ```
 rootcause.fault.service { inferred and name = traces and type = "AWS::DynamoDB" }
@@ -220,9 +216,7 @@ http.status != 200
 duration >= 5 AND duration <= 8
 ```
 
-###### Example– requests that completed successfully in less than 3 seconds, including all
-
-downstream calls
+###### Example– requests that completed successfully in less than 3 seconds, including all downstream calls
 
 ```
 ok !partial duration <3
@@ -290,25 +284,19 @@ Find all traces with user IDs.
 user CONTAINS ""
 ```
 
-###### Example– select traces with a fault root cause that includes a service named
-
-"Auth"
+###### Example– select traces with a fault root cause that includes a service named "Auth"
 
 ```
 rootcause.fault.service { name = "Auth" }
 ```
 
-###### Example– select traces with a response time root cause whose last service has a type of
-
-DynamoDB
+###### Example– select traces with a response time root cause whose last service has a type of DynamoDB
 
 ```
 rootcause.responsetime.service { last and type = "AWS::DynamoDB" }
 ```
 
-###### Example– select traces with a fault root cause whose last exception has the message
-
-"access denied for account_id: 1234567890"
+###### Example– select traces with a fault root cause whose last exception has the message "access denied for account_id: 1234567890"
 
 ```
 rootcause.fault.exception { last and message = "Access Denied for account_id: 1234567890"

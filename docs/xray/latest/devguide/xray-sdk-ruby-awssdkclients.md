@@ -1,6 +1,4 @@
-# Tracing AWS SDK calls with the
-
-X-Ray SDK for Ruby
+# Tracing AWS SDK calls with the X-Ray SDK for Ruby
 
 ###### Note
 

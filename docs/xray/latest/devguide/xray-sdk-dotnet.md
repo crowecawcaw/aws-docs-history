@@ -87,9 +87,7 @@ The X-Ray SDK for .NET requires the .NET Framework 4.5 or later and AWS SDK for 
 
 For .NET Core applications and functions, the SDK requires .NET Core 2.0 or later.
 
-## Adding the X-Ray SDK for .NET to your
-
-application
+## Adding the X-Ray SDK for .NET to your application
 
 Use NuGet to add the X-Ray SDK for .NET to your application.
 

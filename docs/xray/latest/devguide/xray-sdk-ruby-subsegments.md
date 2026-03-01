@@ -1,6 +1,4 @@
-# Generating custom subsegments with the
-
-X-Ray SDK
+# Generating custom subsegments with the X-Ray SDK
 
 ###### Note
 

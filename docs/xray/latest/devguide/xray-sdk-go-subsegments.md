@@ -1,6 +1,4 @@
-# Generating custom subsegments with the
-
-X-Ray SDK for Go
+# Generating custom subsegments with the X-Ray SDK for Go
 
 ###### Note
 

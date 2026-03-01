@@ -1,6 +1,4 @@
-# Tracing incoming requests with the
-
-X-Ray SDK for Java
+# Tracing incoming requests with the X-Ray SDK for Java
 
 ###### Note
 
@@ -55,15 +53,11 @@ block that contains the following information:
 
 ###### Sections
 
-- [Adding a tracing filter to your application
-  (Tomcat)](#xray-sdk-java-filters-tomcat "#xray-sdk-java-filters-tomcat")
-- [Adding a tracing filter to your application
-  (spring)](#xray-sdk-java-filters-spring "#xray-sdk-java-filters-spring")
+- [Adding a tracing filter to your application (Tomcat)](#xray-sdk-java-filters-tomcat "#xray-sdk-java-filters-tomcat")
+- [Adding a tracing filter to your application (spring)](#xray-sdk-java-filters-spring "#xray-sdk-java-filters-spring")
 - [Configuring a segment naming strategy](#xray-sdk-java-filters-naming "#xray-sdk-java-filters-naming")
 
-## Adding a tracing filter to your application
-
-(Tomcat)
+## Adding a tracing filter to your application (Tomcat)
 
 For Tomcat, add a `<filter>` to your project's `web.xml`
 file. Use the `fixedName` parameter to specify a [service name](#xray-sdk-java-filters-naming "#xray-sdk-java-filters-naming") to apply to segments created for
@@ -86,9 +80,7 @@ incoming requests.
 </filter-mapping>
 ```
 
-## Adding a tracing filter to your application
-
-(spring)
+## Adding a tracing filter to your application (spring)
 
 For Spring, add a `Filter` to your `WebConfig` class. Pass the
 segment name to the [`AWSXRayServletFilter`](../../../xray-sdk-for-java/latest/javadoc/com/amazonaws/xray/javax/servlet/AWSXRayServletFilter.md "../../../xray-sdk-for-java/latest/javadoc/com/amazonaws/xray/javax/servlet/AWSXRayServletFilter.md") constructor as a string.

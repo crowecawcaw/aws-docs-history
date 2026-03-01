@@ -12,8 +12,7 @@ Debugging](../../../elasticbeanstalk/latest/dg/environment-configuration-debuggi
 ###### Note
 
 The daemon uses your environment's instance profile for permissions. For instructions
-about adding permissions to the Elastic Beanstalk instance profile, see [Giving the daemon permission to send data to
-X-Ray](xray-daemon.md#xray-daemon-permissions "xray-daemon.md#xray-daemon-permissions").
+about adding permissions to the Elastic Beanstalk instance profile, see [Giving the daemon permission to send data to X-Ray](xray-daemon.md#xray-daemon-permissions "xray-daemon.md#xray-daemon-permissions").
 
 Elastic Beanstalk platforms provide a configuration option that you can set to run the daemon
 automatically. You can enable the daemon in a configuration file in your source code or by
@@ -25,9 +24,7 @@ version of the daemon that is available for your platform configuration.
 
 Elastic Beanstalk does not provide the X-Ray daemon on the Multicontainer Docker (Amazon ECS) platform.
 
-## Using the Elastic Beanstalk X-Ray integration to run the
-
-X-Ray daemon
+## Using the Elastic Beanstalk X-Ray integration to run the X-Ray daemon
 
 Use the console to turn on X-Ray integration, or configure it in your application source
 code with a configuration file.
@@ -101,9 +98,7 @@ See [Viewing Logs from Your Elastic Beanstalk
 Environment's Amazon EC2 Instances](../../../elasticbeanstalk/latest/dg/using-features.md "../../../elasticbeanstalk/latest/dg/using-features.md") in the _AWS Elastic Beanstalk Developer Guide_
 for more information.
 
-## Downloading and running the X-Ray daemon
-
-manually (advanced)
+## Downloading and running the X-Ray daemon manually (advanced)
 
 If the X-Ray daemon isn't available for your platform configuration, you can download it
 from Amazon S3 and run it with a configuration file.

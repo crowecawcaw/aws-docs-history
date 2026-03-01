@@ -1,6 +1,4 @@
-# Sending trace data to
-
-AWS X-Ray
+# Sending trace data to AWS X-Ray
 
 You can send trace data to X-Ray in the form of segment documents. A segment document is a
 JSON formatted string that contains information about the work that your application does in

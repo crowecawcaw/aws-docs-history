@@ -59,9 +59,7 @@ write annotations, the function creates a custom subsegment with
 Lambda, you can't write annotations directly to the function segment, only to a subsegment that
 you create.
 
-###### Example [`function/index.js`](https://github.com/awslabs/eb-java-scorekeep/tree/xray/function/index.js "https://github.com/awslabs/eb-java-scorekeep/tree/xray/function/index.js") --
-
-Random name Lambda function
+###### Example [`function/index.js`](https://github.com/awslabs/eb-java-scorekeep/tree/xray/function/index.js "https://github.com/awslabs/eb-java-scorekeep/tree/xray/function/index.js") -- Random name Lambda function
 
 ```
 `var AWSXRay = require('aws-xray-sdk-core');`
@@ -142,9 +140,7 @@ and run its `patch_all` function to patch the AWS SDK for Python (Boto) and HTTc
 uses to call Amazon SQS and Amazon S3. When the worker calls the Scorekeep API, the SDK adds the [tracing header](xray-concepts.md#xray-concepts-tracingheader "xray-concepts.md#xray-concepts-tracingheader") to the request to trace calls
 through the API.
 
-###### Example[`_lambda/scorekeep-worker/scorekeep-worker.py`](https://github.com/awslabs/eb-java-scorekeep/tree/xray-worker/_lambda/scorekeep-worker/scorekeep-worker.py "https://github.com/awslabs/eb-java-scorekeep/tree/xray-worker/_lambda/scorekeep-worker/scorekeep-worker.py") -- Worker Lambda
-
-function
+###### Example[`_lambda/scorekeep-worker/scorekeep-worker.py`](https://github.com/awslabs/eb-java-scorekeep/tree/xray-worker/_lambda/scorekeep-worker/scorekeep-worker.py "https://github.com/awslabs/eb-java-scorekeep/tree/xray-worker/_lambda/scorekeep-worker/scorekeep-worker.py") -- Worker Lambda function
 
 ```
 import os

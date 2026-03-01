@@ -1,6 +1,4 @@
-# Instrumenting web frameworks deployed to serverless
-
-environments
+# Instrumenting web frameworks deployed to serverless environments
 
 ###### Note
 

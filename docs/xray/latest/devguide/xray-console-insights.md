@@ -40,8 +40,7 @@ X-Ray uses GetInsightSummaries, GetInsight, GetInsightEvents, and
 GetInsightImpactGraph API
 operations to retrieve data from insights.
 
-For more information, see [How AWS X-Ray works with
-IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
+For more information, see [How AWS X-Ray works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
 
 ## Enable insights notifications
 

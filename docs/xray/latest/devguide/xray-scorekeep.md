@@ -42,8 +42,7 @@ few minutes and processes them to store game records in Amazon S3 for analysis.
 
 ###### Topics
 
-- [Getting started with the Scorekeep sample
-  application](scorekeep-tutorial.md "scorekeep-tutorial.md")
+- [Getting started with the Scorekeep sample application](scorekeep-tutorial.md "scorekeep-tutorial.md")
 - [Manually instrumenting AWS SDK clients](scorekeep-sdkclients.md "scorekeep-sdkclients.md")
 - [Creating additional subsegments](scorekeep-subsegments.md "scorekeep-subsegments.md")
 - [Recording annotations, metadata, and user IDs](scorekeep-annotations.md "scorekeep-annotations.md")

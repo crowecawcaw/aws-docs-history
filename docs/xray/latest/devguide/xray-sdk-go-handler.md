@@ -1,6 +1,4 @@
-# Instrumenting incoming HTTP requests with the
-
-X-Ray SDK for Go
+# Instrumenting incoming HTTP requests with the X-Ray SDK for Go
 
 ###### Note
 

@@ -1,6 +1,4 @@
-# Creating X-Ray resources with
-
-AWS CloudFormation
+# Creating X-Ray resources with AWS CloudFormation
 
 AWS X-Ray is integrated with AWS CloudFormation, a service that helps you to model and set up your
 AWS resources so that you can spend less time creating and managing your resources and

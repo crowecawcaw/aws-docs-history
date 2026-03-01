@@ -35,9 +35,7 @@ code.
 
 For more information about each feature, see [Choosing between the AWS Distro for OpenTelemetry and X-Ray SDKs](xray-instrumenting-your-app.md#xray-instrumenting-choosing "xray-instrumenting-your-app.md#xray-instrumenting-choosing").
 
-## Use the ADOT
-
-SDK
+## Use the ADOT SDK
 
 The ADOT SDK is a set of open source APIs, libraries and agents
 that send data to backend services. ADOT is supported by AWS,
@@ -90,9 +88,7 @@ application. To get started using ADOT, see [Introduction](https://aws-otel.gith
 [Getting
 Started with the AWS Distro for OpenTelemetry Collector](https://aws-otel.github.io/docs/getting-started/collector "https://aws-otel.github.io/docs/getting-started/collector").
 
-## Use the X-Ray
-
-SDK
+## Use the X-Ray SDK
 
 The X-Ray SDK is a set of AWS APIs and libraries that send data to AWS
 backend services. Use the X-Ray SDK to instrument your application and collect

@@ -224,8 +224,7 @@ tabs. The following apply:
   record by using the operations that the X-Ray SDK provides. To add annotations or
   metadata to your segments, use the X-Ray SDK. For more information, see the
   language-specific link listed under Instrumenting your application with AWS X-Ray SDKs in
-  [Instrumenting your application
-  for AWS X-Ray](xray-instrumenting-your-app.md "xray-instrumenting-your-app.md").
+  [Instrumenting your application for AWS X-Ray](xray-instrumenting-your-app.md "xray-instrumenting-your-app.md").
 
 ## Viewing subsegment details
 
@@ -248,13 +247,11 @@ From the trace timeline, choose the name of a subsegment to view its details:
   record by using the operations that the X-Ray SDK provides. Use the X-Ray SDK to add
   annotations or metadata to your segments. For more information, see the language-specific
   link listed under **Instrumenting your application with AWS X-Ray
-  SDKs** in [Instrumenting your application
-  for AWS X-Ray](xray-instrumenting-your-app.md "xray-instrumenting-your-app.md").
+  SDKs** in [Instrumenting your application for AWS X-Ray](xray-instrumenting-your-app.md "xray-instrumenting-your-app.md").
 
 For custom subsegments, the **Overview** tab shows the name of the
 subsegment, which you can set to specify the area of the code or function that it records. For
-more information, see the language-specific link listed under **Instrumenting your application with AWS X-Ray SDKs** in [Generating custom subsegments with the
-X-Ray SDK for Java](xray-sdk-java-subsegments.md "xray-sdk-java-subsegments.md").
+more information, see the language-specific link listed under **Instrumenting your application with AWS X-Ray SDKs** in [Generating custom subsegments with the X-Ray SDK for Java](xray-sdk-java-subsegments.md "xray-sdk-java-subsegments.md").
 
 The following image shows the **Overview** tab for a custom subsegment.
 The overview contains the subsegment ID, parent ID, Name, start and end times, duration,

@@ -1,6 +1,4 @@
-# Generating custom subsegments with the
-
-X-Ray SDK for Python
+# Generating custom subsegments with the X-Ray SDK for Python
 
 ###### Note
 

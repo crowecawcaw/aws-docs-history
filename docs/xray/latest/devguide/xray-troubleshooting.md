@@ -52,9 +52,7 @@ The trace map associates alarms with nodes using the following logic:
 - If the node is of unknown type, which is identified by a dashed border around the
   name, then no alarms are associated with that node.
 
-### I don't see some AWS
-
-resources on the trace map
+### I don't see some AWS resources on the trace map
 
 Not every AWS resource is represented by a dedicated node. Some AWS services are represented by a single node
 for all requests to the service. The following resource types are displayed with a node per resource:
