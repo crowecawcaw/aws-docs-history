@@ -2,9 +2,7 @@ This is version 2.18 of the AWS Elemental Server documentation.
 This is the latest version. For prior versions, see
 the _Previous Versions_ section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](../../../elemental-server.md "../../../elemental-server.md").
 
-# Configure AWS Elemental Server
-
-Notifications
+# Configure AWS Elemental Server Notifications
 
 AWS Elemental Server provides status information through alerts and messages. You can configure notifications so you know when the node might need attention. The following table describes the differences between alerts and messages and how you can access each.
 

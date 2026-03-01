@@ -14,9 +14,7 @@ the notification emails through a mail server, you need the following informatio
 - The hostname of the mail server
 - If your network doesn't have DNS configured, the IP address of the mail server
 
-## Step B: Install the Sendmail configuration
-
-tool
+## Step B: Install the Sendmail configuration tool
 
 ###### To install the configuration tool
 
@@ -39,9 +37,7 @@ tool
 `Complete!`
 ```
 
-## Step C: Edit the `sendmail.mc`
-
-file
+## Step C: Edit the `sendmail.mc` file
 
 ###### To edit the file
 
@@ -70,9 +66,7 @@ file
 5. Save and exit the file. For Nano, press **Ctrl**+**O** to save and
    **Ctrl**+**X** to exit.
 
-## Step D: Check the `hosts`
-
-file
+## Step D: Check the `hosts` file
 
 If your network isn't configured with DNS, add a static entry to the `hosts` file on AWS Elemental Server.
 

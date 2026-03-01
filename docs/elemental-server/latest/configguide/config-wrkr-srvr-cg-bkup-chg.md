@@ -5,8 +5,7 @@ the _Previous Versions_ section of [AWS Elemental Conductor File and AWS Element
 # Database Backups for AWS Elemental Server
 
 This section describes how to restore a database backup, and how to disable backups
-entirely. For assistance changing backup settings, such as minutes between backups, see [Configure Database Backups for
-AWS Elemental Server](config-wrkr-srvr-cg-bkup.md "config-wrkr-srvr-cg-bkup.md").
+entirely. For assistance changing backup settings, such as minutes between backups, see [Configure Database Backups for AWS Elemental Server](config-wrkr-srvr-cg-bkup.md "config-wrkr-srvr-cg-bkup.md").
 
 ###### Topics
 
