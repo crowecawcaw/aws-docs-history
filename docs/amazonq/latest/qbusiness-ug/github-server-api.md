@@ -1,6 +1,4 @@
-# Connecting Amazon Q Business to GitHub (Server)
-
-using APIs
+# Connecting Amazon Q Business to GitHub (Server) using APIs
 
 You use the [CreateDataSource](../api-reference/API_CreateDataSource.md "../api-reference/API_CreateDataSource.md") action to connect a data source to your
 Amazon Q application. You can also use the [UpdateDataSource](../api-reference/API_UpdateDataSource.md "../api-reference/API_UpdateDataSource.md") action to modify an existing data source configuration.
@@ -12,14 +10,11 @@ For an example of the API request, see [CreateDataSource](../api-reference/API_C
 
 ###### Topics
 
-- [GitHub (Cloud) configuration
-  properties](#github-cloud-configuration-keys "#github-cloud-configuration-keys")
+- [GitHub (Cloud) configuration properties](#github-cloud-configuration-keys "#github-cloud-configuration-keys")
 - [GitHub (Server) JSON schema](#github-server-json "#github-server-json")
 - [GitHub (Server) JSON schema example](#github-server-api-json-example "#github-server-api-json-example")
 
-## GitHub (Cloud) configuration
-
-properties
+## GitHub (Cloud) configuration properties
 
 The following provides information about important configuration properties required in the
 schema.

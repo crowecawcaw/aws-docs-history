@@ -1,6 +1,4 @@
-# Retrieving Quip
-
-credentials
+# Retrieving Quip credentials
 
 Before you connect Quip to Amazon Q, you need to create and
 retrieve the Quip credentials you will use to connect Quip

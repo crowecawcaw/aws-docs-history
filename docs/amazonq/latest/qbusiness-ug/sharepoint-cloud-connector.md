@@ -7,25 +7,16 @@ the AWS Management Console or the [CreateDataSource](../api-reference/API_Create
 
 ###### Topics
 
-- [Known limitations for the
-  SharePoint (Online) connector](sharepoint-cloud-limitations.md "sharepoint-cloud-limitations.md")
-- [SharePoint (Online) connector
-  overview](sharepoint-cloud-overview.md "sharepoint-cloud-overview.md")
+- [Known limitations for the SharePoint (Online) connector](sharepoint-cloud-limitations.md "sharepoint-cloud-limitations.md")
+- [SharePoint (Online) connector overview](sharepoint-cloud-overview.md "sharepoint-cloud-overview.md")
 - [Prerequisites for connecting Amazon Q Business to SharePoint (Online)](sharepoint-cloud-prereqs.md "sharepoint-cloud-prereqs.md")
-- [Connecting Amazon Q Business to
-  SharePoint (Online) using the console](sharepoint-cloud-console.md "sharepoint-cloud-console.md")
-- [Connecting Amazon Q Business to SharePoint (Online)
-  using APIs](sharepoint-cloud-api.md "sharepoint-cloud-api.md")
-- [Connecting Amazon Q Business to SharePoint (Online)
-  using AWS CloudFormation](sharepoint-cloud-cfn.md "sharepoint-cloud-cfn.md")
-- [How Amazon Q Business connector
-  crawls SharePoint (Online) ACLs](sharepoint-cloud-user-management.md "sharepoint-cloud-user-management.md")
-- [SharePoint (Online) data source
-  connector field mappings](sharepoint-cloud-field-mappings.md "sharepoint-cloud-field-mappings.md")
-- [IAM role for
-  SharePoint (Online) connector](sharepoint-cloud-iam-role.md "sharepoint-cloud-iam-role.md")
-- [Understand error codes in the
-  SharePoint (Online) connector](sharepoint-cloud-error-codes.md "sharepoint-cloud-error-codes.md")
+- [Connecting Amazon Q Business to SharePoint (Online) using the console](sharepoint-cloud-console.md "sharepoint-cloud-console.md")
+- [Connecting Amazon Q Business to SharePoint (Online) using APIs](sharepoint-cloud-api.md "sharepoint-cloud-api.md")
+- [Connecting Amazon Q Business to SharePoint (Online) using AWS CloudFormation](sharepoint-cloud-cfn.md "sharepoint-cloud-cfn.md")
+- [How Amazon Q Business connector crawls SharePoint (Online) ACLs](sharepoint-cloud-user-management.md "sharepoint-cloud-user-management.md")
+- [SharePoint (Online) data source connector field mappings](sharepoint-cloud-field-mappings.md "sharepoint-cloud-field-mappings.md")
+- [IAM role for SharePoint (Online) connector](sharepoint-cloud-iam-role.md "sharepoint-cloud-iam-role.md")
+- [Understand error codes in the SharePoint (Online) connector](sharepoint-cloud-error-codes.md "sharepoint-cloud-error-codes.md")
 
 **Learn more**
 

@@ -1,6 +1,4 @@
-# PostgreSQL connector
-
-overview
+# PostgreSQL connector overview
 
 The following table gives an overview of the Amazon Q Business
 PostgreSQL connector and its supported features.

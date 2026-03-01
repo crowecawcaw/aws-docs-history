@@ -1,6 +1,4 @@
-# Configuring an IAM Identity Center instance for an Amazon Q Business
-
-application
+# Configuring an IAM Identity Center instance for an Amazon Q Business application
 
 Amazon Q Business integrates with IAM Identity Center to enable managing end user access to
 your Amazon Q Business application. IAM Identity Center is the recommended method for managing

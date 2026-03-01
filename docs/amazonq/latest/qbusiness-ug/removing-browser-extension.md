@@ -1,6 +1,4 @@
-# Removing the browser extension as an
-
-integration
+# Removing the browser extension as an integration
 
 To disable the browser extension to your existing web experience, Admin users can
 use the Amazon Q Business console or the Amazon Q Business API, AWS SDK, or AWS CLI.
@@ -9,8 +7,7 @@ use the Amazon Q Business console or the Amazon Q Business API, AWS SDK, or AWS 
 
 - [Using the console](#removing-using-console "#removing-using-console")
 - [Using the AWS API](#removing-browser-extension-using-aws-api "#removing-browser-extension-using-aws-api")
-- [Blocking and removing the browser
-  extension](#blocking-removing-extension "#blocking-removing-extension")
+- [Blocking and removing the browser extension](#blocking-removing-extension "#blocking-removing-extension")
 
 ## Using the console
 
@@ -28,9 +25,7 @@ use the Amazon Q Business console or the Amazon Q Business API, AWS SDK, or AWS 
 
 You can disable browser extensions using the [`UpdateWebExperience`](../api-reference/API_UpdateWebExperience.md "../api-reference/API_UpdateWebExperience.md") API
 
-## Blocking and removing the browser
-
-extension
+## Blocking and removing the browser extension
 
 Once you disable your browser extension, your users will no longer be able to
 login. However, you will still need to take steps to uninstall the extension on

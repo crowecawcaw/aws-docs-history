@@ -1,6 +1,4 @@
-# Creating an Amazon Q custom
-
-connector
+# Creating an Amazon Q custom connector
 
 To use a custom data source, create an application environment that is responsible for updating
 your Amazon Q index. The application environment depends on a crawler that you create.

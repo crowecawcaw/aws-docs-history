@@ -1,6 +1,4 @@
-# Known limitations for the
-
-SharePoint (Online) connector
+# Known limitations for the SharePoint (Online) connector
 
 The SharePoint (Online) connector has the following known limitations:
 

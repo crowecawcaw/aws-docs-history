@@ -1,19 +1,13 @@
-# Reference
-
-materials for customizing the visual theme
+# Reference materials for customizing the visual theme
 
 ###### Topics
 
-- [Color
-  considerations for accessibility](#customizing-web-experience-themes-color-format "#customizing-web-experience-themes-color-format")
-- [Choosing Color Values for Your
-  Theme](#reference-materials-color-values "#reference-materials-color-values")
+- [Color considerations for accessibility](#customizing-web-experience-themes-color-format "#customizing-web-experience-themes-color-format")
+- [Choosing Color Values for Your Theme](#reference-materials-color-values "#reference-materials-color-values")
 - [Supported Root CSS Variables](#customizing-web-experience-themes-reference-materials-supported-css-variables "#customizing-web-experience-themes-reference-materials-supported-css-variables")
 - [Example](#customizing-web-experience-themes-examples "#customizing-web-experience-themes-examples")
 
-## Color
-
-considerations for accessibility
+## Color considerations for accessibility
 
 When customizing your Amazon Q web experience, it's crucial to prioritize
 accessibility. Ensure sufficient contrast is there between the text and background
@@ -24,9 +18,7 @@ Guidelines (WCAG) 2.x standards.
 For comprehensive accessibility guidelines, refer to the [Web Content Accessibility Guidelines
 (WCAG)](https://www.w3.org/TR/WCAG21/ "https://www.w3.org/TR/WCAG21/").
 
-## Choosing Color Values for Your
-
-Theme
+## Choosing Color Values for Your Theme
 
 Amazon Q supports the following color value formats:
 

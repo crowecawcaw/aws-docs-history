@@ -1,22 +1,16 @@
-# Managing Amazon Q Business
-
-anonymous application environments
+# Managing Amazon Q Business anonymous application environments
 
 To manage an Amazon Q Business application environment, you can take the following
 actions:
 
 ###### Actions
 
-- [Deleting an anonymous
-  application environment](#delete-anonymous-app "#delete-anonymous-app")
-- [Getting anonymous application environment
-  properties](#describe-anonymous-app "#describe-anonymous-app")
+- [Deleting an anonymous application environment](#delete-anonymous-app "#delete-anonymous-app")
+- [Getting anonymous application environment properties](#describe-anonymous-app "#describe-anonymous-app")
 - [Listing anonymous application environments](#list-anonymous-app "#list-anonymous-app")
 - [Updating an application environment](#update-anonymous-app "#update-anonymous-app")
 
-## Deleting an anonymous
-
-application environment
+## Deleting an anonymous application environment
 
 To delete an Amazon Q Business anonymous application environment, you can use the
 console or the [DeleteApplication](../api-reference/API_DeleteApplication.md "../api-reference/API_DeleteApplication.md") API
@@ -53,9 +47,7 @@ aws qbusiness delete-application \
 
 ```
 
-## Getting anonymous application environment
-
-properties
+## Getting anonymous application environment properties
 
 To get the properties of an Amazon Q Business application environment, you can use
 the console or the [GetApplication](../api-reference/API_GetApplication.md "../api-reference/API_GetApplication.md") API

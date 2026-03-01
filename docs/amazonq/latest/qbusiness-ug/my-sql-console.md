@@ -1,6 +1,4 @@
-# Connecting Amazon Q Business to
-
-MySQL using the console
+# Connecting Amazon Q Business to MySQL using the console
 
 The following procedure outlines how to connect Amazon Q Business to
 MySQL using the AWS Management Console.
@@ -100,8 +98,7 @@ For more information, see [IAM role](my-sql-connector.md#my-sql-iam "my-sql-conn
 your documents from deletion during a sync job, select **On** and enter an integer between 0 - 100. If
 the percentage of documents to be deleted in your sync job exceeds the percentage you selected, the
 delete phase will be skipped and no documents from this data source will be deleted from your index. For more information, see
-[Document deletion
-safeguard](connector-concepts.md#document-deletion-safeguard "connector-concepts.md#document-deletion-safeguard"). 14. In **Additional configuration –
+[Document deletion safeguard](connector-concepts.md#document-deletion-safeguard "connector-concepts.md#document-deletion-safeguard"). 14. In **Additional configuration –
 _optional_** – Configure the following
 settings:
 

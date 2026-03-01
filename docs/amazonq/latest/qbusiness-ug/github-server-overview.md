@@ -1,6 +1,4 @@
-# GitHub (Server) connector
-
-overview
+# GitHub (Server) connector overview
 
 The following table gives an overview of the Amazon Q Business
 GitHub (Server) connector and its supported features.

@@ -1,6 +1,4 @@
-# Known limitations for the IBM DB2
-
-connector
+# Known limitations for the IBM DB2 connector
 
 The IBM DB2 connector has the following known limitations:
 

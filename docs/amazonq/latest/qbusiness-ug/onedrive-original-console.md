@@ -98,8 +98,7 @@ users**, choose between the following options:
 your documents from deletion during a sync job, select **On** and enter an integer between 0 - 100. If
 the percentage of documents to be deleted in your sync job exceeds the percentage you selected, the
 delete phase will be skipped and no documents from this data source will be deleted from your index. For more information, see
-[Document deletion
-safeguard](connector-concepts.md#document-deletion-safeguard "connector-concepts.md#document-deletion-safeguard"). 15. For **Maximum file size** – Specify the file size
+[Document deletion safeguard](connector-concepts.md#document-deletion-safeguard "connector-concepts.md#document-deletion-safeguard"). 15. For **Maximum file size** – Specify the file size
 limit in MBs that Amazon Q will crawl. Amazon Q will crawl only the files
 within the size limit you define. The default file size is 50MB. The maximum
 file size should be greater than 0MB and less than or equal to 50MB. 16. For **Sync mode**, choose how you want to update your index

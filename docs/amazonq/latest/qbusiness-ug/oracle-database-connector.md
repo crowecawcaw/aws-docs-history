@@ -19,21 +19,14 @@ Also, avoid adding tables with sensitive data or personal identifiable informati
 
 ###### Topics
 
-- [Known limitations for the
-  Oracle Database connector](oracle-database-limitations.md "oracle-database-limitations.md")
-- [Oracle Database connector
-  overview](oracle-database-overview.md "oracle-database-overview.md")
+- [Known limitations for the Oracle Database connector](oracle-database-limitations.md "oracle-database-limitations.md")
+- [Oracle Database connector overview](oracle-database-overview.md "oracle-database-overview.md")
 - [Prerequisites for connecting Amazon Q Business to Oracle Database](oracle-database-prereqs.md "oracle-database-prereqs.md")
-- [Connecting Amazon Q Business to
-  Oracle Database using the console](oracle-database-console.md "oracle-database-console.md")
-- [Connecting Amazon Q Business to
-  Oracle Database using APIs](oracle-database-api.md "oracle-database-api.md")
-- [How Amazon Q Business connector
-  crawls Oracle Database ACLs](oracle-database-user-management.md "oracle-database-user-management.md")
-- [Amazon Q Business data source
-  connector field mappings](oracle-database-field-mappings.md "oracle-database-field-mappings.md")
-- [IAM role for
-  Oracle Database connector](oracle-database-iam-role.md "oracle-database-iam-role.md")
+- [Connecting Amazon Q Business to Oracle Database using the console](oracle-database-console.md "oracle-database-console.md")
+- [Connecting Amazon Q Business to Oracle Database using APIs](oracle-database-api.md "oracle-database-api.md")
+- [How Amazon Q Business connector crawls Oracle Database ACLs](oracle-database-user-management.md "oracle-database-user-management.md")
+- [Amazon Q Business data source connector field mappings](oracle-database-field-mappings.md "oracle-database-field-mappings.md")
+- [IAM role for Oracle Database connector](oracle-database-iam-role.md "oracle-database-iam-role.md")
 
 **Learn more**
 

@@ -1,6 +1,4 @@
-# Connecting Google
-
-Drive to Amazon Q Business (Original)
+# Connecting Google Drive to Amazon Q Business (Original)
 
 ###### Note
 
@@ -10,9 +8,7 @@ connector which offers significantly improved performance. The original connecto
 remains available for customers requiring specific features not yet supported in
 new.
 
-## Known limitations for the
-
-Amazon Q BusinessGoogle Drive connector
+## Known limitations for the Amazon Q Business Google Drive connector
 
 The Amazon Q
 Google Drive connector has the following known limitations:

@@ -1,6 +1,4 @@
-# Connecting Amazon Q Business to GitHub (Server)
-
-using AWS CloudFormation
+# Connecting Amazon Q Business to GitHub (Server) using AWS CloudFormation
 
 You use the [`AWS::QBusiness::DataSource`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.md") resource to connect a data source to
 your Amazon Q application.
@@ -14,16 +12,11 @@ in the _CloudFormation User Guide_.
 
 ###### Topics
 
-- [GitHub (Cloud) configuration
-  properties](#github-cloud-configuration-keys "#github-cloud-configuration-keys")
-- [GitHub (Server) JSON schema for using the
-  configuration property with AWS CloudFormation](#github-server-cfn-json "#github-server-cfn-json")
-- [GitHub (Server) YAML schema for using the
-  configuration property with AWS CloudFormation](#github-server-cfn-yaml "#github-server-cfn-yaml")
+- [GitHub (Cloud) configuration properties](#github-cloud-configuration-keys "#github-cloud-configuration-keys")
+- [GitHub (Server) JSON schema for using the configuration property with AWS CloudFormation](#github-server-cfn-json "#github-server-cfn-json")
+- [GitHub (Server) YAML schema for using the configuration property with AWS CloudFormation](#github-server-cfn-yaml "#github-server-cfn-yaml")
 
-## GitHub (Cloud) configuration
-
-properties
+## GitHub (Cloud) configuration properties
 
 The following provides information about important configuration properties required in the
 schema.
@@ -64,23 +57,17 @@ schema.
 | `secretArn`                                                                                                                                                         | The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains<br>the key-value pairs required to connect to your GitHub (Cloud).                                                                                                                                                                                                                                                 | `string`<br>The secret must contain a JSON structure with the following keys:<br>``<br>{<br>"personalToken": "`token`"<br>}<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | No       |
 | `version`                                                                                                                                                           | The version of this template that's currently supported.                                                                                                                                                                                                                                                                                                                                         | `string`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | No       |
 
-## GitHub (Server) JSON schema for using the
-
-configuration property with AWS CloudFormation
+## GitHub (Server) JSON schema for using the configuration property with AWS CloudFormation
 
 The following is the GitHub (Server) JSON schema and examples for the configuration
 property for AWS CloudFormation.
 
 ###### Topics
 
-- [GitHub (Server) JSON schema for using the
-  configuration property with AWS CloudFormation](#github-server-cfn-json-schema "#github-server-cfn-json-schema")
-- [GitHub (Server) JSON schema example for
-  using the configuration property with AWS CloudFormation](#github-server-cfn-json-example "#github-server-cfn-json-example")
+- [GitHub (Server) JSON schema for using the configuration property with AWS CloudFormation](#github-server-cfn-json-schema "#github-server-cfn-json-schema")
+- [GitHub (Server) JSON schema example for using the configuration property with AWS CloudFormation](#github-server-cfn-json-example "#github-server-cfn-json-example")
 
-### GitHub (Server) JSON schema for using the
-
-configuration property with AWS CloudFormation
+### GitHub (Server) JSON schema for using the configuration property with AWS CloudFormation
 
 The following is the GitHub (Server) JSON schema for the configuration property for
 CloudFormation
@@ -640,9 +627,7 @@ CloudFormation
 
 [Show moreShow less](# "#")
 
-### GitHub (Server) JSON schema example for
-
-using the configuration property with AWS CloudFormation
+### GitHub (Server) JSON schema example for using the configuration property with AWS CloudFormation
 
 The following is the GitHub (Server) JSON schema example for the configuration
 property for CloudFormation
@@ -722,23 +707,17 @@ property for CloudFormation
 
 [Show moreShow less](# "#")
 
-## GitHub (Server) YAML schema for using the
-
-configuration property with AWS CloudFormation
+## GitHub (Server) YAML schema for using the configuration property with AWS CloudFormation
 
 The following is the GitHub (Server) YAML schema and examples for the configuration
 property for AWS CloudFormation:
 
 ###### Topics
 
-- [GitHub (Server) YAML schema for using the
-  configuration property with AWS CloudFormation](#github-server-cfn-yaml-schema "#github-server-cfn-yaml-schema")
-- [GitHub (Server) YAML schema example for
-  using the configuration property with AWS CloudFormation](#github-server-cfn-yaml-example "#github-server-cfn-yaml-example")
+- [GitHub (Server) YAML schema for using the configuration property with AWS CloudFormation](#github-server-cfn-yaml-schema "#github-server-cfn-yaml-schema")
+- [GitHub (Server) YAML schema example for using the configuration property with AWS CloudFormation](#github-server-cfn-yaml-example "#github-server-cfn-yaml-example")
 
-### GitHub (Server) YAML schema for using the
-
-configuration property with AWS CloudFormation
+### GitHub (Server) YAML schema for using the configuration property with AWS CloudFormation
 
 The following is the GitHub (Server) YAML schema for the configuration property for
 CloudFormation.
@@ -1150,9 +1129,7 @@ required:
 
 [Show moreShow less](# "#")
 
-### GitHub (Server) YAML schema example for
-
-using the configuration property with AWS CloudFormation
+### GitHub (Server) YAML schema example for using the configuration property with AWS CloudFormation
 
 The following is the GitHub (Server) YAML example for the Configuration property for
 CloudFormation:

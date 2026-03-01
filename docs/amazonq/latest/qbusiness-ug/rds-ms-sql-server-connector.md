@@ -18,21 +18,14 @@ Also, avoid adding tables with sensitive data or personal identifiable informati
 
 ###### Topics
 
-- [Known limitations for the
-  Amazon RDS (Microsoft SQL Server) connector](rds-ms-sql-server-limitations.md "rds-ms-sql-server-limitations.md")
-- [Amazon RDS (Microsoft SQL Server) connector
-  overview](rds-ms-sql-server-overview.md "rds-ms-sql-server-overview.md")
+- [Known limitations for the Amazon RDS (Microsoft SQL Server) connector](rds-ms-sql-server-limitations.md "rds-ms-sql-server-limitations.md")
+- [Amazon RDS (Microsoft SQL Server) connector overview](rds-ms-sql-server-overview.md "rds-ms-sql-server-overview.md")
 - [Prerequisites for connecting Amazon Q Business to Amazon RDS (Microsoft SQL Server)](rds-ms-sql-server-prereqs.md "rds-ms-sql-server-prereqs.md")
-- [Connecting Amazon Q Business to
-  Amazon RDS (Microsoft SQL Server) using the console](rds-ms-sql-server-console.md "rds-ms-sql-server-console.md")
-- [Connecting Amazon Q Business to
-  Amazon RDS (Microsoft SQL Server) using APIs](rds-ms-sql-server-api.md "rds-ms-sql-server-api.md")
-- [How Amazon Q Business connector
-  crawls Amazon RDS (Microsoft SQL Server) ACLs](rds-ms-sql-server-user-management.md "rds-ms-sql-server-user-management.md")
-- [Amazon RDS (Microsoft SQL Server) data source
-  connector field mappings](rds-ms-sql-server-field-mappings.md "rds-ms-sql-server-field-mappings.md")
-- [IAM role for
-  Amazon RDS (Microsoft SQL Server) connector](rds-ms-sql-server-iam-role.md "rds-ms-sql-server-iam-role.md")
+- [Connecting Amazon Q Business to Amazon RDS (Microsoft SQL Server) using the console](rds-ms-sql-server-console.md "rds-ms-sql-server-console.md")
+- [Connecting Amazon Q Business to Amazon RDS (Microsoft SQL Server) using APIs](rds-ms-sql-server-api.md "rds-ms-sql-server-api.md")
+- [How Amazon Q Business connector crawls Amazon RDS (Microsoft SQL Server) ACLs](rds-ms-sql-server-user-management.md "rds-ms-sql-server-user-management.md")
+- [Amazon RDS (Microsoft SQL Server) data source connector field mappings](rds-ms-sql-server-field-mappings.md "rds-ms-sql-server-field-mappings.md")
+- [IAM role for Amazon RDS (Microsoft SQL Server) connector](rds-ms-sql-server-iam-role.md "rds-ms-sql-server-iam-role.md")
 
 **Learn more**
 

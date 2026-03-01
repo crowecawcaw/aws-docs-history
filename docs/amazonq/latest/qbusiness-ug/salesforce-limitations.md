@@ -1,6 +1,4 @@
-# Known limitations for the Salesforce Online
-
-connector
+# Known limitations for the Salesforce Online connector
 
 The Salesforce Online connector has the following known limitations:
 

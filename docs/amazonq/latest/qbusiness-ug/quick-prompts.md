@@ -13,8 +13,7 @@ For more information, see [Customizing a web experience (IAM Identity Center)](c
 Before you enable sample prompts, make sure that the **Only produce
 responses from retrieval augmented generation (RAG)** check box for
 **Application guardrails** is not selected. For more
-information, see [Customizing global
-controls](guardrails-global-controls.md#guardrails-global-controls-customizing "guardrails-global-controls.md#guardrails-global-controls-customizing").
+information, see [Customizing global controls](guardrails-global-controls.md#guardrails-global-controls-customizing "guardrails-global-controls.md#guardrails-global-controls-customizing").
 
 You
 can't create your own prompts or edit the provided sample

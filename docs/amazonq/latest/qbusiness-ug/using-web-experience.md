@@ -25,11 +25,9 @@ capabilities:
 
 ###### Web experience features
 
-- [Example
-  prompts](#example-prompts "#example-prompts")
+- [Example prompts](#example-prompts "#example-prompts")
 - [Engage with contextual responses](#contextual-response "#contextual-response")
-- [Analysis
-  and reasoning](#analyze-content "#analyze-content")
+- [Analysis and reasoning](#analyze-content "#analyze-content")
 - [Perform actions using plugins](#actions "#actions")
 - [Review source citations](#review-source-citation "#review-source-citation")
 - [Upload files and chat](#upload-documents "#upload-documents")
@@ -38,8 +36,7 @@ capabilities:
 - [Provide feedback](#provide-feedback "#provide-feedback")
 - [Conversation management](#conversation-mgmt "#conversation-mgmt")
 - [Response sources](#chat-source-scope "#chat-source-scope")
-- [Login, Logout and session duration for Web
-  Experience](#Web-logout "#Web-logout")
+- [Login, Logout and session duration for Web Experience](#Web-logout "#Web-logout")
 
 ###### Important
 
@@ -50,9 +47,7 @@ To ensure that your browser can successfully establish a WebSockets connection, 
 that port 8443 is enabled and not blocked by network rules that you have configured at
 the router, VPN, VPC, or firewall level.
 
-## Example
-
-prompts
+## Example prompts
 
 The welcome page optionally provides example prompts to help you understand the types
 of questions and tasks that you can ask the Amazon Q Business web experience.
@@ -68,9 +63,7 @@ responses from the selected data sources within your organization. You can conti
 a conversation in the context of the active session or start a new conversation to
 refresh any previous contexts.
 
-## Analysis
-
-and reasoning
+## Analysis and reasoning
 
 You can ask Amazon Q Business to summarize a response, generate text from a
 response, do comparative analysis, and perform math and reasoning tasks.
@@ -201,9 +194,7 @@ from files that you upload.
 
 For more information, see [Using global controls in Amazon Q Business](guardrails-global-controls.md "guardrails-global-controls.md").
 
-## Login, Logout and session duration for Web
-
-Experience
+## Login, Logout and session duration for Web Experience
 
 Users log in through their identity provider, which integrates with the Amazon Q Business Web
 App. After authentication, a session token is generated and the user is automatically

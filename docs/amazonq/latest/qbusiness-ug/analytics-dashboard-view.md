@@ -11,10 +11,8 @@ console, you choose your application environment and navigate to the Analytics d
    _Name_ of application environment that you want to see the Analytics for.
 4. In the left navigation pane, choose **Insights**.Choose between
    **Amazon Q Business** or **Amazon Q Apps** to view the relevant
-   dashboard for your application environment. For information about the metrics that appear, see [Amazon Q Business Analytics dashboard
-   metrics](analytics-dashboard-metrics.md "analytics-dashboard-metrics.md")
-   or[Amazon Q Apps Analytics dashboard
-   metrics](q-apps-analytics-dashboard-metrics.md "q-apps-analytics-dashboard-metrics.md").
+   dashboard for your application environment. For information about the metrics that appear, see [Amazon Q Business Analytics dashboard metrics](analytics-dashboard-metrics.md "analytics-dashboard-metrics.md")
+   or[Amazon Q Apps Analytics dashboard metrics](q-apps-analytics-dashboard-metrics.md "q-apps-analytics-dashboard-metrics.md").
 5. Use the date picker to specify the time interval for the graphs. You can choose from
    the following preset intervals.
    - Last week – This interval starts from the previous Sunday at 00:00 and goes

@@ -1,6 +1,4 @@
-# Configuring a Microsoft Exchange plugin for
-
-Amazon Q Business
+# Configuring a Microsoft Exchange plugin for Amazon Q Business
 
 Microsoft Exchange is an enterprise collaboration tool for messaging, meetings, and file
 sharing. If you’re a Microsoft Exchange user, you can create an Amazon Q Business

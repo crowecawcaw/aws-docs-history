@@ -103,17 +103,12 @@ For example, consider the following example conversation flows:
 
 ###### Example contextual create actions
 
-- [Example 1: Create a ServiceNow
-  incident](#context-create-servicenow "#context-create-servicenow")
-- [Example 2: Create a ZenDesk
-  ticket](#context-create-zendesk "#context-create-zendesk")
-- [Example 3: Create a Salesforce
-  case](#context-create-salesforce "#context-create-salesforce")
+- [Example 1: Create a ServiceNow incident](#context-create-servicenow "#context-create-servicenow")
+- [Example 2: Create a ZenDesk ticket](#context-create-zendesk "#context-create-zendesk")
+- [Example 3: Create a Salesforce case](#context-create-salesforce "#context-create-salesforce")
 - [Example 4: Create a Jira issue](#context-create-jira "#context-create-jira")
 
-#### Example 1: Create a ServiceNow
-
-incident
+#### Example 1: Create a ServiceNow incident
 
 - **User prompt 1** – `How to
 resolve network issues`
@@ -127,9 +122,7 @@ reset my router`
   `Summarize this conversation and create a
 ServiceNow incident`
 
-#### Example 2: Create a ZenDesk
-
-ticket
+#### Example 2: Create a ZenDesk ticket
 
 - **User prompt 1** – `Compare
 Amazon Kendra with OpenSearch`
@@ -139,9 +132,7 @@ Amazon Kendra with OpenSearch`
   `Create a Zendesk ticket to migrate to
 Amazon Kendra`
 
-#### Example 3: Create a Salesforce
-
-case
+#### Example 3: Create a Salesforce case
 
 - **User prompt 1** – `Where is
 the IT office located`

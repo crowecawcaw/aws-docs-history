@@ -1,6 +1,4 @@
-# Extracting content from visuals
-
-with data connectors
+# Extracting content from visuals with data connectors
 
 You can enable content extraction when you add or update a data connector with the
 Amazon Q Business console or API operations. Processing images and visuals takes more time than

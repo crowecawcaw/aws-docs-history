@@ -21,21 +21,14 @@ Also, avoid adding tables with sensitive data or personal identifiable informati
 
 ###### Topics
 
-- [Known limitations for the
-  Amazon RDS (MySQL) connector](rds-my-sql-limitations.md "rds-my-sql-limitations.md")
-- [Amazon RDS (MySQL) connector
-  overview](rds-my-sql-overview.md "rds-my-sql-overview.md")
+- [Known limitations for the Amazon RDS (MySQL) connector](rds-my-sql-limitations.md "rds-my-sql-limitations.md")
+- [Amazon RDS (MySQL) connector overview](rds-my-sql-overview.md "rds-my-sql-overview.md")
 - [Prerequisites for connecting Amazon Q Business to Amazon RDS (MySQL)](rds-my-sql-prereqs.md "rds-my-sql-prereqs.md")
-- [Connecting Amazon Q Business to
-  Amazon RDS (MySQL) using the console](rds-my-sql-console.md "rds-my-sql-console.md")
-- [Connecting Amazon Q Business to
-  Amazon RDS (MySQL) using APIs](rds-my-sql-api.md "rds-my-sql-api.md")
-- [How Amazon Q Business connector
-  crawls Amazon RDS (MySQL) ACLs](rds-my-sql-user-management.md "rds-my-sql-user-management.md")
-- [Amazon RDS (MySQL) data source
-  connector field mappings](rds-my-sql-field-mappings.md "rds-my-sql-field-mappings.md")
-- [IAM role for
-  Amazon RDS (MySQL) connector](rds-my-sql-iam-role.md "rds-my-sql-iam-role.md")
+- [Connecting Amazon Q Business to Amazon RDS (MySQL) using the console](rds-my-sql-console.md "rds-my-sql-console.md")
+- [Connecting Amazon Q Business to Amazon RDS (MySQL) using APIs](rds-my-sql-api.md "rds-my-sql-api.md")
+- [How Amazon Q Business connector crawls Amazon RDS (MySQL) ACLs](rds-my-sql-user-management.md "rds-my-sql-user-management.md")
+- [Amazon RDS (MySQL) data source connector field mappings](rds-my-sql-field-mappings.md "rds-my-sql-field-mappings.md")
+- [IAM role for Amazon RDS (MySQL) connector](rds-my-sql-iam-role.md "rds-my-sql-iam-role.md")
 
 **Learn more**
 

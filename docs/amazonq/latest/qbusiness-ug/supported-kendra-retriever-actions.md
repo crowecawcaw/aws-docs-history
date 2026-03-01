@@ -1,28 +1,19 @@
-# Managing Amazon Kendra
-
-indices
+# Managing Amazon Kendra indices
 
 To manage Amazon Kendra indices being used as retrievers, you can take the following
 actions:
 
 ###### Actions
 
-- [Detaching an Amazon Kendra
-  index](#detach-kendra-retriever "#detach-kendra-retriever")
+- [Detaching an Amazon Kendra index](#detach-kendra-retriever "#detach-kendra-retriever")
 - [Updating an Amazon Kendra index](#edit-kendra-index "#edit-kendra-index")
-- [Deleting an Amazon Kendra
-  index](#delete-kendra-index "#delete-kendra-index")
-- [Deleting an Amazon Kendra
-  retriever](#delete-kendra-retriever "#delete-kendra-retriever")
+- [Deleting an Amazon Kendra index](#delete-kendra-index "#delete-kendra-index")
+- [Deleting an Amazon Kendra retriever](#delete-kendra-retriever "#delete-kendra-retriever")
 - [Getting properties of an Amazon Kendra retriever](#describe-kendra-retriever "#describe-kendra-retriever")
-- [Listing Amazon Kendra
-  indices](#list-kendra-retriever "#list-kendra-retriever")
-- [Updating an Amazon Kendra
-  retriever](#update-kendra-retriever "#update-kendra-retriever")
+- [Listing Amazon Kendra indices](#list-kendra-retriever "#list-kendra-retriever")
+- [Updating an Amazon Kendra retriever](#update-kendra-retriever "#update-kendra-retriever")
 
-## Detaching an Amazon Kendra
-
-index
+## Detaching an Amazon Kendra index
 
 To detach an Amazon Kendra index, you can use the console or the [DeleteRetriever](../api-reference/API_DeleteRetriever.md "../api-reference/API_DeleteRetriever.md") API
 operation.
@@ -126,9 +117,7 @@ aws kendra update-index \
 
 ```
 
-## Deleting an Amazon Kendra
-
-index
+## Deleting an Amazon Kendra index
 
 To detach an Amazon Kendra index, you can use the Amazon Kendra console or the Amazon Kendra [DeleteIndex](../../../kendra/latest/APIReference/API_DeleteIndex.md "../../../kendra/latest/APIReference/API_DeleteIndex.md") API operation.
 
@@ -169,9 +158,7 @@ aws kendra delete-index \
 
 ```
 
-## Deleting an Amazon Kendra
-
-retriever
+## Deleting an Amazon Kendra retriever
 
 To delete an Amazon Kendra retriever, you can use the console or the [DeleteRetriever](../api-reference/API_DeleteRetriever.md "../api-reference/API_DeleteRetriever.md") API
 operation.
@@ -262,9 +249,7 @@ aws qbusiness get-retriever \
 
 ```
 
-## Listing Amazon Kendra
-
-indices
+## Listing Amazon Kendra indices
 
 To list your Amazon Kendra indices being used as retrievers, you can use the console
 or the [ListRetrievers](../api-reference/API_ListRetrievers.md "../api-reference/API_ListRetrievers.md") API
@@ -300,9 +285,7 @@ aws qbusiness list-retrievers \
 
 ```
 
-## Updating an Amazon Kendra
-
-retriever
+## Updating an Amazon Kendra retriever
 
 To update your Amazon Kendra retriever, you can use the [UpdateRetriever](../api-reference/API_UpdateRetriever.md "../api-reference/API_UpdateRetriever.md") API
 operation.

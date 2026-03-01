@@ -1,6 +1,4 @@
-# Configuring the Amazon Q Business Slack integration
-
-for use
+# Configuring the Amazon Q Business Slack integration for use
 
 The Amazon Q Business integration for Slack is only available for use by Amazon Q Business Pro
 users.
@@ -32,8 +30,7 @@ users.
 ###### Topics
 
 - [Prerequisites](#slack-configuration-prerequisites "#slack-configuration-prerequisites")
-- [Adding an Amazon Q Business integration for
-  Slack](#slack-adding "#slack-adding")
+- [Adding an Amazon Q Business integration for Slack](#slack-adding "#slack-adding")
 - [Removing Slack as an integration](#slack-removing "#slack-removing")
 
 ## Prerequisites
@@ -65,9 +62,7 @@ _Slack Developer Tools_ app running the
 `/sdt whoami` command. For more information, see [Locate your Slack URL or ID](https://slack.com/help/articles/221769328-Locate-your-Slack-URL-or-ID "https://slack.com/help/articles/221769328-Locate-your-Slack-URL-or-ID") in the Slack help
 center.
 
-## Adding an Amazon Q Business integration for
-
-Slack
+## Adding an Amazon Q Business integration for Slack
 
 To use the Amazon Q Business Slack integration, you must allow it to connect to your
 Amazon Q Business application environment and web experience. To do this, admins can use the
@@ -81,8 +76,7 @@ time.
 ###### Topics
 
 - [Using the console](#slack-adding-console "#slack-adding-console")
-- [Installing the Amazon Q Business App in your
-  Slack workspace](#slack-installing "#slack-installing")
+- [Installing the Amazon Q Business App in your Slack workspace](#slack-installing "#slack-installing")
 
 ### Using the console
 
@@ -135,9 +129,7 @@ time.
 This link will take you to the Slack domain outside of
 AWS. 16. You will continue this procedure within the Slack domain.
 
-### Installing the Amazon Q Business App in your
-
-Slack workspace
+### Installing the Amazon Q Business App in your Slack workspace
 
 The following instructions show how to install the Amazon Q Business App in your
 Slack workspace using a link from the Amazon Q console as shown in the

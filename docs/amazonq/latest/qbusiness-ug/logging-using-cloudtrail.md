@@ -1,6 +1,4 @@
-# Logging Amazon Q Business API calls using
-
-AWS CloudTrail
+# Logging Amazon Q Business API calls using AWS CloudTrail
 
 Amazon Q Business is integrated with AWS CloudTrail, a service that provides a record of
 actions taken by a user, role, or an AWS service in Amazon Q Business. CloudTrail captures all
@@ -16,9 +14,7 @@ additional details.
 
 For more information about CloudTrail, including how to configure and activate it, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md").
 
-## Amazon Q Business information in
-
-CloudTrail
+## Amazon Q Business information in CloudTrail
 
 CloudTrail is activated on your AWS account when you create the account. When activity occurs
 in Amazon Q Business, that activity is recorded in a CloudTrail event along with other
@@ -162,9 +158,7 @@ Reference_.
 Additional charges apply for data events. For more information about CloudTrail pricing, see
 [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
 
-## Amazon Q Business management
-
-events in CloudTrail
+## Amazon Q Business management events in CloudTrail
 
 [Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are
 performed on resources in your AWS account. These management events are also known as
@@ -175,9 +169,7 @@ Amazon Q Business logs the remainder of Amazon Q Business API operations as
 management events. For a list of the Amazon Q Business API operations that Amazon Q logs to CloudTrail, see the [Amazon Q Business API
 Reference](../api-reference/Welcome.md "../api-reference/Welcome.md").
 
-## Understanding Amazon Q Business log
-
-file entries
+## Understanding Amazon Q Business log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
 that you specify. CloudTrail log files contain one or more log entries. An event represents a single

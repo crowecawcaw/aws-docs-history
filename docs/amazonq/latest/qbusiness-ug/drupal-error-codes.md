@@ -1,6 +1,4 @@
-# Understand error codes in the
-
-Drupal connector
+# Understand error codes in the Drupal connector
 
 The following table provides information about error codes you may see for the
 Drupal connector and suggested resolutions.

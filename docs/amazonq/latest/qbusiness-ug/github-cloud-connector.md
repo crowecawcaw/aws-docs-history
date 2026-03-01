@@ -7,21 +7,14 @@ CLI, or the [CreateDataSource](../api-reference/API_CreateDataSource.md "../api-
 
 ###### Topics
 
-- [GitHub (Cloud) connector
-  overview](github-cloud-overview.md "github-cloud-overview.md")
+- [GitHub (Cloud) connector overview](github-cloud-overview.md "github-cloud-overview.md")
 - [Prerequisites for connecting Amazon Q Business to GitHub (Cloud)](github-cloud-prereqs.md "github-cloud-prereqs.md")
-- [Connecting Amazon Q Business to
-  GitHub (Cloud) using the console](github-cloud-console.md "github-cloud-console.md")
-- [Connecting Amazon Q Business to GitHub (Cloud)
-  using APIs](github-cloud-api.md "github-cloud-api.md")
-- [Connecting Amazon Q Business to GitHub (Cloud)
-  using AWS CloudFormation](github-cloud-cfn.md "github-cloud-cfn.md")
-- [How Amazon Q Business connector
-  crawls GitHub Cloud ACLs](github-cloud-user-management.md "github-cloud-user-management.md")
-- [GitHub (Cloud) data source
-  connector field mappings](github-cloud-field-mappings.md "github-cloud-field-mappings.md")
-- [IAM role for
-  GitHub (Cloud) connector](github-cloud-iam-role.md "github-cloud-iam-role.md")
+- [Connecting Amazon Q Business to GitHub (Cloud) using the console](github-cloud-console.md "github-cloud-console.md")
+- [Connecting Amazon Q Business to GitHub (Cloud) using APIs](github-cloud-api.md "github-cloud-api.md")
+- [Connecting Amazon Q Business to GitHub (Cloud) using AWS CloudFormation](github-cloud-cfn.md "github-cloud-cfn.md")
+- [How Amazon Q Business connector crawls GitHub Cloud ACLs](github-cloud-user-management.md "github-cloud-user-management.md")
+- [GitHub (Cloud) data source connector field mappings](github-cloud-field-mappings.md "github-cloud-field-mappings.md")
+- [IAM role for GitHub (Cloud) connector](github-cloud-iam-role.md "github-cloud-iam-role.md")
 
 **Learn more**
 

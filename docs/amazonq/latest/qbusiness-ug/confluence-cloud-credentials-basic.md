@@ -39,9 +39,7 @@ To ensure Amazon Q can access all user and group information from your
 Confluence (Cloud) instance, you must provide Atlassian admin credentials. These credentials allow
 Amazon Q to sync user information regardless of individual email visibility settings.
 
-###
-
-Get your Atlassian admin credentials
+### Get your Atlassian admin credentials
 
 1. Sign in to the [Atlassian
    admin portal](https://admin.atlassian.com/ "https://admin.atlassian.com/") with administrator permissions.
@@ -59,9 +57,7 @@ Note that API keys expire. Monitor the expiration date and
 update your data source credentials before the key
 expires.
 
-###
-
-Get your Directory ID
+### Get your Directory ID
 
 1. Use the Atlassian Admin Workspace API to get your Directory ID. Run the following command:
 

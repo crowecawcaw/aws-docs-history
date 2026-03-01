@@ -20,21 +20,14 @@ Also, avoid adding tables with sensitive data or personal identifiable informati
 
 ###### Topics
 
-- [Known limitations for the
-  Amazon RDS (Oracle) connector](rds-oracle-limitations.md "rds-oracle-limitations.md")
-- [Amazon RDS (Oracle) connector
-  overview](rds-oracle-overview.md "rds-oracle-overview.md")
+- [Known limitations for the Amazon RDS (Oracle) connector](rds-oracle-limitations.md "rds-oracle-limitations.md")
+- [Amazon RDS (Oracle) connector overview](rds-oracle-overview.md "rds-oracle-overview.md")
 - [Prerequisites for connecting Amazon Q Business to Amazon RDS (Oracle)](rds-oracle-prereqs.md "rds-oracle-prereqs.md")
-- [Connecting Amazon Q Business to
-  Amazon RDS (Oracle) using the console](rds-oracle-console.md "rds-oracle-console.md")
-- [Connecting Amazon Q Business to
-  Amazon RDS (Oracle) using APIs](rds-oracle-api.md "rds-oracle-api.md")
-- [How Amazon Q Business connector
-  crawls Amazon RDS (Oracle) ACLs](rds-oracle-user-management.md "rds-oracle-user-management.md")
-- [Amazon RDS (Oracle) data source
-  connector field mappings](rds-oracle-field-mappings.md "rds-oracle-field-mappings.md")
-- [IAM role for
-  Amazon RDS (Oracle) connector](rds-oracle-iam-role.md "rds-oracle-iam-role.md")
+- [Connecting Amazon Q Business to Amazon RDS (Oracle) using the console](rds-oracle-console.md "rds-oracle-console.md")
+- [Connecting Amazon Q Business to Amazon RDS (Oracle) using APIs](rds-oracle-api.md "rds-oracle-api.md")
+- [How Amazon Q Business connector crawls Amazon RDS (Oracle) ACLs](rds-oracle-user-management.md "rds-oracle-user-management.md")
+- [Amazon RDS (Oracle) data source connector field mappings](rds-oracle-field-mappings.md "rds-oracle-field-mappings.md")
+- [IAM role for Amazon RDS (Oracle) connector](rds-oracle-iam-role.md "rds-oracle-iam-role.md")
 
 **Learn more**
 

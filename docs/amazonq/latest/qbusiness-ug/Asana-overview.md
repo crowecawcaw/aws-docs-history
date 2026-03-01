@@ -1,6 +1,4 @@
-# Asana connector overview
-
-(Preview)
+# Asana connector overview (Preview)
 
 The following table gives an overview of the Amazon Q Business
 Asana connector and its supported features.

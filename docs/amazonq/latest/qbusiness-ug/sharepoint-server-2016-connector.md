@@ -12,22 +12,15 @@ Subscription Edition).
 ###### Topics
 
 - [Known limitations for the Amazon Q Business SharePoint Server 2016 connector](sharepoint-server-2016-limitations.md "sharepoint-server-2016-limitations.md")
-- [SharePoint Server 2016 connector
-  overview](sharepoint-server-2016-overview.md "sharepoint-server-2016-overview.md")
+- [SharePoint Server 2016 connector overview](sharepoint-server-2016-overview.md "sharepoint-server-2016-overview.md")
 - [Prerequisites for connecting Amazon Q Business to SharePoint Server 2016](sharepoint-server-2016-prereqs.md "sharepoint-server-2016-prereqs.md")
-- [Connecting Amazon Q Business to
-  SharePoint Server 2016 using the console](sharepoint-server-2016-console.md "sharepoint-server-2016-console.md")
-- [Connecting Amazon Q Business to
-  SharePoint Server 2016 using APIs](sharepoint-server-2016-api.md "sharepoint-server-2016-api.md")
-- [Connecting Amazon Q Business to
-  SharePoint Server 2016 using AWS CloudFormation](sharepoint-server-2016-cfn.md "sharepoint-server-2016-cfn.md")
-- [How Amazon Q Business connector
-  crawls SharePoint Server 2016 ACLs](sharepoint-server-2016-user-management.md "sharepoint-server-2016-user-management.md")
-- [Amazon Q Business
-  SharePoint Server 2016 data source connector field mappings](sharepoint-server-2016-field-mappings.md "sharepoint-server-2016-field-mappings.md")
+- [Connecting Amazon Q Business to SharePoint Server 2016 using the console](sharepoint-server-2016-console.md "sharepoint-server-2016-console.md")
+- [Connecting Amazon Q Business to SharePoint Server 2016 using APIs](sharepoint-server-2016-api.md "sharepoint-server-2016-api.md")
+- [Connecting Amazon Q Business to SharePoint Server 2016 using AWS CloudFormation](sharepoint-server-2016-cfn.md "sharepoint-server-2016-cfn.md")
+- [How Amazon Q Business connector crawls SharePoint Server 2016 ACLs](sharepoint-server-2016-user-management.md "sharepoint-server-2016-user-management.md")
+- [Amazon Q Business SharePoint Server 2016 data source connector field mappings](sharepoint-server-2016-field-mappings.md "sharepoint-server-2016-field-mappings.md")
 - [IAM role for Amazon Q Business SharePoint Server 2016 connector](sharepoint-server-2016-iam-role.md "sharepoint-server-2016-iam-role.md")
-- [Understand error codes in the
-  SharePoint Server 2016 connector](sharepoint-server-2016-error-codes.md "sharepoint-server-2016-error-codes.md")
+- [Understand error codes in the SharePoint Server 2016 connector](sharepoint-server-2016-error-codes.md "sharepoint-server-2016-error-codes.md")
 
 **Learn more**
 

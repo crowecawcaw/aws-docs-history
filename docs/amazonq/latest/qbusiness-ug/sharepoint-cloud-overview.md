@@ -1,6 +1,4 @@
-# SharePoint (Online) connector
-
-overview
+# SharePoint (Online) connector overview
 
 The following table gives an overview of the Amazon Q Business
 SharePoint (Online) connector and its supported features.

@@ -1,4 +1,4 @@
-# Understand error codes in the Amazon Q BusinessGoogle Drive connector
+# Understand error codes in the Amazon Q Business Google Drive connector
 
 The following table provides information about error codes you may see for the
 Google Drive connector and suggested resolutions.

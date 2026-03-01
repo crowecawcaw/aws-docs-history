@@ -15,16 +15,13 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## AWS managed
-
-policy: QAppsServiceRolePolicy
+## AWS managed policy: QAppsServiceRolePolicy
 
 Amazon Q Apps uses a `QAppsServiceRolePolicy` to enable an Amazon Q Apps to
 access CloudWatch resources and populate CloudWatch metrics. You can't attach
 `QAppsServiceRolePolicy` to your IAM entities. This policy is attached to a
 service-linked role that allows Amazon Q Apps to perform actions on your behalf. For more
-information, see [Using service-linked roles for
-Amazon Q Apps](using-service-linked-roles-qapps.md "using-service-linked-roles-qapps.md").
+information, see [Using service-linked roles for Amazon Q Apps](using-service-linked-roles-qapps.md "using-service-linked-roles-qapps.md").
 
 **Permissions details**
 
@@ -57,9 +54,7 @@ JSON
 
 ```
 
-## Amazon Q Apps updates to AWS managed
-
-policies
+## Amazon Q Apps updates to AWS managed policies
 
 View details about updates to AWS managed policies for Amazon Q Apps since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

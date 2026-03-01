@@ -22,20 +22,14 @@ avoid adding tables with sensitive data or personal identifiable information (PI
 
 ###### Topics
 
-- [Known limitations for the Amazon RDS (PostgreSQL)
-  connector](rds-postgresql-limitations.md "rds-postgresql-limitations.md")
+- [Known limitations for the Amazon RDS (PostgreSQL) connector](rds-postgresql-limitations.md "rds-postgresql-limitations.md")
 - [Amazon RDS (PostgreSQL) connector overview](rds-postgresql-overview.md "rds-postgresql-overview.md")
 - [Prerequisites for connecting Amazon Q Business to Amazon RDS (PostgreSQL)](rds-postgresql-prereqs.md "rds-postgresql-prereqs.md")
-- [Connecting Amazon Q Business to
-  Amazon RDS (PostgreSQL) using the console](rds-postgresql-console.md "rds-postgresql-console.md")
-- [Connecting Amazon Q Business to
-  Amazon RDS (PostgreSQL) using APIs](rds-postgresql-api.md "rds-postgresql-api.md")
-- [How Amazon Q Business connector
-  crawls Amazon RDS (PostgreSQL) ACLs](rds-postgresql-user-management.md "rds-postgresql-user-management.md")
-- [Amazon RDS (PostgreSQL) data source connector
-  field mappings](rds-postgresql-field-mappings.md "rds-postgresql-field-mappings.md")
-- [IAM role for Amazon RDS (PostgreSQL)
-  connector](rds-postgresql-iam-role.md "rds-postgresql-iam-role.md")
+- [Connecting Amazon Q Business to Amazon RDS (PostgreSQL) using the console](rds-postgresql-console.md "rds-postgresql-console.md")
+- [Connecting Amazon Q Business to Amazon RDS (PostgreSQL) using APIs](rds-postgresql-api.md "rds-postgresql-api.md")
+- [How Amazon Q Business connector crawls Amazon RDS (PostgreSQL) ACLs](rds-postgresql-user-management.md "rds-postgresql-user-management.md")
+- [Amazon RDS (PostgreSQL) data source connector field mappings](rds-postgresql-field-mappings.md "rds-postgresql-field-mappings.md")
+- [IAM role for Amazon RDS (PostgreSQL) connector](rds-postgresql-iam-role.md "rds-postgresql-iam-role.md")
 
 **Learn more**
 

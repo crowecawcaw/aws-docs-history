@@ -1,6 +1,4 @@
-# Aurora (MySQL) connector
-
-overview
+# Aurora (MySQL) connector overview
 
 The following table gives an overview of the Amazon Q Business
 Aurora (MySQL) connector and its supported features.

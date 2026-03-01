@@ -1,6 +1,4 @@
-# Connecting Amazon Q Business to Google Drive
-
-using AWS CloudFormation
+# Connecting Amazon Q Business to Google Drive using AWS CloudFormation
 
 You use the [`AWS::QBusiness::DataSource`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.md") resource to connect a data source to
 your Amazon Q application.

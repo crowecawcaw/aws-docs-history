@@ -1,6 +1,4 @@
-# Best practices for data source connector
-
-configuration in Amazon Q Business
+# Best practices for data source connector configuration in Amazon Q Business
 
 The following list describes best practices for setting up and configuring your
 Amazon Q Business data source connector:

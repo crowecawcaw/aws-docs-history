@@ -33,8 +33,7 @@ federated groups, use the [PutGroup](../api-reference/API_PutGroup.md "../api-re
 
 - [Prerequisites](#sigv4-auth-api-calls-prereqs-iam "#sigv4-auth-api-calls-prereqs-iam")
 - [One-time setup](#control-plane-setup-iam "#control-plane-setup-iam")
-- [Workflow for each API call session for
-  authenticated user](#data-plane-workflow-iam "#data-plane-workflow-iam")
+- [Workflow for each API call session for authenticated user](#data-plane-workflow-iam "#data-plane-workflow-iam")
 
 ## Prerequisites
 
@@ -92,9 +91,7 @@ create-role \
 
 ```
 
-## Workflow for each API call session for
-
-authenticated user
+## Workflow for each API call session for authenticated user
 
 1. First, use the `IdToken` from Okta to call the
    [AssumeRoleWithWebIdentity](../../../STS/latest/APIReference/API_AssumeRoleWithWebIdentity.md "../../../STS/latest/APIReference/API_AssumeRoleWithWebIdentity.md") API to get AWS

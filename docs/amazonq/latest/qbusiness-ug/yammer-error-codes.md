@@ -1,6 +1,4 @@
-# Understand error codes in the
-
-Microsoft Yammer connector
+# Understand error codes in the Microsoft Yammer connector
 
 The following table provides information about error codes you may see for the
 Microsoft Yammer connector and suggested resolutions.

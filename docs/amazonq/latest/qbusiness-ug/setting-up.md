@@ -272,9 +272,7 @@ JSON
 
 ```
 
-### Grant permission to create data sources
-
-with ACLs disabled
+### Grant permission to create data sources with ACLs disabled
 
 By default, when Amazon Q administrators create data sources, ACLs are on.
 Some administrators may want to create data sources with ACLs disabled. You can grant them

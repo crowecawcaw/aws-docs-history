@@ -31,18 +31,12 @@ and the API.
 
 ###### Topics
 
-- [Mapping document attributes
-  directly to index fields](#mapping-doc-attributes-directly "#mapping-doc-attributes-directly")
-- [Mapping data source document
-  attributes to index fields](#mapping-data-source-doc-attributes "#mapping-data-source-doc-attributes")
-- [Ingesting attributes using the
-  BatchPutDocument API operation](#custom-attributes-batch "#custom-attributes-batch")
-- [Using aggregations and dynamic
-  filtering in chat](#using-aggregations-in-chat "#using-aggregations-in-chat")
+- [Mapping document attributes directly to index fields](#mapping-doc-attributes-directly "#mapping-doc-attributes-directly")
+- [Mapping data source document attributes to index fields](#mapping-data-source-doc-attributes "#mapping-data-source-doc-attributes")
+- [Ingesting attributes using the BatchPutDocument API operation](#custom-attributes-batch "#custom-attributes-batch")
+- [Using aggregations and dynamic filtering in chat](#using-aggregations-in-chat "#using-aggregations-in-chat")
 
-## Mapping document attributes
-
-directly to index fields
+## Mapping document attributes directly to index fields
 
 When you use the console or the API to directly add documents to your application,
 you must first create and map your document attributes to index fields before you
@@ -57,13 +51,10 @@ You can map up to 50 document attributes to index fields. You can mark up to
 
 ###### Topics
 
-- [Using the
-  console](#mapping-doc-attributes-directly-console "#mapping-doc-attributes-directly-console")
+- [Using the console](#mapping-doc-attributes-directly-console "#mapping-doc-attributes-directly-console")
 - [Using the API](#mapping-doc-attributes-directly-api "#mapping-doc-attributes-directly-api")
 
-### Using the
-
-console
+### Using the console
 
 To map document attributes to index fields using the Amazon Q Business
 console, complete the following steps:
@@ -144,9 +135,7 @@ to add a field called "Department" to the index.
 ]
 ```
 
-## Mapping data source document
-
-attributes to index fields
+## Mapping data source document attributes to index fields
 
 If you use an Amazon Q Business data source connector, you can map default
 document attributes attached to documents in your data source to fields in your
@@ -228,9 +217,7 @@ or attributes and one reserved field.
   name of a reserved field, the field and column are mapped
   automatically.
 
-## Ingesting attributes using the
-
-BatchPutDocument API operation
+## Ingesting attributes using the BatchPutDocument API operation
 
 When you use the [BatchPutDocument](../api-reference/API_BatchPutDocument.md "../api-reference/API_BatchPutDocument.md") API operation to add a document to
 your index, you can specify document attributes—both reserved and
@@ -247,9 +234,7 @@ attributes. The following example is a custom field or attribute that adds
     }
 ```
 
-## Using aggregations and dynamic
-
-filtering in chat
+## Using aggregations and dynamic filtering in chat
 
 ###### Note
 

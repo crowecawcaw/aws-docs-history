@@ -1,6 +1,4 @@
-# Amazon Q Business data source
-
-connector field mappings
+# Amazon Q Business data source connector field mappings
 
 To improve retrieved results and customize the end user chat experience, Amazon Q enables
 you to map document attributes from your data sources to fields in your Amazon Q

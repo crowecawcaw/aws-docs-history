@@ -17,21 +17,14 @@ Also, avoid adding tables with sensitive data or personal identifiable informati
 
 ###### Topics
 
-- [Known limitations for the
-  Microsoft SQL Server connector](ms-sql-server-limitations.md "ms-sql-server-limitations.md")
-- [Microsoft SQL Server connector
-  overview](ms-sql-server-overview.md "ms-sql-server-overview.md")
+- [Known limitations for the Microsoft SQL Server connector](ms-sql-server-limitations.md "ms-sql-server-limitations.md")
+- [Microsoft SQL Server connector overview](ms-sql-server-overview.md "ms-sql-server-overview.md")
 - [Prerequisites for connecting Amazon Q Business to Microsoft SQL Server](ms-sql-server-prereqs.md "ms-sql-server-prereqs.md")
-- [Connecting to Microsoft SQL Server using the
-  console](ms-sql-server-console.md "ms-sql-server-console.md")
-- [Connecting to Microsoft SQL Server using
-  APIs](ms-sql-server-api.md "ms-sql-server-api.md")
-- [How connector crawls
-  Microsoft SQL Server ACLs](ms-sql-server-user-management.md "ms-sql-server-user-management.md")
-- [Microsoft SQL Server data source
-  connector field mappings](ms-sql-server-field-mappings.md "ms-sql-server-field-mappings.md")
-- [IAM role for
-  Microsoft SQL Server connector](ms-sql-server-iam-role.md "ms-sql-server-iam-role.md")
+- [Connecting to Microsoft SQL Server using the console](ms-sql-server-console.md "ms-sql-server-console.md")
+- [Connecting to Microsoft SQL Server using APIs](ms-sql-server-api.md "ms-sql-server-api.md")
+- [How connector crawls Microsoft SQL Server ACLs](ms-sql-server-user-management.md "ms-sql-server-user-management.md")
+- [Microsoft SQL Server data source connector field mappings](ms-sql-server-field-mappings.md "ms-sql-server-field-mappings.md")
+- [IAM role for Microsoft SQL Server connector](ms-sql-server-iam-role.md "ms-sql-server-iam-role.md")
 
 **Learn more**
 

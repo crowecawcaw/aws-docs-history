@@ -21,20 +21,14 @@ avoid adding tables with sensitive data or personal identifiable information (PI
 
 ###### Topics
 
-- [Known limitations for the IBM DB2
-  connector](ibm-db2-limitations.md "ibm-db2-limitations.md")
+- [Known limitations for the IBM DB2 connector](ibm-db2-limitations.md "ibm-db2-limitations.md")
 - [IBM DB2 connector overview](ibm-db2-overview.md "ibm-db2-overview.md")
 - [Prerequisites for connecting Amazon Q Business to IBM DB2](ibm-db2-prereqs.md "ibm-db2-prereqs.md")
-- [Connecting Amazon Q Business to
-  IBM DB2 using the console](ibm-db2-console.md "ibm-db2-console.md")
-- [Connecting Amazon Q Business to
-  IBM DB2 using APIs](ibm-db2-api.md "ibm-db2-api.md")
-- [How Amazon Q Business connector
-  crawls IBM DB2 ACLs](ibm-db2-user-management.md "ibm-db2-user-management.md")
-- [IBM DB2 data source connector
-  field mappings](ibm-db2-field-mappings.md "ibm-db2-field-mappings.md")
-- [IAM role for IBM DB2
-  connector](ibm-db2-iam-role.md "ibm-db2-iam-role.md")
+- [Connecting Amazon Q Business to IBM DB2 using the console](ibm-db2-console.md "ibm-db2-console.md")
+- [Connecting Amazon Q Business to IBM DB2 using APIs](ibm-db2-api.md "ibm-db2-api.md")
+- [How Amazon Q Business connector crawls IBM DB2 ACLs](ibm-db2-user-management.md "ibm-db2-user-management.md")
+- [IBM DB2 data source connector field mappings](ibm-db2-field-mappings.md "ibm-db2-field-mappings.md")
+- [IAM role for IBM DB2 connector](ibm-db2-iam-role.md "ibm-db2-iam-role.md")
 
 **Learn more**
 

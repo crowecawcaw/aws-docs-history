@@ -1,6 +1,4 @@
-# How Amazon Q Business connector
-
-crawls Aurora (PostgreSQL) ACLs
+# How Amazon Q Business connector crawls Aurora (PostgreSQL) ACLs
 
 When you connect a database data source to Amazon Q Business, Amazon Q Business crawls user and group information from a column in the source table.
 You specify this column in the console or using the `configuration` parameter

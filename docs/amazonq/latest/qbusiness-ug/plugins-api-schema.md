@@ -16,12 +16,9 @@ Swagger website.
 
 ###### Topics
 
-- [OpenAPI Schema definitions for
-  custom plugins](#plugins-api-schema-definition "#plugins-api-schema-definition")
+- [OpenAPI Schema definitions for custom plugins](#plugins-api-schema-definition "#plugins-api-schema-definition")
 
-## OpenAPI Schema definitions for
-
-custom plugins
+## OpenAPI Schema definitions for custom plugins
 
 The following is the general format of an OpenAPI schema for a custom
 plugin.
@@ -102,12 +99,9 @@ For details on configuring the fields review the following sections:
 ###### Topics
 
 - [OpenAPI Schema responses](#plugins-api-schema-responses "#plugins-api-schema-responses")
-- [OpenAPI Schema
-  parameters](#plugins-api-schema-parameters "#plugins-api-schema-parameters")
-- [OpenAPI Schema request
-  body](#plugins-api-schema-request-body "#plugins-api-schema-request-body")
-- [OpenAPI Schema security
-  schemes](#plugins-api-schema-security-scheme "#plugins-api-schema-security-scheme")
+- [OpenAPI Schema parameters](#plugins-api-schema-parameters "#plugins-api-schema-parameters")
+- [OpenAPI Schema request body](#plugins-api-schema-request-body "#plugins-api-schema-request-body")
+- [OpenAPI Schema security schemes](#plugins-api-schema-security-scheme "#plugins-api-schema-security-scheme")
 
 ### OpenAPI Schema responses
 
@@ -158,9 +152,7 @@ contains the following information for the response:
     determine the information that it needs to return to the end
     user.
 
-### OpenAPI Schema
-
-parameters
+### OpenAPI Schema parameters
 
 The following are examples of parameters.
 
@@ -224,9 +216,7 @@ must get from the end user to perform the plugin's requirements.
   such as `{"type": "array", "items": {"string"}}` are not
   supported.
 
-### OpenAPI Schema request
-
-body
+### OpenAPI Schema request body
 
 The following is the general structure of a `requestBody`
 field:
@@ -281,9 +271,7 @@ The following list describes each field:
   such as `{"type": "array", "items": {"string"}}` are not
   supported.
 
-### OpenAPI Schema security
-
-schemes
+### OpenAPI Schema security schemes
 
 Following is the general structure of a `securityScheme`
 field:

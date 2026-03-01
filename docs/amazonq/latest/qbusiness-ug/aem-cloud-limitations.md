@@ -1,4 +1,4 @@
-# Known limitations for the Amazon Q BusinessAEM (Cloud) connector
+# Known limitations for the Amazon Q Business AEM (Cloud) connector
 
 The AEM (Cloud) connector has the following known limitations:
 

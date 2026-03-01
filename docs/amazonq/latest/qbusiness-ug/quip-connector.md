@@ -10,19 +10,13 @@ document-authoring capabilities. You can connect your Quip instance to Amazon Q 
 ###### Topics
 
 - [Known limitations for the Amazon Q Business Quip connector](quip-limitations.md "quip-limitations.md")
-- [Quip connector
-  overview](quip-overview.md "quip-overview.md")
+- [Quip connector overview](quip-overview.md "quip-overview.md")
 - [Prerequisites for connecting Amazon Q Business to Quip](quip-prereqs.md "quip-prereqs.md")
-- [Retrieving Quip
-  credentials](quip-credentials.md "quip-credentials.md")
-- [Connecting Amazon Q Business to
-  Quip using the console](quip-console.md "quip-console.md")
-- [Connecting Amazon Q Business to
-  Quip using APIs](quip-api.md "quip-api.md")
-- [How Amazon Q Business connector
-  crawls Quip ACLs](quip-user-management.md "quip-user-management.md")
-- [Quip data source connector
-  field mappings](quip-field-mappings.md "quip-field-mappings.md")
+- [Retrieving Quip credentials](quip-credentials.md "quip-credentials.md")
+- [Connecting Amazon Q Business to Quip using the console](quip-console.md "quip-console.md")
+- [Connecting Amazon Q Business to Quip using APIs](quip-api.md "quip-api.md")
+- [How Amazon Q Business connector crawls Quip ACLs](quip-user-management.md "quip-user-management.md")
+- [Quip data source connector field mappings](quip-field-mappings.md "quip-field-mappings.md")
 - [IAM role for Amazon Q Business Quip connector](quip-iam-role.md "quip-iam-role.md")
 
 **Learn more**

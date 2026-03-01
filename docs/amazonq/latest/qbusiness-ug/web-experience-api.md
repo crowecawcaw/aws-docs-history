@@ -1,6 +1,4 @@
-# Creating and customizing an Amazon Q Business
-
-web experience using APIs
+# Creating and customizing an Amazon Q Business web experience using APIs
 
 If you use the console to create your Amazon Q Business application, a web
 experience is created automatically and connected to your chosen data source.

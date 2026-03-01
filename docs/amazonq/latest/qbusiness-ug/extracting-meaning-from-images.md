@@ -1,6 +1,4 @@
-# Extracting semantic meaning from embedded
-
-visual content with Amazon Q Business
+# Extracting semantic meaning from embedded visual content with Amazon Q Business
 
 When Amazon Q Business processes your input files from a data source, it uses advanced image
 understanding capabilities to extract semantic information and insights from images and
@@ -45,16 +43,11 @@ enabling for existing datasources.
 ###### Topics
 
 - [End user experience](#semantic-meaning-user-experience "#semantic-meaning-user-experience")
-- [Guidelines and
-  requirements](semantic-meaning-guidelines-and-requirements.md "semantic-meaning-guidelines-and-requirements.md")
-- [Extracting content from visuals
-  with data connectors](enable-semantic-meanining-data-source.md "enable-semantic-meanining-data-source.md")
-- [Extracting semantic meaning from audio and
-  video content](Audio-video-extraction.md "Audio-video-extraction.md")
-- [Extracting content from visuals
-  in a file](enable-semantic-meanining-file-upload.md "enable-semantic-meanining-file-upload.md")
-- [Downloading images to add to
-  responses (API operations)](semantic-meaning-adding-img-response.md "semantic-meaning-adding-img-response.md")
+- [Guidelines and requirements](semantic-meaning-guidelines-and-requirements.md "semantic-meaning-guidelines-and-requirements.md")
+- [Extracting content from visuals with data connectors](enable-semantic-meanining-data-source.md "enable-semantic-meanining-data-source.md")
+- [Extracting semantic meaning from audio and video content](Audio-video-extraction.md "Audio-video-extraction.md")
+- [Extracting content from visuals in a file](enable-semantic-meanining-file-upload.md "enable-semantic-meanining-file-upload.md")
+- [Downloading images to add to responses (API operations)](semantic-meaning-adding-img-response.md "semantic-meaning-adding-img-response.md")
 
 ## End user experience
 

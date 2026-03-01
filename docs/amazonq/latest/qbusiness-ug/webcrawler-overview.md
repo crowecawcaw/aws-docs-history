@@ -1,6 +1,4 @@
-# Web Crawler connector
-
-overview
+# Web Crawler connector overview
 
 The following table gives an overview of the Amazon Q Business
 Web Crawler connector and its supported features.

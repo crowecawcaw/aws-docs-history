@@ -20,13 +20,8 @@ on your behalf, unless otherwise noted.
 ###### Topics
 
 - [IAM role for an Amazon Q Business application](create-application-iam-role.md "create-application-iam-role.md")
-- [IAM role for an Amazon Q Business web
-  experience](deploy-experience-iam-role.md "deploy-experience-iam-role.md")
-- [IAM role for Amazon Q Business data
-  source connectors](iam-roles-ds.md "iam-roles-ds.md")
-- [IAM role for Amazon Q Business
-  plugins](plugin-iam-role.md "plugin-iam-role.md")
-- [IAM roles for custom document enrichment in
-  Amazon Q Business](cde-iam-roles.md "cde-iam-roles.md")
-- [IAM role for an Amazon Kendra
-  retriever](kendra-retriever-iam-role.md "kendra-retriever-iam-role.md")
+- [IAM role for an Amazon Q Business web experience](deploy-experience-iam-role.md "deploy-experience-iam-role.md")
+- [IAM role for Amazon Q Business data source connectors](iam-roles-ds.md "iam-roles-ds.md")
+- [IAM role for Amazon Q Business plugins](plugin-iam-role.md "plugin-iam-role.md")
+- [IAM roles for custom document enrichment in Amazon Q Business](cde-iam-roles.md "cde-iam-roles.md")
+- [IAM role for an Amazon Kendra retriever](kendra-retriever-iam-role.md "kendra-retriever-iam-role.md")

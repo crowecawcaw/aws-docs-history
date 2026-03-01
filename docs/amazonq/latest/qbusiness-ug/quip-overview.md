@@ -1,6 +1,4 @@
-# Quip connector
-
-overview
+# Quip connector overview
 
 The following table gives an overview of the Quip connector and its
 supported features.

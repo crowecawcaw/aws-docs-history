@@ -1,6 +1,4 @@
-# Setting up Slack for
-
-connecting to Amazon Q
+# Setting up Slack for connecting to Amazon Q
 
 Before you connect Slack to Amazon Q, you need to create and
 retrieve the Slack credentials you will use to connect Slack

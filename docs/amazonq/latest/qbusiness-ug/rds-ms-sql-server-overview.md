@@ -1,6 +1,4 @@
-# Amazon RDS (Microsoft SQL Server) connector
-
-overview
+# Amazon RDS (Microsoft SQL Server) connector overview
 
 The following table gives an overview of the Amazon Q Business
 Amazon RDS (Microsoft SQL Server) connector and its supported features.

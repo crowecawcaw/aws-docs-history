@@ -1,6 +1,4 @@
-# Adding document metadata in
-
-Amazon S3
+# Adding document metadata in Amazon S3
 
 To customize chat results for your end users, you can add metadata or document attributes
 to documents in an Amazon S3 bucket by using a metadata file. Metadata is additional
@@ -19,8 +17,7 @@ no source URI is configured.
 ###### Topics
 
 - [Document metadata location](#s3-metadata-location-v2 "#s3-metadata-location-v2")
-- [Document metadata
-  structure](#s3-metadata-structure-v2 "#s3-metadata-structure-v2")
+- [Document metadata structure](#s3-metadata-structure-v2 "#s3-metadata-structure-v2")
 
 ## Document metadata location
 
@@ -74,9 +71,7 @@ File mapping
         s3://bucketName/metadata/documents/legal/file.txt.metadata.json
 ```
 
-## Document metadata
-
-structure
+## Document metadata structure
 
 You define your document metadata itself in a JSON file. The file must be a UTF-8 text
 file without a BOM marker. The file name of the JSON file must be

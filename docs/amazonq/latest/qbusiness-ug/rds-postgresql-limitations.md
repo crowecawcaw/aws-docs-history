@@ -1,6 +1,4 @@
-# Known limitations for the Amazon RDS (PostgreSQL)
-
-connector
+# Known limitations for the Amazon RDS (PostgreSQL) connector
 
 The Amazon RDS (PostgreSQL) connector has the following known limitations:
 

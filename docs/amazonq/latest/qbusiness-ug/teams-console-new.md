@@ -1,12 +1,8 @@
-# Connecting using the latest
-
-Microsoft Teams connector (Console)
+# Connecting using the latest Microsoft Teams connector (Console)
 
 The latest Microsoft Teams connector provides a simplified configuration experience with essential features. Use this procedure to connect Amazon Q Business to Microsoft Teams using the latest connector.
 
-###### To connect Amazon Q to Microsoft Teams using the latest
-
-connector
+###### To connect Amazon Q to Microsoft Teams using the latest connector
 
 1.  Sign in to the AWS Management Console and open the Amazon Q Business
     console.
@@ -100,8 +96,7 @@ sync.
      your documents from deletion during a sync job, select **On** and enter an integer between 0 - 100. If
      the percentage of documents to be deleted in your sync job exceeds the percentage you selected, the
      delete phase will be skipped and no documents from this data source will be deleted from your index. For more information, see
-     [Document deletion
-     safeguard](connector-concepts.md#document-deletion-safeguard "connector-concepts.md#document-deletion-safeguard").
+     [Document deletion safeguard](connector-concepts.md#document-deletion-safeguard "connector-concepts.md#document-deletion-safeguard").
 
 11. In **Additional configuration –
     _optional_**, configure the following simplified

@@ -1,7 +1,4 @@
-# Example IAM
-
-policies for Amazon Q Business application environment supporting anonymous
-access
+# Example IAM policies for Amazon Q Business application environment supporting anonymous access
 
 We strongly recommend that you use a restricted policies for the role that will be
 used to call the chat APIs for anonymous access application environments.
@@ -12,18 +9,12 @@ policies.
 
 ###### Topics
 
-- [Policy for calling
-  relevant APIs](#anonymous-application-iam-policies-api "#anonymous-application-iam-policies-api")
-- [Policies for
-  using the web experience](#anonymous-application-iam-policies-web-experience "#anonymous-application-iam-policies-web-experience")
+- [Policy for calling relevant APIs](#anonymous-application-iam-policies-api "#anonymous-application-iam-policies-api")
+- [Policies for using the web experience](#anonymous-application-iam-policies-web-experience "#anonymous-application-iam-policies-web-experience")
 
-## Policy for calling
+## Policy for calling relevant APIs
 
-relevant APIs
-
-###### Example policy to allow the Amazon Q Business APIs for anonymous
-
-access
+###### Example policy to allow the Amazon Q Business APIs for anonymous access
 
 ```
 {
@@ -41,9 +32,7 @@ access
 }
 ```
 
-###### Applying your restricted policies to an IAM role for using APIs for
-
-Amazon Q application environments supporting anonymous access
+###### Applying your restricted policies to an IAM role for using APIs for Amazon Q application environments supporting anonymous access
 
 1. Create a directory named _policies_.
 2. In that directory, create and save a file named
@@ -61,13 +50,9 @@ create-role \
 --policy-document file://policies/permspolicyforAPIanonymous.json
 ```
 
-## Policies for
+## Policies for using the web experience
 
-using the web experience
-
-###### Example policy to allow the Amazon Q Business web experience for anonymous
-
-access
+###### Example policy to allow the Amazon Q Business web experience for anonymous access
 
 ```
 {
@@ -87,9 +72,7 @@ access
 }
 ```
 
-###### Example trust policy to allow the Amazon Q Business web experience for
-
-anonymous access
+###### Example trust policy to allow the Amazon Q Business web experience for anonymous access
 
 ```
 {
@@ -118,9 +101,7 @@ anonymous access
 
 ```
 
-###### Applying your restricted policies for using the web experience to an
-
-IAM role
+###### Applying your restricted policies for using the web experience to an IAM role
 
 1. Create a directory named _policies_.
 2. Then, in the same directory, create and save a file named

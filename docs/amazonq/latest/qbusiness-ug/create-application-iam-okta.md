@@ -1,6 +1,4 @@
-# Creating an Amazon Q Business
-
-application using IAM Federation through Okta
+# Creating an Amazon Q Business application using IAM Federation through Okta
 
 As the first step toward creating a generative artificial intelligence (AI) assistant,
 configure your external identity provider and connect it to AWS Identity and Access Management.
@@ -36,14 +34,10 @@ topics:
 ###### Topics
 
 - [Prerequisites](#create-iam-app-okta-prereqs "#create-iam-app-okta-prereqs")
-- [Step 1: Create and configure an
-  Okta application](#create-iam-app-okta-1 "#create-iam-app-okta-1")
-- [Step 2: Add an identity provider in
-  IAM](#create-iam-app-okta-2 "#create-iam-app-okta-2")
-- [Step 3: Connect IAM to
-  Okta](#create-iam-app-okta-3 "#create-iam-app-okta-3")
-- [Step 4: Create Amazon Q Business
-  application](#create-iam-app-okta-saml-4 "#create-iam-app-okta-saml-4")
+- [Step 1: Create and configure an Okta application](#create-iam-app-okta-1 "#create-iam-app-okta-1")
+- [Step 2: Add an identity provider in IAM](#create-iam-app-okta-2 "#create-iam-app-okta-2")
+- [Step 3: Connect IAM to Okta](#create-iam-app-okta-3 "#create-iam-app-okta-3")
+- [Step 4: Create Amazon Q Business application](#create-iam-app-okta-saml-4 "#create-iam-app-okta-saml-4")
 
 ## Prerequisites
 
@@ -74,9 +68,7 @@ IAM policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../
 
 - (Optional) Checked [how subscriptions work](tiers.md#managing-sub-tiers-iam "tiers.md#managing-sub-tiers-iam") for Amazon Q Business applications using IAM Federation.
 
-## Step 1: Create and configure an
-
-Okta application
+## Step 1: Create and configure an Okta application
 
 This procedure outlines how to create and configure an Okta
 instance for an Amazon Q Business application using a built-in web experience
@@ -345,9 +337,7 @@ Microsoft Entra ID.
 You are now ready to move to the AWS Identity and Access Management console to create an identity provider
 integration for your Okta instance.
 
-## Step 2: Add an identity provider in
-
-IAM
+## Step 2: Add an identity provider in IAM
 
 In this step, you add configure AWS Identity and Access Management by creating an identity provider
 integration for your Okta instance.
@@ -581,9 +571,7 @@ identity provider ARN:
 Now, move on to the Amazon Q Business console to create your
 application.
 
-## Step 3: Connect IAM to
-
-Okta
+## Step 3: Connect IAM to Okta
 
 In this step, you complete configuring the trust relationship between AWS Identity and Access Management
 and Okta.
@@ -664,9 +652,7 @@ OIDC
 **This step isn't needed for
 OIDC.**
 
-## Step 4: Create Amazon Q Business
-
-application
+## Step 4: Create Amazon Q Business application
 
 To create an Amazon Q Business application environment, you can use either the
 AWS Management Console or the Amazon Q Business API. When you create an application,

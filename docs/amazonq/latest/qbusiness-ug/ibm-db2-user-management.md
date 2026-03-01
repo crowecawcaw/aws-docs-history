@@ -1,6 +1,4 @@
-# How Amazon Q Business connector
-
-crawls IBM DB2 ACLs
+# How Amazon Q Business connector crawls IBM DB2 ACLs
 
 Connectors support crawling ACL and identity information where applicable based on the data source.
 If you index documents without ACLs, all documents are considered public.

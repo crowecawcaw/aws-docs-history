@@ -1,20 +1,15 @@
-# Managing subscriptions for
-
-applications using IAM Federation
+# Managing subscriptions for applications using IAM Federation
 
 To manage user subscriptions added to an application environment, you can perform the
 following actions:
 
 ###### Actions
 
-- [Updating subscription
-  tiers](#update-user-subscriptions-tier-iam "#update-user-subscriptions-tier-iam")
+- [Updating subscription tiers](#update-user-subscriptions-tier-iam "#update-user-subscriptions-tier-iam")
 - [Unsubscribing a user](#delete-user-subscriptions-iam "#delete-user-subscriptions-iam")
 - [Listing user subscriptions](#list-user-subscriptions-iam "#list-user-subscriptions-iam")
 
-## Updating subscription
-
-tiers
+## Updating subscription tiers
 
 You can update a subscription tier using the AWS Management Console or the [UpdateSubscription](../api-reference/API_UpdateSubscription.md "../api-reference/API_UpdateSubscription.md") API
 operation.

@@ -5,16 +5,11 @@ SharePoint Server 2019 to Amazon Q, based on the authentication mode of your cho
 
 ###### Topics
 
-- [Prerequisites for using NTLM
-  authentication](#sharepoint-server-2019-prereqs-ntlm "#sharepoint-server-2019-prereqs-ntlm")
-- [Prerequisites for using Kerberos
-  authentication](#sharepoint-server-2019-prereqs-kerberos "#sharepoint-server-2019-prereqs-kerberos")
-- [Prerequisites for using
-  SharePoint App-Only authentication](#sharepoint-server-2019-prereqs-app-only "#sharepoint-server-2019-prereqs-app-only")
+- [Prerequisites for using NTLM authentication](#sharepoint-server-2019-prereqs-ntlm "#sharepoint-server-2019-prereqs-ntlm")
+- [Prerequisites for using Kerberos authentication](#sharepoint-server-2019-prereqs-kerberos "#sharepoint-server-2019-prereqs-kerberos")
+- [Prerequisites for using SharePoint App-Only authentication](#sharepoint-server-2019-prereqs-app-only "#sharepoint-server-2019-prereqs-app-only")
 
-## Prerequisites for using NTLM
-
-authentication
+## Prerequisites for using NTLM authentication
 
 **If you're using NTLM authentication, make sure you've
 completed the following steps in SharePoint Server 2019:**
@@ -63,9 +58,7 @@ console.
 
 For a list of things to consider while configuring your data source, see [Data source connector configuration best practices](connector-best-practices.md "connector-best-practices.md").
 
-## Prerequisites for using Kerberos
-
-authentication
+## Prerequisites for using Kerberos authentication
 
 **If you're using Kerberos authentication, make sure you've
 completed the following steps in SharePoint Server 2019:**
@@ -115,9 +108,7 @@ console.
 
 For a list of things to consider while configuring your data source, see [Data source connector configuration best practices](connector-best-practices.md "connector-best-practices.md").
 
-## Prerequisites for using
-
-SharePoint App-Only authentication
+## Prerequisites for using SharePoint App-Only authentication
 
 **If you're using SharePoint App-Only authentication, make
 sure you've completed the following steps in

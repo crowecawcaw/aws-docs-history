@@ -1,6 +1,4 @@
-# Managing user subscriptions for
-
-IAM Identity Center-integrated applications
+# Managing user subscriptions for IAM Identity Center-integrated applications
 
 To manage user subscriptions added to an application environment, you can perform the
 following actions:
@@ -8,8 +6,7 @@ following actions:
 ###### Actions
 
 - [Updating user subscriptions](#update-user-subscriptions "#update-user-subscriptions")
-- [Canceling user or group
-  subscriptions](#delete-user-subscriptions "#delete-user-subscriptions")
+- [Canceling user or group subscriptions](#delete-user-subscriptions "#delete-user-subscriptions")
 - [Listing user subscriptions](#list-user-subscriptions "#list-user-subscriptions")
 
 ## Updating user subscriptions
@@ -57,9 +54,7 @@ aws qbusiness update-subscription \
 --type `subscription-type`
 ```
 
-## Canceling user or group
-
-subscriptions
+## Canceling user or group subscriptions
 
 To cancel subscriptions, you can use the AWS Management Console or the [CancelSubscription](../api-reference/API_CancelSubscription.md "../api-reference/API_CancelSubscription.md") API
 operation.
@@ -95,9 +90,9 @@ groups and also removes them from your Amazon Q Business application environment
 ###### Note
 
 To stop subscription charges for a user, ensure you
-have unsubscribed that user from all Amazon Q Business application environments and Quick Suite
+have unsubscribed that user from all Amazon Q Business application environments and Quick
 instances. For instructions on how to unsubscribe a user
-from Quick Suite, see [Unsubscribing from Quick Suite Q](../../../quicksight/latest/user/quicksight-q-unsubscribe.md "../../../quicksight/latest/user/quicksight-q-unsubscribe.md") in the Quick Suite User
+from Quick, see [Unsubscribing from Quick Q](../../../quicksight/latest/user/quicksight-q-unsubscribe.md "../../../quicksight/latest/user/quicksight-q-unsubscribe.md") in the Quick User
 Guide.
 
 To stop charges for an Amazon Q Business index,

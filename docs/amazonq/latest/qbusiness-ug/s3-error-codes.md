@@ -1,6 +1,4 @@
-# Understand error codes in the
-
-Amazon S3 connector
+# Understand error codes in the Amazon S3 connector
 
 The following table provides information about error codes you may see for the Amazon S3
 connector and suggested resolutions.

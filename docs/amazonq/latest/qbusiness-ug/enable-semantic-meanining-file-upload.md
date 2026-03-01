@@ -1,6 +1,4 @@
-# Extracting content from visuals
-
-in a file
+# Extracting content from visuals in a file
 
 You can enable content extraction from a file with the Amazon Q Business console or API
 operations. Processing images and visuals takes more time than processing text-only for

@@ -19,8 +19,7 @@ With the Amazon Q Outlook Add-in your users can:
 
 - [Configuring the Amazon Q Business Microsoft Outlook Add-in for use](configuring-integration-msoutlook.md "configuring-integration-msoutlook.md")
 - [Removing the Amazon Q Business Add-in as a Microsoft Outlook integration](#removing-integration-msoutlook "#removing-integration-msoutlook")
-- [Using the Amazon Q Business
-  Add-in for Microsoft Outlook](using-integration-msoutlook.md "using-integration-msoutlook.md")
+- [Using the Amazon Q Business Add-in for Microsoft Outlook](using-integration-msoutlook.md "using-integration-msoutlook.md")
 
 ## Removing the Amazon Q Business Add-in as a Microsoft Outlook integration
 

@@ -1,6 +1,4 @@
-# Amazon RDS (Oracle) connector
-
-overview
+# Amazon RDS (Oracle) connector overview
 
 The following table gives an overview of the Amazon Q Business
 Amazon RDS (Oracle) connector and its supported features.

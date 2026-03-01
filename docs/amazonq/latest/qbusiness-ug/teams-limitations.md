@@ -1,6 +1,4 @@
-# Known limitations for the
-
-Microsoft Teams connector
+# Known limitations for the Microsoft Teams connector
 
 ###### Note
 

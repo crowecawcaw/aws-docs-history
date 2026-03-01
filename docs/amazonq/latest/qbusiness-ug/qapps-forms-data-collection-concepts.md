@@ -12,8 +12,7 @@ Amazon Q Apps.
 - [Data collection owner](#qapps-forms-owner "#qapps-forms-owner")
 - [User](#qapps-forms-user "#qapps-forms-user")
 - [Shareable link](#qapps-forms-shareable-link "#qapps-forms-shareable-link")
-- [Access control and
-  security](#qapps-forms-access-control-and-security "#qapps-forms-access-control-and-security")
+- [Access control and security](#qapps-forms-access-control-and-security "#qapps-forms-access-control-and-security")
 
 ## Data collection
 
@@ -79,8 +78,7 @@ Key aspects of the Owner role include:
   settings to allow users to submit data or see all collected data. This is
   important when the data collection is being used for sensitive information
   (e.g., personal identifying information (PII)). For more information, see
-  [Access control and
-  security](#qapps-forms-access-control-and-security "#qapps-forms-access-control-and-security").
+  [Access control and security](#qapps-forms-access-control-and-security "#qapps-forms-access-control-and-security").
 - Limited app editing capabilities – They can't make structural
   changes to the core data collection app (i.e., add, edit, and remove
   cards).
@@ -114,9 +112,7 @@ include:
 - Security – Links may have additional security measures, such as
   expiration dates or user authentication requirements.
 
-## Access control and
-
-security
+## Access control and security
 
 The Data collection owner controls who can submit data and who can view the
 collected data.

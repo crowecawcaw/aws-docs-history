@@ -1,6 +1,4 @@
-# IAM role for
-
-Smartsheet connector
+# IAM role for Smartsheet connector
 
 If you use the AWS CLI or an AWS SDK, you must create an AWS Identity and Access Management (IAM)
 policy before you create an Amazon Q resource. When you call the operation,

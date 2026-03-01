@@ -1,6 +1,4 @@
-# Prerequisites for Amazon Q
-
-Apps
+# Prerequisites for Amazon Q Apps
 
 Before using Amazon Q Apps, make sure that you do the following:
 

@@ -21,14 +21,10 @@
 
 ###### Topics
 
-- [Prerequisites for
-  integrating the Amazon Q Microsoft Word Add-in](#integration-mswords-prerequisites "#integration-mswords-prerequisites")
-- [Integrating Microsoft Word with
-  theAmazon Q Business Add-in](#integrating-integration-msword "#integrating-integration-msword")
+- [Prerequisites for integrating the Amazon Q Microsoft Word Add-in](#integration-mswords-prerequisites "#integration-mswords-prerequisites")
+- [Integrating Microsoft Word with theAmazon Q Business Add-in](#integrating-integration-msword "#integrating-integration-msword")
 
-## Prerequisites for
-
-integrating the Amazon Q Microsoft Word Add-in
+## Prerequisites for integrating the Amazon Q Microsoft Word Add-in
 
 As admins, before you can integrate the Amazon Q Business Microsoft Word
 (Word) Add-in, you must complete the following steps.
@@ -55,9 +51,7 @@ guardrails. For more information, see the [Response settings](guardrails-global-
 [`chatMode`](../api-reference/API_ChatSync.md#qbusiness-ChatSync-request-chatMode "../api-reference/API_ChatSync.md#qbusiness-ChatSync-request-chatMode") if you are
 configuring programmatically.
 
-## Integrating Microsoft Word with
-
-theAmazon Q Business Add-in
+## Integrating Microsoft Word with theAmazon Q Business Add-in
 
 To use the Amazon Q Business Add-in for Microsoft Word, you must allow
 it to connect to your Amazon Q Business application environment and web experience.
@@ -67,9 +61,7 @@ it to connect to your Amazon Q Business application environment and web experien
 This integration can only be added using the Amazon Q Business
 console.
 
-### Using the
-
-console
+### Using the console
 
 1. Sign in to the Amazon Q Business console.
 2. Choose **Applications**, then select the name of

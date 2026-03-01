@@ -1,6 +1,4 @@
-# IAM role for Amazon Q Business
-
-plugins
+# IAM role for Amazon Q Business plugins
 
 To successfully connect Amazon Q Business to a plugin, you need to give Amazon Q Business the following permissions using a service access role:
 

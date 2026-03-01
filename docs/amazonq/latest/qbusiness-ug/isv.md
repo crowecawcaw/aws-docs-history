@@ -17,19 +17,13 @@ Amazon Q index on behalf of a customer](isv-creating-index.md "isv-creating-inde
 
 - [Key concepts](isv-key-concepts.md "isv-key-concepts.md")
 - [Prerequisites](isv-prerequisites.md "isv-prerequisites.md")
-- [Information to be provided to the Amazon Q Business
-  team](isv-info-to-provide.md "isv-info-to-provide.md")
-- [Getting access to your customer's Amazon Q
-  index](isv-getting-access.md "isv-getting-access.md")
-- [Accessing a customer's Amazon Q index as a
-  data accessor using cross-account access](#isv-accessing-cross-account "#isv-accessing-cross-account")
-- [Creating an Amazon Q index on behalf of a
-  customer](isv-creating-index.md "isv-creating-index.md")
+- [Information to be provided to the Amazon Q Business team](isv-info-to-provide.md "isv-info-to-provide.md")
+- [Getting access to your customer's Amazon Q index](isv-getting-access.md "isv-getting-access.md")
+- [Accessing a customer's Amazon Q index as a data accessor using cross-account access](#isv-accessing-cross-account "#isv-accessing-cross-account")
+- [Creating an Amazon Q index on behalf of a customer](isv-creating-index.md "isv-creating-index.md")
 - [Troubleshooting](isv-troubleshooting.md "isv-troubleshooting.md")
 
-## Accessing a customer's Amazon Q index as a
-
-data accessor using cross-account access
+## Accessing a customer's Amazon Q index as a data accessor using cross-account access
 
 After Amazon Q Business customers give an independent software provider or vendor's (ISV)
 _data accessor_ permissions to retrieve data from their Amazon Q
@@ -64,9 +58,7 @@ calling the `SearchRelevantContent` API operation. The
 standards by only retrieving data that the customer's end users have been given access
 to.
 
-### Retrieving data from a customer's Amazon Q index
-
-as a data accessor using the SearchRelevantContent API
+### Retrieving data from a customer's Amazon Q index as a data accessor using the SearchRelevantContent API
 
 With valid configuration parameters from the customer, the ISV can use the
 `SearchRelevantContent` API operation to retrieve user-specific

@@ -20,21 +20,14 @@ Also, avoid adding tables with sensitive data or personal identifiable informati
 
 ###### Topics
 
-- [Known limitations for the
-  Aurora (MySQL) connector](aurora-mysql-limitations.md "aurora-mysql-limitations.md")
-- [Aurora (MySQL) connector
-  overview](aurora-mysql-overview.md "aurora-mysql-overview.md")
+- [Known limitations for the Aurora (MySQL) connector](aurora-mysql-limitations.md "aurora-mysql-limitations.md")
+- [Aurora (MySQL) connector overview](aurora-mysql-overview.md "aurora-mysql-overview.md")
 - [Prerequisites for connecting Amazon Q Business to Aurora (MySQL)](aurora-mysql-prereqs.md "aurora-mysql-prereqs.md")
-- [Connecting Amazon Q Business to
-  Aurora (MySQL) using the console](aurora-mysql-console.md "aurora-mysql-console.md")
-- [Connecting Amazon Q Business to
-  Aurora (MySQL) using APIs](aurora-mysql-api.md "aurora-mysql-api.md")
-- [How Amazon Q Business connector
-  crawls Aurora (MySQL) ACLs](aurora-mysql-user-management.md "aurora-mysql-user-management.md")
-- [Aurora (MySQL) data source
-  connector field mappings](aurora-mysql-field-mappings.md "aurora-mysql-field-mappings.md")
-- [IAM role for
-  Aurora (MySQL) connector](aurora-mysql-iam-role.md "aurora-mysql-iam-role.md")
+- [Connecting Amazon Q Business to Aurora (MySQL) using the console](aurora-mysql-console.md "aurora-mysql-console.md")
+- [Connecting Amazon Q Business to Aurora (MySQL) using APIs](aurora-mysql-api.md "aurora-mysql-api.md")
+- [How Amazon Q Business connector crawls Aurora (MySQL) ACLs](aurora-mysql-user-management.md "aurora-mysql-user-management.md")
+- [Aurora (MySQL) data source connector field mappings](aurora-mysql-field-mappings.md "aurora-mysql-field-mappings.md")
+- [IAM role for Aurora (MySQL) connector](aurora-mysql-iam-role.md "aurora-mysql-iam-role.md")
 
 **Learn more**
 

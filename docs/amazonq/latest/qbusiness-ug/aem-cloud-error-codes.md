@@ -1,6 +1,4 @@
-# Understand error codes in the
-
-AEM (Cloud) connector
+# Understand error codes in the AEM (Cloud) connector
 
 The following table provides information about error codes you may see for the
 AEM (Cloud) connector and suggested resolutions.

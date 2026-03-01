@@ -1,6 +1,4 @@
-# OAuth 2.0
-
-authentication
+# OAuth 2.0 authentication
 
 You can connect Amazon Q to Confluence (Cloud) using OAuth 2.0
 authentication credentials. The following procedures give you an overview of how to
@@ -11,22 +9,14 @@ authentication.
 
 authentication
 
-- [Step 1: Retrieving username
-  and Confluence (Cloud) URL](#confluence-cloud-credentials-url "#confluence-cloud-credentials-url")
-- [Step 2: Configuring an
-  OAuth 2.0 app integration](#confluence-cloud-credentials-oauth-app "#confluence-cloud-credentials-oauth-app")
-- [Step 3: Retrieving
-  Confluence (Cloud) client ID and client Secret](#confluence-cloud-credentials-id-secret "#confluence-cloud-credentials-id-secret")
-- [Step 4: Generating an
-  Confluence (Cloud) access token](#confluence-cloud-credentials-access "#confluence-cloud-credentials-access")
-- [Step 5: Generating a
-  Confluence (Cloud) refresh token](#confluence-cloud-credentials-refresh "#confluence-cloud-credentials-refresh")
-- [Step 6: Generating
-  a new Confluence (Cloud) access token using a refresh token](#confluence-cloud-credentials-refresh-access "#confluence-cloud-credentials-refresh-access")
+- [Step 1: Retrieving username and Confluence (Cloud) URL](#confluence-cloud-credentials-url "#confluence-cloud-credentials-url")
+- [Step 2: Configuring an OAuth 2.0 app integration](#confluence-cloud-credentials-oauth-app "#confluence-cloud-credentials-oauth-app")
+- [Step 3: Retrieving Confluence (Cloud) client ID and client Secret](#confluence-cloud-credentials-id-secret "#confluence-cloud-credentials-id-secret")
+- [Step 4: Generating an Confluence (Cloud) access token](#confluence-cloud-credentials-access "#confluence-cloud-credentials-access")
+- [Step 5: Generating a Confluence (Cloud) refresh token](#confluence-cloud-credentials-refresh "#confluence-cloud-credentials-refresh")
+- [Step 6: Generating a new Confluence (Cloud) access token using a refresh token](#confluence-cloud-credentials-refresh-access "#confluence-cloud-credentials-refresh-access")
 
-## Step 1: Retrieving username
-
-and Confluence (Cloud) URL
+## Step 1: Retrieving username and Confluence (Cloud) URL
 
 To connect Confluence (Cloud) to Amazon Q, you need your
 Confluence (Cloud) username and your Confluence (Cloud) URL. The following
@@ -43,9 +33,7 @@ procedure shows you how to retrieve these.
    need this later to both configure your OAuth 2.0 token and connect to
    Amazon Q.
 
-## Step 2: Configuring an
-
-OAuth 2.0 app integration
+## Step 2: Configuring an OAuth 2.0 app integration
 
 To connect Confluence (Cloud) to Amazon Q using OAuth 2.0
 authentication, you need to create a Confluence (Cloud) OAuth 2.0 app with the
@@ -195,9 +183,7 @@ To ensure Amazon Q can access all user and group information from your
 Confluence (Cloud) instance, you must provide Atlassian admin credentials. These credentials allow
 Amazon Q to sync user information regardless of individual email visibility settings.
 
-####
-
-Get your Atlassian admin credentials
+#### Get your Atlassian admin credentials
 
 1. Sign in to the [Atlassian admin portal](https://admin.atlassian.com/ "https://admin.atlassian.com/")with administrator permissions.
 2. Open the Administration app for your organization. The URL should look like:
@@ -214,9 +200,7 @@ Note that API keys expire. Monitor the expiration date and
 update your data source credentials before the key
 expires.
 
-####
-
-Get your Directory ID
+#### Get your Directory ID
 
 1. Use the Atlassian Admin Workspace API to get your Directory ID. Run the following command:
 
@@ -275,9 +259,7 @@ scopes documentation](https://developer.atlassian.com/cloud/admin/scopes/ "https
 
 For API details, see [Atlassian Admin Workspace API reference](https://developer.atlassian.com/cloud/admin/organization/rest/api-group-workspaces/#api-group-workspaces "https://developer.atlassian.com/cloud/admin/organization/rest/api-group-workspaces/#api-group-workspaces").
 
-## Step 3: Retrieving
-
-Confluence (Cloud) client ID and client Secret
+## Step 3: Retrieving Confluence (Cloud) client ID and client Secret
 
 To connect Confluence (Cloud) to Amazon Q using OAuth 2.0
 authentication, you need to provide a Confluence (Cloud) client ID and client
@@ -308,9 +290,7 @@ Confluence (Cloud).
 For more information, see [Implementing OAuth 2.0 (3LO)](https://developer.atlassian.com/cloud/oauth/getting-started/implementing-oauth-3lo/ "https://developer.atlassian.com/cloud/oauth/getting-started/implementing-oauth-3lo/") and [Determining the scopes required for an operation](https://developer.atlassian.com/cloud/oauth/getting-started/determining-scopes/ "https://developer.atlassian.com/cloud/oauth/getting-started/determining-scopes/") in
 Atlassian Developer.
 
-## Step 4: Generating an
-
-Confluence (Cloud) access token
+## Step 4: Generating an Confluence (Cloud) access token
 
 To connect Confluence (Cloud) to Amazon Q, you need to generate an
 access token. The following procedure outlines how to generate an access token
@@ -407,9 +387,7 @@ fields with your credential values:
 For more information, see [Implementing OAuth 2.0 (3LO)](https://developer.atlassian.com/cloud/oauth/getting-started/implementing-oauth-3lo/ "https://developer.atlassian.com/cloud/oauth/getting-started/implementing-oauth-3lo/") in Atlassian
 Developer.
 
-## Step 5: Generating a
-
-Confluence (Cloud) refresh token
+## Step 5: Generating a Confluence (Cloud) refresh token
 
 The access token you use to connect Confluence (Cloud) to Amazon Q
 using OAuth 2.0 authentication expires after 1 hour. When it does, you can
@@ -514,9 +492,7 @@ You will need it to connect Confluence (Cloud) to Amazon Q.
 For more information, see [Implementing a Refresh Token Flow](https://developer.atlassian.com/cloud/oauth/getting-started/refresh-tokens/ "https://developer.atlassian.com/cloud/oauth/getting-started/refresh-tokens/") in Atlassian
 Developer.
 
-## Step 6: Generating
-
-a new Confluence (Cloud) access token using a refresh token
+## Step 6: Generating a new Confluence (Cloud) access token using a refresh token
 
 You can use the refresh token you generated to create a new access
 token-refresh token pair when an existing access token expires. The following

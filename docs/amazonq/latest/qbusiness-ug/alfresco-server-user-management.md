@@ -1,6 +1,4 @@
-# How Amazon Q Business connector
-
-crawls Alfresco (Server) ACLs
+# How Amazon Q Business connector crawls Alfresco (Server) ACLs
 
 Connectors support crawling ACL and identity information where applicable based on the data source.
 If you index documents without ACLs, all documents are considered public.

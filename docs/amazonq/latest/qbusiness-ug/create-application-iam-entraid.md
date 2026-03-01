@@ -1,6 +1,4 @@
-# Creating an Amazon Q Business
-
-application using IAM federation through Microsoft Entra ID
+# Creating an Amazon Q Business application using IAM federation through Microsoft Entra ID
 
 As the first step toward creating a generative artificial intelligence (AI) assistant,
 configure your external identity provider and connect it to AWS Identity and Access Management.
@@ -38,18 +36,12 @@ topics:
 ###### Topics
 
 - [Prerequisites](#create-iam-app-entraid-prereqs "#create-iam-app-entraid-prereqs")
-- [Step 1: Create and configure a
-  Microsoft Entra ID application](#create-iam-app-entraid-1 "#create-iam-app-entraid-1")
-- [Step 2: Create an IAM identity
-  provider](#create-iam-app-entraid-2 "#create-iam-app-entraid-2")
-- [Step 3: Update your Microsoft
-  Entra ID application with the IAM role ARN](#create-iam-app-entraid-3 "#create-iam-app-entraid-3")
-- [Step 4: Create an Amazon Q Business
-  application](#create-iam-app-entraid-4 "#create-iam-app-entraid-4")
-- [Step 5: Update your Microsoft
-  Entra ID application with the web experience URL](#create-iam-app-entraid-5 "#create-iam-app-entraid-5")
-- [Troubleshooting Microsoft
-  Entra ID integration](#create-iam-app-entraid-troubleshooting "#create-iam-app-entraid-troubleshooting")
+- [Step 1: Create and configure a Microsoft Entra ID application](#create-iam-app-entraid-1 "#create-iam-app-entraid-1")
+- [Step 2: Create an IAM identity provider](#create-iam-app-entraid-2 "#create-iam-app-entraid-2")
+- [Step 3: Update your Microsoft Entra ID application with the IAM role ARN](#create-iam-app-entraid-3 "#create-iam-app-entraid-3")
+- [Step 4: Create an Amazon Q Business application](#create-iam-app-entraid-4 "#create-iam-app-entraid-4")
+- [Step 5: Update your Microsoft Entra ID application with the web experience URL](#create-iam-app-entraid-5 "#create-iam-app-entraid-5")
+- [Troubleshooting Microsoft Entra ID integration](#create-iam-app-entraid-troubleshooting "#create-iam-app-entraid-troubleshooting")
 
 ## Prerequisites
 
@@ -82,9 +74,7 @@ IAM policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../
 
 - (Optional) Checked [how subscriptions work](tiers.md#managing-sub-tiers-iam "tiers.md#managing-sub-tiers-iam") for Amazon Q Business applications using IAM Federation.
 
-## Step 1: Create and configure a
-
-Microsoft Entra ID application
+## Step 1: Create and configure a Microsoft Entra ID application
 
 This procedure outlines how to create and configure a Microsoft Entra
 ID instance for an Amazon Q Business application using a built-in
@@ -168,9 +158,7 @@ IAM when creating the identity provider in the next step.
 
 You're now ready to move on to configuring AWS Identity and Access Management on the AWS Management Console.
 
-## Step 2: Create an IAM identity
-
-provider
+## Step 2: Create an IAM identity provider
 
 After you create and configure your Microsoft Entra ID application,
 create an IAM identity provider.
@@ -257,9 +245,7 @@ You are now ready to return to Microsoft Entra ID to complete the
 process of establishing a trust relationship between AWS Identity and Access Management and Microsoft
 Entra ID.
 
-## Step 3: Update your Microsoft
-
-Entra ID application with the IAM role ARN
+## Step 3: Update your Microsoft Entra ID application with the IAM role ARN
 
 In this step, you complete configuring the trust relationship between AWS Identity and Access Management
 and Microsoft Entra ID.
@@ -352,9 +338,7 @@ You will need this value to create your Amazon Q application.
 Your Entra ID setup is complete. You're now ready to begin creating
 your Amazon Q Business application.
 
-## Step 4: Create an Amazon Q Business
-
-application
+## Step 4: Create an Amazon Q Business application
 
 After you configure Microsoft Entra ID and IAM, create an Amazon Q Business application.
 
@@ -494,9 +478,7 @@ You've finished configuring your Amazon Q Business application. You're now
 ready to return to Entra ID to make the final changes needed to
 successfully launch your web experience application.
 
-## Step 5: Update your Microsoft
-
-Entra ID application with the web experience URL
+## Step 5: Update your Microsoft Entra ID application with the web experience URL
 
 After you create your Amazon Q Business application and web experience,
 update your Microsoft Entra ID application with the web experience
@@ -536,9 +518,7 @@ application**
 You've finished configuring your Amazon Q Business for chat. Your authenticated end users
 can now log in and chat with your web experience.
 
-## Troubleshooting Microsoft
-
-Entra ID integration
+## Troubleshooting Microsoft Entra ID integration
 
 If you encounter issues with your Microsoft Entra ID integration,
 check the following:

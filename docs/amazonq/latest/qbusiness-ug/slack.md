@@ -22,6 +22,5 @@ With the Amazon Q Slack integration your users can do the following:
 
 ###### Topics
 
-- [Configuring the Amazon Q Business Slack integration
-  for use](slack-configuration.md "slack-configuration.md")
+- [Configuring the Amazon Q Business Slack integration for use](slack-configuration.md "slack-configuration.md")
 - [Using the Amazon Q Business Slack App](slack-using.md "slack-using.md")

@@ -1,6 +1,4 @@
-# Connecting Amazon Q Business to
-
-SharePoint Server (Subscription Edition) using AWS CloudFormation
+# Connecting Amazon Q Business to SharePoint Server (Subscription Edition) using AWS CloudFormation
 
 You use the [`AWS::QBusiness::DataSource`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.md") resource to connect a data source to
 your Amazon Q application.
@@ -14,16 +12,11 @@ in the _CloudFormation User Guide_.
 
 ###### Topics
 
-- [SharePoint Server (Subscription Edition)
-  configuration properties](#sharepoint-server-subscription-configuration-keys "#sharepoint-server-subscription-configuration-keys")
-- [SharePoint Server (Subscription Edition) JSON schema for using
-  the configuration property with AWS CloudFormation](#sharepoint-server-subscription-cfn-json "#sharepoint-server-subscription-cfn-json")
-- [SharePoint Server (Subscription Edition) YAML schema for using the
-  configuration property with AWS CloudFormation](#sharepoint-server-subscription-cfn-yaml "#sharepoint-server-subscription-cfn-yaml")
+- [SharePoint Server (Subscription Edition) configuration properties](#sharepoint-server-subscription-configuration-keys "#sharepoint-server-subscription-configuration-keys")
+- [SharePoint Server (Subscription Edition) JSON schema for using the configuration property with AWS CloudFormation](#sharepoint-server-subscription-cfn-json "#sharepoint-server-subscription-cfn-json")
+- [SharePoint Server (Subscription Edition) YAML schema for using the configuration property with AWS CloudFormation](#sharepoint-server-subscription-cfn-yaml "#sharepoint-server-subscription-cfn-yaml")
 
-## SharePoint Server (Subscription Edition)
-
-configuration properties
+## SharePoint Server (Subscription Edition) configuration properties
 
 | Configuration                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                              | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Required |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
@@ -58,23 +51,17 @@ configuration properties
 | `secretARN`                                                                                                                                                                                                                                                                                                                                                                                                                                                      | The Amazon Resource Name (ARN) of an AWS Secrets Manager secret<br>that contains the key-value pairs required to connect to your<br>SharePoint. If you use OAuth2App authentication, provide the client ID, client secret, LDAP URL, LDAP base DN, LDAP user name, and LDAP password. If you use NTLM or Kerberos authentication, provide the user name, password, LDAP URL, Base DN, LDAP user, and LDAP password.                                      | `string`<br>The minimum length is 20 and the maximum length is 2,048 characters.<br>If you use Sharepoint App-Only authentication (`authType` should be `OAuth2App` authentication) the secret must contain a JSON structure with the following keys:<br>``<br>{<br>"clientId": "`client ID`",<br>"clientSecret": "`client secret`",<br>"ldapUrl": "`LDAP URL`",<br>"ldbaseDn": "`LDAP base DN`",<br>"ldapUser": "`LDAP user name`",<br>"ldapPassword": "`LDAP password`"<br>}<br>``<br>If you use NTLM authentication or Kerberos authentication, the secret must contain a JSON structure with the following keys:<br>``<br>{<br>"userName": "`SharePoint account user name`",<br>"password": "`SharePoint account password`",<br>"ldapUrl": "`LDAP URL`",<br>"baseDn": "`LDAP base DN`",<br>"ldapUser": "`LDAP user name`",<br>"ldapPassword": "`LDAP password`"<br>}<br>`` | Yes      |
 | `version`                                                                                                                                                                                                                                                                                                                                                                                                                                                        | The version of this template that&s currently supported.                                                                                                                                                                                                                                                                                                                                                                                                 | `string`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | No       |
 
-## SharePoint Server (Subscription Edition) JSON schema for using
-
-the configuration property with AWS CloudFormation
+## SharePoint Server (Subscription Edition) JSON schema for using the configuration property with AWS CloudFormation
 
 The following is the SharePoint Server (Subscription Edition) JSON schema and examples for the
 configuration property for AWS CloudFormation.
 
 ###### Topics
 
-- [SharePoint Server (Subscription Edition) JSON schema
-  for using the configuration property with AWS CloudFormation](#sharepoint-server-subscription-cfn-json-schema "#sharepoint-server-subscription-cfn-json-schema")
-- [SharePoint Server (Subscription Edition) JSON schema
-  example for using the configuration property with AWS CloudFormation](#sharepoint-server-subscription-cfn-json-example "#sharepoint-server-subscription-cfn-json-example")
+- [SharePoint Server (Subscription Edition) JSON schema for using the configuration property with AWS CloudFormation](#sharepoint-server-subscription-cfn-json-schema "#sharepoint-server-subscription-cfn-json-schema")
+- [SharePoint Server (Subscription Edition) JSON schema example for using the configuration property with AWS CloudFormation](#sharepoint-server-subscription-cfn-json-example "#sharepoint-server-subscription-cfn-json-example")
 
-### SharePoint Server (Subscription Edition) JSON schema
-
-for using the configuration property with AWS CloudFormation
+### SharePoint Server (Subscription Edition) JSON schema for using the configuration property with AWS CloudFormation
 
 The following is the SharePoint Server (Subscription Edition) JSON schema for the configuration
 property for CloudFormation
@@ -638,9 +625,7 @@ property for CloudFormation
 
 [Show moreShow less](# "#")
 
-### SharePoint Server (Subscription Edition) JSON schema
-
-example for using the configuration property with AWS CloudFormation
+### SharePoint Server (Subscription Edition) JSON schema example for using the configuration property with AWS CloudFormation
 
 The following is the SharePoint Server (Subscription Edition) JSON schema example for the
 configuration property for CloudFormation
@@ -940,23 +925,17 @@ configuration property for CloudFormation
 
 [Show moreShow less](# "#")
 
-## SharePoint Server (Subscription Edition) YAML schema for using the
-
-configuration property with AWS CloudFormation
+## SharePoint Server (Subscription Edition) YAML schema for using the configuration property with AWS CloudFormation
 
 The following is the SharePoint Server (Subscription Edition) YAML schema and examples for the
 configuration property for AWS CloudFormation:
 
 ###### Topics
 
-- [SharePoint Server (Subscription Edition) YAML schema
-  for using the configuration property with AWS CloudFormation](#sharepoint-server-subscription-cfn-yaml-schema "#sharepoint-server-subscription-cfn-yaml-schema")
-- [SharePoint Server (Subscription Edition) YAML schema
-  example for using the configuration property with AWS CloudFormation](#sharepoint-server-subscription-cfn-yaml-example "#sharepoint-server-subscription-cfn-yaml-example")
+- [SharePoint Server (Subscription Edition) YAML schema for using the configuration property with AWS CloudFormation](#sharepoint-server-subscription-cfn-yaml-schema "#sharepoint-server-subscription-cfn-yaml-schema")
+- [SharePoint Server (Subscription Edition) YAML schema example for using the configuration property with AWS CloudFormation](#sharepoint-server-subscription-cfn-yaml-example "#sharepoint-server-subscription-cfn-yaml-example")
 
-### SharePoint Server (Subscription Edition) YAML schema
-
-for using the configuration property with AWS CloudFormation
+### SharePoint Server (Subscription Edition) YAML schema for using the configuration property with AWS CloudFormation
 
 The following is the SharePoint Server (Subscription Edition) YAML schema for the configuration
 property for CloudFormation.
@@ -1383,9 +1362,7 @@ required:
 
 [Show moreShow less](# "#")
 
-### SharePoint Server (Subscription Edition) YAML schema
-
-example for using the configuration property with AWS CloudFormation
+### SharePoint Server (Subscription Edition) YAML schema example for using the configuration property with AWS CloudFormation
 
 The following is the SharePoint Server (Subscription Edition) YAML example for the Configuration
 property for CloudFormation:

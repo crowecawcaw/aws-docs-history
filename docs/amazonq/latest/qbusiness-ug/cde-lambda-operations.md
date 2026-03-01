@@ -1,6 +1,4 @@
-# Using Lambda functions for
-
-Amazon Q Business document enrichment
+# Using Lambda functions for Amazon Q Business document enrichment
 
 You can use Lambda functions to prepare your document attributes for
 advanced data manipulation. For example, you could use Optical Character Recognition
@@ -33,20 +31,14 @@ isn't already created as an index field.
 
 ###### Topics
 
-- [Lambda functions using
-  the Amazon Q Business API](#cde-lambda-operations-api "#cde-lambda-operations-api")
-- [Lambda functions
-  using the Amazon Q Business console](#cde-lambda-operations-console "#cde-lambda-operations-console")
-- [IAM roles for
-  Lambda functions](#cde-lambda-operations-iam-roles "#cde-lambda-operations-iam-roles")
+- [Lambda functions using the Amazon Q Business API](#cde-lambda-operations-api "#cde-lambda-operations-api")
+- [Lambda functions using the Amazon Q Business console](#cde-lambda-operations-console "#cde-lambda-operations-console")
+- [IAM roles for Lambda functions](#cde-lambda-operations-iam-roles "#cde-lambda-operations-iam-roles")
 - [Use cases for Lambda functions](#cde-lambda-operations-examples "#cde-lambda-operations-examples")
 - [Code examples of Lambda functions](#cde-lambda-operations-code-samples "#cde-lambda-operations-code-samples")
-- [Data contracts for
-  Lambda functions](#cde-lambda-operations-data-contracts "#cde-lambda-operations-data-contracts")
+- [Data contracts for Lambda functions](#cde-lambda-operations-data-contracts "#cde-lambda-operations-data-contracts")
 
-## Lambda functions using
-
-the Amazon Q Business API
+## Lambda functions using the Amazon Q Business API
 
 To apply a Lambda function, you specify your advanced data
 manipulation logic using the [DocumentEnrichmentConfiguration](../api-reference/API_DocumentEnrichmentConfiguration.md "../api-reference/API_DocumentEnrichmentConfiguration.md")
@@ -100,9 +92,7 @@ For more information, see the following topics in the _Amazon Q Business API Ref
 - [DocumentEnrichmentConfiguration](../api-reference/API_DocumentEnrichmentConfiguration.md "../api-reference/API_DocumentEnrichmentConfiguration.md")
 - [DocumentAttributeCondition](../api-reference/API_DocumentAttributeCondition.md "../api-reference/API_DocumentAttributeCondition.md")
 
-## Lambda functions
-
-using the Amazon Q Business console
+## Lambda functions using the Amazon Q Business console
 
 ###### To configure a Lambda function using the console
 
@@ -112,9 +102,7 @@ using the Amazon Q Business console
 2. To configure Lambda functions, go to **Configure
    Lambda functions**.
 
-## IAM roles for
-
-Lambda functions
+## IAM roles for Lambda functions
 
 When you use the Lambda functions for CDE, you need an IAM role for the following:
 
@@ -781,9 +769,7 @@ public class CreateDataSourceWithCustomizationsExample {
 }
 ```
 
-## Data contracts for
-
-Lambda functions
+## Data contracts for Lambda functions
 
 Lambda functions for advanced data manipulation interact with
 Amazon Q Business data contracts. The contracts are the mandatory
@@ -886,9 +872,7 @@ TextContent
 
 [Show moreShow less](# "#")
 
-### Examples of
-
-Lambda functions that adhere to data contracts
+### Examples of Lambda functions that adhere to data contracts
 
 This section provides examples of how to structure your Lambda
 functions that adhere to Amazon Q Business data contracts.

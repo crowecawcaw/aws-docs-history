@@ -1,6 +1,4 @@
-# Oracle Database connector
-
-overview
+# Oracle Database connector overview
 
 The following table gives an overview of the Amazon Q Oracle Database
 connector and its supported features.

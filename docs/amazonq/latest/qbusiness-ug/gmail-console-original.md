@@ -1,6 +1,4 @@
-# Connecting Amazon Q Business
-
-to Gmail using the legacy connector (Console)
+# Connecting Amazon Q Business to Gmail using the legacy connector (Console)
 
 The following procedure outlines how to connect Amazon Q Business to
 Gmail using the legacy connector and the AWS Management Console. The legacy connector provides full-featured configuration with advanced options.

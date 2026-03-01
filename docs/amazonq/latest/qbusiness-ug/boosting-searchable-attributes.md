@@ -1,6 +1,4 @@
-# Enabling document attributes for
-
-search in Amazon Q Business
+# Enabling document attributes for search in Amazon Q Business
 
 ###### Note
 
@@ -68,16 +66,11 @@ attributes for search.
 
 ###### Topics
 
-- [Making reserved document
-  attributes searchable](#enable-reserved-attribute-search "#enable-reserved-attribute-search")
-- [Making custom document
-  attributes searchable](#enable-custom-attribute-search "#enable-custom-attribute-search")
-- [Checking document attribute search
-  activation](#check-attribute-search "#check-attribute-search")
+- [Making reserved document attributes searchable](#enable-reserved-attribute-search "#enable-reserved-attribute-search")
+- [Making custom document attributes searchable](#enable-custom-attribute-search "#enable-custom-attribute-search")
+- [Checking document attribute search activation](#check-attribute-search "#check-attribute-search")
 
-### Making reserved document
-
-attributes searchable
+### Making reserved document attributes searchable
 
 The following is an example of how to use the AWS CLI to enable for search
 the `STRING` type reserved document attribute
@@ -103,9 +96,7 @@ aws qbusiness update-index \
           ]'
 ```
 
-### Making custom document
-
-attributes searchable
+### Making custom document attributes searchable
 
 You can also enable custom document attributes for search using the [DocumentAttributeConfiguration](../api-reference/API_DocumentAttributeConfiguration.md "../api-reference/API_DocumentAttributeConfiguration.md") object of the
 [UpdateIndex](../api-reference/API_UpdateIndex.md "../api-reference/API_UpdateIndex.md") API
@@ -135,9 +126,7 @@ aws qbusiness update-index \
             ]'
 ```
 
-### Checking document attribute search
-
-activation
+### Checking document attribute search activation
 
 To check if a `STRING` or `STRING_LIST` type
 document attribute has been enabled for search successfully, use the [GetIndex](../api-reference/API_GetIndex.md "../api-reference/API_GetIndex.md") API

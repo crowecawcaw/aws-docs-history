@@ -1,6 +1,4 @@
-# Guidelines and
-
-requirements
+# Guidelines and requirements
 
 The following are guidelines and requirements for extracting content from
 images:
@@ -8,8 +6,7 @@ images:
 - Documents can have up to 3,000 pages.
 - The IAM service role that grants Amazon Q Business permission to access your
   resources must have `qbusiness:GetMedia` permissions. For a policy
-  example, see [IAM role for an Amazon Q Business
-  web experience using IAM Identity Center](web-experience-iam-role-idc.md "web-experience-iam-role-idc.md")
+  example, see [IAM role for an Amazon Q Business web experience using IAM Identity Center](web-experience-iam-role-idc.md "web-experience-iam-role-idc.md")
 - Image extraction is supported for the following image sources: PDF, PPT,
   Microsoft Word docs, Webpages (for Webcrawler), Google Slides and Google Docs
   (for Google Drive)

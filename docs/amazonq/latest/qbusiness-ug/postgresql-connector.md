@@ -19,21 +19,14 @@ Also, avoid adding tables with sensitive data or personal identifiable informati
 
 ###### Topics
 
-- [Known limitations for the
-  PostgreSQL connector](postgresql-limitations.md "postgresql-limitations.md")
-- [PostgreSQL connector
-  overview](postgresql-overview.md "postgresql-overview.md")
+- [Known limitations for the PostgreSQL connector](postgresql-limitations.md "postgresql-limitations.md")
+- [PostgreSQL connector overview](postgresql-overview.md "postgresql-overview.md")
 - [Prerequisites for connecting Amazon Q Business to PostgreSQL](postgresql-prereqs.md "postgresql-prereqs.md")
-- [Connecting Amazon Q Business to
-  PostgreSQL using the console](postgresql-console.md "postgresql-console.md")
-- [Connecting Amazon Q Business to
-  PostgreSQL using APIs](postgresql-api.md "postgresql-api.md")
-- [How Amazon Q Business connector
-  crawls PostgreSQL ACLs](postgresql-user-management.md "postgresql-user-management.md")
-- [PostgreSQL data source
-  connector field mappings](postgresql-field-mappings.md "postgresql-field-mappings.md")
-- [IAM role for
-  PostgreSQL connector](postgresql-iam-role.md "postgresql-iam-role.md")
+- [Connecting Amazon Q Business to PostgreSQL using the console](postgresql-console.md "postgresql-console.md")
+- [Connecting Amazon Q Business to PostgreSQL using APIs](postgresql-api.md "postgresql-api.md")
+- [How Amazon Q Business connector crawls PostgreSQL ACLs](postgresql-user-management.md "postgresql-user-management.md")
+- [PostgreSQL data source connector field mappings](postgresql-field-mappings.md "postgresql-field-mappings.md")
+- [IAM role for PostgreSQL connector](postgresql-iam-role.md "postgresql-iam-role.md")
 
 **Learn more**
 

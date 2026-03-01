@@ -1,6 +1,4 @@
-# Connecting using the Latest
-
-Microsoft Exchange Connector (Console)
+# Connecting using the Latest Microsoft Exchange Connector (Console)
 
 The latest Microsoft Exchange connector provides a simplified configuration experience with essential features. The following procedure shows how to connect Amazon Q Business to Microsoft Exchange using the latest connector.
 
@@ -70,8 +68,7 @@ _optional_**, configure the following options:
 your documents from deletion during a sync job, select **On** and enter an integer between 0 - 100. If
 the percentage of documents to be deleted in your sync job exceeds the percentage you selected, the
 delete phase will be skipped and no documents from this data source will be deleted from your index. For more information, see
-[Document deletion
-safeguard](connector-concepts.md#document-deletion-safeguard "connector-concepts.md#document-deletion-safeguard").
+[Document deletion safeguard](connector-concepts.md#document-deletion-safeguard "connector-concepts.md#document-deletion-safeguard").
 
 1. In **Sync run schedule**, for
    **Frequency** – Choose how often

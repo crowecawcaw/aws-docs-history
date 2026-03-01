@@ -1,6 +1,4 @@
-# Prerequisites for connecting Amazon Q to
-
-Microsoft Yammer
+# Prerequisites for connecting Amazon Q to Microsoft Yammer
 
 Before you begin, make sure that you have completed the following
 prerequisites.

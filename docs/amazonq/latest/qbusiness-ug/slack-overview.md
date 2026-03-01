@@ -1,6 +1,4 @@
-# Slack connector
-
-overview
+# Slack connector overview
 
 The following table gives an overview of the Amazon Q Business
 Slack connector and its supported features.

@@ -1,6 +1,4 @@
-# Microsoft Teams data source connector
-
-field mappings
+# Microsoft Teams data source connector field mappings
 
 To help you structure data for retrieval and chat filtering, Amazon Q Business
 crawls data source document attributes or metadata and maps them to fields in your Amazon Q index.
@@ -33,8 +31,7 @@ Amazon Q reserved/default index fields.
 - [Chat messages](#teams-field-mappings-chat-messages "#teams-field-mappings-chat-messages")
 - [Chat attachments](#teams-field-mappings-chat-attachments "#teams-field-mappings-chat-attachments")
 - [Channel posts](#teams-field-mappings-channel-posts "#teams-field-mappings-channel-posts")
-- [Channel file
-  attachments](#teams-field-mappings-channel-file-attachments "#teams-field-mappings-channel-file-attachments")
+- [Channel file attachments](#teams-field-mappings-channel-file-attachments "#teams-field-mappings-channel-file-attachments")
 - [Wiki](#teams-field-mappings-wiki "#teams-field-mappings-wiki")
 - [Meeting chats](#teams-field-mappings-meeting-chats "#teams-field-mappings-meeting-chats")
 - [Meeting details](#teams-field-mappings-meeting-details "#teams-field-mappings-meeting-details")
@@ -88,9 +85,7 @@ Amazon Q reserved/default index fields.
 | createdAt                  | \_created_at        | Default     | Date        |
 | lastModifiedAt             | \_last_updated_at   | Default     | Date        |
 
-## Channel file
-
-attachments
+## Channel file attachments
 
 | Microsoft Teams field name | Index field name     | Description | Data type      |
 | -------------------------- | -------------------- | ----------- | -------------- |

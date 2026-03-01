@@ -1,6 +1,4 @@
-# Amazon RDS (MySQL) connector
-
-overview
+# Amazon RDS (MySQL) connector overview
 
 The following table gives an overview of the Amazon Q Business
 Amazon RDS (MySQL) connector and its supported features.

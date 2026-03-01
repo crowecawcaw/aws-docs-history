@@ -70,7 +70,7 @@ For more information, see [Agentic Retrieval Augmented Generation (RAG)](agentic
 An Amazon Q Business application environment is the primary resource that you use to
 create a chat solution. To create the application environment, you can use either the Amazon Q Business console or [Amazon Q Business API](../api-reference/Welcome.md "../api-reference/Welcome.md") actions. Amazon Q Business offers four distinct methods for creating applications: the standard
 approach with [IAM Identity Center](create- application.md "create- application.md") integration, an [IAM federation](create-application-iam.md "create-application-iam.md") option for AWS-centric environments, an [anonymous
-application method](create-anonymous-application.md "create-anonymous-application.md") for public-facing scenarios, and a specialized [Quick Suite integration](create-application- quicksight.md "create-application- quicksight.md") for
+application method](create-anonymous-application.md "create-anonymous-application.md") for public-facing scenarios, and a specialized [Quick integration](create-application- quicksight.md "create-application- quicksight.md") for
 analytics-focused implementations. Each creation pathway provides different
 authentication mechanisms and integration capabilities, allowing organizations to select
 the most appropriate solution based on their security requirements and existing

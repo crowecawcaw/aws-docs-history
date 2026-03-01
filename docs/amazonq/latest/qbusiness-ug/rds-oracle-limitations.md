@@ -1,6 +1,4 @@
-# Known limitations for the
-
-Amazon RDS (Oracle) connector
+# Known limitations for the Amazon RDS (Oracle) connector
 
 The Amazon RDS (Oracle) connector has the following known limitations:
 

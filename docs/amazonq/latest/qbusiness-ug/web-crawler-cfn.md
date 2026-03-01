@@ -1,6 +1,4 @@
-# Connecting Amazon Q Business to Web Crawler
-
-using AWS CloudFormation
+# Connecting Amazon Q Business to Web Crawler using AWS CloudFormation
 
 You use the [`AWS::QBusiness::DataSource`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.md") resource to connect a data source to
 your Amazon Q application.
@@ -14,16 +12,11 @@ in the _CloudFormation User Guide_.
 
 ###### Topics
 
-- [Web Crawler configuration
-  properties](#web-crawler-configuration-keys "#web-crawler-configuration-keys")
-- [Web Crawler JSON schema for using the
-  configuration property with AWS CloudFormation](#web-crawler-cfn-json "#web-crawler-cfn-json")
-- [Web Crawler YAML schema for using the
-  configuration property with AWS CloudFormation](#web-crawler-cfn-yaml "#web-crawler-cfn-yaml")
+- [Web Crawler configuration properties](#web-crawler-configuration-keys "#web-crawler-configuration-keys")
+- [Web Crawler JSON schema for using the configuration property with AWS CloudFormation](#web-crawler-cfn-json "#web-crawler-cfn-json")
+- [Web Crawler YAML schema for using the configuration property with AWS CloudFormation](#web-crawler-cfn-yaml "#web-crawler-cfn-yaml")
 
-## Web Crawler configuration
-
-properties
+## Web Crawler configuration properties
 
 The following provides information about important configuration properties required in the
 schema.
@@ -68,23 +61,17 @@ schema.
 | `version`                                                      | The version of this template that's currently supported.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | `string`<br>The default value is `1.0.0`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | No       |
 | `implicitWaitDuration`                                         | Specifies how long the connector will wait, in seconds, before crawling a<br>webpage.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Range: 0-10<br>eg. "implicitWaitDuration": "5"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |          |
 
-## Web Crawler JSON schema for using the
-
-configuration property with AWS CloudFormation
+## Web Crawler JSON schema for using the configuration property with AWS CloudFormation
 
 The following is the Web Crawler JSON schema and examples for the configuration
 property for AWS CloudFormation.
 
 ###### Topics
 
-- [Web Crawler JSON schema for using the
-  configuration property with AWS CloudFormation](#web-crawler-cfn-json-schema "#web-crawler-cfn-json-schema")
-- [Web Crawler JSON schema example for
-  using the configuration property with AWS CloudFormation](#web-crawler-cfn-json-example "#web-crawler-cfn-json-example")
+- [Web Crawler JSON schema for using the configuration property with AWS CloudFormation](#web-crawler-cfn-json-schema "#web-crawler-cfn-json-schema")
+- [Web Crawler JSON schema example for using the configuration property with AWS CloudFormation](#web-crawler-cfn-json-example "#web-crawler-cfn-json-example")
 
-### Web Crawler JSON schema for using the
-
-configuration property with AWS CloudFormation
+### Web Crawler JSON schema for using the configuration property with AWS CloudFormation
 
 The following is the Web Crawler JSON schema for the configuration property for
 CloudFormation
@@ -402,9 +389,7 @@ CloudFormation
 
 [Show moreShow less](# "#")
 
-### Web Crawler JSON schema example for
-
-using the configuration property with AWS CloudFormation
+### Web Crawler JSON schema example for using the configuration property with AWS CloudFormation
 
 The following is the Web Crawler JSON schema example for the configuration
 property for CloudFormation
@@ -478,23 +463,17 @@ property for CloudFormation
 
 [Show moreShow less](# "#")
 
-## Web Crawler YAML schema for using the
-
-configuration property with AWS CloudFormation
+## Web Crawler YAML schema for using the configuration property with AWS CloudFormation
 
 The following is the Web Crawler YAML schema and examples for the configuration
 property for AWS CloudFormation:
 
 ###### Topics
 
-- [Web Crawler YAML schema for using the
-  configuration property with AWS CloudFormation](#web-crawler-cfn-yaml-schema "#web-crawler-cfn-yaml-schema")
-- [Web Crawler YAML schema example for
-  using the configuration property with AWS CloudFormation](#web-crawler-cfn-yaml-example "#web-crawler-cfn-yaml-example")
+- [Web Crawler YAML schema for using the configuration property with AWS CloudFormation](#web-crawler-cfn-yaml-schema "#web-crawler-cfn-yaml-schema")
+- [Web Crawler YAML schema example for using the configuration property with AWS CloudFormation](#web-crawler-cfn-yaml-example "#web-crawler-cfn-yaml-example")
 
-### Web Crawler YAML schema for using the
-
-configuration property with AWS CloudFormation
+### Web Crawler YAML schema for using the configuration property with AWS CloudFormation
 
 The following is the Web Crawler YAML schema for the configuration property for
 CloudFormation.
@@ -730,9 +709,7 @@ required:
 
 [Show moreShow less](# "#")
 
-### Web Crawler YAML schema example for
-
-using the configuration property with AWS CloudFormation
+### Web Crawler YAML schema example for using the configuration property with AWS CloudFormation
 
 The following is the Web Crawler YAML example for the Configuration property for
 CloudFormation:

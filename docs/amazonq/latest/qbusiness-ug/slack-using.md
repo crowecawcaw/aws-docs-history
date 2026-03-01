@@ -5,23 +5,17 @@ The Amazon Q Business Slack app is available to all Amazon Q Business users.
 ###### Topics
 
 - [Prerequisites](#slack-using-prerequisites "#slack-using-prerequisites")
-- [Install and configure the Amazon Q Business App
-  in Slack](#slack-using-install "#slack-using-install")
-- [Features of the Amazon Q Business Slack
-  App](#slack-using-features "#slack-using-features")
-- [Considerations for using the Amazon Q Business
-  App for Slack](#slack-considerations "#slack-considerations")
-- [Troubleshooting the Amazon Q Business App for
-  Slack](#slack-troubleshooting "#slack-troubleshooting")
+- [Install and configure the Amazon Q Business App in Slack](#slack-using-install "#slack-using-install")
+- [Features of the Amazon Q Business Slack App](#slack-using-features "#slack-using-features")
+- [Considerations for using the Amazon Q Business App for Slack](#slack-considerations "#slack-considerations")
+- [Troubleshooting the Amazon Q Business App for Slack](#slack-troubleshooting "#slack-troubleshooting")
 
 ## Prerequisites
 
 - Your Amazon Q admin must connect the Amazon Q Business Slack app to your Slack
   workspace.
 
-## Install and configure the Amazon Q Business App
-
-in Slack
+## Install and configure the Amazon Q Business App in Slack
 
 The following are instructions on how to install the Amazon Q Business App in
 Slack:
@@ -43,9 +37,7 @@ Slack:
 
 For more information, see [Understand AI apps in Slack](https://slack.com/help/articles/33076000248851-Understand-AI-apps-in-Slack#find-apps "https://slack.com/help/articles/33076000248851-Understand-AI-apps-in-Slack#find-apps") in the Slack help center.
 
-## Features of the Amazon Q Business Slack
-
-App
+## Features of the Amazon Q Business Slack App
 
 Following are some of the features supported by the Amazon Q Slack App:
 
@@ -65,9 +57,7 @@ Following are some of the features supported by the Amazon Q Slack App:
 
 The Amazon Q Business Slack integration does not support [actions or plugins](actions.md "actions.md").
 
-## Considerations for using the Amazon Q Business
-
-App for Slack
+## Considerations for using the Amazon Q Business App for Slack
 
 1. When Amazon Q is invoked by a user in a public Slack channel, it
    generates responses based on the invoking user's permissions, which may
@@ -100,9 +90,7 @@ App for Slack
    information, see [Hallucination](concepts-terms.md#hallucination "concepts-terms.md#hallucination") in the topic Key concepts of
    Amazon Q Business.
 
-## Troubleshooting the Amazon Q Business App for
-
-Slack
+## Troubleshooting the Amazon Q Business App for Slack
 
 My admin has enabled the Amazon Q Business app for Slack, but I'm unable to
 login.

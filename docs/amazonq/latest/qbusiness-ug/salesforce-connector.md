@@ -9,24 +9,16 @@ Salesforce Online editions: Developer Edition and Enterprise Edition.
 
 ###### Topics
 
-- [Known limitations for the Salesforce Online
-  connector](salesforce-limitations.md "salesforce-limitations.md")
+- [Known limitations for the Salesforce Online connector](salesforce-limitations.md "salesforce-limitations.md")
 - [Salesforce Online connector overview](salesforce-overview.md "salesforce-overview.md")
 - [Prerequisites for connecting Amazon Q Business to Salesforce Online](salesforce-prereqs.md "salesforce-prereqs.md")
-- [Setting up Salesforce Online for connecting to
-  Amazon Q Business](salesforce-credentials.md "salesforce-credentials.md")
-- [Connecting Amazon Q Business to
-  Salesforce Online using the console](salesforce-console.md "salesforce-console.md")
-- [Connecting Amazon Q Business to Salesforce
-  using APIs](salesforce-api.md "salesforce-api.md")
-- [How Amazon Q Business connector
-  crawls Salesforce ACLs](salesforce-user-management.md "salesforce-user-management.md")
-- [Salesforce Online data source connector
-  field mappings](salesforce-field-mappings.md "salesforce-field-mappings.md")
-- [IAM role for Salesforce Online
-  connector](salesforce-iam-role.md "salesforce-iam-role.md")
-- [Troubleshooting your Salesforce Online
-  connector](salesforce-error-codes.md "salesforce-error-codes.md")
+- [Setting up Salesforce Online for connecting to Amazon Q Business](salesforce-credentials.md "salesforce-credentials.md")
+- [Connecting Amazon Q Business to Salesforce Online using the console](salesforce-console.md "salesforce-console.md")
+- [Connecting Amazon Q Business to Salesforce using APIs](salesforce-api.md "salesforce-api.md")
+- [How Amazon Q Business connector crawls Salesforce ACLs](salesforce-user-management.md "salesforce-user-management.md")
+- [Salesforce Online data source connector field mappings](salesforce-field-mappings.md "salesforce-field-mappings.md")
+- [IAM role for Salesforce Online connector](salesforce-iam-role.md "salesforce-iam-role.md")
+- [Troubleshooting your Salesforce Online connector](salesforce-error-codes.md "salesforce-error-codes.md")
 
 **Learn more**
 

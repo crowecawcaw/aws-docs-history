@@ -1,6 +1,4 @@
-# Connecting Amazon Q Business to GoogleDrive
-
-using API
+# Connecting Amazon Q Business to GoogleDrive using API
 
 You use the [CreateDataSource](../api-reference/API_CreateDataSource.md "../api-reference/API_CreateDataSource.md") action to connect a data source to your
 Amazon Q application. You can also use the [UpdateDataSource](../api-reference/API_UpdateDataSource.md "../api-reference/API_UpdateDataSource.md") action to modify an existing data source configuration.
@@ -12,17 +10,12 @@ For an example of the API request, see [CreateDataSource](../api-reference/API_C
 
 ###### Topics
 
-- [Google Drive configuration
-  properties](#google-configuration-keys "#google-configuration-keys")
+- [Google Drive configuration properties](#google-configuration-keys "#google-configuration-keys")
 - [Google Drive JSON schema](#googledrive-v2-json "#googledrive-v2-json")
-- [GoogleDrive JSON schema
-  example](#googledrive-v2-json-example "#googledrive-v2-json-example")
-- [GoogleDrive minimal
-  configuration example](#googledrive-v2-json-minimal-example "#googledrive-v2-json-minimal-example")
+- [GoogleDrive JSON schema example](#googledrive-v2-json-example "#googledrive-v2-json-example")
+- [GoogleDrive minimal configuration example](#googledrive-v2-json-minimal-example "#googledrive-v2-json-minimal-example")
 
-## Google Drive configuration
-
-properties
+## Google Drive configuration properties
 
 The following provides information about important configuration properties required in the
 schema.
@@ -225,9 +218,7 @@ The following is the Google Drive New JSON schema:
 
 [Show moreShow less](# "#")
 
-## GoogleDrive JSON schema
-
-example
+## GoogleDrive JSON schema example
 
 The following is the GoogleDrive New JSON schema example:
 
@@ -267,9 +258,7 @@ The following is the GoogleDrive New JSON schema example:
 
 [Show moreShow less](# "#")
 
-## GoogleDrive minimal
-
-configuration example
+## GoogleDrive minimal configuration example
 
 The following is the minimum required configuration for GoogleDrive New:
 

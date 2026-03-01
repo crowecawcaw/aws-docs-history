@@ -18,21 +18,14 @@ Also, avoid adding tables with sensitive data or personal identifiable informati
 
 ###### Topics
 
-- [Known limitations for the
-  MySQL connector](my-sql-limitations.md "my-sql-limitations.md")
-- [MySQL connector
-  overview](my-sql-overview.md "my-sql-overview.md")
+- [Known limitations for the MySQL connector](my-sql-limitations.md "my-sql-limitations.md")
+- [MySQL connector overview](my-sql-overview.md "my-sql-overview.md")
 - [Prerequisites for connecting Amazon Q Business to MySQL](my-sql-prereqs.md "my-sql-prereqs.md")
-- [Connecting Amazon Q Business to
-  MySQL using the console](my-sql-console.md "my-sql-console.md")
-- [Connecting Amazon Q Business to
-  MySQL using APIs](my-sql-api.md "my-sql-api.md")
-- [How Amazon Q Business connector
-  crawls MySQL ACLs](my-sql-user-management.md "my-sql-user-management.md")
-- [MySQL data source
-  connector field mappings](my-sql-field-mappings.md "my-sql-field-mappings.md")
-- [IAM role for
-  MySQL connector](my-sql-iam-role.md "my-sql-iam-role.md")
+- [Connecting Amazon Q Business to MySQL using the console](my-sql-console.md "my-sql-console.md")
+- [Connecting Amazon Q Business to MySQL using APIs](my-sql-api.md "my-sql-api.md")
+- [How Amazon Q Business connector crawls MySQL ACLs](my-sql-user-management.md "my-sql-user-management.md")
+- [MySQL data source connector field mappings](my-sql-field-mappings.md "my-sql-field-mappings.md")
+- [IAM role for MySQL connector](my-sql-iam-role.md "my-sql-iam-role.md")
 
 **Learn more**
 

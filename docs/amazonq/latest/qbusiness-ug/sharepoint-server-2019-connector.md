@@ -12,22 +12,15 @@ Subscription Edition).
 ###### Topics
 
 - [Known limitations for the Amazon Q Business SharePoint Server 2019 connector](sharepoint-server-2019-limitations.md "sharepoint-server-2019-limitations.md")
-- [SharePoint Server 2019 connector
-  overview](sharepoint-server-2019-overview.md "sharepoint-server-2019-overview.md")
+- [SharePoint Server 2019 connector overview](sharepoint-server-2019-overview.md "sharepoint-server-2019-overview.md")
 - [Prerequisites for connecting Amazon Q Business to SharePoint Server 2019](sharepoint-server-2019-prereqs.md "sharepoint-server-2019-prereqs.md")
-- [Connecting Amazon Q Business to
-  SharePoint Server 2019 using the console](sharepoint-server-2019-console.md "sharepoint-server-2019-console.md")
-- [Connecting Amazon Q Business to
-  SharePoint Server 2019 using APIs](sharepoint-server-2019-api.md "sharepoint-server-2019-api.md")
-- [Connecting Amazon Q Business to
-  SharePoint Server 2019 using AWS CloudFormation](sharepoint-server-2019-cfn.md "sharepoint-server-2019-cfn.md")
-- [How Amazon Q Business connector
-  crawls SharePoint Server 2019 ACLs](sharepoint-server-2019-user-management.md "sharepoint-server-2019-user-management.md")
-- [Amazon Q Business
-  SharePoint Server 2019 data source connector field mappings](sharepoint-server-2019-field-mappings.md "sharepoint-server-2019-field-mappings.md")
+- [Connecting Amazon Q Business to SharePoint Server 2019 using the console](sharepoint-server-2019-console.md "sharepoint-server-2019-console.md")
+- [Connecting Amazon Q Business to SharePoint Server 2019 using APIs](sharepoint-server-2019-api.md "sharepoint-server-2019-api.md")
+- [Connecting Amazon Q Business to SharePoint Server 2019 using AWS CloudFormation](sharepoint-server-2019-cfn.md "sharepoint-server-2019-cfn.md")
+- [How Amazon Q Business connector crawls SharePoint Server 2019 ACLs](sharepoint-server-2019-user-management.md "sharepoint-server-2019-user-management.md")
+- [Amazon Q Business SharePoint Server 2019 data source connector field mappings](sharepoint-server-2019-field-mappings.md "sharepoint-server-2019-field-mappings.md")
 - [IAM role for Amazon Q Business SharePoint Server 2019 connector](sharepoint-server-2019-iam-role.md "sharepoint-server-2019-iam-role.md")
-- [Understand error codes in the
-  SharePoint Server 2019 connector](sharepoint-server-2019-error-codes.md "sharepoint-server-2019-error-codes.md")
+- [Understand error codes in the SharePoint Server 2019 connector](sharepoint-server-2019-error-codes.md "sharepoint-server-2019-error-codes.md")
 
 **Learn more**
 

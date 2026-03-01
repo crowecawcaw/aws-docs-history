@@ -25,15 +25,12 @@ _in_ the cloud:
 ###### Topics
 
 - [Data protection in Amazon Q Business](data-protection.md "data-protection.md")
-- [Amazon Q Business and interface Amazon VPC
-  endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
+- [Amazon Q Business and interface Amazon VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
 - [Identity and access management for Amazon Q Business](security-iam.md "security-iam.md")
 - [Compliance validation for Amazon Q Business](compliance-validation.md "compliance-validation.md")
 - [Using ACL Analyzer in Amazon Q](acl-analyzer.md "acl-analyzer.md")
 - [Resilience in Amazon Q Business](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in Amazon Q Business](infrastructure-security.md "infrastructure-security.md")
-- [Cross-service confused deputy
-  prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
-- [Configuration and vulnerability
-  analysis in AWS Identity and Access Management](configuration-and-vulnerability-analysis.md "configuration-and-vulnerability-analysis.md")
+- [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Configuration and vulnerability analysis in AWS Identity and Access Management](configuration-and-vulnerability-analysis.md "configuration-and-vulnerability-analysis.md")
 - [Security best practices](security-best-practices.md "security-best-practices.md")

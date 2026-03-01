@@ -17,16 +17,11 @@ while browsing the web.
 
 ###### Topics
 
-- [Prerequisites for integrating
-  the Amazon Q browser extension](#browser-extensions-prerequisites "#browser-extensions-prerequisites")
-- [Integrating the browser
-  extension with Amazon Q Business](#integrating-browser-extension "#integrating-browser-extension")
-- [Activating and deploying the
-  browser extension](#activating-deploying-extension "#activating-deploying-extension")
+- [Prerequisites for integrating the Amazon Q browser extension](#browser-extensions-prerequisites "#browser-extensions-prerequisites")
+- [Integrating the browser extension with Amazon Q Business](#integrating-browser-extension "#integrating-browser-extension")
+- [Activating and deploying the browser extension](#activating-deploying-extension "#activating-deploying-extension")
 
-## Prerequisites for integrating
-
-the Amazon Q browser extension
+## Prerequisites for integrating the Amazon Q browser extension
 
 As admins, before you can integrate the Amazon Q Business browser
 extension, you must complete the following steps.
@@ -49,9 +44,7 @@ extension, you must complete the following steps.
      For more information, see [IAM role for an Amazon Q Business
      web experience using IAM Federation](web-experience-iam-role-iam.md "web-experience-iam-role-iam.md").
 
-## Integrating the browser
-
-extension with Amazon Q Business
+## Integrating the browser extension with Amazon Q Business
 
 To use the Amazon Q Business browser extension, you must allow it to
 connect to your Amazon Q Business application environment and web experience. To do
@@ -59,13 +52,10 @@ this, admins can use the Amazon Q console, API, SDK, or AWS CLI.
 
 ###### Topics
 
-- [Using the
-  console](#integrating-browser-extensions-using-console "#integrating-browser-extensions-using-console")
+- [Using the console](#integrating-browser-extensions-using-console "#integrating-browser-extensions-using-console")
 - [Using the AWS API](#integrating-browser-extensions-browser-extensions-using-aws-api "#integrating-browser-extensions-browser-extensions-using-aws-api")
 
-### Using the
-
-console
+### Using the console
 
 1. Sign in to the Amazon Q console.
 2. Choose **Applications**, then select the name of
@@ -82,9 +72,7 @@ console
 Admin users can enable your browser extensions using the [`UpdateWebExperience`](../api-reference/API_UpdateWebExperience.md "../api-reference/API_UpdateWebExperience.md") and [`CreateWebExperience`](../api-reference/API_CreateWebExperience.md "../api-reference/API_CreateWebExperience.md")
 operations.
 
-## Activating and deploying the
-
-browser extension
+## Activating and deploying the browser extension
 
 After enabling the browser extension, complete these steps to activate and
 deploy it:

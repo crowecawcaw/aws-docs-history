@@ -1,6 +1,4 @@
-# Amazon Q Business Analytics dashboard
-
-metrics
+# Amazon Q Business Analytics dashboard metrics
 
 The Amazon Q Business dashboard provides a comprehensive view of key metrics to help admins
 understand the performance and usage of every Amazon Q application environment from the Amazon Q Business

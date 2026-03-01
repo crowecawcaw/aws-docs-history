@@ -1,6 +1,4 @@
-# OAuth 2.0
-
-authentication
+# OAuth 2.0 authentication
 
 You can connect Amazon Q to Jira using OAuth 2.0
 authentication credentials. The following procedures give you an overview of how to
@@ -11,22 +9,14 @@ authentication.
 
 authentication
 
-- [Step 1: Retrieving username
-  and Jira URL](#jira-credentials-url "#jira-credentials-url")
-- [Step 2: Configuring an
-  OAuth 2.0 app integration](#jira-credentials-oauth-app "#jira-credentials-oauth-app")
-- [Step 3: Retrieving
-  Jira client ID and client Secret](#jira-credentials-id-secret "#jira-credentials-id-secret")
-- [Step 4: Generating a
-  Jira access token](#jira-credentials-access "#jira-credentials-access")
-- [Step 5: Generating a
-  Jira refresh token](#jira-credentials-refresh "#jira-credentials-refresh")
-- [Step 6: Generating
-  a new Jira access token using a refresh token](#jira-credentials-refresh-access "#jira-credentials-refresh-access")
+- [Step 1: Retrieving username and Jira URL](#jira-credentials-url "#jira-credentials-url")
+- [Step 2: Configuring an OAuth 2.0 app integration](#jira-credentials-oauth-app "#jira-credentials-oauth-app")
+- [Step 3: Retrieving Jira client ID and client Secret](#jira-credentials-id-secret "#jira-credentials-id-secret")
+- [Step 4: Generating a Jira access token](#jira-credentials-access "#jira-credentials-access")
+- [Step 5: Generating a Jira refresh token](#jira-credentials-refresh "#jira-credentials-refresh")
+- [Step 6: Generating a new Jira access token using a refresh token](#jira-credentials-refresh-access "#jira-credentials-refresh-access")
 
-## Step 1: Retrieving username
-
-and Jira URL
+## Step 1: Retrieving username and Jira URL
 
 To connect Jira to Amazon Q, you need your
 Jira username and your Jira URL. The following
@@ -43,9 +33,7 @@ procedure shows you how to retrieve these.
    need this later to both configure your OAuth 2.0 token and connect to
    Amazon Q.
 
-## Step 2: Configuring an
-
-OAuth 2.0 app integration
+## Step 2: Configuring an OAuth 2.0 app integration
 
 To connect Jira to Amazon Q using OAuth 2.0
 authentication, you need to create a Jira OAuth 2.0 app with the
@@ -116,9 +104,7 @@ Select **Save**.
 For more information, see [Implementing OAuth 2.0 (3LO)](https://developer.atlassian.com/cloud/oauth/getting-started/implementing-oauth-3lo/ "https://developer.atlassian.com/cloud/oauth/getting-started/implementing-oauth-3lo/") and [Determining the scopes required for an operation](https://developer.atlassian.com/cloud/oauth/getting-started/determining-scopes/ "https://developer.atlassian.com/cloud/oauth/getting-started/determining-scopes/") in
 Atlassian Developer.
 
-## Step 3: Retrieving
-
-Jira client ID and client Secret
+## Step 3: Retrieving Jira client ID and client Secret
 
 To connect Jira to Amazon Q using OAuth 2.0
 authentication, you need to provide a Jira client ID and client
@@ -148,9 +134,7 @@ for more details.
 For more information, see [Implementing OAuth 2.0 (3LO)](https://developer.atlassian.com/cloud/oauth/getting-started/implementing-oauth-3lo/ "https://developer.atlassian.com/cloud/oauth/getting-started/implementing-oauth-3lo/") and [Determining the scopes required for an operation](https://developer.atlassian.com/cloud/oauth/getting-started/determining-scopes/ "https://developer.atlassian.com/cloud/oauth/getting-started/determining-scopes/") in
 Atlassian Developer.
 
-## Step 4: Generating a
-
-Jira access token
+## Step 4: Generating a Jira access token
 
 To connect Jira to Amazon Q, you need to generate an
 access token. The following procedure outlines how to generate an access token
@@ -242,9 +226,7 @@ curl --location 'https://auth.atlassian.com/oauth/token' \
 For more information, see [Implementing OAuth 2.0 (3LO)](https://developer.atlassian.com/cloud/oauth/getting-started/implementing-oauth-3lo/ "https://developer.atlassian.com/cloud/oauth/getting-started/implementing-oauth-3lo/") in Atlassian
 Developer.
 
-## Step 5: Generating a
-
-Jira refresh token
+## Step 5: Generating a Jira refresh token
 
 The access token you use to connect Jira to Amazon Q
 using OAuth 2.0 authentication expires after 1 hour. When it does, you can
@@ -345,9 +327,7 @@ You will need it to connect Jira to Amazon Q.
 For more information, see [Implementing a Refresh Token Flow](https://developer.atlassian.com/cloud/oauth/getting-started/refresh-tokens/ "https://developer.atlassian.com/cloud/oauth/getting-started/refresh-tokens/") in Atlassian
 Developer.
 
-## Step 6: Generating
-
-a new Jira access token using a refresh token
+## Step 6: Generating a new Jira access token using a refresh token
 
 You can use the refresh token you generated to create a new access
 token-refresh token pair when an existing access token expires. The following

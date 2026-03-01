@@ -1,6 +1,4 @@
-# Connecting Microsoft Teams to
-
-Amazon Q Business
+# Connecting Microsoft Teams to Amazon Q Business
 
 You can connect Microsoft Teams to Amazon Q Business to index and search your team's messages, channel posts, and files. This connection enables your organization to find relevant information from Teams conversations and shared content through your Amazon Q web experience.
 
@@ -9,27 +7,17 @@ Use the AWS Management Console or the [CreateDataSource](../api-reference/API_Cr
 ###### Topics
 
 - [Microsoft Teams connector versions](teams-versions.md "teams-versions.md")
-- [Known limitations for the
-  Microsoft Teams connector](teams-limitations.md "teams-limitations.md")
-- [Microsoft Teams connector
-  overview](teams-overview.md "teams-overview.md")
+- [Known limitations for the Microsoft Teams connector](teams-limitations.md "teams-limitations.md")
+- [Microsoft Teams connector overview](teams-overview.md "teams-overview.md")
 - [Prerequisites for connecting Amazon Q Business to Microsoft Teams](teams-prereqs.md "teams-prereqs.md")
-- [Connecting using the latest
-  Microsoft Teams connector (Console)](teams-console-new.md "teams-console-new.md")
-- [Connecting using the legacy
-  Microsoft Teams connector (Console)](teams-console-original.md "teams-console-original.md")
-- [Connecting Amazon Q Business to Microsoft Teams
-  using APIs](teams-api.md "teams-api.md")
-- [Connecting Amazon Q Business to Microsoft Teams
-  using AWS CloudFormation](teams-cfn.md "teams-cfn.md")
-- [How Amazon Q Business connector
-  crawls Microsoft Teams ACLs](teams-user-management.md "teams-user-management.md")
-- [Microsoft Teams data source connector
-  field mappings](teams-field-mappings.md "teams-field-mappings.md")
-- [IAM role for
-  Microsoft Teams connector](teams-iam-role.md "teams-iam-role.md")
-- [Troubleshooting your
-  Microsoft Teams connector](teams-troubleshooting.md "teams-troubleshooting.md")
+- [Connecting using the latest Microsoft Teams connector (Console)](teams-console-new.md "teams-console-new.md")
+- [Connecting using the legacy Microsoft Teams connector (Console)](teams-console-original.md "teams-console-original.md")
+- [Connecting Amazon Q Business to Microsoft Teams using APIs](teams-api.md "teams-api.md")
+- [Connecting Amazon Q Business to Microsoft Teams using AWS CloudFormation](teams-cfn.md "teams-cfn.md")
+- [How Amazon Q Business connector crawls Microsoft Teams ACLs](teams-user-management.md "teams-user-management.md")
+- [Microsoft Teams data source connector field mappings](teams-field-mappings.md "teams-field-mappings.md")
+- [IAM role for Microsoft Teams connector](teams-iam-role.md "teams-iam-role.md")
+- [Troubleshooting your Microsoft Teams connector](teams-troubleshooting.md "teams-troubleshooting.md")
 
 **Learn more**
 

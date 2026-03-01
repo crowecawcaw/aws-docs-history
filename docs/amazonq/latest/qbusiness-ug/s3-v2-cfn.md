@@ -13,10 +13,8 @@ in the _CloudFormation User Guide_.
 ###### Topics
 
 - [Amazon S3 configuration properties](#s3-v2-configuration-keys "#s3-v2-configuration-keys")
-- [Amazon S3 JSON schema for using the configuration
-  property with AWS CloudFormation](#s3-v2-cfn-json "#s3-v2-cfn-json")
-- [Amazon S3 YAML schema for using the configuration
-  property with AWS CloudFormation](#s3-v2-cfn-yaml "#s3-v2-cfn-yaml")
+- [Amazon S3 JSON schema for using the configuration property with AWS CloudFormation](#s3-v2-cfn-json "#s3-v2-cfn-json")
+- [Amazon S3 YAML schema for using the configuration property with AWS CloudFormation](#s3-v2-cfn-yaml "#s3-v2-cfn-yaml")
 
 ## Amazon S3 configuration properties
 
@@ -41,23 +39,17 @@ The following provides information about important configuration properties requ
 | `deletionProtectionThreshold`     | Percentage threshold for deletion protection. If more than this percentage of documents would be deleted, the sync will be blocked. This is a sub-property for the<br>`deletionProtectionConfiguration`. | `number`<br>Default: 15                                                                               | No       |
 | `metadataFilesPrefix`             | S3 key prefix where metadata files are stored for enhanced document processing.                                                                                                                          | `string`<br>Length: 1-1024 characters                                                                 | No       |
 
-## Amazon S3 JSON schema for using the configuration
-
-property with AWS CloudFormation
+## Amazon S3 JSON schema for using the configuration property with AWS CloudFormation
 
 The following is the Amazon S3 JSON schema and examples for the configuration
 property for AWS CloudFormation.
 
 ###### Topics
 
-- [Amazon S3 JSON schema for using the
-  configuration property with AWS CloudFormation](#s3-v2-cfn-json-schema "#s3-v2-cfn-json-schema")
-- [Amazon S3 JSON schema example for using the
-  configuration property with AWS CloudFormation](#s3-v2-cfn-json-example "#s3-v2-cfn-json-example")
+- [Amazon S3 JSON schema for using the configuration property with AWS CloudFormation](#s3-v2-cfn-json-schema "#s3-v2-cfn-json-schema")
+- [Amazon S3 JSON schema example for using the configuration property with AWS CloudFormation](#s3-v2-cfn-json-example "#s3-v2-cfn-json-example")
 
-### Amazon S3 JSON schema for using the
-
-configuration property with AWS CloudFormation
+### Amazon S3 JSON schema for using the configuration property with AWS CloudFormation
 
 The following is the Amazon S3 JSON schema for the configuration property for
 CloudFormation.
@@ -154,9 +146,7 @@ CloudFormation.
 
 [Show moreShow less](# "#")
 
-### Amazon S3 JSON schema example for using the
-
-configuration property with AWS CloudFormation
+### Amazon S3 JSON schema example for using the configuration property with AWS CloudFormation
 
 The following is the Amazon S3 JSON example for the Configuration property for
 CloudFormation.
@@ -188,21 +178,16 @@ CloudFormation.
 
 [Show moreShow less](# "#")
 
-## Amazon S3 YAML schema for using the configuration
-
-property with AWS CloudFormation
+## Amazon S3 YAML schema for using the configuration property with AWS CloudFormation
 
 The following is the Amazon S3 YAML schema and examples for the configuration
 property for AWS CloudFormation:
 
 ###### Topics
 
-- [Amazon S3 YAML schema example for using the
-  configuration property with AWS CloudFormation](#s3-v2-cfn-yaml-example "#s3-v2-cfn-yaml-example")
+- [Amazon S3 YAML schema example for using the configuration property with AWS CloudFormation](#s3-v2-cfn-yaml-example "#s3-v2-cfn-yaml-example")
 
-### Amazon S3 YAML schema example for using the
-
-configuration property with AWS CloudFormation
+### Amazon S3 YAML schema example for using the configuration property with AWS CloudFormation
 
 The following is the Amazon S3 YAML example for the Configuration property for
 CloudFormation:

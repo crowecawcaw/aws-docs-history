@@ -1,6 +1,4 @@
-# Microsoft Teams connector
-
-overview
+# Microsoft Teams connector overview
 
 The following table shows the Amazon Q Business
 Microsoft Teams connector features and capabilities.

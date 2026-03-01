@@ -43,17 +43,12 @@ improved query response accuracy.
 
 ###### Topics
 
-- [Known limitations for the
-  Smartsheet connector](smartsheet-limitations.md "smartsheet-limitations.md")
+- [Known limitations for the Smartsheet connector](smartsheet-limitations.md "smartsheet-limitations.md")
 - [Prerequisites for connecting Amazon Q Business to Smartsheet](smartsheet-prereqs.md "smartsheet-prereqs.md")
-- [Connecting Amazon Q Business to
-  Smartsheet using the console](smartsheet-console.md "smartsheet-console.md")
-- [Connecting Amazon Q Business to Smartsheet
-  using APIs](smartsheet-api.md "smartsheet-api.md")
-- [How Amazon Q Business connector
-  crawls Smartsheet ACLs](smartsheet-user-management.md "smartsheet-user-management.md")
-- [IAM role for
-  Smartsheet connector](smartsheet-iam-role.md "smartsheet-iam-role.md")
+- [Connecting Amazon Q Business to Smartsheet using the console](smartsheet-console.md "smartsheet-console.md")
+- [Connecting Amazon Q Business to Smartsheet using APIs](smartsheet-api.md "smartsheet-api.md")
+- [How Amazon Q Business connector crawls Smartsheet ACLs](smartsheet-user-management.md "smartsheet-user-management.md")
+- [IAM role for Smartsheet connector](smartsheet-iam-role.md "smartsheet-iam-role.md")
 
 **Learn more**
 

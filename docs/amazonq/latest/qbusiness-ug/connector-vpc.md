@@ -23,31 +23,21 @@ information about setting up a VPN, see the [Site-to-Site VPN documentation](../
 
 ###### Topics
 
-- [Configuring Amazon VPC support for
-  Amazon Q Business connectors](connector-vpc-steps.md "connector-vpc-steps.md")
-- [Set up an Amazon Q Business data
-  source to connect to Amazon VPC](connector-vpc-setup.md "connector-vpc-setup.md")
-- [Viewing Amazon VPC
-  identifiers](#viewing-vpc-identifiers "#viewing-vpc-identifiers")
-- [Checking your data source IAM
-  role](#vpc-iam-roles "#vpc-iam-roles")
+- [Configuring Amazon VPC support for Amazon Q Business connectors](connector-vpc-steps.md "connector-vpc-steps.md")
+- [Set up an Amazon Q Business data source to connect to Amazon VPC](connector-vpc-setup.md "connector-vpc-setup.md")
+- [Viewing Amazon VPC identifiers](#viewing-vpc-identifiers "#viewing-vpc-identifiers")
+- [Checking your data source IAM role](#vpc-iam-roles "#vpc-iam-roles")
 - [Using Amazon VPC with an Amazon S3 data source](s3-vpc-example-1.md "s3-vpc-example-1.md")
-- [Step 3. Configure your external
-  data source and Amazon VPC](#connector-vpc-prerequisites-3 "#connector-vpc-prerequisites-3")
+- [Step 3. Configure your external data source and Amazon VPC](#connector-vpc-prerequisites-3 "#connector-vpc-prerequisites-3")
 
 ###### Topics
 
-- [Viewing Amazon VPC
-  identifiers](#viewing-vpc-identifiers "#viewing-vpc-identifiers")
-- [Checking your data source IAM
-  role](#vpc-iam-roles "#vpc-iam-roles")
+- [Viewing Amazon VPC identifiers](#viewing-vpc-identifiers "#viewing-vpc-identifiers")
+- [Checking your data source IAM role](#vpc-iam-roles "#vpc-iam-roles")
 - [Using Amazon VPC with an Amazon S3 data source](s3-vpc-example-1.md "s3-vpc-example-1.md")
-- [Step 3. Configure your external
-  data source and Amazon VPC](#connector-vpc-prerequisites-3 "#connector-vpc-prerequisites-3")
+- [Step 3. Configure your external data source and Amazon VPC](#connector-vpc-prerequisites-3 "#connector-vpc-prerequisites-3")
 
-## Viewing Amazon VPC
-
-identifiers
+## Viewing Amazon VPC identifiers
 
 The identifiers for subnets and security groups are configured in the Amazon VPC console. To view the identifiers, use the following
 procedures.
@@ -73,9 +63,7 @@ procedures.
 4. From the **Details** tab, make a note of the
    identifier in the **Security Group ID** field.
 
-## Checking your data source IAM
-
-role
+## Checking your data source IAM role
 
 Make sure that your data source connector AWS Identity and Access Management IAM) role
 contains permissions to access your Amazon VPC.
@@ -93,9 +81,7 @@ subnet. However, check your data source's IAM role and, if
 necessary, modify it to reflect the change for the Amazon Q Business data
 source connector to work properly.
 
-## Step 3. Configure your external
-
-data source and Amazon VPC
+## Step 3. Configure your external data source and Amazon VPC
 
 Make sure that your external data source has the correct permissions
 configuration and network settings for Amazon Q Business to access it. You

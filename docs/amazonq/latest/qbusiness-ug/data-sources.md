@@ -41,11 +41,8 @@ documents.
 
 ###### Topics
 
-- [Creating an index for an Amazon Q Business
-  application](select-retriever.md "select-retriever.md")
+- [Creating an index for an Amazon Q Business application](select-retriever.md "select-retriever.md")
 - [Uploading files](upload-docs.md "upload-docs.md")
-- [Connecting Amazon Q Business data source
-  connectors](supported-connectors.md "supported-connectors.md")
+- [Connecting Amazon Q Business data source connectors](supported-connectors.md "supported-connectors.md")
 - [Troubleshooting data source connectors](troubleshooting-data-sources.md "troubleshooting-data-sources.md")
-- [Managing Amazon Q Business data
-  source resources](managing-resources-data-sources.md "managing-resources-data-sources.md")
+- [Managing Amazon Q Business data source resources](managing-resources-data-sources.md "managing-resources-data-sources.md")

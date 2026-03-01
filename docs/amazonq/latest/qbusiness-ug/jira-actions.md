@@ -1,6 +1,4 @@
-# Configuring a Jira Cloud plugin for
-
-Amazon Q Business
+# Configuring a Jira Cloud plugin for Amazon Q Business
 
 Jira Cloud is a project management tool that creates issues (tickets) for software
 development, product management, and bug tracking. If you’re a Jira Cloud user, you

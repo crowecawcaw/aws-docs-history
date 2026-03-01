@@ -1,6 +1,4 @@
-# Boosting chat responses using metadata
-
-boosting
+# Boosting chat responses using metadata boosting
 
 ###### Note
 
@@ -60,10 +58,8 @@ boosting for document attributes](../../../kendra/latest/dg/tuning.md "../../../
 
 - [Understanding boosting in Amazon Q Business](#understanding-boosting "#understanding-boosting")
 - [Amazon Q Business boosting types](boosting-parameters.md "boosting-parameters.md")
-- [Configuring document attributes for boosting
-  in Amazon Q Business](configuring-boosting.md "configuring-boosting.md")
-- [Enabling document attributes for
-  search in Amazon Q Business](boosting-searchable-attributes.md "boosting-searchable-attributes.md")
+- [Configuring document attributes for boosting in Amazon Q Business](configuring-boosting.md "configuring-boosting.md")
+- [Enabling document attributes for search in Amazon Q Business](boosting-searchable-attributes.md "boosting-searchable-attributes.md")
 
 ## Understanding boosting in Amazon Q Business
 

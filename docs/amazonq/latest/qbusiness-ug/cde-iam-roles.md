@@ -1,6 +1,4 @@
-# IAM roles for custom document enrichment in
-
-Amazon Q Business
+# IAM roles for custom document enrichment in Amazon Q Business
 
 Custom document enrichment (CDE) is an Amazon Q Business feature that you can use to
 manipulate your document content and document attributes. When you use the Lambda functions for CDE, you need an IAM role for the following:

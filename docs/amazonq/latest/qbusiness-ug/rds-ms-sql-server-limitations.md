@@ -1,6 +1,4 @@
-# Known limitations for the
-
-Amazon RDS (Microsoft SQL Server) connector
+# Known limitations for the Amazon RDS (Microsoft SQL Server) connector
 
 - Deleted database rows will not be tracked in when Amazon Q checks
   for updated content.

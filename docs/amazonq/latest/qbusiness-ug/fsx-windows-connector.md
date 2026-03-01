@@ -10,16 +10,11 @@ The Amazon Q Amazon FSx (Windows) data source connector supports only Amazon FSx
 
 - [Amazon FSx (Windows) connector overview](fsx-windows-overview.md "fsx-windows-overview.md")
 - [Prerequisites for connecting Amazon Q Business to Amazon FSx (Windows)](fsx-windows-prereqs.md "fsx-windows-prereqs.md")
-- [Connecting Amazon Q Business to
-  Amazon FSx (Windows) using the console](fsx-windows-console.md "fsx-windows-console.md")
-- [Connecting Amazon Q Business to
-  Amazon FSx (Windows) using APIs](fsx-api.md "fsx-api.md")
-- [How Amazon Q Business connector
-  crawls Amazon FSx (Windows) ACLs](fsx-user-management.md "fsx-user-management.md")
-- [Amazon FSx (Windows) data source connector
-  field mappings](fsx-field-mappings.md "fsx-field-mappings.md")
-- [IAM role for Amazon FSx (Windows)
-  connector](fsx-windows-iam-role.md "fsx-windows-iam-role.md")
+- [Connecting Amazon Q Business to Amazon FSx (Windows) using the console](fsx-windows-console.md "fsx-windows-console.md")
+- [Connecting Amazon Q Business to Amazon FSx (Windows) using APIs](fsx-api.md "fsx-api.md")
+- [How Amazon Q Business connector crawls Amazon FSx (Windows) ACLs](fsx-user-management.md "fsx-user-management.md")
+- [Amazon FSx (Windows) data source connector field mappings](fsx-field-mappings.md "fsx-field-mappings.md")
+- [IAM role for Amazon FSx (Windows) connector](fsx-windows-iam-role.md "fsx-windows-iam-role.md")
 
 **Learn more**
 

@@ -1,6 +1,4 @@
-# ServiceNow Online connector
-
-overview
+# ServiceNow Online connector overview
 
 The following table gives an overview of the Amazon Q Business
 ServiceNow Online connector and its supported features.

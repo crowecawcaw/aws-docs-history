@@ -38,5 +38,4 @@ Available for: Pro tier only
 - [Integrating Microsoft Teams (Teams) with Amazon Q Business](msteams.md "msteams.md")
 - [Integrating Microsoft Outlook with the Amazon Q Business Add-in](integration-msoutlook.md "integration-msoutlook.md")
 - [Integrating Microsoft Word with the Amazon Q Business Add-in](integration-msword.md "integration-msword.md")
-- [IAM roles and trust policy for
-  your integrations](amazon-q-business-integrations-iam.md "amazon-q-business-integrations-iam.md")
+- [IAM roles and trust policy for your integrations](amazon-q-business-integrations-iam.md "amazon-q-business-integrations-iam.md")

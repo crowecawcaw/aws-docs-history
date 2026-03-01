@@ -15,8 +15,7 @@ more efficient information discovery and better-informed decision making.
 ###### Topics
 
 - [Connecting Microsoft OneDrive to Amazon Q Business (New)](onedrive-new-connector.md "onedrive-new-connector.md")
-- [Connecting Microsoft
-  OneDrive to Amazon Q Business (Original)](onedrive-original-connector.md "onedrive-original-connector.md")
+- [Connecting Microsoft OneDrive to Amazon Q Business (Original)](onedrive-original-connector.md "onedrive-original-connector.md")
 
 **Learn more**
 

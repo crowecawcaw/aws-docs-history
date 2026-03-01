@@ -14,18 +14,12 @@ Blog_.
 
 ###### Topics
 
-- [Prerequisites for using
-  Microsoft Entra ID (formerly Azure AD) App-Only authentication](#sharepoint-cloud-prereqs-azure-app-only "#sharepoint-cloud-prereqs-azure-app-only")
-- [Prerequisites for using OAuth 2.0
-  authentication](#sharepoint-cloud-prereqs-oauth "#sharepoint-cloud-prereqs-oauth")
-- [Prerequisites for
-  using SharePoint App-Only authentication](#sharepoint-cloud-prereqs-sharepoint-app-only "#sharepoint-cloud-prereqs-sharepoint-app-only")
-- [Prerequisites for using basic
-  authentication](#sharepoint-cloud-prereqs-basic "#sharepoint-cloud-prereqs-basic")
+- [Prerequisites for using Microsoft Entra ID (formerly Azure AD) App-Only authentication](#sharepoint-cloud-prereqs-azure-app-only "#sharepoint-cloud-prereqs-azure-app-only")
+- [Prerequisites for using OAuth 2.0 authentication](#sharepoint-cloud-prereqs-oauth "#sharepoint-cloud-prereqs-oauth")
+- [Prerequisites for using SharePoint App-Only authentication](#sharepoint-cloud-prereqs-sharepoint-app-only "#sharepoint-cloud-prereqs-sharepoint-app-only")
+- [Prerequisites for using basic authentication](#sharepoint-cloud-prereqs-basic "#sharepoint-cloud-prereqs-basic")
 
-## Prerequisites for using
-
-Microsoft Entra ID (formerly Azure AD) App-Only authentication
+## Prerequisites for using Microsoft Entra ID (formerly Azure AD) App-Only authentication
 
 **If you're using Microsoft Entra ID (formerly Azure AD) App-Only authentication, make sure
 you've completed the following steps in SharePoint (Online):**
@@ -425,9 +419,7 @@ rsa:2048 -noenc -sha1 -keyout /tmp/private.key -out
     }
     ```
 
-## Prerequisites for using OAuth 2.0
-
-authentication
+## Prerequisites for using OAuth 2.0 authentication
 
 **If you're using OAuth 2.0 authentication, make sure you've
 completed the following steps in SharePoint (Online):**
@@ -762,9 +754,7 @@ limited permissions, the following steps provide the necessary setup:
 
    ```
 
-## Prerequisites for
-
-using SharePoint App-Only authentication
+## Prerequisites for using SharePoint App-Only authentication
 
 **If you're using SharePoint App-Only authentication, make
 sure you've completed the following steps in
@@ -821,9 +811,7 @@ secret as part of configuring your Amazon Q application on the console.
 
 For a list of things to consider while configuring your data source, see [Data source connector configuration best practices](connector-best-practices.md "connector-best-practices.md").
 
-## Prerequisites for using basic
-
-authentication
+## Prerequisites for using basic authentication
 
 **If you're using basic authentication, make sure you've
 completed the following steps in SharePoint (Online):**

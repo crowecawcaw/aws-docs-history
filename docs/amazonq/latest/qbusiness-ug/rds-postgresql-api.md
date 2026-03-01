@@ -1,6 +1,4 @@
-# Connecting Amazon Q Business to
-
-Amazon RDS (PostgreSQL) using APIs
+# Connecting Amazon Q Business to Amazon RDS (PostgreSQL) using APIs
 
 You use the [`CreateDataSource`](../api-reference/API_CreateDataSource.md "../api-reference/API_CreateDataSource.md") action to connect a data source to
 your Amazon Q application.

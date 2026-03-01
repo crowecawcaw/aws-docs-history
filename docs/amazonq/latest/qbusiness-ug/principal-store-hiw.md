@@ -109,8 +109,7 @@ data source.
 For more information regarding setting up user mapping for specific
 connectors, consult the detailed ACL crawling documentation section for that
 connector. For example, if you need to set up user mapping for Salesforce
-Online, see [How Amazon Q Business connector
-crawls Salesforce ACLs](salesforce-user-management.md "salesforce-user-management.md").
+Online, see [How Amazon Q Business connector crawls Salesforce ACLs](salesforce-user-management.md "salesforce-user-management.md").
 
 ## Using the API
 

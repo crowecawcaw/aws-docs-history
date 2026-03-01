@@ -1,6 +1,4 @@
-# Managing Amazon Q Business
-
-resources
+# Managing Amazon Q Business resources
 
 You can choose to manage your Amazon Q Business application environment and associated
 resources. To learn how to do so, see the following sections:

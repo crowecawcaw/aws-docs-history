@@ -1,6 +1,4 @@
-# Connecting Amazon Q Business to Confluence (Cloud)
-
-using APIs
+# Connecting Amazon Q Business to Confluence (Cloud) using APIs
 
 You use the [CreateDataSource](../api-reference/API_CreateDataSource.md "../api-reference/API_CreateDataSource.md") action to connect a data source to your
 Amazon Q application. You can also use the [UpdateDataSource](../api-reference/API_UpdateDataSource.md "../api-reference/API_UpdateDataSource.md") action to modify an existing data source configuration.
@@ -12,15 +10,11 @@ For an example of the API request, see [CreateDataSource](../api-reference/API_C
 
 ###### Topics
 
-- [Confluence configuration
-  properties](#confluence-configuration-keys "#confluence-configuration-keys")
+- [Confluence configuration properties](#confluence-configuration-keys "#confluence-configuration-keys")
 - [Confluence (Cloud) JSON schema](#confluence-cloud-json "#confluence-cloud-json")
-- [Confluence (Cloud) JSON schema
-  example](#confluence-cloud-api-json-example "#confluence-cloud-api-json-example")
+- [Confluence (Cloud) JSON schema example](#confluence-cloud-api-json-example "#confluence-cloud-api-json-example")
 
-## Confluence configuration
-
-properties
+## Confluence configuration properties
 
 The following provides information about important configuration properties required in the
 schema.
@@ -515,9 +509,7 @@ The following is the Confluence (Cloud) JSON schema:
 
 [Show moreShow less](# "#")
 
-## Confluence (Cloud) JSON schema
-
-example
+## Confluence (Cloud) JSON schema example
 
 The following is the Confluence (Cloud) JSON schema example:
 

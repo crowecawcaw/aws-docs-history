@@ -1,6 +1,4 @@
-# Remove your website as an allowed
-
-URL
+# Remove your website as an allowed URL
 
 To remove a website(s) from list of allowed websites, you can use the Amazon Q Business console or the Amazon Q Business API.
 

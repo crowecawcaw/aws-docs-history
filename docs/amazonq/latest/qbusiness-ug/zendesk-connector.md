@@ -7,24 +7,16 @@ experience.
 
 ###### Topics
 
-- [Known limitations for the Zendesk
-  connector](zendesk-limitations.md "zendesk-limitations.md")
+- [Known limitations for the Zendesk connector](zendesk-limitations.md "zendesk-limitations.md")
 - [Zendesk connector overview](zendesk-overview.md "zendesk-overview.md")
 - [Prerequisites for connecting Amazon Q Business to Zendesk](zendesk-prereqs.md "zendesk-prereqs.md")
-- [Setting up Zendesk for connecting to
-  Amazon Q Business](zendesk-credentials.md "zendesk-credentials.md")
-- [Connecting Amazon Q Business to
-  Zendesk using the console](zendesk-console.md "zendesk-console.md")
-- [Connecting Amazon Q Business to Zendesk
-  using APIs](zendesk-api.md "zendesk-api.md")
-- [How Amazon Q Business connector
-  crawls Zendesk ACLs](zendesk-user-management.md "zendesk-user-management.md")
-- [Zendesk data source connector
-  field mappings](zendesk-field-mappings.md "zendesk-field-mappings.md")
-- [IAM role for the Zendesk
-  connector](zendesk-iam-role.md "zendesk-iam-role.md")
-- [Understand error codes in the
-  Zendesk connector](zendesk-error-codes.md "zendesk-error-codes.md")
+- [Setting up Zendesk for connecting to Amazon Q Business](zendesk-credentials.md "zendesk-credentials.md")
+- [Connecting Amazon Q Business to Zendesk using the console](zendesk-console.md "zendesk-console.md")
+- [Connecting Amazon Q Business to Zendesk using APIs](zendesk-api.md "zendesk-api.md")
+- [How Amazon Q Business connector crawls Zendesk ACLs](zendesk-user-management.md "zendesk-user-management.md")
+- [Zendesk data source connector field mappings](zendesk-field-mappings.md "zendesk-field-mappings.md")
+- [IAM role for the Zendesk connector](zendesk-iam-role.md "zendesk-iam-role.md")
+- [Understand error codes in the Zendesk connector](zendesk-error-codes.md "zendesk-error-codes.md")
 
 **Learn more**
 

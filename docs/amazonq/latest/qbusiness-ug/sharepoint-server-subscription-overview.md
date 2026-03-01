@@ -1,6 +1,4 @@
-# SharePoint Server (Subscription Edition) connector
-
-overview
+# SharePoint Server (Subscription Edition) connector overview
 
 The following table gives an overview of the Amazon Q Business
 SharePoint Server (Subscription Edition) connector and its supported features.

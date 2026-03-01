@@ -1,6 +1,4 @@
-# Known limitations for the
-
-Box connector
+# Known limitations for the Box connector
 
 The Amazon Q Box connector has the following known
 limitations:

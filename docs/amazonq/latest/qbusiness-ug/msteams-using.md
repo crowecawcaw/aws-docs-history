@@ -3,14 +3,10 @@
 ###### Topics
 
 - [Prerequisites](#msteams-using-prerequisites "#msteams-using-prerequisites")
-- [Install and configure the Amazon Q Business app
-  in Microsoft Teams](#msteams-using-install "#msteams-using-install")
-- [Features of the Amazon Q Business Microsoft
-  Teams bot](#msteams-using-features "#msteams-using-features")
-- [Considerations using the Amazon Q Business bot
-  for Microsoft Teams (Teams)](#msteams-considerations "#msteams-considerations")
-- [Troubleshooting the Amazon Q Business app for
-  Microsoft Teams](#msteams-troubleshooting "#msteams-troubleshooting")
+- [Install and configure the Amazon Q Business app in Microsoft Teams](#msteams-using-install "#msteams-using-install")
+- [Features of the Amazon Q Business Microsoft Teams bot](#msteams-using-features "#msteams-using-features")
+- [Considerations using the Amazon Q Business bot for Microsoft Teams (Teams)](#msteams-considerations "#msteams-considerations")
+- [Troubleshooting the Amazon Q Business app for Microsoft Teams](#msteams-troubleshooting "#msteams-troubleshooting")
 
 ## Prerequisites
 
@@ -19,9 +15,7 @@
 - Your Amazon Q admin must connect the Amazon Q Business App to your Microsoft
   Teams organization.
 
-## Install and configure the Amazon Q Business app
-
-in Microsoft Teams
+## Install and configure the Amazon Q Business app in Microsoft Teams
 
 The following are instructions on how to install the Amazon Q app in Microsoft
 Teams (Teams):
@@ -35,9 +29,7 @@ Teams (Teams):
 
 For more information, see [Chat with a bot in Microsoft Teams](https://support.microsoft.com/en-us/office/chat-with-a-bot-in-microsoft-teams-9c7bab5e-b1a2-4e35-801a-80d076e26f3f "https://support.microsoft.com/en-us/office/chat-with-a-bot-in-microsoft-teams-9c7bab5e-b1a2-4e35-801a-80d076e26f3f") from Microsoft support.
 
-## Features of the Amazon Q Business Microsoft
-
-Teams bot
+## Features of the Amazon Q Business Microsoft Teams bot
 
 Following are some of the features supported by the Amazon Q Microsoft Teams
 (Teams) App:
@@ -59,9 +51,7 @@ Following are some of the features supported by the Amazon Q Microsoft Teams
 
 The Amazon Q Business Microsoft Teams integration does not support [actions or plugins](actions.md "actions.md").
 
-## Considerations using the Amazon Q Business bot
-
-for Microsoft Teams (Teams)
+## Considerations using the Amazon Q Business bot for Microsoft Teams (Teams)
 
 1. When Amazon Q is invoked by a user in a public Teams channel, it
    generates responses based on the invoking user's permissions, which may
@@ -93,9 +83,7 @@ for Microsoft Teams (Teams)
    information, see [Hallucination](concepts-terms.md#hallucination "concepts-terms.md#hallucination") in the topic Key concepts of
    Amazon Q Business.
 
-## Troubleshooting the Amazon Q Business app for
-
-Microsoft Teams
+## Troubleshooting the Amazon Q Business app for Microsoft Teams
 
 My admin has enabled the Amazon Q Business app for Microsoft Teams (Teams),
 but I'm unable to login.

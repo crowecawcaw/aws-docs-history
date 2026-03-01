@@ -5,17 +5,12 @@ actions:
 
 ###### Actions
 
-- [Deleting an Amazon Q Business
-  index](#delete-native-retriever "#delete-native-retriever")
+- [Deleting an Amazon Q Business index](#delete-native-retriever "#delete-native-retriever")
 - [Getting properties of an Amazon Q Business index](#describe-native-retriever "#describe-native-retriever")
-- [Listing Amazon Q Business indices
-  and retrievers](#list-native-retriever "#list-native-retriever")
-- [Editing Amazon Q Business
-  indices](#update-native-retriever "#update-native-retriever")
+- [Listing Amazon Q Business indices and retrievers](#list-native-retriever "#list-native-retriever")
+- [Editing Amazon Q Business indices](#update-native-retriever "#update-native-retriever")
 
-## Deleting an Amazon Q Business
-
-index
+## Deleting an Amazon Q Business index
 
 To delete a Amazon Q Business index, you can use the console or the
 [DeleteIndex](../api-reference/API_DeleteIndex.md "../api-reference/API_DeleteIndex.md") API
@@ -133,9 +128,7 @@ aws qbusiness get-retriever \
 
 ```
 
-## Listing Amazon Q Business indices
-
-and retrievers
+## Listing Amazon Q Business indices and retrievers
 
 To list your native Amazon Q Business indices and retrievers, you can
 use the console or the [ListIndices](../api-reference/API_ListIndices.md "../api-reference/API_ListIndices.md") API operation and the [ListRetrievers](../api-reference/API_ListRetrievers.md "../api-reference/API_ListRetrievers.md") API
@@ -180,9 +173,7 @@ aws qbusiness list-retrievers \
 
 ```
 
-## Editing Amazon Q Business
-
-indices
+## Editing Amazon Q Business indices
 
 To edit your Amazon Q Business index, you can use the console or the
 [UpdateIndices](../api-reference/API_UpdateIndices.md "../api-reference/API_UpdateIndices.md") API

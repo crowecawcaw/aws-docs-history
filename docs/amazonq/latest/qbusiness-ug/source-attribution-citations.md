@@ -1,6 +1,4 @@
-# Source attribution with citations in
-
-Amazon Q Business
+# Source attribution with citations in Amazon Q Business
 
 The Amazon Q Business web experience chat response provides in-text source
 citations for responses that use the organization's data sources and knowledge base as a

@@ -1,6 +1,4 @@
-# Connecting Amazon Q Business to
-
-Asana using APIs (Preview)
+# Connecting Amazon Q Business to Asana using APIs (Preview)
 
 You use the [CreateDataSource](../api-reference/API_CreateDataSource.md "../api-reference/API_CreateDataSource.md") action to connect a data source to your
 Amazon Q application. You can also use the [UpdateDataSource](../api-reference/API_UpdateDataSource.md "../api-reference/API_UpdateDataSource.md") action to modify an existing data source configuration.

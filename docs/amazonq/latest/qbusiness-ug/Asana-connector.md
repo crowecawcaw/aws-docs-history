@@ -11,15 +11,11 @@ AWS Management Console or the [CreateDataSource](../api-reference/API_CreateData
 ###### Topics
 
 - [Known limitations for the Amazon Q Business Asana connector (Preview)](Asana-limitations.md "Asana-limitations.md")
-- [Asana connector overview
-  (Preview)](Asana-overview.md "Asana-overview.md")
+- [Asana connector overview (Preview)](Asana-overview.md "Asana-overview.md")
 - [Prerequisites for connecting Amazon Q Business to Asana (Preview)](Asana-prereqs.md "Asana-prereqs.md")
-- [Connecting Amazon Q Business to
-  Asana using the console (Preview)](Asana-console.md "Asana-console.md")
-- [Connecting Amazon Q Business to
-  Asana using APIs (Preview)](Asana-api.md "Asana-api.md")
-- [Amazon Q Business
-  Asana data source connector field mappings (Preview)](Asana-field-mappings.md "Asana-field-mappings.md")
+- [Connecting Amazon Q Business to Asana using the console (Preview)](Asana-console.md "Asana-console.md")
+- [Connecting Amazon Q Business to Asana using APIs (Preview)](Asana-api.md "Asana-api.md")
+- [Amazon Q Business Asana data source connector field mappings (Preview)](Asana-field-mappings.md "Asana-field-mappings.md")
 - [IAM role for Amazon Q Business Asana connector (Preview)](Asana-iam-role.md "Asana-iam-role.md")
 - [Understand error codes in the Amazon Q Business Asana connector (Preview)](Asana-error-codes.md "Asana-error-codes.md")
 

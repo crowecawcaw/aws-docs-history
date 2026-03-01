@@ -1,25 +1,17 @@
-# Managing Amazon Q Business web
-
-experiences for anonymous access
+# Managing Amazon Q Business web experiences for anonymous access
 
 To manage Amazon Q Business web experiences for anonymous access, you can
 take the following actions:
 
 ###### Actions
 
-- [Share an anonymous web
-  experience](#create-experience-anonymous-url "#create-experience-anonymous-url")
-- [Deleting a web
-  experience](#delete-web-experience-anonymous "#delete-web-experience-anonymous")
-- [Getting properties of a web
-  experience](#describe-web-experience-anonymous "#describe-web-experience-anonymous")
+- [Share an anonymous web experience](#create-experience-anonymous-url "#create-experience-anonymous-url")
+- [Deleting a web experience](#delete-web-experience-anonymous "#delete-web-experience-anonymous")
+- [Getting properties of a web experience](#describe-web-experience-anonymous "#describe-web-experience-anonymous")
 - [Listing web experiences](#list-web-experiences-anonymous "#list-web-experiences-anonymous")
-- [Updating a web
-  experience](#update-web-experience-anonymous "#update-web-experience-anonymous")
+- [Updating a web experience](#update-web-experience-anonymous "#update-web-experience-anonymous")
 
-## Share an anonymous web
-
-experience
+## Share an anonymous web experience
 
 If you created a web experience when you created your application, you can
 preview that Amazon Q Business web experience for anonymous access, using
@@ -75,9 +67,7 @@ aws qbusiness create-anonymous-web-experience-url \
 
 ```
 
-## Deleting a web
-
-experience
+## Deleting a web experience
 
 To delete an Amazon Q Business web experience, you can use the console
 or the [DeleteWebExperience](../api-reference/API_DeleteWebExperience.md "../api-reference/API_DeleteWebExperience.md") API operation.
@@ -92,8 +82,7 @@ it's attached to.
 
 Even after deleting the web experience all URLs connected to this web
 experience continue to process billable chat requests until their sessions
-expire. For more information, see [Share an anonymous web
-experience](#create-experience-anonymous-url "#create-experience-anonymous-url").
+expire. For more information, see [Share an anonymous web experience](#create-experience-anonymous-url "#create-experience-anonymous-url").
 
 The following tabs provide a procedure for the AWS Management Console and code examples for
 the AWS CLI.
@@ -128,9 +117,7 @@ aws qbusiness delete-web-experience \
 
 ```
 
-## Getting properties of a web
-
-experience
+## Getting properties of a web experience
 
 To get the properties of an Amazon Q Business web experience, you can
 use the console or the [GetWebExperience](../api-reference/API_GetWebExperience.md "../api-reference/API_GetWebExperience.md") API operation.
@@ -201,9 +188,7 @@ aws qbusiness get-web-experience \
 
 ```
 
-## Updating a web
-
-experience
+## Updating a web experience
 
 To update an Amazon Q Business web experience, you can use the console
 or the [UpdateWebExperience](../api-reference/API_UpdateWebExperience.md "../api-reference/API_UpdateWebExperience.md") API operation.

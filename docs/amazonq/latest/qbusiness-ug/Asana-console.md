@@ -1,6 +1,4 @@
-# Connecting Amazon Q Business to
-
-Asana using the console (Preview)
+# Connecting Amazon Q Business to Asana using the console (Preview)
 
 The following procedure outlines how to connect Amazon Q Business to
 Asana using the AWS Management Console.

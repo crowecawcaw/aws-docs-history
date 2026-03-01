@@ -7,25 +7,16 @@ CLI, or the [CreateDataSource](../api-reference/API_CreateDataSource.md "../api-
 
 ###### Topics
 
-- [Known limitations for the
-  Slack connector](slack-limitations.md "slack-limitations.md")
-- [Slack connector
-  overview](slack-overview.md "slack-overview.md")
+- [Known limitations for the Slack connector](slack-limitations.md "slack-limitations.md")
+- [Slack connector overview](slack-overview.md "slack-overview.md")
 - [Prerequisites for connecting Amazon Q Business to Slack](slack-prereqs.md "slack-prereqs.md")
-- [Setting up Slack for
-  connecting to Amazon Q](slack-credentials.md "slack-credentials.md")
-- [Connecting Amazon Q Business to
-  Slack using the console](slack-console.md "slack-console.md")
-- [Connecting Amazon Q Business to Slack
-  using APIs](slack-api.md "slack-api.md")
-- [Connecting Amazon Q Business to Slack
-  using AWS CloudFormation](slack-cfn.md "slack-cfn.md")
-- [How Amazon Q Business connector
-  crawls Slack ACLs](slack-user-management.md "slack-user-management.md")
-- [Slack data source connector
-  field mappings](slack-field-mappings.md "slack-field-mappings.md")
-- [IAM role for the
-  Slack connector](slack-iam-role.md "slack-iam-role.md")
+- [Setting up Slack for connecting to Amazon Q](slack-credentials.md "slack-credentials.md")
+- [Connecting Amazon Q Business to Slack using the console](slack-console.md "slack-console.md")
+- [Connecting Amazon Q Business to Slack using APIs](slack-api.md "slack-api.md")
+- [Connecting Amazon Q Business to Slack using AWS CloudFormation](slack-cfn.md "slack-cfn.md")
+- [How Amazon Q Business connector crawls Slack ACLs](slack-user-management.md "slack-user-management.md")
+- [Slack data source connector field mappings](slack-field-mappings.md "slack-field-mappings.md")
+- [IAM role for the Slack connector](slack-iam-role.md "slack-iam-role.md")
 
 **Learn more**
 

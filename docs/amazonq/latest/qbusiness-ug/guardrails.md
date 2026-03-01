@@ -29,9 +29,7 @@ for your application environment like the following:
 
 ###### Topics
 
-- [Key terms for Amazon Q Business
-  guardrails and chat controls](guardrails-concepts.md "guardrails-concepts.md")
+- [Key terms for Amazon Q Business guardrails and chat controls](guardrails-concepts.md "guardrails-concepts.md")
 - [Using global controls in Amazon Q Business](guardrails-global-controls.md "guardrails-global-controls.md")
 - [Using topic-level controls in Amazon Q Business](guardrails-topic-controls.md "guardrails-topic-controls.md")
-- [Managing Amazon Q Business admin
-  controls and guardrails](guardrails-management.md "guardrails-management.md")
+- [Managing Amazon Q Business admin controls and guardrails](guardrails-management.md "guardrails-management.md")

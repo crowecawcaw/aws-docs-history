@@ -1,6 +1,4 @@
-# Connecting Amazon Q Business to Microsoft Teams
-
-using AWS CloudFormation
+# Connecting Amazon Q Business to Microsoft Teams using AWS CloudFormation
 
 You use the [`AWS::QBusiness::DataSource`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.md") resource to connect a data source to
 your Amazon Q application.
@@ -12,9 +10,7 @@ To learn more about AWS CloudFormation, see
 [What is AWS CloudFormation?](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md")
 in the _CloudFormation User Guide_.
 
-## Microsoft Teams configuration
-
-properties
+## Microsoft Teams configuration properties
 
 The following provides information about important configuration properties required in the
 schema.
@@ -45,27 +41,19 @@ schema.
 | `enableIdentityCrawler`                                                                                                                                                                                                                             | `true` to activate identity crawler.Crawling identity information<br>on users and groups with access to specific documents is useful for user context<br>filtering. Search results are filtered based on the user or their group access to<br>documents.<br>NoteAmazon Q Business crawls identity information from your data source by<br>default to ensure responses are generated only from documents end users have access<br>to. For more information, see [Identity crawler](connector-concepts.md#connector-identity-crawler "connector-concepts.md#connector-identity-crawler"). | `boolean`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | No       |
 | `version`                                                                                                                                                                                                                                           | The version of this template that's currently supported.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | `string`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | No       |
 
-## Microsoft Teams JSON schema for using the
+## Microsoft Teams JSON schema for using the CloudFormation
 
-CloudFormation
-
-## Microsoft Teams JSON schema for using the
-
-configuration property with AWS CloudFormation
+## Microsoft Teams JSON schema for using the configuration property with AWS CloudFormation
 
 The following is the Microsoft Teams JSON schema and examples for the configuration
 property for AWS CloudFormation.
 
 ###### Topics
 
-- [Microsoft Teams JSON schema for using the
-  configuration property with AWS CloudFormation](#teams-cfn-json-schema "#teams-cfn-json-schema")
-- [Microsoft Teams JSON schema example for
-  using the configuration property with AWS CloudFormation](#teams-cfn-json-example "#teams-cfn-json-example")
+- [Microsoft Teams JSON schema for using the configuration property with AWS CloudFormation](#teams-cfn-json-schema "#teams-cfn-json-schema")
+- [Microsoft Teams JSON schema example for using the configuration property with AWS CloudFormation](#teams-cfn-json-example "#teams-cfn-json-example")
 
-### Microsoft Teams JSON schema for using the
-
-configuration property with AWS CloudFormation
+### Microsoft Teams JSON schema for using the configuration property with AWS CloudFormation
 
 The following is the Microsoft Teams JSON schema for the configuration property for
 CloudFormation
@@ -678,9 +666,7 @@ CloudFormation
 
 [Show moreShow less](# "#")
 
-### Microsoft Teams JSON schema example for
-
-using the configuration property with AWS CloudFormation
+### Microsoft Teams JSON schema example for using the configuration property with AWS CloudFormation
 
 The following is the Microsoft Teams JSON schema example for the configuration
 property for CloudFormation
@@ -836,23 +822,17 @@ property for CloudFormation
 
 [Show moreShow less](# "#")
 
-## Microsoft Teams YAML schema for using the
-
-configuration property with AWS CloudFormation
+## Microsoft Teams YAML schema for using the configuration property with AWS CloudFormation
 
 The following is the Microsoft Teams YAML schema and examples for the configuration
 property for AWS CloudFormation:
 
 ###### Topics
 
-- [Microsoft Teams YAML schema for using the
-  configuration property with AWS CloudFormation](#teams-cfn-yaml-schema "#teams-cfn-yaml-schema")
-- [Microsoft Teams YAML schema example for
-  using the configuration property with AWS CloudFormation](#teams-cfn-yaml-example "#teams-cfn-yaml-example")
+- [Microsoft Teams YAML schema for using the configuration property with AWS CloudFormation](#teams-cfn-yaml-schema "#teams-cfn-yaml-schema")
+- [Microsoft Teams YAML schema example for using the configuration property with AWS CloudFormation](#teams-cfn-yaml-example "#teams-cfn-yaml-example")
 
-### Microsoft Teams YAML schema for using the
-
-configuration property with AWS CloudFormation
+### Microsoft Teams YAML schema for using the configuration property with AWS CloudFormation
 
 The following is the Microsoft Teams YAML schema for the configuration property for
 CloudFormation.
@@ -1297,9 +1277,7 @@ properties:
 
 [Show moreShow less](# "#")
 
-### Microsoft Teams YAML schema example for
-
-using the configuration property with AWS CloudFormation
+### Microsoft Teams YAML schema example for using the configuration property with AWS CloudFormation
 
 The following is the Microsoft Teams YAML example for the Configuration property for
 CloudFormation:

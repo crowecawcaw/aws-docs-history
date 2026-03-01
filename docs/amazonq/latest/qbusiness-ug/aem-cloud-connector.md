@@ -15,20 +15,15 @@ instance to Amazon Q Business—using either the AWS Management Console, CLI, or
 
 ###### Topics
 
-- [Known limitations for the Amazon Q BusinessAEM (Cloud) connector](aem-cloud-limitations.md "aem-cloud-limitations.md")
-- [AEM (Cloud) connector
-  overview](aem-cloud-overview.md "aem-cloud-overview.md")
+- [Known limitations for the Amazon Q Business AEM (Cloud) connector](aem-cloud-limitations.md "aem-cloud-limitations.md")
+- [AEM (Cloud) connector overview](aem-cloud-overview.md "aem-cloud-overview.md")
 - [Prerequisites for connecting Amazon Q Business to AEM (Cloud)](aem-cloud-prereqs.md "aem-cloud-prereqs.md")
-- [Connecting Amazon Q Business to
-  AEM (Cloud) using the console](aem-cloud-console.md "aem-cloud-console.md")
-- [Connecting Amazon Q Business to
-  AEM (Cloud) using APIs](aem-cloud-api.md "aem-cloud-api.md")
-- [How Amazon Q Business connector
-  crawls AEM (Cloud) ACLs](aem-cloud-user-management.md "aem-cloud-user-management.md")
-- [Amazon Q BusinessAEM (Cloud) data source connector field mappings](aem-cloud-field-mappings.md "aem-cloud-field-mappings.md")
-- [IAM role for Amazon QAEM (Cloud) connector](aem-cloud-iam-role.md "aem-cloud-iam-role.md")
-- [Understand error codes in the
-  AEM (Cloud) connector](aem-cloud-error-codes.md "aem-cloud-error-codes.md")
+- [Connecting Amazon Q Business to AEM (Cloud) using the console](aem-cloud-console.md "aem-cloud-console.md")
+- [Connecting Amazon Q Business to AEM (Cloud) using APIs](aem-cloud-api.md "aem-cloud-api.md")
+- [How Amazon Q Business connector crawls AEM (Cloud) ACLs](aem-cloud-user-management.md "aem-cloud-user-management.md")
+- [Amazon Q Business AEM (Cloud) data source connector field mappings](aem-cloud-field-mappings.md "aem-cloud-field-mappings.md")
+- [IAM role for Amazon Q AEM (Cloud) connector](aem-cloud-iam-role.md "aem-cloud-iam-role.md")
+- [Understand error codes in the AEM (Cloud) connector](aem-cloud-error-codes.md "aem-cloud-error-codes.md")
 
 **Learn more**
 

@@ -16,14 +16,11 @@ AWS Management Console and the AWS CLI.
 
 ###### Topics
 
-- [Prerequisites for adding
-  plugins](#qapps-plugins-prerequisites "#qapps-plugins-prerequisites")
+- [Prerequisites for adding plugins](#qapps-plugins-prerequisites "#qapps-plugins-prerequisites")
 - [Adding plugins in Amazon Q Apps](#qapps-plugins-add "#qapps-plugins-add")
 - [Using plugins in Amazon Q Apps](#qapps-plugins-use "#qapps-plugins-use")
 
-## Prerequisites for adding
-
-plugins
+## Prerequisites for adding plugins
 
 Before your web experience users can create and use plugins, the web experience
 IAM role for your application environment must have the correct permissions to perform the

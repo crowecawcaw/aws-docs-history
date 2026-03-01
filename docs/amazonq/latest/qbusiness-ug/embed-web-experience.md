@@ -1,6 +1,4 @@
-# Add Amazon Q embedded to your
-
-website
+# Add Amazon Q embedded to your website
 
 You can embed your Amazon Q Business web experience by adding an
 `<iframe>` element to your website with the **Deployed
@@ -31,8 +29,7 @@ the website.
 - For [anonymous applications](create-anonymous-application.md "create-anonymous-application.md"), the
   **Deployed URL** must be generated every time using the
   `CreateAnonymousWebExperienceUrl` API operation. For
-  more information, see [Share an anonymous web
-  experience](supported-exp-actions-anonymous.md#create-experience-anonymous-url "supported-exp-actions-anonymous.md#create-experience-anonymous-url").
+  more information, see [Share an anonymous web experience](supported-exp-actions-anonymous.md#create-experience-anonymous-url "supported-exp-actions-anonymous.md#create-experience-anonymous-url").
 - If your browser has a limited cookie mode (ex. Incognito mode in Chrome),
   you may have to enable third-party cookies for Amazon Q embedded to work.
 - The button for copying may not work without `allow="clipboard-read;

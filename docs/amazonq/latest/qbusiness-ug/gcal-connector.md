@@ -10,19 +10,13 @@ AWS Management Console or the [CreateDataSource](../api-reference/API_CreateData
 
 ###### Topics
 
-- [Known limitations for the
-  Google Calendar connector (Preview)](gcal-limitations.md "gcal-limitations.md")
-- [Google Calendar connector overview
-  (Preview)](gcal-overview.md "gcal-overview.md")
+- [Known limitations for the Google Calendar connector (Preview)](gcal-limitations.md "gcal-limitations.md")
+- [Google Calendar connector overview (Preview)](gcal-overview.md "gcal-overview.md")
 - [Prerequisites for connecting Amazon Q Business to Google Calendar (Preview)](gcal-prereqs.md "gcal-prereqs.md")
-- [Connecting Amazon Q Business to
-  Google Calendar using the console (Preview)](gcal-console.md "gcal-console.md")
-- [Connecting Amazon Q Business to Google Calendar
-  using APIs](gcal-api.md "gcal-api.md")
-- [How Amazon Q Business connector
-  crawls Google Calendar ACLs](gcal-user-management.md "gcal-user-management.md")
-- [Google Calendar data source connector
-  field mappings](google-calendar-field-mappings.md "google-calendar-field-mappings.md")
+- [Connecting Amazon Q Business to Google Calendar using the console (Preview)](gcal-console.md "gcal-console.md")
+- [Connecting Amazon Q Business to Google Calendar using APIs](gcal-api.md "gcal-api.md")
+- [How Amazon Q Business connector crawls Google Calendar ACLs](gcal-user-management.md "gcal-user-management.md")
+- [Google Calendar data source connector field mappings](google-calendar-field-mappings.md "google-calendar-field-mappings.md")
 - [IAM role for Amazon Q Business Google Calendar connector (Preview)](gcal-iam-role.md "gcal-iam-role.md")
 - [Understand error codes in the Amazon Q Business Google Calendar connector (Preview)](gcal-error-codes.md "gcal-error-codes.md")
 

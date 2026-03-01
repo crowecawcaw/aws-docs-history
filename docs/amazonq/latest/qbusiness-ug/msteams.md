@@ -21,6 +21,5 @@ following:
 
 ###### Topics
 
-- [Configuring the Amazon Q Business Microsoft Teams
-  (Teams) integration for use](msteams-configuration.md "msteams-configuration.md")
+- [Configuring the Amazon Q Business Microsoft Teams (Teams) integration for use](msteams-configuration.md "msteams-configuration.md")
 - [Using the Amazon Q Business Microsoft Teams app](msteams-using.md "msteams-using.md")

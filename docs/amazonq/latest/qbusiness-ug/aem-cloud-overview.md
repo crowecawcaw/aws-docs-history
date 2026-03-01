@@ -1,6 +1,4 @@
-# AEM (Cloud) connector
-
-overview
+# AEM (Cloud) connector overview
 
 The following table gives an overview of the Amazon Q Business
 AEM (Cloud) connector and its supported features.

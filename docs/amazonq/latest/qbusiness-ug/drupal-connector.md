@@ -9,23 +9,15 @@ create websites and web applications. You can connect Drupal instance to Amazon 
 
 ###### Topics
 
-- [Drupal connector
-  overview](drupal-overview.md "drupal-overview.md")
+- [Drupal connector overview](drupal-overview.md "drupal-overview.md")
 - [Prerequisites for connecting Amazon Q Business to Drupal](drupal-prereqs.md "drupal-prereqs.md")
-- [Connecting Amazon Q Business to
-  Drupal using the console](drupal-console.md "drupal-console.md")
-- [Connecting Amazon Q Business to
-  Drupal using APIs](drupal-api.md "drupal-api.md")
-- [How Amazon Q Business connector
-  crawls Drupal ACLs](drupal-user-management.md "drupal-user-management.md")
-- [Drupal data source connector
-  field mappings](drupal-field-mappings.md "drupal-field-mappings.md")
-- [IAM role for
-  Drupal connector](drupal-iam-role.md "drupal-iam-role.md")
-- [Known limitations for the
-  Drupal connector](drupal-limitations.md "drupal-limitations.md")
-- [Understand error codes in the
-  Drupal connector](drupal-error-codes.md "drupal-error-codes.md")
+- [Connecting Amazon Q Business to Drupal using the console](drupal-console.md "drupal-console.md")
+- [Connecting Amazon Q Business to Drupal using APIs](drupal-api.md "drupal-api.md")
+- [How Amazon Q Business connector crawls Drupal ACLs](drupal-user-management.md "drupal-user-management.md")
+- [Drupal data source connector field mappings](drupal-field-mappings.md "drupal-field-mappings.md")
+- [IAM role for Drupal connector](drupal-iam-role.md "drupal-iam-role.md")
+- [Known limitations for the Drupal connector](drupal-limitations.md "drupal-limitations.md")
+- [Understand error codes in the Drupal connector](drupal-error-codes.md "drupal-error-codes.md")
 
 **Learn more**
 

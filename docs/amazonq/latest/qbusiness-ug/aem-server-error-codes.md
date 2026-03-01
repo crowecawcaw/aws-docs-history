@@ -1,6 +1,4 @@
-# Understand error codes in the
-
-AEM (Server) connector
+# Understand error codes in the AEM (Server) connector
 
 The following table provides information about error codes you may see for the
 AEM (Server) connector and suggested resolutions.

@@ -1,6 +1,4 @@
-# Configuring an Amazon Q Business application
-
-using AWS IAM Identity Center
+# Configuring an Amazon Q Business application using AWS IAM Identity Center
 
 As the first step towards creating a generative artificial intelligence (AI) assistant,
 you configure an application environment, and grant end user access to users to interact with an
@@ -30,11 +28,8 @@ for your application.
 
 ###### Topics
 
-- [Configuring an IAM Identity Center instance for an Amazon Q Business
-  application](idc-setup.md "idc-setup.md")
+- [Configuring an IAM Identity Center instance for an Amazon Q Business application](idc-setup.md "idc-setup.md")
 - [Creating an Amazon Q Business application environment](create-app.md "create-app.md")
-- [Migrating an Amazon Q Business direct SAML 2.0
-  application to IAM Identity Center](migrate-application.md "migrate-application.md")
+- [Migrating an Amazon Q Business direct SAML 2.0 application to IAM Identity Center](migrate-application.md "migrate-application.md")
 - [Making authenticated Amazon Q Business API calls using IAM Identity Center](making-sigv4-authenticated-api-calls.md "making-sigv4-authenticated-api-calls.md")
-- [Managing Amazon Q Business application
-  resources](managing-resources.md "managing-resources.md")
+- [Managing Amazon Q Business application resources](managing-resources.md "managing-resources.md")

@@ -1,6 +1,4 @@
-# Aurora (PostgreSQL) connector
-
-overview
+# Aurora (PostgreSQL) connector overview
 
 The following table gives an overview of the Amazon Q Business
 Aurora (PostgreSQL) connector and its supported features.

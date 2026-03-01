@@ -1,6 +1,4 @@
-# Connecting Amazon Q Business to GoogleDrive
-
-using APIs
+# Connecting Amazon Q Business to GoogleDrive using APIs
 
 You use the [CreateDataSource](../api-reference/API_CreateDataSource.md "../api-reference/API_CreateDataSource.md") action to connect a data source to your
 Amazon Q application. You can also use the [UpdateDataSource](../api-reference/API_UpdateDataSource.md "../api-reference/API_UpdateDataSource.md") action to modify an existing data source configuration.
@@ -12,14 +10,11 @@ For an example of the API request, see [CreateDataSource](../api-reference/API_C
 
 ###### Topics
 
-- [Google Drive configuration
-  properties](#google-configuration-keys "#google-configuration-keys")
+- [Google Drive configuration properties](#google-configuration-keys "#google-configuration-keys")
 - [Google Drive JSON schema](#googledrive-json "#googledrive-json")
 - [GoogleDrive JSON schema example](#s3-api-json-example "#s3-api-json-example")
 
-## Google Drive configuration
-
-properties
+## Google Drive configuration properties
 
 The following provides information about important configuration properties required in the
 schema.

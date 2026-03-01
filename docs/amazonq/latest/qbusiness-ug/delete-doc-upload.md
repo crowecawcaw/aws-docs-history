@@ -1,6 +1,4 @@
-# Deleting documents uploaded in an
-
-Amazon Q Business application
+# Deleting documents uploaded in an Amazon Q Business application
 
 To delete documents that have been directly uploaded to an application environment, you can
 use the console or the [BatchDeleteDocument](../api-reference/API_BatchDeleteDociment.md "../api-reference/API_BatchDeleteDociment.md") API operation.

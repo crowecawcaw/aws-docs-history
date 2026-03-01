@@ -12,15 +12,11 @@ these labels to classify them and help other users find the apps they need.
 
 ###### Topics
 
-- [Prerequisites for customizing
-  labels](#qapps-labels-prerequisites "#qapps-labels-prerequisites")
-- [Considerations for customizing
-  labels](#qapps-labels-considersations "#qapps-labels-considersations")
+- [Prerequisites for customizing labels](#qapps-labels-prerequisites "#qapps-labels-prerequisites")
+- [Considerations for customizing labels](#qapps-labels-considersations "#qapps-labels-considersations")
 - [Customizing labels](#qapps-adding-custom-labels "#qapps-adding-custom-labels")
 
-## Prerequisites for customizing
-
-labels
+## Prerequisites for customizing labels
 
 Before your web experience users can use custom labels, the web experience IAM
 role for your application environment must have permission to perform the
@@ -46,9 +42,7 @@ attached to this role to include the action as follows:
 }
 ```
 
-## Considerations for customizing
-
-labels
+## Considerations for customizing labels
 
 When you add labels, note the following:
 
@@ -70,8 +64,7 @@ Amazon Q Business console or the following API operations.
 After you save your changes, the label updates appear in the web experience
 immediately. If users don't see the changes, make sure you have configure
 permissions for the web experience IAM role for your application environment correctly. For
-more information, see [Prerequisites for customizing
-labels](#qapps-labels-prerequisites "#qapps-labels-prerequisites").
+more information, see [Prerequisites for customizing labels](#qapps-labels-prerequisites "#qapps-labels-prerequisites").
 
 The following shows how to customize Q Apps with the Amazon Q Business console or the
 AWS Command Line Interface.

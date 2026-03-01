@@ -12,12 +12,9 @@ isn't already created as an index field.
 ###### Topics
 
 - [Basic operations using the Amazon Q Business API](#cde-basic-operations-api "#cde-basic-operations-api")
-- [Basic operations using the
-  Amazon Q Business console](#cde-basic-operations-console "#cde-basic-operations-console")
-- [Use cases for basic
-  operations](#cde-basic-operations-examples "#cde-basic-operations-examples")
-- [Code examples of basic
-  operations](#cde-basic-operations-code-samples "#cde-basic-operations-code-samples")
+- [Basic operations using the Amazon Q Business console](#cde-basic-operations-console "#cde-basic-operations-console")
+- [Use cases for basic operations](#cde-basic-operations-examples "#cde-basic-operations-examples")
+- [Code examples of basic operations](#cde-basic-operations-code-samples "#cde-basic-operations-code-samples")
 
 ## Basic operations using the Amazon Q Business API
 
@@ -50,9 +47,7 @@ For more information, see the following topics in the _Amazon Q Business API Ref
 - [DocumentAttributeTarget](../api-reference/API_DocumentAttributeTarget.md "../api-reference/API_DocumentAttributeTarget.md")
 - [DocumentAttributeCondition](../api-reference/API_DocumentAttributeCondition.md "../api-reference/API_DocumentAttributeCondition.md")
 
-## Basic operations using the
-
-Amazon Q Business console
+## Basic operations using the Amazon Q Business console
 
 ###### To apply basic logic using the console
 
@@ -70,9 +65,7 @@ Amazon Q Business console
    to **Configure basic operations** .
 7. Choose **Next** to save your configuration.
 
-## Use cases for basic
-
-operations
+## Use cases for basic operations
 
 This section provides two examples of basic operations.
 
@@ -129,9 +122,7 @@ The following table shows the data after basic manipulation is applied.
 | 2                 | Example text        | financial/2      | Finance        |
 | 3                 | Example text        | financial/3      | Finance        |
 
-## Code examples of basic
-
-operations
+## Code examples of basic operations
 
 The following instructions give examples of configuring basic data
 manipulation to remove customer identification numbers associated with the

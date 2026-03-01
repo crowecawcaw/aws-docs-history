@@ -1,18 +1,12 @@
-# Using the Amazon Q Business
-
-Add-in for Microsoft Outlook
+# Using the Amazon Q Business Add-in for Microsoft Outlook
 
 ###### Topics
 
 - [Prerequisites](#integration-msoutlook-user-prerequisites "#integration-msoutlook-user-prerequisites")
-- [Install the Amazon Q Business Add-in to your Microsoft OutlookInstall the
-  Add-in](#install-configure-integration-msoutlook "#install-configure-integration-msoutlook")
-- [Common use cases for
-  using the Amazon Q Business Add-in for Microsoft Outlook](#integration-msoutlook-common-use-cases "#integration-msoutlook-common-use-cases")
-- [Considerations for using
-  the Amazon Q Business Add-in for Microsoft Outlook](#integration-msoutlook-considerations "#integration-msoutlook-considerations")
-- [Troubleshooting the Amazon Q Business
-  Add-in for Microsoft Outlook](#integration-msoutlook-troubleshooting "#integration-msoutlook-troubleshooting")
+- [Install the Amazon Q Business Add-in to your Microsoft OutlookInstall the Add-in](#install-configure-integration-msoutlook "#install-configure-integration-msoutlook")
+- [Common use cases for using the Amazon Q Business Add-in for Microsoft Outlook](#integration-msoutlook-common-use-cases "#integration-msoutlook-common-use-cases")
+- [Considerations for using the Amazon Q Business Add-in for Microsoft Outlook](#integration-msoutlook-considerations "#integration-msoutlook-considerations")
+- [Troubleshooting the Amazon Q Business Add-in for Microsoft Outlook](#integration-msoutlook-troubleshooting "#integration-msoutlook-troubleshooting")
 
 ## Prerequisites
 
@@ -23,9 +17,7 @@ Add-in for Microsoft Outlook
 
 ## Install the Amazon Q Business Add-in to your Microsoft Outlook
 
-## Install the
-
-Add-in
+## Install the Add-in
 
 The following are instructions on how to install the Amazon Q app in Microsoft
 Outlook (Outlook):
@@ -38,9 +30,7 @@ Outlook (Outlook):
    the right where you can access the Amazon Q Business chat assistant.
 4. Once you have successfully logged on, you can use your Amazon Q Business Add-In.
 
-## Common use cases for
-
-using the Amazon Q Business Add-in for Microsoft Outlook
+## Common use cases for using the Amazon Q Business Add-in for Microsoft Outlook
 
 The following are some of the common use cases that will help you make the
 best use of your Amazon Q Business Add-in for Microsoft Outlook
@@ -64,9 +54,7 @@ best use of your Amazon Q Business Add-in for Microsoft Outlook
 6. **Analyze up to 4 files that you want to send or
    have received for (collective) analysis**.
 
-## Considerations for using
-
-the Amazon Q Business Add-in for Microsoft Outlook
+## Considerations for using the Amazon Q Business Add-in for Microsoft Outlook
 
 1. Amazon Q Business does not use customer data for service
    improvement or for improving its underlying large language models
@@ -87,9 +75,7 @@ the Amazon Q Business Add-in for Microsoft Outlook
    information, see [Hallucination](concepts-terms.md#hallucination "concepts-terms.md#hallucination") in the topic Key concepts
    of Amazon Q Business.
 
-## Troubleshooting the Amazon Q Business
-
-Add-in for Microsoft Outlook
+## Troubleshooting the Amazon Q Business Add-in for Microsoft Outlook
 
 - **My admin has enabled the Microsoft Outlook
   (Outlook), but I'm unable to login.**

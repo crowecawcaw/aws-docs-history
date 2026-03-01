@@ -1,13 +1,9 @@
-# Getting access to your customer's Amazon Q
-
-index
+# Getting access to your customer's Amazon Q index
 
 There are two non-mutually exclusive ways to get access to a customer's Amazon Q
 index:
 
-## Customer grants ISVs (data
-
-accessors) access to their Amazon Q index
+## Customer grants ISVs (data accessors) access to their Amazon Q index
 
 Amazon Q Business customers add the ISV as a _data accessor_ to their
 Amazon Q Business application environment and underlying Amazon Q index. This includes Amazon Q
@@ -31,9 +27,7 @@ accessors](data-accessors.md "data-accessors.md") and [Accessing a
 customer's Amazon Q index as a data accessor using cross-account
 access](isv-accessing-cross-account.md "isv-accessing-cross-account.md").
 
-## The ISV sets up the Amazon Q index on
-
-behalf of the customer within their own AWS account
+## The ISV sets up the Amazon Q index on behalf of the customer within their own AWS account
 
 ISVs can manage the entire process themselves, creating an Amazon Q Business
 application environment and the underlying Amazon Q index on behalf of each customer in their

@@ -1,6 +1,4 @@
-# Managing Amazon Q Business web
-
-experiences
+# Managing Amazon Q Business web experiences
 
 To manage Amazon Q Business web experiences, you can take the following
 actions:
@@ -23,8 +21,7 @@ the AWS CLI.
 
 Console
 If you use the console, this action is spread across two steps:
-[Configuring an Amazon Q Business application
-using AWS IAM Identity Center](create-application.md "create-application.md") and [Customizing web experience](customizing-web-experience-app.md "customizing-web-experience-app.md"). To
+[Configuring an Amazon Q Business application using AWS IAM Identity Center](create-application.md "create-application.md") and [Customizing web experience](customizing-web-experience-app.md "customizing-web-experience-app.md"). To
 create a web experience, you must create an application environment.
 
 AWS CLI

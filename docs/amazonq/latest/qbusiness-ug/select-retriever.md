@@ -1,6 +1,4 @@
-# Creating an index for an Amazon Q Business
-
-application
+# Creating an index for an Amazon Q Business application
 
 Before you can add data in your Amazon Q Business application, you need to
 connect it to the following components:
@@ -50,8 +48,7 @@ retriever,** choose a topic based on your index preference for Amazon Q.
 ###### Topics
 
 - [Creating an Amazon Q Business index](#native-retriever "#native-retriever")
-- [Connecting an Amazon Kendra index as
-  retriever](#add-kendra-retriever "#add-kendra-retriever")
+- [Connecting an Amazon Kendra index as retriever](#add-kendra-retriever "#add-kendra-retriever")
 
 ## Creating an Amazon Q Business index
 
@@ -150,9 +147,7 @@ aws qbusiness create-retriever \
 
 ```
 
-## Connecting an Amazon Kendra index as
-
-retriever
+## Connecting an Amazon Kendra index as retriever
 
 If you use Amazon Kendra, you can connect an existing Amazon Kendra index as a
 retriever to your Amazon Q Business application environment.

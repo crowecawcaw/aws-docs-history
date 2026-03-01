@@ -1,6 +1,4 @@
-# How connector crawls
-
-Microsoft SQL Server ACLs
+# How connector crawls Microsoft SQL Server ACLs
 
 Connectors support crawling ACL and identity information where applicable based on the data source.
 If you index documents without ACLs, all documents are considered public.

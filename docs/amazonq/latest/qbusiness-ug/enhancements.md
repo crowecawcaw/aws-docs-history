@@ -33,17 +33,12 @@ You can choose from the following available enhancements:
 - [Connecting Amazon Q Business data sources](data-sources.md "data-sources.md")
 - [Admin controls and guardrails in Amazon Q Business](guardrails.md "guardrails.md")
 - [Customizing responses in Amazon Q Business](response-customization.md "response-customization.md")
-- [Share your enterprise data with data accessors using Amazon
-  Q index](data-accessors.md "data-accessors.md")
+- [Share your enterprise data with data accessors using Amazon Q index](data-accessors.md "data-accessors.md")
 - [Amazon Q embedded](embed-amazon-q-business.md "embed-amazon-q-business.md")
 - [Integrations](integrations.md "integrations.md")
-- [Creating purpose-built Amazon Q
-  Apps](purpose-built-qapps.md "purpose-built-qapps.md")
+- [Creating purpose-built Amazon Q Apps](purpose-built-qapps.md "purpose-built-qapps.md")
 - [Document enrichment in Amazon Q Business](custom-document-enrichment.md "custom-document-enrichment.md")
-- [Extracting semantic meaning from embedded
-  visual content with Amazon Q Business](extracting-meaning-from-images.md "extracting-meaning-from-images.md")
-- [Tuning the query results based on document attribute
-  relevancy](relevancy-tuning.md "relevancy-tuning.md")
-- [Boosting chat responses using metadata
-  boosting](metadata-boosting.md "metadata-boosting.md")
+- [Extracting semantic meaning from embedded visual content with Amazon Q Business](extracting-meaning-from-images.md "extracting-meaning-from-images.md")
+- [Tuning the query results based on document attribute relevancy](relevancy-tuning.md "relevancy-tuning.md")
+- [Boosting chat responses using metadata boosting](metadata-boosting.md "metadata-boosting.md")
 - [Configuring metadata controls in Amazon Q Business](mapping-doc-attributes.md "mapping-doc-attributes.md")

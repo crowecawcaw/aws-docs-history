@@ -1,6 +1,4 @@
-# Connecting Amazon Q Business to
-
-Zendesk using the console
+# Connecting Amazon Q Business to Zendesk using the console
 
 The following procedure outlines how to connect Amazon Q Business to
 Zendesk using the AWS Management Console.
@@ -148,8 +146,7 @@ following settings:
 your documents from deletion during a sync job, select **On** and enter an integer between 0 - 100. If
 the percentage of documents to be deleted in your sync job exceeds the percentage you selected, the
 delete phase will be skipped and no documents from this data source will be deleted from your index. For more information, see
-[Document deletion
-safeguard](connector-concepts.md#document-deletion-safeguard "connector-concepts.md#document-deletion-safeguard"). 17. In **Sync run schedule**, for
+[Document deletion safeguard](connector-concepts.md#document-deletion-safeguard "connector-concepts.md#document-deletion-safeguard"). 17. In **Sync run schedule**, for
 **Frequency** – Choose how often
 Amazon Q will sync with your data
 source. For more details, see [Sync run schedule](connector-concepts.md#connector-sync-run "connector-concepts.md#connector-sync-run"). To learn how to start a data sync job,

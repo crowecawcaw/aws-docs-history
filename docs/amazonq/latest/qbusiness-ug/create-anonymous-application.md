@@ -1,6 +1,4 @@
-# Creating an Amazon Q Business
-
-application environment for anonymous access
+# Creating an Amazon Q Business application environment for anonymous access
 
 Amazon Q Business application environments support anonymous access, enabling unauthenticated
 user interactions with the Amazon Q generative AI assistant. You can also make
@@ -42,7 +40,7 @@ visitors seeking product information or support. This can be integrated through:
   except for [blocked words](guardrails-global-controls.md#guardrails-global-blocked "guardrails-global-controls.md#guardrails-global-blocked").
 - Amazon Q Business integrations are not supported for anonymous
   application environments
-- The Amazon Q Quick Suite integration is not supported for anonymous
+- The Amazon Q Quick integration is not supported for anonymous
   application environments
 - You must only ingest publicly available data sources without access control
   lists (ACLs). Examples of public data sources include:
@@ -54,16 +52,11 @@ visitors seeking product information or support. This can be integrated through:
 
 ###### Topics
 
-- [Creating an a Amazon Q Business
-  application environment for anonymous access](#create-anonymous-app "#create-anonymous-app")
-- [Making
-  authenticated Amazon Q Business API calls for application environment supporting
-  anonymous access](making-sigv4-authenticated-api-calls-anonymous-applications.md "making-sigv4-authenticated-api-calls-anonymous-applications.md")
+- [Creating an a Amazon Q Business application environment for anonymous access](#create-anonymous-app "#create-anonymous-app")
+- [Making authenticated Amazon Q Business API calls for application environment supporting anonymous access](making-sigv4-authenticated-api-calls-anonymous-applications.md "making-sigv4-authenticated-api-calls-anonymous-applications.md")
 - [Managing resources for Amazon Q Business application environments that support anonymous access](managing-anonymous-app-resources.md "managing-anonymous-app-resources.md")
 
-## Creating an a Amazon Q Business
-
-application environment for anonymous access
+## Creating an a Amazon Q Business application environment for anonymous access
 
 You can create an Amazon Q Business application environment that can be accessed
 anonymously using the Amazon Q Business Console, API, SDK, and AWS CLI. As a

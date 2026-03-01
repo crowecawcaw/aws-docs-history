@@ -1,6 +1,4 @@
-# Managing Amazon Q Business web
-
-experiences
+# Managing Amazon Q Business web experiences
 
 To manage Amazon Q Business web experiences, you can take the following
 actions:
@@ -9,8 +7,7 @@ actions:
 
 - [Creating a web experience](#create-experience-iam "#create-experience-iam")
 - [Deleting a web experience](#delete-web-experience-iam "#delete-web-experience-iam")
-- [Getting properties of a web
-  experience](#describe-web-experience-iam "#describe-web-experience-iam")
+- [Getting properties of a web experience](#describe-web-experience-iam "#describe-web-experience-iam")
 - [Listing web experiences](#list-web-experiences-iam "#list-web-experiences-iam")
 - [Updating a web experience](#update-web-experience-idp-iam "#update-web-experience-idp-iam")
 
@@ -24,8 +21,7 @@ the AWS CLI.
 
 Console
 If you use the console, this action is spread across two steps:
-[Creating an Amazon Q Business application
-using Identity Federation through IAM](create-application-iam.md "create-application-iam.md") and [Customizing web experience](customizing-web-experience-app.md "customizing-web-experience-app.md"). To
+[Creating an Amazon Q Business application using Identity Federation through IAM](create-application-iam.md "create-application-iam.md") and [Customizing web experience](customizing-web-experience-app.md "customizing-web-experience-app.md"). To
 create a web experience, you must create an application environment.
 
 AWS CLI
@@ -88,9 +84,7 @@ aws qbusiness delete-web-experience \
 
 ```
 
-## Getting properties of a web
-
-experience
+## Getting properties of a web experience
 
 To get the properties of an Amazon Q Business web experience, you can
 use the console or the [GetWebExperience](../api-reference/API_GetWebExperience.md "../api-reference/API_GetWebExperience.md") API operation.

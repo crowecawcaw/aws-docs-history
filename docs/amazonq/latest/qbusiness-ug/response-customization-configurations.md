@@ -1,24 +1,16 @@
-# Managing response
-
-configurations
+# Managing response configurations
 
 When you create an Amazon Q Business application, Amazon Q Business
 applies default response settings to it. You can customize responses for a Amazon Q Business application using the AWS Management Console and the API.
 
 ###### Response customization management
 
-- [Creating custom response
-  settings](#create-response-configuration "#create-response-configuration")
-- [Editing response customization
-  settings](#edit-response-configuration "#edit-response-configuration")
-- [Deleting existing response
-  customization settings](#delete-response-configuration "#delete-response-configuration")
-- [Listing response customization
-  settings](#list-response-configurations "#list-response-configurations")
+- [Creating custom response settings](#create-response-configuration "#create-response-configuration")
+- [Editing response customization settings](#edit-response-configuration "#edit-response-configuration")
+- [Deleting existing response customization settings](#delete-response-configuration "#delete-response-configuration")
+- [Listing response customization settings](#list-response-configurations "#list-response-configurations")
 
-## Creating custom response
-
-settings
+## Creating custom response settings
 
 You can customize Amazon Q Business responses using the AWS Management Console or the
 [CreateChatResponseConfiguration](../api-reference/API_CreateChatResponseConfiguration.md "../api-reference/API_CreateChatResponseConfiguration.md") API
@@ -111,9 +103,7 @@ aws qbusiness create-chat-response-configuration \
 ]'
 ```
 
-## Editing response customization
-
-settings
+## Editing response customization settings
 
 You can edit an existing response configuration using the AWS Management Console or the [UpdateChatResponseConfiguration](../api-reference/API_UpdateChatResponseConfiguration.md "../api-reference/API_UpdateChatResponseConfiguration.md") API
 operation. The following tabs provide a procedure for the console and code examples
@@ -169,9 +159,7 @@ aws qbusiness update-chat-response-configuration \
 ]'
 ```
 
-## Deleting existing response
-
-customization settings
+## Deleting existing response customization settings
 
 You can delete configured response customizations using the [DeleteChatResponseConfiguration](../api-reference/API_DeleteChatResponseConfiguration.md "../api-reference/API_DeleteChatResponseConfiguration.md") API
 operation. If you're using the AWS Management Console, you can't reset the response
@@ -208,9 +196,7 @@ aws qbusiness delete-chat-response-configuration \
 --chat-response-configuration-id `configuration-id`
 ```
 
-## Listing response customization
-
-settings
+## Listing response customization settings
 
 You can list all available response configurations for an application using the
 AWS Management Console or the [GetChatResponseConfiguration](../api-reference/API_GetChatResponseConfiguration.md "../api-reference/API_GetChatResponseConfiguration.md") and

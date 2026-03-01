@@ -1,6 +1,4 @@
-# Box connector
-
-overview
+# Box connector overview
 
 The following table gives an overview of the Amazon Q Business
 Box connector and its supported features.

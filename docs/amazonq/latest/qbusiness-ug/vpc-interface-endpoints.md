@@ -1,6 +1,4 @@
-# Amazon Q Business and interface Amazon VPC
-
-endpoints (AWS PrivateLink)
+# Amazon Q Business and interface Amazon VPC endpoints (AWS PrivateLink)
 
 You can establish a private connection between your Amazon VPC and Amazon Q Business by
 creating an interface VPC endpoint. Interface endpoints are powered by AWS PrivateLink, a

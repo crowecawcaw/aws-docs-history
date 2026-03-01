@@ -1,6 +1,4 @@
-# Amazon Q Apps Analytics dashboard
-
-metrics
+# Amazon Q Apps Analytics dashboard metrics
 
 The Amazon Q Apps dashboard provides a comprehensive view of key metrics to help admins
 understand the performance and usage of Q Apps.

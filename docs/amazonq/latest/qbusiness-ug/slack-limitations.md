@@ -1,6 +1,4 @@
-# Known limitations for the
-
-Slack connector
+# Known limitations for the Slack connector
 
 The Slack connector has the following known limitations:
 

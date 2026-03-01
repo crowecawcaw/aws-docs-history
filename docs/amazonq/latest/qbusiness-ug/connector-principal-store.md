@@ -1,6 +1,4 @@
-# Understanding Amazon Q Business
-
-User Store
+# Understanding Amazon Q Business User Store
 
 With the Amazon Q Business
 _User Store_ feature, end users see Amazon Q Business chat

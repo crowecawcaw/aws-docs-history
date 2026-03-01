@@ -58,8 +58,7 @@ and Identity Federation through IAM.
 ###### Topics
 
 - [Admin workflow for apps using AWS IAM Identity Center](#admin-flow-idc "#admin-flow-idc")
-- [Admin workflow for apps using Identity Federation
-  through IAM](#admin-flow-iam "#admin-flow-iam")
+- [Admin workflow for apps using Identity Federation through IAM](#admin-flow-iam "#admin-flow-iam")
 
 ### Admin workflow for apps using AWS IAM Identity Center
 
@@ -115,9 +114,7 @@ chatting.
 When you create an application, response generation from large
 language model (LLM) knowledge is enabled by default.
 
-### Admin workflow for apps using Identity Federation
-
-through IAM
+### Admin workflow for apps using Identity Federation through IAM
 
 Amazon Q Business supports managing end user access to applications using
 [Identity Federation through IAM](../../../IAM/latest/UserGuide/id_roles_providers.md#id_roles_providers_iam "../../../IAM/latest/UserGuide/id_roles_providers.md#id_roles_providers_iam"). When you use

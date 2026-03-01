@@ -1,6 +1,4 @@
-# Configuring the Amazon Q Business Microsoft Teams
-
-(Teams) integration for use
+# Configuring the Amazon Q Business Microsoft Teams (Teams) integration for use
 
 ###### Note
 
@@ -27,10 +25,8 @@
 ###### Topics
 
 - [Prerequisites](#msteams-configuration-prerequisites "#msteams-configuration-prerequisites")
-- [Adding an Amazon Q Business integration for Microsoft
-  Teams](#msteams-adding "#msteams-adding")
-- [Removing Microsoft Teams as an
-  integration](#msteams-removing "#msteams-removing")
+- [Adding an Amazon Q Business integration for Microsoft Teams](#msteams-adding "#msteams-adding")
+- [Removing Microsoft Teams as an integration](#msteams-removing "#msteams-removing")
 
 ## Prerequisites
 
@@ -58,9 +54,7 @@ programmatically. 5. Add the two IAM roles and trust policies for adding integra
 For more information, see [IAM roles and trust policy for your integrations](amazon-q-business-integrations-iam.md "amazon-q-business-integrations-iam.md") 6. Your Microsoft 365 tenant ID. For more information, see [How to find your tenant ID - Microsoft Entra](https://learn.microsoft.com/en-us/entra/fundamentals/how-to-find-tenant "https://learn.microsoft.com/en-us/entra/fundamentals/how-to-find-tenant") in the
 Microsoft Learn portal.
 
-## Adding an Amazon Q Business integration for Microsoft
-
-Teams
+## Adding an Amazon Q Business integration for Microsoft Teams
 
 To use the Amazon Q Business Teams integration, you must allow it to connect to your
 Amazon Q Business application environment and web experience. To do this, admins can use the
@@ -74,8 +68,7 @@ time.
 ###### Topics
 
 - [Using the console](#msteams-adding-console "#msteams-adding-console")
-- [Installing the Amazon Q Business app in your
-  Microsoft Teams organization](#msteams-installing "#msteams-installing")
+- [Installing the Amazon Q Business app in your Microsoft Teams organization](#msteams-installing "#msteams-installing")
 
 ### Using the console
 
@@ -119,9 +112,7 @@ time.
 This link will take you to the Teams domain outside of
 AWS. 16. You will continue this procedure within the Teams domain.
 
-### Installing the Amazon Q Business app in your
-
-Microsoft Teams organization
+### Installing the Amazon Q Business app in your Microsoft Teams organization
 
 The following instructions show how to install the Amazon Q Business App in your
 Microsoft Teams (Teams) workspace using a link from the Amazon Q console as
@@ -163,9 +154,7 @@ center** can now find the app in the **Built for your
 org** section of the **Apps** page of their
 Teams app.
 
-## Removing Microsoft Teams as an
-
-integration
+## Removing Microsoft Teams as an integration
 
 To remove the Microsoft Teams (Teams) integration, admin users can use the
 Amazon Q Business console.

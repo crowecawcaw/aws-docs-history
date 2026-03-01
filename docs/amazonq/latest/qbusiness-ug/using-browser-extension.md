@@ -1,26 +1,17 @@
-# Using the Amazon Q Business browser
-
-extension
+# Using the Amazon Q Business browser extension
 
 The browser extension is available to Amazon Q Business users on Google
 Chrome, Mozilla Firefox, and Microsoft Edge browsers.
 
 ###### Topics
 
-- [Prerequisites for using
-  the browser extension](#user-prerequisites "#user-prerequisites")
-- [Install and configure the
-  browser extension](#install-configure-browser-extension "#install-configure-browser-extension")
-- [Common use cases for using
-  the Amazon Q Business browser extension](#browser-extension-common-use-cases "#browser-extension-common-use-cases")
-- [Considerations for using the
-  Amazon Q Business browser extension](#browser-extension-considerations "#browser-extension-considerations")
-- [Troubleshooting the Amazon Q Business
-  browser extension](#browser-extension-troubleshooting "#browser-extension-troubleshooting")
+- [Prerequisites for using the browser extension](#user-prerequisites "#user-prerequisites")
+- [Install and configure the browser extension](#install-configure-browser-extension "#install-configure-browser-extension")
+- [Common use cases for using the Amazon Q Business browser extension](#browser-extension-common-use-cases "#browser-extension-common-use-cases")
+- [Considerations for using the Amazon Q Business browser extension](#browser-extension-considerations "#browser-extension-considerations")
+- [Troubleshooting the Amazon Q Business browser extension](#browser-extension-troubleshooting "#browser-extension-troubleshooting")
 
-## Prerequisites for using
-
-the browser extension
+## Prerequisites for using the browser extension
 
 - You must be a user
 - Your Amazon Q Admin must connect the browser extension with
@@ -29,9 +20,7 @@ the browser extension
   but reach out to their admin to find out which browsers are enabled for
   use with Amazon Q.
 
-## Install and configure the
-
-browser extension
+## Install and configure the browser extension
 
 - To set up your browser extension, either wait for your IT department
   to configure and install it automatically, or follow their installation
@@ -68,9 +57,7 @@ third-party information about pinning extensions might be helpful.
 
 Safari browsers are not supported at the time.
 
-## Common use cases for using
-
-the Amazon Q Business browser extension
+## Common use cases for using the Amazon Q Business browser extension
 
 The following are some of the common use cases that will help you make the
 best use of your Amazon Q Business browser extension:
@@ -122,9 +109,7 @@ best use of your Amazon Q Business browser extension:
 
 The Amazon Q Business browser extension integration does not support [actions or plugins](actions.md "actions.md").
 
-## Considerations for using the
-
-Amazon Q Business browser extension
+## Considerations for using the Amazon Q Business browser extension
 
 1. Amazon Q Business does not use customer data for service
    improvement or for improving its underlying large language models
@@ -143,9 +128,7 @@ Amazon Q Business browser extension
    information, see [Hallucination](concepts-terms.md#hallucination "concepts-terms.md#hallucination") in the topic Key concepts
    of Amazon Q Business.
 
-## Troubleshooting the Amazon Q Business
-
-browser extension
+## Troubleshooting the Amazon Q Business browser extension
 
 - **My admin has enabled the browser extension, but
   I'm unable to login.**

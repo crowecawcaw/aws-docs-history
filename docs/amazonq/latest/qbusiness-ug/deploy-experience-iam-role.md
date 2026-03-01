@@ -1,6 +1,4 @@
-# IAM role for an Amazon Q Business web
-
-experience
+# IAM role for an Amazon Q Business web experience
 
 ###### Note
 
@@ -15,8 +13,6 @@ following IAM policies.
 
 ###### Topics
 
-- [IAM role for an Amazon Q Business
-  web experience using IAM Identity Center](web-experience-iam-role-idc.md "web-experience-iam-role-idc.md")
-- [IAM role for an Amazon Q Business
-  web experience using IAM Federation](web-experience-iam-role-iam.md "web-experience-iam-role-iam.md")
+- [IAM role for an Amazon Q Business web experience using IAM Identity Center](web-experience-iam-role-idc.md "web-experience-iam-role-idc.md")
+- [IAM role for an Amazon Q Business web experience using IAM Federation](web-experience-iam-role-iam.md "web-experience-iam-role-iam.md")
 - [IAM permissions for using Amazon Q Apps](deploy-q-apps-iam-permissions.md "deploy-q-apps-iam-permissions.md")

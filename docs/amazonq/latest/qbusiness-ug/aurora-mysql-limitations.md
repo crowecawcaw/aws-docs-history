@@ -1,6 +1,4 @@
-# Known limitations for the
-
-Aurora (MySQL) connector
+# Known limitations for the Aurora (MySQL) connector
 
 The Aurora (MySQL) connector has the following known limitations:
 

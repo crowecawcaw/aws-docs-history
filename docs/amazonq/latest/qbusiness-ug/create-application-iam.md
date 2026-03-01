@@ -1,6 +1,4 @@
-# Creating an Amazon Q Business application
-
-using Identity Federation through IAM
+# Creating an Amazon Q Business application using Identity Federation through IAM
 
 This section walks you through creating and configuring an Amazon Q Business
 application using IAM federation to manage end user access.
@@ -32,11 +30,8 @@ federated groups, use the [PutGroup](../api-reference/API_PutGroup.md "../api-re
 
 ###### Topics
 
-- [Creating an Amazon Q Business
-  application using IAM Federation through Okta](create-application-iam-okta.md "create-application-iam-okta.md")
-- [Creating an Amazon Q Business
-  application using IAM federation through Microsoft Entra ID](create-application-iam-entraid.md "create-application-iam-entraid.md")
+- [Creating an Amazon Q Business application using IAM Federation through Okta](create-application-iam-okta.md "create-application-iam-okta.md")
+- [Creating an Amazon Q Business application using IAM federation through Microsoft Entra ID](create-application-iam-entraid.md "create-application-iam-entraid.md")
 - [Connecting multiple Amazon Q Business applications to an Identity Provider](multiple-qbusiness-apps-idp.md "multiple-qbusiness-apps-idp.md")
 - [Making authenticated Amazon Q Business API calls using IAM federation](making-sigv4-authenticated-api-calls-iam.md "making-sigv4-authenticated-api-calls-iam.md")
-- [Managing Amazon Q Business
-  resources](managing-resources-iam.md "managing-resources-iam.md")
+- [Managing Amazon Q Business resources](managing-resources-iam.md "managing-resources-iam.md")

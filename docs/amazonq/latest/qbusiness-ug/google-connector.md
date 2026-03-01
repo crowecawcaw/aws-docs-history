@@ -16,8 +16,7 @@ decision making.
 ###### Topics
 
 - [Connecting Google Drive to Amazon Q Business (New)](googledrive-v2-connector-primary.md "googledrive-v2-connector-primary.md")
-- [Connecting Google
-  Drive to Amazon Q Business (Original)](googledrive-v1-connector-primary1.md "googledrive-v1-connector-primary1.md")
+- [Connecting Google Drive to Amazon Q Business (Original)](googledrive-v1-connector-primary1.md "googledrive-v1-connector-primary1.md")
 
 **Learn more**
 

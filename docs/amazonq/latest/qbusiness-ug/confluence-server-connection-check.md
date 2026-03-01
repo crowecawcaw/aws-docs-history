@@ -1,6 +1,4 @@
-# Checking Confluence (Server/Data Center)
-
-connectivity
+# Checking Confluence (Server/Data Center) connectivity
 
 Before you sync your Confluence (Server/Data Center) data source connector after [configuring it](confluence-server-console.md "confluence-server-console.md"), we recommend you check the connection
 between Amazon Q Business and Confluence (Server/Data Center). The following are the cURL commands you need
@@ -8,14 +6,10 @@ to check Confluence (Server/Data Center) connectivity.
 
 ###### Topics
 
-- [Checking basic
-  authentication connectivity](#confluence-server-connection-check-basic "#confluence-server-connection-check-basic")
-- [Checking personal access
-  token connectivity](#confluence-server-connection-check-pat "#confluence-server-connection-check-pat")
+- [Checking basic authentication connectivity](#confluence-server-connection-check-basic "#confluence-server-connection-check-basic")
+- [Checking personal access token connectivity](#confluence-server-connection-check-pat "#confluence-server-connection-check-pat")
 
-## Checking basic
-
-authentication connectivity
+## Checking basic authentication connectivity
 
 To check connectivity for a Confluence (Server/Data Center) data source connector using basic
 authentication, use the following cURL command:
@@ -63,9 +57,7 @@ following error:
 To troubleshoot the issue, check your Confluence (Server/Data Center) URL and make sure it's
 correct.
 
-## Checking personal access
-
-token connectivity
+## Checking personal access token connectivity
 
 To check connectivity for a Confluence (Server/Data Center) data source connector using
 personal access token authentication, use the following cURL command:

@@ -18,7 +18,5 @@ With the Amazon Q browser extension your users can:
 ###### Topics
 
 - [Configuring the Amazon Q Business browser extension for use](configuring-browser-extension.md "configuring-browser-extension.md")
-- [Removing the browser extension as an
-  integration](removing-browser-extension.md "removing-browser-extension.md")
-- [Using the Amazon Q Business browser
-  extension](using-browser-extension.md "using-browser-extension.md")
+- [Removing the browser extension as an integration](removing-browser-extension.md "removing-browser-extension.md")
+- [Using the Amazon Q Business browser extension](using-browser-extension.md "using-browser-extension.md")

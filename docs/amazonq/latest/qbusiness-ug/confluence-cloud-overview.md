@@ -1,6 +1,4 @@
-# Confluence (Cloud) connector
-
-overview
+# Confluence (Cloud) connector overview
 
 The following table contains an overview of the Amazon Q Business
 Confluence (Cloud) connector and its supported features.

@@ -1,6 +1,4 @@
-# Connecting Microsoft
-
-OneDrive to Amazon Q Business (Original)
+# Connecting Microsoft OneDrive to Amazon Q Business (Original)
 
 ###### Note
 

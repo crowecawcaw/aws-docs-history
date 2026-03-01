@@ -1,6 +1,4 @@
-# Troubleshooting
-
-clickable links
+# Troubleshooting clickable links
 
 This section helps you resolve errors that you might encounter when using
 clickable links for source references in your conversations with your Amazon Q Business AI assistant.
@@ -72,9 +70,7 @@ during a subsequent data source sync. If you believe the document shouldn't have
 been deleted, contact your administrator to restore the document and perform a
 data source sync.
 
-## Insufficient
-
-permissions
+## Insufficient permissions
 
 ###### Note
 

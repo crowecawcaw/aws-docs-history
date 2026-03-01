@@ -1,6 +1,4 @@
-# AEM (Server) connector
-
-overview
+# AEM (Server) connector overview
 
 The following table gives an overview of the Amazon Q Business
 AEM (Server) connector and its supported features.

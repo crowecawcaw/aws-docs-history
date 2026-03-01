@@ -1,6 +1,4 @@
-# Checking Jira
-
-connectivity
+# Checking Jira connectivity
 
 Before you sync your Jira data source connector after [configuring it](jira-console.md "jira-console.md"), we recommend you check the connection between
 Amazon Q Business and Jira. The following are the cURL commands you need to
@@ -8,12 +6,9 @@ check Jira connectivity.
 
 ###### Topics
 
-- [Checking basic
-  authentication connectivity](#jira-connection-check-basic "#jira-connection-check-basic")
+- [Checking basic authentication connectivity](#jira-connection-check-basic "#jira-connection-check-basic")
 
-## Checking basic
-
-authentication connectivity
+## Checking basic authentication connectivity
 
 To check connectivity for a Jira data source connector using
 basic authentication, use the following cURL command:

@@ -1,6 +1,4 @@
-# Downloading images to add to
-
-responses (API operations)
+# Downloading images to add to responses (API operations)
 
 If you have implemented your own application with the Amazon Q Business Chat and ChatSync
 APIs, you can use the [GetMedia](../api-reference/API_GetMedia.md "../api-reference/API_GetMedia.md") API operation

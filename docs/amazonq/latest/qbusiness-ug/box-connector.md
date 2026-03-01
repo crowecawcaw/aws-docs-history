@@ -6,21 +6,14 @@ the AWS Management Console, CLI, or the [CreateDataSource](../api-reference/API_
 
 ###### Topics
 
-- [Known limitations for the
-  Box connector](box-limitations.md "box-limitations.md")
-- [Box connector
-  overview](box-overview.md "box-overview.md")
+- [Known limitations for the Box connector](box-limitations.md "box-limitations.md")
+- [Box connector overview](box-overview.md "box-overview.md")
 - [Prerequisites for connecting Amazon Q Business to Box](box-prereqs.md "box-prereqs.md")
-- [Connecting Amazon Q Business to
-  Box using the console](box-console.md "box-console.md")
-- [Connecting Amazon Q Business to Box
-  using APIs](box-api.md "box-api.md")
-- [How Amazon Q Business connector
-  crawls Box ACLs](box-user-management.md "box-user-management.md")
-- [Box data source connector
-  field mappings](box-field-mappings.md "box-field-mappings.md")
-- [IAM role for
-  Box connector](box-iam-role.md "box-iam-role.md")
+- [Connecting Amazon Q Business to Box using the console](box-console.md "box-console.md")
+- [Connecting Amazon Q Business to Box using APIs](box-api.md "box-api.md")
+- [How Amazon Q Business connector crawls Box ACLs](box-user-management.md "box-user-management.md")
+- [Box data source connector field mappings](box-field-mappings.md "box-field-mappings.md")
+- [IAM role for Box connector](box-iam-role.md "box-iam-role.md")
 
 **Learn more**
 

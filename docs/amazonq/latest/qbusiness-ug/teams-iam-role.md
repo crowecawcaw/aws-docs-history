@@ -1,6 +1,4 @@
-# IAM role for
-
-Microsoft Teams connector
+# IAM role for Microsoft Teams connector
 
 ###### Note
 

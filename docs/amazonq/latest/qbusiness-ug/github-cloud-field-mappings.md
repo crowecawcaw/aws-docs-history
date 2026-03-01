@@ -1,6 +1,4 @@
-# GitHub (Cloud) data source
-
-connector field mappings
+# GitHub (Cloud) data source connector field mappings
 
 To improve retrieved results and customize the end user chat experience, Amazon Q Business enables you to map document attributes from your data sources to
 fields in your Amazon Q index.
@@ -50,12 +48,9 @@ document body Amazon Q reserved/default index fields.
 - [Issue Document](#github-field-mappings-issue-document "#github-field-mappings-issue-document")
 - [Issue Comment](#github-field-mappings-issue-comment "#github-field-mappings-issue-comment")
 - [Issue Attachment](#github-field-mappings-issue-attachment "#github-field-mappings-issue-attachment")
-- [Pull Request
-  Comment](#github-field-mappings-pull-request-comment "#github-field-mappings-pull-request-comment")
-- [Pull Request
-  Document](#github-field-mappings-pull-request-document "#github-field-mappings-pull-request-document")
-- [Pull Request
-  Attachment](#github-field-mappings-pull-request-attachment "#github-field-mappings-pull-request-attachment")
+- [Pull Request Comment](#github-field-mappings-pull-request-comment "#github-field-mappings-pull-request-comment")
+- [Pull Request Document](#github-field-mappings-pull-request-document "#github-field-mappings-pull-request-document")
+- [Pull Request Attachment](#github-field-mappings-pull-request-attachment "#github-field-mappings-pull-request-attachment")
 
 ## Repository
 
@@ -142,9 +137,7 @@ document body Amazon Q reserved/default index fields.
 | issueLabel                | gh_issue_labels          | Default     | String list    |
 | issueAssignee             | gh_issue_assignee        | Default     | String list    |
 
-## Pull Request
-
-Comment
+## Pull Request Comment
 
 | GitHub (Cloud) field name | Index field name         | Description | Data type      |
 | ------------------------- | ------------------------ | ----------- | -------------- |
@@ -161,9 +154,7 @@ Comment
 | PRLabel                   | gh_pr_labels             | Default     | String list    |
 | PRAssignee                | gh_pr_assignee           | Default     | String list    |
 
-## Pull Request
-
-Document
+## Pull Request Document
 
 | GitHub (Cloud) field name | Index field name         | Description | Data type      |
 | ------------------------- | ------------------------ | ----------- | -------------- |
@@ -182,9 +173,7 @@ Document
 | PRLabel                   | gh_pr_labels             | Default     | String list    |
 | PRAssignee                | gh_pr_assignee           | Default     | String list    |
 
-## Pull Request
-
-Attachment
+## Pull Request Attachment
 
 | GitHub (Cloud) field name | Index field name         | Description | Data type      |
 | ------------------------- | ------------------------ | ----------- | -------------- |

@@ -10,23 +10,15 @@ to Amazon Q Business—using either the AWS Management Console or the [CreateDat
 
 ###### Topics
 
-- [Known limitations for the
-  AEM (Server) connector](aem-server-limitations.md "aem-server-limitations.md")
-- [AEM (Server) connector
-  overview](aem-server-overview.md "aem-server-overview.md")
+- [Known limitations for the AEM (Server) connector](aem-server-limitations.md "aem-server-limitations.md")
+- [AEM (Server) connector overview](aem-server-overview.md "aem-server-overview.md")
 - [Prerequisites for connecting Amazon Q Business to AEM (Server)](aem-server-prereqs.md "aem-server-prereqs.md")
-- [Connecting Amazon Q Business to
-  AEM (Server) using the console](aem-server-console.md "aem-server-console.md")
-- [Connecting Amazon Q Business to
-  AEM (Server) using APIs](aem-server-api.md "aem-server-api.md")
-- [How Amazon Q Business connector
-  crawls AEM (Server) ACLs](aem-server-user-management.md "aem-server-user-management.md")
-- [AEM (Server) data source
-  connector field mappings](aem-server-field-mappings.md "aem-server-field-mappings.md")
-- [IAM role for
-  AEM (Server) connector](aem-server-iam-role.md "aem-server-iam-role.md")
-- [Understand error codes in the
-  AEM (Server) connector](aem-server-error-codes.md "aem-server-error-codes.md")
+- [Connecting Amazon Q Business to AEM (Server) using the console](aem-server-console.md "aem-server-console.md")
+- [Connecting Amazon Q Business to AEM (Server) using APIs](aem-server-api.md "aem-server-api.md")
+- [How Amazon Q Business connector crawls AEM (Server) ACLs](aem-server-user-management.md "aem-server-user-management.md")
+- [AEM (Server) data source connector field mappings](aem-server-field-mappings.md "aem-server-field-mappings.md")
+- [IAM role for AEM (Server) connector](aem-server-iam-role.md "aem-server-iam-role.md")
+- [Understand error codes in the AEM (Server) connector](aem-server-error-codes.md "aem-server-error-codes.md")
 
 **Learn more**
 

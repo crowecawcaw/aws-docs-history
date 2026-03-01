@@ -13,12 +13,10 @@ The following are the global features that you can customize:
 ###### Global controls
 
 - [Response settings](#guardrails-global-response "#guardrails-global-response")
-- [Chat orchestration
-  settings](#guardrails-global-orchestration "#guardrails-global-orchestration")
+- [Chat orchestration settings](#guardrails-global-orchestration "#guardrails-global-orchestration")
 - [Feature settings](#guardrails-global-feature "#guardrails-global-feature")
 - [Blocked phrases](#guardrails-global-blocked "#guardrails-global-blocked")
-- [Customizing global
-  controls](#guardrails-global-controls-customizing "#guardrails-global-controls-customizing")
+- [Customizing global controls](#guardrails-global-controls-customizing "#guardrails-global-controls-customizing")
 
 ## Response settings
 
@@ -111,9 +109,7 @@ Global controls apply to all supported conversation interactions, except when
 it conflicts with a specific topic-level control. In that case, a topic-level
 control takes precedence.
 
-## Chat orchestration
-
-settings
+## Chat orchestration settings
 
 You can use **Chat orchestration settings** to automatically
 manage chat requests across configured plugins and data sources in your Amazon Q Business application. If you activate chat orchestration, Amazon Q Business automatically routes chat requests to [plugins](plugins.md "plugins.md"), integrating enterprise data and relevant actions within a
@@ -153,10 +149,10 @@ If you deactivate chat orchestration, Amazon Q Business won't relay
 queries across data sources and plugins. Users must manually select to use
 plugin mode to invoke a plugin action from chat.
 
-If you're using an [Quick Suite plugin](quicksight-plugin.md "quicksight-plugin.md") (fully-integrated with
+If you're using an [Quick plugin](quicksight-plugin.md "quicksight-plugin.md") (fully-integrated with
 Amazon Q Business and not available for manual selection by users
 during chat), activating chat orchestration affects its behavior. With chat
-orchestration enabled, an Quick Suite plugin only activates if:
+orchestration enabled, an Quick plugin only activates if:
 
 - No other plugin actions (read or write requests requiring additional
   end user input through forms) are detected, or, in progress.
@@ -186,9 +182,7 @@ By default, your application environment doesn't define any blocked words. You c
 choose to add these words when you edit and update your global control
 guardrails.
 
-## Customizing global
-
-controls
+## Customizing global controls
 
 When you create an Amazon Q Business application environment, it's assigned the
 following default global controls:

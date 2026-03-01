@@ -1,6 +1,4 @@
-# Connecting Amazon Q Business to ServiceNow
-
-using AWS CloudFormation
+# Connecting Amazon Q Business to ServiceNow using AWS CloudFormation
 
 You use the [`AWS::QBusiness::DataSource`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.md") resource to connect a data source to
 your Amazon Q application.
@@ -14,16 +12,11 @@ in the _CloudFormation User Guide_.
 
 ###### Topics
 
-- [ServiceNow configuration
-  properties](#servicenow-configuration-keys "#servicenow-configuration-keys")
-- [ServiceNow JSON schema for using the
-  configuration property with AWS CloudFormation](#servicenow-cfn-json "#servicenow-cfn-json")
-- [ServiceNow YAML schema for using the
-  configuration property with AWS CloudFormation](#servicenow-cfn-yaml "#servicenow-cfn-yaml")
+- [ServiceNow configuration properties](#servicenow-configuration-keys "#servicenow-configuration-keys")
+- [ServiceNow JSON schema for using the configuration property with AWS CloudFormation](#servicenow-cfn-json "#servicenow-cfn-json")
+- [ServiceNow YAML schema for using the configuration property with AWS CloudFormation](#servicenow-cfn-yaml "#servicenow-cfn-yaml")
 
-## ServiceNow configuration
-
-properties
+## ServiceNow configuration properties
 
 The following provides information about important configuration properties required in the
 schema.
@@ -54,23 +47,17 @@ schema.
 | `secretARN`                                                                                                                                                                                                                                                                                                                                                                                                                                                          | The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that<br>contains the key-value pairs required to connect to your<br>ServiceNow.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | `string`<br>The secret must contain a JSON structure with the following keys:<br>``<br>{<br>"username": `"user name"`,<br>"password": `"password"`<br>}<br>``<br>If you use OAuth2 authentication, your secret must contain a JSON structure with<br>the following keys:<br>``<br>{<br>"username": `"user name"`,<br>"password": `"password"`,<br>"clientId": `"client id"`,<br>"clientSecret": `"client secret"`<br>}<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Yes      |
 | `version`                                                                                                                                                                                                                                                                                                                                                                                                                                                            | The version of the template that's currently supported.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | `string`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | No       |
 
-## ServiceNow JSON schema for using the
-
-configuration property with AWS CloudFormation
+## ServiceNow JSON schema for using the configuration property with AWS CloudFormation
 
 The following is the ServiceNow JSON schema and examples for the configuration
 property for AWS CloudFormation.
 
 ###### Topics
 
-- [ServiceNow JSON schema for using the
-  configuration property with AWS CloudFormation](#servicenow-cfn-json-schema "#servicenow-cfn-json-schema")
-- [ServiceNow JSON schema example for
-  using the configuration property with AWS CloudFormation](#servicenow-cfn-json-example "#servicenow-cfn-json-example")
+- [ServiceNow JSON schema for using the configuration property with AWS CloudFormation](#servicenow-cfn-json-schema "#servicenow-cfn-json-schema")
+- [ServiceNow JSON schema example for using the configuration property with AWS CloudFormation](#servicenow-cfn-json-example "#servicenow-cfn-json-example")
 
-### ServiceNow JSON schema for using the
-
-configuration property with AWS CloudFormation
+### ServiceNow JSON schema for using the configuration property with AWS CloudFormation
 
 The following is the ServiceNow JSON schema for the configuration property for
 CloudFormation
@@ -520,9 +507,7 @@ CloudFormation
 
 [Show moreShow less](# "#")
 
-### ServiceNow JSON schema example for
-
-using the configuration property with AWS CloudFormation
+### ServiceNow JSON schema example for using the configuration property with AWS CloudFormation
 
 The following is the ServiceNow JSON schema example for the configuration
 property for CloudFormation
@@ -631,23 +616,17 @@ property for CloudFormation
 
 [Show moreShow less](# "#")
 
-## ServiceNow YAML schema for using the
-
-configuration property with AWS CloudFormation
+## ServiceNow YAML schema for using the configuration property with AWS CloudFormation
 
 The following is the ServiceNow YAML schema and examples for the configuration
 property for AWS CloudFormation:
 
 ###### Topics
 
-- [ServiceNow YAML schema for using the
-  configuration property with AWS CloudFormation](#servicenow-cfn-yaml-schema "#servicenow-cfn-yaml-schema")
-- [ServiceNow YAML schema example for
-  using the configuration property with AWS CloudFormation](#servicenow-cfn-yaml-example "#servicenow-cfn-yaml-example")
+- [ServiceNow YAML schema for using the configuration property with AWS CloudFormation](#servicenow-cfn-yaml-schema "#servicenow-cfn-yaml-schema")
+- [ServiceNow YAML schema example for using the configuration property with AWS CloudFormation](#servicenow-cfn-yaml-example "#servicenow-cfn-yaml-example")
 
-### ServiceNow YAML schema for using the
-
-configuration property with AWS CloudFormation
+### ServiceNow YAML schema for using the configuration property with AWS CloudFormation
 
 The following is the ServiceNow YAML schema for the configuration property for
 CloudFormation.
@@ -976,9 +955,7 @@ properties:
 
 [Show moreShow less](# "#")
 
-### ServiceNow YAML schema example for
-
-using the configuration property with AWS CloudFormation
+### ServiceNow YAML schema example for using the configuration property with AWS CloudFormation
 
 The following is the ServiceNow YAML example for the Configuration property for
 CloudFormation:

@@ -1,6 +1,4 @@
-# Add a data accessor (ISV) to
-
-connect to your Amazon Q index
+# Add a data accessor (ISV) to connect to your Amazon Q index
 
 After setting up your application environment and connecting your data source(s), Amazon Q Business
 begins indexing your enterprise data. You still need to add the software providers
@@ -141,14 +139,10 @@ For CXone Mpower, the Tenant ID required for the Amazon Q Business Data Accessor
 
 ###### Topics
 
-- [Add a data accessor
-  using the console](#data-accessors-granting-permissions-console "#data-accessors-granting-permissions-console")
-- [Adding a data accessor
-  using the AWS CLI](#data-accessors-granting-permissions-cli "#data-accessors-granting-permissions-cli")
+- [Add a data accessor using the console](#data-accessors-granting-permissions-console "#data-accessors-granting-permissions-console")
+- [Adding a data accessor using the AWS CLI](#data-accessors-granting-permissions-cli "#data-accessors-granting-permissions-cli")
 
-## Add a data accessor
-
-using the console
+## Add a data accessor using the console
 
 Prerequisite for both Auth code and TTI configurations.
 
@@ -206,9 +200,7 @@ accessors** table on the **Data
 accessors** page. 10. The data accessor you have added will now appear as an entry in the table
 on the main **Data accessors** page.
 
-## Adding a data accessor
-
-using the AWS CLI
+## Adding a data accessor using the AWS CLI
 
 In order to add an ISV as a data accessor you will need to call 3 APIs. First, the
 `CreateDataAccessor` API operation will create a data accessor and
@@ -227,9 +219,7 @@ application might have different terms for a tenant such as Workspace ID for Sla
 or Domain ID for Asana. You can review the [Prerequisites](isv-prerequisites.md "isv-prerequisites.md")
 page to see how to retrieve the `TenantId` for your application.
 
-### ISV
-
-data accessor principal role ARNs for the CreateDataAccessor API
+### ISV data accessor principal role ARNs for the CreateDataAccessor API
 
 The following are the `principal` role ARNs for the supported
 ISVs:
@@ -263,9 +253,7 @@ ISVs:
 - CXone Mpower —
   `arn:aws:iam::765956972205:role/nice_csa_kh_qindex_retriever_trust_role`
 
-### Action
-
-configuration (JSON) example for the CreateDataAccessor API
+### Action configuration (JSON) example for the CreateDataAccessor API
 
 - `action` — Only
   `qbusiness:SearchRelevantContent` is supported now
@@ -295,9 +283,7 @@ configuration (JSON) example for the CreateDataAccessor API
 
 ```
 
-### CLI
-
-example
+### CLI example
 
 The following CLI example shows how to create a data accessor and associate
 the necessary permissions with all end users enabled for this data

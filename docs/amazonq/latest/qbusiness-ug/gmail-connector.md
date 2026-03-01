@@ -11,21 +11,14 @@ You can connect your Gmail instance to Amazon Q Business using either the AWS Ma
 ###### Topics
 
 - [Gmail connector versions](gmail-versions.md "gmail-versions.md")
-- [Gmail connector
-  overview](gmail-overview.md "gmail-overview.md")
+- [Gmail connector overview](gmail-overview.md "gmail-overview.md")
 - [Prerequisites for connecting Amazon Q Business to Gmail](gmail-prereqs.md "gmail-prereqs.md")
-- [Connecting Amazon Q Business to
-  Gmail using the latest connector (Console)](gmail-console-new.md "gmail-console-new.md")
-- [Connecting Amazon Q Business
-  to Gmail using the legacy connector (Console)](gmail-console-original.md "gmail-console-original.md")
-- [Connecting Amazon Q Business to Gmail
-  using the new connector (API)](gmail-new-api.md "gmail-new-api.md")
-- [Connecting Amazon Q Business to Gmail
-  using the original connector (API)](gmail-original-api.md "gmail-original-api.md")
-- [How Amazon Q Business connector
-  crawls Gmail ACLs](gmail-user-management.md "gmail-user-management.md")
-- [Gmail data source connector
-  field mappings](gmail-field-mappings.md "gmail-field-mappings.md")
+- [Connecting Amazon Q Business to Gmail using the latest connector (Console)](gmail-console-new.md "gmail-console-new.md")
+- [Connecting Amazon Q Business to Gmail using the legacy connector (Console)](gmail-console-original.md "gmail-console-original.md")
+- [Connecting Amazon Q Business to Gmail using the new connector (API)](gmail-new-api.md "gmail-new-api.md")
+- [Connecting Amazon Q Business to Gmail using the original connector (API)](gmail-original-api.md "gmail-original-api.md")
+- [How Amazon Q Business connector crawls Gmail ACLs](gmail-user-management.md "gmail-user-management.md")
+- [Gmail data source connector field mappings](gmail-field-mappings.md "gmail-field-mappings.md")
 - [IAM role for Amazon Q Business Gmail connector](gmail-iam-role.md "gmail-iam-role.md")
 - [Understand error codes in the Amazon Q Business Gmail connector](gmail-error-codes.md "gmail-error-codes.md")
 

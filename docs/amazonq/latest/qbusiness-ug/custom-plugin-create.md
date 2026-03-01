@@ -1,6 +1,4 @@
-# Creating an Amazon Q Business custom
-
-plugin
+# Creating an Amazon Q Business custom plugin
 
 ###### Note
 

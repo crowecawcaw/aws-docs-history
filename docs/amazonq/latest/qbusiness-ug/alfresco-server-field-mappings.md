@@ -1,6 +1,4 @@
-# Amazon Q Business
-
-Alfresco (Server) data source connector field mappings
+# Amazon Q Business Alfresco (Server) data source connector field mappings
 
 To improve retrieved results and customize the end user chat experience, Amazon Q Business enables you to map document attributes from your data sources to
 fields in your Amazon Q index.

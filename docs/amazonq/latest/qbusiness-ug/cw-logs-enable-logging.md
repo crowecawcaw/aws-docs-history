@@ -18,14 +18,10 @@ protect sensitive log data with masking](../../../AmazonCloudWatch/latest/logs/m
 
 ###### Topics
 
-- [Enabling user conversation logging with the
-  Amazon Q Business console](#cws-logs-enable-logging-console "#cws-logs-enable-logging-console")
-- [Enabling user conversation logging with the
-  Amazon CloudWatch Logs API operations](#cws-logs-enable-logging-api "#cws-logs-enable-logging-api")
+- [Enabling user conversation logging with the Amazon Q Business console](#cws-logs-enable-logging-console "#cws-logs-enable-logging-console")
+- [Enabling user conversation logging with the Amazon CloudWatch Logs API operations](#cws-logs-enable-logging-api "#cws-logs-enable-logging-api")
 
-## Enabling user conversation logging with the
-
-Amazon Q Business console
+## Enabling user conversation logging with the Amazon Q Business console
 
 To enable user conversation logging with the Amazon Q Business console, use the admin controls for
 your environment to configure log delivery, optionally filter out sensitive information, and
@@ -68,9 +64,7 @@ If you want the users' email recorded in your logs, it must be added explicitly 
 field in **Additional settings**. 5. Choose **Enable logging** start streaming conversation and feedback
 data to your logging destination.
 
-## Enabling user conversation logging with the
-
-Amazon CloudWatch Logs API operations
+## Enabling user conversation logging with the Amazon CloudWatch Logs API operations
 
 To enable user conversation logging with the Amazon CloudWatch Logs API operations, you call the
 PutDeliverySource, PutDeliveryDesintation, and CreateDelivery API operations. For information

@@ -27,9 +27,7 @@ Amazon Q Business uses one service-linked role named
 account. Examples of these actions include allowing CloudWatch to publish metrics and logs to
 your AWS account.
 
-### QBusinessServiceRolePolicy
-
-permissions details
+### QBusinessServiceRolePolicy permissions details
 
 The `QBusinessServiceRolePolicy` allows Amazon Q Business to
 complete the following administrative actions on the user's behalf on all applicable
@@ -136,9 +134,7 @@ You can also choose to create an Amazon Q Business application with a service
 role instead of a service-linked role. However, using a service-linked role is
 recommended.
 
-## For Amazon Q Business applications created before
-
-April 2024
+## For Amazon Q Business applications created before April 2024
 
 If your Amazon Q Business application was created before April 2024, it uses a
 [service role](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") instead of a [service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md").
@@ -161,9 +157,7 @@ entities might reference the role. However, you can edit the description of the 
 using IAM. For more information, see [Editing
 a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the _IAM User Guide_.
 
-## Changing between a service-role and a service-linked role
-
-for Amazon Q Business
+## Changing between a service-role and a service-linked role for Amazon Q Business
 
 You can choose to update the service-linked role you are using when you update an
 application.
@@ -205,9 +199,7 @@ Use the IAM console, the IAM CLI, or the IAM API to delete the
 see [Deleting a Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the
 _IAM User Guide_.
 
-## Supported regions for Amazon Q Business
-
-service-linked roles
+## Supported regions for Amazon Q Business service-linked roles
 
 Amazon Q Business supports using service-linked roles in all of the regions
 where the service is available. For more information, see [Amazon Q Business

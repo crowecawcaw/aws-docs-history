@@ -1,6 +1,4 @@
-# Connecting using the legacy
-
-Microsoft Teams connector (Console)
+# Connecting using the legacy Microsoft Teams connector (Console)
 
 The legacy Microsoft Teams connector provides comprehensive configuration options including entity type selection, field mappings, and VPC settings. Use this procedure to connect Amazon Q Business to Microsoft Teams using the legacy connector.
 
@@ -141,8 +139,7 @@ sync.
      your documents from deletion during a sync job, select **On** and enter an integer between 0 - 100. If
      the percentage of documents to be deleted in your sync job exceeds the percentage you selected, the
      delete phase will be skipped and no documents from this data source will be deleted from your index. For more information, see
-     [Document deletion
-     safeguard](connector-concepts.md#document-deletion-safeguard "connector-concepts.md#document-deletion-safeguard").
+     [Document deletion safeguard](connector-concepts.md#document-deletion-safeguard "connector-concepts.md#document-deletion-safeguard").
 
 13. For **Maximum file size** – Specify the file size
     limit in MBs that Amazon Q will crawl. Amazon Q will crawl only the files

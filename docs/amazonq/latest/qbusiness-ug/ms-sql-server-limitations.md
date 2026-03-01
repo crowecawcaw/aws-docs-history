@@ -1,6 +1,4 @@
-# Known limitations for the
-
-Microsoft SQL Server connector
+# Known limitations for the Microsoft SQL Server connector
 
 The Microsoft SQL Server connector has the following known limitations:
 

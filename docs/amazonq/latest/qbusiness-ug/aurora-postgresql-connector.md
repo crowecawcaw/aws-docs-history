@@ -21,21 +21,14 @@ Also, avoid adding tables with sensitive data or personal identifiable informati
 
 ###### Topics
 
-- [Known limitations for the
-  Aurora (PostgreSQL) connector](aurora-postgresql-limitations.md "aurora-postgresql-limitations.md")
-- [Aurora (PostgreSQL) connector
-  overview](aurora-postgresql-overview.md "aurora-postgresql-overview.md")
+- [Known limitations for the Aurora (PostgreSQL) connector](aurora-postgresql-limitations.md "aurora-postgresql-limitations.md")
+- [Aurora (PostgreSQL) connector overview](aurora-postgresql-overview.md "aurora-postgresql-overview.md")
 - [Prerequisites for connecting Amazon Q Business to Aurora (PostgreSQL)](aurora-postgresql-prereqs.md "aurora-postgresql-prereqs.md")
-- [Connecting Amazon Q Business to
-  Aurora (PostgreSQL) using the console](aurora-postgresql-console.md "aurora-postgresql-console.md")
-- [Connecting Amazon Q Business to
-  Aurora (PostgreSQL) using APIs](aurora-postgresql-api.md "aurora-postgresql-api.md")
-- [How Amazon Q Business connector
-  crawls Aurora (PostgreSQL) ACLs](aurora-postgresql-user-management.md "aurora-postgresql-user-management.md")
-- [Aurora (PostgreSQL) data source
-  connector field mappings](aurora-postgresql-field-mappings.md "aurora-postgresql-field-mappings.md")
-- [IAM role for
-  Aurora (PostgreSQL) connector](aurora-postgresql-iam-role.md "aurora-postgresql-iam-role.md")
+- [Connecting Amazon Q Business to Aurora (PostgreSQL) using the console](aurora-postgresql-console.md "aurora-postgresql-console.md")
+- [Connecting Amazon Q Business to Aurora (PostgreSQL) using APIs](aurora-postgresql-api.md "aurora-postgresql-api.md")
+- [How Amazon Q Business connector crawls Aurora (PostgreSQL) ACLs](aurora-postgresql-user-management.md "aurora-postgresql-user-management.md")
+- [Aurora (PostgreSQL) data source connector field mappings](aurora-postgresql-field-mappings.md "aurora-postgresql-field-mappings.md")
+- [IAM role for Aurora (PostgreSQL) connector](aurora-postgresql-iam-role.md "aurora-postgresql-iam-role.md")
 
 **Learn more**
 

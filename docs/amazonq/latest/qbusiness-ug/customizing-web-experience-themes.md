@@ -18,16 +18,11 @@ the AWS CLI.
 
 ###### Topics
 
-- [Prerequisites for
-  accessing your customization artifacts stored in Amazon S3](#customizing-web-experience-themes-requirements "#customizing-web-experience-themes-requirements")
-- [Using the
-  AWS Management Console](#customizing-visual-themes-using-aws-management-console "#customizing-visual-themes-using-aws-management-console")
-- [Using the
-  AWS CLI](#customizing-web-experience-themes-using-aws-cli "#customizing-web-experience-themes-using-aws-cli")
+- [Prerequisites for accessing your customization artifacts stored in Amazon S3](#customizing-web-experience-themes-requirements "#customizing-web-experience-themes-requirements")
+- [Using the AWS Management Console](#customizing-visual-themes-using-aws-management-console "#customizing-visual-themes-using-aws-management-console")
+- [Using the AWS CLI](#customizing-web-experience-themes-using-aws-cli "#customizing-web-experience-themes-using-aws-cli")
 
-## Prerequisites for
-
-accessing your customization artifacts stored in Amazon S3
+## Prerequisites for accessing your customization artifacts stored in Amazon S3
 
 1.  All S3 URIs for files to read and folders to store must be located in the
     same AWS Region as the application environment of the web experience.
@@ -85,9 +80,7 @@ accessing your customization artifacts stored in Amazon S3
     The value of "`aws:Referer"` cannot contain
     `"https://"` or end with `"/"`.
 
-    ###### Example policy for giving Amazon Q Business access to your web experience
-
-    artifacts
+    ###### Example policy for giving Amazon Q Business access to your web experience artifacts
 
     JSON
 
@@ -124,9 +117,7 @@ accessing your customization artifacts stored in Amazon S3
 
     ```
 
-## Using the
-
-AWS Management Console
+## Using the AWS Management Console
 
 The following procedure shows how to customize visual themes using the
 console.
@@ -154,9 +145,7 @@ console.
 5. Enter the S3 URI to store your customization.
 6. Choose **Save**.
 
-## Using the
-
-AWS CLI
+## Using the AWS CLI
 
 The following code snippet shows how to customize visual themes using the
 AWS CLI.

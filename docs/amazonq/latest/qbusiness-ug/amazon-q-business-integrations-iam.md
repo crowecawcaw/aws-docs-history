@@ -1,6 +1,4 @@
-# IAM roles and trust policy for
-
-your integrations
+# IAM roles and trust policy for your integrations
 
 In order for your integrations to work, you will need to add the following two IAM
 roles as part of your configuration.
@@ -11,19 +9,11 @@ IAM roles and trust policy are not required for using browser extensions.
 
 ###### Topics
 
-- [IAM
-  role for allowing the integration to call Amazon Q Business on your end user's
-  behalf](#amazon-q-business-integrations-iam-allow-integration-access "#amazon-q-business-integrations-iam-allow-integration-access")
-- [IAM
-  role for allowing Amazon Q Business to monitor the resources that the integration
-  creates in your account](#amazon-q-business-integrations-iam-allow-qbusiness-monitor "#amazon-q-business-integrations-iam-allow-qbusiness-monitor")
-- [IAM trust policy
-  for your integrations](#amazon-q-business-integrations-iam-trust-policy "#amazon-q-business-integrations-iam-trust-policy")
+- [IAM role for allowing the integration to call Amazon Q Business on your end user's behalf](#amazon-q-business-integrations-iam-allow-integration-access "#amazon-q-business-integrations-iam-allow-integration-access")
+- [IAM role for allowing Amazon Q Business to monitor the resources that the integration creates in your account](#amazon-q-business-integrations-iam-allow-qbusiness-monitor "#amazon-q-business-integrations-iam-allow-qbusiness-monitor")
+- [IAM trust policy for your integrations](#amazon-q-business-integrations-iam-trust-policy "#amazon-q-business-integrations-iam-trust-policy")
 
-## IAM
-
-role for allowing the integration to call Amazon Q Business on your end user's
-behalf
+## IAM role for allowing the integration to call Amazon Q Business on your end user's behalf
 
 JSON
 
@@ -83,10 +73,7 @@ JSON
 
 ```
 
-## IAM
-
-role for allowing Amazon Q Business to monitor the resources that the integration
-creates in your account
+## IAM role for allowing Amazon Q Business to monitor the resources that the integration creates in your account
 
 JSON
 
@@ -118,9 +105,7 @@ JSON
 
 ```
 
-## IAM trust policy
-
-for your integrations
+## IAM trust policy for your integrations
 
 JSON
 

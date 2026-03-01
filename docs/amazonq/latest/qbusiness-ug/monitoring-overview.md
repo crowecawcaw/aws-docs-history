@@ -19,18 +19,12 @@ and take automatic actions when appropriate:
   and analyze user conversations and response feedback in Amazon Q Business. CloudWatch Logs can deliver logs to
   multiple locations, such as Amazon CloudWatch, Amazon S3, or Amazon Data Firehose (standard rates apply). We recommend
   that you set up conversation and feedback logging with Amazon CloudWatch within five minutes of
-  creating your Amazon Q Business Application environment. For more information, see [Monitoring Amazon Q Business user conversations with
-  Amazon CloudWatch Logs](monitoring-cloudwatch-logs.md "monitoring-cloudwatch-logs.md").
+  creating your Amazon Q Business Application environment. For more information, see [Monitoring Amazon Q Business user conversations with Amazon CloudWatch Logs](monitoring-cloudwatch-logs.md "monitoring-cloudwatch-logs.md").
 
 ###### Topics
 
-- [Logging Amazon Q Business API calls using
-  AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
-- [Logging Amazon Q Apps API calls using
-  AWS CloudTrail](logging-qapps-using-cloudtrail.md "logging-qapps-using-cloudtrail.md")
-- [Monitoring Amazon Q Business and Amazon Q Apps
-  with Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md")
-- [Monitoring Amazon Q Business user conversations with
-  Amazon CloudWatch Logs](monitoring-cloudwatch-logs.md "monitoring-cloudwatch-logs.md")
-- [Viewing Amazon Q Business and Q App metrics in analytics
-  dashboards](analytics-dashboard.md "analytics-dashboard.md")
+- [Logging Amazon Q Business API calls using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
+- [Logging Amazon Q Apps API calls using AWS CloudTrail](logging-qapps-using-cloudtrail.md "logging-qapps-using-cloudtrail.md")
+- [Monitoring Amazon Q Business and Amazon Q Apps with Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md")
+- [Monitoring Amazon Q Business user conversations with Amazon CloudWatch Logs](monitoring-cloudwatch-logs.md "monitoring-cloudwatch-logs.md")
+- [Viewing Amazon Q Business and Q App metrics in analytics dashboards](analytics-dashboard.md "analytics-dashboard.md")

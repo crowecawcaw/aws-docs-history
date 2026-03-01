@@ -17,16 +17,11 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [AWS managed policy:
-  QBusinessServiceRolePolicy](#security-iam-awsmanpol-amazonq-app-role-policy "#security-iam-awsmanpol-amazonq-app-role-policy")
-- [AWS managed policy:
-  QBusinessQuicksightPluginPolicy](#security-iam-awsmanpol-amazonq-quicksight-policy "#security-iam-awsmanpol-amazonq-quicksight-policy")
-- [Amazon Q Business updates to AWS
-  managed policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
+- [AWS managed policy: QBusinessServiceRolePolicy](#security-iam-awsmanpol-amazonq-app-role-policy "#security-iam-awsmanpol-amazonq-app-role-policy")
+- [AWS managed policy: QBusinessQuicksightPluginPolicy](#security-iam-awsmanpol-amazonq-quicksight-policy "#security-iam-awsmanpol-amazonq-quicksight-policy")
+- [Amazon Q Business updates to AWS managed policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
 
-## AWS managed policy:
-
-QBusinessServiceRolePolicy
+## AWS managed policy: QBusinessServiceRolePolicy
 
 Amazon Q Business uses a `QBusinessServiceRolePolicy` to enable an
 Amazon Q Business application to access CloudWatch resources and write CloudWatch logs. You
@@ -110,22 +105,19 @@ JSON
 
 ```
 
-## AWS managed policy:
-
-QBusinessQuicksightPluginPolicy
+## AWS managed policy: QBusinessQuicksightPluginPolicy
 
 Amazon Q Business uses a `QBusinessQuicksightPluginPolicy` to enable an
-Amazon Q Business application to access Amazon Quick Suite topics and dashboards for the
-Amazon Q Business Quick Suite plugin. When you configure the plugin, you specify a
-service role that has `PredictQAResults` permissions for Quick Suite topics and
+Amazon Q Business application to access Amazon Quick topics and dashboards for the
+Amazon Q Business Quick plugin. When you configure the plugin, you specify a
+service role that has `PredictQAResults` permissions for Quick topics and
 dashboards. You can use the following `QBusinessQuicksightPluginPolicy` policy
 to grant these permissions.
 
 ###### Note
 
-To grant the necessary permissions, the trust policy of the role must grant Quick Suite
-assume role permissions. For more information see [Using the Quick Suite plugin to get insights from
-structured data](quicksight-plugin.md "quicksight-plugin.md").
+To grant the necessary permissions, the trust policy of the role must grant Quick
+assume role permissions. For more information see [Using the Quick plugin to get insights from structured data](quicksight-plugin.md "quicksight-plugin.md").
 
 JSON
 
@@ -149,15 +141,13 @@ JSON
 
 ```
 
-## Amazon Q Business updates to AWS
-
-managed policies
+## Amazon Q Business updates to AWS managed policies
 
 View details about updates to AWS managed policies for Amazon Q Business since
 this service began tracking these changes. For automatic alerts about changes to this page,
 subscribe to the RSS feed on the [Amazon Q Business Document history page](../business-use-dg/doc-history.md "../business-use-dg/doc-history.md").
 
-| Change                                              | Description                                                                                                                   | Date             |
-| --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| AWS managed policy: QBusinessQuicksightPluginPolicy | Added AWS managed policy QBusinessQuicksightPluginPolicy to access<br>Amazon Quick Suite resources for the QuickSight plugin. | December 3, 2024 |
-| Amazon Q Business started tracking changes          | Amazon Q Business started tracking changes for its AWS managed<br>policies.                                                   | April 30, 2024   |
+| Change                                              | Description                                                                                                             | Date             |
+| --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| AWS managed policy: QBusinessQuicksightPluginPolicy | Added AWS managed policy QBusinessQuicksightPluginPolicy to access<br>Amazon Quick resources for the QuickSight plugin. | December 3, 2024 |
+| Amazon Q Business started tracking changes          | Amazon Q Business started tracking changes for its AWS managed<br>policies.                                             | April 30, 2024   |

@@ -1,6 +1,4 @@
-# Configuring a `robots.txt` file for
-
-Amazon Q Business Web Crawler
+# Configuring a `robots.txt` file for Amazon Q Business Web Crawler
 
 The `robots.txt` file is a standard used to implement the Robots Exclusion
 Protocol, allowing website owners to specify which parts of their site visiting web
@@ -14,8 +12,7 @@ adjust these rules in your robots.txt file.
 ###### Topics
 
 - [Configuring how Amazon Q Web Crawler accesses your website](#configure-web-crawler-website-access "#configure-web-crawler-website-access")
-- [Stopping Amazon Q Web Crawler
-  from crawling your website](#stop-web-crawler-access "#stop-web-crawler-access")
+- [Stopping Amazon Q Web Crawler from crawling your website](#stop-web-crawler-access "#stop-web-crawler-access")
 
 ## Configuring how Amazon Q Web Crawler accesses your website
 
@@ -51,9 +48,7 @@ User-agent: * # any (other) robot
 Disallow: / # disallow access to any pages
 ```
 
-## Stopping Amazon Q Web Crawler
-
-from crawling your website
+## Stopping Amazon Q Web Crawler from crawling your website
 
 You can stop Amazon Q Web Crawler from indexing your website using the
 `Disallow` directive. You can also control which web pages are

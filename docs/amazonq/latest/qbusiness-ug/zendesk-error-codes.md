@@ -1,6 +1,4 @@
-# Understand error codes in the
-
-Zendesk connector
+# Understand error codes in the Zendesk connector
 
 The following table provides information about error codes you may see for the
 Zendesk connector and suggested resolutions.

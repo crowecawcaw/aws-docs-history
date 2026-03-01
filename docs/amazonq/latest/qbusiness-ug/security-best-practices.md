@@ -13,9 +13,7 @@ privileges required by the job, such as covering your application and access to 
 destination. We also recommend auditing the jobs for permissions on a regular basis and
 upon any change to your application.
 
-## Role-based access control (RBAC)
-
-permissions
+## Role-based access control (RBAC) permissions
 
 Administrators should strictly control role-based access control (RBAC) permissions
 for Amazon Q applications.

@@ -138,10 +138,10 @@ Amazon S3 is an object storage service. If you're an Amazon S3 user,
 you can use Amazon S3 as a data source for your Amazon Q Business
 application.
 
-**[Quick Suite](../../../quicksight/latest/user/what-is-quicksight.md "../../../quicksight/latest/user/what-is-quicksight.md")**
+**[Quick](../../../quicksight/latest/user/what-is-quicksight.md "../../../quicksight/latest/user/what-is-quicksight.md")**
 
-Quick Suite is a business intelligence service that helps you create and share
-interactive dashboards and reports. You can [integrate Amazon Q Business with Quick Suite](create-application-quicksight.md "create-application-quicksight.md")
+Quick is a business intelligence service that helps you create and share
+interactive dashboards and reports. You can [integrate Amazon Q Business with Quick](create-application-quicksight.md "create-application-quicksight.md")
 to enable users to ask natural language questions about their data and receive
 AI-generated insights directly within their dashboards.
 
@@ -172,7 +172,6 @@ Amazon Q Business application and web experience.
 Explains how to create the Amazon Q Business application integrated with
 IAM Identity Center.
 
-**[Connecting Amazon Q Business data source
-connectors](supported-connectors.md "supported-connectors.md")**
+**[Connecting Amazon Q Business data source connectors](supported-connectors.md "supported-connectors.md")**
 
 Configuration information for specific connectors to use with your Amazon Q Business web experience.

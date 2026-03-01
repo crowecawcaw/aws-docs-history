@@ -32,10 +32,8 @@ or summaries.
 
 - [Permissions requirements](#qapps-forms-permissions "#qapps-forms-permissions")
 - [Data collection concepts](qapps-forms-data-collection-concepts.md "qapps-forms-data-collection-concepts.md")
-- [Creating a new Q App with a data collection
-  form](qapps-forms-creating-app.md "qapps-forms-creating-app.md")
-- [Starting a new data
-  collection](qapps-forms-starting-new-data-collection.md "qapps-forms-starting-new-data-collection.md")
+- [Creating a new Q App with a data collection form](qapps-forms-creating-app.md "qapps-forms-creating-app.md")
+- [Starting a new data collection](qapps-forms-starting-new-data-collection.md "qapps-forms-starting-new-data-collection.md")
 
 ## Permissions requirements
 
@@ -48,4 +46,4 @@ resources:
 - qapps:ListQAppSessionData
 - qapps:ExportQAppSessionData
 
-For more information, including a policy example, see [IAM permissions for using Amazon Q Apps](deploy-q-apps-iam-permissions.md "deploy-q-apps-iam-permissions.md") .
+For more information, including a policy example, see [IAM permissions for using Amazon Q Apps](deploy-q-apps-iam-permissions.md "deploy-q-apps-iam-permissions.md").

@@ -81,15 +81,12 @@ application environment.
 
 ###### Topics
 
-- [How Amazon Q Business uses grants in
-  AWS KMS](#using-grants-kms "#using-grants-kms")
+- [How Amazon Q Business uses grants in AWS KMS](#using-grants-kms "#using-grants-kms")
 - [Create a customer managed key](#create-cmk "#create-cmk")
 - [Specifying customer managed key for Amazon Q Business](#specify-cmk "#specify-cmk")
 - [Monitoring your encryption keys for Amazon Q](#monitoring-cmk-key "#monitoring-cmk-key")
 
-### How Amazon Q Business uses grants in
-
-AWS KMS
+### How Amazon Q Business uses grants in AWS KMS
 
 Amazon Q Business requires a [grant](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md") to use your customer managed key. When
 you create a Amazon Q Business application environment resource encrypted with a customer managed key,

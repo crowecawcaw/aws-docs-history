@@ -1,6 +1,4 @@
-# Connecting Microsoft Yammer to
-
-Amazon Q Business
+# Connecting Microsoft Yammer to Amazon Q Business
 
 ###### Note
 
@@ -12,23 +10,15 @@ experience.
 
 ###### Topics
 
-- [Known limitations for the Microsoft Yammer
-  connector](yammer-limitations.md "yammer-limitations.md")
+- [Known limitations for the Microsoft Yammer connector](yammer-limitations.md "yammer-limitations.md")
 - [Microsoft Yammer connector overview](yammer-overview.md "yammer-overview.md")
-- [Prerequisites for connecting Amazon Q to
-  Microsoft Yammer](yammer-prereqs.md "yammer-prereqs.md")
-- [Connecting Amazon Q Business to
-  Microsoft Yammer using the console](yammer-console.md "yammer-console.md")
-- [Connecting Amazon Q Business to Microsoft Yammer
-  using APIs](yammer-api.md "yammer-api.md")
-- [How Amazon Q Business connector
-  crawls Microsoft Yammer ACLs](yammer-user-management.md "yammer-user-management.md")
-- [Microsoft Yammer data source connector
-  field mappings](yammer-field-mappings.md "yammer-field-mappings.md")
-- [IAM role for Microsoft Yammer
-  connector](yammer-iam-role.md "yammer-iam-role.md")
-- [Understand error codes in the
-  Microsoft Yammer connector](yammer-error-codes.md "yammer-error-codes.md")
+- [Prerequisites for connecting Amazon Q to Microsoft Yammer](yammer-prereqs.md "yammer-prereqs.md")
+- [Connecting Amazon Q Business to Microsoft Yammer using the console](yammer-console.md "yammer-console.md")
+- [Connecting Amazon Q Business to Microsoft Yammer using APIs](yammer-api.md "yammer-api.md")
+- [How Amazon Q Business connector crawls Microsoft Yammer ACLs](yammer-user-management.md "yammer-user-management.md")
+- [Microsoft Yammer data source connector field mappings](yammer-field-mappings.md "yammer-field-mappings.md")
+- [IAM role for Microsoft Yammer connector](yammer-iam-role.md "yammer-iam-role.md")
+- [Understand error codes in the Microsoft Yammer connector](yammer-error-codes.md "yammer-error-codes.md")
 
 **Learn more**
 

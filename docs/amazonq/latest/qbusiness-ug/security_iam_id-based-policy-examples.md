@@ -1,6 +1,4 @@
-# Identity-based policy examples for
-
-Amazon Q Business
+# Identity-based policy examples for Amazon Q Business
 
 By default, users and roles don't have permission to create or modify Amazon Q
 resources. To grant users permission to perform actions on the
@@ -14,22 +12,15 @@ For details about actions and resource types defined by Amazon Q, including the 
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
 - [Using the Amazon Q console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Allow a user to
-  converse with Amazon Q Business](#security_iam_id-based-policy-examples-application-1 "#security_iam_id-based-policy-examples-application-1")
-- [Allow an admin to
-  manage plugins in an application](#security_iam_id-based-policy-examples-plugins-1 "#security_iam_id-based-policy-examples-plugins-1")
-- [Allow an admin to
-  manage a specific plugin](#security_iam_id-based-policy-examples-plugins-2 "#security_iam_id-based-policy-examples-plugins-2")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Allow a user to converse with Amazon Q Business](#security_iam_id-based-policy-examples-application-1 "#security_iam_id-based-policy-examples-application-1")
+- [Allow an admin to manage plugins in an application](#security_iam_id-based-policy-examples-plugins-1 "#security_iam_id-based-policy-examples-plugins-1")
+- [Allow an admin to manage a specific plugin](#security_iam_id-based-policy-examples-plugins-2 "#security_iam_id-based-policy-examples-plugins-2")
 - [Tag-based policy examples](#examples-tagging "#examples-tagging")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Amazon Q resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -80,9 +71,7 @@ also attach the
 managed policy](../../../aws-managed-policy/latest/reference/ReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/ReadOnlyAccess.md") to the entities. For more information, see [Adding permissions to a user](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the
 _IAM User Guide_.
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -122,9 +111,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Allow a user to
-
-converse with Amazon Q Business
+## Allow a user to converse with Amazon Q Business
 
 This example allows a user to start conversations with Amazon Q Business, view
 past conversations, and delete their conversation history for a specific Amazon Q Business application. The IAM context key
@@ -157,9 +144,7 @@ JSON
 
 ```
 
-## Allow an admin to
-
-manage plugins in an application
+## Allow an admin to manage plugins in an application
 
 This example allows an Amazon Q Business admin to manage plugins in a chat
 application.
@@ -189,9 +174,7 @@ JSON
 
 ```
 
-## Allow an admin to
-
-manage a specific plugin
+## Allow an admin to manage a specific plugin
 
 This example allows an Amazon Q Business admin to manage a specific
 plugin.
@@ -225,9 +208,7 @@ JSON
 Tag-based policies are JSON policy documents that specify the actions that a
 principal can perform on tagged resources.
 
-### Example: Use a tag to access a
-
-resource
+### Example: Use a tag to access a resource
 
 This example policy grants a user or role in your AWS account permission to use
 the `ChatSync` operation with any resource tagged with the key
@@ -260,9 +241,7 @@ JSON
 
 ```
 
-### Example: Use a tag to activate
-
-operations
+### Example: Use a tag to activate operations
 
 This example policy grants a user or role in your AWS account permission to use
 any Amazon Q Business operation except the `TagResource` operation
@@ -299,9 +278,7 @@ JSON
 
 ```
 
-### Example: Use a tag to restrict
-
-access to an operation
+### Example: Use a tag to restrict access to an operation
 
 This example policy restricts access for a user or role in your AWS account to
 use the `ChatSync` operation unless the user provides the

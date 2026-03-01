@@ -1,6 +1,4 @@
-# Known limitations for the
-
-AEM (Server) connector
+# Known limitations for the AEM (Server) connector
 
 The AEM (Server) connector has the following known limitations:
 

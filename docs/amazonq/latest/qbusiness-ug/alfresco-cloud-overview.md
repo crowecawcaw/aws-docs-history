@@ -1,6 +1,4 @@
-# Alfresco (Cloud) connector
-
-overview
+# Alfresco (Cloud) connector overview
 
 The following table gives an overview of the Amazon Q Business
 Alfresco (Cloud) connector and its supported features.

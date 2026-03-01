@@ -1,6 +1,4 @@
-# Connecting Amazon Q Business to SharePoint (Online)
-
-using AWS CloudFormation
+# Connecting Amazon Q Business to SharePoint (Online) using AWS CloudFormation
 
 You use the [`AWS::QBusiness::DataSource`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.md") resource to connect a data source to
 your Amazon Q application.
@@ -14,16 +12,11 @@ in the _CloudFormation User Guide_.
 
 ###### Topics
 
-- [SharePoint (Online) configuration
-  properties](#sharepoint-cloud-configuration-keys "#sharepoint-cloud-configuration-keys")
-- [SharePoint (Online) JSON schema for using the
-  configuration property with AWS CloudFormation](#sharepoint-cloud-cfn-json "#sharepoint-cloud-cfn-json")
-- [SharePoint (Online) YAML schema for using the
-  configuration property with AWS CloudFormation](#sharepoint-cloud-cfn-yaml "#sharepoint-cloud-cfn-yaml")
+- [SharePoint (Online) configuration properties](#sharepoint-cloud-configuration-keys "#sharepoint-cloud-configuration-keys")
+- [SharePoint (Online) JSON schema for using the configuration property with AWS CloudFormation](#sharepoint-cloud-cfn-json "#sharepoint-cloud-cfn-json")
+- [SharePoint (Online) YAML schema for using the configuration property with AWS CloudFormation](#sharepoint-cloud-cfn-yaml "#sharepoint-cloud-cfn-yaml")
 
-## SharePoint (Online) configuration
-
-properties
+## SharePoint (Online) configuration properties
 
 The following provides information about important configuration properties required in the
 schema.
@@ -56,23 +49,17 @@ schema.
 | `secretARN`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains<br>the key-value pairs required to connect to your SharePoint. If you use basic<br>authentication, provide the username and password. If you use OAuth 2.0 authentication,<br>provide the username, password, client ID, and client secret.                                                                                                                                                                                                                                                                                                          | `string`<br>The minimum length is 20 and the maximum length is 2,048 characters. If you<br>use basic authentication (`authType` should be `Basic`), the secret must contain a JSON structure with the<br>following keys:<br>``<br>{<br>"username": "`SharePoint (Online) account user name`",<br>"password": "`SharePoint (Online) password`"<br>}<br>``<br>If you use Azure AD App-only authentication (`authType` should be<br>`OAuth2Certificate`), the secret must contain a JSON structure with the<br>following keys:<br>``<br>{<br>"clientId": "`SharePoint (Online) client ID`",<br>"privateKey": "`SharePoint (Online) private key`"<br>}<br>``<br>If you use OAuth2 authentication (`authType` should be<br>`OAuth`) or Sharepoint App-Only authentication (`authType`<br>should be `OAuth2App`) the secret must contain a JSON structure with the<br>following keys:<br>``<br>{<br>"clientId": "`SharePoint (Online) client ID`",<br>"clientSecret": "`SharePoint (Online) client secret`",<br>"userName": "`SharePoint (Online) account user name`",<br>"password": "`SharePoint (Online) password`"<br>}<br>`` | Yes      |
 | `version`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | The version of this template that's currently supported.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | `string`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | No       |
 
-## SharePoint (Online) JSON schema for using the
-
-configuration property with AWS CloudFormation
+## SharePoint (Online) JSON schema for using the configuration property with AWS CloudFormation
 
 The following is the SharePoint (Online) JSON schema and examples for the configuration
 property for AWS CloudFormation.
 
 ###### Topics
 
-- [SharePoint (Online) JSON schema for using the
-  configuration property with AWS CloudFormation](#sharepoint-cloud-cfn-json-schema "#sharepoint-cloud-cfn-json-schema")
-- [SharePoint (Online) JSON schema example for
-  using the configuration property with AWS CloudFormation](#sharepoint-cloud-cfn-json-example "#sharepoint-cloud-cfn-json-example")
+- [SharePoint (Online) JSON schema for using the configuration property with AWS CloudFormation](#sharepoint-cloud-cfn-json-schema "#sharepoint-cloud-cfn-json-schema")
+- [SharePoint (Online) JSON schema example for using the configuration property with AWS CloudFormation](#sharepoint-cloud-cfn-json-example "#sharepoint-cloud-cfn-json-example")
 
-### SharePoint (Online) JSON schema for using the
-
-configuration property with AWS CloudFormation
+### SharePoint (Online) JSON schema for using the configuration property with AWS CloudFormation
 
 The following is the SharePoint (Online) JSON schema for the configuration property for
 CloudFormation
@@ -621,9 +608,7 @@ CloudFormation
 
 [Show moreShow less](# "#")
 
-### SharePoint (Online) JSON schema example for
-
-using the configuration property with AWS CloudFormation
+### SharePoint (Online) JSON schema example for using the configuration property with AWS CloudFormation
 
 The following is the SharePoint (Online) JSON schema example for the configuration
 property for CloudFormation
@@ -704,23 +689,17 @@ property for CloudFormation
 
 [Show moreShow less](# "#")
 
-## SharePoint (Online) YAML schema for using the
-
-configuration property with AWS CloudFormation
+## SharePoint (Online) YAML schema for using the configuration property with AWS CloudFormation
 
 The following is the SharePoint (Online) YAML schema and examples for the configuration
 property for AWS CloudFormation:
 
 ###### Topics
 
-- [SharePoint (Online) YAML schema for using the
-  configuration property with AWS CloudFormation](#sharepoint-cloud-cfn-yaml-schema "#sharepoint-cloud-cfn-yaml-schema")
-- [SharePoint (Online) YAML schema example for
-  using the configuration property with AWS CloudFormation](#sharepoint-cloud-cfn-yaml-example "#sharepoint-cloud-cfn-yaml-example")
+- [SharePoint (Online) YAML schema for using the configuration property with AWS CloudFormation](#sharepoint-cloud-cfn-yaml-schema "#sharepoint-cloud-cfn-yaml-schema")
+- [SharePoint (Online) YAML schema example for using the configuration property with AWS CloudFormation](#sharepoint-cloud-cfn-yaml-example "#sharepoint-cloud-cfn-yaml-example")
 
-### SharePoint (Online) YAML schema for using the
-
-configuration property with AWS CloudFormation
+### SharePoint (Online) YAML schema for using the configuration property with AWS CloudFormation
 
 The following is the SharePoint (Online) YAML schema for the configuration property for
 CloudFormation.
@@ -1126,9 +1105,7 @@ required:
 
 [Show moreShow less](# "#")
 
-### SharePoint (Online) YAML schema example for
-
-using the configuration property with AWS CloudFormation
+### SharePoint (Online) YAML schema example for using the configuration property with AWS CloudFormation
 
 The following is the SharePoint (Online) YAML example for the Configuration property for
 CloudFormation:

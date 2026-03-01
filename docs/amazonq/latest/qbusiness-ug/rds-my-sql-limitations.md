@@ -1,6 +1,4 @@
-# Known limitations for the
-
-Amazon RDS (MySQL) connector
+# Known limitations for the Amazon RDS (MySQL) connector
 
 The Amazon RDS (MySQL) connector has the following known limitations:
 

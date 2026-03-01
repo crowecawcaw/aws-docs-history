@@ -1,6 +1,4 @@
-# Checking Confluence (Cloud)
-
-connectivity
+# Checking Confluence (Cloud) connectivity
 
 Before you sync your Confluence (Cloud) data source connector after [configuring it](confluence-cloud-console.md "confluence-cloud-console.md"), we recommend you check the
 connection between Amazon Q Business and Confluence (Cloud). The following are the cURL
@@ -8,12 +6,9 @@ commands you need to check Confluence (Cloud) connectivity.
 
 ###### Topics
 
-- [Checking basic
-  authentication connectivity](#confluence-cloud-connection-check-basic "#confluence-cloud-connection-check-basic")
+- [Checking basic authentication connectivity](#confluence-cloud-connection-check-basic "#confluence-cloud-connection-check-basic")
 
-## Checking basic
-
-authentication connectivity
+## Checking basic authentication connectivity
 
 To check connectivity for a Confluence (Cloud) data source connector using
 basic authentication, use the following cURL command:

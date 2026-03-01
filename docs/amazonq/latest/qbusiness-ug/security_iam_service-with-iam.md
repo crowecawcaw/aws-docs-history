@@ -1,6 +1,4 @@
-# How Amazon Q Business works with
-
-IAM
+# How Amazon Q Business works with IAM
 
 Before you use IAM to manage access to Amazon Q, learn what IAM features are
 available to use with Amazon Q.
@@ -23,9 +21,7 @@ To get a high-level view of how Amazon Q Business and other AWS services work
 with most IAM features, see [AWS services that
 work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Identity-based
-
-policies for Amazon Q Business
+## Identity-based policies for Amazon Q Business
 
 **Supports identity-based policies:**
 
@@ -42,16 +38,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for Amazon Q Business
 
-Identity-based policy examples for Amazon Q Business
+To view examples of Amazon Q identity-based policies, see [Identity-based policy examples for Amazon Q Business](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of Amazon Q identity-based policies, see [Identity-based policy examples for
-Amazon Q Business](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within Amazon Q Business
+## Resource-based policies within Amazon Q Business
 
 **Supports resource-based policies:**
 
@@ -67,9 +58,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions
-
-for Amazon Q Business
+## Policy actions for Amazon Q Business
 
 **Supports policy actions:**
 
@@ -106,12 +95,9 @@ To specify multiple actions in a single statement, separate them with commas.
          ]
 ```
 
-To view examples of Amazon Q identity-based policies, see [Identity-based policy examples for
-Amazon Q Business](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Q identity-based policies, see [Identity-based policy examples for Amazon Q Business](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for Amazon Q Business
+## Policy resources for Amazon Q Business
 
 **Supports policy resources:**
 
@@ -126,12 +112,9 @@ The `Resource` JSON policy element specifies the object or objects to which the 
 "Resource": "*"
 ```
 
-To view examples of Amazon Q identity-based policies, see [Identity-based policy examples for
-Amazon Q Business](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Q identity-based policies, see [Identity-based policy examples for Amazon Q Business](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for Amazon Q Business
+## Policy condition keys for Amazon Q Business
 
 **Supports service-specific policy condition keys:**
 
@@ -150,8 +133,7 @@ To see a list of Amazon Q Business condition keys, see [Condition Keys for Amazo
 in the _Service Authorization Reference_. To learn with which actions and resources
 you can use a condition key, see [Actions Defined by Amazon Q Business](../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions "../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions") .
 
-To view examples of Amazon Q identity-based policies, see [Identity-based policy examples for
-Amazon Q Business](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Q identity-based policies, see [Identity-based policy examples for Amazon Q Business](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## ACLs in Amazon Q Business
 
@@ -195,9 +177,7 @@ associated with the corresponding resource type.
 | [TagResource](../api-reference/API_TagResource.md "../api-reference/API_TagResource.md")                         | application, index, retriever, data source, web experience,<br>plugin | `aws:ResourceTag`, `aws:RequestTag`,<br>`aws:TagKeys` |
 | [UntagResource](../api-reference/API_UntagResource.md "../api-reference/API_UntagResource.md")                   | application, index, retriever, data source, web experience,<br>plugin | `aws:TagKeys`                                         |
 
-## Using temporary
-
-credentials with Amazon Q Business
+## Using temporary credentials with Amazon Q Business
 
 **Supports temporary credentials:**
 
@@ -209,9 +189,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for Amazon Q Business
+## Cross-service principal permissions for Amazon Q Business
 
 **Supports forward access sessions (FAS):**
 
@@ -236,9 +214,7 @@ Changing the permissions for a service role might break Amazon Q Business
 functionality. Edit service roles only when Amazon Q Business provides guidance
 to do so.
 
-## Service-linked
-
-roles for Amazon Q Business
+## Service-linked roles for Amazon Q Business
 
 **Supports service-linked roles:**
 

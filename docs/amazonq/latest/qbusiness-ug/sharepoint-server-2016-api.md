@@ -1,6 +1,4 @@
-# Connecting Amazon Q Business to
-
-SharePoint Server 2016 using APIs
+# Connecting Amazon Q Business to SharePoint Server 2016 using APIs
 
 You use the [CreateDataSource](../api-reference/API_CreateDataSource.md "../api-reference/API_CreateDataSource.md") action to connect a data source to your
 Amazon Q application. You can also use the [UpdateDataSource](../api-reference/API_UpdateDataSource.md "../api-reference/API_UpdateDataSource.md") action to modify an existing data source configuration.
@@ -12,16 +10,11 @@ For an example of the API request, see [CreateDataSource](../api-reference/API_C
 
 ###### Topics
 
-- [SharePoint Server 2016
-  configuration properties](#sharepoint-server-2016-configuration-keys "#sharepoint-server-2016-configuration-keys")
-- [SharePoint Server 2016 JSON
-  schema](#sharepoint-server-2016-json "#sharepoint-server-2016-json")
-- [SharePoint Server 2016 JSON schema
-  example](#sharepoint-server-2016-api-json-example "#sharepoint-server-2016-api-json-example")
+- [SharePoint Server 2016 configuration properties](#sharepoint-server-2016-configuration-keys "#sharepoint-server-2016-configuration-keys")
+- [SharePoint Server 2016 JSON schema](#sharepoint-server-2016-json "#sharepoint-server-2016-json")
+- [SharePoint Server 2016 JSON schema example](#sharepoint-server-2016-api-json-example "#sharepoint-server-2016-api-json-example")
 
-## SharePoint Server 2016
-
-configuration properties
+## SharePoint Server 2016 configuration properties
 
 | Configuration                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                              | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Required |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
@@ -56,9 +49,7 @@ configuration properties
 | `secretARN`                                                                                                                                                                                                                                                                                                                                                                                                                                                      | The Amazon Resource Name (ARN) of an AWS Secrets Manager secret<br>that contains the key-value pairs required to connect to your<br>SharePoint. If you use OAuth2App authentication, provide the client ID, client secret, LDAP URL, LDAP base DN, LDAP user name, and LDAP password. If you use NTLM or Kerberos authentication, provide the user name, password, LDAP URL, Base DN, LDAP user, and LDAP password.                                      | `string`<br>The minimum length is 20 and the maximum length is 2,048 characters.<br>If you use Sharepoint App-Only authentication (`authType` should be `OAuth2App` authentication) the secret must contain a JSON structure with the following keys:<br>``<br>{<br>"clientId": "`client ID`",<br>"clientSecret": "`client secret`",<br>"ldapUrl": "`LDAP URL`",<br>"ldbaseDn": "`LDAP base DN`",<br>"ldapUser": "`LDAP user name`",<br>"ldapPassword": "`LDAP password`"<br>}<br>``<br>If you use NTLM authentication or Kerberos authentication, the secret must contain a JSON structure with the following keys:<br>``<br>{<br>"userName": "`SharePoint account user name`",<br>"password": "`SharePoint account password`",<br>"ldapUrl": "`LDAP URL`",<br>"baseDn": "`LDAP base DN`",<br>"ldapUser": "`LDAP user name`",<br>"ldapPassword": "`LDAP password`"<br>}<br>`` | Yes      |
 | `version`                                                                                                                                                                                                                                                                                                                                                                                                                                                        | The version of this template that&s currently supported.                                                                                                                                                                                                                                                                                                                                                                                                 | `string`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | No       |
 
-## SharePoint Server 2016 JSON
-
-schema
+## SharePoint Server 2016 JSON schema
 
 The following is the SharePoint Server 2016 JSON schema:
 
@@ -621,9 +612,7 @@ The following is the SharePoint Server 2016 JSON schema:
 
 [Show moreShow less](# "#")
 
-## SharePoint Server 2016 JSON schema
-
-example
+## SharePoint Server 2016 JSON schema example
 
 The following is the SharePoint Server 2016 JSON schema example:
 

@@ -1,6 +1,4 @@
-# Connecting Amazon Q Business to
-
-Amazon RDS (Microsoft SQL Server) using the console
+# Connecting Amazon Q Business to Amazon RDS (Microsoft SQL Server) using the console
 
 On the **Amazon RDS (Microsoft SQL Server)** page, enter the following
 information:
@@ -83,8 +81,7 @@ For more information, see [IAM role](rds-ms-sql-server-connector.md#rds-ms-sql-s
 your documents from deletion during a sync job, select **On** and enter an integer between 0 - 100. If
 the percentage of documents to be deleted in your sync job exceeds the percentage you selected, the
 delete phase will be skipped and no documents from this data source will be deleted from your index. For more information, see
-[Document deletion
-safeguard](connector-concepts.md#document-deletion-safeguard "connector-concepts.md#document-deletion-safeguard"). 8. In **Additional configuration –
+[Document deletion safeguard](connector-concepts.md#document-deletion-safeguard "connector-concepts.md#document-deletion-safeguard"). 8. In **Additional configuration –
 _optional_** – Configure the following
 settings:
 

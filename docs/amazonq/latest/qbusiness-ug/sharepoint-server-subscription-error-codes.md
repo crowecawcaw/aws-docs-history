@@ -1,6 +1,4 @@
-# Understand error codes in the
-
-SharePoint Server (Subscription Edition) connector
+# Understand error codes in the SharePoint Server (Subscription Edition) connector
 
 The following table provides information about error codes you may see for the
 Microsoft SharePoint connector and suggested resolutions.

@@ -1,6 +1,4 @@
-# A list of verified software providers who are data
-
-accessors
+# A list of verified software providers who are data accessors
 
 The following are the _verified_ independent software vendors
 (ISVs) that are data accessors.

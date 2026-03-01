@@ -29,14 +29,10 @@ In addition to [enhancements](enhancements.md "enhancements.md"), Amazon Q Busin
 
 ###### Topics
 
-- [Filtering chat responses using document attributes
-  and metadata](metadata-filtering.md "metadata-filtering.md")
-- [Source attribution with citations in
-  Amazon Q Business](source-attribution-citations.md "source-attribution-citations.md")
+- [Filtering chat responses using document attributes and metadata](metadata-filtering.md "metadata-filtering.md")
+- [Source attribution with citations in Amazon Q Business](source-attribution-citations.md "source-attribution-citations.md")
 - [Upload files to a chat in Amazon Q Business](upload-chat-files.md "upload-chat-files.md")
-- [Personalizing Amazon Q Business
-  chat responses](personalizing-chat-responses.md "personalizing-chat-responses.md")
+- [Personalizing Amazon Q Business chat responses](personalizing-chat-responses.md "personalizing-chat-responses.md")
 - [Quick prompts in Amazon Q Business](quick-prompts.md "quick-prompts.md")
 - [Hallucination mitigation in Amazon Q Business](hallucination-reduction.md "hallucination-reduction.md")
-- [Agentic Retrieval Augmented Generation (RAG)
-  in Amazon Q Business](agentic-rag.md "agentic-rag.md")
+- [Agentic Retrieval Augmented Generation (RAG) in Amazon Q Business](agentic-rag.md "agentic-rag.md")

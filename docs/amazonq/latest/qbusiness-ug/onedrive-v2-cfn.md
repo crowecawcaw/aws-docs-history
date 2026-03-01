@@ -12,28 +12,20 @@ in the _CloudFormation User Guide_.
 
 ###### Topics
 
-- [Microsoft OneDrive JSON schema for using the configuration
-  property with AWS CloudFormation](#onedrive-v2-cfn-json "#onedrive-v2-cfn-json")
-- [Microsoft OneDrive YAML schema for using the configuration
-  property with AWS CloudFormation](#onedrive-v2-cfn-yaml "#onedrive-v2-cfn-yaml")
+- [Microsoft OneDrive JSON schema for using the configuration property with AWS CloudFormation](#onedrive-v2-cfn-json "#onedrive-v2-cfn-json")
+- [Microsoft OneDrive YAML schema for using the configuration property with AWS CloudFormation](#onedrive-v2-cfn-yaml "#onedrive-v2-cfn-yaml")
 
-## Microsoft OneDrive JSON schema for using the configuration
-
-property with AWS CloudFormation
+## Microsoft OneDrive JSON schema for using the configuration property with AWS CloudFormation
 
 The following is the Microsoft OneDrive JSON schema and examples for the configuration
 property for AWS CloudFormation.
 
 ###### Topics
 
-- [Microsoft OneDrive JSON schema for using the
-  configuration property with AWS CloudFormation](#onedrive-v2-cfn-json-schema "#onedrive-v2-cfn-json-schema")
-- [Microsoft OneDrive JSON schema example for using the
-  configuration property with AWS CloudFormation](#onedrive-v2-cfn-json-example "#onedrive-v2-cfn-json-example")
+- [Microsoft OneDrive JSON schema for using the configuration property with AWS CloudFormation](#onedrive-v2-cfn-json-schema "#onedrive-v2-cfn-json-schema")
+- [Microsoft OneDrive JSON schema example for using the configuration property with AWS CloudFormation](#onedrive-v2-cfn-json-example "#onedrive-v2-cfn-json-example")
 
-### Microsoft OneDrive JSON schema for using the
-
-configuration property with AWS CloudFormation
+### Microsoft OneDrive JSON schema for using the configuration property with AWS CloudFormation
 
 The following is the Microsoft OneDrive JSON schema for the configuration property for
 CloudFormation.
@@ -187,9 +179,7 @@ CloudFormation.
 
 [Show moreShow less](# "#")
 
-### Microsoft OneDrive JSON schema example for using the
-
-configuration property with AWS CloudFormation
+### Microsoft OneDrive JSON schema example for using the configuration property with AWS CloudFormation
 
 The following is the Microsoft OneDrive JSON example for the Configuration property for
 CloudFormation.
@@ -229,23 +219,17 @@ CloudFormation.
 
 [Show moreShow less](# "#")
 
-## Microsoft OneDrive YAML schema for using the configuration
-
-property with AWS CloudFormation
+## Microsoft OneDrive YAML schema for using the configuration property with AWS CloudFormation
 
 The following is the Microsoft OneDrive YAML schema and examples for the configuration
 property for AWS CloudFormation:
 
 ###### Topics
 
-- [Microsoft OneDrive YAML schema for using the
-  configuration property with AWS CloudFormation](#onedrive-v2-cfn-yaml-schema "#onedrive-v2-cfn-yaml-schema")
-- [Microsoft OneDrive YAML schema example for using the
-  configuration property with AWS CloudFormation](#onedrive-v2-cfn-yaml-example "#onedrive-v2-cfn-yaml-example")
+- [Microsoft OneDrive YAML schema for using the configuration property with AWS CloudFormation](#onedrive-v2-cfn-yaml-schema "#onedrive-v2-cfn-yaml-schema")
+- [Microsoft OneDrive YAML schema example for using the configuration property with AWS CloudFormation](#onedrive-v2-cfn-yaml-example "#onedrive-v2-cfn-yaml-example")
 
-### Microsoft OneDrive YAML schema for using the
-
-configuration property with AWS CloudFormation
+### Microsoft OneDrive YAML schema for using the configuration property with AWS CloudFormation
 
 The following is the Microsoft OneDrive YAML schema for the configuration property for
 CloudFormation.
@@ -368,9 +352,7 @@ configuration:
 
 [Show moreShow less](# "#")
 
-### Microsoft OneDrive YAML schema example for using the
-
-configuration property with AWS CloudFormation
+### Microsoft OneDrive YAML schema example for using the configuration property with AWS CloudFormation
 
 The following is the Microsoft OneDrive YAML example for the Configuration property for
 CloudFormation:

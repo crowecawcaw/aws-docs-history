@@ -1,6 +1,4 @@
-# Customizing an Amazon Q Business web
-
-experience
+# Customizing an Amazon Q Business web experience
 
 Creating an Amazon Q Business application environment automatically creates a web experience
 with a shareable URL. Amazon Q offers customization options for your web
@@ -40,17 +38,12 @@ the following API operations.
 
 ###### Topics
 
-- [Customization
-  overview](#customization-web-experience-iam-overview "#customization-web-experience-iam-overview")
-- [Customizing text
-  elements](customizing-web-experience-text-elements.md "customizing-web-experience-text-elements.md")
+- [Customization overview](#customization-web-experience-iam-overview "#customization-web-experience-iam-overview")
+- [Customizing text elements](customizing-web-experience-text-elements.md "customizing-web-experience-text-elements.md")
 - [Customizing visual themes](customizing-web-experience-themes.md "customizing-web-experience-themes.md")
-- [Reference
-  materials for customizing the visual theme](customizing-web-experience-themes-reference-materials.md "customizing-web-experience-themes-reference-materials.md")
+- [Reference materials for customizing the visual theme](customizing-web-experience-themes-reference-materials.md "customizing-web-experience-themes-reference-materials.md")
 
-## Customization
-
-overview
+## Customization overview
 
 Creating an Amazon Q Business application environment automatically generates a
 web experience with a shareable URL. Before sharing this URL, you can customize various

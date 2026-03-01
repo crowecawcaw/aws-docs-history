@@ -18,10 +18,8 @@ environment.
 
 - [Prerequisites](#prerequisites "#prerequisites")
 - [Add your website as an allowed URL](add-website-as-allowed-url.md "add-website-as-allowed-url.md")
-- [Add Amazon Q embedded to your
-  website](embed-web-experience.md "embed-web-experience.md")
-- [Remove your website as an allowed
-  URL](remove-website-as-allowed-url.md "remove-website-as-allowed-url.md")
+- [Add Amazon Q embedded to your website](embed-web-experience.md "embed-web-experience.md")
+- [Remove your website as an allowed URL](remove-website-as-allowed-url.md "remove-website-as-allowed-url.md")
 
 ## Prerequisites
 

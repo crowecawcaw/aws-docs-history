@@ -1,6 +1,4 @@
-# Connecting Amazon Q Business to Web Crawler
-
-using APIs
+# Connecting Amazon Q Business to Web Crawler using APIs
 
 To connect Amazon Q Business to Web Crawler using the Amazon Q API,
 call `CreateDataSource`. Use this API to:
@@ -21,15 +19,11 @@ configurations.
 
 ###### Topics
 
-- [Web Crawler configuration
-  properties](#web-crawler-configuration-keys "#web-crawler-configuration-keys")
+- [Web Crawler configuration properties](#web-crawler-configuration-keys "#web-crawler-configuration-keys")
 - [Web Crawler JSON schema](#web-crawler-api-json "#web-crawler-api-json")
-- [Web Crawler JSON schema
-  example](#web-crawler-api-json-example "#web-crawler-api-json-example")
+- [Web Crawler JSON schema example](#web-crawler-api-json-example "#web-crawler-api-json-example")
 
-## Web Crawler configuration
-
-properties
+## Web Crawler configuration properties
 
 The following provides information about important configuration properties required in the
 schema.
@@ -401,9 +395,7 @@ The following is the Web Crawler JSON schema:
 
 [Show moreShow less](# "#")
 
-## Web Crawler JSON schema
-
-example
+## Web Crawler JSON schema example
 
 The following is the Web Crawler JSON schema example:
 

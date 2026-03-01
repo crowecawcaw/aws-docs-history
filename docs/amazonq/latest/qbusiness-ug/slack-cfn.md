@@ -1,6 +1,4 @@
-# Connecting Amazon Q Business to Slack
-
-using AWS CloudFormation
+# Connecting Amazon Q Business to Slack using AWS CloudFormation
 
 You use the [`AWS::QBusiness::DataSource`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.md") resource to connect a data source to
 your Amazon Q application.
@@ -14,16 +12,11 @@ in the _CloudFormation User Guide_.
 
 ###### Topics
 
-- [Slack configuration
-  properties](#slack-configuration-keys "#slack-configuration-keys")
-- [Slack JSON schema for using the
-  configuration property with AWS CloudFormation](#slack-cfn-json "#slack-cfn-json")
-- [Slack YAML schema for using the
-  configuration property with AWS CloudFormation](#slack-cfn-yaml "#slack-cfn-yaml")
+- [Slack configuration properties](#slack-configuration-keys "#slack-configuration-keys")
+- [Slack JSON schema for using the configuration property with AWS CloudFormation](#slack-cfn-json "#slack-cfn-json")
+- [Slack YAML schema for using the configuration property with AWS CloudFormation](#slack-cfn-yaml "#slack-cfn-yaml")
 
-## Slack configuration
-
-properties
+## Slack configuration properties
 
 The following provides information about important configuration properties required in the
 schema.
@@ -60,23 +53,17 @@ schema.
 | `secretArn`                  | The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains<br>the key-value pairs required to connect to your Slack.                                                                                                                                                                                                                                                                                                                                          | `string`<br>The secret must contain a JSON structure with the following keys:<br>``<br>{<br>"slackToken": "`token`"<br>}<br>``                                                                                                                                                                                                                                                                                                                                                           | Yes      |
 | `version`                    | The version of this template that's currently supported.                                                                                                                                                                                                                                                                                                                                                                                                                         | `string`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | No       |
 
-## Slack JSON schema for using the
-
-configuration property with AWS CloudFormation
+## Slack JSON schema for using the configuration property with AWS CloudFormation
 
 The following is the Slack JSON schema and examples for the configuration
 property for AWS CloudFormation.
 
 ###### Topics
 
-- [Slack JSON schema for using the
-  configuration property with AWS CloudFormation](#slack-cfn-json-schema "#slack-cfn-json-schema")
-- [Slack JSON schema example for
-  using the configuration property with AWS CloudFormation](#slack-cfn-json-example "#slack-cfn-json-example")
+- [Slack JSON schema for using the configuration property with AWS CloudFormation](#slack-cfn-json-schema "#slack-cfn-json-schema")
+- [Slack JSON schema example for using the configuration property with AWS CloudFormation](#slack-cfn-json-example "#slack-cfn-json-example")
 
-### Slack JSON schema for using the
-
-configuration property with AWS CloudFormation
+### Slack JSON schema for using the configuration property with AWS CloudFormation
 
 The following is the Slack JSON schema for the configuration property for
 CloudFormation
@@ -309,9 +296,7 @@ CloudFormation
 
 [Show moreShow less](# "#")
 
-### Slack JSON schema example for
-
-using the configuration property with AWS CloudFormation
+### Slack JSON schema example for using the configuration property with AWS CloudFormation
 
 The following is the Slack JSON schema example for the configuration
 property for CloudFormation
@@ -378,23 +363,17 @@ property for CloudFormation
 
 [Show moreShow less](# "#")
 
-## Slack YAML schema for using the
-
-configuration property with AWS CloudFormation
+## Slack YAML schema for using the configuration property with AWS CloudFormation
 
 The following is the Slack YAML schema and examples for the configuration
 property for AWS CloudFormation:
 
 ###### Topics
 
-- [Slack YAML schema for using the
-  configuration property with AWS CloudFormation](#slack-cfn-yaml-schema "#slack-cfn-yaml-schema")
-- [Slack YAML schema example for
-  using the configuration property with AWS CloudFormation](#slack-cfn-yaml-example "#slack-cfn-yaml-example")
+- [Slack YAML schema for using the configuration property with AWS CloudFormation](#slack-cfn-yaml-schema "#slack-cfn-yaml-schema")
+- [Slack YAML schema example for using the configuration property with AWS CloudFormation](#slack-cfn-yaml-example "#slack-cfn-yaml-example")
 
-### Slack YAML schema for using the
-
-configuration property with AWS CloudFormation
+### Slack YAML schema for using the configuration property with AWS CloudFormation
 
 The following is the Slack YAML schema for the configuration property for
 CloudFormation.
@@ -558,9 +537,7 @@ required:
 
 [Show moreShow less](# "#")
 
-### Slack YAML schema example for
-
-using the configuration property with AWS CloudFormation
+### Slack YAML schema example for using the configuration property with AWS CloudFormation
 
 The following is the Slack YAML example for the Configuration property for
 CloudFormation:

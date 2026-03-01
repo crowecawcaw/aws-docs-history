@@ -1,6 +1,4 @@
-# Creating an Amazon Q index on behalf of a
-
-customer
+# Creating an Amazon Q index on behalf of a customer
 
 We recommend creating one Amazon Q Business application environment per customer for better security
 and data segregation. Alternatively, you can create one Amazon Q Business application environment and
@@ -9,16 +7,11 @@ are visible to all users in your application.
 
 ###### Topics
 
-- [Determine the identity
-  management for your customer's Amazon Q Business application](#isv-creating-index-identity-management "#isv-creating-index-identity-management")
-- [Calling the SearchRelevantContent API to an
-  Amazon Q index with an IAM Identity Center application environment](#isv-calling-api-idc "#isv-calling-api-idc")
-- [Calling the SearchRelevantContent API on an
-  Amazon Q application environment with IAM Federation](#isv-calling-api-iam "#isv-calling-api-iam")
+- [Determine the identity management for your customer's Amazon Q Business application](#isv-creating-index-identity-management "#isv-creating-index-identity-management")
+- [Calling the SearchRelevantContent API to an Amazon Q index with an IAM Identity Center application environment](#isv-calling-api-idc "#isv-calling-api-idc")
+- [Calling the SearchRelevantContent API on an Amazon Q application environment with IAM Federation](#isv-calling-api-iam "#isv-calling-api-iam")
 
-## Determine the identity
-
-management for your customer's Amazon Q Business application
+## Determine the identity management for your customer's Amazon Q Business application
 
 All Amazon Q Business application environments require user access through AWS Identity and Access Management (IAM)
 identity management. You can choose one of two types of user IAM identity management
@@ -41,9 +34,7 @@ information, see [Creating a retriever for an
 Amazon Q Business application](select-retriever.md "select-retriever.md") and [Connecting Amazon Q Business data
 sources](data-sources.md "data-sources.md").
 
-## Calling the SearchRelevantContent API to an
-
-Amazon Q index with an IAM Identity Center application environment
+## Calling the SearchRelevantContent API to an Amazon Q index with an IAM Identity Center application environment
 
 Before end users can retrieve content from the Amazon Q index that you have been
 granted access to, you need to be able to make authenticated Amazon Q Business API calls,
@@ -108,9 +99,7 @@ credentials.
 
 ```
 
-## Calling the SearchRelevantContent API on an
-
-Amazon Q application environment with IAM Federation
+## Calling the SearchRelevantContent API on an Amazon Q application environment with IAM Federation
 
 Before end users can retrieve content from the Amazon Q index that you have been
 granted access to, you need to be able to make authenticated Amazon Q Business API calls,

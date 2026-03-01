@@ -1,6 +1,4 @@
-# How Amazon Q Business document enrichment
-
-works
+# How Amazon Q Business document enrichment works
 
 To understand and use document enrichments, familiarize yourself with the key
 Amazon Q Business concepts that this topic outlines.

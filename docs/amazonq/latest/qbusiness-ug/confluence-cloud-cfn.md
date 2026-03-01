@@ -1,6 +1,4 @@
-# Connecting Amazon Q Business to Confluence (Cloud)
-
-using AWS CloudFormation
+# Connecting Amazon Q Business to Confluence (Cloud) using AWS CloudFormation
 
 You use the [`AWS::QBusiness::DataSource`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.md") resource to connect a data source to
 your Amazon Q application.
@@ -14,16 +12,11 @@ in the _CloudFormation User Guide_.
 
 ###### Topics
 
-- [Confluence configuration
-  properties](#confluence-configuration-keys "#confluence-configuration-keys")
-- [Confluence (Cloud) JSON schema for using the
-  configuration property with AWS CloudFormation](#confluence-cloud-cfn-json "#confluence-cloud-cfn-json")
-- [Confluence (Cloud) YAML schema for using the
-  configuration property with AWS CloudFormation](#confluence-cloud-cfn-yaml "#confluence-cloud-cfn-yaml")
+- [Confluence configuration properties](#confluence-configuration-keys "#confluence-configuration-keys")
+- [Confluence (Cloud) JSON schema for using the configuration property with AWS CloudFormation](#confluence-cloud-cfn-json "#confluence-cloud-cfn-json")
+- [Confluence (Cloud) YAML schema for using the configuration property with AWS CloudFormation](#confluence-cloud-cfn-yaml "#confluence-cloud-cfn-yaml")
 
-## Confluence configuration
-
-properties
+## Confluence configuration properties
 
 The following provides information about important configuration properties required in the
 schema.
@@ -56,23 +49,17 @@ schema.
 | `secretARN`                                                                                                                                                                                                                                                                           | The Amazon Resource Name (ARN) of a Secrets Manager secret that contains<br>the key-value pairs required to connect to your Confluence<br>instance.                                                                                                                                                                                                                                             | `string`<br>The minimum length is 20 and the maximum length is 2,048 characters. If you<br>use basic authentication, the secret must contain a JSON structure with the following<br>keys:<br>``<br>{<br>"username": "`Confluence account user name`",<br>"password": "`Confluence API token`"<br>}<br>``<br>If you use OAuth 2.0 authentication, the secret must contain a JSON<br>structure with the following keys:<br>``<br>{<br>"confluenceAppKey": "`app key for your Confluence account`",<br>"confluenceAppSecret": "`app secret from your Confluence token`",<br>"confluenceAccessToken": "`access token created in Confluence`",<br>"confluenceRefreshToken": "`refresh token created in Confluence`"<br>}<br>`` | Yes      |
 | `version`                                                                                                                                                                                                                                                                             | The version of this template that's currently supported.                                                                                                                                                                                                                                                                                                                                        | `string`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | No       |
 
-## Confluence (Cloud) JSON schema for using the
-
-configuration property with AWS CloudFormation
+## Confluence (Cloud) JSON schema for using the configuration property with AWS CloudFormation
 
 The following is the Confluence (Cloud) JSON schema and examples for the configuration
 property for AWS CloudFormation.
 
 ###### Topics
 
-- [Confluence (Cloud) JSON schema for using the
-  configuration property with AWS CloudFormation](#confluence-cloud-cfn-json-schema "#confluence-cloud-cfn-json-schema")
-- [Confluence (Cloud) JSON schema example for
-  using the configuration property with AWS CloudFormation](#confluence-cloud-cfn-json-example "#confluence-cloud-cfn-json-example")
+- [Confluence (Cloud) JSON schema for using the configuration property with AWS CloudFormation](#confluence-cloud-cfn-json-schema "#confluence-cloud-cfn-json-schema")
+- [Confluence (Cloud) JSON schema example for using the configuration property with AWS CloudFormation](#confluence-cloud-cfn-json-example "#confluence-cloud-cfn-json-example")
 
-### Confluence (Cloud) JSON schema for using the
-
-configuration property with AWS CloudFormation
+### Confluence (Cloud) JSON schema for using the configuration property with AWS CloudFormation
 
 The following is the Confluence (Cloud) JSON schema for the configuration property for
 CloudFormation
@@ -535,9 +522,7 @@ CloudFormation
 
 [Show moreShow less](# "#")
 
-### Confluence (Cloud) JSON schema example for
-
-using the configuration property with AWS CloudFormation
+### Confluence (Cloud) JSON schema example for using the configuration property with AWS CloudFormation
 
 The following is the Confluence (Cloud) JSON schema example for the configuration
 property for CloudFormation
@@ -653,23 +638,17 @@ property for CloudFormation
 
 [Show moreShow less](# "#")
 
-## Confluence (Cloud) YAML schema for using the
-
-configuration property with AWS CloudFormation
+## Confluence (Cloud) YAML schema for using the configuration property with AWS CloudFormation
 
 The following is the Confluence (Cloud) YAML schema and examples for the configuration
 property for AWS CloudFormation:
 
 ###### Topics
 
-- [Confluence (Cloud) YAML schema for using the
-  configuration property with AWS CloudFormation](#confluence-cloud-cfn-yaml-schema "#confluence-cloud-cfn-yaml-schema")
-- [Confluence (Cloud) YAML schema example for
-  using the configuration property with AWS CloudFormation](#confluence-cloud-cfn-yaml-example "#confluence-cloud-cfn-yaml-example")
+- [Confluence (Cloud) YAML schema for using the configuration property with AWS CloudFormation](#confluence-cloud-cfn-yaml-schema "#confluence-cloud-cfn-yaml-schema")
+- [Confluence (Cloud) YAML schema example for using the configuration property with AWS CloudFormation](#confluence-cloud-cfn-yaml-example "#confluence-cloud-cfn-yaml-example")
 
-### Confluence (Cloud) YAML schema for using the
-
-configuration property with AWS CloudFormation
+### Confluence (Cloud) YAML schema for using the configuration property with AWS CloudFormation
 
 The following is the Confluence (Cloud) YAML schema for the configuration property for
 CloudFormation.
@@ -992,9 +971,7 @@ required:
 
 [Show moreShow less](# "#")
 
-### Confluence (Cloud) YAML schema example for
-
-using the configuration property with AWS CloudFormation
+### Confluence (Cloud) YAML schema example for using the configuration property with AWS CloudFormation
 
 The following is the Confluence (Cloud) YAML example for the Configuration property for
 CloudFormation:

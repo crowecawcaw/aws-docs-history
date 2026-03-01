@@ -1,6 +1,4 @@
-# Creating purpose-built \*Amazon Q
-
-Apps\*
+# Creating purpose-built _Amazon Q Apps_
 
 ###### Important
 
@@ -48,14 +46,11 @@ Reference_.
 
 ###### Topics
 
-- [Prerequisites for Amazon Q
-  Apps](purpose-built-qapps-prerequisites.md "purpose-built-qapps-prerequisites.md")
+- [Prerequisites for Amazon Q Apps](purpose-built-qapps-prerequisites.md "purpose-built-qapps-prerequisites.md")
 - [Managing Amazon Q Apps](purpose-built-qapps-manage.md "purpose-built-qapps-manage.md")
-- [Using the web experience to create
-  and run Amazon Q Apps](purpose-built-qapps-web-experience.md "purpose-built-qapps-web-experience.md")
+- [Using the web experience to create and run Amazon Q Apps](purpose-built-qapps-web-experience.md "purpose-built-qapps-web-experience.md")
 - [Sharing Amazon Q Apps](qapps-private-sharing.md "qapps-private-sharing.md")
 - [Custom labels for Amazon Q Apps](qapps-custom-labels.md "qapps-custom-labels.md")
-- [Understanding and managing Verified
-  Amazon Q Apps](verfied-apps-management.md "verfied-apps-management.md")
+- [Understanding and managing Verified Amazon Q Apps](verfied-apps-management.md "verfied-apps-management.md")
 - [Data collection in Amazon Q Apps](q-apps-forms.md "q-apps-forms.md")
 - [Using plugins in Amazon Q Apps](qapps-plugins.md "qapps-plugins.md")

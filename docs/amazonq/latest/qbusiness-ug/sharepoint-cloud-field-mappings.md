@@ -1,6 +1,4 @@
-# SharePoint (Online) data source
-
-connector field mappings
+# SharePoint (Online) data source connector field mappings
 
 To help you structure data for retrieval and chat filtering, Amazon Q Business
 crawls data source document attributes or metadata and maps them to fields in your

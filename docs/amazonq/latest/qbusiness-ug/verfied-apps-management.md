@@ -1,6 +1,4 @@
-# Understanding and managing Verified
-
-Amazon Q Apps
+# Understanding and managing Verified Amazon Q Apps
 
 The Verified Q Apps feature empowers administrators to endorse published Amazon Q Apps.
 The goal is to enhance governance and provide a clear signal to end-users about which
@@ -30,15 +28,11 @@ administrator re-applies it.
 
 ###### Topics
 
-- [Considerations for verifying
-  Amazon Q Apps](#verified-apps-considersations "#verified-apps-considersations")
+- [Considerations for verifying Amazon Q Apps](#verified-apps-considersations "#verified-apps-considersations")
 - [Verifying Amazon Q Apps](#verified-apps-update "#verified-apps-update")
-- [Restoring Amazon Q Apps to the default
-  state](#default-apps-update "#default-apps-update")
+- [Restoring Amazon Q Apps to the default state](#default-apps-update "#default-apps-update")
 
-## Considerations for verifying
-
-Amazon Q Apps
+## Considerations for verifying Amazon Q Apps
 
 To start using the Verified Apps feature in Amazon Q Apps, consider the following:
 
@@ -83,9 +77,7 @@ AWS CLI
                         --is-verified \
 ```
 
-## Restoring Amazon Q Apps to the default
-
-state
+## Restoring Amazon Q Apps to the default state
 
 All Amazon Q Apps are always in a _Default_ state when they are
 first published or updated. To remove an Amazon Q App verified state and change it

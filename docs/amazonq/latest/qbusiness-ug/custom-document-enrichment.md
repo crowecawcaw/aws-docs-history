@@ -67,8 +67,6 @@ if you use an Amazon Q Business native retriever. If you use an Amazon Kendra re
 
 ###### Topics
 
-- [How Amazon Q Business document enrichment
-  works](cde-hiw.md "cde-hiw.md")
+- [How Amazon Q Business document enrichment works](cde-hiw.md "cde-hiw.md")
 - [Using basic operations for Amazon Q Business document enrichment](cde-basic-operations.md "cde-basic-operations.md")
-- [Using Lambda functions for
-  Amazon Q Business document enrichment](cde-lambda-operations.md "cde-lambda-operations.md")
+- [Using Lambda functions for Amazon Q Business document enrichment](cde-lambda-operations.md "cde-lambda-operations.md")

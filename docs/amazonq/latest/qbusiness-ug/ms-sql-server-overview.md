@@ -1,6 +1,4 @@
-# Microsoft SQL Server connector
-
-overview
+# Microsoft SQL Server connector overview
 
 The following table gives an overview of the Amazon Q Business
 Microsoft SQL Server connector and its supported features.

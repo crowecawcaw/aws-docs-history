@@ -1,6 +1,4 @@
-# Share your enterprise data with data accessors using Amazon
-
-Q index
+# Share your enterprise data with data accessors using Amazon Q index
 
 The Amazon Q Business data accessors feature allows you to securely share your enterprise data
 with verified independent software vendors (ISVs) using Amazon Q. This feature allows ISVs to
@@ -33,12 +31,8 @@ browsers.
 
 ###### Topics
 
-- [A list of verified software providers who are data
-  accessors](data-accessors-list.md "data-accessors-list.md")
+- [A list of verified software providers who are data accessors](data-accessors-list.md "data-accessors-list.md")
 - [Prerequisites](data-accessors-prerequisites.md "data-accessors-prerequisites.md")
-- [Add a data accessor (ISV) to
-  connect to your Amazon Q index](data-accessors-granting-permissions.md "data-accessors-granting-permissions.md")
-- [Completing the process to add a data
-  accessor](data-accessors-external-setup.md "data-accessors-external-setup.md")
-- [Deleting or removing a data accessor's
-  access from your Amazon Q index](data-accessors-removing-access.md "data-accessors-removing-access.md")
+- [Add a data accessor (ISV) to connect to your Amazon Q index](data-accessors-granting-permissions.md "data-accessors-granting-permissions.md")
+- [Completing the process to add a data accessor](data-accessors-external-setup.md "data-accessors-external-setup.md")
+- [Deleting or removing a data accessor's access from your Amazon Q index](data-accessors-removing-access.md "data-accessors-removing-access.md")

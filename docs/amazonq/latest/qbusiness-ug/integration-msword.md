@@ -19,14 +19,10 @@ With the Amazon Q Word Add-in your users can:
 ###### Topics
 
 - [Configuring the Amazon Q Business Microsoft Word Add-in for use](configuring-integration-msword.md "configuring-integration-msword.md")
-- [Removing the Amazon Q Business
-  Add-in as a Microsoft Word integration](#removing-integration-msword "#removing-integration-msword")
-- [Using the Amazon Q Business Add-in
-  for Microsoft Word](using-integration-msword.md "using-integration-msword.md")
+- [Removing the Amazon Q Business Add-in as a Microsoft Word integration](#removing-integration-msword "#removing-integration-msword")
+- [Using the Amazon Q Business Add-in for Microsoft Word](using-integration-msword.md "using-integration-msword.md")
 
-## Removing the Amazon Q Business
-
-Add-in as a Microsoft Word integration
+## Removing the Amazon Q Business Add-in as a Microsoft Word integration
 
 To remove the Microsoft Word (Word) integration, Admin users can use the Amazon Q Business console.
 

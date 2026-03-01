@@ -1,6 +1,4 @@
-# IAM role for
-
-SharePoint (Online) connector
+# IAM role for SharePoint (Online) connector
 
 ###### Note
 

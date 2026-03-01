@@ -1,6 +1,4 @@
-# How Amazon Q Business connector
-
-crawls SharePoint (Online) ACLs
+# How Amazon Q Business connector crawls SharePoint (Online) ACLs
 
 When you connect an SharePoint (Online) data source to Amazon Q Business, Amazon Q crawls ACL information attached to a document (user and group
 information) from your SharePoint (Online) instance. If you choose to activate ACL

@@ -12,22 +12,15 @@ Subscription Edition).
 ###### Topics
 
 - [Known limitations for the Amazon Q Business SharePoint Server (Subscription Edition) connector](sharepoint-server-subscription-limitations.md "sharepoint-server-subscription-limitations.md")
-- [SharePoint Server (Subscription Edition) connector
-  overview](sharepoint-server-subscription-overview.md "sharepoint-server-subscription-overview.md")
+- [SharePoint Server (Subscription Edition) connector overview](sharepoint-server-subscription-overview.md "sharepoint-server-subscription-overview.md")
 - [Prerequisites for connecting Amazon Q Business to SharePoint Server (Subscription Edition)](sharepoint-server-subscription-prereqs.md "sharepoint-server-subscription-prereqs.md")
-- [Connecting Amazon Q Business to
-  SharePoint Server (Subscription Edition) using the console](sharepoint-server-subscription-console.md "sharepoint-server-subscription-console.md")
-- [Connecting Amazon Q Business to
-  SharePoint Server (Subscription Edition) using APIs](sharepoint-server-subscription-api.md "sharepoint-server-subscription-api.md")
-- [Connecting Amazon Q Business to
-  SharePoint Server (Subscription Edition) using AWS CloudFormation](sharepoint-server-subscription-cfn.md "sharepoint-server-subscription-cfn.md")
-- [How Amazon Q Business connector
-  crawls SharePoint Server (Subscription Edition) ACLs](sharepoint-server-subscription-user-management.md "sharepoint-server-subscription-user-management.md")
-- [Amazon Q Business
-  SharePoint Server (Subscription Edition) data source connector field mappings](sharepoint-server-subscription-field-mappings.md "sharepoint-server-subscription-field-mappings.md")
+- [Connecting Amazon Q Business to SharePoint Server (Subscription Edition) using the console](sharepoint-server-subscription-console.md "sharepoint-server-subscription-console.md")
+- [Connecting Amazon Q Business to SharePoint Server (Subscription Edition) using APIs](sharepoint-server-subscription-api.md "sharepoint-server-subscription-api.md")
+- [Connecting Amazon Q Business to SharePoint Server (Subscription Edition) using AWS CloudFormation](sharepoint-server-subscription-cfn.md "sharepoint-server-subscription-cfn.md")
+- [How Amazon Q Business connector crawls SharePoint Server (Subscription Edition) ACLs](sharepoint-server-subscription-user-management.md "sharepoint-server-subscription-user-management.md")
+- [Amazon Q Business SharePoint Server (Subscription Edition) data source connector field mappings](sharepoint-server-subscription-field-mappings.md "sharepoint-server-subscription-field-mappings.md")
 - [IAM role for Amazon Q Business SharePoint Server (Subscription Edition) connector](sharepoint-server-subscription-iam-role.md "sharepoint-server-subscription-iam-role.md")
-- [Understand error codes in the
-  SharePoint Server (Subscription Edition) connector](sharepoint-server-subscription-error-codes.md "sharepoint-server-subscription-error-codes.md")
+- [Understand error codes in the SharePoint Server (Subscription Edition) connector](sharepoint-server-subscription-error-codes.md "sharepoint-server-subscription-error-codes.md")
 
 **Learn more**
 

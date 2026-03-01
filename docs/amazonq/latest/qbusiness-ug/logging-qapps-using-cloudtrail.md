@@ -1,6 +1,4 @@
-# Logging Amazon Q Apps API calls using
-
-AWS CloudTrail
+# Logging Amazon Q Apps API calls using AWS CloudTrail
 
 Amazon Q Apps is integrated with AWS CloudTrail, a service that provides a record of actions
 taken by a user, role, or an AWS service in Amazon Q Apps. CloudTrail captures all API calls for
@@ -131,9 +129,7 @@ Additional charges apply for data events. For more information about CloudTrail 
 see [AWS CloudTrail
 Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
 
-## UnderstandingAmazon Q Apps log file
-
-entries
+## UnderstandingAmazon Q Apps log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3
 bucket that you specify. CloudTrail log files contain one or more log entries. An event

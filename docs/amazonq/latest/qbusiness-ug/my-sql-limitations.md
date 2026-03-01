@@ -1,6 +1,4 @@
-# Known limitations for the
-
-MySQL connector
+# Known limitations for the MySQL connector
 
 - Deleted database rows will not be tracked in when Amazon Q checks
   for updated content.

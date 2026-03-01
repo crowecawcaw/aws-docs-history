@@ -32,9 +32,6 @@ for custom plugins isn't supported on the console.
 - [Prerequisites for Amazon Q Business custom plugins](custom-plugin-prereqs.md "custom-plugin-prereqs.md")
 - [Service access roles for Amazon Q Business custom plugins](create-plugin-iam-role.md "create-plugin-iam-role.md")
 - [Defining OpenAPI schemas for custom plugins](plugins-api-schema.md "plugins-api-schema.md")
-- [Best practices for OpenAPI schema
-  definition for custom plugins](plugins-api-schema-best-practices.md "plugins-api-schema-best-practices.md")
-- [Creating an Amazon Q Business custom
-  plugin](custom-plugin-create.md "custom-plugin-create.md")
-- [Using an Amazon Q Business custom
-  plugin](using-custom-plugin.md "using-custom-plugin.md")
+- [Best practices for OpenAPI schema definition for custom plugins](plugins-api-schema-best-practices.md "plugins-api-schema-best-practices.md")
+- [Creating an Amazon Q Business custom plugin](custom-plugin-create.md "custom-plugin-create.md")
+- [Using an Amazon Q Business custom plugin](using-custom-plugin.md "using-custom-plugin.md")

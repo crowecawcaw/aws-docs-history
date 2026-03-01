@@ -1,6 +1,4 @@
-# Agentic Retrieval Augmented Generation (RAG)
-
-in Amazon Q Business
+# Agentic Retrieval Augmented Generation (RAG) in Amazon Q Business
 
 Agentic RAG enhances the standard RAG workflow of Amazon Q Business with agentic
 retrieval and response capabilities. Unlike standard RAG's document retrieval and simple

@@ -1,6 +1,4 @@
-# Configuring document attributes for boosting
-
-in Amazon Q Business
+# Configuring document attributes for boosting in Amazon Q Business
 
 ###### Note
 

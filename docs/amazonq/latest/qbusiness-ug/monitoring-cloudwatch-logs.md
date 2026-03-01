@@ -1,6 +1,4 @@
-# Monitoring Amazon Q Business user conversations with
-
-Amazon CloudWatch Logs
+# Monitoring Amazon Q Business user conversations with Amazon CloudWatch Logs
 
 You can use [Amazon CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md") to
 deliver user conversations and response feedback in Amazon Q Business for you to analyze. These logs can be
@@ -32,7 +30,6 @@ protect sensitive log data with masking](../../../AmazonCloudWatch/latest/logs/m
 ###### Topics
 
 - [Amazon Q Business chat message and feedback log examples](cw-log-examples.md "cw-log-examples.md")
-- [Permissions for monitoring Amazon Q Business with
-  Amazon CloudWatch Logs](cw-logs-permissions.md "cw-logs-permissions.md")
+- [Permissions for monitoring Amazon Q Business with Amazon CloudWatch Logs](cw-logs-permissions.md "cw-logs-permissions.md")
 - [Enabling Amazon Q Business user conversation logging](cw-logs-enable-logging.md "cw-logs-enable-logging.md")
 - [Amazon Q Business conversation log query examples](cw-logs-common-queries.md "cw-logs-common-queries.md")

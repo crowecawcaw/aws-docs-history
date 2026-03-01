@@ -24,12 +24,9 @@ API calls, and how to configure a streaming chat conversation.
 
 ###### Topics
 
-- [Setting up a streaming Amazon Q Business
-  chat using APIs](#chat-stream-api "#chat-stream-api")
+- [Setting up a streaming Amazon Q Business chat using APIs](#chat-stream-api "#chat-stream-api")
 
-## Setting up a streaming Amazon Q Business
-
-chat using APIs
+## Setting up a streaming Amazon Q Business chat using APIs
 
 Amazon Q Business provides a streaming [Chat](../api-reference/API_Chat.md "../api-reference/API_Chat.md") API that you can use to deliver chat responses to your end users
 as a continuing series of partial results. When you use the streaming API, chat

@@ -1,6 +1,4 @@
-# Best practices for OpenAPI schema
-
-definition for custom plugins
+# Best practices for OpenAPI schema definition for custom plugins
 
 While application programming interfaces (APIs) have traditionally been used by
 developers to integrate with external applications, today APIs are increasingly being
@@ -12,22 +10,14 @@ maximize the accuracy and improve efficiency when resolving end user requests.
 
 ###### Topics
 
-- [Optimizing OpenAPI schema
-  accuracy](#plugins-api-schema-accuracy "#plugins-api-schema-accuracy")
-- [Best practices for OpenAPI Schema
-  names](#plugins-api-schema-names "#plugins-api-schema-names")
-- [Best practices for OpenAPI Schema
-  descriptions](#plugins-api-schema-descriptions "#plugins-api-schema-descriptions")
-- [Best practices for JSON input
-  schemas](#plugins-api-schema-json-input "#plugins-api-schema-json-input")
-- [Other important considerations for OpenAPI
-  specifications](#plugins-api-schema-misc "#plugins-api-schema-misc")
-- [Example of API Schema
-  optimization](#plugins-api-schema-optimization "#plugins-api-schema-optimization")
+- [Optimizing OpenAPI schema accuracy](#plugins-api-schema-accuracy "#plugins-api-schema-accuracy")
+- [Best practices for OpenAPI Schema names](#plugins-api-schema-names "#plugins-api-schema-names")
+- [Best practices for OpenAPI Schema descriptions](#plugins-api-schema-descriptions "#plugins-api-schema-descriptions")
+- [Best practices for JSON input schemas](#plugins-api-schema-json-input "#plugins-api-schema-json-input")
+- [Other important considerations for OpenAPI specifications](#plugins-api-schema-misc "#plugins-api-schema-misc")
+- [Example of API Schema optimization](#plugins-api-schema-optimization "#plugins-api-schema-optimization")
 
-## Optimizing OpenAPI schema
-
-accuracy
+## Optimizing OpenAPI schema accuracy
 
 To create a custom plugin, you need to create or edit an OpenAPI schema outlining
 the different API actions you want to enable for your custom plugin. Once the custom
@@ -53,9 +43,7 @@ accuracy of your Amazon Q Business plugins:
 In the next sections, we outline how you can maximize the accuracy of your custom
 plugin by following best practices for your OpenAPI schema parameters.
 
-## Best practices for OpenAPI Schema
-
-names
+## Best practices for OpenAPI Schema names
 
 - Names and IDs should be human-readable, descriptive, and unambiguous while
   being as concise as possible.
@@ -107,9 +95,7 @@ names
     `begin_date` in the input parameters if they have the
     same meaning.
 
-## Best practices for OpenAPI Schema
-
-descriptions
+## Best practices for OpenAPI Schema descriptions
 
 - Descriptions should be self-contained, providing sufficient guidance for
   how and when to use the operation or parameter they describe. The following
@@ -156,9 +142,7 @@ descriptions
     differently than described in the OpenAPI schema. So, including
     usage examples may not always be helpful.
 
-## Best practices for JSON input
-
-schemas
+## Best practices for JSON input schemas
 
 - Simpler interfaces will lead to more efficient, consistent, and accurate
   plugin usage from Amazon Q Business. Thus, having fewer input
@@ -197,9 +181,7 @@ schemas
   example, `date-time` or `date` for capturing ISO-8601
   dates/times.
 
-## Other important considerations for OpenAPI
-
-specifications
+## Other important considerations for OpenAPI specifications
 
 - Never expose sensitive information in the API schema or API outputs. If
   information should not be exposed to the end user, do not include it in your
@@ -224,9 +206,7 @@ specifications
   API operations described in the schema support complete use cases without
   relying on APIs not defined or other plugins.
 
-## Example of API Schema
-
-optimization
+## Example of API Schema optimization
 
 This section shows you an example of an API schema before and after our best
 practices are applied. The example API is used for managing Paid Time Off (PTO)

@@ -1,6 +1,4 @@
-# Response customization
-
-settings
+# Response customization settings
 
 When you create an Amazon Q Business application, Amazon Q Business
 applies its default response settings to your application. You can choose to customize

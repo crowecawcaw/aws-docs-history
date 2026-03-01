@@ -1,6 +1,4 @@
-# Connecting Amazon Q Business to Jira
-
-using AWS CloudFormation
+# Connecting Amazon Q Business to Jira using AWS CloudFormation
 
 You use the [`AWS::QBusiness::DataSource`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.md") resource to connect a data source to
 your Amazon Q application.
@@ -14,16 +12,11 @@ in the _CloudFormation User Guide_.
 
 ###### Topics
 
-- [Jira configuration
-  properties](#jira-configuration-keys "#jira-configuration-keys")
-- [Jira JSON schema for using the
-  configuration property with AWS CloudFormation](#jira-cfn-json "#jira-cfn-json")
-- [Jira YAML schema for using the
-  configuration property with AWS CloudFormation](#jira-cfn-yaml "#jira-cfn-yaml")
+- [Jira configuration properties](#jira-configuration-keys "#jira-configuration-keys")
+- [Jira JSON schema for using the configuration property with AWS CloudFormation](#jira-cfn-json "#jira-cfn-json")
+- [Jira YAML schema for using the configuration property with AWS CloudFormation](#jira-cfn-yaml "#jira-cfn-yaml")
 
-## Jira configuration
-
-properties
+## Jira configuration properties
 
 The following provides information about important configuration properties required in the
 schema.
@@ -54,23 +47,17 @@ schema.
 | `secretArn`                                                              | The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains<br>the key-value pairs required to connect to your Jira.                                                                                                                                                                                                                                                                                                                                           | `string`<br>The secret must contain a JSON structure with the following keys:<br>``<br>{<br>"Jira ID": "`Jira user name or email host URL`",<br>"Password/Token": "`Jira API token`"<br>}<br>``                                                                                                                                                                                                                                                                                  | Yes      |
 | `version`                                                                | The version of this template that's currently supported.                                                                                                                                                                                                                                                                                                                                                                                                                         | `string`                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | No       |
 
-## Jira JSON schema for using the
-
-configuration property with AWS CloudFormation
+## Jira JSON schema for using the configuration property with AWS CloudFormation
 
 The following is the Jira JSON schema and examples for the configuration
 property for AWS CloudFormation.
 
 ###### Topics
 
-- [Jira JSON schema for using the
-  configuration property with AWS CloudFormation](#jira-cfn-json-schema "#jira-cfn-json-schema")
-- [Jira JSON schema example for
-  using the configuration property with AWS CloudFormation](#jira-cfn-json-example "#jira-cfn-json-example")
+- [Jira JSON schema for using the configuration property with AWS CloudFormation](#jira-cfn-json-schema "#jira-cfn-json-schema")
+- [Jira JSON schema example for using the configuration property with AWS CloudFormation](#jira-cfn-json-example "#jira-cfn-json-example")
 
-### Jira JSON schema for using the
-
-configuration property with AWS CloudFormation
+### Jira JSON schema for using the configuration property with AWS CloudFormation
 
 The following is the Jira JSON schema for the configuration property for
 CloudFormation
@@ -398,9 +385,7 @@ CloudFormation
 
 [Show moreShow less](# "#")
 
-### Jira JSON schema example for
-
-using the configuration property with AWS CloudFormation
+### Jira JSON schema example for using the configuration property with AWS CloudFormation
 
 The following is the Jira JSON schema example for the configuration
 property for CloudFormation
@@ -501,23 +486,17 @@ property for CloudFormation
 
 [Show moreShow less](# "#")
 
-## Jira YAML schema for using the
-
-configuration property with AWS CloudFormation
+## Jira YAML schema for using the configuration property with AWS CloudFormation
 
 The following is the Jira YAML schema and examples for the configuration
 property for AWS CloudFormation:
 
 ###### Topics
 
-- [Jira YAML schema for using the
-  configuration property with AWS CloudFormation](#jira-cfn-yaml-schema "#jira-cfn-yaml-schema")
-- [Jira YAML schema example for
-  using the configuration property with AWS CloudFormation](#jira-cfn-yaml-example "#jira-cfn-yaml-example")
+- [Jira YAML schema for using the configuration property with AWS CloudFormation](#jira-cfn-yaml-schema "#jira-cfn-yaml-schema")
+- [Jira YAML schema example for using the configuration property with AWS CloudFormation](#jira-cfn-yaml-example "#jira-cfn-yaml-example")
 
-### Jira YAML schema for using the
-
-configuration property with AWS CloudFormation
+### Jira YAML schema for using the configuration property with AWS CloudFormation
 
 The following is the Jira YAML schema for the configuration property for
 CloudFormation.
@@ -766,9 +745,7 @@ required:
 
 [Show moreShow less](# "#")
 
-### Jira YAML schema example for
-
-using the configuration property with AWS CloudFormation
+### Jira YAML schema example for using the configuration property with AWS CloudFormation
 
 The following is the Jira YAML example for the Configuration property for
 CloudFormation:

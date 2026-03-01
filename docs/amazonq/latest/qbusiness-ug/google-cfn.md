@@ -1,6 +1,4 @@
-# Connecting Amazon Q Business to Google Drive
-
-using AWS CloudFormation
+# Connecting Amazon Q Business to Google Drive using AWS CloudFormation
 
 You use the [`AWS::QBusiness::DataSource`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.md") resource to connect a data source to
 your Amazon Q application.
@@ -14,16 +12,11 @@ in the _CloudFormation User Guide_.
 
 ###### Topics
 
-- [Google Drive configuration
-  properties](#google-configuration-keys "#google-configuration-keys")
-- [Google Drive JSON schema for using the
-  configuration property with AWS CloudFormation](#google-cfn-json "#google-cfn-json")
-- [Google Drive YAML schema for using the
-  configuration property with AWS CloudFormation](#google-cfn-yaml "#google-cfn-yaml")
+- [Google Drive configuration properties](#google-configuration-keys "#google-configuration-keys")
+- [Google Drive JSON schema for using the configuration property with AWS CloudFormation](#google-cfn-json "#google-cfn-json")
+- [Google Drive YAML schema for using the configuration property with AWS CloudFormation](#google-cfn-yaml "#google-cfn-yaml")
 
-## Google Drive configuration
-
-properties
+## Google Drive configuration properties
 
 The following provides information about important configuration properties required in the
 schema.
@@ -54,23 +47,17 @@ schema.
 | `secretARN`                                                                                                                                                                                                   | The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains<br>the key-value pairs required to connect to your Google Drive.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | `string`<br>The secret must contain a JSON structure with the following keys:<br>If using Google Service Account authentication:<br>``<br>{<br>"clientEmail": `"user account email",`<br>"adminAccountEmail": `"service account email",`<br>"privateKey": `"private key"`<br>}<br>``<br>If using OAuth 2.0 authentication:<br>``<br>{<br>"clientID": `"OAuth client ID",`<br>"clientSecret": `"client secret",`<br>"refreshToken": `"refresh token"`<br>}<br>``                                                                                                                                                         | Yes      |
 | `version`                                                                                                                                                                                                     | The version of this template that's currently supported.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | `string`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | No       |
 
-## Google Drive JSON schema for using the
-
-configuration property with AWS CloudFormation
+## Google Drive JSON schema for using the configuration property with AWS CloudFormation
 
 The following is the Google Drive JSON schema and examples for the configuration
 property for AWS CloudFormation.
 
 ###### Topics
 
-- [Google Drive JSON schema for using the
-  configuration property with AWS CloudFormation](#google-cfn-json-schema "#google-cfn-json-schema")
-- [Google Drive JSON schema example for
-  using the configuration property with AWS CloudFormation](#google-cfn-json-example "#google-cfn-json-example")
+- [Google Drive JSON schema for using the configuration property with AWS CloudFormation](#google-cfn-json-schema "#google-cfn-json-schema")
+- [Google Drive JSON schema example for using the configuration property with AWS CloudFormation](#google-cfn-json-example "#google-cfn-json-example")
 
-### Google Drive JSON schema for using the
-
-configuration property with AWS CloudFormation
+### Google Drive JSON schema for using the configuration property with AWS CloudFormation
 
 The following is the Google Drive JSON schema for the configuration property for
 CloudFormation
@@ -365,9 +352,7 @@ CloudFormation
 
 [Show moreShow less](# "#")
 
-### Google Drive JSON schema example for
-
-using the configuration property with AWS CloudFormation
+### Google Drive JSON schema example for using the configuration property with AWS CloudFormation
 
 The following is the Google Drive JSON schema example for the configuration
 property for CloudFormation
@@ -451,23 +436,17 @@ property for CloudFormation
 
 [Show moreShow less](# "#")
 
-## Google Drive YAML schema for using the
-
-configuration property with AWS CloudFormation
+## Google Drive YAML schema for using the configuration property with AWS CloudFormation
 
 The following is the Google Drive YAML schema and examples for the configuration
 property for AWS CloudFormation:
 
 ###### Topics
 
-- [Google Drive YAML schema for using the
-  configuration property with AWS CloudFormation](#google-cfn-yaml-schema "#google-cfn-yaml-schema")
-- [Google Drive YAML schema example for
-  using the configuration property with AWS CloudFormation](#google-cfn-yaml-example "#google-cfn-yaml-example")
+- [Google Drive YAML schema for using the configuration property with AWS CloudFormation](#google-cfn-yaml-schema "#google-cfn-yaml-schema")
+- [Google Drive YAML schema example for using the configuration property with AWS CloudFormation](#google-cfn-yaml-example "#google-cfn-yaml-example")
 
-### Google Drive YAML schema for using the
-
-configuration property with AWS CloudFormation
+### Google Drive YAML schema for using the configuration property with AWS CloudFormation
 
 The following is the Google Drive YAML schema for the configuration property for
 CloudFormation.
@@ -683,9 +662,7 @@ required:
 
 [Show moreShow less](# "#")
 
-### Google Drive YAML schema example for
-
-using the configuration property with AWS CloudFormation
+### Google Drive YAML schema example for using the configuration property with AWS CloudFormation
 
 The following is the Google Drive YAML example for the Configuration property for
 CloudFormation:

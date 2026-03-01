@@ -1,6 +1,4 @@
-# MySQL connector
-
-overview
+# MySQL connector overview
 
 The following table gives an overview of the Amazon Q Business
 MySQL connector and its supported features.

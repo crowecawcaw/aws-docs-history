@@ -1,6 +1,4 @@
-# Known limitations for the
-
-Aurora (PostgreSQL) connector
+# Known limitations for the Aurora (PostgreSQL) connector
 
 The Aurora (PostgreSQL) connector has the following known limitations:
 

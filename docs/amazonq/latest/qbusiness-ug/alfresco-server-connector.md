@@ -1,6 +1,4 @@
-# Connecting Alfresco (Server) to
-
-Amazon Q Business
+# Connecting Alfresco (Server) to Amazon Q Business
 
 ###### Note
 
@@ -11,17 +9,12 @@ and manage their content. You can connect Alfresco (Server) instance to Amazon Q
 
 ###### Topics
 
-- [Alfresco (Server) connector
-  overview](alfresco-server-overview.md "alfresco-server-overview.md")
+- [Alfresco (Server) connector overview](alfresco-server-overview.md "alfresco-server-overview.md")
 - [Prerequisites for connecting Amazon Q Business to Alfresco (Server)](alfresco-server-prereqs.md "alfresco-server-prereqs.md")
-- [Connecting Amazon Q Business to
-  Alfresco (Server) using the console](alfresco-server-console.md "alfresco-server-console.md")
-- [Connecting Amazon Q Business to
-  Alfresco (Server) using APIs](alfresco-server-api.md "alfresco-server-api.md")
-- [How Amazon Q Business connector
-  crawls Alfresco (Server) ACLs](alfresco-server-user-management.md "alfresco-server-user-management.md")
-- [Amazon Q Business
-  Alfresco (Server) data source connector field mappings](alfresco-server-field-mappings.md "alfresco-server-field-mappings.md")
+- [Connecting Amazon Q Business to Alfresco (Server) using the console](alfresco-server-console.md "alfresco-server-console.md")
+- [Connecting Amazon Q Business to Alfresco (Server) using APIs](alfresco-server-api.md "alfresco-server-api.md")
+- [How Amazon Q Business connector crawls Alfresco (Server) ACLs](alfresco-server-user-management.md "alfresco-server-user-management.md")
+- [Amazon Q Business Alfresco (Server) data source connector field mappings](alfresco-server-field-mappings.md "alfresco-server-field-mappings.md")
 - [IAM role for Amazon Q Business Alfresco (Server) connector](alfresco-server-iam-role.md "alfresco-server-iam-role.md")
 
 **Learn more**

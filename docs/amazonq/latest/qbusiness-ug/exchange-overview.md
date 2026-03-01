@@ -1,6 +1,4 @@
-# Microsoft Exchange connector
-
-overview
+# Microsoft Exchange connector overview
 
 The following table shows the Amazon Q Business Microsoft Exchange connector features and capabilities.
 

@@ -1,6 +1,4 @@
-# Troubleshooting your Salesforce Online
-
-connector
+# Troubleshooting your Salesforce Online connector
 
 The following table provides information about error codes you may see for the
 Salesforce Online connector and suggested resolutions.

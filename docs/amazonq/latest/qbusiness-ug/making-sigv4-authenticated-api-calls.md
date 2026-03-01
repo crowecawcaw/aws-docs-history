@@ -61,8 +61,7 @@ trusted backend to make Amazon Q Business API calls.
 
 - [Prerequisites](#sigv4-auth-api-calls-prereqs "#sigv4-auth-api-calls-prereqs")
 - [One-time setup](#control-plane-setup "#control-plane-setup")
-- [Workflow for custom application backend API
-  calls for an authenticated user](#data-plane-workflow "#data-plane-workflow")
+- [Workflow for custom application backend API calls for an authenticated user](#data-plane-workflow "#data-plane-workflow")
 
 ## Prerequisites
 
@@ -300,9 +299,7 @@ aws qbusiness create-subscription \
 
 ```
 
-## Workflow for custom application backend API
-
-calls for an authenticated user
+## Workflow for custom application backend API calls for an authenticated user
 
 After you've completed the [one-time setup](making-sigv4-authenticated-api-calls.md#control-plane-setup "making-sigv4-authenticated-api-calls.md#control-plane-setup") tasks, you can use one of two
 workflows to generate identity-aware credentials to make API calls for your

@@ -1,6 +1,4 @@
-# Set up an Amazon Q Business data
-
-source to connect to Amazon VPC
+# Set up an Amazon Q Business data source to connect to Amazon VPC
 
 When you add a new data source in Amazon Q Business, you can use the
 Amazon VPC feature if the selected data source connector supports

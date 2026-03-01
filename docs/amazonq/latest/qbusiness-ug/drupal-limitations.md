@@ -1,6 +1,4 @@
-# Known limitations for the
-
-Drupal connector
+# Known limitations for the Drupal connector
 
 Amazon Q Business Drupal connector has the following known
 limitations:

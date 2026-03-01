@@ -45,7 +45,6 @@ create and run the crawler that determines the documents your data source indexe
 
 ###### Topics
 
-- [Creating an Amazon Q custom
-  connector](custom-connector-hiw.md "custom-connector-hiw.md")
+- [Creating an Amazon Q custom connector](custom-connector-hiw.md "custom-connector-hiw.md")
 - [Required attributes](custom-required-attributes.md "custom-required-attributes.md")
 - [Viewing metrics](custom-metrics.md "custom-metrics.md")

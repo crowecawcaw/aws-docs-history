@@ -1,6 +1,4 @@
-# Configuring a Smartsheet plugin for
-
-Amazon Q Business
+# Configuring a Smartsheet plugin for Amazon Q Business
 
 Smartsheet is an enterprise work management platform that lets users manage
 projects, programs and processes at scale using sheets, channels, and workspaces. If you’re

@@ -1,6 +1,4 @@
-# Google Drive
-
-connector overview
+# Google Drive connector overview
 
 The following table gives an overview of the Amazon Q Business Google Drive connector new and its supported features.
 

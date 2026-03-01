@@ -1,6 +1,4 @@
-# Google Calendar connector overview
-
-(Preview)
+# Google Calendar connector overview (Preview)
 
 The following table gives an overview of the Google Calendar connector and its
 supported features.

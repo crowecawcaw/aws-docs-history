@@ -7,19 +7,13 @@ to Amazon Q Business—using either the AWS Management Console or the [CreateDat
 ###### Topics
 
 - [Known limitations for the Dropbox connector](dropbox-limitations.md "dropbox-limitations.md")
-- [Dropbox connector
-  overview](dropbox-overview.md "dropbox-overview.md")
+- [Dropbox connector overview](dropbox-overview.md "dropbox-overview.md")
 - [Prerequisites for connecting Amazon Q Business to Dropbox](dropbox-prereqs.md "dropbox-prereqs.md")
-- [Connecting Amazon Q Business to
-  Dropbox using the console](dropbox-console.md "dropbox-console.md")
-- [Connecting Amazon Q Business to Dropbox
-  using APIs](dropbix-api.md "dropbix-api.md")
-- [How Amazon Q Business connector
-  crawls Dropbox ACLs](dropbox-user-management.md "dropbox-user-management.md")
-- [Dropbox data source connector
-  field mappings](dropbox-field-mappings.md "dropbox-field-mappings.md")
-- [IAM role for
-  Dropbox connector](dropbox-iam-role.md "dropbox-iam-role.md")
+- [Connecting Amazon Q Business to Dropbox using the console](dropbox-console.md "dropbox-console.md")
+- [Connecting Amazon Q Business to Dropbox using APIs](dropbix-api.md "dropbix-api.md")
+- [How Amazon Q Business connector crawls Dropbox ACLs](dropbox-user-management.md "dropbox-user-management.md")
+- [Dropbox data source connector field mappings](dropbox-field-mappings.md "dropbox-field-mappings.md")
+- [IAM role for Dropbox connector](dropbox-iam-role.md "dropbox-iam-role.md")
 
 **Learn more**
 

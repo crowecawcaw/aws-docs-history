@@ -1,6 +1,4 @@
-# Information to be provided to the Amazon Q Business
-
-team
+# Information to be provided to the Amazon Q Business team
 
 Before an independent software provider or vendor (ISV) can become a verified data
 accessor, they must provide either an Auth code or Trusted token issuer (TTI)

@@ -1,6 +1,4 @@
-# Completing the process to add a data
-
-accessor
+# Completing the process to add a data accessor
 
 After you grant a software provider (ISV) data accessor permissions, you'll need to
 provide AWS or the ISV with the following configuration parameters. They will reach
@@ -10,8 +8,7 @@ cross-account access of the data from your Amazon Q index.
 
 ###### Topics
 
-- [Using the
-  AWS Management Console](#data-accessors-completing-process-console "#data-accessors-completing-process-console")
+- [Using the AWS Management Console](#data-accessors-completing-process-console "#data-accessors-completing-process-console")
 - [Using the AWS CLI;](#data-accessors-completing-process-cli "#data-accessors-completing-process-cli")
   These parameters are all easily accessed from the AWS Management Console:
 
@@ -34,9 +31,7 @@ cross-account access of the data from your Amazon Q index.
    follows Amazon Q Business access control standards by only retrieving data that the customer's
    end users have been given access to.
 
-## Using the
-
-AWS Management Console
+## Using the AWS Management Console
 
 To access these variables in the Amazon Q Business console:
 

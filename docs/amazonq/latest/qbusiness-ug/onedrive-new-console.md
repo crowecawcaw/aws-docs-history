@@ -122,8 +122,7 @@ choose **Create a new role** to avoid errors. 10. In **Sync scope**, configure w
      your documents from deletion during a sync job, select **On** and enter an integer between 0 - 100. If
      the percentage of documents to be deleted in your sync job exceeds the percentage you selected, the
      delete phase will be skipped and no documents from this data source will be deleted from your index. For more information, see
-     [Document deletion
-     safeguard](connector-concepts.md#document-deletion-safeguard "connector-concepts.md#document-deletion-safeguard").
+     [Document deletion safeguard](connector-concepts.md#document-deletion-safeguard "connector-concepts.md#document-deletion-safeguard").
 
 11. In **Sync run schedule**, for
     **Frequency** – Choose how often

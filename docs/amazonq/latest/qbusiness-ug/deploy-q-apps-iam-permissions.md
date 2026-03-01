@@ -22,8 +22,7 @@ policy.
 ###### Topics
 
 - [Capabilities available with Amazon Q Apps](#q-apps-actions "#q-apps-actions")
-- [IAM permissions for users to
-  view and specify approved data sources in Amazon Q Apps](#deploy-data-source-iam-permissions "#deploy-data-source-iam-permissions")
+- [IAM permissions for users to view and specify approved data sources in Amazon Q Apps](#deploy-data-source-iam-permissions "#deploy-data-source-iam-permissions")
   **If you want to use Amazon Q Apps, your web experience IAM role
   needs the following additional permissions:**
 
@@ -167,9 +166,7 @@ the following:
   - Delete a Q App (item) from your Q Apps library ([API](../api-reference/API_qapps_DeleteLibraryItem.md "../api-reference/API_qapps_DeleteLibraryItem.md"))
   - Like (rate) a Q App item from your Q Apps library ([API](../api-reference/API_qapps_AssociateLibraryItemReview.md "../api-reference/API_qapps_AssociateLibraryItemReview.md"))
 
-## IAM permissions for users to
-
-view and specify approved data sources in Amazon Q Apps
+## IAM permissions for users to view and specify approved data sources in Amazon Q Apps
 
 **(Optional) You must add the following permissions to the
 Amazon Q Apps policy to allow Q Apps users to view and specify approved data

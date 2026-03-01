@@ -1,6 +1,4 @@
-# Tuning the query results based on document attribute
-
-relevancy
+# Tuning the query results based on document attribute relevancy
 
 ###### Important
 
@@ -32,8 +30,7 @@ For more information, see [Understanding boosting in Amazon Q Business](understa
 - [Recency](#recency "#recency")
 - [Sources](#sources "#sources")
 - [Rank order](#sources "#sources")
-- [Setting relevancy
-  preferences](#setting-relevancy-preferences "#setting-relevancy-preferences")
+- [Setting relevancy preferences](#setting-relevancy-preferences "#setting-relevancy-preferences")
 
 ## Recency
 
@@ -82,9 +79,7 @@ example, if where the document is stored is more important than when the documen
 was created or updated, drag **Source** to have a higher priority
 than **Recency**.
 
-## Setting relevancy
-
-preferences
+## Setting relevancy preferences
 
 The following tabs provide a procedure to tune the query responses based on
 document attributes using the console and code examples for the AWS CLI.

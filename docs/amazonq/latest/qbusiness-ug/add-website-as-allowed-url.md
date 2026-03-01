@@ -22,8 +22,7 @@ Amazon Q Business console or the Amazon Q Business API.
     * For [anonymous applications](create-anonymous-application.md "create-anonymous-application.md"), the
      **Deployed URL** must be generated
      every time using the  `CreateAnonymousWebExperienceUrl` API
-     operation. For more information, see [Share an anonymous web
-     experience](supported-exp-actions-anonymous.md#create-experience-anonymous-url "supported-exp-actions-anonymous.md#create-experience-anonymous-url").
+     operation. For more information, see [Share an anonymous web experience](supported-exp-actions-anonymous.md#create-experience-anonymous-url "supported-exp-actions-anonymous.md#create-experience-anonymous-url").
 
 3. From the left navigation pane, choose **Amazon Q
    embedded** under the **Enhancements**

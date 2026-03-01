@@ -1,6 +1,4 @@
-# Configuring an Asana plugin for
-
-Amazon Q Business
+# Configuring an Asana plugin for Amazon Q Business
 
 Asana is a web-based work management platform that helps teams organize,
 collaborate, and plan tasks. If you’re a Asana user, you can create an Amazon Q Business plugin to allow your end users to create and update tasks from within

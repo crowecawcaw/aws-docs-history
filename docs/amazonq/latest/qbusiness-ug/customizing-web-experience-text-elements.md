@@ -1,6 +1,4 @@
-# Customizing text
-
-elements
+# Customizing text elements
 
 This topic shows how to customize text elements using the AWS Management Console and the
 AWS CLI.
@@ -13,8 +11,7 @@ web experience.
 ###### Topics
 
 - [Using the AWS Management Console](#customizing-web-experience-text-elements-using-aws-management-console "#customizing-web-experience-text-elements-using-aws-management-console")
-- [Using the
-  AWS CLI](#customizing-web-experience-text-elements-using-aws-cli "#customizing-web-experience-text-elements-using-aws-cli")
+- [Using the AWS CLI](#customizing-web-experience-text-elements-using-aws-cli "#customizing-web-experience-text-elements-using-aws-cli")
 
 ## Using the AWS Management Console
 
@@ -46,9 +43,7 @@ console.
 
 5. Choose **Save**.
 
-## Using the
-
-AWS CLI
+## Using the AWS CLI
 
 The following code snippet shows how to customize text elements using the
 AWS CLI.

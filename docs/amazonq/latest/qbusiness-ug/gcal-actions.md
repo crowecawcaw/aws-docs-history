@@ -1,6 +1,4 @@
-# Configuring a Google Calendar plugin for
-
-Amazon Q Business
+# Configuring a Google Calendar plugin for Amazon Q Business
 
 Google Calendar is an online calendar service that helps users schedule meetings, set
 up events, set reminders, and share their schedules. If you’re a Google Calendar user,

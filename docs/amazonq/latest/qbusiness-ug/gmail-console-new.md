@@ -1,6 +1,4 @@
-# Connecting Amazon Q Business to
-
-Gmail using the latest connector (Console)
+# Connecting Amazon Q Business to Gmail using the latest connector (Console)
 
 The following procedure outlines how to connect Amazon Q Business to
 Gmail using the latest connector and the AWS Management Console. The latest connector provides a simplified configuration experience with automatic ACL and identity crawling.

@@ -36,8 +36,7 @@ for each data source, see [What is a document?](connector-doc-crawl.md "connecto
 For some file types (indicated in the table below), Amazon Q Business can extract semantic
 information and insights from various types of images embedded in the documents. You can
 enable content extraction when you add or update a data connector, or when you import a file
-directly. For more information see [Extracting semantic meaning from embedded
-visual content with Amazon Q Business](extracting-meaning-from-images.md "extracting-meaning-from-images.md").
+directly. For more information see [Extracting semantic meaning from embedded visual content with Amazon Q Business](extracting-meaning-from-images.md "extracting-meaning-from-images.md").
 
 ###### Topics
 

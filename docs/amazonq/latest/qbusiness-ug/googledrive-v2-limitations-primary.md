@@ -1,6 +1,4 @@
-# Known limitations for the
-
-Amazon Q BusinessGoogle Drive connector
+# Known limitations for the Amazon Q Business Google Drive connector
 
 The Amazon Q Google Drive connector new has the following known limitations:
 

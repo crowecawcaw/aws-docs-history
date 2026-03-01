@@ -268,9 +268,7 @@ You can choose to customize the content crawled and indexed by your data
 source connector. The sync scope options available vary based on the data source
 connector.
 
-### Document deletion
-
-safeguard
+### Document deletion safeguard
 
 You can protect your documents from accidental deletion during sync by
 setting a **Document deletion safeguard**, a maximum

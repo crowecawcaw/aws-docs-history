@@ -1,6 +1,4 @@
-# Connecting Amazon Q Business to
-
-Google Drive using the console
+# Connecting Amazon Q Business to Google Drive using the console
 
 The following procedure outlines how to connect Amazon Q Business to Google Drive new using the AWS Management Console.
 
@@ -120,8 +118,7 @@ The following procedure outlines how to connect Amazon Q Business to Google Driv
     your documents from deletion during a sync job, select **On** and enter an integer between 0 - 100. If
     the percentage of documents to be deleted in your sync job exceeds the percentage you selected, the
     delete phase will be skipped and no documents from this data source will be deleted from your index. For more information, see
-    [Document deletion
-    safeguard](connector-concepts.md#document-deletion-safeguard "connector-concepts.md#document-deletion-safeguard").
+    [Document deletion safeguard](connector-concepts.md#document-deletion-safeguard "connector-concepts.md#document-deletion-safeguard").
 
 13. In **Sync run schedule**, for
     **Frequency** – Choose how often

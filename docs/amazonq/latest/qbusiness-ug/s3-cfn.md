@@ -1,6 +1,4 @@
-# Connecting Amazon Q Business to Amazon S3
-
-using AWS CloudFormation
+# Connecting Amazon Q Business to Amazon S3 using AWS CloudFormation
 
 You use the [`AWS::QBusiness::DataSource`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.md") resource to connect a data source to
 your Amazon Q application.
@@ -15,10 +13,8 @@ in the _CloudFormation User Guide_.
 ###### Topics
 
 - [Amazon S3 configuration properties](#s3-configuration-keys "#s3-configuration-keys")
-- [Amazon S3 JSON schema for using the configuration property
-  with AWS CloudFormation](#s3-cfn-json "#s3-cfn-json")
-- [Amazon S3 YAML schema for using the configuration property
-  with AWS CloudFormation](#s3-cfn-yaml "#s3-cfn-yaml")
+- [Amazon S3 JSON schema for using the configuration property with AWS CloudFormation](#s3-cfn-json "#s3-cfn-json")
+- [Amazon S3 YAML schema for using the configuration property with AWS CloudFormation](#s3-cfn-yaml "#s3-cfn-yaml")
 
 ## Amazon S3 configuration properties
 
@@ -45,23 +41,17 @@ schema.
 | All of these following are sub-properties of<br>`additionalProperties`<br>• `inclusionPatterns`<br>• `exclusionPatterns`<br>• `inclusionPrefixes`<br>• `exclusionPrefixes` | A list of regular expression patterns to include or exclude specific files in<br>your Amazon S3 data source. Files that match the patterns are included in the<br>index. Files that don't match the patterns are excluded from the index. If a file<br>matches both an inclusion and exclusion pattern, the exclusion pattern takes<br>precedence and the file isn't included in the index.                                                                                                                  | `array`                                                                                                                                                                                                                                                                                                                                       | No       |
 | `version`                                                                                                                                                                  | The version of the template that's supported.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | `string`<br>The default value is `1.0.0`.                                                                                                                                                                                                                                                                                                     | No       |
 
-## Amazon S3 JSON schema for using the configuration property
-
-with AWS CloudFormation
+## Amazon S3 JSON schema for using the configuration property with AWS CloudFormation
 
 The following is the Amazon S3 JSON schema and examples for the configuration
 property for AWS CloudFormation.
 
 ###### Topics
 
-- [Amazon S3 JSON schema for using the configuration
-  property with AWS CloudFormation](#s3-cfn-json-schema "#s3-cfn-json-schema")
-- [Amazon S3 JSON schema example for using the
-  configuration property with AWS CloudFormation](#s3-cfn-json-example "#s3-cfn-json-example")
+- [Amazon S3 JSON schema for using the configuration property with AWS CloudFormation](#s3-cfn-json-schema "#s3-cfn-json-schema")
+- [Amazon S3 JSON schema example for using the configuration property with AWS CloudFormation](#s3-cfn-json-example "#s3-cfn-json-example")
 
-### Amazon S3 JSON schema for using the configuration
-
-property with AWS CloudFormation
+### Amazon S3 JSON schema for using the configuration property with AWS CloudFormation
 
 The following is the Amazon S3 JSON schema for the configuration property for
 CloudFormation.
@@ -191,9 +181,7 @@ CloudFormation.
 
 [Show moreShow less](# "#")
 
-### Amazon S3 JSON schema example for using the
-
-configuration property with AWS CloudFormation
+### Amazon S3 JSON schema example for using the configuration property with AWS CloudFormation
 
 The following is the Amazon S3 JSON example for the Configuration property for
 CloudFormation.
@@ -247,23 +235,17 @@ CloudFormation.
 
 [Show moreShow less](# "#")
 
-## Amazon S3 YAML schema for using the configuration property
-
-with AWS CloudFormation
+## Amazon S3 YAML schema for using the configuration property with AWS CloudFormation
 
 The following is the Amazon S3 YAML schema and examples for the configuration
 property for AWS CloudFormation:
 
 ###### Topics
 
-- [Amazon S3 YAML schema for using the configuration
-  property with AWS CloudFormation](#s3-cfn-yaml-schema "#s3-cfn-yaml-schema")
-- [Amazon S3 YAML schema example for using the
-  configuration property with AWS CloudFormation](#s3-cfn-yaml-example "#s3-cfn-yaml-example")
+- [Amazon S3 YAML schema for using the configuration property with AWS CloudFormation](#s3-cfn-yaml-schema "#s3-cfn-yaml-schema")
+- [Amazon S3 YAML schema example for using the configuration property with AWS CloudFormation](#s3-cfn-yaml-example "#s3-cfn-yaml-example")
 
-### Amazon S3 YAML schema for using the configuration
-
-property with AWS CloudFormation
+### Amazon S3 YAML schema for using the configuration property with AWS CloudFormation
 
 The following is the Amazon S3 YAML schema for the configuration property for
 CloudFormation.
@@ -358,9 +340,7 @@ required:
 
 [Show moreShow less](# "#")
 
-### Amazon S3 YAML schema example for using the
-
-configuration property with AWS CloudFormation
+### Amazon S3 YAML schema example for using the configuration property with AWS CloudFormation
 
 The following is the Amazon S3 YAML example for the Configuration property for
 CloudFormation:

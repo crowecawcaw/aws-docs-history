@@ -1,6 +1,4 @@
-# Connecting Alfresco (Cloud) to
-
-Amazon Q Business
+# Connecting Alfresco (Cloud) to Amazon Q Business
 
 ###### Note
 
@@ -11,19 +9,13 @@ and manage their content. You can connect Alfresco (Cloud) instance to Amazon Q 
 
 ###### Topics
 
-- [Alfresco (Cloud) connector
-  overview](alfresco-cloud-overview.md "alfresco-cloud-overview.md")
+- [Alfresco (Cloud) connector overview](alfresco-cloud-overview.md "alfresco-cloud-overview.md")
 - [Prerequisites for connecting Amazon Q Business to Alfresco (Cloud)](alfresco-cloud-prereqs.md "alfresco-cloud-prereqs.md")
-- [Connecting Amazon Q Business to
-  Alfresco (Cloud) using the console](alfresco-cloud-console.md "alfresco-cloud-console.md")
-- [Connecting Amazon Q Business to
-  Alfresco (Cloud) using APIs](alfresco-cloud-api.md "alfresco-cloud-api.md")
-- [How Amazon Q Business connector
-  crawls Alfresco (Cloud) ACLs](alfresco-cloud-user-management.md "alfresco-cloud-user-management.md")
-- [Alfresco (Cloud) data source
-  connector field mappings](alfresco-cloud-field-mappings.md "alfresco-cloud-field-mappings.md")
-- [IAM role for
-  Alfresco (Cloud) connector](alfresco-cloud-iam-role.md "alfresco-cloud-iam-role.md")
+- [Connecting Amazon Q Business to Alfresco (Cloud) using the console](alfresco-cloud-console.md "alfresco-cloud-console.md")
+- [Connecting Amazon Q Business to Alfresco (Cloud) using APIs](alfresco-cloud-api.md "alfresco-cloud-api.md")
+- [How Amazon Q Business connector crawls Alfresco (Cloud) ACLs](alfresco-cloud-user-management.md "alfresco-cloud-user-management.md")
+- [Alfresco (Cloud) data source connector field mappings](alfresco-cloud-field-mappings.md "alfresco-cloud-field-mappings.md")
+- [IAM role for Alfresco (Cloud) connector](alfresco-cloud-iam-role.md "alfresco-cloud-iam-role.md")
 
 **Learn more**
 

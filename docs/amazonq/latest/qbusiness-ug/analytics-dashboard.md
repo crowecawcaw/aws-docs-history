@@ -1,6 +1,4 @@
-# Viewing Amazon Q Business and Q App metrics in analytics
-
-dashboards
+# Viewing Amazon Q Business and Q App metrics in analytics dashboards
 
 The analytics dashboards in Amazon Q Business offer a comprehensive view of key usage metrics and
 trends about the Amazon Q application environment and Amazon Q Apps. This centralized hub presents the CloudWatch
@@ -21,7 +19,5 @@ dashboards:
 ###### Topics
 
 - [Viewing the analytics dashboards](analytics-dashboard-view.md "analytics-dashboard-view.md")
-- [Amazon Q Business Analytics dashboard
-  metrics](analytics-dashboard-metrics.md "analytics-dashboard-metrics.md")
-- [Amazon Q Apps Analytics dashboard
-  metrics](q-apps-analytics-dashboard-metrics.md "q-apps-analytics-dashboard-metrics.md")
+- [Amazon Q Business Analytics dashboard metrics](analytics-dashboard-metrics.md "analytics-dashboard-metrics.md")
+- [Amazon Q Apps Analytics dashboard metrics](q-apps-analytics-dashboard-metrics.md "q-apps-analytics-dashboard-metrics.md")

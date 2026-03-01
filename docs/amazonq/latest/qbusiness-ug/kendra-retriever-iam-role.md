@@ -1,6 +1,4 @@
-# IAM role for an Amazon Kendra
-
-retriever
+# IAM role for an Amazon Kendra retriever
 
 When you use an Amazon Kendra index as a retriever, you must provide Amazon Q Business with an IAM role with permissions to access Amazon Kendra.
 You must also provide a trust policy that allows Amazon Q to assume the role. The

@@ -1,6 +1,4 @@
-# Microsoft Exchange data source connector
-
-field mappings
+# Microsoft Exchange data source connector field mappings
 
 You can improve search results and customize your users' chat experience by mapping document attributes from your Microsoft Exchange data to fields in your Amazon Q index.
 

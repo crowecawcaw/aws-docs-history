@@ -1,6 +1,4 @@
-# Known limitations for the Microsoft Yammer
-
-connector
+# Known limitations for the Microsoft Yammer connector
 
 The Microsoft Yammer connector has the following known limitations:
 

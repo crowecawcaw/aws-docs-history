@@ -21,14 +21,10 @@ data types on either the Amazon Q Business console or the API.
 
 ###### Types of boosting
 
-- [Boosting document
-  attribute importance](#boosting-document-attribute "#boosting-document-attribute")
-- [Boosting document attribute
-  value](#boosting-document-attribute-value "#boosting-document-attribute-value")
+- [Boosting document attribute importance](#boosting-document-attribute "#boosting-document-attribute")
+- [Boosting document attribute value](#boosting-document-attribute-value "#boosting-document-attribute-value")
 
-## Boosting document
-
-attribute importance
+## Boosting document attribute importance
 
 ###### Note
 
@@ -83,9 +79,7 @@ contain attributes that denote priority—for example, a task
 tracker that assigns priority 1 to the most important task. In that
 case, you can choose to boost documents using smaller values.
 
-## Boosting document attribute
-
-value
+## Boosting document attribute value
 
 ###### Note
 

@@ -18,10 +18,8 @@ The following are the topic-level guardrails that you can customize:
 ###### Topic level guardrails
 
 - [LLM prompt control](#guardrails-topic-controls-messages "#guardrails-topic-controls-messages")
-- [Application behavior
-  rules](#guardrails-topic-controls-app-rules "#guardrails-topic-controls-app-rules")
-- [Creating topic
-  controls](#guardrails-topic-controls-customizing "#guardrails-topic-controls-customizing")
+- [Application behavior rules](#guardrails-topic-controls-app-rules "#guardrails-topic-controls-app-rules")
+- [Creating topic controls](#guardrails-topic-controls-customizing "#guardrails-topic-controls-customizing")
 
 ## LLM prompt control
 
@@ -30,9 +28,7 @@ submit about this topic. You can also configure natural language descriptions to
 define the boundaries of the topic. Amazon Q Business uses these messages
 to check the responses that it generates for restricted content.
 
-## Application behavior
-
-rules
+## Application behavior rules
 
 You can configure behavior rules that control how Amazon Q Business
 responds for each special topic that you specify.
@@ -43,14 +39,10 @@ You can specify up to 5 rules per special topic.
 
 ###### Rules
 
-- [Answer using
-  enterprise data](#guardrails-topic-controls-rules-data "#guardrails-topic-controls-rules-data")
-- [Blocking special
-  topics](#guardrails-topic-controls-rules-block "#guardrails-topic-controls-rules-block")
+- [Answer using enterprise data](#guardrails-topic-controls-rules-data "#guardrails-topic-controls-rules-data")
+- [Blocking special topics](#guardrails-topic-controls-rules-block "#guardrails-topic-controls-rules-block")
 
-### Answer using
-
-enterprise data
+### Answer using enterprise data
 
 When your application environment encounters a special topic, you can choose to
 allow it to answer from your enterprise data. If you allow responses from
@@ -63,9 +55,7 @@ exclusion logic. You can’t use both kinds of logic at once. If a user is a
 member of a group with conflicting rules defined, Amazon Q Business
 will apply the more restrictive rule to that user.
 
-### Blocking special
-
-topics
+### Blocking special topics
 
 When your application environment encounters a special topic, you can choose to
 block responses completely. If you do so, you can configure a custom message
@@ -87,9 +77,7 @@ being applied to all users.
 User level rule creation is not currently supported for the following
 IAM Identity Provider access management methods: SAML and OIDC.
 
-## Creating topic
-
-controls
+## Creating topic controls
 
 To create an Amazon Q Business topic-level control for your web
 experience chat, you can use AWS Management Console or the [UpdateChatControlConfiguration](../api-reference/API_UpdateChatControlsConfiguration.md "../api-reference/API_UpdateChatControlsConfiguration.md")

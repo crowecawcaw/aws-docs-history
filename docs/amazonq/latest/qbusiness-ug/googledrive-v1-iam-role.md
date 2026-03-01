@@ -1,4 +1,4 @@
-# IAM role for Amazon Q BusinessGoogle Drive connector
+# IAM role for Amazon Q Business Google Drive connector
 
 If you use the AWS CLI or an AWS SDK, you must create an AWS Identity and Access Management (IAM) policy
 before you create an Amazon Q resource. When you call the [CreateDataSource](../api-reference/API_CreateDataSource.md "../api-reference/API_CreateDataSource.md") operation, you provide the Amazon

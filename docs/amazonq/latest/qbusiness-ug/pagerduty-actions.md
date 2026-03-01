@@ -1,6 +1,4 @@
-# Configuring a PagerDuty Advance plugin for
-
-Amazon Q Business
+# Configuring a PagerDuty Advance plugin for Amazon Q Business
 
 PagerDuty Operations Cloud is a software-as-a-service (SaaS) incident response management
 platform that provides IT teams with knowledge about incidents as soon as they occur. If

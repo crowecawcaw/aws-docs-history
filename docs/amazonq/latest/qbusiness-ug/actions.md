@@ -14,11 +14,10 @@ the Amazon Q Business chat interface.
 Amazon Q Business supports two types of plugins: built-in plugins and custom
 plugins.
 
-- **Fully integrated plugins** – The Quick Suite
+- **Fully integrated plugins** – The Quick
   plugin is fully integrated with Amazon Q Business, and won't appear in the list of plugins
   in the web experience. This plugin gives an Amazon Q Business application access to
-  insights and external databases through Amazon Quick Suite. For more information, see [Using the Quick Suite plugin to get insights from
-  structured data](quicksight-plugin.md "quicksight-plugin.md").
+  insights and external databases through Amazon Quick. For more information, see [Using the Quick plugin to get insights from structured data](quicksight-plugin.md "quicksight-plugin.md").
 - **Built-in plugins** – These plugins are
   pre-made for popular services like Jira, Salesforce,
   ServiceNow, and Zendesk. They allow users to
@@ -38,8 +37,7 @@ needed.
 
 ###### Topics
 
-- [Using the Quick Suite plugin to get insights from
-  structured data](quicksight-plugin.md "quicksight-plugin.md")
+- [Using the Quick plugin to get insights from structured data](quicksight-plugin.md "quicksight-plugin.md")
 - [Built-in plugins for Amazon Q Business](built-in-plugin.md "built-in-plugin.md")
 - [Custom plugins for Amazon Q Business](custom-plugin.md "custom-plugin.md")
 - [Managing Amazon Q Business plugins](plugin-management.md "plugin-management.md")

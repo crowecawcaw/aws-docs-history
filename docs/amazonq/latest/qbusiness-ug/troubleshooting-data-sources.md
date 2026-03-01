@@ -5,24 +5,15 @@ connectors.
 
 ###### Topics
 
-- [My documents were not
-  indexed](#troubleshooting-data-sources-not-indexed "#troubleshooting-data-sources-not-indexed")
-- [My synchronization job
-  failed](#troubleshooting-data-sources-failed "#troubleshooting-data-sources-failed")
-- [My
-  synchronization job is incomplete](#troubleshooting-data-sources-sync-job-incomplete "#troubleshooting-data-sources-sync-job-incomplete")
-- [My
-  synchronization job succeeded but there are no indexed documents](#troubleshooting-data-sources-succeeded-no-indexed-docs "#troubleshooting-data-sources-succeeded-no-indexed-docs")
-- [I am running into
-  file format issues while syncing my data source](#troubleshooting-data-sources-file-format-issues "#troubleshooting-data-sources-file-format-issues")
-- [I am
-  getting an AccessDenied When Using SSL Certificate File
-  error message](#troubleshooting-data-sources-ssl-certificate-access-denied "#troubleshooting-data-sources-ssl-certificate-access-denied")
+- [My documents were not indexed](#troubleshooting-data-sources-not-indexed "#troubleshooting-data-sources-not-indexed")
+- [My synchronization job failed](#troubleshooting-data-sources-failed "#troubleshooting-data-sources-failed")
+- [My synchronization job is incomplete](#troubleshooting-data-sources-sync-job-incomplete "#troubleshooting-data-sources-sync-job-incomplete")
+- [My synchronization job succeeded but there are no indexed documents](#troubleshooting-data-sources-succeeded-no-indexed-docs "#troubleshooting-data-sources-succeeded-no-indexed-docs")
+- [I am running into file format issues while syncing my data source](#troubleshooting-data-sources-file-format-issues "#troubleshooting-data-sources-file-format-issues")
+- [I am getting an AccessDenied When Using SSL Certificate File error message](#troubleshooting-data-sources-ssl-certificate-access-denied "#troubleshooting-data-sources-ssl-certificate-access-denied")
 - [No CloudWatch Logs for Application Using New Connector](#troubleshooting-data-sources-no-cloudwatch-logs "#troubleshooting-data-sources-no-cloudwatch-logs")
 
-## My documents were not
-
-indexed
+## My documents were not indexed
 
 When you synchronize your Amazon Q Business index with a data source, you
 may run into issues that prevent the documents from being indexed. Indexing is a
@@ -77,9 +68,7 @@ Blog_. To learn more about analyzing data using Amazon CloudWatch, see
 [Analyzing log data with CloudWatch Logs Insights](../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md "../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md") in
 the _Amazon CloudWatch User Guide_.
 
-## My synchronization job
-
-failed
+## My synchronization job failed
 
 A synchronization job typically fails when there is a configuration error in the
 index or the data source. In the console, you can find the error message in the
@@ -118,9 +107,7 @@ For the IAM policies that Amazon Q Business needs to index a
 data source, see [IAM
 roles for Amazon Q Business connectors](iam-roles.md#iam-roles-ds "iam-roles.md#iam-roles-ds").
 
-## My
-
-synchronization job is incomplete
+## My synchronization job is incomplete
 
 Jobs are generally incomplete when they have completed the data source level
 process but have some error during the document level process. When a job is
@@ -139,9 +126,7 @@ To troubleshoot an incomplete synchronization job, look first to your CloudWatch
 1. From the details column, choose **View details in CloudWatch**.
 2. Review the error messages to see what caused the document to fail.
 
-## My
-
-synchronization job succeeded but there are no indexed documents
+## My synchronization job succeeded but there are no indexed documents
 
 Occasionally, an index synchronization job run is marked as
 **Succeeded**, but there are no new or updated documents
@@ -158,9 +143,7 @@ indexed when you expect them. Possible reasons include the following:
   Amazon Q Business won't index it unless you've changed the
   document or its associated metadata file.
 
-## I am running into
-
-file format issues while syncing my data source
+## I am running into file format issues while syncing my data source
 
 If you run into file format issues while adding files to your data source or
 syncing your data source, make sure that your document types are supported by
@@ -170,10 +153,7 @@ types](doc-types.md "doc-types.md").
 If you're using the `BatchPutDocument` API operation with plaintext
 files, specify `PLAIN_TEXT` as the content type.
 
-## I am
-
-getting an **`AccessDenied When Using SSL Certificate File`**
-error message
+## I am getting an **`AccessDenied When Using SSL Certificate File`** error message
 
 If you're getting an access denied error when using an SSL certificate with your
 data source, make sure that your IAM role has the permissions to

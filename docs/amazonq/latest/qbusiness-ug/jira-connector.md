@@ -6,21 +6,14 @@ management, and bug tracking. You can connect your Jira instance to Amazon Q Bus
 ###### Topics
 
 - [Known limitations for the Amazon Q Jira connector](jira-limitations.md "jira-limitations.md")
-- [Jira connector
-  overview](jira-overview.md "jira-overview.md")
+- [Jira connector overview](jira-overview.md "jira-overview.md")
 - [Prerequisites for connecting Amazon Q Business to Jira](jira-prereqs.md "jira-prereqs.md")
-- [Setting up Jira for
-  connecting to Amazon Q Business](jira-credentials.md "jira-credentials.md")
-- [Connecting Amazon Q Business to
-  Jira using the console](jira-console.md "jira-console.md")
-- [Connecting Amazon Q Business to Jira
-  using APIs](jira-api.md "jira-api.md")
-- [Connecting Amazon Q Business to Jira
-  using AWS CloudFormation](jira-cfn.md "jira-cfn.md")
-- [How Amazon Q Business connector
-  crawls Jira ACLs](jira-user-management.md "jira-user-management.md")
-- [Jira data source connector
-  field mappings](jira-field-mappings.md "jira-field-mappings.md")
+- [Setting up Jira for connecting to Amazon Q Business](jira-credentials.md "jira-credentials.md")
+- [Connecting Amazon Q Business to Jira using the console](jira-console.md "jira-console.md")
+- [Connecting Amazon Q Business to Jira using APIs](jira-api.md "jira-api.md")
+- [Connecting Amazon Q Business to Jira using AWS CloudFormation](jira-cfn.md "jira-cfn.md")
+- [How Amazon Q Business connector crawls Jira ACLs](jira-user-management.md "jira-user-management.md")
+- [Jira data source connector field mappings](jira-field-mappings.md "jira-field-mappings.md")
 - [IAM role for Amazon Q Business Jira connector](jira-iam-role.md "jira-iam-role.md")
 - [Understand error codes in the Amazon Q Business Jira connector](jira-error-codes.md "jira-error-codes.md")
 

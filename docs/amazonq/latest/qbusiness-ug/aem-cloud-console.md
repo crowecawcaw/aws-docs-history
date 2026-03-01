@@ -1,6 +1,4 @@
-# Connecting Amazon Q Business to
-
-AEM (Cloud) using the console
+# Connecting Amazon Q Business to AEM (Cloud) using the console
 
 The following procedure outlines how to connect Amazon Q Business to
 AEM (Cloud) using the AWS Management Console.
@@ -117,8 +115,7 @@ For more information, see [IAM role](aem-cloud-connector.md#aem-cloud-iam "aem-c
      your documents from deletion during a sync job, select **On** and enter an integer between 0 - 100. If
      the percentage of documents to be deleted in your sync job exceeds the percentage you selected, the
      delete phase will be skipped and no documents from this data source will be deleted from your index. For more information, see
-     [Document deletion
-     safeguard](connector-concepts.md#document-deletion-safeguard "connector-concepts.md#document-deletion-safeguard").
+     [Document deletion safeguard](connector-concepts.md#document-deletion-safeguard "connector-concepts.md#document-deletion-safeguard").
 
 14. In **Sync mode**, choose how you
     want to update your index when your data source

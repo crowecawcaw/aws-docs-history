@@ -1,6 +1,4 @@
-# Connecting Amazon Q Business data source
-
-connectors
+# Connecting Amazon Q Business data source connectors
 
 ###### Note
 
@@ -27,9 +25,7 @@ connector.
 
 - [Data source connector concepts](connector-concepts.md "connector-concepts.md")
 - [What is a document?](connector-doc-crawl.md "connector-doc-crawl.md")
-- [Best practices for data source connector
-  configuration in Amazon Q Business](connector-best-practices.md "connector-best-practices.md")
+- [Best practices for data source connector configuration in Amazon Q Business](connector-best-practices.md "connector-best-practices.md")
 - [Supported connectors](connectors-list.md "connectors-list.md")
-- [Understanding Amazon Q Business
-  User Store](connector-principal-store.md "connector-principal-store.md")
+- [Understanding Amazon Q Business User Store](connector-principal-store.md "connector-principal-store.md")
 - [Using Amazon VPC with Amazon Q Business connectors](connector-vpc.md "connector-vpc.md")

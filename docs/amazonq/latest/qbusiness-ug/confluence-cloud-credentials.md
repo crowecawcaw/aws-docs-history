@@ -1,6 +1,4 @@
-# Setting up Confluence (Cloud) for
-
-connecting to Amazon Q Business
+# Setting up Confluence (Cloud) for connecting to Amazon Q Business
 
 Before you connect Confluence (Cloud) to Amazon Q Business, you need to create
 and retrieve the Confluence (Cloud) credentials you will use to connect
@@ -14,9 +12,6 @@ authentication.
 ###### Topics
 
 - [Basic authentication](confluence-cloud-credentials-basic.md "confluence-cloud-credentials-basic.md")
-- [OAuth 2.0
-  authentication](confluence-cloud-credentials-oauth.md "confluence-cloud-credentials-oauth.md")
-- [How Amazon Q works
-  with Confluence (Cloud) access and refresh tokens](confluence-cloud-credentials-notes.md "confluence-cloud-credentials-notes.md")
-- [Checking Confluence (Cloud)
-  connectivity](confluence-cloud-connection-check.md "confluence-cloud-connection-check.md")
+- [OAuth 2.0 authentication](confluence-cloud-credentials-oauth.md "confluence-cloud-credentials-oauth.md")
+- [How Amazon Q works with Confluence (Cloud) access and refresh tokens](confluence-cloud-credentials-notes.md "confluence-cloud-credentials-notes.md")
+- [Checking Confluence (Cloud) connectivity](confluence-cloud-connection-check.md "confluence-cloud-connection-check.md")

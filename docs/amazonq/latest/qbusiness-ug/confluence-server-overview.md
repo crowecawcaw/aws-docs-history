@@ -1,6 +1,4 @@
-# Confluence (Server/Data Center) connector
-
-overview
+# Confluence (Server/Data Center) connector overview
 
 The following table gives an overview of the Amazon Q Business
 Confluence (Server/Data Center) connector and its supported features.

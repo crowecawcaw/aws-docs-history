@@ -1,6 +1,4 @@
-# Retrieving XPaths (XML Path
-
-Language) for Web Crawler
+# Retrieving XPaths (XML Path Language) for Web Crawler
 
 If the website you are crawling with Amazon Q Business Web Crawler uses Form or
 SAML authentication, you need to provide Amazon Q with the absolute XPaths

@@ -1,6 +1,4 @@
-# Managing Amazon Q Business
-
-applications
+# Managing Amazon Q Business applications
 
 To manage an Amazon Q Business application environment, you can take the following
 actions:

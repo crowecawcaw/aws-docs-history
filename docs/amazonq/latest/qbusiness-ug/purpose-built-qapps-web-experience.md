@@ -1,6 +1,4 @@
-# Using the web experience to create
-
-and run Amazon Q Apps
+# Using the web experience to create and run Amazon Q Apps
 
 After you enable Amazon Q Apps in the console, web experience users can then start
 creating, running, and publishing their own purpose-built Q Apps.
@@ -73,8 +71,7 @@ icon on any apps that have been marked as **Verified** by
 administrators. Verified apps are automatically surfaced to the top of the app list
 within each category, making them easily discoverable.
 . For more
-information, see [Understanding and managing Verified
-Amazon Q Apps](verfied-apps-management.md "verfied-apps-management.md")
+information, see [Understanding and managing Verified Amazon Q Apps](verfied-apps-management.md "verfied-apps-management.md")
 
 Published Amazon Q Apps are made available in the your Amazon Q Apps library. The creator
 of an app can edit their own Amazon Q App and publish changes. This updates the app in the

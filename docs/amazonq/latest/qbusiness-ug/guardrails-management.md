@@ -1,6 +1,4 @@
-# Managing Amazon Q Business admin
-
-controls and guardrails
+# Managing Amazon Q Business admin controls and guardrails
 
 To manage Amazon Q Business admin controls and guardrails, you can take the
 following actions:
@@ -13,8 +11,7 @@ existing global controls in your application environment.
 ###### Actions
 
 - [Deleting topic controls](#guardrails-update "#guardrails-update")
-- [Getting topic control
-  properties](#topic-control-properties "#topic-control-properties")
+- [Getting topic control properties](#topic-control-properties "#topic-control-properties")
 
 ## Deleting topic controls
 
@@ -51,9 +48,7 @@ aws qbusiness delete-chat-controls-configuration \
 --application-id `application-id`
 ```
 
-## Getting topic control
-
-properties
+## Getting topic control properties
 
 To get the details of Amazon Q Business topic controls, you can use
 either the AWS Management Console or the [GetChatControlsConfiguration](../api-reference/API_GetChatControlsConfiguration.md "../api-reference/API_GetChatControlsConfiguration.md") API

@@ -1,6 +1,4 @@
-# Known limitations for the Zendesk
-
-connector
+# Known limitations for the Zendesk connector
 
 The Zendesk connector has the following known limitations:
 

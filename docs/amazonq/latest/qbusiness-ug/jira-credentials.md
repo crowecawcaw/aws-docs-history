@@ -1,6 +1,4 @@
-# Setting up Jira for
-
-connecting to Amazon Q Business
+# Setting up Jira for connecting to Amazon Q Business
 
 Before you connect Jira to Amazon Q Business, you need to create
 and retrieve the Jira credentials you will use to connect
@@ -14,9 +12,6 @@ authentication.
 ###### Topics
 
 - [Basic authentication](jira-credentials-basic.md "jira-credentials-basic.md")
-- [OAuth 2.0
-  authentication](jira-credentials-oauth.md "jira-credentials-oauth.md")
-- [How Amazon Q works
-  with Jira access and refresh tokens](jira-credentials-notes.md "jira-credentials-notes.md")
-- [Checking Jira
-  connectivity](jira-connection-check.md "jira-connection-check.md")
+- [OAuth 2.0 authentication](jira-credentials-oauth.md "jira-credentials-oauth.md")
+- [How Amazon Q works with Jira access and refresh tokens](jira-credentials-notes.md "jira-credentials-notes.md")
+- [Checking Jira connectivity](jira-connection-check.md "jira-connection-check.md")

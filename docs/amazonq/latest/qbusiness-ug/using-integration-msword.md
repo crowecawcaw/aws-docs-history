@@ -1,18 +1,12 @@
-# Using the Amazon Q Business Add-in
-
-for Microsoft Word
+# Using the Amazon Q Business Add-in for Microsoft Word
 
 ###### Topics
 
 - [Prerequisites](#integration-msword-user-prerequisites "#integration-msword-user-prerequisites")
-- [Install the Amazon Q Business Add-in to your Microsoft WordInstall the
-  Add-in](#install-configure-integration-msword "#install-configure-integration-msword")
-- [Common use cases for using
-  the Amazon Q Business Add-in for Microsoft Word](#integration-msword-common-use-cases "#integration-msword-common-use-cases")
-- [Considerations for using the
-  Amazon Q Business Add-in for Microsoft Word](#integration-msword-considerations "#integration-msword-considerations")
-- [Troubleshooting the Amazon Q Business
-  Add-in for Microsoft Word](#integration-msword-troubleshooting "#integration-msword-troubleshooting")
+- [Install the Amazon Q Business Add-in to your Microsoft WordInstall the Add-in](#install-configure-integration-msword "#install-configure-integration-msword")
+- [Common use cases for using the Amazon Q Business Add-in for Microsoft Word](#integration-msword-common-use-cases "#integration-msword-common-use-cases")
+- [Considerations for using the Amazon Q Business Add-in for Microsoft Word](#integration-msword-considerations "#integration-msword-considerations")
+- [Troubleshooting the Amazon Q Business Add-in for Microsoft Word](#integration-msword-troubleshooting "#integration-msword-troubleshooting")
 
 ## Prerequisites
 
@@ -23,9 +17,7 @@ for Microsoft Word
 
 ## Install the Amazon Q Business Add-in to your Microsoft Word
 
-## Install the
-
-Add-in
+## Install the Add-in
 
 The following are instructions on how to install the Amazon Q app in Microsoft
 Word (Word):
@@ -38,9 +30,7 @@ Word (Word):
    the right where you can access the Amazon Q Business chat assistant.
 4. Once you have successfully logged on, you can use your Amazon Q Business Add-In.
 
-## Common use cases for using
-
-the Amazon Q Business Add-in for Microsoft Word
+## Common use cases for using the Amazon Q Business Add-in for Microsoft Word
 
 The following are some of the common use cases that will help you make the
 best use of your Amazon Q Business Add-in for Microsoft Word
@@ -76,9 +66,7 @@ best use of your Amazon Q Business Add-in for Microsoft Word
    summarize, or get insights from for (collective)
    analysis**.
 
-## Considerations for using the
-
-Amazon Q Business Add-in for Microsoft Word
+## Considerations for using the Amazon Q Business Add-in for Microsoft Word
 
 1. Amazon Q Business does not use customer data for service
    improvement or for improving its underlying large language models
@@ -99,9 +87,7 @@ Amazon Q Business Add-in for Microsoft Word
    information, see [Hallucination](concepts-terms.md#hallucination "concepts-terms.md#hallucination") in the topic Key concepts
    of Amazon Q Business.
 
-## Troubleshooting the Amazon Q Business
-
-Add-in for Microsoft Word
+## Troubleshooting the Amazon Q Business Add-in for Microsoft Word
 
 - **My admin has enabled the Microsoft Word (Word),
   but I'm unable to login.**

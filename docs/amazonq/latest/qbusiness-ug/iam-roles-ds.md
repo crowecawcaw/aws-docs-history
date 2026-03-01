@@ -1,6 +1,4 @@
-# IAM role for Amazon Q Business data
-
-source connectors
+# IAM role for Amazon Q Business data source connectors
 
 You can use either the Amazon Q Business console or the [CreateDataSource](../api-reference/API_CreateDataSource.md "../api-reference/API_CreateDataSource.md") API operation to connect your data source.
 However, you must first provide Amazon Q Business with an IAM role that
@@ -21,8 +19,7 @@ The specific permissions required depend on the data source. At a minimum, your 
 ###### Topics
 
 - [IAM role for Amazon Q Business data source connectors](#iam-roles-ds-general "#iam-roles-ds-general")
-- [IAM role for Amazon S3
-  data sources](#create-s3-datasource-iam-role "#create-s3-datasource-iam-role")
+- [IAM role for Amazon S3 data sources](#create-s3-datasource-iam-role "#create-s3-datasource-iam-role")
 
 ## IAM role for Amazon Q Business data source connectors
 
@@ -259,9 +256,7 @@ following format:
         }
 ```
 
-## IAM role for Amazon S3
-
-data sources
+## IAM role for Amazon S3 data sources
 
 If you use the AWS CLI or an AWS SDK, you must create an AWS Identity and Access Management (IAM) policy
 before you create an Amazon Q Business resource. When you call the [CreateDataSource](../api-reference/API_CreateDataSource.md "../api-reference/API_CreateDataSource.md") operation, you provide the Amazon Resource Name (ARN) role with the

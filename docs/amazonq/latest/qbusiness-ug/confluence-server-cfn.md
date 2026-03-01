@@ -1,6 +1,4 @@
-# Connecting Amazon Q Business to Confluence (Server/Data Center)
-
-using AWS CloudFormation
+# Connecting Amazon Q Business to Confluence (Server/Data Center) using AWS CloudFormation
 
 You use the [`AWS::QBusiness::DataSource`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.md") resource to connect a data source to
 your Amazon Q application.
@@ -14,16 +12,11 @@ in the _CloudFormation User Guide_.
 
 ###### Topics
 
-- [Confluence (Server/Data Center) configuration
-  properties](#confluence-server-configuration-keys "#confluence-server-configuration-keys")
-- [Confluence (Server/Data Center) JSON schema for using the
-  configuration property with AWS CloudFormation](#confluence-server-cfn-json "#confluence-server-cfn-json")
-- [Confluence (Server/Data Center) YAML schema for using the
-  configuration property with AWS CloudFormation](#confluence-server-cfn-yaml "#confluence-server-cfn-yaml")
+- [Confluence (Server/Data Center) configuration properties](#confluence-server-configuration-keys "#confluence-server-configuration-keys")
+- [Confluence (Server/Data Center) JSON schema for using the configuration property with AWS CloudFormation](#confluence-server-cfn-json "#confluence-server-cfn-json")
+- [Confluence (Server/Data Center) YAML schema for using the configuration property with AWS CloudFormation](#confluence-server-cfn-yaml "#confluence-server-cfn-yaml")
 
-## Confluence (Server/Data Center) configuration
-
-properties
+## Confluence (Server/Data Center) configuration properties
 
 The following provides information about important configuration properties required in the
 schema.
@@ -56,23 +49,17 @@ schema.
 | `secretARN`                                                                                                                                                                                                                                                                           | The Amazon Resource Name (ARN) of a Secrets Manager secret that contains<br>the key-value pairs required to connect to your Confluence<br>instance.                                                                                                                                                                                                                                                              | `string`<br>If you use OAuth 2.0 authentication, the secret must contain a JSON structure with<br>the following keys:<br>``<br>{<br>"confluenceAppKey": "`client ID for your Confluence account`",<br>"confluenceAppSecret": "`client secret from your Confluence token`",<br>"confluenceAccessToken": "`access token created in Confluence`",<br>"confluenceRefreshToken": "`refresh token created in Confluence`"<br>}<br>``<br>(For Confluence Server/Data Center only) If you use<br>basic authentication, the secret is stored in a JSON structure with the following keys:<br>``<br>{<br>"username": "`Confluence Server/Data Center username`",<br>"password": "`Confluence Server/Data Center password`"<br>}<br>``<br>(For Confluence Server/Data Center only) If you use<br>Personal Access Token authentication, the secret is stored in a JSON structure with the<br>following keys:<br>``<br>{<br>"hostUrl": " `Confluence Server/Data Center host URL`",<br>"patToken": " `Confluence token`"<br>}<br>`` | Yes      |
 | `version`                                                                                                                                                                                                                                                                             | The version of this template that's currently supported.                                                                                                                                                                                                                                                                                                                                                         | `string`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | No       |
 
-## Confluence (Server/Data Center) JSON schema for using the
-
-configuration property with AWS CloudFormation
+## Confluence (Server/Data Center) JSON schema for using the configuration property with AWS CloudFormation
 
 The following is the Confluence (Server/Data Center) JSON schema and examples for the configuration
 property for AWS CloudFormation.
 
 ###### Topics
 
-- [Confluence (Server/Data Center) JSON schema for using the
-  configuration property with AWS CloudFormation](#confluence-server-cfn-json-schema "#confluence-server-cfn-json-schema")
-- [Confluence (Server/Data Center) JSON schema example for
-  using the configuration property with AWS CloudFormation](#confluence-server-cfn-json-example "#confluence-server-cfn-json-example")
+- [Confluence (Server/Data Center) JSON schema for using the configuration property with AWS CloudFormation](#confluence-server-cfn-json-schema "#confluence-server-cfn-json-schema")
+- [Confluence (Server/Data Center) JSON schema example for using the configuration property with AWS CloudFormation](#confluence-server-cfn-json-example "#confluence-server-cfn-json-example")
 
-### Confluence (Server/Data Center) JSON schema for using the
-
-configuration property with AWS CloudFormation
+### Confluence (Server/Data Center) JSON schema for using the configuration property with AWS CloudFormation
 
 The following is the Confluence (Server/Data Center) JSON schema for the configuration property for
 CloudFormation
@@ -546,9 +533,7 @@ CloudFormation
 
 [Show moreShow less](# "#")
 
-### Confluence (Server/Data Center) JSON schema example for
-
-using the configuration property with AWS CloudFormation
+### Confluence (Server/Data Center) JSON schema example for using the configuration property with AWS CloudFormation
 
 The following is the Confluence (Server/Data Center) JSON schema example for the configuration
 property for CloudFormation
@@ -668,23 +653,17 @@ property for CloudFormation
 
 [Show moreShow less](# "#")
 
-## Confluence (Server/Data Center) YAML schema for using the
-
-configuration property with AWS CloudFormation
+## Confluence (Server/Data Center) YAML schema for using the configuration property with AWS CloudFormation
 
 The following is the Confluence (Server/Data Center) YAML schema and examples for the configuration
 property for AWS CloudFormation:
 
 ###### Topics
 
-- [Confluence (Server/Data Center) YAML schema for using the
-  configuration property with AWS CloudFormation](#confluence-server-cfn-yaml-schema "#confluence-server-cfn-yaml-schema")
-- [Confluence (Server/Data Center) YAML schema example for
-  using the configuration property with AWS CloudFormation](#confluence-server-cfn-yaml-example "#confluence-server-cfn-yaml-example")
+- [Confluence (Server/Data Center) YAML schema for using the configuration property with AWS CloudFormation](#confluence-server-cfn-yaml-schema "#confluence-server-cfn-yaml-schema")
+- [Confluence (Server/Data Center) YAML schema example for using the configuration property with AWS CloudFormation](#confluence-server-cfn-yaml-example "#confluence-server-cfn-yaml-example")
 
-### Confluence (Server/Data Center) YAML schema for using the
-
-configuration property with AWS CloudFormation
+### Confluence (Server/Data Center) YAML schema for using the configuration property with AWS CloudFormation
 
 The following is the Confluence (Server/Data Center) YAML schema for the configuration property for
 CloudFormation.
@@ -785,9 +764,7 @@ Resources:
 
 [Show moreShow less](# "#")
 
-### Confluence (Server/Data Center) YAML schema example for
-
-using the configuration property with AWS CloudFormation
+### Confluence (Server/Data Center) YAML schema example for using the configuration property with AWS CloudFormation
 
 The following is the Confluence (Server/Data Center) YAML example for the Configuration property for
 CloudFormation:
