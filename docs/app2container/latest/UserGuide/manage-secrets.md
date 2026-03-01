@@ -139,8 +139,7 @@ and provide access to the authentication secrets to Jenkins agent nodes.
 ###### Jenkins secrets
 
 - [Authentication secret for Git](#jenkins-secrets-ssh "#jenkins-secrets-ssh")
-- [Authentication secret for Jenkins
-  server](#jenkins-secrets-api-token "#jenkins-secrets-api-token")
+- [Authentication secret for Jenkins server](#jenkins-secrets-api-token "#jenkins-secrets-api-token")
 
 ### Authentication secret for Git
 
@@ -199,9 +198,7 @@ repository as follows.
   such as **Description**, or you can enter tags in the
   **Tags** panel.
 
-### Authentication secret for Jenkins
-
-server
+### Authentication secret for Jenkins server
 
 Just as App2Container needs credentials to interact with AWS services on your behalf, so
 it also needs credentials to interact with the Jenkins server that runs your
@@ -209,9 +206,7 @@ pipelines. In the `pipeline.json` file, you provide the ARN from
 the authentication secret you create, in the `apiTokenArn` parameter
 value.
 
-#### Generate a Jenkins
-
-authentication token
+#### Generate a Jenkins authentication token
 
 Before you store your Jenkins authentication secrets in Secrets Manager, generate an API
 token from your Jenkins server. To generate a Jenkins API authentication token,
@@ -233,9 +228,7 @@ follow these steps:
 
 Ensure that you revoke tokens that you no longer need.
 
-#### Store your Jenkins
-
-authentication token in Secrets Manager
+#### Store your Jenkins authentication token in Secrets Manager
 
 To create a secret in Secrets Manager for the Jenkins authentication token, follow the
 steps shown in the [Create a secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md") page
@@ -286,9 +279,7 @@ follows.
   such as **Description**, or you can enter tags in the
   **Tags** panel.
 
-## Create secrets for Microsoft Azure DevOps
-
-pipelines
+## Create secrets for Microsoft Azure DevOps pipelines
 
 To integrate with Azure Repos Git repositories and Azure DevOps pipelines, App2Container uses
 secure authentication. App2Container authenticates with a Microsoft Azure Personal Access Token (PAT) that you store as a
@@ -298,9 +289,7 @@ In the `apiTokenArn` parameter value of the
 `pipeline.json` file, provide the ARN from the authentication
 secret that you create.
 
-### Generate a
-
-Microsoft Azure Personal Access Token (PAT)
+### Generate a Microsoft Azure Personal Access Token (PAT)
 
 Before you generate a Personal Access Token (PAT), you first must have an active
 Microsoft Azure account, with an organization and project already defined. For more

@@ -6,8 +6,7 @@ AWS App2Container provides the `AWSApp2Container-ReplatformApplications` Automat
 runbook for use on Amazon EC2 instances. Automation is a capability of AWS Systems Manager. The runbook
 performs the installation of App2Container as well as the initialize, analyze, and transform phases
 for replatforming supported applications. If desired, the automation can also push the
-containerized application to Amazon Elastic Container Registry (Amazon ECR). For more information, see [App2Container compatibility](compatibility-a2c.md "compatibility-a2c.md") and [Applications you can containerize using
-AWS App2Container](supported-applications.md "supported-applications.md").
+containerized application to Amazon Elastic Container Registry (Amazon ECR). For more information, see [App2Container compatibility](compatibility-a2c.md "compatibility-a2c.md") and [Applications you can containerize using AWS App2Container](supported-applications.md "supported-applications.md").
 
 You must have access to Systems Manager to use the runbook. For more information about Systems Manager
 Automation, see [AWS Systems Manager
@@ -26,17 +25,14 @@ Guide_.
 
 - [Prerequisites](automation-runbook.md#automation-runbook-prerequisites "automation-runbook.md#automation-runbook-prerequisites")
   - [Create policies and roles for the automation](automation-runbook.md#automation-runbook-prerequisites-create-policies-roles "automation-runbook.md#automation-runbook-prerequisites-create-policies-roles")
-  - [Attaching
-    the IAM role](automation-runbook.md#automation-runbook-prerequisites-instance-role-attach "automation-runbook.md#automation-runbook-prerequisites-instance-role-attach")
+  - [Attaching the IAM role](automation-runbook.md#automation-runbook-prerequisites-instance-role-attach "automation-runbook.md#automation-runbook-prerequisites-instance-role-attach")
 
 - [Run the automation](automation-runbook.md#automation-runbook-run "automation-runbook.md#automation-runbook-run")
   - [Runbook parameters](automation-runbook.md#automation-runbook-parameters "automation-runbook.md#automation-runbook-parameters")
-  - [Running the
-    automation](automation-runbook.md#automation-runbook-running-automation "automation-runbook.md#automation-runbook-running-automation")
+  - [Running the automation](automation-runbook.md#automation-runbook-running-automation "automation-runbook.md#automation-runbook-running-automation")
   - [Reviewing output from the automation](automation-runbook.md#automation-runbook-reviewing-output "automation-runbook.md#automation-runbook-reviewing-output")
 
-- [Complete the modernization
-  process](automation-runbook.md#automation-runbook-completing-modernization-process "automation-runbook.md#automation-runbook-completing-modernization-process")
+- [Complete the modernization process](automation-runbook.md#automation-runbook-completing-modernization-process "automation-runbook.md#automation-runbook-completing-modernization-process")
 
 ## Prerequisites
 
@@ -61,8 +57,7 @@ Before you run the automation, you must have:
 ###### Topics
 
 - [Create policies and roles for the automation](#automation-runbook-prerequisites-create-policies-roles "#automation-runbook-prerequisites-create-policies-roles")
-- [Attaching
-  the IAM role](#automation-runbook-prerequisites-instance-role-attach "#automation-runbook-prerequisites-instance-role-attach")
+- [Attaching the IAM role](#automation-runbook-prerequisites-instance-role-attach "#automation-runbook-prerequisites-instance-role-attach")
 
 ### Create policies and roles for the automation
 
@@ -231,9 +226,7 @@ allow access only to the bucket created for the App2Container automation
 execution. You can create least-privilege policies required to run the
 automation with the following procedures.
 
-###### To create the service role
-
-policy for running the automation
+###### To create the service role policy for running the automation
 
 1. Open the IAM console at
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -345,9 +338,7 @@ JSON
 4. Enter a value for the **Policy name**.
 5. Choose **Create policy**.
 
-###### To create the policy for the
-
-IAM role used by your instance profile
+###### To create the policy for the IAM role used by your instance profile
 
 1. Open the IAM console at
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -423,16 +414,12 @@ JSON
    for the **Policy name**.
 5. Choose **Create policy**.
 
-##### Creating
-
-the IAM service role for running the automation
+##### Creating the IAM service role for running the automation
 
 You can use the following procedure to create an IAM service
 role.
 
-###### To create an IAM role using
-
-the IAM console
+###### To create an IAM role using the IAM console
 
 1. Open the IAM console at
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -474,9 +461,7 @@ instances managed nodes in AWS Systems Manager. For more information, see
 Guide_ and [Managed nodes](../../../systems-manager/latest/userguide/managed_instances.md "../../../systems-manager/latest/userguide/managed_instances.md") in the _AWS Systems Manager User
 Guide_.
 
-###### To create an instance profile
-
-role using the IAM console
+###### To create an instance profile role using the IAM console
 
 1. Open the IAM console at
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -497,17 +482,13 @@ role using the IAM console
 
 The instance profile role is used in the following section.
 
-### Attaching
-
-the IAM role
+### Attaching the IAM role
 
 If your target instances don't have an existing IAM role, you can attach the
 previously created IAM role to them. The following steps assume you have already
 created the required policies and roles.
 
-###### To attach an IAM role to
-
-an instance
+###### To attach an IAM role to an instance
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
@@ -542,8 +523,7 @@ will use a Linux based image.
 ###### Topics
 
 - [Runbook parameters](#automation-runbook-parameters "#automation-runbook-parameters")
-- [Running the
-  automation](#automation-runbook-running-automation "#automation-runbook-running-automation")
+- [Running the automation](#automation-runbook-running-automation "#automation-runbook-running-automation")
 - [Reviewing output from the automation](#automation-runbook-reviewing-output "#automation-runbook-reviewing-output")
 
 ### Runbook parameters
@@ -558,9 +538,7 @@ You can specify the following parameters for the Automation runbook.
 | `OutputEncryptionKey`    | String  | The ARN of a customer managed KMS key to use for server-side encryption. For more information,<br>see [Protecting data with server-side encryption](../../../AmazonS3/latest/userguide/serv-side-encryption.md "../../../AmazonS3/latest/userguide/serv-side-encryption.md") in the<br>_Amazon Simple Storage Service User Guide_. |               | FALSE    |
 | `InstanceId`             | String  | An EC2 instance ID with applications to be assessed for<br>replatforming. Only running applications are assessed.                                                                                                                                                                                                                  |               | TRUE     |
 
-### Running the
-
-automation
+### Running the automation
 
 You can run the automation from the Systems Manager console.
 
@@ -601,9 +579,7 @@ Once the automation has completed, you can access the output in the S3 location 
 4. For more details, review the text file indicated in the
    **Finalize.reportS3Location** output.
 
-## Complete the modernization
-
-process
+## Complete the modernization process
 
 You can complete the modernization process using AWS Migration Hub Orchestrator to create a workflow based
 on the _Replatform applications to Amazon ECS_ template to deploy

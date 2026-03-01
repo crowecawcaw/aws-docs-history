@@ -50,8 +50,7 @@ machine.
 **_[remote configure](cmd-remote-configure.md "cmd-remote-configure.md")_**
 
 After setting up remote access for the worker machine on your application
-server (see [Enable remote access for a worker machine
-(optional)](start-intro.md#setup-remote-access "start-intro.md#setup-remote-access")), run the **remote
+server (see [Enable remote access for a worker machine (optional)](start-intro.md#setup-remote-access "start-intro.md#setup-remote-access")), run the **remote
 configure** command on the worker machine to configure the
 connections needed to run remote workflows on application servers. This
 interactive command prompts for the required information for each application

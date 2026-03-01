@@ -1,8 +1,6 @@
 AWS .NET Modernization Tools Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET is no longer open to new customers. If you would like to use the service, sign up prior to November 7, 2025. Alternatively use [AWS Transform](https://aws.amazon.com/transform/ "https://aws.amazon.com/transform/"), which is an agentic AI service developed to accelerate enterprise modernization of .NET.
 
-# Set up CI/CD pipelines with
-
-Microsoft Azure DevOps
+# Set up CI/CD pipelines with Microsoft Azure DevOps
 
 Azure DevOps is a continuous delivery platform, orchestrator, and cloud provider from Microsoft.
 App2Container integrates with Azure DevOps Services to automate the build and deployment process that
@@ -13,8 +11,7 @@ is Azure DevOps?](https://docs.microsoft.com/en-us/azure/devops/user-guide/what-
 ###### Contents
 
 - [Prerequisites](#integrations-azure-devops-prereq "#integrations-azure-devops-prereq")
-- [Azure DevOps integration for App2Container
-  workflow](#integrations-azure-devops-workflow "#integrations-azure-devops-workflow")
+- [Azure DevOps integration for App2Container workflow](#integrations-azure-devops-workflow "#integrations-azure-devops-workflow")
   These directions cover IAM users. For information that covers IAM Roles Anywhere, see
   [External pipeline deployments to AWS using IAM Roles Anywhere](https://aws.amazon.com/blogs/security/enable-external-pipeline-deployments-to-aws-cloud-by-using-iam-roles-anywhere/ "https://aws.amazon.com/blogs/security/enable-external-pipeline-deployments-to-aws-cloud-by-using-iam-roles-anywhere/").
 
@@ -99,12 +96,9 @@ your application must meet the following criteria.
 
 - When App2Container runs Azure DevOps pipelines, it authenticates with a
   Microsoft Azure Personal Access Token (PAT). To learn more about how to create a PAT and save it as a
-  secret in AWS Secrets Manager, see [Create secrets for Microsoft Azure DevOps
-  pipelines](manage-secrets.md#azure-devops-secrets "manage-secrets.md#azure-devops-secrets").
+  secret in AWS Secrets Manager, see [Create secrets for Microsoft Azure DevOps pipelines](manage-secrets.md#azure-devops-secrets "manage-secrets.md#azure-devops-secrets").
 
-## Azure DevOps integration for App2Container
-
-workflow
+## Azure DevOps integration for App2Container workflow
 
 Applications follow all of the standard App2Container workflow steps through deployment.
 Azure DevOps integration happens in the pipeline step. To set up integration with Microsoft Azure DevOps
@@ -250,9 +244,7 @@ at least one stage defined, or you can have both.
 
 Amazon EKS
 
-###### Scripts to install and validate prerequisites on the
-
-Microsoft-hosted agent
+###### Scripts to install and validate prerequisites on the Microsoft-hosted agent
 
 - `install-pre-req-aws.sh`
   – Installs AWS CLI on the Microsoft-hosted agent.
@@ -295,9 +287,7 @@ at least one stage defined, or you can have both.
 
 App Runner
 
-###### Scripts to install and validate prerequisites on the
-
-Microsoft-hosted agent
+###### Scripts to install and validate prerequisites on the Microsoft-hosted agent
 
 - `install-pre-req-aws.sh`
   – Installs AWS CLI on the Microsoft-hosted agent.

@@ -156,8 +156,7 @@ for Jenkins pipelines:
      Amazon EKS deployment only) – If your application is deploying to Amazon EKS,
      the **generate pipeline** command generates a
      CloudFormation template to create a two-step pipeline. For more information
-     about Amazon EKS deployments, see [Deploy application containers to Amazon EKS with
-     AWS App2Container](a2c-integrations-eks.md "a2c-integrations-eks.md")
+     about Amazon EKS deployments, see [Deploy application containers to Amazon EKS with AWS App2Container](a2c-integrations-eks.md "a2c-integrations-eks.md")
 
 ###### Note
 

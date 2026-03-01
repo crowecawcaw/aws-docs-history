@@ -17,8 +17,7 @@ your Linux application containers:
 - [Step 1: Identify log locations for the container](#firelens-setup-step1 "#firelens-setup-step1")
 - [Step 2: Configure log deployment parameters](#firelens-setup-step2 "#firelens-setup-step2")
 - [Step 3: Validate deployment artifacts](#firelens-setup-step3 "#firelens-setup-step3")
-- [Step 4: Deploy your application
-  to Amazon ECS](#firelens-setup-step4 "#firelens-setup-step4")
+- [Step 4: Deploy your application to Amazon ECS](#firelens-setup-step4 "#firelens-setup-step4")
 - [Step 5: Verify log routing](#firelens-setup-step5 "#firelens-setup-step5")
 
 ## Prerequisites
@@ -206,14 +205,12 @@ command, and that your log destinations were created, if applicable.
    parameters that you specified and that the values
    are correct. For an example of FireLens parameters in
    an Amazon ECS task definition, see
-   [Example: Amazon ECS
-   task definition FireLens parameters](#firelens-example-ecs-task-def "#firelens-example-ecs-task-def")
+   [Example: Amazon ECS task definition FireLens parameters](#firelens-example-ecs-task-def "#firelens-example-ecs-task-def")
 3. Verify that the CloudFormation template includes the parameters
    that you specified and that the values are correct. For
    an example of FireLens parameters in a CloudFormation template,
    expand the following section:
-   [Example:
-   CloudFormation template FireLens parameters](#firelens-example-ecs-cfn-template "#firelens-example-ecs-cfn-template")
+   [Example: CloudFormation template FireLens parameters](#firelens-example-ecs-cfn-template "#firelens-example-ecs-cfn-template")
 4. If you are routing logs to Kinesis Data Streams or Firehose, verify that the streams have been
    created for you by using the AWS Management Console.
    1. Sign in to the AWS Management Console and open the Kinesis console at
@@ -481,9 +478,7 @@ Resources:
 ...`
 ```
 
-## Step 4: Deploy your application
-
-to Amazon ECS
+## Step 4: Deploy your application to Amazon ECS
 
 Deploy your application using the **[generate app-deployment](cmd-generate-appdeploy.md "cmd-generate-appdeploy.md")** command
 with the `--deploy` option.

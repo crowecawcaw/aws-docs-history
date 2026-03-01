@@ -33,8 +33,7 @@ tested.
 2 App2Container v1.47 is the last version that supports Windows
 2008 and 2012. These operating systems also require a worker machine. We recommend using
 a later version of the Windows Server operating system to be able to use the latest
-version of App2Container. For more information, see [Applications you can containerize using
-AWS App2Container](supported-applications.md "supported-applications.md").
+version of App2Container. For more information, see [Applications you can containerize using AWS App2Container](supported-applications.md "supported-applications.md").
 
 3 Docker must be installed to use App2Container. For more
 information, see [Prerequisites: Set up your servers](start-intro.md#start-containerize-prereq "start-intro.md#start-containerize-prereq").
@@ -88,8 +87,7 @@ prior deployment. For more information about the `reuseResources` object, see
 [Configuring container deployment](config-deployment.md "config-deployment.md").
 
 3 A complex .NET application has multiple Windows .NET
-application components running in a single container. For more information, see [Containerizing complex Windows .NET applications with
-App2Container](summary-complex-win-apps.md "summary-complex-win-apps.md").
+application components running in a single container. For more information, see [Containerizing complex Windows .NET applications with App2Container](summary-complex-win-apps.md "summary-complex-win-apps.md").
 
 For more information about FireLens for Amazon ECS, see [Custom log routing](../../../AmazonECS/latest/developerguide/using_firelens.md "../../../AmazonECS/latest/developerguide/using_firelens.md") in the _Amazon Elastic Container Service Developer
 Guide_.

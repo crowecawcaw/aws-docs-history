@@ -106,10 +106,8 @@ and the worker machine, if you have one configured.
 Complete the following tasks before you use App2Container for the first time.
 
 - [Sign up for AWS](#sign-up-for-aws "#sign-up-for-aws")
-- [Grant permissions to run AWS App2Container
-  commands](#setup-grant-permissions "#setup-grant-permissions")
-- [Enable remote access for a worker machine
-  (optional)](#setup-remote-access "#setup-remote-access")
+- [Grant permissions to run AWS App2Container commands](#setup-grant-permissions "#setup-grant-permissions")
+- [Enable remote access for a worker machine (optional)](#setup-remote-access "#setup-remote-access")
 - [Configure your AWS profile](#setup-aws-profile "#setup-aws-profile")
 - [Install the Docker engine](#setup-install-docker "#setup-install-docker")
 
@@ -133,9 +131,7 @@ a verification code on the phone keypad.
 When you sign up for an AWS account, an _AWS account root user_ is created. The root user has access to all AWS services
 and resources in the account. As a security best practice, assign administrative access to a user, and use only the root user to perform [tasks that require root user access](../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks "../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks").
 
-### Grant permissions to run AWS App2Container
-
-commands
+### Grant permissions to run AWS App2Container commands
 
 App2Container needs access to AWS services in order to run most of its commands. There are
 two very different sets of permissions needed to run **app2container**
@@ -167,9 +163,7 @@ it.
 To find out more about using instance profiles, see [Using
 instance profiles](../../../IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.md "../../../IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.md") in the _IAM User Guide_.
 
-### Enable remote access for a worker machine
-
-(optional)
+### Enable remote access for a worker machine (optional)
 
 To enable your worker machine to run remote commands for your application servers, you
 must ensure that the worker machine can connect.
