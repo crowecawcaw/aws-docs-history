@@ -40,9 +40,7 @@ usage.
 - 4 GB minimum of available memory
 - 5 GB minimum of free disk space
 
-## Memory requirements
-
-for the Porting Assistant for .NET Visual Studio for .NET IDE extension.
+## Memory requirements for the Porting Assistant for .NET Visual Studio for .NET IDE extension.
 
 The following memory requirements must be met to use the Porting Assistant for .NET Visual Studio
 for .NET IDE extension.

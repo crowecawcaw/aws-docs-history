@@ -1,8 +1,6 @@
 AWS .NET Modernization Tools Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET is no longer be open to new customers. If you would like to use the service, sign up prior to November 7, 2025. Alternatively use [AWS Transform](https://aws.amazon.com/transform/ "https://aws.amazon.com/transform/"), which is an agentic AI service developed to accelerate enterprise modernization of .NET.
 
-# Use the Porting Assistant for .NET assessment
-
-tool
+# Use the Porting Assistant for .NET assessment tool
 
 This section contains information to help you get started with the Porting Assistant for .NET assessment
 tool. When you start the assessment tool for the first time, you are prompted to enter
@@ -13,12 +11,9 @@ address. If you have not set up your AWS profile, see [Configuring the AWS CLI](
 ###### Assessment tool topics
 
 - [Set up Porting Assistant for .NET](#porting-assistant-assessment-tool-profile "#porting-assistant-assessment-tool-profile")
-- [Assess a new solution using
-  the assessment tool](#porting-assistant-assessment-tool-job "#porting-assistant-assessment-tool-job")
-- [Assess a new solution using the
-  Porting Assistant CLI console application](#porting-assistant-cli-job "#porting-assistant-cli-job")
-- [Analyze NuGet
-  dependencies per project](#porting-assistant-assessment-tool-analyze-project "#porting-assistant-assessment-tool-analyze-project")
+- [Assess a new solution using the assessment tool](#porting-assistant-assessment-tool-job "#porting-assistant-assessment-tool-job")
+- [Assess a new solution using the Porting Assistant CLI console application](#porting-assistant-cli-job "#porting-assistant-cli-job")
+- [Analyze NuGet dependencies per project](#porting-assistant-assessment-tool-analyze-project "#porting-assistant-assessment-tool-analyze-project")
 
 ## Set up Porting Assistant for .NET
 
@@ -49,9 +44,7 @@ is collected:
 You can change your data collection settings at any time in the
 **Settings** menu. 4. Choose **Next** to assess your solution.
 
-## Assess a new solution using
-
-the assessment tool
+## Assess a new solution using the assessment tool
 
 The following steps guide you through the creation of a new assessment
 solution.
@@ -159,9 +152,7 @@ report, as part of the larger compatibility assessment report.
 
 ![Sample .csv output for a NuGet assessment report, as part of the larger compatibility assessment report.](images/nuget-packages-assessment.PNG)
 
-## Assess a new solution using the
-
-Porting Assistant CLI console application
+## Assess a new solution using the Porting Assistant CLI console application
 
 The following steps guide you through the creation of a new assessment solution
 using the Porting Assistant CLI console application. The CLI is packaged with the Porting Assistant for .NET tool.
@@ -227,9 +218,7 @@ Comma separated project names. For example `project1,
 & 'C:\Users\`<username>`\AppData\Local\Programs\Porting Assistant for .NET\resources\netcore_build\PortingAssistant.Client.CLI.exe' assess -s "`<path_to_solution/example_solution.sln>`" -o "`<path_to_output_dir>`” -t “`net5.0`” -i “`project1,project2`”
 ```
 
-## Analyze NuGet
-
-dependencies per project
+## Analyze NuGet dependencies per project
 
 The following steps guide you through an analysis of the NuGet dependencies per
 project within an assessment.

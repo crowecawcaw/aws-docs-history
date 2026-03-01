@@ -4,9 +4,7 @@ AWS .NET Modernization Tools Porting Assistant (PA) for .NET, AWS App2Container 
 
 You can port a project using the assessment tool or the CLI console application.
 
-## Port a solution using the assessment
-
-tool
+## Port a solution using the assessment tool
 
 To port a solution using the assessment tool, perform the following steps:
 
@@ -52,9 +50,7 @@ completely ported project. The project may not build, and additional source code
 changes may be required. Any added or modified code must be verified and tested
 before it can be considered production ready.
 
-## Port a solution using the Porting Assistant CLI
-
-console application
+## Port a solution using the Porting Assistant CLI console application
 
 You can port a solution using the Porting Assistant CLI console application. The CLI is
 packaged with the Porting Assistant for .NET tool. After you install the Porting Assistant for .NET tool, the CLI can be found

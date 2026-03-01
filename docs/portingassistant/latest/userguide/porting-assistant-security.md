@@ -30,8 +30,6 @@ cloud and security _in_ the cloud:
 ###### Topics
 
 - [Data protection in Porting Assistant for .NET](data-protection.md "data-protection.md")
-- [Identity and Access Management for
-  Porting Assistant for .NET](security-iam.md "security-iam.md")
-- [Configuration and
-  vulnerability analysis in Porting Assistant for .NET](security-vulnerability-analysis-and-management.md "security-vulnerability-analysis-and-management.md")
+- [Identity and Access Management for Porting Assistant for .NET](security-iam.md "security-iam.md")
+- [Configuration and vulnerability analysis in Porting Assistant for .NET](security-vulnerability-analysis-and-management.md "security-vulnerability-analysis-and-management.md")
 - [Security best practices for Porting Assistant for .NET](security-best-practices.md "security-best-practices.md")

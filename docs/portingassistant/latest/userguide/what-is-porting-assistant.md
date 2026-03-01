@@ -18,9 +18,7 @@ patterns and frequency of missing packages and APIs.
 
 A command line console application is included in the Porting Assistant for .NET download package. You can use the
 command line to assess and port solutions and projects. For more information about how to use the
-command line console application, see [Assess a new solution using the
-Porting Assistant CLI console application](porting-assistant-assessment-tool.md#porting-assistant-cli-job "porting-assistant-assessment-tool.md#porting-assistant-cli-job") and [Port a solution using the Porting Assistant CLI
-console application](porting-assistant-port.md#porting-assistant-port-cli "porting-assistant-port.md#porting-assistant-port-cli").
+command line console application, see [Assess a new solution using the Porting Assistant CLI console application](porting-assistant-assessment-tool.md#porting-assistant-cli-job "porting-assistant-assessment-tool.md#porting-assistant-cli-job") and [Port a solution using the Porting Assistant CLI console application](porting-assistant-port.md#porting-assistant-port-cli "porting-assistant-port.md#porting-assistant-port-cli").
 
 The Porting Assistant for .NET Visual Studio IDE extension makes it possible to use Porting Assistant for .NET functionality
 seamlessly from within Visual Studio. For more information about the extensions, see [Porting Assistant for .NET Visual Studio IDE extension](porting-assistant-vs-ide.md "porting-assistant-vs-ide.md").

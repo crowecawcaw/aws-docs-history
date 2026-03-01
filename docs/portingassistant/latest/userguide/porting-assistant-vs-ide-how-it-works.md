@@ -1,8 +1,6 @@
 AWS .NET Modernization Tools Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET is no longer be open to new customers. If you would like to use the service, sign up prior to November 7, 2025. Alternatively use [AWS Transform](https://aws.amazon.com/transform/ "https://aws.amazon.com/transform/"), which is an agentic AI service developed to accelerate enterprise modernization of .NET.
 
-# How Porting Assistant for .NET Visual Studio IDE
-
-extension works
+# How Porting Assistant for .NET Visual Studio IDE extension works
 
 You can download the Porting Assistant for .NET Visual Studio IDE extension from the [Visual Studio Extensions
 Marketplace](https://marketplace.visualstudio.com/ "https://marketplace.visualstudio.com/"). When you use the extensions from within a supported Visual

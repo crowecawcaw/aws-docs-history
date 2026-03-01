@@ -15,23 +15,15 @@ you can assess any solution in your portfolio.
 ###### Porting Assistant for .NET Visual Studio IDE extension topics
 
 - [Supported versions](#porting-assistant-vs-ide-versions "#porting-assistant-vs-ide-versions")
-- [Prerequisites for using the
-  Porting Assistant for .NET Visual Studio IDE extension](#porting-assistant-vs-ide-prerequisites "#porting-assistant-vs-ide-prerequisites")
+- [Prerequisites for using the Porting Assistant for .NET Visual Studio IDE extension](#porting-assistant-vs-ide-prerequisites "#porting-assistant-vs-ide-prerequisites")
 - [Memory requirements](#porting-assistant-vs-ide-memory "#porting-assistant-vs-ide-memory")
-- [Pricing for the Porting Assistant for .NET Visual Studio
-  IDE extension](#porting-assistant-vs-ide-pricing "#porting-assistant-vs-ide-pricing")
-- [How Porting Assistant for .NET Visual Studio IDE
-  extension works](porting-assistant-vs-ide-how-it-works.md "porting-assistant-vs-ide-how-it-works.md")
-- [Install Porting Assistant for .NET Visual Studio IDE
-  extension](porting-assistant-vs-ide-installation.md "porting-assistant-vs-ide-installation.md")
-- [Assess and analyze
-  solution using Porting Assistant for .NET Visual Studio IDE extension](porting-assistant-vs-ide-solution-assessment.md "porting-assistant-vs-ide-solution-assessment.md")
-- [Port solution using Porting Assistant for .NET Visual
-  Studio IDE extension](porting-assistant-vs-ide-port-solution.md "porting-assistant-vs-ide-port-solution.md")
-- [Transition from standalone tool to
-  Porting Assistant for .NET Visual Studio IDE extension](porting-assistant-vs-ide-transition.md "porting-assistant-vs-ide-transition.md")
-- [Troubleshoot the Porting Assistant for .NET Visual
-  Studio IDE extension](porting-assistant-vs-ide-troubleshooting.md "porting-assistant-vs-ide-troubleshooting.md")
+- [Pricing for the Porting Assistant for .NET Visual Studio IDE extension](#porting-assistant-vs-ide-pricing "#porting-assistant-vs-ide-pricing")
+- [How Porting Assistant for .NET Visual Studio IDE extension works](porting-assistant-vs-ide-how-it-works.md "porting-assistant-vs-ide-how-it-works.md")
+- [Install Porting Assistant for .NET Visual Studio IDE extension](porting-assistant-vs-ide-installation.md "porting-assistant-vs-ide-installation.md")
+- [Assess and analyze solution using Porting Assistant for .NET Visual Studio IDE extension](porting-assistant-vs-ide-solution-assessment.md "porting-assistant-vs-ide-solution-assessment.md")
+- [Port solution using Porting Assistant for .NET Visual Studio IDE extension](porting-assistant-vs-ide-port-solution.md "porting-assistant-vs-ide-port-solution.md")
+- [Transition from standalone tool to Porting Assistant for .NET Visual Studio IDE extension](porting-assistant-vs-ide-transition.md "porting-assistant-vs-ide-transition.md")
+- [Troubleshoot the Porting Assistant for .NET Visual Studio IDE extension](porting-assistant-vs-ide-troubleshooting.md "porting-assistant-vs-ide-troubleshooting.md")
 - [Porting Assistant for .NET Visual Studio IDE extension version history](porting-assistant-vs-ide-versions.md "porting-assistant-vs-ide-versions.md")
 
 ## Supported versions
@@ -56,9 +48,7 @@ suggestions to **Disabled**. Select
 **Tools** > **Options** > **IntelliCode** > **Suggestions** > **C#**,
 then select **Disabled** from the dropdown.
 
-## Prerequisites for using the
-
-Porting Assistant for .NET Visual Studio IDE extension
+## Prerequisites for using the Porting Assistant for .NET Visual Studio IDE extension
 
 To use the Porting Assistant for .NET IDE extension, ensure the following prerequisites:
 
@@ -91,8 +81,6 @@ The following memory requirements must be met to use the Porting Assistant for .
 These requirements are provided as estimates. Individual solutions can vary for
 memory usage.
 
-## Pricing for the Porting Assistant for .NET Visual Studio
-
-IDE extension
+## Pricing for the Porting Assistant for .NET Visual Studio IDE extension
 
 The Porting Assistant for .NET Visual Studio IDE extension is available for use at no cost.
