@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# IAM policies for querying Amazon Pinpoint analytics
-
-data
+# IAM policies for querying Amazon Pinpoint analytics data
 
 By using the Amazon Pinpoint API, you can query analytics data for a subset of standard metrics,
 also referred to as _key performance indicators (KPIs)_ that apply to

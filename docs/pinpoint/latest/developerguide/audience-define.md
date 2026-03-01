@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Use endpoints to represent your audience in
-
-Amazon Pinpoint
+# Use endpoints to represent your audience in Amazon Pinpoint
 
 In Amazon Pinpoint, each member of your audience is represented by one or more endpoints. When
 you use Amazon Pinpoint to send a message, you direct that message to endpoints that represent

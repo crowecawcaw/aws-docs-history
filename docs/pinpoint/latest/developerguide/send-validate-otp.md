@@ -26,8 +26,7 @@ registered sender ID, which includes a Principal Entity ID (PEID) and a Template
 These requirements still apply when you use the OTP feature.
 
 To use this feature you need permissions to send and verify OTP messages, see [One-time passwords](permissions-actions.md#permissions-actions-apiactions-otp "permissions-actions.md#permissions-actions-apiactions-otp"). If you
-need help determining permissions, see [Troubleshooting Amazon Pinpoint identity and
-access management](security_iam_troubleshoot.md "security_iam_troubleshoot.md").
+need help determining permissions, see [Troubleshooting Amazon Pinpoint identity and access management](security_iam_troubleshoot.md "security_iam_troubleshoot.md").
 
 You can use the `SendOtpMessages` operation in the Amazon Pinpoint API to send an OTP
 code to a user of your application. When you use this API, Amazon Pinpoint generates a random code
@@ -139,9 +138,7 @@ In the preceding command, do the following:
 - Replace `SampleReferenceId` in
   `ReferenceId` with a unique reference ID for the request.
 
-## `SendOtpMessage`
-
-response
+## `SendOtpMessage` response
 
 When you successfully send an OTP message, you receive a response that resembles
 the following example:

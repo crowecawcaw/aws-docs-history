@@ -31,12 +31,9 @@ users**.
 
 If you haven't done so already, integrate the AWS Mobile SDK for Android or iOS or
 integrate the AWS Amplify JavaScript library with your application. For more
-information, see [Connect your frontend application to Amazon Pinpoint using AWS
-Amplify](integrate-sdk.md "integrate-sdk.md").
+information, see [Connect your frontend application to Amazon Pinpoint using AWS Amplify](integrate-sdk.md "integrate-sdk.md").
 
-## Register endpoints with the AWS mobile
-
-SDKs for Android or iOS
+## Register endpoints with the AWS mobile SDKs for Android or iOS
 
 You can use the AWS Mobile SDKs for Android or iOS to register and customize
 endpoints. For more information, and to view code examples, see the following
@@ -47,9 +44,7 @@ documents:
 - [Registering endpoints in your application](https://docs.amplify.aws/gen1/android/sdk/analytics/endpoints/ "https://docs.amplify.aws/gen1/android/sdk/analytics/endpoints/") in the iOS SDK
   documentation.
 
-## Register endpoints with the AWS Amplify
-
-JavaScript library
+## Register endpoints with the AWS Amplify JavaScript library
 
 You can use the AWS Amplify JavaScript library to register and update endpoints in
 your apps. For more information, and to view code examples, see [Update

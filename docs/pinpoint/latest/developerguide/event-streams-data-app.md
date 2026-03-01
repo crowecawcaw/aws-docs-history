@@ -11,7 +11,7 @@ supported by AWS End User Messaging.
 After you integrate your application (app) with Amazon Pinpoint and set up event streaming, Amazon Pinpoint
 retrieves your app's user activity, custom events, and message delivery data from the
 destination that you specified during setup for you to view. For information about how
-to set up event streaming so you can view your event data, see [Set up Amazon Pinpoint to stream app event data through Amazon Kinesis or Amazon Data Firehose](event-streams-setup.md "event-streams-setup.md") .
+to set up event streaming so you can view your event data, see [Set up Amazon Pinpoint to stream app event data through Amazon Kinesis or Amazon Data Firehose](event-streams-setup.md "event-streams-setup.md").
 
 ## App event example
 

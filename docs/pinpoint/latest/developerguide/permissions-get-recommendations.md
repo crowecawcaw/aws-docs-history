@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# IAM role for retrieving recommendations
-
-from Amazon Personalize
+# IAM role for retrieving recommendations from Amazon Personalize
 
 You can configure Amazon Pinpoint to retrieve recommendation data from an Amazon Personalize solution
 that's been deployed as an Amazon Personalize campaign. You can use this data to send personalized
@@ -36,9 +34,7 @@ This topic also assumes that you've already installed and configured the AWS CLI
 information about setting up the AWS CLI, see [Installing
 the AWS CLI](../../../cli/latest/userguide/cli-chap-getting-started.md "../../../cli/latest/userguide/cli-chap-getting-started.md") in the _AWS Command Line Interface User Guide_.
 
-## Step 1: Create the IAM
-
-policy
+## Step 1: Create the IAM policy
 
 An IAM policy defines permissions for an entity, such as an identity or resource. To
 create a role that allows Amazon Pinpoint to retrieve recommendation data from an Amazon Personalize campaign,
@@ -119,9 +115,7 @@ _IAM User Guide_. 5. Copy the Amazon Resource Name (ARN) of the policy
 in the preceding example). You need this ARN to create the IAM role in the
 next section.
 
-## Step 2: Create the IAM
-
-role
+## Step 2: Create the IAM role
 
 After you create the IAM policy, you can create an IAM role and attach the policy
 to it.

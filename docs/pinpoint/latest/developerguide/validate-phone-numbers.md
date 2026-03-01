@@ -27,9 +27,7 @@ information:
 For phone numbers origination in the United States and Canada the phone number validate API
 will no longer return data for `City`, `County`, `Timezone` and `ZipCode`.
 
-## Amazon Pinpoint phone number validation use
-
-cases
+## Amazon Pinpoint phone number validation use cases
 
 You can use the phone number validation service to enable several use cases, including
 the following:
@@ -50,8 +48,7 @@ the following:
   messages, you can change the `ChannelType` property for the endpoint
   from `SMS` to `VOICE`. You can validate the phone number
   first and then update the `ChannelType` property for new or existing
-  endpoints by following the directions in [Add endpoints to Amazon Pinpoint](audience-define-endpoints.md "audience-define-endpoints.md") for a single endpoint or [Add a batch of endpoints to
-  Amazon Pinpoint](audience-define-endpoints-batch.md "audience-define-endpoints-batch.md") for multiple endpoints.
+  endpoints by following the directions in [Add endpoints to Amazon Pinpoint](audience-define-endpoints.md "audience-define-endpoints.md") for a single endpoint or [Add a batch of endpoints to Amazon Pinpoint](audience-define-endpoints-batch.md "audience-define-endpoints-batch.md") for multiple endpoints.
 - **Choosing the right channel before you send a
   message** – If you intend to send an SMS message but you
   determine that the destination number is invalid, you can send a message to the
@@ -61,8 +58,7 @@ the following:
 ## Validate a phone number using the AWS CLI
 
 The following example shows how to validate a phone number using the AWS CLI. For more
-information, see [phone-number-validate](../../../cli/latest/reference/pinpoint/phone-number-validate.md "../../../cli/latest/reference/pinpoint/phone-number-validate.md") in the _AWS CLI Command Reference_. For example validation responses, see [Phone number validation
-response](#validate-phone-numbers-example-responses "#validate-phone-numbers-example-responses"). For more information on configuring the AWS CLI, see [Configure the AWS CLI](../../../cli/latest/userguide/cli-chap-configure.md "../../../cli/latest/userguide/cli-chap-configure.md") in the [AWS Command Line Interface User Guide](../../../cli/latest/userguide.md "../../../cli/latest/userguide.md").
+information, see [phone-number-validate](../../../cli/latest/reference/pinpoint/phone-number-validate.md "../../../cli/latest/reference/pinpoint/phone-number-validate.md") in the _AWS CLI Command Reference_. For example validation responses, see [Phone number validation response](#validate-phone-numbers-example-responses "#validate-phone-numbers-example-responses"). For more information on configuring the AWS CLI, see [Configure the AWS CLI](../../../cli/latest/userguide/cli-chap-configure.md "../../../cli/latest/userguide/cli-chap-configure.md") in the [AWS Command Line Interface User Guide](../../../cli/latest/userguide.md "../../../cli/latest/userguide.md").
 
 ###### To use the phone number validation service by using the AWS CLI
 
@@ -83,9 +79,7 @@ code, the service might return information for a phone number in a different
 country. You can have dashes in the phone number, for example
 `+44-207-946-0881`.
 
-## Phone number validation
-
-response
+## Phone number validation response
 
 The information that the phone number validation service provides varies slightly
 based on the data that's available for the phone number that you provide. This section

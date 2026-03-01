@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Manage the maximum number of
-
-endpoints in Amazon Pinpoint
+# Manage the maximum number of endpoints in Amazon Pinpoint
 
 Each member of your audience can have a maximum of 15 endpoints associated with their
 **UserId**, see [Endpoint quotas](quotas.md#quotas-endpoint "quotas.md#quotas-endpoint"). If you try to add a 16th endpoint then, depending on the **ChannelType**, you will either get **BadRequestException** or it will succeed by removing the endpoint with the oldest **EffectiveDate**.

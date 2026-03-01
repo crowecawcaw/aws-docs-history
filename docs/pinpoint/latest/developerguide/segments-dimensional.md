@@ -15,9 +15,7 @@ recently, you can define a segment for users who haven’t used your app in the 
 
 For more code examples, see [Code examples](service_code_examples.md "service_code_examples.md").
 
-## Build segments with the
-
-AWS SDK for Java
+## Build segments with the AWS SDK for Java
 
 The following example demonstrates how to build a segment with the AWS SDK for Java.
 The example creates a segment of users who's team is the `Lakers`

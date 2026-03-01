@@ -118,9 +118,7 @@ Each payload can contain data for up to 50 endpoints. If a segment contains more
 endpoints, Amazon Pinpoint invokes the function repeatedly, for up to 50 endpoints at a time, until
 the function processes all the data.
 
-## Response data and
-
-requirements
+## Response data and requirements
 
 As you design and develop your Lambda function, keep the [quotas for machine learning models](quotas.md#quotas-ML-models "quotas.md#quotas-ML-models") in mind. If the function doesn't meet the
 conditions defined by these quotas, Amazon Pinpoint won't be able to process and send the

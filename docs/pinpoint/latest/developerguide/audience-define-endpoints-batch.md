@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Add a batch of endpoints to
-
-Amazon Pinpoint
+# Add a batch of endpoints to Amazon Pinpoint
 
 You can add or update multiple endpoints in a single operation by providing the endpoints
 in batches. Each batch request can include up to 100 endpoint definitions.

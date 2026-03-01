@@ -34,8 +34,7 @@ account:
 
 - An Amazon S3 bucket. To create a bucket, see [Create a bucket](../../../AmazonS3/latest/userguide/creating-bucket.md "../../../AmazonS3/latest/userguide/creating-bucket.md") in the _Amazon Simple Storage Service User Guide_.
 - An AWS Identity and Access Management (IAM) role that grants Amazon Pinpoint write permissions for your Amazon S3
-  bucket. To create the role, see [IAM role for exporting endpoints or
-  segments](permissions-export-endpoints.md "permissions-export-endpoints.md").
+  bucket. To create the role, see [IAM role for exporting endpoints or segments](permissions-export-endpoints.md "permissions-export-endpoints.md").
 
 ## Examples
 

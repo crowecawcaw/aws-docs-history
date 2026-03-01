@@ -25,9 +25,7 @@ This feature is available in the following AWS Regions: US East (N. Virginia);
 US West (Oregon); Asia Pacific (Mumbai); Asia Pacific (Sydney); and,
 Europe (Ireland).
 
-## Authorize Amazon Pinpoint to invoke a Lambda
-
-function using the AWS CLI and the Lambda add-permission command
+## Authorize Amazon Pinpoint to invoke a Lambda function using the AWS CLI and the Lambda add-permission command
 
 After you assign a Lambda function policy to a function, you can add permissions that
 allow Amazon Pinpoint to invoke the function for a specific project, campaign, or journey. You can do

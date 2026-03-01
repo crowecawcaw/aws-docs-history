@@ -21,8 +21,7 @@ Before you import, you add the endpoints to Amazon S3, and you create an IAM rol
 Amazon Pinpoint access to Amazon S3. Then, you give Amazon Pinpoint the Amazon S3 location where the endpoints are
 stored, and Amazon Pinpoint adds each endpoint to the segment.
 
-To create the IAM role, see [IAM role for importing endpoints or
-segments](permissions-import-segment.md "permissions-import-segment.md"). For information about importing a segment
+To create the IAM role, see [IAM role for importing endpoints or segments](permissions-import-segment.md "permissions-import-segment.md"). For information about importing a segment
 by using the Amazon Pinpoint console, see [Importing
 segments](../userguide/segments-importing.md "../userguide/segments-importing.md") in the _Amazon Pinpoint User Guide_.
 

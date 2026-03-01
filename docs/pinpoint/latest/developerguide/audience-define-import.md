@@ -28,17 +28,14 @@ account:
 
 - An Amazon S3 bucket. To create a bucket, see [Create a bucket](../../../AmazonS3/latest/userguide/creating-bucket.md "../../../AmazonS3/latest/userguide/creating-bucket.md") in the _Amazon Simple Storage Service User Guide_.
 - An AWS Identity and Access Management (IAM) role that grants Amazon Pinpoint read permissions for your Amazon S3
-  bucket. To create the role, see [IAM role for importing endpoints or
-  segments](permissions-import-segment.md "permissions-import-segment.md").
+  bucket. To create the role, see [IAM role for importing endpoints or segments](permissions-import-segment.md "permissions-import-segment.md").
 
 ## Examples
 
 The following examples demonstrate how to add endpoint definitions to your Amazon S3
 bucket, and then import those endpoints into an Amazon Pinpoint project.
 
-### Files with endpoint
-
-definitions
+### Files with endpoint definitions
 
 The files that you add to your Amazon S3 bucket can contain endpoint definitions in CSV
 or newline-delimited JSON format. For the attributes that you can use to define your

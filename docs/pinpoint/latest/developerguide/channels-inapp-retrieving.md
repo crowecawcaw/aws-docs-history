@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Retrieve in-app messages for an
-
-endpoint programmatically using Amazon Pinpoint
+# Retrieve in-app messages for an endpoint programmatically using Amazon Pinpoint
 
 Your applications can call the [GetInAppMessages](../apireference/apps-application-id-endpoints-endpoint-id-inappmessages.md#GetInAppMessages "../apireference/apps-application-id-endpoints-endpoint-id-inappmessages.md#GetInAppMessages") API to retrieve all of the in-app messages that a given
 endpoint is entitled to. When you call the `GetInAppMessages` API, you
@@ -19,8 +17,7 @@ provide the following parameters:
 - `EndpointId` – The unique ID of the endpoint that you're
   retrieving messages for.
   When you call the API with these values, it returns a list of messages. For more
-  information about the response produced by this operation, see [GetInAppMessages
-  Amazon Pinpoint API response JSON example](channels-inapp-response.md "channels-inapp-response.md").
+  information about the response produced by this operation, see [GetInAppMessages Amazon Pinpoint API response JSON example](channels-inapp-response.md "channels-inapp-response.md").
 
 You can use the AWS SDKs to call the `GetInAppMessages` operation. The
 following code examples include functions that retrieve in-app messages.

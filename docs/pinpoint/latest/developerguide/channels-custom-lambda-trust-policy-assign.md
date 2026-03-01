@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Grant Amazon Pinpoint
-
-permission to invoke the Lambda function
+# Grant Amazon Pinpoint permission to invoke the Lambda function
 
 You can use the AWS Command Line Interface (AWS CLI) to add permissions to the Lambda function policy
 assigned to your Lambda function. To allow Amazon Pinpoint to invoke a function, use the Lambda
@@ -51,9 +49,7 @@ In the preceding command, do the following:
 The `Statement` value is a JSON string version of the statement added
 to the Lambda function policy.
 
-## Further
-
-restricting the execution policy
+## Further restricting the execution policy
 
 You can modify the execution policy by restricting it to a specific Amazon Pinpoint
 project. To do this, replace the `*` in the preceding example with

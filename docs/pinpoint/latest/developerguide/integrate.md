@@ -25,8 +25,7 @@ creating campaigns.)
 
 Use the topics in this section to integrate Amazon Pinpoint with a mobile or web application. These
 topics include code examples and procedures to integrate with a JavaScript, Android, Swift,
-or Flutter application. To start integrating your apps, see [Connect your frontend application to Amazon Pinpoint using AWS
-Amplify](integrate-sdk.md "integrate-sdk.md").
+or Flutter application. To start integrating your apps, see [Connect your frontend application to Amazon Pinpoint using AWS Amplify](integrate-sdk.md "integrate-sdk.md").
 
 Outside of your client, you can use [supported
 AWS SDKs](sdk-general-information-section.md "sdk-general-information-section.md") or the [Amazon Pinpoint API](../apireference.md "../apireference.md") to import
@@ -36,7 +35,6 @@ more.
 ###### Topics
 
 - [Using Amazon Pinpoint with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md")
-- [Connect your frontend application to Amazon Pinpoint using AWS
-  Amplify](integrate-sdk.md "integrate-sdk.md")
+- [Connect your frontend application to Amazon Pinpoint using AWS Amplify](integrate-sdk.md "integrate-sdk.md")
 - [Register Amazon Pinpoint endpoints in your application](integrate-endpoints.md "integrate-endpoints.md")
 - [Report Amazon Pinpoint events in your application](integrate-events.md "integrate-events.md")

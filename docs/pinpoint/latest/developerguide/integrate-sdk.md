@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Connect your frontend application to Amazon Pinpoint using AWS
-
-Amplify
+# Connect your frontend application to Amazon Pinpoint using AWS Amplify
 
 Use AWS Amplify to integrate your app with AWS. For Swift apps, see [Getting
 started](https://docs.amplify.aws/gen1/swift/start/getting-started/introduction/ "https://docs.amplify.aws/gen1/swift/start/getting-started/introduction/") in the Amplify for Swift documentation. For Android apps, see [Getting

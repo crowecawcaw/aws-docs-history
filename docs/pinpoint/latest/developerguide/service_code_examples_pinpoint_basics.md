@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Basic examples for
-
-Amazon Pinpoint using AWS SDKs
+# Basic examples for Amazon Pinpoint using AWS SDKs
 
 The following code examples show how to use the basics of Amazon Pinpoint with AWS
 SDKs.

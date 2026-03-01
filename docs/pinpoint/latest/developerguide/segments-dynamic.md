@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Customize Amazon Pinpoint segments using an AWS Lambda
-
-function
+# Customize Amazon Pinpoint segments using an AWS Lambda function
 
 |                                                                                                       |
 | ----------------------------------------------------------------------------------------------------- |
@@ -216,9 +214,7 @@ Amazon Pinpoint **doesn't** honor these attributes for
 endpoints where the value of the `ChannelType` attribute is
 `EMAIL`.
 
-## Assign a Lambda function
-
-policy
+## Assign a Lambda function policy
 
 Before you can use your Lambda function to process your endpoints, you must authorize
 Amazon Pinpoint to invoke your Lambda function. To grant invocation permission, assign a _Lambda function policy_ to the function. A Lambda function
@@ -227,9 +223,7 @@ your function and what actions those entities can take.
 
 For more information, see [Using resource-based policies for AWS Lambda](../../../lambda/latest/dg/access-control-resource-based.md "../../../lambda/latest/dg/access-control-resource-based.md") in the _AWS Lambda Developer Guide_.
 
-### Example function
-
-policy
+### Example function policy
 
 The following policy grants permission to the Amazon Pinpoint service principal to use the
 `lambda:InvokeFunction` action for a specific campaign
@@ -285,9 +279,7 @@ campaigns for a project, we recommend that you configure the `Condition`
 block for the policy in the preceding way. For information about setting a Lambda
 function as the default for all campaigns in a project, see [Assign a Lambda function to a campaign](#segments-dynamic-assign "#segments-dynamic-assign").
 
-### Grant Amazon Pinpoint invocation
-
-permission
+### Grant Amazon Pinpoint invocation permission
 
 You can use the AWS Command Line Interface (AWS CLI) to add permissions to the Lambda function policy
 assigned to your Lambda function. To allow Amazon Pinpoint to invoke a function for a specific

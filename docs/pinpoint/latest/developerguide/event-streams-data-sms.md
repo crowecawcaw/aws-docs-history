@@ -11,7 +11,7 @@ supported by AWS End User Messaging.
 If the SMS channel is enabled for a project, Amazon Pinpoint can stream event data about SMS
 message deliveries for the project. After you set up event streaming, Amazon Pinpoint retrieves your event data
 from the destination that you specified during setup for you to view.
-For information about how to set up event streaming, see [Set up Amazon Pinpoint to stream app event data through Amazon Kinesis or Amazon Data Firehose](event-streams-setup.md "event-streams-setup.md") .
+For information about how to set up event streaming, see [Set up Amazon Pinpoint to stream app event data through Amazon Kinesis or Amazon Data Firehose](event-streams-setup.md "event-streams-setup.md").
 
 ###### Note
 

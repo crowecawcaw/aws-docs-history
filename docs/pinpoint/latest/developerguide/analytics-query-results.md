@@ -89,9 +89,7 @@ metric by referring to the name of the metric. If the name doesn't contain
 multiple-value metric. For a complete list of metrics that you can query
 programmatically, see [Standard metrics that apply to Amazon Pinpoint projects, campaigns, and journeys](analytics-standard-metrics.md "analytics-standard-metrics.md").
 
-### Single-value
-
-metrics
+### Single-value metrics
 
 For a single-value metric, the `Rows` object contains a
 `Values` object that:
@@ -161,9 +159,7 @@ metric if there isn't any data to return for the metric. For example:
 }
 ```
 
-### Multiple-value
-
-metrics
+### Multiple-value metrics
 
 The structure and contents of the `Rows` object for a multiple-value
 metric are mostly the same as a single-value metric. The `Rows` object

@@ -30,14 +30,12 @@ which you identify with the ARN,
 
 This topic identifies Amazon Pinpoint actions that you can add to IAM policies for your AWS
 account. To see examples that demonstrate how you can use actions in policies to manage
-access to Amazon Pinpoint resources, see [Amazon Pinpoint identity-based
-policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+access to Amazon Pinpoint resources, see [Amazon Pinpoint identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ###### Topics
 
 - [Amazon Pinpoint API actions](#permissions-actions-apiactions "#permissions-actions-apiactions")
-- [Amazon Pinpoint SMS and voice version 1
-  API actions](#permissions-actions-sms-voice-apiactions "#permissions-actions-sms-voice-apiactions")
+- [Amazon Pinpoint SMS and voice version 1 API actions](#permissions-actions-sms-voice-apiactions "#permissions-actions-sms-voice-apiactions")
 
 ## Amazon Pinpoint API actions
 
@@ -47,8 +45,7 @@ which is the primary API for Amazon Pinpoint. To learn more about this API, see 
 
 ###### Categories:
 
-- [Analytics and
-  metrics](#permissions-actions-apiactions-metrics "#permissions-actions-apiactions-metrics")
+- [Analytics and metrics](#permissions-actions-apiactions-metrics "#permissions-actions-apiactions-metrics")
 - [Campaigns](#permissions-actions-apiactions-campaigns "#permissions-actions-apiactions-campaigns")
 - [Channels](#permissions-actions-apiactions-channels "#permissions-actions-apiactions-channels")
 - [Endpoints](#permissions-actions-apiactions-endpoints "#permissions-actions-apiactions-endpoints")
@@ -57,22 +54,17 @@ which is the primary API for Amazon Pinpoint. To learn more about this API, see 
 - [Export jobs](#permissions-actions-apiactions-export-jobs "#permissions-actions-apiactions-export-jobs")
 - [Import jobs](#permissions-actions-apiactions-import-jobs "#permissions-actions-apiactions-import-jobs")
 - [Journeys](#permissions-actions-apiactions-journeys "#permissions-actions-apiactions-journeys")
-- [Message
-  templates](#permissions-actions-apiactions-templates-messages "#permissions-actions-apiactions-templates-messages")
+- [Message templates](#permissions-actions-apiactions-templates-messages "#permissions-actions-apiactions-templates-messages")
 - [Messages](#permissions-actions-apiactions-messages "#permissions-actions-apiactions-messages")
 - [One-time passwords](#permissions-actions-apiactions-otp "#permissions-actions-apiactions-otp")
-- [Phone number
-  validation](#permissions-actions-apiactions-phone-number-validate "#permissions-actions-apiactions-phone-number-validate")
+- [Phone number validation](#permissions-actions-apiactions-phone-number-validate "#permissions-actions-apiactions-phone-number-validate")
 - [Projects](#permissions-actions-apiactions-projects "#permissions-actions-apiactions-projects")
-- [Recommender
-  models](#permissions-actions-apiactions-recommenders "#permissions-actions-apiactions-recommenders")
+- [Recommender models](#permissions-actions-apiactions-recommenders "#permissions-actions-apiactions-recommenders")
 - [Segments](#permissions-actions-apiactions-segments "#permissions-actions-apiactions-segments")
 - [Tags](#permissions-actions-apiactions-tags "#permissions-actions-apiactions-tags")
 - [Users](#permissions-actions-apiactions-users "#permissions-actions-apiactions-users")
 
-### Analytics and
-
-metrics
+### Analytics and metrics
 
 The following permissions are related to viewing analytics data on the Amazon Pinpoint
 console. They're also related to retrieving (querying) aggregated data for standard
@@ -756,9 +748,7 @@ Delete a specific journey.
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/journeys/`journeyId``
 
-### Message
-
-templates
+### Message templates
 
 The following permissions are related to creating and managing message templates
 for your Amazon Pinpoint account. A _message template_ is a
@@ -1003,9 +993,7 @@ using the SendOTPMessage operation.
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/verify-otp`
 
-### Phone number
-
-validation
+### Phone number validation
 
 The following permissions are related to using the phone number validation service
 in Amazon Pinpoint.
@@ -1081,9 +1069,7 @@ Update the default settings for an Amazon Pinpoint project.
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId``
 
-### Recommender
-
-models
+### Recommender models
 
 The following permissions are related to managing Amazon Pinpoint configurations for
 retrieving and processing recommendation data from recommender models. A _recommender model_ is a type of machine learning model
@@ -1289,9 +1275,7 @@ a user ID.
 - Resource ARN –
   `arn:aws:mobiletargeting:`region`:`accountId`:apps/`projectId`/users/`userId``
 
-## Amazon Pinpoint SMS and voice version 1
-
-API actions
+## Amazon Pinpoint SMS and voice version 1 API actions
 
 This section identifies actions for features that are available from the
 Amazon Pinpoint SMS and Voice API. This is a supplemental API that provides advanced options for using

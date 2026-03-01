@@ -24,5 +24,4 @@ For more information, see [Segments](../apireference/apps-application-id-segment
 
 - [Build segments in Amazon Pinpoint](segments-dimensional.md "segments-dimensional.md")
 - [Import segments in Amazon Pinpoint](segments-importing.md "segments-importing.md")
-- [Customize Amazon Pinpoint segments using an AWS Lambda
-  function](segments-dynamic.md "segments-dynamic.md")
+- [Customize Amazon Pinpoint segments using an AWS Lambda function](segments-dynamic.md "segments-dynamic.md")

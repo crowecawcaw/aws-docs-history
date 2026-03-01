@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Amazon Pinpoint identity-based
-
-policy examples
+# Amazon Pinpoint identity-based policy examples
 
 By default, users and roles don't have permission to create or modify
 Amazon Pinpoint resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or an
@@ -23,29 +21,18 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the
-  Amazon Pinpoint console](#permissions-actions-examples-console-readonly "#permissions-actions-examples-console-readonly")
-- [Example:
-  Accessing a single Amazon Pinpoint project](#security_iam_id-based-policy-examples-access-one-project "#security_iam_id-based-policy-examples-access-one-project")
-- [Example:
-  Viewing Amazon Pinpoint resources based on tags](#security_iam_id-based-policy-examples-view-resource-tags "#security_iam_id-based-policy-examples-view-resource-tags")
-- [Example:
-  Allowing users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Examples: Providing access to
-  Amazon Pinpoint API actions](#permissions-actions-examples-pin-api "#permissions-actions-examples-pin-api")
-- [Examples: Providing
-  access to Amazon Pinpoint SMS and voice API actions](#permissions-actions-examples-pin-sms-voice-api "#permissions-actions-examples-pin-sms-voice-api")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the Amazon Pinpoint console](#permissions-actions-examples-console-readonly "#permissions-actions-examples-console-readonly")
+- [Example: Accessing a single Amazon Pinpoint project](#security_iam_id-based-policy-examples-access-one-project "#security_iam_id-based-policy-examples-access-one-project")
+- [Example: Viewing Amazon Pinpoint resources based on tags](#security_iam_id-based-policy-examples-view-resource-tags "#security_iam_id-based-policy-examples-view-resource-tags")
+- [Example: Allowing users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Examples: Providing access to Amazon Pinpoint API actions](#permissions-actions-examples-pin-api "#permissions-actions-examples-pin-api")
+- [Examples: Providing access to Amazon Pinpoint SMS and voice API actions](#permissions-actions-examples-pin-sms-voice-api "#permissions-actions-examples-pin-sms-voice-api")
 - [Example: Restricting Amazon Pinpoint project access to specific IP addresses](#security_iam_resource-based-policy-examples-restrict-project-access-by-ip "#security_iam_resource-based-policy-examples-restrict-project-access-by-ip")
-- [Example:
-  Restricting Amazon Pinpoint access based on tags](#security_iam_resource-based-policy-examples-restrict-access-by-tag "#security_iam_resource-based-policy-examples-restrict-access-by-tag")
-- [Example: Allow Amazon Pinpoint to send email using identities that were verified in
-  Amazon SES](#security_iam_resource-based-policy-examples-access-ses-identities "#security_iam_resource-based-policy-examples-access-ses-identities")
+- [Example: Restricting Amazon Pinpoint access based on tags](#security_iam_resource-based-policy-examples-restrict-access-by-tag "#security_iam_resource-based-policy-examples-restrict-access-by-tag")
+- [Example: Allow Amazon Pinpoint to send email using identities that were verified in Amazon SES](#security_iam_resource-based-policy-examples-access-ses-identities "#security_iam_resource-based-policy-examples-access-ses-identities")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Amazon Pinpoint resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -78,9 +65,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the
-
-Amazon Pinpoint console
+## Using the Amazon Pinpoint console
 
 To access the Amazon Pinpoint console, you must have a minimum set of
 permissions. These permissions must allow you to list and view details about the
@@ -142,9 +127,7 @@ You don't need to allow minimum console permissions for users that are making ca
 only to the AWS CLI or the AWS API. Instead, allow access to only the actions that match
 the API operation that they're trying to perform.
 
-## Example:
-
-Accessing a single Amazon Pinpoint project
+## Example: Accessing a single Amazon Pinpoint project
 
 You can also create read-only policies that provide access to only specific projects.
 The following example policy lets users sign in to the console and view a list of
@@ -271,9 +254,7 @@ JSON
 
 ```
 
-## Example:
-
-Viewing Amazon Pinpoint resources based on tags
+## Example: Viewing Amazon Pinpoint resources based on tags
 
 You can use conditions in an identity-based policy to control access to
 Amazon Pinpoint resources based on tags. This example policy shows how you might create
@@ -330,9 +311,7 @@ Otherwise he is denied access. The condition tag key `Owner` matches both
 case-sensitive. For more information, see [IAM JSON policy
 elements: Condition](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md") in the _IAM User Guide_.
 
-## Example:
-
-Allowing users to view their own permissions
+## Example: Allowing users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -372,9 +351,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Examples: Providing access to
-
-Amazon Pinpoint API actions
+## Examples: Providing access to Amazon Pinpoint API actions
 
 This section provides example policies that allow access to features that are
 available from the Amazon Pinpoint API, which is the primary API for Amazon Pinpoint. To learn more about
@@ -436,9 +413,7 @@ JSON
 In the preceding example, replace `accountId` with your
 AWS account ID.
 
-## Examples: Providing
-
-access to Amazon Pinpoint SMS and voice API actions
+## Examples: Providing access to Amazon Pinpoint SMS and voice API actions
 
 This section provides example policies that allow access to features that are
 available from the Amazon Pinpoint SMS and Voice API. This is a supplemental API that provides
@@ -446,9 +421,7 @@ advanced options for using and managing the SMS and voice channels in Amazon Pin
 more about this API, see the [Amazon Pinpoint SMS and voice
 API reference](../../../pinpoint-sms-voice/latest/APIReference.md "../../../pinpoint-sms-voice/latest/APIReference.md").
 
-### Read-only
-
-access
+### Read-only access
 
 The following example policy allows read-only access to all Amazon Pinpoint SMS and Voice API
 actions and resources in your AWS account:
@@ -481,9 +454,7 @@ JSON
 
 ```
 
-### Administrator
-
-access
+### Administrator access
 
 The following example policy allows full access to all Amazon Pinpoint SMS and Voice API actions
 and resources in your AWS account:
@@ -562,9 +533,7 @@ JSON
 
 ```
 
-## Example:
-
-Restricting Amazon Pinpoint access based on tags
+## Example: Restricting Amazon Pinpoint access based on tags
 
 The following example policy grants permissions to perform any Amazon Pinpoint action on a
 specified project (`projectId`). However, permissions are
@@ -597,9 +566,7 @@ JSON
 
 ```
 
-## Example: Allow Amazon Pinpoint to send email using identities that were verified in
-
-Amazon SES
+## Example: Allow Amazon Pinpoint to send email using identities that were verified in Amazon SES
 
 When you verify an email identity (such as an email address or domain) through the
 Amazon Pinpoint console, that identity is automatically configured so that it can be used by both

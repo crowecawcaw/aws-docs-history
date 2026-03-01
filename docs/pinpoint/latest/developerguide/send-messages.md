@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Send transactional messages from your app using
-
-Amazon Pinpoint
+# Send transactional messages from your app using Amazon Pinpoint
 
 You can use the Amazon Pinpoint API and the AWS SDKs to send _transactional
 messages_ directly from your app. Transactional messages are messages that you

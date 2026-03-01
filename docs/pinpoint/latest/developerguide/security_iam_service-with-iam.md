@@ -31,17 +31,12 @@ with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-ia
 
 ###### Topics
 
-- [Amazon Pinpoint
-  identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
-- [Amazon Pinpoint
-  resource-based permissions policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
-- [Authorization based on Amazon Pinpoint
-  tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
+- [Amazon Pinpoint identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
+- [Amazon Pinpoint resource-based permissions policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
+- [Authorization based on Amazon Pinpoint tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
 - [Amazon Pinpoint IAM roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
 
-## Amazon Pinpoint
-
-identity-based policies
+## Amazon Pinpoint identity-based policies
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources as well as the conditions under which actions are allowed or denied.
@@ -199,9 +194,7 @@ To see a list of Amazon Pinpoint resource types and their ARNs, see
 actions you can specify with the ARN of each resource type, see [Actions Defined by Amazon Pinpoint](../../../service-authorization/latest/reference/list_amazonpinpoint.md#amazonpinpoint-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonpinpoint.md#amazonpinpoint-actions-as-permissions") in
 the _IAM User Guide_.
 
-### Condition
-
-keys
+### Condition keys
 
 Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform
 **actions** on what **resources**, and under what **conditions**.
@@ -222,12 +215,9 @@ _IAM User Guide_.
 
 ### Examples
 
-To view examples of Amazon Pinpoint identity-based policies, see [Amazon Pinpoint identity-based
-policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Pinpoint identity-based policies, see [Amazon Pinpoint identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Amazon Pinpoint
-
-resource-based permissions policies
+## Amazon Pinpoint resource-based permissions policies
 
 Resource-based permission policies are JSON policy documents that specify what actions a
 specified principal can perform on an Amazon Pinpoint resource and under what conditions.
@@ -236,12 +226,9 @@ Amazon Pinpoint supports resource-based permissions policies for campaigns, jour
 
 ### Examples
 
-To view examples of Amazon Pinpoint resource-based policies, see [Amazon Pinpoint identity-based
-policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Pinpoint resource-based policies, see [Amazon Pinpoint identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Authorization based on Amazon Pinpoint
-
-tags
+## Authorization based on Amazon Pinpoint tags
 
 You can associate tags with certain types of Amazon Pinpoint resources or pass tags in a
 request to Amazon Pinpoint. To control access based on tags, you provide tag information in
@@ -257,9 +244,7 @@ For information about tagging Amazon Pinpoint resources, including an example IA
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within your
 AWS account that has specific permissions.
 
-### Using temporary credentials
-
-with Amazon Pinpoint
+### Using temporary credentials with Amazon Pinpoint
 
 You can use temporary credentials to sign in with federation, assume an IAM role, or
 assume a cross-account role. You obtain temporary security credentials by calling AWS Security Token Service
@@ -267,9 +252,7 @@ assume a cross-account role. You obtain temporary security credentials by callin
 
 Amazon Pinpoint supports using temporary credentials.
 
-### Service-linked
-
-roles
+### Service-linked roles
 
 [Service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role") allow AWS services to access resources in other services
 to complete an action on your behalf. Service-linked roles appear in your IAM account and

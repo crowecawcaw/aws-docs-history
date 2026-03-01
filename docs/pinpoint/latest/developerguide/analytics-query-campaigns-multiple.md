@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Query Amazon Pinpoint data for multiple
-
-campaigns
+# Query Amazon Pinpoint data for multiple campaigns
 
 There are two ways to query the data for multiple campaigns. The best way depends on
 whether you want to query the data for campaigns that are all associated with the same

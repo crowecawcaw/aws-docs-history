@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# IAM role for exporting endpoints or
-
-segments
+# IAM role for exporting endpoints or segments
 
 You can obtain a list of endpoints by creating an export job. When you create an export
 job, you have to specify a project ID, and you can optionally specify a segment ID.
@@ -32,9 +30,7 @@ These procedures also assume that you've already installed and configured the AW
 (AWS CLI). For information about setting up the AWS CLI, see [Installing
 the AWS CLI](../../../cli/latest/userguide/cli-chap-getting-started.md "../../../cli/latest/userguide/cli-chap-getting-started.md") in the _AWS Command Line Interface User Guide_.
 
-## Step 1: Create the IAM
-
-policy
+## Step 1: Create the IAM policy
 
 An IAM policy defines the permissions for an entity, such as an identity or
 resource. To create a role for exporting Amazon Pinpoint endpoints, you have to create a policy

@@ -13,7 +13,7 @@ and custom messages that you send from the journey. After you set up event strea
 Amazon Pinpoint retrieves the data from the destination that you specified during setup for you
 to view. For detailed information about the data that Amazon Pinpoint streams for email and SMS
 messages, see [Email event data stream from Amazon Pinpoint](event-streams-data-email.md "event-streams-data-email.md") and [SMS event data stream from Amazon Pinpoint](event-streams-data-sms.md "event-streams-data-sms.md").
-For information about how to set up event streaming, see [Set up Amazon Pinpoint to stream app event data through Amazon Kinesis or Amazon Data Firehose](event-streams-setup.md "event-streams-setup.md") .
+For information about how to set up event streaming, see [Set up Amazon Pinpoint to stream app event data through Amazon Kinesis or Amazon Data Firehose](event-streams-setup.md "event-streams-setup.md").
 
 ## Journey event example
 

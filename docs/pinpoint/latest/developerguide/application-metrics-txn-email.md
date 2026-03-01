@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Amazon Pinpoint application metrics for transactional email
-
-messages
+# Amazon Pinpoint application metrics for transactional email messages
 
 The following table lists and describes standard application metrics that you can query to
 monitor trends for all the transactional email messages that are associated with an Amazon Pinpoint

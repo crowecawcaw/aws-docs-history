@@ -75,5 +75,4 @@ develop a series of queries that return the data that you want. You can then man
 down or combine the query results into custom groups that you design.
 
 Finally, it’s important to verify that you’re authorized to access the data that you want
-to query. For more information, see [IAM policies for querying Amazon Pinpoint analytics
-data](analytics-permissions.md "analytics-permissions.md").
+to query. For more information, see [IAM policies for querying Amazon Pinpoint analytics data](analytics-permissions.md "analytics-permissions.md").

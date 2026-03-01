@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# IAM role for importing endpoints or
-
-segments
+# IAM role for importing endpoints or segments
 
 With Amazon Pinpoint, you can define a user segment by importing endpoint definitions from an
 Amazon Simple Storage Service (Amazon S3) bucket in your AWS account. Before you import, you must delegate the
@@ -25,9 +23,7 @@ attach the following policies to the role:
   segments](../userguide/segments-importing.md "../userguide/segments-importing.md") in the _Amazon Pinpoint User Guide_. For an example of how to
   import a segment programmatically by using the AWS SDK for Java, see [Import segments in Amazon Pinpoint](segments-importing.md "segments-importing.md") in this guide.
 
-## Creating the IAM role
-
-(AWS CLI)
+## Creating the IAM role (AWS CLI)
 
 Complete the following steps to create the IAM role by using the AWS Command Line Interface (AWS CLI).
 If you haven't installed the AWS CLI, see [Installing the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") in the

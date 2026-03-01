@@ -40,6 +40,5 @@ For more information see about reference architectures see [_Amazon Pinpoint Res
 - [Compliance validation for Amazon Pinpoint](security-compliance-validation.md "security-compliance-validation.md")
 - [Resilience in Amazon Pinpoint](security-disaster-recovery-resiliency.md "security-disaster-recovery-resiliency.md")
 - [Infrastructure security in Amazon Pinpoint](security-infrastructure-security.md "security-infrastructure-security.md")
-- [Configuration and vulnerability
-  analysis in Amazon Pinpoint](security-vulnerability-analysis-management.md "security-vulnerability-analysis-management.md")
+- [Configuration and vulnerability analysis in Amazon Pinpoint](security-vulnerability-analysis-management.md "security-vulnerability-analysis-management.md")
 - [Security best practices for Amazon Pinpoint](security-best-practices.md "security-best-practices.md")

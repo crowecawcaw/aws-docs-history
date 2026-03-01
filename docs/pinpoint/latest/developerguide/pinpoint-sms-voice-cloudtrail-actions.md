@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Supported Amazon Pinpoint SMS and voice API version
-
-1 actions in CloudTrail log files
+# Supported Amazon Pinpoint SMS and voice API version 1 actions in CloudTrail log files
 
 The Amazon Pinpoint SMS and Voice version 1 API supports logging the following actions as events
 in CloudTrail log files:

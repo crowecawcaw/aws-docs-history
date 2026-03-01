@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Amazon Pinpoint journey and campaign execution
-
-metrics
+# Amazon Pinpoint journey and campaign execution metrics
 
 You can query standard execution metrics to assess the status of participants in each type
 of individual activity for an Amazon Pinpoint journey or campaign. To query data for these metrics, use the

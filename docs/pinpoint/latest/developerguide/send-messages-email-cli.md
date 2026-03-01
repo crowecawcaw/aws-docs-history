@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Add unsubscribe headers to email using
-
-Amazon Pinpoint
+# Add unsubscribe headers to email using Amazon Pinpoint
 
 ###### Note
 

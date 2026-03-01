@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Query Amazon Pinpoint analytics data for transactional
-
-messages
+# Query Amazon Pinpoint analytics data for transactional messages
 
 In addition to using the analytics pages on the Amazon Pinpoint console, you can use Amazon Pinpoint
 Analytics APIs to query analytics data for a subset of standard metrics that provide insight
@@ -60,5 +58,4 @@ can then manually break down or combine the query results into custom groups tha
 design.
 
 Finally, it’s important to verify that you’re authorized to access the data that you want
-to query. For more information, see [IAM policies for querying Amazon Pinpoint analytics
-data](analytics-permissions.md "analytics-permissions.md").
+to query. For more information, see [IAM policies for querying Amazon Pinpoint analytics data](analytics-permissions.md "analytics-permissions.md").

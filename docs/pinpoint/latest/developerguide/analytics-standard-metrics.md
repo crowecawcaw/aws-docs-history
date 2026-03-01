@@ -42,13 +42,10 @@ metrics:
 ###### Topics
 
 - [Amazon Pinpoint application metrics for campaigns](application-metrics-campaigns.md "application-metrics-campaigns.md")
-- [Amazon Pinpoint application metrics for transactional email
-  messages](application-metrics-txn-email.md "application-metrics-txn-email.md")
-- [Amazon Pinpoint application metrics for transactional SMS
-  messages](application-metrics-txn-sms.md "application-metrics-txn-sms.md")
+- [Amazon Pinpoint application metrics for transactional email messages](application-metrics-txn-email.md "application-metrics-txn-email.md")
+- [Amazon Pinpoint application metrics for transactional SMS messages](application-metrics-txn-sms.md "application-metrics-txn-sms.md")
 - [Amazon Pinpoint campaign metrics](campaign-metrics.md "campaign-metrics.md")
 - [Amazon Pinpoint journey engagement metrics](journey-metrics-engagement-email.md "journey-metrics-engagement-email.md")
 - [Amazon Pinpoint journey execution metrics](journey-metrics-execution.md "journey-metrics-execution.md")
 - [Amazon Pinpoint journey activity execution metrics](journey-metrics-activity-execution.md "journey-metrics-activity-execution.md")
-- [Amazon Pinpoint journey and campaign execution
-  metrics](journey-run-metrics-activity-execution.md "journey-run-metrics-activity-execution.md")
+- [Amazon Pinpoint journey and campaign execution metrics](journey-run-metrics-activity-execution.md "journey-run-metrics-activity-execution.md")

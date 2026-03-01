@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-#
-
-Set up Amazon Pinpoint to stream app event data through Amazon Kinesis or Amazon Data Firehose
+# Set up Amazon Pinpoint to stream app event data through Amazon Kinesis or Amazon Data Firehose
 
 You can set up Amazon Pinpoint to send event data to an Amazon Kinesis stream or an Amazon Data Firehose delivery
 stream. Amazon Pinpoint can send event data for campaigns, journeys, and transactional email and SMS

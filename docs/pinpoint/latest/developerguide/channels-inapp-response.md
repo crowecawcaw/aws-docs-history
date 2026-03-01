@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# `GetInAppMessages`
-
-Amazon Pinpoint API response JSON example
+# `GetInAppMessages` Amazon Pinpoint API response JSON example
 
 When you call the [GetInAppMessages](../apireference/apps-application-id-endpoints-endpoint-id-inappmessages.md#GetInAppMessages "../apireference/apps-application-id-endpoints-endpoint-id-inappmessages.md#GetInAppMessages") API operation, it returns a list of messages that the
 specified endpoint is entitled to. Your app can then render the message based on the
@@ -119,9 +117,7 @@ The `HeaderConfig` object contains the following attributes:
 | `Header`    | The message header text.                                                                                                |
 | `TextColor` | The color of the header text, expressed as string<br>describing the hex color code (such as "#000000" for<br>black).    |
 
-## `BodyConfig`
-
-object
+## `BodyConfig` object
 
 The `BodyConfig` object contains the following attributes:
 
@@ -145,9 +141,7 @@ attributes:
 | `PrimaryBtn`      | An [InAppMessageButton](#channels-inapp-response-button-object "#channels-inapp-response-button-object") object that contains information<br>about the main button in the message.                                                                                           |
 | `SecondaryBtn`    | An [InAppMessageButton](#channels-inapp-response-button-object "#channels-inapp-response-button-object") object that contains information<br>about the secondary button in the message. Not present if the<br>in-app message template doesn't specify a secondary<br>button. |
 
-## `Schedule`
-
-object
+## `Schedule` object
 
 The `Schedule` object contains the following attributes:
 

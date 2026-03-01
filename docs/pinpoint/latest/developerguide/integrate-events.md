@@ -65,13 +65,10 @@ failures**.
 
 If you haven't already, do the following:
 
-- Integrate your app with AWS Amplify. See [Connect your frontend application to Amazon Pinpoint using AWS
-  Amplify](integrate-sdk.md "integrate-sdk.md").
+- Integrate your app with AWS Amplify. See [Connect your frontend application to Amazon Pinpoint using AWS Amplify](integrate-sdk.md "integrate-sdk.md").
 - Update your application to register endpoints. See [Register Amazon Pinpoint endpoints in your application](integrate-endpoints.md "integrate-endpoints.md").
 
-## Report events with the AWS mobile SDKs
-
-for Android or iOS
+## Report events with the AWS mobile SDKs for Android or iOS
 
 You can enable a mobile app to report events to Amazon Pinpoint by using the AWS Mobile SDKs
 for iOS and Android.
@@ -82,9 +79,7 @@ the following pages in the AWS Amplify documentation:
 - [Analytics](https://docs.amplify.aws/swift/build-a-backend/add-aws-services/analytics/ "https://docs.amplify.aws/swift/build-a-backend/add-aws-services/analytics/") in the iOS SDK documentation
 - [Analytics](https://docs.amplify.aws/android/build-a-backend/add-aws-services/analytics/ "https://docs.amplify.aws/android/build-a-backend/add-aws-services/analytics/") in the Android SDK documentation
 
-## Report events with the AWS Amplify
-
-JavaScript library
+## Report events with the AWS Amplify JavaScript library
 
 You can enable JavaScript and React Native apps to report application usage events to
 Amazon Pinpoint by using the AWS Amplify JavaScript library. For more information about updating

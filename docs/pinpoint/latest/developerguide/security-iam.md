@@ -20,24 +20,20 @@ use with no additional charge.
 - [Managing access using policies](#security_iam_access-manage "#security_iam_access-manage")
 - [How Amazon Pinpoint works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
 - [Amazon Pinpoint actions for IAM policies](permissions-actions.md "permissions-actions.md")
-- [Amazon Pinpoint identity-based
-  policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
+- [Amazon Pinpoint identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
 - [IAM roles for common Amazon Pinpoint tasks](security_iam_roles-common.md "security_iam_roles-common.md")
-- [Troubleshooting Amazon Pinpoint identity and
-  access management](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
+- [Troubleshooting Amazon Pinpoint identity and access management](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
 
 ## Audience
 
 How you use AWS Identity and Access Management (IAM) differs based on your role:
 
 - **Service user** - request permissions from your
-  administrator if you cannot access features (see [Troubleshooting Amazon Pinpoint identity and
-  access management](security_iam_troubleshoot.md "security_iam_troubleshoot.md"))
+  administrator if you cannot access features (see [Troubleshooting Amazon Pinpoint identity and access management](security_iam_troubleshoot.md "security_iam_troubleshoot.md"))
 - **Service administrator** - determine user access and
   submit permission requests (see [How Amazon Pinpoint works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md"))
 - **IAM administrator** - write policies to manage
-  access (see [Amazon Pinpoint identity-based
-  policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"))
+  access (see [Amazon Pinpoint identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"))
 
 ## Authenticating with identities
 
@@ -71,9 +67,7 @@ Using policies, administrators specify who has access to what by defining which 
 
 By default, users and roles have no permissions. An IAM administrator creates IAM policies and adds them to roles, which users can then assume. IAM policies define permissions regardless of the method used to perform the operation.
 
-### Identity-based
-
-policies
+### Identity-based policies
 
 Identity-based policies are JSON permissions policy documents that you attach to an identity (user, group, or role). These policies control what actions identities can perform, on which resources, and under what conditions. To learn how to create an identity-based policy, see [Define custom IAM permissions with customer managed policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in the _IAM User Guide_.
 
@@ -82,9 +76,7 @@ Identity-based policies can be _inline policies_ (embedded directly into a singl
 Amazon Pinpoint supports the use of identity-based policies to control access to Amazon Pinpoint
 resources.
 
-### Resource-based
-
-policies
+### Resource-based policies
 
 Resource-based policies are JSON policy documents that you attach to a resource. Examples include IAM _role trust policies_ and Amazon S3 _bucket policies_. In services that support resource-based policies, service administrators can use them to control access to a specific resource. You must [specify a principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md") in a resource-based policy.
 

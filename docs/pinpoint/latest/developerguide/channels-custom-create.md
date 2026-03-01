@@ -45,5 +45,4 @@ the `CustomDeliveryConfiguration` object, specify the following:
 
 The `Campaign` object can also contain a `Hook` object. This
 object is only used to create segments that are customized by a Lambda function when
-a campaign is executed. For more information, see [Customize Amazon Pinpoint segments using an AWS Lambda
-function](segments-dynamic.md "segments-dynamic.md").
+a campaign is executed. For more information, see [Customize Amazon Pinpoint segments using an AWS Lambda function](segments-dynamic.md "segments-dynamic.md").

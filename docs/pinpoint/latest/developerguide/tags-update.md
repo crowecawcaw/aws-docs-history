@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Update or overwrite tags for Amazon Pinpoint resources
-
-programmatically
+# Update or overwrite tags for Amazon Pinpoint resources programmatically
 
 There are several ways to update (overwrite) a tag for an Amazon Pinpoint resource. The best
 way to update a tag depends on:

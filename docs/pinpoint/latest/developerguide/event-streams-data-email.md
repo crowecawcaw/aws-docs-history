@@ -11,7 +11,7 @@ supported by AWS End User Messaging.
 If you use Amazon Pinpoint to send emails, Amazon Pinpoint can stream event data about
 those emails. After you set up event streaming, Amazon Pinpoint retrieves your event data
 from the destination that you specified during setup for you to view.
-For information about how to set up event streaming, see [Set up Amazon Pinpoint to stream app event data through Amazon Kinesis or Amazon Data Firehose](event-streams-setup.md "event-streams-setup.md") .
+For information about how to set up event streaming, see [Set up Amazon Pinpoint to stream app event data through Amazon Kinesis or Amazon Data Firehose](event-streams-setup.md "event-streams-setup.md").
 Amazon Pinpoint streams data about the following types of events for email messages:
 
 - Sends
@@ -30,7 +30,7 @@ additional event types or different data. For example, if you send messages usin
 configuration sets that publish event data to Amazon Kinesis, such as those provided by Amazon Simple Email Service
 (Amazon SES), the data can also include events for template-rendering failures. For information
 about that data, see [Monitoring using Amazon SES event publishing](../../../ses/latest/dg/monitor-using-event-publishing.md "../../../ses/latest/dg/monitor-using-event-publishing.md") in the _Amazon Simple Email Service Developer Guide_. Before you can view your
-events you have to setup event streaming, see [Set up Amazon Pinpoint to stream app event data through Amazon Kinesis or Amazon Data Firehose](event-streams-setup.md "event-streams-setup.md") . When setting up event streaming you specify a destination for your event data to be saved to and then you can use the destination to retrieve your event data for viewing.
+events you have to setup event streaming, see [Set up Amazon Pinpoint to stream app event data through Amazon Kinesis or Amazon Data Firehose](event-streams-setup.md "event-streams-setup.md"). When setting up event streaming you specify a destination for your event data to be saved to and then you can use the destination to retrieve your event data for viewing.
 
 ## Email event examples
 

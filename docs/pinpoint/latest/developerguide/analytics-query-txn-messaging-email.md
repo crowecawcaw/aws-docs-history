@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Query Amazon Pinpoint data for transactional email
-
-messages
+# Query Amazon Pinpoint data for transactional email messages
 
 To query the data for transactional email messages that were sent for a project, you use
 the [Application

@@ -6,25 +6,18 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Troubleshooting Amazon Pinpoint identity and
-
-access management
+# Troubleshooting Amazon Pinpoint identity and access management
 
 Use the following information to diagnose and fix common issues that you might encounter
 when working with Amazon Pinpoint and IAM.
 
 ###### Topics
 
-- [I'm not authorized to perform an
-  action in Amazon Pinpoint](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
-- [I'm not authorized to perform
-  iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
-- [I want to allow people
-  outside my AWS account to access my Amazon Pinpoint resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
+- [I'm not authorized to perform an action in Amazon Pinpoint](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
+- [I'm not authorized to perform iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
+- [I want to allow people outside my AWS account to access my Amazon Pinpoint resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
 
-## I'm not authorized to perform an
-
-action in Amazon Pinpoint
+## I'm not authorized to perform an action in Amazon Pinpoint
 
 If the AWS Management Console tells you that you're not authorized to perform an action, then you must
 contact your administrator for assistance. Your administrator is the person who provided you
@@ -42,9 +35,7 @@ In this case, Mateo asks his administrator to update his policies to allow him t
 the `my-example-project` resource using the
 `mobiletargeting:`GetApp`` action.
 
-## I'm not authorized to perform
-
-iam:PassRole
+## I'm not authorized to perform iam:PassRole
 
 If you receive an error that you're not authorized to perform the `iam:PassRole` action, your policies must be updated to allow you to pass a role to Amazon Pinpoint.
 
@@ -63,9 +54,7 @@ In this case, Mary's policies must be updated to allow her to perform the `iam:P
 
 If you need help, contact your AWS administrator. Your administrator is the person who provided you with your sign-in credentials.
 
-## I want to allow people
-
-outside my AWS account to access my Amazon Pinpoint resources
+## I want to allow people outside my AWS account to access my Amazon Pinpoint resources
 
 You can create a role that users in other accounts or people outside of your organization can use to access your resources. You can specify who
 is trusted to assume the role. For services that support resource-based policies or access control lists (ACLs), you can use those policies to grant

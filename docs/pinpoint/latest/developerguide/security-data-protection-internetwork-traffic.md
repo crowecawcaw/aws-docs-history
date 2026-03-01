@@ -6,18 +6,14 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Internetwork traffic
-
-privacy
+# Internetwork traffic privacy
 
 _Internetwork traffic privacy_ refers to securing
 connections and traffic between Amazon Pinpoint and your on-premises clients and applications, and
 between Amazon Pinpoint and other AWS resources in the same AWS Region. The following features and
 practices can help you ensure internetwork traffic privacy for Amazon Pinpoint.
 
-## Traffic between
-
-Amazon Pinpoint and on-premises clients and applications
+## Traffic between Amazon Pinpoint and on-premises clients and applications
 
 To establish a private connection between Amazon Pinpoint and clients and applications on your
 on-premises network, you can use Direct Connect. This enables you to link your network to an
@@ -38,9 +34,7 @@ that's associated with an AWS Identity and Access Management (IAM) principal for
 Alternatively, you can use the [AWS Security Token Service](../../../STS/latest/APIReference/Welcome.md "../../../STS/latest/APIReference/Welcome.md") (AWS STS) to generate
 temporary security credentials to sign requests.
 
-## Traffic between
-
-Amazon Pinpoint and other AWS resources
+## Traffic between Amazon Pinpoint and other AWS resources
 
 To secure communications between Amazon Pinpoint and other AWS resources in the same AWS
 Region, Amazon Pinpoint uses HTTPS and TLS 1.2 by default.
