@@ -42,9 +42,7 @@ This policy includes the following permissions.
 To view details for this policy, see [AWSZoneGroupAccessManagementServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSZoneGroupAccessManagementServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSZoneGroupAccessManagementServiceRolePolicy.md") in the _AWS Managed Policy
 Reference_.
 
-## AWS Local Zones updates to AWS managed
-
-policies
+## AWS Local Zones updates to AWS managed policies
 
 View details about updates to AWS managed policies for AWS Local Zones since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

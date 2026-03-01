@@ -8,8 +8,7 @@ when you create it. Finally, create AWS resources in the Local Zone subnet.
 
 - [Step 1: Opt-in to a Local Zone](#getting-started-find-local-zone "#getting-started-find-local-zone")
 - [Step 2: Create a Local Zone subnet](#getting-started-create-local-zone-subnet "#getting-started-create-local-zone-subnet")
-- [Step 3: Create a resource in your Local Zone
-  subnet](#getting-started-create-resources "#getting-started-create-resources")
+- [Step 3: Create a resource in your Local Zone subnet](#getting-started-create-resources "#getting-started-create-resources")
 - [Step 4: Clean up](#getting-started-cleanup "#getting-started-cleanup")
 
 ## Step 1: Opt-in to a Local Zone
@@ -104,9 +103,7 @@ aws ec2 create-subnet \
   --vpc-id `vpc-081ec835f303f720e`
 ```
 
-## Step 3: Create a resource in your Local Zone
-
-subnet
+## Step 3: Create a resource in your Local Zone subnet
 
 After you create a subnet in a Local Zone, you can deploy AWS resources in the Local Zone. For
 example, the following procedure shows how to launch an Amazon EC2 instance in a Local Zone.
