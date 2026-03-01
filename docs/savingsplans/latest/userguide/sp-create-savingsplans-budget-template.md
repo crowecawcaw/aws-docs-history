@@ -1,6 +1,4 @@
-# Using a template to create
-
-a Savings Plans budget
+# Using a template to create a Savings Plans budget
 
 Use the following procedure to create a coverage budget for your Savings Plans using a
 template.

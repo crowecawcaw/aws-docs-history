@@ -1,6 +1,4 @@
-# Purchasing a custom Savings Plan
-
-commitment
+# Purchasing a custom Savings Plan commitment
 
 You can purchase a Savings Plan with a commitment amount that is different from the
 recommended commitment. Purchase a commitment of your choice on the **Purchase

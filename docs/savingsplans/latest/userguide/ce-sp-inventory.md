@@ -16,9 +16,7 @@ You can see your recently purchased Savings Plans in your
 **Account inventory** shortly after purchase. It might take longer for
 Savings Plans to appear in your **Organization inventory** view.
 
-###### To view your **Inventory**
-
-page
+###### To view your **Inventory** page
 
 1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
 2. In the navigation pane, under **Savings Plans**, choose

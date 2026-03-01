@@ -7,9 +7,7 @@ save. You can directly add Savings Plans that are recommended for your account t
 more information about how to view your **Recommendations** page, or to
 learn how recommendations are calculated, see [Understanding Savings Plans recommendations](sp-recommendations.md "sp-recommendations.md").
 
-###### To purchase Savings Plans from the
-
-**Recommendations** page
+###### To purchase Savings Plans from the **Recommendations** page
 
 1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
 2. In the navigation pane, under **Savings Plans**, choose

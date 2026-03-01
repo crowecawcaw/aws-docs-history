@@ -1,6 +1,4 @@
-# Reviewing your Savings Plan purchase
-
-analysis
+# Reviewing your Savings Plan purchase analysis
 
 After setting parameters and running the analysis, Purchase Analyzer applies the
 resulting Savings Plan to each hour of the historical lookback period. This process

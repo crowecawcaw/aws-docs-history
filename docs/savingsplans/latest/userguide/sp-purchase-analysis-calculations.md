@@ -1,6 +1,4 @@
-# Understanding your analysis
-
-calculations
+# Understanding your analysis calculations
 
 A Savings Plan purchase analysis examines your cost, coverage, and utilization over a
 selected time period. Based on the analysis, we calculate what your On-Demand spend

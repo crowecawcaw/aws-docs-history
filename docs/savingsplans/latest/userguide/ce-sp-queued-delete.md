@@ -4,9 +4,7 @@ You can use queued Savings Plans to have continued coverage for your On-Demand u
 However, we understand that your preferences might change as the start date
 approaches. You can delete your queued purchased using the following process.
 
-###### To delete a queued Savings Plan
-
-purchase
+###### To delete a queued Savings Plan purchase
 
 1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
 2. On the navigation pane, choose **Inventory** under the

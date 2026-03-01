@@ -9,9 +9,7 @@ recipients.
 For information about how to manage your Savings Plans alert subscriptions, see [View, create, update, and delete reservation and Savings Plans alerts](../../../cost-management/latest/userguide/billing-example-policies.md#example-view-ce-expiration "../../../cost-management/latest/userguide/billing-example-policies.md#example-view-ce-expiration") in the
 _AWS Billing User Guide_.
 
-###### To turn on Savings Plans expiration or queued purchases
-
-alerts
+###### To turn on Savings Plans expiration or queued purchases alerts
 
 1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
 2. In the navigation pane, under **Savings Plans**, choose

@@ -1,6 +1,4 @@
-# Understanding utilization metrics and
-
-calculations
+# Understanding utilization metrics and calculations
 
 You can find high-level metrics in the **Utilization report**
 section.

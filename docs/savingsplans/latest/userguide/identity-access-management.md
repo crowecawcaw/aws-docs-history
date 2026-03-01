@@ -1,6 +1,4 @@
-# Identity and Access Management for
-
-Savings Plans
+# Identity and Access Management for Savings Plans
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access
 to AWS resources. As an administrator, you can create roles under your AWS account that

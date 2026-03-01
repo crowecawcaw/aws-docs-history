@@ -4,9 +4,7 @@ If your active Savings Plans are nearing expiration, you can queue a purchase to
 soon as the active Savings Plans expire. This helps ensure that you have continuous Savings Plans
 coverage.
 
-###### To queue a Savings Plan purchase to
-
-replace an expiring Savings Plan
+###### To queue a Savings Plan purchase to replace an expiring Savings Plan
 
 1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
 2. In the navigation pane, under **Savings Plans**, choose

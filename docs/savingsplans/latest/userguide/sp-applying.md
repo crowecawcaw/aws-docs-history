@@ -53,12 +53,9 @@ simplification.
 
 - [Scenario 1: Savings Plans apply to all usage](#scenario-1 "#scenario-1")
 - [Scenario 2: Savings Plans apply to some usage](#scenario-2 "#scenario-2")
-- [Scenario 3: Savings Plans apply to some usage, across
-  products](#scenario-3 "#scenario-3")
-- [Scenario 4: Savings Plans and EC2 reserved instances apply
-  to the usage](#scenario-4 "#scenario-4")
-- [Scenario 5: Multiple Savings Plans apply to the
-  usage](#scenario-5 "#scenario-5")
+- [Scenario 3: Savings Plans apply to some usage, across products](#scenario-3 "#scenario-3")
+- [Scenario 4: Savings Plans and EC2 reserved instances apply to the usage](#scenario-4 "#scenario-4")
+- [Scenario 5: Multiple Savings Plans apply to the usage](#scenario-5 "#scenario-5")
 
 ### Scenario 1: Savings Plans apply to all usage
 
@@ -93,9 +90,7 @@ The Fargate `m5.24xlarge` and Lambda usage are also charged at
 On-Demand rates, resulting in $55.10 of On-Demand charges. The total On-Demand
 charges for this usage are $56.24.
 
-### Scenario 3: Savings Plans apply to some usage, across
-
-products
+### Scenario 3: Savings Plans apply to some usage, across products
 
 You purchase a one-year, partial upfront Compute Savings Plan with a
 $19.60/hour commitment.
@@ -111,9 +106,7 @@ met, and the remaining usage is charged at On-Demand rates.
 The `m5.24xlarge` and Lambda usage on On-Demand charges are
 $32.70.
 
-### Scenario 4: Savings Plans and EC2 reserved instances apply
-
-to the usage
+### Scenario 4: Savings Plans and EC2 reserved instances apply to the usage
 
 You purchase a one-year, partial upfront Compute Savings Plan with an
 $18.20/hour commitment. You have two EC2 Reserved Instances (RI) for
@@ -125,9 +118,7 @@ usage, which exhausts the hourly commitment of $18.20.
 
 The `m5.24xlarge` and Lambda usage On-Demand charges are $32.70.
 
-### Scenario 5: Multiple Savings Plans apply to the
-
-usage
+### Scenario 5: Multiple Savings Plans apply to the usage
 
 You purchase a one-year, partial upfront EC2 Instance Family Savings Plan for
 the `r5` family in us-east-1 with a $3.00/hour commitment. You also

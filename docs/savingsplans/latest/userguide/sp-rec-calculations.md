@@ -1,6 +1,4 @@
-# Understanding your recommendation
-
-calculations
+# Understanding your recommendation calculations
 
 Savings Plans recommendations examine your usage over a selected time period. Based on the
 usage, we calculate what your bill could have been if you had purchased an additional

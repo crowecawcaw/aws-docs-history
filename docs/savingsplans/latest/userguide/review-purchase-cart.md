@@ -3,9 +3,7 @@
 The Savings Plans **Carts** page keeps your commitments until you're ready to
 make a purchase.
 
-###### To review and finalize purchases from the
-
-**Cart** page
+###### To review and finalize purchases from the **Cart** page
 
 1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
 2. In the navigation pane, under **Savings Plans**, choose

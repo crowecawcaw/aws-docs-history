@@ -12,8 +12,7 @@ at any time before the start date.
 2. Add your Savings Plans from the **Purchase Savings Plans** page or the
    **Recommendations** page.
 
-To learn more about this process, see [Evaluating Savings Plans recommendations](purchase-rec.md "purchase-rec.md") or [Purchasing a custom Savings Plan
-commitment](purchase-sp-direct.md "purchase-sp-direct.md"). 3. In the navigation pane, under **Savings Plans**, choose
+To learn more about this process, see [Evaluating Savings Plans recommendations](purchase-rec.md "purchase-rec.md") or [Purchasing a custom Savings Plan commitment](purchase-sp-direct.md "purchase-sp-direct.md"). 3. In the navigation pane, under **Savings Plans**, choose
 **Cart**. 4. Select your Savings Plans. 5. Choose **Set start date**. 6. Choose a **Date** and **Time**.
 
 You can queue a purchase up to three years in the future. You can also specify

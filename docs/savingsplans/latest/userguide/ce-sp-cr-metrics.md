@@ -1,6 +1,4 @@
-# Understanding coverage metrics and
-
-calculations
+# Understanding coverage metrics and calculations
 
 You can find the following high-level metrics in the **Coverage
 report** section:

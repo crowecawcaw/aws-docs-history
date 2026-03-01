@@ -14,8 +14,7 @@ When you use billing transfer, you can purchase Savings Plans and Reserved Insta
 ###### Topics
 
 - [Evaluating Savings Plans recommendations](purchase-rec.md "purchase-rec.md")
-- [Purchasing a custom Savings Plan
-  commitment](purchase-sp-direct.md "purchase-sp-direct.md")
+- [Purchasing a custom Savings Plan commitment](purchase-sp-direct.md "purchase-sp-direct.md")
 - [Queuing a Savings Plan purchase](queued-sp-cart.md "queued-sp-cart.md")
 - [Reviewing and finalizing Savings Plans purchases](review-purchase-cart.md "review-purchase-cart.md")
 - [Returning a purchased Savings Plan](return-sp.md "return-sp.md")

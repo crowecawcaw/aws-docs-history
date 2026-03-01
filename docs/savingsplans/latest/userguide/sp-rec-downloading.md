@@ -3,9 +3,7 @@
 You can download your Savings Plans recommendations in CSV file format. CSV file format is
 useful to review or share recommendations.
 
-###### To download your Savings Plans
-
-recommendations
+###### To download your Savings Plans recommendations
 
 1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
 2. In the navigation pane, under **Savings Plans**, choose
