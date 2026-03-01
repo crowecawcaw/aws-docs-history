@@ -1,6 +1,4 @@
-# Step 4: Generate an encryption schema for a
-
-tabular file
+# Step 4: Generate an encryption schema for a tabular file
 
 To encrypt data, an encryption schema describing how the data will be used is required.
 This section describes how the C3R encryption client assists in generating an encryption schema for a
@@ -62,15 +60,10 @@ your interaction depends on the input file and the responses that you provide.
 
 ###### Examples
 
-- [Example: Generate an encryption schema for a
-  fingerprint column and a cleartext column](#gen-encryption-schema_join "#gen-encryption-schema_join")
-- [Example: Generate an encryption schema with
-  sealed, fingerprint, and cleartext
-  columns](#gen-encryption-schema "#gen-encryption-schema")
+- [Example: Generate an encryption schema for a fingerprint column and a cleartext column](#gen-encryption-schema_join "#gen-encryption-schema_join")
+- [Example: Generate an encryption schema with sealed, fingerprint, and cleartext columns](#gen-encryption-schema "#gen-encryption-schema")
 
-## Example: Generate an encryption schema for a
-
-fingerprint column and a cleartext column
+## Example: Generate an encryption schema for a fingerprint column and a cleartext column
 
 In this example, for `ads.csv`, there are only two columns:
 `username` and `ad_variant`. For these columns, we want the
@@ -80,9 +73,7 @@ following:
   column
 - For the `ad_variant` column to be a `cleartext` column
 
-###### To generate an encryption schema for a fingerprint column and a
-
-cleartext column
+###### To generate an encryption schema for a fingerprint column and a cleartext column
 
 1. (_Optional_) To ensure the c3r-cli.jar
    file and file to be encrypted are present:
@@ -151,10 +142,7 @@ You can view the schema by opening it in any text editor, such as
 Notepad on Windows or TextEdit on
 macOS. 10. You are now ready to [encrypt data](encrypt-data.md "encrypt-data.md").
 
-## Example: Generate an encryption schema with
-
-sealed, fingerprint, and cleartext
-columns
+## Example: Generate an encryption schema with sealed, fingerprint, and cleartext columns
 
 In this example, for `sales.csv`, there are three columns:
 `username` , `purchased`, and `product`. For these
@@ -165,9 +153,7 @@ columns, we want the following:
   column
 - For the `purchased` column to be a `cleartext` column
 
-###### To generate an encryption schema with sealed,
-
-fingerprint, and cleartext columns
+###### To generate an encryption schema with sealed, fingerprint, and cleartext columns
 
 1. (_Optional_) To ensure the c3r-cli.jar
    file and file to be encrypted are present:

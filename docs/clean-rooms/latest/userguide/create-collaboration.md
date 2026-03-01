@@ -26,6 +26,5 @@ modeling.
 ###### Topics
 
 - [Creating a collaboration for queries](create-collab-queries.md "create-collab-queries.md")
-- [Creating a collaboration for queries and
-  jobs](create-collab-queries-and-jobs.md "create-collab-queries-and-jobs.md")
+- [Creating a collaboration for queries and jobs](create-collab-queries-and-jobs.md "create-collab-queries-and-jobs.md")
 - [Creating a collaboration for ML modeling](create-collab-ml-modeling.md "create-collab-ml-modeling.md")

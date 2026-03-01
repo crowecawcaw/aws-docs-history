@@ -17,14 +17,10 @@ directory.
 
 ###### Topics
 
-- [Example: Key generation using
-  OpenSSL](#generate-key-OpenSSL "#generate-key-OpenSSL")
-- [Example: Key generation on Windows
-  using PowerShell](#generate-key-powershell "#generate-key-powershell")
+- [Example: Key generation using OpenSSL](#generate-key-OpenSSL "#generate-key-OpenSSL")
+- [Example: Key generation on Windows using PowerShell](#generate-key-powershell "#generate-key-powershell")
 
-## Example: Key generation using
-
-OpenSSL
+## Example: Key generation using OpenSSL
 
 For a common general purpose cryptography library, run the following command to create a
 shared secret key.
@@ -35,9 +31,7 @@ If you're using Windows and don't have OpenSSL installed,
 you can generate keys using the example described in [Example: Key generation on Windows using
 PowerShell](#generate-key-powershell "#generate-key-powershell").
 
-## Example: Key generation on Windows
-
-using PowerShell
+## Example: Key generation on Windows using PowerShell
 
 For PowerShell, a terminal application available on
 Windows, run the following command to create a shared secret key.

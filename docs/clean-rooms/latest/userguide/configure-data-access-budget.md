@@ -21,7 +21,6 @@ overall usage, or both. By default, table usage is unlimited.
 ###### Topics
 
 - [Viewing a data access budget](view-access-budget.md "view-access-budget.md")
-- [Adding a data access budget
-  to an existing associated table](add-access-budget-to-existing-associated-table.md "add-access-budget-to-existing-associated-table.md")
+- [Adding a data access budget to an existing associated table](add-access-budget-to-existing-associated-table.md "add-access-budget-to-existing-associated-table.md")
 - [Editing a data access budget](edit-access-budget.md "edit-access-budget.md")
 - [Deleting a data access budget](delete-access-budget.md "delete-access-budget.md")

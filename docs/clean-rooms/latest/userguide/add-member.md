@@ -32,5 +32,4 @@
    verify that the **Member status** of the added member(s) displays
    as **Invited**.
    After completing these steps, the invited members can join the collaboration. For more
-   information about joining a collaboration, see [Creating a membership and joining a
-   collaboration](create-membership.md "create-membership.md")
+   information about joining a collaboration, see [Creating a membership and joining a collaboration](create-membership.md "create-membership.md")

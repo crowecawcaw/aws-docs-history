@@ -7,8 +7,7 @@ Before you create a SQL analysis template, you must have:
 - An active AWS Clean Rooms collaboration
 - Access to at least one configured table in the collaboration
 
-For information about configuring tables in AWS Clean Rooms, see [Creating a configured table in
-AWS Clean Rooms](create-configured-table.md "create-configured-table.md").
+For information about configuring tables in AWS Clean Rooms, see [Creating a configured table in AWS Clean Rooms](create-configured-table.md "create-configured-table.md").
 
 - Permissions to create analysis templates
 - Basic knowledge of SQL query syntax

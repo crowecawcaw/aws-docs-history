@@ -5,10 +5,10 @@ see [AWS Clean Rooms ML](machine-learning.md "machine-learning.md").
 
 Query output from AWS Clean Rooms is available on the console (if the console is used to run
 queries) and downloaded in a specified Amazon S3 bucket. From there, you can use the query output
-in other AWS services, such as Amazon Quick Suite and Amazon SageMaker AI, depending on how those services use
+in other AWS services, such as Amazon Quick and Amazon SageMaker AI, depending on how those services use
 data from Amazon S3.
 
-For more information about Amazon Quick Suite, see the [Amazon Quick Suite
+For more information about Amazon Quick, see the [Amazon Quick
 Documentation](../../../quicksight.md "../../../quicksight.md").
 
 For more information about Amazon SageMaker AI, see the [Amazon SageMaker AI

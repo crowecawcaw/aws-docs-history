@@ -1,6 +1,4 @@
-# Configuring differential privacy policy
-
-(optional)
+# Configuring differential privacy policy (optional)
 
 ###### Note
 
@@ -46,9 +44,7 @@ As a collaboration member who is protecting data with differential privacy, afte
 created a collaboration with differential privacy, you can monitor the usage of the privacy
 budget.
 
-###### To view how many aggregations were run and how much of the privacy budget was
-
-used
+###### To view how many aggregations were run and how much of the privacy budget was used
 
 1. Sign in to the AWS Management Console and open the AWS Clean Rooms console at [https://console.aws.amazon.com/cleanrooms](https://console.aws.amazon.com/cleanrooms/home "https://console.aws.amazon.com/cleanrooms/home").
 2. In the left navigation pane, choose **Collaborations**.
@@ -115,9 +111,7 @@ After deleting a differential privacy policy, you can't access the privacy budge
 logs from that policy. Tables with differential privacy turned on can't be queried if the
 differential privacy policy is deleted.
 
-## Viewing the calculated differential privacy
-
-parameters
+## Viewing the calculated differential privacy parameters
 
 For users with expertise in differential privacy, you can view the calculated differential
 privacy parameters from the **Analysis** tab of a collaboration.

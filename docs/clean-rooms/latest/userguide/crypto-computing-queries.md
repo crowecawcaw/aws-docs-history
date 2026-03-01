@@ -8,8 +8,7 @@ Cryptographic Computing for Clean Rooms.
 
 - [Queries that branch on NULL](#queries-branch-on-null "#queries-branch-on-null")
 - [Mapping one source column to multiple target columns](#queries-mapping "#queries-mapping")
-- [Using the same data for both JOIN and
-  SELECT queries](#queries-using-same-data "#queries-using-same-data")
+- [Using the same data for both JOIN and SELECT queries](#queries-using-same-data "#queries-using-same-data")
 
 ## Queries that branch on NULL
 
@@ -30,12 +29,9 @@ Queries that violate these constraints might yield incorrect results.
 One source column can map to multiple target columns. For example, you might want to both
 JOIN and SELECT on a column.
 
-For more information, see [Using the same data for both JOIN and
-SELECT queries](#queries-using-same-data "#queries-using-same-data").
+For more information, see [Using the same data for both JOIN and SELECT queries](#queries-using-same-data "#queries-using-same-data").
 
-## Using the same data for both JOIN and
-
-SELECT queries
+## Using the same data for both JOIN and SELECT queries
 
 If the data in a column is not sensitive, it can appear in a cleartext
 target column, which allows it to be used for any purpose.

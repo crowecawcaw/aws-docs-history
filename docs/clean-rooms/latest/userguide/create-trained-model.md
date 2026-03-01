@@ -20,10 +20,8 @@ data, or distributed training to train models across multiple compute instances.
 
 ###### Topics
 
-- [Using incremental training in
-  AWS Clean Rooms ML](use-incremental-training.md "use-incremental-training.md")
-- [Using distributed training in
-  AWS Clean Rooms ML](use-distributed-training.md "use-distributed-training.md")
+- [Using incremental training in AWS Clean Rooms ML](use-incremental-training.md "use-incremental-training.md")
+- [Using distributed training in AWS Clean Rooms ML](use-distributed-training.md "use-distributed-training.md")
 
 Console
 

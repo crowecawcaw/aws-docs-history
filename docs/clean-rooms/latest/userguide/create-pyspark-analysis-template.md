@@ -1,6 +1,4 @@
-# Creating a PySpark analysis
-
-template
+# Creating a PySpark analysis template
 
 ###### Note
 
@@ -23,8 +21,7 @@ Before you create a PySpark analysis template, you must have:
 
 - Permissions to read code from an S3 bucket
 
-For information about creating the required service role, see [Create a service role to
-read code from an S3 bucket (PySpark analysis template role)](setting-up-roles.md#create-role-pyspark-analysis-template "setting-up-roles.md#create-role-pyspark-analysis-template").
+For information about creating the required service role, see [Create a service role to read code from an S3 bucket (PySpark analysis template role)](setting-up-roles.md#create-role-pyspark-analysis-template "setting-up-roles.md#create-role-pyspark-analysis-template").
 The following procedure describes the process of creating a PySpark analysis template
 using the [AWS Clean Rooms console](https://console.aws.amazon.com/cleanrooms/home "https://console.aws.amazon.com/cleanrooms/home"). It assumes that
 you have already created a user script and virtual environment files and stored your user

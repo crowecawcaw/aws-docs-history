@@ -1,6 +1,4 @@
-# Using distributed training in
-
-AWS Clean Rooms ML
+# Using distributed training in AWS Clean Rooms ML
 
 Prerequisites:
 

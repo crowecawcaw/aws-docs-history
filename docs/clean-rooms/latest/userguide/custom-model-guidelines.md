@@ -1,6 +1,4 @@
-# Model authoring guidelines for the
-
-training container
+# Model authoring guidelines for the training container
 
 This section details the guidelines that model providers should follow when
 creating a custom ML model algorithm for Clean Rooms ML.

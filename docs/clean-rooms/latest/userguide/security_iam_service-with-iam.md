@@ -21,9 +21,7 @@ To get a high-level view of how AWS Clean Rooms and other AWS services work with
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for AWS Clean Rooms
+## Identity-based policies for AWS Clean Rooms
 
 **Supports identity-based policies:**
 
@@ -40,16 +38,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for AWS Clean Rooms
 
-Identity-based policy examples for AWS Clean Rooms
+To view examples of AWS Clean Rooms identity-based policies, see [Identity-based policy examples for AWS Clean Rooms](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of AWS Clean Rooms identity-based policies, see [Identity-based policy examples for
-AWS Clean Rooms](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within AWS Clean Rooms
+## Resource-based policies within AWS Clean Rooms
 
 **Supports resource-based policies:**
 
@@ -72,9 +65,7 @@ configured lookalike model.
 To learn how to attach a resource-based policy to a
 configured lookalike model, see **[IAM behaviors for AWS Clean Rooms ML](ml-behaviors.md "ml-behaviors.md")**.
 
-## Policy actions
-
-for AWS Clean Rooms
+## Policy actions for AWS Clean Rooms
 
 **Supports policy actions:**
 
@@ -104,12 +95,9 @@ To specify multiple actions in a single statement, separate them with commas.
          ]
 ```
 
-To view examples of AWS Clean Rooms identity-based policies, see [Identity-based policy examples for
-AWS Clean Rooms](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS Clean Rooms identity-based policies, see [Identity-based policy examples for AWS Clean Rooms](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for AWS Clean Rooms
+## Policy resources for AWS Clean Rooms
 
 **Supports policy resources:**
 
@@ -128,12 +116,9 @@ To see a list of AWS Clean Rooms resource types and their ARNs, see [Resources d
 in the _Service Authorization Reference_. To learn with which actions you can
 specify the ARN of each resource, see [Actions defined by AWS Clean Rooms](../../../service-authorization/latest/reference/list_your_service.md#your_service-actions-as-permissions "../../../service-authorization/latest/reference/list_your_service.md#your_service-actions-as-permissions").
 
-To view examples of AWS Clean Rooms identity-based policies, see [Identity-based policy examples for
-AWS Clean Rooms](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS Clean Rooms identity-based policies, see [Identity-based policy examples for AWS Clean Rooms](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for AWS Clean Rooms
+## Policy condition keys for AWS Clean Rooms
 
 **Supports service-specific policy condition keys:**
 
@@ -176,9 +161,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary
-
-credentials with AWS Clean Rooms
+## Using temporary credentials with AWS Clean Rooms
 
 **Supports temporary credentials:**
 
@@ -190,9 +173,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Forward
-
-access sessions for AWS Clean Rooms
+## Forward access sessions for AWS Clean Rooms
 
 **Supports forward access sessions (FAS):**
 
@@ -201,9 +182,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-AWS Clean Rooms
+## Service roles for AWS Clean Rooms
 
 **Supports service roles:**
 
@@ -218,9 +197,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break AWS Clean Rooms functionality.
 Edit service roles only when AWS Clean Rooms provides guidance to do so.
 
-## Service-linked
-
-roles for AWS Clean Rooms
+## Service-linked roles for AWS Clean Rooms
 
 **Supports service-linked roles:**
 

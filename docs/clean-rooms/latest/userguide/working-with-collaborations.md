@@ -1,6 +1,4 @@
-# Collaborations and memberships in
-
-AWS Clean Rooms
+# Collaborations and memberships in AWS Clean Rooms
 
 A _collaboration_ is a secure logical boundary in AWS Clean Rooms
 in which members can perform analysis on configured tables.
@@ -24,8 +22,7 @@ For information about how to create a collaboration using the AWS SDKs, see the 
 ###### Topics
 
 - [Creating a collaboration](create-collaboration.md "create-collaboration.md")
-- [Creating a membership and joining a
-  collaboration](create-membership.md "create-membership.md")
+- [Creating a membership and joining a collaboration](create-membership.md "create-membership.md")
 - [Editing collaborations](edit-collaboration.md "edit-collaboration.md")
 - [Change requests in AWS Clean Rooms](change-requests.md "change-requests.md")
 - [Deleting collaborations](delete-collaboration.md "delete-collaboration.md")

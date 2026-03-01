@@ -40,14 +40,11 @@ table.
 
 ###### Topics
 
-- [Custom analysis rule predefined
-  structure](#custom-predefined-structure "#custom-predefined-structure")
+- [Custom analysis rule predefined structure](#custom-predefined-structure "#custom-predefined-structure")
 - [Custom analysis rule example](#custom-example "#custom-example")
 - [Custom analysis rule with differential privacy](#custom-diff-privacy "#custom-diff-privacy")
 
-## Custom analysis rule predefined
-
-structure
+## Custom analysis rule predefined structure
 
 The following example includes a predefined structure that shows you how to complete a
 custom analysis rule with differential privacy turned on. The `userIdentifier`
@@ -203,9 +200,7 @@ testing for healthcare research.
 
 The supported query structure and syntax are defined in [Query structure and syntax](#dp-query-structure-syntax "#dp-query-structure-syntax").
 
-### Custom analysis rule with differential privacy
-
-example
+### Custom analysis rule with differential privacy example
 
 ###### Note
 

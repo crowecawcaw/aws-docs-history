@@ -1,6 +1,4 @@
-# Custom ML modeling
-
-prerequisites
+# Custom ML modeling prerequisites
 
 Before you can perform custom ML modeling, you should consider the
 following:
@@ -32,8 +30,7 @@ following:
     underlying Amazon S3 locations. These roles are similar to those required
     for SQL querying. This allows you to use the
     `CreateConfiguredTableAssociation` action. For more
-    information, see [Create a service role to
-    create a configured table association](ml-roles.md#ml-roles-custom-configure-table "ml-roles.md#ml-roles-custom-configure-table").
+    information, see [Create a service role to create a configured table association](ml-roles.md#ml-roles-custom-configure-table "ml-roles.md#ml-roles-custom-configure-table").
   - All members that want to receive metrics must have a service
     access role that allows them to write CloudWatch metrics and logs. This
     role is used by Clean Rooms ML to write all model metrics and logs to the
@@ -41,8 +38,7 @@ following:
     provide privacy controls to determine which members have access to
     the metrics and logs. This allows you to use the
     `CreateMLConfiguration` action. For more information
-    see, [Create a service role for custom ML
-    modeling - ML Configuration](ml-roles.md#ml-roles-custom-configure "ml-roles.md#ml-roles-custom-configure").
+    see, [Create a service role for custom ML modeling - ML Configuration](ml-roles.md#ml-roles-custom-configure "ml-roles.md#ml-roles-custom-configure").
 
   The member receiving results must provide a service access role
   with permissions to write to their Amazon S3 bucket. This role allows
@@ -50,13 +46,11 @@ following:
   artifacts
   or inference results) to an Amazon S3 bucket. This allows you to use the
   `CreateMLConfiguration` action. For more information,
-  see [Create a service role for custom ML
-  modeling - ML Configuration](ml-roles.md#ml-roles-custom-configure "ml-roles.md#ml-roles-custom-configure").
+  see [Create a service role for custom ML modeling - ML Configuration](ml-roles.md#ml-roles-custom-configure "ml-roles.md#ml-roles-custom-configure").
   - The model provider must provide a service access role with
     permissions to read their Amazon ECR repository and image. This allows
     you to use the `CreateConfigureModelAlgorithm` action.
-    For more information, see [Create a service role to
-    provide a custom ML model](ml-roles.md#ml-roles-custom-model-provider "ml-roles.md#ml-roles-custom-model-provider").
+    For more information, see [Create a service role to provide a custom ML model](ml-roles.md#ml-roles-custom-model-provider "ml-roles.md#ml-roles-custom-model-provider").
   - The member that creates the `MLInputChannel` to
     generate datasets for
     training
@@ -64,10 +58,7 @@ following:
     to execute an SQL query in AWS Clean Rooms. This allows you to use the
     `CreateTrainedModel` and
     `StartTrainedModelInferenceJob` actions. For more
-    information, see [Create a service role to query a
-    dataset](ml-roles.md#ml-roles-custom-query-dataset "ml-roles.md#ml-roles-custom-query-dataset").
+    information, see [Create a service role to query a dataset](ml-roles.md#ml-roles-custom-query-dataset "ml-roles.md#ml-roles-custom-query-dataset").
 
-- Model authors should follow the [Model authoring guidelines for the
-  training container](custom-model-guidelines.md "custom-model-guidelines.md") and [Model authoring guidelines for the
-  inference container](inference-model-guidelines.md "inference-model-guidelines.md") to ensure model inputs and
+- Model authors should follow the [Model authoring guidelines for the training container](custom-model-guidelines.md "custom-model-guidelines.md") and [Model authoring guidelines for the inference container](inference-model-guidelines.md "inference-model-guidelines.md") to ensure model inputs and
   outputs are configured as expected by AWS Clean Rooms.

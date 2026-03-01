@@ -1,6 +1,4 @@
-# Creating a configured table –
-
-Amazon Athena data source
+# Creating a configured table – Amazon Athena data source
 
 The Amazon Athena data source option allows you to query data stored in Amazon S3, cataloged in
 the AWS Glue data catalog or federated catalogs, and access controlled via AWS Lake Formation. Both tables and AWS Glue Data Catalog

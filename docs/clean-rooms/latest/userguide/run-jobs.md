@@ -13,8 +13,7 @@ Before you run a PySpark job, you must have:
 - Access to at least one configured table in the collaboration
 - Permissions to write the results of a PySpark job to a specified S3 bucket
 
-For information about creating the required service role, see [Create a service role to write results of
-a PySpark job](setting-up-roles.md#create-role-pyspark-job "setting-up-roles.md#create-role-pyspark-job").
+For information about creating the required service role, see [Create a service role to write results of a PySpark job](setting-up-roles.md#create-role-pyspark-job "setting-up-roles.md#create-role-pyspark-job").
 
 - The member who is responsible to pay for compute costs has joined the collaboration as
   an active member
@@ -32,7 +31,6 @@ collaboration using the AWS Clean Rooms console.
 
 ###### Topics
 
-- [Running a PySpark job on a configured
-  table using a PySpark analysis template](run-jobs-with-analysis-template.md "run-jobs-with-analysis-template.md")
+- [Running a PySpark job on a configured table using a PySpark analysis template](run-jobs-with-analysis-template.md "run-jobs-with-analysis-template.md")
 - [Viewing recent jobs](view-recent-jobs.md "view-recent-jobs.md")
 - [Viewing job details](view-job-details.md "view-job-details.md")

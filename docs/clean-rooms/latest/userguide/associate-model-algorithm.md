@@ -1,6 +1,4 @@
-# Associating the configured model algorithm
-
-in AWS Clean Rooms ML
+# Associating the configured model algorithm in AWS Clean Rooms ML
 
 After you have configured the model algorithm, you are ready to associate the model
 algorithm to a collaboration. Associating a model algorithm makes the model algorithm
@@ -9,7 +7,7 @@ available to all members of the collaboration.
 The following image shows associating the configured model algorithm as the last step,
 after creating the container training image and configuring a model algorithm.
 
-![An overview of how to contribute a custom ML model.](/images/clean-rooms/latest/userguide/images/bringMLModelCollaboration.png)
+![An overview of how to contribute a custom ML model.](images/bringMLModelCollaboration.png)
 
 Console
 

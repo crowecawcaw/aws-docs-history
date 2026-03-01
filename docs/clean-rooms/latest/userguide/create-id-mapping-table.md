@@ -1,6 +1,4 @@
-# Creating and populating a new ID mapping
-
-table
+# Creating and populating a new ID mapping table
 
 **Prerequisites**
 
@@ -22,14 +20,10 @@ query on the ID mapping table to join the `sourceId` with the
 
 ###### Topics
 
-- [Create an ID mapping table
-  (rule-based)](#create-id-mapping-table-rule-based "#create-id-mapping-table-rule-based")
-- [Create an ID mapping table
-  (provider services)](#create-id-mapping-table-provider-services "#create-id-mapping-table-provider-services")
+- [Create an ID mapping table (rule-based)](#create-id-mapping-table-rule-based "#create-id-mapping-table-rule-based")
+- [Create an ID mapping table (provider services)](#create-id-mapping-table-provider-services "#create-id-mapping-table-provider-services")
 
-## Create an ID mapping table
-
-(rule-based)
+## Create an ID mapping table (rule-based)
 
 This topic describes the process of creating an ID mapping table that uses matching
 rules to translate first-party data from a source to a target.
@@ -209,9 +203,7 @@ This section is only visible if you're creating a new ID mapping table.
 After the ID mapping table is successfully populated, you can [query the ID mapping table](query-id-mapping-tables.md "query-id-mapping-tables.md") to join the `sourceId` with
 the `targetId` and analyze the data.
 
-## Create an ID mapping table
-
-(provider services)
+## Create an ID mapping table (provider services)
 
 This topic describes the process of creating an ID mapping table that uses a provider
 service (LiveRamp). The LiveRamp provider services translates a set of source RampIDs to

@@ -40,6 +40,4 @@ Here's how custom ML modeling works in Clean Rooms ML:
         * Access to results is controlled according to collaboration
          permissions
 
-    Before you get started, see the [Custom ML modeling
-    prerequisites](custom-model-prerequisites.md "custom-model-prerequisites.md") and [Model authoring guidelines for the
-    training container](custom-model-guidelines.md "custom-model-guidelines.md") for more information.
+    Before you get started, see the [Custom ML modeling prerequisites](custom-model-prerequisites.md "custom-model-prerequisites.md") and [Model authoring guidelines for the training container](custom-model-guidelines.md "custom-model-guidelines.md") for more information.

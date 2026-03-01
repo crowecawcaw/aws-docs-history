@@ -1,6 +1,4 @@
-# Logging AWS Clean Rooms API calls using
-
-AWS CloudTrail
+# Logging AWS Clean Rooms API calls using AWS CloudTrail
 
 AWS Clean Rooms is integrated with AWS CloudTrail, a service that provides a record of actions taken
 by a user, role, or an AWS service in AWS Clean Rooms. CloudTrail captures all API calls for AWS Clean Rooms as
@@ -50,9 +48,7 @@ identity information helps you determine the following:
 For more information, see the [CloudTrail userIdentity
 element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## Understanding AWS Clean Rooms log file
-
-entries
+## Understanding AWS Clean Rooms log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
 that you specify. CloudTrail log files contain one or more log entries. An event represents a single
@@ -66,14 +62,10 @@ The following examples demonstrate CloudTrail events for:
 
 ###### Topics
 
-- [StartProtectedQuery
-  (successful)](#startprotectedquery_successful "#startprotectedquery_successful")
-- [StartProtectedQuery
-  (failed)](#startprotectedquery_failed "#startprotectedquery_failed")
+- [StartProtectedQuery (successful)](#startprotectedquery_successful "#startprotectedquery_successful")
+- [StartProtectedQuery (failed)](#startprotectedquery_failed "#startprotectedquery_failed")
 
-### StartProtectedQuery
-
-(successful)
+### StartProtectedQuery (successful)
 
 ```
 {
@@ -149,9 +141,7 @@ The following examples demonstrate CloudTrail events for:
 }
 ```
 
-### StartProtectedQuery
-
-(failed)
+### StartProtectedQuery (failed)
 
 ```
 {

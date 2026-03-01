@@ -193,9 +193,7 @@ AWS Clean Rooms ML has additional quotas listed below
 | Minimum absolute size for a segment (audience) size bin                   | 1% of the number of distinct users  |                                                                                                                                                                                                                                                                     |
 | Maximum absolute size for a segment (audience) size bin                   | 20% of the number of distinct users |                                                                                                                                                                                                                                                                     |
 
-## Clean Rooms ML API throttling
-
-quotas
+## Clean Rooms ML API throttling quotas
 
 Your AWS account has the following API transaction per second (TPS) per account
 per endpoint quotas.

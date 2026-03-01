@@ -1,6 +1,4 @@
-# Creating a membership and joining a
-
-collaboration
+# Creating a membership and joining a collaboration
 
 A _membership_ is a resource that's created when a member
 joins a collaboration in AWS Clean Rooms.
@@ -120,8 +118,7 @@ defaults**:
 
     	You must either select an existing service role or have
     	 permissions to create a new one. For more information, see
-    	 [Create a service role to receive
-    	 results](setting-up-roles.md#create-role-write-results "setting-up-roles.md#create-role-write-results").
+    	 [Create a service role to receive results](setting-up-roles.md#create-role-write-results "setting-up-roles.md#create-role-write-results").
     	4. Specify the **Service access** permissions by
     	 selecting either **Create and use a new service
     	 role** or **Use an existing service

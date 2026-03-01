@@ -1,6 +1,4 @@
-# Step 3: (Optional) View available commands in the
-
-C3R encryption client
+# Step 3: (Optional) View available commands in the C3R encryption client
 
 Use this procedure to familiarize yourself with the available commands in the
 C3R encryption client.

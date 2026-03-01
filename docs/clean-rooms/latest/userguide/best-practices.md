@@ -15,8 +15,7 @@ with your use of AWS Clean Rooms and specifically with analysis rules.
 ###### Topics
 
 - [Best practices with AWS Clean Rooms](#best-practices-with-clean-rooms "#best-practices-with-clean-rooms")
-- [Best practices for using analysis rules in
-  AWS Clean Rooms](#best-practices-for-analysis-rules "#best-practices-for-analysis-rules")
+- [Best practices for using analysis rules in AWS Clean Rooms](#best-practices-for-analysis-rules "#best-practices-for-analysis-rules")
 
 ## Best practices with AWS Clean Rooms
 
@@ -31,9 +30,7 @@ legal agreements with them _before_ engaging in a collaboration.
 To monitor the use of your data, also consider adopting other audit mechanisms with your use of
 AWS Clean Rooms.
 
-## Best practices for using analysis rules in
-
-AWS Clean Rooms
+## Best practices for using analysis rules in AWS Clean Rooms
 
 Analysis rules in AWS Clean Rooms allow you to restrict the queries that can be run by setting
 query controls on a configured table. For example, you can set a query control for how a

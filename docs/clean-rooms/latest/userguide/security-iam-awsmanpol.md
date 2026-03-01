@@ -15,9 +15,7 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## AWS managed policy:
-
-`AWSCleanRoomsReadOnlyAccess`
+## AWS managed policy: `AWSCleanRoomsReadOnlyAccess`
 
 You can attach `AWSCleanRoomsReadOnlyAccess` to your IAM principals.
 
@@ -41,9 +39,7 @@ This policy includes the following permissions:
 For a JSON listing of the policy details, see [AWSCleanRoomsReadOnlyAccess](../../../aws-managed-policy/latest/reference/AWSCleanRoomsReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AWSCleanRoomsReadOnlyAccess.md") in the _AWS Managed
 Policy Reference Guide_.
 
-## AWS managed policy:
-
-`AWSCleanRoomsFullAccess`
+## AWS managed policy: `AWSCleanRoomsFullAccess`
 
 You can attach `AWSCleanRoomsFullAccess` to your IAM principals.
 
@@ -96,9 +92,7 @@ This policy includes the following permissions:
 For a JSON listing of the policy details, see [AWSCleanRoomsFullAccess](../../../aws-managed-policy/latest/reference/AWSCleanRoomsFullAccess.md "../../../aws-managed-policy/latest/reference/AWSCleanRoomsFullAccess.md") in the _AWS Managed Policy
 Reference Guide_.
 
-## AWS managed policy:
-
-`AWSCleanRoomsFullAccessNoQuerying`
+## AWS managed policy: `AWSCleanRoomsFullAccessNoQuerying`
 
 You can attach `AWSCleanRoomsFullAccessNoQuerying` to your IAM
 principals.
@@ -166,9 +160,7 @@ controlled mechanisms.
 For a JSON listing of the policy details, see [AWSCleanRoomsFullAccessNoQuerying](../../../aws-managed-policy/latest/reference/AWSCleanRoomsFullAccessNoQuerying.md "../../../aws-managed-policy/latest/reference/AWSCleanRoomsFullAccessNoQuerying.md") in the _AWS
 Managed Policy Reference Guide_.
 
-## AWS managed policy:
-
-`AWSCleanRoomsMLReadOnlyAccess`
+## AWS managed policy: `AWSCleanRoomsMLReadOnlyAccess`
 
 You can attach `AWSCleanRoomsMLReadOnlyAccess` to your IAM principals.
 
@@ -187,9 +179,7 @@ This policy includes the following permissions:
 For a JSON listing of the policy details, see [AWSCleanRoomsMLReadOnlyAccess](../../../aws-managed-policy/latest/reference/AWSCleanRoomsMLReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AWSCleanRoomsMLReadOnlyAccess.md") in the _AWS Managed
 Policy Reference Guide_.
 
-## AWS managed policy:
-
-`AWSCleanRoomsMLFullAccess`
+## AWS managed policy: `AWSCleanRoomsMLFullAccess`
 
 You can attach `AWSCleanRoomsMLFullAcces` to your IAM principals. This
 policy grants administrative permissions that allow full access (read, write, and
@@ -239,9 +229,7 @@ This policy includes the following permissions:
 For a JSON listing of the policy details, see [AWSCleanRoomsMLFullAccess](../../../aws-managed-policy/latest/reference/AWSCleanRoomsMLFullAccess.md "../../../aws-managed-policy/latest/reference/AWSCleanRoomsMLFullAccess.md") in the _AWS Managed
 Policy Reference Guide_.
 
-## AWS Clean Rooms updates to AWS managed
-
-policies
+## AWS Clean Rooms updates to AWS managed policies
 
 View details about updates to AWS managed policies for AWS Clean Rooms since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe

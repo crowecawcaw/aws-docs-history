@@ -10,15 +10,11 @@ Preparing your data tables in Amazon Athena involves the following steps:
 
 ###### Topics
 
-- [Step 1: Complete the
-  prerequisites](#prepare-data-athena-prereq "#prepare-data-athena-prereq")
-- [Step 2: (Optional) Prepare your data
-  for cryptographic computing](#prepare-data-athena-encrypt "#prepare-data-athena-encrypt")
+- [Step 1: Complete the prerequisites](#prepare-data-athena-prereq "#prepare-data-athena-prereq")
+- [Step 2: (Optional) Prepare your data for cryptographic computing](#prepare-data-athena-encrypt "#prepare-data-athena-encrypt")
 - [Step 3: Next steps](#prepare-data-athena-next "#prepare-data-athena-next")
 
-## Step 1: Complete the
-
-prerequisites
+## Step 1: Complete the prerequisites
 
 To prepare your data tables for use with AWS Clean Rooms, you must complete the
 following prerequisites:
@@ -52,14 +48,11 @@ Hive Catalog Types.
 - You have created a separate output bucket in Amazon S3 to receive the Athena
   results.
 - You have set up a service role to read the data from Amazon Athena. For more
-  information, see [Create a service role to read data from
-  Amazon Athena](setting-up-roles.md#create-service-role-athena "setting-up-roles.md#create-service-role-athena").
+  information, see [Create a service role to read data from Amazon Athena](setting-up-roles.md#create-service-role-athena "setting-up-roles.md#create-service-role-athena").
   - The service role has Lake Formation Select and Describe access permissions
     on the GDC View or table.
 
-## Step 2: (Optional) Prepare your data
-
-for cryptographic computing
+## Step 2: (Optional) Prepare your data for cryptographic computing
 
 (Optional) If you're using cryptographic computing and your data table contains
 sensitive information that you want to encrypt, you must encrypt the data table

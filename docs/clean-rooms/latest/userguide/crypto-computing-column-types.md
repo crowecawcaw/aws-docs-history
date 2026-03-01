@@ -49,9 +49,7 @@ Sealed columns must only be used in the following SQL clauses and functions:
 
 Queries that violate these constraints might yield incorrect results.
 
-### Padding data for a sealed column before
-
-encryption
+### Padding data for a sealed column before encryption
 
 When you specify that a column should be a sealed column, C3R
 asks you what kind of _padding_ to choose. Padding data before

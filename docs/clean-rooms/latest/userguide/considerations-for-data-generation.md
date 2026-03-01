@@ -1,6 +1,4 @@
-# Considerations for
-
-synthetic data generation
+# Considerations for synthetic data generation
 
 With AWS Clean Rooms ML, collaboration members can create a synthetic dataset that
 irreversibly de-identifies the subjects of the original dataset from their

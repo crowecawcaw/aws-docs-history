@@ -1,6 +1,4 @@
-# Receiving model logs and
-
-metrics
+# Receiving model logs and metrics
 
 To receive logs and metrics from custom model training or inference, members must
 have [created

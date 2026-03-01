@@ -1,6 +1,4 @@
-# Exporting model artifacts from
-
-AWS Clean Rooms ML
+# Exporting model artifacts from AWS Clean Rooms ML
 
 This task is optional and should be completed when you have assigned the
 `CAN_RECEIVE_MODEL_OUTPUT` member ability to a member of the

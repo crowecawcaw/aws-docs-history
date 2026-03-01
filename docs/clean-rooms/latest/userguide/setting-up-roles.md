@@ -5,20 +5,13 @@ The following sections describe the roles needed to perform each task.
 ###### Topics
 
 - [Create an administrator user](#setting-up-create-iam-user "#setting-up-create-iam-user")
-- [Create an IAM role for a collaboration
-  member](#create-role-DP "#create-role-DP")
-- [Create a service role to read data
-  from Amazon S3](#create-service-role-procedure "#create-service-role-procedure")
-- [Create a service role to read data from
-  Amazon Athena](#create-service-role-athena "#create-service-role-athena")
-- [Create a service role to read data
-  from Snowflake](#create-service-role-third-party "#create-service-role-third-party")
-- [Create a service role to
-  read code from an S3 bucket (PySpark analysis template role)](#create-role-pyspark-analysis-template "#create-role-pyspark-analysis-template")
-- [Create a service role to write results of
-  a PySpark job](#create-role-pyspark-job "#create-role-pyspark-job")
-- [Create a service role to receive
-  results](#create-role-write-results "#create-role-write-results")
+- [Create an IAM role for a collaboration member](#create-role-DP "#create-role-DP")
+- [Create a service role to read data from Amazon S3](#create-service-role-procedure "#create-service-role-procedure")
+- [Create a service role to read data from Amazon Athena](#create-service-role-athena "#create-service-role-athena")
+- [Create a service role to read data from Snowflake](#create-service-role-third-party "#create-service-role-third-party")
+- [Create a service role to read code from an S3 bucket (PySpark analysis template role)](#create-role-pyspark-analysis-template "#create-role-pyspark-analysis-template")
+- [Create a service role to write results of a PySpark job](#create-role-pyspark-job "#create-role-pyspark-job")
+- [Create a service role to receive results](#create-role-write-results "#create-role-write-results")
 
 ## Create an administrator user
 
@@ -32,9 +25,7 @@ To create an administrator user, choose one of the following options.
 | In IAM Identity Center (Recommended)        | Use short-term credentials to access AWS.This aligns with the security best<br>practices. For information about best practices, see [Security best<br>practices in IAM](../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp "../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp") in the _IAM User Guide_. | Following the instructions in [Getting started](../../../singlesignon/latest/userguide/getting-started.md "../../../singlesignon/latest/userguide/getting-started.md") in the<br>_AWS IAM Identity Center User Guide_.                      | Configure programmatic access by [Configuring the AWS CLI to use<br>AWS IAM Identity Center](../../../cli/latest/userguide/cli-configure-sso.md "../../../cli/latest/userguide/cli-configure-sso.md") in the _AWS Command Line Interface User Guide_. |
 | In IAM (Not recommended)                    | Use long-term credentials to access AWS.                                                                                                                                                                                                                                                                                                            | Following the instructions in [Create an IAM user for emergency access](../../../IAM/latest/UserGuide/getting-started-emergency-iam-user.md "../../../IAM/latest/UserGuide/getting-started-emergency-iam-user.md") in the _IAM User Guide_. | Configure programmatic access by [Manage access keys for IAM<br>users](../../../IAM/latest/UserGuide/id_credentials_access-keys.md "../../../IAM/latest/UserGuide/id_credentials_access-keys.md") in the _IAM User Guide_.                            |
 
-## Create an IAM role for a collaboration
-
-member
+## Create an IAM role for a collaboration member
 
 A member is an AWS customer who is a participant in a collaboration.
 
@@ -51,20 +42,18 @@ A member is an AWS customer who is a participant in a collaboration.
 AWS Clean Rooms offers the following managed policies based on common use
 cases.
 
-| If you want to ...                              | Then use ...                                                                                                                                                                                          |
-| ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| View the resources and metadata                 | [AWS managed policy:<br>AWSCleanRoomsReadOnlyAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-readonly "security-iam-awsmanpol.md#security-iam-awsmanpol-readonly")                           |
-| Query                                           | [AWS managed policy:<br>AWSCleanRoomsFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-fullaccess "security-iam-awsmanpol.md#security-iam-awsmanpol-fullaccess")                           |
-| Query and run jobs                              | [AWS managed policy:<br>AWSCleanRoomsFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-fullaccess "security-iam-awsmanpol.md#security-iam-awsmanpol-fullaccess")                           |
-| Query and receive results                       | [AWS managed policy:<br>AWSCleanRoomsFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-fullaccess "security-iam-awsmanpol.md#security-iam-awsmanpol-fullaccess")                           |
-| Manage collaboration resources but do not query | [AWS managed policy:<br>AWSCleanRoomsFullAccessNoQuerying](security-iam-awsmanpol.md#security-iam-awsmanpol-fullaccess-noquery "security-iam-awsmanpol.md#security-iam-awsmanpol-fullaccess-noquery") |
+| If you want to ...                              | Then use ...                                                                                                                                                                                       |
+| ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| View the resources and metadata                 | [AWS managed policy: AWSCleanRoomsReadOnlyAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-readonly "security-iam-awsmanpol.md#security-iam-awsmanpol-readonly")                           |
+| Query                                           | [AWS managed policy: AWSCleanRoomsFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-fullaccess "security-iam-awsmanpol.md#security-iam-awsmanpol-fullaccess")                           |
+| Query and run jobs                              | [AWS managed policy: AWSCleanRoomsFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-fullaccess "security-iam-awsmanpol.md#security-iam-awsmanpol-fullaccess")                           |
+| Query and receive results                       | [AWS managed policy: AWSCleanRoomsFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-fullaccess "security-iam-awsmanpol.md#security-iam-awsmanpol-fullaccess")                           |
+| Manage collaboration resources but do not query | [AWS managed policy: AWSCleanRoomsFullAccessNoQuerying](security-iam-awsmanpol.md#security-iam-awsmanpol-fullaccess-noquery "security-iam-awsmanpol.md#security-iam-awsmanpol-fullaccess-noquery") |
 
 For information about the different managed policies offered by AWS Clean Rooms, see
 [AWS managed policies for AWS Clean Rooms](security-iam-awsmanpol.md "security-iam-awsmanpol.md"),
 
-## Create a service role to read data
-
-from Amazon S3
+## Create a service role to read data from Amazon S3
 
 AWS Clean Rooms uses a service role to read the data from Amazon S3.
 
@@ -87,9 +76,7 @@ You or your IAM administrator should follow this procedure only if you don't
 have the necessary permissions to create a service role using the AWS Clean Rooms
 console.
 
-###### To create a service role to read data from Amazon S3 using custom trust
-
-policies
+###### To create a service role to read data from Amazon S3 using custom trust policies
 
 1. Create a role using custom trust policies. For more information, see the
    [Creating a role using custom trust policies
@@ -102,8 +89,7 @@ policies
 
 If you want to help ensure that the role is used only in the context
 of a certain collaboration membership, you can scope down the trust
-policy further. For more information, see [Cross-service confused deputy
-prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md").
+policy further. For more information, see [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md").
 
 JSON
 
@@ -233,15 +219,11 @@ while another team owns the underlying data storage infrastructure. The `s3:Reso
 information. 5. Continue to follow the [Creating a role using custom trust policies
 (console)](../../../IAM/latest/UserGuide/id_roles_create_for-custom.md "../../../IAM/latest/UserGuide/id_roles_create_for-custom.md") procedure to create the role.
 
-## Create a service role to read data from
-
-Amazon Athena
+## Create a service role to read data from Amazon Athena
 
 AWS Clean Rooms uses a service role to read the data from Amazon Athena.
 
-###### To create a service role to read data from Athena using custom trust
-
-policies
+###### To create a service role to read data from Athena using custom trust policies
 
 1. Create a role using custom trust policies. For more information, see the
    [Creating a role using custom trust policies
@@ -254,8 +236,7 @@ policies
 
 If you want to help ensure that the role is used only in the context
 of a certain collaboration membership, you can scope down the trust
-policy further. For more information, see [Cross-service confused deputy
-prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md").
+policy further. For more information, see [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md").
 
 JSON
 
@@ -356,9 +337,7 @@ permissions.
 5. Continue to follow the [Creating a role using custom trust policies
    (console)](../../../IAM/latest/UserGuide/id_roles_create_for-custom.md "../../../IAM/latest/UserGuide/id_roles_create_for-custom.md") procedure to create the role.
 
-### Set up Lake Formation
-
-permissions
+### Set up Lake Formation permissions
 
 If you query resources protected with Lake Formation permissions, the service role must
 have **Select** and **Describe** access
@@ -372,9 +351,7 @@ For more information, see:
   Guide_
 - [Onboarding to Lake Formation permissions](../../../lake-formation/latest/dg/onboarding-lf-permissions.md "../../../lake-formation/latest/dg/onboarding-lf-permissions.md") in the _AWS Lake Formation Developer Guide_
 
-## Create a service role to read data
-
-from Snowflake
+## Create a service role to read data from Snowflake
 
 AWS Clean Rooms uses a service role to retrieve your credentials for Snowflake
 to read your data from this source.
@@ -398,9 +375,7 @@ You or your IAM administrator should follow this procedure only if you don't
 have the necessary permissions to create a service role using the AWS Clean Rooms
 console.
 
-###### To create a service role to read data from
-
-Snowflake using custom trust policies
+###### To create a service role to read data from Snowflake using custom trust policies
 
 1. Create a role using custom trust policies. For more information, see the
    [Creating a role using custom trust policies
@@ -413,8 +388,7 @@ Snowflake using custom trust policies
 
 If you want to help ensure that the role is used only in the context
 of a certain collaboration membership, you can scope down the trust
-policy further. For more information, see [Cross-service confused deputy
-prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md").
+policy further. For more information, see [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md").
 
 JSON
 
@@ -538,9 +512,7 @@ JSON
 5. Continue to follow the [Creating a role using custom trust policies
    (console)](../../../IAM/latest/UserGuide/id_roles_create_for-custom.md "../../../IAM/latest/UserGuide/id_roles_create_for-custom.md") procedure to create the role.
 
-## Create a service role to
-
-read code from an S3 bucket (PySpark analysis template role)
+## Create a service role to read code from an S3 bucket (PySpark analysis template role)
 
 AWS Clean Rooms uses a service role to read code from a collaboration member's specified
 S3 bucket when using a PySpark analysis template.
@@ -659,9 +631,7 @@ JSON
 5. Continue to follow the [Creating a role using custom trust policies
    (console)](../../../IAM/latest/UserGuide/id_roles_create_for-custom.md "../../../IAM/latest/UserGuide/id_roles_create_for-custom.md") procedure to create the role.
 
-## Create a service role to write results of
-
-a PySpark job
+## Create a service role to write results of a PySpark job
 
 AWS Clean Rooms uses a service role to write the results of a PySpark job to a specified
 S3 bucket.
@@ -800,9 +770,7 @@ JSON
 5. Continue to follow the [Creating a role using custom trust policies
    (console)](../../../IAM/latest/UserGuide/id_roles_create_for-custom.md "../../../IAM/latest/UserGuide/id_roles_create_for-custom.md") procedure to create the role.
 
-## Create a service role to receive
-
-results
+## Create a service role to receive results
 
 ###### Note
 
@@ -838,9 +806,7 @@ You or your IAM administrator should follow this procedure only if you don't
 have the necessary permissions to create a service role using the AWS Clean Rooms
 console.
 
-###### To create a service role to receive results using custom trust
-
-policies
+###### To create a service role to receive results using custom trust policies
 
 1. Create a role using custom trust policies. For more information, see the
    [Creating a role using custom trust policies

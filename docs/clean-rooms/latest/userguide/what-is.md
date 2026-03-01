@@ -71,8 +71,7 @@ For more information, see the following topics:
 
 [Preparing data tables for queries in AWS Clean Rooms](prepare-data.md "prepare-data.md")
 
-[Creating a configured table –
-Amazon Athena data source](create-config-table-athena.md "create-config-table-athena.md")
+[Creating a configured table – Amazon Athena data source](create-config-table-athena.md "create-config-table-athena.md")
 
 [What is
 Amazon Athena?](../../../athena/latest/ug/what-is.md "../../../athena/latest/ug/what-is.md") in the _Amazon Athena User
@@ -82,15 +81,13 @@ Guide_
 
 Create the following resources in CloudFormation: collaborations, configured tables, configured table associations, and memberships
 
-For more information, see [Creating AWS Clean Rooms resources with
-AWS CloudFormation](creating-resources-with-cloudformation.md "creating-resources-with-cloudformation.md").
+For more information, see [Creating AWS Clean Rooms resources with AWS CloudFormation](creating-resources-with-cloudformation.md "creating-resources-with-cloudformation.md").
 
 - **AWS CloudTrail**
 
 Use AWS Clean Rooms with CloudTrail logs to enhance your analysis of AWS service activity.
 
-For more information, see [Logging AWS Clean Rooms API calls using
-AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
+For more information, see [Logging AWS Clean Rooms API calls using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
 
 - **AWS Entity Resolution**
 
@@ -118,8 +115,7 @@ For more information, see the following topics:
 
 [Preparing data tables for queries in AWS Clean Rooms](prepare-data.md "prepare-data.md")
 
-[Creating a configured table – Amazon S3 data
-source](create-config-table-s3.md "create-config-table-s3.md")
+[Creating a configured table – Amazon S3 data source](create-config-table-s3.md "create-config-table-s3.md")
 
 [What is
 Amazon S3?](../../../AmazonS3/latest/userguide/Welcome.md "../../../AmazonS3/latest/userguide/Welcome.md") in the _Amazon Simple Storage Service User
@@ -132,8 +128,7 @@ Snowflake.
 
 For more information, see the following topics:
 
-[Create a service role to read data
-from Snowflake](setting-up-roles.md#create-service-role-third-party "setting-up-roles.md#create-service-role-third-party")
+[Create a service role to read data from Snowflake](setting-up-roles.md#create-service-role-third-party "setting-up-roles.md#create-service-role-third-party")
 
 [Preparing data tables for queries in AWS Clean Rooms](prepare-data.md "prepare-data.md")
 
@@ -154,8 +149,7 @@ For more information, see the following topics:
 
 [Preparing data tables for queries in AWS Clean Rooms](prepare-data.md "prepare-data.md")
 
-[Creating a configured table –
-Snowflake data source](create-config-table-snowflake.md "create-config-table-snowflake.md")
+[Creating a configured table – Snowflake data source](create-config-table-snowflake.md "create-config-table-snowflake.md")
 
 ## Accessing AWS Clean Rooms
 

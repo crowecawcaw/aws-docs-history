@@ -1,6 +1,4 @@
-# Access AWS Clean Rooms or AWS Clean Rooms ML using an interface endpoint
-
-(AWS PrivateLink)
+# Access AWS Clean Rooms or AWS Clean Rooms ML using an interface endpoint (AWS PrivateLink)
 
 You can use AWS PrivateLink to create a private connection between your virtual private
 cloud (VPC) and AWS Clean Rooms or AWS Clean Rooms ML. You can access AWS Clean Rooms or AWS Clean Rooms ML as if it were in your VPC, without

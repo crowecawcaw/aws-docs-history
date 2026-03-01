@@ -1,6 +1,4 @@
-# Creating AWS Clean Rooms ML models as a seed
-
-data provider
+# Creating AWS Clean Rooms ML models as a seed data provider
 
 After the training data provider is done creating the ML model, the seed data provider can
 create and export the lookalike segment. The lookalike segment is a subset of the training

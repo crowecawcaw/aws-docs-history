@@ -6,24 +6,18 @@ Preparing your data tables in Snowflake involves the following steps:
 
 ###### Topics
 
-- [Step 1: Complete the
-  prerequisites](#prepare-data-snowflake-prereq "#prepare-data-snowflake-prereq")
-- [Step 2: (Optional) Prepare your
-  data for cryptographic computing](#prepare-data-snowflake-encrypt "#prepare-data-snowflake-encrypt")
-- [Step 3: Create an AWS Secrets Manager
-  secret](#prepare-data-snowflake-secrets "#prepare-data-snowflake-secrets")
+- [Step 1: Complete the prerequisites](#prepare-data-snowflake-prereq "#prepare-data-snowflake-prereq")
+- [Step 2: (Optional) Prepare your data for cryptographic computing](#prepare-data-snowflake-encrypt "#prepare-data-snowflake-encrypt")
+- [Step 3: Create an AWS Secrets Manager secret](#prepare-data-snowflake-secrets "#prepare-data-snowflake-secrets")
 - [Step 4: Next steps](#prepare-data-snowflake-next "#prepare-data-snowflake-next")
 
-## Step 1: Complete the
-
-prerequisites
+## Step 1: Complete the prerequisites
 
 To prepare your data tables for use with AWS Clean Rooms, you must complete the
 following prerequisites:
 
 - You have an AWS account with the proper permissions granted to read your
-  data tables. For more information, see [Create a service role to read data
-  from Snowflake](setting-up-roles.md#create-service-role-third-party "setting-up-roles.md#create-service-role-third-party").
+  data tables. For more information, see [Create a service role to read data from Snowflake](setting-up-roles.md#create-service-role-third-party "setting-up-roles.md#create-service-role-third-party").
 - Your data tables are saved as one of the [supported data formats for AWS Clean Rooms](data-formats.md "data-formats.md").
 - Your data tables use the [supported data types
   for AWS Clean Rooms](data-formats.md#data-types "data-formats.md#data-types").
@@ -32,9 +26,7 @@ following prerequisites:
 - You have set up a new Snowflake user with read-only privileges to the
   Snowflake table you are going to associate with your collaboration.
 
-## Step 2: (Optional) Prepare your
-
-data for cryptographic computing
+## Step 2: (Optional) Prepare your data for cryptographic computing
 
 (Optional) If you're using cryptographic computing and your data table contains
 sensitive information that you want to encrypt, you must encrypt the data table
@@ -42,9 +34,7 @@ using the C3R encryption client.
 
 To prepare your data for cryptographic computing, follow the procedures in [Preparing encrypted data tables with Cryptographic Computing for Clean Rooms](prepare-encrypted-data.md "prepare-encrypted-data.md").
 
-## Step 3: Create an AWS Secrets Manager
-
-secret
+## Step 3: Create an AWS Secrets Manager secret
 
 To connect to Snowflake from AWS Clean Rooms, you will need to create and store your
 Snowflake credentials in a AWS Secrets Manager secret, then associate that secret with a

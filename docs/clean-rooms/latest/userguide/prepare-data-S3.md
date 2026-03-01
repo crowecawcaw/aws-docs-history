@@ -1,8 +1,7 @@
 # Preparing data tables in Amazon S3
 
 You can analyze data tables that have been cataloged in AWS Glue and stored in Amazon S3. If
-your data tables are already cataloged in AWS Glue, skip to [Creating a configured table in
-AWS Clean Rooms](create-configured-table.md "create-configured-table.md").
+your data tables are already cataloged in AWS Glue, skip to [Creating a configured table in AWS Clean Rooms](create-configured-table.md "create-configured-table.md").
 
 ###### Important
 
@@ -21,8 +20,7 @@ Preparing your data tables in Amazon S3 involves the following steps:
 ###### Topics
 
 - [Step 1: Complete the prerequisites](#prep-data-tables-prereq "#prep-data-tables-prereq")
-- [Step 2: (Optional) Prepare your data for
-  cryptographic computing](#optional-encrypt "#optional-encrypt")
+- [Step 2: (Optional) Prepare your data for cryptographic computing](#optional-encrypt "#optional-encrypt")
 - [Step 3: Upload your data table to Amazon S3](#upload-to-s3 "#upload-to-s3")
 - [Step 4: Create an AWS Glue table](#create-glue-crawler "#create-glue-crawler")
 - [Step 5: Next steps](#prepare-data-S3-next "#prepare-data-S3-next")
@@ -40,9 +38,7 @@ following prerequisites:
 - The AWS Glue Data Catalog is in the same AWS account as the membership.
 - The Amazon S3 bucket isn't registered with AWS Lake Formation.
 
-## Step 2: (Optional) Prepare your data for
-
-cryptographic computing
+## Step 2: (Optional) Prepare your data for cryptographic computing
 
 (Optional) If you're using cryptographic computing and your data table contains
 sensitive information that you want to encrypt, you must encrypt the data table

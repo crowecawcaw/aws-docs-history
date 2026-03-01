@@ -1,13 +1,9 @@
-# Querying configured tables using a SQL analysis
-
-template
+# Querying configured tables using a SQL analysis template
 
 This procedure demonstrates how to use an analysis template in the AWS Clean Rooms console to
 query configured tables with the **Custom** analysis rule.
 
-###### To use a SQL analysis template to query configured tables with the
-
-**Custom** analysis rule
+###### To use a SQL analysis template to query configured tables with the **Custom** analysis rule
 
 1. Sign in to the AWS Management Console and open the AWS Clean Rooms console at [https://console.aws.amazon.com/cleanrooms](https://console.aws.amazon.com/cleanrooms/home "https://console.aws.amazon.com/cleanrooms/home").
 2. In the left navigation pane, choose **Collaborations**.

@@ -159,9 +159,7 @@ A ID mapping table is a reference to an existing table in the AWS Glue Data Cata
 rule](#glossary-id-mapping-table-analysis-rule "#glossary-id-mapping-table-analysis-rule") that determines how the data can be queried in AWS Clean Rooms. ID mapping tables can be
 associated to one or more collaborations.
 
-## ID mapping table analysis
-
-rule
+## ID mapping table analysis rule
 
 A type of analysis rule managed by AWS Clean Rooms and used to join disparate identity
 data to facilitate querying. It's automatically added to [ID mapping
@@ -230,12 +228,9 @@ immutable.
 
 An administrative user can use AWS Identity and Access Management (IAM) permissions to control which of their
 IAM principals (such as users or roles) can query data in the collaboration. For more
-information, see [Create a service role to read data
-from Amazon S3](setting-up-roles.md#create-service-role-procedure "setting-up-roles.md#create-service-role-procedure").
+information, see [Create a service role to read data from Amazon S3](setting-up-roles.md#create-service-role-procedure "setting-up-roles.md#create-service-role-procedure").
 
-## Member who can run queries and
-
-jobs
+## Member who can run queries and jobs
 
 The member who can run queries and jobs on the data in the [collaboration](#glossary-collaboration "#glossary-collaboration").
 
@@ -244,12 +239,9 @@ is immutable.
 
 An administrative user can use AWS Identity and Access Management (IAM) permissions to control which of their
 IAM principals (such as users or roles) can run queries and jobs in the collaboration. For
-more information, see [Create a service role to read data
-from Amazon S3](setting-up-roles.md#create-service-role-procedure "setting-up-roles.md#create-service-role-procedure").
+more information, see [Create a service role to read data from Amazon S3](setting-up-roles.md#create-service-role-procedure "setting-up-roles.md#create-service-role-procedure").
 
-## Member who can receive
-
-results
+## Member who can receive results
 
 A member who can receive query results. A member who can receive results specifies query
 results settings for the Amazon S3 destination and the query result format (CSV or Parquet).
@@ -259,9 +251,7 @@ specifies whether files should be output as a single file or as multiple files.
 
 There can be more than one member who can receive results in a collaboration.
 
-## Member paying for query compute
-
-costs
+## Member paying for query compute costs
 
 The member who is responsible for paying for query compute costs.
 
@@ -275,9 +265,7 @@ payer.
 The member paying for query compute costs receives a bill for the queries that have been
 run in the collaboration.
 
-## Member paying for query and job
-
-compute costs
+## Member paying for query and job compute costs
 
 The member who is responsible for paying for query and job compute costs.
 

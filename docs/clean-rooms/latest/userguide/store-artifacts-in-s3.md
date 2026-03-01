@@ -1,6 +1,4 @@
-# Storing a user script and virtual environment in
-
-S3
+# Storing a user script and virtual environment in S3
 
 The following procedure explains how to store a user script and optional virtual
 environment in Amazon S3. Complete this step before creating a PySpark analysis template.

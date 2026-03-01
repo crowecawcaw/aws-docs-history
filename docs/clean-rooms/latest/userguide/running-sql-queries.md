@@ -40,8 +40,7 @@ The [member paying for query compute
 costs](glossary.md#glossary-member-paying-for-query-compute "glossary.md#glossary-member-paying-for-query-compute") is charged for the queries run in the collaboration.
 
 The member who can query can select multiple [members who can receive
-results](glossary.md#glossary-member-who-can-receive-results "glossary.md#glossary-member-who-can-receive-results") to receive the results from a single query. For more information, see [Querying configured tables using the SQL code
-editor](use-sql-editor.md "use-sql-editor.md"). For general information about
+results](glossary.md#glossary-member-who-can-receive-results "glossary.md#glossary-member-who-can-receive-results") to receive the results from a single query. For more information, see [Querying configured tables using the SQL code editor](use-sql-editor.md "use-sql-editor.md"). For general information about
 receiving query results, see [Receiving and using analysis results](receive-query-results.md "receive-query-results.md").
 
 ## Prerequisites
@@ -93,14 +92,10 @@ console.
 
 ###### Topics
 
-- [Querying configured tables using the SQL code
-  editor](use-sql-editor.md "use-sql-editor.md")
-- [Querying ID mapping tables using the SQL code
-  editor](query-id-mapping-tables.md "query-id-mapping-tables.md")
-- [Querying configured tables using a SQL analysis
-  template](use-analysis-template.md "use-analysis-template.md")
+- [Querying configured tables using the SQL code editor](use-sql-editor.md "use-sql-editor.md")
+- [Querying ID mapping tables using the SQL code editor](query-id-mapping-tables.md "query-id-mapping-tables.md")
+- [Querying configured tables using a SQL analysis template](use-analysis-template.md "use-analysis-template.md")
 - [Querying with the analysis builder](query-data-analysis-builder.md "query-data-analysis-builder.md")
-- [Viewing the impact of differential
-  privacy](query-data-with-diff-privacy.md "query-data-with-diff-privacy.md")
+- [Viewing the impact of differential privacy](query-data-with-diff-privacy.md "query-data-with-diff-privacy.md")
 - [Viewing recent queries](view-queries-console.md "view-queries-console.md")
 - [Viewing query details](view-query-details.md "view-query-details.md")

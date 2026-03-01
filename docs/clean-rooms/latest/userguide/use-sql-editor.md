@@ -1,6 +1,4 @@
-# Querying configured tables using the SQL code
-
-editor
+# Querying configured tables using the SQL code editor
 
 As a member who can query, you can build a query manually by writing SQL code in the SQL
 code editor. The SQL code editor is located in the **Analysis** section of

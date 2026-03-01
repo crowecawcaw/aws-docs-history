@@ -8,8 +8,7 @@ Clean Rooms API Reference](../apireference/Welcome.md "../apireference/Welcome.m
 ###### Topics
 
 - [Edit collaboration name and description](#edit-name-descrip "#edit-name-descrip")
-- [Update collaboration analytics
-  engine](#change-collab-analytics-engine "#change-collab-analytics-engine")
+- [Update collaboration analytics engine](#change-collab-analytics-engine "#change-collab-analytics-engine")
 - [Turn off log storage](#turn-off-log-storage "#turn-off-log-storage")
 - [Edit collaboration logs settings](#edit-logs-settings "#edit-logs-settings")
 - [Edit collaboration tags](#edit-collab-tags "#edit-collab-tags")
@@ -39,9 +38,7 @@ description.
    **Description** of the collaboration.
 6. Choose **Save changes**.
 
-## Update collaboration analytics
-
-engine
+## Update collaboration analytics engine
 
 After you create the collaboration, you can change the analytics engine from AWS Clean Rooms SQL
 to Spark.

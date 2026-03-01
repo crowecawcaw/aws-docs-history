@@ -114,9 +114,7 @@ Your AWS account has the following quotas related to AWS Clean Rooms.
 | Rate of UpdateProtectedQuery requests                                 | Each supported Region: 5 per second                          | [Yes](https://console.aws.amazon.com/servicequotas/home/services/cleanrooms/quotas/L-422E468C "https://console.aws.amazon.com/servicequotas/home/services/cleanrooms/quotas/L-422E468C") | Maximum number of UpdateProtectedQuery API calls per second                                 |
 | Table associations per membership                                     | Each supported Region: 25                                    | [Yes](https://console.aws.amazon.com/servicequotas/home/services/cleanrooms/quotas/L-25AC34A7 "https://console.aws.amazon.com/servicequotas/home/services/cleanrooms/quotas/L-25AC34A7") | Maximum number of table associations per membership                                         |
 
-## AWS Clean Rooms resource parameter
-
-limits
+## AWS Clean Rooms resource parameter limits
 
 | Resource                                       | Default  | Description                                                                 |
 | ---------------------------------------------- | -------- | --------------------------------------------------------------------------- |

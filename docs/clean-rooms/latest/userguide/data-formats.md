@@ -7,9 +7,7 @@ data, the datasets must be in a format that AWS Clean Rooms supports. ​
 ###### Topics
 
 - [Supported data formats for PySpark jobs](#supported-data-formats-pyspark "#supported-data-formats-pyspark")
-- [Supported data
-  formats for SQL
-  queries](#supported-data-formats "#supported-data-formats")
+- [Supported data formats for SQL queries](#supported-data-formats "#supported-data-formats")
 - [Supported data types](#data-types "#data-types")
 - [File compression types for AWS Clean Rooms](#compression-types "#compression-types")
 - [Server-side encryption for AWS Clean Rooms](#server-side-encryption "#server-side-encryption")
@@ -22,10 +20,7 @@ AWS Clean Rooms supports the following structured formats for running PySpark jo
 - OpenCSV
 - JSON
 
-## Supported data
-
-formats for SQL
-queries
+## Supported data formats for SQL queries
 
 AWS Clean Rooms supports the following structured formats for running SQL queries.
 

@@ -1,6 +1,4 @@
-# Privacy-enhanced synthetic dataset
-
-generation
+# Privacy-enhanced synthetic dataset generation
 
 A _synthetic dataset_ has similar statistical
 properties to the original dataset it's based on, but doesn't contain the real-world
@@ -37,5 +35,4 @@ For more information about how to generate synthetic data for custom model train
 see [Creating a SQL analysis template](create-sql-analysis-template.md "create-sql-analysis-template.md").
 
 Analysis templates with synthetic outputs can only be used to create ML input
-channels. For more information, see [Creating an ML input channel in
-AWS Clean Rooms ML](create-ml-input-channel.md "create-ml-input-channel.md").
+channels. For more information, see [Creating an ML input channel in AWS Clean Rooms ML](create-ml-input-channel.md "create-ml-input-channel.md").

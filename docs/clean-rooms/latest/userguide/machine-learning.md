@@ -114,17 +114,13 @@ modeling:
    proper member abilities and payment configuration. The collaboration creator
    must assign the member ability to either receive model outputs or receive
    inference results to the appropriate member in this step because it can't be
-   updated after the collaboration is created. For more information, see [Creating and joining the collaboration
-   in AWS Clean Rooms ML](create-custom-ml-collaboration.md "create-custom-ml-collaboration.md").
+   updated after the collaboration is created. For more information, see [Creating and joining the collaboration in AWS Clean Rooms ML](create-custom-ml-collaboration.md "create-custom-ml-collaboration.md").
 2. The model provider configures and associates their containerized ML model to
    the collaboration and ensures privacy constraints are set for exported data. For
-   more information, see [Configuring a model algorithm in
-   AWS Clean Rooms ML](configure-model-algorithm.md "configure-model-algorithm.md").
+   more information, see [Configuring a model algorithm in AWS Clean Rooms ML](configure-model-algorithm.md "configure-model-algorithm.md").
 3. The data providers contribute their data to the collaboration and ensure their
    privacy needs are specified. Data providers must allow the model to access their
-   data. For more information, see [Contributing training data in
-   AWS Clean Rooms ML](custom-model-training-data.md "custom-model-training-data.md") and [Associating the configured model algorithm
-   in AWS Clean Rooms ML](associate-model-algorithm.md "associate-model-algorithm.md").
+   data. For more information, see [Contributing training data in AWS Clean Rooms ML](custom-model-training-data.md "custom-model-training-data.md") and [Associating the configured model algorithm in AWS Clean Rooms ML](associate-model-algorithm.md "associate-model-algorithm.md").
 4. A collaboration member creates the ML configuration, which defines where the
    model artifacts or inference results are exported to.
 5. A collaboration member creates an ML input channel that provides input to the
@@ -135,8 +131,7 @@ modeling:
 7. (Optional) The model trainer invokes the model export job and the model
    artifacts are sent to the model results receiver. Only members with a valid ML
    configuration and the member ability to receive model output can receive model
-   artifacts. For more information, see [Exporting model artifacts from
-   AWS Clean Rooms ML](export-model-artifacts.md "export-model-artifacts.md").
+   artifacts. For more information, see [Exporting model artifacts from AWS Clean Rooms ML](export-model-artifacts.md "export-model-artifacts.md").
 8. (Optional) A collaboration member invokes model inference using the ML input
    channel, the trained model ARN, and the inference configured model algorithm.
    The inference results are sent to the inference output receiver. Only members

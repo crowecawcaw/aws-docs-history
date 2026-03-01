@@ -1,6 +1,4 @@
-# Creating a configured table –
-
-Snowflake data source
+# Creating a configured table – Snowflake data source
 
 In this procedure, the [member](glossary.md#glossary-member "glossary.md#glossary-member") does the following tasks:
 

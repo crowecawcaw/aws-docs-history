@@ -1,6 +1,4 @@
-# Associating a configured table to a
-
-collaboration
+# Associating a configured table to a collaboration
 
 After you have created a configured table and added an analysis rule to it, you can
 associate it to a collaboration and give AWS Clean Rooms a service role to access your AWS Glue tables.

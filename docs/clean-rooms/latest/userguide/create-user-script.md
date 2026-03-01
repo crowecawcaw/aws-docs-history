@@ -47,11 +47,9 @@ filenames to an output DataFrame.
 AWS Clean Rooms automatically writes the DataFrame objects to the S3 bucket of the result
 receiver. 5. You are now ready to:
 
-    1. Store this user script in S3. For more information, see [Storing a user script and virtual environment in
-     S3](store-artifacts-in-s3.md "store-artifacts-in-s3.md").
+    1. Store this user script in S3. For more information, see [Storing a user script and virtual environment in S3](store-artifacts-in-s3.md "store-artifacts-in-s3.md").
     2. Create the optional virtual environment to support any additional libraries
-     required by your user script. For more information, see [Creating a virtual environment
-     (optional)](create-virtual-environment.md "create-virtual-environment.md").
+     required by your user script. For more information, see [Creating a virtual environment (optional)](create-virtual-environment.md "create-virtual-environment.md").
 
 ###### Example 1
 

@@ -1,6 +1,4 @@
-# Training data requirements for
-
-Clean Rooms ML
+# Training data requirements for Clean Rooms ML
 
 To successfully create a lookalike model, your training data must meet the
 following requirements:

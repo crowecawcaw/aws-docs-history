@@ -1,6 +1,4 @@
-# Adding a data access budget
-
-to an existing associated table
+# Adding a data access budget to an existing associated table
 
 As a collaboration member, you can add a data access budget to an existing associated
 table.

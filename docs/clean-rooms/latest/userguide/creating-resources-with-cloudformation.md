@@ -1,6 +1,4 @@
-# Creating AWS Clean Rooms resources with
-
-AWS CloudFormation
+# Creating AWS Clean Rooms resources with AWS CloudFormation
 
 AWS Clean Rooms is integrated with AWS CloudFormation, a service that helps you to model and set up
 your AWS resources. As a result of this integration, you can spend less time creating and

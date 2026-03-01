@@ -18,9 +18,7 @@ Before running any code on a PySpark analysis template, AWS Clean Rooms validate
 The maximum size of all combined artifacts for a given PySpark analysis template in
 AWS Clean Rooms is 1 GB.
 
-## Security for PySpark analysis
-
-templates
+## Security for PySpark analysis templates
 
 To preserve a secure compute environment, AWS Clean Rooms uses a two-tier compute architecture to
 isolate user code from system operations. This architecture is based on Amazon EMR Serverless
@@ -40,8 +38,7 @@ include small number of Spark SQL and PySpark DataFrames APIs, is blocked.
 When customers submit an approved PySpark analysis template, AWS Clean Rooms runs it on its own
 secure compute environment which no customer can access. The compute environment implements
 a compute architecture with a user space and system space to preserve a secure compute
-environment. For more information, see [Security for PySpark analysis
-templates](#pyspark-analysis-templates-security "#pyspark-analysis-templates-security").
+environment. For more information, see [Security for PySpark analysis templates](#pyspark-analysis-templates-security "#pyspark-analysis-templates-security").
 
 Consider the following limitations before you use PySpark in AWS Clean Rooms.
 
@@ -116,11 +113,7 @@ For more information about how to write Spark code, see the following:
 
 - [Creating a user script](create-user-script.md "create-user-script.md")
 - [Working with parameters in PySpark analysis templates](pyspark-parameter-handling.md "pyspark-parameter-handling.md")
-- [Creating a virtual environment
-  (optional)](create-virtual-environment.md "create-virtual-environment.md")
-- [Storing a user script and virtual environment in
-  S3](store-artifacts-in-s3.md "store-artifacts-in-s3.md")
-- [Creating a PySpark analysis
-  template](create-pyspark-analysis-template.md "create-pyspark-analysis-template.md")
-- [Reviewing a PySpark analysis
-  template](review-pyspark-analysis-template.md "review-pyspark-analysis-template.md")
+- [Creating a virtual environment (optional)](create-virtual-environment.md "create-virtual-environment.md")
+- [Storing a user script and virtual environment in S3](store-artifacts-in-s3.md "store-artifacts-in-s3.md")
+- [Creating a PySpark analysis template](create-pyspark-analysis-template.md "create-pyspark-analysis-template.md")
+- [Reviewing a PySpark analysis template](review-pyspark-analysis-template.md "review-pyspark-analysis-template.md")

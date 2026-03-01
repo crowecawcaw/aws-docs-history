@@ -9,9 +9,7 @@ desired.
 ###### Note
 
 The C3R encryption client can assist you in making a schema through either the interactive
-process described in [Example: Generate an encryption schema with
-sealed, fingerprint, and cleartext
-columns](gen-encryption-schema-csv.md#gen-encryption-schema "gen-encryption-schema-csv.md#gen-encryption-schema") or through the creation of a stub template.
+process described in [Example: Generate an encryption schema with sealed, fingerprint, and cleartext columns](gen-encryption-schema-csv.md#gen-encryption-schema "gen-encryption-schema-csv.md#gen-encryption-schema") or through the creation of a stub template.
 
 ## Mapped and positional table schemas
 

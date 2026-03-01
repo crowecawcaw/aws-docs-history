@@ -18,8 +18,7 @@ what their implications are, see [Cryptographic Computing for Clean Rooms](crypt
 ###### Topics
 
 - [Performance implications for column types](#performance-implications "#performance-implications")
-- [Troubleshooting unanticipated increases in
-  ciphertext size](#troubleshooting-ciphertext-size "#troubleshooting-ciphertext-size")
+- [Troubleshooting unanticipated increases in ciphertext size](#troubleshooting-ciphertext-size "#troubleshooting-ciphertext-size")
 
 ## Performance implications for column types
 
@@ -51,18 +50,12 @@ cleartext contained in the input.
 
 ###### Topics
 
-- [Base overhead for
-  fingerprint columns](#fingerprint-columns-base-overhead "#fingerprint-columns-base-overhead")
-- [Collaboration settings for
-  fingerprint columns](#fingerprint-columns-collab-settings "#fingerprint-columns-collab-settings")
-- [Example data for a fingerprint
-  column](#collab-set-sample-data "#collab-set-sample-data")
-- [Troubleshooting
-  fingerprint columns](#fingerprint-columns-troubleshooting "#fingerprint-columns-troubleshooting")
+- [Base overhead for fingerprint columns](#fingerprint-columns-base-overhead "#fingerprint-columns-base-overhead")
+- [Collaboration settings for fingerprint columns](#fingerprint-columns-collab-settings "#fingerprint-columns-collab-settings")
+- [Example data for a fingerprint column](#collab-set-sample-data "#collab-set-sample-data")
+- [Troubleshooting fingerprint columns](#fingerprint-columns-troubleshooting "#fingerprint-columns-troubleshooting")
 
-#### Base overhead for
-
-fingerprint columns
+#### Base overhead for fingerprint columns
 
 There is a base overhead for fingerprint columns. This overhead is
 constant and in place of the size of the cleartext bytes.
@@ -86,9 +79,7 @@ data averages more than 52 bytes (for example, full street addresses). This can 
 significant storage increase if the input cleartext data averages less than
 52 bytes (for example, customer ages).
 
-#### Collaboration settings for
-
-fingerprint columns
+#### Collaboration settings for fingerprint columns
 
 ##### `preserveNulls` setting
 
@@ -105,9 +96,7 @@ If you don't need the privacy assurances of this setting and prefer to retain
 setting at the time the collaboration is created. The `preserveNulls` setting
 can't be changed after the collaboration is created.
 
-#### Example data for a fingerprint
-
-column
+#### Example data for a fingerprint column
 
 The following is an example set of input and output data for a
 fingerprint column
@@ -163,9 +152,7 @@ Example 5| Input | `abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567
 | Input bytes | 62 |
 | Output bytes | 52 |
 
-#### Troubleshooting
-
-fingerprint columns
+#### Troubleshooting fingerprint columns
 
 **Why is the ciphertext in my fingerprint columns
 several times greater than the size of the cleartext that went into
@@ -209,20 +196,13 @@ of the C3R encryption client and the resulting output file size.
 
 ###### Topics
 
-- [Base overhead for sealed
-  columns](#sealed-columns-base-overhead "#sealed-columns-base-overhead")
-- [Collaboration settings for
-  sealed columns](#sealed-columns-collab-settings "#sealed-columns-collab-settings")
-- [Schema settings sealed columns:
-  padding types](#sealed-collab-pad-type "#sealed-collab-pad-type")
-- [Example data for a sealed
-  column](#sealed-collab-sample-data "#sealed-collab-sample-data")
-- [Troubleshooting sealed
-  columns](#troubleshooting-sealed-columns "#troubleshooting-sealed-columns")
+- [Base overhead for sealed columns](#sealed-columns-base-overhead "#sealed-columns-base-overhead")
+- [Collaboration settings for sealed columns](#sealed-columns-collab-settings "#sealed-columns-collab-settings")
+- [Schema settings sealed columns: padding types](#sealed-collab-pad-type "#sealed-collab-pad-type")
+- [Example data for a sealed column](#sealed-collab-sample-data "#sealed-collab-sample-data")
+- [Troubleshooting sealed columns](#troubleshooting-sealed-columns "#troubleshooting-sealed-columns")
 
-#### Base overhead for sealed
-
-columns
+#### Base overhead for sealed columns
 
 There is a base overhead for sealed columns. This overhead is constant
 and in addition to the size of the cleartext and padding (if any)
@@ -246,13 +226,9 @@ The following image shows how \*`BASE_OVERHEAD = C3R_DESIGNATION + ((NONCE + IV 
 
 ![The 91 byte base overhead for a sealed column.](images/base-overhead-sealed.PNG)
 
-#### Collaboration settings for
+#### Collaboration settings for sealed columns
 
-sealed columns
-
-##### `preserveNulls`
-
-setting
+##### `preserveNulls` setting
 
 When the collaboration-level setting `preserveNulls` is
 `false` (default), each `null` value is unique, random 32 bytes
@@ -267,9 +243,7 @@ If you don't need the privacy assurances of this setting and prefer to retain
 setting at the time the collaboration is created. The `preserveNulls` setting
 can't be changed after the collaboration is created.
 
-#### Schema settings sealed columns:
-
-padding types
+#### Schema settings sealed columns: padding types
 
 ###### Topics
 
@@ -335,9 +309,7 @@ padding creates consistency across updated datasets. Using `max` padding
 results in each subset of data being padded to the largest value that was in the
 subset.
 
-#### Example data for a sealed
-
-column
+#### Example data for a sealed column
 
 The following is an example set of input and output data for a sealed
 column with settings to reproduce. Other collaboration-level settings like
@@ -402,9 +374,7 @@ Example 5| Input | `abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567
 | Input bytes | 62 |
 | Output bytes | 175 |
 
-##### Pad type of `fixed` (Example
-
-1.
+##### Pad type of `fixed` (Example 1)
 
 In this example, `pad_length` is 62 and largest input is 62 bytes.
 
@@ -443,9 +413,7 @@ Example 5| Input | `abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567
 | Input bytes | 62 |
 | Output bytes | 175 |
 
-##### Pad type of `fixed` (Example
-
-2.
+##### Pad type of `fixed` (Example 2)
 
 In this example, `pad_length` is 162 and largest input is 62
 bytes.
@@ -564,9 +532,7 @@ Example 5| Input | `abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567
 | Input bytes | 62 |
 | Output bytes | 307 |
 
-#### Troubleshooting sealed
-
-columns
+#### Troubleshooting sealed columns
 
 **Why is the ciphertext in my sealed columns
 several times greater than the size of the cleartext that went into
@@ -622,17 +588,13 @@ necessary. Although some file formats like Parquet might support binary
 representations of data, it’s important that all participants in a collaboration represent
 data in the same way to ensure proper query results.
 
-## Troubleshooting unanticipated increases in
-
-ciphertext size
+## Troubleshooting unanticipated increases in ciphertext size
 
 Let’s say that you encrypted your data, and the size of the resulting data is surprisingly
 large. The following steps can help you identify where the size increase occurred and what, if
 any, actions you can take.
 
-### Identifying where the size increase
-
-occurred
+### Identifying where the size increase occurred
 
 Before you can troubleshoot why your encrypted data is significantly larger than your
 cleartext data, you must first identify where the increase in size is.
@@ -640,30 +602,23 @@ Cleartext columns can safely be ignored because they are unchanged. Look at
 the remaining fingerprint and sealed columns, and choose one
 that appears significant.
 
-### Identifying the reason the size increase
-
-occurred
+### Identifying the reason the size increase occurred
 
 A fingerprint column or a sealed column might contribute
 to the size increase.
 
 ###### Topics
 
-- [Is the size increase coming from a
-  fingerprint column?](#size-increase-from-fingerprint "#size-increase-from-fingerprint")
-- [Is the size increase coming from a
-  sealed column?](#size-increase-from-sealed "#size-increase-from-sealed")
+- [Is the size increase coming from a fingerprint column?](#size-increase-from-fingerprint "#size-increase-from-fingerprint")
+- [Is the size increase coming from a sealed column?](#size-increase-from-sealed "#size-increase-from-sealed")
 
-#### Is the size increase coming from a
-
-fingerprint column?
+#### Is the size increase coming from a fingerprint column?
 
 If the column that’s most contributing to the increase in storage is a
 fingerprint column, this is likely because the cleartext
 data is small (for example, customer age). Each resulting fingerprint
 ciphertext is 52 bytes in length. Unfortunately, nothing can be done about this issue on a
-column-by-column basis. For more information, see [Base overhead for
-fingerprint columns](#fingerprint-columns-base-overhead "#fingerprint-columns-base-overhead") for details about this column,
+column-by-column basis. For more information, see [Base overhead for fingerprint columns](#fingerprint-columns-base-overhead "#fingerprint-columns-base-overhead") for details about this column,
 including how it impacts storage requirements.
 
 The other possible cause of size increase in a fingerprint column is
@@ -676,9 +631,7 @@ collaborators must use the same setting to ensure correct query results. For mor
 information about the `preserveNulls` setting and how enabling it impacts the
 privacy assurances of your data, see [Cryptographic Computing for Clean Rooms](crypto-computing.md "crypto-computing.md").
 
-#### Is the size increase coming from a
-
-sealed column?
+#### Is the size increase coming from a sealed column?
 
 If the column that’s most contributing to the increase in storage is a
 sealed column, there are a few details that could contribute to the size
@@ -686,8 +639,7 @@ increase.
 
 If the cleartext data is small (for example, customer age), each
 resulting sealed ciphertext is at least 91 bytes in length. Unfortunately,
-nothing can be done about this issue. For more information, see [Base overhead for sealed
-columns](#sealed-columns-base-overhead "#sealed-columns-base-overhead")
+nothing can be done about this issue. For more information, see [Base overhead for sealed columns](#sealed-columns-base-overhead "#sealed-columns-base-overhead")
 for details about this column, including how it impacts storage requirements.
 
 The second primary cause for storage increase in sealed columns is

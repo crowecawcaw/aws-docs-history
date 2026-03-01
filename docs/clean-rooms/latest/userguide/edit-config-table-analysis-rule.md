@@ -1,6 +1,4 @@
-# Editing the configured table analysis
-
-rule
+# Editing the configured table analysis rule
 
 ###### To edit the configured table analysis rule
 

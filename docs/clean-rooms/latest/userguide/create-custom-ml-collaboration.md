@@ -1,15 +1,11 @@
-# Creating and joining the collaboration
-
-in AWS Clean Rooms ML
+# Creating and joining the collaboration in AWS Clean Rooms ML
 
 The collaboration creator is responsible for creating the collaboration, inviting
 members, and assigning their roles. The invited members join the collaboration and
 specify results settings, trained model artifacts destination settings and accept
 payment responsibilities, depending on how the collaboration is set up.
 
-## Creating a collaboration for machine
-
-learning
+## Creating a collaboration for machine learning
 
 The following procedure shows how to create a collaboration for machine learning,
 invite one or more members, and assign members that can start model training,

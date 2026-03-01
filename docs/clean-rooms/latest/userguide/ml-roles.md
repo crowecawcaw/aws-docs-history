@@ -6,26 +6,18 @@ task.
 
 ###### Topics
 
-- [Set up service roles for lookalike
-  modeling](#aws-model-roles "#aws-model-roles")
+- [Set up service roles for lookalike modeling](#aws-model-roles "#aws-model-roles")
 - [Set up service roles for custom modeling](#custom-model-roles "#custom-model-roles")
 
-## Set up service roles for lookalike
-
-modeling
+## Set up service roles for lookalike modeling
 
 ###### Topics
 
-- [Create a service role to read training
-  data](#ml-create-role-training "#ml-create-role-training")
-- [Create a service role to write a
-  lookalike segment](#ml-create-role-write-segment "#ml-create-role-write-segment")
-- [Create a service role to read seed
-  data](#ml-create-role-read-seed "#ml-create-role-read-seed")
+- [Create a service role to read training data](#ml-create-role-training "#ml-create-role-training")
+- [Create a service role to write a lookalike segment](#ml-create-role-write-segment "#ml-create-role-write-segment")
+- [Create a service role to read seed data](#ml-create-role-read-seed "#ml-create-role-read-seed")
 
-### Create a service role to read training
-
-data
+### Create a service role to read training data
 
 AWS Clean Rooms uses a service role to read training data. You can create this role
 using the console if you have the necessary IAM permissions. If you don't have
@@ -243,9 +235,7 @@ query and receive results and member roles.
 
 You have created the service role for AWS Clean Rooms.
 
-### Create a service role to write a
-
-lookalike segment
+### Create a service role to write a lookalike segment
 
 AWS Clean Rooms uses a service role to write lookalike segments to a bucket. You can
 create this role using the console if you have the necessary IAM permissions.
@@ -429,18 +419,14 @@ query and receive results and member roles.
 
 You have created the service role for AWS Clean Rooms.
 
-### Create a service role to read seed
-
-data
+### Create a service role to read seed data
 
 AWS Clean Rooms uses a service role to read seed data. You can create this role
 using the console if you have the necessary IAM permissions. If you don't have
 `CreateRole` permissions, ask your administrator to create the
 service role.
 
-###### To create a service role to read seed data that is stored in an S3
-
-bucket.
+###### To create a service role to read seed data that is stored in an S3 bucket.
 
 1. Sign in to the IAM console ([https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/")) with your
    administrator account.
@@ -667,18 +653,12 @@ You have created the service role for AWS Clean Rooms.
 
 ###### Topics
 
-- [Create a service role for custom ML
-  modeling - ML Configuration](#ml-roles-custom-configure "#ml-roles-custom-configure")
-- [Create a service role to
-  provide a custom ML model](#ml-roles-custom-model-provider "#ml-roles-custom-model-provider")
-- [Create a service role to query a
-  dataset](#ml-roles-custom-query-dataset "#ml-roles-custom-query-dataset")
-- [Create a service role to
-  create a configured table association](#ml-roles-custom-configure-table "#ml-roles-custom-configure-table")
+- [Create a service role for custom ML modeling - ML Configuration](#ml-roles-custom-configure "#ml-roles-custom-configure")
+- [Create a service role to provide a custom ML model](#ml-roles-custom-model-provider "#ml-roles-custom-model-provider")
+- [Create a service role to query a dataset](#ml-roles-custom-query-dataset "#ml-roles-custom-query-dataset")
+- [Create a service role to create a configured table association](#ml-roles-custom-configure-table "#ml-roles-custom-configure-table")
 
-### Create a service role for custom ML
-
-modeling - ML Configuration
+### Create a service role for custom ML modeling - ML Configuration
 
 AWS Clean Rooms uses a service role to control who can create a custom ML
 configuration. You can create this role using the console if you have the
@@ -687,9 +667,7 @@ permissions, ask your administrator to create the service role.
 
 This role allows you to use the [PutMLConfiguration](../../../cleanrooms-ml/latest/APIReference/API_PutMLConfiguration.md "../../../cleanrooms-ml/latest/APIReference/API_PutMLConfiguration.md") action.
 
-###### To create a service role to allow creation of a custom ML
-
-configuration
+###### To create a service role to allow creation of a custom ML configuration
 
 1. Sign in to the IAM console ([https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/")) with your
    administrator account.
@@ -861,9 +839,7 @@ query and receive results and member roles.
 
 You have created the service role for AWS Clean Rooms.
 
-### Create a service role to
-
-provide a custom ML model
+### Create a service role to provide a custom ML model
 
 AWS Clean Rooms uses a service role to control who can create a custom ML model
 algorithm. You can create this role using the console if you have the necessary
@@ -872,9 +848,7 @@ your administrator to create the service role.
 
 This role allows you to use the [CreateConfiguredModelAlgorithm](../../../cleanrooms-ml/latest/APIReference/API_CreateConfiguredModelAlgorithm.md "../../../cleanrooms-ml/latest/APIReference/API_CreateConfiguredModelAlgorithm.md") action.
 
-###### To create a service role to allow a member to provide a custom ML
-
-model
+###### To create a service role to allow a member to provide a custom ML model
 
 1. Sign in to the IAM console ([https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/")) with your
    administrator account.
@@ -986,9 +960,7 @@ query and receive results and member roles.
 
 You have created the service role for AWS Clean Rooms.
 
-### Create a service role to query a
-
-dataset
+### Create a service role to query a dataset
 
 AWS Clean Rooms uses a service role to control who can query a dataset that will be
 used for custom ML modeling. You can create this role using the console if you
@@ -1130,9 +1102,7 @@ query and receive results and member roles.
 
 You have created the service role for AWS Clean Rooms.
 
-### Create a service role to
-
-create a configured table association
+### Create a service role to create a configured table association
 
 AWS Clean Rooms uses a service role to control who can create a configured table
 association. You can create this role using the console if you have the
@@ -1141,9 +1111,7 @@ permissions, ask your administrator to create the service role.
 
 This role allows you to use the CreateConfiguredTableAssociation action.
 
-###### To create a service role to allow creation of a configured table
-
-association
+###### To create a service role to allow creation of a configured table association
 
 1. Sign in to the IAM console ([https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/")) with your
    administrator account.

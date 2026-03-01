@@ -47,28 +47,20 @@ namespace association or the target ID namespace association).
   JOIN, implicit JOIN, and CROSS JOIN. These
   joins can't satisfy overlap requirements. Instead, AWS Clean Rooms uses `requireOverlap` to
   specify which columns have to be joined on.
-  The supported query structure and syntax are deﬁned in [ID mapping table query structure and
-  syntax](#id-mapping-table-query-controls "#id-mapping-table-query-controls").
+  The supported query structure and syntax are deﬁned in [ID mapping table query structure and syntax](#id-mapping-table-query-controls "#id-mapping-table-query-controls").
 
-The parameters of the analysis rule, deﬁned in [ID mapping table analysis rule query
-controls](#parameters-id-mapping-query-controls "#parameters-id-mapping-query-controls"), include query controls and query
+The parameters of the analysis rule, deﬁned in [ID mapping table analysis rule query controls](#parameters-id-mapping-query-controls "#parameters-id-mapping-query-controls"), include query controls and query
 results controls. Its query controls include the ability to require overlap of the ID mapping
 table in JOIN statements (that is, `requireOverlap`).
 
 ###### Topics
 
-- [ID mapping table query structure and
-  syntax](#id-mapping-table-query-controls "#id-mapping-table-query-controls")
-- [ID mapping table analysis rule query
-  controls](#parameters-id-mapping-query-controls "#parameters-id-mapping-query-controls")
-- [ID mapping table analysis rule
-  predefined structure](#id-mapping-table-predefined-structure "#id-mapping-table-predefined-structure")
-- [ID mapping table analysis rule –
-  example](#id-mapping-table-example "#id-mapping-table-example")
+- [ID mapping table query structure and syntax](#id-mapping-table-query-controls "#id-mapping-table-query-controls")
+- [ID mapping table analysis rule query controls](#parameters-id-mapping-query-controls "#parameters-id-mapping-query-controls")
+- [ID mapping table analysis rule predefined structure](#id-mapping-table-predefined-structure "#id-mapping-table-predefined-structure")
+- [ID mapping table analysis rule – example](#id-mapping-table-example "#id-mapping-table-example")
 
-## ID mapping table query structure and
-
-syntax
+## ID mapping table query structure and syntax
 
 Queries on tables that have an ID mapping table analysis rule must adhere to the following
 syntax.
@@ -190,9 +182,7 @@ For ID mapping table query structure and syntax, be aware of the following:
 - The ID mapping table analysis rule inherits the SQL restrictions of the other
   analysis rules in the collaboration.
 
-## ID mapping table analysis rule query
-
-controls
+## ID mapping table analysis rule query controls
 
 With ID mapping table query controls, AWS Clean Rooms controls how the columns in your table are
 used to query the table. For example, it controls which columns are used for joining, and
@@ -208,9 +198,7 @@ The following table explains each control.
 | `dimensionColumns`               | The columns (if any) that the member who can query can use in SELECT and GROUP BY<br>statements. | A `dimensionColumn` can be used in SELECT and<br>GROUP<br>BY.<br>A `dimensionColumn` can appear as `joinKeys`.<br>You can only use `dimensionColumns` in the JOIN clause if you specify<br>it in brackets.                 |
 | `queryContraints:RequireOverlap` | The columns in the ID mapping table that must be joined on so the query can<br>run.              | These columns must be used to JOIN the ID Mapping table and a collaboration<br>table.                                                                                                                                      |
 
-## ID mapping table analysis rule
-
-predefined structure
+## ID mapping table analysis rule predefined structure
 
 The predeﬁned structure for an ID mapping table analysis rule comes with default
 protections that are applied to the `sourceID` and `targetID`. This
@@ -341,9 +329,7 @@ example, the ID mapping table analysis rule allows an INNER JOIN on both the
 }
 ```
 
-## ID mapping table analysis rule –
-
-example
+## ID mapping table analysis rule – example
 
 Rather than writing a long waterfall statement that references Personally Identifiable
 Information (PII), for example, companies can use the ID mapping table analysis rule to use

@@ -11,13 +11,10 @@ use with no additional charge.
 - [Authenticating with identities](#security-iam-auth-with-identities "#security-iam-auth-with-identities")
 - [Managing access using policies](#security-iam-managing-access "#security-iam-managing-access")
 - [How AWS Clean Rooms works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
-- [Identity-based policy examples for
-  AWS Clean Rooms](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
+- [Identity-based policy examples for AWS Clean Rooms](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
 - [AWS managed policies for AWS Clean Rooms](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
-- [Troubleshooting AWS Clean Rooms identity and
-  access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
-- [Cross-service confused deputy
-  prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Troubleshooting AWS Clean Rooms identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
+- [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
 - [IAM behaviors for AWS Clean Rooms ML](ml-behaviors.md "ml-behaviors.md")
 - [IAM behaviors for Clean Rooms ML Custom Models](ml-behaviors-byom.md "ml-behaviors-byom.md")
 
@@ -26,13 +23,11 @@ use with no additional charge.
 How you use AWS Identity and Access Management (IAM) differs based on your role:
 
 - **Service user** - request permissions from your
-  administrator if you cannot access features (see [Troubleshooting AWS Clean Rooms identity and
-  access](security_iam_troubleshoot.md "security_iam_troubleshoot.md"))
+  administrator if you cannot access features (see [Troubleshooting AWS Clean Rooms identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md"))
 - **Service administrator** - determine user access and
   submit permission requests (see [How AWS Clean Rooms works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md"))
 - **IAM administrator** - write policies to manage
-  access (see [Identity-based policy examples for
-  AWS Clean Rooms](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"))
+  access (see [Identity-based policy examples for AWS Clean Rooms](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"))
 
 ## Authenticating with identities
 

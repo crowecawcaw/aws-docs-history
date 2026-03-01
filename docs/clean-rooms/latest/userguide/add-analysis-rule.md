@@ -22,19 +22,13 @@ rule).
 
 ###### Topics
 
-- [Adding an aggregation analysis rule to
-  a table (guided flow)](#add-agg-analysis-rule-console-wizard "#add-agg-analysis-rule-console-wizard")
-- [Adding a list analysis rule to a table
-  (guided flow)](#add-list-analysis-rule-console-wizard "#add-list-analysis-rule-console-wizard")
-- [Adding a custom analysis rule to a table
-  (guided flow)](#add-custom-analysis-rule-wizard "#add-custom-analysis-rule-wizard")
-- [Adding analysis rule to a table (JSON
-  editor)](#add-analysis-rule-console-json-editor "#add-analysis-rule-console-json-editor")
+- [Adding an aggregation analysis rule to a table (guided flow)](#add-agg-analysis-rule-console-wizard "#add-agg-analysis-rule-console-wizard")
+- [Adding a list analysis rule to a table (guided flow)](#add-list-analysis-rule-console-wizard "#add-list-analysis-rule-console-wizard")
+- [Adding a custom analysis rule to a table (guided flow)](#add-custom-analysis-rule-wizard "#add-custom-analysis-rule-wizard")
+- [Adding analysis rule to a table (JSON editor)](#add-analysis-rule-console-json-editor "#add-analysis-rule-console-json-editor")
 - [Next steps](#add-analysis-rule-next-step "#add-analysis-rule-next-step")
 
-## Adding an aggregation analysis rule to
-
-a table (guided flow)
+## Adding an aggregation analysis rule to a table (guided flow)
 
 The _aggregation analysis rule_ allows queries that
 aggregate statistics without revealing row-level information using COUNT,
@@ -148,9 +142,7 @@ For more information, see [Scalar functions](analysis-rules-aggregation.md#scala
 You see a confirmation message that you’ve successfully configured an aggregation analysis
 rule to the table.
 
-## Adding a list analysis rule to a table
-
-(guided flow)
+## Adding a list analysis rule to a table (guided flow)
 
 The _list analysis rule_ allows queries that output
 row-level lists of the overlap between the associated table and a table of the member who can
@@ -211,9 +203,7 @@ Configured tables using non-S3 data sources only support [custom analysis rules]
 You see a confirmation message that you’ve successfully configured a list analysis rule
 for the table.
 
-## Adding a custom analysis rule to a table
-
-(guided flow)
+## Adding a custom analysis rule to a table (guided flow)
 
 The custom analysis rule enables custom SQL queries or PySpark jobs on a configured table.
 The custom analysis rule is required if you're using:
@@ -292,9 +282,7 @@ privacy on or off, based on your goal.
 You see a confirmation message that you’ve successfully configured a custom analysis rule
 for the table.
 
-## Adding analysis rule to a table (JSON
-
-editor)
+## Adding analysis rule to a table (JSON editor)
 
 The following procedure shows how to add an analysis rule to a table using the
 **JSON editor** option in the AWS Clean Rooms console.

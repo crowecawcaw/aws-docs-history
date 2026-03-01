@@ -1,6 +1,4 @@
-# Viewing the impact of differential
-
-privacy
+# Viewing the impact of differential privacy
 
 In general, writing and running queries doesn't change when differential privacy is
 turned on. However, you can't run a query if there isn't enough privacy budget remaining. As

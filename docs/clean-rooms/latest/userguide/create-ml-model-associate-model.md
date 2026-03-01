@@ -1,6 +1,4 @@
-# Associating a configured lookalike
-
-model
+# Associating a configured lookalike model
 
 After you have configured a lookalike model, you can associate it to a
 collaboration.

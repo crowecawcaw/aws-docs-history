@@ -1,6 +1,4 @@
-# Model authoring guidelines for the
-
-inference container
+# Model authoring guidelines for the inference container
 
 This section details the guidelines that model providers should follow when
 creating an inference algorithm for Clean Rooms ML.

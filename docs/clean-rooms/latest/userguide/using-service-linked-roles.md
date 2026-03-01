@@ -1,6 +1,4 @@
-# Using service-linked roles for
-
-AWS Clean Rooms
+# Using service-linked roles for AWS Clean Rooms
 
 AWS Clean Rooms uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
 linked directly to AWS Clean Rooms. Service-linked roles are predefined by AWS Clean Rooms and

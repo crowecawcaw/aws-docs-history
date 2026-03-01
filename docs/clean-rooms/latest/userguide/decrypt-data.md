@@ -32,8 +32,7 @@ collaboration ID that was used to encrypt the data.
    query results file to the same folder as the c3r-cli.jar.
 
 3. Store the shared secret key in the `C3R_SHARED_SECRET` environment variable.
-   For more information, see [Step 6: Store the shared secret key in an environment
-   variable](store-key.md "store-key.md").
+   For more information, see [Step 6: Store the shared secret key in an environment variable](store-key.md "store-key.md").
 4. From the AWS Command Line Interface (AWS CLI), run the following command.
 
 **java -jar c3r-cli.jar decrypt `<name of input .csv

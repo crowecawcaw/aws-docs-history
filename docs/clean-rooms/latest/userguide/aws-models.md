@@ -14,8 +14,6 @@ in Clean Rooms ML.
 ###### Topics
 
 - [Privacy protections of AWS Clean Rooms ML](ml-privacy.md "ml-privacy.md")
-- [Training data requirements for
-  Clean Rooms ML](ml-training-data-requirements.md "ml-training-data-requirements.md")
-- [Seed data requirements for
-  Clean Rooms ML](ml-seed-data-requirements.md "ml-seed-data-requirements.md")
+- [Training data requirements for Clean Rooms ML](ml-training-data-requirements.md "ml-training-data-requirements.md")
+- [Seed data requirements for Clean Rooms ML](ml-seed-data-requirements.md "ml-seed-data-requirements.md")
 - [AWS Clean Rooms ML model evaluation metrics](ml-metrics.md "ml-metrics.md")

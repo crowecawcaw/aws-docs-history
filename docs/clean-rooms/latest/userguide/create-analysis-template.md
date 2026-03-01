@@ -16,5 +16,4 @@ Spark.
 
 - [SQL analysis templates](sql-analysis-templates.md "sql-analysis-templates.md")
 - [PySpark analysis templates](pyspark-analysis-templates.md "pyspark-analysis-templates.md")
-- [Troubleshooting PySpark analysis
-  templates](troubleshooting-pyspark-analysis-templates.md "troubleshooting-pyspark-analysis-templates.md")
+- [Troubleshooting PySpark analysis templates](troubleshooting-pyspark-analysis-templates.md "troubleshooting-pyspark-analysis-templates.md")

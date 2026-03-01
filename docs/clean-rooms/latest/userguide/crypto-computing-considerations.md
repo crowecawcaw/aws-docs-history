@@ -8,19 +8,13 @@ your use case. Tradeoffs to consider include the following:
 
 ###### Topics
 
-- [Allowing mixed cleartext and encrypted
-  data in your tables](#allow-mixed-plaintext-and-encrypted-data "#allow-mixed-plaintext-and-encrypted-data")
-- [Allowing repeated values in fingerprint
-  columns](#allow-repeated-values "#allow-repeated-values")
-- [Loosening restrictions on how
-  fingerprint columns are named](#loose-restrictions-on-join-column-names "#loose-restrictions-on-join-column-names")
-- [Determining how NULL values are
-  represented](#determine-null-values "#determine-null-values")
+- [Allowing mixed cleartext and encrypted data in your tables](#allow-mixed-plaintext-and-encrypted-data "#allow-mixed-plaintext-and-encrypted-data")
+- [Allowing repeated values in fingerprint columns](#allow-repeated-values "#allow-repeated-values")
+- [Loosening restrictions on how fingerprint columns are named](#loose-restrictions-on-join-column-names "#loose-restrictions-on-join-column-names")
+- [Determining how NULL values are represented](#determine-null-values "#determine-null-values")
   For more information about how to set parameters for these scenarios, see [Cryptographic computing parameters](crypto-computing-parameters.md "crypto-computing-parameters.md").
 
-## Allowing mixed cleartext and encrypted
-
-data in your tables
+## Allowing mixed cleartext and encrypted data in your tables
 
 Having all data be client-side encrypted provides maximum data protection. However, this
 limits certain kinds of queries (for example, the SUM aggregate function). The
@@ -36,12 +30,9 @@ In contrast, if one column is `City` and the other column is
 `EmailAddress`, a cleartext
 `City` is unlikely to reveal anything about an encrypted `EmailAddress`.
 
-For more information about the parameter for this scenario, see [Allow cleartext columns
-parameter](crypto-computing-parameters.md#parameter-allowcleartext "crypto-computing-parameters.md#parameter-allowcleartext").
+For more information about the parameter for this scenario, see [Allow cleartext columns parameter](crypto-computing-parameters.md#parameter-allowcleartext "crypto-computing-parameters.md#parameter-allowcleartext").
 
-## Allowing repeated values in fingerprint
-
-columns
+## Allowing repeated values in fingerprint columns
 
 For the most secure approach, we assume that any fingerprint column contains
 exactly one instance of a variable. No item can be repeated in a fingerprint
@@ -65,9 +56,7 @@ information.
 
 For more information about the parameter for this scenario, see [Allow duplicates parameter](crypto-computing-parameters.md#parameter-allowduplicates "crypto-computing-parameters.md#parameter-allowduplicates").
 
-## Loosening restrictions on how
-
-fingerprint columns are named
+## Loosening restrictions on how fingerprint columns are named
 
 By default, we assume that when two tables are joined using encrypted
 fingerprint columns, those columns have the same name in each table. The
@@ -87,12 +76,9 @@ columns. New York is one of a few cities in the US where the `City` name is the 
 as the `State` name. In contrast, if your dataset has completely different values in
 each column, no information is leaked.
 
-For more information about the parameter for this scenario, see [Allow JOIN of columns with different
-names parameter](crypto-computing-parameters.md#parameter-allowjoin "crypto-computing-parameters.md#parameter-allowjoin").
+For more information about the parameter for this scenario, see [Allow JOIN of columns with different names parameter](crypto-computing-parameters.md#parameter-allowjoin "crypto-computing-parameters.md#parameter-allowjoin").
 
-## Determining how NULL values are
-
-represented
+## Determining how NULL values are represented
 
 The option available to you is whether to process cryptographically (encrypt and HMAC)
 NULL values like any other value. If you don't process NULL values
@@ -106,5 +92,4 @@ cryptographically process NULL values, certain SQL queries act differently. For
 example, GROUP BY clauses will not group fingerprint
 NULL values in fingerprint columns together.
 
-For more information about the parameter for this scenario, see [Preserve NULL values
-parameter](crypto-computing-parameters.md#parameter-preservenulls "crypto-computing-parameters.md#parameter-preservenulls").
+For more information about the parameter for this scenario, see [Preserve NULL values parameter](crypto-computing-parameters.md#parameter-preservenulls "crypto-computing-parameters.md#parameter-preservenulls").

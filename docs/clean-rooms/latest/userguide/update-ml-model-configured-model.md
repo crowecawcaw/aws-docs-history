@@ -1,6 +1,4 @@
-# Updating a configured lookalike
-
-model
+# Updating a configured lookalike model
 
 After you have associated a configured a lookalike model, you can update it to change
 information such as the name, metrics to share, or output Amazon S3 location.

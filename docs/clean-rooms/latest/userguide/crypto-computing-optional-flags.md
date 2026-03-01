@@ -6,8 +6,7 @@ customization and testing.
 ###### Topics
 
 - [--csvInputNULLValue flag](#optional-flags-CSVinputNullValue "#optional-flags-CSVinputNullValue")
-- [--csvOutputNULLValue
-  flag](#optional-flags-CSVoutputNullValue "#optional-flags-CSVoutputNullValue")
+- [--csvOutputNULLValue flag](#optional-flags-CSVoutputNullValue "#optional-flags-CSVoutputNullValue")
 - [--enableStackTraces flag](#optional-flags-enablestacktraces "#optional-flags-enablestacktraces")
 - [--dryRun flag](#optional-flags-dry-run "#optional-flags-dry-run")
 - [--tempDir flag](#optional-flags-working-dir "#optional-flags-working-dir")
@@ -30,9 +29,7 @@ explicitly support this characterization for historical reasons, it's a common c
 consider an empty entry containing only white space to be NULL. Therefore, that's
 the default behavior of the C3R encryption client and it can be customized as needed.
 
-## `--csvOutputNULLValue`
-
-flag
+## `--csvOutputNULLValue` flag
 
 You can use the `--csvOutputNULLValue` flag to specify custom encodings for
 NULL entries in the output data when you [encrypt

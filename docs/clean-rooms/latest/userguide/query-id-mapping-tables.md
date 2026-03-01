@@ -1,6 +1,4 @@
-# Querying ID mapping tables using the SQL code
-
-editor
+# Querying ID mapping tables using the SQL code editor
 
 The following procedure describes how to run a multi-table join query on the ID mapping
 table to join the `sourceId` with the `targetId`.

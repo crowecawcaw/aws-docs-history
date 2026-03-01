@@ -206,9 +206,7 @@ The following scalar functions are supported:
 
 For more details, see the [AWS Clean Rooms SQL Reference](../sql-reference/sql-reference.md "../sql-reference/sql-reference.md").
 
-## Aggregation analysis rule - query results
-
-controls
+## Aggregation analysis rule - query results controls
 
 With the aggregation query results controls, you can control which results are returned by
 specifying one or more conditions that each output row must meet for it to be returned.
@@ -481,9 +479,7 @@ GROUP BY
 10. Company A and Company B review query logs. Company B verifies that the query aligns
     with what was agreed upon in the collaboration agreement.
 
-## Troubleshooting aggregation analysis rule
-
-issues
+## Troubleshooting aggregation analysis rule issues
 
 Use the information here to help you diagnose and fix common issues when you work with
 aggregation analysis rules.

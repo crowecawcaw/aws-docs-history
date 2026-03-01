@@ -1,6 +1,4 @@
-# Create AWS Clean Rooms ML models as a training
-
-data provider
+# Create AWS Clean Rooms ML models as a training data provider
 
 A _lookalike model_ is a model of a training data provider's data that
 allows a seed data provider to create a lookalike segment of training data provider's data
@@ -34,7 +32,5 @@ This is the workflow that the training data provider must complete first:
 - [Importing training data](create-ml-model-training-data.md "create-ml-model-training-data.md")
 - [Creating a lookalike model](create-ml-model-create-model.md "create-ml-model-create-model.md")
 - [Configuring a lookalike model](create-ml-model-configure-model.md "create-ml-model-configure-model.md")
-- [Associating a configured lookalike
-  model](create-ml-model-associate-model.md "create-ml-model-associate-model.md")
-- [Updating a configured lookalike
-  model](update-ml-model-configured-model.md "update-ml-model-configured-model.md")
+- [Associating a configured lookalike model](create-ml-model-associate-model.md "create-ml-model-associate-model.md")
+- [Updating a configured lookalike model](update-ml-model-configured-model.md "update-ml-model-configured-model.md")

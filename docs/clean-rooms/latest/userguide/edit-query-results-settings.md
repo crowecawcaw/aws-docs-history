@@ -1,6 +1,4 @@
-# Editing default values for query results
-
-settings
+# Editing default values for query results settings
 
 ###### Note
 

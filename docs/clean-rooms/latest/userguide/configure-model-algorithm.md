@@ -1,6 +1,4 @@
-# Configuring a model algorithm in
-
-AWS Clean Rooms ML
+# Configuring a model algorithm in AWS Clean Rooms ML
 
 After you have [created a container training image](../../../sagemaker/latest/dg/docker-containers.md "../../../sagemaker/latest/dg/docker-containers.md"), you must configure
 your model algorithm. Configuring a model algorithm makes it available for association

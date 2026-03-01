@@ -1,6 +1,4 @@
-# Integrating AWS Clean Rooms into event-driven
-
-applications using Amazon EventBridge
+# Integrating AWS Clean Rooms into event-driven applications using Amazon EventBridge
 
 You can incorporate AWS Clean Rooms into event-driven applications (EDAs) that use events that
 occur in AWS Clean Rooms to communicate between application components and initiate downstream
@@ -86,9 +84,7 @@ Events Reference_](../../../eventbridge/latest/ref/welcome.md "../../../eventbri
 | [Protected Query Failed](events-detail-reference-full.md#event-detail-protected-query-failed "events-detail-reference-full.md#event-detail-protected-query-failed")                                                                                     | The **Query Runner**, **Query Payer\*<br>• and **Results Receiver(s)_<br>• of a \*\*Protected Query_<br>• are notified when the **Protected Query\*<br>• has **Failed\*\*.                                                             |
 | [Protected Query Timed Out](events-detail-reference-full.md#event-detail-protected-query-timed-out "events-detail-reference-full.md#event-detail-protected-query-timed-out")                                                                            | The **Query Runner**, **Query Payer\*<br>• and **Results Receiver(s)_<br>• of a \*\*Protected Query_<br>• are notified when the **Protected Query\*<br>• has **Timed Out\*\*.                                                          |
 
-## Routing AWS Clean Rooms events using
-
-EventBridge
+## Routing AWS Clean Rooms events using EventBridge
 
 To have EventBridge route AWS Clean Rooms events to a target, you must create a rule. Each rule
 contains an event pattern, which EventBridge matches against each event received on the event
@@ -99,9 +95,7 @@ For comprehensive instructions on creating event bus rules, see [Creating
 rules that react to events](../../../eventbridge/latest/userguide/eb-create-rule.md "../../../eventbridge/latest/userguide/eb-create-rule.md") in the _EventBridge User
 Guide_.
 
-### Creating event patterns that
-
-match AWS Clean Rooms events
+### Creating event patterns that match AWS Clean Rooms events
 
 Each event pattern is a JSON object that contains:
 

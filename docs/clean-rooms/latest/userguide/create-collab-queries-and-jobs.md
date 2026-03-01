@@ -1,6 +1,4 @@
-# Creating a collaboration for queries and
-
-jobs
+# Creating a collaboration for queries and jobs
 
 In this procedure, you as the [collaboration creator](glossary.md#glossary-collaboration-creator "glossary.md#glossary-collaboration-creator") perform the
 following tasks:

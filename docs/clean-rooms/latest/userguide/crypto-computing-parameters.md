@@ -10,17 +10,12 @@ following topics.
 
 ###### Topics
 
-- [Allow cleartext columns
-  parameter](#parameter-allowcleartext "#parameter-allowcleartext")
+- [Allow cleartext columns parameter](#parameter-allowcleartext "#parameter-allowcleartext")
 - [Allow duplicates parameter](#parameter-allowduplicates "#parameter-allowduplicates")
-- [Allow JOIN of columns with different
-  names parameter](#parameter-allowjoin "#parameter-allowjoin")
-- [Preserve NULL values
-  parameter](#parameter-preservenulls "#parameter-preservenulls")
+- [Allow JOIN of columns with different names parameter](#parameter-allowjoin "#parameter-allowjoin")
+- [Preserve NULL values parameter](#parameter-preservenulls "#parameter-preservenulls")
 
-## Allow cleartext columns
-
-parameter
+## Allow cleartext columns parameter
 
 In the console, you can set the **Allow cleartext
 columns** parameter when [creating a
@@ -82,9 +77,7 @@ JOIN queries and aren't concerned about duplicate values, the **Allow
 duplicates** parameter can disable this conservative
 check.
 
-## Allow JOIN of columns with different
-
-names parameter
+## Allow JOIN of columns with different names parameter
 
 In the console, you can set the **Allow JOIN of columns with
 different names** parameter when [creating a
@@ -109,8 +102,7 @@ Using the `CreateCollaboration` API operation, for the
 Reference](../apireference/Welcome.md "../apireference/Welcome.md").
 
 By default, fingerprint column encryption is affected by the
-`targetHeader` for that column, set in [Step 4: Generate an encryption schema for a
-tabular file](gen-encryption-schema-csv.md "gen-encryption-schema-csv.md") . Therefore, the same cleartext
+`targetHeader` for that column, set in [Step 4: Generate an encryption schema for a tabular file](gen-encryption-schema-csv.md "gen-encryption-schema-csv.md"). Therefore, the same cleartext
 value has different encrypted representations in each different fingerprint
 column that it's encrypted for.
 
@@ -126,9 +118,7 @@ names** parameter to loosen this restriction. When the parameter value is set to
 `Yes`, it allows any columns encrypted for JOIN to be used
 together regardless of name.
 
-## Preserve NULL values
-
-parameter
+## Preserve NULL values parameter
 
 In the console, you can set the **Preserve NULL values**
 parameter when [creating a collaboration](create-collaboration.md "create-collaboration.md") to

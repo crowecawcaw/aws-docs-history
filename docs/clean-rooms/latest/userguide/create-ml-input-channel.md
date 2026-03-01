@@ -1,6 +1,4 @@
-# Creating an ML input channel in
-
-AWS Clean Rooms ML
+# Creating an ML input channel in AWS Clean Rooms ML
 
 **Prerequisites:**
 

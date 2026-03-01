@@ -31,9 +31,7 @@ The C3R encryption client requires that .csv files have the following properties
 
 Both leading and trailing white space is trimmed from .csv entries.
 
-#### Custom NULL encoding for a .csv
-
-file
+#### Custom NULL encoding for a .csv file
 
 A .csv file can use custom NULL encoding.
 
@@ -50,9 +48,7 @@ reasons, it's a common convention to consider an empty entry that contains only 
 be NULL. Therefore, that's the default behavior of the C3R encryption client and it
 can be customized as needed.
 
-### How .csv entries are interpreted by
-
-C3R
+### How .csv entries are interpreted by C3R
 
 The following table provides examples of how .csv entries are marshalled
 (cleartext to cleartext for clarity) based on the values (if any)
@@ -108,9 +104,7 @@ A
 file with a .parquet extension is assumed to be in the
 Apache Parquet format.
 
-### Supported Parquet data
-
-types
+### Supported Parquet data types
 
 The C3R encryption client can process any non-complex (that is, primitive type) data in a
 Parquet

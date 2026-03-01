@@ -1,6 +1,4 @@
-# Deleting the configured table analysis
-
-rule
+# Deleting the configured table analysis rule
 
 ###### Warning
 

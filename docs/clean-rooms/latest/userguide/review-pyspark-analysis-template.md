@@ -1,6 +1,4 @@
-# Reviewing a PySpark analysis
-
-template
+# Reviewing a PySpark analysis template
 
 When another member creates an analysis template in your collaboration, you must review
 and approve it before it can be used.

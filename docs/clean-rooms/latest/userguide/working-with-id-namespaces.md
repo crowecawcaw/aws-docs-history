@@ -24,5 +24,4 @@ Guide_.
 - [Creating and associating a new ID namespace](create-new-id-namespace.md "create-new-id-namespace.md")
 - [Associating an existing ID namespace](associate-existing-id-namespace.md "associate-existing-id-namespace.md")
 - [Editing ID namespace associations](edit-id-namespace-association.md "edit-id-namespace-association.md")
-- [Disassociating ID namespace
-  associations](disassociate-id-namespace-association.md "disassociate-id-namespace-association.md")
+- [Disassociating ID namespace associations](disassociate-id-namespace-association.md "disassociate-id-namespace-association.md")

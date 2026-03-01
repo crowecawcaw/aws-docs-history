@@ -8,8 +8,7 @@ that we created called `ads.json`.
 
 ###### To encrypt data
 
-1. Store the shared secret key for the collaboration in [Step 6: Store the shared secret key in an environment
-   variable](store-key.md "store-key.md").
+1. Store the shared secret key for the collaboration in [Step 6: Store the shared secret key in an environment variable](store-key.md "store-key.md").
 2. From the command line, enter the following command.
 
 `java -jar c3r-cli.jar encrypt `<name of input .csv

@@ -21,10 +21,8 @@ The following topics explain how to receive analysis results using the AWS Clean
 
 - [Receiving query results](receive-results.md "receive-results.md")
 - [Receiving job results](receive-job-results.md "receive-job-results.md")
-- [Editing default values for query results
-  settings](edit-query-results-settings.md "edit-query-results-settings.md")
-- [Editing default values for job results
-  settings](edit-job-results-settings.md "edit-job-results-settings.md")
+- [Editing default values for query results settings](edit-query-results-settings.md "edit-query-results-settings.md")
+- [Editing default values for job results settings](edit-job-results-settings.md "edit-job-results-settings.md")
 - [Using query output in other AWS services](using-query-output.md "using-query-output.md")
   For information about how to query data or view queries by calling the AWS Clean Rooms API
   directly or by using the AWS SDKs, see the [AWS Clean Rooms API Reference](../apireference/Welcome.md "../apireference/Welcome.md").

@@ -1,6 +1,4 @@
-# Using incremental training in
-
-AWS Clean Rooms ML
+# Using incremental training in AWS Clean Rooms ML
 
 Prerequisites:
 

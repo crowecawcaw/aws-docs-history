@@ -1,6 +1,4 @@
-# Creating a configured table in
-
-AWS Clean Rooms
+# Creating a configured table in AWS Clean Rooms
 
 A _configured table_ is a reference to an existing table
 in a data source. It contains an analysis rule that determines how the data can be queried
@@ -11,9 +9,6 @@ For information about how to create a configured table using the AWS SDKs, see t
 
 ###### Topics
 
-- [Creating a configured table – Amazon S3 data
-  source](create-config-table-s3.md "create-config-table-s3.md")
-- [Creating a configured table –
-  Amazon Athena data source](create-config-table-athena.md "create-config-table-athena.md")
-- [Creating a configured table –
-  Snowflake data source](create-config-table-snowflake.md "create-config-table-snowflake.md")
+- [Creating a configured table – Amazon S3 data source](create-config-table-s3.md "create-config-table-s3.md")
+- [Creating a configured table – Amazon Athena data source](create-config-table-athena.md "create-config-table-athena.md")
+- [Creating a configured table – Snowflake data source](create-config-table-snowflake.md "create-config-table-snowflake.md")

@@ -1,6 +1,4 @@
-# Contributing training data in
-
-AWS Clean Rooms ML
+# Contributing training data in AWS Clean Rooms ML
 
 After the collaboration creator has created the collaboration and invited members have
 joined, you are ready to contribute training data to the collaboration. Any member can

@@ -26,23 +26,17 @@ The following diagram summarizes how to work with event data in AWS Clean Rooms.
 
 ###### Topics
 
-- [Creating a configured table in
-  AWS Clean Rooms](create-configured-table.md "create-configured-table.md")
+- [Creating a configured table in AWS Clean Rooms](create-configured-table.md "create-configured-table.md")
 - [Adding an analysis rule to a configured table](add-analysis-rule.md "add-analysis-rule.md")
-- [Associating a configured table to a
-  collaboration](associate-configured-table.md "associate-configured-table.md")
+- [Associating a configured table to a collaboration](associate-configured-table.md "associate-configured-table.md")
 - [Configuring a data access budget](configure-data-access-budget.md "configure-data-access-budget.md")
-- [Adding a collaboration analysis rule to a
-  configured table](add-collaboration-analysis-rule.md "add-collaboration-analysis-rule.md")
-- [Configuring differential privacy policy
-  (optional)](configure-differential-privacy.md "configure-differential-privacy.md")
+- [Adding a collaboration analysis rule to a configured table](add-collaboration-analysis-rule.md "add-collaboration-analysis-rule.md")
+- [Configuring differential privacy policy (optional)](configure-differential-privacy.md "configure-differential-privacy.md")
 - [Viewing tables and analysis rules](view-tables.md "view-tables.md")
 - [Editing a configured table](edit-configured-table.md "edit-configured-table.md")
 - [Editing configured table tags](edit-config-table-tags.md "edit-config-table-tags.md")
-- [Editing the configured table analysis
-  rule](edit-config-table-analysis-rule.md "edit-config-table-analysis-rule.md")
-- [Deleting the configured table analysis
-  rule](delete-config-table-analysis-rule.md "delete-config-table-analysis-rule.md")
+- [Editing the configured table analysis rule](edit-config-table-analysis-rule.md "edit-config-table-analysis-rule.md")
+- [Deleting the configured table analysis rule](delete-config-table-analysis-rule.md "delete-config-table-analysis-rule.md")
 - [Configured table disallowed columns](disallowed-columns.md "disallowed-columns.md")
 - [Editing configured table associations](edit-config-table-assoc.md "edit-config-table-assoc.md")
 - [Disassociating configured tables](disassociate-config-table.md "disassociate-config-table.md")

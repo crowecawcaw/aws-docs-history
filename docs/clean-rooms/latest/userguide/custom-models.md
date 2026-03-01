@@ -18,11 +18,7 @@ model
 
 ###### Topics
 
-- [Custom ML modeling
-  prerequisites](custom-model-prerequisites.md "custom-model-prerequisites.md")
-- [Model authoring guidelines for the
-  training container](custom-model-guidelines.md "custom-model-guidelines.md")
-- [Model authoring guidelines for the
-  inference container](inference-model-guidelines.md "inference-model-guidelines.md")
-- [Receiving model logs and
-  metrics](custom-model-logs.md "custom-model-logs.md")
+- [Custom ML modeling prerequisites](custom-model-prerequisites.md "custom-model-prerequisites.md")
+- [Model authoring guidelines for the training container](custom-model-guidelines.md "custom-model-guidelines.md")
+- [Model authoring guidelines for the inference container](inference-model-guidelines.md "inference-model-guidelines.md")
+- [Receiving model logs and metrics](custom-model-logs.md "custom-model-logs.md")

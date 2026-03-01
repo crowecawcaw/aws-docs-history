@@ -10,8 +10,7 @@ the analysis builder, you can build a query for a collaboration that has:
   analysis rule](glossary.md#glossary-list-analysis-rule "glossary.md#glossary-list-analysis-rule")
 - Two tables (one from each member) that both use the aggregation analysis rule and
   two tables (one from each member) that both use the list analysis rule
-  If you want to manually write SQL queries, see [Querying configured tables using the SQL code
-  editor](use-sql-editor.md "use-sql-editor.md").
+  If you want to manually write SQL queries, see [Querying configured tables using the SQL code editor](use-sql-editor.md "use-sql-editor.md").
 
 The analysis builder appears as the **Analysis builder UI** option in
 the **Analysis** section of the **Analysis** tab in the
@@ -32,14 +31,10 @@ The following topics explain how to use the analysis builder.
 
 ###### Topics
 
-- [Use the analysis builder to query a
-  single table (aggregation)](#use-analysis-builder-one-table "#use-analysis-builder-one-table")
-- [Use the analysis builder to query two
-  tables (aggregation or list)](#use-analysis-builder-two-tables "#use-analysis-builder-two-tables")
+- [Use the analysis builder to query a single table (aggregation)](#use-analysis-builder-one-table "#use-analysis-builder-one-table")
+- [Use the analysis builder to query two tables (aggregation or list)](#use-analysis-builder-two-tables "#use-analysis-builder-two-tables")
 
-## Use the analysis builder to query a
-
-single table (aggregation)
+## Use the analysis builder to query a single table (aggregation)
 
 This procedure demonstrates how to use the **Analysis builder UI** in
 the AWS Clean Rooms console to build a query. The query is for a collaboration that has a single
@@ -122,9 +117,7 @@ enough details to help you troubleshoot, contact the account team. Provide them 
 description of how the error occurred and the error message (including any identifiers).
 For more information, see [Troubleshooting AWS Clean Rooms](troubleshooting.md "troubleshooting.md").
 
-## Use the analysis builder to query two
-
-tables (aggregation or list)
+## Use the analysis builder to query two tables (aggregation or list)
 
 This procedure describes how to use the analysis builder in the AWS Clean Rooms console to build
 a query for a collaboration that has:

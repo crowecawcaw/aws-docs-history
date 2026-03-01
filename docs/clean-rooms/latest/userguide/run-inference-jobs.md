@@ -1,6 +1,4 @@
-# Running inference on a trained model in
-
-AWS Clean Rooms ML
+# Running inference on a trained model in AWS Clean Rooms ML
 
 Members with the ability to run queries can also initiate inference job once the
 training job is complete. They pick the inference dataset against which they want to run

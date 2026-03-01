@@ -16,8 +16,7 @@ The disallowed output columns configuration gives you the flexibility to apply a
 control on your table in combination with analysis template level reviews based on use cases
 and corresponding privacy requirements.
 
-For more information on how to set this configuration, see [Adding a custom analysis rule to a table
-(guided flow)](add-analysis-rule.md#add-custom-analysis-rule-wizard "add-analysis-rule.md#add-custom-analysis-rule-wizard").
+For more information on how to set this configuration, see [Adding a custom analysis rule to a table (guided flow)](add-analysis-rule.md#add-custom-analysis-rule-wizard "add-analysis-rule.md#add-custom-analysis-rule-wizard").
 
 **Examples**
 

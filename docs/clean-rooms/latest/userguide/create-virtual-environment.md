@@ -1,6 +1,4 @@
-# Creating a virtual environment
-
-(optional)
+# Creating a virtual environment (optional)
 
 If you have any additional libraries required by your user script, you have the option
 to create a virtual environment to store those libraries. If you don't need additional
@@ -36,6 +34,5 @@ rm -fr pyspark_venvsource
 ```
 
 3. You are now ready to store this virtual environment in S3. For more information, see
-   [Storing a user script and virtual environment in
-   S3](store-artifacts-in-s3.md "store-artifacts-in-s3.md").
+   [Storing a user script and virtual environment in S3](store-artifacts-in-s3.md "store-artifacts-in-s3.md").
    For more information about working with Docker and Amazon ECR, see the [Amazon ECRUser Guide](../../../AmazonECR/latest/userguide.md "../../../AmazonECR/latest/userguide.md").

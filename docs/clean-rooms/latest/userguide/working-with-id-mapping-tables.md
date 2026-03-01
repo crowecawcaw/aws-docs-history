@@ -37,8 +37,7 @@ User Guide_.
 
 ###### Topics
 
-- [Creating and populating a new ID mapping
-  table](create-id-mapping-table.md "create-id-mapping-table.md")
+- [Creating and populating a new ID mapping table](create-id-mapping-table.md "create-id-mapping-table.md")
 - [Populating an existing ID mapping table](populate-id-mapping-table.md "populate-id-mapping-table.md")
 - [Editing an ID mapping table](edit-id-mapping-table.md "edit-id-mapping-table.md")
 - [Deleting an ID mapping table](delete-id-mapping-table.md "delete-id-mapping-table.md")

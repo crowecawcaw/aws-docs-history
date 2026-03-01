@@ -6,10 +6,8 @@ This section describes some common issues that might arise when using AWS Clean 
 
 - [One or more tables referenced by the query is not accessible by its associated service role. The table/role owner must grant the service role access to the table.](#table-not-accessible "#table-not-accessible")
 - [One of the underlying datasets has an unsupported file format.](#dataset-has-unsupported-file-format "#dataset-has-unsupported-file-format")
-- [Query results are not as expected when
-  using Cryptographic Computing for Clean Rooms.](#troubleshoot-query-results-c3r "#troubleshoot-query-results-c3r")
-- [AWS Clean Rooms Spark SQL: Missing
-  partition data](#troubleshoot-missing-partition-data "#troubleshoot-missing-partition-data")
+- [Query results are not as expected when using Cryptographic Computing for Clean Rooms.](#troubleshoot-query-results-c3r "#troubleshoot-query-results-c3r")
+- [AWS Clean Rooms Spark SQL: Missing partition data](#troubleshoot-missing-partition-data "#troubleshoot-missing-partition-data")
 
 ## One or more tables referenced by the query is not accessible by its associated service role. The table/role owner must grant the service role access to the table.
 
@@ -32,9 +30,7 @@ This section describes some common issues that might arise when using AWS Clean 
 
   For more information, see [Data formats for AWS Clean Rooms](data-formats.md "data-formats.md").
 
-## Query results are not as expected when
-
-using Cryptographic Computing for Clean Rooms.
+## Query results are not as expected when using Cryptographic Computing for Clean Rooms.
 
 If you are using Cryptographic Computing for Clean Rooms (C3R), verify that your query uses encrypted
 columns correctly:
@@ -49,9 +45,7 @@ columns correctly:
 
 For more information, see [Cryptographic Computing for Clean Rooms](crypto-computing.md "crypto-computing.md") and [Column types in Cryptographic Computing for Clean Rooms](crypto-computing-column-types.md "crypto-computing-column-types.md").
 
-## AWS Clean Rooms Spark SQL: Missing
-
-partition data
+## AWS Clean Rooms Spark SQL: Missing partition data
 
 All
 partitions in the AWS Glue Data Catalog must also have data in S3. The engine uses the Spark

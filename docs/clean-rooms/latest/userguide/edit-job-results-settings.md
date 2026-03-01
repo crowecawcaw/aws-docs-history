@@ -1,6 +1,4 @@
-# Editing default values for job results
-
-settings
+# Editing default values for job results settings
 
 ###### Note
 

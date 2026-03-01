@@ -1,6 +1,4 @@
-# Troubleshooting PySpark analysis
-
-templates
+# Troubleshooting PySpark analysis templates
 
 When running jobs using PySpark analysis templates, you might encounter failures during job
 initialization or execution. These failures typically relate to script configuration, data access
@@ -12,8 +10,7 @@ For more information about PySpark limitations, see [PySpark limitations in AWS 
 
 - [Troubleshooting your code](#troubleshoot-your-code "#troubleshoot-your-code")
 - [Analysis template job doesn't start](#troubleshooting_analysis_template_job_fails_to_start "#troubleshooting_analysis_template_job_fails_to_start")
-- [Analysis template job starts but fails
-  during processing](#analysis-template-job-failes-to-run "#analysis-template-job-failes-to-run")
+- [Analysis template job starts but fails during processing](#analysis-template-job-failes-to-run "#analysis-template-job-failes-to-run")
 - [Virtual environment setup fails](#virtual-environment-setup-fails "#virtual-environment-setup-fails")
 
 ## Troubleshooting your code
@@ -103,9 +100,7 @@ issues:
 - Implement CI/CD checks to verify script naming and entrypoint function
   requirements.
 
-## Analysis template job starts but fails
-
-during processing
+## Analysis template job starts but fails during processing
 
 ### Common causes
 

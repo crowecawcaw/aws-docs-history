@@ -8,8 +8,7 @@ rule.
 The list analysis rule type supports uses cases such as enrichment and audience building.
 
 For more information about the predefined query structure and syntax for this analysis rule,
-see [List analysis rule predefined
-structure](#intersection-list-params-template "#intersection-list-params-template").
+see [List analysis rule predefined structure](#intersection-list-params-template "#intersection-list-params-template").
 
 The parameters of the list analysis rule, defined in [List analysis rule - query controls](#parameters-list-query-controls "#parameters-list-query-controls"),
 have query controls. Its query controls include the ability to select the columns that can be
@@ -25,8 +24,7 @@ aggregation or scalar).
 
 - [List query structure and syntax](#list-query-controls "#list-query-controls")
 - [List analysis rule - query controls](#parameters-list-query-controls "#parameters-list-query-controls")
-- [List analysis rule predefined
-  structure](#intersection-list-params-template "#intersection-list-params-template")
+- [List analysis rule predefined structure](#intersection-list-params-template "#intersection-list-params-template")
 - [List analysis rule - example](#list-example "#list-example")
 
 ## List query structure and syntax
@@ -154,9 +152,7 @@ is, used in the WHERE statement).
 | ------------- | ------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | `listColumns` | The columns that you allow the member who can query to use in the SELECT and<br>WHERE | A `listColumn` can be used in SELECT and<br>WHERE.The same column can't be used as both a<br>`listColumn` and `joinColumn`. |
 
-## List analysis rule predefined
-
-structure
+## List analysis rule predefined structure
 
 The following example includes a predefined structure that shows how you complete a list
 analysis rule.
