@@ -5,9 +5,7 @@ data lakes with petabytes of data. Use this section to learn how to connect from
 to Trino. All traffic between Amazon Quick Sight and Trino is enabled by SSL. Amazon Quick Sight supports
 basic username and password authentication to Trino.
 
-## Creating a data source connection for
-
-Trino
+## Creating a data source connection for Trino
 
 1. Begin by creating a new dataset. From the left navigation pane, choose
    **Data**. Choose **Create** then
@@ -33,9 +31,7 @@ Trino
 10. To finish and create the data source, choose **Create data
     source**.
 
-## Adding a new Amazon Quick Sight dataset for
-
-Trino
+## Adding a new Amazon Quick Sight dataset for Trino
 
 After you go through the [data source creation process](../../../create-connection-to-starburst.md "../../../create-connection-to-starburst.md")
 for Trino, you can create Trino datasets to use for analysis. You can create new

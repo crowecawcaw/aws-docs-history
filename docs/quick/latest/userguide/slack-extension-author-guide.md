@@ -1,6 +1,4 @@
-# Amazon Quick Slack
-
-extension author guide
+# Amazon Quick Slack extension author guide
 
 As an Amazon Quick author, you can deploy Quick Slack
 extensions after your admin establishes the foundational connection to your
@@ -29,18 +27,12 @@ Quick admin must [configure Amazon Quick access to Slack](../../../quicksuite/la
 
 ###### Topics
 
-- [Deploy a Slack
-  extension](#add-extensions-slack "#add-extensions-slack")
-- [Edit Slack
-  extension](#edit-extensions-slack "#edit-extensions-slack")
-- [Share Slack
-  extension](#share-extensions-slack "#share-extensions-slack")
-- [Delete Slack
-  extension](#delete-extensions-slack "#delete-extensions-slack")
+- [Deploy a Slack extension](#add-extensions-slack "#add-extensions-slack")
+- [Edit Slack extension](#edit-extensions-slack "#edit-extensions-slack")
+- [Share Slack extension](#share-extensions-slack "#share-extensions-slack")
+- [Delete Slack extension](#delete-extensions-slack "#delete-extensions-slack")
 
-## Deploy a Slack
-
-extension
+## Deploy a Slack extension
 
 Deploy a new Slack extension instance in the Quick
 console. This process establishes the foundation for connecting AI-powered
@@ -100,9 +92,7 @@ will be required to sign-in.
 Your Slack extension has now been successfully deployed and is
 available for users.
 
-## Edit Slack
-
-extension
+## Edit Slack extension
 
 ###### Note
 
@@ -122,9 +112,7 @@ extension.
 5. Edit the configuration as required and select
    **Save** to confirm the changes.
 
-## Share Slack
-
-extension
+## Share Slack extension
 
 Share ownership and management permissions with specific users and groups,
 enabling multiple users to manage extensions and assist with installation. You
@@ -146,9 +134,7 @@ can assign different permission levels and manage access as needed.
    **Remove access** to delete the access for the
    selected group or user.
 
-## Delete Slack
-
-extension
+## Delete Slack extension
 
 As an author, you can delete the extensions you deploy to your users.
 Permanently remove a extension from your Quick console and revoke

@@ -43,8 +43,7 @@ following.
 - [minIf](minIf-function.md "minIf-function.md")
 - [percentile](percentile-function.md "percentile-function.md")
 - [percentileCont](percentileCont-function.md "percentileCont-function.md")
-- [percentileDisc
-  (percentile)](percentileDisc-function.md "percentileDisc-function.md")
+- [percentileDisc (percentile)](percentileDisc-function.md "percentileDisc-function.md")
 - [periodToDateAvg](periodToDateAvg-function.md "periodToDateAvg-function.md")
 - [periodToDateCount](periodToDateCount-function.md "periodToDateCount-function.md")
 - [periodToDateMax](periodToDateMax-function.md "periodToDateMax-function.md")

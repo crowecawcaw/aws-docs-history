@@ -1,6 +1,4 @@
-# Granting anyone on the
-
-internet access to an Amazon Quick Sight dashboard
+# Granting anyone on the internet access to an Amazon Quick Sight dashboard
 
 |                                            |
 | ------------------------------------------ |
@@ -17,11 +15,7 @@ when you share it.
 
 ###### Topics
 
-- [Before
-  you start](share-a-dashboard-grant-access-anyone-prerequisites.md "share-a-dashboard-grant-access-anyone-prerequisites.md")
-- [Granting
-  anyone on the internet access to a dashboard](share-a-dashboard-grant-access-anyone-access.md "share-a-dashboard-grant-access-anyone-access.md")
-- [Updating a
-  publicly shared dashboard](share-a-dashboard-grant-access-anyone-update.md "share-a-dashboard-grant-access-anyone-update.md")
-- [Turning off
-  public sharing settings](share-a-dashboard-grant-access-anyone-no-share.md "share-a-dashboard-grant-access-anyone-no-share.md")
+- [Before you start](share-a-dashboard-grant-access-anyone-prerequisites.md "share-a-dashboard-grant-access-anyone-prerequisites.md")
+- [Granting anyone on the internet access to a dashboard](share-a-dashboard-grant-access-anyone-access.md "share-a-dashboard-grant-access-anyone-access.md")
+- [Updating a publicly shared dashboard](share-a-dashboard-grant-access-anyone-update.md "share-a-dashboard-grant-access-anyone-update.md")
+- [Turning off public sharing settings](share-a-dashboard-grant-access-anyone-no-share.md "share-a-dashboard-grant-access-anyone-no-share.md")

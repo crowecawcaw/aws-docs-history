@@ -1,6 +1,4 @@
-# Connect a
-
-Quick account to an existing Amazon Q Business application
+# Connect a Quick account to an existing Amazon Q Business application
 
 If you already have an Amazon Q Business application that uses the same identity
 management and exists in the same Region as your Quick account, use the

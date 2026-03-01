@@ -1,10 +1,7 @@
-# Tutorial: Create an Amazon Quick Sight
-
-dashboard
+# Tutorial: Create an Amazon Quick Sight dashboard
 
 Use the following procedure to create a dashboard from the analysis that you
-created using the procedure in [Tutorial: Create an Amazon Quick Sight
-analysis](example-create-an-analysis.md "example-create-an-analysis.md").
+created using the procedure in [Tutorial: Create an Amazon Quick Sight analysis](example-create-an-analysis.md "example-create-an-analysis.md").
 
 ###### To create a dashboard from your analysis
 

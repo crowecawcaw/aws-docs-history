@@ -1,6 +1,4 @@
-# How RCF is applied to detect
-
-anomalies
+# How RCF is applied to detect anomalies
 
 A human can easily distinguish a data point that stands out from the rest of the
 data. RCF does the same thing by building a "forest" of decision trees,

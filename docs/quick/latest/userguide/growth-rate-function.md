@@ -29,9 +29,7 @@ _Number of periods_
 The number of time periods in the future that you want to use
 to compute the growth rate.
 
-## Computation
-
-outputs
+## Computation outputs
 
 Each function generates a set of output parameters. You can add these
 outputs to the autonarrative to customize what it displays. You can also add

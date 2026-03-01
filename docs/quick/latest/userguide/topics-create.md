@@ -61,6 +61,5 @@ Use the following procedure to create a topic.
 
 Your topic is created and the page for that topic opens. The next step is
 to configure the topic metadata to make it natural-language-friendly for
-your readers. For more information, see [Making Quick Sight topics
-natural-language-friendly](topics-natural-language.md "topics-natural-language.md"). Or continue to
+your readers. For more information, see [Making Quick Sight topics natural-language-friendly](topics-natural-language.md "topics-natural-language.md"). Or continue to
 the next topic to explore the topic workspace.

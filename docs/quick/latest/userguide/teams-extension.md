@@ -1,6 +1,4 @@
-# Amazon Quick Microsoft Teams
-
-extension
+# Amazon Quick Microsoft Teams extension
 
 The Quick extension for Microsoft Teams integrates
 AI-powered assistance directly into your team communication workflows. Users can mention
@@ -27,14 +25,10 @@ The Teams extension enables users to:
 
 ###### Topics
 
-- [Prerequisites for Microsoft
-  Teams extension](#teams-prerequisites "#teams-prerequisites")
-- [Configure Microsoft Teams
-  extension access](#configure-teams-extension "#configure-teams-extension")
+- [Prerequisites for Microsoft Teams extension](#teams-prerequisites "#teams-prerequisites")
+- [Configure Microsoft Teams extension access](#configure-teams-extension "#configure-teams-extension")
 
-## Prerequisites for Microsoft
-
-Teams extension
+## Prerequisites for Microsoft Teams extension
 
 Before configuring access for the Amazon Quick extension to Microsoft
 Teams, administrators must complete the following steps:
@@ -57,9 +51,7 @@ If you configured the authentication to connect to Amazon Quick with IAM Identit
    see [Configure SAML and SCIM with Microsoft Entra ID
    and IAM Identity Center](../../../singlesignon/latest/userguide/azure-ad-idp.md "../../../singlesignon/latest/userguide/azure-ad-idp.md").
 
-## Configure Microsoft Teams
-
-extension access
+## Configure Microsoft Teams extension access
 
 As an administrator, you must allow the Amazon Quick Microsoft
 Teams to connect to your Amazon Quick application environment. You can
@@ -88,12 +80,9 @@ both platforms without requiring additional configuration.
 ###### Topics
 
 - [Add Microsoft Teams extension access for accounts using IAM Identity Center](#add-teams-extension-access-idc "#add-teams-extension-access-idc")
-- [Add Microsoft Teams
-  extension access for accounts using other authentication methods](#add-teams-extension-access "#add-teams-extension-access")
-- [Edit Microsoft
-  Teams extension access](#edit-teams-extension-access "#edit-teams-extension-access")
-- [Delete Microsoft
-  Teams extension access](#delete-teams-extension-access "#delete-teams-extension-access")
+- [Add Microsoft Teams extension access for accounts using other authentication methods](#add-teams-extension-access "#add-teams-extension-access")
+- [Edit Microsoft Teams extension access](#edit-teams-extension-access "#edit-teams-extension-access")
+- [Delete Microsoft Teams extension access](#delete-teams-extension-access "#delete-teams-extension-access")
 
 ### Add Microsoft Teams extension access for accounts using IAM Identity Center
 
@@ -293,9 +282,7 @@ Once created, this extension access configuration enables authors and other admi
 
 For your end users to begin using your Microsoft Teams extension, an admin or author must finish deploying a extension after you configure extension access. Notify your authors that they can view, edit, and complete installation of this extension under **Extensions** in the left navigation once it has been shared. To learn how to do this see Installing your Microsoft Teams extension in the Microsoft Teams extension author guide.
 
-### Add Microsoft Teams
-
-extension access for accounts using other authentication methods
+### Add Microsoft Teams extension access for accounts using other authentication methods
 
 Follow these steps to create a new extension access configuration that will
 allow Amazon Quick to integrate with your Microsoft Teams
@@ -352,9 +339,7 @@ shared. To learn how to do this see [Installing your Microsoft Teams
 extension in the Microsoft Teams extension author
 guide](../../../quicksuite/latest/userguide/teams-extension-author-guide.md#add-extensions-teams "../../../quicksuite/latest/userguide/teams-extension-author-guide.md#add-extensions-teams").
 
-### Edit Microsoft
-
-Teams extension access
+### Edit Microsoft Teams extension access
 
 Use these steps to modify the configuration settings of an existing
 Microsoft Teams extension access.
@@ -374,9 +359,7 @@ Microsoft Teams extension access.
 Your changes to the Microsoft Teams extension access
 configuration are saved and will take effect immediately.
 
-### Delete Microsoft
-
-Teams extension access
+### Delete Microsoft Teams extension access
 
 Follow these steps to permanently remove a Microsoft Teams
 extension access configuration. This action cannot be undone.

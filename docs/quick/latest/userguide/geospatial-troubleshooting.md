@@ -17,8 +17,7 @@ errors, contact the Amazon Quick Sight team from within the Amazon Quick Sight c
 
 - [Geocoding issues](#geocoding "#geocoding")
 - [Issues with latitude and longitude](#latitude-and-longitude "#latitude-and-longitude")
-- [Supported administrative areas
-  and postal codes by country](#supported-admin-areas-postal-codes "#supported-admin-areas-postal-codes")
+- [Supported administrative areas and postal codes by country](#supported-admin-areas-postal-codes "#supported-admin-areas-postal-codes")
 
 ## Geocoding issues
 
@@ -34,26 +33,18 @@ include unsupported, ambiguous, or invalid locations, as described following.
 
 ###### Topics
 
-- [Issues with unsupported
-  areas](#geospatial-unsupported-areas "#geospatial-unsupported-areas")
-- [Issues with ambiguous
-  locations](#geospatial-ambiguous-locations "#geospatial-ambiguous-locations")
-- [Issues with invalid geospatial
-  data](#geospatial-invalid-data "#geospatial-invalid-data")
-- [Issues with the default country in
-  geocoding](#geospatial-default-country "#geospatial-default-country")
+- [Issues with unsupported areas](#geospatial-unsupported-areas "#geospatial-unsupported-areas")
+- [Issues with ambiguous locations](#geospatial-ambiguous-locations "#geospatial-ambiguous-locations")
+- [Issues with invalid geospatial data](#geospatial-invalid-data "#geospatial-invalid-data")
+- [Issues with the default country in geocoding](#geospatial-default-country "#geospatial-default-country")
 
-### Issues with unsupported
-
-areas
+### Issues with unsupported areas
 
 To map unsupported locations, include latitude and longitude coordinates in
 your data. Use these coordinates in the geospatial field well to make locations
 show on a map chart.
 
-### Issues with ambiguous
-
-locations
+### Issues with ambiguous locations
 
 Geospatial data can't contain ambiguous locations. For example, suppose that
 the data contains a city named `Springfield`, but the next
@@ -65,9 +56,7 @@ To avoid this problem, you can add enough geographical data to indicate what
 location should show on a map chart. For example, you can add a state level into
 your data and its hierarchy. Or, you might add latitude and longitude.
 
-### Issues with invalid geospatial
-
-data
+### Issues with invalid geospatial data
 
 Invalid geospatial data occurs when a place name (a city, for example) is
 listed under an incorrect parent (a state, for example). This issue might be a
@@ -79,9 +68,7 @@ Amazon Quick Sight doesn't support regions (for example, West Coast or South) as
 geospatial data. However, you can use a region as a filter in a
 visual.
 
-### Issues with the default country in
-
-geocoding
+### Issues with the default country in geocoding
 
 Make sure that you are using the correct default country.
 
@@ -114,14 +101,10 @@ Amazon Quick Sight. But `28° 32' 18.0096'' N 81° 22' 45.2424'' W` is not.
 
 ###### Topics
 
-- [Valid ranges for latitude and
-  longitude coordinates](#valid-ranges-for-coordinates "#valid-ranges-for-coordinates")
-- [Using coordinates in degrees,
-  minutes, and seconds (DMS) format](#using-coordinates-in-dms-format "#using-coordinates-in-dms-format")
+- [Valid ranges for latitude and longitude coordinates](#valid-ranges-for-coordinates "#valid-ranges-for-coordinates")
+- [Using coordinates in degrees, minutes, and seconds (DMS) format](#using-coordinates-in-dms-format "#using-coordinates-in-dms-format")
 
-### Valid ranges for latitude and
-
-longitude coordinates
+### Valid ranges for latitude and longitude coordinates
 
 Amazon Quick Sight supports latitude and longitude coordinates within specific ranges.
 
@@ -133,9 +116,7 @@ Amazon Quick Sight supports latitude and longitude coordinates within specific r
 Amazon Quick Sight skips any data outside these ranges. Out-of-range points can't be
 mapped on a map chart.
 
-### Using coordinates in degrees,
-
-minutes, and seconds (DMS) format
+### Using coordinates in degrees, minutes, and seconds (DMS) format
 
 You can use a calculated field with a formula to create a numeric latitude and
 longitude out of character strings. Use this section to find different ways that
@@ -229,9 +210,7 @@ to match your data. For more information, see the following:
   Stack Overflow
 - [Geographic Coordinate Conversion](https://en.wikipedia.org/wiki/Geographic_coordinate_conversion "https://en.wikipedia.org/wiki/Geographic_coordinate_conversion") on Wikipedia
 
-## Supported administrative areas
-
-and postal codes by country
+## Supported administrative areas and postal codes by country
 
 The following is a list of supported administrative areas by country.
 

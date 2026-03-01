@@ -1,6 +1,4 @@
-# Embedding the
-
-Amazon Quick Sight Q search bar for anonymous (unregistered) users
+# Embedding the Amazon Quick Sight Q search bar for anonymous (unregistered) users
 
 |                                               |
 | --------------------------------------------- |
@@ -19,17 +17,12 @@ embedded Amazon Quick Sight Q search bar for anonymous (unregistered) users.
 
 ###### Topics
 
-- [Step 1: Set up
-  permissions](#embedded-q-bar-for-anonymous-users-step-1 "#embedded-q-bar-for-anonymous-users-step-1")
-- [Step 2: Generate the URL
-  with the authentication code attached](#embedded-q-bar-for-anonymous-users-step-2 "#embedded-q-bar-for-anonymous-users-step-2")
-- [Step 3: Embed the Q
-  search bar URL](#embedded-q-bar-for-anonymous-users-step-3 "#embedded-q-bar-for-anonymous-users-step-3")
+- [Step 1: Set up permissions](#embedded-q-bar-for-anonymous-users-step-1 "#embedded-q-bar-for-anonymous-users-step-1")
+- [Step 2: Generate the URL with the authentication code attached](#embedded-q-bar-for-anonymous-users-step-2 "#embedded-q-bar-for-anonymous-users-step-2")
+- [Step 3: Embed the Q search bar URL](#embedded-q-bar-for-anonymous-users-step-3 "#embedded-q-bar-for-anonymous-users-step-3")
 - [Optional Amazon Quick Sight Q search bar embedding functionalities](#embedded-q-bar-for-anonymous-users-step-4 "#embedded-q-bar-for-anonymous-users-step-4")
 
-## Step 1: Set up
-
-permissions
+## Step 1: Set up permissions
 
 ###### Note
 
@@ -117,9 +110,7 @@ JSON
 For more information regarding trust policies, see [Temporary security credentials in
 IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") in the _IAM User Guide_
 
-## Step 2: Generate the URL
-
-with the authentication code attached
+## Step 2: Generate the URL with the authentication code attached
 
 ###### Note
 
@@ -487,9 +478,7 @@ aws quicksight generate-embed-url-for-anonymous-user \
 For more information about using this operation, see [GenerateEmbedUrlForRegisteredUser](../../../quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.md "../../../quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.md"). You can
 use this and other API operations in your own code.
 
-## Step 3: Embed the Q
-
-search bar URL
+## Step 3: Embed the Q search bar URL
 
 ###### Note
 

@@ -1,6 +1,4 @@
-# Preparing a dataset based on database
-
-data
+# Preparing a dataset based on database data
 
 Use the following procedure to prepare a dataset based on a query to a database. The
 data for this dataset can be from an AWS database data source like Amazon Athena, Amazon RDS,

@@ -25,9 +25,7 @@ in the field. The possible data types are as follows:
   most frequent type in the sample set of rows. You can manually modify the data type of
   the column to make it integer. Use the following procedures to learn how.
 
-## Changing a field data type during
-
-data prep
+## Changing a field data type during data prep
 
 During data preparation, you can change the data type of any field from the data
 source. On the **Change data type** menu, you can change calculated
@@ -59,16 +57,14 @@ Quick Sight, use a SQL query during data preparation. Then use `CAST` or
 `CONVERT` commands (depending on what is supported by the source
 database) to change the field data types. For more information about adding a SQL
 query during data preparation, see [Using SQL to customize data](adding-a-SQL-query.md "adding-a-SQL-query.md"). For more information about how different
-source data types are interpreted by Quick Sight, see [Supported data types from external data
-sources](supported-data-types-and-values.md#supported-data-types "supported-data-types-and-values.md#supported-data-types").
+source data types are interpreted by Quick Sight, see [Supported data types from external data sources](supported-data-types-and-values.md#supported-data-types "supported-data-types-and-values.md#supported-data-types").
 
 You might have numeric fields that act as dimensions rather than metrics, for
 example ZIP codes and most ID numbers. In these cases, it's helpful to give
 them a string data type during data preparation. Doing this lets Quick Sight
 understand that they are not useful for performing mathematical calculations and can
 only be aggregated with the `Count` function. For more information about
-how Quick Sight uses dimensions and measures, see [Setting fields as a dimensions or
-measures](setting-dimension-or-measure.md "setting-dimension-or-measure.md").
+how Quick Sight uses dimensions and measures, see [Setting fields as a dimensions or measures](setting-dimension-or-measure.md "setting-dimension-or-measure.md").
 
 In [SPICE](spice.md "spice.md"), numbers converted from
 numeric into an integer are truncated by default. If you want to round your numbers
@@ -86,9 +82,7 @@ engine.
 3. Choose the target data type. Only data types other than the one currently
    in use are listed.
 
-## Changing a field data type in
-
-an analysis
+## Changing a field data type in an analysis
 
 You can use the **Field list** pane, visual field wells, or
 on-visual editors to change numeric field data types within the context of an

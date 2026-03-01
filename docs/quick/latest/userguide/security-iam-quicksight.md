@@ -1,6 +1,4 @@
-# AWS managed policies for
-
-Amazon Quick
+# AWS managed policies for Amazon Quick
 
 To add permissions to users, groups, and roles, it is easier to use AWS managed policies
 than to write policies yourself. It takes time and expertise to [create IAM customer
@@ -26,22 +24,14 @@ job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md ".
 
 ###### Topics
 
-- [AWS managed
-  policy: AWSQuickSightElasticsearchPolicy](#security-iam-quicksight-AWSQuickSightElasticsearchPolicy "#security-iam-quicksight-AWSQuickSightElasticsearchPolicy")
-- [AWS managed
-  policy: AWSQuickSightOpenSearchPolicy](#security-iam-quicksight-AWSQuickSightOpenSearchPolicy "#security-iam-quicksight-AWSQuickSightOpenSearchPolicy")
-- [AWS managed
-  policy: AWSQuickSightSageMakerPolicy](#security-iam-quicksight-AWSQuickSightSageMakerPolicy "#security-iam-quicksight-AWSQuickSightSageMakerPolicy")
-- [AWS
-  managed policy: AWSQuickSightAssetBundleExportPolicy](#security-iam-quicksight-AWSQuickSightAssetBundleExportPolicy "#security-iam-quicksight-AWSQuickSightAssetBundleExportPolicy")
-- [AWS
-  managed policy: AWSQuickSightAssetBundleImportPolicy](#security-iam-quicksight-AWSQuickSightAssetBundleImportPolicy "#security-iam-quicksight-AWSQuickSightAssetBundleImportPolicy")
-- [Amazon Quick updates to AWS managed
-  policies](#security-iam-quicksight-updates "#security-iam-quicksight-updates")
+- [AWS managed policy: AWSQuickSightElasticsearchPolicy](#security-iam-quicksight-AWSQuickSightElasticsearchPolicy "#security-iam-quicksight-AWSQuickSightElasticsearchPolicy")
+- [AWS managed policy: AWSQuickSightOpenSearchPolicy](#security-iam-quicksight-AWSQuickSightOpenSearchPolicy "#security-iam-quicksight-AWSQuickSightOpenSearchPolicy")
+- [AWS managed policy: AWSQuickSightSageMakerPolicy](#security-iam-quicksight-AWSQuickSightSageMakerPolicy "#security-iam-quicksight-AWSQuickSightSageMakerPolicy")
+- [AWS managed policy: AWSQuickSightAssetBundleExportPolicy](#security-iam-quicksight-AWSQuickSightAssetBundleExportPolicy "#security-iam-quicksight-AWSQuickSightAssetBundleExportPolicy")
+- [AWS managed policy: AWSQuickSightAssetBundleImportPolicy](#security-iam-quicksight-AWSQuickSightAssetBundleImportPolicy "#security-iam-quicksight-AWSQuickSightAssetBundleImportPolicy")
+- [Amazon Quick updates to AWS managed policies](#security-iam-quicksight-updates "#security-iam-quicksight-updates")
 
-## AWS managed
-
-policy: AWSQuickSightElasticsearchPolicy
+## AWS managed policy: AWSQuickSightElasticsearchPolicy
 
 This information is provided for backward compatibility only. The
 `AWSQuickSightOpenSearchPolicy` AWS managed policy replaces the
@@ -93,9 +83,7 @@ This policy includes the following permissions:
 
 For information on the contents of this IAM policy, see [AWSQuickSightElasticsearchPolicy](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/service-role/AWSQuickSightElasticsearchPolicy$jsonEditor "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/service-role/AWSQuickSightElasticsearchPolicy$jsonEditor") in the IAM console.
 
-## AWS managed
-
-policy: AWSQuickSightOpenSearchPolicy
+## AWS managed policy: AWSQuickSightOpenSearchPolicy
 
 Use the `AWSQuickSightOpenSearchPolicy` AWS managed policy to provide
 access to Amazon OpenSearch Service resources from Amazon Quick.
@@ -134,9 +122,7 @@ This policy includes the following permissions:
 
 For information on the contents of this IAM policy, see [AWSQuickSightOpenSearchPolicy](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/service-role/AWSQuickSightOpenSearchPolicy$jsonEditor "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/service-role/AWSQuickSightOpenSearchPolicy$jsonEditor") in the IAM console.
 
-## AWS managed
-
-policy: AWSQuickSightSageMakerPolicy
+## AWS managed policy: AWSQuickSightSageMakerPolicy
 
 Use the `AWSQuickSightSageMakerPolicy` AWS managed policy to provide
 access to Amazon SageMaker AI resources from Amazon Quick.
@@ -183,9 +169,7 @@ This policy includes the following permissions:
   `sagemaker:ListModels` to list your SageMaker AI models. This is required
   to allow generated SageMaker AI models to appear in Amazon Quick.
 
-## AWS
-
-managed policy: AWSQuickSightAssetBundleExportPolicy
+## AWS managed policy: AWSQuickSightAssetBundleExportPolicy
 
 Use the `AWSQuickSightAssetBundleExportPolicy` AWS managed policy to
 perform asset bundle export operations. You can attach
@@ -209,9 +193,7 @@ This policy includes the following permissions:
   `StartAssetBundleExportJob`, and
   `quicksight:DescribeAssetBundleExportJob` permissions.
 
-## AWS
-
-managed policy: AWSQuickSightAssetBundleImportPolicy
+## AWS managed policy: AWSQuickSightAssetBundleImportPolicy
 
 Use the `AWSQuickSightAssetBundleImportPolicy` AWS managed policy to
 perform asset bundle import operations. This managed policy does not grant permissions
@@ -244,9 +226,7 @@ This policy includes the following permissions:
   `quicksight:StartAssetBundleImportJob`, and
   `quicksight:DescribeAssetBundleImportJob` permissions.
 
-## Amazon Quick updates to AWS managed
-
-policies
+## Amazon Quick updates to AWS managed policies
 
 View details about updates to AWS managed policies for Amazon Quick since this
 service began tracking these changes. For automatic alerts about changes to this page,

@@ -1,6 +1,4 @@
-# Using calculated fields with
-
-parameters in Amazon Quick
+# Using calculated fields with parameters in Amazon Quick
 
 You can pass the value of a parameter to a calculated field in an analysis. When
 you create a calculation, you can choose existing parameters from the list of

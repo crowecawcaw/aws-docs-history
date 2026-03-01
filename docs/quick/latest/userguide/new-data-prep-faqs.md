@@ -6,9 +6,7 @@ Users must return to the legacy experience when working with datasets that conta
 [unsupported features](unsupported-features.md "unsupported-features.md"). Quick Sight is actively working
 to incorporate these features into the new experience in upcoming releases.
 
-## 2. Why are datasets grayed out when trying to add them in the new experience? Can datasets be combined between
-
-legacy and new experiences?
+## 2. Why are datasets grayed out when trying to add them in the new experience? Can datasets be combined between legacy and new experiences?
 
 Currently, parent and child datasets must exist within the same experience environment. You cannot combine datasets across
 legacy and new experiences because the new experience includes additional features not available in legacy, such as
@@ -25,9 +23,7 @@ there, you can create your child datasets as needed.
 We are planning to implement functionality that will allow users to upgrade legacy datasets to the new experience.
 This upgraded pathway will enable the use of legacy parent datasets within the new experience.
 
-## 3. Why is Quick Sight launching the new data preparation experience before achieving
-
-full feature parity with the legacy experience?
+## 3. Why is Quick Sight launching the new data preparation experience before achieving full feature parity with the legacy experience?
 
 The new data preparation experience was developed through extensive customer collaboration to address real-world analytics
 challenges. The initial launch prioritizes:

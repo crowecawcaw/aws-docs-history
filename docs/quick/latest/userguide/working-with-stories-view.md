@@ -1,6 +1,4 @@
-# Viewing a generated data story in
-
-Amazon Quick Sight
+# Viewing a generated data story in Amazon Quick Sight
 
 After you generate and keep a data story, you can access that data story from the
 **Data stories** page. To view a data story, choose the data story

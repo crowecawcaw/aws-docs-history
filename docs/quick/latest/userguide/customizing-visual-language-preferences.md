@@ -1,6 +1,4 @@
-# Formatting visual numeric data
-
-based on language settings in Quick
+# Formatting visual numeric data based on language settings in Quick
 
 In Amazon Quick, you can choose how your numeric data values appear in visuals so that
 they align with the regional language that you have chosen.
@@ -28,9 +26,7 @@ You can reset the default language format of the field by reopening the
 **Format data** menu and choosing **Reset to
 defaults**. The default language format is American English.
 
-###### To change the numeric language formatting of a single visual in an
-
-analysis
+###### To change the numeric language formatting of a single visual in an analysis
 
 1. On the analysis page, choose the visual that you want to modify.
 2. Navigate to the **Format data** pane using one of the

@@ -26,17 +26,13 @@ and money:
   administrators can view how much SPICE
   capacity you have in each AWS Region and how much of it is currently in use. A
   Quick Sight administrator can purchase more SPICE capacity or release
-  unused SPICE capacity as needed. For more information, see [Configure SPICE memory
-  capacity](managing-spice-capacity.md "managing-spice-capacity.md").
+  unused SPICE capacity as needed. For more information, see [Configure SPICE memory capacity](managing-spice-capacity.md "managing-spice-capacity.md").
 
 ###### Topics
 
-- [Estimating the size of SPICE
-  datasets](#spice-capacity-formula "#spice-capacity-formula")
+- [Estimating the size of SPICE datasets](#spice-capacity-formula "#spice-capacity-formula")
 
-## Estimating the size of SPICE
-
-datasets
+## Estimating the size of SPICE datasets
 
 The size of a dataset in SPICE relative to your Quick
 account's SPICE capacity is called _logical

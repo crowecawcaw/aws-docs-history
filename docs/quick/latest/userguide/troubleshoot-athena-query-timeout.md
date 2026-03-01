@@ -1,6 +1,4 @@
-# Query timeout when using Athena
-
-with Amazon Quick Sight
+# Query timeout when using Athena with Amazon Quick Sight
 
 If your query times out, you can try these options to resolve your problem.
 

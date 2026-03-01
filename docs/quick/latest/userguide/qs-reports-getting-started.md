@@ -6,9 +6,7 @@ entire Quick account and isn't specific to a Region. After you subscribe to
 Quick reporting, authors can begin creating, scheduling, and sending
 pixel perfect reports.
 
-## Get the Quick
-
-pixel perfect reports add-on
+## Get the Quick pixel perfect reports add-on
 
 Before you can work with pixel perfect reports in Amazon Quick Sight, you must add the
 **Pixel-Perfect Reports add-on** to your Quick

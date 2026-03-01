@@ -1,6 +1,4 @@
-# Using AWS Secrets Manager secrets instead of
-
-database credentials in Quick
+# Using AWS Secrets Manager secrets instead of database credentials in Quick
 
 |                                                                               |
 | ----------------------------------------------------------------------------- |
@@ -30,17 +28,12 @@ Amazon Quick.
 
 ###### Topics
 
-- [Granting Amazon Quick
-  access to Secrets Manager and selected secrets](#secrets-manager-integration-select-secrets "#secrets-manager-integration-select-secrets")
-- [Creating or updating a data source
-  with secret credentials using the Amazon Quick API](#secrets-manager-integration-api "#secrets-manager-integration-api")
-- [What's in the
-  secret](#secrets-manager-integration-whats-in-secret "#secrets-manager-integration-whats-in-secret")
+- [Granting Amazon Quick access to Secrets Manager and selected secrets](#secrets-manager-integration-select-secrets "#secrets-manager-integration-select-secrets")
+- [Creating or updating a data source with secret credentials using the Amazon Quick API](#secrets-manager-integration-api "#secrets-manager-integration-api")
+- [What's in the secret](#secrets-manager-integration-whats-in-secret "#secrets-manager-integration-whats-in-secret")
 - [Modify a secret](#secrets-manager-integration-modifying "#secrets-manager-integration-modifying")
 
-## Granting Amazon Quick
-
-access to Secrets Manager and selected secrets
+## Granting Amazon Quick access to Secrets Manager and selected secrets
 
 If you're an administrator and you have secrets in Secrets Manager, you can grant
 Amazon Quick read-only access to selected secrets.
@@ -92,9 +85,7 @@ Service, see [Customer keys and
 AWS keys](../../../kms/latest/developerguide/concepts.md#key-mgmt "../../../kms/latest/developerguide/concepts.md#key-mgmt") in the _AWS Key Management Service
 guide_.
 
-## Creating or updating a data source
-
-with secret credentials using the Amazon Quick API
+## Creating or updating a data source with secret credentials using the Amazon Quick API
 
 After the Amazon Quick administrator has granted Amazon Quick read-only access to
 Secrets Manager, you can create and update data sources in the API using a secret the
@@ -139,9 +130,7 @@ Secrets are automatically removed from a data source when the data source is
 altered in the UI. To restore the secret to the data source, use the
 `update-data-source` API operation.
 
-## What's in the
-
-secret
+## What's in the secret
 
 Amazon Quick requires the following JSON format to access your secret:
 

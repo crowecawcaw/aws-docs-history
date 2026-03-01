@@ -7,8 +7,7 @@ forecast total revenue for the next six months.
 To use this function, you need at least one dimension in the
 **Time** field well.
 
-For more information about working with forecasts, see [Forecasting and creating what-if scenarios with
-Amazon Quick Sight](forecasts-and-whatifs.md "forecasts-and-whatifs.md").
+For more information about working with forecasts, see [Forecasting and creating what-if scenarios with Amazon Quick Sight](forecasts-and-whatifs.md "forecasts-and-whatifs.md").
 
 ## Parameters
 

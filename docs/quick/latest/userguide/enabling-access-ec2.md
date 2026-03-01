@@ -1,6 +1,4 @@
-# Authorizing connections from Amazon Quick to Amazon EC2
-
-instances
+# Authorizing connections from Amazon Quick to Amazon EC2 instances
 
 |                                                                 |
 | --------------------------------------------------------------- |

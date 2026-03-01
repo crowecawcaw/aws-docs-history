@@ -20,9 +20,7 @@ When you select an integration from the main grid, the console branches based on
 
 The following examples show how different integrations guide you through different console setup processes:
 
-### Google Drive - Bring data for
-
-Q&A
+### Google Drive - Bring data for Q&A
 
 Google Drive supports data access integrations and knowledge base creation.
 
@@ -35,9 +33,7 @@ Google Drive supports data access integrations and knowledge base creation.
    to assign to your knowledge base, and choose Select.
 5. Enter a name and description. Choose **Create**.
 
-### OneDrive - Perform actions and bring data for
-
-Q&A
+### OneDrive - Perform actions and bring data for Q&A
 
 OneDrive supports the capabilities to both perform actions and bring data for
 Q&A. The console provides options for both capabilities during setup.

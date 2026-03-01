@@ -1,6 +1,4 @@
-# Setting fields as a dimensions or
-
-measures
+# Setting fields as a dimensions or measures
 
 In the **Field list** pane, dimension fields have blue icons and
 measure fields have green icons. _Dimensions_ are text
@@ -17,9 +15,7 @@ Changing a field's measure or dimension setting changes it for all visuals in th
 analysis that use that dataset. However, it doesn't change it in the dataset
 itself.
 
-## Changing a field's dimension or
-
-measure setting
+## Changing a field's dimension or measure setting
 
 Use the following procedure to change a field's dimension or measure
 setting

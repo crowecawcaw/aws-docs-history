@@ -1,6 +1,4 @@
-# Incident response,
-
-logging, and monitoring in Amazon Quick Sight using CloudTrail
+# Incident response, logging, and monitoring in Amazon Quick Sight using CloudTrail
 
 Amazon Quick Sight is integrated with AWS CloudTrail. This service provides a record of actions taken
 by a user, role, or an AWS service in Amazon Quick Sight. CloudTrail captures all API calls for Amazon Quick Sight
@@ -27,15 +25,11 @@ To learn more about CloudTrail, including how to configure and enable it, see th
 
 ###### Topics
 
-- [Logging Amazon Quick Sight information with
-  AWS CloudTrail](#logging-using-cloudtrail "#logging-using-cloudtrail")
+- [Logging Amazon Quick Sight information with AWS CloudTrail](#logging-using-cloudtrail "#logging-using-cloudtrail")
 - [Tracking non-API events by using CloudTrail logs](#logging-non-api "#logging-non-api")
-- [Example: Amazon Quick Sight log file
-  entries](#understanding-quicksight-entries "#understanding-quicksight-entries")
+- [Example: Amazon Quick Sight log file entries](#understanding-quicksight-entries "#understanding-quicksight-entries")
 
-## Logging Amazon Quick Sight information with
-
-AWS CloudTrail
+## Logging Amazon Quick Sight information with AWS CloudTrail
 
 |                                             |
 | ------------------------------------------- |
@@ -193,9 +187,7 @@ This event works with Enterprise edition only.
 - Querydatabase – During a dataset
   refresh, query data source.
 
-## Example: Amazon Quick Sight log file
-
-entries
+## Example: Amazon Quick Sight log file entries
 
 A trail is a configuration that enables delivery of events as log files to an
 Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An

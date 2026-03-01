@@ -29,9 +29,7 @@ _Number of results_
 
 The number of ranked results that you want to display.
 
-## Computation
-
-outputs
+## Computation outputs
 
 Each function generates a set of output parameters. You can add these
 outputs to the autonarrative to customize what it displays. You can also add

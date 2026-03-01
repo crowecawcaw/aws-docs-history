@@ -1,6 +1,4 @@
-# Data labels on visual types in
-
-Quick
+# Data labels on visual types in Quick
 
 To customize data labels on a visual, you can use the
 **Properties** pane to show data labels, and then use the

@@ -1,6 +1,4 @@
-# Item limits for Amazon Quick Sight analyses in the
-
-Quick Sight APIs
+# Item limits for Amazon Quick Sight analyses in the Quick Sight APIs
 
 Use the following table to review the current limits or quotas for different analysis
 items in Amazon Quick Sight that are created and managed with the Amazon Quick Sight APIs. If your analysis

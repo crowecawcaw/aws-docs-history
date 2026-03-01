@@ -17,9 +17,7 @@ enter a whole number from 8 through 500.
 
 You can customize the formatting for cell text within a table.
 
-###### To format the cell text in a
-
-table or pivot table
+###### To format the cell text in a table or pivot table
 
 1. In the **Properties** pane, choose
    **Cells**.
@@ -56,15 +54,11 @@ customizing cells. 2. For **Text**, do one or more of the following:
 
     ![Vertical and horizontal cell alignment options in the Format visual menu.](images/format-pivot-table-alignment.png)
 
-## Cell background
-
-color
+## Cell background color
 
 You can customize table cells' background color.
 
-###### To customize the background color of cells in a table or pivot
-
-table
+###### To customize the background color of cells in a table or pivot table
 
 1. In the **Properties** pane, choose
    **Cells**.

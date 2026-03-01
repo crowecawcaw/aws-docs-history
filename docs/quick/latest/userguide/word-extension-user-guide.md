@@ -1,6 +1,4 @@
-# Amazon Quick Microsoft
-
-Word extension user guide
+# Amazon Quick Microsoft Word extension user guide
 
 As a user, you can access Amazon Quick directly within Microsoft
 Word to get AI-powered assistance without leaving your workspace. The
@@ -9,17 +7,12 @@ providing instant access to knowledge bases and intelligent responses.
 
 ###### Topics
 
-- [Add the Quick
-  Microsoft Word extension](#word-install-extension-add "#word-install-extension-add")
-- [Access Quick in your
-  Microsoft Word home menu at any time](#access-word-side-panel "#access-word-side-panel")
+- [Add the Quick Microsoft Word extension](#word-install-extension-add "#word-install-extension-add")
+- [Access Quick in your Microsoft Word home menu at any time](#access-word-side-panel "#access-word-side-panel")
 - [Microsoft Word extension use cases](#word-use-cases "#word-use-cases")
-- [Amazon Quick Microsoft
-  Word extension usage guidelines](#word-usage-guidelines "#word-usage-guidelines")
+- [Amazon Quick Microsoft Word extension usage guidelines](#word-usage-guidelines "#word-usage-guidelines")
 
-## Add the Quick
-
-Microsoft Word extension
+## Add the Quick Microsoft Word extension
 
 Install the Amazon Quick app in your Microsoft Word workspace
 to enable AI-powered assistance. This one-time setup makes Amazon Quick
@@ -36,9 +29,7 @@ accessible throughout your Microsoft Word environment.
 5. Once the add-in is installed, you can use your Quick
    **Add-In**.
 
-## Access Quick in your
-
-Microsoft Word home menu at any time
+## Access Quick in your Microsoft Word home menu at any time
 
 Once you've added Quick to your Microsoft Word
 environment, you can access it conveniently through the home menu for quick
@@ -81,9 +72,7 @@ Word.
 3. Quick will provide suggestions for improving clarity,
    grammar, and style based on your selected content.
 
-###### Incorporate Quick's company knowledge and general knowledge
-
-into your docs
+###### Incorporate Quick's company knowledge and general knowledge into your docs
 
 1. Open the Quick side panel while working on your
    document.
@@ -93,9 +82,7 @@ into your docs
    selection** buttons to insert Quick's response
    into your document.
 
-###### \*\*Perform actions in external
-
-applications\*\*
+###### **Perform actions in external applications**
 
 1. Open the Quick side panel in your Microsoft
    Word document.
@@ -103,17 +90,13 @@ applications\*\*
    using [action connectors](../../../quicksuite/latest/userguide/action-connectors.md "../../../quicksuite/latest/userguide/action-connectors.md") configured by your
    organization.
 
-## Amazon Quick Microsoft
-
-Word extension usage guidelines
+## Amazon Quick Microsoft Word extension usage guidelines
 
 As a user, you are responsible for keeping company information safe. The
 following guidance helps you use Amazon Quick apps securely while maintaining
 data privacy and compliance.
 
-### Conversation retention policy
-
-and accuracy
+### Conversation retention policy and accuracy
 
 Quick automatically deletes conversations and related files
 after 30 days of inactivity. Microsoft Word conversation
@@ -132,9 +115,7 @@ Conversation history is not currently available in Microsoft
 Word. To manage your conversations, use the
 Quick chat instance.
 
-### Security
-
-considerations
+### Security considerations
 
 When you use Amazon Quick with document content, remember that responses
 reflect individual user permissions and content may include information not
@@ -157,9 +138,7 @@ using them. Usage of the Quick extension for Microsoft
 Word is subject to the AWS Responsible AI Policy. [AWS
 Responsible AI Policy](https://aws.amazon.com/ai/responsible-ai/policy/ "https://aws.amazon.com/ai/responsible-ai/policy/")
 
-### Microsoft
-
-Word extension known limitations
+### Microsoft Word extension known limitations
 
 The following are known limitations of the Amazon Quick Microsoft
 Word extension:

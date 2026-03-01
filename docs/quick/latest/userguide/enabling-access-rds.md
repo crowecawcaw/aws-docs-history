@@ -1,6 +1,4 @@
-# Authorizing connections from Amazon Quick Sight to Amazon RDS DB
-
-instances
+# Authorizing connections from Amazon Quick Sight to Amazon RDS DB instances
 
 |                                                                 |
 | --------------------------------------------------------------- |
@@ -30,14 +28,10 @@ information about what is required, see [Creating a dataset from a database](../
 
 ###### Topics
 
-- [Manually enabling Amazon Quick Sight access to an Amazon RDS
-  instance in a VPC](#rds-vpc-access "#rds-vpc-access")
-- [Manually enabling access from Amazon Quick Sight to an
-  Amazon RDS instance that is not in a VPC](#rds-classic-access "#rds-classic-access")
+- [Manually enabling Amazon Quick Sight access to an Amazon RDS instance in a VPC](#rds-vpc-access "#rds-vpc-access")
+- [Manually enabling access from Amazon Quick Sight to an Amazon RDS instance that is not in a VPC](#rds-classic-access "#rds-classic-access")
 
-## Manually enabling Amazon Quick Sight access to an Amazon RDS
-
-instance in a VPC
+## Manually enabling Amazon Quick Sight access to an Amazon RDS instance in a VPC
 
 Use the following procedure to enable Amazon Quick Sight access to an Amazon RDS DB instance in a
 VPC. If your Amazon RDS DB instance is in subnet that is private (in relation to
@@ -147,9 +141,7 @@ DB instance. Consult your system administrators before applying immediate
 changes. 19. Choose **Modify DB Instance** to confirm your changes.
 Then, wait for the next maintenance window to pass.
 
-## Manually enabling access from Amazon Quick Sight to an
-
-Amazon RDS instance that is not in a VPC
+## Manually enabling access from Amazon Quick Sight to an Amazon RDS instance that is not in a VPC
 
 Use the following procedure to access an Amazon RDS DB instance that is not in a VPC.
 You can associate a security group with a DB instance by using **Modify** on the RDS console, the `ModifyDBInstance` Amazon
@@ -159,9 +151,7 @@ RDS API, or the `modify-db-instance` AWS CLI command.
 
 This section included for backwards compatibility purposes.
 
-###### To use the console to access an Amazon RDS DB instance that is not in a
-
-VPC
+###### To use the console to access an Amazon RDS DB instance that is not in a VPC
 
 1. Sign in to the AWS Management Console and open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").

@@ -15,7 +15,5 @@ to share insights securely across your organization.
 - [Supporting multitenancy with isolated namespaces](namespaces.md "namespaces.md")
 - [Managing mobile settings](manage-mobile-settings.md "manage-mobile-settings.md")
 - [Managing IP/VPC restrictions](manage-ip-vpc.md "manage-ip-vpc.md")
-- [Managing VPC connection in
-  Amazon Quick](vpc-creating-a-connection-in-quicksight.md "vpc-creating-a-connection-in-quicksight.md")
-- [Encrypting your Amazon Quick data with
-  AWS Key Management Service customer-managed keys](customer-managed-keys.md "customer-managed-keys.md")
+- [Managing VPC connection in Amazon Quick](vpc-creating-a-connection-in-quicksight.md "vpc-creating-a-connection-in-quicksight.md")
+- [Encrypting your Amazon Quick data with AWS Key Management Service customer-managed keys](customer-managed-keys.md "customer-managed-keys.md")

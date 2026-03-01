@@ -2,9 +2,7 @@
 
 Following, you can find how to connect to your Amazon OpenSearch Service data using Amazon Quick Sight.
 
-## Creating a new Quick Sight data source
-
-connection for OpenSearch Service
+## Creating a new Quick Sight data source connection for OpenSearch Service
 
 Following, you can find how to connect to OpenSearch Service
 
@@ -62,9 +60,7 @@ specified domains.
 10. Choose **Edit/Preview** and then
     **Save** to save your dataset and close it.
 
-## Managing permissions for OpenSearch Service
-
-data
+## Managing permissions for OpenSearch Service data
 
 The following procedure describes how to view, add, and revoke permissions to
 allow access to the same OpenSearch Service data source. The people that you add need to be
@@ -99,9 +95,7 @@ then follow these steps:
    still have access to this data source.
 7. When you are finished, choose **Close**.
 
-## Adding a new Quick Sight dataset for
-
-OpenSearch Service
+## Adding a new Quick Sight dataset for OpenSearch Service
 
 After you have an existing data source connection for OpenSearch Service, you can create OpenSearch Service
 datasets to use for analysis.
@@ -120,9 +114,7 @@ datasets to use for analysis.
 5. Choose **Edit/Preview**.
 6. Choose **Save** to save and close the dataset.
 
-## Adding OpenSearch Service data to an
-
-analysis
+## Adding OpenSearch Service data to an analysis
 
 After you have an OpenSearch Service dataset available, you can add it to a Quick Sight
 analysis. Before you begin, make sure that you have an existing dataset that

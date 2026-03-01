@@ -1,6 +1,4 @@
-# Setting up a VPC to use with
-
-Amazon Quick
+# Setting up a VPC to use with Amazon Quick
 
 |                                            |
 | ------------------------------------------ |
@@ -48,8 +46,7 @@ If your VPC is already completely configured, skip to the next section, [Finding
 
 - [VPC](vpc-amazon-virtual-private-cloud.md "vpc-amazon-virtual-private-cloud.md")
 - [Subnets](vpc-subnets.md "vpc-subnets.md")
-- [Security groups: inbound and outbound
-  rules](vpc-security-groups.md "vpc-security-groups.md")
+- [Security groups: inbound and outbound rules](vpc-security-groups.md "vpc-security-groups.md")
 - [Sample rules](vpc-sample-rules.md "vpc-sample-rules.md")
 - [Route table](vpc-route-table.md "vpc-route-table.md")
 - [Amazon Quick elastic network interface](vpc-qeni.md "vpc-qeni.md")

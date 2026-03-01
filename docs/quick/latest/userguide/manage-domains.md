@@ -23,8 +23,7 @@ analytics.
 ###### Topics
 
 - [Allow listing static domains](#embedding-static "#embedding-static")
-- [Allow listing domains at runtime with
-  the Amazon Quick API](#embedding-run-time "#embedding-run-time")
+- [Allow listing domains at runtime with the Amazon Quick API](#embedding-run-time "#embedding-run-time")
 
 ## Allow listing static domains
 
@@ -76,9 +75,7 @@ embedded dashboards:
 - https://111.222.33.44.55:1234
 - https://111.222.33.44.55
 
-## Allow listing domains at runtime with
-
-the Amazon Quick API
+## Allow listing domains at runtime with the Amazon Quick API
 
 You can add a domain at runtime to an allow list with the `AllowedDomains`
 parameter of a `GenerateEmbedUrlForAnonymousUser` or a

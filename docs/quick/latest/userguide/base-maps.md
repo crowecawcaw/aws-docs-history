@@ -1,6 +1,4 @@
-# Base maps on geospatial maps in
-
-Quick
+# Base maps on geospatial maps in Quick
 
 When you create a map visual in Quick, you can change the base of the
 map. A _base map_ is the style of map that appears

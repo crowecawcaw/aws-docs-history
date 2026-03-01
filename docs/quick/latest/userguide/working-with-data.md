@@ -110,10 +110,8 @@ Set** page, which you reach by choosing **Create** then
 ###### Topics
 
 - [Supported data sources](supported-data-sources.md "supported-data-sources.md")
-- [Connect to your data with integrations and
-  datasets](connecting-to-data-examples.md "connecting-to-data-examples.md")
+- [Connect to your data with integrations and datasets](connecting-to-data-examples.md "connecting-to-data-examples.md")
 - [Data source quotas](data-source-limits.md "data-source-limits.md")
-- [Supported data types and
-  values](supported-data-types-and-values.md "supported-data-types-and-values.md")
+- [Supported data types and values](supported-data-types-and-values.md "supported-data-types-and-values.md")
 - [Working with datasets](working-with-datasets.md "working-with-datasets.md")
 - [Working with data sources in Amazon Quick Sight](working-with-data-sources.md "working-with-data-sources.md")

@@ -1,6 +1,4 @@
-# Embedding the
-
-Amazon Quick Sight Q search bar for registered users
+# Embedding the Amazon Quick Sight Q search bar for registered users
 
 |                                            |
 | ------------------------------------------ |
@@ -24,17 +22,12 @@ Amazon Quick Sight.
 
 ###### Topics
 
-- [Step 1: Set up
-  permissions](#embedded-q-bar-for-authenticated-users-step-1 "#embedded-q-bar-for-authenticated-users-step-1")
-- [Step 2: Generate the
-  URL with the authentication code attached](#embedded-q-bar-for-authenticated-users-step-2 "#embedded-q-bar-for-authenticated-users-step-2")
-- [Step 3: Embed the Q
-  search bar URL](#embedded-q-bar-for-authenticated-users-step-3 "#embedded-q-bar-for-authenticated-users-step-3")
+- [Step 1: Set up permissions](#embedded-q-bar-for-authenticated-users-step-1 "#embedded-q-bar-for-authenticated-users-step-1")
+- [Step 2: Generate the URL with the authentication code attached](#embedded-q-bar-for-authenticated-users-step-2 "#embedded-q-bar-for-authenticated-users-step-2")
+- [Step 3: Embed the Q search bar URL](#embedded-q-bar-for-authenticated-users-step-3 "#embedded-q-bar-for-authenticated-users-step-3")
 - [Optional Amazon Quick Sight Q search bar embedding functionalities](#embedded-q-bar-for-authenticated-users-step-4 "#embedded-q-bar-for-authenticated-users-step-4")
 
-## Step 1: Set up
-
-permissions
+## Step 1: Set up permissions
 
 ###### Note
 
@@ -139,9 +132,7 @@ _IAM User Guide:_
 - [Creating a
   role for SAML 2.0 federation (console)](../../../IAM/latest/UserGuide/id_roles_create_for-idp_saml.md "../../../IAM/latest/UserGuide/id_roles_create_for-idp_saml.md")
 
-## Step 2: Generate the
-
-URL with the authentication code attached
+## Step 2: Generate the URL with the authentication code attached
 
 ###### Note
 
@@ -566,9 +557,7 @@ aws quicksight generate-embed-url-for-registered-user \
 For more information about using this operation, see [GenerateEmbedUrlForRegisteredUser](../../../quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.md "../../../quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.md"). You can
 use this and other API operations in your own code.
 
-## Step 3: Embed the Q
-
-search bar URL
+## Step 3: Embed the Q search bar URL
 
 ###### Note
 

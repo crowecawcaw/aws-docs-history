@@ -1,6 +1,4 @@
-# Tutorial: Create a prepared Amazon Quick Sight
-
-dataset
+# Tutorial: Create a prepared Amazon Quick Sight dataset
 
 Use the following procedure to prepare the Marketing dataset and create an
 analysis. If you don't see the Web and Social Media Analytics sample data
@@ -69,5 +67,4 @@ string value in the **Events** field:
 
 ## Next steps
 
-Create an analysis by using the procedure in [Tutorial: Create an Amazon Quick Sight
-analysis](example-create-an-analysis.md "example-create-an-analysis.md").
+Create an analysis by using the procedure in [Tutorial: Create an Amazon Quick Sight analysis](example-create-an-analysis.md "example-create-an-analysis.md").

@@ -1,6 +1,4 @@
-# Setting a default theme for
-
-Amazon Quick analyses with the Amazon Quick APIs
+# Setting a default theme for Amazon Quick analyses with the Amazon Quick APIs
 
 ###### To set a default theme by using the API
 

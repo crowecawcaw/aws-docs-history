@@ -1,6 +1,4 @@
-# Authorizing connections from Amazon Quick Sight to AWS data
-
-stores
+# Authorizing connections from Amazon Quick Sight to AWS data stores
 
 |                                                                 |
 | --------------------------------------------------------------- |
@@ -19,12 +17,9 @@ Use the procedures in the following sections to enable Amazon Quick Sight connec
 
 ###### Topics
 
-- [Authorizing connections from Amazon Quick Sight to Amazon RDS DB
-  instances](enabling-access-rds.md "enabling-access-rds.md")
-- [Authorizing connections from Amazon Quick Sight to Amazon Redshift
-  clusters](enabling-access-redshift.md "enabling-access-redshift.md")
-- [Authorizing connections from Amazon Quick to Amazon EC2
-  instances](enabling-access-ec2.md "enabling-access-ec2.md")
+- [Authorizing connections from Amazon Quick Sight to Amazon RDS DB instances](enabling-access-rds.md "enabling-access-rds.md")
+- [Authorizing connections from Amazon Quick Sight to Amazon Redshift clusters](enabling-access-redshift.md "enabling-access-redshift.md")
+- [Authorizing connections from Amazon Quick to Amazon EC2 instances](enabling-access-ec2.md "enabling-access-ec2.md")
 - [Authorizing connections through AWS Lake Formation](lake-formation.md "lake-formation.md")
 - [Authorizing connections to Amazon OpenSearch Service](opensearch.md "opensearch.md")
 - [Authorizing connections to Amazon Athena](athena.md "athena.md")

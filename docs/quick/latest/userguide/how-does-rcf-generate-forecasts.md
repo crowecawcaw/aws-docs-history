@@ -1,6 +1,4 @@
-# How RCF is applied to generate
-
-forecasts
+# How RCF is applied to generate forecasts
 
 To forecast the next value in a stationary time sequence, the RCF algorithm
 answers the question "What would be the most likely completion, after we have a

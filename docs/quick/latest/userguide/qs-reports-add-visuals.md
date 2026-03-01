@@ -1,6 +1,4 @@
-# Adding and deleting visuals to a
-
-report
+# Adding and deleting visuals to a report
 
 ###### To add visuals to a section in a pixel perfect report
 

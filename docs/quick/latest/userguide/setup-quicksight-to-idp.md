@@ -1,6 +1,4 @@
-# Setting up service provider–initiated
-
-federation with Quick Enterprise edition
+# Setting up service provider–initiated federation with Quick Enterprise edition
 
 |                                            |
 | ------------------------------------------ |
@@ -48,9 +46,7 @@ Amazon Quick provides a parameter (`enable-sso=0`) to temporarily turn off
 Amazon Quick initiated IAM federation, in case you need to disable it
 temporarily.
 
-## To set up Amazon Quick as a service provider that can
-
-initiate IAM federation for an existing IdP
+## To set up Amazon Quick as a service provider that can initiate IAM federation for an existing IdP
 
 1. Make sure that you already have IAM federation set up in your IdP, in
    IAM, and Amazon Quick. To test this setup, check if you can share a
@@ -79,9 +75,7 @@ name of the parameter is provided by your IdP. 6. Test signing in:
 
 7. Choose **Save** to keep your settings.
 
-## To enable service provider–initiated IAM
-
-federation IdP
+## To enable service provider–initiated IAM federation IdP
 
 1. Make sure your IAM federation settings are configured and tested. If
    you're not sure about the configuration, test the connection by using the
@@ -94,9 +88,7 @@ federation IdP
 5. Verify that it's working by disconnecting from your IdP and opening
    Amazon Quick.
 
-## To disable service provider initiated IAM
-
-federation
+## To disable service provider initiated IAM federation
 
 1. Open Amazon Quick, and choose **Manage Amazon Quick**
    from your profile menu.

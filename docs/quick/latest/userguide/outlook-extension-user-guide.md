@@ -1,6 +1,4 @@
-# Amazon Quick Microsoft
-
-Outlook extension user guide
+# Amazon Quick Microsoft Outlook extension user guide
 
 As a user, you can access Amazon Quick directly within Microsoft
 Outlook to get AI-powered assistance without leaving your email
@@ -10,31 +8,20 @@ intelligent responses.
 
 ###### Topics
 
-- [Add a Microsoft
-  Outlook Extension to your Microsoft
-  Outlook](#outlook-extension-setup-users "#outlook-extension-setup-users")
-- [Access Quick in your
-  Microsoft Outlook navigation pane at any time](#access-outlook-side-panel "#access-outlook-side-panel")
-- [Microsoft Outlook extension use
-  cases](#outlook-use-cases "#outlook-use-cases")
-- [Amazon Quick Microsoft
-  Outlook extension usage guidelines](#outlook-usage-guidelines "#outlook-usage-guidelines")
-- [Microsoft
-  Outlook extension known limitations](#outlook-extension-known-limitations "#outlook-extension-known-limitations")
+- [Add a Microsoft Outlook Extension to your Microsoft Outlook](#outlook-extension-setup-users "#outlook-extension-setup-users")
+- [Access Quick in your Microsoft Outlook navigation pane at any time](#access-outlook-side-panel "#access-outlook-side-panel")
+- [Microsoft Outlook extension use cases](#outlook-use-cases "#outlook-use-cases")
+- [Amazon Quick Microsoft Outlook extension usage guidelines](#outlook-usage-guidelines "#outlook-usage-guidelines")
+- [Microsoft Outlook extension known limitations](#outlook-extension-known-limitations "#outlook-extension-known-limitations")
 
-## Add a Microsoft
-
-Outlook Extension to your Microsoft
-Outlook
+## Add a Microsoft Outlook Extension to your Microsoft Outlook
 
 Install the Quick app in your Microsoft Outlook
 environment to enable AI-powered assistance. This one-time setup makes
 Quick accessible throughout your Microsoft Outlook
 workflow.
 
-###### Add a Microsoft Outlook extension to your Microsoft
-
-Outlook
+###### Add a Microsoft Outlook extension to your Microsoft Outlook
 
 1. Open your Microsoft Outlook.
 2. Go to **Add-Ins** and search for
@@ -44,9 +31,7 @@ Outlook
 4. Once the add-in is installed, you can use your Quick
    **Add-In**.
 
-## Access Quick in your
-
-Microsoft Outlook navigation pane at any time
+## Access Quick in your Microsoft Outlook navigation pane at any time
 
 Once you've added Quick to your Microsoft Outlook
 environment, you can access it conveniently through the navigation pane for
@@ -54,9 +39,7 @@ quick assistance without interrupting your email workflow. The navigation pane
 provides persistent access to Quick while you work with emails and
 conversations.
 
-## Microsoft Outlook extension use
-
-cases
+## Microsoft Outlook extension use cases
 
 With Quick integrated into Microsoft Outlook, you
 can search and access your organization's knowledge bases directly from your
@@ -83,9 +66,7 @@ Outlook.
    that is ready to send.
 3. Iterate on the draft with Quick and click send.
 
-###### Incorporate Quick's company knowledge and general knowledge
-
-into your emails
+###### Incorporate Quick's company knowledge and general knowledge into your emails
 
 1. Open an email thread of your choice and ask Quick about
    its knowledge.
@@ -93,26 +74,20 @@ into your emails
    selection** buttons to insert Quick's response
    into your email drafts.
 
-###### \*\*Perform actions in external
-
-applications\*\*
+###### **Perform actions in external applications**
 
 1. Start a direct message (DM) with Quick.
 2. Ask it to perform an action of your choice in an external application
    using [action connectors](../../../quicksuite/latest/userguide/action-connectors.md "../../../quicksuite/latest/userguide/action-connectors.md") configured by your
    organization.
 
-## Amazon Quick Microsoft
-
-Outlook extension usage guidelines
+## Amazon Quick Microsoft Outlook extension usage guidelines
 
 As a user, you are responsible for keeping company information safe. The
 following guidance helps you use Amazon Quick apps securely while maintaining
 data privacy and compliance.
 
-### Conversation retention
-
-policy and accuracy
+### Conversation retention policy and accuracy
 
 Amazon Quick automatically deletes conversations after 30 days of
 inactivity. Microsoft Outlook conversation retention follows
@@ -124,9 +99,7 @@ Quick chat panel ends the current conversation. Reopen the panel
 to start a new conversation. However, users need to visit the Amazon Quick
 chat instance to manage their conversations.
 
-### Security
-
-considerations
+### Security considerations
 
 When you use Amazon Quick with email content, remember that responses
 reflect individual user permissions and content may include information not
@@ -140,9 +113,7 @@ customer data to enhance language models, and not indexing Microsoft
 Outlook conversations into your company's Amazon Quick
 instance.
 
-## Microsoft
-
-Outlook extension known limitations
+## Microsoft Outlook extension known limitations
 
 The following are known limitations of the Amazon Quick Microsoft
 Outlook extension:

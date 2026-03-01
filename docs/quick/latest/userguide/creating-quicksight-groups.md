@@ -1,6 +1,4 @@
-# Creating and managing groups in
-
-Amazon Quick
+# Creating and managing groups in Amazon Quick
 
 |                                             |
 | ------------------------------------------- |
@@ -31,10 +29,8 @@ the Amazon Quick APIs.
 ###### Topics
 
 - [Create a group with the Amazon Quick console](#creating-groups-console "#creating-groups-console")
-- [Change a group description with the
-  Amazon Quick console](#group-description-console "#group-description-console")
-- [Manage group membership in the Amazon Quick
-  console](#group-add-users-console "#group-add-users-console")
+- [Change a group description with the Amazon Quick console](#group-description-console "#group-description-console")
+- [Manage group membership in the Amazon Quick console](#group-add-users-console "#group-add-users-console")
 - [Create and manage groups with the AWS CLI](#creating-groups-cli "#creating-groups-cli")
 
 ## Create a group with the Amazon Quick console
@@ -58,9 +54,7 @@ You can't delete a group from the Amazon Quick console, but you can delete a gro
 with the AWS CLI. For more information on deleting a Amazon Quick group with the
 AWS CLI, see [Create and manage groups with the AWS CLI](../../../quicksight/latest/user/creating-groups-cli.md "../../../quicksight/latest/user/creating-groups-cli.md").
 
-## Change a group description with the
-
-Amazon Quick console
+## Change a group description with the Amazon Quick console
 
 After you have created a new group, you can't change the group's title but you can
 change the group's description.
@@ -75,9 +69,7 @@ change the group's description.
 3. In the **Edit description** box that appears, enter the new
    description and choose **Save**.
 
-## Manage group membership in the Amazon Quick
-
-console
+## Manage group membership in the Amazon Quick console
 
 After you create a group, you can add and remove users from the **Manage
 groups** page. You can't add a user to a group if you haven't added the

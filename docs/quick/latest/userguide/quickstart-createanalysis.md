@@ -1,6 +1,4 @@
-# Quick start: Create an Amazon Quick Sight analysis
-
-with a single visual using sample data
+# Quick start: Create an Amazon Quick Sight analysis with a single visual using sample data
 
 Before you create your first analysis, make sure to complete the steps in [Setting up and signing into Amazon Quick](setting-up.md "setting-up.md").
 
@@ -8,9 +6,7 @@ With the following procedure, you use the Web and Social Media Analytics sample
 dataset to create an analysis containing a line chart visual. This visual shows the
 count by month of people that have added themselves to the mailing list.
 
-###### To create an analysis containing a line chart visual using a sample
-
-dataset
+###### To create an analysis containing a line chart visual using a sample dataset
 
 1. From the Amazon Quick homepage, from Amazon Quick Sight, choose
    **Analyses** from the left navigation menu. If you

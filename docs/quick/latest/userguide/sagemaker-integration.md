@@ -29,14 +29,11 @@ Quick doesn’t support multiple values inside a single column.
 ###### Topics
 
 - [How SageMaker AI integration works](#sagemaker-how-it-works "#sagemaker-how-it-works")
-- [Costs incurred (no additional costs with
-  integration itself)](#sagemaker-cost-of-use "#sagemaker-cost-of-use")
+- [Costs incurred (no additional costs with integration itself)](#sagemaker-cost-of-use "#sagemaker-cost-of-use")
 - [Usage guidelines](#sagemaker-usage-guidelines "#sagemaker-usage-guidelines")
 - [Defining the schema file](#sagemaker-schema-file "#sagemaker-schema-file")
-- [Adding a SageMaker AI model to your Quick Sight
-  dataset](#sagemaker-using "#sagemaker-using")
-- [Build predictive models with SageMaker AI
-  Canvas](sagemaker-canvas-integration.md "sagemaker-canvas-integration.md")
+- [Adding a SageMaker AI model to your Quick Sight dataset](#sagemaker-using "#sagemaker-using")
+- [Build predictive models with SageMaker AI Canvas](sagemaker-canvas-integration.md "sagemaker-canvas-integration.md")
 
 ## How SageMaker AI integration works
 
@@ -92,9 +89,7 @@ You can use the Amazon Quick Sight SPICE ingestion API operations to
 control the data refresh process. For more information about using these API
 operations, see the [Amazon Quick Sight API Reference](../../../quicksight/latest/APIReference/qs-api-overview.md "../../../quicksight/latest/APIReference/qs-api-overview.md").
 
-## Costs incurred (no additional costs with
-
-integration itself)
+## Costs incurred (no additional costs with integration itself)
 
 Using this feature doesn't require an additional fee in itself. Your costs include the
 following:
@@ -294,9 +289,7 @@ The following example shows the structure of the JSON in the schema file.
 The structure of the schema file is related to the kind of model that is used in
 examples provided by SageMaker AI.
 
-## Adding a SageMaker AI model to your Quick Sight
-
-dataset
+## Adding a SageMaker AI model to your Quick Sight dataset
 
 Using the following procedure, you can add a pretrained SageMaker AI model to your dataset, so
 that you can use predictive data in analyses and dashboards.

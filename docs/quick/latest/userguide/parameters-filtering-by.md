@@ -1,6 +1,4 @@
-# Using filters with parameters in
-
-Amazon Quick
+# Using filters with parameters in Amazon Quick
 
 Use this section to filter the data in an analysis or dashboard by a single-value
 parameter value. To use a multivalued parameter—one with a multiselect

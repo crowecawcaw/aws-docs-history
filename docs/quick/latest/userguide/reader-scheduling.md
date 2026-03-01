@@ -1,29 +1,20 @@
-# Creating a reader generated report in
-
-Amazon Quick Sight
+# Creating a reader generated report in Amazon Quick Sight
 
 If a Amazon Quick author has set up a prompted report for a Quick Sight pixel perfect
 report, Quick Sight dashboard viewers can use the prompt to schedule their own reports
-for themselves. For more information about prompts for pixel perfect reports, see [Setting up prompts for paginated
-reports](paginated-reports-prompts.md "paginated-reports-prompts.md").
+for themselves. For more information about prompts for pixel perfect reports, see [Setting up prompts for paginated reports](paginated-reports-prompts.md "paginated-reports-prompts.md").
 
 Use the following sections to learn how to create and modify a reader generated
 report.
 
 ###### Topics
 
-- [Creating a reader generated
-  report](#reader-scheduling-create "#reader-scheduling-create")
-- [Loading a saved view of a Quick Sight
-  reader generated report](#reader-scheduling-load-view "#reader-scheduling-load-view")
-- [Updating the view of a scheduled
-  reader generated report](#reader-scheduling-update-view "#reader-scheduling-update-view")
-- [Updating a reader generated
-  report schedule](#reader-scheduling-update-schedule "#reader-scheduling-update-schedule")
+- [Creating a reader generated report](#reader-scheduling-create "#reader-scheduling-create")
+- [Loading a saved view of a Quick Sight reader generated report](#reader-scheduling-load-view "#reader-scheduling-load-view")
+- [Updating the view of a scheduled reader generated report](#reader-scheduling-update-view "#reader-scheduling-update-view")
+- [Updating a reader generated report schedule](#reader-scheduling-update-schedule "#reader-scheduling-update-schedule")
 
-## Creating a reader generated
-
-report
+## Creating a reader generated report
 
 Use the following procedure to create a reader generated report.
 
@@ -37,7 +28,7 @@ Use the following procedure to create a reader generated report.
     **Add**. If you do not see the **Add**
     button, the dashboard does not contain a pixel perfect sheet, or your
     Quick account does not have the Pixel perfect reports add on. For
-    more information about the paginater reports add on, see [Getting started](qs-reports-getting-started.md "qs-reports-getting-started.md") .
+    more information about the paginater reports add on, see [Getting started](qs-reports-getting-started.md "qs-reports-getting-started.md").
 5.  For **Schedule name**, enter a name for the new schedule.
     The schedule name can be up to 100 chatacters long.
 6.  For **Description**, choose the view option that you want
@@ -100,9 +91,7 @@ After you save a report schedule, the schedule appears in the
 **Schedules** pane. Reader generated reports are only available
 to the user that created them and can't be shared.
 
-## Loading a saved view of a Quick Sight
-
-reader generated report
+## Loading a saved view of a Quick Sight reader generated report
 
 Amazon Quick readers can use the **Schedules** pane to load a
 saved view of any scheduled pixel perfect report thay have created or received. Use the
@@ -124,9 +113,7 @@ following procedure to load a saved review of a scheduled report.
    the dashboard. When a saved view of a dashboard is loaded, the reader's
    current view of the dashboard is lost.
 
-## Updating the view of a scheduled
-
-reader generated report
+## Updating the view of a scheduled reader generated report
 
 After a Amazon Quick reader has created a report in Quick Sight, they can use the
 **Schedules** pane to update the dashboard view that is used in
@@ -159,9 +146,7 @@ scheduled report.
    updated are applied to the dashboard report.
 10. Choose **Save** to update the schedule.
 
-## Updating a reader generated
-
-report schedule
+## Updating a reader generated report schedule
 
 After they create a reader generated report, Amazon Quick readers can use the
 **Schedules** pane to make a report schedule active or

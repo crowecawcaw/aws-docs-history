@@ -9,9 +9,7 @@ Amazon Quick Sight has new API operations for embedding analytics:
 You can still use the `GetDashboardEmbedUrl` and
 `GetSessionEmbedUrl` API operations to embed dashboards and the
 Amazon Quick Sight console, but they don't contain the latest embedding capabilities. For
-more information about embedding using the old API operations, see [Embedding analytics using the
-GetDashboardEmbedURL and GetSessionEmbedURL API
-operations](embedded-analytics-deprecated.md "embedded-analytics-deprecated.md").
+more information about embedding using the old API operations, see [Embedding analytics using the GetDashboardEmbedURL and GetSessionEmbedURL API operations](embedded-analytics-deprecated.md "embedded-analytics-deprecated.md").
 
 |                                            |
 | ------------------------------------------ |
@@ -65,10 +63,7 @@ Amazon Quick Sight embedding is available in all supported AWS Regions.
 
 ###### Topics
 
-- [Embedding Amazon Quick Sight analytics into your
-  applications](embedding-overview.md "embedding-overview.md")
-- [Embedding custom
-  Amazon Quick Sight assets into your application](customize-and-personalize-embedded-analytics.md "customize-and-personalize-embedded-analytics.md")
-- [Embedding Amazon Quick Sight visuals and dashboards
-  with a 1-click embed code](1-click-embedding.md "1-click-embedding.md")
+- [Embedding Amazon Quick Sight analytics into your applications](embedding-overview.md "embedding-overview.md")
+- [Embedding custom Amazon Quick Sight assets into your application](customize-and-personalize-embedded-analytics.md "customize-and-personalize-embedded-analytics.md")
+- [Embedding Amazon Quick Sight visuals and dashboards with a 1-click embed code](1-click-embedding.md "1-click-embedding.md")
 - [Embedding with the Amazon Quick Sight APIs](embedded-analytics-api.md "embedded-analytics-api.md")

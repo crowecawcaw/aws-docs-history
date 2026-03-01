@@ -36,9 +36,6 @@ following:
 ###### Topics
 
 - [Setting up parameters in Amazon Quick](parameters-set-up.md "parameters-set-up.md")
-- [Using a control with a parameter in
-  Amazon Quick](parameters-controls.md "parameters-controls.md")
-- [Creating parameter defaults in
-  Amazon Quick](parameters-default-values.md "parameters-default-values.md")
-- [Connecting to parameters in
-  Amazon Quick](parameters-connections.md "parameters-connections.md")
+- [Using a control with a parameter in Amazon Quick](parameters-controls.md "parameters-controls.md")
+- [Creating parameter defaults in Amazon Quick](parameters-default-values.md "parameters-default-values.md")
+- [Connecting to parameters in Amazon Quick](parameters-connections.md "parameters-connections.md")

@@ -1,6 +1,4 @@
-# Range and scale on visual types in
-
-Quick
+# Range and scale on visual types in Quick
 
 To change the scale of the values shown on the visual, you can use the
 **Properties** pane to set the range for one or both axes of the

@@ -23,6 +23,5 @@ In datasets, you can create the following types of filters:
 - [Adding nested filters](add-a-nested-filter-data-prep.md "add-a-nested-filter-data-prep.md")
 - [Adding numeric filters](add-a-numeric-filter-data-prep.md "add-a-numeric-filter-data-prep.md")
 - [Adding date filters](add-a-date-filter2.md "add-a-date-filter2.md")
-- [Adding filter conditions (group filters) with
-  AND and OR operators](add-a-compound-filter.md "add-a-compound-filter.md")
+- [Adding filter conditions (group filters) with AND and OR operators](add-a-compound-filter.md "add-a-compound-filter.md")
 - [Creating cascading filters](use-a-cascading-filter.md "use-a-cascading-filter.md")

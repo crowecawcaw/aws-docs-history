@@ -1,6 +1,4 @@
-# Granting individual
-
-Amazon Quick Sight users and groups access to a dashboard in Amazon Quick Sight
+# Granting individual Amazon Quick Sight users and groups access to a dashboard in Amazon Quick Sight
 
 Use the following procedure to grant access to a dashboard.
 

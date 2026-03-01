@@ -1,6 +1,4 @@
-# Adding themes and animations to a data
-
-story in Amazon Quick Sight
+# Adding themes and animations to a data story in Amazon Quick Sight
 
 You can add themes and animations to the stories that you generate. To add a theme or
 animation to a data story, choose the **Story style** icon.

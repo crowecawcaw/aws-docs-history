@@ -1,6 +1,4 @@
-# Adding embedded callback actions
-
-at runtime in Amazon Quick Sight
+# Adding embedded callback actions at runtime in Amazon Quick Sight
 
 Use embedded datapoint callback actions to build tighter integrations between your
 software as a service (SaaS) application and your Amazon Quick Sight embedded dashboards

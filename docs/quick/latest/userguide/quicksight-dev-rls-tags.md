@@ -1,7 +1,4 @@
-# Using row-level security with tag-based rules
-
-to restrict access to a dataset when embedding dashboards for anonymous
-users
+# Using row-level security with tag-based rules to restrict access to a dataset when embedding dashboards for anonymous users
 
 |                                            |
 | ------------------------------------------ |
@@ -34,8 +31,7 @@ To do so, complete the following steps:
    `GenerateEmbedUrlForAnonymousUser` API operation.
 
 For more information about embedding dashboards for anonymous users using the
-`GenerateEmbedUrlForAnonymousUser` API operation, see [Embedding Amazon Quick Sight
-dashboards for anonymous (unregistered) users](embedded-analytics-dashboards-for-everyone.md "embedded-analytics-dashboards-for-everyone.md").
+`GenerateEmbedUrlForAnonymousUser` API operation, see [Embedding Amazon Quick Sight dashboards for anonymous (unregistered) users](embedded-analytics-dashboards-for-everyone.md "embedded-analytics-dashboards-for-everyone.md").
 Before you can use RLS with tags, keep in mind the following points:
 
 - Using RLS with tags is currently only supported for anonymous embedding,
@@ -51,14 +47,11 @@ Before you can use RLS with tags, keep in mind the following points:
   quota are truncated during ingestion. To learn more about SPICE data quotas, see
   [SPICE quotas for imported data](data-source-limits.md#spice-limits "data-source-limits.md#spice-limits").
 
-## Step 1: Add RLS tags to a
-
-dataset
+## Step 1: Add RLS tags to a dataset
 
 You can add tag-based rules to a dataset in Amazon Quick. Alternatively, you can call
 the `CreateDataSet` or `UpdateDataSet` API operation and add
-tag-based rules that way. For more information, see [Add RLS tags to a dataset
-using the API](#quicksight-dev-rls-tags-add-api "#quicksight-dev-rls-tags-add-api").
+tag-based rules that way. For more information, see [Add RLS tags to a dataset using the API](#quicksight-dev-rls-tags-add-api "#quicksight-dev-rls-tags-add-api").
 
 Use the following procedure to add RLS tags to a dataset in Quick.
 
@@ -116,8 +109,7 @@ To turn off all tag-based rules for the dataset, switch the
 On the **Data** page, a lock icon appears in the dataset
 row to indicate that tag rules are enabled.
 
-You can now use tag rules to set tag values at runtime, described in [Step 2: Assign values to RLS
-tags at runtime](#quicksight-dev-rls-tags-assign-values "#quicksight-dev-rls-tags-assign-values"). The rules only
+You can now use tag rules to set tag values at runtime, described in [Step 2: Assign values to RLS tags at runtime](#quicksight-dev-rls-tags-assign-values "#quicksight-dev-rls-tags-assign-values"). The rules only
 affect Quick readers when active.
 
 ###### Important
@@ -128,8 +120,7 @@ when authoring a dashboard.
 
 To give Quick authors permission to see data in the dataset,
 create a permissions file or query to use as dataset rules. For more
-information, see [Creating dataset
-rules for row-level security](restrict-access-to-a-data-set-using-row-level-security.md#create-data-set-rules-for-row-level-security "restrict-access-to-a-data-set-using-row-level-security.md#create-data-set-rules-for-row-level-security").
+information, see [Creating dataset rules for row-level security](restrict-access-to-a-data-set-using-row-level-security.md#create-data-set-rules-for-row-level-security "restrict-access-to-a-data-set-using-row-level-security.md#create-data-set-rules-for-row-level-security").
 
 After you create a tag-based rule, a new **Manage rules** table
 appears that shows how your tag-based rules relate to each other. To make changes to
@@ -138,9 +129,7 @@ icon that follows the rule. Then add or remove tags, and choose
 **Update**. To apply your updated rule to the dataset, choose
 **Apply**.
 
-### (Optional) Add the OR condition to
-
-RLS tags
+### (Optional) Add the OR condition to RLS tags
 
 You can also add the OR condition to your tag-based rules to further customize
 the way data is presented to your Quick account users. When you use the OR
@@ -160,9 +149,7 @@ one tag defined in the rule is valid.
    then choose **Apply** to apply the updated rule to your
    dataset.
 
-### Add RLS tags to a dataset
-
-using the API
+### Add RLS tags to a dataset using the API
 
 Alternatively, you can configure and enable tag-based row-level security on
 your dataset by calling the `CreateDataSet` or
@@ -267,8 +254,7 @@ While configuring the tags for dataset columns, turn them on or
 off using the mandatory property `Status`. For enabling
 the tag rules use the value `ENABLED` for this property.
 By turning on tag rules, you can use them to set tag values at
-runtime, described in [Step 2: Assign values to RLS
-tags at runtime](#quicksight-dev-rls-tags-assign-values "#quicksight-dev-rls-tags-assign-values").
+runtime, described in [Step 2: Assign values to RLS tags at runtime](#quicksight-dev-rls-tags-assign-values "#quicksight-dev-rls-tags-assign-values").
 
 The following is an example of the response definition.
 
@@ -351,16 +337,13 @@ authoring a dashboard.
 
 To give Quick authors permission to see data in the dataset, create a
 permissions file or query to use as dataset rules. For more information, see
-[Creating dataset
-rules for row-level security](restrict-access-to-a-data-set-using-row-level-security.md#create-data-set-rules-for-row-level-security "restrict-access-to-a-data-set-using-row-level-security.md#create-data-set-rules-for-row-level-security").
+[Creating dataset rules for row-level security](restrict-access-to-a-data-set-using-row-level-security.md#create-data-set-rules-for-row-level-security "restrict-access-to-a-data-set-using-row-level-security.md#create-data-set-rules-for-row-level-security").
 
 For more information about the `RowLevelPermissionTagConfiguration`
 element, see [RowLevelPermissionTagConfiguration](../../../quicksight/latest/APIReference/API_RowLevelPermissionTagConfiguration.md "../../../quicksight/latest/APIReference/API_RowLevelPermissionTagConfiguration.md") in the
 _Amazon Quick API Reference_.
 
-## Step 2: Assign values to RLS
-
-tags at runtime
+## Step 2: Assign values to RLS tags at runtime
 
 You can use tags for RLS only for anonymous embedding. You can set values for tags
 using the `GenerateEmbedUrlForAnonymousUser` API operation.
@@ -446,6 +429,5 @@ view only the value `West`, `Central`, or `South`
 in the `retailer_id` column.
 
 For more information about embedding dashboards for anonymous users using the
-`GenerateEmbedUrlForAnonymousUser` API operation, see [Embedding Amazon Quick Sight
-dashboards for anonymous (unregistered) users](embedded-analytics-dashboards-for-everyone.md "embedded-analytics-dashboards-for-everyone.md"), or [GenerateEmbedUrlForAnonymousUser](../../../quicksight/latest/APIReference/API_GenerateEmbedUrlForAnonymousUser.md "../../../quicksight/latest/APIReference/API_GenerateEmbedUrlForAnonymousUser.md") in the
+`GenerateEmbedUrlForAnonymousUser` API operation, see [Embedding Amazon Quick Sight dashboards for anonymous (unregistered) users](embedded-analytics-dashboards-for-everyone.md "embedded-analytics-dashboards-for-everyone.md"), or [GenerateEmbedUrlForAnonymousUser](../../../quicksight/latest/APIReference/API_GenerateEmbedUrlForAnonymousUser.md "../../../quicksight/latest/APIReference/API_GenerateEmbedUrlForAnonymousUser.md") in the
 _Amazon Quick API Reference_

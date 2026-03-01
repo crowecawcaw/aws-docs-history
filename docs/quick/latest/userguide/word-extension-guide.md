@@ -1,6 +1,4 @@
-# Amazon Quick Microsoft Word
-
-extension
+# Amazon Quick Microsoft Word extension
 
 ###### Note
 
@@ -31,7 +29,5 @@ Key capabilities include:
 
 ###### Topics
 
-- [Amazon Quick Microsoft
-  Word extension author guide](word-extension-author-guide.md "word-extension-author-guide.md")
-- [Amazon Quick Microsoft
-  Word extension user guide](word-extension-user-guide.md "word-extension-user-guide.md")
+- [Amazon Quick Microsoft Word extension author guide](word-extension-author-guide.md "word-extension-author-guide.md")
+- [Amazon Quick Microsoft Word extension user guide](word-extension-user-guide.md "word-extension-user-guide.md")

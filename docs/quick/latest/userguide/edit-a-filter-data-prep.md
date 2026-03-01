@@ -7,9 +7,7 @@ field, create a new filter instead.
 
 Use the following procedures to learn how to edit filters.
 
-## Editing filters in
-
-datasets
+## Editing filters in datasets
 
 Use the following procedure to edit filters in datasets.
 
@@ -25,9 +23,7 @@ Use the following procedure to edit filters in datasets.
 5. Choose the filter that you want to edit.
 6. When finished editing, choose **Apply**.
 
-## Editing filters in
-
-analyses
+## Editing filters in analyses
 
 Use the following procedure to edit filters in analyses.
 

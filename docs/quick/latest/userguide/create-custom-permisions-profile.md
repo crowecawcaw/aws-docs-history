@@ -1,6 +1,4 @@
-# Creating a custom permissions profile in
-
-Amazon Quick
+# Creating a custom permissions profile in Amazon Quick
 
 |                                            |
 | ------------------------------------------ |
@@ -115,18 +113,13 @@ respective features.
    - In **Restrict features** – Choose whether to allow
      specific features by checking or unchecking the appropriate options.
 
-## Creating a custom permissions
-
-profile for a Amazon Quick account that is integrated with IAM Identity Center or Active
-Directory
+## Creating a custom permissions profile for a Amazon Quick account that is integrated with IAM Identity Center or Active Directory
 
 Amazon Quick account admins can use the following procedure to create a custom
 permissions profile for a Amazon Quick account that is integrated with IAM Identity Center or Active
 Directory.
 
-###### To create a custom permissions profile for a Amazon Quick account that is
-
-integrated with IAM Identity Center or Active Directory
+###### To create a custom permissions profile for a Amazon Quick account that is integrated with IAM Identity Center or Active Directory
 
 1. Sign in to the [AWS Management
    Console](https://aws.amazon.com//console "https://aws.amazon.com//console").
@@ -157,10 +150,7 @@ integrated with IAM Identity Center or Active Directory
    profile. Provide the name of the custom permissions profile to API users so that
    they can apply the custom permissions profile to roles or users.
 
-## Creating a
-
-custom permissions profile for a Amazon Quick account that uses Amazon Quick managed
-users
+## Creating a custom permissions profile for a Amazon Quick account that uses Amazon Quick managed users
 
 Amazon Quick account admins can use the following procedure to create a custom
 permissions profile for a Amazon Quick account that uses Amazon Quick managed
@@ -214,9 +204,7 @@ about managing custom permissions profiles with the Amazon Quick APIs.
 - [Apply a custom permissions profile to a user with the
   Amazon Quick API](../../../quicksight/latest/user/customizing-permissions-to-the-quicksight-console-apply-iam-user.md "../../../quicksight/latest/user/customizing-permissions-to-the-quicksight-console-apply-iam-user.md")
 
-## Apply a
-
-custom permissions profile to a Amazon Quick role with the Amazon Quick API
+## Apply a custom permissions profile to a Amazon Quick role with the Amazon Quick API
 
 After you create a custom permissions profile, use the Amazon Quick APIs to add or
 change the custom permissions profile that is assigned to a role.
@@ -260,9 +248,7 @@ aws quicksight delete-role-custom-permission \
 --region `REGION`
 ```
 
-## Apply
-
-a custom permissions profile to a user with the Amazon Quick API
+## Apply a custom permissions profile to a user with the Amazon Quick API
 
 The following example applies a custom permissions profile to a user.
 
@@ -333,9 +319,7 @@ author's role, that author is no longer able to access the controls that allow d
 source sharing. Instead, the affected author has view-only permissions to the data
 source.
 
-## Apply
-
-a custom permissions profile to an account
+## Apply a custom permissions profile to an account
 
 ###### To apply a custom permissions profile to an account
 
@@ -351,9 +335,7 @@ a custom permissions profile to an account
    **Actions**, choose **Set as account
    profile**.
 
-### Apply a custom permissions profile to an account using the Quick
-
-APIs
+### Apply a custom permissions profile to an account using the Quick APIs
 
 After you have created a custom permissions profile, use the Quick API
 to add or change the custom permissions profile that is assigned to an

@@ -1,6 +1,4 @@
-# Insufficient
-
-permissions when using Athena with Amazon Quick Sight
+# Insufficient permissions when using Athena with Amazon Quick Sight
 
 If you receive an error message that says you have insufficient permissions, try
 the following steps to resolve your problem.

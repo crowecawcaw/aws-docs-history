@@ -1,6 +1,4 @@
-# Step 2: Get
-
-the URL with the authentication code attached
+# Step 2: Get the URL with the authentication code attached
 
 ###### Important
 

@@ -15,9 +15,7 @@ from a list of common options, you can access such a list in several ways.
 You can access it from the **Field list** pane, an
 on-visual editor, or a visual field well.
 
-###### To change a percent field's number of decimal places by choosing a
-
-list option
+###### To change a percent field's number of decimal places by choosing a list option
 
 1. Choose one of the following options:
    - In the **Field list** pane, choose the

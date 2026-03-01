@@ -1,6 +1,4 @@
-# Table not found when using
-
-Athena with Amazon Quick Sight
+# Table not found when using Athena with Amazon Quick Sight
 
 You can receive a "`table not found`" error if the tables in an
 analysis are missing from the Athena data source.

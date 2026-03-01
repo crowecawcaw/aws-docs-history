@@ -1,6 +1,4 @@
-# Define sorting in a
-
-repeating section
+# Define sorting in a repeating section
 
 ###### To define sorting in a repeating section
 

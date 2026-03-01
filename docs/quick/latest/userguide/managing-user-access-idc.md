@@ -36,12 +36,9 @@ all their Amazon Quick assets and settings before the migration.
 
 - [Adding users](#add-user-accounts-enterprise "#add-user-accounts-enterprise")
 - [Managing user access](#view-user-accounts-enterprise "#view-user-accounts-enterprise")
-- [Deactivating user
-  accounts](#deactivate-user-groups-enterprise "#deactivate-user-groups-enterprise")
-- [Changing a user's
-  role](#updating-user-accounts-enterprise "#updating-user-accounts-enterprise")
-- [Deleting Enterprise
-  accounts](#delete-a-user-account-enterprise "#delete-a-user-account-enterprise")
+- [Deactivating user accounts](#deactivate-user-groups-enterprise "#deactivate-user-groups-enterprise")
+- [Changing a user's role](#updating-user-accounts-enterprise "#updating-user-accounts-enterprise")
+- [Deleting Enterprise accounts](#delete-a-user-account-enterprise "#delete-a-user-account-enterprise")
 
 ## Adding users
 
@@ -69,9 +66,7 @@ access to Quick.
    or remove groups in IAM Identity Center or Active Directory from the Admin, User, or
    Reader roles in Quick.
 
-## Deactivating user
-
-accounts
+## Deactivating user accounts
 
 Deactivating a Amazon Quick group or user account removes that group or user's
 access to Quick resources, like analyses or data sets. IAM Identity Center or Active
@@ -102,9 +97,7 @@ You can activate or deactivate multiple users at once by adding or removing one 
 more IAM Identity Center or Active Directory groups that are associated with a role in
 Amazon Quick.
 
-## Changing a user's
-
-role
+## Changing a user's role
 
 If you're using IAM Identity Center or Active Directory, you can change a user's role
 by adding or removing them from a group that's mapped to the role that you want
@@ -129,9 +122,7 @@ following:
 The five-minute time period allows changes to propagate throughout the
 system.
 
-## Deleting Enterprise
-
-accounts
+## Deleting Enterprise accounts
 
 If a user is deleted from IAM Identity Center or Active Directory or is removed from a group
 that's associated with a role in Quick, the user no longer exists

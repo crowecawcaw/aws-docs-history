@@ -77,9 +77,7 @@ times.
 Use the following sections to learn how to create date filters in datasets and
 analyses.
 
-## Creating date filters in
-
-datasets
+## Creating date filters in datasets
 
 Use the following procedure to create a range filter for a date field in a
 dataset.
@@ -110,15 +108,11 @@ nulls. 4. For **Time granularity**, choose
 **Day**, **Hour**,
 **Minute**, or **Second**. 5. When finished, choose **Apply**.
 
-## Creating date filters in
-
-analyses
+## Creating date filters in analyses
 
 You can create date filters in analyses as described following.
 
-### Creating range date filters in
-
-analyses
+### Creating range date filters in analyses
 
 Use the following procedure to create a range filter for a date field in an
 analysis.
@@ -178,9 +172,7 @@ more information, see [Parameters in Amazon Quick](parameters-in-quicksight.md "
 nulls**, **Include nulls**, or
 **Nulls only**. 8. When finished, choose **Apply**.
 
-### Creating relative date filters
-
-in analyses
+### Creating relative date filters in analyses
 
 Use the following procedure to create a relative filter for a date field in an
 analysis.
@@ -225,9 +217,7 @@ To use parameters in a filter, create them first. Usually, you create
 a parameter, add a control for it, and then add a filter for it. For
 more information, see [Parameters in Amazon Quick](parameters-in-quicksight.md "parameters-in-quicksight.md"). 10. When finished, choose **Apply**.
 
-### Creating top and bottom date
-
-filters in analyses
+### Creating top and bottom date filters in analyses
 
 Use the following procedure to create a top and bottom filter for a date field
 in an analysis.

@@ -54,16 +54,13 @@ Or the custom sheet selection:
 ![This is an image of Delete Filter in Quick Sight.](images/cross-sheet-7.png) 3. If there are controls, you will see a modal to warn you that you will be
 bulk-removing controls from any of the sheets where the filter no longer
 applies and this can impact your layout. You can also remove the controls
-individually. For more information, see [Removing a Cross-Sheet
-Control](#cross-sheet-removing-control "#cross-sheet-removing-control"). 4. If you add controls to the **Top of all sheets in filter
+individually. For more information, see [Removing a Cross-Sheet Control](#cross-sheet-removing-control "#cross-sheet-removing-control"). 4. If you add controls to the **Top of all sheets in filter
 scope** then new sheets will by default be added with this new
 control if the filter is scoped to your entire analysis.
 
 ## Controls
 
-### Creating a Cross-Sheet
-
-Control
+### Creating a Cross-Sheet Control
 
 **New filter control**
 
@@ -79,8 +76,7 @@ Control
     If you want to add to multiple-sheets within the sheets themselves,
     you can do that sheet-by-sheet. Or you can add to the top and then use
     the option on each control to **Move to sheet**. For
-    more information, see [Editing a Cross-Sheet
-    Control](#cross-sheet-controls-editing-control "#cross-sheet-controls-editing-control").
+    more information, see [Editing a Cross-Sheet Control](#cross-sheet-controls-editing-control "#cross-sheet-controls-editing-control").
 
 **Increasing Scope of Existing Control**
 
@@ -92,9 +88,7 @@ Control
    all the sheets in the filter scope. This will not impact the position of
    the already created control if it is on the sheet.
 
-### Editing a Cross-Sheet
-
-Control
+### Editing a Cross-Sheet Control
 
 1. Go to the cross-sheet control and select the three-dot menu if the
    control is pinned to the top or the edit pencil icon if the control is
@@ -120,9 +114,7 @@ Control
    location (Top or Sheet) that the control is on for each sheet. You can
    do this by choosing **Sheets(8)**.
 
-### Removing a Cross-Sheet
-
-Control
+### Removing a Cross-Sheet Control
 
 You can remove controls in two places. First, from the control:
 

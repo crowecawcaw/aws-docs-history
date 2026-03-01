@@ -29,8 +29,5 @@ columns to secure data. Values to tags must be passed when embedding dashboards.
 
 ###### Topics
 
-- [Using row-level
-  security with user-based rules to restrict access to a dataset](restrict-access-to-a-data-set-using-row-level-security.md "restrict-access-to-a-data-set-using-row-level-security.md")
-- [Using row-level security with tag-based rules
-  to restrict access to a dataset when embedding dashboards for anonymous
-  users](quicksight-dev-rls-tags.md "quicksight-dev-rls-tags.md")
+- [Using row-level security with user-based rules to restrict access to a dataset](restrict-access-to-a-data-set-using-row-level-security.md "restrict-access-to-a-data-set-using-row-level-security.md")
+- [Using row-level security with tag-based rules to restrict access to a dataset when embedding dashboards for anonymous users](quicksight-dev-rls-tags.md "quicksight-dev-rls-tags.md")

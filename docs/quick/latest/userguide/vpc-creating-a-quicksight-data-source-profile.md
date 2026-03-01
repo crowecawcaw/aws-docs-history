@@ -1,6 +1,4 @@
-# Testing the connection
-
-to your VPC data source
+# Testing the connection to your VPC data source
 
 |                                            |
 | ------------------------------------------ |

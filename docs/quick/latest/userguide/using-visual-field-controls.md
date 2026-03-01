@@ -15,9 +15,7 @@ You can use these controls as follows:
   The field wells, on-visual editors, and drop targets available on a specific
   visual depends on the visual type selected.
 
-## Dragging fields to drop targets or field
-
-wells
+## Dragging fields to drop targets or field wells
 
 When you drag a field to either a drop target or field well, Amazon Quick
 provides you with information about whether the target element expects a measure

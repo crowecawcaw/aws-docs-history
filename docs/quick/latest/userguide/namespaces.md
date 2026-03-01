@@ -116,9 +116,7 @@ distinguish them, as shown in the following examples:
 - Author access, for analysts and dashboard designers
 - Admin access, for Amazon Quick administrators
 
-## To migrate existing users in one namespace to a
-
-different namespace
+## To migrate existing users in one namespace to a different namespace
 
 Follow the procedure below to migrate existing users from one namespace to a different
 namespace.

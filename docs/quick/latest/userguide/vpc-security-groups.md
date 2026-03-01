@@ -1,6 +1,4 @@
-# Security groups: inbound and outbound
-
-rules
+# Security groups: inbound and outbound rules
 
 A _security group_ acts as a virtual firewall for
 your instance to control inbound and outbound traffic. For each security group, you add

@@ -13,8 +13,7 @@ For information about how to set up Quick, see [Setting up and signing into Amaz
 
 ## Required permissions
 
-Permissions to create, run, share, and govern flows are a result of user subscriptions and any configured custom permissions. Learn more about Quick subscriptions in [Managing Quick
-subscriptions](managing-subscriptions.md "managing-subscriptions.md").
+Permissions to create, run, share, and govern flows are a result of user subscriptions and any configured custom permissions. Learn more about Quick subscriptions in [Managing Quick subscriptions](managing-subscriptions.md "managing-subscriptions.md").
 
 For more information about user roles and permissions in Quick, see [Managing user access inside Amazon Quick](managing-users.md "managing-users.md").
 

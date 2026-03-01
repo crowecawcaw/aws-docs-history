@@ -5,9 +5,7 @@ information, such as the server name or the user credentials. You can also edit 
 existing Amazon Athena data source to update the data source name. You can't edit Amazon S3
 or Salesforce data sources.
 
-## Editing a database data
-
-source
+## Editing a database data source
 
 Use the following procedure to edit a database data source.
 
@@ -85,13 +83,10 @@ Use the following procedure to edit a database data source.
    source**. If not, correct the connection information and
    try validating again.
 7. If you want to create a new dataset using the updated data source,
-   proceed with the instructions at [Creating a dataset from a
-   database](create-a-database-data-set.md "create-a-database-data-set.md"). Otherwise, close the
+   proceed with the instructions at [Creating a dataset from a database](create-a-database-data-set.md "create-a-database-data-set.md"). Otherwise, close the
    **Choose your table** dialog box.
 
-## Editing an Athena data
-
-source
+## Editing an Athena data source
 
 Use the following procedure to edit an Athena data source.
 
@@ -106,6 +101,5 @@ Use the following procedure to edit an Athena data source.
    the **Users** tab, locate the user that you want to
    remove.
 6. If you want to create a new dataset using the updated data source,
-   proceed with the instructions at [Creating a dataset using Amazon Athena
-   data](create-a-data-set-athena.md "create-a-data-set-athena.md"). Otherwise, close the
+   proceed with the instructions at [Creating a dataset using Amazon Athena data](create-a-data-set-athena.md "create-a-data-set-athena.md"). Otherwise, close the
    **Choose your table** dialog box.

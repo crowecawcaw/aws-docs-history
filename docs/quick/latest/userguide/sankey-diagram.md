@@ -174,9 +174,7 @@ Use the following procedure to create a Sankey diagram.
    **Source** or **Destination**
    section.
 
-### Customizing the number of
-
-nodes
+### Customizing the number of nodes
 
 Use the following procedure to customize the number of nodes that appear in a
 Sankey diagram. Quick supports up to 100 Source/Destination
@@ -223,14 +221,14 @@ categories**.
 To understand the features supported by Sankey diagrams, use the following
 table.
 
-| Feature                           | Supported? | For more information                                                                                                                                                                          |
-| --------------------------------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Changing the legend display       | No         |                                                                                                                                                                                               |
-| Changing the title display        | Yes        | [Titles and subtitles on visual types in<br>Quick](customizing-a-visual-title.md "customizing-a-visual-title.md")                                                                             |
-| Changing the axis range           | No         |                                                                                                                                                                                               |
-| Changing the visual colors        | No         |                                                                                                                                                                                               |
-| Focusing on or excluding elements | Yes        | [Focusing on visual<br>elements](focusing-on-visual-elements.md "focusing-on-visual-elements.md")<br>[Excluding visual elements](excluding-visual-elements.md "excluding-visual-elements.md") |
-| Sorting                           | No         |                                                                                                                                                                                               |
-| Performing field aggregation      | Yes        | [Changing field aggregation](changing-field-aggregation.md "changing-field-aggregation.md")                                                                                                   |
-| Adding drill-downs                | No         |                                                                                                                                                                                               |
-| Conditional formatting            | No         |                                                                                                                                                                                               |
+| Feature                           | Supported? | For more information                                                                                                                                                                       |
+| --------------------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Changing the legend display       | No         |                                                                                                                                                                                            |
+| Changing the title display        | Yes        | [Titles and subtitles on visual types in Quick](customizing-a-visual-title.md "customizing-a-visual-title.md")                                                                             |
+| Changing the axis range           | No         |                                                                                                                                                                                            |
+| Changing the visual colors        | No         |                                                                                                                                                                                            |
+| Focusing on or excluding elements | Yes        | [Focusing on visual elements](focusing-on-visual-elements.md "focusing-on-visual-elements.md")<br>[Excluding visual elements](excluding-visual-elements.md "excluding-visual-elements.md") |
+| Sorting                           | No         |                                                                                                                                                                                            |
+| Performing field aggregation      | Yes        | [Changing field aggregation](changing-field-aggregation.md "changing-field-aggregation.md")                                                                                                |
+| Adding drill-downs                | No         |                                                                                                                                                                                            |
+| Conditional formatting            | No         |                                                                                                                                                                                            |

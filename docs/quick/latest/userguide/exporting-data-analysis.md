@@ -1,6 +1,4 @@
-# Exporting data from Quick Sight
-
-analyses
+# Exporting data from Quick Sight analyses
 
 ###### Note
 
@@ -27,5 +25,4 @@ Use the procedure below to export an analysis as a PDF.
    The process for exporting to a PDF works the same way for both dashboards and
    analyses.
 
-You can also attach a PDF to dashboard email reports. For more information, see [Scheduling and sending Quick Sight reports by
-email](sending-reports.md "sending-reports.md").
+You can also attach a PDF to dashboard email reports. For more information, see [Scheduling and sending Quick Sight reports by email](sending-reports.md "sending-reports.md").

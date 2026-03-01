@@ -1,11 +1,9 @@
 # Subscribing to email reports in Amazon Quick Sight
 
 In Enterprise edition, Amazon Quick authors can set up subscriptions to a dashboard in
-report form. For more information, see [Scheduling and sending Quick Sight reports by
-email](sending-reports.md "sending-reports.md"). Quick readers and authors can then
+report form. For more information, see [Scheduling and sending Quick Sight reports by email](sending-reports.md "sending-reports.md"). Quick readers and authors can then
 subscribe to a dashboard and adjust their report settings. For more information about
-subscribing to dashboards as a reader, see [Subscribing to Amazon Quick Sight dashboard emails and
-alerts](subscriber-alerts.md "subscriber-alerts.md").
+subscribing to dashboards as a reader, see [Subscribing to Amazon Quick Sight dashboard emails and alerts](subscriber-alerts.md "subscriber-alerts.md").
 
 Use the following procedure to change your subscription and report settings for a
 specific dashboard.

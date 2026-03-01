@@ -1,6 +1,4 @@
-# Embedding the Amazon Quick Sight Q search bar
-
-(Classic)
+# Embedding the Amazon Quick Sight Q search bar (Classic)
 
 |                                               |
 | --------------------------------------------- |
@@ -18,7 +16,5 @@ the Amazon Quick Sight APIs.
 
 ###### Topics
 
-- [Embedding the
-  Amazon Quick Sight Q search bar for registered users](embedded-analytics-q-search-bar-for-authenticated-users.md "embedded-analytics-q-search-bar-for-authenticated-users.md")
-- [Embedding the
-  Amazon Quick Sight Q search bar for anonymous (unregistered) users](embedded-analytics-q-search-bar-for-anonymous-users.md "embedded-analytics-q-search-bar-for-anonymous-users.md")
+- [Embedding the Amazon Quick Sight Q search bar for registered users](embedded-analytics-q-search-bar-for-authenticated-users.md "embedded-analytics-q-search-bar-for-authenticated-users.md")
+- [Embedding the Amazon Quick Sight Q search bar for anonymous (unregistered) users](embedded-analytics-q-search-bar-for-anonymous-users.md "embedded-analytics-q-search-bar-for-anonymous-users.md")

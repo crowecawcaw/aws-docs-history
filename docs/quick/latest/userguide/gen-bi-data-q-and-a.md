@@ -1,13 +1,10 @@
-# Asking and answering questions of data with
-
-Generative BI
+# Asking and answering questions of data with Generative BI
 
 ###### Note
 
 To view the multi-visual experience, the topic author must do the following: add
 named entities, and convert an existing topic to use generative capabilities or
-create a new generative topic. For more information, see [Authoring
-Q&A](gen-bi-author-q-and-a.md "gen-bi-author-q-and-a.md").
+create a new generative topic. For more information, see [Authoring Q&A](gen-bi-author-q-and-a.md "gen-bi-author-q-and-a.md").
 
 Accelerate data-driven decisions with humanistic Q&A that includes:
 
@@ -76,8 +73,7 @@ Unpacking your answer:
   unstructured data sources under **Insights from Q Business**.
   You can see the unstructured sources that are used in the
   **Sources** collabsible. For more information about
-  connecting a Quick account to a Amazon Q Business application, see [Augmenting Amazon Quick Sight insights with
-  Amazon Q Business](generative-bi-q-business.md "generative-bi-q-business.md").
+  connecting a Quick account to a Amazon Q Business application, see [Augmenting Amazon Quick Sight insights with Amazon Q Business](generative-bi-q-business.md "generative-bi-q-business.md").
 - **Visuals:** – Visuals consist of: center
   visual that directly answers the question, supporting visual on the right that
   provides context, relevant KPIs, and a details table at the bottom.

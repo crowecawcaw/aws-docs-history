@@ -31,8 +31,6 @@ contact to final sale and on through maintenance.
    **Group**.
 6. (Optional) Add drill-down layers by dragging one or more additional fields to
    the **Group/Color** field well. For more information about
-   adding drill-downs, see [Adding drill-downs to visual data in
-   Quick Sight](adding-drill-downs.md "adding-drill-downs.md").
+   adding drill-downs, see [Adding drill-downs to visual data in Quick Sight](adding-drill-downs.md "adding-drill-downs.md").
 
-To understand the features supported by funnel charts, see [Analytics formatting per type in
-Quick](analytics-format-options.md "analytics-format-options.md"). For customization options, see [Formatting in Amazon Quick](formatting-a-visual.md "formatting-a-visual.md").
+To understand the features supported by funnel charts, see [Analytics formatting per type in Quick](analytics-format-options.md "analytics-format-options.md"). For customization options, see [Formatting in Amazon Quick](formatting-a-visual.md "formatting-a-visual.md").

@@ -10,10 +10,8 @@ continuous backup and deployment.
 
 - [Supported events](#events-supported "#events-supported")
 - [Example event payload](#sample-events-payload "#sample-events-payload")
-- [Creating rules to send Amazon Quick Sight events to
-  Amazon CloudWatch](events-send-cloudwatch.md "events-send-cloudwatch.md")
-- [Creating rules to send Amazon Quick Sight events to
-  AWS Lambda](events-send-lambda.md "events-send-lambda.md")
+- [Creating rules to send Amazon Quick Sight events to Amazon CloudWatch](events-send-cloudwatch.md "events-send-cloudwatch.md")
+- [Creating rules to send Amazon Quick Sight events to AWS Lambda](events-send-lambda.md "events-send-lambda.md")
 
 ## Supported events
 

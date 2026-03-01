@@ -12,8 +12,6 @@ of a geospatial map visual from the on visual menu.
 
 ###### Topics
 
-- [Base maps on geospatial maps in
-  Quick](base-maps.md "base-maps.md")
+- [Base maps on geospatial maps in Quick](base-maps.md "base-maps.md")
 - [Geospatial heatmaps in Amazon Quick](heat-maps.md "heat-maps.md")
-- [Marker clustering on geospatial point
-  maps in Quick](marker-clustering-on-maps.md "marker-clustering-on-maps.md")
+- [Marker clustering on geospatial point maps in Quick](marker-clustering-on-maps.md "marker-clustering-on-maps.md")

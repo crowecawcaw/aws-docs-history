@@ -1,6 +1,4 @@
-# Creating a dataset using a Google
-
-Sheets data source
+# Creating a dataset using a Google Sheets data source
 
 Google Sheets is a web-based spreadsheet application that enables users to create,
 edit, and collaborate on data in real time. With its comprehensive set of functions and
@@ -9,17 +7,13 @@ Users can organize, analyze, and share insights efficiently, while its seamless
 collaboration features make it an ideal platform for teams working on data-driven
 projects.
 
-## Admin configuration in
-
-Amazon Quick
+## Admin configuration in Amazon Quick
 
 Amazon Quick administrators need to perform a one-time setup to enable Google
 Sheets as a data source. For detailed instructions and important considerations, see
 [the blog](https://aws.amazon.com//blogs/business-intelligence/transform-your-google-sheets-data-into-powerful-analytics-with-amazon-quicksight/ "https://aws.amazon.com//blogs/business-intelligence/transform-your-google-sheets-data-into-powerful-analytics-with-amazon-quicksight/").
 
-## Creating a dataset using a Google
-
-Sheets data source
+## Creating a dataset using a Google Sheets data source
 
 Use the following procedure to create a dataset using a Google Sheets data
 source.

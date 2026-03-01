@@ -28,9 +28,7 @@ _Time granularity_
 The date granularity that you want to use for the computation,
 for example year to date.
 
-## Computation
-
-outputs
+## Computation outputs
 
 Each function generates a set of output parameters. You can add these
 outputs to the autonarrative to customize what it displays. You can also add

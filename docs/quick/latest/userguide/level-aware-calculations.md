@@ -1,6 +1,4 @@
-# Using level-aware calculations in
-
-Quick Sight
+# Using level-aware calculations in Quick Sight
 
 |                                                                 |
 | --------------------------------------------------------------- |
@@ -18,9 +16,7 @@ level-aware calculation - window (LAC-W) functions.
 - [LAC-W
   functions](#level-aware-calculations-window "#level-aware-calculations-window")
 
-## Level-aware calculation -
-
-aggregate (LAC-A) functions
+## Level-aware calculation - aggregate (LAC-A) functions
 
 With LAC-A functions, you can specify at what level to group the computation. By
 adding one argument into an existing aggregate function, such as `sum() , max()
@@ -80,17 +76,14 @@ LAC-A functions are supported for the following aggregate functions:
 - [min](min-function.md "min-function.md")
 - [percentile](percentile-function.md "percentile-function.md")
 - [percentileCont](percentileCont-function.md "percentileCont-function.md")
-- [percentileDisc
-  (percentile)](percentileDisc-function.md "percentileDisc-function.md")
+- [percentileDisc (percentile)](percentileDisc-function.md "percentileDisc-function.md")
 - [stdev](stdev-function.md "stdev-function.md")
 - [stdevp](stdevp-function.md "stdevp-function.md")
 - [sum](sum-function.md "sum-function.md")
 - [var](var-function.md "var-function.md")
 - [varp](varp-function.md "varp-function.md")
 
-### LAC-A
-
-examples
+### LAC-A examples
 
 You can do the following with LAC-A functions:
 
@@ -133,12 +126,9 @@ for each region (showing in the sales column).
   - When adding a LAC-A function into a visual, the calculation
     can be further nested with visual-level aggregate functions that
     you selected in the fields well. For more information about
-    changing the aggregation of fields in the visual, see [Changing or adding
-    aggregation to a field by using a field well](changing-field-aggregation.md#change-field-aggregation-field-wells "changing-field-aggregation.md#change-field-aggregation-field-wells").
+    changing the aggregation of fields in the visual, see [Changing or adding aggregation to a field by using a field well](changing-field-aggregation.md#change-field-aggregation-field-wells "changing-field-aggregation.md#change-field-aggregation-field-wells").
 
-### LAC-A
-
-limitations
+### LAC-A limitations
 
 The following limitations apply to LAC-A functions:
 
@@ -176,9 +166,7 @@ The following functions are not valid:
     + `LAC-W(LAC-A())`. For example:
      `sumOver(sum({Sales},[{Product}]),[{Country}],PRE_AGG)`
 
-## Level-aware calculation - window
-
-(LAC-W) functions
+## Level-aware calculation - window (LAC-W) functions
 
 With LAC-W functions, you can specify the window or partition to compute the
 calculation. LAC-W functions are a group of window functions, such as

@@ -1,6 +1,4 @@
-# Tracking dashboards and analyses that
-
-use a dataset
+# Tracking dashboards and analyses that use a dataset
 
 When you create a dataset in Quick Sight, you can track which dashboards and analyses
 use that dataset. This approach is useful when you want to see which resources will be

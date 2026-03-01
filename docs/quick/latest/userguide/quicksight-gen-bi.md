@@ -27,22 +27,15 @@ Use the following topics to learn more about Generative BI.
 ###### Topics
 
 - [Get started with Generative BI](generative-bi-get-started.md "generative-bi-get-started.md")
-- [Augmenting Amazon Quick Sight insights with
-  Amazon Q Business](generative-bi-q-business.md "generative-bi-q-business.md")
-- [The Generative BI authoring
-  experience](generative-bi-author-experience.md "generative-bi-author-experience.md")
+- [Augmenting Amazon Quick Sight insights with Amazon Q Business](generative-bi-q-business.md "generative-bi-q-business.md")
+- [The Generative BI authoring experience](generative-bi-author-experience.md "generative-bi-author-experience.md")
 - [Creating executive summaries](gen-bi-executive-summaries.md "gen-bi-executive-summaries.md")
-- [Authoring
-  Q&A](gen-bi-author-q-and-a.md "gen-bi-author-q-and-a.md")
-- [Manage topic permissions through
-  dashboards in Amazon Quick Sight](gen-bi-manage-topic-permissions.md "gen-bi-manage-topic-permissions.md")
-- [Turn on the Dashboard Q&A experience in
-  Amazon Quick Sight](dashboard-qa.md "dashboard-qa.md")
+- [Authoring Q&A](gen-bi-author-q-and-a.md "gen-bi-author-q-and-a.md")
+- [Manage topic permissions through dashboards in Amazon Quick Sight](gen-bi-manage-topic-permissions.md "gen-bi-manage-topic-permissions.md")
+- [Turn on the Dashboard Q&A experience in Amazon Quick Sight](dashboard-qa.md "dashboard-qa.md")
 - [Q&A null support](gen-bi-q-and-a-null-support.md "gen-bi-q-and-a-null-support.md")
-- [Improve Q&A
-  accuracy with custom instructions](gen-bi-improve-qa-accuracy-with-custom-instructions.md "gen-bi-improve-qa-accuracy-with-custom-instructions.md")
-- [Asking and answering questions of data with
-  Generative BI](gen-bi-data-q-and-a.md "gen-bi-data-q-and-a.md")
+- [Improve Q&A accuracy with custom instructions](gen-bi-improve-qa-accuracy-with-custom-instructions.md "gen-bi-improve-qa-accuracy-with-custom-instructions.md")
+- [Asking and answering questions of data with Generative BI](gen-bi-data-q-and-a.md "gen-bi-data-q-and-a.md")
 - [Opting out of Generative BI](generative-bi-opt-out.md "generative-bi-opt-out.md")
 - [Working with Amazon Quick Sight Topics](topics.md "topics.md")
 - [Working with data stories in Amazon Quick Sight](working-with-stories.md "working-with-stories.md")

@@ -1,6 +1,4 @@
-# Understanding the ML algorithm used by
-
-Amazon Quick Sight
+# Understanding the ML algorithm used by Amazon Quick Sight
 
 |                                                                                                                                                                                                                                                                                                               |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -30,12 +28,8 @@ First, let's look at some of the terminology involved:
 
 ###### Topics
 
-- [What's the
-  difference between anomaly detection and forecasting?](difference-between-anomaly-detection-and-forecasting.md "difference-between-anomaly-detection-and-forecasting.md")
+- [What's the difference between anomaly detection and forecasting?](difference-between-anomaly-detection-and-forecasting.md "difference-between-anomaly-detection-and-forecasting.md")
 - [What is RCF?](what-is-random-cut-forest.md "what-is-random-cut-forest.md")
-- [How RCF is applied to detect
-  anomalies](how-does-rcf-detect-anomalies.md "how-does-rcf-detect-anomalies.md")
-- [How RCF is applied to generate
-  forecasts](how-does-rcf-generate-forecasts.md "how-does-rcf-generate-forecasts.md")
-- [References for machine
-  learning and RCF](learn-more-about-machine-learning-and-rcf.md "learn-more-about-machine-learning-and-rcf.md")
+- [How RCF is applied to detect anomalies](how-does-rcf-detect-anomalies.md "how-does-rcf-detect-anomalies.md")
+- [How RCF is applied to generate forecasts](how-does-rcf-generate-forecasts.md "how-does-rcf-generate-forecasts.md")
+- [References for machine learning and RCF](learn-more-about-machine-learning-and-rcf.md "learn-more-about-machine-learning-and-rcf.md")

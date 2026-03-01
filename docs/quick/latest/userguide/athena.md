@@ -61,9 +61,7 @@ arn:aws:iam::`AWS-ACCOUNT-ID`:role/service-role/aws-quicksight-service-role-v0
   condition keys for AWS Lambda](../../../IAM/latest/UserGuide/list_awslambda.md "../../../IAM/latest/UserGuide/list_awslambda.md") in the
   _IAM User Guide_.
 
-###### To authorize Amazon Quick to connect to Athena or Athena federated data
-
-sources
+###### To authorize Amazon Quick to connect to Athena or Athena federated data sources
 
 1. (Optional) If you are using AWS Lake Formation with Athena, you also need to enable Lake Formation.
    For more information, see [Authorizing connections through AWS Lake Formation](../../../quicksight/latest/user/lake-formation.md "../../../quicksight/latest/user/lake-formation.md").
@@ -110,9 +108,7 @@ Amazon Quick dashboards.
 
 For troubleshooting information on Athena, see [Connectivity issues when using Athena with Amazon Quick](../../../quicksight/latest/user/troubleshoot-athena.md "../../../quicksight/latest/user/troubleshoot-athena.md").
 
-## Using trusted identity
-
-propagation with Athena
+## Using trusted identity propagation with Athena
 
 Trusted identity propagation gives AWS services access to AWS resources based
 on the user’s identity context and securely shares this user’s identity with other
@@ -142,8 +138,7 @@ in the same AWS Region.
 
 - Configure your Quick account with IAM Identity Center. Trusted identity
   propagation is only supported for Quick accounts that are
-  integrated with IAM Identity Center. For more information, see [Configure your Amazon Quick
-  account with IAM Identity Center](setting-up-sso.md#sec-identity-management-identity-center "setting-up-sso.md#sec-identity-management-identity-center").
+  integrated with IAM Identity Center. For more information, see [Configure your Amazon Quick account with IAM Identity Center](setting-up-sso.md#sec-identity-management-identity-center "setting-up-sso.md#sec-identity-management-identity-center").
 
 ###### Note
 
@@ -186,9 +181,7 @@ in a Quick account that uses IAM Identity Center.
   successfully run queries and retrieve query results in the Amazon S3 bucket
   using trusted identity propagation.
 
-### Configure
-
-IAM role with required permissions
+### Configure IAM role with required permissions
 
 To use trusted identity propagation with Athena, your Quick account
 must have the required permissions to access your resources. To provide those
@@ -264,18 +257,13 @@ JSON
 
 ```
 
-### Configure
-
-your Quick account to use the IAM role
+### Configure your Quick account to use the IAM role
 
 After configuring the IAM role in the previous step, you must configure your
 Quick account to use it. For information about how to do that, see
-[Using existing IAM roles in
-Quick](security-create-iam-role.md#security-create-iam-role-use "security-create-iam-role.md#security-create-iam-role-use").
+[Using existing IAM roles in Quick](security-create-iam-role.md#security-create-iam-role-use "security-create-iam-role.md#security-create-iam-role-use").
 
-### Update the
-
-identity propogation config with the AWS CLI
+### Update the identity propogation config with the AWS CLI
 
 To authorize Quick to propagate end user identities to Athena
 workgroups, run the following `update-identity-propagation-config`
@@ -293,14 +281,11 @@ aws quicksight update-identity-propagation-config \
 --aws-account-id `111122223333`
 ```
 
-### Create an
-
-Athena dataset in Quick
+### Create an Athena dataset in Quick
 
 Now, create an Athena dataset in Quick configured with the IAM Identity Center
 enabled Athena workgroup you want to connect to. For information about how to
-create an Athena dataset, see [Creating a dataset using Amazon Athena
-data](create-a-data-set-athena.md "create-a-data-set-athena.md").
+create an Athena dataset, see [Creating a dataset using Amazon Athena data](create-a-data-set-athena.md "create-a-data-set-athena.md").
 
 ### Key callouts, considerations, and limits
 

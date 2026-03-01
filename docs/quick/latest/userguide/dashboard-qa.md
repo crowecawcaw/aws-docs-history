@@ -1,6 +1,4 @@
-# Turn on the Dashboard Q&A experience in
-
-Amazon Quick Sight
+# Turn on the Dashboard Q&A experience in Amazon Quick Sight
 
 Quick allows any Author to enable Q&A directly from their dashboards
 in one click without the need to create a Topic in Quick Sight. To do this, publish

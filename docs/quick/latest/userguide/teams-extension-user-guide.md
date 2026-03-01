@@ -1,6 +1,4 @@
-# Amazon Quick Microsoft
-
-Teams extension user guide
+# Amazon Quick Microsoft Teams extension user guide
 
 As a user, you can access Quick directly within Microsoft
 Teams to get AI-powered assistance without leaving your workspace. The
@@ -10,27 +8,19 @@ responses.
 
 ###### Topics
 
-- [Add a Microsoft Teams
-  Extension to your Microsoft Teams](#teams-extension-add-setup "#teams-extension-add-setup")
-- [Microsoft Teams extension use
-  cases](#teams-use-cases "#teams-use-cases")
-- [Amazon Quick Microsoft
-  Teams extension usage guidelines](#teams-users-guidelines "#teams-users-guidelines")
-- [Microsoft
-  Teams extension known limitations](#teams-extension-known-limitations "#teams-extension-known-limitations")
+- [Add a Microsoft Teams Extension to your Microsoft Teams](#teams-extension-add-setup "#teams-extension-add-setup")
+- [Microsoft Teams extension use cases](#teams-use-cases "#teams-use-cases")
+- [Amazon Quick Microsoft Teams extension usage guidelines](#teams-users-guidelines "#teams-users-guidelines")
+- [Microsoft Teams extension known limitations](#teams-extension-known-limitations "#teams-extension-known-limitations")
 
-## Add a Microsoft Teams
-
-Extension to your Microsoft Teams
+## Add a Microsoft Teams Extension to your Microsoft Teams
 
 Install the Quick app in your Microsoft Teams
 workspace to enable AI-powered assistance. This one-time setup makes
 Quick accessible throughout your Microsoft Teams
 environment.
 
-###### Add a Microsoft Teams Extension to your Microsoft
-
-Teams
+###### Add a Microsoft Teams Extension to your Microsoft Teams
 
 1. Open and login to the Microsoft Teams workspace for
    your company.
@@ -45,9 +35,7 @@ Teams
 For more information, see [Chat with a bot in Microsoft Teams](https://support.microsoft.com/en-us/office/chat-with-a-bot-in-microsoft-teams-a94e8b26-9ee9-42a3-aa05-955974c6aa42 "https://support.microsoft.com/en-us/office/chat-with-a-bot-in-microsoft-teams-a94e8b26-9ee9-42a3-aa05-955974c6aa42") from
 Microsoft support.
 
-## Microsoft Teams extension use
-
-cases
+## Microsoft Teams extension use cases
 
 With Amazon Quick integrated into Microsoft Teams, you can
 search and access your organization's knowledge bases directly from your
@@ -55,9 +43,7 @@ conversations. This allows you to find relevant information, get answers to
 questions, and enhance your communications without leaving
 Team.
 
-###### Search your organization’s knowledge without leaving
-
-Teams
+###### Search your organization’s knowledge without leaving Teams
 
 1. Start a chat with Quick after adding it from the
    **Apps** section.
@@ -76,26 +62,20 @@ Teams
 3. If Quick is not already added to the channel, you will be
    prompted to add it before receiving a response.
 
-###### \*\*Perform actions in external
-
-applications\*\*
+###### **Perform actions in external applications**
 
 1. Start a direct message (DM) with Quick.
 2. Ask it to perform an action of your choice in an external application
    using [action connectors](../../../quicksuite/latest/userguide/action-connectors.md "../../../quicksuite/latest/userguide/action-connectors.md") configured by your
    organization.
 
-## Amazon Quick Microsoft
-
-Teams extension usage guidelines
+## Amazon Quick Microsoft Teams extension usage guidelines
 
 As a user, you are responsible for keeping company information safe. The
 following guidance helps you use Amazon Quick apps securely while maintaining
 data privacy and compliance.
 
-### Conversation retention policy
-
-and accuracy
+### Conversation retention policy and accuracy
 
 Amazon Quick automatically deletes conversations after 30 days of
 inactivity. Teams conversation retention follows your company's specific
@@ -113,9 +93,7 @@ Deleting conversations or messages in Teams does not
 remove them from Amazon Quick. To manage your conversation history, use
 the Amazon Quick chat instance.
 
-### Security
-
-considerations
+### Security considerations
 
 When Amazon Quick is invoked by a user in a public Teams
 channel, it generates responses based on the invoking user's permissions,
@@ -130,9 +108,7 @@ Extension:**
 - General knowledge access depends on admin settings.
 - Start a new chat to access company knowledge again.
 
-### Data privacy and conversation
-
-behavior
+### Data privacy and conversation behavior
 
 Amazon Quick does not use customer data for service improvement or for
 improving its underlying large language models (LLMs). Also, none of the
@@ -149,9 +125,7 @@ Teams or all conversations from all channels
 web experience. You can access all the history of previous conversations
 including, the names of the attachments in those conversations.
 
-## Microsoft
-
-Teams extension known limitations
+## Microsoft Teams extension known limitations
 
 The following are known limitations of the Amazon Quick Microsoft
 Teams extension:

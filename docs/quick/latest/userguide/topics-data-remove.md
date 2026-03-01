@@ -1,6 +1,4 @@
-# Removing datasets from a Amazon Quick Sight
-
-topic
+# Removing datasets from a Amazon Quick Sight topic
 
 You can remove datasets from a topic. Removing datasets from a topic doesn't
 delete them from Quick Sight.

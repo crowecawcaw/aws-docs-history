@@ -5,7 +5,6 @@ interface.
 
 ###### Topics
 
-- [Using the Amazon Quick menu and
-  landing page](using-quicksight-menu-and-landing-page.md "using-quicksight-menu-and-landing-page.md")
+- [Using the Amazon Quick menu and landing page](using-quicksight-menu-and-landing-page.md "using-quicksight-menu-and-landing-page.md")
 - [Searching Amazon Quick](searching-quicksight.md "searching-quicksight.md")
 - [Choosing a language in Amazon Quick](choosing-a-language-in-quicksight.md "choosing-a-language-in-quicksight.md")

@@ -1,6 +1,4 @@
-# Understanding field mapping for
-
-custom actions in Amazon Quick Sight
+# Understanding field mapping for custom actions in Amazon Quick Sight
 
 Automated field mapping is based on identical fields. Fields with the same name
 and data type map automatically across datasets. Their field names and data types

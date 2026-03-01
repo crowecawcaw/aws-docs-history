@@ -1,6 +1,4 @@
-# Connect Amazon Quick to your
-
-existing tools with extensions
+# Connect Amazon Quick to your existing tools with extensions
 
 ###### Note
 
@@ -46,14 +44,9 @@ The following extension types are available:
 
 ###### Topics
 
-- [Amazon Quick user interaction with
-  extensions](extension-roles-overview.md "extension-roles-overview.md")
+- [Amazon Quick user interaction with extensions](extension-roles-overview.md "extension-roles-overview.md")
 - [Amazon Quick browser extension](browser-extension-user-guide.md "browser-extension-user-guide.md")
-- [Amazon Quick Microsoft Outlook
-  extension](outlook-extension-guide.md "outlook-extension-guide.md")
-- [Amazon Quick Slack
-  extension](slack-extension-guide.md "slack-extension-guide.md")
-- [Amazon Quick Microsoft Word
-  extension](word-extension-guide.md "word-extension-guide.md")
-- [Amazon Quick Microsoft Teams
-  extension](teams-extension-guide.md "teams-extension-guide.md")
+- [Amazon Quick Microsoft Outlook extension](outlook-extension-guide.md "outlook-extension-guide.md")
+- [Amazon Quick Slack extension](slack-extension-guide.md "slack-extension-guide.md")
+- [Amazon Quick Microsoft Word extension](word-extension-guide.md "word-extension-guide.md")
+- [Amazon Quick Microsoft Teams extension](teams-extension-guide.md "teams-extension-guide.md")

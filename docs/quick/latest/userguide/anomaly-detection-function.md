@@ -1,6 +1,4 @@
-# ML-powered anomaly detection for
-
-outliers
+# ML-powered anomaly detection for outliers
 
 The ML-powered anomaly detection computation searches your data for outliers.
 For example, you can detect the top three outliers for total sales on January 3, 2019. If you enable contribution analysis, you can also detect the key drivers
@@ -13,17 +11,14 @@ To use this function, you need at least one dimension in the
 provides an option to analyze the contribution of other fields as key drivers,
 even if those fields aren't in the field wells.
 
-For more information, see [Detecting outliers with ML-powered anomaly
-detection](anomaly-detection.md "anomaly-detection.md").
+For more information, see [Detecting outliers with ML-powered anomaly detection](anomaly-detection.md "anomaly-detection.md").
 
 ###### Note
 
 You can't add ML-powered anomaly detection to another computation, and you
 can't add another computation to an anomaly detection.
 
-## Computation
-
-outputs
+## Computation outputs
 
 Each function generates a set of output parameters. You can add these
 outputs to the autonarrative to customize what it displays. You can also add

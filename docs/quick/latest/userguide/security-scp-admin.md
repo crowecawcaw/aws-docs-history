@@ -1,6 +1,4 @@
-# Using service control policies to restrict
-
-Amazon Quick sign-up options
+# Using service control policies to restrict Amazon Quick sign-up options
 
 If you're an administrator in AWS Organizations, you can use service control policies (SCPs) to
 restrict how individuals in your organization can sign up for Amazon Quick. You can restrict

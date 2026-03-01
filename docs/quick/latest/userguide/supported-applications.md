@@ -1,6 +1,4 @@
-# Ways to apply pivot table
-
-calculations
+# Ways to apply pivot table calculations
 
 You can apply table calculations in the ways described following. Table
 calculations are applied to only one field at a time. Thus, if you have a pivot

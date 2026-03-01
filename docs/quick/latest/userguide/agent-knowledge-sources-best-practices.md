@@ -1,6 +1,4 @@
-# Chat agent context sources and
-
-best practices
+# Chat agent context sources and best practices
 
 When creating custom chat agents in Amazon Quick, you have multiple options to
 influence chat agent behavior and frame chat agent workflows. The way you configure chat

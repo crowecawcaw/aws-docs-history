@@ -1,6 +1,4 @@
-# Headers and
-
-footers
+# Headers and footers
 
 _Headers_ and _Footers_ are optional
 special sections located at the top and bottom of a pixel perfect report. Headers

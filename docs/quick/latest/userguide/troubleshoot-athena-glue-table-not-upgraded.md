@@ -1,6 +1,4 @@
-# Table incompatible
-
-when using AWS Glue with Athena in Amazon Quick Sight
+# Table incompatible when using AWS Glue with Athena in Amazon Quick Sight
 
 If you are getting errors when using AWS Glue tables in Athena with Amazon Quick Sight, it might
 be because you're missing some metadata. Follow these steps to find out if your

@@ -61,7 +61,5 @@ ownership of personal folders to anyone else.
 - [Considerations for Quick Sight folders](folders-limitations.md "folders-limitations.md")
 - [Overview of Quick Sight folders](folders-functionality.md "folders-functionality.md")
 - [Permissions for Quick Sight shared folders](folders-security.md "folders-security.md")
-- [Create and manage membership permissions for
-  Quick Sight shared folders](sharing-folders.md "sharing-folders.md")
-- [Creating Quick Sight scaled folders with the
-  Quick Sight APIs](folders-scaled.md "folders-scaled.md")
+- [Create and manage membership permissions for Quick Sight shared folders](sharing-folders.md "sharing-folders.md")
+- [Creating Quick Sight scaled folders with the Quick Sight APIs](folders-scaled.md "folders-scaled.md")

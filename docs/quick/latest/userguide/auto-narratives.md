@@ -7,8 +7,7 @@ autonarrative to work. If you are using only the suggested insights on the
 **Insights** tab, choose the appropriate fields to get an
 insight to show up in the suggested insights list.
 
-For more information on customizing autonarratives, see [Working with autonarrative
-computations](auto-narrative-computations.md "auto-narrative-computations.md").
+For more information on customizing autonarratives, see [Working with autonarrative computations](auto-narrative-computations.md "auto-narrative-computations.md").
 
 - **Bottom ranked** – For example, the bottom three
   states by sales revenue. Requires that you have at least one dimension in

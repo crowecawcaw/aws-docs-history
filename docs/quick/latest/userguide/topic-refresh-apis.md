@@ -1,6 +1,4 @@
-# Configure Quick Sight topic refresh
-
-schedules with the Quick Sight CLI
+# Configure Quick Sight topic refresh schedules with the Quick Sight CLI
 
 The following command creates a refresh schedule of a topic.
 

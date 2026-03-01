@@ -1,6 +1,4 @@
-# Using a control with a parameter in
-
-Amazon Quick
+# Using a control with a parameter in Amazon Quick
 
 In dashboards, parameter controls appear at the top of the data sheet, which contains
 a set of visuals. Providing a control allows users to choose a value to use in a
@@ -75,8 +73,7 @@ The following rules apply:
     When you choose to add a date-picker control, you can customize how to
     format dates in the control. To do so, for **Date
     format**, enter the date format that you want using the
-    tokens described in [Customizing date formats
-    in Quick](format-visual-date-controls.md "format-visual-date-controls.md").
+    tokens described in [Customizing date formats in Quick](format-visual-date-controls.md "format-visual-date-controls.md").
 
 4.  (Optional) If you choose a dropdown control, the screen expands so you can
     choose the values to display. You can either specify a list of values, or use a

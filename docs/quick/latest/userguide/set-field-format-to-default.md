@@ -1,6 +1,4 @@
-# Return a field's format to
-
-default settings
+# Return a field's format to default settings
 
 Use the following procedure to return a field's format to the default
 settings.

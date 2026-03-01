@@ -1,6 +1,4 @@
-# Marker clustering on geospatial point
-
-maps in Quick
+# Marker clustering on geospatial point maps in Quick
 
 Use marker clustering to improve readability of collocated points on a map.
 Geospatial locations on point maps are represented using markers. Usually, there is

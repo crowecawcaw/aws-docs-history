@@ -6,34 +6,28 @@ filters:
 - **Filter list** (Analyses only) – This option creates
   a filter that you can use to select one or more field values to include or
   exclude from all the available values in the field. For more information about
-  creating this type of text filter, see [Filtering text field values by a list (analyses
-  only)](#text-filter-list "#text-filter-list").
+  creating this type of text filter, see [Filtering text field values by a list (analyses only)](#text-filter-list "#text-filter-list").
 - **Custom filter list** – With this option, you can
   enter one or more field values to filter on, and whether you want to include or
   exclude records that contain those values. The values that you enter must match
   the actual field values exactly for the filter to be applied to a given record.
-  For more information about creating this type of text filter, see [Filtering text field values
-  by a custom list](#add-text-custom-filter-list-data-prep "#add-text-custom-filter-list-data-prep").
+  For more information about creating this type of text filter, see [Filtering text field values by a custom list](#add-text-custom-filter-list-data-prep "#add-text-custom-filter-list-data-prep").
 - **Custom filter** – With this option, you enter a
   single value that the field value must match in some way. You can specify that
   the field value must equal, not equal, starts with, ends with, contains, or does
   not contain the value you specify. If you choose an equal comparison, the
   specified value and actual field value must match exactly in order for the
   filter to be applied to a given record. For more information about creating this
-  type of text filter, see [Filtering a single text
-  field value](#add-text-filter-custom-list-data-prep "#add-text-filter-custom-list-data-prep").
+  type of text filter, see [Filtering a single text field value](#add-text-filter-custom-list-data-prep "#add-text-filter-custom-list-data-prep").
 - **Top and bottom filter** (Analyses only) – You can
   use this option to show the top or bottom _n_
   value of one field ranked by the values in another field. For example, you might
   show the top five salespeople based on revenue. You can also use a parameter to
   allow dashboard users to dynamically choose how many top or bottom ranking
   values to show. For more information about creating top and bottom filters, see
-  [Filtering a text field by a top or
-  bottom value (analyses only)](#add-text-filter-top-and-bottom "#add-text-filter-top-and-bottom").
+  [Filtering a text field by a top or bottom value (analyses only)](#add-text-filter-top-and-bottom "#add-text-filter-top-and-bottom").
 
-## Filtering text field values by a list (analyses
-
-only)
+## Filtering text field values by a list (analyses only)
 
 In analyses, you can filter a text field by selecting values to include or exclude
 from a list of all value in the field.
@@ -63,9 +57,7 @@ Each time that you search for the value that you want to use, it starts a
 new query. If the results contain more than 1,000 values, you can scroll
 through the values with pagination. 6. When finished, choose **Apply**.
 
-## Filtering text field values
-
-by a custom list
+## Filtering text field values by a custom list
 
 You can specify one or more field values to filter on, and whether you want to
 include or exclude records that contain those values. The specified value and actual
@@ -91,9 +83,7 @@ record.
    only**.
 8. When finished, choose **Apply**.
 
-## Filtering a single text
-
-field value
+## Filtering a single text field value
 
 With the **Custom filter** filter type, you specify a single
 value that the field value must equal or not equal, or must match partially. If you
@@ -155,9 +145,7 @@ Comparison types are case-sensitive. 5. Do one of the following:
    only**.
 7. When finished, choose **Apply**.
 
-## Filtering a text field by a top or
-
-bottom value (analyses only)
+## Filtering a text field by a top or bottom value (analyses only)
 
 You can use a **Top and bottom filter** to show the top or bottom
 _n_ value of one field ranked by the values in

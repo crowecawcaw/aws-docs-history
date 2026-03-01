@@ -33,16 +33,11 @@ into the geography.
 
 ###### Topics
 
-- [Adding calculated
-  fields to an analysis](#using-the-calculated-field-editor-analysis "#using-the-calculated-field-editor-analysis")
-- [Adding calculated fields to a
-  dataset](#using-the-calculated-field-editor "#using-the-calculated-field-editor")
-- [Handling decimal values in calculated
-  fields](#handling-decimal-fields "#handling-decimal-fields")
+- [Adding calculated fields to an analysis](#using-the-calculated-field-editor-analysis "#using-the-calculated-field-editor-analysis")
+- [Adding calculated fields to a dataset](#using-the-calculated-field-editor "#using-the-calculated-field-editor")
+- [Handling decimal values in calculated fields](#handling-decimal-fields "#handling-decimal-fields")
 
-## Adding calculated
-
-fields to an analysis
+## Adding calculated fields to an analysis
 
 When you add a dataset to an analysis, every calculated field that exists in the
 dataset is added to the analysis. You can add additional calculated fields at the
@@ -63,12 +58,9 @@ analysis.
 4. When finished, choose **Save**.
 
 For more information about how to create formulas using the available functions in
-Quick Sight, see [Calculated field function and operator
-reference for Amazon Quick](calculated-field-reference.md "calculated-field-reference.md") .
+Quick Sight, see [Calculated field function and operator reference for Amazon Quick](calculated-field-reference.md "calculated-field-reference.md").
 
-## Adding calculated fields to a
-
-dataset
+## Adding calculated fields to a dataset
 
 Amazon Quick Sight authors can genreate calculated fields during the data preparation phase
 of a dataset's creation. When you create a calculated field for a dataset, the
@@ -300,9 +292,7 @@ Instead, delete them.
   that you want to change, then choose **Delete** from the
   context (right-click) menu.
 
-## Handling decimal values in calculated
-
-fields
+## Handling decimal values in calculated fields
 
 When your dataset uses Direct Query mode, the calculation of the decimal data type
 is determined by the behavior of the source engine that the dataset originates from.

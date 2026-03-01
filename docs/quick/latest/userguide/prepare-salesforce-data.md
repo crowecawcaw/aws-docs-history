@@ -1,6 +1,4 @@
-# Preparing a dataset based on Salesforce
-
-data
+# Preparing a dataset based on Salesforce data
 
 Use the following procedure to prepare a Salesforce dataset.
 

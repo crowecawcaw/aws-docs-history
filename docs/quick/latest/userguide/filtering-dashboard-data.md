@@ -1,6 +1,4 @@
-# Using filters on Amazon Quick Sight dashboard
-
-data
+# Using filters on Amazon Quick Sight dashboard data
 
 You can use filters to refine the data displayed in a visual. Filters are applied
 to the data before any aggregate functions. If you have multiple filters, all
@@ -38,9 +36,7 @@ of the visuals on the sheet, including the one currently selected.
 The scope icons match the ones that display on the filter menu when you
 are choosing the scope for the filter.
 
-### Viewing
-
-filter details in an Amazon Quick Sight dashboard
+### Viewing filter details in an Amazon Quick Sight dashboard
 
 To see filter details, choose **Filter** at left. The
 filter view retains your last selection. So when you open

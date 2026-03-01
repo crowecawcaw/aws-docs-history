@@ -1,6 +1,4 @@
-# Work with Quick Sight topics using the
-
-Amazon Quick Sight APIs
+# Work with Quick Sight topics using the Amazon Quick Sight APIs
 
 |                                            |
 | ------------------------------------------ |
@@ -66,11 +64,7 @@ APIs.
 
 ###### Topics
 
-- [Work with Quick Sight topics using the
-  Quick Sight APIs](topic-cli-examples.md "topic-cli-examples.md")
-- [Configure Quick Sight topic refresh
-  schedules with the Quick Sight CLI](topic-refresh-apis.md "topic-refresh-apis.md")
-- [Copy and migrate Quick Sight topics
-  within and between AWS accounts](topic-cli-walkthroughs.md "topic-cli-walkthroughs.md")
-- [Create and modify reviewed answers in
-  Quick Sight topics with the Quick Sight APIs](topic-reviewed-answer-apis.md "topic-reviewed-answer-apis.md")
+- [Work with Quick Sight topics using the Quick Sight APIs](topic-cli-examples.md "topic-cli-examples.md")
+- [Configure Quick Sight topic refresh schedules with the Quick Sight CLI](topic-refresh-apis.md "topic-refresh-apis.md")
+- [Copy and migrate Quick Sight topics within and between AWS accounts](topic-cli-walkthroughs.md "topic-cli-walkthroughs.md")
+- [Create and modify reviewed answers in Quick Sight topics with the Quick Sight APIs](topic-reviewed-answer-apis.md "topic-reviewed-answer-apis.md")

@@ -34,5 +34,4 @@ Amazon Quick does not use customer data for training or improving underlying LLM
 ###### Topics
 
 - [Data encryption in Amazon Quick](data-encryption.md "data-encryption.md")
-- [Inter-network traffic privacy in
-  Amazon Quick](internetwork-traffic-privacy.md "internetwork-traffic-privacy.md")
+- [Inter-network traffic privacy in Amazon Quick](internetwork-traffic-privacy.md "internetwork-traffic-privacy.md")

@@ -1,6 +1,4 @@
-# Customizing visuals in a
-
-free-form layout
+# Customizing visuals in a free-form layout
 
 You can use the free-form layout to fully customize the color, size, location, and
 visibility of each visual in a dashboard.
@@ -48,17 +46,13 @@ the front and back.
    - **Bring to front** brings a visual to the
      front.
 
-## Changing a visual's
-
-background color
+## Changing a visual's background color
 
 The colors of a visual’s background, border, and selection frame can be
 customized in the **Display settings** pane of the
 **Properties** pane.
 
-###### To change the color of a visual's background, border, or selection
-
-frame
+###### To change the color of a visual's background, border, or selection frame
 
 1.  Choose the visual that you want to change.
 2.  On the menu in the upper-right hand side of the visual, choose the
@@ -98,9 +92,7 @@ appearance.
 4. Choose the color that you want to reset, and then choose
    **Reset to default**.
 
-## Hiding visual
-
-backgrounds, borders, and selection colors
+## Hiding visual backgrounds, borders, and selection colors
 
 You can also choose not to show the background border, or selection color of a
 visual. This is useful for when you want to overlap multiple visuals. You can

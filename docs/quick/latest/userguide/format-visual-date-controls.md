@@ -1,6 +1,4 @@
-# Customizing date formats
-
-in Quick
+# Customizing date formats in Quick
 
 In Quick, you can customize how dates are formatted in
 your filter and parameter controls. For example, you can specify to
@@ -13,9 +11,7 @@ Following is a list of tokens you can use to create custom date
 formats. You can use them in combination with one another to control how
 dates appear in your controls.
 
-## List of supported
-
-tokens for formatting dates
+## List of supported tokens for formatting dates
 
 Use the following tokens to customize the format of dates in
 Quick.
@@ -64,9 +60,7 @@ The following date types are not supported.
 - Time zones offset without a colon. For example,
   +0730.
 
-### Preset date
-
-formats
+### Preset date formats
 
 To quickly customize dates and times to appear as one of the
 following example formats, you can use the following
@@ -83,9 +77,7 @@ Quick preset tokens.
 | Thursday, August 2 1985 08:30 PM | `LLLL` |
 | Thu, Aug 2 1985 08:30 PM         | `llll` |
 
-## Common date
-
-formats
+## Common date formats
 
 Following are three common date examples and their associated
 token formats for your quick reference.
@@ -96,9 +88,7 @@ token formats for your quick reference.
 | 20-09-21 5pm                        | `DD-MM-YY ha`                     |
 | Monday, September 20, 2021 17:30:15 | `dddd, MMMM DD, YYYY<br>HH:mm:ss` |
 
-## Adding words to
-
-dates
+## Adding words to dates
 
 To include words in your date formats, such as the word "of" in
 _20th of Sep, 2021_, enter backslashes (\)
@@ -106,16 +96,12 @@ before each character in the word. For example, for the 20th of Sep,
 2021 date example, use the following token format: `Do \o\f
  MMM, YYYY`.
 
-## Example:
-
-Customizing the date format in a filter control
+## Example: Customizing the date format in a filter control
 
 Use the following procedure to learn how to use date token formats
 to customize dates for a filter control.
 
-###### To learn to customize dates for a filter control with data
-
-tokens
+###### To learn to customize dates for a filter control with data tokens
 
 1. In a Quick analysis, choose the filter control
    that you want to customize.

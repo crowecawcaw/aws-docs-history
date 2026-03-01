@@ -1,6 +1,4 @@
-# Using Active Directory with Amazon Quick
-
-Enterprise edition
+# Using Active Directory with Amazon Quick Enterprise edition
 
 |                                            |
 | ------------------------------------------ |
@@ -66,12 +64,9 @@ change your AD groups later on.
 
 ###### Topics
 
-- [Directory integration with Quick
-  Enterprise edition](#directory-integration "#directory-integration")
+- [Directory integration with Quick Enterprise edition](#directory-integration "#directory-integration")
 
-## Directory integration with Quick
-
-Enterprise edition
+## Directory integration with Quick Enterprise edition
 
 |                                            |
 | ------------------------------------------ |

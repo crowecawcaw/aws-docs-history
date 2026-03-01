@@ -12,8 +12,7 @@ target points are included in visuals.
 To create a cascading filter, you set up an action, not a filter. This approach is
 because you need to define how the cascading filter is activated, which fields are
 involved, and which visuals are filtered when someone activates it. For more
-information, including step-by-step instructions, see [Using custom actions for filtering and
-navigating](quicksight-actions.md "quicksight-actions.md").
+information, including step-by-step instructions, see [Using custom actions for filtering and navigating](quicksight-actions.md "quicksight-actions.md").
 
 There are two other ways to activate a filter across multiple visuals:
 
@@ -23,8 +22,7 @@ There are two other ways to activate a filter across multiple visuals:
   list, which displays a list of options to choose from when you open it. To add
   one of these to your analysis, create a parameter, add a control to the
   parameter, and then add a filter that uses the parameter. For more information,
-  see [Setting up parameters in Amazon Quick](parameters-set-up.md "parameters-set-up.md"), [Using a control with a parameter in
-  Amazon Quick](parameters-controls.md "parameters-controls.md"), and
+  see [Setting up parameters in Amazon Quick](parameters-set-up.md "parameters-set-up.md"), [Using a control with a parameter in Amazon Quick](parameters-controls.md "parameters-controls.md"), and
   [Adding filter controls to analysis sheets](filter-controls.md "filter-controls.md").
 - For a filter that always applies to multiple visuals
   – This is a regular filter, except that you set its scope to

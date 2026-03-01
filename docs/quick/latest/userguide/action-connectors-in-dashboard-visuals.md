@@ -1,6 +1,4 @@
-# Using Quick action connectors in
-
-dashboard visuals
+# Using Quick action connectors in dashboard visuals
 
 ## Prerequisites
 
@@ -18,9 +16,7 @@ The connector must meet these requirements:
   - ServiceNow
   - Slack
 
-## Enable Quick actions on a dashboard
-
-to use action connectors
+## Enable Quick actions on a dashboard to use action connectors
 
 ###### To enable Quick actions on a dashboard to use action connectors
 

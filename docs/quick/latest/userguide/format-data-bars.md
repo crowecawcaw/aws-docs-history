@@ -1,6 +1,4 @@
-# Adding data bars to tables in
-
-Quick
+# Adding data bars to tables in Quick
 
 You can use data bars to add visual context to your table visuals in Amazon Quick. By
 injecting color into your tables, data bars can make it easier to visualize and compare

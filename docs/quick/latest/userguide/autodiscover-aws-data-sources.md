@@ -1,6 +1,4 @@
-# Allowing autodiscovery of AWS
-
-resources
+# Allowing autodiscovery of AWS resources
 
 |                                                                 |
 | --------------------------------------------------------------- |

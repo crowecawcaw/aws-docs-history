@@ -1,6 +1,4 @@
-# Define limits in a
-
-repeating section
+# Define limits in a repeating section
 
 You can set limits to show only a certain number of distinct dimension
 values for each dimension of a repeating section. You can choose to show

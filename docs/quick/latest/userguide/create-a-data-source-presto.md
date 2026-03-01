@@ -1,6 +1,4 @@
-# Creating a data source using
-
-Presto
+# Creating a data source using Presto
 
 Presto (or PrestoDB) is an open-source, distributed SQL query engine, designed for
 fast analytic queries against data of any size. It supports both nonrelational and

@@ -39,13 +39,9 @@ requirements.
 ###### Topics
 
 - [Data protection in Amazon Quick](sec-data-protection.md "sec-data-protection.md")
-- [Incident response, logging, and
-  monitoring in Amazon Quick](incident-response-logging-and-monitoring.md "incident-response-logging-and-monitoring.md")
+- [Incident response, logging, and monitoring in Amazon Quick](incident-response-logging-and-monitoring.md "incident-response-logging-and-monitoring.md")
 - [Compliance validation for Amazon Quick](sec-compliance.md "sec-compliance.md")
 - [Resilience in Amazon Quick](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
-- [Infrastructure security in
-  Amazon Quick](infrastructure-and-network-access.md "infrastructure-and-network-access.md")
-- [Best practices for security in
-  Amazon Quick](best-practices-security.md "best-practices-security.md")
-- [AWS managed policies for
-  Amazon Quick](security-iam-quicksight.md "security-iam-quicksight.md")
+- [Infrastructure security in Amazon Quick](infrastructure-and-network-access.md "infrastructure-and-network-access.md")
+- [Best practices for security in Amazon Quick](best-practices-security.md "best-practices-security.md")
+- [AWS managed policies for Amazon Quick](security-iam-quicksight.md "security-iam-quicksight.md")

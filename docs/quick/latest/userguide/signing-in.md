@@ -67,18 +67,14 @@ The remaining steps vary depending on the user type you sign in as (directly thr
 Quick or as an Active Directory user, AWS root user, or IAM user). For
 more information, see the following sections.
 
-### Finishing Quick sign-in as a
-
-Quick or Active Directory user
+### Finishing Quick sign-in as a Quick or Active Directory user
 
 If you're signing in directly through Quick or are using your
 corporate Active Directory credentials, you're redirected to `signin.aws`
 after you enter your account name and user name. Use the following procedure to
 finish signing in.
 
-###### To finish signing in to Quick if you sign in directly through
-
-Quick or use Active Directory credentials
+###### To finish signing in to Quick if you sign in directly through Quick or use Active Directory credentials
 
 1. For **Password**, enter your password.
 
@@ -96,9 +92,7 @@ They must also contain each of the following:
    code**.
 3. Choose **Sign in**.
 
-### Finishing Quick sign-in as an AWS
-
-root user
+### Finishing Quick sign-in as an AWS root user
 
 If you're signing in as an AWS root user, you're redirected to
 signin.aws.amazon.com (or amazon.com) to complete the sign-in process. Your user
@@ -112,9 +106,7 @@ name is prefilled. Use the following procedure to finish signing in.
    _IAM User Guide_.
 3. Choose **Sign in**.
 
-### Finishing Quick sign-in as an IAM
-
-user
+### Finishing Quick sign-in as an IAM user
 
 If you're signing in as an IAM user, you're redirected to signin.aws.amazon.com
 (or amazon.com) to complete the sign-in process. Your user name is prefilled. Use

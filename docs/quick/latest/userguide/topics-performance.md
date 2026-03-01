@@ -1,6 +1,4 @@
-# Reviewing Quick Sight topic
-
-performance and feedback
+# Reviewing Quick Sight topic performance and feedback
 
 |                                            |
 | ------------------------------------------ |
@@ -33,9 +31,7 @@ term that you didn't anticipate. You decide to add that term as a synonym to the
 correct field in the topic. Over time, you notice an increase in positive
 feedback.
 
-## Reviewing topic
-
-performance
+## Reviewing topic performance
 
 Use the following procedure to view how a topic is performing.
 
@@ -54,9 +50,7 @@ choose one of the following options: **7 days**,
 **Include Unanswerable data**. 5. (Optional) To remove questions that didn't receive feedback from the data,
 clear **Include No feedback data**.
 
-## Reviewing topic
-
-questions and feedback
+## Reviewing topic questions and feedback
 
 Use the following procedures to review a topic's questions and feedback.
 

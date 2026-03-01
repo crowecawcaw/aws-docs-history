@@ -1,6 +1,4 @@
-# Exploring outliers and key drivers with
-
-ML-powered anomaly detection and contribution analysis
+# Exploring outliers and key drivers with ML-powered anomaly detection and contribution analysis
 
 You can interactively explore the anomalies (also known as outliers) in your
 analysis, along with the contributors (key drivers). The analysis is available for
@@ -29,11 +27,7 @@ right:
 
 ###### Topics
 
-- [Exploring contributors (key
-  drivers)](exploring-anomalies-key-drivers.md "exploring-anomalies-key-drivers.md")
-- [Setting controls for anomaly
-  detection](exploring-anomalies-controls.md "exploring-anomalies-controls.md")
-- [Showing and hiding anomalies by
-  date](exploring-anomalies-by-date.md "exploring-anomalies-by-date.md")
-- [Exploring
-  anomalies per category or dimension](exploring-anomalies-per-category-or-dimension.md "exploring-anomalies-per-category-or-dimension.md")
+- [Exploring contributors (key drivers)](exploring-anomalies-key-drivers.md "exploring-anomalies-key-drivers.md")
+- [Setting controls for anomaly detection](exploring-anomalies-controls.md "exploring-anomalies-controls.md")
+- [Showing and hiding anomalies by date](exploring-anomalies-by-date.md "exploring-anomalies-by-date.md")
+- [Exploring anomalies per category or dimension](exploring-anomalies-per-category-or-dimension.md "exploring-anomalies-per-category-or-dimension.md")

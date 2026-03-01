@@ -1,6 +1,4 @@
-# Creating a dataset using Amazon Athena
-
-data
+# Creating a dataset using Amazon Athena data
 
 Use the following procedure to create a new dataset that connects to Amazon Athena data or
 to Athena Federated Query data.
@@ -54,5 +52,4 @@ to Athena Federated Query data.
 
 5.  Choose **Edit/preview data**.
 6.  Create a dataset and analyze the data using the table by choosing
-    **Visualize**. For more information, see [Analyses and reports: Visualizing data in
-    Amazon Quick Sight](working-with-visuals.md "working-with-visuals.md").
+    **Visualize**. For more information, see [Analyses and reports: Visualizing data in Amazon Quick Sight](working-with-visuals.md "working-with-visuals.md").

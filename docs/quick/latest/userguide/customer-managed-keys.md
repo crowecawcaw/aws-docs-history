@@ -1,6 +1,4 @@
-# Encrypting your Amazon Quick data with
-
-AWS Key Management Service customer-managed keys
+# Encrypting your Amazon Quick data with AWS Key Management Service customer-managed keys
 
 Amazon Quick enables you to encrypt your Amazon Quick data with the keys you have
 stored in AWS Key Management Service. This provides you with the tools to audit access to data and satisfy
@@ -57,17 +55,12 @@ protection in Amazon Quick](../../../quicksuite/latest/userguide/sec-data-protec
 ###### Topics
 
 - [Add a CMK to your account](#customer-managed-keys-create-key "#customer-managed-keys-create-key")
-- [Verify the key used by
-  Amazon Quick](#customer-managed-keys-verify-key "#customer-managed-keys-verify-key")
-- [Changing the default
-  CMK](#customer-managed-keys-change-default-key "#customer-managed-keys-change-default-key")
-- [Removing CMK encryption on your Amazon Quick
-  account](#customer-managed-keys-remove-cmks "#customer-managed-keys-remove-cmks")
+- [Verify the key used by Amazon Quick](#customer-managed-keys-verify-key "#customer-managed-keys-verify-key")
+- [Changing the default CMK](#customer-managed-keys-change-default-key "#customer-managed-keys-change-default-key")
+- [Removing CMK encryption on your Amazon Quick account](#customer-managed-keys-remove-cmks "#customer-managed-keys-remove-cmks")
 - [Auditing CMK usage in CloudTrail](#customer-managed-key-audit "#customer-managed-key-audit")
-- [Revoking access to a
-  CMK](#customer-managed-key-revoke-access "#customer-managed-key-revoke-access")
-- [Recovering encrypted
-  Amazon Quick data](#customer-managed-key-recovery "#customer-managed-key-recovery")
+- [Revoking access to a CMK](#customer-managed-key-revoke-access "#customer-managed-key-revoke-access")
+- [Recovering encrypted Amazon Quick data](#customer-managed-key-recovery "#customer-managed-key-recovery")
 
 ## Add a CMK to your account
 
@@ -105,20 +98,15 @@ key. 6. (Optional) Add more keys by repeating the previous steps in this procedu
 While you can add as many keys as you want, you can only have one default key at
 one time.
 
-## Verify the key used by
-
-Amazon Quick
+## Verify the key used by Amazon Quick
 
 When a key is used, an audit log is created in AWS CloudTrail. You can use the
 log to track the key's usage. If you need to know which key the Amazon Quick data is
 encrypted by, you can find this information in CloudTrail.
 
-To learn more about which data can be managed with the key, see [Encrypting your Amazon Quick data with
-AWS Key Management Service customer-managed keys](customer-managed-keys.md "customer-managed-keys.md").
+To learn more about which data can be managed with the key, see [Encrypting your Amazon Quick data with AWS Key Management Service customer-managed keys](customer-managed-keys.md "customer-managed-keys.md").
 
-###### Verify the CMK that's currently used by a SPICE
-
-dataset
+###### Verify the CMK that's currently used by a SPICE dataset
 
 1. Navigate to your CloudTrail log. For more information, see [Logging Amazon Quick information with CloudTrail](../../../quicksight/latest/user/logging-using-cloudtrail.md "../../../quicksight/latest/user/logging-using-cloudtrail.md").
 2. Locate the most recent grant events for the SPICE
@@ -174,8 +162,7 @@ CMK encrypted.
 
 ###### Verify the CMK that's currently used when generating report artifacts
 
-1. Navigate to your CloudTrail log. For more information, see [Logging Amazon Quick Sight information with
-   AWS CloudTrail](incident-response-logging-and-monitoring-qs.md#logging-using-cloudtrail "incident-response-logging-and-monitoring-qs.md#logging-using-cloudtrail").
+1. Navigate to your CloudTrail log. For more information, see [Logging Amazon Quick Sight information with AWS CloudTrail](incident-response-logging-and-monitoring-qs.md#logging-using-cloudtrail "incident-response-logging-and-monitoring-qs.md#logging-using-cloudtrail").
 2. Locate the most recent `GenerateDataKey` events for the report
    execution, using the following search arguments:
    - The event name (`eventName`) contains
@@ -215,9 +202,7 @@ CMK encrypted.
    are no longer CMK encrypted. Exisiting report artifacts will remain
    encrypted.
 
-## Changing the default
-
-CMK
+## Changing the default CMK
 
 You can change the default key to another key that already exists in the
 **KMS keys** dashboard. When you change the default key, all new
@@ -225,8 +210,7 @@ Amazon Quick data is encrypted on the new key. The new default key changes how n
 Amazon Quick data is encrypted. However, existing Amazon Quick data will continue to use the
 previous default key.
 
-To learn more about which data can be managed with the key, see [Encrypting your Amazon Quick data with
-AWS Key Management Service customer-managed keys](customer-managed-keys.md "customer-managed-keys.md").
+To learn more about which data can be managed with the key, see [Encrypting your Amazon Quick data with AWS Key Management Service customer-managed keys](customer-managed-keys.md "customer-managed-keys.md").
 
 ###### To change the default key to an existing key
 
@@ -247,9 +231,7 @@ default key. In the event that this key is compromised, you can [revoke access t
 
 The selected key is now your default key.
 
-## Removing CMK encryption on your Amazon Quick
-
-account
+## Removing CMK encryption on your Amazon Quick account
 
 You can remove the default key to disable data encryption in your
 Amazon Quick account. Removing the key prevents new resources from encrypting on a CMK.
@@ -274,9 +256,7 @@ deleted key is compromised, you can [revoke access to it](#customer-managed-key-
 You can audit your account's CMK usage in AWS CloudTrail. To audit your key usage, log in to
 your AWS account, open CloudTrail, and choose **Event history**.
 
-## Revoking access to a
-
-CMK
+## Revoking access to a CMK
 
 You can revoke access to your CMKs. When you revoke access to a key that
 is used to encrypt your Amazon Quick data, access to it is denied until you undo the
@@ -285,8 +265,7 @@ revoke. The following methods are examples of how you can revoke access:
 - Turn off the key in AWS KMS.
 - Add a `Deny` policy to your Amazon Quick AWS KMS policy in IAM.
 
-To learn more about which data can be managed with the key, see [Encrypting your Amazon Quick data with
-AWS Key Management Service customer-managed keys](customer-managed-keys.md "customer-managed-keys.md").
+To learn more about which data can be managed with the key, see [Encrypting your Amazon Quick data with AWS Key Management Service customer-managed keys](customer-managed-keys.md "customer-managed-keys.md").
 
 Use the following procedure to revoke access to your CMKs in
 AWS KMS.
@@ -310,9 +289,7 @@ principal and the ARN of the key as the resource. Deny the following actions:
 After you revoke access by using any method, it can take up to 15
 minutes for the data to become inaccessible.
 
-## Recovering encrypted
-
-Amazon Quick data
+## Recovering encrypted Amazon Quick data
 
 ###### To recover Amazon Quick data while its access is revoked
 
@@ -322,5 +299,4 @@ Amazon Quick data
 3. (Optional) If the data is not fully recovered, even after you
    restored its access to the CMK, perform a full refresh on the data.
 
-To learn more about which data can be managed with the key, see [Encrypting your Amazon Quick data with
-AWS Key Management Service customer-managed keys](customer-managed-keys.md "customer-managed-keys.md").
+To learn more about which data can be managed with the key, see [Encrypting your Amazon Quick data with AWS Key Management Service customer-managed keys](customer-managed-keys.md "customer-managed-keys.md").

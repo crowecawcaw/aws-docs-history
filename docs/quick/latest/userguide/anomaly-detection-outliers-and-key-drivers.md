@@ -1,6 +1,4 @@
-# Concepts for anomaly or
-
-outlier detection
+# Concepts for anomaly or outlier detection
 
 Amazon Quick Sight uses the word _anomaly_ to describe data
 points that fall outside an overall pattern of distribution. There are many other

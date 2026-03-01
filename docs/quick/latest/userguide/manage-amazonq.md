@@ -7,15 +7,11 @@ users.
 
 ###### Topics
 
-- [Manage personalization
-  permissions](#q-manage-personalization-permissions "#q-manage-personalization-permissions")
-- [Manage dashboard and
-  visual indexing for search](#q-manage-dashboard-visual-indexing-for-search "#q-manage-dashboard-visual-indexing-for-search")
+- [Manage personalization permissions](#q-manage-personalization-permissions "#q-manage-personalization-permissions")
+- [Manage dashboard and visual indexing for search](#q-manage-dashboard-visual-indexing-for-search "#q-manage-dashboard-visual-indexing-for-search")
 - [Manage Dashboard Q&A](#q-manage-dashboard-qa "#q-manage-dashboard-qa")
 
-## Manage personalization
-
-permissions
+## Manage personalization permissions
 
 Amazon Q can use user metadata to provide more context-aware responses. This feature
 allows for a more personalized experience when interacting with Amazon Q.
@@ -36,9 +32,7 @@ When enabled, Amazon Q can read user metadata to tailor its responses to individ
 users. This may include considering the user's role, location, or prior documents when
 providing information or suggestions.
 
-## Manage dashboard and
-
-visual indexing for search
+## Manage dashboard and visual indexing for search
 
 Amazon Q can index information from dashboards to make them easily searchable across
 applications. This feature enhances the discoverability of your dashboards and their

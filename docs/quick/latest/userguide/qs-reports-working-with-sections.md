@@ -24,9 +24,7 @@ Use the topics listed below to learn more about sections.
 
 ###### Topics
 
-- [Adding, moving, and deleting
-  sections](qs-reports-add-delete-section.md "qs-reports-add-delete-section.md")
-- [Headers and
-  footers](qs-reports-add-delete-headers-footers.md "qs-reports-add-delete-headers-footers.md")
+- [Adding, moving, and deleting sections](qs-reports-add-delete-section.md "qs-reports-add-delete-section.md")
+- [Headers and footers](qs-reports-add-delete-headers-footers.md "qs-reports-add-delete-headers-footers.md")
 - [Section padding](qs-reports-section-padding.md "qs-reports-section-padding.md")
 - [Create repeating sections](qs-reports-repeat-sections.md "qs-reports-repeat-sections.md")

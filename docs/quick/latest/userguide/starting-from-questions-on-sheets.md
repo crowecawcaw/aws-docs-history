@@ -1,6 +1,4 @@
-# Navigating
-
-questions in an Amazon Quick Sight analysis
+# Navigating questions in an Amazon Quick Sight analysis
 
 By navigating through the questions and answers for a topic in an analysis, you
 can learn how the topic is being used. This information can inform you to make

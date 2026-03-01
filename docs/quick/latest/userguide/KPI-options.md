@@ -36,9 +36,7 @@ are viewing KPI data. Use the following procedure to add a visual to a KPI.
 5. (Optional) Choose **Add tooltip** to add a tooltip to the
    KPI visual.
 
-## Customizing primary and secondary
-
-values
+## Customizing primary and secondary values
 
 Use the **Format visual** menu to customize the font, color, and
 to choose which primary value is displayed. You can also choose to display a
@@ -67,9 +65,7 @@ secondary value.
       choose the color icon next to the **Font**
       dropdown, and then choose the color that you want.
 
-## Conditional formatting options for
-
-KPIs
+## Conditional formatting options for KPIs
 
 Conditional formatting for KPIs is automatically set for comparison values. By
 default, positive values are represented in green and negative values are

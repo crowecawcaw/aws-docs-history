@@ -1,6 +1,4 @@
-# Personalize data stories in
-
-Amazon Quick Sight
+# Personalize data stories in Amazon Quick Sight
 
 User location and job-related information from your IAM Identity Center instance are leveraged to
 generate personalized data stories that are more relevant to authors and readers. For

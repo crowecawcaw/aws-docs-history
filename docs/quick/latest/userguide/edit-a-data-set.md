@@ -25,8 +25,7 @@ We recommend the following when you're dealing with data changes:
   field wells, filters, sorts, calculations, colors, formatting, and so on.
   Record everything that you need to recreate the visual. You can also track
   which Quick Sight resources use a dataset in the dataset management
-  options. For more information, see [Tracking dashboards and analyses that
-  use a dataset](track-analytics-that-use-dataset.md "track-analytics-that-use-dataset.md").
+  options. For more information, see [Tracking dashboards and analyses that use a dataset](track-analytics-that-use-dataset.md "track-analytics-that-use-dataset.md").
 - When you edit a dataset, try not to make changes that might break existing
   visuals. For example, don't remove columns that are being used in a visual.
   If you must remove a column, create a calculated column in its place. The
@@ -60,12 +59,9 @@ in them changes.
 
 - To centralize data management, consider creating general, multiple-purpose
   datasets that others can use to create their own datasets from. For more
-  information, see [Creating a dataset using an existing
-  dataset in Amazon Quick](create-a-dataset-existing-dataset.md "create-a-dataset-existing-dataset.md").
+  information, see [Creating a dataset using an existing dataset in Amazon Quick](create-a-dataset-existing-dataset.md "create-a-dataset-existing-dataset.md").
 
-## Editing a dataset from the Datasets
-
-page
+## Editing a dataset from the Datasets page
 
 1. From the Quick start page, choose **Data** at
    left.

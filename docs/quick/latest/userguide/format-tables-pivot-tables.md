@@ -1,6 +1,4 @@
-# Table and pivot table formatting options in
-
-Quick
+# Table and pivot table formatting options in Quick
 
 You can customize tables and pivot tables in Quick to meet your business
 needs. You can customize table headers, cells, and totals by specifying the color, size,
@@ -31,7 +29,5 @@ table or pivot table in the **Properties** pane.
 - [Headers](format-tables-headers.md "format-tables-headers.md")
 - [Cell formatting](format-tables-pivot-tables-cells.md "format-tables-pivot-tables-cells.md")
 - [Totals and subtotals](format-tables-pivot-tables-totals.md "format-tables-pivot-tables-totals.md")
-- [Row and column size
-  in tables and pivot tables in Quick](format-tables-pivot-tables-resize-rows-columns.md "format-tables-pivot-tables-resize-rows-columns.md")
-- [Customize pivot table
-  data](format-tables-pivot-tables-layout-options.md "format-tables-pivot-tables-layout-options.md")
+- [Row and column size in tables and pivot tables in Quick](format-tables-pivot-tables-resize-rows-columns.md "format-tables-pivot-tables-resize-rows-columns.md")
+- [Customize pivot table data](format-tables-pivot-tables-layout-options.md "format-tables-pivot-tables-layout-options.md")

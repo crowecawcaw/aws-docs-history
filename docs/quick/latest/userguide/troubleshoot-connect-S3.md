@@ -61,10 +61,8 @@ authorized separately.
    `s3-us-west-2.amazonaws.com`, causes an error.
 
 For more information about manifest files and connecting to Amazon S3, see
-[Supported formats for Amazon S3 manifest
-files](supported-manifest-file-format.md "supported-manifest-file-format.md").
+[Supported formats for Amazon S3 manifest files](supported-manifest-file-format.md "supported-manifest-file-format.md").
 In addition, verify that your Amazon S3 dataset was created according to the steps in
 [Creating a dataset using Amazon S3 files](create-a-data-set-s3.md "create-a-data-set-s3.md").
 
-If you use Athena to connect to Amazon S3, see [I can't connect to
-Amazon Athena](troubleshoot-connect-athena.md "troubleshoot-connect-athena.md").
+If you use Athena to connect to Amazon S3, see [I can't connect to Amazon Athena](troubleshoot-connect-athena.md "troubleshoot-connect-athena.md").

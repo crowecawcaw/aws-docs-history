@@ -1,6 +1,4 @@
-# Formatting radar charts in
-
-Quick
+# Formatting radar charts in Quick
 
 You can customize radar charts in Amazon Quick to arrange your data the way that you
 want. You can customize the series style, start angle, fill area, and grid shape of a

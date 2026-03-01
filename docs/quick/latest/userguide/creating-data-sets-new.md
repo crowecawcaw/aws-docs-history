@@ -1,6 +1,4 @@
-# Creating datasets using new data
-
-sources
+# Creating datasets using new data sources
 
 When you create a dataset based on an AWS service like Amazon RDS, Amazon Redshift, or Amazon EC2, data
 transfer charges might apply when consuming data from that source. Those charges might

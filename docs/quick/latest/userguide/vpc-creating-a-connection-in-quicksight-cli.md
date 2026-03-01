@@ -1,6 +1,4 @@
-# Configuring the VPC
-
-connection with the Amazon Quick CLI
+# Configuring the VPC connection with the Amazon Quick CLI
 
 To create a secure private connection to the Amazon VPC service from Quick with
 the Amazon Quick CLI, use the following procedure:
@@ -82,9 +80,7 @@ the Amazon Quick CLI, use the following procedure:
   - Security group IDs – The IDs of the security
     groups. Each VPC connection needs at least one security group.
 
-## Using the
-
-AWS CLI
+## Using the AWS CLI
 
 The following example creates a VPC connection.
 

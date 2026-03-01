@@ -1,10 +1,7 @@
-# Tutorial: Modify Amazon Quick Sight
-
-visuals
+# Tutorial: Modify Amazon Quick Sight visuals
 
 Use the following procedures to modify the visuals that you created using the
-procedures in [Tutorial: Create an Amazon Quick Sight
-analysis](example-create-an-analysis.md "example-create-an-analysis.md").
+procedures in [Tutorial: Create an Amazon Quick Sight analysis](example-create-an-analysis.md "example-create-an-analysis.md").
 
 ## Modify the line chart visual
 
@@ -33,9 +30,7 @@ axis** field well, choose
 **Aggregate**, and then choose
 **Month**.
 
-## Modify the scatter plot
-
-visual
+## Modify the scatter plot visual
 
 Modify your scatter plot visual by changing the data granularity.
 
@@ -49,16 +44,12 @@ Modify your scatter plot visual by changing the data granularity.
 The scatter plot updates to show the measures by month, rather
 than by the default of by year.
 
-## Modify both visuals by changing
-
-visual layout and adding a filter
+## Modify both visuals by changing visual layout and adding a filter
 
 Modify both visuals by changing visual size and location, and by adding a
 filter and applying it to both of them.
 
-### Change the visual
-
-layout
+### Change the visual layout
 
 Modify both visuals by changing visual size and location.
 
@@ -73,9 +64,7 @@ Modify both visuals by changing visual size and location.
    up to the right of the line chart visual so that they are side
    by side.
 
-### Modify both visuals by
-
-adding a filter
+### Modify both visuals by adding a filter
 
 Modify both visuals by adding a filter and applying it to both of
 them.
@@ -113,5 +102,4 @@ The filter is applied to the line chart visual as well.
 
 ## Next steps
 
-Create a dashboard from your analysis by using the procedure in [Tutorial: Create an Amazon Quick Sight
-dashboard](example-create-a-dashboard.md "example-create-a-dashboard.md").
+Create a dashboard from your analysis by using the procedure in [Tutorial: Create an Amazon Quick Sight dashboard](example-create-a-dashboard.md "example-create-a-dashboard.md").

@@ -1,6 +1,4 @@
-# Working with interactive sheets in
-
-Amazon Quick Sight
+# Working with interactive sheets in Amazon Quick Sight
 
 An _Interactive Sheet_ is a collection of data expressed in visuals
 that users can interact with when the sheet is published to a dashboard. Amazon Quick
@@ -16,8 +14,6 @@ For more information on formatting interactive sheets, see the following topics.
 
 ###### Topics
 
-- [Customizing dashboard layouts in
-  Amazon Quick Sight](customizing-dashboards-and-visuals.md "customizing-dashboards-and-visuals.md")
+- [Customizing dashboard layouts in Amazon Quick Sight](customizing-dashboards-and-visuals.md "customizing-dashboards-and-visuals.md")
 - [Parameters in Amazon Quick](parameters-in-quicksight.md "parameters-in-quicksight.md")
-- [Using custom actions for filtering and
-  navigating](quicksight-actions.md "quicksight-actions.md")
+- [Using custom actions for filtering and navigating](quicksight-actions.md "quicksight-actions.md")

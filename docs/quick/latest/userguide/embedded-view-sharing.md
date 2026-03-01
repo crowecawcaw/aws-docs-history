@@ -1,6 +1,4 @@
-# Using the Amazon Quick Sight Embedding SDK to
-
-enable shareable links to embedded dashboard views
+# Using the Amazon Quick Sight Embedding SDK to enable shareable links to embedded dashboard views
 
 Amazon Quick Sight developers can use the Amazon Quick Sight Embedding SDK (version 2.8.0
 and higher) to allow readers of embedded dashboards to receive and distribute
@@ -21,10 +19,6 @@ Embedding SDK version 2.8.0 or higher
 
 ###### Topics
 
-- [Enabling the
-  SharedView feature configuration for Amazon Quick Sight
-  embedded analytics](embedded-view-sharing-set-up.md "embedded-view-sharing-set-up.md")
-- [Creating a shared view with
-  the Amazon Quick Sight createSharedView API](embedded-view-sharing-sdk-create.md "embedded-view-sharing-sdk-create.md")
-- [Consuming a shared
-  Amazon Quick Sight view](embedded-view-sharing-sdk-consume.md "embedded-view-sharing-sdk-consume.md")
+- [Enabling the SharedView feature configuration for Amazon Quick Sight embedded analytics](embedded-view-sharing-set-up.md "embedded-view-sharing-set-up.md")
+- [Creating a shared view with the Amazon Quick Sight createSharedView API](embedded-view-sharing-sdk-create.md "embedded-view-sharing-sdk-create.md")
+- [Consuming a shared Amazon Quick Sight view](embedded-view-sharing-sdk-consume.md "embedded-view-sharing-sdk-consume.md")

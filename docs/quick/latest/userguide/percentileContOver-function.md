@@ -63,9 +63,7 @@ Quick](../../../quicksight/latest/user/level-aware-calculations.md "../../../qui
 
 The result of the function is a number.
 
-## Example of
-
-percentileContOver
+## Example of percentileContOver
 
 The following example helps explain how percentileContOver works.
 

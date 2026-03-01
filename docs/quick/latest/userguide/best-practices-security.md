@@ -1,6 +1,4 @@
-# Best practices for security in
-
-Amazon Quick
+# Best practices for security in Amazon Quick
 
 Amazon Quick provides a number of security features to consider as you develop and
 implement your own security policies. The following best practices are general guidelines

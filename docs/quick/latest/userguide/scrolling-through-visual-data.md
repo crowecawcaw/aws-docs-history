@@ -1,6 +1,4 @@
-# Scrolling through visual
-
-data
+# Scrolling through visual data
 
 For bar charts, line charts, and pivot tables, the content of the visual can
 be larger than the size that you want the visual to be.

@@ -1,8 +1,6 @@
 # Managing IP/VPC restrictions
 
-## Turning on Internet Protocol
-
-(IP) and VPC endpoint restrictions in Amazon Quick
+## Turning on Internet Protocol (IP) and VPC endpoint restrictions in Amazon Quick
 
 You can limit access to your organization's Amazon Quick account to a predefined list
 of IP ranges, VPC IDs, and VPC endpoint IDs. For example, you can create an IP rule that
@@ -23,8 +21,7 @@ table.
 - [Adding an IP or VPC endpoint rule](#adding-a-rule "#adding-a-rule")
 - [Update an existing rule](#update-a-rule "#update-a-rule")
 - [Delete a rule](#delete-a-rule "#delete-a-rule")
-- [Turning on your IP and VPC endpoint
-  rules](#enabling-ip-rules "#enabling-ip-rules")
+- [Turning on your IP and VPC endpoint rules](#enabling-ip-rules "#enabling-ip-rules")
 
 ### Adding an IP or VPC endpoint rule
 
@@ -112,9 +109,7 @@ endpoint restrictions table.
 
 It can take up to 10 minutes for an updated rule to be deleted.
 
-### Turning on your IP and VPC endpoint
-
-rules
+### Turning on your IP and VPC endpoint rules
 
 You can turn on or turn off your account's IP and VPC endpoint restrictions by
 using the **Rules** option at the top of the IP and VPC

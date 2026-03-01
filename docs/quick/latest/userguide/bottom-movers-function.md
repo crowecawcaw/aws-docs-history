@@ -39,9 +39,7 @@ _Order by_
 The order that you want to use, percent difference or absolute
 difference.
 
-## Computation
-
-outputs
+## Computation outputs
 
 Each function generates a set of output parameters. You can add these
 outputs to the autonarrative to customize what it displays. You can also add

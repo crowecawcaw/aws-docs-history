@@ -3,9 +3,7 @@
 Following, you can find some example configurations of inbound and outbound rules for
 Amazon RDS and Amazon Redshift.
 
-## VPC connection rules: Amazon Quick Sight: Amazon RDS
-
-for MySQL
+## VPC connection rules: Amazon Quick Sight: Amazon RDS for MySQL
 
 The following tables show rule settings for connecting Amazon Quick Sight to Amazon RDS for MySQL.
 
@@ -27,9 +25,7 @@ RDS MySQL: inbound rule| Type | MYSQL/Aurora |
 | Source | sg-ENI3333333 |
 | Description | Amazon Quick Sight to RDS MySQL |
 
-## VPC connection rules: Amazon Redshift in
-
-Amazon Quick Sight
+## VPC connection rules: Amazon Redshift in Amazon Quick Sight
 
 The following tables show rule settings for connecting Amazon Quick Sight to Amazon Redshift.
 

@@ -1,6 +1,4 @@
-# Augmenting Amazon Quick Sight insights with
-
-Amazon Q Business
+# Augmenting Amazon Quick Sight insights with Amazon Q Business
 
 Amazon Quick account admins can connect their Quick account to Amazon Q Business
 to augment insights with unstructured data sources. [Amazon Q Business](https://aws.amazon.com//q/business/ "https://aws.amazon.com//q/business/") is a generative AI assistant that helps your
@@ -23,12 +21,9 @@ Quick.
 ###### Topics
 
 - [Considerations](#generative-bi-q-business-considerations "#generative-bi-q-business-considerations")
-- [Configuring an Amazon Q Business
-  application in Amazon Quick Sight](generative-bi-q-business-configure.md "generative-bi-q-business-configure.md")
-- [Connect a
-  Quick account to an existing Amazon Q Business application](generative-bi-q-business-link-existing-account.md "generative-bi-q-business-link-existing-account.md")
-- [Disconnect an
-  Amazon Q Business application from an Amazon Quick account](generative-bi-q-business-delete-connection.md "generative-bi-q-business-delete-connection.md")
+- [Configuring an Amazon Q Business application in Amazon Quick Sight](generative-bi-q-business-configure.md "generative-bi-q-business-configure.md")
+- [Connect a Quick account to an existing Amazon Q Business application](generative-bi-q-business-link-existing-account.md "generative-bi-q-business-link-existing-account.md")
+- [Disconnect an Amazon Q Business application from an Amazon Quick account](generative-bi-q-business-delete-connection.md "generative-bi-q-business-delete-connection.md")
 
 ## Considerations
 

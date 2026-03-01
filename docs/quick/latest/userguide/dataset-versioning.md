@@ -1,6 +1,4 @@
-# Reverting datasets back to previous published
-
-versions
+# Reverting datasets back to previous published versions
 
 When you save and publish changes to a dataset in Amazon Quick Sight, a new version of the
 dataset is created. At any time, you can see a list of all the previous published
@@ -38,9 +36,7 @@ The dataset is reverted and a confirmation message appears. The
 **Publishing history** pane also updates to show the active
 version of the dataset.
 
-## Troubleshooting reverting
-
-versions
+## Troubleshooting reverting versions
 
 Sometimes, the dataset can't be reverted to a specific version for one the
 following reasons:

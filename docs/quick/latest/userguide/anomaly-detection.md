@@ -1,6 +1,4 @@
-# Detecting outliers with ML-powered anomaly
-
-detection
+# Detecting outliers with ML-powered anomaly detection
 
 Amazon Quick Sight uses proven Amazon technology to continuously run ML-powered anomaly detection
 across millions of metrics to discover hidden trends and outliers in your data. This
@@ -25,9 +23,6 @@ per month.
 
 ###### Topics
 
-- [Concepts for anomaly or
-  outlier detection](anomaly-detection-outliers-and-key-drivers.md "anomaly-detection-outliers-and-key-drivers.md")
-- [Setting up ML-powered anomaly detection
-  for outlier analysis](anomaly-detection-using.md "anomaly-detection-using.md")
-- [Exploring outliers and key drivers with
-  ML-powered anomaly detection and contribution analysis](anomaly-exploring.md "anomaly-exploring.md")
+- [Concepts for anomaly or outlier detection](anomaly-detection-outliers-and-key-drivers.md "anomaly-detection-outliers-and-key-drivers.md")
+- [Setting up ML-powered anomaly detection for outlier analysis](anomaly-detection-using.md "anomaly-detection-using.md")
+- [Exploring outliers and key drivers with ML-powered anomaly detection and contribution analysis](anomaly-exploring.md "anomaly-exploring.md")

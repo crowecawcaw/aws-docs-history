@@ -28,6 +28,5 @@ You can use the search bar to search for users by email address. 5. Choose eithe
 under the **Permission** column to assign permissions to your
 users.
 
-For more information about these permissions, see the following section, [Managing Amazon Quick Sight topic
-permissions](topics-sharing-permissions.md "topics-sharing-permissions.md"). 6. When you're finished selecting users, choose
+For more information about these permissions, see the following section, [Managing Amazon Quick Sight topic permissions](topics-sharing-permissions.md "topics-sharing-permissions.md"). 6. When you're finished selecting users, choose
 **Share**.

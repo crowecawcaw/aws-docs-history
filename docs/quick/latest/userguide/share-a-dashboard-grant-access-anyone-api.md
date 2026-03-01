@@ -1,16 +1,11 @@
-# Granting anyone on
-
-the internet access to an Amazon Quick Sight dashboard using the Quick Sight
-API
+# Granting anyone on the internet access to an Amazon Quick Sight dashboard using the Quick Sight API
 
 Alternatively, you can grant anyone on the internet access to the dashboard
 with the Amazon Quick Sight API using the `UpdateDashboardPermissions`
 operation.
 
 Before you begin, make sure to grant everyone in your account access to the
-dashboard. For more information, see [Granting everyone
-in your Amazon Quick account access to a dashboard with the Quick Sight
-API](share-a-dashboard-grant-access-everyone-api.md "share-a-dashboard-grant-access-everyone-api.md").
+dashboard. For more information, see [Granting everyone in your Amazon Quick account access to a dashboard with the Quick Sight API](share-a-dashboard-grant-access-everyone-api.md "share-a-dashboard-grant-access-everyone-api.md").
 
 The following example API request illustrates how to grant anyone on the
 internet access to a dashboard using an AWS CLI command. It grants link

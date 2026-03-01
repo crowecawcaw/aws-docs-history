@@ -1,6 +1,4 @@
-# Creating reports from an analysis in
-
-Amazon Quick Sight
+# Creating reports from an analysis in Amazon Quick Sight
 
 Pixel perfect reports are created at the sheet level of an analysis in Amazon Quick Sight. When you
 create a new analysis or a new sheet in an existing analysis, you choose whether to make
@@ -14,9 +12,7 @@ new sheet in an analysis, you can duplicate an interactive sheet in a dashboard,
 can duplicate a pixel perfect report that already exists. Use the procedures below to create
 a pixel perfect report.
 
-## Creating reports from an
-
-analysis in Amazon Quick Sight
+## Creating reports from an analysis in Amazon Quick Sight
 
 ###### To create a pixel perfect report from a new analysis
 
@@ -50,9 +46,7 @@ If you want to create a new pixel perfect report in an existing analysis, choose
 plus sign (+) icon to the right of the sheet tabs in your analysis and follow steps
 3-6 from the preceding procedure.
 
-## Creating reports from an
-
-existing dashboard in Amazon Quick Sight
+## Creating reports from an existing dashboard in Amazon Quick Sight
 
 You can also create a pixel perfect report by duplicating an interactive sheet and
 converting the duplicate sheet into a pixel perfect report.
@@ -66,9 +60,7 @@ converting the duplicate sheet into a pixel perfect report.
 You can convert an interactive sheet to a pixel perfect report, but you can't convert
 a pixel perfect report to an interactive sheet.
 
-## Duplicate an existing report
-
-in Amazon Quick Sight
+## Duplicate an existing report in Amazon Quick Sight
 
 This section will go over how to copy a report.
 

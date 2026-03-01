@@ -1,6 +1,4 @@
-# Using the elements on the Amazon Quick Sight
-
-dashboard
+# Using the elements on the Amazon Quick Sight dashboard
 
 Each widget has a settings menu that appears when you select that widget. This
 menu provides options to zoom in or out, filter the data, export the data, and more.

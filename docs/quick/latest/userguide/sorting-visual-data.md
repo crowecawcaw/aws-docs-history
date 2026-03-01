@@ -4,12 +4,10 @@ You can sort data using multiple methods for most visual types. You can choose t
 sort order of on-visual data by using the quick sort option or field wells. You can also
 use field wells to sort data by an off-visual metric. The visual element you can sort by
 depends on the visual type and whether sorting is supported for that visual. For more
-information on which visual types support sorting, see [Analytics formatting per type in
-Quick](analytics-format-options.md "analytics-format-options.md").
+information on which visual types support sorting, see [Analytics formatting per type in Quick](analytics-format-options.md "analytics-format-options.md").
 
 Pivot tables behave differently than tables when sorting values. For more information
-about sorting pivot tables, see [Sorting pivot tables in
-Quick](sorting-pivot-tables.md "sorting-pivot-tables.md").
+about sorting pivot tables, see [Sorting pivot tables in Quick](sorting-pivot-tables.md "sorting-pivot-tables.md").
 
 For SPICE datasets, you can sort text strings of sizes up to the
 following limitations:

@@ -1,6 +1,4 @@
-# Granting
-
-anyone on the internet access to a dashboard
+# Granting anyone on the internet access to a dashboard
 
 ###### To grant anyone on the internet access to a dashboard
 
@@ -31,7 +29,5 @@ view.
 
 Note that when public access is turned on, the dashboard can only be
 accessed using the link or when embedded using the embed code. For more
-information about sharing a link to the dashboard, see [Sharing a link a shared
-dashboard](share-a-dashboard-share-link.md "share-a-dashboard-share-link.md"). For more information
-about embedding dashboards for anyone on the internet, see [Embedding Amazon Quick Sight
-visuals and dashboards for anonymous users with a 1-click embed code](embedded-analytics-1-click-public.md "embedded-analytics-1-click-public.md").
+information about sharing a link to the dashboard, see [Sharing a link a shared dashboard](share-a-dashboard-share-link.md "share-a-dashboard-share-link.md"). For more information
+about embedding dashboards for anyone on the internet, see [Embedding Amazon Quick Sight visuals and dashboards for anonymous users with a 1-click embed code](embedded-analytics-1-click-public.md "embedded-analytics-1-click-public.md").

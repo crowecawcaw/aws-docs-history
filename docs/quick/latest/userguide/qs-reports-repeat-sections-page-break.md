@@ -1,6 +1,4 @@
-# Add page breaks to
-
-repeating sections
+# Add page breaks to repeating sections
 
 Similar to section page breaks, you can add page breaks to repeating
 sections.

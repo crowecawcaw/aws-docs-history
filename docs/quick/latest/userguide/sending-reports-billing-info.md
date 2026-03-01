@@ -1,6 +1,4 @@
-# How billing works for email
-
-reports
+# How billing works for email reports
 
 Authors and admins can receive any number of email reports at no extra
 charge.

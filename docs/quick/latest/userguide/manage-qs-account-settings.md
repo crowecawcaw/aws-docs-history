@@ -5,9 +5,7 @@ settings, choose the profile icon, and then select **Manage
 Quick**. Then, click on **Account
 settings**.
 
-## Deleting your Amazon Quick subscription and closing
-
-your account
+## Deleting your Amazon Quick subscription and closing your account
 
 ###### Warning
 
@@ -61,13 +59,10 @@ Before you can delete your Amazon Quick account, make sure of the following:
 
 ###### Topics
 
-- [Permissions and access to account
-  termination](#delete-account-permissions "#delete-account-permissions")
+- [Permissions and access to account termination](#delete-account-permissions "#delete-account-permissions")
 - [Deleting your account](#delete-account "#delete-account")
 
-### Permissions and access to account
-
-termination
+### Permissions and access to account termination
 
 You need the following special permissions to terminate a Amazon Quick account.
 Without these permissions, you won't be able to terminate a Amazon Quick user

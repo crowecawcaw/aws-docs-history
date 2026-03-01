@@ -1,6 +1,4 @@
-# Unsubscribe from paginated
-
-reporting in Quick Sight
+# Unsubscribe from paginated reporting in Quick Sight
 
 You can unsubscribe from Quick Sight pixel perfect reporting at any time. Once you
 unsubscribe from pixel perfect reporting, you will lose the ability to create and schedule

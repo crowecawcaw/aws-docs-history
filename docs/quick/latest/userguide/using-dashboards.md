@@ -34,8 +34,7 @@ it. That way, everyone can see the same version of the story. However, you can a
 copy to learn how their design works or to inspire your work on something entirely new.
 Then, when you're finished, you can publish your analysis as a new dashboard.
 
-To learn to set up dashboards, see [Sharing and subscribing to data in Amazon Quick Sight with
-dashboards and reports](working-with-dashboards.md "working-with-dashboards.md").
+To learn to set up dashboards, see [Sharing and subscribing to data in Amazon Quick Sight with dashboards and reports](working-with-dashboards.md "working-with-dashboards.md").
 
 ###### Topics
 

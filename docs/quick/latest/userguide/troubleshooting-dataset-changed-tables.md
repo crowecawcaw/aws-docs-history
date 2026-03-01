@@ -1,6 +1,4 @@
-# My visual can’t find the
-
-query table
+# My visual can’t find the query table
 
 In this case, the visuals in your analysis aren't working as expected. The error
 message says `"Amazon Quick Sight can’t find the query table."`

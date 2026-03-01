@@ -39,8 +39,7 @@ Before you begin, make sure to have the following items in place:
   `GenerateEmbedUrlForRegisteredUser` API call.
 
 This option is only visible to Amazon Quick Sight administrators. You can also
-add subdomains as part of a domain. For more information, see [Allow listing domains at runtime with
-the Amazon Quick API](manage-domains.md#embedding-run-time "manage-domains.md#embedding-run-time").
+add subdomains as part of a domain. For more information, see [Allow listing domains at runtime with the Amazon Quick API](manage-domains.md#embedding-run-time "manage-domains.md#embedding-run-time").
 
 All domains in your static allow list (such as development, staging, and
 production) must be explicitly allowed, and they must use HTTPS. You can add up
@@ -62,15 +61,9 @@ following steps, which are explained in greater detail later:
 
 ###### Topics
 
-- [Embedding Amazon Quick Sight dashboards with the
-  Amazon Quick Sight API](embedding-dashboards.md "embedding-dashboards.md")
-- [Embedding Amazon Quick Sight visuals with the
-  Amazon Quick Sight APIs](embedding-visuals.md "embedding-visuals.md")
-- [Embedding the full functionality of the Amazon Quick Sight console for registered
-  users](embedded-analytics-full-console-for-authenticated-users.md "embedded-analytics-full-console-for-authenticated-users.md")
+- [Embedding Amazon Quick Sight dashboards with the Amazon Quick Sight API](embedding-dashboards.md "embedding-dashboards.md")
+- [Embedding Amazon Quick Sight visuals with the Amazon Quick Sight APIs](embedding-visuals.md "embedding-visuals.md")
+- [Embedding the full functionality of the Amazon Quick Sight console for registered users](embedded-analytics-full-console-for-authenticated-users.md "embedded-analytics-full-console-for-authenticated-users.md")
 - [Embedding the Amazon Q in Amazon Quick Sight Generative Q&A experience](embedding-gen-bi.md "embedding-gen-bi.md")
-- [Embedding the Amazon Quick Sight Q search bar
-  (Classic)](embedding-quicksight-q.md "embedding-quicksight-q.md")
-- [Embedding analytics using the
-  GetDashboardEmbedURL and GetSessionEmbedURL API
-  operations](embedded-analytics-deprecated.md "embedded-analytics-deprecated.md")
+- [Embedding the Amazon Quick Sight Q search bar (Classic)](embedding-quicksight-q.md "embedding-quicksight-q.md")
+- [Embedding analytics using the GetDashboardEmbedURL and GetSessionEmbedURL API operations](embedded-analytics-deprecated.md "embedded-analytics-deprecated.md")

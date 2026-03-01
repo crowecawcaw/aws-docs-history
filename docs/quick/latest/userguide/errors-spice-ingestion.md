@@ -1,13 +1,9 @@
-# SPICE ingestion error
-
-codes
+# SPICE ingestion error codes
 
 The following list of errors codes and descriptions can help you understand and
 troubleshoot issues with data ingestion into SPICE.
 
-## Error codes for skipped
-
-rows
+## Error codes for skipped rows
 
 The following list of errors codes and descriptions can help you understand and
 troubleshoot issues with skipped rows.
@@ -197,8 +193,7 @@ resources. Contact your data source administrator for assistance.
 
 **SPICE_TABLE_NOT_FOUND** – An Amazon Quick Sight data source or
 dataset was deleted or became unavailable during ingestion. Check your dataset in
-Amazon Quick Sight and try again. For more information, see [Troubleshooting skipped row
-errors](troubleshooting-skipped-rows.md "troubleshooting-skipped-rows.md").
+Amazon Quick Sight and try again. For more information, see [Troubleshooting skipped row errors](troubleshooting-skipped-rows.md "troubleshooting-skipped-rows.md").
 
 **SQL_EXCEPTION**
 – A general SQL error occurred. This error can be caused by query timeouts,

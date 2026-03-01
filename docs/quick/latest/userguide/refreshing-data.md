@@ -58,12 +58,8 @@ and working with SPICE data.
 
 - [Importing data into SPICE](spice.md "spice.md")
 - [Refreshing SPICE data](refreshing-imported-data.md "refreshing-imported-data.md")
-- [Using SPICE data in an
-  analysis](spice-in-an-analysis.md "spice-in-an-analysis.md")
-- [View SPICE ingestion
-  history](view-history-of-spice-ingestion.md "view-history-of-spice-ingestion.md")
-- [Troubleshooting skipped row
-  errors](troubleshooting-skipped-rows.md "troubleshooting-skipped-rows.md")
-- [SPICE ingestion error
-  codes](errors-spice-ingestion.md "errors-spice-ingestion.md")
+- [Using SPICE data in an analysis](spice-in-an-analysis.md "spice-in-an-analysis.md")
+- [View SPICE ingestion history](view-history-of-spice-ingestion.md "view-history-of-spice-ingestion.md")
+- [Troubleshooting skipped row errors](troubleshooting-skipped-rows.md "troubleshooting-skipped-rows.md")
+- [SPICE ingestion error codes](errors-spice-ingestion.md "errors-spice-ingestion.md")
 - [Updating files in a dataset](updating-file-dataset.md "updating-file-dataset.md")

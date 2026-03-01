@@ -1,6 +1,4 @@
-# Creating a dataset using an Apache Impala data
-
-source
+# Creating a dataset using an Apache Impala data source
 
 Apache Impala is a high-performance massively parallel processing (MPP) SQL query
 engine designed to run natively on Apache Hadoop. Use the procedure below to establish a

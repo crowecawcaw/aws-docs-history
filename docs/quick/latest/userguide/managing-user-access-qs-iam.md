@@ -1,6 +1,4 @@
-# Managing access for Amazon Quick and IAM
-
-users
+# Managing access for Amazon Quick and IAM users
 
 Amazon Quick account administrators can use this topic to learn more about managing
 accounts that use IAM or Quick for identity federation.

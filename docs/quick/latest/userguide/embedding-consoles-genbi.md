@@ -1,6 +1,4 @@
-# Enabling Generative BI features in embedded
-
-consoles for registered users
+# Enabling Generative BI features in embedded consoles for registered users
 
 |                                            |
 | ------------------------------------------ |

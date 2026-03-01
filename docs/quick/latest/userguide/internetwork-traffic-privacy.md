@@ -1,6 +1,4 @@
-# Inter-network traffic privacy in
-
-Amazon Quick
+# Inter-network traffic privacy in Amazon Quick
 
 To use Amazon Quick, users need access to the internet. They also need access to a compatible
 browser or a mobile device with the Amazon Quick mobile app installed. They don't need access to the
@@ -17,9 +15,7 @@ owner in Amazon Quick. Connections are protected both between Amazon Quick and o
 applications and between Amazon Quick and other AWS resources within the same AWS Region. For
 connections to any source, the data source must allow connections from Amazon Quick.
 
-## Traffic
-
-between service and on-premises clients and applications
+## Traffic between service and on-premises clients and applications
 
 You have two connectivity options between your private network and AWS:
 
@@ -37,9 +33,7 @@ and a secret access key that are associated with an IAM principal, or you can us
 [AWS Security Token
 Service (STS)](../../../STS/latest/APIReference/Welcome.md "../../../STS/latest/APIReference/Welcome.md") to generate temporary security credentials to sign requests.
 
-## Traffic between AWS
-
-resources in the same region
+## Traffic between AWS resources in the same region
 
 An Amazon Virtual Private Cloud (Amazon VPC) endpoint for Amazon Quick is a logical entity within a VPC that allows
 connectivity only to Amazon Quick. The VPC routes requests to Amazon Quick and routes responses back to

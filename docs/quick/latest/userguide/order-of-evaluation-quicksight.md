@@ -19,8 +19,7 @@ analyses that contain calculated fields to compute LAC-W expressions at the prea
 (`PRE_AGG`) level. The last column shows the order of evaluation for
 analyses that contain calculated fields to compute LAC-A expressions. Following the
 illustration, there is a more detailed explanation of the order of evaluation. For more
-information about level aware calculations, see [Using level-aware calculations in
-Quick Sight](level-aware-calculations.md "level-aware-calculations.md").
+information about level aware calculations, see [Using level-aware calculations in Quick Sight](level-aware-calculations.md "level-aware-calculations.md").
 
 ![](images/order-of-evaluation2.png)
 The following list shows the sequence in which Amazon Quick Sight applies the configuration in

@@ -1,6 +1,4 @@
-# Managing Quick
-
-subscriptions
+# Managing Quick subscriptions
 
 Subscription management in Amazon Quick involves configuring and optimizing your
 service usage to meet your organization's needs while controlling costs. This section
@@ -13,8 +11,6 @@ insights effectively.
 
 ###### Topics
 
-- [Configure Amazon Quick
-  subscriptions](managing-qbs-subscriptions.md "managing-qbs-subscriptions.md")
-- [Configure SPICE memory
-  capacity](managing-spice-capacity.md "managing-spice-capacity.md")
+- [Configure Amazon Quick subscriptions](managing-qbs-subscriptions.md "managing-qbs-subscriptions.md")
+- [Configure SPICE memory capacity](managing-spice-capacity.md "managing-spice-capacity.md")
 - [Index capacity](manage-data-capacity.md "manage-data-capacity.md")

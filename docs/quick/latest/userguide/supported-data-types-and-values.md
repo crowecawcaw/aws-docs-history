@@ -1,6 +1,4 @@
-# Supported data types and
-
-values
+# Supported data types and values
 
 Amazon Quick Sight currently supports the following primitive data types: `Date`,
 `Decimal`, `Integer`, and `String`. The following
@@ -66,8 +64,7 @@ numbers that contain at least one decimal place before or after the decimal poin
 When you choose Direct Query mode, all non-integer decimal types are marked as
 `Decimal` and the underlying engine handles the precision of the
 datapoint based on the data source's supported behaviors. For more information
-on supported data source types, see [Supported data types and
-values](supported-data-types-and-values.md "supported-data-types-and-values.md").
+on supported data source types, see [Supported data types and values](supported-data-types-and-values.md "supported-data-types-and-values.md").
 
 When you store your dataset in SPICE, you can choose to store your
 decimal values as `fixed` or `float` decimal types.
@@ -111,9 +108,7 @@ FIELDS**. The **Update fields** pop up appears every
 time you open the **Edit dataset** page until the dataset is saved
 and published.
 
-## Supported data types from external data
-
-sources
+## Supported data types from external data sources
 
 The following table lists data types that are supported when using the following
 data sources with Amazon Quick Sight.

@@ -1,6 +1,4 @@
-# Copy and migrate Quick Sight topics
-
-within and between AWS accounts
+# Copy and migrate Quick Sight topics within and between AWS accounts
 
 You can migrate your Quick Sight topics from one account to another with the
 Quick Sight command line interface (CLI). Instead of manually replicating the same

@@ -1,6 +1,4 @@
-# Amazon Quick Slack
-
-extension user guide
+# Amazon Quick Slack extension user guide
 
 As a user, you can access Amazon Quick directly within Slack to get
 AI-powered assistance without leaving your workspace. The extension integrates
@@ -9,19 +7,13 @@ knowledge bases and intelligent responses.
 
 ###### Topics
 
-- [Add a Slack
-  Extension to your Slack](#slack-extension-setup-users "#slack-extension-setup-users")
-- [Access Quick in your
-  Slack side panel at any time](#access-slack-side-panel "#access-slack-side-panel")
+- [Add a Slack Extension to your Slack](#slack-extension-setup-users "#slack-extension-setup-users")
+- [Access Quick in your Slack side panel at any time](#access-slack-side-panel "#access-slack-side-panel")
 - [Slack extension use cases](#slack-use-cases "#slack-use-cases")
-- [Amazon Quick Slack
-  extension usage guidelines](#slack-usage-guidelines "#slack-usage-guidelines")
-- [Slack
-  extension known limitations](#slack-extension-known-limitations "#slack-extension-known-limitations")
+- [Amazon Quick Slack extension usage guidelines](#slack-usage-guidelines "#slack-usage-guidelines")
+- [Slack extension known limitations](#slack-extension-known-limitations "#slack-extension-known-limitations")
 
-## Add a Slack
-
-Extension to your Slack
+## Add a Slack Extension to your Slack
 
 Install the Amazon Quick app in your Slack workspace to enable
 AI-powered assistance. This one-time setup makes Quick accessible
@@ -52,9 +44,7 @@ throughout your Slack environment.
 For more information, see [Understand AI apps in Slack](https://slack.com/help/articles/33076000248851-Understand-AI-apps-in-Slack "https://slack.com/help/articles/33076000248851-Understand-AI-apps-in-Slack") in the
 Slack help center.
 
-## Access Quick in your
-
-Slack side panel at any time
+## Access Quick in your Slack side panel at any time
 
 Once you've added Quick to your Slack workspace,
 you can access it conveniently through the side panel for quick assistance
@@ -62,9 +52,7 @@ without interrupting your workflow. The side panel provides persistent access to
 Quick while you work in Slack channels and direct
 messages.
 
-###### Access Quick in your Slack side panel at any
-
-time
+###### Access Quick in your Slack side panel at any time
 
 1. Click on your Slack profile picture in the bottom left
    of Slack.
@@ -94,9 +82,7 @@ enhance your communications without leaving Slack.
    (visible after sending your first message to Quick) within
    your conversation to select an agent or a space to respond from.
 
-###### Get Quick's in-context help in Slack
-
-conversation threads
+###### Get Quick's in-context help in Slack conversation threads
 
 1. Navigate to a Slack conversation thread of your
    choice.
@@ -106,9 +92,7 @@ conversation threads
 3. If Quick is not already added to the channel, you will be
    prompted to add it before receiving a response.
 
-###### \*\*Perform actions in external
-
-applications\*\*
+###### **Perform actions in external applications**
 
 1. Start a direct message (DM) with Quick.
 2. Ask it to perform an action of your choice in an external application
@@ -125,17 +109,13 @@ applications\*\*
 3. Quick will analyze the image and provide relevant
    information based on your request.
 
-## Amazon Quick Slack
-
-extension usage guidelines
+## Amazon Quick Slack extension usage guidelines
 
 As a user, you are responsible for keeping company information safe. The
 following guidance helps you use Amazon Quick apps securely while maintaining
 data privacy and compliance.
 
-### When using the Slack
-
-extension
+### When using the Slack extension
 
 To start fresh, begin a new conversation by selecting **New
 chat** in direct messages. Closing the side panel ends your
@@ -152,9 +132,7 @@ Deleting the conversation in Slack will not delete from
 conversation history in Amazon Quick. However, users need to visit the
 Amazon Quick chat instance to manage their conversations.
 
-### Conversation retention policy
-
-and accuracy
+### Conversation retention policy and accuracy
 
 Amazon Quick automatically deletes conversations after 30 days of
 inactivity. Slack conversation retention follows your
@@ -166,9 +144,7 @@ AI App History tab. Deleting the conversation in Slack will
 not delete from conversation history in Amazon Quick. However, users need to
 visit the Amazon Quick chat instance to manage their conversations.
 
-### Security
-
-considerations
+### Security considerations
 
 When you use Amazon Quick in public channels, remember that responses
 reflect individual user permissions and content may include information not
@@ -182,9 +158,7 @@ customer data for service improvements, not using customer data to enhance
 language models, and not indexing Slack conversations into
 your company's Amazon Quick instance.
 
-## Slack
-
-extension known limitations
+## Slack extension known limitations
 
 The following are known limitations of the Amazon Quick Slack
 extension:

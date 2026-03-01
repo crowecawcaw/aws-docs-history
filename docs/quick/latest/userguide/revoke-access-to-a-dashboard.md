@@ -1,6 +1,4 @@
-# Revoke access to a shared
-
-dashboard
+# Revoke access to a shared dashboard
 
 Use the following procedure to revoke user access to a dashboard.
 

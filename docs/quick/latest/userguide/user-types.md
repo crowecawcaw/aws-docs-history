@@ -8,15 +8,12 @@ type.
 
 ###### Topics
 
-- [Understanding Amazon Quick subscriptions and
-  roles](#subscription-role-mapping "#subscription-role-mapping")
+- [Understanding Amazon Quick subscriptions and roles](#subscription-role-mapping "#subscription-role-mapping")
 - [Understanding reader capabilities](#reader-user-type "#reader-user-type")
 - [Understanding author capabilities](#author-user-type "#author-user-type")
 - [Understanding admin capabilities](#admin-user-type "#admin-user-type")
 
-## Understanding Amazon Quick subscriptions and
-
-roles
+## Understanding Amazon Quick subscriptions and roles
 
 The new capabilities for Amazon Quick are available via the following monthly user
 subscriptions:

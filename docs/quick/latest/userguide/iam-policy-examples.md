@@ -1,25 +1,18 @@
-# IAM policy examples for
-
-Quick
+# IAM policy examples for Quick
 
 This section provides examples of IAM policies that you can use with
 Quick.
 
-## IAM identity-based
-
-policies for Quick
+## IAM identity-based policies for Quick
 
 This section shows examples of identity-based policies to use with
 Quick.
 
 ###### Topics
 
-- [IAM identity-based
-  policies for Amazon Quick IAM console administration](#security_iam_conosole-administration "#security_iam_conosole-administration")
+- [IAM identity-based policies for Amazon Quick IAM console administration](#security_iam_conosole-administration "#security_iam_conosole-administration")
 
-### IAM identity-based
-
-policies for Amazon Quick IAM console administration
+### IAM identity-based policies for Amazon Quick IAM console administration
 
 The following example shows the IAM permissions needed for Amazon Quick
 IAM console administration actions.
@@ -58,9 +51,7 @@ IAM console administration actions.
 }
 ```
 
-## IAM
-
-identity-based policies for Quick: dashboards
+## IAM identity-based policies for Quick: dashboards
 
 The following example shows an IAM policy that allows dashboard sharing and
 embedding for specific dashboards.
@@ -83,9 +74,7 @@ embedding for specific dashboards.
 }
 ```
 
-## IAM
-
-identity-based policies for Quick: namespaces
+## IAM identity-based policies for Quick: namespaces
 
 The following examples show IAM policies that allow a Amazon Quick administrator
 to create or delete namespaces.
@@ -132,9 +121,7 @@ Deleting namespaces
 }
 ```
 
-## IAM
-
-identity-based policies for Quick: custom permissions
+## IAM identity-based policies for Quick: custom permissions
 
 The following example shows an IAM policy that allows a Amazon Quick
 administrator or a developer to manage custom permissions.
@@ -177,10 +164,7 @@ the previous example.
 }
 ```
 
-## IAM
-
-identity-based policies for Quick: customizing email report
-templates
+## IAM identity-based policies for Quick: customizing email report templates
 
 The following example shows a policy that allows viewing, updating, and creating
 email report templates in Amazon Quick, as well as obtaining verification attributes
@@ -209,9 +193,7 @@ address they want to send email reports from is a verified identity in SES.
 }
 ```
 
-## IAM identity-based policies for Quick: create an Enterprise
-
-account with Amazon Quick managed users
+## IAM identity-based policies for Quick: create an Enterprise account with Amazon Quick managed users
 
 The following example shows a policy that allows Amazon Quick admins to create an
 Enterprise edition Amazon Quick account with Amazon Quick managed users.
@@ -258,9 +240,7 @@ Enterprise edition Amazon Quick account with Amazon Quick managed users.
 }
 ```
 
-## IAM
-
-identity-based policies for Quick: creating users
+## IAM identity-based policies for Quick: creating users
 
 The following example shows a policy that allows creating Amazon Quick users only.
 For `quicksight:CreateReader`, `quicksight:CreateUser`, and
@@ -286,10 +266,7 @@ the specified resource.
 }
 ```
 
-## IAM
-
-identity-based policies for Quick: creating and managing
-groups
+## IAM identity-based policies for Quick: creating and managing groups
 
 The following example shows a policy that allows Amazon Quick administrators and
 developers to create and manage groups.
@@ -316,10 +293,7 @@ developers to create and manage groups.
 }
 ```
 
-## IAM identity-based policies for Quick:
-
-All
-access for Standard edition
+## IAM identity-based policies for Quick: All access for Standard edition
 
 The following example for Amazon Quick Standard edition shows a policy that allows
 subscribing
@@ -358,9 +332,7 @@ unsubscribe from Amazon Quick.
 }
 ```
 
-## IAM identity-based policies for Quick: All access for Enterprise
-
-edition with IAM Identity Center (Pro roles)
+## IAM identity-based policies for Quick: All access for Enterprise edition with IAM Identity Center (Pro roles)
 
 The following example for Amazon Quick Enterprise edition shows a policy that
 allows a Amazon Quick user to subscribe to Amazon Quick, create users, and manage
@@ -427,9 +399,7 @@ This example explicitly denies permission to unsubscribe from Amazon Quick.
 }
 ```
 
-## IAM identity-based policies for Quick: All access for Enterprise
-
-edition with IAM Identity Center
+## IAM identity-based policies for Quick: All access for Enterprise edition with IAM Identity Center
 
 The following example for Amazon Quick Enterprise edition shows a policy that
 allows subscribing, creating users, and managing Active Directory in a Amazon Quick
@@ -488,9 +458,7 @@ This example explicitly denies permission to unsubscribe from Amazon Quick.
 }
 ```
 
-## IAM identity-based policies for Quick: all access for Enterprise
-
-edition with Active Directory
+## IAM identity-based policies for Quick: all access for Enterprise edition with Active Directory
 
 The following example for Amazon Quick Enterprise edition shows a policy that
 allows subscribing, creating users, and managing Active Directory in a Amazon Quick
@@ -530,9 +498,7 @@ denies permission to unsubscribe from Amazon Quick.
 }
 ```
 
-## IAM identity-based policies for Quick: active directory
-
-groups
+## IAM identity-based policies for Quick: active directory groups
 
 The following example shows an IAM policy that allows Active Directory group
 management for an Amazon Quick Enterprise edition account.
@@ -555,9 +521,7 @@ management for an Amazon Quick Enterprise edition account.
 }
 ```
 
-## IAM identity-based policies for Quick: using the admin asset
-
-management console
+## IAM identity-based policies for Quick: using the admin asset management console
 
 The following example shows an IAM policy that allows access to the admin asset
 management console.
@@ -599,9 +563,7 @@ management console.
 }
 ```
 
-## IAM identity-based policies for Quick: using the admin key
-
-management console
+## IAM identity-based policies for Quick: using the admin key management console
 
 The following example shows an IAM policy that allows access to the admin key
 management console.
@@ -681,9 +643,7 @@ CMKs that are registered to the Amazon Quick account.
 }
 ```
 
-## AWS
-
-resources Quick: scoping policies in Enterprise edition
+## AWS resources Quick: scoping policies in Enterprise edition
 
 The following example for Amazon Quick Enterprise edition shows a policy that
 allows setting default access to AWS resources and scoping policies

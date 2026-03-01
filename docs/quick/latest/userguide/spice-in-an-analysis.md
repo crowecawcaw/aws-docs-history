@@ -1,6 +1,4 @@
-# Using SPICE data in an
-
-analysis
+# Using SPICE data in an analysis
 
 When you use stored data to create an analysis, a data import indicator appears next
 to the dataset list at the top of the **Fields list** pane. When you
@@ -13,8 +11,7 @@ the visualization pane to provide counts of the rows imported and skipped.
 If any rows were skipped, you can choose **View summary** in this
 message bar to see details about why those rows failed to import. To edit the dataset
 and resolve the issues that led to skipped rows, choose **Edit data
-set**. For more information about common causes for skipped rows, see [Troubleshooting skipped row
-errors](troubleshooting-skipped-rows.md "troubleshooting-skipped-rows.md").
+set**. For more information about common causes for skipped rows, see [Troubleshooting skipped row errors](troubleshooting-skipped-rows.md "troubleshooting-skipped-rows.md").
 
 If an import fails altogether, the data import indicator appears as an exclamation
 point icon, and an **Import failed** message is displayed.

@@ -1,6 +1,4 @@
-# Revoking access to an
-
-analysis
+# Revoking access to an analysis
 
 Use the following procedure to revoke access to an analysis.
 

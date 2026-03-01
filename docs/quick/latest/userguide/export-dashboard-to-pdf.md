@@ -1,6 +1,4 @@
-# Exporting Amazon Quick Sight analyses or dashboards as
-
-PDFs
+# Exporting Amazon Quick Sight analyses or dashboards as PDFs
 
 You can export content from a dashboard into a Portable Document Format file (PDF).
 Similar to a print-out, this format provides a snapshot of the current sheet as it
@@ -23,5 +21,4 @@ the file, repeat the previous step. Also, the downloadable file is available
 only temporarily for five minutes. If you wait too long to download it, the file
 expires. If this happens, Quick Sight instead displays an error message saying
 that the request has expired. 5. Repeat the previous steps for each sheet that you want to export.
-You can also attach PDFs to dashboard email reports. For more information, see [Scheduling and sending Quick Sight reports by
-email](sending-reports.md "sending-reports.md").
+You can also attach PDFs to dashboard email reports. For more information, see [Scheduling and sending Quick Sight reports by email](sending-reports.md "sending-reports.md").

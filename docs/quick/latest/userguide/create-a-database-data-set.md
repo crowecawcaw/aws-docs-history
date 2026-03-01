@@ -1,17 +1,11 @@
-# Creating a dataset from a
-
-database
+# Creating a dataset from a database
 
 The following procedures walk you through connecting to database data sources and
 creating datasets. To create datasets from AWS data sources that your Amazon Quick
-account autodiscovered, use [Creating a dataset from an
-autodiscovered Amazon Redshift cluster or Amazon RDS instance](#create-a-data-set-autodiscovered "#create-a-data-set-autodiscovered"). To create datasets from any
-other database data sources, use [Creating a dataset using a database
-that's not autodiscovered](#create-a-data-set-database "#create-a-data-set-database").
+account autodiscovered, use [Creating a dataset from an autodiscovered Amazon Redshift cluster or Amazon RDS instance](#create-a-data-set-autodiscovered "#create-a-data-set-autodiscovered"). To create datasets from any
+other database data sources, use [Creating a dataset using a database that's not autodiscovered](#create-a-data-set-database "#create-a-data-set-database").
 
-## Creating a dataset from an
-
-autodiscovered Amazon Redshift cluster or Amazon RDS instance
+## Creating a dataset from an autodiscovered Amazon Redshift cluster or Amazon RDS instance
 
 Use the following procedure to create a connection to an autodiscovered AWS
 data source.
@@ -126,9 +120,7 @@ do anything to enable this. 10. Choose one of the following:
       Then create an analysis by choosing
       **Visualize**.
 
-## Creating a dataset using a database
-
-that's not autodiscovered
+## Creating a dataset using a database that's not autodiscovered
 
 Use the following procedure to create a connection to any database other than
 an autodiscovered Amazon Redshift cluster or Amazon RDS instance. Such databases include Amazon Redshift
@@ -137,9 +129,7 @@ associated with a different AWS account. They also include MariaDB, Microsoft
 SQL Server, MySQL, Oracle, and PostgreSQL instances that are on-premises, in
 Amazon EC2, or in some other accessible environment.
 
-###### To create a connection to a database that isn't an autodiscovered
-
-Amazon Redshift cluster or RDS instance
+###### To create a connection to a database that isn't an autodiscovered Amazon Redshift cluster or RDS instance
 
 1. Check [Data source quotas](data-source-limits.md "data-source-limits.md") to make sure that your target
    table or query doesn't exceed data source quotas.
@@ -213,9 +203,7 @@ Amazon Quick automatically secures connections to Amazon Redshift clusters by us
 You don't need to do anything to enable this.
 
 Some databases, such as Presto and Apache Spark, must meet additional
-requirements before Amazon Quick can connect. For more information, see [Creating a data source using
-Presto](create-a-data-source-presto.md "create-a-data-source-presto.md"), or [Creating a data source using Apache
-Spark](create-a-data-source-spark.md "create-a-data-source-spark.md"). 9. (Optional) Choose **Validate connection** to verify
+requirements before Amazon Quick can connect. For more information, see [Creating a data source using Presto](create-a-data-source-presto.md "create-a-data-source-presto.md"), or [Creating a data source using Apache Spark](create-a-data-source-spark.md "create-a-data-source-spark.md"). 9. (Optional) Choose **Validate connection** to verify
 your connection information is correct. 10. If the connection validates, choose **Create data
 source**. If not, correct the connection information and
 try validating again. 11. Choose one of the following:

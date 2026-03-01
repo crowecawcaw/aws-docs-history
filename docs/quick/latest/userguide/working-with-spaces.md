@@ -1,6 +1,4 @@
-# Organize, collaborate, and share
-
-resources with spaces in Amazon Quick
+# Organize, collaborate, and share resources with spaces in Amazon Quick
 
 A space in Amazon Quick is a collection of data and Quick resources scoped for
 a particular team or domain. You can use spaces to aggregate and organize files, dashboards,
@@ -31,17 +29,14 @@ You can use spaces to accomplish tasks like:
 
 ###### Topics
 
-- [Amazon Quick user interactions with
-  spaces](#spaces-user-interactions "#spaces-user-interactions")
+- [Amazon Quick user interactions with spaces](#spaces-user-interactions "#spaces-user-interactions")
 - [Amazon Quick user permission for spaces](#user-space-permissions "#user-space-permissions")
 - [Understanding file upload status](#file-upload-statuses "#file-upload-statuses")
 - [Limitations of spaces](#space-quotas "#space-quotas")
 - [Creating a space](creating-spaces.md "creating-spaces.md")
 - [Managing a space](managing-spaces.md "managing-spaces.md")
 
-## Amazon Quick user interactions with
-
-spaces
+## Amazon Quick user interactions with spaces
 
 The following table shows how each user type in Amazon Quick interacts with
 spaces.

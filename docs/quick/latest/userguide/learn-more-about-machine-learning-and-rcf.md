@@ -1,6 +1,4 @@
-# References for machine
-
-learning and RCF
+# References for machine learning and RCF
 
 To learn more about machine learning and this algorithm, we suggest the following
 resources:

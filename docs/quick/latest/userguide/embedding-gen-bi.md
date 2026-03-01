@@ -11,32 +11,22 @@ for users.
 
 ###### Topics
 
-- [Embedding the Amazon Q in
-  Amazon Quick Sight Generative Q&A experience for registered users](#embedded-analytics-gen-bi-authenticated-users "#embedded-analytics-gen-bi-authenticated-users")
-- [Embedding the Amazon Q in Quick Generative Q&A experience
-  for anonymous (unregistered) users](#embedded-analytics-gen-bi-anonymous-users "#embedded-analytics-gen-bi-anonymous-users")
+- [Embedding the Amazon Q in Amazon Quick Sight Generative Q&A experience for registered users](#embedded-analytics-gen-bi-authenticated-users "#embedded-analytics-gen-bi-authenticated-users")
+- [Embedding the Amazon Q in Quick Generative Q&A experience for anonymous (unregistered) users](#embedded-analytics-gen-bi-anonymous-users "#embedded-analytics-gen-bi-anonymous-users")
 
-## Embedding the Amazon Q in
-
-Amazon Quick Sight Generative Q&A experience for registered users
+## Embedding the Amazon Q in Amazon Quick Sight Generative Q&A experience for registered users
 
 In the following sections, you can find detailed information about how to set up an
 embedded Generative Q&A experience for registered users of Amazon Quick Sight.
 
 ###### Topics
 
-- [Step 1: Set
-  up permissions](#embedded-analytics-gen-bi-authenticated-users-step-1 "#embedded-analytics-gen-bi-authenticated-users-step-1")
-- [Step 2:
-  Generate the URL with the authentication code attached](#embedded-analytics-gen-bi-authenticated-users-step-2 "#embedded-analytics-gen-bi-authenticated-users-step-2")
-- [Step 3: Embed
-  the Generative Q&A experience URL](#embedded-analytics-gen-bi-authenticated-users-step-3 "#embedded-analytics-gen-bi-authenticated-users-step-3")
-- [Optional
-  embedded Generative Q&A experience functionalities](#embedded-analytics-gen-bi-authenticated-users-step-4 "#embedded-analytics-gen-bi-authenticated-users-step-4")
+- [Step 1: Set up permissions](#embedded-analytics-gen-bi-authenticated-users-step-1 "#embedded-analytics-gen-bi-authenticated-users-step-1")
+- [Step 2: Generate the URL with the authentication code attached](#embedded-analytics-gen-bi-authenticated-users-step-2 "#embedded-analytics-gen-bi-authenticated-users-step-2")
+- [Step 3: Embed the Generative Q&A experience URL](#embedded-analytics-gen-bi-authenticated-users-step-3 "#embedded-analytics-gen-bi-authenticated-users-step-3")
+- [Optional embedded Generative Q&A experience functionalities](#embedded-analytics-gen-bi-authenticated-users-step-4 "#embedded-analytics-gen-bi-authenticated-users-step-4")
 
-### Step 1: Set
-
-up permissions
+### Step 1: Set up permissions
 
 In the following section, you can find how to set up permissions for your backend
 application or web server to embed the Generative Q&A experience. This task requires administrative
@@ -134,9 +124,7 @@ _IAM User Guide:_
 - [Creating a
   role for SAML 2.0 federation (console)](../../../IAM/latest/UserGuide/id_roles_create_for-idp_saml.md "../../../IAM/latest/UserGuide/id_roles_create_for-idp_saml.md")
 
-### Step 2:
-
-Generate the URL with the authentication code attached
+### Step 2: Generate the URL with the authentication code attached
 
 In the following section, you can find how to authenticate your user and get the
 embeddable Q topic URL on your application server. If you plan to embed the Generative Q&A experience
@@ -476,9 +464,7 @@ aws quicksight generate-embed-url-for-anonymous-user \
 For more information about using this operation, see [GenerateEmbedUrlForRegisteredUser](../../../quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.md "../../../quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.md"). You can
 use this and other API operations in your own code.
 
-### Step 3: Embed
-
-the Generative Q&A experience URL
+### Step 3: Embed the Generative Q&A experience URL
 
 In the following section, you can find how to embed the Generative Q&A experience URL in your website
 or application page. You do this with the [Amazon Quick Sight embedding SDK](https://www.npmjs.com/package/amazon-quicksight-embedding-sdk "https://www.npmjs.com/package/amazon-quicksight-embedding-sdk") (JavaScript). With the SDK, you can do
@@ -697,9 +683,7 @@ the following:
 npm install amazon-quicksight-embedding-sdk
 ```
 
-### Optional
-
-embedded Generative Q&A experience functionalities
+### Optional embedded Generative Q&A experience functionalities
 
 The following optional functionalities are available for the embedded Generative Q&A experience with
 the embedding SDK.
@@ -723,9 +707,7 @@ embeddedGenerativeQnExperience.close();
 
 For more information, see the [Amazon Quick Sight embedding SDK](https://github.com/awslabs/amazon-quicksight-embedding-sdk "https://github.com/awslabs/amazon-quicksight-embedding-sdk").
 
-## Embedding the Amazon Q in Quick Generative Q&A experience
-
-for anonymous (unregistered) users
+## Embedding the Amazon Q in Quick Generative Q&A experience for anonymous (unregistered) users
 
 |                                               |
 | --------------------------------------------- |
@@ -736,18 +718,12 @@ embedded Generative Q&A experience for anonymous (unregistered) users.
 
 ###### Topics
 
-- [Step 1: Set up
-  permissions](#embedded-analytics-gen-bi-anonymous-users-step-1 "#embedded-analytics-gen-bi-anonymous-users-step-1")
-- [Step 2: Generate
-  the URL with the authentication code attached](#embedded-analytics-gen-bi-anonymous-users-step-2 "#embedded-analytics-gen-bi-anonymous-users-step-2")
-- [Step 3: Embed the
-  Generative Q&A experience URL](#embedded-analytics-gen-bi-anonymous-users-step-3 "#embedded-analytics-gen-bi-anonymous-users-step-3")
-- [Optional embedded
-  Generative Q&A experience functionalities](#embedded-analytics-gen-bi-anonymous-users-step-4 "#embedded-analytics-gen-bi-anonymous-users-step-4")
+- [Step 1: Set up permissions](#embedded-analytics-gen-bi-anonymous-users-step-1 "#embedded-analytics-gen-bi-anonymous-users-step-1")
+- [Step 2: Generate the URL with the authentication code attached](#embedded-analytics-gen-bi-anonymous-users-step-2 "#embedded-analytics-gen-bi-anonymous-users-step-2")
+- [Step 3: Embed the Generative Q&A experience URL](#embedded-analytics-gen-bi-anonymous-users-step-3 "#embedded-analytics-gen-bi-anonymous-users-step-3")
+- [Optional embedded Generative Q&A experience functionalities](#embedded-analytics-gen-bi-anonymous-users-step-4 "#embedded-analytics-gen-bi-anonymous-users-step-4")
 
-### Step 1: Set up
-
-permissions
+### Step 1: Set up permissions
 
 In the following section, you can find how to set up permissions for your backend
 application or web server to embed the Generative Q&A experience. This task requires administrative
@@ -827,9 +803,7 @@ JSON
 For more information regarding trust policies, see [Temporary security credentials in
 IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") in the _IAM User Guide_
 
-### Step 2: Generate
-
-the URL with the authentication code attached
+### Step 2: Generate the URL with the authentication code attached
 
 In the following section, you can find how to authenticate your user and get the
 embeddable Q topic URL on your application server.
@@ -1122,9 +1096,7 @@ aws quicksight generate-embed-url-for-anonymous-user \
 For more information about using this operation, see [GenerateEmbedUrlForAnonymousUser](../../../quicksight/latest/APIReference/API_GenerateEmbedUrlForAnonymousUser.md "../../../quicksight/latest/APIReference/API_GenerateEmbedUrlForAnonymousUser.md"). You can
 use this and other API operations in your own code.
 
-### Step 3: Embed the
-
-Generative Q&A experience URL
+### Step 3: Embed the Generative Q&A experience URL
 
 In the following section, you can find how to embed the Generative Q&A experience URL in your website
 or application page. You do this with the [Amazon Quick Sight embedding SDK](https://www.npmjs.com/package/amazon-quicksight-embedding-sdk "https://www.npmjs.com/package/amazon-quicksight-embedding-sdk") (JavaScript). With the SDK, you can do
@@ -1342,9 +1314,7 @@ the following:
 npm install amazon-quicksight-embedding-sdk
 ```
 
-### Optional embedded
-
-Generative Q&A experience functionalities
+### Optional embedded Generative Q&A experience functionalities
 
 The following optional functionalities are available for the embedded Generative Q&A experience with
 the embedding SDK.

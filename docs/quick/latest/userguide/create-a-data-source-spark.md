@@ -1,6 +1,4 @@
-# Creating a data source using Apache
-
-Spark
+# Creating a data source using Apache Spark
 
 You can connect directly to Apache Spark using Quick Sight, or you can connect to
 Spark through Spark SQL. Using the results of queries, or direct links to tables or

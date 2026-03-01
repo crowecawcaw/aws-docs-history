@@ -1,6 +1,4 @@
-# I can't connect to
-
-Amazon Athena
+# I can't connect to Amazon Athena
 
 |                                                   |
 | ------------------------------------------------- |
@@ -18,12 +16,9 @@ you can connect Amazon Quick Sight to Athena, check the following settings:
 - Query results location
 - AWS KMS key policy (for encrypted datasets only)
   For details, see following. For information about troubleshooting other Athena
-  issues, see [Connectivity issues when using Amazon Athena with
-  Amazon Quick Sight](troubleshoot-athena.md "troubleshoot-athena.md").
+  issues, see [Connectivity issues when using Amazon Athena with Amazon Quick Sight](troubleshoot-athena.md "troubleshoot-athena.md").
 
-## Make sure that you
-
-authorized Amazon Quick Sight to use Athena
+## Make sure that you authorized Amazon Quick Sight to use Athena
 
 |                                                   |
 | ------------------------------------------------- |
@@ -62,9 +57,7 @@ If you had to change your AWS Region as part of the first step of
 this process, change it back to the AWS Region that you were using
 before.
 
-## Make sure that your IAM
-
-policies grant the right permissions
+## Make sure that your IAM policies grant the right permissions
 
 |                                             |
 | ------------------------------------------- |
@@ -77,9 +70,7 @@ of the S3 buckets that Athena uses for your query.
 If the dataset is encrypted, the IAM user needs to be a key user in the
 specified AWS KMS key's policy.
 
-###### To verify that your IAM policies have permission to use S3 buckets for
-
-your query
+###### To verify that your IAM policies have permission to use S3 buckets for your query
 
 1. Open the IAM console at
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -94,12 +85,9 @@ your query
    to grant permissions to list, read, and write. If S3 is not in the list,
    or it doesn't have the correct permissions, you can add them here.
 
-For examples of IAM policies that work with Quick Sight, see [IAM policy examples for
-Quick](iam-policy-examples.md "iam-policy-examples.md").
+For examples of IAM policies that work with Quick Sight, see [IAM policy examples for Quick](iam-policy-examples.md "iam-policy-examples.md").
 
-## Make sure that
-
-the IAM user has read/write access to your S3 location
+## Make sure that the IAM user has read/write access to your S3 location
 
 |                                                   |
 | ------------------------------------------------- |
@@ -107,8 +95,7 @@ the IAM user has read/write access to your S3 location
 
 To access Athena data from Quick Sight, first make sure that Athena and its S3
 location are authorized in **Manage QuickSight** screen. For
-more information, see [Make sure that you
-authorized Amazon Quick Sight to use Athena](#troubleshoot-connect-athena-authorizing "#troubleshoot-connect-athena-authorizing").
+more information, see [Make sure that you authorized Amazon Quick Sight to use Athena](#troubleshoot-connect-athena-authorizing "#troubleshoot-connect-athena-authorizing").
 
 Next, verify the relevant IAM permissions. The IAM user for your Athena
 connection needs read/write access to the location where your results go in S3.

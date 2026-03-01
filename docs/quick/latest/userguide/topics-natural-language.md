@@ -1,6 +1,4 @@
-# Making Quick Sight topics
-
-natural-language-friendly
+# Making Quick Sight topics natural-language-friendly
 
 |                                            |
 | ------------------------------------------ |
@@ -39,9 +37,7 @@ procedure to bulk-edit fields in a topic.
 
 The configuration options are described in the following steps.
 
-## Step 1: Give
-
-datasets friendly names and descriptions
+## Step 1: Give datasets friendly names and descriptions
 
 Dataset names are often based on technical naming conventions that your readers
 might not naturally use to refer to them. We recommend that you give your datasets
@@ -67,9 +63,7 @@ if the data is relevant to them or not.
 4. For **Description**, enter a description for the dataset
    that describes the data it contains.
 
-## Step 2:
-
-Instruct how to use date fields in your datasets
+## Step 2: Instruct how to use date fields in your datasets
 
 If your dataset contains date and time information, we recommend instructing how to
 use that information when answering questions. Doing this is especially important if
@@ -102,9 +96,7 @@ how to aggregate metrics.
    metrics in a topic at the daily, weekly, monthly, quarterly, or yearly
    level.
 
-## Step 3:
-
-Exclude unused fields
+## Step 3: Exclude unused fields
 
 When you add a dataset to a topic, all columns (fields) in the dataset are added
 by default. If your dataset contains fields that you or your readers don't use,
@@ -119,9 +111,7 @@ improves the accuracy of answers that your readers receive.
 3. In the **Fields** section, under
    **Include**, toggle the icon off.
 
-## Step 4: Rename
-
-fields to be natural-language-friendly
+## Step 4: Rename fields to be natural-language-friendly
 
 Fields in a dataset are often named based on technical naming conventions. You can
 make your field names more user-friendly in your topics by renaming them and adding
@@ -144,9 +134,7 @@ additional context.
 5. For **Description**, enter a description of the
    field.
 
-## Step 5: Add synonyms
-
-to fields and field values
+## Step 5: Add synonyms to fields and field values
 
 Even if you update your field names to be user-friendly and provide a description
 for them, your readers might still use different names to refer to them. For
@@ -192,9 +180,7 @@ add synonyms for those values. You can add `Northwest` for
 7. To add synonyms for another value, repeat steps 5–6.
 8. When you finish, choose **Done**.
 
-## Step 6: Explain more
-
-about your fields
+## Step 6: Explain more about your fields
 
 To help interpret how to use your data to answer readers' questions, you
 can explain more about the fields in your datasets.
@@ -207,9 +193,7 @@ ask a question.
 
 Use the following procedures to explain more about your fields.
 
-### Assign
-
-field roles
+### Assign field roles
 
 Every field in your dataset is either a dimension or a measure.
 _Dimensions_ are categorical data, and
@@ -237,9 +221,7 @@ measure**.
 This explains how to interpret and display the values in this
 field.
 
-### Set
-
-field aggregations
+### Set field aggregations
 
 Setting field aggregations helps determine which function should or shouldn't be
 used when those fields are aggregated across multiple rows. You can set a
@@ -278,9 +260,7 @@ aggregate dimensions by count and count distinct. 5. (Optional) For **Not allowe
 an aggregation that you don't want to use. 6. (Optional) If you don't want to aggregate the field in a filter,
 choose **Never aggregate in a filter**.
 
-### Specify
-
-how to format field values
+### Specify how to format field values
 
 If you want to explain how to format the values in your fields, you can do so.
 For example, suppose that you have the field `Order Sales Amount`,
@@ -297,9 +277,7 @@ answers.
 4. For **Value format**, choose how you want to format
    the values in the field.
 
-### Specify
-
-field semantic types
+### Specify field semantic types
 
 A field _semantic type_ is the type of information
 represented by the data in a field. For example, you might have a field that

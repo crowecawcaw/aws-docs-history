@@ -1,6 +1,4 @@
-# Step 3:
-
-Embed the dashboard URL
+# Step 3: Embed the dashboard URL
 
 ###### Important
 

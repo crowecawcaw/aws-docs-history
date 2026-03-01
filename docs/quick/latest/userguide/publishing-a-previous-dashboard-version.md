@@ -1,6 +1,4 @@
-# Publishing a previous
-
-version of an Amazon Quick Sight dashboard
+# Publishing a previous version of an Amazon Quick Sight dashboard
 
 Each time you make updates to an analysis and publish it, a new version of the
 Amazon Quick Sight dashboard is created. To revert back to a previous version of a dashboard,

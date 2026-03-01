@@ -30,9 +30,7 @@ with the new dataset.
 At this point, you can choose to add a new dataset, edit the new dataset, or
 replace it with a different one. Choose **Close** to exit.
 
-## If your new dataset doesn't
-
-match
+## If your new dataset doesn't match
 
 In some cases, the selected replacement dataset doesn't contain all of the
 fields and hierarchies used by the visuals, filters, parameters, and calculated

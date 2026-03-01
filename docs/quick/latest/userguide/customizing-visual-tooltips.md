@@ -1,6 +1,4 @@
-# Tooltips on visual types in
-
-Quick
+# Tooltips on visual types in Quick
 
 When you hover your cursor over any graphical element in an Quick visual,
 a tooltip appears with information about that specific element. For example, when you
@@ -13,9 +11,7 @@ customizing what viewers can see. You can even prevent tooltips from appearing w
 viewers hover a cursor over an element. To do this, you can customize the tooltips for
 that visual.
 
-## Customizing tooltips in a
-
-visual
+## Customizing tooltips in a visual
 
 Use the following procedure to customize tooltips in a visual.
 
@@ -83,9 +79,7 @@ A new field is added to the list of fields in your tooltip.
    the tooltip.
 3. Choose **Save**.
 
-## Hiding tooltips in a
-
-visual
+## Hiding tooltips in a visual
 
 If you don't want tooltips to appear when you hover your cursor over data in a
 visual, you can hide them.

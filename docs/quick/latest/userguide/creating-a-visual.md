@@ -39,8 +39,7 @@ dimension and measure fields to produce a visual, for example sales totals (a
 measure) by sales date (a dimension). For more information about the types of fields
 expected by the different visual types, see the specific visual type topics in the
 [Visual types in Amazon Quick Sight](working-with-visual-types.md "working-with-visual-types.md") section. For more information about
-changing a field's measure or dimension setting, see [Setting fields as a dimensions or
-measures](setting-dimension-or-measure.md "setting-dimension-or-measure.md").
+changing a field's measure or dimension setting, see [Setting fields as a dimensions or measures](setting-dimension-or-measure.md "setting-dimension-or-measure.md").
 
 ## Field limitations
 
@@ -72,8 +71,7 @@ Use the following procedure to create a new visual.
    add a visual to.
 3. On the analysis page, choose the dataset that you want to use from the
    dataset list at the top of the **Data** pane. For more
-   information, see [Adding a dataset to an
-   analysis](adding-a-data-set-to-an-analysis.md "adding-a-data-set-to-an-analysis.md").
+   information, see [Adding a dataset to an analysis](adding-a-data-set-to-an-analysis.md "adding-a-data-set-to-an-analysis.md").
 4. Open the **Visualize** pane, choose
    **Add**, and then choose **Add
    visual**.

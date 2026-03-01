@@ -1,6 +1,4 @@
-# Amazon Quick Microsoft
-
-Outlook extension author guide
+# Amazon Quick Microsoft Outlook extension author guide
 
 As an Amazon Quick author, you can deploy Quick Microsoft
 Outlook extensions after your admin establishes the foundational
@@ -36,18 +34,12 @@ Outlook](../../../quicksuite/latest/userguide/outlook-extension.md "../../../qui
 
 ###### Topics
 
-- [Deploy Microsoft Outlook
-  extension](#add-extensions-outlook "#add-extensions-outlook")
-- [Edit Microsoft Outlook
-  extension](#edit-extensions-outlook "#edit-extensions-outlook")
-- [Share Microsoft
-  Outlook extension](#share-extensions-outlook "#share-extensions-outlook")
-- [Delete Microsoft
-  Outlook extension](#delete-extensions-outlook "#delete-extensions-outlook")
+- [Deploy Microsoft Outlook extension](#add-extensions-outlook "#add-extensions-outlook")
+- [Edit Microsoft Outlook extension](#edit-extensions-outlook "#edit-extensions-outlook")
+- [Share Microsoft Outlook extension](#share-extensions-outlook "#share-extensions-outlook")
+- [Delete Microsoft Outlook extension](#delete-extensions-outlook "#delete-extensions-outlook")
 
-## Deploy Microsoft Outlook
-
-extension
+## Deploy Microsoft Outlook extension
 
 Deploy a new Microsoft Outlook extension instance in the
 Quick console. This process establishes the foundation for
@@ -115,9 +107,7 @@ Amazon Quick Add-in in their Microsoft Outlook.
 Your Outlook extension has now been successfully deployed and
 is available for users.
 
-## Edit Microsoft Outlook
-
-extension
+## Edit Microsoft Outlook extension
 
 As an author, you can edit the extensions you deploy to your users. Modify
 extension settings to update names, descriptions, or configuration options.
@@ -133,9 +123,7 @@ extension.
 5. Edit the configuration as required and select
    **Save** to confirm the changes.
 
-## Share Microsoft
-
-Outlook extension
+## Share Microsoft Outlook extension
 
 Share ownership and management permissions with specific users and groups,
 enabling multiple users to manage extensions and assist with installation. You
@@ -157,9 +145,7 @@ can assign different permission levels and manage access as needed.
    **Remove access** to delete the access for the
    selected group or user.
 
-## Delete Microsoft
-
-Outlook extension
+## Delete Microsoft Outlook extension
 
 As an author, you can delete the extensions you deploy to your users.
 Permanently remove a extension from your Quick console and revoke

@@ -1,6 +1,4 @@
-# Adding and removing page breaks to a
-
-report
+# Adding and removing page breaks to a report
 
 You can add page breaks between sections of a pixel perfect report to organize the way
 data is rendered when the report is published by page. For example, let's say you

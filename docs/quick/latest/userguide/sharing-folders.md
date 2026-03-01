@@ -1,6 +1,4 @@
-# Create and manage membership permissions for
-
-Quick Sight shared folders
+# Create and manage membership permissions for Quick Sight shared folders
 
 **Shared folders (unrestricted)**
 
@@ -87,5 +85,4 @@ for the user that you want to grant folder access to.
 
 You can also use the Quick Sight APIs to create special scaled folders that can be
 shared with up to 3000 namespaces. To learn more about creating a scaled folder, see
-[Creating Quick Sight scaled folders with the
-Quick Sight APIs](folders-scaled.md "folders-scaled.md").
+[Creating Quick Sight scaled folders with the Quick Sight APIs](folders-scaled.md "folders-scaled.md").

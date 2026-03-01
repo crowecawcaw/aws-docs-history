@@ -8,9 +8,7 @@
 | --------------------------------------------------------------------------- |
 | Intended audience:<br>System administrators and Amazon Quick administrators |
 
-## Self-provisioning an Amazon Quick
-
-administrator
+## Self-provisioning an Amazon Quick administrator
 
 Amazon Quick administrators are users who can also manage Amazon Quick features
 such as account settings and accounts. They can also purchase additional
@@ -43,9 +41,7 @@ create the administrator for Amazon Quick.
 
 On success, the target user is now an administrator in Amazon Quick.
 
-## Self-provisioning an Amazon Quick
-
-author
+## Self-provisioning an Amazon Quick author
 
 Amazon Quick authors can create data sources, datasets, analyses, and dashboards.
 They can share analyses and dashboards with other Amazon Quick users in your
@@ -62,9 +58,7 @@ active and billable the first time they open Amazon Quick. To set up
 self-provisioning, you need to give them permission to use the
 `quicksight:CreateUser` action.
 
-## Self-provisioning an Amazon Quick
-
-read-only user
+## Self-provisioning an Amazon Quick read-only user
 
 Amazon Quick read-only users or _readers_ can view and
 manipulate dashboards that are shared with them, but they can't make any changes or

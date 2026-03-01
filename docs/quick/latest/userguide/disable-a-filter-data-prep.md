@@ -8,9 +8,7 @@ to the field, you can simply enable it.
 
 Use the following procedures to learn how to enable or disable filters.
 
-## Disabling filters in
-
-datasets
+## Disabling filters in datasets
 
 Use the following procedure to disable filters in datasets.
 
@@ -27,9 +25,7 @@ Use the following procedure to disable filters in datasets.
    **Disable**. To enable a filter that was disabled,
    choose **Enable**.
 
-## Disabling filters in
-
-analyses
+## Disabling filters in analyses
 
 Use the following procedure to disable filters in analyses.
 

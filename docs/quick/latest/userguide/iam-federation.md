@@ -33,15 +33,9 @@ users have access to Amazon Quick using your existing identity provider.
 
 ###### Topics
 
-- [Initiating sign-on from the identity
-  provider (IdP)](federated-identities-idp-to-sp.md "federated-identities-idp-to-sp.md")
-- [Setting up IdP federation
-  using IAM and Amazon Quick](external-identity-providers-setting-up-saml.md "external-identity-providers-setting-up-saml.md")
-- [Initiating sign-on from
-  Quick](federated-identities-sp-to-idp.md "federated-identities-sp-to-idp.md")
-- [Setting up service provider–initiated
-  federation with Quick Enterprise edition](setup-quicksight-to-idp.md "setup-quicksight-to-idp.md")
-- [Configuring email syncing for federated users in
-  Quick](jit-email-syncing.md "jit-email-syncing.md")
-- [Tutorial: Amazon Quick and IAM identity
-  federation](tutorial-okta-quicksight.md "tutorial-okta-quicksight.md")
+- [Initiating sign-on from the identity provider (IdP)](federated-identities-idp-to-sp.md "federated-identities-idp-to-sp.md")
+- [Setting up IdP federation using IAM and Amazon Quick](external-identity-providers-setting-up-saml.md "external-identity-providers-setting-up-saml.md")
+- [Initiating sign-on from Quick](federated-identities-sp-to-idp.md "federated-identities-sp-to-idp.md")
+- [Setting up service provider–initiated federation with Quick Enterprise edition](setup-quicksight-to-idp.md "setup-quicksight-to-idp.md")
+- [Configuring email syncing for federated users in Quick](jit-email-syncing.md "jit-email-syncing.md")
+- [Tutorial: Amazon Quick and IAM identity federation](tutorial-okta-quicksight.md "tutorial-okta-quicksight.md")

@@ -51,15 +51,11 @@ value from the set of values that are aggregated over. The result from
 `percentileCont` might or might not exist in the values from the
 specified measure.
 
-## Examples of
-
-percentileCont
+## Examples of percentileCont
 
 The following examples help explain how percentileCont works.
 
-###### Example Comparing median, `percentileCont`, and
-
-`percentileDisc`
+###### Example Comparing median, `percentileCont`, and `percentileDisc`
 
 The following example shows the median for a dimension (category) by using the
 `median`, `percentileCont`, and

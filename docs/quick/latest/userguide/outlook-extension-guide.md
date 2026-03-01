@@ -1,6 +1,4 @@
-# Amazon Quick Microsoft Outlook
-
-extension
+# Amazon Quick Microsoft Outlook extension
 
 ###### Note
 
@@ -31,7 +29,5 @@ Key capabilities include:
 
 ###### Topics
 
-- [Amazon Quick Microsoft
-  Outlook extension author guide](outlook-extension-author-guide.md "outlook-extension-author-guide.md")
-- [Amazon Quick Microsoft
-  Outlook extension user guide](outlook-extension-user-guide.md "outlook-extension-user-guide.md")
+- [Amazon Quick Microsoft Outlook extension author guide](outlook-extension-author-guide.md "outlook-extension-author-guide.md")
+- [Amazon Quick Microsoft Outlook extension user guide](outlook-extension-user-guide.md "outlook-extension-user-guide.md")

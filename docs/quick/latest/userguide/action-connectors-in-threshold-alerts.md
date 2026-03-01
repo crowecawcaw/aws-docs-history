@@ -1,6 +1,4 @@
-# Using Quick action connectors in
-
-threshold alerts
+# Using Quick action connectors in threshold alerts
 
 ## Prerequisites
 
@@ -16,9 +14,7 @@ The connector must meet these requirements:
   - Salesforce
   - ServiceNow
 
-## Enable Quick actions on a dashboard
-
-to use action connectors
+## Enable Quick actions on a dashboard to use action connectors
 
 ###### To enable Quick actions on a dashboard to use action connectors
 

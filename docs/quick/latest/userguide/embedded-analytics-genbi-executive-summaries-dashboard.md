@@ -1,6 +1,4 @@
-# Enabling executive
-
-summaries in embedded dashboards
+# Enabling executive summaries in embedded dashboards
 
 |                                            |
 | ------------------------------------------ |

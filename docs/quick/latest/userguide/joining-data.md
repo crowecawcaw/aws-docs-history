@@ -20,8 +20,7 @@ when all of the following conditions are met:
     Quick Sight data source. This doesn't apply if two separate
     Quick Sight data sources refer to the same underlying database. It
     must be the exact same Quick Sight data source. For more
-    information about using a single data source, see [Creating a dataset using an existing data
-    source](create-a-data-set-existing.md "create-a-data-set-existing.md").
+    information about using a single data source, see [Creating a dataset using an existing data source](create-a-data-set-existing.md "create-a-data-set-existing.md").
 
 - If any of the logical tables refer to a Quick Sight dataset that is a
   parent dataset:
@@ -63,8 +62,7 @@ tables combined. There are no join size limits for the primary table.
   size of all secondary tables in this join cannot exceed 20 GB.
 
 For more information about SPICE dataset size calculations, see
-[Estimating the size of SPICE
-datasets](spice.md#spice-capacity-formula "spice.md#spice-capacity-formula").
+[Estimating the size of SPICE datasets](spice.md#spice-capacity-formula "spice.md#spice-capacity-formula").
 
 ### Can a joined dataset use direct query?
 

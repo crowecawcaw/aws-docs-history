@@ -1,6 +1,4 @@
-# Using row-level
-
-security with user-based rules to restrict access to a dataset
+# Using row-level security with user-based rules to restrict access to a dataset
 
 |                                            |
 | ------------------------------------------ |
@@ -25,8 +23,7 @@ can think of this as _adding a rule_ for that user or
 group. Then you can add one column to the query or file for each field that you want to
 grant or restrict access to. For each user or group name that you add, you add the
 values for each field. You can use NULL (no value) to mean all values. To see examples
-of dataset rules, see [Creating dataset
-rules for row-level security](#create-data-set-rules-for-row-level-security "#create-data-set-rules-for-row-level-security").
+of dataset rules, see [Creating dataset rules for row-level security](#create-data-set-rules-for-row-level-security "#create-data-set-rules-for-row-level-security").
 
 To apply the dataset rules, you add the rules as a permissions dataset to your
 dataset. Keep in mind the following points:
@@ -91,9 +88,7 @@ Row-level security works only for fields containing textual data (string, char,
 varchar, and so on). It doesn't currently work for dates or numeric fields. Anomaly
 detection is not supported for datasets that use row-level security (RLS).
 
-## Creating dataset
-
-rules for row-level security
+## Creating dataset rules for row-level security
 
 Use the following procedure to create a permissions file or query to use as
 dataset rules.
@@ -196,9 +191,7 @@ Following is a SQL example.
    find it, give it a meaningful name, for example
    `Permissions-Sales-Pipeline`.
 
-## Rules Dataset
-
-flagging for row-level security
+## Rules Dataset flagging for row-level security
 
 Use the following procedure to appropriately flag a dataset as a rules
 dataset.

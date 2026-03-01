@@ -13,14 +13,10 @@ instances](../../../quicksuite/latest/userguide/configure-access.md#database-con
 
 ###### Topics
 
-- [Network configuration
-  requirements](#network-configuration-requirements "#network-configuration-requirements")
-- [Database configuration
-  requirements for self-administered instances](#database-configuration-requirements "#database-configuration-requirements")
+- [Network configuration requirements](#network-configuration-requirements "#network-configuration-requirements")
+- [Database configuration requirements for self-administered instances](#database-configuration-requirements "#database-configuration-requirements")
 
-## Network configuration
-
-requirements
+## Network configuration requirements
 
 |                                             |
 | ------------------------------------------- |
@@ -35,20 +31,13 @@ grant Amazon Quick permissions to access it. For more information, see [Accessin
 
 ###### Topics
 
-- [Network configuration for an
-  AWS instance in a default VPC](#network-configuration-aws-default-vpc "#network-configuration-aws-default-vpc")
-- [Network configuration for
-  an AWS instance in a nondefault VPC](#network-configuration-aws-nondefault-vpc "#network-configuration-aws-nondefault-vpc")
-- [Network configuration for an
-  AWS instance in a private VPC](#network-configuration-aws-private-vpc "#network-configuration-aws-private-vpc")
-- [Network configuration for an
-  AWS instance that is not in a VPC](#network-configuration-aws-no-vpc "#network-configuration-aws-no-vpc")
-- [Network configuration for a database
-  instance other than AWS](#network-configuration-not-aws "#network-configuration-not-aws")
+- [Network configuration for an AWS instance in a default VPC](#network-configuration-aws-default-vpc "#network-configuration-aws-default-vpc")
+- [Network configuration for an AWS instance in a nondefault VPC](#network-configuration-aws-nondefault-vpc "#network-configuration-aws-nondefault-vpc")
+- [Network configuration for an AWS instance in a private VPC](#network-configuration-aws-private-vpc "#network-configuration-aws-private-vpc")
+- [Network configuration for an AWS instance that is not in a VPC](#network-configuration-aws-no-vpc "#network-configuration-aws-no-vpc")
+- [Network configuration for a database instance other than AWS](#network-configuration-not-aws "#network-configuration-not-aws")
 
-### Network configuration for an
-
-AWS instance in a default VPC
+### Network configuration for an AWS instance in a default VPC
 
 In some cases, your database might be on an AWS cluster or instance that you
 created in a default VPC. Thus, it's publicly accessible (that is, you didn't
@@ -64,9 +53,7 @@ details on how to do this, choose the appropriate topic following:
 - [Authorizing connections from Amazon Quick to Amazon EC2
   instances](../../../quicksight/latest/user/enabling-access-ec2.md "../../../quicksight/latest/user/enabling-access-ec2.md")
 
-### Network configuration for
-
-an AWS instance in a nondefault VPC
+### Network configuration for an AWS instance in a nondefault VPC
 
 If you are configuring an AWS instance in a nondefault VPC, make sure that the
 instance is publicly accessible and that the VPC has the following:
@@ -96,9 +83,7 @@ For more information about configuring VPC ACLs, see [Network ACLs](../../../vpc
 
 For more information about configuring a VPC in the Amazon VPC service, see [Networking in Your VPC](../../../vpc/latest/userguide/VPC_Networking.md "../../../vpc/latest/userguide/VPC_Networking.md").
 
-### Network configuration for an
-
-AWS instance in a private VPC
+### Network configuration for an AWS instance in a private VPC
 
 If your database is on an AWS cluster or instance that you created in a private
 VPC, you can use it with Amazon Quick. For more information, see [Connecting to a Amazon VPC with Amazon Quick](../../../quicksight/latest/user/working-with-aws-vpc.md "../../../quicksight/latest/user/working-with-aws-vpc.md").
@@ -106,9 +91,7 @@ VPC, you can use it with Amazon Quick. For more information, see [Connecting to 
 For more information on Amazon VPC, see [Amazon VPC](https://aws.amazon.com/vpc/ "https://aws.amazon.com/vpc/") and [Amazon VPC
 Documentation](../../../vpc.md "../../../vpc.md").
 
-### Network configuration for an
-
-AWS instance that is not in a VPC
+### Network configuration for an AWS instance that is not in a VPC
 
 If you are configuring an AWS instance that is not in a VPC, make sure that the
 instance is publicly accessible. Also, make sure that there is a security group rule
@@ -122,9 +105,7 @@ further details on how to do this, choose the appropriate topic following:
 - [Authorizing connections from Amazon Quick to Amazon EC2
   instances](../../../quicksight/latest/user/enabling-access-ec2.md "../../../quicksight/latest/user/enabling-access-ec2.md")
 
-### Network configuration for a database
-
-instance other than AWS
+### Network configuration for a database instance other than AWS
 
 To use SSL to secure your connections to your database
 (_recommended_), make sure that you have a certificate signed
@@ -153,9 +134,7 @@ For more information on the IP address ranges for Amazon Quick in supported
 Regions, see [AWS Regions, websites, IP address ranges, and
 endpoints](../../../quicksight/latest/user/regions.md "../../../quicksight/latest/user/regions.md").
 
-## Database configuration
-
-requirements for self-administered instances
+## Database configuration requirements for self-administered instances
 
 |                                                                             |
 | --------------------------------------------------------------------------- |

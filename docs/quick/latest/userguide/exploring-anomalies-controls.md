@@ -1,6 +1,4 @@
-# Setting controls for anomaly
-
-detection
+# Setting controls for anomaly detection
 
 You can find the settings for anomaly detection in the
 **Controls** section of the screen. You can open and close

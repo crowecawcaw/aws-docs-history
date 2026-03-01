@@ -56,8 +56,7 @@ metrics for monitoring traffic and latency of your Amazon Quick assets.
 ###### Topics
 
 - [Per-dashboard metrics](#per-dashboard-metrics "#per-dashboard-metrics")
-- [Per-dataset ingestion
-  metrics](#per-ingestion-metrics "#per-ingestion-metrics")
+- [Per-dataset ingestion metrics](#per-ingestion-metrics "#per-ingestion-metrics")
 - [Per-visual metrics](#per-visual-metrics "#per-visual-metrics")
 - [Per-unstructured dataset metrics](#per-unstructured-dataset-metrics "#per-unstructured-dataset-metrics")
 - [Per-action connector metrics](#per-action-connector-metrics "#per-action-connector-metrics")
@@ -73,9 +72,7 @@ find these metrics under the `AWS/QuickSight/Dashboard
 | DashboardViewCount    | The number of times that a dashboard has been viewed.<br>This number includes all access patterns such as web,<br>mobile, and embedded.<br>The most useful statistic for this metric is<br>`SUM`, which represents the total number<br>of dashboard views during a set period of time.                                                                                                                     | DashboardId | Count       |
 | DashboardViewLoadTime | The amount of time that it takes for a Amazon Quick Sight<br>dashboard to load. The measurement begins when a user<br>reaches the Amazon Quick Sight dashboard and ends when all of the<br>dashboard's visuals finish rendering.<br>The most useful statistic for this metric is<br>`AVERAGE`, which represents the average<br>load time of a Amazon Quick Sight dashboard during a set period of<br>time. | DashboardId | Millisecond |
 
-#### Per-dataset ingestion
-
-metrics
+#### Per-dataset ingestion metrics
 
 The following metrics track ingestions for specific [SPICE](../../../quicksight/latest/user/spice.md "../../../quicksight/latest/user/spice.md") datasets. You can find these metrics under the
 `AWS/QuickSight/Ingestion Metrics` group in
@@ -137,17 +134,13 @@ aggregate metrics for monitoring traffic and latency of your Amazon Quick assets
 
 ###### Topics
 
-- [Aggregate dashboard
-  metrics](#aggregate-dashboard-metrics "#aggregate-dashboard-metrics")
-- [Aggregate ingestion
-  metrics](#aggregate-ingestion-metrics "#aggregate-ingestion-metrics")
+- [Aggregate dashboard metrics](#aggregate-dashboard-metrics "#aggregate-dashboard-metrics")
+- [Aggregate ingestion metrics](#aggregate-ingestion-metrics "#aggregate-ingestion-metrics")
 - [Aggregate visual metrics](#aggregate-visual-metrics "#aggregate-visual-metrics")
 - [Aggregate unstructured dataset metrics](#aggregate-unstructured-dataset-metrics "#aggregate-unstructured-dataset-metrics")
 - [Aggregate action connector metrics](#aggregate-action-connector-metrics "#aggregate-action-connector-metrics")
 
-#### Aggregate dashboard
-
-metrics
+#### Aggregate dashboard metrics
 
 The following metrics track view counts and load times of all dashboards
 in a Amazon Quick account and region. You can find these metrics under the
@@ -159,9 +152,7 @@ CloudWatch.
 | DashboardViewCount    | The number of times that all Amazon Quick Sight dashboards have<br>been viewed across the entire Amazon Quick account in the<br>region. This number is an aggregate that includes all<br>access patterns such as web, mobile, and<br>embedded.<br>The most useful statistic for this metric is<br>`SUM`, which represents the total number<br>of Amazon Quick Sight dashboard views during a set period of<br>time.  | Count       |
 | DashboardViewLoadTime | The amount of time that it takes for all Amazon Quick Sight<br>dashboards to load. The measurement begins when a user<br>navigates to the Amazon Quick Sight dashboard and ends when all of<br>the dashboard's visuals finish rendering.<br>The most useful statistic for this metric is<br>`AVERAGE`, which represents the average<br>load time of all Amazon Quick Sight dashboard during a set period<br>of time. | Millisecond |
 
-#### Aggregate ingestion
-
-metrics
+#### Aggregate ingestion metrics
 
 The following metrics track all ingestions associated with a Amazon Quick
 account and AWS Region. You can find these metrics under the `AWS/QuickSight/Aggregate Metrics` group in CloudWatch.

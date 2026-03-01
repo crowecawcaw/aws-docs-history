@@ -1,6 +1,4 @@
-# Axes and grid lines on
-
-visual types in Quick
+# Axes and grid lines on visual types in Quick
 
 When you create a chart in Quick, axis lines, axis labels, axis sort
 icons, and grid lines are added to the chart automatically. You can format your visuals

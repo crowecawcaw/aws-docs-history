@@ -25,10 +25,7 @@ forecast or anomaly (outlier) computations to them.
 ###### Topics
 
 - [Insights that include autonarratives](auto-narratives.md "auto-narratives.md")
-- [Use the narrative
-  expression editor](using-narratives-expression-editor-step-by-step.md "using-narratives-expression-editor-step-by-step.md")
-- [The expression editor
-  workspace](using-narratives-expression-editor-menus.md "using-narratives-expression-editor-menus.md")
+- [Use the narrative expression editor](using-narratives-expression-editor-step-by-step.md "using-narratives-expression-editor-step-by-step.md")
+- [The expression editor workspace](using-narratives-expression-editor-menus.md "using-narratives-expression-editor-menus.md")
 - [Adding URLs](using-narratives-expression-editor-urls.md "using-narratives-expression-editor-urls.md")
-- [Working with autonarrative
-  computations](auto-narrative-computations.md "auto-narrative-computations.md")
+- [Working with autonarrative computations](auto-narrative-computations.md "auto-narrative-computations.md")

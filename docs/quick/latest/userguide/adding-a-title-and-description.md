@@ -1,6 +1,4 @@
-# Adding a title and description to an
-
-analysis
+# Adding a title and description to an analysis
 
 In addition to the analysis name, you can add a title and description to an analysis.
 A useful title and description provides context about the information in the
@@ -24,8 +22,7 @@ supported for pixel perfect reports.
    icon.
 
 To create a dynamic sheet title, you can add existing parameters to the
-sheet title. For more information, see [Using parameters in titles and descriptions
-in Amazon Quick](parameters-in-titles.md "parameters-in-titles.md"). 3. Choose **Sheets** in the application bar, and then choose
+sheet title. For more information, see [Using parameters in titles and descriptions in Amazon Quick](parameters-in-titles.md "parameters-in-titles.md"). 3. Choose **Sheets** in the application bar, and then choose
 **Add description**. 4. In the description space that appears on the sheet, enter the description
 that you want and press `Enter`. To remove a
 description, choose **Sheets** in the application bar and

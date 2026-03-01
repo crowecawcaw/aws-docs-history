@@ -1,6 +1,4 @@
-# Line and marker styling on line charts in
-
-Quick
+# Line and marker styling on line charts in Quick
 
 In Quick line charts, you have multiple options to emphasize what you want
 readers to focus on: color, line style, and markers. You can use these options together

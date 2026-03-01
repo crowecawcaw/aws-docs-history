@@ -16,8 +16,7 @@ Use the following procedure to create a new analysis.
     type that you want. You can choose between an **Interactive
     sheet** and a **Pixel perfect report**. To create a
     pixel perfect report, you need the pixel perfect reports add-on for your account. For
-    more information about pixel perfect reports, see [Working with pixel perfect reports in
-    Amazon Quick Sight](working-with-reports.md "working-with-reports.md"). For
+    more information about pixel perfect reports, see [Working with pixel perfect reports in Amazon Quick Sight](working-with-reports.md "working-with-reports.md"). For
     more information on sheets, see [Adding and managing sheets](working-with-multiple-sheets.md "working-with-multiple-sheets.md").
 4.  (Optional) If you choose **Interactive sheet**, follow these
     steps:
@@ -39,8 +38,7 @@ Use the following procedure to create a new analysis.
           + 1600px
           + 1920px
 
-      For more information on formatting interactive sheets, see [Working with interactive sheets in
-      Amazon Quick Sight](working-with-interactive-sheets.md "working-with-interactive-sheets.md").
+      For more information on formatting interactive sheets, see [Working with interactive sheets in Amazon Quick Sight](working-with-interactive-sheets.md "working-with-interactive-sheets.md").
 
 5.  (Optional) If you choose **Pixel perfect report**, follow these
     steps:
@@ -66,11 +64,9 @@ Use the following procedure to create a new analysis.
 
     Before you can create Amazon Quick Sight pixel perfect reports, first get the
     pixel perfect reporting add-on for your Quick account. For more
-    information on getting the pixel perfect reporting add-on, see [Get the Quick
-    pixel perfect reports add-on](qs-reports-getting-started.md#qs-reports-getting-started-subscribe "qs-reports-getting-started.md#qs-reports-getting-started-subscribe").
+    information on getting the pixel perfect reporting add-on, see [Get the Quick pixel perfect reports add-on](qs-reports-getting-started.md#qs-reports-getting-started-subscribe "qs-reports-getting-started.md#qs-reports-getting-started-subscribe").
 
-    For more information on formatting pixel perfect reports, see [Working with pixel perfect reports in
-    Amazon Quick Sight](working-with-reports.md "working-with-reports.md").
+    For more information on formatting pixel perfect reports, see [Working with pixel perfect reports in Amazon Quick Sight](working-with-reports.md "working-with-reports.md").
 
 6.  Choose **Add**.
 7.  Create a visual. For more information about creating visuals, see [Adding visuals to Quick Sight analyses](creating-a-visual.md "creating-a-visual.md").

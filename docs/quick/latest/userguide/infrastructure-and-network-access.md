@@ -1,6 +1,4 @@
-# Infrastructure security in
-
-Amazon Quick
+# Infrastructure security in Amazon Quick
 
 |                                                   |
 | ------------------------------------------------- |

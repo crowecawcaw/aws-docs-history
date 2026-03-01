@@ -1,6 +1,4 @@
-# Sharing a link a shared
-
-dashboard
+# Sharing a link a shared dashboard
 
 After you grant users access to a dashboard, you can copy a link to it and send it
 to them. Anyone with access to the dashboard can access the link and see the

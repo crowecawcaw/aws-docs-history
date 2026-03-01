@@ -1,6 +1,4 @@
-# Adding, moving, and deleting
-
-sections
+# Adding, moving, and deleting sections
 
 ## Add a new section
 

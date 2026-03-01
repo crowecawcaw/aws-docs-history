@@ -1,6 +1,4 @@
-# Adding named entities to a
-
-Amazon Quick Sight topic dataset
+# Adding named entities to a Amazon Quick Sight topic dataset
 
 When asking questions about your topic, your readers might refer to multiple
 columns of data without stating each column explicitly. For example, they might ask

@@ -1,6 +1,4 @@
-# Using dataset parameters in Quick
-
-analyses
+# Using dataset parameters in Quick analyses
 
 Once you create a dataset parameter, after you add the dataset to an analysis, map the
 dataset parameter to a new or existing analysis parameter. After you map a dataset
@@ -15,9 +13,7 @@ dataset parameters (default). Alternatively, you can choose to see all mapped an
 unmapped dataset parameters by choosing **ALL** from the
 **Viewing** dropdown.
 
-## Mapping dataset parameters in
-
-new Quick analyses
+## Mapping dataset parameters in new Quick analyses
 
 When you create a new analysis from a dataset that contains parameters, you need
 to map the dataset parameters to the analysis before you can use them. This is also
@@ -80,9 +76,7 @@ one analysis parameter at a time. To map a dataset parameter to a different anal
 parameter, unmap the dataset parameter and then map it to the new analysis
 parameter.
 
-## Adding filter controls
-
-to mapped analysis parameters
+## Adding filter controls to mapped analysis parameters
 
 After you map a dataset parameter to an analysis parameter in Quick, you can
 create filter controls for filters, actions, calculated fields, titles,

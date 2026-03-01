@@ -1,6 +1,4 @@
-# Remove a dataset from an
-
-analysis
+# Remove a dataset from an analysis
 
 Use the following procedure to delete a dataset from an analysis.
 

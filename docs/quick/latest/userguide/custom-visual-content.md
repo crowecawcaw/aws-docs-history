@@ -24,9 +24,7 @@ For more information about adding visuals to a dashboard, see [Adding a visual](
 Use the following procedures to learn how to embed custom visuals in your
 dashboards.
 
-## Best practices for using
-
-custom visual content
+## Best practices for using custom visual content
 
 When embedding web content using the custom visual content chart type, we
 recommend the following:
@@ -56,9 +54,7 @@ contents that rely on third-party cookies in Chrome. For more
 information about Chrome's plans to deprecate third party cookies,
 see [Chrome is deprecating third-party cookies](https://cloud.google.com/looker/docs/best-practices/chrome-third-party-cookie-deprecation "https://cloud.google.com/looker/docs/best-practices/chrome-third-party-cookie-deprecation").
 
-## Embedding images in a
-
-dashboard
+## Embedding images in a dashboard
 
 You can embed an online image in a dashboard using the image URL. Use the
 following procedure to embed an image using the custom visual content chart
@@ -105,9 +101,7 @@ the following options:
      larger than the image, however, the image is centered in the visual
      and is surrounded by white space.
 
-## Embedding online forms in a
-
-dashboard
+## Embedding online forms in a dashboard
 
 You can embed an online form in a dashboard using the embeddable URL. Use the
 following procedure to embed an online form using the custom visual content chart
@@ -129,9 +123,7 @@ choose to share the form on the site where you create it. 4. Choose **Apply**.
 
 The form appears in the visual.
 
-## Embedding webpages in a
-
-dashboard
+## Embedding webpages in a dashboard
 
 You can embed webpage in a dashboard using the URL. Use the following procedure to
 embed webpage using the custom visual content chart type.
@@ -148,9 +140,7 @@ embed webpage using the custom visual content chart type.
 
 The webpage appears in the visual.
 
-## Embedding online videos in a
-
-dashboard
+## Embedding online videos in a dashboard
 
 You can embed an online video in a dashboard using the embeddable video URL. Use
 the following procedure to embed an online video using the custom visual content

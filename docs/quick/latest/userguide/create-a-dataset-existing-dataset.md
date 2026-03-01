@@ -1,6 +1,4 @@
-# Creating a dataset using an existing
-
-dataset in Amazon Quick
+# Creating a dataset using an existing dataset in Amazon Quick
 
 After you create a dataset in Amazon Quick, you can create additional datasets using it as a
 source. When you do this, any data preparation that the parent dataset contains, such as
@@ -77,9 +75,7 @@ dataset.
 For example, from a parent dataset, you can create a child dataset and then a
 grandchild dataset for a total of three dataset levels.
 
-## Creating a dataset from
-
-an existing dataset
+## Creating a dataset from an existing dataset
 
 Use the following procedure to create a dataset from an existing dataset.
 
@@ -126,9 +122,7 @@ following options:
 5. (Optional) Prepare your data for analysis. For more information about
    preparing data, see [Preparing data in Amazon Quick Sight](preparing-data.md "preparing-data.md").
 6. (Optional) Set up row-level or column-level security (RLS/CLS) to restrict
-   access to the dataset. For more information about setting up RLS, see [Using row-level
-   security with user-based rules to restrict access to a dataset](restrict-access-to-a-data-set-using-row-level-security.md "restrict-access-to-a-data-set-using-row-level-security.md"). For more information about setting up CLS, see [Using
-   column-level security to restrict access to a dataset](restrict-access-to-a-data-set-using-column-level-security.md "restrict-access-to-a-data-set-using-column-level-security.md").
+   access to the dataset. For more information about setting up RLS, see [Using row-level security with user-based rules to restrict access to a dataset](restrict-access-to-a-data-set-using-row-level-security.md "restrict-access-to-a-data-set-using-row-level-security.md"). For more information about setting up CLS, see [Using column-level security to restrict access to a dataset](restrict-access-to-a-data-set-using-column-level-security.md "restrict-access-to-a-data-set-using-column-level-security.md").
 
 ###### Note
 

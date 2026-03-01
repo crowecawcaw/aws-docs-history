@@ -1,6 +1,4 @@
-# Adding drill-downs to visual data in
-
-Quick Sight
+# Adding drill-downs to visual data in Quick Sight
 
 All visual types except pivot tables offer the ability to create a hierarchy of fields
 for a visual element. The hierarchy lets you drill down to see data at different levels

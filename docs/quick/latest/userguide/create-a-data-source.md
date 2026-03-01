@@ -101,8 +101,7 @@ To view your existing connection profiles, open the Quick start page,
 choose **Data**, choose **Create**, and then
 choose **New Dataset**.
 
-For a list of supported data source connections and examples, see [Connect to your data with integrations and
-datasets](connecting-to-data-examples.md "connecting-to-data-examples.md").
+For a list of supported data source connections and examples, see [Connect to your data with integrations and datasets](connecting-to-data-examples.md "connecting-to-data-examples.md").
 
 After you create a data source in Quick Sight, you can [create a
 dataset](../../../quicksuite/latest/userguide/creating-data-sets.md "../../../quicksuite/latest/userguide/creating-data-sets.md") in Quick Sight that contains data from the connected data

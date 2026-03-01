@@ -1,6 +1,4 @@
-# Staging bucket no longer exists
-
-when using Athena with Amazon Quick Sight
+# Staging bucket no longer exists when using Athena with Amazon Quick Sight
 
 Use this section to help solve this error: "**The staging bucket for this
 query result no longer exists in the underlying data source.**"

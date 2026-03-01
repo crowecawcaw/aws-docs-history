@@ -59,16 +59,11 @@ To demo the Quick capabilities, you can see [Getting started with Amazon Quick](
 ###### Topics
 
 - [Business intelligence (BI) with Amazon Quick Sight](#how-quick-works-bi "#how-quick-works-bi")
-- [Perform deep research with Amazon Quick
-  Research](#how-quick-works-deep-research "#how-quick-works-deep-research")
-- [Automate workflows with Amazon Quick Flows
-  and Amazon Quick Automate](#how-quick-works-automate-workflows "#how-quick-works-automate-workflows")
-- [Create and use Amazon Quick custom
-  agents](#how-quick-works-chat-agents "#how-quick-works-chat-agents")
-- [Share data and collaborate with
-  Amazon Quick spaces and folders](#how-quick-works-spaces-folders "#how-quick-works-spaces-folders")
-- [Governance and administration for
-  Amazon Quick](#how-quick-works-governance-admin "#how-quick-works-governance-admin")
+- [Perform deep research with Amazon Quick Research](#how-quick-works-deep-research "#how-quick-works-deep-research")
+- [Automate workflows with Amazon Quick Flows and Amazon Quick Automate](#how-quick-works-automate-workflows "#how-quick-works-automate-workflows")
+- [Create and use Amazon Quick custom agents](#how-quick-works-chat-agents "#how-quick-works-chat-agents")
+- [Share data and collaborate with Amazon Quick spaces and folders](#how-quick-works-spaces-folders "#how-quick-works-spaces-folders")
+- [Governance and administration for Amazon Quick](#how-quick-works-governance-admin "#how-quick-works-governance-admin")
 
 ## Business intelligence (BI) with Amazon Quick Sight
 
@@ -86,9 +81,7 @@ has the following steps:
    controls, colors, additional pages (called sheets), and more.
 5. Publish the analysis as a dashboard to share it with other people.
 
-## Perform deep research with Amazon Quick
-
-Research
+## Perform deep research with Amazon Quick Research
 
 Amazon Quick Research capabilities in Quick enable you to conduct
 comprehensive analysis across large volumes of data and documents using AI-powered
@@ -110,9 +103,7 @@ This capability is particularly valuable for tasks such as market research,
 competitive analysis, regulatory compliance review, and strategic planning where
 comprehensive data analysis is essential.
 
-## Automate workflows with Amazon Quick Flows
-
-and Amazon Quick Automate
+## Automate workflows with Amazon Quick Flows and Amazon Quick Automate
 
 Quick automations provide intelligent workflow capabilities that combine
 generative AI with automated actions to streamline business processes and enhance
@@ -136,9 +127,7 @@ These automation tools enable organizations to reduce manual effort, improve
 consistency, and scale their analytical and operational processes while maintaining
 human oversight and control.
 
-## Create and use Amazon Quick custom
-
-agents
+## Create and use Amazon Quick custom agents
 
 Custom agents in Quick are AI-powered assistants that you can configure to
 help users explore data, analyze information, and perform specific tasks within your
@@ -161,9 +150,7 @@ Custom agents can be configured with specific goals, knowledge sources, and conn
 tools to provide tailored assistance for different teams, use cases, or business domains
 within your organization.
 
-## Share data and collaborate with
-
-Amazon Quick spaces and folders
+## Share data and collaborate with Amazon Quick spaces and folders
 
 Spaces and folders in Quick provide organizational structures that enable
 teams to collaborate effectively on data analysis and share insights across your
@@ -187,9 +174,7 @@ assets, with support for both personal and shared folders. Shared restricted fol
 ensure that sensitive assets remain within designated boundaries while still enabling
 collaboration.
 
-## Governance and administration for
-
-Amazon Quick
+## Governance and administration for Amazon Quick
 
 Governance and administration features in Quick provide comprehensive
 tools for managing users, controlling access, ensuring security, and maintaining

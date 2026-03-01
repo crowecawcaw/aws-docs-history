@@ -1,6 +1,4 @@
-# Initiating sign-on from the identity
-
-provider (IdP)
+# Initiating sign-on from the identity provider (IdP)
 
 |                                                                 |
 | --------------------------------------------------------------- |

@@ -1,6 +1,4 @@
-# Editing a generated data story in
-
-Amazon Quick Sight
+# Editing a generated data story in Amazon Quick Sight
 
 After you create and keep a data story, you can modify its content to better fit your
 needs. You can format data story text, add images, edit visuals, and add new

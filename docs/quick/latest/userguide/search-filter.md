@@ -1,6 +1,4 @@
-# Searching for specific values in your data in
-
-Quick Sight
+# Searching for specific values in your data in Quick Sight
 
 When filtering your visual data, previewing anomalies, or using list or
 dropdown controls in a dashboard, you can quickly search for values that

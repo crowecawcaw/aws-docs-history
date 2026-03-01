@@ -1,6 +1,4 @@
-# Amazon Quick Slack
-
-extension
+# Amazon Quick Slack extension
 
 ###### Note
 
@@ -34,7 +32,5 @@ Key capabilities include:
 
 ###### Topics
 
-- [Amazon Quick Slack
-  extension author guide](slack-extension-author-guide.md "slack-extension-author-guide.md")
-- [Amazon Quick Slack
-  extension user guide](slack-extension-user-guide.md "slack-extension-user-guide.md")
+- [Amazon Quick Slack extension author guide](slack-extension-author-guide.md "slack-extension-author-guide.md")
+- [Amazon Quick Slack extension user guide](slack-extension-user-guide.md "slack-extension-user-guide.md")

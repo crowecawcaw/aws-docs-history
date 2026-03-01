@@ -1,6 +1,4 @@
-# Granting everyone in
-
-your Amazon Quick Sight account access to a dashboard
+# Granting everyone in your Amazon Quick Sight account access to a dashboard
 
 Alternatively, you can share your Amazon Quick Sight dashboard with everyone in your
 account. When you do this, everyone in your account can access the dashboard,

@@ -7,8 +7,6 @@ through dashboards.
 
 ###### Topics
 
-- [Quick start: Create an Amazon Quick Sight analysis
-  with a single visual using sample data](quickstart-createanalysis.md "quickstart-createanalysis.md")
-- [Tutorial: Create an Amazon Quick Sight dashboard using
-  sample data](example-analysis.md "example-analysis.md")
+- [Quick start: Create an Amazon Quick Sight analysis with a single visual using sample data](quickstart-createanalysis.md "quickstart-createanalysis.md")
+- [Tutorial: Create an Amazon Quick Sight dashboard using sample data](example-analysis.md "example-analysis.md")
 - [Sample data](sample-data.md "sample-data.md")

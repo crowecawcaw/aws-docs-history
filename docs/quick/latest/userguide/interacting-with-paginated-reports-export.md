@@ -1,6 +1,4 @@
-# Exporting and printing Amazon Quick Sight
-
-reports
+# Exporting and printing Amazon Quick Sight reports
 
 Pixel perfect reports are designed to be viewed from a specific point of time. These
 reports, or snapshots, can be printed or downloaded as a PDF or CSV.

@@ -1,6 +1,4 @@
-# Creating Quick Sight scaled folders with the
-
-Quick Sight APIs
+# Creating Quick Sight scaled folders with the Quick Sight APIs
 
 You can use the Amazon Quick Sight APIs to create special scaled folders that can be shared with
 up to 3000 namespaces. Each namespace that is added to a folder can contain up to 100

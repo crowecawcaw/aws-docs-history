@@ -1,6 +1,4 @@
-# Using contribution
-
-analysis for key drivers
+# Using contribution analysis for key drivers
 
 Amazon Quick Sight can identify the dimensions (categories) that contribute to outliers
 in measures (metrics) between two points in time. The key driver that

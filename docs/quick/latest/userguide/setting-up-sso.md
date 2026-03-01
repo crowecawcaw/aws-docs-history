@@ -48,12 +48,9 @@ configuration steps.
 
 ###### Topics
 
-- [Configure your Amazon Quick
-  account with IAM Identity Center](#sec-identity-management-identity-center "#sec-identity-management-identity-center")
+- [Configure your Amazon Quick account with IAM Identity Center](#sec-identity-management-identity-center "#sec-identity-management-identity-center")
 
-## Configure your Amazon Quick
-
-account with IAM Identity Center
+## Configure your Amazon Quick account with IAM Identity Center
 
 |                                            |
 | ------------------------------------------ |

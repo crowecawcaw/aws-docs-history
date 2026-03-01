@@ -2,8 +2,7 @@
 
 Use the following procedure to add suggested insights to your analysis.
 
-Before you begin, make sure that your dataset meets the criteria outlined in [Dataset requirements for using ML insights
-with Amazon Quick Sight](ml-data-set-requirements.md "ml-data-set-requirements.md").
+Before you begin, make sure that your dataset meets the criteria outlined in [Dataset requirements for using ML insights with Amazon Quick Sight](ml-data-set-requirements.md "ml-data-set-requirements.md").
 
 1. Begin with an analysis that has a few fields added to a visual.
 2. On the left, choose **Insights**. The
@@ -52,7 +51,6 @@ can interact with include the following:
 
 If your insight is for anomalies (outliers), you can also change the
 settings for the anomaly detection job. To do this, choose
-**Configure anomaly**. For more information, see [Setting up ML-powered anomaly detection
-for outlier analysis](anomaly-detection-using.md "anomaly-detection-using.md"). 6. (Optional) To remove the insight from your analysis, choose the
+**Configure anomaly**. For more information, see [Setting up ML-powered anomaly detection for outlier analysis](anomaly-detection-using.md "anomaly-detection-using.md"). 6. (Optional) To remove the insight from your analysis, choose the
 **v**-shaped on-visual menu at the top right of the
 visual. Then choose **Delete**.

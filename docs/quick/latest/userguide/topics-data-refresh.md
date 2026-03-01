@@ -1,6 +1,4 @@
-# Refreshing datasets in a
-
-Quick Sight topic
+# Refreshing datasets in a Quick Sight topic
 
 When you add a dataset to a topic, you can specify how often you want that dataset
 to refresh. When you refresh datasets in a topic, the index is refreshed for that
@@ -11,8 +9,7 @@ of unique string values is created and metrics are not indexed. For example, mea
 as integers are not indexed. Questions asked always fetch the latest sales
 metrics based on data in your dataset.
 
-For more information about refreshing the topic index, see [Refreshing Quick Sight topic
-indexes](topics-index.md "topics-index.md")
+For more information about refreshing the topic index, see [Refreshing Quick Sight topic indexes](topics-index.md "topics-index.md")
 
 You can set a refresh schedule for a dataset in a topic, or refresh the dataset
 manually. You can also see when the data was last refreshed.

@@ -50,9 +50,7 @@ value of 36.
 (5 + 7) * 3
 ```
 
-## Example: Arithmetic
-
-operators
+## Example: Arithmetic operators
 
 The following example uses multiple arithmetic operators to determine a sales
 total after discount.
@@ -164,9 +162,7 @@ the value 'n/a' is used.
 ifelse(( (NOT (State = 'WA' OR State = 'OR')) AND Orders > 10), 'Special Promotion XYZ', 'n/a')
 ```
 
-## Example: Creating comparison lists
-
-like "in" or "not in"
+## Example: Creating comparison lists like "in" or "not in"
 
 This example uses operators to create a comparison to find values that exist, or
 don't exist, in a specified list of values.
@@ -201,9 +197,7 @@ AND promoCode <> 2
 AND promoCode <> 3
 ```
 
-## Example: Creating a "between"
-
-comparison
+## Example: Creating a "between" comparison
 
 This example uses comparison operators to create a comparison showing values that
 exist between one value and another.

@@ -1,14 +1,10 @@
-# Advanced use cases of dataset
-
-parameters
+# Advanced use cases of dataset parameters
 
 This section covers more advanced options and use cases working with dataset
 parameters and dropdown controls. Use the following walkthroughs to create dynamic
 dropdown values with dataset parameters.
 
-## Using multivalue controls with dataset
-
-parameters
+## Using multivalue controls with dataset parameters
 
 When you use dataset parameters that are inserted into the custom SQL of a
 dataset, the dataset parameters commonly filter data by values from a specific
@@ -42,8 +38,7 @@ dataset does not have any dataset parameters. 2. Enter a **Name** for the new da
 publish the dataset. In our example, the new dataset is called `State
  Codes`. 3. Open the analysis that contains the original dataset, and add the new
 dataset to the analysis. For information on adding datasets to an existing
-analysis, see [Adding a dataset to an
-analysis](adding-a-data-set-to-an-analysis.md "adding-a-data-set-to-an-analysis.md"). 4. Navigate to the **Controls** pane and find the dropdown
+analysis, see [Adding a dataset to an analysis](adding-a-data-set-to-an-analysis.md "adding-a-data-set-to-an-analysis.md"). 4. Navigate to the **Controls** pane and find the dropdown
 control that you want to edit. Choose the ellipsis (three dots) next to the
 control, and then choose **Edit**. 5. In the **Format control** that appears on the left, and
 choose **Link to a dataset field** in the
@@ -57,9 +52,7 @@ After you finish linking the control to the new dataset, all unique values appea
 in the control's dropdown. These include the values that are filtered out by
 the dataset parameter.
 
-## Using controls with Select
-
-all options
+## Using controls with Select all options
 
 By default, when one or more dataset parameters are mapped to an analysis
 parameter and added to a control, the `Select all` option is not
@@ -82,9 +75,7 @@ select * from all_flights
 where origin_state_abr in (<<$States>>)
 ```
 
-###### To use the Select all option in a control that uses dataset
-
-parameters
+###### To use the Select all option in a control that uses dataset parameters
 
 1. In the **Parameters** pane of the analysis, find the
    dataset parameter that you want to use and choose **Edit**
@@ -113,9 +104,7 @@ expression returns all unique records. If the user chooses a different value
 from the control, the query returns values that were filtered by the dataset
 parameter.
 
-### Using controls
-
-with Select all and multivalue options
+### Using controls with Select all and multivalue options
 
 You can combine the previous `Select all` procedure with the
 multivalue control method discussed earlier to create dropdown controls that
@@ -123,14 +112,10 @@ contain a `Select all` value in addition to multiple values that the
 user can select. This walkthrough assumes that you have followed the previous
 procedures, that you know how to map dataset parameters to analysis parameters,
 and that you can create controls in an analysis. For more information on mapping
-analysis parameters, see [Mapping dataset parameters in
-new Quick analyses](dataset-parameters-analysis.md#dataset-parameters-map-to-analysis "dataset-parameters-analysis.md#dataset-parameters-map-to-analysis"). For more information
-on creating controls in an analysis that is using dataset parameters, see [Adding filter controls
-to mapped analysis parameters](dataset-parameters-analysis.md#dataset-parameters-analysis-filter-control "dataset-parameters-analysis.md#dataset-parameters-analysis-filter-control").
+analysis parameters, see [Mapping dataset parameters in new Quick analyses](dataset-parameters-analysis.md#dataset-parameters-map-to-analysis "dataset-parameters-analysis.md#dataset-parameters-map-to-analysis"). For more information
+on creating controls in an analysis that is using dataset parameters, see [Adding filter controls to mapped analysis parameters](dataset-parameters-analysis.md#dataset-parameters-analysis-filter-control "dataset-parameters-analysis.md#dataset-parameters-analysis-filter-control").
 
-###### To add multiple values to a control with a Select all option and a mapped
-
-dataset parameter
+###### To add multiple values to a control with a Select all option and a mapped dataset parameter
 
 1. Open the analysis that has the original dataset with a `Select
 all` custom SQL expression and a second dataset that includes

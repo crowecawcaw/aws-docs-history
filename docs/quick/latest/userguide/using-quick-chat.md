@@ -1,6 +1,4 @@
-# Ask questions, explore data, and get insights with chat
-
-in Amazon Quick
+# Ask questions, explore data, and get insights with chat in Amazon Quick
 
 You can use Amazon Quick chat to ask questions, interact with your Quick
 resources, and accomplish tasks using multiple agentic worflows using natural language. When

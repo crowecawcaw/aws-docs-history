@@ -38,9 +38,7 @@ functions are available in Amazon Quick:
 
 The visual elements that support aggregated fields varies by visual type.
 
-## Changing or adding
-
-aggregation on a field by using an on-visual editor
+## Changing or adding aggregation on a field by using an on-visual editor
 
 Use the following procedure to change or add aggregation on a field.
 
@@ -51,9 +49,7 @@ Use the following procedure to change or add aggregation on a field.
 2. On the on-visual editor menu, choose **Aggregate**,
    then choose the aggregate function that you want to apply.
 
-## Changing or adding
-
-aggregation to a field by using a field well
+## Changing or adding aggregation to a field by using a field well
 
 Use the following procedure to add aggregation to a field for a pivot table
 visual.

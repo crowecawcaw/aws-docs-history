@@ -1,6 +1,4 @@
-# Legends on visual types in
-
-Quick
+# Legends on visual types in Quick
 
 The _visual legend_ helps you identify what a visual
 element represents by mapping its value to a color. By default, the visual legend

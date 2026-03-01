@@ -1,6 +1,4 @@
-# Creating rules to send Amazon Quick Sight events to
-
-Amazon CloudWatch
+# Creating rules to send Amazon Quick Sight events to Amazon CloudWatch
 
 You can write simple rules to indicate which Amazon Quick Sight events interest you and which
 automated actions to take when an event matches a rule. For example, you can configure

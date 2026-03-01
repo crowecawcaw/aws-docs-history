@@ -1,6 +1,4 @@
-# Datasets using S3 files in
-
-another AWS account
+# Datasets using S3 files in another AWS account
 
 Use this section to learn how to set up security so you can use Quick Sight to
 access Amazon S3 files in another AWS account.
@@ -17,21 +15,16 @@ up any special security. However, you still need a manifest file.
 
 ###### Topics
 
-- [Setting up Amazon S3 to allow access from a different Quick
-  account](#setup-S3-to-allow-access-from-a-different-quicksight-account "#setup-S3-to-allow-access-from-a-different-quicksight-account")
-- [Setting
-  up Quick Sight to access Amazon S3 files in another AWS account](#setup-quicksight-to-access-S3-in-a-different-account "#setup-quicksight-to-access-S3-in-a-different-account")
+- [Setting up Amazon S3 to allow access from a different Quick account](#setup-S3-to-allow-access-from-a-different-quicksight-account "#setup-S3-to-allow-access-from-a-different-quicksight-account")
+- [Setting up Quick Sight to access Amazon S3 files in another AWS account](#setup-quicksight-to-access-S3-in-a-different-account "#setup-quicksight-to-access-S3-in-a-different-account")
 
-## Setting up Amazon S3 to allow access from a different Quick
-
-account
+## Setting up Amazon S3 to allow access from a different Quick account
 
 Use this section to learn how to set permissions in Amazon S3 files so they can be
 accessed by Quick Sight in another AWS account.
 
 For information on accessing another account's Amazon S3 files from your
-Quick Sight account, see [Setting
-up Quick Sight to access Amazon S3 files in another AWS account](#setup-quicksight-to-access-S3-in-a-different-account "#setup-quicksight-to-access-S3-in-a-different-account"). For more
+Quick Sight account, see [Setting up Quick Sight to access Amazon S3 files in another AWS account](#setup-quicksight-to-access-S3-in-a-different-account "#setup-quicksight-to-access-S3-in-a-different-account"). For more
 information about S3 permissions, see [Managing
 access permissions to your Amazon S3 resources](../../../AmazonS3/latest/dev/s3-access-control.md "../../../AmazonS3/latest/dev/s3-access-control.md") and [How do I set permissions on an object?](../../../AmazonS3/latest/user-guide/set-object-permissions.md "../../../AmazonS3/latest/user-guide/set-object-permissions.md")
 
@@ -43,9 +36,7 @@ bucket permissions, not to the file permissions. For information on bucket
 policies, see [Bucket policy examples](../../../AmazonS3/latest/dev/example-bucket-policies.md "../../../AmazonS3/latest/dev/example-bucket-policies.md") in the _Amazon S3
 Developer Guide._
 
-###### To set access from a different Quick account from the S3
-
-console
+###### To set access from a different Quick account from the S3 console
 
 1. Get the email address of the AWS account email that you want to
    share with. Or you can get and use the canonical user ID. For more
@@ -70,14 +61,11 @@ one for the AWS account. 8. Enable **Read object** permissions for each file tha
 Quick Sight needs access to. 9. Notify the Quick user that the files are now available for
 use.
 
-## Setting
-
-up Quick Sight to access Amazon S3 files in another AWS account
+## Setting up Quick Sight to access Amazon S3 files in another AWS account
 
 Use this section to learn how to set up Quick Sight so you can access Amazon S3
 files in another AWS account. For information on allowing someone else to
-access your Amazon S3 files from their Quick account, see [Setting up Amazon S3 to allow access from a different Quick
-account](#setup-S3-to-allow-access-from-a-different-quicksight-account "#setup-S3-to-allow-access-from-a-different-quicksight-account").
+access your Amazon S3 files from their Quick account, see [Setting up Amazon S3 to allow access from a different Quick account](#setup-S3-to-allow-access-from-a-different-quicksight-account "#setup-S3-to-allow-access-from-a-different-quicksight-account").
 
 Use the following procedure to access another account's Amazon S3 files from
 Quick Sight. Before you can use this procedure, the users in the other AWS

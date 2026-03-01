@@ -1,6 +1,4 @@
-# Finding information to connect to a
-
-VPC
+# Finding information to connect to a VPC
 
 |                                            |
 | ------------------------------------------ |

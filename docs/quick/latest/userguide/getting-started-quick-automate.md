@@ -53,8 +53,7 @@ Amazon Quick Automate provides granular role based access: Viewer, Contributor, 
 
 ### Set up Virtual Private Cloud (VPC) connections
 
-Amazon Quick Automate can access publicly hosted internet endpoints by default. For more complex setups, including accessing privately hosted websites, Amazon Quick Automate automation jobs can optionally be associated with your VPC. For more information, see [Setting up a VPC to use with
-Amazon Quick](vpc-setup-for-quicksight.md "vpc-setup-for-quicksight.md").
+Amazon Quick Automate can access publicly hosted internet endpoints by default. For more complex setups, including accessing privately hosted websites, Amazon Quick Automate automation jobs can optionally be associated with your VPC. For more information, see [Setting up a VPC to use with Amazon Quick](vpc-setup-for-quicksight.md "vpc-setup-for-quicksight.md").
 
 With this configuration in place, all outbound network traffic from the managed browser is routed through an ENI in your configured VPC. From there, you can send that traffic to privately hosted resources or use it to obtain a persistent IP for IP allow listing.
 

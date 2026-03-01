@@ -3,9 +3,7 @@
 Use the following procedure to prepare a dataset based on text or Microsoft Excel
 files from either your local network or Amazon S3.
 
-###### To prepare a dataset based on text or Microsoft Excel files from a local network
-
-or S3
+###### To prepare a dataset based on text or Microsoft Excel files from a local network or S3
 
 1. Open a file dataset for data preparation by choosing one of the following
    options:
@@ -68,9 +66,7 @@ You might also see **Save & visualize**. This option
 appears based on the screen that you started from. If this option isn't there,
 you can create a new visualization by starting from the dataset screen.
 
-## Preparing a dataset based on a Microsoft
-
-Excel file
+## Preparing a dataset based on a Microsoft Excel file
 
 Use the following procedure to prepare a Microsoft Excel dataset.
 

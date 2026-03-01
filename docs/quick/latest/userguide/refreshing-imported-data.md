@@ -41,9 +41,7 @@ failures.
 If you are refreshing a database dataset, choose
 **OK**.
 
-## Incrementally refreshing a
-
-dataset
+## Incrementally refreshing a dataset
 
 |                                            |
 | ------------------------------------------ |
@@ -98,9 +96,7 @@ Use the following procedure to incrementally refresh a [SPICE](spice.md "spice.m
 
 6. Choose **Submit**.
 
-## Refreshing a dataset during data
-
-preparation
+## Refreshing a dataset during data preparation
 
 Use the following procedure to refresh a [SPICE](spice.md "spice.md") dataset based on an Amazon S3 or database data
 source during data preparation.
@@ -144,9 +140,7 @@ based on a direct query and not stored in [SPICE](spice.md "spice.md"), you can 
 You can also refresh your data by refreshing the page in an analysis or
 dashboard.
 
-###### To refresh [SPICE](spice.md "spice.md") data on a
-
-schedule
+###### To refresh [SPICE](spice.md "spice.md") data on a schedule
 
 1. Choose **Data** from the left navigation menu. On the
    **Datasets** tab, choose the dataset to open it.
@@ -196,9 +190,7 @@ Using the Quick console, you can create five schedules for each
 dataset. When you have created five, the **Create** button is
 turned off.
 
-## Incrementally refreshing a
-
-dataset on a schedule
+## Incrementally refreshing a dataset on a schedule
 
 |                                            |
 | ------------------------------------------ |
@@ -209,9 +201,7 @@ schedule incremental refreshes. Use the following procedure to incrementally ref
 a [SPICE](spice.md "spice.md") dataset based on a SQL data
 source in the **Datasets** tab.
 
-###### To set an incremental refresh schedule for a SQL-based SPICE
-
-dataset
+###### To set an incremental refresh schedule for a SQL-based SPICE dataset
 
 1. Choose **Data** from the left navigation menu. On the
    **Datasets** tab, choose the dataset to open it.

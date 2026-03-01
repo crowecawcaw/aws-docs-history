@@ -1,6 +1,4 @@
-# Using table calculations in pivot
-
-tables
+# Using table calculations in pivot tables
 
 You can use table calculations to apply statistical functions to pivot table cells
 that contain measures (numeric values). Use the following sections to understand
@@ -15,9 +13,6 @@ display as percentages.
 
 ###### Topics
 
-- [Adding and deleting pivot table
-  calculations](adding-a-calculation.md "adding-a-calculation.md")
-- [Functions for pivot table
-  calculations](supported-functions.md "supported-functions.md")
-- [Ways to apply pivot table
-  calculations](supported-applications.md "supported-applications.md")
+- [Adding and deleting pivot table calculations](adding-a-calculation.md "adding-a-calculation.md")
+- [Functions for pivot table calculations](supported-functions.md "supported-functions.md")
+- [Ways to apply pivot table calculations](supported-applications.md "supported-applications.md")

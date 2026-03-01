@@ -1,6 +1,4 @@
-# Setting up IdP federation
-
-using IAM and Amazon Quick
+# Setting up IdP federation using IAM and Amazon Quick
 
 |                                                                 |
 | --------------------------------------------------------------- |
@@ -23,16 +21,11 @@ successful authentication by AWS.
 ###### Topics
 
 - [Prerequisites](#external-identity-providers-setting-up-prerequisites "#external-identity-providers-setting-up-prerequisites")
-- [Step 1: Create a
-  SAML provider in AWS](#external-identity-providers-create-saml-provider "#external-identity-providers-create-saml-provider")
-- [Step 2: Configure
-  permissions in AWS for your federated users](#external-identity-providers-grantperms "#external-identity-providers-grantperms")
-- [Step 3: Configure the SAML
-  IdP](#external-identity-providers-config-idp "#external-identity-providers-config-idp")
-- [Step 4: Create
-  assertions for the SAML authentication response](#external-identity-providers-create-assertions "#external-identity-providers-create-assertions")
-- [Step 5: Configure the
-  relay state of your federation](#external-identity-providers-relay-state "#external-identity-providers-relay-state")
+- [Step 1: Create a SAML provider in AWS](#external-identity-providers-create-saml-provider "#external-identity-providers-create-saml-provider")
+- [Step 2: Configure permissions in AWS for your federated users](#external-identity-providers-grantperms "#external-identity-providers-grantperms")
+- [Step 3: Configure the SAML IdP](#external-identity-providers-config-idp "#external-identity-providers-config-idp")
+- [Step 4: Create assertions for the SAML authentication response](#external-identity-providers-create-assertions "#external-identity-providers-create-assertions")
+- [Step 5: Configure the relay state of your federation](#external-identity-providers-relay-state "#external-identity-providers-relay-state")
 
 ## Prerequisites
 
@@ -72,9 +65,7 @@ For more information, see the following resources:
   driver](https://aws.amazon.com/blogs/big-data/setting-up-trust-between-adfs-and-aws-and-using-active-directory-credentials-to-connect-to-amazon-athena-with-odbc-driver/ "https://aws.amazon.com/blogs/big-data/setting-up-trust-between-adfs-and-aws-and-using-active-directory-credentials-to-connect-to-amazon-athena-with-odbc-driver/") – This walkthrough article is helpful, although
   you don't need to set up Athena in order to use Amazon Quick.
 
-## Step 1: Create a
-
-SAML provider in AWS
+## Step 1: Create a SAML provider in AWS
 
 Your SAML identity provider defines your organization's IdP to AWS. It does so
 by using the metadata document that you previously generated using your IdP.
@@ -89,9 +80,7 @@ by using the metadata document that you previously generated using your IdP.
 3. As part of this process, upload the metadata document produced by the IdP
    software in your organization noted in the previous section.
 
-## Step 2: Configure
-
-permissions in AWS for your federated users
+## Step 2: Configure permissions in AWS for your federated users
 
 Next, create an IAM role that establishes a trust relationship between IAM and
 your organization's IdP. This role identifies your IdP as a principal (trusted
@@ -168,9 +157,7 @@ and below. For example, an author can add other authors or readers.
 Users who are invited manually are created in the role assigned by the person who
 invited them. They don't need to have policies that grant them permissions.
 
-## Step 3: Configure the SAML
-
-IdP
+## Step 3: Configure the SAML IdP
 
 After you create the IAM role, update your SAML IdP about AWS as a service
 provider. To do so, install the `saml-metadata.xml` file found at
@@ -183,17 +170,13 @@ provide it as a local file.
 
 For more information, see your IdP documentation.
 
-## Step 4: Create
-
-assertions for the SAML authentication response
+## Step 4: Create assertions for the SAML authentication response
 
 Next, configure the information that the IdP passes as SAML attributes to AWS as
 part of the authentication response. For more information, see [Configuring SAML Assertions for the Authentication Response](../../../IAM/latest/UserGuide/id_roles_providers_create_saml_assertions.md "../../../IAM/latest/UserGuide/id_roles_providers_create_saml_assertions.md") in the
 _IAM User Guide_.
 
-## Step 5: Configure the
-
-relay state of your federation
+## Step 5: Configure the relay state of your federation
 
 Finally, configure the relay state of your federation to point to the Amazon Quick
 relay state URL. After successful authentication by AWS, the user is directed to

@@ -11,8 +11,6 @@ Amazon Quick, see [Setting up and signing into Amazon Quick](../../../quicksuite
 
 ###### Topics
 
-- [Using service control policies to restrict
-  Amazon Quick sign-up options](security-scp-admin.md "security-scp-admin.md")
-- [Identity and access management in
-  Quick](identity.md "identity.md")
+- [Using service control policies to restrict Amazon Quick sign-up options](security-scp-admin.md "security-scp-admin.md")
+- [Identity and access management in Quick](identity.md "identity.md")
 - [Allowlisting Amazon Quick domains](allowlist-domains.md "allowlist-domains.md")

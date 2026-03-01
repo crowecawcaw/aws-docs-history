@@ -1,6 +1,4 @@
-# Using Quick with
-
-IAM
+# Using Quick with IAM
 
 |                                                                 |
 | --------------------------------------------------------------- |
@@ -17,18 +15,12 @@ That Work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-wo
 
 ###### Topics
 
-- [Amazon Quick
-  Policies (identity-based)](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
-- [Amazon Quick
-  policies (resource-based)](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
-- [Authorization based on
-  Amazon Quick tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
-- [Amazon Quick IAM
-  roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
+- [Amazon Quick Policies (identity-based)](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
+- [Amazon Quick policies (resource-based)](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
+- [Authorization based on Amazon Quick tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
+- [Amazon Quick IAM roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
 
-## Amazon Quick
-
-Policies (identity-based)
+## Amazon Quick Policies (identity-based)
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources as well as the conditions under which actions are allowed or denied.
@@ -183,24 +175,18 @@ _IAM User Guide_.
 
 To view examples of Amazon Quick identity-based policies, see [Amazon Quick Policies (identity-based)](../../../quicksight/latest/user/security_iam_service-with-iam-id-based-policies.md "../../../quicksight/latest/user/security_iam_service-with-iam-id-based-policies.md").
 
-## Amazon Quick
-
-policies (resource-based)
+## Amazon Quick policies (resource-based)
 
 Amazon Quick doesn't support resource-based policies. However, you can use
 the Amazon Quick console to configure access to other AWS resources
 in your AWS account.
 
-## Authorization based on
-
-Amazon Quick tags
+## Authorization based on Amazon Quick tags
 
 Amazon Quick does not support tagging resources or controlling access based on
 tags.
 
-## Amazon Quick IAM
-
-roles
+## Amazon Quick IAM roles
 
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within
 your AWS account that has specific permissions. You can use IAM roles to group

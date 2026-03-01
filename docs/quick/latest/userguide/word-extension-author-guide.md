@@ -1,6 +1,4 @@
-# Amazon Quick Microsoft
-
-Word extension author guide
+# Amazon Quick Microsoft Word extension author guide
 
 As an Amazon Quick author, you can deploy Quick Microsoft
 Word extensions after your admin establishes the foundational connection
@@ -35,18 +33,12 @@ Word](../../../quicksuite/latest/userguide/word-extension.md "../../../quicksuit
 
 ###### Topics
 
-- [Deploy Microsoft Word
-  extension](#add-extensions-word "#add-extensions-word")
-- [Edit Microsoft Word
-  extension](#edit-extensions-word "#edit-extensions-word")
-- [Share Microsoft Word
-  extensions](#word-authors-share "#word-authors-share")
-- [Delete Microsoft Word
-  Extensions](#word-authors-delete "#word-authors-delete")
+- [Deploy Microsoft Word extension](#add-extensions-word "#add-extensions-word")
+- [Edit Microsoft Word extension](#edit-extensions-word "#edit-extensions-word")
+- [Share Microsoft Word extensions](#word-authors-share "#word-authors-share")
+- [Delete Microsoft Word Extensions](#word-authors-delete "#word-authors-delete")
 
-## Deploy Microsoft Word
-
-extension
+## Deploy Microsoft Word extension
 
 Deploy a new Microsoft Word extension instance in the
 Amazon Quick console. This process establishes the foundation for connecting
@@ -103,9 +95,7 @@ Microsoft 365 admin center.
 Your Microsoft Word extension is now created and ready for
 deployment to users in your organization.
 
-## Edit Microsoft Word
-
-extension
+## Edit Microsoft Word extension
 
 ###### Note
 
@@ -131,9 +121,7 @@ Microsoft Word extension.
 Your changes are now applied and will be reflected in the extension
 configuration for all users.
 
-## Share Microsoft Word
-
-extensions
+## Share Microsoft Word extensions
 
 Share ownership and management permissions with specific users and groups,
 enabling multiple users to manage extensions and assist with installation. You
@@ -161,9 +149,7 @@ other users and manage their access permissions.
 The specified users and groups now have access to your Microsoft
 Word extension with the permissions you assigned.
 
-## Delete Microsoft Word
-
-Extensions
+## Delete Microsoft Word Extensions
 
 As an author, you can delete the extensions you deploy to your users.
 

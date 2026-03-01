@@ -16,8 +16,7 @@ other subscribers of that dashboard.
 Dashboard bookmarks are available on the Quick console.
 
 Dashboard bookmarks for pixel perfect reports are currently not supported. For more
-information on pixel perfect reports, see [Working with pixel perfect reports in
-Amazon Quick Sight](working-with-reports.md "working-with-reports.md").
+information on pixel perfect reports, see [Working with pixel perfect reports in Amazon Quick Sight](working-with-reports.md "working-with-reports.md").
 
 Use the following topics to learn how to use bookmarks.
 
@@ -26,7 +25,6 @@ Use the following topics to learn how to use bookmarks.
 - [Creating bookmarks in Amazon Quick Sight](dashboard-bookmarks-create.md "dashboard-bookmarks-create.md")
 - [Updating bookmarks in Amazon Quick Sight](dashboard-bookmarks-update.md "dashboard-bookmarks-update.md")
 - [Renaming bookmarks in Amazon Quick Sight](dashboard-bookmarks-rename.md "dashboard-bookmarks-rename.md")
-- [Making a bookmark the default view in
-  Amazon Quick Sight](dashboard-bookmarks-default.md "dashboard-bookmarks-default.md")
+- [Making a bookmark the default view in Amazon Quick Sight](dashboard-bookmarks-default.md "dashboard-bookmarks-default.md")
 - [Sharing bookmarks in Amazon Quick Sight](dashboard-bookmarks-share.md "dashboard-bookmarks-share.md")
 - [Deleting bookmarks in Amazon Quick Sight](dashboard-bookmarks-delete.md "dashboard-bookmarks-delete.md")

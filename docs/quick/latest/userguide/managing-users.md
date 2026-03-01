@@ -25,5 +25,4 @@ users](../../../quicksight/latest/user/managing-user-access-qs-iam.md "../../../
 ###### Topics
 
 - [Managing access for IAM Identity Center users](managing-user-access-idc.md "managing-user-access-idc.md")
-- [Managing access for Amazon Quick and IAM
-  users](managing-user-access-qs-iam.md "managing-user-access-qs-iam.md")
+- [Managing access for Amazon Quick and IAM users](managing-user-access-qs-iam.md "managing-user-access-qs-iam.md")

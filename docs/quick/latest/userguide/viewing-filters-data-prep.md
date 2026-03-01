@@ -3,9 +3,7 @@
 When you edit a dataset or open an analysis, you can view any existing filters that
 were created. Use the following procedures to learn how.
 
-## Viewing filters in
-
-datasets
+## Viewing filters in datasets
 
 1. Open the [Quick console](https://quicksight.aws.amazon.com/ "https://quicksight.aws.amazon.com/").
 2. From the Quick homepage, choose **Data** at
@@ -20,9 +18,7 @@ Any filters that are applied to the dataset appear here. If a single field
 has multiple filters, they are grouped together. They display in order of
 create date, with the oldest filter on top.
 
-## Viewing filters in
-
-analyses
+## Viewing filters in analyses
 
 Use the following procedure to view filters in analyses.
 

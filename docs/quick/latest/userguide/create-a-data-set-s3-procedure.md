@@ -5,8 +5,7 @@
 1. Check [Data source quotas](data-source-limits.md "data-source-limits.md") to make sure that your target file
    set doesn't exceed data source quotas.
 2. Create a manifest file to identify the text files that you want to import,
-   using one of the formats specified in [Supported formats for Amazon S3 manifest
-   files](supported-manifest-file-format.md "supported-manifest-file-format.md").
+   using one of the formats specified in [Supported formats for Amazon S3 manifest files](supported-manifest-file-format.md "supported-manifest-file-format.md").
 3. Save the manifest file to a local directory, or upload it into
    Amazon S3.
 4. On the Quick start page, choose
@@ -42,9 +41,7 @@ matches the name of the manifest file.
 
 To learn more about data preparation, see [Preparing data in Amazon Quick Sight](preparing-data.md "preparing-data.md").
 
-## Creating datasets based
-
-on multiple Amazon S3 files
+## Creating datasets based on multiple Amazon S3 files
 
 You can use one of several methods to merge or combine files from Amazon S3 buckets
 inside Quick Sight:
@@ -59,8 +56,7 @@ inside Quick Sight:
 The files must be listed explicitly in the manifest. However, they
 don't have to be inside the same Amazon S3 bucket.
 
-In addition, the files must follow the rules described in [Supported formats for Amazon S3 manifest
-files](supported-manifest-file-format.md "supported-manifest-file-format.md").
+In addition, the files must follow the rules described in [Supported formats for Amazon S3 manifest files](supported-manifest-file-format.md "supported-manifest-file-format.md").
 
 For more details about combining files using a manifest, see [Creating a dataset using Amazon S3 files](create-a-data-set-s3.md "create-a-data-set-s3.md").
 

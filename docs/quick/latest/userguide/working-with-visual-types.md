@@ -8,8 +8,7 @@ topics in this section to learn more about the capabilities of each visual type.
 - [Measures and dimensions](#measures-and-dimensions "#measures-and-dimensions")
 - [Display limits](#display-limits "#display-limits")
 - [Hiding or displaying the other category](#other-category "#other-category")
-- [Customizing the number of data
-  points to display](#customizing-number-of-data-points "#customizing-number-of-data-points")
+- [Customizing the number of data points to display](#customizing-number-of-data-points "#customizing-number-of-data-points")
 - [Using AutoGraph](autograph.md "autograph.md")
 - [Using bar charts](bar-charts.md "bar-charts.md")
 - [Using box plots](box-plots.md "box-plots.md")
@@ -109,9 +108,7 @@ Use the following procedure to hide or display the "other" category.
    choose **Hide "other" category** or **Show "other"
    category**, as appropriate.
 
-## Customizing the number of data
-
-points to display
+## Customizing the number of data points to display
 
 You can choose the number of data points to display on the main axis of some visuals.
 After this number is displayed in the chart, any additional data points are included in

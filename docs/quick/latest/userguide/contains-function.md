@@ -43,9 +43,7 @@ Boolean
 
 ## Examples
 
-### Default
-
-case sensitive example
+### Default case sensitive example
 
 The following case sensitive example evaluates if `state_nm`
 contains `New`.
@@ -68,9 +66,7 @@ true
 false
 ```
 
-### Case
-
-insensitive example
+### Case insensitive example
 
 The following case insensitive example evaluates if `state_nm`
 contains `new`.
@@ -93,9 +89,7 @@ true
 true
 ```
 
-### Example
-
-with conditional statements
+### Example with conditional statements
 
 The contains function can be used as the conditional statement within the
 following If functions: [avgIf](../../../quicksight/latest/user/avgIf-function.md "../../../quicksight/latest/user/avgIf-function.md"), [minIf](../../../quicksight/latest/user/minIf-function.md "../../../quicksight/latest/user/minIf-function.md"), [distinct_countIf](../../../quicksight/latest/user/distinct_countIf-function.md "../../../quicksight/latest/user/distinct_countIf-function.md"), [countIf](../../../quicksight/latest/user/countIf-function.md "../../../quicksight/latest/user/countIf-function.md"),
@@ -110,9 +104,7 @@ The following example sums `Sales` only if
 sumIf(`Sales`,contains(`state_nm`, `"New"`))
 ```
 
-### Does NOT
-
-contain example
+### Does NOT contain example
 
 The conditional `NOT` operator can be used to evaluate if the
 expression does not contain the specified substring.
@@ -121,9 +113,7 @@ expression does not contain the specified substring.
 NOT(contains(`state_nm`, `"New"`))
 ```
 
-### Example using
-
-numeric values
+### Example using numeric values
 
 Numeric values can be used in the expression or substring arguments by
 applying the `toString` function.

@@ -38,8 +38,7 @@ Amazon Quick.
 ###### Topics
 
 - [Enabling connection from Lake Formation](#lake-formation-lf-steps "#lake-formation-lf-steps")
-- [Enabling connection from
-  Amazon Quick](#lake-formation-qs-steps "#lake-formation-qs-steps")
+- [Enabling connection from Amazon Quick](#lake-formation-qs-steps "#lake-formation-qs-steps")
 
 ## Enabling connection from Lake Formation
 
@@ -125,9 +124,7 @@ up lake formation](../../../lake-formation/latest/dg/getting-started-setup.md ".
     To avoid using the AWS CLI, you can construct the ARNs for each
      group manually.
 
-## Enabling connection from
-
-Amazon Quick
+## Enabling connection from Amazon Quick
 
 To work with Lake Formation and Athena, make sure that you have AWS resource permissions
 configured in Amazon Quick:

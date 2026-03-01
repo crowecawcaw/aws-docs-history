@@ -1,14 +1,10 @@
-# Exporting and printing interactive
-
-Amazon Quick Sight dashboard reports
+# Exporting and printing interactive Amazon Quick Sight dashboard reports
 
 You can export or print a PDF version of an interactive dashboard. You can also
 export some visuals in a dashboard to a CSV. Exporting an entire dashboard to a CSV
 is not currently supported for interactive dashboards.
 
-## Exporting data from a dashboard to a
-
-PDF
+## Exporting data from a dashboard to a PDF
 
 ###### To export an interactive dashboard report as a PDF
 
@@ -39,9 +35,7 @@ PDF
 4. In the preview window that appears, choose
    **PRINT**.
 
-## Exporting data from a dashboard to a
-
-CSV
+## Exporting data from a dashboard to a CSV
 
 ###### Note
 

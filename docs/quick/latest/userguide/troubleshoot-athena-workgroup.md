@@ -1,6 +1,4 @@
-# Workgroup and output errors when
-
-using Athena with Quick Sight
+# Workgroup and output errors when using Athena with Quick Sight
 
 To verify that workgroups are set up properly, check the following
 settings:

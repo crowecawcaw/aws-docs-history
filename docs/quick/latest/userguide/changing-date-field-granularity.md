@@ -1,6 +1,4 @@
-# Changing date field
-
-granularity
+# Changing date field granularity
 
 You can change the granularity for a date field on a visual to determine the
 intervals for which item values are shown. You can set the date field granularity to
@@ -16,9 +14,7 @@ one of the following values:
 - Second
   Hour and minute are available only if the field contains time data.
 
-## Changing date field
-
-granularity by using an on-visual editor
+## Changing date field granularity by using an on-visual editor
 
 Use the following procedure to change date field granularity by using an
 on-visual editor.
@@ -31,9 +27,7 @@ on-visual editor.
    choose the time interval that you want to apply, as shown
    following:
 
-## Changing date field
-
-granularity by using a field well
+## Changing date field granularity by using a field well
 
 Use the following procedure to change date field granularity by using a field
 well.

@@ -48,30 +48,26 @@ new suggestion is offered when you return to the
   the questions users asked, or select a specific question. You can also
   change the time span of the metrics from one year down to one week.
 
-For more information, see [Reviewing Quick Sight topic
-performance and feedback](topics-performance.md "topics-performance.md").
+For more information, see [Reviewing Quick Sight topic performance and feedback](topics-performance.md "topics-performance.md").
 
 - **Datasets** – This section shows the
   datasets that were used to create the topic. In this section, you can add
   additional datasets or import datasets from existing dashboards. You can
   also edit the metadata for a topic dataset, set a data refresh schedule,
-  change the name of the dataset, and more. For more information, see [Working with datasets in an Quick Sight
-  topic](topics-data.md "topics-data.md").
+  change the name of the dataset, and more. For more information, see [Working with datasets in an Quick Sight topic](topics-data.md "topics-data.md").
 
 ## Data
 
 The **Data** tab shows all the fields included in the topic. Here
 you configure your topic metadata to make your topic natural-language-friendly and
-to improve your topic performance. For more information, see [Making Quick Sight topics
-natural-language-friendly](topics-natural-language.md "topics-natural-language.md").
+to improve your topic performance. For more information, see [Making Quick Sight topics natural-language-friendly](topics-natural-language.md "topics-natural-language.md").
 
 ## User activity
 
 This tab shows all the questions that your topic receives and the overall feedback
 for each question. You can see an overview of how many questions were asked and what
 percentage of them were positive and negative. You can filter by feedback and
-whether someone left a comment with their feedback. For more information, see [Reviewing Quick Sight topic
-performance and feedback](topics-performance.md "topics-performance.md").
+whether someone left a comment with their feedback. For more information, see [Reviewing Quick Sight topic performance and feedback](topics-performance.md "topics-performance.md").
 
 ## Verified answers
 

@@ -77,8 +77,7 @@ from Amazon Quick Sight:
 - Local (on-premises) databases
 - Data in a data center or some other internet-accessible environment
 
-For more information, see [Infrastructure security in
-Amazon Quick](infrastructure-and-network-access.md "infrastructure-and-network-access.md").
+For more information, see [Infrastructure security in Amazon Quick](infrastructure-and-network-access.md "infrastructure-and-network-access.md").
 
 ## Importing file data
 
@@ -182,5 +181,4 @@ resources. You define and control the network elements to suit your requirements
 while still getting the benefit of cloud networking and the scalable infrastructure
 of AWS.
 
-For detailed information, see [Infrastructure security in
-Amazon Quick](infrastructure-and-network-access.md "infrastructure-and-network-access.md").
+For detailed information, see [Infrastructure security in Amazon Quick](infrastructure-and-network-access.md "infrastructure-and-network-access.md").

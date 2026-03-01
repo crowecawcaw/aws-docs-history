@@ -1,6 +1,4 @@
-# Gaining insights with
-
-machine learning (ML) in Amazon Quick Sight
+# Gaining insights with machine learning (ML) in Amazon Quick Sight
 
 Amazon Quick Sight uses machine learning to help you uncover hidden insights and trends in your data,
 identify key drivers, and forecast business metrics. You can also consume these insights in
@@ -64,13 +62,9 @@ With ML Insights, Amazon Quick Sight provides three major features:
 
 ###### Topics
 
-- [Understanding the ML algorithm used by
-  Amazon Quick Sight](concept-of-ml-algorithms.md "concept-of-ml-algorithms.md")
-- [Dataset requirements for using ML insights
-  with Amazon Quick Sight](ml-data-set-requirements.md "ml-data-set-requirements.md")
+- [Understanding the ML algorithm used by Amazon Quick Sight](concept-of-ml-algorithms.md "concept-of-ml-algorithms.md")
+- [Dataset requirements for using ML insights with Amazon Quick Sight](ml-data-set-requirements.md "ml-data-set-requirements.md")
 - [Working with insights in Amazon Quick Sight](computational-insights.md "computational-insights.md")
 - [Creating autonarratives with Amazon Quick Sight](narratives-creating.md "narratives-creating.md")
-- [Detecting outliers with ML-powered anomaly
-  detection](anomaly-detection.md "anomaly-detection.md")
-- [Forecasting and creating what-if scenarios with
-  Amazon Quick Sight](forecasts-and-whatifs.md "forecasts-and-whatifs.md")
+- [Detecting outliers with ML-powered anomaly detection](anomaly-detection.md "anomaly-detection.md")
+- [Forecasting and creating what-if scenarios with Amazon Quick Sight](forecasts-and-whatifs.md "forecasts-and-whatifs.md")

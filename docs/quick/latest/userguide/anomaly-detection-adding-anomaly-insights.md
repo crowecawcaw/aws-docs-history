@@ -1,6 +1,4 @@
-# Adding an ML insight to
-
-detect outliers and key drivers
+# Adding an ML insight to detect outliers and key drivers
 
 You can add an ML insight that detects _anomalies_, which are outliers that seem significant. To get
 started, you create for your insight a widget, also known as an _autonarrative_. As you configure your options, you
@@ -18,8 +16,7 @@ split.
 
 The following procedure shows how to do this, and also how to add contribution
 analysis to detect the key drivers that are causing each anomaly. You can add
-contribution analysis later, as described in [Using contribution
-analysis for key drivers](anomaly-detection-adding-key-drivers.md "anomaly-detection-adding-key-drivers.md").
+contribution analysis later, as described in [Using contribution analysis for key drivers](anomaly-detection-adding-key-drivers.md "anomaly-detection-adding-key-drivers.md").
 
 ###### To set up outlier analysis, including key drivers
 

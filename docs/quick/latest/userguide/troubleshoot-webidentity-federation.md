@@ -1,7 +1,4 @@
-# Individuals in my organization
-
-get an "External Login is Unauthorized" message when they try to access
-Quick Sight
+# Individuals in my organization get an "External Login is Unauthorized" message when they try to access Quick Sight
 
 |                                                   |
 | ------------------------------------------------- |
@@ -19,18 +16,12 @@ user.
 
 To learn how to troubleshoot this issue, see the following sections:
 
-- [Why is this
-  happening?](#troubleshoot-webidentity-federation-why "#troubleshoot-webidentity-federation-why")
-- [How can I fix
-  it?](#troubleshoot-webidentity-federation-how "#troubleshoot-webidentity-federation-how")
+- [Why is this happening?](#troubleshoot-webidentity-federation-why "#troubleshoot-webidentity-federation-why")
+- [How can I fix it?](#troubleshoot-webidentity-federation-how "#troubleshoot-webidentity-federation-how")
 
-## Why is this
+## Why is this happening?
 
-happening?
-
-### You are
-
-using a simplified Amazon Cognito flow
+### You are using a simplified Amazon Cognito flow
 
 If you're using Amazon Cognito to federate into Quick Sight, the single
 sign-on (IAM Identity Center) setup might use the `CognitoIdentityCredentials`
@@ -55,9 +46,7 @@ We recommend that you don't use this setup, which setup isn't supported by
 Quick Sight. For Quick Sight, make sure that the Amazon Cognito IAM Identity Center uses
 authenticated users.
 
-### You deleted and recreated an Amazon Cognito user with the same user name
-
-attributes
+### You deleted and recreated an Amazon Cognito user with the same user name attributes
 
 In this case, the associated Amazon Cognito user that's mapped to the
 Quick Sight user was deleted and recreated. The newly created Amazon Cognito
@@ -69,23 +58,17 @@ We recommend that you remap the Quick Sight user to the updated Amazon Cognito
 user subject by using the `UpdateUser` API operation. For more
 information, see the following [UpdateUser API example](#troubleshoot-webidentity-federation-solutions-updateuser "#troubleshoot-webidentity-federation-solutions-updateuser").
 
-### You're mapping multiple Amazon Cognito user pools in different
-
-AWS accounts to one identity pool and with Quick Sight
+### You're mapping multiple Amazon Cognito user pools in different AWS accounts to one identity pool and with Quick Sight
 
 Mapping multiple Amazon Cognito user pools in different AWS accounts to one
 identity pool and Quick Sight isn't supported by Quick Sight.
 
-## How can I fix
-
-it?
+## How can I fix it?
 
 You can use Quick Sight public API operations to update the external login
 information for your users. Use the following options to learn how.
 
-### Use
-
-RegisterUser to create users with external login information
+### Use RegisterUser to create users with external login information
 
 If the external login provider is Amazon Cognito, use the following CLI code to
 create users.
@@ -134,9 +117,7 @@ aws quicksight register-user --aws-account-id 111222333 --namespace default
 
 To learn more about using `RegisterUser` in the CLI, see [RegisterUser](../../../quicksight/latest/APIReference/API_RegisterUser.md "../../../quicksight/latest/APIReference/API_RegisterUser.md") in the _Amazon Quick API Reference_.
 
-### Use
-
-DescribeUser to check external login information for users
+### Use DescribeUser to check external login information for users
 
 If a user is a role-based federated user from an external login provider,
 use the `DescribeUser` API operation to check the external login

@@ -1,6 +1,4 @@
-# Customize the look and feel of
-
-Amazon Quick Sight embedded dashboards and visuals
+# Customize the look and feel of Amazon Quick Sight embedded dashboards and visuals
 
 You can use the Amazon Quick Sight Embedding SDK (version 2.5.0 and higher) to make
 changes to the theming of your embedded Amazon Quick Sight dashboards and visuals at
@@ -62,8 +60,7 @@ with runtime theming.
   existing theme, or you can create a new one. To obtain a list all themes
   and theme ARNs in your Amazon Quick Sight account, make a call to the
   [ListThemes](../../../quicksight/latest/APIReference/API_ListThemes.md "../../../quicksight/latest/APIReference/API_ListThemes.md") API operation. For information on preset
-  Amazon Quick Sight themes, see [Setting a default theme for
-  Amazon Quick analyses with the Amazon Quick APIs](customizing-quicksight-default-theme.md "customizing-quicksight-default-theme.md").
+  Amazon Quick Sight themes, see [Setting a default theme for Amazon Quick analyses with the Amazon Quick APIs](customizing-quicksight-default-theme.md "customizing-quicksight-default-theme.md").
 - If you are using registered user embedding, make sure that the user
   has access to the themes that you want to use.
 
@@ -85,9 +82,7 @@ for runtime theming.
 | `setTheme(themeArn: string)`                             | Replaces the active theme of a dashboard or visual with<br>another theme. If applied, the theme override is<br>removed.<br>An error is returned if you don't have access to the theme<br>or if the theme doesn't exist.                                                                                                                                  |
 | `setThemeOverride(themeOverride:<br>ThemeConfiguration)` | Sets a dynamic `ThemeConfiguration` to override<br>the current active theme. This replaces the previously set<br>theme override. Any values that are not supplied in the new<br>`ThemeConfiguration` are defaulted to the<br>values in the currently active theme.<br>An error is returned if the<br>`ThemeConfiguration` that you supply is<br>invalid. |
 
-## Initializing embedded content
-
-with a theme
+## Initializing embedded content with a theme
 
 To initialize an embedded dashboard or visual with a non-default theme, define
 a `themeOptions` object on the `DashboardContentOptions`
@@ -121,9 +116,7 @@ const contentOptions = {
 const embeddedDashboardExperience = await embedDashboard(frameOptions, contentOptions);
 ```
 
-## Initializing
-
-embedded content with a theme override
+## Initializing embedded content with a theme override
 
 Developers can use theme overrides to define the theme of an embedded
 dashboard or visual at runtime. This allows the dashboard or visual to inherit a
@@ -158,9 +151,7 @@ const contentOptions = {
 const embeddedDashboardExperience = await embedDashboard(frameOptions, contentOptions);
 ```
 
-## Initializing
-
-embedded content with preloaded themes
+## Initializing embedded content with preloaded themes
 
 Developers can configure a set of dashboard themes to be preloaded on
 initialization. This is most beneficial for quick toggling between different

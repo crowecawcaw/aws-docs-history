@@ -1,6 +1,4 @@
-# Consuming a shared
-
-Amazon Quick Sight view
+# Consuming a shared Amazon Quick Sight view
 
 After you create a new shared view, use the Embedding SDK to make the shared
 view consumable for other users. The examples below set up a consumable shared

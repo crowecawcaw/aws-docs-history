@@ -1,6 +1,4 @@
-# Refine visuals with generative
-
-BI
+# Refine visuals with generative BI
 
 Quick authors can also use natural language prompts to edit visuals in
 an analysis, as shown in the following visual. Authors can use this functionality to

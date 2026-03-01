@@ -85,6 +85,5 @@ permissions can perform the following tasks with restricted shared folders.
 
 The owner role is not supported for restricted shared folders.
 
-After you choose which folder type best fits your use case, see [Permissions for Quick Sight shared folders](folders-security.md "folders-security.md") and [Create and manage membership permissions for
-Quick Sight shared folders](sharing-folders.md "sharing-folders.md") to create folders and
+After you choose which folder type best fits your use case, see [Permissions for Quick Sight shared folders](folders-security.md "folders-security.md") and [Create and manage membership permissions for Quick Sight shared folders](sharing-folders.md "sharing-folders.md") to create folders and
 set up folder permissions.

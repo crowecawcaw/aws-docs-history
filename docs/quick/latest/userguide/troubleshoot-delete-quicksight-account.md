@@ -1,6 +1,4 @@
-# How do I delete my Amazon Quick Sight
-
-account?
+# How do I delete my Amazon Quick Sight account?
 
 In some cases, you might need to delete your Amazon Quick Sight account even when you can't
 access Amazon Quick Sight to unsubscribe. If so, sign in to AWS and use the following link to

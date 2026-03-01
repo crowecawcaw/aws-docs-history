@@ -1,6 +1,4 @@
-# Scheduling and sending Quick Sight reports by
-
-email
+# Scheduling and sending Quick Sight reports by email
 
 ###### Important
 
@@ -44,14 +42,11 @@ For more information, see [Subscribing to email reports in Amazon Quick Sight](s
 You can create up to five schedules for each dashboard.
 
 Quick Sight dashboard viewers can also schedule their own reports for themselves from
-a Quick Sight dashboard. For more information about reader generated reports, see [Creating a reader generated report in
-Amazon Quick Sight](reader-scheduling.md "reader-scheduling.md").
+a Quick Sight dashboard. For more information about reader generated reports, see [Creating a reader generated report in Amazon Quick Sight](reader-scheduling.md "reader-scheduling.md").
 
 Use the following topics to learn more about email report settings and report billing.
 
 ###### Topics
 
-- [Configuring email report settings for
-  a Quick Sight dashboard](email-reports-from-dashboard.md "email-reports-from-dashboard.md")
-- [How billing works for email
-  reports](sending-reports-billing-info.md "sending-reports-billing-info.md")
+- [Configuring email report settings for a Quick Sight dashboard](email-reports-from-dashboard.md "email-reports-from-dashboard.md")
+- [How billing works for email reports](sending-reports-billing-info.md "sending-reports-billing-info.md")

@@ -18,5 +18,4 @@ roles](../../../quicksuite/latest/userguide/user-types.md "../../../quicksuite/l
 
 - [Managing user access inside Amazon Quick](managing-users.md "managing-users.md")
 - [User-driven license upgrades](user-driven-upgrades.md "user-driven-upgrades.md")
-- [Creating and managing groups in
-  Amazon Quick](creating-quicksight-groups.md "creating-quicksight-groups.md")
+- [Creating and managing groups in Amazon Quick](creating-quicksight-groups.md "creating-quicksight-groups.md")

@@ -31,8 +31,7 @@ better control over which values are loaded in an analysis.
 - **Convert time zone** – Use this setting
   to convert all date field related visualizations, filters, and parameters to
   reflect the chosen time zone. All daylight savings adjustments are made
-  automatically. For more information about time zone configuration, see [Customize date and time values of an
-  analysis](analysis-date-time.md "analysis-date-time.md").
+  automatically. For more information about time zone configuration, see [Customize date and time values of an analysis](analysis-date-time.md "analysis-date-time.md").
 - **Start of the week** – Use this setting
   to choose the week start day for an analysis.
 

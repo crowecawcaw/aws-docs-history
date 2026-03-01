@@ -24,8 +24,7 @@ Guide.
 - [Create and preview custom chat agents](#create-custom-agents "#create-custom-agents")
 - [Share custom chat agents](#share-custom-agents "#share-custom-agents")
 - [Update custom chat agents](#update-custom-agents "#update-custom-agents")
-- [Manage access to a custom chat
-  agent](#remove-access-custom-agents "#remove-access-custom-agents")
+- [Manage access to a custom chat agent](#remove-access-custom-agents "#remove-access-custom-agents")
 - [View chat agents](#view-agents "#view-agents")
 - [View chat agent details](#view-agent-details "#view-agent-details")
 - [Duplicate custom chat agents](#duplicate-agents "#duplicate-agents")
@@ -41,9 +40,7 @@ custom chat agent.
 
 Using natural language
 
-###### To create a custom chat agent using a natural language
-
-prompt
+###### To create a custom chat agent using a natural language prompt
 
 1. Log in to the Amazon Quick console.
 2. From the left navigation menu, select **Chat
@@ -387,9 +384,7 @@ changes to the chat agent currently in use.
 4. In the **Edit agent**, update your chat agent settings,
    and then select **Launch**.
 
-## Manage access to a custom chat
-
-agent
+## Manage access to a custom chat agent
 
 If you're the owner of a chat agent, you can choose to change the user access
 permissions for a chat agent. You can also remove user and group access to a chat

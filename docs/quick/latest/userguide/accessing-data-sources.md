@@ -71,7 +71,5 @@ return to the previous screen.
 
 ###### Topics
 
-- [Setting granular access to AWS
-  services through IAM](scoping-policies-iam-interface.md "scoping-policies-iam-interface.md")
-- [Using AWS Secrets Manager secrets instead of
-  database credentials in Quick](secrets-manager-integration.md "secrets-manager-integration.md")
+- [Setting granular access to AWS services through IAM](scoping-policies-iam-interface.md "scoping-policies-iam-interface.md")
+- [Using AWS Secrets Manager secrets instead of database credentials in Quick](secrets-manager-integration.md "secrets-manager-integration.md")

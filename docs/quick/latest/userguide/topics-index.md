@@ -1,6 +1,4 @@
-# Refreshing Quick Sight topic
-
-indexes
+# Refreshing Quick Sight topic indexes
 
 |                                            |
 | ------------------------------------------ |
@@ -24,7 +22,7 @@ all datasets in a topic or refresh an individual dataset. You can also view data
 refresh history to monitor past refreshes, and set a recurring refresh schedule for
 every dataset in the topic. For SPICE datasets, you can sync the topic
 index refresh schedule with the SPICE refresh schedule. For more
-information about setting SPICE refresh schedules, see [Refreshing a dataset on a schedule](refreshing-imported-data.md#schedule-data-refresh "refreshing-imported-data.md#schedule-data-refresh") .
+information about setting SPICE refresh schedules, see [Refreshing a dataset on a schedule](refreshing-imported-data.md#schedule-data-refresh "refreshing-imported-data.md#schedule-data-refresh").
 
 ###### Note
 
@@ -49,5 +47,4 @@ index, and then choose **Refresh data**. Doing this manually
 refreshes all datasets in the topic.
 
 For more information about refreshing individual datasets in a topic, see
-[Refreshing datasets in a
-Quick Sight topic](topics-data-refresh.md "topics-data-refresh.md").
+[Refreshing datasets in a Quick Sight topic](topics-data-refresh.md "topics-data-refresh.md").

@@ -27,16 +27,11 @@ following list describes three actions that can be performed with dataset parame
 
 - [Dataset parameter limitations](#dataset-parameters-limitations "#dataset-parameters-limitations")
 - [Creating dataset parameters in Amazon Quick](dataset-parameters-SQL.md "dataset-parameters-SQL.md")
-- [Inserting dataset parameters into
-  custom SQL](dataset-parameters-insert-parameter.md "dataset-parameters-insert-parameter.md")
-- [Adding dataset parameters to
-  calculated fields](dataset-parameters-calculated-fields.md "dataset-parameters-calculated-fields.md")
-- [Adding dataset parameters to
-  filters](dataset-parameters-dataset-filters.md "dataset-parameters-dataset-filters.md")
-- [Using dataset parameters in Quick
-  analyses](dataset-parameters-analysis.md "dataset-parameters-analysis.md")
-- [Advanced use cases of dataset
-  parameters](dataset-parameters-advanced-options.md "dataset-parameters-advanced-options.md")
+- [Inserting dataset parameters into custom SQL](dataset-parameters-insert-parameter.md "dataset-parameters-insert-parameter.md")
+- [Adding dataset parameters to calculated fields](dataset-parameters-calculated-fields.md "dataset-parameters-calculated-fields.md")
+- [Adding dataset parameters to filters](dataset-parameters-dataset-filters.md "dataset-parameters-dataset-filters.md")
+- [Using dataset parameters in Quick analyses](dataset-parameters-analysis.md "dataset-parameters-analysis.md")
+- [Advanced use cases of dataset parameters](dataset-parameters-advanced-options.md "dataset-parameters-advanced-options.md")
 
 ## Dataset parameter limitations
 

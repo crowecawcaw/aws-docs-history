@@ -1,6 +1,4 @@
-# Labels on visual types in
-
-Quick
+# Labels on visual types in Quick
 
 Use the following procedure to customize, display, or hide the labels for a visual.
 

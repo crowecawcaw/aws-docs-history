@@ -1,12 +1,9 @@
-# The expression editor
-
-workspace
+# The expression editor workspace
 
 Use the expression editor to customize a narrative to best fit your business
 needs. The information below provides an overview of the expression editor workspace
 and lists all menu options that can be configured for your narrative. For a
-walkthrough that shows you how to create a custom narrative, see [Use the narrative
-expression editor](using-narratives-expression-editor-step-by-step.md "using-narratives-expression-editor-step-by-step.md").
+walkthrough that shows you how to create a custom narrative, see [Use the narrative expression editor](using-narratives-expression-editor-step-by-step.md "using-narratives-expression-editor-step-by-step.md").
 
 On the right side of the screen, there's a list of items that you can add to the
 narrative:
@@ -49,8 +46,7 @@ options:
   conditionally formatted. For example, you might add a **block
   IF** statement, then configure it to compare an integer to a
   value from a calculation. To do this, you use the following steps, also
-  demonstrated in [Use the narrative
-  expression editor](using-narratives-expression-editor-step-by-step.md "using-narratives-expression-editor-step-by-step.md"):
+  demonstrated in [Use the narrative expression editor](using-narratives-expression-editor-step-by-step.md "using-narratives-expression-editor-step-by-step.md"):
 
       1. Open the calculations menu at right, and choose one of the blue
        highlighted items from one of the calculations. Doing this adds the

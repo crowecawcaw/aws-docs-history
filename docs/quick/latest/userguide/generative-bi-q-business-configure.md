@@ -1,6 +1,4 @@
-# Configuring an Amazon Q Business
-
-application in Amazon Quick Sight
+# Configuring an Amazon Q Business application in Amazon Quick Sight
 
 Use the following procedure to connect an Amazon Quick account with
 Amazon Q Business

@@ -3,9 +3,7 @@
 If you have owner permissions on a dataset, you can use the following procedure to
 revoke user access to a dataset.
 
-###### To revoke user access to a dataset if you have owner permissions for
-
-it
+###### To revoke user access to a dataset if you have owner permissions for it
 
 1. From the Quick start page, choose **Data** at
    left.

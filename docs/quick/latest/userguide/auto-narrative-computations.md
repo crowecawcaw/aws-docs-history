@@ -1,6 +1,4 @@
-# Working with autonarrative
-
-computations
+# Working with autonarrative computations
 
 Use this section to help you understand what functions are available to you when
 you are customizing an autonarrative. You only need to customize a narrative if you
@@ -26,21 +24,17 @@ statements can display inline (in a sentence) or as a block (in a list).
 
 ###### Topics
 
-- [ML-powered anomaly detection for
-  outliers](anomaly-detection-function.md "anomaly-detection-function.md")
+- [ML-powered anomaly detection for outliers](anomaly-detection-function.md "anomaly-detection-function.md")
 - [Bottom movers computation](bottom-movers-function.md "bottom-movers-function.md")
 - [Bottom ranked computation](bottom-ranked-function.md "bottom-ranked-function.md")
 - [ML-powered forecasting](forecast-function.md "forecast-function.md")
 - [Growth rate computation](growth-rate-function.md "growth-rate-function.md")
 - [Maximum computation](maximum-function.md "maximum-function.md")
-- [Metric comparison
-  computation](metric-comparison-function.md "metric-comparison-function.md")
+- [Metric comparison computation](metric-comparison-function.md "metric-comparison-function.md")
 - [Minimum computation](minimum-function.md "minimum-function.md")
-- [Period over period
-  computation](period-over-period-function.md "period-over-period-function.md")
+- [Period over period computation](period-over-period-function.md "period-over-period-function.md")
 - [Period to date computation](period-to-date-function.md "period-to-date-function.md")
 - [Top movers computation](top-movers-function.md "top-movers-function.md")
 - [Top ranked computation](top-ranked-function.md "top-ranked-function.md")
-- [Total aggregation
-  computation](total-aggregation-function.md "total-aggregation-function.md")
+- [Total aggregation computation](total-aggregation-function.md "total-aggregation-function.md")
 - [Unique values computation](unique-values-function.md "unique-values-function.md")

@@ -1,6 +1,4 @@
-# Total aggregation
-
-computation
+# Total aggregation computation
 
 The total aggregation computation creates a grand total of the value. For
 example, you can create a computation to find the total revenue.
@@ -21,9 +19,7 @@ _Value_
 
 The aggregated measure that the computation is based on.
 
-## Computation
-
-outputs
+## Computation outputs
 
 Each function generates a set of output parameters. You can add these
 outputs to the autonarrative to customize what it displays. You can also add

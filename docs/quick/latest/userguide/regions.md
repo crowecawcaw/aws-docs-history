@@ -109,9 +109,7 @@ There's no additional cost for using cross-Region inference.
 Amazon CloudWatch and AWS CloudTrail logs won't specify the AWS
 Region in which data inference occurs.
 
-### Supported regions for
-
-Amazon Q in Quick cross-Region inference
+### Supported regions for Amazon Q in Quick cross-Region inference
 
 For a list of Region codes and endpoints supported in Amazon Q in Quick, see [Supported
 AWS regions for Amazon Quick](../../../quicksight/latest/user/regions-aqs.md "../../../quicksight/latest/user/regions-aqs.md").

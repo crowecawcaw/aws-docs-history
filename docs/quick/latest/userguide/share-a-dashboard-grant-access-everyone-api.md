@@ -1,7 +1,4 @@
-# Granting everyone
-
-in your Amazon Quick account access to a dashboard with the Quick Sight
-API
+# Granting everyone in your Amazon Quick account access to a dashboard with the Quick Sight API
 
 |                                               |
 | --------------------------------------------- |

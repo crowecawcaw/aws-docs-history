@@ -32,9 +32,7 @@ your connection credentials. 10. To verify the connection is working, click **Va
 connection**. 11. To finish and create the data source, click **Create data
 source**.
 
-## Adding a new Quick Sight
-
-dataset for Databricks
+## Adding a new Quick Sight dataset for Databricks
 
 After you have an existing data source connection for Databricks data, you can
 create Databricks datasets to use for analysis.
@@ -71,9 +69,7 @@ create Databricks datasets to use for analysis.
 6. When you are done, choose **Save** to save and close the
    dataset.
 
-## Quick Sight
-
-Administrator's guide to connecting Databricks
+## Quick Sight Administrator's guide to connecting Databricks
 
 You can use Amazon Quick Sight to connect to Databricks on AWS. You can
 connect to Databricks on AWS whether you signed up for through AWS Marketplace

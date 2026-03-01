@@ -1,6 +1,4 @@
-# Configuring the VPC
-
-connection in the Amazon Quick console
+# Configuring the VPC connection in the Amazon Quick console
 
 To create a secure private connection to the Amazon VPC service from the Amazon Quick
 console, use the following procedure.
@@ -121,9 +119,7 @@ console, use the following procedure.
   - Security group IDs – The IDs of the security
     groups. Each VPC connection needs at least one security group.
 
-###### To create a secure private connection to the Amazon VPC service from Quick
-
-Enterprise edition
+###### To create a secure private connection to the Amazon VPC service from Quick Enterprise edition
 
 1. In Amazon Quick, choose your profile icon in the upper-right, then choose
    **Manage Amazon Quick**.

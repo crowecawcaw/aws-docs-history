@@ -1,6 +1,4 @@
-# Running queries as an IAM role in
-
-Amazon Quick
+# Running queries as an IAM role in Amazon Quick
 
 You can enhance data security by using fine-grained access policies rather than broader
 permissions for data sources connected to Amazon Athena, Amazon Redshift or Amazon S3. You start by creating an
@@ -54,9 +52,7 @@ data security:
   sources that need extra protection. For more information about policies, see [Create a
   customer managed policy](../../../IAM/latest/UserGuide/tutorial_managed-policies.md "../../../IAM/latest/UserGuide/tutorial_managed-policies.md") in the IAM User Guide.
 
-## Run queries with Athena data
-
-sources
+## Run queries with Athena data sources
 
 Use the API to attach the ARN to the Athena data source. To do so, add the role ARN in
 the [RoleArn](../../../quicksight/latest/APIReference/API_RoleArn.md "../../../quicksight/latest/APIReference/API_RoleArn.md") property of [AthenaParameters](../../../quicksight/latest/APIReference/API_AthenaParameters.md "../../../quicksight/latest/APIReference/API_AthenaParameters.md"). For verification, you can see the role ARN on the
@@ -134,9 +130,7 @@ aws quicksight create-data-source
         }'
 ```
 
-## Run queries with Amazon Redshift data
-
-sources
+## Run queries with Amazon Redshift data sources
 
 Connect your Amazon Redshift data with the run-as role to enhance your data security with
 fine-grained access policies. You can create a run-as role for Amazon Redshift data sources that
@@ -386,8 +380,7 @@ might look like:
 }
 ```
 
-For instructions on how to create a manifest file, see [Supported formats for Amazon S3 manifest
-files](supported-manifest-file-format.md "supported-manifest-file-format.md").
+For instructions on how to create a manifest file, see [Supported formats for Amazon S3 manifest files](supported-manifest-file-format.md "supported-manifest-file-format.md").
 
 After you have created a manifest file and added it to your Amazon S3 bucket or uploaded it
 to Quick, create or update an existing role in IAM that grants

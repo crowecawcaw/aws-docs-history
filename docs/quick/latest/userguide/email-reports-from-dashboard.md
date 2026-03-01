@@ -1,6 +1,4 @@
-# Configuring email report settings for
-
-a Quick Sight dashboard
+# Configuring email report settings for a Quick Sight dashboard
 
 |                                            |
 | ------------------------------------------ |

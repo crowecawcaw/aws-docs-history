@@ -1,6 +1,4 @@
-# From an Amazon Quick home
-
-page
+# From an Amazon Quick home page
 
 From your Quick start page, you can create and manage topics by
 selecting **Topics** in the navigation pane at left. Quick

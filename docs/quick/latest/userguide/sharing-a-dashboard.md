@@ -18,5 +18,4 @@ for any user. You can also remove yourself from it.
 
 You can also embed interactive dashboards and visuals in websites and apps by copying
 the dashboard or visual embed code and pasting it in your application. For more
-information, see [Embedding Amazon Quick Sight visuals and
-dashboards for registered users with a 1-click embed code](embedded-analytics-1-click.md "embedded-analytics-1-click.md").
+information, see [Embedding Amazon Quick Sight visuals and dashboards for registered users with a 1-click embed code](embedded-analytics-1-click.md "embedded-analytics-1-click.md").

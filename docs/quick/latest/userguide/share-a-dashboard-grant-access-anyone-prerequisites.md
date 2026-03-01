@@ -1,6 +1,4 @@
-# Before
-
-you start
+# Before you start
 
 Before you can share a dashboard with anyone on the internet, make sure to
 do the following:
@@ -52,8 +50,7 @@ JSON
 
 ```
 
-For more information on using IAM with Quick Sight, see [Using Quick with
-IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
+For more information on using IAM with Quick Sight, see [Using Quick with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
 
 You can also use the "Deny" policy as a Service Control Policy
 (SCP) if you don't want any of the accounts in your organization to

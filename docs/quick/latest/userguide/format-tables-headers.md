@@ -107,9 +107,7 @@ following:
      icon next to **Rows label** or **Column
      field names**.
 
-## Header background
-
-color
+## Header background color
 
 You can customize table headers' background color.
 
@@ -172,16 +170,12 @@ following:
      colors, reset the border color to the default color, or create a
      custom color.
 
-## Header styling options for
-
-hierarchy pivot tables
+## Header styling options for hierarchy pivot tables
 
 You can hide or rename the **Rows** label of a hierarchy
 pivot table.
 
-###### To make changes to the **Rows** label of a hierarchy
-
-pivot table
+###### To make changes to the **Rows** label of a hierarchy pivot table
 
 1. Select the hierarchy pivot table that you want to change and open the
    **Format visual** menu.

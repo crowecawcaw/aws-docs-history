@@ -1,6 +1,4 @@
-# Create, customize, and deploy AI-powered
-
-chat agents in Amazon Quick
+# Create, customize, and deploy AI-powered chat agents in Amazon Quick
 
 Chat agents in Amazon Quick help users explore data, analyze information, and take
 actions. Users can interact with chat agents using the Quick chat interface.
@@ -25,16 +23,12 @@ Amazon Quick chat](../../../quicksuite/latest/userguide/using-quick-chat.md "../
 ###### Topics
 
 - [Chat agent types](#agent-types "#agent-types")
-- [Amazon Quick user interaction with chat
-  agents](#user-agent-actions "#user-agent-actions")
-- [Amazon Quick user permissions for chat
-  agents](#user-agent-permissions "#user-agent-permissions")
-- [Custom permissions for chat
-  agents](#custom-permissions-chat-agents "#custom-permissions-chat-agents")
+- [Amazon Quick user interaction with chat agents](#user-agent-actions "#user-agent-actions")
+- [Amazon Quick user permissions for chat agents](#user-agent-permissions "#user-agent-permissions")
+- [Custom permissions for chat agents](#custom-permissions-chat-agents "#custom-permissions-chat-agents")
 - [System chat agent](default-assistant.md "default-assistant.md")
 - [Custom chat agents](custom-agents.md "custom-agents.md")
-- [Chat agent context sources and
-  best practices](agent-knowledge-sources-best-practices.md "agent-knowledge-sources-best-practices.md")
+- [Chat agent context sources and best practices](agent-knowledge-sources-best-practices.md "agent-knowledge-sources-best-practices.md")
 - [Use a chat agent](use-agents.md "use-agents.md")
 
 ## Chat agent types
@@ -99,9 +93,7 @@ The system chat agent is an unopinionated chat agent by design. If you
 want chat agents to access all actions irrespective of data focus, configure
 chat agents with action connectors.
 
-## Amazon Quick user interaction with chat
-
-agents
+## Amazon Quick user interaction with chat agents
 
 The following table shows what you can do with chat agents in the admin console versus
 as a Amazon Quick user. For more information on which roles can access these features,
@@ -113,9 +105,7 @@ pricing](https://aws.amazon.com/quicksuite/pricing/ "https://aws.amazon.com/quic
 | Admin Console     | • Assign owners for the system chat agent and custom chat<br>chat agents using [Manage assets](../../../quicksuite/latest/userguide/manage-qs-assets.md "../../../quicksuite/latest/userguide/manage-qs-assets.md")<br>• Control whether users can create chat agents using [Custom permissions](../../../quicksuite/latest/userguide/create-custom-permisions-profile.md "../../../quicksuite/latest/userguide/create-custom-permisions-profile.md")<br>• Configure instance-wide blocked words and phrases for all<br>chat agents                                                     |
 | Amazon Quick user | • Create and maintain custom chat agents (with appropriate<br>permissions)<br>• Configure chat agent personality and response styles and<br>provide reference documents to inform its behavior<br>• Link chat agents with spaces (with dashboards, datasets,<br>topics) as their knowledge source to look for answers<br>• Attach action connectors to use as tools<br>• Share chat agents with specific users and teams<br>• Interact with chat agents through conversations<br>• Analyze data with chat agent assistance<br>• Receive permissions-aware responses from chat<br>agents |
 
-## Amazon Quick user permissions for chat
-
-agents
+## Amazon Quick user permissions for chat agents
 
 What you can do with a chat agent also depends on the permissions you're assigned for
 it. There are two permission types that users can be assigned:
@@ -145,9 +135,7 @@ Amazon Quick chat agent:
 | Owners           | • Can access and configure agent behavior (agent persona<br>settings, reference documents) and resources (space and<br>action connectors)<br>• Can customize chat agent details like title, description,<br>and suggested prompts to improve usability<br>• Can share chat agents with users and groups<br>• Can delete the chat agent |
 | Viewers          | • Can't customize the chat agent's details<br>• Can receive responses based on the permissions they have<br>to resources                                                                                                                                                                                                               |
 
-## Custom permissions for chat
-
-agents
+## Custom permissions for chat agents
 
 By default, Amazon Quick enables all new features available for the Amazon Quick
 account, so that users can access them immediately based on their subscription. You can

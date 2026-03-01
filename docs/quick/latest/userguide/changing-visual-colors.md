@@ -1,6 +1,4 @@
-# Colors in visual types in
-
-Quick
+# Colors in visual types in Quick
 
 You can change the color of one, some, or all elements on the following types of
 charts:
@@ -15,8 +13,7 @@ charts:
   To change colors on bar charts, donut charts, gauge charts, line charts, and scatter
   plots, see [Changing colors on charts](#format-colors-on-charts "#format-colors-on-charts").
 
-To change colors on heat maps and tree maps, see [Changing colors on heat
-maps and tree maps](#format-colors-on-heatmaps-and-treemaps "#format-colors-on-heatmaps-and-treemaps").
+To change colors on heat maps and tree maps, see [Changing colors on heat maps and tree maps](#format-colors-on-heatmaps-and-treemaps "#format-colors-on-heatmaps-and-treemaps").
 
 ## Changing colors on charts
 
@@ -108,9 +105,7 @@ Repeat this step until you have set the color on all elements that you
 want to modify. To change the color back to the color it was originally,
 choose **Reset to default**.
 
-### Setting visual colors back to
-
-defaults
+### Setting visual colors back to defaults
 
 Use the following procedure to return to using the default colors on a
 visual.
@@ -135,9 +130,7 @@ The default color for individual elements is the chart color if you
 have specified one, or the default color for the visual type
 otherwise.
 
-## Changing colors on heat
-
-maps and tree maps
+## Changing colors on heat maps and tree maps
 
 ###### To change the colors that display on a heat map or a tree map
 

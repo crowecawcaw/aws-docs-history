@@ -1,6 +1,4 @@
-# Amazon Quick user interaction with
-
-extensions
+# Amazon Quick user interaction with extensions
 
 Amazon Quick extensions enable different user roles to collaborate effectively in
 creating, managing, and utilizing AI-powered analytics tools. Each role—administrators,
@@ -11,17 +9,13 @@ deployment.
 
 ###### Topics
 
-- [User capabilities and
-  permissions](#extension-user-capabilities "#extension-user-capabilities")
-- [Amazon Quick administrator
-  responsibilities](#admin-extension-role "#admin-extension-role")
+- [User capabilities and permissions](#extension-user-capabilities "#extension-user-capabilities")
+- [Amazon Quick administrator responsibilities](#admin-extension-role "#admin-extension-role")
 - [Amazon Quick author capabilities](#author-extension-role "#author-extension-role")
 - [Amazon Quick end user access](#user-extension-role "#user-extension-role")
 - [Extension access troubleshooting](#extension-troubleshooting "#extension-troubleshooting")
 
-## User capabilities and
-
-permissions
+## User capabilities and permissions
 
 Amazon Quick implements a hierarchical permission model for extensions that
 balances organizational control with user productivity. Administrators establish the
@@ -60,9 +54,7 @@ availability and initial setup, authors handle deployment and configuration, and
 users can benefit from the AI-powered assistance once extensions are properly
 configured.
 
-## Amazon Quick administrator
-
-responsibilities
+## Amazon Quick administrator responsibilities
 
 Amazon Quick administrators, or users granted admin privileges, establish the
 foundational infrastructure that enables extension functionality across the

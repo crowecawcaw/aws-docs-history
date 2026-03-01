@@ -3,9 +3,7 @@
 You can delete filters at any time in a dataset or analysis. Use the following
 procedures to learn how.
 
-## Deleting filters in
-
-datasets
+## Deleting filters in datasets
 
 Use the following procedure to delete filters in datasets.
 
@@ -21,9 +19,7 @@ Use the following procedure to delete filters in datasets.
 5. Choose the filter that you want to delete, and then choose
    **Delete filter**.
 
-## Deleting filters in
-
-analyses
+## Deleting filters in analyses
 
 Use the following procedure to delete filters in analyses.
 

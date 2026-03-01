@@ -1,6 +1,4 @@
-# Invalid data when using Athena
-
-with Amazon Quick Sight
+# Invalid data when using Athena with Amazon Quick Sight
 
 An invalid data error can occur when you use any operator or function in a
 calculated field. To address this, verify that the data in the table is consistent

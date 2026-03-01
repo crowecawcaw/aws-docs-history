@@ -96,9 +96,7 @@ For these field values the following values are returned.
         "other regions"
 ```
 
-## Use switch to replace
-
-`ifelse`
+## Use switch to replace `ifelse`
 
 The following `ifelse` use case is an equivalent of the previous
 example, for `ifelse` evaluating whether values of one field equals
@@ -112,9 +110,7 @@ ifelse(region_name = "US East (N. Virginia)", "us-east-1",
                "other regions")
 ```
 
-## Expression as return
-
-value
+## Expression as return value
 
 The following example uses expressions in
 _return-expressions_:

@@ -1,6 +1,4 @@
-# Creating and editing custom actions in
-
-Amazon Quick Sight
+# Creating and editing custom actions in Amazon Quick Sight
 
 You create one action for each task that you want to be able to add to a visual.
 The actions you create become part of the functionality of each visual or

@@ -16,5 +16,4 @@ maintaining security and compliance requirements.
 - [Default access policy](default-access.md "default-access.md")
 - [IAM policy assignments](iam-policy-assignments.md "iam-policy-assignments.md")
 - [Extension access](extension-access.md "extension-access.md")
-- [Creating a custom permissions profile in
-  Amazon Quick](create-custom-permisions-profile.md "create-custom-permisions-profile.md")
+- [Creating a custom permissions profile in Amazon Quick](create-custom-permisions-profile.md "create-custom-permisions-profile.md")

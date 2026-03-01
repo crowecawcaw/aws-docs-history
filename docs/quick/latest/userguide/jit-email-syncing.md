@@ -1,6 +1,4 @@
-# Configuring email syncing for federated users in
-
-Quick
+# Configuring email syncing for federated users in Quick
 
 |                                            |
 | ------------------------------------------ |
@@ -44,10 +42,7 @@ federated users in Amazon Quick.
 
 The following procedures describe these steps in detail.
 
-## Step 1: Update the trust relationship for
-
-the IAM role with AssumeRoleWithSAML or
-AssumeRoleWithWebIdentity
+## Step 1: Update the trust relationship for the IAM role with AssumeRoleWithSAML or AssumeRoleWithWebIdentity
 
 You can configure email addresses for your users to use when provisioning through
 your IdP to Amazon Quick. To do this, add the `sts:TagSession` action to
@@ -93,9 +88,7 @@ IdP service-specific information.
     }
 ```
 
-## Step 2: Add a SAML attribute or OIDC
-
-token for the IAM principal tag in your IdP
+## Step 2: Add a SAML attribute or OIDC token for the IAM principal tag in your IdP
 
 After you update the trust relationship for the IAM role as described in the
 preceding section, add a SAML attribute or OIDC token for the IAM
@@ -126,9 +119,7 @@ on the Okta blog.
 "https://aws.amazon.com/tags": {"principal_tags": {"Email": ["`john.doe@example.com`"]
 ```
 
-## Step 3: Turn on email syncing for
-
-federated users in Amazon Quick
+## Step 3: Turn on email syncing for federated users in Amazon Quick
 
 As described preceding, update the trust relationship for the IAM role and add a
 SAML attribute or OIDC token for the IAM `Principal` tag in your IdP.

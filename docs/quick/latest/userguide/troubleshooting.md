@@ -13,10 +13,8 @@ Resource Library](https://aws.amazon.com/quicksight/resource-library/ "https://a
 ###### Topics
 
 - [Resolving Amazon Quick Sight issues and error messages](#quicksight-errors "#quicksight-errors")
-- [Connectivity issues when using Amazon Athena with
-  Amazon Quick Sight](troubleshoot-athena.md "troubleshoot-athena.md")
-- [Data source connectivity issues
-  for Amazon Quick Sight](troubleshoot-connect-to-datasources.md "troubleshoot-connect-to-datasources.md")
+- [Connectivity issues when using Amazon Athena with Amazon Quick Sight](troubleshoot-athena.md "troubleshoot-athena.md")
+- [Data source connectivity issues for Amazon Quick Sight](troubleshoot-connect-to-datasources.md "troubleshoot-connect-to-datasources.md")
 - [Login issues with Quick Sight](troubleshoot-login.md "troubleshoot-login.md")
 - [Visual issues with Quick Sight](visual-issues.md "visual-issues.md")
 
@@ -26,8 +24,7 @@ If you are having difficulties or receiving an error message, there's a few ways
 that you can go about resolving the issue. Following are some resources that can
 help:
 
-- For errors during dataset ingestion (importing data), see [SPICE ingestion error
-  codes](errors-spice-ingestion.md "errors-spice-ingestion.md").
+- For errors during dataset ingestion (importing data), see [SPICE ingestion error codes](errors-spice-ingestion.md "errors-spice-ingestion.md").
 - For technical user questions, visit the [User
   Community](https://answers.quicksight.aws.amazon.com/sn/index.html "https://answers.quicksight.aws.amazon.com/sn/index.html").
 - For administrator questions, see the [AWS forums](https://forums.aws.amazon.com "https://forums.aws.amazon.com").

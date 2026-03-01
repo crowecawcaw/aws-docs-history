@@ -1,6 +1,4 @@
-# I can't connect although my data
-
-source connection options look right (SSL)
+# I can't connect although my data source connection options look right (SSL)
 
 Problems connecting can occur when Secure Sockets Layer (SSL) is incorrectly
 configured. The symptoms can include the following:

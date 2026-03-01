@@ -11,8 +11,7 @@ After defining your research objective, you can select the data sources that Qui
 
    For best results, include key documents that are most relevant to your research goals. Adding more materials may increase research time and lead to less focused insights.
 
-   If you're working with larger collections, consider using Spaces to organize and optimize extensive research materials for better results. 3. Select **Quick assets** to include data spaces, dashboards, and knowledge bases. These aree collections of files, documents, and analytics that you've organized in Quick for easy access and analysis. For more information about creating and managing data spaces, see [Organize, collaborate, and share
-   resources with spaces in Amazon Quick](working-with-spaces.md "working-with-spaces.md").
+   If you're working with larger collections, consider using Spaces to organize and optimize extensive research materials for better results. 3. Select **Quick assets** to include data spaces, dashboards, and knowledge bases. These aree collections of files, documents, and analytics that you've organized in Quick for easy access and analysis. For more information about creating and managing data spaces, see [Organize, collaborate, and share resources with spaces in Amazon Quick](working-with-spaces.md "working-with-spaces.md").
 
 3. Choose **Create plan** to proceed to research plan review.
 

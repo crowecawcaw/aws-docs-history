@@ -1,6 +1,4 @@
-# Embedding
-
-dashboards for everyone using GetDashboardEmbedURL (old API)
+# Embedding dashboards for everyone using GetDashboardEmbedURL (old API)
 
 ###### Important
 
@@ -27,9 +25,6 @@ GetDashboardEmbedURL.
 
 ###### Topics
 
-- [Step
-  1: Set up permissions](embedded-analytics-dashboards-with-anonymous-users-get-step-1.md "embedded-analytics-dashboards-with-anonymous-users-get-step-1.md")
-- [Step
-  2: Get the URL with the authentication code attached](embedded-analytics-dashboards-with-anonymous-users-get-step-2.md "embedded-analytics-dashboards-with-anonymous-users-get-step-2.md")
-- [Step
-  3: Embed the dashboard URL](embedded-analytics-dashboards-with-anonymous-users-get-step-3.md "embedded-analytics-dashboards-with-anonymous-users-get-step-3.md")
+- [Step 1: Set up permissions](embedded-analytics-dashboards-with-anonymous-users-get-step-1.md "embedded-analytics-dashboards-with-anonymous-users-get-step-1.md")
+- [Step 2: Get the URL with the authentication code attached](embedded-analytics-dashboards-with-anonymous-users-get-step-2.md "embedded-analytics-dashboards-with-anonymous-users-get-step-2.md")
+- [Step 3: Embed the dashboard URL](embedded-analytics-dashboards-with-anonymous-users-get-step-3.md "embedded-analytics-dashboards-with-anonymous-users-get-step-3.md")

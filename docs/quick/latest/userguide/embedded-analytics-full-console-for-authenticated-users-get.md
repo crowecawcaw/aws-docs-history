@@ -1,7 +1,4 @@
-# Embedding
-
-the Amazon Quick Sight console using GetSessionEmbedUrl (old
-API)
+# Embedding the Amazon Quick Sight console using GetSessionEmbedUrl (old API)
 
 ###### Important
 

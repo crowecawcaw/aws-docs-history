@@ -1,6 +1,4 @@
-# Embedding Amazon Quick Sight visuals and dashboards
-
-with a 1-click embed code
+# Embedding Amazon Quick Sight visuals and dashboards with a 1-click embed code
 
 You can embed a visual or dashboard in your application using an embed code. You get
 this code when you share the dashboard or from the **Embed visual**
@@ -16,7 +14,5 @@ the 1-click visual or dashboard embed code.
 
 ###### Topics
 
-- [Embedding Amazon Quick Sight visuals and
-  dashboards for registered users with a 1-click embed code](embedded-analytics-1-click.md "embedded-analytics-1-click.md")
-- [Embedding Amazon Quick Sight
-  visuals and dashboards for anonymous users with a 1-click embed code](embedded-analytics-1-click-public.md "embedded-analytics-1-click-public.md")
+- [Embedding Amazon Quick Sight visuals and dashboards for registered users with a 1-click embed code](embedded-analytics-1-click.md "embedded-analytics-1-click.md")
+- [Embedding Amazon Quick Sight visuals and dashboards for anonymous users with a 1-click embed code](embedded-analytics-1-click-public.md "embedded-analytics-1-click-public.md")

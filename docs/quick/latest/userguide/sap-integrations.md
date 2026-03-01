@@ -80,9 +80,7 @@ Ensure the required SAP API services are active:
 - Verify API service status in your SAP system
 - Refer to SAP documentation for API activation: [SAP API Service Activation Guide](https://help.sap.com/doc/saphelp_nw75/7.5.5/en-US/1b/023c1cad774eeb8b85b25c86d94f87/frameset.htm "https://help.sap.com/doc/saphelp_nw75/7.5.5/en-US/1b/023c1cad774eeb8b85b25c86d94f87/frameset.htm")
 
-### Available SAP workload integration
-
-types
+### Available SAP workload integration types
 
 Choose the SAP integration type that matches your business needs and ensure the corresponding SAP module is available in your system.
 
@@ -306,9 +304,7 @@ Follow these steps to permanently remove your SAP integration.
 3. Type the integration name to confirm deletion.
 4. Choose **Delete integration** to permanently remove it.
 
-## Troubleshoot SAP workload
-
-integrations
+## Troubleshoot SAP workload integrations
 
 Use these troubleshooting tips to resolve common SAP workload integration
 issues.

@@ -10,11 +10,9 @@ pixel perfect report that generates and saves a snapshot of the report's data wh
 schedule a report in Amazon Quick Sight. You can publish a dashboard that contains any combination
 of interactive sheets and pixel perfect reports from the same analysis.
 
-For more information about scheduling a report, see [Scheduling and sending Quick Sight reports by
-email](sending-reports.md "sending-reports.md") .
+For more information about scheduling a report, see [Scheduling and sending Quick Sight reports by email](sending-reports.md "sending-reports.md") .
 
-For more information about viewing a report's snapshots, see [Consuming pixel perfect reports in
-Amazon Quick Sight](qs-reports-consume-reports.md "qs-reports-consume-reports.md").
+For more information about viewing a report's snapshots, see [Consuming pixel perfect reports in Amazon Quick Sight](qs-reports-consume-reports.md "qs-reports-consume-reports.md").
 
 Use the following procedure to publish and optionally share a dashboard. You can also
 use this procedure to rename a published dashboard. A renamed dashboard retains its

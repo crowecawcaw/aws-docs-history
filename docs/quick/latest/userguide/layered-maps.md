@@ -17,9 +17,7 @@ The following image shows a layer map visual in Amazon Quick.
 
 ![](images/layer-map.png)
 
-## Creating a shape layer with layered
-
-maps
+## Creating a shape layer with layered maps
 
 Use the procedure below to create a shape layer with layer map visuals in
 Amazon Quick.

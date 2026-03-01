@@ -1,6 +1,4 @@
-# Viewing the users that an analysis is shared
-
-with
+# Viewing the users that an analysis is shared with
 
 If you have shared an analysis, you can use the following procedure to see which
 users or groups have access to it.

@@ -1,6 +1,4 @@
-# Manage topic permissions through
-
-dashboards in Amazon Quick Sight
+# Manage topic permissions through dashboards in Amazon Quick Sight
 
 Quick enables Authors to manage permissions for dashboards and their
 linked topics from a single location. When sharing dashboards with Q&A enabled,

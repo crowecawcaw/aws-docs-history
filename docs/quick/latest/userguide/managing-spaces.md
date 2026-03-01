@@ -6,18 +6,14 @@ You can perform the following actions for spaces.
 
 - [Viewing a list of spaces](#viewing-spaces "#viewing-spaces")
 - [Editing a space](#editing-spaces "#editing-spaces")
-- [Adding knowledge to a
-  space](#adding-resources-space "#adding-resources-space")
-- [Viewing a list of content
-  inside a space](#viewing-spaces-content "#viewing-spaces-content")
+- [Adding knowledge to a space](#adding-resources-space "#adding-resources-space")
+- [Viewing a list of content inside a space](#viewing-spaces-content "#viewing-spaces-content")
 - [Using a space](#using-spaces "#using-spaces")
 - [Sharing a space](#sharing-spaces "#sharing-spaces")
 - [Deleting a space](#deleting-spaces "#deleting-spaces")
 - [Removing knowledge from a space](#deleting-resources-space "#deleting-resources-space")
-- [Adding data from external sources
-  into your space](#adding-external-data-sources "#adding-external-data-sources")
-- [Adding application actions to a
-  space](#adding-application-actions "#adding-application-actions")
+- [Adding data from external sources into your space](#adding-external-data-sources "#adding-external-data-sources")
+- [Adding application actions to a space](#adding-application-actions "#adding-application-actions")
 
 ## Viewing a list of spaces
 
@@ -55,9 +51,7 @@ following actions:
    3. In **Amazon Quick resources** – Link and
       unlink resources as needed.
 
-## Adding knowledge to a
-
-space
+## Adding knowledge to a space
 
 You can add knowledge—files and Amazon Quick resources—to a space
 after it's been created.
@@ -83,9 +77,7 @@ its name.
 After you finish adding resources, **Space knowledge** displays a
 list of all resources and files added to your space.
 
-## Viewing a list of content
-
-inside a space
+## Viewing a list of content inside a space
 
 You can view a list of content inside a space.
 
@@ -204,9 +196,7 @@ Amazon Quick system.
       **Actions** menu select **Remove from
       this space**.
 
-## Adding data from external sources
-
-into your space
+## Adding data from external sources into your space
 
 You can pull in data from Google Drive, OneDrive,
 Confluence, SharePoint, web pages, and Amazon S3 into
@@ -226,9 +216,7 @@ your spaces to expand the context of your chat and research agents.
 
 To learn how to create a knowledge base, refer to [Working with integrations](../../../quicksuite/latest/userguide/working-with-integrations.md "../../../quicksuite/latest/userguide/working-with-integrations.md").
 
-## Adding application actions to a
-
-space
+## Adding application actions to a space
 
 You can use application actions to read and write data to external
 SaaS applications and MCP servers from within a

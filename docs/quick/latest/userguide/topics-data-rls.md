@@ -1,6 +1,4 @@
-# Adding datasets with row-level
-
-security (RLS) to a Amazon Quick Sight topic
+# Adding datasets with row-level security (RLS) to a Amazon Quick Sight topic
 
 You can add datasets that contain row-level security (RLS) to topics. All fields
 in a topic respect the RLS rules applied to your dataset. For example, if a user
@@ -35,11 +33,9 @@ field that you want to allow , and then choose **Row level security** . 4. On th
 that opens, choose **Allow users to ask questions regarding all
 values on this field**. 5. Choose **Apply**. 6. When finished editing the dataset, choose **Save &
 publish** in the blue toolbar at upper right. 7. Add the dataset to your topic. For more information, see the previous
-section, [Adding datasets to a topic in
-Amazon Quick Sight](topics-data-add.md "topics-data-add.md").
+section, [Adding datasets to a topic in Amazon Quick Sight](topics-data-add.md "topics-data-add.md").
 If you currently allow users to ask questions regarding all values, but want to
 implement the dataset's RLS rules to protect sensitive information, then repeat
 steps 1–4 and choose **Allow users to ask questions regarding this
 field based on their permissions**. When you are done, refresh the
-dataset in your topic. For more information, see [Refreshing datasets in a
-Quick Sight topic](topics-data-refresh.md "topics-data-refresh.md").
+dataset in your topic. For more information, see [Refreshing datasets in a Quick Sight topic](topics-data-refresh.md "topics-data-refresh.md").

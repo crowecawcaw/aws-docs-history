@@ -1,6 +1,4 @@
-# Using the
-
-Amazon Quick analytics dashboard
+# Using the Amazon Quick analytics dashboard
 
 Analytics in Amazon Quick provides insights into how users interact with your instance
 across all features and capabilities. The analytics dashboard delivers the data-driven
@@ -35,8 +33,7 @@ You can use analytics to:
 - [Analytics access and permissions](#analytics-access-permissions "#analytics-access-permissions")
 - [Analytics dashboard overview](#analytics-dashboard-overview "#analytics-dashboard-overview")
 - [Accessing the analytics dashboard](#accessing-analytics "#accessing-analytics")
-- [Understanding analytics
-  metrics](#understanding-analytics-metrics "#understanding-analytics-metrics")
+- [Understanding analytics metrics](#understanding-analytics-metrics "#understanding-analytics-metrics")
 - [Analytics limitations](#analytics-limitations "#analytics-limitations")
 
 ## Analytics access and permissions
@@ -236,9 +233,7 @@ choose from the following preset intervals:
 If you don't see the Analytics option in the navigation menu, contact your
 instance administrator to request access.
 
-## Understanding analytics
-
-metrics
+## Understanding analytics metrics
 
 The analytics dashboard displays various metrics that help you understand usage
 patterns, performance, and security events. The following sections explain key metrics

@@ -1,6 +1,4 @@
-# Using multi-factor authentication
-
-(MFA) with Amazon Quick
+# Using multi-factor authentication (MFA) with Amazon Quick
 
 |                                                                 |
 | --------------------------------------------------------------- |

@@ -125,8 +125,7 @@ Use the following procedure to create a Highcharts visual in Amazon Quick.
 
 When you are happy with the rendered visual, close the properties pane. For more
 information about Quick Sight specific expressions that can be used to configure a
-Highcharts visual, see [Amazon Quick JSON expression language for
-Highcharts visuals](highchart-expressions.md "highchart-expressions.md").
+Highcharts visual, see [Amazon Quick JSON expression language for Highcharts visuals](highchart-expressions.md "highchart-expressions.md").
 
 ## Interactive Highchart features
 

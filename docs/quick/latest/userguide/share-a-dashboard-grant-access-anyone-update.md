@@ -1,6 +1,4 @@
-# Updating a
-
-publicly shared dashboard
+# Updating a publicly shared dashboard
 
 Use the following procedure to update a shared dashboard that can be
 accessed by anyone on the internet.

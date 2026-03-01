@@ -1,6 +1,4 @@
-# Accessing Amazon Quick Sight using keyboard
-
-shortcuts
+# Accessing Amazon Quick Sight using keyboard shortcuts
 
 You can use the following keyboard shortcuts to navigate a Amazon Quick Sight dashboard or
 analysis:

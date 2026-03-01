@@ -1,6 +1,4 @@
-# Build calculations with
-
-Generative BI
+# Build calculations with Generative BI
 
 With Generative BI, you can use natural language prompts to create calculated
 fields in Amazon Quick Sight, as shown in the following image. For more information about

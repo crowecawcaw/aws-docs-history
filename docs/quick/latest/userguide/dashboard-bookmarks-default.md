@@ -1,6 +1,4 @@
-# Making a bookmark the default view in
-
-Amazon Quick Sight
+# Making a bookmark the default view in Amazon Quick Sight
 
 By default, when you update a dashboard, Quick Sight remembers those changes and
 keeps them after you close the dashboard. This way, you can pick up where you left

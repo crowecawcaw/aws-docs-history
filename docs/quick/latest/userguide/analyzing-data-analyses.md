@@ -6,6 +6,5 @@ the granularity of date fields, data type, role, and format of fields in a visua
 
 ###### Topics
 
-- [Changing fields used by a visual in
-  Amazon Quick](changing-visual-fields.md "changing-visual-fields.md")
+- [Changing fields used by a visual in Amazon Quick](changing-visual-fields.md "changing-visual-fields.md")
 - [Sorting visual data in Amazon Quick](sorting-visual-data.md "sorting-visual-data.md")

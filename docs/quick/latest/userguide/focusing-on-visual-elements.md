@@ -1,6 +1,4 @@
-# Focusing on visual
-
-elements
+# Focusing on visual elements
 
 When viewing visuals, you can choose data that you want to focus on or
 exclude. To perform this choice, choose an element such as a bar or bubble, or a

@@ -1,6 +1,4 @@
-# Connecting to parameters in
-
-Amazon Quick
+# Connecting to parameters in Amazon Quick
 
 Use this section after you have a parameter set up, to connect it and make it work.
 

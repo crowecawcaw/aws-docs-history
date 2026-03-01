@@ -6,8 +6,6 @@ analysis.
 
 ###### Topics
 
-- [From an Amazon Quick home
-  page](starting-from-home.md "starting-from-home.md")
+- [From an Amazon Quick home page](starting-from-home.md "starting-from-home.md")
 - [From an Amazon Quick Sight analysis](starting-from-sheets.md "starting-from-sheets.md")
-- [Navigating
-  questions in an Amazon Quick Sight analysis](starting-from-questions-on-sheets.md "starting-from-questions-on-sheets.md")
+- [Navigating questions in an Amazon Quick Sight analysis](starting-from-questions-on-sheets.md "starting-from-questions-on-sheets.md")

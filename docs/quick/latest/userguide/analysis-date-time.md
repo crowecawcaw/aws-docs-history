@@ -1,6 +1,4 @@
-# Customize date and time values of an
-
-analysis
+# Customize date and time values of an analysis
 
 In Amazon Quick, authors can set custom time zones and week start days of an analysis.
 When you set a custom week start or time zone, all visuals in the analysis that use
@@ -104,9 +102,7 @@ The following considerations apply to custom time zones.
   - Teradata
   - SqlServer
 
-## Setting custom week start days in an
-
-analysis
+## Setting custom week start days in an analysis
 
 Quick authors can define the week start day of an analysis to align
 their data with the schedule that their company or industry follows. When you set a

@@ -1,6 +1,4 @@
-# Embedding Amazon Quick Sight
-
-visuals and dashboards for anonymous users with a 1-click embed code
+# Embedding Amazon Quick Sight visuals and dashboards for anonymous users with a 1-click embed code
 
 |                                            |
 | ------------------------------------------ |
@@ -15,9 +13,7 @@ Following, you can find how to turn on public sharing for a visual or dashboard
 and embed the visual or dashboard for anyone on the internet to see. In both cases,
 you do this by using the 1-click embed code.
 
-## Before you
-
-start
+## Before you start
 
 Before you get started, make sure of the following:
 
@@ -32,27 +28,20 @@ Before you get started, make sure of the following:
 - Your internet browser's "block all cookies" settings is turned
   off.
 
-## Step 1: Turn on public
-
-access for the dashboard
+## Step 1: Turn on public access for the dashboard
 
 For anyone on the internet to access your embedded visual or dashboard, first
 turn on public access for the dashboard. Visual permissions are determined at
 the dashboard level. To grant access to embedded visuals, grant access to the
-dashboard that the visual belongs to. For more information, see [Granting anyone on the
-internet access to an Amazon Quick Sight dashboard](share-a-dashboard-grant-access-anyone.md "share-a-dashboard-grant-access-anyone.md").
+dashboard that the visual belongs to. For more information, see [Granting anyone on the internet access to an Amazon Quick Sight dashboard](share-a-dashboard-grant-access-anyone.md "share-a-dashboard-grant-access-anyone.md").
 
-## Step 2: Put the domain where
-
-you want to embed the visual or dashboard on your allow list
+## Step 2: Put the domain where you want to embed the visual or dashboard on your allow list
 
 To embed visuals and dashboards in a public application, wiki, or portal, make
 sure that the domain where you're embedding it is on the allow list for your
 Amazon Quick Sight account.
 
-## Step 3: Get the embed
-
-code
+## Step 3: Get the embed code
 
 Use the following procedure to get the visual or dashboard embed code.
 
@@ -100,9 +89,7 @@ account.
     </iframe>
 ```
 
-## Step 4: Paste the embed code into
-
-an HTML page, wiki page, or portal
+## Step 4: Paste the embed code into an HTML page, wiki page, or portal
 
 Use the following procedure to paste the embed code into an HTML page, wiki
 page, or portal.
@@ -170,10 +157,8 @@ list when you embed in Google Sites:
 
 After you embed the visual or dashboard in your application, anyone who can
 access your application can access the embedded visual or dashboard. To update a
-dashboard that's shared with the public, see [Updating a
-publicly shared dashboard](share-a-dashboard-grant-access-anyone-update.md "share-a-dashboard-grant-access-anyone-update.md"). To turn off
-public sharing, see [Turning off
-public sharing settings](share-a-dashboard-grant-access-anyone-no-share.md "share-a-dashboard-grant-access-anyone-no-share.md").
+dashboard that's shared with the public, see [Updating a publicly shared dashboard](share-a-dashboard-grant-access-anyone-update.md "share-a-dashboard-grant-access-anyone-update.md"). To turn off
+public sharing, see [Turning off public sharing settings](share-a-dashboard-grant-access-anyone-no-share.md "share-a-dashboard-grant-access-anyone-no-share.md").
 
 When you turn off public sharing, no one from the internet can access a
 dashboard or dashboards that you have embedded on a public application or shared

@@ -1,6 +1,4 @@
-# Amazon Quick Microsoft
-
-Teams extension author guide
+# Amazon Quick Microsoft Teams extension author guide
 
 As an Amazon Quick author, you can deploy Quick Microsoft
 Teams extensions after your admin establishes the foundational
@@ -33,18 +31,12 @@ Teams](../../../quicksuite/latest/userguide/teams-extension.md "../../../quicksu
 
 ###### Topics
 
-- [Deploy Microsoft Teams
-  extension](#add-extensions-teams "#add-extensions-teams")
-- [Edit Microsoft Teams
-  extension](#edit-extensions-teams "#edit-extensions-teams")
-- [Share Microsoft Teams
-  extension](#share-extensions-teams "#share-extensions-teams")
-- [Delete Microsoft Teams
-  extension](#delete-extensions-teams "#delete-extensions-teams")
+- [Deploy Microsoft Teams extension](#add-extensions-teams "#add-extensions-teams")
+- [Edit Microsoft Teams extension](#edit-extensions-teams "#edit-extensions-teams")
+- [Share Microsoft Teams extension](#share-extensions-teams "#share-extensions-teams")
+- [Delete Microsoft Teams extension](#delete-extensions-teams "#delete-extensions-teams")
 
-## Deploy Microsoft Teams
-
-extension
+## Deploy Microsoft Teams extension
 
 Deploy a new Microsoft Teams extension instance in the
 Amazon Quick console. This process establishes the foundation for connecting
@@ -112,9 +104,7 @@ their Teams app.
 Your Microsoft Teams extension has now been successfully
 deployed and is available for users.
 
-## Edit Microsoft Teams
-
-extension
+## Edit Microsoft Teams extension
 
 ###### Note
 
@@ -140,9 +130,7 @@ Microsoft Teams extension.
 Your changes are now applied and will be reflected in the extension
 configuration for all users.
 
-## Share Microsoft Teams
-
-extension
+## Share Microsoft Teams extension
 
 Share ownership and management permissions with specific users and groups,
 enabling multiple users to manage extensions and assist with installation. You
@@ -170,9 +158,7 @@ other users and manage their access permissions.
 The specified users and groups now have access to your Microsoft
 Teams extension with the permissions you assigned.
 
-## Delete Microsoft Teams
-
-extension
+## Delete Microsoft Teams extension
 
 As an author, you can delete the extensions you deploy to your users.
 Permanently remove a extension from your Quick console and revoke

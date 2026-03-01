@@ -1,6 +1,4 @@
-# Showing and hiding anomalies by
-
-date
+# Showing and hiding anomalies by date
 
 The **Number of anomalies** chart shows outliers detected
 over time. If you don't see this chart, you can display it by choosing

@@ -1,6 +1,4 @@
-# Embedding the full functionality of the Amazon Quick Sight console for registered
-
-users
+# Embedding the full functionality of the Amazon Quick Sight console for registered users
 
 ###### Important
 
@@ -47,18 +45,12 @@ attached. For more information, see the following sections:
 
 ###### Topics
 
-- [Step 1:
-  Set up permissions](#embedded-analytics-full-console-for-authenticated-users-step-1 "#embedded-analytics-full-console-for-authenticated-users-step-1")
-- [Step 2:
-  Generate the URL with the authentication code attached](#embedded-analytics-full-console-for-authenticated-users-step-2 "#embedded-analytics-full-console-for-authenticated-users-step-2")
-- [Step 3:
-  Embed the console session URL](#embedded-analytics-full-console-for-authenticated-users-step-3 "#embedded-analytics-full-console-for-authenticated-users-step-3")
-- [Enabling Generative BI features in embedded
-  consoles for registered users](embedding-consoles-genbi.md "embedding-consoles-genbi.md")
+- [Step 1: Set up permissions](#embedded-analytics-full-console-for-authenticated-users-step-1 "#embedded-analytics-full-console-for-authenticated-users-step-1")
+- [Step 2: Generate the URL with the authentication code attached](#embedded-analytics-full-console-for-authenticated-users-step-2 "#embedded-analytics-full-console-for-authenticated-users-step-2")
+- [Step 3: Embed the console session URL](#embedded-analytics-full-console-for-authenticated-users-step-3 "#embedded-analytics-full-console-for-authenticated-users-step-3")
+- [Enabling Generative BI features in embedded consoles for registered users](embedding-consoles-genbi.md "embedding-consoles-genbi.md")
 
-## Step 1:
-
-Set up permissions
+## Step 1: Set up permissions
 
 In the following section, you can find out how to set up permissions for the backend
 application or web server. This task requires administrative access to IAM.
@@ -144,9 +136,7 @@ Guide:_
 - [Creating a Role
   for SAML 2.0 Federation (Console)](../../../IAM/latest/UserGuide/id_roles_create_for-idp_saml.md "../../../IAM/latest/UserGuide/id_roles_create_for-idp_saml.md")
 
-## Step 2:
-
-Generate the URL with the authentication code attached
+## Step 2: Generate the URL with the authentication code attached
 
 In the following section, you can find out how to authenticate your user and get the
 embeddable console session URL on your application server.
@@ -564,9 +554,7 @@ aws quicksight generate-embed-url-for-registered-user \
 For more information about using this operation, see [GenerateEmbedUrlForRegisteredUser](../../../quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.md "../../../quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.md"). You can use
 this and other API operations in your own code.
 
-## Step 3:
-
-Embed the console session URL
+## Step 3: Embed the console session URL
 
 In the following section, you can find out how you can use the [Amazon Quick Sight Embedding SDK](https://www.npmjs.com/package/amazon-quicksight-embedding-sdk "https://www.npmjs.com/package/amazon-quicksight-embedding-sdk") (JavaScript) to embed the console session
 URL from step 3 in your website or application page. With the SDK, you can do the
@@ -604,7 +592,7 @@ changes. By using the Amazon Quick Sight Embedding SDK, you can also control par
 within the console session and receive callbacks in terms of page load completion and
 errors.
 
-The domain that is going to host embedded dashboards must be on the _allow list_, the list of approved domains for your Quick Suite subscription. This requirement protects your data by keeping unapproved
+The domain that is going to host embedded dashboards must be on the _allow list_, the list of approved domains for your Quick subscription. This requirement protects your data by keeping unapproved
 domains from hosting embedded dashboards. For more information about adding domains for
 an embedded console, see [Allow listing domains at runtime with the Amazon Quick Sight
 API](../../../quicksight/latest/user/embedding-run-time.md "../../../quicksight/latest/user/embedding-run-time.md").

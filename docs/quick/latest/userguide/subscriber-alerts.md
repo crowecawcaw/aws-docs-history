@@ -1,19 +1,14 @@
-# Subscribing to Amazon Quick Sight dashboard emails and
-
-alerts
+# Subscribing to Amazon Quick Sight dashboard emails and alerts
 
 Using Amazon Quick Sight, you can subscribe to updates for certain events, such as dashboard
 updates and anomaly alerts.
 
 ###### Topics
 
-- [Sign up for
-  dashboard emails](#subscribing-to-a-dashboard-report-for-readers "#subscribing-to-a-dashboard-report-for-readers")
+- [Sign up for dashboard emails](#subscribing-to-a-dashboard-report-for-readers "#subscribing-to-a-dashboard-report-for-readers")
 - [Sign up for anomaly alerts](#anomaly-alerts "#anomaly-alerts")
 
-## Sign up for
-
-dashboard emails
+## Sign up for dashboard emails
 
 You can sign up to get a dashboard in report form, and receive it in an email. You
 can also configure your report settings.

@@ -1,6 +1,4 @@
-# Adding filters to a Amazon Quick Sight topic
-
-dataset
+# Adding filters to a Amazon Quick Sight topic dataset
 
 Sometimes your business users (readers) might ask questions that contain terms
 that map to multiple cells of values in the data. For example, let's say one of

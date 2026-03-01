@@ -1,6 +1,4 @@
-# What's the
-
-difference between anomaly detection and forecasting?
+# What's the difference between anomaly detection and forecasting?
 
 Anomaly detection identifies outliers and their contributing drivers to answer the
 question "What happened that doesn't usually happen?" Forecasting answers

@@ -6,8 +6,7 @@ need, up to 200. You can also add calculated columns.
 
 Table visuals don't display a legend. You can hide or display the title on a
 table. You can also hide or display totals, and choose to show totals at the top or the
-bottom of the table. For more information, see [Analytics formatting per type in
-Quick](analytics-format-options.md "analytics-format-options.md").
+bottom of the table. For more information, see [Analytics formatting per type in Quick](analytics-format-options.md "analytics-format-options.md").
 
 ###### To create a table visual
 

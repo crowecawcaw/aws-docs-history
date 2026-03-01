@@ -1,7 +1,4 @@
-# Embedding analytics using the
-
-GetDashboardEmbedURL and GetSessionEmbedURL API
-operations
+# Embedding analytics using the GetDashboardEmbedURL and GetSessionEmbedURL API operations
 
 |                                            |
 | ------------------------------------------ |
@@ -27,11 +24,6 @@ applications](../../../quicksight/latest/user/embedding-overview.md "../../../qu
 
 ###### Topics
 
-- [Embedding
-  dashboards for everyone using GetDashboardEmbedURL (old API)](embedded-analytics-dashboards-with-anonymous-users-get.md "embedded-analytics-dashboards-with-anonymous-users-get.md")
-- [Embedding
-  dashboards for registered users using GetDashboardEmbedUrl (old
-  API)](embedded-analytics-dashboards-for-authenticated-users-get.md "embedded-analytics-dashboards-for-authenticated-users-get.md")
-- [Embedding
-  the Amazon Quick Sight console using GetSessionEmbedUrl (old
-  API)](embedded-analytics-full-console-for-authenticated-users-get.md "embedded-analytics-full-console-for-authenticated-users-get.md")
+- [Embedding dashboards for everyone using GetDashboardEmbedURL (old API)](embedded-analytics-dashboards-with-anonymous-users-get.md "embedded-analytics-dashboards-with-anonymous-users-get.md")
+- [Embedding dashboards for registered users using GetDashboardEmbedUrl (old API)](embedded-analytics-dashboards-for-authenticated-users-get.md "embedded-analytics-dashboards-for-authenticated-users-get.md")
+- [Embedding the Amazon Quick Sight console using GetSessionEmbedUrl (old API)](embedded-analytics-full-console-for-authenticated-users-get.md "embedded-analytics-full-console-for-authenticated-users-get.md")

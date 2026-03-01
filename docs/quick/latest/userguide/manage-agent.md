@@ -37,18 +37,13 @@ for chat to influence all agent responses and flows.
 
 ###### Topics
 
-- [Grant user permissions to edit system
-  default chat agent](#edit-default-agent-permissions "#edit-default-agent-permissions")
+- [Grant user permissions to edit system default chat agent](#edit-default-agent-permissions "#edit-default-agent-permissions")
 - [Edit system chat agent settings](#edit-default-agent "#edit-default-agent")
 - [Configure clickable external links in chat responses](#configure-clickable-links "#configure-clickable-links")
-- [Adding blocked words and phrases for chat
-  agents](#general-agent-settings "#general-agent-settings")
-- [Edit blocked words and phrases for chat
-  agents and flows](#edit-general-agent-settings "#edit-general-agent-settings")
+- [Adding blocked words and phrases for chat agents](#general-agent-settings "#general-agent-settings")
+- [Edit blocked words and phrases for chat agents and flows](#edit-general-agent-settings "#edit-general-agent-settings")
 
-## Grant user permissions to edit system
-
-default chat agent
+## Grant user permissions to edit system default chat agent
 
 The system default chat agent can be edited by users the admin designates as owners to
 this agent in the admin console. The following procedure shows you how to grant admin
@@ -137,9 +132,7 @@ Admins can configure whether URLs in chat agent responses appear as clickable hy
    customization**.
 4. Under **Clickable external links**, turn the toggle on.
 
-## Adding blocked words and phrases for chat
-
-agents
+## Adding blocked words and phrases for chat agents
 
 Default guardrails and admin provided blocked words serve as general settings that all
 chat agents and flows consider when the user chats with them. Admin configured blocked
@@ -161,9 +154,7 @@ Guide_.
       **Add** to add blocked words and phrases. You can
       add upto 50 words and phrases.
 
-## Edit blocked words and phrases for chat
-
-agents and flows
+## Edit blocked words and phrases for chat agents and flows
 
 To edit blocked words and phrases added to chat agents and flows, use the following
 procedure.

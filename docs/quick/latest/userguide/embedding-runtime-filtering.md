@@ -1,6 +1,4 @@
-# Filtering data at runtime for
-
-Amazon Quick Sight embedded dashboards and visuals
+# Filtering data at runtime for Amazon Quick Sight embedded dashboards and visuals
 
 You can use filter methods in the Amazon Quick Sight embedding SDK to leverage the power
 of Amazon Quick Sight filters within your software as a service (SaaS) application at

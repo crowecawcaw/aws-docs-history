@@ -84,9 +84,7 @@ Example trust policy:
 }
 ```
 
-## Create AWS services action
-
-connector
+## Create AWS services action connector
 
 After preparing your IAM role and permissions, follow these steps to create your AWS
 services action connector:

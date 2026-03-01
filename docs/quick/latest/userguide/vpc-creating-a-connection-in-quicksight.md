@@ -1,6 +1,4 @@
-# Managing VPC connection in
-
-Amazon Quick
+# Managing VPC connection in Amazon Quick
 
 |                                            |
 | ------------------------------------------ |
@@ -17,9 +15,6 @@ from a Amazon Quick account.
 
 ###### Topics
 
-- [Configuring the VPC
-  connection in the Amazon Quick console](vpc-creating-a-connection-in-quicksight-console.md "vpc-creating-a-connection-in-quicksight-console.md")
-- [Configuring the VPC
-  connection with the Amazon Quick CLI](vpc-creating-a-connection-in-quicksight-cli.md "vpc-creating-a-connection-in-quicksight-cli.md")
-- [Testing the connection
-  to your VPC data source](vpc-creating-a-quicksight-data-source-profile.md "vpc-creating-a-quicksight-data-source-profile.md")
+- [Configuring the VPC connection in the Amazon Quick console](vpc-creating-a-connection-in-quicksight-console.md "vpc-creating-a-connection-in-quicksight-console.md")
+- [Configuring the VPC connection with the Amazon Quick CLI](vpc-creating-a-connection-in-quicksight-cli.md "vpc-creating-a-connection-in-quicksight-cli.md")
+- [Testing the connection to your VPC data source](vpc-creating-a-quicksight-data-source-profile.md "vpc-creating-a-quicksight-data-source-profile.md")

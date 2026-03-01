@@ -15,15 +15,10 @@ to learn about both methods of connection.
 
 ###### Topics
 
-- [Creating an Quick Sight data
-  source connection to Starburst with login credentials](#create-connection-to-starburst "#create-connection-to-starburst")
-- [Creating an Quick Sight data
-  source connection to Starburst with OAuth client
-  credentials](#create-connection-to-starburst-oauth "#create-connection-to-starburst-oauth")
+- [Creating an Quick Sight data source connection to Starburst with login credentials](#create-connection-to-starburst "#create-connection-to-starburst")
+- [Creating an Quick Sight data source connection to Starburst with OAuth client credentials](#create-connection-to-starburst-oauth "#create-connection-to-starburst-oauth")
 
-## Creating an Quick Sight data
-
-source connection to Starburst with login credentials
+## Creating an Quick Sight data source connection to Starburst with login credentials
 
 1. Begin by creating a new dataset. From the left navigation pane, choose
    **Data**, then choose **Create**, then
@@ -62,10 +57,7 @@ After you have successfully created a data source connection between your
 Quick Sight and Starburst accounts, you can begin [Creating datasets](creating-data-sets.md "creating-data-sets.md") that contain
 Starburst data.
 
-## Creating an Quick Sight data
-
-source connection to Starburst with OAuth client
-credentials
+## Creating an Quick Sight data source connection to Starburst with OAuth client credentials
 
 You can use OAuth client credentials to connect your Quick Sight
 account with Starburst through the [Quick Sight
@@ -108,9 +100,7 @@ Identity providers:
 - OKTA
 - PingFederate
 
-### Storing
-
-OAuth credentials in Secrets Manager
+### Storing OAuth credentials in Secrets Manager
 
 OAuth client credentials are meant for machine-to-machine use
 cases and are not designed to be interactive. To create a datasource connection
@@ -118,8 +108,7 @@ between Quick Sight and Starburst, create a new secret in Secrets Manager that c
 your credentials for the OAuth client app. The secret ARN that is
 created with the new secret can be used to create datasets that contain
 Starburst data in Quick Sight. For more information about using Secrets Manager keys in
-Quick Sight, see [Using AWS Secrets Manager secrets instead of
-database credentials in Quick](secrets-manager-integration.md "secrets-manager-integration.md").
+Quick Sight, see [Using AWS Secrets Manager secrets instead of database credentials in Quick](secrets-manager-integration.md "secrets-manager-integration.md").
 
 The credentials that you need to store in Secrets Manager are determined by the
 OAuth mechanism that you use. The following key/value pairs
@@ -143,9 +132,7 @@ OAuth secrets:
 - `client_secret`: the OAuth client
   secret
 
-### Creating a
-
-Starburst OAuth connection with the Quick Sight APIs
+### Creating a Starburst OAuth connection with the Quick Sight APIs
 
 After you create a secret in Secrets Manager that contains your Starburst
 OAuth credentials and have connected your Quick

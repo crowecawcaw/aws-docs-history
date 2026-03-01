@@ -91,8 +91,7 @@ Calculated fields can't be used as dynamic defaults.
 
 Dynamic defaults don't prevent a user from selecting a different value.
 If you want to secure the data, you can add row-level locking. For more
-information, see [Using row-level
-security with user-based rules to restrict access to a dataset](restrict-access-to-a-data-set-using-row-level-security.md "restrict-access-to-a-data-set-using-row-level-security.md").
+information, see [Using row-level security with user-based rules to restrict access to a dataset](restrict-access-to-a-data-set-using-row-level-security.md "restrict-access-to-a-data-set-using-row-level-security.md").
 
 This option only appears if you choose a single value parameter. Multivalue
 parameters can't have dynamic defaults.

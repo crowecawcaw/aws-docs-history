@@ -1,6 +1,4 @@
-# Restricting others from creating new
-
-datasets from your dataset
+# Restricting others from creating new datasets from your dataset
 
 When you create a dataset in Amazon Quick, you can prevent others from using it as a
 source for other datasets. You can specify if others can use it to create any

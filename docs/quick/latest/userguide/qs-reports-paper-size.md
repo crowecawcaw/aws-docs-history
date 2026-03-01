@@ -1,14 +1,10 @@
-# Changing paper size, margins, and
-
-orientation
+# Changing paper size, margins, and orientation
 
 After you create a pixel perfect report in Amazon Quick Sight, you can change the report format,
 orientation, and margins from the **Analysis settings** menu
 whenever you want.
 
-## To change the paper size of a
-
-pixel perfect report
+## To change the paper size of a pixel perfect report
 
 1. From the Quick homepage, choose
    **Analyses**, and then choose the analysis that
@@ -30,9 +26,7 @@ pixel perfect report
 
 4. Choose **Apply**.
 
-## To change the orientation of a
-
-report
+## To change the orientation of a report
 
 1. From the Quick homepage, choose
    **Analyses**, and then choose the analysis that

@@ -1,6 +1,4 @@
-# Working with field level coloring in
-
-Amazon Quick
+# Working with field level coloring in Amazon Quick
 
 With field level coloring, you can assign specific colors to specific field values
 across all visuals in a Quick analysis or dashboard. Colors are assigned on

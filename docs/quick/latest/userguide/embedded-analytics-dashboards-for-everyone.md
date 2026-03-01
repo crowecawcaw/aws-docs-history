@@ -1,6 +1,4 @@
-# Embedding Amazon Quick Sight
-
-dashboards for anonymous (unregistered) users
+# Embedding Amazon Quick Sight dashboards for anonymous (unregistered) users
 
 ###### Important
 
@@ -28,16 +26,11 @@ embedded Amazon Quick Sight dashboards for anonymous (unregistered) users.
 
 ###### Topics
 
-- [Step 1:
-  Set up permissions](#embedded-analytics-dashboards-with-anonymous-users-step-1 "#embedded-analytics-dashboards-with-anonymous-users-step-1")
-- [Step 2:
-  Generate the URL with the authentication code attached](#embedded-analytics-dashboards-with-anonymous-users-step-2 "#embedded-analytics-dashboards-with-anonymous-users-step-2")
-- [Step 3:
-  Embed the dashboard URL](#embedded-analytics-dashboards-with-anonymous-users-step-3 "#embedded-analytics-dashboards-with-anonymous-users-step-3")
+- [Step 1: Set up permissions](#embedded-analytics-dashboards-with-anonymous-users-step-1 "#embedded-analytics-dashboards-with-anonymous-users-step-1")
+- [Step 2: Generate the URL with the authentication code attached](#embedded-analytics-dashboards-with-anonymous-users-step-2 "#embedded-analytics-dashboards-with-anonymous-users-step-2")
+- [Step 3: Embed the dashboard URL](#embedded-analytics-dashboards-with-anonymous-users-step-3 "#embedded-analytics-dashboards-with-anonymous-users-step-3")
 
-## Step 1:
-
-Set up permissions
+## Step 1: Set up permissions
 
 |                                            |
 | ------------------------------------------ |
@@ -126,9 +119,7 @@ JSON
 For more information regarding trust policies, see [Temporary security credentials in
 IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") in the _IAM User Guide_.
 
-## Step 2:
-
-Generate the URL with the authentication code attached
+## Step 2: Generate the URL with the authentication code attached
 
 |                                            |
 | ------------------------------------------ |
@@ -484,9 +475,7 @@ aws quicksight generate-embed-url-for-anonymous-user \
 For more information about using this operation, see [GenerateEmbedUrlForAnonymousUser](../../../quicksight/latest/APIReference/API_GenerateEmbedUrlForAnonymousUser.md "../../../quicksight/latest/APIReference/API_GenerateEmbedUrlForAnonymousUser.md"). You can
 use this and other API operations in your own code.
 
-## Step 3:
-
-Embed the dashboard URL
+## Step 3: Embed the dashboard URL
 
 |                                            |
 | ------------------------------------------ |
@@ -532,7 +521,7 @@ you can also control parameters within the dashboard and receive callbacks in te
 of page load completion and errors.
 
 The domain that is going to host embedded dashboards must be on the _allow list_, the list of approved domains for your
-Quick Suite subscription. This requirement protects your data by keeping
+Quick subscription. This requirement protects your data by keeping
 unapproved domains from hosting embedded dashboards. For more information about
 adding domains for embedded dashboards, see [Allow
 listing domains at runtime with the Amazon Quick Sight API](../../../quicksight/latest/user/embedding-run-time.md "../../../quicksight/latest/user/embedding-run-time.md").

@@ -1,6 +1,4 @@
-# Using parameters in titles and descriptions
-
-in Amazon Quick
+# Using parameters in titles and descriptions in Amazon Quick
 
 When you create parameters in Amazon Quick, you can use them in titles and
 descriptions throughout your charts and analyses to dynamically display parameter
@@ -20,9 +18,7 @@ Use the following procedures to learn how to add parameters to areas throughout
 your analysis. For more information about parameters and how to create them, see
 [Parameters](parameters-in-quicksight.md "parameters-in-quicksight.md").
 
-## Adding parameters to chart
-
-titles and subtitles
+## Adding parameters to chart titles and subtitles
 
 Use the following procedure to learn how to add parameters to chart titles and
 subtitles.
@@ -44,12 +40,9 @@ The parameter is added to the title in the
 value is displayed in the title.
 
 For more information about editing titles and subtitles in visuals,
-see [Titles and subtitles on visual types in
-Quick](customizing-a-visual-title.md "customizing-a-visual-title.md").
+see [Titles and subtitles on visual types in Quick](customizing-a-visual-title.md "customizing-a-visual-title.md").
 
-## Adding parameters to axis
-
-titles
+## Adding parameters to axis titles
 
 Use the following procedure to learn how to add parameters to axis
 titles.
@@ -71,9 +64,7 @@ value is displayed in the axis title.
 For more information about editing axis titles, see [Axes and grid
 lines](showing-hiding-axis-grid-tick.md "showing-hiding-axis-grid-tick.md").
 
-## Adding parameters to legend
-
-titles
+## Adding parameters to legend titles
 
 Use the following procedure to learn how to add parameters to legend
 titles.
@@ -92,12 +83,9 @@ The parameter is added to the legend title in the
 **Properties** pane. In the chart, the parameter
 value is displayed in the legend title.
 
-For more information about formatting legends, see [Legends on visual types in
-Quick](customizing-visual-legend.md "customizing-visual-legend.md").
+For more information about formatting legends, see [Legends on visual types in Quick](customizing-visual-legend.md "customizing-visual-legend.md").
 
-## Adding parameters to
-
-control titles
+## Adding parameters to control titles
 
 Use the following procedure to learn how to add parameters to parameter
 control titles.
@@ -116,9 +104,7 @@ The parameter is added to the parameter control title.
 
 For more information about using parameter controls, see [Parameter controls](parameters-controls.md "parameters-controls.md").
 
-## Adding parameters to sheet
-
-titles and descriptions
+## Adding parameters to sheet titles and descriptions
 
 Use the following procedure to learn how to add parameters to sheet titles and
 descriptions in your analysis.
@@ -137,5 +123,4 @@ The parameter is added to the sheet title or description and the
 parameter value appears in the text when you close the text box.
 
 For more information about adding sheet titles and descriptions, see
-[Adding a title and description to an
-analysis](adding-a-title-and-description.md "adding-a-title-and-description.md").
+[Adding a title and description to an analysis](adding-a-title-and-description.md "adding-a-title-and-description.md").

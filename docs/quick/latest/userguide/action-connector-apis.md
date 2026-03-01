@@ -9,9 +9,7 @@ chat interfaces and automated workflows.
 
 Action connectors serve as the foundational resources that enable integration with first and third party applications. Through these APIs, you can authenticate to applications, manage permissions, and control which actions are available to users within your Amazon Quick applications.
 
-### How action connector
-
-APIs support action integrations
+### How action connector APIs support action integrations
 
 Action connector APIs provide the backend infrastructure for Amazon Quick action integrations. When you create an action connector through the API, you establish a secure connection that lets you:
 

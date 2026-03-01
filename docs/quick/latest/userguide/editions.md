@@ -47,14 +47,10 @@ Sign-On (IAM Identity Center), through Security Assertion Markup Language 2.0 (S
 
 ###### Topics
 
-- [User management for standard
-  edition](#edition-user-management-standard "#edition-user-management-standard")
-- [User management for enterprise
-  edition](#edition-user-management-enterprise "#edition-user-management-enterprise")
+- [User management for standard edition](#edition-user-management-standard "#edition-user-management-standard")
+- [User management for enterprise edition](#edition-user-management-enterprise "#edition-user-management-enterprise")
 
-### User management for standard
-
-edition
+### User management for standard edition
 
 In the Standard edition, as a system administrator, you can invite an AWS Identity and Access Management
 user and allow that user to use their credentials to access Amazon Quick.
@@ -68,9 +64,7 @@ an administrative or a user role. This role assignment determines the user's
 permissions in Amazon Quick. You perform all management of users by adding,
 changing, and deleting accounts in Amazon Quick.
 
-### User management for enterprise
-
-edition
+### User management for enterprise edition
 
 In the Enterprise edition, as a system administrator, you can select one or more
 IAM Identity Center or Microsoft Active Directory groups for administrative access. All users in

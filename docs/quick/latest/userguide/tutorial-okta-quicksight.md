@@ -1,6 +1,4 @@
-# Tutorial: Amazon Quick and IAM identity
-
-federation
+# Tutorial: Amazon Quick and IAM identity federation
 
 |                                                                 |
 | --------------------------------------------------------------- |
@@ -33,9 +31,7 @@ defined their permissions for the duration of their authenticated session. Custo
 with large numbers of AWS Accounts, check out the AWS
 Single Sign-On app as an alternative." (https://www.okta.com/aws/)
 
-###### To create an Okta app using Okta's "AWS Account
-
-Federation" application shortcut
+###### To create an Okta app using Okta's "AWS Account Federation" application shortcut
 
 1. Sign in to your Okta dashboard. If you don't have one, create a free Okta
    Developer Edition account by using [this Amazon Quick-branded

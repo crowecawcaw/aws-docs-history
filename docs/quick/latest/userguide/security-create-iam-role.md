@@ -1,6 +1,4 @@
-# Passing IAM roles to
-
-Quick
+# Passing IAM roles to Quick
 
 |                                            |
 | ------------------------------------------ |
@@ -15,10 +13,8 @@ Use the sections below to pass existing IAM roles to Amazon Quick
 ###### Topics
 
 - [Prerequisites](#security-create-iam-role-prerequisites "#security-create-iam-role-prerequisites")
-- [Attaching additional
-  policies](#security-create-iam-role-athena-s3 "#security-create-iam-role-athena-s3")
-- [Using existing IAM roles in
-  Quick](#security-create-iam-role-use "#security-create-iam-role-use")
+- [Attaching additional policies](#security-create-iam-role-athena-s3 "#security-create-iam-role-athena-s3")
+- [Using existing IAM roles in Quick](#security-create-iam-role-use "#security-create-iam-role-use")
 
 ## Prerequisites
 
@@ -114,9 +110,7 @@ For more information about assigning permissions policies to users or user group
 see [Changing permissions
 for an IAM user](../../../IAM/latest/UserGuide/id_users_change-permissions.md "../../../IAM/latest/UserGuide/id_users_change-permissions.md") in the _IAM User Guide_.
 
-## Attaching additional
-
-policies
+## Attaching additional policies
 
 If you're using another AWS service, such as Amazon Athena or Amazon S3, you can create a
 permissions policy that grants Amazon Quick permission to perform specific actions.
@@ -192,9 +186,7 @@ account?](https://aws.amazon.com/premiumsupport/knowledge-center/quicksight-cros
 }
 ```
 
-## Using existing IAM roles in
-
-Quick
+## Using existing IAM roles in Quick
 
 If you're a Amazon Quick administrator and have permissions to update Amazon Quick
 resources and pass IAM roles, you can use existing IAM roles in Amazon Quick. To

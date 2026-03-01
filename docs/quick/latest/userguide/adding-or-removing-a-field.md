@@ -19,9 +19,7 @@ This effect can happen with the following charts:
   field, and then choose **Remove** from the context (right-click)
   menu.
 
-## Adding a field by selecting it in the
-
-fields list pane
+## Adding a field by selecting it in the fields list pane
 
 You can also let Amazon Quick map the field to the most appropriate visual
 element. To do so, choose the field in the **Fields list**
@@ -31,18 +29,14 @@ If all of the visual elements are already populated, Amazon Quick determines the
 most appropriate field well and replaces the field in it with the field you
 selected.
 
-## Adding a field by using a drop
-
-target
+## Adding a field by using a drop target
 
 To add a field to a visual by using a drop target, first choose a field in the
 **Fields list** pane. Then drag the field to your chosen
 drop target on the visual, making sure the drop indicator shows that the field
 is being added.
 
-## Adding a field by using a field
-
-well
+## Adding a field by using a field well
 
 To add a field to a visual by using a field well, choose a field in the
 **Fields list** pane. Then drag the field to the target

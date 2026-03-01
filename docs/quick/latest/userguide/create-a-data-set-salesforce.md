@@ -1,6 +1,4 @@
-# Creating a dataset from
-
-Salesforce
+# Creating a dataset from Salesforce
 
 Use the following procedure to create a dataset by connecting to Salesforce and
 selecting a report or object to provide data.

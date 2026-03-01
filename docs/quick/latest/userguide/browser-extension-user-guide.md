@@ -27,14 +27,10 @@ Key capabilities include:
 - [Supported browsers](#browser-extension-supported-browsers "#browser-extension-supported-browsers")
 - [Browser extension benefits](#browser-extension-benefits "#browser-extension-benefits")
 - [Browser extension use cases](#browser-extension-use-cases "#browser-extension-use-cases")
-- [Install and configure the browser
-  extension](#install-and-configure-browser "#install-and-configure-browser")
-- [Deploy the browser extension
-  in your organization](#deploy-browser-extension-organization "#deploy-browser-extension-organization")
-- [Browser extension usage
-  guidelines](#browser-extensions-usage-guidelines "#browser-extensions-usage-guidelines")
-- [Browser extension known
-  limitations](#browser-extension-known-limitations "#browser-extension-known-limitations")
+- [Install and configure the browser extension](#install-and-configure-browser "#install-and-configure-browser")
+- [Deploy the browser extension in your organization](#deploy-browser-extension-organization "#deploy-browser-extension-organization")
+- [Browser extension usage guidelines](#browser-extensions-usage-guidelines "#browser-extensions-usage-guidelines")
+- [Browser extension known limitations](#browser-extension-known-limitations "#browser-extension-known-limitations")
 - [Using Amazon Quick Flows in the browser extension](flows-in-browser-extension.md "flows-in-browser-extension.md")
 
 ## Supported browsers
@@ -146,9 +142,7 @@ conversation.
 This enables you to perform tasks in external applications without leaving your
 browser.
 
-## Install and configure the browser
-
-extension
+## Install and configure the browser extension
 
 As a user, you can install and configure the browser extensions with the following
 steps.
@@ -170,9 +164,7 @@ about pinning extensions might be helpful.
 - Mozilla Firefox — [https://support.mozilla.org/en-US/kb/extensions-button#w_manage-pinned-extensions](https://support.mozilla.org/en-US/kb/extensions-button#w_manage-pinned-extensions "https://support.mozilla.org/en-US/kb/extensions-button#w_manage-pinned-extensions")
 - Microsoft Edge — [https://www.microsoft.com/en-us/edge/features/pin-to-taskbar](https://www.microsoft.com/en-us/edge/features/pin-to-taskbar "https://www.microsoft.com/en-us/edge/features/pin-to-taskbar")
 
-## Deploy the browser extension
-
-in your organization
+## Deploy the browser extension in your organization
 
 As an author, after enabling the browser extension in your Quick
 application, you can deploy it across your organization using enterprise management
@@ -238,9 +230,7 @@ deployment steps.
 Your Microsoft Edge Enterprise deployment is complete with centralized policy
 management.
 
-## Browser extension usage
-
-guidelines
+## Browser extension usage guidelines
 
 As a user, you are responsible for keeping company information safe. The following
 guidelines help you use Quick browser extensions securely while
@@ -252,9 +242,7 @@ When using the Quick browser extension, users can review past
 conversations and attachments to maintain context across browsing
 sessions.
 
-### Conversation retention and data
-
-privacy
+### Conversation retention and data privacy
 
 Amazon Quick maintains strict data privacy through automated retention
 policies:
@@ -266,9 +254,7 @@ policies:
 - Browser extension retention periods may exceed Amazon Quick's standard
   30-day limit based on organizational policies.
 
-## Browser extension known
-
-limitations
+## Browser extension known limitations
 
 The following are known limitations of the Amazon Quick browser extension:
 

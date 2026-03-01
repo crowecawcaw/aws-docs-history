@@ -1,6 +1,4 @@
-# Creating a data story with Generative
-
-BI;
+# Creating a data story with Generative BI;
 
 Use the following procedure to create a data story with Generative BI.
 
@@ -50,8 +48,7 @@ be restricted for one of the following reasons:
    application, check the **Use insights from Amazon Q Business**
    checkbox to augment your data story with unstructured data sources from
    Amazon Q Business. For more information about connecting a Quick account to
-   a Amazon Q Business application, see [Augmenting Amazon Quick Sight insights with
-   Amazon Q Business](generative-bi-q-business.md "generative-bi-q-business.md").
+   a Amazon Q Business application, see [Augmenting Amazon Quick Sight insights with Amazon Q Business](generative-bi-q-business.md "generative-bi-q-business.md").
 9. Choose **Build**.
    After the data story generates, review the data story and choose from the following
    options:

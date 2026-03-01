@@ -1,6 +1,4 @@
-# Sorting pivot tables in
-
-Quick
+# Sorting pivot tables in Quick
 
 In Amazon Quick, you can sort values in a pivot table by fields in the
 **Rows** and **Columns** field wells or
@@ -11,12 +9,9 @@ columns independently of each other in alphabetical order, or by a measure.
 
 You can't run Total, Difference, and Percent Difference table calculations
 when a pivot table is being sorted by a measure. For more information about
-using table calculations in pivot tables, see [Using table calculations in pivot
-tables](working-with-calculations.md "working-with-calculations.md").
+using table calculations in pivot tables, see [Using table calculations in pivot tables](working-with-calculations.md "working-with-calculations.md").
 
-## Understanding sorting in
-
-pivot tables
+## Understanding sorting in pivot tables
 
 When you have multiple panes in a pivot table, sorting is applied to each pane
 independently. For example, the `Segment` column in the pivot table
@@ -37,9 +32,7 @@ shown in blue).
 
 ![Image of a pivot table showing two measure value columns sorted.](images/sorting-pivot-tables3.png)
 
-## Sorting pivot tables using row or
-
-column headers
+## Sorting pivot tables using row or column headers
 
 Use the following procedure to sort a pivot table using Row or Column
 headers.
@@ -57,9 +50,7 @@ order.
 
 ![Animated .gif file of sorting values in a pivot table using column headers.](images/sorting-pivot-table7.gif)
 
-## Sorting pivot tables using value
-
-headers
+## Sorting pivot tables using value headers
 
 Use the following procedure to sort a pivot table using value headers.
 
@@ -75,9 +66,7 @@ Use the following procedure to sort a pivot table using value headers.
 Sorting by value headers in a pivot table also works on
 subtotals.
 
-## Sorting tabular pivot tables
-
-using the field wells
+## Sorting tabular pivot tables using the field wells
 
 Use the following procedure to sort values in a tabular pivot table using the
 field wells.
@@ -138,9 +127,7 @@ customize the sort options.
       **Descending**.
    4. Choose **Apply**.
 
-## Sorting hierarchy pivot tables
-
-using the field wells
+## Sorting hierarchy pivot tables using the field wells
 
 For tabular pivot tables, each field in the **Rows** field
 well has a separate title cell. For hierarchy pivot tables, all row fields are

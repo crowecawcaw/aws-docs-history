@@ -1,6 +1,4 @@
-# Conditional formatting on visual
-
-types in Quick
+# Conditional formatting on visual types in Quick
 
 In some visual types, you can add conditional formatting to highlight some of your
 data. The conditional formatting options currently supported include changing text or

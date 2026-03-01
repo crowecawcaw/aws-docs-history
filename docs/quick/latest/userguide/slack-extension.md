@@ -28,14 +28,10 @@ The Slack extension enables users to:
 
 ###### Topics
 
-- [Prerequisites for Slack
-  extension](#slack-prerequisites "#slack-prerequisites")
-- [Configure Slack extension
-  access](#configure-slack-extension "#configure-slack-extension")
+- [Prerequisites for Slack extension](#slack-prerequisites "#slack-prerequisites")
+- [Configure Slack extension access](#configure-slack-extension "#configure-slack-extension")
 
-## Prerequisites for Slack
-
-extension
+## Prerequisites for Slack extension
 
 Before adding the Amazon Quick Slack Extension, administrators must
 complete the following requirements:
@@ -58,9 +54,7 @@ If you configured the authentication to connect to Amazon Quick with IAM Identit
    see [Configure SAML and SCIM with Microsoft Entra ID
    and IAM Identity Center](../../../singlesignon/latest/userguide/azure-ad-idp.md "../../../singlesignon/latest/userguide/azure-ad-idp.md").
 
-## Configure Slack extension
-
-access
+## Configure Slack extension access
 
 As an administrator, you must allow your Amazon Quick Slack
 extension to connect to your Amazon Quick application environment. You can use the
@@ -86,12 +80,9 @@ both platforms without requiring additional configuration.
 ###### Topics
 
 - [Add Slack extension access for accounts using IAM Identity Center](#add-slack-extension-access-idc "#add-slack-extension-access-idc")
-- [Add Slack extension
-  access for accounts using other authentication methods](#add-slack-extension-access "#add-slack-extension-access")
-- [Edit Slack
-  extension access](#edit-slack-extension-access "#edit-slack-extension-access")
-- [Delete Slack
-  extension access](#delete-slack-extension-access "#delete-slack-extension-access")
+- [Add Slack extension access for accounts using other authentication methods](#add-slack-extension-access "#add-slack-extension-access")
+- [Edit Slack extension access](#edit-slack-extension-access "#edit-slack-extension-access")
+- [Delete Slack extension access](#delete-slack-extension-access "#delete-slack-extension-access")
 
 ### Add Slack extension access for accounts using IAM Identity Center
 
@@ -292,9 +283,7 @@ Once created, this extension access configuration enables authors and other admi
 
 For your end users to begin using your Slack extension, an admin or author must finish deploying a extension after you configure extension access. Notify your authors that they can view, edit, and complete installation of this extension under **Extensions** in the left navigation once it has been shared. To learn how to do this see Installing your Slack extension in the Slack extension author guide.
 
-### Add Slack extension
-
-access for accounts using other authentication methods
+### Add Slack extension access for accounts using other authentication methods
 
 Follow these steps to create a new extension access configuration that will
 allow Amazon Quick to integrate with your Slack
@@ -348,9 +337,7 @@ installation of this extension under **Extensions** in the
 left navigation once it has been shared. To learn how to do this see [Installing your Slack extension in
 the Slack extension author guide](../../../quicksuite/latest/userguide/slack-extension-author-guide.md#add-extensions-slack "../../../quicksuite/latest/userguide/slack-extension-author-guide.md#add-extensions-slack").
 
-### Edit Slack
-
-extension access
+### Edit Slack extension access
 
 Use these steps to modify the configuration settings of an existing
 Slack extension access.
@@ -370,9 +357,7 @@ Slack extension access.
 Your changes to the Slack extension access configuration are
 saved and will take effect immediately.
 
-### Delete Slack
-
-extension access
+### Delete Slack extension access
 
 Follow these steps to permanently remove a Slack extension
 access configuration. This action cannot be undone.

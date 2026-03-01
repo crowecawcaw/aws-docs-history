@@ -1,7 +1,4 @@
-# Enabling the
-
-`SharedView` feature configuration for Amazon Quick Sight
-embedded analytics
+# Enabling the `SharedView` feature configuration for Amazon Quick Sight embedded analytics
 
 When you create an the embedded instance with the Amazon Quick Sight API, set
 the value of `SharedView` in the `FeatureConfigurations`

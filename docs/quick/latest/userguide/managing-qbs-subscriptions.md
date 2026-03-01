@@ -1,6 +1,4 @@
-# Configure Amazon Quick
-
-subscriptions
+# Configure Amazon Quick subscriptions
 
 You can purchase standard user subscriptions to get discounted pricing on Amazon Quick.
 When you invite additional users to Quick, you're charged for those
@@ -31,8 +29,7 @@ it entirely.
 - [Purchase subscriptions](#buy-subscriptions "#buy-subscriptions")
 - [Editing a subscription](#edit-subscriptions "#edit-subscriptions")
 - [Delete a subscription](#delete-subscriptions "#delete-subscriptions")
-- [Upgrading your Amazon Quick subscription from Standard
-  edition to Enterprise edition](#upgrading-subscription "#upgrading-subscription")
+- [Upgrading your Amazon Quick subscription from Standard edition to Enterprise edition](#upgrading-subscription "#upgrading-subscription")
 
 ## Viewing current subscriptions
 
@@ -127,9 +124,7 @@ information on how these products are billed, see the following:
   In your billing statement, the costs are itemized under the appropriate product
   and not under Amazon Quick.
 
-## Upgrading your Amazon Quick subscription from Standard
-
-edition to Enterprise edition
+## Upgrading your Amazon Quick subscription from Standard edition to Enterprise edition
 
 You can upgrade from Amazon Quick Standard edition to Amazon Quick Enterprise edition. In Enterprise
 edition, Amazon Quick supports the following additional features:

@@ -4,9 +4,7 @@ On tables and pivot tables, you can configure the display of totals or subtotals
 Tables can display totals at the top or the bottom of the visual. Pivot tables can
 display totals and subtotals on rows and columns.
 
-## Add totals and subtotals to tables and pivot tables in
-
-Quick
+## Add totals and subtotals to tables and pivot tables in Quick
 
 You can add total columns to your table and pivot table visuals. You can also
 add subtotal columns to your pivot table visuals.

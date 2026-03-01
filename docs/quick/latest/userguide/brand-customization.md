@@ -64,16 +64,11 @@ non-administrative Amazon Quick console pages, schedules, alerts, and email repo
 
 ###### Topics
 
-- [Permisisons for Amazon Quick brand
-  customization](#brand-customization-permissions "#brand-customization-permissions")
-- [Create a custom brand in
-  Amazon Quick](#brand-customization-create "#brand-customization-create")
-- [Setting a default theme for
-  Amazon Quick analyses with the Amazon Quick APIs](customizing-quicksight-default-theme.md "customizing-quicksight-default-theme.md")
+- [Permisisons for Amazon Quick brand customization](#brand-customization-permissions "#brand-customization-permissions")
+- [Create a custom brand in Amazon Quick](#brand-customization-create "#brand-customization-create")
+- [Setting a default theme for Amazon Quick analyses with the Amazon Quick APIs](customizing-quicksight-default-theme.md "customizing-quicksight-default-theme.md")
 
-## Permisisons for Amazon Quick brand
-
-customization
+## Permisisons for Amazon Quick brand customization
 
 To set up a brand, you must be granted an Admin role through IAM Identity Center or IAM. Admins
 whose roles are granted to them within Amazon Quick can't create brands. To learn
@@ -104,9 +99,7 @@ After you confirm that your Admin role contains the required permissions, you ca
 [Create a custom brand](../../../quicksight/latest/user/brand-customization-create.md "../../../quicksight/latest/user/brand-customization-create.md") in the Amazon Quick admin
 console.
 
-## Create a custom brand in
-
-Amazon Quick
+## Create a custom brand in Amazon Quick
 
 Use the following procedure to create a custom brand in Amazon Quick.
 

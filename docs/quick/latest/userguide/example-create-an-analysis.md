@@ -1,11 +1,8 @@
-# Tutorial: Create an Amazon Quick Sight
-
-analysis
+# Tutorial: Create an Amazon Quick Sight analysis
 
 In the following short tutorial, you create an analysis, add a visual using
 AutoGraph, and add another visual by choosing a specific visual type. This
-procedure builds on the dataset that you create and prepare in [Tutorial: Create a prepared Amazon Quick Sight
-dataset](example-prepared-data-set.md "example-prepared-data-set.md").
+procedure builds on the dataset that you create and prepare in [Tutorial: Create a prepared Amazon Quick Sight dataset](example-prepared-data-set.md "example-prepared-data-set.md").
 
 ## Create your analysis
 
@@ -18,9 +15,7 @@ Use the following procedure to create your analysis.
 2. Choose **Create analysis** and select the dataset
    to use.
 
-## Create a visual by using
-
-AutoGraph
+## Create a visual by using AutoGraph
 
 Create a visual by using AutoGraph, which is selected by default.
 
@@ -30,9 +25,7 @@ list** pane.
 
 Amazon Quick Sight creates a line chart using this data.
 
-## Create a scatter plot
-
-visual
+## Create a scatter plot visual
 
 Create a visual by choosing a visual type and dragging fields to the field
 wells.
@@ -59,5 +52,4 @@ wells.
 
 ## Next steps
 
-Modify the visuals in your analysis by using the procedure in [Tutorial: Modify Amazon Quick Sight
-visuals](example-modify-visuals.md "example-modify-visuals.md").
+Modify the visuals in your analysis by using the procedure in [Tutorial: Modify Amazon Quick Sight visuals](example-modify-visuals.md "example-modify-visuals.md").

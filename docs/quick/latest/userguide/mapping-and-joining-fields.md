@@ -31,8 +31,7 @@ field mapping. However, if you change the data type, the mapping is
 broken.
 
 For more information on field mapping for filter actions across datasets, see
-[Creating and editing custom actions in
-Amazon Quick Sight](custom-actions.md "custom-actions.md").
+[Creating and editing custom actions in Amazon Quick Sight](custom-actions.md "custom-actions.md").
 
 ## Joining fields
 

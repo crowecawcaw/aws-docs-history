@@ -52,16 +52,10 @@ chapter.
 - [Navigating Topics](navigating-topics.md "navigating-topics.md")
 - [Creating Quick Sight topics](topics-create.md "topics-create.md")
 - [Topic workspace](topics-interface.md "topics-interface.md")
-- [Working with datasets in an Quick Sight
-  topic](topics-data.md "topics-data.md")
-- [Making Quick Sight topics
-  natural-language-friendly](topics-natural-language.md "topics-natural-language.md")
+- [Working with datasets in an Quick Sight topic](topics-data.md "topics-data.md")
+- [Making Quick Sight topics natural-language-friendly](topics-natural-language.md "topics-natural-language.md")
 - [Sharing Quick Sight topics](topics-sharing.md "topics-sharing.md")
-- [Managing Amazon Quick Sight topic
-  permissions](topics-sharing-permissions.md "topics-sharing-permissions.md")
-- [Reviewing Quick Sight topic
-  performance and feedback](topics-performance.md "topics-performance.md")
-- [Refreshing Quick Sight topic
-  indexes](topics-index.md "topics-index.md")
-- [Work with Quick Sight topics using the
-  Amazon Quick Sight APIs](topics-cli.md "topics-cli.md")
+- [Managing Amazon Quick Sight topic permissions](topics-sharing-permissions.md "topics-sharing-permissions.md")
+- [Reviewing Quick Sight topic performance and feedback](topics-performance.md "topics-performance.md")
+- [Refreshing Quick Sight topic indexes](topics-index.md "topics-index.md")
+- [Work with Quick Sight topics using the Amazon Quick Sight APIs](topics-cli.md "topics-cli.md")

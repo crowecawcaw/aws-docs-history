@@ -1,6 +1,4 @@
-# Amazon Quick JSON expression language for
-
-Highcharts visuals
+# Amazon Quick JSON expression language for Highcharts visuals
 
 Highcharts visuals accept most [valid JSON
 values](https://www.w3schools.com/js/js_json_datatypes.asp "https://www.w3schools.com/js/js_json_datatypes.asp"), standard arithmetic operators, string operators, and conditional

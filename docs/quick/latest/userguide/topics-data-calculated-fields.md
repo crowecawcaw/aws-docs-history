@@ -1,6 +1,4 @@
-# Adding calculated
-
-fields to a Amazon Quick Sight topic dataset
+# Adding calculated fields to a Amazon Quick Sight topic dataset
 
 You can create new fields in a topic by creating calculated fields.
 _Calculated fields_ are fields that use a combination of one
@@ -29,8 +27,7 @@ The function might look like the following: `sum({Sales}) -
    pane at right.
 
    For more information about the functions and operators you can use
-   to create calculations in Quick Sight, see the [Calculated field function and operator
-   reference for Amazon Quick](calculated-field-reference.md "calculated-field-reference.md") .
+   to create calculations in Quick Sight, see the [Calculated field function and operator reference for Amazon Quick](calculated-field-reference.md "calculated-field-reference.md").
 
 5. When finished, choose **Save**.
 

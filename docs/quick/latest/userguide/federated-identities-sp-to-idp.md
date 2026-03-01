@@ -1,6 +1,4 @@
-# Initiating sign-on from
-
-Quick
+# Initiating sign-on from Quick
 
 |                                            |
 | ------------------------------------------ |

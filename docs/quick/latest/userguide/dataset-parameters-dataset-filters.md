@@ -1,6 +1,4 @@
-# Adding dataset parameters to
-
-filters
+# Adding dataset parameters to filters
 
 For datasets in direct query mode, dataset authors can use dataset parameters in
 filters without custom SQL. Dataset parameters can't be added to filters if the dataset

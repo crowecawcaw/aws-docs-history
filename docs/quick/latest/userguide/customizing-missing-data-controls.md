@@ -1,6 +1,4 @@
-# Missing data on visual types in
-
-Quick
+# Missing data on visual types in Quick
 
 You can customize how missing data points are visualized in your line charts and area
 charts. You can choose to have your missing data points appear in the following

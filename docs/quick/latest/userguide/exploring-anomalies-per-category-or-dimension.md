@@ -1,6 +1,4 @@
-# Exploring
-
-anomalies per category or dimension
+# Exploring anomalies per category or dimension
 
 The main section of the **Explore anomalies** screen is
 locked to the lower right of the screen. It remains here no matter how many

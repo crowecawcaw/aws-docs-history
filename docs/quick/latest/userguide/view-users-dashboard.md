@@ -1,6 +1,4 @@
-# View who has access to a shared
-
-dashboard
+# View who has access to a shared dashboard
 
 Use the following procedure to see which users or groups have access to the
 dashboard.

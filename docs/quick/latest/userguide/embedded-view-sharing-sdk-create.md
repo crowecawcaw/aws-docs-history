@@ -1,6 +1,4 @@
-# Creating a shared view with
-
-the Amazon Quick Sight `createSharedView` API
+# Creating a shared view with the Amazon Quick Sight `createSharedView` API
 
 After you update the Embedding SDK to version 2.8.0 or higher, use the
 `createSharedView` API to create a new shared view. Record the

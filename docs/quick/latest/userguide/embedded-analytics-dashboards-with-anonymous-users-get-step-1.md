@@ -1,6 +1,4 @@
-# Step
-
-1: Set up permissions
+# Step 1: Set up permissions
 
 ###### Important
 

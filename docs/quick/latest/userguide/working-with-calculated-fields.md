@@ -16,7 +16,5 @@ Create calculated fields to transform your data by using one or more of the foll
 
 - [Adding calculated fields](adding-a-calculated-field-analysis.md "adding-a-calculated-field-analysis.md")
 - [Order of evaluation in Amazon Quick Sight](order-of-evaluation-quicksight.md "order-of-evaluation-quicksight.md")
-- [Using level-aware calculations in
-  Quick Sight](level-aware-calculations.md "level-aware-calculations.md")
-- [Calculated field function and operator
-  reference for Amazon Quick](calculated-field-reference.md "calculated-field-reference.md")
+- [Using level-aware calculations in Quick Sight](level-aware-calculations.md "level-aware-calculations.md")
+- [Calculated field function and operator reference for Amazon Quick](calculated-field-reference.md "calculated-field-reference.md")

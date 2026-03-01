@@ -1,6 +1,4 @@
-# Customize pivot table
-
-data
+# Customize pivot table data
 
 You can customize how Quick readers view pivot tables so that they are
 easier to read and understand at a glance. You can choose to hide a pivot

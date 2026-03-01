@@ -1,6 +1,4 @@
-# Turning off
-
-public sharing settings
+# Turning off public sharing settings
 
 You can turn off public sharing settings for dashboards at anytime. You
 can turn off public sharing for an individual dashboard, or for all
@@ -35,9 +33,7 @@ is publicly available.
 This action will remove public access to the dashboard. It will
 now only be accessible to users that it has been shared with.
 
-###### To turn off public sharing settings for all dashboards in a
-
-Quick user account
+###### To turn off public sharing settings for all dashboards in a Quick user account
 
 1. From the Amazon Quick start page, choose your user icon at upper
    right of your browser window, and then choose **Manage

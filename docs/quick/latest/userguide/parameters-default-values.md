@@ -1,6 +1,4 @@
-# Creating parameter defaults in
-
-Amazon Quick
+# Creating parameter defaults in Amazon Quick
 
 Use this section to learn more about the types of parameter defaults that are
 available, and how to set up each of them.
@@ -16,12 +14,9 @@ everyone. As the designer of the dashboard, you choose the default value. It can
 be changed by the person using the dashboard. However, that person can choose any value
 from the controls. Setting a default doesn't change this. To restrict the values
 that a person can select, consider using row-level security. For more information, see
-[Using row-level
-security with user-based rules to restrict access to a dataset](restrict-access-to-a-data-set-using-row-level-security.md "restrict-access-to-a-data-set-using-row-level-security.md").
+[Using row-level security with user-based rules to restrict access to a dataset](restrict-access-to-a-data-set-using-row-level-security.md "restrict-access-to-a-data-set-using-row-level-security.md").
 
-###### To create or edit a static default value that applies to everyone's
-
-dashboard view
+###### To create or edit a static default value that applies to everyone's dashboard view
 
 1. Choose the context menu (`v`) by the parameter that you want to
    edit, or create a new parameter by following the steps in [Setting up parameters in Amazon Quick](parameters-set-up.md "parameters-set-up.md").
@@ -216,8 +211,7 @@ a default region `NorthEast` and a default segment
 3. Import this data into Quick, and save it as a new dataset.
 4. In your analysis, add the dataset that you created. The analysis needs to use
    at least one other dataset that matches the columns you defined for the
-   defaults. For more information, see [Adding a dataset to an
-   analysis](adding-a-data-set-to-an-analysis.md "adding-a-data-set-to-an-analysis.md").
+   defaults. For more information, see [Adding a dataset to an analysis](adding-a-data-set-to-an-analysis.md "adding-a-data-set-to-an-analysis.md").
 
 ###### To create a dataset for a multivalue DDP
 
@@ -272,8 +266,7 @@ use a default value that can be both.
 If a user name belongs to multiple groups, the named user sees a set of
 default values that is a union of the two groups' default values. 3. Import this data into Quick, and save it as a new dataset. 4. In your analysis, add the dataset that you created. The analysis needs to use
 at least one other dataset that matches the columns you defined for the
-defaults. For more information, see [Adding a dataset to an
-analysis](adding-a-data-set-to-an-analysis.md "adding-a-data-set-to-an-analysis.md").
+defaults. For more information, see [Adding a dataset to an analysis](adding-a-data-set-to-an-analysis.md "adding-a-data-set-to-an-analysis.md").
 Use the following procedure to add a dynamic default parameter to your analysis.
 Before you begin, make sure that you have a dataset that contains the dynamic defaults
 for each user name or group name. Also make sure that your analysis is using this
@@ -303,8 +296,7 @@ dataset. For help with these requirements, see the procedures preceding.
    choose **Update** to save the parameter changes. To exit
    without saving changes, choose **Cancel** instead.
 5. Add a filter for each field that contains dynamic defaults to make the
-   defaults work. To learn more about using filters with parameters, see [Using filters with parameters in
-   Amazon Quick](parameters-filtering-by.md "parameters-filtering-by.md")
+   defaults work. To learn more about using filters with parameters, see [Using filters with parameters in Amazon Quick](parameters-filtering-by.md "parameters-filtering-by.md")
 
 Amazon Quick uses the static default value for anyone whose user name
 doesn't exist in the dataset, doesn't have a default assigned, or

@@ -1,6 +1,4 @@
-# Amazon Quick Microsoft Word
-
-extension
+# Amazon Quick Microsoft Word extension
 
 The Quick extension for Microsoft Word integrates
 AI-powered assistance directly into your document creation and editing workflows. Users
@@ -27,14 +25,10 @@ The Word extension enables users to:
 
 ###### Topics
 
-- [Prerequisites for Microsoft Word
-  extension](#word-prerequisites "#word-prerequisites")
-- [Configure Microsoft Word
-  extension access](#configure-word-extension "#configure-word-extension")
+- [Prerequisites for Microsoft Word extension](#word-prerequisites "#word-prerequisites")
+- [Configure Microsoft Word extension access](#configure-word-extension "#configure-word-extension")
 
-## Prerequisites for Microsoft Word
-
-extension
+## Prerequisites for Microsoft Word extension
 
 Before adding the Amazon Quick extension to Microsoft Word,
 administrators must complete the following steps:
@@ -57,9 +51,7 @@ If you configured the authentication to connect to Amazon Quick with IAM Identit
    see [Configure SAML and SCIM with Microsoft Entra ID
    and IAM Identity Center](../../../singlesignon/latest/userguide/azure-ad-idp.md "../../../singlesignon/latest/userguide/azure-ad-idp.md").
 
-## Configure Microsoft Word
-
-extension access
+## Configure Microsoft Word extension access
 
 As an administrator, you must allow the Amazon Quick Microsoft Word
 Extension to connect to your Amazon Quick application environment and web
@@ -89,12 +81,9 @@ both platforms without requiring additional configuration.
 ###### Topics
 
 - [Add Microsoft Word extension access for accounts using IAM Identity Center](#add-word-extension-access-idc "#add-word-extension-access-idc")
-- [Add Microsoft Word
-  extension access for accounts using other authentication methods](#add-word-extension-access "#add-word-extension-access")
-- [Edit Microsoft Word
-  extension access](#edit-word-extension-access "#edit-word-extension-access")
-- [Delete Microsoft
-  Word extension access](#delete-word-extension-access "#delete-word-extension-access")
+- [Add Microsoft Word extension access for accounts using other authentication methods](#add-word-extension-access "#add-word-extension-access")
+- [Edit Microsoft Word extension access](#edit-word-extension-access "#edit-word-extension-access")
+- [Delete Microsoft Word extension access](#delete-word-extension-access "#delete-word-extension-access")
 
 ### Add Microsoft Word extension access for accounts using IAM Identity Center
 
@@ -294,9 +283,7 @@ Once created, this extension access configuration enables authors and other admi
 
 For your end users to begin using your Microsoft Word extension, an admin or author must finish deploying a extension after you configure extension access. Notify your authors that they can view, edit, and complete installation of this extension under **Extensions** in the left navigation once it has been shared. To learn how to do this see Installing your Microsoft Word extension in the Microsoft Word extension author guide.
 
-### Add Microsoft Word
-
-extension access for accounts using other authentication methods
+### Add Microsoft Word extension access for accounts using other authentication methods
 
 Follow these steps to create a new extension access configuration that will
 allow Amazon Quick to integrate with your Microsoft Word
@@ -352,9 +339,7 @@ shared. To learn how to do this see [Installing your Microsoft Word
 extension in the Microsoft Word extension author
 guide](../../../quicksuite/latest/userguide/word-extension-author-guide.md#add-extensions-word "../../../quicksuite/latest/userguide/word-extension-author-guide.md#add-extensions-word").
 
-### Edit Microsoft Word
-
-extension access
+### Edit Microsoft Word extension access
 
 Use these steps to modify the configuration settings of an existing
 Microsoft Word extension access.
@@ -374,9 +359,7 @@ Microsoft Word extension access.
 Your changes to the Microsoft Word extension access
 configuration are saved and will take effect immediately.
 
-### Delete Microsoft
-
-Word extension access
+### Delete Microsoft Word extension access
 
 Follow these steps to permanently remove a Microsoft Word
 extension access configuration. This action cannot be undone.

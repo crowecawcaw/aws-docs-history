@@ -1,6 +1,4 @@
-# Embedding custom
-
-Amazon Quick Sight assets into your application
+# Embedding custom Amazon Quick Sight assets into your application
 
 You can use Amazon Quick Sight embedded analytics to embed custom Amazon Quick Sight assets
 into your application that are tailored to meet your business needs. For embedded
@@ -19,11 +17,7 @@ customize your Amazon Quick Sight embedded analytics.
 
 ###### Topics
 
-- [Adding embedded callback actions
-  at runtime in Amazon Quick Sight](embedding-custom-actions-callback.md "embedding-custom-actions-callback.md")
-- [Filtering data at runtime for
-  Amazon Quick Sight embedded dashboards and visuals](embedding-runtime-filtering.md "embedding-runtime-filtering.md")
-- [Customize the look and feel of
-  Amazon Quick Sight embedded dashboards and visuals](embedding-runtime-theming.md "embedding-runtime-theming.md")
-- [Using the Amazon Quick Sight Embedding SDK to
-  enable shareable links to embedded dashboard views](embedded-view-sharing.md "embedded-view-sharing.md")
+- [Adding embedded callback actions at runtime in Amazon Quick Sight](embedding-custom-actions-callback.md "embedding-custom-actions-callback.md")
+- [Filtering data at runtime for Amazon Quick Sight embedded dashboards and visuals](embedding-runtime-filtering.md "embedding-runtime-filtering.md")
+- [Customize the look and feel of Amazon Quick Sight embedded dashboards and visuals](embedding-runtime-theming.md "embedding-runtime-theming.md")
+- [Using the Amazon Quick Sight Embedding SDK to enable shareable links to embedded dashboard views](embedded-view-sharing.md "embedded-view-sharing.md")

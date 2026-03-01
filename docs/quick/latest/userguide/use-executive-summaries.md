@@ -1,6 +1,4 @@
-# Generate an executive summary of an
-
-Amazon Quick Sight dashboard
+# Generate an executive summary of an Amazon Quick Sight dashboard
 
 Dashboard readers can generate executive summaries that provide a summary of all
 insights that Quick Sight has generated for the dashboard. Executive summaries make

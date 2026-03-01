@@ -1,6 +1,4 @@
-# Reference lines on visuals types in
-
-Quick
+# Reference lines on visuals types in Quick
 
 _Reference lines_ are visual markings in a visual, similar to ruler
 lines. You typically use a reference line for a value that needs to be displayed with

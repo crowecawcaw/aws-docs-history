@@ -1,6 +1,4 @@
-# Creating a dataset using an existing data
-
-source
+# Creating a dataset using an existing data source
 
 After you make an initial connection to a Salesforce, AWS data store, or other
 database data source, Amazon Quick saves the connection information. It adds the data source to
@@ -8,9 +6,7 @@ the **FROM EXISTING DATA SOURCES** section of the **Create a
 Data Set** page. You can use these existing data sources to create new
 datasets without respecifying connection information.
 
-## Creating a dataset using an existing
-
-Amazon S3 data source
+## Creating a dataset using an existing Amazon S3 data source
 
 Use the following procedure to create a dataset using an existing Amazon S3 data
 source.
@@ -25,9 +21,7 @@ source.
    **Edit/Preview data**. To create an analysis using the
    data as-is, choose **Visualize**.
 
-## Creating a dataset using an
-
-existing Amazon Athena data source
+## Creating a dataset using an existing Amazon Athena data source
 
 To create a dataset using an existing Amazon Athena data source, use the following
 procedure.
@@ -52,9 +46,7 @@ following:
      the **Database** list. Next, choose a table from
      the list that appears for your database.
 
-## Create a dataset using an
-
-existing Salesforce data source
+## Create a dataset using an existing Salesforce data source
 
 Use the following procedure to create a dataset using an existing Salesforce data
 source.
@@ -110,9 +102,7 @@ source.
      for the selected report or object. For more information about data
      preparation, see [Preparing dataset examples](preparing-data-sets.md "preparing-data-sets.md").
 
-## Creating a dataset using an
-
-existing database data source
+## Creating a dataset using an existing database data source
 
 Use the following procedure to create a dataset using an existing database data
 source.

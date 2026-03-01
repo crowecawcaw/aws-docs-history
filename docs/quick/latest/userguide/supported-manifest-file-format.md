@@ -1,6 +1,4 @@
-# Supported formats for Amazon S3 manifest
-
-files
+# Supported formats for Amazon S3 manifest files
 
 You use JSON manifest files to specify files in Amazon S3 to import into Quick Sight.
 These JSON manifest files can use either the Quick Sight format described following
@@ -27,12 +25,9 @@ not UTF-8 with byte-order mark (BOM). If you are importing JSON files, then for
 
 Make sure that any files that you specify are in Amazon S3 buckets that you have
 granted Quick Sight access to. For information about granting Quick Sight access
-to AWS resources, see [Configuring Amazon Quick Sight access to AWS data
-sources](access-to-aws-resources.md "access-to-aws-resources.md").
+to AWS resources, see [Configuring Amazon Quick Sight access to AWS data sources](access-to-aws-resources.md "access-to-aws-resources.md").
 
-## Manifest file format for
-
-Quick Sight
+## Manifest file format for Quick Sight
 
 Quick Sight manifest files use the following JSON format.
 
@@ -153,9 +148,7 @@ their values are ignored.
      `true` or `false`.
      The default value is `true`.
 
-### Manifest file examples
-
-for Quick Sight
+### Manifest file examples for Quick Sight
 
 The following are some examples of completed Quick Sight manifest
 files.

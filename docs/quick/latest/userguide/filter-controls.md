@@ -14,8 +14,7 @@ to add cross-sheet controls, see [Controls](cross-sheet-filters.md#cross-sheet-c
 ###### Topics
 
 - [Adding filter controls](#filter-controls-add "#filter-controls-add")
-- [Pinning filter controls to the top of a
-  sheet](#filter-controls-pin "#filter-controls-pin")
+- [Pinning filter controls to the top of a sheet](#filter-controls-pin "#filter-controls-pin")
 - [Customizing filter controls](#filter-controls-customize "#filter-controls-customize")
 - [Cascading filter controls](#cascading-controls "#cascading-controls")
 
@@ -41,9 +40,7 @@ how it appears and how dashboard viewers can interact with it. For more
 information about customizing filter controls, see the following
 sections.
 
-## Pinning filter controls to the top of a
-
-sheet
+## Pinning filter controls to the top of a sheet
 
 Use the following procedure to pin filter controls to the top of a sheet.
 
@@ -99,15 +96,13 @@ customize the remaining options.
          time, or you can choose a date from the calendar control. You can
          also customize how you want the dates to appear in the control by
          entering a date token for **Date format**. For more
-         information, see [Customizing date formats
-         in Quick](format-visual-date-controls.md "format-visual-date-controls.md").
+         information, see [Customizing date formats in Quick](format-visual-date-controls.md "format-visual-date-controls.md").
         * **Date picker – relative** –
          Displays settings like the time period, its relation to the current
          date and time, and the option to exclude time periods. You can also
          customize how you want the dates to appear in the control by
          entering a date token for **Date format**. For more
-         information, see [Customizing date formats
-         in Quick](format-visual-date-controls.md "format-visual-date-controls.md").
+         information, see [Customizing date formats in Quick](format-visual-date-controls.md "format-visual-date-controls.md").
         * **Text field** – Displays a box where you
          can enter the top or bottom *N*
          date.

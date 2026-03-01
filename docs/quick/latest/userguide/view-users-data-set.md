@@ -1,13 +1,9 @@
-# Viewing and editing the permissions of users
-
-that a dataset is shared with
+# Viewing and editing the permissions of users that a dataset is shared with
 
 If you have owner permissions on a dataset, you can use the following procedure to
 view, edit, or change user access to it.
 
-###### To view, edit, or change user access to a dataset if you have owner
-
-permissions for it
+###### To view, edit, or change user access to a dataset if you have owner permissions for it
 
 1. From the Quick start page, choose **Data** at
    left.

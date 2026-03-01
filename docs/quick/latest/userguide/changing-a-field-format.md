@@ -15,5 +15,4 @@ data** pane to make more extensive formatting changes.
 - [Format a number field](format-a-number-field.md "format-a-number-field.md")
 - [Format a percent field](format-a-percent-field.md "format-a-percent-field.md")
 - [Format a text field](format-a-text-field.md "format-a-text-field.md")
-- [Return a field's format to
-  default settings](set-field-format-to-default.md "set-field-format-to-default.md")
+- [Return a field's format to default settings](set-field-format-to-default.md "set-field-format-to-default.md")

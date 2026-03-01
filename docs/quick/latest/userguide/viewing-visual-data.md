@@ -12,10 +12,7 @@ Use the following sections to learn more about viewing data in visuals.
 ###### Topics
 
 - [Viewing visual details](viewing-visual-details.md "viewing-visual-details.md")
-- [Scrolling through visual
-  data](scrolling-through-visual-data.md "scrolling-through-visual-data.md")
-- [Focusing on visual
-  elements](focusing-on-visual-elements.md "focusing-on-visual-elements.md")
+- [Scrolling through visual data](scrolling-through-visual-data.md "scrolling-through-visual-data.md")
+- [Focusing on visual elements](focusing-on-visual-elements.md "focusing-on-visual-elements.md")
 - [Excluding visual elements](excluding-visual-elements.md "excluding-visual-elements.md")
-- [Searching for specific values in your data in
-  Quick Sight](search-filter.md "search-filter.md")
+- [Searching for specific values in your data in Quick Sight](search-filter.md "search-filter.md")

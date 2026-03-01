@@ -1,6 +1,4 @@
-# Inserting dataset parameters into
-
-custom SQL
+# Inserting dataset parameters into custom SQL
 
 You can insert dataset parameters into the custom SQL of a dataset in direct query
 mode by referencing it with `<<$parameter_name>>` in the SQL statement.

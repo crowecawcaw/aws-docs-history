@@ -1,6 +1,4 @@
-# Configure SPICE memory
-
-capacity
+# Configure SPICE memory capacity
 
 _SPICE (Super-fast, Parallel, In-memory Calculation
 Engine)_ is the robust in-memory engine that Amazon Quick uses.
@@ -53,22 +51,14 @@ AWS accounts or AWS Regions at the same time in different contexts, as follows:
 
 ###### Topics
 
-- [Finding your current AWS
-  account and AWS Region](#current-aws-account-and-default-aws-region "#current-aws-account-and-default-aws-region")
-- [Viewing SPICE capacity
-  and usage in an AWS Region](#spice-current-capacity-and-usage "#spice-current-capacity-and-usage")
-- [Hiding SPICE capacity
-  labels](#spice-capacity-hide "#spice-capacity-hide")
-- [Purchasing SPICE capacity in
-  an AWS Region](#spice-capacity-purchasing "#spice-capacity-purchasing")
-- [Turning on SPICE auto capacity
-  purchasing](#spice-auto-capacity "#spice-auto-capacity")
-- [Releasing SPICE capacity in an
-  AWS Region](#spice-capacity-releasing "#spice-capacity-releasing")
+- [Finding your current AWS account and AWS Region](#current-aws-account-and-default-aws-region "#current-aws-account-and-default-aws-region")
+- [Viewing SPICE capacity and usage in an AWS Region](#spice-current-capacity-and-usage "#spice-current-capacity-and-usage")
+- [Hiding SPICE capacity labels](#spice-capacity-hide "#spice-capacity-hide")
+- [Purchasing SPICE capacity in an AWS Region](#spice-capacity-purchasing "#spice-capacity-purchasing")
+- [Turning on SPICE auto capacity purchasing](#spice-auto-capacity "#spice-auto-capacity")
+- [Releasing SPICE capacity in an AWS Region](#spice-capacity-releasing "#spice-capacity-releasing")
 
-## Finding your current AWS
-
-account and AWS Region
+## Finding your current AWS account and AWS Region
 
 ###### To select the correct AWS account and AWS Region (console)
 
@@ -102,9 +92,7 @@ Switching to a different AWS Region changes the SPICE usage
 information that you can view. It also changes the Amazon Quick assets that you
 can use, for example data sources and dashboards.
 
-## Viewing SPICE capacity
-
-and usage in an AWS Region
+## Viewing SPICE capacity and usage in an AWS Region
 
 ###### To view current SPICE capacity and usage (console)
 
@@ -145,9 +133,7 @@ and usage in an AWS Region
         capacity that isn't in use, and so can be released to reduce
         costs.
 
-## Hiding SPICE capacity
-
-labels
+## Hiding SPICE capacity labels
 
 Amazon Quick account admins can choose to hide the account-wide SPICE
 capacity usage and remaining size labels from Amazon Quick authors. This feature is
@@ -172,9 +158,7 @@ account SPICE capacity**. 5. When you are finished creating or changing the cust
 After you create or update a custom permission to hide SPICE capacity
 usage, assign the new permission to users with the `UpdateUser` API.
 
-## Purchasing SPICE capacity in
-
-an AWS Region
+## Purchasing SPICE capacity in an AWS Region
 
 ###### To purchase more SPICE capacity (console)
 
@@ -192,9 +176,7 @@ an AWS Region
    capacity**. To exit without making any changes, choose
    **Cancel**.
 
-## Turning on SPICE auto capacity
-
-purchasing
+## Turning on SPICE auto capacity purchasing
 
 Turn on SPICE auto capacity purchasing to allow Amazon Quick to
 automatically manage your Amazon Quick account's SPICE capacity.
@@ -250,9 +232,7 @@ capacity purchasing on, Amazon Quick automatically matches your account's capaci
 to your current usage. After Amazon Quick matches your account's capacity, the
 auto-purchase logic starts.
 
-## Releasing SPICE capacity in an
-
-AWS Region
+## Releasing SPICE capacity in an AWS Region
 
 ###### To release unused SPICE capacity (console)
 

@@ -55,5 +55,4 @@ section.
 
 Depending on the layout that you choose for your pivot table visual, different
 formatting options are available. For more information about formatting
-differences between tabular and hierarchy pivot tables, see [Table and pivot table formatting options in
-Quick](format-tables-pivot-tables.md "format-tables-pivot-tables.md").
+differences between tabular and hierarchy pivot tables, see [Table and pivot table formatting options in Quick](format-tables-pivot-tables.md "format-tables-pivot-tables.md").

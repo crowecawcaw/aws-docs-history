@@ -1,6 +1,4 @@
-# Filtering
-
-data during your session in Amazon Quick Sight
+# Filtering data during your session in Amazon Quick Sight
 
 While your dashboard session is active, you can filter data in three ways:
 

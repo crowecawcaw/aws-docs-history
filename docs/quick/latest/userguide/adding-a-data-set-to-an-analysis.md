@@ -1,6 +1,4 @@
-# Adding a dataset to an
-
-analysis
+# Adding a dataset to an analysis
 
 After you have created an analysis, you can add more datasets to the analysis. Then,
 you can use them to create more visuals.
@@ -31,8 +29,7 @@ selected dataset.
 ###### Topics
 
 - [Replacing datasets](replacing-data-sets.md "replacing-data-sets.md")
-- [Remove a dataset from an
-  analysis](delete-a-data-set-from-an-analysis.md "delete-a-data-set-from-an-analysis.md")
+- [Remove a dataset from an analysis](delete-a-data-set-from-an-analysis.md "delete-a-data-set-from-an-analysis.md")
   Use the following procedure to add a dataset to an analysis or edit a dataset used by
   an analysis.
 

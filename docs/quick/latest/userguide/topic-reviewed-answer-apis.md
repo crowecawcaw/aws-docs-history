@@ -1,6 +1,4 @@
-# Create and modify reviewed answers in
-
-Quick Sight topics with the Quick Sight APIs
+# Create and modify reviewed answers in Quick Sight topics with the Quick Sight APIs
 
 After you create a Quick Sight topic, you can use the Quick Sight APIs to
 create, list, update, and delete reiewed answers for topics.

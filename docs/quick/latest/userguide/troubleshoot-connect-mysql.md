@@ -1,6 +1,4 @@
-# I can't connect to MySQL (issues
-
-with SSL and authorization)
+# I can't connect to MySQL (issues with SSL and authorization)
 
 To check on some common connection issues in MySQL, use the following steps. This
 procedure helps you find out if you have enabled SSL and granted usage

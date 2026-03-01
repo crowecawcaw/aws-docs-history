@@ -1,6 +1,4 @@
-# Work with Quick Sight topics using the
-
-Quick Sight APIs
+# Work with Quick Sight topics using the Quick Sight APIs
 
 The following example creates a new topic.
 
@@ -23,8 +21,7 @@ aws quicksight create-topic
 When you create a new topic, the dataset refresh configuration is not copied to
 the topic. To set a topic refresh schedule for your new topic, you can make a
 `create-topic-refresh-schedule` API call. For more information about
-configuring topic refresh schedules with the CLI, see [Configure Quick Sight topic refresh
-schedules with the Quick Sight CLI](topic-refresh-apis.md "topic-refresh-apis.md").
+configuring topic refresh schedules with the CLI, see [Configure Quick Sight topic refresh schedules with the Quick Sight CLI](topic-refresh-apis.md "topic-refresh-apis.md").
 
 After you create your first topic, you can update, delete, list, or request a
 summary of a topic.

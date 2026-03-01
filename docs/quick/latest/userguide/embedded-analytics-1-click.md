@@ -1,6 +1,4 @@
-# Embedding Amazon Quick Sight visuals and
-
-dashboards for registered users with a 1-click embed code
+# Embedding Amazon Quick Sight visuals and dashboards for registered users with a 1-click embed code
 
 |                                            |
 | ------------------------------------------ |
@@ -23,9 +21,7 @@ sign-on enabled, users aren't prompted to sign in again.
 Following, you can find descriptions about how to embed a visual or dashboard for
 registered users using the visual or dashboard embed code.
 
-## Before you
-
-start
+## Before you start
 
 Before you get started, make sure of the following:
 
@@ -40,9 +36,7 @@ Before you get started, make sure of the following:
 - Your internet browser's "block all cookies" settings is turned
   off.
 
-## Step 1: Grant access to the
-
-dashboard
+## Step 1: Grant access to the dashboard
 
 For users to access your embedded dashboard, grant them access to view it. You
 can grant individual users and groups access to a dashboard, or you can grant
@@ -50,17 +44,13 @@ everyone in your account access. Visual permissions are determined at the
 dashboard level. To grant access to embedded visuals, grant access to the
 dashboard that the visual belongs to. For more information, see [Granting access to a dashboard](share-a-dashboard.md "share-a-dashboard.md").
 
-## Step 2: Put the domain
-
-where you want to embed the visual or dashboard on your allow list
+## Step 2: Put the domain where you want to embed the visual or dashboard on your allow list
 
 To embed visuals and dashboards in your internal application, make sure that
 the domain where you're embedding is allow-listed in your Amazon Quick Sight
 account. For more information, see [Allow listing static domains](manage-domains.md#embedding-static "manage-domains.md#embedding-static").
 
-## Step 3: Get the embed
-
-code
+## Step 3: Get the embed code
 
 Use the following procedure to get the visual or dashboard embed code.
 
@@ -106,9 +96,7 @@ account.
     </iframe>
 ```
 
-## Step 4: Paste the code into
-
-your internal application's HTML page
+## Step 4: Paste the code into your internal application's HTML page
 
 Use the following procedure to paste the embed code into your internal
 application's HTML page

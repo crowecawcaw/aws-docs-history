@@ -1,6 +1,4 @@
-# Adding datasets to a topic in
-
-Amazon Quick Sight
+# Adding datasets to a topic in Amazon Quick Sight
 
 At any time, you can add datasets to a topic. Use the following procedure to learn
 how.
@@ -17,7 +15,5 @@ how.
 
 The dataset is added to the topic and the dataset's
 unique string values are indexed. You can edit the field configurations right away. For
-more information, see [Refreshing Quick Sight topic
-indexes](topics-index.md "topics-index.md"). For more information about
-editing field configurations , see [Making Quick Sight topics
-natural-language-friendly](topics-natural-language.md "topics-natural-language.md").
+more information, see [Refreshing Quick Sight topic indexes](topics-index.md "topics-index.md"). For more information about
+editing field configurations , see [Making Quick Sight topics natural-language-friendly](topics-natural-language.md "topics-natural-language.md").

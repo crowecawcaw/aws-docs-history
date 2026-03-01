@@ -1,7 +1,4 @@
-# Embedding
-
-dashboards for registered users using GetDashboardEmbedUrl (old
-API)
+# Embedding dashboards for registered users using GetDashboardEmbedUrl (old API)
 
 ###### Important
 
@@ -20,9 +17,6 @@ Amazon Quick Sight dashboards for registered users using
 
 ###### Topics
 
-- [Step 1: Set
-  up permissions](embedded-dashboards-for-authenticated-users-get-step-1.md "embedded-dashboards-for-authenticated-users-get-step-1.md")
-- [Step 2: Get
-  the URL with the authentication code attached](embedded-dashboards-for-authenticated-users-get-step-2.md "embedded-dashboards-for-authenticated-users-get-step-2.md")
-- [Step 3:
-  Embed the dashboard URL](embedded-dashboards-for-authenticated-users-get-step-3.md "embedded-dashboards-for-authenticated-users-get-step-3.md")
+- [Step 1: Set up permissions](embedded-dashboards-for-authenticated-users-get-step-1.md "embedded-dashboards-for-authenticated-users-get-step-1.md")
+- [Step 2: Get the URL with the authentication code attached](embedded-dashboards-for-authenticated-users-get-step-2.md "embedded-dashboards-for-authenticated-users-get-step-2.md")
+- [Step 3: Embed the dashboard URL](embedded-dashboards-for-authenticated-users-get-step-3.md "embedded-dashboards-for-authenticated-users-get-step-3.md")

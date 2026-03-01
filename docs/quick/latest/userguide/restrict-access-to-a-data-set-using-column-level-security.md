@@ -1,6 +1,4 @@
-# Using
-
-column-level security to restrict access to a dataset
+# Using column-level security to restrict access to a dataset
 
 In the Enterprise edition of Quick, you can restrict access to a dataset
 by configuring column-level security (CLS) on it. A dataset or analysis with CLS enabled

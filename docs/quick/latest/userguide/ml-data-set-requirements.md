@@ -1,6 +1,4 @@
-# Dataset requirements for using ML insights
-
-with Amazon Quick Sight
+# Dataset requirements for using ML insights with Amazon Quick Sight
 
 To begin using the machine learning capabilities of Amazon Quick Sight, you need to connect to or
 import your data. You can use an existing Amazon Quick Sight dataset or create a new one. You can

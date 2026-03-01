@@ -1,6 +1,4 @@
-# Authorizing connections from Amazon Quick Sight to Amazon Redshift
-
-clusters
+# Authorizing connections from Amazon Quick Sight to Amazon Redshift clusters
 
 |                                                                 |
 | --------------------------------------------------------------- |
@@ -42,15 +40,11 @@ information about what is required, see [Creating a dataset from a database](../
 
 ###### Topics
 
-- [Enabling trusted identity
-  propagation with Amazon Redshift](#redshift-trusted-identity-propagation "#redshift-trusted-identity-propagation")
-- [Manually enabling access to an Amazon Redshift cluster in
-  a VPC](#redshift-vpc-access "#redshift-vpc-access")
+- [Enabling trusted identity propagation with Amazon Redshift](#redshift-trusted-identity-propagation "#redshift-trusted-identity-propagation")
+- [Manually enabling access to an Amazon Redshift cluster in a VPC](#redshift-vpc-access "#redshift-vpc-access")
 - [Enabling access to Amazon Redshift Spectrum](#redshift-spectrum-access "#redshift-spectrum-access")
 
-## Enabling trusted identity
-
-propagation with Amazon Redshift
+## Enabling trusted identity propagation with Amazon Redshift
 
 Trusted identity propagation authenticates the end user in Amazon Redshift when they access
 Amazon Quick assets that leverage a trusted identity propagation enabled data
@@ -70,10 +64,8 @@ propagation.
 ###### Topics
 
 - [Prerequisites](#redshift-trusted-identity-propagation-prerequisites "#redshift-trusted-identity-propagation-prerequisites")
-- [Enabling trusted
-  identity propagation in Amazon Quick Sight](#redshift-trusted-identity-propagation-enable "#redshift-trusted-identity-propagation-enable")
-- [Connecting to
-  Amazon Redshift with trusted identity propagation](#redshift-trusted-identity-propagation-connect "#redshift-trusted-identity-propagation-connect")
+- [Enabling trusted identity propagation in Amazon Quick Sight](#redshift-trusted-identity-propagation-enable "#redshift-trusted-identity-propagation-enable")
+- [Connecting to Amazon Redshift with trusted identity propagation](#redshift-trusted-identity-propagation-connect "#redshift-trusted-identity-propagation-connect")
 
 ### Prerequisites
 
@@ -91,9 +83,7 @@ prerequisites ready.
   Amazon Quick account is configured to. For more information about
   configuring a Amazon Redshift cluster, see [Integrating IAM Identity Center](../../../redshift/latest/mgmt/redshift-iam-access-control-idp-connect.md "../../../redshift/latest/mgmt/redshift-iam-access-control-idp-connect.md").
 
-### Enabling trusted
-
-identity propagation in Amazon Quick Sight
+### Enabling trusted identity propagation in Amazon Quick Sight
 
 To configure Amazon Quick Sight to connect to Amazon Redshift data sources with trusted identity
 propagation, configure Amazon Redshift OAuth scopes to your Amazon Quick account.
@@ -127,9 +117,7 @@ Amazon Quick account.
 aws quicksight list-identity-propagation-configs --aws-account-id "`AWSACCOUNTID`"
 ```
 
-### Connecting to
-
-Amazon Redshift with trusted identity propagation
+### Connecting to Amazon Redshift with trusted identity propagation
 
 Use the procedure below to connect to Amazon Redshift trusted identity
 propagation.
@@ -146,9 +134,7 @@ The authentication type of an existing data source can't be
 changed to trusted identity propagation 3. Choose IAM Identity Center as the identity option for the data source, and then
 choose **Create data source**.
 
-## Manually enabling access to an Amazon Redshift cluster in
-
-a VPC
+## Manually enabling access to an Amazon Redshift cluster in a VPC
 
 |                                            |
 | ------------------------------------------ |

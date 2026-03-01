@@ -1,6 +1,4 @@
-# Functions for pivot table
-
-calculations
+# Functions for pivot table calculations
 
 You can use the following functions in pivot table calculations.
 

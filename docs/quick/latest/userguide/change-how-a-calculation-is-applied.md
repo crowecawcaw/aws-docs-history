@@ -1,13 +1,9 @@
-# Changing how a
-
-calculation is applied
+# Changing how a calculation is applied
 
 Use the following procedure to change the way a table calculation is
 applied to a pivot table.
 
-###### To change the way a table calculation is applied to a pivot
-
-table
+###### To change the way a table calculation is applied to a pivot table
 
 1. Expand the **Field wells** pane by choosing field
    wells at the top of the visual.

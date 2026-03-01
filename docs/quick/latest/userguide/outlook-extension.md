@@ -1,6 +1,4 @@
-# Amazon Quick Microsoft Outlook
-
-extension
+# Amazon Quick Microsoft Outlook extension
 
 The Quick extension for Microsoft Outlook integrates
 AI-powered assistance directly into your email workflows. Users can access
@@ -26,14 +24,10 @@ The Outlook extension enables users to:
 
 ###### Topics
 
-- [Prerequisites for Microsoft
-  Outlook extension](#outlook-prerequisites "#outlook-prerequisites")
-- [Configure Microsoft
-  Outlook extension access](#configure-outlook-extension "#configure-outlook-extension")
+- [Prerequisites for Microsoft Outlook extension](#outlook-prerequisites "#outlook-prerequisites")
+- [Configure Microsoft Outlook extension access](#configure-outlook-extension "#configure-outlook-extension")
 
-## Prerequisites for Microsoft
-
-Outlook extension
+## Prerequisites for Microsoft Outlook extension
 
 Before configuring access to the Amazon Quick extension to Microsoft
 Outlook, administrators must complete the following steps:
@@ -56,9 +50,7 @@ If you configured the authentication to connect to Amazon Quick with IAM Identit
    see [Configure SAML and SCIM with Microsoft Entra ID
    and IAM Identity Center](../../../singlesignon/latest/userguide/azure-ad-idp.md "../../../singlesignon/latest/userguide/azure-ad-idp.md").
 
-## Configure Microsoft
-
-Outlook extension access
+## Configure Microsoft Outlook extension access
 
 As an administrator, you must allow the Amazon Quick Microsoft
 Outlook extension to connect to your Amazon Quick application
@@ -88,12 +80,9 @@ both platforms without requiring additional configuration.
 ###### Topics
 
 - [Add Microsoft Outlook extension access for accounts using IAM Identity Center](#add-outlook-extension-access-idc "#add-outlook-extension-access-idc")
-- [Add Microsoft
-  Outlook extension access for accounts using other authentication methods](#add-outlook-extension-access "#add-outlook-extension-access")
-- [Edit Microsoft
-  Outlook extension access](#edit-outlook-extension-access "#edit-outlook-extension-access")
-- [Delete Microsoft
-  Outlook extension access](#delete-outlook-extension-access "#delete-outlook-extension-access")
+- [Add Microsoft Outlook extension access for accounts using other authentication methods](#add-outlook-extension-access "#add-outlook-extension-access")
+- [Edit Microsoft Outlook extension access](#edit-outlook-extension-access "#edit-outlook-extension-access")
+- [Delete Microsoft Outlook extension access](#delete-outlook-extension-access "#delete-outlook-extension-access")
 
 ### Add Microsoft Outlook extension access for accounts using IAM Identity Center
 
@@ -293,9 +282,7 @@ Once created, this extension access configuration enables authors and other admi
 
 For your end users to begin using your Microsoft Outlook extension, an admin or author must finish deploying a extension after you configure extension access. Notify your authors that they can view, edit, and complete installation of this extension under **Extensions** in the left navigation once it has been shared. To learn how to do this see Installing your Microsoft Outlook extension in the Microsoft Outlook extension author guide.
 
-### Add Microsoft
-
-Outlook extension access for accounts using other authentication methods
+### Add Microsoft Outlook extension access for accounts using other authentication methods
 
 Follow these steps to create a new extension access configuration that will
 allow Amazon Quick to integrate with your Microsoft Outlook
@@ -351,9 +338,7 @@ shared. To learn how to do this see [Installing your Microsoft Outlook
 extension in the Microsoft Outlook extension author
 guide](../../../quicksuite/latest/userguide/outlook-extension-author-guide.md#add-extensions-outlook "../../../quicksuite/latest/userguide/outlook-extension-author-guide.md#add-extensions-outlook").
 
-### Edit Microsoft
-
-Outlook extension access
+### Edit Microsoft Outlook extension access
 
 Use these steps to modify the configuration settings of an existing
 Microsoft Outlook extension access.
@@ -373,9 +358,7 @@ Microsoft Outlook extension access.
 Your changes to the Microsoft Outlook extension access
 configuration are saved and will take effect immediately.
 
-### Delete Microsoft
-
-Outlook extension access
+### Delete Microsoft Outlook extension access
 
 Follow these steps to permanently remove a Microsoft Outlook
 extension access configuration. This action cannot be undone.

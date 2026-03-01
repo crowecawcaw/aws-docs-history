@@ -1,6 +1,4 @@
-# Analytics formatting per type in
-
-Quick
+# Analytics formatting per type in Quick
 
 Use the following list to see what type of formatting works in a visualization during
 analysis:
@@ -192,8 +190,7 @@ Stacked bar charts support showing totals.
 
   Pivot tables support sorting on **Column** and
   **Row**. For more information on sorting pivot table data,
-  see [Sorting pivot tables in
-  Quick](sorting-pivot-tables.md "sorting-pivot-tables.md").
+  see [Sorting pivot tables in Quick](sorting-pivot-tables.md "sorting-pivot-tables.md").
 
 - Scatter plots support the following formatting:
 

@@ -1,6 +1,4 @@
-# Developing applications with the Amazon Quick Sight
-
-API
+# Developing applications with the Amazon Quick Sight API
 
 You can manage most aspects of your deployment by using the AWS SDKs to access an API
 that's tailored to the programming language or platform that you're using. For more

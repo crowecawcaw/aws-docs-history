@@ -97,5 +97,4 @@ user's data point selection, use custom URL actions. If you choose, you can
 also generate these URLs manually, and use them to share a specific view of the
 data.
 
-For information on creating custom actions, see [Using custom actions for filtering and
-navigating](quicksight-actions.md "quicksight-actions.md").
+For information on creating custom actions, see [Using custom actions for filtering and navigating](quicksight-actions.md "quicksight-actions.md").

@@ -21,15 +21,12 @@ Scenarios can help Quick Pro users to perform the following tasks:
 
 ###### Topics
 
-- [Considerations for Quick Sight
-  scenarios](#scenarios-considerations "#scenarios-considerations")
+- [Considerations for Quick Sight scenarios](#scenarios-considerations "#scenarios-considerations")
 - [Creating an Amazon Quick Sight scenario](scenarios-create.md "scenarios-create.md")
 - [Working with threads in an Amazon Quick Sight scenario](scenarios-threads.md "scenarios-threads.md")
 - [Working with data in an Amazon Quick Sight scenario](scenarios-data.md "scenarios-data.md")
 
-## Considerations for Quick Sight
-
-scenarios
+## Considerations for Quick Sight scenarios
 
 The following considerations apply to Amazon Quick Sight scenarios.
 

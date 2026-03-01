@@ -1,6 +1,4 @@
-# Expanding and collapsing pivot
-
-table clusters
+# Expanding and collapsing pivot table clusters
 
 If you are using grouped columns or rows in a pivot table, you can expand or
 collapse a group to show or hide its data in the visual.

@@ -4,9 +4,7 @@ Following, you can find how to connect to your Amazon Timestream data using Amaz
 brief overview, see the [Getting started with
 Amazon Timestream and Amazon QuickSight](https://youtu.be/TzW4HWl-L8s "https://youtu.be/TzW4HWl-L8s") video tutorial on YouTube.
 
-## Creating a new Amazon Quick Sight data source
-
-connection for a Timestream database
+## Creating a new Amazon Quick Sight data source connection for a Timestream database
 
 Following, you can find how to connect to Amazon Timestream from Amazon Quick Sight.
 
@@ -17,8 +15,7 @@ authorize, open the menu by clicking on your profile icon at top right. Choose
 **Manage QuickSight**, **Security &
 permissions**, **Add or remove**. Then enable the
 check box for Amazon Timestream, then choose **Update** to confirm. For
-more information, see [Configuring Amazon Quick Sight access to AWS data
-sources](access-to-aws-resources.md "access-to-aws-resources.md").
+more information, see [Configuring Amazon Quick Sight access to AWS data sources](access-to-aws-resources.md "access-to-aws-resources.md").
 
 ###### To connect to Amazon Timestream
 
@@ -59,9 +56,7 @@ sources](access-to-aws-resources.md "access-to-aws-resources.md").
     use four tables in the same dataset, you need to add four data source
     connections in Quick Sight.
 
-## Managing permissions for Timestream
-
-data
+## Managing permissions for Timestream data
 
 The following procedure describes how to view, add, and revoke permissions to
 allow access to the same Timestream data source. The people that you add need to be
@@ -95,9 +90,7 @@ then follow these steps:
    create edit, share, or delete the dataset.
 7. When you are finished, choose **Close**.
 
-## Adding a new Quick Sight dataset
-
-for Timestream
+## Adding a new Quick Sight dataset for Timestream
 
 After you have an existing data source connection for Timestream data, you can create
 Timestream datasets to use for analysis.
@@ -139,9 +132,7 @@ Quick Sight data source connection for each table.
 7. When you are done, choose **Save** to save and close the
    dataset.
 
-## Adding Timestream data to an
-
-analysis
+## Adding Timestream data to an analysis
 
 Following, you can find how to add an Amazon Timestream dataset to a Quick Sight
 analysis. Before you begin, make sure that you have an existing dataset that

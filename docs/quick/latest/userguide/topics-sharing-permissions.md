@@ -1,6 +1,4 @@
-# Managing Amazon Quick Sight topic
-
-permissions
+# Managing Amazon Quick Sight topic permissions
 
 When you share your topics with others in your organization, you might want to control
 who can change them. To do this, specify which users are viewers and which are

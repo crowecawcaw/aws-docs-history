@@ -1,6 +1,4 @@
-# Identity and access management in
-
-Quick
+# Identity and access management in Quick
 
 |                                                                 |
 | --------------------------------------------------------------- |
@@ -38,7 +36,5 @@ In the regions listed below, Amazon Quick accounts can only use [IAM Identity Ce
 - [Using IAM](iam.md "iam.md")
 - [Using IAM Identity Center](setting-up-sso.md "setting-up-sso.md")
 - [IAM federation](iam-federation.md "iam-federation.md")
-- [Using Active Directory with Amazon Quick
-  Enterprise edition](aws-directory-service.md "aws-directory-service.md")
-- [Using multi-factor authentication
-  (MFA) with Amazon Quick](using-multi-factor-authentication-mfa.md "using-multi-factor-authentication-mfa.md")
+- [Using Active Directory with Amazon Quick Enterprise edition](aws-directory-service.md "aws-directory-service.md")
+- [Using multi-factor authentication (MFA) with Amazon Quick](using-multi-factor-authentication-mfa.md "using-multi-factor-authentication-mfa.md")

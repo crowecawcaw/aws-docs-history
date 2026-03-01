@@ -63,7 +63,5 @@ For more information on using the AWS CLI, see the [AWS CLI User Guide](../../..
 
 - [VPC terminology](vpc-terminology.md "vpc-terminology.md")
 - [Supported VPC data sources](vpc-connection-supported-data-sources.md "vpc-connection-supported-data-sources.md")
-- [Setting up a VPC to use with
-  Amazon Quick](vpc-setup-for-quicksight.md "vpc-setup-for-quicksight.md")
-- [Finding information to connect to a
-  VPC](vpc-finding-setup-information.md "vpc-finding-setup-information.md")
+- [Setting up a VPC to use with Amazon Quick](vpc-setup-for-quicksight.md "vpc-setup-for-quicksight.md")
+- [Finding information to connect to a VPC](vpc-finding-setup-information.md "vpc-finding-setup-information.md")

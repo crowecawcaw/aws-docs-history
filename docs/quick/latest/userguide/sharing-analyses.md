@@ -10,10 +10,8 @@ also revoke access from any user.
 ###### Topics
 
 - [Sharing an analysis](#share-an-analysis "#share-an-analysis")
-- [Viewing the users that an analysis is shared
-  with](view-users-analysis.md "view-users-analysis.md")
-- [Revoking access to an
-  analysis](revoke-access-to-an-analysis.md "revoke-access-to-an-analysis.md")
+- [Viewing the users that an analysis is shared with](view-users-analysis.md "view-users-analysis.md")
+- [Revoking access to an analysis](revoke-access-to-an-analysis.md "revoke-access-to-an-analysis.md")
 
 ## Sharing an analysis
 

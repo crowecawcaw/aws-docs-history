@@ -1,6 +1,4 @@
-# Improve Q&A
-
-accuracy with custom instructions
+# Improve Q&A accuracy with custom instructions
 
 Custom Instructions enables Authors to curate Amazon Q's responses to questions by adding
 domain-specific knowledge that can’t be captured through a topic’s metadata settings,
@@ -44,9 +42,7 @@ more accurately select the appropriate date field in context.
 
 ![topic create description](images/topic_create.png)
 
-## Adding topic-level
-
-descriptions
+## Adding topic-level descriptions
 
 ###### To add topic-level descriptions:
 
@@ -69,9 +65,7 @@ descriptions
    choose the **Datasets** sub-tab.
 4. Add a description to help improve dataset selection logic.
 
-## Adding topic-level custom
-
-instructions
+## Adding topic-level custom instructions
 
 ###### To add custom instructions:
 
@@ -86,9 +80,7 @@ instructions
    can’t be captured in a calculated field or topic filter, or instructions for
    customizing relative date ranges.
 
-## Best practices for
-
-writing custom instructions
+## Best practices for writing custom instructions
 
 **Match cell values precisely**
 
@@ -136,9 +128,7 @@ do not add new capabilities. These instructions will not:
 - Control formatting, colors, or legends
 - Alter the narrative or number/type of visuals
 
-## Adding
-
-field-level descriptions in data preparation for dashboard-based Q&A
+## Adding field-level descriptions in data preparation for dashboard-based Q&A
 
 In addition to Topic-based descriptions, you can create field-level definitions to
 enhance [Dashboard Q&A](dashboard-qa.md "dashboard-qa.md") functionality. Adding

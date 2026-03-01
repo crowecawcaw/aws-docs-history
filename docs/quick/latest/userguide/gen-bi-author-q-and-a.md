@@ -1,10 +1,6 @@
-# Authoring
+# Authoring Q&A
 
-Q&A
-
-## Converting to the
-
-Generative Q&A experience
+## Converting to the Generative Q&A experience
 
 If you have existing topics, you can easily convert these to leverage our new
 generative capabilities. Navigate to a topic, and then choose
@@ -44,9 +40,7 @@ Authors can configure the following facets of named entities:
    presentation of the named entity, while still providing additional context
    in other components of the answer.
 
-## Measure
-
-aggregations
+## Measure aggregations
 
 Authors have fine-grained control over aggregated measures in topics. Across
 Quick Sight, measures are defaulted to `SUM`,unless they have custom

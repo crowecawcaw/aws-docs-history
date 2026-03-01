@@ -1,6 +1,4 @@
-# Disconnect an
-
-Amazon Q Business application from an Amazon Quick account
+# Disconnect an Amazon Q Business application from an Amazon Quick account
 
 Quick account admins can use the following procedure to disconnect an
 Amazon Q Business application from a Quick account.

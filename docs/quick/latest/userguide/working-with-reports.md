@@ -1,6 +1,4 @@
-# Working with pixel perfect reports in
-
-Amazon Quick Sight
+# Working with pixel perfect reports in Amazon Quick Sight
 
 With Amazon Quick Sight Pixel Perfect Reports, you can create, schedule, and share highly formatted
 multipage PDF reports. You can also schedule data exports as CSV files using
@@ -35,10 +33,7 @@ Europe (Zurich) region.
 ###### Topics
 
 - [Getting started](qs-reports-getting-started.md "qs-reports-getting-started.md")
-- [Creating reports from an analysis in
-  Amazon Quick Sight](qs-reports-create-reports.md "qs-reports-create-reports.md")
+- [Creating reports from an analysis in Amazon Quick Sight](qs-reports-create-reports.md "qs-reports-create-reports.md")
 - [Formatting reports in Amazon Quick Sight](qs-reports-format-reports.md "qs-reports-format-reports.md")
-- [Consuming pixel perfect reports in
-  Amazon Quick Sight](qs-reports-consume-reports.md "qs-reports-consume-reports.md")
-- [Unsubscribe from paginated
-  reporting in Quick Sight](qs-reports-getting-started-unsubscribe.md "qs-reports-getting-started-unsubscribe.md")
+- [Consuming pixel perfect reports in Amazon Quick Sight](qs-reports-consume-reports.md "qs-reports-consume-reports.md")
+- [Unsubscribe from paginated reporting in Quick Sight](qs-reports-getting-started-unsubscribe.md "qs-reports-getting-started-unsubscribe.md")

@@ -1,6 +1,4 @@
-# I get a feedback bar across my printed
-
-documents
+# I get a feedback bar across my printed documents
 
 The browser sometimes prints the document feedback bar across the page, blocking
 some printed content.

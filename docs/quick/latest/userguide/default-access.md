@@ -13,9 +13,7 @@ that an Amazon Quick user can access. If no such configuration occurs, Quick
 uses a default set of permissions based on the user's settings. The current behavior is
 displayed in a blue information box.
 
-###### To change the default resource access for all users (to use when no other permissions
-
-are configured)
+###### To change the default resource access for all users (to use when no other permissions are configured)
 
 1. Sign in to Amazon Quick.
 2. At upper right, choose the profile icon, and then choose **Manage

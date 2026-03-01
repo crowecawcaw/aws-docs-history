@@ -1,6 +1,4 @@
-# Metric comparison
-
-computation
+# Metric comparison computation
 
 The metric comparison computation compares values in different measures. For
 example, you can create a computation to compare two values, such as actual
@@ -31,9 +29,7 @@ _Target value_
 
 The field that you want to compare to the value.
 
-## Computation
-
-outputs
+## Computation outputs
 
 Each function generates a set of output parameters. You can add these
 outputs to the autonarrative to customize what it displays. You can also add

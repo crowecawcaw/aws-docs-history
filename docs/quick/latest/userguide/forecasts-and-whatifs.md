@@ -1,6 +1,4 @@
-# Forecasting and creating what-if scenarios with
-
-Amazon Quick Sight
+# Forecasting and creating what-if scenarios with Amazon Quick Sight
 
 Using ML-powered forecasting, you can forecast your key business metrics with
 point-and-click simplicity. No machine learning expertise is required. The built-in ML

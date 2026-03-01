@@ -9,9 +9,7 @@ If it's necessary to change upload settings, make these changes before you
 make any other changes to the dataset. Changing upload settings causes Amazon Quick Sight to
 reimport the file. This process overwrites any changes you have made so far.
 
-## Changing text file upload
-
-settings
+## Changing text file upload settings
 
 Text file upload settings include the file header indicator, file format, text
 delimiter, text qualifier, and start row. If you are working with an Amazon S3 data
@@ -36,9 +34,7 @@ Use the following procedure to change text file upload settings.
 6. In **Text qualifier**, choose the text qualifier, either
    single quotes (') or double quotes (").
 
-## Changing Microsoft Excel file
-
-upload settings
+## Changing Microsoft Excel file upload settings
 
 Microsoft Excel file upload settings include the range header indicator and whole
 worksheet selector.

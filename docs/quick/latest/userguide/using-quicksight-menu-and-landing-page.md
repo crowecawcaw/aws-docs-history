@@ -1,6 +1,4 @@
-# Using the Amazon Quick menu and
-
-landing page
+# Using the Amazon Quick menu and landing page
 
 After you sign in to Amazon Quick, you see the Amazon Quick landing page. This page
 provides tabs for your analyses, dashboards, folders, data, and more. It also provides a

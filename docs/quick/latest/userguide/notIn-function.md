@@ -56,9 +56,7 @@ Teradata, the restriction can be smaller.
 
 Boolean: TRUE/FALSE
 
-## Example with a manually
-
-entered list
+## Example with a manually entered list
 
 The following example evaluates the `origin_state_name` field for
 values in a list of string. When comparing string type input, `notIn`
@@ -109,9 +107,7 @@ notIn("Washington",["Washington","Ohio"])
 notIn(NULL,[NULL,"Ohio"])
 ```
 
-## Example with
-
-mutivalue parameter
+## Example with mutivalue parameter
 
 Let's say an author creates a [multivalue
 parameter](../../../quicksight/latest/user/parameters-in-quicksight.md "../../../quicksight/latest/user/parameters-in-quicksight.md") that contains a list of all the state names. Then the
@@ -127,9 +123,7 @@ names are passed as the literal list to be compared with the
 notIn (`origin_state_name`, $`{stateName MultivalueParameter}`)
 ```
 
-## Example with
-
-`ifelse`
+## Example with `ifelse`
 
 `notIn` can be nested in other functions as a boolean value. One
 example is that authors can evaluate any expression in a list and return the

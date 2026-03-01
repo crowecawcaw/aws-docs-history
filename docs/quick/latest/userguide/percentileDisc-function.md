@@ -1,6 +1,4 @@
-# percentileDisc
-
-(percentile)
+# percentileDisc (percentile)
 
 The `percentileDisc` function calculates the percentile based on the actual
 numbers in `measure`. It uses the grouping and sorting that are applied in
@@ -46,9 +44,7 @@ functions](../../../quicksight/latest/user/level-aware-calculations-aggregate.md
 
 The result of the function is a number.
 
-## Usage
-
-notes
+## Usage notes
 
 `percentileDisc` is an inverse distribution function that assumes a
 discrete distribution model. It takes a percentile value and a sort specification
@@ -58,15 +54,11 @@ For a given percentile value `P`, `percentileDisc` uses the
 sorted values in the visual and returns the value with the smallest cumulative
 distribution value that is greater than or equal to `P`.
 
-## Examples of
-
-percentileDisc
+## Examples of percentileDisc
 
 The following examples help explain how percentileDisc works.
 
-###### Example Comparing median, `percentileDisc`, and
-
-`percentileCont`
+###### Example Comparing median, `percentileDisc`, and `percentileCont`
 
 The following example shows the median for a dimension (category) by using the
 `percentileCont`, and `percentileDisc`, and

@@ -1,6 +1,4 @@
-# Amazon Quick Microsoft Teams
-
-extension
+# Amazon Quick Microsoft Teams extension
 
 ###### Note
 
@@ -22,7 +20,5 @@ Key capabilities include:
 
 ###### Topics
 
-- [Amazon Quick Microsoft
-  Teams extension author guide](teams-extension-author-guide.md "teams-extension-author-guide.md")
-- [Amazon Quick Microsoft
-  Teams extension user guide](teams-extension-user-guide.md "teams-extension-user-guide.md")
+- [Amazon Quick Microsoft Teams extension author guide](teams-extension-author-guide.md "teams-extension-author-guide.md")
+- [Amazon Quick Microsoft Teams extension user guide](teams-extension-user-guide.md "teams-extension-user-guide.md")

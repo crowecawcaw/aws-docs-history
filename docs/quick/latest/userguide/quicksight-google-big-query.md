@@ -1,6 +1,4 @@
-# Creating a dataset using Google
-
-BigQuery
+# Creating a dataset using Google BigQuery
 
 ###### Note
 
@@ -11,9 +9,7 @@ Google BigQuery is a fully managed serverless data warehouse that
 customers use to manage and analyze their data. Google BigQuery customers
 use SQL to query their data without any infrastructure management.
 
-## Creating a data source
-
-connection with Google BigQuery
+## Creating a data source connection with Google BigQuery
 
 **Prerequisites**
 
@@ -54,9 +50,7 @@ BigQuery and Quick Sight](https://aws.amazon.com/blogs/business-intelligence/unl
 Use the following procedure to connect your Quick account with your
 Google BigQuery data source.
 
-###### To create a new connection to a Google BigQuery data source
-
-from Quick Sight
+###### To create a new connection to a Google BigQuery data source from Quick Sight
 
 1. Open the [Quick console](https://quicksight.aws.amazon.com/ "https://quicksight.aws.amazon.com/").
 2. From the left navigation pane, choose **Data**.
@@ -82,9 +76,7 @@ from Quick Sight
    Google BigQuery.
 9. After you create the new data source connection, continue to [Step 4](#gbq-step-4 "#gbq-step-4") in the following procedure.
 
-## Adding a new Quick Sight dataset for
-
-Google BigQuery
+## Adding a new Quick Sight dataset for Google BigQuery
 
 After you create a data source connection with Google BigQuery, you
 can create Google BigQuery datasets for analysis. Datasets that use

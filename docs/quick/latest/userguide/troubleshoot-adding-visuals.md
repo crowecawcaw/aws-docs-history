@@ -2,8 +2,7 @@
 
 Use the following section to help you troubleshoot missing visuals. Before you
 continue, check to make sure you can still access your data source. If you can't
-connect to your data source, see [Data source connectivity issues
-for Amazon Quick Sight](troubleshoot-connect-to-datasources.md "troubleshoot-connect-to-datasources.md").
+connect to your data source, see [Data source connectivity issues for Amazon Quick Sight](troubleshoot-connect-to-datasources.md "troubleshoot-connect-to-datasources.md").
 
 - If you are having trouble adding a visual to an analysis, try the
   following:

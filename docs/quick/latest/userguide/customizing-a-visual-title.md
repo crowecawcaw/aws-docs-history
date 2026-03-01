@@ -1,6 +1,4 @@
-# Titles and subtitles on visual types in
-
-Quick
+# Titles and subtitles on visual types in Quick
 
 In Quick, you can format visual titles and subtitles to meet your business
 needs. Quick offers rich text formatting for titles and subtitles, and the

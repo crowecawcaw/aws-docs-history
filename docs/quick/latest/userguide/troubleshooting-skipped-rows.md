@@ -1,6 +1,4 @@
-# Troubleshooting skipped row
-
-errors
+# Troubleshooting skipped row errors
 
 When you import data, Amazon Quick Sight previews a portion of your data. If it can't interpret a
 row for any reason, Quick Sight skips the row. In some cases, the import will fail.
@@ -36,8 +34,7 @@ avoided by being aware of examples like the following:
   header. If there is a header row, make sure that you choose the
   **Contains header** upload option.
 - Make sure that the data doesn't exceed one or more of the [Data source quotas](data-source-limits.md "data-source-limits.md").
-- Make sure that the data is compatible with the [Supported data types and
-  values](supported-data-types-and-values.md "supported-data-types-and-values.md").
+- Make sure that the data is compatible with the [Supported data types and values](supported-data-types-and-values.md "supported-data-types-and-values.md").
 - Make sure that your calculated fields contain data that works with the
   calculation, rather than being incompatible with or excluded by the function in
   the calculated field. For example, if you have a calculated field in your
@@ -47,9 +44,7 @@ avoided by being aware of examples like the following:
   SPICE engine attempts to ingest data. When a saved dataset reports
   skipped rows, you can view the errors so you can take action to fix the issues.
 
-###### To view errors for rows that were skipped during SPICE ingestion
-
-(data import)
+###### To view errors for rows that were skipped during SPICE ingestion (data import)
 
 1. Choose **Data** at left. In the **Datasets**
    tab, choose the problematic dataset to open it.
@@ -81,8 +76,7 @@ columns:
 
     * **ERROR\_TYPE** – The type or error code for
      the error that occurred when importing this row. You can look up this
-     error in the [SPICE ingestion error
-     codes](errors-spice-ingestion.md "errors-spice-ingestion.md") section that follows this
+     error in the [SPICE ingestion error codes](errors-spice-ingestion.md "errors-spice-ingestion.md") section that follows this
      procedure.
     * **COLUMN\_NAME** – The name of the column in
      your data that caused the error.

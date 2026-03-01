@@ -10,14 +10,11 @@ identity and access management, and controlling sign-up for users, see [Administ
 
 ###### Topics
 
-- [Complete initial configuration
-  tasks](#setting-up-create-iam-user "#setting-up-create-iam-user")
+- [Complete initial configuration tasks](#setting-up-create-iam-user "#setting-up-create-iam-user")
 - [Signing up for an Amazon Quick subscription](signing-up.md "signing-up.md")
 - [Signing in to Amazon Quick](signing-in.md "signing-in.md")
 
-## Complete initial configuration
-
-tasks
+## Complete initial configuration tasks
 
 To use Amazon Quick you must first complete the following tasks:
 

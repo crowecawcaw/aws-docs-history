@@ -1,6 +1,4 @@
-# Setting granular access to AWS
-
-services through IAM
+# Setting granular access to AWS services through IAM
 
 |                                            |
 | ------------------------------------------ |
