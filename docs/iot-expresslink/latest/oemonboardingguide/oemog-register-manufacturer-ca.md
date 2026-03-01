@@ -1,6 +1,4 @@
-# Appendix B - Register the ExpressLink
-
-manufacturer certificate authority (CA)
+# Appendix B - Register the ExpressLink manufacturer certificate authority (CA)
 
 After a claim-thing certificate is obtained, the next steps is to register the ExpressLink certificate with the manufacturer certificate
 authority (CA). This four step process walks the user through registering with the certificate authority (CA).

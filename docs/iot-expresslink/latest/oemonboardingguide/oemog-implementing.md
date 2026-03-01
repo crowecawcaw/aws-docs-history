@@ -16,8 +16,7 @@ In the last step, the customer/OEM's AWS account must be configured to enable th
 of the just-in-time provisioning mechanism. To do this:
 
 1. Register the ExpressLink module vendor's Certificate Authority with the customer/OEM
-   account. Follow the steps in [Appendix B - Register the ExpressLink
-   manufacturer certificate authority (CA)](oemog-register-manufacturer-ca.md "oemog-register-manufacturer-ca.md").
+   account. Follow the steps in [Appendix B - Register the ExpressLink manufacturer certificate authority (CA)](oemog-register-manufacturer-ca.md "oemog-register-manufacturer-ca.md").
 2. Create a JITP template so that new devices that are directed to the account will
    be automatically associated with a desired policy and given a proper thing-name.
    Follow the steps in [Appendix C - Create a JITP template](oemog-creating-jitp-template.md "oemog-creating-jitp-template.md").
