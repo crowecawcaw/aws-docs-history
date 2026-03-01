@@ -2,9 +2,7 @@ This is version 2.18 of the AWS Elemental Server documentation.
 This is the latest version. For prior versions, see
 the _Previous Versions_ section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](../../../elemental-server.md "../../../elemental-server.md").
 
-# Embedded (CEA/EIA-608, CEA/EIA-708), SCTE-20, and Embedded+SCTE-20,
-
-and SCTE-20+Embedded
+# Embedded (CEA/EIA-608, CEA/EIA-708), SCTE-20, and Embedded+SCTE-20, and SCTE-20+Embedded
 
 If your input captions are in any of the following formats, AWS Elemental Server handles them as
 "embedded."
@@ -22,12 +20,9 @@ If your input captions are in any of the following formats, AWS Elemental Server
 
 If you are extracting embedded captions from the input and using embedded captions in the
 output, and if the input includes VBI data and you want to include all that data in the output,
-then do not follow this procedure. Instead, see [Extracting VBI Data Included in Embedded Input
-Captions](embedded-captions-in-vbi-data.md "embedded-captions-in-vbi-data.md").
+then do not follow this procedure. Instead, see [Extracting VBI Data Included in Embedded Input Captions](embedded-captions-in-vbi-data.md "embedded-captions-in-vbi-data.md").
 
-## Number of Captions Selectors for Embedded
-
-and SCTE-20 Captions
+## Number of Captions Selectors for Embedded and SCTE-20 Captions
 
 - If all of your output captions are also an embedded format, create only one captions
   selector, even if you want to include multiple tracks in the output. With this setup,
@@ -39,9 +34,7 @@ and SCTE-20 Captions
   embedded captions. Also create individual selectors for the outputs with other captions that
   aren't embedded, one for each track that you want in your outputs.
 
-## Captions Selector Fields for Embedded,
-
-SCTE-20, Embedded+SCTE-20, and SCTE-20+Embedded Captions
+## Captions Selector Fields for Embedded, SCTE-20, Embedded+SCTE-20, and SCTE-20+Embedded Captions
 
 - **Source**: Specify a value for the source format as follows:
   - Choose `embedded` if the source captions are embedded (EIA-608 or CEA-708)

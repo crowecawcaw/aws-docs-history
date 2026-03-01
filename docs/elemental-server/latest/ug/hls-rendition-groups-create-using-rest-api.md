@@ -2,12 +2,9 @@ This is version 2.18 of the AWS Elemental Server documentation.
 This is the latest version. For prior versions, see
 the _Previous Versions_ section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](../../../elemental-server.md "../../../elemental-server.md").
 
-# Creating HLS Rendition Groups (REST
+# Creating HLS Rendition Groups (REST API)
 
-API)
-
-The following information assumes that you have read [Creating HLS Rendition Groups
-(Web Interface)](hls-rendition-groups-create-using-web-interface.md "hls-rendition-groups-create-using-web-interface.md") and are therefore familiar with the
+The following information assumes that you have read [Creating HLS Rendition Groups (Web Interface)](hls-rendition-groups-create-using-web-interface.md "hls-rendition-groups-create-using-web-interface.md") and are therefore familiar with the
 construction and association of an output containing video and rendition groups.
 
 Via the REST API, create or modify the event to include the elements and tags in the
@@ -15,18 +12,12 @@ XML body as described in the following sections.
 
 ###### Topics
 
-- [Creating Streams for HLS
-  Rendition Groups in the REST API](#hls-rendition-groups-create-using-rest-api-streams "#hls-rendition-groups-create-using-rest-api-streams")
-- [Creating Output
-  Groups for HLS Rendition Groups in the REST API](#hls-rendition-groups-create-using-rest-api-output-groups "#hls-rendition-groups-create-using-rest-api-output-groups")
-- [Creating Outputs for HLS
-  Output Groups in the REST API](#hls-rendition-groups-create-using-rest-api-outputs "#hls-rendition-groups-create-using-rest-api-outputs")
-- [Sample XML Body For an
-  HLS Output Group with Audio Rendition Group Event](#hls-rendition-groups-create-using-rest-api-sample-xml "#hls-rendition-groups-create-using-rest-api-sample-xml")
+- [Creating Streams for HLS Rendition Groups in the REST API](#hls-rendition-groups-create-using-rest-api-streams "#hls-rendition-groups-create-using-rest-api-streams")
+- [Creating Output Groups for HLS Rendition Groups in the REST API](#hls-rendition-groups-create-using-rest-api-output-groups "#hls-rendition-groups-create-using-rest-api-output-groups")
+- [Creating Outputs for HLS Output Groups in the REST API](#hls-rendition-groups-create-using-rest-api-outputs "#hls-rendition-groups-create-using-rest-api-outputs")
+- [Sample XML Body For an HLS Output Group with Audio Rendition Group Event](#hls-rendition-groups-create-using-rest-api-sample-xml "#hls-rendition-groups-create-using-rest-api-sample-xml")
 
-## Creating Streams for HLS
-
-Rendition Groups in the REST API
+## Creating Streams for HLS Rendition Groups in the REST API
 
 - Create as many stream_assembly elements as you require, one for each unique video
   stream, one for each unique audio stream, and one for each caption stream.
@@ -36,17 +27,13 @@ Rendition Groups in the REST API
     or
   - One caption_descriptoin element (plus an optional preset_id tag and name tag).
 
-## Creating Output
-
-Groups for HLS Rendition Groups in the REST API
+## Creating Output Groups for HLS Rendition Groups in the REST API
 
 - Create as many HLS output groups as desired by creating one output group that has the
   value “apple_live_group_settings” in its type tag and that contains one
   apple_live_group_settings element. Set other tags as desired.
 
-## Creating Outputs for HLS
-
-Output Groups in the REST API
+## Creating Outputs for HLS Output Groups in the REST API
 
 - Within each HLS output group, create as many output elements as required, one for each
   video stream (plus captions), one for each audio stream, and one for each captions
@@ -76,13 +63,11 @@ Output Groups in the REST API
       Specifying a value here creates the rendition group and puts this audio output into that
       rendition group.
     - Up to version 2.9.x: alternate_audio_track_selection: Either “default_audio” or
-      “alternate_audio_auto_select” or “alternate_audio_not_auto_select”. See [Step 2. Determine
-      Defaults and Auto-Selection Behavior](hls-rendition-groups-getting-ready-to-create.md#hls-rendition-groups-getting-ready-determine-defaults "hls-rendition-groups-getting-ready-to-create.md#hls-rendition-groups-getting-ready-determine-defaults") for
+      “alternate_audio_auto_select” or “alternate_audio_not_auto_select”. See [Step 2. Determine Defaults and Auto-Selection Behavior](hls-rendition-groups-getting-ready-to-create.md#hls-rendition-groups-getting-ready-determine-defaults "hls-rendition-groups-getting-ready-to-create.md#hls-rendition-groups-getting-ready-determine-defaults") for
       information.
     - Version 2.10.0 and later: audio_track_type: Either
       “alternate_audio_auto_select_default” or “alternate_audio_auto_select” or
-      “alternate_audio_not_auto_select” or “audio_only_variant_stream”. See [Step 2. Determine
-      Defaults and Auto-Selection Behavior](hls-rendition-groups-getting-ready-to-create.md#hls-rendition-groups-getting-ready-determine-defaults "hls-rendition-groups-getting-ready-to-create.md#hls-rendition-groups-getting-ready-determine-defaults")for information.
+      “alternate_audio_not_auto_select” or “audio_only_variant_stream”. See [Step 2. Determine Defaults and Auto-Selection Behavior](hls-rendition-groups-getting-ready-to-create.md#hls-rendition-groups-getting-ready-determine-defaults "hls-rendition-groups-getting-ready-to-create.md#hls-rendition-groups-getting-ready-determine-defaults")for information.
     - Other tags as you require.
 
 - Each **captions** output element must contain:
@@ -93,9 +78,7 @@ Output Groups in the REST API
     stream_assembly_name element.
   - apple_live_settings element that contains the usual tags as required.
 
-## Sample XML Body For an
-
-HLS Output Group with Audio Rendition Group Event
+## Sample XML Body For an HLS Output Group with Audio Rendition Group Event
 
 This example shows the XML body for an event that contains an HLS output group that
 includes audio rendition groups.

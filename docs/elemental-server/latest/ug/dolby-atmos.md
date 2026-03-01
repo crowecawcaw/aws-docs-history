@@ -15,7 +15,5 @@ passing through already encoded Dolby Digital Plus with Atmos content.
 
 ###### Topics
 
-- [Using Dolby Atmos Passthrough with
-  AWS Elemental Server](using-dolby-atmos-passthrough.md "using-dolby-atmos-passthrough.md")
-- [Using Dolby Atmos Encoding with
-  AWS Elemental Server](using-dolby-atmos-encoding.md "using-dolby-atmos-encoding.md")
+- [Using Dolby Atmos Passthrough with AWS Elemental Server](using-dolby-atmos-passthrough.md "using-dolby-atmos-passthrough.md")
+- [Using Dolby Atmos Encoding with AWS Elemental Server](using-dolby-atmos-encoding.md "using-dolby-atmos-encoding.md")

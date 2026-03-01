@@ -28,8 +28,7 @@ conditioning changes the standard behavior.
 
 When POIS conditioning is enabled, the ad avail mode is always set to “splice
 insert.” For information about the implications for manifest decoration and ad avail
-blanking that are performed by the AWS Elemental encoder, see [Getting Ready: Setting the Ad
-Avail Mode](getting-ready-setting-the-ad-avail-mode.md "getting-ready-setting-the-ad-avail-mode.md").
+blanking that are performed by the AWS Elemental encoder, see [Getting Ready: Setting the Ad Avail Mode](getting-ready-setting-the-ad-avail-mode.md "getting-ready-setting-the-ad-avail-mode.md").
 
 ###### SCTE-35 Messages Inserted by REST API
 
@@ -99,9 +98,7 @@ POIS instruction is to remove a given SCTE-35 message, then that message is remo
 and is not passed through, even though passthrough is enabled in the AWS Elemental
 encoder.
 
-## Procedure to Enable POIS
-
-Conditioning
+## Procedure to Enable POIS Conditioning
 
 1. In the Profile or Job screen, click Advanced Avail Controls (in the Input
    section towards the top of the screen):

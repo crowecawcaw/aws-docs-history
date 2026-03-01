@@ -7,9 +7,7 @@ the _Previous Versions_ section of [AWS Elemental Conductor File and AWS Element
 This section lists example manifests for the Apple HLS manifest styles that
 AWS Elemental Server supports. These manifests include a range of types.
 
-## Example Manifest for Adobe Ad
-
-Marker
+## Example Manifest for Adobe Ad Marker
 
 Inserts a CUE: DURATION for each ad avail. Does not insert any CUE-OUT CONT
 (continuation tags) to indicate to a player joining mid-break that there is a current
@@ -75,9 +73,7 @@ The following is the tag for an ad avail lasting 414.171 PTS.
 
 ```
 
-## Example Manifest for
-
-SCTE-35 Enhanced Ad Marker
+## Example Manifest for SCTE-35 Enhanced Ad Marker
 
 **Structure**
 

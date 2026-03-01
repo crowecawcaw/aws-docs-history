@@ -2,9 +2,7 @@ This is version 2.18 of the AWS Elemental Server documentation.
 This is the latest version. For prior versions, see
 the _Previous Versions_ section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](../../../elemental-server.md "../../../elemental-server.md").
 
-# Stream > Video
-
-> Advanced > Preprocessors > Color Corrector
+# Stream > Video > Advanced > Preprocessors > Color Corrector
 
 Access the color correction control as follows:
 
@@ -26,9 +24,7 @@ Because the color correction checkbox is in the Streams section, you can apply
 color correction for some outputs and not others. Settings in the Color Corrector
 preprocessor apply to any output associated with the stream.
 
-## Brightness, Contrast, Hue,
-
-Saturation
+## Brightness, Contrast, Hue, Saturation
 
 Enter color correction values in these fields. AWS Elemental Server uses these
 values to do color correction regardless of whether you choose to do color space
@@ -52,9 +48,7 @@ AWS Elemental Server supports the following conversions:
 
 ![An image of the AWS Elemental Server web interface.](images/color-correction-color-space-conversion.png)
 
-## HDR Master Display
-
-Information
+## HDR Master Display Information
 
 The HDR Master Display Information fields appear when you select “Force HDR
 10” from the Color Space Conversion dropdown list. If you are converting to

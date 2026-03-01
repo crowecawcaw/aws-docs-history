@@ -2,9 +2,7 @@ This is version 2.18 of the AWS Elemental Server documentation.
 This is the latest version. For prior versions, see
 the _Previous Versions_ section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](../../../elemental-server.md "../../../elemental-server.md").
 
-# Passthrough or Removal of SCTE Messages from
-
-Input
+# Passthrough or Removal of SCTE Messages from Input
 
 SCTE-35 messages from the input can be passed through (included) in the data stream for
 the following outputs.
@@ -41,8 +39,7 @@ output.
 Passthrough is enabled or disabled individually for each output, which means it can
 be applied differently for different outputs in the same group.
 
-1. If you have not already set up for manifest decoration, do so now; see [Procedure to Enable Manifest
-   Decoration](manifest-decoration.md#procedure-to-enable-decoration "manifest-decoration.md#procedure-to-enable-decoration").
+1. If you have not already set up for manifest decoration, do so now; see [Procedure to Enable Manifest Decoration](manifest-decoration.md#procedure-to-enable-decoration "manifest-decoration.md#procedure-to-enable-decoration").
 2. In the Profile or Event screen, go to the Output Groups section at the bottom
    of the screen and display the tab for Apple HLS Output Group.
    1. In each output, open the PID Control section. You will note that the

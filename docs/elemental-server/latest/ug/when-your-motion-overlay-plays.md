@@ -2,9 +2,7 @@ This is version 2.18 of the AWS Elemental Server documentation.
 This is the latest version. For prior versions, see
 the _Previous Versions_ section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](../../../elemental-server.md "../../../elemental-server.md").
 
-# Setting Up When Your
-
-Motion Graphic Plays
+# Setting Up When Your Motion Graphic Plays
 
 When you place a motion graphic overlay, you set up when it starts and how long it
 runs by specifying the **Action Time** and **Loop

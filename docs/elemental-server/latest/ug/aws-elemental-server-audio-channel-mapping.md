@@ -2,9 +2,7 @@ This is version 2.18 of the AWS Elemental Server documentation.
 This is the latest version. For prior versions, see
 the _Previous Versions_ section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](../../../elemental-server.md "../../../elemental-server.md").
 
-# Setting Up Audio Channel Mapping with
-
-AWS Elemental Server
+# Setting Up Audio Channel Mapping with AWS Elemental Server
 
 ###### About this manual
 
@@ -50,9 +48,7 @@ In the AWS Elemental Server web interface, the Stream section contains the encod
 instructions that define the outgoing stream assembly. So the Stream section is more correctly
 the “Stream Assembly” section.
 
-### AWS Elemental Server
-
-Foundational Audio Concepts
+### AWS Elemental Server Foundational Audio Concepts
 
 #### Audio Selectors
 
@@ -80,9 +76,7 @@ output file that starts with Input 1 and ends with Input 2.
 
 ![Multiple input files, one output](images/multiple-inputs.png)
 
-#### Reordering Audio Channels, Uniform
-
-Input - Output Mapping
+#### Reordering Audio Channels, Uniform Input - Output Mapping
 
 In versions 2.5 and later of AWS Elemental Server, you can map audio with multiple inputs,
 provided that all inputs have the same type of audio on the same tracks and channels. You do
@@ -96,9 +90,7 @@ and channel 3 on the input remains channel 3 on the output.
 
 ![Output mapping—moving channels to different positions, input is uniform](images/multiple-inputs-3color.png)
 
-#### Reordering Audio Channels, Different
-
-Inputs - Input Mapping
+#### Reordering Audio Channels, Different Inputs - Input Mapping
 
 In version 2.11 and later, you can also map audio with multiple inputs that have different
 audio tracks and channels. You do this first by mapping the input tracks and channels into a
@@ -120,9 +112,7 @@ to exclude the red channel from Input1 and to reorder the channels in Input2.
 For conceptual descriptions of these options, see [Audio Mapping Workflow Examples](#audio-mapping-workflow-examples "#audio-mapping-workflow-examples").
 For detailed steps to create the mappings using the web interface, see [Audio Mapping Procedures](#audio-mapping-procedures "#audio-mapping-procedures").
 
-### Prerequisite Information to Setting Up Audio
-
-Mapping
+### Prerequisite Information to Setting Up Audio Mapping
 
 Before you set up your audio mapping, plan for it. Know what type of audio you have coming
 in on your input tracks and channels, for example, stereo or Dolby digital 5.1. Also, identify
@@ -153,9 +143,7 @@ As you plan your audio output, keep in mind the following restrictions:
 
 This topic shows common mapping use cases and their solutions.
 
-### Workflow Example - Identical Input
-
-Audio Channels, One Output
+### Workflow Example - Identical Input Audio Channels, One Output
 
 ###### Problem
 
@@ -183,9 +171,7 @@ audio channel 2.
 
 ![Identical input audio channels, one output](images/ex1.png)
 
-### Workflow Example - Identical
-
-Input Audio Channels, Two Outputs
+### Workflow Example - Identical Input Audio Channels, Two Outputs
 
 ###### Problem
 
@@ -212,9 +198,7 @@ does not appear in the output.
 
 ![Identical input audio channels, two outputs](images/ex2.png)
 
-### Workflow Example - Inputs Have
-
-Audio Channels in Different Order
+### Workflow Example - Inputs Have Audio Channels in Different Order
 
 ###### Problem
 
@@ -244,8 +228,7 @@ columns of the input mapping matrix and the channels of the input after mapping.
 
 ![Inputs have audio channels in different order, two outputs - input mapping matrix.](images/ex3a.png)
 
-After you have correctly remapped Input2, set up your output matrices as in [Workflow Example - Identical
-Input Audio Channels, Two Outputs](#workflow-ex-same-input-audio-chs-two-outputs "#workflow-ex-same-input-audio-chs-two-outputs"). Output1 takes channels 7 and 8
+After you have correctly remapped Input2, set up your output matrices as in [Workflow Example - Identical Input Audio Channels, Two Outputs](#workflow-ex-same-input-audio-chs-two-outputs "#workflow-ex-same-input-audio-chs-two-outputs"). Output1 takes channels 7 and 8
 from both Input1 and Input2 and Output2 takes channels 1 through 6 from both Input1and
 Input2.
 
@@ -254,9 +237,7 @@ mapping matrix.
 
 ![Inputs have audio channels in different order, two outputs - output mapping matrices.](images/ex3b.png)
 
-### Workflow Example - Inputs Have a Different
-
-Number of Channels
+### Workflow Example - Inputs Have a Different Number of Channels
 
 ###### Problem
 
@@ -320,8 +301,7 @@ Only use an input matrix when you have multiple inputs and the audio channel con
 on the inputs are not the same.
 
 The purpose of input matrices is to make the channels in each input match each other, as
-shown in [Workflow Example - Inputs Have
-Audio Channels in Different Order](#workflow-ex-input-audio-chs-have-diff-order "#workflow-ex-input-audio-chs-have-diff-order"). After mapping, each channel in
+shown in [Workflow Example - Inputs Have Audio Channels in Different Order](#workflow-ex-input-audio-chs-have-diff-order "#workflow-ex-input-audio-chs-have-diff-order"). After mapping, each channel in
 each input will have the same type of audio information, like an audio pair on channels 7 and 8.
 
 Perform this step in the Input section of the web interface, in the **Audio
@@ -338,9 +318,7 @@ The following requirements apply to all input matrices:
   with the most number of rows. For example, if you have an output matrix with two rows and an
   output matrix with six rows, each input matrix must have at least six columns.
 
-#### Input Matrix Procedure - Inputs
-
-Section
+#### Input Matrix Procedure - Inputs Section
 
 ![Input matrix procedure - first screen](images/input-matrix-a.png)
 
@@ -376,9 +354,7 @@ If you have multiple inputs with channels that are numbered differently, before 
 them to the outputs, map them to uniformity following the guidance in [Create Input Matrices](#create-input-matrices "#create-input-matrices"). Use output matrices
 just to map uniformly numbered input channels to output channels.
 
-#### Output Matrix Procedure - Streams
-
-Section
+#### Output Matrix Procedure - Streams Section
 
 In output mapping matrices, rows are labeled starting at 1 and columns are labeled
 starting at 0. So you map input channel 1 in row 0, input channel 2 in row 1, and so on. You
@@ -435,18 +411,15 @@ the valid range for the child element, `<channels_out>`.
 | `output`                     | The setting which represents the actual set of streams delivered to a destination<br>address. |
 |                              | `stream_assembly_name`                                                                        | The name to use to associate a stream with an output. |
 
-#### <remix_settings> in Output
-
-Mapping
+#### <remix_settings> in Output Mapping
 
 For output mapping, include the `<remix_settings>` element as a child of
 `<audio_description>`.
 
-<job><stream_assembly>
-elements| Element | Notes |
-| --- | --- |
-| `audio_description` | There is one `<audio_description>` element per output track. |
-| | `remix_settings` | Placement `<remix_settings>` here creates an output mapping<br>matrix |
+| <job><stream_assembly> elements | Element                                                      | Notes                                                                 |
+| ------------------------------- | ------------------------------------------------------------ | --------------------------------------------------------------------- |
+| `audio_description`             | There is one `<audio_description>` element per output track. |
+|                                 | `remix_settings`                                             | Placement `<remix_settings>` here creates an output mapping<br>matrix |
 
 | <remix_settings> elements | Element      | Type                                            | Description                                                                                                                                                                                                                                   | Notes                                                                                                                                                                                                                                                                                                                                         |
 | ------------------------- | ------------ | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -479,12 +452,9 @@ track.
 
 Examples in this section correspond to the examples provided in [Audio Mapping Workflow Examples](#audio-mapping-workflow-examples "#audio-mapping-workflow-examples").
 
-#### XML Example - Identical Input Audio
+#### XML Example - Identical Input Audio Channels, One Output
 
-Channels, One Output
-
-This example shows the relevant sections of the XML body for the job in [Workflow Example - Identical Input
-Audio Channels, One Output](#workflow-ex-same-input-audio-chs-one-output "#workflow-ex-same-input-audio-chs-one-output").
+This example shows the relevant sections of the XML body for the job in [Workflow Example - Identical Input Audio Channels, One Output](#workflow-ex-same-input-audio-chs-one-output "#workflow-ex-same-input-audio-chs-one-output").
 
 This job uses an output matrix to select channels 7 and 8 only from an 8-channel track.
 Two inputs have this same track. The output has a single, 2-channel track.
@@ -533,16 +503,12 @@ mapping matrix.
 
 ```
 
-#### XML Example - Identical Input Audio
+#### XML Example - Identical Input Audio Channels, Two Outputs
 
-Channels, Two Outputs
-
-This example shows the relevant sections of the XML body for the job in [Workflow Example - Identical
-Input Audio Channels, Two Outputs](#workflow-ex-same-input-audio-chs-two-outputs "#workflow-ex-same-input-audio-chs-two-outputs").
+This example shows the relevant sections of the XML body for the job in [Workflow Example - Identical Input Audio Channels, Two Outputs](#workflow-ex-same-input-audio-chs-two-outputs "#workflow-ex-same-input-audio-chs-two-outputs").
 
 This job uses two output matrices in two separate stream assemblies to set up audio for
-two outputs. The first mapping matrix is the same as the one in [XML Example - Identical Input Audio
-Channels, One Output](#xml-ex-same-input-audio-chs-one-output "#xml-ex-same-input-audio-chs-one-output"). The second mapping matrix takes only
+two outputs. The first mapping matrix is the same as the one in [XML Example - Identical Input Audio Channels, One Output](#xml-ex-same-input-audio-chs-one-output "#xml-ex-same-input-audio-chs-one-output"). The second mapping matrix takes only
 channels 1-6 from the eight input channels and maps them to a 6-channel track on the second
 output.
 
@@ -723,18 +689,14 @@ second stream assembly, so the 5.1 audio ends up on this output.
 
 ```
 
-#### XML Example - Inputs Have Audio
+#### XML Example - Inputs Have Audio Channels in Different Order
 
-Channels in Different Order
-
-This example shows the relevant sections of the XML body for the job in [Workflow Example - Inputs Have
-Audio Channels in Different Order](#workflow-ex-input-audio-chs-have-diff-order "#workflow-ex-input-audio-chs-have-diff-order").
+This example shows the relevant sections of the XML body for the job in [Workflow Example - Inputs Have Audio Channels in Different Order](#workflow-ex-input-audio-chs-have-diff-order "#workflow-ex-input-audio-chs-have-diff-order").
 
 This job takes two inputs, both with stereo and 5.1 audio. Each input has the audio on
 different channels. To bring the inputs together, this job uses an input mapping matrix on the
 second input that reorders its channels to match the first input. This job creates two outputs,
-each with different audio, by using an output mapping matrix for each output, like [XML Example - Identical Input Audio
-Channels, Two Outputs](#xml-ex-same-input-audio-chs-two-outputs "#xml-ex-same-input-audio-chs-two-outputs").
+each with different audio, by using an output mapping matrix for each output, like [XML Example - Identical Input Audio Channels, Two Outputs](#xml-ex-same-input-audio-chs-two-outputs "#xml-ex-same-input-audio-chs-two-outputs").
 
 The following shows the first `<input>` element, which does not have any
 input mapping elements. This element is a child of the top-level element,
@@ -842,8 +804,7 @@ matrix.
 
 The following is the first `<stream_assembly>` element, which is applied to
 an output element in the following listing. It contains the same audio channel mapping
-instructions in the remix settings as [Workflow Example - Identical Input
-Audio Channels, One Output](#workflow-ex-same-input-audio-chs-one-output "#workflow-ex-same-input-audio-chs-one-output"). It is a child of the top-level
+instructions in the remix settings as [Workflow Example - Identical Input Audio Channels, One Output](#workflow-ex-same-input-audio-chs-one-output "#workflow-ex-same-input-audio-chs-one-output"). It is a child of the top-level
 element, `<job>`.
 
 ```
@@ -881,8 +842,7 @@ element, `<job>`.
 
 The following is the second `<stream_assembly>` element, which is applied to
 a different output element. It contains the same audio channel mapping instructions and remix
-settings as in [XML Example - Identical Input Audio
-Channels, Two Outputs](#xml-ex-same-input-audio-chs-two-outputs "#xml-ex-same-input-audio-chs-two-outputs").
+settings as in [XML Example - Identical Input Audio Channels, Two Outputs](#xml-ex-same-input-audio-chs-two-outputs "#xml-ex-same-input-audio-chs-two-outputs").
 
 ```
 <stream_assembly>

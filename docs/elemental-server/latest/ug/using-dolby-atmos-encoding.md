@@ -2,9 +2,7 @@ This is version 2.18 of the AWS Elemental Server documentation.
 This is the latest version. For prior versions, see
 the _Previous Versions_ section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](../../../elemental-server.md "../../../elemental-server.md").
 
-# Using Dolby Atmos Encoding with
-
-AWS Elemental Server
+# Using Dolby Atmos Encoding with AWS Elemental Server
 
 AWS Elemental Server can encode Dolby Digital Plus with Atmos channel-based, immersive
 audio, Audio Descriptive Model Broadcast WAV files, or Dolby Atmos Master File.
@@ -16,13 +14,9 @@ input audio channels must already be set up according the Dolby Atmos standard y
 For more information about Dolby Atmos, see the Dolby online
 documentation.
 
-## Input File
+## Input File Requirements for Dolby Atmos Encoding
 
-Requirements for Dolby Atmos Encoding
-
-## Feature Restrictions
-
-for Dolby Atmos Encoding
+## Feature Restrictions for Dolby Atmos Encoding
 
 Note the following restrictions in the AWS Elemental Server implementation of Dolby
 Atmos encoding:
@@ -44,9 +38,7 @@ Atmos encoding:
   AWS Elemental Server output group types: CMAF, Apple HLS, DASH ISO, or
   Microsoft Smooth Streaming.
 
-## Setting Up a Job for Dolby Atmos
-
-Encoding
+## Setting Up a Job for Dolby Atmos Encoding
 
 To encode 9.1.6 audio Dolby Atmos objects, provide 16 input channels of PCM audio, either in
 individual .wav files or as tracks in a single container.
@@ -96,9 +88,7 @@ For more detailed instructions, see one of the following procedures:
 
 [Procedure with a single audio input file](#proc-atmos-single-input-file "#proc-atmos-single-input-file")
 
-###### To set up a Dolby Atmos job, with audio inputs as 16 individual .wav
-
-files
+###### To set up a Dolby Atmos job, with audio inputs as 16 individual .wav files
 
 1.  Set up your input audio selectors as follows:
     1. On the **Create New Job** page, in the **Input** section, under
@@ -150,8 +140,7 @@ files
        procedure.
 
 3.  In the bottom section of the **Create New Job** page, set up your output groups and outputs. Choose supported containers as
-    listed in [Feature Restrictions
-    for Dolby Atmos Encoding](#feature-restrictions-for-dolby-atmos-encoding "#feature-restrictions-for-dolby-atmos-encoding").
+    listed in [Feature Restrictions for Dolby Atmos Encoding](#feature-restrictions-for-dolby-atmos-encoding "#feature-restrictions-for-dolby-atmos-encoding").
 4.  Set up the **Audio 1** tab of **Stream
     1**.
 
@@ -178,9 +167,7 @@ entire Atmos audio content.
      **Dialnorm** setting under audio encoding
      settings.
 
-###### To set up a Dolby Atmos job, with audio input as a single file with 16
-
-tracks
+###### To set up a Dolby Atmos job, with audio input as a single file with 16 tracks
 
 1. Set up your input audio selector as follows:
 2. 1. On the **Create New Job** page, in the **Input** section, under

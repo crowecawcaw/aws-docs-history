@@ -17,9 +17,7 @@ AWS Elemental Server supports Teletext-to-Teletext only in MPEG-2 outputs.
   keep them in Teletext format. If you want to extract individual captions pages, you must
   convert them to another format.
 
-## Number of Captions Selectors for
-
-Teletext
+## Number of Captions Selectors for Teletext
 
 - If you are doing Teletext-to-Teletext captions, create only one captions selector, even
   if you want to include multiple tracks in the output. In this case, AWS Elemental Server
@@ -31,9 +29,7 @@ Teletext
   individual selectors for the Teletext-to-other, one for each track that AWS Elemental Server
   converts.
 
-## Captions Selector Fields for Teletext
-
-Captions
+## Captions Selector Fields for Teletext Captions
 
 - **Source**: Choose **Teletext**.
 - **Page**: This field specifies the captions page you want. A captions

@@ -22,8 +22,7 @@ and include these captions in both languages in a DASH output.
    - One for the French SRT file.
 
 ![Caption Selector interface with two rows for selecting SRT sources and external caption files.](images/example-easy-workflow-2.png) 2. Create a stream (for example, Stream 1) and set up the video and audio. 3. Create one caption stream (for example, Stream 2) following the procedure for sidecar
-captions in the topic [Setting Up Output Captions in a Sidecar
-Format (SCC, SMI, SRT, TTML, WebVTT)](setting-up-output-captions-sidecar.md "setting-up-output-captions-sidecar.md"). Specify the captions settings as
+captions in the topic [Setting Up Output Captions in a Sidecar Format (SCC, SMI, SRT, TTML, WebVTT)](setting-up-output-captions-sidecar.md "setting-up-output-captions-sidecar.md"). Specify the captions settings as
 follows:
 
     * **Caption Source**: Caption Selector 1.
@@ -34,8 +33,7 @@ follows:
     * **Use ID3 as Caption Content**: Leave unchecked.
 
 4. Create another caption stream (for example, Stream 3) following the procedure for sidecar
-   captions in the topic [Setting Up Output Captions in a Sidecar
-   Format (SCC, SMI, SRT, TTML, WebVTT)](setting-up-output-captions-sidecar.md "setting-up-output-captions-sidecar.md"). Specify the captions settings as
+   captions in the topic [Setting Up Output Captions in a Sidecar Format (SCC, SMI, SRT, TTML, WebVTT)](setting-up-output-captions-sidecar.md "setting-up-output-captions-sidecar.md"). Specify the captions settings as
    follows:
    - **Caption Source**: Caption Selector 2.
    - **Language**: French.

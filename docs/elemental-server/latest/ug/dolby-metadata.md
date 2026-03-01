@@ -17,22 +17,15 @@ Digital (also known as AC3) or Dolby Digital Plus (also known as Enhanced AC3).
 
 ###### Topics
 
-- [Categories of Metadata: Delivered and Encoder
-  Control](#dolby-metadata-categories "#dolby-metadata-categories")
+- [Categories of Metadata: Delivered and Encoder Control](#dolby-metadata-categories "#dolby-metadata-categories")
 - [Source of AWS Elemental Server Metadata](#dolby-metadata-source "#dolby-metadata-source")
 - [Impact of the Metadata on the Output Audio](#dolby-metadata-impact "#dolby-metadata-impact")
-- [Combinations of Input and
-  Output Codec](#dolby-metadata-impact-combination-input-output-codec "#dolby-metadata-impact-combination-input-output-codec")
-- [Setting Up the Profile or Event Using the Web
-  Interface](dolby-metadata-setup.md "dolby-metadata-setup.md")
-- [Output with the Dolby Digital
-  Codec](dolby-metadata-output-dolby-digital-codec.md "dolby-metadata-output-dolby-digital-codec.md")
-- [Output with Dolby Digital Plus
-  (EC2, EAC3) Codec](dolby-metadata-output-dolby-digital-plus-codec.md "dolby-metadata-output-dolby-digital-plus-codec.md")
+- [Combinations of Input and Output Codec](#dolby-metadata-impact-combination-input-output-codec "#dolby-metadata-impact-combination-input-output-codec")
+- [Setting Up the Profile or Event Using the Web Interface](dolby-metadata-setup.md "dolby-metadata-setup.md")
+- [Output with the Dolby Digital Codec](dolby-metadata-output-dolby-digital-codec.md "dolby-metadata-output-dolby-digital-codec.md")
+- [Output with Dolby Digital Plus (EC2, EAC3) Codec](dolby-metadata-output-dolby-digital-plus-codec.md "dolby-metadata-output-dolby-digital-plus-codec.md")
 
-## Categories of Metadata: Delivered and Encoder
-
-Control
+## Categories of Metadata: Delivered and Encoder Control
 
 There are two categories of parameters in the Dolby metadata, characterized by how
 AWS Elemental Server uses it:
@@ -82,9 +75,7 @@ Regardless of the source of the metadata, it affects the audio (either by manipu
 encoder control or by being included in the output metadata) but only if the output codec is
 Dolby Digital or Dolby Digital Plus.
 
-## Combinations of Input and
-
-Output Codec
+## Combinations of Input and Output Codec
 
 The possible input and output codec combinations (in which at least one codec is a Dolby
 codec) are as follows. All these combinations support including metadata in the output.

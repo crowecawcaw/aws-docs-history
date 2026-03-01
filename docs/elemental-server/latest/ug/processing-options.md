@@ -54,9 +54,7 @@ following:
 If you want this default behavior in all of your outputs, you can submit your job
 without adjusting any SCTE-35 settings.
 
-## About Timecode Configuration
-
-and Timers
+## About Timecode Configuration and Timers
 
 The job or profile includes a **Timecode Configuration** field that identifies the source for time code stamps to be inserted in the
 output. The source for these stamps may be a timecode embedded in the input or may be a

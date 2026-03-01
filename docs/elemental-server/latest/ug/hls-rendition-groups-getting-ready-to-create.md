@@ -2,13 +2,9 @@ This is version 2.18 of the AWS Elemental Server documentation.
 This is the latest version. For prior versions, see
 the _Previous Versions_ section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](../../../elemental-server.md "../../../elemental-server.md").
 
-# Getting Ready to Create HLS
+# Getting Ready to Create HLS Rendition Groups
 
-Rendition Groups
-
-## Step 1. Create a
-
-Mapping
+## Step 1. Create a Mapping
 
 Identify the video, audio, audio rendition groups and captions you require. Review the
 [Rules for Rendition Groups](hls-rendition-groups-rules.md "hls-rendition-groups-rules.md") to ensure you design an output that is valid. For
@@ -29,9 +25,7 @@ example:
 
 ![This illustration shows an example output group.](images/hls-rendition-groups-getting-ready-create-mapping.png)
 
-## Step 2. Determine
-
-Defaults and Auto-Selection Behavior
+## Step 2. Determine Defaults and Auto-Selection Behavior
 
 For each audio rendition group, decide which audio will be the default and how
 auto-selection works for the non-defaults. Setting up this information is useful if:

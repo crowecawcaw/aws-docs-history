@@ -2,9 +2,7 @@ This is version 2.18 of the AWS Elemental Server documentation.
 This is the latest version. For prior versions, see
 the _Previous Versions_ section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](../../../elemental-server.md "../../../elemental-server.md").
 
-# Setting Up Output Captions for All
-
-Formats Except Sidecar
+# Setting Up Output Captions for All Formats Except Sidecar
 
 To set up output captions in any format other than sidecar, you add captions tabs to the
 stream that also contains the video and audio. You associate the one stream with one output. On

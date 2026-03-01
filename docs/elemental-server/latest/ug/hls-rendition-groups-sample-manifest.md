@@ -2,13 +2,9 @@ This is version 2.18 of the AWS Elemental Server documentation.
 This is the latest version. For prior versions, see
 the _Previous Versions_ section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](../../../elemental-server.md "../../../elemental-server.md").
 
-# Sample HLS Output Group with Audio
+# Sample HLS Output Group with Audio Rendition Group Event Manifest
 
-Rendition Group Event Manifest
-
-## Video Information for
-
-an HLS Output Group with Audio Rendition Group Event
+## Video Information for an HLS Output Group with Audio Rendition Group Event
 
 - There are two video streams, as indicated by the presence of two EXT-STREAM-INF
   lines.
@@ -17,9 +13,7 @@ an HLS Output Group with Audio Rendition Group Event
   - The second video stream has a higher bandwidth. As indicated by the AUDIO parameter, it
     is associated with “audio2.”
 
-## Audio Information for
-
-an HLS Output Group with Audio Rendition Group Event
+## Audio Information for an HLS Output Group with Audio Rendition Group Event
 
 - There are four audio streams as indicated by the presence of four EXT-X-MEDIA lines with
   TYPE=AUDIO.
@@ -37,9 +31,7 @@ an HLS Output Group with Audio Rendition Group Event
   - URI: from the combined Destination field (in Output Group) and Name Modifier field (in
     Stream).
 
-## Captions Information
-
-for an HLS Output Group with Audio Rendition Group Event
+## Captions Information for an HLS Output Group with Audio Rendition Group Event
 
 - There are two captions streams, as indicated by the presence of two EXT-X-MEDIA lines
   with TYPE=SUBTITLES.

@@ -2,9 +2,7 @@ This is version 2.18 of the AWS Elemental Server documentation.
 This is the latest version. For prior versions, see
 the _Previous Versions_ section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](../../../elemental-server.md "../../../elemental-server.md").
 
-# Scope of Processing SCTE-35
-
-Messages Depending on Outputs
+# Scope of Processing SCTE-35 Messages Depending on Outputs
 
 The following table summarizes which options apply to which kind of output. Following
 the table are details for each kind of output.
@@ -20,9 +18,7 @@ the table are details for each kind of output.
 | UDP/TS                                       | Include all the original SCTE-35 messages.                                                                                                                    | Not applicable                                                                                                                                                 | Applicable |
 | RTSP                                         | Not applicable                                                                                                                                                | Not applicable                                                                                                                                                 | Applicable |
 
-## Archive Output with MPEG-2
-
-Container
+## Archive Output with MPEG-2 Container
 
 A transport stream in an MPEG-2 container supports passthrough of the SCTE-35
 messages, but it does not support creation of a manifest. Therefore, the best options to
@@ -33,9 +29,7 @@ use in this case appear below.
 | Enabled             | Yes or No                     | Not applicable      | Yes or No             | Turn on passthrough of SCTE-35 messages. In this case, you could also<br>insert more SCTE-35 messages if desired. You could also implement blanking<br>and blackout.                                                                                                                                                                  |
 | Disabled            | No                            | Not applicable      | No                    | Turn off passthrough in order to remove SCTE-35 messages from the<br>video stream. Do not insert extra messages: they simply get stripped out<br>of the output. Do not implement blanking or blackout.<br>Choose this option only if, in a downstream system, you do not want to<br>replace video that was originally marked by cues. |
 
-## Archive Output with Other
-
-Containers
+## Archive Output with Other Containers
 
 Other archive outputs do not support passthrough of the SCTE-35 messages or manifest
 decoration. Therefore, the only option that makes sense is the default behavior as

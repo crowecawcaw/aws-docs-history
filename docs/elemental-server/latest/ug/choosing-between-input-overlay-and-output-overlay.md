@@ -2,9 +2,7 @@ This is version 2.18 of the AWS Elemental Server documentation.
 This is the latest version. For prior versions, see
 the _Previous Versions_ section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](../../../elemental-server.md "../../../elemental-server.md").
 
-# Choosing Between
-
-Input, Stream, and Global Overlay
+# Choosing Between Input, Stream, and Global Overlay
 
 You can add still image overlays to your inputs, your streams, and throughout the
 job globally. Where you specify your graphic overlays affects where in your

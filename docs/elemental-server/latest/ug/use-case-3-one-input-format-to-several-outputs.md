@@ -2,17 +2,13 @@ This is version 2.18 of the AWS Elemental Server documentation.
 This is the latest version. For prior versions, see
 the _Previous Versions_ section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](../../../elemental-server.md "../../../elemental-server.md").
 
-# One Input Format to the Same
-
-Output Format, Multiple Outputs
+# One Input Format to the Same Output Format, Multiple Outputs
 
 The input is set up with one format of captions and two or more languages. You want to
 maintain the format in the output. You want to produce several different types of outputs and
 include all the languages in all the outputs.
 
-## Example: Pass Through Two TTML Tracks, Multiple
-
-Outputs
+## Example: Pass Through Two TTML Tracks, Multiple Outputs
 
 The input has TTML captions in Spanish and Portuguese. You want to produce a DASH output
 and an MSS output. You want the DASH output to include the TTML captions in both Spanish and
@@ -28,8 +24,7 @@ Portuguese.
    - One for TTML Portuguese.
 
 ![Caption selector interface with two rows for TTML sources and external caption file paths.](images/example-one-to-several-2.png) 2. Create a stream (for example, Stream 1) and set up the video and audio. 3. Create a captions-only stream (for example, Stream 2) following the procedure for sidecar
-captions in the topic [Setting Up Output Captions in a Sidecar
-Format (SCC, SMI, SRT, TTML, WebVTT)](setting-up-output-captions-sidecar.md "setting-up-output-captions-sidecar.md"). Specify the captions settings as
+captions in the topic [Setting Up Output Captions in a Sidecar Format (SCC, SMI, SRT, TTML, WebVTT)](setting-up-output-captions-sidecar.md "setting-up-output-captions-sidecar.md"). Specify the captions settings as
 follows:
 
     * **Caption Source**: Caption Selector 1.

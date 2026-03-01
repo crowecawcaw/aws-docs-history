@@ -2,9 +2,7 @@ This is version 2.18 of the AWS Elemental Server documentation.
 This is the latest version. For prior versions, see
 the _Previous Versions_ section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](../../../elemental-server.md "../../../elemental-server.md").
 
-# Ancillary (QuickTime Captions Track or Captions in MXF VANC
-
-Data)
+# Ancillary (QuickTime Captions Track or Captions in MXF VANC Data)
 
 If your input captions are in either of the following formats, the service handles them as
 "ancillary" data:
@@ -17,8 +15,7 @@ If your input captions are in either of the following formats, the service handl
 
 ###### Note
 
-If your content includes 608 XDS data, see [Setting Up Input Captions With 608 XDS
-Data](setting-up-for-608-xds-data.md "setting-up-for-608-xds-data.md")
+If your content includes 608 XDS data, see [Setting Up Input Captions With 608 XDS Data](setting-up-for-608-xds-data.md "setting-up-for-608-xds-data.md")
 
 **For ancillary captions**
 

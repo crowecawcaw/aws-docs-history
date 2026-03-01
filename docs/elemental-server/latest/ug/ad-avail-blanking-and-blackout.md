@@ -10,8 +10,7 @@ associated with a SCTE-35 event:
 - “Blackout”: Blank out the content for other types of SCTE-35 messages such as
   chapters and programs.
 - “Ad avail blanking”: Blank out the content for a SCTE-35 message that is
-  considered an “ad avail” (according to the mode, [Getting Ready: Setting the Ad
-  Avail Mode](getting-ready-setting-the-ad-avail-mode.md "getting-ready-setting-the-ad-avail-mode.md")).
+  considered an “ad avail” (according to the mode, [Getting Ready: Setting the Ad Avail Mode](getting-ready-setting-the-ad-avail-mode.md "getting-ready-setting-the-ad-avail-mode.md")).
   In both features, the handling is:
 
 - Replace the video content associated with the event with an image you specify or
@@ -66,8 +65,7 @@ which SCTE-35 events result in blanking of the content.
 ###### Splice Insert Mode
 
 This table describes which message type/segmentation type combination is blanked
-by Ad avail blanking when the Ad Avail mode ([Getting Ready: Setting the Ad
-Avail Mode](getting-ready-setting-the-ad-avail-mode.md "getting-ready-setting-the-ad-avail-mode.md")) is Splice Insert mode.
+by Ad avail blanking when the Ad Avail mode ([Getting Ready: Setting the Ad Avail Mode](getting-ready-setting-the-ad-avail-mode.md "getting-ready-setting-the-ad-avail-mode.md")) is Splice Insert mode.
 
 | Message Type ID                    | Segmentation Type ID               | Blanked | Not blanked |
 | ---------------------------------- | ---------------------------------- | ------- | ----------- |
@@ -84,8 +82,7 @@ Avail Mode](getting-ready-setting-the-ad-avail-mode.md "getting-ready-setting-th
 ###### Timesignal APOS Mode
 
 This table describes which message type/segmentation type combination is blanked
-by Ad avail blanking when the Ad Avail mode ([Getting Ready: Setting the Ad
-Avail Mode](getting-ready-setting-the-ad-avail-mode.md "getting-ready-setting-the-ad-avail-mode.md")) is Timesignal with APOS
+by Ad avail blanking when the Ad Avail mode ([Getting Ready: Setting the Ad Avail Mode](getting-ready-setting-the-ad-avail-mode.md "getting-ready-setting-the-ad-avail-mode.md")) is Timesignal with APOS
 mode.
 
 | Message Type ID                    | Segmentation Type ID   | Blanked | Not blanked |
@@ -186,9 +183,7 @@ should result in an ad avail.
 Therefore, if you know that input contains splice inserts (not time signals), you
 should leave both the fields unchecked.
 
-## Procedure to Enable Ad Avail
-
-Blanking
+## Procedure to Enable Ad Avail Blanking
 
 - In the Profile or Event screen, click Advanced Avail Controls (in the Input
   section towards the top of the screen).

@@ -2,9 +2,7 @@ This is version 2.18 of the AWS Elemental Server documentation.
 This is the latest version. For prior versions, see
 the _Previous Versions_ section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](../../../elemental-server.md "../../../elemental-server.md").
 
-# Including Inserted Images (Graphic Overlays) with
-
-AWS Elemental Server
+# Including Inserted Images (Graphic Overlays) with AWS Elemental Server
 
 The image inserter (graphic overlay) feature lets you insert a still image or motion graphic at a
 specified time and display it as an overlay on the underlying video for a specified
@@ -24,7 +22,5 @@ per job.
 
 ###### Topics
 
-- [Still Image Inserter (Graphic Overlay) in
-  AWS Elemental Server](setting-up-a-graphic-overlay.md "setting-up-a-graphic-overlay.md")
-- [Motion Image Inserter (Graphic Overlay) in
-  AWS Elemental Server](motion-graphic-overlay.md "motion-graphic-overlay.md")
+- [Still Image Inserter (Graphic Overlay) in AWS Elemental Server](setting-up-a-graphic-overlay.md "setting-up-a-graphic-overlay.md")
+- [Motion Image Inserter (Graphic Overlay) in AWS Elemental Server](motion-graphic-overlay.md "motion-graphic-overlay.md")

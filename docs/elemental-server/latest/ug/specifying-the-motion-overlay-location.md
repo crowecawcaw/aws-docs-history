@@ -2,9 +2,7 @@ This is version 2.18 of the AWS Elemental Server documentation.
 This is the latest version. For prior versions, see
 the _Previous Versions_ section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](../../../elemental-server.md "../../../elemental-server.md").
 
-# Specifying the Motion
-
-Overlay File Location
+# Specifying the Motion Overlay File Location
 
 Specify one of the following valid locations for your overlay file:
 

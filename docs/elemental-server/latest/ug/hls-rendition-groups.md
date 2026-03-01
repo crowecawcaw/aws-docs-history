@@ -40,10 +40,8 @@ rendition group to hold all caption stream assemblies in a given output.
 
 ###### Topics
 
-- [How
-  Video Is Associated with Audio Rendition Groups](hls-rendition-groups-how-video-is-associated-with-audio-rendition-groups.md "hls-rendition-groups-how-video-is-associated-with-audio-rendition-groups.md")
+- [How Video Is Associated with Audio Rendition Groups](hls-rendition-groups-how-video-is-associated-with-audio-rendition-groups.md "hls-rendition-groups-how-video-is-associated-with-audio-rendition-groups.md")
 - [Rules for Rendition Groups](hls-rendition-groups-rules.md "hls-rendition-groups-rules.md")
 - [Examples of HLS Rendition Groups](hls-rendition-groups-examples.md "hls-rendition-groups-examples.md")
 - [Creating HLS Rendition Groups](hls-rendition-groups-create.md "hls-rendition-groups-create.md")
-- [Sample HLS Output Group with Audio
-  Rendition Group Event Manifest](hls-rendition-groups-sample-manifest.md "hls-rendition-groups-sample-manifest.md")
+- [Sample HLS Output Group with Audio Rendition Group Event Manifest](hls-rendition-groups-sample-manifest.md "hls-rendition-groups-sample-manifest.md")

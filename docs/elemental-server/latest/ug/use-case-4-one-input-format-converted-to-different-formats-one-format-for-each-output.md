@@ -8,9 +8,7 @@ The input is set up with one format of captions and two or more languages. You w
 produce several different types of output. In each output, you want to convert the captions to a
 different format but include all the languages.
 
-## Example: Two SRT Tracks to TTML
-
-and WebVTT
+## Example: Two SRT Tracks to TTML and WebVTT
 
 For example, the input has SRT captions in Czech and Polish. You want to produce a DASH
 output and an HLS output. In the DASH output, you want to convert the same Teletext captions to
@@ -39,8 +37,7 @@ captions are, of course, processed twice.
 ![Caption selector interface with dropdown menus for Source and Page Number inputs.](images/example-one-to-different-one-each-2.png) 2. Create a stream (for example, Stream 1) and set up the video and audio. This stream is
 associated with the DASH output. 3. Create a second stream (for example, Stream 2) and set up the video and audio in exactly
 the same way as Stream 1. This stream is associated with the HLS output. 4. Create one caption stream (for example, Stream 3) following the procedure for sidecar
-captions in the topic [Setting Up Output Captions in a Sidecar
-Format (SCC, SMI, SRT, TTML, WebVTT)](setting-up-output-captions-sidecar.md "setting-up-output-captions-sidecar.md"). Specify the captions settings as
+captions in the topic [Setting Up Output Captions in a Sidecar Format (SCC, SMI, SRT, TTML, WebVTT)](setting-up-output-captions-sidecar.md "setting-up-output-captions-sidecar.md"). Specify the captions settings as
 follows:
 
     * **Caption Source**: Caption Selector 1.

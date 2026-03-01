@@ -12,9 +12,7 @@ TVs, PCs, and mobile devices.
 Ideal for large-scale broadcast and multi-screen video applications, AWS Elemental Server
 operates seamlessly with on-premises storage systems and Amazon Simple Storage Service (Amazon S3).
 
-## Finding Information About
-
-AWS Elemental Server
+## Finding Information About AWS Elemental Server
 
 Information about AWS Elemental Server is available in the following guides and resources.
 

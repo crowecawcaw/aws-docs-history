@@ -15,9 +15,6 @@ types.)
 
 ###### Topics
 
-- [Getting Ready to Create HLS
-  Rendition Groups](hls-rendition-groups-getting-ready-to-create.md "hls-rendition-groups-getting-ready-to-create.md")
-- [Creating HLS Rendition Groups
-  (Web Interface)](hls-rendition-groups-create-using-web-interface.md "hls-rendition-groups-create-using-web-interface.md")
-- [Creating HLS Rendition Groups (REST
-  API)](hls-rendition-groups-create-using-rest-api.md "hls-rendition-groups-create-using-rest-api.md")
+- [Getting Ready to Create HLS Rendition Groups](hls-rendition-groups-getting-ready-to-create.md "hls-rendition-groups-getting-ready-to-create.md")
+- [Creating HLS Rendition Groups (Web Interface)](hls-rendition-groups-create-using-web-interface.md "hls-rendition-groups-create-using-web-interface.md")
+- [Creating HLS Rendition Groups (REST API)](hls-rendition-groups-create-using-rest-api.md "hls-rendition-groups-create-using-rest-api.md")

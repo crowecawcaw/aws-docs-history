@@ -28,15 +28,11 @@ selectors in the streams in your outputs.
 
 ###### Detailed information by input captions format
 
-- [Ancillary (QuickTime Captions Track or Captions in MXF VANC
-  Data)](ancillary.md "ancillary.md")
+- [Ancillary (QuickTime Captions Track or Captions in MXF VANC Data)](ancillary.md "ancillary.md")
 - [ARIB](arib-input.md "arib-input.md")
-- [Embedded (CEA/EIA-608, CEA/EIA-708), SCTE-20, and Embedded+SCTE-20,
-  and SCTE-20+Embedded](embedded.md "embedded.md")
+- [Embedded (CEA/EIA-608, CEA/EIA-708), SCTE-20, and Embedded+SCTE-20, and SCTE-20+Embedded](embedded.md "embedded.md")
 - [DVB-Sub or SCTE-27 Formats](dvb-sub-or-scte-27.md "dvb-sub-or-scte-27.md")
 - [Teletext](dvb-teletext.md "dvb-teletext.md")
 - [SCC, SMI, SRT, STL, TTML (Sidecar)](scc.md "scc.md")
-- [Setting Up Input Captions With 608 XDS
-  Data](setting-up-for-608-xds-data.md "setting-up-for-608-xds-data.md")
-- [Extracting VBI Data Included in Embedded Input
-  Captions](embedded-captions-in-vbi-data.md "embedded-captions-in-vbi-data.md")
+- [Setting Up Input Captions With 608 XDS Data](setting-up-for-608-xds-data.md "setting-up-for-608-xds-data.md")
+- [Extracting VBI Data Included in Embedded Input Captions](embedded-captions-in-vbi-data.md "embedded-captions-in-vbi-data.md")
