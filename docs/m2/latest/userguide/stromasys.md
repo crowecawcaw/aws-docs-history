@@ -187,9 +187,7 @@ Minimum requirements for Charon-SSP:
   - If you need this type of emulated SPARC hardware, contact Stromasys or your Stromasys
     VAR to discuss your requirements in detail.
 
-## Creating and configuring an AWS cloud
-
-instance for Charon (New GUI)
+## Creating and configuring an AWS cloud instance for Charon (New GUI)
 
 This section reflects the AWS Management Console in spring 2022. If you still use the older console,
 refer to the Appendix of the Charon-SSP AWS Getting Started guide.

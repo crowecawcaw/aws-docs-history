@@ -3,9 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# View data sets as tables and columns in Rocket Enterprise Developer (formerly
-
-Micro Focus Enterprise Developer)
+# View data sets as tables and columns in Rocket Enterprise Developer (formerly Micro Focus Enterprise Developer)
 
 You can access mainframe datasets that are deployed in AWS Mainframe Modernization using the Rocket Software (formerly Micro Focus)
 runtime. You can view the migrated data sets as tables and columns from an Rocket Enterprise Developer instance. Viewing
@@ -22,13 +20,11 @@ Steps 1 and 2 are one time activities. Repeat steps 3 and 4 for each data set to
 ###### Topics
 
 - [Prerequisites](#view-datasets-tables-m2.prereq "#view-datasets-tables-m2.prereq")
-- [Step 1: Set up ODBC Connection to Rocket Software datastore
-  (Amazon RDS database)](#view-datasets-tables-m2.odbc "#view-datasets-tables-m2.odbc")
+- [Step 1: Set up ODBC Connection to Rocket Software datastore (Amazon RDS database)](#view-datasets-tables-m2.odbc "#view-datasets-tables-m2.odbc")
 - [Step 2: Create the MFDBFH.cfg file](#view-datasets-tables-m2.config "#view-datasets-tables-m2.config")
 - [Step 3: Create a structure (STR) file for your copybook layout](#view-datasets-tables-m2.str "#view-datasets-tables-m2.str")
 - [Step 4: Create a database view using the structure (STR) file](#view-datasets-tables-m2.dbview "#view-datasets-tables-m2.dbview")
-- [Step 5: View Rocket Software (formerly Micro Focus) data sets as
-  tables and columns](#view-datasets-tables-m2.cols "#view-datasets-tables-m2.cols")
+- [Step 5: View Rocket Software (formerly Micro Focus) data sets as tables and columns](#view-datasets-tables-m2.cols "#view-datasets-tables-m2.cols")
 
 ## Prerequisites
 
@@ -37,9 +33,7 @@ Steps 1 and 2 are one time activities. Repeat steps 3 and 4 for each data set to
   engine.
 - You are storing your application data in Aurora PostgreSQL-Compatible Edition.
 
-## Step 1: Set up ODBC Connection to Rocket Software datastore
-
-(Amazon RDS database)
+## Step 1: Set up ODBC Connection to Rocket Software datastore (Amazon RDS database)
 
 In this step, you set up an ODBC connection to the database that contains the data you want to view as tables and columns.
 This is a one-time only step.
@@ -172,9 +166,7 @@ In this step, you use the previously created structure file to create a database
       VGN0002I The operation completed successfully
 ```
 
-## Step 5: View Rocket Software (formerly Micro Focus) data sets as
-
-tables and columns
+## Step 5: View Rocket Software (formerly Micro Focus) data sets as tables and columns
 
 In this step, connect to the database using `pgAdmin` so you can run queries to view the datasets like tables and columns.
 

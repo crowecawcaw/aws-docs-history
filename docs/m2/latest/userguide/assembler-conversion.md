@@ -16,5 +16,4 @@ your intended code conversion with your AWS account.
 - [Understand Code conversion billing for Assembler conversion](assembler-conversion-billing.md "assembler-conversion-billing.md")
 - [Code conversion concepts](assembler-conversion-concepts.md "assembler-conversion-concepts.md")
 - [Understand components and processes for Code conversion](assembler-conversion-components-process.md "assembler-conversion-components-process.md")
-- [Tutorial: Convert code from Assembler to COBOL
-  in AWS Mainframe Modernization](assembler-conversion-steps.md "assembler-conversion-steps.md")
+- [Tutorial: Convert code from Assembler to COBOL in AWS Mainframe Modernization](assembler-conversion-steps.md "assembler-conversion-steps.md")

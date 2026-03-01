@@ -582,7 +582,7 @@ schema name followed by a pipe (|) symbol (e.g.,
 ###### Note
 
 The Schema used for creating the data set should be specified in the `application-main.yml`
-configuration. For more information, see [Multi-schema configuration properties](ba-shared-blusam.md#ba-shared-blusam-configuration-multi-schema "ba-shared-blusam.md#ba-shared-blusam-configuration-multi-schema") .
+configuration. For more information, see [Multi-schema configuration properties](ba-shared-blusam.md#ba-shared-blusam-configuration-multi-schema "ba-shared-blusam.md#ba-shared-blusam-configuration-multi-schema").
 
 ![Data set creation form with fields for name, size, type, and other configuration options.](images/ba-bac-create-single-dataset-Multi-schema.png)
 
@@ -598,9 +598,7 @@ first column.
 
 ![Blusam Administration Console showing configuration details and dataset information.](images/ba-bac-create-display-datasets-Multi-schema.png)
 
-### Create data sets from
-
-LISTCAT
+### Create data sets from LISTCAT
 
 This feature makes it possible to take advantage of the LISTCAT JSON files created during
 the BluAge transformation process using BluInsights Transformation Center as the result of

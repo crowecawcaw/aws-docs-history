@@ -3,9 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Troubleshooting error: Time out while waiting for data set
-
-name to be unlocked
+# Troubleshooting error: Time out while waiting for data set name to be unlocked
 
 This page describes how you can resolve your error when you see another application in an
 environment is holding a lock on a shared data set.
@@ -62,9 +60,7 @@ You can find the details of your ElastiCache in the ElastiCache console at [http
 | DEL `THE_RETURNED_KEY`     | Delete a dataset lock.                                                                                                                                                                       |
 | FLUSHDB                    | Clean the entire Redis.<br>WarningAll data in the Redis cache will be lost. If the Redis is used for other purposes,<br>such as handling http sessions, you might not want to use `FLUSHDB`. |
 
-## Configure the Blusam auto repairing
-
-mechanism
+## Configure the Blusam auto repairing mechanism
 
 The Blusam locks manager includes an auto repairing mechanism to prevent deadlocks on data
 sets or records. You can adjust the following parameters in the application definition
@@ -85,8 +81,7 @@ sets or records. You can adjust the following parameters in the application defi
     running in an AWS Mainframe Modernization runtime environment is started or rebooted, or when a timeout
     expires during an attempt to lock a dataset. Expired locks are released immediately.
 
-For more information on the application definition for a AWS Blu Age application, see [AWS Blu Age application definition
-sample](applications-m2-definition.md#applications-m2-definition-ba "applications-m2-definition.md#applications-m2-definition-ba").
+For more information on the application definition for a AWS Blu Age application, see [AWS Blu Age application definition sample](applications-m2-definition.md#applications-m2-definition-ba "applications-m2-definition.md#applications-m2-definition-ba").
 
 ## Blusam locks manager
 

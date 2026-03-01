@@ -19,14 +19,12 @@ form of automation on their machines if they are connected to other on-premises 
 systems.
 
 The setup is based on the WorkSpaces Applications Windows images that AWS Mainframe Modernization shares with the customer .
-Setup is also based on the creation of WorkSpaces Applications fleets and stacks as described in [Tutorial: Set up WorkSpaces Applications for use with Rocket Enterprise Analyzer and
-Rocket Enterprise Developer](set-up-appstream-mf.md "set-up-appstream-mf.md").
+Setup is also based on the creation of WorkSpaces Applications fleets and stacks as described in [Tutorial: Set up WorkSpaces Applications for use with Rocket Enterprise Analyzer and Rocket Enterprise Developer](set-up-appstream-mf.md "set-up-appstream-mf.md").
 
 ###### Important
 
 The steps in this tutorial assume that you set up WorkSpaces Applications with the downloadable CloudFormation
-template [cfn-m2-appstream-fleet-ea-ed.yml](https://drm0z31ua8gi7.cloudfront.net/tutorials/mf/appstream/cfn-m2-appstream-fleet-ea-ed.yml "https://drm0z31ua8gi7.cloudfront.net/tutorials/mf/appstream/cfn-m2-appstream-fleet-ea-ed.yml"). For more information, see [Tutorial: Set up WorkSpaces Applications for use with Rocket Enterprise Analyzer and
-Rocket Enterprise Developer](set-up-appstream-mf.md "set-up-appstream-mf.md").
+template [cfn-m2-appstream-fleet-ea-ed.yml](https://drm0z31ua8gi7.cloudfront.net/tutorials/mf/appstream/cfn-m2-appstream-fleet-ea-ed.yml "https://drm0z31ua8gi7.cloudfront.net/tutorials/mf/appstream/cfn-m2-appstream-fleet-ea-ed.yml"). For more information, see [Tutorial: Set up WorkSpaces Applications for use with Rocket Enterprise Analyzer and Rocket Enterprise Developer](set-up-appstream-mf.md "set-up-appstream-mf.md").
 
 To perform the steps in this tutorial, you must have set up your Enterprise Analyzer fleet and stack and
 they must be running.
@@ -60,8 +58,7 @@ Libraries in `C:\Users\Public`
 
 - [Prerequisites](#tutorial-ea-prerequisites "#tutorial-ea-prerequisites")
 - [Step 1: Setup](#tutorial-ea-step1 "#tutorial-ea-step1")
-- [Step 2: Create the Amazon S3 based virtual folder on
-  Windows](#tutorial-ea-step2 "#tutorial-ea-step2")
+- [Step 2: Create the Amazon S3 based virtual folder on Windows](#tutorial-ea-step2 "#tutorial-ea-step2")
 - [Step 3: Create an ODBC source for the Amazon RDS instance](#tutorial-ea-step3 "#tutorial-ea-step3")
 - [Subsequent sessions](#tutorial-ea-step4 "#tutorial-ea-step4")
 - [Troubleshooting workspace connection](#tutorial-ea-step5 "#tutorial-ea-step5")
@@ -102,9 +99,7 @@ demo
 4. On the WorkSpaces Applications menu page, choose **Desktop** to reach the Windows desktop
    that the fleet is streaming.
 
-## Step 2: Create the Amazon S3 based virtual folder on
-
-Windows
+## Step 2: Create the Amazon S3 based virtual folder on Windows
 
 ###### Note
 

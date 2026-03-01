@@ -74,8 +74,7 @@ These instructions assume that you've completed the steps in [Set up for AWS Mai
 
    AWS Mainframe Modernization creates a Network Load Balancer for you to distribute connections to your
    runtime environment. Make sure your security group inbound and outbound rules
-   allow access from an IP address to the port you specified in the `Listener(s) -
- required` property of
+   allow access from an IP address to the port you specified in the `Listener(s) - required` property of
    the application definition. For more information, see [Update the security groups for your Network Load Balancer](../../../elasticloadbalancing/latest/network/load-balancer-security-groups.md "../../../elasticloadbalancing/latest/network/load-balancer-security-groups.md") in the
    _User Guide for Network Load Balancers_. 6. In the **KMS key** field, choose **Customize encryption
    settings** if you want to use a customer managed AWS KMS key. For more

@@ -3,9 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Configure URI accessibility for Gapwalk
-
-applications
+# Configure URI accessibility for Gapwalk applications
 
 This topic describes how to configure the filtering of URIs for Gapwalk applications. This
 feature does not require an identity provider (IdP).

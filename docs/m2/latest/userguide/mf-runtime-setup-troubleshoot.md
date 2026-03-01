@@ -3,9 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Troubleshooting license issues for Rocket Software (formerly
-
-Micro Focus)
+# Troubleshooting license issues for Rocket Software (formerly Micro Focus)
 
 This page describes how you can resolve license issues with the Rocket Software Runtime engine
 
@@ -15,26 +13,19 @@ This page describes how you can resolve license issues with the Rocket Software 
 
 ###### Topics
 
-- [Verify the Amazon EC2 instance has the
-  IAM licensing role](#mf-runtime-setup-troubleshoot-verify-role "#mf-runtime-setup-troubleshoot-verify-role")
-- [Use the reachability
-  analyzer](#mf-runtime-setup-troubleshoot-reachability "#mf-runtime-setup-troubleshoot-reachability")
+- [Verify the Amazon EC2 instance has the IAM licensing role](#mf-runtime-setup-troubleshoot-verify-role "#mf-runtime-setup-troubleshoot-verify-role")
+- [Use the reachability analyzer](#mf-runtime-setup-troubleshoot-reachability "#mf-runtime-setup-troubleshoot-reachability")
 - [Run the license-daemon](#mf-runtime-setup-troubleshoot-license "#mf-runtime-setup-troubleshoot-license")
-- [License issues with Enterprise Server or
-  Enterprise Build Tools on Linux after OS patching](#mf-runtime-setup-troubleshoot-license-issues "#mf-runtime-setup-troubleshoot-license-issues")
+- [License issues with Enterprise Server or Enterprise Build Tools on Linux after OS patching](#mf-runtime-setup-troubleshoot-license-issues "#mf-runtime-setup-troubleshoot-license-issues")
 
-## Verify the Amazon EC2 instance has the
-
-IAM licensing role
+## Verify the Amazon EC2 instance has the IAM licensing role
 
 This can be checked on the Security tab of the Amazon EC2 Instance Details. This can be changed
 using the Security Option of the **Actions** drop down menu.
 
 ![Instances security tab showing the IAM licensing role.](images/mf-troubleshooting-instance-role.png)
 
-## Use the reachability
-
-analyzer
+## Use the reachability analyzer
 
 Find the Reachability Analyzer on the AWS Network Manager Console page.
 
@@ -84,9 +75,7 @@ Exception in thread "main" software.amazon.awssdk.services.s3.model.S3Exception:
 The exception message indicates which resource is not available.
 Compare the configuration values to those shown in this topic.
 
-## License issues with Enterprise Server or
-
-Enterprise Build Tools on Linux after OS patching
+## License issues with Enterprise Server or Enterprise Build Tools on Linux after OS patching
 
 If you're having license issues with Enterprise Server or Enterprise Build Tools on Linux after OS
 patching, update the license daemon by downloading and running a patch script. To do that,

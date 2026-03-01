@@ -13,5 +13,4 @@ With Keycloak, you can control access to your application's APIs and resources b
 ###### Topics
 
 - [Configure Gapwalk OAuth2 authentication with Amazon Cognito](ba-runtime-auth-cognito.md "ba-runtime-auth-cognito.md")
-- [Configure Gapwalk OAuth2 authentication with
-  Keycloak](ba-runtime-auth-keycloak.md "ba-runtime-auth-keycloak.md")
+- [Configure Gapwalk OAuth2 authentication with Keycloak](ba-runtime-auth-keycloak.md "ba-runtime-auth-keycloak.md")

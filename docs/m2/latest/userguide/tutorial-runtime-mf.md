@@ -3,9 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Tutorial: Set up managed runtime for Rocket Software (formerly
-
-Micro Focus)
+# Tutorial: Set up managed runtime for Rocket Software (formerly Micro Focus)
 
 You can deploy and run an application in AWS Mainframe Modernization managed runtime environment with the
 Rocket Software runtime engine. This tutorial shows how to deploy and run the CardDemo sample
@@ -21,19 +19,15 @@ Amazon Relational Database Service, AWS Key Management Service, and AWS Secrets 
 - [Prerequisites](#tutorial-runtime-mf-prerequisites "#tutorial-runtime-mf-prerequisites")
 - [Step 1: Create and load an Amazon S3 bucket](#tutorial-runtime-mf-s3 "#tutorial-runtime-mf-s3")
 - [Step 2: Create and configure a database](#tutorial-runtime-mf-db "#tutorial-runtime-mf-db")
-- [Step 3: Create and configure an
-  AWS KMS key](#tutorial-runtime-mf-kms "#tutorial-runtime-mf-kms")
-- [Step 4: Create and configure an AWS Secrets Manager
-  database secret](#tutorial-runtime-mf-secret "#tutorial-runtime-mf-secret")
-- [Step 5: Add the sslMode to the
-  secret](#tutorial-runtime-mf-ssl-mode "#tutorial-runtime-mf-ssl-mode")
+- [Step 3: Create and configure an AWS KMS key](#tutorial-runtime-mf-kms "#tutorial-runtime-mf-kms")
+- [Step 4: Create and configure an AWS Secrets Manager database secret](#tutorial-runtime-mf-secret "#tutorial-runtime-mf-secret")
+- [Step 5: Add the sslMode to the secret](#tutorial-runtime-mf-ssl-mode "#tutorial-runtime-mf-ssl-mode")
 - [Step 6: Create a runtime environment](#tutorial-runtime-mf-env "#tutorial-runtime-mf-env")
 - [Step 7: Create an application](#tutorial-runtime-mf-app "#tutorial-runtime-mf-app")
 - [Step 8: Deploy an application](#tutorial-runtime-mf-deploy "#tutorial-runtime-mf-deploy")
 - [Step 9: Import data sets](#tutorial-runtime-mf-import "#tutorial-runtime-mf-import")
 - [Step 10: Start an application](#tutorial-runtime-mf-start "#tutorial-runtime-mf-start")
-- [Step 11: Connect to the CardDemo CICS
-  application](#tutorial-runtime-mf-connect "#tutorial-runtime-mf-connect")
+- [Step 11: Connect to the CardDemo CICS application](#tutorial-runtime-mf-connect "#tutorial-runtime-mf-connect")
 - [Clean up resources](#tutorial-runtime-mf-clean "#tutorial-runtime-mf-clean")
 - [Next steps](#tutorial-runtime-mf-next "#tutorial-runtime-mf-next")
 
@@ -44,8 +38,7 @@ Amazon Relational Database Service, AWS Key Management Service, and AWS Secrets 
   Alternatively, you can start an AWS Mainframe Modernization WorkSpaces Applications Rocket Software instance and use the Rumba 3270
   emulator (not available for free).
 
-For information about WorkSpaces Applications, see [Tutorial: Set up WorkSpaces Applications for use with Rocket Enterprise Analyzer and
-Rocket Enterprise Developer](set-up-appstream-mf.md "set-up-appstream-mf.md").
+For information about WorkSpaces Applications, see [Tutorial: Set up WorkSpaces Applications for use with Rocket Enterprise Analyzer and Rocket Enterprise Developer](set-up-appstream-mf.md "set-up-appstream-mf.md").
 
 ###### Note
 
@@ -181,9 +174,7 @@ For more information on parameter groups, see [Working with parameter groups](..
 You can also use an Amazon Aurora PostgreSQL database with AWS Mainframe Modernization but there is no free tier
 option. For more information, see [Working with Amazon Aurora postgreSQL](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md").
 
-## Step 3: Create and configure an
-
-AWS KMS key
+## Step 3: Create and configure an AWS KMS key
 
 To store credentials securely for the Amazon RDS instance, first create an
 AWS KMS key.
@@ -227,9 +218,7 @@ policy. 12. Choose **Finish** to create the key.
 
 For more information, see [Creating keys](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md") in the AWS Key Management Service Developer Guide.
 
-## Step 4: Create and configure an AWS Secrets Manager
-
-database secret
+## Step 4: Create and configure an AWS Secrets Manager database secret
 
 Now store the database credentials securely using the AWS Secrets Manager and
 AWS KMS key.
@@ -277,9 +266,7 @@ JSON
 11. Choose **Next** for the subsequent screens, and
     then choose **Store**.
 
-## Step 5: Add the sslMode to the
-
-secret
+## Step 5: Add the sslMode to the secret
 
 ###### To add the sslMode to the secret
 
@@ -444,8 +431,7 @@ object of **source-locations** as follows:
 
 ![JSON application definition.](images/m2-mf-app-resources.png)
 
-For more information on the application definition, see [Rocket Software (formerly Micro Focus) application
-definition](applications-m2-definition.md#applications-m2-definition-mf "applications-m2-definition.md#applications-m2-definition-mf"). 5. Choose **Next** to continue. 6. On the **Review and create** page, review the
+For more information on the application definition, see [Rocket Software (formerly Micro Focus) application definition](applications-m2-definition.md#applications-m2-definition-mf "applications-m2-definition.md#applications-m2-definition-mf"). 5. Choose **Next** to continue. 6. On the **Review and create** page, review the
 information that you provided, and then choose **Create
 application**.
 
@@ -722,9 +708,7 @@ following message: `Application *name*  was started
 
 ![The Application start succeeded message.](images/m2-mf-startapp-confirm.png)
 
-## Step 11: Connect to the CardDemo CICS
-
-application
+## Step 11: Connect to the CardDemo CICS application
 
 Before you connect, make sure that the VPC and security group that you specified for
 the application are the same as the ones that you applied for your network interface
@@ -733,9 +717,7 @@ that you will connect from.
 To configure the TN3270 connection, you also need the DNS hostname and the port of the
 application.
 
-###### To configure and connect an application to mainframe using terminal
-
-emulator
+###### To configure and connect an application to mainframe using terminal emulator
 
 1. Open the AWS Mainframe Modernization console and choose **Applications**, and then
    choose `MicroFocus-CardDemo`.

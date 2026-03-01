@@ -15,8 +15,7 @@ This topic describes the properties you can include in the `user-properties.yml`
 You can’t change some parameters because they are controlled either by AWS Mainframe Modernization or by the application definition.
 All parameters defined in the application definition for your application have priority over the parameters you specify in `user-properties.yml`.
 
-For more information about the structure of refactored applications, see [Structure of AWS Blu Age managed
-applications](applications-m2-other-resources-structure.md "applications-m2-other-resources-structure.md").
+For more information about the structure of refactored applications, see [Structure of AWS Blu Age managed applications](applications-m2-other-resources-structure.md "applications-m2-other-resources-structure.md").
 
 The following diagram shows where to locate the `user-properties.yml` file within the structure of the AWS Blu Age sample application, PlanetsDemo.
 

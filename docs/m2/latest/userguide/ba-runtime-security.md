@@ -3,9 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Configure security for Gapwalk
-
-applications
+# Configure security for Gapwalk applications
 
 The following topics describe how to secure Gapwalk applications.
 
@@ -18,7 +16,6 @@ CSRF,XSS,CSP, and so on), set `gapwalk-application.security` to `enabled` and
 
 ###### Topics
 
-- [Configure URI accessibility for Gapwalk
-  applications](ba-runtime-filteringURIs.md "ba-runtime-filteringURIs.md")
+- [Configure URI accessibility for Gapwalk applications](ba-runtime-filteringURIs.md "ba-runtime-filteringURIs.md")
 - [Configure authentication for Gapwalk applications](ba-runtime-auth.md "ba-runtime-auth.md")
 - [Configure rate limiting for AWS Blu Age Runtime](ba-runtime-rate-limiting.md "ba-runtime-rate-limiting.md")

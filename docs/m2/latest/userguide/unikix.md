@@ -35,9 +35,7 @@ product's AMI.
 7. In the left navigate pane, choose **Manage subscriptions**. This view
    shows you all of your subscriptions.
 
-## Launch AWS Mainframe Modernization replatform with NTT DATA
-
-instance
+## Launch AWS Mainframe Modernization replatform with NTT DATA instance
 
 1. Open the AWS Marketplace console at [https://console.aws.amazon.com/marketplace](https://console.aws.amazon.com/marketplace "https://console.aws.amazon.com/marketplace").
 2. In the left navigation pane, choose **Manage subscriptions**.

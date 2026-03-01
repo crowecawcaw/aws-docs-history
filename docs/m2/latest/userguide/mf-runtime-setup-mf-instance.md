@@ -3,9 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Launch an AWS Mainframe Modernization Rocket Software (formerly Micro Focus)
-
-instance
+# Launch an AWS Mainframe Modernization Rocket Software (formerly Micro Focus) instance
 
 After creating endpoints, IAM policy, IAM role, and subscribing to AMIs, you are ready
 to launch an AWS Mainframe Modernization Rocket Software (Micro Focus) instance in the AWS Management Console.

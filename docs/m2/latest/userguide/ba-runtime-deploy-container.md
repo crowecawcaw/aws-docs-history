@@ -23,9 +23,9 @@ Before you begin, make sure you complete the following prerequisites.
 
 - Configure the AWS CLI by following the steps in [Configuring the AWS
   CLI](../../../cli/latest/userguide/cli-chap-configure.md "../../../cli/latest/userguide/cli-chap-configure.md").
-- Complete [AWS Blu Age Runtime prerequisites](ba-runtime-setup-prereq.md "ba-runtime-setup-prereq.md") and [Onboarding AWS Blu Age Runtime](ba-runtime-setup-onboard.md "ba-runtime-setup-onboard.md") .
+- Complete [AWS Blu Age Runtime prerequisites](ba-runtime-setup-prereq.md "ba-runtime-setup-prereq.md") and [Onboarding AWS Blu Age Runtime](ba-runtime-setup-onboard.md "ba-runtime-setup-onboard.md").
 - Download the AWS Blu Age Runtime binaries. For instructions, see
-  [Onboarding AWS Blu Age Runtime](ba-runtime-setup-onboard.md "ba-runtime-setup-onboard.md") .
+  [Onboarding AWS Blu Age Runtime](ba-runtime-setup-onboard.md "ba-runtime-setup-onboard.md").
 - Download the Apache Tomcat 10 binaries.
 - Download the [PlanetsDemo
   application archive](https://d3lkpej5ajcpac.cloudfront.net/demo/bluage/PlanetsDemo-v1.zip "https://d3lkpej5ajcpac.cloudfront.net/demo/bluage/PlanetsDemo-v1.zip").

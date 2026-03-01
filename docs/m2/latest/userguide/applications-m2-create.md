@@ -40,8 +40,6 @@ tag** to add one or more application tags to your application. An application ta
 a custom attribute label that helps you organize and manage your AWS resources). 10. Choose **Next**. 11. In the **Resources and configurations** section, use the inline editor
 to enter the application definition. Alternatively, choose **Use an application
 definition JSON file in an Amazon S3 bucket** and provide the location of the
-application definition that you want to use. For more information, see [AWS Blu Age application definition
-sample](applications-m2-definition.md#applications-m2-definition-ba "applications-m2-definition.md#applications-m2-definition-ba") or
-[Rocket Software (formerly Micro Focus) application
-definition](applications-m2-definition.md#applications-m2-definition-mf "applications-m2-definition.md#applications-m2-definition-mf"). 12. Choose **Next**. 13. On the **Review and create** page, review the information that you
+application definition that you want to use. For more information, see [AWS Blu Age application definition sample](applications-m2-definition.md#applications-m2-definition-ba "applications-m2-definition.md#applications-m2-definition-ba") or
+[Rocket Software (formerly Micro Focus) application definition](applications-m2-definition.md#applications-m2-definition-mf "applications-m2-definition.md#applications-m2-definition-mf"). 12. Choose **Next**. 13. On the **Review and create** page, review the information that you
 entered, and then choose **Create application**.

@@ -3,9 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# How AWS Mainframe Modernization works with
-
-IAM
+# How AWS Mainframe Modernization works with IAM
 
 Before you use IAM to manage access to AWS Mainframe Modernization, learn what IAM features are
 available to use with AWS Mainframe Modernization.
@@ -28,9 +26,7 @@ To get a high-level view of how AWS Mainframe Modernization and other AWS servic
 IAM features, see [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Identity-based
-
-policies for AWS Mainframe Modernization
+## Identity-based policies for AWS Mainframe Modernization
 
 **Supports identity-based policies:**
 
@@ -47,12 +43,9 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for AWS Mainframe Modernization
 
-Identity-based policy examples for AWS Mainframe Modernization
-
-To view examples of AWS Mainframe Modernization identity-based policies, see [Identity-based policy examples
-for AWS Mainframe Modernization](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS Mainframe Modernization identity-based policies, see [Identity-based policy examples for AWS Mainframe Modernization](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Resource-based policies within AWS Mainframe Modernization
 
@@ -70,9 +63,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy
-
-actions for AWS Mainframe Modernization
+## Policy actions for AWS Mainframe Modernization
 
 **Supports policy actions:**
 
@@ -111,12 +102,9 @@ action:
 "Action": "m2:List*"
 ```
 
-To view examples of AWS Mainframe Modernization identity-based policies, see [Identity-based policy examples
-for AWS Mainframe Modernization](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS Mainframe Modernization identity-based policies, see [Identity-based policy examples for AWS Mainframe Modernization](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for AWS Mainframe Modernization
+## Policy resources for AWS Mainframe Modernization
 
 **Supports policy resources:**
 
@@ -171,8 +159,7 @@ To see a list of AWS Mainframe Modernization resource types and their ARNs, see
 which actions you can specify the ARN of each resource, see
 [Actions Defined by AWS Mainframe Modernization](../../../IAM/latest/UserGuide/list_awsmainframemodernizationservice.md#awsmainframemodernizationservice-actions-as-permissions "../../../IAM/latest/UserGuide/list_awsmainframemodernizationservice.md#awsmainframemodernizationservice-actions-as-permissions").
 
-To view examples of AWS Mainframe Modernization identity-based policies, see [Identity-based policy examples
-for AWS Mainframe Modernization](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS Mainframe Modernization identity-based policies, see [Identity-based policy examples for AWS Mainframe Modernization](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Policy condition keys for AWS Mainframe Modernization
 
@@ -200,12 +187,9 @@ To see a list of AWS Mainframe Modernization condition keys, see [Condition Keys
 _Service Authorization Reference_. To learn with which actions and resources
 you can use a condition key, see [Actions Defined by AWS Mainframe Modernization](../../../IAM/latest/UserGuide/list_awsmainframemodernizationservice.md#awsmainframemodernizationservice-actions-as-permissions "../../../IAM/latest/UserGuide/list_awsmainframemodernizationservice.md#awsmainframemodernizationservice-actions-as-permissions").
 
-To view examples of AWS Mainframe Modernization identity-based policies, see [Identity-based policy examples
-for AWS Mainframe Modernization](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS Mainframe Modernization identity-based policies, see [Identity-based policy examples for AWS Mainframe Modernization](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Access control lists (ACLs) in
-
-AWS Mainframe Modernization
+## Access control lists (ACLs) in AWS Mainframe Modernization
 
 **Supports ACLs:**
 
@@ -214,9 +198,7 @@ No
 Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
 similar to resource-based policies, although they do not use the JSON policy document format.
 
-## Attribute-based access control
-
-(ABAC) with AWS Mainframe Modernization
+## Attribute-based access control (ABAC) with AWS Mainframe Modernization
 
 **Supports ABAC (tags in policies):**
 
@@ -233,9 +215,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using Temporary
-
-credentials with AWS Mainframe Modernization
+## Using Temporary credentials with AWS Mainframe Modernization
 
 **Supports temporary credentials:**
 
@@ -264,9 +244,7 @@ business data from an Amazon S3 bucket without obtaining explicit permission fro
 customer. You might need to update any compliance documentation
 accordingly.
 
-## Service roles for
-
-AWS Mainframe Modernization
+## Service roles for AWS Mainframe Modernization
 
 **Supports service roles:**
 
@@ -285,9 +263,7 @@ Changing the permissions for a service role might break AWS Mainframe Modernizat
 functionality. Edit service roles only when AWS Mainframe Modernization provides guidance to do
 so.
 
-### Choosing an IAM
-
-role in AWS Mainframe Modernization
+### Choosing an IAM role in AWS Mainframe Modernization
 
 If you have previously created an IAM role that your applications running on
 Amazon EC2 can assume, you can choose this role when you create a launch template or
@@ -298,9 +274,7 @@ application requires. For more information, see [IAM role for applications
 that run on Amazon EC2 instances](../../../autoscaling/ec2/userguide/us-iam-role.md "../../../autoscaling/ec2/userguide/us-iam-role.md") in the
 _Amazon EC2 Auto Scaling User Guide_.
 
-## Service-linked
-
-roles for AWS Mainframe Modernization
+## Service-linked roles for AWS Mainframe Modernization
 
 **Supports service-linked roles:**
 
@@ -310,8 +284,7 @@ A service-linked role is a type of service role that is linked to an AWS service
 Service-linked roles appear in your AWS account and are owned by the service. An IAM administrator can view,
 but not edit the permissions for service-linked roles.
 
-For details about creating or managing AWS Mainframe Modernization service-linked roles, see [Using service-linked roles for
-AWS Mainframe Modernization](using-service-linked-roles.md "using-service-linked-roles.md").
+For details about creating or managing AWS Mainframe Modernization service-linked roles, see [Using service-linked roles for AWS Mainframe Modernization](using-service-linked-roles.md "using-service-linked-roles.md").
 
 For details about creating or managing service-linked roles, see [AWS
 services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md"). Find a service in the table that includes

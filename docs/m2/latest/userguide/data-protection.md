@@ -91,7 +91,7 @@ to encrypt Amazon S3 and Amazon EBS resources.
 
 For your AWS Mainframe Modernization applications, you can use this key to encrypt your application definition as
 well as other application resources, like JCL files, which are saved in the Amazon S3 bucket that
-is created in the service’s account. For more information, see [Create an application](applications-m2-create.md#applications-m2-create-console "applications-m2-create.md#applications-m2-create-console") .
+is created in the service’s account. For more information, see [Create an application](applications-m2-create.md#applications-m2-create-console "applications-m2-create.md#applications-m2-create-console").
 
 For your AWS Mainframe Modernization runtime environments, AWS Mainframe Modernization uses your customer managed key to encrypt the Amazon EBS volume
 that it creates and attaches to your AWS Mainframe Modernization Amazon EC2 instance, which is also in the service’s
@@ -273,9 +273,7 @@ Developer Guide_.
 For more information about [troubleshooting key access](../../../kms/latest/developerguide/policy-evaluation.md#example-no-iam "../../../kms/latest/developerguide/policy-evaluation.md#example-no-iam"), see the _AWS Key Management Service Developer
 Guide_.
 
-## Specifying a customer managed key for
-
-AWS Mainframe Modernization
+## Specifying a customer managed key for AWS Mainframe Modernization
 
 You can specify a customer managed key for the following resources:
 
@@ -371,9 +369,7 @@ leverages to encrypt application artifact when creating an application.
 }
 ```
 
-## Monitoring your encryption keys for
-
-AWS Mainframe Modernization
+## Monitoring your encryption keys for AWS Mainframe Modernization
 
 When you use an AWS KMS customer managed key with your AWS Mainframe Modernization resources, you can use [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") or [Amazon CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md") to track
 requests that AWS Mainframe Modernization sends to AWS KMS.

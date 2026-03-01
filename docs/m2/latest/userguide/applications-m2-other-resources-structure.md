@@ -3,9 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Structure of AWS Blu Age managed
-
-applications
+# Structure of AWS Blu Age managed applications
 
 If you use the AWS Blu Age refactoring pattern, the AWS Blu Age runtime engine expects the following
 structure in the folder specified by `app-location` in your application definition:
@@ -50,9 +48,7 @@ extra
 
 Contains jars that can provide additional capabilities for the modernized application.
 
-## Managing an application's Java
-
-options
+## Managing an application's Java options
 
 To manage certain Java options for the application, add a properties file named `tomcat.properties`
 to the folder specified by `app-location`. This file can have three properties: `xms`, which specifies the minimum

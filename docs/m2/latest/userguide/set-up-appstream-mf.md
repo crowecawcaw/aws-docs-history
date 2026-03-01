@@ -3,9 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Tutorial: Set up WorkSpaces Applications for use with Rocket Enterprise Analyzer and
-
-Rocket Enterprise Developer
+# Tutorial: Set up WorkSpaces Applications for use with Rocket Enterprise Analyzer and Rocket Enterprise Developer
 
 AWS Mainframe Modernization provides several tools through Amazon WorkSpaces Applications. WorkSpaces Applications is a fully managed, secure
 application streaming service that lets you stream desktop applications to users without rewriting

@@ -97,8 +97,7 @@ Replatform](https://aws.amazon.com/mainframe-modernization/patterns/replatform/ 
 ## How to get started with AWS Mainframe Modernization
 
 Try it! We offer tutorials and sample applications to help you get a sense of what AWS Mainframe Modernization
-offers. Choose either the [Tutorial: Set up managed runtime for AWS Blu Age](tutorial-runtime-ba.md "tutorial-runtime-ba.md") or the [Tutorial: Set up managed runtime for Rocket Software (formerly
-Micro Focus)](tutorial-runtime-mf.md "tutorial-runtime-mf.md") for a complete,
+offers. Choose either the [Tutorial: Set up managed runtime for AWS Blu Age](tutorial-runtime-ba.md "tutorial-runtime-ba.md") or the [Tutorial: Set up managed runtime for Rocket Software (formerly Micro Focus)](tutorial-runtime-mf.md "tutorial-runtime-mf.md") for a complete,
 step-by-step tutorial.
 
 If you are interested in automated refactoring, check out the AWS Blu Age tools at [BluInsights](https://bluinsights.aws/ "https://bluinsights.aws/"). You can also set up WorkSpaces Applications to access the

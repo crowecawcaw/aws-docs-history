@@ -3,9 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# AWS Mainframe Modernization application definition
-
-reference
+# AWS Mainframe Modernization application definition reference
 
 In AWS Mainframe Modernization, you configure migrated mainframe applications in an application definition
 JSON file, which is specific to the runtime engine you choose. An application definition
@@ -17,40 +15,25 @@ optional elements.
 
 - [General header section](applications-m2-definition.md#applications-m2-definition-general "applications-m2-definition.md#applications-m2-definition-general")
 - [Definition section overview](applications-m2-definition.md#applications-m2-definition-overview "applications-m2-definition.md#applications-m2-definition-overview")
-- [AWS Blu Age application definition
-  sample](applications-m2-definition.md#applications-m2-definition-ba "applications-m2-definition.md#applications-m2-definition-ba")
+- [AWS Blu Age application definition sample](applications-m2-definition.md#applications-m2-definition-ba "applications-m2-definition.md#applications-m2-definition-ba")
 - [AWS Blu Age definition details](applications-m2-definition.md#applications-m2-definition-ba-details "applications-m2-definition.md#applications-m2-definition-ba-details")
-  - [Listener(s) -
-    required](applications-m2-definition.md#applications-m2-definition-ba-details-listener "applications-m2-definition.md#applications-m2-definition-ba-details-listener")
-  - [AWS Blu Age application
-  * required](applications-m2-definition.md#applications-m2-definition-ba-details-application "applications-m2-definition.md#applications-m2-definition-ba-details-application")
-  - [Blusam -
-    optional](applications-m2-definition.md#applications-m2-definition-ba-details-blusam "applications-m2-definition.md#applications-m2-definition-ba-details-blusam")
-  - [AWS Blu Age message queues -
-    optional](applications-m2-definition.md#applications-m2-definition-ba-message-queues "applications-m2-definition.md#applications-m2-definition-ba-message-queues")
-  - [AWS Blu Age Application
-    storage EFS config - optional](applications-m2-definition.md#applications-m2-definitions-ba--details-efs "applications-m2-definition.md#applications-m2-definitions-ba--details-efs")
+  - [Listener(s) - required](applications-m2-definition.md#applications-m2-definition-ba-details-listener "applications-m2-definition.md#applications-m2-definition-ba-details-listener")
+  - [AWS Blu Age application - required](applications-m2-definition.md#applications-m2-definition-ba-details-application "applications-m2-definition.md#applications-m2-definition-ba-details-application")
+  - [Blusam - optional](applications-m2-definition.md#applications-m2-definition-ba-details-blusam "applications-m2-definition.md#applications-m2-definition-ba-details-blusam")
+  - [AWS Blu Age message queues - optional](applications-m2-definition.md#applications-m2-definition-ba-message-queues "applications-m2-definition.md#applications-m2-definition-ba-message-queues")
+  - [AWS Blu Age Application storage EFS config - optional](applications-m2-definition.md#applications-m2-definitions-ba--details-efs "applications-m2-definition.md#applications-m2-definitions-ba--details-efs")
 
-- [Rocket Software (formerly Micro Focus) application
-  definition](applications-m2-definition.md#applications-m2-definition-mf "applications-m2-definition.md#applications-m2-definition-mf")
+- [Rocket Software (formerly Micro Focus) application definition](applications-m2-definition.md#applications-m2-definition-mf "applications-m2-definition.md#applications-m2-definition-mf")
 - [Rocket Software definition details](applications-m2-definition.md#applications-m2-definition-mf-details "applications-m2-definition.md#applications-m2-definition-mf-details")
-  - [Listener(s) -
-    required](applications-m2-definition.md#applications-m2-definition-mf-details-listeners "applications-m2-definition.md#applications-m2-definition-mf-details-listeners")
-  - [Data set locations
-  * required](applications-m2-definition.md#applications-m2-definition-mf-details-datasets "applications-m2-definition.md#applications-m2-definition-mf-details-datasets")
-  - [Amazon Cognito
-    authentication and authorization handler - optional](applications-m2-definition.md#applications-m2-definition-mf-details-cognito "applications-m2-definition.md#applications-m2-definition-mf-details-cognito")
-  - [LDAP and Active
-    Directory handler - optional](applications-m2-definition.md#applications-m2-definition-mf-details-ldap-ad "applications-m2-definition.md#applications-m2-definition-mf-details-ldap-ad")
-  - [Batch settings -
-    required](applications-m2-definition.md#applications-m2-definition-mf-details-batch "applications-m2-definition.md#applications-m2-definition-mf-details-batch")
-  - [CICS settings -
-    required](applications-m2-definition.md#applications-m2-definition-mf-details-cics "applications-m2-definition.md#applications-m2-definition-mf-details-cics")
+  - [Listener(s) - required](applications-m2-definition.md#applications-m2-definition-mf-details-listeners "applications-m2-definition.md#applications-m2-definition-mf-details-listeners")
+  - [Data set locations - required](applications-m2-definition.md#applications-m2-definition-mf-details-datasets "applications-m2-definition.md#applications-m2-definition-mf-details-datasets")
+  - [Amazon Cognito authentication and authorization handler - optional](applications-m2-definition.md#applications-m2-definition-mf-details-cognito "applications-m2-definition.md#applications-m2-definition-mf-details-cognito")
+  - [LDAP and Active Directory handler - optional](applications-m2-definition.md#applications-m2-definition-mf-details-ldap-ad "applications-m2-definition.md#applications-m2-definition-mf-details-ldap-ad")
+  - [Batch settings - required](applications-m2-definition.md#applications-m2-definition-mf-details-batch "applications-m2-definition.md#applications-m2-definition-mf-details-batch")
+  - [CICS settings - required](applications-m2-definition.md#applications-m2-definition-mf-details-cics "applications-m2-definition.md#applications-m2-definition-mf-details-cics")
   - [Printers - optional](applications-m2-definition.md#applications-m2-definition-mf-details-printers "applications-m2-definition.md#applications-m2-definition-mf-details-printers")
-  - [XA resources -
-    optional](applications-m2-definition.md#applications-m2-definition-mf-details-xa "applications-m2-definition.md#applications-m2-definition-mf-details-xa")
-  - [Runtime settings -
-    optional](applications-m2-definition.md#applications-m2-definition-mf-details-runtime-settings "applications-m2-definition.md#applications-m2-definition-mf-details-runtime-settings")
+  - [XA resources - optional](applications-m2-definition.md#applications-m2-definition-mf-details-xa "applications-m2-definition.md#applications-m2-definition-mf-details-xa")
+  - [Runtime settings - optional](applications-m2-definition.md#applications-m2-definition-mf-details-runtime-settings "applications-m2-definition.md#applications-m2-definition-mf-details-runtime-settings")
 
 ## General header section
 
@@ -134,9 +117,7 @@ application definition JSON file.
 The definition section is engine-specific and subject to change. The following
 sections show sample engine-specific application definitions for both engines.
 
-## AWS Blu Age application definition
-
-sample
+## AWS Blu Age application definition sample
 
 ```
 {
@@ -179,9 +160,7 @@ sample
 
 ## AWS Blu Age definition details
 
-### Listener(s) -
-
-required
+### Listener(s) - required
 
 Specify the port you will use to access the application through the AWS Mainframe Modernization-created
 Elastic Load Balancing. Use the following structure:
@@ -204,9 +183,7 @@ port.
 
 (Required) Currently, only `http` is supported.
 
-### AWS Blu Age application
-
-- required
+### AWS Blu Age application - required
 
 Specify the location where the engine picks up the application image file using
 the following structure.
@@ -264,9 +241,7 @@ engine](applications-m2-ba-config-props.md#gapwalk-app-props "applications-m2-ba
 are stored. It can contain the same kind of application structure as
 app-location.
 
-### Blusam -
-
-optional
+### Blusam - optional
 
 Specify the Blusam database and Redis cache using the following structure.
 
@@ -307,8 +282,7 @@ following properties:
   database.
 - `secret-manager-arn` - Specifies the Amazon
   Resource Name (ARN) of the secret that contains the database
-  credentials. For more information, see [Step 4: Create and configure an AWS Secrets Manager
-  database secret](tutorial-runtime-mf.md#tutorial-runtime-mf-secret "tutorial-runtime-mf.md#tutorial-runtime-mf-secret").
+  credentials. For more information, see [Step 4: Create and configure an AWS Secrets Manager database secret](tutorial-runtime-mf.md#tutorial-runtime-mf-secret "tutorial-runtime-mf.md#tutorial-runtime-mf-secret").
 
 **Redis**
 
@@ -328,12 +302,9 @@ Redis cache.
   Resource Name (ARN) of the secret that contains the Redis cache
   password. If the Redis cache is not password-protected, do not
   specify `secret-manager-arn`. For more information,
-  see [Step 4: Create and configure an AWS Secrets Manager
-  database secret](tutorial-runtime-mf.md#tutorial-runtime-mf-secret "tutorial-runtime-mf.md#tutorial-runtime-mf-secret").
+  see [Step 4: Create and configure an AWS Secrets Manager database secret](tutorial-runtime-mf.md#tutorial-runtime-mf-secret "tutorial-runtime-mf.md#tutorial-runtime-mf-secret").
 
-### AWS Blu Age message queues -
-
-optional
+### AWS Blu Age message queues - optional
 
 Specify the JMS-MQ connection details for AWS Blu Age application.
 
@@ -399,9 +370,7 @@ connection.
 (Optional) Specifies the Amazon Resource Name (ARN) of Secrets Manager that
 provides the password of the specified user.
 
-### AWS Blu Age Application
-
-storage EFS config - optional
+### AWS Blu Age Application storage EFS config - optional
 
 Specify the application storage EFS Access point details using the following
 structure.
@@ -452,9 +421,7 @@ When efs config is provided, files-directory must be specified in the applicatio
 definition section. It must be a subfolder of the Amazon EFS mount point set up at
 application level.
 
-## Rocket Software (formerly Micro Focus) application
-
-definition
+## Rocket Software (formerly Micro Focus) application definition
 
 The following sample definition section is for the Rocket Software runtime engine, and contains
 both required and optional elements.
@@ -546,9 +513,7 @@ The content in the definition section of the Rocket Software application definit
 depending on the resources that your migrated mainframe application requires at
 runtime.
 
-### Listener(s) -
-
-required
+### Listener(s) - required
 
 Specify a listener using the following structure:
 
@@ -573,9 +538,7 @@ Specifies the type of service listener. For more information, see
 [Listeners](https://www.microfocus.com/documentation/enterprise-developer/ed70/ES-UNIX/HTPHMDSAL100.html "https://www.microfocus.com/documentation/enterprise-developer/ed70/ES-UNIX/HTPHMDSAL100.html") in the _Micro Focus Enterprise Server_
 documentation.
 
-### Data set locations
-
-- required
+### Data set locations - required
 
 Specify the data set location using the following structure.
 
@@ -601,9 +564,7 @@ database.
   Resource Name (ARN) of the secret that contains the database
   credentials.
 
-### Amazon Cognito
-
-authentication and authorization handler - optional
+### Amazon Cognito authentication and authorization handler - optional
 
 AWS Mainframe Modernization uses Amazon Cognito for authentication and authorization for migrated applications.
 Specify the Amazon Cognito authentication handler using the following structure.
@@ -634,9 +595,7 @@ exchanges a user pool token for credentials that allow the user to
 access AWS Mainframe Modernization.
 The AWS Region for the identity pool should match the AWS Region for the AWS Mainframe Modernization application.
 
-### LDAP and Active
-
-Directory handler - optional
+### LDAP and Active Directory handler - optional
 
 You can integrate your application with Active Directory (AD) or any type of LDAP
 server to make it possible for users of the application to use their LDAP/AD
@@ -764,9 +723,7 @@ authorization:
 - `CancelBatchJobExecution`
 - `ListBatchJobRestartPoints`
 
-### Batch settings -
-
-required
+### Batch settings - required
 
 Specify the details required by the batch jobs that run as part of the application
 using the following structure.
@@ -854,9 +811,7 @@ the need to change the JCL. For example:
 - ADRDSSU Alias MFADRDSU for ADRDSSU
 - Syncsort Alias DMXMFSRT for SORT
 
-### CICS settings -
-
-required
+### CICS settings - required
 
 Specify the details required for the CICS transactions that run as part of the
 application using the following structure.
@@ -945,9 +900,7 @@ The structure of `exit-module` has two components:
 
 You can see more examples of defining the exit module in the [Printers](mf-app-config.md#mf-app-config-integations-printers "mf-app-config.md#mf-app-config-integations-printers") section.
 
-### XA resources -
-
-optional
+### XA resources - optional
 
 Specify the details required for the XA resources that the application requires
 using the following structure.
@@ -986,9 +939,7 @@ that contains the credentials for connecting to the database.
 file. For more information, see [Planning and Designing XARs](https://www.microfocus.com/documentation/enterprise-developer/ed60/ES-WIN/GUID-91C0E7E4-C012-4DF2-8996-CF6C52437FB7.html "https://www.microfocus.com/documentation/enterprise-developer/ed60/ES-WIN/GUID-91C0E7E4-C012-4DF2-8996-CF6C52437FB7.html") in the
 _Micro Focus Enterprise Server_ documentation.
 
-### Runtime settings -
-
-optional
+### Runtime settings - optional
 
 Specify the details required for runtime settings to manage permitted environment
 variables using the following structure.

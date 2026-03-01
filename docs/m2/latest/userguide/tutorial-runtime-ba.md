@@ -79,8 +79,7 @@ stored the sample application zip file (e.g., `${s3-source}/PlanetsDemo-v4.zip`)
 
 Make sure to create the application definition file on your local as a text file.
 
-For more information on the application definition, see [AWS Blu Age application definition
-sample](applications-m2-definition.md#applications-m2-definition-ba "applications-m2-definition.md#applications-m2-definition-ba").
+For more information on the application definition, see [AWS Blu Age application definition sample](applications-m2-definition.md#applications-m2-definition-ba "applications-m2-definition.md#applications-m2-definition-ba").
 
 ## Step 3: Create a runtime environment
 

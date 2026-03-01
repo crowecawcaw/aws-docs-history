@@ -12,8 +12,7 @@ command prompt. The output from the commands is logged to the batch job's spool 
 ###### Topics
 
 - [Supported platforms](#m2runcmd-platforms "#m2runcmd-platforms")
-- [Configure M2RUNCMD for AWS Mainframe Modernization runtime on Amazon EC2
-  (including AppStream 2.0)](#m2runcmd-configure "#m2runcmd-configure")
+- [Configure M2RUNCMD for AWS Mainframe Modernization runtime on Amazon EC2 (including AppStream 2.0)](#m2runcmd-configure "#m2runcmd-configure")
 - [Sample JCLs](#m2runcmd-sample-jcls "#m2runcmd-sample-jcls")
 
 ## Supported platforms
@@ -24,9 +23,7 @@ You can use M2RUNCMD on the following platforms:
 - All variants of Rocket Software Enterprise Developer (ED) and Rocket Software Enterprise Server
   (ES) products.
 
-## Configure M2RUNCMD for AWS Mainframe Modernization runtime on Amazon EC2
-
-(including AppStream 2.0)
+## Configure M2RUNCMD for AWS Mainframe Modernization runtime on Amazon EC2 (including AppStream 2.0)
 
 If your migrated applications are running on AWS Mainframe Modernization runtime on Amazon EC2, configure M2RUNCMD as follows.
 

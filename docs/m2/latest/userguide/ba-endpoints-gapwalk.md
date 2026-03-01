@@ -10,15 +10,12 @@ path `/gapwalk-application`.
 
 ###### Topics
 
-- [Batch jobs (modernized JCLs and alike) related
-  endpoints](#ba-endpoints-gapwalk-batch "#ba-endpoints-gapwalk-batch")
+- [Batch jobs (modernized JCLs and alike) related endpoints](#ba-endpoints-gapwalk-batch "#ba-endpoints-gapwalk-batch")
 - [Metrics endpoints](#ba-endpoints-gapwalk-metrics "#ba-endpoints-gapwalk-metrics")
 - [Other endpoints](#ba-endpoints-gapwalk-other "#ba-endpoints-gapwalk-other")
 - [Job queues related endpoints](#ba-endpoints-gapwalk-jobq "#ba-endpoints-gapwalk-jobq")
 
-## Batch jobs (modernized JCLs and alike) related
-
-endpoints
+## Batch jobs (modernized JCLs and alike) related endpoints
 
 Batch jobs can be run either synchronously or asynchronously (see details below). Batch jobs
 are being executed using groovy scripts that are the results of the modernization of legacy
@@ -31,17 +28,13 @@ scripts (JCL).
 - [Launch a script asynchronously](#ba-launch-script-asynchronously "#ba-launch-script-asynchronously")
 - [Listing triggered scripts](#ba-launch-script-triggered "#ba-launch-script-triggered")
 - [Retrieving job execution details](#ba-retrieve-job-execution-details "#ba-retrieve-job-execution-details")
-- [Listing asynchronously launched scripts that can be
-  killed](#ba-list-async-scripts "#ba-list-async-scripts")
-- [Listing synchronously launched scripts that can be
-  killed](#ba-list-sync-scripts "#ba-list-sync-scripts")
+- [Listing asynchronously launched scripts that can be killed](#ba-list-async-scripts "#ba-list-async-scripts")
+- [Listing synchronously launched scripts that can be killed](#ba-list-sync-scripts "#ba-list-sync-scripts")
 - [Killing a given job execution](#ba-kill-job-execution "#ba-kill-job-execution")
-- [Listing existing checkpoints for
-  restartability](#ba-list-existing-checkpoints "#ba-list-existing-checkpoints")
+- [Listing existing checkpoints for restartability](#ba-list-existing-checkpoints "#ba-list-existing-checkpoints")
 - [Restarting a job (synchronously)](#ba-restart-job-sync "#ba-restart-job-sync")
 - [Restarting a job (asynchronously)](#ba-restart-job-async "#ba-restart-job-async")
-- [Setting thread limit for asynchronous job
-  executions](#ba-set-thread-limit "#ba-set-thread-limit")
+- [Setting thread limit for asynchronous job executions](#ba-set-thread-limit "#ba-set-thread-limit")
 
 ### List deployed scripts
 
@@ -239,9 +232,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
 - Returns a JSON string representing a single job execution details (see [Job execution details message structure](ba-endpoints-apx.md#job-execution-details "ba-endpoints-apx.md#job-execution-details")) or an empty response
   if no job execution details could be found for the given identifier.
 
-### Listing asynchronously launched scripts that can be
-
-killed
+### Listing asynchronously launched scripts that can be killed
 
 - Supported method: GET
 
@@ -252,9 +243,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
   asynchronously that are still currently running and can be forcefully killed (see the
   `/kill` endpoint below).
 
-### Listing synchronously launched scripts that can be
-
-killed
+### Listing synchronously launched scripts that can be killed
 
 - Supported method: GET
 
@@ -294,9 +283,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
 - In any case, attempt to kill a running job will be logged in the server logs with
   warning level messages.
 
-### Listing existing checkpoints for
-
-restartability
+### Listing existing checkpoints for restartability
 
 Job restartability relies on the ability for the scripts to register checkpoints in the
 `CheckpointRegistry` to track down the job execution progress. If a job execution
@@ -352,9 +339,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
 
 - Returns: see `/triggerscript` return description above.
 
-### Setting thread limit for asynchronous job
-
-executions
+### Setting thread limit for asynchronous job executions
 
 The job asynchronous execution relies on a dedicated pool of threads in the JVM. That pool
 has a fixed limit regarding the number of available threads. The used has the ability to adjust
@@ -378,9 +363,7 @@ Sample response:
 Set thread limit for Script Tower Control to 10 (previous value was 5)
 ```
 
-#### Counting currently running triggered job
-
-executions
+#### Counting currently running triggered job executions
 
 - Supported method: GET
 
@@ -699,13 +682,11 @@ invoke these operations from the Gapwalk Application URL with the following root
 - [Submit a job for launch](#ba-submit-job-launch "#ba-submit-job-launch")
 - [List all submitted jobs](#ba-list-scheduled-jobs "#ba-list-scheduled-jobs")
 - [Release all jobs that are "on hold"](#ba-release-held-jobs "#ba-release-held-jobs")
-- [Release all jobs that are "on hold" for a given job
-  name](#ba-release-held-jobs-name "#ba-release-held-jobs-name")
+- [Release all jobs that are "on hold" for a given job name](#ba-release-held-jobs-name "#ba-release-held-jobs-name")
 - [Release a given job for a job number](#ba-release-job-number "#ba-release-job-number")
 - [Submit a job on repeating schedule](#ba-submit-job-on-repeating-schedule "#ba-submit-job-on-repeating-schedule")
 - [List all submitted repeating jobs](#ba-list-all-submitted-repeating-jobs "#ba-list-all-submitted-repeating-jobs")
-- [Cancel the scheduling of a repeating
-  job](#ba-cancel-scheduling-of-repeating-job "#ba-cancel-scheduling-of-repeating-job")
+- [Cancel the scheduling of a repeating job](#ba-cancel-scheduling-of-repeating-job "#ba-cancel-scheduling-of-repeating-job")
 
 ### List available queues
 
@@ -806,9 +787,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
   - HTTP 503 and a message "Jobs not released. An unknown error occurred. See log for more
     details" if something went wrong with the release attempt.
 
-### Release all jobs that are "on hold" for a given job
-
-name
+### Release all jobs that are "on hold" for a given job name
 
 For a given job name, multiple jobs can be submitted, with different job numbers (the
 unicity of a job run is granted by a couple <job name, job number>). The endpoint will
@@ -889,9 +868,7 @@ Requires authentication and one of the following roles: ROLE_ADMIN, ROLE_SUPER_A
       one mentioned in section 1.
   6.  Returns a list of all scheduled jobs, as a JSON string.
 
-### Cancel the scheduling of a repeating
-
-job
+### Cancel the scheduling of a repeating job
 
 Removes a job that was created on a repeating schedule. The job scheduling status is set to
 INACTIVE.

@@ -8,14 +8,12 @@ availability change](mainframe-modernization-availability-change.md "mainframe-m
 This tutorial describes how to set up Rocket Enterprise Developer (formerly Micro Focus Enterprise Developer) for one or more mainframe
 applications in order to maintain, compile, and test them using the Enterprise Developer features. The setup is
 based on the WorkSpaces Applications Windows images that AWS Mainframe Modernization shares with the customer and on the creation of
-WorkSpaces Applications fleets and stacks as described in [Tutorial: Set up WorkSpaces Applications for use with Rocket Enterprise Analyzer and
-Rocket Enterprise Developer](set-up-appstream-mf.md "set-up-appstream-mf.md").
+WorkSpaces Applications fleets and stacks as described in [Tutorial: Set up WorkSpaces Applications for use with Rocket Enterprise Analyzer and Rocket Enterprise Developer](set-up-appstream-mf.md "set-up-appstream-mf.md").
 
 ###### Important
 
 The steps in this tutorial assume that you set up WorkSpaces Applications using the downloadable CloudFormation
-template [cfn-m2-appstream-fleet-ea-ed.yaml](https://d1vi4vxke6c2hu.cloudfront.net/tutorial/cfn-m2-appstream-fleet-ea-ed.yaml "https://d1vi4vxke6c2hu.cloudfront.net/tutorial/cfn-m2-appstream-fleet-ea-ed.yaml"). For more information, see [Tutorial: Set up WorkSpaces Applications for use with Rocket Enterprise Analyzer and
-Rocket Enterprise Developer](set-up-appstream-mf.md "set-up-appstream-mf.md").
+template [cfn-m2-appstream-fleet-ea-ed.yaml](https://d1vi4vxke6c2hu.cloudfront.net/tutorial/cfn-m2-appstream-fleet-ea-ed.yaml "https://d1vi4vxke6c2hu.cloudfront.net/tutorial/cfn-m2-appstream-fleet-ea-ed.yaml"). For more information, see [Tutorial: Set up WorkSpaces Applications for use with Rocket Enterprise Analyzer and Rocket Enterprise Developer](set-up-appstream-mf.md "set-up-appstream-mf.md").
 
 You must perform the steps of this setup when the Enterprise Developer fleet and stack are up and
 running.
@@ -51,8 +49,7 @@ follow the procedure to create a virtual Windows disk as described in [Tutorial:
 
 - [Prerequisites](#tutorial-ed-prerequisites "#tutorial-ed-prerequisites")
 - [Step 1: Setup by individual Enterprise Developer users](#tutorial-ed-step1 "#tutorial-ed-step1")
-- [Step 2: Create the Amazon S3-based virtual folder on Windows
-  (optional)](#tutorial-ed-step2 "#tutorial-ed-step2")
+- [Step 2: Create the Amazon S3-based virtual folder on Windows (optional)](#tutorial-ed-step2 "#tutorial-ed-step2")
 - [Step 3: Clone the repository](#tutorial-ed-step3 "#tutorial-ed-step3")
 - [Subsequent sessions](#tutorial-ed-step4 "#tutorial-ed-step4")
 - [Clean up resources](#tutorial-ed-clean "#tutorial-ed-clean")
@@ -91,9 +88,7 @@ follow the procedure to create a virtual Windows disk as described in [Tutorial:
 4. On the menu page, choose **Desktop** to reach the Windows desktop streamed
    by the fleet.
 
-## Step 2: Create the Amazon S3-based virtual folder on Windows
-
-(optional)
+## Step 2: Create the Amazon S3-based virtual folder on Windows (optional)
 
 If there is a need for Rclone (see above), create the Amazon S3-based virtual folder on Windows:
 (optional if all application artefacts exclusively come from CodeCommit access).

@@ -3,9 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Logging AWS Mainframe Modernization API calls using
-
-AWS CloudTrail
+# Logging AWS Mainframe Modernization API calls using AWS CloudTrail
 
 AWS Mainframe Modernization is integrated with AWS CloudTrail, a service that provides a record of actions
 taken by a user, role, or an AWS service in AWS Mainframe Modernization. CloudTrail captures all API calls for

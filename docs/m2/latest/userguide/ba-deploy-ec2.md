@@ -17,5 +17,4 @@ Starting with alpha version 5.60.0, the AWS Blu Age Runtime distribution include
 - [Set up AWS Blu Age Runtime on Amazon EC2](ba-runtime-deploy-ec2.md "ba-runtime-deploy-ec2.md")
 - [Upgrade the AWS Blu Age Runtime on Amazon EC2](ba-runtime-maint-ec2.md "ba-runtime-maint-ec2.md")
 - [Set up AWS Blu Age Runtime (on Amazon EC2) Amazon CloudWatch alarms](ba-cw-alarms-ec2.md "ba-cw-alarms-ec2.md")
-- [Set up licensed dependencies in AWS Blu Age Runtime on
-  Amazon EC2](ba-runtime-dependencies-ec2.md "ba-runtime-dependencies-ec2.md")
+- [Set up licensed dependencies in AWS Blu Age Runtime on Amazon EC2](ba-runtime-dependencies-ec2.md "ba-runtime-dependencies-ec2.md")

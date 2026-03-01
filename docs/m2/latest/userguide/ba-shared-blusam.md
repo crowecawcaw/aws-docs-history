@@ -104,9 +104,7 @@ configuration:
   not have to be the same as the one used for data sets. For information about configuring a
   Redis-based locking system, see [Blusam configuration](#ba-shared-blusam-configuration "#ba-shared-blusam-configuration").
 
-## Blusam intrinsics and data migration from
-
-legacy
+## Blusam intrinsics and data migration from legacy
 
 ### Storing data sets: records and indexes
 
@@ -177,9 +175,7 @@ In this case, the following tables store the indexes related to the two keys.
 
 ![Two tables showing index storage for large_ksds_0f18 and large_ksds_3f6 keys.](images/sample_large_dataset_indexes_tables.png)
 
-### Optimizing I/O throughput using write-behind
-
-mechanism
+### Optimizing I/O throughput using write-behind mechanism
 
 To optimize insert / update / delete operations performances, the Blusam engine relies on a
 configurable write-behind mechanism. The mechanism is built upon a pool of dedicated threads
@@ -198,8 +194,7 @@ are executed as soon as the first of the two following conditions is met:
 
 - The configured delay has elapsed and the lot is not empty
 - The number of records in the lot to be treated reaches the configured limit
-  To learn how to configure the write-behind mechanism, see [Optional
-  properties](#ba-shared-blusam-configuration-engine-optional-properties "#ba-shared-blusam-configuration-engine-optional-properties").
+  To learn how to configure the write-behind mechanism, see [Optional properties](#ba-shared-blusam-configuration-engine-optional-properties "#ba-shared-blusam-configuration-engine-optional-properties").
 
 ### Picking up the proper storage scheme
 
@@ -223,8 +218,7 @@ Depending on the number of defined keys, the length of the key values, the numbe
 records and the number of data sets opened at the same time, the amount of consumed memory can
 be roughly evaluated for the given known use-cases.
 
-To learn more, see [Estimating the memory footprint for a given data
-set](#ba-shared-blusam-memory "#ba-shared-blusam-memory").
+To learn more, see [Estimating the memory footprint for a given data set](#ba-shared-blusam-memory "#ba-shared-blusam-memory").
 
 ### Blusam migration
 
@@ -250,8 +244,7 @@ On AWS Mainframe Modernization managed environment:
 or
 
 - Use the data set bulk import facility. See [AWS Mainframe Modernization data set definition reference](datasets-m2-definition.md "datasets-m2-definition.md") and
-  [Sample data set request format for
-  VSAM](datasets-m2-definition.md#datasets-m2-definition-vsam "datasets-m2-definition.md#datasets-m2-definition-vsam").
+  [Sample data set request format for VSAM](datasets-m2-definition.md#datasets-m2-definition-vsam "datasets-m2-definition.md#datasets-m2-definition-vsam").
 
 or
 
@@ -270,9 +263,7 @@ or
 
 - Use a groovy script to import data sets, using dedicated loading services.
 
-#### Import data sets using Groovy
-
-scripts
+#### Import data sets using Groovy scripts
 
 This section will help you writing groovy scripts to import legacy data sets into
 Blusam.
@@ -515,9 +506,7 @@ Blusam has to be configured on two aspects:
 - Blusam storage and caches access configuration
 - Blusam engine configuration
 
-### Blusam storage and caches access
-
-configuration
+### Blusam storage and caches access configuration
 
 For information about how to configure access to Blusam storage and caches using either
 secrets managers or datasources, see [Set up configuration for AWS Blu Age Runtime](ba-runtime-config.md "ba-runtime-config.md").
@@ -550,16 +539,12 @@ Blusam related features (either programmatically or through REST calls) will rai
 `UnsupportedOperationException` in the Java code execution, with a relevant
 explanation message about Blusam being disabled.
 
-#### Blusam engine
-
-properties
+#### Blusam engine properties
 
 The Blusam engine configuration properties are regrouped under the bluesam key
 prefix:
 
-##### Mandatory
-
-properties
+##### Mandatory properties
 
 - `cache`: to be valued with the chosen cache implementation. Valid values
   are:
@@ -578,12 +563,9 @@ properties
 ###### Note
 
 Whenever Redis is used as cache mechanism, either for data or locks (see below), access
-to the Redis instances is to be configured. For details, see [Available Redis cache properties
-in AWS Blu Age Runtime](ba-runtime-redis-configuration.md "ba-runtime-redis-configuration.md").
+to the Redis instances is to be configured. For details, see [Available Redis cache properties in AWS Blu Age Runtime](ba-runtime-redis-configuration.md "ba-runtime-redis-configuration.md").
 
-##### Optional
-
-properties
+##### Optional properties
 
 Blusam Locks: the properties are prefixed with `locks`
 
@@ -811,9 +793,7 @@ General data set metadata serialization attributes list:
   - duplicates allowed flag: whether the key accepts duplicates or not (set to true to
     allow duplicates).
 
-### Estimating the memory footprint for a given data
-
-set
+### Estimating the memory footprint for a given data set
 
 For small to medium sized data sets, the metadata (sizes and indexes for various keys) will
 be fully loaded into memory. Allocating proper resources for the machine hosting the server used
@@ -835,9 +815,7 @@ For a Blusam data set, metadata are split into two parts:
   hosting modernized applications. The sections below detail how the consumed memory grows with
   the number of records.
 
-#### Calculating Internal Metadata
-
-footprint
+#### Calculating Internal Metadata footprint
 
 ##### Records sizes map
 

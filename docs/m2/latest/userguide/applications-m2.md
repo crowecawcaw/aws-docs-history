@@ -10,8 +10,7 @@ If you're new to AWS Mainframe Modernization see the following topics to get sta
 - [What is AWS Mainframe Modernization?](what-is-m2.md "what-is-m2.md")
 - [Set up for AWS Mainframe Modernization](setting-up.md "setting-up.md")
 - [Tutorial: Set up managed runtime for AWS Blu Age](tutorial-runtime-ba.md "tutorial-runtime-ba.md")
-- [Tutorial: Set up managed runtime for Rocket Software (formerly
-  Micro Focus)](tutorial-runtime-mf.md "tutorial-runtime-mf.md")
+- [Tutorial: Set up managed runtime for Rocket Software (formerly Micro Focus)](tutorial-runtime-mf.md "tutorial-runtime-mf.md")
   An application in AWS Mainframe Modernization contains a migrated mainframe workload. The application is
   analogous to a workload on the mainframe and is associated with a runtime environment. You can add
   batch files and data sets to applications and monitor applications as they run. You create
@@ -22,8 +21,7 @@ If you're new to AWS Mainframe Modernization see the following topics to get sta
 
 ###### Topics
 
-- [Create AWS resources for a migrated
-  application](applications-m2-other-resources.md "applications-m2-other-resources.md")
+- [Create AWS resources for a migrated application](applications-m2-other-resources.md "applications-m2-other-resources.md")
 - [Create an AWS Mainframe Modernization application](applications-m2-create.md "applications-m2-create.md")
 - [Deploy an AWS Mainframe Modernization application](applications-m2-deploy.md "applications-m2-deploy.md")
 - [Update an AWS Mainframe Modernization application](applications-m2-update.md "applications-m2-update.md")
@@ -31,13 +29,9 @@ If you're new to AWS Mainframe Modernization see the following topics to get sta
 - [Submit batch jobs for AWS Mainframe Modernization applications](applications-m2-batch-job.md "applications-m2-batch-job.md")
 - [Cancel batch jobs for AWS Mainframe Modernization applications](applications-m2-cancel-batch-job.md "applications-m2-cancel-batch-job.md")
 - [Import data sets for AWS Mainframe Modernization applications](applications-m2-dataset.md "applications-m2-dataset.md")
-- [Export data sets for AWS Mainframe Modernization
-  applications](applications-m2-dataset.md "applications-m2-dataset.md")
-- [Manage transactions for AWS Mainframe Modernization
-  applications](applications-m2-transactions.md "applications-m2-transactions.md")
-- [Configure the Rocket Software (formerly Micro Focus) managed
-  application](mf-app-config.md "mf-app-config.md")
+- [Export data sets for AWS Mainframe Modernization applications](applications-m2-dataset.md "applications-m2-dataset.md")
+- [Manage transactions for AWS Mainframe Modernization applications](applications-m2-transactions.md "applications-m2-transactions.md")
+- [Configure the Rocket Software (formerly Micro Focus) managed application](mf-app-config.md "mf-app-config.md")
 - [Configure the AWS Blu Age managed application](ba-app-config.md "ba-app-config.md")
-- [AWS Mainframe Modernization application definition
-  reference](applications-m2-definition.md "applications-m2-definition.md")
+- [AWS Mainframe Modernization application definition reference](applications-m2-definition.md "applications-m2-definition.md")
 - [AWS Mainframe Modernization data set definition reference](datasets-m2-definition.md "datasets-m2-definition.md")

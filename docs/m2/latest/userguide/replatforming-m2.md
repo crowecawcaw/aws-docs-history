@@ -13,11 +13,8 @@ using templates and predefined projects, and setting up automation for streaming
 ###### Topics
 
 - [Set up Rocket Software (formerly Micro Focus) (on Amazon EC2)](mf-runtime-setup.md "mf-runtime-setup.md")
-- [Set up Automation for Rocket Enterprise Analyzer (formerly Micro Focus) and Rocket Enterprise Developer
-  Streaming Sessions](set-up-automation-m2.md "set-up-automation-m2.md")
-- [View data sets as tables and columns in Rocket Enterprise Developer (formerly
-  Micro Focus Enterprise Developer)](view-datasets-tables-m2.md "view-datasets-tables-m2.md")
-- [Edit data sets using Rocket Software (formerly Micro Focus) Data File Tools
-  in Enterprise Developer](edit-datasets-m2.md "edit-datasets-m2.md")
+- [Set up Automation for Rocket Enterprise Analyzer (formerly Micro Focus) and Rocket Enterprise Developer Streaming Sessions](set-up-automation-m2.md "set-up-automation-m2.md")
+- [View data sets as tables and columns in Rocket Enterprise Developer (formerly Micro Focus Enterprise Developer)](view-datasets-tables-m2.md "view-datasets-tables-m2.md")
+- [Edit data sets using Rocket Software (formerly Micro Focus) Data File Tools in Enterprise Developer](edit-datasets-m2.md "edit-datasets-m2.md")
 - [Tutorials for Rocket Software (formerly Micro Focus)](tutorials-mf.md "tutorials-mf.md")
 - [Available batch utilities in AWS Mainframe Modernization](utilities-m2.md "utilities-m2.md")

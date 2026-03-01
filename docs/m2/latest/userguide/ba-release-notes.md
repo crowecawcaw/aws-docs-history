@@ -18,6 +18,369 @@ For release notes predating this document, contact AWS Blu Age delivery services
 about the latest Blu Insights features, see [Blu
 Insights releases](https://bluinsights.aws/releases "https://bluinsights.aws/releases").
 
+## Release notes 5.75.0
+
+Released on: February 16, 2025
+
+This release of AWS Blu Age Runtime and Transformation Engines introduces significant enhancements to platform capabilities, performance optimizations, and modernized technologies. Some key features and changes include:
+
+- **Comprehensive JCL Utility Enhancements**
+
+Expanded mainframe compatibility through significant improvements across multiple utilities.
+
+    + SORT/ICETOOL now supports advanced OUTFIL operations, flexible date format conversions (Julian to Georgian, Y4T, Y2P), and improved handling of variable-length fields.
+    + DSNUTILB enhancements include improved LOAD command capabilities with POSITION options and better DECIMAL column handling.
+    + IDCAMS improvements include robust ALTER and REPRO command support for VSAM datasets, comprehensive file validation with proper error codes, and enhanced return code management across DELETE and PRINT operations.
+
+- **Advanced Blusam Data Management and Performance**
+
+Blusam enhancements optimize dataset operations with improved selective warmup for multischema datasets, enhanced Redis cache support for large KSDS files, and 60-88% faster close operations through optimized index handling.
+
+- **Enhanced AS400 DAO Positioning Performance**
+
+Optimized SQL query generation for positioning operations significantly improves database performance. Query execution time reduced by over 99%, with end-to-end batch processing improved by 220x (11 minutes to 3 seconds) and individual queries accelerated by 7,161x (3,103ms to 0.36ms) on production workloads.
+
+This version of the AWS Blu Age Runtime has been tested with the following stack:
+
+|                           |                         |
+| ------------------------- | ----------------------- |
+| **Component**             | **Version tested**      |
+| Java                      | Java 21                 |
+| Presentation layer        | Node JS 22.17.1         |
+| Npm 10.9.0                |
+| Angular 20                |
+| Service layer             | Spring Boot 3.5.7       |
+| Spring Core 6.2.12        |
+| Spring Session 3.5.2      |
+| Spring statemachine 4.0.0 |
+| Persistence layer         | PostgreSQL engine 15.10 |
+| Oracle 21c                |
+| Report                    | Jasper 6                |
+| Application server        | Apache Tomcat 10.1.40   |
+
+## AWS Blu Age Runtime
+
+### zOS
+
+**Improvements**
+
+- COBOL
+  - Added support for SQL copybooks with missing 01 level
+  - Improved support for MOVE statement from LOW VALUES to variable size
+  - Improved support for MOVE to COMP-X statement
+  - Improved support for DISPLAY statement with clause WITH CONVERSION
+  - Improved support for SORT statement for line sequential file with varying length and depending on clause
+  - Improved support for INSPECT statement with multiple count fields
+  - Improved support for INSPECT statement for TAYLLING with AFTER and BEFORE
+  - Improved support for substring operation for GRAPHIC data type
+  - Improved support for HIGH and LOW values to prevent buffer overflow caused by mismatched buffer sizes between COBOL control records and bound program parameters
+  - Added support for IEBDG System utility
+
+- JCL - SORT
+  - Improved support for OVERLAY and date conversion from Julian to Georgian format
+  - Improved support for Y4T format in OUTFIL statements
+  - Improved support for DEBUG ABEND phrase at end of the card
+  - Improved support for OUTFIL INCLUDE(), REMOVECC, NODETAIL, TRAILER1
+  - Improved support for OUTFIL BUILD keyword
+  - Improved support for Y2P year format (Year to Packed)
+  - Improved support for TIMENS and TIME keyword
+  - Improved support for CENTWIN keyword
+  - Improved support for blanks and COUNT keyword
+  - Improved support for Restrict trailer count and characters and advancing characters only on selected records defined by INCLUDE/OMIT condition
+  - Improved support for size-prefixed alphanumeric data types while processing variable-length alphanumeric fields with size prefixes
+  - Improved support for TO= format conversion with LENGTH in TRAILER1 TOTAL
+  - Improved support for JFY=(SHIFT=LEFT/RIGHT), TRAIL, LEAD when record contains one or more fields
+  - Added support for BUILD(...) syntax in addition of BUILD=(...) syntax
+  - Added support for hyphen continuation character
+  - Added support for bytes and integer BI comparison
+
+- JCL - DSNUTILB
+  - Improved support for LOAD command with POSITION(start:end) option
+  - Improved support for LOAD command with columns of type DECIMAL (without EXTERNAL)
+  - Improved support for LOAD command when handling RDW in SORT context
+  - Improved support for NULLIF option
+  - Improved output file path construction during COPY operation
+
+- JCL - IDCAMS
+  - Improved support for ALTER statement to handle non-VSAM files
+  - Improved support for REPRO statement to handle REPLACE parameter for KSDS dataset
+  - Improved support for REPRO command to handle input and output file/dataset existence validation returning RC=12 with error code U4020 when files are missing
+  - Improved support for return codes for DELETE command
+  - Improved support for SPANNED / NONSPANNED and RECOVERY
+  - Improved support for GDG Current Generation when IDCAMS deletes GDG preceded by new generation
+  - Improved support for return code in the case of the PRINT command
+
+- JCL - ICETOOL
+  - Improved support for patterns of SORT, SPLICE, SELECT and OCCUR to accept any order of their parameters
+  - Improved support for flexible operand order parsing and return code
+  - Improved support for COPY/SORT without TO parameter when no Output file is defined in OUTFIL command
+
+- JCL - Misc
+  - Improved support for dollar symbol in PROC execution
+  - Improved support for temporary dataset in JCL processing
+  - Improved support for DD statement to handle inline comment inside parentheses
+  - Improved support for JCL variables replacement
+  - Improved support for IKJ programs and PARM parameter
+  - Added support for JCL DD parameters including DD \* (asterisk) and DD
+
+- Blusam
+  - Improved selective warmup process for multischema datasets cache loading by removing case sensitivity adherence in bluesam.fileList
+  - Improved warmup process where the warmup flag is being set twice during combined data load and program run operations preventing duplicate warmup operations and ensuring consistent behavior across different execution scenarios
+  - Improved support for large KSDS file containing only one record and that record is deleted via REWRITE operation
+  - Improved support for Redis Cache when datasets are deleted using the Blusam delete
+  - Improved support for Redis TTL parameter in put method
+  - Improved support for Redis and large KSDS during high volume write dataset operations
+  - Improved support for DataSet Type values on the data set creation
+  - Improved performance on close operations for large KSDS datasets by 60-88% through avoiding retrieval of large Index payloads when only update status checking is needed
+  - BAC - Improved updateRecord endpoint to use primary key if no id is passed
+
+- SQL
+  - Improved support for "PARTITION BY" clause to accept multiple arguments
+  - Improved support for EXTRACT statement and TIME parameters with HOURS/MINUTES/SECONDS
+
+- IMS
+  - Implemented epoch timestamp-based concat key generation for HSAM segments without sequence fields, ensuring every segment has a valid navigation key
+  - Improved support for GNP call with command D
+  - Improved support for ISRT statement with qualified SSA Parent on record insertion by removing current database position lookup logic that overrides qualified SSAs
+  - Improved support for ISRT statement to allow SSA with D command and all the SSAs below it to be inserted in the DB for logical tables
+  - Improved initialization of PCB status
+  - Improved support IO PCB record
+  - Improved support for PLITDLI call with segments defined in DBD without a parent
+  - Improved support for GNP command on 3rd level Logical Segment
+  - Improved support for Logical pages binding in case of empty MID direct bindings
+  - Improved support for mixed PFK format and implement NEXTLP control function
+  - Improved support for paired segment insertion with logical parents to resolve logical parent database names and implement cumulative field selection algorithm for accurate JOIN condition generation in logical views
+
+- CICS
+  - Improved support for RETURN command to handle group fields
+  - Improved support for ENTER command with TRACEID and TRACENUM
+  - Improved support for ENTER command with group fields
+  - Improved support for WRITE OPERATOR ACTION parameter and numeric action codes (2=IMMEDIATE, 3=EVENTUAL, 11=CRITICAL)
+  - Improved support for WRITE OPERATOR TEXT command for subscripted fields
+  - Improved support for SOAP command
+  - Improved support for GET CONTAINER command with SET option
+  - Improved support for ADDRESS EIB in NOLINKAGE COBOL programs
+  - Improved support for CICS INQUIRE FILE commandt with ENABLEDSTATUS option
+  - Improved propagation of CICS current channel
+  - Improved support for SYNCPOINT with WITH HOLD SQL cursors
+  - Improved support for DEQ command when no enqueue exists
+  - Improved support for RECEIVE command with FLENGTH parameter containing a variable reference
+  - Improved support for XCTL INPUTMSG Parameter
+  - Added support for FETCH ANY command
+  - Added flexible order for CICS MAP and MAPSET
+
+- PL/1
+  - Added support for Language Environment (LE) callable services transformation for PL/I programs
+  - Added support for DAYS and DAYSTODATE built-in function
+  - Added support for LABEL argument for ABEND CICS command
+
+- MQ
+  - Improved queue manager to disconnect queues only the run unit ends
+  - Added support for properties ReplyToQ and ReplyToQMgr in MQ JSM Put operation
+
+### AS400
+
+**Improvements**
+
+- RPG
+  - Improved support of extension specification and end-of-file records
+  - Improved support of sub-procedure returning Boolean type
+  - Improved support of sub-procedure returning pointer type
+  - Improved support for the extender R in EVAL
+  - Improved support of MOVEA operation to handle P extender
+  - Added support for built-in function %REALLOC to reallocates heap storage to a new length, preserving existing data
+  - Improved support for figurative \*ZEROS used as return value
+  - Improved support for \*LONGJUL date format
+
+- COBOL
+  - Improved support for USING phrase when the parameter in is a substring
+  - Improved support "INSPECT" statement with Hexadecimal literal values
+  - Improved support of indicators area on separate mode (INDARA) in display file I/O operations.
+
+- CL
+  - Improved general design of file handling to handle OPNID parameter of RCVF command
+  - Improved support of parameters for SBMJOB command to handle blank values
+  - Improved support for SBMJOB command for RQSDTA parameter without CMD
+  - Improved support of command CPYF to copy from a table to a flat file when CRTFILE(\*YES) and MBROPT argument missing
+  - Improved support for SAVOBJ command to handle spaces in SAVF parameter
+  - Improved support for CLLE command for comparison with empty strings
+  - Improved support of DLTF to handle positional parameter FILE
+  - Improved support for CHKOBJ command to handle parameter
+  - Improved support for OVRDBF command on LF with multiple PFILE
+  - Improved support for OVRDBF command to handle library list resolution
+  - Improved support positional parameter parsing command QCMDEXC with call to OVRDBF and DLTOVR
+  - Improved support for CHGDTAARA command and startpos/length parameters passed as variables
+  - Improved support of generic monitor message CPF9999 and CPF0000 to catch any kind of error message
+  - Improved support for RMVLIBLE command without parameter
+  - Improved support of parameter MSGQ on RCVMSG command
+  - Added support for screen and command of DSPMSG to display messages sent to a workstation queue.
+  - Implemented JPA Query Column Name Resolution in OPNQRYF
+  - Added support for SNDBRKMSG to send an immediate message to a workstation
+  - Improved support for \*COMP in groovy scripts
+  - Improved support for DCLF command on display files with multi condition field
+  - Improved support of CHGVAR to handle conversion from Numeric to Alphanumeric
+  - Improved support of value trimming on cpytoimpf
+  - Improved support of FTP command to handle APPEND statement
+
+- Database access
+  - Improved DAO cache mechanism to ensure reliable sequential reads when records are modified concurrently, maintaining consistent performance.
+  - Enhanced performance of table and partition existence checking components
+  - Improved support of multiple entities database file overriding
+  - Improved DAO creation and registering on multi-threads configuration
+  - Improved support of EOF flag in DAO
+  - Improved initialization of multi-format DAO
+  - Improved partition support for dynamic DAO
+  - Improved performance on DAO operations by optimizing SQL queries and leveraging PostgreSQL row comparison syntax, reducing query execution time by 99.5% (11 minutes to 3 seconds on large tables).
+  - Improved support of member on QTEMP library
+  - Improved support of library list with data area
+  - Improved cache support for input operations with flat file entities
+
+- Screen
+  - Improved support of READ operation on terminal records
+  - Improved support for ambiguous fields within subfile records
+  - Improved support for CHANGE keyword for field modification detection
+  - Improved ERRMSG behavior when working with composite indicators
+  - Improved support for SFLRNA keyword to create subfiles with no active records
+  - Improved robustness of the communication between front-end and back-end around the break messages
+  - Improved the displaying of overlapping field on the terminal
+  - Improved support of DSPF keywords ASSUME and KEEP when the screen size changes
+  - Improved support for focus on screen without editable inputs to enable help screen (F1) from looking up the right description related to the active record
+  - Added generation support of ASSUME and KEEP keywords for COBOL
+  - Improved support for CHGINPDFT(LC) on the frontend
+  - Improved support for USRRSTDSP keyword
+
+- Printer
+  - Added support for Advanced Function Presentation Data Stream (AFPDS) printer control keywords ENDPAGE, LINE, PAGSEG, OVERLAY, FNTCHRSET
+  - Improved text report layout
+  - Upgraded Jasper dependency to version 7
+  - Improved support for PRTF fields that override those in PF files
+  - Added support for font id (2308/2309)
+
+- Job
+  - Added support for default job date format configuration, improving date handling flexibility based on YML properties system.date.format and system.date.separator (new)
+  - Added comprehensive message content filtering support to Job Queue API with multi-field filtering capabilities
+
+- User Space
+  - Improved removal of objects
+  - Added support for error indicator on User Space functions
+  - Improved performance on Redis support
+
+- Misc
+  - Improved plain text conversion of numbers with exponents
+  - Improved resolution of byte array from an indexed array range reference
+  - Improved support of active session on Redis
+  - Improved support of data passed to a Data Queue API.
+  - Improved interactive job persistence
+
+## AWS Blu Age Transformation Engines
+
+### zOS
+
+**Improvements**
+
+- COBOL
+  - Added support for PROGRAM COLLATING SEQUENCE statement
+  - Added support for pound sign (£, \x00A3) in PIC[TURE] clauses
+  - Improved support for communication area (COMMAREA) size determination for undeclared scenarios
+  - Improved support for INSPECT statement with REPLACING phrase and SPACES
+  - Improved support for field definition to handle reserved OCCURS keyword as valid name
+  - Improved support for UNSTRING statement when target items are separated by a comma
+  - Improved support for COPY REPLACING clause
+  - Improved support for CALL statement with CALL and GIVING INTO clauses
+  - Improved support for INSERT and UPDATE with RETURNING clause
+  - Improved support for implicit/explicit SQL-INIT-FLAG field
+  - Improved support for LEVEL 88 variable with VALUE ZEROS under group element
+  - Improved support for state machines and continuation event for end search loop
+  - Improved support for perform section state machines
+  - Improved support for JSON GENERATE statement with RENAME functionality to use fully qualified COBOL field paths instead of simple field names
+
+- JCL
+  - Improved support JCL PROCs containing symbolic parameters with the name "SET"
+
+- CICS
+  - Added support for translator option NOLINKAGE to prevent rewriting of linkage section and procedure division
+  - Improved support for DFHCOMMAREA linkage
+  - Added support of DELAY FOR MINUTES and HOURS options
+
+- SQL
+  - Added support for SQL copybooks with missing 01 leveL
+  - Improved support for EXEC SQL WHENEVER NOT FOUND statement
+  - Improved support for USAGE IS SQL statement with TYPE IS BLOB
+  - Improved parsing of Data Definition Language statements with better keyword handling as identifiers
+  - Improved support for Type ROWID
+  - Improved support for VARCHAR with parameter like (' ',1)
+
+### AS400
+
+**Improvements**
+
+- RPG
+  - Improved support for MOVEA operation with indicator array \*IN
+  - Improved support for MOVE operations for standalone fields with different length
+  - Improved support for MOVE operation with different size Data Structure
+  - Improved support for MOVE operation and indicators
+  - Improved support of Data Structure keyword OVERLAY and ALIGN
+  - Improved field resolution across sub-procedure
+  - Improved support of built-in function %INT, %INTH and %STR
+  - Improved support of GOTO operation to remove unreachable code after RETURN statement
+  - Improved support of statement ENDSR in nested control structures
+  - Improved support of the clause BY VALUE on a sub-procedure parameter to prevent value modification
+  - Improved support of keyword LIKEDS to handle case of copying the properties and fields of a data structure using ALIGN keyword
+  - Improved support for alphanumeric fixed arrays initialization
+  - Improved support for %SCAN to use 0-based indexing
+  - Improved support for RESET operation with \*INZSR subroutine
+  - Improved support for ON-ERROR keyword
+  - Improved support for LOOKUP operation with HI/LO/EQ indicators
+  - Improved support of procedure parameter defined as constant with a LIKE keyword
+  - Added support for the data area keyword \*NAMVAR
+  - Added support for EVAL-CORR operation on fixed format
+  - Improved support of Hexadecimal value assignment (MOVE and EVAL)
+  - Improved support of ON-EXCEPTION clause for message queue API generation
+  - Improved support for QCLRDTAQ with additional parameter groups
+  - Improved support for Return statement by extracting each nested call and replacing each one by its return variable
+
+- DDS
+  - Improved handling of reference fields to prevent circular references
+  - Improved support of JREF keyword for JOIN logical files
+  - Improved support of COMP keyword to handle reference to another field
+  - Added support for size-specified BLOB field types
+  - Added support for ALTER TABLE ADD COLUMN
+
+- CL
+  - Added support of unsigned zoned and packed type to support numeric type defined with specific edit keyword (EDTCDE/EDTWRD)
+
+- PRTF
+  - Improved report template generation to enhance band and page height calculations
+  - Added template generation support for AFPDS printer keywords (ENDPAGE, LINE, PAGSEG, OVERLAY, FNTCHRSET) and POSITION keyword
+
+- COBOL
+  - Improved support for IBM data queue utilities QCLRDTAQ, QRCVDTAQ and QSNDDTAQ
+  - Improved support of COPY DDS statement to generation suffix RECORD only in File Section
+  - Improved support of Program-described file with multiple records
+  - Improved generation of DDS record through a COPY DDS statement
+  - Improved field resolution to handle duplicate field names when LIKE keyword references are present
+  - Improved field resolution when a structure uses the LIKE keyword to reference a DDS record; field references now correctly resolve the original DDS definition by default.
+  - Improved the support of the COPY DDS clause in File Description to generate the DDS record entity in the program context
+  - Added support for hexadecimal literal values in INSPECT instruction
+  - Improved support of COPY clause for DSPF
+  - Improved support for MOVE statement withNX hexadecimal literals
+  - Added RRN support of COBOL workstation output operation
+  - Improved support for dynamic calls when using substring
+  - Improved support for DO HIVAL to avoid infinite loop
+  - Improved support of complex binary condition with mix of OR and AND operators
+  - Improved support of indicators with REWRITE SUBFILE operation
+
+- DAO
+  - Improved generation of large size integers
+  - Improved the support of condition fields defined in a JOIN logical file
+  - Enhanced support of SQL long column names labeling
+
+### AWS Blu Age Transformation Engine & Runtime for GS21
+
+**Improvements**
+
+- Handled records belonging to Multi member sets for JXHDBCLR Utility
+
 ## Release notes 5.1.0
 
 Released on: November 18, 2025
@@ -213,7 +576,7 @@ This version of the AWS Blu Age Runtime has been tested with the following stack
   - Improved support for copybooks containing occurs statement in the dependencies
   - Improved file format generation by removing comma separators in numeric values and adding binary type support for COMP fields
   - Improved support for CALL statement using option BY VALUE ZERO
-  - Improve support for JSON GENERATE statement to handle NAME phrase
+  - Improved support for JSON GENERATE statement to handle NAME phrase
 
 - CICS
   - Improved support for LINK command with SYNCONRETURN option
@@ -701,9 +1064,7 @@ We tested this version of the AWS Blu Age Runtime with the following stack.
   - Improved SQL Grammar to accept quote escape sequence
   - Improved support for packed key types for OVRDBF POSITION.
 
-## AWS Blu Age
-
-Transformation Engine 4.9.0
+## AWS Blu Age Transformation Engine 4.9.0
 
 ### zOS
 
@@ -915,9 +1276,7 @@ We tested this version of the AWS Blu Age Runtime with the following stack.
   - Improved handling of RPG statement RETURN in subroutines
   - Improved the support of user info in SharedContext
 
-## AWS Blu Age
-
-Transformation Engine 4.8.0
+## AWS Blu Age Transformation Engine 4.8.0
 
 ### zOS
 
@@ -2199,7 +2558,7 @@ sections.
 - MFS - Improved support to Generate MFS files with specific extension
 - COBOL - Improved support for REPLACE statement
 - COBOL - Handled dynamic path and MF compiler directive
-- COBOL - Improve support for OMITTED value in CALL Statement
+- COBOL - Improved support for OMITTED value in CALL Statement
 - COBOL - Improved multi-dimensional fields access to support signed value
 - COBOL - Added support for clause OF for FILE STATUS statement
 - COBOL - Improved parsing of statement RESULT-SET-LOCATOR
@@ -3123,9 +3482,7 @@ This runtime is based on Java17, Spring2.7, and Angular16.
   IN1-JAVA-ORGSPRINGFRAMEWORKSECURITY-5905484, CVE-2023-46120, CVE-2023-6481, CVE-2023-6378,
   CVE-2023-5072)
 
-## Modernization tools release
-
-3.10.0
+## Modernization tools release 3.10.0
 
 ### zOS
 
@@ -3160,7 +3517,7 @@ This runtime is based on Java17, Spring2.7, and Angular16.
 - RPG - Improved input specification handling of numeric fields
 - RPG - Improved handling of procedure calls within IF/ELSEIF/WHEN conditions
 - RPG - Improved handling of READ command when called on a dspf file
-- RPG - Improve support for files referring to a non-existing DDS
+- RPG - Improved support for files referring to a non-existing DDS
 - Improve handling of REFFLD when passed a physical record format name
 - Added support to use 'return' as a db column name
 
@@ -3528,7 +3885,7 @@ sections.
 - Improved performance on Jasper report generation
 - Improved decimal display with padding 0s
 - Improved support for ROW/COL field in INFDS
-- Improve support for modified fields from the screen
+- Improved support for modified fields from the screen
 - Added getters for generated report name and path
 - Improved on Dataqueue length
 - Improved autoconfiguration of Job Queues to match new standards in Spring Boot 2.7
@@ -3993,7 +4350,7 @@ sections.
 - Support generation of \*ROUTINE field in PSDS and INFDS (V7-9487)
 - Improve rewriting field XXX to standalone (default value is lost while rewriting)
   (V7-9522)
-- Improve Support of DSPF keywords (V7-9658)
+- Improve support of DSPF keywords (V7-9658)
 - Handling ZEROES default value on binary (V7-9666)
 - Support implicit pointer (V7-9719)
 - Improve the handling of built-in call %size with one parameter (V7-9730)

@@ -3,9 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Tutorial: Getting started with
-
-AWS Mainframe Modernization File Transfer
+# Tutorial: Getting started with AWS Mainframe Modernization File Transfer
 
 AWS Mainframe Modernization File Transfer lets you transfer and convert mainframe data sets for mainframe modernization,
 migration, and augmentation use cases.
@@ -24,25 +22,18 @@ As a user, you can transfer datasets from the mainframe to your Amazon S3 bucket
 
 ###### Topics
 
-- [Step 1: Transfer the agent binaries tar package
-  from AWS to the mainframe logical partition](#filetransfer-agent-binaries "#filetransfer-agent-binaries")
-- [Step 2: Configure the File Transfer agent on the source
-  mainframe](#filetransfer-configure "#filetransfer-configure")
-- [Step 3: Create a data transfer
-  endpoint](#filetransfer-data-transfer-endpoint "#filetransfer-data-transfer-endpoint")
+- [Step 1: Transfer the agent binaries tar package from AWS to the mainframe logical partition](#filetransfer-agent-binaries "#filetransfer-agent-binaries")
+- [Step 2: Configure the File Transfer agent on the source mainframe](#filetransfer-configure "#filetransfer-configure")
+- [Step 3: Create a data transfer endpoint](#filetransfer-data-transfer-endpoint "#filetransfer-data-transfer-endpoint")
 - [Step 4: Create a transfer task](#filetransfer-create-transfer-tasks "#filetransfer-create-transfer-tasks")
 - [Step 5: View transfer task progress](#view-transfer-tasks "#view-transfer-tasks")
 
-## Step 1: Transfer the agent binaries tar package
-
-from AWS to the mainframe logical partition
+## Step 1: Transfer the agent binaries tar package from AWS to the mainframe logical partition
 
 Download tar files from the [M2-agent tar](https://drm0z31ua8gi7.cloudfront.net/filetransfer/m2-agent-v1.0.0.tar "https://drm0z31ua8gi7.cloudfront.net/filetransfer/m2-agent-v1.0.0.tar")
 link.
 
-## Step 2: Configure the File Transfer agent on the source
-
-mainframe
+## Step 2: Configure the File Transfer agent on the source mainframe
 
 In this step, you configure and start the AWS Mainframe Modernization File Transfer agent on the source mainframe.
 The agent is required to facilitate communications between the File Transfer service feature and the source mainframe.
@@ -51,12 +42,9 @@ At least one agent is required per mainframe. More than one agent can be started
 Follow the instructions in [Configure a File Transfer agent](m2-agent-configuration.md "m2-agent-configuration.md") guide to complete File Transfer
 agent installation on the mainframe.
 
-## Step 3: Create a data transfer
+## Step 3: Create a data transfer endpoint
 
-endpoint
-
-Follow steps on [Create data transfer endpoints for
-File Transfer](filetransfer-data-transfer-endpoints.md "filetransfer-data-transfer-endpoints.md") page to create a new
+Follow steps on [Create data transfer endpoints for File Transfer](filetransfer-data-transfer-endpoints.md "filetransfer-data-transfer-endpoints.md") page to create a new
 data transfer endpoint.
 
 ## Step 4: Create a transfer task

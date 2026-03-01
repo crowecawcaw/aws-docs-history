@@ -42,9 +42,7 @@ Some of which include:
   provides an autonomous, objective-driven approach that keeps you in control of
   the mainframe modernization journey.
 
-## Transformation of mainframe application
-
-console walkthrough
+## Transformation of mainframe application console walkthrough
 
 In the AWS Transform web experience, you can perform transformation of your mainframe
 applications from COBOL to Java. To understand how to use this function, follow all

@@ -3,9 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Edit data sets using Rocket Software (formerly Micro Focus) Data File Tools
-
-in Enterprise Developer
+# Edit data sets using Rocket Software (formerly Micro Focus) Data File Tools in Enterprise Developer
 
 You can view and edit data sets in AWS Mainframe Modernization using the Rocket Software runtime for any migrated data
 sets.  The steps in this document will guide you through the process of accessing data sets
@@ -15,14 +13,10 @@ needed. 
 ###### Topics
 
 - [Prerequisites](#edit-datasets-m2.prereq "#edit-datasets-m2.prereq")
-- [Launch Rocket Software(formerly Micro Focus) Data File
-  Tools](#edit-datasets-m2-launch "#edit-datasets-m2-launch")
-- [Edit VSAM data sets stored in the MFDBFH
-  database](#edit-datasets-m2-vsam "#edit-datasets-m2-vsam")
-- [Edit non-VSAM data sets stored in the MFDBFH
-  database](#edit-datasets-m2-nonvsam "#edit-datasets-m2-nonvsam")
-- [Edit VSAM and non-VSAM data sets stored in the
-  File System (EFS/FSx)](#edit-datasets-m2-open "#edit-datasets-m2-open")
+- [Launch Rocket Software(formerly Micro Focus) Data File Tools](#edit-datasets-m2-launch "#edit-datasets-m2-launch")
+- [Edit VSAM data sets stored in the MFDBFH database](#edit-datasets-m2-vsam "#edit-datasets-m2-vsam")
+- [Edit non-VSAM data sets stored in the MFDBFH database](#edit-datasets-m2-nonvsam "#edit-datasets-m2-nonvsam")
+- [Edit VSAM and non-VSAM data sets stored in the File System (EFS/FSx)](#edit-datasets-m2-open "#edit-datasets-m2-open")
 
 ## Prerequisites
 
@@ -30,8 +24,7 @@ Before you start, you must have an application deployed with the data sets  im
 under the AWS Mainframe Modernization service using the Rocket Software engine.
 
 To continue with editing the data sets, you must complete the Step 1, Step 2,  and
-(optionally) Step 3 from the [View data sets as tables and columns in Rocket Enterprise Developer (formerly
-Micro Focus Enterprise Developer)](view-datasets-tables-m2.md "view-datasets-tables-m2.md") page  to
+(optionally) Step 3 from the [View data sets as tables and columns in Rocket Enterprise Developer (formerly Micro Focus Enterprise Developer)](view-datasets-tables-m2.md "view-datasets-tables-m2.md") page  to
 configure the ODBC connection, and Micro Focus datastore (that is, `MFDBFH`).
 
 ###### Important
@@ -39,9 +32,7 @@ configure the ODBC connection, and Micro Focus datastore (that is, `MFDBFH`).
 This guide assumes that you are using Amazon Aurora Postgres as Micro Focus datastore
 (`MFDBFH`)  to store your application data.
 
-## Launch Rocket Software(formerly Micro Focus) Data File
-
-Tools
+## Launch Rocket Software(formerly Micro Focus) Data File Tools
 
 After completing the prerequisites, you launch the Micro Focus Data File Tools by setting up
 the `MFDBFH_CONFIG` environment variable to access the data sets stored in
@@ -70,9 +61,7 @@ mfdatatools2
 
 This opens the Micro Focus Data File Tools in a separate window.
 
-## Edit VSAM data sets stored in the MFDBFH
-
-database
+## Edit VSAM data sets stored in the MFDBFH database
 
 Once you launch the Micro Focus Data File Tools, you open a VSAM data set that is stored in
 the Micro Focus datastore.
@@ -105,9 +94,7 @@ Exclusive** to open the data set.
 
 You can now view or edit the open data set.
 
-## Edit non-VSAM data sets stored in the MFDBFH
-
-database
+## Edit non-VSAM data sets stored in the MFDBFH database
 
 If you want to edit non-VSAM data sets, you open a non-VSAM data set that is stored in
 the Micro Focus datastore.
@@ -142,9 +129,7 @@ You can now view or edit the open data set.
 The edited or updated data sets can be imported back to the Micro Focus datastore using steps
 in [Import data sets for AWS Mainframe Modernization applications](applications-m2-dataset.md "applications-m2-dataset.md") or by using [The dbfhdeploy Command Line Utility](https://www.microfocus.com/documentation/enterprise-developer/ed90/ED-Eclipse/GUID-2A16851F-E475-42C9-B024-37567006B86D.html "https://www.microfocus.com/documentation/enterprise-developer/ed90/ED-Eclipse/GUID-2A16851F-E475-42C9-B024-37567006B86D.html").
 
-## Edit VSAM and non-VSAM data sets stored in the
-
-File System (EFS/FSx)
+## Edit VSAM and non-VSAM data sets stored in the File System (EFS/FSx)
 
 You can also open a data set stored in a file system.
 

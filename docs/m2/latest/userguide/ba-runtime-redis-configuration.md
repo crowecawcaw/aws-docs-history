@@ -3,9 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Available Redis cache properties
-
-in AWS Blu Age Runtime
+# Available Redis cache properties in AWS Blu Age Runtime
 
 You can use this document to learn about the Redis caches in AWS Blu Age Runtime, along with
 Gapwalk configuration, supported Redis properties and how `application-main.yml`

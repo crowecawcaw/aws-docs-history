@@ -316,8 +316,7 @@ Where:
 
     This field is necessary only if you want to customize the complex name (which defaults
      to your sysplex name) that is the same as you defined when creating your File Transfer endpoint. For
-     more information, see [Create data transfer endpoints for
-     File Transfer](filetransfer-data-transfer-endpoints.md "filetransfer-data-transfer-endpoints.md").
+     more information, see [Create data transfer endpoints for File Transfer](filetransfer-data-transfer-endpoints.md "filetransfer-data-transfer-endpoints.md").
 
 ###### Important
 

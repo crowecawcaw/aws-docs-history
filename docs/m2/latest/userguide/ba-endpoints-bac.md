@@ -324,8 +324,7 @@ Use the following endpoints to create or manage multiple data sets at once.
 - [Stream data set](#ba-stream-data-sets "#ba-stream-data-sets")
 - [Delete all data sets](#ba-delete-all-data-sets "#ba-delete-all-data-sets")
 - [Get data set definitions from listcat file](#ba-get-definitions-listcat "#ba-get-definitions-listcat")
-- [Get data set definitions from uploaded
-  list cat file](#ba-get-definitions-uploaded-listcat "#ba-get-definitions-uploaded-listcat")
+- [Get data set definitions from uploaded list cat file](#ba-get-definitions-uploaded-listcat "#ba-get-definitions-uploaded-listcat")
 - [Get a data set](#ba-get-data-set "#ba-get-data-set")
 - [Load listcat from JSON file](#ba-load-listcat "#ba-load-listcat")
 
@@ -475,9 +474,7 @@ paramFilePath
 
 - Returns: a list of data sets
 
-### Get data set definitions from uploaded
-
-list cat file
+### Get data set definitions from uploaded list cat file
 
 - Supported methods: POST
 - Requires authentication and the ROLE_ADMIN role.
@@ -818,8 +815,7 @@ Use the following endpoints to manage user interactions.
 ###### Topics
 
 - [Log a user in](#ba-log-user-in "#ba-log-user-in")
-- [Verify whether at least one user exists in
-  the system](#ba-verify-at-least-one-user-exists "#ba-verify-at-least-one-user-exists")
+- [Verify whether at least one user exists in the system](#ba-verify-at-least-one-user-exists "#ba-verify-at-least-one-user-exists")
 - [Record a new user](#ba-record-new-user "#ba-record-new-user")
 - [Get user info](#ba-user-info "#ba-user-info")
 - [List users](#ba-list-users "#ba-list-users")
@@ -851,9 +847,7 @@ Sample response:
    }
 ```
 
-### Verify whether at least one user exists in
-
-the system
+### Verify whether at least one user exists in the system
 
 - Supported method: GET
 - Path: `/api/services/security/servicelogin/hasAccount`

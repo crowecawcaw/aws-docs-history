@@ -27,14 +27,10 @@ For more information on AWS Blu Age, see [Set up configuration for AWS Blu Age R
 ###### Topics
 
 - [Common properties](#datasets-m2-definition-common "#datasets-m2-definition-common")
-- [Sample data set request format for
-  VSAM](#datasets-m2-definition-vsam "#datasets-m2-definition-vsam")
-- [Sample data set request format for GDG
-  base](#datasets-m2-definition-gdg "#datasets-m2-definition-gdg")
-- [Sample data set request format for PS or GDG
-  generations](#datasets-m2-definition-ps "#datasets-m2-definition-ps")
-- [Sample data set request format for
-  PO](#datasets-m2-definition-po "#datasets-m2-definition-po")
+- [Sample data set request format for VSAM](#datasets-m2-definition-vsam "#datasets-m2-definition-vsam")
+- [Sample data set request format for GDG base](#datasets-m2-definition-gdg "#datasets-m2-definition-gdg")
+- [Sample data set request format for PS or GDG generations](#datasets-m2-definition-ps "#datasets-m2-definition-ps")
+- [Sample data set request format for PO](#datasets-m2-definition-po "#datasets-m2-definition-po")
 
 ## Common properties
 
@@ -122,9 +118,7 @@ follows:
             },
 ```
 
-## Sample data set request format for
-
-VSAM
+## Sample data set request format for VSAM
 
 - AWS Blu Age runtime engine: supported.
 - Rocket Software runtime engine: supported.
@@ -200,9 +194,7 @@ formats, these values must match.
 (Required) Specifies the **source** location:
 that is, the Amazon S3 bucket where you uploaded the data set.
 
-### Blu Age engine-specific
-
-properties
+### Blu Age engine-specific properties
 
 The AWS Blu Age runtime engine supports compression for VSAM data sets. The following
 example shows how you can specify this property in JSON.
@@ -231,9 +223,7 @@ Specify the compression property as follows:
 compressed values. If you have a large data set (typically > 100 Mb),
 consider setting this flag to `true`.
 
-## Sample data set request format for GDG
-
-base
+## Sample data set request format for GDG base
 
 - AWS Blu Age runtime engine: not supported.
 - Rocket Software runtime engine: supported.
@@ -270,9 +260,7 @@ is reached or exceeded. Possible values are `No Scratch and No
  Empty`, or `No Scratch and Empty`. The default is
 `Scratch and No Empty`.
 
-## Sample data set request format for PS or GDG
-
-generations
+## Sample data set request format for PS or GDG generations
 
 - AWS Blu Age runtime engine: not supported.
 - Rocket Software runtime engine: supported.
@@ -330,9 +318,7 @@ record. For fixed-length record formats, these values must match.
 (Required) Specifies the **source** location:
 that is, the Amazon S3 bucket where you uploaded the data set.
 
-## Sample data set request format for
-
-PO
+## Sample data set request format for PO
 
 If you are importing PO data sets, specify `po` as the
 `datasetOrg`. Your JSON should resemble the following example:

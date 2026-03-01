@@ -11,11 +11,8 @@ each runtime engine.
 ###### Topics
 
 - [Tutorial: Set up managed runtime for AWS Blu Age](tutorial-runtime-ba.md "tutorial-runtime-ba.md")
-- [Tutorial: Set up managed runtime for Rocket Software (formerly
-  Micro Focus)](tutorial-runtime-mf.md "tutorial-runtime-mf.md")
+- [Tutorial: Set up managed runtime for Rocket Software (formerly Micro Focus)](tutorial-runtime-mf.md "tutorial-runtime-mf.md")
   To continue learning, see the following tutorials.
 
-- [Tutorial: Setting up the Rocket Software (formerly Micro Focus) build for the
-  BankDemo sample application](tutorial-build-mf.md "tutorial-build-mf.md")
-- [Tutorial: Set up WorkSpaces Applications for use with Rocket Enterprise Analyzer and
-  Rocket Enterprise Developer](set-up-appstream-mf.md "set-up-appstream-mf.md")
+- [Tutorial: Setting up the Rocket Software (formerly Micro Focus) build for the BankDemo sample application](tutorial-build-mf.md "tutorial-build-mf.md")
+- [Tutorial: Set up WorkSpaces Applications for use with Rocket Enterprise Analyzer and Rocket Enterprise Developer](set-up-appstream-mf.md "set-up-appstream-mf.md")

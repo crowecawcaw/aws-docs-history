@@ -16,8 +16,7 @@ Before you begin to use the AWS Blu Age Runtime, do the following:
 - Make sure that you have a modernized application refactored with AWS Blu Age.
 - Choose an AWS Region and one of the compute options that are supported for AWS Blu Age Runtime.
 - Choose the AWS Blu Age Runtime version that you want to use.
-- Review [Infrastructure setup requirements for
-  AWS Blu Age Runtime](ba-infrastructure-setup.md "ba-infrastructure-setup.md") and validate the additional components
+- Review [Infrastructure setup requirements for AWS Blu Age Runtime](ba-infrastructure-setup.md "ba-infrastructure-setup.md") and validate the additional components
   required to run the AWS Blu Age Runtime.
 
 ###### Note

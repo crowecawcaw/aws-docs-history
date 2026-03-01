@@ -19,5 +19,4 @@ This is not compatible with Amazon EKS managed by AWS Fargate.
 - [Set up AWS Blu Age Runtime on container](ba-runtime-deploy-container.md "ba-runtime-deploy-container.md")
 - [Upgrade the AWS Blu Age Runtime on container](ba-runtime-maint-container.md "ba-runtime-maint-container.md")
 - [Set up Amazon CloudWatch alarms for AWS Blu Age Runtime on container](ba-cw-alarms-container.md "ba-cw-alarms-container.md")
-- [Set up licensed dependencies in AWS Blu Age Runtime on
-  container](ba-runtime-dependencies-container.md "ba-runtime-dependencies-container.md")
+- [Set up licensed dependencies in AWS Blu Age Runtime on container](ba-runtime-dependencies-container.md "ba-runtime-dependencies-container.md")

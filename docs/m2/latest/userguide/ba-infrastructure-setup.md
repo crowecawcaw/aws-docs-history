@@ -3,9 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Infrastructure setup requirements for
-
-AWS Blu Age Runtime
+# Infrastructure setup requirements for AWS Blu Age Runtime
 
 This topic describes the minimum infrastructure configuration required to run AWS Blu Age Runtime. The
 following procedures describe how to set up AWS Blu Age Runtime on your compute of choice to deploy a
@@ -18,8 +16,7 @@ has a subnet that is dedicated to your application domain.
 - [Running AWS Blu Age Runtime on Amazon EC2](#ba-running-on-ec2 "#ba-running-on-ec2")
 - [Running AWS Blu Age Runtime on Amazon ECS on Amazon EC2](#ba-running-on-ecs-on-ec2 "#ba-running-on-ecs-on-ec2")
 - [Running AWS Blu Age Runtime on Amazon EKS on Amazon EC2](#ba-running-on-eks-on-ec2 "#ba-running-on-eks-on-ec2")
-- [Running AWS Blu Age Runtime on Amazon ECS managed by
-  AWS Fargate](#ba-running-on-fargate "#ba-running-on-fargate")
+- [Running AWS Blu Age Runtime on Amazon ECS managed by AWS Fargate](#ba-running-on-fargate "#ba-running-on-fargate")
 
 ## Infrastructure requirements
 
@@ -124,9 +121,7 @@ To create an Amazon EC2 instance, use the following steps.
 5. Amazon EKS will automatically assign the security group to the spawned Amazon EC2
    instances.
 
-## Running AWS Blu Age Runtime on Amazon ECS managed by
-
-AWS Fargate
+## Running AWS Blu Age Runtime on Amazon ECS managed by AWS Fargate
 
 Create an Amazon ECS cluster with **AWS Fargate (serverless)** as an
 underlying infrastructure. See [Getting started with Fargate](../../../AmazonECS/latest/developerguide/getting-started-fargate.md "../../../AmazonECS/latest/developerguide/getting-started-fargate.md") in the _Amazon Elastic Container Service Developer Guide_.

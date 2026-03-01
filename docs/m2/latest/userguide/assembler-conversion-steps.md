@@ -3,9 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Tutorial: Convert code from Assembler to COBOL
-
-in AWS Mainframe Modernization
+# Tutorial: Convert code from Assembler to COBOL in AWS Mainframe Modernization
 
 You can use this document as a step-by-step guide to understand how to convert the
 mainframe modernization Assembler code to COBOL. In addition to this, you can also refer the
@@ -20,25 +18,18 @@ process.
 - [Step 2: Create Amazon S3 buckets](assembler-conversion-steps.md#tutorial-assembler-conversion-create-bucket "assembler-conversion-steps.md#tutorial-assembler-conversion-create-bucket")
 - [Step 3: Create IAM policy](assembler-conversion-steps.md#tutorial-assembler-conversion-IAM-policy "assembler-conversion-steps.md#tutorial-assembler-conversion-IAM-policy")
 - [Step 4: Create an IAM role](assembler-conversion-steps.md#tutorial-assembler-conversion-IAM-role "assembler-conversion-steps.md#tutorial-assembler-conversion-IAM-role")
-- [Step 5: Attach the IAM policy to the IAM
-  role](assembler-conversion-steps.md#tutorial-assembler-conversion-attach "assembler-conversion-steps.md#tutorial-assembler-conversion-attach")
+- [Step 5: Attach the IAM policy to the IAM role](assembler-conversion-steps.md#tutorial-assembler-conversion-attach "assembler-conversion-steps.md#tutorial-assembler-conversion-attach")
 - [Step 6: Create the CodeBuild project](assembler-conversion-steps.md#tutorial-assembler-conversion-create-project "assembler-conversion-steps.md#tutorial-assembler-conversion-create-project")
-  - [Step 6.1: Create the Define
-    project](assembler-conversion-steps.md#tutorial-conversion-define-project "assembler-conversion-steps.md#tutorial-conversion-define-project")
-  - [Step 6.2: Create the Code
-    Analysis project](assembler-conversion-steps.md#tutorial-conversion-analysis-project "assembler-conversion-steps.md#tutorial-conversion-analysis-project")
-  - [Step 6.3: Create the Code
-    Conversion project](assembler-conversion-steps.md#tutorial-conversion-code-project "assembler-conversion-steps.md#tutorial-conversion-code-project")
+  - [Step 6.1: Create the Define project](assembler-conversion-steps.md#tutorial-conversion-define-project "assembler-conversion-steps.md#tutorial-conversion-define-project")
+  - [Step 6.2: Create the Code Analysis project](assembler-conversion-steps.md#tutorial-conversion-analysis-project "assembler-conversion-steps.md#tutorial-conversion-analysis-project")
+  - [Step 6.3: Create the Code Conversion project](assembler-conversion-steps.md#tutorial-conversion-code-project "assembler-conversion-steps.md#tutorial-conversion-code-project")
 
-- [Step 7: Define the project
-  and upload the source code](assembler-conversion-steps.md#tutorial-assembler-conversion-define-upload "assembler-conversion-steps.md#tutorial-assembler-conversion-define-upload")
+- [Step 7: Define the project and upload the source code](assembler-conversion-steps.md#tutorial-assembler-conversion-define-upload "assembler-conversion-steps.md#tutorial-assembler-conversion-define-upload")
 - [Step 8: Run the analysis and understand the reports](assembler-conversion-steps.md#tutorial-assembler-conversion-run-analysis "assembler-conversion-steps.md#tutorial-assembler-conversion-run-analysis")
 - [Step 9: Run the Code conversion](assembler-conversion-steps.md#tutorial-assembler-conversion-run-code "assembler-conversion-steps.md#tutorial-assembler-conversion-run-code")
 - [Step 10: Verify the Code conversion](assembler-conversion-steps.md#tutorial-assembler-conversion-verify "assembler-conversion-steps.md#tutorial-assembler-conversion-verify")
-- [Step 11: Download converted
-  code](assembler-conversion-steps.md#tutorial-assembler-conversion-download "assembler-conversion-steps.md#tutorial-assembler-conversion-download")
-- [Clean up
-  resources](assembler-conversion-steps.md#tutorial-assembler-conversion-clean-resources "assembler-conversion-steps.md#tutorial-assembler-conversion-clean-resources")
+- [Step 11: Download converted code](assembler-conversion-steps.md#tutorial-assembler-conversion-download "assembler-conversion-steps.md#tutorial-assembler-conversion-download")
+- [Clean up resources](assembler-conversion-steps.md#tutorial-assembler-conversion-clean-resources "assembler-conversion-steps.md#tutorial-assembler-conversion-clean-resources")
 
 ## Prerequisites
 
@@ -204,9 +195,7 @@ JSON
 
 9. Choose **Create role**.
 
-## Step 5: Attach the IAM policy to the IAM
-
-role
+## Step 5: Attach the IAM policy to the IAM role
 
 In this step, you attach the IAM policy you previously created to the
 `IAMRoleTaskExecutionRoleForCodeBuild` IAM role.
@@ -226,9 +215,7 @@ In this step, you attach the IAM policy you previously created to the
 In this step, you create three different CodeBuild projects based on the
 `buildspec.yml` file mentioned above.
 
-### Step 6.1: Create the Define
-
-project
+### Step 6.1: Create the Define project
 
 ###### To create the Define project
 
@@ -315,9 +302,7 @@ information, see [Environment variables in build environments](../../../codebuil
 
 14. Choose **Create build project**.
 
-### Step 6.2: Create the Code
-
-Analysis project
+### Step 6.2: Create the Code Analysis project
 
 ###### To create the Code Analysis project
 
@@ -412,9 +397,7 @@ information, see [Environment variables in build environments](../../../codebuil
 
 15. Choose **Create build project**.
 
-### Step 6.3: Create the Code
-
-Conversion project
+### Step 6.3: Create the Code Conversion project
 
 ###### To create the Code Conversion project
 
@@ -505,9 +488,7 @@ information, see [Environment variables in build environments](../../../codebuil
 
 15. Choose **Create build project**.
 
-## Step 7: Define the project
-
-and upload the source code
+## Step 7: Define the project and upload the source code
 
 The Define Project sets up the project folder and configuration files, initialized with default configurations.
 In this step, you start the build. To do this:
@@ -882,9 +863,7 @@ subdirectories:
    `3-awsm2ccm-convert` is marked **Succeeded**, download the COBOL code and copybooks from the
    **\_Converted/** directory.
 
-## Step 11: Download converted
-
-code
+## Step 11: Download converted code
 
 In this step, download the COBOL code and copybooks from the **\_Converted/** directory, and compile them in the target COBOL
 environment.
@@ -904,9 +883,7 @@ bucket/ARTIFACTS/prj_codebuild_01/_Converted/ . --recursive
 5. Analyze and compile the converted COBOL in the target COBOL
    environment.
 
-## Clean up
-
-resources
+## Clean up resources
 
 If you no longer need the resources that you created for this tutorial, delete them to
 avoid additional charges. To do so, complete the following steps:

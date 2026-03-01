@@ -3,9 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Access AWS Mainframe Modernization using an AWS PrivateLink interface
-
-endpoint
+# Access AWS Mainframe Modernization using an AWS PrivateLink interface endpoint
 
 You can use AWS PrivateLink to create a private connection between your VPC and
 AWS Mainframe Modernization. You can access AWS Mainframe Modernization as if it were in your VPC, without the

@@ -3,9 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Export data sets for AWS Mainframe Modernization
-
-applications
+# Export data sets for AWS Mainframe Modernization applications
 
 With AWS Mainframe Modernization you can export data sets to use with your applications. You can specify the
 data sets to be exported in a JSON file stored in an Amazon S3 bucket, or you can specify data

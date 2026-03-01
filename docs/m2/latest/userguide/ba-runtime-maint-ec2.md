@@ -10,26 +10,22 @@ This guide describes how to upgrade the AWS Blu Age Runtime on Amazon EC2.
 ###### Topics
 
 - [Prerequisites](#ba-runtime-maint-prereq "#ba-runtime-maint-prereq")
-- [Upgrade the AWS Blu Age Runtime in the Amazon EC2
-  instance](#ba-runtime-maint-copy-files "#ba-runtime-maint-copy-files")
-- [Upgrade the AWS Blu Age Runtime in a
-  container](#ba-runtime-maint-copy-files "#ba-runtime-maint-copy-files")
+- [Upgrade the AWS Blu Age Runtime in the Amazon EC2 instance](#ba-runtime-maint-copy-files "#ba-runtime-maint-copy-files")
+- [Upgrade the AWS Blu Age Runtime in a container](#ba-runtime-maint-copy-files "#ba-runtime-maint-copy-files")
 
 ## Prerequisites
 
 Before you begin, make sure you meet the following prerequisites.
 
 - To check if there are specific instructions for your version, see [Upgrading instructions for AWS Blu Age](ba-migration-notes.md "ba-migration-notes.md").
-- Complete [AWS Blu Age Runtime prerequisites](ba-runtime-setup-prereq.md "ba-runtime-setup-prereq.md") and [Onboarding AWS Blu Age Runtime](ba-runtime-setup-onboard.md "ba-runtime-setup-onboard.md") .
+- Complete [AWS Blu Age Runtime prerequisites](ba-runtime-setup-prereq.md "ba-runtime-setup-prereq.md") and [Onboarding AWS Blu Age Runtime](ba-runtime-setup-onboard.md "ba-runtime-setup-onboard.md").
 - Ensure that you have an Amazon EC2 instance with an existing AWS Blu Age Runtime installation. For more
   information, see [Get started with Amazon EC2 Linux instances](../../../AWSEC2/latest/UserGuide/EC2_GetStarted.md "../../../AWSEC2/latest/UserGuide/EC2_GetStarted.md").
 - Make sure you can connect to the Amazon EC2 instance successfully, for example, by using
   SSM.
 - Download the AWS Blu Age Runtime version you want to upgrade to. The framework consists of two archive files : `gapwalk-x.y.z.zip` and `aws-bluage-webapps-x.y.z.zip`. For more information, see [AWS Blu Age Runtime artifacts](ba-runtime-artifacts.md "ba-runtime-artifacts.md").
 
-## Upgrade the AWS Blu Age Runtime in the Amazon EC2
-
-instance
+## Upgrade the AWS Blu Age Runtime in the Amazon EC2 instance
 
 Complete the following steps to upgrade the AWS Blu Age Runtime.
 
@@ -101,9 +97,7 @@ The response should be empty.
 
 The AWS Blu Age runtime is successfully upgraded.
 
-## Upgrade the AWS Blu Age Runtime in a
-
-container
+## Upgrade the AWS Blu Age Runtime in a container
 
 Complete the following steps to upgrade the AWS Blu Age Runtime.
 

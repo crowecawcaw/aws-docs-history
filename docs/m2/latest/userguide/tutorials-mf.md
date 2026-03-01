@@ -11,11 +11,8 @@ application, using templates with Rocket Enterprise Developer, and setting up En
 
 ###### Topics
 
-- [Tutorial: Setting up the Rocket Software (formerly Micro Focus) build for the
-  BankDemo sample application](tutorial-build-mf.md "tutorial-build-mf.md")
-- [Tutorial: Set up WorkSpaces Applications for use with Rocket Enterprise Analyzer and
-  Rocket Enterprise Developer](set-up-appstream-mf.md "set-up-appstream-mf.md")
-- [Tutorial: Use templates with Rocket Enterprise Developer (formerly
-  Micro Focus Enterprise Developer)](tutorial-templates-ed.md "tutorial-templates-ed.md")
+- [Tutorial: Setting up the Rocket Software (formerly Micro Focus) build for the BankDemo sample application](tutorial-build-mf.md "tutorial-build-mf.md")
+- [Tutorial: Set up WorkSpaces Applications for use with Rocket Enterprise Analyzer and Rocket Enterprise Developer](set-up-appstream-mf.md "set-up-appstream-mf.md")
+- [Tutorial: Use templates with Rocket Enterprise Developer (formerly Micro Focus Enterprise Developer)](tutorial-templates-ed.md "tutorial-templates-ed.md")
 - [Tutorial: Set up Enterprise Analyzer on WorkSpaces Applications](set-up-ea.md "set-up-ea.md")
 - [Tutorial: Set up Rocket Enterprise Developer on WorkSpaces Applications](set-up-ed.md "set-up-ed.md")

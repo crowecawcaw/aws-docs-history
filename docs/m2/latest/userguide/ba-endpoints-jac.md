@@ -31,8 +31,7 @@ administrators to deal with resources on daily basis.
 - [List JICS GROUPS](#list-jics-groups "#list-jics-groups")
 - [List JICS GROUPS for a given LIST](#list-jics-groups-given-list "#list-jics-groups-given-list")
 - [LIST JICS resources for a given GROUP](#list-jics-resources-given-group "#list-jics-resources-given-group")
-- [LIST JICS resources for a given GROUP
-  (alternative using a name)](#list-jics-resources-given-group-alt "#list-jics-resources-given-group-alt")
+- [LIST JICS resources for a given GROUP (alternative using a name)](#list-jics-resources-given-group-alt "#list-jics-resources-given-group-alt")
 - [Editing the owned GROUPS of several LISTS](#edit-owned-groups-lists "#edit-owned-groups-lists")
 - [Delete a LIST](#delete-list "#delete-list")
 - [Delete a GROUP](#delete-group "#delete-group")
@@ -216,9 +215,7 @@ Sample request:
   are returned in no particular order and are of different types, like PROGRAM, TRANSACTION,
   FILE, and so on.
 
-### LIST JICS resources for a given GROUP
-
-(alternative using a name)
+### LIST JICS resources for a given GROUP (alternative using a name)
 
 - Supported method: POST
 - Requires authentication

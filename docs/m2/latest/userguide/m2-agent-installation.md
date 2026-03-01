@@ -19,12 +19,10 @@ This guide is only for the mainframe system programmers.
 - [Step 3: Mount the filesystem](#mount-filesystem "#mount-filesystem")
 - [Step 4: Verify the mount](#verify-mount "#verify-mount")
 - [Step 5: Enter OMVS](#enter-omvs "#enter-omvs")
-- [Step 6: Set the agent installation directory environment
-  variable](#agent-directory "#agent-directory")
+- [Step 6: Set the agent installation directory environment variable](#agent-directory "#agent-directory")
 - [Step 7: Set the work directory environment variable](#work-directory "#work-directory")
 - [Step 8: Create the work directory](#create-work-directory "#create-work-directory")
-- [Step 9: Copy the agent tar file and copy the work
-  directory](#agent-tar-package "#agent-tar-package")
+- [Step 9: Copy the agent tar file and copy the work directory](#agent-tar-package "#agent-tar-package")
 - [Step 10: Finish the agent installation](#finish-agent-installation "#finish-agent-installation")
 
 ## Step 1: Create a zFS data set for the M2-agent
@@ -86,9 +84,7 @@ Use the following command to enter OMVS:
 TSO OMVS
 ```
 
-## Step 6: Set the agent installation directory environment
-
-variable
+## Step 6: Set the agent installation directory environment variable
 
 Use the following command to set the agent installation directory environment:
 
@@ -116,9 +112,7 @@ Use the following command to set the work directory environment:
 mkdir -p $WORK_DIR
 ```
 
-## Step 9: Copy the agent tar file and copy the work
-
-directory
+## Step 9: Copy the agent tar file and copy the work directory
 
 Download the agent tar file from AWS using the [M2 agent
 link](https://drm0z31ua8gi7.cloudfront.net/filetransfer/m2-agent-v1.0.0.tar "https://drm0z31ua8gi7.cloudfront.net/filetransfer/m2-agent-v1.0.0.tar").

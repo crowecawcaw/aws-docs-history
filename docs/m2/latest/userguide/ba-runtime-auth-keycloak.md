@@ -3,9 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Configure Gapwalk OAuth2 authentication with
-
-Keycloak
+# Configure Gapwalk OAuth2 authentication with Keycloak
 
 This topic describes how to configure OAuth2 authentication for Gapwalk applications using
 Keycloak as an identity provider (IdP). In this tutorial we use Keycloak 24.0.0.

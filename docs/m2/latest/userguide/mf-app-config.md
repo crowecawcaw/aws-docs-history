@@ -3,22 +3,17 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Configure the Rocket Software (formerly Micro Focus) managed
-
-application
+# Configure the Rocket Software (formerly Micro Focus) managed application
 
 You can configure your applications with Rocket Software runtime engine to customize additional
 properties including integrations.
 
 ###### Topics
 
-- [Supported third party integrations for
-  Rocket Software](mf-app-config.md#mf-app-config-integations "mf-app-config.md#mf-app-config-integations")
+- [Supported third party integrations for Rocket Software](mf-app-config.md#mf-app-config-integations "mf-app-config.md#mf-app-config-integations")
   - [Printers](mf-app-config.md#mf-app-config-integations-printers "mf-app-config.md#mf-app-config-integations-printers")
 
-## Supported third party integrations for
-
-Rocket Software
+## Supported third party integrations for Rocket Software
 
 To make use of third party integrations, your AWS Mainframe Modernization managed environment must use a Rocket Software
 engine version that supports this type of configuration. Engine versions with the

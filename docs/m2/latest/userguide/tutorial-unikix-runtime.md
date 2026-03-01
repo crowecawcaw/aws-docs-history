@@ -3,9 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Tutorial: Deploy CardDemo application on NTT
-
-DATA
+# Tutorial: Deploy CardDemo application on NTT DATA
 
 This page guides you through the step-by-step process for deploying the CardDemo sample
 application on the AWS Mainframe Modernization replatform with NTT DATA Unikix runtime.
@@ -24,12 +22,10 @@ repository for CardDemo](https://github.com/aws-samples/aws-mainframe-modernizat
 - [Step 1: Prepare the environment](#tutorial-unikix-prepare "#tutorial-unikix-prepare")
 - [Step 2: Create a TPE region](#tutorial-unikix-tpe "#tutorial-unikix-tpe")
 - [Step 3: Create the BPE node and subsystem](#tutorial-unikix-bpe "#tutorial-unikix-bpe")
-- [Step 4: Compile and deploy CardDemo
-  application](#tutorial-unikix-compile "#tutorial-unikix-compile")
+- [Step 4: Compile and deploy CardDemo application](#tutorial-unikix-compile "#tutorial-unikix-compile")
 - [Step 5: Import BPE and TPE catalog](#tutorial-unikix-import "#tutorial-unikix-import")
 - [Step 6: Start and connect TPE with BPE](#unikix-tutorial-connect "#unikix-tutorial-connect")
-- [Step 7: Run the CardDemo
-  application](#unikix-tutorial-run-application "#unikix-tutorial-run-application")
+- [Step 7: Run the CardDemo application](#unikix-tutorial-run-application "#unikix-tutorial-run-application")
 - [Troubleshooting](#tutorial-unikix-troubleshoot "#tutorial-unikix-troubleshoot")
 
 ## Deployment flow diagram
@@ -278,9 +274,7 @@ bam
 source $EBMHOME/batchenv sys1
 ```
 
-## Step 4: Compile and deploy CardDemo
-
-application
+## Step 4: Compile and deploy CardDemo application
 
 In this step, you compile the COBOL programs and deploy application artifacts such as
 JCL, procedures, data files, and CICS resource definitions.
@@ -431,9 +425,7 @@ ebmsys -t
 
 ![Displays the Subsystem name as sys1. TPE is connected and the TPE user is ec2-user.](images/unikix-start-1.png)
 
-## Step 7: Run the CardDemo
-
-application
+## Step 7: Run the CardDemo application
 
 In this step, you run the CardDemo application in the TN3270 terminal emulator.
 
@@ -513,9 +505,7 @@ batch jobs.
 
 Following are some common errors you may find when setting up the CardDemo application.
 
-### Error: Licensing
-
-error
+### Error: Licensing error
 
 If you receive a license failure error during when following this tutorial, it
 could be that the **IMDSv2** is enabled in your EC2.
@@ -523,9 +513,7 @@ You can resolve this issue by modifying the instance metadata option **IMDSv2** 
 mentioned in [Restore
 the use of IMDSv1](../../../AWSEC2/latest/UserGuide/configuring-IMDS-existing-instances.md "../../../AWSEC2/latest/UserGuide/configuring-IMDS-existing-instances.md") in the _Amazon EC2 user guide_.
 
-### Error: TPE is not
-
-connected to BPE
+### Error: TPE is not connected to BPE
 
 If the TPE is not connected to BPE, make sure the **VSAM
 Configuration Table** is configured correctly with BPE Node directory.

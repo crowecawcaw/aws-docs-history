@@ -13,8 +13,7 @@ alarm setup to configure and manager your runtime environment.
 
 - [AWS Blu Age Runtime prerequisites](ba-runtime-setup-prereq.md "ba-runtime-setup-prereq.md")
 - [Onboarding AWS Blu Age Runtime](ba-runtime-setup-onboard.md "ba-runtime-setup-onboard.md")
-- [Infrastructure setup requirements for
-  AWS Blu Age Runtime](ba-infrastructure-setup.md "ba-infrastructure-setup.md")
+- [Infrastructure setup requirements for AWS Blu Age Runtime](ba-infrastructure-setup.md "ba-infrastructure-setup.md")
 - [AWS Blu Age Runtime artifacts](ba-runtime-artifacts.md "ba-runtime-artifacts.md")
 - [Deploy AWS Blu Age Runtime on Amazon EC2](ba-deploy-ec2.md "ba-deploy-ec2.md")
 - [Deploy AWS Blu Age Runtime on containers on Amazon ECS and Amazon EKS](ba-deploy-container.md "ba-deploy-container.md")

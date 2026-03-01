@@ -3,9 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Tutorial: Setting up the Rocket Software (formerly Micro Focus) build for the
-
-BankDemo sample application
+# Tutorial: Setting up the Rocket Software (formerly Micro Focus) build for the BankDemo sample application
 
 AWS Mainframe Modernization provides you with the ability to set up builds and continuous integration/continuous delivery (CI/CD) pipelines for your migrated applications.
 These builds and pipelines use AWS CodeBuild, AWS CodeCommit, and AWS CodePipeline to provide these capabilities.
@@ -32,15 +30,13 @@ steps required to modernize a mainframe application.
 ###### Topics
 
 - [Prerequisites](#tutorial-build-mf-prerequisites "#tutorial-build-mf-prerequisites")
-- [Step 1: Share the build assets with AWS
-  account](#tutorial-build-mf-assets "#tutorial-build-mf-assets")
+- [Step 1: Share the build assets with AWS account](#tutorial-build-mf-assets "#tutorial-build-mf-assets")
 - [Step 2: Create Amazon S3 buckets](#tutorial-build-mf-s3 "#tutorial-build-mf-s3")
 - [Step 3: Create the build spec file](#tutorial-build-mf-spec "#tutorial-build-mf-spec")
 - [Step 4: Upload the source files](#tutorial-build-mf-upload "#tutorial-build-mf-upload")
 - [Step 5: Create IAM policies](#tutorial-build-mf-IAM-policy "#tutorial-build-mf-IAM-policy")
 - [Step 6: Create an IAM role](#tutorial-build-mf-IAM-role "#tutorial-build-mf-IAM-role")
-- [Step 7: Attach the IAM policies to the IAM
-  role](#tutorial-build-mf-attach "#tutorial-build-mf-attach")
+- [Step 7: Attach the IAM policies to the IAM role](#tutorial-build-mf-attach "#tutorial-build-mf-attach")
 - [Step 8: Create the CodeBuild project](#tutorial-build-mf-create-project "#tutorial-build-mf-create-project")
 - [Step 9: Start the build](#tutorial-build-mf-start "#tutorial-build-mf-start")
 - [Step 10: Download output artifacts](#tutorial-build-mf-download-output "#tutorial-build-mf-download-output")
@@ -59,9 +55,7 @@ Before you start this tutorial, complete the following prerequisites.
   development, and build assets**, choose **Share assets with my AWS
   account**.
 
-## Step 1: Share the build assets with AWS
-
-account
+## Step 1: Share the build assets with AWS account
 
 In this step, you ensure that you share the build assets with your AWS account,
 especially in the Region where assets are being used.
@@ -278,9 +272,7 @@ JSON
 
 9. Choose **Create role**.
 
-## Step 7: Attach the IAM policies to the IAM
-
-role
+## Step 7: Attach the IAM policies to the IAM role
 
 In this step, you attach the two IAM policies you previously created to the
 `BankdemoCodeBuildServiceRole` IAM role.

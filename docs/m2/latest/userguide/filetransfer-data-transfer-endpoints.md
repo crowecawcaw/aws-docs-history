@@ -3,9 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Create data transfer endpoints for
-
-File Transfer
+# Create data transfer endpoints for File Transfer
 
 Data transfer endpoints enable connectivity with the source mainframe, and support high availability,
 scalability, and streamlined management of agents. Individual agents are installed on

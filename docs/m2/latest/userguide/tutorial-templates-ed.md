@@ -3,9 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Tutorial: Use templates with Rocket Enterprise Developer (formerly
-
-Micro Focus Enterprise Developer)
+# Tutorial: Use templates with Rocket Enterprise Developer (formerly Micro Focus Enterprise Developer)
 
 This tutorial describes how to use templates and predefined projects with Rocket Enterprise Developer. It covers
 three use cases. All of the use cases use the sample code provided in the BankDemo sample. To
@@ -18,17 +16,12 @@ the compiler can run only on the Enterprise Server provided with Enterprise Deve
 
 ###### Topics
 
-- [Use Case 1 - Using the COBOL Project Template containing source
-  components](#tutorial-templates-ed-step1 "#tutorial-templates-ed-step1")
-- [Use Case 2 - Using the COBOL Project Template without source
-  components](#tutorial-templates-ed-step2 "#tutorial-templates-ed-step2")
-- [Use Case 3 - Using the pre-defined COBOL project linking to the
-  source folders](#tutorial-templates-ed-step3 "#tutorial-templates-ed-step3")
+- [Use Case 1 - Using the COBOL Project Template containing source components](#tutorial-templates-ed-step1 "#tutorial-templates-ed-step1")
+- [Use Case 2 - Using the COBOL Project Template without source components](#tutorial-templates-ed-step2 "#tutorial-templates-ed-step2")
+- [Use Case 3 - Using the pre-defined COBOL project linking to the source folders](#tutorial-templates-ed-step3 "#tutorial-templates-ed-step3")
 - [Using the Region Definition JSON Template](#tutorial-templates-ed-step4 "#tutorial-templates-ed-step4")
 
-## Use Case 1 - Using the COBOL Project Template containing source
-
-components
+## Use Case 1 - Using the COBOL Project Template containing source components
 
 This use case requires you to copy the source components into the Template directory
 structure as part of the demo pre setup steps. In the
@@ -60,12 +53,9 @@ corresponding ASCII data files.
 Because the source template structure contains all the source items, these files are
 copied to the local project and therefore are automatically built in Enterprise Developer.
 
-## Use Case 2 - Using the COBOL Project Template without source
+## Use Case 2 - Using the COBOL Project Template without source components
 
-components
-
-Steps 1 to 3 are identical to [Use Case 1 - Using the COBOL Project Template containing source
-components](#tutorial-templates-ed-step1 "#tutorial-templates-ed-step1").
+Steps 1 to 3 are identical to [Use Case 1 - Using the COBOL Project Template containing source components](#tutorial-templates-ed-step1 "#tutorial-templates-ed-step1").
 
 The `System` structure in this use case also contains a complete resource
 definition file with the required entries for BankDemo, the required catalog with entries added,
@@ -90,9 +80,7 @@ pre-populated. Choose **Finish**.
 After the source template structure contains all the source items, they are built
 automatically in Enterprise Developer.
 
-## Use Case 3 - Using the pre-defined COBOL project linking to the
-
-source folders
+## Use Case 3 - Using the pre-defined COBOL project linking to the source folders
 
 1. Start Enterprise Developer and specify the chosen workspace.
 

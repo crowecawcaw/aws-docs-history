@@ -3,9 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Prerequisites for setting up Rocket Software (formerly Micro Focus) (on
-
-Amazon EC2)
+# Prerequisites for setting up Rocket Software (formerly Micro Focus) (on Amazon EC2)
 
 When you set up Rocket Software (on Amazon EC2), make sure you meet the following prerequisites.
 

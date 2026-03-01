@@ -22,10 +22,8 @@ needed.
 - [Other files (groovy, sql, etc.)](#ba-runtime-config-app-files "#ba-runtime-config-app-files")
 - [Additional web application](#ba-runtime-config-app-webapp "#ba-runtime-config-app-webapp")
 - [Enable properties for AWS Blu Age Runtime](ba-runtime-key-value.md "ba-runtime-key-value.md")
-- [Available Redis cache properties
-  in AWS Blu Age Runtime](ba-runtime-redis-configuration.md "ba-runtime-redis-configuration.md")
-- [Configure security for Gapwalk
-  applications](ba-runtime-security.md "ba-runtime-security.md")
+- [Available Redis cache properties in AWS Blu Age Runtime](ba-runtime-redis-configuration.md "ba-runtime-redis-configuration.md")
+- [Configure security for Gapwalk applications](ba-runtime-security.md "ba-runtime-security.md")
 
 ## Application configuration basics
 

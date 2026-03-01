@@ -3,9 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Create AWS resources for a migrated
-
-application
+# Create AWS resources for a migrated application
 
 In order to run your migrated application in AWS, you must create some AWS resources
 with other AWS services. The resources you must create include the following:

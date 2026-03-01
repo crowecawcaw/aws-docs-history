@@ -3,9 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Troubleshooting: AWS Blu Insights does not open from the
-
-console
+# Troubleshooting: AWS Blu Insights does not open from the console
 
 This page describes how you can resolve Blu Insights page not opening from the AWS Mainframe Modernization
 console.

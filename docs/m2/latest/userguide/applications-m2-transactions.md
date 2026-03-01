@@ -3,9 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Manage transactions for AWS Mainframe Modernization
-
-applications
+# Manage transactions for AWS Mainframe Modernization applications
 
 With AWS Mainframe Modernization you can run an application, by request, at the same time as many other users who
 submit requests to run the same application using the same files and programs. A single
@@ -14,9 +12,7 @@ processing.
 
 These instructions assume that you have completed the steps in [Set up for AWS Mainframe Modernization](setting-up.md "setting-up.md") and in [Create an AWS Mainframe Modernization application](applications-m2-create.md "applications-m2-create.md").
 
-## Manage transactions for
-
-applications
+## Manage transactions for applications
 
 ###### To manage transactions for applications
 

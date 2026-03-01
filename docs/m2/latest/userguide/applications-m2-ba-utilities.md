@@ -3,9 +3,7 @@ capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Env
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Configure access to utilities for managed
-
-applications
+# Configure access to utilities for managed applications
 
 When you refactor a mainframe application with AWS Blu Age, you might need to provide support for
 various legacy platform utility programs, such as IDCAMS, INFUTILB, SORT, and so on, if your
@@ -190,9 +188,7 @@ spring:
          maxLifetime: XXXX
 ```
 
-#### Other utility data
-
-sources
+#### Other utility data sources
 
 In addition to the primary data source, you can provide other utility data sources.
 
@@ -315,9 +311,7 @@ Valid values are as follows:
 jcl.type : mvs
 ```
 
-### Database Unload utilities related
-
-properties
+### Database Unload utilities related properties
 
 Use these properties to configure utilities that unload database tables to data sets. All
 of the following properties are optional.
@@ -433,9 +427,7 @@ Possible values are space or low values. Default is space.
 unload.columnFiller: space
 ```
 
-### Database Load related
-
-properties
+### Database Load related properties
 
 Use these properties to configure utilities that load data set records into a target
 database, for example, DSNUTILB. All of the following properties are optional.

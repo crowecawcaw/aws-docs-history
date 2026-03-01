@@ -8,8 +8,7 @@ availability change](mainframe-modernization-availability-change.md "mainframe-m
 Transfer tasks are used to specify the data sets to be transferred from the mainframe to
 Amazon S3 and allow you to choose the code page conversion options.
 
-These instructions assume that you have completed the steps in [Set up for AWS Mainframe Modernization](setting-up.md "setting-up.md") and have created [Create data transfer endpoints for
-File Transfer](filetransfer-data-transfer-endpoints.md "filetransfer-data-transfer-endpoints.md").
+These instructions assume that you have completed the steps in [Set up for AWS Mainframe Modernization](setting-up.md "setting-up.md") and have created [Create data transfer endpoints for File Transfer](filetransfer-data-transfer-endpoints.md "filetransfer-data-transfer-endpoints.md").
 
 ###### Topics
 

@@ -16,8 +16,7 @@ this new utility.
 - [Platform requirements](#m2dfutil-platform "#m2dfutil-platform")
 - [Planned future support](#m2udfutil-future-support "#m2udfutil-future-support")
 - [Asset locations](#mdfutil-assets "#mdfutil-assets")
-- [Configure M2DFUTIL or AWS Mainframe Modernization runtime on Amazon EC2 (including
-  AppStream 2.0)](#mdfutil-dependencies "#mdfutil-dependencies")
+- [Configure M2DFUTIL or AWS Mainframe Modernization runtime on Amazon EC2 (including AppStream 2.0)](#mdfutil-dependencies "#mdfutil-dependencies")
 - [General syntax](#mdfutil-syntax "#mdfutil-syntax")
 - [Sample JCLs](#mdfutil-sample-jcls "#mdfutil-sample-jcls")
 
@@ -63,9 +62,7 @@ This script can be found in the following locations:
 - Linux: `/opt/aws/m2/microfocus/utilities/scripts`
 - Windows (32 bit): `C:\AWS\M2\MicroFocus\Utilities\scripts`
 
-## Configure M2DFUTIL or AWS Mainframe Modernization runtime on Amazon EC2 (including
-
-AppStream 2.0)
+## Configure M2DFUTIL or AWS Mainframe Modernization runtime on Amazon EC2 (including AppStream 2.0)
 
 Configure your Enterprise Server region with the following:
 

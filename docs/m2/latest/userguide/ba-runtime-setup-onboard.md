@@ -53,9 +53,7 @@ table.
 | Africa (Cape Town)        | aws-bluage-runtime-artifacts-992382777663-af-south-1     | aws-bluage-runtime-artifacts-dev-992382777663-af-south-1     |
 | Israel (Tel Aviv)         | aws-bluage-runtime-artifacts-471112516508-il-central-1   | aws-bluage-runtime-artifacts-dev-471112516508-il-central-1   |
 
-## Using the AWS CLI to list the contents of the
-
-bucket
+## Using the AWS CLI to list the contents of the bucket
 
 After you are onboarded, you can list the contents of the bucket by running the following
 AWS CLI command in a terminal.

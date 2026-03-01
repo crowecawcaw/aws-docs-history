@@ -23,8 +23,7 @@ This document describes how to set up AWS Blu Age Developer IDE on an WorkSpaces
 
 - [Prerequisites](#set-up-aas2-ba-prereqs "#set-up-aas2-ba-prereqs")
 - [Step 1: Create an Amazon S3 bucket](#set-up-aas2-ba-create-bucket "#set-up-aas2-ba-create-bucket")
-- [Step 2: Attach a policy to the S3
-  bucket](#set-up-aas2-ba-create-bucket-policy "#set-up-aas2-ba-create-bucket-policy")
+- [Step 2: Attach a policy to the S3 bucket](#set-up-aas2-ba-create-bucket-policy "#set-up-aas2-ba-create-bucket-policy")
 - [Step 3: Upload files to the Amazon S3 bucket](#set-up-aas2-ba-upload "#set-up-aas2-ba-upload")
 - [Step 4: Download CloudFormation templates](#set-up-aas2-ba-download-templates "#set-up-aas2-ba-download-templates")
 - [Step 5: Create the fleet with CloudFormation](#set-up-appstream-ba-cfn "#set-up-appstream-ba-cfn")
@@ -59,9 +58,7 @@ Create an Amazon S3 bucket in the same AWS Region as the WorkSpaces Applications
 This bucket will contain the artifacts that you need to complete this tutorial. For more
 information on buckets, see [Creating a bucket](../../../AmazonS3/latest/userguide/create-bucket-overview.md "../../../AmazonS3/latest/userguide/create-bucket-overview.md").
 
-## Step 2: Attach a policy to the S3
-
-bucket
+## Step 2: Attach a policy to the S3 bucket
 
 Attach the following policy to the bucket that you create for this tutorial. For more
 information on attaching a policy to S3 bucket, see [Adding a bucket policy](../../../AmazonS3/latest/userguide/add-bucket-policy.md "../../../AmazonS3/latest/userguide/add-bucket-policy.md").

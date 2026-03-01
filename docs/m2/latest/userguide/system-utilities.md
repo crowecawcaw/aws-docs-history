@@ -18,8 +18,7 @@ Utilities are provided in `gapwalk-utility-pgm-<version>.war` (where `<version>`
 
 All supported utilities are registered as programs in the "Programs Registry" (see this [Running and calling programs](ba-shared-structure.md#ba-shared-structure-run-call "ba-shared-structure.md#ba-shared-structure-run-call") for details about registering programs and using them in scripts or in other programs). Therefore, they can be called either by other programs or by modernized job scripts.
 
-The utilities web-application has its own configuration file, named `application-utility-pgm.yml`, whose contents are detailed in this [Configure access to utilities for managed
-applications](applications-m2-ba-utilities.md "applications-m2-ba-utilities.md").
+The utilities web-application has its own configuration file, named `application-utility-pgm.yml`, whose contents are detailed in this [Configure access to utilities for managed applications](applications-m2-ba-utilities.md "applications-m2-ba-utilities.md").
 
 ## Available Utility programs
 

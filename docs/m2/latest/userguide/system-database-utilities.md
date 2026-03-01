@@ -36,8 +36,7 @@ The behaviour of the utility is influenced by the following configuration parame
 - `forcedDate`
 - `frozenDate`
 
-Please see [Available properties for optional web
-applications](ba-runtime-key-value.md#ba-runtime-key-value-web "ba-runtime-key-value.md#ba-runtime-key-value-web") for details about configuring these parameters.
+Please see [Available properties for optional web applications](ba-runtime-key-value.md#ba-runtime-key-value-web "ba-runtime-key-value.md#ba-runtime-key-value-web") for details about configuring these parameters.
 
 ### DSNTEP2/DSNTEP4 Checks / Errors handling
 
@@ -124,8 +123,7 @@ The behaviour of the utility is influenced by the following configuration parame
 - `load.sqlCodePointShift`
 - `convertGraphicDataToFullWidth`
 
-Please see [Available properties for optional web
-applications](ba-runtime-key-value.md#ba-runtime-key-value-web "ba-runtime-key-value.md#ba-runtime-key-value-web") for details about configuring these parameters.
+Please see [Available properties for optional web applications](ba-runtime-key-value.md#ba-runtime-key-value-web "ba-runtime-key-value.md#ba-runtime-key-value-web") for details about configuring these parameters.
 
 ### DSNUTILB Checks / Errors handling
 
@@ -239,8 +237,7 @@ The behaviour of the utility is influenced by the following configuration parame
 - `forcedDate`
 - `frozenDate`
 
-Please see [Available properties for optional web
-applications](ba-runtime-key-value.md#ba-runtime-key-value-web "ba-runtime-key-value.md#ba-runtime-key-value-web") for details about configuring these parameters.
+Please see [Available properties for optional web applications](ba-runtime-key-value.md#ba-runtime-key-value-web "ba-runtime-key-value.md#ba-runtime-key-value-web") for details about configuring these parameters.
 
 ### INFUTILB / INZUTILB Checks / Errors handling
 
@@ -343,8 +340,7 @@ The behaviour of the utility is influenced by the following configuration parame
 - `forcedDate`
 - `frozenDate`
 
-Please see [Available properties for optional web
-applications](ba-runtime-key-value.md#ba-runtime-key-value-web "ba-runtime-key-value.md#ba-runtime-key-value-web") for details about configuring these parameters.
+Please see [Available properties for optional web applications](ba-runtime-key-value.md#ba-runtime-key-value-web "ba-runtime-key-value.md#ba-runtime-key-value-web") for details about configuring these parameters.
 
 ### JXHDBCLR Checks / Errors handling
 

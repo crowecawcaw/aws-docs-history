@@ -12,13 +12,11 @@ Using these AMIs is entirely optional and they are not required to complete the 
 
 ###### Topics
 
-- [Prerequisites for setting up Rocket Software (formerly Micro Focus) (on
-  Amazon EC2)](mf-runtime-setup-prereq.md "mf-runtime-setup-prereq.md")
+- [Prerequisites for setting up Rocket Software (formerly Micro Focus) (on Amazon EC2)](mf-runtime-setup-prereq.md "mf-runtime-setup-prereq.md")
 - [Create the Amazon VPC endpoint for Amazon S3](mf-runtime-setup-vpc.md "mf-runtime-setup-vpc.md")
 - [Request the allowlist update for the account](mf-runtime-setup-allowlist.md "mf-runtime-setup-allowlist.md")
 - [Create the AWS Identity and Access Management role](mf-runtime-setup-iam-role.md "mf-runtime-setup-iam-role.md")
 - [Grant License Manager the required permissions](mf-runtime-setup-lic.md "mf-runtime-setup-lic.md")
 - [Subscribe to the Amazon Machine Images](mf-runtime-setup-ami.md "mf-runtime-setup-ami.md")
-- [Launch an AWS Mainframe Modernization Rocket Software (formerly Micro Focus)
-  instance](mf-runtime-setup-mf-instance.md "mf-runtime-setup-mf-instance.md")
+- [Launch an AWS Mainframe Modernization Rocket Software (formerly Micro Focus) instance](mf-runtime-setup-mf-instance.md "mf-runtime-setup-mf-instance.md")
 - [Subnet or VPC with no internet access](mf-runtime-setup-no-access.md "mf-runtime-setup-no-access.md")

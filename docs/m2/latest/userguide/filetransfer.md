@@ -19,9 +19,7 @@ them to your desired target S3 bucket.
 - [What is AWS Mainframe Modernization File Transfer?](what-is-filetransfer.md "what-is-filetransfer.md")
 - [Install a File Transfer agent](m2-agent-installation.md "m2-agent-installation.md")
 - [Configure a File Transfer agent](m2-agent-configuration.md "m2-agent-configuration.md")
-- [Create data transfer endpoints for
-  File Transfer](filetransfer-data-transfer-endpoints.md "filetransfer-data-transfer-endpoints.md")
+- [Create data transfer endpoints for File Transfer](filetransfer-data-transfer-endpoints.md "filetransfer-data-transfer-endpoints.md")
 - [Create transfer tasks in File Transfer](filetransfer-transfer-tasks.md "filetransfer-transfer-tasks.md")
-- [Tutorial: Getting started with
-  AWS Mainframe Modernization File Transfer](tutorial-filetransfer-getting-started.md "tutorial-filetransfer-getting-started.md")
+- [Tutorial: Getting started with AWS Mainframe Modernization File Transfer](tutorial-filetransfer-getting-started.md "tutorial-filetransfer-getting-started.md")
 - [Supported source and target encodings in AWS Mainframe Modernization File Transfer](filetransfer-encodings.md "filetransfer-encodings.md")
