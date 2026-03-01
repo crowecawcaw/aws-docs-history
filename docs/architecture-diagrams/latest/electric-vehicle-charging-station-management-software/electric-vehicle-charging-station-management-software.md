@@ -85,7 +85,7 @@ Open Charge Point Protocol (OCPP), using AWS services like AWS IoT Core and AWS 
 9. Build your business logic applications serving different user personas from fleet
    management operators to utilities, mobility solution providers or vehicle OEMs. Use AWS services
    such as **Amazon SageMaker AI** for energy demand forecasting or EV routing
-   algorithms, **Amazon Quick Suite** to build fleet management dashboards, or
+   algorithms, **Amazon Quick** to build fleet management dashboards, or
    **Amazon API Gateway** to provide API access to your data to third parties, partners, and customers.
 
 ## Download editable diagram
