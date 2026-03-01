@@ -1,6 +1,4 @@
-# Adding and verifying phone numbers
-
-in the Amazon SNS SMS sandbox
+# Adding and verifying phone numbers in the Amazon SNS SMS sandbox
 
 Before you can start sending SMS messages from your AWS account while in the [SMS sandbox](sns-sms-sandbox.md "sns-sms-sandbox.md"), you must complete the following setup
 steps. This ensures that your account is ready for SMS messaging and that your destination
@@ -53,9 +51,7 @@ phone numbers are properly verified.
 10. If you wish to use the same destination phone number in other regions, **repeat** the previous steps for each region where you
     intend to use it.
 
-## Troubleshooting
-
-non-receipt of an OTP text
+## Troubleshooting non-receipt of an OTP text
 
 Troubleshoot common problems that may prevent a phone number from receiving OTP
 texts.

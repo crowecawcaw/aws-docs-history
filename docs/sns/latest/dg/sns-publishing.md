@@ -4,9 +4,7 @@ After you [create an Amazon SNS topic](sns-create-topic.md "sns-create-topic.md"
 can _publish_ messages to the topic. When a message is published, Amazon SNS
 attempts to deliver the message to the subscribed [endpoints](sns-create-subscribe-endpoint-to-topic.md#sns-endpoints "sns-create-subscribe-endpoint-to-topic.md#sns-endpoints").
 
-## To publish messages to Amazon SNS topics using the
-
-AWS Management Console
+## To publish messages to Amazon SNS topics using the AWS Management Console
 
 1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home").
 2. In the left navigation pane, choose **Topics**.
@@ -42,8 +40,7 @@ page. 4. In the **Message details** section, do the following:
       and then enter a JSON object to define the message to send for each
       delivery protocol.
 
-   For more information, see [Publishing Amazon SNS
-   notifications with platform-specific payloads](sns-send-custom-platform-specific-payloads-mobile-devices.md "sns-send-custom-platform-specific-payloads-mobile-devices.md").
+   For more information, see [Publishing Amazon SNS notifications with platform-specific payloads](sns-send-custom-platform-specific-payloads-mobile-devices.md "sns-send-custom-platform-specific-payloads-mobile-devices.md").
 
 6. In the **Message attributes** section, add any attributes
    that you want Amazon SNS to match with the subscription attribute
@@ -71,9 +68,7 @@ For more information, see [Amazon SNS message attributes](sns-message-attributes
 The message is published to the topic, and the console opens the topic's
 **Details** page.
 
-## To publish a message to a topic using an
-
-AWS SDK
+## To publish a message to a topic using an AWS SDK
 
 To use an AWS SDK, you must configure it with your credentials. For more
 information, see [The shared config and credentials

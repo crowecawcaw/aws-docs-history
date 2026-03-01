@@ -1,14 +1,10 @@
-# Filter policy constraints in
-
-Amazon SNS
+# Filter policy constraints in Amazon SNS
 
 When you’re setting up filter policies in Amazon SNS, there are a few important rules to
 keep in mind. These rules help ensure the effective application of filter policies while
 maintaining system performance and compatibility.
 
-## Common policy
-
-constraints
+## Common policy constraints
 
 When configuring filter policies in Amazon SNS, follow these important rules to ensure
 they work effectively while maintaining system performance and compatibility:
@@ -51,9 +47,7 @@ attach the filter policy in the `Subscribe` API call (or the
 To increase this quota, you can use [AWS
 Service Quotas](../../../servicequotas/latest/userguide/intro.md "../../../servicequotas/latest/userguide/intro.md").
 
-## Policy
-
-constraints for attribute-based filtering
+## Policy constraints for attribute-based filtering
 
 Attribute-based filtering is the default option. [`FilterPolicyScope`](../api/API_SetSubscriptionAttributes.md#API_SetSubscriptionAttributes_RequestParameters "../api/API_SetSubscriptionAttributes.md#API_SetSubscriptionAttributes_RequestParameters") is set to
 `MessageAttributes` in the subscription.
@@ -107,9 +101,7 @@ x 2(match operators of key_c)
 = 6
 ```
 
-## Policy constraints
-
-for payload-based filtering
+## Policy constraints for payload-based filtering
 
 To switch from attribute-based (default) to payload-based filtering, you must set
 the [`FilterPolicyScope`](../../../AWSEC2/latest/APIReference/API_DeprovisionIpamPoolCidr.md "../../../AWSEC2/latest/APIReference/API_DeprovisionIpamPoolCidr.md") to `MessageBody` in the

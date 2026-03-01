@@ -1,13 +1,9 @@
-# Amazon SNS data protection policy
-
-examples
+# Amazon SNS data protection policy examples
 
 The following examples are data protection policies that you can use to audit and deny
 sensitive data. For a complete tutorial that includes an example application, see the [Introducing message data protection for Amazon SNS](https://aws.amazon.com/blogs/compute/introducing-message-data-protection-for-amazon-sns/ "https://aws.amazon.com/blogs/compute/introducing-message-data-protection-for-amazon-sns/") blog post.
 
-## Example policy for
-
-auditing
+## Example policy for auditing
 
 Audit policies allow you to audit up to 99% of inbound messages and send findings to
 [Amazon CloudWatch](../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md "../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md"), [https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html](../../../firehose/latest/dev/what-is-this-service.md "../../../firehose/latest/dev/what-is-this-service.md"), and [Amazon S3](../../../AmazonS3/latest/userguide/Welcome.md "../../../AmazonS3/latest/userguide/Welcome.md").
@@ -76,9 +72,7 @@ for credit card numbers and sending the findings to CloudWatch Logs, Firehose, a
 
 ```
 
-## Example policy
-
-with inbound de-identify mask statement
+## Example policy with inbound de-identify mask statement
 
 The following example prevents a user from publishing a message to a topic with
 `CreditCardNumber` by masking the sensitive data from the message content.
@@ -119,9 +113,7 @@ My credit card number is 4539894458086459
 My credit card number is ################
 ```
 
-## Example policy
-
-with inbound de-identify redact statement
+## Example policy with inbound de-identify redact statement
 
 The following example prevents a user from publishing a message to a topic with
 `CreditCardNumber` by redacting the sensitive data from the message
@@ -161,9 +153,7 @@ My credit card number is 4539894458086459
 My credit card number is
 ```
 
-## Example policy
-
-with outbound de-identify mask statement
+## Example policy with outbound de-identify mask statement
 
 The following example prevents a user from receiving a message with
 `CreditCardNumber` by masking the sensitive data from the message content.
@@ -205,9 +195,7 @@ My credit card number is ----------------
 
 ```
 
-## Example
-
-policy with outbound de-identify redact statement
+## Example policy with outbound de-identify redact statement
 
 The following example prevents a user from receiving a message with
 `CreditCardNumber` by redacting the sensitive data from the message
@@ -248,9 +236,7 @@ My credit card number is
 
 ```
 
-## Example policy with inbound
-
-deny statement
+## Example policy with inbound deny statement
 
 The following example blocks a user from publishing a message to a topic with
 `CreditCardNumber` in the message content. Denied payloads in the API response
@@ -279,9 +265,7 @@ have a status code of "403 AuthorizationError".
 
 ```
 
-## Example policy with
-
-outbound deny statement
+## Example policy with outbound deny statement
 
 The following example blocks an AWS account from receiving messages that
 contain `CreditCardNumber`.

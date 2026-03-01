@@ -1,10 +1,6 @@
-# Using managed data
+# Using managed data identifiers in Amazon SNS
 
-identifiers in Amazon SNS
-
-## What are managed data
-
-identifiers?
+## What are managed data identifiers?
 
 Amazon SNS managed data identifiers are designed to detect a specific type of sensitive data,
 such as credit card numbers, AWS secret access keys, or passport numbers for a particular
@@ -40,9 +36,7 @@ automatically matches keyword variations that don’t contain the space, or cont
 underscore (\_) or a hyphen (-) instead of the space. In certain cases, Amazon SNS also expands or
 abbreviates a keyword to address common variations of the keyword.
 
-### Amazon SNS managed data identifiers for sensitive
-
-data types
+### Amazon SNS managed data identifiers for sensitive data types
 
 The following table lists and describes the types of credential, device, financial,
 medical, and personal health information (PHI) that Amazon SNS can detect using managed data

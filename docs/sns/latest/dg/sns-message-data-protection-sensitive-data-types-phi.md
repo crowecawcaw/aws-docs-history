@@ -1,6 +1,4 @@
-# Amazon SNS sensitive data types:
-
-Protected health information (PHI)
+# Amazon SNS sensitive data types: Protected health information (PHI)
 
 The following table lists and describes the types of protected health information (PHI) that
 Amazon SNS can detect using managed data identifiers.
@@ -18,9 +16,7 @@ Amazon SNS can detect using managed data identifiers.
 | National Health Service (NHS) Number                   | NhsNumber                   | national health service, NHS                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | GB                    |
 | Personal Health Number (PHN)                           | PersonalHealthNumber        | canada healthcare number, msp number, personal healthcare number, phn, soins<br>de santé                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | CA                    |
 
-## Keywords for health insurance
-
-and medical identification numbers
+## Keywords for health insurance and medical identification numbers
 
 To detect various types of health insurance and medical identification numbers, Amazon SNS
 requires a keyword to be in proximity of the numbers. This includes European Health Insurance
@@ -40,9 +36,7 @@ regions.
 | UK                | national health service, NHS                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | US                | mbi, medicare beneficiary                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
-### Data identifier ARNs for protected
-
-health information data types (PHI)
+### Data identifier ARNs for protected health information data types (PHI)
 
 The following lists the data identifier Amazon Resource Names (ARNs) that can be used in
 PHI data protection policies.

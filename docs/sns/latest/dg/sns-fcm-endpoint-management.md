@@ -1,10 +1,6 @@
-# Amazon SNS management of Firebase Cloud Messaging
+# Amazon SNS management of Firebase Cloud Messaging endpoints
 
-endpoints
-
-## Managing and maintaining device
-
-tokens
+## Managing and maintaining device tokens
 
 You can ensure deliverability of your mobile application's push notifications by
 following these steps:
@@ -97,8 +93,7 @@ All observed error codes received from the FCM v1 API are available to you in Cl
 when you set up [delivery status logging](topics-attrib.md "topics-attrib.md") for your
 application.
 
-To receive delivery events for your application, see [Available application
-events](application-event-notifications.md#application-event-notifications-events "application-event-notifications.md#application-event-notifications-events").
+To receive delivery events for your application, see [Available application events](application-event-notifications.md#application-event-notifications-events "application-event-notifications.md#application-event-notifications-events").
 
 ## Removing stale tokens
 
@@ -107,8 +102,7 @@ failing. Amazon SNS sets these stale tokens as disabled endpoints for your platf
 application. When you publish to a disabled endpoint, Amazon SNS will return a
 `EventDeliveryFailure` event with the `FailureType` of
 `EndpointDisabled`, and a `FailureMessage` of _Endpoint is disabled_. To receive delivery events for your
-application, see [Available application
-events](application-event-notifications.md#application-event-notifications-events "application-event-notifications.md#application-event-notifications-events").
+application, see [Available application events](application-event-notifications.md#application-event-notifications-events "application-event-notifications.md#application-event-notifications-events").
 
 When you receive this error from Amazon SNS, you need to remove or update the stale token
 in your platform application.

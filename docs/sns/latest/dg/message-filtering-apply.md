@@ -1,6 +1,4 @@
-# Applying a subscription filter policy in
-
-Amazon SNS
+# Applying a subscription filter policy in Amazon SNS
 
 Message filtering in Amazon SNS allows you to selectively deliver messages to subscribers based
 on filter policies. These policies define conditions that messages must meet to be delivered

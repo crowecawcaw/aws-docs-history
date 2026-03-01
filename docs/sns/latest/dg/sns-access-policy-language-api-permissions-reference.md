@@ -1,6 +1,4 @@
-# Amazon SNS API permissions:
-
-Actions and resources reference
+# Amazon SNS API permissions: Actions and resources reference
 
 The following list grants information specific to the Amazon SNS implementation of access
 control:

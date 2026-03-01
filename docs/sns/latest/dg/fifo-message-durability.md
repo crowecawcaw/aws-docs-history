@@ -48,5 +48,4 @@ For extended durability to assist in recovery from downstream failures,
 topic owners can also use FIFO topics to archive messages up to 365 days. Topic subscribers can
 then replay those messages to a subscribed endpoint to recover messages lost due to a failure in
 a downstream application, or to replicate a state of an existing application. For more, see
-[Amazon SNS message archiving and replay for FIFO
-topics](fifo-message-archiving-replay.md "fifo-message-archiving-replay.md").
+[Amazon SNS message archiving and replay for FIFO topics](fifo-message-archiving-replay.md "fifo-message-archiving-replay.md").

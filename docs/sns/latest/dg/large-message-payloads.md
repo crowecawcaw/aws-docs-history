@@ -1,6 +1,4 @@
-# Publishing large messages with Amazon SNS and
-
-Amazon S3
+# Publishing large messages with Amazon SNS and Amazon S3
 
 To publish large Amazon SNS messages, you can use the [Amazon SNS Extended
 Client Library for Java](https://github.com/awslabs/amazon-sns-java-extended-client-lib/ "https://github.com/awslabs/amazon-sns-java-extended-client-lib/"), or the [Amazon SNS Extended

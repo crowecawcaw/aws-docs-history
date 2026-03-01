@@ -1,6 +1,4 @@
-# Setting-up initial AWS
-
-resources for Amazon SNS message archiving and analytics
+# Setting-up initial AWS resources for Amazon SNS message archiving and analytics
 
 This topic describes how to create the resources needed for the [message archiving and analytics example use
 case](firehose-example-use-case.md "firehose-example-use-case.md"):
@@ -84,11 +82,9 @@ case](firehose-example-use-case.md "firehose-example-use-case.md"):
          **ticketFraudQueue** queue.
 
 
-        For more information on subscribing to SNS topics, see [Creating a subscription to an Amazon SNS
-         topic](sns-create-subscribe-endpoint-to-topic.md "sns-create-subscribe-endpoint-to-topic.md"). You can also subscribe SQS
+        For more information on subscribing to SNS topics, see [Creating a subscription to an Amazon SNS topic](sns-create-subscribe-endpoint-to-topic.md "sns-create-subscribe-endpoint-to-topic.md"). You can also subscribe SQS
          queues to SNS topics from the Amazon SQS console. For more information, see [Subscribing an Amazon SQS
          queue to an Amazon SNS topic (console)](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-subscribe-queue-sns-topic.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-subscribe-queue-sns-topic.md") in the
          *Amazon Simple Queue Service Developer Guide*.
 
-    You've created the initial resources for this example use case. To continue, see [Setting-up a Amazon Data Firehose delivery stream for
-    Amazon SNS message archiving](firehose-example-create-delivery-stream.md "firehose-example-create-delivery-stream.md").
+    You've created the initial resources for this example use case. To continue, see [Setting-up a Amazon Data Firehose delivery stream for Amazon SNS message archiving](firehose-example-create-delivery-stream.md "firehose-example-create-delivery-stream.md").

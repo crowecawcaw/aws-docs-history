@@ -12,9 +12,7 @@ add subscribers and then publish messages to all of those subscribers. A subscri
 all messages published to the topic until you cancel the subscription, or until the
 subscriber opts out of receiving SMS messages from your AWS account.
 
-### Sending a message to a topic using the
-
-AWS console
+### Sending a message to a topic using the AWS console
 
 ###### To create a topic
 
@@ -116,17 +114,14 @@ every phone number that is subscribed to the topic.
    characters in the name plus two characters for the right angle bracket
    (>) and the space that Amazon SNS adds.
 
-   For information about the size quotas for SMS messages, see [Publishing SMS messages to a mobile phone using
-   Amazon SNS](#sms_publish-to-phone "#sms_publish-to-phone").
+   For information about the size quotas for SMS messages, see [Publishing SMS messages to a mobile phone using Amazon SNS](#sms_publish-to-phone "#sms_publish-to-phone").
 
 5. (Optional) For **Message attributes**, add message metadata
    such as timestamps, signatures, and IDs.
 6. Choose **Publish message**. Amazon SNS sends the SMS message and
    displays a success message.
 
-### Sending a message to a topic using the AWS
-
-SDKs
+### Sending a message to a topic using the AWS SDKs
 
 To use an AWS SDK, you must configure it with your credentials. For more
 information, see [The shared config and credentials
@@ -394,9 +389,7 @@ public class PublishTextSMS {
 
 ```
 
-## Publishing SMS messages to a mobile phone using
-
-Amazon SNS
+## Publishing SMS messages to a mobile phone using Amazon SNS
 
 You can use Amazon SNS to send SMS messages directly to a mobile phone without subscribing the
 phone number to an Amazon SNS topic.
@@ -491,8 +484,7 @@ identify yourself to your recipients:
      configured in your AWS account for the destination country. The
      origination number can be a 10DLC number, toll-free number,
      person-to-person long code, or short codes. For more information, see
-     [Origination identities for Amazon SNS SMS
-     messages](channels-sms-originating-identities.md "channels-sms-originating-identities.md").
+     [Origination identities for Amazon SNS SMS messages](channels-sms-originating-identities.md "channels-sms-originating-identities.md").
 
 
     If you don't specify an origination number, Amazon SNS selects an

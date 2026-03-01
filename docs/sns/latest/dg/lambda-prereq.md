@@ -1,6 +1,4 @@
-# Prerequisites for integrating Amazon SNS with Lambda functions
-
-across regions
+# Prerequisites for integrating Amazon SNS with Lambda functions across regions
 
 To invoke Lambda functions using Amazon SNS notifications, you need the following:
 

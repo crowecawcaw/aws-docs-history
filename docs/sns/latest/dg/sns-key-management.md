@@ -37,9 +37,7 @@ to the Amazon SNS topic.
 
 The following are example calculations. For exact pricing information, see [AWS Key Management Service Pricing](https://aws.amazon.com/kms/pricing/ "https://aws.amazon.com/kms/pricing/").
 
-### Example 1: Calculating the number of AWS KMS API
-
-calls for 1 publisher and 1 topic
+### Example 1: Calculating the number of AWS KMS API calls for 1 publisher and 1 topic
 
 This example assumes the following:
 
@@ -52,9 +50,7 @@ This example assumes the following:
 2,678,400 / 300 * (2 * 1) = 17,856
 ```
 
-### Example 2: Calculating the number of
-
-AWS KMS API calls for multiple publishers and 2 topics
+### Example 2: Calculating the number of AWS KMS API calls for multiple publishers and 2 topics
 
 This example assumes the following:
 
@@ -103,9 +99,7 @@ see [Using
 aliases to control access to KMS keys](../../../kms/latest/developerguide/alias-authorization.md "../../../kms/latest/developerguide/alias-authorization.md") in the _AWS Key Management Service
 Developer Guide_.
 
-### Allow a user to send messages to a topic with
-
-SSE
+### Allow a user to send messages to a topic with SSE
 
 The publisher must have the `kms:GenerateDataKey*` and
 `kms:Decrypt` permissions for the AWS KMS key.
@@ -129,9 +123,7 @@ The publisher must have the `kms:GenerateDataKey*` and
 }
 ```
 
-### Enable compatibility between event sources
-
-from AWS services and encrypted topics
+### Enable compatibility between event sources from AWS services and encrypted topics
 
 Several AWS services publish events to Amazon SNS topics. To allow these event
 sources to work with encrypted topics, you must perform the following steps.

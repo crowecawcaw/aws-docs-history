@@ -2,9 +2,7 @@
 
 This section describes a few examples of typical use cases for access control.
 
-## Grant AWS account access to a
-
-topic
+## Grant AWS account access to a topic
 
 Let's say you have a topic in Amazon SNS, and you want to allow one or more AWS accounts to
 perform a specific action on that topic, such as publishing messages. You can accomplish
@@ -119,9 +117,7 @@ snsClient.setTopicAttributes(SetTopicAttributesRequest.builder()
   production environment, test it in a development environment to ensure it behaves as
   expected. This helps prevent accidental access issues or unintended restrictions.
 
-## Publish messages to an Amazon SQS
-
-queue
+## Publish messages to an Amazon SQS queue
 
 To publish messages from your Amazon SNS topic to an Amazon SQS queue, you need to configure the
 correct permissions on the Amazon SQS queue. While both Amazon SNS and Amazon SQS use AWS’s access
@@ -185,9 +181,7 @@ to the queue.
   are successfully delivered to the Amazon SQS queue. This helps confirm that the policy is
   correctly configured.
 
-## Allow Amazon S3 event notifications to
-
-publish to a topic
+## Allow Amazon S3 event notifications to publish to a topic
 
 To allow an Amazon S3 bucket from another AWS account to publish event notifications to
 your Amazon SNS topic, you need to configure the topic's access policy accordingly. This involves
@@ -277,9 +271,7 @@ snsClient.setTopicAttributes(SetTopicAttributesRequest.builder()
   Limiting access to only trusted accounts and services is essential for maintaining
   secure operations.
 
-## Allow Amazon SES to publish to
-
-a topic that is owned by another account
+## Allow Amazon SES to publish to a topic that is owned by another account
 
 You can allow another AWS service to publish to a topic that is owned by another
 AWS account. Suppose that you signed into the 111122223333 account, opened
@@ -332,9 +324,7 @@ When publishing events to Amazon SNS, the following services support
 - AWS Lambda
 - AWS Systems Manager Incident Manager
 
-## `aws:SourceAccount` versus
-
-`aws:SourceOwner`
+## `aws:SourceAccount` versus `aws:SourceOwner`
 
 ###### Important
 
@@ -350,19 +340,14 @@ AWS services when they publish to an Amazon SNS topic. When supported, the value
 12-digit AWS account ID on whose behalf the service is publishing data. Some services
 support one, and some support the other.
 
-- See [Allow Amazon S3 event notifications to
-  publish to a topic](#sns-allow-s3-bucket-to-publish-to-topic "#sns-allow-s3-bucket-to-publish-to-topic") for how Amazon S3 notifications
+- See [Allow Amazon S3 event notifications to publish to a topic](#sns-allow-s3-bucket-to-publish-to-topic "#sns-allow-s3-bucket-to-publish-to-topic") for how Amazon S3 notifications
   use `aws:SourceAccount` and a list of AWS services that
   support that condition.
-- See [Allow Amazon SES to publish to
-  a topic that is owned by another account](#sns-allow-specified-service-to-publish-to-topic "#sns-allow-specified-service-to-publish-to-topic") for how Amazon SES uses
+- See [Allow Amazon SES to publish to a topic that is owned by another account](#sns-allow-specified-service-to-publish-to-topic "#sns-allow-specified-service-to-publish-to-topic") for how Amazon SES uses
   `aws:SourceOwner` and a list of AWS services that
   support that condition.
 
-## Allow
-
-accounts in an organization in AWS Organizations to publish to a topic in a different
-account
+## Allow accounts in an organization in AWS Organizations to publish to a topic in a different account
 
 The AWS Organizations service helps you to centrally manage billing, control access and security,
 and share resources across your AWS accounts.
@@ -395,9 +380,7 @@ key.
 }
 ```
 
-## Allow
-
-any CloudWatch alarm to publish to a topic in a different account
+## Allow any CloudWatch alarm to publish to a topic in a different account
 
 Use the following steps to invoke an Amazon SNS topic with a CloudWatch alarm across different
 AWS accounts. This example uses two accounts:
@@ -504,9 +487,7 @@ Alarms:
 3. The Lambda function or EventBridge rule can then publish the message to the Amazon SNS topic in
    the target account (444455556666).
 
-## Restrict
-
-publication to an Amazon SNS topic only from a specific VPC endpoint
+## Restrict publication to an Amazon SNS topic only from a specific VPC endpoint
 
 In this case, the topic in account 444455556666 is allowed to publish only
 from the VPC endpoint with the ID `vpce-1ab2c34d`.

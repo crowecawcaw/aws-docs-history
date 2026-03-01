@@ -61,8 +61,7 @@ operational requirements.
     deduplication. For more information, see [Amazon SNS message deduplication for FIFO topics](fifo-message-dedup.md "fifo-message-dedup.md").
 
 5.  (Optional) Expand the **Encryption** section and do the
-    following. For more information, see [Securing Amazon SNS data with server-side
-    encryption](sns-server-side-encryption.md "sns-server-side-encryption.md").
+    following. For more information, see [Securing Amazon SNS data with server-side encryption](sns-server-side-encryption.md "sns-server-side-encryption.md").
     1. Choose **Enable encryption**.
     2. Specify the AWS KMS key. For more information, see [Key terms](sns-server-side-encryption.md#sse-key-terms "sns-server-side-encryption.md#sse-key-terms").
 

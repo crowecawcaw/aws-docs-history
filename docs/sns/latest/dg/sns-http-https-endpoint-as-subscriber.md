@@ -1,6 +1,4 @@
-# Fanout Amazon SNS notifications to HTTPS
-
-endpoints
+# Fanout Amazon SNS notifications to HTTPS endpoints
 
 You can use Amazon SNS to send notification messages to one or more HTTP or HTTPS endpoints. When
 you subscribe an endpoint to a topic, you can publish a notification to the topic and Amazon SNS

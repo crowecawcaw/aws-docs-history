@@ -13,9 +13,7 @@ better operational insight, such as the following:
   To configure application attributes for message delivery status, you can use the
   AWS Management Console, AWS software development kits (SDKs), or query API.
 
-## Configuring message delivery status attributes using
-
-the AWS Management Console
+## Configuring message delivery status attributes using the AWS Management Console
 
 1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home").
 2. On the navigation panel, point to **Mobile**, and then choose
@@ -41,9 +39,7 @@ to view and parse the CloudWatch Logs containing the message delivery status. Fo
 information about using CloudWatch, see the [CloudWatch
 Documentation](https://aws.amazon.com/documentation/cloudwatch "https://aws.amazon.com/documentation/cloudwatch").
 
-## Amazon SNS message delivery status CloudWatch log
-
-examples
+## Amazon SNS message delivery status CloudWatch log examples
 
 After you configure message delivery status attributes for an application endpoint,
 CloudWatch Logs will be generated. Example logs, in JSON format, are shown as follows:
@@ -90,9 +86,7 @@ CloudWatch Logs will be generated. Example logs, in JSON format, are shown as fo
 
 For a list of push notification service response codes, see [Platform response codes](#platform-returncodes "#platform-returncodes").
 
-## Configuring message delivery status attributes with the
-
-AWS SDKs
+## Configuring message delivery status attributes with the AWS SDKs
 
 The [AWS SDKs](https://aws.amazon.com/tools/ "https://aws.amazon.com/tools/") provide APIs in several
 languages for using message delivery status attributes with Amazon SNS.

@@ -1,6 +1,4 @@
-# Securing Amazon SNS traffic with VPC
-
-endpoints
+# Securing Amazon SNS traffic with VPC endpoints
 
 An Amazon Virtual Private Cloud (Amazon VPC) endpoint for Amazon SNS is a logical entity within a VPC that allows
 connectivity only to Amazon SNS. The VPC routes requests to Amazon SNS and routes responses back to the

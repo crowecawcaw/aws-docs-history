@@ -1,10 +1,6 @@
-# Step 4: Simulating an issue
+# Step 4: Simulating an issue and replay events for recovery
 
-and replay events for recovery
-
-## Step 1: Enable the
-
-simulated issue and send a second API request
+## Step 1: Enable the simulated issue and send a second API request
 
 1. Sign in to the [AWS Lambda
    console](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/").
@@ -48,9 +44,7 @@ execution:
 { }
 ```
 
-## Step 2: Verify simulated data
-
-corruption
+## Step 2: Verify simulated data corruption
 
 1. Sign in to the [Amazon DynamoDB
    console](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
@@ -63,9 +57,7 @@ corruption
 The stored attributes are displayed, some marked as
 **CORRUPTED!**
 
-## Step 3: Disable the simulated
-
-issue
+## Step 3: Disable the simulated issue
 
 1. Sign in to the [AWS Lambda
    console](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/").
@@ -78,9 +70,7 @@ issue
    **BUG_ENABLED** variable to **false**
    and then choose **Save**.
 
-## Step 4: Enable replay
-
-to recover from the issue
+## Step 4: Enable replay to recover from the issue
 
 1. In the AWS Lambda console, on the navigation panel, choose
    **Functions**.

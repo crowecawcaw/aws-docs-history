@@ -1,6 +1,4 @@
-# Fanout Amazon SNS events to
-
-AWS Event Fork Pipelines
+# Fanout Amazon SNS events to AWS Event Fork Pipelines
 
 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -17,17 +15,14 @@ event-handling pipelines—powered by AWS Event Fork Pipelines—to Amazon SNS t
 [nested applications](../../../serverless-application-model/latest/developerguide/serverless-sam-template-nested-applications.md "../../../serverless-application-model/latest/developerguide/serverless-sam-template-nested-applications.md"), based on the [AWS Serverless Application Model](https://aws.amazon.com/serverless/sam/ "https://aws.amazon.com/serverless/sam/") (AWS
 SAM), which you can deploy directly from the [AWS Event Fork Pipelines suite](https://serverlessrepo.aws.amazon.com/applications?query=aws-event-fork-pipelines "https://serverlessrepo.aws.amazon.com/applications?query=aws-event-fork-pipelines") (choose **Show apps that create custom IAM roles or resource policies**) into your AWS account.
 
-For an AWS Event Fork Pipelines use case, see [Deploying and testing
-the Amazon SNS event fork pipelines sample application](sns-deploy-test-fork-pipelines-sample-application.md "sns-deploy-test-fork-pipelines-sample-application.md").
+For an AWS Event Fork Pipelines use case, see [Deploying and testing the Amazon SNS event fork pipelines sample application](sns-deploy-test-fork-pipelines-sample-application.md "sns-deploy-test-fork-pipelines-sample-application.md").
 
 ###### Topics
 
 - [How AWS Event Fork Pipelines works](#how-sns-fork-works "#how-sns-fork-works")
 - [Deploying AWS Event Fork Pipelines](#deploying-sns-fork-pipelines "#deploying-sns-fork-pipelines")
-- [Deploying and testing
-  the Amazon SNS event fork pipelines sample application](sns-deploy-test-fork-pipelines-sample-application.md "sns-deploy-test-fork-pipelines-sample-application.md")
-- [Subscribing AWS Event Fork Pipelines to an
-  Amazon SNS topic](sns-subscribe-event-fork-pipelines.md "sns-subscribe-event-fork-pipelines.md")
+- [Deploying and testing the Amazon SNS event fork pipelines sample application](sns-deploy-test-fork-pipelines-sample-application.md "sns-deploy-test-fork-pipelines-sample-application.md")
+- [Subscribing AWS Event Fork Pipelines to an Amazon SNS topic](sns-subscribe-event-fork-pipelines.md "sns-subscribe-event-fork-pipelines.md")
 
 ## How AWS Event Fork Pipelines works
 
@@ -38,10 +33,8 @@ deploy these nested applications individually, as your architecture requires.
 
 ###### Topics
 
-- [The event storage and backup
-  pipeline](#sns-fork-event-storage-and-backup-pipeline "#sns-fork-event-storage-and-backup-pipeline")
-- [The event search and
-  analytics pipeline](#sns-fork-event-search-and-analytics-pipeline "#sns-fork-event-search-and-analytics-pipeline")
+- [The event storage and backup pipeline](#sns-fork-event-storage-and-backup-pipeline "#sns-fork-event-storage-and-backup-pipeline")
+- [The event search and analytics pipeline](#sns-fork-event-search-and-analytics-pipeline "#sns-fork-event-search-and-analytics-pipeline")
 - [The event replay pipeline](#sns-fork-event-replay-pipeline "#sns-fork-event-replay-pipeline")
 
 The following diagram shows an AWS Event Fork Pipelines application supplemented by three nested
@@ -63,9 +56,7 @@ pipelines (possibly already subscribed to your Amazon SNS topic), you don’t ne
 portion of your current message publisher to take advantage of AWS Event Fork Pipelines in your
 existing workloads.
 
-### The event storage and backup
-
-pipeline
+### The event storage and backup pipeline
 
 The following diagram shows the [Event Storage and Backup Pipeline](https://serverlessrepo.aws.amazon.com/applications/arn:aws:serverlessrepo:us-east-1:077246666028:applications~fork-event-storage-backup-pipeline "https://serverlessrepo.aws.amazon.com/applications/arn:aws:serverlessrepo:us-east-1:077246666028:applications~fork-event-storage-backup-pipeline"). You can subscribe this pipeline to your Amazon SNS
 topic to automatically back up the events flowing through your system.
@@ -82,9 +73,7 @@ transform, and compress your events prior to loading them into the bucket. As ev
 loaded, you can use Amazon Athena to query the bucket using standard SQL queries. You can also
 configure the pipeline to reuse an existing Amazon S3 bucket or create a new one.
 
-### The event search and
-
-analytics pipeline
+### The event search and analytics pipeline
 
 The following diagram shows the [Event Search and Analytics Pipeline](https://serverlessrepo.aws.amazon.com/applications/arn:aws:serverlessrepo:us-east-1:077246666028:applications~fork-event-search-analytics-pipeline "https://serverlessrepo.aws.amazon.com/applications/arn:aws:serverlessrepo:us-east-1:077246666028:applications~fork-event-search-analytics-pipeline"). You can subscribe this pipeline to your
 Amazon SNS topic to index the events that flow through your system in a search domain and then
@@ -129,8 +118,7 @@ AWS Lambda replay function.
 The [AWS Event Fork Pipelines suite](https://serverlessrepo.aws.amazon.com/applications?query=aws-event-fork-pipelines "https://serverlessrepo.aws.amazon.com/applications?query=aws-event-fork-pipelines") (choose **Show apps that create custom IAM roles or
 resource policies**) is available as a group of public applications in the AWS Serverless Application Repository,
 from where you can deploy and test them manually using the [AWS Lambda console](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/"). For information
-about deploying pipelines using the AWS Lambda console, see [Subscribing AWS Event Fork Pipelines to an
-Amazon SNS topic](sns-subscribe-event-fork-pipelines.md "sns-subscribe-event-fork-pipelines.md").
+about deploying pipelines using the AWS Lambda console, see [Subscribing AWS Event Fork Pipelines to an Amazon SNS topic](sns-subscribe-event-fork-pipelines.md "sns-subscribe-event-fork-pipelines.md").
 
 In a production scenario, we recommend embedding AWS Event Fork Pipelines within your overall
 application's AWS SAM template. The nested-application feature lets you do this by adding

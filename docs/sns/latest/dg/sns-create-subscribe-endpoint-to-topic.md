@@ -1,6 +1,4 @@
-# Creating a subscription to an Amazon SNS
-
-topic
+# Creating a subscription to an Amazon SNS topic
 
 To receive messages published to [a topic](sns-create-topic.md "sns-create-topic.md"), you must
 _subscribe_ an [endpoint](#sns-endpoints "#sns-endpoints") to the
@@ -12,9 +10,7 @@ published to the associated topic.
 HTTP(S) endpoints, email addresses, and AWS resources in other AWS accounts
 require confirmation of the subscription before they can receive messages.
 
-## To subscribe an endpoint to an Amazon SNS
-
-topic
+## To subscribe an endpoint to an Amazon SNS topic
 
 Subscribing an endpoint to an Amazon SNS topic enables message delivery to the specified
 endpoint, ensuring the right systems or users receive notifications when a message is
@@ -51,18 +47,15 @@ for seamless communication across systems.
       an email address or the ARN of an Amazon SQS queue.
    4. Firehose endpoints only: For **Subscription role ARN**,
       specify the ARN of the IAM role that you created for writing to Firehose
-      delivery streams. For more information, see [Prerequisites for subscribing Firehose delivery
-      streams to Amazon SNS topics](prereqs-kinesis-data-firehose.md "prereqs-kinesis-data-firehose.md").
+      delivery streams. For more information, see [Prerequisites for subscribing Firehose delivery streams to Amazon SNS topics](prereqs-kinesis-data-firehose.md "prereqs-kinesis-data-firehose.md").
    5. (Optional) For Firehose, Amazon SQS, HTTP/S endpoints, you can also enable raw
       message delivery. For more information, see [Amazon SNS raw message delivery](sns-large-payload-raw-message-delivery.md "sns-large-payload-raw-message-delivery.md").
    6. (Optional) To configure a filter policy, expand the
       **Subscription filter policy** section. For more
-      information, see [Amazon SNS subscription filter
-      policies](sns-subscription-filter-policies.md "sns-subscription-filter-policies.md").
+      information, see [Amazon SNS subscription filter policies](sns-subscription-filter-policies.md "sns-subscription-filter-policies.md").
    7. (Optional) To enable payload-based filtering, configure `Filter
 Policy Scope` to `MessageBody`. For more
-      information, see [Amazon SNS subscription filter policy
-      scope](sns-message-filtering-scope.md "sns-message-filtering-scope.md").
+      information, see [Amazon SNS subscription filter policy scope](sns-message-filtering-scope.md "sns-message-filtering-scope.md").
    8. (Optional) To configure a dead-letter queue for the subscription,
       expand the **Redrive policy (dead-letter queue)**
       section. For more information, see [Amazon SNS dead-letter queues](sns-dead-letter-queues.md "sns-dead-letter-queues.md").

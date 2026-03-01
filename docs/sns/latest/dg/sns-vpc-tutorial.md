@@ -157,9 +157,7 @@ a few minutes, after the creation process completes, the status changes to
 Choose the **Refresh** button to see the latest stack
 status.
 
-## Step 3: Confirm that your Amazon EC2 instance lacks
-
-internet access
+## Step 3: Confirm that your Amazon EC2 instance lacks internet access
 
 The Amazon EC2 instance that was launched in your VPC in the previous step lacks internet
 access. It disallows outbound traffic, and it's unable to publish messages to Amazon SNS.

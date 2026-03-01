@@ -1,6 +1,4 @@
-# Amazon SNS subscription filter
-
-policies
+# Amazon SNS subscription filter policies
 
 A subscription filter policy allows you to specify property names and assign a list of
 values to each property name. For more information, see [Amazon SNS message filtering](sns-message-filtering.md "sns-message-filtering.md").

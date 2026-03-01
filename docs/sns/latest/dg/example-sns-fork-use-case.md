@@ -35,8 +35,7 @@ Instead of implementing this event processing logic, the application owner can
 subscribe AWS Event Fork Pipelines to the `CheckoutEventsTopic` Amazon SNS
 topic
 
-- [The event storage and backup
-  pipeline](sns-fork-pipeline-as-subscriber.md#sns-fork-event-storage-and-backup-pipeline "sns-fork-pipeline-as-subscriber.md#sns-fork-event-storage-and-backup-pipeline") is
+- [The event storage and backup pipeline](sns-fork-pipeline-as-subscriber.md#sns-fork-event-storage-and-backup-pipeline "sns-fork-pipeline-as-subscriber.md#sns-fork-event-storage-and-backup-pipeline") is
   configured to transform data to remove credit card details, buffer data for
   60 seconds, compress it using GZIP, and encrypt it using the default
   customer managed key for Amazon S3. This key is managed by AWS and powered by the
@@ -47,8 +46,7 @@ Amazon S3 For Your Destination](../../../firehose/latest/dev/create-destination.
 Transformation](../../../firehose/latest/dev/data-transformation.md "../../../firehose/latest/dev/data-transformation.md"), and [Configure Settings](../../../firehose/latest/dev/create-configure.md "../../../firehose/latest/dev/create-configure.md") in
 the _Amazon Data Firehose Developer Guide_.
 
-- [The event search and
-  analytics pipeline](sns-fork-pipeline-as-subscriber.md#sns-fork-event-search-and-analytics-pipeline "sns-fork-pipeline-as-subscriber.md#sns-fork-event-search-and-analytics-pipeline") is
+- [The event search and analytics pipeline](sns-fork-pipeline-as-subscriber.md#sns-fork-event-search-and-analytics-pipeline "sns-fork-pipeline-as-subscriber.md#sns-fork-event-search-and-analytics-pipeline") is
   configured with an index retry duration of 30 seconds, a bucket for storing
   orders that fail to be indexed in the search domain, and a filter policy to
   restrict the set of indexed orders.

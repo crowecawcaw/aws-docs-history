@@ -1,10 +1,6 @@
-# Understanding Amazon SNS data protection
+# Understanding Amazon SNS data protection policies
 
-policies
-
-## What are data protection
-
-policies?
+## What are data protection policies?
 
 Amazon SNS uses **data protection policies** to select the
 sensitive data for which you want to scan, and the actions that you want to take to
@@ -18,9 +14,7 @@ sensitive data, or deny message delivery.
 
 ![Amazon SNS utilizes data protection policies to manage and secure sensitive data across different AWS services. It shows the workflow for both inbound and outbound messages, detailing how data is monitored and actions are taken based on policy settings like auditing, de-identifying, or denying data transmission to safeguard information such as personally identifiable information (PII) and protected health information (PHI).](images/message-data-protection-policies-overview.png)
 
-## How is the data protection policy
-
-structured?
+## How is the data protection policy structured?
 
 As illustrated in the following figure, a data protection policy document includes the
 following elements:
@@ -36,9 +30,7 @@ Only one data protection policy can be defined per Amazon SNS topic. The data pr
 policy can have one or more deny or de-identify statements, but only one audit
 statement.
 
-### JSON properties for the
-
-data protection policy
+### JSON properties for the data protection policy
 
 A data protection policy requires the following basic policy information for
 identification:
@@ -62,9 +54,7 @@ identification:
 }
 ```
 
-### JSON properties for a policy
-
-statement
+### JSON properties for a policy statement
 
 A policy statement sets the detection context for the data protection
 operation.
@@ -100,9 +90,7 @@ operation.
 }
 ```
 
-### JSON properties for a policy
-
-statement operation
+### JSON properties for a policy statement operation
 
 A policy statement sets one of the following data protection operations.
 
@@ -113,9 +101,7 @@ A policy statement sets one of the following data protection operations.
 - [Deny](sns-message-data-protection-operations.md#statement-operation-json-properties-deny "sns-message-data-protection-operations.md#statement-operation-json-properties-deny") – Blocks the Amazon SNS publish
   request or fails the message delivery.
 
-## How do I determine the
-
-IAM principals for my data protection policy?
+## How do I determine the IAM principals for my data protection policy?
 
 Message data protection uses two IAM principals that interact with Amazon SNS.
 

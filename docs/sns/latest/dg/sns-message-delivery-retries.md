@@ -7,9 +7,7 @@ delivery policy is exhausted, Amazon SNS stops retrying the delivery and discard
 message—unless a dead-letter queue is attached to the subscription. For more
 information, see [Amazon SNS dead-letter queues](sns-dead-letter-queues.md "sns-dead-letter-queues.md").
 
-## Delivery protocols and
-
-policies
+## Delivery protocols and policies
 
 ###### Note
 

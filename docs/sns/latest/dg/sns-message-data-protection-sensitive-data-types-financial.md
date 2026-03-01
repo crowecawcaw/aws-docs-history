@@ -1,13 +1,11 @@
-# Amazon SNS sensitive data
-
-types: Financial
+# Amazon SNS sensitive data types: Financial
 
 The following table lists and describes the types of financial information that Amazon SNS can
 detect using managed data identifiers.
 
 | Detection type                  | Managed data identifier ID                | Keyword required                                                                                                                                                                                                                                                                                                                            | Additional information                                                                                                                                                                                                                                                                                                                                  | Countries and regions             |
 | ------------------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
-| Bank account number             | BankAccountNumber<br>BankAccountNumber-US | Yes, see [Keywords for bank account<br>numbers](#sns-managed-data-identifiers-bank-keywords "#sns-managed-data-identifiers-bank-keywords").                                                                                                                                                                                                 | This includes: International Bank Account Numbers (IBANs) that consist of up to 34<br>alphanumeric characters, including elements such as country code.                                                                                                                                                                                                 | France, Germany, Italy, Spain, UK |
+| Bank account number             | BankAccountNumber<br>BankAccountNumber-US | Yes, see [Keywords for bank account numbers](#sns-managed-data-identifiers-bank-keywords "#sns-managed-data-identifiers-bank-keywords").                                                                                                                                                                                                    | This includes: International Bank Account Numbers (IBANs) that consist of up to 34<br>alphanumeric characters, including elements such as country code.                                                                                                                                                                                                 | France, Germany, Italy, Spain, UK |
 | Credit card expiration date     | CreditCardExpiration                      | exp d, exp m, exp y, expiration, expiry                                                                                                                                                                                                                                                                                                     | –                                                                                                                                                                                                                                                                                                                                                       | Any                               |
 | Credit card magnetic strip data | CreditCardMagneticStripe                  | Yes, including: card data, iso7813, mag, magstripe, stripe,<br>swipe.                                                                                                                                                                                                                                                                       | This includes tracks 1 and 2.                                                                                                                                                                                                                                                                                                                           | Any                               |
 | Credit card number              | CreditCardNumber                          | account number, american express, amex, bank card, card, card num, card number, cc<br>#, ccn, check card, credit, credit card#, dankort, debit, debit card, diners club,<br>discover, electron, elo verification code, japanese card bureau, jcb, mastercard, mc,<br>pan, payment account number, payment card number, pcn, union pay, visa | Detection requires the data to be a 13–19 digit sequence that adheres to<br>the Luhn check formula, and uses a standard card number prefix for any of the<br>following types of credit cards: American Express, Dankort, Diner’s Club, Discover,<br>Electron, Japanese Card Bureau (JCB), Mastercard, UnionPay, and Visa (superscript link<br>below 1). | Any                               |
@@ -28,9 +26,7 @@ detect using managed data identifiers.
 5610591081018250, 6011000990139424, 6011000400000000, 6011111111111117, 630490017740292441,
 630495060000000000, 6331101999990016, 6759649826438453, 6799990100000000019, and 76009244561.
 
-## Keywords for bank account
-
-numbers
+## Keywords for bank account numbers
 
 Use the following keywords to detect International Bank Account Numbers (IBANs) that
 consist of up to 34 alphanumeric characters, including elements such as country code.
@@ -44,9 +40,7 @@ consist of up to 34 alphanumeric characters, including elements such as country 
 | UK                | account code, account number, accountno#, accountnumber#, bban, customer<br>account id, customer account number, customer bank account id, iban,<br>sepa                                                                                                               |
 | US                | bank account, bank acct, checking account, checking acct, deposit account,<br>deposit acct, savings account, savings acct, chequing account, chequing<br>acct                                                                                                          |
 
-### Data identifier ARNs for
-
-financial data types
+### Data identifier ARNs for financial data types
 
 The following lists the Amazon Resource Names (ARNs) for the data identifiers that you
 can add to your data protection policies.

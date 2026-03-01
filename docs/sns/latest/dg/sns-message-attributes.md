@@ -12,8 +12,7 @@ with—the message body. The receiver can use this information to decide how to 
 the message without having to process the message body first.
 
 For information about sending messages with attributes using the AWS Management Console or the
-AWS SDK for Java, see the [To publish messages to Amazon SNS topics using the
-AWS Management Console](sns-publishing.md#sns-publishing-messages "sns-publishing.md#sns-publishing-messages") tutorial.
+AWS SDK for Java, see the [To publish messages to Amazon SNS topics using the AWS Management Console](sns-publishing.md#sns-publishing-messages "sns-publishing.md#sns-publishing-messages") tutorial.
 
 ###### Note
 
@@ -53,8 +52,7 @@ Each message attribute consists of the following items:
   data types are `String`, `String.Array`,
   `Number`, and `Binary`. The data type has the same
   restrictions on the content as the message body. For more information, see the
-  [Message attribute data types and
-  validation](#SNSMessageAttributes.DataTypes "#SNSMessageAttributes.DataTypes") section.
+  [Message attribute data types and validation](#SNSMessageAttributes.DataTypes "#SNSMessageAttributes.DataTypes") section.
 - **Value** – The user-specified message
   attribute value. For string data types, the value attribute must follow the same
   content restrictions as the message body. However, if the message attribute is
@@ -67,9 +65,7 @@ Name, type, and value must not be empty or null. In addition, the message body s
 not be empty or null. All parts of the message attribute, including name, type, and
 value, are included in the message size restriction, which is 256 KB.
 
-## Message attribute data types and
-
-validation
+## Message attribute data types and validation
 
 Message attribute data types identify how the message attribute values are handled by
 Amazon SNS. For example, if the type is a number, Amazon SNS validates that it's a number.
@@ -113,9 +109,7 @@ type in the JSON payload that Amazon SNS delivers to Lambda.
   store any binary data; for example, compressed data, encrypted data, or
   images.
 
-## Reserved message attributes for mobile push
-
-notifications
+## Reserved message attributes for mobile push notifications
 
 The following table lists the reserved message attributes for mobile push notification
 services that you can use to structure your push notification message:

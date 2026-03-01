@@ -1,13 +1,9 @@
-# Troubleshooting Amazon Simple Notification Service identity and
-
-access
+# Troubleshooting Amazon Simple Notification Service identity and access
 
 Use the following information to help you diagnose and fix common issues that you might
 encounter when working with Amazon SNS and IAM.
 
-## I am not authorized to perform
-
-an action in Amazon SNS
+## I am not authorized to perform an action in Amazon SNS
 
 If you receive an error that you're not authorized to perform an action, your policies
 must be updated to allow you to perform the action.
@@ -29,9 +25,7 @@ In this case, Mateo's policy must be updated to allow him to access the
 If you need help, contact your AWS administrator. Your administrator is the person
 who provided you with your sign-in credentials.
 
-## I am not authorized to perform
-
-iam:PassRole
+## I am not authorized to perform iam:PassRole
 
 If you receive an error that you're not authorized to perform the `iam:PassRole` action, your policies must be updated to allow you to pass a role to Amazon SNS.
 
@@ -50,9 +44,7 @@ In this case, Mary's policies must be updated to allow her to perform the `iam:P
 
 If you need help, contact your AWS administrator. Your administrator is the person who provided you with your sign-in credentials.
 
-## I want to allow people
-
-outside of my AWS account to access my Amazon SNS resources
+## I want to allow people outside of my AWS account to access my Amazon SNS resources
 
 You can create a role that users in other accounts or people outside of your organization can use to access your resources. You can specify who
 is trusted to assume the role. For services that support resource-based policies or access control lists (ACLs), you can use those policies to grant

@@ -40,9 +40,7 @@ configured using resource policies. For more on using required permissions in X-
 see [Amazon SNS
 and AWS X-Ray](../../../xray/latest/devguide/xray-services-sns.md "../../../xray/latest/devguide/xray-services-sns.md").
 
-## Enabling active tracing on an Amazon SNS topic
-
-using the AWS console
+## Enabling active tracing on an Amazon SNS topic using the AWS console
 
 When active tracing is enabled on an Amazon SNS topic, it reads the trace ID, sends the
 data to the customer based on the trace ID, and propagates the trace ID to downstream
@@ -65,9 +63,7 @@ Once you've enabled X-Ray for your Amazon SNS topic, you can use the [X-Ray
 service map](../../../xray/latest/devguide/xray-services-sns.md "../../../xray/latest/devguide/xray-services-sns.md") to view the end-to-end traces and service maps for the
 topic.
 
-## Enabling active tracing on an Amazon SNS
-
-topic using the AWS SDK
+## Enabling active tracing on an Amazon SNS topic using the AWS SDK
 
 The following code example shows how to enable active tracing on an Amazon SNS topic by
 using the AWS SDK for Java.
@@ -93,9 +89,7 @@ public static void enableActiveTracing(SnsClient snsClient, String topicArn) {
     }
 ```
 
-## Enabling active tracing on an Amazon SNS
-
-topic using the AWS CLI
+## Enabling active tracing on an Amazon SNS topic using the AWS CLI
 
 The following code example shows how to enable active tracing on an Amazon SNS topic by
 using the AWS CLI.
@@ -107,9 +101,7 @@ aws sns set-topic-attributes \
     --attribute-value Active
 ```
 
-## Enabling active tracing on an Amazon SNS topic
-
-using CloudFormation
+## Enabling active tracing on an Amazon SNS topic using CloudFormation
 
 The following CloudFormation stack shows how to enable active tracing on an Amazon SNS topic.
 
@@ -124,9 +116,7 @@ Resources:
 
 ```
 
-## Verifying active tracing is enabled for your
-
-topic
+## Verifying active tracing is enabled for your topic
 
 You can use the Amazon SNS console to verify if active tracing is enabled for your topic,
 or when the resource policy has failed to be added.
@@ -149,8 +139,7 @@ required permissions.
 2. Create an Amazon SNS topic. For details on how to do this, see [To create a topic using the AWS Management Console](sns-create-topic.md#create-topic-aws-console "sns-create-topic.md#create-topic-aws-console").
 3. Expand **Active tracing**, and choose **Use active
    tracing**.
-4. Publish a message to the Amazon SNS topic. For details on how to do this, see [To publish messages to Amazon SNS topics using the
-   AWS Management Console](sns-publishing.md#sns-publishing-messages "sns-publishing.md#sns-publishing-messages").
+4. Publish a message to the Amazon SNS topic. For details on how to do this, see [To publish messages to Amazon SNS topics using the AWS Management Console](sns-publishing.md#sns-publishing-messages "sns-publishing.md#sns-publishing-messages").
 5. Use the [X-Ray service map](../../../xray/latest/devguide/xray-services-sns.md "../../../xray/latest/devguide/xray-services-sns.md")
    to view the end-to-end traces and service maps for the topic.
 

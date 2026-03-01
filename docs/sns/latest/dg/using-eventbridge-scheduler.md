@@ -9,9 +9,7 @@ API invocations.
 This page explains how to use EventBridge Scheduler to publish a message from an Amazon SNS topic on a
 schedule.
 
-## Setting-up the execution
-
-role
+## Setting-up the execution role
 
 When you create a new schedule, EventBridge Scheduler must have permission to invoke its target API
 operation on your behalf. You grant these permissions to EventBridge Scheduler using an _execution

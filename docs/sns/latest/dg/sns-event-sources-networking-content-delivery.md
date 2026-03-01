@@ -1,6 +1,4 @@
-# Networking & content
-
-delivery services
+# Networking & content delivery services
 
 The following table describes how Amazon SNS integrates with AWS networking
 and content delivery services, such as Amazon API Gateway, Amazon CloudFront, Direct Connect, Elastic Load Balancing, Amazon

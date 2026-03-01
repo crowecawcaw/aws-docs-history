@@ -7,9 +7,7 @@ throughput and ordered message delivery. To improve message throughput using hig
 FIFO topics, increasing the number of message groups is recommended. For more information on
 high throughput message quotas, see [Amazon SNS service quotas](../../../general/latest/gr/sns.md "../../../general/latest/gr/sns.md") in the _Amazon Web Services General Reference_.
 
-## Use cases for high throughput for Amazon SNS FIFO
-
-topics
+## Use cases for high throughput for Amazon SNS FIFO topics
 
 The following use cases highlight the diverse applications of high throughput FIFO topics,
 showcasing their effectiveness across industries and scenarios:
@@ -31,9 +29,7 @@ showcasing their effectiveness across industries and scenarios:
   files and streaming content, ensuring smooth playback experiences for users while
   maintaining the correct order of content delivery
 
-## Partitions and data distribution
-
-for high throughput for Amazon SNS FIFO topics
+## Partitions and data distribution for high throughput for Amazon SNS FIFO topics
 
 With high throughput topics, Amazon SNS distributes FIFO topic data across partitions. A
 partition is an allocation of capacity for a topic that is automatically replicated across
@@ -72,9 +68,7 @@ Amazon SNS is optimized for uniform distribution of items across a FIFO topic's 
 regardless of the number of partitions. AWS recommends that you use message group IDs that
 can have a large number of distinct values.
 
-## Enable high throughput on your Amazon SNS
-
-FIFO topic
+## Enable high throughput on your Amazon SNS FIFO topic
 
 By default Amazon SNS FIFO topics are configured for topic-level deduplication, this is
 controlled by the topic attribute [`FifoThroughputScope`](../api/API_CreateTopic.md "../api/API_CreateTopic.md") set to
@@ -93,9 +87,7 @@ Once you've enabled a topic's `FifoThroughputScope` to
 `MessageGroup`, it cannot be reverted back to the `Topic`
 throughput.
 
-## Enable high throughput mode for
-
-any subscribed Amazon SQS FIFO queue
+## Enable high throughput mode for any subscribed Amazon SQS FIFO queue
 
 When publishing to your Amazon SNS FIFO topic with high throughput enabled, and one or more
 Amazon SQS FIFO queues are subscribed, it is recommended that you enable high throughput on your

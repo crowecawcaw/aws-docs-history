@@ -1,10 +1,6 @@
-# Step 3: Verifying Amazon SNS
+# Step 3: Verifying Amazon SNS application and pipeline performance
 
-application and pipeline performance
-
-## Step 1: Verifying the execution
-
-of the sample checkout pipeline
+## Step 1: Verifying the execution of the sample checkout pipeline
 
 1. Sign in to the [Amazon DynamoDB
    console](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
@@ -16,9 +12,7 @@ of the sample checkout pipeline
 
 The stored attributes are displayed.
 
-## Step 2: Verifying
-
-the execution of the event storage and backup pipeline
+## Step 2: Verifying the execution of the event storage and backup pipeline
 
 1. Sign in to the [Amazon S3
    console](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -35,9 +29,7 @@ the execution of the event storage and backup pipeline
 To verify that the stored JSON payload doesn't contain any credit card
 information, decompress the file.
 
-## Step 3: Verifying
-
-the execution of the event search and analytics pipeline
+## Step 3: Verifying the execution of the event search and analytics pipeline
 
 1. Sign in to the [OpenSearch Service
    console](https://console.aws.amazon.com/aos/ "https://console.aws.amazon.com/aos/").
@@ -52,9 +44,7 @@ value is higher than USD $100, on the
 page, choose **Indices**,
 **checkout_events**.
 
-## Step 4: Verifying the
-
-execution of the event replay pipeline
+## Step 4: Verifying the execution of the event replay pipeline
 
 1. Sign in to the [Amazon SQS
    console](https://console.aws.amazon.com/sqs/ "https://console.aws.amazon.com/sqs/").

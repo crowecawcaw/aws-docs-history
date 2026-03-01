@@ -1,6 +1,4 @@
-# Deploying and testing
-
-the Amazon SNS event fork pipelines sample application
+# Deploying and testing the Amazon SNS event fork pipelines sample application
 
 To accelerate the development of your event-driven applications, you can subscribe
 event-handling pipelines—powered by AWS Event Fork Pipelines—to Amazon SNS topics. AWS Event Fork Pipelines is a suite of open-source

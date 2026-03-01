@@ -1,6 +1,4 @@
-# Amazon SNS message replay for FIFO
-
-topic subscribers
+# Amazon SNS message replay for FIFO topic subscribers
 
 Amazon SNS replay allows topic subscribers to retrieve and redeliver archived messages from
 the topic data store to a subscribed endpoint.
@@ -12,19 +10,15 @@ the topic data store to a subscribed endpoint.
   a replayed message.
 - To replay only specific messages, apply a filter policy to your
   subscription.
-  For more on filtering messages, see [Filter
-  replayed messages](#message-archiving-and-replay-subscription-filtering "#message-archiving-and-replay-subscription-filtering").
+  For more on filtering messages, see [Filter replayed messages](#message-archiving-and-replay-subscription-filtering "#message-archiving-and-replay-subscription-filtering").
 
-## Create a message
-
-replay policy using the AWS Management Console
+## Create a message replay policy using the AWS Management Console
 
 Use this option to create a new replay policy using the AWS Management Console.
 
 1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home").
 2. Choose a topic subscription or create a new one. To learn more about
-   creating subscriptions, see [Creating a subscription to an Amazon SNS
-   topic](sns-create-subscribe-endpoint-to-topic.md "sns-create-subscribe-endpoint-to-topic.md").
+   creating subscriptions, see [Creating a subscription to an Amazon SNS topic](sns-create-subscribe-endpoint-to-topic.md "sns-create-subscribe-endpoint-to-topic.md").
 3. To initiate the message replay, go to the **Replay**
    drop-down and choose **Start replay**.
 4. From the **Replay timeframe** modal, make the following
@@ -45,8 +39,7 @@ Use this option to create a new replay policy using the AWS Management Console.
    **Stop replay** from the **Replay**
    drop-down.
 6. (Optional) To **monitor** message replay
-   metrics from within this workflow using CloudWatch, see [Monitor
-   message replay metrics using Amazon CloudWatch](#message-archiving-and-replay-subscription-cloudwatch "#message-archiving-and-replay-subscription-cloudwatch").
+   metrics from within this workflow using CloudWatch, see [Monitor message replay metrics using Amazon CloudWatch](#message-archiving-and-replay-subscription-cloudwatch "#message-archiving-and-replay-subscription-cloudwatch").
 
 **To view and edit a message replay policy**
 
@@ -71,9 +64,7 @@ details** page:
   **Start replay** from the **Replay**
   drop-down. Starting a replay will replace the existing replay.
 
-## Add a replay policy
-
-to the subscription using the API
+## Add a replay policy to the subscription using the API
 
 To replay archived messages use the attribute `ReplayPolicy`.
 `ReplayPolicy` can be used with the `Subscribe` and
@@ -118,9 +109,7 @@ receiving all newly published messages to your topic, use the
 To verify that a message has been replayed, the boolean attribute
 `Replayed` is added to each replayed message.
 
-## Add a replay policy to the subscription using
-
-the SDK
+## Add a replay policy to the subscription using the SDK
 
 To use an AWS SDK, you must configure it with your credentials. For
 more information, see [Shared `config` and
@@ -148,9 +137,7 @@ SetSubscriptionAttributesRequest request = new SetSubscriptionAttributesRequest(
 sns.setSubscriptionAttributes(request);
 ```
 
-## Understanding
-
-the EndingPoint
+## Understanding the EndingPoint
 
 When you apply a `ReplayPolicy` to an Amazon SNS subscription, the
 `EndingPoint` value is optional. If no `EndingPoint` is
@@ -172,21 +159,16 @@ resume a subscription from where a prior replay finished, set the new
 `StartingPoint` to the previously provided
 `EndingPoint`.
 
-## Filter
-
-replayed messages
+## Filter replayed messages
 
 Amazon SNS message filtering let's you control the replayed messages that Amazon SNS replays
 to your subscriber endpoint. When message filtering and message archiving are both
 enabled, Amazon SNS first retrieves the message from the topic’s data store, then applies
 the message against the subscription’s `FilterPolicy`. The message is
 delivered to the subscribed endpoint when there is a match, otherwise message is
-filtered out. For more information, see [Amazon SNS subscription filter
-policies](sns-subscription-filter-policies.md "sns-subscription-filter-policies.md").
+filtered out. For more information, see [Amazon SNS subscription filter policies](sns-subscription-filter-policies.md "sns-subscription-filter-policies.md").
 
-## Monitor
-
-message replay metrics using Amazon CloudWatch
+## Monitor message replay metrics using Amazon CloudWatch
 
 You can monitor replay messages using Amazon CloudWatch using the following metrics. To be
 notified of anomalies in your workloads and help avoid impact, you can configure

@@ -1,6 +1,4 @@
-# Amazon SNS notification format for delivery
-
-to HTTP destinations
+# Amazon SNS notification format for delivery to HTTP destinations
 
 Here’s an example of an HTTP POST request body from Amazon SNS, sent through an
 delivery stream to an HTTP endpoint. The Amazon SNS notification is encoded as a base64 payload

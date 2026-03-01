@@ -1,6 +1,4 @@
-# Amazon SNS event sources and
-
-destinations
+# Amazon SNS event sources and destinations
 
 Amazon SNS connects AWS services and external systems by routing event-driven notifications.
 Amazon SNS receives events from various AWS services, such as data pipeline updates, Amazon EC2

@@ -81,12 +81,9 @@ production data to your test environment.
 For more information, see the following resources:
 
 - [Fanout to Firehose delivery streams](sns-firehose-as-subscriber.md "sns-firehose-as-subscriber.md")
-- [Fanout Amazon SNS notifications to Lambda functions for
-  automated processing](sns-lambda-as-subscriber.md "sns-lambda-as-subscriber.md")
-- [Fanout Amazon SNS notifications to Amazon SQS queues for
-  asynchronous processing](sns-sqs-as-subscriber.md "sns-sqs-as-subscriber.md")
-- [Fanout Amazon SNS notifications to HTTPS
-  endpoints](sns-http-https-endpoint-as-subscriber.md "sns-http-https-endpoint-as-subscriber.md")
+- [Fanout Amazon SNS notifications to Lambda functions for automated processing](sns-lambda-as-subscriber.md "sns-lambda-as-subscriber.md")
+- [Fanout Amazon SNS notifications to Amazon SQS queues for asynchronous processing](sns-sqs-as-subscriber.md "sns-sqs-as-subscriber.md")
+- [Fanout Amazon SNS notifications to HTTPS endpoints](sns-http-https-endpoint-as-subscriber.md "sns-http-https-endpoint-as-subscriber.md")
 - [Event-Driven Computing with Amazon SNS and AWS Compute,
   Storage, Database, and Networking Services](https://aws.amazon.com/blogs/compute/event-driven-computing-with-amazon-sns-compute-storage-database-and-networking-services/ "https://aws.amazon.com/blogs/compute/event-driven-computing-with-amazon-sns-compute-storage-database-and-networking-services/")
 
@@ -104,16 +101,14 @@ the _Amazon CloudWatch User Guide_.
 Amazon SNS can send push email messages and text messages (SMS messages) to individuals
 or groups. For example, you could send e-commerce order confirmations as user
 notifications. For more information about using Amazon SNS to send SMS messages, see
-[Mobile text messaging with
-Amazon SNS](sns-mobile-phone-number-as-subscriber.md "sns-mobile-phone-number-as-subscriber.md").
+[Mobile text messaging with Amazon SNS](sns-mobile-phone-number-as-subscriber.md "sns-mobile-phone-number-as-subscriber.md").
 
 ### Mobile push notifications
 
 Mobile push notifications enable you to send messages directly to mobile apps. For
 example, you can use Amazon SNS to send update notifications to an app. The notification
 message can include a link to download and install the update. For more information
-about using Amazon SNS to send push notification messages, see [Sending mobile push notifications
-with Amazon SNS](sns-mobile-application-as-subscriber.md "sns-mobile-application-as-subscriber.md").
+about using Amazon SNS to send push notification messages, see [Sending mobile push notifications with Amazon SNS](sns-mobile-application-as-subscriber.md "sns-mobile-application-as-subscriber.md").
 
 ## Pricing for Amazon SNS
 

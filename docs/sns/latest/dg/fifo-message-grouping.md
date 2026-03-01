@@ -29,9 +29,7 @@ sequenced.
 
 ![Example of how message ordering and deduplication work in an Amazon SNS FIFO topic scenario involving different AWS services and message group IDs. It shows the flow of messages from Lambda functions through an Amazon SNS FIFO topic to various types of Amazon SQS queues (FIFO and standard), maintaining strict order in FIFO queues while demonstrating the potential disorder in standard queues. This setup is used to emphasize the importance of message sequencing in applications like price updates in an ecommerce platform, highlighting how each message group maintains its order independently across different consumer services.](images/sns-fifo-grouping.png)
 
-## Distributing data by message group
-
-IDs for improved performance
+## Distributing data by message group IDs for improved performance
 
 To optimize delivery throughput, Amazon SNS FIFO topics deliver messages from different message
 groups in parallel, while message order is strictly maintained within each message group. Each

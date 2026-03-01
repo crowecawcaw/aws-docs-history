@@ -1,6 +1,4 @@
-# Using temporary security credentials with
-
-Amazon SNS
+# Using temporary security credentials with Amazon SNS
 
 AWS Identity and Access Management (IAM) allows you to grant temporary security credentials to users and
 applications that need access to your AWS resources. These temporary security

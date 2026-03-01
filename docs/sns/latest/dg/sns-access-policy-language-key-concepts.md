@@ -1,6 +1,4 @@
-# Key Amazon SNS access policy
-
-concepts
+# Key Amazon SNS access policy concepts
 
 The following sections describe the concepts you need to understand to use the
 access policy language. They're presented in a logical order, with the first terms you need to know at
@@ -36,8 +34,7 @@ email protocol, and another that states that Bob cannot publish to Topic A.
 Only ASCII characters are allowed in policy documents. You can utilize
 `aws:SourceAccount` and `aws:SourceOwner` to work around the
 scenario where you need to plug-in other AWS services' ARNs that contain non-ASCII
-characters. See the difference between [aws:SourceAccount versus
-aws:SourceOwner](sns-access-policy-use-cases.md#source-account-versus-source-owner "sns-access-policy-use-cases.md#source-account-versus-source-owner").
+characters. See the difference between [aws:SourceAccount versus aws:SourceOwner](sns-access-policy-use-cases.md#source-account-versus-source-owner "sns-access-policy-use-cases.md#source-account-versus-source-owner").
 
 ## Issuer
 
@@ -89,8 +86,7 @@ restriction is with an example: If you want to restrict access to before May 30,
 use the condition called `DateLessThan`. You use the key called
 `aws:CurrentTime` and set it to the value `2010-05-30T00:00:00Z`.
 AWS defines the conditions and keys you can use. The AWS service itself (for example,
-Amazon SQS or Amazon SNS) might also define service-specific keys. For more information, see [Amazon SNS API permissions:
-Actions and resources reference](sns-access-policy-language-api-permissions-reference.md "sns-access-policy-language-api-permissions-reference.md").
+Amazon SQS or Amazon SNS) might also define service-specific keys. For more information, see [Amazon SNS API permissions: Actions and resources reference](sns-access-policy-language-api-permissions-reference.md "sns-access-policy-language-api-permissions-reference.md").
 
 ## Requester
 

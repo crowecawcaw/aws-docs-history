@@ -1,6 +1,4 @@
-# Amazon SNS Extended Client Library for
-
-Java
+# Amazon SNS Extended Client Library for Java
 
 ## Prerequisites
 
@@ -23,9 +21,7 @@ _AWS SDK for Java Developer Guide_.
 - Java 8 or better.
 - The Amazon SNS Extended Client Library for Java (also available from [Maven](https://maven.apache.org/ "https://maven.apache.org/")).
 
-## Configuring message
-
-storage
+## Configuring message storage
 
 The Amazon SNS Extended Client library uses the Payload Offloading Java Common Library
 for AWS for message storage and retrieval. You can configure the following Amazon S3
@@ -48,9 +44,7 @@ SNSExtendedClientConfiguration() .withPayloadSupportEnabled(s3Client, BUCKET_NAM
 - **Bucket name** – The name of the Amazon S3
   bucket for storing message payloads.
 
-## Example: Publishing messages to Amazon SNS
-
-with payload stored in Amazon S3
+## Example: Publishing messages to Amazon SNS with payload stored in Amazon S3
 
 The following code example shows how to:
 

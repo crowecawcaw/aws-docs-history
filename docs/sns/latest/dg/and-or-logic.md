@@ -123,9 +123,7 @@ or
 }
 ```
 
-### Policy constraints that include
-
-`OR` relationships
+### Policy constraints that include `OR` relationships
 
 Consider the following policy:
 

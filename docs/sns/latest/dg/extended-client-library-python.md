@@ -1,6 +1,4 @@
-# Amazon SNS Extended Client Library for
-
-Python
+# Amazon SNS Extended Client Library for Python
 
 ## Prerequisites
 
@@ -21,9 +19,7 @@ Developer Guide_.
 - Python 3.x (or later) and pip.
 - The Amazon SNS Extended Client Library for Python (also available from [PyPI](https://pypi.org/project/amazon-sns-extended-client/ "https://pypi.org/project/amazon-sns-extended-client/")).
 
-## Configuring message
-
-storage
+## Configuring message storage
 
 The below attributes are available on Boto3 Amazon SNS [Client](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sns.html#client "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sns.html#client"), [Topic](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sns/topic/index.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sns/topic/index.html"), and [PlatformEndpoint](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sns/platformendpoint/index.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sns/platformendpoint/index.html") objects to configure the Amazon S3 message storage
 options.
@@ -49,9 +45,7 @@ options.
   `boto3.client("s3")` on first use if not previously
   set.
 
-## Example: Publishing messages to
-
-Amazon SNS with the payload stored in Amazon S3
+## Example: Publishing messages to Amazon SNS with the payload stored in Amazon S3
 
 The following code example shows how to:
 

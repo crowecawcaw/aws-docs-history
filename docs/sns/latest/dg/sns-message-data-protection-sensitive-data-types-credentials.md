@@ -1,6 +1,4 @@
-# Amazon SNS sensitive data
-
-types: Credentials
+# Amazon SNS sensitive data types: Credentials
 
 The following table lists and describes the types of credentials that Amazon SNS can detect using
 managed data identifiers.
@@ -13,9 +11,7 @@ managed data identifiers.
 | Public-Key Cryptography Standard (PKCS) private key | PkcsPrivateKey             | No                                                                                      | Any                   |
 | PuTTY private key                                   | PuttyPrivateKey            | No                                                                                      | Any                   |
 
-## Data identifier ARNs for
-
-credential data types
+## Data identifier ARNs for credential data types
 
 The following lists the Amazon Resource Names (ARNs) for the data identifiers that you can
 add to your data protection policies.

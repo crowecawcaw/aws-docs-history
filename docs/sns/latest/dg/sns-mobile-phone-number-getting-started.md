@@ -1,6 +1,4 @@
-# Getting started with Amazon SNS
-
-SMS
+# Getting started with Amazon SNS SMS
 
 ###### Important
 

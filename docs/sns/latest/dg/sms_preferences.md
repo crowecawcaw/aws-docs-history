@@ -6,12 +6,9 @@ are logged, and whether to subscribe to daily SMS usage reports.
 
 These preferences take effect for every SMS message that you send from your account, but
 you can override some of them when you send an individual message. For more information, see
-[Publishing SMS messages to a mobile phone using
-Amazon SNS](sms_sending-overview.md#sms_publish-to-phone "sms_sending-overview.md#sms_publish-to-phone").
+[Publishing SMS messages to a mobile phone using Amazon SNS](sms_sending-overview.md#sms_publish-to-phone "sms_sending-overview.md#sms_publish-to-phone").
 
-## Setting SMS messaging preferences using the
-
-AWS Management Console
+## Setting SMS messaging preferences using the AWS Management Console
 
 1.  Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home").
 2.  Choose a [region that supports SMS
@@ -310,9 +307,7 @@ try {
   [SetSMSAttributes](../../../goto/SdkForPHPV3/sns-2010-03-31/SetSMSAttributes.md "../../../goto/SdkForPHPV3/sns-2010-03-31/SetSMSAttributes.md")
   in _AWS SDK for PHP API Reference_.
 
-## Setting SMS messaging preferences for
-
-country-specific delivery
+## Setting SMS messaging preferences for country-specific delivery
 
 You can manage and control your SMS traffic by sending messages only to specific
 destination countries. This ensures that your messages are sent only to approved

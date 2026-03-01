@@ -12,8 +12,7 @@ endpoint allows Amazon SNS to send messages to the device.
 3. In the **Platform applications** section, choose **Create
    platform application**.
 4. Choose your **AWS Region**. For a list of AWS
-   Regions where you can create mobile applications, see [Amazon SNS mobile application supported
-   Regions](sns-mobile-push-supported-regions.md "sns-mobile-push-supported-regions.md").
+   Regions where you can create mobile applications, see [Amazon SNS mobile application supported Regions](sns-mobile-push-supported-regions.md "sns-mobile-push-supported-regions.md").
 5. Enter the following **application details**:
    - **Application name** – Provide a
      **name** for your platform application. The

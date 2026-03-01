@@ -1,12 +1,9 @@
-# Step 5: Optional - Give users permissions
-
-to publish to the Amazon SNS topic
+# Step 5: Optional - Give users permissions to publish to the Amazon SNS topic
 
 By default, the topic owner has permissions to publish the topic. To enable other users or
 applications to publish to the topic, you should use AWS Identity and Access Management (IAM) to give publish
 permission to the topic. For more information about giving permissions for Amazon SNS actions to
-IAM users, see [Using identity-based policies with
-Amazon SNS](sns-using-identity-based-policies.md "sns-using-identity-based-policies.md").
+IAM users, see [Using identity-based policies with Amazon SNS](sns-using-identity-based-policies.md "sns-using-identity-based-policies.md").
 
 There are two ways to control access to a topic:
 

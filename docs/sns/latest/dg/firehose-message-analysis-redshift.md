@@ -1,6 +1,4 @@
-# Analyzing Amazon SNS messages stored in Amazon Redshift
-
-destinations
+# Analyzing Amazon SNS messages stored in Amazon Redshift destinations
 
 This topic describes how to analyze Amazon SNS messages that are sent through delivery
 streams to Amazon Redshift destinations.

@@ -86,9 +86,7 @@ JSON
 
 ```
 
-## Tagging for resource searching and
-
-filtering
+## Tagging for resource searching and filtering
 
 An AWS account can have tens of thousands of Amazon SNS topics (see
 [Amazon SNS Quotas](../../../general/latest/gr/sns.md "../../../general/latest/gr/sns.md")

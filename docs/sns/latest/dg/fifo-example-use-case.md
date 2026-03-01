@@ -28,6 +28,5 @@ applications:
 For the wholesale and retail applications to receive price updates in the correct order, the
 price management application must use a strictly ordered message distribution system. Using
 Amazon SNS FIFO topics and Amazon SQS FIFO queues enables the processing of messages in order and with no
-duplication. For more information, see [Amazon SNS message ordering details for FIFO
-topics](fifo-topic-message-ordering.md "fifo-topic-message-ordering.md"). For code snippets that implement this use case,
+duplication. For more information, see [Amazon SNS message ordering details for FIFO topics](fifo-topic-message-ordering.md "fifo-topic-message-ordering.md"). For code snippets that implement this use case,
 see [Amazon SNS code examples for FIFO topics](fifo-topic-code-examples.md "fifo-topic-code-examples.md").

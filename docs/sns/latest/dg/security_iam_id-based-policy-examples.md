@@ -1,6 +1,4 @@
-# Identity-based policy examples for
-
-Amazon Simple Notification Service
+# Identity-based policy examples for Amazon Simple Notification Service
 
 By default, users and roles don't have permission to create or modify Amazon SNS
 resources. To grant users permission to perform actions on the
@@ -12,9 +10,7 @@ _IAM User Guide_.
 
 For details about actions and resource types defined by Amazon SNS, including the format of the ARNs for each of the resource types, see [Actions, Resources, and Condition Keys for Amazon Simple Notification Service](../../../IAM/latest/UserGuide/list_amazonsns.md "../../../IAM/latest/UserGuide/list_amazonsns.md") in the _Service Authorization Reference_.
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Amazon SNS resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -47,9 +43,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the Amazon SNS
-
-console
+## Using the Amazon SNS console
 
 To access the Amazon Simple Notification Service console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the Amazon SNS resources
@@ -79,9 +73,7 @@ AWS supports additional policy types that can set the maximum permissions grante
 
 When multiple types of policies apply to a request, the resulting permissions are more complicated to understand. To learn how AWS determines whether to allow a request when multiple policy types are involved, see [Policy evaluation logic](../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md "../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md") in the _IAM User Guide_.
 
-## Allow users to
-
-view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.

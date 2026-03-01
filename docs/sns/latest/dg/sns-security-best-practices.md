@@ -15,23 +15,16 @@ The following are preventative security best practices for Amazon SNS.
 
 ###### Topics
 
-- [Ensure topics aren't publicly
-  accessible](#ensure-topics-not-publicly-accessible "#ensure-topics-not-publicly-accessible")
+- [Ensure topics aren't publicly accessible](#ensure-topics-not-publicly-accessible "#ensure-topics-not-publicly-accessible")
 - [Implement least-privilege access](#implement-least-privilege-access "#implement-least-privilege-access")
-- [Use IAM
-  roles for applications and AWS services which require Amazon SNS access](#use-iam-roles-for-applications-aws-services-which-require-access "#use-iam-roles-for-applications-aws-services-which-require-access")
+- [Use IAM roles for applications and AWS services which require Amazon SNS access](#use-iam-roles-for-applications-aws-services-which-require-access "#use-iam-roles-for-applications-aws-services-which-require-access")
 - [Implement server-side encryption](#implement-server-side-encryption "#implement-server-side-encryption")
-- [Enforce encryption of data in
-  transit](#enforce-encryption-data-in-transit "#enforce-encryption-data-in-transit")
-- [Consider using VPC endpoints to
-  access Amazon SNS](#consider-using-vpc-endpoints-access-sns "#consider-using-vpc-endpoints-access-sns")
-- [Ensure subscriptions are not configured to
-  deliver to raw http endpoints](#http-subscription-configuration "#http-subscription-configuration")
+- [Enforce encryption of data in transit](#enforce-encryption-data-in-transit "#enforce-encryption-data-in-transit")
+- [Consider using VPC endpoints to access Amazon SNS](#consider-using-vpc-endpoints-access-sns "#consider-using-vpc-endpoints-access-sns")
+- [Ensure subscriptions are not configured to deliver to raw http endpoints](#http-subscription-configuration "#http-subscription-configuration")
 - [Enforce authentication on unsubscribe](#enforce-authentication-on-unsubscribe "#enforce-authentication-on-unsubscribe")
 
-### Ensure topics aren't publicly
-
-accessible
+### Ensure topics aren't publicly accessible
 
 Unless you explicitly require anyone on the internet to be able to read or write to your
 Amazon SNS topic, you should ensure that your topic isn't publicly accessible (accessible by
@@ -65,12 +58,9 @@ access:
 For more information, see the following sections:
 
 - [Identity and access management in Amazon SNS](security-iam.md "security-iam.md")
-- [Amazon SNS API permissions:
-  Actions and resources reference](sns-access-policy-language-api-permissions-reference.md "sns-access-policy-language-api-permissions-reference.md")
+- [Amazon SNS API permissions: Actions and resources reference](sns-access-policy-language-api-permissions-reference.md "sns-access-policy-language-api-permissions-reference.md")
 
-### Use IAM
-
-roles for applications and AWS services which require Amazon SNS access
+### Use IAM roles for applications and AWS services which require Amazon SNS access
 
 For applications or AWS services, such as Amazon EC2, to access Amazon SNS topics, they must use
 valid AWS credentials in their AWS API requests. Because these credentials aren't
@@ -97,12 +87,9 @@ level when it stores it, and decrypts the messages for you when you access them.
 keys managed in AWS Key Management Service. When you authenticate your request and have access permissions,
 there is no difference between accessing encrypted and unencrypted topics.
 
-For more information, see [Securing Amazon SNS data with server-side
-encryption](sns-server-side-encryption.md "sns-server-side-encryption.md") and [Managing Amazon SNS encryption keys and costs](sns-key-management.md "sns-key-management.md").
+For more information, see [Securing Amazon SNS data with server-side encryption](sns-server-side-encryption.md "sns-server-side-encryption.md") and [Managing Amazon SNS encryption keys and costs](sns-key-management.md "sns-key-management.md").
 
-### Enforce encryption of data in
-
-transit
+### Enforce encryption of data in transit
 
 It's possible, but not recommended, to publish messages that are not encrypted during
 transit by using HTTP. However, when a topic is encrypted at rest using AWS KMS, it is
@@ -145,9 +132,7 @@ JSON
 
 ```
 
-### Consider using VPC endpoints to
-
-access Amazon SNS
+### Consider using VPC endpoints to access Amazon SNS
 
 If you have topics that you must be able to interact with, but these topics must
 absolutely not be exposed to the internet, use VPC endpoints to limit topic access to only
@@ -163,9 +148,7 @@ Amazon SNS VPC endpoints provide two ways to control access to your messages:
 
 For more information, see [Creating the endpoint](sns-vpc-create-endpoint.md#sns-vpc-endpoint-create "sns-vpc-create-endpoint.md#sns-vpc-endpoint-create") and [Creating an Amazon VPC endpoint policy for Amazon SNS](sns-vpc-endpoint-policy.md "sns-vpc-endpoint-policy.md").
 
-### Ensure subscriptions are not configured to
-
-deliver to raw http endpoints
+### Ensure subscriptions are not configured to deliver to raw http endpoints
 
 Avoid configuring subscriptions to deliver to a raw http endpoints. Always have
 subscriptions delivering to an endpoint domain name. For example, a subscription configured

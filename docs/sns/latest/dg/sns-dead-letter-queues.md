@@ -2,8 +2,7 @@
 
 A dead-letter queue is an Amazon SQS queue that an Amazon SNS subscription can target
 for messages that can't be delivered to subscribers successfully. Messages that can't be delivered
-due to client errors or server errors are held in the dead-letter queue for further analysis or reprocessing. For more information, see [Configuring an Amazon SNS dead-letter queue for
-a subscription](sns-configure-dead-letter-queue.md "sns-configure-dead-letter-queue.md") and [Amazon SNS message delivery retries](sns-message-delivery-retries.md "sns-message-delivery-retries.md").
+due to client errors or server errors are held in the dead-letter queue for further analysis or reprocessing. For more information, see [Configuring an Amazon SNS dead-letter queue for a subscription](sns-configure-dead-letter-queue.md "sns-configure-dead-letter-queue.md") and [Amazon SNS message delivery retries](sns-message-delivery-retries.md "sns-message-delivery-retries.md").
 
 ###### Note
 
@@ -13,8 +12,7 @@ a subscription](sns-configure-dead-letter-queue.md "sns-configure-dead-letter-qu
   subscriptions use FIFO queues, and standard topic subscriptions use standard
   queues.
 - To use an encrypted Amazon SQS queue as a dead-letter queue, you must use a custom KMS with a key policy
-  that grants the Amazon SNS service principal access to AWS KMS API actions. For more information, see [Securing Amazon SNS data with server-side
-  encryption](sns-server-side-encryption.md "sns-server-side-encryption.md") in this guide and [Protecting Amazon SQS Data
+  that grants the Amazon SNS service principal access to AWS KMS API actions. For more information, see [Securing Amazon SNS data with server-side encryption](sns-server-side-encryption.md "sns-server-side-encryption.md") in this guide and [Protecting Amazon SQS Data
   Using Server-Side Encryption (SSE) and AWS KMS](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.md") in the _Amazon Simple Queue Service Developer Guide_.
 
 ## Why do message deliveries fail?
@@ -64,16 +62,13 @@ message retention period using the Amazon SQS `SetQueueAttributes`
 API action. To make your applications more resilient, we recommend setting the maximum
 retention period for dead-letter queues to 14 days.
 
-## How are messages moved into
-
-a dead-letter queue?
+## How are messages moved into a dead-letter queue?
 
 Your messages are moved into a dead-letter queue using a _redrive
 policy_. A redrive policy is a JSON object that refers to the ARN of the
 dead-letter queue. The `deadLetterTargetArn` attribute specifies the ARN. The
 ARN must point to an Amazon SQS queue in the same AWS account and Region as your Amazon SNS
-subscription. For more information, see [Configuring an Amazon SNS dead-letter queue for
-a subscription](sns-configure-dead-letter-queue.md "sns-configure-dead-letter-queue.md").
+subscription. For more information, see [Configuring an Amazon SNS dead-letter queue for a subscription](sns-configure-dead-letter-queue.md "sns-configure-dead-letter-queue.md").
 
 The following JSON object is a sample redrive policy, attached to an SNS
 subscription.
@@ -84,9 +79,7 @@ subscription.
 }
 ```
 
-## How can I move messages
-
-out of a dead-letter queue?
+## How can I move messages out of a dead-letter queue?
 
 You can move messages out of a dead-letter queue in two ways:
 
@@ -97,16 +90,13 @@ You can move messages out of a dead-letter queue in two ways:
   Amazon SQS API, AWS SDK, or AWS CLI to write custom consumer logic for polling,
   processing, and deleting the messages in the dead-letter queue.
 
-## How can I monitor and log
-
-dead-letter queues?
+## How can I monitor and log dead-letter queues?
 
 You can use Amazon CloudWatch metrics to monitor dead-letter queues associated with your Amazon SNS
 subscriptions. All Amazon SQS queues emit CloudWatch metrics at one-minute intervals. For more
 information, see [Available CloudWatch metrics for Amazon SQS](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-available-cloudwatch-metrics.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-available-cloudwatch-metrics.md") in the
 _Amazon Simple Queue Service Developer Guide_. All Amazon SNS subscriptions with dead-letter
-queues also emit CloudWatch metrics. For more information, see [Monitoring Amazon SNS topics using
-CloudWatch](sns-monitoring-using-cloudwatch.md "sns-monitoring-using-cloudwatch.md").
+queues also emit CloudWatch metrics. For more information, see [Monitoring Amazon SNS topics using CloudWatch](sns-monitoring-using-cloudwatch.md "sns-monitoring-using-cloudwatch.md").
 
 To be notified of activity in your dead-letter queues, you can use CloudWatch metrics and
 alarms. Setting up an alarm for the `NumberOfMessagesSent` metric is not

@@ -1,6 +1,4 @@
-# Amazon SNS message archiving and analytics: An example
-
-use case for airline ticketing platforms
+# Amazon SNS message archiving and analytics: An example use case for airline ticketing platforms
 
 This topic provides a tutorial for a common use case of archiving and analyzing Amazon SNS
 messages.

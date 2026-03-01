@@ -1,6 +1,4 @@
-# Using Amazon SNS for application-to-person
-
-messaging
+# Using Amazon SNS for application-to-person messaging
 
 Amazon SNS application-to-person (A2P) messaging lets you to deliver notifications and alerts
 directly to your customers' mobile devices through SMS (Short Message Service). Using this

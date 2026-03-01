@@ -1,6 +1,4 @@
-# Configuring an Amazon SNS dead-letter queue for
-
-a subscription
+# Configuring an Amazon SNS dead-letter queue for a subscription
 
 A dead-letter queue is an Amazon SQS queue that an Amazon SNS subscription can target
 for messages that can't be delivered to subscribers successfully. Messages that can't be delivered
@@ -56,9 +54,7 @@ JSON
 
 ```
 
-## To configure a dead-letter
-
-queue for an Amazon SNS subscription using the AWS Management Console
+## To configure a dead-letter queue for an Amazon SNS subscription using the AWS Management Console
 
 Before your begin this tutorial, make sure you complete the [prerequisites](#dead-letter-queue-prerequisites "#dead-letter-queue-prerequisites").
 
@@ -86,9 +82,7 @@ arn:aws:sqs:`us-east-2`:`123456789012`:`MyDeadLetterQueue`
 
 Your subscription is configured to use a dead-letter queue.
 
-## To configure a dead-letter queue
-
-for an Amazon SNS subscription using an AWS SDK
+## To configure a dead-letter queue for an Amazon SNS subscription using an AWS SDK
 
 Before you run this example, make sure that you complete the [prerequisites](#dead-letter-queue-prerequisites "#dead-letter-queue-prerequisites").
 
@@ -128,9 +122,7 @@ sns.setSubscriptionAttributes(request);
 
 ```
 
-## To configure a dead-letter queue
-
-for an Amazon SNS subscription using the AWS CLI
+## To configure a dead-letter queue for an Amazon SNS subscription using the AWS CLI
 
 Before your begin this tutorial, make sure you complete the [prerequisites](#dead-letter-queue-prerequisites "#dead-letter-queue-prerequisites").
 
@@ -144,9 +136,7 @@ aws sns set-subscription-attributes \
 --attribute-value "{\"deadLetterTargetArn\": \"arn:aws:sqs:`us-east-2`:`123456789012`:`MyDeadLetterQueue`\"}"
 ```
 
-## To configure a
-
-dead-letter queue for an Amazon SNS subscription using CloudFormation
+## To configure a dead-letter queue for an Amazon SNS subscription using CloudFormation
 
 Before your begin this tutorial, make sure you complete the [prerequisites](#dead-letter-queue-prerequisites "#dead-letter-queue-prerequisites").
 

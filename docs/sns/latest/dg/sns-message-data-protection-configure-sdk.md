@@ -1,20 +1,14 @@
-# Creating Amazon SNS data protection
-
-policies to secure message data using the SDK
+# Creating Amazon SNS data protection policies to secure message data using the SDK
 
 The number and size of Amazon SNS resources in an AWS account are limited. For more
 information, see [Amazon Simple Notification Service
 endpoints and quotas](../../../general/latest/gr/sns.md "../../../general/latest/gr/sns.md").
 
-## Creating data protection policies using the AWS
-
-SDK
+## Creating data protection policies using the AWS SDK
 
 Create an Amazon SNS data protection policy using the AWS SDK.
 
-###### To create a data protection policy together with an Amazon SNS topic (AWS
-
-SDK)
+###### To create a data protection policy together with an Amazon SNS topic (AWS SDK)
 
 Use the following options to create a new data protection policy together with a
 standard Amazon SNS topic:
@@ -68,9 +62,7 @@ const run = async () => {
 run();
 ```
 
-###### To create or retrieve a data protection policy for an existing Amazon SNS topic (AWS
-
-SDK)
+###### To create or retrieve a data protection policy for an existing Amazon SNS topic (AWS SDK)
 
 Use the following options to create or retrieve a new data protection policy
 together with a standard Amazon SNS topic:

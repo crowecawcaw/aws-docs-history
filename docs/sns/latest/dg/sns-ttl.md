@@ -1,6 +1,4 @@
-# Using the Amazon SNS time to live message attribute for mobile push
-
-notifications
+# Using the Amazon SNS time to live message attribute for mobile push notifications
 
 Amazon Simple Notification Service (Amazon SNS) provides support for setting a _Time To Live (TTL)_
 message attribute for mobile push notifications messages. This is in addition to the
@@ -16,9 +14,7 @@ specified TTL, then the message will be dropped and no further attempts to deliv
 be made. To specify TTL within message attributes, you can use the AWS Management Console, AWS software
 development kits (SDKs), or query API.
 
-## TTL message attributes for push notification
-
-services
+## TTL message attributes for push notification services
 
 The following is a list of the TTL message attributes for push notification services
 that you can use to set when using the AWS SDKs or query API:

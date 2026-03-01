@@ -1,6 +1,4 @@
-# Amazon SNS access control
-
-architecture overview
+# Amazon SNS access control architecture overview
 
 The following figure and table describe the main components that interact to provide
 access control for your resources.

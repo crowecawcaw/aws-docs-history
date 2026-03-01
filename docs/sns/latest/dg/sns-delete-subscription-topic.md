@@ -1,6 +1,4 @@
-# Deleting an Amazon SNS topic and
-
-subscription
+# Deleting an Amazon SNS topic and subscription
 
 When a topic is deleted, its associated subscriptions are deleted asynchronously. While
 customers can still access these subscriptions, the subscriptions are no longer associated
@@ -19,9 +17,7 @@ Once the subscription is deleted, it cannot be recovered.
 Published notifications to the Amazon SNS topic will not be delivered to that deleted subscription.
 You will have to re-create the subscription to receive notifications.
 
-## To delete an Amazon SNS topic or
-
-subscription using the AWS Management Console
+## To delete an Amazon SNS topic or subscription using the AWS Management Console
 
 Deleting an Amazon SNS topic or subscription ensures efficient resource management,
 preventing unnecessary usage and keeping the Amazon SNS console organized. This step helps
@@ -51,9 +47,7 @@ The console deletes the topic.
 
 The console deletes the subscription.
 
-## To delete a subscription and topic using an
-
-AWS SDK
+## To delete a subscription and topic using an AWS SDK
 
 To use an AWS SDK, you must configure it with your credentials. For more
 information, see [The shared config and credentials

@@ -9,9 +9,7 @@ Do not add personally identifiable information (PII) or other confidential or
 sensitive information in tags. Tags are accessible to other Amazon Web Services, including
 billing. Tags are not intended to be used for private or sensitive data.
 
-## Listing, adding, and
-
-removing tags for an Amazon SNS topic using the AWS Management Console
+## Listing, adding, and removing tags for an Amazon SNS topic using the AWS Management Console
 
 1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home").
 2. On the navigation panel, choose **Topics**.
@@ -29,9 +27,7 @@ The tags added to the topic are listed. 5. Modify topic tags:
 
 6. Choose **Save changes**.
 
-## Adding tags to a topic using an AWS
-
-SDK
+## Adding tags to a topic using an AWS SDK
 
 To use an AWS SDK, you must configure it with your credentials. For more
 information, see [The shared config and credentials
@@ -197,9 +193,7 @@ suspend fun addTopicTags(topicArn: String) {
   [TagResource](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
   in _AWS SDK for Kotlin API reference_.
 
-## Managing tags with Amazon SNS API
-
-actions
+## Managing tags with Amazon SNS API actions
 
 To manage tags using the Amazon SNS API, use the following API actions:
 

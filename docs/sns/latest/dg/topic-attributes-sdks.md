@@ -1,6 +1,4 @@
-# AWS SDK examples to configure topic
-
-attributes
+# AWS SDK examples to configure topic attributes
 
 The following code examples show how to use `SetTopicAttributes`.
 

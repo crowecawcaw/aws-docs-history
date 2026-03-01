@@ -1,6 +1,4 @@
-# Moving out of the Amazon SNS SMS
-
-sandbox
+# Moving out of the Amazon SNS SMS sandbox
 
 Moving your AWS account out of the [SMS sandbox](sns-sms-sandbox.md "sns-sms-sandbox.md")
 requires that you first add, verify, and test destination phone numbers. After doing this,
@@ -19,8 +17,7 @@ create a case with AWS Support.
 2.  **Test SMS publishing**
     1. Confirm that you are able to send and receive messages to at least one
        verified phone number. For more detailed instructions on how to publish SMS
-       messages, see [Publishing SMS messages to a mobile phone using
-       Amazon SNS](sms_sending-overview.md#sms_publish-to-phone "sms_sending-overview.md#sms_publish-to-phone").
+       messages, see [Publishing SMS messages to a mobile phone using Amazon SNS](sms_sending-overview.md#sms_publish-to-phone "sms_sending-overview.md#sms_publish-to-phone").
 
 3.  **Initiate sandbox edit**
     1. On the Amazon SNS console's **Mobile text messaging (SMS)**

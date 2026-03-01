@@ -26,9 +26,7 @@ This section describes several best practices that might help you improve your c
 engagement and avoid costly penalties. However, note that this section doesn't contain legal
 advice. Always consult an attorney to obtain legal advice.
 
-## Comply with laws,
-
-regulations, and carrier requirements
+## Comply with laws, regulations, and carrier requirements
 
 You can face significant fines and penalties if you violate the laws and regulations
 of the places where your customers reside. For this reason, it's vital to understand the
@@ -69,9 +67,7 @@ In many countries, the local carriers ultimately have the authority to determine
 kind of traffic flows over their networks. This means that the carriers might impose
 restrictions on SMS content that exceed the minimum requirements of local laws.
 
-## Obtain
-
-permission
+## Obtain permission
 
 Never send messages to recipients who haven't explicitly asked to receive the specific
 types of messages that you plan to send. Don't share opt-in lists, even among
@@ -94,9 +90,7 @@ Maintain records that include the date, time, and source of each opt-in request 
 confirmation. This might be useful if a carrier or regulatory agency requests it, and
 can also help you perform routine audits of your customer list.
 
-### Opt-in
-
-workflow
+### Opt-in workflow
 
 In some cases (like US Toll-Free or Short Code registration) mobile carriers
 require you to provide mockups or screen shot of your entire opt-in workflow. The
@@ -151,9 +145,7 @@ complete with annotations. In the opt-in flow, the customer has to take distinct
 intentional actions to provide their consent to receive text messages and contains
 all of the required disclosures.
 
-### Other opt-in
-
-workflow types
+### Other opt-in workflow types
 
 Mobile carriers will also accept opt-in workflows outside of applications and
 websites like verbal or written opt-in if it complies with what is outlined above. A
@@ -174,9 +166,7 @@ numbers for a new messaging program; if you do, you're likely to have some messa
 because the number is no longer in service, and some people who opt out because they
 don't remember giving you their consent in the first place.
 
-## Audit your customer
-
-lists
+## Audit your customer lists
 
 If you send recurring SMS campaigns, audit your customer lists on a regular basis.
 Auditing your customer lists ensures that the only customers who receive your messages
@@ -204,9 +194,7 @@ opted to receive messages from you. In these situations, Support contacts you wi
 of the information that the carrier or agency requires. If you can't provide the
 necessary information, we may pause your ability to send additional SMS messages.
 
-## Make your messages
-
-clear, honest, and concise
+## Make your messages clear, honest, and concise
 
 SMS is a unique medium. The 160-character-per-message limit means that your messages
 have to be concise. Techniques that you might use in other communication channels, such
@@ -219,9 +207,7 @@ number.
 This section provides some tips and ideas for creating an effective SMS message
 body.
 
-### Identify
-
-yourself as the sender
+### Identify yourself as the sender
 
 Your recipients should be able to immediately tell that a message is from you.
 Senders who follow this best practice include an identifying name ("program name")
@@ -238,9 +224,7 @@ at the beginning of each message.
  from a new device. Reply Y to confirm, or STOP to
  opt-out.`
 
-### Don't try to make
-
-your message look like a person-to-person message
+### Don't try to make your message look like a person-to-person message
 
 Some marketers are tempted to add a personal touch to their SMS messages by making
 their messages appear to come from an individual. However, this technique might make
@@ -258,9 +242,7 @@ your message seem like a phishing attempt.
  Click here to browse the sale: https://www.example.com. Text STOP to
  opt-out.`
 
-### Be careful when
-
-talking about money
+### Be careful when talking about money
 
 Scammers often prey upon people's desire to save and receive money. Don't make
 offers seem too good to be true. Don't use the lure of money to deceive people.
@@ -277,9 +259,7 @@ Don't use currency symbols to indicate money.
  discounts at 2300+ repair shops nationwide. More info at
  https://www.example.com. Text STOP to opt-out.`
 
-### Use only the
-
-necessary characters
+### Use only the necessary characters
 
 Brands are often inclined to protect their trademarks by including trademark
 symbols such as ™ or ® in their messages. However, these symbols are not
@@ -312,9 +292,7 @@ contains a Registered Trademark symbol (®), which is not part of the GSM
 alphabet. As a result, the first example is sent as two message parts, while the
 second example is sent as one message part.
 
-### Use valid, safe
-
-links
+### Use valid, safe links
 
 If your message includes links, double-check the links to make sure that they
 work. Test your links on a device outside your corporate network to ensure that
@@ -337,9 +315,7 @@ to the exclusive use of your company or organization.
  ExampleCorp Widget. See https://a.co/cFKmaRG for more info. Text
  STOP to opt-out.`
 
-### Limit the number
-
-of abbreviations that you use
+### Limit the number of abbreviations that you use
 
 The 160-character limitation of the SMS channel leads some senders to believe that
 they need to use abbreviations extensively in their messages. However, the overuse
@@ -357,9 +333,7 @@ without using an excessive number of abbreviations.
 `ExampleCorp Alerts: Today only—an exclusive deal on ExampleCorp
  Widgets at example.com. Text STOP to opt-out.`
 
-## Respond
-
-appropriately
+## Respond appropriately
 
 When a recipient replies to your messages, make sure that you respond with useful
 information. For example, when a customer responds to one of your messages with the
@@ -378,9 +352,7 @@ any further messages. A STOP response might resemble the following example:
  will be sent. Reply HELP, email help@example.com, or call 425-555-0199 for more
  info.`
 
-## Adjust your sending
-
-based on engagement
+## Adjust your sending based on engagement
 
 Your customers' priorities can change over time. If customers no longer find your
 messages to be useful, they might opt out of your messages entirely, or even report your
@@ -395,9 +367,7 @@ Finally, remove customers who are completely unengaged from your customer lists.
 step prevents customers from becoming frustrated with your messages. It also saves you
 money and helps protect your reputation as a sender.
 
-## Send at appropriate
-
-times
+## Send at appropriate times
 
 Only send messages during normal daytime business hours. If you send messages at
 dinner time or in the middle of the night, there's a good chance that your customers
@@ -410,18 +380,14 @@ rates for your origination numbers. Divide the number of recipients by your thro
 rate to determine how long it will take to send messages to all of your
 recipients.
 
-## Avoid cross-channel
-
-fatigue
+## Avoid cross-channel fatigue
 
 In your campaigns, if you use multiple communication channels (such as email, SMS, and
 push messages), don't send the same message in every channel. When you send the same
 message at the same time in more than one channel, your customers will probably perceive
 your sending behavior to be annoying rather than helpful.
 
-## Use dedicated short
-
-codes
+## Use dedicated short codes
 
 If you use short codes, maintain a separate short code for each brand and each type of
 message. For example, if your company has two brands, use a separate short code for each
@@ -431,9 +397,7 @@ short code for each type of message. To learn more about requesting short codes,
 short codes for SMS messaging with AWS End User Messaging SMS](../../../sms-voice/latest/userguide/phone-numbers-request-short-code.md "../../../sms-voice/latest/userguide/phone-numbers-request-short-code.md") in the _AWS End User Messaging SMS User
 Guide_.
 
-## Verify your
-
-destination phone numbers
+## Verify your destination phone numbers
 
 When you send SMS messages through Amazon SNS, you're billed for each message part you
 send. The price you pay per message part varies on the recipient's country or region.
@@ -453,9 +417,7 @@ phone number is valid and what type of number it is (such as mobile, landline, o
 For more information, see [Send a test message with the SMS simulator](../../../sms-voice/latest/userguide/getting-started-tutorial.md#getting-started-tutorial-step3 "../../../sms-voice/latest/userguide/getting-started-tutorial.md#getting-started-tutorial-step3") in the _AWS End User Messaging SMS User
 Guide_.
 
-## Design with redundancy in
-
-mind
+## Design with redundancy in mind
 
 For mission-critical messaging programs, we recommend that you configure Amazon SNS in more
 than one AWS Region. Amazon SNS is available in several AWS Regions. For a complete list
@@ -480,9 +442,7 @@ of redundancy, which can help improve resiliency.
 For SMS limits and restrictions, see [SMS and MMS limits and
 restrictions](../../../sms-voice/latest/userguide/sms-limitations.md "../../../sms-voice/latest/userguide/sms-limitations.md") in the _AWS End User Messaging SMS User Guide_.
 
-## Managing opt out
-
-keywords
+## Managing opt out keywords
 
 SMS recipients can use their devices to opt out of messages by replying with a
 keyword. For more information, see [Opting out of receiving SMS messages](sms_manage.md#sms_manage_optout "sms_manage.md#sms_manage_optout").
@@ -499,9 +459,7 @@ Use the `PutKeyword` API action to create or update a keyword configuration
 on an origination phone number or pool. For more information, see [PutKeyword](../../../pinpoint/latest/apireference_smsvoicev2/API_PutKeyword.md "../../../pinpoint/latest/apireference_smsvoicev2/API_PutKeyword.md")
 in _AWS End User Messaging SMS API Reference_.
 
-## Managing number
-
-settings
+## Managing number settings
 
 To manage settings for the dedicated short codes and long codes that you requested
 from AWS Support and assigned to your account, see [Change a
@@ -548,9 +506,7 @@ This attribute specifies the number of message parts that the message contained.
 When you send a message that contains more than one message parts, you're charged for
 the number of message parts contained in the message.
 
-### GSM 03.38 character
-
-set
+### GSM 03.38 character set
 
 The following table lists all of the characters that are present in the GSM 03.38
 character set. If you send a message that only includes the characters shown in the
@@ -594,17 +550,13 @@ characters:
 - An escape control, which is automatically added to the characters in the
   preceding list.
 
-### Example
-
-messages
+### Example messages
 
 This section contains several example SMS messages. For each example, this section
 shows the total number of characters, as well as the number of message parts for the
 message.
 
-###### Example 1: A long message that only contains characters in the GSM 03.38
-
-alphabet
+###### Example 1: A long message that only contains characters in the GSM 03.38 alphabet
 
 The following message only contains characters that are in the GSM 03.38
 alphabet.

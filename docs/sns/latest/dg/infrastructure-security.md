@@ -17,5 +17,4 @@ You can call these API actions from any network location, but Amazon SNS support
 access policies, which can include restrictions based on the source IP address. You can also use
 Amazon SNS policies to control access from specific Amazon VPC endpoints or specific VPCs. This
 effectively isolates network access to a given Amazon SNS topic from only the specific VPC within the
-AWS network. For more information, see [Restrict
-publication to an Amazon SNS topic only from a specific VPC endpoint](sns-access-policy-use-cases.md#sns-restrict-publication-only-from-specified-vpc-endpoint "sns-access-policy-use-cases.md#sns-restrict-publication-only-from-specified-vpc-endpoint").
+AWS network. For more information, see [Restrict publication to an Amazon SNS topic only from a specific VPC endpoint](sns-access-policy-use-cases.md#sns-restrict-publication-only-from-specified-vpc-endpoint "sns-access-policy-use-cases.md#sns-restrict-publication-only-from-specified-vpc-endpoint").

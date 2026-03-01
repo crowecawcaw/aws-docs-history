@@ -1,6 +1,4 @@
-# Subscribing AWS Event Fork Pipelines to an
-
-Amazon SNS topic
+# Subscribing AWS Event Fork Pipelines to an Amazon SNS topic
 
 To accelerate the development of your event-driven applications, you can subscribe
 event-handling pipelines—powered by AWS Event Fork Pipelines—to Amazon SNS topics. AWS Event Fork Pipelines is a suite of open-source

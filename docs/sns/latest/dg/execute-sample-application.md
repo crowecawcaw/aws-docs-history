@@ -1,6 +1,4 @@
-# Step 2: Executing the SNS-linked sample
-
-application
+# Step 2: Executing the SNS-linked sample application
 
 1. In the AWS Lambda console, on the navigation panel, choose
    **Applications**.

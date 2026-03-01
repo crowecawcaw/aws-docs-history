@@ -1,6 +1,4 @@
-# Data protection policy operations in
-
-Amazon SNS
+# Data protection policy operations in Amazon SNS
 
 The following are examples of data protection policies that you can use to audit and deny
 sensitive data. For a complete tutorial that includes an example application, see the [Introducing message data protection for Amazon SNS](https://aws.amazon.com/blogs/compute/introducing-message-data-protection-for-amazon-sns/ "https://aws.amazon.com/blogs/compute/introducing-message-data-protection-for-amazon-sns/") blog post.
@@ -61,9 +59,7 @@ types:
 }
 ```
 
-### Required permissions when specifying
-
-log destinations
+### Required permissions when specifying log destinations
 
 When you specify logging destinations in the data protection policy, you must add the
 following permissions to the IAM identity policy of the IAM principal that is calling
@@ -145,9 +141,7 @@ your customer managed key so that the log delivery account can write to your S3 
 information about the required key policy for use with SSE-KMS, see [Amazon S3 bucket server-side encryption](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-SSE-KMS-S3 "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-SSE-KMS-S3") in the
 _Amazon CloudWatch Logs User Guide_.
 
-### Audit destination log
-
-example
+### Audit destination log example
 
 In the following example, `callerPrincipal` is used to identify the source of
 the sensitive content, and `messageID` is used as a reference to check against

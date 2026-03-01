@@ -1,6 +1,4 @@
-# Security, identity,
-
-& compliance services
+# Security, identity, & compliance services
 
 The following table describes how Amazon SNS integrates with AWS security,
 identity, and compliance services, such as Directory Service, Amazon GuardDuty, Amazon Inspector, and AWS Security Hub CSPM, to

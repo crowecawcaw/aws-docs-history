@@ -1,6 +1,4 @@
-# Testing and querying an Amazon SNS configuration
-
-for effective data management
+# Testing and querying an Amazon SNS configuration for effective data management
 
 This topic explains how to test the [message
 archiving and analytics example use case](firehose-example-use-case.md "firehose-example-use-case.md") by publishing a message to the Amazon SNS topic.

@@ -1,6 +1,4 @@
-# Amazon SNS mobile application supported
-
-Regions
+# Amazon SNS mobile application supported Regions
 
 Currently, you can create mobile applications in the following Regions:
 
@@ -22,6 +20,7 @@ Currently, you can create mobile applications in the following Regions:
 - Europe (Ireland)
 - Europe (London)
 - Europe (Milan)
+- Europe (Spain)
 - Europe (Paris)
 - Europe (Stockholm)
 - Middle East (Bahrain)

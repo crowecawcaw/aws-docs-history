@@ -1,6 +1,4 @@
-# Using Amazon SNS for mobile push
-
-notifications
+# Using Amazon SNS for mobile push notifications
 
 This section describes how to send mobile push notifications.
 

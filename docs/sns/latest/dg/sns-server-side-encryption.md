@@ -1,6 +1,4 @@
-# Securing Amazon SNS data with server-side
-
-encryption
+# Securing Amazon SNS data with server-side encryption
 
 Server-side encryption (SSE) lets you store sensitive data in encrypted topics by protecting
 the contents of messages in Amazon SNS topics using keys managed in AWS Key Management Service (AWS KMS).
@@ -10,8 +8,7 @@ form, and only decrypted when they are sent.
 
 - For information about managing SSE using the AWS Management Console or the AWS SDK for Java (by setting the
   `KmsMasterKeyId` attribute using the `CreateTopic` and `SetTopicAttributes` API
-  actions), see [Setting up Amazon SNS topic encryption with
-  server-side encryption](sns-enable-encryption-for-topic.md "sns-enable-encryption-for-topic.md").
+  actions), see [Setting up Amazon SNS topic encryption with server-side encryption](sns-enable-encryption-for-topic.md "sns-enable-encryption-for-topic.md").
 - For information about creating encrypted topics using CloudFormation (by setting the
   `KmsMasterKeyId` property using the `AWS::SNS::Topic`
   resource), see the _AWS CloudFormation User Guide_.

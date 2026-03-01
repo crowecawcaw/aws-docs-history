@@ -1,6 +1,4 @@
-# SetTopicAttributes delivery
-
-policy JSON format
+# SetTopicAttributes delivery policy JSON format
 
 If you send a request to the `SetTopicAttributes` action and set the
 `AttributeName` parameter to a value of `DeliveryPolicy`, the

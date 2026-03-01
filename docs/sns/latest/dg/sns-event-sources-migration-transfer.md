@@ -1,6 +1,4 @@
-# Migration & transfer
-
-services
+# Migration & transfer services
 
 The following table describes how Amazon SNS integrates with AWS migration
 and transfer services, such as AWS Application Discovery Service, AWS Database Migration Service (DMS), and AWS Snowball Edge, to

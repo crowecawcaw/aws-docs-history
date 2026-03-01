@@ -1,6 +1,4 @@
-# Message ordering and deduplication strategies using Amazon SNS FIFO
-
-topics
+# Message ordering and deduplication strategies using Amazon SNS FIFO topics
 
 This topic provides information of the features and functionalities of Amazon SNS FIFO
 (First-In-First-Out) topics and how they integrate with [Amazon SQS FIFO

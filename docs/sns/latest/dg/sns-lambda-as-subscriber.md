@@ -1,6 +1,4 @@
-# Fanout Amazon SNS notifications to Lambda functions for
-
-automated processing
+# Fanout Amazon SNS notifications to Lambda functions for automated processing
 
 Amazon SNS integrates with AWS Lambda, allowing you to trigger Lambda functions in response to
 Amazon SNS notifications. When a message is published to an SNS topic that has a Lambda function

@@ -1,6 +1,4 @@
-# Creating data protection policies in
-
-Amazon SNS
+# Creating data protection policies in Amazon SNS
 
 [Data protection policies](sns-message-data-protection-policies.md "sns-message-data-protection-policies.md") help
 you safeguard the data that's published to your Amazon SNS topics by auditing, de-identifying

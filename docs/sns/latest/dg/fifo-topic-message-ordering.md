@@ -1,6 +1,4 @@
-# Amazon SNS message ordering details for FIFO
-
-topics
+# Amazon SNS message ordering details for FIFO topics
 
 An Amazon SNS FIFO topic always delivers messages to subscribed Amazon SQS queues in the exact order
 in which the messages are published to the topic, and only once. With an Amazon SQS FIFO queue

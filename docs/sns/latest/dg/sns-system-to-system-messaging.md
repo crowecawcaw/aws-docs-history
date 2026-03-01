@@ -1,6 +1,4 @@
-# Using Amazon SNS for application-to-application
-
-messaging
+# Using Amazon SNS for application-to-application messaging
 
 Amazon SNS simplifies application-to-application (A2A) messaging by separating publishers from
 subscribers, which supports microservices, distributed systems, and serverless applications.

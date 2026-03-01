@@ -21,13 +21,11 @@ sender IDs, and register your company.
 
 1. Add a **destination phone number** to the SMS sandbox. For
    details on adding, managing and moving phone numbers out of the Amazon SNS SMS
-   sandbox, see [Adding and verifying phone numbers
-   in the Amazon SNS SMS sandbox](sns-sms-sandbox-verifying-phone-numbers.md "sns-sms-sandbox-verifying-phone-numbers.md").
+   sandbox, see [Adding and verifying phone numbers in the Amazon SNS SMS sandbox](sns-sms-sandbox-verifying-phone-numbers.md "sns-sms-sandbox-verifying-phone-numbers.md").
 2. Create an **origination identity** that your
    recipients see on their devices when you send them an SMS message. To learn more
    about origination identities, including the different types you can use, see the
-   [Origination identities for Amazon SNS SMS
-   messages](channels-sms-originating-identities.md "channels-sms-originating-identities.md") documentation.
+   [Origination identities for Amazon SNS SMS messages](channels-sms-originating-identities.md "channels-sms-originating-identities.md") documentation.
 3. **Register** your company. Some countries require
    you to register your company's identity to be able to purchase phone numbers or
    sender IDs and review the messages you send to recipients in their country. For

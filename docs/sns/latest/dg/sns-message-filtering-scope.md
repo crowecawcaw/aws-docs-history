@@ -1,6 +1,4 @@
-# Amazon SNS subscription filter policy
-
-scope
+# Amazon SNS subscription filter policy scope
 
 The `FilterPolicyScope` subscription attribute allows you define the
 filtering scope by setting one of the following values:

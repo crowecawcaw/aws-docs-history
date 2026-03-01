@@ -1,6 +1,4 @@
-# Integrating Amazon SNS messages with Amazon OpenSearch Service
-
-destinations
+# Integrating Amazon SNS messages with Amazon OpenSearch Service destinations
 
 This section explains how delivery streams publish data to Amazon OpenSearch Service (OpenSearch Service).
 

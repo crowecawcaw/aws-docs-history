@@ -15,13 +15,11 @@ use with no additional charge.
 How you use AWS Identity and Access Management (IAM) differs based on your role:
 
 - **Service user** - request permissions from your
-  administrator if you cannot access features (see [Troubleshooting Amazon Simple Notification Service identity and
-  access](security_iam_troubleshoot.md "security_iam_troubleshoot.md"))
+  administrator if you cannot access features (see [Troubleshooting Amazon Simple Notification Service identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md"))
 - **Service administrator** - determine user access and
   submit permission requests (see [How Amazon SNS works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md"))
 - **IAM administrator** - write policies to manage
-  access (see [Identity-based policy examples for
-  Amazon Simple Notification Service](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"))
+  access (see [Identity-based policy examples for Amazon Simple Notification Service](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"))
 
 ## Authenticating with identities
 
@@ -63,17 +61,13 @@ Using policies, administrators specify who has access to what by defining which 
 
 By default, users and roles have no permissions. An IAM administrator creates IAM policies and adds them to roles, which users can then assume. IAM policies define permissions regardless of the method used to perform the operation.
 
-### Identity-based
-
-policies
+### Identity-based policies
 
 Identity-based policies are JSON permissions policy documents that you attach to an identity (user, group, or role). These policies control what actions identities can perform, on which resources, and under what conditions. To learn how to create an identity-based policy, see [Define custom IAM permissions with customer managed policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in the _IAM User Guide_.
 
 Identity-based policies can be _inline policies_ (embedded directly into a single identity) or _managed policies_ (standalone policies attached to multiple identities). To learn how to choose between managed and inline policies, see [Choose between managed policies and inline policies](../../../IAM/latest/UserGuide/access_policies-choosing-managed-or-inline.md "../../../IAM/latest/UserGuide/access_policies-choosing-managed-or-inline.md") in the _IAM User Guide_.
 
-### Resource-based
-
-policies
+### Resource-based policies
 
 Resource-based policies are JSON policy documents that you attach to a resource. Examples include IAM _role trust policies_ and Amazon S3 _bucket policies_. In services that support resource-based policies, service administrators can use them to control access to a specific resource. You must [specify a principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md") in a resource-based policy.
 
@@ -88,9 +82,7 @@ AWS supports additional policy types that can set the maximum permissions grante
 - **Resource control policies (RCPs)** – Set the maximum available permissions for resources in your accounts. For more information, see [Resource control policies (RCPs)](../../../organizations/latest/userguide/orgs_manage_policies_rcps.md "../../../organizations/latest/userguide/orgs_manage_policies_rcps.md") in the _AWS Organizations User Guide_.
 - **Session policies** – Advanced policies passed as a parameter when creating a temporary session for a role or federated user. For more information, see [Session policies](../../../IAM/latest/UserGuide/access_policies.md#policies_session "../../../IAM/latest/UserGuide/access_policies.md#policies_session") in the _IAM User Guide_.
 
-### Multiple policy
-
-types
+### Multiple policy types
 
 When multiple types of policies apply to a request, the resulting permissions are more complicated to understand. To learn how AWS determines whether to allow a request when multiple policy types are involved, see [Policy evaluation logic](../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md "../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md") in the _IAM User Guide_.
 
@@ -108,9 +100,7 @@ resources without having to manage additional users. For information about using
 cross-account access, see [Enabling Cross-Account
 Access](../../../IAM/latest/UserGuide/Delegation.md "../../../IAM/latest/UserGuide/Delegation.md") in the _IAM User Guide_.
 
-## Policy actions for
-
-Amazon SNS
+## Policy actions for Amazon SNS
 
 **Supports policy actions:**
 
@@ -140,12 +130,9 @@ To specify multiple actions in a single statement, separate them with commas.
          ]
 ```
 
-To view examples of Amazon SNS identity-based policies, see [Identity-based policy examples for
-Amazon Simple Notification Service](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon SNS identity-based policies, see [Identity-based policy examples for Amazon Simple Notification Service](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy resources
-
-for Amazon SNS
+## Policy resources for Amazon SNS
 
 **Supports policy resources:**
 
@@ -164,12 +151,9 @@ To see a list of Amazon SNS resource types and their ARNs, see [Actions Defined 
 the _Service Authorization Reference_. To learn with which actions you can specify the ARN
 of each resource, see [Resources Defined by Amazon Simple Notification Service](../../../IAM/latest/UserGuide/list_amazonsns.md "../../../IAM/latest/UserGuide/list_amazonsns.md").
 
-To view examples of Amazon SNS identity-based policies, see [Identity-based policy examples for
-Amazon Simple Notification Service](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon SNS identity-based policies, see [Identity-based policy examples for Amazon Simple Notification Service](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for Amazon SNS
+## Policy condition keys for Amazon SNS
 
 **Supports service-specific policy condition keys:**
 
@@ -188,8 +172,7 @@ To see a list of Amazon SNS condition keys, see [Condition Keys for Amazon Simpl
 _Service Authorization Reference_. To learn with which actions and resources you can use
 a condition key, see [Resources Defined by Amazon Simple Notification Service](../../../IAM/latest/UserGuide/list_amazonsns.md "../../../IAM/latest/UserGuide/list_amazonsns.md").
 
-To view examples of Amazon SNS identity-based policies, see [Identity-based policy examples for
-Amazon Simple Notification Service](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon SNS identity-based policies, see [Identity-based policy examples for Amazon Simple Notification Service](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## ACLs in Amazon SNS
 
@@ -217,9 +200,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary credentials
-
-with Amazon SNS
+## Using temporary credentials with Amazon SNS
 
 **Supports temporary credentials:**
 
@@ -231,9 +212,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service principal
-
-permissions for Amazon SNS
+## Cross-service principal permissions for Amazon SNS
 
 **Supports forward access sessions (FAS):**
 
@@ -242,9 +221,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Amazon SNS
+## Service roles for Amazon SNS
 
 **Supports service roles:**
 
@@ -259,9 +236,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break Amazon SNS functionality. Edit
 service roles only when Amazon SNS provides guidance to do so.
 
-## Service-linked roles for
-
-Amazon SNS
+## Service-linked roles for Amazon SNS
 
 **Supports service-linked roles:**
 
@@ -276,9 +251,7 @@ with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-ia
 **Service-linked role** column. Choose the **Yes** link to
 view the service-linked role documentation for that service.
 
-## Identity-based policies for
-
-Amazon SNS
+## Identity-based policies for Amazon SNS
 
 **Supports identity-based policies:**
 
@@ -295,16 +268,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-### Identity-based
+### Identity-based policy examples for Amazon SNS
 
-policy examples for Amazon SNS
+To view examples of Amazon SNS identity-based policies, see [Identity-based policy examples for Amazon Simple Notification Service](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of Amazon SNS identity-based policies, see [Identity-based policy examples for
-Amazon Simple Notification Service](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within Amazon SNS
+## Resource-based policies within Amazon SNS
 
 |                                  |     |
 | -------------------------------- | --- |

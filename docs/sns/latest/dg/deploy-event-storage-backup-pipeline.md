@@ -1,6 +1,4 @@
-# Deploying and subscribing the
-
-Event Storage and Backup Pipeline to Amazon SNS
+# Deploying and subscribing the Event Storage and Backup Pipeline to Amazon SNS
 
 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -25,8 +23,7 @@ For more information about transforming events and about configuring event buffe
 event compression, and event encryption, see [Creating an Delivery Stream](../../../firehose/latest/dev/basic-create.md "../../../firehose/latest/dev/basic-create.md") in the
 _Amazon Data Firehose Developer Guide_.
 
-For more information about filtering events, see [Amazon SNS subscription filter
-policies](sns-subscription-filter-policies.md "sns-subscription-filter-policies.md") in this guide.
+For more information about filtering events, see [Amazon SNS subscription filter policies](sns-subscription-filter-policies.md "sns-subscription-filter-policies.md") in this guide.
 
 1.  Sign in to the [AWS Lambda
     console](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/").

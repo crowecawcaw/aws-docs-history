@@ -1,6 +1,4 @@
-# Verifying the
-
-signature of an Amazon SNS message when using HTTP query-based requests
+# Verifying the signature of an Amazon SNS message when using HTTP query-based requests
 
 Verifying the signature of an Amazon SNS message when using HTTP query-based requests ensures
 the message's authenticity and integrity. This process confirms that the message originates
@@ -152,9 +150,7 @@ openssl dgst -sha256 -verify public_key.pem -signature signature.bin <<< "$STRIN
 If the signature is valid, the output is `Verified OK`. Otherwise, the
 output is `Verification Failure`.
 
-## Example script with error
-
-handling
+## Example script with error handling
 
 The following example script automates the verification process:
 

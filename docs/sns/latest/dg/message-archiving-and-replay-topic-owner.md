@@ -1,6 +1,4 @@
-# Amazon SNS message archiving for
-
-FIFO topic owners
+# Amazon SNS message archiving for FIFO topic owners
 
 Message archiving provides the ability to archive a single copy of all messages
 published to your topic. You can store published messages within your topic by enabling
@@ -11,9 +9,7 @@ a maximum of 365 days.
 Additional charges apply when setting an archive policy. For pricing information, see
 [Amazon SNS pricing](https://aws.amazon.com/sns/pricing/ "https://aws.amazon.com/sns/pricing/").
 
-## Create a message
-
-archive policy using the AWS Management Console
+## Create a message archive policy using the AWS Management Console
 
 Use this option to create a new message archive policy using the
 AWS Management Console.
@@ -69,9 +65,7 @@ a message archive policy, Amazon SNS deletes all of the archived messages.
 When deleting a topic, subscriptions are removed, and any messages in
 transit may not be delivered.
 
-## Create a message archive
-
-policy using the API
+## Create a message archive policy using the API
 
 To create a message archive policy using the API, you need to add the attribute
 `ArchivePolicy` to your topic. You can set an
@@ -98,9 +92,7 @@ To disable message archiving for your topic, and clear the archive, unset the
 `{}`
 ```
 
-## Create a message archive
-
-policy using the SDK
+## Create a message archive policy using the SDK
 
 To use an AWS SDK, you must configure it with your credentials. For
 more information, see [Shared `config` and
@@ -126,16 +118,12 @@ SetTopicAttributesRequest request = new SetTopicAttributesRequest()
 sns.setTopicAttributes(request);
 ```
 
-## Create a message archive
-
-policy using CloudFormation
+## Create a message archive policy using CloudFormation
 
 To create an archive policy using CloudFormation see [`AWS::SNS::Topic`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.md") in the
 _AWS CloudFormation User Guide_.
 
-## Grant access to an
-
-encrypted archive
+## Grant access to an encrypted archive
 
 Before a subscriber can begin replaying messages from an encrypted topic, you must
 complete the following steps. Because past messages are replayed, Amazon SNS needs to be
@@ -144,8 +132,7 @@ the messages in the archive.
 
 1. When you encrypt messages with a KMS key and store them within the
    topic, you must grant Amazon SNS the ability to decrypt these messages via Key
-   Policy. For more, see [Grant
-   decrypt permissions to Amazon SNS](#message-archiving-and-replay-topic-decrypt-permissions "#message-archiving-and-replay-topic-decrypt-permissions").
+   Policy. For more, see [Grant decrypt permissions to Amazon SNS](#message-archiving-and-replay-topic-decrypt-permissions "#message-archiving-and-replay-topic-decrypt-permissions").
 2. Enable AWS KMS for Amazon SNS. For more, see [Configuring AWS KMS permissions](sns-key-management.md#sns-what-permissions-for-sse "sns-key-management.md#sns-what-permissions-for-sse").
 
 ###### Important
@@ -155,9 +142,7 @@ existing sections in the policy. If encryption is enabled on a topic, and the
 KMS key is disabled or deleted, or the KMS key policy is not correctly
 configured for Amazon SNS, Amazon SNS cannot replay messages to your subscribers.
 
-### Grant
-
-decrypt permissions to Amazon SNS
+### Grant decrypt permissions to Amazon SNS
 
 In order for Amazon SNS to access encrypted messages from within your topic’s
 archive and replay them to subscribed endpoints, you must enable the Amazon SNS
@@ -182,9 +167,7 @@ within your topic.
 }
 ```
 
-## Monitor message
-
-archive metrics using Amazon CloudWatch
+## Monitor message archive metrics using Amazon CloudWatch
 
 You can monitor archived messages using Amazon CloudWatch using the following metrics. To
 be notified of anomalies in your workloads and help avoid impact, you can configure

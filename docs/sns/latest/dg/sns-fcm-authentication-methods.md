@@ -1,6 +1,4 @@
-# Amazon SNS integration with Firebase Cloud
-
-Messaging authentication setup
+# Amazon SNS integration with Firebase Cloud Messaging authentication setup
 
 This topic describes how to obtain the required FCM API (HTTP v1) credentials from Google
 to use with the AWS API, AWS CLI and the AWS Management Console.
@@ -69,17 +67,13 @@ Retrieves the credential type `"AuthenticationMethod": "Token"`, or
 
 - [GetPlatformApplicationAttributes](../api/API_GetPlatformApplicationAttributes.md "../api/API_GetPlatformApplicationAttributes.md")
 
-###### To set an FCM attribute for an existing Amazon SNS topic (AWS
-
-API)
+###### To set an FCM attribute for an existing Amazon SNS topic (AWS API)
 
 Sets the FCM attribute:
 
 - [SetPlatformApplicationAttributes](../api/API_SetPlatformApplicationAttributes.md "../api/API_SetPlatformApplicationAttributes.md")
 
-## Managing FCM settings using the
-
-console
+## Managing FCM settings using the console
 
 You can create FCM push notifications using the AWS Command Line Interface (CLI). The number and size
 of Amazon SNS resources in an AWS account are limited. For more information, see [Amazon Simple Notification Service endpoints and
@@ -148,5 +142,4 @@ Amazon SNS.
 
 **Related topics**
 
-- [Using Google Firebase Cloud Messaging v1 payloads in
-  Amazon SNS](sns-fcm-v1-payloads.md "sns-fcm-v1-payloads.md")
+- [Using Google Firebase Cloud Messaging v1 payloads in Amazon SNS](sns-fcm-v1-payloads.md "sns-fcm-v1-payloads.md")

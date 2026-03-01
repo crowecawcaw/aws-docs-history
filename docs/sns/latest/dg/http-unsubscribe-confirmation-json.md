@@ -1,6 +1,4 @@
-# HTTP/HTTPS unsubscribe confirmation
-
-JSON format
+# HTTP/HTTPS unsubscribe confirmation JSON format
 
 After an HTTP/HTTPS endpoint is unsubscribed from a topic, Amazon SNS sends an unsubscribe
 confirmation message to the endpoint.

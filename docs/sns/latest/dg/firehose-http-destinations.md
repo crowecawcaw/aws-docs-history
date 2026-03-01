@@ -1,6 +1,4 @@
-# Configuring Amazon SNS message delivery to HTTP
-
-destinations using
+# Configuring Amazon SNS message delivery to HTTP destinations using
 
 This topic explains how delivery streams publish data to HTTP endpoints.
 

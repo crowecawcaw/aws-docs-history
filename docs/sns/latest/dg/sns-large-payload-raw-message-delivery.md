@@ -19,9 +19,7 @@ formatting of messages, Amazon SNS allows raw message delivery:
   `SetSubscriptionAttribute` API action and set the value of the
   `RawMessageDelivery` attribute to `true`.
 
-## Enabling raw message delivery using the
-
-AWS Management Console
+## Enabling raw message delivery using the AWS Management Console
 
 1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home").
 2. On the navigation panel, choose **Topics**.
@@ -65,9 +63,7 @@ enabled for the second.
 This is a test message.
 ```
 
-## Message attributes and
-
-raw message delivery for Amazon SQS subscriptions
+## Message attributes and raw message delivery for Amazon SQS subscriptions
 
 Amazon SNS supports the delivery of message attributes, which allow you to provide
 structured metadata items, such as timestamps, geospatial data, signatures, and

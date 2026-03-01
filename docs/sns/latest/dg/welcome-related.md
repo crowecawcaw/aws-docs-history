@@ -1,6 +1,4 @@
-# AWS services commonly used with
-
-Amazon SNS
+# AWS services commonly used with Amazon SNS
 
 Integrate Amazon SNS with multiple AWS Cloud services to boost message handling, improve
 access control, enable event-driven processing, and automate resources. This integration
@@ -22,8 +20,7 @@ CloudWatch, you can:
   status** for messages sent to HTTP/S, Lambda, and Amazon SQS
   endpoints for debugging and auditing.
 
-For more information, see [Monitoring Amazon SNS topics using
-CloudWatch](sns-monitoring-using-cloudwatch.md "sns-monitoring-using-cloudwatch.md").
+For more information, see [Monitoring Amazon SNS topics using CloudWatch](sns-monitoring-using-cloudwatch.md "sns-monitoring-using-cloudwatch.md").
 
 **Amazon SQS**
 
@@ -79,8 +76,7 @@ you can:
   AWS Security Hub CSPM** to create alerts based on unusual Amazon SNS
   actions.
 
-For more information, see the [Logging AWS SNS API calls using
-AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
+For more information, see the [Logging AWS SNS API calls using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
 
 **AWS Lambda**
 
@@ -119,8 +115,7 @@ under what conditions. With IAM, you can:
   enforce security best practices, such as restricting access to
   specific AWS accounts, IP addresses, or conditions.
 
-For more information, see [Using identity-based policies with
-Amazon SNS](sns-using-identity-based-policies.md "sns-using-identity-based-policies.md").
+For more information, see [Using identity-based policies with Amazon SNS](sns-using-identity-based-policies.md "sns-using-identity-based-policies.md").
 
 **AWS Key Management Service (AWS KMS)**
 

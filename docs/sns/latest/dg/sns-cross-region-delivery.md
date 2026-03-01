@@ -1,6 +1,4 @@
-# Sending Amazon SNS messages to an Amazon SQS queue or
-
-AWS Lambda function in a different Region
+# Sending Amazon SNS messages to an Amazon SQS queue or AWS Lambda function in a different Region
 
 Amazon SNS supports cross-region deliveries, both for Regions that are enabled by default and
 for [opt-in Regions](#opt-in-regions "#opt-in-regions"). For the current list of AWS

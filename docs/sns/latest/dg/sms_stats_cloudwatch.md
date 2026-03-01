@@ -1,6 +1,4 @@
-# Amazon SNS SMS delivery monitoring with Amazon CloudWatch metrics
-
-and logs
+# Amazon SNS SMS delivery monitoring with Amazon CloudWatch metrics and logs
 
 You can use Amazon CloudWatch and Amazon CloudWatch Logs to monitor your SMS message deliveries.
 
@@ -12,8 +10,7 @@ when a metric crosses a threshold. For example, you can monitor CloudWatch metri
 your SMS delivery rate and your month-to-date SMS charges.
 
 For information about monitoring CloudWatch metrics, setting CloudWatch alarms, and the types of
-metrics available, see [Monitoring Amazon SNS topics using
-CloudWatch](sns-monitoring-using-cloudwatch.md "sns-monitoring-using-cloudwatch.md").
+metrics available, see [Monitoring Amazon SNS topics using CloudWatch](sns-monitoring-using-cloudwatch.md "sns-monitoring-using-cloudwatch.md").
 
 ## Viewing CloudWatch Logs
 
@@ -69,9 +66,7 @@ information.
 Depending on the destination phone number's carrier, it can take up to 72
 hours for delivery logs to appear in the Amazon SNS console.
 
-## Example log for successful SMS
-
-delivery
+## Example log for successful SMS delivery
 
 The delivery status log for a successful SMS delivery will resemble the following
 example:
@@ -98,9 +93,7 @@ example:
 }
 ```
 
-## Example log for failed SMS
-
-delivery
+## Example log for failed SMS delivery
 
 The delivery status log for a failed SMS delivery will resemble the following
 example:

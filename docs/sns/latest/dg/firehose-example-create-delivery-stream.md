@@ -1,6 +1,4 @@
-# Setting-up a Amazon Data Firehose delivery stream for
-
-Amazon SNS message archiving
+# Setting-up a Amazon Data Firehose delivery stream for Amazon SNS message archiving
 
 This topic explains how to create the Amazon Data Firehose delivery stream for the [message archiving and analytics example use
 case](firehose-example-use-case.md "firehose-example-use-case.md").
@@ -46,5 +44,4 @@ case](firehose-example-use-case.md "firehose-example-use-case.md").
     to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the _IAM User Guide_.
 
 You've created the Firehose delivery stream with the required permissions. To continue, see
-[Subscribing the Firehose
-delivery stream to the Amazon SNS topic](firehose-example-subscribe-delivery-stream-to-topic.md "firehose-example-subscribe-delivery-stream-to-topic.md").
+[Subscribing the Firehose delivery stream to the Amazon SNS topic](firehose-example-subscribe-delivery-stream-to-topic.md "firehose-example-subscribe-delivery-stream-to-topic.md").

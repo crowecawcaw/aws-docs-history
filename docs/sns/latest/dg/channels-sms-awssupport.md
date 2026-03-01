@@ -16,8 +16,7 @@ spending threshold that meets the expected monthly message volume for your SMS u
 case.
 
 - A move from the [SMS sandbox](sns-sms-sandbox.md "sns-sms-sandbox.md") so that you can
-  send SMS messages without restrictions. For more information, see [Moving out of the Amazon SNS SMS
-  sandbox](sns-sms-sandbox-moving-to-production.md "sns-sms-sandbox-moving-to-production.md").
+  send SMS messages without restrictions. For more information, see [Moving out of the Amazon SNS SMS sandbox](sns-sms-sandbox-moving-to-production.md "sns-sms-sandbox-moving-to-production.md").
 - A dedicated [origination number](../../../sms-voice/latest/userguide/phone-numbers.md "../../../sms-voice/latest/userguide/phone-numbers.md")
 - A dedicated [sender ID](../../../sms-voice/latest/userguide/sender-id.md "../../../sms-voice/latest/userguide/sender-id.md"). A sender ID is a
   custom ID that is shown as the sender on the recipient's device. For example, you can

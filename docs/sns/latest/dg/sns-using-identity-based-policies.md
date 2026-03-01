@@ -1,6 +1,4 @@
-# Using identity-based policies with
-
-Amazon SNS
+# Using identity-based policies with Amazon SNS
 
 Amazon Simple Notification Service integrates with AWS Identity and Access Management (IAM) so that you can specify which Amazon SNS actions a
 user in your AWS account can perform with Amazon SNS resources. You can specify a particular

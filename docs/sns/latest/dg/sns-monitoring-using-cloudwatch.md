@@ -1,6 +1,4 @@
-# Monitoring Amazon SNS topics using
-
-CloudWatch
+# Monitoring Amazon SNS topics using CloudWatch
 
 Amazon SNS and Amazon CloudWatch are integrated so you can collect, view, and analyze metrics for
 every active Amazon SNS notification. Once you have configured CloudWatch for Amazon SNS, you can gain
@@ -9,8 +7,7 @@ deliveries. For example, you can set an alarm to send you an email notification 
 specified threshold is met for an Amazon SNS metric, such as
 `NumberOfNotificationsFailed`. For a list of all the metrics that Amazon SNS
 sends to CloudWatch, see [Amazon SNS metrics](#sns-metrics "#sns-metrics"). For more
-information about Amazon SNS push notifications, see [Sending mobile push notifications
-with Amazon SNS](sns-mobile-application-as-subscriber.md "sns-mobile-application-as-subscriber.md").
+information about Amazon SNS push notifications, see [Sending mobile push notifications with Amazon SNS](sns-mobile-application-as-subscriber.md "sns-mobile-application-as-subscriber.md").
 
 ###### Note
 

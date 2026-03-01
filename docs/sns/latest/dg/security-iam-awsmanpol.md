@@ -15,9 +15,7 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## AWS managed policy:
-
-AmazonSNSFullAccess
+## AWS managed policy: AmazonSNSFullAccess
 
 `AmazonSNSFullAccess` provides full access to Amazon SNS using the AWS Management Console. This
 policy also includes the following read and write actions for AWS End User Messaging SMS when called using
@@ -109,9 +107,7 @@ JSON
 To view the permissions for this policy, see [AmazonSNSFullAccess](../../../aws-managed-policy/latest/reference/AmazonSNSFullAccess.md "../../../aws-managed-policy/latest/reference/AmazonSNSFullAccess.md") in the _AWS Managed Policy
 Reference_.
 
-## AWS managed policy:
-
-AmazonSNSReadOnlyAccess
+## AWS managed policy: AmazonSNSReadOnlyAccess
 
 `AmazonSNSReadOnlyAccess` provides read-only access to Amazon SNS using the
 AWS Management Console. This policy also includes the following read-only actions for AWS End User Messaging SMS when
@@ -223,9 +219,7 @@ JSON
 To view the permissions for this policy, see [AmazonSNSFullAccess](../../../aws-managed-policy/latest/reference/AmazonSNSFullAccess.md "../../../aws-managed-policy/latest/reference/AmazonSNSFullAccess.md") in the _AWS Managed Policy
 Reference_.
 
-## Amazon SNS updates to AWS managed
-
-policies
+## Amazon SNS updates to AWS managed policies
 
 View details about updates to AWS managed policies for Amazon SNS since this service began
 tracking these changes. For automatic alerts about changes to this page, subscribe to the

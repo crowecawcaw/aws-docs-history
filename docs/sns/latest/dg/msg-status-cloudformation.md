@@ -1,6 +1,4 @@
-# Configuring delivery status logging using
-
-CloudFormation
+# Configuring delivery status logging using CloudFormation
 
 To configure `DeliveryStatusLogging` using CloudFormation, use a JSON or YAML
 template to create an CloudFormation stack. For more information, see the

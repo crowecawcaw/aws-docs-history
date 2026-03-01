@@ -1,7 +1,7 @@
 # Amazon SNS security
 
 The AWS [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/")
-applies to data protection in Amazon Simple Notification Service. As described in this model, AWS is
+applies to data protection in . As described in this model, AWS is
 responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are
 responsible for maintaining control over your content that is hosted on this infrastructure.
 This content includes the security configuration and management tasks for the AWS services

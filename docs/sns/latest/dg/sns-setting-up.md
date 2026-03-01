@@ -70,8 +70,6 @@ For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgro
 Now that you're prepared to work with Amazon SNS, get started by:
 
 1. [Creating an Amazon SNS topic](sns-create-topic.md "sns-create-topic.md")
-2. [Creating a subscription to an Amazon SNS
-   topic](sns-create-subscribe-endpoint-to-topic.md "sns-create-subscribe-endpoint-to-topic.md")
+2. [Creating a subscription to an Amazon SNS topic](sns-create-subscribe-endpoint-to-topic.md "sns-create-subscribe-endpoint-to-topic.md")
 3. [Publishing an Amazon SNS message](sns-publishing.md "sns-publishing.md")
-4. [Deleting an Amazon SNS topic and
-   subscription](sns-delete-subscription-topic.md "sns-delete-subscription-topic.md")
+4. [Deleting an Amazon SNS topic and subscription](sns-delete-subscription-topic.md "sns-delete-subscription-topic.md")

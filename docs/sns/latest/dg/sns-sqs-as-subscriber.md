@@ -1,6 +1,4 @@
-# Fanout Amazon SNS notifications to Amazon SQS queues for
-
-asynchronous processing
+# Fanout Amazon SNS notifications to Amazon SQS queues for asynchronous processing
 
 [Amazon SNS](https://aws.amazon.com/sns/ "https://aws.amazon.com/sns/") works closely with Amazon Simple Queue Service (Amazon SQS). These
 services provide different benefits for developers. Amazon SNS allows applications to send

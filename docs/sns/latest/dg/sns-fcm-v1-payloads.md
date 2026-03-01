@@ -1,6 +1,4 @@
-# Using Google Firebase Cloud Messaging v1 payloads in
-
-Amazon SNS
+# Using Google Firebase Cloud Messaging v1 payloads in Amazon SNS
 
 Amazon SNS supports using FCM HTTP v1 API to send notifications to Android, iOS, and Webpush
 destinations. This topic provides examples of the payload structure when publishing mobile push
@@ -28,9 +26,7 @@ notification:
   For more information about FCM message types, see [Message types](https://firebase.google.com/docs/cloud-messaging/concept-options#notifications_and_data_messages "https://firebase.google.com/docs/cloud-messaging/concept-options#notifications_and_data_messages") in the in Google's _Firebase_
   documentation.
 
-## Using the FCM v1 payload structure to send
-
-messages
+## Using the FCM v1 payload structure to send messages
 
 If you are creating an FCM application for the first time, or wish to take advantage of
 FCM v1 features, you can opt-in to send an FCM v1 formatted payload. To do this, you must
@@ -127,9 +123,7 @@ _Firebase_ documentation:
 - [About FCM messages](https://firebase.google.com/docs/cloud-messaging/concept-options#customizing_a_message_across_platforms "https://firebase.google.com/docs/cloud-messaging/concept-options#customizing_a_message_across_platforms")
 - [REST Resource: projects.messages](https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages "https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages")
 
-## Using the legacy payload structure to
-
-send messages to the FCM v1 API
+## Using the legacy payload structure to send messages to the FCM v1 API
 
 When migrating to FCM v1, you don't have to change the payload structure that you were
 using for your legacy credentials. Amazon SNS transforms your payload into the new FCM v1 payload

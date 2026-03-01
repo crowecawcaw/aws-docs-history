@@ -1,6 +1,4 @@
-# Enhancing Amazon SNS security with Message Data
-
-Protection
+# Enhancing Amazon SNS security with Message Data Protection
 
 - [Message Data Protection](message-data-protection.md "message-data-protection.md") is a
   feature in Amazon SNS used to define your own rules and policies to audit and control the

@@ -75,9 +75,7 @@ the message, as long as `FilterPolicyScope` is set to
 The following filter policies accept or reject messages based on their property names
 and values.
 
-## A policy that accepts the example
-
-message
+## A policy that accepts the example message
 
 The properties in the following subscription filter policy match the attributes
 assigned to the example message. Note that the same filter policy works for a
@@ -102,9 +100,7 @@ message, the policy rejects the message.
 }
 ```
 
-## A policy that rejects the example
-
-message
+## A policy that rejects the example message
 
 The following subscription filter policy has multiple mismatches between its
 properties and the attributes assigned to the example message. For example, because

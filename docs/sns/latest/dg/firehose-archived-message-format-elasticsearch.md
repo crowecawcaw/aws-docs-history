@@ -1,6 +1,4 @@
-# Storing and formatting Amazon SNS
-
-Notifications in OpenSearch Service indices
+# Storing and formatting Amazon SNS Notifications in OpenSearch Service indices
 
 The following example demonstrates an Amazon SNS notification sent to an Amazon OpenSearch Service (OpenSearch Service) index
 called `my-index`. This index has a time filter field on the `Timestamp`

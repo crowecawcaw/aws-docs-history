@@ -1,6 +1,4 @@
-# Mobile text messaging with
-
-Amazon SNS
+# Mobile text messaging with Amazon SNS
 
 ###### Important
 
@@ -51,9 +49,7 @@ messages globally](../../../sms-voice/latest/userguide/phone-numbers-sms-by-coun
 Amazon SNS supports SMS messaging in multiple regions, allowing you to send
 messages to over 240 countries and regions.
 
-## How does Amazon SNS deliver my SMS
-
-messages?
+## How does Amazon SNS deliver my SMS messages?
 
 When you request Amazon SNS to send SMS on your behalf, the messages are dispatched using
 AWS End User Messaging SMS. The integration between Amazon SNS and AWS End User Messaging SMS offers the following

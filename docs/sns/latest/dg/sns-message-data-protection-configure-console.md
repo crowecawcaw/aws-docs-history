@@ -1,6 +1,4 @@
-# Creating data protection
-
-policies in Amazon SNS using the console
+# Creating data protection policies in Amazon SNS using the console
 
 The number and size of Amazon SNS resources in an AWS account are limited. For more
 information, see [Amazon Simple Notification Service
@@ -34,14 +32,12 @@ topic.
        (\_), and hyphen (-) characters. Up to 128 character are supported. This name
        cannot share the same name as a [managed
        data identifier](sns-message-data-protection-managed-data-identifiers.md "sns-message-data-protection-managed-data-identifiers.md"). For a full list of custom data identifier
-       limitations, see [Custom data identifier
-       constraints](sns-message-data-protection-custom-data-identifiers.md#custom-data-identifiers-limitations "sns-message-data-protection-custom-data-identifiers.md#custom-data-identifiers-limitations").
+       limitations, see [Custom data identifier constraints](sns-message-data-protection-custom-data-identifiers.md#custom-data-identifiers-limitations "sns-message-data-protection-custom-data-identifiers.md#custom-data-identifiers-limitations").
     2. Enter a regular expression (RegEx) for the custom data identifier. RegEx
        supports alphanumeric characters, RegEx reserved characters, and symbols.
        RegEx has a maximum length of 200 characters. If the RegEx is too
        complicated, Amazon SNS will fail the API call. For a full list of RegEx
-       limitations, see [Custom data identifier
-       constraints](sns-message-data-protection-custom-data-identifiers.md#custom-data-identifiers-limitations "sns-message-data-protection-custom-data-identifiers.md#custom-data-identifiers-limitations").
+       limitations, see [Custom data identifier constraints](sns-message-data-protection-custom-data-identifiers.md#custom-data-identifiers-limitations "sns-message-data-protection-custom-data-identifiers.md#custom-data-identifiers-limitations").
     3. (Optional) Choose **Add custom data identifier** to add
        additional data identifiers as needed. A maximum of 10 custom data
        identifiers are supported for each data protection policy.

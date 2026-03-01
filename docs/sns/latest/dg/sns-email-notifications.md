@@ -1,6 +1,4 @@
-# Amazon SNS email subscription setup and
-
-management
+# Amazon SNS email subscription setup and management
 
 You can subscribe an email address to an
 Amazon SNS topic using the AWS Management Console, AWS SDK for Java, or AWS SDK for .NET.
@@ -25,9 +23,7 @@ Amazon SNS topic using the AWS Management Console, AWS SDK for Java, or AWS SDK 
   The subscription remains in PendingConfirmation state for 48 hours,
   after which it will be automatically deleted unless action is taken.
 
-## Subscribing an email
-
-address to an Amazon SNS topic using the AWS Management Console
+## Subscribing an email address to an Amazon SNS topic using the AWS Management Console
 
 1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home").
 2. In the left navigation pane, choose **Subscriptions**.
@@ -42,12 +38,10 @@ address to an Amazon SNS topic using the AWS Management Console
    3. For **Endpoint**, enter the email address.
    4. (Optional) To configure a filter policy, expand the
       **Subscription filter policy** section. For more
-      information, see [Amazon SNS subscription filter
-      policies](sns-subscription-filter-policies.md "sns-subscription-filter-policies.md").
+      information, see [Amazon SNS subscription filter policies](sns-subscription-filter-policies.md "sns-subscription-filter-policies.md").
    5. (Optional) To enable payload-based filtering, configure `Filter
 Policy Scope` to `MessageBody`. For more
-      information, see [Amazon SNS subscription filter policy
-      scope](sns-message-filtering-scope.md "sns-message-filtering-scope.md").
+      information, see [Amazon SNS subscription filter policy scope](sns-message-filtering-scope.md "sns-message-filtering-scope.md").
    6. (Optional) To configure a dead-letter queue for the subscription,
       expand the **Redrive policy (dead-letter queue)**
       section. For more information, see [Amazon SNS dead-letter queues](sns-dead-letter-queues.md "sns-dead-letter-queues.md").
@@ -66,9 +60,7 @@ messages.
 2. Amazon SNS opens your web browser and displays a subscription confirmation with
    your subscription ID.
 
-## Subscribing an email address to an
-
-Amazon SNS topic using an AWS SDK
+## Subscribing an email address to an Amazon SNS topic using an AWS SDK
 
 To use an AWS SDK, you must configure it with your credentials. For more
 information, see [The shared config and credentials

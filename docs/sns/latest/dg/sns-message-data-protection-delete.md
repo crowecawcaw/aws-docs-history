@@ -1,19 +1,14 @@
-# Deleting data protection policies in
-
-Amazon SNS
+# Deleting data protection policies in Amazon SNS
 
 You can **delete** Amazon SNS data protection policies using the
 AWS API, AWS CLI, CloudFormation, or AWS Management Console.
 
-For general information about Amazon SNS data protection policies, see [Understanding Amazon SNS data protection
-policies](sns-message-data-protection-policies.md "sns-message-data-protection-policies.md").
+For general information about Amazon SNS data protection policies, see [Understanding Amazon SNS data protection policies](sns-message-data-protection-policies.md "sns-message-data-protection-policies.md").
 
 The number and size of Amazon SNS data protection policy resources in an AWS
 account are limited. For more information, see [Amazon SNS API throttling](../../../general/latest/gr/sns.md "../../../general/latest/gr/sns.md") in AWS General Reference.
 
-## Deleting data protection policies
-
-using the console
+## Deleting data protection policies using the console
 
 ###### To delete a managed data protection policy using the console
 
@@ -26,15 +21,11 @@ using the console
    statement that you want to remove.
 6. Choose **Save changes**.
 
-## Deleting a data
-
-protection policy using an empty JSON string
+## Deleting a data protection policy using an empty JSON string
 
 You can delete a data protection policy by updating it to an empty JSON string.
 
-## Deleting a data
-
-protection policy using the AWS CLI
+## Deleting a data protection policy using the AWS CLI
 
 You can delete a data protection policy using the AWS CLI.
 

@@ -27,9 +27,7 @@ opted out.
 
 If Amazon SNS did not receive the part number, we set its value to zero.
 
-## Subscribing to daily usage
-
-reports
+## Subscribing to daily usage reports
 
 To subscribe to daily usage reports, you must create an Amazon S3 bucket with the
 appropriate permissions.

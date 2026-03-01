@@ -1,6 +1,4 @@
-# HTTP/HTTPS subscription
-
-confirmation JSON format
+# HTTP/HTTPS subscription confirmation JSON format
 
 After you subscribe an HTTP/HTTPS endpoint, Amazon SNS sends a subscription confirmation
 message to the HTTP/HTTPS endpoint. This message contains a `SubscribeURL`

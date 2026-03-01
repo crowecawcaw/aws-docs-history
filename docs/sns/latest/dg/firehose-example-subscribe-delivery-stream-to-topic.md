@@ -1,6 +1,4 @@
-# Subscribing the Firehose
-
-delivery stream to the Amazon SNS topic
+# Subscribing the Firehose delivery stream to the Amazon SNS topic
 
 This topic explains how to create the following resources for the [message archiving and analytics example use
 case](firehose-example-use-case.md "firehose-example-use-case.md"):
@@ -81,5 +79,4 @@ to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md 
    `arn:aws:iam::123456789012:role/ticketUploadStreamSubscriptionRole`.
 6. Select the **Enable raw message delivery** check box.
 7. Choose **Create subscription**.
-   You've created the IAM role and SNS topic subscription. To continue, see [Testing and querying an Amazon SNS configuration
-   for effective data management](firehose-example-test-and-query.md "firehose-example-test-and-query.md").
+   You've created the IAM role and SNS topic subscription. To continue, see [Testing and querying an Amazon SNS configuration for effective data management](firehose-example-test-and-query.md "firehose-example-test-and-query.md").

@@ -1,19 +1,13 @@
-# Setting up an Amazon SNS platform endpoint for mobile
-
-notifications
+# Setting up an Amazon SNS platform endpoint for mobile notifications
 
 When an app and mobile device register with a push notification service (such as APNs or
 Firebase Cloud Messaging), the push notification service returns a device token. Amazon SNS uses this device
 token to create a platform endpoint, which acts as a target for sending direct push
 notification messages to the app on the device. The platform endpoint serves as a bridge,
 routing messages sent by Amazon SNS to the push notification service for delivery to the
-corresponding mobile device. For more information, see [Prerequisites for Amazon SNS
-user notifications](sns-prerequisites-for-mobile-push-notifications.md "sns-prerequisites-for-mobile-push-notifications.md") and [Setting up push notifications with
-Amazon SNS](sns-mobile-application-as-subscriber.md#sns-user-notifications-process-overview "sns-mobile-application-as-subscriber.md#sns-user-notifications-process-overview").
+corresponding mobile device. For more information, see [Prerequisites for Amazon SNS user notifications](sns-prerequisites-for-mobile-push-notifications.md "sns-prerequisites-for-mobile-push-notifications.md") and [Setting up push notifications with Amazon SNS](sns-mobile-application-as-subscriber.md#sns-user-notifications-process-overview "sns-mobile-application-as-subscriber.md#sns-user-notifications-process-overview").
 
-## Understanding device tokens and
-
-platform endpoints
+## Understanding device tokens and platform endpoints
 
 A device token uniquely identifies a mobile device registered with a push notification
 service (for example, APNs, Firebase Cloud Messaging). When an app registers with the push notification
@@ -220,9 +214,7 @@ For more information, see [Mobile push API actions](mobile-push-api.md "mobile-p
 
 ## Troubleshooting
 
-### Repeatedly calling
-
-create platform endpoint with an outdated device token
+### Repeatedly calling create platform endpoint with an outdated device token
 
 Especially for FCM endpoints, you may think it is best to store the first device
 token the application is issued and then call the create platform endpoint with that
@@ -245,12 +237,9 @@ has a number of serious issues:
   error message: "This endpoint is already registered with a different
   token."
 
-For more information on managing FCM endpoints, see [Amazon SNS management of Firebase Cloud Messaging
-endpoints](sns-fcm-endpoint-management.md "sns-fcm-endpoint-management.md").
+For more information on managing FCM endpoints, see [Amazon SNS management of Firebase Cloud Messaging endpoints](sns-fcm-endpoint-management.md "sns-fcm-endpoint-management.md").
 
-### Re-enabling a platform
-
-endpoint associated with an invalid device token
+### Re-enabling a platform endpoint associated with an invalid device token
 
 When a mobile platform (such as APNs or FCM) informs Amazon SNS that the device
 token used in the publish request was invalid, Amazon SNS disables the platform endpoint

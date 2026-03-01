@@ -1,6 +1,4 @@
-# Formatting Amazon SNS notifications for
-
-storage in Amazon S3 destinations
+# Formatting Amazon SNS notifications for storage in Amazon S3 destinations
 
 The following example shows an Amazon SNS notification sent to an Amazon Simple Storage Service (Amazon S3) bucket, with
 indentation for readability.

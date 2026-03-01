@@ -1,6 +1,4 @@
-# Integrating device tokens with Amazon SNS for
-
-mobile notifications
+# Integrating device tokens with Amazon SNS for mobile notifications
 
 When you first register an app and mobile device with a notification service, such as
 Apple Push Notification Service (APNs) and Firebase Cloud Messaging (FCM), device tokens or registration IDs are returned by
@@ -14,9 +12,7 @@ You can add device tokens or registration IDs to Amazon SNS in the following way
 - Upload several tokens using the [`CreatePlatformEndpoint`](../api/API_CreatePlatformEndpoint.md "../api/API_CreatePlatformEndpoint.md") API
 - Register tokens for future devices
 
-###### \*\*To manually add a device token or registration
-
-ID\*\*
+###### **To manually add a device token or registration ID**
 
 1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home").
 2. In the navigation pane, select **Push Notifications**.
@@ -32,9 +28,7 @@ ID\*\*
    Once the endpoint is created, you can send messages directly to the mobile device or to
    mobile devices subscribed to an Amazon SNS topic.
 
-###### \*\*To upload several tokens using the
-
-`CreatePlatformEndpoint` API\*\*
+###### **To upload several tokens using the `CreatePlatformEndpoint` API**
 
 The following steps show how to use the sample Java app
 (`bulkupload` package) provided by AWS to upload several tokens

@@ -1,6 +1,4 @@
-# Verifying the signatures of Amazon SNS
-
-messages
+# Verifying the signatures of Amazon SNS messages
 
 Amazon SNS uses message signatures to confirm the authenticity of messages sent to your HTTP
 endpoint. To ensure message integrity and prevent spoofing, you **must** verify the signature before processing any Amazon SNS messages.

@@ -1,6 +1,4 @@
-# Origination identities for Amazon SNS SMS
-
-messages
+# Origination identities for Amazon SNS SMS messages
 
 ###### Important
 

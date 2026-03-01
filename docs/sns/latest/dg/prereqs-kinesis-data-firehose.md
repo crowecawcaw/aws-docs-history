@@ -1,6 +1,4 @@
-# Prerequisites for subscribing Firehose delivery
-
-streams to Amazon SNS topics
+# Prerequisites for subscribing Firehose delivery streams to Amazon SNS topics
 
 To subscribe an delivery stream to an SNS topic, your AWS account must
 have:

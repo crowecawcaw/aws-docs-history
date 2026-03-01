@@ -1,6 +1,4 @@
-# Publishing Amazon SNS
-
-notifications with platform-specific payloads
+# Publishing Amazon SNS notifications with platform-specific payloads
 
 You can use the AWS Management Console or Amazon SNS APIs to send custom messages with platform-specific
 payloads to mobile devices. For information about using the Amazon SNS APIs, see [Mobile push API actions](mobile-push-api.md "mobile-push-api.md") and the
@@ -52,9 +50,7 @@ application disruption.
 - [Send a
   Message](https://developer.amazon.com/sdk/adm/sending-message.html "https://developer.amazon.com/sdk/adm/sending-message.html") in the ADM documentation
 
-## Sending messages to an application on
-
-multiple platforms
+## Sending messages to an application on multiple platforms
 
 To send a message to an application installed on devices for multiple platforms, such
 as FCM and APNs, you must first subscribe the mobile endpoints to a topic in Amazon SNS
@@ -73,9 +69,7 @@ one of the notification platforms.",
 }
 ```
 
-## Sending messages
-
-to APNs as alert or background notifications
+## Sending messages to APNs as alert or background notifications
 
 Amazon SNS can send messages to APNs as `alert` or `background`
 notifications (for more information, see [Pushing Background Updates to Your App](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/pushing_background_updates_to_your_app "https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/pushing_background_updates_to_your_app") in the APNs documentation).
@@ -87,9 +81,7 @@ notifications (for more information, see [Pushing Background Updates to Your App
   application to act upon the content of the notification, without informing the
   user.
 
-### Specifying custom APNs header
-
-values
+### Specifying custom APNs header values
 
 We recommend specifying custom values for the
 `AWS.SNS.MOBILE.APNS.PUSH_TYPE`
@@ -115,9 +107,7 @@ aws sns publish \
 Ensure that the JSON structure is valid. Add a comma after each key-value
 pair, except the last one.
 
-### Inferring the APNs push
-
-type header from the payload
+### Inferring the APNs push type header from the payload
 
 If you don't set the `apns-push-type` APNs header, Amazon SNS sets header
 to `alert` or `background` depending on the

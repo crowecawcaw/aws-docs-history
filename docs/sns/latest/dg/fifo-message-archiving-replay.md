@@ -1,10 +1,6 @@
-# Amazon SNS message archiving and replay for FIFO
+# Amazon SNS message archiving and replay for FIFO topics
 
-topics
-
-## What is message archiving and
-
-replay?
+## What is message archiving and replay?
 
 Amazon SNS provides a no-code message archiving and replay feature, specifically designed
 for FIFO (First-In-First-Out) topics. This feature allows topic owners to store messages
@@ -26,9 +22,7 @@ AWS Management Console.
 - **Error correction** – Resend missed
   messages during outages to ensure all events are processed correctly.
 
-### Components of message
-
-archiving and replay
+### Components of message archiving and replay
 
 Manage message archiving and replay for Amazon SNS FIFO topics, including setting
 retention periods, monitoring archived messages using CloudWatch, initiating replays
@@ -38,15 +32,13 @@ modify and initiate replays.
 **Message archiving**
 
 - The topic owner enables the archiving feature and sets the message
-  retention period, which can be up to 365 days. For more, see [Amazon SNS message archiving for
-  FIFO topic owners](message-archiving-and-replay-topic-owner.md "message-archiving-and-replay-topic-owner.md")
+  retention period, which can be up to 365 days. For more, see [Amazon SNS message archiving for FIFO topic owners](message-archiving-and-replay-topic-owner.md "message-archiving-and-replay-topic-owner.md")
 - CloudWatch metrics help monitor the archived messages.
 
 **Message replay**
 
 - A subscriber initiates a replay, selecting the time window for the
-  messages to be reprocessed to the subscribed endpoint. For more see, [Amazon SNS message replay for FIFO
-  topic subscribers](message-archiving-and-replay-subscriber.md "message-archiving-and-replay-subscriber.md").
+  messages to be reprocessed to the subscribed endpoint. For more see, [Amazon SNS message replay for FIFO topic subscribers](message-archiving-and-replay-subscriber.md "message-archiving-and-replay-subscriber.md").
 - You manage the replay through subscription attributes using the
   `ReplayPolicy` feature.
 

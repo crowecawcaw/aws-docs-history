@@ -1,6 +1,4 @@
-# Managing Amazon SNS messages across multiple
-
-delivery stream destinations
+# Managing Amazon SNS messages across multiple delivery stream destinations
 
 [delivery streams](sns-firehose-as-subscriber.md "sns-firehose-as-subscriber.md") allow you to
 manage Amazon SNS messages across multiple destinations, enabling integration with Amazon S3, Amazon OpenSearch Service,

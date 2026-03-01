@@ -1,6 +1,4 @@
-# Amazon SNS application event notifications for
-
-mobile applications
+# Amazon SNS application event notifications for mobile applications
 
 Amazon SNS provides support to trigger notifications when certain application events occur. You
 can then take some programmatic action on that event. Your application must include support
@@ -8,9 +6,7 @@ for a push notification service such as Apple Push Notification Service (APNs), 
 Windows Push Notification Services (WNS). You set application event notifications using the Amazon SNS console, AWS CLI,
 or the AWS SDKs.
 
-## Available application
-
-events
+## Available application events
 
 Application event notifications track when individual platform endpoints are created,
 deleted, and updated, as well as delivery failures. The following are the attribute
@@ -26,9 +22,7 @@ names for the application events.
 You can associate any attribute with an application which can then receive these event
 notifications.
 
-## Sending mobile push
-
-notifications
+## Sending mobile push notifications
 
 To send application event notifications, you specify a topic to receive the
 notifications for each type of event. As Amazon SNS sends the notifications, the topic can

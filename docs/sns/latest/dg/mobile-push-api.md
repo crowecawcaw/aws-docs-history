@@ -2,8 +2,7 @@
 
 To use the Amazon SNS mobile push APIs, you must first meet the prerequisites for the push
 notification service, such as Apple Push Notification Service (APNs) and Firebase Cloud Messaging (FCM). For more
-information about the prerequisites, see [Prerequisites for Amazon SNS
-user notifications](sns-prerequisites-for-mobile-push-notifications.md "sns-prerequisites-for-mobile-push-notifications.md").
+information about the prerequisites, see [Prerequisites for Amazon SNS user notifications](sns-prerequisites-for-mobile-push-notifications.md "sns-prerequisites-for-mobile-push-notifications.md").
 
 To send a push notification message to a mobile app and device using the APIs, you must
 first use the `CreatePlatformApplication` action, which returns a
@@ -13,8 +12,7 @@ attribute is then used by `CreatePlatformEndpoint`, which returns an
 attribute with the `Publish` action to send a notification message to a mobile
 app and device, or you could use the `EndpointArn` attribute with the
 `Subscribe` action for subscription to a topic. For more information, see
-[Setting up push notifications with
-Amazon SNS](sns-mobile-application-as-subscriber.md#sns-user-notifications-process-overview "sns-mobile-application-as-subscriber.md#sns-user-notifications-process-overview").
+[Setting up push notifications with Amazon SNS](sns-mobile-application-as-subscriber.md#sns-user-notifications-process-overview "sns-mobile-application-as-subscriber.md#sns-user-notifications-process-overview").
 
 The Amazon SNS mobile push APIs are as follows:
 

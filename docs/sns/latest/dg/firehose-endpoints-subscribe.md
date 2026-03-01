@@ -1,6 +1,4 @@
-# Subscribing a Firehose delivery stream to an Amazon SNS
-
-topic
+# Subscribing a Firehose delivery stream to an Amazon SNS topic
 
 To deliver Amazon SNS notifications to [delivery streams](sns-firehose-as-subscriber.md "sns-firehose-as-subscriber.md"), first make sure that you've addressed all the [prerequisites](prereqs-kinesis-data-firehose.md "prereqs-kinesis-data-firehose.md"). For a list of supported
 endpoints, see [endpoints
@@ -21,14 +19,12 @@ and quotas](../../../general/latest/gr/fh.md "../../../general/latest/gr/fh.md")
       can receive notifications from Amazon SNS.
    4. For **Subscription role ARN**, specify the ARN of the AWS Identity and Access Management
       (IAM) role that you created for writing to Firehose delivery streams. For more
-      information, see [Prerequisites for subscribing Firehose delivery
-      streams to Amazon SNS topics](prereqs-kinesis-data-firehose.md "prereqs-kinesis-data-firehose.md").
+      information, see [Prerequisites for subscribing Firehose delivery streams to Amazon SNS topics](prereqs-kinesis-data-firehose.md "prereqs-kinesis-data-firehose.md").
    5. (Optional) To remove any Amazon SNS metadata from published messages, choose
       **Enable raw message delivery**. For more information, see [Amazon SNS raw message delivery](sns-large-payload-raw-message-delivery.md "sns-large-payload-raw-message-delivery.md").
 
 5. (Optional) To configure a filter policy, expand the **Subscription filter
-   policy** section. For more information, see [Amazon SNS subscription filter
-   policies](sns-subscription-filter-policies.md "sns-subscription-filter-policies.md").
+   policy** section. For more information, see [Amazon SNS subscription filter policies](sns-subscription-filter-policies.md "sns-subscription-filter-policies.md").
 6. (Optional) To configure a dead-letter queue for the subscription, expand the
    **Redrive policy (dead-letter queue)** section. For more information, see
    [Amazon SNS dead-letter queues](sns-dead-letter-queues.md "sns-dead-letter-queues.md").

@@ -1,8 +1,6 @@
 # Message data protection in Amazon SNS
 
-## What is message data
-
-protection?
+## What is message data protection?
 
 **Message data protection** safeguards the data that's
 published to your Amazon SNS topics by using [data protection policies](sns-message-data-protection-policies.md "sns-message-data-protection-policies.md") to
@@ -33,9 +31,7 @@ customer information:
 
 Amazon SNS supports message data protection for Amazon SNS standard topics only.
 
-## Why should I use message data
-
-protection?
+## Why should I use message data protection?
 
 By introducing message data protection into your governance, risk management, and
 compliance programs, you can implement data protection policies that help you to

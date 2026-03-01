@@ -1,6 +1,4 @@
-# SetSubscriptionAttributes
-
-delivery policy JSON format
+# SetSubscriptionAttributes delivery policy JSON format
 
 If you send a request to the `SetSubscriptionAttributes` action and set the
 `AttributeName` parameter to a value of `DeliveryPolicy`, the

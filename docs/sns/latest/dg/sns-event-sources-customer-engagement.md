@@ -1,6 +1,4 @@
-# Customer engagement
-
-services
+# Customer engagement services
 
 The following table describes how Amazon SNS enhances customer engagement services by
 integrating with Amazon Connect, AWS End User Messaging SMS, and Amazon Simple Email Service (SES), enabling you to receive alerts

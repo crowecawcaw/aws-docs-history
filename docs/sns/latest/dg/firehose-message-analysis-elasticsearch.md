@@ -1,6 +1,4 @@
-# Analyzing Amazon SNS messages for OpenSearch Service
-
-destinations
+# Analyzing Amazon SNS messages for OpenSearch Service destinations
 
 This topic explains how to analyze Amazon SNS messages sent through delivery streams to
 Amazon OpenSearch Service (OpenSearch Service) destinations.

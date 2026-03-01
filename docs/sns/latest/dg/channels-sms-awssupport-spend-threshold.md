@@ -1,6 +1,4 @@
-# Requesting increases to your
-
-monthly Amazon SNS SMS spending quota
+# Requesting increases to your monthly Amazon SNS SMS spending quota
 
 Amazon SNS provides spending quotas to help you manage the maximum per-month cost incurred by
 sending SMS using your account. The spending quota limits your risk in case of malicious
@@ -28,14 +26,10 @@ Center.
 
 ###### Topics
 
-- [Step 1: Open an Amazon SNS SMS
-  case](#channels-sms-awssupport-spend-threshold-open "#channels-sms-awssupport-spend-threshold-open")
-- [Step 2: Update your
-  SMS settings on the Amazon SNS console](#channels-sms-awssupport-spend-threshold-settings "#channels-sms-awssupport-spend-threshold-settings")
+- [Step 1: Open an Amazon SNS SMS case](#channels-sms-awssupport-spend-threshold-open "#channels-sms-awssupport-spend-threshold-open")
+- [Step 2: Update your SMS settings on the Amazon SNS console](#channels-sms-awssupport-spend-threshold-settings "#channels-sms-awssupport-spend-threshold-settings")
 
-## Step 1: Open an Amazon SNS SMS
-
-case
+## Step 1: Open an Amazon SNS SMS case
 
 You can request an increase to your monthly spending quota by opening a quota increase
 case in the AWS Support Center.
@@ -149,9 +143,7 @@ request.
 
 If your use case doesn't align with our policies, we might be unable to grant your request.
 
-## Step 2: Update your
-
-SMS settings on the Amazon SNS console
+## Step 2: Update your SMS settings on the Amazon SNS console
 
 After we notify you that your monthly spending quota has been increased, you have to
 adjust the spending quota for your account on the Amazon SNS console.

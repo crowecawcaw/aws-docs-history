@@ -25,8 +25,7 @@ can send messages from Amazon Virtual Private Cloud (Amazon VPC) subnets to FIFO
 the public internet. This model keeps your messaging within the AWS infrastructure and
 network, which enhances the overall security of your application. When you use AWS PrivateLink,
 you don't need to set up an internet gateway, network address translation (NAT), or virtual
-private network (VPN). For more information, see [Securing Amazon SNS traffic with VPC
-endpoints](sns-internetwork-traffic-privacy.md "sns-internetwork-traffic-privacy.md")
+private network (VPN). For more information, see [Securing Amazon SNS traffic with VPC endpoints](sns-internetwork-traffic-privacy.md "sns-internetwork-traffic-privacy.md")
 and the [Securing messages published to Amazon SNS with AWS PrivateLink](https://aws.amazon.com/blogs/security/securing-messages-published-to-amazon-sns-with-aws-privatelink "https://aws.amazon.com/blogs/security/securing-messages-published-to-amazon-sns-with-aws-privatelink") post on the _AWS
 Security Blog_.
 

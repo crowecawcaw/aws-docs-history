@@ -1,6 +1,4 @@
-# Structuring Amazon SNS message archives
-
-in Amazon Redshift tables
+# Structuring Amazon SNS message archives in Amazon Redshift tables
 
 For Amazon Redshift endpoints, Amazon SNS messages are archived as rows in a table. Here's an example of
 how the data is stored:
@@ -34,5 +32,4 @@ _Amazon Redshift Database Developer Guide_.
 | Notification | ab124832-a0d8-581d-9275-108243c46114 | arn:aws:sns:us-east-1:111111111111:my-topic | Sample subject 2 | Sample message 2 | 2020-12-03T00:18:11.129Z | https://sns.us-east-1.amazonaws.com/?Action=Unsubscribe&SubscriptionArn=arn:aws:sns:us-east-1:111111111111:my-topic:326deeeb-cbf4-45da-b92b-ca77a247813b | {\"my_attribute2\":{\"Type\":\"String\",\"Value\":\"my_value\"}} |
 | Notification | ce644832-a0d8-581d-9275-108243c46125 | arn:aws:sns:us-east-1:111111111111:my-topic | Sample subject 3 | Sample message 3 | 2020-12-09T00:08:44.405Z | https://sns.us-east-1.amazonaws.com/?Action=Unsubscribe&SubscriptionArn=arn:aws:sns:us-east-1:111111111111:my-topic:326deeeb-cbf4-45da-b92b-ca77a247813b | {\"my_attribute3\":{\"Type\":\"String\",\"Value\":\"my_value\"}} |
 
-For more information about fanning out notifications to Amazon Redshift endpoints, see [Configuring Amazon SNS message delivery and analysis
-in Amazon Redshift destinations](firehose-redshift-destinations.md "firehose-redshift-destinations.md").
+For more information about fanning out notifications to Amazon Redshift endpoints, see [Configuring Amazon SNS message delivery and analysis in Amazon Redshift destinations](firehose-redshift-destinations.md "firehose-redshift-destinations.md").
