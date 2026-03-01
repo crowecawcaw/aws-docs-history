@@ -10,8 +10,7 @@ Start by doing the following steps:
          [Setting up a new AWS account](setting-up-aws.md "setting-up-aws.md").
         * [Adding an IAM policy for a console user](setting-up-iam-policy-for-databrew-console-access.md "setting-up-iam-policy-for-databrew-console-access.md"). A user with these
          permissions can access DataBrew on the AWS Management Console.
-        * [Adding permissions for
-         data resources for an IAM role](setting-up-iam-policy-for-data-resources-role.md "setting-up-iam-policy-for-data-resources-role.md"). An IAM role with these
+        * [Adding permissions for data resources for an IAM role](setting-up-iam-policy-for-data-resources-role.md "setting-up-iam-policy-for-data-resources-role.md"). An IAM role with these
          permissions can access data on behalf of the user.
 
     You need to be an IAM administrator to create users, roles, and policies.

@@ -51,9 +51,7 @@ identity information helps you determine the following:
 For more information, see the [CloudTrail userIdentity
 Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## Understanding DataBrew Log File
-
-Entries
+## Understanding DataBrew Log File Entries
 
 Again, a CloudTrail _trail_ is a configuration that enables
 delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain

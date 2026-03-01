@@ -1,6 +1,4 @@
-# Adding an IAM role with data resource
-
-permissions
+# Adding an IAM role with data resource permissions
 
 You use IAM roles to manage policies that are assigned together. An IAM role can be used by someone acting
 in a particular role, such as a DataBrew user or DataBrew itself. For more information, see [IAM Roles](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") in the _IAM User Guide._

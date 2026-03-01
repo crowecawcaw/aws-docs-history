@@ -1,6 +1,4 @@
-# IAM policy to use Amazon S3 objects with
-
-DataBrew
+# IAM policy to use Amazon S3 objects with DataBrew
 
 The `AwsGlueDataBrewSpecificS3BucketPolicy` policy grants the permissions
 needed to access S3 on behalf of nonadministrative users.
@@ -49,9 +47,7 @@ The following table describes the permissions granted by this policy.
 | `"s3:PutObject"`<br>`"s3:PutBucketCORS"` | `"arn:aws:s3:::bucket_name/*",<br>"arn:aws:s3:::bucket_name"` | Allows sending output files to S3. |
 | `"s3:DeleteObject"`                      | `"arn:aws:s3:::bucket_name/*",<br>"arn:aws:s3:::bucket_name"` | Allows deleting an object.         |
 
-###### To define the AwsGlueDataBrewSpecificS3BucketPolicy IAM policy for DataBrew
-
-(console)
+###### To define the AwsGlueDataBrewSpecificS3BucketPolicy IAM policy for DataBrew (console)
 
 1. Download the JSON for the [`AwsGlueDataBrewSpecificS3BucketPolicy`](samples/AwsGlueDataBrewSpecificS3BucketPolicy.json.md "samples/AwsGlueDataBrewSpecificS3BucketPolicy.json.md") IAM policy.
 2. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -66,9 +62,7 @@ The following table describes the permissions granted by this policy.
    editor.
 8. Choose **Review policy**.
 
-###### To define the AwsGlueDataBrewSpecificS3BucketPolicy IAM policy for DataBrew
-
-(AWS CLI)
+###### To define the AwsGlueDataBrewSpecificS3BucketPolicy IAM policy for DataBrew (AWS CLI)
 
 1. Download the JSON for [`AwsGlueDataBrewSpecificS3BucketPolicy`](samples/AwsGlueDataBrewSpecificS3BucketPolicy.json.md "samples/AwsGlueDataBrewSpecificS3BucketPolicy.json.md").
 2. Customize the policy as described in the first step of the previous

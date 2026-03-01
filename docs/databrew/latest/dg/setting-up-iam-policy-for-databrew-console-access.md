@@ -8,8 +8,7 @@ following:
 
 - Use the policy that's managed by AWS:
   `AwsGlueDataBrewFullAccessPolicy`. If you choose this option,
-  skip to the next policy, [Adding permissions for
-  data resources for an IAM role](setting-up-iam-policy-for-data-resources-role.md "setting-up-iam-policy-for-data-resources-role.md").
+  skip to the next policy, [Adding permissions for data resources for an IAM role](setting-up-iam-policy-for-data-resources-role.md "setting-up-iam-policy-for-data-resources-role.md").
 - Create the policy described in this section,
   `AwsGlueDataBrewCustomUserPolicy`. This option enables you to
   customize the policy with additional custom security requirements.

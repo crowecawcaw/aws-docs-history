@@ -57,9 +57,7 @@ copy of your recipe. This appears at the right side of your workspace. 4. Try th
 5. Collapse the recipe pane at upper right by choosing **RECIPE**.
    To expand the recipe pane, choose **RECIPE** again.
 
-### Publishing a new
-
-version of your recipe
+### Publishing a new version of your recipe
 
 As you continue applying transformations, the number of steps in the recipe
 increases. At any time, you can publish a new version of your recipe. _Publishing_ a recipe makes it available elsewhere in

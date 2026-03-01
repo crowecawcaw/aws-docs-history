@@ -4,12 +4,10 @@ Before you begin, set up the following items:
 
 - An AWS account – If you don't have one yet, start with [Setting up a new AWS account](setting-up-aws.md "setting-up-aws.md").
 - An AWS Identity and Access Management (IAM) user with access to the permissions needed for DataBrew – For more
-  information, see [Adding users or groups with
-  DataBrew permissions](setting-up-iam-users-and-groups-for-databrew.md "setting-up-iam-users-and-groups-for-databrew.md").
+  information, see [Adding users or groups with DataBrew permissions](setting-up-iam-users-and-groups-for-databrew.md "setting-up-iam-users-and-groups-for-databrew.md").
 - An IAM role to use in DataBrew operations – You can use the default, if
   `AwsGlueDataBrewDataAccessRole` is configured. To set up
-  additional IAM roles, see [Adding an IAM role with data resource
-  permissions](setting-up-iam-role-to-use-in-databrew.md "setting-up-iam-role-to-use-in-databrew.md").
+  additional IAM roles, see [Adding an IAM role with data resource permissions](setting-up-iam-role-to-use-in-databrew.md "setting-up-iam-role-to-use-in-databrew.md").
 - A JupyterLab installation (version 2.2.6 or greater) – For more
   information, see the following topics in the [JupyterLab
   documentation](https://JupyterLab.readthedocs.io/en/stable/index.html "https://JupyterLab.readthedocs.io/en/stable/index.html"):

@@ -1,6 +1,4 @@
-# Adding users or groups with
-
-DataBrew permissions
+# Adding users or groups with DataBrew permissions
 
 You assign policies to roles, and roles to users and groups to manage permissions. For
 more information, see [IAM Identities (users, groups, and

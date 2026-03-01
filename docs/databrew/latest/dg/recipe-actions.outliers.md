@@ -1,10 +1,14 @@
-# REMOVE_OUTLIERS
+# RESCALE_OUTLIERS_WITH_SKEW
 
-Removes data points that classify as outliers, based on the settings in the parameters.
+Returns a new column with a rescaled outlier value in each row, based on the settings in
+the parameters. This action works to reduce distribution skewness by applying the specified
+log or root transform. We recommend this action for handling skewed data.
 
 ###### Parameters
 
 - `sourceColumn`
+  – Specifies the name of an existing numeric column that might contain outliers.
+- `targetColumn`
   – Specifies the name of an existing numeric column that might contain outliers.
 - `outlierStrategy` – Specifies the approach to use in detecting
   outliers. Valid values include the following:
@@ -20,18 +24,18 @@ Removes data points that classify as outliers, based on the settings in the para
   detecting outliers. The `sourceColumn` value is identified as an outlier
   if the score that's calculated with the `outlierStrategy` exceeds this
   number. The default is 3.
-- `removeType` – Specifies the way to remove the data. Valid
-  values include `DELETE_ROWS` and `CLEAR`.
-- `trimValue`
-  – Specifies whether to remove all or some of the outliers. This Boolean value defaults to `FALSE`.
-  - `FALSE` – Removes all outliers
-  - `TRUE`
-    – Removes outliers that rank outside of the percentile threshold specified in `minValue` and `maxValue`.
+- `skewFunction` – Specifies the method to use when replacing
+  outliers. Valid values include the following:
+  - LOG – Applies a strong transformation to reduce positive and negative skew. This is a natural logarithm (2.718281828).
+  - ROOT (with `value = 3` ) – Applies a fairly strong transformation to reduce positive and negative skew. (Cube root)
+  - ROOT (with `value = 2` ) – Applies a moderate transformation to reduce positive skew only. (Square root)
+  - SQUARE – Applies a moderate transformation to reduce negative skew. (Square)
+  - Custom transform – Applies the specified `LOG` or
+    `ROOT` transform using the custom number provided in the
+    `value` parameter.
 
-- `minValue` – Indicates the minimum percentile value for the
-  outlier range. Valid range is 0–100.
-- `maxValue` – Indicates the maximum percentile value for the
-  outlier range. Valid range is 0–100.
+- `value`
+  – Specifies the value to use for the custom transform. If `skewFunction` is LOG, this value represents the base of the log. If `skewFunction` is ROOT, this value represents the power of the root.
   The following examples display syntax for a single [RecipeAction](API_RecipeAction.md "API_RecipeAction.md")
   operation. A _recipe_ contains at least one [RecipeStep](API_RecipeStep.md "API_RecipeStep.md") operation, and a recipe step contains at least
   one recipe action. A _recipe action_ runs the data
@@ -39,24 +43,23 @@ Removes data points that classify as outliers, based on the settings in the para
   final dataset.
 
 JSON
-The following shows an example `RecipeAction` to use as member of
-an example `RecipeStep` for a DataBrew [Recipe](API_Recipe.md "API_Recipe.md"), using JSON syntax.
-For syntax examples showing a list of recipe actions, see [Defining a recipe structure](recipes.md#recipes.structure "recipes.md#recipes.structure").
+The following shows an example `RecipeAction` to use as
+member of an example `RecipeStep` for a DataBrew [Recipe](API_Recipe.md "API_Recipe.md"), using JSON syntax. For syntax examples showing a list of recipe
+actions, see [Defining a recipe structure](recipes.md#recipes.structure "recipes.md#recipes.structure").
 
 ###### Example in JSON
 
 ```
 {
     "Action": {
-        "Operation": "REMOVE_OUTLIERS",
+        "Operation": "RESCALE_OUTLIERS_WITH_SKEW",
         "Parameters": {
-            "sourceColumn": "`name-of-existing-column`",
             "outlierStrategy": "`Z_SCORE`",
             "threshold": "`3`",
-            "removeType": "`DELETE_ROWS`",
-            "trimValue": "`TRUE`",
-            "minValue": "`5`",
-            "maxValue": "`95`"
+            "skewFunction": "`ROOT`",
+            "sourceColumn": "`name-of-existing-column`",
+            "targetColumn": "`name-of-new-column`",
+            "value": "`4`"
         }
     }
 }
@@ -76,15 +79,14 @@ For syntax examples showing a list of recipe actions, see [Defining a recipe str
 
 ```
 - Action:
-  Operation: REMOVE_OUTLIERS
+  Operation: RESCALE_OUTLIERS_WITH_SKEW
   Parameters:
-    sourceColumn: `name-of-existing-column`
     outlierStrategy: `Z_SCORE`
     threshold: '`3`'
-    removeType: `DELETE_ROWS`
-    trimValue: '`TRUE`'
-    minValue: '`5`'
-    maxValue: '`95`'
+    skewFunction: `ROOT`
+    sourceColumn: `name-of-existing-column`
+    targetColumn: `name-of-new-column`
+    value: '`4`'
 ```
 
 For more information on using this recipe action in an API operation, see

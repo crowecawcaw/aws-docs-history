@@ -16,7 +16,5 @@ How to do this is covered later in this section.
 ###### Topics
 
 - [Adding an IAM policy for a console user](setting-up-iam-policy-for-databrew-console-access.md "setting-up-iam-policy-for-databrew-console-access.md")
-- [Adding permissions for
-  data resources for an IAM role](setting-up-iam-policy-for-data-resources-role.md "setting-up-iam-policy-for-data-resources-role.md")
-- [Configuring IAM policies for
-  DataBrew](iam-policy-config-for-databrew.md "iam-policy-config-for-databrew.md")
+- [Adding permissions for data resources for an IAM role](setting-up-iam-policy-for-data-resources-role.md "setting-up-iam-policy-for-data-resources-role.md")
+- [Configuring IAM policies for DataBrew](iam-policy-config-for-databrew.md "iam-policy-config-for-databrew.md")

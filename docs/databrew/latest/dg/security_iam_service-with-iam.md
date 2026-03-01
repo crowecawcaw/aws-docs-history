@@ -1,6 +1,4 @@
-# How AWS Glue DataBrew works with
-
-IAM
+# How AWS Glue DataBrew works with IAM
 
 Before you use IAM to manage access to DataBrew, you should understand what
 IAM features are available to use with DataBrew. To get a high-level view of how
@@ -9,16 +7,11 @@ Work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-wi
 
 ###### Topics
 
-- [DataBrew
-  identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
-- [Resource-based
-  policies in DataBrew](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
-- [DataBrew IAM
-  Roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
+- [DataBrew identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
+- [Resource-based policies in DataBrew](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
+- [DataBrew IAM Roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
 
-## DataBrew
-
-identity-based policies
+## DataBrew identity-based policies
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources, and also the conditions under which actions are allowed or denied.
@@ -131,25 +124,18 @@ Guide_.
 
 ### Examples
 
-To view examples of DataBrew identity-based policies, see [Identity-based policy examples for
-AWS Glue DataBrew](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of DataBrew identity-based policies, see [Identity-based policy examples for AWS Glue DataBrew](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Resource-based
-
-policies in DataBrew
+## Resource-based policies in DataBrew
 
 DataBrew doesn't support resource-based policies.
 
-## DataBrew IAM
-
-Roles
+## DataBrew IAM Roles
 
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within
 your AWS account that has specific permissions.
 
-### Using temporary
-
-credentials with DataBrew
+### Using temporary credentials with DataBrew
 
 You can use temporary credentials to sign in with federation, assume an IAM
 role, or to assume a cross-account role. You get temporary security credentials by
@@ -157,18 +143,14 @@ calling AWS STS API operations such as [AssumeRole](../../../STS/latest/APIRefer
 
 DataBrew supports using temporary credentials.
 
-### Service-linked
-
-roles
+### Service-linked roles
 
 [Service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role") allow AWS services to access resources in other
 services to complete an action on your behalf. Service-linked roles appear in your
 IAM account and are owned by the service. An administrator can view but not
 edit the permissions for service-linked roles.
 
-### Choosing an IAM role
-
-in DataBrew
+### Choosing an IAM role in DataBrew
 
 When you create a dataset resource in DataBrew, you choose an IAM role to
 allow DataBrew access on your behalf. If you have previously created a

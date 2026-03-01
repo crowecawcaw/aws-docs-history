@@ -1,6 +1,4 @@
-# IAM policy to use encryption
-
-with DataBrew
+# IAM policy to use encryption with DataBrew
 
 The `AwsGlueDataBrewS3EncryptedPolicy` policy grants the permissions needed
 to access S3 objects encrypted with AWS Key Management Service (AWS KMS) on behalf of nonadministrative users.
@@ -51,9 +49,7 @@ file.
 | `"kms:Decrypt"`          | `"arn:aws:kms:::key/key_ids"`                                 | Allows decrypting for encrypted datasets.                                 |
 | `"kms:GenerateDataKey*"` | `"arn:aws:kms:::key/key_ids"`                                 | Allows encrypting of job output.                                          |
 
-###### To define the AwsGlueDataBrewS3EncryptedPolicy IAM policy for DataBrew
-
-(console)
+###### To define the AwsGlueDataBrewS3EncryptedPolicy IAM policy for DataBrew (console)
 
 1. Download the JSON for the [`AwsGlueDataBrewS3EncryptedPolicy`](samples/AwsGlueDataBrewS3EncryptedPolicy.json.md "samples/AwsGlueDataBrewS3EncryptedPolicy.json.md") IAM policy.
 2. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").

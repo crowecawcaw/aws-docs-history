@@ -1,20 +1,14 @@
-# Encrypting data written by DataBrew
-
-jobs
+# Encrypting data written by DataBrew jobs
 
 DataBrew jobs can write to encrypted Amazon S3 targets and encrypted Amazon CloudWatch Logs.
 
 ###### Topics
 
-- [Setting up DataBrew to use
-  encryption](#encryption-setup-DataBrew "#encryption-setup-DataBrew")
-- [Creating a route to AWS KMS for VPC
-  jobs](#encryption-kms-vpc-endpoint "#encryption-kms-vpc-endpoint")
+- [Setting up DataBrew to use encryption](#encryption-setup-DataBrew "#encryption-setup-DataBrew")
+- [Creating a route to AWS KMS for VPC jobs](#encryption-kms-vpc-endpoint "#encryption-kms-vpc-endpoint")
 - [Setting up encryption with AWS KMS keys](#console-security-configurations-wizard "#console-security-configurations-wizard")
 
-## Setting up DataBrew to use
-
-encryption
+## Setting up DataBrew to use encryption
 
 Follow this procedure to set up your DataBrew environment to use encryption.
 
@@ -66,9 +60,7 @@ For more information about specifying permissions using AWS KMS key policies, se
 [Using key
 policies in AWS KMS](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md").
 
-## Creating a route to AWS KMS for VPC
-
-jobs
+## Creating a route to AWS KMS for VPC jobs
 
 You can connect directly to AWS KMS
 through a private endpoint in your virtual private cloud (VPC) instead of connecting over
