@@ -26,5 +26,4 @@ _of_ the cloud and security _in_ the cloud:
 - [Identity and access management for AWS Transform](security-iam.md "security-iam.md")
 - [Compliance validation for AWS Transform](compliance-validation.md "compliance-validation.md")
 - [Resilience in AWS Transform](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
-- [AWS Transform and interface endpoints
-  (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
+- [AWS Transform and interface endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")

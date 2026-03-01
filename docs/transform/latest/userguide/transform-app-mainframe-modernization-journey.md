@@ -1,6 +1,4 @@
-# High-level overview of
-
-mainframe modernization journey
+# High-level overview of mainframe modernization journey
 
 Modernizing mainframe applications to AWS is typically achieved in four phases: (a)
 assess, (b) mobilize, (c) migrate and modernize, and (d) operate, optimize, and
@@ -9,18 +7,12 @@ activities to support your modernization journey.
 
 ###### Phases
 
-- [Phase 1:
-  Assess](#transform-app-mainframe-modernization-journey-assess "#transform-app-mainframe-modernization-journey-assess")
-- [Phase 2:
-  Mobilize](#transform-app-mainframe-modernization-journey-mobilize "#transform-app-mainframe-modernization-journey-mobilize")
-- [Phase 3:
-  Migrate and modernize](#transform-app-mainframe-modernization-journey-migrate "#transform-app-mainframe-modernization-journey-migrate")
-- [Phase 4:
-  Operate, optimize, and innovate](#transform-app-mainframe-modernization-journey-operate "#transform-app-mainframe-modernization-journey-operate")
+- [Phase 1: Assess](#transform-app-mainframe-modernization-journey-assess "#transform-app-mainframe-modernization-journey-assess")
+- [Phase 2: Mobilize](#transform-app-mainframe-modernization-journey-mobilize "#transform-app-mainframe-modernization-journey-mobilize")
+- [Phase 3: Migrate and modernize](#transform-app-mainframe-modernization-journey-migrate "#transform-app-mainframe-modernization-journey-migrate")
+- [Phase 4: Operate, optimize, and innovate](#transform-app-mainframe-modernization-journey-operate "#transform-app-mainframe-modernization-journey-operate")
 
-## Phase 1:
-
-Assess
+## Phase 1: Assess
 
 **Goal:** To understand your modernization readiness
 and develop initial modernization plans.
@@ -59,9 +51,7 @@ don't align with your use-case or goals.
   mainframe modernization projects or new AWS customers
 - Create a statement of work for Mobilize phase
 
-## Phase 2:
-
-Mobilize
+## Phase 2: Mobilize
 
 **Goal:** To build foundation and validate approach
 through successful proof of concept or pilot modernizations.
@@ -104,9 +94,7 @@ processes to support mainframe modernization at scale.
 - Complete successful pilot with solution for the statement of work for
   next phase
 
-## Phase 3:
-
-Migrate and modernize
+## Phase 3: Migrate and modernize
 
 **Goal:** To complete modernization and migration
 within planned timeline and budget.
@@ -161,9 +149,7 @@ data to AWS.
   operations, monitoring, capability planning, and warranty for
   application functions
 
-## Phase 4:
-
-Operate, optimize, and innovate
+## Phase 4: Operate, optimize, and innovate
 
 **Goal:** To support operational excellence and
 continuous improvement of modernized applications.

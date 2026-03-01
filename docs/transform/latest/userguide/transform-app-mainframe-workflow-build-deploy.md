@@ -14,14 +14,11 @@ Environment_ document which provides instructions to set up a IDE
 
 - [Prerequisites](#transform-app-mainframe-workflow-build-deploy-prerequisites "#transform-app-mainframe-workflow-build-deploy-prerequisites")
 - [Step 1: Retrieve the modernized code](#transform-app-mainframe-workflow-build-deploy-retrieve "#transform-app-mainframe-workflow-build-deploy-retrieve")
-- [Step 2:
-  Build the modernized application](#transform-app-mainframe-workflow-build-deploy-build "#transform-app-mainframe-workflow-build-deploy-build")
+- [Step 2: Build the modernized application](#transform-app-mainframe-workflow-build-deploy-build "#transform-app-mainframe-workflow-build-deploy-build")
 - [Step 3: Configure the test environment](#transform-app-mainframe-workflow-build-deploy-configure "#transform-app-mainframe-workflow-build-deploy-configure")
 - [Step 4: Deploy the modernized application](#transform-app-mainframe-workflow-build-deploy-deployment "#transform-app-mainframe-workflow-build-deploy-deployment")
-- [Step 5: Test the modernized
-  application](#transform-app-mainframe-workflow-build-deploy-test "#transform-app-mainframe-workflow-build-deploy-test")
-- [Additional
-  example](#transform-app-mainframe-workflow-build-deploy-examples "#transform-app-mainframe-workflow-build-deploy-examples")
+- [Step 5: Test the modernized application](#transform-app-mainframe-workflow-build-deploy-test "#transform-app-mainframe-workflow-build-deploy-test")
+- [Additional example](#transform-app-mainframe-workflow-build-deploy-examples "#transform-app-mainframe-workflow-build-deploy-examples")
 
 ## Prerequisites
 
@@ -61,9 +58,7 @@ To retrieve the modernized code
    Development Environment_ document from the downloaded code
    package for reference.
 
-## Step 2:
-
-Build the modernized application
+## Step 2: Build the modernized application
 
 To build your modernized application
 
@@ -140,8 +135,7 @@ the modernized application.
 ## Step 4: Deploy the modernized application
 
 Deploy the application artifacts in the runtime you created and/or configured in
-the [Step 2:
-Build the modernized application](#transform-app-mainframe-workflow-build-deploy-build "#transform-app-mainframe-workflow-build-deploy-build") and [Step 3: Configure the test environment](#transform-app-mainframe-workflow-build-deploy-configure "#transform-app-mainframe-workflow-build-deploy-configure")
+the [Step 2: Build the modernized application](#transform-app-mainframe-workflow-build-deploy-build "#transform-app-mainframe-workflow-build-deploy-build") and [Step 3: Configure the test environment](#transform-app-mainframe-workflow-build-deploy-configure "#transform-app-mainframe-workflow-build-deploy-configure")
 sections.
 
 Additional guidance for deploying the modernized application can be found using
@@ -151,9 +145,7 @@ these links:
 - [Deploy on containers on Amazon ECS and Amazon EKS](../../../m2/latest/userguide/ba-deploy-container.md "../../../m2/latest/userguide/ba-deploy-container.md")
 - [Create an AWS Mainframe Modernization application](../../../m2/latest/userguide/applications-m2-create.md "../../../m2/latest/userguide/applications-m2-create.md")
 
-## Step 5: Test the modernized
-
-application
+## Step 5: Test the modernized application
 
 After deployment,
 
@@ -164,8 +156,6 @@ After deployment,
    application](../../../m2/latest/userguide/ba-runtime-test-planetsdemo.md "../../../m2/latest/userguide/ba-runtime-test-planetsdemo.md") in the _AWS Mainframe Modernization user
    guide_.
 
-## Additional
-
-example
+## Additional example
 
 For a specific example of modernizing mainframe application with AWS Transform, see [Modernize the CardDemo mainframe application](../../../prescriptive-guidance/latest/patterns/modernize-carddemo-mainframe-app-amazon-q-dev.md "../../../prescriptive-guidance/latest/patterns/modernize-carddemo-mainframe-app-amazon-q-dev.md").

@@ -22,9 +22,7 @@ When planning to migrate to AWS you can use this assessment to:
 - Analyze licensing options (BYOL)
 - Determine optimal dedicated host mappings
 
-## Creating and starting a
-
-job
+## Creating and starting a job
 
 The first step of a migration project is to create an AWS Transform job.
 
@@ -92,9 +90,7 @@ Follow these steps to run the queries and save the resulting files:
 4. Open the settings from the gear icon and choose **Select all the columns**.
 5. Save as a CSV file by selecting the **Export to csv** icon.
 
-## Tracking the progress of a
-
-migration assessment job
+## Tracking the progress of a migration assessment job
 
 The **Worklog** tab provides a detailed log of the actions that
 AWS Transform takes, along with human input requests and your responses to those requests.

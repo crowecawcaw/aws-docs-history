@@ -52,7 +52,9 @@ The easiest way to try out AWS Transform is with a standalone AWS account. You m
 1. Sign in to the AWS Management Console.
 2. Navigate to the AWS Transform service.
 3. Choose **Get started** to enable the service.
-4. After the service is enabled, you'll see the AWS Transform web application URL.
-5. Open that URL in a new browser window to access the AWS Transform web experience.
+4. Select and set up your identity provider.
+5. Assign users to AWS Transform service.
+6. After the service is enabled, you'll see the AWS Transform web application URL.
+7. Open that URL in a new browser window to access the AWS Transform web experience.
 
 Now you're ready to set up your workspace.

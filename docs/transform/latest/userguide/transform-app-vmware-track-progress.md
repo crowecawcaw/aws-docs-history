@@ -1,6 +1,4 @@
-# Tracking the progress of a
-
-migration job
+# Tracking the progress of a migration job
 
 You can track the progress of the transformation in two ways:
 

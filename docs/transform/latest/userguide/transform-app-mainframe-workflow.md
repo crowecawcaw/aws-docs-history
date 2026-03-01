@@ -1,38 +1,26 @@
-# Transformation of mainframe
-
-applications
+# Transformation of mainframe applications
 
 AWS Transform accelerates the transformation of your mainframe modernization applications. This topic describes the available capabilities.
 
 ###### Topics
 
 - [Prerequisite: Prepare project inputs in S3](#transform-app-mainframe-workflow-prereq "#transform-app-mainframe-workflow-prereq")
-- [Sign-in and
-  create a job](#transform-app-mainframe-workflow-signin "#transform-app-mainframe-workflow-signin")
-- [Tracking
-  transformation progress](#transform-app-mainframe-workflow-track-progress "#transform-app-mainframe-workflow-track-progress")
-- [Set up a
-  connector](#transform-app-mainframe-workflow-setup-connector "#transform-app-mainframe-workflow-setup-connector")
-- [Analyze
-  code](#transform-app-mainframe-workflow-code-analysis "#transform-app-mainframe-workflow-code-analysis")
+- [Sign-in and create a job](#transform-app-mainframe-workflow-signin "#transform-app-mainframe-workflow-signin")
+- [Tracking transformation progress](#transform-app-mainframe-workflow-track-progress "#transform-app-mainframe-workflow-track-progress")
+- [Set up a connector](#transform-app-mainframe-workflow-setup-connector "#transform-app-mainframe-workflow-setup-connector")
+- [Analyze code](#transform-app-mainframe-workflow-code-analysis "#transform-app-mainframe-workflow-code-analysis")
 - [Data analysis](#transform-app-mainframe-workflow-data-analysis "#transform-app-mainframe-workflow-data-analysis")
 - [Activity metrics analysis](#transform-app-mainframe-workflow-activity-metrics "#transform-app-mainframe-workflow-activity-metrics")
 - [Generate technical documentation](#transform-app-mainframe-workflow-generate-documentation "#transform-app-mainframe-workflow-generate-documentation")
-- [Extract
-  business logic](#transform-app-mainframe-workflow-extract-business-logic "#transform-app-mainframe-workflow-extract-business-logic")
+- [Extract business logic](#transform-app-mainframe-workflow-extract-business-logic "#transform-app-mainframe-workflow-extract-business-logic")
 - [Decomposition](#transform-app-mainframe-workflow-decomposition "#transform-app-mainframe-workflow-decomposition")
-- [Migration
-  wave planning](#transform-app-mainframe-workflow-wave-planning "#transform-app-mainframe-workflow-wave-planning")
-- [Refactor
-  code](#transform-app-mainframe-workflow-refactor-code "#transform-app-mainframe-workflow-refactor-code")
+- [Migration wave planning](#transform-app-mainframe-workflow-wave-planning "#transform-app-mainframe-workflow-wave-planning")
+- [Refactor code](#transform-app-mainframe-workflow-refactor-code "#transform-app-mainframe-workflow-refactor-code")
 - [Reforge code](#transform-app-mainframe-workflow-refactor-code-reforge "#transform-app-mainframe-workflow-refactor-code-reforge")
 - [Plan your modernized applications testing](#transform-app-mainframe-workflow-test-planning "#transform-app-mainframe-workflow-test-planning")
-- [Generate
-  test data collection scripts](#transform-app-mainframe-workflow-test-data-collection "#transform-app-mainframe-workflow-test-data-collection")
-- [Test automation
-  script generation](#transform-app-mainframe-workflow-test-automation "#transform-app-mainframe-workflow-test-automation")
-- [Deployment
-  capabilities in AWS Transform](#transform-app-mainframe-features-deployment "#transform-app-mainframe-features-deployment")
+- [Generate test data collection scripts](#transform-app-mainframe-workflow-test-data-collection "#transform-app-mainframe-workflow-test-data-collection")
+- [Test automation script generation](#transform-app-mainframe-workflow-test-automation "#transform-app-mainframe-workflow-test-automation")
+- [Deployment capabilities in AWS Transform](#transform-app-mainframe-features-deployment "#transform-app-mainframe-features-deployment")
 
 ## Prerequisite: Prepare project inputs in S3
 
@@ -66,9 +54,7 @@ encodings of job output in this S3 vector bucket in your account to provide an A
 o enable this, you must create and provide S3 vector bucket. AWS Transform automatically creates
 and attaches a role with required permissions to write to this bucket.
 
-## Sign-in and
-
-create a job
+## Sign-in and create a job
 
 To sign into the AWS Transform web experience, follow all the instructions in the
 [Getting started with AWS Transform](getting-started.md "getting-started.md") section of the
@@ -81,8 +67,7 @@ When setting up your workspace for mainframe transformation, you can optionally
 set up an Amazon S3 bucket to be used with the S3 connector. After creating the bucket
 and uploading the desired input files into the bucket, save that S3 bucket ARN for
 use later. Or you can set up the S3 bucket when setting up the connector as well.
-For more information, see [Set up a
-connector](#transform-app-mainframe-workflow-setup-connector "#transform-app-mainframe-workflow-setup-connector").
+For more information, see [Set up a connector](#transform-app-mainframe-workflow-setup-connector "#transform-app-mainframe-workflow-setup-connector").
 
 **Create workspace:** Name and
 describe your workspace where jobs, collaborators, and associated
@@ -109,9 +94,7 @@ functions.
 When you create your job you can select from the capabilities below, but the Kickoff step is always required as it is where the location of the source code for the project is located.
 In the first job set up in a workspace you are required to set up a connector to your Amazon S3 bucket.
 
-## Tracking
-
-transformation progress
+## Tracking transformation progress
 
 You can track the progress of the transformation throughout the process in two
 ways:
@@ -127,9 +110,7 @@ ways:
   documentation by each file type, the decomposed code, migration plan, and
   the refactored code.
 
-## Set up a
-
-connector
+## Set up a connector
 
 Set up a connector with your Amazon S3 bucket so that AWS Transform can access your resources and perform transformation functions.
 
@@ -149,9 +130,7 @@ Here is the full list of capabilities you can select from with dependencies note
 Your data is stored and persisted in the AWS Transform's artifact store in your
 workspace and is used only for running the job.
 
-### S3 bucket
-
-CORS permissions
+### S3 bucket CORS permissions
 
 When setting up your S3 bucket to view artifacts in AWS Transform, you need to add
 this policy to the S3 bucket's CORS permission. If this policy is not set up
@@ -166,14 +145,14 @@ functionalities of AWS Transform.
             "GET"
         ],
         "AllowedOrigins": [
-              "https://.transform.eu-central-1.on.aws",
-              "https://.transform.ap-south-1.on.aws",
-              "https://.transform.ap-northeast-1.on.aws",
-              "https://.transform.ap-northeast-2.on.aws",
-              "https://.transform.ap-southeast-2.on.aws",
-              "https://.transform.ca-central-1.on.aws",
-              "https://.transform.eu-west-2.on.aws",
-              "https://.transform.us-east-1.on.aws"
+              "https://*.transform.eu-central-1.on.aws",
+              "https://*.transform.ap-south-1.on.aws",
+              "https://*.transform.ap-northeast-1.on.aws",
+              "https://*.transform.ap-northeast-2.on.aws",
+              "https://*.transform.ap-southeast-2.on.aws",
+              "https://*.transform.ca-central-1.on.aws",
+              "https://*.transform.eu-west-2.on.aws",
+              "https://*.transform.us-east-1.on.aws"
         ],
         "ExposeHeaders": [],
         "MaxAgeSeconds": 0
@@ -182,9 +161,7 @@ functionalities of AWS Transform.
 
 ```
 
-## Analyze
-
-code
+## Analyze code
 
 After you share the Amazon S3 bucket path with AWS Transform, it will analyze the code
 for each file with details such as file name, file type, lines of code, and their
@@ -278,9 +255,7 @@ After reclassification, AWS Transform will:
 You can reclassify files only after the initial analysis loop
 completes.
 
-### Inline
-
-viewer and file comparison
+### Inline viewer and file comparison
 
 The Inline viewer is a feature in the AWS Transform for mainframe capabilities that
 provides two key visualization capabilities:
@@ -292,9 +267,7 @@ provides two key visualization capabilities:
 
 **Input file viewing**
 
-###### To view your files in the **Analyze code**
-
-step
+###### To view your files in the **Analyze code** step
 
 - Under **View code analysis results**,
   select a file using the check box in the list.
@@ -306,9 +279,7 @@ File content will be rendered on screen in the **File View** component.
 
 **File comparison**
 
-###### To compare files in the **Analyze code**
-
-step
+###### To compare files in the **Analyze code** step
 
 1. Under **View code analysis results**,
    select two files using the check boxes in the list.
@@ -325,8 +296,7 @@ You can't select more than two files to compare files.
 
 If you're having issues with inline viewer or file comparison make sure
 that the S3 bucket is set up correctly. For more information on S3 bucket's
-CORS policy, see [S3 bucket
-CORS permissions](#transform-app-mainframe-workflow-setup-connector-s3 "#transform-app-mainframe-workflow-setup-connector-s3").
+CORS policy, see [S3 bucket CORS permissions](#transform-app-mainframe-workflow-setup-connector-s3 "#transform-app-mainframe-workflow-setup-connector-s3").
 
 ## Data analysis
 
@@ -434,9 +404,7 @@ Code analysis comparison highlights jobs found in either SMF records or the anal
 
 To get comprehensive outputs, for **Batch jobs (type 30)**, ensure your JCL file name matches the job name to get meaningful outputs in the code analysis comparison.
 
-##
-
-Generate technical documentation
+## Generate technical documentation
 
 You can generate technical documentation for your mainframe
 applications undergoing modernization. By analyzing your code, AWS Transform can
@@ -617,12 +585,9 @@ AWS Transform also gives you the ability to download either an XML of PDF versio
 
 If you're having issues with documentation inline viewer, make sure that
 the S3 bucket is set up correctly. For more information on S3 bucket's CORS
-policy, see [S3 bucket
-CORS permissions](#transform-app-mainframe-workflow-setup-connector-s3 "#transform-app-mainframe-workflow-setup-connector-s3").
+policy, see [S3 bucket CORS permissions](#transform-app-mainframe-workflow-setup-connector-s3 "#transform-app-mainframe-workflow-setup-connector-s3").
 
-## Extract
-
-business logic
+## Extract business logic
 
 You can extract essential business logic from your mainframe
 applications that are undergoing modernization. AWS Transform automatically analyzes your code to
@@ -681,9 +646,7 @@ this,
 
 The business documentation page opens in a new browser tab.
 
-##
-
-Decomposition
+## Decomposition
 
 You can decompose your code into domains that account for dependencies
 between programs and components. This helps the related files and programs to be
@@ -811,9 +774,7 @@ in the file hierarchy.
 files at the same hierarchical level. They share the same parent program and
 might interact with each other directly.
 
-## Migration
-
-wave planning
+## Migration wave planning
 
 Based on the domains you created in the previous step, AWS Transform generates a migration
 wave plan with recommended modernization order.
@@ -841,9 +802,7 @@ If you're satisfied with this migration plan, you can move next step for
 refactoring the code. If you need to adjust the preference, you can follow these
 steps again.
 
-## Refactor
-
-code
+## Refactor code
 
 In this step, AWS Transform refactors the code in all or selected domain files into Java
 code. The goal of this step is to preserve the critical business logic of your
@@ -1156,9 +1115,7 @@ While synthetic test case guidance is provided, the actual test artifacts must b
 
 You cannot create, add, or merge test cases from different scheduler branches/path. A future enhancement is planned to allow operations beyond divergent/convergent tasks in the scheduler.
 
-## Generate
-
-test data collection scripts
+## Generate test data collection scripts
 
 You can generate JCL scripts to collect test data from your mainframe systems
 based on the test plan created in the previous step. AWS Transform automatically creates
@@ -1264,9 +1221,7 @@ The final script collection is stored in the specified S3 location and includes 
 
 While comprehensive JCL scripts are generated, actual execution must be performed on your mainframe environment. The scripts serve as ready-to-use data collection tools but require appropriate mainframe access and execution permissions.
 
-## Test automation
-
-script generation
+## Test automation script generation
 
 You can generate test automation scripts to execute test cases on your modernized application based on the test plan created in the previous step.
 AWS Transform automatically creates comprehensive test scripts that utilize the data collected from the test data collection process. The test automation script generation process
@@ -1345,9 +1300,7 @@ AWS Transform generates test automation scripts based on your test plan and sele
 
 The final collection of test automation scripts provides a complete testing framework for validating your modernized application functionality. The scripts can be integrated into your continuous testing processes or executed as part of your application validation workflow.
 
-## Deployment
-
-capabilities in AWS Transform
+## Deployment capabilities in AWS Transform
 
 AWS Transform helps you set up cloud environments for modernized mainframe applications by
 providing ready-to-use Infrastructure as Code (IaC) templates. Through the AWS Transform

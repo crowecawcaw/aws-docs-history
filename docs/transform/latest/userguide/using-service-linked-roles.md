@@ -5,9 +5,7 @@ linked directly to AWS Transform. Service-linked roles are predefined by AWS Tra
 include all the permissions that the service requires to call other AWS services on your
 behalf.
 
-## Using service-linked roles for
-
-AWS Transform
+## Using service-linked roles for AWS Transform
 
 AWS Transform uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
 linked directly to AWS Transform. Service-linked roles are predefined by AWS Transform and
@@ -118,9 +116,7 @@ Use the IAM console, the AWS CLI, or the AWS API to delete the AWSServiceRoleFor
 service-linked role. For more information, see [Deleting a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the
 _IAM User Guide_.
 
-### Supported Regions for AWS Transform service-linked
-
-roles
+### Supported Regions for AWS Transform service-linked roles
 
 AWS Transform does not support using service-linked roles in every Region where the
 service is available. You can use the AWSServiceRoleForAWSTransform role in the following Regions. For more

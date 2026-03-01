@@ -1,6 +1,4 @@
-# Set up service
-
-permissions
+# Set up service permissions
 
 In this step, you initialize the AWS Application Migration Service (Application Migration Service) if you haven't already. To
 learn more about this requirement, see [Initializing Application

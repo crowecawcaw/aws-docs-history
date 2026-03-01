@@ -1,6 +1,4 @@
-# Discover source
-
-data
+# Discover source data
 
 To discover and collect on-premises data, you can use the [AWS Transform discovery tool](discovery-tool.md "discovery-tool.md"),
 AWSMigration Evaluator collector, or upload exports from RVTools and ModelizeIT,

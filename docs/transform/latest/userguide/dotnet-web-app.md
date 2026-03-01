@@ -7,8 +7,7 @@ To modernize your .NET code using the AWS Transform web application, navigate to
 1. [Creating the AWS Transform .NET job plan](dotnet-creating-job-plan.md "dotnet-creating-job-plan.md")
 2. [Creating a source code repository connector](dotnet-creating-repo-connector.md "dotnet-creating-repo-connector.md")
 3. [Confirming your repositories to prepare for transformation](dotnet-confirming-repos.md "dotnet-confirming-repos.md")
-4. [Resolving package dependencies to prepare for
-   transformation](dotnet-resolving-dependencies.md "dotnet-resolving-dependencies.md")
+4. [Resolving package dependencies to prepare for transformation](dotnet-resolving-dependencies.md "dotnet-resolving-dependencies.md")
 5. [Reviewing your plan to prepare for transformation](dotnet-reviewing-plan.md "dotnet-reviewing-plan.md")
 6. [Transforming your .NET code](dotnet-transforming-code.md "dotnet-transforming-code.md")
 

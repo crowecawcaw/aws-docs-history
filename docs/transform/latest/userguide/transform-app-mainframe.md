@@ -11,17 +11,12 @@ transformation process.
 ###### Topics
 
 - [Capabilities and key features](#transform-app-mainframe-features "#transform-app-mainframe-features")
-- [High-level
-  walkthrough](#transform-app-mainframe-highlevel-walkthrough "#transform-app-mainframe-highlevel-walkthrough")
+- [High-level walkthrough](#transform-app-mainframe-highlevel-walkthrough "#transform-app-mainframe-highlevel-walkthrough")
 - [Human in the loop (HITL)](#transform-app-mainframe-hitl "#transform-app-mainframe-hitl")
-- [Supported file types for
-  transformation of mainframe applications](#transform-app-mainframe-supported-files "#transform-app-mainframe-supported-files")
-- [Supported Regions and quotas for AWS Transform
-  mainframe](#qt-webapp-mainframe-service-regions "#qt-webapp-mainframe-service-regions")
-- [High-level overview of
-  mainframe modernization journey](transform-app-mainframe-modernization-journey.md "transform-app-mainframe-modernization-journey.md")
-- [Transformation of mainframe
-  applications](transform-app-mainframe-workflow.md "transform-app-mainframe-workflow.md")
+- [Supported file types for transformation of mainframe applications](#transform-app-mainframe-supported-files "#transform-app-mainframe-supported-files")
+- [Supported Regions and quotas for AWS Transform mainframe](#qt-webapp-mainframe-service-regions "#qt-webapp-mainframe-service-regions")
+- [High-level overview of mainframe modernization journey](transform-app-mainframe-modernization-journey.md "transform-app-mainframe-modernization-journey.md")
+- [Transformation of mainframe applications](transform-app-mainframe-workflow.md "transform-app-mainframe-workflow.md")
 - [Build and deploy your modernized application post-refactoring](transform-app-mainframe-workflow-build-deploy.md "transform-app-mainframe-workflow-build-deploy.md")
 - [Tutorial: Reimagining mainframe applications with exported artifacts from AWS Transform for mainframe](transform-forward-engineering-tutorial.md "transform-forward-engineering-tutorial.md")
 
@@ -42,9 +37,7 @@ AWS Transform provides the following capabilities for mainframe modernization:
 - Helps you set up cloud environments for modernized mainframe applications by
   providing ready-to-use Infrastructure as Code (IaC) templates.
 
-## High-level
-
-walkthrough
+## High-level walkthrough
 
 Here's a high-level walkthrough of AWS Transform for modernizing and migrating mainframe
 applications.
@@ -78,9 +71,7 @@ AWS Transform will gather additional information from you in the following scena
   decomposition or wave planning).
 - When issues arise that AWS Transform cannot automatically resolve.
 
-## Supported file types for
-
-transformation of mainframe applications
+## Supported file types for transformation of mainframe applications
 
 The supported file types for zOS include:
 
@@ -104,9 +95,7 @@ For more information about Fujitsu GS21 see these topics in the _AWS Blu Insight
 - [Capture & Replay - GS21 Terminals](https://bluinsights.aws/docs/terminals-gs21 "https://bluinsights.aws/docs/terminals-gs21")
 - [Mainframe, AS400, Open VMS and GS21](https://bluinsights.aws/languages/mainframe-as400-and-open-vms "https://bluinsights.aws/languages/mainframe-as400-and-open-vms")
 
-## Supported Regions and quotas for AWS Transform
-
-mainframe
+## Supported Regions and quotas for AWS Transform mainframe
 
 For a list for supported Regions, see [Supported Regions for AWS Transform](regions.md "regions.md").
 

@@ -21,8 +21,7 @@ and recommendations is determined by your AWS Transform administrator, you can s
 different AWS Region as your target for the migration. In other words, you can run
 discovery and receive AWS Transform recommendations in one AWS Region, but then create
 your target environment in a different AWS Region. If you do that, you will be
-transferring your data across AWS Regions. For more information, see [AWS account connectors for
-VMware migrations](transform-app-vmware-acct-connections.md "transform-app-vmware-acct-connections.md").
+transferring your data across AWS Regions. For more information, see [AWS account connectors for VMware migrations](transform-app-vmware-acct-connections.md "transform-app-vmware-acct-connections.md").
 
 ## Job types
 
@@ -42,25 +41,19 @@ from depending on your migration needs.
 1. Generate VPC configuration
 2. (Optional) Deploy VPC networks
 
-### Network-and-server
-
-migration
+### Network-and-server migration
 
 1. Generate VPC configuration
 2. (Optional) Deploy VPC networks
 3. Migrate servers
 
-### Discovery and server
-
-migration
+### Discovery and server migration
 
 1. Perform discovery
 2. Generate wave plan
 3. Migrate servers
 
-## Creating and starting a
-
-job
+## Creating and starting a job
 
 The first step of a migration project is to create an AWS Transform job. For
 VMware migration projects, you can choose different job types, depending on your

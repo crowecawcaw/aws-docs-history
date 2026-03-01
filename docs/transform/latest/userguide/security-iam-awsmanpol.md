@@ -31,9 +31,7 @@ View details about updates to AWS managed policies for AWS Transform since March
 | [AWSTransformApplicationDeploymentPolicy](#security-iam-awsmanpol-AWSTransformApplicationDeploymentPolicy "#security-iam-awsmanpol-AWSTransformApplicationDeploymentPolicy") – New<br>policy           | Added a new AWS managed policy that enables AWS Transform to deploy transformed<br>.NET applications by creating and managing Amazon EC2 instances, CloudFormation stacks,<br>and associated resources.                    | August 28, 2025    |
 | [AWSServiceRoleForAWSTransform](#security-iam-awsmanpol-AWSServiceRoleForAWSTransform "#security-iam-awsmanpol-AWSServiceRoleForAWSTransform") – Updated policy                                        | Added a new policy.                                                                                                                                                                                                        | May 15, 2025       |
 
-## AWS managed
-
-policy: AWSServiceRoleForAWSTransform
+## AWS managed policy: AWSServiceRoleForAWSTransform
 
 This policy is attached to the [AWSServiceRoleForAWSTransform](using-service-linked-roles.md "using-service-linked-roles.md") service-linked role (SLR).
 
@@ -42,9 +40,7 @@ This policy is attached to the [AWSServiceRoleForAWSTransform](using-service-lin
 To view the policy permission details see [AWSServiceRoleForAWSTransform](../../../aws-managed-policy/latest/reference/AWSServiceRoleForAWSTransform.md "../../../aws-managed-policy/latest/reference/AWSServiceRoleForAWSTransform.md") in the AWS Managed Policy Reference
 Guide.
 
-## AWS
-
-managed policy: AWSTransformApplicationDeploymentPolicy
+## AWS managed policy: AWSTransformApplicationDeploymentPolicy
 
 This policy enables AWS Transform to deploy transformed .NET applications by creating and
 managing Amazon EC2 instances, CloudFormation stacks, and associated resources.
@@ -78,9 +74,7 @@ modifications outside of CloudFormation operations.
 To view the policy permission details see [AWSTransformApplicationDeploymentPolicy](../../../aws-managed-policy/latest/reference/AWSTransformApplicationDeploymentPolicy.md "../../../aws-managed-policy/latest/reference/AWSTransformApplicationDeploymentPolicy.md") in the AWS Managed Policy Reference
 Guide.
 
-## AWS
-
-managed policy: AWSTransformApplicationECSDeploymentPolicy
+## AWS managed policy: AWSTransformApplicationECSDeploymentPolicy
 
 This policy enables AWS Transform to deploy transformed applications to Amazon ECS by creating and
 managing ECS clusters, services, tasks, and associated resources.
@@ -118,9 +112,7 @@ AWSTransform-managed resources within the same AWS account.
 To view the policy permission details see [AWSTransformApplicationECSDeploymentPolicy](../../../aws-managed-policy/latest/reference/AWSTransformApplicationECSDeploymentPolicy.md "../../../aws-managed-policy/latest/reference/AWSTransformApplicationECSDeploymentPolicy.md") in the AWS Managed Policy Reference
 Guide.
 
-## AWS managed
-
-policy: AWSTransformCustomFullAccess
+## AWS managed policy: AWSTransformCustomFullAccess
 
 This policy provides full access to AWS Transform custom.
 
@@ -135,9 +127,7 @@ This policy includes the following permissions:
 To view the policy permission details see [AWSTransformCustomFullAccess](../../../aws-managed-policy/latest/reference/AWSTransformCustomFullAccess.md "../../../aws-managed-policy/latest/reference/AWSTransformCustomFullAccess.md") in the AWS Managed Policy Reference
 Guide.
 
-## AWS managed
-
-policy: AWSTransformCustomExecuteTransformations
+## AWS managed policy: AWSTransformCustomExecuteTransformations
 
 This policy provides access to execute transformations in AWS Transform custom.
 
@@ -152,9 +142,7 @@ This policy includes the following permissions:
 To view the policy permission details see [AWSTransformCustomExecuteTransformations](../../../aws-managed-policy/latest/reference/AWSTransformCustomExecuteTransformations.md "../../../aws-managed-policy/latest/reference/AWSTransformCustomExecuteTransformations.md") in the AWS Managed Policy Reference
 Guide.
 
-## AWS managed
-
-policy: AWSTransformCustomManageTransformations
+## AWS managed policy: AWSTransformCustomManageTransformations
 
 This policy provides access to create, update, read, and delete transformation resources in AWS Transform custom, as well as execute transformations.
 

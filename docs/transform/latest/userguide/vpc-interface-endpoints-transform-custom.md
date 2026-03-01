@@ -1,6 +1,4 @@
-# AWS Transform custom and interface endpoints
-
-(AWS PrivateLink)
+# AWS Transform custom and interface endpoints (AWS PrivateLink)
 
 You can establish a private connection between your VPC and AWS Transform custom by creating an
 _interface VPC endpoint_. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink "https://aws.amazon.com/privatelink"), a technology that enables you
@@ -27,9 +25,7 @@ Guide_.
   ATX_CUSTOM_ENDPOINT=https://transform-custom.<region>.api.aws atx
   ```
 
-## Considerations for AWS Transform custom VPC
-
-endpoints
+## Considerations for AWS Transform custom VPC endpoints
 
 Before you set up an interface VPC endpoint for AWS Transform custom, ensure that you review [Interface
 endpoint properties and limitations](../../../vpc/latest/userguide/vpce-interface.md#vpce-interface-limitations "../../../vpc/latest/userguide/vpce-interface.md#vpce-interface-limitations") in the _Amazon VPC User Guide_.
@@ -64,9 +60,7 @@ For more information, see [Accessing a
 service through an interface endpoint](../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint "../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint") in the
 _Amazon VPC User Guide_.
 
-## Creating a VPC endpoint policy for
-
-AWS Transform custom
+## Creating a VPC endpoint policy for AWS Transform custom
 
 You can attach an endpoint policy to your VPC endpoint that controls access to
 AWS Transform custom. The policy specifies the following information:
@@ -98,9 +92,7 @@ principals on all resources.
 }
 ```
 
-## Using an on-premises computer to connect to a
-
-AWS Transform custom endpoint
+## Using an on-premises computer to connect to a AWS Transform custom endpoint
 
 This section describes the process of using an on-premises computer to connect to
 AWS Transform custom through a AWS PrivateLink endpoint in your AWS VPC.

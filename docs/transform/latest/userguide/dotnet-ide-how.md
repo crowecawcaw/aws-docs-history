@@ -44,9 +44,7 @@ The transformation includes the following updates to your application:
 - Rewriting code for Linux compatibility, including refactoring and rewriting
   deprecated and inefficient code to port existing code
 
-## Reviewing transformation
-
-report and accepting changes
+## Reviewing transformation report and accepting changes
 
 After the transformation is complete, AWS Transform provides a transformation report with
 information about the proposed updates it made to your application, including the number

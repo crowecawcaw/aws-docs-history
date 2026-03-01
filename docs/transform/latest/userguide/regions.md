@@ -37,5 +37,4 @@ For VMware projects, the Region of the workspace is used for discovery. However,
 specify a different Region as the migration target. That target Region is where your
 workloads are hosted when the migration is complete. For more information about
 AWS Region considerations for VMware migrations, including the list of possible target
-Regions, see [AWS account connectors for
-VMware migrations](transform-app-vmware-acct-connections.md "transform-app-vmware-acct-connections.md").
+Regions, see [AWS account connectors for VMware migrations](transform-app-vmware-acct-connections.md "transform-app-vmware-acct-connections.md").

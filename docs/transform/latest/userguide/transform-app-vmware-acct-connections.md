@@ -1,6 +1,4 @@
-# AWS account connectors for
-
-VMware migrations
+# AWS account connectors for VMware migrations
 
 To perform a VMware migration, you need an AWS account target account connector.
 

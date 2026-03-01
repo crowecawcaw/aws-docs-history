@@ -97,9 +97,7 @@ The typical workflow is:
 
 You can also publish a transformation directly without saving it as a draft.
 
-### References vs. Knowledge
-
-Items
+### References vs. Knowledge Items
 
 AWS Transform custom uses two types of knowledge to improve transformation quality:
 

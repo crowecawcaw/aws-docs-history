@@ -1,6 +1,4 @@
-# Resolving package dependencies to prepare for
-
-transformation
+# Resolving package dependencies to prepare for transformation
 
 After [Confirming your repositories to prepare for transformation](dotnet-confirming-repos.md "dotnet-confirming-repos.md"), if AWS Transform finds missing package dependencies, you must complete this step. You can run a Windows PowerShell script to get the missing package dependencies from the same device as your Visual Studio development environment, or you can retrieve the missing packages manually. Then, upload the missing packages.
 

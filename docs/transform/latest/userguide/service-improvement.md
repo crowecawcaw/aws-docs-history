@@ -4,9 +4,7 @@ To help AWS Transform provide the most relevant information, we may use certain 
 AWS Transform, such as questions that you ask AWS Transform and its responses, for service improvement.
 This page explains what content we use and how to opt out.
 
-## AWS Transform content used for service
-
-improvement
+## AWS Transform content used for service improvement
 
 We may use certain content from AWS Transform for service improvement. AWS Transform may use this
 content, for example, to provide better responses to common questions, fix AWS Transform

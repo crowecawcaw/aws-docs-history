@@ -283,9 +283,7 @@ needed permissions, go to the AWS Transform console and choose **Update
 permissions** in the banner at the top of the page. In order to allow AWS Transform
 to create grants, you need to update the permissions on the AWS Transform console page.
 
-## Allow AWS Transform
-
-access to customer managed keys
+## Allow AWS Transform access to customer managed keys
 
 The following example policy statement grants users permissions to access features encrypted
 with a customer managed key by allowing AWS Transform access to the key. This policy is

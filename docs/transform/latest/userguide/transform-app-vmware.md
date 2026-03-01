@@ -4,9 +4,7 @@ AWS Transform can help you migrate your VMware environment to Amazon EC2 by usin
 This document provides an overview of AWS Transform and of the workflow of the migration
 process.
 
-## Capabilities and key
-
-features
+## Capabilities and key features
 
 AWS Transform offers the following capabilities and key features for migrating your VMware
 environment to AWS.

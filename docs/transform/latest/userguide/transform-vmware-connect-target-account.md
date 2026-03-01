@@ -1,6 +1,4 @@
-# Connect
-
-target account
+# Connect target account
 
 The target account is where your network will be deployed and where your migrated
 servers and applications will reside in AWS.

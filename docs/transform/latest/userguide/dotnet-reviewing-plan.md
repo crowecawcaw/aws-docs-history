@@ -1,7 +1,6 @@
 # Reviewing your plan to prepare for transformation
 
-After [Confirming your repositories to prepare for transformation](dotnet-confirming-repos.md "dotnet-confirming-repos.md"), and [Resolving package dependencies to prepare for
-transformation](dotnet-resolving-dependencies.md "dotnet-resolving-dependencies.md"), the AWS account administrator must review the transformation plan and approve it in AWS Transform.
+After [Confirming your repositories to prepare for transformation](dotnet-confirming-repos.md "dotnet-confirming-repos.md"), and [Resolving package dependencies to prepare for transformation](dotnet-resolving-dependencies.md "dotnet-resolving-dependencies.md"), the AWS account administrator must review the transformation plan and approve it in AWS Transform.
 
 AWS Transform displays the job's list of repositories, dependent repositories, and dependent packages that were selected for transformation.
 

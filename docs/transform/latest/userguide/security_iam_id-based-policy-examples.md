@@ -1,6 +1,4 @@
-# Identity-based policy
-
-examples for AWS Transform
+# Identity-based policy examples for AWS Transform
 
 By default, users and roles don't have permission to create or modify AWS Transform
 resources. To grant users permission to perform actions on the
@@ -14,20 +12,14 @@ For details about actions and resource types defined by AWS Transform, including
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the AWS Transform
-  console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Allow administrators to
-  accept a connector request from the account with AWS Transform](#id-based-policy-examples-admin-connector "#id-based-policy-examples-admin-connector")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the AWS Transform console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Allow administrators to accept a connector request from the account with AWS Transform](#id-based-policy-examples-admin-connector "#id-based-policy-examples-admin-connector")
 - [Allow administrators to assign existing IAM Identity Center users and create new IAM Identity Center users to assign to AWS Transform](#id-based-policy-examples-admin-idc-users "#id-based-policy-examples-admin-idc-users")
 - [Allow administrators to enable AWS Transform](#id-based-policy-examples-admin-enable-transform "#id-based-policy-examples-admin-enable-transform")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete AWS Transform resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -60,9 +52,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the AWS Transform
-
-console
+## Using the AWS Transform console
 
 To access the AWS Transform console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the AWS Transform resources
@@ -74,9 +64,7 @@ You don't need to allow minimum console permissions for users that are making ca
 only to the AWS CLI or the AWS API. Instead, allow access to only the actions that match
 the API operation that they're trying to perform.
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -116,9 +104,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Allow administrators to
-
-accept a connector request from the account with AWS Transform
+## Allow administrators to accept a connector request from the account with AWS Transform
 
 JSON
 

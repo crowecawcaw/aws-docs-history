@@ -74,9 +74,7 @@ discovery@<VM-IP>` after enabling SSH access. Users are
   switching to `ec2-user` by running `sudo su
 ec2-user`.
 
-## Configure krb5.conf For Kerberos Authentication
-
-Protocol (optional)
+## Configure krb5.conf For Kerberos Authentication Protocol (optional)
 
 krb5.conf configuration may not be required if your environment has proper DNS SRV records configured for Kerberos service discovery. However, explicit configuration is recommended for: Environments without DNS-based Kerberos discovery, Custom or non-standard Kerberos setups.
 
@@ -116,9 +114,7 @@ testuser@EXAMPLE.COM).
 
 Upon verifying, provide the principal and password in the discovery tool UI.
 
-## Import a self-signed certificate
-
-authority into the discovery tool (Optional)
+## Import a self-signed certificate authority into the discovery tool (Optional)
 
 This is required when you use WinRM over HTTPS and target servers using WinRM HTTPS certificates signed by a self-signed Certificate Authority (CA), and you want to enable "Validate server SSL certificate" on the discovery tool.
 

@@ -21,9 +21,7 @@ To get a high-level view of how AWS Transform and other AWS services work with m
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for AWS Transform
+## Identity-based policies for AWS Transform
 
 **Supports identity-based policies:**
 
@@ -40,16 +38,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for AWS Transform
 
-Identity-based policy examples for AWS Transform
+To view examples of AWS Transform identity-based policies, see [Identity-based policy examples for AWS Transform](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of AWS Transform identity-based policies, see [Identity-based policy
-examples for AWS Transform](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within AWS Transform
+## Resource-based policies within AWS Transform
 
 **Supports resource-based policies:**
 
@@ -65,9 +58,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions
-
-for AWS Transform
+## Policy actions for AWS Transform
 
 **Supports policy actions:**
 
@@ -102,12 +93,9 @@ To specify multiple actions in a single statement, separate them with commas.
          ]
 ```
 
-To view examples of AWS Transform identity-based policies, see [Identity-based policy
-examples for AWS Transform](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS Transform identity-based policies, see [Identity-based policy examples for AWS Transform](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for AWS Transform
+## Policy resources for AWS Transform
 
 **Supports policy resources:**
 
@@ -131,12 +119,9 @@ specify the ARN of each resource for AWS Transform _custom_, see [Actions,
 resources, and condition keys for AWS Transform custom](../../../service-authorization/latest/reference/list_awstransformcustom.md "../../../service-authorization/latest/reference/list_awstransformcustom.md") in the
 _Service Authorization Reference_.
 
-To view examples of AWS Transform identity-based policies, see [Identity-based policy
-examples for AWS Transform](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS Transform identity-based policies, see [Identity-based policy examples for AWS Transform](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for AWS Transform
+## Policy condition keys for AWS Transform
 
 **Supports service-specific policy condition keys:**
 
@@ -160,8 +145,7 @@ condition key for AWS Transform _custom_, see [Actions,
 resources, and condition keys for AWS Transform custom](../../../service-authorization/latest/reference/list_awstransformcustom.md "../../../service-authorization/latest/reference/list_awstransformcustom.md") in the
 _Service Authorization Reference_.
 
-To view examples of AWS Transform identity-based policies, see [Identity-based policy
-examples for AWS Transform](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS Transform identity-based policies, see [Identity-based policy examples for AWS Transform](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## ACLs in AWS Transform
 
@@ -189,9 +173,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary
-
-credentials with AWS Transform
+## Using temporary credentials with AWS Transform
 
 **Supports temporary credentials:**
 
@@ -203,9 +185,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for AWS Transform
+## Cross-service principal permissions for AWS Transform
 
 **Supports forward access sessions (FAS):**
 
@@ -214,9 +194,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-AWS Transform
+## Service roles for AWS Transform
 
 **Supports service roles:**
 
@@ -231,9 +209,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break AWS Transform functionality.
 Edit service roles only when AWS Transform provides guidance to do so.
 
-## Service-linked
-
-roles for AWS Transform
+## Service-linked roles for AWS Transform
 
 **Supports service-linked roles:**
 
