@@ -24,9 +24,7 @@ _in_ the cloud:
   _AWS CloudFormation User Guide_. You can also learn how to use other AWS services that
   help you to monitor and secure your CloudFormation and Cloud Control API resources.
 
-## IAM policy actions
-
-for Cloud Control API
+## IAM policy actions for Cloud Control API
 
 You must create and assign AWS Identity and Access Management (IAM) policies that give an IAM identity (such as
 a user or role) permission to call the Cloud Control API API actions they need.
@@ -66,9 +64,7 @@ JSON
 
 ```
 
-## Cloud Control API
-
-differences
+## Cloud Control API differences
 
 Cloud Control API and CloudFormation have several important differences:
 

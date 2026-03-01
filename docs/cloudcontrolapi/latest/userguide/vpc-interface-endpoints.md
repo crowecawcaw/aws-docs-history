@@ -1,6 +1,4 @@
-# Cloud Control API and interface VPC endpoints
-
-(AWS PrivateLink)
+# Cloud Control API and interface VPC endpoints (AWS PrivateLink)
 
 You can use AWS PrivateLink to create a private connection between your VPC and AWS Cloud Control API.
 You can access Cloud Control API as if it were in your VPC, without the use of an internet gateway,
@@ -21,9 +19,7 @@ Before you set up an interface VPC endpoint for Cloud Control API, first make su
 the prerequisites in the [Access an AWS service using an interface VPC endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md") topic in the
 _AWS PrivateLink Guide_.
 
-## Creating an interface VPC endpoint for
-
-Cloud Control API
+## Creating an interface VPC endpoint for Cloud Control API
 
 You can create a VPC endpoint for Cloud Control API using either the Amazon VPC console or the
 AWS Command Line Interface (AWS CLI). For more information, see [Create a VPC endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint-aws "../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint-aws") in the

@@ -9,8 +9,7 @@ resources.
 - [Step 1: Create a resource](#getting-started-step1 "#getting-started-step1")
 - [Step 2: Read (describe) a resource](#getting-started-step2 "#getting-started-step2")
 - [Step 3: Update a resource](#getting-started-step3 "#getting-started-step3")
-- [Step 4: List all resources of a certain
-  type](#getting-started-list "#getting-started-list")
+- [Step 4: List all resources of a certain type](#getting-started-list "#getting-started-list")
 - [Step 5: Delete a resource](#getting-started-cleanup "#getting-started-cleanup")
 - [Next steps](#getting-started-next-steps "#getting-started-next-steps")
 
@@ -184,9 +183,7 @@ value to `SUCCESS`.
 }
 ```
 
-## Step 4: List all resources of a certain
-
-type
+## Step 4: List all resources of a certain type
 
 Next, use Cloud Control API to discover resources in your AWS account.
 

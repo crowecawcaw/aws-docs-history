@@ -39,9 +39,7 @@ create-resource
 list-resource-requests
 ````
 
-## Using a resource's primary
-
-identifier
+## Using a resource's primary identifier
 
 When using Cloud Control API commands, you can specify the primary identifier or any secondary identifier defined
 for the resource type in its resource schema. You can only specify one identifier. Primary identifiers can be

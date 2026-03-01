@@ -2,9 +2,7 @@
 
 Use the `create-resource` command to create a resource.
 
-## Composing the desired state of the
-
-resource
+## Composing the desired state of the resource
 
 For Cloud Control API to create a resource, you must specify the _desired state_ of the resource
 you want to create. The desired state consists of a listing of the resource properties that you want to specify, and
@@ -39,10 +37,7 @@ The following AWS Command Line Interface (AWS CLI) command creates the resource 
  --desired-state '{"LogGroupName": "CloudApiLogGroup", "RetentionInDays":90}'`
 ```
 
-## Tracking the progress of a create resource
-
-request
+## Tracking the progress of a create resource request
 
 The `create-resource` command returns a `ProgressEvent` object that you can use
-to monitor the current status of your resource create request. For more information, see [Tracking the progress of resource operation
-requests](resource-operations-manage-requests.md#resource-operations-manage-requests-track "resource-operations-manage-requests.md#resource-operations-manage-requests-track").
+to monitor the current status of your resource create request. For more information, see [Tracking the progress of resource operation requests](resource-operations-manage-requests.md#resource-operations-manage-requests-track "resource-operations-manage-requests.md#resource-operations-manage-requests-track").

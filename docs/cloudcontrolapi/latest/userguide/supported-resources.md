@@ -8,8 +8,7 @@ _AWS CloudFormation User Guide_.
 
 Third-party resource types, both public and private, support Cloud Control API.
 
-For information about how to determine if a specific resource type supports Cloud Control API, see [Determining if a resource type
-supports Cloud Control API](resource-types.md#resource-types-determine-support "resource-types.md#resource-types-determine-support"). For more information
+For information about how to determine if a specific resource type supports Cloud Control API, see [Determining if a resource type supports Cloud Control API](resource-types.md#resource-types-determine-support "resource-types.md#resource-types-determine-support"). For more information
 about using resource types, see [Using Cloud Control API resource types](resource-types.md "resource-types.md").
 
 Table last updated: December 03, 2025

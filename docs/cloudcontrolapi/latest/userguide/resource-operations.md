@@ -33,8 +33,7 @@ For a list of AWS resource types that support Cloud Control API, see [Resource t
 
 Third-party resource types, both public and private, support Cloud Control API.
 
-For details about how to determine if a specific resource type supports Cloud Control API, see [Determining if a resource type
-supports Cloud Control API](resource-types.md#resource-types-determine-support "resource-types.md#resource-types-determine-support").
+For details about how to determine if a specific resource type supports Cloud Control API, see [Determining if a resource type supports Cloud Control API](resource-types.md#resource-types-determine-support "resource-types.md#resource-types-determine-support").
 
 For information about using resource types, see [Using Cloud Control API resource types](resource-types.md "resource-types.md").
 
@@ -69,9 +68,7 @@ resource type's schema. For more information about viewing the resource schema, 
 defined in the [resource type
 definition schema](../../../cloudformation-cli/latest/userguide/resource-type-schema.md#schema-properties-handlers "../../../cloudformation-cli/latest/userguide/resource-type-schema.md#schema-properties-handlers").
 
-## Ensuring resource operation requests
-
-are unique when using Cloud Control API
+## Ensuring resource operation requests are unique when using Cloud Control API
 
 As a best practice, we strongly recommend you specify an idempotency token with create, delete, and update
 resource operation requests. Preferably, specify a token that will be unique for every request, such as an
@@ -81,9 +78,7 @@ must be retried.
 The `create-resource`, `delete-resource`, and `update-resource` operations
 all take a `client-token` parameter, which can be set to an idempotency token.
 
-## Considerations when using
-
-Cloud Control API
+## Considerations when using Cloud Control API
 
 We recommend that you take the following service behavior into account when performing resource operations
 using Cloud Control API:

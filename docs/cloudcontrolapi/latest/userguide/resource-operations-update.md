@@ -10,8 +10,7 @@ services. Doing so can lead to unexpected results. For example, don't use Cloud 
 currently part of an CloudFormation stack.
 
 To update an existing resource, you must specify the resource's identifier. For more information about
-determining a resource's identifier, see [Using a resource's primary
-identifier](resource-identifier.md#resource-identifier-using "resource-identifier.md#resource-identifier-using").
+determining a resource's identifier, see [Using a resource's primary identifier](resource-identifier.md#resource-identifier-using "resource-identifier.md#resource-identifier-using").
 
 Updating a resource entails changing resource property values. The properties of a resource are defined in
 its resource type schema. This includes whether the property is required, valid values, and other property
@@ -91,10 +90,7 @@ fails and Cloud Control API never runs the second `replace` operation.
 ]
 ```
 
-## Tracking the progress of an update resource
-
-request
+## Tracking the progress of an update resource request
 
 The `update-resource` command returns a `ProgressEvent` object that you can use to
-track the current status of your resource operation request. For more information, see [Tracking the progress of resource operation
-requests](resource-operations-manage-requests.md#resource-operations-manage-requests-track "resource-operations-manage-requests.md#resource-operations-manage-requests-track").
+track the current status of your resource operation request. For more information, see [Tracking the progress of resource operation requests](resource-operations-manage-requests.md#resource-operations-manage-requests-track "resource-operations-manage-requests.md#resource-operations-manage-requests-track").

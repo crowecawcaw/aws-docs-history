@@ -27,15 +27,12 @@ API.
 ###### Note
 
 Not all resource types listed in the CloudFormation registry currently support Cloud Control API. For more information,
-see [Determining if a resource type
-supports Cloud Control API](#resource-types-determine-support "#resource-types-determine-support").
+see [Determining if a resource type supports Cloud Control API](#resource-types-determine-support "#resource-types-determine-support").
 
 For more information about resource type management options, see [Using the
 CloudFormation registry](../../../AWSCloudFormation/latest/UserGuide/registry.md "../../../AWSCloudFormation/latest/UserGuide/registry.md") in the _AWS CloudFormation User Guide_.
 
-## Managing resource types using the CloudFormation
-
-API
+## Managing resource types using the CloudFormation API
 
 In addition to accessing the extension registry through the CloudFormation console, you can use
 operations included in the CloudFormation API to identify and manage the resource types in your
@@ -55,9 +52,7 @@ activate, and configure the resource types available in your account.
 | [`RegisterType`](../../../AWSCloudFormation/latest/APIReference/API_RegisterType.md "../../../AWSCloudFormation/latest/APIReference/API_RegisterType.md")                                                          | [`register-type`](../../../cli/latest/reference/cloudformation/register-type.md "../../../cli/latest/reference/cloudformation/register-type.md")                                                                | Registers a private third-party resource, making it available<br>for use in your account.     |
 | [`DeregisterType`](../../../AWSCloudFormation/latest/APIReference/API_DeregisterType.md "../../../AWSCloudFormation/latest/APIReference/API_DeregisterType.md")                                                    | [`deregister-type`](../../../cli/latest/reference/cloudformation/deregister-type.md "../../../cli/latest/reference/cloudformation/deregister-type.md")                                                          | Deregisters a private third-party resource, removing it from<br>active use in your account.   |
 
-## Determining if a resource type
-
-supports Cloud Control API
+## Determining if a resource type supports Cloud Control API
 
 By default, resource types published in the CloudFormation registry automatically support
 Cloud Control API resource operations. This includes private resource types, in addition to public
@@ -136,9 +131,7 @@ Extension Development_.
 For information about how to view an existing resource's current state, which includes its current
 property values, see [Reading a resource with AWS Cloud Control API](resource-operations-read.md "resource-operations-read.md").
 
-## Viewing a resource
-
-type schema using the CloudFormation console
+## Viewing a resource type schema using the CloudFormation console
 
 1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
@@ -151,9 +144,7 @@ type schema using the CloudFormation console
 CloudFormation displays the resource type details page. The resource schema is
 displayed on the **Schema** tab.
 
-## Viewing a resource type
-
-schema using the AWS CLI
+## Viewing a resource type schema using the AWS CLI
 
 - Run `describe-type`.
 
@@ -168,9 +159,7 @@ For example, the following command returns information about the
  --type RESOURCE --type-name AWS::Logs::LogGroup`
 ```
 
-### Viewing resource property
-
-attributes
+### Viewing resource property attributes
 
 Resource type properties are defined in the `properties` section of the
 resource type schema. This includes the property data type, whether the property is
@@ -189,9 +178,7 @@ property can be specified. This includes:
   users when creating or updating a resource but can't be returned during a
   read or list request.
 
-### Viewing supported resource
-
-operations
+### Viewing supported resource operations
 
 You can determine which operations a resource type supports by referring to the
 `handlers` section of its resource type schema. If the resource type

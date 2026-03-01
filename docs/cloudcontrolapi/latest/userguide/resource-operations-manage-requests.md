@@ -1,6 +1,4 @@
-# Managing resource operation
-
-requests with AWS Cloud Control API
+# Managing resource operation requests with AWS Cloud Control API
 
 Because resource operations are asynchronous, resource requests such as `create-resource` and
 `update-resource` return a `ProgressEvent` object that contains information about the current
@@ -29,9 +27,7 @@ use to track or cancel a resource operation request.
 
 Resource operation requests expire after seven days.
 
-## Listing active resource
-
-operation requests
+## Listing active resource operation requests
 
 Use the `list-resource-requests` command to return a list of active resource operation
 requests for an AWS account and AWS Region. You can filter the list by request type and status.
@@ -65,9 +61,7 @@ track or cancel a resource operation request.
 }
 ```
 
-## Tracking the progress of resource operation
-
-requests
+## Tracking the progress of resource operation requests
 
 Use the `get-resource-request-status` command to track the progress of your resource operation
 request. This command takes the request token included in the `ProgressEvent` object generated during the
@@ -82,9 +76,7 @@ See the following example.
  --request-token 5f40c577-3534-4b20-9599-0b0123456789`
 ```
 
-## Canceling resource
-
-operation requests
+## Canceling resource operation requests
 
 Use the `cancel-resource-request` command to cancel a resource operation request that is
 currently in progress. Because you can only perform a single operation on a given resource at a time, there might be
