@@ -14,12 +14,9 @@ Guide](../../../AWSCloudFormation/latest/UserGuide/troubleshooting.md "../../../
 
 - [You Can't Make an Application Public](#issue-cant-make-app-public "#issue-cant-make-app-public")
 - [A Quota Was Exceeded](#issue-limit-exceeded "#issue-limit-exceeded")
-- [An Updated Readme File Doesn't Appear
-  Immediately](#issue-updating-readme-delay "#issue-updating-readme-delay")
-- [You Can't
-  Deploy an Application Due to Insufficient IAM Permissions](#issue-cant-deploy-app-due-to-insufficient-iam-permissions "#issue-cant-deploy-app-due-to-insufficient-iam-permissions")
-- [You Can't Deploy the Same Application
-  Twice](#issue-cant-deploy-same-app-twice "#issue-cant-deploy-same-app-twice")
+- [An Updated Readme File Doesn't Appear Immediately](#issue-updating-readme-delay "#issue-updating-readme-delay")
+- [You Can't Deploy an Application Due to Insufficient IAM Permissions](#issue-cant-deploy-app-due-to-insufficient-iam-permissions "#issue-cant-deploy-app-due-to-insufficient-iam-permissions")
+- [You Can't Deploy the Same Application Twice](#issue-cant-deploy-same-app-twice "#issue-cant-deploy-same-app-twice")
 - [Why Is My Application Not Publicly Available](#issue-why-not-publicly-available "#issue-why-not-publicly-available")
 - [Contacting Support](#issue-contacting-support "#issue-contacting-support")
 
@@ -42,17 +39,13 @@ organization.
 If you receive an error message that indicates that a quota was exceeded, check to see if you
 reached a resource quota. For AWS Serverless Application Repository quotas, see [AWS Serverless Application Repository Quotas](quotas.md "quotas.md").
 
-## An Updated Readme File Doesn't Appear
-
-Immediately
+## An Updated Readme File Doesn't Appear Immediately
 
 When you make your application public, the contents of your application can take up to 24
 hours to update. If you experience delays longer than 24 hours, try contacting AWS Support for
 help. For details, see following.
 
-## You Can't
-
-Deploy an Application Due to Insufficient IAM Permissions
+## You Can't Deploy an Application Due to Insufficient IAM Permissions
 
 To deploy an AWS Serverless Application Repository application, you need permissions to AWS Serverless Application Repository resources and CloudFormation
 stacks. You might also need permission to use the underlying services described in the
@@ -63,9 +56,7 @@ If you run into this type of issue, review your AWS Identity and Access Manageme
 have the necessary permissions. For more information, see [Controlling Access with AWS Identity and Access
 Management](../../../AWSCloudFormation/latest/UserGuide/using-iam-template.md "../../../AWSCloudFormation/latest/UserGuide/using-iam-template.md").
 
-## You Can't Deploy the Same Application
-
-Twice
+## You Can't Deploy the Same Application Twice
 
 The application name that you provide is used as the name of the CloudFormation stack. If you have
 problems deploying an application, make sure that you don't have an existing CloudFormation stack

@@ -1,6 +1,4 @@
-# AWS Serverless Application Repository
-
-Application Policy Examples
+# AWS Serverless Application Repository Application Policy Examples
 
 Permissions policies attached to AWS Serverless Application Repository applications are referred to as
 _application policies_.
@@ -39,9 +37,7 @@ For instructions on setting application permissions using the AWS Management Con
 For instructions on setting application permissions using the AWS CLI and examples, see the
 following sections.
 
-## Application Permissions (AWS CLI and AWS
-
-SDKs)
+## Application Permissions (AWS CLI and AWS SDKs)
 
 When you're using the AWS CLI or the AWS SDKs to set permissions for an AWS Serverless Application Repository
 application, you can specify the following actions:
@@ -56,9 +52,7 @@ application, you can specify the following actions:
 | SearchApplications            | Grants permission for the application to be searched for.                                                                                                                                                                  |
 | Deploy                        | This action enables all the actions listed earlier in the table.<br>That is, it grants permission for the application to be viewed, for<br>it to be deployed, for versions to be listed, and for it to be<br>searched for. |
 
-## Application Policy
-
-Examples
+## Application Policy Examples
 
 The following examples show how to grant permissions by using the AWS CLI. For
 information on how to grant permissions using the AWS Management Console, see [Sharing an Application](serverlessrepo-how-to-publish.md#share-application "serverlessrepo-how-to-publish.md#share-application").
@@ -72,20 +66,13 @@ policies associated with AWS Serverless Application Repository applications:
 ###### Topics
 
 - [Example 1: Share an Application with Another Account](#access-control-resource-based-example-share-with-specific-account "#access-control-resource-based-example-share-with-specific-account")
-- [Example 2:
-  Share an Application Publicly](#access-control-resource-based-example-share-publicly "#access-control-resource-based-example-share-publicly")
-- [Example 3: Make
-  an Application Private](#access-control-resource-based-example-make-private "#access-control-resource-based-example-make-private")
-- [Example
-  4: Specifying Multiple Accounts and Permissions](#access-control-resource-based-example-multiple-permissions "#access-control-resource-based-example-multiple-permissions")
-- [Example
-  5: Share an Application with All Accounts in an AWS Organization](#access-control-resource-based-example-share-organization "#access-control-resource-based-example-share-organization")
-- [Example 6: Sharing an Application with Some Accounts in an AWS
-  Organization](#access-control-resource-based-example-accounts-in-organization "#access-control-resource-based-example-accounts-in-organization")
-- [Example
-  7: Retrieve an Application Policy](#access-control-resource-based-example-retrieve-app-policy "#access-control-resource-based-example-retrieve-app-policy")
-- [Example 8:
-  Allow Application to Be Nested by Specific Accounts](#access-control-resource-based-example-nest-app-policy "#access-control-resource-based-example-nest-app-policy")
+- [Example 2: Share an Application Publicly](#access-control-resource-based-example-share-publicly "#access-control-resource-based-example-share-publicly")
+- [Example 3: Make an Application Private](#access-control-resource-based-example-make-private "#access-control-resource-based-example-make-private")
+- [Example 4: Specifying Multiple Accounts and Permissions](#access-control-resource-based-example-multiple-permissions "#access-control-resource-based-example-multiple-permissions")
+- [Example 5: Share an Application with All Accounts in an AWS Organization](#access-control-resource-based-example-share-organization "#access-control-resource-based-example-share-organization")
+- [Example 6: Sharing an Application with Some Accounts in an AWS Organization](#access-control-resource-based-example-accounts-in-organization "#access-control-resource-based-example-accounts-in-organization")
+- [Example 7: Retrieve an Application Policy](#access-control-resource-based-example-retrieve-app-policy "#access-control-resource-based-example-retrieve-app-policy")
+- [Example 8: Allow Application to Be Nested by Specific Accounts](#access-control-resource-based-example-nest-app-policy "#access-control-resource-based-example-nest-app-policy")
 
 ### Example 1: Share an Application with Another Account
 
@@ -106,9 +93,7 @@ aws serverlessrepo put-application-policy \
 _Privately shared_ applications can only be used in the
 same AWS Region where the application is created.
 
-### Example 2:
-
-Share an Application Publicly
+### Example 2: Share an Application Publicly
 
 To make an application public, you share it with everyone by specifying "\*" as the
 principal, as in the following example. Applications that are shared publicly are
@@ -127,9 +112,7 @@ In order to share an application publicly, it must have both the
 `SemanticVersion` and `LicenseUrl` properties
 set.
 
-### Example 3: Make
-
-an Application Private
+### Example 3: Make an Application Private
 
 You can make an application private, so it's not shared with anyone and can
 only be deployed by the AWS account that owns it. To do so, you clear out the
@@ -148,9 +131,7 @@ aws serverlessrepo put-application-policy \
 _Private_ applications can only be used in the same AWS
 Region where the application is created.
 
-### Example
-
-4: Specifying Multiple Accounts and Permissions
+### Example 4: Specifying Multiple Accounts and Permissions
 
 You can grant multiple permissions, and you can grant them to more than one AWS
 account at a time. To do this, you specify lists as the principal and actions, as
@@ -163,9 +144,7 @@ aws serverlessrepo put-application-policy \
 --statements Principals=`account-id-1`,`account-id-2`,Actions=GetApplication,CreateCloudFormationChangeSet
 ```
 
-### Example
-
-5: Share an Application with All Accounts in an AWS Organization
+### Example 5: Share an Application with All Accounts in an AWS Organization
 
 Permissions can be granted to all users within an AWS organization. You do this by
 specifying your organization ID, as in the following example.
@@ -190,9 +169,7 @@ To share your application with your AWS organization, you must include
 permission for the `UnshareApplication` action, in case the sharing
 needs to be revoked in the future.
 
-### Example 6: Sharing an Application with Some Accounts in an AWS
-
-Organization
+### Example 6: Sharing an Application with Some Accounts in an AWS Organization
 
 Permissions can be granted to specific accounts within an AWS organization. You do
 this by specifying a list of AWS accounts as the principal, and your organization
@@ -215,9 +192,7 @@ To share your application with your AWS organization, you must include
 permission for the `UnshareApplication` action, in case the sharing
 needs to be revoked in the future.
 
-### Example
-
-7: Retrieve an Application Policy
+### Example 7: Retrieve an Application Policy
 
 To view an application's current policy, for example to see whether it's currently
 being shared, you use the `get-application-policy` command, like in the
@@ -229,9 +204,7 @@ aws serverlessrepo get-application-policy \
 --application-id `application-arn`
 ```
 
-### Example 8:
-
-Allow Application to Be Nested by Specific Accounts
+### Example 8: Allow Application to Be Nested by Specific Accounts
 
 Public applications are allowed to be nested by anyone. If you want to only allow
 your application to be nested by specific accounts, you must set the following

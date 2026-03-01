@@ -1,6 +1,4 @@
-# AWS Serverless Application Repository API Permissions: Actions and
-
-Resources Reference
+# AWS Serverless Application Repository API Permissions: Actions and Resources Reference
 
 When you set up [access control](security-iam.md#security_iam_access-manage "security-iam.md#security_iam_access-manage") and write permissions
 policies that you can attach to an IAM identity (identity-based policies), you can use the

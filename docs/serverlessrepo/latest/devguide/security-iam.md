@@ -1,6 +1,4 @@
-# Identity and Access Management for the
-
-AWS Serverless Application Repository
+# Identity and Access Management for the AWS Serverless Application Repository
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access
 to AWS resources. IAM administrators control who can be _authenticated_ (signed in) and _authorized_
@@ -15,14 +13,10 @@ _IAM User Guide_.
 - [Audience](#security_iam_audience "#security_iam_audience")
 - [Authenticating with Identities](#security_iam_authentication "#security_iam_authentication")
 - [Managing Access Using Policies](#security_iam_access-manage "#security_iam_access-manage")
-- [How the AWS Serverless Application Repository Works with
-  IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
-- [AWS Serverless Application Repository Identity-Based
-  Policy Examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
-- [AWS Serverless Application Repository
-  Application Policy Examples](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md")
-- [AWS Serverless Application Repository API Permissions: Actions and
-  Resources Reference](serverlessrepo-api-permissions-ref.md "serverlessrepo-api-permissions-ref.md")
+- [How the AWS Serverless Application Repository Works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
+- [AWS Serverless Application Repository Identity-Based Policy Examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
+- [AWS Serverless Application Repository Application Policy Examples](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md")
+- [AWS Serverless Application Repository API Permissions: Actions and Resources Reference](serverlessrepo-api-permissions-ref.md "serverlessrepo-api-permissions-ref.md")
 - [Troubleshooting AWS Serverless Application Repository Identity and Access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
 
 ## Audience
@@ -32,11 +26,9 @@ How you use AWS Identity and Access Management (IAM) differs based on your role:
 - **Service user** - request permissions from your
   administrator if you cannot access features (see [Troubleshooting AWS Serverless Application Repository Identity and Access](security_iam_troubleshoot.md "security_iam_troubleshoot.md"))
 - **Service administrator** - determine user access and
-  submit permission requests (see [How the AWS Serverless Application Repository Works with
-  IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md"))
+  submit permission requests (see [How the AWS Serverless Application Repository Works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md"))
 - **IAM administrator** - write policies to manage
-  access (see [AWS Serverless Application Repository Identity-Based
-  Policy Examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"))
+  access (see [AWS Serverless Application Repository Identity-Based Policy Examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"))
 
 ## Authenticating with Identities
 
@@ -70,17 +62,13 @@ Using policies, administrators specify who has access to what by defining which 
 
 By default, users and roles have no permissions. An IAM administrator creates IAM policies and adds them to roles, which users can then assume. IAM policies define permissions regardless of the method used to perform the operation.
 
-### Identity-Based
-
-Policies
+### Identity-Based Policies
 
 Identity-based policies are JSON permissions policy documents that you attach to an identity (user, group, or role). These policies control what actions identities can perform, on which resources, and under what conditions. To learn how to create an identity-based policy, see [Define custom IAM permissions with customer managed policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in the _IAM User Guide_.
 
 Identity-based policies can be _inline policies_ (embedded directly into a single identity) or _managed policies_ (standalone policies attached to multiple identities). To learn how to choose between managed and inline policies, see [Choose between managed policies and inline policies](../../../IAM/latest/UserGuide/access_policies-choosing-managed-or-inline.md "../../../IAM/latest/UserGuide/access_policies-choosing-managed-or-inline.md") in the _IAM User Guide_.
 
-### Resource-Based
-
-Policies
+### Resource-Based Policies
 
 Resource-based policies are JSON policy documents that you attach to a resource. Examples include IAM _role trust policies_ and Amazon S3 _bucket policies_. In services that support resource-based policies, service administrators can use them to control access to a specific resource. You must [specify a principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md") in a resource-based policy.
 
@@ -95,9 +83,7 @@ Amazon S3, AWS WAF, and Amazon VPC
 are examples of services that support ACLs. To learn more about ACLs, see [Access control list (ACL)
 overview](../../../AmazonS3/latest/userguide/acl-overview.md "../../../AmazonS3/latest/userguide/acl-overview.md") in the _Amazon Simple Storage Service Developer Guide_.
 
-### Other Policy
-
-Types
+### Other Policy Types
 
 AWS supports additional policy types that can set the maximum permissions granted by more common policy types:
 
@@ -106,8 +92,6 @@ AWS supports additional policy types that can set the maximum permissions grante
 - **Resource control policies (RCPs)** – Set the maximum available permissions for resources in your accounts. For more information, see [Resource control policies (RCPs)](../../../organizations/latest/userguide/orgs_manage_policies_rcps.md "../../../organizations/latest/userguide/orgs_manage_policies_rcps.md") in the _AWS Organizations User Guide_.
 - **Session policies** – Advanced policies passed as a parameter when creating a temporary session for a role or federated user. For more information, see [Session policies](../../../IAM/latest/UserGuide/access_policies.md#policies_session "../../../IAM/latest/UserGuide/access_policies.md#policies_session") in the _IAM User Guide_.
 
-### Multiple Policy
-
-Types
+### Multiple Policy Types
 
 When multiple types of policies apply to a request, the resulting permissions are more complicated to understand. To learn how AWS determines whether to allow a request when multiple policy types are involved, see [Policy evaluation logic](../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md "../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md") in the _IAM User Guide_.

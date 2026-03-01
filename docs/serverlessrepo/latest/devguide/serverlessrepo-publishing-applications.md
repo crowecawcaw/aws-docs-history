@@ -32,8 +32,7 @@ API definition files, and so on.
 _Private_ and _privately shared_ applications
 are only available in the AWS Region that they're created in. _Publicly
 shared_ applications are available in all AWS Regions. To learn more about
-sharing applications, see [AWS Serverless Application Repository
-Application Policy Examples](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md").
+sharing applications, see [AWS Serverless Application Repository Application Policy Examples](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md").
 
 ###### Topics
 

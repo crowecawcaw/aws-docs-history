@@ -250,8 +250,7 @@ might want to do with it.
   application is set to private by default, it is not visible to other AWS
   Accounts. In order to share your application with others, you must either make
   it public or grant permission to a specific list of AWS Accounts. For
-  information on sharing your application using the AWS CLI see [AWS Serverless Application Repository
-  Application Policy Examples](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md"). For information on sharing
+  information on sharing your application using the AWS CLI see [AWS Serverless Application Repository Application Policy Examples](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md"). For information on sharing
   your application using the console see [Sharing an Application](serverlessrepo-how-to-publish.md#share-application "serverlessrepo-how-to-publish.md#share-application").
 
 ## More Information

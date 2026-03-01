@@ -1,6 +1,4 @@
-# AWS Serverless Application Repository Identity-Based
-
-Policy Examples
+# AWS Serverless Application Repository Identity-Based Policy Examples
 
 By default, IAM users and roles don't have permission to create or modify
 AWS Serverless Application Repository resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or
@@ -15,17 +13,12 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [Policy Best
-  Practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the
-  AWS Serverless Application Repository Console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow Users
-  to View Their Own Permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Policy Best Practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the AWS Serverless Application Repository Console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow Users to View Their Own Permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
 - [Customer Managed Policy Examples](#security_iam_id-examples "#security_iam_id-examples")
 
-## Policy Best
-
-Practices
+## Policy Best Practices
 
 Identity-based policies are very powerful. They determine whether someone can create, access, or delete AWS Serverless Application Repository resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -53,21 +46,16 @@ recommendations:
   Policy Elements: Condition](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md") in the
   _IAM User Guide_.
 
-## Using the
-
-AWS Serverless Application Repository Console
+## Using the AWS Serverless Application Repository Console
 
 The AWS Serverless Application Repository console provides an integrated environment for you to discover and
 manage AWS Serverless Application Repository applications. The console provides features and workflows that often
 require permissions to manage an AWS Serverless Application Repository application in addition to the API-specific
-permissions documented in the [AWS Serverless Application Repository API Permissions: Actions and
-Resources Reference](serverlessrepo-api-permissions-ref.md "serverlessrepo-api-permissions-ref.md").
+permissions documented in the [AWS Serverless Application Repository API Permissions: Actions and Resources Reference](serverlessrepo-api-permissions-ref.md "serverlessrepo-api-permissions-ref.md").
 
 For more information about permissions needed to use the AWS Serverless Application Repository console, see [Customer Managed Policy Examples](#security_iam_id-examples "#security_iam_id-examples").
 
-## Allow Users
-
-to View Their Own Permissions
+## Allow Users to View Their Own Permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -120,29 +108,17 @@ _IAM User Guide_.
 
 ###### Examples
 
-- [Publisher Example 1:
-  Allow a Publisher to List Applications](#security_iam_id-example-publisher-list-apps "#security_iam_id-example-publisher-list-apps")
-- [Publisher
-  Example 2: Allow a Publisher to View Details of an Application or Application
-  Version](#security_iam_id-example-publisher-view-app-details "#security_iam_id-example-publisher-view-app-details")
-- [Publisher Example 3:
-  Allow a Publisher to Create an Application or Application Version](#security_iam_id-example-publisher-create-apps "#security_iam_id-example-publisher-create-apps")
-- [Publisher
-  Example 4: Allow a Publisher to Create an Application Policy to Share
-  Applications with Others](#security_iam_id-example-publisher-create-app-policies "#security_iam_id-example-publisher-create-app-policies")
-- [Consumer Example 1:
-  Allow a Consumer to Search for Applications](#security_iam_id-example-consumer-search-apps "#security_iam_id-example-consumer-search-apps")
-- [Consumer Example
-  2: Allow a Consumer to View Details of an Application](#security_iam_id-example-consumer-view-app-details "#security_iam_id-example-consumer-view-app-details")
-- [Consumer Example 3: Allow
-  a Consumer to Deploy an Application](#security_iam_id-example-consumer-deploy-apps "#security_iam_id-example-consumer-deploy-apps")
-- [Consumer
-  Example 4: Deny Access to Deployment Assets](#security_iam_id-example-consumer-deny-deployment-assets "#security_iam_id-example-consumer-deny-deployment-assets")
+- [Publisher Example 1: Allow a Publisher to List Applications](#security_iam_id-example-publisher-list-apps "#security_iam_id-example-publisher-list-apps")
+- [Publisher Example 2: Allow a Publisher to View Details of an Application or Application Version](#security_iam_id-example-publisher-view-app-details "#security_iam_id-example-publisher-view-app-details")
+- [Publisher Example 3: Allow a Publisher to Create an Application or Application Version](#security_iam_id-example-publisher-create-apps "#security_iam_id-example-publisher-create-apps")
+- [Publisher Example 4: Allow a Publisher to Create an Application Policy to Share Applications with Others](#security_iam_id-example-publisher-create-app-policies "#security_iam_id-example-publisher-create-app-policies")
+- [Consumer Example 1: Allow a Consumer to Search for Applications](#security_iam_id-example-consumer-search-apps "#security_iam_id-example-consumer-search-apps")
+- [Consumer Example 2: Allow a Consumer to View Details of an Application](#security_iam_id-example-consumer-view-app-details "#security_iam_id-example-consumer-view-app-details")
+- [Consumer Example 3: Allow a Consumer to Deploy an Application](#security_iam_id-example-consumer-deploy-apps "#security_iam_id-example-consumer-deploy-apps")
+- [Consumer Example 4: Deny Access to Deployment Assets](#security_iam_id-example-consumer-deny-deployment-assets "#security_iam_id-example-consumer-deny-deployment-assets")
 - [Consumer Example 5: Prevent a Consumer Searching and Deploying Public Applications](#access-control-identity-based-example-consumer-deny-public-apps "#access-control-identity-based-example-consumer-deny-public-apps")
 
-### Publisher Example 1:
-
-Allow a Publisher to List Applications
+### Publisher Example 1: Allow a Publisher to List Applications
 
 An IAM user in your account must have permissions for the
 `serverlessrepo:ListApplications` operation before the user can see
@@ -171,10 +147,7 @@ JSON
 
  
 
-### Publisher
-
-Example 2: Allow a Publisher to View Details of an Application or Application
-Version
+### Publisher Example 2: Allow a Publisher to View Details of an Application or Application Version
 
 A user can select an AWS Serverless Application Repository application and view details of the application. Such
 details include author, description, versions, and other configuration information.
@@ -209,9 +182,7 @@ JSON
 
  
 
-### Publisher Example 3:
-
-Allow a Publisher to Create an Application or Application Version
+### Publisher Example 3: Allow a Publisher to Create an Application or Application Version
 
 If you want to allow a user to have permissions to create AWS Serverless Application Repository applications, you
 need to grant permissions to the `serverlessrepo:CreateApplication` and
@@ -240,10 +211,7 @@ JSON
 
  
 
-### Publisher
-
-Example 4: Allow a Publisher to Create an Application Policy to Share
-Applications with Others
+### Publisher Example 4: Allow a Publisher to Create an Application Policy to Share Applications with Others
 
 In order for users to share applications with others, you must grant them
 permissions to create application policies, as shown in the following policy.
@@ -270,9 +238,7 @@ JSON
 
  
 
-### Consumer Example 1:
-
-Allow a Consumer to Search for Applications
+### Consumer Example 1: Allow a Consumer to Search for Applications
 
 For consumers to search for applications, you must grant them the following
 permissions.
@@ -298,9 +264,7 @@ JSON
 
  
 
-### Consumer Example
-
-2: Allow a Consumer to View Details of an Application
+### Consumer Example 2: Allow a Consumer to View Details of an Application
 
 A user can select an AWS Serverless Application Repository application and view details of the application, such
 as author, description, versions, and other configuration information. To do so, the
@@ -328,9 +292,7 @@ JSON
 
  
 
-### Consumer Example 3: Allow
-
-a Consumer to Deploy an Application
+### Consumer Example 3: Allow a Consumer to Deploy an Application
 
 For customers to deploy applications, you must grant them permissions to perform a
 number of operations. The following policy provides customers with the required
@@ -367,9 +329,7 @@ CloudFormation, see [Controlling Access
 with AWS Identity and Access Management](../../../AWSCloudFormation/latest/UserGuide/using-iam-template.md "../../../AWSCloudFormation/latest/UserGuide/using-iam-template.md") for more information. For
 help with deployment issues related to permissions, see [Troubleshooting: Insufficient IAM Permissions](../../../AWSCloudFormation/latest/UserGuide/troubleshooting.md#troubleshooting-errors-insufficient-iam-permissions "../../../AWSCloudFormation/latest/UserGuide/troubleshooting.md#troubleshooting-errors-insufficient-iam-permissions").
 
-### Consumer
-
-Example 4: Deny Access to Deployment Assets
+### Consumer Example 4: Deny Access to Deployment Assets
 
 When an application is privately shared with an AWS account, by default, all users
 in that account can access the deployment assets of all other users in the same

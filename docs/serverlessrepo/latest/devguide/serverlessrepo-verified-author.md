@@ -9,9 +9,7 @@ The applications of verified authors display a verified author badge, along with
 the author's public profile. The verified author badge is displayed in both search results
 and on the application detail page.
 
-## Requesting a Verified Author
-
-Badge
+## Requesting a Verified Author Badge
 
 You can request to be approved as a verified author in the AWS Serverless Application Repository by sending an email
 to [serverlessrepo-verified-author@amazon.com](mailto:serverlessrepo-verified-author@amazon.com "mailto:serverlessrepo-verified-author@amazon.com"). You need to provide the

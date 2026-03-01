@@ -1,6 +1,4 @@
-# Application Deployment
-
-Permissions
+# Application Deployment Permissions
 
 To deploy an application in the AWS Serverless Application Repository, you must have permission to do so. There are
 three categories of applications that you have permissions to deploy:

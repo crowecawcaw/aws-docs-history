@@ -1,6 +1,4 @@
-# Updating
-
-Applications
+# Updating Applications
 
 After you've deployed an application from the AWS Serverless Application Repository, you might want to update it. For
 example, you might want to change an application setting, or you might want to update

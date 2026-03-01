@@ -1,6 +1,4 @@
-# Logging and Monitoring in the
-
-AWS Serverless Application Repository
+# Logging and Monitoring in the AWS Serverless Application Repository
 
 Monitoring is an important part of maintaining the reliability, availability, and
 performance of your AWS solutions. You should collect monitoring data from all of the
@@ -16,5 +14,4 @@ all API calls for the AWS Serverless Application Repository as events.
 
 ###### Topics
 
-- [Logging AWS Serverless Application Repository API Calls with
-  AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
+- [Logging AWS Serverless Application Repository API Calls with AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")

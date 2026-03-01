@@ -30,5 +30,4 @@ In this guide, you can learn about the two ways to work with the AWS Serverless 
 ## Next Steps
 
 - For a tutorial about publishing a sample application to the AWS Serverless Application Repository, see [Quick Start: Publishing Applications](serverlessrepo-quick-start.md "serverlessrepo-quick-start.md").
-- For instructions about deploying applications from the AWS Serverless Application Repository, see [How to Deploy
-  Applications](serverlessrepo-how-to-consume.md "serverlessrepo-how-to-consume.md").
+- For instructions about deploying applications from the AWS Serverless Application Repository, see [How to Deploy Applications](serverlessrepo-how-to-consume.md "serverlessrepo-how-to-consume.md").

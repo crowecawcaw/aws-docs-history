@@ -5,17 +5,12 @@ with the AWS Serverless Application Repository and IAM.
 
 ###### Topics
 
-- [I'm Not Authorized to Perform an Action in the
-  AWS Serverless Application Repository](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
+- [I'm Not Authorized to Perform an Action in the AWS Serverless Application Repository](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
 - [I'm Not Authorized to Perform iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
-- [I'm an Administrator and Want to Allow Others to Access
-  the AWS Serverless Application Repository](#security_iam_troubleshoot-admin-delegate "#security_iam_troubleshoot-admin-delegate")
-- [I Want to Allow People Outside of My AWS Account
-  to Access My AWS Serverless Application Repository Resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
+- [I'm an Administrator and Want to Allow Others to Access the AWS Serverless Application Repository](#security_iam_troubleshoot-admin-delegate "#security_iam_troubleshoot-admin-delegate")
+- [I Want to Allow People Outside of My AWS Account to Access My AWS Serverless Application Repository Resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
 
-## I'm Not Authorized to Perform an Action in the
-
-AWS Serverless Application Repository
+## I'm Not Authorized to Perform an Action in the AWS Serverless Application Repository
 
 If the AWS Management Console tells you that you're not authorized to perform an action, then you must contact your
 administrator for assistance. Your administrator is the person that provided you with your user name and
@@ -52,9 +47,7 @@ In this case, Mary's policies must be updated to allow her to perform the `iam:P
 
 If you need help, contact your AWS administrator. Your administrator is the person who provided you with your sign-in credentials.
 
-## I'm an Administrator and Want to Allow Others to Access
-
-the AWS Serverless Application Repository
+## I'm an Administrator and Want to Allow Others to Access the AWS Serverless Application Repository
 
 To allow others to access AWS Serverless Application Repository, you must grant permission to the people or applications that need access. If you are using AWS IAM Identity Center
 to manage people and applications, you assign permission sets to users or groups to define their level of access. Permission sets automatically create
@@ -65,9 +58,7 @@ a policy to the entity that grants them the correct permissions in AWS Serverles
 or application developer. They will use those credentials to access AWS. To learn more about creating IAM users, groups, policies, and permissions,
 see [IAM Identities](../../../IAM/latest/UserGuide/id.md "../../../IAM/latest/UserGuide/id.md") and [Policies and permissions in IAM](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserGuide/access_policies.md") in the _IAM User Guide_.
 
-## I Want to Allow People Outside of My AWS Account
-
-to Access My AWS Serverless Application Repository Resources
+## I Want to Allow People Outside of My AWS Account to Access My AWS Serverless Application Repository Resources
 
 You can create a role that users in other accounts or people outside of your organization can use to access your resources. You can specify who
 is trusted to assume the role. For services that support resource-based policies or access control lists (ACLs), you can use those policies to grant
@@ -75,8 +66,7 @@ people access to your resources.
 
 To learn more, consult the following:
 
-- To learn whether AWS Serverless Application Repository supports these features, see [How the AWS Serverless Application Repository Works with
-  IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
+- To learn whether AWS Serverless Application Repository supports these features, see [How the AWS Serverless Application Repository Works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
 - To learn how to provide access to your resources across AWS accounts that you own, see [Providing access to an IAM user in another AWS account that you
   own](../../../IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.md "../../../IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.md") in the _IAM User Guide_.
 - To learn how to provide access to your resources to third-party AWS accounts, see [Providing access to AWS accounts owned by third parties](../../../IAM/latest/UserGuide/id_roles_common-scenarios_third-party.md "../../../IAM/latest/UserGuide/id_roles_common-scenarios_third-party.md") in the

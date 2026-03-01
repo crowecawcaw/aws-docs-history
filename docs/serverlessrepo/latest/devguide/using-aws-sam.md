@@ -10,9 +10,7 @@ supported
 AWS Resources and Policy Templates available to use. The sections
 below describe these topics in more detail.
 
-## Supported AWS Resources in
-
-the AWS Serverless Application Repository
+## Supported AWS Resources in the AWS Serverless Application Repository
 
 The AWS Serverless Application Repository supports serverless applications that are composed of many AWS SAM and
 CloudFormation resources. To see the complete list of AWS resources that are supported by

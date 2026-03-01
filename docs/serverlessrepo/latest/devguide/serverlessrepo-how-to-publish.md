@@ -12,22 +12,17 @@ information includes data such as the author name. If you have personally identi
 information that you don't want to be stored or made public, we recommend that you
 don't enter this information when publishing your application.
 
-## Publishing an Application
-
-(AWS CLI)
+## Publishing an Application (AWS CLI)
 
 The easiest way to publish an application to the AWS Serverless Application Repository is to use a set of AWS SAM CLI
 commands. For more information, see [Publishing an Application Using the AWS SAM CLI](../../../serverless-application-model/latest/developerguide/serverless-sam-template-publishing-applications.md "../../../serverless-application-model/latest/developerguide/serverless-sam-template-publishing-applications.md") in the _AWS Serverless Application Model
 (AWS SAM) Developer Guide_.
 
-## Publishing a New Application
-
-(Console)
+## Publishing a New Application (Console)
 
 This section shows you how to use the AWS Management Console to publish a new application to the
 AWS Serverless Application Repository. For instructions on publishing a new version of an existing application, see
-[Publishing a New Version of
-an Existing Application](serverlessrepo-how-to-publish-new-version.md "serverlessrepo-how-to-publish-new-version.md").
+[Publishing a New Version of an Existing Application](serverlessrepo-how-to-publish-new-version.md "serverlessrepo-how-to-publish-new-version.md").
 
 ### Prerequisites
 
@@ -144,18 +139,14 @@ After you have published an application to the AWS Serverless Application Reposi
 application privately with specific AWS accounts or an AWS Organization, or share it
 publicly with everyone.
 
-### Sharing an Application Through the
-
-Console
+### Sharing an Application Through the Console
 
 You have two options for sharing your application with others: 1) Share it with
 specific AWS accounts or the AWS accounts within your AWS organization, or 2) Share
 it publicly with everyone. For more information about AWS Organizations, see the
 _[AWS Organizations User Guide](../../../organizations/latest/userguide.md "../../../organizations/latest/userguide.md")_.
 
-###### Option 1: To share your application with specific AWS account(s) or accounts
-
-within your AWS organization
+###### Option 1: To share your application with specific AWS account(s) or accounts within your AWS organization
 
 1. Open the [AWS Serverless Application Repository
    console](https://console.aws.amazon.com/serverlessrepo/home "https://console.aws.amazon.com/serverlessrepo/home").
@@ -201,17 +192,14 @@ In order to share an application publicly, it must have both the
 `SemanticVersion` and `LicenseUrl` properties
 set.
 
-### Sharing an Application Through the
-
-AWS CLI
+### Sharing an Application Through the AWS CLI
 
 To share an application using the AWS CLI you grant permissions using the
 `put-application-policy` command to specify the AWS account(s)
 you want to share with as principals.
 
 For more information about sharing your application by using the AWS CLI, see
-[AWS Serverless Application Repository
-Application Policy Examples](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md").
+[AWS Serverless Application Repository Application Policy Examples](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md").
 
 ## Unsharing an Application
 
@@ -232,13 +220,9 @@ again.
 For more information about AWS Organizations, see the
 _[AWS Organizations User Guide](../../../organizations/latest/userguide.md "../../../organizations/latest/userguide.md")_.
 
-### Publisher Removing
+### Publisher Removing Permissions
 
-Permissions
-
-#### Publisher Removing
-
-Permissions Through the Console
+#### Publisher Removing Permissions Through the Console
 
 To unshare an application through the AWS Management Console, you remove the policy
 statement that shares it with other AWS accounts. To do this, follow these
@@ -256,24 +240,17 @@ steps:
 7. A confirmation message will appear. Choose **Delete**
    again.
 
-#### Publisher Removing
-
-Permissions Through the AWS CLI
+#### Publisher Removing Permissions Through the AWS CLI
 
 To unshare an application through the AWS CLI, the publisher can remove or
 otherwise change permissions using the `put-application-policy` command to make the application
 private, or share with a different set of AWS accounts.
 
-For more information about changing permissions using the AWS CLI, see [AWS Serverless Application Repository
-Application Policy Examples](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md").
+For more information about changing permissions using the AWS CLI, see [AWS Serverless Application Repository Application Policy Examples](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md").
 
-### Management account unsharing an
+### Management account unsharing an application
 
-application
-
-#### Management account unsharing an
-
-application from an AWS Organization through the console
+#### Management account unsharing an application from an AWS Organization through the console
 
 To unshare an application from an AWS Organization through the AWS Management Console, a
 user from the _management account_ can do the following:
@@ -286,9 +263,7 @@ user from the _management account_ can do the following:
    application by entering the Organization ID and application name, then
    choosing **Save**.
 
-#### Management account unsharing an
-
-application from an AWS Organization Through the AWS CLI
+#### Management account unsharing an application from an AWS Organization Through the AWS CLI
 
 To unshare an application from an AWS Organization, a user from the
 _management account_ can run the
@@ -309,9 +284,7 @@ aws serverlessrepo unshare-application --application-id `application-id` --organ
 You can delete applications from the AWS Serverless Application Repository by using either the AWS Management Console or the AWS SAM
 CLI.
 
-### Deleting an Application
-
-(Console)
+### Deleting an Application (Console)
 
 To delete a published application through the AWS Management Console, do the following.
 
@@ -324,9 +297,7 @@ To delete a published application through the AWS Management Console, do the fol
 4. Choose **Delete application** to complete the
    deletion.
 
-### Deleting an Application
-
-(AWS CLI)
+### Deleting an Application (AWS CLI)
 
 To delete a published application using the AWS CLI, run the `aws serverlessrepo
  delete-application` command.

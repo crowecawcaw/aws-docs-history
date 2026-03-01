@@ -1,22 +1,16 @@
-# Publishing a New Version of
-
-an Existing Application
+# Publishing a New Version of an Existing Application
 
 This section shows you how to publish a new version of an existing application to the
 AWS Serverless Application Repository by using the AWS SAM CLI or the AWS Management Console. For instructions on publishing a new
 application, see [How to Publish Applications](serverlessrepo-how-to-publish.md "serverlessrepo-how-to-publish.md").
 
-## Publishing a New
-
-Version of an Existing Application (AWS CLI)
+## Publishing a New Version of an Existing Application (AWS CLI)
 
 The easiest way to publish a new version of an existing application is to use a
 set of AWS SAM CLI commands. For more information, see [Publishing an Application Using the AWS SAM CLI](../../../serverless-application-model/latest/developerguide/serverless-sam-template-publishing-applications.md "../../../serverless-application-model/latest/developerguide/serverless-sam-template-publishing-applications.md") in the
 _AWS Serverless Application Model (AWS SAM) Developer Guide_.
 
-## Publishing a New
-
-Version of an Existing Application (Console)
+## Publishing a New Version of an Existing Application (Console)
 
 To publish a new version of an application that you have previously published,
 follow these steps:

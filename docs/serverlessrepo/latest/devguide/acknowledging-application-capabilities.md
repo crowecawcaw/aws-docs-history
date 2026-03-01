@@ -1,6 +1,4 @@
-# Application Capabilities: IAM
-
-Roles, Resource Policies, and Nested Applications
+# Application Capabilities: IAM Roles, Resource Policies, and Nested Applications
 
 Before you can deploy an application, the AWS Serverless Application Repository checks the application’s template for
 IAM roles, AWS resource policies, and nested applications that the template specifies that
@@ -19,8 +17,7 @@ The following resources require you to specify `CAPABILITY_IAM` or
 `CAPABILITY_NAMED_IAM`: [AWS::IAM::Group](../../../AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.md"), [AWS::IAM::InstanceProfile](../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.md"), [AWS::IAM::Policy](../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.md"), and [AWS::IAM::Role](../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.md"). If the
 application contains IAM resources with custom names, you must specify
 `CAPABILITY_NAMED_IAM`. For an example of how to specify capabilities, see
-[Finding and
-Acknowledging Application Capabilities (AWS CLI)](serverlessrepo-how-to-consume.md#acknowledging-application-capabilities-api "serverlessrepo-how-to-consume.md#acknowledging-application-capabilities-api").
+[Finding and Acknowledging Application Capabilities (AWS CLI)](serverlessrepo-how-to-consume.md#acknowledging-application-capabilities-api "serverlessrepo-how-to-consume.md#acknowledging-application-capabilities-api").
 
 The following resources require you to specify `CAPABILITY_RESOURCE_POLICY`:
 [AWS::Lambda::LayerVersionPermission](../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversionpermission.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversionpermission.md"), [AWS::Lambda::Permission](../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.md"),
@@ -32,9 +29,7 @@ Applications that contain one or more nested applications require you to specify
 [Nested Applications](../../../serverless-application-model/latest/developerguide/serverless-sam-template-nested-applications.md "../../../serverless-application-model/latest/developerguide/serverless-sam-template-nested-applications.md") in the _AWS Serverless Application Model Developer
 Guide_.
 
-## Finding and Acknowledging
-
-Application Capabilities (Console)
+## Finding and Acknowledging Application Capabilities (Console)
 
 You can find applications available in the AWS Serverless Application Repository on the [AWS Serverless Application Repository website](https://aws.amazon.com/serverless/serverlessrepo/ "https://aws.amazon.com/serverless/serverlessrepo/"), or
 through the [Lambda console (on the **Create Function** page under the AWS Serverless Application Repository
@@ -52,9 +47,7 @@ custom IAM roles or resource policies** check box. If you don’t acknowledge
 these capabilities, you see this error message: **Acknowledgement required. To
 deploy, check the box in Configure application parameters section**.
 
-## Viewing Application
-
-Capabilities (AWS CLI)
+## Viewing Application Capabilities (AWS CLI)
 
 To view an application's capabilities using the AWS CLI, you first need the
 application's Amazon Resource Name (ARN). You can then execute the following

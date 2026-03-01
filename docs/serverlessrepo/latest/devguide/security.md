@@ -28,12 +28,9 @@ _in_ the cloud:
 ###### Topics
 
 - [Data Protection in the AWS Serverless Application Repository](data-protection.md "data-protection.md")
-- [Identity and Access Management for the
-  AWS Serverless Application Repository](security-iam.md "security-iam.md")
-- [Logging and Monitoring in the
-  AWS Serverless Application Repository](security-logging-monitoring.md "security-logging-monitoring.md")
+- [Identity and Access Management for the AWS Serverless Application Repository](security-iam.md "security-iam.md")
+- [Logging and Monitoring in the AWS Serverless Application Repository](security-logging-monitoring.md "security-logging-monitoring.md")
 - [Compliance Validation for the AWS Serverless Application Repository](SAR-compliance.md "SAR-compliance.md")
 - [Resilience in the AWS Serverless Application Repository](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure Security in the AWS Serverless Application Repository](infrastructure-security.md "infrastructure-security.md")
-- [Access AWS Serverless Application Repository using an interface endpoint
-  (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
+- [Access AWS Serverless Application Repository using an interface endpoint (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")

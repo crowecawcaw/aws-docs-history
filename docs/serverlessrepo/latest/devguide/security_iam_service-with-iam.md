@@ -1,6 +1,4 @@
-# How the AWS Serverless Application Repository Works with
-
-IAM
+# How the AWS Serverless Application Repository Works with IAM
 
 Before you use IAM to manage access to the AWS Serverless Application Repository, you should understand what
 IAM features are available to use with the AWS Serverless Application Repository.
@@ -12,18 +10,12 @@ That Work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-wo
 
 ###### Topics
 
-- [AWS Serverless Application Repository
-  Identity-Based Policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
-- [AWS Serverless Application Repository
-  Application Policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
-- [Authorization Based on
-  AWS Serverless Application Repository Tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
-- [AWS Serverless Application Repository IAM
-  Roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
+- [AWS Serverless Application Repository Identity-Based Policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
+- [AWS Serverless Application Repository Application Policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
+- [Authorization Based on AWS Serverless Application Repository Tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
+- [AWS Serverless Application Repository IAM Roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
 
-## AWS Serverless Application Repository
-
-Identity-Based Policies
+## AWS Serverless Application Repository Identity-Based Policies
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources, as well as the conditions under which actions are allowed or denied. The
@@ -77,8 +69,7 @@ permission policy to an IAM role, the principal identified in the role's trust p
 gets the permissions.
 
 For a table showing all of the AWS Serverless Application Repository API operations and the AWS resources that
-they apply to, see [AWS Serverless Application Repository API Permissions: Actions and
-Resources Reference](serverlessrepo-api-permissions-ref.md "serverlessrepo-api-permissions-ref.md").
+they apply to, see [AWS Serverless Application Repository API Permissions: Actions and Resources Reference](serverlessrepo-api-permissions-ref.md "serverlessrepo-api-permissions-ref.md").
 
 ### Actions
 
@@ -166,8 +157,7 @@ JSON
 ```
 
 For a table showing all of the AWS Serverless Application Repository API actions and the AWS resources that
-they apply to, see [AWS Serverless Application Repository API Permissions: Actions and
-Resources Reference](serverlessrepo-api-permissions-ref.md "serverlessrepo-api-permissions-ref.md").
+they apply to, see [AWS Serverless Application Repository API Permissions: Actions and Resources Reference](serverlessrepo-api-permissions-ref.md "serverlessrepo-api-permissions-ref.md").
 
 ### Condition Keys
 
@@ -179,12 +169,9 @@ _IAM User Guide_.
 
 ### Examples
 
-To view examples of AWS Serverless Application Repository identity-based policies, see [AWS Serverless Application Repository Identity-Based
-Policy Examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS Serverless Application Repository identity-based policies, see [AWS Serverless Application Repository Identity-Based Policy Examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## AWS Serverless Application Repository
-
-Application Policies
+## AWS Serverless Application Repository Application Policies
 
 Application policies determine the actions that a
 specified principal or principalOrg can perform on an AWS Serverless Application Repository application.
@@ -219,26 +206,19 @@ You can grant permissions by using the AWS CLI, the AWS SDKs, or the AWS Managem
 
 ### Examples
 
-To view examples of managing AWS Serverless Application Repository application policies, see [AWS Serverless Application Repository
-Application Policy Examples](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md").
+To view examples of managing AWS Serverless Application Repository application policies, see [AWS Serverless Application Repository Application Policy Examples](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md").
 
-## Authorization Based on
-
-AWS Serverless Application Repository Tags
+## Authorization Based on AWS Serverless Application Repository Tags
 
 The AWS Serverless Application Repository doesn't support controlling access to resources or actions based
 on tags.
 
-## AWS Serverless Application Repository IAM
-
-Roles
+## AWS Serverless Application Repository IAM Roles
 
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within
 your AWS account that has specific permissions.
 
-### Using Temporary
-
-Credentials with the AWS Serverless Application Repository
+### Using Temporary Credentials with the AWS Serverless Application Repository
 
 You can use temporary credentials to sign in with federation, to assume an IAM
 role, or to assume a cross-account role. You obtain temporary security credentials
@@ -246,9 +226,7 @@ by calling AWS STS API operations such as [AssumeRole](../../../STS/latest/APIRe
 
 The AWS Serverless Application Repository supports using temporary credentials.
 
-### Service-Linked
-
-Roles
+### Service-Linked Roles
 
 The AWS Serverless Application Repository doesn't support service-linked roles.
 

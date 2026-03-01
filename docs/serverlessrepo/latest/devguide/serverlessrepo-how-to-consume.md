@@ -1,22 +1,15 @@
-# How to Deploy
-
-Applications
+# How to Deploy Applications
 
 This section provides you with procedures for deploying serverless applications from the
 AWS Serverless Application Repository by using the AWS Management Console or the AWS CLI.
 
-## Deploying a New Application
-
-(Console)
+## Deploying a New Application (Console)
 
 This section shows you how to deploy a new application from the AWS Serverless Application Repository using the
 AWS Management Console. For instructions on deploying a new version of an existing application, see
-[Updating
-Applications](serverlessrepo-how-to-consume-new-version.md "serverlessrepo-how-to-consume-new-version.md").
+[Updating Applications](serverlessrepo-how-to-consume-new-version.md "serverlessrepo-how-to-consume-new-version.md").
 
-### Browsing, Searching, and Deploying
-
-Applications
+### Browsing, Searching, and Deploying Applications
 
 Find, configure, and deploy an application in the AWS Serverless Application Repository by using the following
 procedure.
@@ -69,17 +62,12 @@ through the Lambda console.
 After your application has been successfully deployed, you can review and manage
 the resources that have been created by using existing AWS tools.
 
-## Deploying a New Application
-
-(AWS CLI)
+## Deploying a New Application (AWS CLI)
 
 This section shows you how to deploy a new application from the AWS Serverless Application Repository by using the
-AWS CLI. For instructions on deploying a new version of an existing application, see [Updating
-Applications](serverlessrepo-how-to-consume-new-version.md "serverlessrepo-how-to-consume-new-version.md").
+AWS CLI. For instructions on deploying a new version of an existing application, see [Updating Applications](serverlessrepo-how-to-consume-new-version.md "serverlessrepo-how-to-consume-new-version.md").
 
-### Finding and
-
-Acknowledging Application Capabilities (AWS CLI)
+### Finding and Acknowledging Application Capabilities (AWS CLI)
 
 To acknowledge an application's capabilities using the AWS CLI, follow these
 steps:

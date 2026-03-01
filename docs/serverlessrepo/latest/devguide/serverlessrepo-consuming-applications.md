@@ -16,9 +16,6 @@ application deployment permissions and application capabilities.
 
 ###### Topics
 
-- [Application Deployment
-  Permissions](application-deployment-permissions.md "application-deployment-permissions.md")
-- [Application Capabilities: IAM
-  Roles, Resource Policies, and Nested Applications](acknowledging-application-capabilities.md "acknowledging-application-capabilities.md")
-- [How to Deploy
-  Applications](serverlessrepo-how-to-consume.md "serverlessrepo-how-to-consume.md")
+- [Application Deployment Permissions](application-deployment-permissions.md "application-deployment-permissions.md")
+- [Application Capabilities: IAM Roles, Resource Policies, and Nested Applications](acknowledging-application-capabilities.md "acknowledging-application-capabilities.md")
+- [How to Deploy Applications](serverlessrepo-how-to-consume.md "serverlessrepo-how-to-consume.md")
