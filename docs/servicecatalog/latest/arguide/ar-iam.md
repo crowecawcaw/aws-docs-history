@@ -41,9 +41,7 @@ that you can encounter
 when working
 with AppRegistry and AWS Identity and Access Management (IAM).
 
-### I'm unauthorized to perform an action in
-
-AppRegistry
+### I'm unauthorized to perform an action in AppRegistry
 
 If the AWS Management Console warns you that you're not authorized to
 perform an action, contact your administrator for assistance. Your administrator

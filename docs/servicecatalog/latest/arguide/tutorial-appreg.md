@@ -34,9 +34,7 @@ The example describes how to format a command from the perspective of an applica
 aws servicecatalog-appregistry create-application --name "CC_Payments_App" --description "Real-time payments service for processing customer orders."
 ```
 
-######
-
-Example: Output
+###### Example: Output
 
 The following shows the output you might encounter.
 

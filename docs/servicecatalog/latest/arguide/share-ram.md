@@ -20,14 +20,10 @@ share them. Consumers can include:
 
 ###### Topics
 
-- [Prerequisites for sharing applications and
-  attributes](#preq-sharing-ram "#preq-sharing-ram")
-- [Sharing and unsharing applications or
-  attribute groups](#share-unshare-ram "#share-unshare-ram")
+- [Prerequisites for sharing applications and attributes](#preq-sharing-ram "#preq-sharing-ram")
+- [Sharing and unsharing applications or attribute groups](#share-unshare-ram "#share-unshare-ram")
 
-## Prerequisites for sharing applications and
-
-attributes
+## Prerequisites for sharing applications and attributes
 
 These are the prerequisites to share applications and attributes:
 
@@ -41,9 +37,7 @@ These are the prerequisites to share applications and attributes:
 - You must enable sharing with AWS Organizations. For more information, see
   [Enable Sharing with AWS Organizations](../../../ram/latest/userguide/getting-started-sharing.md#getting-started-sharing-orgs "../../../ram/latest/userguide/getting-started-sharing.md#getting-started-sharing-orgs") in the _AWS RAM User Guide_.
 
-## Sharing and unsharing applications or
-
-attribute groups
+## Sharing and unsharing applications or attribute groups
 
 This section describes how to share or unshare an AppRegistry application or
 attribute group with AWS RAM.

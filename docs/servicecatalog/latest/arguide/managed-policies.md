@@ -138,9 +138,7 @@ JSON
 
 ```
 
-##
-
-AWSServiceCatalogAppRegistryReadOnlyAccess
+## AWSServiceCatalogAppRegistryReadOnlyAccess
 
 `AWSServiceCatalogAppRegistryReadOnlyAccess` is an AWS managed policy
 that provides read-only access

@@ -1,6 +1,4 @@
-# Tutorial: Existing AppRegistry application resources
-
-and the `awsApplication` tag
+# Tutorial: Existing AppRegistry application resources and the `awsApplication` tag
 
 If you have existing AppRegistry application, AWS recommends that you retroactively apply the `awsApplication` tag to all of
 the resources in the application, and also ensure any future resources added to the application have the
@@ -40,9 +38,7 @@ aws servicecatalog-appregistry associate-resource --application `application_ARN
                         --resource-type `type` --resource `name` --option "APPLY_APPLICATION_TAG"
 ```
 
-## Add more resources to an existing application by applying
-
-the `awsApplication` tag
+## Add more resources to an existing application by applying the `awsApplication` tag
 
 In this situation, you have an existing AppRegistry application to which you want to add new resources, and you want
 those resources to have the `awsApplication` tag applied.

@@ -17,9 +17,7 @@ to all resources in the application.
 - [Adding and deleting tags in a new attribute group](#w2aab9c13c13 "#w2aab9c13c13")
 - [Adding and deleting tags from Attribute group details](#w2aab9c13c15 "#w2aab9c13c15")
 
-##
-
-Adding and deleting tags in a new application
+## Adding and deleting tags in a new application
 
 The following procedure describes how to add and delete tags
 in a new application.
@@ -74,9 +72,7 @@ such as `aws:servicecatalog:applicationName`.
 These are considered internal tags
 and can't be removed.
 
-##
-
-Adding and deleting tags from the Application details screen
+## Adding and deleting tags from the Application details screen
 
 The following procedure describes how to add and delete tags
 from the **Application details** screen.
@@ -127,9 +123,7 @@ see [Using application details](access-app-details.md "access-app-details.md").
       to remove,
       and then choose **Delete tag**.
 
-##
-
-Adding and deleting tags in a new attribute group
+## Adding and deleting tags in a new attribute group
 
 The following procedure describes how to add and delete
 in a new attribute group.
@@ -181,9 +175,7 @@ such as `aws:servicecatalog:attributeGroupName` .
 These are considered internal tags
 and can't be removed.
 
-##
-
-Adding and deleting tags from Attribute group details
+## Adding and deleting tags from Attribute group details
 
 The following procedure describes how to add and delete tags
 from the **Attribute group details** screen.

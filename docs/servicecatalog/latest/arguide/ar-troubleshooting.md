@@ -4,12 +4,9 @@ If you encounter issues when working with AppRegistry, consult the topics in thi
 
 ###### Topics
 
-- [How to I resolve a resource tagging error for my application
-  resources?](#resource-error-tagging-status "#resource-error-tagging-status")
+- [How to I resolve a resource tagging error for my application resources?](#resource-error-tagging-status "#resource-error-tagging-status")
 
-## How to I resolve a resource tagging error for my application
-
-resources?
+## How to I resolve a resource tagging error for my application resources?
 
 When a resource can't be successfully tagged or untagged with the `awsApplication` tag, the
 resource appears in the **Resource tagging error status** list. This list displays

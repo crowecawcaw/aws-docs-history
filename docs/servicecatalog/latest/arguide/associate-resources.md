@@ -17,9 +17,7 @@ when you create the application.
 - [Associate application resources in an existing application](#w2aab9b7c19c21c11 "#w2aab9b7c19c21c11")
 - [Disassociate application resources from an application](#w2aab9b7c19c21c13 "#w2aab9b7c19c21c13")
 
-##
-
-Associate application resources in a new application
+## Associate application resources in a new application
 
 The following procedure describes how to associate application resources
 in a new application.
@@ -44,9 +42,7 @@ in a new application.
    to your application.
 6. Choose **Create application**.
 
-##
-
-Associate application resources in an existing application
+## Associate application resources in an existing application
 
 The following procedure describes how to associate application resources in an existing application.
 
@@ -89,9 +85,7 @@ and the application has read-only permissions,
 associate and disassociate actions are disabled
 for resource collections.
 
-##
-
-Disassociate application resources from an application
+## Disassociate application resources from an application
 
 The following procedure describes how to disassociate application resources
 from an existing application.
