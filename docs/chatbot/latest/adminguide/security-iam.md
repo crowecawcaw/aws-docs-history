@@ -12,18 +12,13 @@ use with no additional charge.
 How you use AWS Identity and Access Management (IAM) differs based on your role:
 
 - **Service user** - request permissions from your
-  administrator if you cannot access features (see [Troubleshooting Amazon Q Developer in chat applications
-  identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md"))
+  administrator if you cannot access features (see [Troubleshooting Amazon Q Developer in chat applications identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md"))
 - **Service administrator** - determine user access and
-  submit permission requests (see [How Amazon Q Developer in chat applications works with
-  IAM](#security_iam_service-with-iam "#security_iam_service-with-iam"))
+  submit permission requests (see [How Amazon Q Developer in chat applications works with IAM](#security_iam_service-with-iam "#security_iam_service-with-iam"))
 - **IAM administrator** - write policies to manage
-  access (see [Identity-based policies for
-  Amazon Q Developer in chat applications](security_iam_service-with-iam-id-based-policies.md#security_iam_id-based-policy-examples "security_iam_service-with-iam-id-based-policies.md#security_iam_id-based-policy-examples"))
+  access (see [Identity-based policies for Amazon Q Developer in chat applications](security_iam_service-with-iam-id-based-policies.md#security_iam_id-based-policy-examples "security_iam_service-with-iam-id-based-policies.md#security_iam_id-based-policy-examples"))
 
-## How Amazon Q Developer in chat applications works with
-
-IAM
+## How Amazon Q Developer in chat applications works with IAM
 
 Before you use IAM to manage access to Amazon Q Developer, you should understand which
 IAM features are available to use with Amazon Q Developer. The following subsections
@@ -38,21 +33,15 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [Identity-based policies and
-  Amazon Q Developer in chat applications](#identity-based-policies-use-in-chatbot "#identity-based-policies-use-in-chatbot")
-- [Resource-level permissions and
-  Amazon Q Developer in chat applications](#resource-based-policies-use-in-chatbot "#resource-based-policies-use-in-chatbot")
+- [Identity-based policies and Amazon Q Developer in chat applications](#identity-based-policies-use-in-chatbot "#identity-based-policies-use-in-chatbot")
+- [Resource-level permissions and Amazon Q Developer in chat applications](#resource-based-policies-use-in-chatbot "#resource-based-policies-use-in-chatbot")
 - [Condition keys and Amazon Q Developer in chat applications](#security_iam_service-with-iam-id-based-policies-conditionkeys "#security_iam_service-with-iam-id-based-policies-conditionkeys")
-- [Using temporary
-  credentials with Amazon Q Developer](#security_iam_service-with-iam-roles-tempcreds "#security_iam_service-with-iam-roles-tempcreds")
-- [Service-linked
-  roles](#security_iam_service-with-iam-roles-service-linked "#security_iam_service-with-iam-roles-service-linked")
+- [Using temporary credentials with Amazon Q Developer](#security_iam_service-with-iam-roles-tempcreds "#security_iam_service-with-iam-roles-tempcreds")
+- [Service-linked roles](#security_iam_service-with-iam-roles-service-linked "#security_iam_service-with-iam-roles-service-linked")
 - [Service roles](#security_iam_service-with-iam-roles-service "#security_iam_service-with-iam-roles-service")
 - [Other policy types](#security-iam-other-policies "#security-iam-other-policies")
 
-### Identity-based policies and
-
-Amazon Q Developer in chat applications
+### Identity-based policies and Amazon Q Developer in chat applications
 
 Amazon Q Developer in chat applications supports the use of IAM identity-based policies for service usage and
 management.
@@ -76,9 +65,7 @@ Identity-Based Policies](security_iam_service-with-iam-id-based-policies.md "sec
 For more general information about how IAM identity-based policies work, see [Identity vs.
 Resource](../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md "../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md") in the _IAM User Guide_.
 
-### Resource-level permissions and
-
-Amazon Q Developer in chat applications
+### Resource-level permissions and Amazon Q Developer in chat applications
 
 _Resource-level permissions_ are JSON policy statements that
 specify the AWS resources on which associated IAM entities can perform actions.
@@ -97,9 +84,7 @@ Amazon Q Developer in chat applications supports resource-level permissions, but
 For more information about how IAM resource-level permissions work with Amazon Q Developer in chat applications, see
 [IAM Resource-Level Permissions for Amazon Q Developer in chat applications](security_iam_service-with-iam-resource-based-policies.md "security_iam_service-with-iam-resource-based-policies.md").
 
-###
-
-Condition keys and Amazon Q Developer in chat applications
+### Condition keys and Amazon Q Developer in chat applications
 
 Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform
 **actions** on what **resources**, and under what **conditions**.
@@ -117,9 +102,7 @@ and Condition Keys for Amazon Q Developer in chat applications](../../../IAM/lat
 For more information about AWS global condition keys, see [AWS Global Condition
 Context Keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the _IAM User Guide_.
 
-### Using temporary
-
-credentials with Amazon Q Developer
+### Using temporary credentials with Amazon Q Developer
 
 You can use temporary credentials to sign in with federation, assume an IAM role,
 or assume a cross-account role. You obtain temporary security credentials by calling
@@ -129,9 +112,7 @@ Amazon Q Developer supports using temporary credentials. For more information ab
 defining and using temporary IAM credentials, see [Temporary Security Credentials](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md")
 in the _IAM User Guide_.
 
-### Service-linked
-
-roles
+### Service-linked roles
 
 [Service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role") allow AWS services to access resources in other
 services to complete an action on your behalf. Service-linked roles appear in your IAM

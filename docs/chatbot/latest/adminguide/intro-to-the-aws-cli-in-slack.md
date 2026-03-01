@@ -52,9 +52,7 @@ You can also use CLI commands to change you AWS resources. For example, enter th
 You can enter a complete AWS CLI command with all the parameters, or you can enter the command
 without parameters and Amazon Q Developer in chat applications prompts you for missing parameters.
 
-For more information on commonly used CLI commands, see [Using CLI commands with Amazon Q Developer in chat applications - Common
-use
-cases](common-use-cases.md "common-use-cases.md"). For an exhaustive list of CLI commands, see the [AWS CLI Command Reference](../../../cli/latest/index.md "../../../cli/latest/index.md").
+For more information on commonly used CLI commands, see [Using CLI commands with Amazon Q Developer in chat applications - Common use cases](common-use-cases.md "common-use-cases.md"). For an exhaustive list of CLI commands, see the [AWS CLI Command Reference](../../../cli/latest/index.md "../../../cli/latest/index.md").
 
 ###### Note
 

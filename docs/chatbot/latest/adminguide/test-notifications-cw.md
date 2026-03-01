@@ -19,9 +19,7 @@ your account. When you associate CloudWatch alarms with an Amazon SNS topic that
 Amazon SNS topic sends the CloudWatch alarm notifications to the chat channels. For more information, see
 [Monitoring AWS services using Amazon Q Developer in chat applications](related-services.md "related-services.md") and the [Troubleshooting](chatbot-troubleshooting.md "chatbot-troubleshooting.md") topic.
 
-###### To test notifications to configured
-
-chat clients
+###### To test notifications to configured chat clients
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").

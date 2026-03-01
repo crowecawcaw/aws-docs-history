@@ -158,9 +158,7 @@ JSON
 
 ```
 
-##
-
-Protection policy
+## Protection policy
 
 The expansion of usable CLI commands occurred on 11/28/2021. This expansion can allow channel
 members to create, read, update, and delete your AWS resources. To prevent this, a

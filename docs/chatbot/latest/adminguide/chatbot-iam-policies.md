@@ -16,14 +16,10 @@ policies contain a superset of permissions of other policies.
 
 ###### Topics
 
-- [AWS managed IAM policies in
-  Amazon Q Developer in chat applications](#aws-managed-policies-for-chatbot "#aws-managed-policies-for-chatbot")
-- [Customer managed IAM policies in
-  Amazon Q Developer in chat applications](#user-managed-chatbot-iam-policies "#user-managed-chatbot-iam-policies")
+- [AWS managed IAM policies in Amazon Q Developer in chat applications](#aws-managed-policies-for-chatbot "#aws-managed-policies-for-chatbot")
+- [Customer managed IAM policies in Amazon Q Developer in chat applications](#user-managed-chatbot-iam-policies "#user-managed-chatbot-iam-policies")
 
-## AWS managed IAM policies in
-
-Amazon Q Developer in chat applications
+## AWS managed IAM policies in Amazon Q Developer in chat applications
 
 Amazon Q Developer in chat applications supports the following AWS managed IAM policies:
 
@@ -46,9 +42,7 @@ As a convenience, Amazon Q Developer in chat applications also supports the crea
 Amazon Q Developer in chat applications console. However, to configure existing IAM entities to use Amazon Q Developer in chat applications, you need to use
 the IAM console.
 
-### The IAM ReadOnlyAccess
-
-policy
+### The IAM ReadOnlyAccess policy
 
 The **ReadOnlyAccess** policy is an AWS managed
 policy that is automatically assigned to roles in the Amazon Q Developer in chat applications service.
@@ -107,9 +101,7 @@ JSON
 
 ```
 
-### The CloudWatchReadOnlyAccess
-
-policy
+### The CloudWatchReadOnlyAccess policy
 
 You can attach the **CloudWatchReadOnlyAccess** policy to
 Amazon Q Developer in chat applications roles when you edit them in the IAM console. This policy does not appear in
@@ -160,9 +152,7 @@ JSON
 
 ```
 
-### The AWS Support Command Permissions
-
-policy
+### The AWS Support Command Permissions policy
 
 The **AWS Support Command Permissions** policy
 appears in the Amazon Q Developer in chat applications console when you configure resources. It's provided in the
@@ -198,9 +188,7 @@ JSON
 
 ```
 
-### The Amazon Q Permissions
-
-policy
+### The Amazon Q Permissions policy
 
 The **Amazon Q Permissions** policy
 appears in the Amazon Q Developer in chat applications console when you configure your **Permissions**. This policy provides full access to enable
@@ -287,9 +275,7 @@ JSON
 
 ```
 
-### The Amazon Q Operations Assistant Permissions
-
-policy
+### The Amazon Q Operations Assistant Permissions policy
 
 The **Amazon Q Operations Assistant Permissions** policy
 appears in the Amazon Q Developer in chat applications console when you configure your **Permissions**. This policy enables Amazon Q to analyze your AWS resources during investigations of operational events.
@@ -417,9 +403,7 @@ JSON
 
 ```
 
-### The Resource Explorer Permissions
-
-policy
+### The Resource Explorer Permissions policy
 
 The **Resource Explorer Permissions** policy
 appears in the Amazon Q Developer in chat applications console when you configure your **Permissions**. This policy grants Amazon Q read-only access to permissions to search for and view Resource Explorer resources.
@@ -460,9 +444,7 @@ JSON
 
 ```
 
-### Incident Manager permissions
-
-policy
+### Incident Manager permissions policy
 
 The **Incident Manager permissions** policy
 appears in the Amazon Q Developer in chat applications console when you configure your **Permissions**. This policy enables Amazon Q to start, view, and update incidents.
@@ -522,9 +504,7 @@ JSON
 
 ```
 
-## Customer managed IAM policies in
-
-Amazon Q Developer in chat applications
+## Customer managed IAM policies in Amazon Q Developer in chat applications
 
 Amazon Q Developer in chat applications also supports three service-provided customer managed IAM policies, that you
 can apply to any Amazon Q Developer in chat applications role. They can also be used as templates for defining custom
@@ -536,9 +516,7 @@ IAM permissions for your users:
 - [Notification permissions
   policy](#read-only-notifications-policy "#read-only-notifications-policy")
 
-### The Amazon Q Developer in chat applications Read-Only Command Permissions
-
-IAM policy
+### The Amazon Q Developer in chat applications Read-Only Command Permissions IAM policy
 
 The **Read-Only Command Permissions** policy appears
 in the Amazon Q Developer in chat applications console when you configure resources. You use this policy to support
@@ -603,9 +581,7 @@ JSON
 
 ```
 
-### The Amazon Q Developer in chat applications Lambda-Invoke
-
-Command Permissions policy
+### The Amazon Q Developer in chat applications Lambda-Invoke Command Permissions policy
 
 The **Lambda-Invoke Command Permissions** policy
 appears in the Amazon Q Developer in chat applications console when you configure resources. It pairs with the [Read-Only Command Permissions policy](#read-only-policy-for-cli "#read-only-policy-for-cli") to
@@ -649,9 +625,7 @@ JSON
 
 ```
 
-### The Amazon Q Developer in chat applications Notification Permissions
-
-IAM policy
+### The Amazon Q Developer in chat applications Notification Permissions IAM policy
 
 The **Notification Permissions** policy appears in
 the Amazon Q Developer in chat applications console when you configure resources. It provides the minimum usable IAM

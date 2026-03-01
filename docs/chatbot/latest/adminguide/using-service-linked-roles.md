@@ -1,8 +1,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md "service-rename.md")
 
-# Using Service-Linked Roles for
-
-Amazon Q Developer in chat applications
+# Using Service-Linked Roles for Amazon Q Developer in chat applications
 
 A [service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") is a type of IAM role that links directly to an AWS service.
 It gives AWS services the permissions to access resources in other services to complete

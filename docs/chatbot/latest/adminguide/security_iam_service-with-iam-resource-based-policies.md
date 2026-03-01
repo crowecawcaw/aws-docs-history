@@ -1,8 +1,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md "service-rename.md")
 
-# IAM resource-level
-
-permissions for Amazon Q Developer
+# IAM resource-level permissions for Amazon Q Developer
 
 _Resource-level permissions_ define the AWS resources
 on which you allow assigned entities (users, groups, and roles) to perform actions. You
@@ -25,14 +23,10 @@ resource-level permissions work with Amazon Q Developer in chat applications.
 
 ###### Topics
 
-- [Using the Amazon Q Developer in chat applications resource in a
-  policy](#security_iam_resource-description "#security_iam_resource-description")
-- [Example:
-  Amazon Q Developer in chat applications resource-level permission](#security_iam_resource-based-policy-examples "#security_iam_resource-based-policy-examples")
+- [Using the Amazon Q Developer in chat applications resource in a policy](#security_iam_resource-description "#security_iam_resource-description")
+- [Example: Amazon Q Developer in chat applications resource-level permission](#security_iam_resource-based-policy-examples "#security_iam_resource-based-policy-examples")
 
-## Using the Amazon Q Developer in chat applications resource in a
-
-policy
+## Using the Amazon Q Developer in chat applications resource in a policy
 
 You can set up an IAM policy that defines _who_ (users, groups
 and roles) can perform actions on Amazon Q Developer in chat applications resources. The policy uses
@@ -87,9 +81,7 @@ Or:
 When you create the permissions, ensure that any Actions apply to the correct
 configuration type.
 
-## Example:
-
-Amazon Q Developer in chat applications resource-level permission
+## Example: Amazon Q Developer in chat applications resource-level permission
 
 You can use resource-based permissions to allow or deny access to one or more Amazon Q Developer in chat applications
 resources in an IAM policy, or to all Amazon Q Developer in chat applications resources.

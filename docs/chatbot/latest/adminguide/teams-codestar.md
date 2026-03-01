@@ -13,8 +13,7 @@ channel configuration and your AWS CodeStar notification rules. This tutorial
 describes two methods to achieve this:
 
 - [Configure an existing Amazon SNS topic to use as a notification target](#teams-codestar-configure-teams "#teams-codestar-configure-teams").
-- [Create a new Amazon SNS topic as a target by
-  editing notification rules](#teams-codestar-create-teams "#teams-codestar-create-teams").
+- [Create a new Amazon SNS topic as a target by editing notification rules](#teams-codestar-create-teams "#teams-codestar-create-teams").
 
 ## Prerequisites
 
@@ -49,9 +48,7 @@ In this procedure you edit an existing Amazon SNS topic used in your Microsoft T
 7. The Amazon SNS topic is now associated with both AWS CodeStar and your
    chosen Microsoft Teams channel configuration.
 
-### Create a new Amazon SNS topic as a target by
-
-editing notification rules
+### Create a new Amazon SNS topic as a target by editing notification rules
 
 In this procedure you create a new Amazon SNS topic by editing an existing notification rule. You then use this Amazon SNS topic in your Microsoft Teams channel configuration.
 

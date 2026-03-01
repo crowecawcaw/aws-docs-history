@@ -85,9 +85,7 @@ For more information about editing IAM policies, see [Editing IAM
 Policies](../../../IAM/latest/UserGuide/access_policies_manage-edit.md "../../../IAM/latest/UserGuide/access_policies_manage-edit.md"). Exercise caution at all times when editing policies, and avoid
 overwriting existing customer managed policies.
 
-## Managing IAM role
-
-permissions for running commands in Amazon Q Developer in chat applications
+## Managing IAM role permissions for running commands in Amazon Q Developer in chat applications
 
 With AWS Identity and Access Management (IAM), you can use _identity-based
 policies_, which are JSON permissions policy documents, and attach them to
@@ -124,9 +122,7 @@ Resource](../../../IAM/latest/UserGuide/reference_policies_elements_resource.md 
 For more information on these policies, see [Configuring
 an IAM Role for Amazon Q Developer in chat applications](editing-iam-roles-for-chatbot.md "editing-iam-roles-for-chatbot.md").
 
-### Using the Amazon Q Developer in chat applications read-only command
-
-permissions policy
+### Using the Amazon Q Developer in chat applications read-only command permissions policy
 
 The Amazon Q Developer in chat applications **ReadOnly Command Permissions** policy
 controls access to several important AWS services, including IAM, AWS Security Token Service
@@ -188,9 +184,7 @@ JSON
 
 ```
 
-### Using the Amazon Q Developer in chat applications Lambda-Invoke
-
-policy
+### Using the Amazon Q Developer in chat applications Lambda-Invoke policy
 
 The Amazon Q Developer in chat applications **Lambda-Invoke Command Permissions**
 policy allows users to invoke AWS Lambda functions in chat channels. This policy is

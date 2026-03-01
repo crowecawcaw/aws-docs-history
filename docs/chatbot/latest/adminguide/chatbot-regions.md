@@ -33,9 +33,7 @@ Supported Regions include:
 You can combine Amazon SNS topics from multiple Regions in a single
 Amazon Q Developer in chat applications configuration.
 
-### Opt-in
-
-Regions
+### Opt-in Regions
 
 Opt-in Regions aren't enabled by default. You must manually enable these Regions to use
 them with Amazon Q Developer in chat applications. For more information about AWS Regions, see [Managing AWS Regions](../../../general/latest/gr/rande-manage.md "../../../general/latest/gr/rande-manage.md"). The following opt-in

@@ -1,9 +1,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md "service-rename.md")
 
-# Using CLI commands with Amazon Q Developer in chat applications - Common
-
-use
-cases
+# Using CLI commands with Amazon Q Developer in chat applications - Common use cases
 
 Common use cases for using Amazon Q Developer in chat applications in your chat channels involve running CLI commands.
 This topic also includes an example use case for invoking a Lambda
@@ -12,17 +9,14 @@ function in your chat channel, written in Python 3.8.
 For more information about running CLI commands in chat channels see [Running AWS CLI commands from chat channels using Amazon Q Developer in chat applications](chatbot-cli-commands.md "chatbot-cli-commands.md").
 
 For a tutorial that walks you
-through how to invoke Lambda functions from Amazon Q Developer in chat applications, see the [Tutorial: Using Amazon Q Developer in chat applications to run
-an AWS Lambda function remotely](chatbot-run-lambda-function-remotely-tutorial.md "chatbot-run-lambda-function-remotely-tutorial.md").
+through how to invoke Lambda functions from Amazon Q Developer in chat applications, see the [Tutorial: Using Amazon Q Developer in chat applications to run an AWS Lambda function remotely](chatbot-run-lambda-function-remotely-tutorial.md "chatbot-run-lambda-function-remotely-tutorial.md").
 
 ###### Topics
 
 - [Restart an Amazon EC2 instance](#reboot-instances "#reboot-instances")
 - [Change Auto Scaling limits](#change-autoscale "#change-autoscale")
 - [Run an Automation runbook](#run-book "#run-book")
-- [Use a Lambda function to approve an
-  AWS CodePipeline
-  action](#create-pipeline "#create-pipeline")
+- [Use a Lambda function to approve an AWS CodePipeline action](#create-pipeline "#create-pipeline")
 
 ## Restart an Amazon EC2 instance
 
@@ -52,10 +46,7 @@ For more information, see the [start-automation-execution](../../../cli/latest/r
  --document-name "AWS-UpdateLinuxAmi" 
  --parameters "AutomationAssumeRole=arn:aws:iam::123456789012:role/SSMAutomationRole,SourceAmiId=ami-EXAMPLE,IamInstanceProfileName=EC2InstanceRole"`
 
-## Use a Lambda function to approve an
-
-AWS CodePipeline
-action
+## Use a Lambda function to approve an AWS CodePipeline action
 
 The code example in this section demonstrates how you can use a Lambda function to
 perform activities, spefically how you can manually approve a pipeline action. This function

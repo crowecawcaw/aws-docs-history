@@ -1,8 +1,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md "service-rename.md")
 
-# Tutorial: Using Amazon Q Developer in chat applications to run
-
-an AWS Lambda function remotely
+# Tutorial: Using Amazon Q Developer in chat applications to run an AWS Lambda function remotely
 
 In this tutorial you use Amazon Q Developer in chat applications to run a Lambda function remotely and check the status
 of the Lambda function using Amazon CloudWatch. A Lambda function is a self contained block of
@@ -17,10 +15,8 @@ resources you created.
 - [Step 1: Create a Lambda function](#create-lambda-function "#create-lambda-function")
 - [Step 2: Create an SNS topic](#create-sns-topic "#create-sns-topic")
 - [Step 3: Configure a CloudWatch alarm](#configure-cloudwatch-alarm "#configure-cloudwatch-alarm")
-- [Step 4: Configure a Slack client for
-  Amazon Q Developer in chat applications](#create-chatbot-slack-config "#create-chatbot-slack-config")
-- [Step 5: Invoke a Lambda function from
-  Slack](#invoke-lambda-function "#invoke-lambda-function")
+- [Step 4: Configure a Slack client for Amazon Q Developer in chat applications](#create-chatbot-slack-config "#create-chatbot-slack-config")
+- [Step 5: Invoke a Lambda function from Slack](#invoke-lambda-function "#invoke-lambda-function")
 - [Step 6: Test the CloudWatch alarm](#test-cloudwatch-alarm "#test-cloudwatch-alarm")
 - [Step 7: Clean up resources](#clean-up-resources "#clean-up-resources")
 
@@ -43,8 +39,7 @@ For more information, see the following topics:
 
 The AWS Region that you select while setting up these consoles should be the same
 Region you specify in your Slack channel when your first AWS Command Line Interface
-(AWS CLI) command in [Step 5: Invoke a Lambda function from
-Slack](#invoke-lambda-function "#invoke-lambda-function").
+(AWS CLI) command in [Step 5: Invoke a Lambda function from Slack](#invoke-lambda-function "#invoke-lambda-function").
 
 ## Step 1: Create a Lambda function
 
@@ -136,9 +131,7 @@ myHelloWorld alarm`
 
 9. Choose **Create alarm**.
 
-## Step 4: Configure a Slack client for
-
-Amazon Q Developer in chat applications
+## Step 4: Configure a Slack client for Amazon Q Developer in chat applications
 
 You can configure a Slack client using Amazon Q Developer in chat applications to to run different commands in Slack
 using the AWS CLI. In this tutorial you use AWS CLI to invoke your Lambda function from
@@ -194,9 +187,7 @@ Amazon Q Developer in chat applications, but you must set up each workspace one 
     **myHelloWorldNotifcations** topic.
 11. Choose **Configure**.
 
-## Step 5: Invoke a Lambda function from
-
-Slack
+## Step 5: Invoke a Lambda function from Slack
 
 After you configure a chatbot in Amazon Q Developer in chat applications, you can invoke Lambda functions from Slack
 using AWS CLI syntax. To interact with Amazon Q Developer in chat applications in Slack, enter
@@ -251,8 +242,7 @@ StatusCode: 200
 ###### Troubleshooting
 
 If you try to run your Lambda function in Slack and you encounter errors referring
-to the following permissions, revisit step 8 of the [Step 4: Configure a Slack client for
-Amazon Q Developer in chat applications](#create-chatbot-slack-config "#create-chatbot-slack-config") procedure and verify that you have
+to the following permissions, revisit step 8 of the [Step 4: Configure a Slack client for Amazon Q Developer in chat applications](#create-chatbot-slack-config "#create-chatbot-slack-config") procedure and verify that you have
 the correct permissions assigned to your role:
 
 - **Lambda-invoke command permissions**

@@ -1,8 +1,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md "service-rename.md")
 
-# Tutorial: Creating an Amazon EventBridge rule that sends
-
-notifications to Amazon Q Developer in chat applications
+# Tutorial: Creating an Amazon EventBridge rule that sends notifications to Amazon Q Developer in chat applications
 
 Amazon Q Developer in chat applications currently supports notifications for most service events that are handled by
 Amazon EventBridge. When you create a rule for events, you tell EventBridge what action to take for events

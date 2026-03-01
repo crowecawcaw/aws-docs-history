@@ -13,8 +13,7 @@ To get started using Amazon Q Developer in chat applications to help manage your
 - [Prerequisites](#getting-started-prerequisites-slack "#getting-started-prerequisites-slack")
 - [Step 1: Configure a Slack client](#slack-client-setup "#slack-client-setup")
 - [Step 2: Configure a Slack channel](#slack-client-setup2 "#slack-client-setup2")
-- [(Optional) Step 3: Test notifications from AWS services to
-  Slack](#test-notifications-slack "#test-notifications-slack")
+- [(Optional) Step 3: Test notifications from AWS services to Slack](#test-notifications-slack "#test-notifications-slack")
 - [Configuring Slack channels using AWS CloudFormation](#cfn-slack "#cfn-slack")
 - [Next steps](#next-steps-slack "#next-steps-slack")
 
@@ -164,9 +163,7 @@ channels](chatbot-cli-commands.md "chatbot-cli-commands.md").
 
 You can configure as many channels with as many topics as you need.
 
-## (Optional) Step 3: Test notifications from AWS services to
-
-Slack
+## (Optional) Step 3: Test notifications from AWS services to Slack
 
 To verify that an Amazon Simple Notification Service (Amazon SNS) topic sends notifications to your Slack channel, you
 can test your setup by sending a notification. Ensure your

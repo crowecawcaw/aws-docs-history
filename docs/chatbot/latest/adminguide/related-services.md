@@ -25,8 +25,7 @@ messages for your application events, you can use custom notifications. For more
 - [Notifications for AWS developer tools](#codeserviceevents "#codeserviceevents")
 - [Amazon CloudWatch alarms](#cloudwatch "#cloudwatch")
 - [Amazon EventBridge](#eventbridge "#eventbridge")
-- [Tutorial: Creating an Amazon EventBridge rule that sends
-  notifications to Amazon Q Developer in chat applications](create-eventbridge-rule.md "create-eventbridge-rule.md")
+- [Tutorial: Creating an Amazon EventBridge rule that sends notifications to Amazon Q Developer in chat applications](create-eventbridge-rule.md "create-eventbridge-rule.md")
 - [AWS Config](#aws-config "#aws-config")
 - [Amazon GuardDuty](#aws-guardduty "#aws-guardduty")
 - [AWS Health](#aws-health "#aws-health")

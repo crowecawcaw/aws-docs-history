@@ -104,8 +104,7 @@ channel. You can also edit your IAM role to [add the CloudWatchRead permissions]
 
 Amazon Q Developer in chat applications may execute API calls from any nearby AWS Region. If any Region is disabled,
 you may experience problems with CloudWatch metrics graphs, among other issues. For more
-information, see [I get AccessDenied or permissions
-errors.](#chatbot-troubleshooting-regions "#chatbot-troubleshooting-regions")
+information, see [I get AccessDenied or permissions errors.](#chatbot-troubleshooting-regions "#chatbot-troubleshooting-regions")
 If the AWS Billing and Cost Management console displays an error message for the SNS topic you want to use for
 notifications, [you can edit the SNS topic's permissions policy so it can forward Budget
 notifications.](../../../awsaccountbilling/latest/aboutv2/budgets-sns-policy.md "../../../awsaccountbilling/latest/aboutv2/budgets-sns-policy.md")

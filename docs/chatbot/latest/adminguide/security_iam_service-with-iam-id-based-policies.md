@@ -1,8 +1,6 @@
 AWS Chatbot is now Amazon Q Developer. [Learn more](service-rename.md "service-rename.md")
 
-# Identity-based IAM
-
-policies for Amazon Q Developer
+# Identity-based IAM policies for Amazon Q Developer
 
 A policy is an object in AWS that, when you attach it to an identity, defines their
 permissions. When you create a policy to restrict or allow access to a resource, you can use
@@ -25,18 +23,12 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [Identity-based policies for
-  Amazon Q Developer in chat applications](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples")
-- [Identity-based
-  policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Applying Amazon Q Developer in chat applications permissions to an IAM
-  identity](#ChatbotCompleteRoleExample "#ChatbotCompleteRoleExample")
-- [Allowing
-  users to view their permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Identity-based policies for Amazon Q Developer in chat applications](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples")
+- [Identity-based policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Applying Amazon Q Developer in chat applications permissions to an IAM identity](#ChatbotCompleteRoleExample "#ChatbotCompleteRoleExample")
+- [Allowing users to view their permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
 
-## Identity-based policies for
-
-Amazon Q Developer in chat applications
+## Identity-based policies for Amazon Q Developer in chat applications
 
 By default, IAM users, groups, and roles don't have permission to create or modify
 Amazon Q Developer resources. They also can't perform tasks using the AWS Management Console or
@@ -56,9 +48,7 @@ Reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../.
 about the specific IAM JSON policy elements that Amazon Q Developer in chat applications supports, see [Actions, Resources,
 and Condition Keys for Amazon Q Developer in chat applications](../../../IAM/latest/UserGuide/list_awschatbot.md#awschatbot-policy-keys "../../../IAM/latest/UserGuide/list_awschatbot.md#awschatbot-policy-keys") in the _IAM User Guide_.
 
-### Amazon Q Developer in chat applications
-
-actions for identity-based policies
+### Amazon Q Developer in chat applications actions for identity-based policies
 
 Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform
 **actions** on what **resources**, and under what **conditions**.
@@ -103,9 +93,7 @@ so. Follow the practice of granting least
 privileges and narrowing the permissions necessary for a user to perform their
 work.
 
-## Identity-based
-
-policy best practices
+## Identity-based policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Amazon Q Developer resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -138,9 +126,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Applying Amazon Q Developer in chat applications permissions to an IAM
-
-identity
+## Applying Amazon Q Developer in chat applications permissions to an IAM identity
 
 The following example of an Amazon Q Developer in chat applications identity-based policy controls all aspects of Slack
 chat room configuration. It grants full read-only permissions to Amazon CloudWatch and Amazon CloudWatch Logs,
@@ -190,9 +176,7 @@ In this example, `"Resource": "*"` refers to all applicable Slack
 resources. You attach the policy to an IAM user, group, or role who needs access to
 all Slack resources.
 
-## Allowing
-
-users to view their permissions
+## Allowing users to view their permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
