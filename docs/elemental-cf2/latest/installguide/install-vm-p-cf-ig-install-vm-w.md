@@ -2,9 +2,7 @@ This is version 2.18 of the AWS Elemental Conductor File documentation. This is 
 latest version. For prior versions, see the _Archive_ section of
 [AWS Elemental Conductor File and AWS Elemental Server Documentation](../../../elemental-server.md "../../../elemental-server.md").
 
-# Step D: Deploy the VM and Install
-
-AWS Elemental Server
+# Step D: Deploy the VM and Install AWS Elemental Server
 
 After you've installed the AWS Elemental Conductor File nodes, perform these steps on each
 individual blade that you're adding to the cluster in order to deploy a VM and install

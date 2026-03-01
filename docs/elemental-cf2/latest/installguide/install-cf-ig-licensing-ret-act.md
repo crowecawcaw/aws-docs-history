@@ -2,9 +2,7 @@ This is version 2.18 of the AWS Elemental Conductor File documentation. This is 
 latest version. For prior versions, see the _Archive_ section of
 [AWS Elemental Conductor File and AWS Elemental Server Documentation](../../../elemental-server.md "../../../elemental-server.md").
 
-# Step a: Retrieve Activation
-
-Code
+# Step a: Retrieve Activation Code
 
 You should have received an email containing an activation code. If you're installing software for more than one node, you will have received a separate code for each one.
 

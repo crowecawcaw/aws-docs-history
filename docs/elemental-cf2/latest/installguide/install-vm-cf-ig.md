@@ -2,9 +2,7 @@ This is version 2.18 of the AWS Elemental Conductor File documentation. This is 
 latest version. For prior versions, see the _Archive_ section of
 [AWS Elemental Conductor File and AWS Elemental Server Documentation](../../../elemental-server.md "../../../elemental-server.md").
 
-# Installing AWS Elemental Conductor File Node-locked Licenses on a
-
-Virtual Machine (VM)
+# Installing AWS Elemental Conductor File Node-locked Licenses on a Virtual Machine (VM)
 
 This section is for IT administrators who perform the first-time installation of
 AWS Elemental Conductor File software on a VM (virtual machine).

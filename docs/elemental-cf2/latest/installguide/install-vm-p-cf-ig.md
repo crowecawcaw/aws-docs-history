@@ -2,9 +2,7 @@ This is version 2.18 of the AWS Elemental Conductor File documentation. This is 
 latest version. For prior versions, see the _Archive_ section of
 [AWS Elemental Conductor File and AWS Elemental Server Documentation](../../../elemental-server.md "../../../elemental-server.md").
 
-# Installing AWS Elemental Conductor File Pooled Licenses on a
-
-Virtual Machine (VM)
+# Installing AWS Elemental Conductor File Pooled Licenses on a Virtual Machine (VM)
 
 This section is for IT administrators who perform the first-time installation of
 AWS Elemental Conductor File software on a VM (virtual machine) using pooled licenses. The AWS Elemental Server
@@ -49,12 +47,8 @@ Installation consists of four parts:
 ###### Topics
 
 - [Step A: Prepare the Hardware and Download Files](install-vm-p-cf-ig-prep.md "install-vm-p-cf-ig-prep.md")
-- [Step B: Deploy the VM and Install
-  AWS Elemental Conductor File](install-vm-p-cf-ig-install-vm.md "install-vm-p-cf-ig-install-vm.md")
+- [Step B: Deploy the VM and Install AWS Elemental Conductor File](install-vm-p-cf-ig-install-vm.md "install-vm-p-cf-ig-install-vm.md")
 - [Step C: Set-up Licensing](install-vm-p-cf-ig-licensing.md "install-vm-p-cf-ig-licensing.md")
-- [Step D: Deploy the VM and Install
-  AWS Elemental Server](install-vm-p-cf-ig-install-vm-w.md "install-vm-p-cf-ig-install-vm-w.md")
-- [Step E: Verify that Workers Receive
-  Licenses](install-vm-p-cf-ig-ver.md "install-vm-p-cf-ig-ver.md")
-- [Step F: Complete Node
-  Configuration](install-vm-p-cf-ig-complete.md "install-vm-p-cf-ig-complete.md")
+- [Step D: Deploy the VM and Install AWS Elemental Server](install-vm-p-cf-ig-install-vm-w.md "install-vm-p-cf-ig-install-vm-w.md")
+- [Step E: Verify that Workers Receive Licenses](install-vm-p-cf-ig-ver.md "install-vm-p-cf-ig-ver.md")
+- [Step F: Complete Node Configuration](install-vm-p-cf-ig-complete.md "install-vm-p-cf-ig-complete.md")

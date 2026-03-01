@@ -2,9 +2,7 @@ This is version 2.18 of the AWS Elemental Conductor File documentation. This is 
 latest version. For prior versions, see the _Archive_ section of
 [AWS Elemental Conductor File and AWS Elemental Server Documentation](../../../elemental-server.md "../../../elemental-server.md").
 
-# Installing AWS Elemental Conductor File Node-locked Licenses on
-
-Qualified Hardware
+# Installing AWS Elemental Conductor File Node-locked Licenses on Qualified Hardware
 
 This section is for IT administrators who perform the first-time installation of
 AWS Elemental Conductor File software on a hardware unit that is considered qualified hardware.
@@ -33,8 +31,7 @@ Installation consists of four parts:
 ###### Topics
 
 - [Step A: Prepare Hardware and Download Files](install-cf-ig-prep.md "install-cf-ig-prep.md")
-- [Step B: Install (Kickstart) the Operating
-  System Software](install-cf-ig-install-ks.md "install-cf-ig-install-ks.md")
+- [Step B: Install (Kickstart) the Operating System Software](install-cf-ig-install-ks.md "install-cf-ig-install-ks.md")
 - [Step C: Install the AWS Elemental Software](install-cf-ig-install-sw.md "install-cf-ig-install-sw.md")
 - [Step D: Set Up Licensing](install-cf-ig-licensing.md "install-cf-ig-licensing.md")
 - [Step E: Complete Node Configuration](install-cf-ig-complete.md "install-cf-ig-complete.md")
