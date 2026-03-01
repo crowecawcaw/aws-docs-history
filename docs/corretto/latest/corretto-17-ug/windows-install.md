@@ -1,6 +1,4 @@
-# Amazon Corretto 17 Installation Instructions for Windows 10 or
-
-Later
+# Amazon Corretto 17 Installation Instructions for Windows 10 or Later
 
 This topic describes how to install and uninstall Amazon Corretto 17 on a host or container
 running the Windows 10 or later Windows operating system.
