@@ -8,9 +8,7 @@
 
 You can attach `AmazonS3TablesFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: December 03, 2024, 15:21 UTC

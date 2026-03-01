@@ -8,9 +8,7 @@
 
 You can attach `AmazonAugmentedAIIntegratedAPIAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: April 22, 2020, 20:47 UTC

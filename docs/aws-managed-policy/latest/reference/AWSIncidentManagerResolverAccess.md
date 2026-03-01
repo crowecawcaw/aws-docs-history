@@ -8,9 +8,7 @@
 
 You can attach `AWSIncidentManagerResolverAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: May 10, 2021, 06:12 UTC

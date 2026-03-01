@@ -8,9 +8,7 @@
 
 You can attach `AWSPrivateCAReadOnly` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: February 14, 2023, 18:30 UTC

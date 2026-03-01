@@ -9,19 +9,17 @@
 This policy is attached to a service-linked role that allows the service to perform actions on
 your behalf. You cannot attach this policy to your users, groups, or roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service-linked role policy
 - **Creation time**: November 29, 2019, 22:02 UTC
-- **Edited time:** February 12, 2026, 17:58 UTC
+- **Edited time:** February 23, 2026, 22:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForImageBuilder`
 
 ## Policy version
 
-**Policy version:** v25 (default)
+**Policy version:** v26 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -256,11 +254,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
           ]
         }
       }
-    },
-    {
-      "Effect" : "Allow",
-      "Action" : "ssm:StartAutomationExecution",
-      "Resource" : "arn:aws:ssm:*:*:automation-definition/ImageBuilder*"
     },
     {
       "Effect" : "Allow",

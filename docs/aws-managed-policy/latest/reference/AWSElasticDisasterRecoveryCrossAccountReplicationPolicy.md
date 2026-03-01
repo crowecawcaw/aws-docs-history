@@ -8,9 +8,7 @@
 
 You can attach `AWSElasticDisasterRecoveryCrossAccountReplicationPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: May 14, 2023, 07:16 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AWSCodeArtifactAdminAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: June 16, 2020, 23:53 UTC

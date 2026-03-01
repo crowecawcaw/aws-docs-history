@@ -8,9 +8,7 @@
 
 You can attach `AmazonEBSCSIDriverPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: April 04, 2022, 17:24 UTC

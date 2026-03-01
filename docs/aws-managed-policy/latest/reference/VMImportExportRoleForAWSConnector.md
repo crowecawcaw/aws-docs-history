@@ -8,9 +8,7 @@
 
 You can attach `VMImportExportRoleForAWSConnector` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: September 03, 2015, 20:48 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AmazonEC2ContainerServiceAutoscaleRole` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: May 12, 2016, 23:25 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AWSAppSyncAdministrator` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: March 20, 2018, 21:20 UTC

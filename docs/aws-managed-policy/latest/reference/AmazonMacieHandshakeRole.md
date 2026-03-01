@@ -8,9 +8,7 @@
 
 You can attach `AmazonMacieHandshakeRole` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: June 28, 2018, 15:46 UTC

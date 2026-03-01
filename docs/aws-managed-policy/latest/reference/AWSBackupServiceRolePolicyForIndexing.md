@@ -8,9 +8,7 @@
 
 You can attach `AWSBackupServiceRolePolicyForIndexing` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: December 17, 2024, 18:37 UTC

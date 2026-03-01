@@ -8,9 +8,7 @@
 
 You can attach `AmazonDataZoneSageMakerProvisioningRolePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: April 23, 2024, 23:32 UTC

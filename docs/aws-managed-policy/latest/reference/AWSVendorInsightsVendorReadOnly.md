@@ -8,9 +8,7 @@
 
 You can attach `AWSVendorInsightsVendorReadOnly` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: July 26, 2022, 15:05 UTC

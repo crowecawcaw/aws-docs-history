@@ -8,9 +8,7 @@
 
 You can attach `AmazonDataZoneBedrockModelConsumptionPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: November 12, 2024, 22:15 UTC

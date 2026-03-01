@@ -8,9 +8,7 @@
 
 You can attach `AmazonTimestreamInfluxDBFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: March 14, 2024, 22:53 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AWSElasticDisasterRecoveryReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 17, 2021, 10:50 UTC

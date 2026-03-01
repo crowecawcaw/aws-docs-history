@@ -8,9 +8,7 @@
 
 You can attach `AWSRolesAnywhereFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: July 16, 2025, 14:52 UTC

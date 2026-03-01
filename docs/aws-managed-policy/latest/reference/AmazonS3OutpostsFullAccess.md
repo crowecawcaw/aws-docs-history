@@ -8,9 +8,7 @@
 
 You can attach `AmazonS3OutpostsFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: October 02, 2020, 17:26 UTC

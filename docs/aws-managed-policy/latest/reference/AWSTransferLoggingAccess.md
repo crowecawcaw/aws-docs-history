@@ -8,9 +8,7 @@
 
 You can attach `AWSTransferLoggingAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: January 14, 2019, 15:32 UTC

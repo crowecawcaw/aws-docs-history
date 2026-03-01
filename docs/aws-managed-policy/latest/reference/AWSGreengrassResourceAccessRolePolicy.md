@@ -8,9 +8,7 @@
 
 You can attach `AWSGreengrassResourceAccessRolePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: February 14, 2017, 21:17 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AWSMarketplaceMeteringFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: March 17, 2016, 22:39 UTC

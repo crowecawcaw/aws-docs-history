@@ -8,9 +8,7 @@
 
 You can attach `AWSMigrationHubFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: August 14, 2017, 14:02 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AmazonBedrockMarketplaceAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: June 29, 2025, 22:22 UTC

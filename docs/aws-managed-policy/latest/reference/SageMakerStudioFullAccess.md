@@ -8,9 +8,7 @@
 
 You can attach `SageMakerStudioFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 28, 2024, 00:06 UTC

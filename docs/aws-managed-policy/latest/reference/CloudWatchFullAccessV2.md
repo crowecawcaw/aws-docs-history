@@ -8,9 +8,7 @@
 
 You can attach `CloudWatchFullAccessV2` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: August 01, 2023, 11:32 UTC

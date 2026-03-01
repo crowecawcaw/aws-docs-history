@@ -8,9 +8,7 @@
 
 You can attach `AWSPartnerCentralChannelHandshakeApprovalManagement` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 19, 2025, 16:34 UTC

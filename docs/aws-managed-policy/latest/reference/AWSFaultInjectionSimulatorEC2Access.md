@@ -8,9 +8,7 @@
 
 You can attach `AWSFaultInjectionSimulatorEC2Access` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: October 26, 2022, 20:39 UTC

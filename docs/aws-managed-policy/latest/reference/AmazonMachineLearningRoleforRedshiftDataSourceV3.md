@@ -8,9 +8,7 @@
 
 You can attach `AmazonMachineLearningRoleforRedshiftDataSourceV3` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: June 24, 2020, 18:00 UTC

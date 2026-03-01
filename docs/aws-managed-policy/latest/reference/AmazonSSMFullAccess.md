@@ -8,9 +8,7 @@
 
 You can attach `AmazonSSMFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: May 29, 2015, 17:39 UTC

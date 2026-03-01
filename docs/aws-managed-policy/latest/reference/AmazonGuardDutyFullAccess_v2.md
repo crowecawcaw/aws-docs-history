@@ -8,9 +8,7 @@
 
 You can attach `AmazonGuardDutyFullAccess_v2` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: June 04, 2025, 20:22 UTC

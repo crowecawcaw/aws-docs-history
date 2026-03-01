@@ -8,9 +8,7 @@
 
 You can attach `AWSTransferFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: December 14, 2020, 19:37 UTC

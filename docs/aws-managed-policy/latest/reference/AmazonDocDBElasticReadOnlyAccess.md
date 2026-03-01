@@ -8,9 +8,7 @@
 
 You can attach `AmazonDocDBElasticReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: June 08, 2023, 14:37 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AWSLicenseManagerConsumptionPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: August 11, 2021, 23:18 UTC

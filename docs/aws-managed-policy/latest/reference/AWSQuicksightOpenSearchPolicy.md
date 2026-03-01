@@ -8,9 +8,7 @@
 
 You can attach `AWSQuicksightOpenSearchPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: September 07, 2021, 23:26 UTC

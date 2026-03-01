@@ -8,9 +8,7 @@
 
 You can attach `AmazonGrafanaRedshiftAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: November 26, 2021, 23:15 UTC

@@ -8,9 +8,7 @@
 
 You can attach `ROSAKubeControllerPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: April 27, 2023, 20:09 UTC

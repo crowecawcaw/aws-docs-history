@@ -8,9 +8,7 @@
 
 You can attach `AWSBatchServiceRole` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: December 06, 2016, 19:36 UTC

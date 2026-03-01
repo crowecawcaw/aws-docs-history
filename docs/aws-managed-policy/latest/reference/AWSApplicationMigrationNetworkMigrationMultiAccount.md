@@ -8,9 +8,7 @@
 
 You can attach `AWSApplicationMigrationNetworkMigrationMultiAccount` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 10, 2025, 09:04 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AmazonDevOpsGuruOrganizationsAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 15, 2021, 23:50 UTC

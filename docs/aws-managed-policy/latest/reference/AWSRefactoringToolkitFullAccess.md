@@ -8,9 +8,7 @@
 
 You can attach `AWSRefactoringToolkitFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: October 25, 2022, 16:41 UTC

@@ -8,9 +8,7 @@
 
 You can attach `ServerMigration_ServiceRole` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: August 11, 2020, 20:41 UTC

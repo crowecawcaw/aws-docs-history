@@ -8,9 +8,7 @@
 
 You can attach `AmazonEKS_CNI_Policy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: May 27, 2018, 21:07 UTC

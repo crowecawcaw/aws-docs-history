@@ -8,9 +8,7 @@
 
 You can attach `AmazonSageMakerQuickSightVPCPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: June 03, 2025, 17:37 UTC

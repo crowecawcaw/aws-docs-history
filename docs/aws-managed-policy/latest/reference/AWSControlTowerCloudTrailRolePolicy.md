@@ -8,9 +8,7 @@
 
 You can attach `AWSControlTowerCloudTrailRolePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: November 05, 2025, 21:19 UTC

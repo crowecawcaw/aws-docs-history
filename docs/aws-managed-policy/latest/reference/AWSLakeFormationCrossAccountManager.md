@@ -8,9 +8,7 @@
 
 You can attach `AWSLakeFormationCrossAccountManager` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: August 04, 2020, 20:59 UTC

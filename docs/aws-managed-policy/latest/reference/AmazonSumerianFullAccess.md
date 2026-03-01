@@ -8,9 +8,7 @@
 
 You can attach `AmazonSumerianFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: April 24, 2018, 20:14 UTC

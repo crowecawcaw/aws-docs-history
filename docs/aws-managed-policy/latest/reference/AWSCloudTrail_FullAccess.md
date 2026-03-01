@@ -8,9 +8,7 @@
 
 You can attach `AWSCloudTrail_FullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: October 08, 2020, 23:41 UTC

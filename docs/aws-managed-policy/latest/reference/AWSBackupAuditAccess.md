@@ -8,9 +8,7 @@
 
 You can attach `AWSBackupAuditAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: August 24, 2021, 01:02 UTC

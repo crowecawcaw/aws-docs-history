@@ -8,9 +8,7 @@
 
 You can attach `GameLiftGameServerGroupPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: April 03, 2020, 23:12 UTC

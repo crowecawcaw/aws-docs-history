@@ -8,9 +8,7 @@
 
 You can attach `AWSQuickSetupPatchPolicyDeploymentRolePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: June 26, 2024, 09:57 UTC

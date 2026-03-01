@@ -8,9 +8,7 @@
 
 You can attach `AmazonEKSDashboardConsoleReadOnly` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: June 19, 2025, 17:22 UTC

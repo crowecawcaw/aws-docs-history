@@ -8,9 +8,7 @@
 
 You can attach `AmazonDynamoDBFullAccess_v2` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: May 22, 2025, 14:52 UTC

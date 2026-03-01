@@ -8,9 +8,7 @@
 
 You can attach `CloudWatchApplicationInsightsReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 24, 2020, 18:48 UTC

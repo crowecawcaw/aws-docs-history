@@ -8,9 +8,7 @@
 
 You can attach `AmazonPrometheusRemoteWriteAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: December 19, 2020, 01:04 UTC

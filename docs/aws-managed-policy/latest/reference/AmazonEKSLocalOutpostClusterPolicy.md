@@ -8,9 +8,7 @@
 
 You can attach `AmazonEKSLocalOutpostClusterPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: August 24, 2022, 21:56 UTC

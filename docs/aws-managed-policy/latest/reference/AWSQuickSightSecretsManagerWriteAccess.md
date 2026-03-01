@@ -8,9 +8,7 @@
 
 You can attach `AWSQuickSightSecretsManagerWriteAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: May 22, 2025, 01:22 UTC

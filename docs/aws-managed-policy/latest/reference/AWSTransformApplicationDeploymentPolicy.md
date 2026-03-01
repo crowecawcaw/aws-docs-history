@@ -8,9 +8,7 @@
 
 You can attach `AWSTransformApplicationDeploymentPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: August 28, 2025, 06:34 UTC

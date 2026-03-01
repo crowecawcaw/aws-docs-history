@@ -8,9 +8,7 @@
 
 You can attach `ROSASRESupportPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: June 01, 2023, 14:36 UTC

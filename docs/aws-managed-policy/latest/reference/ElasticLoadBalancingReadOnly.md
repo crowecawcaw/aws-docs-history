@@ -8,9 +8,7 @@
 
 You can attach `ElasticLoadBalancingReadOnly` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: September 20, 2018, 20:17 UTC

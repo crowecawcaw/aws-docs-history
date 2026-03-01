@@ -8,9 +8,7 @@
 
 You can attach `AWSDeviceFarmFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: July 13, 2015, 16:37 UTC

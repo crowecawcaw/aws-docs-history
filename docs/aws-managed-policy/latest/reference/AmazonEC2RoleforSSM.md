@@ -8,9 +8,7 @@
 
 You can attach `AmazonEC2RoleforSSM` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: May 29, 2015, 17:48 UTC

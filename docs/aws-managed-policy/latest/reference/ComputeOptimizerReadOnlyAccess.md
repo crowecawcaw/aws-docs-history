@@ -8,9 +8,7 @@
 
 You can attach `ComputeOptimizerReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: March 07, 2020, 00:11 UTC

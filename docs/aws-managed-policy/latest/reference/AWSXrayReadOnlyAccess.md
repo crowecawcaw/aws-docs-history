@@ -8,9 +8,7 @@
 
 You can attach `AWSXrayReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: December 01, 2016, 18:27 UTC

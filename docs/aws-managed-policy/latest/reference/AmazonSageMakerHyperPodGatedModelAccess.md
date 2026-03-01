@@ -8,9 +8,7 @@
 
 You can attach `AmazonSageMakerHyperPodGatedModelAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: January 17, 2026, 01:04 UTC

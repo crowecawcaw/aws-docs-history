@@ -8,9 +8,7 @@
 
 You can attach `AmazonMemoryDBFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: October 08, 2021, 19:24 UTC

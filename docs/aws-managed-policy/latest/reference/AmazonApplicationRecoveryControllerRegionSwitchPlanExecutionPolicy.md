@@ -8,9 +8,7 @@
 
 You can attach `AmazonApplicationRecoveryControllerRegionSwitchPlanExecutionPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 03, 2025, 19:34 UTC

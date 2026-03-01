@@ -8,9 +8,7 @@
 
 You can attach `AmazonKinesisAnalyticsReadOnly` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: September 21, 2016, 18:16 UTC

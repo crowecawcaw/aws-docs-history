@@ -8,9 +8,7 @@
 
 You can attach `ViewOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Job function policy
 - **Creation time**: November 10, 2016, 17:20 UTC

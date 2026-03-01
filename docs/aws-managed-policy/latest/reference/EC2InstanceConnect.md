@@ -8,9 +8,7 @@
 
 You can attach `EC2InstanceConnect` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: June 27, 2019, 18:53 UTC

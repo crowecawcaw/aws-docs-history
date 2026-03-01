@@ -8,9 +8,7 @@
 
 You can attach `AWSElasticBeanstalkManagedUpdatesCustomerRolePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: March 03, 2021, 22:18 UTC

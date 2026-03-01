@@ -8,9 +8,7 @@
 
 You can attach `AWSConfigRulesExecutionRole` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: March 25, 2016, 17:59 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AmazonRDSEnhancedMonitoringRole` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: November 11, 2015, 19:58 UTC

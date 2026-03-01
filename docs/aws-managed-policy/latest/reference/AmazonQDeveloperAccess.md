@@ -8,9 +8,7 @@
 
 You can attach `AmazonQDeveloperAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: July 09, 2024, 08:35 UTC

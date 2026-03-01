@@ -8,9 +8,7 @@
 
 You can attach `ServiceQuotasReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: June 24, 2019, 15:31 UTC

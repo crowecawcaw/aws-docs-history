@@ -8,9 +8,7 @@
 
 You can attach `AdministratorAccess-AWSElasticBeanstalk` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: January 22, 2021, 19:36 UTC

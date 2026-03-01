@@ -8,9 +8,7 @@
 
 You can attach `AWSXRayDaemonWriteAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: August 28, 2018, 23:00 UTC

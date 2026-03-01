@@ -8,9 +8,7 @@
 
 You can attach `AWSDataPipeline_FullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: January 19, 2017, 23:14 UTC

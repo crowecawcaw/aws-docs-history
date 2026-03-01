@@ -8,9 +8,7 @@
 
 You can attach `AWSSupplyChainFederationAdminAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: March 01, 2023, 18:54 UTC

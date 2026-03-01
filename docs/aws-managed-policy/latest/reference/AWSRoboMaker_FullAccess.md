@@ -8,9 +8,7 @@
 
 You can attach `AWSRoboMaker_FullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: September 10, 2020, 18:34 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AWSElementalMediaStoreFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: March 05, 2018, 23:15 UTC

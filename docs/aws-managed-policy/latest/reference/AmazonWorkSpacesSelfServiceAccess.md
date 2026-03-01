@@ -8,9 +8,7 @@
 
 You can attach `AmazonWorkSpacesSelfServiceAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: June 27, 2019, 19:22 UTC

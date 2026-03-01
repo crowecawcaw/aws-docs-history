@@ -8,9 +8,7 @@
 
 You can attach `AmazonSageMakerMechanicalTurkAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: December 03, 2019, 16:19 UTC

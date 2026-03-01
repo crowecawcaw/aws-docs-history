@@ -8,9 +8,7 @@
 
 You can attach `AWSResourceAccessManagerFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: June 04, 2019, 17:28 UTC

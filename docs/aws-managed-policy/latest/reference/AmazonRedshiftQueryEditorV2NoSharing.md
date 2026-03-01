@@ -8,9 +8,7 @@
 
 You can attach `AmazonRedshiftQueryEditorV2NoSharing` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: September 24, 2021, 14:18 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AmazonSageMakerCanvasAIServicesAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: March 23, 2023, 22:36 UTC

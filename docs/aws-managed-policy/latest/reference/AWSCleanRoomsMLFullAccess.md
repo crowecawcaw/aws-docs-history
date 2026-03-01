@@ -8,9 +8,7 @@
 
 You can attach `AWSCleanRoomsMLFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 29, 2023, 21:02 UTC

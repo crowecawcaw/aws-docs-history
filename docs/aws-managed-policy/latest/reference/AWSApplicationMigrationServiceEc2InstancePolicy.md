@@ -8,9 +8,7 @@
 
 You can attach `AWSApplicationMigrationServiceEc2InstancePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: August 22, 2023, 13:19 UTC

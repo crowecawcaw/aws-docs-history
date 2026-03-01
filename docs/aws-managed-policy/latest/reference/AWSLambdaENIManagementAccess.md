@@ -8,9 +8,7 @@
 
 You can attach `AWSLambdaENIManagementAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: December 06, 2016, 00:37 UTC

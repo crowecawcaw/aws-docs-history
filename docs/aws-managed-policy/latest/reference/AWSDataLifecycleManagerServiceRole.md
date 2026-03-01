@@ -8,9 +8,7 @@
 
 You can attach `AWSDataLifecycleManagerServiceRole` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: July 06, 2018, 19:34 UTC

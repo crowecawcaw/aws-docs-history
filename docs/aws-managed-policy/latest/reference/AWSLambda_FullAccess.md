@@ -8,9 +8,7 @@
 
 You can attach `AWSLambda_FullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 17, 2020, 21:14 UTC

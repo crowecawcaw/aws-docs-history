@@ -8,9 +8,7 @@
 
 You can attach `AWSRoboMakerServiceRolePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 26, 2018, 05:33 UTC

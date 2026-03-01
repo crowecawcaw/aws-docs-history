@@ -8,9 +8,7 @@
 
 You can attach `AWSDiscoveryContinuousExportFirehosePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: August 09, 2018, 18:29 UTC

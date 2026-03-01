@@ -8,9 +8,7 @@
 
 You can attach `AWSSupportPlansFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: September 27, 2022, 18:19 UTC

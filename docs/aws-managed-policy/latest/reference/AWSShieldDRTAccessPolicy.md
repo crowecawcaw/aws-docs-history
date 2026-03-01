@@ -8,9 +8,7 @@
 
 You can attach `AWSShieldDRTAccessPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: June 05, 2018, 22:29 UTC

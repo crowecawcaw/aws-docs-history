@@ -8,9 +8,7 @@
 
 You can attach `AWSIoTOTAUpdate` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: December 20, 2017, 20:36 UTC

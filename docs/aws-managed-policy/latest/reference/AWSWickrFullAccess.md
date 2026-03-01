@@ -8,9 +8,7 @@
 
 You can attach `AWSWickrFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 27, 2022, 20:36 UTC

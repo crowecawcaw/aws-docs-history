@@ -8,9 +8,7 @@
 
 You can attach `AWSCodeDeployDeployerAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: May 19, 2015, 18:18 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AmazonEFSCSIDriverPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: July 25, 2023, 20:10 UTC

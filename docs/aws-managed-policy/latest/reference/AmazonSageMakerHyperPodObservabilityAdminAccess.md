@@ -8,9 +8,7 @@
 
 You can attach `AmazonSageMakerHyperPodObservabilityAdminAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: July 10, 2025, 14:37 UTC

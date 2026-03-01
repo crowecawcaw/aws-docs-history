@@ -8,9 +8,7 @@
 
 You can attach `AmazonCognitoUnauthenticatedIdentities` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: February 01, 2023, 22:36 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AmazonEMRServicePolicy_v2` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: March 12, 2021, 01:11 UTC

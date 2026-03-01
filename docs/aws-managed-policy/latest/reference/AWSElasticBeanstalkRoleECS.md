@@ -8,9 +8,7 @@
 
 You can attach `AWSElasticBeanstalkRoleECS` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: June 05, 2020, 21:47 UTC

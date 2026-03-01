@@ -8,9 +8,7 @@
 
 You can attach `AWSWAFConsoleFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: April 06, 2020, 18:38 UTC

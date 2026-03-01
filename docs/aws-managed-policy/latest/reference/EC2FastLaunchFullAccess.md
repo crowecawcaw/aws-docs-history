@@ -8,9 +8,7 @@
 
 You can attach `EC2FastLaunchFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: May 13, 2024, 22:45 UTC

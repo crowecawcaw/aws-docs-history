@@ -8,9 +8,7 @@
 
 You can attach `AmazonDMSCloudWatchLogsRole` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: January 07, 2016, 23:44 UTC

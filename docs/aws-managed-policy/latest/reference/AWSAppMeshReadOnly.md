@@ -8,9 +8,7 @@
 
 You can attach `AWSAppMeshReadOnly` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: April 16, 2019, 17:51 UTC

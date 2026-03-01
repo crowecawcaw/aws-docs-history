@@ -8,9 +8,7 @@
 
 You can attach `AWSElasticDisasterRecoveryConsoleFullAccess_v2` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 27, 2023, 13:35 UTC

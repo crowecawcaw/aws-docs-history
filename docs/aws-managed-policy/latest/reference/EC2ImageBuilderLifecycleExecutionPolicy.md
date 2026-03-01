@@ -8,9 +8,7 @@
 
 You can attach `EC2ImageBuilderLifecycleExecutionPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: November 16, 2023, 23:23 UTC

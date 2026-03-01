@@ -8,9 +8,7 @@
 
 You can attach `AWSDeepRacerAccountAdminAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: October 28, 2021, 01:27 UTC

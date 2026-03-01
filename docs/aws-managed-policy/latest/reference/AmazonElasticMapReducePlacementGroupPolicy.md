@@ -8,9 +8,7 @@
 
 You can attach `AmazonElasticMapReducePlacementGroupPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: September 29, 2020, 00:37 UTC

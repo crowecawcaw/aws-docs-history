@@ -8,9 +8,7 @@
 
 You can attach `IAMUserChangePassword` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 15, 2016, 00:25 UTC

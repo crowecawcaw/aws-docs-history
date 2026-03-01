@@ -8,9 +8,7 @@
 
 You can attach `AWSForWordPressPluginPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: October 30, 2019, 00:27 UTC

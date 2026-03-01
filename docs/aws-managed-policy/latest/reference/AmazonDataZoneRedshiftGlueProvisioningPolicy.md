@@ -8,9 +8,7 @@
 
 You can attach `AmazonDataZoneRedshiftGlueProvisioningPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: September 22, 2023, 20:19 UTC

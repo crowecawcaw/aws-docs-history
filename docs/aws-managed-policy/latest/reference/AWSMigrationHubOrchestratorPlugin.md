@@ -8,9 +8,7 @@
 
 You can attach `AWSMigrationHubOrchestratorPlugin` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: April 20, 2022, 02:25 UTC

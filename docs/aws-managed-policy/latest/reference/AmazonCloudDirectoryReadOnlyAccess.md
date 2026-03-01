@@ -8,9 +8,7 @@
 
 You can attach `AmazonCloudDirectoryReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: February 28, 2017, 23:42 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AmazonDevOpsGuruConsoleFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: December 17, 2021, 18:43 UTC

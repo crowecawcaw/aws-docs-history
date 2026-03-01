@@ -8,9 +8,7 @@
 
 You can attach `AmazonSageMakerPartnerServiceCatalogProductsApiGatewayServiceRolePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: August 01, 2023, 15:06 UTC

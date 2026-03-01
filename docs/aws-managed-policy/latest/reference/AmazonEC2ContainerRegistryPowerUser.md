@@ -8,9 +8,7 @@
 
 You can attach `AmazonEC2ContainerRegistryPowerUser` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: December 21, 2015, 17:05 UTC

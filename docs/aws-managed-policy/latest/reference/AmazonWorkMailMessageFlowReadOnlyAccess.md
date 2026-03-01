@@ -8,9 +8,7 @@
 
 You can attach `AmazonWorkMailMessageFlowReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: January 28, 2021, 12:40 UTC

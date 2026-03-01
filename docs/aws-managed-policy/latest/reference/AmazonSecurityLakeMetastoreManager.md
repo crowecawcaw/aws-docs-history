@@ -8,9 +8,7 @@
 
 You can attach `AmazonSecurityLakeMetastoreManager` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: January 23, 2024, 15:26 UTC

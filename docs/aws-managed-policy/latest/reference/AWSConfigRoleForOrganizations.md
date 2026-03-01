@@ -8,9 +8,7 @@
 
 You can attach `AWSConfigRoleForOrganizations` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: March 19, 2018, 22:53 UTC

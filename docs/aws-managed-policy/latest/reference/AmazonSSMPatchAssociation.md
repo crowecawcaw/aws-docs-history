@@ -8,9 +8,7 @@
 
 You can attach `AmazonSSMPatchAssociation` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: May 13, 2020, 16:00 UTC

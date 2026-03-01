@@ -8,9 +8,7 @@
 
 You can attach `AWSTransformApplicationECSDeploymentPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: September 29, 2025, 22:49 UTC

@@ -8,9 +8,7 @@
 
 You can attach `ServerMigrationServiceLaunchRole` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: November 26, 2018, 19:53 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AWSPartnerLedSupportReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 22, 2024, 20:06 UTC

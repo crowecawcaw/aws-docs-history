@@ -8,9 +8,7 @@
 
 You can attach `ROSAControlPlaneOperatorPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: April 24, 2023, 23:02 UTC

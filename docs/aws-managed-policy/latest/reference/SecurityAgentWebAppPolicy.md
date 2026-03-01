@@ -8,9 +8,7 @@
 
 You can attach `SecurityAgentWebAppPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: February 05, 2026, 20:19 UTC

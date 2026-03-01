@@ -8,9 +8,7 @@
 
 You can attach `IVSFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: December 13, 2023, 21:20 UTC

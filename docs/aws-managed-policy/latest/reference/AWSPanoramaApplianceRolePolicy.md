@@ -8,9 +8,7 @@
 
 You can attach `AWSPanoramaApplianceRolePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: December 01, 2020, 13:13 UTC

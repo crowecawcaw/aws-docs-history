@@ -8,9 +8,7 @@
 
 You can attach `AmazonMCSReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: December 03, 2019, 13:46 UTC

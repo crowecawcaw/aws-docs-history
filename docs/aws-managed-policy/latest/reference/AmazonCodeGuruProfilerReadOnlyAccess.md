@@ -8,9 +8,7 @@
 
 You can attach `AmazonCodeGuruProfilerReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: December 03, 2019, 10:30 UTC

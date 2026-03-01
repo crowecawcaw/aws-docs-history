@@ -8,9 +8,7 @@
 
 You can attach `AWSElementalMediaPackageReadOnly` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: December 30, 2017, 00:04 UTC

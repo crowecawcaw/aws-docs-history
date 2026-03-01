@@ -8,9 +8,7 @@
 
 You can attach `AmazonEC2SpotFleetAutoscaleRole` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: August 19, 2016, 18:27 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AWSBackupServiceRolePolicyForS3Restore` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: February 18, 2022, 17:39 UTC

@@ -8,9 +8,7 @@
 
 You can attach `ROSANodePoolManagementPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: June 08, 2023, 20:48 UTC

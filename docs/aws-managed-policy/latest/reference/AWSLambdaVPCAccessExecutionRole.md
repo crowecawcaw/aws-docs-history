@@ -8,9 +8,7 @@
 
 You can attach `AWSLambdaVPCAccessExecutionRole` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: February 11, 2016, 23:15 UTC

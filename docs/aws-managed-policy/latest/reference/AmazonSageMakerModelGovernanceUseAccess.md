@@ -8,9 +8,7 @@
 
 You can attach `AmazonSageMakerModelGovernanceUseAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 30, 2022, 08:58 UTC

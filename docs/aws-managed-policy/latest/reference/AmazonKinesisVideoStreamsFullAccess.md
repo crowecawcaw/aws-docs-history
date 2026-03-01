@@ -8,9 +8,7 @@
 
 You can attach `AmazonKinesisVideoStreamsFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: December 01, 2017, 23:27 UTC

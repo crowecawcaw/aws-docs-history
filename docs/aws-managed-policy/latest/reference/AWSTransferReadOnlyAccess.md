@@ -8,9 +8,7 @@
 
 You can attach `AWSTransferReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: August 27, 2020, 17:54 UTC

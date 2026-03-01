@@ -8,9 +8,7 @@
 
 You can attach `AmazonElasticFileSystemClientReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: January 13, 2020, 16:24 UTC

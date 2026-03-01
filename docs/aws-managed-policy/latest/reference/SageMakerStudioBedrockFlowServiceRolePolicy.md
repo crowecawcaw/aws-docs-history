@@ -8,9 +8,7 @@
 
 You can attach `SageMakerStudioBedrockFlowServiceRolePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: February 14, 2025, 00:07 UTC

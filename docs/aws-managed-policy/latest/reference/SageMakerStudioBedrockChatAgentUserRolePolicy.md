@@ -8,9 +8,7 @@
 
 You can attach `SageMakerStudioBedrockChatAgentUserRolePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: February 13, 2025, 23:52 UTC

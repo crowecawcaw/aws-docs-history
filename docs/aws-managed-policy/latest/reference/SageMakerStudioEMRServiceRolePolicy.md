@@ -8,9 +8,7 @@
 
 You can attach `SageMakerStudioEMRServiceRolePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: January 31, 2025, 19:52 UTC

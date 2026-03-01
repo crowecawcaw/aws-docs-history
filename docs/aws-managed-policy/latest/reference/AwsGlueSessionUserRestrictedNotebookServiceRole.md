@@ -8,9 +8,7 @@
 
 You can attach `AwsGlueSessionUserRestrictedNotebookServiceRole` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: April 18, 2022, 15:27 UTC

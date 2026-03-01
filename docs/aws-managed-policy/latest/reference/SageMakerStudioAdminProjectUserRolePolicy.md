@@ -8,9 +8,7 @@
 
 You can attach `SageMakerStudioAdminProjectUserRolePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: July 09, 2025, 20:52 UTC

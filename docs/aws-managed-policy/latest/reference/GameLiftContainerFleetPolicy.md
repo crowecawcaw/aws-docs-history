@@ -8,9 +8,7 @@
 
 You can attach `GameLiftContainerFleetPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 12, 2024, 19:28 UTC

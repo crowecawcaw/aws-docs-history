@@ -8,9 +8,7 @@
 
 You can attach `AmazonOpenSearchServiceFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: September 08, 2021, 05:33 UTC

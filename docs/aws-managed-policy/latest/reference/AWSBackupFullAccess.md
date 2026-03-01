@@ -8,9 +8,7 @@
 
 You can attach `AWSBackupFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 18, 2019, 22:21 UTC

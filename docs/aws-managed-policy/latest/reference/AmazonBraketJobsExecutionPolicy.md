@@ -8,9 +8,7 @@
 
 You can attach `AmazonBraketJobsExecutionPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 26, 2021, 19:34 UTC

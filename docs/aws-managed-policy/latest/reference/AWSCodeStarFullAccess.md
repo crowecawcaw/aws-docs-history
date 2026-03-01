@@ -8,9 +8,7 @@
 
 You can attach `AWSCodeStarFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: April 19, 2017, 16:23 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AmazonRoute53RecoveryControlConfigReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: August 18, 2021, 18:01 UTC

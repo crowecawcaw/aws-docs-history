@@ -8,9 +8,7 @@
 
 You can attach `AutoScalingConsoleFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: January 12, 2017, 19:43 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AmazonRoute53ResolverFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: May 30, 2019, 18:10 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AWSCodeDeployRoleForECSLimited` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 27, 2018, 20:42 UTC

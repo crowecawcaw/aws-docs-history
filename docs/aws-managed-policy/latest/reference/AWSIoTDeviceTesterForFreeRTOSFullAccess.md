@@ -8,9 +8,7 @@
 
 You can attach `AWSIoTDeviceTesterForFreeRTOSFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: February 12, 2020, 20:33 UTC

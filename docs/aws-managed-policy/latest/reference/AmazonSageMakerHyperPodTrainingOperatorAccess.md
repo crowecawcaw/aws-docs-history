@@ -8,9 +8,7 @@
 
 You can attach `AmazonSageMakerHyperPodTrainingOperatorAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: August 19, 2025, 17:04 UTC

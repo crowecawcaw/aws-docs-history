@@ -8,9 +8,7 @@
 
 You can attach `AWSCertificateManagerReadOnly` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: January 21, 2016, 17:07 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AWSDeadlineCloud-UserAccessFarms` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: April 01, 2024, 16:54 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AmazonElasticMapReduceforEC2Role` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: February 06, 2015, 18:41 UTC

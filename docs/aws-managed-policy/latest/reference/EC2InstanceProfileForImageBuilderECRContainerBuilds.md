@@ -8,9 +8,7 @@
 
 You can attach `EC2InstanceProfileForImageBuilderECRContainerBuilds` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: December 11, 2020, 19:48 UTC

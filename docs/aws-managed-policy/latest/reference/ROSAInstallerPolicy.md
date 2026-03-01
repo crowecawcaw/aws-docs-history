@@ -8,9 +8,7 @@
 
 You can attach `ROSAInstallerPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: June 06, 2023, 21:00 UTC

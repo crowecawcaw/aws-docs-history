@@ -8,9 +8,7 @@
 
 You can attach `AmazonEKSWorkerNodeMinimalPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: October 02, 2024, 20:03 UTC

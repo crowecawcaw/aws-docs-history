@@ -8,9 +8,7 @@
 
 You can attach `AwsGlueSessionUserRestrictedPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: April 14, 2022, 21:31 UTC

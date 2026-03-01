@@ -8,9 +8,7 @@
 
 You can attach `AWSIoTDataAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: October 27, 2015, 21:51 UTC

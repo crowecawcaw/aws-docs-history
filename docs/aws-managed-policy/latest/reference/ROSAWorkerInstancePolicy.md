@@ -8,9 +8,7 @@
 
 You can attach `ROSAWorkerInstancePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: April 20, 2023, 22:35 UTC

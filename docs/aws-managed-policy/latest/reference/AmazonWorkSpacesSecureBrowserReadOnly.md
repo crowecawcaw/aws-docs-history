@@ -8,9 +8,7 @@
 
 You can attach `AmazonWorkSpacesSecureBrowserReadOnly` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: June 24, 2024, 20:01 UTC

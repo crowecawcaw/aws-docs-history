@@ -8,9 +8,7 @@
 
 You can attach `AWSSupportAppReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: August 22, 2022, 17:01 UTC

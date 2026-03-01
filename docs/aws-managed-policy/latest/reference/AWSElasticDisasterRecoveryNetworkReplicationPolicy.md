@@ -8,9 +8,7 @@
 
 You can attach `AWSElasticDisasterRecoveryNetworkReplicationPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: June 11, 2023, 12:36 UTC

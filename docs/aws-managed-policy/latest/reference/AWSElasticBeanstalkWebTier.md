@@ -8,9 +8,7 @@
 
 You can attach `AWSElasticBeanstalkWebTier` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: February 08, 2016, 23:08 UTC

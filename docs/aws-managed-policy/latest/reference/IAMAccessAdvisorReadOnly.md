@@ -8,9 +8,7 @@
 
 You can attach `IAMAccessAdvisorReadOnly` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: June 21, 2019, 19:33 UTC

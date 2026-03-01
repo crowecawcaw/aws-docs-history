@@ -8,9 +8,7 @@
 
 You can attach `AmazonAppStreamPCAAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: October 24, 2022, 17:05 UTC

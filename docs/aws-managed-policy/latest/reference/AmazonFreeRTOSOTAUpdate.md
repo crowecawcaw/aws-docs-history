@@ -8,9 +8,7 @@
 
 You can attach `AmazonFreeRTOSOTAUpdate` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: August 27, 2018, 22:43 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AmazonSSMAutomationApproverAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: August 07, 2017, 23:07 UTC

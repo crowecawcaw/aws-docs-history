@@ -8,9 +8,7 @@
 
 You can attach `AmazonRDSDirectoryServiceAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: February 26, 2016, 02:02 UTC

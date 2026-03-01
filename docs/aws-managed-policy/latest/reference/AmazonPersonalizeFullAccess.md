@@ -8,9 +8,7 @@
 
 You can attach `AmazonPersonalizeFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: December 04, 2018, 22:24 UTC

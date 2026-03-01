@@ -8,9 +8,7 @@
 
 You can attach `AmazonTextractServiceRole` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: November 28, 2018, 19:12 UTC

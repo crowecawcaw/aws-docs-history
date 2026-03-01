@@ -8,19 +8,17 @@
 
 You can attach `AmazonECSInfrastructureRolePolicyForManagedInstances` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: September 26, 2025, 18:04 UTC
-- **Edited time:** February 12, 2026, 17:59 UTC
+- **Edited time:** February 26, 2026, 18:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonECSInfrastructureRolePolicyForManagedInstances`
 
 ## Policy version
 
-**Policy version:** v9 (default)
+**Policy version:** v11 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -134,7 +132,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : [
         "arn:aws:ec2:*:*:subnet/*",
         "arn:aws:ec2:*:*:security-group/*",
-        "arn:aws:ec2:*::image/*"
+        "arn:aws:ec2:*::image/*",
+        "arn:aws:resource-groups:*:*:group/*"
       ]
     },
     {
@@ -170,8 +169,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:iam::*:role/ecsInstanceRole*"
       ],
       "Condition" : {
-        "StringEquals" : {
-          "iam:PassedToService" : "ec2.amazonaws.com"
+        "StringLike" : {
+          "iam:PassedToService" : "ec2.*"
         }
       }
     },
@@ -197,7 +196,19 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:DescribeAvailabilityZones",
         "ec2:DescribeSecurityGroups",
         "ec2:DescribeSubnets",
-        "ec2:DescribeVpcs"
+        "ec2:DescribeVpcs",
+        "ec2:DescribeCapacityReservations"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "ListResourceGroupResources",
+      "Effect" : "Allow",
+      "Action" : [
+        "resource-groups:ListGroupResources",
+        "cloudformation:DescribeStacks",
+        "cloudformation:ListStackResources",
+        "tag:GetResources"
       ],
       "Resource" : "*"
     }

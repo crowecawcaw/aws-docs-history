@@ -8,9 +8,7 @@
 
 You can attach `AWSBackupServiceRolePolicyForScans` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 20, 2025, 03:34 UTC

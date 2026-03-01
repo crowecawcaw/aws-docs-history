@@ -8,9 +8,7 @@
 
 You can attach `AWSBatchServiceEventTargetRole` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: February 28, 2018, 22:31 UTC

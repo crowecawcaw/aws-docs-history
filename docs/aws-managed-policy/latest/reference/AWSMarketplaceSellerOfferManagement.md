@@ -8,9 +8,7 @@
 
 You can attach `AWSMarketplaceSellerOfferManagement` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 19, 2024, 00:41 UTC

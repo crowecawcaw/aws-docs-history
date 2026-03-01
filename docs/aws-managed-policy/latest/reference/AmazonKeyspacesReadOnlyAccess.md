@@ -8,9 +8,7 @@
 
 You can attach `AmazonKeyspacesReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: April 23, 2020, 17:07 UTC

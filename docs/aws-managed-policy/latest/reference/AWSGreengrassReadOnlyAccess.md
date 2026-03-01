@@ -8,9 +8,7 @@
 
 You can attach `AWSGreengrassReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: October 30, 2018, 16:01 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AWSCodeDeployRoleForECS` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 27, 2018, 20:40 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AWSLambdaSQSQueueExecutionRole` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: June 14, 2018, 21:50 UTC

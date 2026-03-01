@@ -8,9 +8,7 @@
 
 You can attach `AmazonWorkspacesPCAAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 08, 2022, 00:25 UTC

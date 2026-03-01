@@ -8,9 +8,7 @@
 
 You can attach `AmazonBedrockStudioPermissionsBoundary` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: August 01, 2024, 00:24 UTC

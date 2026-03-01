@@ -8,9 +8,7 @@
 
 You can attach `AWSQuicksightAthenaAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: December 09, 2016, 02:31 UTC

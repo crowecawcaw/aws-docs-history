@@ -8,9 +8,7 @@
 
 You can attach `AmazonElasticContainerRegistryPublicFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: December 01, 2020, 17:25 UTC

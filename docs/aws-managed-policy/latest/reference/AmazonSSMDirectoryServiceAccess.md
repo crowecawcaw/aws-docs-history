@@ -8,9 +8,7 @@
 
 You can attach `AmazonSSMDirectoryServiceAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: March 15, 2019, 17:44 UTC

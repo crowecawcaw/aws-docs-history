@@ -8,9 +8,7 @@
 
 You can attach `AmazonEC2RoleforAWSCodeDeploy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: May 19, 2015, 18:10 UTC

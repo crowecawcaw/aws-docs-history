@@ -8,9 +8,7 @@
 
 You can attach `AWSResourceExplorerOrganizationsAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 14, 2023, 17:01 UTC

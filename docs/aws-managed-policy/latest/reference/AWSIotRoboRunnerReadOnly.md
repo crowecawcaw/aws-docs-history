@@ -8,9 +8,7 @@
 
 You can attach `AWSIotRoboRunnerReadOnly` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 29, 2021, 03:43 UTC

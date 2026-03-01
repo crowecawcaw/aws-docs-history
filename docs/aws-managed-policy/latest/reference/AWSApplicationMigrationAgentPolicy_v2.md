@@ -8,9 +8,7 @@
 
 You can attach `AWSApplicationMigrationAgentPolicy_v2` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: June 06, 2022, 14:14 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AmazonPrometheusConsoleFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: December 15, 2020, 18:11 UTC

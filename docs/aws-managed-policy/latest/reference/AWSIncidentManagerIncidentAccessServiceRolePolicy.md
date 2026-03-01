@@ -8,9 +8,7 @@
 
 You can attach `AWSIncidentManagerIncidentAccessServiceRolePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 13, 2023, 00:01 UTC

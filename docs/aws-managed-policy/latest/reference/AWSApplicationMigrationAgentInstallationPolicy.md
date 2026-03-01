@@ -8,9 +8,7 @@
 
 You can attach `AWSApplicationMigrationAgentInstallationPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: June 19, 2022, 07:51 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AmazonLookoutVisionConsoleReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: May 11, 2021, 19:32 UTC

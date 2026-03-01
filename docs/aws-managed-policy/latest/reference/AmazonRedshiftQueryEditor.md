@@ -8,9 +8,7 @@
 
 You can attach `AmazonRedshiftQueryEditor` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: October 04, 2018, 22:50 UTC

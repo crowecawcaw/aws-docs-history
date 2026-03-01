@@ -8,9 +8,7 @@
 
 You can attach `AWSEntityResolutionConsoleFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: August 17, 2023, 17:54 UTC

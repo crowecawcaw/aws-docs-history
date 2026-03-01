@@ -8,9 +8,7 @@
 
 You can attach `AmazonEKSMCPReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 20, 2025, 17:19 UTC

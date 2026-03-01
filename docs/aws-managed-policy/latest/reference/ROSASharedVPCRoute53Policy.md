@@ -8,9 +8,7 @@
 
 You can attach `ROSASharedVPCRoute53Policy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: August 11, 2025, 17:19 UTC

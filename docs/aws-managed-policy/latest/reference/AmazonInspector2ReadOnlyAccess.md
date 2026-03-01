@@ -8,9 +8,7 @@
 
 You can attach `AmazonInspector2ReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: January 21, 2022, 14:45 UTC

@@ -8,9 +8,7 @@
 
 You can attach `SageMakerStudioEMRContainersSystemNamespaceRolePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: October 23, 2025, 18:34 UTC

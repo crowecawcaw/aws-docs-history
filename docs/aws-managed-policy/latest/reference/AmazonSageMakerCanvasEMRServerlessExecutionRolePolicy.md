@@ -8,9 +8,7 @@
 
 You can attach `AmazonSageMakerCanvasEMRServerlessExecutionRolePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: July 27, 2024, 00:35 UTC

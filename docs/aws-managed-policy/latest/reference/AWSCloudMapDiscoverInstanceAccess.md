@@ -8,9 +8,7 @@
 
 You can attach `AWSCloudMapDiscoverInstanceAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 29, 2018, 00:02 UTC

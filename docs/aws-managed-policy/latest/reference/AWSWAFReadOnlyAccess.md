@@ -8,9 +8,7 @@
 
 You can attach `AWSWAFReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: October 06, 2015, 20:43 UTC

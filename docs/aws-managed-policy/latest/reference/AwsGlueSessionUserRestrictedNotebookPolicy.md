@@ -8,9 +8,7 @@
 
 You can attach `AwsGlueSessionUserRestrictedNotebookPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: April 18, 2022, 15:24 UTC

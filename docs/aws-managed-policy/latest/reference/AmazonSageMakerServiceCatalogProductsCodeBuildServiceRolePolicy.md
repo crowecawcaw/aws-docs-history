@@ -8,9 +8,7 @@
 
 You can attach `AmazonSageMakerServiceCatalogProductsCodeBuildServiceRolePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: March 25, 2022, 04:27 UTC

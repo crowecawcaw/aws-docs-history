@@ -8,9 +8,7 @@
 
 You can attach `TranslateReadOnly` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 29, 2017, 18:22 UTC

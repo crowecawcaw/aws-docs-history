@@ -8,9 +8,7 @@
 
 You can attach `AWSCleanRoomsReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: January 12, 2023, 16:10 UTC

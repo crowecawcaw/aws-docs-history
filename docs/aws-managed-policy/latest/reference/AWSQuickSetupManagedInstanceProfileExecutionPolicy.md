@@ -8,9 +8,7 @@
 
 You can attach `AWSQuickSetupManagedInstanceProfileExecutionPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 15, 2024, 21:51 UTC

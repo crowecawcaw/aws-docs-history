@@ -8,9 +8,7 @@
 
 You can attach `AmazonInspector2ManagedCisPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: January 24, 2024, 16:31 UTC

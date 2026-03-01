@@ -8,9 +8,7 @@
 
 You can attach `AmazonCloudWatchRUMFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 29, 2021, 15:46 UTC

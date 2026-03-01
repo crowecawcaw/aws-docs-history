@@ -8,9 +8,7 @@
 
 You can attach `AWSSystemsManagerJustInTimeAccessTokenSessionPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: April 17, 2025, 20:52 UTC

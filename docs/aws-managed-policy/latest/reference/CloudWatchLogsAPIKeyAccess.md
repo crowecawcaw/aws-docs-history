@@ -8,9 +8,7 @@
 
 You can attach `CloudWatchLogsAPIKeyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: February 20, 2026, 19:42 UTC

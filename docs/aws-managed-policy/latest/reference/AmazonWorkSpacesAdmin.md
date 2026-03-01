@@ -8,9 +8,7 @@
 
 You can attach `AmazonWorkSpacesAdmin` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: September 22, 2015, 22:21 UTC

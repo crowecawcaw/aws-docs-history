@@ -8,9 +8,7 @@
 
 You can attach `AmazonQLDBReadOnly` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: September 05, 2019, 18:19 UTC

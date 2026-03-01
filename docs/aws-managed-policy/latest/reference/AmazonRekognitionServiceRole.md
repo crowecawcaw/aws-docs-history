@@ -8,9 +8,7 @@
 
 You can attach `AmazonRekognitionServiceRole` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: November 29, 2017, 16:52 UTC

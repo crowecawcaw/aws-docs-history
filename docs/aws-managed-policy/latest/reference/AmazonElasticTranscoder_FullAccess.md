@@ -8,9 +8,7 @@
 
 You can attach `AmazonElasticTranscoder_FullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: April 27, 2018, 18:59 UTC

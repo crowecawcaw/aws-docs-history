@@ -8,9 +8,7 @@
 
 You can attach `AWSMarketplaceGetEntitlements` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: March 27, 2017, 19:37 UTC

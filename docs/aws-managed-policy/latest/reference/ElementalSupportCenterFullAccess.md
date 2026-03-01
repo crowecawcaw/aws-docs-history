@@ -8,9 +8,7 @@
 
 You can attach `ElementalSupportCenterFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 25, 2020, 18:08 UTC

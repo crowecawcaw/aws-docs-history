@@ -8,19 +8,17 @@
 
 You can attach `AmazonDataZoneDomainExecutionRolePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: September 27, 2023, 21:55 UTC
-- **Edited time:** February 12, 2026, 17:59 UTC
+- **Edited time:** February 26, 2026, 00:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/AmazonDataZoneDomainExecutionRolePolicy`
 
 ## Policy version
 
-**Policy version:** v12 (default)
+**Policy version:** v13 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -141,6 +139,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "datazone:ListSubscriptions",
         "datazone:ListTimeSeriesDataPoints",
         "datazone:ListWarehouseMetadata",
+        "datazone:QueryGraph",
         "datazone:RejectPredictions",
         "datazone:RejectSubscriptionRequest",
         "datazone:RemoveEntityOwner",

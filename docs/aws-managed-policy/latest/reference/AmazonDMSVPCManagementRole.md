@@ -8,9 +8,7 @@
 
 You can attach `AmazonDMSVPCManagementRole` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: November 18, 2015, 16:33 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AWSArtifactReportsReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: January 02, 2024, 22:42 UTC

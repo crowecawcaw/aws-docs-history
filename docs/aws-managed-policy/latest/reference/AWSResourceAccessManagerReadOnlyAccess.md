@@ -8,9 +8,7 @@
 
 You can attach `AWSResourceAccessManagerReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: December 09, 2019, 20:58 UTC

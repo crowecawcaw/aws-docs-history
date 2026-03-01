@@ -8,9 +8,7 @@
 
 You can attach `AmazonOneEnterpriseInstallerAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 28, 2023, 05:00 UTC

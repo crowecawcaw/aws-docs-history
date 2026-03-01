@@ -8,9 +8,7 @@
 
 You can attach `AWSMcpServiceActionsFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 21, 2025, 22:49 UTC

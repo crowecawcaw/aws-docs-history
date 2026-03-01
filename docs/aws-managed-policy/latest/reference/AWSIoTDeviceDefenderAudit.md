@@ -8,9 +8,7 @@
 
 You can attach `AWSIoTDeviceDefenderAudit` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: July 18, 2018, 21:17 UTC

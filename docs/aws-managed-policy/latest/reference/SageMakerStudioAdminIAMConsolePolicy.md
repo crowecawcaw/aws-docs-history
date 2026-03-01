@@ -8,9 +8,7 @@
 
 You can attach `SageMakerStudioAdminIAMConsolePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: August 18, 2025, 22:49 UTC

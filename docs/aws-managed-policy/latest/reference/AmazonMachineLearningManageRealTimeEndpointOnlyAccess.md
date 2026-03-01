@@ -8,9 +8,7 @@
 
 You can attach `AmazonMachineLearningManageRealTimeEndpointOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: April 09, 2015, 17:32 UTC

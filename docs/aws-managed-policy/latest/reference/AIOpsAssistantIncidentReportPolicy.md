@@ -8,9 +8,7 @@
 
 You can attach `AIOpsAssistantIncidentReportPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: October 10, 2025, 22:04 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AmazonSageMakerCanvasFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: September 09, 2022, 00:44 UTC

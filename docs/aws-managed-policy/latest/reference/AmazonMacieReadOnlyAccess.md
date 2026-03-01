@@ -8,9 +8,7 @@
 
 You can attach `AmazonMacieReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: June 15, 2023, 21:50 UTC

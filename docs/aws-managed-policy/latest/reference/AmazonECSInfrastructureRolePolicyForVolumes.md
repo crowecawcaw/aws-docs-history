@@ -8,9 +8,7 @@
 
 You can attach `AmazonECSInfrastructureRolePolicyForVolumes` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: January 10, 2024, 22:56 UTC

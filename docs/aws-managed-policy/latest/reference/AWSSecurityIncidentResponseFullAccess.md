@@ -8,9 +8,7 @@
 
 You can attach `AWSSecurityIncidentResponseFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: December 01, 2024, 23:21 UTC

@@ -8,9 +8,7 @@
 
 You can attach `CloudWatchSyntheticsReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 25, 2019, 17:45 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AWSServiceCatalogAdminReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: October 25, 2019, 18:53 UTC

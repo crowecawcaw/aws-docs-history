@@ -8,9 +8,7 @@
 
 You can attach `AmazonDocDBElasticFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: June 05, 2023, 13:51 UTC

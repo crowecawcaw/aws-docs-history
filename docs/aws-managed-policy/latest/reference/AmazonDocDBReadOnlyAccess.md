@@ -8,9 +8,7 @@
 
 You can attach `AmazonDocDBReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: January 09, 2019, 20:30 UTC

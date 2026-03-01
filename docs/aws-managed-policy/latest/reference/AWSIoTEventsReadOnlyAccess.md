@@ -8,9 +8,7 @@
 
 You can attach `AWSIoTEventsReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: January 10, 2019, 22:50 UTC

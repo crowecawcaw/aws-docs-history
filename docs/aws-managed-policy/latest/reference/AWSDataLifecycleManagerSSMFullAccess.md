@@ -8,9 +8,7 @@
 
 You can attach `AWSDataLifecycleManagerSSMFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: October 31, 2023, 20:29 UTC

@@ -8,9 +8,7 @@
 
 You can attach `CloudWatchAgentAdminPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: March 07, 2018, 00:52 UTC

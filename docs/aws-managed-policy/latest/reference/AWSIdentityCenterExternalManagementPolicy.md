@@ -8,9 +8,7 @@
 
 You can attach `AWSIdentityCenterExternalManagementPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: November 22, 2025, 00:34 UTC

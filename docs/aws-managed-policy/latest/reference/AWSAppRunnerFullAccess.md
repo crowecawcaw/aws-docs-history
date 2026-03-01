@@ -8,9 +8,7 @@
 
 You can attach `AWSAppRunnerFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: January 11, 2022, 04:02 UTC

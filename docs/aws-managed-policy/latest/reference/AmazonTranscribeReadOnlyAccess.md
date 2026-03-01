@@ -8,9 +8,7 @@
 
 You can attach `AmazonTranscribeReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: April 04, 2018, 16:05 UTC

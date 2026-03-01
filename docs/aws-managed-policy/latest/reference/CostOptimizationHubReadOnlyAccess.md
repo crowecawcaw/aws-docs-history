@@ -8,9 +8,7 @@
 
 You can attach `CostOptimizationHubReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: December 13, 2023, 18:04 UTC

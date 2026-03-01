@@ -8,9 +8,7 @@
 
 You can attach `AIOpsConsoleAdminPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: December 02, 2024, 23:51 UTC

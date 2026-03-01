@@ -8,9 +8,7 @@
 
 You can attach `AWSMarketplaceMeteringRegisterUsage` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 21, 2019, 01:17 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AWSAppSyncPushToCloudWatchLogs` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: April 09, 2018, 19:38 UTC

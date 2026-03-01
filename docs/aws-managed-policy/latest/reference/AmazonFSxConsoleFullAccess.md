@@ -8,9 +8,7 @@
 
 You can attach `AmazonFSxConsoleFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 28, 2018, 16:36 UTC

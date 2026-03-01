@@ -8,9 +8,7 @@
 
 You can attach `AWSIAMIdentityCenterAllowListForIdentityContext` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 08, 2023, 15:21 UTC

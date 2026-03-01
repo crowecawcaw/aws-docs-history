@@ -8,9 +8,7 @@
 
 You can attach `AmazonOpenSearchDirectQueryGlueCreateAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: May 06, 2024, 12:24 UTC

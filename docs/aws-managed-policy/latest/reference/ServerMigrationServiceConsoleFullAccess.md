@@ -8,9 +8,7 @@
 
 You can attach `ServerMigrationServiceConsoleFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: May 09, 2020, 17:18 UTC

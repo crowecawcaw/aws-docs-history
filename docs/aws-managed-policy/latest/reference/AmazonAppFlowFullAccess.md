@@ -8,9 +8,7 @@
 
 You can attach `AmazonAppFlowFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: June 02, 2020, 23:30 UTC

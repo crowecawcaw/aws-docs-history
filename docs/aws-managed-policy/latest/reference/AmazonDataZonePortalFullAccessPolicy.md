@@ -8,9 +8,7 @@
 
 You can attach `AmazonDataZonePortalFullAccessPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: March 26, 2023, 18:24 UTC

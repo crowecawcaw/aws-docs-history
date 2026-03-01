@@ -8,9 +8,7 @@
 
 You can attach `CloudWatchApplicationSignalsReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: June 06, 2024, 22:48 UTC

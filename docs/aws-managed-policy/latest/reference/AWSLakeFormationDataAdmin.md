@@ -8,9 +8,7 @@
 
 You can attach `AWSLakeFormationDataAdmin` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: August 08, 2019, 17:33 UTC

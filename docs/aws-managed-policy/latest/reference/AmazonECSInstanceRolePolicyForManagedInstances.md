@@ -8,9 +8,7 @@
 
 You can attach `AmazonECSInstanceRolePolicyForManagedInstances` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: September 26, 2025, 23:49 UTC

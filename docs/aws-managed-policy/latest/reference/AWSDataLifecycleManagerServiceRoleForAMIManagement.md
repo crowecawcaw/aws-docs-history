@@ -8,9 +8,7 @@
 
 You can attach `AWSDataLifecycleManagerServiceRoleForAMIManagement` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: October 21, 2020, 19:39 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AWSElasticBeanstalkCustomPlatformforEC2Role` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: February 21, 2017, 22:50 UTC

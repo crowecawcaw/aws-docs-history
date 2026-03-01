@@ -8,9 +8,7 @@
 
 You can attach `SageMakerStudioProjectUserRolePermissionsBoundary` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 20, 2024, 21:57 UTC

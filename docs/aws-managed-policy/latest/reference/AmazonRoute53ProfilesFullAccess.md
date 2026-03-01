@@ -8,9 +8,7 @@
 
 You can attach `AmazonRoute53ProfilesFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: April 30, 2024, 18:30 UTC

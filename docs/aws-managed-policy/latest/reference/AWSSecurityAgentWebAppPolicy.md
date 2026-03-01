@@ -8,9 +8,7 @@
 
 You can attach `AWSSecurityAgentWebAppPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: February 05, 2026, 23:19 UTC

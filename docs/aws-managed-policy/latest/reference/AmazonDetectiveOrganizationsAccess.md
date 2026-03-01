@@ -8,9 +8,7 @@
 
 You can attach `AmazonDetectiveOrganizationsAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: March 02, 2023, 15:20 UTC

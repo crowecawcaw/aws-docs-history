@@ -8,9 +8,7 @@
 
 You can attach `AWSGrafanaAccountAdministrator` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: February 23, 2021, 00:20 UTC

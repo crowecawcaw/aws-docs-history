@@ -8,9 +8,7 @@
 
 You can attach `AWSAppRunnerServicePolicyForECRAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: May 14, 2021, 19:17 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AWSBackupSearchOperatorAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: February 27, 2025, 21:52 UTC

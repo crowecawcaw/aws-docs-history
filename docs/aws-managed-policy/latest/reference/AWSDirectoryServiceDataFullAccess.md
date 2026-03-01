@@ -8,9 +8,7 @@
 
 You can attach `AWSDirectoryServiceDataFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: September 18, 2024, 21:45 UTC

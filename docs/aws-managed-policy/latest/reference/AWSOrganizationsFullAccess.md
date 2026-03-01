@@ -8,9 +8,7 @@
 
 You can attach `AWSOrganizationsFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 06, 2018, 20:31 UTC

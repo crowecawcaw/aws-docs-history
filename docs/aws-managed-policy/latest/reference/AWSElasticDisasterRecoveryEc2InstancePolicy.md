@@ -8,9 +8,7 @@
 
 You can attach `AWSElasticDisasterRecoveryEc2InstancePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: May 26, 2022, 12:30 UTC

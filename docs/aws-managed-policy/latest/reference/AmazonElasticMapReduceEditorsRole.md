@@ -8,9 +8,7 @@
 
 You can attach `AmazonElasticMapReduceEditorsRole` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: November 16, 2018, 21:55 UTC

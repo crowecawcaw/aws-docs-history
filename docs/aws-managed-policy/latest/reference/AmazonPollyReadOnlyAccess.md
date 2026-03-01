@@ -8,9 +8,7 @@
 
 You can attach `AmazonPollyReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 30, 2016, 18:59 UTC

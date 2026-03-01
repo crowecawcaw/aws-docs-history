@@ -8,9 +8,7 @@
 
 You can attach `AlexaForBusinessReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 30, 2017, 16:47 UTC

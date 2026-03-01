@@ -8,9 +8,7 @@
 
 You can attach `AWSPartnerCentralOpportunityManagement` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 14, 2024, 19:09 UTC

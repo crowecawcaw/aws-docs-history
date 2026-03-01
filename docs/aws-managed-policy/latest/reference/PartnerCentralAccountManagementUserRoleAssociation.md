@@ -8,9 +8,7 @@
 
 You can attach `PartnerCentralAccountManagementUserRoleAssociation` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 10, 2023, 02:03 UTC

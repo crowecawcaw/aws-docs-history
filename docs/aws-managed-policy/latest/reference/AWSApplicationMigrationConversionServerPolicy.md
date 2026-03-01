@@ -8,9 +8,7 @@
 
 You can attach `AWSApplicationMigrationConversionServerPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: April 07, 2021, 06:48 UTC

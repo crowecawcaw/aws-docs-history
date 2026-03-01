@@ -8,9 +8,7 @@
 
 You can attach `AmazonDocDBFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: January 09, 2019, 20:21 UTC

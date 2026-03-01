@@ -8,9 +8,7 @@
 
 You can attach `AWSDataSyncFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: January 18, 2019, 19:40 UTC

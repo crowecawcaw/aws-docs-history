@@ -8,9 +8,7 @@
 
 You can attach `AWSElasticBeanstalkEnhancedHealth` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: February 08, 2016, 23:17 UTC

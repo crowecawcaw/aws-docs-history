@@ -8,9 +8,7 @@
 
 You can attach `AmazonDRSVPCManagement` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: September 02, 2015, 00:09 UTC

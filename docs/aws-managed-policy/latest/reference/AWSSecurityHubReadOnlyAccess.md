@@ -8,9 +8,7 @@
 
 You can attach `AWSSecurityHubReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 28, 2018, 01:34 UTC

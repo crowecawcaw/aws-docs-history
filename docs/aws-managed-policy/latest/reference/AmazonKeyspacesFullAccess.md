@@ -8,9 +8,7 @@
 
 You can attach `AmazonKeyspacesFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: April 23, 2020, 17:06 UTC

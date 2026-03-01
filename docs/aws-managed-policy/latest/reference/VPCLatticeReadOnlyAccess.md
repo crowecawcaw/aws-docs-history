@@ -8,9 +8,7 @@
 
 You can attach `VPCLatticeReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: March 30, 2023, 02:47 UTC

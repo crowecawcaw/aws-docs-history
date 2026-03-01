@@ -8,19 +8,17 @@
 
 You can attach `ElasticLoadBalancingFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: September 20, 2018, 20:42 UTC
-- **Edited time:** October 24, 2024, 22:21 UTC
+- **Edited time:** February 23, 2026, 18:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/ElasticLoadBalancingFullAccess`
 
 ## Policy version
 
-**Policy version:** v8 (default)
+**Policy version:** v9 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -54,6 +52,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:GetCoipPoolUsage",
         "ec2:GetSecurityGroupsForVpc",
         "ec2:DescribeVpcPeeringConnections",
+        "ec2:DescribeAvailabilityZones",
         "cognito-idp:DescribeUserPoolClient"
       ],
       "Resource" : "*"

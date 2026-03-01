@@ -8,9 +8,7 @@
 
 You can attach `AWSIoTWirelessDataAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: December 15, 2020, 15:31 UTC

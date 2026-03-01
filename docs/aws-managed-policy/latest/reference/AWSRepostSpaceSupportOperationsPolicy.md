@@ -8,9 +8,7 @@
 
 You can attach `AWSRepostSpaceSupportOperationsPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 26, 2023, 21:52 UTC

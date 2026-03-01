@@ -8,9 +8,7 @@
 
 You can attach `AmazonOmicsFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: February 24, 2023, 00:59 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AWSIoTRuleActions` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: October 08, 2015, 15:14 UTC

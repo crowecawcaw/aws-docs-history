@@ -8,9 +8,7 @@
 
 You can attach `AmazonElasticMapReduceReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: February 06, 2015, 18:40 UTC

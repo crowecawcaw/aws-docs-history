@@ -8,9 +8,7 @@
 
 You can attach `AWSControlTowerServiceRolePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: May 03, 2019, 18:19 UTC

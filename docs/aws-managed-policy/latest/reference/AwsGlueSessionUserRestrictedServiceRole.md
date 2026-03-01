@@ -8,9 +8,7 @@
 
 You can attach `AwsGlueSessionUserRestrictedServiceRole` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: April 14, 2022, 21:30 UTC

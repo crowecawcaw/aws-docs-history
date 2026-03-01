@@ -8,9 +8,7 @@
 
 You can attach `AWSQuickSightSageMakerPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: January 17, 2020, 17:18 UTC

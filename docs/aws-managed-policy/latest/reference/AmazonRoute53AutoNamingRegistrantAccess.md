@@ -8,9 +8,7 @@
 
 You can attach `AmazonRoute53AutoNamingRegistrantAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: March 12, 2018, 22:33 UTC

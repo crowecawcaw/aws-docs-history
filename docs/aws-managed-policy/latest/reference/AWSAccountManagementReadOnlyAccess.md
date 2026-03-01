@@ -8,9 +8,7 @@
 
 You can attach `AWSAccountManagementReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: September 30, 2021, 23:29 UTC

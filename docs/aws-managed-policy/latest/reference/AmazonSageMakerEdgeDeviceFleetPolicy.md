@@ -8,9 +8,7 @@
 
 You can attach `AmazonSageMakerEdgeDeviceFleetPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: December 08, 2020, 16:17 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AmazonRDSPerformanceInsightsReadOnly` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: April 05, 2022, 00:02 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AWSGlueSchemaRegistryReadonlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 20, 2020, 00:20 UTC

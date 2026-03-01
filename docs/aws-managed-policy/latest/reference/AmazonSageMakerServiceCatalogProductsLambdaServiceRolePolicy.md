@@ -8,9 +8,7 @@
 
 You can attach `AmazonSageMakerServiceCatalogProductsLambdaServiceRolePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: April 04, 2022, 16:34 UTC

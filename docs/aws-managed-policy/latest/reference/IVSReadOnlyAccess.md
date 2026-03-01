@@ -8,9 +8,7 @@
 
 You can attach `IVSReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: December 05, 2023, 18:00 UTC

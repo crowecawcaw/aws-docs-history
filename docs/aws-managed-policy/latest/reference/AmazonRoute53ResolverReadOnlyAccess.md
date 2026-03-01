@@ -8,9 +8,7 @@
 
 You can attach `AmazonRoute53ResolverReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: May 30, 2019, 18:11 UTC

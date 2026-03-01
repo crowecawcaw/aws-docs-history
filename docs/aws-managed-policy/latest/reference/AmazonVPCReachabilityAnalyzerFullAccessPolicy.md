@@ -8,9 +8,7 @@
 
 You can attach `AmazonVPCReachabilityAnalyzerFullAccessPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: June 14, 2023, 20:12 UTC

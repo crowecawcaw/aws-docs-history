@@ -8,9 +8,7 @@
 
 You can attach `AWSQuickSightDescribeRDS` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: November 10, 2015, 23:24 UTC

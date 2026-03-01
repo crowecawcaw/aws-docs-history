@@ -8,9 +8,7 @@
 
 You can attach `ResourceGroupsTaggingAPITagUntagSupportedResources` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: October 11, 2024, 11:11 UTC

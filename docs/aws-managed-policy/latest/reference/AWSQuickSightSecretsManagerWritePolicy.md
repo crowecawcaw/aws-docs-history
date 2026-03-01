@@ -8,9 +8,7 @@
 
 You can attach `AWSQuickSightSecretsManagerWritePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: May 12, 2025, 19:22 UTC

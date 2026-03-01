@@ -8,9 +8,7 @@
 
 You can attach `AmazonElasticFileSystemFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: May 27, 2015, 16:22 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AWSSecretsManagerClientReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 05, 2025, 20:04 UTC

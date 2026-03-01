@@ -8,9 +8,7 @@
 
 You can attach `AmazonRoute53AutoNamingFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: January 18, 2018, 18:40 UTC

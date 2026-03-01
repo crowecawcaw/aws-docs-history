@@ -8,9 +8,7 @@
 
 You can attach `AmazonManagedBlockchainConsoleFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: April 29, 2019, 21:23 UTC

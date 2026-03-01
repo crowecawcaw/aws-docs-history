@@ -8,9 +8,7 @@
 
 You can attach `AWSAccountSettingsManagementRole` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: December 11, 2025, 17:49 UTC

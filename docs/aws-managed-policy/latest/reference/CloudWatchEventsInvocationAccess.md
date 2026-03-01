@@ -8,9 +8,7 @@
 
 You can attach `CloudWatchEventsInvocationAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: January 14, 2016, 18:36 UTC

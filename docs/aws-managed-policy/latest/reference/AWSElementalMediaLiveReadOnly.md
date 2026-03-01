@@ -8,9 +8,7 @@
 
 You can attach `AWSElementalMediaLiveReadOnly` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: July 08, 2020, 16:38 UTC

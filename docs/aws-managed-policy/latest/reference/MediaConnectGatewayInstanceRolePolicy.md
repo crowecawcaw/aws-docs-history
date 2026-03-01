@@ -8,9 +8,7 @@
 
 You can attach `MediaConnectGatewayInstanceRolePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: March 22, 2023, 20:43 UTC

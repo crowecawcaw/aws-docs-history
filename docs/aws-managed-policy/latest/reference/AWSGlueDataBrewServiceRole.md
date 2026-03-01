@@ -8,9 +8,7 @@
 
 You can attach `AWSGlueDataBrewServiceRole` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: December 04, 2020, 21:26 UTC

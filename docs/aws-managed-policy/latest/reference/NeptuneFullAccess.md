@@ -8,9 +8,7 @@
 
 You can attach `NeptuneFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: May 30, 2018, 19:17 UTC

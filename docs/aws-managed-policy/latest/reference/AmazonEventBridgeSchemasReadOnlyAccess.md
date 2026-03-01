@@ -8,9 +8,7 @@
 
 You can attach `AmazonEventBridgeSchemasReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 28, 2019, 23:05 UTC

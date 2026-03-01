@@ -8,9 +8,7 @@
 
 You can attach `AWSIoTAnalyticsFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: June 18, 2018, 23:02 UTC

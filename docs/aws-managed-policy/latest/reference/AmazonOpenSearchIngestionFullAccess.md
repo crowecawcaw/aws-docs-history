@@ -8,9 +8,7 @@
 
 You can attach `AmazonOpenSearchIngestionFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: April 26, 2023, 18:11 UTC

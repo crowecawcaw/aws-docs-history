@@ -8,9 +8,7 @@
 
 You can attach `TranslateFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 27, 2018, 23:36 UTC

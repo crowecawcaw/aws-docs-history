@@ -8,9 +8,7 @@
 
 You can attach `AWSEC2SqlHaInstancePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 13, 2025, 01:49 UTC

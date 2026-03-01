@@ -8,9 +8,7 @@
 
 You can attach `AmazonRekognitionCustomLabelsFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: January 08, 2020, 19:18 UTC

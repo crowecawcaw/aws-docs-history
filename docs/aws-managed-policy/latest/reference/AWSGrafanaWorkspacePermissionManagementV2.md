@@ -8,9 +8,7 @@
 
 You can attach `AWSGrafanaWorkspacePermissionManagementV2` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: January 05, 2024, 18:39 UTC

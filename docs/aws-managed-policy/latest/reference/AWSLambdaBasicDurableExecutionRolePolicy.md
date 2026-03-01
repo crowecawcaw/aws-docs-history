@@ -8,9 +8,7 @@
 
 You can attach `AWSLambdaBasicDurableExecutionRolePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: December 02, 2025, 15:04 UTC

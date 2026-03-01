@@ -8,9 +8,7 @@
 
 You can attach `AWSTransformCustomManageTransformations` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: December 05, 2025, 15:49 UTC

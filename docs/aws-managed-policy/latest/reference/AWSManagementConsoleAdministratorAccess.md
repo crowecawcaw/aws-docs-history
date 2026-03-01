@@ -8,9 +8,7 @@
 
 You can attach `AWSManagementConsoleAdministratorAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Job function policy
 - **Creation time**: August 14, 2025, 21:19 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AmazonHoneycodeWorkbookReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: June 24, 2020, 20:28 UTC

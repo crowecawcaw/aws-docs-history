@@ -8,9 +8,7 @@
 
 You can attach `AmazonEC2ImageReferencesAccessPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: August 26, 2025, 19:19 UTC

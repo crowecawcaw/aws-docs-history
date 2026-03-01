@@ -8,9 +8,7 @@
 
 You can attach `AWSGreengrassFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: May 03, 2017, 00:47 UTC

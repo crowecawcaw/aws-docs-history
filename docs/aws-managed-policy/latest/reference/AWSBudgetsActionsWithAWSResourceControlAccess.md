@@ -8,9 +8,7 @@
 
 You can attach `AWSBudgetsActionsWithAWSResourceControlAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: October 15, 2020, 17:19 UTC

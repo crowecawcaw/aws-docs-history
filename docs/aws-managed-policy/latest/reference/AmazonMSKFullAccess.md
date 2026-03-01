@@ -8,9 +8,7 @@
 
 You can attach `AmazonMSKFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: January 14, 2019, 22:07 UTC

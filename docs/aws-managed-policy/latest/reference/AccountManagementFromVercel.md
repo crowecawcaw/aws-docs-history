@@ -8,9 +8,7 @@
 
 You can attach `AccountManagementFromVercel` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: December 11, 2025, 16:34 UTC

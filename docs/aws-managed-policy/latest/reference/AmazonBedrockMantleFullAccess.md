@@ -8,9 +8,7 @@
 
 You can attach `AmazonBedrockMantleFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: December 04, 2025, 07:19 UTC

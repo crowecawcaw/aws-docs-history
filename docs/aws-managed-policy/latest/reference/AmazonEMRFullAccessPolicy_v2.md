@@ -8,9 +8,7 @@
 
 You can attach `AmazonEMRFullAccessPolicy_v2` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: March 12, 2021, 01:50 UTC

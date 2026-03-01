@@ -8,9 +8,7 @@
 
 You can attach `AmazonLookoutMetricsFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: May 07, 2021, 00:43 UTC

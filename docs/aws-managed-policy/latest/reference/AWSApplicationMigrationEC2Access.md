@@ -8,9 +8,7 @@
 
 You can attach `AWSApplicationMigrationEC2Access` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: April 07, 2021, 07:05 UTC

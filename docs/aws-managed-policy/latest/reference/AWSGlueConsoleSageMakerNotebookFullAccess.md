@@ -8,9 +8,7 @@
 
 You can attach `AWSGlueConsoleSageMakerNotebookFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: October 05, 2018, 17:52 UTC

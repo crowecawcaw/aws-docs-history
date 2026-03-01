@@ -8,9 +8,7 @@
 
 You can attach `AWSPurchaseOrdersServiceRolePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: May 06, 2020, 18:15 UTC

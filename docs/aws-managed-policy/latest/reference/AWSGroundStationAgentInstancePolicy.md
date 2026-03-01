@@ -8,9 +8,7 @@
 
 You can attach `AWSGroundStationAgentInstancePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: March 29, 2023, 15:23 UTC

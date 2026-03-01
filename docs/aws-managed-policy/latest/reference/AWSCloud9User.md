@@ -8,9 +8,7 @@
 
 You can attach `AWSCloud9User` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 30, 2017, 16:16 UTC

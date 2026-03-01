@@ -8,9 +8,7 @@
 
 You can attach `AmazonSSMManagedEC2InstanceDefaultPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: August 30, 2022, 20:54 UTC

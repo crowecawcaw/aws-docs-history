@@ -8,9 +8,7 @@
 
 You can attach `AWSOutpostsAuthorizeServerPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: January 04, 2023, 19:23 UTC

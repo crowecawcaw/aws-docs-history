@@ -8,9 +8,7 @@
 
 You can attach `AmazonElasticTranscoder_JobsSubmitter` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: June 07, 2018, 21:12 UTC

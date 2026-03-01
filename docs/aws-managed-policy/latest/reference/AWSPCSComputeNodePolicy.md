@@ -8,9 +8,7 @@
 
 You can attach `AWSPCSComputeNodePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: June 23, 2025, 18:07 UTC

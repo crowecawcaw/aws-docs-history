@@ -8,9 +8,7 @@
 
 You can attach `AmazonS3TablesLakeFormationServiceRole` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: June 19, 2025, 19:07 UTC

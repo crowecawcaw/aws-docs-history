@@ -8,9 +8,7 @@
 
 You can attach `AWSTrustedAdvisorPriorityFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: August 16, 2022, 16:08 UTC

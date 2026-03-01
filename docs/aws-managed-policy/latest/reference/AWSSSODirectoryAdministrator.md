@@ -8,9 +8,7 @@
 
 You can attach `AWSSSODirectoryAdministrator` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: October 31, 2018, 23:54 UTC

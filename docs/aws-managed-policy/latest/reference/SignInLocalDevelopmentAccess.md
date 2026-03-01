@@ -8,9 +8,7 @@
 
 You can attach `SignInLocalDevelopmentAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 19, 2025, 18:34 UTC

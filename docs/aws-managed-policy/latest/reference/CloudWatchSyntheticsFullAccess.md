@@ -8,9 +8,7 @@
 
 You can attach `CloudWatchSyntheticsFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 25, 2019, 17:39 UTC

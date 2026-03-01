@@ -8,9 +8,7 @@
 
 You can attach `AmazonLexReadOnly` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: April 11, 2017, 23:13 UTC

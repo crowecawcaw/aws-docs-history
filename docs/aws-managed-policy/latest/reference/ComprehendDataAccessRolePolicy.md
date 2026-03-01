@@ -8,9 +8,7 @@
 
 You can attach `ComprehendDataAccessRolePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: March 06, 2019, 22:28 UTC

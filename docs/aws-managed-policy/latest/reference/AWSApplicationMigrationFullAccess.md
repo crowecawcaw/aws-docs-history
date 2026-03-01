@@ -8,9 +8,7 @@
 
 You can attach `AWSApplicationMigrationFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: April 07, 2021, 06:56 UTC

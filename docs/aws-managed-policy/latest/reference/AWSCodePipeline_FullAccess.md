@@ -8,9 +8,7 @@
 
 You can attach `AWSCodePipeline_FullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: August 03, 2020, 22:38 UTC

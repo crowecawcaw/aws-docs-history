@@ -8,9 +8,7 @@
 
 You can attach `AmazonEKSVPCResourceController` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: August 12, 2020, 00:55 UTC

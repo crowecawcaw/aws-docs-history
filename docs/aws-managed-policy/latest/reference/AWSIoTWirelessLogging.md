@@ -8,9 +8,7 @@
 
 You can attach `AWSIoTWirelessLogging` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: December 15, 2020, 15:32 UTC

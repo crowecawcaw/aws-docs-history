@@ -8,9 +8,7 @@
 
 You can attach `AWSStepFunctionsReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: January 11, 2017, 21:46 UTC

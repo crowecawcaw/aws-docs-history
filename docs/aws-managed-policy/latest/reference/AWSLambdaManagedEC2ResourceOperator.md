@@ -8,9 +8,7 @@
 
 You can attach `AWSLambdaManagedEC2ResourceOperator` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 30, 2025, 08:34 UTC

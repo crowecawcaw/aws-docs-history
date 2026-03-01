@@ -8,9 +8,7 @@
 
 You can attach `AWSIoTConfigReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: October 27, 2015, 21:52 UTC

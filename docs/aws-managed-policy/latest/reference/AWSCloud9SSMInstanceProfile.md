@@ -8,9 +8,7 @@
 
 You can attach `AWSCloud9SSMInstanceProfile` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: May 14, 2020, 11:40 UTC

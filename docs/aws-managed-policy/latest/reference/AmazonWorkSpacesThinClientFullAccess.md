@@ -8,9 +8,7 @@
 
 You can attach `AmazonWorkSpacesThinClientFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: August 09, 2024, 07:25 UTC

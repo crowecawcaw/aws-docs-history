@@ -8,9 +8,7 @@
 
 You can attach `AmazonWorkSpacesThinClientReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: July 19, 2024, 08:50 UTC

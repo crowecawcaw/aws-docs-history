@@ -8,9 +8,7 @@
 
 You can attach `AWSApplicationMigrationMGHAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: April 07, 2021, 07:10 UTC

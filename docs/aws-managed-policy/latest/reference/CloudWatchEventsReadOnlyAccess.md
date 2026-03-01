@@ -8,9 +8,7 @@
 
 You can attach `CloudWatchEventsReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: January 14, 2016, 18:27 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AWSDeepLensServiceRolePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: November 29, 2017, 15:46 UTC

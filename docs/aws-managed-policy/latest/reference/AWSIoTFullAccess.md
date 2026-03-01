@@ -8,9 +8,7 @@
 
 You can attach `AWSIoTFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: October 08, 2015, 15:19 UTC

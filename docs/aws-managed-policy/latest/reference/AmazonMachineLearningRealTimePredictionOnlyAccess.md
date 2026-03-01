@@ -8,9 +8,7 @@
 
 You can attach `AmazonMachineLearningRealTimePredictionOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: April 09, 2015, 17:44 UTC

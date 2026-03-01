@@ -8,9 +8,7 @@
 
 You can attach `AWSIoTFleetHubFederationAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: December 15, 2020, 08:08 UTC

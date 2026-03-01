@@ -8,9 +8,7 @@
 
 You can attach `AmazonEC2ContainerServiceEventsRole` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: May 30, 2017, 16:51 UTC

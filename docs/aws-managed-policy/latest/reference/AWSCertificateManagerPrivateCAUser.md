@@ -8,9 +8,7 @@
 
 You can attach `AWSCertificateManagerPrivateCAUser` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: October 23, 2018, 16:53 UTC

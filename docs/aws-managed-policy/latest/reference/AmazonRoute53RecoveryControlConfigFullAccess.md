@@ -8,9 +8,7 @@
 
 You can attach `AmazonRoute53RecoveryControlConfigFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: August 18, 2021, 17:48 UTC

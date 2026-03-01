@@ -8,9 +8,7 @@
 
 You can attach `AmazonSecurityLakeAdministrator` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: May 30, 2023, 22:04 UTC

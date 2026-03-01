@@ -8,9 +8,7 @@
 
 You can attach `AmazonEventBridgeFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: July 11, 2019, 14:08 UTC

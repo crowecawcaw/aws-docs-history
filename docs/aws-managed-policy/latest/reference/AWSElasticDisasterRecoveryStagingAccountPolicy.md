@@ -8,9 +8,7 @@
 
 You can attach `AWSElasticDisasterRecoveryStagingAccountPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: May 26, 2022, 09:49 UTC

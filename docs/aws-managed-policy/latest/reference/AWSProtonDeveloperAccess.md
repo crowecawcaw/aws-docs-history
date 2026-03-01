@@ -8,9 +8,7 @@
 
 You can attach `AWSProtonDeveloperAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: February 17, 2021, 19:02 UTC

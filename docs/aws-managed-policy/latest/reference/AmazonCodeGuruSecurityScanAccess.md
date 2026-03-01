@@ -8,9 +8,7 @@
 
 You can attach `AmazonCodeGuruSecurityScanAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: May 09, 2023, 20:54 UTC

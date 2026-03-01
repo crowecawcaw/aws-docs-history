@@ -8,9 +8,7 @@
 
 You can attach `AWSSecurityHubOrganizationsAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: March 15, 2021, 20:53 UTC

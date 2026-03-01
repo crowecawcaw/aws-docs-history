@@ -8,9 +8,7 @@
 
 You can attach `AWSCompromisedKeyQuarantine` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: August 11, 2020, 18:04 UTC

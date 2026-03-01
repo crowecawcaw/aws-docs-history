@@ -8,19 +8,17 @@
 
 You can attach `AWSBackupServiceRolePolicyForBackup` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: January 10, 2019, 21:01 UTC
-- **Edited time:** February 12, 2026, 17:59 UTC
+- **Edited time:** February 23, 2026, 19:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup`
 
 ## Policy version
 
-**Policy version:** v29 (default)
+**Policy version:** v30 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -642,6 +640,26 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "StringEquals" : {
           "eks:policyArn" : "arn:aws:eks::aws:cluster-access-policy/AWSBackupFullAccessPolicyForBackup",
           "eks:accessScope" : "cluster"
+        }
+      }
+    },
+    {
+      "Sid" : "GuardDutyMalwareScanPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "guardduty:StartMalwareScan",
+        "guardduty:GetMalwareScan"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "GuardDutyMalwareScanIAMPassPermissions",
+      "Effect" : "Allow",
+      "Action" : "iam:PassRole",
+      "Resource" : "arn:aws:iam::*:role/*",
+      "Condition" : {
+        "StringEquals" : {
+          "iam:PassedToService" : "malware-protection.guardduty.amazonaws.com"
         }
       }
     }

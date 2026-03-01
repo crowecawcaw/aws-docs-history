@@ -8,9 +8,7 @@
 
 You can attach `AmazonSageMakerServiceCatalogProductsGlueServiceRolePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: February 22, 2022, 09:51 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AWSMSKReplicatorExecutionRole` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: December 06, 2023, 00:07 UTC

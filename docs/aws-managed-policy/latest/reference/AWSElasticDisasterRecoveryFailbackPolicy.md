@@ -8,9 +8,7 @@
 
 You can attach `AWSElasticDisasterRecoveryFailbackPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: November 17, 2021, 10:41 UTC

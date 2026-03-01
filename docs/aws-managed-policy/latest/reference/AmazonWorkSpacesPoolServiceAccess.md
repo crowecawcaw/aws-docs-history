@@ -8,9 +8,7 @@
 
 You can attach `AmazonWorkSpacesPoolServiceAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: June 27, 2024, 16:21 UTC

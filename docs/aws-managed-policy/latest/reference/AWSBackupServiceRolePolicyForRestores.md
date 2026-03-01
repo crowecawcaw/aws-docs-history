@@ -8,9 +8,7 @@
 
 You can attach `AWSBackupServiceRolePolicyForRestores` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: January 12, 2019, 00:23 UTC

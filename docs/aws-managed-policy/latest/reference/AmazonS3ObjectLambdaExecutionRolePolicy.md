@@ -8,9 +8,7 @@
 
 You can attach `AmazonS3ObjectLambdaExecutionRolePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: August 18, 2021, 10:07 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AmazonSageMakerGeospatialExecutionRole` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: November 30, 2022, 10:08 UTC

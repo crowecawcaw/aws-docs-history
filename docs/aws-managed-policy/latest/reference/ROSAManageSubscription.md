@@ -8,9 +8,7 @@
 
 You can attach `ROSAManageSubscription` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: April 11, 2022, 20:58 UTC

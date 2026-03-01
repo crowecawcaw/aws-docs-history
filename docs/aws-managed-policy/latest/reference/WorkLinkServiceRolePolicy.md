@@ -8,9 +8,7 @@
 
 You can attach `WorkLinkServiceRolePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: January 23, 2019, 19:03 UTC

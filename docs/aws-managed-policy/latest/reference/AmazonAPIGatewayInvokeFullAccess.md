@@ -8,9 +8,7 @@
 
 You can attach `AmazonAPIGatewayInvokeFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: July 09, 2015, 17:36 UTC

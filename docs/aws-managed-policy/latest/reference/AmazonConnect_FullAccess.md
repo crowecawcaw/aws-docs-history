@@ -8,9 +8,7 @@
 
 You can attach `AmazonConnect_FullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 20, 2020, 19:54 UTC

@@ -8,9 +8,7 @@
 
 You can attach `CloudWatchInternetMonitorReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 12, 2024, 23:11 UTC

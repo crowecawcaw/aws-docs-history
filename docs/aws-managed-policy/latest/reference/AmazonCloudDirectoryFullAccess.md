@@ -8,9 +8,7 @@
 
 You can attach `AmazonCloudDirectoryFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: February 25, 2017, 00:41 UTC

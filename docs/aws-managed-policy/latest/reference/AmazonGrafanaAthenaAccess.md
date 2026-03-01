@@ -8,9 +8,7 @@
 
 You can attach `AmazonGrafanaAthenaAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: November 22, 2021, 17:11 UTC

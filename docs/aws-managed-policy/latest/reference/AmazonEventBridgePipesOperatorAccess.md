@@ -8,9 +8,7 @@
 
 You can attach `AmazonEventBridgePipesOperatorAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: December 01, 2022, 17:04 UTC

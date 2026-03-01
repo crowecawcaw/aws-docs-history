@@ -8,9 +8,7 @@
 
 You can attach `AWSAppMeshPreviewEnvoyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: August 05, 2019, 23:32 UTC

@@ -8,9 +8,7 @@
 
 You can attach `GitLabDuoWithAmazonQPermissionsPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: April 16, 2025, 16:37 UTC

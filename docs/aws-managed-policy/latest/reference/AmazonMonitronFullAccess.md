@@ -8,9 +8,7 @@
 
 You can attach `AmazonMonitronFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: December 02, 2020, 22:40 UTC

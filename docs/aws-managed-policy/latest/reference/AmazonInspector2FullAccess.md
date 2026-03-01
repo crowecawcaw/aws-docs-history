@@ -8,9 +8,7 @@
 
 You can attach `AmazonInspector2FullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 29, 2021, 19:10 UTC

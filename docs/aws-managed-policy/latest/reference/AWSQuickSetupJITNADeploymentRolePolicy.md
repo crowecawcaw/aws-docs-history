@@ -8,9 +8,7 @@
 
 You can attach `AWSQuickSetupJITNADeploymentRolePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: April 17, 2025, 09:07 UTC

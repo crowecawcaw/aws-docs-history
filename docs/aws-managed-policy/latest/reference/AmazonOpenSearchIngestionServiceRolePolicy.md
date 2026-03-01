@@ -9,9 +9,7 @@
 This policy is attached to a service-linked role that allows the service to perform actions on
 your behalf. You cannot attach this policy to your users, groups, or roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service-linked role policy
 - **Creation time**: November 18, 2022, 16:49 UTC

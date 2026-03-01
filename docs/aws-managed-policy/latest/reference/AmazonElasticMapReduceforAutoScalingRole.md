@@ -8,9 +8,7 @@
 
 You can attach `AmazonElasticMapReduceforAutoScalingRole` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: November 18, 2016, 01:09 UTC

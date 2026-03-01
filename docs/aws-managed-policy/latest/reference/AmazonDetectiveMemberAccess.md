@@ -8,9 +8,7 @@
 
 You can attach `AmazonDetectiveMemberAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: January 17, 2023, 15:16 UTC

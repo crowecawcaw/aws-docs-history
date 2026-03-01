@@ -8,9 +8,7 @@
 
 You can attach `AmazonSageMakerCanvasDataPrepFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: October 27, 2023, 22:56 UTC

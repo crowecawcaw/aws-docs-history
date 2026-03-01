@@ -8,9 +8,7 @@
 
 You can attach `AWSEC2VssSnapshotPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: March 27, 2024, 16:32 UTC

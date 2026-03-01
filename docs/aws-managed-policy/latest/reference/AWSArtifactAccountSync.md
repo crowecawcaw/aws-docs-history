@@ -8,9 +8,7 @@
 
 You can attach `AWSArtifactAccountSync` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: April 10, 2018, 23:04 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AWSGlueServiceNotebookRole` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: August 14, 2017, 13:37 UTC

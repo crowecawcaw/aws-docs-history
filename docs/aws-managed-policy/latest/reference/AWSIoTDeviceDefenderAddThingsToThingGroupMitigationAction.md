@@ -8,9 +8,7 @@
 
 You can attach `AWSIoTDeviceDefenderAddThingsToThingGroupMitigationAction` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: August 07, 2019, 17:55 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AWSIoTSiteWiseConsoleFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: May 31, 2019, 21:37 UTC

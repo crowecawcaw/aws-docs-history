@@ -8,9 +8,7 @@
 
 You can attach `AWSCostAndUsageReportAutomationPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: November 01, 2021, 21:27 UTC

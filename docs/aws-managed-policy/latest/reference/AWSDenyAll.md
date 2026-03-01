@@ -8,9 +8,7 @@
 
 You can attach `AWSDenyAll` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: May 01, 2019, 22:36 UTC

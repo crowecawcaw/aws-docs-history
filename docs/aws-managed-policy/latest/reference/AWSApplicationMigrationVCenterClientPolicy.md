@@ -8,9 +8,7 @@
 
 You can attach `AWSApplicationMigrationVCenterClientPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 08, 2021, 12:53 UTC

@@ -8,19 +8,17 @@
 
 You can attach `SageMakerStudioProjectRoleMachineLearningPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 20, 2024, 21:55 UTC
-- **Edited time:** February 12, 2026, 18:02 UTC
+- **Edited time:** February 26, 2026, 21:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SageMakerStudioProjectRoleMachineLearningPolicy`
 
 ## Policy version
 
-**Policy version:** v37 (default)
+**Policy version:** v38 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -1141,6 +1139,144 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ram:GetResourceShareInvitations"
       ],
       "Resource" : "*"
+    },
+    {
+      "Sid" : "MLAccountDiscovery",
+      "Effect" : "Allow",
+      "Action" : [
+        "airflow-serverless:ListWorkflow*",
+        "airflow-serverless:ListTask*"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AirflowServerlessPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "airflow-serverless:CreateWorkflow",
+        "airflow-serverless:DeleteWorkflow",
+        "airflow-serverless:GetTaskInstance",
+        "airflow-serverless:GetWorkflow",
+        "airflow-serverless:GetWorkflowRun",
+        "airflow-serverless:ListTagsForResource",
+        "airflow-serverless:StartWorkflowRun",
+        "airflow-serverless:StopWorkflowRun",
+        "airflow-serverless:TagResource",
+        "airflow-serverless:UntagResource",
+        "airflow-serverless:UpdateWorkflow"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}"
+        }
+      }
+    },
+    {
+      "Sid" : "AirflowCloudwatchLogsActions",
+      "Effect" : "Allow",
+      "Action" : [
+        "logs:CreateLogStream",
+        "logs:CreateLogGroup",
+        "logs:PutLogEvents",
+        "logs:GetLogEvents",
+        "logs:GetLogRecord",
+        "logs:GetLogGroupFields",
+        "logs:GetQueryResults"
+      ],
+      "Resource" : [
+        "arn:aws:logs:*:*:log-group:/aws/mwaa-serverless/${aws:PrincipalTag/AmazonDataZoneDomain}-${aws:PrincipalTag/AmazonDataZoneProject}/*"
+      ]
+    },
+    {
+      "Sid" : "WorkflowsCreateGrant",
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:CreateGrant"
+      ],
+      "Resource" : "arn:aws:kms:*:*:key/${aws:PrincipalTag/KmsKeyId}",
+      "Condition" : {
+        "StringLike" : {
+          "kms:ViaService" : "airflow-serverless.*.amazonaws.com"
+        },
+        "ForAnyValue:StringEquals" : {
+          "kms:EncryptionContextKeys" : "aws:airflow-serverless:workflow-arn"
+        },
+        "ForAllValues:StringEquals" : {
+          "kms:GrantOperations" : [
+            "Decrypt",
+            "Encrypt",
+            "GenerateDataKey",
+            "GenerateDataKeyWithoutPlaintext",
+            "RetireGrant"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "WorkflowsKms",
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:Decrypt",
+        "kms:Encrypt",
+        "kms:GenerateDataKey",
+        "kms:GenerateDataKeyWithoutPlaintext"
+      ],
+      "Resource" : "arn:aws:kms:*:*:key/${aws:PrincipalTag/KmsKeyId}",
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "kms:EncryptionContextKeys" : "aws:airflow-serverless:workflow-arn"
+        }
+      }
+    },
+    {
+      "Sid" : "CreateSLR",
+      "Effect" : "Allow",
+      "Action" : "iam:CreateServiceLinkedRole",
+      "Resource" : [
+        "arn:aws:iam::*:role/aws-service-role/airflow-serverless.amazonaws.com/AWSServiceRoleForAmazonMWAAServerless"
+      ]
+    },
+    {
+      "Sid" : "DataZoneUserPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "datazone:GenerateCode",
+        "datazone:SendMessage",
+        "datazone:*Conversation*",
+        "datazone:*Cell*",
+        "datazone:*Notebook*"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AthenaSession",
+      "Effect" : "Allow",
+      "Action" : [
+        "athena:GetSessionEndpoint",
+        "athena:GetResourceDashboard",
+        "athena:TagResource"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}"
+        }
+      }
+    },
+    {
+      "Sid" : "SQLWorkBenchMLActionsWithResourceType",
+      "Effect" : "Allow",
+      "Action" : [
+        "sqlworkbench:GetConnection"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}",
+          "aws:ResourceTag/sqlworkbench-resource-owner" : "${aws:userid}"
+        }
+      }
     }
   ]
 }

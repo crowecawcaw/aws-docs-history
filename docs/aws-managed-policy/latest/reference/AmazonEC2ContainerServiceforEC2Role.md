@@ -8,9 +8,7 @@
 
 You can attach `AmazonEC2ContainerServiceforEC2Role` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: March 19, 2015, 18:45 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AWSMobileHub_FullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: January 05, 2016, 19:56 UTC

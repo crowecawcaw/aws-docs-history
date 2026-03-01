@@ -8,9 +8,7 @@
 
 You can attach `AWSRolesAnywhereReadOnly` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: July 16, 2025, 15:07 UTC

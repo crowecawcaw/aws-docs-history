@@ -8,9 +8,7 @@
 
 You can attach `SageMakerStudioDomainServiceRolePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: November 20, 2024, 21:56 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AmazonSageMakerCanvasForecastAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: August 24, 2022, 20:04 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AmazonSageMakerModelRegistryFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: April 13, 2023, 05:20 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AWSQuickSetupStartSSMAssociationsExecutionPolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: August 08, 2025, 12:04 UTC

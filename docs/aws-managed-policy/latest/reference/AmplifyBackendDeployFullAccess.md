@@ -8,9 +8,7 @@
 
 You can attach `AmplifyBackendDeployFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: October 06, 2023, 21:32 UTC

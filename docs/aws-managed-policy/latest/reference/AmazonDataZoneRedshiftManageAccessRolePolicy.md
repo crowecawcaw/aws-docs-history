@@ -8,9 +8,7 @@
 
 You can attach `AmazonDataZoneRedshiftManageAccessRolePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: Service role policy
 - **Creation time**: September 22, 2023, 20:15 UTC

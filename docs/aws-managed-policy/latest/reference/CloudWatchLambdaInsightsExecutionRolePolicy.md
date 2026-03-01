@@ -8,9 +8,7 @@
 
 You can attach `CloudWatchLambdaInsightsExecutionRolePolicy` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: October 07, 2020, 19:27 UTC

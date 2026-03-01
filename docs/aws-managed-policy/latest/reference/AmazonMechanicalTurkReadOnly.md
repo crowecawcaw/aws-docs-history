@@ -8,9 +8,7 @@
 
 You can attach `AmazonMechanicalTurkReadOnly` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: December 11, 2015, 19:08 UTC

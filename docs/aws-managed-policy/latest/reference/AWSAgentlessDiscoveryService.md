@@ -8,9 +8,7 @@
 
 You can attach `AWSAgentlessDiscoveryService` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: August 02, 2016, 01:35 UTC

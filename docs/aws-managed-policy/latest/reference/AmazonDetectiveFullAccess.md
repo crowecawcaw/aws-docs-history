@@ -8,9 +8,7 @@
 
 You can attach `AmazonDetectiveFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: April 30, 2020, 17:57 UTC

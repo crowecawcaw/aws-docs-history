@@ -8,9 +8,7 @@
 
 You can attach `AWSElementalMediaConvertReadOnly` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: June 25, 2018, 19:25 UTC

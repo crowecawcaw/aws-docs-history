@@ -8,9 +8,7 @@
 
 You can attach `AWSBillingConductorReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: April 13, 2022, 18:02 UTC

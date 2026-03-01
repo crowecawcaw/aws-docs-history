@@ -8,9 +8,7 @@
 
 You can attach `AWSElementalMediaConnectFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: February 12, 2025, 20:07 UTC

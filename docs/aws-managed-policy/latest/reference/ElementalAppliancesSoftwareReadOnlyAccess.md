@@ -8,9 +8,7 @@
 
 You can attach `ElementalAppliancesSoftwareReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: April 01, 2020, 22:31 UTC

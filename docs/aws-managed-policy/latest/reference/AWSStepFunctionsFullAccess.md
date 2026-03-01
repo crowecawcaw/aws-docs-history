@@ -8,9 +8,7 @@
 
 You can attach `AWSStepFunctionsFullAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: January 11, 2017, 21:51 UTC

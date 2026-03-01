@@ -8,9 +8,7 @@
 
 You can attach `AmazonCognitoReadOnly` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: March 24, 2015, 17:06 UTC

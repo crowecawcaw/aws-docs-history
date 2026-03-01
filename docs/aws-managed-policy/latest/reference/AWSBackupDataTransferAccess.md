@@ -8,9 +8,7 @@
 
 You can attach `AWSBackupDataTransferAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 10, 2022, 22:48 UTC

@@ -8,9 +8,7 @@
 
 You can attach `AWSXrayCrossAccountSharingConfiguration` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 27, 2022, 13:46 UTC

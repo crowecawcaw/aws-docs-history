@@ -8,9 +8,7 @@
 
 You can attach `AWSCertificateManagerPrivateCAReadOnly` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: October 23, 2018, 16:57 UTC

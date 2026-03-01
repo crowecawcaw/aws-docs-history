@@ -8,9 +8,7 @@
 
 You can attach `AmazonDataZoneEnvironmentRolePermissionsBoundary` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: September 11, 2023, 23:38 UTC

@@ -8,9 +8,7 @@
 
 You can attach `GroundTruthSyntheticConsoleReadOnlyAccess` to your users, groups, and roles.
 
-## Policy
-
-details
+## Policy details
 
 - **Type**: AWS managed policy
 - **Creation time**: August 25, 2022, 15:58 UTC
