@@ -1,160 +1,220 @@
-# Oracle and PostgreSQL roles
+# Oracle transparent data encryption and PostgreSQL encryption
 
-With AWS DMS, you can manage database user roles and permissions when migrating data from Oracle or PostgreSQL databases. Database roles define the privileges and access control for database users, specifying which operations they can perform on database objects like tables, views, and stored procedures.
+With AWS DMS, you can securely migrate databases by encrypting data at rest using Oracle transparent data encryption or PostgreSQL encryption. Oracle transparent data encryption and PostgreSQL encryption are data-at-rest encryption solutions that protect sensitive data by encrypting database files, backups, and replicas.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                                     |
-| -------------------------------- | ---------------------------------- | ------------------------- | --------------------------------------------------------------------------------------------------- |
-| Three star feature compatibility | N/A                                | N/A                       | Syntax and option differences, similar functionality. There are no users, only roles in PostgreSQL. |
+| Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                                                                                   |
+| ------------------------------ | ---------------------------------- | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| Two star feature compatibility | N/A                                | N/A                       | Use [Amazon Aurora Encryption](../../../AmazonRDS/latest/UserGuide/Overview.md "../../../AmazonRDS/latest/UserGuide/Overview.md") |
 
 ## Oracle usage
 
-Oracle roles are groups of privileges granted to database users. A database role can contain individual system and object permissions as well as other roles. Database roles enable you to grant multiple database privileges to users in one operation. It is convenient to group permissions together to ease the management of privileges.
+Oracle data encryption is called Transparent Data Encryption (TDE).
 
-Oracle 12c introduces a new multi-tenant database architecture that supports the creation of both common and local roles:
+TDE encrypts the data that is saved in the tables or tablespaces and protects data stored on media (also called data at rest) in case this media or data files are stolen.
 
-- **Common roles** — Roles created at the container database (CDB) level. A common role is a database role that exists in the root and in every existing and future pluggable database (PDB). Common roles are useful for cross-container operations such as ensuring a common user has a role in every container.
-- **Local roles** — Roles created in a specific pluggable database (PDB). A local role exists only in a single pluggable database and can only contain roles and privileges that apply within the pluggable database in which the role exists.
+Oracle uses authentication, authorization, and auditing mechanisms to secure data in the database but TDE is working on the operating system level.
 
-Common role names must start with a c## prefix. Starting with Oracle 12.1.0.2, these prefixes can be changed using the COMMON_USER_PREFIX parameter.
+You don’t need to change from the application or client when encrypting data with TDE; the database manages it automatically.
 
-A `CONTAINER` clause can be added to `CREATE ROLE` statement to choose the container applicable for the role.
+TDE doesn’t protect data in transit. Use the network encryption solutions discussed.
+
+- The user who wants to configure TDE needs `ADMINISTER KEY MANAGEMENT` system privilege.
+- Data can be encrypted at column level or tablespace level.
+- Key of encryption managed in external module is called TDE root encryption.
+- There is one root key store for each database.
 
 **Examples**
 
-Create a common role.
+To store the root encryption key, you can configure Oracle software keystore.
+
+Define at `sqlnet.ora` the `ENCRYPTION_WALLET_LOCATION` parameter to define where the keystore is. You can put to key file in:
+
+- Regular filesystem.
+- Multiple DBs shared the same file.
+- ASM filesystem.
+- ASM disk group.
+
+Register in `sqlinit.ora` to put key file in ASM disk group.
 
 ```
-show con_name
-
-CON_NAME
-CDB$ROOT
-
-CREATE ROLE c##common_role;
-
-Role created.
+ENCRYPTION_WALLET_LOCATION=
+  (SOURCE=
+    (METHOD=FILE)
+      (METHOD_DATA=
+        (DIRECTORY=+ASM_file_path_of_the_diskgroup)))
 ```
 
-Create a local role.
+Create software keystores. Use one of the following types.
+
+- Password-based.
+- Auto-login.
+- Local auto-login.
+
+To create password-based software keystore, connect to a database with user that have `ADMINISTER KEY MANAGEMENT` or `SYSKM` privilege and then create the keystore.
 
 ```
-show con_name
+sqlplus c##sec_admin as syskm
+Enter password: password
+Connected.
 
-CON_NAME
-ORCLPDB
+ADMINISTER KEY MANAGEMENT CREATE KEYSTORE '/etc/ORACLE/WALLETS/orcl' IDENTIFIED BY password;
 
-CREATE ROLE local_role;
-
-Role created.
+keystore altered.
 ```
 
-Grant privileges and roles to the `local_role` database role.
+When you use the password-based software keystore, open the keystore before any TDE root encryption keys can be created or accessed in the keystore, auto-login and local auto-login are automatically opened (you can close them). Use the following query to open the keystore.
 
 ```
-GRANT RESOURCE, ALTER SYSTEM, SELECT ANY DICTIONARY TO local_role;
+sqlplus c##sec_admin as syskm
+Enter password: password
+Connected.
+
+ADMINISTER KEY MANAGEMENT SET KEYSTORE OPEN IDENTIFIED BY password;
+
+keystore altered.
 ```
 
-Database users to which the `local_role` role is granted now have all privileges that were granted to the role.
+Set the software root encryption key, the key is stored in the keystore, this key protects the TDE table keys and tablespace encryption keys.
 
-Revoke privileges and roles from the `local_role` database role.
+By default, the TDE root encryption key is a key that the TDE generates.
+
+To set the software root encryption key:
+
+- Make sure that the database is open in `READ WRITE` mode.
+- Connect with the user that has the right privileges and create the root key.
 
 ```
-REVOKE RESOURCE, ALTER SYSTEM, SELECT ANY DICTIONARY FROM local_role;
+sqlplus c##sec_admin as syskm
+Enter password: password
+Connected.
+
+ADMINISTER KEY MANAGEMENT SET KEY IDENTIFIED BY keystore_password WITH BACKUP USING 'emp_key_backup';
+
+keystore altered.
 ```
 
-For more information, see [Configuring Privilege and Role Authorization](https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/configuring-privilege-and-role-authorization.html#GUID-89CE989D-C97F-4CFD-941F-18203090A1AC "https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/configuring-privilege-and-role-authorization.html#GUID-89CE989D-C97F-4CFD-941F-18203090A1AC") in the _Oracle documentation_.
+Encrypt the data.
+
+The following data types support encryption: `BINARY_DOUBLE`, `BINARY_FLOAT`, `CHAR`, `DATE`, `INTERVAL DAY TO SECOND`, `INTERVAL YEAR TO MONTH`, `NCHAR`, `NUMBER`, `NVARCHAR2`, `RAW` (legacy or extended), `TIMESTAMP` (includes `TIMESTAMP WITH TIME ZONE` and `TIMESTAMP WITH LOCAL TIME ZONE`), `VARCHAR2` (legacy or extended).
+
+You can’t use column encryption with the following features:
+
+- Index types other than B-tree.
+- Range scan search through an index.
+- Synchronous change data capture.
+- Transportable tablespaces.
+- Columns used in foreign key constraints.
+
+To create table with encrypted column, use the following query.
+
+```
+CREATE TABLE employee (
+  FIRST_NAME VARCHAR2(128),
+  LAST_NAME VARCHAR2(128),
+  EMP_ID NUMBER,
+  SALARY NUMBER(6) ENCRYPT);
+```
+
+You can change the algorithm that encrypts the data.
+
+The `NO SALT` option encrypts without the algorithm.
+
+The `USING` clause defines the algorithm that is used to encrypt data.
+
+```
+CREATE TABLE EMPLOYEE (
+  FIRST_NAME VARCHAR2(128),
+  LAST_NAME VARCHAR2(128),
+  EMP_ID NUMBER ENCRYPT NO SALT,
+  SALARY NUMBER(6) ENCRYPT USING '3DES168');
+```
+
+To change the algorithm, use the following query.
+
+```
+ALTER TABLE EMPLOYEE REKEY USING 'SHA-1';
+```
+
+Stop encrypting column.
+
+```
+ALTER TABLE employee MODIFY (SALARY DECRYPT);
+```
+
+When you encrypt a tablespace, the TDE encrypts in the SQL layer so all the data types and indexes restrictions aren’t applied for tablespace encryption.
+
+- Make sure that COMPATIBLE initialization parameter is set to 11.2.0.0 (minimum).
+- Login to the database.
+- Create the tablespace, you can’t modify existing tablespace, only to create new one. In this example, the first TS created with AES256 algorithm and the second TS created with default algorithm.
+
+```
+sqlplus sec_admin@hrpdb
+Enter password: password
+Connected.
+
+CREATE TABLESPACE encrypt_ts
+DATAFILE '$ORACLE_HOME/dbs/encrypt_df.dbf' SIZE 1M
+ENCRYPTION USING 'AES256'
+DEFAULT STORAGE (ENCRYPT);
+CREATE TABLESPACE securespace_2
+DATAFILE '/home/user/oradata/secure01.dbf'
+SIZE 150M
+ENCRYPTION
+DEFAULT STORAGE(ENCRYPT);
+```
+
+For more information, see [Introduction to Transparent Data Encryption](https://docs.oracle.com/en/database/oracle/oracle-database/19/asoag/introduction-to-transparent-data-encryption.html#GUID-62AA9447-FDCD-4A4C-B563-32DE04D55952 "https://docs.oracle.com/en/database/oracle/oracle-database/19/asoag/introduction-to-transparent-data-encryption.html#GUID-62AA9447-FDCD-4A4C-B563-32DE04D55952") in the _Oracle documentation_.
 
 ## PostgreSQL usage
 
-In PostgreSQL, roles without login permissions are similar to database roles in Oracle. PostgreSQL roles are most similar to common roles in Oracle 12c as they are global in scope for all the databases in the instance.
+Amazon provides the ability to encrypt data at rest (data stored in persistent storage).
 
-- Roles are defined at the database cluster level and are valid in all databases in the PostgreSQL cluster. In terms of database scope, roles in PostgreSQL can be compared to common roles in Oracle 12c as they are global for all the databases and are not created in the individual scope of each database.
-- The `CREATE USER` command in PostgreSQL is an alias for the `CREATE ROLE` command with one important difference: when using `CREATE USER` command, it automatically adds `LOGIN` so the role can access to the database as a database user. As such, for creating PostgreSQL roles that are similar in function to Oracle roles, be sure to use the `CREATE ROLE` command.
+When you enable data encryption, it will automatically encrypt the database server storage, its automated backups, its read replicas and snapshots by using the AES-256 encryption algorithm.
 
-Roles with connect permissions are essentially database users.
+This encryption will be done by using [AWS KMS](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md").
 
-- A role is a database entity that can own objects and have database privileges.
-- A role can be considered a user, a group, or both depending on how it is used.
-- Roles are defined at the root level and are valid in all databases in the Amazon Aurora cluster. In terms of database scope, roles in PostgreSQL can be compared to common users in Oracle 12c as they are global for all the databases and are not created in the individual scope of a specific database.
-- Schemas are created separately from roles/users in PostgreSQL.
+Once enabled, Amazon will transparently encrypt/decrypt the data without any impact on performances or any user intervention, and there will be no need to set any additional modifications to your clients to support this encryption.
 
-| Oracle                                 | PostgreSQL                                        |
-| -------------------------------------- | ------------------------------------------------- |
-| Common database user (12c)             | Database role with Login                          |
-| Local database user (12c)              | N/A                                               |
-| Database user (11g)                    | Database role with Login                          |
-| Database role                          | Database role without Login                       |
-| Database users are identical to schema | Database users and schemas are created separately |
+### Enable encryption
 
-The `CREATE USER` command in PostgreSQL is an alias for the `CREATE ROLE` command with one important difference: the `CREATE USER` command it automatically adds the `LOGIN` argument so that the role can access the database and act as a database user.
+As part of the database settings you will be asked to enable encryption and choose a root key.
 
-**Examples**
+![Enable Encryption](images/pb-enable-encryption.png)
 
-Create a new database role called myrole1 that will allow users (to which the role is assigned) to create new databases in the PostgreSQL cluster. Note that this role will not be able to login to the database and act as a database user. In addition, grant `SELECT`, `INSERT`, and `DELETE` privileges on the `hr.employees` table to the role.
+You can choose the default key provided for the account or define a specific key based on an IAM AWS KMS ARN from your account or a different account.
 
-```
-CREATE ROLE hr_role;
-GRANT SELECT, INSERT,DELETE on hr.employees to hr_role;
-```
+### Create an encryption key
 
-Typically, a role being used as a group of permissions would not have the `LOGIN` attribute, as with the preceding example.
+**To create your own key**
 
-Create a role that can log in to the database and specify a password.
+1. Go to the AWS Key Management Service (KMS) console, choose **Customer managed keys** and create a new key.
+2. Choose relevant options and then choose **Next**.
+3. Enter **Alias** as the name of the key and choose **Next**.
 
-```
-CREATE USER test_user1 WITH PASSWORD 'password';
+![Enter Alias](images/pb-enter-alias.png) 4. Skip **Define Key Administrative Permissions** and choose **Next**. 5. Assign the key to the relevant users who will need to interact with Aurora. 6. On the last step you can see the ARN of the key and its account.
 
-CREATE ROLE test_user2 WITH LOGIN PASSWORD 'password';
-```
+![ARN of the key](images/pb-key-arn.png) 7. Choose **Finish** and the key will be listed in under customer managed keys.
 
-`CREATE USER` is identical to `CREATE ROLE`, except that it implies a login to the database.
+Now you can set the root encryption key by using the ARN of the key that you have created or picking it from the list. Proceed with this operation and finish the instance launch.
 
-When you provision a new Amazon Aurora cluster, a root user is created as the most powerful user in the database.
+### SSE-S3 encryption feature overview
 
-Create a role that can log in to the database and assign a password that has an expiration date.
+Server-side encryption (SSE) with Amazon S3-managed encryption keys (SSE-S3) uses a multi-factor encryption. Amazon S3 encrypts its objects with a unique key and in addition it also encrypts the key itself with a root key that rotates periodically.
 
-```
-CREATE ROLE test_user3 WITH LOGIN PASSWORD 'password' VALID UNTIL '2018-01-01';
-```
+SSE-S3 uses AES-256 as its encryption standard.
 
-Create a powerful role `db_admin` that provides users with the ability to create new databases. This role will not be able to log in to the database. Assign this role to the `test_user1` database user.
+After the Amazon S3 bucket was enabled with Server-side encryption, the data will be encrypted at rest, meaning that from this stage, any API call will have to include the special `x-amz-server-side-encryption` header.
 
-```
-CREATE ROLE db_admin WITH CREATEDB;
+Additionally, the AWS command line tool will also need to be added with the `--sse` switch.
 
-GRANT db_admin TO test_user1;
-```
+For more information, see [Specifying Amazon S3 encryption](../../../AmazonS3/latest/userguide/specifying-s3-encryption.md "../../../AmazonS3/latest/userguide/specifying-s3-encryption.md") in the _Amazon Simple Storage Service user guide_ and [s3](../../../cli/latest/reference/s3.md "../../../cli/latest/reference/s3.md") in the _CLI Command Reference_.
 
-Create a new `hello_world` schema and create a new table inside that schema.
+**Enable SSE-S3**
 
-```
-CREATE SCHEMA hello_world;
+1. Sign in to the AWS Glue console.
+2. Create an AWS Glue job.
+3. Define the role, bucket, and the script to use.
+4. Enable Server-Side Encryption.
+5. Submit the job and run it.
 
-CREATE TABLE hello_world.test_table1 (a int);
-```
-
-## Summary
-
-| Description                                              | Oracle                                                                                                            | PostgreSQL                                                                                                                               |
-| -------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| List all roles                                           | `<br>SELECT<br>• FROM dba_roles;<br>`                                                                             | `<br>SELECT<br>• FROM pg_roles;<br>`                                                                                                     |
-| Create a new role                                        | `<br>CREATE ROLE c##common_role;<br>or<br>CREATE ROLE local_role1;<br>`                                           | `<br>CREATE ROLE test_role;<br>`                                                                                                         |
-| Grant one role privilege to another database role        | `<br>GRANT local_role1 TO local_role2;<br>`                                                                       | `<br>grant myrole1 to myrole2;<br>`                                                                                                      |
-| Grant privileges on a database object to a database role | `<br>GRANT CREATE TABLE<br>TO local_role;<br>`                                                                    | `<br>GRANT create<br>ON DATABASE postgresdb<br>to test_user;<br>`                                                                        |
-| Grant DML permissions on a database object to a role     | `<br>hr.employees to myrole1;<br>`                                                                                | `<br>GRANT INSERT, DELETE<br>ON hr.employees<br>to myrole1;<br>`                                                                         |
-| List all database users                                  | `<br>SELECT<br>• FROM dba_users;<br>`                                                                             | `<br>SELECT<br>• FROM pg_user;<br>`                                                                                                      |
-| Create a database user                                   | `<br>CREATE USER c##test_user<br>IDENTIFIED BY test_user;<br>`                                                    | `<br>CREATE ROLE test_user<br>WITH LOGIN<br>PASSWORD 'test_user';<br>`                                                                   |
-| Change the password for a database user                  | `<br>ALTER USER c##test_user<br>IDENTIFIED BY test_user;<br>`                                                     | `<br>ALTER ROLE test_user<br>WITH LOGIN<br>PASSWORD 'test_user';<br>`                                                                    |
-| External authentication                                  | Supported via Externally Identified Users                                                                         | Currently not supported; future support for AWS Identity and Access Management (IAM) users is possible                                   |
-| Tablespace quotas                                        | `<br>Alter User c##test_user QUOTA<br>UNLIMITED ON TABLESPACE users;<br>`                                         | Not supported                                                                                                                            |
-| Grant role to user                                       | `<br>GRANT my_role TO c##test_user;<br>`                                                                          | `<br>GRANT my_role TO test_user;<br>`                                                                                                    |
-| Lock user                                                | `<br>ALTER USER c##test_user ACCOUNT<br>LOCK;<br>`                                                                | `<br>ALTER ROLE test_user WITH<br>NOLOGIN;<br>`                                                                                          |
-| Unlock user                                              | `<br>ALTER USER c##test_user ACCOUNT<br>UNLOCK;<br>`                                                              | `<br>ALTER ROLE test_user WITH LOGIN;<br>`                                                                                               |
-| Grant privileges                                         | `<br>GRANT CREATE TABLE TO c##test_user;<br>`                                                                     | `<br>GRANT create<br>ON DATABASE postgres<br>to test_user;<br>`                                                                          |
-| Default tablespace                                       | `<br>ALTER USER C##test_user default<br>tablespace users;<br>`                                                    | `<br>ALTER ROLE test_user SET default_<br>tablespace = 'pg_global';<br>`                                                                 |
-| Grant select privilege on a table                        | `<br>GRANT SELECT<br>ON hr.employees<br>to c##test_user;<br>`                                                     | `<br>GRANT SELECT<br>ON hr.employees<br>to test_user;<br>`                                                                               |
-| Grant DML privileges on a table                          | `<br>GRANT INSERT,DELETE<br>ON hr.employees<br>to c##test_user;<br>`                                              | `<br>GRANT INSERT,DELETE<br>ON hr.employees<br>to test_user;<br>`                                                                        |
-| Grant execute                                            | `<br>GRANT EXECUTE<br>ON hr.procedure_name<br>to c##test_user;<br>`                                               | `<br>grant execute<br>on function "newdate"()<br>to test_user;<br>`<br>Specify the arguments types for the function inside the brackets. |
-| Limits user connection                                   | `<br>CREATE PROFILE app_users<br>LIMIT SESSIONS_PER_USER 5;<br>ALTER USER C##TEST_USER<br>PROFILE app_users;<br>` | `<br>ALTER ROLE test_user WITH<br>CONNECTION LIMIT 5;<br>`                                                                               |
-| Create a new database schema                             | `<br>CREATE USER my_app_schema<br>IDENTIFIED BY password;<br>`                                                    | `<br>CREATE SCHEMA my_app_schema;<br>`                                                                                                   |
-
-For more information, see [CREATE ROLE](https://www.postgresql.org/docs/13/sql-createrole.html "https://www.postgresql.org/docs/13/sql-createrole.html") in the _PostgreSQL documentation_.
+From this point, you will notice that the only way to access the files will be by using AWS CLI Amazon S3 along with the `--sse` switch, or by adding `x-amz-server-side-encryption` to your API calls.
