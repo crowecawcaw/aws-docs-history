@@ -62,9 +62,7 @@ This policy includes the following permissions.
 - `iam` – Allows principals to check if the required service linked role exists, and create one if it doesn't.
 - `organizations` – Allows principals to describe the current organization and to list/enable service access for that organization.
 
-## AWS Artifact updates to AWS managed
-
-policies
+## AWS Artifact updates to AWS managed policies
 
 View details about updates to AWS managed policies for AWS Artifact since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to
