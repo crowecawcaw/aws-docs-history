@@ -4,9 +4,7 @@ Publication date: **August 15, 2022 ([Diagram history](#diagram-history "#diagra
 
 This reference architecture provides a unified user interface for customer service teams (both centralized and on location) at Travel and Hospitality companies to provide personalized customer service across all channels at every stage of their customer's journey.
 
-## Omni-channel Customer Engagement for Airlines
-
-Diagram
+## Omni-channel Customer Engagement for Airlines Diagram
 
 ![Reference architecture diagram showing how you can use AWS services together to create a user interface to provide a personalized customer experience.](images/omni-channel-customer-engagement-for-airlines.png)
 
