@@ -19,9 +19,9 @@ Output:
 ###### Example
 
 ```
-openjdk version "26.0.0" 2026-02-05
-OpenJDK Runtime Environment Corretto-26.0.0.34.1 (build 26.0.0+34-FR)
-OpenJDK 64-Bit Server VM Corretto-26.0.0.34.1 (build 26.0.0+34-FR, mixed mode)
+openjdk version "26.0.0" 2026-02-19
+OpenJDK Runtime Environment Corretto-26.0.0.35.1 (build 26.0.0+35-FR)
+OpenJDK 64-Bit Server VM Corretto-26.0.0.35.1 (build 26.0.0+35-FR, mixed mode)
 ```
 
 ## Using the Corretto ECR Instance
@@ -77,9 +77,7 @@ You can also push this image to Amazon ECR. See the
 [Pushing an Image](../../../AmazonECR/latest/userguide/docker-push-ecr-image.md "../../../AmazonECR/latest/userguide/docker-push-ecr-image.md") topic in the _Amazon Elastic Container Registry User Guide_
 for details.
 
-## Create an
-
-Image
+## Create an Image
 
 You can create a new Docker image using
 [Corretto's official Docker Hub image](https://hub.docker.com/_/amazoncorretto "https://hub.docker.com/_/amazoncorretto").

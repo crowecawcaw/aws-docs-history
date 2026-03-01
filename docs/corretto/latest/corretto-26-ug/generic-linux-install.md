@@ -1,6 +1,4 @@
-# Amazon Corretto 26 Installation Instructions for Debian-Based,
-
-RPM-Based and Alpine Linux Distributions
+# Amazon Corretto 26 Installation Instructions for Debian-Based, RPM-Based and Alpine Linux Distributions
 
 This topic describes how to install Amazon Corretto 26 on Debian-based, RPM-based and Alpine Linux
 distributions.
@@ -8,9 +6,7 @@ distributions.
 If you need to install Amazon Corretto 26 on Amazon Linux, see
 [Installing on Amazon Linux](amazon-linux-install.md "amazon-linux-install.md").
 
-## Install Amazon Corretto 26 on Debian-Based
-
-Linux
+## Install Amazon Corretto 26 on Debian-Based Linux
 
 This section describes how to install and uninstall Amazon Corretto 26 on a host or container
 running a Debian-based operating system.
@@ -53,9 +49,7 @@ If so, add the public key via:
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys A122542AB04F24E3
 ```
 
-### Download and Install the Debian
-
-Package Manually
+### Download and Install the Debian Package Manually
 
 1. Before you install the JDK, install the `java-common` package.
 
@@ -71,7 +65,7 @@ sudo apt-get update && sudo apt-get install java-common
 ###### Example
 
 ```
-sudo dpkg --install java-26-amazon-corretto-jdk_26.0.0.34-1_amd64.deb
+sudo dpkg --install java-26-amazon-corretto-jdk_26.0.0.35-1_amd64.deb
 ```
 
 ### Verify Your Installation
@@ -87,9 +81,9 @@ java -version
 Expected output for 26.0.0:
 
 ```
-openjdk version "26.0.0" 2026-02-05
-OpenJDK Runtime Environment Corretto-26.0.0.34.1 (build 26.0.0+34-FR)
-OpenJDK 64-Bit Server VM Corretto-26.0.0.34.1 (build 26.0.0+34-FR, mixed mode)
+openjdk version "26.0.0" 2026-02-19
+OpenJDK Runtime Environment Corretto-26.0.0.35.1 (build 26.0.0+35-FR)
+OpenJDK 64-Bit Server VM Corretto-26.0.0.35.1 (build 26.0.0+35-FR, mixed mode)
 ```
 
 If you see a version string that doesn't mention `Corretto`, run the
@@ -118,9 +112,7 @@ You can uninstall Amazon Corretto 26 by using the following command.
 sudo dpkg --remove java-26-amazon-corretto-jdk
 ```
 
-## Install Amazon Corretto 26 on RPM-Based
-
-Linux
+## Install Amazon Corretto 26 on RPM-Based Linux
 
 ### Using yum
 
@@ -172,7 +164,7 @@ sudo zypper install java-26-amazon-corretto-devel
 ###### Example
 
 ```
-sudo yum localinstall java-26-amazon-corretto-devel-26.0.0.34-1.x86_64.rpm
+sudo yum localinstall java-26-amazon-corretto-devel-26.0.0.35-1.x86_64.rpm
 ```
 
 ### Verify Your Installation
@@ -188,9 +180,9 @@ java -version
 Expected output for 26.0.0:
 
 ```
-openjdk version "26.0.0" 2026-02-05
-OpenJDK Runtime Environment Corretto-26.0.0.34.1 (build 26.0.0+34-FR)
-OpenJDK 64-Bit Server VM Corretto-26.0.0.34.1 (build 26.0.0+34-FR, mixed mode)
+openjdk version "26.0.0" 2026-02-19
+OpenJDK Runtime Environment Corretto-26.0.0.35.1 (build 26.0.0+35-FR)
+OpenJDK 64-Bit Server VM Corretto-26.0.0.35.1 (build 26.0.0+35-FR, mixed mode)
 ```
 
 If you see a version string that doesn't mention `Corretto`,
@@ -218,9 +210,7 @@ You can uninstall Amazon Corretto 26 by using the following command:
 sudo yum remove java-26-amazon-corretto-devel
 ```
 
-## Install Amazon Corretto 26 on Alpine
-
-Linux
+## Install Amazon Corretto 26 on Alpine Linux
 
 ### Using Alpine Package Manager
 
@@ -243,14 +233,6 @@ command:
 
 ```
 apk add amazon-corretto-26
-```
-
-You can install Corretto 26 JRE by running
-
-###### Example
-
-```
-apk add amazon-corretto-26-jre
 ```
 
 ### Uninstall Amazon Corretto 26
