@@ -1,8 +1,6 @@
 AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/ "https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/")
 
-# Staging Data and Tables with Pipeline
-
-Activities
+# Staging Data and Tables with Pipeline Activities
 
 AWS Data Pipeline can stage input and output data in your pipelines to make it easier to use
 certain activities, such as `ShellCommandActivity` and
@@ -174,9 +172,7 @@ is not supported for `DynamoDBDataNode`.
 ...
 ```
 
-## Table Staging with Hive and Staging-Unsupported Data
-
-Nodes
+## Table Staging with Hive and Staging-Unsupported Data Nodes
 
 Consider a scenario using a `HiveActivity` with
 `DynamoDBDataNode` as data input and an `S3DataNode`

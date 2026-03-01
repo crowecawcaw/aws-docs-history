@@ -8,24 +8,17 @@ solve them.
 ###### Contents
 
 - [Pipeline Stuck in Pending Status](#dp-pipeline-doesnt-start "#dp-pipeline-doesnt-start")
-- [Pipeline Component Stuck in Waiting for Runner
-  Status](#dp-waiting-for-runner "#dp-waiting-for-runner")
-- [Pipeline Component Stuck in
-  WAITING_ON_DEPENDENCIES Status](#dp-runs-stay-pending "#dp-runs-stay-pending")
+- [Pipeline Component Stuck in Waiting for Runner Status](#dp-waiting-for-runner "#dp-waiting-for-runner")
+- [Pipeline Component Stuck in WAITING_ON_DEPENDENCIES Status](#dp-runs-stay-pending "#dp-runs-stay-pending")
 - [Run Doesn't Start When Scheduled](#dp-run-doesnt-start-scheduled "#dp-run-doesnt-start-scheduled")
 - [Pipeline Components Run in Wrong Order](#dp-out-of-order "#dp-out-of-order")
-- [EMR Cluster Fails With Error: The security token
-  included in the request is invalid](#dp-securitytoken "#dp-securitytoken")
-- [Insufficient Permissions to Access
-  Resources](#dp-insufficient-permissions "#dp-insufficient-permissions")
-- [Status Code: 400 Error Code:
-  PipelineNotFoundException](#dp-error-code-400 "#dp-error-code-400")
+- [EMR Cluster Fails With Error: The security token included in the request is invalid](#dp-securitytoken "#dp-securitytoken")
+- [Insufficient Permissions to Access Resources](#dp-insufficient-permissions "#dp-insufficient-permissions")
+- [Status Code: 400 Error Code: PipelineNotFoundException](#dp-error-code-400 "#dp-error-code-400")
 - [Creating a Pipeline Causes a Security Token Error](#dp-bad-token "#dp-bad-token")
 - [Cannot See Pipeline Details in the Console](#dp-no-details-shown "#dp-no-details-shown")
-- [Error in remote runner Status Code: 404, AWS
-  Service: Amazon S3](#dp-error-code-s3-404 "#dp-error-code-s3-404")
-- [Access Denied - Not Authorized to Perform Function
-  datapipeline:](#dp-access-denied "#dp-access-denied")
+- [Error in remote runner Status Code: 404, AWS Service: Amazon S3](#dp-error-code-s3-404 "#dp-error-code-s3-404")
+- [Access Denied - Not Authorized to Perform Function datapipeline:](#dp-access-denied "#dp-access-denied")
 - [Older Amazon EMR AMIs May Create False Data for Large CSV Files](#AMIs-false-data-large-CSV "#AMIs-false-data-large-CSV")
 - [Increasing AWS Data Pipeline Limits](#dp-increase-limits "#dp-increase-limits")
 
@@ -48,9 +41,7 @@ Ensure that the pipeline definition is complete, check your closing braces, veri
 required commas, check for missing references, and other syntax errors. It is best
 to use a text editor that can visually validate the syntax of JSON files.
 
-## Pipeline Component Stuck in Waiting for Runner
-
-Status
+## Pipeline Component Stuck in Waiting for Runner Status
 
 If your pipeline is in the SCHEDULED state and one or more tasks appear stuck in
 the WAITING_FOR_RUNNER state, ensure that you set a valid value for either the
@@ -73,9 +64,7 @@ no visible errors, but Task Runner polls the wrong location due to the differenc
 in credentials, or polls the correct location with insufficient permissions to
 identify and run the work specified by the pipeline definition.
 
-## Pipeline Component Stuck in
-
-WAITING_ON_DEPENDENCIES Status
+## Pipeline Component Stuck in WAITING_ON_DEPENDENCIES Status
 
 If your pipeline is in the `SCHEDULED` state and one or more tasks
 appear stuck in the `WAITING_ON_DEPENDENCIES` state, make sure your
@@ -155,15 +144,11 @@ Verify that you are using the `dependsOn` field populated with a
 reference to the correct prerequisite pipeline components, and that all the
 necessary pointers between components are present to achieve the order you require.
 
-## EMR Cluster Fails With Error: The security token
-
-included in the request is invalid
+## EMR Cluster Fails With Error: The security token included in the request is invalid
 
 Verify your IAM roles, policies, and trust relationships as described in [IAM Roles for AWS Data Pipeline](dp-iam-roles.md "dp-iam-roles.md").
 
-## Insufficient Permissions to Access
-
-Resources
+## Insufficient Permissions to Access Resources
 
 Permissions that you set on IAM roles determine whether AWS Data Pipeline can access your
 EMR clusters and EC2 instances to run your pipelines. Additionally, IAM provides
@@ -174,9 +159,7 @@ you. If you encounter problems, especially those involving resources that you ca
 access manually but AWS Data Pipeline cannot, verify your IAM roles, policies, and trust
 relationships as described in [IAM Roles for AWS Data Pipeline](dp-iam-roles.md "dp-iam-roles.md").
 
-## Status Code: 400 Error Code:
-
-PipelineNotFoundException
+## Status Code: 400 Error Code: PipelineNotFoundException
 
 This error means that your IAM default roles might not have the required
 permissions necessary for AWS Data Pipeline to function correctly. For more information, see
@@ -199,9 +182,7 @@ past, which the default date filter may not show. To see the pipeline details,
 change your date filter to ensure that the scheduled pipeline start date fits within
 the date range filter.
 
-## Error in remote runner Status Code: 404, AWS
-
-Service: Amazon S3
+## Error in remote runner Status Code: 404, AWS Service: Amazon S3
 
 This error means that Task Runner could not access your files in Amazon S3. Verify
 that:
@@ -210,9 +191,7 @@ that:
 - The Amazon S3 bucket that you are trying to access exists
 - You are authorized to access the Amazon S3 bucket
 
-## Access Denied - Not Authorized to Perform Function
-
-datapipeline:
+## Access Denied - Not Authorized to Perform Function datapipeline:
 
 In the Task Runner logs, you may see an error that is similar to the following:
 

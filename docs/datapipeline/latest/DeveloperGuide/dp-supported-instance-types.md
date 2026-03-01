@@ -1,8 +1,6 @@
 AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/ "https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/")
 
-# Supported Instance Types for Pipeline Work
-
-Activities
+# Supported Instance Types for Pipeline Work Activities
 
 When AWS Data Pipeline runs a pipeline, it compiles the pipeline components to create a set of
 actionable Amazon EC2 instances. Each instance contains all the information for performing a
@@ -26,8 +24,6 @@ supported. For information about Regions where AWS Data Pipeline is supported, s
 
 ###### Contents
 
-- [Default
-  Amazon EC2 Instances by AWS Region](dp-ec2-default-instance-types.md "dp-ec2-default-instance-types.md")
-- [Additional Supported Amazon EC2
-  Instances](dp-ec2-supported-instance-types.md "dp-ec2-supported-instance-types.md")
+- [Default Amazon EC2 Instances by AWS Region](dp-ec2-default-instance-types.md "dp-ec2-default-instance-types.md")
+- [Additional Supported Amazon EC2 Instances](dp-ec2-supported-instance-types.md "dp-ec2-supported-instance-types.md")
 - [Supported Amazon EC2 Instances for Amazon EMR Clusters](dp-emr-supported-instance-types.md "dp-emr-supported-instance-types.md")

@@ -24,10 +24,8 @@ Before you begin, you must complete the following steps:
    [IAM Roles for AWS Data Pipeline](dp-iam-roles.md "dp-iam-roles.md").
 3. Set up the `COPY` command in Amazon Redshift, since you will need to have
    these same options working when you perform the copying within AWS Data Pipeline. For
-   information, see [Before You Begin: Configure COPY Options and Load
-   Data](dp-learn-copy-redshift.md "dp-learn-copy-redshift.md").
-4. Set up an Amazon Redshift database. For more information, see [Set up Pipeline, Create a Security Group, and
-   Create an Amazon Redshift Cluster](dp-copydata-redshift-prereq.md "dp-copydata-redshift-prereq.md").
+   information, see [Before You Begin: Configure COPY Options and Load Data](dp-learn-copy-redshift.md "dp-learn-copy-redshift.md").
+4. Set up an Amazon Redshift database. For more information, see [Set up Pipeline, Create a Security Group, and Create an Amazon Redshift Cluster](dp-copydata-redshift-prereq.md "dp-copydata-redshift-prereq.md").
 
 ###### Tasks
 

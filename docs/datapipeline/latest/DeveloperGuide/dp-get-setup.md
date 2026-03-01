@@ -111,9 +111,7 @@ JSON
 
 The following procedure demonstrates how to create an IAM group, attach the **AWSDataPipeline_FullAccess** managed policy to the group, and then add users to the group. You can use this procedure for any inline policy
 
-###### To create a user group `DataPipelineDevelopers` and attach the
-
-**AWSDataPipeline_FullAccess** policy
+###### To create a user group `DataPipelineDevelopers` and attach the **AWSDataPipeline_FullAccess** policy
 
 1. Open the IAM console at
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").

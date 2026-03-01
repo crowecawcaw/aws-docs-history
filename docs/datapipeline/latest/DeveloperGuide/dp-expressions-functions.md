@@ -36,8 +36,7 @@ AWS Data Pipeline supports both integers and floating-point values.
 An object in the pipeline definition. This can either be the current object, the
 name of an object defined elsewhere in the pipeline, or an object that lists the
 current object in a field, referenced by the `node` keyword. For more
-information about `node`, see [Referencing Fields and
-Objects](dp-pipeline-expressions.md#dp-pipeline-expressions-reference "dp-pipeline-expressions.md#dp-pipeline-expressions-reference"). For more information about
+information about `node`, see [Referencing Fields and Objects](dp-pipeline-expressions.md#dp-pipeline-expressions-reference "dp-pipeline-expressions.md#dp-pipeline-expressions-reference"). For more information about
 the pipeline object types, see [Pipeline Object Reference](dp-pipeline-objects.md "dp-pipeline-objects.md").
 
 ### Period
@@ -81,5 +80,4 @@ path.
 "filePath" : "s3://amzn-s3-demo-bucket/#{name}.csv"
 ```
 
-For more information about using expressions, see [Referencing Fields and
-Objects](dp-pipeline-expressions.md#dp-pipeline-expressions-reference "dp-pipeline-expressions.md#dp-pipeline-expressions-reference") and [Expression Evaluation](dp-pipeline-expressions.md#dp-datatype-functions "dp-pipeline-expressions.md#dp-datatype-functions").
+For more information about using expressions, see [Referencing Fields and Objects](dp-pipeline-expressions.md#dp-pipeline-expressions-reference "dp-pipeline-expressions.md#dp-pipeline-expressions-reference") and [Expression Evaluation](dp-pipeline-expressions.md#dp-datatype-functions "dp-pipeline-expressions.md#dp-datatype-functions").

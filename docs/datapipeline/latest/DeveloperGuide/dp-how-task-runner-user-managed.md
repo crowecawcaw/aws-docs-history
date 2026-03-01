@@ -1,8 +1,6 @@
 AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/ "https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/")
 
-# Executing Work on Existing Resources Using
-
-Task Runner
+# Executing Work on Existing Resources Using Task Runner
 
 You can install Task Runner on computational resources that you manage, such as an
 Amazon EC2 instance, or a physical server or workstation. Task Runner can be installed

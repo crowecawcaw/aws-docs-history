@@ -44,5 +44,4 @@ Runs a custom UNIX/Linux shell command as an activity.
 Runs a SQL query on a database.
 
 Some activities have special support for staging data and database tables. For
-more information, see [Staging Data and Tables with Pipeline
-Activities](dp-concepts-staging.md "dp-concepts-staging.md").
+more information, see [Staging Data and Tables with Pipeline Activities](dp-concepts-staging.md "dp-concepts-staging.md").

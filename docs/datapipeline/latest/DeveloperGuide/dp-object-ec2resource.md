@@ -11,8 +11,7 @@ AWS Data Pipeline now supports IMDSv2 for the Amazon EC2 instance, which uses a 
 To use IMDSv2 for your Amazon EC2 instance, you will need to modify the settings, as the default AMI is not compatible with IMDSv2. You can specify a new AMI version which you can retrieve via the following SSM parameter: `/aws/service/ami-amazon-linux-latest/amzn-ami-hvm-x86_64-ebs`.
 
 For information about default Amazon EC2 instances that AWS Data Pipeline creates if you do not
-specify an instance, see [Default
-Amazon EC2 Instances by AWS Region](dp-ec2-default-instance-types.md "dp-ec2-default-instance-types.md").
+specify an instance, see [Default Amazon EC2 Instances by AWS Region](dp-ec2-default-instance-types.md "dp-ec2-default-instance-types.md").
 
 ## Examples
 

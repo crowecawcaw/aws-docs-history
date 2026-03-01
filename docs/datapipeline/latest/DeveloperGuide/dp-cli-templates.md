@@ -35,17 +35,14 @@ bucket: `s3://datapipeline-us-east-1/templates/`.
 
 ###### Templates
 
-- [Getting started using
-  ShellCommandActivity](dp-template-gettingstartedshell.md "dp-template-gettingstartedshell.md")
+- [Getting started using ShellCommandActivity](dp-template-gettingstartedshell.md "dp-template-gettingstartedshell.md")
 - [Run AWS CLI command](dp-template-runawscli.md "dp-template-runawscli.md")
 - [Export DynamoDB table to S3](dp-template-exportddbtos3.md "dp-template-exportddbtos3.md")
 - [Import DynamoDB backup data from S3](dp-template-exports3toddb.md "dp-template-exports3toddb.md")
 - [Run job on an Amazon EMR cluster](dp-template-emr.md "dp-template-emr.md")
 - [Full copy of Amazon RDS MySQL Table to Amazon S3](dp-template-copyrdstos3.md "dp-template-copyrdstos3.md")
-- [Incremental copy of Amazon RDS MySQL table to
-  Amazon S3](dp-template-incrementalcopyrdstos3.md "dp-template-incrementalcopyrdstos3.md")
+- [Incremental copy of Amazon RDS MySQL table to Amazon S3](dp-template-incrementalcopyrdstos3.md "dp-template-incrementalcopyrdstos3.md")
 - [Load S3 data into Amazon RDS MySQL table](dp-template-copys3tords.md "dp-template-copys3tords.md")
 - [Full copy of Amazon RDS MySQL table to Amazon Redshift](dp-template-redshiftrdsfull.md "dp-template-redshiftrdsfull.md")
-- [Incremental copy of an Amazon RDS MySQL table to
-  Amazon Redshift](dp-template-redshiftrdsincremental.md "dp-template-redshiftrdsincremental.md")
+- [Incremental copy of an Amazon RDS MySQL table to Amazon Redshift](dp-template-redshiftrdsincremental.md "dp-template-redshiftrdsincremental.md")
 - [Load data from Amazon S3 into Amazon Redshift](dp-template-s3redshift.md "dp-template-s3redshift.md")

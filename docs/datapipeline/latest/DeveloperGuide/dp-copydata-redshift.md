@@ -17,8 +17,6 @@ continue the tutorial using either the console or the CLI.
 
 ###### Contents
 
-- [Before You Begin: Configure COPY Options and Load
-  Data](dp-learn-copy-redshift.md "dp-learn-copy-redshift.md")
-- [Set up Pipeline, Create a Security Group, and
-  Create an Amazon Redshift Cluster](dp-copydata-redshift-prereq.md "dp-copydata-redshift-prereq.md")
+- [Before You Begin: Configure COPY Options and Load Data](dp-learn-copy-redshift.md "dp-learn-copy-redshift.md")
+- [Set up Pipeline, Create a Security Group, and Create an Amazon Redshift Cluster](dp-copydata-redshift-prereq.md "dp-copydata-redshift-prereq.md")
 - [Copy Data to Amazon Redshift Using the Command Line](dp-copydata-redshift-cli.md "dp-copydata-redshift-cli.md")

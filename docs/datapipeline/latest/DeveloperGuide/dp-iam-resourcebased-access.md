@@ -17,10 +17,8 @@ creating custom IAM policies, see [Managing IAM Policies](../../../IAM/latest/Us
 ###### Contents
 
 - [Policy Syntax](#dp-policy-syntax "#dp-policy-syntax")
-- [Controlling Access to Pipelines Using
-  Tags](#dp-control-access-tags "#dp-control-access-tags")
-- [Controlling Access to Pipelines Using
-  Worker Groups](#dp-control-access-workergroup "#dp-control-access-workergroup")
+- [Controlling Access to Pipelines Using Tags](#dp-control-access-tags "#dp-control-access-tags")
+- [Controlling Access to Pipelines Using Worker Groups](#dp-control-access-workergroup "#dp-control-access-workergroup")
 
 ## Policy Syntax
 
@@ -64,15 +62,11 @@ AWS Data Pipeline implements the AWS-wide context keys (see [Available Keys for 
     + `datapipeline:PipelineCreator` — To grant access to the
      user that created the pipeline. For an example, see [Grant the pipeline owner full access](dp-example-tag-policies.md#ex3 "dp-example-tag-policies.md#ex3").
     + `datapipeline:Tag` — To grant access based on pipeline
-     tagging. For more information, see [Controlling Access to Pipelines Using
-     Tags](#dp-control-access-tags "#dp-control-access-tags").
+     tagging. For more information, see [Controlling Access to Pipelines Using Tags](#dp-control-access-tags "#dp-control-access-tags").
     + `datapipeline:workerGroup` — To grant access based on the
-     name of the worker group. For more information, see [Controlling Access to Pipelines Using
-     Worker Groups](#dp-control-access-workergroup "#dp-control-access-workergroup").
+     name of the worker group. For more information, see [Controlling Access to Pipelines Using Worker Groups](#dp-control-access-workergroup "#dp-control-access-workergroup").
 
-## Controlling Access to Pipelines Using
-
-Tags
+## Controlling Access to Pipelines Using Tags
 
 You can create IAM policies that reference the tags for your pipeline. This
 enables you to use pipeline tagging to do the following:
@@ -145,9 +139,7 @@ JSON
 For more examples, see [Grant users read-only access based on a tag](dp-example-tag-policies.md#ex1 "dp-example-tag-policies.md#ex1") and
 [Grant users full access based on a tag](dp-example-tag-policies.md#ex2 "dp-example-tag-policies.md#ex2").
 
-## Controlling Access to Pipelines Using
-
-Worker Groups
+## Controlling Access to Pipelines Using Worker Groups
 
 You can create IAM policies that make reference worker group names.
 

@@ -43,8 +43,7 @@ The following components of AWS Data Pipeline work together to manage your data:
 - [Related services](datapipeline-related-services.md "datapipeline-related-services.md")
 - [Accessing AWS Data Pipeline](#accessing-datapipeline "#accessing-datapipeline")
 - [Pricing](#datapipeline-pricing "#datapipeline-pricing")
-- [Supported Instance Types for Pipeline Work
-  Activities](dp-supported-instance-types.md "dp-supported-instance-types.md")
+- [Supported Instance Types for Pipeline Work Activities](dp-supported-instance-types.md "dp-supported-instance-types.md")
 
 ## Accessing AWS Data Pipeline
 

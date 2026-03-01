@@ -8,18 +8,12 @@ parameters when you add the pipeline definition to a new pipeline.
 
 ###### Contents
 
-- [Add myVariables to the pipeline
-  definition](#add-pipeline-variables "#add-pipeline-variables")
-- [Define parameter
-  objects](#define-pipeline-parameter-objects "#define-pipeline-parameter-objects")
-- [Define Parameter
-  Values](#define-pipeline-parameter-values "#define-pipeline-parameter-values")
-- [Submitting the pipeline
-  definition](#submit-pipeline-definition "#submit-pipeline-definition")
+- [Add myVariables to the pipeline definition](#add-pipeline-variables "#add-pipeline-variables")
+- [Define parameter objects](#define-pipeline-parameter-objects "#define-pipeline-parameter-objects")
+- [Define Parameter Values](#define-pipeline-parameter-values "#define-pipeline-parameter-values")
+- [Submitting the pipeline definition](#submit-pipeline-definition "#submit-pipeline-definition")
 
-## Add myVariables to the pipeline
-
-definition
+## Add myVariables to the pipeline definition
 
 When you create the pipeline definition file, specify variables using the
 following syntax: #{my`Variable`}. It is required
@@ -95,9 +89,7 @@ A pipeline definition has an upper limit of 50 parameters.
 }
 ```
 
-## Define parameter
-
-objects
+## Define parameter objects
 
 You can create a separate file with parameter objects that defines the
 variables in your pipeline definition. For example, the following JSON file,
@@ -148,9 +140,7 @@ The following table describes the attributes for parameter objects.
 | default              | String                                         | The default value for the parameter. If you specify a<br>value for this parameter using parameter values, it<br>overrides the default value.                                                                                                             |
 | isArray              | Boolean                                        | Indicates whether the parameter is an array.                                                                                                                                                                                                             |
 
-## Define Parameter
-
-Values
+## Define Parameter Values
 
 You can create a separate file to define your variables using parameter
 values. For example, the following JSON file,
@@ -167,9 +157,7 @@ pipeline definition above.
 }
 ```
 
-## Submitting the pipeline
-
-definition
+## Submitting the pipeline definition
 
 When you submit your pipeline definition, you can specify parameters,
 parameter objects, and parameter values. For example, you can use the [put-pipeline-definition](../../../cli/latest/reference/datapipeline/put-pipeline-definition.md "../../../cli/latest/reference/datapipeline/put-pipeline-definition.md") AWS CLI command as follows:

@@ -1,8 +1,6 @@
 AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/ "https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/")
 
-# Incremental copy of an Amazon RDS MySQL table to
-
-Amazon Redshift
+# Incremental copy of an Amazon RDS MySQL table to Amazon Redshift
 
 The **Incremental copy of Amazon RDS MySQL table to Amazon Redshift**
 template copies data from an Amazon RDS MySQL table to an Amazon Redshift table by staging data

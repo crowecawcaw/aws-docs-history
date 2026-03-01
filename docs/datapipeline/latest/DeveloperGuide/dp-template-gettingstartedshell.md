@@ -1,8 +1,6 @@
 AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/ "https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/")
 
-# Getting started using
-
-ShellCommandActivity
+# Getting started using ShellCommandActivity
 
 The **Getting Started using ShellCommandActivity** template
 runs a shell command script to count the number of GET requests in a log file.

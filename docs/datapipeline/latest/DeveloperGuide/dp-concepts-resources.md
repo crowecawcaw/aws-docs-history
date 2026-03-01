@@ -17,8 +17,7 @@ An Amazon EMR cluster that performs the work defined by a pipeline
 activity, such as [EmrActivity](dp-object-emractivity.md "dp-object-emractivity.md").
 
 Resources can run in the same region with their working dataset, even a region
-different than AWS Data Pipeline. For more information, see [Using a Pipeline with Resources in Multiple
-Regions](dp-manage-region.md "dp-manage-region.md").
+different than AWS Data Pipeline. For more information, see [Using a Pipeline with Resources in Multiple Regions](dp-manage-region.md "dp-manage-region.md").
 
 ## Resource Limits
 
@@ -68,9 +67,7 @@ created for EC2-Classic when you launch an instance into a VPC. In addition, you
 must use the security group ID and not the security group name to identify a
 security group for a VPC.
 
-## Amazon EC2 Spot Instances with Amazon EMR Clusters and
-
-AWS Data Pipeline
+## Amazon EC2 Spot Instances with Amazon EMR Clusters and AWS Data Pipeline
 
 Pipelines can use Amazon EC2 Spot Instances for the task nodes in their Amazon EMR
 cluster resources. By default, pipelines use On-Demand Instances. Spot Instances let
@@ -90,9 +87,7 @@ You can edit a failed or completed pipeline resource instance to add Spot
 Instances. When the pipeline re-launches the cluster, it uses Spot Instances for the
 task nodes.
 
-### Spot Instances
-
-Considerations
+### Spot Instances Considerations
 
 When you use Spot Instances with AWS Data Pipeline, the following considerations
 apply:

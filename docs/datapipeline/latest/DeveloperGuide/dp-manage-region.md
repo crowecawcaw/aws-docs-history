@@ -1,8 +1,6 @@
 AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/ "https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/")
 
-# Using a Pipeline with Resources in Multiple
-
-Regions
+# Using a Pipeline with Resources in Multiple Regions
 
 By default, the `Ec2Resource` and `EmrCluster` resources run in
 the same region as AWS Data Pipeline, however AWS Data Pipeline supports the ability to orchestrate data

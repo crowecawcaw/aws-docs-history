@@ -1,8 +1,6 @@
 AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/ "https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/")
 
-# (Optional) Granting Task Runner Access to
-
-Amazon RDS
+# (Optional) Granting Task Runner Access to Amazon RDS
 
 Amazon RDS allows you to control access to your DB instances using database security
 groups (DB security groups). A DB security group acts like a firewall controlling

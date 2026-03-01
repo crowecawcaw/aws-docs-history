@@ -7,8 +7,7 @@ Before you begin, read about the key concepts and components for AWS Data Pipeli
 ###### Contents
 
 - [Pipeline Definition](dp-how-pipeline-definition.md "dp-how-pipeline-definition.md")
-- [Pipeline Components, Instances, and
-  Attempts](dp-how-tasks-scheduled.md "dp-how-tasks-scheduled.md")
+- [Pipeline Components, Instances, and Attempts](dp-how-tasks-scheduled.md "dp-how-tasks-scheduled.md")
 - [Task Runners](dp-how-remote-taskrunner-client.md "dp-how-remote-taskrunner-client.md")
 - [Data Nodes](dp-concepts-datanodes.md "dp-concepts-datanodes.md")
 - [Databases](dp-concepts-databases.md "dp-concepts-databases.md")

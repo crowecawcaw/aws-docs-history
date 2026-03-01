@@ -18,10 +18,8 @@ Before you begin, see [Setting up for AWS Data Pipeline](dp-get-setup.md "dp-get
 - [Tagging Your Pipeline](dp-adding-tags.md "dp-adding-tags.md")
 - [Deactivating Your Pipeline](dp-deactivate-pipeline.md "dp-deactivate-pipeline.md")
 - [Deleting Your Pipeline](dp-manage-pipeline-delete-console.md "dp-manage-pipeline-delete-console.md")
-- [Staging Data and Tables with Pipeline
-  Activities](dp-concepts-staging.md "dp-concepts-staging.md")
-- [Using a Pipeline with Resources in Multiple
-  Regions](dp-manage-region.md "dp-manage-region.md")
+- [Staging Data and Tables with Pipeline Activities](dp-concepts-staging.md "dp-concepts-staging.md")
+- [Using a Pipeline with Resources in Multiple Regions](dp-manage-region.md "dp-manage-region.md")
 - [Cascading failures and reruns](dp-manage-cascade-failandrerun.md "dp-manage-cascade-failandrerun.md")
 - [Pipeline definition file syntax](dp-writing-pipeline-definition.md "dp-writing-pipeline-definition.md")
 - [Working with the API](dp-program-pipeline.md "dp-program-pipeline.md")

@@ -16,9 +16,7 @@ When you activate a deactivated pipeline, you can specify when it resumes. Using
 pipeline resumes from the last completed execution by default, or you can specify the
 date and time to resume the pipeline.
 
-## Deactivate Your Pipeline Using the
-
-AWS CLI
+## Deactivate Your Pipeline Using the AWS CLI
 
 Use the following [deactivate-pipeline](../../../cli/latest/reference/datapipeline/deactivate-pipeline.md "../../../cli/latest/reference/datapipeline/deactivate-pipeline.md") command to deactivate a pipeline:
 

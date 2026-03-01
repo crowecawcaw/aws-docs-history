@@ -9,8 +9,7 @@ a solution.
 ###### Contents
 
 - [Locating Errors in Pipelines](dp-troubleshoot-locate-errors.md "dp-troubleshoot-locate-errors.md")
-- [Identifying the Amazon EMR Cluster that Serves Your
-  Pipeline](dp-troubleshoot-emr.md "dp-troubleshoot-emr.md")
+- [Identifying the Amazon EMR Cluster that Serves Your Pipeline](dp-troubleshoot-emr.md "dp-troubleshoot-emr.md")
 - [Interpreting Pipeline Status Details](dp-pipeline-status.md "dp-pipeline-status.md")
 - [Locating Error Logs](dp-error-logs.md "dp-error-logs.md")
 - [Resolving Common Problems](dp-check-when-run-fails.md "dp-check-when-run-fails.md")

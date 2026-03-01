@@ -17,9 +17,7 @@ The following expression calls one of the AWS Data Pipeline functions. For more 
 #{format(myDateTime,'YYYY-MM-dd hh:mm:ss')}
 ```
 
-## Referencing Fields and
-
-Objects
+## Referencing Fields and Objects
 
 Expressions can use fields of the current object where the expression exists, or fields of another object that is linked by a reference.
 

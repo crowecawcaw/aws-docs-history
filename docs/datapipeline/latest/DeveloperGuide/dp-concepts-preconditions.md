@@ -17,9 +17,7 @@ preconditions only run on the computational resource that you specify using the
 `runsOn` or `workerGroup` fields.
 The `workerGroup` resource is derived from the activity that uses the precondition.
 
-## System-Managed
-
-Preconditions
+## System-Managed Preconditions
 
 [DynamoDBDataExists](dp-dynamodbdataexists.md "dp-dynamodbdataexists.md")
 

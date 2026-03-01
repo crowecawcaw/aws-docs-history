@@ -87,8 +87,7 @@ HadoopActivity to:
 
 - Run a MapReduce program only on
   `myWorkerGroup` resources. For more
-  information about worker groups, see [Executing Work on Existing Resources Using
-  Task Runner](dp-how-task-runner-user-managed.md "dp-how-task-runner-user-managed.md").
+  information about worker groups, see [Executing Work on Existing Resources Using Task Runner](dp-how-task-runner-user-managed.md "dp-how-task-runner-user-managed.md").
 - Run a preActivityTaskConfig and postActivityTaskConfig
 
 ```

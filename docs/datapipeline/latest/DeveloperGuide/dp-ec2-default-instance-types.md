@@ -1,9 +1,6 @@
 AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/ "https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/")
 
-#
-
-Default
-Amazon EC2 Instances by AWS Region
+# Default Amazon EC2 Instances by AWS Region
 
 If you do not specify an instance type in your pipeline definition, AWS Data Pipeline
 launches an instance by default.
