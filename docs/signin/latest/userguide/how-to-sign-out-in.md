@@ -7,8 +7,7 @@ you're not sure what kind of user you are, see [Determine your user type](user-t
 ###### Topics
 
 - [Sign out of the AWS Management Console](#console-signing-out-root-IAM-users "#console-signing-out-root-IAM-users")
-- [Sign out of your
-  AWS access portal](#aws-access-portal-signing-out-iam-identity-center-user "#aws-access-portal-signing-out-iam-identity-center-user")
+- [Sign out of your AWS access portal](#aws-access-portal-signing-out-iam-identity-center-user "#aws-access-portal-signing-out-iam-identity-center-user")
 - [Sign out of AWS Builder ID](#sign-out-all-aws_builder_id "#sign-out-all-aws_builder_id")
 
 ## Sign out of the AWS Management Console
@@ -35,9 +34,7 @@ accounts you are signed in to.
 For more information about signing in to multiple accounts, see [Signing in to multiple accounts](../../../awsconsolehelpdocs/latest/gsg/multisession.md "../../../awsconsolehelpdocs/latest/gsg/multisession.md") in
 the _AWS Management Console Getting Started Guide_.
 
-## Sign out of your
-
-AWS access portal
+## Sign out of your AWS access portal
 
 ###### To sign out of your AWS access portal
 

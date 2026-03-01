@@ -19,10 +19,8 @@ the _AWS Management Console Getting Started Guide_.
 
 ###### Tutorials
 
-- [Sign in to the AWS Management Console as the
-  root user](introduction-to-root-user-sign-in-tutorial.md "introduction-to-root-user-sign-in-tutorial.md")
-- [Sign in to the AWS Management Console as an
-  IAM user](introduction-to-iam-user-sign-in-tutorial.md "introduction-to-iam-user-sign-in-tutorial.md")
+- [Sign in to the AWS Management Console as the root user](introduction-to-root-user-sign-in-tutorial.md "introduction-to-root-user-sign-in-tutorial.md")
+- [Sign in to the AWS Management Console as an IAM user](introduction-to-iam-user-sign-in-tutorial.md "introduction-to-iam-user-sign-in-tutorial.md")
   If you're not sure what kind of user you are, see [Determine your user type](user-types-list.md "user-types-list.md").
 
 ###### Tutorials

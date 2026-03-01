@@ -17,9 +17,7 @@ An AWS Builder ID:
   information see [Signing in to
   the AWS Management Console](console-sign-in-tutorials.md "console-sign-in-tutorials.md").
 
-## How AWS Builder ID relates to your existing IAM Identity Center
-
-identity
+## How AWS Builder ID relates to your existing IAM Identity Center identity
 
 As the individual who owns the identity you manage the AWS Builder ID. It's not connected to any
 other identity you may have for another organization, such as school or work. You might use a

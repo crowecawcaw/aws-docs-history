@@ -1,6 +1,4 @@
-# Sign in to the AWS Management Console as an
-
-IAM user
+# Sign in to the AWS Management Console as an IAM user
 
 An [IAM user](user-types-list.md#iam-user-type "user-types-list.md#iam-user-type") is an identity created within an AWS account that has permission to
 interact with AWS resources. IAM users sign-in using their account ID or alias, their user
@@ -42,5 +40,4 @@ If you want more information about IAM users, refer to the following resources.
   Management?](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/latest/UserGuide/introduction.md")
 - For details about AWS account IDs, see [Your AWS account ID and its
   alias](../../../IAM/latest/UserGuide/console_account-alias.md "../../../IAM/latest/UserGuide/console_account-alias.md").
-- For step-by-step directions on how to reset your IAM user password, see [I forgot my IAM user password for my
-  AWS account](troubleshooting-sign-in-issues.md#troubleshoot-forgot-iam-password "troubleshooting-sign-in-issues.md#troubleshoot-forgot-iam-password").
+- For step-by-step directions on how to reset your IAM user password, see [I forgot my IAM user password for my AWS account](troubleshooting-sign-in-issues.md#troubleshoot-forgot-iam-password "troubleshooting-sign-in-issues.md#troubleshoot-forgot-iam-password").

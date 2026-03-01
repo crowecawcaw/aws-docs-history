@@ -1,6 +1,4 @@
-# Delete all active sessions for your
-
-AWS Builder ID
+# Delete all active sessions for your AWS Builder ID
 
 Under **Signed in devices**, you can view all the devices that you're
 currently signed in to. If you don't recognize a device, as a security best practice, first

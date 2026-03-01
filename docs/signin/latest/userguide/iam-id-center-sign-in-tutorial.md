@@ -16,9 +16,7 @@ information.
 After you sign in, your AWS access portal session is valid for 8 hours. You are required
 to sign in again after 8 hours.
 
-## To sign in to your
-
-AWS access portal
+## To sign in to your AWS access portal
 
 ######
 
@@ -60,9 +58,7 @@ AWS account for 8 hours. The IAM Identity Center Administrator can specify a dif
 from a minimum of 15 minutes to a maximum of 90 days. After your session ends, you can
 sign in again.
 
-### Additional
-
-information
+### Additional information
 
 If you want more information about users in IAM Identity Center, refer to the following
 resources.
@@ -74,8 +70,7 @@ resources.
 - For details about IAM Identity Center sessions, see [User
   authentications](../../../singlesignon/latest/userguide/authconcept.md "../../../singlesignon/latest/userguide/authconcept.md").
 - For step-by-step directions on how to reset your IAM Identity Center user
-  password, see [I forgot my IAM Identity Center
-  password for my AWS account](troubleshooting-sign-in-issues.md#troubleshoot-forgot-iam-identity-center-password "troubleshooting-sign-in-issues.md#troubleshoot-forgot-iam-identity-center-password").
+  password, see [I forgot my IAM Identity Center password for my AWS account](troubleshooting-sign-in-issues.md#troubleshoot-forgot-iam-identity-center-password "troubleshooting-sign-in-issues.md#troubleshoot-forgot-iam-identity-center-password").
 - If you or your organization implement IP or domain filtering, you may need
   to allowlist domains to create and use your AWS access portal. For details
   about allowlisting domains, see [Domains to add to your allow list](allowlist-domains.md "allowlist-domains.md").

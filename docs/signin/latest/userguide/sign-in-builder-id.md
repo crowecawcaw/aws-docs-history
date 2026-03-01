@@ -33,8 +33,7 @@ Builder](https://skillbuilder.aws/ "https://skillbuilder.aws/").
 - [AWS tools and services that use AWS Builder ID](builder_id-apps.md "builder_id-apps.md")
 - [Edit your AWS Builder ID profile](edit-details-builder-id.md "edit-details-builder-id.md")
 - [Change your AWS Builder ID password](change-password-builder-id.md "change-password-builder-id.md")
-- [Delete all active sessions for your
-  AWS Builder ID](delete-sessions-builder-id.md "delete-sessions-builder-id.md")
+- [Delete all active sessions for your AWS Builder ID](delete-sessions-builder-id.md "delete-sessions-builder-id.md")
 - [Delete your AWS Builder ID](delete-builder-id.md "delete-builder-id.md")
 - [Manage AWS Builder ID multi-factor authentication (MFA)](mfa-builder-id.md "mfa-builder-id.md")
 - [Privacy and data in AWS Builder ID](privacy-builder-id.md "privacy-builder-id.md")

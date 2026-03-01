@@ -10,8 +10,7 @@ tutorials.
 - [Sign in as a federated identity](federated-identity-overview.md "federated-identity-overview.md")
 - [Sign in through the AWS Command Line Interface](command-line-sign-in.md "command-line-sign-in.md")
 - [Sign in with AWS Builder ID](sign-in-builder-id.md "sign-in-builder-id.md")
-  If you're having issues signing in to your AWS account, see [Troubleshooting AWS account sign-in
-  issues](troubleshooting-sign-in-issues.md "troubleshooting-sign-in-issues.md"). For
+  If you're having issues signing in to your AWS account, see [Troubleshooting AWS account sign-in issues](troubleshooting-sign-in-issues.md "troubleshooting-sign-in-issues.md"). For
   help with your AWS Builder ID see [Troubleshooting AWS Builder ID issues](troubleshooting-builder-id-issues.md "troubleshooting-builder-id-issues.md"). Looking to create an AWS account?
   [Sign up for AWS](https://portal.aws.amazon.com/billing/signup#/start/email "https://portal.aws.amazon.com/billing/signup#/start/email"). For
   more information about how signing up for AWS can help you or your organization, see [Contact Us](https://aws.amazon.com/contact-us/sales-support-1v/ "https://aws.amazon.com/contact-us/sales-support-1v/").
@@ -24,8 +23,7 @@ tutorials.
 - [Determine your user type](user-types-list.md "user-types-list.md")
 - [Determine your sign-in URL](sign-in-urls-defined.md "sign-in-urls-defined.md")
 - [Domains to add to your allow list](allowlist-domains.md "allowlist-domains.md")
-- [Security best practices for AWS account
-  administrators](best-practices-admin.md "best-practices-admin.md")
+- [Security best practices for AWS account administrators](best-practices-admin.md "best-practices-admin.md")
 
 ## Terminology
 

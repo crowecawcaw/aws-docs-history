@@ -15,9 +15,7 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## AWS managed
-
-policy: AmazonManagedSignUpServicePolicy
+## AWS managed policy: AmazonManagedSignUpServicePolicy
 
 The `AmazonManagedSignUpServicePolicy` policy grants permissions required
 to complete AWS account sign-up processes.
@@ -37,9 +35,7 @@ To view more details about the policy, including the latest version of the JSON 
 document, see [AmazonManagedSignUpServicePolicy](../../../aws-managed-policy/latest/reference/AmazonManagedSignUpServicePolicy.md "../../../aws-managed-policy/latest/reference/AmazonManagedSignUpServicePolicy.md") in the _AWS Managed Policy
 Reference Guide_.
 
-## AWS managed
-
-policy: ApplicationProvisioningPolicy
+## AWS managed policy: ApplicationProvisioningPolicy
 
 The ApplicationProvisioningPolicy policy grants comprehensive permissions for
 application provisioning and identity management operations, including IAM role and
@@ -75,9 +71,7 @@ To view more details about the policy, including the latest version of the JSON 
 document, see [ApplicationProvisioningPolicy](../../../aws-managed-policy/latest/reference/ApplicationProvisioningPolicy.md "../../../aws-managed-policy/latest/reference/ApplicationProvisioningPolicy.md") in the _AWS Managed Policy
 Reference Guide_.
 
-## AWS managed policy:
-
-SignInLocalDevelopmentAccess
+## AWS managed policy: SignInLocalDevelopmentAccess
 
 The `SignInLocalDevelopmentAccess` policy grants permissions for programmatic
 access to AWS using your console credentials.
@@ -110,9 +104,7 @@ document, see
 [SignInLocalDevelopmentAccess](../../../aws-managed-policy/latest/reference/SignInLocalDevelopmentAccess.md "../../../aws-managed-policy/latest/reference/SignInLocalDevelopmentAccess.md")
 in the _AWS Managed Policy Reference Guide_.
 
-## AWS Sign-In updates to AWS managed
-
-policies
+## AWS Sign-In updates to AWS managed policies
 
 View details about updates to AWS managed policies for AWS Sign-In since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe

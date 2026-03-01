@@ -1,6 +1,4 @@
-# Sign in to the AWS Management Console as the
-
-root user
+# Sign in to the AWS Management Console as the root user
 
 When you first create an AWS account, you begin with one sign-in identity that has complete access to all AWS services
 and resources in the account. This identity is called the AWS account _root user_ and is accessed by
@@ -19,8 +17,7 @@ in the _AWS Management Console Getting Started Guide_.
 
 AWS accounts managed using AWS Organizations may not have root user credentials, and you must contact
 an administrator to perform root user actions in your member account. If you can't sign in as the
-root user, see [Troubleshooting AWS account sign-in
-issues](troubleshooting-sign-in-issues.md "troubleshooting-sign-in-issues.md").
+root user, see [Troubleshooting AWS account sign-in issues](troubleshooting-sign-in-issues.md "troubleshooting-sign-in-issues.md").
 
 ######
 
@@ -61,5 +58,4 @@ resources.
 
 - For an overview of the root user, see [AWS account root user](../../../IAM/latest/UserGuide/id_root-user.md "../../../IAM/latest/UserGuide/id_root-user.md").
 - For details about using the root user, see [Using the AWS account root user](../../../accounts/latest/reference/root-user.md "../../../accounts/latest/reference/root-user.md").
-- For step-by-step directions on how to reset your root user password, see [I forgot my root user password for my
-  AWS account](troubleshooting-sign-in-issues.md#troubleshoot-forgot-root-password "troubleshooting-sign-in-issues.md#troubleshoot-forgot-root-password").
+- For step-by-step directions on how to reset your root user password, see [I forgot my root user password for my AWS account](troubleshooting-sign-in-issues.md#troubleshoot-forgot-root-password "troubleshooting-sign-in-issues.md#troubleshoot-forgot-root-password").

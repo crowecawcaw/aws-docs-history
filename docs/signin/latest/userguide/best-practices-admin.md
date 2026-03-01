@@ -1,6 +1,4 @@
-# Security best practices for AWS account
-
-administrators
+# Security best practices for AWS account administrators
 
 If you’re an account administrator who has created a new AWS account, we recommend the
 following steps to help your users follow AWS security best practices when they sign in.

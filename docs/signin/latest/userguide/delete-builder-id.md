@@ -34,12 +34,6 @@ Communications Preferences Center](https://pages.awscloud.com/communication-pref
 
 ###### To delete your AWS Builder ID
 
-###### Note
-
-If you are using Hodgkin and you want to delete your AWS Builder ID account, you must
-first delete your Hodgkin account. Deleting this account can take up to 90
-days.
-
 1. Sign in to your AWS Builder ID profile at [https://profile.aws.amazon.com](https://profile.aws.amazon.com "https://profile.aws.amazon.com").
 2. Choose **Privacy & data**.
 3. On the **Privacy & data** page, under **Deleting

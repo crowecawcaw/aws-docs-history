@@ -48,8 +48,7 @@ common types of FIDO authenticators.
 
 - [Built-in authenticators](#built-in-auth-aws_builder_id "#built-in-auth-aws_builder_id")
 - [Security keys](#security-keys-aws_builder_id "#security-keys-aws_builder_id")
-- [Password managers, passkey providers,
-  and other FIDO authenticators](#other-mfa-aws_builder_id "#other-mfa-aws_builder_id")
+- [Password managers, passkey providers, and other FIDO authenticators](#other-mfa-aws_builder_id "#other-mfa-aws_builder_id")
 
 #### Built-in authenticators
 
@@ -66,9 +65,7 @@ YubiKey or Feitian make compatible devices. For a list of all compatible
 security keys, see [FIDO
 Certified Products](https://fidoalliance.org/certification/fido-certified-products/ "https://fidoalliance.org/certification/fido-certified-products/ ").
 
-#### Password managers, passkey providers,
-
-and other FIDO authenticators
+#### Password managers, passkey providers, and other FIDO authenticators
 
 Multiple third party providers support FIDO authentication in mobile
 applications, as features in password managers, smart cards with a FIDO mode,
@@ -153,16 +150,13 @@ the code and then wait too long to submit the request, the MFA device is
 successfully associated with your AWS Builder ID, but the MFA device is out of
 sync. This happens because time-based one-time passwords (TOTP) expire after
 a short period of time. If this happens, you can resync the device. For more
-information, see [I get the message 'An unexpected error has
-occurred' when I try to register or sign in with an authenticator app](troubleshooting-builder-id-issues.md#syncing-mfa-aws_builder_id "troubleshooting-builder-id-issues.md#syncing-mfa-aws_builder_id"). 9. To give your device a friendly name in AWS Builder ID, choose
+information, see [I get the message 'An unexpected error has occurred' when I try to register or sign in with an authenticator app](troubleshooting-builder-id-issues.md#syncing-mfa-aws_builder_id "troubleshooting-builder-id-issues.md#syncing-mfa-aws_builder_id"). 9. To give your device a friendly name in AWS Builder ID, choose
 **Rename**. This name helps you distinguish this device
 from others that you register.
 
 The MFA device is now ready for use with AWS Builder ID.
 
-## Register a security key as your AWS Builder ID
-
-MFA device
+## Register a security key as your AWS Builder ID MFA device
 
 ###### To register your MFA device using a security key
 

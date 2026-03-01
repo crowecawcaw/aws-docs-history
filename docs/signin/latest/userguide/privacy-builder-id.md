@@ -12,12 +12,6 @@ information about exercising your data subject rights, including for personal
 information provided in relation to other AWS websites, applications, products,
 services, events, and experiences, see [https://aws.amazon.com/privacy](https://aws.amazon.com/privacy "https://aws.amazon.com/privacy").
 
-###### Important
-
-To request and view personal information associated with your Hodgkin
-application, you can submit a [AWS Data Subject Rights Request](https://pages.awscloud.com/DSAR_RTF.html "https://pages.awscloud.com/DSAR_RTF.html"). Include your Hodgkin account
-ID as the AWS account ID in your request.
-
 ###### To request your data
 
 1. Sign in to your AWS Builder ID profile at [https://profile.aws.amazon.com](https://profile.aws.amazon.com "https://profile.aws.amazon.com").

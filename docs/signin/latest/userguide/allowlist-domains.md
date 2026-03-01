@@ -17,9 +17,7 @@ accessible on the network from which you are trying to access the AWS Management
 - `*.cloudfront.net`
 - `opfcaptcha-prod.s3.amazonaws.com`
 
-## AWS access portal domains to
-
-allowlist
+## AWS access portal domains to allowlist
 
 If you filter access to specific AWS domains or URL endpoints by using a web content
 filtering solution such as next-generation firewalls (NGFW) or Secure Web Gateways

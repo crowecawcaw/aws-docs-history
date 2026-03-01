@@ -1,6 +1,4 @@
-# Troubleshooting AWS account sign-in
-
-issues
+# Troubleshooting AWS account sign-in issues
 
 Use the information here to help you troubleshoot sign-in and other AWS account issues.
 For step-by-step directions on signing in to an AWS account, see [Sign in to the AWS Management Console](how-to-sign-in.md "how-to-sign-in.md").
@@ -24,44 +22,27 @@ Customer Service](https://www.amazon.com/gp/help/customer/contact-us/ "https://w
 
 ###### Topics
 
-- [My AWS Management Console credentials aren't
-  working](#credentials-not-working-console "#credentials-not-working-console")
+- [My AWS Management Console credentials aren't working](#credentials-not-working-console "#credentials-not-working-console")
 - [Password reset is required for my root user](#password-reset-required "#password-reset-required")
-- [I don't have access to the email for my
-  AWS account](#troubleshoot-lost-email "#troubleshoot-lost-email")
+- [I don't have access to the email for my AWS account](#troubleshoot-lost-email "#troubleshoot-lost-email")
 - [My MFA device is lost or stopped working](#troubleshoot-MFA-issues "#troubleshoot-MFA-issues")
-- [I can’t access the
-  AWS Management Console sign-in page](#troubleshoot-firewalls "#troubleshoot-firewalls")
-- [How can I find my AWS account
-  ID or alias](#troubleshoot-find-aws-account-id-or-alias "#troubleshoot-find-aws-account-id-or-alias")
-- [I need my account verification
-  code](#troubleshoot_general_cant-sign-in "#troubleshoot_general_cant-sign-in")
-- [I forgot my root user password for my
-  AWS account](#troubleshoot-forgot-root-password "#troubleshoot-forgot-root-password")
-- [I forgot my IAM user password for my
-  AWS account](#troubleshoot-forgot-iam-password "#troubleshoot-forgot-iam-password")
-- [I forgot my federated
-  identity password for my AWS account](#troubleshoot-forgot-federated-identity-password "#troubleshoot-forgot-federated-identity-password")
-- [I can’t sign in to my existing
-  AWS account and I can't create a new AWS account with the same email address](#troubleshoot-cannot-create-new-acc "#troubleshoot-cannot-create-new-acc")
-- [I need to reactivate my suspended
-  AWS account](#troubleshoot-suspended-aws-account "#troubleshoot-suspended-aws-account")
-- [I need to contact Support for sign-in
-  issues](#troubleshoot-contact-support "#troubleshoot-contact-support")
-- [I need to contact AWS Billing for billing
-  issues](#troubleshoot-contact-billing "#troubleshoot-contact-billing")
+- [I can’t access the AWS Management Console sign-in page](#troubleshoot-firewalls "#troubleshoot-firewalls")
+- [How can I find my AWS account ID or alias](#troubleshoot-find-aws-account-id-or-alias "#troubleshoot-find-aws-account-id-or-alias")
+- [I need my account verification code](#troubleshoot_general_cant-sign-in "#troubleshoot_general_cant-sign-in")
+- [I forgot my root user password for my AWS account](#troubleshoot-forgot-root-password "#troubleshoot-forgot-root-password")
+- [I forgot my IAM user password for my AWS account](#troubleshoot-forgot-iam-password "#troubleshoot-forgot-iam-password")
+- [I forgot my federated identity password for my AWS account](#troubleshoot-forgot-federated-identity-password "#troubleshoot-forgot-federated-identity-password")
+- [I can’t sign in to my existing AWS account and I can't create a new AWS account with the same email address](#troubleshoot-cannot-create-new-acc "#troubleshoot-cannot-create-new-acc")
+- [I need to reactivate my suspended AWS account](#troubleshoot-suspended-aws-account "#troubleshoot-suspended-aws-account")
+- [I need to contact Support for sign-in issues](#troubleshoot-contact-support "#troubleshoot-contact-support")
+- [I need to contact AWS Billing for billing issues](#troubleshoot-contact-billing "#troubleshoot-contact-billing")
 - [I have a question about a retail order](#troubleshoot-retail-issue "#troubleshoot-retail-issue")
 - [I need help managing my AWS account](#troubleshoot-other-issues "#troubleshoot-other-issues")
-- [My AWS access portal credentials aren't
-  working](#credentials-not-working-portal "#credentials-not-working-portal")
-- [I forgot my IAM Identity Center
-  password for my AWS account](#troubleshoot-forgot-iam-identity-center-password "#troubleshoot-forgot-iam-identity-center-password")
-- [I receive an error that states ‘It’s not you, it’s us’
-  when I try to sign in to the IAM Identity Center console](#error-sign-in-idc "#error-sign-in-idc")
+- [My AWS access portal credentials aren't working](#credentials-not-working-portal "#credentials-not-working-portal")
+- [I forgot my IAM Identity Center password for my AWS account](#troubleshoot-forgot-iam-identity-center-password "#troubleshoot-forgot-iam-identity-center-password")
+- [I receive an error that states ‘It’s not you, it’s us’ when I try to sign in to the IAM Identity Center console](#error-sign-in-idc "#error-sign-in-idc")
 
-## My AWS Management Console credentials aren't
-
-working
+## My AWS Management Console credentials aren't working
 
 If you remember your username and password, but your credentials don't work, you might
 be on the wrong page. Try signing in on a different page:
@@ -71,8 +52,7 @@ be on the wrong page. Try signing in on a different page:
 - If you created or own an AWS account and are performing a task that requires
   root user credentials, enter your account email address in the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/"). To learn how to access the root user,
   see [To sign in as the root user](introduction-to-root-user-sign-in-tutorial.md#root-user-sign-in-tutorial "introduction-to-root-user-sign-in-tutorial.md#root-user-sign-in-tutorial"). If you forgot your root user password,
-  you can reset it. See [I forgot my root user password for my
-  AWS account](#troubleshoot-forgot-root-password "#troubleshoot-forgot-root-password") for more information. If you
+  you can reset it. See [I forgot my root user password for my AWS account](#troubleshoot-forgot-root-password "#troubleshoot-forgot-root-password") for more information. If you
   forgot your root user email address, check your email inbox for an email from
   AWS.
 - If you tried to sign in to your root user account and received the error: **Password recovery is disabled for my root user account**, you
@@ -92,8 +72,7 @@ _AWS Identity and Access Management User Guide_.
   know that AWS account ID or alias to sign in. Enter your account ID or alias,
   username, and password in to the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/").
   To learn how to access the IAM user sign-in page, see [To sign in as an IAM user](introduction-to-iam-user-sign-in-tutorial.md#iam-user-sign-in-tutorial "introduction-to-iam-user-sign-in-tutorial.md#iam-user-sign-in-tutorial").
-  If you forgot your IAM user password, you can see [I forgot my IAM user password for my
-  AWS account](#troubleshoot-forgot-iam-password "#troubleshoot-forgot-iam-password") for information on resetting
+  If you forgot your IAM user password, you can see [I forgot my IAM user password for my AWS account](#troubleshoot-forgot-iam-password "#troubleshoot-forgot-iam-password") for information on resetting
   your IAM user password. If you forgot your account number, search your email,
   browser favorites, or browser history for a URL that includes
   `signin.aws.amazon.com/`. Your account ID or alias will follow the
@@ -120,9 +99,7 @@ Update your password to ensure your root user credentials stay secure. To learn 
 reset your root user password, see [I
 forgot my root user password for my AWS account](#troubleshoot-forgot-root-password "#troubleshoot-forgot-root-password").
 
-## I don't have access to the email for my
-
-AWS account
+## I don't have access to the email for my AWS account
 
 When you create an AWS account, you provide an email address and password. These are
 the credentials for the AWS account root user. If you aren't sure of the email address associated with
@@ -181,9 +158,7 @@ update your MFA device:
 IAM users must contact their administrator for assistance with MFA
 devices. Support can't assist IAM users with MFA device issues.
 
-## I can’t access the
-
-AWS Management Console sign-in page
+## I can’t access the AWS Management Console sign-in page
 
 If you can't see your sign-in page, the domain might be blocked by a firewall. Contact
 your network administrator to add the following domains or URL endpoints to your
@@ -196,9 +171,7 @@ you sign in.
 | Amazon.com account sign-in                                    | www.amazon.com                                            |
 | IAM Identity Center users and first-party application sign-in | • \*.awsapps.com (http://awsapps.com/)<br>• \*.signin.aws |
 
-## How can I find my AWS account
-
-ID or alias
+## How can I find my AWS account ID or alias
 
 If you are an IAM user and you aren't signed in, ask your administrator for the
 AWS account ID or alias. Your administrator is typically an Information Technology (IT) personnel who has a higher level of permissions to the AWS account
@@ -222,21 +195,16 @@ For more information about your AWS account ID and alias and how to find it, see
 [Your
 AWS account ID and its alias](../../../IAM/latest/UserGuide/console_account-alias.md "../../../IAM/latest/UserGuide/console_account-alias.md").
 
-## I need my account verification
-
-code
+## I need my account verification code
 
 If you provided your account email address and password, AWS sometimes requires you to
 provide a one-time verification code. To retrieve the verification code, check the email
 that's associated with your AWS account for a message from Amazon Web Services. The email address
 ends in @signin.aws or @verify.signin.aws. Follow the directions in the message. If you
 don't see the message in your account, check your spam and junk folders. If you no longer
-have access to the email, see [I don't have access to the email for my
-AWS account](#troubleshoot-lost-email "#troubleshoot-lost-email").
+have access to the email, see [I don't have access to the email for my AWS account](#troubleshoot-lost-email "#troubleshoot-lost-email").
 
-## I forgot my root user password for my
-
-AWS account
+## I forgot my root user password for my AWS account
 
 If you are a root user and you have lost or forgotten the password for your AWS account,
 you can reset your password by selecting the "Forgot Password" link in the AWS Management Console. You
@@ -291,9 +259,7 @@ password reset is shown in the following image.
 For more information on resetting your root user password, see [How do I recover a lost or
 forgotten AWS password?](https://aws.amazon.com/premiumsupport/knowledge-center/recover-aws-password/ "https://aws.amazon.com/premiumsupport/knowledge-center/recover-aws-password/")
 
-## I forgot my IAM user password for my
-
-AWS account
+## I forgot my IAM user password for my AWS account
 
 To change your IAM user password, you must have the proper permissions. For more
 information about resetting your IAM user password, see [How an
@@ -316,9 +282,7 @@ forgotten AWS password?](https://aws.amazon.com/premiumsupport/knowledge-center/
 To learn how an administrator can manage your password, see [Managing
 passwords for IAM users](../../../IAM/latest/UserGuide/id_credentials_passwords_admin-change-user.md "../../../IAM/latest/UserGuide/id_credentials_passwords_admin-change-user.md").
 
-## I forgot my federated
-
-identity password for my AWS account
+## I forgot my federated identity password for my AWS account
 
 Federated identities sign in to access AWS accounts with external identities. The type
 of external identity in use determines how federated identities sign in. Your administrator
@@ -327,9 +291,7 @@ reset your password. Your administrator is typically an Information Technology (
 than other members of your organization. This individual created
 your account and provides users with their access credentials to sign in.
 
-## I can’t sign in to my existing
-
-AWS account and I can't create a new AWS account with the same email address
+## I can’t sign in to my existing AWS account and I can't create a new AWS account with the same email address
 
 You can associate an email address with only one AWS account root user. If you close your root user
 account and it remains closed for more than 90 days, then you are not able to reopen your
@@ -346,23 +308,17 @@ connected to the same inbox as your usual email address. Before you sign up for 
 account, we recommend that you send a test email to your appended email address to confirm
 that your email provider supports subaddressing.
 
-## I need to reactivate my suspended
-
-AWS account
+## I need to reactivate my suspended AWS account
 
 If your AWS account is suspended and you want to reinstate it, see [How
 can I reactivate my suspended AWS account?](https://aws.amazon.com/premiumsupport/knowledge-center/reactivate-suspended-account/ "https://aws.amazon.com/premiumsupport/knowledge-center/reactivate-suspended-account/")
 
-## I need to contact Support for sign-in
-
-issues
+## I need to contact Support for sign-in issues
 
 If you tried everything, you can get help from Support by completing the
 [Billing and Account Support request](https://support.aws.amazon.com/#/contacts/aws-account-support/ "https://support.aws.amazon.com/#/contacts/aws-account-support/").
 
-## I need to contact AWS Billing for billing
-
-issues
+## I need to contact AWS Billing for billing issues
 
 If you can't sign in to your AWS account and would like to contact AWS Billing for
 billing issues, you can do so through a [Billing and Account Support request](https://support.aws.amazon.com/#/contacts/aws-account-support/ "https://support.aws.amazon.com/#/contacts/aws-account-support/"). For more information about
@@ -380,9 +336,7 @@ If you need help changing a credit card for your AWS account, reporting fraudule
 activity, or closing your AWS account, see [Troubleshooting other issues
 with AWS accounts](../../../accounts/latest/reference/troubleshooting_other.md "../../../accounts/latest/reference/troubleshooting_other.md").
 
-## My AWS access portal credentials aren't
-
-working
+## My AWS access portal credentials aren't working
 
 When you can't sign in to your AWS access portal, try to remember how you previously
 accessed AWS.
@@ -421,9 +375,7 @@ sign-in using their credentials.
   you can’t find your portal link, contact your administrator. Support can’t help you
   recover this information.
 
-## I forgot my IAM Identity Center
-
-password for my AWS account
+## I forgot my IAM Identity Center password for my AWS account
 
 If you are a user in IAM Identity Center and you have lost or forgotten the password for your
 AWS account, you can reset your password. You must know the email address used for the
@@ -455,9 +407,7 @@ successful.
 If you didn't receive an email to reset your password, ask your administrator to
 confirm which email is registered with your user in IAM Identity Center.
 
-## I receive an error that states ‘It’s not you, it’s us’
-
-when I try to sign in to the IAM Identity Center console
+## I receive an error that states ‘It’s not you, it’s us’ when I try to sign in to the IAM Identity Center console
 
 This error indicates there is a setup problem with your instance of IAM Identity Center or the
 external identity provider (IdP) it’s using as its identity source. We recommend that you

@@ -6,32 +6,22 @@ AWS Builder ID.
 ###### Topics
 
 - [My email is already in use](#email-in-use-aws_builder_id "#email-in-use-aws_builder_id")
-- [I can't complete email
-  verification](#email-verification-aws_builder_id "#email-verification-aws_builder_id")
+- [I can't complete email verification](#email-verification-aws_builder_id "#email-verification-aws_builder_id")
 - [I can’t sign in with Google](#sign-in-google-builder_id "#sign-in-google-builder_id")
 - [I can’t sign in with Apple](#sign-in-apple-builder_id "#sign-in-apple-builder_id")
-- [I received a sign in error when I attempted
-  to sign up for an AWS Builder ID using continue with Google](#switch-account-google-builder_id "#switch-account-google-builder_id")
-- [I received a sign in error when I attempted
-  to sign up for an AWS Builder ID using continue with Apple](#switch-account-apple-builder_id "#switch-account-apple-builder_id")
-- [I can’t create a Hodgkin account](#create-account-hodgkin "#create-account-hodgkin")
-- [I receive an error that states 'It’s not
-  you, it’s us' when I try to sign in with my AWS Builder ID](#error-sign-in-aws_builder_id "#error-sign-in-aws_builder_id")
+- [I received a sign in error when I attempted to sign up for an AWS Builder ID using continue with Google](#switch-account-google-builder_id "#switch-account-google-builder_id")
+- [I received a sign in error when I attempted to sign up for an AWS Builder ID using continue with Apple](#switch-account-apple-builder_id "#switch-account-apple-builder_id")
+- [I receive an error that states 'It’s not you, it’s us' when I try to sign in with my AWS Builder ID](#error-sign-in-aws_builder_id "#error-sign-in-aws_builder_id")
 - [I forgot my password](#forgot-password-aws_builder_id "#forgot-password-aws_builder_id")
 - [I can't set a new password](#reset-not-working-aws_builder_id "#reset-not-working-aws_builder_id")
 - [My password isn’t working](#password-not-working-aws_builder_id "#password-not-working-aws_builder_id")
-- [My password isn't working
-  and I can no longer access emails sent to my AWS Builder ID email address](#password-email-not-working-aws_builder_id "#password-email-not-working-aws_builder_id")
+- [My password isn't working and I can no longer access emails sent to my AWS Builder ID email address](#password-email-not-working-aws_builder_id "#password-email-not-working-aws_builder_id")
 - [I can't enable MFA](#enable-mfa-aws_builder_id "#enable-mfa-aws_builder_id")
-- [I can't add an authenticator app as a MFA
-  device](#add-mfa-aws_builder_id "#add-mfa-aws_builder_id")
+- [I can't add an authenticator app as a MFA device](#add-mfa-aws_builder_id "#add-mfa-aws_builder_id")
 - [I can't remove an MFA device](#remove-mfa-aws_builder_id "#remove-mfa-aws_builder_id")
-- [I get the message 'An unexpected error has
-  occurred' when I try to register or sign in with an authenticator app](#syncing-mfa-aws_builder_id "#syncing-mfa-aws_builder_id")
-- [I get the message 'It's not you, it's us' when
-  trying to sign in to AWS Builder ID](#its-not-you-its-us "#its-not-you-its-us")
-- [Sign out doesn't sign me out
-  completely](#sign-out-completely-aws_builder_id "#sign-out-completely-aws_builder_id")
+- [I get the message 'An unexpected error has occurred' when I try to register or sign in with an authenticator app](#syncing-mfa-aws_builder_id "#syncing-mfa-aws_builder_id")
+- [I get the message 'It's not you, it's us' when trying to sign in to AWS Builder ID](#its-not-you-its-us "#its-not-you-its-us")
+- [Sign out doesn't sign me out completely](#sign-out-completely-aws_builder_id "#sign-out-completely-aws_builder_id")
 - [I'm still looking to solve my problem](#last-help-aws_builder_id "#last-help-aws_builder_id")
 
 ## My email is already in use
@@ -40,9 +30,7 @@ If the email that you entered is already in use and you recognize it as your own
 you may already have signed up for an AWS Builder ID. Try signing in using that email
 address. If you don't remember your password, see [I forgot my password](#forgot-password-aws_builder_id "#forgot-password-aws_builder_id").
 
-## I can't complete email
-
-verification
+## I can't complete email verification
 
 If you signed up for AWS Builder ID but have not received your verification email,
 complete the following troubleshoot tasks.
@@ -75,18 +63,14 @@ your password, see [I forgot my password](#forgot-password-aws_builder_id "#forg
 
 For help signing in with your Apple password, see [If you can’t sign in to your Apple Account](https://support.apple.com/en-us/111001 "https://support.apple.com/en-us/111001").
 
-## I received a sign in error when I attempted
-
-to sign up for an AWS Builder ID using continue with Google
+## I received a sign in error when I attempted to sign up for an AWS Builder ID using continue with Google
 
 This means that you either have an existing AWS Builder ID using the same email address as
 your Google Account, or that the email address associated with your Google Account is
 not verified. In either case, please try to sign up again entering your email address
 and providing a password.
 
-## I received a sign in error when I attempted
-
-to sign up for an AWS Builder ID using continue with Apple
+## I received a sign in error when I attempted to sign up for an AWS Builder ID using continue with Apple
 
 This means that you either have an existing AWS Builder ID using the same email address as
 your Apple Account, or that the email address associated with your Apple Account is
@@ -96,23 +80,7 @@ or by your school with
 [Apple School Manager](https://support.apple.com/guide/apple-school-manager/about-managed-apple-accounts-axm78b477c81 "https://support.apple.com/guide/apple-school-manager/about-managed-apple-accounts-axm78b477c81"). In either case, please try to sign up again entering your email
 address and providing a password.
 
-## I can’t create a Hodgkin account
-
-If your email is already associated with an AWS account, you may not be able to
-create a Hodgkin account for one of the following reasons:
-
-- **Your email is already associated with an AWS account**.
-  Continue to the AWS Management Console to sign in and set up the Hodgkin application.
-- **Your email address is already associated with an account that has
-  been closed**. Use a different email to create your Hodgkin
-  account.
-
-For help with troubleshooting account issues, see [Troubleshoot your
-AWS account](../../../accounts/latest/reference/troubleshooting.md "../../../accounts/latest/reference/troubleshooting.md") in the _AWS Account Management Reference Guide_.
-
-## I receive an error that states 'It’s not
-
-you, it’s us' when I try to sign in with my AWS Builder ID
+## I receive an error that states 'It’s not you, it’s us' when I try to sign in with my AWS Builder ID
 
 If you receive this error message when you try to sign in, there might be an issue
 with your local settings or email address.
@@ -173,9 +141,7 @@ make sure that:
 If you verify that your password is up-to-date and entered correctly, but it still
 doesn't work, follow the instructions in [I forgot my password](#forgot-password-aws_builder_id "#forgot-password-aws_builder_id") to reset your password.
 
-## My password isn't working
-
-and I can no longer access emails sent to my AWS Builder ID email address
+## My password isn't working and I can no longer access emails sent to my AWS Builder ID email address
 
 If you can still sign in to your AWS Builder ID, use the **Profile** page
 to update your AWS Builder ID email to your new email address. After you complete email
@@ -192,9 +158,7 @@ temporary access, or share content from your mailbox.
 To enable MFA, add one or more MFA devices to your profile by following the steps in
 [Manage AWS Builder ID multi-factor authentication (MFA)](mfa-builder-id.md "mfa-builder-id.md").
 
-## I can't add an authenticator app as a MFA
-
-device
+## I can't add an authenticator app as a MFA device
 
 If you find that you can't add another MFA device, you may have reached the limit of
 MFA devices that you can register in that application. Try removing an unused MFA device
@@ -207,9 +171,7 @@ the steps in [Delete your MFA device](mfa-builder-id.md#delete-mfa-aws_builder_i
 enabled, you should add another MFA device before attempting to delete an existing MFA
 device. For more information about adding another MFA device, see [Manage AWS Builder ID multi-factor authentication (MFA)](mfa-builder-id.md "mfa-builder-id.md").
 
-## I get the message 'An unexpected error has
-
-occurred' when I try to register or sign in with an authenticator app
+## I get the message 'An unexpected error has occurred' when I try to register or sign in with an authenticator app
 
 A time-based one-time password (TOTP) system, such as the one used by AWS Builder ID in
 combination with a code-based authenticator app, relies on time synchronization between
@@ -217,18 +179,14 @@ the client and the server. Ensure that the device where your authenticator app i
 installed is correctly synchronized to a reliable time source, or manually set the time
 on your device to match a reliable source, such as [NIST](https://www.time.gov/ "https://www.time.gov/") or other local/regional equivalents.
 
-## I get the message 'It's not you, it's us' when
-
-trying to sign in to AWS Builder ID
+## I get the message 'It's not you, it's us' when trying to sign in to AWS Builder ID
 
 Verify the date and time settings on the device you're using to sign in. We recommend
 that you set the date and time to be set automatically. If that's not available, we
 recommend syncing your date and time to a known Network Time Protocol (NTP)
 server.
 
-## Sign out doesn't sign me out
-
-completely
+## Sign out doesn't sign me out completely
 
 The system is designed to sign out immediately, but full sign out may take up to an
 hour.

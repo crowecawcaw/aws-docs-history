@@ -21,8 +21,7 @@ create an AWS account, you begin with a single sign-in identity that has complet
 to all AWS services and resources in the account. This identity is the AWS account
 root user. You can sign in as the root user using the email address and password that you used to
 create the account. Root users sign in with the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/"). For step by step instructions on
-how to sign in, see [Sign in to the AWS Management Console as the
-root user](introduction-to-root-user-sign-in-tutorial.md "introduction-to-root-user-sign-in-tutorial.md").
+how to sign in, see [Sign in to the AWS Management Console as the root user](introduction-to-root-user-sign-in-tutorial.md "introduction-to-root-user-sign-in-tutorial.md").
 
 ###### Important
 
@@ -36,8 +35,7 @@ groups, and roles)](../../../IAM/latest/UserGuide/id.md "../../../IAM/latest/Use
 An IAM user is an entity you create in AWS. This user is an identity within your
 AWS account that's granted specific custom permissions. Your IAM user credentials
 consist of a name and password used to sign in to the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/"). For step by step instructions on
-how to sign in, see [Sign in to the AWS Management Console as an
-IAM user](introduction-to-iam-user-sign-in-tutorial.md "introduction-to-iam-user-sign-in-tutorial.md").
+how to sign in, see [Sign in to the AWS Management Console as an IAM user](introduction-to-iam-user-sign-in-tutorial.md "introduction-to-iam-user-sign-in-tutorial.md").
 
 For more information about IAM identities including the IAM user, see [IAM Identities (users, user
 groups, and roles)](../../../IAM/latest/UserGuide/id.md "../../../IAM/latest/UserGuide/id.md").
