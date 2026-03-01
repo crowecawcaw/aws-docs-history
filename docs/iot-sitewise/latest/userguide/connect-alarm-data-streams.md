@@ -6,14 +6,10 @@ more information about property aliases, see [Manage data streams for AWS IoT Si
 
 ###### Topics
 
-- [Map external alarm state streams
-  (console)](#connect-alarm-data-stream-console "#connect-alarm-data-stream-console")
-- [Map external alarm state streams
-  (AWS CLI)](#connect-alarm-data-stream-cli "#connect-alarm-data-stream-cli")
+- [Map external alarm state streams (console)](#connect-alarm-data-stream-console "#connect-alarm-data-stream-console")
+- [Map external alarm state streams (AWS CLI)](#connect-alarm-data-stream-cli "#connect-alarm-data-stream-cli")
 
-## Map external alarm state streams
-
-(console)
+## Map external alarm state streams (console)
 
 You can define property aliases to map your data streams to your alarm state properties.
 This helps you easily identify an alarm state property when you ingest or retrieve data. For
@@ -33,9 +29,7 @@ You can choose the arrow icon to expand an asset hierarchy to find your
 asset. 4. Choose **Edit**. 5. Scroll to **Alarms** and expand the section. 6. Under **External Alarms**, enter the alias in
 **Property alias – _optional_**. 7. Choose **Save**.
 
-## Map external alarm state streams
-
-(AWS CLI)
+## Map external alarm state streams (AWS CLI)
 
 You can define property aliases to map your data streams to your alarm state properties.
 This helps you easily identify an alarm state property when you ingest or retrieve data. For

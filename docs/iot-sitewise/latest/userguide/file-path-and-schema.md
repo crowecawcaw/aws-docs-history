@@ -1,6 +1,4 @@
-# File paths and schemas of data saved in the cold
-
-tier
+# File paths and schemas of data saved in the cold tier
 
 AWS IoT SiteWise stores your data in the cold tier by replicating time series,
 including measurements, metrics, transforms and aggregates, and also asset and asset model definitions.

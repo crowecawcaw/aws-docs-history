@@ -21,9 +21,7 @@ in the _AWS General Reference_. For more information about AWS IoT SiteWise quot
 [AWS IoT SiteWise service
 quotas](../../../general/latest/gr/iot-sitewise.md#limits_iot_sitewise "../../../general/latest/gr/iot-sitewise.md#limits_iot_sitewise") in the _AWS General Reference_.
 
-### Quotas for AWS IoT SiteWise assets and asset
-
-models
+### Quotas for AWS IoT SiteWise assets and asset models
 
 | Resource                                                        | Description                                                                                                                                                                                                                                                                                                                                                                                       | Quota  | Adjustable |
 | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ---------- |
@@ -102,9 +100,7 @@ The SiteWise Monitor feature is no longer available to new customers. Existing c
 | Number of metrics in each dashboard visualization       | The maximum number of metrics or data points that you can display in a single<br>visualization on a dashboard in SiteWise Monitor. | 5     | Yes        |
 | Number of thresholds for each dashboard visualization   | The maximum number of threshold levels that you can set for each visualization<br>on a dashboard in SiteWise Monitor.              | 12    | No         |
 
-### Quotas for AWS IoT SiteWise bulk import and
-
-export of metadata
+### Quotas for AWS IoT SiteWise bulk import and export of metadata
 
 | Resource                                             | Description                                                                                                               | Quota | Adjustable |
 | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ----- | ---------- |

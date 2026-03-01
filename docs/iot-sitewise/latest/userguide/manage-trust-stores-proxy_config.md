@@ -1,6 +1,4 @@
-# Configure proxy settings during
-
-AWS IoT SiteWise Edge gateway installation
+# Configure proxy settings during AWS IoT SiteWise Edge gateway installation
 
 You can configure AWS IoT SiteWise Edge to work with a proxy server during gateway
 installation. The installation script supports both HTTP and HTTPS proxies and can
@@ -23,8 +21,7 @@ important tasks:
 ###### To configure proxy settings when installing gateway software
 
 1. Create a SiteWise Edge gateway. For more information, see [Create a self-hosted SiteWise Edge gateway](create-gateway-ggv2.md "create-gateway-ggv2.md") and
-   [Install the AWS IoT SiteWise Edge
-   gateway software on your local device](install-gateway-software-on-local-device.md "install-gateway-software-on-local-device.md").
+   [Install the AWS IoT SiteWise Edge gateway software on your local device](install-gateway-software-on-local-device.md "install-gateway-software-on-local-device.md").
 2. Run the installation script with the appropriate proxy settings for your
    environment. Replace the placeholders with your specific proxy information
 
@@ -59,5 +56,4 @@ use this command structure:
 ## Troubleshooting during proxy-enabled installation
 
 For more information on resolving trust store issues related to a SiteWise Edge
-gateway, see [Proxy-enabled installation
-issues](troubleshooting-gateway.md#troubleshoot-proxy-during-installation "troubleshooting-gateway.md#troubleshoot-proxy-during-installation").
+gateway, see [Proxy-enabled installation issues](troubleshooting-gateway.md#troubleshoot-proxy-during-installation "troubleshooting-gateway.md#troubleshoot-proxy-during-installation").

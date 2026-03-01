@@ -29,21 +29,15 @@ To integrate AWS IoT SiteWise and Lookout for Equipment, you'll perform the foll
 
 ###### Topics
 
-- [Add a prediction definition
-  (console)](#ad-add-prediction-definition-console "#ad-add-prediction-definition-console")
+- [Add a prediction definition (console)](#ad-add-prediction-definition-console "#ad-add-prediction-definition-console")
 - [Train a prediction (console)](#ad-train-prediction-console "#ad-train-prediction-console")
-- [Start or stop inference on a prediction
-  (console)](#ad-start-stop-inference-console "#ad-start-stop-inference-console")
+- [Start or stop inference on a prediction (console)](#ad-start-stop-inference-console "#ad-start-stop-inference-console")
 - [Add a prediction definition (CLI)](#ad-add-prediction-definition-cli "#ad-add-prediction-definition-cli")
-- [Train a prediction and starting inference
-  (CLI)](#ad-train-inference-prediction-cli "#ad-train-inference-prediction-cli")
+- [Train a prediction and starting inference (CLI)](#ad-train-inference-prediction-cli "#ad-train-inference-prediction-cli")
 - [Train a prediction (CLI)](#ad-train-prediction-cli "#ad-train-prediction-cli")
-- [Start or stop inference on a prediction
-  (CLI)](#ad-start-stop-inference-cli "#ad-start-stop-inference-cli")
+- [Start or stop inference on a prediction (CLI)](#ad-start-stop-inference-cli "#ad-start-stop-inference-cli")
 
-## Add a prediction definition
-
-(console)
+## Add a prediction definition (console)
 
 To begin sending data collected by AWS IoT SiteWise to Lookout for Equipment, you must add an AWS IoT SiteWise prediction definition to an asset model.
 
@@ -215,9 +209,7 @@ After you've added a prediction definition to an asset model, you can train the 
 
 7. Review the details of the prediction and choose **Save and start**.
 
-## Start or stop inference on a prediction
-
-(console)
+## Start or stop inference on a prediction (console)
 
 ###### Note
 
@@ -264,8 +256,7 @@ property values into AWS IoT SiteWise, which will be used to train the model. Fo
 1. Create a file called `asset-model-payload.json`. Follow the steps in these other sections to add your asset model's details to the file,
    but don't submit the request to create or update the asset model.
    - For more information about how to create an asset model, see [Create an asset model (AWS CLI)](create-asset-models.md#create-asset-model-cli "create-asset-models.md#create-asset-model-cli")
-   - For more information about how to update an existing asset model, see [Update an asset model, component model, or interface
-     (AWS CLI)](update-asset-models.md#update-asset-model-cli "update-asset-models.md#update-asset-model-cli")
+   - For more information about how to update an existing asset model, see [Update an asset model, component model, or interface (AWS CLI)](update-asset-models.md#update-asset-model-cli "update-asset-models.md#update-asset-model-cli")
 
 2. Add a Lookout for Equipment composite model (`assetModelCompositeModels`) to the asset model by adding the following
    code.
@@ -378,9 +369,7 @@ property values into AWS IoT SiteWise, which will be used to train the model. Fo
 
 After you run the command, note the `assetModelId` in the response.
 
-## Train a prediction and starting inference
-
-(CLI)
+## Train a prediction and starting inference (CLI)
 
 Now that the prediction definition is defined, you can train assets based on it and start inference. If you want to train your prediction but not start inference, skip to [Train a prediction (CLI)](#ad-train-prediction-cli "#ad-train-prediction-cli"). To train the prediction and start inference on the asset, you’ll need the `assetId` of the target resource.
 
@@ -388,8 +377,7 @@ Now that the prediction definition is defined, you can train assets based on it 
 
 1. Run the following command to find the `assetModelCompositeModelId` under `assetModelCompositeModelSummaries`. Replace
    `asset-model-id` with the ID of the asset model that you created in
-   [Update an asset model, component model, or interface
-   (AWS CLI)](update-asset-models.md#update-asset-model-cli "update-asset-models.md#update-asset-model-cli").
+   [Update an asset model, component model, or interface (AWS CLI)](update-asset-models.md#update-asset-model-cli "update-asset-models.md#update-asset-model-cli").
 
 ```
 aws iotsitewise describe-asset-model \
@@ -439,8 +427,7 @@ Now that the prediction definition is defined, you can train assets based on it.
 
 1. Run the following command to find the `assetModelCompositeModelId` under `assetModelCompositeModelSummaries`. Replace
    `asset-model-id` with the ID of the asset model that you created in
-   [Update an asset model, component model, or interface
-   (AWS CLI)](update-asset-models.md#update-asset-model-cli "update-asset-models.md#update-asset-model-cli").
+   [Update an asset model, component model, or interface (AWS CLI)](update-asset-models.md#update-asset-model-cli "update-asset-models.md#update-asset-model-cli").
 
 ```
 aws iotsitewise describe-asset-model \
@@ -493,9 +480,7 @@ following:
 - From the console, navigate to the asset the prediction is on.
 - From the AWS CLI, call `BatchGetAssetPropertyValue` using the `propertyId` of the `trainingStatus` property.
 
-## Start or stop inference on a prediction
-
-(CLI)
+## Start or stop inference on a prediction (CLI)
 
 Once the prediction is trained, you can start inference to tell Lookout for Equipment to start monitoring your assets. To
 start or stop inference, you’ll need the `assetId` of the target resource.
@@ -504,8 +489,7 @@ start or stop inference, you’ll need the `assetId` of the target resource.
 
 1. Run the following command to find the `assetModelCompositeModelId` under `assetModelCompositeModelSummaries`. Replace
    `asset-model-id` with the ID of the asset model that you created in
-   [Update an asset model, component model, or interface
-   (AWS CLI)](update-asset-models.md#update-asset-model-cli "update-asset-models.md#update-asset-model-cli").
+   [Update an asset model, component model, or interface (AWS CLI)](update-asset-models.md#update-asset-model-cli "update-asset-models.md#update-asset-model-cli").
 
 ```
 aws iotsitewise describe-asset-model \
@@ -547,8 +531,7 @@ aws iotsitewise execute-action --cli-input-json file://start-inference.json
 
 1. Run the following command to find the `assetModelCompositeModelId` under `assetModelCompositeModelSummaries`. Replace
    `asset-model-id` with the ID of the asset model that you created in
-   [Update an asset model, component model, or interface
-   (AWS CLI)](update-asset-models.md#update-asset-model-cli "update-asset-models.md#update-asset-model-cli").
+   [Update an asset model, component model, or interface (AWS CLI)](update-asset-models.md#update-asset-model-cli "update-asset-models.md#update-asset-model-cli").
 
 ```
 aws iotsitewise describe-asset-model \

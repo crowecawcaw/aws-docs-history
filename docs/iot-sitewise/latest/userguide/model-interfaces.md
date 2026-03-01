@@ -19,9 +19,7 @@ Using interfaces provides several benefits:
   Every equipment type, with their own set of properties, can be represented by their own asset
   models.
 
-## Asset model standardization use
-
-case
+## Asset model standardization use case
 
 Interfaces help standardize properties across different asset models while preserving
 their unique characteristics.
@@ -86,10 +84,8 @@ When working with interfaces, keep these considerations in mind:
 
 ###### Topics
 
-- [Understand the interface-asset model
-  relationship](interface-asset-model-relationship.md "interface-asset-model-relationship.md")
+- [Understand the interface-asset model relationship](interface-asset-model-relationship.md "interface-asset-model-relationship.md")
 - [Create an interface](interface-create.md "interface-create.md")
 - [Apply an interface to an asset model](interfaces-link-asset-model.md "interfaces-link-asset-model.md")
-- [Manage interfaces, linked asset models, and
-  properties](interfaces-manage.md "interfaces-manage.md")
+- [Manage interfaces, linked asset models, and properties](interfaces-manage.md "interfaces-manage.md")
 - [Additional interface examples](interface-additional-examples.md "interface-additional-examples.md")

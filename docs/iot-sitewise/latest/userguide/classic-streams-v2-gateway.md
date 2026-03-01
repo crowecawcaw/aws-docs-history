@@ -13,12 +13,8 @@ create a new MQTT-enabled, V3 gateway. For more information, see [MQTT-enabled, 
 
 ###### Topics
 
-- [Use packs to collect and process data in
-  SiteWise Edge](data-packs.md "data-packs.md")
-- [Configure the AWS IoT SiteWise publisher
-  component](configure-publisher-component.md "configure-publisher-component.md")
+- [Use packs to collect and process data in SiteWise Edge](data-packs.md "data-packs.md")
+- [Configure the AWS IoT SiteWise publisher component](configure-publisher-component.md "configure-publisher-component.md")
 - [Destinations and AWS IoT Greengrass stream manager](destinations-gg-stream-manager.md "destinations-gg-stream-manager.md")
-- [Configure edge capabilities on
-  AWS IoT SiteWise Edge](edge-data-collection-and-processing.md "edge-data-collection-and-processing.md")
-- [Configure edge data processing for AWS IoT SiteWise models
-  and assets](edge-processing.md "edge-processing.md")
+- [Configure edge capabilities on AWS IoT SiteWise Edge](edge-data-collection-and-processing.md "edge-data-collection-and-processing.md")
+- [Configure edge data processing for AWS IoT SiteWise models and assets](edge-processing.md "edge-processing.md")

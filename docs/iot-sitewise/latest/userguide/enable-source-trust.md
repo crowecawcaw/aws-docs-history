@@ -1,6 +1,4 @@
-# Set up OPC UA servers to trust the
-
-AWS IoT SiteWise Edge gateway
+# Set up OPC UA servers to trust the AWS IoT SiteWise Edge gateway
 
 If you choose a `messageSecurityMode` other than
 **None** when configuring your OPC UA source, you must
@@ -20,9 +18,7 @@ The following procedure outlines the basic steps.
    choose **AWS IoT SiteWise Gateway Client**.
 4. Choose **Trust**.
 
-## Exporting the OPC UA
-
-client certificate
+## Exporting the OPC UA client certificate
 
 Some OPC UA servers require access to the OPC UA client certificate file
 to trust the SiteWise Edge gateway. If this applies to your OPC UA servers, you

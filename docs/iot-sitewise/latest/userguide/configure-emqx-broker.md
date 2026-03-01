@@ -13,17 +13,12 @@ default EMQX configuration in your MQTT-enabled, V3 gateway.
 ###### Important
 
 After completing this procedure, we highly recommend configuring
-authorization rules. For more information, see [Set up authorization rules for
-AWS IoT SiteWise Edge in EMQX](authorization-rules-emqx-broker.md "authorization-rules-emqx-broker.md"). Authorization rules
+authorization rules. For more information, see [Set up authorization rules for AWS IoT SiteWise Edge in EMQX](authorization-rules-emqx-broker.md "authorization-rules-emqx-broker.md"). Authorization rules
 for added users enhances security.
 
-## Update the EMQX
+## Update the EMQX deployment configuration for authentication
 
-deployment configuration for authentication
-
-###### To update the EMQX deployment configuration for
-
-authentication
+###### To update the EMQX deployment configuration for authentication
 
 1. Navigate to the [AWS IoT SiteWise console](https://console.aws.amazon.com/iotsitewise/ "https://console.aws.amazon.com/iotsitewise/").
 2. In the left navigation, choose **Edge gateways** in the **Edge** section.
@@ -159,9 +154,7 @@ The `dockerOptions` field is only for Linux
 gateways. 15. Choose **Confirm**. 16. Choose **Next** until you reach the
 **Review** step. 17. Choose **Deploy**. 18. After the deployment succeeds, proceed to the next step.
 
-## Enable username and
-
-password authentication
+## Enable username and password authentication
 
 This section shows you how to add usernames and passwords through the EMQX
 dashboard GUI.
@@ -175,9 +168,7 @@ documentation](https://docs.emqx.com/en/emqx/latest/ "https://docs.emqx.com/en/e
 
 EMQX Dashboard
 
-###### To enable username and password authentication through
-
-the EMQX dashboard
+###### To enable username and password authentication through the EMQX dashboard
 
 1. Ensure that you are within the gateway host.
 2. Open a browser window and visit [`http://localhost:18083/`](http://localhost:18083/ "http://localhost:18083/").
@@ -211,9 +202,7 @@ EMQX Management with Linux
 Use the AWS IoT SiteWise EMQX CLI tool at
 `/greengrass/v2/bin/swe-emqx-cli`.
 
-###### To enable username and password authentication through
-
-EMQX Management using Linux
+###### To enable username and password authentication through EMQX Management using Linux
 
 1. Change the admin password by running the following
    command:
@@ -279,9 +268,7 @@ locations:
 - Command Prompt:
   `C:\greengrass\v2\bin\swe-emqx-cli.bat`
 
-###### To enable username and password authentication through
-
-EMQX Management using Windows
+###### To enable username and password authentication through EMQX Management using Windows
 
 1. Change the admin password by running the following
    command:

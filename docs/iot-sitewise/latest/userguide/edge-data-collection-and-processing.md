@@ -1,6 +1,4 @@
-# Configure edge capabilities on
-
-AWS IoT SiteWise Edge
+# Configure edge capabilities on AWS IoT SiteWise Edge
 
 ###### Note
 
@@ -74,8 +72,7 @@ capabilities for your SiteWise Edge gateway.
 
 You can also use the Linux or Microsoft Windows
 credentials to access the SiteWise Edge gateway. For more information, see
-[Access your SiteWise Edge gateway using Linux
-operating system credentials](manage-gateways-ggv2.md#linux-user-pool "manage-gateways-ggv2.md#linux-user-pool").
+[Access your SiteWise Edge gateway using Linux operating system credentials](manage-gateways-ggv2.md#linux-user-pool "manage-gateways-ggv2.md#linux-user-pool").
 
     1. Select **Activated**.
     2. For **Provider name**, enter a name for your

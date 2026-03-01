@@ -1,6 +1,4 @@
-# Use temporal functions in formula
-
-expressions
+# Use temporal functions in formula expressions
 
 Use temporal functions to return values based on timestamps of data
 points.
@@ -180,9 +178,7 @@ None – Result not produced for this window.
 | 3:04:00 | 0        | 10                   | 2.5                            | 0                | 10.084389681792215     | 10                          |
 | 3:05:00 | None     | 0                    | 0                              | None             | 0                      | 0                           |
 
-## Use temporal functions in
-
-transforms
+## Use temporal functions in transforms
 
 In [transforms](transforms.md "transforms.md") only, you can use the
 `pretrigger()` function to retrieve the `GOOD` quality value
@@ -203,8 +199,7 @@ represent the process:
   `if(pretrigger(current_state) == 1, timestamp(current_state) -
 timestamp(pretrigger(current_state)), none)`. This transform returns how
   long the machine has been in the cleaning state in seconds, in the Unix epoch
-  format. For more information, see [Use conditional functions in formula
-  expressions](expression-conditional-functions.md "expression-conditional-functions.md") and the [timestamp()](expression-date-and-time-functions.md "expression-date-and-time-functions.md")
+  format. For more information, see [Use conditional functions in formula expressions](expression-conditional-functions.md "expression-conditional-functions.md") and the [timestamp()](expression-date-and-time-functions.md "expression-date-and-time-functions.md")
   function.
 
 If the machine stays in the cleaning state longer than expected, the

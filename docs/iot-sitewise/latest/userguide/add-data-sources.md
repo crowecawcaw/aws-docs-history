@@ -10,7 +10,5 @@ comprehensive industrial asset modeling and data mapping in AWS IoT SiteWise.
 
 ###### Topics
 
-- [OPC UA data sources for AWS IoT SiteWise Edge
-  gateways](configure-sources-opcua.md "configure-sources-opcua.md")
-- [Partner data sources on SiteWise Edge
-  gateways](partner-data-sources.md "partner-data-sources.md")
+- [OPC UA data sources for AWS IoT SiteWise Edge gateways](configure-sources-opcua.md "configure-sources-opcua.md")
+- [Partner data sources on SiteWise Edge gateways](partner-data-sources.md "partner-data-sources.md")

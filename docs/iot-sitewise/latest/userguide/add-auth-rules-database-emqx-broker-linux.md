@@ -1,6 +1,4 @@
-# Configure
-
-authorization using the built-in database with Linux
+# Configure authorization using the built-in database with Linux
 
 When you configure authorization rules, there are two configuration
 choices that depend on your deployment setup.
@@ -55,5 +53,4 @@ with the Subnet value from the previous step.
 The tool automatically creates and applies authorization rules to
 allow connections from the provided IP address to the broker. It
 allows access to all topics. This includes the
-IoT SiteWise OPC UA collector and IoT SiteWise publisher. 3. Proceed to [Update the EMQX
-deployment configuration for authorization](update-emqx-broker-authorization.md "update-emqx-broker-authorization.md").
+IoT SiteWise OPC UA collector and IoT SiteWise publisher. 3. Proceed to [Update the EMQX deployment configuration for authorization](update-emqx-broker-authorization.md "update-emqx-broker-authorization.md").

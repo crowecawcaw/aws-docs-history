@@ -1,6 +1,4 @@
-# Connect external applications
-
-to the EMQX broker
+# Connect external applications to the EMQX broker
 
 This guide explains how to connect external applications to your AWS IoT SiteWise Edge
 gateway through an EMQX broker on your deployed MQTT-enabled, V3 gateway. External applications
@@ -36,10 +34,7 @@ setup authentication using usernames and passwords.
 
 ###### Topics
 
-- [Message payload format for the
-  EMQX broker on AWS IoT SiteWise Edge](connect-broker-payload-format.md "connect-broker-payload-format.md")
+- [Message payload format for the EMQX broker on AWS IoT SiteWise Edge](connect-broker-payload-format.md "connect-broker-payload-format.md")
 - [Configure the EMQX broker](configure-emqx-broker.md "configure-emqx-broker.md")
-- [Connect an application to the EMQX
-  broker on AWS IoT SiteWise Edge](connect-app-to-broker.md "connect-app-to-broker.md")
-- [Set up authorization rules for
-  AWS IoT SiteWise Edge in EMQX](authorization-rules-emqx-broker.md "authorization-rules-emqx-broker.md")
+- [Connect an application to the EMQX broker on AWS IoT SiteWise Edge](connect-app-to-broker.md "connect-app-to-broker.md")
+- [Set up authorization rules for AWS IoT SiteWise Edge in EMQX](authorization-rules-emqx-broker.md "authorization-rules-emqx-broker.md")

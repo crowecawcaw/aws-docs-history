@@ -24,8 +24,7 @@ There are two types of custom composite models:
 
 - [Inline custom composite models](#inline-composite-models "#inline-composite-models")
 - [Component-model-based custom composite models](#component-based-custom-composite-models "#component-based-custom-composite-models")
-- [Use paths to reference custom composite model
-  properties](#property-paths "#property-paths")
+- [Use paths to reference custom composite model properties](#property-paths "#property-paths")
 
 ## Inline custom composite models
 
@@ -117,9 +116,7 @@ For information about how to create component models, see [Create component mode
 
 For information about how to reference your component models in other models, see [Create custom composite models (components)](create-custom-composite-models.md "create-custom-composite-models.md").
 
-## Use paths to reference custom composite model
-
-properties
+## Use paths to reference custom composite model properties
 
 When you create a property on an asset model, component model, or custom composite model, you can
 reference it from other properties that use its value, such as [transforms](transforms.md "transforms.md")

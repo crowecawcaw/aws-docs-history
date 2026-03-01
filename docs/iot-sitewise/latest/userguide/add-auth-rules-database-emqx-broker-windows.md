@@ -1,6 +1,4 @@
-# Configure
-
-authorization using the built-in database with Windows
+# Configure authorization using the built-in database with Windows
 
 This section covers configuring authorization rules using the built-in
 database for Windows deployments.
@@ -17,5 +15,4 @@ C:\greengrass\v2\bin\swe-emqx-cli.ps1 acl init
 The tool automatically creates and applies ACL rules allowing
 connections from localhost (127.0.0.1) to the broker. It allows
 access to all topics. This includes the IoT SiteWise OPC UA collector and
-IoT SiteWise publisher. 3. Proceed to [Update the EMQX
-deployment configuration for authorization](update-emqx-broker-authorization.md "update-emqx-broker-authorization.md").
+IoT SiteWise publisher. 3. Proceed to [Update the EMQX deployment configuration for authorization](update-emqx-broker-authorization.md "update-emqx-broker-authorization.md").

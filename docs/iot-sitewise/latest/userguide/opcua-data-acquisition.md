@@ -1,15 +1,11 @@
-# Filter data ingestion ranges with OPC
-
-UA
+# Filter data ingestion ranges with OPC UA
 
 You can control the way you ingest data with an OPC UA source by using scan
 mode and deadband ranges. These features let you control what kind of data to
 ingest, and how and when your server and SiteWise Edge gateway exchange this
 information.
 
-## Collect or filter out data based on
-
-quality
+## Collect or filter out data based on quality
 
 You can configure your data quality settings to control what data is
 collected from the OPC UA source. The data source includes the quality
@@ -33,9 +29,7 @@ The IoT SiteWise OPC UA collector captures NaN and Null values with BAD or
 UNCERTAIN quality. These special values are written to the local stream,
 enabling more comprehensive data collection.
 
-## Control data collection frequency with Scan
-
-mode
+## Control data collection frequency with Scan mode
 
 You can configure your OPC UA scan mode to control the way you collect
 data from your OPC UA source. You can choose subscription or polling
@@ -55,9 +49,7 @@ mode.
 The polling mode option overrides your deadband settings for
 this source.
 
-## Filter OPC UA data ingestion with
-
-deadband ranges
+## Filter OPC UA data ingestion with deadband ranges
 
 You can apply a deadband to your OPC UA source property
 groups to filter out and discard certain data instead of sending it to the
@@ -66,8 +58,7 @@ incoming data values from your OPC UA source. If the values fall within this
 window, your OPC UA server won't send it to the AWS Cloud. You can use
 deadband filtering to reduce the amount of data you're processing and
 sending to the AWS Cloud. To learn how to set up OPC UA sources for your
-SiteWise Edge gateway, see [OPC UA data sources for AWS IoT SiteWise Edge
-gateways](configure-sources-opcua.md "configure-sources-opcua.md").
+SiteWise Edge gateway, see [OPC UA data sources for AWS IoT SiteWise Edge gateways](configure-sources-opcua.md "configure-sources-opcua.md").
 
 ###### Note
 

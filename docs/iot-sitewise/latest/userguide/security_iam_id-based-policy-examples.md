@@ -1,6 +1,4 @@
-# AWS IoT SiteWise identity-based policy
-
-examples
+# AWS IoT SiteWise identity-based policy examples
 
 By default, entities (users and roles) don't have permission to create or modify AWS IoT SiteWise
 resources. They also can't perform tasks using the AWS Management Console, AWS Command Line Interface (AWS CLI), or AWS
@@ -15,19 +13,13 @@ API. To adjust permissions, an AWS Identity and Access Management (IAM) administ
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Use the AWS IoT SiteWise
-  console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Use the AWS IoT SiteWise console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
 - [Allow users to ingest data to assets in one hierarchy](#security_iam_id-based-policy-examples-ingest-to-one-asset-hierarchy "#security_iam_id-based-policy-examples-ingest-to-one-asset-hierarchy")
-- [View AWS IoT SiteWise assets
-  based on tags](#security_iam_id-based-policy-examples-view-asset-tags "#security_iam_id-based-policy-examples-view-asset-tags")
+- [View AWS IoT SiteWise assets based on tags](#security_iam_id-based-policy-examples-view-asset-tags "#security_iam_id-based-policy-examples-view-asset-tags")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete AWS IoT SiteWise resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -60,9 +52,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Use the AWS IoT SiteWise
-
-console
+## Use the AWS IoT SiteWise console
 
 To access the AWS IoT SiteWise console, you need a basic set of permissions. These
 permissions let you see and manage details about the AWS IoT SiteWise resources in your
@@ -78,9 +68,7 @@ If entities are only using the AWS Command Line Interface (CLI) or the AWS IoT S
 they don't need these minimum permissions. In that case, just give them access to the
 specific actions they need for their API tasks.
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -154,9 +142,7 @@ JSON
 
 ```
 
-## View AWS IoT SiteWise assets
-
-based on tags
+## View AWS IoT SiteWise assets based on tags
 
 Use conditions in your identity-based policy to control access to AWS IoT SiteWise resources
 based on tags. This example shows how to create a policy that allows asset viewing.

@@ -1,6 +1,4 @@
-# Delete a service-linked role for
-
-AWS IoT SiteWise
+# Delete a service-linked role for AWS IoT SiteWise
 
 If a feature or service requiring a service-linked role is no longer in use, it's
 advisable to delete the associated role. This is to avoid having an inactive entity that isn't

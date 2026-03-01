@@ -8,8 +8,7 @@ them depends upon the SiteWise Edge component type in your gateway implementatio
 Trust stores are automatically updated during the installation process when proxy
 settings are provided.
 
-- [Configure
-  an AWS IoT Greengrass Core component trust store](#manage-trust-stores-proxy_greengrass-core-components "#manage-trust-stores-proxy_greengrass-core-components")
+- [Configure an AWS IoT Greengrass Core component trust store](#manage-trust-stores-proxy_greengrass-core-components "#manage-trust-stores-proxy_greengrass-core-components")
   – The AWS IoT Greengrass root CA certificate is included in the trust stores to
   verify the authenticity of AWS services.
 
@@ -17,8 +16,7 @@ This trust store helps AWS IoT Greengrass components securely communicate with A
 services through the proxy while verifying the authenticity of those
 services.
 
-- [Configure a
-  Java-based component trust store](#manage-trust-stores-proxy_java-based-components "#manage-trust-stores-proxy_java-based-components")
+- [Configure a Java-based component trust store](#manage-trust-stores-proxy_java-based-components "#manage-trust-stores-proxy_java-based-components")
   – The Java KeyStore (JKS) is the main trust store used by Java-based
   components for SSL/TLS connections.
 
@@ -29,8 +27,7 @@ ensures these components can securely communicate through the HTTPS proxy
 when sending data to the cloud or collecting data from OPC UA
 servers.
 
-- [System-level
-  component trust store configuration](#manage-trust-stores-proxy_system-level-components "#manage-trust-stores-proxy_system-level-components")
+- [System-level component trust store configuration](#manage-trust-stores-proxy_system-level-components "#manage-trust-stores-proxy_system-level-components")
   – When using HTTPS proxies, their certificates must be added to the
   appropriate trust stores to enable secure connections.
 
@@ -43,9 +40,7 @@ you're using system utilities that need to communicate through the proxy
 configure the system-level trust store. This ensures these components and
 utilities can establish secure connections through the proxy.
 
-## Configure
-
-an AWS IoT Greengrass Core component trust store
+## Configure an AWS IoT Greengrass Core component trust store
 
 For AWS IoT Greengrass Core functions that use Amazon's root CA:
 
@@ -76,17 +71,14 @@ rqXRfKoQnoZsG4q5WTP46EXAMPLE
 
 ```
 
-### Configure
-
-HTTPS proxy on an established gateway
+### Configure HTTPS proxy on an established gateway
 
 You can add proxy support to an established gateway by connecting to port
 443 instead of port 8883. For more information on using a proxy server, see
 [Connect on port 443 or through a network proxy](../../../greengrass/v2/developerguide/configure-greengrass-core-v2.md#configure-alpn-network-proxy "../../../greengrass/v2/developerguide/configure-greengrass-core-v2.md#configure-alpn-network-proxy") in the
 _AWS IoT Greengrass Version 2 Developer Guide_. If you create a new gateway, you
 can set the proxy configuration during gateway installation. For more
-information, see [Configure proxy settings during
-AWS IoT SiteWise Edge gateway installation](manage-trust-stores-proxy_config.md "manage-trust-stores-proxy_config.md").
+information, see [Configure proxy settings during AWS IoT SiteWise Edge gateway installation](manage-trust-stores-proxy_config.md "manage-trust-stores-proxy_config.md").
 
 When you use an HTTPS proxy with AWS IoT Greengrass on SiteWise Edge, the software
 automatically chooses between HTTP and HTTPS for proxy connections based on
@@ -97,9 +89,7 @@ the provided URL.
 Update all required trust stores before attempting to connect through
 an HTTPS proxy.
 
-## Configure a
-
-Java-based component trust store
+## Configure a Java-based component trust store
 
 For IoT SiteWise publisher, IoT SiteWise OPC UA collector, and Java services in the data
 processing pack, the default Java trust store location is
@@ -121,9 +111,7 @@ sudo keytool -import -alias proxyCert -keystore /usr/lib/jvm/java-11-openjdk-amd
 
 3. When prompted, use the default password: `changeit`
 
-## System-level
-
-component trust store configuration
+## System-level component trust store configuration
 
 For components written in Rust, Go, and other languages that use the system
 trust store:

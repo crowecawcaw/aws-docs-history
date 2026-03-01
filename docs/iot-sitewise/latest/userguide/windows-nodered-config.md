@@ -1,6 +1,4 @@
-# Configure Node-RED flows for AWS IoT SiteWise data
-
-integration
+# Configure Node-RED flows for AWS IoT SiteWise data integration
 
 With Node-RED®, you can implement two flows to manage data between your devices and
 AWS IoT SiteWise. These flows work together to create a comprehensive data management solution that
@@ -12,8 +10,7 @@ addresses both local and cloud data flow.
   MQTT broker. This enables you to leverage AWS IoT SiteWise's cloud capabilities for storage,
   analytics, and integration with other AWS services.
 
-For more information, see [Configure the data publish
-flow](windows-nodered-data-publish-flow.md "windows-nodered-data-publish-flow.md").
+For more information, see [Configure the data publish flow](windows-nodered-data-publish-flow.md "windows-nodered-data-publish-flow.md").
 
 - **Data retention flow** – Stores data at the
   edge. The data retention flow subscribes to the SiteWise Edge MQTT broker to receive data,
@@ -21,8 +18,7 @@ flow](windows-nodered-data-publish-flow.md "windows-nodered-data-publish-flow.md
   local storage provides immediate access to operational data, reduces latency for
   time-critical applications, and ensures continuity during network disruptions.
 
-For more information, see [Configure the data retention
-flow](windows-nodered-data-retention-flow.md "windows-nodered-data-retention-flow.md").
+For more information, see [Configure the data retention flow](windows-nodered-data-retention-flow.md "windows-nodered-data-retention-flow.md").
 These two flows work together to ensure data is both sent to AWS IoT SiteWise and stored locally
 for immediate access.
 

@@ -25,9 +25,7 @@ To check if the service deleted your data, do the following:
 5. If the log file contains the following message, the service deleted your data: **``number` bytes of data have been deleted to prevent
    SiteWise Edge gateway storage from running out of space.`**
 
-## Manage your SiteWise Edge gateway with the
-
-AWS IoT SiteWise console
+## Manage your SiteWise Edge gateway with the AWS IoT SiteWise console
 
 You can use the AWS IoT SiteWise console to configure, update, and monitor all SiteWise Edge gateways in
 your AWS account.
@@ -99,8 +97,7 @@ The following are required to use AWS OpsHub for AWS IoT SiteWise:
 1. Download and install the [AWS OpsHub for AWS IoT SiteWise for Windows](https://aws-iot-sitewise.s3.amazonaws.com/gateway/OpsHub+for+AWS+IoT+SiteWise.exe "https://aws-iot-sitewise.s3.amazonaws.com/gateway/OpsHub+for+AWS+IoT+SiteWise.exe") application.
 2. Open the application.
 3. If you don't have local credentials set up for your gateway, follow the steps
-   under [Access your SiteWise Edge gateway using local operating
-   system credentials](#create-user-pool "#create-user-pool") to set
+   under [Access your SiteWise Edge gateway using local operating system credentials](#create-user-pool "#create-user-pool") to set
    them up.
 4. You can sign in to your SiteWise Edge gateway with your Linux or Lightweight
    Directory Access Protocol (LDAP) credentials. To sign in to your SiteWise Edge
@@ -130,9 +127,7 @@ LDAP
      password.
     5. Choose **Sign in**.
 
-## Access your SiteWise Edge gateway using local operating
-
-system credentials
+## Access your SiteWise Edge gateway using local operating system credentials
 
 Besides Lightweight Directory Access Protocol (LDAP), you can use the Linux or Windows
 credentials to access your self-hosted SiteWise Edge gateway.
@@ -237,9 +232,7 @@ net localgroup SWE_ADMIN_GROUP `user-name` /add
 You can now use the user name and password to sign in to the SiteWise Edge gateway
 on the AWS OpsHub for AWS IoT SiteWise application.
 
-## Manage the SiteWise Edge gateway
-
-certificate
+## Manage the SiteWise Edge gateway certificate
 
 You can use SiteWise Monitor and third-party applications, such as Grafana, on your SiteWise Edge
 gateway devices. These applications require a TLS connection to the service. SiteWise Edge
@@ -266,9 +259,7 @@ that you downloaded in the previous step to a browser, do one of the following:
   the Certificate into the Mozilla or Firefox Browser](https://docs.oracle.com/cd/E19528-01/819-4639/gaesv/index.html "https://docs.oracle.com/cd/E19528-01/819-4639/gaesv/index.html") in the
   _Oracle documentation_.
 
-## Change the version of SiteWise Edge gateway
-
-component packs
+## Change the version of SiteWise Edge gateway component packs
 
 You can use the AWS IoT SiteWise console to change the version of component packs on your
 SiteWise Edge gateways.
@@ -421,9 +412,7 @@ This command produces no output when successful.
 
 For more information, see [update-gateway](../../../cli/latest/reference/iotsitewise/update-gateway.md "../../../cli/latest/reference/iotsitewise/update-gateway.md") in the AWS CLI Command Reference.
 
-## Update gateway capability
-
-configuration
+## Update gateway capability configuration
 
 Console
 
@@ -590,9 +579,7 @@ This command produces no output when successful.
 
 For more information, see [untag-resource](../../../cli/latest/reference/iotsitewise/untag-resource.md "../../../cli/latest/reference/iotsitewise/untag-resource.md") in the AWS CLI Command Reference.
 
-## Update the version of an AWS IoT SiteWise
-
-component
+## Update the version of an AWS IoT SiteWise component
 
 Update the AWS IoT SiteWise gateway component on your AWS IoT Greengrass core device to ensure your access to
 the latest features, performance improvements, and security patches.

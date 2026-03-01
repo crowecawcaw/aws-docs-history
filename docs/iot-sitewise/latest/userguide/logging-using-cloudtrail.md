@@ -109,9 +109,7 @@ logged, else the TimeSeries resources.type is logged.
 `readOnly`, and `resources.ARN` fields to log only those events that
 are important to you. For more information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md").
 
-## AWS IoT SiteWise management events in
-
-CloudTrail
+## AWS IoT SiteWise management events in CloudTrail
 
 [Logging
 management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md") provide information about management operations that are performed
@@ -121,9 +119,7 @@ default, CloudTrail logs management events.
 AWS IoT SiteWise logs all AWS IoT SiteWise control plane operations as management events. For a list
 of the AWS IoT SiteWise control plane operations that AWS IoT SiteWise logs to CloudTrail, see the [AWS IoT SiteWise API Reference](../APIReference/API_Operations.md "../APIReference/API_Operations.md").
 
-## Example: AWS IoT SiteWise log file
-
-entries
+## Example: AWS IoT SiteWise log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
 that you specify. CloudTrail log files contain one or more log entries. An event represents a single

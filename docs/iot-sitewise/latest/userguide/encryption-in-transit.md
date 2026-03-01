@@ -23,5 +23,4 @@ There are three modes of communication where data is in transit:
 
 - [Data in transit over the internet](internet-encryption-in-transit.md "internet-encryption-in-transit.md")
 - [Data in transit over the local network](local-encryption-in-transit.md "local-encryption-in-transit.md")
-- [Data in transit between local components on
-  SiteWise Edge](gateway-encryption-in-transit.md "gateway-encryption-in-transit.md")
+- [Data in transit between local components on SiteWise Edge](gateway-encryption-in-transit.md "gateway-encryption-in-transit.md")

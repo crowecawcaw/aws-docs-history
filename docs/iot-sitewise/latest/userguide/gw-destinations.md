@@ -12,12 +12,10 @@ and path filters do not work with Classic Streams, V2 gateways.
 ###### Topics
 
 - [Understand AWS IoT SiteWise Edge destinations](#source-destination "#source-destination")
-- [Understand path filters for AWS IoT SiteWise Edge
-  destinations](#destinations-path-filters "#destinations-path-filters")
+- [Understand path filters for AWS IoT SiteWise Edge destinations](#destinations-path-filters "#destinations-path-filters")
 - [Add an AWS IoT SiteWise Edge real-time destination](destinations-real-time.md "destinations-real-time.md")
 - [Add an AWS IoT SiteWise buffered destination using Amazon S3](destinations-buffered.md "destinations-buffered.md")
-- [Add path filters to AWS IoT SiteWise Edge
-  destinations](destinations-add-path-filters.md "destinations-add-path-filters.md")
+- [Add path filters to AWS IoT SiteWise Edge destinations](destinations-add-path-filters.md "destinations-add-path-filters.md")
 - [Manage AWS IoT SiteWise Edge destinations](destinations-manage.md "destinations-manage.md")
 
 ## Understand AWS IoT SiteWise Edge destinations
@@ -55,8 +53,7 @@ Destinations can subscribe to multiple path filters.
 MQTT-enabled gateways, whether self-hosted or running on Siemens Industrial Edge, use MQTT for local
 communication and come with a default real-time destination which has filters set to
 `#`. This means that, by default, all messages on all topics are published to
-the AWS IoT SiteWise real-time destination. For more information, see [Understand path filters for AWS IoT SiteWise Edge
-destinations](#destinations-path-filters "#destinations-path-filters"). You can
+the AWS IoT SiteWise real-time destination. For more information, see [Understand path filters for AWS IoT SiteWise Edge destinations](#destinations-path-filters "#destinations-path-filters"). You can
 add one real-time destination in each gateway.
 
 ### Destination types
@@ -154,17 +151,14 @@ across various industries to ingest, process, and route data efficiently. This e
 advanced capabilities such as real-time monitoring, predictive maintenance, energy
 efficiency, and remote diagnostics while ensuring data privacy and compliance.
 
-## Understand path filters for AWS IoT SiteWise Edge
-
-destinations
+## Understand path filters for AWS IoT SiteWise Edge destinations
 
 ###### Topics
 
 - [Path filter requirements](#path-filter-requirements "#path-filter-requirements")
 - [Best practices for path filters](#create-effective-path-filters "#create-effective-path-filters")
 - [Path filters for OPC UA servers](#path-filters-opcua "#path-filters-opcua")
-- [Special characters in path filter
-  names](#path-filters-special-characters "#path-filters-special-characters")
+- [Special characters in path filter names](#path-filters-special-characters "#path-filters-special-characters")
 
 Each destination is configured to route data to AWS IoT SiteWise or Amazon S3. Path filters allow you to
 select specific data to filter when receiving MQTT messages for a destination. Path filters
@@ -188,8 +182,7 @@ You can also use a variety of characters typically not allowed in the MQTT speci
 within a path filter name. These characters don't function as wildcards when used within a
 name. AWS IoT SiteWise converts these characters using encoding to ensure MQTT compliance while
 preserving your original naming structure. This feature is particularly useful for
-accommodating existing naming conventions from other systems. For more information, see [Special characters in path filter
-names](#path-filters-special-characters "#path-filters-special-characters").
+accommodating existing naming conventions from other systems. For more information, see [Special characters in path filter names](#path-filters-special-characters "#path-filters-special-characters").
 
 By carefully selecting the appropriate path filters, you can control which data is sent to
 a specific destination. Tailor the data flow to your IoT system's requirements using path
@@ -245,12 +238,9 @@ UA tag is `Device1.Temperature`, your path filter might be
 `factory/line1/Device1.Temperature`. You can use wildcards in the preceding
 levels, such as `factory/+/Device1.Temperature` to capture the tag across
 multiple production lines. If you have special characters within your path filter names, see
-[Special characters in path filter
-names](#path-filters-special-characters "#path-filters-special-characters") for more information.
+[Special characters in path filter names](#path-filters-special-characters "#path-filters-special-characters") for more information.
 
-### Special characters in path filter
-
-names
+### Special characters in path filter names
 
 AWS IoT SiteWise accommodates characters commonly used in industrial protocols like OPC UA, which
 are typically not allowed in standard MQTT topic names. This feature facilitates smoother

@@ -1,6 +1,4 @@
-# Edge-only APIs for use with AWS IoT SiteWise edge
-
-devices
+# Edge-only APIs for use with AWS IoT SiteWise edge devices
 
 In addition to the AWS IoT SiteWise APIs that are available on the edge, there are
 edge-specific ones. Those edge-specifc APIs are described below.
@@ -23,9 +21,7 @@ Content-type: application/json
 }
 ```
 
-### URI request
-
-Parameters
+### URI request Parameters
 
 The request does not use any URI parameters.
 

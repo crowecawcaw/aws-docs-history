@@ -1,6 +1,4 @@
-# Configure the data retention
-
-flow
+# Configure the data retention flow
 
 The data retention flow is can be used to maintain operational visibility at the edge.
 This is useful during network disruptions or when you need immediate access to your data.
@@ -21,9 +19,7 @@ properly captured and stored:
 
 ![Node-RED data retention flow](images/gateway-open-source-nodered-data-retention.png)
 
-## Set up the MQTT subscription
-
-client
+## Set up the MQTT subscription client
 
 - Configure the MQTT subscription client in Node-RED to receive data from the
   MQTT EMQX broker in AWS IoT SiteWise by importing the example below.
@@ -85,8 +81,7 @@ client
 
 This subscription ensures that all relevant data published to the broker is captured
 for local storage, providing a complete record of your industrial operations. The node
-uses the same MQTT connection parameters as the [Configure the MQTT
-publisher](windows-nodered-data-publish-flow.md#windows-nodered-mqtt-publisher-config "windows-nodered-data-publish-flow.md#windows-nodered-mqtt-publisher-config") section, with the following
+uses the same MQTT connection parameters as the [Configure the MQTT publisher](windows-nodered-data-publish-flow.md#windows-nodered-mqtt-publisher-config "windows-nodered-data-publish-flow.md#windows-nodered-mqtt-publisher-config") section, with the following
 subscription settings:
 
 - Topic – `/Renton/WindFarm/Turbine/WindSpeed`
@@ -95,9 +90,7 @@ subscription settings:
 For more information, see [Connect to an MQTT
 Broker](https://cookbook.nodered.org/mqtt/connect-to-broker "https://cookbook.nodered.org/mqtt/connect-to-broker") in the _Node-RED Documentation_.
 
-## Configure the InfluxDB
-
-translator
+## Configure the InfluxDB translator
 
 InfluxDB organizes data using [tags](https://docs.influxdata.com/influxdb/v1/concepts/glossary/#tag "https://docs.influxdata.com/influxdb/v1/concepts/glossary/#tag") for
 indexing and [fields](https://docs.influxdata.com/influxdb/v1/concepts/glossary/#field "https://docs.influxdata.com/influxdb/v1/concepts/glossary/#field")
@@ -181,9 +174,7 @@ organization, bucket, and measurement concepts are fundamental to InfluxDB's dat
 organization model. For more information, see the [InfluxDB
 documentation](https://docs.influxdata.com/influxdb/v2/admin/organizations/ "https://docs.influxdata.com/influxdb/v2/admin/organizations/").
 
-## Deploy and verify the retention
-
-flow
+## Deploy and verify the retention flow
 
 After configuring all components of the data retention flow, you need to deploy and
 verify that the system is working correctly. This verification ensures that your

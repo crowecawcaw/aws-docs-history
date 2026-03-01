@@ -31,7 +31,6 @@ _in_ the cloud:
 - [Compliance validation for AWS IoT SiteWise](compliance-validation.md "compliance-validation.md")
 - [Resilience in AWS IoT SiteWise](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in AWS IoT SiteWise](infrastructure-security.md "infrastructure-security.md")
-- [Configuration and vulnerability analysis
-  in AWS IoT SiteWise](vulnerability-analysis-and-management.md "vulnerability-analysis-and-management.md")
+- [Configuration and vulnerability analysis in AWS IoT SiteWise](vulnerability-analysis-and-management.md "vulnerability-analysis-and-management.md")
 - [VPC endpoints for AWS IoT SiteWise](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
 - [Security best practices for AWS IoT SiteWise](security-best-practices.md "security-best-practices.md")

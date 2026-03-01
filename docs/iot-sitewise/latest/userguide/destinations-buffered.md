@@ -51,8 +51,7 @@ Use the AWS Management Console to add an AWS IoT SiteWise destination buffered u
      Amazon S3** check box to delete the imported date from the configured Amazon S3
      bucket after importing it to AWS IoT SiteWise storage.
 
-9. Add path filters to your destination. For more information see, [Add path filters to AWS IoT SiteWise Edge
-   destinations](destinations-add-path-filters.md "destinations-add-path-filters.md").
+9. Add path filters to your destination. For more information see, [Add path filters to AWS IoT SiteWise Edge destinations](destinations-add-path-filters.md "destinations-add-path-filters.md").
 
 AWS CLI
 
@@ -311,5 +310,4 @@ Type: String
 
 Required: No
 
-Add path filters for your destination. For more information, see [Add path filters to AWS IoT SiteWise Edge
-destinations](destinations-add-path-filters.md "destinations-add-path-filters.md").
+Add path filters for your destination. For more information, see [Add path filters to AWS IoT SiteWise Edge destinations](destinations-add-path-filters.md "destinations-add-path-filters.md").

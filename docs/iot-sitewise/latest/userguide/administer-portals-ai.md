@@ -19,6 +19,5 @@ portal's **Name**). 4. You can perform any of the following administrative tasks
 
     * [Edit portal attributes](portal-change-details-ai.md "portal-change-details-ai.md")
     * [Add or remove portal administrators](portal-change-admins-ai.md "portal-change-admins-ai.md")
-    * [Send email invitations to portal
-     administrators](send-email-invitations-to-portal.md "send-email-invitations-to-portal.md")
+    * [Send email invitations to portal administrators](send-email-invitations-to-portal.md "send-email-invitations-to-portal.md")
     * [Delete a portal in AWS IoT SiteWise](portal-delete-portal.md "portal-delete-portal.md")

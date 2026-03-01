@@ -28,21 +28,14 @@ AWS IoT. For example, you can configure AWS IoT features to do the following tas
 
 - [Prerequisites](#rule-ingestion-tutorial-prerequisites "#rule-ingestion-tutorial-prerequisites")
 - [Step 1: Create an AWS IoT policy](#ingestion-tutorial-create-iot-policy "#ingestion-tutorial-create-iot-policy")
-- [Step 2: Create and configure an AWS IoT
-  thing](#rule-tutorial-create-iot-thing "#rule-tutorial-create-iot-thing")
-- [Step 3: Create a device asset
-  model](#rule-tutorial-create-device-model "#rule-tutorial-create-device-model")
-- [Step 4: Create a device fleet asset
-  model](#rule-tutorial-create-fleet-model "#rule-tutorial-create-fleet-model")
-- [Step 5: Create and configure a device
-  asset](#rule-tutorial-create-device-assets "#rule-tutorial-create-device-assets")
-- [Step 6: Create and configure a device fleet
-  asset](#rule-tutorial-create-fleet-asset "#rule-tutorial-create-fleet-asset")
-- [Step 7: Create a rule in AWS IoT Core to send
-  data to device assets](#rule-tutorial-create-iot-rule "#rule-tutorial-create-iot-rule")
+- [Step 2: Create and configure an AWS IoT thing](#rule-tutorial-create-iot-thing "#rule-tutorial-create-iot-thing")
+- [Step 3: Create a device asset model](#rule-tutorial-create-device-model "#rule-tutorial-create-device-model")
+- [Step 4: Create a device fleet asset model](#rule-tutorial-create-fleet-model "#rule-tutorial-create-fleet-model")
+- [Step 5: Create and configure a device asset](#rule-tutorial-create-device-assets "#rule-tutorial-create-device-assets")
+- [Step 6: Create and configure a device fleet asset](#rule-tutorial-create-fleet-asset "#rule-tutorial-create-fleet-asset")
+- [Step 7: Create a rule in AWS IoT Core to send data to device assets](#rule-tutorial-create-iot-rule "#rule-tutorial-create-iot-rule")
 - [Step 8: Run the device client script](#rule-tutorial-run-script "#rule-tutorial-run-script")
-- [Step 9: Clean up resources after the
-  tutorial](#rule-tutorial-clean-up-resources "#rule-tutorial-clean-up-resources")
+- [Step 9: Clean up resources after the tutorial](#rule-tutorial-clean-up-resources "#rule-tutorial-clean-up-resources")
 
 ## Prerequisites
 
@@ -215,9 +208,7 @@ the _AWS IoT Developer Guide_.
 This policy applies to things whose names start with `SiteWiseTutorialDevice`. To use a
 different name for your things, you must update the policy accordingly.
 
-## Step 2: Create and configure an AWS IoT
-
-thing
+## Step 2: Create and configure an AWS IoT thing
 
 In this procedure, you create and configure an AWS IoT thing. You can designate your
 development computer as an AWS IoT thing. As you progress, remember that the principles you're
@@ -374,9 +365,7 @@ steps:
   computer, so use this approach to demonstrate ingesting non-unique data from multiple
   devices.
 
-## Step 3: Create a device asset
-
-model
+## Step 3: Create a device asset model
 
 In this procedure, you create an asset model in AWS IoT SiteWise to represent your devices that stream
 CPU and memory usage data. To process data in assets that represent groups of devices, asset
@@ -433,9 +422,7 @@ Usage`.
     asset that can calculate metrics using data from your entire fleet of devices.
 12. Choose **Create model**.
 
-## Step 4: Create a device fleet asset
-
-model
+## Step 4: Create a device fleet asset model
 
 In this procedure, you craft an asset model in AWS IoT SiteWise to symbolize your collection of
 devices. Within this asset model, you establish a structure that allows you to link numerous
@@ -489,9 +476,7 @@ Usage)`. When the autocomplete list appears, choose
    your fleet of devices.
 10. Choose **Create model**.
 
-## Step 5: Create and configure a device
-
-asset
+## Step 5: Create and configure a device asset
 
 In this procedure, you generate a device asset that's based on your device asset model.
 Then, you define property aliases for each measurement property. A _property alias_ is a unique string that identifies an asset property. Later, you
@@ -521,9 +506,7 @@ second device asset's name should be `SiteWise Tutorial Device 2`, and its prope
 aliases should be `/tutorial/device/SiteWiseTutorialDevice2/cpu`, and
 `/tutorial/device/SiteWiseTutorialDevice2/memory`.
 
-## Step 6: Create and configure a device fleet
-
-asset
+## Step 6: Create and configure a device fleet asset
 
 In this procedure, you form a device fleet asset derived from your device fleet asset
 model. Then, you link your individual device assets to the fleet asset. This association
@@ -557,9 +540,7 @@ entire fleet.
 
 You should now see your device assets organized as a hierarchy.
 
-## Step 7: Create a rule in AWS IoT Core to send
-
-data to device assets
+## Step 7: Create a rule in AWS IoT Core to send data to device assets
 
 In this procedure, you establish a rule in AWS IoT Core. The rule is designed to interpret
 notification messages from device shadows and transmit the data to your device assets in
@@ -1005,9 +986,7 @@ you can configure a portal in AWS IoT SiteWise Monitor. For more information, se
 unlikely the Python program will send enough messages to incur charges, but it's a best
 practice to stop the program when you're done.
 
-## Step 9: Clean up resources after the
-
-tutorial
+## Step 9: Clean up resources after the tutorial
 
 ###### Note
 

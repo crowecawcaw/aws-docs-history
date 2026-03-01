@@ -1,19 +1,13 @@
-# Update custom composite models
-
-(components)
+# Update custom composite models (components)
 
 You can use the AWS IoT SiteWise API to update a custom composite model, or the AWS IoT SiteWise console to update components.
 
 ###### Topics
 
-- [Update a component
-  (console)](#update-custom-composite-model-console "#update-custom-composite-model-console")
-- [Update a custom composite model
-  (AWS CLI)](#update-custom-composite-model-cli "#update-custom-composite-model-cli")
+- [Update a component (console)](#update-custom-composite-model-console "#update-custom-composite-model-console")
+- [Update a custom composite model (AWS CLI)](#update-custom-composite-model-cli "#update-custom-composite-model-cli")
 
-## Update a component
-
-(console)
+## Update a component (console)
 
 You can use the AWS IoT SiteWise console to update a component.
 
@@ -42,9 +36,7 @@ You can use the AWS IoT SiteWise console to update a component.
 
 8. Choose **Save**.
 
-## Update a custom composite model
-
-(AWS CLI)
+## Update a custom composite model (AWS CLI)
 
 Use the AWS Command Line Interface (AWS CLI) to update a custom composite model.
 

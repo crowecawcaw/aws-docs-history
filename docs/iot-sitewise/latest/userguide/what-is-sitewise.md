@@ -49,8 +49,7 @@ several ways:
   protocols like OPC UA to read data directly from on-site devices. Deploy the SiteWise Edge
   gateway software, compatible with AWS IoT Greengrass V2, on a wide range of platforms such as common
   industrial gateways or virtual servers. You can connect up to 100 OPC UA servers to a
-  single AWS IoT SiteWise gateway. For more information, see [AWS IoT SiteWise Edge self-hosted gateway
-  requirements](configure-gateway-ggv2.md "configure-gateway-ggv2.md").
+  single AWS IoT SiteWise gateway. For more information, see [AWS IoT SiteWise Edge self-hosted gateway requirements](configure-gateway-ggv2.md "configure-gateway-ggv2.md").
 
 Note that protocols like Modbus TCP and Ethernet/IP (EIP) are supported through our
 partnership with Domatica in the context of AWS IoT Greengrass V2.
@@ -58,8 +57,7 @@ partnership with Domatica in the context of AWS IoT Greengrass V2.
 - **Edge data processing with packs:** Enhance your SiteWise Edge
   gateway by adding packs to enable comprehensive edge capabilities. With SiteWise Edge, available
   on AWS IoT Greengrass V2, data processing is executed directly on-site before being securely transmitted
-  to the AWS Cloud using an AWS IoT Greengrass stream. For more information, see [Set up an OPC UA source in
-  SiteWise Edge](configure-opcua-source.md "configure-opcua-source.md").
+  to the AWS Cloud using an AWS IoT Greengrass stream. For more information, see [Set up an OPC UA source in SiteWise Edge](configure-opcua-source.md "configure-opcua-source.md").
 - **Adaptive ingestion via Amazon S3 with bulk operations:**
   When working with large numbers of assets or asset models, use bulk operations to bulk
   import and export resources from Amazon S3 buckets. For more information, see [Bulk operations with assets and models](bulk-operations-assets-and-models.md "bulk-operations-assets-and-models.md").

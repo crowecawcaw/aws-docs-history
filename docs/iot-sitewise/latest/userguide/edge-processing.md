@@ -1,6 +1,4 @@
-# Configure edge data processing for AWS IoT SiteWise models
-
-and assets
+# Configure edge data processing for AWS IoT SiteWise models and assets
 
 ###### Note
 
@@ -22,21 +20,17 @@ storage costs.
   The retention period of your data is dependent on the available disk
   space of your device.
 - If your SiteWise Edge gateway has been disconnected from the AWS Cloud for
-  30 days, the [Set up an OPC UA source in
-  SiteWise Edge](configure-opcua-source.md "configure-opcua-source.md") is automatically
+  30 days, the [Set up an OPC UA source in SiteWise Edge](configure-opcua-source.md "configure-opcua-source.md") is automatically
   disabled.
 
-## Configure an asset model for data
-
-processing on SiteWise Edge
+## Configure an asset model for data processing on SiteWise Edge
 
 You must configure your asset model for the edge before your
 can process your SiteWise Edge gateway data at the edge. Your asset model edge
 configuration specifies where your assets properties are computed. You can
 choose to compute all properties at the edge and send the results to the AWS
 Cloud, or customize where to compute each asset property separately. For more
-information, see [Configure edge data processing for AWS IoT SiteWise models
-and assets](edge-processing.md "edge-processing.md").
+information, see [Configure edge data processing for AWS IoT SiteWise models and assets](edge-processing.md "edge-processing.md").
 
 Asset properties include metrics, transforms, and measurements:
 

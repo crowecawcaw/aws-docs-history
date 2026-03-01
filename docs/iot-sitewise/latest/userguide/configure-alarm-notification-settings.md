@@ -2,9 +2,7 @@
 
 You can configure alarm notification settings using either the AWS IoT SiteWise console or the AWS Command Line Interface (AWS CLI).
 
-## Configure notification
-
-settings (console)
+## Configure notification settings (console)
 
 You can use the AWS IoT SiteWise console to update the value of the attributes that specify the
 notification settings for an alarm.
@@ -19,9 +17,7 @@ notification settings for an alarm.
    to change, and then enter its new value.
 6. Choose **Save**.
 
-## Configure notification settings
-
-(CLI)
+## Configure notification settings (CLI)
 
 You can use the AWS Command Line Interface (AWS CLI) to update the value of the attribute that specifies
 the notification settings for an alarm.

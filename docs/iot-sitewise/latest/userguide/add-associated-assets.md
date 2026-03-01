@@ -6,13 +6,10 @@ more information about hierarchical asset models, see [Define asset model hierar
 
 ###### Topics
 
-- [Associate and disassociate assets
-  (console)](#associate-asset-console "#associate-asset-console")
+- [Associate and disassociate assets (console)](#associate-asset-console "#associate-asset-console")
 - [Associate and disassociate assets (AWS CLI)](#associate-asset-cli "#associate-asset-cli")
 
-## Associate and disassociate assets
-
-(console)
+## Associate and disassociate assets (console)
 
 You can use the AWS IoT SiteWise console to associate and disassociate assets.
 

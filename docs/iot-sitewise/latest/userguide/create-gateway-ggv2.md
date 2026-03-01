@@ -128,5 +128,4 @@ aws iotsitewise create-gateway \
 - `cli-input-json` – A JSON file containing
   request parameters.
 
-Now that you've created the SiteWise Edge gateway, [Install the AWS IoT SiteWise Edge
-gateway software on your local device](install-gateway-software-on-local-device.md "install-gateway-software-on-local-device.md").
+Now that you've created the SiteWise Edge gateway, [Install the AWS IoT SiteWise Edge gateway software on your local device](install-gateway-software-on-local-device.md "install-gateway-software-on-local-device.md").

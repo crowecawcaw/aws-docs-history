@@ -41,10 +41,8 @@ rejects the request. You must convert the timestamp to seconds and nanosecond of
 features of the AWS IoT rules engine to convert the timestamp. For more information, see the
 following:
 
-- [Getting timestamps for devices that don't report
-  accurate time](#rule-timestamp-function "#rule-timestamp-function")
-- [Converting timestamps that are in string
-  format](#rule-time-to-epoch-function "#rule-time-to-epoch-function")
+- [Getting timestamps for devices that don't report accurate time](#rule-timestamp-function "#rule-timestamp-function")
+- [Converting timestamps that are in string format](#rule-time-to-epoch-function "#rule-time-to-epoch-function")
   You can use substitution templates for several parameters in the action to perform
   calculations, invoke functions, and pull values from the message payload. For more
   information, see [Substitution
@@ -59,18 +57,13 @@ in the original payload, in addition to supported functions and operators.
 
 ###### Topics
 
-- [Getting timestamps for devices that don't report
-  accurate time](#rule-timestamp-function "#rule-timestamp-function")
-- [Converting timestamps that are in string
-  format](#rule-time-to-epoch-function "#rule-time-to-epoch-function")
-- [Converting nanosecond-precision
-  timestamp strings](#rule-convert-precise-timestamp-string "#rule-convert-precise-timestamp-string")
+- [Getting timestamps for devices that don't report accurate time](#rule-timestamp-function "#rule-timestamp-function")
+- [Converting timestamps that are in string format](#rule-time-to-epoch-function "#rule-time-to-epoch-function")
+- [Converting nanosecond-precision timestamp strings](#rule-convert-precise-timestamp-string "#rule-convert-precise-timestamp-string")
 - [Example rule configurations](#rule-action-examples "#rule-action-examples")
 - [Troubleshooting the rule action](#troubleshoot-rule-action "#troubleshoot-rule-action")
 
-## Getting timestamps for devices that don't report
-
-accurate time
+## Getting timestamps for devices that don't report accurate time
 
 If your sensor or equipment doesn't report accurate time data, get the current
 Unix epoch time from the AWS IoT rules engine with [timestamp()](../../../iot/latest/developerguide/iot-sql-functions.md#iot-function-timestamp "../../../iot/latest/developerguide/iot-sql-functions.md#iot-function-timestamp"). This function outputs time in milliseconds, so you must convert
@@ -84,9 +77,7 @@ conversions:
   `${(timestamp() % 1E3) * 1E6}` to calculate the nanosecond
   offset of the timestamp.
 
-## Converting timestamps that are in string
-
-format
+## Converting timestamps that are in string format
 
 If your sensor or equipment reports time data in string format (for example,
 `2020-03-03T14:57:14.699Z`), use [time_to_epoch(String, String)](../../../iot/latest/developerguide/iot-sql-functions.md#iot-sql-function-time-to-epoch "../../../iot/latest/developerguide/iot-sql-functions.md#iot-sql-function-time-to-epoch"). This function inputs the timestamp and format
@@ -106,12 +97,9 @@ time in seconds and offset in nanoseconds. To do so, use the following conversio
 
 The `time_to_epoch` function supports up to millisecond-precision
 timestamp strings. To convert strings with microsecond or nanosecond precision, configure an AWS Lambda function that your rule calls to convert the timestamp into
-numerical values. For more information, see [Converting nanosecond-precision
-timestamp strings](#rule-convert-precise-timestamp-string "#rule-convert-precise-timestamp-string").
+numerical values. For more information, see [Converting nanosecond-precision timestamp strings](#rule-convert-precise-timestamp-string "#rule-convert-precise-timestamp-string").
 
-## Converting nanosecond-precision
-
-timestamp strings
+## Converting nanosecond-precision timestamp strings
 
 If your device sends timestamp information in string format with nanosecond precision
 (for example, `2020-03-03T14:57:14.699728491Z`), use the following procedure to

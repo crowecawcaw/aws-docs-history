@@ -10,13 +10,10 @@ Asset data is sent to AWS IoT Core every time it's received by AWS IoT SiteWise,
 
 ###### Topics
 
-- [Turn on asset property
-  notifications (console)](#enable-property-notifications-console "#enable-property-notifications-console")
+- [Turn on asset property notifications (console)](#enable-property-notifications-console "#enable-property-notifications-console")
 - [Turn on asset property notifications (AWS CLI)](#enable-property-notifications-cli "#enable-property-notifications-cli")
 
-## Turn on asset property
-
-notifications (console)
+## Turn on asset property notifications (console)
 
 By default, AWS IoT SiteWise doesn't publish property value updates. You can use the AWS IoT SiteWise console to enable notifications for an asset property.
 

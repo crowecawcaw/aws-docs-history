@@ -1,6 +1,4 @@
-# Set up open-source integrations with Docker
-
-(Linux)
+# Set up open-source integrations with Docker (Linux)
 
 For a streamlined deployment process, you can use Docker to set up Node-RED®,
 InfluxDB®, and Grafana® on a Linux environment. This method uses pre-configured
@@ -45,9 +43,7 @@ export GRAFANA_PASSWORD=`your-secure-grafana-password`
 docker network create --driver=bridge SiteWiseEdgeNodeRedDemoNetwork
 ```
 
-### Prepare the Docker Compose
-
-file
+### Prepare the Docker Compose file
 
 Copy the contents of the following YAML file to your SiteWise Edge gateway device.
 

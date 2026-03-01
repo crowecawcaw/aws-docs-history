@@ -54,8 +54,7 @@ management and monitoring capabilities. For more information, see [Manage SiteWi
 
 Connect a partner data source to your gateway and receive data from the
 partner in your SiteWise Edge gateway and the AWS cloud. For more information,
-see [Partner data sources on SiteWise Edge
-gateways](partner-data-sources.md "partner-data-sources.md").
+see [Partner data sources on SiteWise Edge gateways](partner-data-sources.md "partner-data-sources.md").
 
 **Local visualization on the edge**
 

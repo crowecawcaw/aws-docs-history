@@ -1,6 +1,4 @@
-# OPC UA data sources for AWS IoT SiteWise Edge
-
-gateways
+# OPC UA data sources for AWS IoT SiteWise Edge gateways
 
 After you set up an AWS IoT SiteWise Edge gateway, you can configure data sources so that
 your SiteWise Edge gateway can ingest data from local industrial equipment to AWS IoT SiteWise. Each
@@ -35,14 +33,11 @@ Currently, AWS IoT SiteWise supports the following data source protocols:
   UA](https://en.wikipedia.org/wiki/OPC_Unified_Architecture "https://en.wikipedia.org/wiki/OPC_Unified_Architecture") – A machine-to-machine (M2M) communication protocol
   for industrial automation.
 
-## Support for additional industrial
-
-protocols
+## Support for additional industrial protocols
 
 SiteWise Edge supports a wide range of industrial protocols through integration with
 data source partners. These partnerships enable connectivity with over 200
 different protocols, accommodating various industrial systems and
 devices.
 
-For a list of available data source partners, see [SiteWise Edge gateway partner data
-source options](connect-partner-data-source.md "connect-partner-data-source.md").
+For a list of available data source partners, see [SiteWise Edge gateway partner data source options](connect-partner-data-source.md "connect-partner-data-source.md").

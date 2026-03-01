@@ -5,8 +5,7 @@ service.
 
 When you use the AWS IoT SiteWise console, AWS IoT SiteWise creates a service-linked role that allows the
 service to log information on your behalf. If you don't use the AWS IoT SiteWise console, you must create
-a service-linked role manually to receive logs. For more information, see [Create a service-linked role for
-AWS IoT SiteWise](create-service-linked-role.md "create-service-linked-role.md").
+a service-linked role manually to receive logs. For more information, see [Create a service-linked role for AWS IoT SiteWise](create-service-linked-role.md "create-service-linked-role.md").
 
 You must have a resource policy that allows AWS IoT SiteWise to put log events into CloudWatch streams. To
 create and update a resource policy for CloudWatch Logs, run the following command. Replace

@@ -33,11 +33,9 @@ complete this tutorial, you incur charges for one user. For more information, se
 - [Step 1: Create a portal in SiteWise Monitor](#monitor-tutorial-create-portal "#monitor-tutorial-create-portal")
 - [Step 2: Sign in to a portal](#monitor-tutorial-sign-in-portal "#monitor-tutorial-sign-in-portal")
 - [Step 3: Create a wind farm project](#monitor-tutorial-create-project "#monitor-tutorial-create-project")
-- [Step 4: Create a dashboard to visualize
-  wind farm data](#monitor-tutorial-create-dashboard "#monitor-tutorial-create-dashboard")
+- [Step 4: Create a dashboard to visualize wind farm data](#monitor-tutorial-create-dashboard "#monitor-tutorial-create-dashboard")
 - [Step 5: Explore the portal](#monitor-tutorial-explore-portal "#monitor-tutorial-explore-portal")
-- [Step 6: Clean up resources after the
-  tutorial](#monitor-tutorial-clean-up-resources "#monitor-tutorial-clean-up-resources")
+- [Step 6: Clean up resources after the tutorial](#monitor-tutorial-clean-up-resources "#monitor-tutorial-clean-up-resources")
 
 ## Prerequisites
 
@@ -259,9 +257,7 @@ On this page, do the following:
     Your IAM Identity Center user **Mateo Jackson** can sign in to
      this portal to view, but not edit, the dashboards in the wind farm project.
 
-## Step 4: Create a dashboard to visualize
-
-wind farm data
+## Step 4: Create a dashboard to visualize wind farm data
 
 In this procedure, you create dashboards to visualize the demo wind farm data. Dashboards
 contain customizable visualizations of your project's asset data. Each visualization can have
@@ -348,14 +344,12 @@ To explore the portal as other users, do the following:
     2. Choose **Sign out** in the upper right of the IAM Identity Center application
      portal to sign out of your IAM Identity Center user.
     3. Sign in to the portal as the IAM Identity Center user that you assigned as a project owner or
-     project viewer. For more information, see  [Step 2: Sign in to a portal](#monitor-tutorial-sign-in-portal "#monitor-tutorial-sign-in-portal").
+     project viewer. For more information, see [Step 2: Sign in to a portal](#monitor-tutorial-sign-in-portal "#monitor-tutorial-sign-in-portal").
 
 You've completed the tutorial. When you finish exploring your demo wind farm in SiteWise Monitor,
 follow the next procedure to clean up your resources.
 
-## Step 6: Clean up resources after the
-
-tutorial
+## Step 6: Clean up resources after the tutorial
 
 After you complete the tutorial, you can clean up your resources. You aren't charged for
 AWS IoT SiteWise if users don't sign in to your portal, but you can delete your portal and AWS IAM Identity Center directory

@@ -137,7 +137,6 @@ temperature. AWS IoT SiteWise sends the temperature data to AWS IoT Events to de
 
 ###### Topics
 
-- [Requirements for alarm
-  notifications in AWS IoT SiteWise](iot-events-alarm-notification-requirements.md "iot-events-alarm-notification-requirements.md")
+- [Requirements for alarm notifications in AWS IoT SiteWise](iot-events-alarm-notification-requirements.md "iot-events-alarm-notification-requirements.md")
 - [Define AWS IoT Events alarms for AWS IoT SiteWise](define-iot-events-alarms.md "define-iot-events-alarms.md")
 - [Define external alarms in AWS IoT SiteWise](define-external-alarms.md "define-external-alarms.md")

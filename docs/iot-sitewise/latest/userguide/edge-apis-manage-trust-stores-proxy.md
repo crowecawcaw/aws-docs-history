@@ -1,6 +1,4 @@
-# Configure proxy support and manage
-
-trust stores for AWS IoT SiteWise Edge
+# Configure proxy support and manage trust stores for AWS IoT SiteWise Edge
 
 In AWS IoT SiteWise Edge, configure and manage trust stores to set up proxy support for your
 edge devices. First, set up proxy configuration, then configure trust stores. You can
@@ -20,9 +18,7 @@ is established.
   stores and proxies on an existing gateway or during the installation process when
   creating a new gateway.
 
-## Requirements
-
-for trust store and proxy configurations
+## Requirements for trust store and proxy configurations
 
 Before you configure a trust store or install SiteWise Edge with proxy settings, ensure
 that you meet the prerequisites. There are varied implementation requirements based
@@ -52,9 +48,7 @@ on your component usage and functionality requirements.
   the certificates AWS IoT Greengrass Core and Java trust stores to the latest
   version.
 
-## Best practices for trust
-
-store and proxy server edge configurations
+## Best practices for trust store and proxy server edge configurations
 
 For ongoing maintenance and to maintain the highest level of security in your edge
 environment:

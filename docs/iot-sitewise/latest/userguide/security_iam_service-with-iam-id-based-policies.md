@@ -1,6 +1,4 @@
-# AWS IoT SiteWise identity-based
-
-policies
+# AWS IoT SiteWise identity-based policies
 
 IAM policies let you control who can do what in AWS IoT SiteWise. You can decide what actions
 are allowed or not and set specific conditions for these actions. For example, you can make
@@ -9,9 +7,7 @@ resources, and condition keys. To learn about all of the elements that you use i
 policy, see [IAM JSON policy
 elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the _IAM User Guide_.
 
-## Policy
-
-actions
+## Policy actions
 
 Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform
 **actions** on what **resources**, and under what **conditions**.
@@ -68,9 +64,7 @@ Before you ingest data to a data stream, do the following:
 - Authorize the `asset` resource if you use an asset ID to identify
   the asset that contains the associated asset property.
 
-## Policy
-
-resources
+## Policy resources
 
 Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform
 **actions** on what **resources**, and under what **conditions**.
@@ -131,9 +125,7 @@ To see a list of AWS IoT SiteWise resource types and their ARNs, see [Resource t
 in the _IAM User Guide_. To learn with which actions you can specify
 the ARN of each resource, see [Actions defined by AWS IoT SiteWise](../../../service-authorization/latest/reference/list_awsiotsitewise.md#awsiotsitewise-actions-as-permissions "../../../service-authorization/latest/reference/list_awsiotsitewise.md#awsiotsitewise-actions-as-permissions").
 
-## Policy
-
-condition keys
+## Policy condition keys
 
 Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform
 **actions** on what **resources**, and under what **conditions**.
@@ -179,5 +171,4 @@ To learn with which actions and resources you can use a condition key, see
 
 ## Examples
 
-To view examples of AWS IoT SiteWise identity-based policies, see [AWS IoT SiteWise identity-based policy
-examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS IoT SiteWise identity-based policies, see [AWS IoT SiteWise identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").

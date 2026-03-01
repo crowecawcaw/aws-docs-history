@@ -1,6 +1,4 @@
-# Update a service-linked role for
-
-AWS IoT SiteWise
+# Update a service-linked role for AWS IoT SiteWise
 
 AWS IoT SiteWise doesn't allow you to edit the AWSServiceRoleForIoTSiteWise service-linked role. After you
 create a service-linked role, you can't change the name of the role because various entities

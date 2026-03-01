@@ -20,9 +20,7 @@ that operators can use to make informed decisions without cloud dependencies.
    establishes the link between your stored data and the visualization platform.
 3. For detailed instructions, see [Configure the InfluxDB data source](https://grafana.com/docs/grafana/latest/datasources/influxdb/configure-influxdb-data-source/ "https://grafana.com/docs/grafana/latest/datasources/influxdb/configure-influxdb-data-source/") in the _Grafana Labs Documentation_.
 
-### Create a Grafana dashboard for
-
-SiteWise Edge data
+### Create a Grafana dashboard for SiteWise Edge data
 
 Creating a dashboard is the final step in building your local monitoring solution.
 Dashboards provide visual representations of your industrial data, making it easier to

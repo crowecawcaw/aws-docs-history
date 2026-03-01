@@ -2,9 +2,7 @@
 
 Troubleshoot common issues with your AWS IoT SiteWise portals.
 
-## Users and administrators can't access AWS IoT SiteWise
-
-portal
+## Users and administrators can't access AWS IoT SiteWise portal
 
 If users or administrators cannot access your AWS IoT SiteWise portal, you may have restricted
 permissions in attached AWS Identity and Access Management (IAM) policies that prevent successful

@@ -1,6 +1,4 @@
-# Data processing pack
-
-availability change
+# Data processing pack availability change
 
 ###### Note
 

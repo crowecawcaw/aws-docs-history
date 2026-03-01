@@ -42,8 +42,7 @@ Asset properties are the structures within each asset that hold industrial data.
 property has a data type and can also have a unit. A property can be an [attribute](#concept-attribute "#concept-attribute"), a [measurement](#concept-measurement "#concept-measurement"), a [transform](#concept-transform "#concept-transform"), or a [metric](#concept-metric "#concept-metric"). For more information, see [Define data properties](asset-properties.md "asset-properties.md").
 
 Configure asset properties to compute at the edge. For more information
-about processing data at the edge, see [Set up an OPC UA source in
-SiteWise Edge](configure-opcua-source.md "configure-opcua-source.md").
+about processing data at the edge, see [Set up an OPC UA source in SiteWise Edge](configure-opcua-source.md "configure-opcua-source.md").
 
 **Attribute**
 
@@ -137,8 +136,7 @@ and devices.
 **Packs**
 
 SiteWise Edge gateways use packs to determine how to collect, process, and route data. For more
-information about the available packs for your SiteWise Edge gateway, see [Use packs to collect and process data in
-SiteWise Edge](data-packs.md "data-packs.md").
+information about the available packs for your SiteWise Edge gateway, see [Use packs to collect and process data in SiteWise Edge](data-packs.md "data-packs.md").
 
 Data collection pack
 

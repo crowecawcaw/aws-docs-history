@@ -1,6 +1,4 @@
-# Process and visualize data with SiteWise Edge and
-
-open-source tools
+# Process and visualize data with SiteWise Edge and open-source tools
 
 Configure AWS IoT SiteWise Edge MQTT-enabled gateways with open-source tools for local processing and
 visualization to enhance your industrial data management capabilities.
@@ -36,11 +34,9 @@ components in containers.
 
 Choose the method that meets your operational requirements.
 
-- [Set up open source integrations manually
-  (Windows)](windows-manual-setup.md "windows-manual-setup.md") –
+- [Set up open source integrations manually (Windows)](windows-manual-setup.md "windows-manual-setup.md") –
   For custom configurations or existing infrastructure
-- [Set up open-source integrations with Docker
-  (Linux)](linux-docker-setup.md "linux-docker-setup.md") – For
+- [Set up open-source integrations with Docker (Linux)](linux-docker-setup.md "linux-docker-setup.md") – For
   rapid deployment with pre-configured components
 
 ## Wind farm example overview
@@ -77,10 +73,8 @@ Before implementing open-source integrations with SiteWise Edge, ensure your env
 the necessary requirements.
 
 - **Hardware requirements** - Your gateway hardware must
-  meet the requirements for SiteWise Edge gateways. For more information, see [AWS IoT SiteWise Edge self-hosted gateway
-  requirements](configure-gateway-ggv2.md "configure-gateway-ggv2.md") for
-  MQTT-enabled, V3 gateways and [Requirements for the AWS IoT SiteWise Edge
-  application](siemens-app-gateway-requirements.md "siemens-app-gateway-requirements.md").
+  meet the requirements for SiteWise Edge gateways. For more information, see [AWS IoT SiteWise Edge self-hosted gateway requirements](configure-gateway-ggv2.md "configure-gateway-ggv2.md") for
+  MQTT-enabled, V3 gateways and [Requirements for the AWS IoT SiteWise Edge application](siemens-app-gateway-requirements.md "siemens-app-gateway-requirements.md").
 
 ###### Important
 

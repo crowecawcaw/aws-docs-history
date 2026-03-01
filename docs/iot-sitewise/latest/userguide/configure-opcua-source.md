@@ -1,6 +1,4 @@
-# Set up an OPC UA source in
-
-SiteWise Edge
+# Set up an OPC UA source in SiteWise Edge
 
 You can use the AWS IoT SiteWise console or a SiteWise Edge gateway capability to define and
 add an OPC UA source to your SiteWise Edge gateway to represent a local OPC UA
@@ -8,14 +6,10 @@ server.
 
 ###### Topics
 
-- [Configure an OPC UA source
-  (console)](#config-opcua-source-console "#config-opcua-source-console")
-- [Configure an OPC UA source
-  (AWS CLI)](#configure-opc-ua-source-cli "#configure-opc-ua-source-cli")
+- [Configure an OPC UA source (console)](#config-opcua-source-console "#config-opcua-source-console")
+- [Configure an OPC UA source (AWS CLI)](#configure-opc-ua-source-cli "#configure-opc-ua-source-cli")
 
-## Configure an OPC UA source
-
-(console)
+## Configure an OPC UA source (console)
 
 You can use the console to configure the OPC UA source with the following
 procedure.
@@ -135,8 +129,7 @@ MQTT-enabled, V3 gateway destinations
        the authentication credentials in this secret when it
        connects to this data source. You must attach secrets to
        your SiteWise Edge gateway's AWS IoT Greengrass component to use them for data
-       source authentication. For more information, see [Configure data source
-       authentication for SiteWise Edge](configure-source-authentication-ggv2.md "configure-source-authentication-ggv2.md").
+       source authentication. For more information, see [Configure data source authentication for SiteWise Edge](configure-source-authentication-ggv2.md "configure-source-authentication-ggv2.md").
 
     ###### Tip
 
@@ -188,8 +181,7 @@ MQTT-enabled, V3 gateway destinations
     **Default data change trigger**
     requires version 3.1.0 or later of the
     IoT SiteWise OPC UA collector component. For more information,
-    see [Update the version of an AWS IoT SiteWise
-    component](manage-gateways-ggv2.md#update-component-version "manage-gateways-ggv2.md#update-component-version").
+    see [Update the version of an AWS IoT SiteWise component](manage-gateways-ggv2.md#update-component-version "manage-gateways-ggv2.md#update-component-version").
 
         1. For **Maximum concurrent browse request
          count**, enter the maximum number of
@@ -260,8 +252,7 @@ MQTT-enabled, V3 gateway destinations
                using **Scan mode**. You can
                select **Subscribe** or
                **Poll**. For more information
-               about scan mode, see [Filter data ingestion ranges with OPC
-               UA](opcua-data-acquisition.md "opcua-data-acquisition.md").
+               about scan mode, see [Filter data ingestion ranges with OPC UA](opcua-data-acquisition.md "opcua-data-acquisition.md").
 
             Subscribe
 
@@ -301,15 +292,13 @@ MQTT-enabled, V3 gateway destinations
                 	 IoT SiteWise OPC UA collector component. If you use the
                 	 timestamp feature with earlier versions,
                 	 configuration updates fail. For more information,
-                	 see [Update the version of an AWS IoT SiteWise
-                	 component](manage-gateways-ggv2.md#update-component-version "manage-gateways-ggv2.md#update-component-version").
+                	 see [Update the version of an AWS IoT SiteWise component](manage-gateways-ggv2.md#update-component-version "manage-gateways-ggv2.md#update-component-version").
                 2. In **Deadband settings**,
                  configure a **Deadband type**.
                  The deadband type controls what data your source
                  sends to your AWS IoT SiteWise, and what data it discards.
                  For more information about the deadband setting,
-                 see [Filter data ingestion ranges with OPC
-                 UA](opcua-data-acquisition.md "opcua-data-acquisition.md").
+                 see [Filter data ingestion ranges with OPC UA](opcua-data-acquisition.md "opcua-data-acquisition.md").
 
 
 
@@ -341,9 +330,7 @@ MQTT-enabled, V3 gateway destinations
 
             Poll
 
-            ###### To send data points at a specific
-
-            interval
+            ###### To send data points at a specific interval
 
                 * Choose **Poll** and set the
                  following:
@@ -363,8 +350,7 @@ MQTT-enabled, V3 gateway destinations
                 	 IoT SiteWise OPC UA collector component. If you use the
                 	 timestamp feature with earlier versions,
                 	 configuration updates fail. For more information,
-                	 see [Update the version of an AWS IoT SiteWise
-                	 component](manage-gateways-ggv2.md#update-component-version "manage-gateways-ggv2.md#update-component-version").
+                	 see [Update the version of an AWS IoT SiteWise component](manage-gateways-ggv2.md#update-component-version "manage-gateways-ggv2.md#update-component-version").
 
             ###### Note
 
@@ -375,9 +361,7 @@ MQTT-enabled, V3 gateway destinations
 
 10. Choose **Save**.
 
-## Configure an OPC UA source
-
-(AWS CLI)
+## Configure an OPC UA source (AWS CLI)
 
 You can define OPC UA data sources for an SiteWise Edge gateway using the AWS CLI.
 To do this, create an OPC UA capability configuration JSON file and use the
@@ -668,8 +652,7 @@ If you choose a security policy other than
 `SIGN` or `SIGN_AND_ENCRYPT`
 for `messageSecurityMode`. You must
 also configure your source server to trust the
-SiteWise Edge gateway. For more information, see [Set up OPC UA servers to trust the
-AWS IoT SiteWise Edge gateway](enable-source-trust.md "enable-source-trust.md").
+SiteWise Edge gateway. For more information, see [Set up OPC UA servers to trust the AWS IoT SiteWise Edge gateway](enable-source-trust.md "enable-source-trust.md").
 
 `messageSecurityMode`
 
@@ -697,8 +680,7 @@ than `NONE`, you must choose a
 `securityPolicy` other than
 `NONE`. You must also configure your
 source server to trust the SiteWise Edge gateway. For
-more information, see [Set up OPC UA servers to trust the
-AWS IoT SiteWise Edge gateway](enable-source-trust.md "enable-source-trust.md").
+more information, see [Set up OPC UA servers to trust the AWS IoT SiteWise Edge gateway](enable-source-trust.md "enable-source-trust.md").
 
 `identityProvider`
 
@@ -725,8 +707,7 @@ following:
 The SiteWise Edge gateway uses
 the authentication credentials in this secret when it connects to this source. You
 must attach secrets to your SiteWise Edge gateway's IoT SiteWise connector to use them for
-source authentication. For more information, see [Configure data source
-authentication for SiteWise Edge](configure-source-authentication-ggv2.md "configure-source-authentication-ggv2.md").
+source authentication. For more information, see [Configure data source authentication for SiteWise Edge](configure-source-authentication-ggv2.md "configure-source-authentication-ggv2.md").
 
 This field is required if you choose
 `Username` for `type` in
@@ -859,8 +840,7 @@ the default property group. Valid values are
 `defaultPropertyGroupConfig`
 requires version 3.1.0 or later of the
 IoT SiteWise OPC UA collector component. For more information,
-see [Update the version of an AWS IoT SiteWise
-component](manage-gateways-ggv2.md#update-component-version "manage-gateways-ggv2.md#update-component-version").
+see [Update the version of an AWS IoT SiteWise component](manage-gateways-ggv2.md#update-component-version "manage-gateways-ggv2.md#update-component-version").
 
 `discoveryConfig` –
 _MQTT-enabled, V3 gateways
@@ -924,8 +904,7 @@ UA server.
 `periodicDiscovery`
 requires version 3.1.0 or later of the
 IoT SiteWise OPC UA collector component. For more information,
-see [Update the version of an AWS IoT SiteWise
-component](manage-gateways-ggv2.md#update-component-version "manage-gateways-ggv2.md#update-component-version").
+see [Update the version of an AWS IoT SiteWise component](manage-gateways-ggv2.md#update-component-version "manage-gateways-ggv2.md#update-component-version").
 
 ###### Note
 
@@ -1029,8 +1008,7 @@ Use `TimestampToReturn` with
 version 2.5.0 or later of the
 IoT SiteWise OPC UA collector component. If you use this
 feature with earlier versions, configuration
-updates fail. For more information, see [Update the version of an AWS IoT SiteWise
-component](manage-gateways-ggv2.md#update-component-version "manage-gateways-ggv2.md#update-component-version").
+updates fail. For more information, see [Update the version of an AWS IoT SiteWise component](manage-gateways-ggv2.md#update-component-version "manage-gateways-ggv2.md#update-component-version").
 
 `nodeFilterRuleDefinitions`
 
@@ -1055,9 +1033,7 @@ A comma-delimited list that specifies the
 paths (relative to the root) to include in the
 property group.
 
-### Additional capability
-
-configuration examples for Classic streams, V2 gateways (AWS CLI)
+### Additional capability configuration examples for Classic streams, V2 gateways (AWS CLI)
 
 The following example defines an OPC UA SiteWise Edge gateway capability
 configuration from a payload stored in a JSON file.
@@ -1096,9 +1072,7 @@ defines a basic, insecure OPC UA source configuration.
 }
 ```
 
-###### Example: OPC UA source configuration with defined property
-
-groups
+###### Example: OPC UA source configuration with defined property groups
 
 The following `opc-ua-configuration.json` file
 defines a basic, insecure OPC UA source configuration with defined

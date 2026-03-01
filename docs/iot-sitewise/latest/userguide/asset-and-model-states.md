@@ -25,5 +25,4 @@ one of the following values:
 ###### Topics
 
 - [Check the status of an asset](check-asset-status.md "check-asset-status.md")
-- [Check the status of an asset or component
-  model](check-model-status.md "check-model-status.md")
+- [Check the status of an asset or component model](check-model-status.md "check-model-status.md")

@@ -1,6 +1,4 @@
-# Partner data sources on SiteWise Edge
-
-gateways
+# Partner data sources on SiteWise Edge gateways
 
 When using an AWS IoT SiteWise Edge gateway you can connect a partner data source to your
 SiteWise Edge gateway and receive data from the partner in your SiteWise Edge gateway and the
@@ -21,11 +19,9 @@ To add a partner data source, do the following:
 ###### Topics
 
 - [Security](#cpa-security "#cpa-security")
-- [Set up Docker on your
-  SiteWise Edge gateway](cpa-install-docker.md "cpa-install-docker.md")
+- [Set up Docker on your SiteWise Edge gateway](cpa-install-docker.md "cpa-install-docker.md")
 - [Add a partner data source in SiteWise Edge](cpa-add-source.md "cpa-add-source.md")
-- [SiteWise Edge gateway partner data
-  source options](connect-partner-data-source.md "connect-partner-data-source.md")
+- [SiteWise Edge gateway partner data source options](connect-partner-data-source.md "connect-partner-data-source.md")
 
 ## Security
 

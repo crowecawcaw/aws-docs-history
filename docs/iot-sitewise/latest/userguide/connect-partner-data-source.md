@@ -1,6 +1,4 @@
-# SiteWise Edge gateway partner data
-
-source options
+# SiteWise Edge gateway partner data source options
 
 AWS IoT SiteWise allows you to connect and ingest data from various partner data
 sources, such as industrial equipment, sensors, and other third-party systems.

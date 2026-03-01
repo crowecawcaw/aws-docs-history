@@ -1,6 +1,4 @@
-# Trigger custom actions on
-
-anomalous behavior (AWS Management Console)
+# Trigger custom actions on anomalous behavior (AWS Management Console)
 
 You can enable **custom actions in response to anomalous
 behavior** by using **AWS IoT SiteWise MQTT notifications** in

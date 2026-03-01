@@ -13,9 +13,7 @@ If your training data doesn't represent all typical operating modes, AWS IoT Sit
 incorrectly flag unfamiliar but normal patterns as anomalies, which increases false
 positives.
 
-## Sampling for high-frequency data and
-
-consistency between training and inference
+## Sampling for high-frequency data and consistency between training and inference
 
 If your sensors generate data at a frequency higher than 1 Hz (more than one reading per
 second), apply sampling during training. Sampling reduces data volume while preserving

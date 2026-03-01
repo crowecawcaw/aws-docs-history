@@ -75,8 +75,7 @@ Console
 
     The storage capacity must be greater than or equal to one GB.
 
-12. Add path filters to your destination. For more information see, [Add path filters to AWS IoT SiteWise Edge
-    destinations](destinations-add-path-filters.md "destinations-add-path-filters.md").
+12. Add path filters to your destination. For more information see, [Add path filters to AWS IoT SiteWise Edge destinations](destinations-add-path-filters.md "destinations-add-path-filters.md").
 
 For more information, see [Destination types](gw-destinations.md#destination-types "gw-destinations.md#destination-types").
 
@@ -402,8 +401,7 @@ Required: Yes
 
 - `paths`
 
-An array of path filters. For more information, see [Understand path filters for AWS IoT SiteWise Edge
-destinations](gw-destinations.md#destinations-path-filters "gw-destinations.md#destinations-path-filters"). The default path is
+An array of path filters. For more information, see [Understand path filters for AWS IoT SiteWise Edge destinations](gw-destinations.md#destinations-path-filters "gw-destinations.md#destinations-path-filters"). The default path is
 `#`.
 
 Type: Array of strings

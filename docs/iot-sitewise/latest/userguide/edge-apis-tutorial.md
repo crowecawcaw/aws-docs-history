@@ -1,6 +1,4 @@
-# Tutorial: List asset models on an AWS IoT SiteWise Edge
-
-gateway
+# Tutorial: List asset models on an AWS IoT SiteWise Edge gateway
 
 You can use a subset of the available AWS IoT SiteWise APIs along with edge-specific APIs to
 interact with asset models and their assets on the edge. This tutorial will walk you
@@ -14,8 +12,7 @@ tools, make sure you have the corresponding prerequisites installed.
 
 To complete this tutorial, you need the following:
 
-- A deployed and running [AWS IoT SiteWise Edge self-hosted gateway
-  requirements](configure-gateway-ggv2.md "configure-gateway-ggv2.md")
+- A deployed and running [AWS IoT SiteWise Edge self-hosted gateway requirements](configure-gateway-ggv2.md "configure-gateway-ggv2.md")
 - Access to your SiteWise Edge gateway in the same network over port
 
 443.
@@ -29,9 +26,7 @@ To complete this tutorial, you need the following:
 - (Python) [Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html "https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html") installed
 - (Python) [BotoCore](https://botocore.amazonaws.com/v1/documentation/api/latest/index.html "https://botocore.amazonaws.com/v1/documentation/api/latest/index.html") installed
 
-## Step 1: Get a SiteWise Edge gateway
-
-service signed certificate
+## Step 1: Get a SiteWise Edge gateway service signed certificate
 
 To establish a TLS connection to the APIs available at the SiteWise Edge gateway,
 you need a trusted certificate. You can generate this certificate using a
@@ -65,9 +60,7 @@ the path to the certificate:
 `export PATH_TO_CERTIFICATE='`<absolute_path_to_certificate>`'`
 ```
 
-## Step 2: Get your SiteWise Edge
-
-gateway hostname
+## Step 2: Get your SiteWise Edge gateway hostname
 
 ###### Note
 
@@ -91,9 +84,7 @@ SiteWise Edge gateway:
 `export GATEWAY_HOSTNAME='`<your_edge_gateway_hostname>`'`
 ```
 
-## Step 3: Get temporary
-
-credentials for your SiteWise Edge gateway
+## Step 3: Get temporary credentials for your SiteWise Edge gateway
 
 Now that you have the signed certificate and the hostname of your SiteWise Edge
 gateway, you need to get temporary credentials so you can run APIs on the
@@ -106,9 +97,7 @@ Credentials expire every 4 hours, so you should get the credentials just
 before using the APIs on your SiteWise Edge gateway. Don't cache credentials for
 longer than 4 hours.
 
-### Get temporary
-
-credentials using AWS OpsHub for AWS IoT SiteWise
+### Get temporary credentials using AWS OpsHub for AWS IoT SiteWise
 
 ###### Note
 
@@ -125,9 +114,7 @@ do the following:
    **Copy**.
 5. Save the credentials for use later.
 
-### Get temporary
-
-credentials using the SiteWise Edge gateway API
+### Get temporary credentials using the SiteWise Edge gateway API
 
 To use the SiteWise Edge gateway API to get the temporary credentials you can
 use a Python script or curl, first you'll need to have a user name and
@@ -323,9 +310,7 @@ export AWS_SESSION_TOKEN=<sessionToken>
 export AWS_REGION=edge
 ```
 
-## Step 4: Get a list of the
-
-asset models on the SiteWise Edge gateway
+## Step 4: Get a list of the asset models on the SiteWise Edge gateway
 
 Now that you have a signed certificate, your SiteWise Edge gateway hostname, and
 temporary credentials for your SiteWise Edge gateway, you can use the

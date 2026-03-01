@@ -43,9 +43,7 @@ Like the UUIDs, each external ID must be unique within its context. For example,
 can't have two asset models with the same external ID. Also, like the UUIDs, an object can
 only have one external ID in its lifetime, which can't change.
 
-### Differences between external IDs and
-
-UUIDs
+### Differences between external IDs and UUIDs
 
 External IDs differ from UUIDs in the following ways:
 

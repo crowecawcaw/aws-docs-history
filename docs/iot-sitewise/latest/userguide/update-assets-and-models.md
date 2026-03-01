@@ -10,6 +10,5 @@ model.
 
 - [Update assets in AWS IoT SiteWise](update-assets.md "update-assets.md")
 - [Update asset models, component models, and interfaces](update-asset-models.md "update-asset-models.md")
-- [Update custom composite models
-  (components)](update-custom-composite-models.md "update-custom-composite-models.md")
+- [Update custom composite models (components)](update-custom-composite-models.md "update-custom-composite-models.md")
 - [Optimistic locking for asset model writes](opt-locking-for-model.md "opt-locking-for-model.md")

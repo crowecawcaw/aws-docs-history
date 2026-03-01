@@ -19,9 +19,7 @@ launches a new feature, AWS adds read-only permissions for new operations and re
 For a list with descriptions of job function policies, see [AWS managed policies for
 job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md "../../../IAM/latest/UserGuide/access_policies_job-functions.md") in the _IAM User Guide_.
 
-## AWS managed
-
-policy: AWSIoTSiteWiseReadOnlyAccess
+## AWS managed policy: AWSIoTSiteWiseReadOnlyAccess
 
 Use the `AWSIoTSiteWiseReadOnlyAccess` AWS managed policy to allow
 read-only access to AWS IoT SiteWise.
@@ -104,9 +102,7 @@ JSON
 
 ```
 
-## AWS managed
-
-policy: AWSServiceRoleForIoTSiteWise
+## AWS managed policy: AWSServiceRoleForIoTSiteWise
 
 The `AWSServiceRoleForIoTSiteWise` role uses the `AWSServiceRoleForIoTSiteWise` policy with the
 following permissions. This policy:
@@ -297,9 +293,7 @@ JSON
 
 ```
 
-## AWS IoT SiteWise updates to AWS managed
-
-policies
+## AWS IoT SiteWise updates to AWS managed policies
 
 You can view details about updates to AWS managed policies for AWS IoT SiteWise, beginning
 from when this service began tracking the changes. For automatic alerts about changes to

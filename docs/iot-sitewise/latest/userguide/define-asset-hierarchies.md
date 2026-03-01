@@ -40,13 +40,10 @@ assets to complete the parent-child relationship. For more information, see [Cre
 
 ###### Topics
 
-- [Define asset model hierarchies
-  (console)](#define-asset-hierarchies-console "#define-asset-hierarchies-console")
+- [Define asset model hierarchies (console)](#define-asset-hierarchies-console "#define-asset-hierarchies-console")
 - [Define asset hierarchies (AWS CLI)](#define-asset-hierarchies-cli "#define-asset-hierarchies-cli")
 
-## Define asset model hierarchies
-
-(console)
+## Define asset model hierarchies (console)
 
 When you define a hierarchy for an asset model in the AWS IoT SiteWise console, you specify the
 following parameters:

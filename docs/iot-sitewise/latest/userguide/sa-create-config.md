@@ -6,8 +6,7 @@ gateway of deployment type **Siemens Industrial Edge device**.
 ###### Note
 
 Ensure that you meet all requirements for running a device on Siemens Industrial Edge Management. For more
-information, see [Requirements for the AWS IoT SiteWise Edge
-application](siemens-app-gateway-requirements.md "siemens-app-gateway-requirements.md").
+information, see [Requirements for the AWS IoT SiteWise Edge application](siemens-app-gateway-requirements.md "siemens-app-gateway-requirements.md").
 
 ###### To create the configuration file
 

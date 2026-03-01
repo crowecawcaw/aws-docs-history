@@ -1,20 +1,14 @@
-# Check the status of an asset or component
-
-model
+# Check the status of an asset or component model
 
 You can use the AWS IoT SiteWise console or API to check the status of an asset model or component
 model.
 
 ###### Topics
 
-- [Check the status of an asset model or
-  component model (console)](#check-model-status-console "#check-model-status-console")
-- [Check the status of an asset model or component
-  model (AWS CLI)](#check-model-status-cli "#check-model-status-cli")
+- [Check the status of an asset model or component model (console)](#check-model-status-console "#check-model-status-console")
+- [Check the status of an asset model or component model (AWS CLI)](#check-model-status-cli "#check-model-status-cli")
 
-## Check the status of an asset model or
-
-component model (console)
+## Check the status of an asset model or component model (console)
 
 Use the following procedure to check the status of an asset model or component model
 in the AWS IoT SiteWise console.
@@ -34,9 +28,7 @@ model or component model indicates which type it is.
 
 ![AWS IoT SiteWise "Asset model" page screenshot with asset model status highlighted.](images/sitewise-view-model-status-console.png)
 
-## Check the status of an asset model or component
-
-model (AWS CLI)
+## Check the status of an asset model or component model (AWS CLI)
 
 You can use the AWS CLI to check the status of an asset model or component model.
 

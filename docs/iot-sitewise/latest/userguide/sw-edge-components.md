@@ -14,8 +14,7 @@ The IoT SiteWise publisher component
 - Managing data buffering and retries during connectivity
   issues
 
-For more information on configuring the publisher for SiteWise Edge, see [Configure the AWS IoT SiteWise publisher
-component](configure-publisher-component.md "configure-publisher-component.md"). And, for more
+For more information on configuring the publisher for SiteWise Edge, see [Configure the AWS IoT SiteWise publisher component](configure-publisher-component.md "configure-publisher-component.md"). And, for more
 information on the publisher component, see [IoT SiteWise publisher](../../../greengrass/v2/developerguide/iotsitewise-publisher-component.md "../../../greengrass/v2/developerguide/iotsitewise-publisher-component.md") in the _AWS IoT Greengrass Version 2 Developer Guide_.
 
 **IoT SiteWise processor**

@@ -1,6 +1,4 @@
-# Requirements for the AWS IoT SiteWise Edge
-
-application
+# Requirements for the AWS IoT SiteWise Edge application
 
 To run AWS IoT SiteWise Edge on Siemens Industrial Edge, you need the following:
 

@@ -4,13 +4,10 @@ You can use the AWS IoT SiteWise console or API to check the status of an asset.
 
 ###### Topics
 
-- [Check the status of an asset
-  (console)](#check-asset-status-console "#check-asset-status-console")
+- [Check the status of an asset (console)](#check-asset-status-console "#check-asset-status-console")
 - [Check the status of an asset (AWS CLI)](#check-asset-status-cli "#check-asset-status-cli")
 
-## Check the status of an asset
-
-(console)
+## Check the status of an asset (console)
 
 Use the following procedure to check the status of an asset in the AWS IoT SiteWise
 console.

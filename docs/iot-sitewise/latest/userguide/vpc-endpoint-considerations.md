@@ -1,6 +1,4 @@
-# API operations for VPC endpoints in
-
-AWS IoT SiteWise
+# API operations for VPC endpoints in AWS IoT SiteWise
 
 AWS IoT SiteWise supports making calls to the following AWS IoT SiteWise API operations from your VPC:
 

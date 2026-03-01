@@ -1,6 +1,4 @@
-# Use packs to collect and process data in
-
-SiteWise Edge
+# Use packs to collect and process data in SiteWise Edge
 
 ###### Note
 
@@ -21,8 +19,7 @@ Currently, the following packs are available:
   models and assets. You can use edge configuration to control what asset data
   to compute and process on-site. You can then send your data to AWS IoT SiteWise or
   other AWS services. For more information about the data processing pack,
-  see [Configure edge data processing for AWS IoT SiteWise models
-  and assets](edge-processing.md "edge-processing.md").
+  see [Configure edge data processing for AWS IoT SiteWise models and assets](edge-processing.md "edge-processing.md").
 
 ## Upgrading packs
 

@@ -94,20 +94,13 @@ Use the following information to troubleshoot rule issues.
 
 ###### Issues
 
-- [Error: Member must be within 604800 seconds
-  before and 300 seconds after the current timestamp](#rule-error-timestamp-out-of-range "#rule-error-timestamp-out-of-range")
-- [Error: Property value does not match data type
-  <type>](#rule-error-invalid-data-type "#rule-error-invalid-data-type")
-- [Error: User: <role-arn> is not authorized
-  to perform: iotsitewise:BatchPutAssetPropertyValue on resource](#rule-error-role-not-authorized "#rule-error-role-not-authorized")
-- [Error: iot.amazonaws.com is unable to
-  perform: sts:AssumeRole on resource: <role-arn>](#rule-error-unable-to-assume-role "#rule-error-unable-to-assume-role")
-- [Info: No requests were sent.
-  PutAssetPropertyValueEntries was empty after performing substitution templates.](#rule-info-request-was-empty "#rule-info-request-was-empty")
+- [Error: Member must be within 604800 seconds before and 300 seconds after the current timestamp](#rule-error-timestamp-out-of-range "#rule-error-timestamp-out-of-range")
+- [Error: Property value does not match data type <type>](#rule-error-invalid-data-type "#rule-error-invalid-data-type")
+- [Error: User: <role-arn> is not authorized to perform: iotsitewise:BatchPutAssetPropertyValue on resource](#rule-error-role-not-authorized "#rule-error-role-not-authorized")
+- [Error: iot.amazonaws.com is unable to perform: sts:AssumeRole on resource: <role-arn>](#rule-error-unable-to-assume-role "#rule-error-unable-to-assume-role")
+- [Info: No requests were sent. PutAssetPropertyValueEntries was empty after performing substitution templates.](#rule-info-request-was-empty "#rule-info-request-was-empty")
 
-### Error: Member must be within 604800 seconds
-
-before and 300 seconds after the current timestamp
+### Error: Member must be within 604800 seconds before and 300 seconds after the current timestamp
 
 Your timestamp is older than 7 days or newer than 5 minutes, compared to current Unix epoch
 time. Try the following:
@@ -119,9 +112,7 @@ time. Try the following:
 - Check that you're uploading data that is timestamped no later than 7 days in the
   past.
 
-### Error: Property value does not match data type
-
- <type>
+### Error: Property value does not match data type <type>
 
 An entry in your rule action has a different data type than the target asset property. For
 example, your target asset property is a `DOUBLE` and your selected data type is
@@ -134,9 +125,7 @@ following:
   `value` object uses the correct type field (for example, `doubleValue`
   for a `DOUBLE` property).
 
-### Error: User: <role-arn> is not authorized
-
-to perform: iotsitewise:BatchPutAssetPropertyValue on resource
+### Error: User: <role-arn> is not authorized to perform: iotsitewise:BatchPutAssetPropertyValue on resource
 
 Your rule isn't authorized to access the target asset property, or the target asset
 property doesn't exist. Try the following:
@@ -147,9 +136,7 @@ property doesn't exist. Try the following:
   `iotsitewise:BatchPutAssetPropertyValue` permission to the targeted asset
   property, such as through the target asset's hierarchy. For more information, see [Grant AWS IoT the required access](grant-rule-access.md "grant-rule-access.md").
 
-### Error: iot.amazonaws.com is unable to
-
-perform: sts:AssumeRole on resource: <role-arn>
+### Error: iot.amazonaws.com is unable to perform: sts:AssumeRole on resource: <role-arn>
 
 Your user isn't authorized to assume the role on your rule in AWS Identity and Access Management (IAM).
 
@@ -157,9 +144,7 @@ Check that your user is allowed `iam:PassRole` permission to the role on your
 rule. For more information, see [Pass role permissions](../../../iot/latest/developerguide/pass-role.md "../../../iot/latest/developerguide/pass-role.md") in the
 _AWS IoT Developer Guide_.
 
-### Info: No requests were sent.
-
-PutAssetPropertyValueEntries was empty after performing substitution templates.
+### Info: No requests were sent. PutAssetPropertyValueEntries was empty after performing substitution templates.
 
 ###### Note
 

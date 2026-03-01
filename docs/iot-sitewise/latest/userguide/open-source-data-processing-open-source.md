@@ -1,6 +1,4 @@
-# Process data for open source
-
-integrations
+# Process data for open source integrations
 
 The data can be processed (such as transformation or aggregation), at different stages
 using various tools, each serving different monitoring requirements.

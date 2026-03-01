@@ -1,13 +1,9 @@
-# AWS IoT SiteWise IAM
-
-roles
+# AWS IoT SiteWise IAM roles
 
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within your
 AWS account that has specific permissions.
 
-## Use temporary credentials
-
-with AWS IoT SiteWise
+## Use temporary credentials with AWS IoT SiteWise
 
 You can use temporary credentials to sign in with federation, assume an IAM role, or
 to assume a cross-account role. You obtain temporary security credentials by calling
@@ -33,9 +29,7 @@ following permissions:
 
 For more information about federated portal user permissions, see [Use service roles for AWS IoT SiteWise Monitor](monitor-service-role.md "monitor-service-role.md").
 
-## Forward access
-
-sessions (FAS) for AWS IoT SiteWise
+## Forward access sessions (FAS) for AWS IoT SiteWise
 
 **Supports forward access sessions (FAS):**
 
@@ -44,9 +38,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service-linked
-
-roles
+## Service-linked roles
 
 [Service-linked roles](../../../IAM/latest/UserGuide/id_roles.md#id_roles_terms-and-concepts "../../../IAM/latest/UserGuide/id_roles.md#id_roles_terms-and-concepts") allow AWS services to access resources in other services
 to complete an action on your behalf. service-linked roles appear in your AWS account
@@ -71,9 +63,7 @@ resources on your behalf. For more information, see [Use service roles for AWS I
 You must have required permissions before you can create AWS IoT Events alarm models in AWS IoT SiteWise.
 For more information, see [Set up permissions for event alarms in AWS IoT SiteWise](alarms-iam-permissions.md "alarms-iam-permissions.md").
 
-## Choose an IAM role in
-
-AWS IoT SiteWise
+## Choose an IAM role in AWS IoT SiteWise
 
 When you create a `portal` resource in AWS IoT SiteWise, you must choose a role to
 allow the federated users of your SiteWise Monitor portal to access AWS IoT SiteWise on your behalf. If you

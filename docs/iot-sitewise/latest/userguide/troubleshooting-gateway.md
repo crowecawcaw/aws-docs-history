@@ -9,8 +9,7 @@ connectivity or data streams. For more information, see [Monitor AWS IoT SiteWis
 
 - [Configure and access SiteWise Edge gateway logs](#configure-gateway-logs "#configure-gateway-logs")
 - [Troubleshooting SiteWise Edge gateway issues](#troubleshoot-gateway-issues "#troubleshoot-gateway-issues")
-- [Troubleshooting the AWS IoT SiteWise Edge application on
-  Siemens Industrial Edge](#troubleshoot-siemens-app "#troubleshoot-siemens-app")
+- [Troubleshooting the AWS IoT SiteWise Edge application on Siemens Industrial Edge](#troubleshoot-siemens-app "#troubleshoot-siemens-app")
 - [Troubleshooting open-source integrations at the Edge](#open-source-troubleshooting "#open-source-troubleshooting")
 - [Troubleshooting AWS IoT Greengrass issues](#troubleshoot-greengrass-issues "#troubleshoot-greengrass-issues")
 
@@ -33,20 +32,13 @@ Use the following information to troubleshoot SiteWise Edge gateway issues.
 - [Unable to deploy packs to SiteWise Edge gateways](#gateway-issue-ggv2-packs "#gateway-issue-ggv2-packs")
 - [AWS IoT SiteWise doesn't receive data from OPC UA servers](#gateway-issue-data-streams "#gateway-issue-data-streams")
 - [No data shows in the dashboard](#gateway-issue-no-data "#gateway-issue-no-data")
-- ["Could not find or load main class" showing up in
-  the aws.iot.SiteWiseEdgePublisher logs at /greengrass/v2/logs error](#troubleshoot-java-issues "#troubleshoot-java-issues")
-- [I see 'SESSION_TAKEN_OVER' or
-  'com.aws.greengrass.mqttclient.MqttClient: Failed to publish the message via Spooler and
-  will retry.' in the logs](#sa-troubleshoot-multiple-use "#sa-troubleshoot-multiple-use")
-- [I see 'com.aws.greengrass.deployment.IotJobsHelper:
-  No deployment job found.' or 'Deployment result already reported.' in the logs](#sa-troubleshoot-reuse "#sa-troubleshoot-reuse")
-- [I see a 'SYNC_FAILED' status
-  when attempting to configure the timestamp setting in a property group on an OPC UA data
-  source](#troubleshoot-gateway-sync-failed-timestamp "#troubleshoot-gateway-sync-failed-timestamp")
+- ["Could not find or load main class" showing up in the aws.iot.SiteWiseEdgePublisher logs at /greengrass/v2/logs error](#troubleshoot-java-issues "#troubleshoot-java-issues")
+- [I see 'SESSION_TAKEN_OVER' or 'com.aws.greengrass.mqttclient.MqttClient: Failed to publish the message via Spooler and will retry.' in the logs](#sa-troubleshoot-multiple-use "#sa-troubleshoot-multiple-use")
+- [I see 'com.aws.greengrass.deployment.IotJobsHelper: No deployment job found.' or 'Deployment result already reported.' in the logs](#sa-troubleshoot-reuse "#sa-troubleshoot-reuse")
+- [I see a 'SYNC_FAILED' status when attempting to configure the timestamp setting in a property group on an OPC UA data source](#troubleshoot-gateway-sync-failed-timestamp "#troubleshoot-gateway-sync-failed-timestamp")
 - [Converted data types are not included](#troubleshoot-data-conversion "#troubleshoot-data-conversion")
 - [Trust store issues](#troubleshoot-trust-stores "#troubleshoot-trust-stores")
-- [Proxy-enabled installation
-  issues](#troubleshoot-proxy-during-installation "#troubleshoot-proxy-during-installation")
+- [Proxy-enabled installation issues](#troubleshoot-proxy-during-installation "#troubleshoot-proxy-during-installation")
 
 ### Unable to deploy packs to SiteWise Edge gateways
 
@@ -135,9 +127,7 @@ expedite the sync from the cloud to the edge, fixing the Out of sync error.
 6. Verify your changes by confirming the the data source name has been updated in the
    **Data sources** table.
 
-### "Could not find or load main class" showing up in
-
-the aws.iot.SiteWiseEdgePublisher logs at /greengrass/v2/logs error
+### "Could not find or load main class" showing up in the aws.iot.SiteWiseEdgePublisher logs at /greengrass/v2/logs error
 
 If you see this error, you may need to update the java version of your SiteWise Edge
 gateway.
@@ -161,13 +151,9 @@ OpenJDK 64-Bit Server VM Corretto-11.0.20.8.1 (build 11.0.20+8-LTS, mixed node)
 If you are running Java version 11.0.20.8.1 you must update the IoT SiteWise Publisher
 pack to version 2.4.1 or newer. Only java version 11.0.20.8.1 is affected, environments with
 other java versions can continue to use older versions of the IoT SiteWise Publisher
-component. For more information about updating a component pack, see [Change the version of SiteWise Edge gateway
-component packs](manage-gateways-ggv2.md#manage-gateway-update-packs "manage-gateways-ggv2.md#manage-gateway-update-packs").
+component. For more information about updating a component pack, see [Change the version of SiteWise Edge gateway component packs](manage-gateways-ggv2.md#manage-gateway-update-packs "manage-gateways-ggv2.md#manage-gateway-update-packs").
 
-### I see 'SESSION_TAKEN_OVER' or
-
-'com.aws.greengrass.mqttclient.MqttClient: Failed to publish the message via Spooler and
-will retry.' in the logs
+### I see 'SESSION_TAKEN_OVER' or 'com.aws.greengrass.mqttclient.MqttClient: Failed to publish the message via Spooler and will retry.' in the logs
 
 If you see a warning that includes `SESSION_TAKEN_OVER` or an error that
 includes `com.aws.greengrass.mqttclient.MqttClient: Failed to publish the message via
@@ -176,9 +162,7 @@ includes `com.aws.greengrass.mqttclient.MqttClient: Failed to publish the messag
 configuration file for multiple SiteWise Edge gateways on multiple devices. Each SiteWise Edge gateway
 needs a unique configuration file to connect to your AWS account.
 
-### I see 'com.aws.greengrass.deployment.IotJobsHelper:
-
-No deployment job found.' or 'Deployment result already reported.' in the logs
+### I see 'com.aws.greengrass.deployment.IotJobsHelper: No deployment job found.' or 'Deployment result already reported.' in the logs
 
 If you see `com.aws.greengrass.deployment.IotJobsHelper: No deployment job
  found.` or `Deployment result already reported.` in your logs at
@@ -198,10 +182,7 @@ There are multiple solutions:
 Follow the steps in [Create a gateway for Siemens Industrial Edge](sa-create-config.md "sa-create-config.md")
 to create a new configuration file.
 
-### I see a 'SYNC_FAILED' status
-
-when attempting to configure the timestamp setting in a property group on an OPC UA data
-source
+### I see a 'SYNC_FAILED' status when attempting to configure the timestamp setting in a property group on an OPC UA data source
 
 When AWS IoT SiteWise updated the OPC UA collector component for AWS IoT Greengrass in version 2.5.0, we
 introduced a new timestamp configuration option. You can use the timestamp from either your
@@ -212,8 +193,7 @@ There are two ways to resolve a failing data source sync status. The recommended
 to upgrade the IoT SiteWise OPC UA collector component to version 2.5.0 or above. Alternatively,
 you can continue to use the older OPC UA collector component version, if you set the
 timestamp to `Source`. To learn how to upgrade the IoT SiteWise OPC UA collector
-component, see [Update the version of an AWS IoT SiteWise
-component](manage-gateways-ggv2.md#update-component-version "manage-gateways-ggv2.md#update-component-version"). We recommend using the latest versions of all
+component, see [Update the version of an AWS IoT SiteWise component](manage-gateways-ggv2.md#update-component-version "manage-gateways-ggv2.md#update-component-version"). We recommend using the latest versions of all
 components.
 
 ###### Note
@@ -268,9 +248,7 @@ troubleshooting steps:
 - Test SSL/TLS connections independently using tools like `openssl` to
   verify trust store functionality
 
-### Proxy-enabled installation
-
-issues
+### Proxy-enabled installation issues
 
 If you encounter issues during the proxy configuration process, consider the following
 troubleshooting steps:
@@ -286,9 +264,7 @@ troubleshooting steps:
   source of the problem
 - Test the proxy connection independently to ensure it's functioning correctly
 
-## Troubleshooting the AWS IoT SiteWise Edge application on
-
-Siemens Industrial Edge
+## Troubleshooting the AWS IoT SiteWise Edge application on Siemens Industrial Edge
 
 To troubleshoot the AWS IoT SiteWise Edge application on your Siemens Industrial Edge device, you can access the
 logs for the application through the Siemens Industrial Edge Management or Siemens Industrial Edge Device (IED) portals. For
@@ -300,8 +276,7 @@ more information, see [Downloading Logs](https://docs.eu1.edge.siemens.cloud/bui
   checkmark icon for the **Databus_Configuration** is green rather than
   gray.
 - You may not be running Siemens Industrial Edge Management on a version that contains Secure
-  Storage. Upgrade your version of Siemens OS. For more information, see [Siemens Secure Storage and the AWS IoT SiteWise Edge
-  application](sitewise-edge-on-siemens.md#sa-secure-storage "sitewise-edge-on-siemens.md#sa-secure-storage").
+  Storage. Upgrade your version of Siemens OS. For more information, see [Siemens Secure Storage and the AWS IoT SiteWise Edge application](sitewise-edge-on-siemens.md#sa-secure-storage "sitewise-edge-on-siemens.md#sa-secure-storage").
 
 ### I see 'Config file missing AWS_REGION' in the logs
 
@@ -310,9 +285,7 @@ the configuration file has been corrupted. You'll need to create a new configura
 Follow the steps in [Create a gateway for Siemens Industrial Edge](sa-create-config.md "sa-create-config.md") to
 create a new configuration file.
 
-### I see an 'Out of sync' error message on the Edge gateway
-
-configuration
+### I see an 'Out of sync' error message on the Edge gateway configuration
 
 If you see an `Out of sync` error message on your Siemens Industrial Edge gateway after deployment is complete, it
 means that IoT SiteWise publisher component is out of sync with your gateway. The IoT SiteWise publisher

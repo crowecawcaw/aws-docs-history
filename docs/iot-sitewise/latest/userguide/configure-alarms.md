@@ -11,15 +11,11 @@ You can configure these values for AWS IoT Events alarms, but not on external al
 
 ###### Topics
 
-- [Configure a threshold value
-  (console)](#configure-alarm-threshold-value-console "#configure-alarm-threshold-value-console")
-- [Configure a threshold value
-  (AWS CLI)](#configure-alarm-threshold-value-cli "#configure-alarm-threshold-value-cli")
+- [Configure a threshold value (console)](#configure-alarm-threshold-value-console "#configure-alarm-threshold-value-console")
+- [Configure a threshold value (AWS CLI)](#configure-alarm-threshold-value-cli "#configure-alarm-threshold-value-cli")
 - [Configure notification settings in AWS IoT SiteWise](configure-alarm-notification-settings.md "configure-alarm-notification-settings.md")
 
-## Configure a threshold value
-
-(console)
+## Configure a threshold value (console)
 
 You can use the AWS IoT SiteWise console to update the value of the attribute that specifies the
 threshold value of an alarm.
@@ -36,9 +32,7 @@ You can choose the arrow icon to expand an asset hierarchy to find your
 asset. 4. Choose **Edit**. 5. Find the attribute that the alarm uses for its threshold value, and then enter its
 new value. 6. Choose **Save**.
 
-## Configure a threshold value
-
-(AWS CLI)
+## Configure a threshold value (AWS CLI)
 
 You can use the AWS Command Line Interface (AWS CLI) to update the value of the attribute that specifies the threshold value of an alarm.
 

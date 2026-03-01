@@ -1,6 +1,4 @@
-# Set up open source integrations manually
-
-(Windows)
+# Set up open source integrations manually (Windows)
 
 Use this guide to manually create a time series bucket for wind speed data that connects
 with Grafana® and Node-RED®.

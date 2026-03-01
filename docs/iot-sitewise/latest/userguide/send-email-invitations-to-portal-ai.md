@@ -1,6 +1,4 @@
-# Send email invitations to portal
-
-administrators
+# Send email invitations to portal administrators
 
 ###### Note
 

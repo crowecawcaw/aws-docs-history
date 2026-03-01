@@ -1,6 +1,4 @@
-# Configure the AWS IoT SiteWise publisher
-
-component
+# Configure the AWS IoT SiteWise publisher component
 
 After you create an AWS IoT SiteWise Edge gateway and install the software, you can set up
 the publisher component so your SiteWise Edge gateway can export data to the AWS Cloud.

@@ -1,6 +1,4 @@
-# Update the EMQX
-
-deployment configuration for authorization
+# Update the EMQX deployment configuration for authorization
 
 ###### To update the EMQX deployment configuration for authorization
 
@@ -160,6 +158,5 @@ Windows
 ###### Note
 
 From this point onward, you can't edit the ACL file to update the
-authorization rules. Alternatively, you can proceed to [Add authorization rules through the
-EMQX Dashboard for users](add-rules-emqx-broker.md "add-rules-emqx-broker.md") after a successful
+authorization rules. Alternatively, you can proceed to [Add authorization rules through the EMQX Dashboard for users](add-rules-emqx-broker.md "add-rules-emqx-broker.md") after a successful
 deployment.

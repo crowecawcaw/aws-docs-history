@@ -16,14 +16,10 @@ such as the DynamoDB action, depending on the contents of those messages. For mo
 ###### Topics
 
 - [Prerequisites](#dynamodb-tutorial-prerequisites "#dynamodb-tutorial-prerequisites")
-- [Step 1: Configure AWS IoT SiteWise to
-  publish property value updates](#dynamodb-tutorial-enable-value-notifications "#dynamodb-tutorial-enable-value-notifications")
-- [Step 2: Create a rule in
-  AWS IoT Core](#dynamodb-tutorial-create-iot-rule "#dynamodb-tutorial-create-iot-rule")
-- [Step 3: Configure the DynamoDB rule
-  action](#dynamodb-tutorial-configure-rule-action "#dynamodb-tutorial-configure-rule-action")
-- [Step 4: Explore data in
-  DynamoDB](#dynamodb-tutorial-explore-dynamodb-data "#dynamodb-tutorial-explore-dynamodb-data")
+- [Step 1: Configure AWS IoT SiteWise to publish property value updates](#dynamodb-tutorial-enable-value-notifications "#dynamodb-tutorial-enable-value-notifications")
+- [Step 2: Create a rule in AWS IoT Core](#dynamodb-tutorial-create-iot-rule "#dynamodb-tutorial-create-iot-rule")
+- [Step 3: Configure the DynamoDB rule action](#dynamodb-tutorial-configure-rule-action "#dynamodb-tutorial-configure-rule-action")
+- [Step 4: Explore data in DynamoDB](#dynamodb-tutorial-explore-dynamodb-data "#dynamodb-tutorial-explore-dynamodb-data")
 - [Clean up resources](#dynamodb-tutorial-clean-up-resources "#dynamodb-tutorial-clean-up-resources")
 - [Additional resources](#dynamodb-tutorial-additional-resources "#dynamodb-tutorial-additional-resources")
 
@@ -46,9 +42,7 @@ it before proceeding with this tutorial.
 Keep all demo resources until you complete this tutorial. Deleting any components might
 disrupt the demo's functionality and affect your ability to complete the tutorial.
 
-## Step 1: Configure AWS IoT SiteWise to
-
-publish property value updates
+## Step 1: Configure AWS IoT SiteWise to publish property value updates
 
 In this procedure, you enable property value notifications on your demo turbine assets'
 **Wind Speed** properties. After you enable property value
@@ -82,9 +76,7 @@ The notification topic should look like the following example.
 $aws/sitewise/asset-models/`a1b2c3d4-5678-90ab-cdef-11111EXAMPLE`/assets/`a1b2c3d4-5678-90ab-cdef-22222EXAMPLE`/properties/`a1b2c3d4-5678-90ab-cdef-33333EXAMPLE`
 ```
 
-## Step 2: Create a rule in
-
-AWS IoT Core
+## Step 2: Create a rule in AWS IoT Core
 
 In this step, create a rule in AWS IoT Core that parses the property value notification
 messages and inserts data into an Amazon DynamoDB table. AWS IoT Core rules parse MQTT messages and perform
@@ -150,9 +142,7 @@ WHERE
     name** list, and choose your new DynamoDB table you created in the previous
     step.
 
-## Step 3: Configure the DynamoDB rule
-
-action
+## Step 3: Configure the DynamoDB rule action
 
 In this step, configure the Amazon DynamoDB rule action to insert data from property value
 updates to your new DynamoDB table.
@@ -169,9 +159,7 @@ updates to your new DynamoDB table.
 
 Your demo asset data should start appearing in your DynamoDB table.
 
-## Step 4: Explore data in
-
-DynamoDB
+## Step 4: Explore data in DynamoDB
 
 In this step, explore the demo assets' wind speed data in your new Amazon DynamoDB table.
 

@@ -28,28 +28,21 @@ AWS Management Console or the AWS Command Line Interface.
 
 ###### Contents
 
-- [Service role permissions for
-  SiteWise Monitor (Classic)](monitor-service-role.md#monitor-service-role-permissions "monitor-service-role.md#monitor-service-role-permissions")
-- [Service role permissions for
-  SiteWise Monitor (AI-aware)](monitor-service-role.md#monitor-ai-service-role-permissions "monitor-service-role.md#monitor-ai-service-role-permissions")
+- [Service role permissions for SiteWise Monitor (Classic)](monitor-service-role.md#monitor-service-role-permissions "monitor-service-role.md#monitor-service-role-permissions")
+- [Service role permissions for SiteWise Monitor (AI-aware)](monitor-service-role.md#monitor-ai-service-role-permissions "monitor-service-role.md#monitor-ai-service-role-permissions")
 - [Manage the SiteWise Monitor service role (console)](monitor-service-role.md#manage-portal-role-console "monitor-service-role.md#manage-portal-role-console")
   - [Find a portal's service role (console)](monitor-service-role.md#find-portal-role-console "monitor-service-role.md#find-portal-role-console")
-  - [Create a SiteWise Monitor service role (AWS IoT SiteWise
-    console)](monitor-service-role.md#create-portal-role-sitewise-console "monitor-service-role.md#create-portal-role-sitewise-console")
-  - [Create a SiteWise Monitor service role (IAM
-    console)](monitor-service-role.md#create-portal-role-iam-console "monitor-service-role.md#create-portal-role-iam-console")
+  - [Create a SiteWise Monitor service role (AWS IoT SiteWise console)](monitor-service-role.md#create-portal-role-sitewise-console "monitor-service-role.md#create-portal-role-sitewise-console")
+  - [Create a SiteWise Monitor service role (IAM console)](monitor-service-role.md#create-portal-role-iam-console "monitor-service-role.md#create-portal-role-iam-console")
   - [Change a portal's service role (console)](monitor-service-role.md#change-portal-role-console "monitor-service-role.md#change-portal-role-console")
 
 - [Manage the SiteWise Monitor service role (CLI)](monitor-service-role.md#manage-portal-role-cli "monitor-service-role.md#manage-portal-role-cli")
   - [Find a portal's service role (CLI)](monitor-service-role.md#find-portal-role-cli "monitor-service-role.md#find-portal-role-cli")
   - [Create the SiteWise Monitor service role (CLI)](monitor-service-role.md#create-portal-role-cli "monitor-service-role.md#create-portal-role-cli")
 
-- [SiteWise Monitor updates to
-  AWSIoTSiteWiseMonitorServiceRole](monitor-service-role.md#monitor-role-permission-updates "monitor-service-role.md#monitor-role-permission-updates")
+- [SiteWise Monitor updates to AWSIoTSiteWiseMonitorServiceRole](monitor-service-role.md#monitor-role-permission-updates "monitor-service-role.md#monitor-role-permission-updates")
 
-## Service role permissions for
-
-SiteWise Monitor (Classic)
+## Service role permissions for SiteWise Monitor (Classic)
 
 When you create a portal, AWS IoT SiteWise lets you create a role whose name starts with **AWSIoTSiteWiseMonitorServiceRole**. This role allows federated SiteWise Monitor users to access
 your portal configuration, assets, asset data, and IAM Identity Center
@@ -220,9 +213,7 @@ the intersection of the service role and that user's access policies. Access pol
 identities' level of access to your portals and projects. For more information about portal
 permissions and access policies, see [Administer your SiteWise Monitor portals](administer-portals.md "administer-portals.md") and [CreateAccessPolicy](../APIReference/API_CreateAccessPolicy.md "../APIReference/API_CreateAccessPolicy.md").
 
-## Service role permissions for
-
-SiteWise Monitor (AI-aware)
+## Service role permissions for SiteWise Monitor (AI-aware)
 
 When you create a portal, AWS IoT SiteWise lets you create a role whose name starts with **IoTSiteWisePortalRole**. This role allows federated SiteWise Monitor users to access
 your portal configuration, assets, asset data, and IAM Identity Center
@@ -310,10 +301,8 @@ see [Create a portal in SiteWise Monitor](monitor-create-portal.md "monitor-crea
 ###### Topics
 
 - [Find a portal's service role (console)](#find-portal-role-console "#find-portal-role-console")
-- [Create a SiteWise Monitor service role (AWS IoT SiteWise
-  console)](#create-portal-role-sitewise-console "#create-portal-role-sitewise-console")
-- [Create a SiteWise Monitor service role (IAM
-  console)](#create-portal-role-iam-console "#create-portal-role-iam-console")
+- [Create a SiteWise Monitor service role (AWS IoT SiteWise console)](#create-portal-role-sitewise-console "#create-portal-role-sitewise-console")
+- [Create a SiteWise Monitor service role (IAM console)](#create-portal-role-iam-console "#create-portal-role-iam-console")
 - [Change a portal's service role (console)](#change-portal-role-console "#change-portal-role-console")
 
 ### Find a portal's service role (console)
@@ -329,9 +318,7 @@ Use the following steps to find the service role attached to a SiteWise Monitor 
 The role attached to the portal appears under **Permissions**,
 **Service role**.
 
-### Create a SiteWise Monitor service role (AWS IoT SiteWise
-
-console)
+### Create a SiteWise Monitor service role (AWS IoT SiteWise console)
 
 When you create a SiteWise Monitor portal, you can create a service role for your portal. For
 more information, see [Create a portal in SiteWise Monitor](monitor-create-portal.md "monitor-create-portal.md").
@@ -350,9 +337,7 @@ replaces the portal's existing service role.
 6. Enter a name for your new role.
 7. Choose **Save**.
 
-### Create a SiteWise Monitor service role (IAM
-
-console)
+### Create a SiteWise Monitor service role (IAM console)
 
 You can create a service role from the service role template in the IAM console. This
 role template includes the [AWSIoTSiteWiseMonitorPortalAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/service-role/AWSIoTSiteWiseMonitorPortalAccess "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/service-role/AWSIoTSiteWiseMonitorPortalAccess") managed policy and specifies SiteWise Monitor as a trusted
@@ -578,9 +563,7 @@ aws iotsitewise update-portal \
   --portal-contact-email `portal-contact-email`
 ```
 
-## SiteWise Monitor updates to
-
-AWSIoTSiteWiseMonitorServiceRole
+## SiteWise Monitor updates to AWSIoTSiteWiseMonitorServiceRole
 
 You can view details about updates to **AWSIoTSiteWiseMonitorServiceRole** for SiteWise Monitor, beginning from when this service
 began tracking the changes. For automatic alerts about changes to this page, subscribe to the

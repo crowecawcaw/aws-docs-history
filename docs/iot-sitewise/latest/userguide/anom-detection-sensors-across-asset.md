@@ -1,10 +1,6 @@
-# Enable anomaly detection on sensors across
+# Enable anomaly detection on sensors across assets
 
-assets
-
-## Create a computation model
-
-(AWS CLI)
+## Create a computation model (AWS CLI)
 
 To create a computation model, use the AWS Command Line Interface (AWS CLI). After you
 define the computation model, train the model and schedule inference to do anomaly detection
@@ -71,9 +67,7 @@ aws iotsitewise create-computation-model \
     --cli-input-json file://`anomaly-detection-computation-model-payload.json`
 ```
 
-## ExecuteAction API payload
-
-preparation
+## ExecuteAction API payload preparation
 
 The next steps to execute training and inference is performed with the [ExecuteAction](../APIReference/API_ExecuteAction.md "../APIReference/API_ExecuteAction.md") API. Both training and inference are configured with a JSON action
 payload configuration. When invoking the [ExecuteAction](../APIReference/API_ExecuteAction.md "../APIReference/API_ExecuteAction.md") API,
@@ -84,9 +78,7 @@ be a **flat string** with no **control
 characters** (for example, newlines, tabs, or carriage returns). The following
 options provides two reliable ways to supply a valid action-payload.
 
-### Option 1: Use a clean payload
-
-file
+### Option 1: Use a clean payload file
 
 The following procedure describes the steps for a clean payload file:
 
@@ -105,9 +97,7 @@ aws iotsitewise execute-action \
     --action-payload stringValue@=file:`//training-or-inference-action-payload.json`
 ```
 
-### Option 2: Inline string with escaped
-
-quotes
+### Option 2: Inline string with escaped quotes
 
 The following steps describes the steps to supply the payload inline, and avoid
 intermediary files:
@@ -141,8 +131,7 @@ aws iotsitewise describe-computation-model \
 
 ###### Note
 
-The payload must conform to [Option 1: Use a clean payload
-file](#clean-payload-file-across-assets "#clean-payload-file-across-assets").
+The payload must conform to [Option 1: Use a clean payload file](#clean-payload-file-across-assets "#clean-payload-file-across-assets").
 
     1. `StartTime` with the start of the training data, provided in epoch
      seconds.
@@ -204,9 +193,7 @@ aws iotsitewise describe-computation-model-execution-summary \
     --computation-model-id computation-model-id
 ```
 
-## Start and stop retraining the model
-
-(AWS CLI)
+## Start and stop retraining the model (AWS CLI)
 
 After initial model training, you can configure automatic retraining to address data
 drift and maintain model accuracy over time. The retraining scheduler allows you to set up
@@ -266,9 +253,7 @@ aws iotsitewise list-executions \
     --target-resource-id `computation-model-id`
 ```
 
-## Start and stop inference
-
-(AWS CLI)
+## Start and stop inference (AWS CLI)
 
 After training the model, start the inference, which instructs AWS IoT SiteWise to begin
 monitoring your industrial assets for anomalies.
@@ -290,8 +275,7 @@ aws iotsitewise describe-computation-model \
 
 ###### Note
 
-The payload must conform to [Option 1: Use a clean payload
-file](#clean-payload-file-across-assets "#clean-payload-file-across-assets").
+The payload must conform to [Option 1: Use a clean payload file](#clean-payload-file-across-assets "#clean-payload-file-across-assets").
 
     1. `DataUploadFrequency`: Configure the frequency at which the
      inference schedule runs to perform anomaly detection. Allowed values are:
@@ -312,10 +296,8 @@ file](#clean-payload-file-across-assets "#clean-payload-file-across-assets").
     5. You can optionally configure [Advanced inference configurations](advanced-inference-configurations.md "advanced-inference-configurations.md").
 
 
-    	1. [High frequency inferencing (5 minutes – 1
-    	 hour)](advanced-inference-configurations.md#high-frequency-inferencing "advanced-inference-configurations.md#high-frequency-inferencing").
-    	2. [Low frequency inferencing (2 hours – 1
-    	 day)](advanced-inference-configurations.md#low-frequency-inferencing "advanced-inference-configurations.md#low-frequency-inferencing").
+    	1. [High frequency inferencing (5 minutes – 1 hour)](advanced-inference-configurations.md#high-frequency-inferencing "advanced-inference-configurations.md#high-frequency-inferencing").
+    	2. [Low frequency inferencing (2 hours – 1 day)](advanced-inference-configurations.md#low-frequency-inferencing "advanced-inference-configurations.md#low-frequency-inferencing").
     	3. [Flexible scheduling](advanced-inference-configurations.md#flexible-scheduling "advanced-inference-configurations.md#flexible-scheduling").
 
 3. Run the following command to start inference. Replace the following parameters in

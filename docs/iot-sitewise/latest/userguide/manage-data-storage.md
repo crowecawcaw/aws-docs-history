@@ -37,5 +37,4 @@ reports and backups.
 
 - [Configure storage settings in AWS IoT SiteWise](configure-storage.md "configure-storage.md")
 - [Troubleshoot storage settings for AWS IoT SiteWise](troubleshoot-storage-configuration.md "troubleshoot-storage-configuration.md")
-- [File paths and schemas of data saved in the cold
-  tier](file-path-and-schema.md "file-path-and-schema.md")
+- [File paths and schemas of data saved in the cold tier](file-path-and-schema.md "file-path-and-schema.md")

@@ -35,15 +35,12 @@ storage.
 
 ###### Topics
 
-- [Configure storage settings for warm tier
-  (console)](#configure-storage-console-warm "#configure-storage-console-warm")
+- [Configure storage settings for warm tier (console)](#configure-storage-console-warm "#configure-storage-console-warm")
 - [Configure storage settings for warm tier (AWS CLI)](#configure-storage-cli-warm "#configure-storage-cli-warm")
 - [Configure storage settings for cold tier (console)](#configure-storage-console "#configure-storage-console")
 - [Configure storage settings for cold tier (AWS CLI)](#configure-storage-cli "#configure-storage-cli")
 
-## Configure storage settings for warm tier
-
-(console)
+## Configure storage settings for warm tier (console)
 
 The following procedure shows you how to configure the storage settings to replicate data
 to the warm tier in the AWS IoT SiteWise console.
@@ -140,9 +137,7 @@ aws iotsitewise describe-storage-configuration
 }
 ```
 
-### Configure storage settings for warm tier
-
-with AWS CLI
+### Configure storage settings for warm tier with AWS CLI
 
 Run the following command to configure the storage settings. Replace
 `file-name` with the name of the file that contains the AWS IoT SiteWise storage
@@ -180,12 +175,9 @@ to 30 days.
 }
 ```
 
-If you have cold tier storage enabled, see [Configure storage settings with
-AWS CLI and existing cold tier](#configure-storage-cli-existing-cold "#configure-storage-cli-existing-cold").
+If you have cold tier storage enabled, see [Configure storage settings with AWS CLI and existing cold tier](#configure-storage-cli-existing-cold "#configure-storage-cli-existing-cold").
 
-### Configure storage settings with
-
-AWS CLI and existing cold tier
+### Configure storage settings with AWS CLI and existing cold tier
 
 ###### Configure storage settings using AWS CLI with existing cold tier storage
 
@@ -329,8 +321,7 @@ to the cold tier in the AWS IoT SiteWise console.
             + If the Amazon S3 bucket is encrypted using a customer managed KMS key,
              the KMS key must have an access policy with an IAM role for `kms:Decrypt` and `kms:GenerateDataKey` operations.
 
-    4.  To setup hot tier, see Step 5 in [Configure storage settings for warm tier
-        (console)](#configure-storage-console-warm "#configure-storage-console-warm").
+    4.  To setup hot tier, see Step 5 in [Configure storage settings for warm tier (console)](#configure-storage-console-warm "#configure-storage-console-warm").
     5.  (Optional) For **AWS IoT Analytics integration**, do the following.
 
     ###### Note
@@ -536,9 +527,7 @@ aws iotsitewise describe-storage-configuration
   }
 ```
 
-### (Optional) Create an AWS IoT Analytics data store
-
-(AWS CLI)
+### (Optional) Create an AWS IoT Analytics data store (AWS CLI)
 
 ###### Note
 

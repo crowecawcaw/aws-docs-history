@@ -1,6 +1,4 @@
-# Manage interfaces, linked asset models, and
-
-properties
+# Manage interfaces, linked asset models, and properties
 
 After creating interfaces and linking them to asset models, you can manage relationships,
 edit, and delete interfaces through the console or AWS CLI.
@@ -92,9 +90,7 @@ aws iotsitewise list-interface-relationships \
     [--max-results `20`]
 ```
 
-## View the details of an interface and asset model
-
-relationship
+## View the details of an interface and asset model relationship
 
 To see the details of an interface applied to an asset model, do the following in either
 the AWS IoT SiteWise console or through AWS CLI:

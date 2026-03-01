@@ -34,8 +34,7 @@ access to both data and metadata for each respective topic.
 
 ![A screenshot displaying the Siemens topic types. The image circles the portion of the file path that starts with "ie/d" and "ie/m," respectively.](images/gateway-sa-topics.png) 8. Set appropriate permissions for your Siemens Databus configuration.
 After creating your Siemens Databus configuration, you can install the AWS IoT SiteWise Edge
-application on your Siemens Industrial Edge Management. For more information, see [Install the application onto a Siemens
-device](sa-install-app.md "sa-install-app.md").
+application on your Siemens Industrial Edge Management. For more information, see [Install the application onto a Siemens device](sa-install-app.md "sa-install-app.md").
 
 You can also optionally configure destinations and path filters for your Siemens Industrial Edge
 gateway. For more information, see [Destinations and path filters](gw-destinations.md "gw-destinations.md").

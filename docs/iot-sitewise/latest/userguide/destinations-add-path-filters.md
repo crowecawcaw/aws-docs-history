@@ -1,6 +1,4 @@
-# Add path filters to AWS IoT SiteWise Edge
-
-destinations
+# Add path filters to AWS IoT SiteWise Edge destinations
 
 Add path filters to a destination. Path filters use MQTT topic syntax, where
 `#` is a wildcard character that matches any number of levels, and `+`
@@ -91,8 +89,7 @@ Capture all data by using both the data (`ie/d`) and metadata
 ###### Note
 
 Copy path filters between destinations by downloading list of path filters. For more
-information, see [Download all path filters in a
-destination (console)](destinations-manage.md#destinations-download-list "destinations-manage.md#destinations-download-list").
+information, see [Download all path filters in a destination (console)](destinations-manage.md#destinations-download-list "destinations-manage.md#destinations-download-list").
 
 ## Upload path filters in bulk
 
@@ -123,8 +120,7 @@ These are additional path filter requirements.
   filter. For example, `topic/#` or as a standalone character at a particular
   topic level. However, note that `#` can also be used as a regular character
   within a topic level name, such as `factory/machine#1/topic`. For more
-  information see [Special characters in path filter
-  names](gw-destinations.md#path-filters-special-characters "gw-destinations.md#path-filters-special-characters")
+  information see [Special characters in path filter names](gw-destinations.md#path-filters-special-characters "gw-destinations.md#path-filters-special-characters")
   - You can also use the `+` character. For example, use
     `factory/+/temp` to get all temperatures for factories instead of
     `factory/machine2/temp` and `factory/machine3/temp`

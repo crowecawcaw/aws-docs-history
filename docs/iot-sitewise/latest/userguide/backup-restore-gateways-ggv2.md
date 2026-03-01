@@ -9,17 +9,14 @@ troubleshoot the issue, please read the AWS IoT SiteWise documentation [Troubles
 The guidance covered in this topic is for SiteWise Edge gateways installed on AWS IoT Greengrass V2 version
 2.1.0 or higher.
 
-## Daily backups of metric
-
-data
+## Daily backups of metric data
 
 Creating a back up is important, if you would like to transfer or restore the data on
 a new machine. Backing up your data greatly reduces the risk of loss of operating data
 during a transfer or restoration process.
 
 This section applies to gateways that use the data processing pack. For more
-information on the data processing pack, see [Configure an asset model for data
-processing on SiteWise Edge](edge-processing.md#process-gateway-data-edge "edge-processing.md#process-gateway-data-edge").
+information on the data processing pack, see [Configure an asset model for data processing on SiteWise Edge](edge-processing.md#process-gateway-data-edge "edge-processing.md#process-gateway-data-edge").
 
 The **influxdb** folder path is as follows:
 
@@ -106,9 +103,7 @@ Windows
 ``C:\greengrass\v2`\bin\greengrass-cli
 component restart -n aws.iot.SiteWiseEdgeProcessor`
 
-## Validate successful backups and
-
-restorations
+## Validate successful backups and restorations
 
 Use this procedure validate your backed-up data and SiteWise Edge gateway
 restorations.

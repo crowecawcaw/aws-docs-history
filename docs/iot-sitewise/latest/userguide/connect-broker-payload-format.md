@@ -1,6 +1,4 @@
-# Message payload format for the
-
-EMQX broker on AWS IoT SiteWise Edge
+# Message payload format for the EMQX broker on AWS IoT SiteWise Edge
 
 For the IoT SiteWise publisher component to consume data from your external
 application and publish it to the AWS IoT SiteWise cloud, the payload sent to the broker
@@ -11,9 +9,7 @@ AWS IoT SiteWise Edge. While the connection setup process is covered in later se
 present the payload requirements first to help you plan your
 implementation.
 
-## MQTT topic
-
-requirements
+## MQTT topic requirements
 
 There are no restrictions on MQTT topic structure, including the number of
 levels or characters used. However, we recommend that the topic matches the

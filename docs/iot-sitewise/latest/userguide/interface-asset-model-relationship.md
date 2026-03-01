@@ -1,6 +1,4 @@
-# Understand the interface-asset model
-
-relationship
+# Understand the interface-asset model relationship
 
 Interfaces and asset models work together in a complementary relationship:
 
@@ -84,9 +82,7 @@ These two hierarchy types work together: interface hierarchies define how to com
 aggregated metrics, while asset model hierarchies define which specific assets should be
 included in those calculations.
 
-## Interface metrics and rollup
-
-calculations
+## Interface metrics and rollup calculations
 
 Interfaces excel at defining standardized metrics that can be applied across different
 asset models. This is particularly valuable for rollup metrics that aggregate data from
@@ -137,9 +133,7 @@ calculated consistently for all of them, even if the underlying property names d
 
 For more information about defining metrics and using aggregation functions, see [Aggregate data from properties and other assets (metrics)](metrics.md "metrics.md").
 
-### Rollup metrics with
-
-interfaces
+### Rollup metrics with interfaces
 
 Interfaces can also define rollup metrics that aggregate data across assets in a
 hierarchy. When you define a hierarchy in an interface and apply it to an asset model, you

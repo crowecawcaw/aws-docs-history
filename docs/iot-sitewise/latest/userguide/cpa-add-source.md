@@ -10,21 +10,15 @@ To add a partner data source, you must do the following:
 
 - For EasyEdge and CloudRail, create an account with the
   partner, then bind the accounts.
-- [Set up Docker on your
-  SiteWise Edge gateway](cpa-install-docker.md "cpa-install-docker.md")
+- [Set up Docker on your SiteWise Edge gateway](cpa-install-docker.md "cpa-install-docker.md")
 
-## Create a SiteWise Edge gateway with a
-
-partner data source
+## Create a SiteWise Edge gateway with a partner data source
 
 If you want to create a new SiteWise Edge gateway, complete the steps in [Create a self-hosted SiteWise Edge gateway](create-gateway-ggv2.md "create-gateway-ggv2.md").
-After you’ve created SiteWise Edge gateway follow the steps in [Add a partner data source to an
-existing SiteWise Edge gateway](#cpa-existing-gateway "#cpa-existing-gateway") to
+After you’ve created SiteWise Edge gateway follow the steps in [Add a partner data source to an existing SiteWise Edge gateway](#cpa-existing-gateway "#cpa-existing-gateway") to
 add a partner data source.
 
-## Add a partner data source to an
-
-existing SiteWise Edge gateway
+## Add a partner data source to an existing SiteWise Edge gateway
 
 1. Navigate to the [AWS IoT SiteWise console](https://console.aws.amazon.com/iotsitewise/ "https://console.aws.amazon.com/iotsitewise/").
 2. In the left navigation, choose **Edge gateways** in the **Edge** section.
@@ -40,11 +34,9 @@ existing SiteWise Edge gateway
 
 Using a partner data source, you can select one
 source per gateway. For a list of data source partner integration
-options, see [SiteWise Edge gateway partner data
-source options](connect-partner-data-source.md "connect-partner-data-source.md"). Note that you can
+options, see [SiteWise Edge gateway partner data source options](connect-partner-data-source.md "connect-partner-data-source.md"). Note that you can
 add up to 100 OPC UA data sources (AWS sources). To get started
-with OPC UA data sources, see [OPC UA data sources for AWS IoT SiteWise Edge
-gateways](configure-sources-opcua.md "configure-sources-opcua.md"). 6. Enter a name for the source. 7. Select your data source's tab below and follow the configuration
+with OPC UA data sources, see [OPC UA data sources for AWS IoT SiteWise Edge gateways](configure-sources-opcua.md "configure-sources-opcua.md"). 6. Enter a name for the source. 7. Select your data source's tab below and follow the configuration
 procedure.
 
 CloudRail
@@ -61,8 +53,7 @@ Linux.
     1. [Create
      a CloudRail account](https://devices.cloudrail.com/signup "https://devices.cloudrail.com/signup") to get started with
      connecting to AWS IoT SiteWise.
-    2. Ensure that Docker is installed on your gateway. For more information, see [Set up Docker on your
-     SiteWise Edge gateway](cpa-install-docker.md "cpa-install-docker.md").
+    2. Ensure that Docker is installed on your gateway. For more information, see [Set up Docker on your SiteWise Edge gateway](cpa-install-docker.md "cpa-install-docker.md").
     3. Read the **Authorize access and deployment** agreement, then choose **Authorize**. Checking the box grants the AWS partner access to your data source and allows AWS to deploy on the partner's component.
 
 ###### Note
@@ -91,8 +82,7 @@ Linux.
 
     1. [Create an EasyEdge account](https://accounts.easyedge.io/signup?partner=aws "https://accounts.easyedge.io/signup?partner=aws") to get
      started with connecting to AWS IoT SiteWise.
-    2. Ensure that Docker is installed on your gateway. For more information, see [Set up Docker on your
-     SiteWise Edge gateway](cpa-install-docker.md "cpa-install-docker.md").
+    2. Ensure that Docker is installed on your gateway. For more information, see [Set up Docker on your SiteWise Edge gateway](cpa-install-docker.md "cpa-install-docker.md").
     3. Read the **Authorize access and deployment** agreement, then choose **Authorize**. Checking the box grants the AWS partner access to your data source and allows AWS to deploy on the partner's component.
 
 ###### Note
@@ -122,9 +112,7 @@ Linux.
 
  
 
-###### To activate using a Litmus Edge activation code
-
-on AWS IoT SiteWise
+###### To activate using a Litmus Edge activation code on AWS IoT SiteWise
 
 Use this procedure when adding a Litmus Edge data
 source with a Litmus Edge activation code on the
@@ -145,8 +133,7 @@ AWS IoT SiteWise console.
      certificate**. The certificate prevents
      Litmus Edge from activating on an unauthorized
      Litmus Edge Manager.
-    5. Ensure that Docker is installed on your gateway. For more information, see [Set up Docker on your
-     SiteWise Edge gateway](cpa-install-docker.md "cpa-install-docker.md").
+    5. Ensure that Docker is installed on your gateway. For more information, see [Set up Docker on your SiteWise Edge gateway](cpa-install-docker.md "cpa-install-docker.md").
 
      ###### Note
 
@@ -164,8 +151,7 @@ AWS IoT SiteWise console.
 
     1. Select **Activate later on
      Litmus Edge**.
-    2. Ensure that Docker is installed on your gateway. For more information, see [Set up Docker on your
-     SiteWise Edge gateway](cpa-install-docker.md "cpa-install-docker.md").
+    2. Ensure that Docker is installed on your gateway. For more information, see [Set up Docker on your SiteWise Edge gateway](cpa-install-docker.md "cpa-install-docker.md").
 
      ###### Note
 

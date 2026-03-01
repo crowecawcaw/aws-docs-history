@@ -1,6 +1,4 @@
-# AWS IoT SiteWise Edge self-hosted gateway
-
-requirements
+# AWS IoT SiteWise Edge self-hosted gateway requirements
 
 AWS IoT SiteWise Edge gateways run on AWS IoT Greengrass V2 as a set of AWS IoT Greengrass components
 that support data collection, processing, and publishing on premises. To configure a
@@ -9,9 +7,7 @@ SiteWise Edge gateway software to set up your local device. When you use the AWS
 create the SiteWise Edge gateway, an installation script is provided. Run this script on your
 target gateway device to set up necessary software and dependencies.
 
-## Local device
-
-requirements
+## Local device requirements
 
 Local devices must meet the following requirements to install and run the SiteWise Edge
 gateway software.
@@ -116,9 +112,7 @@ The data processing pack (DPP) feature is no longer availabke to new customers. 
     - Number of data streams uploaded
     - Data points per data stream per second
 
-## Configure permissions to use SiteWise Edge
-
-gateways
+## Configure permissions to use SiteWise Edge gateways
 
 You must have the following permissions to use SiteWise Edge gateways:
 

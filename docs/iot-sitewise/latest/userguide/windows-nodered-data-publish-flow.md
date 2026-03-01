@@ -1,6 +1,4 @@
-# Configure the data publish
-
-flow
+# Configure the data publish flow
 
 The data publish flow uses three nodes to create a pipeline that sends your industrial
 data to the cloud. This flow is essential for enabling cloud-based analytics, long-term
@@ -18,9 +16,7 @@ visualization capabilities.
 
 ![A diagram showing the Node-RED data publishing flow. It sends simulated device data to the SiteWise Edge MQTT broker for pickup by SiteWise Edge Gateway and then onto the AWS IoT SiteWise Cloud.](images/gateway-open-source-nodered-publish-flow.png)
 
-## Configure the data input
-
-node
+## Configure the data input node
 
 In this example, the data input node uses a simulated wind turbine device that
 generates wind speed data. This node serves as the entry point for your industrial data,
@@ -109,9 +105,7 @@ This format provides several benefits:
 ]
 ```
 
-## Configure a node for data
-
-translation
+## Configure a node for data translation
 
 The SiteWise Edge gateway requires data in a specific format to ensure compatibility with
 AWS IoT SiteWise cloud. The translator node is an important component that converts your input
@@ -198,9 +192,7 @@ see the "Data stream alias" concept in [AWS IoT SiteWise concepts](concept-overv
 For guidance on writing a function specific to your business needs, see [Writing Functions](https://nodered.org/docs/user-guide/writing-functions "https://nodered.org/docs/user-guide/writing-functions")
 in the _Node-RED Documentation_
 
-## Configure the MQTT
-
-publisher
+## Configure the MQTT publisher
 
 After translation, the data is ready for publication to the SiteWise Edge MQTT
 broker.

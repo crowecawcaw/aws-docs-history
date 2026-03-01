@@ -5,15 +5,11 @@ operational needs.
 
 Inference scheduling is broadly categorized into three modes:
 
-- [High frequency inferencing (5 minutes – 1
-  hour)](#high-frequency-inferencing "#high-frequency-inferencing")
-- [Low frequency inferencing (2 hours – 1
-  day)](#low-frequency-inferencing "#low-frequency-inferencing")
+- [High frequency inferencing (5 minutes – 1 hour)](#high-frequency-inferencing "#high-frequency-inferencing")
+- [Low frequency inferencing (2 hours – 1 day)](#low-frequency-inferencing "#low-frequency-inferencing")
 - [Flexible scheduling](#flexible-scheduling "#flexible-scheduling")
 
-## High frequency inferencing (5 minutes – 1
-
-hour)
+## High frequency inferencing (5 minutes – 1 hour)
 
 This mode is ideal for processes that operate continuously, or have a high rate of
 change in sensor values. In this configuration, inference runs frequently as often as every
@@ -59,9 +55,7 @@ PT1H` while starting inference.
 }
 ```
 
-## Low frequency inferencing (2 hours – 1
-
-day)
+## Low frequency inferencing (2 hours – 1 day)
 
 This mode is suited for slower-moving processes or use cases where daily evaluations are
 sufficient. Customers configure inference to run hourly or once per day.
@@ -189,9 +183,7 @@ previous versions, or override automatic model promotion decisions.
   well-tested model versions during system maintenance, or upgrades to ensure
   stability.
 
-### Model version selection
-
-behavior
+### Model version selection behavior
 
 When `targetModelVersion` is specified:
 

@@ -7,8 +7,7 @@ are recorded (for example, once every second, or once every minute). This settin
 impacts the **granularity** of the training data, and
 influences the model's ability to capture short-term variations in sensor behavior.
 
-Visit [Sampling for high-frequency data and
-consistency between training and inference](ano-best-practices.md#apply-sampling-high-frequency-data "ano-best-practices.md#apply-sampling-high-frequency-data") to learn about best practices.
+Visit [Sampling for high-frequency data and consistency between training and inference](ano-best-practices.md#apply-sampling-high-frequency-data "ano-best-practices.md#apply-sampling-high-frequency-data") to learn about best practices.
 
 ### Configure target sampling rate
 
@@ -41,8 +40,7 @@ AWS IoT SiteWise automatically compensates for **timestamp
 misalignment** across multiple data streams during training. This ensures
 consistent model behavior even if input signals are not perfectly aligned in time.
 
-Visit [Sampling for high-frequency data and
-consistency between training and inference](ano-best-practices.md#apply-sampling-high-frequency-data "ano-best-practices.md#apply-sampling-high-frequency-data") to learn about best
+Visit [Sampling for high-frequency data and consistency between training and inference](ano-best-practices.md#apply-sampling-high-frequency-data "ano-best-practices.md#apply-sampling-high-frequency-data") to learn about best
 practices.
 
 ### Enable sampling
@@ -234,9 +232,7 @@ information about:
 - **Model Comparison**: Comparison metrics between
   different model versions during retraining
 
-### Configure model metrics
-
-destination
+### Configure model metrics destination
 
 To enable model metrics generation, configure an Amazon S3 destination where the metrics
 are published.
@@ -270,9 +266,7 @@ are published.
 }
 ```
 
-### Configure model metrics for
-
-retraining
+### Configure model metrics for retraining
 
 When you set up retraining schedules, model metrics destination is required to enable
 comprehensive model performance tracking and comparison:
@@ -375,9 +369,7 @@ Boolean indicating whether labeled data was used during training
 
 Additional version-specific metrics for model comparison
 
-### Advanced metrics for labeled
-
-models
+### Advanced metrics for labeled models
 
 When you provide labeled data during training, additional performance metrics are
 included in the Amazon S3 files:
@@ -419,9 +411,7 @@ promotion decisions:
   - `POOR_MODEL_QUALITY_DETECTED`: New model has poor quality
     assessment
 
-#### Manual mode (Customer-controlled
-
-promotion)
+#### Manual mode (Customer-controlled promotion)
 
 - You can download and analyze detailed metrics from Amazon S3 to make promotion
   decisions

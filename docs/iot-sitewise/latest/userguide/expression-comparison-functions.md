@@ -1,6 +1,4 @@
-# Use comparison functions in formula
-
-expressions
+# Use comparison functions in formula expressions
 
 In [transforms](transforms.md "transforms.md") and [metrics](metrics.md "metrics.md"), you can use the following comparison functions to compare two
 values and output `1` (true) or `0` (false). AWS IoT SiteWise compares

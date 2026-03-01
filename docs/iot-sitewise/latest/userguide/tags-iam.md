@@ -44,5 +44,4 @@ _IAM User Guide_.
 
 **Example IAM policies using tags**
 
-- [View AWS IoT SiteWise assets
-  based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-asset-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-asset-tags")
+- [View AWS IoT SiteWise assets based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-asset-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-asset-tags")

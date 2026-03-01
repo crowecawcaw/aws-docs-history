@@ -13,7 +13,5 @@ use with no additional charge.
 - [AWS managed policies for AWS IoT SiteWise](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 - [Use service-linked roles for AWS IoT SiteWise](using-service-linked-roles.md "using-service-linked-roles.md")
 - [Set up permissions for event alarms in AWS IoT SiteWise](alarms-iam-permissions.md "alarms-iam-permissions.md")
-- [Cross-service confused deputy
-  prevention in AWS IoT SiteWise](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
-- [Troubleshoot AWS IoT SiteWise identity and
-  access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
+- [Cross-service confused deputy prevention in AWS IoT SiteWise](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Troubleshoot AWS IoT SiteWise identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")

@@ -174,7 +174,6 @@ For more information about visualizing data, see the following resources:
 - [Troubleshooting Amazon Managed Grafana identity and access](../../../grafana/latest/userguide/security_iam_troubleshoot.md "../../../grafana/latest/userguide/security_iam_troubleshoot.md") in the _Amazon Managed Grafana User Guide_
 - [Security best practices](../../../grafana/latest/userguide/AMG-Security-Best-Practices.md "../../../grafana/latest/userguide/AMG-Security-Best-Practices.md") in the _Amazon Managed Grafana User Guide_
 - [Integrate AWS IoT SiteWise with Grafana](grafana-integration.md "grafana-integration.md")
-- [Process and visualize data with SiteWise Edge and
-  open-source tools](open-source-edge-integrations.md "open-source-edge-integrations.md")
+- [Process and visualize data with SiteWise Edge and open-source tools](open-source-edge-integrations.md "open-source-edge-integrations.md")
 - [Users, teams, and permissions](../../../grafana/latest/userguide/Grafana-administration-authorization.md "../../../grafana/latest/userguide/Grafana-administration-authorization.md") in the _Amazon Managed Grafana User Guide_
 - [Amazon Managed Grafana permissions and policies for AWS data sources](../../../grafana/latest/userguide/AMG-manage-permissions.md "../../../grafana/latest/userguide/AMG-manage-permissions.md") in the _Amazon Managed Grafana User Guide_

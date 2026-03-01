@@ -1,6 +1,4 @@
-# Use conditional functions in formula
-
-expressions
+# Use conditional functions in formula expressions
 
 In [transforms](transforms.md "transforms.md") and [metrics](metrics.md "metrics.md"), you can use the following function to check a condition and return
 different results, whether the condition evaluates to true or false.

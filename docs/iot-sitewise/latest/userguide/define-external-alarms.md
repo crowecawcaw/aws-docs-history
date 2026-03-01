@@ -66,8 +66,7 @@ For more information about how to add a composite model to a new or existing ass
 model, see the following:
 
 - [Create an asset model (AWS CLI)](create-asset-models.md#create-asset-model-cli "create-asset-models.md#create-asset-model-cli")
-- [Update an asset model, component model, or interface
-  (AWS CLI)](update-asset-models.md#update-asset-model-cli "update-asset-models.md#update-asset-model-cli")
+- [Update an asset model, component model, or interface (AWS CLI)](update-asset-models.md#update-asset-model-cli "update-asset-models.md#update-asset-model-cli")
 
 After you define the external alarm, you can ingest alarm state to assets based on the
 asset model. For more information, see [Ingest an external alarm state in AWS IoT SiteWise](ingest-external-alarm-state.md "ingest-external-alarm-state.md").

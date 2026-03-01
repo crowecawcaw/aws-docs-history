@@ -1,6 +1,4 @@
-# Set up Docker on your
-
-SiteWise Edge gateway
+# Set up Docker on your SiteWise Edge gateway
 
 AWS IoT SiteWise provides a Docker image that allows you to run the
 SiteWise Edge application on various platforms and environments. This
@@ -18,9 +16,7 @@ device.
 Version 20.10 is the latest version that is verified to work with the
 SiteWise Edge gateway software.
 
-## Verify Docker is
-
-installed
+## Verify Docker is installed
 
 To verify Docker is installed, run the following command
 from a terminal connected to your SiteWise Edge gateway:

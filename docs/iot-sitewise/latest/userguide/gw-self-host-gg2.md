@@ -31,16 +31,13 @@ information, see [Classic streams, V2 gateways for AWS IoT SiteWise Edge](classi
 
 ###### Topics
 
-- [AWS IoT SiteWise Edge self-hosted gateway
-  requirements](configure-gateway-ggv2.md "configure-gateway-ggv2.md")
+- [AWS IoT SiteWise Edge self-hosted gateway requirements](configure-gateway-ggv2.md "configure-gateway-ggv2.md")
 - [Create a self-hosted SiteWise Edge gateway](create-gateway-ggv2.md "create-gateway-ggv2.md")
-- [Install the AWS IoT SiteWise Edge
-  gateway software on your local device](install-gateway-software-on-local-device.md "install-gateway-software-on-local-device.md")
+- [Install the AWS IoT SiteWise Edge gateway software on your local device](install-gateway-software-on-local-device.md "install-gateway-software-on-local-device.md")
 - [MQTT-enabled, V3 gateways for AWS IoT SiteWise Edge](mqtt-enabled-v3-gateway.md "mqtt-enabled-v3-gateway.md")
 - [Classic streams, V2 gateways for AWS IoT SiteWise Edge](classic-streams-v2-gateway.md "classic-streams-v2-gateway.md")
 - [Add data sources to your AWS IoT SiteWise Edge gateway](add-data-sources.md "add-data-sources.md")
 - [AWS IoT Greengrass components for AWS IoT SiteWise Edge](sw-edge-components.md "sw-edge-components.md")
 - [Filter assets on a SiteWise Edge gateway](filter-assets-ggv2.md "filter-assets-ggv2.md")
-- [Configure proxy support and manage
-  trust stores for AWS IoT SiteWise Edge](edge-apis-manage-trust-stores-proxy.md "edge-apis-manage-trust-stores-proxy.md")
+- [Configure proxy support and manage trust stores for AWS IoT SiteWise Edge](edge-apis-manage-trust-stores-proxy.md "edge-apis-manage-trust-stores-proxy.md")
 - [Use AWS IoT SiteWise APIs on the edge](edge-apis.md "edge-apis.md")

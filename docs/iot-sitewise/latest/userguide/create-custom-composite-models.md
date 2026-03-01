@@ -15,12 +15,9 @@ The following sections describe how to use the AWS IoT SiteWise API to create cu
 ###### Topics
 
 - [Create an inline component (console)](#create-inline-component-console "#create-inline-component-console")
-- [Create an inline custom composite model
-  (AWS CLI)](#create-inline-composite-models-cli "#create-inline-composite-models-cli")
-- [Create a component-model-based component
-  (console)](#create-component-console "#create-component-console")
-- [Create a component-model-based
-  custom composite model (AWS CLI)](#create-component-based-composite-model-cli "#create-component-based-composite-model-cli")
+- [Create an inline custom composite model (AWS CLI)](#create-inline-composite-models-cli "#create-inline-composite-models-cli")
+- [Create a component-model-based component (console)](#create-component-console "#create-component-console")
+- [Create a component-model-based custom composite model (AWS CLI)](#create-component-based-composite-model-cli "#create-component-based-composite-model-cli")
 
 ## Create an inline component (console)
 
@@ -59,9 +56,7 @@ multiple instances within one asset model), you should create a component based 
       a subset of your operation. For more information, see [Aggregate data from properties and other assets (metrics)](metrics.md "metrics.md").
    6. Choose **Create component**.
 
-## Create an inline custom composite model
-
-(AWS CLI)
+## Create an inline custom composite model (AWS CLI)
 
 You can use the AWS Command Line Interface (AWS CLI) to create an inline custom composite model that defines its own properties.
 
@@ -103,9 +98,7 @@ composite model instead. See the following section for details.
 }
 ```
 
-## Create a component-model-based component
-
-(console)
+## Create a component-model-based component (console)
 
 You can use the AWS IoT SiteWise console to create a component based on a component model.
 
@@ -122,9 +115,7 @@ You can use the AWS IoT SiteWise console to create a component based on a compon
       be unique across all components in your account in this Region.
    3. Choose **Create component**.
 
-## Create a component-model-based
-
-custom composite model (AWS CLI)
+## Create a component-model-based custom composite model (AWS CLI)
 
 You can use the AWS CLI to create a component-model-based custom composite model within your asset model.
 A component-model-based custom composite model is a reference to a component model that you've already

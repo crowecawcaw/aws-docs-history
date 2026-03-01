@@ -32,8 +32,7 @@ For more information, see [Asset and model states](asset-and-model-states.md "as
 ###### Topics
 
 - [Updating an asset model, component model, or interface (console)](#update-asset-model-console "#update-asset-model-console")
-- [Update an asset model, component model, or interface
-  (AWS CLI)](#update-asset-model-cli "#update-asset-model-cli")
+- [Update an asset model, component model, or interface (AWS CLI)](#update-asset-model-cli "#update-asset-model-cli")
 
 ## Updating an asset model, component model, or interface (console)
 
@@ -73,9 +72,7 @@ prompts the user to **Refresh** the **Edit model** page, to
 fetch the updated model. You must make your updates again, and retry your save.
 See [Optimistic locking for asset model writes](opt-locking-for-model.md "opt-locking-for-model.md") for more details.
 
-## Update an asset model, component model, or interface
-
-(AWS CLI)
+## Update an asset model, component model, or interface (AWS CLI)
 
 Use the AWS Command Line Interface (AWS CLI) to update an asset model, component model, or interface.
 
@@ -101,8 +98,7 @@ query your model's existing structure, see the [DescribeAssetModel](../APIRefere
 
 The following procedure can only update composite models of type
 `AWS/ALARM`. If you want to update `CUSTOM` composite models,
-use [UpdateAssetModelCompositeModel](../APIReference/API_UpdateAssetModelCompositeModel.md "../APIReference/API_UpdateAssetModelCompositeModel.md") instead. For more information, see [Update custom composite models
-(components)](update-custom-composite-models.md "update-custom-composite-models.md").
+use [UpdateAssetModelCompositeModel](../APIReference/API_UpdateAssetModelCompositeModel.md "../APIReference/API_UpdateAssetModelCompositeModel.md") instead. For more information, see [Update custom composite models (components)](update-custom-composite-models.md "update-custom-composite-models.md").
 
 ###### To update an asset model or component model (AWS CLI)
 

@@ -1,6 +1,4 @@
-# Use aggregation functions in formula
-
-expressions
+# Use aggregation functions in formula expressions
 
 In [metrics](metrics.md "metrics.md") only, you can use the following
 functions that aggregate input values over each time interval and calculate a single

@@ -1,6 +1,4 @@
-# Create an interface VPC endpoint for
-
-AWS IoT SiteWise
+# Create an interface VPC endpoint for AWS IoT SiteWise
 
 To create a VPC endpoint for the AWS IoT SiteWise service, use either the Amazon VPC console or
 the AWS Command Line Interface (AWS CLI). For more information, see [Access

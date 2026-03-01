@@ -167,8 +167,7 @@ aws iotsitewise describe-gateway --gateway-id `your-gateway-id`
 
 To install the gateway software, use the installer package that you downloaded in the previous step. The installation process configures the necessary components, starts the Greengrass core service, and registers your device with AWS IoT Greengrass. After installation is complete, verify that your gateway appears in the [AWS IoT SiteWise console](https://console.aws.amazon.com/iotsitewise/ "https://console.aws.amazon.com/iotsitewise/") under **Edge gateways** and that the Greengrass service is running properly on your device.
 
-For detailed instructions, see [Install the AWS IoT SiteWise Edge
-gateway software on your local device](install-gateway-software-on-local-device.md "install-gateway-software-on-local-device.md").
+For detailed instructions, see [Install the AWS IoT SiteWise Edge gateway software on your local device](install-gateway-software-on-local-device.md "install-gateway-software-on-local-device.md").
 
 ## Step 5: Configure the EMQX broker to connect to external applications
 
@@ -176,14 +175,12 @@ gateway software on your local device](install-gateway-software-on-local-device.
 
 You must have deployed your SiteWise Edge MQTT-enabled, V3 gateway before proceeding. The gateway provides the necessary infrastructure and security settings required for configuring the EMQX broker. The broker configuration will fail without an active gateway deployment.
 
-Configure the EMQX broker to enable secure communication between your IoT devices and external applications. The EMQX broker functions as a central messaging hub that routes data between your IoT devices, gateway, and applications. The EMQX broker ensures reliable message delivery on your gateway and connected applications at the edge. For more information, see [Connect external applications
-to the EMQX broker](connect-external-applications-emqx.md "connect-external-applications-emqx.md").
+Configure the EMQX broker to enable secure communication between your IoT devices and external applications. The EMQX broker functions as a central messaging hub that routes data between your IoT devices, gateway, and applications. The EMQX broker ensures reliable message delivery on your gateway and connected applications at the edge. For more information, see [Connect external applications to the EMQX broker](connect-external-applications-emqx.md "connect-external-applications-emqx.md").
 
 **To configure the EMQX broker**
 
 1. Set up the EMQX broker. For detailed configuration instructions, follow Steps 1-14 in [Update the EMQX deployment configuration for authentication](configure-emqx-broker.md#update-emqx-broker-authentication "configure-emqx-broker.md#update-emqx-broker-authentication").
-2. Set up MQTT topics for wind farm monitoring. For more information on MQTT requirements, see [MQTT topic
-   requirements](connect-broker-payload-format.md#connect-broker-mqtt-requirements "connect-broker-payload-format.md#connect-broker-mqtt-requirements").
+2. Set up MQTT topics for wind farm monitoring. For more information on MQTT requirements, see [MQTT topic requirements](connect-broker-payload-format.md#connect-broker-mqtt-requirements "connect-broker-payload-format.md#connect-broker-mqtt-requirements").
    1. CPU Usage: `SiteWiseTutorialDevice/cpu`
    2. Memory Usage: `SiteWiseTutorialDevice/memory`
    3. Timestamp: `SiteWiseTutorialDevice/timestamp`
@@ -196,13 +193,10 @@ to the EMQX broker](connect-external-applications-emqx.md "connect-external-appl
 
 4. Prepare messages using the payload format to send to the EMQX broker. For more information about structuring payloads, see [Update the EMQX deployment configuration for authentication](configure-emqx-broker.md#update-emqx-broker-authentication "configure-emqx-broker.md#update-emqx-broker-authentication").
 5. Implement the following security measures:
-   1. Use Transport Layer Security (TLS) encryption (port 8833) to protect data in transit. For more information, see [Configure TLS for secure
-      connections to the EMQX broker on AWS IoT SiteWise Edge](connect-app-to-broker.md#configure-tls-emqx-broker "connect-app-to-broker.md#configure-tls-emqx-broker").
-   2. Set up username and password authentication to verify device identities. This security measure helps protect your data, and ensures only authorized devices can connect to your system. For more information, see [Enable username and
-      password authentication](configure-emqx-broker.md#emqx-broker-username-password-auth "configure-emqx-broker.md#emqx-broker-username-password-auth").
+   1. Use Transport Layer Security (TLS) encryption (port 8833) to protect data in transit. For more information, see [Configure TLS for secure connections to the EMQX broker on AWS IoT SiteWise Edge](connect-app-to-broker.md#configure-tls-emqx-broker "connect-app-to-broker.md#configure-tls-emqx-broker").
+   2. Set up username and password authentication to verify device identities. This security measure helps protect your data, and ensures only authorized devices can connect to your system. For more information, see [Enable username and password authentication](configure-emqx-broker.md#emqx-broker-username-password-auth "configure-emqx-broker.md#emqx-broker-username-password-auth").
 
-EMQX allows you to create authorization rules based on identifiers such as username, IP address, or client ID. This is useful for controlling access to your data. For more information, see [Set up authorization rules for
-AWS IoT SiteWise Edge in EMQX](authorization-rules-emqx-broker.md "authorization-rules-emqx-broker.md").
+EMQX allows you to create authorization rules based on identifiers such as username, IP address, or client ID. This is useful for controlling access to your data. For more information, see [Set up authorization rules for AWS IoT SiteWise Edge in EMQX](authorization-rules-emqx-broker.md "authorization-rules-emqx-broker.md").
 
 After successful deployment, your EMQX broker is configured and ready to securely connect with external applications.
 
@@ -285,8 +279,7 @@ After creating your MQTT-enabled, V3 gateway, configure Eclipse Mosquitto to sen
 **Use Mosquitto CLI client to test the SiteWise Edge EMQX broker**
 
 1. Install Mosquitto on your local device. For detailed instructions, see [Download Mosquitto](https://mosquitto.org/download/ "https://mosquitto.org/download/") on the official Eclipse Mosquitto website.
-2. For more information about connecting external applications to transfer industrial data, see [Connect external applications
-   to the EMQX broker](connect-external-applications-emqx.md "connect-external-applications-emqx.md").
+2. For more information about connecting external applications to transfer industrial data, see [Connect external applications to the EMQX broker](connect-external-applications-emqx.md "connect-external-applications-emqx.md").
 
 ###### Important
 
@@ -356,8 +349,7 @@ mosquitto_pub -h localhost -p 1883 -t "SiteWiseTutorialDevice/timestamp" -m '{
 
 ###### Note
 
-The use of `localhost` as the EMQX broker address is for demonstration purposes only. In production environments or when connecting from external devices, you must use the appropriate EMQX broker address for your specific deployment configuration. For detailed connection instructions, see [Connect an application to the EMQX
-broker on AWS IoT SiteWise Edge](connect-app-to-broker.md "connect-app-to-broker.md").
+The use of `localhost` as the EMQX broker address is for demonstration purposes only. In production environments or when connecting from external devices, you must use the appropriate EMQX broker address for your specific deployment configuration. For detailed connection instructions, see [Connect an application to the EMQX broker on AWS IoT SiteWise Edge](connect-app-to-broker.md "connect-app-to-broker.md").
 
 ## Step 7: Specify destinations
 
@@ -438,8 +430,7 @@ Path filters follow the MQTT topic wildcard specification, which supports two sp
 
 ###### Note
 
-For more information about other path filters, see [Special characters in path filter
-names](gw-destinations.md#path-filters-special-characters "gw-destinations.md#path-filters-special-characters").
+For more information about other path filters, see [Special characters in path filter names](gw-destinations.md#path-filters-special-characters "gw-destinations.md#path-filters-special-characters").
 
 Console
 **To configure your path filters**
@@ -543,8 +534,7 @@ This example captures various CPU metrics (idle time and interruption count) and
 
 This configuration uses the `+` wildcard to capture diagnostic data from multiple devices, specifically system performance logs and device status updates.
 
-These three path filters match the MQTT topics that you use to publish test data with Mosquitto. The filters ensure your SiteWise Edge gateway captures and processes the relevant MQTT messages. For more information on how to add path filters, see [Add path filters to AWS IoT SiteWise Edge
-destinations](destinations-add-path-filters.md "destinations-add-path-filters.md").
+These three path filters match the MQTT topics that you use to publish test data with Mosquitto. The filters ensure your SiteWise Edge gateway captures and processes the relevant MQTT messages. For more information on how to add path filters, see [Add path filters to AWS IoT SiteWise Edge destinations](destinations-add-path-filters.md "destinations-add-path-filters.md").
 
 ## Step 9: Configure your AWS IoT resources
 
@@ -602,7 +592,7 @@ Consider upgrading to Amazon Managed Grafana when you're ready to scale your sol
 
 You have completed the tutorial. In this procedure, you configured AWS IoT SiteWise Edge to integrate third-party device data using an MQTT-enabled, V3 gateway. This setup allows you to collect, process, and visualize industrial equipment data at the edge, reducing latency and operational costs. By using the wind farm demo, you collected and processed operational metrics like CPU and memory usage data through your MQTT-enabled, V3 gateway.
 
-To enhance your IoT solution, consider exploring advanced features like anomaly detection by leveraging [Detect anomalies with Lookout for Equipment](anomaly-detection.md "anomaly-detection.md"), or integrating with other AWS services like [Amazon Quick Suite](../../../quicksight/latest/user/welcome.md "../../../quicksight/latest/user/welcome.md") in the _Amazon Quick Suite User Guide_ for advanced analytics.
+To enhance your IoT solution, consider exploring advanced features like anomaly detection by leveraging [Detect anomalies with Lookout for Equipment](anomaly-detection.md "anomaly-detection.md"), or integrating with other AWS services like [Amazon Quick](../../../quicksight/latest/user/welcome.md "../../../quicksight/latest/user/welcome.md") in the _Amazon Quick User Guide_ for advanced analytics.
 
 ## Step 11: Clean up resources after the tutorial
 

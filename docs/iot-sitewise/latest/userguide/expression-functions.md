@@ -10,15 +10,15 @@ which types of functions are compatible with each type of formula property.
 
 You can include a maximum of 10 functions in a formula expression.
 
-| Function type                                                                                                                          | Transforms | Metrics |
-| -------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ------- |
-| [Use common functions in formula<br>expressions](expression-common-functions.md "expression-common-functions.md")                      | Yes        | Yes     |
-| [Use comparison functions in formula<br>expressions](expression-comparison-functions.md "expression-comparison-functions.md")          | Yes        | Yes     |
-| [Use conditional functions in formula<br>expressions](expression-conditional-functions.md "expression-conditional-functions.md")       | Yes        | Yes     |
-| [Use string functions in formula<br>expressions](expression-string-functions.md "expression-string-functions.md")                      | Yes        | Yes     |
-| [Use aggregation functions in formula<br>expressions](expression-aggregation-functions.md "expression-aggregation-functions.md")       | No         | Yes     |
-| [Use temporal functions in formula<br>expressions](expression-temporal-functions.md "expression-temporal-functions.md")                | Yes        | Yes     |
-| [Use date and time functions in<br>formula expressions](expression-date-and-time-functions.md "expression-date-and-time-functions.md") | Yes        | Yes     |
+| Function type                                                                                                                       | Transforms | Metrics |
+| ----------------------------------------------------------------------------------------------------------------------------------- | ---------- | ------- |
+| [Use common functions in formula expressions](expression-common-functions.md "expression-common-functions.md")                      | Yes        | Yes     |
+| [Use comparison functions in formula expressions](expression-comparison-functions.md "expression-comparison-functions.md")          | Yes        | Yes     |
+| [Use conditional functions in formula expressions](expression-conditional-functions.md "expression-conditional-functions.md")       | Yes        | Yes     |
+| [Use string functions in formula expressions](expression-string-functions.md "expression-string-functions.md")                      | Yes        | Yes     |
+| [Use aggregation functions in formula expressions](expression-aggregation-functions.md "expression-aggregation-functions.md")       | No         | Yes     |
+| [Use temporal functions in formula expressions](expression-temporal-functions.md "expression-temporal-functions.md")                | Yes        | Yes     |
+| [Use date and time functions in formula expressions](expression-date-and-time-functions.md "expression-date-and-time-functions.md") | Yes        | Yes     |
 
 ## Function syntax
 

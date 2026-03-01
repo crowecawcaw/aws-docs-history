@@ -66,8 +66,7 @@ Turbine` or `Wind Turbine Model`. This name must
 The asset model creation process can take up to a few minutes for complex
 models. After the asset model status is **ACTIVE**, you can use the
 asset model to create assets. For more information, see [Asset and model states](asset-and-model-states.md "asset-and-model-states.md"). 5. (Optional) After you create your asset model, you can configure your asset model
-for the edge. For more information about SiteWise Edge, see [Configure edge capabilities on
-AWS IoT SiteWise Edge](edge-data-collection-and-processing.md "edge-data-collection-and-processing.md").
+for the edge. For more information about SiteWise Edge, see [Configure edge capabilities on AWS IoT SiteWise Edge](edge-data-collection-and-processing.md "edge-data-collection-and-processing.md").
 
     1. On the model page, choose **Configure for Edge**.
 
@@ -79,8 +78,7 @@ AWS IoT SiteWise Edge](edge-data-collection-and-processing.md "edge-data-collect
     2. On the model configuration page, choose the edge configuration for your model.
      This controls where AWS IoT SiteWise can compute and store properties associated with this
      asset model. For more information about configuring your model for the edge, see
-     [Set up an OPC UA source in
-     SiteWise Edge](configure-opcua-source.md "configure-opcua-source.md").
+     [Set up an OPC UA source in SiteWise Edge](configure-opcua-source.md "configure-opcua-source.md").
     3. For **Custom edge configuration**, choose the location that
      you want AWS IoT SiteWise to compute and store each of your asset model properties.
 
@@ -89,8 +87,7 @@ AWS IoT SiteWise Edge](edge-data-collection-and-processing.md "edge-data-collect
 
     Transforms and metrics that are associated must be configured for the same
      location. For more information about configuring your model for the edge, see
-     [Set up an OPC UA source in
-     SiteWise Edge](configure-opcua-source.md "configure-opcua-source.md").
+     [Set up an OPC UA source in SiteWise Edge](configure-opcua-source.md "configure-opcua-source.md").
     4. Choose **Save**. On the model page, your **Edge
      configuration** should now be **Configured**.
 

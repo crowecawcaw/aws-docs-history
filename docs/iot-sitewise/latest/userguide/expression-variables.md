@@ -32,8 +32,7 @@ AWS IoT SiteWise provides different ways to do this.
 - **By property ID:** You can specify the property's unique ID (UUID) to identify it.
 - **By name:** If the property is on the same asset model, you can specify its name in the property ID field.
 - **By path:** A variable value can refer to a property by its _path._
-  For more information, see [Use paths to reference custom composite model
-  properties](custom-composite-models.md#property-paths "custom-composite-models.md#property-paths").
+  For more information, see [Use paths to reference custom composite model properties](custom-composite-models.md#property-paths "custom-composite-models.md#property-paths").
 
 ###### Note
 

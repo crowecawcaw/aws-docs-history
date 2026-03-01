@@ -83,9 +83,7 @@ aws iotsitewise execute-action \
     --action-payload stringValue@=file:`//training-or-inference-action-payload.json`
 ```
 
-### Option 2: Inline string with escaped
-
-quotes
+### Option 2: Inline string with escaped quotes
 
 The following steps describes the steps to supply the payload inline, and avoid
 intermediary files:
@@ -214,9 +212,7 @@ aws iotsitewise list-computation-model-resolve-to-resources \
     --computation-model-id `computation-model-id`
 ```
 
-## Start and stop retraining the model
-
-(AWS CLI)
+## Start and stop retraining the model (AWS CLI)
 
 After initial model training, you can configure automatic retraining to address data
 drift and maintain model accuracy over time. The retraining scheduler allows you to set up
@@ -377,10 +373,8 @@ The payload must conform to [Option 1: Use a clean payload file](#clean-payload-
     5. You can optionally configure [Advanced inference configurations](advanced-inference-configurations.md "advanced-inference-configurations.md").
 
 
-    	1. [High frequency inferencing (5 minutes – 1
-    	 hour)](advanced-inference-configurations.md#high-frequency-inferencing "advanced-inference-configurations.md#high-frequency-inferencing").
-    	2. [Low frequency inferencing (2 hours – 1
-    	 day)](advanced-inference-configurations.md#low-frequency-inferencing "advanced-inference-configurations.md#low-frequency-inferencing").
+    	1. [High frequency inferencing (5 minutes – 1 hour)](advanced-inference-configurations.md#high-frequency-inferencing "advanced-inference-configurations.md#high-frequency-inferencing").
+    	2. [Low frequency inferencing (2 hours – 1 day)](advanced-inference-configurations.md#low-frequency-inferencing "advanced-inference-configurations.md#low-frequency-inferencing").
     	3. [Flexible scheduling](advanced-inference-configurations.md#flexible-scheduling "advanced-inference-configurations.md#flexible-scheduling").
 
 3. Run the following command to start inference. Replace the following parameters in
@@ -471,9 +465,7 @@ aws iotsitewise execute-action \
 
 ```
 
-## Find computation models that uses a
-
-given resource in data binding
+## Find computation models that uses a given resource in data binding
 
 To list computation models which are bound to a given resource:
 

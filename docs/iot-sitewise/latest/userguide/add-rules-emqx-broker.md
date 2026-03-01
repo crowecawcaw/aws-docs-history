@@ -1,6 +1,4 @@
-# Add authorization rules through the
-
-EMQX Dashboard for users
+# Add authorization rules through the EMQX Dashboard for users
 
 You can add or update authorization rules using the EMQX Dashboard or the
 AWS IoT SiteWise EMQX CLI tool. The AWS IoT SiteWise EMQX CLI tool manages authorization using
@@ -29,17 +27,14 @@ The EMQX dashboard is only accessible from within the gateway
 host. If you try to connect from outside of the gateway host,
 you can't access the dashboard.
 
-###### To add authorization rules using the EMQX
-
-Dashboard
+###### To add authorization rules using the EMQX Dashboard
 
 1. Ensure that you are within the gateway host.
 2. Open a browser window and visit [`http://localhost:18083/`](http://localhost:18083/ "http://localhost:18083/").
 3. Login to the the EMQX dashboard. This procedure
    assumes that you've changed your default login
    credentials to something of your choosing. For more
-   information on intial setup, see [Enable username and
-   password authentication](configure-emqx-broker.md#emqx-broker-username-password-auth "configure-emqx-broker.md#emqx-broker-username-password-auth").
+   information on intial setup, see [Enable username and password authentication](configure-emqx-broker.md#emqx-broker-username-password-auth "configure-emqx-broker.md#emqx-broker-username-password-auth").
 4. Choose the shield icon, then
    **Authorization** from the dropdown
    menu.
@@ -53,9 +48,7 @@ Dashboard
 
 AWS IoT SiteWise CLI tool using Linux
 
-###### To manage authorization rules using the AWS IoT SiteWise EMQX CLI
-
-tool in Linux:
+###### To manage authorization rules using the AWS IoT SiteWise EMQX CLI tool in Linux:
 
 - Add authorization rules for a user using the following
   format:
@@ -107,9 +100,7 @@ You are prompted to confirm the deletion.
 
 AWS IoT SiteWise CLI tool using Windows
 
-###### To manage authorization rules using the AWS IoT SiteWise EMQX CLI
-
-tool in Windows PowerShell:
+###### To manage authorization rules using the AWS IoT SiteWise EMQX CLI tool in Windows PowerShell:
 
 - Add authorization rules for a user using the following
   format:

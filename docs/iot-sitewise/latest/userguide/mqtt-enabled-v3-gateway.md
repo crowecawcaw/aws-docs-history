@@ -50,8 +50,6 @@ MQTT-enabled gateways:
 - [Understand AWS IoT SiteWise Edge destinations](gw-destinations.md#source-destination "gw-destinations.md#source-destination")
 - [Add an AWS IoT SiteWise Edge real-time destination](destinations-real-time.md "destinations-real-time.md")
 - [Add an AWS IoT SiteWise buffered destination using Amazon S3](destinations-buffered.md "destinations-buffered.md")
-- [Understand path filters for AWS IoT SiteWise Edge
-  destinations](gw-destinations.md#destinations-path-filters "gw-destinations.md#destinations-path-filters")
-- [Add path filters to AWS IoT SiteWise Edge
-  destinations](destinations-add-path-filters.md "destinations-add-path-filters.md")
+- [Understand path filters for AWS IoT SiteWise Edge destinations](gw-destinations.md#destinations-path-filters "gw-destinations.md#destinations-path-filters")
+- [Add path filters to AWS IoT SiteWise Edge destinations](destinations-add-path-filters.md "destinations-add-path-filters.md")
 - [Manage AWS IoT SiteWise Edge destinations](destinations-manage.md "destinations-manage.md")

@@ -33,15 +33,11 @@ The alarm notifications feature isn't available in the China (Beijing) Region.
 
 ###### Topics
 
-- [Define an AWS IoT Events alarm (AWS IoT SiteWise
-  console)](#define-iot-events-alarm-console "#define-iot-events-alarm-console")
-- [Define an AWS IoT Events alarm (AWS IoT Events
-  console)](#define-iot-events-alarm-console-ite-console "#define-iot-events-alarm-console-ite-console")
+- [Define an AWS IoT Events alarm (AWS IoT SiteWise console)](#define-iot-events-alarm-console "#define-iot-events-alarm-console")
+- [Define an AWS IoT Events alarm (AWS IoT Events console)](#define-iot-events-alarm-console-ite-console "#define-iot-events-alarm-console-ite-console")
 - [Define an AWS IoT Events alarm (AWS CLI)](#define-iot-events-alarm-cli "#define-iot-events-alarm-cli")
 
-## Define an AWS IoT Events alarm (AWS IoT SiteWise
-
-console)
+## Define an AWS IoT Events alarm (AWS IoT SiteWise console)
 
 You can use the AWS IoT SiteWise console to define an AWS IoT Events alarm on an existing asset model. To
 define an AWS IoT Events alarm on a new asset model, create the asset model, and then complete
@@ -211,9 +207,7 @@ that shows the progress of these API requests. Stay on this page until each API
 requests succeeds or until an API request fails. If a request fails, close the dialog
 box, fix the issue, and choose **Add alarm** to try again.
 
-## Define an AWS IoT Events alarm (AWS IoT Events
-
-console)
+## Define an AWS IoT Events alarm (AWS IoT Events console)
 
 You can use the AWS IoT Events console to define an AWS IoT Events alarm on an existing asset model. To
 define an AWS IoT Events alarm on a new asset model, create the asset model, and then complete
@@ -348,16 +342,11 @@ asset model. In this process, you do the following:
 
 ###### Steps
 
-- [Step 1: Define an alarm on an
-  asset model](#define-iot-events-alarm-definition-cli "#define-iot-events-alarm-definition-cli")
-- [Step 2: Define an AWS IoT Events alarm
-  model](#define-iot-events-alarm-model-cli "#define-iot-events-alarm-model-cli")
-- [Step 3: Enable data flow between
-  AWS IoT SiteWise and AWS IoT Events](#define-iot-events-alarm-data-flow-cli "#define-iot-events-alarm-data-flow-cli")
+- [Step 1: Define an alarm on an asset model](#define-iot-events-alarm-definition-cli "#define-iot-events-alarm-definition-cli")
+- [Step 2: Define an AWS IoT Events alarm model](#define-iot-events-alarm-model-cli "#define-iot-events-alarm-model-cli")
+- [Step 3: Enable data flow between AWS IoT SiteWise and AWS IoT Events](#define-iot-events-alarm-data-flow-cli "#define-iot-events-alarm-data-flow-cli")
 
-### Step 1: Define an alarm on an
-
-asset model
+### Step 1: Define an alarm on an asset model
 
 Add an alarm definition and associated properties to a new or existing asset
 model.
@@ -370,8 +359,7 @@ model.
    add an alarm definition to the asset model details in the
    `asset-model-payload.json` file.
    - For more information about how to create an asset model, see [Create an asset model (AWS CLI)](create-asset-models.md#create-asset-model-cli "create-asset-models.md#create-asset-model-cli").
-   - For more information about how to update an existing asset model, see [Update an asset model, component model, or interface
-     (AWS CLI)](update-asset-models.md#update-asset-model-cli "update-asset-models.md#update-asset-model-cli").###### Note
+   - For more information about how to update an existing asset model, see [Update an asset model, component model, or interface (AWS CLI)](update-asset-models.md#update-asset-model-cli "update-asset-models.md#update-asset-model-cli").###### Note
 
 Your asset model must define at least one asset property, including the asset
 property to monitor with the alarm. 2. Add an alarm composite model (`assetModelCompositeModels`) to the
@@ -757,9 +745,7 @@ This asset model defines an alarm that detects when the boiler overheats.
 }
 ```
 
-### Step 2: Define an AWS IoT Events alarm
-
-model
+### Step 2: Define an AWS IoT Events alarm model
 
 Create the alarm model in AWS IoT Events. In AWS IoT Events, you use
 _expressions_ to specify values in alarm models. You can
@@ -938,8 +924,7 @@ AWS IoT Events alarm model in the next step. 2. Create the alarm model in AWS Io
     ```
     6. (Optional) Configure alarm notification settings. The alarm notification
      action uses a Lambda function in your account to send alarm notifications. For
-     more information, see [Requirements for alarm
-     notifications in AWS IoT SiteWise](iot-events-alarm-notification-requirements.md "iot-events-alarm-notification-requirements.md"). In the alarm
+     more information, see [Requirements for alarm notifications in AWS IoT SiteWise](iot-events-alarm-notification-requirements.md "iot-events-alarm-notification-requirements.md"). In the alarm
      notification settings, you can configure SMS and email notifications to send to
      IAM Identity Center users. Do the following:
 
@@ -1334,9 +1319,7 @@ AWS IoT Events alarm model in the next step. 2. Create the alarm model in AWS Io
      model, `alarmModelArn`. Copy this ARN to set in the alarm definition
      on your asset model in the next step.
 
-### Step 3: Enable data flow between
-
-AWS IoT SiteWise and AWS IoT Events
+### Step 3: Enable data flow between AWS IoT SiteWise and AWS IoT Events
 
 After you create the required resources in AWS IoT SiteWise and AWS IoT Events, you can enable data
 flow between the resources to enable your alarm. In this section, you update the alarm definition

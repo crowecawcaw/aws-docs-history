@@ -32,11 +32,9 @@ To use AWS IoT SiteWise native anomaly detection, you do the following:
 - [Native anomaly detection features](sitewise-anomaly-detection-features.md "sitewise-anomaly-detection-features.md")
 - [Prerequisites](anomaly-prerequisites.md "anomaly-prerequisites.md")
 - [Enable anomaly detection on sensors of an asset](anom-detection-sensors-asset.md "anom-detection-sensors-asset.md")
-- [Enable anomaly detection on sensors across
-  assets](anom-detection-sensors-across-asset.md "anom-detection-sensors-across-asset.md")
+- [Enable anomaly detection on sensors across assets](anom-detection-sensors-across-asset.md "anom-detection-sensors-across-asset.md")
 - [Advanced training configurations](adv-training-configs.md "adv-training-configs.md")
 - [Advanced inference configurations](advanced-inference-configurations.md "advanced-inference-configurations.md")
 - [Review inference results](reviewing-inference-results.md "reviewing-inference-results.md")
-- [Trigger custom actions on
-  anomalous behavior (AWS Management Console)](trigger-custom-actions-anomalous-behavior.md "trigger-custom-actions-anomalous-behavior.md")
+- [Trigger custom actions on anomalous behavior (AWS Management Console)](trigger-custom-actions-anomalous-behavior.md "trigger-custom-actions-anomalous-behavior.md")
 - [Best practices](ano-best-practices.md "ano-best-practices.md")

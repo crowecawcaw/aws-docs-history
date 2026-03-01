@@ -112,9 +112,7 @@ aws iotsitewise update-gateway-capability-configuration \
 
 The destinations array can be empty (`[]`), but the destinations object itself must be included in the capability configuration.
 
-## Download all path filters in a
-
-destination (console)
+## Download all path filters in a destination (console)
 
 Download a CSV file containing all of your path filters in the AWS IoT SiteWise console. You can use
 a downloaded list of path filters to easily share path filter lists between gateway
