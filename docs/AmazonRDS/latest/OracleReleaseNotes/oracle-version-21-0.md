@@ -33,7 +33,7 @@ following table.
 | 2024 October | [Version 21.0.0.0.ru-2024-10.rur-2024-10.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2024-10.rur-2024-10.r1 "#oracle-version-RU-RUR.21.0.0.0.ru-2024-10.rur-2024-10.r1")                                                                                                                                                                            |
 | 2024 July    | [Version 21.0.0.0.ru-2024-07.rur-2024-07.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2024-07.rur-2024-07.r1 "#oracle-version-RU-RUR.21.0.0.0.ru-2024-07.rur-2024-07.r1")                                                                                                                                                                            |
 | 2024 April   | [Version 21.0.0.0.ru-2024-04.rur-2024-04.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2024-04.rur-2024-04.r1 "#oracle-version-RU-RUR.21.0.0.0.ru-2024-04.rur-2024-04.r1")                                                                                                                                                                            |
-| 2024 January | [Version<br>21.0.0.0.ru-2024-01.rur-2024-01.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2024-01.rur-2024-01.r1 "#oracle-version-RU-RUR.21.0.0.0.ru-2024-01.rur-2024-01.r1")                                                                                                                                                                         |
+| 2024 January | [Version 21.0.0.0.ru-2024-01.rur-2024-01.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2024-01.rur-2024-01.r1 "#oracle-version-RU-RUR.21.0.0.0.ru-2024-01.rur-2024-01.r1")                                                                                                                                                                            |
 | 2023 October | [Version 21.0.0.0.ru-2023-10.rur-2023-10.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2023-10.rur-2023-10.r1 "#oracle-version-RU-RUR.21.0.0.0.ru-2023-10.rur-2023-10.r1")                                                                                                                                                                            |
 | 2023 July    | [Version 21.0.0.0.ru-2023-07.rur-2023-07.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2023-07.rur-2023-07.r1 "#oracle-version-RU-RUR.21.0.0.0.ru-2023-07.rur-2023-07.r1")                                                                                                                                                                            |
 | 2023 April   | [Version 21.0.0.0.ru-2023-04.rur-2023-04.r1](#oracle-version-RU-RUR.21.0.0.0.ru-2023-04.rur-2023-04.r1 "#oracle-version-RU-RUR.21.0.0.0.ru-2023-04.rur-2023-04.r1")                                                                                                                                                                            |
@@ -60,9 +60,7 @@ Version 21.0.0.0.ru-2026-01.rur-2026-01.r1 includes the following:
 - Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"): RDBMS - DSTV36 UPDATE - TZDATA2020E
 - Patch [38725048](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=38725048 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=38725048"): Database Release Update : 21.21.0.0.260120 (38725048)
 
-###
-
-Combined Patches for Version 21.0.0.0.ru-2026-01.rur-2026-01.r1, Released January 2026
+### Combined Patches for Version 21.0.0.0.ru-2026-01.rur-2026-01.r1, Released January 2026
 
 Bugs fixed:
 
@@ -322,9 +320,7 @@ Version 21.0.0.0.ru-2025-10.rur-2025-10.r1 includes the following:
 - Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"): RDBMS - DSTV36 UPDATE - TZDATA2020E
 - Patch [38371122](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=38371122 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=38371122"): Database Release Update : 21.20.0.0.251021 (38371122)
 
-###
-
-Combined Patches for Version 21.0.0.0.ru-2025-10.rur-2025-10.r1, Released October 2025
+### Combined Patches for Version 21.0.0.0.ru-2025-10.rur-2025-10.r1, Released October 2025
 
 Bugs fixed:
 
@@ -585,9 +581,7 @@ Version 21.0.0.0.ru-2025-07.rur-2025-07.r1 includes the following:
 - Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"): RDBMS - DSTV36 UPDATE - TZDATA2020E
 - Patch [38068980](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=38068980 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=38068980"): Database Release Update : 21.19.0.0.250715 (38068980)
 
-###
-
-Combined Patches for Version 21.0.0.0.ru-2025-07.rur-2025-07.r1, Released July 2025
+### Combined Patches for Version 21.0.0.0.ru-2025-07.rur-2025-07.r1, Released July 2025
 
 Bugs fixed:
 
@@ -843,9 +837,7 @@ Version 21.0.0.0.ru-2025-04.rur-2025-04.r1 includes the following:
 - Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"): RDBMS - DSTV36 UPDATE - TZDATA2020E
 - Patch [37655430](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37655430 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37655430"): Database Release Update : 21.18.0.0.250415 (37655430)
 
-###
-
-Combined Patches for Version 21.0.0.0.ru-2025-04.rur-2025-04.r1, Released April 2025
+### Combined Patches for Version 21.0.0.0.ru-2025-04.rur-2025-04.r1, Released April 2025
 
 Bugs fixed:
 
@@ -1098,9 +1090,7 @@ Version 21.0.0.0.ru-2025-01.rur-2025-01.r2 includes the following:
 - Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"): RDBMS - DSTV36 UPDATE - TZDATA2020E
 - Patch [37350281](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37350281 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37350281"): Database Release Update : 21.17.0.0.250121 (37350281)
 
-###
-
-Combined Patches for Version 21.0.0.0.ru-2025-01.rur-2025-01.r2, Released January 2025
+### Combined Patches for Version 21.0.0.0.ru-2025-01.rur-2025-01.r2, Released January 2025
 
 Bugs fixed:
 
@@ -1350,9 +1340,7 @@ Version 21.0.0.0.ru-2025-01.rur-2025-01.r1 includes the following:
 - Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"): RDBMS - DSTV36 UPDATE - TZDATA2020E
 - Patch [37350281](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37350281 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37350281"): Database Release Update : 21.17.0.0.250121 (37350281)
 
-###
-
-Combined Patches for Version 21.0.0.0.ru-2025-01.rur-2025-01.r1, Released January 2025
+### Combined Patches for Version 21.0.0.0.ru-2025-01.rur-2025-01.r1, Released January 2025
 
 Bugs fixed:
 
@@ -1602,9 +1590,7 @@ Version 21.0.0.0.ru-2024-10.rur-2024-10.r1 includes the following:
 - Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"): RDBMS - DSTV36 UPDATE - TZDATA2020E
 - Patch [36991631](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36991631 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36991631"): Database Release Update : 21.16.0.0.241015 (36991631)
 
-###
-
-Combined Patches for Version 21.0.0.0.ru-2024-10.rur-2024-10.r1, Released October 2024
+### Combined Patches for Version 21.0.0.0.ru-2024-10.rur-2024-10.r1, Released October 2024
 
 Bugs fixed:
 
@@ -1852,9 +1838,7 @@ Version 21.0.0.0.ru-2024-07.rur-2024-07.r1 includes the following:
 - Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"): RDBMS - DSTV36 UPDATE - TZDATA2020E
 - Patch [36696242](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36696242 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36696242"): Database Release Update : 21.15.0.0.240716 (36696242)
 
-###
-
-Combined Patches for Version 21.0.0.0.ru-2024-07.rur-2024-07.r1, Released July 2024
+### Combined Patches for Version 21.0.0.0.ru-2024-07.rur-2024-07.r1, Released July 2024
 
 Bugs fixed:
 
@@ -2099,9 +2083,7 @@ Version 21.0.0.0.ru-2024-04.rur-2024-04.r1 includes the following:
 - Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"): RDBMS - DSTV36 UPDATE - TZDATA2020E
 - Patch [36352352](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36352352 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36352352"): Database Release Update: 21.14.0.0.240416 (36352352)
 
-###
-
-Combined Patches for Version 21.0.0.0.ru-2024-04.rur-2024-04.r1, Released April 2024
+### Combined Patches for Version 21.0.0.0.ru-2024-04.rur-2024-04.r1, Released April 2024
 
 Bugs fixed:
 
@@ -2327,9 +2309,7 @@ Bugs fixed:
 36260537, 36387740
 ```
 
-## Version
-
-21.0.0.0.ru-2024-01.rur-2024-01.r1
+## Version 21.0.0.0.ru-2024-01.rur-2024-01.r1
 
 Version 21.0.0.0.ru-2024-01.rur-2024-01.r1 includes the following patches:
 
@@ -2342,10 +2322,7 @@ Version 21.0.0.0.ru-2024-01.rur-2024-01.r1 includes the following patches:
 - Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"): RDBMS - DSTV36 UPDATE - TZDATA2020E
 - Patch [36041222](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36041222 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36041222"): Database Release Update : 21.13.0.0.240116 (36041222)
 
-###
-
-Combined Patches for Version 21.0.0.0.ru-2024-01.rur-2024-01.r1, Released January
-2024
+### Combined Patches for Version 21.0.0.0.ru-2024-01.rur-2024-01.r1, Released January 2024
 
 Bugs fixed:
 
@@ -2580,9 +2557,7 @@ Version 21.0.0.0.ru-2023-10.rur-2023-10.r1 includes the following:
 - Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"): RDBMS - DSTV36 UPDATE - TZDATA2020E
 - Patch [35740258](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35740258 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35740258"): Database Release Update : 21.12.0.0.231017 (35740258)
 
-###
-
-Combined Patches for Version 21.0.0.0.ru-2023-10.rur-2023-10.r1, released October 2023
+### Combined Patches for Version 21.0.0.0.ru-2023-10.rur-2023-10.r1, released October 2023
 
 Bugs fixed:
 
@@ -2814,9 +2789,7 @@ Version 21.0.0.0.ru-2023-07.rur-2023-07.r1 includes the following:
 - Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"): RDBMS - DSTV36 UPDATE - TZDATA2020E
 - Patch [35428978](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35428978 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35428978"): Database Release Update : 21.11.0.0.230718 (35428978)
 
-###
-
-Combined patches for version 21.0.0.0.ru-2023-07.rur-2023-07.r1, released July 2023
+### Combined patches for version 21.0.0.0.ru-2023-07.rur-2023-07.r1, released July 2023
 
 Bugs fixed:
 
@@ -3043,9 +3016,7 @@ Version 21.0.0.0.ru-2023-04.rur-2023-04.r1 includes the following:
 - Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"): RDBMS - DSTV36 UPDATE - TZDATA2020E
 - Patch [35134934](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35134934 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35134934"): Database Release Update : 21.10.0.0.230418 (35134934)
 
-###
-
-Combined patches for version 21.0.0.0.ru-2023-04.rur-2023-04.r1, released April 2023
+### Combined patches for version 21.0.0.0.ru-2023-04.rur-2023-04.r1, released April 2023
 
 Bugs fixed:
 
@@ -3270,9 +3241,7 @@ Version 21.0.0.0.ru-2023-01.rur-2023-01.r2 includes the following:
 - Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"): RDBMS - DSTV36 UPDATE - TZDATA2020E
 - Patch [34839741](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34839741 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34839741"): Database Release Update : 21.9.0.0.230117 (34839741)
 
-###
-
-Combined patches for version 21.0.0.0.ru-2023-01.rur-2023-01.r2, released January 2023
+### Combined patches for version 21.0.0.0.ru-2023-01.rur-2023-01.r2, released January 2023
 
 Bugs fixed:
 
@@ -3489,9 +3458,7 @@ Version 21.0.0.0.ru-2023-01.rur-2023-01.r1 includes the following:
 - Patch [32327201](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32327201"):RDBMS - DSTV36 UPDATE - TZDATA2020E
 - Patch [34839741](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34839741 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34839741"):Database Release Update : 21.9.0.0.230117 (34839741)
 
-###
-
-Combined patches for version 21.0.0.0.ru-2023-01.rur-2023-01.r1, released January, 2023
+### Combined patches for version 21.0.0.0.ru-2023-01.rur-2023-01.r1, released January, 2023
 
 Bugs fixed:
 
@@ -3704,9 +3671,7 @@ Version 21.0.0.0.ru-2022-10.rur-2022-10.r1 includes the following:
 - Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061"): RDBMS - DSTV39 UPDATE - TZDATA2022C
 - Patch [34533150](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533150 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533150"): DSTV39 UPDATE - TZDATA2022C - NEED OJVM FIX
 
-###
-
-Combined patches for version 21.0.0.0.ru-2022-10.rur-2022-10.r1, released October 2022
+### Combined patches for version 21.0.0.0.ru-2022-10.rur-2022-10.r1, released October 2022
 
 Bugs fixed:
 
@@ -3896,9 +3861,7 @@ Version 21.0.0.0.ru-2022-07.rur-2022-07.r1 includes the following:
 - Patch [34533061](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533061"): RDBMS - DSTV39 UPDATE - TZDATA2022C
 - Patch [34533150](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533150 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=34533150"): DSTV39 UPDATE - TZDATA2022C - NEED OJVM FIX
 
-###
-
-Combined patches for version 21.0.0.0.ru-2022-07.rur-2022-07.r1, released July 2022
+### Combined patches for version 21.0.0.0.ru-2022-07.rur-2022-07.r1, released July 2022
 
 Bugs fixed:
 

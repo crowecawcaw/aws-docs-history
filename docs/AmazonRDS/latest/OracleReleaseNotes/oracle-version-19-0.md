@@ -100,9 +100,7 @@ Version 19.0.0.0.ru-2026-01.spb-1.r1 includes the following:
 - Patch [38632161](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=38632161 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=38632161"): Database Release Update : 19.30.0.0.260120 (38632161)
 - Patch [29585399](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29585399 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29585399"): OCW RELEASE UPDATE 19.3.0.0.0 (29585399)
 
-###
-
-Combined Patches for Version 19.0.0.0.ru-2026-01.spb-1.r1, Released January 2026
+### Combined Patches for Version 19.0.0.0.ru-2026-01.spb-1.r1, Released January 2026
 
 Bugs fixed:
 
@@ -2408,9 +2406,7 @@ Version 19.0.0.0.ru-2026-01.rur-2026-01.r1 includes the following:
 - Patch [38632161](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=38632161 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=38632161"): Database Release Update : 19.30.0.0.260120 (38632161)
 - Patch [29585399](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29585399 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29585399"): OCW RELEASE UPDATE 19.3.0.0.0 (29585399)
 
-###
-
-Combined Patches for Version 19.0.0.0.ru-2026-01.rur-2026-01.r1, Released January 2026
+### Combined Patches for Version 19.0.0.0.ru-2026-01.rur-2026-01.r1, Released January 2026
 
 Bugs fixed:
 
@@ -4678,9 +4674,7 @@ Version 19.0.0.0.ru-2025-10.spb-1.r1 includes the following:
 - Patch [38291812](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=38291812 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=38291812"): Database Release Update : 19.29.0.0.251021 (38291812)
 - Patch [29585399](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29585399 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29585399"): OCW RELEASE UPDATE 19.3.0.0.0 (29585399)
 
-###
-
-Combined Patches for Version 19.0.0.0.ru-2025-10.spb-1.r1, Released October 2025
+### Combined Patches for Version 19.0.0.0.ru-2025-10.spb-1.r1, Released October 2025
 
 Bugs fixed:
 
@@ -6925,9 +6919,7 @@ Version 19.0.0.0.ru-2025-10.rur-2025-10.r1 includes the following:
 - Patch [38291812](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=38291812 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=38291812"): Database Release Update : 19.29.0.0.251021 (38291812)
 - Patch [29585399](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29585399 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29585399"): OCW RELEASE UPDATE 19.3.0.0.0 (29585399)
 
-###
-
-Combined Patches for Version 19.0.0.0.ru-2025-10.rur-2025-10.r1, Released October 2025
+### Combined Patches for Version 19.0.0.0.ru-2025-10.rur-2025-10.r1, Released October 2025
 
 Bugs fixed:
 
@@ -9134,9 +9126,7 @@ Version 19.0.0.0.ru-2025-07.spb-1.r1 includes the following:
 - Patch [37960098](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37960098 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37960098"): Database Release Update : 19.28.0.0.250715 (37960098)
 - Patch [29585399](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29585399 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29585399"): OCW RELEASE UPDATE 19.3.0.0.0 (29585399)
 
-###
-
-Combined Patches for Version 19.0.0.0.ru-2025-07.spb-1.r1, Released July 2025
+### Combined Patches for Version 19.0.0.0.ru-2025-07.spb-1.r1, Released July 2025
 
 Bugs fixed:
 
@@ -11184,9 +11174,7 @@ Version 19.0.0.0.ru-2025-07.rur-2025-07.r1 includes the following:
 - Patch [37960098](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37960098 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37960098"): Database Release Update : 19.28.0.0.250715 (37960098)
 - Patch [29585399](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29585399 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29585399"): OCW RELEASE UPDATE 19.3.0.0.0 (29585399)
 
-###
-
-Combined Patches for Version 19.0.0.0.ru-2025-07.rur-2025-07.r1, Released July 2025
+### Combined Patches for Version 19.0.0.0.ru-2025-07.rur-2025-07.r1, Released July 2025
 
 Bugs fixed:
 
@@ -13287,9 +13275,7 @@ Version 19.0.0.0.ru-2025-04.spb-1.r1 includes the following:
 - Patch [37642901](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37642901 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37642901"): Database Release Update : 19.27.0.0.250415 (37642901)
 - Patch [29585399](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29585399 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29585399"): OCW RELEASE UPDATE 19.3.0.0.0 (29585399)
 
-###
-
-Combined Patches for Version 19.0.0.0.ru-2025-04.spb-1.r1, Released April 2025
+### Combined Patches for Version 19.0.0.0.ru-2025-04.spb-1.r1, Released April 2025
 
 Bugs fixed:
 
@@ -15337,9 +15323,7 @@ Version 19.0.0.0.ru-2025-04.rur-2025-04.r1 includes the following:
 - Patch [37642901](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37642901 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37642901"): Database Release Update : 19.27.0.0.250415 (37642901)
 - Patch [29585399](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29585399 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29585399"): OCW RELEASE UPDATE 19.3.0.0.0 (29585399)
 
-###
-
-Combined Patches for Version 19.0.0.0.ru-2025-04.rur-2025-04.r1, Released April 2025
+### Combined Patches for Version 19.0.0.0.ru-2025-04.rur-2025-04.r1, Released April 2025
 
 Bugs fixed:
 
@@ -17353,9 +17337,7 @@ Version 19.0.0.0.ru-2025-01.rur-2025-01.r2 includes the following:
 - Patch [37260974](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37260974 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37260974"): Database Release Update : 19.26.0.0.250121 (37260974)
 - Patch [29585399](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29585399 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29585399"): OCW RELEASE UPDATE 19.3.0.0.0 (29585399)
 
-###
-
-Combined Patches for Version 19.0.0.0.ru-2025-01.rur-2025-01.r2, Released January 2025
+### Combined Patches for Version 19.0.0.0.ru-2025-01.rur-2025-01.r2, Released January 2025
 
 Bugs fixed:
 
@@ -19229,9 +19211,7 @@ Version 19.0.0.0.ru-2025-01.spb-1.r1 includes the following:
 - Patch [37260974](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37260974 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37260974"): Database Release Update : 19.26.0.0.250121 (37260974)
 - Patch [29585399](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29585399 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29585399"): OCW RELEASE UPDATE 19.3.0.0.0 (29585399)
 
-###
-
-Combined Patches for Version 19.0.0.0.ru-2025-01.spb-1.r1, Released January 2025
+### Combined Patches for Version 19.0.0.0.ru-2025-01.spb-1.r1, Released January 2025
 
 Bugs fixed:
 
@@ -21108,9 +21088,7 @@ Version 19.0.0.0.ru-2025-01.rur-2025-01.r1 includes the following:
 - Patch [37260974](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37260974 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=37260974"): Database Release Update : 19.26.0.0.250121 (37260974)
 - Patch [29585399](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29585399 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29585399"): OCW RELEASE UPDATE 19.3.0.0.0 (29585399)
 
-###
-
-Combined Patches for Version 19.0.0.0.ru-2025-01.rur-2025-01.r1, Released January 2025
+### Combined Patches for Version 19.0.0.0.ru-2025-01.rur-2025-01.r1, Released January 2025
 
 Bugs fixed:
 
@@ -22982,9 +22960,7 @@ Version 19.0.0.0.ru-2024-10.rur-2024-10.r1 includes the following:
 - Patch [36912597](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36912597 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36912597"): Database Release Update : 19.25.0.0.241015 (36912597)
 - Patch [29585399](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29585399 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29585399"): OCW RELEASE UPDATE 19.3.0.0.0 (29585399)
 
-###
-
-Combined Patches for Version 19.0.0.0.ru-2024-10.rur-2024-10.r1, Released October 2024
+### Combined Patches for Version 19.0.0.0.ru-2024-10.rur-2024-10.r1, Released October 2024
 
 Bugs fixed:
 
@@ -24774,9 +24750,7 @@ Version 19.0.0.0.ru-2024-07.rur-2024-07.r1 includes the following:
 - Patch [36582781](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36582781 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36582781"): Database Release Update : 19.24.0.0.240716 (36582781)
 - Patch [29585399](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29585399 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29585399"): OCW RELEASE UPDATE 19.3.0.0.0 (29585399)
 
-###
-
-Combined Patches for Version 19.0.0.0.ru-2024-07.rur-2024-07.r1, Released July 2024
+### Combined Patches for Version 19.0.0.0.ru-2024-07.rur-2024-07.r1, Released July 2024
 
 Bugs fixed:
 
@@ -26516,9 +26490,7 @@ Version 19.0.0.0.ru-2024-04.rur-2024-04.r1 includes the following:
 - Patch [36233263](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36233263 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=36233263"): Database Release Update: 19.23.0.0.240416 (36233263)
 - Patch [29585399](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29585399 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29585399"): OCW RELEASE UPDATE 19.3.0.0.0 (29585399)
 
-###
-
-Combined Patches for Version 19.0.0.0.ru-2024-04.rur-2024-04.r1, Released April 2024
+### Combined Patches for Version 19.0.0.0.ru-2024-04.rur-2024-04.r1, Released April 2024
 
 Bugs fixed:
 
@@ -28208,9 +28180,7 @@ Version 19.0.0.0.ru-2024-01.rur-2024-01.r1 includes the following:
 - Patch [35943157](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35943157 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=35943157"): Database Release Update : 19.22.0.0.240116 (35943157)
 - Patch [29585399](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29585399 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29585399"): OCW RELEASE UPDATE 19.3.0.0.0 (29585399)
 
-###
-
-Combined Patches for Version 19.0.0.0.ru-2024-01.rur-2024-01.r1, Released January 2024
+### Combined Patches for Version 19.0.0.0.ru-2024-01.rur-2024-01.r1, Released January 2024
 
 Bugs fixed:
 
@@ -29855,9 +29825,7 @@ Version 19.0.0.0.ru-2023-10.rur-2023-10.r1 includes the following:
 - Patch [29585399](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29585399 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29585399"): OCW RELEASE UPDATE 19.3.0.0.0 (29585399)
 - PreUpgrade Jar: preupgrade_19_cbuild_13_lf.zip
 
-###
-
-Combined Patches for Version 19.0.0.0.ru-2023-10.rur-2023-10.r1, released October 2023
+### Combined Patches for Version 19.0.0.0.ru-2023-10.rur-2023-10.r1, released October 2023
 
 Bugs fixed:
 
@@ -31444,9 +31412,7 @@ Version 19.0.0.0.ru-2023-07.rur-2023-07.r1 includes the following:
 - Patch [29585399](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29585399 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29585399"): OCW RELEASE UPDATE 19.3.0.0.0 (29585399)
 - PreUpgrade Jar: preupgrade_19_cbuild_13_lf.zip
 
-###
-
-Combined patches for version 19.0.0.0.ru-2023-07.rur-2023-07.r1, released July 2023
+### Combined patches for version 19.0.0.0.ru-2023-07.rur-2023-07.r1, released July 2023
 
 Bugs fixed:
 
@@ -32991,9 +32957,7 @@ Version 19.0.0.0.ru-2023-04.rur-2023-04.r1 includes the following:
 - Patch [29585399](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29585399 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29585399"): OCW RELEASE UPDATE 19.3.0.0.0 (29585399)
 - PreUpgrade Jar: preupgrade_19_cbuild_13_lf.zip
 
-###
-
-Combined patches for version 19.0.0.0.ru-2023-04.rur-2023-04.r1, released April 2023
+### Combined patches for version 19.0.0.0.ru-2023-04.rur-2023-04.r1, released April 2023
 
 Bugs fixed:
 
@@ -34481,9 +34445,7 @@ Version 19.0.0.0.ru-2023-01.rur-2023-01.r2 includes the following:
 - Patch [29585399](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29585399 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29585399"): OCW RELEASE UPDATE 19.3.0.0.0 (29585399)
 - PreUpgrade Jar: preupgrade_19_cbuild_13_lf.zip
 
-###
-
-Combined patches for version 19.0.0.0.ru-2023-01.rur-2023-01.r2, released January 2023
+### Combined patches for version 19.0.0.0.ru-2023-01.rur-2023-01.r2, released January 2023
 
 Bugs fixed:
 
@@ -40945,9 +40907,7 @@ Version 19.0.0.0.ru-2022-01.rur-2022-01.r1 includes the following:
   IMPERIAL CALENDAR
 - PreUpgrade Jar: preupgrade_19_cbuild_12_lf.zip
 
-###
-
-Combined patches for version 19.0.0.0.ru-2022-01.rur-2022-01.r1, released January 2022
+### Combined patches for version 19.0.0.0.ru-2022-01.rur-2022-01.r1, released January 2022
 
 Bugs fixed:
 
@@ -42000,9 +41960,7 @@ Version 19.0.0.0.ru-2021-10.rur-2021-10.r1 includes the following:
 - Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253"): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
 - PreUpgrade Jar: preupgrade_19_cbuild_12_lf.zip
 
-###
-
-Combined patches for version 19.0.0.0.ru-2021-10.rur-2021-10.r1, released October 2021
+### Combined patches for version 19.0.0.0.ru-2021-10.rur-2021-10.r1, released October 2021
 
 Bugs fixed:
 
@@ -42983,9 +42941,7 @@ Version 19.0.0.0.ru-2021-07.rur-2021-07.r1 includes the following:
 - Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253"): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
 - PreUpgrade Jar: preupgrade_19_cbuild_10_lf.zip
 
-###
-
-Combined patches for version 19.0.0.0.ru-2021-07.rur-2021-07.r1, released July 2021
+### Combined patches for version 19.0.0.0.ru-2021-07.rur-2021-07.r1, released July 2021
 
 Bugs fixed:
 
@@ -43865,9 +43821,7 @@ Version 19.0.0.0.ru-2021-04.rur-2021-04.r1 includes the following:
 - Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253"): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
 - PreUpgrade Jar: preupgrade_19_cbuild_10_lf.zip
 
-###
-
-Combined patches for version 19.0.0.0.ru-2021-04.rur-2021-04.r1, released April 2021
+### Combined patches for version 19.0.0.0.ru-2021-04.rur-2021-04.r1, released April 2021
 
 Bugs fixed:
 
@@ -44608,9 +44562,7 @@ Bugs fixed:
 32568163, 32576508, 32620919
 ```
 
-## Version
-
-19.0.0.0.ru-2021-01.rur-2021-01.r2
+## Version 19.0.0.0.ru-2021-01.rur-2021-01.r2
 
 ###### Important
 
@@ -44634,9 +44586,7 @@ Version 19.0.0.0.ru-2021-01.rur-2021-01.r2 includes the following:
 
 For more information, see [Managing advisor tasks](../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.managing-advisor-tasks "../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.managing-advisor-tasks") in the _Amazon RDS User Guide_.
 
-### Combined patches
-
-for version 19.0.0.0.ru-2021-01.rur-2021-01.r2, released January 2021
+### Combined patches for version 19.0.0.0.ru-2021-01.rur-2021-01.r2, released January 2021
 
 Bugs fixed:
 
@@ -45237,9 +45187,7 @@ Version 19.0.0.0.ru-2021-01.rur-2021-01.r1 includes the following:
 
 For more information, see [Managing advisor tasks](../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.managing-advisor-tasks "../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.managing-advisor-tasks") in the _Amazon RDS User Guide_.
 
-### Combined patches
-
-for version 19.0.0.0.ru-2021-01.rur-2021-01.r1, released January 2021
+### Combined patches for version 19.0.0.0.ru-2021-01.rur-2021-01.r1, released January 2021
 
 Bugs fixed:
 
@@ -45835,9 +45783,7 @@ For more information, see [Setting and unsetting system diagnostic events](../Us
 
 - Support for the procedure `rdsadmin_util.truncate_apply$_cdr_info` described in [Setting and unsetting system diagnostic events](../UserGuide/Appendix.md#Appendix.OracleGoldenGate.IR "../UserGuide/Appendix.md#Appendix.OracleGoldenGate.IR") in the _Amazon RDS User Guide_.
 
-### Combined patches
-
-for version 19.0.0.0.ru-2020-10.rur-2020-10.r1, released October 2020
+### Combined patches for version 19.0.0.0.ru-2020-10.rur-2020-10.r1, released October 2020
 
 Bugs fixed:
 
@@ -46290,9 +46236,7 @@ Version 19.0.0.0.ru-2020-07.rur-2020-07.r1 includes the following:
 - PreUpgrade Jar: preupgrade_19_cbuild_7_lf.zip
 - Patch [30417732](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30417732 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=30417732"): ORA-00600 [KQRHASHTABLEREMOVE: X LOCK] AND INSTANCE CRASH
 
-###
-
-Combined patches for version 19.0.0.0.ru-2020-07.rur-2020-07.r1, released July 2020
+### Combined patches for version 19.0.0.0.ru-2020-07.rur-2020-07.r1, released July 2020
 
 Bugs fixed:
 

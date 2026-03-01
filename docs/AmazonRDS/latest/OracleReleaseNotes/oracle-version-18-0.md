@@ -42,9 +42,7 @@ Version 18.0.0.0.ru-2021-04.rur-2021-04.r1 includes the following:
 - Patch [26352615](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26352615 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26352615"): SPILLOVER AUDIT FILES CANNOT BE FOUND ORA-46372
 - PreUpgrade Jar: preupgrade_181_cbuild_10_lf.zip
 
-###
-
-Combined patches for version 18.0.0.0.ru-2021-04.rur-2021-04.r1, released April 2021
+### Combined patches for version 18.0.0.0.ru-2021-04.rur-2021-04.r1, released April 2021
 
 Bugs fixed:
 
@@ -373,9 +371,7 @@ Version 18.0.0.0.ru-2021-01.rur-2021-01.r1 includes the following:
 
 For more information, see [Setting parameters for advisor tasks](../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.setting-task-parameters "../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.setting-task-parameters") in the _Amazon RDS User Guide_.
 
-### Combined patches
-
-for version 18.0.0.0.ru-2021-01.rur-2021-01.r1, released January 2021
+### Combined patches for version 18.0.0.0.ru-2021-01.rur-2021-01.r1, released January 2021
 
 Bugs fixed:
 
@@ -686,9 +682,7 @@ For more information, see [Setting and unsetting system diagnostic events](../Us
 
 - Support for the procedure `rdsadmin_util.truncate_apply$_cdr_info` described in [Integrated REPLICAT slow due to query on sys."\_DBA_APPLY_CDR_INFO"](../UserGuide/Appendix.md#Appendix.OracleGoldenGate.IR "../UserGuide/Appendix.md#Appendix.OracleGoldenGate.IR") in the _Amazon RDS User Guide_.
 
-### Combined patches
-
-for version 18.0.0.0.ru-2020-10.rur-2020-10.r1, released October 2020
+### Combined patches for version 18.0.0.0.ru-2020-10.rur-2020-10.r1, released October 2020
 
 Bugs fixed:
 
@@ -983,9 +977,7 @@ Version 18.0.0.0.ru-2020-07.rur-2020-07.r1 includes the following:
 - Patch [29374604](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29374604 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29374604"): IE not starting against 18c Oracle RDBMS Standard Edition
 - PreUpgrade Jar: preupgrade_181_cbuild_10_lf.zip
 
-###
-
-Combined patches for version 18.0.0.0.ru-2020-07.rur-2020-07.r1, released July 2020
+### Combined patches for version 18.0.0.0.ru-2020-07.rur-2020-07.r1, released July 2020
 
 Bugs fixed:
 

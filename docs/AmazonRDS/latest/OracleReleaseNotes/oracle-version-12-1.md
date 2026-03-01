@@ -922,9 +922,7 @@ Version 12.1.0.2.v26 includes the following:
 - Patch [33510113](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33510113 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33510113"): JSON Bundle Patch
 - PreUpgrade Jar: preupgrade_12.1.0.2.0_18_crlf.zip
 
-###
-
-Combined patches for version 12.1.0.2.v26, released October 2021
+### Combined patches for version 12.1.0.2.v26, released October 2021
 
 Bugs fixed:
 
@@ -1191,9 +1189,7 @@ Version 12.1.0.2.v25 includes the following:
 - Patch [33013352](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33013352 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=33013352"): JSON Bundle Patch
 - PreUpgrade Jar: preupgrade_12.1.0.2.0_18_crlf.zip
 
-###
-
-Combined patches for version 12.1.0.2.v25, released July 2021
+### Combined patches for version 12.1.0.2.v25, released July 2021
 
 Bugs fixed:
 
@@ -1456,9 +1452,7 @@ Version 12.1.0.2.v24 includes the following:
 - Patch [32616600](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32616600 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=32616600"): JSON Bundle Patch
 - PreUpgrade Jar: preupgrade_12.1.0.2.0_18_crlf.zip
 
-###
-
-Combined patches for version 12.1.0.2.v24, released April 2021
+### Combined patches for version 12.1.0.2.v24, released April 2021
 
 Bugs fixed:
 
@@ -1718,9 +1712,7 @@ Version 12.1.0.2.v23 includes the following:
 - Java Cryptography Extension (JCE): Unlimited Strength Jurisdiction Policy Files for JVM version
   6
 
-### Combined patches for
-
-version 12.1.0.2.v23, released February 2021
+### Combined patches for version 12.1.0.2.v23, released February 2021
 
 Bugs fixed:
 
@@ -1980,9 +1972,7 @@ For more information, see [Setting and unsetting system diagnostic events](../Us
 
 - Support for the procedure `rdsadmin_util.truncate_apply$_cdr_info` described in [Integrated REPLICAT slow due to query on sys."\_DBA_APPLY_CDR_INFO"](../UserGuide/Appendix.md#Appendix.OracleGoldenGate.IR "../UserGuide/Appendix.md#Appendix.OracleGoldenGate.IR") in the _Amazon RDS User Guide_.
 
-### Combined patches for version
-
-12.1.0.2.v22, released October 2020
+### Combined patches for version 12.1.0.2.v22, released October 2020
 
 Bugs fixed:
 
@@ -2231,9 +2221,7 @@ Version 12.1.0.2.v21 includes the following:
 - Patch [23262847](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23262847 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=23262847"): Oracle GoldenGate - MALFORMED REDO CAUSED OGG REPLICATION ABEND
 - PreUpgrade Jar: preupgrade_12.1.0.2.0_18_crlf.zip
 
-###
-
-Combined patches for version 12.1.0.2.v21, released July 2020
+### Combined patches for version 12.1.0.2.v21, released July 2020
 
 Bugs fixed:
 
@@ -4776,9 +4764,7 @@ Version 12.1.0.2.v3 includes the following:
 - Fixed an issue that prevented customers from re-granting read
   privileges on the ADUMP and BDUMP Directory objects.
 
-### Baseline: Oracle database patch set update 12.1.0.2.160119 (patch 21948354,
-
-released January 2016)
+### Baseline: Oracle database patch set update 12.1.0.2.160119 (patch 21948354, released January 2016)
 
 Bugs fixed:
 

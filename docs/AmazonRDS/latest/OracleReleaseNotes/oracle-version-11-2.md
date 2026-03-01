@@ -71,9 +71,7 @@ For more information, see [Setting and unsetting system diagnostic events](../Us
 
 - Support for the procedure `rdsadmin_util.truncate_apply$_cdr_info` described in [Integrated REPLICAT slow due to query on sys."\_DBA_APPLY_CDR_INFO"](../UserGuide/Appendix.md#Appendix.OracleGoldenGate.IR "../UserGuide/Appendix.md#Appendix.OracleGoldenGate.IR") in the _Amazon RDS User Guide_.
 
-### Combined patches for
-
-version 11.2.0.4.v26, released November 2020
+### Combined patches for version 11.2.0.4.v26, released November 2020
 
 Bugs fixed:
 
@@ -242,9 +240,7 @@ Version 11.2.0.4.v25 includes the following:
 - Patch [22188219](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=22188219 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=22188219"): "L1 VALIDATION" WAIT EVENT USED TO BACK OFF WHEN HW ENQUEUE CANNOT BE ACQUIRED
 - Patch [28730253](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=28730253"): SUPPORT NEW ERA REIWA FOR JAPANESE IMPERIAL CALENDAR
 
-###
-
-Combined patches for version 11.2.0.4.v25, released July 2020
+### Combined patches for version 11.2.0.4.v25, released July 2020
 
 Bugs fixed:
 
@@ -2261,9 +2257,7 @@ Version 11.2.0.4.v7 includes the following:
 - Fixed an issue that prevented customers from re-granting read
   privileges on the ADUMP and BDUMP Directory objects
 
-### Baseline: Oracle database patch set update 11.2.0.4.160119 (patch 21948347, released
-
-January 2016)
+### Baseline: Oracle database patch set update 11.2.0.4.160119 (patch 21948347, released January 2016)
 
 Bugs fixed:
 

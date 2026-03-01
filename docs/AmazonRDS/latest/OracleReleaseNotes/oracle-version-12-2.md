@@ -402,9 +402,7 @@ Version 12.2.0.1.ru-2021-10.rur-2021-10.r1 includes the following:
 - Patch [26352615](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26352615 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26352615"): SPILLOVER AUDIT FILES CANNOT BE FOUND ORA-46372
 - PreUpgrade Jar: preupgrade_12201_cbuild_24_lf.zip
 
-###
-
-Combined patches for version 12.2.0.1.ru-2021-10.rur-2021-10.r1, released October 2021
+### Combined patches for version 12.2.0.1.ru-2021-10.rur-2021-10.r1, released October 2021
 
 Bugs fixed:
 
@@ -739,9 +737,7 @@ Version 12.2.0.1.ru-2021-07.rur-2021-07.r1 includes the following:
 - Patch [26352615](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26352615 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26352615"): SPILLOVER AUDIT FILES CANNOT BE FOUND ORA-46372
 - PreUpgrade Jar: preupgrade_12201_cbuild_24_lf.zip
 
-###
-
-Combined patches for version 12.2.0.1.ru-2021-07.rur-2021-07.r1, released July 2021
+### Combined patches for version 12.2.0.1.ru-2021-07.rur-2021-07.r1, released July 2021
 
 Bugs fixed:
 
@@ -1074,9 +1070,7 @@ Version 12.2.0.1.ru-2021-04.rur-2021-04.r1 includes the following:
 - Patch [26352615](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26352615 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=26352615"): SPILLOVER AUDIT FILES CANNOT BE FOUND ORA-46372
 - PreUpgrade Jar: preupgrade_12201_cbuild_24_lf.zip
 
-###
-
-Combined patches for version 12.2.0.1.ru-2021-04.rur-2021-04.r1, released April 2021
+### Combined patches for version 12.2.0.1.ru-2021-04.rur-2021-04.r1, released April 2021
 
 Bugs fixed:
 
@@ -1409,9 +1403,7 @@ Version 12.2.0.1.ru-2021-01.rur-2021-01.r1 includes the following:
 
 For more information, see [Managing advisor tasks](../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.managing-advisor-tasks "../UserGuide/oracle-version-CommonDBATasks.md#oracle-version-CommonDBATasks.managing-advisor-tasks") in the _Amazon RDS User Guide_.
 
-### Combined patches
-
-for version 12.2.0.1.ru-2021-01.rur-2021-01.r1, released January 2021
+### Combined patches for version 12.2.0.1.ru-2021-01.rur-2021-01.r1, released January 2021
 
 Bugs fixed:
 
@@ -1739,9 +1731,7 @@ For more information, see [Setting and unsetting system diagnostic events](../Us
 
 - Support for the procedure `rdsadmin_util.truncate_apply$_cdr_info` described in [Integrated REPLICAT slow due to query on sys."\_DBA_APPLY_CDR_INFO"](../UserGuide/Appendix.md#Appendix.OracleGoldenGate.IR "../UserGuide/Appendix.md#Appendix.OracleGoldenGate.IR") in the _Amazon RDS User Guide_.
 
-### Combined patches
-
-for version 12.2.0.1.ru-2020-10.rur-2020-10.r1, released October 2020
+### Combined patches for version 12.2.0.1.ru-2020-10.rur-2020-10.r1, released October 2020
 
 Bugs fixed:
 
@@ -2060,9 +2050,7 @@ Version 12.2.0.1.ru-2020-07.rur-2020-07.r1 includes the following:
 - Patch [29213893](https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893 "https://updates.oracle.com/Orion/PatchDetails/process_form?patch_num=29213893"): DBMS_STATS FAILING WITH ERROR ORA-01422 WHEN GATHERING STATS FOR USER$ TABLE
 - PreUpgrade Jar: preupgrade_12201_cbuild_23_lf.zip
 
-###
-
-Combined patches for version 12.2.0.1.ru-2020-07.rur-2020-07.r1, released July 2020
+### Combined patches for version 12.2.0.1.ru-2020-07.rur-2020-07.r1, released July 2020
 
 Bugs fixed:
 
