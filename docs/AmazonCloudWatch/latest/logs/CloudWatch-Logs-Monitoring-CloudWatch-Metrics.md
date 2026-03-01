@@ -63,8 +63,7 @@ The following dimensions are used by transformer metrics.
 
 For centralized monitoring across multiple accounts and regions, you can use CloudWatch Logs Centralization
 to consolidate log data and metrics in a central location. For more information, see
-[Cross-account cross-Region log
-centralization](CloudWatchLogs_Centralization.md "CloudWatchLogs_Centralization.md").
+[Cross-account cross-Region log centralization](CloudWatchLogs_Centralization.md "CloudWatchLogs_Centralization.md").
 
 CloudWatch Logs publishes the following centralization metrics to CloudWatch in the `AWS/Logs` namespace.
 These metrics help you monitor the replication of log data from source accounts to destination accounts

@@ -1,6 +1,4 @@
-# Edit or delete an
-
-account-level transformer policy
+# Edit or delete an account-level transformer policy
 
 Use the steps in this section to edit or delete an account-level transformer
 policy.
@@ -16,6 +14,5 @@ policy.
 4. Select the button by the transformer policy that you want to manage, and
    then choose **Edit** or **Delete**.
 
-If you're editing the policy, see steps 5-11 in [Configurable
-parser-type processors](CloudWatch-Logs-Transformation-Configurable.md "CloudWatch-Logs-Transformation-Configurable.md") to see
+If you're editing the policy, see steps 5-11 in [Configurable parser-type processors](CloudWatch-Logs-Transformation-Configurable.md "CloudWatch-Logs-Transformation-Configurable.md") to see
 your options.

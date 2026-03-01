@@ -15,18 +15,12 @@ pattern syntax](FilterAndPatternSyntax.md "FilterAndPatternSyntax.md").
 
 ###### Examples
 
-- [Example 1: Subscription filters with
-  Amazon Kinesis Data Streams](#DestinationKinesisExample "#DestinationKinesisExample")
-- [Example 2: Subscription filters with
-  AWS Lambda](#LambdaFunctionExample "#LambdaFunctionExample")
-- [Example 3: Subscription filters with
-  Amazon Data Firehose](#FirehoseExample "#FirehoseExample")
-- [Example 4: Subscription filters with
-  Amazon OpenSearch Service](#OpenSearchExample "#OpenSearchExample")
+- [Example 1: Subscription filters with Amazon Kinesis Data Streams](#DestinationKinesisExample "#DestinationKinesisExample")
+- [Example 2: Subscription filters with AWS Lambda](#LambdaFunctionExample "#LambdaFunctionExample")
+- [Example 3: Subscription filters with Amazon Data Firehose](#FirehoseExample "#FirehoseExample")
+- [Example 4: Subscription filters with Amazon OpenSearch Service](#OpenSearchExample "#OpenSearchExample")
 
-## Example 1: Subscription filters with
-
-Amazon Kinesis Data Streams
+## Example 1: Subscription filters with Amazon Kinesis Data Streams
 
 The following example associates a subscription filter with a log group containing
 AWS CloudTrail events. The subscription filter delivers every logged activity made by
@@ -301,9 +295,7 @@ The actual log data, represented as an array of log event
 records. The "id" property is a unique identifier for every log
 event.
 
-## Example 2: Subscription filters with
-
-AWS Lambda
+## Example 2: Subscription filters with AWS Lambda
 
 In this example, you'll create a CloudWatch Logs subscription filter that sends log data to
 your AWS Lambda function.
@@ -465,9 +457,7 @@ The actual log data, represented as an array of log event
 records. The "id" property is a unique identifier for every log
 event.
 
-## Example 3: Subscription filters with
-
-Amazon Data Firehose
+## Example 3: Subscription filters with Amazon Data Firehose
 
 In this example, you'll create a CloudWatch Logs subscription that sends any incoming log
 events that match your defined filters to your Amazon Data Firehose delivery stream. Data sent
@@ -793,9 +783,7 @@ command:
 zcat testfile.gz
 ```
 
-## Example 4: Subscription filters with
-
-Amazon OpenSearch Service
+## Example 4: Subscription filters with Amazon OpenSearch Service
 
 In this example, you'll create a CloudWatch Logs subscription that sends incoming log events
 that match your defined filters to your OpenSearch Service domain.
@@ -824,8 +812,7 @@ that match your defined filters to your OpenSearch Service domain.
 10. For **Subscription filter pattern**, enter the terms or
     pattern to find in your log events. This ensures that you send only the data
     that you're interested in to your OpenSearch Service cluster. For more information, see
-    [Filter pattern syntax for
-    metric filters](FilterAndPatternSyntaxForMetricFilters.md "FilterAndPatternSyntaxForMetricFilters.md").
+    [Filter pattern syntax for metric filters](FilterAndPatternSyntaxForMetricFilters.md "FilterAndPatternSyntaxForMetricFilters.md").
 11. (Optional) For **Select log data to test**, select a log
     stream and then choose **Test pattern** to verify that your
     search filter is returning the results you expect.

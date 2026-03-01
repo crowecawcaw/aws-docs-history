@@ -25,8 +25,7 @@ Before creating a scheduled query, ensure you have the following:
 - **For AWS CLI and API usage** - Configured
   AWS credentials with permissions to call CloudWatch Logs APIs
 
-For detailed IAM policy examples, see [Identity and access management for
-Amazon CloudWatch Logs](auth-and-access-control-cwl.md "auth-and-access-control-cwl.md"). Also to be noted you can have only 1000 scheduled queries per account.
+For detailed IAM policy examples, see [Identity and access management for Amazon CloudWatch Logs](auth-and-access-control-cwl.md "auth-and-access-control-cwl.md"). Also to be noted you can have only 1000 scheduled queries per account.
 
 Console
 

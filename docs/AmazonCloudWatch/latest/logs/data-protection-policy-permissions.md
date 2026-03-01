@@ -1,14 +1,10 @@
-# IAM permissions required to create or work with
-
-a data protection policy
+# IAM permissions required to create or work with a data protection policy
 
 To be able to work with data protection policies for log groups, you must have certain permissions as shown
 in the following tables. The permissions are different for account-wide data protection policies and
 for data protection policies that apply to a single log group.
 
-## Permissions required
-
-for account-level data protection policies
+## Permissions required for account-level data protection policies
 
 ###### Note
 
@@ -43,9 +39,7 @@ If any data protection audit logs are already being sent to a destination, then 
 send logs to the same destination only need the `logs:PutDataProtectionPolicy`
 and `logs:CreateLogDelivery` permissions.
 
-## Permissions required
-
-for data protection policies for a single log group
+## Permissions required for data protection policies for a single log group
 
 ###### Note
 

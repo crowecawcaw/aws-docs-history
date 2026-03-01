@@ -1,6 +1,4 @@
-# Quick Start: Enable your Amazon EC2 instances running Windows
-
-Server 2012 and Windows Server 2008 to send logs to CloudWatch Logs
+# Quick Start: Enable your Amazon EC2 instances running Windows Server 2012 and Windows Server 2008 to send logs to CloudWatch Logs
 
 ###### Tip
 
@@ -11,9 +9,7 @@ see [Getting started with CloudWatch Logs](CWL_GettingStarted.md "CWL_GettingSta
 
 The rest of this section explains the use of the older CloudWatch Logs agent.
 
-## Enable your Amazon EC2 instances running Windows
-
-Server 2012 and Windows Server 2008 to send logs to CloudWatch Logs
+## Enable your Amazon EC2 instances running Windows Server 2012 and Windows Server 2008 to send logs to CloudWatch Logs
 
 Use the following steps to enable your instances running Windows Server 2012 and Windows Server 2008 to send logs to CloudWatch Logs.
 

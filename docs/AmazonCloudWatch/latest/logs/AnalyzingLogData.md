@@ -111,21 +111,13 @@ _Amazon CloudWatch Logs API Reference_.
 ###### Contents
 
 - [Supported query languages](CWL_AnalyzeLogData_Languages.md "CWL_AnalyzeLogData_Languages.md")
-- [Use natural language to generate
-  and update CloudWatch Logs Insights queries](CloudWatchLogs-Insights-Query-Assist.md "CloudWatchLogs-Insights-Query-Assist.md")
-- [Supported logs and discovered
-  fields](CWL_AnalyzeLogData-discoverable-fields.md "CWL_AnalyzeLogData-discoverable-fields.md")
-- [Create field indexes to improve query
-  performance and reduce scan volume](CloudWatchLogs-Field-Indexing.md "CloudWatchLogs-Field-Indexing.md")
+- [Use natural language to generate and update CloudWatch Logs Insights queries](CloudWatchLogs-Insights-Query-Assist.md "CloudWatchLogs-Insights-Query-Assist.md")
+- [Supported logs and discovered fields](CWL_AnalyzeLogData-discoverable-fields.md "CWL_AnalyzeLogData-discoverable-fields.md")
+- [Create field indexes to improve query performance and reduce scan volume](CloudWatchLogs-Field-Indexing.md "CloudWatchLogs-Field-Indexing.md")
 - [Use facets to group and explore logs](CloudWatchLogs-Facets.md "CloudWatchLogs-Facets.md")
 - [Pattern analysis](CWL_AnalyzeLogData_Patterns.md "CWL_AnalyzeLogData_Patterns.md")
-- [Save and re-run CloudWatch Logs Insights
-  queries](CWL_Insights-Saving-Queries.md "CWL_Insights-Saving-Queries.md")
-- [Add query to dashboard or export query
-  results](CWL_ExportQueryResults.md "CWL_ExportQueryResults.md")
-- [View running queries or query
-  history](CloudWatchLogs-Insights-Query-History.md "CloudWatchLogs-Insights-Query-History.md")
-- [Encrypt query results with
-  AWS Key Management Service](CloudWatchLogs-Insights-Query-Encrypt.md "CloudWatchLogs-Insights-Query-Encrypt.md")
-- [Generate a natural
-  language summary from CloudWatch Logs Insights query results](CloudWatchLogs-Insights-Query-Results-Summary.md "CloudWatchLogs-Insights-Query-Results-Summary.md")
+- [Save and re-run CloudWatch Logs Insights queries](CWL_Insights-Saving-Queries.md "CWL_Insights-Saving-Queries.md")
+- [Add query to dashboard or export query results](CWL_ExportQueryResults.md "CWL_ExportQueryResults.md")
+- [View running queries or query history](CloudWatchLogs-Insights-Query-History.md "CloudWatchLogs-Insights-Query-History.md")
+- [Encrypt query results with AWS Key Management Service](CloudWatchLogs-Insights-Query-Encrypt.md "CloudWatchLogs-Insights-Query-Encrypt.md")
+- [Generate a natural language summary from CloudWatch Logs Insights query results](CloudWatchLogs-Insights-Query-Results-Summary.md "CloudWatchLogs-Insights-Query-Results-Summary.md")

@@ -1,6 +1,4 @@
-# Step
-
-2: Update the existing destination access policy
+# Step 2: Update the existing destination access policy
 
 After you have updated the subscription filters in all of the sender
 accounts, you can update the destination access policy in the recipient
@@ -15,9 +13,7 @@ The update enables all accounts that are part of the organization with ID
 the accounts that have subscription filters created will actually send logs
 to the recipient account.
 
-###### To update the destination access policy in the recipient account to
-
-start using an organization ID for permissions
+###### To update the destination access policy in the recipient account to start using an organization ID for permissions
 
 1. In the recipient account, use a text editor to create a
    `~/AccessPolicy.json` file with the following
@@ -62,8 +58,7 @@ JSON
 If you are working with logs sent by an AWS service listed
 in [Enable logging from AWS services](AWS-logs-and-resource-policy.md "AWS-logs-and-resource-policy.md"), then before
 doing this step, you must have first updated the subscription
-filters in all the sender accounts as explained in [Step
-1: Update the subscription filters](Cross-Account-Log_Subscription-Update-filter-Account.md "Cross-Account-Log_Subscription-Update-filter-Account.md").
+filters in all the sender accounts as explained in [Step 1: Update the subscription filters](Cross-Account-Log_Subscription-Update-filter-Account.md "Cross-Account-Log_Subscription-Update-filter-Account.md").
 
 ```
 aws logs put-destination-policy

@@ -1,6 +1,4 @@
-# Personally identifiable information
-
-(PII)
+# Personally identifiable information (PII)
 
 CloudWatch Logs data protection can find the following types of personally identifiable
 information (PII).
@@ -40,9 +38,7 @@ data identifier to detect the appropriate keywords for those countries and regio
 | Full name                                                      | `Name`                            | None                                                                                                                                                                                                                                                                                                                                                    | Any                                                                                       | CloudWatch Logs can detect full names only. Support is limited to Latin character<br>sets.                                                                                                                                                                                                                                                                                                                       |
 | Vehicle Identification Number (VIN)                            | `VehicleIdentificationNumber`     | `Fahrgestellnummer`, `niv`, `numarul de identificare`,<br>`numarul seriei de sasiu`,<br>`serie sasiu`, `numer VIN`, `Número de Identificação do Veículo`,<br>`Número de Identificación de Automóviles`,<br>`numéro d'identification du véhicule`, `vehicle identification number`,<br>`vin`, `VIN numeris`                                              | Any                                                                                       | CloudWatch Logs can detect VINs that consist of a 17-character sequence and adhere to the ISO<br>3779 and 3780 standards. These standards were designed for worldwide use.                                                                                                                                                                                                                                       |
 
-## Keywords for driver’s license
-
-identification numbers
+## Keywords for driver’s license identification numbers
 
 To detect various types of driver’s license identification numbers, CloudWatch Logs requires a
 keyword to be in proximity of the numbers. The following table lists the keywords that CloudWatch Logs
@@ -82,9 +78,7 @@ recognizes for specific countries and regions.
 | United Kingdom    | dl#, dl:, dlno#, driver licence, driver licences, driver license,<br>driver licenses, driver permit, drivers lic., drivers licence, driver's licence,<br>drivers licences, driver's licences, drivers license, driver's license, drivers<br>licenses, driver's licenses, drivers permit, driver's permit, drivers permit number,<br>driving licence, driving license, driving permit                     |
 | United States     | dl#, dl:, dlno#, driver licence, driver licences, driver license,<br>driver licenses, driver permit, drivers lic., drivers licence, driver's licence,<br>drivers licences, driver's licences, drivers license, driver's license, drivers<br>licenses, driver's licenses, drivers permit, driver's permit, drivers permit number,<br>driving licence, driving license, driving permit                     |
 
-## Keywords for national
-
-identification numbers
+## Keywords for national identification numbers
 
 To detect various types of national identification numbers, CloudWatch Logs requires a keyword to be
 in close proximity to the numbers. This includes Documento Nacional de Identidad (DNI)
@@ -102,9 +96,7 @@ regions.
 | Italy             | codice fiscal, dati anagrafici, ehic, health card, health insurance card,<br>p. iva, partita i.v.a., personal data, tax code, tessera sanitaria                                                                                                                                                                                                                    |
 | Spain             | dni, dni#, dninúmero#, documento nacional de identidad, identidad<br>único, identidadúnico#, insurance number, national identification number,<br>national identity, nationalid#, nationalidno#, número nacional identidad,<br>personal identification number, personal identity no, unique identity number,<br>uniqueid#                                          |
 
-## Keywords for passport
-
-numbers
+## Keywords for passport numbers
 
 To detect various types of passport numbers, CloudWatch Logs requires a keyword to be in proximity
 of the numbers. The following table lists the keywords that CloudWatch Logs recognizes for specific
@@ -120,9 +112,7 @@ countries and regions.
 | United Kingdom    | passeport #, passeport n °, passeportNon, passeport non,<br>passeportn °, passport #, passport no, passport number, passport#,<br>passportid                                   |
 | United States     | passport, travel document                                                                                                                                                      |
 
-## Keywords for taxpayer
-
-identification and reference numbers
+## Keywords for taxpayer identification and reference numbers
 
 To detect various types of taxpayer identification and reference numbers, CloudWatch Logs requires a
 keyword to be in proximity of the numbers. The following table lists the keywords that CloudWatch Logs
@@ -137,9 +127,7 @@ recognizes for specific countries and regions.
 | United Kingdom    | paye, tax id, tax id no., tax id number, tax identification, tax<br>identification#, tax no., tax number, tax reference, tax#, taxid#,<br>temporary reference number, tin, trn, unique tax reference, unique taxpayer<br>reference, utr                    |
 | United States     | individual taxpayer identification number, itin, i.t.i.n.                                                                                                                                                                                                  |
 
-## Data identifier ARNs for personally
-
-identifiable information (PII)
+## Data identifier ARNs for personally identifiable information (PII)
 
 The following table lists the Amazon Resource Names (ARNs) for the personally identifiable
 information (PII) data identifiers that you can add to your data protection

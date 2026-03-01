@@ -69,12 +69,8 @@ data.
 
 ###### Topics
 
-- [Step 1: Create the integration with
-  OpenSearch Service](OpenSearch-Dashboards-Integrate.md "OpenSearch-Dashboards-Integrate.md")
-- [Step 2: Create vended logs
-  dashboards](OpenSearch-Dashboards-Create.md "OpenSearch-Dashboards-Create.md")
-- [View, edit, or delete vended logs
-  dashboards](OpenSearch-Dashboards-Manage.md "OpenSearch-Dashboards-Manage.md")
+- [Step 1: Create the integration with OpenSearch Service](OpenSearch-Dashboards-Integrate.md "OpenSearch-Dashboards-Integrate.md")
+- [Step 2: Create vended logs dashboards](OpenSearch-Dashboards-Create.md "OpenSearch-Dashboards-Create.md")
+- [View, edit, or delete vended logs dashboards](OpenSearch-Dashboards-Manage.md "OpenSearch-Dashboards-Manage.md")
 - [IAM policies for users](OpenSearch-Dashboards-UserRoles.md "OpenSearch-Dashboards-UserRoles.md")
-- [Permissions that the integration
-  needs](OpenSearch-Dashboards-CreateRole.md "OpenSearch-Dashboards-CreateRole.md")
+- [Permissions that the integration needs](OpenSearch-Dashboards-CreateRole.md "OpenSearch-Dashboards-CreateRole.md")

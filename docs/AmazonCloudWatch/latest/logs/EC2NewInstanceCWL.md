@@ -1,6 +1,4 @@
-# Quick Start: Install and configure the CloudWatch Logs agent on an EC2
-
-Linux instance at launch
+# Quick Start: Install and configure the CloudWatch Logs agent on an EC2 Linux instance at launch
 
 ###### Tip
 
@@ -12,9 +10,7 @@ For more information about the unified CloudWatch agent, see [Installing the Clo
 
 The rest of this section explains the use of the older CloudWatch Logs agent.
 
-## Installing the older CloudWatch Logs agent on an EC2 Linux
-
-instance at launch
+## Installing the older CloudWatch Logs agent on an EC2 Linux instance at launch
 
 You can use Amazon EC2 user data, a feature of Amazon EC2 that allows parametric information to
 be passed to the instance on launch, to install and configure the CloudWatch Logs agent on that

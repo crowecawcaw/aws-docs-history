@@ -1,6 +1,4 @@
-# Logging that requires additional
-
-permissions [V1]
+# Logging that requires additional permissions [V1]
 
 Some AWS services use a common infrastructure to send their logs to CloudWatch Logs, Amazon S3, or
 Firehose. To enable the AWS services listed in the preceding table to send their logs to

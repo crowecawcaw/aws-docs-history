@@ -125,9 +125,7 @@ To make this simpler, instead of creating a new `Statement`, you can
 directly update the `AWSLogDeliveryAclCheck` to be `“Action”:
  [“s3:GetBucketAcl”, “s3:ListBucket”]`
 
-## Amazon S3 bucket server-side
-
-encryption
+## Amazon S3 bucket server-side encryption
 
 You can protect the data in your Amazon S3 bucket by enabling either server-side
 Encryption with Amazon S3-managed keys (SSE-S3) or server-side encryption with a

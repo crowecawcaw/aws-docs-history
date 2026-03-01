@@ -1,6 +1,4 @@
-# Use the unified CloudWatch agent to get started with
-
-CloudWatch Logs
+# Use the unified CloudWatch agent to get started with CloudWatch Logs
 
 For more information about using the unified CloudWatch agent to get started with CloudWatch Logs, see
 [Collect Metrics and Logs

@@ -1,6 +1,4 @@
-# Fields that contain special
-
-characters
+# Fields that contain special characters
 
 If a field contains non-alphanumeric characters other than the
 `@` symbol or the period (`.`), you must surround

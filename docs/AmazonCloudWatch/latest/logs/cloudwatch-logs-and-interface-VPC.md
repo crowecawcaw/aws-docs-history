@@ -1,6 +1,4 @@
-# Using CloudWatch Logs with interface VPC
-
-endpoints
+# Using CloudWatch Logs with interface VPC endpoints
 
 If you use Amazon Virtual Private Cloud (Amazon VPC) to host your AWS resources, you can establish a private
 connection between your VPC and CloudWatch Logs. You can use this connection to send logs to CloudWatch Logs
@@ -37,9 +35,7 @@ Interface Endpoint](../../../vpc/latest/userguide/vpce-interface.md#create-inter
 Some CloudWatch Logs APIs, such as StartLiveTail and GetLogObject, are hosted under a different endpoint and VPC endpoint: `stream-logs.Region.amazonaws.com`.
 To create an interface VPC endpoint for these APIs, the service to choose is **com.amazonaws.`Region`.stream-logs**. To connect with a FIPS endpoint, the service to choose is `com.amazonaws.Region.stream-logs-fips`.
 
-## Testing the connection between your VPC and
-
-CloudWatch Logs
+## Testing the connection between your VPC and CloudWatch Logs
 
 After you create the endpoint, you can test the connection.
 
@@ -69,9 +65,7 @@ aws logs put-log-events --log-group-name `LogGroupName` --log-stream-name `LogSt
 
 If the response to the command includes `nextSequenceToken`, the command has succeeded and your VPC endpoint is working.
 
-## Controlling access to your CloudWatch Logs VPC
-
-endpoint
+## Controlling access to your CloudWatch Logs VPC endpoint
 
 A VPC endpoint policy is an IAM resource policy that you attach to an endpoint when
 you create or modify the endpoint. If you don't attach a policy when you create an

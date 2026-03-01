@@ -1,6 +1,4 @@
-# Delete a log-group-level
-
-transformer
+# Delete a log-group-level transformer
 
 Use these steps to delete a log transformer.
 

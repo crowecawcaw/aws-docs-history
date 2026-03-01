@@ -1,6 +1,4 @@
-# Tutorial: Run a
-
-query that produces a visualization grouped by log fields
+# Tutorial: Run a query that produces a visualization grouped by log fields
 
 When you run a query that uses the `stats` function to group
 the returned results by the values of one or more fields in the log entries,

@@ -1,6 +1,4 @@
-# Compare (diff) with previous time
-
-ranges
+# Compare (diff) with previous time ranges
 
 You can use CloudWatch Logs Insights with the Logs Insights QL to compare changes in your log
 events over time. You can compare the log events ingested during a recent time

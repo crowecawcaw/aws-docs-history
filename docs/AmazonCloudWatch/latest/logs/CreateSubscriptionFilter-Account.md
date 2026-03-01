@@ -1,6 +1,4 @@
-# Step 3: Create an
-
-account-level subscription filter policy
+# Step 3: Create an account-level subscription filter policy
 
 After you create a destination, the log data recipient account can share
 the destination ARN
@@ -15,8 +13,7 @@ group to the specified destination.
 
 If you are granting permissions for the subscription filter to an
 entire organization, you will need to use the ARN of the IAM role that
-you created in [Step 2: (Only if
-using an organization) Create an IAM role](CreateSubscriptionFilter-IAMrole-Account.md "CreateSubscriptionFilter-IAMrole-Account.md").
+you created in [Step 2: (Only if using an organization) Create an IAM role](CreateSubscriptionFilter-IAMrole-Account.md "CreateSubscriptionFilter-IAMrole-Account.md").
 
 In the following example, an account-level subscription filter policy is
 created in a sending account. the filter is associated with the sender

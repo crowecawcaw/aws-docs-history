@@ -56,9 +56,7 @@ values, use filters in your query instead.
    example, if there are more than 100 values for a facet, then all the counts
    are displayed as "-", indicating that the values are unknown.
 
-## To save a facet-based
-
-query
+## To save a facet-based query
 
 1. Create your query using one or more facet values.
 2. The rest of the steps are the same as saving a Logs Insights query. See
@@ -67,9 +65,7 @@ query
    retrieve a saved query, it will automatically include the facets and values
    used for the query, making it easy to analyze your logs.
 
-## To create an account-level
-
-facet
+## To create an account-level facet
 
 1. To create facets, you need to first create the field as an index and
    configure it as a facet. In the navigation pane, choose
@@ -77,14 +73,11 @@ facet
    **Account level index policies**. Alternatively, you
    can select **Manage facets** on the facets panel.
 2. Choose **Create new index policy**. For details on
-   creating index policies, see [Create an
-   account-level field index policy](CloudWatchLogs-Field-Indexing-CreateAccountLevel.md "CloudWatchLogs-Field-Indexing-CreateAccountLevel.md").
+   creating index policies, see [Create an account-level field index policy](CloudWatchLogs-Field-Indexing-CreateAccountLevel.md "CloudWatchLogs-Field-Indexing-CreateAccountLevel.md").
 3. To create a facet, check **Set as facet** for the
    selected field in the index policy creation page.
 
-## Facet Management using
-
-APIs
+## Facet Management using APIs
 
 Facet management can be done using the field index policy. See [`field
  index`](../../../AmazonCloudWatchLogs/latest/APIReference/API_FieldIndex.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_FieldIndex.md") APIs for details.

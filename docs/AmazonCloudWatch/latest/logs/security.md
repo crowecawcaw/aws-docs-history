@@ -24,14 +24,8 @@ model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://a
 ###### Contents
 
 - [Data protection in Amazon CloudWatch Logs](data-protection.md "data-protection.md")
-- [Identity and access management for
-  Amazon CloudWatch Logs](auth-and-access-control-cwl.md "auth-and-access-control-cwl.md")
-- [Compliance
-  validation
-  for Amazon CloudWatch Logs](compliance-validation.md "compliance-validation.md")
+- [Identity and access management for Amazon CloudWatch Logs](auth-and-access-control-cwl.md "auth-and-access-control-cwl.md")
+- [Compliance validation for Amazon CloudWatch Logs](compliance-validation.md "compliance-validation.md")
 - [Resilience in Amazon CloudWatch Logs](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
-- [Infrastructure
-  security
-  in Amazon CloudWatch Logs](infrastructure-security.md "infrastructure-security.md")
-- [Using CloudWatch Logs with interface VPC
-  endpoints](cloudwatch-logs-and-interface-VPC.md "cloudwatch-logs-and-interface-VPC.md")
+- [Infrastructure security in Amazon CloudWatch Logs](infrastructure-security.md "infrastructure-security.md")
+- [Using CloudWatch Logs with interface VPC endpoints](cloudwatch-logs-and-interface-VPC.md "cloudwatch-logs-and-interface-VPC.md")

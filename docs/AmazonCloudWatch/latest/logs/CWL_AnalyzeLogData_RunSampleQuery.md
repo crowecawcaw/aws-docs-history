@@ -1,6 +1,4 @@
-# Tutorial: Run and modify
-
-a sample query
+# Tutorial: Run and modify a sample query
 
 The following tutorial helps you get started with CloudWatch Logs Insights. You run a
 sample query in Logs Insights QL, and then see how to modify and rerun
@@ -17,9 +15,7 @@ result of a mathematical aggregation or other operation performed on log
 events. This tutorial demonstrates a query that returns a list of log
 events.
 
-## Run a sample
-
-query
+## Run a sample query
 
 ###### To run a CloudWatch Logs Insights sample query
 
@@ -65,9 +61,7 @@ also the distribution of events in the log group that match the
 query and timeframe. 6. To see all fields for a returned log event, choose the
 triangular dropdown icon left of the numbered event.
 
-## Modify the sample
-
-query
+## Modify the sample query
 
 In this tutorial, you modify the sample query to show the 50 most
 recent log events.
@@ -94,12 +88,9 @@ The results of the new query appear. Assuming there is enough
 data in the log group in the default time range, there are now
 50 log events listed. 2. (Optional) You can save queries that you have created. To save
 this query, choose **Save**. For more
-information, see [Save and re-run CloudWatch Logs Insights
-queries](CWL_Insights-Saving-Queries.md "CWL_Insights-Saving-Queries.md").
+information, see [Save and re-run CloudWatch Logs Insights queries](CWL_Insights-Saving-Queries.md "CWL_Insights-Saving-Queries.md").
 
-## Add a filter command to
-
-the sample query
+## Add a filter command to the sample query
 
 This tutorial shows how to make a more powerful change to the query in
 the query editor. In this tutorial, you filter the results of the

@@ -10,11 +10,7 @@ exploration](CloudWatchLogs-Facets.md "CloudWatchLogs-Facets.md").
 
 ###### Topics
 
-- [Data source discovery and
-  management](data-source-discovery-management.md "data-source-discovery-management.md")
-- [Features enabled by data
-  sources](features-enabled-by-data-sources.md "features-enabled-by-data-sources.md")
-- [Supported AWS services for data
-  sources](supported-aws-services-data-sources.md "supported-aws-services-data-sources.md")
-- [Supported third-party
-  sources for data sources](supported-third-party-sources-data-sources.md "supported-third-party-sources-data-sources.md")
+- [Data source discovery and management](data-source-discovery-management.md "data-source-discovery-management.md")
+- [Features enabled by data sources](features-enabled-by-data-sources.md "features-enabled-by-data-sources.md")
+- [Supported AWS services for data sources](supported-aws-services-data-sources.md "supported-aws-services-data-sources.md")
+- [Supported third-party sources for data sources](supported-third-party-sources-data-sources.md "supported-third-party-sources-data-sources.md")

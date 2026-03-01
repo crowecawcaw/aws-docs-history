@@ -1,6 +1,4 @@
-# Step 1: Create a
-
-destination
+# Step 1: Create a destination
 
 ###### Important
 
@@ -304,8 +302,6 @@ that you gathered from the first call. For more information, see
          *IAM User Guide*.
 
     When you have finished, if you're using AWS Organizations for your cross-account
-    permissions, follow the steps in [Step 2: (Only if
-    using an organization) Create an IAM role](CreateSubscriptionFilter-IAMrole-Account.md "CreateSubscriptionFilter-IAMrole-Account.md"). If you're
+    permissions, follow the steps in [Step 2: (Only if using an organization) Create an IAM role](CreateSubscriptionFilter-IAMrole-Account.md "CreateSubscriptionFilter-IAMrole-Account.md"). If you're
     granting permissions directly to the other account instead of using Organizations,
-    you can skip that step and proceed to [Step 3: Create an
-    account-level subscription filter policy](CreateSubscriptionFilter-Account.md "CreateSubscriptionFilter-Account.md").
+    you can skip that step and proceed to [Step 3: Create an account-level subscription filter policy](CreateSubscriptionFilter-Account.md "CreateSubscriptionFilter-Account.md").

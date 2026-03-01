@@ -11,24 +11,15 @@ For more information about query syntax, see [CloudWatch Logs Insights language 
 ###### Topics
 
 - [General queries](#CWL_QuerySyntax-examples-general "#CWL_QuerySyntax-examples-general")
-- [Queries for Lambda
-  logs](#CWL_QuerySyntax-examples-Lambda "#CWL_QuerySyntax-examples-Lambda")
-- [Queries for Amazon VPC flow
-  logs](#CWL_QuerySyntax-examples-VPC "#CWL_QuerySyntax-examples-VPC")
-- [Queries for Route 53
-  logs](#CWL_QuerySyntax-examples-Route53 "#CWL_QuerySyntax-examples-Route53")
-- [Queries for CloudTrail
-  logs](#CWL_QuerySyntax-examples-CloudTrail "#CWL_QuerySyntax-examples-CloudTrail")
-- [Queries for
-  Amazon API Gateway](#CWL_QuerySyntax-examples-APIGateway "#CWL_QuerySyntax-examples-APIGateway")
-- [Queries for NAT
-  gateway](#CWL_QuerySyntax-examples-NATGateway "#CWL_QuerySyntax-examples-NATGateway")
-- [Queries for Apache server
-  logs](#CWL_QuerySyntax-examples-Apache "#CWL_QuerySyntax-examples-Apache")
-- [Queries for
-  Amazon EventBridge](#CWL_QuerySyntax-examples-EventBridge "#CWL_QuerySyntax-examples-EventBridge")
-- [Examples of the parse
-  command](#CWL_QuerySyntax-examples-parse "#CWL_QuerySyntax-examples-parse")
+- [Queries for Lambda logs](#CWL_QuerySyntax-examples-Lambda "#CWL_QuerySyntax-examples-Lambda")
+- [Queries for Amazon VPC flow logs](#CWL_QuerySyntax-examples-VPC "#CWL_QuerySyntax-examples-VPC")
+- [Queries for Route 53 logs](#CWL_QuerySyntax-examples-Route53 "#CWL_QuerySyntax-examples-Route53")
+- [Queries for CloudTrail logs](#CWL_QuerySyntax-examples-CloudTrail "#CWL_QuerySyntax-examples-CloudTrail")
+- [Queries for Amazon API Gateway](#CWL_QuerySyntax-examples-APIGateway "#CWL_QuerySyntax-examples-APIGateway")
+- [Queries for NAT gateway](#CWL_QuerySyntax-examples-NATGateway "#CWL_QuerySyntax-examples-NATGateway")
+- [Queries for Apache server logs](#CWL_QuerySyntax-examples-Apache "#CWL_QuerySyntax-examples-Apache")
+- [Queries for Amazon EventBridge](#CWL_QuerySyntax-examples-EventBridge "#CWL_QuerySyntax-examples-EventBridge")
+- [Examples of the parse command](#CWL_QuerySyntax-examples-parse "#CWL_QuerySyntax-examples-parse")
 
 ## General queries
 
@@ -75,9 +66,7 @@ fields @timestamp, server, severity, message
 | dedup server, severity
 ```
 
-## Queries for Lambda
-
-logs
+## Queries for Lambda logs
 
 **Determine the amount of overprovisioned
 memory.**
@@ -111,9 +100,7 @@ fields @timestamp, @requestId, @message, @logStream
 | limit 20
 ```
 
-## Queries for Amazon VPC flow
-
-logs
+## Queries for Amazon VPC flow logs
 
 **Find the top 15 packet transfers across
 hosts:**
@@ -164,9 +151,7 @@ fields @timestamp, srcAddr, dstAddr, srcPort, dstPort, protocol, bytes
 | limit 20
 ```
 
-## Queries for Route 53
-
-logs
+## Queries for Route 53 logs
 
 **Find the distribution of records per hour by query
 type.**
@@ -191,9 +176,7 @@ where the server failed to complete the DNS request.**
 filter responseCode="SERVFAIL" | stats count(*) by queryName
 ```
 
-## Queries for CloudTrail
-
-logs
+## Queries for CloudTrail logs
 
 **Find the number of log entries for each service,
 event type, and AWS Region.**
@@ -249,9 +232,7 @@ filter tlsDetails.tlsVersion in [ "TLSv1", "TLSv1.1" ]
 
 ```
 
-## Queries for
-
-Amazon API Gateway
+## Queries for Amazon API Gateway
 
 Find the last 10 4XX errors
 
@@ -289,9 +270,7 @@ filter status=200
 min(integrationLatency) by bin(1m)
 ```
 
-## Queries for NAT
-
-gateway
+## Queries for NAT gateway
 
 If you notice higher than normal costs in your AWS bill, you can use
 CloudWatch Logs Insights to find the top contributors. For more information about the
@@ -352,9 +331,7 @@ filter (dstAddr like 'x.x.x.x' and srcAddr not like 'y.y.')
 
 ```
 
-## Queries for Apache server
-
-logs
+## Queries for Apache server logs
 
 You can use CloudWatch Logs Insights to query Apache server logs. For more information
 about the following queries, see [Simplifying Apache server logs with CloudWatch Logs Insights](https://aws.amazon.com/blogs/mt/simplifying-apache-server-logs-with-amazon-cloudwatch-logs-insights/ "https://aws.amazon.com/blogs/mt/simplifying-apache-server-logs-with-amazon-cloudwatch-logs-insights/") at the AWS Cloud
@@ -394,9 +371,7 @@ fields @timestamp, function, process, message
 
 ```
 
-## Queries for
-
-Amazon EventBridge
+## Queries for Amazon EventBridge
 
 Get the number of EventBridge events grouped by event detail type
 
@@ -406,9 +381,7 @@ fields @timestamp, @message
 | sort numberOfEvents desc
 ```
 
-## Examples of the parse
-
-command
+## Examples of the parse command
 
 **Use a glob expression to extract the fields
 `@user`, `@method`, and `@latency`

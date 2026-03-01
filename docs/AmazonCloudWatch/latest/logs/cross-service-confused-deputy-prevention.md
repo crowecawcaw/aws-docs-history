@@ -1,6 +1,4 @@
-# Cross-service confused deputy
-
-prevention
+# Cross-service confused deputy prevention
 
 The confused deputy problem is a security issue where an entity that doesn't have
 permission to perform an action can coerce a more-privileged entity to perform the
@@ -42,6 +40,5 @@ and you don't have to manually update the policies when you add, remove, or move
 accounts in your organization.
 
 The policies documented for granting access to CloudWatch Logs to write data to Kinesis Data Streams and Firehose
-in [Step 1: Create a destination](CreateDestination.md "CreateDestination.md") and [Step 2: Create a
-destination](CreateFirehoseStreamDestination.md "CreateFirehoseStreamDestination.md") show how you can use the
+in [Step 1: Create a destination](CreateDestination.md "CreateDestination.md") and [Step 2: Create a destination](CreateFirehoseStreamDestination.md "CreateFirehoseStreamDestination.md") show how you can use the
 `aws:SourceArn` global condition context key to help prevent the confused deputy problem.

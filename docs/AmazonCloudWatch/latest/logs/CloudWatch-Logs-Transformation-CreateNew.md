@@ -1,6 +1,4 @@
-# Create a log-group-level
-
-log transformer from scratch
+# Create a log-group-level log transformer from scratch
 
 Use these steps to create a log-group-level transformer from scratch.
 
@@ -21,8 +19,7 @@ If it is a pre-configured parser for a type of AWS vended log, you don't
 have to specify any configuration for it.
 
 If it is a different parser, you need to specify its configuration. For
-more information, see the information for that processor in [Configurable
-parser-type processors](CloudWatch-Logs-Transformation-Configurable.md "CloudWatch-Logs-Transformation-Configurable.md"). 7. To add another processor, choose **+ Add processor**.
+more information, see the information for that processor in [Configurable parser-type processors](CloudWatch-Logs-Transformation-Configurable.md "CloudWatch-Logs-Transformation-Configurable.md"). 7. To add another processor, choose **+ Add processor**.
 Then select the processor that you want in the **Choose
 processors** box, and fill in the configuration parameters.
 

@@ -1,14 +1,11 @@
-# Step
-
-1: Update the subscription filters
+# Step 1: Update the subscription filters
 
 ###### Note
 
 This step is needed only for cross-account subscriptions for logs that
 are created by the services listed in [Enable logging from AWS services](AWS-logs-and-resource-policy.md "AWS-logs-and-resource-policy.md"). If you are not
 working with logs created by one of these log groups, you can skip to
-[Step
-2: Update the existing destination access policy](Cross-Account-Log_Subscription-Update-policy-Account.md "Cross-Account-Log_Subscription-Update-policy-Account.md").
+[Step 2: Update the existing destination access policy](Cross-Account-Log_Subscription-Update-policy-Account.md "Cross-Account-Log_Subscription-Update-policy-Account.md").
 
 In certain cases, you must update the subscription filters in all the
 sender accounts that are sending logs to the destination account. The update
@@ -42,9 +39,7 @@ aws logs describe-account-policies \
 --policy-name "CrossAccountStreamsExamplePolicy"
 ```
 
-###### To update a subscription filter to start using organization IDs for
-
-cross-account log permissions
+###### To update a subscription filter to start using organization IDs for cross-account log permissions
 
 1. Create the following trust policy in a file
    `~/TrustPolicyForCWL.json`. Use a text editor

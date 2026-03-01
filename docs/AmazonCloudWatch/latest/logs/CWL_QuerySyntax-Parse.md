@@ -48,9 +48,7 @@ parse JSON log events that include no more than 200 log event fields.
 When you parse nested JSON fields, you must format the regular
 expression in your query to match the format of your JSON log event.
 
-## Examples of the parse
-
-command
+## Examples of the parse command
 
 **Use a glob expression to extract the fields
 `@user`, `@method`, and

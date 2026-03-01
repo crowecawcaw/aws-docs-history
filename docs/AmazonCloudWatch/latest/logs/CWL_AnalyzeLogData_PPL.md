@@ -1,6 +1,4 @@
-# OpenSearch Piped Processing Language
-
-(PPL)
+# OpenSearch Piped Processing Language (PPL)
 
 This section contains a basic introduction to querying CloudWatch Logs using OpenSearch PPL.
 With PPL, you can retrieve, query, and analyze data using piped-together commands,
@@ -25,8 +23,7 @@ in the query, and only scanning log groups that match the value specified in the
 query for this field index. Use `aws:fieldIndex` to specify the field
 name, along with the field name and value in the source command to query only
 indexed data containing the field and value specified. For more information, see
-[Create field indexes to improve query
-performance and reduce scan volume](CloudWatchLogs-Field-Indexing.md "CloudWatchLogs-Field-Indexing.md")
+[Create field indexes to improve query performance and reduce scan volume](CloudWatchLogs-Field-Indexing.md "CloudWatchLogs-Field-Indexing.md")
 
 You can use OpenSearch PPL for queries of log groups in the Standard Log Class.
 
@@ -94,9 +91,7 @@ group(s) need to be searched
 source = [lg:`/aws/lambda/my-function`] | where status = 200 | head 10
 ```
 
-### Field
-
-Indexes
+### Field Indexes
 
 Field index-based source selection reduces the amount of data queried by
 limiting results to only indexed data when your filters target fields that
@@ -141,9 +136,7 @@ Customers can specify multiple fieldIndexes as follows
 source = [`aws:fieldIndex` IN ("status", "region"), `status` = 200, `region` IN ("us-west-2", "us-east-1")] | head 10
 ```
 
-### Data Source and
-
-Type
+### Data Source and Type
 
 Data source and type based source selection can be used when customers
 know which exact data sources need to be queried. This query is executed
@@ -173,9 +166,7 @@ source=[ds:`DataSource1.Type1`, ds:`DataSource2.Type2`, ...ds:`DataSourcen.Typen
 search source=[ds:`DataSource1.Type1`, ds:`DataSource2.Type2`] | fields field1, field2
 ```
 
-### Combined
-
-example
+### Combined example
 
 Customers can specify all the source selection operators in any order
 & the results would be the intersection of the all the conditions

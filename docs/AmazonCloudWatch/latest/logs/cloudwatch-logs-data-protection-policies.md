@@ -1,17 +1,11 @@
-# Understanding data protection
-
-policies
+# Understanding data protection policies
 
 ###### Topics
 
-- [What are data protection
-  policies?](#what-are-data-protection-policies "#what-are-data-protection-policies")
-- [How is the data protection policy
-  structured?](#overview-of-data-protection-policies "#overview-of-data-protection-policies")
+- [What are data protection policies?](#what-are-data-protection-policies "#what-are-data-protection-policies")
+- [How is the data protection policy structured?](#overview-of-data-protection-policies "#overview-of-data-protection-policies")
 
-## What are data protection
-
-policies?
+## What are data protection policies?
 
 CloudWatch Logs uses **data protection policies** to select the
 sensitive data for which you want to scan, and the actions that you want to take to
@@ -21,9 +15,7 @@ data by using machine learning and pattern matching. To act upon data identifier
 are found, you can define **audit** and **de-identify** operations. These operations let you log the sensitive
 data that is found (or not found), and to mask the sensitive data when the log events are viewed.
 
-## How is the data protection policy
-
-structured?
+## How is the data protection policy structured?
 
 As illustrated in the following figure, a data protection policy document includes the
 following elements:
@@ -35,9 +27,7 @@ Only one data protection policy can be defined per CloudWatch Logs log group. Th
 policy can have one or more deny or de-identify statements, but only one audit
 statement.
 
-### JSON properties for the
-
-data protection policy
+### JSON properties for the data protection policy
 
 A data protection policy requires the following basic policy information for
 identification:
@@ -61,9 +51,7 @@ identification:
 }
 ```
 
-### JSON properties for a policy
-
-statement
+### JSON properties for a policy statement
 
 A policy statement sets the detection context for the data protection
 operation.
@@ -94,9 +82,7 @@ operation.
     },
 ```
 
-### JSON properties for a policy
-
-statement operation
+### JSON properties for a policy statement operation
 
 A policy statement sets one of the following data protection operations.
 

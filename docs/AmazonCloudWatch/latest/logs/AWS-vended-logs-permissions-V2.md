@@ -1,6 +1,4 @@
-# Logging that requires additional
-
-permissions [V2]
+# Logging that requires additional permissions [V2]
 
 Some AWS services use a new method to send their logs. This is a flexible method
 that enables you to set up log delivery from these services to one or more of the
@@ -45,12 +43,9 @@ log-generating resource. To do so, follow these steps.
 
 ###### Contents
 
-- [Logs sent to
-  CloudWatch Logs](AWS-logs-infrastructure-V2-CloudWatchLogs.md "AWS-logs-infrastructure-V2-CloudWatchLogs.md")
+- [Logs sent to CloudWatch Logs](AWS-logs-infrastructure-V2-CloudWatchLogs.md "AWS-logs-infrastructure-V2-CloudWatchLogs.md")
 - [Logs sent to Amazon S3](AWS-logs-infrastructure-V2-S3.md "AWS-logs-infrastructure-V2-S3.md")
-  - [Amazon S3 bucket server-side
-    encryption](AWS-logs-infrastructure-V2-S3.md#AWS-logs-SSE-KMS-S3-V2 "AWS-logs-infrastructure-V2-S3.md#AWS-logs-SSE-KMS-S3-V2")
+  - [Amazon S3 bucket server-side encryption](AWS-logs-infrastructure-V2-S3.md#AWS-logs-SSE-KMS-S3-V2 "AWS-logs-infrastructure-V2-S3.md#AWS-logs-SSE-KMS-S3-V2")
 
 - [Logs sent to Firehose](AWS-logs-infrastructure-V2-Firehose.md "AWS-logs-infrastructure-V2-Firehose.md")
-- [Traces sent to
-  X-Ray](AWS-logs-infrastructure-V2-XRayTraces.md "AWS-logs-infrastructure-V2-XRayTraces.md")
+- [Traces sent to X-Ray](AWS-logs-infrastructure-V2-XRayTraces.md "AWS-logs-infrastructure-V2-XRayTraces.md")

@@ -1,6 +1,4 @@
-# Create a metric filter for a log
-
-group
+# Create a metric filter for a log group
 
 To create a metric filter for a log group, follow these steps. The metric won't be
 visible until there are some data points for it.

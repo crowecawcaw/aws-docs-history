@@ -1,6 +1,4 @@
-# Using identity-based policies
-
-(IAM policies) for CloudWatch Logs
+# Using identity-based policies (IAM policies) for CloudWatch Logs
 
 This topic provides examples of identity-based policies in which an account
 administrator can attach permissions policies to IAM identities (that is, users,
@@ -10,17 +8,13 @@ groups, and roles).
 
 We recommend that you first review the introductory topics that explain the basic
 concepts and options available for you to manage access to your CloudWatch Logs resources. For
-more information, see [Overview of managing access
-permissions to your CloudWatch Logs resources](iam-access-control-overview-cwl.md "iam-access-control-overview-cwl.md").
+more information, see [Overview of managing access permissions to your CloudWatch Logs resources](iam-access-control-overview-cwl.md "iam-access-control-overview-cwl.md").
 
 This topic covers the following:
 
-- [Permissions required to use the CloudWatch
-  console](#console-permissions-cwl "#console-permissions-cwl")
-- [AWS managed (predefined) policies for
-  CloudWatch Logs](#managed-policies-cwl "#managed-policies-cwl")
-- [Customer managed policy
-  examples](#customer-managed-policies-cwl "#customer-managed-policies-cwl")
+- [Permissions required to use the CloudWatch console](#console-permissions-cwl "#console-permissions-cwl")
+- [AWS managed (predefined) policies for CloudWatch Logs](#managed-policies-cwl "#managed-policies-cwl")
+- [Customer managed policy examples](#customer-managed-policies-cwl "#customer-managed-policies-cwl")
   The following is an example of a permissions policy:
 
 JSON
@@ -60,9 +54,7 @@ IAM policy statement, see [IAM Policy
 Elements Reference](../../../IAM/latest/UserGuide/AccessPolicyLanguage_ElementDescriptions.md "../../../IAM/latest/UserGuide/AccessPolicyLanguage_ElementDescriptions.md") in _IAM User Guide_. For a list
 showing all of the CloudWatch Logs actions, see [CloudWatch Logs permissions reference](permissions-reference-cwl.md "permissions-reference-cwl.md").
 
-## Permissions required to use the CloudWatch
-
-console
+## Permissions required to use the CloudWatch console
 
 For a user to work with CloudWatch Logs in the CloudWatch console, that user must have a minimum
 set of permissions that allows the user to describe other AWS resources in their
@@ -81,8 +73,7 @@ If you create an IAM policy that is more restrictive than the minimum required
 permissions, the console won't function as intended for users with that IAM
 policy. To ensure that those users can still use the CloudWatch console, also attach the
 `CloudWatchReadOnlyAccess` managed policy to the user, as described
-in [AWS managed (predefined) policies for
-CloudWatch Logs](#managed-policies-cwl "#managed-policies-cwl").
+in [AWS managed (predefined) policies for CloudWatch Logs](#managed-policies-cwl "#managed-policies-cwl").
 
 You don't need to allow minimum console permissions for users that are making
 calls only to the AWS CLI or the CloudWatch Logs API.
@@ -145,9 +136,7 @@ following permissions are also required:
 - lambda:RemovePermission
 - s3:ListBuckets
 
-## AWS managed (predefined) policies for
-
-CloudWatch Logs
+## AWS managed (predefined) policies for CloudWatch Logs
 
 AWS addresses many common use cases by providing standalone IAM policies that
 are created and administered by AWS. Managed policies grant necessary permissions
@@ -205,8 +194,7 @@ Amazon OpenSearch Service analytics. For more information, see [Analyze with Ama
 
 In addition to granting this policy, to enable a role or user to be able
 to view vended log dashboards, you must also specify them when you create
-the integration with OpenSearch Service. For more information, see [Step 1: Create the integration with
-OpenSearch Service](OpenSearch-Dashboards-Integrate.md "OpenSearch-Dashboards-Integrate.md").
+the integration with OpenSearch Service. For more information, see [Step 1: Create the integration with OpenSearch Service](OpenSearch-Dashboards-Integrate.md "OpenSearch-Dashboards-Integrate.md").
 
 To see the full contents of the policy, see [CloudWatchOpenSearchDashboardAccess](../../../aws-managed-policy/latest/reference/CloudWatchOpenSearchDashboardAccess.md "../../../aws-managed-policy/latest/reference/CloudWatchOpenSearchDashboardAccess.md") in the _AWS Managed
 Policy Reference Guide_.
@@ -221,9 +209,7 @@ information, see [CloudWatch cross-account observability](../monitoring/CloudWat
 To see the full contents of the policy, see [CloudWatchLogsCrossAccountSharingConfiguration](../../../aws-managed-policy/latest/reference/CloudWatchLogsCrossAccountSharingConfiguration.md "../../../aws-managed-policy/latest/reference/CloudWatchLogsCrossAccountSharingConfiguration.md") in the
 _AWS Managed Policy Reference Guide_.
 
-### CloudWatch Logs updates to AWS managed
-
-policies
+### CloudWatch Logs updates to AWS managed policies
 
 View details about updates to AWS managed policies for CloudWatch Logs since this
 service began tracking these changes. For automatic alerts about changes to this
@@ -244,9 +230,7 @@ page, subscribe to the RSS feed on the CloudWatch Logs Document history page.
 | [CloudWatchLogsCrossAccountSharingConfiguration](#managed-policies-cwl-CloudWatchLogsCrossAccountSharingConfiguration "#managed-policies-cwl-CloudWatchLogsCrossAccountSharingConfiguration")<br>– New policy | CloudWatch Logs added a new policy to enable you to manage CloudWatch<br>cross-account observability links that share CloudWatch Logs log<br>groups.<br>For more information, see [CloudWatch cross-account observability](../monitoring/CloudWatch-Unified-Cross-Account.md "../monitoring/CloudWatch-Unified-Cross-Account.md")                                                                                                         | November 27, 2022 |
 | [CloudWatchLogsReadOnlyAccess](#managed-policies-cwl-CloudWatchLogsReadOnlyAccess "#managed-policies-cwl-CloudWatchLogsReadOnlyAccess") – Update to<br>an existing policy                                     | CloudWatch Logs added permissions to<br>**CloudWatchLogsReadOnlyAccess**.<br>The `oam:ListSinks` and<br>`oam:ListAttachedLinks` permissions were<br>added so that users with this policy can use the console to<br>view data shared from source accounts in CloudWatch cross-account<br>observability.                                                                                                                                    | November 27, 2022 |
 
-### Customer managed policy
-
-examples
+### Customer managed policy examples
 
 You can create your own custom IAM policies to allow permissions for CloudWatch Logs
 actions and resources. You can attach these custom policies to the users or
@@ -350,9 +334,7 @@ JSON
 
 ```
 
-### Use tagging and IAM policies for
-
-control at the log group level
+### Use tagging and IAM policies for control at the log group level
 
 You can grant users access to certain log groups while preventing them from
 accessing other log groups. To do so, tag your log groups and use IAM policies

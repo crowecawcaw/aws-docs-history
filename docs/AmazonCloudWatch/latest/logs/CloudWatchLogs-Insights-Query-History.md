@@ -1,6 +1,4 @@
-# View running queries or query
-
-history
+# View running queries or query history
 
 You can view the queries currently in progress as well as your recent query
 history.

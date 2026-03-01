@@ -1,7 +1,4 @@
-# Infrastructure
-
-security
-in Amazon CloudWatch Logs
+# Infrastructure security in Amazon CloudWatch Logs
 
 As a managed service, Amazon CloudWatch Logs is protected by AWS global network security. For
 information about AWS security services and how AWS protects infrastructure, see [AWS Cloud Security](https://aws.amazon.com/security/ "https://aws.amazon.com/security/"). To design your AWS

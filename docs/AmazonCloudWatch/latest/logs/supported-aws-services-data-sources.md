@@ -1,6 +1,4 @@
-# Supported AWS services for data
-
-sources
+# Supported AWS services for data sources
 
 The following table lists the AWS services that are automatically categorized by
 CloudWatch Logs as data sources:

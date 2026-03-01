@@ -47,9 +47,7 @@ have reserved for public testing.
 6331101999990016, 6759649826438453, 6799990100000000019, and 76009244561.
 ```
 
-## Data identifier ARNs for
-
-financial data types
+## Data identifier ARNs for financial data types
 
 The following lists the Amazon Resource Names (ARNs) for the data identifiers that you
 can add to your data protection policies.

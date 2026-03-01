@@ -61,25 +61,16 @@ CloudWatch Logs data protection can detect the following categories of sensitive
 
 ###### Contents
 
-- [Understanding data protection
-  policies](cloudwatch-logs-data-protection-policies.md "cloudwatch-logs-data-protection-policies.md")
-  - [What are data protection
-    policies?](cloudwatch-logs-data-protection-policies.md#what-are-data-protection-policies "cloudwatch-logs-data-protection-policies.md#what-are-data-protection-policies")
-  - [How is the data protection policy
-    structured?](cloudwatch-logs-data-protection-policies.md#overview-of-data-protection-policies "cloudwatch-logs-data-protection-policies.md#overview-of-data-protection-policies")
-    - [JSON properties for the
-      data protection policy](cloudwatch-logs-data-protection-policies.md#data-protection-policy-json-properties "cloudwatch-logs-data-protection-policies.md#data-protection-policy-json-properties")
-    - [JSON properties for a policy
-      statement](cloudwatch-logs-data-protection-policies.md#policy-statement-json-properties "cloudwatch-logs-data-protection-policies.md#policy-statement-json-properties")
-    - [JSON properties for a policy
-      statement operation](cloudwatch-logs-data-protection-policies.md#statement-operation-json-properties "cloudwatch-logs-data-protection-policies.md#statement-operation-json-properties")
+- [Understanding data protection policies](cloudwatch-logs-data-protection-policies.md "cloudwatch-logs-data-protection-policies.md")
+  - [What are data protection policies?](cloudwatch-logs-data-protection-policies.md#what-are-data-protection-policies "cloudwatch-logs-data-protection-policies.md#what-are-data-protection-policies")
+  - [How is the data protection policy structured?](cloudwatch-logs-data-protection-policies.md#overview-of-data-protection-policies "cloudwatch-logs-data-protection-policies.md#overview-of-data-protection-policies")
+    - [JSON properties for the data protection policy](cloudwatch-logs-data-protection-policies.md#data-protection-policy-json-properties "cloudwatch-logs-data-protection-policies.md#data-protection-policy-json-properties")
+    - [JSON properties for a policy statement](cloudwatch-logs-data-protection-policies.md#policy-statement-json-properties "cloudwatch-logs-data-protection-policies.md#policy-statement-json-properties")
+    - [JSON properties for a policy statement operation](cloudwatch-logs-data-protection-policies.md#statement-operation-json-properties "cloudwatch-logs-data-protection-policies.md#statement-operation-json-properties")
 
-- [IAM permissions required to create or work with
-  a data protection policy](data-protection-policy-permissions.md "data-protection-policy-permissions.md")
-  - [Permissions required
-    for account-level data protection policies](data-protection-policy-permissions.md#data-protection-policy-permissions-accountlevel "data-protection-policy-permissions.md#data-protection-policy-permissions-accountlevel")
-  - [Permissions required
-    for data protection policies for a single log group](data-protection-policy-permissions.md#data-protection-policy-permissions-loggroup "data-protection-policy-permissions.md#data-protection-policy-permissions-loggroup")
+- [IAM permissions required to create or work with a data protection policy](data-protection-policy-permissions.md "data-protection-policy-permissions.md")
+  - [Permissions required for account-level data protection policies](data-protection-policy-permissions.md#data-protection-policy-permissions-accountlevel "data-protection-policy-permissions.md#data-protection-policy-permissions-accountlevel")
+  - [Permissions required for data protection policies for a single log group](data-protection-policy-permissions.md#data-protection-policy-permissions-loggroup "data-protection-policy-permissions.md#data-protection-policy-permissions-loggroup")
   - [Sample data protection policy](data-protection-policy-permissions.md#data-protection-policy-sample "data-protection-policy-permissions.md#data-protection-policy-sample")
 
 - [Create an account-wide data protection policy](mask-sensitive-log-data-accountlevel.md "mask-sensitive-log-data-accountlevel.md")
@@ -94,45 +85,31 @@ CloudWatch Logs data protection can detect the following categories of sensitive
 
 - [View unmasked data](mask-sensitive-log-data-viewunmasked.md "mask-sensitive-log-data-viewunmasked.md")
 - [Audit findings reports](mask-sensitive-log-data-audit-findings.md "mask-sensitive-log-data-audit-findings.md")
-  - [Required key policy to send audit findings to an
-    bucket protected by AWS KMS](mask-sensitive-log-data-audit-findings.md#mask-sensitive-log-data-audit-findings-kms "mask-sensitive-log-data-audit-findings.md#mask-sensitive-log-data-audit-findings-kms")
+  - [Required key policy to send audit findings to an bucket protected by AWS KMS](mask-sensitive-log-data-audit-findings.md#mask-sensitive-log-data-audit-findings-kms "mask-sensitive-log-data-audit-findings.md#mask-sensitive-log-data-audit-findings-kms")
 
 - [Types of data that you can protect](protect-sensitive-log-data-types.md "protect-sensitive-log-data-types.md")
-  - [CloudWatch Logs managed data identifiers for sensitive
-    data types](CWL-managed-data-identifiers.md "CWL-managed-data-identifiers.md")
+  - [CloudWatch Logs managed data identifiers for sensitive data types](CWL-managed-data-identifiers.md "CWL-managed-data-identifiers.md")
     - [Credentials](protect-sensitive-log-data-types-credentials.md "protect-sensitive-log-data-types-credentials.md")
-      - [Data identifier ARNs for
-        credential data types](protect-sensitive-log-data-types-credentials.md#cwl-data-protection-credentials-arns "protect-sensitive-log-data-types-credentials.md#cwl-data-protection-credentials-arns")
+      - [Data identifier ARNs for credential data types](protect-sensitive-log-data-types-credentials.md#cwl-data-protection-credentials-arns "protect-sensitive-log-data-types-credentials.md#cwl-data-protection-credentials-arns")
 
     - [Device identifiers](protect-sensitive-log-data-types-device.md "protect-sensitive-log-data-types-device.md")
-      - [Data identifier ARNs for device
-        data types](protect-sensitive-log-data-types-device.md#cwl-data-protection-devices-arns "protect-sensitive-log-data-types-device.md#cwl-data-protection-devices-arns")
+      - [Data identifier ARNs for device data types](protect-sensitive-log-data-types-device.md#cwl-data-protection-devices-arns "protect-sensitive-log-data-types-device.md#cwl-data-protection-devices-arns")
 
     - [Financial information](protect-sensitive-log-data-types-financial.md "protect-sensitive-log-data-types-financial.md")
-      - [Data identifier ARNs for
-        financial data types](protect-sensitive-log-data-types-financial.md#cwl-data-protection-financial-arns "protect-sensitive-log-data-types-financial.md#cwl-data-protection-financial-arns")
+      - [Data identifier ARNs for financial data types](protect-sensitive-log-data-types-financial.md#cwl-data-protection-financial-arns "protect-sensitive-log-data-types-financial.md#cwl-data-protection-financial-arns")
 
     - [Protected health information (PHI)](protect-sensitive-log-data-types-health.md "protect-sensitive-log-data-types-health.md")
-      - [Data identifier ARNs for protected
-        health information data types (PHI)](protect-sensitive-log-data-types-health.md#cwl-data-protection-phi-arns "protect-sensitive-log-data-types-health.md#cwl-data-protection-phi-arns")
+      - [Data identifier ARNs for protected health information data types (PHI)](protect-sensitive-log-data-types-health.md#cwl-data-protection-phi-arns "protect-sensitive-log-data-types-health.md#cwl-data-protection-phi-arns")
 
-    - [Personally identifiable information
-      (PII)](protect-sensitive-log-data-types-pii.md "protect-sensitive-log-data-types-pii.md")
-      - [Keywords for driver’s license
-        identification numbers](protect-sensitive-log-data-types-pii.md#CWL-managed-data-identifiers-pii-dl-keywords "protect-sensitive-log-data-types-pii.md#CWL-managed-data-identifiers-pii-dl-keywords")
-      - [Keywords for national
-        identification numbers](protect-sensitive-log-data-types-pii.md#CWL-managed-data-identifiers-pii-natlid-keywords "protect-sensitive-log-data-types-pii.md#CWL-managed-data-identifiers-pii-natlid-keywords")
-      - [Keywords for passport
-        numbers](protect-sensitive-log-data-types-pii.md#CWL-managed-data-identifiers-pii-passport-keywords "protect-sensitive-log-data-types-pii.md#CWL-managed-data-identifiers-pii-passport-keywords")
-      - [Keywords for taxpayer
-        identification and reference numbers](protect-sensitive-log-data-types-pii.md#CWL-managed-data-identifiers-financial-tin-keywords "protect-sensitive-log-data-types-pii.md#CWL-managed-data-identifiers-financial-tin-keywords")
-      - [Data identifier ARNs for personally
-        identifiable information (PII)](protect-sensitive-log-data-types-pii.md#CWL-data-protection-pii-arns "protect-sensitive-log-data-types-pii.md#CWL-data-protection-pii-arns")
+    - [Personally identifiable information (PII)](protect-sensitive-log-data-types-pii.md "protect-sensitive-log-data-types-pii.md")
+      - [Keywords for driver’s license identification numbers](protect-sensitive-log-data-types-pii.md#CWL-managed-data-identifiers-pii-dl-keywords "protect-sensitive-log-data-types-pii.md#CWL-managed-data-identifiers-pii-dl-keywords")
+      - [Keywords for national identification numbers](protect-sensitive-log-data-types-pii.md#CWL-managed-data-identifiers-pii-natlid-keywords "protect-sensitive-log-data-types-pii.md#CWL-managed-data-identifiers-pii-natlid-keywords")
+      - [Keywords for passport numbers](protect-sensitive-log-data-types-pii.md#CWL-managed-data-identifiers-pii-passport-keywords "protect-sensitive-log-data-types-pii.md#CWL-managed-data-identifiers-pii-passport-keywords")
+      - [Keywords for taxpayer identification and reference numbers](protect-sensitive-log-data-types-pii.md#CWL-managed-data-identifiers-financial-tin-keywords "protect-sensitive-log-data-types-pii.md#CWL-managed-data-identifiers-financial-tin-keywords")
+      - [Data identifier ARNs for personally identifiable information (PII)](protect-sensitive-log-data-types-pii.md#CWL-data-protection-pii-arns "protect-sensitive-log-data-types-pii.md#CWL-data-protection-pii-arns")
 
   - [Custom data identifiers](CWL-custom-data-identifiers.md "CWL-custom-data-identifiers.md")
     - [What are custom data identifiers?](CWL-custom-data-identifiers.md#what-are-custom-data-identifiers "CWL-custom-data-identifiers.md#what-are-custom-data-identifiers")
-    - [Custom data identifier
-      constraints](CWL-custom-data-identifiers.md#custom-data-identifiers-constraints "CWL-custom-data-identifiers.md#custom-data-identifiers-constraints")
+    - [Custom data identifier constraints](CWL-custom-data-identifiers.md#custom-data-identifiers-constraints "CWL-custom-data-identifiers.md#custom-data-identifiers-constraints")
     - [Using custom data identifiers in the console](CWL-custom-data-identifiers.md#using-custom-data-identifiers-console "CWL-custom-data-identifiers.md#using-custom-data-identifiers-console")
-    - [Using custom data identifiers in your data
-      protection policy](CWL-custom-data-identifiers.md#using-custom-data-identifiers "CWL-custom-data-identifiers.md#using-custom-data-identifiers")
+    - [Using custom data identifiers in your data protection policy](CWL-custom-data-identifiers.md#using-custom-data-identifiers "CWL-custom-data-identifiers.md#using-custom-data-identifiers")

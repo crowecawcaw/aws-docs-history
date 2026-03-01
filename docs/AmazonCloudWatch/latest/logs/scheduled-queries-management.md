@@ -1,6 +1,4 @@
-# Viewing and managing scheduled
-
-queries
+# Viewing and managing scheduled queries
 
 The following information is available for each query:
 

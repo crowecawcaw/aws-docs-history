@@ -51,18 +51,12 @@ more than one character, adding s to pluralize is supported. So both
 
 ###### Topics
 
-- [Visualize time
-  series data](#CWL_Insights-Visualizing-TimeSeries "#CWL_Insights-Visualizing-TimeSeries")
-- [Visualize log data
-  grouped by fields](#CWL_Insights-Visualizing-ByFields "#CWL_Insights-Visualizing-ByFields")
-- [Use multiple stats
-  commands in a single query](#CWL_QuerySyntax-stats-multi "#CWL_QuerySyntax-stats-multi")
-- [Functions to use with
-  stats](#CWL_QuerySyntax-stats-functions "#CWL_QuerySyntax-stats-functions")
+- [Visualize time series data](#CWL_Insights-Visualizing-TimeSeries "#CWL_Insights-Visualizing-TimeSeries")
+- [Visualize log data grouped by fields](#CWL_Insights-Visualizing-ByFields "#CWL_Insights-Visualizing-ByFields")
+- [Use multiple stats commands in a single query](#CWL_QuerySyntax-stats-multi "#CWL_QuerySyntax-stats-multi")
+- [Functions to use with stats](#CWL_QuerySyntax-stats-functions "#CWL_QuerySyntax-stats-functions")
 
-## Visualize time
-
-series data
+## Visualize time series data
 
 Time series visualizations work for queries with the following
 characteristics:
@@ -77,8 +71,7 @@ charts, and pie charts.
 
 **Examples**
 
-For a complete tutorial, see [Tutorial: Run a
-query that produces a time series visualization](CWL_AnalyzeLogData_VisualizationQuery.md "CWL_AnalyzeLogData_VisualizationQuery.md").
+For a complete tutorial, see [Tutorial: Run a query that produces a time series visualization](CWL_AnalyzeLogData_VisualizationQuery.md "CWL_AnalyzeLogData_VisualizationQuery.md").
 
 Here are more example queries that work for time series
 visualization.
@@ -108,12 +101,9 @@ restrictions**
 Queries that aggregate log entry information but don't use the
 `bin()` function can generate bar charts. However, the
 queries cannot generate line charts or stacked area charts. For more
-information about these types of queries, see [Visualize log data
-grouped by fields](#CWL_Insights-Visualizing-ByFields "#CWL_Insights-Visualizing-ByFields").
+information about these types of queries, see [Visualize log data grouped by fields](#CWL_Insights-Visualizing-ByFields "#CWL_Insights-Visualizing-ByFields").
 
-## Visualize log data
-
-grouped by fields
+## Visualize log data grouped by fields
 
 You can produce bar charts for queries that use the `stats`
 function and one or more aggregation functions. For more information,
@@ -126,8 +116,7 @@ Visualizations are limited to up to 100 bars in the bar chart.
 
 **Examples**
 
-For a complete tutorial, see [Tutorial: Run a
-query that produces a visualization grouped by log fields](CWL_AnalyzeLogData_VisualizationFieldQuery.md "CWL_AnalyzeLogData_VisualizationFieldQuery.md"). The
+For a complete tutorial, see [Tutorial: Run a query that produces a visualization grouped by log fields](CWL_AnalyzeLogData_VisualizationFieldQuery.md "CWL_AnalyzeLogData_VisualizationFieldQuery.md"). The
 following paragraphs include more example queries for visualization by
 fields.
 
@@ -154,9 +143,7 @@ query type.
 stats count(*) by queryType
 ```
 
-## Use multiple stats
-
-commands in a single query
+## Use multiple stats commands in a single query
 
 You can use as many as two `stats` commands in a single
 query. This enables you to perform an additional aggregation on the
@@ -272,9 +259,7 @@ FIELDS strlen(@message) AS message_length
  | STATS avg(ingested_bytes) BY dateceil(@t, 5m)
 ```
 
-## Functions to use with
-
-stats
+## Functions to use with stats
 
 CloudWatch Logs Insights supports both stats aggregation functions and stats
 non-aggregation functions.

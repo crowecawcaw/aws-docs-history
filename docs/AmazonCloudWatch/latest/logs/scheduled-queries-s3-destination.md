@@ -1,6 +1,4 @@
-# Configuring S3 destinations for
-
-scheduled queries
+# Configuring S3 destinations for scheduled queries
 
 Configure Amazon S3 as a destination to store your scheduled query results as JSON
 files for long-term retention and analysis.

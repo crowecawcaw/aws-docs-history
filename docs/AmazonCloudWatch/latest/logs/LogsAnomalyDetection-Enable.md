@@ -1,6 +1,4 @@
-# Enable anomaly detection on a log
-
-group
+# Enable anomaly detection on a log group
 
 Use the following steps to use the CloudWatch console to create a log anomaly detector that
 scans a log group for anomalies.
@@ -46,8 +44,7 @@ configuration**.
 
 
     You must also ensure that the CloudWatch Logs service principal has permission
-     to use the key. For more information, see [Encrypt an anomaly detector and its results
-     with AWS KMS](LogsAnomalyDetection-KMS.md "LogsAnomalyDetection-KMS.md").
+     to use the key. For more information, see [Encrypt an anomaly detector and its results with AWS KMS](LogsAnomalyDetection-KMS.md "LogsAnomalyDetection-KMS.md").
 
 9. Choose **Enable Anomaly Detection**.
 

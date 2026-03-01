@@ -1,6 +1,4 @@
-# Cross-account delivery
-
-example
+# Cross-account delivery example
 
 In this example, two accounts are involved. The account with the log-generating
 resource is Account A, ID: `123456789012`, and the
@@ -57,14 +55,10 @@ aws logs put-delivery-source --name my-delivery-source --log-type APPLICATION_LO
 Next, account B must create the delivery destination using one of the flows
 below:
 
-- [Configure delivery to an Amazon S3
-  bucket](#crossaccount-example-delivery-S3 "#crossaccount-example-delivery-S3")
-- [Configure delivery to a
-  Firehose stream](#crossaccount-example-delivery-Firehose "#crossaccount-example-delivery-Firehose")
+- [Configure delivery to an Amazon S3 bucket](#crossaccount-example-delivery-S3 "#crossaccount-example-delivery-S3")
+- [Configure delivery to a Firehose stream](#crossaccount-example-delivery-Firehose "#crossaccount-example-delivery-Firehose")
 
-## Configure delivery to an Amazon S3
-
-bucket
+## Configure delivery to an Amazon S3 bucket
 
 Account B wants to receive the logs into their S3 bucket with the ARN
 arn:aws:s3:::amzn-s3-demo-bucket For this example, account B will need the following
@@ -215,9 +209,7 @@ A to the delivery destination in Account B.
 aws logs create-delivery --delivery-source-name my-delivery-source --delivery-destination-arn arn:aws:logs:`region`:`BBBBBBBBBBBB`:delivery-destination:my-s3-delivery-destination
 ```
 
-## Configure delivery to a
-
-Firehose stream
+## Configure delivery to a Firehose stream
 
 In this example, Account B wants to receive logs into their Firehose stream. The
 Firehose stream has the following ARN and is configured to use the DirectPut delivery

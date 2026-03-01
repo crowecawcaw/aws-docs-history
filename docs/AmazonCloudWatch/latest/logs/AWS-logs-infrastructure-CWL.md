@@ -81,8 +81,48 @@ JSON
 
 ```
 
-If the log group does have a resource policy but that policy doesn't contain the
-statement shown in the previous policy, and the user setting up the logging has the
-`logs:PutResourcePolicy`, `logs:DescribeResourcePolicies`,
-and `logs:DescribeLogGroups` permissions for the log group, that
-statement is appended to the log group's resource policy.
+The log group's resource policy limit is 51,200 bytes. Once this limit is reached,
+AWS cannot add new permissions. This requires customers to manually modify the
+policy to grant the `delivery.logs.amazonaws.com` service principal permissions
+on the `logs:CreateLogStream` and `logs:PutLogEvents` actions. Customers
+should use a log group name prefix with wildcards such as `/aws/vendedlogs/*`
+and use this log group name for future Delivery creation.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "AWSLogDeliveryWrite20150319",
+ "Effect": "Allow",
+ "Principal": {
+ "Service": [
+ "delivery.logs.amazonaws.com"
+ ]
+ },
+ "Action": [
+ "logs:CreateLogStream",
+ "logs:PutLogEvents"
+ ],
+ "Resource": [
+ "arn:aws:logs:`us-east-1`:`111122223333`:log-group:`my-log-group/aws/vendedlogs`/*"
+ ],
+ "Condition": {
+ "StringEquals": {
+ "aws:SourceAccount": [
+ "`0123456789`"
+ ]
+ },
+ "ArnLike": {
+ "aws:SourceArn": [
+ "arn:aws:logs:`us-east-1`:`111122223333`:*"
+ ]
+ }
+ }
+ }
+ ]
+}`
+
+```

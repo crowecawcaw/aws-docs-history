@@ -66,8 +66,7 @@ commands.
 
 ###### Topics
 
-- [Logs Insights QL commands
-  supported in log classes](CWL_AnalyzeLogData_Classes.md "CWL_AnalyzeLogData_Classes.md")
+- [Logs Insights QL commands supported in log classes](CWL_AnalyzeLogData_Classes.md "CWL_AnalyzeLogData_Classes.md")
 - [anomaly](CWL_QuerySyntax-Anomaly.md "CWL_QuerySyntax-Anomaly.md")
 - [display](CWL_QuerySyntax-Display.md "CWL_QuerySyntax-Display.md")
 - [fields](CWL_QuerySyntax-Fields.md "CWL_QuerySyntax-Fields.md")
@@ -83,9 +82,6 @@ commands.
 - [dedup](CWL_QuerySyntax-Dedup.md "CWL_QuerySyntax-Dedup.md")
 - [unmask](CWL_QuerySyntax-Unmask.md "CWL_QuerySyntax-Unmask.md")
 - [unnest](CWL_QuerySyntax-Unnest.md "CWL_QuerySyntax-Unnest.md")
-- [Boolean, comparison,
-  numeric, datetime, and other functions](CWL_QuerySyntax-operations-functions.md "CWL_QuerySyntax-operations-functions.md")
-- [Fields that contain special
-  characters](CWL_QuerySyntax-Guidelines.md "CWL_QuerySyntax-Guidelines.md")
-- [Use aliases and comments in
-  queries](CWL_QuerySyntax-alias.md "CWL_QuerySyntax-alias.md")
+- [Boolean, comparison, numeric, datetime, and other functions](CWL_QuerySyntax-operations-functions.md "CWL_QuerySyntax-operations-functions.md")
+- [Fields that contain special characters](CWL_QuerySyntax-Guidelines.md "CWL_QuerySyntax-Guidelines.md")
+- [Use aliases and comments in queries](CWL_QuerySyntax-alias.md "CWL_QuerySyntax-alias.md")

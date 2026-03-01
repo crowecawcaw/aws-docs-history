@@ -1,6 +1,4 @@
-# Service-specific
-
-permissions
+# Service-specific permissions
 
 In addition to the destination-specific permissions listed in the previous sections,
 some services require explicit authorization that customers are allowed to send logs

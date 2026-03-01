@@ -1,6 +1,4 @@
-# OpenSearch Structured Query Language
-
-(SQL)
+# OpenSearch Structured Query Language (SQL)
 
 This section contains a basic introduction to querying CloudWatch Logs using OpenSearch SQL.
 It provides a familiar option if you're used to working with relational databases.
@@ -62,9 +60,7 @@ depending on which data source you're querying.
 | Select multiple log groups   | `SELECT lg1.field1, lg1.field2 from `logGroups(<br>logGroupIdentifier: ['LogGroup1', 'LogGroup2'])` as lg1<br>where lg1.field3= "Success"`           | Enables you to specify multiple log groups in a SELECT<br>statement                                                                                                                                                                              |
 | Select multiple data sources | `SELECT ds1.field1, ds1.field2 from<br>`dataSource(['DataSource1', 'DataSource2'])` as ds1<br>where ds1.field3= "Success"`                           | Enables you to specify multiple data sources in a SELECT<br>statement                                                                                                                                                                            |
 
-## Supported SQL for multi-log-group
-
-queries
+## Supported SQL for multi-log-group queries
 
 To support the use case for querying multiple log groups in SQL, you can use
 the `logGroups` command. Using this syntax, you can query multiple
@@ -98,9 +94,7 @@ SELECT Column1, Column2 FROM 'LogGroup1', 'LogGroup2', ...'LogGroupn'
 WHERE Column1 = 'ABC'
 ```
 
-## Supported SQL for data
-
-source queries
+## Supported SQL for data source queries
 
 To support the use case for querying data sources in SQL, you can use the
 dataSource command. Using this syntax, you can query data sources by specifying
@@ -136,9 +130,7 @@ group(s) need to be searched
 SELECT * FROM `logGroups(logGroupIdentifier: ['/aws/lambda/my-function'])`;
 ```
 
-### Data Source and
-
-Type
+### Data Source and Type
 
 Customers can query their logs using data source name and data source
 type.
@@ -171,9 +163,7 @@ SELECT DS1.Column1, DS1.Column2 from `dataSource(
 
 For more information on querying by data sources, see [Use facets to group and explore logs](CloudWatchLogs-Facets.md "CloudWatchLogs-Facets.md").
 
-### Combined
-
-example
+### Combined example
 
 Customers can specify all the source selection operators within the
 backticks in any order and the results would be based on the intersection of
@@ -192,9 +182,7 @@ SELECT * FROM `
 `;
 ```
 
-### Field
-
-Indexes
+### Field Indexes
 
 Field Index-based source selection automatically identifies relevant log
 groups when your filters target indexed fields, reducing scan volume and

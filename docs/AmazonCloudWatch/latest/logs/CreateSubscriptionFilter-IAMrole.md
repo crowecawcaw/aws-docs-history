@@ -1,13 +1,10 @@
-# Step 2: (Only if using an
-
-organization) Create an IAM role
+# Step 2: (Only if using an organization) Create an IAM role
 
 In the previous section, if you created the destination by using an access
 policy that grants permissions to the organization that account
 `111111111111` is in, instead of granting permissions
 directly to account `111111111111`, then follow the steps in this
-section. Otherwise, you can skip to [Step 4: Create a subscription
-filter](CreateSubscriptionFilter.md "CreateSubscriptionFilter.md").
+section. Otherwise, you can skip to [Step 4: Create a subscription filter](CreateSubscriptionFilter.md "CreateSubscriptionFilter.md").
 
 The steps in this section create an IAM role, which CloudWatch can assume and
 validate whether the sender account has permission to create a subscription
@@ -18,9 +15,7 @@ exist in the sender account, and you specify the ARN of this role in the
 subscription filter. In this example, the sender account is
 `111111111111`.
 
-###### To create the IAM role necessary for cross-account log
-
-subscriptions using AWS Organizations
+###### To create the IAM role necessary for cross-account log subscriptions using AWS Organizations
 
 1. Create the following trust policy in a file
    `/TrustPolicyForCWLSubscriptionFilter.json`.
@@ -82,5 +77,4 @@ aws iam create-role \
             --policy-document file://~/PermissionsForCWLSubscriptionFilter.json
         ```
 
-    When you have finished, you can proceed to [Step 4: Create a subscription
-    filter](CreateSubscriptionFilter.md "CreateSubscriptionFilter.md").
+    When you have finished, you can proceed to [Step 4: Create a subscription filter](CreateSubscriptionFilter.md "CreateSubscriptionFilter.md").

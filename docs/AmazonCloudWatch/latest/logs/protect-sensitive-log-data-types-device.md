@@ -6,9 +6,7 @@ CloudWatch Logs data protection can find the following types of device identifie
 | ------------ | ------------------ | ---------------- | --------------------- |
 | IP address   | `IpAddress`        | None             | All                   |
 
-## Data identifier ARNs for device
-
-data types
+## Data identifier ARNs for device data types
 
 The following lists the Amazon Resource Names (ARNs) for the data identifiers that you can
 add to your data protection policies.

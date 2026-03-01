@@ -1,6 +1,4 @@
-# Console-specific
-
-permissions
+# Console-specific permissions
 
 In addition to the permissions listed in the previous sections, if you are setting up
 log delivery using the console instead of the APIs, you also need the following

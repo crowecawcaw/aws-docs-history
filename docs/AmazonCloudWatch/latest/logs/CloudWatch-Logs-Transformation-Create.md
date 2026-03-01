@@ -1,6 +1,4 @@
-# Create and manage log
-
-transformers
+# Create and manage log transformers
 
 A log transformer includes one or more _processors_ that are in a
 logical pipeline together. Each processor is applied to a log event, one after the other
@@ -41,15 +39,9 @@ You must follow these guidelines when you create a transformer:
 
 ###### Topics
 
-- [Create an
-  account-level transformer policy](CloudWatchLogs-Transformer-CreateAccountLevel.md "CloudWatchLogs-Transformer-CreateAccountLevel.md")
-- [Edit or delete an
-  account-level transformer policy](CloudWatchLogs-Transformer-EditAccountLevel.md "CloudWatchLogs-Transformer-EditAccountLevel.md")
-- [Create a log-group-level
-  log transformer from scratch](CloudWatch-Logs-Transformation-CreateNew.md "CloudWatch-Logs-Transformation-CreateNew.md")
-- [Create a log-group-level
-  transformer by copying an existing one](CloudWatch-Logs-Transformation-Copy.md "CloudWatch-Logs-Transformation-Copy.md")
-- [Edit a log-group-level
-  transformer](CloudWatch-Logs-Transformation-Edit.md "CloudWatch-Logs-Transformation-Edit.md")
-- [Delete a log-group-level
-  transformer](CloudWatch-Logs-Transformation-Delete.md "CloudWatch-Logs-Transformation-Delete.md")
+- [Create an account-level transformer policy](CloudWatchLogs-Transformer-CreateAccountLevel.md "CloudWatchLogs-Transformer-CreateAccountLevel.md")
+- [Edit or delete an account-level transformer policy](CloudWatchLogs-Transformer-EditAccountLevel.md "CloudWatchLogs-Transformer-EditAccountLevel.md")
+- [Create a log-group-level log transformer from scratch](CloudWatch-Logs-Transformation-CreateNew.md "CloudWatch-Logs-Transformation-CreateNew.md")
+- [Create a log-group-level transformer by copying an existing one](CloudWatch-Logs-Transformation-Copy.md "CloudWatch-Logs-Transformation-Copy.md")
+- [Edit a log-group-level transformer](CloudWatch-Logs-Transformation-Edit.md "CloudWatch-Logs-Transformation-Edit.md")
+- [Delete a log-group-level transformer](CloudWatch-Logs-Transformation-Delete.md "CloudWatch-Logs-Transformation-Delete.md")

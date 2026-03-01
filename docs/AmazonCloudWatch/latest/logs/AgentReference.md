@@ -353,9 +353,7 @@ If you are using Amazon Linux 2, use the following command to restart the agent:
 sudo service awslogsd restart
 ```
 
-## Compartmentalizing CloudWatch Logs agent configuration
-
-files
+## Compartmentalizing CloudWatch Logs agent configuration files
 
 If you're using awslogs-agent-setup.py version 1.3.8 or later with awscli-cwlogs
 1.3.3 or later, you can import different stream configurations for various

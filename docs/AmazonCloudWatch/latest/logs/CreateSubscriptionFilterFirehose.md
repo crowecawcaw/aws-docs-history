@@ -1,6 +1,4 @@
-# Step 4: Create a subscription
-
-filter
+# Step 4: Create a subscription filter
 
 Switch to the sending account, which is 111111111111 in this example. You will
 now create the subscription filter in the sending account. In this example, the
@@ -12,8 +10,7 @@ CloudTrail Events to CloudWatch Logs](../../../awscloudtrail/latest/userguide/se
 _AWS CloudTrail User Guide_.
 
 When you enter the following command, be sure you are signed in as the IAM
-user or using the IAM role that you added the policy for, in [Step 3:
-Add/validate IAM permissions for the cross-account destination](Subscription-Filter-CrossAccount-Permissions-Firehose.md "Subscription-Filter-CrossAccount-Permissions-Firehose.md").
+user or using the IAM role that you added the policy for, in [Step 3: Add/validate IAM permissions for the cross-account destination](Subscription-Filter-CrossAccount-Permissions-Firehose.md "Subscription-Filter-CrossAccount-Permissions-Firehose.md").
 
 ```
 `aws logs put-subscription-filter \

@@ -3,11 +3,9 @@
 ###### Topics
 
 - [What are custom data identifiers?](#what-are-custom-data-identifiers "#what-are-custom-data-identifiers")
-- [Custom data identifier
-  constraints](#custom-data-identifiers-constraints "#custom-data-identifiers-constraints")
+- [Custom data identifier constraints](#custom-data-identifiers-constraints "#custom-data-identifiers-constraints")
 - [Using custom data identifiers in the console](#using-custom-data-identifiers-console "#using-custom-data-identifiers-console")
-- [Using custom data identifiers in your data
-  protection policy](#using-custom-data-identifiers "#using-custom-data-identifiers")
+- [Using custom data identifiers in your data protection policy](#using-custom-data-identifiers "#using-custom-data-identifiers")
 
 ## What are custom data identifiers?
 
@@ -18,9 +16,7 @@ identifiers](CWL-managed-data-identifiers.md "CWL-managed-data-identifiers.md") 
 for company-specific employee IDs. Custom data identifiers can be used in conjunction with
 managed data identifiers.
 
-## Custom data identifier
-
-constraints
+## Custom data identifier constraints
 
 CloudWatch Logs custom data identifiers have the following limitations:
 
@@ -52,9 +48,7 @@ you might enter `Employee_ID` for the name and `EmployeeID-\d{9}`
 as the regular expression. This regular expression will detect and mask log events with nine numbers
 after `EmployeeID-`. For example, `EmployeeID-123456789`
 
-## Using custom data identifiers in your data
-
-protection policy
+## Using custom data identifiers in your data protection policy
 
 If you are using the AWS CLI or AWS API to specify a custom data identifier, you need to include
 the data identifier name and regular expression in the JSON policy used to define the data

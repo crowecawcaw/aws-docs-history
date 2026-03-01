@@ -1,6 +1,4 @@
-# Quick Start: Install and configure the CloudWatch Logs agent on a
-
-running EC2 Linux instance
+# Quick Start: Install and configure the CloudWatch Logs agent on a running EC2 Linux instance
 
 ###### Important
 
@@ -29,9 +27,7 @@ your server uses IMDSv2, you must use the newer unified agent instead of the old
 
 The rest of this section explains the use of the older CloudWatch Logs agent.
 
-## Configure the older CloudWatch Logs agent on a running EC2
-
-Linux instance
+## Configure the older CloudWatch Logs agent on a running EC2 Linux instance
 
 You can use the CloudWatch Logs agent installer on an existing EC2 instance to install and
 configure the CloudWatch Logs agent. After installation is complete, logs automatically flow from the instance
@@ -52,9 +48,7 @@ IAM credentials for the next steps or you can assign an IAM role to that
 instance. For more information, see [Attaching an
 IAM Role to an Instance](../../../AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.md#attach-iam-role "../../../AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.md#attach-iam-role").
 
-###### To configure your IAM role or
-
-user for CloudWatch Logs
+###### To configure your IAM role or user for CloudWatch Logs
 
 1. Open the IAM console at
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -94,9 +88,7 @@ A new browser tab or window opens. 5. Choose the **JSON** tab and type the follo
    **Refresh**, and then choose the new policy to attach it to your role.
 9. Choose **Attach Policy**.
 
-### Step 2: Install and configure CloudWatch Logs on an existing Amazon EC2
-
-instance
+### Step 2: Install and configure CloudWatch Logs on an existing Amazon EC2 instance
 
 The process for installing the CloudWatch Logs agent differs depending on whether your Amazon EC2
 instance is running Amazon Linux, Ubuntu, CentOS, or Red Hat. Use the steps appropriate for
@@ -175,9 +167,7 @@ If you are running Amazon Linux 2, use the following command to start the servic
 
 For more information, see [View log data sent to CloudWatch Logs](Working-with-log-groups-and-streams.md#ViewingLogData "Working-with-log-groups-and-streams.md#ViewingLogData").
 
-###### To install and configure CloudWatch Logs on an existing Ubuntu Server, CentOS, or Red
-
-Hat instance
+###### To install and configure CloudWatch Logs on an existing Ubuntu Server, CentOS, or Red Hat instance
 
 If you're using an AMI running Ubuntu Server, CentOS, or Red Hat, use the
 following procedure to manually install the CloudWatch Logs agent on your instance.

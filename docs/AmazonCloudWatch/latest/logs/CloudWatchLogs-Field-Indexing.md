@@ -1,6 +1,4 @@
-# Create field indexes to improve query
-
-performance and reduce scan volume
+# Create field indexes to improve query performance and reduce scan volume
 
 You can create _field indexes_ of fields in your log events for
 efficient equality-based searches. When you then use a field index in a CloudWatch Logs Insights query,
@@ -79,13 +77,8 @@ and [filter](CWL_QuerySyntax-Filter.md "CWL_QuerySyntax-Filter.md").
 
 ###### Topics
 
-- [Field index syntax and
-  quotas](CloudWatchLogs-Field-Indexing-Syntax.md "CloudWatchLogs-Field-Indexing-Syntax.md")
-- [Create an
-  account-level field index policy](CloudWatchLogs-Field-Indexing-CreateAccountLevel.md "CloudWatchLogs-Field-Indexing-CreateAccountLevel.md")
-- [Create a
-  log-group level field index policy](CloudWatchLogs-Field-Indexing-CreateLogGroupLevel.md "CloudWatchLogs-Field-Indexing-CreateLogGroupLevel.md")
-- [Log group selection options when creating
-  a query](Field-Indexing-Selection.md "Field-Indexing-Selection.md")
-- [Effects of deleting a field
-  index policy](CloudWatchLogs-Field-Indexing-Deletion.md "CloudWatchLogs-Field-Indexing-Deletion.md")
+- [Field index syntax and quotas](CloudWatchLogs-Field-Indexing-Syntax.md "CloudWatchLogs-Field-Indexing-Syntax.md")
+- [Create an account-level field index policy](CloudWatchLogs-Field-Indexing-CreateAccountLevel.md "CloudWatchLogs-Field-Indexing-CreateAccountLevel.md")
+- [Create a log-group level field index policy](CloudWatchLogs-Field-Indexing-CreateLogGroupLevel.md "CloudWatchLogs-Field-Indexing-CreateLogGroupLevel.md")
+- [Log group selection options when creating a query](Field-Indexing-Selection.md "Field-Indexing-Selection.md")
+- [Effects of deleting a field index policy](CloudWatchLogs-Field-Indexing-Deletion.md "CloudWatchLogs-Field-Indexing-Deletion.md")

@@ -1,35 +1,22 @@
-# Boolean, comparison,
-
-numeric, datetime, and other functions
+# Boolean, comparison, numeric, datetime, and other functions
 
 CloudWatch Logs Insights supports many other operations and functions in queries, as
 explained in the following sections.
 
 ###### Topics
 
-- [Arithmetic
-  operators](#CWL_QuerySyntax-operations-arithmetic "#CWL_QuerySyntax-operations-arithmetic")
-- [Boolean
-  operators](#CWL_QuerySyntax-operations-Boolean "#CWL_QuerySyntax-operations-Boolean")
-- [Comparison
-  operators](#CWL_QuerySyntax-operations-comparison "#CWL_QuerySyntax-operations-comparison")
-- [Numeric
-  operators](#CWL_QuerySyntax-operations-numeric "#CWL_QuerySyntax-operations-numeric")
-- [Structure
-  types](#CWL_QuerySyntax-structure-types "#CWL_QuerySyntax-structure-types")
-- [Datetime
-  functions](#CWL_QuerySyntax-datetime "#CWL_QuerySyntax-datetime")
-- [General
-  functions](#CWL_QuerySyntax-general-functions "#CWL_QuerySyntax-general-functions")
+- [Arithmetic operators](#CWL_QuerySyntax-operations-arithmetic "#CWL_QuerySyntax-operations-arithmetic")
+- [Boolean operators](#CWL_QuerySyntax-operations-Boolean "#CWL_QuerySyntax-operations-Boolean")
+- [Comparison operators](#CWL_QuerySyntax-operations-comparison "#CWL_QuerySyntax-operations-comparison")
+- [Numeric operators](#CWL_QuerySyntax-operations-numeric "#CWL_QuerySyntax-operations-numeric")
+- [Structure types](#CWL_QuerySyntax-structure-types "#CWL_QuerySyntax-structure-types")
+- [Datetime functions](#CWL_QuerySyntax-datetime "#CWL_QuerySyntax-datetime")
+- [General functions](#CWL_QuerySyntax-general-functions "#CWL_QuerySyntax-general-functions")
 - [JSON functions](#CWL_QuerySyntax-json-functions "#CWL_QuerySyntax-json-functions")
-- [IP address string
-  functions](#CWL_QuerySyntax-IPaddress-functions "#CWL_QuerySyntax-IPaddress-functions")
-- [String
-  functions](#CWL_QuerySyntax-string-functions "#CWL_QuerySyntax-string-functions")
+- [IP address string functions](#CWL_QuerySyntax-IPaddress-functions "#CWL_QuerySyntax-IPaddress-functions")
+- [String functions](#CWL_QuerySyntax-string-functions "#CWL_QuerySyntax-string-functions")
 
-## Arithmetic
-
-operators
+## Arithmetic operators
 
 Arithmetic operators accept numeric data types as arguments and
 return numeric results. Use arithmetic operators in the
@@ -45,9 +32,7 @@ arguments for other functions.
 | `a ^ b`    | Exponentiation (`2 ^ 3` returns<br>`8`)        |
 | `a % b`    | Remainder or modulus (`10 % 3` returns<br>`1`) |
 
-## Boolean
-
-operators
+## Boolean operators
 
 Use the Boolean operators `**and**`,
 `**or**`, and
@@ -58,9 +43,7 @@ Use the Boolean operators `**and**`,
 Use Boolean operators only in functions that return a value of
 **TRUE** or **FALSE**.
 
-## Comparison
-
-operators
+## Comparison operators
 
 Comparison operators accept all data types as arguments and return a
 Boolean result. Use comparison operations in the `filter`
@@ -75,9 +58,7 @@ command and as arguments for other functions.
 | `<=`     | Less than or equal to    |
 | `>=`     | Greater than or equal to |
 
-## Numeric
-
-operators
+## Numeric operators
 
 Numeric operations accept numeric data types as arguments and return
 numeric results. Use numeric operations in the `filter` and
@@ -93,9 +74,7 @@ numeric results. Use numeric operations in the `filter` and
 | `log(a: number)`                               | number      | Natural log                                                                      |
 | `sqrt(a: number)`                              | number      | Square root                                                                      |
 
-## Structure
-
-types
+## Structure types
 
 A map or list is a structure type in CloudWatch Logs Insights that allows you to
 access and use attributes for queries.
@@ -155,9 +134,7 @@ Comparing map and list to any other fields result in
 Using map and list in `dedup`,`pattern`,
 `sort`, and `stats` isn't supported.
 
-## Datetime
-
-functions
+## Datetime functions
 
 **Datetime functions**
 
@@ -215,9 +192,7 @@ also can set time periods between specific dates.
 Currently, CloudWatch Logs Insights doesn't support filtering logs with human
 readable timestamps.
 
-## General
-
-functions
+## General functions
 
 **General functions**
 
@@ -241,9 +216,7 @@ commands and as arguments for other functions.
 | `jsonParse(fieldName: string)` | Map         | List        | Empty                                          | Returns a map or list when the input is a string<br>representation of JSON object or a JSON array.<br>Returns an empty value, if the input is not one of<br>the representation. |
 | `jsonStringify(fieldName: Map  | List)`      | String      | Returns a JSON string from a map or list data. |
 
-## IP address string
-
-functions
+## IP address string functions
 
 **IP address string functions**
 
@@ -259,9 +232,7 @@ Use IP address string functions in the `filter` and
 | `isIpv4InSubnet(fieldName: string, subnet:<br>string)` | boolean     | Returns `true` if the field is a valid<br>IPv4 address within the specified v4 subnet. When<br>you specify the subnet, use CIDR notation such as<br>`192.0.2.0/24` where<br>`192.0.2.0` is the start of the CIDR<br>block..                                                     |
 | `isIpv6InSubnet(fieldName: string, subnet:<br>string)` | boolean     | Returns `true` if the field is a valid<br>IPv6 address within the specified v6 subnet. When<br>you specify the subnet, use CIDR notation such as<br>`2001:db8::/32` where<br>`2001:db8::` is the start of the CIDR<br>block.                                                    |
 
-## String
-
-functions
+## String functions
 
 **String functions**
 

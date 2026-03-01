@@ -17,14 +17,9 @@ Scheduled queries support all three query languages available in CloudWatch Logs
 
 ###### Contents
 
-- [Understanding scheduled queries
-  concepts](scheduled-queries-concepts.md "scheduled-queries-concepts.md")
-- [Schedule expression
-  reference](scheduled-queries-schedule-reference.md "scheduled-queries-schedule-reference.md")
+- [Understanding scheduled queries concepts](scheduled-queries-concepts.md "scheduled-queries-concepts.md")
+- [Schedule expression reference](scheduled-queries-schedule-reference.md "scheduled-queries-schedule-reference.md")
 - [Best practices](scheduled-queries-best-practices.md "scheduled-queries-best-practices.md")
-- [Getting started with scheduled
-  queries](scheduled-queries-getting-started.md "scheduled-queries-getting-started.md")
-- [Configuring S3 destinations for
-  scheduled queries](scheduled-queries-s3-destination.md "scheduled-queries-s3-destination.md")
-- [Troubleshooting scheduled
-  queries](scheduled-queries-troubleshooting.md "scheduled-queries-troubleshooting.md")
+- [Getting started with scheduled queries](scheduled-queries-getting-started.md "scheduled-queries-getting-started.md")
+- [Configuring S3 destinations for scheduled queries](scheduled-queries-s3-destination.md "scheduled-queries-s3-destination.md")
+- [Troubleshooting scheduled queries](scheduled-queries-troubleshooting.md "scheduled-queries-troubleshooting.md")

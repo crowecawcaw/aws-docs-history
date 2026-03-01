@@ -1,13 +1,9 @@
-# Troubleshooting scheduled
-
-queries
+# Troubleshooting scheduled queries
 
 Use these troubleshooting topics to resolve common issues with scheduled
 queries.
 
-## Query execution fails with
-
-permission errors
+## Query execution fails with permission errors
 
 Resolve permission errors that prevent scheduled queries from executing or
 delivering results to destinations.
@@ -56,9 +52,7 @@ groups, or using complex aggregations without proper filtering.
 To prevent timeouts, test queries manually in CloudWatch Logs Insights with your
 expected data volume and optimize performance before scheduling.
 
-## Destination
-
-processing fails
+## Destination processing fails
 
 Resolve failures that occur when scheduled query results cannot be delivered to
 the configured destinations.

@@ -32,8 +32,7 @@ subset of the Standard class capabilities. For more information, see [Log classe
 - **Create field indexes to make queries more efficient** – You can create
   _field indexes_ of fields in your log events. When you then use a field index
   in a CloudWatch Logs Insights query, the query attempts to skip processing log events that are known to not include the indexed field. This query reduces the scan volume of your queries,
-  making it possible to return results faster. To get started, see [Create field indexes to improve query
-  performance and reduce scan volume](CloudWatchLogs-Field-Indexing.md "CloudWatchLogs-Field-Indexing.md").
+  making it possible to return results faster. To get started, see [Create field indexes to improve query performance and reduce scan volume](CloudWatchLogs-Field-Indexing.md "CloudWatchLogs-Field-Indexing.md").
 - **Detect and debug using Live Tail** – You can use
   Live Tail to quickly troubleshoot incidents by viewing a streaming
   list of new log events as they are ingested. You can view, filter, and highlight ingested logs in near real time, helping you

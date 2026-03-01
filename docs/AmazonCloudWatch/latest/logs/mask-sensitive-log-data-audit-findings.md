@@ -43,9 +43,7 @@ The fields in the report are as follows:
   the value of the `LogEventsWithFindings` metric is incremented only by one, because that metric
   counts the number of log events that contain sensitive data, not the number of occurrences of sensitive data.
 
-## Required key policy to send audit findings to an
-
-bucket protected by AWS KMS
+## Required key policy to send audit findings to an bucket protected by AWS KMS
 
 You can protect the data in an Amazon S3 bucket by enabling either Server-Side Encryption with
 Amazon S3-Managed Keys (SSE-S3) or Server-Side Encryption with KMS Keys (SSE-KMS). For more information,

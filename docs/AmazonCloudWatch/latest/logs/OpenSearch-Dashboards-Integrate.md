@@ -1,6 +1,4 @@
-# Step 1: Create the integration with
-
-OpenSearch Service
+# Step 1: Create the integration with OpenSearch Service
 
 The first step is creating the integration with OpenSearch Service, which you need to do only once.
 Creating the integration will create the following resources in your account.
@@ -386,13 +384,11 @@ If you create a role, it will have permissions to read from all log
 groups in the account.
 
 If you want to select an existing role, it should have the permissions
-listed in [Permissions that the integration
-needs](OpenSearch-Dashboards-CreateRole.md "OpenSearch-Dashboards-CreateRole.md"). Alternatively, you
+listed in [Permissions that the integration needs](OpenSearch-Dashboards-CreateRole.md "OpenSearch-Dashboards-CreateRole.md"). Alternatively, you
 can choose **Use an existing role** and then in the
 **Verify access permissions of the selected role**
 section you can choose **Create role**. This way you can
-use the permissions listed in [Permissions that the integration
-needs](OpenSearch-Dashboards-CreateRole.md "OpenSearch-Dashboards-CreateRole.md") as a template and
+use the permissions listed in [Permissions that the integration needs](OpenSearch-Dashboards-CreateRole.md "OpenSearch-Dashboards-CreateRole.md") as a template and
 modify it. For example, if you want to specify a finer-grain control of log
 groups. 8. For **IAM roles and users who can view dashboards**, you
 select how you want to grant access to IAM roles and IAM users for

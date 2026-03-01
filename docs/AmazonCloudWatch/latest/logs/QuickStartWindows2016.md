@@ -1,6 +1,4 @@
-# Quick Start: Enable your Amazon EC2 instances running Windows
-
-Server 2016 to send logs to CloudWatch Logs using the CloudWatch Logs agent
+# Quick Start: Enable your Amazon EC2 instances running Windows Server 2016 to send logs to CloudWatch Logs using the CloudWatch Logs agent
 
 ###### Tip
 
@@ -11,9 +9,7 @@ see [Getting started with CloudWatch Logs](CWL_GettingStarted.md "CWL_GettingSta
 
 The rest of this section explains the use of the older CloudWatch Logs agent.
 
-## Enable your Amazon EC2 instances running Windows
-
-Server 2016 to send logs to CloudWatch Logs using the older CloudWatch Logs agent
+## Enable your Amazon EC2 instances running Windows Server 2016 to send logs to CloudWatch Logs using the older CloudWatch Logs agent
 
 There are multiple methods you can use to enable instances running Windows Server 2016 to send
 logs to CloudWatch Logs. The steps in this section use Systems Manager Run Command. For information about the other possible methods, see

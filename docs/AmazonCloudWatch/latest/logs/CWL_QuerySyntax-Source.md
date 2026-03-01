@@ -34,8 +34,7 @@ list.
   Because you can specify large numbers of log groups to query this way, we
   recommend that you use `SOURCE` only in queries that leverage
   field indexes that you have created. For more information about indexing
-  fields in log groups, see [Create field indexes to improve query
-  performance and reduce scan volume](CloudWatchLogs-Field-Indexing.md "CloudWatchLogs-Field-Indexing.md")
+  fields in log groups, see [Create field indexes to improve query performance and reduce scan volume](CloudWatchLogs-Field-Indexing.md "CloudWatchLogs-Field-Indexing.md")
 
 The following example selects all log groups in the account. If this is a
 monitoring account then the log groups across monitoring and all the source

@@ -1,6 +1,4 @@
-# Step 2: Create vended logs
-
-dashboards
+# Step 2: Create vended logs dashboards
 
 After you have created the integration, you can create dashboards. Dashboards are
 available for Amazon VPC flow logs, CloudTrail logs, and AWS WAF logs.

@@ -1,6 +1,4 @@
-# Overview of managing access
-
-permissions to your CloudWatch Logs resources
+# Overview of managing access permissions to your CloudWatch Logs resources
 
 To provide access, add permissions to your users, groups, or roles:
 
@@ -20,11 +18,9 @@ in the _IAM User Guide_.
 ###### Topics
 
 - [CloudWatch Logs resources and operations](#CWL_ARN_Format "#CWL_ARN_Format")
-- [Understanding resource
-  ownership](#understanding-resource-ownership-cwl "#understanding-resource-ownership-cwl")
+- [Understanding resource ownership](#understanding-resource-ownership-cwl "#understanding-resource-ownership-cwl")
 - [Managing access to resources](#managing-access-resources-cwl "#managing-access-resources-cwl")
-- [Specifying policy elements:
-  Actions, effects, and principals](#actions-effects-principals-cwl "#actions-effects-principals-cwl")
+- [Specifying policy elements: Actions, effects, and principals](#actions-effects-principals-cwl "#actions-effects-principals-cwl")
 - [Specifying conditions in a policy](#policy-conditions-cwl "#policy-conditions-cwl")
 
 ## CloudWatch Logs resources and operations
@@ -45,15 +41,12 @@ associated with them as shown in the following table.
 For more information about ARNs, see [ARNs](../../../IAM/latest/UserGuide/Using_Identifiers.md#Identifiers_ARNs "../../../IAM/latest/UserGuide/Using_Identifiers.md#Identifiers_ARNs") in
 _IAM User Guide_. For information about CloudWatch Logs ARNs, see
 [Amazon Resource Names (ARNs)](../../../general/latest/gr/aws-arns-and-namespaces.md#arn-syntax-cloudwatch-logs "../../../general/latest/gr/aws-arns-and-namespaces.md#arn-syntax-cloudwatch-logs") in _Amazon Web Services General Reference_.
-For an example of a policy that covers CloudWatch Logs, see [Using identity-based policies
-(IAM policies) for CloudWatch Logs](iam-identity-based-access-control-cwl.md "iam-identity-based-access-control-cwl.md").
+For an example of a policy that covers CloudWatch Logs, see [Using identity-based policies (IAM policies) for CloudWatch Logs](iam-identity-based-access-control-cwl.md "iam-identity-based-access-control-cwl.md").
 
 CloudWatch Logs provides a set of operations to work with the CloudWatch Logs resources. For a list of
 available operations, see [CloudWatch Logs permissions reference](permissions-reference-cwl.md "permissions-reference-cwl.md").
 
-## Understanding resource
-
-ownership
+## Understanding resource ownership
 
 The AWS account owns the resources that are created in the account, regardless
 of who created the resources. Specifically, the resource owner is the AWS account
@@ -92,18 +85,14 @@ Policies attached to an IAM identity are referred to as identity-based policies
 (IAM policies) and policies attached to a resource are referred to as
 resource-based policies. CloudWatch Logs supports identity-based policies, and resource-based
 policies for destinations, which are used to enable cross account subscriptions. For
-more information, see [Cross-account cross-Region
-subscriptions](CrossAccountSubscriptions.md "CrossAccountSubscriptions.md").
+more information, see [Cross-account cross-Region subscriptions](CrossAccountSubscriptions.md "CrossAccountSubscriptions.md").
 
 ###### Topics
 
-- [Log group
-  permissions and Contributor Insights](#cloudwatch-logs-permissions-and-contributor-insights "#cloudwatch-logs-permissions-and-contributor-insights")
+- [Log group permissions and Contributor Insights](#cloudwatch-logs-permissions-and-contributor-insights "#cloudwatch-logs-permissions-and-contributor-insights")
 - [Resource-based policies](#resource-based-policies-cwl "#resource-based-policies-cwl")
 
-### Log group
-
-permissions and Contributor Insights
+### Log group permissions and Contributor Insights
 
 Contributor Insights is a feature of CloudWatch that enables you to analyze data
 from log groups and create time series that display contributor data. You can
@@ -147,9 +136,7 @@ JSON
 
 ```
 
-## Specifying policy elements:
-
-Actions, effects, and principals
+## Specifying policy elements: Actions, effects, and principals
 
 For each CloudWatch Logs resource, the service defines a set of API operations. To grant
 permissions for these API operations, CloudWatch Logs defines a set of actions that you can

@@ -1,6 +1,4 @@
-# Tutorial: Run a query
-
-with an aggregation function
+# Tutorial: Run a query with an aggregation function
 
 You can use aggregation functions with the `stats` command and
 as arguments for other functions. In this tutorial, you run a query command

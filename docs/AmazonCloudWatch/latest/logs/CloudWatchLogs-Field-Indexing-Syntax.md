@@ -1,6 +1,4 @@
-# Field index syntax and
-
-quotas
+# Field index syntax and quotas
 
 You create field indexes by creating _field index policies_.
 You can create account-level index policies that apply to your whole account, and
@@ -60,8 +58,7 @@ Each index policy has the following quotas and restrictions:
 
 CloudWatch Logs Insights automatically generates system fields in each log event. These generated
 fields are prefixed with `@` For more information about generated fields,
-see [Supported logs and discovered
-fields](CWL_AnalyzeLogData-discoverable-fields.md "CWL_AnalyzeLogData-discoverable-fields.md").
+see [Supported logs and discovered fields](CWL_AnalyzeLogData-discoverable-fields.md "CWL_AnalyzeLogData-discoverable-fields.md").
 
 Of these generated fields, the following are supported for use as field
 indexes:

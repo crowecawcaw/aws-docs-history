@@ -8,8 +8,7 @@ log events containing the field specified in the query for the indexed
 field. It further reduces scanned volume by attempting to scan only log
 events from these log groups that match the value specified in the query for
 this field index. For more information about field indexes and how to create
-them, see [Create field indexes to improve query
-performance and reduce scan volume](CloudWatchLogs-Field-Indexing.md "CloudWatchLogs-Field-Indexing.md").
+them, see [Create field indexes to improve query performance and reduce scan volume](CloudWatchLogs-Field-Indexing.md "CloudWatchLogs-Field-Indexing.md").
 
 Using `filterIndex` with indexed fields can help you query log
 groups that include petabytes of log data efficiently by limiting the actual
@@ -70,9 +69,7 @@ Default field indexes are in addition to any custom
 field indexes you define within your policy. Default field indexes are not counted
 towards your [field index quota](CloudWatchLogs-Field-Indexing-Syntax.md "CloudWatchLogs-Field-Indexing-Syntax.md").
 
-## filterIndex
-
-compared to filter
+## filterIndex compared to filter
 
 To illustrate the difference between `filterIndex` and
 `filter`, consider the following example queries. Assume

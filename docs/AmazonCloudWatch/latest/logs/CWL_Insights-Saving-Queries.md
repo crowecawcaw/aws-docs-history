@@ -1,6 +1,4 @@
-# Save and re-run CloudWatch Logs Insights
-
-queries
+# Save and re-run CloudWatch Logs Insights queries
 
 After you create a query, you can save it, and run it again later. Queries are saved
 in a folder structure, so you can organize them. You can save as many as 1000 queries

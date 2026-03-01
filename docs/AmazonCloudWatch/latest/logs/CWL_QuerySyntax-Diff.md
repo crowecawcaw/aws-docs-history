@@ -19,5 +19,4 @@ that you want to compare with:
 - `diff previousMonth` compares the log events in the
   currently selected time range to the log events from the same time
   the preceding month.
-  For more information, see [Compare (diff) with previous time
-  ranges](CWL_AnalyzeLogData_Compare.md "CWL_AnalyzeLogData_Compare.md").
+  For more information, see [Compare (diff) with previous time ranges](CWL_AnalyzeLogData_Compare.md "CWL_AnalyzeLogData_Compare.md").

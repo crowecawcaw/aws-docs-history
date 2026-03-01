@@ -1,6 +1,4 @@
-# Encrypt query results with
-
-AWS Key Management Service
+# Encrypt query results with AWS Key Management Service
 
 By default, CloudWatch Logs encrypts the stored results of your CloudWatch Logs Insights queries using the
 default CloudWatch Logs server-side encryption method. You can choose to use a AWS KMS key to
@@ -143,9 +141,7 @@ command:
 aws kms put-key-policy --key-id `key-id` --policy-name default --policy file://policy.json
 ```
 
-## Step 3: Associate a KMS key with your query
-
-results
+## Step 3: Associate a KMS key with your query results
 
 ###### To associate the KMS key with the query results in the account
 
@@ -155,9 +151,7 @@ Use the [disassociate-kms-key](../../../cli/latest/reference/logs/disassociate-k
 `aws logs associate-kms-key --resource-identifier "arn:aws:logs:`region`:`account-id`:query-result:*" --kms-key-id "`key-arn`"`
 ```
 
-## Step 4: Disassociate a key from query
-
-results in the account
+## Step 4: Disassociate a key from query results in the account
 
 To disassociate the KMS key associated with query results, use the following
 [disassociate-kms-key](../../../cli/latest/reference/logs/disassociate-kms-key.md "../../../cli/latest/reference/logs/disassociate-kms-key.md") command:

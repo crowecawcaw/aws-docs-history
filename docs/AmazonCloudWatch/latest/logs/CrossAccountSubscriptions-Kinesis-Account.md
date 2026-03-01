@@ -1,6 +1,4 @@
-# Cross-account
-
-cross-Region account-level subscriptions using Amazon Kinesis Data Streams
+# Cross-account cross-Region account-level subscriptions using Amazon Kinesis Data Streams
 
 When you create a cross-account subscription, you can specify a single account or
 an organization to be the sender. If you specify an organization, then this
@@ -61,7 +59,5 @@ are created in US East (N. Virginia).
 
 ###### Topics
 
-- [Setting up a new
-  cross-account subscription](Cross-Account-Log_Subscription-New-Account.md "Cross-Account-Log_Subscription-New-Account.md")
-- [Updating an
-  existing cross-account subscription](Cross-Account-Log_Subscription-Update-Account.md "Cross-Account-Log_Subscription-Update-Account.md")
+- [Setting up a new cross-account subscription](Cross-Account-Log_Subscription-New-Account.md "Cross-Account-Log_Subscription-New-Account.md")
+- [Updating an existing cross-account subscription](Cross-Account-Log_Subscription-Update-Account.md "Cross-Account-Log_Subscription-Update-Account.md")

@@ -1,6 +1,4 @@
-# Create an
-
-account-level field index policy
+# Create an account-level field index policy
 
 Use the steps in this section to create a field index policy that applies to all
 log groups in the account, or to multiple log groups that have log group names that

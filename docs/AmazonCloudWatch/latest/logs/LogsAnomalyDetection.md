@@ -9,8 +9,7 @@ in the log data automatically. Anomaly detection uses machine-learning and patte
 recognition to establish baselines of typical log content. For on-demand analysis, you can
 use the `anomaly detection` command in CloudWatch Logs Insights queries to identify unusual
 patterns in time-series data. For more information about query-based anomaly detection, see
-[Using anomaly detection in CloudWatch
-Logs Insights](LogsAnomalyDetection-Insights.md "LogsAnomalyDetection-Insights.md").
+[Using anomaly detection in CloudWatch Logs Insights](LogsAnomalyDetection-Insights.md "LogsAnomalyDetection-Insights.md").
 
 After you create an anomaly detector for a log group, it trains using the past two weeks
 of log events in the log group for training. The training period can take up to 15 minutes.
@@ -67,9 +66,7 @@ to encrypt anomaly detector and its results with AWS Key Management Service.
 
 Creating log anomaly detectors doesn't incur charges.
 
-## Severity and priority of
-
-anomalies and patterns
+## Severity and priority of anomalies and patterns
 
 Each anomaly found by a log anomaly detector is assigned a
 _priority_. Each pattern found is assigned a

@@ -1,6 +1,4 @@
-# Metrics published by log anomaly
-
-detectors
+# Metrics published by log anomaly detectors
 
 CloudWatch Logs publishes the **AnomalyCount** metric to CloudWatch metrics. This
 metric is published to the `AWS/Logs` namespace.

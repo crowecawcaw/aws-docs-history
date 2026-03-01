@@ -1,6 +1,4 @@
-# Tutorial: Run a
-
-query that produces a time series visualization
+# Tutorial: Run a query that produces a time series visualization
 
 When you run a query that uses the `bin()` function to group
 the returned results by a time period, you can view the results as a line

@@ -1,6 +1,4 @@
-# Step 3:
-
-Add/validate IAM permissions for the cross-account destination
+# Step 3: Add/validate IAM permissions for the cross-account destination
 
 According to AWS cross-account policy evaluation logic, in order to access
 any cross-account resource (such as an Kinesis or Firehose stream used as a
@@ -12,8 +10,7 @@ destination resource. For more information about policy evaluation logic, see
 You can attach the identity-based policy to the IAM role or IAM user that
 you are using to create the subscription filter. This policy must be present in
 the sending account. If you are using the Administrator role to create the
-subscription filter, you can skip this step and move on to [Step 4: Create a subscription
-filter](CreateSubscriptionFilter.md "CreateSubscriptionFilter.md").
+subscription filter, you can skip this step and move on to [Step 4: Create a subscription filter](CreateSubscriptionFilter.md "CreateSubscriptionFilter.md").
 
 ###### To add or validate the IAM permissions needed for cross-account
 

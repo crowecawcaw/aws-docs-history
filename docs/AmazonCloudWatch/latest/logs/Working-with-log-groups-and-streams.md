@@ -1,6 +1,4 @@
-# Working with log groups and log
-
-streams
+# Working with log groups and log streams
 
 A log stream is a sequence of log events that share the same source.
 Each separate source of logs in CloudWatch Logs makes up a separate log stream.
@@ -11,8 +9,7 @@ There is no limit on the number of log streams that can belong to one log group.
 
 For organizations that need to consolidate log data from multiple accounts and regions,
 you can use CloudWatch Logs Centralization to automatically replicate log groups to a central account.
-For more information, see [Cross-account cross-Region log
-centralization](CloudWatchLogs_Centralization.md "CloudWatchLogs_Centralization.md").
+For more information, see [Cross-account cross-Region log centralization](CloudWatchLogs_Centralization.md "CloudWatchLogs_Centralization.md").
 
 You can use the procedures in this section to work with log groups and log streams.
 
@@ -21,9 +18,7 @@ You can use the procedures in this section to work with log groups and log strea
 When you install the CloudWatch Logs agent on an Amazon EC2 instance using the steps in previous sections of the Amazon CloudWatch Logs User Guide, the log group is created as
 part of that process. You can also create a log group directly in the CloudWatch console.
 
-######
-
-To create a log group
+###### To create a log group
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").

@@ -21,8 +21,7 @@ creating metric filters.
   log event was generated.
   These dimensions help in identifying the source of log data, allowing for more granular
   filtering and analysis of metrics derived from centralized logs. For more information, see
-  [Cross-account cross-Region log
-  centralization](CloudWatchLogs_Centralization.md "CloudWatchLogs_Centralization.md").
+  [Cross-account cross-Region log centralization](CloudWatchLogs_Centralization.md "CloudWatchLogs_Centralization.md").
 
 If a log group with a subscription uses log transformation, the filter pattern is applied
 to the transformed versions of the log events. For more information, see [Transform logs during ingestion](CloudWatch-Logs-Transformation.md "CloudWatch-Logs-Transformation.md").
@@ -50,8 +49,7 @@ earlier than the metric creation time, no logs are displayed.
 ###### Contents
 
 - [Concepts](#search-filter-concepts "#search-filter-concepts")
-- [Filter pattern syntax for
-  metric filters](FilterAndPatternSyntaxForMetricFilters.md "FilterAndPatternSyntaxForMetricFilters.md")
+- [Filter pattern syntax for metric filters](FilterAndPatternSyntaxForMetricFilters.md "FilterAndPatternSyntaxForMetricFilters.md")
 - [Creating metric filters](MonitoringPolicyExamples.md "MonitoringPolicyExamples.md")
 - [Listing metric filters](ListingMetricFilters.md "ListingMetricFilters.md")
 - [Deleting a metric filter](DeletingMetricFilter.md "DeletingMetricFilter.md")

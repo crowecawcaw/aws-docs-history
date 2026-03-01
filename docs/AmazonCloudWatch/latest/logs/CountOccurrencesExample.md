@@ -1,6 +1,4 @@
-# Example: Count occurrences of a
-
-term
+# Example: Count occurrences of a term
 
 Log events frequently include important messages that you want to count, maybe
 about the success or failure of operations. For example, an error may occur and be

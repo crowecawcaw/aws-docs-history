@@ -1,6 +1,4 @@
-# Identity and access management for
-
-Amazon CloudWatch Logs
+# Identity and access management for Amazon CloudWatch Logs
 
 Access to Amazon CloudWatch Logs requires credentials that AWS can use to authenticate your requests.
 Those credentials must have permissions to access AWS resources, such as to retrieve CloudWatch Logs
@@ -37,8 +35,6 @@ permissions to create log streams, create log groups, and so on.
 The following sections describe how to manage permissions for CloudWatch Logs. We recommend that
 you read the overview first.
 
-- [Overview of managing access
-  permissions to your CloudWatch Logs resources](iam-access-control-overview-cwl.md "iam-access-control-overview-cwl.md")
-- [Using identity-based policies
-  (IAM policies) for CloudWatch Logs](iam-identity-based-access-control-cwl.md "iam-identity-based-access-control-cwl.md")
+- [Overview of managing access permissions to your CloudWatch Logs resources](iam-access-control-overview-cwl.md "iam-access-control-overview-cwl.md")
+- [Using identity-based policies (IAM policies) for CloudWatch Logs](iam-identity-based-access-control-cwl.md "iam-identity-based-access-control-cwl.md")
 - [CloudWatch Logs permissions reference](permissions-reference-cwl.md "permissions-reference-cwl.md")

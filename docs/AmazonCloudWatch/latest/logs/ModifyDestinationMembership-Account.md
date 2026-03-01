@@ -1,6 +1,4 @@
-# Modify destination
-
-membership at runtime
+# Modify destination membership at runtime
 
 You might encounter situations where you have to add or remove membership
 of some users from a destination that you own. You can use the

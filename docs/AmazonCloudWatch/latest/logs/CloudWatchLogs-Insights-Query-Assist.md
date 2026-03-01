@@ -1,6 +1,4 @@
-# Use natural language to generate
-
-and update CloudWatch Logs Insights queries
+# Use natural language to generate and update CloudWatch Logs Insights queries
 
 CloudWatch Logs supports a natural language query capability to help you generate and update
 queries for [CloudWatch Logs Insights](CWL_QuerySyntax.md "CWL_QuerySyntax.md"), [OpenSearch Service PPL](CWL_AnalyzeLogData_PPL.md "CWL_AnalyzeLogData_PPL.md"), [OpenSearch Service SQL](CWL_AnalyzeLogData_SQL.md "CWL_AnalyzeLogData_SQL.md"), and
@@ -40,9 +38,7 @@ the natural language capability.
 
 For more information on the CloudWatch Logs Insights query editor and syntax, see [CloudWatch Logs Insights query syntax](CWL_QuerySyntax.md "CWL_QuerySyntax.md").
 
-### Examples:
-
-Generate a natural language query
+### Examples: Generate a natural language query
 
 To generate a query using natural language, enter a prompt and choose
 **Generate new query**. These example shows queries that
@@ -126,9 +122,7 @@ dedup @message
 
 ```
 
-### Example: Update
-
-a natural language query
+### Example: Update a natural language query
 
 You can update a query by editing the initial prompt and then choosing
 **Update query**.
@@ -161,9 +155,7 @@ fields @timestamp, @message, @requestId, @duration
 
 ```
 
-## Opting out of
-
-using your data for service improvement
+## Opting out of using your data for service improvement
 
 The natural language prompt data you provide to train the AI model and generate
 relevant queries is used solely to provide and maintain your service. This data

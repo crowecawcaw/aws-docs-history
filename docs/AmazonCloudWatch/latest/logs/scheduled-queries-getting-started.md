@@ -1,6 +1,4 @@
-# Getting started with scheduled
-
-queries
+# Getting started with scheduled queries
 
 When you create a scheduled query, you'll configure several key components that define
 how your query runs and where results are delivered. Understanding these components will

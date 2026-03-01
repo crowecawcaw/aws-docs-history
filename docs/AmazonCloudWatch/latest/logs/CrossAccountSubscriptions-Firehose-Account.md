@@ -1,6 +1,4 @@
-# Cross-account
-
-cross-Region account-level subscriptions using Firehose
+# Cross-account cross-Region account-level subscriptions using Firehose
 
 To share log data across accounts, you need to establish a log data sender and
 receiver:
@@ -36,13 +34,8 @@ is supported.
 
 ###### Topics
 
-- [Step 1: Create a Firehose delivery
-  stream](CreateFirehoseStream-Account.md "CreateFirehoseStream-Account.md")
-- [Step 2: Create a
-  destination](CreateFirehoseStreamDestination-Account.md "CreateFirehoseStreamDestination-Account.md")
-- [Step 3: Create an
-  account-level subscription filter policy](CreateSubscriptionFilterFirehose-Account.md "CreateSubscriptionFilterFirehose-Account.md")
-- [Validating the flow of
-  log events](ValidateLogEventFlowFirehose-Account.md "ValidateLogEventFlowFirehose-Account.md")
-- [Modifying
-  destination membership at runtime](ModifyDestinationMembershipFirehose-Account.md "ModifyDestinationMembershipFirehose-Account.md")
+- [Step 1: Create a Firehose delivery stream](CreateFirehoseStream-Account.md "CreateFirehoseStream-Account.md")
+- [Step 2: Create a destination](CreateFirehoseStreamDestination-Account.md "CreateFirehoseStreamDestination-Account.md")
+- [Step 3: Create an account-level subscription filter policy](CreateSubscriptionFilterFirehose-Account.md "CreateSubscriptionFilterFirehose-Account.md")
+- [Validating the flow of log events](ValidateLogEventFlowFirehose-Account.md "ValidateLogEventFlowFirehose-Account.md")
+- [Modifying destination membership at runtime](ModifyDestinationMembershipFirehose-Account.md "ModifyDestinationMembershipFirehose-Account.md")

@@ -1,6 +1,4 @@
-# Account-level subscription
-
-filters
+# Account-level subscription filters
 
 ###### Important
 
@@ -26,16 +24,11 @@ parameter. For more information, see [describe-account-policies¶](../../../cli/
 
 ###### Examples
 
-- [Example 1: Subscription
-  filters with Amazon Kinesis Data Streams](#DestinationKinesisExample-AccountLevel "#DestinationKinesisExample-AccountLevel")
-- [Example 2: Subscription filters
-  with AWS Lambda](#LambdaFunctionExample-AccountLevel "#LambdaFunctionExample-AccountLevel")
-- [Example 3: Subscription filters with
-  Amazon Data Firehose](#FirehoseExample-AccountLevel "#FirehoseExample-AccountLevel")
+- [Example 1: Subscription filters with Amazon Kinesis Data Streams](#DestinationKinesisExample-AccountLevel "#DestinationKinesisExample-AccountLevel")
+- [Example 2: Subscription filters with AWS Lambda](#LambdaFunctionExample-AccountLevel "#LambdaFunctionExample-AccountLevel")
+- [Example 3: Subscription filters with Amazon Data Firehose](#FirehoseExample-AccountLevel "#FirehoseExample-AccountLevel")
 
-## Example 1: Subscription
-
-filters with Amazon Kinesis Data Streams
+## Example 1: Subscription filters with Amazon Kinesis Data Streams
 
 Before you create a Amazon Kinesis Data Streams data stream to use with an account-level subscription
 policy, calculate the volume of log data that will be generated. Be sure to create a
@@ -321,9 +314,7 @@ The level at which the policy was enforced.
 "ACCOUNT_LEVEL_POLICY" is the `policyLevel` for an
 account-level subscription filter policy.
 
-## Example 2: Subscription filters
-
-with AWS Lambda
+## Example 2: Subscription filters with AWS Lambda
 
 In this example, you'll create a CloudWatch Logs account-level subscription filter policy
 that sends log data to your AWS Lambda function.
@@ -512,9 +503,7 @@ The level at which the policy was enforced.
 "ACCOUNT_LEVEL_POLICY" is the `policyLevel` for an
 account-level subscription filter policy.
 
-## Example 3: Subscription filters with
-
-Amazon Data Firehose
+## Example 3: Subscription filters with Amazon Data Firehose
 
 In this example, you'll create a CloudWatch Logs account-level subscription filter policy
 that sends incoming log events that match your defined filters to your Amazon Data Firehose

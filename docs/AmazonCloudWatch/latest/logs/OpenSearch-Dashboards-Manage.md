@@ -1,10 +1,6 @@
-# View, edit, or delete vended logs
+# View, edit, or delete vended logs dashboards
 
-dashboards
-
-## View vended logs dashboards in CloudWatch Logs or
-
-OpenSearch Service
+## View vended logs dashboards in CloudWatch Logs or OpenSearch Service
 
 To be able to view dashboards, you must be signed in to an IAM principal that
 has the **CloudWatchOpenSearchDashboardAccess** IAM
@@ -25,16 +21,12 @@ The OpenSearch Service console opens and you see the same dashboard there. In th
 console, you can make changes to the dashboard and its widgets, and these
 changes will also be visible when you view the dashboard in CloudWatch Logs.
 
-## Grant dashboard viewing access to
-
-additional IAM roles or IAM users
+## Grant dashboard viewing access to additional IAM roles or IAM users
 
 To grant access to additional IAM principals after you've created the
 integration, take the following steps.
 
-###### To grant vended log dashboard access to additional IAM roles or
-
-users
+###### To grant vended log dashboard access to additional IAM roles or users
 
 1. Edit the data access policy for the collection to add these roles or
    users. For more information, see [Data access control for Amazon OpenSearch Service Serverless](../../../opensearch-service/latest/developerguide/serverless-data-access.md "../../../opensearch-service/latest/developerguide/serverless-data-access.md") in the OpenSearch Service
@@ -84,9 +76,7 @@ won't work correctly.
 5. Confirm your decision by entering `delete`, then
    choose **Delete**.
 
-## Delete all vended log
-
-dashboard integration with OpenSearch Service
+## Delete all vended log dashboard integration with OpenSearch Service
 
 You can delete your entire OpenSearch integration. If you do, all vended logs
 dashboards and the data that was displayed in them is deleted.

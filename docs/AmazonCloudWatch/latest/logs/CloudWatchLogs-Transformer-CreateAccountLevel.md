@@ -1,6 +1,4 @@
-# Create an
-
-account-level transformer policy
+# Create an account-level transformer policy
 
 Use the steps in this section to create a transformer policy that applies to all
 log groups in the account, or to multiple log groups that have log group names that
@@ -41,8 +39,7 @@ If it is a pre-configured parser for a type of AWS vended log, you don't
 have to specify any configuration for it.
 
 If it is a different parser, you need to specify its configuration. For
-more information, see the information for that processor in [Configurable
-parser-type processors](CloudWatch-Logs-Transformation-Configurable.md "CloudWatch-Logs-Transformation-Configurable.md"). 7. To add another processor, choose **Select processor**.
+more information, see the information for that processor in [Configurable parser-type processors](CloudWatch-Logs-Transformation-Configurable.md "CloudWatch-Logs-Transformation-Configurable.md"). 7. To add another processor, choose **Select processor**.
 Then select the processor that you want in the
 **Processor** box, and fill in the configuration
 parameters.

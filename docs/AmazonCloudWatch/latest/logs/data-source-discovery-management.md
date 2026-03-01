@@ -1,6 +1,4 @@
-# Data source discovery and
-
-management
+# Data source discovery and management
 
 CloudWatch Logs automatically discovers and categorizes your log data by data source and type,
 making it easier to understand and manage your logs at scale. This feature provides
@@ -21,9 +19,7 @@ source and type, rather than just log groups. This organization helps you:
   to your logs. This automatic schema application helps maintain consistency and provides
   immediate insights into your log structure.
 
-## What is CloudWatch Logs Data
-
-Sources?
+## What is CloudWatch Logs Data Sources?
 
 CloudWatch Logs Data Sources is a feature that provides a new way to organize and categorize
 your logs data based on the source that generates the logs. While CloudWatch Logs
@@ -61,9 +57,7 @@ operations like creating or deleting resources) and data events (which track
 data plane operations like S3 object access). Each type has a different schema
 because they capture different kinds of information.
 
-## How to get
-
-started
+## How to get started
 
 CloudWatch Logs categorizes your logs into data sources based on their origin. The method
 depends on the type of logs you're working with:

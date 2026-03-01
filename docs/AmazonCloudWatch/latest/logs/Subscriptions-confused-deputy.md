@@ -40,6 +40,5 @@ and you don't have to manually update the policies when you add, remove, or move
 accounts in your organization.
 
 The policies documented for granting access to CloudWatch Logs to write data to Amazon Kinesis Data Streams and Firehose
-in [Step 1: Create a destination](CreateDestination.md "CreateDestination.md") and [Step 2: Create a
-destination](CreateFirehoseStreamDestination.md "CreateFirehoseStreamDestination.md") show how you can use the
+in [Step 1: Create a destination](CreateDestination.md "CreateDestination.md") and [Step 2: Create a destination](CreateFirehoseStreamDestination.md "CreateFirehoseStreamDestination.md") show how you can use the
 `aws:SourceArn` global condition context key to help prevent the confused deputy problem.

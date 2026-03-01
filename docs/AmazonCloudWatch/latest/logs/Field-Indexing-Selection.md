@@ -1,6 +1,4 @@
-# Log group selection options when creating
-
-a query
+# Log group selection options when creating a query
 
 This section explains the various ways that you can select log groups to include
 in a query.

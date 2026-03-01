@@ -1,6 +1,4 @@
-# Step 2: Create a
-
-destination
+# Step 2: Create a destination
 
 ###### Important
 
@@ -13,8 +11,7 @@ CloudWatch Logs sends log events to the destination on the source account’s be
 
 ###### To create a destination
 
-1. Wait until the Firehose stream that you created in [Step 1: Create a Firehose delivery
-   stream](CreateFirehoseStream-Account.md "CreateFirehoseStream-Account.md") becomes active. You
+1. Wait until the Firehose stream that you created in [Step 1: Create a Firehose delivery stream](CreateFirehoseStream-Account.md "CreateFirehoseStream-Account.md") becomes active. You
    can use the following command to check the
    **StreamDescription.StreamStatus** property.
 

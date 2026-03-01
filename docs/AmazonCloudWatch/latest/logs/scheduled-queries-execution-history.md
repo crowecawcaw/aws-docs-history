@@ -1,6 +1,4 @@
-# Viewing scheduled query execution
-
-history
+# Viewing scheduled query execution history
 
 Use the execution history to monitor the performance of your scheduled queries and
 troubleshoot any issues with query execution or result delivery.

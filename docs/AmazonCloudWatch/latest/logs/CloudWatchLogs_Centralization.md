@@ -1,6 +1,4 @@
-# Cross-account cross-Region log
-
-centralization
+# Cross-account cross-Region log centralization
 
 Amazon CloudWatch Logs data centralization works with AWS Organizations to collect log data from multiple member
 accounts into one data repository using cross-account and cross-region centralization rules.
@@ -13,7 +11,7 @@ CloudWatch Logs data centralization offers configuration flexibility to meet ope
 security requirements, such as the ability to configure a backup region during rule setup
 within the destination account to ensure increased resiliency. Additionally, you have full
 control over encryption behavior for log groups copied from source accounts to handle data
-originally encrypted with customer-managed KMS keys.
+originally encrypted with customer managed KMS keys.
 
 ###### Note
 
@@ -54,22 +52,30 @@ purposes.
 
 Log group data is always encrypted in CloudWatch Logs. By default,
 CloudWatch Logs uses server-side encryption with 256-bit Advanced Encryption
-Standard Galois/Counter Mode (AES-GCM) to encrypt log data at rest. As an
-alternative, you can use AWS Key Management Service for this encryption.
-If you do, the encryption is done using an either an AWS owned KMS key or
-a customer managed KMS key. KMS key Encryption using AWS KMS is enabled at
-the log group level, by associating a KMS key with a log group, either when
-you create the log group or after it exists. After you associate a KMS key
-with a log group, all newly ingested data for the log group is encrypted
-using this key. This data is stored in encrypted format throughout its
-retention period. CloudWatch Logs decrypts this data whenever it is
-requested. CloudWatch Logs must have permissions for the KMS key whenever
-encrypted data is requested, such as when a log centralization rule is run
-against a source account. If you are using customer managed KMS keys, update
-the KMS keys associated with the source and destination log groups with the
-tag `LogsManaged = true`. For more information, see [AWS
-KMS keys](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/developerguide/concepts.md") in the _AWS Key Management Service Developer
-Guide_
+Standard Galois/Counter Mode (AES-GCM) to encrypt log data at rest. As an alternative,
+you can use AWS Key Management Service for this encryption. For more information,
+see [CloudWatch Logs Encryption documentation](encrypt-log-data-kms.md "encrypt-log-data-kms.md").
+
+- **How encryption works during centralization**: CloudWatch Logs centralization actively
+  copies log data at ingestion time from source accounts to destination accounts. During this
+  process, your data remains encrypted in transit using an AWS owned service key. Data at rest in both
+  source and destination log groups is encrypted using your chosen encryption method
+  (customer managed or AWS owned KMS keys). If you are using customer managed KMS key in your destination log groups,
+  add the tag `LogsManaged = true` to the kms key for Centralization service to access it.
+- **When KMS permissions are required**:
+  - If you are using customer managed KMS keys in your source accounts, CloudWatch Logs
+    requires [KMS permissions](encrypt-log-data-kms.md#cmk-permissions-lg "encrypt-log-data-kms.md#cmk-permissions-lg")
+    in the following example scenarios:
+    - **Throughput Management**: When centralization throughput limits are reached, log data is
+      temporarily stored encrypted with your customer managed KMS key until bandwidth becomes available.
+    - **Data Protection and Redaction**: When source log groups have data protection policies enabled,
+      CloudWatch Logs requires decrypt permissions to access raw log data to centralize it.
+
+###### Important
+
+Centralization rules are managed by the AWS Organizations management account or delegated administrator.
+To exclude customer managed KMS-encrypted log groups from centralization, configure the rule settings
+to "Do not centralize log groups encrypted with AWS KMS key."
 
 ## Setting up log centralization
 
@@ -96,6 +102,67 @@ It is recommended to enable trusted access through the console, which
 automatically creates the required service-linked role (SLR). If trusted
 access is enabled through other methods, the service-linked role will
 need to be created separately.
+
+### Customizing destination log group names
+
+When you create a centralization rule, you can customize how destination log group
+names are structured using attributes. These attributes are automatically replaced
+with actual values when log groups are created, allowing you to organize logs
+hierarchically in your destination account. By default, only the
+`${source.logGroup}` attribute is used, which merges all log groups with
+the same name in the destination account. If a variable cannot be resolved,
+it inherits the value from its parent variable in the hierarchy.
+
+#### Available attributes
+
+You can use the following attributes in your destination log group name
+pattern:
+
+| Destination log group name attributes | Attribute                                            | Description |
+| ------------------------------------- | ---------------------------------------------------- | ----------- |
+| `${source.accountId}`                 | The AWS account ID where the log originated.         |
+| `${source.region}`                    | The AWS Region where the log originated.             |
+| `${source.logGroup}`                  | The original log group name from the source account. |
+| `${source.org.id}`                    | Your AWS Organizations ID of the source account.     |
+| `${source.org.ouId}`                  | The organizational unit ID of the source account     |
+| `${source.org.rootId}`                | The organization root ID                             |
+| `${source.org.path}`                  | The full organizational path from account to root    |
+
+#### Examples
+
+Preserve original log group structure
+
+Pattern: `/centralized/${source.accountId}${source.logGroup}`
+
+Result: `/centralized/123456789012/aws/lambda/my-function`
+
+Organize by account and region
+
+Pattern: `/centralized/${source.accountId}/${source.region}`
+
+Result: `/centralized/123456789012/us-east-1`
+
+Organize by organization structure
+
+Pattern: `/logs/${source.org.id}/${source.org.ouId}/${source.accountId}`
+
+Result: `/logs/o-abc123/ou-xyz-12345678/123456789012`
+
+Simple flat structure
+
+Pattern: `/centralized-logs`
+
+Result: `/centralized-logs`
+
+#### Best practices
+
+- Include the source account ID to easily identify which account logs
+  came from.
+- Include the source region if you are centralizing from multiple
+  regions.
+- Structure destination log group names to be under 512 characters.
+  CloudWatch Logs enforces a maximum log group name length of 512
+  characters.
 
 ### Creating a centralization rule
 
@@ -179,21 +246,15 @@ data from source accounts to your destination account.
     CloudWatch centralization rules will fail to deliver logs from the
     source account to the destination log groups if the KMS Key
     provided in the Centralization rule doesn't permit CloudWatch Logs to use
-    it. For more information, see [Step 2: Set permissions on the KMS key](CloudWatchLogs-Insights-Query-Encrypt.md#cmk-permissions "CloudWatchLogs-Insights-Query-Encrypt.md#cmk-permissions").
+    it. If you are using customer managed KMS key in your destination log groups,
+    add the tag LogsManaged = true to the kms key. For more information, see [Step 2: Set permissions on the KMS key](CloudWatchLogs-Insights-Query-Encrypt.md#cmk-permissions "CloudWatchLogs-Insights-Query-Encrypt.md#cmk-permissions").
 
     Choose one of the following options:
 
-        * **Do not centralize log groups encrypted with
-         Customer Managed KMS keys**: Skip
-         centralization of log events from source log groups
-         encrypted with Customer Managed KMS Keys.
-        * **Centralize log groups encrypted with Customer
-         Managed KMS keys in destination account with an AWS
-         Managed KMS key**: Centralize log events from
-         source log groups encrypted with Customer Managed KMS Keys
-         into destination log groups that are not associated with
-         Customer Managed KMS Keys but instead use an AWS Managed
-         KMS key.
+        * **Centralize source log groups encrypted with customer managed KMS keys
+         using a destination specific customer managed KMS key** : Centralize log events from source log groups encrypted with
+         customer managed KMS keys into destination log groups encrypted with a
+         customer managed KMS key in the destination account.
 
 
          When this setting is selected, you must also set the
@@ -203,21 +264,22 @@ data from source accounts to your destination account.
 
 
         	+ **Destination encryption key
-        	 ARN**: ARN of the KMS Key belonging to
-        	 the destination account and the primary destination
-        	 region, to be associated with newly created
-        	 destination log groups.
+        	 ARN**: ARN of the customer managed KMS key in the destination account
+        	 and primary destination region, to be associated with newly created destination log groups.
         	+ **Backup destination encryption key
-        	 ARN** (optional): ARN of the KMS Key
-        	 belonging to the destination account and the backup
-        	 destination region, to be associated with newly
-        	 created destination log groups.
-        ###### Note
-
-        Note that this setting only applies when the source
-         log group is encrypted using Customer Managed KMS Keys
-         and only applies to newly created log groups in the
-         destination account.
+        	 ARN** (if backup region is selected): ARN of the customer managed KMS key in the
+        	 destination account and backup destination region, to be associated with newly created destination log groups.
+        	+ **Skip centralizing to unencrypted destination log
+        	 groups** (optional): If a log group already exists without a customer managed KMS key,
+        	 CloudWatch cannot update its encryption. Choose this option to skip centralization of log events
+        	 from source log groups encrypted with customer managed KMS keys into destination log groups that
+        	 are not associated with a customer managed KMS key.
+        * **Centralize log groups encrypted with customer managed KMS keys in destination account
+         with AWS owned KMS key**: Centralize log events from source log groups encrypted with customer managed
+         KMS keys into newly created destination log groups encrypted using an AWS owned KMS key.
+        * **Do not centralize log groups encrypted with
+         customer managed KMS keys**: Skip centralization of log events from source log groups
+         encrypted with customer managed KMS keys.
 
 8.  Review the centralization rule, optionally make any last-minute edits, and
     choose **Create Centralization policy**.
@@ -304,9 +366,7 @@ Rule health statuses include:
 When a rule is marked as UNHEALTHY, the `FailureReason` field provides
 details about the specific issue that needs to be addressed.
 
-### Monitoring centralization API calls with
-
-AWS CloudTrail
+### Monitoring centralization API calls with AWS CloudTrail
 
 AWS CloudTrail logs API calls made to the centralization service, allowing you to track
 configuration changes and troubleshoot issues for accounts that are members of your
@@ -363,11 +423,11 @@ the destination log groups if the KMS key provided in the centralization
 rule doesn't permit CloudWatch Logs to use it. Ensure that the KMS key policy grants
 the necessary permissions to CloudWatch Logs. For more information, see [Step 2: Set permissions on the KMS key](CloudWatchLogs-Insights-Query-Encrypt.md#cmk-permissions "CloudWatchLogs-Insights-Query-Encrypt.md#cmk-permissions").
 
-**Customer Managed KMS keys configuration**
+**Customer Managed KMS key configuration**
 
 If you selected **Do not centralize log groups encrypted with
-Customer Managed KMS keys** during rule creation, log events
-from source log groups encrypted with Customer Managed KMS keys will be
+Customer Managed KMS key** during rule creation, log events
+from source log groups encrypted with Customer Managed KMS key will be
 skipped and not centralized.
 
 **Destination encryption mismatch**

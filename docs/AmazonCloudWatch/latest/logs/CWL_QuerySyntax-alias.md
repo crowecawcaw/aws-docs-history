@@ -1,6 +1,4 @@
-# Use aliases and comments in
-
-queries
+# Use aliases and comments in queries
 
 Create queries that contain aliases. Use aliases to rename log fields or
 when extracting values into fields. Use the keyword `as` to give

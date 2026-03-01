@@ -95,8 +95,7 @@ This policy masks email
 addresses and United States driver's licenses.
 
 For information about policies that specify custom data identifiers, see
-[Using custom data identifiers in your data
-protection policy](CWL-custom-data-identifiers.md#using-custom-data-identifiers "CWL-custom-data-identifiers.md#using-custom-data-identifiers").
+[Using custom data identifiers in your data protection policy](CWL-custom-data-identifiers.md#using-custom-data-identifiers "CWL-custom-data-identifiers.md#using-custom-data-identifiers").
 
 ```
 {

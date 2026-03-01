@@ -38,9 +38,7 @@ fields @timestamp, @message
 | limit 20
 ```
 
-## Indexed fields and the filter
-
-command
+## Indexed fields and the filter command
 
 If you have created field indexes for a log group, you can leverage
 those field indexes to make your `filter` queries more
@@ -55,8 +53,7 @@ contain that indexed field, scan volume can be reduced and the query is
 faster.
 
 For more information about field indexes and how to create them, see
-[Create field indexes to improve query
-performance and reduce scan volume](CloudWatchLogs-Field-Indexing.md "CloudWatchLogs-Field-Indexing.md").
+[Create field indexes to improve query performance and reduce scan volume](CloudWatchLogs-Field-Indexing.md "CloudWatchLogs-Field-Indexing.md").
 
 ###### Important
 
@@ -83,9 +80,7 @@ fields @timestamp, @message
 | limit 20
 ```
 
-## Matches and regular expressions
-
-in the filter command
+## Matches and regular expressions in the filter command
 
 The filter command supports the use of regular expressions. You can
 use the following comparison operators (`=`, `!=`,

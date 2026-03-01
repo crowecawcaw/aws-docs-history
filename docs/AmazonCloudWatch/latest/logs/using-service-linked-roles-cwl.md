@@ -1,6 +1,4 @@
-# Using service-linked roles for
-
-CloudWatch Logs
+# Using service-linked roles for CloudWatch Logs
 
 Amazon CloudWatch Logs uses AWS Identity and Access Management (IAM) [service-linked
 roles](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md"). A service-linked role is a unique type of IAM role that is
@@ -19,9 +17,7 @@ Services That Work with IAM](../../../IAM/latest/UserGuide/reference_aws-service
 Role** column. Choose a **Yes** with a
 link to view the service-linked role documentation for that service.
 
-## Service-linked role permissions for
-
-CloudWatch Logs
+## Service-linked role permissions for CloudWatch Logs
 
 CloudWatch Logs uses the service-linked role named
 **AWSServiceRoleForLogDelivery**. CloudWatch Logs
@@ -82,10 +78,7 @@ If the CloudWatch Logs service is using the role when you try to delete the
 resources, then the deletion might fail. If that happens, wait for a few
 minutes and try the operation again.
 
-###### To delete CloudWatch Logs resources used by the
-
-**AWSServiceRoleForLogDelivery**
-service-linked role
+###### To delete CloudWatch Logs resources used by the **AWSServiceRoleForLogDelivery** service-linked role
 
 - Stop sending logs directly to Firehose streams.
 
@@ -96,9 +89,7 @@ Use the IAM console, the AWS CLI, or the AWS API to delete the
 **AWSServiceRoleForLogDelivery**
 service-linked role. For more information, see [Deleting a Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role")
 
-### Supported Regions for CloudWatch Logs service-linked
-
-roles
+### Supported Regions for CloudWatch Logs service-linked roles
 
 CloudWatch Logs supports using service-linked roles in all of the AWS Regions
 where the service is available. For more information, see [CloudWatch Logs Regions and

@@ -1,6 +1,4 @@
-# Create a log-group-level
-
-transformer by copying an existing one
+# Create a log-group-level transformer by copying an existing one
 
 You can use the console to copy the JSON configuration of an existing transformer.
 You can then use that code to create an identical transformer by using the AWS CLI, or

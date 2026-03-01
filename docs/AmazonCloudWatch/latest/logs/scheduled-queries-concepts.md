@@ -1,6 +1,4 @@
-# Understanding scheduled queries
-
-concepts
+# Understanding scheduled queries concepts
 
 Before creating scheduled queries, understand these key concepts that affect how your
 queries run and where results are delivered.
@@ -104,9 +102,7 @@ compliance and auditing, you can clearly track which role accesses sensitive log
 data and which role writes to external systems. This makes it easier to demonstrate
 that your log analysis infrastructure follows security best practices.
 
-## Cross-region and cross-account
-
-usage
+## Cross-region and cross-account usage
 
 A scheduled query is created in a specific region and runs in that region.
 However, you can query log groups and deliver results across regions and
@@ -142,9 +138,7 @@ into a central monitoring account. This allows you to create scheduled queries i
 single region that access all your centralized logs, avoiding cross-region queries
 and simplifying IAM permissions management.
 
-## Schedule expressions and
-
-timezone handling
+## Schedule expressions and timezone handling
 
 The schedule you define determines when your query runs and how often it executes.
 Choosing the right schedule expression affects when you receive results and how much
@@ -176,9 +170,7 @@ account for the UTC offset (14:00 UTC during daylight saving time, 13:00 UTC
 otherwise). Plan your schedule expressions with UTC in mind to ensure queries run at
 the intended times.
 
-## Choosing a query
-
-language
+## Choosing a query language
 
 Scheduled queries support three different query languages, and your choice affects
 both how you write queries and how easily your team can maintain them. The right
@@ -217,9 +209,7 @@ for:
 - Business intelligence and reporting
 - Teams with strong SQL experience
 
-## Destination selection and use
-
-cases
+## Destination selection and use cases
 
 Where you send query results determines what you can do with them. This choice
 shapes your entire downstream workflow—whether you are building long-term analytics,
@@ -255,9 +245,7 @@ Best for:
 - Real-time alerting and notification systems
 - Event-driven architectures and microservices
 
-## Query result format and
-
-structure
+## Query result format and structure
 
 For Amazon S3 destinations - Query results are delivered in JSON format with the same structure as the GetQueryResults API response. For Amazon EventBridge understanding the format of scheduled query results helps you design downstream
 processing and integration workflows.

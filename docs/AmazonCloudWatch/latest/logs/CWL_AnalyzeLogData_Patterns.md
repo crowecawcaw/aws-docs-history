@@ -38,12 +38,9 @@ For example, if a dynamic token represents an HTTP error code, then a token valu
 be `501`.
 
 Pattern detection is also used in the CloudWatch Logs anomaly detector and compare features. For
-more information, see [Log anomaly detection](LogsAnomalyDetection.md "LogsAnomalyDetection.md") and [Compare (diff) with previous time
-ranges](CWL_AnalyzeLogData_Compare.md "CWL_AnalyzeLogData_Compare.md").
+more information, see [Log anomaly detection](LogsAnomalyDetection.md "LogsAnomalyDetection.md") and [Compare (diff) with previous time ranges](CWL_AnalyzeLogData_Compare.md "CWL_AnalyzeLogData_Compare.md").
 
-## Getting started with
-
-pattern analysis
+## Getting started with pattern analysis
 
 Pattern detection is automatically performed in any CloudWatch Logs Insights query. Queries that
 don't include the `pattern` command get both log events and patterns in
@@ -167,9 +164,7 @@ following:
      log event marked as `INFO` with additional details, that
      pattern is displayed here.
 
-## Details about the pattern
-
-command
+## Details about the pattern command
 
 This section contains more details about the `pattern` command and its
 uses.

@@ -1,6 +1,4 @@
-# Updating an
-
-existing cross-account subscription
+# Updating an existing cross-account subscription
 
 If you currently have a cross-account logs subscription where the destination
 account grants permissions only to specific sender accounts, and you want to
@@ -9,7 +7,5 @@ accounts in an organization, follow the steps in this section.
 
 ###### Topics
 
-- [Step
-  1: Update the subscription filters](Cross-Account-Log_Subscription-Update-filter-Account.md "Cross-Account-Log_Subscription-Update-filter-Account.md")
-- [Step
-  2: Update the existing destination access policy](Cross-Account-Log_Subscription-Update-policy-Account.md "Cross-Account-Log_Subscription-Update-policy-Account.md")
+- [Step 1: Update the subscription filters](Cross-Account-Log_Subscription-Update-filter-Account.md "Cross-Account-Log_Subscription-Update-filter-Account.md")
+- [Step 2: Update the existing destination access policy](Cross-Account-Log_Subscription-Update-policy-Account.md "Cross-Account-Log_Subscription-Update-policy-Account.md")

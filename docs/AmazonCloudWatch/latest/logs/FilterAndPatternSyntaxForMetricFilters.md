@@ -1,6 +1,4 @@
-# Filter pattern syntax for
-
-metric filters
+# Filter pattern syntax for metric filters
 
 ###### Note
 
@@ -8,8 +6,7 @@ metric filters
 
 Metric filters differ from CloudWatch Logs Insights queries in that a specified numerical
 value is added to a metric filter each time a matching log is found. For more
-information, see [Configuring metric values for a
-metric filter](#changing-default-increment-value "#changing-default-increment-value").
+information, see [Configuring metric values for a metric filter](#changing-default-increment-value "#changing-default-increment-value").
 
 For information about how to query your log groups with the Amazon CloudWatch Logs Insights
 query language, see [CloudWatch Logs Insights language query syntax](CWL_QuerySyntax.md "CWL_QuerySyntax.md").
@@ -53,16 +50,11 @@ complete list of the units that CloudWatch supports, see [MetricDatum](../APIRef
 
 ###### Topics
 
-- [Configuring metric values for a
-  metric filter](#changing-default-increment-value "#changing-default-increment-value")
-- [Publishing dimensions with metrics
-  from values in JSON or space-delimited log events](#logs-metric-filters-dimensions "#logs-metric-filters-dimensions")
-- [Using values in log events to
-  increment a metric's value](#publishing-values-found-in-logs "#publishing-values-found-in-logs")
+- [Configuring metric values for a metric filter](#changing-default-increment-value "#changing-default-increment-value")
+- [Publishing dimensions with metrics from values in JSON or space-delimited log events](#logs-metric-filters-dimensions "#logs-metric-filters-dimensions")
+- [Using values in log events to increment a metric's value](#publishing-values-found-in-logs "#publishing-values-found-in-logs")
 
-## Configuring metric values for a
-
-metric filter
+## Configuring metric values for a metric filter
 
 When you create a metric filter, you define your filter pattern and specify your
 metric's value and default value. You can set metric values to numbers, named
@@ -83,12 +75,9 @@ assign dimensions to metrics that metric filters generate, you can't specify def
 values for those metrics.
 
 You also can set up a metric filter to increment a metric with a value extracted
-from a log event, instead of a static value. For more information, see [Using values in log events to
-increment a metric's value](#publishing-values-found-in-logs "#publishing-values-found-in-logs").
+from a log event, instead of a static value. For more information, see [Using values in log events to increment a metric's value](#publishing-values-found-in-logs "#publishing-values-found-in-logs").
 
-## Publishing dimensions with metrics
-
-from values in JSON or space-delimited log events
+## Publishing dimensions with metrics from values in JSON or space-delimited log events
 
 You can use the CloudWatch console or AWS CLI to create metric filters that publish
 dimensions with metrics that JSON and space-delimited log events generate.
@@ -244,9 +233,7 @@ WARN.
 
 ```
 
-## Using values in log events to
-
-increment a metric's value
+## Using values in log events to increment a metric's value
 
 You can create metric filters that publish numeric values found in your log
 events. The procedure in this section uses the following example metric filter to

@@ -65,16 +65,10 @@ transformer that would otherwise apply to that log group.
 
 ###### Topics
 
-- [Create and manage log
-  transformers](CloudWatch-Logs-Transformation-Create.md "CloudWatch-Logs-Transformation-Create.md")
-- [Configurable
-  parser-type processors](CloudWatch-Logs-Transformation-Configurable.md "CloudWatch-Logs-Transformation-Configurable.md")
-- [Built-in processors for
-  AWS vended logs](CloudWatch-Logs-Transformation-BuiltIn.md "CloudWatch-Logs-Transformation-BuiltIn.md")
-- [String mutate
-  processors](CloudWatch-Logs-Transformation-StringMutate.md "CloudWatch-Logs-Transformation-StringMutate.md")
-- [JSON mutate
-  processors](CloudWatch-Logs-Transformation-JSONMutate.md "CloudWatch-Logs-Transformation-JSONMutate.md")
-- [Datatype converter
-  processors](CloudWatch-Logs-Transformation-Datatype.md "CloudWatch-Logs-Transformation-Datatype.md")
+- [Create and manage log transformers](CloudWatch-Logs-Transformation-Create.md "CloudWatch-Logs-Transformation-Create.md")
+- [Configurable parser-type processors](CloudWatch-Logs-Transformation-Configurable.md "CloudWatch-Logs-Transformation-Configurable.md")
+- [Built-in processors for AWS vended logs](CloudWatch-Logs-Transformation-BuiltIn.md "CloudWatch-Logs-Transformation-BuiltIn.md")
+- [String mutate processors](CloudWatch-Logs-Transformation-StringMutate.md "CloudWatch-Logs-Transformation-StringMutate.md")
+- [JSON mutate processors](CloudWatch-Logs-Transformation-JSONMutate.md "CloudWatch-Logs-Transformation-JSONMutate.md")
+- [Datatype converter processors](CloudWatch-Logs-Transformation-Datatype.md "CloudWatch-Logs-Transformation-Datatype.md")
 - [Transformation metrics and errors](Transformation-Errors-Metrics.md "Transformation-Errors-Metrics.md")

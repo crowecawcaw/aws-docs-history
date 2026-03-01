@@ -1,6 +1,4 @@
-# Create alarms on log anomaly
-
-detectors
+# Create alarms on log anomaly detectors
 
 You can create an alarm for a log anomaly detector in a log group. You can specify for
 the alarm to go into `ALARM` state when a specified number of anomalies are
@@ -28,27 +26,29 @@ following:
      **LogAnomalyPriority**.
     * To have the alarm count only high- and medium-priority anomalies,
      enter `MEDIUM` for
-     **LogAnomalyPriority**.For more information about priority levels, see [Severity and priority of
+     **LogAnomalyPriority**.For more information about priority levels, see [Severity and priority of anomalies and patterns](LogsAnomalyDetection.md#LogsAnomalyDetection-Severity-Priority "LogsAnomalyDetection.md#LogsAnomalyDetection-Severity-Priority").
 
-anomalies and patterns](LogsAnomalyDetection.md#LogsAnomalyDetection-Severity-Priority "LogsAnomalyDetection.md#LogsAnomalyDetection-Severity-Priority"). 5. Choose to use a static or metric anomaly detection threshold for the alarm.
-This selection determines how the alarm threshold is set. A
-**Static** threshold means that the alarm threshold is a
-static, constant number that you choose. An **Anomaly
-detection** threshold means that CloudWatch determines a range of usual
-values, and the alarm triggers if the actual count crosses the threshold of this
-band. You don't have to choose **Anomaly detection** for a log
-anomaly detection alarm. For more information about metric anomaly detection,
-see [Using CloudWatch anomaly detection](../monitoring/CloudWatch_Anomaly_Detection.md "../monitoring/CloudWatch_Anomaly_Detection.md"). 6. For **Whenever `your-metric-name` is . .
-.**, choose **Greater**,
-**Greater/Equal**, **Lower/Equal**, or
-**Lower**. Then for **than . . .**,
-specify a number for your threshold value. The alarm goes into
-`ALARM` state if the anomaly detector finds more than this number
-of alarms during a time specified by **Period**. 7. Choose **Additional configuration**. For **Datapoints
-to alarm**, specify how many evaluation periods (data points) must
-be in the `ALARM` state to trigger the alarm. If the two values here
-match, you create an alarm that goes to `ALARM` state if that many
-consecutive periods are breaching.
+5. Choose to use a static or metric anomaly detection threshold for the alarm.
+   This selection determines how the alarm threshold is set. A
+   **Static** threshold means that the alarm threshold is a
+   static, constant number that you choose. An **Anomaly
+   detection** threshold means that CloudWatch determines a range of usual
+   values, and the alarm triggers if the actual count crosses the threshold of this
+   band. You don't have to choose **Anomaly detection** for a log
+   anomaly detection alarm. For more information about metric anomaly detection,
+   see [Using CloudWatch anomaly detection](../monitoring/CloudWatch_Anomaly_Detection.md "../monitoring/CloudWatch_Anomaly_Detection.md").
+6. For **Whenever `your-metric-name` is . .
+   .**, choose **Greater**,
+   **Greater/Equal**, **Lower/Equal**, or
+   **Lower**. Then for **than . . .**,
+   specify a number for your threshold value. The alarm goes into
+   `ALARM` state if the anomaly detector finds more than this number
+   of alarms during a time specified by **Period**.
+7. Choose **Additional configuration**. For **Datapoints
+   to alarm**, specify how many evaluation periods (data points) must
+   be in the `ALARM` state to trigger the alarm. If the two values here
+   match, you create an alarm that goes to `ALARM` state if that many
+   consecutive periods are breaching.
 
 To create an M out of N alarm, specify a number for the first value that is
 lower than the number for the second value. For more information, see [Evaluating an alarm](../monitoring/AlarmThatSendsEmail.md#alarm-evaluation "../monitoring/AlarmThatSendsEmail.md#alarm-evaluation"). 8. For **Missing data treatment**, choose how the alarm behaves

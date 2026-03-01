@@ -6,9 +6,7 @@ to Apache Iceberg-compatible stores. This integration enables you to perform com
 log analysis using tools of your preference and correlate data in CloudWatch Logs with non-CloudWatch
 data.
 
-## Understanding S3 Tables
-
-Integration
+## Understanding S3 Tables Integration
 
 Amazon S3 Tables Integration is a fully managed solution that makes your logs in CloudWatch Logs
 available as managed Amazon S3 tables. With this integration, you gain greater flexibility on
@@ -51,9 +49,7 @@ group. For example, if you set a log group to 1-day retention, CloudWatch Logs r
 data from both CloudWatch Logs and the S3 Table after one day. When you delete a log group or
 log stream, CloudWatch Logs also removes the data from the S3 table bucket.
 
-## When to Use S3 Tables
-
-Integration
+## When to Use S3 Tables Integration
 
 Consider using S3 Tables integration to correlate log data with other external or
 non-CloudWatch data or when you prefer using other analytics tools such as Amazon Athena to
@@ -85,9 +81,7 @@ To integrate CloudWatch Logs with S3 Tables, you need to configure IAM permissio
 separate entities: the user or role that sets up the integration, and the service
 role that CloudWatch Logs assumes to write data to S3 Tables.
 
-#### For the role or user creating the
-
-integration
+#### For the role or user creating the integration
 
 The user or role that sets up the integration requires the following
 permissions:
@@ -160,9 +154,7 @@ ID, and log group name.
 }
 ```
 
-### KMS key policy (for
-
-encrypted data)
+### KMS key policy (for encrypted data)
 
 If you use a customer managed key to encrypt your log data, you must grant the
 CloudWatch service principal and the S3 Tables maintenance service principal access to the
@@ -238,9 +230,7 @@ setting up appropriate IAM permissions.
    integration for.
 5. Choose **Associate data source**.
 
-###### To associate sources to an S3 Table Integration from the Log Management
-
-Page
+###### To associate sources to an S3 Table Integration from the Log Management Page
 
 1. Open the CloudWatch Logs console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch "https://console.aws.amazon.com/cloudwatch")".
 2. Choose **Log Management** in the navigation

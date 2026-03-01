@@ -1,6 +1,4 @@
-# Effects of deleting a field
-
-index policy
+# Effects of deleting a field index policy
 
 If you delete a field index policy that has been in effect for a time, the
 following happens:

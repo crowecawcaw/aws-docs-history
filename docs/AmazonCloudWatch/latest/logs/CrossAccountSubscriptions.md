@@ -1,6 +1,4 @@
-# Cross-account cross-Region
-
-subscriptions
+# Cross-account cross-Region subscriptions
 
 You can collaborate with an owner of a different AWS account and receive their log
 events on your AWS resources, such as an Amazon Kinesis or Amazon Data Firehose stream (this is known
@@ -39,11 +37,7 @@ when creating subscription filters:
 
 ###### Topics
 
-- [Cross-account cross-Region log
-  data sharing using Amazon Kinesis Data Streams](CrossAccountSubscriptions-Kinesis.md "CrossAccountSubscriptions-Kinesis.md")
-- [Cross-account cross-Region log
-  data sharing using Firehose](CrossAccountSubscriptions-Firehose.md "CrossAccountSubscriptions-Firehose.md")
-- [Cross-account
-  cross-Region account-level subscriptions using Amazon Kinesis Data Streams](CrossAccountSubscriptions-Kinesis-Account.md "CrossAccountSubscriptions-Kinesis-Account.md")
-- [Cross-account
-  cross-Region account-level subscriptions using Firehose](CrossAccountSubscriptions-Firehose-Account.md "CrossAccountSubscriptions-Firehose-Account.md")
+- [Cross-account cross-Region log data sharing using Amazon Kinesis Data Streams](CrossAccountSubscriptions-Kinesis.md "CrossAccountSubscriptions-Kinesis.md")
+- [Cross-account cross-Region log data sharing using Firehose](CrossAccountSubscriptions-Firehose.md "CrossAccountSubscriptions-Firehose.md")
+- [Cross-account cross-Region account-level subscriptions using Amazon Kinesis Data Streams](CrossAccountSubscriptions-Kinesis-Account.md "CrossAccountSubscriptions-Kinesis-Account.md")
+- [Cross-account cross-Region account-level subscriptions using Firehose](CrossAccountSubscriptions-Firehose-Account.md "CrossAccountSubscriptions-Firehose-Account.md")

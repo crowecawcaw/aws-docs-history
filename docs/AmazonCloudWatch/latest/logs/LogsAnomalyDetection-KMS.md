@@ -1,6 +1,4 @@
-# Encrypt an anomaly detector and its results
-
-with AWS KMS
+# Encrypt an anomaly detector and its results with AWS KMS
 
 Anomaly detector data is always encrypted in CloudWatch Logs. By default, CloudWatch Logs uses server-side
 encryption for the data at rest. As an alternative, you can use AWS Key Management Service for this
@@ -56,9 +54,7 @@ following is example output:
 }
 ```
 
-### Step 2: Set permissions on the
-
-KMS key
+### Step 2: Set permissions on the KMS key
 
 By default, all AWS KMS keys are private. Only the resource owner can use it to
 encrypt and decrypt data. However, the resource owner can grant permissions to
@@ -192,16 +188,12 @@ command:
 aws kms put-key-policy --key-id `key-id` --policy-name default --policy file://policy.json
 ```
 
-### Step 3: Associate a KMS key with an anomaly
-
-detector
+### Step 3: Associate a KMS key with an anomaly detector
 
 You can associate a KMS key with an anomaly detector when you create it in
 the console or using the AWS CLI or APIs.
 
-#### Step 4: Disassociate key from an anomaly
-
-detector
+#### Step 4: Disassociate key from an anomaly detector
 
 After a key has been associated with an anomaly detector, you can't update
 the key. The only way to remove the key is to delete the anomaly detector,

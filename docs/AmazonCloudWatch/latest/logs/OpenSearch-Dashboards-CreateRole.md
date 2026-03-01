@@ -1,6 +1,4 @@
-# Permissions that the integration
-
-needs
+# Permissions that the integration needs
 
 If you create an IAM role for the integration to use, instead of allowing CloudWatch Logs to
 create the role, it must include the following permissions and trust policy. For more

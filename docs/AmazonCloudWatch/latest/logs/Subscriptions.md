@@ -7,8 +7,7 @@ sent to the receiving service, they are base64 encoded and compressed with the g
 format.
 
 You can also use CloudWatch Logs centralization to replicate log data from multiple accounts and
-regions into a central location. For more information, see [Cross-account cross-Region log
-centralization](CloudWatchLogs_Centralization.md "CloudWatchLogs_Centralization.md").
+regions into a central location. For more information, see [Cross-account cross-Region log centralization](CloudWatchLogs_Centralization.md "CloudWatchLogs_Centralization.md").
 
 To begin subscribing to log events, create the receiving resource, such as a Amazon Kinesis Data Streams stream,
 where the events will be delivered. A subscription filter defines the filter pattern to use
@@ -62,9 +61,7 @@ Subscription filters ensure at least one time delivery of events, while duplicat
 
 - [Concepts](subscription-concepts.md "subscription-concepts.md")
 - [Log group-level subscription filters](SubscriptionFilters.md "SubscriptionFilters.md")
-- [Account-level subscription
-  filters](SubscriptionFilters-AccountLevel.md "SubscriptionFilters-AccountLevel.md")
-- [Cross-account cross-Region
-  subscriptions](CrossAccountSubscriptions.md "CrossAccountSubscriptions.md")
+- [Account-level subscription filters](SubscriptionFilters-AccountLevel.md "SubscriptionFilters-AccountLevel.md")
+- [Cross-account cross-Region subscriptions](CrossAccountSubscriptions.md "CrossAccountSubscriptions.md")
 - [Confused deputy prevention](Subscriptions-confused-deputy.md "Subscriptions-confused-deputy.md")
 - [Log recursion prevention](Subscriptions-recursion-prevention.md "Subscriptions-recursion-prevention.md")

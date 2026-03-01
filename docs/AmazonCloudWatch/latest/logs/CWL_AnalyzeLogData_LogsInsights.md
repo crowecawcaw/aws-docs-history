@@ -1,6 +1,4 @@
-# CloudWatch Logs Insights query language (Logs
-
-Insights QL)
+# CloudWatch Logs Insights query language (Logs Insights QL)
 
 This section includes full documentation of Logs Insights QL commands and
 functions. It also includes sample queries for this language.
@@ -12,10 +10,7 @@ and [CloudWatch Metrics Insights](../monitoring/query_with_cloudwatch-metrics-in
 ###### Topics
 
 - [CloudWatch Logs Insights language query syntax](CWL_QuerySyntax.md "CWL_QuerySyntax.md")
-- [Get started with Logs Insights
-  QL: Query tutorials](CWL_AnalyzeLogData_Tutorials.md "CWL_AnalyzeLogData_Tutorials.md")
+- [Get started with Logs Insights QL: Query tutorials](CWL_AnalyzeLogData_Tutorials.md "CWL_AnalyzeLogData_Tutorials.md")
 - [Sample queries](CWL_QuerySyntax-examples.md "CWL_QuerySyntax-examples.md")
-- [Compare (diff) with previous time
-  ranges](CWL_AnalyzeLogData_Compare.md "CWL_AnalyzeLogData_Compare.md")
-- [Visualize log data in
-  graphs](CWL_Insights-Visualizing-Log-Data.md "CWL_Insights-Visualizing-Log-Data.md")
+- [Compare (diff) with previous time ranges](CWL_AnalyzeLogData_Compare.md "CWL_AnalyzeLogData_Compare.md")
+- [Visualize log data in graphs](CWL_Insights-Visualizing-Log-Data.md "CWL_Insights-Visualizing-Log-Data.md")
