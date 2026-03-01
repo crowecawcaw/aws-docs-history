@@ -1,13 +1,9 @@
-# Step A: Get ready to
-
-downgrade
+# Step A: Get ready to downgrade
 
 The following steps prepare you for downgrading AWS Elemental Live. Perform these steps to ensure that you
 don't lose any data.
 
-## Save the database
-
-backup
+## Save the database backup
 
 Locate the database backup for the version that you're
 downgrading to. Copy the backup to a location off of the system.
@@ -28,9 +24,7 @@ When you perform a downgrade, you must specify a database to restore. You should
 the backup that corresponds to the version you are downgrading to. For example, when
 downgrading to 2.23.5, restore the 2.23.5 database.
 
-## Create a bootable
-
-kickstart
+## Create a bootable kickstart
 
 You must install the host operating system from an
 `.iso` file onto each physical machine that will be

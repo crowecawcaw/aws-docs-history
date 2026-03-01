@@ -1,6 +1,4 @@
-# Downloading AWS Elemental Live
-
-software
+# Downloading AWS Elemental Live software
 
 These are the detailed steps for downloading software files from the
 [AWS Elemental Support Center](https://console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/supportcenter "https://console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/supportcenter").

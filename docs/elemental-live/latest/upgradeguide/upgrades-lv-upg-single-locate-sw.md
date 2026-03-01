@@ -1,6 +1,4 @@
-# Step C: Copy the AWS Elemental Live
-
-installer
+# Step C: Copy the AWS Elemental Live installer
 
 1. From your regular workstation, open a web browser, go to [AWS Elemental Support Center Activations](https://console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/activations "https://console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/activations") and
    download the software for the version that you're going to.
@@ -24,5 +22,4 @@ h:/corporate/downloads/.
 5. Repeat the download to any other nodes that are changing versions. If you're changing
    versions on several nodes, copy the download file to every hardware unit at once. Doing so
    reduces downtime on each node as you start installing the new software.
-   For detailed downloading steps, see [Downloading AWS Elemental Live
-   software](detailed-dl-lv-upg.md "detailed-dl-lv-upg.md").
+   For detailed downloading steps, see [Downloading AWS Elemental Live software](detailed-dl-lv-upg.md "detailed-dl-lv-upg.md").

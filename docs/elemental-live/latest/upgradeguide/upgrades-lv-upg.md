@@ -31,10 +31,8 @@ version that you are upgrading to.
 ###### Topics
 
 - [Step A: Get ready to upgrade](upgrades-lv-upg-single-ver-version.md "upgrades-lv-upg-single-ver-version.md")
-- [Step B: Kickstart the operating system
-  software](upgrades-lv-step-kickstart.md "upgrades-lv-step-kickstart.md")
-- [Step C: Copy the AWS Elemental Live
-  installer](upgrades-lv-upg-single-locate-sw.md "upgrades-lv-upg-single-locate-sw.md")
+- [Step B: Kickstart the operating system software](upgrades-lv-step-kickstart.md "upgrades-lv-step-kickstart.md")
+- [Step C: Copy the AWS Elemental Live installer](upgrades-lv-upg-single-locate-sw.md "upgrades-lv-upg-single-locate-sw.md")
 - [Step D: Upgrade the Elemental Live software](upgrades-lv-upg-single-up-cond.md "upgrades-lv-upg-single-up-cond.md")
 - [Step E: Restore the database](upgrades-lv-restore-database.md "upgrades-lv-restore-database.md")
 - [Step F: Upgrade the license](upgrades-lv-upg-lic.md "upgrades-lv-upg-lic.md")

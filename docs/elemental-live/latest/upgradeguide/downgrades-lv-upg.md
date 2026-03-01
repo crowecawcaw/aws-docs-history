@@ -34,8 +34,6 @@ version that you are downgrading to.
 
 ###### Topics
 
-- [Step A: Get ready to
-  downgrade](downgrades-lv-upg-ready-dn.md "downgrades-lv-upg-ready-dn.md")
-- [Step B: Copy the AWS Elemental
-  installer](downgrades-lv-upg-locate-sw-dn.md "downgrades-lv-upg-locate-sw-dn.md")
+- [Step A: Get ready to downgrade](downgrades-lv-upg-ready-dn.md "downgrades-lv-upg-ready-dn.md")
+- [Step B: Copy the AWS Elemental installer](downgrades-lv-upg-locate-sw-dn.md "downgrades-lv-upg-locate-sw-dn.md")
 - [Step C: Downgrade the node](downgrades-lv-upg-dg-node.md "downgrades-lv-upg-dg-node.md")

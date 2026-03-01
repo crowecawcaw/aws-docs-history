@@ -1,6 +1,4 @@
-# Step B: Copy the AWS Elemental
-
-installer
+# Step B: Copy the AWS Elemental installer
 
 Locate and copy the installer for Elemental Live.
 
