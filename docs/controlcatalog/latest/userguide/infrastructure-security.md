@@ -14,9 +14,7 @@ an access key ID and a secret access key that is associated with an IAM principa
 can use the [AWS Security Token Service](../../../STS/latest/APIReference/Welcome.md "../../../STS/latest/APIReference/Welcome.md") (AWS STS) to generate
 temporary security credentials to sign requests.
 
-## Configuration and vulnerability
-
-analysis in Control Catalog
+## Configuration and vulnerability analysis in Control Catalog
 
 Configuration and IT controls are a shared responsibility between AWS and you, our customer. For more information, see the AWS [shared responsibility
 model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/").

@@ -12,9 +12,7 @@ interfaces that serve as the entry point for traffic destined for Control Catalo
 
 For more information, see [Access AWS services through AWS PrivateLink](../../../vpc/latest/privatelink/privatelink-access-aws-services.md "../../../vpc/latest/privatelink/privatelink-access-aws-services.md") in the _AWS PrivateLink Guide_.
 
-## Considerations for AWS Control
-
-Catalog
+## Considerations for AWS Control Catalog
 
 Before you set up an interface endpoint for Control Catalog, review [Considerations](../../../vpc/latest/privatelink/create-interface-endpoint.md#considerations-interface-endpoints "../../../vpc/latest/privatelink/create-interface-endpoint.md#considerations-interface-endpoints") in the _AWS PrivateLink Guide_.
 
@@ -36,9 +34,7 @@ If you enable private DNS for the interface endpoint, you can make API requests 
 Control Catalog using its default Regional DNS name. For example,
 `service-name.us-east-1.amazonaws.com`.
 
-## Create an endpoint policy for your interface
-
-endpoint
+## Create an endpoint policy for your interface endpoint
 
 An endpoint policy is an IAM resource that you can attach to an interface endpoint.
 The default endpoint policy allows full access to Control Catalog through the
