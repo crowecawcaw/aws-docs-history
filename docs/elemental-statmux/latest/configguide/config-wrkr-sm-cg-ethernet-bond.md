@@ -10,8 +10,7 @@ set-up two Ethernet devices as an active/redundant pair.
 
 ###### Perform the following steps from the command line.
 
-- [Step A: Create Bond Configuration
-  File](#config-wrkr-sm-cg-ethernet-bond-create "#config-wrkr-sm-cg-ethernet-bond-create")
+- [Step A: Create Bond Configuration File](#config-wrkr-sm-cg-ethernet-bond-create "#config-wrkr-sm-cg-ethernet-bond-create")
 - [Step B: Edit Ethernet Interface Configuration Files](#config-wrkr-sm-cg-ethernet-bond-assign "#config-wrkr-sm-cg-ethernet-bond-assign")
 - [Step C: Restart the AWS Elemental Service Configuration Files](#config-wrkr-sm-cg-ethernet-bond-restart "#config-wrkr-sm-cg-ethernet-bond-restart")
 - [Step D: Verify the Bond](#config-wrkr-sm-cg-ethernet-bond-verify "#config-wrkr-sm-cg-ethernet-bond-verify")
@@ -27,9 +26,7 @@ Before you begin this process, make sure that you've done the following:
 
 - [Added to AWS Elemental Statmux the Ethernet devices](config-wrkr-sm-cg-ethernet-add.md "config-wrkr-sm-cg-ethernet-add.md") that you're bonding.
 
-## Step A: Create Bond Configuration
-
-File
+## Step A: Create Bond Configuration File
 
 Create a configuration file for the bond interface and name it after the bond.
 
