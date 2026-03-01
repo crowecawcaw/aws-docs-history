@@ -27,17 +27,12 @@ cloud:
 
 ###### Security topics
 
-- [Data protection in
-  AWS Microservice Extractor for .NET](#microservice-extractor-data-protection "#microservice-extractor-data-protection")
-- [Identity and Access Management in
-  AWS Microservice Extractor for .NET](#microservice-extractor-security-iam "#microservice-extractor-security-iam")
+- [Data protection in AWS Microservice Extractor for .NET](#microservice-extractor-data-protection "#microservice-extractor-data-protection")
+- [Identity and Access Management in AWS Microservice Extractor for .NET](#microservice-extractor-security-iam "#microservice-extractor-security-iam")
 - [Configuration and vulnerability analysis in AWS Microservice Extractor for .NET](#microservice-extractor-configuration-vulnerability-analysis "#microservice-extractor-configuration-vulnerability-analysis")
-- [Security best
-  practices](#microservice-extractor-security-best-practices "#microservice-extractor-security-best-practices")
+- [Security best practices](#microservice-extractor-security-best-practices "#microservice-extractor-security-best-practices")
 
-## Data protection in
-
-AWS Microservice Extractor for .NET
+## Data protection in AWS Microservice Extractor for .NET
 
 The AWS [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/")
 applies to data protection in AWS Microservice Extractor for .NET. As described in this model, AWS is
@@ -122,9 +117,7 @@ related to Microservice Extractor. These calls are:
 - CancelGroupingAssessment
 - GetGroupingAssessment
 
-### Data collected by
-
-AWS Microservice Extractor for .NET
+### Data collected by AWS Microservice Extractor for .NET
 
 You can choose to share data when you first set up the Microservice Extractor application.
 You have the option to turn off usage data sharing by clearing the check box for
@@ -148,9 +141,7 @@ Microservice Extractor doesn’t collect proprietary information, such as source
 case of failure, the tool may collect stack traces to improve product
 experience.
 
-## Identity and Access Management in
-
-AWS Microservice Extractor for .NET
+## Identity and Access Management in AWS Microservice Extractor for .NET
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control
 access to AWS resources. AWS Microservice Extractor for .NET is a standalone application that does not
@@ -166,9 +157,7 @@ version of the application upon restart. You maintain the system patching
 responsibility, per the [shared responsibility
 model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/").
 
-## Security best
-
-practices
+## Security best practices
 
 AWS Microservice Extractor for .NET provides security features to consider as you develop and implement
 your own security policies. The following best practice is a general guideline and

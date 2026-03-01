@@ -40,6 +40,5 @@ selection will appear for you to create a bucket. Select or create a prefix
 for your Amazon S3 bucket. 8. Add or update the **Working directory** used to store the
 output from the application analysis and extraction of your application. You
 cannot change this directory after the application is set up. 9. **Microservice Extractor usage data sharing** is enabled by default.
-To view the types of data collected, see [Information
-collected](microservice-extractor-information-collected.md "microservice-extractor-information-collected.md"). Clear
+To view the types of data collected, see [Information collected](microservice-extractor-information-collected.md "microservice-extractor-information-collected.md"). Clear
 the check box selection to disable usage data sharing. 10. Choose **Next** to onboard your application.

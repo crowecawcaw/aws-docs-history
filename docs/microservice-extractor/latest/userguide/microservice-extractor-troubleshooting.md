@@ -1,8 +1,6 @@
 AWS .NET Modernization Tools Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET is no longer open to new customers. If you would like to use the service, sign up prior to November 7, 2025. Alternatively use [AWS Transform](https://aws.amazon.com/transform/ "https://aws.amazon.com/transform/"), which is an agentic AI service developed to accelerate enterprise modernization of .NET.
 
-# Troubleshooting
-
-AWS Microservice Extractor for .NET
+# Troubleshooting AWS Microservice Extractor for .NET
 
 The following remediation strategies can help you troubleshoot problems with
 AWS Microservice Extractor for .NET.
@@ -16,8 +14,7 @@ AWS Microservice Extractor for .NET.
 - [Onboarding and visualization errors](#troubleshooting-onboarding "#troubleshooting-onboarding")
 - [Creating groups](#troubleshooting-groups "#troubleshooting-groups")
 - [Uninstalling application](#troubleshooting-uninstalling "#troubleshooting-uninstalling")
-- [Metrics and logs collected by
-  AWS Microservice Extractor for .NET](#troubleshooting-metrics-logs "#troubleshooting-metrics-logs")
+- [Metrics and logs collected by AWS Microservice Extractor for .NET](#troubleshooting-metrics-logs "#troubleshooting-metrics-logs")
 - [Questions and feedback](#troubleshooting-questions "#troubleshooting-questions")
 
 ## AWS profile errors
@@ -161,9 +158,7 @@ the following steps:
    applications, and select **Uninstall** to remove the
    application and its installation files.
 
-## Metrics and logs collected by
-
-AWS Microservice Extractor for .NET
+## Metrics and logs collected by AWS Microservice Extractor for .NET
 
 AWS Microservice Extractor for .NET collects the following files from
 `C:\Users\`<username>`\AppData\Roaming\ServiceExtract\logs`

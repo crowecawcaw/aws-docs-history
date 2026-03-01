@@ -9,8 +9,7 @@ view and **Edit** the application details. If you previously
 launched the visualization for the application, you can choose the
 **Visualization (nodes and dependencies)** tab to view the
 graphical visualization of your application. For more information about how to work
-with the visualization, see [Work with the application
-visualization](microservice-extractor-use-visualization.md "microservice-extractor-use-visualization.md").
+with the visualization, see [Work with the application visualization](microservice-extractor-use-visualization.md "microservice-extractor-use-visualization.md").
 
 The application details page displays a summary of the onboarding details that you
 entered for the application. It also includes an overview of the porting compatibility

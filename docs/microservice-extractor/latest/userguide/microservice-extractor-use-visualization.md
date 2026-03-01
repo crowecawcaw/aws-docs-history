@@ -1,17 +1,13 @@
 AWS .NET Modernization Tools Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET is no longer open to new customers. If you would like to use the service, sign up prior to November 7, 2025. Alternatively use [AWS Transform](https://aws.amazon.com/transform/ "https://aws.amazon.com/transform/"), which is an agentic AI service developed to accelerate enterprise modernization of .NET.
 
-# Work with the application
-
-visualization
+# Work with the application visualization
 
 The **Visualization** tab displays the application nodes and
 dependencies in graphical format. The initial view on the **Visualization** tab is the main view. The circles represent nodes, and the arrows show
 dependencies and direction between nodes, incoming or outgoing. By default, no
 groups are created. The main view reflects any updates you make to your groupings.
 
-## Features of
-
-the AWS Microservice Extractor for .NET visualization tool
+## Features of the AWS Microservice Extractor for .NET visualization tool
 
 You can perform the following tasks from the **Visualization (nodes
 and dependencies)** page to help you group your application nodes
@@ -32,9 +28,7 @@ to extract as a smaller service.
 | **Add or delete canvas (main view<br>only)**                           | A canvas displays a specific layout of nodes, edges, and<br>groups. After you onboard your application, the default<br>canvas is automatically created. You can perform graph tasks<br>on each canvas, such as viewing node details, rearranging<br>nodes, or creating groups. You can also add a new canvas or<br>delete an existing one (excluding the default canvas) by<br>selecting the option from the **Actions**<br>dropdown menu.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | **Get automated groupings (main view<br>only)**                        | You can get automated artificial intelligence-generated<br>grouping recommendations by selecting one of the following<br>options on the **Get automated groupings**<br>pop-up:<br>• To preserve the existing groups in the<br>visualization and get grouping recommendations for<br>only the non-grouped nodes, select<br>**Maintain existing group<br>nodes**.<br>• To delete all of the existing groups and get<br>grouping recommendations for all of the nodes in the<br>application, select **Reset existing<br>groups**.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 
-## Main
-
-visualization
+## Main visualization
 
 After you onboard an application, Microservice Extractor displays its nodes and
 dependencies as a graph. No groups are created by default. You can create
@@ -52,5 +46,4 @@ while preserving the interface and original solution. You can then develop,
 build, and deploy the new repositories independently as services.
 
 For more information about actions you can take from the main visualization,
-see [Features of
-the AWS Microservice Extractor for .NET visualization tool](#microservice-extractor-use-visualization-features "#microservice-extractor-use-visualization-features").
+see [Features of the AWS Microservice Extractor for .NET visualization tool](#microservice-extractor-use-visualization-features "#microservice-extractor-use-visualization-features").

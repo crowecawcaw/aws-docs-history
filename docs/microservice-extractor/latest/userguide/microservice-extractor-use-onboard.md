@@ -1,8 +1,6 @@
 AWS .NET Modernization Tools Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET is no longer open to new customers. If you would like to use the service, sign up prior to November 7, 2025. Alternatively use [AWS Transform](https://aws.amazon.com/transform/ "https://aws.amazon.com/transform/"), which is an agentic AI service developed to accelerate enterprise modernization of .NET.
 
-# Onboard an
-
-application
+# Onboard an application
 
 To onboard your application, perform the following steps.
 
@@ -38,8 +36,7 @@ To onboard your application, perform the following steps.
    - **Runtime profiling data — optional**.
      Upload the outputted `.csv` file from the runtime
      profiling performed for your application. For steps to run the
-     profiler, see the [Runtime profiling
-     prerequisites](microservice-extractor-install.md#microservice-extractor-install-runtime-profiling "microservice-extractor-install.md#microservice-extractor-install-runtime-profiling"). You can find the outputted `.csv` file in the output
+     profiler, see the [Runtime profiling prerequisites](microservice-extractor-install.md#microservice-extractor-install-runtime-profiling "microservice-extractor-install.md#microservice-extractor-install-runtime-profiling"). You can find the outputted `.csv` file in the output
      directory configured for the
      `SERVICEEXTRACT_PROFILER_OUTPUT_DIR` environment
      variable.

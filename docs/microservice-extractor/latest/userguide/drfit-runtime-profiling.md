@@ -10,5 +10,4 @@ application. This visual representation helps you to focus resources during the
 extraction process and to isolate areas of high value. The runtime profiler is a .dll
 file that must be included when you run your application in a test or integration
 environment with data that is representative of the production environment. CLR
-profiling is supported. For steps to run the profiler, see the [Runtime profiling
-prerequisites](microservice-extractor-install.md#microservice-extractor-install-runtime-profiling "microservice-extractor-install.md#microservice-extractor-install-runtime-profiling").
+profiling is supported. For steps to run the profiler, see the [Runtime profiling prerequisites](microservice-extractor-install.md#microservice-extractor-install-runtime-profiling "microservice-extractor-install.md#microservice-extractor-install-runtime-profiling").

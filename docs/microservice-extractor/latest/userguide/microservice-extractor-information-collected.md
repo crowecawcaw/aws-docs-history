@@ -1,8 +1,6 @@
 AWS .NET Modernization Tools Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET is no longer open to new customers. If you would like to use the service, sign up prior to November 7, 2025. Alternatively use [AWS Transform](https://aws.amazon.com/transform/ "https://aws.amazon.com/transform/"), which is an agentic AI service developed to accelerate enterprise modernization of .NET.
 
-# Information
-
-collected
+# Information collected
 
 You can choose to share data when you first set up the Microservice Extractor application. You
 have the option to turn off usage data sharing by clearing the check box for usage data

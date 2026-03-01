@@ -1,8 +1,6 @@
 AWS .NET Modernization Tools Porting Assistant (PA) for .NET, AWS App2Container (A2C), AWS Toolkit for .NET Refactoring (TR), and AWS Microservice Extractor (ME) for .NET is no longer open to new customers. If you would like to use the service, sign up prior to November 7, 2025. Alternatively use [AWS Transform](https://aws.amazon.com/transform/ "https://aws.amazon.com/transform/"), which is an agentic AI service developed to accelerate enterprise modernization of .NET.
 
-# Prerequisites to use
-
-AWS Microservice Extractor for .NET
+# Prerequisites to use AWS Microservice Extractor for .NET
 
 ###### This section describes the prerequisites for installing and
 
@@ -59,9 +57,7 @@ to complete an extraction. For information about how to configure your AWS CLI
 profile, see [Configuring the
 AWS CLI](../../../cli/latest/userguide/cli-configure-files.md#cli-configure-files-using-profiles "../../../cli/latest/userguide/cli-configure-files.md#cli-configure-files-using-profiles").
 
-### How to provide
-
-access to your user
+### How to provide access to your user
 
 To provide access, add permissions to your users, groups, or roles:
 
@@ -78,14 +74,11 @@ in the _IAM User Guide_.
   - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
   - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
 
-### Permissions to use the
-
-AWS Microservice Extractor for .NET assessment tool
+### Permissions to use the AWS Microservice Extractor for .NET assessment tool
 
 To use the AWS Microservice Extractor for .NET assessment tool, you must create an IAM policy
 that includes the following permissions. To view the type of application data
-collected by Microservice Extractor, see [Information
-collected](microservice-extractor-information-collected.md "microservice-extractor-information-collected.md").
+collected by Microservice Extractor, see [Information collected](microservice-extractor-information-collected.md "microservice-extractor-information-collected.md").
 
 ```
 {

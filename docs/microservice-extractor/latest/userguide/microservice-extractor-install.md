@@ -9,8 +9,7 @@ the runtime profiling prerequisites after you download the Microservice Extracto
 ###### Installation topics
 
 - [Installation](#microservice-extractor-install-steps "#microservice-extractor-install-steps")
-- [Runtime profiling
-  prerequisites](#microservice-extractor-install-runtime-profiling "#microservice-extractor-install-runtime-profiling")
+- [Runtime profiling prerequisites](#microservice-extractor-install-runtime-profiling "#microservice-extractor-install-runtime-profiling")
 
 ## Installation
 
@@ -49,9 +48,7 @@ When the installation completes, you can find the
  Microservice Extractor for .NET\resources\AWS
  Tools\serviceextract-profiler\ServiceExtractProfiler.dll`
 
-## Runtime profiling
-
-prerequisites
+## Runtime profiling prerequisites
 
 To use the runtime profiling agent on your application, you must configure the
 following prerequisites after you have downloaded the

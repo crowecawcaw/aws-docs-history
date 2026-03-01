@@ -8,10 +8,8 @@ into smaller services.
 ###### How Microservice Extractor works topics
 
 - [Overview](microservice-extractor-high-level.md "microservice-extractor-high-level.md")
-- [Application analysis and
-  extraction](microservice-extractor-application-analysis.md "microservice-extractor-application-analysis.md")
+- [Application analysis and extraction](microservice-extractor-application-analysis.md "microservice-extractor-application-analysis.md")
 - [Visualization](microservice-extractor-visualization.md "microservice-extractor-visualization.md")
 - [Runtime profiling](drfit-runtime-profiling.md "drfit-runtime-profiling.md")
 - [Service limits](microservice-extractor-limits.md "microservice-extractor-limits.md")
-- [Information
-  collected](microservice-extractor-information-collected.md "microservice-extractor-information-collected.md")
+- [Information collected](microservice-extractor-information-collected.md "microservice-extractor-information-collected.md")
