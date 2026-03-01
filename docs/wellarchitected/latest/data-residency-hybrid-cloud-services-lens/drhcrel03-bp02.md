@@ -1,8 +1,4 @@
-# DRHCREL03-BP02 Implement failover
-
-mechanisms to maintain highly-available data access and
-processing across on-premises, edge, and cloud
-environments
+# DRHCREL03-BP02 Implement failover mechanisms to maintain highly-available data access and processing across on-premises, edge, and cloud environments
 
 Data residency requirements can be addressed through various
 high-availability architectures, ranging from fully local

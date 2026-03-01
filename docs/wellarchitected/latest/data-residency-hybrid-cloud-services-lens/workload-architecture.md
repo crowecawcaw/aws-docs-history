@@ -14,7 +14,4 @@ cloud environments.
 ###### Best practices
 
 - [DRHCREL03-BP01 Use AWS Outposts or Local Zones for scenarios where data must reside within a country or jurisdiction without a local AWS Region](drhcrel03-bp01.md "drhcrel03-bp01.md")
-- [DRHCREL03-BP02 Implement failover
-  mechanisms to maintain highly-available data access and
-  processing across on-premises, edge, and cloud
-  environments](drhcrel03-bp02.md "drhcrel03-bp02.md")
+- [DRHCREL03-BP02 Implement failover mechanisms to maintain highly-available data access and processing across on-premises, edge, and cloud environments](drhcrel03-bp02.md "drhcrel03-bp02.md")

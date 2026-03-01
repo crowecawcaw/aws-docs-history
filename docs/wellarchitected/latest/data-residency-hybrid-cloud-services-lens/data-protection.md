@@ -1,6 +1,4 @@
-#
-
-Data protection
+# Data protection
 
 | DRHCSEC08: What mechanisms are you using<br>to recover from data corruption and data deletion, or do you<br>have a way to provide point-in-time views of your<br>data? |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
