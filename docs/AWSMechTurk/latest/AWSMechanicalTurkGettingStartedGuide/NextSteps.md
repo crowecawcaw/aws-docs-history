@@ -62,9 +62,7 @@ Once a Worker becomes qualified, you can grant them qualification status so that
 no longer need to complete a qualification test before working on your HITs. For more
 information, go to [AssignQualification](../AWSMturkAPI/ApiReference_AssignQualificationOperation.md "../AWSMturkAPI/ApiReference_AssignQualificationOperation.md").
 
-### Considerations for Writing a
-
-HIT
+### Considerations for Writing a HIT
 
 This guide presented a HIT for you to use. When you have to create your own, there
 are several things you should consider:
@@ -101,9 +99,7 @@ the duration too short frustrates Workers.
 
 This section describes some of the ways you can use Amazon Mechanical Turk.
 
-### Photo and Video
-
-Processing
+### Photo and Video Processing
 
 Amazon Mechanical Turk is well-suited for processing images. In the past, companies have used
 Mechanical Turk to:
@@ -114,9 +110,7 @@ Mechanical Turk to:
 - Audit user-uploaded images for inappropriate content
 - Classify objects found in satellite imagery
 
-### Data
-
-Verification and Clean-up
+### Data Verification and Clean-up
 
 Companies with large online catalogs use Amazon Mechanical Turk to identify duplicate entries and
 verify item details. Examples include:
@@ -126,9 +120,7 @@ verify item details. Examples include:
 - Verification of restaurant details, such as the phone number or hours of
   operation
 
-### Information
-
-Gathering
+### Information Gathering
 
 The Amazon Mechanical Turk workforce enables you to gather information, such as:
 
