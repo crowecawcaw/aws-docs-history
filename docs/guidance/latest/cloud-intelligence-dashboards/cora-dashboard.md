@@ -39,7 +39,7 @@ Get more familiar with Dashboard using the live, interactive demo
 dashboard following this
 [link](https://cid.workshops.aws.dev/demo?dashboard=cora "https://cid.workshops.aws.dev/demo?dashboard=cora")
 
-![CORA Dashboard Screenshot](images/cora.png)
+![CORA Dashboard Screenshot](/images/guidance/latest/cloud-intelligence-dashboards/images/cora.png)
 
 ## Prerequisites
 

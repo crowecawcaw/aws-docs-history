@@ -149,7 +149,7 @@ The Data Collection is needed to collect data from local Quick Suite account and
 [![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-collection.yaml&stackName=CidDataCollectionStack&param_ManagementAccountID=&param_IncludeTAModule=no&param_IncludeRightsizingModule=no&param_IncludeCostAnomalyModule=no&param_IncludeInventoryCollectorModule=no&param_IncludeComputeOptimizerModule=no&param_IncludeECSChargebackModule=no&param_IncludeRDSUtilizationModule=no&param_IncludeOrgDataModule=no&param_IncludeBudgetsModule=no&param_IncludeTransitGatewayModule=no&param_IncludeHealthEventsModule=no&param_IncludeQuickSightModule=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-collection.yaml&stackName=CidDataCollectionStack¶m_ManagementAccountID=¶m_IncludeTAModule=no¶m_IncludeRightsizingModule=no¶m_IncludeCostAnomalyModule=no¶m_IncludeInventoryCollectorModule=no¶m_IncludeComputeOptimizerModule=no¶m_IncludeECSChargebackModule=no¶m_IncludeRDSUtilizationModule=no¶m_IncludeOrgDataModule=no¶m_IncludeBudgetsModule=no¶m_IncludeTransitGatewayModule=no¶m_IncludeHealthEventsModule=no¶m_IncludeQuickSightModule=yes") 2. Create an inline Athena Table that simulates Data Collection organization_data, but can be edited directly in Athena to manage access.
 
 ```
-CREATE OR REPLACE VIEW "cid_cur"."organization_data" AS
+CREATE OR REPLACE VIEW "optimization_data"."organization_data" AS
 WITH accounts AS (
   SELECT *
   FROM (
@@ -163,8 +163,8 @@ SELECT
   account_id as Id,
   payer_account_id as ManagementAccountId,
   ARRAY[
-    CAST(ROW('cid_users', array_join("emails", ',')) AS ROW(key VARCHAR, value VARCHAR)),
-    CAST(ROW('cid_groups', array_join("groups", ',')) AS ROW(key VARCHAR, value VARCHAR))
+    CAST(ROW('cid_users', array_join("emails", ':')) AS ROW(key VARCHAR, value VARCHAR)),
+    CAST(ROW('cid_groups', array_join("groups", ':')) AS ROW(key VARCHAR, value VARCHAR))
   ] as HierarchyTags
 FROM accounts
 ```
@@ -174,10 +174,10 @@ FROM accounts
 [![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-collection.yaml&stackName=CidDataCollectionStack&param_ManagementAccountID=&param_IncludeTAModule=no&param_IncludeRightsizingModule=no&param_IncludeCostAnomalyModule=no&param_IncludeInventoryCollectorModule=no&param_IncludeComputeOptimizerModule=no&param_IncludeECSChargebackModule=no&param_IncludeRDSUtilizationModule=no&param_IncludeOrgDataModule=no&param_IncludeBudgetsModule=no&param_IncludeTransitGatewayModule=no&param_IncludeHealthEventsModule=no&param_IncludeQuickSightModule=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-collection.yaml&stackName=CidDataCollectionStack¶m_ManagementAccountID=¶m_IncludeTAModule=no¶m_IncludeRightsizingModule=no¶m_IncludeCostAnomalyModule=no¶m_IncludeInventoryCollectorModule=no¶m_IncludeComputeOptimizerModule=no¶m_IncludeECSChargebackModule=no¶m_IncludeRDSUtilizationModule=no¶m_IncludeOrgDataModule=no¶m_IncludeBudgetsModule=no¶m_IncludeTransitGatewayModule=no¶m_IncludeHealthEventsModule=no¶m_IncludeQuickSightModule=yes") 2. Create a CSV file (ex: `file.csv`):
 
 ```
-"account_id", "payer_account_id", "emails", "groups"
-"1111111111111111", "1111111111111111", "user11@e.mail,user12@e.mail", "group11,group12"
-"2222222222222222", "1111111111111111", "user21@e.mail,user12@e.mail", ""
-"3333333333333333", "1111111111111111", "", "group31,group32"
+account_id, payer_account_id, emails, groups
+1111111111111111, 1111111111111111, user11@e.mail:user12@e.mail, group11:group12
+2222222222222222, 1111111111111111, user21@e.mail:user12@e.mail,
+3333333333333333, 1111111111111111,, group31:group32
 ```
 
 3. Upload CSV file to an Amazon S3 Bucket. Please use an existing Bucket that Quick Suite already has access to. Example: `cid-{account-id}-data-exports` or `cid-data-{account-id}`. You can use either the web interface or the command line:
@@ -190,7 +190,7 @@ aws s3 cp ./file.csv s3://cid-data-${account_id}/my_accounts/file.csv
 4. Login to AWS Console, select Athena Service and Create a Table:
 
 ```
-CREATE EXTERNAL TABLE "cid_cur"."my_accounts" (
+CREATE EXTERNAL TABLE optimization_data.my_accounts (
     "account_id" string,
     "payer_account_id" string,
     "emails" string,
@@ -213,20 +213,21 @@ TBLPROPERTIES (
 5. Verify the table
 
 ```
-SELECT * FROM "cid_cur"."my_accounts"
+SELECT * FROM "optimization_data"."my_accounts"
 ```
 
 6. Create a view that simulates organization_data table
 
 ```
-CREATE OR REPLACE VIEW "cid_cur"."organization_data" AS
+CREATE OR REPLACE VIEW "optimization_data"."organization_data" AS
+SELECT
   account_id as Id,
   payer_account_id as ManagementAccountId,
   ARRAY[
-    CAST(ROW('cid_users',  "emails")) AS ROW(key VARCHAR, value VARCHAR)),
-    CAST(ROW('cid_groups', "groups")) AS ROW(key VARCHAR, value VARCHAR))
+    CAST(ROW('cid_users',  "emails") AS ROW(key VARCHAR, value VARCHAR)),
+    CAST(ROW('cid_groups', "groups") AS ROW(key VARCHAR, value VARCHAR))
   ] as HierarchyTags
-FROM "cid_cur"."my_accounts"
+FROM "optimization_data"."my_accounts"
 ```
 
 ## Step 2: Install RLS Dashboard and Verify Configuration
