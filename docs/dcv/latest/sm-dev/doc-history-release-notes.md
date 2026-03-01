@@ -1,6 +1,4 @@
-# Release notes and document history for
-
-Amazon DCV Session Manager
+# Release notes and document history for Amazon DCV Session Manager
 
 This page provides the release notes and document history for Amazon DCV Session Manager.
 
