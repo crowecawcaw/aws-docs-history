@@ -1,9 +1,7 @@
 This guide provides documentation for AWS Wickr. For Wickr
 Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](../enterpriseadminguide/what-is-wickr.md "../enterpriseadminguide/what-is-wickr.md").
 
-# Write a room or group message in the Wickr
-
-client
+# Write a room or group message in the Wickr client
 
 You can write a room or group message in the Wickr client. All members of the room
 or group will receive your message.

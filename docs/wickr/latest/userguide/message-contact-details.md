@@ -1,9 +1,7 @@
 This guide provides documentation for AWS Wickr. For Wickr
 Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](../enterpriseadminguide/what-is-wickr.md "../enterpriseadminguide/what-is-wickr.md").
 
-# View message contact details in the Wickr
-
-client
+# View message contact details in the Wickr client
 
 You can view message contact details and message settings in the Wickr
 client.

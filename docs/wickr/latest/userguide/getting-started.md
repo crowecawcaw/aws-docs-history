@@ -11,8 +11,7 @@ ID from your company's Wickr administrator and downloading the client.
 - [Prerequisites](#getting-started-prerequisites "#getting-started-prerequisites")
 - [Step 1: Download and install the Wickr client](#accept-invitation-step1 "#accept-invitation-step1")
 - [Step 2: Sign in to the Wickr client](#sign-in-step2 "#sign-in-step2")
-- [Step 3: (Optional) Configure additional
-  devices](#configure-second-device-step3 "#configure-second-device-step3")
+- [Step 3: (Optional) Configure additional devices](#configure-second-device-step3 "#configure-second-device-step3")
 - [Next steps](#getting-started-next-steps "#getting-started-next-steps")
 
 ## Prerequisites
@@ -107,9 +106,7 @@ chosen password, enter it a second time to confirm, and choose
 
 You should now be signed in to the Wickr client.
 
-## Step 3: (Optional) Configure additional
-
-devices
+## Step 3: (Optional) Configure additional devices
 
 You can download and install the Wickr client on additional devices after configuring it
 on your initial device. The client will display a code when you install it on another device. If

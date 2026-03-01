@@ -1,9 +1,7 @@
 This guide provides documentation for AWS Wickr. For Wickr
 Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](../enterpriseadminguide/what-is-wickr.md "../enterpriseadminguide/what-is-wickr.md").
 
-# Navigate between folders in the Wickr
-
-client
+# Navigate between folders in the Wickr client
 
 You can navigate between folders in a room in the Wickr client.
 

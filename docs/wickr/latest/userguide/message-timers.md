@@ -1,9 +1,7 @@
 This guide provides documentation for AWS Wickr. For Wickr
 Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](../enterpriseadminguide/what-is-wickr.md "../enterpriseadminguide/what-is-wickr.md").
 
-# Set message expiration and burn timers in the Wickr
-
-client
+# Set message expiration and burn timers in the Wickr client
 
 You can set the expiration and burn timers for direct messages with other Wickr
 users.

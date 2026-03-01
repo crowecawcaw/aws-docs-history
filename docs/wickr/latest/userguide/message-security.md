@@ -1,9 +1,7 @@
 This guide provides documentation for AWS Wickr. For Wickr
 Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](../enterpriseadminguide/what-is-wickr.md "../enterpriseadminguide/what-is-wickr.md").
 
-# View and verify message security in the Wickr
-
-client
+# View and verify message security in the Wickr client
 
 You can verify the security of end-to-end message encryption with another Wickr
 user.
