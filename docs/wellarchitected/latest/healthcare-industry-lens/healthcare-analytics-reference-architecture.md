@@ -47,7 +47,7 @@ environment._
   example:
   - Business users and regulators perform analysis, view
     dashboards, and receive reports using business
-    intelligence tools like Quick Suite.
+    intelligence tools like Quick.
   - Custom application integrations use the data to surface
     insights to end users, including to the point of care.
     Data can be accessed using a variety of AWS services
