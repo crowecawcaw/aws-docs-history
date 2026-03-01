@@ -1,7 +1,6 @@
 # Security Hub CSPM controls for AWS Identity and Access Management
 
-These AWS Security Hub CSPM controls evaluate the AWS Identity and Access Management (IAM) service and resources. The controls might not be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+These AWS Security Hub CSPM controls evaluate the AWS Identity and Access Management (IAM) service and resources. The controls might not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
 ## [IAM.1] IAM policies should not allow full "\*" administrative privileges
 
@@ -430,9 +429,7 @@ The control generates `FAILED` findings if root user credentials are present in 
 
 For information about enabling MFA for the root user of an AWS account, see [Multi-factor authentication for the AWS account root user](../../../IAM/latest/UserGuide/enable-mfa-for-root.md "../../../IAM/latest/UserGuide/enable-mfa-for-root.md") in the _AWS Identity and Access Management User Guide_.
 
-## [IAM.10] Password policies for IAM users should have strong
-
-configurations
+## [IAM.10] Password policies for IAM users should have strong configurations
 
 **Related requirements:** NIST.800-171.r2 3.5.2, NIST.800-171.r2
 3.5.7, NIST.800-171.r2 3.5.8, PCI DSS v3.2.1/8.1.4, PCI DSS v3.2.1/8.2.3, PCI DSS
@@ -714,9 +711,7 @@ scenarios:
 To change your password policy, see [Setting an account password policy for IAM users](../../../IAM/latest/UserGuide/id_credentials_passwords_account-policy.md "../../../IAM/latest/UserGuide/id_credentials_passwords_account-policy.md") in the _IAM User Guide_. For **Turn on password expiration**, enter
 `90` or a smaller number.
 
-## [IAM.18] Ensure a support role has been created to manage incidents with
-
-AWS Support
+## [IAM.18] Ensure a support role has been created to manage incidents with AWS Support
 
 **Related requirements:** CIS AWS Foundations Benchmark v5.0.0/1.16, CIS AWS Foundations Benchmark v3.0.0/1.17, CIS AWS Foundations Benchmark v1.4.0/1.17,
 CIS AWS Foundations Benchmark v1.2.0/1.20, NIST.800-171.r2 3.1.2, PCI DSS v4.0.1/12.10.3
@@ -914,8 +909,7 @@ Create at least one subscriber to the topic. For more information, see
 _Amazon Simple Notification Service Developer Guide_.
 
 Next, set up an active CloudTrail that applies to all Regions. To do so, follow the
-remediation steps in [[CloudTrail.1] CloudTrail should be enabled and configured with at least
-one multi-Region trail that includes read and write management events](cloudtrail-controls.md#cloudtrail-1 "cloudtrail-controls.md#cloudtrail-1").
+remediation steps in [[CloudTrail.1] CloudTrail should be enabled and configured with at least one multi-Region trail that includes read and write management events](cloudtrail-controls.md#cloudtrail-1 "cloudtrail-controls.md#cloudtrail-1").
 
 Make a note of the name of the CloudWatch Logs log group that you associate with the
 CloudTrail trail. You create the metric filter for that log group.
@@ -1329,9 +1323,7 @@ principle of least privilege and attaching narrower permissions to your IAM iden
 
 To detach the `AWSCloudShellFullAccess` policy from an IAM identity, see [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md") in the _IAM User Guide_.
 
-## [IAM.28] IAM Access Analyzer external access analyzer should be
-
-enabled
+## [IAM.28] IAM Access Analyzer external access analyzer should be enabled
 
 **Related requirements:** CIS AWS Foundations Benchmark v5.0.0/1.19, CIS AWS Foundations Benchmark v3.0.0/1.20
 

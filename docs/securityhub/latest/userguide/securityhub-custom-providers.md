@@ -11,9 +11,7 @@ When setting up the custom integration, use the [guidelines
 and checklists](../partnerguide/integration-guidelines-checklists.md "../partnerguide/integration-guidelines-checklists.md") provided in the _Security Hub CSPM Partner Integration
 Guide_.
 
-## Requirements and recommendations
-
-for custom product integrations
+## Requirements and recommendations for custom product integrations
 
 Before you can successfully invoke the [`BatchImportFindings`](../../1.0/APIReference/API_BatchImportFindings.md "../../1.0/APIReference/API_BatchImportFindings.md") API operation, you
 must enable Security Hub CSPM.
@@ -42,8 +40,7 @@ Security Hub CSPM.
 
 Your specified names replace the preconfigured company name and product
 name, called personal name and default name respectively, and appear in the
-Security Hub CSPM console and the JSON of each finding. See [BatchImportFindings for finding
-providers](finding-update-batchimportfindings.md "finding-update-batchimportfindings.md").
+Security Hub CSPM console and the JSON of each finding. See [BatchImportFindings for finding providers](finding-update-batchimportfindings.md "finding-update-batchimportfindings.md").
 
 **Setting the finding IDs**
 
@@ -62,9 +59,7 @@ dates**
 
 You must supply your own timestamps for the [`CreatedAt`](../../1.0/APIReference/API_AwsSecurityFinding.md#securityhub-Type-AwsSecurityFinding-CreatedAt "../../1.0/APIReference/API_AwsSecurityFinding.md#securityhub-Type-AwsSecurityFinding-CreatedAt") and [`UpdatedAt`](../../1.0/APIReference/API_AwsSecurityFinding.md#securityhub-Type-AwsSecurityFinding-UpdatedAt "../../1.0/APIReference/API_AwsSecurityFinding.md#securityhub-Type-AwsSecurityFinding-UpdatedAt") attributes.
 
-## Updating findings from
-
-custom products
+## Updating findings from custom products
 
 In addition to sending new findings from custom products, you can also use the [`BatchImportFindings`](../../1.0/APIReference/API_BatchImportFindings.md "../../1.0/APIReference/API_BatchImportFindings.md") API operation to
 update existing findings from custom products.
@@ -72,9 +67,7 @@ update existing findings from custom products.
 To update existing findings, use the existing finding ID (via the [`Id`](../../1.0/APIReference/API_AwsSecurityFinding.md#securityhub-Type-AwsSecurityFinding-Id "../../1.0/APIReference/API_AwsSecurityFinding.md#securityhub-Type-AwsSecurityFinding-Id") attribute). Resend the full finding
 with the appropriate information updated in the request, including a modified [`UpdatedAt`](../../1.0/APIReference/API_AwsSecurityFinding.md#securityhub-Type-AwsSecurityFinding-UpdatedAt "../../1.0/APIReference/API_AwsSecurityFinding.md#securityhub-Type-AwsSecurityFinding-UpdatedAt") timestamp.
 
-## Example custom
-
-integrations
+## Example custom integrations
 
 You can use the following example custom product integrations as a guide to create
 your own custom solutions:

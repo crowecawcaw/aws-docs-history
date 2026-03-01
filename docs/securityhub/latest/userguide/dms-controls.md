@@ -1,8 +1,7 @@
 # Security Hub CSPM controls for AWS Database Migration Service
 
 These AWS Security Hub CSPM controls evaluate the AWS Database Migration Service (AWS DMS) and AWS DMS resources. The controls
-might not be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+might not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
 ## [DMS.1] Database Migration Service replication instances should not be public
 

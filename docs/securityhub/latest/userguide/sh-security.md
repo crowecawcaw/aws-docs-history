@@ -32,5 +32,4 @@ _in_ the cloud:
 - [Compliance validation for AWS Security Hub](sh-securityhub-compliance.md "sh-securityhub-compliance.md")
 - [Resilience in AWS Security Hub](sh-disaster-recovery-resiliency.md "sh-disaster-recovery-resiliency.md")
 - [Infrastructure security in AWS Security Hub](sh-infrastructure-security.md "sh-infrastructure-security.md")
-- [AWS Security Hub and interface VPC endpoints
-  (AWS PrivateLink)](sh-security-vpc-endpoints.md "sh-security-vpc-endpoints.md")
+- [AWS Security Hub and interface VPC endpoints (AWS PrivateLink)](sh-security-vpc-endpoints.md "sh-security-vpc-endpoints.md")

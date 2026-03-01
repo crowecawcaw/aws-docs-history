@@ -1,6 +1,4 @@
-# Subscribing to Security Hub CSPM announcements with
-
-Amazon SNS
+# Subscribing to Security Hub CSPM announcements with Amazon SNS
 
 This section provides information about subscribing to AWS Security Hub CSPM announcements with
 Amazon Simple Notification Service (Amazon SNS) to receive notifications about Security Hub CSPM.
@@ -39,8 +37,7 @@ and Amazon SNS policies together](../../../sns/latest/dg/sns-using-identity-base
 ###### Note
 
 Security Hub CSPM sends Amazon SNS announcements about updates to the Security Hub CSPM service to any subscribed
-AWS account. To receive notifications about Security Hub CSPM findings, see [Reviewing finding details and history in
-Security Hub CSPM](securityhub-findings-viewing.md "securityhub-findings-viewing.md").
+AWS account. To receive notifications about Security Hub CSPM findings, see [Reviewing finding details and history in Security Hub CSPM](securityhub-findings-viewing.md "securityhub-findings-viewing.md").
 
 You can subscribe to an Amazon Simple Queue Service (Amazon SQS) queue for an Amazon SNS topic, but you must use an Amazon SNS topic Amazon Resource Name (ARN) that is in the same Region. For more information, see [Subscribing a queue to an Amazon SNS topic](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-subscribe-queue-sns-topic.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-subscribe-queue-sns-topic.md") in the _Amazon Simple Queue Service Developer Guide_.
 

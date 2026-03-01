@@ -69,5 +69,4 @@ aws securityhub update-security-hub-configuration --auto-enable-controls | --`no
 aws securityhub update-security-hub-configuration --auto-enable-controls
 ```
 
-If you don't automatically enable new controls, then you must enable them manually. For instructions, see [Enabling controls in
-Security Hub CSPM](securityhub-standards-enable-disable-controls.md "securityhub-standards-enable-disable-controls.md").
+If you don't automatically enable new controls, then you must enable them manually. For instructions, see [Enabling controls in Security Hub CSPM](securityhub-standards-enable-disable-controls.md "securityhub-standards-enable-disable-controls.md").

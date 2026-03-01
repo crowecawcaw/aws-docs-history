@@ -1,12 +1,9 @@
 # Security Hub CSPM controls for Amazon CloudFront
 
 These AWS Security Hub CSPM controls evaluate the Amazon CloudFront service and resources. The controls might
-not be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
-## [CloudFront.1] CloudFront distributions should have a default
-
-root object configured
+## [CloudFront.1] CloudFront distributions should have a default root object configured
 
 **Related requirements:** NIST.800-53.r5 SC-7(11),
 NIST.800-53.r5 SC-7(16), PCI DSS v4.0.1/2.2.6
@@ -38,9 +35,7 @@ exposing the contents of your web distribution.
 
 To configure a default root object for a CloudFront distribution, see [How to specify a default root object](../../../AmazonCloudFront/latest/DeveloperGuide/DefaultRootObject.md#DefaultRootObjectHowToDefine "../../../AmazonCloudFront/latest/DeveloperGuide/DefaultRootObject.md#DefaultRootObjectHowToDefine") in the _Amazon CloudFront Developer Guide_.
 
-## [CloudFront.3] CloudFront distributions should require
-
-encryption in transit
+## [CloudFront.3] CloudFront distributions should require encryption in transit
 
 **Related requirements:** NIST.800-53.r5 AC-17(2),
 NIST.800-53.r5 AC-4, NIST.800-53.r5 IA-5(1), NIST.800-53.r5 SC-12(3), NIST.800-53.r5
@@ -78,9 +73,7 @@ understand the performance profile and the impact of TLS.
 To encrypt a CloudFront distribution in transit, see [Requiring HTTPS for communication between viewers and CloudFront](../../../AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.md "../../../AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.md") in the
 _Amazon CloudFront Developer Guide_.
 
-## [CloudFront.4] CloudFront distributions should have origin
-
-failover configured
+## [CloudFront.4] CloudFront distributions should have origin failover configured
 
 **Related requirements:** NIST.800-53.r5 CP-10,
 NIST.800-53.r5 SC-36, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-13(5)
@@ -111,9 +104,7 @@ returns specific HTTP response status codes.
 
 To configure origin failover for a CloudFront distribution, see [Creating an origin group](../../../AmazonCloudFront/latest/DeveloperGuide/high_availability_origin_failover.md#concept_origin_groups.creating "../../../AmazonCloudFront/latest/DeveloperGuide/high_availability_origin_failover.md#concept_origin_groups.creating") in the _Amazon CloudFront Developer Guide_.
 
-## [CloudFront.5] CloudFront distributions should have logging
-
-enabled
+## [CloudFront.5] CloudFront distributions should have logging enabled
 
 **Related requirements:** NIST.800-53.r5 AC-2(4),
 NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AC-6(9), NIST.800-53.r5 AU-10, NIST.800-53.r5
@@ -151,9 +142,7 @@ _Amazon Athena User Guide_.
 
 To configure standard logging (legacy) for a CloudFront distribution, see [Configure standard logging (legacy)](../../../AmazonCloudFront/latest/DeveloperGuide/standard-logging-legacy-s3.md "../../../AmazonCloudFront/latest/DeveloperGuide/standard-logging-legacy-s3.md") in the _Amazon CloudFront Developer Guide_.
 
-## [CloudFront.6] CloudFront distributions should have WAF
-
-enabled
+## [CloudFront.6] CloudFront distributions should have WAF enabled
 
 **Related requirements:** NIST.800-53.r5 AC-4(21),
 PCI DSS v4.0.1/6.4.2
@@ -187,9 +176,7 @@ associated with an AWS WAF web ACL to help protect it from malicious attacks.
 To associate an AWS WAF web ACL with a CloudFront distribution, see [Using
 AWS WAF to control access to your content](../../../AmazonCloudFront/latest/DeveloperGuide/distribution-web-awswaf.md "../../../AmazonCloudFront/latest/DeveloperGuide/distribution-web-awswaf.md") in the _Amazon CloudFront Developer Guide_.
 
-## [CloudFront.7] CloudFront distributions should use custom
-
-SSL/TLS certificates
+## [CloudFront.7] CloudFront distributions should use custom SSL/TLS certificates
 
 **Related requirements:** NIST.800-53.r5 AC-17(2),
 NIST.800-53.r5 AC-4, NIST.800-53.r5 IA-5(1), NIST.800-53.r5 SC-12(3), NIST.800-53.r5
@@ -226,9 +213,7 @@ To add an alternate domain name for a CloudFront distribution using a custom SSL
 certificate, see [Adding an
 alternate domain name](../../../AmazonCloudFront/latest/DeveloperGuide/CNAMEs.md#CreatingCNAME "../../../AmazonCloudFront/latest/DeveloperGuide/CNAMEs.md#CreatingCNAME") in the _Amazon CloudFront Developer Guide_.
 
-## [CloudFront.8] CloudFront distributions should use SNI to serve
-
-HTTPS requests
+## [CloudFront.8] CloudFront distributions should use SNI to serve HTTPS requests
 
 **Related requirements:** NIST.800-53.r5 CA-9(1),
 NIST.800-53.r5 CM-2
@@ -266,9 +251,7 @@ dedicated to your distribution.
 To configure a CloudFront distribution to use SNI to serve HTTPS requests, see [Using SNI to Serve HTTPS Requests (works for Most Clients)](../../../AmazonCloudFront/latest/DeveloperGuide/cnames-https-dedicated-ip-or-sni.md#cnames-https-sni "../../../AmazonCloudFront/latest/DeveloperGuide/cnames-https-dedicated-ip-or-sni.md#cnames-https-sni") in the CloudFront
 Developer Guide. For information about custom SSL certificates, see [Requirements for using SSL/TLS certificates with CloudFront](../../../AmazonCloudFront/latest/DeveloperGuide/cnames-and-https-requirements.md "../../../AmazonCloudFront/latest/DeveloperGuide/cnames-and-https-requirements.md").
 
-## [CloudFront.9] CloudFront distributions should encrypt traffic
-
-to custom origins
+## [CloudFront.9] CloudFront distributions should encrypt traffic to custom origins
 
 **Related requirements:** NIST.800-53.r5 AC-17(2),
 NIST.800-53.r5 AC-4, NIST.800-53.r5 IA-5(1), NIST.800-53.r5 SC-12(3), NIST.800-53.r5
@@ -304,9 +287,7 @@ To update the Origin Protocol Policy to require encryption for a CloudFront conn
 see [Requiring HTTPS for communication between CloudFront and your custom origin](../../../AmazonCloudFront/latest/DeveloperGuide/using-https-cloudfront-to-custom-origin.md "../../../AmazonCloudFront/latest/DeveloperGuide/using-https-cloudfront-to-custom-origin.md")
 in the _Amazon CloudFront Developer Guide_.
 
-## [CloudFront.10] CloudFront distributions should not use
-
-deprecated SSL protocols between edge locations and custom origins
+## [CloudFront.10] CloudFront distributions should not use deprecated SSL protocols between edge locations and custom origins
 
 **Related requirements:** NIST.800-53.r5 AC-17(2),
 NIST.800-53.r5 AC-4, NIST.800-53.r5 IA-5(1), NIST.800-53.r5 SC-12(3), NIST.800-53.r5
@@ -342,9 +323,7 @@ that you use TLSv1.2 or later for HTTPS communication to your custom origins.
 To update the Origin SSL Protocols for a CloudFront distribution, see [Requiring HTTPS for communication between CloudFront and your custom origin](../../../AmazonCloudFront/latest/DeveloperGuide/using-https-cloudfront-to-custom-origin.md "../../../AmazonCloudFront/latest/DeveloperGuide/using-https-cloudfront-to-custom-origin.md")
 in the _Amazon CloudFront Developer Guide_.
 
-## [CloudFront.12] CloudFront distributions should not point to
-
-non-existent S3 origins
+## [CloudFront.12] CloudFront distributions should not point to non-existent S3 origins
 
 **Related requirements:** NIST.800-53.r5 CM-2,
 NIST.800-53.r5 CM-2(2), PCI DSS v4.0.1/2.2.6
@@ -378,9 +357,7 @@ routing behavior to ensure that your distributions are pointing to appropriate o
 To modify a CloudFront distribution to point to a new origin, see [Updating a distribution](../../../AmazonCloudFront/latest/DeveloperGuide/HowToUpdateDistribution.md "../../../AmazonCloudFront/latest/DeveloperGuide/HowToUpdateDistribution.md") in the
 _Amazon CloudFront Developer Guide_.
 
-## [CloudFront.13] CloudFront distributions should use origin
-
-access control
+## [CloudFront.13] CloudFront distributions should use origin access control
 
 **Category:** Protect > Secure access management > Resource not publicly accessible
 
@@ -416,9 +393,7 @@ principals to authenticate with S3 origins.
 To configure OAC for a CloudFront distribution with S3 origins, see [Restricting access to an Amazon S3 origin](../../../AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.md "../../../AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.md") in the
 _Amazon CloudFront Developer Guide_.
 
-## [CloudFront.14] CloudFront distributions should be
-
-tagged
+## [CloudFront.14] CloudFront distributions should be tagged
 
 **Category:** Identify > Inventory > Tagging
 
@@ -471,9 +446,7 @@ AWS resources](../../../tag-editor/latest/userguide/tagging.md#tag-best-practice
 To add tags to a CloudFront distribution, see [Tagging Amazon CloudFront
 distributions](../../../AmazonCloudFront/latest/DeveloperGuide/tagging.md "../../../AmazonCloudFront/latest/DeveloperGuide/tagging.md") in the _Amazon CloudFront Developer Guide_.
 
-## [CloudFront.15] CloudFront distributions should use the
-
-recommended TLS security policy
+## [CloudFront.15] CloudFront distributions should use the recommended TLS security policy
 
 **Category:** Protect > Data Protection > Encryption of data-in-transit
 
@@ -515,9 +488,7 @@ a distribution](../../../AmazonCloudFront/latest/DeveloperGuide/HowToUpdateDistr
 Guide_. When you configure the security policy for a distribution,
 choose the latest security policy.
 
-## [CloudFront.16] CloudFront distributions should use origin
-
-access control for Lambda function URL origins
+## [CloudFront.16] CloudFront distributions should use origin access control for Lambda function URL origins
 
 **Category:** Protect > Secure access management > Access control
 

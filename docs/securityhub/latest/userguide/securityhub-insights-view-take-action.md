@@ -1,6 +1,4 @@
-# Reviewing and acting on insights in
-
-Security Hub CSPM
+# Reviewing and acting on insights in Security Hub CSPM
 
 For each insight, AWS Security Hub CSPM first determines the findings that match the filter criteria,
 and then uses the grouping attribute to group the matching findings.
@@ -15,9 +13,7 @@ Regions (when you're signed in to the aggregation Region). In other Regions, the
 
 For information about configuring cross-Region aggregation, see [Understanding cross-Region aggregation in Security Hub CSPM](finding-aggregation.md "finding-aggregation.md").
 
-## Viewing and taking action on
-
-insight results
+## Viewing and taking action on insight results
 
 The insight results consist of a grouped list of the results for the insight. For
 example, if the insight is grouped by resource identifiers, then the insight results are
@@ -83,12 +79,9 @@ readability.
 `$` `aws securityhub get-insight-results --insight-arn "`arn:aws:securityhub:us-west-1:123456789012:insight/123456789012/custom/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`"`
 ```
 
-For information about how to create custom actions programmatically, see [Using custom actions to send findings
-and insight results to EventBridge](securityhub-cwe-custom-actions.md "securityhub-cwe-custom-actions.md").
+For information about how to create custom actions programmatically, see [Using custom actions to send findings and insight results to EventBridge](securityhub-cwe-custom-actions.md "securityhub-cwe-custom-actions.md").
 
-## Viewing and taking action on insight
-
-result findings (console)
+## Viewing and taking action on insight result findings (console)
 
 From an insight results list on the Security Hub CSPM console, you can display the list of findings for each
 result.
@@ -105,8 +98,6 @@ result.
 From the findings list, you can perform the following actions:
 
 - [Filtering findings in Security Hub CSPM](securityhub-findings-manage.md "securityhub-findings-manage.md")
-- [Reviewing finding details and
-  history](securityhub-findings-viewing.md#finding-view-details-console "securityhub-findings-viewing.md#finding-view-details-console")
-- [Setting the workflow status of findings in
-  Security Hub CSPM](findings-workflow-status.md "findings-workflow-status.md")
+- [Reviewing finding details and history](securityhub-findings-viewing.md#finding-view-details-console "securityhub-findings-viewing.md#finding-view-details-console")
+- [Setting the workflow status of findings in Security Hub CSPM](findings-workflow-status.md "findings-workflow-status.md")
 - [Sending findings to a custom Security Hub CSPM action](findings-custom-action.md "findings-custom-action.md")

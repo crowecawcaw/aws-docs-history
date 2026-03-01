@@ -32,8 +32,6 @@ automatically enabled. For information about enabling a standard, see [Enabling 
 
 ###### Topics
 
-- [Disabling a control across
-  standards](disable-controls-across-standards.md "disable-controls-across-standards.md")
-- [Disabling a control in a specific
-  standard](disable-controls-standard.md "disable-controls-standard.md")
+- [Disabling a control across standards](disable-controls-across-standards.md "disable-controls-across-standards.md")
+- [Disabling a control in a specific standard](disable-controls-standard.md "disable-controls-standard.md")
 - [Suggested controls to disable](controls-to-disable.md "controls-to-disable.md")

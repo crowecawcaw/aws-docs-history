@@ -80,8 +80,7 @@ example won't track that change. It will retain a value of `30`.
 
 If you want to track updates to the default Security Hub CSPM value for a parameter, set the `ValueType` field to `DEFAULT`
 instead of `CUSTOM`. For more information, see
-[Reverting to default control parameters in a single
-account and Region](revert-default-parameter-values.md#revert-default-parameter-values-local-config "revert-default-parameter-values.md#revert-default-parameter-values-local-config").
+[Reverting to default control parameters in a single account and Region](revert-default-parameter-values.md#revert-default-parameter-values-local-config "revert-default-parameter-values.md#revert-default-parameter-values-local-config").
 
 ## Controls that support custom parameters
 

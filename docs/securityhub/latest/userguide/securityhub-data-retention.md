@@ -23,9 +23,7 @@ Enabled security standards and controls are disabled.
 Other Security Hub CSPM data and settings, including custom actions, insights, and subscriptions
 to third-party products are retained for 90 days.
 
-## Member account disassociated
-
-from administrator account
+## Member account disassociated from administrator account
 
 When a member account is disassociated from the administrator account, the
 administrator account loses permission to view findings in the member account. However,
@@ -43,9 +41,7 @@ member account.
 In the **Accounts** list for the Security Hub CSPM administrator account, a
 removed account has a status of **Disassociated**.
 
-## Member account is removed from
-
-an organization
+## Member account is removed from an organization
 
 When a member account is removed from an organization, the Security Hub CSPM administrator account
 loses permission to view findings in the member account. However, Security Hub CSPM is still enabled

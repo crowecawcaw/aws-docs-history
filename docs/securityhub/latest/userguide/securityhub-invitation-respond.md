@@ -1,12 +1,9 @@
-# Responding to an invitation to be a Security Hub CSPM
-
-member account
+# Responding to an invitation to be a Security Hub CSPM member account
 
 ###### Note
 
 We recommend using AWS Organizations instead of Security Hub CSPM invitations to manage your member accounts. For information, see
-[Managing Security Hub CSPM for multiple accounts with
-AWS Organizations](securityhub-accounts-orgs.md "securityhub-accounts-orgs.md").
+[Managing Security Hub CSPM for multiple accounts with AWS Organizations](securityhub-accounts-orgs.md "securityhub-accounts-orgs.md").
 
 You can accept or decline an invitation to be an AWS Security Hub CSPM member account.
 

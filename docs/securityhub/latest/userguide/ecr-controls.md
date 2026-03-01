@@ -2,8 +2,7 @@
 
 These Security Hub CSPM controls evaluate the Amazon Elastic Container Registry (Amazon ECR) service and resources.
 
-These controls may not be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+These controls may not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
 ## [ECR.1] ECR private repositories should have image scanning configured
 
@@ -141,9 +140,7 @@ _AWS General Reference_.
 
 To add tags to an ECR public repository, see [Tagging an Amazon ECR public repository](../../../AmazonECR/latest/public/ecr-public-using-tags.md "../../../AmazonECR/latest/public/ecr-public-using-tags.md") in the _Amazon Elastic Container Registry User Guide_.
 
-## [ECR.5] ECR repositories should be encrypted with customer
-
-managed AWS KMS keys
+## [ECR.5] ECR repositories should be encrypted with customer managed AWS KMS keys
 
 **Related requirements:** NIST.800-53.r5 SC-12(2),
 NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5

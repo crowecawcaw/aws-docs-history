@@ -1,6 +1,4 @@
-# Managing Security Hub CSPM for multiple accounts with
-
-AWS Organizations
+# Managing Security Hub CSPM for multiple accounts with AWS Organizations
 
 You can integrate AWS Security Hub CSPM with AWS Organizations, and then manage Security Hub CSPM for accounts in your organization.
 
@@ -41,5 +39,4 @@ each section identifies management benefits and differences for users of central
 - [Integrating Security Hub CSPM with AWS Organizations](designate-orgs-admin-account.md "designate-orgs-admin-account.md")
 - [Automatically enabling Security Hub CSPM in new organization accounts](accounts-orgs-auto-enable.md "accounts-orgs-auto-enable.md")
 - [Manually enabling Security Hub CSPM in new organization accounts](orgs-accounts-enable.md "orgs-accounts-enable.md")
-- [Disassociating Security Hub CSPM member accounts from your
-  organization](accounts-orgs-disassociate.md "accounts-orgs-disassociate.md")
+- [Disassociating Security Hub CSPM member accounts from your organization](accounts-orgs-disassociate.md "accounts-orgs-disassociate.md")

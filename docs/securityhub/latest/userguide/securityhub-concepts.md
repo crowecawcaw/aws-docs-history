@@ -68,8 +68,7 @@ into a finding.
 
 Finding providers can use the [BatchImportFindings](../../1.0/APIReference/API_BatchImportFindings.md "../../1.0/APIReference/API_BatchImportFindings.md") operation of the Security Hub CSPM API
 to archive findings that they created. Security Hub CSPM automatically archives control
-findings that meet certain criteria. For more information, see [Generating, updating, and archiving
-control findings](controls-findings-create-update.md#securityhub-standards-results-updating "controls-findings-create-update.md#securityhub-standards-results-updating").
+findings that meet certain criteria. For more information, see [Generating, updating, and archiving control findings](controls-findings-create-update.md#securityhub-standards-results-updating "controls-findings-create-update.md#securityhub-standards-results-updating").
 
 On the Security Hub CSPM console, default filter settings exclude archived findings from
 finding lists and tables. You can update the settings to include archived

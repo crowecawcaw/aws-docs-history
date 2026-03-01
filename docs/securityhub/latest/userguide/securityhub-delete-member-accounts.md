@@ -3,8 +3,7 @@
 ###### Note
 
 We recommend using AWS Organizations instead of Security Hub CSPM invitations to manage your member accounts. For information, see
-[Managing Security Hub CSPM for multiple accounts with
-AWS Organizations](securityhub-accounts-orgs.md "securityhub-accounts-orgs.md").
+[Managing Security Hub CSPM for multiple accounts with AWS Organizations](securityhub-accounts-orgs.md "securityhub-accounts-orgs.md").
 
 As an AWS Security Hub CSPM administrator account, you can delete member accounts that were added by
 invitation. Before you can delete an enabled account, you must disassociate it.

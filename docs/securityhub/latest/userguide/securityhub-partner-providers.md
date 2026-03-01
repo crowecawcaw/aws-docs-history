@@ -1,6 +1,4 @@
-# Third-party product integrations with
-
-Security Hub CSPM
+# Third-party product integrations with Security Hub CSPM
 
 AWS Security Hub CSPM integrates with multiple third-party partner products. An integration can perform
 one or more of the following actions:
@@ -13,16 +11,13 @@ one or more of the following actions:
 An integration might not be available in all AWS Regions. If an integration isn't
 supported in the Region that you are currently signed in to on the Security Hub CSPM console, it doesn't
 appear on the **Integrations** page of the console. For a list of integrations
-that are available in the China Regions and AWS GovCloud (US) Regions, see [Availability of integrations
-by Region](securityhub-regions.md#securityhub-regions-integration-support "securityhub-regions.md#securityhub-regions-integration-support").
+that are available in the China Regions and AWS GovCloud (US) Regions, see [Availability of integrations by Region](securityhub-regions.md#securityhub-regions-integration-support "securityhub-regions.md#securityhub-regions-integration-support").
 
 If you have a security solution and are interested in becoming a Security Hub CSPM partner, send email
 to `<securityhub-partners@amazon.com>`. For more information, see the [Partner
 Integration Guide](../partnerguide/integration-overview.md "../partnerguide/integration-overview.md").
 
-## Overview of third-party
-
-integrations with Security Hub CSPM
+## Overview of third-party integrations with Security Hub CSPM
 
 The following table provides an overview of the third-party integrations that can send
 findings to Security Hub CSPM or receive findings from Security Hub CSPM.
@@ -107,16 +102,12 @@ findings to Security Hub CSPM or receive findings from Security Hub CSPM.
 | [Kion](#integration-kion "#integration-kion")                                                                                                                                   | Sends and receives findings   | `arn:aws:securityhub:`<REGION>`::product/cloudtamerio/cloudtamerio`                      |
 | [Turbot –<br>Turbot](#integration-turbot "#integration-turbot")                                                                                                                 | Sends and receives findings   | `arn:aws:securityhub:`<REGION>`:453761072151:product/turbot/turbot`                      |
 
-## Third-party integrations that send findings to
-
-Security Hub CSPM
+## Third-party integrations that send findings to Security Hub CSPM
 
 The following third-party partner product integrations can send findings to Security Hub CSPM. Security Hub CSPM
 transforms the findings into the [AWS Security Finding Format](securityhub-findings-format.md "securityhub-findings-format.md").
 
-### 3CORESec – 3CORESec
-
-NTA
+### 3CORESec – 3CORESec NTA
 
 **Integration type:** Send
 
@@ -131,9 +122,7 @@ privilege escalation, lateral movement, and improper network segmentation.
 
 [Partner documentation](https://docs.google.com/document/d/1TPUuuyoAVrMKRVnGKouRy384ZJ1-3xZTnruHkIHJqWQ/edit?usp=sharing "https://docs.google.com/document/d/1TPUuuyoAVrMKRVnGKouRy384ZJ1-3xZTnruHkIHJqWQ/edit?usp=sharing")
 
-### Alert Logic –
-
-SIEMless Threat Management
+### Alert Logic – SIEMless Threat Management
 
 **Integration type:** Send
 
@@ -149,9 +138,7 @@ link](https://www.alertlogic.com/solutions/platform/aws-security/ "https://www.a
 [Partner
 documentation](https://docs.alertlogic.com/configure/aws-security-hub.htm "https://docs.alertlogic.com/configure/aws-security-hub.htm")
 
-### Aqua
-
-Security – Aqua Cloud Native Security Platform
+### Aqua Security – Aqua Cloud Native Security Platform
 
 **Integration type:** Send
 
@@ -167,9 +154,7 @@ runtime production environments.
 [Partner
 documentation](https://github.com/aquasecurity/aws-security-hub-plugin "https://github.com/aquasecurity/aws-security-hub-plugin")
 
-### Aqua Security –
-
-Kube-bench
+### Aqua Security – Kube-bench
 
 **Integration type:** Send
 
@@ -185,9 +170,7 @@ link](https://github.com/aquasecurity/kube-bench/blob/master/README.md "https://
 [Partner
 documentation](https://github.com/aquasecurity/kube-bench/blob/master/README.md "https://github.com/aquasecurity/kube-bench/blob/master/README.md")
 
-### Armor – Armor
-
-Anywhere
+### Armor – Armor Anywhere
 
 **Integration type:** Send
 
@@ -201,9 +184,7 @@ Armor Anywhere delivers managed security and compliance for AWS.
 [Partner
 documentation](https://amp.armor.com/account/cloud-connections "https://amp.armor.com/account/cloud-connections")
 
-### AttackIQ –
-
-AttackIQ
+### AttackIQ – AttackIQ
 
 **Integration type:** Send
 
@@ -220,9 +201,7 @@ link](https://go.attackiq.com/BD-AWS-Security-Hub_LP.html "https://go.attackiq.c
 [Partner
 documentation](https://github.com/AttackIQ/attackiq.github.io "https://github.com/AttackIQ/attackiq.github.io")
 
-### Barracuda
-
-Networks – Cloud Security Guardian
+### Barracuda Networks – Cloud Security Guardian
 
 **Integration type:** Send
 
@@ -237,9 +216,7 @@ link](https://aws.amazon.com/marketplace/pp/B07KF2X7QJ "https://aws.amazon.com/m
 
 [Product link](https://www.barracuda.com/solutions/aws "https://www.barracuda.com/solutions/aws")
 
-### BigID – BigID
-
-Enterprise
+### BigID – BigID Enterprise
 
 **Integration type:** Send
 
@@ -254,9 +231,7 @@ and protect sensitive data (PII) across all their systems.
 [Partner
 documentation](https://github.com/bigexchange/aws-security-hub "https://github.com/bigexchange/aws-security-hub")
 
-### Blue Hexagon –
-
-Blue Hexagon for AWS
+### Blue Hexagon – Blue Hexagon for AWS
 
 **Integration type:** Send
 
@@ -271,9 +246,7 @@ anomalies.
 
 [Partner documentation](https://bluehexagonai.atlassian.net/wiki/spaces/BHDOC/pages/395935769/Deploying+Blue+Hexagon+with+AWS+Traffic+Mirroring#DeployingBlueHexagonwithAWSTrafficMirroringDeployment-Integrations "https://bluehexagonai.atlassian.net/wiki/spaces/BHDOC/pages/395935769/Deploying+Blue+Hexagon+with+AWS+Traffic+Mirroring#DeployingBlueHexagonwithAWSTrafficMirroringDeployment-Integrations")
 
-### Check Point –
-
-CloudGuard IaaS
+### Check Point – CloudGuard IaaS
 
 **Integration type:** Send
 
@@ -287,9 +260,7 @@ security to AWS while protecting assets in the cloud.
 
 [Partner documentation](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk140412 "https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk140412")
 
-### Check
-
-Point – CloudGuard Posture Management
+### Check Point – CloudGuard Posture Management
 
 **Integration type:** Send
 
@@ -303,9 +274,7 @@ protection, and comprehensive compliance and governance.
 
 [Partner documentation](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk144592&partition=General&product=CloudGuard "https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk144592&partition=General&product=CloudGuard")
 
-### Claroty –
-
-xDome
+### Claroty – xDome
 
 **Integration type:** Send
 
@@ -320,9 +289,7 @@ enterprise (IoT) environments.
 
 [Partner documentation](https://claroty.com/resources/integration-briefs/the-claroty-aws-securityhub-integration-guide "https://claroty.com/resources/integration-briefs/the-claroty-aws-securityhub-integration-guide")
 
-### Cloud Storage
-
-Security – Antivirus for Amazon S3
+### Cloud Storage Security – Antivirus for Amazon S3
 
 **Integration type:** Send
 
@@ -340,9 +307,7 @@ and infected files.
 
 [Partner documentation](https://help.cloudstoragesec.com/console-overview/console-settings/#send-scan-result-findings-to-aws-security-hub "https://help.cloudstoragesec.com/console-overview/console-settings/#send-scan-result-findings-to-aws-security-hub")
 
-### Contrast Security – Contrast
-
-Assess
+### Contrast Security – Contrast Assess
 
 **Integration type:** Send
 
@@ -360,9 +325,7 @@ link](https://aws.amazon.com/marketplace/pp/prodview-g5df2jw32felw "https://aws.
 [Partner
 documentation](https://docs.contrastsecurity.com/en/securityhub.html "https://docs.contrastsecurity.com/en/securityhub.html")
 
-### CrowdStrike –
-
-CrowdStrike Falcon
+### CrowdStrike – CrowdStrike Falcon
 
 **Integration type:** Send
 
@@ -378,9 +341,7 @@ cloud.
 [Partner
 documentation](https://github.com/CrowdStrike/falcon-integration-gateway "https://github.com/CrowdStrike/falcon-integration-gateway")
 
-### CyberArk
-
-– Privileged Threat Analytics
+### CyberArk – Privileged Threat Analytics
 
 **Integration type:** Send
 
@@ -395,9 +356,7 @@ attacks.
 
 [Partner documentation](https://cyberark-customers.force.com/mplace/s/#a352J000000dZATQA2-a392J000001Z3eaQAC "https://cyberark-customers.force.com/mplace/s/#a352J000000dZATQA2-a392J000001Z3eaQAC")
 
-### Data Theorem – Data
-
-Theorem
+### Data Theorem – Data Theorem
 
 **Integration type:** Send
 
@@ -429,9 +388,7 @@ link](https://aws.amazon.com/marketplace/pp/prodview-3ubrmmqkovucy "https://aws.
 
 [Partner documentation](https://drata.com/partner/aws "https://drata.com/partner/aws")
 
-### Forcepoint –
-
-Forcepoint CASB
+### Forcepoint – Forcepoint CASB
 
 **Integration type:** Send
 
@@ -445,9 +402,7 @@ risk, and enforce appropriate controls for SaaS and custom applications.
 
 [Partner documentation](https://frcpnt.com/casb-securityhub "https://frcpnt.com/casb-securityhub")
 
-### Forcepoint
-
-– Forcepoint Cloud Security Gateway
+### Forcepoint – Forcepoint Cloud Security Gateway
 
 **Integration type:** Send
 
@@ -463,9 +418,7 @@ link](https://www.forcepoint.com/product/cloud-security-gateway "https://www.for
 
 [Partner documentation](https://forcepoint.github.io/docs/csg_and_aws_security_hub/#forcepoint-cloud-security-gateway-and-aws-security-hub "https://forcepoint.github.io/docs/csg_and_aws_security_hub/#forcepoint-cloud-security-gateway-and-aws-security-hub")
 
-### Forcepoint –
-
-Forcepoint DLP
+### Forcepoint – Forcepoint DLP
 
 **Integration type:** Send
 
@@ -480,9 +433,7 @@ everywhere your people work and everywhere your data resides.
 [Partner
 documentation](https://frcpnt.com/dlp-securityhub "https://frcpnt.com/dlp-securityhub")
 
-### Forcepoint –
-
-Forcepoint NGFW
+### Forcepoint – Forcepoint NGFW
 
 **Integration type:** Send
 
@@ -497,9 +448,7 @@ network and respond to threats.
 
 [Partner documentation](https://frcpnt.com/ngfw-securityhub "https://frcpnt.com/ngfw-securityhub")
 
-### Fugue –
-
-Fugue
+### Fugue – Fugue
 
 **Integration type:** Send
 
@@ -516,9 +465,7 @@ link](https://www.fugue.co/aws-security-hub-integration "https://www.fugue.co/aw
 [Partner
 documentation](https://docs.fugue.co/integrations-aws-security-hub.html "https://docs.fugue.co/integrations-aws-security-hub.html")
 
-### Guardicore –
-
-Centra 4.0
+### Guardicore – Centra 4.0
 
 **Integration type:** Send
 
@@ -532,9 +479,7 @@ breach detection for workloads in modern data centers and clouds.
 
 [Partner documentation](https://customers.guardicore.com/login "https://customers.guardicore.com/login")
 
-### HackerOne
-
-– Vulnerability Intelligence
+### HackerOne – Vulnerability Intelligence
 
 **Integration type:** Send
 
@@ -552,9 +497,7 @@ link](https://aws.amazon.com/marketplace/seller-profile?id=10857e7c-011b-476d-b9
 
 [Partner documentation](https://docs.hackerone.com/en/articles/8562571-aws-security-hub-integration "https://docs.hackerone.com/en/articles/8562571-aws-security-hub-integration")
 
-### JFrog –
-
-Xray
+### JFrog – Xray
 
 **Integration type:** Send
 
@@ -570,9 +513,7 @@ link](https://aws.amazon.com/marketplace/seller-profile?id=68002c4f-c9d1-4fa7-b8
 
 [Partner documentation](https://www.jfrog.com/confluence/display/JFROG/Xray+Integration+with+AWS+Security+Hub "https://www.jfrog.com/confluence/display/JFROG/Xray+Integration+with+AWS+Security+Hub")
 
-### Juniper
-
-Networks – vSRX Next Generation Firewall
+### Juniper Networks – vSRX Next Generation Firewall
 
 **Integration type:** Send
 
@@ -590,9 +531,7 @@ link](https://aws.amazon.com/marketplace/pp/prodview-z7jcugjx442hw "https://aws.
 
 [Product link](https://www.juniper.net/documentation/us/en/software/vsrx/vsrx-consolidated-deployment-guide/vsrx-aws/topics/topic-map/security-aws-cloudwatch-security-hub-and-logs.html "https://www.juniper.net/documentation/us/en/software/vsrx/vsrx-consolidated-deployment-guide/vsrx-aws/topics/topic-map/security-aws-cloudwatch-security-hub-and-logs.html")
 
-### k9 Security
-
-– Access Analyzer
+### k9 Security – Access Analyzer
 
 **Integration type:** Send
 
@@ -613,9 +552,7 @@ link](https://www.k9security.io/lp/operationalize-aws-iam-security-hub "https://
 [Partner
 documentation](https://www.k9security.io/docs/how-to-configure-k9-access/ "https://www.k9security.io/docs/how-to-configure-k9-access/")
 
-### Lacework –
-
-Lacework
+### Lacework – Lacework
 
 **Integration type:** Send
 
@@ -630,9 +567,7 @@ safety.
 
 [Partner documentation](https://www.lacework.com/platform/aws/ "https://www.lacework.com/platform/aws/")
 
-### McAfee –
-
-MVISION Cloud Native Application Protection Platform (CNAPP)
+### McAfee – MVISION Cloud Native Application Protection Platform (CNAPP)
 
 **Integration type:** Send
 
@@ -648,9 +583,7 @@ link](https://aws.amazon.com/marketplace/pp/prodview-ol6txkzkdyacc "https://aws.
 
 [Partner documentation](<https://success.myshn.net/Cloud_Native_Application_Protection_Platform_(IaaS)/Amazon_Web_Services_(AWS)/Integrate_MVISION_Cloud_with_AWS_Security_Hub> "https://success.myshn.net/Cloud_Native_Application_Protection_Platform_(IaaS)/Amazon_Web_Services_(AWS)/Integrate_MVISION_Cloud_with_AWS_Security_Hub")
 
-### NETSCOUT –
-
-NETSCOUT Cyber Investigator
+### NETSCOUT – NETSCOUT Cyber Investigator
 
 **Integration type:** Send
 
@@ -666,9 +599,7 @@ threats on businesses.
 [Partner
 documentation](https://www.netscout.com/solutions/cyber-investigator-aws "https://www.netscout.com/solutions/cyber-investigator-aws")
 
-### Orca Cloud Security
-
-Platform
+### Orca Cloud Security Platform
 
 **Integration type:** Send
 
@@ -692,9 +623,7 @@ link](https://orca.security/partners/technology/amazon-web-services-aws/ "https:
 [Partner
 documentation](https://docs.orcasecurity.io/docs/integrating-amazon-security-hub "https://docs.orcasecurity.io/docs/integrating-amazon-security-hub")
 
-### Palo Alto
-
-Networks – Prisma Cloud Compute
+### Palo Alto Networks – Prisma Cloud Compute
 
 **Integration type:** Send
 
@@ -708,9 +637,7 @@ protects VMs, containers, and serverless platforms.
 
 [Partner documentation](https://docs.paloaltonetworks.com/prisma/prisma-cloud/prisma-cloud-admin-compute/alerts/aws_security_hub.html "https://docs.paloaltonetworks.com/prisma/prisma-cloud/prisma-cloud-admin-compute/alerts/aws_security_hub.html")
 
-### Palo Alto
-
-Networks – Prisma Cloud Enterprise
+### Palo Alto Networks – Prisma Cloud Enterprise
 
 **Integration type:** Send
 
@@ -724,9 +651,7 @@ and compliance monitoring.
 
 [Partner documentation](https://docs.paloaltonetworks.com/prisma/prisma-cloud/prisma-cloud-admin/configure-external-integrations-on-prisma-cloud/integrate-prisma-cloud-with-aws-security-hub "https://docs.paloaltonetworks.com/prisma/prisma-cloud/prisma-cloud-admin/configure-external-integrations-on-prisma-cloud/integrate-prisma-cloud-with-aws-security-hub")
 
-### Plerion – Cloud Security
-
-Platform
+### Plerion – Cloud Security Platform
 
 **Integration type:** Send
 
@@ -743,9 +668,7 @@ link](https://aws.amazon.com/marketplace/seller-profile?id=464b7833-edb8-43ee-b0
 
 [Partner documentation](https://au.app.plerion.com/resource-center/platform-documentation/integrations/outbound/securityHub "https://au.app.plerion.com/resource-center/platform-documentation/integrations/outbound/securityHub")
 
-### Prowler –
-
-Prowler
+### Prowler – Prowler
 
 **Integration type:** Send
 
@@ -760,9 +683,7 @@ to security best practices, hardening, and continuous monitoring.
 [Partner
 documentation](https://github.com/prowler-cloud/prowler#security-hub-integration "https://github.com/prowler-cloud/prowler#security-hub-integration")
 
-### Qualys –
-
-Vulnerability Management
+### Qualys – Vulnerability Management
 
 **Integration type:** Send
 
@@ -777,9 +698,7 @@ vulnerabilities, protecting your assets.
 [Partner
 documentation](https://qualys-secure.force.com/discussions/s/article/000005831 "https://qualys-secure.force.com/discussions/s/article/000005831")
 
-### Rapid7 –
-
-InsightVM
+### Rapid7 – InsightVM
 
 **Integration type:** Send
 
@@ -795,9 +714,7 @@ vulnerabilities.
 [Partner
 documentation](https://docs.rapid7.com/insightvm/aws-security-hub/ "https://docs.rapid7.com/insightvm/aws-security-hub/")
 
-#### SentinelOne –
-
-SentinelOne
+#### SentinelOne – SentinelOne
 
 **Integration type:** Send
 
@@ -830,9 +747,7 @@ link](https://aws.amazon.com/marketplace/seller-profile?id=bb528b8d-079c-455e-95
 [Partner
 documentation](https://docs.snyk.io/integrations/event-forwarding/aws-security-hub "https://docs.snyk.io/integrations/event-forwarding/aws-security-hub")
 
-### Sonrai Security –
-
-Sonrai Dig
+### Sonrai Security – Sonrai Dig
 
 **Integration type:** Send
 
@@ -846,9 +761,7 @@ violations, so you can improve your security and compliance posture.
 
 [Partner documentation](https://sonraisecurity.com/blog/monitor-privilege-escalation-risk-of-identities-from-aws-security-hub-with-integration-from-sonrai/ "https://sonraisecurity.com/blog/monitor-privilege-escalation-risk-of-identities-from-aws-security-hub-with-integration-from-sonrai/")
 
-### Sophos –
-
-Server Protection
+### Sophos – Server Protection
 
 **Integration type:** Send
 
@@ -861,9 +774,7 @@ the core of your organization, using comprehensive defense-in-depth techniques.
 [Product
 link](https://www.sophos.com/en-us/products/cloud-native-security/aws "https://www.sophos.com/en-us/products/cloud-native-security/aws")
 
-### StackRox –
-
-StackRox Kubernetes Security
+### StackRox – StackRox Kubernetes Security
 
 **Integration type:** Send
 
@@ -878,9 +789,7 @@ container life cycle – build, deploy, and run.
 
 [Partner documentation](https://help.stackrox.com/docs/integrate-with-other-tools/integrate-with-aws-security-hub/ "https://help.stackrox.com/docs/integrate-with-other-tools/integrate-with-aws-security-hub/")
 
-### Sumo Logic
-
-– Machine Data Analytics
+### Sumo Logic – Machine Data Analytics
 
 **Integration type:** Send
 
@@ -896,9 +805,7 @@ link](https://www.sumologic.com/application/aws-security-hub/ "https://www.sumol
 
 [Partner documentation](https://help.sumologic.com/07Sumo-Logic-Apps/01Amazon_and_AWS/AWS_Security_Hub "https://help.sumologic.com/07Sumo-Logic-Apps/01Amazon_and_AWS/AWS_Security_Hub")
 
-### Symantec
-
-– Cloud Workload Protection
+### Symantec – Cloud Workload Protection
 
 **Integration type:** Send
 
@@ -912,9 +819,7 @@ instances with antimalware, intrusion prevention, and file integrity monitoring.
 
 [Partner documentation](https://help.symantec.com/cs/scwp/SCWP/v130271667_v111037498/Intergration-with-AWS-Security-Hub/?locale=EN_US&sku=CWP_COMPUTE "https://help.symantec.com/cs/scwp/SCWP/v130271667_v111037498/Intergration-with-AWS-Security-Hub/?locale=EN_US&sku=CWP_COMPUTE")
 
-### Tenable –
-
-Tenable.io
+### Tenable – Tenable.io
 
 **Integration type:** Send
 
@@ -929,9 +834,7 @@ cloud.
 [Partner
 documentation](https://github.com/tenable/Security-Hub "https://github.com/tenable/Security-Hub")
 
-### Trend Micro – Cloud
-
-One
+### Trend Micro – Cloud One
 
 **Integration type:** Send
 
@@ -949,9 +852,7 @@ link](https://aws.amazon.com/marketplace/pp/prodview-g232pyu6l55l4 "https://aws.
 [Partner
 documentation](https://cloudone.trendmicro.com/docs/integrations/aws-security-hub/ "https://cloudone.trendmicro.com/docs/integrations/aws-security-hub/")
 
-### Vectra –
-
-Cognito Detect
+### Vectra – Cognito Detect
 
 **Integration type:** Send
 
@@ -966,9 +867,7 @@ link](https://aws.amazon.com/marketplace/pp/prodview-x2mabtjqsjb2w "https://aws.
 
 [Partner documentation](https://cognito-resource-guide.s3.us-west-2.amazonaws.com/Vectra_AWS_SecurityHub_Integration_Guide.pdf "https://cognito-resource-guide.s3.us-west-2.amazonaws.com/Vectra_AWS_SecurityHub_Integration_Guide.pdf")
 
-### Wiz – Wiz
-
-Security
+### Wiz – Wiz Security
 
 **Integration type:** Send
 
@@ -986,17 +885,13 @@ link](https://aws.amazon.com/marketplace/pp/prodview-wgtgfzwbk4ahy "https://aws.
 [Partner
 documentation](https://docs.wiz.io/wiz-docs/docs/security-hub-integration "https://docs.wiz.io/wiz-docs/docs/security-hub-integration")
 
-## Third-party integrations that receive
-
-findings from Security Hub CSPM
+## Third-party integrations that receive findings from Security Hub CSPM
 
 The following third-party partner product integrations can receive findings from Security Hub CSPM.
 Where noted, the product might also update findings. In this case, updates that you make to
 findings in the partner product are also reflected in Security Hub CSPM.
 
-### Atlassian -
-
-Jira Service Management
+### Atlassian - Jira Service Management
 
 **Integration type:** Receive and update
 
@@ -1032,9 +927,7 @@ Cloud, the corresponding findings are also updated in Security Hub CSPM.
 
 [Partner documentation](../../../smc/latest/ag/integrations-jsmcloud.md "../../../smc/latest/ag/integrations-jsmcloud.md")
 
-### Atlassian –
-
-Opsgenie
+### Atlassian – Opsgenie
 
 **Integration type:** Receive
 
@@ -1079,9 +972,7 @@ agents.
 
 [Partner documentation](https://www.elastic.co/docs/reference/integrations/aws/securityhub "https://www.elastic.co/docs/reference/integrations/aws/securityhub")
 
-### Fortinet –
-
-FortiCNP
+### Fortinet – FortiCNP
 
 **Integration type:** Receive
 
@@ -1094,9 +985,7 @@ Marketplace link](https://aws.amazon.com/marketplace/pp/prodview-vl24vc3mcb5ak "
 
 [Partner documentation](https://docs.fortinet.com/document/forticnp/22.3.a/online-help/467775/aws-security-hub-configuration "https://docs.fortinet.com/document/forticnp/22.3.a/online-help/467775/aws-security-hub-configuration")
 
-### IBM –
-
-QRadar
+### IBM – QRadar
 
 **Integration type:** Receive
 
@@ -1119,9 +1008,7 @@ security threats in real time.
 
 [Partner documentation](https://docs.logz.io/shipping/security-sources/aws-security-hub.html "https://docs.logz.io/shipping/security-sources/aws-security-hub.html")
 
-### MetricStream –
-
-CyberGRC
+### MetricStream – CyberGRC
 
 **Integration type:** Receive
 
@@ -1134,9 +1021,7 @@ IT policies.
 
 [Product link](https://www.metricstream.com/ "https://www.metricstream.com/")
 
-### MicroFocus –
-
-MicroFocus Arcsight
+### MicroFocus – MicroFocus Arcsight
 
 **Integration type:** Receive
 
@@ -1148,9 +1033,7 @@ automation and orchestration.
 
 [Partner documentation](https://community.microfocus.com/cyberres/productdocs/w/connector-documentation/2768/smartconnector-for-amazon-web-services-security-hub "https://community.microfocus.com/cyberres/productdocs/w/connector-documentation/2768/smartconnector-for-amazon-web-services-security-hub")
 
-### New Relic
-
-Vulnerability Management
+### New Relic Vulnerability Management
 
 **Integration type:** Receive
 
@@ -1163,9 +1046,7 @@ link](https://aws.amazon.com/marketplace/pp/prodview-yg3ykwh5tmolg "https://aws.
 
 [Partner documentation](https://docs.newrelic.com/docs/vulnerability-management/integrations/aws/ "https://docs.newrelic.com/docs/vulnerability-management/integrations/aws/")
 
-### PagerDuty –
-
-PagerDuty
+### PagerDuty – PagerDuty
 
 **Integration type:** Receive
 
@@ -1188,9 +1069,7 @@ lifecycle.
 
 [Partner documentation](https://support.pagerduty.com/docs/aws-security-hub-integration-guide-pagerduty "https://support.pagerduty.com/docs/aws-security-hub-integration-guide-pagerduty")
 
-### Palo Alto Networks
-
-– Cortex XSOAR
+### Palo Alto Networks – Cortex XSOAR
 
 **Integration type:** Receive
 
@@ -1202,9 +1081,7 @@ response and security operations.
 
 [Partner documentation](https://xsoar.pan.dev/docs/reference/integrations/aws---security-hub "https://xsoar.pan.dev/docs/reference/integrations/aws---security-hub")
 
-### Palo Alto Networks –
-
-VM-Series
+### Palo Alto Networks – VM-Series
 
 **Integration type:** Receive
 
@@ -1218,9 +1095,7 @@ link](https://github.com/PaloAltoNetworks/pan_aws_security_hub "https://github.c
 [Partner
 documentation](https://github.com/PaloAltoNetworks/pan_aws_security_hub "https://github.com/PaloAltoNetworks/pan_aws_security_hub")
 
-### Rackspace
-
-Technology – Cloud Native Security
+### Rackspace Technology – Cloud Native Security
 
 **Integration type:** Receive
 
@@ -1231,9 +1106,7 @@ analysis, and threat remediation.
 [Product
 link](https://www.rackspace.com/managed-aws/capabilities/security "https://www.rackspace.com/managed-aws/capabilities/security")
 
-### Rapid7 –
-
-InsightConnect
+### Rapid7 – InsightConnect
 
 **Integration type:** Receive
 
@@ -1245,9 +1118,7 @@ that enables your team to optimize SOC operations with little to no code.
 [Partner
 documentation](https://docs.rapid7.com/insightconnect/aws-security-hub/ "https://docs.rapid7.com/insightconnect/aws-security-hub/")
 
-### RSA – RSA
-
-Archer
+### RSA – RSA Archer
 
 **Integration type:** Receive
 
@@ -1261,9 +1132,7 @@ establish clear IT risk management best practices.
 [Partner
 documentation](https://community.rsa.com/docs/DOC-111898 "https://community.rsa.com/docs/DOC-111898")
 
-### ServiceNow –
-
-ITSM
+### ServiceNow – ITSM
 
 **Integration type:** Receive and update
 
@@ -1285,9 +1154,7 @@ link](../../../servicecatalog/latest/adminguide/integrations-servicenow.md "../.
 [Partner
 documentation](../../../servicecatalog/latest/adminguide/securityhub-config.md "../../../servicecatalog/latest/adminguide/securityhub-config.md")
 
-### Slack –
-
-Slack
+### Slack – Slack
 
 **Integration type:** Receive
 
@@ -1301,9 +1168,7 @@ link](https://github.com/aws-samples/aws-securityhub-to-slack "https://github.co
 
 [Partner documentation](../../../chatbot/latest/adminguide/related-services.md "../../../chatbot/latest/adminguide/related-services.md")
 
-### Splunk – Splunk
-
-Enterprise
+### Splunk – Splunk Enterprise
 
 **Integration type:** Receive
 
@@ -1315,9 +1180,7 @@ Splunk for advanced security analytics and SIEM.
 [Partner
 documentation](https://github.com/splunk/splunk-for-securityHub "https://github.com/splunk/splunk-for-securityHub")
 
-### Splunk – Splunk
-
-Phantom
+### Splunk – Splunk Phantom
 
 **Integration type:** Receive
 
@@ -1342,9 +1205,7 @@ link](https://aws.amazon.com/marketplace/pp/B07S65ZLPQ "https://aws.amazon.com/m
 
 [Partner documentation](https://threatmodeler-setup-quickstart.s3.amazonaws.com/ThreatModeler+Setup+Guide/ThreatModeler+Setup+%26+Deployment+Guide.pdf "https://threatmodeler-setup-quickstart.s3.amazonaws.com/ThreatModeler+Setup+Guide/ThreatModeler+Setup+%26+Deployment+Guide.pdf")
 
-### Trellix – Trellix
-
-Helix
+### Trellix – Trellix Helix
 
 **Integration type:** Receive
 
@@ -1357,16 +1218,12 @@ link](https://www.trellix.com/en-us/products/helix.html "https://www.trellix.com
 [Partner
 documentation](https://docs.trellix.com/bundle/fe-helix-enterprise-landing/ "https://docs.trellix.com/bundle/fe-helix-enterprise-landing/")
 
-## Third-party integrations that send
-
-findings to and receive findings from Security Hub CSPM
+## Third-party integrations that send findings to and receive findings from Security Hub CSPM
 
 The following third-party partner product integrations can send findings to and receive
 findings from Security Hub CSPM.
 
-### Caveonix –
-
-Caveonix Cloud
+### Caveonix – Caveonix Cloud
 
 **Integration type:** Send and receive
 
@@ -1383,9 +1240,7 @@ link](https://aws.amazon.com/marketplace/pp/prodview-v6nlnxa5e67es "https://aws.
 
 [Partner documentation](https://support.caveonix.com/hc/en-us/articles/18171468832529-App-095-How-to-Integration-AWS-Security-Hub-with-Caveonix-Cloud- "https://support.caveonix.com/hc/en-us/articles/18171468832529-App-095-How-to-Integration-AWS-Security-Hub-with-Caveonix-Cloud-")
 
-### Cloud Custodian –
-
-Cloud Custodian
+### Cloud Custodian – Cloud Custodian
 
 **Integration type:** Send and receive
 
@@ -1402,9 +1257,7 @@ link](https://cloudcustodian.io/docs/aws/topics/securityhub.html "https://cloudc
 [Partner
 documentation](https://cloudcustodian.io/docs/aws/topics/securityhub.html "https://cloudcustodian.io/docs/aws/topics/securityhub.html")
 
-### DisruptOps, Inc. –
-
-DisruptOPS
+### DisruptOps, Inc. – DisruptOPS
 
 **Integration type:** Send and receive
 
@@ -1434,9 +1287,7 @@ compliance.
 
 [Partner documentation](https://support.kion.io/hc/en-us/articles/360046647551-AWS-Security-Hub "https://support.kion.io/hc/en-us/articles/360046647551-AWS-Security-Hub")
 
-### Turbot –
-
-Turbot
+### Turbot – Turbot
 
 **Integration type:** Send and receive
 

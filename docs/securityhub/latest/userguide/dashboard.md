@@ -1,6 +1,4 @@
-#
-
-Working with the dashboard in Security Hub CSPM
+# Working with the dashboard in Security Hub CSPM
 
 On the Security Hub CSPM console, the **Summary** dashboard shows a summary of your
 risks, attack sequences, and security coverage. This dashboard helps you identify risks and

@@ -1,6 +1,4 @@
-# Enabling controls in
-
-Security Hub CSPM
+# Enabling controls in Security Hub CSPM
 
 In AWS Security Hub CSPM, a control is a safeguard within a security standard that helps an organization protect the confidentiality,
 integrity, and availability of its information. Each Security Hub CSPM control is related to a specific AWS resource. When you enable a control,

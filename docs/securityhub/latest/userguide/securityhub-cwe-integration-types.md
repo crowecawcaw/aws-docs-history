@@ -5,9 +5,7 @@ Security Hub CSPM uses the following Amazon EventBridge event types to integrate
 On the EventBridge dashboard for Security Hub CSPM, **All Events** includes
 all of these event types.
 
-## All findings
-
-(Security Hub Findings - Imported)
+## All findings (Security Hub Findings - Imported)
 
 Security Hub CSPM automatically sends all new findings and all updates to existing findings
 to EventBridge as **Security Hub Findings -
@@ -33,13 +31,9 @@ only apply the rule if the finding has specific attribute values.
 You use this method to automatically send all findings, or all findings that have
 specific characteristics, to a response or remediation workflow.
 
-See [Configuring an EventBridge rule for
-Security Hub CSPM findings](securityhub-cwe-all-findings.md "securityhub-cwe-all-findings.md").
+See [Configuring an EventBridge rule for Security Hub CSPM findings](securityhub-cwe-all-findings.md "securityhub-cwe-all-findings.md").
 
-## Findings
-
-for custom actions (Security Hub Findings - Custom
-Action)
+## Findings for custom actions (Security Hub Findings - Custom Action)
 
 Security Hub CSPM also sends findings that are associated with custom actions to EventBridge as
 **Security Hub Findings - Custom
@@ -54,8 +48,7 @@ When you create a custom action, you assign it a custom action ID. You can use
 this ID to create an EventBridge rule that takes a specified action after receiving a
 finding that is associated with that custom action ID.
 
-See [Using custom actions to send findings
-and insight results to EventBridge](securityhub-cwe-custom-actions.md "securityhub-cwe-custom-actions.md").
+See [Using custom actions to send findings and insight results to EventBridge](securityhub-cwe-custom-actions.md "securityhub-cwe-custom-actions.md").
 
 For example, you can create a custom action in Security Hub CSPM called
 `send_to_ticketing`. Then in EventBridge, you create a rule that is
@@ -70,9 +63,7 @@ For examples of how to send Security Hub CSPM findings to EventBridge for furthe
 [How to Enable Custom Actions in AWS Security Hub CSPM](https://aws.amazon.com/blogs/apn/how-to-enable-custom-actions-in-aws-security-hub/ "https://aws.amazon.com/blogs/apn/how-to-enable-custom-actions-in-aws-security-hub/") on the AWS Partner Network
 (APN) Blog.
 
-## Insight
-
-results for custom actions (Security Hub Insight Results)
+## Insight results for custom actions (Security Hub Insight Results)
 
 You can also use custom actions to send sets of insight results to EventBridge as
 **Security Hub Insight Results**
@@ -84,8 +75,7 @@ can send up to 100 resource identifiers at a time.
 Similar to custom actions for findings, you first create the custom action in
 Security Hub CSPM, and then create a rule in EventBridge.
 
-See [Using custom actions to send findings
-and insight results to EventBridge](securityhub-cwe-custom-actions.md "securityhub-cwe-custom-actions.md").
+See [Using custom actions to send findings and insight results to EventBridge](securityhub-cwe-custom-actions.md "securityhub-cwe-custom-actions.md").
 
 For example, suppose you see a particular insight result of interest that you want
 to share with a colleague. In that case, you can use a custom action to send that

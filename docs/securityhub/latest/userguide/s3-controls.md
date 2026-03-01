@@ -1,8 +1,7 @@
 # Security Hub CSPM controls for Amazon S3
 
 These AWS Security Hub CSPM controls evaluate the Amazon Simple Storage Service (Amazon S3) service and resources. The controls
-might not be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+might not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
 ## [S3.1] S3 general purpose buckets should have block public access settings enabled
 
@@ -49,9 +48,7 @@ Access](../../../AmazonS3/latest/dev/access-control-block-public-access.md "../.
 To enable Amazon S3 Block Public Access for your AWS account, see [Configuring block public
 access settings for your account](../../../AmazonS3/latest/userguide/configuring-block-public-access-account.md "../../../AmazonS3/latest/userguide/configuring-block-public-access-account.md") in the _Amazon Simple Storage Service User Guide_.
 
-## [S3.2] S3 general purpose buckets should block public read
-
-access
+## [S3.2] S3 general purpose buckets should block public read access
 
 **Related requirements:** PCI DSS v3.2.1/1.2.1, PCI DSS
 v3.2.1/1.3.1, PCI DSS v3.2.1/1.3.2, PCI DSS v3.2.1/1.3.6, PCI DSS v3.2.1/7.2.1,
@@ -98,9 +95,7 @@ data, your S3 bucket should not be publicly readable.
 To block public read access on your Amazon S3 buckets, see [Configuring block public access settings for your S3 buckets](../../../AmazonS3/latest/userguide/configuring-block-public-access-bucket.md "../../../AmazonS3/latest/userguide/configuring-block-public-access-bucket.md") in the
 _Amazon Simple Storage Service User Guide_.
 
-## [S3.3] S3 general purpose buckets should block public write
-
-access
+## [S3.3] S3 general purpose buckets should block public write access
 
 **Related requirements:** PCI DSS v3.2.1/1.2.1, PCI DSS
 v3.2.1/1.3.1, PCI DSS v3.2.1/1.3.2, PCI DSS v3.2.1/1.3.4, PCI DSS v3.2.1/1.3.6, PCI DSS
@@ -821,9 +816,7 @@ By default, all Block Public Access settings are enabled for an S3 Multi-Region 
 information , see [Blocking public access with Amazon S3 Multi-Region Access Points](../../../AmazonS3/latest/userguide/multi-region-access-point-block-public-access.md "../../../AmazonS3/latest/userguide/multi-region-access-point-block-public-access.md") in the _Amazon Simple Storage Service User Guide_. You
 can't change the Block Public Access settings for a Multi-Region Access Point after it has been created.
 
-## [S3.25] S3 directory buckets should have lifecycle
-
-configurations
+## [S3.25] S3 directory buckets should have lifecycle configurations
 
 **Category:** Protect > Data Protection
 

@@ -1,6 +1,4 @@
-# Reviewing the details of a security
-
-standard
+# Reviewing the details of a security standard
 
 After you enable a security standard in AWS Security Hub CSPM, you can use the console to review the
 details of the standard. On the console, the details page for a standard includes the
@@ -20,13 +18,10 @@ following information:
 
 ###### Topics
 
-- [Understanding the standard security
-  score](#standard-details-overview "#standard-details-overview")
+- [Understanding the standard security score](#standard-details-overview "#standard-details-overview")
 - [Reviewing the controls for a standard](#standard-controls-list "#standard-controls-list")
 
-## Understanding the standard security
-
-score
+## Understanding the standard security score
 
 On the AWS Security Hub CSPM console, the details page for a standard displays the security score
 for the standard. The score is the percentage of controls that passed evaluation,
@@ -60,8 +55,7 @@ enabled, you can review a table of security controls that apply to the standard.
 each control, the table includes the following information:
 
 - The control ID and title.
-- The status of the control. For more information, see [Evaluating compliance status and control
-  status](controls-overall-status.md "controls-overall-status.md").
+- The status of the control. For more information, see [Evaluating compliance status and control status](controls-overall-status.md "controls-overall-status.md").
 - The severity assigned to the control.
 - The number of failed checks and the total number of checks. If applicable, the
   **Failed checks** field also specifies the number of

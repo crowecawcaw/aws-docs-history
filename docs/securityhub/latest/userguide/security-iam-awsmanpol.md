@@ -15,9 +15,7 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## AWS managed policy:
-
-AWSSecurityHubFullAccess
+## AWS managed policy: AWSSecurityHubFullAccess
 
 You can attach the `AWSSecurityHubFullAccess` policy to your IAM
 identities.
@@ -50,9 +48,7 @@ This policy includes the following permissions:
 To review the permissions for this policy, see [AWSSecurityHubFullAccess](../../../aws-managed-policy/latest/reference/AWSSecurityHubFullAccess.md "../../../aws-managed-policy/latest/reference/AWSSecurityHubFullAccess.md") in the _AWS Managed Policy
 Reference Guide_.
 
-## AWS managed policy:
-
-AWSSecurityHubReadOnlyAccess
+## AWS managed policy: AWSSecurityHubReadOnlyAccess
 
 You can attach the `AWSSecurityHubReadOnlyAccess` policy to your IAM
 identities.
@@ -75,9 +71,7 @@ This policy includes the following permissions:
 To review the permissions for this policy, see [AWSSecurityHubReadOnlyAccess](../../../aws-managed-policy/latest/reference/AWSSecurityHubReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AWSSecurityHubReadOnlyAccess.md") in the _AWS Managed Policy
 Reference Guide_.
 
-## AWS managed
-
-policy: AWSSecurityHubOrganizationsAccess
+## AWS managed policy: AWSSecurityHubOrganizationsAccess
 
 You can attach the `AWSSecurityHubOrganizationsAccess` policy to your IAM identities.
 
@@ -141,9 +135,7 @@ This policy includes the following permissions:
 To review the permissions for this policy, see [AWSSecurityHubOrganizationsAccess](../../../aws-managed-policy/latest/reference/AWSSecurityHubOrganizationsAccess.md "../../../aws-managed-policy/latest/reference/AWSSecurityHubOrganizationsAccess.md") in the _AWS Managed Policy
 Reference Guide_.
 
-## AWS managed
-
-policy: AWSSecurityHubServiceRolePolicy
+## AWS managed policy: AWSSecurityHubServiceRolePolicy
 
 You can't attach `AWSSecurityHubServiceRolePolicy` to your IAM entities.
 This policy is attached to a service-linked role that allows Security Hub CSPM to perform actions on
@@ -204,9 +196,7 @@ This policy includes the following permissions:
 To review the permissions for this policy, see [AWSSecurityHubV2ServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSSecurityHubV2ServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSSecurityHubV2ServiceRolePolicy.md") in the _AWS Managed Policy
 Reference Guide_.
 
-## Security Hub updates to AWS managed
-
-policies
+## Security Hub updates to AWS managed policies
 
 The following table provides details about updates to AWS managed policies for
 AWS Security Hub and Security Hub CSPM since this service began tracking these changes. For automatic

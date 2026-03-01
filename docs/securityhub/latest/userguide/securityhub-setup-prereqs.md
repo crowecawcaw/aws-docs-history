@@ -21,8 +21,7 @@ and generate findings for the controls.
 - [Recording resources in AWS Config](#config-resource-recording "#config-resource-recording")
 - [Ways to enable and configure AWS Config](#config-how-to-enable "#config-how-to-enable")
 - [Understanding the Config.1 control](#config-1-overview "#config-1-overview")
-- [Generating
-  service-linked rules](#securityhub-standards-generate-awsconfigrules "#securityhub-standards-generate-awsconfigrules")
+- [Generating service-linked rules](#securityhub-standards-generate-awsconfigrules "#securityhub-standards-generate-awsconfigrules")
 - [Cost considerations](#config-cost-considerations "#config-cost-considerations")
 
 ## Considerations before enabling and configuring AWS Config
@@ -67,8 +66,7 @@ for the types of resources that correspond to your enabled controls. It's primar
 enabled controls with a _change triggered_ schedule type that require
 resource recording. Some controls with a _periodic_ schedule type
 also require resource recording. For a list of these controls and their corresponding
-resources, see [Required AWS Config resources for control
-findings](controls-config-resources.md "controls-config-resources.md").
+resources, see [Required AWS Config resources for control findings](controls-config-resources.md "controls-config-resources.md").
 
 ###### Warning
 
@@ -168,9 +166,7 @@ If you use cross-Region aggregation, AWS Config recording must be configured cor
 home Region and all linked Regions. Global resources do not need to be recorded in
 linked Regions.
 
-## Generating
-
-service-linked rules
+## Generating service-linked rules
 
 For every control that uses a service-linked AWS Config rule, Security Hub CSPM creates instances of
 the required rule in your AWS environment.

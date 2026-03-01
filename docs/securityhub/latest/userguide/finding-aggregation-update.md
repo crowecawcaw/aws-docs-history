@@ -1,6 +1,4 @@
-# Updating cross-Region aggregation
-
-settings
+# Updating cross-Region aggregation settings
 
 ###### Note
 

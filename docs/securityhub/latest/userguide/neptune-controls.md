@@ -2,12 +2,9 @@
 
 These AWS Security Hub CSPM controls evaluate the Amazon Neptune service and resources.
 
-These controls may not be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+These controls may not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
-## [Neptune.1] Neptune DB clusters should be encrypted at
-
-rest
+## [Neptune.1] Neptune DB clusters should be encrypted at rest
 
 **Related requirements:** NIST.800-53.r5 CA-9(1),
 NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5
@@ -42,9 +39,7 @@ You can enable encryption at rest when you create a Neptune DB cluster. You can'
 Neptune resources at rest](../../../neptune/latest/userguide/encrypt.md "../../../neptune/latest/userguide/encrypt.md") in the
 _Neptune User Guide_.
 
-## [Neptune.2] Neptune DB clusters should publish audit
-
-logs to CloudWatch Logs
+## [Neptune.2] Neptune DB clusters should publish audit logs to CloudWatch Logs
 
 **Related requirements:** NIST.800-53.r5 AC-2(4),
 NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AC-6(9), NIST.800-53.r5 AU-10, NIST.800-53.r5
@@ -85,9 +80,7 @@ To publish Neptune audit logs to CloudWatch Logs, see [Publishing Neptune logs
 to Amazon CloudWatch Logs](../../../neptune/latest/userguide/cloudwatch-logs.md "../../../neptune/latest/userguide/cloudwatch-logs.md") in the _Neptune User Guide_. In the
 **Log exports** section, choose **Audit**.
 
-## [Neptune.3] Neptune DB cluster snapshots should not be
-
-public
+## [Neptune.3] Neptune DB cluster snapshots should not be public
 
 **Related requirements:** NIST.800-53.r5 AC-21,
 NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-4, NIST.800-53.r5
@@ -121,9 +114,7 @@ AWS accounts. Public snapshots may result in unintended data exposure.
 To remove public access for Neptune manual DB cluster snapshots, see [Sharing a DB
 cluster snapshot](../../../neptune/latest/userguide/backup-restore-share-snapshot.md "../../../neptune/latest/userguide/backup-restore-share-snapshot.md") in the _Neptune User Guide_.
 
-## [Neptune.4] Neptune DB clusters should have deletion
-
-protection enabled
+## [Neptune.4] Neptune DB clusters should have deletion protection enabled
 
 **Related requirements:** NIST.800-53.r5 CA-9(1),
 NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2), NIST.800-53.r5 CM-3, NIST.800-53.r5
@@ -157,9 +148,7 @@ protection before a delete request can succeed.
 To enable deletion protection for an existing Neptune DB cluster, see [Modifying the DB cluster by using the console, CLI, and API](../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md#Aurora.Modifying.Settings "../../../AmazonRDS/latest/AuroraUserGuide/Aurora.md#Aurora.Modifying.Settings") in the
 _Amazon Aurora User Guide_.
 
-## [Neptune.5] Neptune DB clusters should have automated
-
-backups enabled
+## [Neptune.5] Neptune DB clusters should have automated backups enabled
 
 **Related requirements:** NIST.800-53.r5 SI-12
 
@@ -198,9 +187,7 @@ clusters, see [Enabling automated backups](../../../AmazonRDS/latest/UserGuide/U
 _Amazon RDS User Guide_. For **Backup retention period**, choose a value greater
 than or equal to 7.
 
-## [Neptune.6] Neptune DB cluster snapshots should be
-
-encrypted at rest
+## [Neptune.6] Neptune DB cluster snapshots should be encrypted at rest
 
 **Related requirements:** NIST.800-53.r5 CA-9(1),
 NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5
@@ -236,9 +223,7 @@ encrypted cluster. For instructions, see [Restoring from a DB cluster
 snapshot](../../../neptune/latest/userguide/backup-restore-restore-snapshot.md "../../../neptune/latest/userguide/backup-restore-restore-snapshot.md") and [Creating a DB cluster snapshot in
 Neptune](../../../neptune/latest/userguide/backup-restore-create-snapshot.md "../../../neptune/latest/userguide/backup-restore-create-snapshot.md") in the _Neptune User Guide_.
 
-## [Neptune.7] Neptune DB clusters should have IAM
-
-database authentication enabled
+## [Neptune.7] Neptune DB clusters should have IAM database authentication enabled
 
 **Related requirements:** NIST.800-53.r5 AC-2(1),
 NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5
@@ -275,9 +260,7 @@ DB cluster. To enable it, see [Enabling IAM database
 authentication in Neptune](../../../neptune/latest/userguide/iam-auth-enable.md "../../../neptune/latest/userguide/iam-auth-enable.md") in the
 _Neptune User Guide_.
 
-## [Neptune.8] Neptune DB clusters should be configured to
-
-copy tags to snapshots
+## [Neptune.8] Neptune DB clusters should be configured to copy tags to snapshots
 
 **Related requirements:** NIST.800-53.r5 CA-9(1),
 NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2)

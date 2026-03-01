@@ -1,12 +1,9 @@
 # Security Hub CSPM controls for AWS CloudTrail
 
 These AWS Security Hub CSPM controls evaluate the AWS CloudTrail service and resources. The controls might not
-be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
-## [CloudTrail.1] CloudTrail should be enabled and configured with at least
-
-one multi-Region trail that includes read and write management events
+## [CloudTrail.1] CloudTrail should be enabled and configured with at least one multi-Region trail that includes read and write management events
 
 **Related requirements:** CIS AWS Foundations Benchmark v5.0.0/3.1, CIS AWS Foundations Benchmark v1.2.0/2.1, CIS AWS Foundations Benchmark v1.4.0/3.1, CIS AWS Foundations Benchmark v3.0.0/3.1, NIST.800-53.r5 AC-2(4), NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AC-6(9), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 AU-14(1), NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-3(8), NIST.800-53.r5 SI-4(20), NIST.800-53.r5 SI-7(8), NIST.800-53.r5 SA-8(22)
 
@@ -177,9 +174,7 @@ provides additional integrity checks of CloudTrail logs.
 
 To enable CloudTrail log file validation, see [Enabling log file integrity validation for CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-log-file-validation-enabling.md "../../../awscloudtrail/latest/userguide/cloudtrail-log-file-validation-enabling.md") in the _AWS CloudTrail User Guide_.
 
-## [CloudTrail.5] CloudTrail trails should be integrated with
-
-Amazon CloudWatch Logs
+## [CloudTrail.5] CloudTrail trails should be integrated with Amazon CloudWatch Logs
 
 **Related requirements:** CIS AWS Foundations Benchmark v5.0.0/3.4, PCI DSS v3.2.1/10.5.3, CIS AWS Foundations Benchmark v1.2.0/2.4, CIS AWS Foundations Benchmark v1.4.0/3.4, NIST.800-53.r5 AC-2(4), NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AC-6(9), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(1), NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 AU-6(5), NIST.800-53.r5 AU-7(1), NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-20, NIST.800-53.r5 SI-3(8), NIST.800-53.r5 SI-4(20), NIST.800-53.r5 SI-4(5), NIST.800-53.r5 SI-7(8)
 
@@ -229,9 +224,7 @@ notifications for anomalous or sensitivity account activity.
 
 To integrate CloudTrail with CloudWatch Logs, see [Sending events to CloudWatch Logs](../../../awscloudtrail/latest/userguide/send-cloudtrail-events-to-cloudwatch-logs.md "../../../awscloudtrail/latest/userguide/send-cloudtrail-events-to-cloudwatch-logs.md") in the _AWS CloudTrail User Guide_.
 
-## [CloudTrail.6] Ensure the S3 bucket used to store CloudTrail logs is not
-
-publicly accessible
+## [CloudTrail.6] Ensure the S3 bucket used to store CloudTrail logs is not publicly accessible
 
 **Related requirements:** CIS AWS Foundations Benchmark v1.2.0/2.3, CIS AWS Foundations Benchmark v1.4.0/3.3, PCI DSS v4.0.1/1.4.4
 
@@ -271,9 +264,7 @@ If the bucket is publicly accessible, the check generates a failed finding.
 To block public access to your CloudTrail S3 bucket, see [Configuring block public access settings for your S3 buckets](../../../AmazonS3/latest/userguide/configuring-block-public-access-bucket.md "../../../AmazonS3/latest/userguide/configuring-block-public-access-bucket.md") in the _Amazon Simple Storage Service User Guide_.
 Select all four Amazon S3 Block Public Access Settings.
 
-## [CloudTrail.7] Ensure S3 bucket access logging is enabled on the CloudTrail
-
-S3 bucket
+## [CloudTrail.7] Ensure S3 bucket access logging is enabled on the CloudTrail S3 bucket
 
 **Related requirements:** CIS AWS Foundations Benchmark v1.2.0/2.6, CIS AWS Foundations Benchmark v1.4.0/3.6, CIS AWS Foundations Benchmark v3.0.0/3.4, PCI DSS v4.0.1/10.2.1
 

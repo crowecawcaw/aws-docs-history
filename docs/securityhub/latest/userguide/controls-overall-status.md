@@ -1,15 +1,11 @@
-# Evaluating compliance status and control
-
-status
+# Evaluating compliance status and control status
 
 The `Compliance.Status` field of the AWS Security Finding Format describes the result of a control
 finding. AWS Security Hub CSPM uses the compliance status of control findings to determine an overall
 control status. The control status is displayed on the details page of a control on the
 Security Hub CSPM console.
 
-## Evaluating the compliance
-
-status of Security Hub CSPM findings
+## Evaluating the compliance status of Security Hub CSPM findings
 
 The compliance status for each finding is assigned one of the following values:
 

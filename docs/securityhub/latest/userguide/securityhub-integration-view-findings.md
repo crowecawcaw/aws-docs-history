@@ -1,6 +1,4 @@
-# Viewing findings from a Security Hub CSPM
-
-integration
+# Viewing findings from a Security Hub CSPM integration
 
 When you start accepting findings from an AWS Security Hub CSPM integration, the
 **Integrations** page of the Security Hub CSPM console displays the

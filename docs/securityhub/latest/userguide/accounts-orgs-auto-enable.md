@@ -17,9 +17,7 @@ see [Specify which AWS Regions your account can use](../../../accounts/latest/re
 This process is different based on whether you use central configuration (recommended) or
 local configuration.
 
-## Automatically enabling new organization
-
-accounts (central configuration)
+## Automatically enabling new organization accounts (central configuration)
 
 If you use [central configuration](central-configuration-intro.md "central-configuration-intro.md"), you can
 automatically enable Security Hub CSPM in new and existing organization accounts by creating a configuration policy in which Security Hub CSPM
@@ -37,9 +35,7 @@ resources. For more information about AWS Config recording, see [Enabling and co
 
 For instructions on creating a configuration policy, see [Creating and associating configuration policies](create-associate-policy.md "create-associate-policy.md").
 
-## Automatically enabling new organization
-
-accounts (local configuration)
+## Automatically enabling new organization accounts (local configuration)
 
 When you use local configuration and turn on automatic enablement of default standards, Security Hub CSPM adds _new_ organization accounts
 as members and enables Security Hub CSPM in them in the current Region. Other Regions aren't affected. In addition, turning on automatic

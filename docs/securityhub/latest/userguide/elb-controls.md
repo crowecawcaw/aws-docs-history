@@ -1,12 +1,9 @@
 # Security Hub CSPM controls for Elastic Load Balancing
 
 These AWS Security Hub CSPM controls evaluate the Elastic Load Balancing service and resources. The controls might
-not be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
-## [ELB.1] Application Load Balancer should be configured to redirect all HTTP requests
-
-to HTTPS
+## [ELB.1] Application Load Balancer should be configured to redirect all HTTP requests to HTTPS
 
 **Related requirements:** PCI DSS v3.2.1/2.3,PCI DSS
 v3.2.1/4.1, NIST.800-53.r5 AC-17(2), NIST.800-53.r5 AC-4, NIST.800-53.r5 IA-5(1),
@@ -57,9 +54,7 @@ For instructions on editing an existing rule, see [Edit a rule](../../../elastic
 enter `80`. For **Add action, Redirect to**,
 choose **HTTPS**, and then enter `443`.
 
-## [ELB.2] Classic Load Balancers with SSL/HTTPS listeners should use a certificate
-
-provided by AWS Certificate Manager
+## [ELB.2] Classic Load Balancers with SSL/HTTPS listeners should use a certificate provided by AWS Certificate Manager
 
 **Related requirements:** NIST.800-53.r5 AC-17(2),
 NIST.800-53.r5 AC-4, NIST.800-53.r5 IA-5(1), NIST.800-53.r5 SC-12(3), NIST.800-53.r5
@@ -98,9 +93,7 @@ For information about how to associate an ACM SSL/TLS certificate with a Classic
 see the AWS Knowledge Center article [How can I associate an ACM SSL/TLS certificate with a
 Classic, Application, or Network Load Balancer?](https://aws.amazon.com/premiumsupport/knowledge-center/associate-acm-certificate-alb-nlb/ "https://aws.amazon.com/premiumsupport/knowledge-center/associate-acm-certificate-alb-nlb/")
 
-## [ELB.3] Classic Load Balancer listeners should be configured with HTTPS or TLS
-
-termination
+## [ELB.3] Classic Load Balancer listeners should be configured with HTTPS or TLS termination
 
 **Related requirements:** NIST.800-53.r5 AC-17(2),
 NIST.800-53.r5 AC-4, NIST.800-53.r5 IA-5(1), NIST.800-53.r5 SC-12(3), NIST.800-53.r5
@@ -163,9 +156,7 @@ protocol.
 9. After you update all of the listeners, choose
    **Save**.
 
-## [ELB.4] Application Load Balancer should be configured to drop invalid http
-
-headers
+## [ELB.4] Application Load Balancer should be configured to drop invalid http headers
 
 **Related requirements:** NIST.800-53.r5 SC-7(4),
 NIST.800-53.r5 SC-8(2), PCI DSS v4.0.1/6.2.4
@@ -195,8 +186,7 @@ these header values prevents HTTP desync attacks.
 ###### Note
 
 We recommend disabling this control if ELB.12 is enabled in your account. For more
-information, see [[ELB.12] Application Load Balancer should be configured with defensive or strictest
-desync mitigation mode](#elb-12 "#elb-12").
+information, see [[ELB.12] Application Load Balancer should be configured with defensive or strictest desync mitigation mode](#elb-12 "#elb-12").
 
 ### Remediation
 
@@ -253,9 +243,7 @@ your Classic Load Balancer](../../../elasticloadbalancing/latest/classic/access-
 To enable access logs, see [Step 3: Configure access logs](../../../elasticloadbalancing/latest/application/enable-access-logging.md#enable-access-logs "../../../elasticloadbalancing/latest/application/enable-access-logging.md#enable-access-logs") in the
 _User Guide for Application Load Balancers_.
 
-## [ELB.6] Application, Gateway, and Network Load Balancers should have deletion
-
-protection enabled
+## [ELB.6] Application, Gateway, and Network Load Balancers should have deletion protection enabled
 
 **Related requirements:** NIST.800-53.r5 CA-9(1),
 NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2), NIST.800-53.r5 CM-3, NIST.800-53.r5
@@ -329,9 +317,7 @@ that connections aren't severed abruptly.
 To enable connection draining on Classic Load Balancers, see [Configure
 connection draining for your Classic Load Balancer](../../../elasticloadbalancing/latest/classic/config-conn-drain.md "../../../elasticloadbalancing/latest/classic/config-conn-drain.md") in _User Guide for Classic Load Balancers_.
 
-## [ELB.8] Classic Load Balancers with SSL listeners should use a predefined
-
-security policy that has strong AWS Configuration
+## [ELB.8] Classic Load Balancers with SSL listeners should use a predefined security policy that has strong AWS Configuration
 
 **Related requirements:** NIST.800-53.r5 AC-17(2),
 NIST.800-53.r5 AC-4, NIST.800-53.r5 IA-5(1), NIST.800-53.r5 SC-12(3), NIST.800-53.r5
@@ -374,9 +360,7 @@ SSL security policies for Classic Load Balancers](../../../elasticloadbalancing/
 For information on how to use the predefined security policy
 `ELBSecurityPolicy-TLS-1-2-2017-01` with a Classic Load Balancer, see [Configure security settings](../../../elasticloadbalancing/latest/classic/elb-create-https-ssl-load-balancer.md#config-backend-auth "../../../elasticloadbalancing/latest/classic/elb-create-https-ssl-load-balancer.md#config-backend-auth") in _User Guide for Classic Load Balancers_.
 
-## [ELB.9] Classic Load Balancers should have cross-zone load balancing
-
-enabled
+## [ELB.9] Classic Load Balancers should have cross-zone load balancing enabled
 
 **Related requirements:** NIST.800-53.r5 CP-10,
 NIST.800-53.r5 CP-6(2), NIST.800-53.r5 SC-36, NIST.800-53.r5 SC-5(2), NIST.800-53.r5
@@ -452,9 +436,7 @@ Availability Zone if the sole configured Availability Zone becomes unavailable.
 To add Availability Zones to a Classic Load Balancer, see [Add or remove
 subnets for your Classic Load Balancer](../../../elasticloadbalancing/latest/classic/elb-manage-subnets.md "../../../elasticloadbalancing/latest/classic/elb-manage-subnets.md") in the _User Guide for Classic Load Balancers_.
 
-## [ELB.12] Application Load Balancer should be configured with defensive or strictest
-
-desync mitigation mode
+## [ELB.12] Application Load Balancer should be configured with defensive or strictest desync mitigation mode
 
 **Related requirements:** NIST.800-53.r5 AC-4(21),
 NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, PCI DSS v4.0.1/6.2.4
@@ -490,9 +472,7 @@ be caused by HTTP Desync.
 
 To update desync mitigation mode of an Application Load Balancer, see [Desync mitigation mode](../../../elasticloadbalancing/latest/application/application-load-balancers.md#desync-mitigation-mode "../../../elasticloadbalancing/latest/application/application-load-balancers.md#desync-mitigation-mode") in the _User Guide for Application Load Balancers_.
 
-## [ELB.13] Application, Network and Gateway Load Balancers should span multiple
-
-Availability Zones
+## [ELB.13] Application, Network and Gateway Load Balancers should span multiple Availability Zones
 
 **Related requirements:** NIST.800-53.r5 CP-10,
 NIST.800-53.r5 CP-6(2), NIST.800-53.r5 SC-36, NIST.800-53.r5 SC-5(2), NIST.800-53.r5
@@ -539,9 +519,7 @@ see [Network Load Balancers](../../../elasticloadbalancing/latest/network/networ
 Availability Zone to a Gateway Load Balancer, see [Create a
 Gateway Load Balancer](../../../elasticloadbalancing/latest/gateway/create-load-balancer.md "../../../elasticloadbalancing/latest/gateway/create-load-balancer.md") in the _User Guide for Gateway Load Balancers_.
 
-## [ELB.14] Classic Load Balancer should be configured with defensive or strictest
-
-desync mitigation mode
+## [ELB.14] Classic Load Balancer should be configured with defensive or strictest desync mitigation mode
 
 **Related requirements:** NIST.800-53.r5 AC-4(21),
 NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, PCI DSS v4.0.1/6.2.4
@@ -578,9 +556,7 @@ be caused by HTTP Desync.
 To update desync mitigation mode on a Classic Load Balancer, see [Modify desync mitigation mode](../../../elasticloadbalancing/latest/classic/config-desync-mitigation-mode.md#update-desync-mitigation-mode "../../../elasticloadbalancing/latest/classic/config-desync-mitigation-mode.md#update-desync-mitigation-mode") in the
 _User Guide for Classic Load Balancers_.
 
-## [ELB.16] Application Load Balancers should be associated with an AWS WAF web
-
-ACL
+## [ELB.16] Application Load Balancers should be associated with an AWS WAF web ACL
 
 **Related requirements:** NIST.800-53.r5 AC-4(21)
 
@@ -613,9 +589,7 @@ protect it from malicious attacks.
 To associate an Application Load Balancer with a web ACL, see [Associating or disassociating a web ACL with an AWS resource](../../../waf/latest/developerguide/web-acl-associating-aws-resource.md "../../../waf/latest/developerguide/web-acl-associating-aws-resource.md") in the
 _AWS WAF Developer Guide_.
 
-## [ELB.17] Application and Network Load Balancers with listeners
-
-should use recommended security policies
+## [ELB.17] Application and Network Load Balancers with listeners should use recommended security policies
 
 **Related requirements:** NIST.800-53.r5 AC-17(2),
 NIST.800-53.r5 AC-4, NIST.800-53.r5 IA-5(1), NIST.800-53.r5 SC-12(3), NIST.800-53.r5
@@ -663,9 +637,7 @@ Guides_: [Security policies for Application Load Balancers](../../../elasticload
 policies for Network Load Balancers](../../../elasticloadbalancing/latest/network/describe-ssl-policies.md "../../../elasticloadbalancing/latest/network/describe-ssl-policies.md"), [Update an HTTPS listener for your Application Load Balancer](../../../elasticloadbalancing/latest/application/listener-update-certificates.md "../../../elasticloadbalancing/latest/application/listener-update-certificates.md"), and [Update a
 listener for your Network Load Balancer](../../../elasticloadbalancing/latest/network/listener-update-rules.md "../../../elasticloadbalancing/latest/network/listener-update-rules.md").
 
-## [ELB.18] Application and Network Load Balancer listeners should
-
-use secure protocols to encrypt data in transit
+## [ELB.18] Application and Network Load Balancer listeners should use secure protocols to encrypt data in transit
 
 **Category:** Protect > Data Protection > Encryption of data-in-transit
 
@@ -703,9 +675,7 @@ following sections of the _Elastic Load Balancing User Guides_:
 an HTTPS listener for your Application Load Balancer](../../../elasticloadbalancing/latest/application/create-https-listener.md "../../../elasticloadbalancing/latest/application/create-https-listener.md") and [Create a listener
 for your Network Load Balancer](../../../elasticloadbalancing/latest/network/create-listener.md "../../../elasticloadbalancing/latest/network/create-listener.md").
 
-## [ELB.21] Application and Network Load Balancer target groups should use
-
-encrypted health check protocols
+## [ELB.21] Application and Network Load Balancer target groups should use encrypted health check protocols
 
 **Category:** Protect > Data Protection > Encryption of data-in-transit
 

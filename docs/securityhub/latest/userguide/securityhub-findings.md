@@ -56,15 +56,11 @@ this by using a custom action with an Amazon EventBridge rule. For more informat
 
 ###### Topics
 
-- [BatchImportFindings for finding
-  providers](finding-update-batchimportfindings.md "finding-update-batchimportfindings.md")
-- [BatchUpdateFindings for
-  customers](finding-update-batchupdatefindings.md "finding-update-batchupdatefindings.md")
-- [Reviewing finding details and history in
-  Security Hub CSPM](securityhub-findings-viewing.md "securityhub-findings-viewing.md")
+- [BatchImportFindings for finding providers](finding-update-batchimportfindings.md "finding-update-batchimportfindings.md")
+- [BatchUpdateFindings for customers](finding-update-batchupdatefindings.md "finding-update-batchupdatefindings.md")
+- [Reviewing finding details and history in Security Hub CSPM](securityhub-findings-viewing.md "securityhub-findings-viewing.md")
 - [Filtering findings in Security Hub CSPM](securityhub-findings-manage.md "securityhub-findings-manage.md")
 - [Grouping findings in Security Hub CSPM](finding-list-grouping.md "finding-list-grouping.md")
-- [Setting the workflow status of findings in
-  Security Hub CSPM](findings-workflow-status.md "findings-workflow-status.md")
+- [Setting the workflow status of findings in Security Hub CSPM](findings-workflow-status.md "findings-workflow-status.md")
 - [Sending findings to a custom Security Hub CSPM action](findings-custom-action.md "findings-custom-action.md")
 - [AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md")

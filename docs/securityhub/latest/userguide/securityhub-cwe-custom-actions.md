@@ -1,6 +1,4 @@
-# Using custom actions to send findings
-
-and insight results to EventBridge
+# Using custom actions to send findings and insight results to EventBridge
 
 To use AWS Security Hub CSPM custom actions to send findings or insight results to Amazon EventBridge, you first
 create the custom action in Security Hub CSPM. Then, you can define rules in EventBridge that apply to your custom

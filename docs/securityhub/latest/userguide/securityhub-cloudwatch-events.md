@@ -39,7 +39,5 @@ and remediation actions. For details on how to configure and use the solution, s
 
 - [Security Hub CSPM event types in EventBridge](securityhub-cwe-integration-types.md "securityhub-cwe-integration-types.md")
 - [EventBridge event formats for Security Hub CSPM](securityhub-cwe-event-formats.md "securityhub-cwe-event-formats.md")
-- [Configuring an EventBridge rule for
-  Security Hub CSPM findings](securityhub-cwe-all-findings.md "securityhub-cwe-all-findings.md")
-- [Using custom actions to send findings
-  and insight results to EventBridge](securityhub-cwe-custom-actions.md "securityhub-cwe-custom-actions.md")
+- [Configuring an EventBridge rule for Security Hub CSPM findings](securityhub-cwe-all-findings.md "securityhub-cwe-all-findings.md")
+- [Using custom actions to send findings and insight results to EventBridge](securityhub-cwe-custom-actions.md "securityhub-cwe-custom-actions.md")

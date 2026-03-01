@@ -1,6 +1,4 @@
-# Setting the workflow status of findings in
-
-Security Hub CSPM
+# Setting the workflow status of findings in Security Hub CSPM
 
 Workflow status tracks the progress of your investigation into a finding. Workflow
 status is specific to an individual finding and doesn't affect generation of new findings.

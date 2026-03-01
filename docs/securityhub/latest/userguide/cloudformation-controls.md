@@ -2,8 +2,7 @@
 
 These Security Hub CSPM controls evaluate the AWS CloudFormation service and resources.
 
-These controls may not be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+These controls may not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
 ## [CloudFormation.1] CloudFormation stacks should be integrated with Simple Notification Service (SNS)
 

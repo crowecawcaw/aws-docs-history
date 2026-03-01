@@ -1,8 +1,7 @@
 # Security Hub CSPM controls for Amazon Redshift
 
 These AWS Security Hub CSPM controls evaluate the Amazon Redshift service and resources. The controls might
-not be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
 ## [Redshift.1] Amazon Redshift clusters should prohibit public access
 
@@ -508,9 +507,7 @@ Configuring subnets across multiple AZs help ensure that your Redshift data ware
 To modify a Redshift cluster subnet group to span multiple AZs, see [Modifying a cluster subnet group](../../../redshift/latest/mgmt/modify-cluster-subnet-group.md "../../../redshift/latest/mgmt/modify-cluster-subnet-group.md")
 in the _Amazon Redshift Management Guide_.
 
-## [Redshift.17] Redshift cluster parameter groups should be
-
-tagged
+## [Redshift.17] Redshift cluster parameter groups should be tagged
 
 **Category:** Identify > Inventory > Tagging
 
@@ -559,9 +556,7 @@ For information about adding tags to an Amazon Redshift cluster parameter group,
 [Tag resources in Amazon Redshift](../../../redshift/latest/mgmt/amazon-redshift-tagging.md "../../../redshift/latest/mgmt/amazon-redshift-tagging.md") in the
 _Amazon Redshift Management Guide_.
 
-## [Redshift.18] Redshift clusters should have Multi-AZ
-
-deployments enabled
+## [Redshift.18] Redshift clusters should have Multi-AZ deployments enabled
 
 **Category:** Recover > Resilience > High availability
 

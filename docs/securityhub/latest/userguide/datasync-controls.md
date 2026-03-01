@@ -1,8 +1,7 @@
 # Security Hub CSPM controls for AWS DataSync
 
 These Security Hub CSPM controls evaluate the AWS DataSync service and resources. The controls might not
-be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
 ## [DataSync.1] DataSync tasks should have logging enabled
 

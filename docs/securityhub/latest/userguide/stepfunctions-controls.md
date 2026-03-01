@@ -2,12 +2,9 @@
 
 These AWS Security Hub CSPM controls evaluate the AWS Step Functions service and resources.
 
-These controls may not be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+These controls may not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
-## [StepFunctions.1] Step Functions state machines should have
-
-logging turned on
+## [StepFunctions.1] Step Functions state machines should have logging turned on
 
 **Related requirements:** PCI DSS v4.0.1/10.4.2
 

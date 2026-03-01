@@ -1,6 +1,4 @@
-# Reviewing a list of Security Hub CSPM
-
-integrations
+# Reviewing a list of Security Hub CSPM integrations
 
 Choose your preferred method, and follow the steps to review a list of integrations in
 AWS Security Hub CSPM or details about a specific integration.

@@ -1,12 +1,9 @@
 # Security Hub CSPM controls for Amazon Cognito
 
 These AWS Security Hub CSPM controls evaluate the Amazon Cognito service and resources. The controls might not
-be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
-## [Cognito.1] Cognito user pools should have threat protection
-
-activated with full function enforcement mode for standard authentication
+## [Cognito.1] Cognito user pools should have threat protection activated with full function enforcement mode for standard authentication
 
 **Category:** Protect > Secure access management
 
@@ -45,9 +42,7 @@ For information about activating threat protection for an Amazon Cognito user po
 [Advanced security with threat protection](../../../cognito/latest/developerguide/cognito-user-pool-settings-threat-protection.md "../../../cognito/latest/developerguide/cognito-user-pool-settings-threat-protection.md") in the _Amazon Cognito
 Developer Guide_.
 
-## [Cognito.2] Cognito identity pools should not allow
-
-unauthenticated identities
+## [Cognito.2] Cognito identity pools should not allow unauthenticated identities
 
 **Category:** Protect > Secure access management >
 Passwordless authentication
@@ -85,9 +80,7 @@ For information about deactivating guest access for an Amazon Cognito identity p
 [Activate or deactivate guest access](../../../cognito/latest/developerguide/identity-pools.md#enable-or-disable-unauthenticated-identities "../../../cognito/latest/developerguide/identity-pools.md#enable-or-disable-unauthenticated-identities") in the _Amazon Cognito Developer
 Guide_.
 
-## [Cognito.3] Password policies for Cognito user pools should
-
-have strong configurations
+## [Cognito.3] Password policies for Cognito user pools should have strong configurations
 
 **Category:** Protect > Secure access management
 

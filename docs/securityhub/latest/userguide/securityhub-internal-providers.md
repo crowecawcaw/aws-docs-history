@@ -1,6 +1,4 @@
-# AWS service integrations with
-
-Security Hub CSPM
+# AWS service integrations with Security Hub CSPM
 
 AWS Security Hub CSPM supports integrations with several other AWS services. These integrations can
 help you get a comprehensive view of security and compliance across your AWS
@@ -14,12 +12,9 @@ about each integration to learn more.
 Some integrations aren't available in all AWS Regions. On the Security Hub CSPM console, an
 integration doesn't appear on the **Integrations** page if it isn't
 supported in the current Region. For a list of integrations that are available in the
-China Regions and AWS GovCloud (US) Regions, see [Availability of integrations
-by Region](securityhub-regions.md#securityhub-regions-integration-support "securityhub-regions.md#securityhub-regions-integration-support").
+China Regions and AWS GovCloud (US) Regions, see [Availability of integrations by Region](securityhub-regions.md#securityhub-regions-integration-support "securityhub-regions.md#securityhub-regions-integration-support").
 
-## Overview of AWS service integrations
-
-with Security Hub CSPM
+## Overview of AWS service integrations with Security Hub CSPM
 
 The following table provides an overview of AWS services that send findings to Security Hub CSPM
 or receive findings from Security Hub CSPM.
@@ -43,9 +38,7 @@ or receive findings from Security Hub CSPM.
 | [AWS Systems Manager<br>Explorer and OpsCenter](#integration-ssm-explorer-opscenter "#integration-ssm-explorer-opscenter") | Receives and updates findings |
 | [AWS Trusted Advisor](#integration-trusted-advisor "#integration-trusted-advisor")                                         | Receives findings             |
 
-## AWS services that send findings to
-
-Security Hub CSPM
+## AWS services that send findings to Security Hub CSPM
 
 The following AWS services integrate with and can send findings to Security Hub CSPM. Security Hub CSPM
 converts the findings to the [AWS Security Finding Format](securityhub-findings-format.md "securityhub-findings-format.md").
@@ -77,9 +70,7 @@ evaluations to Security Hub CSPM through EventBridge. Security Hub CSPM transfor
 into findings that follow ASFF and enriches the findings on a best-effort
 basis.
 
-##### Types of findings that
-
-AWS Config sends to Security Hub CSPM
+##### Types of findings that AWS Config sends to Security Hub CSPM
 
 After the integration is activated, AWS Config sends evaluations of all AWS Config
 managed rules and custom rules to Security Hub CSPM. Only evaluations that were
@@ -94,9 +85,7 @@ service-linked rules that AWS Control Tower creates and manages in AWS Config.
 Including findings for these rules helps ensure that your findings data
 includes the results of proactive checks performed by AWS Control Tower.
 
-##### Sending
-
-AWS Config findings to Security Hub CSPM
+##### Sending AWS Config findings to Security Hub CSPM
 
 When the integration is activated, Security Hub CSPM will automatically assign the
 permissions necessary to receive findings from AWS Config. Security Hub CSPM uses
@@ -104,24 +93,18 @@ service-to-service level permissions that provide you with a safe way to
 activate this integration and import findings from AWS Config via
 Amazon EventBridge.
 
-##### Latency for
-
-sending findings
+##### Latency for sending findings
 
 When AWS Config creates a new finding, you can usually view the finding in
 Security Hub CSPM within five minutes.
 
-##### Retrying when
-
-Security Hub CSPM is not available
+##### Retrying when Security Hub CSPM is not available
 
 AWS Config sends findings to Security Hub CSPM on a best-effort basis through EventBridge. When
 an event isn't successfully delivered to Security Hub CSPM, EventBridge retries delivery
 for up to 24 hours or 185 times, whichever comes first.
 
-##### Updating
-
-existing AWS Config findings in Security Hub CSPM
+##### Updating existing AWS Config findings in Security Hub CSPM
 
 After AWS Config sends a finding to Security Hub CSPM, it can send updates to the same
 finding to Security Hub CSPM to reflect additional observations of the finding
@@ -134,9 +117,7 @@ occurs.
 Security Hub CSPM doesn't archive findings that are sent from AWS Config even if you
 delete the associated resource.
 
-##### Regions in which
-
-AWS Config findings exist
+##### Regions in which AWS Config findings exist
 
 AWS Config findings occur on a Regional basis. AWS Config sends findings to Security Hub CSPM
 in the same Region or Regions where the findings occur.
@@ -177,17 +158,13 @@ Security Hub CSPM.
 | detail.newEvaluationResult.complianceType                  | Compliance.Status          | "FAILED", "NOT_AVAILABLE", "PASSED", or "WARNING"                                                                                                                                                                                                                                                                                                                                          |
 |                                                            | Workflow.Status            | "RESOLVED" if an AWS Config finding is generated with a<br>Compliance.Status of "PASSED," or if the Compliance.Status<br>changes from "FAILED" to "PASSED." Otherwise,<br>Workflow.Status will be "NEW." You can change this value<br>with the [BatchUpdateFindings](../../1.0/APIReference/API_BatchUpdateFindings.md "../../1.0/APIReference/API_BatchUpdateFindings.md") API operation. |
 
-#### Interpreting
-
-severity label
+#### Interpreting severity label
 
 All findings from AWS Config rule evaluations have a default severity label of
 **MEDIUM** in the ASFF. You can update the severity
 label of a finding with the [`BatchUpdateFindings`](../../1.0/APIReference/API_BatchUpdateFindings.md "../../1.0/APIReference/API_BatchUpdateFindings.md") API operation.
 
-#### Typical finding
-
-from AWS Config
+#### Typical finding from AWS Config
 
 Security Hub CSPM transforms AWS Config rule evaluations into findings that follow the ASFF.
 The following is an example of a typical finding from AWS Config in the
@@ -264,12 +241,9 @@ immediately begins to send findings to Security Hub CSPM.
 To stop sending findings to Security Hub CSPM, you can use the Security Hub CSPM console or Security Hub CSPM
 API.
 
-For instructions on stopping the flow of findings, see [Enabling the flow of findings from a
-Security Hub CSPM integration](securityhub-integration-enable.md "securityhub-integration-enable.md").
+For instructions on stopping the flow of findings, see [Enabling the flow of findings from a Security Hub CSPM integration](securityhub-integration-enable.md "securityhub-integration-enable.md").
 
-### AWS Firewall Manager (Sends
-
-findings)
+### AWS Firewall Manager (Sends findings)
 
 Firewall Manager sends findings to Security Hub CSPM when a web application firewall (WAF) policy for
 resources or a web access control list (web ACL) rule is not in compliance. Firewall Manager
@@ -327,10 +301,8 @@ generate findings.
 
 Security Hub CSPM provides tools to manage findings from across all of these sources.
 You can view and filter lists of findings and view details for a finding.
-See [Reviewing finding details and history in
-Security Hub CSPM](securityhub-findings-viewing.md "securityhub-findings-viewing.md"). You can also track the
-status of an investigation into a finding. See [Setting the workflow status of findings in
-Security Hub CSPM](findings-workflow-status.md "findings-workflow-status.md").
+See [Reviewing finding details and history in Security Hub CSPM](securityhub-findings-viewing.md "securityhub-findings-viewing.md"). You can also track the
+status of an investigation into a finding. See [Setting the workflow status of findings in Security Hub CSPM](findings-workflow-status.md "findings-workflow-status.md").
 
 All findings in Security Hub CSPM use a standard JSON format called the [AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md"). ASFF includes details
 about the source of the issue, the affected resources, and the current
@@ -339,9 +311,7 @@ status of the finding.
 AWS Health is one of the AWS services that sends findings to
 Security Hub CSPM.
 
-##### Types of findings that
-
-AWS Health sends to Security Hub CSPM
+##### Types of findings that AWS Health sends to Security Hub CSPM
 
 After the integration is enabled, AWS Health sends findings that meet
 one or more of the listed specifications to Security Hub CSPM. Security Hub CSPM ingests the
@@ -393,9 +363,7 @@ findings in the [AWS Security Finding Format (ASFF)](securityhub-findings-format
 - Findings where the AWS Health service is `risk` or
   `abuse`
 
-##### Sending
-
-AWS Health findings to Security Hub CSPM
+##### Sending AWS Health findings to Security Hub CSPM
 
 When you choose to accept findings from AWS Health, Security Hub CSPM will
 automatically assign the permissions necessary to receive the
@@ -405,32 +373,24 @@ integration and import findings from AWS Health via Amazon EventBridge on
 your behalf. Choosing **Accept Findings** grants
 Security Hub CSPM permission to consume findings from AWS Health.
 
-##### Latency for
-
-sending findings
+##### Latency for sending findings
 
 When AWS Health creates a new finding, it is usually sent to
 Security Hub CSPM within five minutes.
 
-##### Retrying
-
-when Security Hub CSPM is not available
+##### Retrying when Security Hub CSPM is not available
 
 AWS Health sends findings to Security Hub CSPM on a best-effort basis through
 EventBridge. When an event isn't successfully delivered to Security Hub CSPM, EventBridge
 retries sending the event for 24 hours.
 
-##### Updating
-
-existing findings in Security Hub CSPM
+##### Updating existing findings in Security Hub CSPM
 
 After AWS Health sends a finding to Security Hub CSPM, it can send updates to
 the same finding to reflect additional observations of the finding
 activity to Security Hub CSPM.
 
-##### Regions in
-
-which findings exist
+##### Regions in which findings exist
 
 For global events, AWS Health sends findings to Security Hub CSPM in
 us-east-1 (AWS partition), cn-northwest-1 (China partition), and
@@ -528,9 +488,7 @@ following logic:
        AWS Health finding contains the value
        `END_OF_SUPPORT`
 
-##### Typical
-
-finding from AWS Health
+##### Typical finding from AWS Health
 
 AWS Health sends findings to Security Hub CSPM using the [AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md"). The following is an
 example of a typical finding from AWS Health.
@@ -594,12 +552,9 @@ AWS Health immediately begins to send findings to Security Hub CSPM.
 To stop sending findings to Security Hub CSPM, you can use the Security Hub CSPM console or Security Hub CSPM
 API.
 
-For instructions on stopping the flow of findings, see [Enabling the flow of findings from a
-Security Hub CSPM integration](securityhub-integration-enable.md "securityhub-integration-enable.md").
+For instructions on stopping the flow of findings, see [Enabling the flow of findings from a Security Hub CSPM integration](securityhub-integration-enable.md "securityhub-integration-enable.md").
 
-### AWS Identity and Access Management Access Analyzer (Sends
-
-findings)
+### AWS Identity and Access Management Access Analyzer (Sends findings)
 
 With IAM Access Analyzer, all findings are sent to Security Hub CSPM.
 
@@ -698,9 +653,7 @@ for the `Sample` field is `true`.
 
 For more information, see [Evaluating Macie findings with Security Hub](../../../macie/latest/user/securityhub-integration.md "../../../macie/latest/user/securityhub-integration.md") in the _Amazon Macie User Guide_.
 
-### Amazon Route 53 Resolver DNS Firewall (Sends
-
-findings)
+### Amazon Route 53 Resolver DNS Firewall (Sends findings)
 
 With Amazon Route 53 Resolver DNS Firewall, you can filter and regulate outbound DNS traffic for
 your virtual private cloud (VPC). You do this by creating reusable collections of
@@ -746,9 +699,7 @@ Manager immediately begins to send findings to Security Hub CSPM.
 For more information about using Patch Manager, see [AWS Systems Manager
 Patch Manager](../../../systems-manager/latest/userguide/systems-manager-patch.md "../../../systems-manager/latest/userguide/systems-manager-patch.md") in the _AWS Systems Manager User Guide_.
 
-## AWS services that receive findings
-
-from Security Hub CSPM
+## AWS services that receive findings from Security Hub CSPM
 
 The following AWS services are integrated with Security Hub CSPM and receive findings from
 Security Hub CSPM. Where noted, the integrated service may also update findings. In this case,
@@ -820,9 +771,7 @@ For more information about this integration, including instructions on adding
 Security Hub CSPM as a source and creating subscribers, see [Integration
 with AWS Security Hub CSPM](../../../security-lake/latest/userguide/securityhub-integration.md "../../../security-lake/latest/userguide/securityhub-integration.md") in the _Amazon Security Lake User Guide_.
 
-### AWS Systems Manager Explorer and
-
-OpsCenter (Receives and updates findings)
+### AWS Systems Manager Explorer and OpsCenter (Receives and updates findings)
 
 AWS Systems Manager Explorer and OpsCenter receive findings from Security Hub CSPM, and update those
 findings in Security Hub CSPM.
@@ -836,9 +785,7 @@ operational work items.
 
 For more information about Explorer and OpsCenter, see [Operations management](../../../systems-manager/latest/userguide/systems-manager-ops-center.md "../../../systems-manager/latest/userguide/systems-manager-ops-center.md") in the _AWS Systems Manager User Guide_.
 
-### AWS Trusted Advisor (Receives
-
-findings)
+### AWS Trusted Advisor (Receives findings)
 
 Trusted Advisor draws upon best practices learned from serving hundreds of thousands of
 AWS customers. Trusted Advisor inspects your AWS environment, and then makes

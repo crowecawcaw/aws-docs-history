@@ -1,12 +1,9 @@
 # Security Hub CSPM controls for Amazon EC2
 
 These AWS Security Hub CSPM controls evaluate the Amazon Elastic Compute Cloud (Amazon EC2) service and resources. The
-controls might not be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+controls might not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
-## [EC2.1] Amazon EBS snapshots should not be publicly
-
-restorable
+## [EC2.1] Amazon EBS snapshots should not be publicly restorable
 
 **Related requirements:** PCI DSS v3.2.1/1.2.1,PCI DSS
 v3.2.1/1.3.1,PCI DSS v3.2.1/1.3.4,PCI DSS v3.2.1/7.2.1, NIST.800-53.r5 AC-21,
@@ -45,9 +42,7 @@ intentional.
 To make a public EBS snapshot private, see [Share a snapshot](../../../AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.md#share-unencrypted-snapshot "../../../AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.md#share-unencrypted-snapshot") in the _Amazon EC2 User Guide_. For **Actions, Modify
 permissions**, choose **Private**.
 
-## [EC2.2] VPC default security groups should not allow
-
-inbound or outbound traffic
+## [EC2.2] VPC default security groups should not allow inbound or outbound traffic
 
 **Related requirements:** CIS AWS Foundations Benchmark v5.0.0/5.5, PCI DSS v3.2.1/1.2.1,PCI DSS
 v3.2.1/1.3.4,PCI DSS v3.2.1/2.1, CIS AWS Foundations Benchmark v1.2.0/4.3, CIS AWS Foundations Benchmark v1.4.0/5.3, CIS AWS Foundations Benchmark v3.0.0/5.4, NIST.800-53.r5
@@ -93,9 +88,7 @@ After you assign the new security groups to your resources, remove all inbound a
 outbound rules from the default security groups. For instructions, see [Configure
 security group rules](../../../vpc/latest/userguide/working-with-security-group-rules.md "../../../vpc/latest/userguide/working-with-security-group-rules.md") in the _Amazon VPC User Guide_.
 
-## [EC2.3] Attached Amazon EBS volumes should be encrypted
-
-at-rest
+## [EC2.3] Attached Amazon EBS volumes should be encrypted at-rest
 
 **Related requirements:** NIST.800-53.r5 CA-9(1),
 NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5
@@ -143,9 +136,7 @@ For more information, see [Creating an Amazon EBS
 volume](../../../AWSEC2/latest/UserGuide/ebs-creating-volume.md "../../../AWSEC2/latest/UserGuide/ebs-creating-volume.md") and [Copying an Amazon EBS
 snapshot](../../../AWSEC2/latest/UserGuide/ebs-copy-snapshot.md "../../../AWSEC2/latest/UserGuide/ebs-copy-snapshot.md") in the _Amazon EC2 User Guide_.
 
-## [EC2.4] Stopped EC2 instances should be removed
-
-after a specified time period
+## [EC2.4] Stopped EC2 instances should be removed after a specified time period
 
 **Related requirements:** NIST.800-53.r5 CA-9(1),
 NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2)
@@ -184,9 +175,7 @@ maintenance. Ideally, this should be an automated process.
 
 To terminate an inactive EC2 instance, see [Terminate an instance](../../../AWSEC2/latest/UserGuide/terminating-instances.md#terminating-instances-console "../../../AWSEC2/latest/UserGuide/terminating-instances.md#terminating-instances-console") in the _Amazon EC2 User Guide_.
 
-## [EC2.6] VPC flow logging should be enabled in all
-
-VPCs
+## [EC2.6] VPC flow logging should be enabled in all VPCs
 
 **Related requirements:** CIS AWS Foundations Benchmark v5.0.0/3.7, CIS AWS Foundations Benchmark v1.2.0/2.9, CIS AWS Foundations Benchmark v1.4.0/3.9,
 CIS AWS Foundations Benchmark v3.0.0/3.7, NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2,
@@ -274,9 +263,7 @@ default](../../../AWSEC2/latest/UserGuide/EBSEncryption.md#encryption-by-default
 
 To configure default encryption for Amazon EBS volumes, see [Encryption by default](../../../AWSEC2/latest/UserGuide/EBSEncryption.md#encryption-by-default "../../../AWSEC2/latest/UserGuide/EBSEncryption.md#encryption-by-default") in the _Amazon EC2 User Guide_.
 
-## [EC2.8] EC2 instances should use Instance Metadata
-
-Service Version 2 (IMDSv2)
+## [EC2.8] EC2 instances should use Instance Metadata Service Version 2 (IMDSv2)
 
 **Related requirements:** CIS AWS Foundations Benchmark v5.0.0/5.7, CIS AWS Foundations Benchmark v3.0.0/5.6, NIST.800-53.r5
 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-6,
@@ -322,9 +309,7 @@ Security Hub CSPM recommends that you configure your EC2 instances with IMDSv2.
 
 To configure EC2 instances with IMDSv2, see [Recommended path to requiring IMDSv2](../../../AWSEC2/latest/UserGuide/instance-metadata-transition-to-version-2.md#recommended-path-for-requiring-imdsv2 "../../../AWSEC2/latest/UserGuide/instance-metadata-transition-to-version-2.md#recommended-path-for-requiring-imdsv2") in the _Amazon EC2 User Guide_.
 
-## [EC2.9] Amazon EC2 instances should not have a public IPv4
-
-address
+## [EC2.9] Amazon EC2 instances should not have a public IPv4 address
 
 **Related requirements:** NIST.800-53.r5 AC-21,
 NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-4, NIST.800-53.r5
@@ -381,9 +366,7 @@ address from the public IPv4 address pool.
 You can disassociate an automatically-assigned public IP address from your EC2
 instance. For more information, see [Public IPv4 addresses and external DNS hostnames](../../../AWSEC2/latest/UserGuide/using-instance-addressing.md#concepts-public-addresses "../../../AWSEC2/latest/UserGuide/using-instance-addressing.md#concepts-public-addresses") in the _Amazon EC2 User Guide_.
 
-## [EC2.10] Amazon EC2 should be configured to use VPC endpoints
-
-that are created for the Amazon EC2 service
+## [EC2.10] Amazon EC2 should be configured to use VPC endpoints that are created for the Amazon EC2 service
 
 **Related requirements:** NIST.800-53.r5 AC-21,
 NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-4, NIST.800-53.r5
@@ -471,9 +454,7 @@ data environment (CDE).
 To release an unused EIP, see [Release an Elastic IP address](../../../AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.md#using-instance-addressing-eips-releasing "../../../AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.md#using-instance-addressing-eips-releasing") in the
 _Amazon EC2 User Guide_.
 
-## [EC2.13] Security groups should not allow ingress from
-
-0.0.0.0/0 or ::/0 to port 22
+## [EC2.13] Security groups should not allow ingress from 0.0.0.0/0 or ::/0 to port 22
 
 **Related requirements:** CIS AWS Foundations Benchmark
 v1.2.0/4.1, NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 CM-7,
@@ -514,9 +495,7 @@ _Amazon EC2 User Guide_. After selecting a security group in the
 Amazon EC2 console, choose **Actions, Edit inbound rules**. Remove the
 rule that allows access to port 22.
 
-## [EC2.14] Security groups should not allow ingress from
-
-0.0.0.0/0 or ::/0 to port 3389
+## [EC2.14] Security groups should not allow ingress from 0.0.0.0/0 or ::/0 to port 3389
 
 **Related requirements:** CIS AWS Foundations Benchmark
 v1.2.0/4.2, PCI DSS v4.0.1/1.3.1
@@ -554,9 +533,7 @@ _Amazon VPC User Guide_. After selecting a security group in the
 Amazon VPC Console, choose **Actions, Edit inbound rules**. Remove the
 rule that allows access to port 3389.
 
-## [EC2.15] Amazon EC2 subnets should not automatically assign
-
-public IP addresses
+## [EC2.15] Amazon EC2 subnets should not automatically assign public IP addresses
 
 **Related requirements:** NIST.800-53.r5 AC-21,
 NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-4, NIST.800-53.r5
@@ -597,9 +574,7 @@ instances launched in the subnet automatically receive the corresponding IP addr
 To configure a subnet to not assign public IP addresses, see [Modify the IP addressing attributes of your
 subnet](../../../vpc/latest/userguide/subnet-public-ip.md "../../../vpc/latest/userguide/subnet-public-ip.md") in the _Amazon VPC User Guide_.
 
-## [EC2.16] Unused Network Access Control Lists should be
-
-removed
+## [EC2.16] Unused Network Access Control Lists should be removed
 
 **Related requirements:** NIST.800-53.r5 CM-8(1),
 NIST.800-171.r2 3.4.7, PCI DSS v4.0.1/1.2.7
@@ -638,9 +613,7 @@ network ACL](../../../vpc/latest/userguide/vpc-network-acls.md#DeleteNetworkACL 
 You can't delete the default network ACL or an ACL that is associated with
 subnets.
 
-## [EC2.17] Amazon EC2 instances should not use multiple
-
-ENIs
+## [EC2.17] Amazon EC2 instances should not use multiple ENIs
 
 **Related requirements:** NIST.800-53.r5 AC-4(21)
 
@@ -673,9 +646,7 @@ and access.
 
 To detach a network interface from an EC2 instance, see [Detach a network interface from an instance](../../../AWSEC2/latest/UserGuide/using-eni.md#detach_eni "../../../AWSEC2/latest/UserGuide/using-eni.md#detach_eni") in the _Amazon EC2 User Guide_.
 
-## [EC2.18] Security groups should only allow unrestricted
-
-incoming traffic for authorized ports
+## [EC2.18] Security groups should only allow unrestricted incoming traffic for authorized ports
 
 **Related requirements:** NIST.800-53.r5 AC-4,
 NIST.800-53.r5 AC-4(21), NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5
@@ -723,9 +694,7 @@ a port is specifically allowed, the port should deny unrestricted access.
 To modify a security group, see [Work with security
 groups](../../../vpc/latest/userguide/working-with-security-groups.md "../../../vpc/latest/userguide/working-with-security-groups.md") in the _Amazon VPC User Guide_.
 
-## [EC2.19] Security groups should not allow unrestricted
-
-access to ports with high risk
+## [EC2.19] Security groups should not allow unrestricted access to ports with high risk
 
 **Related requirements:** NIST.800-53.r5 AC-4,
 NIST.800-53.r5 AC-4(21), NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5
@@ -787,9 +756,7 @@ group should allow unrestricted ingress access to the following ports:
 
 To delete rules from a security group, see [Delete rules from a security group](../../../AWSEC2/latest/UserGuide/working-with-security-groups.md#deleting-security-group-rule "../../../AWSEC2/latest/UserGuide/working-with-security-groups.md#deleting-security-group-rule") in the _Amazon EC2 User Guide_.
 
-## [EC2.20] Both VPN tunnels for an AWS Site-to-Site VPN
-
-connection should be up
+## [EC2.20] Both VPN tunnels for an AWS Site-to-Site VPN connection should be up
 
 **Related requirements:** NIST.800-53.r5 CP-10,
 NIST.800-53.r5 CP-6(2), NIST.800-53.r5 SC-36, NIST.800-53.r5 SC-5(2), NIST.800-53.r5
@@ -823,9 +790,7 @@ status. The control fails if one or both tunnels are in DOWN status.
 To modify VPN tunnel options, see [Modifying Site-to-Site
 VPN tunnel options](../../../vpn/latest/s2svpn/modify-vpn-tunnel-options.md "../../../vpn/latest/s2svpn/modify-vpn-tunnel-options.md") in the AWS Site-to-Site VPN User Guide.
 
-## [EC2.21] Network ACLs should not allow ingress from
-
-0.0.0.0/0 to port 22 or port 3389
+## [EC2.21] Network ACLs should not allow ingress from 0.0.0.0/0 to port 22 or port 3389
 
 **Related requirements:** CIS AWS Foundations Benchmark v5.0.0/5.2, CIS AWS Foundations Benchmark v1.4.0/5.1, CIS AWS Foundations Benchmark v3.0.0/5.1,
 NIST.800-53.r5 AC-4(21), NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5
@@ -863,9 +828,7 @@ resources within your VPC.
 To edit network ACL traffic rules, see [Work with network ACLs](../../../vpc/latest/userguide/vpc-network-acls.md#nacl-tasks "../../../vpc/latest/userguide/vpc-network-acls.md#nacl-tasks") in the
 _Amazon VPC User Guide_.
 
-## [EC2.22] Unused Amazon EC2 security groups should be
-
-removed
+## [EC2.22] Unused Amazon EC2 security groups should be removed
 
 **Category:** Identify > Inventory
 
@@ -900,9 +863,7 @@ EC2.13, EC2.14, EC2.18, and EC2.19—to monitor your security groups.
 
 To create, assign and delete security groups, see [Security groups for your EC2 instances](../../../AWSEC2/latest/UserGuide/ec2-security-groups.md "../../../AWSEC2/latest/UserGuide/ec2-security-groups.md") in the _Amazon EC2 User Guide_.
 
-## [EC2.23] Amazon EC2 Transit Gateways should not automatically
-
-accept VPC attachment requests
+## [EC2.23] Amazon EC2 Transit Gateways should not automatically accept VPC attachment requests
 
 **Related requirements:** NIST.800-53.r5 AC-4(21),
 NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2
@@ -937,9 +898,7 @@ that only authorized VPC attachment requests are accepted.
 To modify a transit gateway, see [Modify a transit gateway](../../../vpc/latest/tgw/tgw-transit-gateways.md#tgw-modifying "../../../vpc/latest/tgw/tgw-transit-gateways.md#tgw-modifying") in the
 Amazon VPC Developer Guide.
 
-## [EC2.24] Amazon EC2 paravirtual instance types should not be
-
-used
+## [EC2.24] Amazon EC2 paravirtual instance types should not be used
 
 **Related requirements:** NIST.800-53.r5 CM-2,
 NIST.800-53.r5 CM-2(2)
@@ -977,9 +936,7 @@ AMI virtualization types](../../../AWSEC2/latest/UserGuide/virtualization_types.
 To update an EC2 instance to a new instance type, see [Change the instance
 type](../../../AWSEC2/latest/UserGuide/ec2-instance-resize.md "../../../AWSEC2/latest/UserGuide/ec2-instance-resize.md") in the _Amazon EC2 User Guide_.
 
-## [EC2.25] Amazon EC2 launch templates should not assign public
-
-IPs to network interfaces
+## [EC2.25] Amazon EC2 launch templates should not assign public IPs to network interfaces
 
 **Related requirements:** NIST.800-53.r5 AC-21,
 NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-4, NIST.800-53.r5
@@ -1017,9 +974,7 @@ publicly accessible because this may permit unintended access to your workloads.
 To update an EC2 launch template, see [Change the default network interface settings](../../../autoscaling/ec2/userguide/create-launch-template.md#change-network-interface "../../../autoscaling/ec2/userguide/create-launch-template.md#change-network-interface") in the _Amazon EC2 Auto Scaling
 User Guide_.
 
-## [EC2.28] EBS volumes should be covered by a backup
-
-plan
+## [EC2.28] EBS volumes should be covered by a backup plan
 
 **Category:** Recover > Resilience > Backups
 enabled
@@ -1058,9 +1013,7 @@ protect your data from unintended loss or deletion.
 To add an Amazon EBS volume to an AWS Backup backup plan, see [Assigning resources to
 a backup plan](../../../aws-backup/latest/devguide/assigning-resources.md "../../../aws-backup/latest/devguide/assigning-resources.md") in the _AWS Backup Developer Guide_.
 
-## [EC2.33] EC2 transit gateway attachments should
-
-be tagged
+## [EC2.33] EC2 transit gateway attachments should be tagged
 
 **Category:** Identify > Inventory > Tagging
 
@@ -1113,9 +1066,7 @@ AWS resources](../../../tag-editor/latest/userguide/tagging.md#tag-best-practice
 To add tags to an EC2 transit gateway attachment, see [Tag your Amazon EC2
 resources](../../../AWSEC2/latest/UserGuide/Using_Tags.md#Using_Tags_Console "../../../AWSEC2/latest/UserGuide/Using_Tags.md#Using_Tags_Console") in the _Amazon EC2 User Guide_.
 
-## [EC2.34] EC2 transit gateway route tables should
-
-be tagged
+## [EC2.34] EC2 transit gateway route tables should be tagged
 
 **Category:** Identify > Inventory > Tagging
 
@@ -1168,9 +1119,7 @@ AWS resources](../../../tag-editor/latest/userguide/tagging.md#tag-best-practice
 To add tags to an EC2 transit gateway route table, see [Tag your Amazon EC2
 resources](../../../AWSEC2/latest/UserGuide/Using_Tags.md#Using_Tags_Console "../../../AWSEC2/latest/UserGuide/Using_Tags.md#Using_Tags_Console") in the _Amazon EC2 User Guide_.
 
-## [EC2.35] EC2 network interfaces should be
-
-tagged
+## [EC2.35] EC2 network interfaces should be tagged
 
 **Category:** Identify > Inventory > Tagging
 
@@ -1222,9 +1171,7 @@ AWS resources](../../../tag-editor/latest/userguide/tagging.md#tag-best-practice
 To add tags to an EC2 network interface, see [Tag your Amazon EC2
 resources](../../../AWSEC2/latest/UserGuide/Using_Tags.md#Using_Tags_Console "../../../AWSEC2/latest/UserGuide/Using_Tags.md#Using_Tags_Console") in the _Amazon EC2 User Guide_.
 
-## [EC2.36] EC2 customer gateways should be
-
-tagged
+## [EC2.36] EC2 customer gateways should be tagged
 
 **Category:** Identify > Inventory > Tagging
 
@@ -1276,9 +1223,7 @@ AWS resources](../../../tag-editor/latest/userguide/tagging.md#tag-best-practice
 To add tags to an EC2 customer gateway, see [Tag your Amazon EC2
 resources](../../../AWSEC2/latest/UserGuide/Using_Tags.md#Using_Tags_Console "../../../AWSEC2/latest/UserGuide/Using_Tags.md#Using_Tags_Console") in the _Amazon EC2 User Guide_.
 
-## [EC2.37] EC2 Elastic IP addresses should be
-
-tagged
+## [EC2.37] EC2 Elastic IP addresses should be tagged
 
 **Category:** Identify > Inventory > Tagging
 
@@ -1383,9 +1328,7 @@ AWS resources](../../../tag-editor/latest/userguide/tagging.md#tag-best-practice
 To add tags to an EC2 instance, see [Tag your Amazon EC2
 resources](../../../AWSEC2/latest/UserGuide/Using_Tags.md#Using_Tags_Console "../../../AWSEC2/latest/UserGuide/Using_Tags.md#Using_Tags_Console") in the _Amazon EC2 User Guide_.
 
-## [EC2.39] EC2 internet gateways should be
-
-tagged
+## [EC2.39] EC2 internet gateways should be tagged
 
 **Category:** Identify > Inventory > Tagging
 
@@ -1437,9 +1380,7 @@ AWS resources](../../../tag-editor/latest/userguide/tagging.md#tag-best-practice
 To add tags to an EC2 internet gateway, see [Tag your Amazon EC2
 resources](../../../AWSEC2/latest/UserGuide/Using_Tags.md#Using_Tags_Console "../../../AWSEC2/latest/UserGuide/Using_Tags.md#Using_Tags_Console") in the _Amazon EC2 User Guide_.
 
-## [EC2.40] EC2 NAT gateways should be
-
-tagged
+## [EC2.40] EC2 NAT gateways should be tagged
 
 **Category:** Identify > Inventory > Tagging
 
@@ -1492,9 +1433,7 @@ AWS resources](../../../tag-editor/latest/userguide/tagging.md#tag-best-practice
 To add tags to an EC2 NAT gateway, see [Tag your Amazon EC2
 resources](../../../AWSEC2/latest/UserGuide/Using_Tags.md#Using_Tags_Console "../../../AWSEC2/latest/UserGuide/Using_Tags.md#Using_Tags_Console") in the _Amazon EC2 User Guide_.
 
-## [EC2.41] EC2 network ACLs should be
-
-tagged
+## [EC2.41] EC2 network ACLs should be tagged
 
 **Category:** Identify > Inventory > Tagging
 
@@ -1547,9 +1486,7 @@ AWS resources](../../../tag-editor/latest/userguide/tagging.md#tag-best-practice
 To add tags to an EC2 network ACL, see [Tag your Amazon EC2
 resources](../../../AWSEC2/latest/UserGuide/Using_Tags.md#Using_Tags_Console "../../../AWSEC2/latest/UserGuide/Using_Tags.md#Using_Tags_Console") in the _Amazon EC2 User Guide_.
 
-## [EC2.42] EC2 route tables should be
-
-tagged
+## [EC2.42] EC2 route tables should be tagged
 
 **Category:** Identify > Inventory > Tagging
 
@@ -1601,9 +1538,7 @@ AWS resources](../../../tag-editor/latest/userguide/tagging.md#tag-best-practice
 To add tags to an EC2 route table, see [Tag your Amazon EC2
 resources](../../../AWSEC2/latest/UserGuide/Using_Tags.md#Using_Tags_Console "../../../AWSEC2/latest/UserGuide/Using_Tags.md#Using_Tags_Console") in the _Amazon EC2 User Guide_.
 
-## [EC2.43] EC2 security groups should be
-
-tagged
+## [EC2.43] EC2 security groups should be tagged
 
 **Category:** Identify > Inventory > Tagging
 
@@ -1811,9 +1746,7 @@ AWS resources](../../../tag-editor/latest/userguide/tagging.md#tag-best-practice
 To add tags to a VPC, see [Tag your Amazon EC2
 resources](../../../AWSEC2/latest/UserGuide/Using_Tags.md#Using_Tags_Console "../../../AWSEC2/latest/UserGuide/Using_Tags.md#Using_Tags_Console") in the _Amazon EC2 User Guide_.
 
-## [EC2.47] Amazon VPC endpoint services should be
-
-tagged
+## [EC2.47] Amazon VPC endpoint services should be tagged
 
 **Category:** Identify > Inventory > Tagging
 
@@ -1918,9 +1851,7 @@ AWS resources](../../../tag-editor/latest/userguide/tagging.md#tag-best-practice
 To add tags to an Amazon VPC flow log, see [Tag
 a flow log](../../../vpc/latest/userguide/working-with-flow-logs.md#modify-tags-flow-logs "../../../vpc/latest/userguide/working-with-flow-logs.md#modify-tags-flow-logs") in the _Amazon VPC User Guide_.
 
-## [EC2.49] Amazon VPC peering connections should be
-
-tagged
+## [EC2.49] Amazon VPC peering connections should be tagged
 
 **Category:** Identify > Inventory > Tagging
 
@@ -1973,9 +1904,7 @@ AWS resources](../../../tag-editor/latest/userguide/tagging.md#tag-best-practice
 To add tags to an Amazon VPC peering connection, see [Tag your Amazon EC2 resources](../../../AWSEC2/latest/UserGuide/Using_Tags.md "../../../AWSEC2/latest/UserGuide/Using_Tags.md")
 in the _Amazon EC2 User Guide_.
 
-## [EC2.50] EC2 VPN gateways should be
-
-tagged
+## [EC2.50] EC2 VPN gateways should be tagged
 
 **Category:** Identify > Inventory > Tagging
 
@@ -2027,9 +1956,7 @@ AWS resources](../../../tag-editor/latest/userguide/tagging.md#tag-best-practice
 To add tags to an EC2 VPN gateway, see [Tag your Amazon EC2 resources](../../../AWSEC2/latest/UserGuide/Using_Tags.md "../../../AWSEC2/latest/UserGuide/Using_Tags.md")
 in the _Amazon EC2 User Guide_.
 
-## [EC2.51] EC2 Client VPN endpoints should have client
-
-connection logging enabled
+## [EC2.51] EC2 Client VPN endpoints should have client connection logging enabled
 
 **Related requirements:** NIST.800-53.r5 AC-2(12),
 NIST.800-53.r5 AC-2(4), NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AC-6(9), NIST.800-53.r5
@@ -2068,9 +1995,7 @@ the Client VPN service creates one for you.
 To enable connection logging, see [Enable connection logging for an existing Client VPN endpoint](../../../vpn/latest/clientvpn-admin/cvpn-working-with-connection-logs.md#create-connection-log-existing "../../../vpn/latest/clientvpn-admin/cvpn-working-with-connection-logs.md#create-connection-log-existing") in the
 _AWS Client VPN Administrator Guide_.
 
-## [EC2.52] EC2 transit gateways should be
-
-tagged
+## [EC2.52] EC2 transit gateways should be tagged
 
 **Category:** Identify > Inventory > Tagging
 
@@ -2122,9 +2047,7 @@ AWS resources](../../../tag-editor/latest/userguide/tagging.md#tag-best-practice
 To add tags to an EC2 transit gateway, see [Tag your Amazon EC2
 resources](../../../AWSEC2/latest/UserGuide/Using_Tags.md#Using_Tags_Console "../../../AWSEC2/latest/UserGuide/Using_Tags.md#Using_Tags_Console") in the _Amazon EC2 User Guide_.
 
-## [EC2.53] EC2 security groups should not allow
-
-ingress from 0.0.0.0/0 to remote server administration ports
+## [EC2.53] EC2 security groups should not allow ingress from 0.0.0.0/0 to remote server administration ports
 
 **Related requirements:** CIS AWS Foundations Benchmark v5.0.0/5.3, CIS AWS Foundations Benchmark v3.0.0/5.2, PCI DSS v4.0.1/1.3.1
 
@@ -2167,9 +2090,7 @@ _Amazon EC2 User Guide_. After selecting a security group in the
 Amazon EC2 console, choose **Actions, Edit inbound rules**. Remove the
 rule that allows access to port 22 or port 3389.
 
-## [EC2.54] EC2 security groups should not allow
-
-ingress from ::/0 to remote server administration ports
+## [EC2.54] EC2 security groups should not allow ingress from ::/0 to remote server administration ports
 
 **Related requirements:** CIS AWS Foundations Benchmark v5.0.0/5.4, CIS AWS Foundations Benchmark v3.0.0/5.3, PCI DSS v4.0.1/1.3.1
 
@@ -2302,9 +2223,7 @@ AWS PrivateLink enables customers to access services hosted on AWS in a highly a
 
 To configure a VPC endpoint, see [Access an AWS service using an interface VPC endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md") in the _AWS PrivateLink Guide_.
 
-## [EC2.58] VPCs should be configured with an interface endpoint for Systems Manager Incident Manager
-
-Contacts
+## [EC2.58] VPCs should be configured with an interface endpoint for Systems Manager Incident Manager Contacts
 
 **Related requirements:** NIST.800-53.r5 AC-21, NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 AC-6, NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(20), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(3), NIST.800-53.r5 SC-7(4)
 
@@ -2364,9 +2283,7 @@ AWS PrivateLink enables customers to access services hosted on AWS in a highly a
 
 To configure a VPC endpoint, see [Access an AWS service using an interface VPC endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md") in the _AWS PrivateLink Guide_.
 
-## [EC2.170] EC2 launch templates should use Instance
-
-Metadata Service Version 2 (IMDSv2)
+## [EC2.170] EC2 launch templates should use Instance Metadata Service Version 2 (IMDSv2)
 
 **Related requirements:** PCI DSS v4.0.1/2.2.6
 
@@ -2397,9 +2314,7 @@ vulnerabilities, which help ensure a stable and efficient user experience.
 To require IMDSv2 on an EC2 launch template, see [Configure the Instance Metadata Service options](../../../AWSEC2/latest/UserGuide/configuring-instance-metadata-options.md "../../../AWSEC2/latest/UserGuide/configuring-instance-metadata-options.md") in the
 _Amazon EC2 User Guide_.
 
-## [EC2.171] EC2 VPN connections should have logging
-
-enabled
+## [EC2.171] EC2 VPN connections should have logging enabled
 
 **Related requirements:** CIS AWS Foundations Benchmark v3.0.0/5.3,
 PCI DSS v4.0.1/10.4.2
@@ -2435,9 +2350,7 @@ connections.
 To enable tunnel logging on an EC2 VPN connection, see [AWS Site-to-Site VPN logs](../../../vpn/latest/s2svpn/monitoring-logs.md#enable-logs "../../../vpn/latest/s2svpn/monitoring-logs.md#enable-logs") in the _AWS Site-to-Site VPN
 User Guide_.
 
-## [EC2.172] EC2 VPC Block Public Access settings should block
-
-internet gateway traffic
+## [EC2.172] EC2 VPC Block Public Access settings should block internet gateway traffic
 
 **Category:** Protect > Secure network configuration > Resources not publicly accessible
 
@@ -2480,9 +2393,7 @@ To enable bi-directional BPA at the account level, see [Enable BPA bidirectional
 _Amazon VPC User Guide_. To enable ingress-only BPA, see [Change VPC BPA mode to ingress-only](../../../vpc/latest/userguide/security-vpc-bpa-basics.md#security-vpc-bpa-ingress-only "../../../vpc/latest/userguide/security-vpc-bpa-basics.md#security-vpc-bpa-ingress-only"). To enable VPC BPA at the
 Organization level, see [Enable VPC BPA at the Organization level](../../../vpc/latest/userguide/security-vpc-bpa-basics.md#security-vpc-bpa-exclusions-orgs "../../../vpc/latest/userguide/security-vpc-bpa-basics.md#security-vpc-bpa-exclusions-orgs").
 
-## [EC2.173] EC2 Spot Fleet requests with launch
-
-parameters should enable encryption for attached EBS volumes
+## [EC2.173] EC2 Spot Fleet requests with launch parameters should enable encryption for attached EBS volumes
 
 **Category:** Protect > Data Protection > Encryption of data-at-rest
 
@@ -2688,9 +2599,7 @@ For information about adding tags to an Amazon EC2 prefix list, see [Tag your
 Amazon EC2 resources](../../../AWSEC2/latest/UserGuide/Using_Tags.md "../../../AWSEC2/latest/UserGuide/Using_Tags.md") in the _Amazon EC2 User
 Guide_.
 
-## [EC2.177] EC2 traffic mirror sessions should be
-
-tagged
+## [EC2.177] EC2 traffic mirror sessions should be tagged
 
 **Category:** Identify > Inventory > Tagging
 
@@ -2741,9 +2650,7 @@ For information about adding tags to an Amazon EC2 traffic mirror session, see [
 Amazon EC2 resources](../../../AWSEC2/latest/UserGuide/Using_Tags.md "../../../AWSEC2/latest/UserGuide/Using_Tags.md") in the _Amazon EC2 User
 Guide_.
 
-## [EC2.178] EC2 traffic mirror filters should be
-
-tagged
+## [EC2.178] EC2 traffic mirror filters should be tagged
 
 **Category:** Identify > Inventory > Tagging
 
@@ -2794,9 +2701,7 @@ For information about adding tags to an Amazon EC2 traffic mirror filter, see [T
 Amazon EC2 resources](../../../AWSEC2/latest/UserGuide/Using_Tags.md "../../../AWSEC2/latest/UserGuide/Using_Tags.md") in the _Amazon EC2 User
 Guide_.
 
-## [EC2.179] EC2 traffic mirror targets should be
-
-tagged
+## [EC2.179] EC2 traffic mirror targets should be tagged
 
 **Category:** Identify > Inventory > Tagging
 
@@ -2847,9 +2752,7 @@ For information about adding tags to an Amazon EC2 traffic mirror target, see [T
 Amazon EC2 resources](../../../AWSEC2/latest/UserGuide/Using_Tags.md "../../../AWSEC2/latest/UserGuide/Using_Tags.md") in the _Amazon EC2 User
 Guide_.
 
-## [EC2.180] EC2 network interfaces should have
-
-source/destination checking enabled
+## [EC2.180] EC2 network interfaces should have source/destination checking enabled
 
 **Category:** Protect > Network Security
 
@@ -2889,9 +2792,7 @@ source/destination checking for its ENI, you can use a [NAT gateway](../../../vp
 For information about enabling source/destination checks for an Amazon EC2 ENI, see
 [Modify network interface attributes](../../../AWSEC2/latest/UserGuide/modify-network-interface-attributes.md#modify-source-dest-check "../../../AWSEC2/latest/UserGuide/modify-network-interface-attributes.md#modify-source-dest-check") in the _Amazon EC2 User Guide_.
 
-## [EC2.181] EC2 launch templates should enable encryption
-
-for attached EBS volumes
+## [EC2.181] EC2 launch templates should enable encryption for attached EBS volumes
 
 **Category:** Protect > Data Protection > Encryption of data-at-rest
 

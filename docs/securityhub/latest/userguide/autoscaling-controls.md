@@ -2,8 +2,7 @@
 
 These Security Hub CSPM controls evaluate the Amazon EC2 Auto Scaling service and resources.
 
-These controls may not be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+These controls may not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
 ## [AutoScaling.1] Auto Scaling groups associated with a load balancer should use ELB health checks
 

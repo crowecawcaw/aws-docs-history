@@ -36,8 +36,7 @@ Controls with a status of **No data** are excluded from the score calculation.
 
 Security Hub CSPM ignores archived and suppressed findings when calculating control status. This can impact security scores. For example,
 if you suppress all failed findings for a control, its status becomes **Passed**, which can in turn
-improve your security scores. For more information about control status, see [Evaluating compliance status and control
-status](controls-overall-status.md "controls-overall-status.md").
+improve your security scores. For more information about control status, see [Evaluating compliance status and control status](controls-overall-status.md "controls-overall-status.md").
 
 **Scoring example:**
 
@@ -65,9 +64,7 @@ standards or different standards enabled. This can also occur if you're viewing 
 score from the aggregation Region and additional standards or different standards are
 enabled in linked Regions.
 
-## Security scores for administrator
-
-accounts
+## Security scores for administrator accounts
 
 If you're signed in to an administrator account, the summary security score and
 standard scores account for control statuses in the administrator account and all of the
@@ -81,9 +78,7 @@ If you're signed in to an administrator account and are viewing scores in an
 aggregation Region, security scores account for control statuses in all member accounts
 _and_ all linked Regions.
 
-## Security scores if you have set
-
-an aggregation Region
+## Security scores if you have set an aggregation Region
 
 If you have set an aggregation AWS Region, the summary security score and standard
 scores account for control statuses in all  linked Regions.

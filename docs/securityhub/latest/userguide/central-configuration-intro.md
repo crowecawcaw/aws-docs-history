@@ -67,9 +67,7 @@ You can use central configuration to configure the Security Hub CSPM service, se
 also use it to customize parameters of certain controls. For more information about security standards, see [Understanding security standards in Security Hub CSPM](standards-view-manage.md "standards-view-manage.md").
 For more information about security controls, see [Understanding security controls in Security Hub CSPM](controls-view-manage.md "controls-view-manage.md").
 
-## Central configuration terms and
-
-concepts
+## Central configuration terms and concepts
 
 Understanding the following key terms and concepts can help you use Security Hub CSPM central configuration.
 

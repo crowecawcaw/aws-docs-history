@@ -59,8 +59,7 @@ Impact/Resource Hijacking`.
   – An interactive visualization showing how potential attackers can
   access and take control of resources associated with an exposure finding.
   For more information, see
-  [Viewing exposures in Security Hub with the
-  potential attack path graph](potential-attack-path-graph.md "potential-attack-path-graph.md").
+  [Viewing exposures in Security Hub with the potential attack path graph](potential-attack-path-graph.md "potential-attack-path-graph.md").
 - **Traits** – Identifies trait types
   and trait titles associated with the exposure finding. In the Security Hub
   console, you can view traits by trait type or signal. This helps you analyze

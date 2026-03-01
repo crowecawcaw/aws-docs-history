@@ -24,8 +24,7 @@ and modify it as needed.
 From a Security Hub CSPM administrator account, you can create an automation rule by defining
 one or more rule _criteria_ and one or more rule _actions_. When a
 finding matches the defined criteria, Security Hub CSPM applies the rule actions
-to it. For more information about available criteria and actions, see [Available rule criteria and rule
-actions](#automation-rules-criteria-actions "#automation-rules-criteria-actions").
+to it. For more information about available criteria and actions, see [Available rule criteria and rule actions](#automation-rules-criteria-actions "#automation-rules-criteria-actions").
 
 Security Hub CSPM currently supports a maximum of 100 automation rules for each administrator
 account.
@@ -40,9 +39,7 @@ An automation rule applies only in the AWS Region in which it's created. To appl
 the administrator must create the rule in each Region. This can be done through the Security Hub CSPM console,
 Security Hub CSPM API, or [AWS CloudFormation](creating-resources-with-cloudformation.md "creating-resources-with-cloudformation.md").You can also use a [multi-Region deployment script](https://github.com/awslabs/aws-securityhub-multiaccount-scripts/blob/master/automation_rules "https://github.com/awslabs/aws-securityhub-multiaccount-scripts/blob/master/automation_rules").
 
-## Available rule criteria and rule
-
-actions
+## Available rule criteria and rule actions
 
 The following AWS Security Finding Format (ASFF) fields are currently supported as criteria for automation
 rules:

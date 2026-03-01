@@ -3,9 +3,7 @@
 This section provides examples of automation rules for common Security Hub CSPM use cases. These
 examples correspond to rule templates that are available on the Security Hub CSPM console.
 
-## Elevate severity to
-
-Critical when specific resource such as an S3 bucket is at risk
+## Elevate severity to Critical when specific resource such as an S3 bucket is at risk
 
 In this example, the rule criteria are matched when the `ResourceId` in
 a finding is a specific Amazon Simple Storage Service (Amazon S3) bucket. The rule action is to change the
@@ -106,9 +104,7 @@ to apply to other resources.
 --region `us-east-1``
 ```
 
-## Elevate severity of
-
-findings that relate to resources in production accounts
+## Elevate severity of findings that relate to resources in production accounts
 
 In this example, the rule criteria are matched when a `HIGH` severity
 finding is generated in specific production accounts. The rule action is to change
@@ -221,9 +217,7 @@ aws securityhub create-automation-rule \
 --region ``us-east-1``
 ```
 
-## Suppress informational
-
-findings
+## Suppress informational findings
 
 In this example, the rule criteria are matched for `INFORMATIONAL`
 severity findings sent to Security Hub CSPM from Amazon GuardDuty. The rule action is to change the

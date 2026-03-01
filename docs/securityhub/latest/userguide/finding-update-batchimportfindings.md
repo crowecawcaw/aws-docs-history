@@ -1,14 +1,11 @@
-# BatchImportFindings for finding
-
-providers
+# BatchImportFindings for finding providers
 
 Finding providers can use the [BatchImportFindings](../../1.0/APIReference/API_BatchImportFindings.md "../../1.0/APIReference/API_BatchImportFindings.md") operation to create new findings in
 AWS Security Hub CSPM. They can also use this operation to update findings that they created.
 Finding providers can't update findings that they didn't create.
 
 Customers, SIEMs, ticketing, SOAR, and other types of tools must use the [BatchUpdateFindings](../../1.0/APIReference/API_BatchUpdateFindings.md "../../1.0/APIReference/API_BatchUpdateFindings.md") operation to make updates related to
-their investigation of findings from finding providers. For more information, see [BatchUpdateFindings for
-customers](finding-update-batchupdatefindings.md "finding-update-batchupdatefindings.md").
+their investigation of findings from finding providers. For more information, see [BatchUpdateFindings for customers](finding-update-batchupdatefindings.md "finding-update-batchupdatefindings.md").
 
 When Security Hub CSPM receives a `BatchImportFindings` request to create or update a
 finding, it automatically generates a \*\*Security Hub Findings
@@ -16,9 +13,7 @@ finding, it automatically generates a \*\*Security Hub Findings
 - Imported\*\* event in Amazon EventBridge. You can take automated action
   on that event. For more information, see [Using EventBridge for automated response and remediation](securityhub-cloudwatch-events.md "securityhub-cloudwatch-events.md").
 
-## Prerequisites for using
-
-`BatchImportFindings`
+## Prerequisites for using `BatchImportFindings`
 
 `BatchImportFindings` must be called by one of the following:
 
@@ -34,9 +29,7 @@ integration is not enabled, then the findings are returned in the
 `FailedFindings` list, with an `InvalidAccess`
 error.
 
-## Determining whether to create
-
-or update a finding
+## Determining whether to create or update a finding
 
 To determine whether to create or update a finding, Security Hub CSPM checks the
 `ID` field. If the value of `ID` doesn't match an existing
@@ -52,9 +45,7 @@ If `ID` matches an existing finding, Security Hub CSPM checks the
   `UpdatedAt` on the existing finding, Security Hub CSPM updates the
   existing finding.
 
-## Restrictions on finding
-
-updates with `BatchImportFindings`
+## Restrictions on finding updates with `BatchImportFindings`
 
 Finding providers can't use `BatchImportFindings` to update the
 following attributes of an existing finding:
@@ -69,9 +60,7 @@ for these attributes. Customers, or entities acting on their behalf (such as
 ticketing tools), can use `BatchUpdateFindings` to update these
 attributes.
 
-## Updating findings with
-
-FindingProviderFields
+## Updating findings with FindingProviderFields
 
 Finding providers also shouldn't use `BatchImportFindings` to update
 the following top-level attributes in the AWS Security Finding Format (ASFF):

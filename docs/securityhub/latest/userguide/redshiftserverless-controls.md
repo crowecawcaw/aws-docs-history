@@ -1,8 +1,7 @@
 # Security Hub CSPM controls for Amazon Redshift Serverless
 
 These AWS Security Hub CSPM controls evaluate the Amazon Redshift Serverless service and resources. The controls might
-not be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
 ## [RedshiftServerless.1] Amazon Redshift Serverless workgroups should use enhanced VPC routing
 
@@ -28,9 +27,7 @@ If enhanced VPC routing is disabled for an Amazon Redshift Serverless workgroup,
 
 For more information about enhanced VPC routing and how to enable it for a workgroup, see [Controlling network traffic with Redshift enhanced VPC routing](../../../redshift/latest/mgmt/enhanced-vpc-routing.md "../../../redshift/latest/mgmt/enhanced-vpc-routing.md") in the _Amazon Redshift Management Guide_.
 
-## [RedshiftServerless.2] Connections to Redshift Serverless workgroups should
-
-be required to use SSL
+## [RedshiftServerless.2] Connections to Redshift Serverless workgroups should be required to use SSL
 
 **Category:** Protect > Data Protection > Encryption of data-in-transit
 
@@ -60,9 +57,7 @@ For information about updating the settings for an Amazon Redshift Serverless wo
 connections, see [Connecting to Amazon Redshift Serverless](../../../redshift/latest/mgmt/serverless-connecting.md "../../../redshift/latest/mgmt/serverless-connecting.md") in
 the _Amazon Redshift Management Guide_.
 
-## [RedshiftServerless.3] Redshift Serverless workgroups should prohibit
-
-public access
+## [RedshiftServerless.3] Redshift Serverless workgroups should prohibit public access
 
 **Category:** Protect > Secure network configuration > Resources not publicly accessible
 
@@ -93,9 +88,7 @@ For information about changing the public access setting for an Amazon Redshift 
 [Viewing the properties for a workgroup](../../../redshift/latest/mgmt/serverless-console-workgroups.md "../../../redshift/latest/mgmt/serverless-console-workgroups.md") in the _Amazon Redshift
 Management Guide_.
 
-## [RedshiftServerless.4] Redshift Serverless namespaces should be encrypted
-
-with customer managed AWS KMS keys
+## [RedshiftServerless.4] Redshift Serverless namespaces should be encrypted with customer managed AWS KMS keys
 
 **Related requirements:** NIST.800-53.r5 AU-9, NIST.800-53.r5
 CA-9(1), NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SC-12(2),
@@ -171,9 +164,7 @@ then choose **Edit admin credentials** on the **Actions**
 menu. To change it programmatically, use the [UpdateNamespace](../../../redshift-serverless/latest/APIReference/API_UpdateNamespace.md "../../../redshift-serverless/latest/APIReference/API_UpdateNamespace.md") operation or, if you’re using the AWS CLI, run the [update-namespace](../../../cli/latest/reference/redshift-serverless/update-namespace.md "../../../cli/latest/reference/redshift-serverless/update-namespace.md") command. If you change the admin username, you must also change
 the admin password at the same time.
 
-## [RedshiftServerless.6] Redshift Serverless namespaces should export logs to
-
-CloudWatch Logs
+## [RedshiftServerless.6] Redshift Serverless namespaces should export logs to CloudWatch Logs
 
 **Category:** Identify > Logging
 

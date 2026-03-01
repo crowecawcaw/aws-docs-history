@@ -7,9 +7,7 @@ types use the following event formats.
 
 The event format is the format that is used when Security Hub CSPM sends an event to EventBridge.
 
-## Security
-
-Hub Findings - Imported
+## Security Hub Findings - Imported
 
 **Security Hub Findings - Imported**
 events that are sent from Security Hub CSPM to EventBridge use the following format.
@@ -41,8 +39,7 @@ finding.
 For a complete list of finding attributes, see [AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
 
 For information about how to configure EventBridge rules that are triggered by these
-events, see [Configuring an EventBridge rule for
-Security Hub CSPM findings](securityhub-cwe-all-findings.md "securityhub-cwe-all-findings.md").
+events, see [Configuring an EventBridge rule for Security Hub CSPM findings](securityhub-cwe-all-findings.md "securityhub-cwe-all-findings.md").
 
 ## Security Hub Findings - Custom Action
 
@@ -81,12 +78,9 @@ finding.
 For a complete list of finding attributes, see [AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
 
 For information about how to configure EventBridge rules that are triggered by these
-events, see [Using custom actions to send findings
-and insight results to EventBridge](securityhub-cwe-custom-actions.md "securityhub-cwe-custom-actions.md").
+events, see [Using custom actions to send findings and insight results to EventBridge](securityhub-cwe-custom-actions.md "securityhub-cwe-custom-actions.md").
 
-## Security Hub
-
-Insight Results
+## Security Hub Insight Results
 
 **Security Hub Insight Results**
 events that are sent from Security Hub CSPM to EventBridge use the following format.
@@ -119,5 +113,4 @@ events that are sent from Security Hub CSPM to EventBridge use the following for
 ```
 
 For information about how to create an EventBridge rule that is triggered by these
-events, see [Using custom actions to send findings
-and insight results to EventBridge](securityhub-cwe-custom-actions.md "securityhub-cwe-custom-actions.md").
+events, see [Using custom actions to send findings and insight results to EventBridge](securityhub-cwe-custom-actions.md "securityhub-cwe-custom-actions.md").

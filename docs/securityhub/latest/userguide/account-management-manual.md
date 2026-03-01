@@ -12,8 +12,7 @@ member accounts.
 
 If you create an invitation-based organization in Security Hub CSPM, you can subsequently [transition to using
 AWS Organizations](accounts-transition-to-orgs.md "accounts-transition-to-orgs.md") instead. If you have more than one member account, we recommend using AWS Organizations instead of Security Hub CSPM invitations to manage your member accounts.
-For information, see [Managing Security Hub CSPM for multiple accounts with
-AWS Organizations](securityhub-accounts-orgs.md "securityhub-accounts-orgs.md").
+For information, see [Managing Security Hub CSPM for multiple accounts with AWS Organizations](securityhub-accounts-orgs.md "securityhub-accounts-orgs.md").
 
 Cross-Region aggregation of findings and other data is available for
 accounts that you invite through the manual invitation process. However, the administrator must invite the
@@ -43,8 +42,7 @@ The topics in this section explain how to manage member accounts through invitat
 ###### Topics
 
 - [Adding and inviting member accounts in Security Hub CSPM](securityhub-accounts-add-invite.md "securityhub-accounts-add-invite.md")
-- [Responding to an invitation to be a Security Hub CSPM
-  member account](securityhub-invitation-respond.md "securityhub-invitation-respond.md")
+- [Responding to an invitation to be a Security Hub CSPM member account](securityhub-invitation-respond.md "securityhub-invitation-respond.md")
 - [Disassociating member accounts in Security Hub CSPM](securityhub-disassociate-members.md "securityhub-disassociate-members.md")
 - [Deleting member accounts in Security Hub CSPM](securityhub-delete-member-accounts.md "securityhub-delete-member-accounts.md")
 - [Disassociating from a Security Hub CSPM administrator account](securityhub-disassociate-from-admin.md "securityhub-disassociate-from-admin.md")

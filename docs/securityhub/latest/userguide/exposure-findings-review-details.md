@@ -3,9 +3,7 @@
 This topic describes how to review details about exposure findings in the
 AWS Security Hub console and with the API.
 
-## Reviewing details for
-
-an exposure finding in the Security Hub console
+## Reviewing details for an exposure finding in the Security Hub console
 
 ###### To view details for an exposure finding in the Security Hub console
 

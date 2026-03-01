@@ -1,6 +1,4 @@
-# Viewing exposures in Security Hub with the
-
-potential attack path graph
+# Viewing exposures in Security Hub with the potential attack path graph
 
 The potential attack path graph is an interactive visualization that shows how
 potential attackers can access and take control of resources associated with an exposure

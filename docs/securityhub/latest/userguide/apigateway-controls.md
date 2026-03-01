@@ -1,12 +1,9 @@
 # Security Hub CSPM controls for Amazon API Gateway
 
 These AWS Security Hub CSPM controls evaluate the Amazon API Gateway service and resources. The controls might not
-be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
-## [APIGateway.1] API Gateway REST and WebSocket API execution logging
-
-should be enabled
+## [APIGateway.1] API Gateway REST and WebSocket API execution logging should be enabled
 
 **Related requirements:** NIST.800-53.r5 AC-4(26),
 NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3,
@@ -45,9 +42,7 @@ responses, and the `requestId` for AWS integration endpoints.
 
 To enable logging for REST and WebSocket API operations, see [Set up CloudWatch API logging using the API Gateway console](../../../apigateway/latest/developerguide/set-up-logging.md#set-up-access-logging-using-console "../../../apigateway/latest/developerguide/set-up-logging.md#set-up-access-logging-using-console") in the _API Gateway Developer Guide_.
 
-## [APIGateway.2] API Gateway REST API stages should be configured to use
-
-SSL certificates for backend authentication
+## [APIGateway.2] API Gateway REST API stages should be configured to use SSL certificates for backend authentication
 
 **Related requirements:** NIST.800-53.r5 AC-17(2),
 NIST.800-53.r5 AC-4, NIST.800-53.r5 IA-5(1), NIST.800-53.r5 SC-12(3), NIST.800-53.r5
@@ -81,9 +76,7 @@ authenticate that requests originate from API Gateway.
 For detailed instructions on how to generate and configure API Gateway REST API SSL certificates,
 see [Generate and configure an SSL certificate for backend authentication](../../../apigateway/latest/developerguide/getting-started-client-side-ssl-authentication.md "../../../apigateway/latest/developerguide/getting-started-client-side-ssl-authentication.md") in the _API Gateway Developer Guide_.
 
-## [APIGateway.3] API Gateway REST API stages should have AWS X-Ray
-
-tracing enabled
+## [APIGateway.3] API Gateway REST API stages should have AWS X-Ray tracing enabled
 
 **Related requirements:** NIST.800-53.r5 CA-7
 
@@ -115,9 +108,7 @@ For detailed instructions on how to enable X-Ray active tracing for API Gateway 
 operations, see [Amazon API Gateway active tracing support for
 AWS X-Ray](../../../xray/latest/devguide/xray-services-apigateway.md "../../../xray/latest/devguide/xray-services-apigateway.md") in the _AWS X-Ray Developer Guide_.
 
-## [APIGateway.4] API Gateway should be associated with a WAF Web
-
-ACL
+## [APIGateway.4] API Gateway should be associated with a WAF Web ACL
 
 **Related requirements:** NIST.800-53.r5 AC-4(21)
 
@@ -150,9 +141,7 @@ For information on how to use the API Gateway console to associate an AWS WAF Re
 an existing API Gateway API stage, see [Using AWS WAF
 to protect your APIs](../../../apigateway/latest/developerguide/apigateway-control-access-aws-waf.md "../../../apigateway/latest/developerguide/apigateway-control-access-aws-waf.md") in the _API Gateway Developer Guide_.
 
-## [APIGateway.5] API Gateway REST API cache data should be encrypted at
-
-rest
+## [APIGateway.5] API Gateway REST API cache data should be encrypted at rest
 
 **Related requirements:** NIST.800-53.r5 CA-9(1),
 NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5 SC-28(1),
@@ -189,9 +178,7 @@ API Gateway REST API caches should be encrypted at rest for an added layer of se
 To configure API caching for a stage, see [Enable Amazon API Gateway caching](../../../apigateway/latest/developerguide/api-gateway-caching.md#enable-api-gateway-caching "../../../apigateway/latest/developerguide/api-gateway-caching.md#enable-api-gateway-caching") in the _API Gateway Developer Guide_.
 In **Cache Settings**, choose **Encrypt cache data**.
 
-## [APIGateway.8] API Gateway routes should specify an authorization
-
-type
+## [APIGateway.8] API Gateway routes should specify an authorization type
 
 **Related requirements:** NIST.800-53.r5 AC-3, NIST.800-53.r5
 CM-2, NIST.800-53.r5 CM-2(2)
@@ -230,9 +217,7 @@ set an authorization type for WebSocket APIs, see [Controlling
 and managing access to a WebSocket API in API Gateway](../../../apigateway/latest/developerguide/apigateway-websocket-api-control-access.md "../../../apigateway/latest/developerguide/apigateway-websocket-api-control-access.md") in the
 _API Gateway Developer Guide_.
 
-## [APIGateway.9] Access logging should be configured for API Gateway V2
-
-Stages
+## [APIGateway.9] Access logging should be configured for API Gateway V2 Stages
 
 **Related requirements:** NIST.800-53.r5 AC-4(26),
 NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3,

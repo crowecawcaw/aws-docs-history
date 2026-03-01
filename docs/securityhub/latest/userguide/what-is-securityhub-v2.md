@@ -24,9 +24,7 @@ Streamline response times with automated workflows and an integrated ticketing s
 
 Security Hub correlates findings from Security Hub CSPM control checks, Amazon Inspector, and other AWS services to detect exposures associated with AWS resources.
 
-######
-
-Findings are formatted in the Open Cybersecurity Schema Framework (OCSF)
+###### Findings are formatted in the Open Cybersecurity Schema Framework (OCSF)
 
 Security Hub generates findings in OCSF and receives findings in OCSF from Security Hub CSPM and other AWS services:
 

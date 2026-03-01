@@ -2,12 +2,9 @@
 
 These Security Hub CSPM controls evaluate the Amazon Connect service and resources.
 
-These controls may not be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+These controls may not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
-## [Connect.1] Amazon Connect Customer Profiles object types
-
-should be tagged
+## [Connect.1] Amazon Connect Customer Profiles object types should be tagged
 
 **Category:** Identify > Inventory > Tagging
 
@@ -57,9 +54,7 @@ _Tagging AWS Resources and Tag Editor User Guide_.
 To add tags to a Customer Profiles object type, see [Add tags to resources in
 Amazon Connect](../../../connect/latest/adminguide/tagging.md "../../../connect/latest/adminguide/tagging.md") in the _Amazon Connect Administrator Guide_.
 
-## [Connect.2] Amazon Connect instances should have CloudWatch logging
-
-enabled
+## [Connect.2] Amazon Connect instances should have CloudWatch logging enabled
 
 **Category:** Identify > Logging
 

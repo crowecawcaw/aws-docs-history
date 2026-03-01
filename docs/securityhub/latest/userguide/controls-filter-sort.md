@@ -17,8 +17,7 @@ these specific subsets:
 - All enabled controls that have a specific control status, such as
   **Failed**. The **No data** option displays
   only those controls that don't currently have findings. For information about
-  control status, see [Evaluating compliance status and control
-  status](controls-overall-status.md "controls-overall-status.md").
+  control status, see [Evaluating compliance status and control status](controls-overall-status.md "controls-overall-status.md").
   In addition to the **Filter by** options, you can filter the table by
   entering filter criteria in the **Filter controls** box above the table.
   For example, you can filter by control ID or severity.

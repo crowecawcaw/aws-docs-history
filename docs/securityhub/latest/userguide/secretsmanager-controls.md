@@ -2,8 +2,7 @@
 
 These AWS Security Hub CSPM controls evaluate the AWS Secrets Manager service and resources.
 
-These controls may not be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+These controls may not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
 ## [SecretsManager.1] Secrets Manager secrets should have automatic rotation enabled
 

@@ -75,16 +75,12 @@ control.
 - [[Batch.3] Batch compute environments should be tagged](batch-controls.md#batch-3 "batch-controls.md#batch-3")
 - [[Batch.4] Compute resources properties in managed Batch compute environments should be tagged](batch-controls.md#batch-4 "batch-controls.md#batch-4")
 - [[CloudFormation.2] CloudFormation stacks should be tagged](cloudformation-controls.md#cloudformation-2 "cloudformation-controls.md#cloudformation-2")
-- [[CloudFront.14] CloudFront distributions should be
-  tagged](cloudfront-controls.md#cloudfront-14 "cloudfront-controls.md#cloudfront-14")
+- [[CloudFront.14] CloudFront distributions should be tagged](cloudfront-controls.md#cloudfront-14 "cloudfront-controls.md#cloudfront-14")
 - [[CloudTrail.9] CloudTrail trails should be tagged](cloudtrail-controls.md#cloudtrail-9 "cloudtrail-controls.md#cloudtrail-9")
 - [[CodeArtifact.1]CodeArtifact repositories should be tagged](codeartifact-controls.md#codeartifact-1 "codeartifact-controls.md#codeartifact-1")
-- [[CodeGuruProfiler.1] CodeGuru Profiler profiling groups should be
-  tagged](codeguruprofiler-controls.md#codeguruprofiler-1 "codeguruprofiler-controls.md#codeguruprofiler-1")
-- [[CodeGuruReviewer.1] CodeGuru Reviewer repository associations should be
-  tagged](codegurureviewer-controls.md#codegurureviewer-1 "codegurureviewer-controls.md#codegurureviewer-1")
-- [[Connect.1] Amazon Connect Customer Profiles object types
-  should be tagged](connect-controls.md#connect-1 "connect-controls.md#connect-1")
+- [[CodeGuruProfiler.1] CodeGuru Profiler profiling groups should be tagged](codeguruprofiler-controls.md#codeguruprofiler-1 "codeguruprofiler-controls.md#codeguruprofiler-1")
+- [[CodeGuruReviewer.1] CodeGuru Reviewer repository associations should be tagged](codegurureviewer-controls.md#codegurureviewer-1 "codegurureviewer-controls.md#codegurureviewer-1")
+- [[Connect.1] Amazon Connect Customer Profiles object types should be tagged](connect-controls.md#connect-1 "connect-controls.md#connect-1")
 - [[DataSync.2] DataSync tasks should be tagged](datasync-controls.md#datasync-2 "datasync-controls.md#datasync-2")
 - [[Detective.1] Detective behavior graphs should be tagged](detective-controls.md#detective-1 "detective-controls.md#detective-1")
 - [[DMS.2] DMS certificates should be tagged](dms-controls.md#dms-2 "dms-controls.md#dms-2")
@@ -92,48 +88,31 @@ control.
 - [[DMS.4] DMS replication instances should be tagged](dms-controls.md#dms-4 "dms-controls.md#dms-4")
 - [[DMS.5] DMS replication subnet groups should be tagged](dms-controls.md#dms-5 "dms-controls.md#dms-5")
 - [[DynamoDB.5] DynamoDB tables should be tagged](dynamodb-controls.md#dynamodb-5 "dynamodb-controls.md#dynamodb-5")
-- [[EC2.33] EC2 transit gateway attachments should
-  be tagged](ec2-controls.md#ec2-33 "ec2-controls.md#ec2-33")
-- [[EC2.34] EC2 transit gateway route tables should
-  be tagged](ec2-controls.md#ec2-34 "ec2-controls.md#ec2-34")
-- [[EC2.35] EC2 network interfaces should be
-  tagged](ec2-controls.md#ec2-35 "ec2-controls.md#ec2-35")
-- [[EC2.36] EC2 customer gateways should be
-  tagged](ec2-controls.md#ec2-36 "ec2-controls.md#ec2-36")
-- [[EC2.37] EC2 Elastic IP addresses should be
-  tagged](ec2-controls.md#ec2-37 "ec2-controls.md#ec2-37")
+- [[EC2.33] EC2 transit gateway attachments should be tagged](ec2-controls.md#ec2-33 "ec2-controls.md#ec2-33")
+- [[EC2.34] EC2 transit gateway route tables should be tagged](ec2-controls.md#ec2-34 "ec2-controls.md#ec2-34")
+- [[EC2.35] EC2 network interfaces should be tagged](ec2-controls.md#ec2-35 "ec2-controls.md#ec2-35")
+- [[EC2.36] EC2 customer gateways should be tagged](ec2-controls.md#ec2-36 "ec2-controls.md#ec2-36")
+- [[EC2.37] EC2 Elastic IP addresses should be tagged](ec2-controls.md#ec2-37 "ec2-controls.md#ec2-37")
 - [[EC2.38] EC2 instances should be tagged](ec2-controls.md#ec2-38 "ec2-controls.md#ec2-38")
-- [[EC2.39] EC2 internet gateways should be
-  tagged](ec2-controls.md#ec2-39 "ec2-controls.md#ec2-39")
-- [[EC2.40] EC2 NAT gateways should be
-  tagged](ec2-controls.md#ec2-40 "ec2-controls.md#ec2-40")
-- [[EC2.41] EC2 network ACLs should be
-  tagged](ec2-controls.md#ec2-41 "ec2-controls.md#ec2-41")
-- [[EC2.42] EC2 route tables should be
-  tagged](ec2-controls.md#ec2-42 "ec2-controls.md#ec2-42")
-- [[EC2.43] EC2 security groups should be
-  tagged](ec2-controls.md#ec2-43 "ec2-controls.md#ec2-43")
+- [[EC2.39] EC2 internet gateways should be tagged](ec2-controls.md#ec2-39 "ec2-controls.md#ec2-39")
+- [[EC2.40] EC2 NAT gateways should be tagged](ec2-controls.md#ec2-40 "ec2-controls.md#ec2-40")
+- [[EC2.41] EC2 network ACLs should be tagged](ec2-controls.md#ec2-41 "ec2-controls.md#ec2-41")
+- [[EC2.42] EC2 route tables should be tagged](ec2-controls.md#ec2-42 "ec2-controls.md#ec2-42")
+- [[EC2.43] EC2 security groups should be tagged](ec2-controls.md#ec2-43 "ec2-controls.md#ec2-43")
 - [[EC2.44] EC2 subnets should be tagged](ec2-controls.md#ec2-44 "ec2-controls.md#ec2-44")
 - [[EC2.45] EC2 volumes should be tagged](ec2-controls.md#ec2-45 "ec2-controls.md#ec2-45")
 - [[EC2.46] Amazon VPCs should be tagged](ec2-controls.md#ec2-46 "ec2-controls.md#ec2-46")
-- [[EC2.47] Amazon VPC endpoint services should be
-  tagged](ec2-controls.md#ec2-47 "ec2-controls.md#ec2-47")
+- [[EC2.47] Amazon VPC endpoint services should be tagged](ec2-controls.md#ec2-47 "ec2-controls.md#ec2-47")
 - [[EC2.48] Amazon VPC flow logs should be tagged](ec2-controls.md#ec2-48 "ec2-controls.md#ec2-48")
-- [[EC2.49] Amazon VPC peering connections should be
-  tagged](ec2-controls.md#ec2-49 "ec2-controls.md#ec2-49")
-- [[EC2.50] EC2 VPN gateways should be
-  tagged](ec2-controls.md#ec2-50 "ec2-controls.md#ec2-50")
-- [[EC2.52] EC2 transit gateways should be
-  tagged](ec2-controls.md#ec2-52 "ec2-controls.md#ec2-52")
+- [[EC2.49] Amazon VPC peering connections should be tagged](ec2-controls.md#ec2-49 "ec2-controls.md#ec2-49")
+- [[EC2.50] EC2 VPN gateways should be tagged](ec2-controls.md#ec2-50 "ec2-controls.md#ec2-50")
+- [[EC2.52] EC2 transit gateways should be tagged](ec2-controls.md#ec2-52 "ec2-controls.md#ec2-52")
 - [[EC2.174] EC2 DHCP option sets should be tagged](ec2-controls.md#ec2-174 "ec2-controls.md#ec2-174")
 - [[EC2.175] EC2 launch templates should be tagged](ec2-controls.md#ec2-175 "ec2-controls.md#ec2-175")
 - [[EC2.176] EC2 prefix lists should be tagged](ec2-controls.md#ec2-176 "ec2-controls.md#ec2-176")
-- [[EC2.177] EC2 traffic mirror sessions should be
-  tagged](ec2-controls.md#ec2-177 "ec2-controls.md#ec2-177")
-- [[EC2.178] EC2 traffic mirror filters should be
-  tagged](ec2-controls.md#ec2-178 "ec2-controls.md#ec2-178")
-- [[EC2.179] EC2 traffic mirror targets should be
-  tagged](ec2-controls.md#ec2-179 "ec2-controls.md#ec2-179")
+- [[EC2.177] EC2 traffic mirror sessions should be tagged](ec2-controls.md#ec2-177 "ec2-controls.md#ec2-177")
+- [[EC2.178] EC2 traffic mirror filters should be tagged](ec2-controls.md#ec2-178 "ec2-controls.md#ec2-178")
+- [[EC2.179] EC2 traffic mirror targets should be tagged](ec2-controls.md#ec2-179 "ec2-controls.md#ec2-179")
 - [[ECR.4] ECR public repositories should be tagged](ecr-controls.md#ecr-4 "ecr-controls.md#ecr-4")
 - [[ECS.13] ECS services should be tagged](ecs-controls.md#ecs-13 "ecs-controls.md#ecs-13")
 - [[ECS.14] ECS clusters should be tagged](ecs-controls.md#ecs-14 "ecs-controls.md#ecs-14")
@@ -197,11 +176,9 @@ control.
 - [[Redshift.12] Redshift event notification subscriptions should be tagged](redshift-controls.md#redshift-12 "redshift-controls.md#redshift-12")
 - [[Redshift.13] Redshift cluster snapshots should be tagged](redshift-controls.md#redshift-13 "redshift-controls.md#redshift-13")
 - [[Redshift.14] Redshift cluster subnet groups should be tagged](redshift-controls.md#redshift-14 "redshift-controls.md#redshift-14")
-- [[Redshift.17] Redshift cluster parameter groups should be
-  tagged](redshift-controls.md#redshift-17 "redshift-controls.md#redshift-17")
+- [[Redshift.17] Redshift cluster parameter groups should be tagged](redshift-controls.md#redshift-17 "redshift-controls.md#redshift-17")
 - [[Route53.1] Route 53 health checks should be tagged](route53-controls.md#route53-1 "route53-controls.md#route53-1")
-- [[SageMaker.6] SageMaker app image configurations should be
-  tagged](sagemaker-controls.md#sagemaker-6 "sagemaker-controls.md#sagemaker-6")
+- [[SageMaker.6] SageMaker app image configurations should be tagged](sagemaker-controls.md#sagemaker-6 "sagemaker-controls.md#sagemaker-6")
 - [[SageMaker.7] SageMaker images should be tagged](sagemaker-controls.md#sagemaker-7 "sagemaker-controls.md#sagemaker-7")
 - [[SecretsManager.5] Secrets Manager secrets should be tagged](secretsmanager-controls.md#secretsmanager-5 "secretsmanager-controls.md#secretsmanager-5")
 - [[SES.1] SES contact lists should be tagged](ses-controls.md#ses-1 "ses-controls.md#ses-1")

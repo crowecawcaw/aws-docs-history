@@ -1,6 +1,4 @@
-#
-
-Remediating exposures for Amazon RDS instances and clusters
+# Remediating exposures for Amazon RDS instances and clusters
 
 AWS Security Hub can generate exposure findings for Amazon RDS instances and clusters.
 
@@ -62,9 +60,7 @@ Public snapshots can be accessed by any AWS account, potentially exposing sensit
 Any AWS account has permission to copy these public snapshots and create DB instances from them, which could lead to data breaches or unauthorized data access.
 Following security best practices, we recommend restricting access to your Amazon RDS snapshots to only trusted AWS accounts and organizations.
 
-######
-
-1.  Configure an Amazon RDS snapshot for private access
+###### 1. Configure an Amazon RDS snapshot for private access
 
 In the exposure finding, open the resource through the hyperlink.
 For information about how to modify snapshot sharing settings, see [Sharing a snapshot](../../../AmazonRDS/latest/AuroraUserGuide/aurora-share-snapshot.md#aurora-share-snapshot.Sharing "../../../AmazonRDS/latest/AuroraUserGuide/aurora-share-snapshot.md#aurora-share-snapshot.Sharing") in the _Amazon Aurora User Guide._
@@ -91,9 +87,7 @@ Without encryption, data in snapshots could potentially be exposed through unaut
 This creates a risk of data breaches and compliance violations.
 Following security best practices, we recommend encrypting all database resources and their backups to maintain data confidentiality.
 
-######
-
-1.  Create an encrypted copy of the snapshot
+###### 1. Create an encrypted copy of the snapshot
 
 In the exposure finding, open the resource with the hyperlink.
 This will open the affected snapshot.

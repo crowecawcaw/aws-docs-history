@@ -2,8 +2,7 @@
 
 These Security Hub CSPM controls evaluate the AWS CodeBuild service and resources.
 
-These controls may not be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+These controls may not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
 ## [CodeBuild.1] CodeBuild Bitbucket source repository URLs should not contain sensitive credentials
 
@@ -43,9 +42,7 @@ unauthorized access.
 
 You can update your CodeBuild project to use OAuth.
 
-###### To remove basic authentication / (GitHub) Personal Access Token from CodeBuild project
-
-source
+###### To remove basic authentication / (GitHub) Personal Access Token from CodeBuild project source
 
 1. Open the CodeBuild console at
    [https://console.aws.amazon.com/codebuild/](https://console.aws.amazon.com/codebuild/ "https://console.aws.amazon.com/codebuild/").

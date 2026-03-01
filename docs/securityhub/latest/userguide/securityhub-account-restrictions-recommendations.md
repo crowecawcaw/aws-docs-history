@@ -1,13 +1,9 @@
-# Recommendations for
-
-managing multiple accounts in Security Hub CSPM
+# Recommendations for managing multiple accounts in Security Hub CSPM
 
 The following section summarizes some restrictions and recommendations to keep in mind
 when managing member accounts in AWS Security Hub CSPM.
 
-## Maximum number of member
-
-accounts
+## Maximum number of member accounts
 
 If you use the integration with AWS Organizations, Security Hub CSPM supports up to 10,000 member accounts per delegated administrator account in each
 AWS Region. If you enable and manage Security Hub CSPM manually, Security Hub CSPM supports up to 1,000 member account invitations per administrator account in each
@@ -59,9 +55,7 @@ in that Region.
 
 We recommend using AWS Organizations instead of Security Hub CSPM invitations to manage your member accounts.
 
-## Coordinating administrator accounts
-
-across services
+## Coordinating administrator accounts across services
 
 Security Hub CSPM aggregates findings from various AWS services, such as Amazon GuardDuty, Amazon Inspector, and
 Amazon Macie. Security Hub CSPM also allows users to pivot from a GuardDuty finding to start an

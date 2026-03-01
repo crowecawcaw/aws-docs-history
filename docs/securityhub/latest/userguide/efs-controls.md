@@ -1,8 +1,7 @@
 # Security Hub CSPM controls for Amazon EFS
 
 These Security Hub CSPM controls evaluate the Amazon Elastic File System (Amazon EFS) service and resources. The controls
-might not be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+might not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
 ## [EFS.1] Elastic File System should be configured to encrypt file data at-rest using AWS KMS
 
@@ -176,9 +175,7 @@ _AWS General Reference_.
 
 To add tags to an EFS access point, see [Tagging Amazon EFS resources](../../../efs/latest/ug/manage-fs-tags.md "../../../efs/latest/ug/manage-fs-tags.md") in the _Amazon Elastic File System User Guide_.
 
-## [EFS.6] EFS mount targets should not be associated with subnets that assign
-
-public IP addresses on launch
+## [EFS.6] EFS mount targets should not be associated with subnets that assign public IP addresses on launch
 
 **Category:** Protect > Network security > Resources not
 publicly accessible

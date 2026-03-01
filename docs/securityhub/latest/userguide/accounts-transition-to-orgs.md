@@ -6,8 +6,7 @@ configure each member account separately in each AWS Region.
 By integrating Security Hub CSPM and AWS Organizations, you can eliminate the need to send invitations and gain more
 control over how Security Hub CSPM is configured and customized in your organization. For this reason, we recommend using AWS Organizations
 instead of Security Hub CSPM invitations to manage your member accounts. For information, see
-[Managing Security Hub CSPM for multiple accounts with
-AWS Organizations](securityhub-accounts-orgs.md "securityhub-accounts-orgs.md").
+[Managing Security Hub CSPM for multiple accounts with AWS Organizations](securityhub-accounts-orgs.md "securityhub-accounts-orgs.md").
 
 It's possible to use a combined approach in which you use the AWS Organizations integration, but also manually invite accounts
 outside of your organization. However, we recommend exclusively using the Organizations integration. [Central configuration](central-configuration-intro.md "central-configuration-intro.md"), a feature which helps
@@ -40,6 +39,5 @@ access certain Security Hub CSPM settings, data, and resources for those account
 When you transition to account management using Organizations, invitation-based accounts don't automatically become Security Hub CSPM members.
 Only the accounts that you add to your new organization can become Security Hub CSPM members.
 
-After activating the integration, you can manage accounts with Organizations. For information, see [Managing Security Hub CSPM for multiple accounts with
-AWS Organizations](securityhub-accounts-orgs.md "securityhub-accounts-orgs.md").
+After activating the integration, you can manage accounts with Organizations. For information, see [Managing Security Hub CSPM for multiple accounts with AWS Organizations](securityhub-accounts-orgs.md "securityhub-accounts-orgs.md").
 Account management varies based on your organization's configuration type.

@@ -26,8 +26,7 @@ use case, we recommend switching to roles or federation instead of using IAM use
 
 ###### Contents
 
-- [Misconfiguration traits for
-  IAM users](exposure-iam-user.md#iam-user-misconfiguration "exposure-iam-user.md#iam-user-misconfiguration")
+- [Misconfiguration traits for IAM users](exposure-iam-user.md#iam-user-misconfiguration "exposure-iam-user.md#iam-user-misconfiguration")
   - [The IAM user has a policy with administrative access](exposure-iam-user.md#administrative-access-policy "exposure-iam-user.md#administrative-access-policy")
   - [The IAM user does not have MFA enabled](exposure-iam-user.md#user-mfa-disabled "exposure-iam-user.md#user-mfa-disabled")
   - [The IAM user has a policy with administrative access to an AWS service](exposure-iam-user.md#service-admin-policy "exposure-iam-user.md#service-admin-policy")
@@ -36,9 +35,7 @@ use case, we recommend switching to roles or federation instead of using IAM use
   - [The IAM user has unrotated access keys](exposure-iam-user.md#unrotated-access-keys "exposure-iam-user.md#unrotated-access-keys")
   - [The IAM user has a policy that allows unrestricted access to KMS key decryption](exposure-iam-user.md#unrestricted-kms-decryption-allowed "exposure-iam-user.md#unrestricted-kms-decryption-allowed")
 
-## Misconfiguration traits for
-
-IAM users
+## Misconfiguration traits for IAM users
 
 Here are misconfiguration traits for IAM users and suggested remediation steps.
 

@@ -1,6 +1,4 @@
-# CodeRepository object
-
-in ASFF
+# CodeRepository object in ASFF
 
 The `CodeRepository` object provides information about an external code
 repository that you connected to AWS resources and configured Amazon Inspector to scan for

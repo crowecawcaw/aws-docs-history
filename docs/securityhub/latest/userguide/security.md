@@ -32,5 +32,4 @@ _in_ the cloud:
 - [Compliance validation for AWS Security Hub CSPM](securityhub-compliance.md "securityhub-compliance.md")
 - [Resilience in AWS Security Hub](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in AWS Security Hub CSPM](infrastructure-security.md "infrastructure-security.md")
-- [AWS Security Hub CSPM and interface VPC endpoints
-  (AWS PrivateLink)](security-vpc-endpoints.md "security-vpc-endpoints.md")
+- [AWS Security Hub CSPM and interface VPC endpoints (AWS PrivateLink)](security-vpc-endpoints.md "security-vpc-endpoints.md")

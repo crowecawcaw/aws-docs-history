@@ -74,9 +74,7 @@ $Filter = @{
 New-SHUBInsight -Filter $Filter -Name TestInsight -GroupByAttribute ResourceId
 ```
 
-## Creating a custom insight from
-
-a managed insight (console only)
+## Creating a custom insight from a managed insight (console only)
 
 You can't save changes to or delete a managed insight. However, you can use a managed insight as
 the basis for a custom insight. This is an option on the Security Hub CSPM console only.

@@ -1,6 +1,4 @@
-# Quotas for
-
-Security Hub
+# Quotas for Security Hub
 
 Your AWS account has certain default quotas, formerly referred to as _limits_, for each AWS service. These quotas are the maximum
 number of service resources or operations for your account. This topic links to the quotas

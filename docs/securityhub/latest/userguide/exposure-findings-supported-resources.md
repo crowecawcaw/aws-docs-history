@@ -1,6 +1,4 @@
-# Supported resource types for
-
-exposure findings in Security Hub
+# Supported resource types for exposure findings in Security Hub
 
 AWS Security Hub generates exposure findings for the following types of AWS resources:
 

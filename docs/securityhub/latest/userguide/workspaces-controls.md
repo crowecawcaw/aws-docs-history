@@ -2,8 +2,7 @@
 
 These AWS Security Hub CSPM controls evaluate the Amazon WorkSpaces service and resources.
 
-These controls may not be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+These controls may not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
 ## [WorkSpaces.1] WorkSpaces user volumes should be encrypted at rest
 

@@ -1,8 +1,7 @@
 # Security Hub CSPM controls for AWS Glue
 
 These AWS Security Hub CSPM controls evaluate the AWS Glue service and resources. The controls might
-not be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
 ## [Glue.1] AWS Glue jobs should be tagged
 

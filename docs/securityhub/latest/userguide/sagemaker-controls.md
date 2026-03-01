@@ -1,12 +1,9 @@
 # Security Hub CSPM controls for SageMaker AI
 
 These AWS Security Hub CSPM controls evaluate the Amazon SageMaker AI service and resources. The controls might
-not be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
-## [SageMaker.1] Amazon SageMaker notebook instances should not have
-
-direct internet access
+## [SageMaker.1] Amazon SageMaker notebook instances should not have direct internet access
 
 **Related requirements:** NIST.800-53.r5 AC-21, NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 AC-6, NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(20), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-7(9), PCI DSS v3.2.1/1.2.1, PCI DSS v3.2.1/1.3.1, PCI DSS v3.2.1/1.3.2, PCI DSS v3.2.1/1.3.4, PCI DSS v3.2.1/1.3.6, PCI DSS v4.0.1/1.4.4
 
@@ -46,9 +43,7 @@ blocked internet access. To delete a notebook instance that permits direct inter
 To recreate a notebook instance that denies internet access, see [Create a notebook instance](../../../sagemaker/latest/dg/howitworks-create-ws.md "../../../sagemaker/latest/dg/howitworks-create-ws.md"). For **Network, Direct internet access**,
 choose **Disable—Access the internet through a VPC**.
 
-## [SageMaker.2] SageMaker notebook instances should be launched in a
-
-custom VPC
+## [SageMaker.2] SageMaker notebook instances should be launched in a custom VPC
 
 **Related requirements:** NIST.800-53.r5 AC-21, NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 AC-6, NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(20), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-7(9)
 
@@ -79,9 +74,7 @@ SageMaker AI Studio and notebook instances.
 You can't change the VPC setting after creating a notebook instance. Instead, you can stop, delete, and recreate the instance.
 For instructions, see [Use notebook instances to build models: Clean up](../../../sagemaker/latest/dg/ex1-cleanup.md "../../../sagemaker/latest/dg/ex1-cleanup.md") in the _Amazon SageMaker AI Developer Guide_.
 
-## [SageMaker.3] Users should not have root access to SageMaker notebook
-
-instances
+## [SageMaker.3] Users should not have root access to SageMaker notebook instances
 
 **Related requirements:** NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-6, NIST.800-53.r5 AC-6(10), NIST.800-53.r5 AC-6(2)
 
@@ -109,9 +102,7 @@ to restrict root access to instance resources to avoid unintentionally over prov
 
 To restrict root access to SageMaker AI notebook instances, see [Control root access to a SageMaker AI notebook instance](../../../sagemaker/latest/dg/nbi-root-access.md "../../../sagemaker/latest/dg/nbi-root-access.md") in the _Amazon SageMaker AI Developer Guide_.
 
-## [SageMaker.4] SageMaker endpoint production variants should have an
-
-initial instance count greater than 1
+## [SageMaker.4] SageMaker endpoint production variants should have an initial instance count greater than 1
 
 **Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 SC-5, NIST.800-53.r5 SC-36,
 NIST.800-53.r5 SA-13
@@ -188,9 +179,7 @@ _Amazon SageMaker AI Developer Guide_. When you create a model, you can enable
 network isolation by setting the value for the `EnableNetworkIsolation`
 parameter to `True`.
 
-## [SageMaker.6] SageMaker app image configurations should be
-
-tagged
+## [SageMaker.6] SageMaker app image configurations should be tagged
 
 **Category:** Identify > Inventory > Tagging
 
@@ -331,9 +320,7 @@ migrate to them, see [Amazon Linux 2 notebook
 instances](../../../sagemaker/latest/dg/nbi-al2.md "../../../sagemaker/latest/dg/nbi-al2.md") in the _Amazon SageMaker AI Developer
 Guide_.
 
-## [SageMaker.9] SageMaker data quality job definitions should have
-
-inter-container traffic encryption enabled
+## [SageMaker.9] SageMaker data quality job definitions should have inter-container traffic encryption enabled
 
 **Category:** Protect > Data Protection > Encryption of data-in-transit
 
@@ -365,9 +352,7 @@ When you create a data quality job definition, you can enable inter-container tr
 setting the value for the `EnableInterContainerTrafficEncryption` parameter to
 `True`.
 
-## [SageMaker.10] SageMaker model explainability job definitions should have
-
-inter-container traffic encryption enabled
+## [SageMaker.10] SageMaker model explainability job definitions should have inter-container traffic encryption enabled
 
 **Category:** Protect > Data Protection > Encryption of data-in-transit
 
@@ -398,9 +383,7 @@ with inter-container traffic encryption enabled, use [API](../../../sagemaker/la
 [CLI](../../../cli/latest/reference/sagemaker/create-model-explainability-job-definition.md "../../../cli/latest/reference/sagemaker/create-model-explainability-job-definition.md") or
 [CloudFormation](../../../AWSCloudFormation/latest/TemplateReference/aws-resource-sagemaker-modelexplainabilityjobdefinition.md "../../../AWSCloudFormation/latest/TemplateReference/aws-resource-sagemaker-modelexplainabilityjobdefinition.md") and set [`EnableInterContainerTrafficEncryption`](../../../sagemaker/latest/APIReference/API_MonitoringNetworkConfig.md#API_MonitoringNetworkConfig_Contents "../../../sagemaker/latest/APIReference/API_MonitoringNetworkConfig.md#API_MonitoringNetworkConfig_Contents") to `True`.
 
-## [SageMaker.11] SageMaker data quality job definitions should have
-
-network isolation enabled
+## [SageMaker.11] SageMaker data quality job definitions should have network isolation enabled
 
 **Category:** Protect > Secure network configuration
 
@@ -431,9 +414,7 @@ Developer Guide_.
 When you create a data quality job definition, you can enable network isolation by setting the value for
 the `EnableNetworkIsolation` parameter to `True`.
 
-## [SageMaker.12] SageMaker model bias job definitions should have
-
-network isolation enabled
+## [SageMaker.12] SageMaker model bias job definitions should have network isolation enabled
 
 **Category:**
 Protect > Secure network configuration > Resources policy configuration
@@ -465,9 +446,7 @@ modified after job definition creation. To create a new model bias job definitio
 [CreateModelBiasJobDefinition](../../../sagemaker/latest/APIReference/API_CreateModelBiasJobDefinition.md "../../../sagemaker/latest/APIReference/API_CreateModelBiasJobDefinition.md") in the _Amazon SageMaker AI
 Developer Guide_.
 
-## [SageMaker.13] SageMaker model quality job definitions should have
-
-inter-container traffic encryption enabled
+## [SageMaker.13] SageMaker model quality job definitions should have inter-container traffic encryption enabled
 
 **Category:** Protect > Data Protection > Encryption of data-in-transit
 
@@ -498,9 +477,7 @@ you must re-create the job definition with the appropriate in-transit encryption
 a model quality job definition, see [CreateModelQualityJobDefinition](../../../sagemaker/latest/APIReference/API_CreateModelQualityJobDefinition.md "../../../sagemaker/latest/APIReference/API_CreateModelQualityJobDefinition.md") in the _Amazon SageMaker AI
 Developer Guide_.
 
-## [SageMaker.14] SageMaker monitoring schedules should have network
-
-isolation enabled
+## [SageMaker.14] SageMaker monitoring schedules should have network isolation enabled
 
 **Category:** Protect > Secure network configuration
 
@@ -529,9 +506,7 @@ or updating a monitoring schedule, see [CreateMonitoringSchedule](../../../sagem
 or [UpdateMonitoringSchedule](../../../sagemaker/latest/APIReference/API_UpdateMonitoringSchedule.md "../../../sagemaker/latest/APIReference/API_UpdateMonitoringSchedule.md") in the _Amazon SageMaker AI
 Developer Guide_.
 
-## [SageMaker.15] SageMaker model bias job definitions should have
-
-inter-container traffic encryption enabled
+## [SageMaker.15] SageMaker model bias job definitions should have inter-container traffic encryption enabled
 
 **Category:** Protect > Data Protection > Encryption of data-in-transit
 

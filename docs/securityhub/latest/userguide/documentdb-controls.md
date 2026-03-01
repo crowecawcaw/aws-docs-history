@@ -1,12 +1,9 @@
 # Security Hub CSPM controls for Amazon DocumentDB
 
 These AWS Security Hub CSPM controls evaluate the Amazon DocumentDB (with MongoDB compatibility) service and resources. The controls might
-not be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
-## [DocumentDB.1] Amazon DocumentDB clusters should be encrypted at
-
-rest
+## [DocumentDB.1] Amazon DocumentDB clusters should be encrypted at rest
 
 **Related requirements:** NIST.800-53.r5 CA-9(1),
 NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5
@@ -42,9 +39,7 @@ You can enable encryption at rest when you create an Amazon DocumentDB cluster. 
 change encryption settings after creating a cluster. For more information, see
 [Enabling encryption at rest for an Amazon DocumentDB cluster](../../../documentdb/latest/developerguide/encryption-at-rest.md#encryption-at-rest-enabling "../../../documentdb/latest/developerguide/encryption-at-rest.md#encryption-at-rest-enabling") in the _Amazon DocumentDB Developer Guide_.
 
-## [DocumentDB.2] Amazon DocumentDB clusters should have an adequate
-
-backup retention period
+## [DocumentDB.2] Amazon DocumentDB clusters should have an adequate backup retention period
 
 **Related requirements:** NIST.800-53.r5 SI-12,
 PCI DSS v4.0.1/3.2.1
@@ -85,9 +80,7 @@ To change the backup retention period for your Amazon DocumentDB clusters, see [
 Amazon DocumentDB cluster](../../../documentdb/latest/developerguide/db-cluster-modify.md "../../../documentdb/latest/developerguide/db-cluster-modify.md") in the _Amazon DocumentDB Developer Guide_. For **Backup**, choose the backup
 retention period.
 
-## [DocumentDB.3] Amazon DocumentDB manual cluster snapshots should
-
-not be public
+## [DocumentDB.3] Amazon DocumentDB manual cluster snapshots should not be public
 
 **Related requirements:** NIST.800-53.r5 AC-21,
 NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-4, NIST.800-53.r5
@@ -131,9 +124,7 @@ operation `modify-db-snapshot-attribute`. Set `attribute-name`
 as `restore` and `values-to-remove` as
 `all`.
 
-## [DocumentDB.4] Amazon DocumentDB clusters should publish audit
-
-logs to CloudWatch Logs
+## [DocumentDB.4] Amazon DocumentDB clusters should publish audit logs to CloudWatch Logs
 
 **Related requirements:** NIST.800-53.r5 AC-2(4),
 NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AC-6(9), NIST.800-53.r5 AU-10, NIST.800-53.r5
@@ -167,9 +158,7 @@ auditing is disabled in Amazon DocumentDB and requires that you take action to e
 
 To publish Amazon DocumentDB audit logs to CloudWatch Logs, see [Enabling auditing](../../../documentdb/latest/developerguide/event-auditing.md#event-auditing-enabling-auditing "../../../documentdb/latest/developerguide/event-auditing.md#event-auditing-enabling-auditing") in the _Amazon DocumentDB Developer Guide_.
 
-## [DocumentDB.5] Amazon DocumentDB clusters should have deletion
-
-protection enabled
+## [DocumentDB.5] Amazon DocumentDB clusters should have deletion protection enabled
 
 **Related requirements:** NIST.800-53.r5 CA-9(1),
 NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2), NIST.800-53.r5 CM-3, NIST.800-53.r5
@@ -206,9 +195,7 @@ Amazon DocumentDB cluster](../../../documentdb/latest/developerguide/db-cluster-
 section, choose **Enable** for **Deletion
 protection**.
 
-## [DocumentDB.6] Amazon DocumentDB clusters should be encrypted in
-
-transit
+## [DocumentDB.6] Amazon DocumentDB clusters should be encrypted in transit
 
 **Category:** Protect > Data Protection > Encryption of data-in-transit
 

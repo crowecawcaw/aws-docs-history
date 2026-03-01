@@ -5,8 +5,7 @@ An automation rule can be used to automatically update findings in AWS Security 
 Choose your preferred method, and follow the steps to view your existing automation rules and
 the details of each rule.
 
-To view a history of how automation rules have changed your findings, see [Reviewing finding details and history in
-Security Hub CSPM](securityhub-findings-viewing.md "securityhub-findings-viewing.md").
+To view a history of how automation rules have changed your findings, see [Reviewing finding details and history in Security Hub CSPM](securityhub-findings-viewing.md "securityhub-findings-viewing.md").
 
 Console
 

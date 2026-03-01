@@ -1,12 +1,9 @@
 # Security Hub CSPM controls for AWS Lambda
 
 These AWS Security Hub CSPM controls evaluate the AWS Lambda service and resources. The controls might
-not be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
-## [Lambda.1] Lambda function policies should prohibit public
-
-access
+## [Lambda.1] Lambda function policies should prohibit public access
 
 **Related requirements:** NIST.800-53.r5 AC-21,
 NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-4, NIST.800-53.r5
@@ -74,9 +71,7 @@ of the Lambda function, and `<statement-id>`
 with the statement ID (`Sid`) of the statement that you want to
 remove.
 
-## [Lambda.2] Lambda functions should use supported
-
-runtimes
+## [Lambda.2] Lambda functions should use supported runtimes
 
 **Related requirements:** NIST.800-53.r5 CA-9(1),
 NIST.800-53.r5 CM-2, NIST.800-53.r5 SI-2, NIST.800-53.r5 SI-2(2), NIST.800-53.r5
@@ -165,9 +160,7 @@ _AWS Lambda Developer Guide_. We recommend choosing at least two private
 subnets for high availability and at least one security group that meets the
 connectivity requirements of the function.
 
-## [Lambda.5] VPC Lambda functions should operate in multiple
-
-Availability Zones
+## [Lambda.5] VPC Lambda functions should operate in multiple Availability Zones
 
 **Related requirements:** NIST.800-53.r5 CP-10,
 NIST.800-53.r5 CP-6(2), NIST.800-53.r5 SC-36, NIST.800-53.r5 SC-5(2), NIST.800-53.r5
@@ -265,9 +258,7 @@ AWS resources](../../../tag-editor/latest/userguide/tagging.md#tag-best-practice
 To add tags to a Lambda function, see [Using tags
 on Lambda functions](../../../lambda/latest/dg/configuration-tags.md "../../../lambda/latest/dg/configuration-tags.md") in the _AWS Lambda Developer Guide_.
 
-## [Lambda.7] Lambda functions should have AWS X-Ray active
-
-tracing enabled
+## [Lambda.7] Lambda functions should have AWS X-Ray active tracing enabled
 
 **Related requirements:** NIST.800-53.r5 CA-7
 

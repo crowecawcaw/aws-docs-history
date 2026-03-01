@@ -1,6 +1,4 @@
-# Disabling the flow of findings from a
-
-Security Hub CSPM integration
+# Disabling the flow of findings from a Security Hub CSPM integration
 
 Choose your preferred method, and follow the steps to disable the flow of findings
 from an AWS Security Hub CSPM integration.

@@ -15,8 +15,7 @@ The table provides the following information for each control:
   reference security control IDs only if consolidated control findings is turned on in
   your account. If consolidated control findings is turned off in your account, some
   control IDs vary by standard in your control findings. For a mapping of
-  standard-specific control IDs to security control IDs, see [How consolidation impacts
-  control IDs and titles](asff-changes-consolidation.md#securityhub-findings-format-changes-ids-titles "asff-changes-consolidation.md#securityhub-findings-format-changes-ids-titles").
+  standard-specific control IDs to security control IDs, see [How consolidation impacts control IDs and titles](asff-changes-consolidation.md#securityhub-findings-format-changes-ids-titles "asff-changes-consolidation.md#securityhub-findings-format-changes-ids-titles").
 
 If you want to set up [automations](automations.md "automations.md") for security
 controls, we recommend filtering based on control ID rather than title or
@@ -32,8 +31,7 @@ Control IDs may skip numbers. These are placeholders for future controls.
   consolidated control findings is turned on in your account. If consolidated control
   findings is turned off in your account, some control titles vary by standard in your
   control findings. For a mapping of standard-specific control IDs to security control
-  IDs, see [How consolidation impacts
-  control IDs and titles](asff-changes-consolidation.md#securityhub-findings-format-changes-ids-titles "asff-changes-consolidation.md#securityhub-findings-format-changes-ids-titles").
+  IDs, see [How consolidation impacts control IDs and titles](asff-changes-consolidation.md#securityhub-findings-format-changes-ids-titles "asff-changes-consolidation.md#securityhub-findings-format-changes-ids-titles").
 - **Applicable standards** – Indicates which
   standards a control applies to. Choose a control to review specific requirements
   from third-party compliance frameworks.

@@ -35,9 +35,7 @@ requirements that require manual checks.
 - [Configuring resource recording for the standard](#standards-reference-nist-800-171-recording "#standards-reference-nist-800-171-recording")
 - [Determining which controls apply to the standard](#standards-reference-nist-800-171-controls "#standards-reference-nist-800-171-controls")
 
-## Configuring resource
-
-recording for controls that apply to the standard
+## Configuring resource recording for controls that apply to the standard
 
 To optimize coverage and the accuracy of findings, it's important to enable and
 configure resource recording in AWS Config before you enable the NIST SP 800-171 Revision 2 standard
@@ -80,20 +78,16 @@ field doesn't specify a particular NIST requirement, the control doesn't support
 requirement.
 
 - [[ACM.1] Imported and ACM-issued certificates should be renewed after a specified time period](acm-controls.md#acm-1 "acm-controls.md#acm-1")
-- [[APIGateway.2] API Gateway REST API stages should be configured to use
-  SSL certificates for backend authentication](apigateway-controls.md#apigateway-2 "apigateway-controls.md#apigateway-2")
-- [[CloudFront.7] CloudFront distributions should use custom
-  SSL/TLS certificates](cloudfront-controls.md#cloudfront-7 "cloudfront-controls.md#cloudfront-7")
-- [[CloudFront.10] CloudFront distributions should not use
-  deprecated SSL protocols between edge locations and custom origins](cloudfront-controls.md#cloudfront-10 "cloudfront-controls.md#cloudfront-10")
+- [[APIGateway.2] API Gateway REST API stages should be configured to use SSL certificates for backend authentication](apigateway-controls.md#apigateway-2 "apigateway-controls.md#apigateway-2")
+- [[CloudFront.7] CloudFront distributions should use custom SSL/TLS certificates](cloudfront-controls.md#cloudfront-7 "cloudfront-controls.md#cloudfront-7")
+- [[CloudFront.10] CloudFront distributions should not use deprecated SSL protocols between edge locations and custom origins](cloudfront-controls.md#cloudfront-10 "cloudfront-controls.md#cloudfront-10")
 - [[CloudTrail.2] CloudTrail should have encryption at-rest enabled](cloudtrail-controls.md#cloudtrail-2 "cloudtrail-controls.md#cloudtrail-2")
 - [[CloudTrail.3] At least one CloudTrail trail should be enabled](cloudtrail-controls.md#cloudtrail-3 "cloudtrail-controls.md#cloudtrail-3")
 - [[CloudTrail.4] CloudTrail log file validation should be enabled](cloudtrail-controls.md#cloudtrail-4 "cloudtrail-controls.md#cloudtrail-4")
 - [[CloudWatch.1] A log metric filter and alarm should exist for usage of the "root" user](cloudwatch-controls.md#cloudwatch-1 "cloudwatch-controls.md#cloudwatch-1")
 - [[CloudWatch.2] Ensure a log metric filter and alarm exist for unauthorized API calls](cloudwatch-controls.md#cloudwatch-2 "cloudwatch-controls.md#cloudwatch-2")
 - [[CloudWatch.4] Ensure a log metric filter and alarm exist for IAM policy changes](cloudwatch-controls.md#cloudwatch-4 "cloudwatch-controls.md#cloudwatch-4")
-- [[CloudWatch.5] Ensure a log metric filter and alarm exist for CloudTrail
-  configuration changes](cloudwatch-controls.md#cloudwatch-5 "cloudwatch-controls.md#cloudwatch-5")
+- [[CloudWatch.5] Ensure a log metric filter and alarm exist for CloudTrail configuration changes](cloudwatch-controls.md#cloudwatch-5 "cloudwatch-controls.md#cloudwatch-5")
 - [[CloudWatch.6] Ensure a log metric filter and alarm exist for AWS Management Console authentication failures](cloudwatch-controls.md#cloudwatch-6 "cloudwatch-controls.md#cloudwatch-6")
 - [[CloudWatch.7] Ensure a log metric filter and alarm exist for disabling or scheduled deletion of customer managed keys](cloudwatch-controls.md#cloudwatch-7 "cloudwatch-controls.md#cloudwatch-7")
 - [[CloudWatch.8] Ensure a log metric filter and alarm exist for S3 bucket policy changes](cloudwatch-controls.md#cloudwatch-8 "cloudwatch-controls.md#cloudwatch-8")
@@ -104,45 +98,31 @@ requirement.
 - [[CloudWatch.13] Ensure a log metric filter and alarm exist for route table changes](cloudwatch-controls.md#cloudwatch-13 "cloudwatch-controls.md#cloudwatch-13")
 - [[CloudWatch.14] Ensure a log metric filter and alarm exist for VPC changes](cloudwatch-controls.md#cloudwatch-14 "cloudwatch-controls.md#cloudwatch-14")
 - [[CloudWatch.15] CloudWatch alarms should have specified actions configured](cloudwatch-controls.md#cloudwatch-15 "cloudwatch-controls.md#cloudwatch-15")
-- [[EC2.6] VPC flow logging should be enabled in all
-  VPCs](ec2-controls.md#ec2-6 "ec2-controls.md#ec2-6")
-- [[EC2.10] Amazon EC2 should be configured to use VPC endpoints
-  that are created for the Amazon EC2 service](ec2-controls.md#ec2-10 "ec2-controls.md#ec2-10")
-- [[EC2.13] Security groups should not allow ingress from
-  0.0.0.0/0 or ::/0 to port 22](ec2-controls.md#ec2-13 "ec2-controls.md#ec2-13")
-- [[EC2.16] Unused Network Access Control Lists should be
-  removed](ec2-controls.md#ec2-16 "ec2-controls.md#ec2-16")
-- [[EC2.18] Security groups should only allow unrestricted
-  incoming traffic for authorized ports](ec2-controls.md#ec2-18 "ec2-controls.md#ec2-18")
-- [[EC2.19] Security groups should not allow unrestricted
-  access to ports with high risk](ec2-controls.md#ec2-19 "ec2-controls.md#ec2-19")
-- [[EC2.20] Both VPN tunnels for an AWS Site-to-Site VPN
-  connection should be up](ec2-controls.md#ec2-20 "ec2-controls.md#ec2-20")
-- [[EC2.21] Network ACLs should not allow ingress from
-  0.0.0.0/0 to port 22 or port 3389](ec2-controls.md#ec2-21 "ec2-controls.md#ec2-21")
-- [[EC2.51] EC2 Client VPN endpoints should have client
-  connection logging enabled](ec2-controls.md#ec2-51 "ec2-controls.md#ec2-51")
-- [[ELB.2] Classic Load Balancers with SSL/HTTPS listeners should use a certificate
-  provided by AWS Certificate Manager](elb-controls.md#elb-2 "elb-controls.md#elb-2")
-- [[ELB.3] Classic Load Balancer listeners should be configured with HTTPS or TLS
-  termination](elb-controls.md#elb-3 "elb-controls.md#elb-3")
-- [[ELB.8] Classic Load Balancers with SSL listeners should use a predefined
-  security policy that has strong AWS Configuration](elb-controls.md#elb-8 "elb-controls.md#elb-8")
+- [[EC2.6] VPC flow logging should be enabled in all VPCs](ec2-controls.md#ec2-6 "ec2-controls.md#ec2-6")
+- [[EC2.10] Amazon EC2 should be configured to use VPC endpoints that are created for the Amazon EC2 service](ec2-controls.md#ec2-10 "ec2-controls.md#ec2-10")
+- [[EC2.13] Security groups should not allow ingress from 0.0.0.0/0 or ::/0 to port 22](ec2-controls.md#ec2-13 "ec2-controls.md#ec2-13")
+- [[EC2.16] Unused Network Access Control Lists should be removed](ec2-controls.md#ec2-16 "ec2-controls.md#ec2-16")
+- [[EC2.18] Security groups should only allow unrestricted incoming traffic for authorized ports](ec2-controls.md#ec2-18 "ec2-controls.md#ec2-18")
+- [[EC2.19] Security groups should not allow unrestricted access to ports with high risk](ec2-controls.md#ec2-19 "ec2-controls.md#ec2-19")
+- [[EC2.20] Both VPN tunnels for an AWS Site-to-Site VPN connection should be up](ec2-controls.md#ec2-20 "ec2-controls.md#ec2-20")
+- [[EC2.21] Network ACLs should not allow ingress from 0.0.0.0/0 to port 22 or port 3389](ec2-controls.md#ec2-21 "ec2-controls.md#ec2-21")
+- [[EC2.51] EC2 Client VPN endpoints should have client connection logging enabled](ec2-controls.md#ec2-51 "ec2-controls.md#ec2-51")
+- [[ELB.2] Classic Load Balancers with SSL/HTTPS listeners should use a certificate provided by AWS Certificate Manager](elb-controls.md#elb-2 "elb-controls.md#elb-2")
+- [[ELB.3] Classic Load Balancer listeners should be configured with HTTPS or TLS termination](elb-controls.md#elb-3 "elb-controls.md#elb-3")
+- [[ELB.8] Classic Load Balancers with SSL listeners should use a predefined security policy that has strong AWS Configuration](elb-controls.md#elb-8 "elb-controls.md#elb-8")
 - [[GuardDuty.1] GuardDuty should be enabled](guardduty-controls.md#guardduty-1 "guardduty-controls.md#guardduty-1")
 - [[IAM.1] IAM policies should not allow full "\*" administrative privileges](iam-controls.md#iam-1 "iam-controls.md#iam-1")
 - [[IAM.2] IAM users should not have IAM policies attached](iam-controls.md#iam-2 "iam-controls.md#iam-2")
 - [[IAM.7] Password policies for IAM users should have strong configurations](iam-controls.md#iam-7 "iam-controls.md#iam-7")
 - [[IAM.8] Unused IAM user credentials should be removed](iam-controls.md#iam-8 "iam-controls.md#iam-8")
-- [[IAM.10] Password policies for IAM users should have strong
-  configurations](iam-controls.md#iam-10 "iam-controls.md#iam-10")
+- [[IAM.10] Password policies for IAM users should have strong configurations](iam-controls.md#iam-10 "iam-controls.md#iam-10")
 - [[IAM.11] Ensure IAM password policy requires at least one uppercase letter](iam-controls.md#iam-11 "iam-controls.md#iam-11")
 - [[IAM.12] Ensure IAM password policy requires at least one lowercase letter](iam-controls.md#iam-12 "iam-controls.md#iam-12")
 - [[IAM.13] Ensure IAM password policy requires at least one symbol](iam-controls.md#iam-13 "iam-controls.md#iam-13")
 - [[IAM.14] Ensure IAM password policy requires at least one number](iam-controls.md#iam-14 "iam-controls.md#iam-14")
 - [[IAM.15] Ensure IAM password policy requires minimum password length of 14 or greater](iam-controls.md#iam-15 "iam-controls.md#iam-15")
 - [[IAM.16] Ensure IAM password policy prevents password reuse](iam-controls.md#iam-16 "iam-controls.md#iam-16")
-- [[IAM.18] Ensure a support role has been created to manage incidents with
-  AWS Support](iam-controls.md#iam-18 "iam-controls.md#iam-18")
+- [[IAM.18] Ensure a support role has been created to manage incidents with AWS Support](iam-controls.md#iam-18 "iam-controls.md#iam-18")
 - [[IAM.19] MFA should be enabled for all IAM users](iam-controls.md#iam-19 "iam-controls.md#iam-19")
 - [[IAM.21] IAM customer managed policies that you create should not allow wildcard actions for services](iam-controls.md#iam-21 "iam-controls.md#iam-21")
 - [[IAM.22] IAM user credentials unused for 45 days should be removed](iam-controls.md#iam-22 "iam-controls.md#iam-22")
@@ -157,6 +137,5 @@ requirement.
 - [[S3.14] S3 general purpose buckets should have versioning enabled](s3-controls.md#s3-14 "s3-controls.md#s3-14")
 - [[S3.17] S3 general purpose buckets should be encrypted at rest with AWS KMS keys](s3-controls.md#s3-17 "s3-controls.md#s3-17")
 - [[SNS.1] SNS topics should be encrypted at-rest using AWS KMS](sns-controls.md#sns-1 "sns-controls.md#sns-1")
-- [[SSM.2] Amazon EC2 instances managed by Systems Manager should have a patch
-  compliance status of COMPLIANT after a patch installation](ssm-controls.md#ssm-2 "ssm-controls.md#ssm-2")
+- [[SSM.2] Amazon EC2 instances managed by Systems Manager should have a patch compliance status of COMPLIANT after a patch installation](ssm-controls.md#ssm-2 "ssm-controls.md#ssm-2")
 - [[WAF.12] AWS WAF rules should have CloudWatch metrics enabled](waf-controls.md#waf-12 "waf-controls.md#waf-12")

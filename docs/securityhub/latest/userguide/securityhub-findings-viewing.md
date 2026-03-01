@@ -1,6 +1,4 @@
-# Reviewing finding details and history in
-
-Security Hub CSPM
+# Reviewing finding details and history in Security Hub CSPM
 
 In AWS Security Hub CSPM, a _finding_ is an observable record of a
 security check or security-related detection. Security Hub CSPM generates a finding when it completes a
@@ -101,9 +99,7 @@ the filter option next to the **Workflow status** row. If you choose
 **Show all findings with this value**, Security Hub CSPM filters the findings table
 and displays only findings with the same workflow status.
 
-## Reviewing finding details and
-
-history
+## Reviewing finding details and history
 
 Choose your preferred method, and follow the steps to review finding details in
 Security Hub CSPM.

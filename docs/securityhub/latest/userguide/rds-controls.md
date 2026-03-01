@@ -1,8 +1,7 @@
 # Security Hub CSPM controls for Amazon RDS
 
 These AWS Security Hub CSPM controls evaluate the Amazon Relational Database Service (Amazon RDS) and Amazon RDS resources. The controls
-might not be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+might not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
 ## [RDS.1] RDS snapshot should be private
 
@@ -580,9 +579,7 @@ Remediation steps differ for Aurora global databases. To configure multiple Avai
 select your DB cluster. Then, choose **Actions** and **Add reader**, and specify multiple AZs. For more information,
 see [Adding Aurora Replicas to a DB cluster](../../../AmazonRDS/latest/AuroraUserGuide/aurora-replicas-adding.md "../../../AmazonRDS/latest/AuroraUserGuide/aurora-replicas-adding.md") in the _Amazon Aurora User Guide_.
 
-## [RDS.16] Aurora DB clusters should be configured to copy tags to DB
-
-snapshots
+## [RDS.16] Aurora DB clusters should be configured to copy tags to DB snapshots
 
 **Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2)
 
@@ -1614,9 +1611,7 @@ CloudWatch Logs, you can also create alarms and review metrics.
 For information about configuring an Amazon RDS for MariaDB DB instance to publish logs to
 Amazon CloudWatch Logs, see [Publishing MariaDB logs to Amazon CloudWatch Logs](../../../AmazonRDS/latest/UserGuide/USER_LogAccess.MariaDB.md "../../../AmazonRDS/latest/UserGuide/USER_LogAccess.MariaDB.md") in the _Amazon Relational Database Service User Guide_.
 
-## [RDS.43] RDS DB proxies should require TLS encryption for
-
-connections
+## [RDS.43] RDS DB proxies should require TLS encryption for connections
 
 **Category:** Protect > Data Protection > Encryption of data-in-transit
 
@@ -1755,9 +1750,7 @@ exfiltration.
 For information about provisioning a private subnet for an Amazon RDS DB instance, see
 [Working with a DB instance in a VPC](../../../AmazonRDS/latest/UserGuide/USER_VPC.md "../../../AmazonRDS/latest/UserGuide/USER_VPC.md") in the _Amazon Relational Database Service User Guide_.
 
-## [RDS.47] RDS for PostgreSQL DB clusters should be configured to copy tags to DB
-
-snapshots
+## [RDS.47] RDS for PostgreSQL DB clusters should be configured to copy tags to DB snapshots
 
 **Category:** Identify > Inventory > Tagging
 
@@ -1791,9 +1784,7 @@ copy tags to DB snapshots, see [Tagging
 Amazon RDS resources](../../../AmazonRDS/latest/UserGuide/USER_Tagging.md "../../../AmazonRDS/latest/UserGuide/USER_Tagging.md") in the _Amazon Relational Database Service User
 Guide_.
 
-## [RDS.48] RDS for MySQL DB clusters should be configured to copy tags to DB
-
-snapshots
+## [RDS.48] RDS for MySQL DB clusters should be configured to copy tags to DB snapshots
 
 **Category:** Identify > Inventory > Tagging
 
@@ -1827,9 +1818,7 @@ copy tags to DB snapshots, see [Tagging Amazon RDS
 resources](../../../AmazonRDS/latest/UserGuide/USER_Tagging.md "../../../AmazonRDS/latest/UserGuide/USER_Tagging.md") in the _Amazon Relational Database Service User
 Guide_.
 
-## [RDS.50] RDS for MySQL RDS DB clusters should have enough backup
-
-retention period set
+## [RDS.50] RDS for MySQL RDS DB clusters should have enough backup retention period set
 
 **Category:** Recover > Resilience > Backups enabled
 

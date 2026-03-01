@@ -19,34 +19,24 @@ enabled.
 
 ###### Samples of control findings
 
-- [Sample finding for the AWS Foundational Security
-  Best Practices standard](#sample-finding-fsbp "#sample-finding-fsbp")
+- [Sample finding for the AWS Foundational Security Best Practices standard](#sample-finding-fsbp "#sample-finding-fsbp")
 - [Sample finding for CIS AWS Foundations Benchmark v5.0.0](#sample-finding-cis-5 "#sample-finding-cis-5")
 - [Sample finding for CIS AWS Foundations Benchmark v3.0.0](#sample-finding-cis-3 "#sample-finding-cis-3")
 - [Sample finding for CIS AWS Foundations Benchmark v1.4.0](#sample-finding-cis-1.4 "#sample-finding-cis-1.4")
 - [Sample finding for CIS AWS Foundations Benchmark v1.2.0](#sample-finding-cis-1.2 "#sample-finding-cis-1.2")
-- [Sample finding for the NIST SP 800-53 Revision 5
-  standard](#sample-finding-nist-800-53 "#sample-finding-nist-800-53")
-- [Sample finding for the NIST SP 800-171 Revision 2
-  standard](#sample-finding-nist-800-171 "#sample-finding-nist-800-171")
-- [Sample finding for Payment Card Industry Data
-  Security Standard v3.2.1](#sample-finding-pcidss-v321 "#sample-finding-pcidss-v321")
-- [Sample finding for the AWS Resource Tagging
-  standard](#sample-finding-tagging "#sample-finding-tagging")
-- [Sample finding for the
-  AWS Control Tower service-managed standard](#sample-finding-service-managed-aws-control-tower "#sample-finding-service-managed-aws-control-tower")
-- [Sample consolidated finding for multiple
-  standards](#sample-finding-consolidation "#sample-finding-consolidation")
+- [Sample finding for the NIST SP 800-53 Revision 5 standard](#sample-finding-nist-800-53 "#sample-finding-nist-800-53")
+- [Sample finding for the NIST SP 800-171 Revision 2 standard](#sample-finding-nist-800-171 "#sample-finding-nist-800-171")
+- [Sample finding for Payment Card Industry Data Security Standard v3.2.1](#sample-finding-pcidss-v321 "#sample-finding-pcidss-v321")
+- [Sample finding for the AWS Resource Tagging standard](#sample-finding-tagging "#sample-finding-tagging")
+- [Sample finding for the AWS Control Tower service-managed standard](#sample-finding-service-managed-aws-control-tower "#sample-finding-service-managed-aws-control-tower")
+- [Sample consolidated finding for multiple standards](#sample-finding-consolidation "#sample-finding-consolidation")
 
 ###### Note
 
 Control findings reference different fields and values in the China Regions and the
-AWS GovCloud (US) Regions. For more information, see [Impact of consolidation on ASFF fields and
-values](asff-changes-consolidation.md "asff-changes-consolidation.md").
+AWS GovCloud (US) Regions. For more information, see [Impact of consolidation on ASFF fields and values](asff-changes-consolidation.md "asff-changes-consolidation.md").
 
-## Sample finding for the AWS Foundational Security
-
-Best Practices standard
+## Sample finding for the AWS Foundational Security Best Practices standard
 
 The following sample provides an example of a finding for a control that applies to the
 AWS Foundational Security Best Practices (FSBP) standard. In this sample, consolidated
@@ -472,9 +462,7 @@ CIS AWS Foundations Benchmark v1.2.0. In this sample, consolidated control findi
 }
 ```
 
-## Sample finding for the NIST SP 800-53 Revision 5
-
-standard
+## Sample finding for the NIST SP 800-53 Revision 5 standard
 
 The following sample provides an example of a finding for a control that applies to the
 NIST SP 800-53 Revision 5 standard. In this sample, consolidated control findings is
@@ -569,9 +557,7 @@ disabled.
 }
 ```
 
-## Sample finding for the NIST SP 800-171 Revision 2
-
-standard
+## Sample finding for the NIST SP 800-171 Revision 2 standard
 
 The following sample provides an example of a finding for a control that applies to the
 NIST SP 800-171 Revision 2 standard. In this sample, consolidated control findings is
@@ -662,9 +648,7 @@ disabled.
 }
 ```
 
-## Sample finding for Payment Card Industry Data
-
-Security Standard v3.2.1
+## Sample finding for Payment Card Industry Data Security Standard v3.2.1
 
 The following sample provides an example of a finding for a control that applies to
 Payment Card Industry Data Security Standard (PCI DSS) v3.2.1. In this sample, consolidated
@@ -749,9 +733,7 @@ control findings is disabled.
 }
 ```
 
-## Sample finding for the AWS Resource Tagging
-
-standard
+## Sample finding for the AWS Resource Tagging standard
 
 The following sample provides an example of a finding for a control that applies to the
 AWS Resource Tagging standard. In this sample, consolidated control findings is
@@ -855,9 +837,7 @@ disabled.
 }
 ```
 
-## Sample finding for the
-
-AWS Control Tower service-managed standard
+## Sample finding for the AWS Control Tower service-managed standard
 
 The following sample provides an example of a finding for a control that applies to the
 AWS Control Tower service-managed standard. In this sample, consolidated control findings is
@@ -939,9 +919,7 @@ disabled.
 }
 ```
 
-## Sample consolidated finding for multiple
-
-standards
+## Sample consolidated finding for multiple standards
 
 The following sample provides an example of a finding for a control that applies to
 multiple enabled standards. In this sample, consolidated control findings is enabled.

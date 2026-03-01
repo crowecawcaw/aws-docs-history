@@ -49,8 +49,7 @@ enable. For these reasons, we recommend that you do one of the following:
   accounts. To learn how, see [Disassociating member accounts in Security Hub CSPM](securityhub-disassociate-members.md "securityhub-disassociate-members.md").
   Before the owner of a member account can disable Security Hub CSPM, the account must disassociate from
   its administrator account. For an organization account, only the administrator account can
-  disassociate a member account. For more information, see [Disassociating Security Hub CSPM member accounts from your
-  organization](accounts-orgs-disassociate.md "accounts-orgs-disassociate.md"). For a manually invited account, either the
+  disassociate a member account. For more information, see [Disassociating Security Hub CSPM member accounts from your organization](accounts-orgs-disassociate.md "accounts-orgs-disassociate.md"). For a manually invited account, either the
   administrator account or the member account can disassociate the account. For more
   information, see [Disassociating member accounts in Security Hub CSPM](securityhub-disassociate-members.md "securityhub-disassociate-members.md") or [Disassociating from a Security Hub CSPM administrator account](securityhub-disassociate-from-admin.md "securityhub-disassociate-from-admin.md"). Disassociation isn't required if you
   use central configuration because the Security Hub CSPM administrator can create a policy that disables

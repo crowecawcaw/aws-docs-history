@@ -1,6 +1,4 @@
-# Reviewing the status and details of configuration
-
-policies
+# Reviewing the status and details of configuration policies
 
 The delegated AWS Security Hub CSPM administrator can view configuration policies for an
 organization and their details. This includes which accounts and organizational units (OUs) a policy is associated with.

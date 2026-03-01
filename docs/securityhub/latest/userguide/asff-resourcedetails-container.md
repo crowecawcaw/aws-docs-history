@@ -1,6 +1,4 @@
-# Container object in
-
-ASFF
+# Container object in ASFF
 
 The following example shows the AWS Security Finding Format (ASFF) syntax for the
 `Container` object. To view descriptions of `Container`

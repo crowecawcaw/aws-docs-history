@@ -14,9 +14,7 @@ To change your home Region, you must delete your current finding aggregator and 
 When you delete your finding aggregator, Security Hub CSPM stops aggregating data. It doesn't
 remove any existing aggregated data from the home Region.
 
-## Deleting the finding aggregator
-
-(console)
+## Deleting the finding aggregator (console)
 
 You can delete your finding aggregator from the current home Region only.
 

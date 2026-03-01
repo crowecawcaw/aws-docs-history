@@ -1,8 +1,7 @@
 # Security Hub CSPM controls for AWS Network Firewall
 
 These AWS Security Hub CSPM controls evaluate the AWS Network Firewall service and resources. The controls might
-not be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
 ## [NetworkFirewall.1] Network Firewall firewalls should be deployed across multiple Availability Zones
 
@@ -335,9 +334,7 @@ To enable delete protection on an existing Network Firewall firewall, see [Updat
 For **Change protections**, select **Enable**. You can also
 enable deletion protection by invoking the [UpdateFirewallDeleteProtection](../../../network-firewall/latest/APIReference/API_UpdateFirewallDeleteProtection.md "../../../network-firewall/latest/APIReference/API_UpdateFirewallDeleteProtection.md") API and setting the `DeleteProtection` field to `true`.
 
-## [NetworkFirewall.10] Network Firewall firewalls should have subnet change
-
-protection enabled
+## [NetworkFirewall.10] Network Firewall firewalls should have subnet change protection enabled
 
 **Related requirements:** NIST.800-53.r5 CA-9(1),
 NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2), NIST.800-53.r5 CM-3, NIST.800-53.r5

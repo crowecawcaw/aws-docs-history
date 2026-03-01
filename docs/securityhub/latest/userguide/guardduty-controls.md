@@ -1,8 +1,7 @@
 # Security Hub CSPM controls for Amazon GuardDuty
 
 These AWS Security Hub CSPM controls evaluate the Amazon GuardDuty service and resources. The controls might
-not be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
 ## [GuardDuty.1] GuardDuty should be enabled
 
@@ -469,9 +468,7 @@ security agent, see [Prerequisites for AWS Fargate (Amazon ECS only) support](..
 automated security agent for AWS Fargate (Amazon ECS only)](../../../guardduty/latest/ug/managing-gdu-agent-ecs-automated.md "../../../guardduty/latest/ug/managing-gdu-agent-ecs-automated.md") in the
 _Amazon GuardDuty User Guide_.
 
-## [GuardDuty.13] GuardDuty EC2 Runtime Monitoring should be
-
-enabled
+## [GuardDuty.13] GuardDuty EC2 Runtime Monitoring should be enabled
 
 **Category:** Detect > Detection Services
 

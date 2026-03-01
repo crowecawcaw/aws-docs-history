@@ -2,8 +2,7 @@
 
 These AWS Security Hub CSPM controls evaluate the Amazon Interactive Video Service (IVS) service and resources.
 
-These controls may not be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+These controls may not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
 ## [IVS.1] IVS playback key pairs should be tagged
 

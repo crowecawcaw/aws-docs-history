@@ -1,8 +1,7 @@
 # Security Hub CSPM controls for Amazon MQ
 
 These AWS Security Hub CSPM controls evaluate the Amazon MQ service and resources. The controls might
-not be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
 ## [MQ.2] ActiveMQ brokers should stream audit logs to CloudWatch
 

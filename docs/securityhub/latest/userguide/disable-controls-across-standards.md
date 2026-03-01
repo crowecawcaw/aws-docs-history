@@ -1,6 +1,4 @@
-# Disabling a control across
-
-standards
+# Disabling a control across standards
 
 We recommend disabling an AWS Security Hub CSPM control across standards to maintain alignment
 throughout your organization. If you disable a control in only specific standards, you
@@ -35,9 +33,7 @@ delegated administrator, the delegated administrator can designate those account
 self-managed. Self-managed accounts must configure controls separately in each
 Region.
 
-## Cross-standard disablement in a
-
-single account and Region
+## Cross-standard disablement in a single account and Region
 
 If you don't use central configuration or are a self-managed account, you
 can't use configuration policies to centrally disable controls in multiple accounts
@@ -46,9 +42,7 @@ Region.
 
 Security Hub CSPM console
 
-###### To disable a control across standards in one account and
-
-Region
+###### To disable a control across standards in one account and Region
 
 1. Open the AWS Security Hub CSPM console at [https://console.aws.amazon.com/securityhub/](https://console.aws.amazon.com/securityhub/ "https://console.aws.amazon.com/securityhub/").
 2. Choose **Controls** from the navigation
@@ -63,9 +57,7 @@ Region
 
 Security Hub CSPM API
 
-###### To disable a control across standards in one account and
-
-Region
+###### To disable a control across standards in one account and Region
 
 1. Invoke the [ListStandardsControlAssociations](../../1.0/APIReference/API_ListStandardsControlAssociations.md "../../1.0/APIReference/API_ListStandardsControlAssociations.md")
    API. Provide a security control ID.
@@ -99,9 +91,7 @@ Region
 
 AWS CLI
 
-###### To disable a control across standards in one account and
-
-Region
+###### To disable a control across standards in one account and Region
 
 1. Run the [list-standards-control-associations](../../../cli/latest/reference/securityhub/list-standards-control-associations.md "../../../cli/latest/reference/securityhub/list-standards-control-associations.md")
    command. Provide a security control ID.

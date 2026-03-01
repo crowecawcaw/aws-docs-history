@@ -1,6 +1,4 @@
-# Reviewing the details of controls in
-
-Security Hub CSPM
+# Reviewing the details of controls in Security Hub CSPM
 
 Selecting a control on the **Controls** page or standard details page of
 the Security Hub CSPM console takes you to a page of control details.
@@ -14,8 +12,7 @@ that are enabled when you visit those pages.
 
 The control details page also provides a breakdown of the compliance status of the
 control findings for the past 24 hours. For more information about control status and
-compliance status, see [Evaluating compliance status and control
-status](controls-overall-status.md "controls-overall-status.md").
+compliance status, see [Evaluating compliance status and control status](controls-overall-status.md "controls-overall-status.md").
 
 AWS Config resource recording must be configured for the control status to appear. After control
 statuses are generated for the first time, Security Hub CSPM updates the control status every 24 hours
@@ -24,8 +21,7 @@ based on findings from the previous 24 hours.
 Administrator accounts see an aggregated control status across the administrator
 account and member accounts. If you have set an aggregation Region, the control
 status includes findings across all linked Regions. For more information about
-control status, see [Evaluating compliance status and control
-status](controls-overall-status.md "controls-overall-status.md").
+control status, see [Evaluating compliance status and control status](controls-overall-status.md "controls-overall-status.md").
 
 You can also enable or disable the control from the control details page.
 

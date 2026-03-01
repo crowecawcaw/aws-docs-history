@@ -1,6 +1,4 @@
-# Updating cross-Region aggregation
-
-settings
+# Updating cross-Region aggregation settings
 
 You can update your current cross-Region aggregation settings in AWS Security Hub by changing the linked Regions or the current home Region.
 

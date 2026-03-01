@@ -21,8 +21,7 @@ The remediation guidance provided in this topic might require additional consult
 
 ###### Contents
 
-- [Misconfiguration traits for
-  EC2 instances](exposure-ec2-instance.md#misconfiguration "exposure-ec2-instance.md#misconfiguration")
+- [Misconfiguration traits for EC2 instances](exposure-ec2-instance.md#misconfiguration "exposure-ec2-instance.md#misconfiguration")
   - [The EC2 instance allows access to IMDS using version 1](exposure-ec2-instance.md#metadata-misconfiguration "exposure-ec2-instance.md#metadata-misconfiguration")
   - [The IAM role associated with the Amazon EC2 instance has an administrative access policy](exposure-ec2-instance.md#administrative-access-policy "exposure-ec2-instance.md#administrative-access-policy")
   - [The IAM role associated with the Amazon EC2 instance has a service admin policy](exposure-ec2-instance.md#service-administrative-policy "exposure-ec2-instance.md#service-administrative-policy")
@@ -40,9 +39,7 @@ The remediation guidance provided in this topic might require additional consult
   - [The EC2 instance has malicious software packages](exposure-ec2-instance.md#malicious-package "exposure-ec2-instance.md#malicious-package")
   - [The EC2 instance has malicious files](exposure-ec2-instance.md#malicious-file "exposure-ec2-instance.md#malicious-file")
 
-## Misconfiguration traits for
-
-EC2 instances
+## Misconfiguration traits for EC2 instances
 
 Here are misconfiguration traits for EC2 instances and suggested remediation steps.
 

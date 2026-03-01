@@ -1,7 +1,4 @@
-# Tagging
-
-Security Hub
-resources
+# Tagging Security Hub resources
 
 A _tag_ is an optional label that you can define and assign
 to AWS resources, including certain types of AWS Security Hub CSPM resources. Tags can help you

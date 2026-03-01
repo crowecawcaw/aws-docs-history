@@ -2,12 +2,9 @@
 
 These Security Hub CSPM controls evaluate the Amazon CodeGuru Reviewer service and resources.
 
-These controls may not be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+These controls may not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
-## [CodeGuruReviewer.1] CodeGuru Reviewer repository associations should be
-
-tagged
+## [CodeGuruReviewer.1] CodeGuru Reviewer repository associations should be tagged
 
 **Category:** Identify > Inventory > Tagging
 

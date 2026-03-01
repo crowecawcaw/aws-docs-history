@@ -1,8 +1,7 @@
 # Security Hub CSPM controls for Amazon CloudWatch
 
 These AWS Security Hub CSPM controls evaluate the Amazon CloudWatch service and resources. The controls might not
-be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
 ## [CloudWatch.1] A log metric filter and alarm should exist for usage of the "root" user
 
@@ -331,9 +330,7 @@ _Amazon CloudWatch User Guide_. Use the following values:
 | Whenever `your-metric-name` is... | Greater/Equal |
 | than...                           | `1`           |
 
-## [CloudWatch.5] Ensure a log metric filter and alarm exist for CloudTrail
-
-configuration changes
+## [CloudWatch.5] Ensure a log metric filter and alarm exist for CloudTrail configuration changes
 
 **Related requirements:** CIS AWS Foundations Benchmark
 v1.2.0/3.5, CIS AWS Foundations Benchmark v1.4.0/4.5, NIST.800-171.r2 3.3.8,

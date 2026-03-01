@@ -38,8 +38,7 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-Security Hub CSPM supports identity-based policies. For more information, see [Identity-based policy examples for
-AWS Security Hub CSPM](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+Security Hub CSPM supports identity-based policies. For more information, see [Identity-based policy examples for AWS Security Hub CSPM](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Resource-based policies for Security Hub CSPM
 
@@ -117,8 +116,7 @@ The user must have access to the `UpdateStandardsControls` operation in order to
 
 For a list of Security Hub CSPM actions, see [Actions defined by AWS Security Hub CSPM](../../../service-authorization/latest/reference/list_awssecurityhub.md#awssecurityhub-actions-as-permissions "../../../service-authorization/latest/reference/list_awssecurityhub.md#awssecurityhub-actions-as-permissions") in the
 _Service Authorization Reference_. For examples of policies that specify Security Hub CSPM
-actions, see [Identity-based policy examples for
-AWS Security Hub CSPM](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+actions, see [Identity-based policy examples for AWS Security Hub CSPM](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Policy resources for Security Hub CSPM
 
@@ -149,8 +147,7 @@ For a list of Security Hub CSPM resource types and the ARN syntax for each one, 
 [Resource types defined by AWS Security Hub CSPM](../../../service-authorization/latest/reference/list_awssecurityhub.md#awssecurityhub-resources-for-iam-policies "../../../service-authorization/latest/reference/list_awssecurityhub.md#awssecurityhub-resources-for-iam-policies") in the _Service Authorization Reference_. To learn which
 actions you can specify for each type of resource, see [Actions defined by AWS Security Hub CSPM](../../../service-authorization/latest/reference/list_awssecurityhub.md#awssecurityhub-actions-as-permissions "../../../service-authorization/latest/reference/list_awssecurityhub.md#awssecurityhub-actions-as-permissions") in the
 _Service Authorization Reference_. For examples of policies that specify resources, see
-[Identity-based policy examples for
-AWS Security Hub CSPM](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+[Identity-based policy examples for AWS Security Hub CSPM](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Policy condition keys for Security Hub CSPM
 
@@ -170,8 +167,7 @@ _IAM User Guide_.
 For a list of Security Hub CSPM condition keys, see [Condition keys for AWS Security Hub CSPM](../../../service-authorization/latest/reference/list_awssecurityhub.md#awssecurityhub-policy-keys "../../../service-authorization/latest/reference/list_awssecurityhub.md#awssecurityhub-policy-keys") in the
 _Service Authorization Reference_. To learn which actions and resources you can use
 a condition key with, see [Actions defined by AWS Security Hub CSPM](../../../service-authorization/latest/reference/list_awssecurityhub.md#awssecurityhub-actions-as-permissions "../../../service-authorization/latest/reference/list_awssecurityhub.md#awssecurityhub-actions-as-permissions"). For examples of policies that use
-condition keys, see [Identity-based policy examples for
-AWS Security Hub CSPM](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+condition keys, see [Identity-based policy examples for AWS Security Hub CSPM](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Access control lists (ACLs) in Security Hub CSPM
 
@@ -206,15 +202,10 @@ You can attach tags to Security Hub CSPM resources. You can also control
 access to resources by providing tag information in the `Condition`
 element of a policy.
 
-For information about tagging Security Hub CSPM resources, see [Tagging
-Security Hub
-resources](tagging-resources.md "tagging-resources.md"). For an example of
-an identity-based policy that controls access to a resource based on tags, see [Identity-based policy examples for
-AWS Security Hub CSPM](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+For information about tagging Security Hub CSPM resources, see [Tagging Security Hub resources](tagging-resources.md "tagging-resources.md"). For an example of
+an identity-based policy that controls access to a resource based on tags, see [Identity-based policy examples for AWS Security Hub CSPM](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Using temporary
-
-credentials with Security Hub CSPM
+## Using temporary credentials with Security Hub CSPM
 
 **Supports temporary credentials:**
 
@@ -232,9 +223,7 @@ credentials by calling AWS STS API operations such as [AssumeRole](../../../STS/
 
 Security Hub CSPM supports the use of temporary credentials.
 
-## Forward access
-
-sessions for Security Hub CSPM
+## Forward access sessions for Security Hub CSPM
 
 **Supports forward access sessions (FAS):**
 
@@ -261,9 +250,7 @@ Changing the permissions for a service role may create operational issues with
 your use of Security Hub CSPM. Edit service roles only when Security Hub CSPM provides guidance to do
 so.
 
-## Service-linked
-
-roles for Security Hub CSPM
+## Service-linked roles for Security Hub CSPM
 
 **Supports service-linked roles:**
 

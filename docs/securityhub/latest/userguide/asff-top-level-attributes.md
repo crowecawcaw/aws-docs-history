@@ -134,8 +134,7 @@ was intended to identify.
 
 Finding providers who want to provide a value for `Confidence` should
 use the `Confidence` attribute under `FindingProviderFields`.
-See [Updating findings with
-FindingProviderFields](finding-update-batchimportfindings.md#batchimportfindings-findingproviderfields "finding-update-batchimportfindings.md#batchimportfindings-findingproviderfields").
+See [Updating findings with FindingProviderFields](finding-update-batchimportfindings.md#batchimportfindings-findingproviderfields "finding-update-batchimportfindings.md#batchimportfindings-findingproviderfields").
 
 `Confidence` is scored on a 0–100 basis using a ratio scale. 0
 means 0 percent confidence, and 100 means 100 percent confidence. For example, a
@@ -158,8 +157,7 @@ object with [`BatchImportFindings`](../../1.0/APIReference/API_BatchImportFindin
 
 Finding providers who want to provide a value for `Criticality` should
 use the `Criticality` attribute under `FindingProviderFields`.
-See [Updating findings with
-FindingProviderFields](finding-update-batchimportfindings.md#batchimportfindings-findingproviderfields "finding-update-batchimportfindings.md#batchimportfindings-findingproviderfields").
+See [Updating findings with FindingProviderFields](finding-update-batchimportfindings.md#batchimportfindings-findingproviderfields "finding-update-batchimportfindings.md#batchimportfindings-findingproviderfields").
 
 `Criticality` is scored on a 0–100 basis, using a ratio scale
 that supports only full integers. A score of 0 means that the underlying resources
@@ -332,8 +330,7 @@ this object with [`BatchUpdateFindings`](../../1.0/APIReference/API_BatchUpdateF
 
 For details on how Security Hub CSPM handles updates from `BatchImportFindings` to
 `FindingProviderFields` and to the corresponding top-level
-attributes, see [Updating findings with
-FindingProviderFields](finding-update-batchimportfindings.md#batchimportfindings-findingproviderfields "finding-update-batchimportfindings.md#batchimportfindings-findingproviderfields").
+attributes, see [Updating findings with FindingProviderFields](finding-update-batchimportfindings.md#batchimportfindings-findingproviderfields "finding-update-batchimportfindings.md#batchimportfindings-findingproviderfields").
 
 Customers can update the top-level fields by using the `BatchUpdateFindings` operation. Customers can't
 update `FindingProviderFields`.
@@ -928,8 +925,7 @@ This field is intended for customers to use with remediation, orchestration, and
 ticketing tools. It is not intended for finding providers.
 
 You can only update the `Workflow` field with [`BatchUpdateFindings`](../../1.0/APIReference/API_BatchUpdateFindings.md "../../1.0/APIReference/API_BatchUpdateFindings.md"). Customers can also update it from
-the console. See [Setting the workflow status of findings in
-Security Hub CSPM](findings-workflow-status.md "findings-workflow-status.md").
+the console. See [Setting the workflow status of findings in Security Hub CSPM](findings-workflow-status.md "findings-workflow-status.md").
 
 **Example**
 

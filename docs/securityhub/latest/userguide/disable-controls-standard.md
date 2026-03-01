@@ -1,6 +1,4 @@
-# Disabling a control in a specific
-
-standard
+# Disabling a control in a specific standard
 
 You can disable a control in only specific security standards, instead of across all
 standards. If the control applies to other enabled standards, AWS Security Hub CSPM continues to run
@@ -8,8 +6,7 @@ security checks for the control and you continue to receive findings for the con
 
 We recommend aligning the enablement status of a control across all of the enabled
 standards that the control applies to. For information about disabling a control across all
-of the standards that it applies to, see [Disabling a control across
-standards](disable-controls-across-standards.md "disable-controls-across-standards.md").
+of the standards that it applies to, see [Disabling a control across standards](disable-controls-across-standards.md "disable-controls-across-standards.md").
 
 On the standards details page, you can also disable controls in specific standards. You
 must disable controls in specific standards separately in each AWS account and

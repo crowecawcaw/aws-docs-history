@@ -66,9 +66,7 @@ This example is formatted for Linux, macOS, or Unix, and it uses the backslash (
 
 ```
 
-## Reverting to default control parameters in a single
-
-account and Region
+## Reverting to default control parameters in a single account and Region
 
 If you don't use central configuration or have a self-managed account, you can revert to using default parameter values
 for your account in one Region at a time.

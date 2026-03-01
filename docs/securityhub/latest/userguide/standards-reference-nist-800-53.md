@@ -26,9 +26,7 @@ guidelines.
 - [Configuring resource recording for the standard](#standards-reference-nist-800-53-recording "#standards-reference-nist-800-53-recording")
 - [Determining which controls apply to the standard](#standards-reference-nist-800-53-controls "#standards-reference-nist-800-53-controls")
 
-## Configuring resource
-
-recording for controls that apply to the standard
+## Configuring resource recording for controls that apply to the standard
 
 To optimize coverage and the accuracy of findings, it's important to enable and
 configure resource recording in AWS Config before you enable the NIST SP 800-53 Revision 5 standard
@@ -92,9 +90,7 @@ to the NIST SP 800-53 Revision 5 standard in Security Hub CSPM.
 | AWS Transfer Family                                    | `AWS::Transfer::Connector`                                                                                                                                                                                                                                                                                  |
 | AWS WAF                                                | `AWS::WAF::Rule`, `AWS::WAF::RuleGroup`,<br>`AWS::WAF::WebACL`,<br>`AWS::WAFRegional::Rule`,<br>`AWS::WAFRegional::RuleGroup`,<br>`AWS::WAFRegional::WebACL`,<br>`AWS::WAFv2::RuleGroup`,<br>`AWS::WAFv2::WebACL`                                                                                           |
 
-## Determining which controls
-
-apply to the standard
+## Determining which controls apply to the standard
 
 The following list specifies the controls that support NIST SP 800-53 Revision 5 requirements
 and apply to the NIST SP 800-53 Revision 5 standard in AWS Security Hub CSPM. For details about specific
@@ -106,20 +102,13 @@ requirement.
 - [[Account.1] Security contact information should be provided for an AWS account](account-controls.md#account-1 "account-controls.md#account-1")
 - [[Account.2] AWS accounts should be part of an AWS Organizations organization](account-controls.md#account-2 "account-controls.md#account-2")
 - [[ACM.1] Imported and ACM-issued certificates should be renewed after a specified time period](acm-controls.md#acm-1 "acm-controls.md#acm-1")
-- [[APIGateway.1] API Gateway REST and WebSocket API execution logging
-  should be enabled](apigateway-controls.md#apigateway-1 "apigateway-controls.md#apigateway-1")
-- [[APIGateway.2] API Gateway REST API stages should be configured to use
-  SSL certificates for backend authentication](apigateway-controls.md#apigateway-2 "apigateway-controls.md#apigateway-2")
-- [[APIGateway.3] API Gateway REST API stages should have AWS X-Ray
-  tracing enabled](apigateway-controls.md#apigateway-3 "apigateway-controls.md#apigateway-3")
-- [[APIGateway.4] API Gateway should be associated with a WAF Web
-  ACL](apigateway-controls.md#apigateway-4 "apigateway-controls.md#apigateway-4")
-- [[APIGateway.5] API Gateway REST API cache data should be encrypted at
-  rest](apigateway-controls.md#apigateway-5 "apigateway-controls.md#apigateway-5")
-- [[APIGateway.8] API Gateway routes should specify an authorization
-  type](apigateway-controls.md#apigateway-8 "apigateway-controls.md#apigateway-8")
-- [[APIGateway.9] Access logging should be configured for API Gateway V2
-  Stages](apigateway-controls.md#apigateway-9 "apigateway-controls.md#apigateway-9")
+- [[APIGateway.1] API Gateway REST and WebSocket API execution logging should be enabled](apigateway-controls.md#apigateway-1 "apigateway-controls.md#apigateway-1")
+- [[APIGateway.2] API Gateway REST API stages should be configured to use SSL certificates for backend authentication](apigateway-controls.md#apigateway-2 "apigateway-controls.md#apigateway-2")
+- [[APIGateway.3] API Gateway REST API stages should have AWS X-Ray tracing enabled](apigateway-controls.md#apigateway-3 "apigateway-controls.md#apigateway-3")
+- [[APIGateway.4] API Gateway should be associated with a WAF Web ACL](apigateway-controls.md#apigateway-4 "apigateway-controls.md#apigateway-4")
+- [[APIGateway.5] API Gateway REST API cache data should be encrypted at rest](apigateway-controls.md#apigateway-5 "apigateway-controls.md#apigateway-5")
+- [[APIGateway.8] API Gateway routes should specify an authorization type](apigateway-controls.md#apigateway-8 "apigateway-controls.md#apigateway-8")
+- [[APIGateway.9] Access logging should be configured for API Gateway V2 Stages](apigateway-controls.md#apigateway-9 "apigateway-controls.md#apigateway-9")
 - [[AppSync.5] AWS AppSync GraphQL APIs should not be authenticated with API keys](appsync-controls.md#appsync-5 "appsync-controls.md#appsync-5")
 - [[AutoScaling.1] Auto Scaling groups associated with a load balancer should use ELB health checks](autoscaling-controls.md#autoscaling-1 "autoscaling-controls.md#autoscaling-1")
 - [[AutoScaling.2] Amazon EC2 Auto Scaling group should cover multiple Availability Zones](autoscaling-controls.md#autoscaling-2 "autoscaling-controls.md#autoscaling-2")
@@ -128,32 +117,20 @@ requirement.
 - [[AutoScaling.6] Auto Scaling groups should use multiple instance types in multiple Availability Zones](autoscaling-controls.md#autoscaling-6 "autoscaling-controls.md#autoscaling-6")
 - [[AutoScaling.9] Amazon EC2 Auto Scaling groups should use Amazon EC2 launch templates](autoscaling-controls.md#autoscaling-9 "autoscaling-controls.md#autoscaling-9")
 - [[Backup.1] AWS Backup recovery points should be encrypted at rest](backup-controls.md#backup-1 "backup-controls.md#backup-1")
-- [[CloudFront.1] CloudFront distributions should have a default
-  root object configured](cloudfront-controls.md#cloudfront-1 "cloudfront-controls.md#cloudfront-1")
-- [[CloudFront.3] CloudFront distributions should require
-  encryption in transit](cloudfront-controls.md#cloudfront-3 "cloudfront-controls.md#cloudfront-3")
-- [[CloudFront.4] CloudFront distributions should have origin
-  failover configured](cloudfront-controls.md#cloudfront-4 "cloudfront-controls.md#cloudfront-4")
-- [[CloudFront.5] CloudFront distributions should have logging
-  enabled](cloudfront-controls.md#cloudfront-5 "cloudfront-controls.md#cloudfront-5")
-- [[CloudFront.6] CloudFront distributions should have WAF
-  enabled](cloudfront-controls.md#cloudfront-6 "cloudfront-controls.md#cloudfront-6")
-- [[CloudFront.7] CloudFront distributions should use custom
-  SSL/TLS certificates](cloudfront-controls.md#cloudfront-7 "cloudfront-controls.md#cloudfront-7")
-- [[CloudFront.8] CloudFront distributions should use SNI to serve
-  HTTPS requests](cloudfront-controls.md#cloudfront-8 "cloudfront-controls.md#cloudfront-8")
-- [[CloudFront.9] CloudFront distributions should encrypt traffic
-  to custom origins](cloudfront-controls.md#cloudfront-9 "cloudfront-controls.md#cloudfront-9")
-- [[CloudFront.10] CloudFront distributions should not use
-  deprecated SSL protocols between edge locations and custom origins](cloudfront-controls.md#cloudfront-10 "cloudfront-controls.md#cloudfront-10")
-- [[CloudFront.12] CloudFront distributions should not point to
-  non-existent S3 origins](cloudfront-controls.md#cloudfront-12 "cloudfront-controls.md#cloudfront-12")
-- [[CloudTrail.1] CloudTrail should be enabled and configured with at least
-  one multi-Region trail that includes read and write management events](cloudtrail-controls.md#cloudtrail-1 "cloudtrail-controls.md#cloudtrail-1")
+- [[CloudFront.1] CloudFront distributions should have a default root object configured](cloudfront-controls.md#cloudfront-1 "cloudfront-controls.md#cloudfront-1")
+- [[CloudFront.3] CloudFront distributions should require encryption in transit](cloudfront-controls.md#cloudfront-3 "cloudfront-controls.md#cloudfront-3")
+- [[CloudFront.4] CloudFront distributions should have origin failover configured](cloudfront-controls.md#cloudfront-4 "cloudfront-controls.md#cloudfront-4")
+- [[CloudFront.5] CloudFront distributions should have logging enabled](cloudfront-controls.md#cloudfront-5 "cloudfront-controls.md#cloudfront-5")
+- [[CloudFront.6] CloudFront distributions should have WAF enabled](cloudfront-controls.md#cloudfront-6 "cloudfront-controls.md#cloudfront-6")
+- [[CloudFront.7] CloudFront distributions should use custom SSL/TLS certificates](cloudfront-controls.md#cloudfront-7 "cloudfront-controls.md#cloudfront-7")
+- [[CloudFront.8] CloudFront distributions should use SNI to serve HTTPS requests](cloudfront-controls.md#cloudfront-8 "cloudfront-controls.md#cloudfront-8")
+- [[CloudFront.9] CloudFront distributions should encrypt traffic to custom origins](cloudfront-controls.md#cloudfront-9 "cloudfront-controls.md#cloudfront-9")
+- [[CloudFront.10] CloudFront distributions should not use deprecated SSL protocols between edge locations and custom origins](cloudfront-controls.md#cloudfront-10 "cloudfront-controls.md#cloudfront-10")
+- [[CloudFront.12] CloudFront distributions should not point to non-existent S3 origins](cloudfront-controls.md#cloudfront-12 "cloudfront-controls.md#cloudfront-12")
+- [[CloudTrail.1] CloudTrail should be enabled and configured with at least one multi-Region trail that includes read and write management events](cloudtrail-controls.md#cloudtrail-1 "cloudtrail-controls.md#cloudtrail-1")
 - [[CloudTrail.2] CloudTrail should have encryption at-rest enabled](cloudtrail-controls.md#cloudtrail-2 "cloudtrail-controls.md#cloudtrail-2")
 - [[CloudTrail.4] CloudTrail log file validation should be enabled](cloudtrail-controls.md#cloudtrail-4 "cloudtrail-controls.md#cloudtrail-4")
-- [[CloudTrail.5] CloudTrail trails should be integrated with
-  Amazon CloudWatch Logs](cloudtrail-controls.md#cloudtrail-5 "cloudtrail-controls.md#cloudtrail-5")
+- [[CloudTrail.5] CloudTrail trails should be integrated with Amazon CloudWatch Logs](cloudtrail-controls.md#cloudtrail-5 "cloudtrail-controls.md#cloudtrail-5")
 - [[CloudTrail.10] CloudTrail Lake event data stores should be encrypted with customer managed AWS KMS keys](cloudtrail-controls.md#cloudtrail-10 "cloudtrail-controls.md#cloudtrail-10")
 - [[CloudWatch.15] CloudWatch alarms should have specified actions configured](cloudwatch-controls.md#cloudwatch-15 "cloudwatch-controls.md#cloudwatch-15")
 - [[CloudWatch.16] CloudWatch log groups should be retained for a specified time period](cloudwatch-controls.md#cloudwatch-16 "cloudwatch-controls.md#cloudwatch-16")
@@ -172,79 +149,50 @@ requirement.
 - [[DMS.10] DMS endpoints for Neptune databases should have IAM authorization enabled](dms-controls.md#dms-10 "dms-controls.md#dms-10")
 - [[DMS.11] DMS endpoints for MongoDB should have an authentication mechanism enabled](dms-controls.md#dms-11 "dms-controls.md#dms-11")
 - [[DMS.12] DMS endpoints for Redis OSS should have TLS enabled](dms-controls.md#dms-12 "dms-controls.md#dms-12")
-- [[DocumentDB.1] Amazon DocumentDB clusters should be encrypted at
-  rest](documentdb-controls.md#documentdb-1 "documentdb-controls.md#documentdb-1")
-- [[DocumentDB.2] Amazon DocumentDB clusters should have an adequate
-  backup retention period](documentdb-controls.md#documentdb-2 "documentdb-controls.md#documentdb-2")
-- [[DocumentDB.3] Amazon DocumentDB manual cluster snapshots should
-  not be public](documentdb-controls.md#documentdb-3 "documentdb-controls.md#documentdb-3")
-- [[DocumentDB.4] Amazon DocumentDB clusters should publish audit
-  logs to CloudWatch Logs](documentdb-controls.md#documentdb-4 "documentdb-controls.md#documentdb-4")
-- [[DocumentDB.5] Amazon DocumentDB clusters should have deletion
-  protection enabled](documentdb-controls.md#documentdb-5 "documentdb-controls.md#documentdb-5")
+- [[DocumentDB.1] Amazon DocumentDB clusters should be encrypted at rest](documentdb-controls.md#documentdb-1 "documentdb-controls.md#documentdb-1")
+- [[DocumentDB.2] Amazon DocumentDB clusters should have an adequate backup retention period](documentdb-controls.md#documentdb-2 "documentdb-controls.md#documentdb-2")
+- [[DocumentDB.3] Amazon DocumentDB manual cluster snapshots should not be public](documentdb-controls.md#documentdb-3 "documentdb-controls.md#documentdb-3")
+- [[DocumentDB.4] Amazon DocumentDB clusters should publish audit logs to CloudWatch Logs](documentdb-controls.md#documentdb-4 "documentdb-controls.md#documentdb-4")
+- [[DocumentDB.5] Amazon DocumentDB clusters should have deletion protection enabled](documentdb-controls.md#documentdb-5 "documentdb-controls.md#documentdb-5")
 - [[DynamoDB.1] DynamoDB tables should automatically scale capacity with demand](dynamodb-controls.md#dynamodb-1 "dynamodb-controls.md#dynamodb-1")
 - [[DynamoDB.2] DynamoDB tables should have point-in-time recovery enabled](dynamodb-controls.md#dynamodb-2 "dynamodb-controls.md#dynamodb-2")
 - [[DynamoDB.3] DynamoDB Accelerator (DAX) clusters should be encrypted at rest](dynamodb-controls.md#dynamodb-3 "dynamodb-controls.md#dynamodb-3")
 - [[DynamoDB.4] DynamoDB tables should be present in a backup plan](dynamodb-controls.md#dynamodb-4 "dynamodb-controls.md#dynamodb-4")
 - [[DynamoDB.6] DynamoDB tables should have deletion protection enabled](dynamodb-controls.md#dynamodb-6 "dynamodb-controls.md#dynamodb-6")
 - [[DynamoDB.7] DynamoDB Accelerator clusters should be encrypted in transit](dynamodb-controls.md#dynamodb-7 "dynamodb-controls.md#dynamodb-7")
-- [[EC2.1] Amazon EBS snapshots should not be publicly
-  restorable](ec2-controls.md#ec2-1 "ec2-controls.md#ec2-1")
-- [[EC2.2] VPC default security groups should not allow
-  inbound or outbound traffic](ec2-controls.md#ec2-2 "ec2-controls.md#ec2-2")
-- [[EC2.3] Attached Amazon EBS volumes should be encrypted
-  at-rest](ec2-controls.md#ec2-3 "ec2-controls.md#ec2-3")
-- [[EC2.4] Stopped EC2 instances should be removed
-  after a specified time period](ec2-controls.md#ec2-4 "ec2-controls.md#ec2-4")
-- [[EC2.6] VPC flow logging should be enabled in all
-  VPCs](ec2-controls.md#ec2-6 "ec2-controls.md#ec2-6")
+- [[EC2.1] Amazon EBS snapshots should not be publicly restorable](ec2-controls.md#ec2-1 "ec2-controls.md#ec2-1")
+- [[EC2.2] VPC default security groups should not allow inbound or outbound traffic](ec2-controls.md#ec2-2 "ec2-controls.md#ec2-2")
+- [[EC2.3] Attached Amazon EBS volumes should be encrypted at-rest](ec2-controls.md#ec2-3 "ec2-controls.md#ec2-3")
+- [[EC2.4] Stopped EC2 instances should be removed after a specified time period](ec2-controls.md#ec2-4 "ec2-controls.md#ec2-4")
+- [[EC2.6] VPC flow logging should be enabled in all VPCs](ec2-controls.md#ec2-6 "ec2-controls.md#ec2-6")
 - [[EC2.7] EBS default encryption should be enabled](ec2-controls.md#ec2-7 "ec2-controls.md#ec2-7")
-- [[EC2.8] EC2 instances should use Instance Metadata
-  Service Version 2 (IMDSv2)](ec2-controls.md#ec2-8 "ec2-controls.md#ec2-8")
-- [[EC2.9] Amazon EC2 instances should not have a public IPv4
-  address](ec2-controls.md#ec2-9 "ec2-controls.md#ec2-9")
-- [[EC2.10] Amazon EC2 should be configured to use VPC endpoints
-  that are created for the Amazon EC2 service](ec2-controls.md#ec2-10 "ec2-controls.md#ec2-10")
+- [[EC2.8] EC2 instances should use Instance Metadata Service Version 2 (IMDSv2)](ec2-controls.md#ec2-8 "ec2-controls.md#ec2-8")
+- [[EC2.9] Amazon EC2 instances should not have a public IPv4 address](ec2-controls.md#ec2-9 "ec2-controls.md#ec2-9")
+- [[EC2.10] Amazon EC2 should be configured to use VPC endpoints that are created for the Amazon EC2 service](ec2-controls.md#ec2-10 "ec2-controls.md#ec2-10")
 - [[EC2.12] Unused Amazon EC2 EIPs should be removed](ec2-controls.md#ec2-12 "ec2-controls.md#ec2-12")
-- [[EC2.13] Security groups should not allow ingress from
-  0.0.0.0/0 or ::/0 to port 22](ec2-controls.md#ec2-13 "ec2-controls.md#ec2-13")
-- [[EC2.15] Amazon EC2 subnets should not automatically assign
-  public IP addresses](ec2-controls.md#ec2-15 "ec2-controls.md#ec2-15")
-- [[EC2.16] Unused Network Access Control Lists should be
-  removed](ec2-controls.md#ec2-16 "ec2-controls.md#ec2-16")
-- [[EC2.17] Amazon EC2 instances should not use multiple
-  ENIs](ec2-controls.md#ec2-17 "ec2-controls.md#ec2-17")
-- [[EC2.18] Security groups should only allow unrestricted
-  incoming traffic for authorized ports](ec2-controls.md#ec2-18 "ec2-controls.md#ec2-18")
-- [[EC2.19] Security groups should not allow unrestricted
-  access to ports with high risk](ec2-controls.md#ec2-19 "ec2-controls.md#ec2-19")
-- [[EC2.20] Both VPN tunnels for an AWS Site-to-Site VPN
-  connection should be up](ec2-controls.md#ec2-20 "ec2-controls.md#ec2-20")
-- [[EC2.21] Network ACLs should not allow ingress from
-  0.0.0.0/0 to port 22 or port 3389](ec2-controls.md#ec2-21 "ec2-controls.md#ec2-21")
-- [[EC2.23] Amazon EC2 Transit Gateways should not automatically
-  accept VPC attachment requests](ec2-controls.md#ec2-23 "ec2-controls.md#ec2-23")
-- [[EC2.24] Amazon EC2 paravirtual instance types should not be
-  used](ec2-controls.md#ec2-24 "ec2-controls.md#ec2-24")
-- [[EC2.25] Amazon EC2 launch templates should not assign public
-  IPs to network interfaces](ec2-controls.md#ec2-25 "ec2-controls.md#ec2-25")
-- [[EC2.28] EBS volumes should be covered by a backup
-  plan](ec2-controls.md#ec2-28 "ec2-controls.md#ec2-28")
-- [[EC2.51] EC2 Client VPN endpoints should have client
-  connection logging enabled](ec2-controls.md#ec2-51 "ec2-controls.md#ec2-51")
+- [[EC2.13] Security groups should not allow ingress from 0.0.0.0/0 or ::/0 to port 22](ec2-controls.md#ec2-13 "ec2-controls.md#ec2-13")
+- [[EC2.15] Amazon EC2 subnets should not automatically assign public IP addresses](ec2-controls.md#ec2-15 "ec2-controls.md#ec2-15")
+- [[EC2.16] Unused Network Access Control Lists should be removed](ec2-controls.md#ec2-16 "ec2-controls.md#ec2-16")
+- [[EC2.17] Amazon EC2 instances should not use multiple ENIs](ec2-controls.md#ec2-17 "ec2-controls.md#ec2-17")
+- [[EC2.18] Security groups should only allow unrestricted incoming traffic for authorized ports](ec2-controls.md#ec2-18 "ec2-controls.md#ec2-18")
+- [[EC2.19] Security groups should not allow unrestricted access to ports with high risk](ec2-controls.md#ec2-19 "ec2-controls.md#ec2-19")
+- [[EC2.20] Both VPN tunnels for an AWS Site-to-Site VPN connection should be up](ec2-controls.md#ec2-20 "ec2-controls.md#ec2-20")
+- [[EC2.21] Network ACLs should not allow ingress from 0.0.0.0/0 to port 22 or port 3389](ec2-controls.md#ec2-21 "ec2-controls.md#ec2-21")
+- [[EC2.23] Amazon EC2 Transit Gateways should not automatically accept VPC attachment requests](ec2-controls.md#ec2-23 "ec2-controls.md#ec2-23")
+- [[EC2.24] Amazon EC2 paravirtual instance types should not be used](ec2-controls.md#ec2-24 "ec2-controls.md#ec2-24")
+- [[EC2.25] Amazon EC2 launch templates should not assign public IPs to network interfaces](ec2-controls.md#ec2-25 "ec2-controls.md#ec2-25")
+- [[EC2.28] EBS volumes should be covered by a backup plan](ec2-controls.md#ec2-28 "ec2-controls.md#ec2-28")
+- [[EC2.51] EC2 Client VPN endpoints should have client connection logging enabled](ec2-controls.md#ec2-51 "ec2-controls.md#ec2-51")
 - [[EC2.55] VPCs should be configured with an interface endpoint for ECR API](ec2-controls.md#ec2-55 "ec2-controls.md#ec2-55")
 - [[EC2.56] VPCs should be configured with an interface endpoint for Docker Registry](ec2-controls.md#ec2-56 "ec2-controls.md#ec2-56")
 - [[EC2.57] VPCs should be configured with an interface endpoint for Systems Manager](ec2-controls.md#ec2-57 "ec2-controls.md#ec2-57")
-- [[EC2.58] VPCs should be configured with an interface endpoint for Systems Manager Incident Manager
-  Contacts](ec2-controls.md#ec2-58 "ec2-controls.md#ec2-58")
+- [[EC2.58] VPCs should be configured with an interface endpoint for Systems Manager Incident Manager Contacts](ec2-controls.md#ec2-58 "ec2-controls.md#ec2-58")
 - [[EC2.60] VPCs should be configured with an interface endpoint for Systems Manager Incident Manager](ec2-controls.md#ec2-60 "ec2-controls.md#ec2-60")
 - [[ECR.1] ECR private repositories should have image scanning configured](ecr-controls.md#ecr-1 "ecr-controls.md#ecr-1")
 - [[ECR.2] ECR private repositories should have tag immutability configured](ecr-controls.md#ecr-2 "ecr-controls.md#ecr-2")
 - [[ECR.3] ECR repositories should have at least one lifecycle policy configured](ecr-controls.md#ecr-3 "ecr-controls.md#ecr-3")
-- [[ECR.5] ECR repositories should be encrypted with customer
-  managed AWS KMS keys](ecr-controls.md#ecr-5 "ecr-controls.md#ecr-5")
-- [[ECS.1] Amazon ECS task definitions should have secure networking modes and user
-  definitions](ecs-controls.md#ecs-1 "ecs-controls.md#ecs-1")
+- [[ECR.5] ECR repositories should be encrypted with customer managed AWS KMS keys](ecr-controls.md#ecr-5 "ecr-controls.md#ecr-5")
+- [[ECS.1] Amazon ECS task definitions should have secure networking modes and user definitions](ecs-controls.md#ecs-1 "ecs-controls.md#ecs-1")
 - [[ECS.2] ECS services should not have public IP addresses assigned to them automatically](ecs-controls.md#ecs-2 "ecs-controls.md#ecs-2")
 - [[ECS.3] ECS task definitions should not share the host's process namespace](ecs-controls.md#ecs-3 "ecs-controls.md#ecs-3")
 - [[ECS.4] ECS containers should run as non-privileged](ecs-controls.md#ecs-4 "ecs-controls.md#ecs-4")
@@ -258,55 +206,35 @@ requirement.
 - [[EFS.2] Amazon EFS volumes should be in backup plans](efs-controls.md#efs-2 "efs-controls.md#efs-2")
 - [[EFS.3] EFS access points should enforce a root directory](efs-controls.md#efs-3 "efs-controls.md#efs-3")
 - [[EFS.4] EFS access points should enforce a user identity](efs-controls.md#efs-4 "efs-controls.md#efs-4")
-- [[EFS.6] EFS mount targets should not be associated with subnets that assign
-  public IP addresses on launch](efs-controls.md#efs-6 "efs-controls.md#efs-6")
+- [[EFS.6] EFS mount targets should not be associated with subnets that assign public IP addresses on launch](efs-controls.md#efs-6 "efs-controls.md#efs-6")
 - [[EKS.1] EKS cluster endpoints should not be publicly accessible](eks-controls.md#eks-1 "eks-controls.md#eks-1")
 - [[EKS.2] EKS clusters should run on a supported Kubernetes version](eks-controls.md#eks-2 "eks-controls.md#eks-2")
 - [[EKS.3] EKS clusters should use encrypted Kubernetes secrets](eks-controls.md#eks-3 "eks-controls.md#eks-3")
 - [[EKS.8] EKS clusters should have audit logging enabled](eks-controls.md#eks-8 "eks-controls.md#eks-8")
-- [[ElastiCache.1] ElastiCache (Redis OSS) clusters should have
-  automatic backups enabled](elasticache-controls.md#elasticache-1 "elasticache-controls.md#elasticache-1")
-- [[ElastiCache.2] ElastiCache clusters should have automatic minor
-  version upgrades enabled](elasticache-controls.md#elasticache-2 "elasticache-controls.md#elasticache-2")
-- [[ElastiCache.3] ElastiCache replication groups should have
-  automatic failover enabled](elasticache-controls.md#elasticache-3 "elasticache-controls.md#elasticache-3")
-- [[ElastiCache.4] ElastiCache replication groups should be encrypted
-  at rest](elasticache-controls.md#elasticache-4 "elasticache-controls.md#elasticache-4")
-- [[ElastiCache.5] ElastiCache replication groups should be encrypted
-  in transit](elasticache-controls.md#elasticache-5 "elasticache-controls.md#elasticache-5")
-- [[ElastiCache.6] ElastiCache (Redis OSS) replication groups of earlier versions
-  should have Redis OSS AUTH enabled](elasticache-controls.md#elasticache-6 "elasticache-controls.md#elasticache-6")
-- [[ElastiCache.7] ElastiCache clusters should not use the default
-  subnet group](elasticache-controls.md#elasticache-7 "elasticache-controls.md#elasticache-7")
+- [[ElastiCache.1] ElastiCache (Redis OSS) clusters should have automatic backups enabled](elasticache-controls.md#elasticache-1 "elasticache-controls.md#elasticache-1")
+- [[ElastiCache.2] ElastiCache clusters should have automatic minor version upgrades enabled](elasticache-controls.md#elasticache-2 "elasticache-controls.md#elasticache-2")
+- [[ElastiCache.3] ElastiCache replication groups should have automatic failover enabled](elasticache-controls.md#elasticache-3 "elasticache-controls.md#elasticache-3")
+- [[ElastiCache.4] ElastiCache replication groups should be encrypted at rest](elasticache-controls.md#elasticache-4 "elasticache-controls.md#elasticache-4")
+- [[ElastiCache.5] ElastiCache replication groups should be encrypted in transit](elasticache-controls.md#elasticache-5 "elasticache-controls.md#elasticache-5")
+- [[ElastiCache.6] ElastiCache (Redis OSS) replication groups of earlier versions should have Redis OSS AUTH enabled](elasticache-controls.md#elasticache-6 "elasticache-controls.md#elasticache-6")
+- [[ElastiCache.7] ElastiCache clusters should not use the default subnet group](elasticache-controls.md#elasticache-7 "elasticache-controls.md#elasticache-7")
 - [[ElasticBeanstalk.1] Elastic Beanstalk environments should have enhanced health reporting enabled](elasticbeanstalk-controls.md#elasticbeanstalk-1 "elasticbeanstalk-controls.md#elasticbeanstalk-1")
 - [[ElasticBeanstalk.2] Elastic Beanstalk managed platform updates should be enabled](elasticbeanstalk-controls.md#elasticbeanstalk-2 "elasticbeanstalk-controls.md#elasticbeanstalk-2")
-- [[ELB.1] Application Load Balancer should be configured to redirect all HTTP requests
-  to HTTPS](elb-controls.md#elb-1 "elb-controls.md#elb-1")
-- [[ELB.2] Classic Load Balancers with SSL/HTTPS listeners should use a certificate
-  provided by AWS Certificate Manager](elb-controls.md#elb-2 "elb-controls.md#elb-2")
-- [[ELB.3] Classic Load Balancer listeners should be configured with HTTPS or TLS
-  termination](elb-controls.md#elb-3 "elb-controls.md#elb-3")
-- [[ELB.4] Application Load Balancer should be configured to drop invalid http
-  headers](elb-controls.md#elb-4 "elb-controls.md#elb-4")
+- [[ELB.1] Application Load Balancer should be configured to redirect all HTTP requests to HTTPS](elb-controls.md#elb-1 "elb-controls.md#elb-1")
+- [[ELB.2] Classic Load Balancers with SSL/HTTPS listeners should use a certificate provided by AWS Certificate Manager](elb-controls.md#elb-2 "elb-controls.md#elb-2")
+- [[ELB.3] Classic Load Balancer listeners should be configured with HTTPS or TLS termination](elb-controls.md#elb-3 "elb-controls.md#elb-3")
+- [[ELB.4] Application Load Balancer should be configured to drop invalid http headers](elb-controls.md#elb-4 "elb-controls.md#elb-4")
 - [[ELB.5] Application and Classic Load Balancers logging should be enabled](elb-controls.md#elb-5 "elb-controls.md#elb-5")
-- [[ELB.6] Application, Gateway, and Network Load Balancers should have deletion
-  protection enabled](elb-controls.md#elb-6 "elb-controls.md#elb-6")
+- [[ELB.6] Application, Gateway, and Network Load Balancers should have deletion protection enabled](elb-controls.md#elb-6 "elb-controls.md#elb-6")
 - [[ELB.7] Classic Load Balancers should have connection draining enabled](elb-controls.md#elb-7 "elb-controls.md#elb-7")
-- [[ELB.8] Classic Load Balancers with SSL listeners should use a predefined
-  security policy that has strong AWS Configuration](elb-controls.md#elb-8 "elb-controls.md#elb-8")
-- [[ELB.9] Classic Load Balancers should have cross-zone load balancing
-  enabled](elb-controls.md#elb-9 "elb-controls.md#elb-9")
+- [[ELB.8] Classic Load Balancers with SSL listeners should use a predefined security policy that has strong AWS Configuration](elb-controls.md#elb-8 "elb-controls.md#elb-8")
+- [[ELB.9] Classic Load Balancers should have cross-zone load balancing enabled](elb-controls.md#elb-9 "elb-controls.md#elb-9")
 - [[ELB.10] Classic Load Balancer should span multiple Availability Zones](elb-controls.md#elb-10 "elb-controls.md#elb-10")
-- [[ELB.12] Application Load Balancer should be configured with defensive or strictest
-  desync mitigation mode](elb-controls.md#elb-12 "elb-controls.md#elb-12")
-- [[ELB.13] Application, Network and Gateway Load Balancers should span multiple
-  Availability Zones](elb-controls.md#elb-13 "elb-controls.md#elb-13")
-- [[ELB.14] Classic Load Balancer should be configured with defensive or strictest
-  desync mitigation mode](elb-controls.md#elb-14 "elb-controls.md#elb-14")
-- [[ELB.16] Application Load Balancers should be associated with an AWS WAF web
-  ACL](elb-controls.md#elb-16 "elb-controls.md#elb-16")
-- [[ELB.17] Application and Network Load Balancers with listeners
-  should use recommended security policies](elb-controls.md#elb-17 "elb-controls.md#elb-17")
+- [[ELB.12] Application Load Balancer should be configured with defensive or strictest desync mitigation mode](elb-controls.md#elb-12 "elb-controls.md#elb-12")
+- [[ELB.13] Application, Network and Gateway Load Balancers should span multiple Availability Zones](elb-controls.md#elb-13 "elb-controls.md#elb-13")
+- [[ELB.14] Classic Load Balancer should be configured with defensive or strictest desync mitigation mode](elb-controls.md#elb-14 "elb-controls.md#elb-14")
+- [[ELB.16] Application Load Balancers should be associated with an AWS WAF web ACL](elb-controls.md#elb-16 "elb-controls.md#elb-16")
+- [[ELB.17] Application and Network Load Balancers with listeners should use recommended security policies](elb-controls.md#elb-17 "elb-controls.md#elb-17")
 - [[EMR.1] Amazon EMR cluster primary nodes should not have public IP addresses](emr-controls.md#emr-1 "emr-controls.md#emr-1")
 - [[EMR.2] Amazon EMR block public access setting should be enabled](emr-controls.md#emr-2 "emr-controls.md#emr-2")
 - [[EMR.3] Amazon EMR security configurations should be encrypted at rest](emr-controls.md#emr-3 "emr-controls.md#emr-3")
@@ -341,41 +269,27 @@ requirement.
 - [[KMS.2] IAM principals should not have IAM inline policies that allow decryption actions on all KMS keys](kms-controls.md#kms-2 "kms-controls.md#kms-2")
 - [[KMS.3] AWS KMS keys should not be deleted unintentionally](kms-controls.md#kms-3 "kms-controls.md#kms-3")
 - [[KMS.4] AWS KMS key rotation should be enabled](kms-controls.md#kms-4 "kms-controls.md#kms-4")
-- [[Lambda.1] Lambda function policies should prohibit public
-  access](lambda-controls.md#lambda-1 "lambda-controls.md#lambda-1")
-- [[Lambda.2] Lambda functions should use supported
-  runtimes](lambda-controls.md#lambda-2 "lambda-controls.md#lambda-2")
+- [[Lambda.1] Lambda function policies should prohibit public access](lambda-controls.md#lambda-1 "lambda-controls.md#lambda-1")
+- [[Lambda.2] Lambda functions should use supported runtimes](lambda-controls.md#lambda-2 "lambda-controls.md#lambda-2")
 - [[Lambda.3] Lambda functions should be in a VPC](lambda-controls.md#lambda-3 "lambda-controls.md#lambda-3")
-- [[Lambda.5] VPC Lambda functions should operate in multiple
-  Availability Zones](lambda-controls.md#lambda-5 "lambda-controls.md#lambda-5")
-- [[Lambda.7] Lambda functions should have AWS X-Ray active
-  tracing enabled](lambda-controls.md#lambda-7 "lambda-controls.md#lambda-7")
+- [[Lambda.5] VPC Lambda functions should operate in multiple Availability Zones](lambda-controls.md#lambda-5 "lambda-controls.md#lambda-5")
+- [[Lambda.7] Lambda functions should have AWS X-Ray active tracing enabled](lambda-controls.md#lambda-7 "lambda-controls.md#lambda-7")
 - [[Macie.1] Amazon Macie should be enabled](macie-controls.md#macie-1 "macie-controls.md#macie-1")
 - [[Macie.2] Macie automated sensitive data discovery should be enabled](macie-controls.md#macie-2 "macie-controls.md#macie-2")
-- [[MSK.1] MSK clusters should be encrypted in transit among broker
-  nodes](msk-controls.md#msk-1 "msk-controls.md#msk-1")
-- [[MSK.2] MSK clusters should have enhanced monitoring
-  configured](msk-controls.md#msk-2 "msk-controls.md#msk-2")
+- [[MSK.1] MSK clusters should be encrypted in transit among broker nodes](msk-controls.md#msk-1 "msk-controls.md#msk-1")
+- [[MSK.2] MSK clusters should have enhanced monitoring configured](msk-controls.md#msk-2 "msk-controls.md#msk-2")
 - [[MQ.2] ActiveMQ brokers should stream audit logs to CloudWatch](mq-controls.md#mq-2 "mq-controls.md#mq-2")
 - [[MQ.3] Amazon MQ brokers should have automatic minor version upgrade enabled](mq-controls.md#mq-3 "mq-controls.md#mq-3")
 - [[MQ.5] ActiveMQ brokers should use active/standby deployment mode](mq-controls.md#mq-5 "mq-controls.md#mq-5")
 - [[MQ.6] RabbitMQ brokers should use cluster deployment mode](mq-controls.md#mq-6 "mq-controls.md#mq-6")
-- [[Neptune.1] Neptune DB clusters should be encrypted at
-  rest](neptune-controls.md#neptune-1 "neptune-controls.md#neptune-1")
-- [[Neptune.2] Neptune DB clusters should publish audit
-  logs to CloudWatch Logs](neptune-controls.md#neptune-2 "neptune-controls.md#neptune-2")
-- [[Neptune.3] Neptune DB cluster snapshots should not be
-  public](neptune-controls.md#neptune-3 "neptune-controls.md#neptune-3")
-- [[Neptune.4] Neptune DB clusters should have deletion
-  protection enabled](neptune-controls.md#neptune-4 "neptune-controls.md#neptune-4")
-- [[Neptune.5] Neptune DB clusters should have automated
-  backups enabled](neptune-controls.md#neptune-5 "neptune-controls.md#neptune-5")
-- [[Neptune.6] Neptune DB cluster snapshots should be
-  encrypted at rest](neptune-controls.md#neptune-6 "neptune-controls.md#neptune-6")
-- [[Neptune.7] Neptune DB clusters should have IAM
-  database authentication enabled](neptune-controls.md#neptune-7 "neptune-controls.md#neptune-7")
-- [[Neptune.8] Neptune DB clusters should be configured to
-  copy tags to snapshots](neptune-controls.md#neptune-8 "neptune-controls.md#neptune-8")
+- [[Neptune.1] Neptune DB clusters should be encrypted at rest](neptune-controls.md#neptune-1 "neptune-controls.md#neptune-1")
+- [[Neptune.2] Neptune DB clusters should publish audit logs to CloudWatch Logs](neptune-controls.md#neptune-2 "neptune-controls.md#neptune-2")
+- [[Neptune.3] Neptune DB cluster snapshots should not be public](neptune-controls.md#neptune-3 "neptune-controls.md#neptune-3")
+- [[Neptune.4] Neptune DB clusters should have deletion protection enabled](neptune-controls.md#neptune-4 "neptune-controls.md#neptune-4")
+- [[Neptune.5] Neptune DB clusters should have automated backups enabled](neptune-controls.md#neptune-5 "neptune-controls.md#neptune-5")
+- [[Neptune.6] Neptune DB cluster snapshots should be encrypted at rest](neptune-controls.md#neptune-6 "neptune-controls.md#neptune-6")
+- [[Neptune.7] Neptune DB clusters should have IAM database authentication enabled](neptune-controls.md#neptune-7 "neptune-controls.md#neptune-7")
+- [[Neptune.8] Neptune DB clusters should be configured to copy tags to snapshots](neptune-controls.md#neptune-8 "neptune-controls.md#neptune-8")
 - [[Neptune.9] Neptune DB clusters should be deployed across multiple Availability Zones](neptune-controls.md#neptune-9 "neptune-controls.md#neptune-9")
 - [[NetworkFirewall.1] Network Firewall firewalls should be deployed across multiple Availability Zones](networkfirewall-controls.md#networkfirewall-1 "networkfirewall-controls.md#networkfirewall-1")
 - [[NetworkFirewall.2] Network Firewall logging should be enabled](networkfirewall-controls.md#networkfirewall-2 "networkfirewall-controls.md#networkfirewall-2")
@@ -384,8 +298,7 @@ requirement.
 - [[NetworkFirewall.5] The default stateless action for Network Firewall policies should be drop or forward for fragmented packets](networkfirewall-controls.md#networkfirewall-5 "networkfirewall-controls.md#networkfirewall-5")
 - [[NetworkFirewall.6] Stateless Network Firewall rule group should not be empty](networkfirewall-controls.md#networkfirewall-6 "networkfirewall-controls.md#networkfirewall-6")
 - [[NetworkFirewall.9] Network Firewall firewalls should have deletion protection enabled](networkfirewall-controls.md#networkfirewall-9 "networkfirewall-controls.md#networkfirewall-9")
-- [[NetworkFirewall.10] Network Firewall firewalls should have subnet change
-  protection enabled](networkfirewall-controls.md#networkfirewall-10 "networkfirewall-controls.md#networkfirewall-10")
+- [[NetworkFirewall.10] Network Firewall firewalls should have subnet change protection enabled](networkfirewall-controls.md#networkfirewall-10 "networkfirewall-controls.md#networkfirewall-10")
 - [[Opensearch.1] OpenSearch domains should have encryption at rest enabled](opensearch-controls.md#opensearch-1 "opensearch-controls.md#opensearch-1")
 - [[Opensearch.2] OpenSearch domains should not be publicly accessible](opensearch-controls.md#opensearch-2 "opensearch-controls.md#opensearch-2")
 - [[Opensearch.3] OpenSearch domains should encrypt data sent between nodes](opensearch-controls.md#opensearch-3 "opensearch-controls.md#opensearch-3")
@@ -412,8 +325,7 @@ requirement.
 - [[RDS.13] RDS automatic minor version upgrades should be enabled](rds-controls.md#rds-13 "rds-controls.md#rds-13")
 - [[RDS.14] Amazon Aurora clusters should have backtracking enabled](rds-controls.md#rds-14 "rds-controls.md#rds-14")
 - [[RDS.15] RDS DB clusters should be configured for multiple Availability Zones](rds-controls.md#rds-15 "rds-controls.md#rds-15")
-- [[RDS.16] Aurora DB clusters should be configured to copy tags to DB
-  snapshots](rds-controls.md#rds-16 "rds-controls.md#rds-16")
+- [[RDS.16] Aurora DB clusters should be configured to copy tags to DB snapshots](rds-controls.md#rds-16 "rds-controls.md#rds-16")
 - [[RDS.17] RDS DB instances should be configured to copy tags to snapshots](rds-controls.md#rds-17 "rds-controls.md#rds-17")
 - [[RDS.19] Existing RDS event notification subscriptions should be configured for critical cluster events](rds-controls.md#rds-19 "rds-controls.md#rds-19")
 - [[RDS.20] Existing RDS event notification subscriptions should be configured for critical database instance events](rds-controls.md#rds-20 "rds-controls.md#rds-20")
@@ -437,14 +349,11 @@ requirement.
 - [[Redshift.7] Redshift clusters should use enhanced VPC routing](redshift-controls.md#redshift-7 "redshift-controls.md#redshift-7")
 - [[Redshift.8] Amazon Redshift clusters should not use the default Admin username](redshift-controls.md#redshift-8 "redshift-controls.md#redshift-8")
 - [[Redshift.10] Redshift clusters should be encrypted at rest](redshift-controls.md#redshift-10 "redshift-controls.md#redshift-10")
-- [[RedshiftServerless.4] Redshift Serverless namespaces should be encrypted
-  with customer managed AWS KMS keys](redshiftserverless-controls.md#redshiftserverless-4 "redshiftserverless-controls.md#redshiftserverless-4")
+- [[RedshiftServerless.4] Redshift Serverless namespaces should be encrypted with customer managed AWS KMS keys](redshiftserverless-controls.md#redshiftserverless-4 "redshiftserverless-controls.md#redshiftserverless-4")
 - [[Route53.2] Route 53 public hosted zones should log DNS queries](route53-controls.md#route53-2 "route53-controls.md#route53-2")
 - [[S3.1] S3 general purpose buckets should have block public access settings enabled](s3-controls.md#s3-1 "s3-controls.md#s3-1")
-- [[S3.2] S3 general purpose buckets should block public read
-  access](s3-controls.md#s3-2 "s3-controls.md#s3-2")
-- [[S3.3] S3 general purpose buckets should block public write
-  access](s3-controls.md#s3-3 "s3-controls.md#s3-3")
+- [[S3.2] S3 general purpose buckets should block public read access](s3-controls.md#s3-2 "s3-controls.md#s3-2")
+- [[S3.3] S3 general purpose buckets should block public write access](s3-controls.md#s3-3 "s3-controls.md#s3-3")
 - [[S3.5] S3 general purpose buckets should require requests to use SSL](s3-controls.md#s3-5 "s3-controls.md#s3-5")
 - [[S3.6] S3 general purpose bucket policies should restrict access to other AWS accounts](s3-controls.md#s3-6 "s3-controls.md#s3-6")
 - [[S3.7] S3 general purpose buckets should use cross-Region replication](s3-controls.md#s3-7 "s3-controls.md#s3-7")
@@ -459,14 +368,10 @@ requirement.
 - [[S3.17] S3 general purpose buckets should be encrypted at rest with AWS KMS keys](s3-controls.md#s3-17 "s3-controls.md#s3-17")
 - [[S3.19] S3 access points should have block public access settings enabled](s3-controls.md#s3-19 "s3-controls.md#s3-19")
 - [[S3.20] S3 general purpose buckets should have MFA delete enabled](s3-controls.md#s3-20 "s3-controls.md#s3-20")
-- [[SageMaker.1] Amazon SageMaker notebook instances should not have
-  direct internet access](sagemaker-controls.md#sagemaker-1 "sagemaker-controls.md#sagemaker-1")
-- [[SageMaker.2] SageMaker notebook instances should be launched in a
-  custom VPC](sagemaker-controls.md#sagemaker-2 "sagemaker-controls.md#sagemaker-2")
-- [[SageMaker.3] Users should not have root access to SageMaker notebook
-  instances](sagemaker-controls.md#sagemaker-3 "sagemaker-controls.md#sagemaker-3")
-- [[SageMaker.4] SageMaker endpoint production variants should have an
-  initial instance count greater than 1](sagemaker-controls.md#sagemaker-4 "sagemaker-controls.md#sagemaker-4")
+- [[SageMaker.1] Amazon SageMaker notebook instances should not have direct internet access](sagemaker-controls.md#sagemaker-1 "sagemaker-controls.md#sagemaker-1")
+- [[SageMaker.2] SageMaker notebook instances should be launched in a custom VPC](sagemaker-controls.md#sagemaker-2 "sagemaker-controls.md#sagemaker-2")
+- [[SageMaker.3] Users should not have root access to SageMaker notebook instances](sagemaker-controls.md#sagemaker-3 "sagemaker-controls.md#sagemaker-3")
+- [[SageMaker.4] SageMaker endpoint production variants should have an initial instance count greater than 1](sagemaker-controls.md#sagemaker-4 "sagemaker-controls.md#sagemaker-4")
 - [[SecretsManager.1] Secrets Manager secrets should have automatic rotation enabled](secretsmanager-controls.md#secretsmanager-1 "secretsmanager-controls.md#secretsmanager-1")
 - [[SecretsManager.2] Secrets Manager secrets configured with automatic rotation should rotate successfully](secretsmanager-controls.md#secretsmanager-2 "secretsmanager-controls.md#secretsmanager-2")
 - [[SecretsManager.3] Remove unused Secrets Manager secrets](secretsmanager-controls.md#secretsmanager-3 "secretsmanager-controls.md#secretsmanager-3")
@@ -475,10 +380,8 @@ requirement.
 - [[SNS.1] SNS topics should be encrypted at-rest using AWS KMS](sns-controls.md#sns-1 "sns-controls.md#sns-1")
 - [[SQS.1] Amazon SQS queues should be encrypted at rest](sqs-controls.md#sqs-1 "sqs-controls.md#sqs-1")
 - [[SSM.1] Amazon EC2 instances should be managed by AWS Systems Manager](ssm-controls.md#ssm-1 "ssm-controls.md#ssm-1")
-- [[SSM.2] Amazon EC2 instances managed by Systems Manager should have a patch
-  compliance status of COMPLIANT after a patch installation](ssm-controls.md#ssm-2 "ssm-controls.md#ssm-2")
-- [[SSM.3] Amazon EC2 instances managed by Systems Manager should have an
-  association compliance status of COMPLIANT](ssm-controls.md#ssm-3 "ssm-controls.md#ssm-3")
+- [[SSM.2] Amazon EC2 instances managed by Systems Manager should have a patch compliance status of COMPLIANT after a patch installation](ssm-controls.md#ssm-2 "ssm-controls.md#ssm-2")
+- [[SSM.3] Amazon EC2 instances managed by Systems Manager should have an association compliance status of COMPLIANT](ssm-controls.md#ssm-3 "ssm-controls.md#ssm-3")
 - [[SSM.4] SSM documents should not be public](ssm-controls.md#ssm-4 "ssm-controls.md#ssm-4")
 - [[Transfer.2] Transfer Family servers should not use FTP protocol for endpoint connection](transfer-controls.md#transfer-2 "transfer-controls.md#transfer-2")
 - [[Transfer.3] Transfer Family connectors should have logging enabled](transfer-controls.md#transfer-3 "transfer-controls.md#transfer-3")

@@ -48,9 +48,7 @@ and enabling Security Hub CSPM controls from AWS Control Tower using one of the 
 This standard is only available in the [AWS Regions where AWS Control Tower is
 available](../../../controltower/latest/userguide/region-how.md "../../../controltower/latest/userguide/region-how.md").
 
-## Enabling and disabling
-
-controls in the standard
+## Enabling and disabling controls in the standard
 
 After you've enabled Security Hub CSPM controls through AWS Control Tower and the Service-Managed Standard: AWS Control Tower standard has been created, you can view the standard
 and its available controls in Security Hub CSPM.
@@ -86,9 +84,7 @@ standard), the action applies only to the current account and region.
 configuration](central-configuration-intro.md "central-configuration-intro.md") can't be used to manage Service-Managed Standard: AWS Control Tower. You can use _only_
 the AWS Control Tower service to enable and disable controls in this standard.
 
-## Viewing enablement status
-
-and control status
+## Viewing enablement status and control status
 
 You can view the enablement status of a control by using one of the following
 methods:
@@ -104,8 +100,7 @@ Security Hub CSPM.
 
 Security Hub CSPM calculates control status based on the workflow status and compliance status of
 the control findings. For more information about enablement status and control status,
-see [Reviewing the details of controls in
-Security Hub CSPM](securityhub-standards-control-details.md "securityhub-standards-control-details.md").
+see [Reviewing the details of controls in Security Hub CSPM](securityhub-standards-control-details.md "securityhub-standards-control-details.md").
 
 Based on control statuses, Security Hub CSPM calculates a [security score](standards-security-score.md "standards-security-score.md") for Service-Managed Standard: AWS Control Tower. This score is only available in Security Hub CSPM.
 In addition, you can only view [control
@@ -141,9 +136,7 @@ standard.
 Disabling the Security Hub CSPM service removes Service-Managed Standard: AWS Control Tower and any other standards that
 you’ve enabled.
 
-## Finding field format for
-
-Service-Managed Standard: AWS Control Tower
+## Finding field format for Service-Managed Standard: AWS Control Tower
 
 When you create Service-Managed Standard: AWS Control Tower and enable controls for it, you'll start to receive
 control findings in Security Hub CSPM. Security Hub CSPM reports control findings in the [AWS Security Finding Format (ASFF)](securityhub-findings-format.md "securityhub-findings-format.md").
@@ -157,9 +150,7 @@ These are the ASFF values for this standard's Amazon Resource Name (ARN) and
 
 For a sample finding for Service-Managed Standard: AWS Control Tower, see [Samples of control findings](sample-control-findings.md "sample-control-findings.md").
 
-## Controls that apply to
-
-Service-Managed Standard: AWS Control Tower
+## Controls that apply to Service-Managed Standard: AWS Control Tower
 
 Service-Managed Standard: AWS Control Tower supports a subset of controls that are part of the AWS Foundational Security Best Practices (FSBP) standard.
 Choose a control to view information about it, including remediation steps for failed findings.

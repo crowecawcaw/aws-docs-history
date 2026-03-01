@@ -1,7 +1,6 @@
 # Security Hub CSPM controls for Amazon FSx
 
-These AWS Security Hub CSPM controls evaluate the Amazon FSx service and resources. The controls might not be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+These AWS Security Hub CSPM controls evaluate the Amazon FSx service and resources. The controls might not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
 ## [FSx.1] FSx for OpenZFS file systems should be configured to copy tags to backups and volumes
 

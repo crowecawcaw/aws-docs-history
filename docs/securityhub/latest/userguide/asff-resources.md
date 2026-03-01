@@ -51,8 +51,6 @@ select a resource from the following list.
 - [AwsStepFunctions resources in ASFF](asff-resourcedetails-awsstepfunctions.md "asff-resourcedetails-awsstepfunctions.md")
 - [AwsWaf resources in ASFF](asff-resourcedetails-awswaf.md "asff-resourcedetails-awswaf.md")
 - [AwsXray resources in ASFF](asff-resourcedetails-awsxray.md "asff-resourcedetails-awsxray.md")
-- [CodeRepository object
-  in ASFF](asff-resourcedetails-coderepository.md "asff-resourcedetails-coderepository.md")
-- [Container object in
-  ASFF](asff-resourcedetails-container.md "asff-resourcedetails-container.md")
+- [CodeRepository object in ASFF](asff-resourcedetails-coderepository.md "asff-resourcedetails-coderepository.md")
+- [Container object in ASFF](asff-resourcedetails-container.md "asff-resourcedetails-container.md")
 - [Other object in ASFF](asff-resourcedetails-other.md "asff-resourcedetails-other.md")

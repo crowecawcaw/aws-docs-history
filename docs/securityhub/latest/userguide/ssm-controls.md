@@ -1,8 +1,7 @@
 # Security Hub CSPM controls for Systems Manager
 
 These AWS Security Hub CSPM controls evaluate the AWS Systems Manager (SSM) service and resources. The
-controls might not be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+controls might not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
 ## [SSM.1] Amazon EC2 instances should be managed by AWS Systems Manager
 
@@ -56,9 +55,7 @@ host management](../../../systems-manager/latest/userguide/quick-setup-host-mana
 section on the AWS Systems Manager console, you can keep the default settings or change them
 as necessary for your preferred configuration.
 
-## [SSM.2] Amazon EC2 instances managed by Systems Manager should have a patch
-
-compliance status of COMPLIANT after a patch installation
+## [SSM.2] Amazon EC2 instances managed by Systems Manager should have a patch compliance status of COMPLIANT after a patch installation
 
 **Related requirements:** NIST.800-53.r5 CM-8(3),
 NIST.800-53.r5 SI-2, NIST.800-53.r5 SI-2(2), NIST.800-53.r5 SI-2(3), NIST.800-53.r5
@@ -111,9 +108,7 @@ instance.
    your patched instances, choose **Compliance** in the
    navigation pane.
 
-## [SSM.3] Amazon EC2 instances managed by Systems Manager should have an
-
-association compliance status of COMPLIANT
+## [SSM.3] Amazon EC2 instances managed by Systems Manager should have an association compliance status of COMPLIANT
 
 **Related requirements:** NIST.800-53.r5 CA-9(1),
 NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2), NIST.800-53.r5 CM-8, NIST.800-53.r5
@@ -255,9 +250,7 @@ To add tags to an AWS Systems Manager document, you can use the [AddTagsToResour
 the AWS CLI, run the [add-tags-to-resource](../../../cli/latest/reference/ssm/add-tags-to-resource.md "../../../cli/latest/reference/ssm/add-tags-to-resource.md") command. You can also use the AWS Systems Manager
 console.
 
-## [SSM.6] SSM Automation should have CloudWatch logging
-
-enabled
+## [SSM.6] SSM Automation should have CloudWatch logging enabled
 
 **Category:** Identify > Logging
 
@@ -289,9 +282,7 @@ files from various AWS services.
 For information about enabling CloudWatch logging for SSM Automation, see [Logging
 Automation action output with CloudWatch Logs](../../../systems-manager/latest/userguide/automation-action-logging.md "../../../systems-manager/latest/userguide/automation-action-logging.md") in the _AWS Systems Manager User Guide_.
 
-## [SSM.7] SSM documents should have the block public sharing
-
-setting enabled
+## [SSM.7] SSM documents should have the block public sharing setting enabled
 
 **Category:** Protect > Secure access management > Resource not publicly accessible
 

@@ -39,19 +39,14 @@ Amazon EventBridge to trigger automatic responses to specific findings.
 - [Understanding integrations in Security Hub CSPM](securityhub-findings-providers.md "securityhub-findings-providers.md")
 - [Creating and updating findings in Security Hub CSPM](securityhub-findings.md "securityhub-findings.md")
 - [Viewing insights in Security Hub CSPM](securityhub-insights.md "securityhub-insights.md")
-- [Automatically modifying and acting on findings in
-  Security Hub CSPM](automations.md "automations.md")
+- [Automatically modifying and acting on findings in Security Hub CSPM](automations.md "automations.md")
 - [Working with the dashboard in Security Hub CSPM](dashboard.md "dashboard.md")
 - [Regional limits for Security Hub CSPM](securityhub-regions.md "securityhub-regions.md")
-- [Creating Security Hub CSPM resources with
-  CloudFormation](creating-resources-with-cloudformation.md "creating-resources-with-cloudformation.md")
-- [Subscribing to Security Hub CSPM announcements with
-  Amazon SNS](securityhub-announcements.md "securityhub-announcements.md")
+- [Creating Security Hub CSPM resources with CloudFormation](creating-resources-with-cloudformation.md "creating-resources-with-cloudformation.md")
+- [Subscribing to Security Hub CSPM announcements with Amazon SNS](securityhub-announcements.md "securityhub-announcements.md")
 - [Disabling Security Hub CSPM](securityhub-disable.md "securityhub-disable.md")
 - [Security in AWS Security Hub CSPM](security.md "security.md")
-- [Logging
-  Security Hub
-  API calls with CloudTrail](securityhub-ct.md "securityhub-ct.md")
+- [Logging Security Hub API calls with CloudTrail](securityhub-ct.md "securityhub-ct.md")
 
 ## Benefits of Security Hub CSPM
 
@@ -130,8 +125,7 @@ AWS services in combination with Security Hub CSPM. Some AWS services send their
 into a standard format. Some AWS services can also receive findings from Security Hub CSPM.
 
 For a list of other AWS services that send or receive Security Hub CSPM findings, see
-[AWS service integrations with
-Security Hub CSPM](securityhub-internal-providers.md "securityhub-internal-providers.md").
+[AWS service integrations with Security Hub CSPM](securityhub-internal-providers.md "securityhub-internal-providers.md").
 
 Security Hub CSPM uses service-linked rules from AWS Config to run security checks for most controls. Controls refer to specific
 AWS services and AWS resources. For a list of Security Hub CSPM controls, see

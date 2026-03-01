@@ -2,8 +2,7 @@
 
 These Security Hub CSPM controls evaluate the AWS Config service and resources.
 
-These controls may not be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+These controls may not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
 ## [Config.1] AWS Config should be enabled and use the service-linked role for resource recording
 
@@ -85,9 +84,7 @@ to controls that are enabled in the current Region. In linked Regions, if you ha
 global resources, you won’t receive a `FAILED` finding (your recording of other resources is sufficient).
 
 The `StatusReasons` field in the `Compliance` object of your finding can help you determine
-why you have a failed finding for this control. For more information, see [Compliance details for control
-findings](controls-findings-create-update.md#control-findings-asff-compliance "controls-findings-create-update.md#control-findings-asff-compliance").
+why you have a failed finding for this control. For more information, see [Compliance details for control findings](controls-findings-create-update.md#control-findings-asff-compliance "controls-findings-create-update.md#control-findings-asff-compliance").
 
-For a list of which resources must be recorded for each control, see [Required AWS Config resources for control
-findings](controls-config-resources.md "controls-config-resources.md").
+For a list of which resources must be recorded for each control, see [Required AWS Config resources for control findings](controls-config-resources.md "controls-config-resources.md").
 For general information about enabling AWS Config and configuring resource recording, see [Enabling and configuring AWS Config for Security Hub CSPM](securityhub-setup-prereqs.md "securityhub-setup-prereqs.md").

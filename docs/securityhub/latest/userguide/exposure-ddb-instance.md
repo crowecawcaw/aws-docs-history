@@ -31,16 +31,12 @@ The following describes the misconfiguration traits and remediation steps for Dy
 
 ### The DynamoDB table has point-in-time recovery disabled
 
-######
-
-Enable DynamoDB point-in-time recovery
+###### Enable DynamoDB point-in-time recovery
 
 DynamoDB point-in-time recovery provides continuous automated backups for your DynamoDB table data.
 For information about how to restore a DynamoDB table to a point in time, see [Restoring a DynamoDB table to a point in time](../../../amazondynamodb/latest/developerguide/PointInTimeRecovery.md "../../../amazondynamodb/latest/developerguide/PointInTimeRecovery.md") in the _Amazon DynamoDB User Guide_.
 
-###
-
-The DynamoDB table is not covered by a backup plan
+### The DynamoDB table is not covered by a backup plan
 
 AWS Backup provides a centralized service to configure, manage, and automate backups across AWS services, including DynamoDB.
 Without a backup plan, your table lacks scheduled, automated backups with customizable retention periods, creating significant security risks.
@@ -52,9 +48,7 @@ Following data protection best practices, we recommend covering your DynamoDB ta
 Before creating a backup plan, determine an appropriate backup frequency and retention periods for your data.
 For information about how to create a backup plan, see [Assign resources to a backup plan](../../../aws-backup/latest/devguide/assigning-resources.md "../../../aws-backup/latest/devguide/assigning-resources.md") in the _Amazon DynamoDB User Guide_.
 
-###
-
-The DynamoDB table has deletion protection disabled
+### The DynamoDB table has deletion protection disabled
 
 Deletion protection prevents the accidental deletion of DynamoDB tables.
 When deletion protection is disabled, DynamoDB tables are vulnerable to unintended deletion through console actions, API calls, CLI commands, or automated processes.

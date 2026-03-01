@@ -1,6 +1,4 @@
-# Determining the severity level of an
-
-exposure finding
+# Determining the severity level of an exposure finding
 
 AWS Security Hub assigns each exposure finding a default severity of `CRITICAL`,
 `HIGH`, `MEDIUM`, or `LOW`. Exposure findings with

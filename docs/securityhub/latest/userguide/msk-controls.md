@@ -1,12 +1,9 @@
 # Security Hub CSPM controls for Amazon MSK
 
 These AWS Security Hub CSPM controls evaluate the Amazon Managed Streaming for Apache Kafka (Amazon MSK) service and resources. The
-controls might not be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+controls might not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
-## [MSK.1] MSK clusters should be encrypted in transit among broker
-
-nodes
+## [MSK.1] MSK clusters should be encrypted in transit among broker nodes
 
 **Related requirements:** NIST.800-53.r5 AC-4,
 NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-23, NIST.800-53.r5 SC-23(3), NIST.800-53.r5
@@ -45,9 +42,7 @@ For information about updating the encryption settings for an Amazon MSK cluster
 settings of a cluster](../../../msk/latest/developerguide/msk-update-security.md "../../../msk/latest/developerguide/msk-update-security.md") in the _Amazon Managed Streaming for Apache Kafka Developer
 Guide_.
 
-## [MSK.2] MSK clusters should have enhanced monitoring
-
-configured
+## [MSK.2] MSK clusters should have enhanced monitoring configured
 
 **Related requirements:** NIST.800-53.r5 CA-7,
 NIST.800-53.r5 SI-2
@@ -95,9 +90,7 @@ For more information about monitoring levels, see [Amazon MSK metrics for
 monitoring Standard brokers with CloudWatch](../../../msk/latest/developerguide/metrics-details.md "../../../msk/latest/developerguide/metrics-details.md") in the _Amazon Managed Streaming for Apache Kafka
 Developer Guide_.
 
-## [MSK.3] MSK Connect connectors should be encrypted in
-
-transit
+## [MSK.3] MSK Connect connectors should be encrypted in transit
 
 **Related requirements:** PCI DSS v4.0.1/4.2.1
 
@@ -200,9 +193,7 @@ connector with the appropriate logging configuration. For information about
 configuration options, see [Logging for MSK
 Connect](../../../msk/latest/developerguide/msk-connect-logging.md "../../../msk/latest/developerguide/msk-connect-logging.md") in the _Amazon Managed Streaming for Apache Kafka Developer Guide_.
 
-## [MSK.6] MSK clusters should disable unauthenticated
-
-access
+## [MSK.6] MSK clusters should disable unauthenticated access
 
 **Category:** Protect > Secure access management >
 Passwordless authentication

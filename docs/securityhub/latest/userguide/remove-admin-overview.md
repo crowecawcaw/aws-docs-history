@@ -62,9 +62,7 @@ until a new Security Hub CSPM administrator enables them as member accounts.
 If the organization management account isn't an enabled account in Security Hub CSPM, then use
 the option on the **Welcome to Security Hub CSPM** page.
 
-###### To remove the delegated Security Hub CSPM administrator account from the \*\*Welcome to
-
-Security Hub CSPM\*\* page
+###### To remove the delegated Security Hub CSPM administrator account from the **Welcome to Security Hub CSPM** page
 
 1. Open the AWS Security Hub CSPM console at [https://console.aws.amazon.com/securityhub/](https://console.aws.amazon.com/securityhub/ "https://console.aws.amazon.com/securityhub/").
 2. Choose **Go to Security Hub**.
@@ -75,9 +73,7 @@ If the organization management account is an enabled account in **Security
 Hub**, then use the option on the **General** tab of the
 **Settings** page.
 
-###### To remove the delegated Security Hub CSPM administrator account from the **Settings**
-
-page
+###### To remove the delegated Security Hub CSPM administrator account from the **Settings** page
 
 1. Open the AWS Security Hub CSPM console at [https://console.aws.amazon.com/securityhub/](https://console.aws.amazon.com/securityhub/ "https://console.aws.amazon.com/securityhub/").
 2. In the Security Hub CSPM navigation pane, choose **Settings**. Then

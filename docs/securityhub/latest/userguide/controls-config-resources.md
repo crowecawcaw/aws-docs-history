@@ -1,6 +1,4 @@
-# Required AWS Config resources for control
-
-findings
+# Required AWS Config resources for control findings
 
 In AWS Security Hub CSPM, some controls use service-linked AWS Config rules that detect configuration
 changes in your AWS resources. For Security Hub CSPM to generate accurate findings for these controls,
@@ -26,24 +24,15 @@ available in AWS Config. For a list of these limits, see [Regional limits on Sec
 
 ###### Topics
 
-- [Required resources for all Security Hub CSPM
-  controls](#all-controls-config-resources "#all-controls-config-resources")
-- [Required resources for the
-  AWS Foundational Security Best Practices standard](#securityhub-standards-fsbp-config-resources "#securityhub-standards-fsbp-config-resources")
-- [Required resources for the
-  CIS AWS Foundations Benchmark](#securityhub-standards-cis-config-resources "#securityhub-standards-cis-config-resources")
-- [Required resources for the NIST SP 800-53 Revision 5
-  standard](#nist-config-resources "#nist-config-resources")
-- [Required resources for the
-  NIST SP 800-171 Revision 2 standard](#nist-800-171-config-resources "#nist-800-171-config-resources")
-- [Required resources for
-  PCI DSS v3.2.1](#securityhub-standards-pci-config-resources "#securityhub-standards-pci-config-resources")
-- [Required resources for the AWS Resource
-  Tagging standard](#tagging-config-resources "#tagging-config-resources")
+- [Required resources for all Security Hub CSPM controls](#all-controls-config-resources "#all-controls-config-resources")
+- [Required resources for the AWS Foundational Security Best Practices standard](#securityhub-standards-fsbp-config-resources "#securityhub-standards-fsbp-config-resources")
+- [Required resources for the CIS AWS Foundations Benchmark](#securityhub-standards-cis-config-resources "#securityhub-standards-cis-config-resources")
+- [Required resources for the NIST SP 800-53 Revision 5 standard](#nist-config-resources "#nist-config-resources")
+- [Required resources for the NIST SP 800-171 Revision 2 standard](#nist-800-171-config-resources "#nist-800-171-config-resources")
+- [Required resources for PCI DSS v3.2.1](#securityhub-standards-pci-config-resources "#securityhub-standards-pci-config-resources")
+- [Required resources for the AWS Resource Tagging standard](#tagging-config-resources "#tagging-config-resources")
 
-## Required resources for all Security Hub CSPM
-
-controls
+## Required resources for all Security Hub CSPM controls
 
 For Security Hub CSPM to generate findings for change triggered controls that are enabled and use
 an AWS Config rule, you must record the following types of resources in AWS Config. This table also
@@ -250,15 +239,12 @@ evaluate more than one type of resource.
 | `AWS::WAFv2::WebACL`                               | WAF.10<br>WAF.11                                                                                                                                             |
 | Amazon WorkSpaces                                  | `AWS::WorkSpaces::WorkSpace`                                                                                                                                 | WorkSpaces.1<br>WorkSpaces.2                                                                                                                                                                                                                                                             |
 
-## Required resources for the
-
-AWS Foundational Security Best Practices standard
+## Required resources for the AWS Foundational Security Best Practices standard
 
 For Security Hub CSPM to accurately report findings for change triggered controls that apply to
 the AWS Foundational Security Best Practices standard (v.1.0.0), are enabled, and use
 an AWS Config rule, you must record the following types of resources in AWS Config. For information
-about this standard, see [AWS Foundational Security Best Practices standard in
-Security Hub CSPM](fsbp-standard.md "fsbp-standard.md").
+about this standard, see [AWS Foundational Security Best Practices standard in Security Hub CSPM](fsbp-standard.md "fsbp-standard.md").
 
 | AWS service                                            | Resource types                                                                                                                                                                                                                                                                                                                                                                                          |
 | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -307,15 +293,12 @@ Security Hub CSPM](fsbp-standard.md "fsbp-standard.md").
 | AWS WAF                                                | `AWS::WAF::Rule`, `AWS::WAF::RuleGroup`,<br>`AWS::WAF::WebACL`,<br>`AWS::WAFRegional::Rule`,<br>`AWS::WAFRegional::RuleGroup`,<br>`AWS::WAFRegional::WebACL`,<br>`AWS::WAFv2::RuleGroup`,<br>`AWS::WAFv2::WebACL`                                                                                                                                                                                       |
 | Amazon WorkSpaces                                      | `AWS::WorkSpaces::WorkSpace`                                                                                                                                                                                                                                                                                                                                                                            |
 
-## Required resources for the
-
-CIS AWS Foundations Benchmark
+## Required resources for the CIS AWS Foundations Benchmark
 
 To run security checks for enabled controls that apply to the Center for Internet
 Security (CIS) AWS Foundations Benchmark, Security Hub CSPM either runs through the exact audit
 steps prescribed for the checks or uses specific AWS Config managed rules. For information
-about this standard in Security Hub CSPM, see [CIS AWS Foundations Benchmark in
-Security Hub CSPM](cis-aws-foundations-benchmark.md "cis-aws-foundations-benchmark.md").
+about this standard in Security Hub CSPM, see [CIS AWS Foundations Benchmark in Security Hub CSPM](cis-aws-foundations-benchmark.md "cis-aws-foundations-benchmark.md").
 
 ### Required resources for CIS v5.0.0
 
@@ -368,9 +351,7 @@ AWS Config.
 | Amazon Elastic Compute Cloud (Amazon EC2) | `AWS::EC2::SecurityGroup`               |
 | AWS Identity and Access Management (IAM)  | `AWS::IAM::Policy`,<br>`AWS::IAM::User` |
 
-## Required resources for the NIST SP 800-53 Revision 5
-
-standard
+## Required resources for the NIST SP 800-53 Revision 5 standard
 
 For Security Hub CSPM to accurately report findings for change triggered controls that apply to
 the NIST SP 800-53 Revision 5 standard, are enabled, and use an AWS Config rule, you must record the
@@ -421,9 +402,7 @@ following types of resources in AWS Config. For information about this standard,
 | AWS Transfer Family                                    | `AWS::Transfer::Connector`                                                                                                                                                                                                                                                                                  |
 | AWS WAF                                                | `AWS::WAF::Rule`, `AWS::WAF::RuleGroup`,<br>`AWS::WAF::WebACL`,<br>`AWS::WAFRegional::Rule`,<br>`AWS::WAFRegional::RuleGroup`,<br>`AWS::WAFRegional::WebACL`,<br>`AWS::WAFv2::RuleGroup`,<br>`AWS::WAFv2::WebACL`                                                                                           |
 
-## Required resources for the
-
-NIST SP 800-171 Revision 2 standard
+## Required resources for the NIST SP 800-171 Revision 2 standard
 
 For Security Hub CSPM to accurately report findings for change triggered controls that apply to
 the NIST SP 800-171 Revision 2 standard, are enabled, and use an AWS Config rule, you must record the
@@ -445,9 +424,7 @@ following types of resources in AWS Config. For information about this standard,
 | AWS Systems Manager (SSM)                       | `AWS::SSM::PatchCompliance`                                                                                                           |
 | AWS WAF                                         | `AWS::WAFv2::RuleGroup`                                                                                                               |
 
-## Required resources for
-
-PCI DSS v3.2.1
+## Required resources for PCI DSS v3.2.1
 
 For Security Hub CSPM to accurately report findings for controls that apply to v3.2.1 of the
 Payment Card Industry Data Security Standard (PCI DSS), are enabled, and use an AWS Config
@@ -467,9 +444,7 @@ this standard, see [PCI DSS in Security Hub CSPM](pci-standard.md "pci-standard.
 | Amazon Simple Storage Service (Amazon S3)       | `AWS::S3::AccountPublicAccessBlock`,<br>`AWS::S3::Bucket`                                                  |
 | Amazon EC2 Systems Manager (SSM)                | `AWS::SSM::AssociationCompliance`,<br>`AWS::SSM::ManagedInstanceInventory`,<br>`AWS::SSM::PatchCompliance` |
 
-## Required resources for the AWS Resource
-
-Tagging standard
+## Required resources for the AWS Resource Tagging standard
 
 All the controls that apply to the AWS Resource Tagging standard are change
 triggered and use an AWS Config rule. For Security Hub CSPM to accurately report findings for these

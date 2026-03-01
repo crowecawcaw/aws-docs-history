@@ -1,6 +1,4 @@
-# Automatically modifying and acting on findings in
-
-Security Hub CSPM
+# Automatically modifying and acting on findings in Security Hub CSPM
 
 AWS Security Hub CSPM has features that automatically modify and take action on findings based on your
 specifications.

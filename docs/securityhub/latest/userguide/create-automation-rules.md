@@ -78,13 +78,11 @@ API
 6. For the `Criteria` parameter, provide the criteria
    that you want Security Hub CSPM to use to filter your findings. The rule
    action will apply to findings that match the criteria. For a
-   list of supported criteria, see [Available rule criteria and rule
-   actions](automation-rules.md#automation-rules-criteria-actions "automation-rules.md#automation-rules-criteria-actions").
+   list of supported criteria, see [Available rule criteria and rule actions](automation-rules.md#automation-rules-criteria-actions "automation-rules.md#automation-rules-criteria-actions").
 7. For the `Actions` parameter, provide the actions
    that you want Security Hub CSPM to take when there's a match between a
    finding and your defined criteria. For a list of supported
-   actions, see [Available rule criteria and rule
-   actions](automation-rules.md#automation-rules-criteria-actions "automation-rules.md#automation-rules-criteria-actions").
+   actions, see [Available rule criteria and rule actions](automation-rules.md#automation-rules-criteria-actions "automation-rules.md#automation-rules-criteria-actions").
 
 The following example AWS CLI command creates an automation rule the updates the workflow status and note of matching
 findings. This example

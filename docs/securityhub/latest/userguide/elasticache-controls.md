@@ -1,12 +1,9 @@
 # Security Hub CSPM controls for ElastiCache
 
 These AWS Security Hub CSPM controls evaluate the Amazon ElastiCache service and resources. The controls might
-not be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
-## [ElastiCache.1] ElastiCache (Redis OSS) clusters should have
-
-automatic backups enabled
+## [ElastiCache.1] ElastiCache (Redis OSS) clusters should have automatic backups enabled
 
 **Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-6, NIST.800-53.r5 CP-6(1), NIST.800-53.r5 CP-6(2), NIST.800-53.r5 CP-9, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-12, NIST.800-53.r5 SI-13(5)
 
@@ -50,9 +47,7 @@ groups.
 For information about scheduling automatic backups for an ElastiCache cluster, see [Scheduling
 automatic backups](../../../AmazonElastiCache/latest/red-ug/backups-automatic.md "../../../AmazonElastiCache/latest/red-ug/backups-automatic.md") in the _Amazon ElastiCache User Guide_.
 
-## [ElastiCache.2] ElastiCache clusters should have automatic minor
-
-version upgrades enabled
+## [ElastiCache.2] ElastiCache clusters should have automatic minor version upgrades enabled
 
 **Related requirements:** NIST.800-53.r5 SI-2, NIST.800-53.r5 SI-2(2), NIST.800-53.r5 SI-2(4), NIST.800-53.r5 SI-2(5) PCI DSS v4.0.1/6.3.3
 
@@ -85,9 +80,7 @@ and bug fixes. Staying up-to-date with patch installation is an important step i
 
 To automatically apply minor version upgrades to an existing ElastiCache cache cluster, see [Version management for ElastiCache](../../../AmazonElastiCache/latest/red-ug/VersionManagement.md "../../../AmazonElastiCache/latest/red-ug/VersionManagement.md") in the _Amazon ElastiCache User Guide_.
 
-## [ElastiCache.3] ElastiCache replication groups should have
-
-automatic failover enabled
+## [ElastiCache.3] ElastiCache replication groups should have automatic failover enabled
 
 **Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 SC-36, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-13(5)
 
@@ -117,9 +110,7 @@ promotion is complete, which reduces overall downtime in case of failure.
 To enable automatic failover for an existing ElastiCache replication group,, see [Modifying an ElastiCache cluster](../../../AmazonElastiCache/latest/red-ug/Clusters.md#Clusters.Modify.CON "../../../AmazonElastiCache/latest/red-ug/Clusters.md#Clusters.Modify.CON") in the _Amazon ElastiCache User Guide_.
 If you use the ElastiCache console, set **Auto failover** to enabled.
 
-## [ElastiCache.4] ElastiCache replication groups should be encrypted
-
-at rest
+## [ElastiCache.4] ElastiCache replication groups should be encrypted at rest
 
 **Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5 SC-28(1), NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SI-7(6)
 
@@ -147,9 +138,7 @@ ElastiCache (Redis OSS) replication groups should be encrypted at rest for an ad
 
 To configure at-rest encryption on an ElastiCache replication group, see [Enabling at-rest encryption](../../../AmazonElastiCache/latest/red-ug/at-rest-encryption.md#at-rest-encryption-enable "../../../AmazonElastiCache/latest/red-ug/at-rest-encryption.md#at-rest-encryption-enable") in the _Amazon ElastiCache User Guide_.
 
-## [ElastiCache.5] ElastiCache replication groups should be encrypted
-
-in transit
+## [ElastiCache.5] ElastiCache replication groups should be encrypted in transit
 
 **Related requirements:** NIST.800-53.r5 AC-17(2), NIST.800-53.r5 AC-4, NIST.800-53.r5 IA-5(1), NIST.800-53.r5 SC-12(3), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-23, NIST.800-53.r5 SC-23(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-8, NIST.800-53.r5 SC-8(1), NIST.800-53.r5 SC-8(2), NIST.800-53.r5 SI-7(6), PCI DSS v4.0.1/4.2.1
 
@@ -178,9 +167,7 @@ to another, such as between nodes in your cluster or between your cluster and yo
 
 To configure in-transit encryption on an ElastiCache replication group, see [Enabling in-transit encryption](../../../AmazonElastiCache/latest/red-ug/in-transit-encryption.md "../../../AmazonElastiCache/latest/red-ug/in-transit-encryption.md") in the _Amazon ElastiCache User Guide_.
 
-## [ElastiCache.6] ElastiCache (Redis OSS) replication groups of earlier versions
-
-should have Redis OSS AUTH enabled
+## [ElastiCache.6] ElastiCache (Redis OSS) replication groups of earlier versions should have Redis OSS AUTH enabled
 
 **Related requirements:** NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-6, PCI DSS v4.0.1/8.3.1
 
@@ -210,9 +197,7 @@ use the RBAC feature.
 
 To use Redis AUTH on an ElastiCache (Redis OSS) replication group, see [Modifying the AUTH token on an existing ElastiCache (Redis OSS) cluster](../../../AmazonElastiCache/latest/red-ug/auth.md#auth-modifyng-token "../../../AmazonElastiCache/latest/red-ug/auth.md#auth-modifyng-token") in the _Amazon ElastiCache User Guide_.
 
-## [ElastiCache.7] ElastiCache clusters should not use the default
-
-subnet group
+## [ElastiCache.7] ElastiCache clusters should not use the default subnet group
 
 **Related requirements:** NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-7(5)
 

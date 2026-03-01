@@ -22,9 +22,7 @@ tree-like structure with a root at the top and organizational units (OUs) nested
 the root, or placed in one of the OUs in the hierarchy. An OU is a container for specific accounts. For example, you can create a finance OU
 that includes all accounts related to financial operations.
 
-## Recommendations for choosing the
-
-delegated Security Hub CSPM administrator
+## Recommendations for choosing the delegated Security Hub CSPM administrator
 
 If you have an administrator account in place from the manual invitation process and
 are transitioning to account management with AWS Organizations,
@@ -39,9 +37,7 @@ security management.
 We recommend using the same delegated administrator across Regions. If you opt in to central configuration, Security Hub CSPM automatically
 designates the same delegated administrator in your home Region and any linked Regions.
 
-## Verify permissions to configure the
-
-delegated administrator
+## Verify permissions to configure the delegated administrator
 
 To designate and remove a delegated Security Hub CSPM administrator account, the organization management account must have permissions for the
 `EnableOrganizationAdminAccount` and

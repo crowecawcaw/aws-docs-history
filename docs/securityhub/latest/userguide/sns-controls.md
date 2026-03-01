@@ -1,8 +1,7 @@
 # Security Hub CSPM controls for Amazon SNS
 
 These AWS Security Hub CSPM controls evaluate the Amazon Simple Notification Service (Amazon SNS) service and resources. The
-controls might not be available in all AWS Regions. For more information, see [Availability of controls by
-Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
+controls might not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support "securityhub-regions.md#securityhub-regions-control-support").
 
 ## [SNS.1] SNS topics should be encrypted at-rest using AWS KMS
 

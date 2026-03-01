@@ -49,32 +49,19 @@ The following Security Hub CSPM controls use global resources:
 
 - [[Account.1] Security contact information should be provided for an AWS account](account-controls.md#account-1 "account-controls.md#account-1")
 - [[Account.2] AWS accounts should be part of an AWS Organizations organization](account-controls.md#account-2 "account-controls.md#account-2")
-- [[CloudFront.1] CloudFront distributions should have a default
-  root object configured](cloudfront-controls.md#cloudfront-1 "cloudfront-controls.md#cloudfront-1")
-- [[CloudFront.3] CloudFront distributions should require
-  encryption in transit](cloudfront-controls.md#cloudfront-3 "cloudfront-controls.md#cloudfront-3")
-- [[CloudFront.4] CloudFront distributions should have origin
-  failover configured](cloudfront-controls.md#cloudfront-4 "cloudfront-controls.md#cloudfront-4")
-- [[CloudFront.5] CloudFront distributions should have logging
-  enabled](cloudfront-controls.md#cloudfront-5 "cloudfront-controls.md#cloudfront-5")
-- [[CloudFront.6] CloudFront distributions should have WAF
-  enabled](cloudfront-controls.md#cloudfront-6 "cloudfront-controls.md#cloudfront-6")
-- [[CloudFront.7] CloudFront distributions should use custom
-  SSL/TLS certificates](cloudfront-controls.md#cloudfront-7 "cloudfront-controls.md#cloudfront-7")
-- [[CloudFront.8] CloudFront distributions should use SNI to serve
-  HTTPS requests](cloudfront-controls.md#cloudfront-8 "cloudfront-controls.md#cloudfront-8")
-- [[CloudFront.9] CloudFront distributions should encrypt traffic
-  to custom origins](cloudfront-controls.md#cloudfront-9 "cloudfront-controls.md#cloudfront-9")
-- [[CloudFront.10] CloudFront distributions should not use
-  deprecated SSL protocols between edge locations and custom origins](cloudfront-controls.md#cloudfront-10 "cloudfront-controls.md#cloudfront-10")
-- [[CloudFront.12] CloudFront distributions should not point to
-  non-existent S3 origins](cloudfront-controls.md#cloudfront-12 "cloudfront-controls.md#cloudfront-12")
-- [[CloudFront.13] CloudFront distributions should use origin
-  access control](cloudfront-controls.md#cloudfront-13 "cloudfront-controls.md#cloudfront-13")
-- [[CloudFront.15] CloudFront distributions should use the
-  recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
-- [[CloudFront.16] CloudFront distributions should use origin
-  access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
+- [[CloudFront.1] CloudFront distributions should have a default root object configured](cloudfront-controls.md#cloudfront-1 "cloudfront-controls.md#cloudfront-1")
+- [[CloudFront.3] CloudFront distributions should require encryption in transit](cloudfront-controls.md#cloudfront-3 "cloudfront-controls.md#cloudfront-3")
+- [[CloudFront.4] CloudFront distributions should have origin failover configured](cloudfront-controls.md#cloudfront-4 "cloudfront-controls.md#cloudfront-4")
+- [[CloudFront.5] CloudFront distributions should have logging enabled](cloudfront-controls.md#cloudfront-5 "cloudfront-controls.md#cloudfront-5")
+- [[CloudFront.6] CloudFront distributions should have WAF enabled](cloudfront-controls.md#cloudfront-6 "cloudfront-controls.md#cloudfront-6")
+- [[CloudFront.7] CloudFront distributions should use custom SSL/TLS certificates](cloudfront-controls.md#cloudfront-7 "cloudfront-controls.md#cloudfront-7")
+- [[CloudFront.8] CloudFront distributions should use SNI to serve HTTPS requests](cloudfront-controls.md#cloudfront-8 "cloudfront-controls.md#cloudfront-8")
+- [[CloudFront.9] CloudFront distributions should encrypt traffic to custom origins](cloudfront-controls.md#cloudfront-9 "cloudfront-controls.md#cloudfront-9")
+- [[CloudFront.10] CloudFront distributions should not use deprecated SSL protocols between edge locations and custom origins](cloudfront-controls.md#cloudfront-10 "cloudfront-controls.md#cloudfront-10")
+- [[CloudFront.12] CloudFront distributions should not point to non-existent S3 origins](cloudfront-controls.md#cloudfront-12 "cloudfront-controls.md#cloudfront-12")
+- [[CloudFront.13] CloudFront distributions should use origin access control](cloudfront-controls.md#cloudfront-13 "cloudfront-controls.md#cloudfront-13")
+- [[CloudFront.15] CloudFront distributions should use the recommended TLS security policy](cloudfront-controls.md#cloudfront-15 "cloudfront-controls.md#cloudfront-15")
+- [[CloudFront.16] CloudFront distributions should use origin access control for Lambda function URL origins](cloudfront-controls.md#cloudfront-16 "cloudfront-controls.md#cloudfront-16")
 - [[GlobalAccelerator.1] Global Accelerator accelerators should be tagged](globalaccelerator-controls.md#globalaccelerator-1 "globalaccelerator-controls.md#globalaccelerator-1")
 - [[IAM.1] IAM policies should not allow full "\*" administrative privileges](iam-controls.md#iam-1 "iam-controls.md#iam-1")
 - [[IAM.2] IAM users should not have IAM policies attached](iam-controls.md#iam-2 "iam-controls.md#iam-2")
@@ -85,8 +72,7 @@ The following Security Hub CSPM controls use global resources:
 - [[IAM.7] Password policies for IAM users should have strong configurations](iam-controls.md#iam-7 "iam-controls.md#iam-7")
 - [[IAM.8] Unused IAM user credentials should be removed](iam-controls.md#iam-8 "iam-controls.md#iam-8")
 - [[IAM.9] MFA should be enabled for the root user](iam-controls.md#iam-9 "iam-controls.md#iam-9")
-- [[IAM.10] Password policies for IAM users should have strong
-  configurations](iam-controls.md#iam-10 "iam-controls.md#iam-10")
+- [[IAM.10] Password policies for IAM users should have strong configurations](iam-controls.md#iam-10 "iam-controls.md#iam-10")
 - [[IAM.11] Ensure IAM password policy requires at least one uppercase letter](iam-controls.md#iam-11 "iam-controls.md#iam-11")
 - [[IAM.12] Ensure IAM password policy requires at least one lowercase letter](iam-controls.md#iam-12 "iam-controls.md#iam-12")
 - [[IAM.13] Ensure IAM password policy requires at least one symbol](iam-controls.md#iam-13 "iam-controls.md#iam-13")
@@ -94,8 +80,7 @@ The following Security Hub CSPM controls use global resources:
 - [[IAM.15] Ensure IAM password policy requires minimum password length of 14 or greater](iam-controls.md#iam-15 "iam-controls.md#iam-15")
 - [[IAM.16] Ensure IAM password policy prevents password reuse](iam-controls.md#iam-16 "iam-controls.md#iam-16")
 - [[IAM.17] Ensure IAM password policy expires passwords within 90 days or less](iam-controls.md#iam-17 "iam-controls.md#iam-17")
-- [[IAM.18] Ensure a support role has been created to manage incidents with
-  AWS Support](iam-controls.md#iam-18 "iam-controls.md#iam-18")
+- [[IAM.18] Ensure a support role has been created to manage incidents with AWS Support](iam-controls.md#iam-18 "iam-controls.md#iam-18")
 - [[IAM.19] MFA should be enabled for all IAM users](iam-controls.md#iam-19 "iam-controls.md#iam-19")
 - [[IAM.21] IAM customer managed policies that you create should not allow wildcard actions for services](iam-controls.md#iam-21 "iam-controls.md#iam-21")
 - [[IAM.22] IAM user credentials unused for 45 days should be removed](iam-controls.md#iam-22 "iam-controls.md#iam-22")
@@ -132,8 +117,7 @@ focus on CloudWatch alarms:
 - [[CloudWatch.2] Ensure a log metric filter and alarm exist for unauthorized API calls](cloudwatch-controls.md#cloudwatch-2 "cloudwatch-controls.md#cloudwatch-2")
 - [[CloudWatch.3] Ensure a log metric filter and alarm exist for Management Console sign-in without MFA](cloudwatch-controls.md#cloudwatch-3 "cloudwatch-controls.md#cloudwatch-3")
 - [[CloudWatch.4] Ensure a log metric filter and alarm exist for IAM policy changes](cloudwatch-controls.md#cloudwatch-4 "cloudwatch-controls.md#cloudwatch-4")
-- [[CloudWatch.5] Ensure a log metric filter and alarm exist for CloudTrail
-  configuration changes](cloudwatch-controls.md#cloudwatch-5 "cloudwatch-controls.md#cloudwatch-5")
+- [[CloudWatch.5] Ensure a log metric filter and alarm exist for CloudTrail configuration changes](cloudwatch-controls.md#cloudwatch-5 "cloudwatch-controls.md#cloudwatch-5")
 - [[CloudWatch.6] Ensure a log metric filter and alarm exist for AWS Management Console authentication failures](cloudwatch-controls.md#cloudwatch-6 "cloudwatch-controls.md#cloudwatch-6")
 - [[CloudWatch.7] Ensure a log metric filter and alarm exist for disabling or scheduled deletion of customer managed keys](cloudwatch-controls.md#cloudwatch-7 "cloudwatch-controls.md#cloudwatch-7")
 - [[CloudWatch.8] Ensure a log metric filter and alarm exist for S3 bucket policy changes](cloudwatch-controls.md#cloudwatch-8 "cloudwatch-controls.md#cloudwatch-8")

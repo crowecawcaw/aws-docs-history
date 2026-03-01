@@ -1,6 +1,4 @@
-# Turning off automatically enabled
-
-security standards
+# Turning off automatically enabled security standards
 
 If your organization doesn't use central configuration, it uses a configuration type
 called _local configuration_. With local configuration,
