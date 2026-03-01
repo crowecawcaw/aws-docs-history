@@ -1,6 +1,4 @@
-# IAM Roles Anywhere and interface VPC endpoints
-
-(AWS PrivateLink)
+# IAM Roles Anywhere and interface VPC endpoints (AWS PrivateLink)
 
 You can establish a private connection between your VPC and AWS Identity and Access Management Roles Anywhere by creating an
 _interface VPC endpoint_. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink "https://aws.amazon.com/privatelink"), a technology that enables you
@@ -16,9 +14,7 @@ For more information, see [Interface VPC
 endpoints (AWS PrivateLink)](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md") in the _Amazon VPC User
 Guide_.
 
-## Considerations for IAM Roles Anywhere VPC
-
-endpoints
+## Considerations for IAM Roles Anywhere VPC endpoints
 
 Before you set up an interface VPC endpoint for IAM Roles Anywhere, ensure that you review
 [Interface
@@ -33,9 +29,7 @@ VPC endpoint policies are supported for IAM Roles Anywhere on all API methods ex
 Full access to IAM Roles Anywhere is allowed through the endpoint by default, including `CreateSession`. For more information, see [Controlling access to services with
 VPC endpoints](../../../vpc/latest/userguide/vpc-endpoints-access.md "../../../vpc/latest/userguide/vpc-endpoints-access.md") in the _Amazon VPC User Guide_.
 
-## Creating an interface VPC endpoint for
-
-IAM Roles Anywhere
+## Creating an interface VPC endpoint for IAM Roles Anywhere
 
 You can create a VPC endpoint for the IAM Roles Anywhere service using either the Amazon VPC console
 or the AWS Command Line Interface (AWS CLI). For more information, see [Creating an
@@ -52,9 +46,7 @@ default DNS name for the Region, for example,
 For more information, see [Accessing a service through an interface endpoint](../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint "../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint") in the
 _Amazon VPC User Guide_.
 
-## Creating a VPC endpoint policy for
-
-IAM Roles Anywhere
+## Creating a VPC endpoint policy for IAM Roles Anywhere
 
 You can attach an endpoint policy to your VPC endpoint that controls access to
 IAM Roles Anywhere. The policy specifies the following information:

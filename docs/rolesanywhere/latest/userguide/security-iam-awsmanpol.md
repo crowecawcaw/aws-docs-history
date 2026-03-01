@@ -134,9 +134,7 @@ This policy includes the following permissions:
 
 For more information and definition of this policy, see [AWSRolesAnywhereReadOnly](../../../aws-managed-policy/latest/reference/AWSRolesAnywhereReadOnly.md "../../../aws-managed-policy/latest/reference/AWSRolesAnywhereReadOnly.md").
 
-## IAM Roles Anywhere updates to AWS managed
-
-policies
+## IAM Roles Anywhere updates to AWS managed policies
 
 View details about updates to AWS managed policies for IAM Roles Anywhere since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

@@ -22,5 +22,4 @@ To successfully authenticate, the following constraints must be satisfied:
 ###### Topics
 
 - [IAM Roles Anywhere CreateSession API](authentication-create-session.md "authentication-create-session.md")
-- [The IAM Roles Anywhere authentication signing
-  process](authentication-sign-process.md "authentication-sign-process.md")
+- [The IAM Roles Anywhere authentication signing process](authentication-sign-process.md "authentication-sign-process.md")

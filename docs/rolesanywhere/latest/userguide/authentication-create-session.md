@@ -235,9 +235,7 @@ Type: String
 
 Required: Yes
 
-##
-
-The relationship between CreateSession and AssumeRole
+## The relationship between CreateSession and AssumeRole
 
 CreateSession is an X.509 wrapper around [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md"). The temporary session credentials are delivered to
 RolesAnywhere by AssumeRole, and then passed on without modification in the result of CreateSession.

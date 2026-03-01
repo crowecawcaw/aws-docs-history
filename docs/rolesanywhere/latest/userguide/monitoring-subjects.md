@@ -1,6 +1,4 @@
-# Monitoring authentications with IAM Roles Anywhere
-
-subjects
+# Monitoring authentications with IAM Roles Anywhere subjects
 
 You can use the **Subject Activity** tab in the IAM Roles Anywhere
 console to visualize and audit activities for certificates that are authenticated with

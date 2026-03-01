@@ -1,6 +1,4 @@
-# The IAM Roles Anywhere authentication signing
-
-process
+# The IAM Roles Anywhere authentication signing process
 
 The signing process is identical to SigV4, with the exception of the keys used, the signature algorithm, and the addition of headers related to the X.509 certificate and trust chain. For more information, see [AWS Signature Version 4 for API requests](../../../IAM/latest/UserGuide/reference_sigv.md "../../../IAM/latest/UserGuide/reference_sigv.md"), which should be treated as authoritative unless specifically addressed in this user guide.
 

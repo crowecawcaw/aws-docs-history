@@ -22,11 +22,9 @@ _of_ the cloud and security _in_ the cloud:
 
 ###### Topics
 
-- [Mapping identities to your workloads with
-  IAM Roles Anywhere](workload-identities.md "workload-identities.md")
+- [Mapping identities to your workloads with IAM Roles Anywhere](workload-identities.md "workload-identities.md")
 - [Data protection and privacy in IAM Roles Anywhere](data-protection.md "data-protection.md")
 - [Identity and access management for IAM Roles Anywhere](security-iam.md "security-iam.md")
 - [Disaster recovery and resilience in IAM Roles Anywhere](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
-- [IAM Roles Anywhere and interface VPC endpoints
-  (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
+- [IAM Roles Anywhere and interface VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
 - [Control API access with IAM policies](ip-access.md "ip-access.md")

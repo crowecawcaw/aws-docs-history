@@ -1,6 +1,4 @@
-# Mapping identities to your workloads with
-
-IAM Roles Anywhere
+# Mapping identities to your workloads with IAM Roles Anywhere
 
 A key element to using IAM Roles Anywhere is managing how identities are assigned to workloads.
 Certificates are issued to compute instances (servers, containers), in which the

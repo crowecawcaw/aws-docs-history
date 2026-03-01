@@ -22,9 +22,7 @@ For information about other services that support service-linked roles, see [AWS
 column. Choose a **Yes** with a link to view the service-linked
 role documentation for that service.
 
-## Service-linked role permissions for
-
-IAM Roles Anywhere
+## Service-linked role permissions for IAM Roles Anywhere
 
 IAM Roles Anywhere uses the service-linked role named **AWSServiceRoleForRolesAnywhere**
 which allows IAM Roles Anywhere to publish CloudWatch metrics and check the configuration of AWS Private CA
@@ -111,9 +109,7 @@ JSON
 You must configure permissions to allow an IAM entity (such as a user, group, or role)
 to create, edit, or delete a service-linked role. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the _IAM User Guide_.
 
-## Creating a service-linked role for
-
-IAM Roles Anywhere
+## Creating a service-linked role for IAM Roles Anywhere
 
 You don't need to manually create a service-linked role. When you
 create your first trust anchor in the AWS Management Console, the AWS CLI, or the AWS API, IAM Roles Anywhere
@@ -129,9 +125,7 @@ information, see [Creating a service-linked role](../../../IAM/latest/UserGuide/
 delete this service-linked role, you can use this same process to create the role
 again.
 
-## Editing a service-linked role for
-
-IAM Roles Anywhere
+## Editing a service-linked role for IAM Roles Anywhere
 
 IAM Roles Anywhere does not allow you to edit the AWSServiceRoleForRolesAnywhere service-linked role. After you
 create a service-linked role, you cannot change the name of the role because various entities
@@ -139,9 +133,7 @@ might reference the role. However, you can edit the description of the role usin
 more information, see [Editing a
 service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the _IAM User Guide_.
 
-## Deleting a service-linked role for
-
-IAM Roles Anywhere
+## Deleting a service-linked role for IAM Roles Anywhere
 
 If you no longer need to use a feature or service that requires a service-linked role, we
 recommend that you delete that role. That way you don’t have an unused entity that is not
@@ -158,17 +150,13 @@ again.
 
 - Delete all trust anchors in your account in all Regions that contain them.
 
-###### To manually delete the service-linked role using
-
-IAM
+###### To manually delete the service-linked role using IAM
 
 - For information about using the IAM console, the AWS CLI, or the AWS API to delete the
   AWSServiceRoleForRolesAnywhere service-linked role, see [Deleting a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the
   _IAM User Guide_.
 
-## Supported regions for
-
-IAM Roles Anywhere service-linked roles
+## Supported regions for IAM Roles Anywhere service-linked roles
 
 IAM Roles Anywhere supports using service-linked roles in all of the regions where the service
 is available. For more information, see [AWS regions and endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md").
