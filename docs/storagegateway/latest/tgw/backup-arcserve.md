@@ -8,16 +8,13 @@ Arcserve Backup documentation.
 
 ###### Topics
 
-- [Configuring Arcserve to Work with VTL
-  Devices](#archServe-configure-software "#archServe-configure-software")
+- [Configuring Arcserve to Work with VTL Devices](#archServe-configure-software "#archServe-configure-software")
 - [Loading Tapes into a Media Pool](#archServe-load-tapes "#archServe-load-tapes")
 - [Backing Up Data to a Tape](#archServe-backup-data "#archServe-backup-data")
 - [Archiving a Tape](#archServe-archive-tape "#archServe-archive-tape")
 - [Restoring Data from a Tape](#archServe-restore-tape "#archServe-restore-tape")
 
-## Configuring Arcserve to Work with VTL
-
-Devices
+## Configuring Arcserve to Work with VTL Devices
 
 After you have connected your virtual tape library (VTL) devices to your client, you
 scan for your devices.

@@ -1,6 +1,4 @@
-# Configuring additional upload buffer or
-
-cache storage
+# Configuring additional upload buffer or cache storage
 
 As your application needs change, you can increase the gateway's upload buffer or
 cache storage capacity. You can add storage capacity to your gateway without
@@ -14,9 +12,7 @@ disks on the gateway host hypervisor or Amazon EC2 instance. Do not remove or ch
 size of existing disks that have already been allocated as cache or upload
 buffer.
 
-###### To configure additional upload
-
-buffer or cache storage for your gateway
+###### To configure additional upload buffer or cache storage for your gateway
 
 1. Provision one or more new disks on your gateway host hypervisor or Amazon EC2
    instance. For information about how to provision a disk on a hypervisor, see

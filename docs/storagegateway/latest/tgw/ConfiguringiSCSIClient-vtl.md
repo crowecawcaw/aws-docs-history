@@ -1,10 +1,7 @@
-# Connecting your VTL devices to a Windows
-
-client
+# Connecting your VTL devices to a Windows client
 
 A Tape Gateway exposes several tape drives and a media changer, referred to
-collectively as VTL devices, as iSCSI targets. For more information, see [Requirements for setting up
-Tape Gateway](Requirements.md "Requirements.md").
+collectively as VTL devices, as iSCSI targets. For more information, see [Requirements for setting up Tape Gateway](Requirements.md "Requirements.md").
 
 ###### Note
 
@@ -52,9 +49,7 @@ On a Windows client, the driver provider for the tape drive must be Microsoft. U
 following procedure to verify the driver provider, and update the driver and provider if
 necessary.
 
-###### To verify the driver provider and (if necessary) update the provider and driver
-
-on a Windows client
+###### To verify the driver provider and (if necessary) update the provider and driver on a Windows client
 
 1. On your Windows client, start Device Manager.
 2. Expand **Tape drives**, choose the context (right-click) menu

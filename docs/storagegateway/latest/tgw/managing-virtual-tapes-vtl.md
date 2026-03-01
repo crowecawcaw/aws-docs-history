@@ -1,6 +1,4 @@
-# Managing tapes in your virtual tape
-
-library
+# Managing tapes in your virtual tape library
 
 Storage Gateway provides one virtual tape library (VTL) for each Tape Gateway you activate.
 Initially, the library contains no tapes, but you can create tapes whenever you need to.

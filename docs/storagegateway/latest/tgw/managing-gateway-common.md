@@ -1,6 +1,4 @@
-# Managing your
-
-Tape Gateway
+# Managing your Tape Gateway
 
 Managing your gateway includes tasks such as configuring cache storage and upload buffer
 space, working with virtual
@@ -14,15 +12,13 @@ resources.
 
 - [Editing Basic Gateway Information](edit-gateway-information.md "edit-gateway-information.md") - Learn how to use the Storage Gateway console to edit basic information for an existing
   gateway, including the gateway name, time zone, and CloudWatch log group.
-- [Managing Automatic Tape
-  Creation](managing-automatic-tape-creation.md "managing-automatic-tape-creation.md") - Learn how to configure
+- [Managing Automatic Tape Creation](managing-automatic-tape-creation.md "managing-automatic-tape-creation.md") - Learn how to configure
   Tape Gateway to create new virtual tapes automatically to maintain the minimum
   number of available tapes that you specify.
 - [Archiving Virtual Tapes](archiving-tapes-vtl.md "archiving-tapes-vtl.md") - Learn
   how to configure archival of your tapes to either the S3 Glacier Flexible Retrieval or
   S3 Glacier Deep Archive storage class when you create a new tape.
-- [Moving tapes to S3 Glacier Deep Archive
-  storage class](moving-tapes-vtl.md "moving-tapes-vtl.md") - Learn how to
+- [Moving tapes to S3 Glacier Deep Archive storage class](moving-tapes-vtl.md "moving-tapes-vtl.md") - Learn how to
   move your tapes from S3 Glacier Flexible Retrieval to S3 Glacier Deep Archive
   for long-term data retention and digital preservation at a very low cost.
 - [Retrieving Archived Tapes](retrieving-archived-tapes-vtl.md "retrieving-archived-tapes-vtl.md") - Learn how to access data
@@ -30,8 +26,7 @@ resources.
   Tape Gateway.
 - [Viewing tape usage statistics](tape-usage.md "tape-usage.md") - Learn how to view the
   amount of data stored on a tape using the Storage Gateway console.
-- [Deleting virtual tapes from your
-  Tape Gateway](deleting-tapes-vtl.md "deleting-tapes-vtl.md") - Learn
+- [Deleting virtual tapes from your Tape Gateway](deleting-tapes-vtl.md "deleting-tapes-vtl.md") - Learn
   how to delete virtual tapes from your Tape Gateway by using the Storage Gateway
   console.
 - [Deleting Custom Tape Pools](deleting-tape-pools-vtl.md "deleting-tape-pools-vtl.md")

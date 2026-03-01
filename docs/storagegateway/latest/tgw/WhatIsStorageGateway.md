@@ -26,8 +26,7 @@ virtual tape infrastructure that scales seamlessly with your business needs and 
 the operational burden of provisioning, scaling, and maintaining a physical tape
 infrastructure.
 
-For an architectural overview, see [How Tape Gateway
-works](StorageGatewayConcepts.md "StorageGatewayConcepts.md").
+For an architectural overview, see [How Tape Gateway works](StorageGatewayConcepts.md "StorageGatewayConcepts.md").
 
 In this User Guide, you can find a Getting Started section that covers setup information
 common to all gateway types. You can also find Tape Gateway setup

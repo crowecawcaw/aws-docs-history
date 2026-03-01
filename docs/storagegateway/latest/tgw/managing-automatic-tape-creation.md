@@ -1,6 +1,4 @@
-# Managing Automatic Tape
-
-Creation
+# Managing Automatic Tape Creation
 
 The Tape Gateway automatically creates new virtual tapes to maintain the minimum
 number of available tapes that you configure. It then makes these new tapes available
@@ -76,8 +74,7 @@ software.
      *Amazon Simple Storage Service User Guide*.
 
 If you archive tapes in S3 Glacier Flexible Retrieval, you can move them to
-S3 Glacier Deep Archive later. For more information, see [Moving tapes to S3 Glacier Deep Archive
-storage class](moving-tapes-vtl.md "moving-tapes-vtl.md"). 9. You can find information about your tapes on the **Tape
+S3 Glacier Deep Archive later. For more information, see [Moving tapes to S3 Glacier Deep Archive storage class](moving-tapes-vtl.md "moving-tapes-vtl.md"). 9. You can find information about your tapes on the **Tape
 overview** page. By default, this list displays up to 1,000 tapes
 at a time, but the searches that you perform apply to all of your tapes. You can
 use the search bar to find tapes that match a specific criteria, or to reduce

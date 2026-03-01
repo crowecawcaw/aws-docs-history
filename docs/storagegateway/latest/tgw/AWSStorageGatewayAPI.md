@@ -14,15 +14,12 @@ programming tasks. For information about downloading the SDK libraries, see [Sam
 
 ###### Topics
 
-- [Storage Gateway Required Request
-  Headers](#AWSStorageGatewayHTTPRequestsHeaders "#AWSStorageGatewayHTTPRequestsHeaders")
+- [Storage Gateway Required Request Headers](#AWSStorageGatewayHTTPRequestsHeaders "#AWSStorageGatewayHTTPRequestsHeaders")
 - [Signing Requests](#AWSStorageGatewaySigningRequests "#AWSStorageGatewaySigningRequests")
 - [Error Responses](#APIErrorResponses "#APIErrorResponses")
 - [Actions](../APIReference/API_Operations.md "../APIReference/API_Operations.md")
 
-## Storage Gateway Required Request
-
-Headers
+## Storage Gateway Required Request Headers
 
 This section describes the required headers that you must send with every POST request to
 Storage Gateway. You include HTTP headers to identify key information about the

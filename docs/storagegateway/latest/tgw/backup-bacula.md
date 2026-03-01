@@ -108,9 +108,7 @@ I/E slot 1601.
 (S3 Glacier Flexible Retrieval or S3 Glacier Deep Archive) and that the
 tape has the status **Archived**.
 
-## Restoring Data from an Archived and
-
-Retrieved Tape
+## Restoring Data from an Archived and Retrieved Tape
 
 Restoring your archived data is a two-step process.
 

@@ -13,8 +13,7 @@ gateway that you are interested in viewing metrics for. To do this, you specify 
 `GatewayId` and the `GatewayName`
 values. When you want to work with metric for a gateway, you specify the gateway
 _dimension_ in the metrics namespace, which distinguishes a
-gateway-specific metric from a volume-specific metric. For more information, see [Using Amazon CloudWatch
-Metrics](UsingCloudWatchConsole-vtl-common.md "UsingCloudWatchConsole-vtl-common.md").
+gateway-specific metric from a volume-specific metric. For more information, see [Using Amazon CloudWatch Metrics](UsingCloudWatchConsole-vtl-common.md "UsingCloudWatchConsole-vtl-common.md").
 
 ###### Note
 
@@ -36,9 +35,7 @@ most recent monitoring period.
 | `UploadBufferUsed`          | The total number of bytes being used in the gateway's upload<br>buffer. The sample is taken at the end of the reporting<br>period.<br>Unit: Bytes                                                                                                                                                               |
 | `UserCpuPercent`            | Percent of CPU time spent on gateway processing, averaged across<br>all cores.<br>Unit: Percent                                                                                                                                                                                                                 |
 
-## Dimensions for Storage Gateway
-
-metrics
+## Dimensions for Storage Gateway metrics
 
 The CloudWatch namespace for the Storage Gateway service is
 `AWS/StorageGateway`. Data is available automatically in 5-minute periods

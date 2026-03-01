@@ -1,6 +1,4 @@
-# How Tape Gateway
-
-works
+# How Tape Gateway works
 
 Following, you can find an architectural overview of the Tape Gateway
 solution.
@@ -78,9 +76,7 @@ create virtual tapes as needed. Then you use your existing backup software
 application to write data to the virtual tapes. The media changer loads and unloads
 the virtual tapes into the virtual tape drives for read and write operations.
 
-### Allocating local disks
-
-for the gateway VM
+### Allocating local disks for the gateway VM
 
 Your gateway VM needs local disks, which you allocate for the following
 purposes:
@@ -99,13 +95,11 @@ data before downloading the data from AWS.
   provides a staging area for the gateway before it uploads the data to a
   virtual tape. The upload buffer is also critical for creating recovery
   points that you can use to recover tapes from unexpected failures. For
-  more information, see [You Need to Recover a Virtual Tape
-  from a Malfunctioning Tape Gateway](Main_TapesIssues-vtl.md#creating-recovery-tape-vtl "Main_TapesIssues-vtl.md#creating-recovery-tape-vtl").
+  more information, see [You Need to Recover a Virtual Tape from a Malfunctioning Tape Gateway](Main_TapesIssues-vtl.md#creating-recovery-tape-vtl "Main_TapesIssues-vtl.md#creating-recovery-tape-vtl").
 
 As your backup application writes data to your gateway, the gateway copies
 data to both the cache storage and the upload buffer. It then acknowledges
 completion of the write operation to your backup application.
 
 For guidelines on the amount of disk space to allocate for the cache storage
-and upload buffer, see [Deciding the amount of local disk
-storage](decide-local-disks-and-sizes.md "decide-local-disks-and-sizes.md").
+and upload buffer, see [Deciding the amount of local disk storage](decide-local-disks-and-sizes.md "decide-local-disks-and-sizes.md").

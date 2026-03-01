@@ -11,8 +11,7 @@ connected to AWS. If the gateway is connected to AWS, you can't deactivate the
 Tape Gateway.
 
 You deactivate a Tape Gateway as part of data recovery. For more information about
-recovering tapes, see [You Need to Recover a Virtual Tape
-from a Malfunctioning Tape Gateway](Main_TapesIssues-vtl.md#creating-recovery-tape-vtl "Main_TapesIssues-vtl.md#creating-recovery-tape-vtl").
+recovering tapes, see [You Need to Recover a Virtual Tape from a Malfunctioning Tape Gateway](Main_TapesIssues-vtl.md#creating-recovery-tape-vtl "Main_TapesIssues-vtl.md#creating-recovery-tape-vtl").
 
 ###### To deactivate your gateway
 

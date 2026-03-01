@@ -81,8 +81,7 @@ it is ejected by your backup software.
      configured storage class when they are ejected by your backup software.
 
 If you archive a tape in S3 Glacier Flexible Retrieval, you can move it to
-S3 Glacier Deep Archive later. For more information, see [Moving tapes to S3 Glacier Deep Archive
-storage class](moving-tapes-vtl.md "moving-tapes-vtl.md").
+S3 Glacier Deep Archive later. For more information, see [Moving tapes to S3 Glacier Deep Archive storage class](moving-tapes-vtl.md "moving-tapes-vtl.md").
 
 ###### Note
 
@@ -101,5 +100,4 @@ tapes are created, their status changes to **AVAILABLE**. For
 more information, see [Understanding Tape Status](understand-tapes-status.md "understand-tapes-status.md").
 
 For more information about changing automatic tape creation policies, or
-deleting automatic tape creation from a Tape Gateway, see [Managing Automatic Tape
-Creation](managing-automatic-tape-creation.md "managing-automatic-tape-creation.md").
+deleting automatic tape creation from a Tape Gateway, see [Managing Automatic Tape Creation](managing-automatic-tape-creation.md "managing-automatic-tape-creation.md").

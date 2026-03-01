@@ -1,6 +1,4 @@
-# Deploy a default Amazon EC2 host for
-
-Tape Gateway
+# Deploy a default Amazon EC2 host for Tape Gateway
 
 This topic lists the steps to deploy an Amazon EC2 host using the default
 specifications.

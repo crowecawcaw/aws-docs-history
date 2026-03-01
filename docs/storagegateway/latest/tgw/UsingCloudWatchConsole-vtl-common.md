@@ -1,6 +1,4 @@
-# Using Amazon CloudWatch
-
-Metrics
+# Using Amazon CloudWatch Metrics
 
 You can get monitoring data for your Tape Gateway by using either the AWS Management Console or
 the CloudWatch API. The console displays a series of graphs based on the raw data from the

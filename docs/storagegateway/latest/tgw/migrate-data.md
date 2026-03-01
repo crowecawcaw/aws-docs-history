@@ -47,8 +47,7 @@ Before proceeding, confirm that the ejected tapes have been archived:
 
 
     For more information about determining tape status in an archive, see
-     [Determining Tape Status in an
-     Archive](understand-tapes-status.md#determine-tape-status-vts "understand-tapes-status.md#determine-tape-status-vts").
+     [Determining Tape Status in an Archive](understand-tapes-status.md#determine-tape-status-vts "understand-tapes-status.md#determine-tape-status-vts").
 
 3. Using your backup application, verify that there are no active backup jobs
    going to the existing Tape Gateway before you stop it. If there are any active
@@ -115,8 +114,7 @@ Before proceeding, confirm that the ejected tapes have been archived:
 
    If you archive a tape in S3 Glacier Flexible Retrieval, you can move it
    to S3 Glacier Deep Archive later. For more information, see
-   [Moving tapes to S3 Glacier Deep Archive
-   storage class](moving-tapes-vtl.md "moving-tapes-vtl.md").
+   [Moving tapes to S3 Glacier Deep Archive storage class](moving-tapes-vtl.md "moving-tapes-vtl.md").
 
    ###### Note
 

@@ -25,8 +25,6 @@ Tape Gateway](GatewayMetrics-vtl-common.md "GatewayMetrics-vtl-common.md").
 - [Monitoring the upload buffer](PerfUploadBuffer-common.md "PerfUploadBuffer-common.md")
 - [Monitoring cache storage](PerfCache-common.md "PerfCache-common.md")
 - [Understanding CloudWatch alarms](cloudwatch-alarms.md "cloudwatch-alarms.md")
-- [Creating recommended CloudWatch alarms
-  for your gateway](cloudwatch-alarms-create-recommended.md "cloudwatch-alarms-create-recommended.md")
-- [Creating a custom CloudWatch alarm for your
-  gateway](cloudwatch-alarms-create-alarm.md "cloudwatch-alarms-create-alarm.md")
+- [Creating recommended CloudWatch alarms for your gateway](cloudwatch-alarms-create-recommended.md "cloudwatch-alarms-create-recommended.md")
+- [Creating a custom CloudWatch alarm for your gateway](cloudwatch-alarms-create-alarm.md "cloudwatch-alarms-create-alarm.md")
 - [Monitoring Your Tape Gateway](GatewayMetrics-vtl-common.md "GatewayMetrics-vtl-common.md")

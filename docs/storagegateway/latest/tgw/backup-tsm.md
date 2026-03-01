@@ -23,12 +23,9 @@ Storage Manager) Supported Devices for Linux](https://www.ibm.com/support/pages/
 ###### Topics
 
 - [Setting Up IBM Data Protect](#tsm-setup "#tsm-setup")
-- [Configuring IBM Data Protect to Work with VTL
-  Devices](#tsm-configure "#tsm-configure")
-- [Writing Data to a Tape in IBM Data
-  Protect](#tsm-write-data-to-tape "#tsm-write-data-to-tape")
-- [Restoring Data from a Tape Archived in IBM Data
-  Protect](#tsm-restore-tape "#tsm-restore-tape")
+- [Configuring IBM Data Protect to Work with VTL Devices](#tsm-configure "#tsm-configure")
+- [Writing Data to a Tape in IBM Data Protect](#tsm-write-data-to-tape "#tsm-write-data-to-tape")
+- [Restoring Data from a Tape Archived in IBM Data Protect](#tsm-restore-tape "#tsm-restore-tape")
 
 ## Setting Up IBM Data Protect
 
@@ -46,17 +43,13 @@ For more information about configuring IBM Data Protect software, see [Configuri
 Tape Gateway virtual tape libraries for an IBM Data Protect
 server](https://www.ibm.com/support/pages/node/6326793 "https://www.ibm.com/support/pages/node/6326793").
 
-## Configuring IBM Data Protect to Work with VTL
-
-Devices
+## Configuring IBM Data Protect to Work with VTL Devices
 
 Next, configure IBM Data Protect to work with your VTL devices. You can configure IBM
 Data Protect to work with VTL devices on Microsoft Windows Server or Red Hat
 Linux.
 
-### Configuring IBM Data Protect for
-
-Windows
+### Configuring IBM Data Protect for Windows
 
 For complete instructions on how to configure IBM Data Protect on Windows, see
 [Tape Device Driver-W12 6266 for Windows 2012](https://datacentersupport.lenovo.com/us/en/products/storage/tape-and-backup/ts2240/6160/downloads/ds502099 "https://datacentersupport.lenovo.com/us/en/products/storage/tape-and-backup/ts2240/6160/downloads/ds502099") on the Lenovo website.
@@ -109,9 +102,7 @@ devices on Linux.
    than eight characters, you get this error message: `"Tape barcode
 is too long for media changer"`.
 
-## Writing Data to a Tape in IBM Data
-
-Protect
+## Writing Data to a Tape in IBM Data Protect
 
 You write data to a Tape Gateway virtual tape by using the same procedure and backup
 policies that you do with physical tapes. Create the necessary configuration for backup
@@ -128,9 +119,7 @@ using the same tape. IBM Data Protect might continue the failed backup job on a
 different tape if other tapes in **ReadWrite** status are
 available.
 
-## Restoring Data from a Tape Archived in IBM Data
-
-Protect
+## Restoring Data from a Tape Archived in IBM Data Protect
 
 Restoring your archived data is a two-step process.
 

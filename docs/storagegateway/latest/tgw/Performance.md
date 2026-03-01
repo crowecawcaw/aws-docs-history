@@ -1,6 +1,4 @@
-# Performance and optimization for
-
-Tape Gateway
+# Performance and optimization for Tape Gateway
 
 This section describes Storage Gateway performance.
 
@@ -37,14 +35,11 @@ attached to the on-premise server running your gateway.
 Your performance might vary based on your host platform configuration and network
 bandwidth.
 
-To improve write and read throughput performance of your Tape Gateway, see [Optimize iSCSI Settings](#optimize-iSCSI "#optimize-iSCSI"), [Use a Larger Block Size for Tape Drives](#block-size "#block-size"), and [Optimize the Performance of Virtual Tape
-Drives in the Backup Software](#optimize-virtual-tape-drive "#optimize-virtual-tape-drive").
+To improve write and read throughput performance of your Tape Gateway, see [Optimize iSCSI Settings](#optimize-iSCSI "#optimize-iSCSI"), [Use a Larger Block Size for Tape Drives](#block-size "#block-size"), and [Optimize the Performance of Virtual Tape Drives in the Backup Software](#optimize-virtual-tape-drive "#optimize-virtual-tape-drive").
 
 ## Optimizing gateway performance
 
-### Recommended Gateway Server
-
-Configuration
+### Recommended Gateway Server Configuration
 
 To obtain the best performance out of your gateway, Storage Gateway recommends the following
 gateway configuration for your gateway's host server:
@@ -82,9 +77,7 @@ RAM.
   - Use VM network 2 and add a VMXnet3 (10 Gbps) to be used to connect to
     AWS.
 
-### Add Resources to Your
-
-Gateway
+### Add Resources to Your Gateway
 
 The following bottlenecks can reduce the performance of your Tape Gateway
 below the theoretical maximum sustained
@@ -141,8 +134,7 @@ of 5 minutes divided by 300 seconds gives you the IOPS. As a general
 rule, when you review these metrics for a gateway, look for low
 throughput and low IOPS trends to indicate disk-related bottlenecks.
 For more information about gateway
-metrics, see [Measuring Performance Between Your
-Tape Gateway and AWS](PerfGatewayAWS-vtl-common.md "PerfGatewayAWS-vtl-common.md").
+metrics, see [Measuring Performance Between Your Tape Gateway and AWS](PerfGatewayAWS-vtl-common.md "PerfGatewayAWS-vtl-common.md").
 
 ###### Note
 
@@ -253,12 +245,9 @@ what is set on the backup software. When you increase the block size on the back
 software, we recommend that you also check the settings to ensure that the host
 initiator supports the new block size. For more information, see the documentation for
 your backup software. For more information about specific gateway performance guidance,
-see [Performance and optimization for
-Tape Gateway](Performance.md "Performance.md").
+see [Performance and optimization for Tape Gateway](Performance.md "Performance.md").
 
-### Optimize the Performance of Virtual Tape
-
-Drives in the Backup Software
+### Optimize the Performance of Virtual Tape Drives in the Backup Software
 
 Your backup software can back up data on up to 10 virtual tape drives on a
 Tape Gateway at the same time. We recommend that you configure backup jobs in your
@@ -271,9 +260,7 @@ As a general rule, you can achieve a higher maximum throughput by operating on
 drives, you allow your gateway to service more requests concurrently, potentially
 improving performance.
 
-### Add Resources to Your
-
-Application Environment
+### Add Resources to Your Application Environment
 
 **Increase the bandwidth between your application server
 and your gateway**
@@ -296,8 +283,7 @@ To optimize gateway performance, ensure that the network bandwidth between
 your application and the gateway can sustain your application needs. You can
 use the `ReadBytes` and `WriteBytes` metrics of the
 gateway to measure the total data throughput. For
-more information about these metrics, see [Measuring Performance Between Your
-Tape Gateway and AWS](PerfGatewayAWS-vtl-common.md "PerfGatewayAWS-vtl-common.md").
+more information about these metrics, see [Measuring Performance Between Your Tape Gateway and AWS](PerfGatewayAWS-vtl-common.md "PerfGatewayAWS-vtl-common.md").
 
 For your application, compare the measured throughput with the desired
 throughput. If the measured throughput is less than the desired throughput,

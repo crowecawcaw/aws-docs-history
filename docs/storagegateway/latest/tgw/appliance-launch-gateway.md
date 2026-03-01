@@ -1,6 +1,4 @@
-# Creating a gateway on your
-
-hardware appliance
+# Creating a gateway on your hardware appliance
 
 ###### Note
 
@@ -32,5 +30,4 @@ gateway's network interfaces so your applications can use it.
 
 **Next step**
 
-[Configuring a gateway IP address on the
-hardware appliance](appliance-configure-ip.md "appliance-configure-ip.md")
+[Configuring a gateway IP address on the hardware appliance](appliance-configure-ip.md "appliance-configure-ip.md")

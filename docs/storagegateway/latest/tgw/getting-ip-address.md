@@ -1,6 +1,4 @@
-# Getting the IP address for your gateway
-
-appliance
+# Getting the IP address for your gateway appliance
 
 After you choose a host and deploy your gateway VM, you connect and activate your gateway.
 To do this, you need the IP address of your gateway VM. You get the IP address from your
@@ -12,12 +10,9 @@ For Amazon EC2 gateways, you can also get the IP address of your Amazon EC2 inst
 Management Console. To find how to get your gateway's IP address, see one of the
 following:
 
-- VMware host: [Accessing the Gateway Local
-  Console with VMware ESXi](accessing-local-console.md#MaintenanceConsoleWindowVMware-common "accessing-local-console.md#MaintenanceConsoleWindowVMware-common")
-- HyperV host: [Access the Gateway Local Console
-  with Microsoft Hyper-V](accessing-local-console.md#MaintenanceConsoleWindowHyperV-common "accessing-local-console.md#MaintenanceConsoleWindowHyperV-common")
-- Linux Kernel-based Virtual Machine (KVM) host: [Accessing the Gateway Local Console
-  with Linux KVM](accessing-local-console.md#MaintenanceConsoleWindowKVM-common "accessing-local-console.md#MaintenanceConsoleWindowKVM-common")
+- VMware host: [Accessing the Gateway Local Console with VMware ESXi](accessing-local-console.md#MaintenanceConsoleWindowVMware-common "accessing-local-console.md#MaintenanceConsoleWindowVMware-common")
+- HyperV host: [Access the Gateway Local Console with Microsoft Hyper-V](accessing-local-console.md#MaintenanceConsoleWindowHyperV-common "accessing-local-console.md#MaintenanceConsoleWindowHyperV-common")
+- Linux Kernel-based Virtual Machine (KVM) host: [Accessing the Gateway Local Console with Linux KVM](accessing-local-console.md#MaintenanceConsoleWindowKVM-common "accessing-local-console.md#MaintenanceConsoleWindowKVM-common")
 - EC2 host: [Getting an IP Address from an Amazon EC2 Host](#get-ip-from-ec2 "#get-ip-from-ec2")
   When you locate the IP address, take note of it. Then return to the Storage Gateway console and
   type the IP address into the console.
@@ -26,16 +21,13 @@ following:
 
 To get the IP address of the Amazon EC2 instance your gateway is deployed on, log in to the
 EC2 instance's local console. Then get the IP address from the top of the console page.
-For instructions, see [Logging In to Your Amazon EC2 Gateway
-Local Console](EC2_MaintenanceConsoleWindow-common.md "EC2_MaintenanceConsoleWindow-common.md").
+For instructions, see [Logging In to Your Amazon EC2 Gateway Local Console](EC2_MaintenanceConsoleWindow-common.md "EC2_MaintenanceConsoleWindow-common.md").
 
 You can also get the IP address from the Amazon EC2 Management Console. We recommend using
 the public IP address for activation. To get the public IP address, use procedure 1. If
 you choose to use the elastic IP address instead, see procedure 2.
 
-###### Procedure 1: To connect to your gateway using the
-
-public IP address
+###### Procedure 1: To connect to your gateway using the public IP address
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").

@@ -8,8 +8,7 @@ Tape Gateway.
 
 - [Set up a Tape Gateway](#set-up-gateway-tape "#set-up-gateway-tape")
 - [Connect your Tape Gateway to AWS](#connect-to-amazon-tape "#connect-to-amazon-tape")
-- [Review settings and activate your
-  Tape Gateway](#review-and-activate-tape "#review-and-activate-tape")
+- [Review settings and activate your Tape Gateway](#review-and-activate-tape "#review-and-activate-tape")
 - [Configure your Tape Gateway](#configure-gateway-tape "#configure-gateway-tape")
 
 ## Set up a Tape Gateway
@@ -129,9 +128,7 @@ communicate with AWS. For instructions, see [Connect your Tape Gateway to AWS](c
 Now that you have chosen how you want your gateway to connect to AWS, you need
 to activate the gateway. For instructions, see [Review settings and activate your Tape Gateway](create-gateway-vtl.md#review-and-activate-tape "create-gateway-vtl.md#review-and-activate-tape").
 
-## Review settings and activate your
-
-Tape Gateway
+## Review settings and activate your Tape Gateway
 
 ###### To activate a new Tape Gateway
 

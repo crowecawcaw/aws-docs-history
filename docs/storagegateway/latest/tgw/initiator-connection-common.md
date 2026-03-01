@@ -9,13 +9,10 @@ Authentication Protocol (CHAP).
 
 ###### Topics
 
-- [Connecting your VTL devices to a Windows
-  client](ConfiguringiSCSIClient-vtl.md "ConfiguringiSCSIClient-vtl.md")
-- [Connecting your VTL devices to
-  a Linux client](ConfiguringiSCSIClientInitiatorRedHatClient.md "ConfiguringiSCSIClientInitiatorRedHatClient.md")
+- [Connecting your VTL devices to a Windows client](ConfiguringiSCSIClient-vtl.md "ConfiguringiSCSIClient-vtl.md")
+- [Connecting your VTL devices to a Linux client](ConfiguringiSCSIClientInitiatorRedHatClient.md "ConfiguringiSCSIClientInitiatorRedHatClient.md")
 - [Customizing iSCSI Settings](recommendediSCSISettings.md "recommendediSCSISettings.md")
-- [Configuring CHAP Authentication
-  for Your iSCSI Targets](ConfiguringiSCSIClientInitiatorCHAP.md "ConfiguringiSCSIClientInitiatorCHAP.md")
+- [Configuring CHAP Authentication for Your iSCSI Targets](ConfiguringiSCSIClientInitiatorCHAP.md "ConfiguringiSCSIClientInitiatorCHAP.md")
   The iSCSI standard is an Internet Protocol (IP)–based storage networking standard
   for initiating and managing connections between IP-based storage devices and clients. The
   following list defines some of the terms that are used to describe the iSCSI connection and

@@ -8,20 +8,16 @@ a backup and restore operation.
 For detailed information about how to use NetBackup, see the [Veritas Services and Operations Readiness Tools
 (SORT)](https://sort.veritas.com/documents "https://sort.veritas.com/documents") page on the Veritas website.
 
-For more information about compatible backup applications, see [Supported third-party backup
-applications for a Tape Gateway](Requirements.md#requirements-backup-sw-for-vtl "Requirements.md#requirements-backup-sw-for-vtl").
+For more information about compatible backup applications, see [Supported third-party backup applications for a Tape Gateway](Requirements.md#requirements-backup-sw-for-vtl "Requirements.md#requirements-backup-sw-for-vtl").
 
 ###### Topics
 
-- [Configuring NetBackup Storage
-  Devices](#configure-netback-storage-devices "#configure-netback-storage-devices")
+- [Configuring NetBackup Storage Devices](#configure-netback-storage-devices "#configure-netback-storage-devices")
 - [Backing Up Data to a Tape](#GettingStarted-backup-data-VTL "#GettingStarted-backup-data-VTL")
 - [Archiving the Tape](#GettingStarted-archiving-tapes-vtl "#GettingStarted-archiving-tapes-vtl")
 - [Restoring Data from the Tape](#restore-data-vtl "#restore-data-vtl")
 
-## Configuring NetBackup Storage
-
-Devices
+## Configuring NetBackup Storage Devices
 
 After you have connected the virtual tape library (VTL) devices to the Windows client,
 you configure Veritas NetBackup storage to recognize your devices. For information about

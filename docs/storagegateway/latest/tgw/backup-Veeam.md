@@ -1,28 +1,21 @@
-# Testing your setup by using Veeam Backup and
-
-Replication
+# Testing your setup by using Veeam Backup and Replication
 
 You can back up your data to virtual tapes, archive the tapes, and manage your virtual
 tape library (VTL) devices by using Veeam Backup & Replication. In this topic, you can
 find basic documentation on how to configure the Veeam Backup & Replication software for
 a Tape Gateway and perform a backup and restore operation. For detailed information about
 how to use the Veeam software, refer to the Veeam Backup & Replication documentation.
-For more information about compatible backup applications, see [Supported third-party backup
-applications for a Tape Gateway](Requirements.md#requirements-backup-sw-for-vtl "Requirements.md#requirements-backup-sw-for-vtl").
+For more information about compatible backup applications, see [Supported third-party backup applications for a Tape Gateway](Requirements.md#requirements-backup-sw-for-vtl "Requirements.md#requirements-backup-sw-for-vtl").
 
 ###### Topics
 
-- [Configuring Veeam to Work with VTL
-  Devices](#veeam-configure-software "#veeam-configure-software")
+- [Configuring Veeam to Work with VTL Devices](#veeam-configure-software "#veeam-configure-software")
 - [Importing a Tape into Veeam](#veeam-Import-tapes "#veeam-Import-tapes")
 - [Backing Up Data to a Tape in Veeam](#veeam-write-data-to-tape "#veeam-write-data-to-tape")
 - [Archiving a Tape by Using Veeam](#veeam-archive-tape "#veeam-archive-tape")
-- [Restoring Data from a Tape Archived in
-  Veeam](#veeam-restore-tape "#veeam-restore-tape")
+- [Restoring Data from a Tape Archived in Veeam](#veeam-restore-tape "#veeam-restore-tape")
 
-## Configuring Veeam to Work with VTL
-
-Devices
+## Configuring Veeam to Work with VTL Devices
 
 After you have connected your virtual tape library (VTL) devices to the Windows
 client, you configure Veeam Backup & Replication to recognize your devices. For
@@ -33,8 +26,7 @@ information about how to connect VTL devices to the Windows client, see [Connect
 To configure the software to work with Tape Gateway devices, you update the
 device drivers for the VTL devices to expose them to the Veeam software and then
 discover the VTL devices. In Device Manager, update the driver for the medium
-changer. For instructions, see [Updating the Device Driver for Your Medium
-Changer](resource_vtl-devices.md#update-vtl-device-driver "resource_vtl-devices.md#update-vtl-device-driver").
+changer. For instructions, see [Updating the Device Driver for Your Medium Changer](resource_vtl-devices.md#update-vtl-device-driver "resource_vtl-devices.md#update-vtl-device-driver").
 
 ### Discovering VTL Devices
 
@@ -118,9 +110,7 @@ starts, the status changes to **ARCHIVING**. When archiving is
 completed, the tape is no longer listed in the VTL but is archived in
 S3 Glacier Flexible Retrieval or S3 Glacier Deep Archive.
 
-## Restoring Data from a Tape Archived in
-
-Veeam
+## Restoring Data from a Tape Archived in Veeam
 
 Restoring your archived data is a two-step process.
 

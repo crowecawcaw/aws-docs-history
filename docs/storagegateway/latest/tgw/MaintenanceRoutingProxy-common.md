@@ -1,6 +1,4 @@
-# Configuring a SOCKS5 proxy for your
-
-on-premises gateway
+# Configuring a SOCKS5 proxy for your on-premises gateway
 
 Volume Gateways and Tape Gateways support configuration of a Socket Secure version 5
 (SOCKS5) proxy between your on-premises gateway and AWS.
@@ -18,17 +16,12 @@ your gateway, see [Network and firewall requirements](Requirements.md#networks "
 The following procedure shows you how to configure SOCKS proxy for Volume Gateway and
 Tape Gateway.
 
-###### To configure a SOCKS5 proxy for volume and
-
-Tape Gateways
+###### To configure a SOCKS5 proxy for volume and Tape Gateways
 
 1. Log in to your gateway's local console.
-   - VMware ESXi – for more information, see [Accessing the Gateway Local
-     Console with VMware ESXi](accessing-local-console.md#MaintenanceConsoleWindowVMware-common "accessing-local-console.md#MaintenanceConsoleWindowVMware-common").
-   - Microsoft Hyper-V – for more information, see [Access the Gateway Local Console
-     with Microsoft Hyper-V](accessing-local-console.md#MaintenanceConsoleWindowHyperV-common "accessing-local-console.md#MaintenanceConsoleWindowHyperV-common").
-   - KVM – for more information, see [Accessing the Gateway Local Console
-     with Linux KVM](accessing-local-console.md#MaintenanceConsoleWindowKVM-common "accessing-local-console.md#MaintenanceConsoleWindowKVM-common").
+   - VMware ESXi – for more information, see [Accessing the Gateway Local Console with VMware ESXi](accessing-local-console.md#MaintenanceConsoleWindowVMware-common "accessing-local-console.md#MaintenanceConsoleWindowVMware-common").
+   - Microsoft Hyper-V – for more information, see [Access the Gateway Local Console with Microsoft Hyper-V](accessing-local-console.md#MaintenanceConsoleWindowHyperV-common "accessing-local-console.md#MaintenanceConsoleWindowHyperV-common").
+   - KVM – for more information, see [Accessing the Gateway Local Console with Linux KVM](accessing-local-console.md#MaintenanceConsoleWindowKVM-common "accessing-local-console.md#MaintenanceConsoleWindowKVM-common").
 
 2. From the **AWS Storage Gateway - Configuration** main menu, enter
    the corresponding numeral to select **SOCKS Proxy

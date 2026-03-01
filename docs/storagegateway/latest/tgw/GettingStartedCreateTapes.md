@@ -1,6 +1,4 @@
-# Creating new virtual tapes for
-
-Tape Gateway
+# Creating new virtual tapes for Tape Gateway
 
 This section describes how to create new virtual tapes using AWS Storage Gateway. You can create
 new virtual tapes manually using either the AWS Storage Gateway console or the Storage Gateway API. You can

@@ -1,6 +1,4 @@
-# Performing maintenance tasks using the local
-
-console
+# Performing maintenance tasks using the local console
 
 This section contains the following topics, which provide information about how to perform
 maintenance tasks using the gateway appliance local console. The local console runs directly
@@ -22,7 +20,6 @@ there are also some differences.
   to perform basic setup and advanced configuration tasks for an on-premises gateway,
   such as configuring an HTTP proxy, viewing system resource status, or running
   terminal commands.
-- [Performing Tasks on the Amazon EC2 Local
-  Console](ec2-local-console-common.md "ec2-local-console-common.md") - Learn how to log into the local console to perform basic setup and advanced
+- [Performing Tasks on the Amazon EC2 Local Console](ec2-local-console-common.md "ec2-local-console-common.md") - Learn how to log into the local console to perform basic setup and advanced
   configuration tasks for an Amazon EC2 gateway, such as configuring an HTTP proxy, viewing
   system resource status, or running terminal commands.

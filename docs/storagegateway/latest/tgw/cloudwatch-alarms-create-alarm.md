@@ -1,6 +1,4 @@
-# Creating a custom CloudWatch alarm for your
-
-gateway
+# Creating a custom CloudWatch alarm for your gateway
 
 CloudWatch uses Amazon Simple Notification Service (Amazon SNS) to send alarm notifications when an alarm changes state.
 An alarm watches a single metric over a time period that you specify, and performs one

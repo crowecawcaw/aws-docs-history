@@ -12,9 +12,7 @@ was made, who made the request, when it was made, and additional details.
 
 To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
 
-## Storage Gateway Information in
-
-CloudTrail
+## Storage Gateway Information in CloudTrail
 
 CloudTrail is activated on your Amazon Web Services account when you create the account. When activity
 occurs in Storage Gateway, that activity is recorded in a CloudTrail event along with other AWS
@@ -53,9 +51,7 @@ identity information helps you determine the following:
 For more information, see the [CloudTrail userIdentity
 Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## Understanding Storage Gateway Log File
-
-Entries
+## Understanding Storage Gateway Log File Entries
 
 A trail is a configuration that allows delivery of events as log files to an Amazon S3
 bucket that you specify. CloudTrail log files contain one or more log entries. An event

@@ -5,15 +5,11 @@ issues with your virtual tapes.
 
 ###### Topics
 
-- [Recovering a Virtual Tape From An Unrecoverable
-  Gateway](#recovery-tapes "#recovery-tapes")
+- [Recovering a Virtual Tape From An Unrecoverable Gateway](#recovery-tapes "#recovery-tapes")
 - [Troubleshooting Irrecoverable Tapes](#IrrecoverableTapes "#IrrecoverableTapes")
-- [High Availability Health
-  Notifications](#troubleshooting-ha-notifications "#troubleshooting-ha-notifications")
+- [High Availability Health Notifications](#troubleshooting-ha-notifications "#troubleshooting-ha-notifications")
 
-## Recovering a Virtual Tape From An Unrecoverable
-
-Gateway
+## Recovering a Virtual Tape From An Unrecoverable Gateway
 
 Although it is rare, your Tape Gateway might encounter an unrecoverable failure.
 Such a failure can occur in your hypervisor host, the gateway itself, or the cache
@@ -22,14 +18,10 @@ troubleshooting instructions in this section.
 
 ###### Topics
 
-- [You Need to Recover a Virtual Tape
-  from a Malfunctioning Tape Gateway](#creating-recovery-tape-vtl "#creating-recovery-tape-vtl")
-- [You Need to Recover a Virtual Tape
-  from a Malfunctioning Cache Disk](#recover-from-failed-disk "#recover-from-failed-disk")
+- [You Need to Recover a Virtual Tape from a Malfunctioning Tape Gateway](#creating-recovery-tape-vtl "#creating-recovery-tape-vtl")
+- [You Need to Recover a Virtual Tape from a Malfunctioning Cache Disk](#recover-from-failed-disk "#recover-from-failed-disk")
 
-### You Need to Recover a Virtual Tape
-
-from a Malfunctioning Tape Gateway
+### You Need to Recover a Virtual Tape from a Malfunctioning Tape Gateway
 
 If your Tape Gateway or the hypervisor host encounters an unrecoverable
 failure, you can recover any data that has already been uploaded to AWS to
@@ -66,15 +58,12 @@ can have multiple recovery points. 8. To begin recovering any tapes you need to 
 choose **Create recovery tape**. 9. In the **Create recovery tape** dialog box, verify
 the barcode of the virtual tape you want to recover. 10. For **Gateway**, choose the Tape Gateway you want to
 recover the virtual tape to. 11. Choose **Create recovery tape**. 12. Delete the failed Tape Gateway so you don't get charged. For
-instructions, see [Deleting your gateway and removing associated
-resources](deleting-gateway-common.md "deleting-gateway-common.md").
+instructions, see [Deleting your gateway and removing associated resources](deleting-gateway-common.md "deleting-gateway-common.md").
 
 Storage Gateway moves the tape from the failed Tape Gateway to the Tape Gateway
 you specified. The Tape Gateway marks the tape status as RECOVERED.
 
-### You Need to Recover a Virtual Tape
-
-from a Malfunctioning Cache Disk
+### You Need to Recover a Virtual Tape from a Malfunctioning Cache Disk
 
 If your cache disk encounters an error, the gateway prevents read and write
 operations on virtual tapes in the gateway. For example, an error can occur when
@@ -98,8 +87,7 @@ can recover your tapes:
   tapes that have data that is not synchronized with Amazon S3 are
   automatically recovered. The status of these tapes is set to RECOVERED,
   but the tapes will be read-only. For information about how to remove a
-  disk from your host, see [Determining the size of
-  upload buffer to allocate](decide-local-disks-and-sizes.md#CachedLocalDiskUploadBufferSizing-common "decide-local-disks-and-sizes.md#CachedLocalDiskUploadBufferSizing-common").
+  disk from your host, see [Determining the size of upload buffer to allocate](decide-local-disks-and-sizes.md#CachedLocalDiskUploadBufferSizing-common "decide-local-disks-and-sizes.md#CachedLocalDiskUploadBufferSizing-common").
 
 ###### Important
 
@@ -117,8 +105,7 @@ To reset the cache disk, see the procedure later in this topic.
    gateway, see [Shutting Down Your Gateway VM](MaintenanceShutDown-common.md "MaintenanceShutDown-common.md").
 2. Add the disk back to your host, and make sure the disk node number of
    the disk has not changed. For information about how to add a disk, see
-   [Determining the size of
-   upload buffer to allocate](decide-local-disks-and-sizes.md#CachedLocalDiskUploadBufferSizing-common "decide-local-disks-and-sizes.md#CachedLocalDiskUploadBufferSizing-common").
+   [Determining the size of upload buffer to allocate](decide-local-disks-and-sizes.md#CachedLocalDiskUploadBufferSizing-common "decide-local-disks-and-sizes.md#CachedLocalDiskUploadBufferSizing-common").
 3. Restart the gateway. For information about how to restart a gateway,
    see [Shutting Down Your Gateway VM](MaintenanceShutDown-common.md "MaintenanceShutDown-common.md").
 
@@ -170,9 +157,7 @@ virtual tape to IRRECOVERABLE. The action you take depends on the circumstances.
 can find information following on some issues you might find, and how to
 troubleshoot them.
 
-### You Need to Recover Data From an
-
-IRRECOVERABLE Tape
+### You Need to Recover Data From an IRRECOVERABLE Tape
 
 If you have a virtual tape with the status IRRECOVERABLE, and you need to work
 with it, try one of the following:
@@ -182,8 +167,7 @@ with it, try one of the following:
   Gateway](create-gateway-vtl.md "create-gateway-vtl.md").
 - Deactivate the Tape Gateway that contains the irrecoverable tape, and
   recover the tape from a recovery point to the new Tape Gateway. For
-  more information, see [You Need to Recover a Virtual Tape
-  from a Malfunctioning Tape Gateway](#creating-recovery-tape-vtl "#creating-recovery-tape-vtl").
+  more information, see [You Need to Recover a Virtual Tape from a Malfunctioning Tape Gateway](#creating-recovery-tape-vtl "#creating-recovery-tape-vtl").
 
 ###### Note
 
@@ -191,18 +175,13 @@ You have to reconfigure your iSCSI initiator and backup
 application to use the new Tape Gateway. For more information, see
 [Connecting your VTL devices](GettingStartedAccessTapesVTL.md "GettingStartedAccessTapesVTL.md").
 
-### You Don't Need an
-
-IRRECOVERABLE Tape That Isn't Archived
+### You Don't Need an IRRECOVERABLE Tape That Isn't Archived
 
 If you have a virtual tape with the status IRRECOVERABLE, you don't need
 it, and the tape has never been archived, you should delete the tape. For more
-information, see [Deleting virtual tapes from your
-Tape Gateway](deleting-tapes-vtl.md "deleting-tapes-vtl.md").
+information, see [Deleting virtual tapes from your Tape Gateway](deleting-tapes-vtl.md "deleting-tapes-vtl.md").
 
-### A Cache Disk in Your Gateway
-
-Encounters a Failure
+### A Cache Disk in Your Gateway Encounters a Failure
 
 If one or more cache disks in your gateway encounters a failure, the gateway prevents read
 and write operations to your virtual tapes and volumes. To resume normal functionality,
@@ -227,9 +206,7 @@ Shutting down the gateway when your cache disk and Amazon S3 are not synchronize
 can result in data loss. As a result, we don't recommend using ephemeral drives or
 disks.
 
-## High Availability Health
-
-Notifications
+## High Availability Health Notifications
 
 When running your gateway on the VMware vSphere High Availability (HA) platform,
 you may receive health notifications. For more information about health

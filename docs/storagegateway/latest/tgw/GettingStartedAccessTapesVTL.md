@@ -120,8 +120,7 @@ output.
  -> ../../sda`
 
 For Volume Gateways, we highly recommend that after you set up your
-initiator, you customize your iSCSI settings as discussed in [Customizing Your Linux iSCSI
-Settings](recommendediSCSISettings.md#CustomizeLinuxiSCSISettings "recommendediSCSISettings.md#CustomizeLinuxiSCSISettings").
+initiator, you customize your iSCSI settings as discussed in [Customizing Your Linux iSCSI Settings](recommendediSCSISettings.md#CustomizeLinuxiSCSISettings "recommendediSCSISettings.md#CustomizeLinuxiSCSISettings").
 
 Verify that the VTL device is attached to the client machine (the initiator).
 To do so, use the following command.

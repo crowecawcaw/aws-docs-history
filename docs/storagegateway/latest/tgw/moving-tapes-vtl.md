@@ -1,6 +1,4 @@
-# Moving tapes to S3 Glacier Deep Archive
-
-storage class
+# Moving tapes to S3 Glacier Deep Archive storage class
 
 Move your tapes from S3 Glacier Flexible Retrieval to S3 Glacier Deep Archive for
 long-term data retention and digital preservation at a very low cost. You use
@@ -8,9 +6,7 @@ S3 Glacier Deep Archive for long-term data retention and digital preservation
 where the data is accessed once or twice a year. For detailed information, see [Storage Classes for Archiving
 Objects](../../../AmazonS3/latest/userguide/storage-class-intro.md#sc-glacier "../../../AmazonS3/latest/userguide/storage-class-intro.md#sc-glacier").
 
-###### To move a tape from S3 Glacier Flexible Retrieval to
-
-S3 Glacier Deep Archive
+###### To move a tape from S3 Glacier Flexible Retrieval to S3 Glacier Deep Archive
 
 1. In the navigation pane, choose **Tape Library > Tapes** to
    see your tapes. By default, this list displays up to 1,000 tapes at a time, but

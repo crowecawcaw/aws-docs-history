@@ -1,6 +1,4 @@
-# Deleting your gateway and removing associated
-
-resources
+# Deleting your gateway and removing associated resources
 
 If you don't plan to continue using your gateway, consider deleting the gateway and its
 associated resources. Removing resources avoids incurring charges for resources you don't
@@ -26,16 +24,11 @@ want to programmatically delete your gateway, see _[AWS Storage Gateway API Refe
 
 ###### Topics
 
-- [Deleting Your Gateway by Using the Storage Gateway
-  Console](#delete-gateway-procedure "#delete-gateway-procedure")
-- [Removing Resources from a Gateway Deployed
-  On-Premises](#remove-resources-onpremise "#remove-resources-onpremise")
-- [Removing Resources from a Gateway Deployed on an
-  Amazon EC2 Instance](#EC2GatewayCleanup "#EC2GatewayCleanup")
+- [Deleting Your Gateway by Using the Storage Gateway Console](#delete-gateway-procedure "#delete-gateway-procedure")
+- [Removing Resources from a Gateway Deployed On-Premises](#remove-resources-onpremise "#remove-resources-onpremise")
+- [Removing Resources from a Gateway Deployed on an Amazon EC2 Instance](#EC2GatewayCleanup "#EC2GatewayCleanup")
 
-## Deleting Your Gateway by Using the Storage Gateway
-
-Console
+## Deleting Your Gateway by Using the Storage Gateway Console
 
 The procedure for deleting a gateway is the same for all gateway types. However,
 depending on the type of gateway you want to delete and the host the gateway is deployed
@@ -83,16 +76,12 @@ and Amazon EBS snapshots by canceling your Amazon EC2 subscription. If you want 
 Amazon EC2 subscription, you can delete your Amazon EBS snapshots using the Amazon EC2
 console.
 
-## Removing Resources from a Gateway Deployed
-
-On-Premises
+## Removing Resources from a Gateway Deployed On-Premises
 
 You can use the instructions following to remove resources from a gateway that is
 deployed on-premises.
 
-### Removing Resources from a
-
-Tape Gateway Deployed on a VM
+### Removing Resources from a Tape Gateway Deployed on a VM
 
 When you delete a gateway–virtual tape library (VTL), you perform
 additional cleanup steps before and after you delete the gateway. These additional
@@ -133,13 +122,11 @@ deactivate it before you delete it, as described following:
   tape using your backup software. For instructions, see [Archiving the Tape](backup_netbackup-vtl.md#GettingStarted-archiving-tapes-vtl "backup_netbackup-vtl.md#GettingStarted-archiving-tapes-vtl").
 
 After deactivating the Tape Gateway and deleting tapes, you can delete the
-Tape Gateway. For instructions on how to delete a gateway, see [Deleting Your Gateway by Using the Storage Gateway
-Console](#delete-gateway-procedure "#delete-gateway-procedure").
+Tape Gateway. For instructions on how to delete a gateway, see [Deleting Your Gateway by Using the Storage Gateway Console](#delete-gateway-procedure "#delete-gateway-procedure").
 
 If you have tapes archived, those tapes remain and you continue to pay for storage
 until you delete them. For instruction on how to delete tapes from a archive. see
-[Deleting virtual tapes from your
-Tape Gateway](deleting-tapes-vtl.md "deleting-tapes-vtl.md").
+[Deleting virtual tapes from your Tape Gateway](deleting-tapes-vtl.md "deleting-tapes-vtl.md").
 
 ###### Important
 
@@ -147,35 +134,27 @@ You are charged for a minimum of 90 days storage for virtual tapes in a
 archive. If you retrieve a virtual tape that has been stored in the archive for
 less than 90 days, you are still charged for 90 days storage.
 
-## Removing Resources from a Gateway Deployed on an
-
-Amazon EC2 Instance
+## Removing Resources from a Gateway Deployed on an Amazon EC2 Instance
 
 If you want to delete a gateway that you deployed on an Amazon EC2 instance, we recommend
 that you clean up the AWS resources that were used with the gateway, specifically the
 Amazon EC2 instance, any Amazon EBS volumes, and also tapes if you deployed a Tape Gateway. Doing
 so helps avoid unintended usage charges.
 
-### Removing Resources from Your Tape Gateway Deployed
-
-on Amazon EC2
+### Removing Resources from Your Tape Gateway Deployed on Amazon EC2
 
 If you deployed a Tape Gateway, we suggest that you take the following actions to
 delete your gateway and clean up its resources:
 
 1. Delete all virtual tapes that you have retrieved to your Tape Gateway.
-   For more information, see [Deleting virtual tapes from your
-   Tape Gateway](deleting-tapes-vtl.md "deleting-tapes-vtl.md").
+   For more information, see [Deleting virtual tapes from your Tape Gateway](deleting-tapes-vtl.md "deleting-tapes-vtl.md").
 2. Delete all virtual tapes from the tape library. For more information, see
-   [Deleting virtual tapes from your
-   Tape Gateway](deleting-tapes-vtl.md "deleting-tapes-vtl.md").
-3. Delete the Tape Gateway. For more information, see [Deleting Your Gateway by Using the Storage Gateway
-   Console](#delete-gateway-procedure "#delete-gateway-procedure").
+   [Deleting virtual tapes from your Tape Gateway](deleting-tapes-vtl.md "deleting-tapes-vtl.md").
+3. Delete the Tape Gateway. For more information, see [Deleting Your Gateway by Using the Storage Gateway Console](#delete-gateway-procedure "#delete-gateway-procedure").
 4. Terminate all Amazon EC2 instances, and delete all Amazon EBS volumes. For more
    information, see [Clean Up Your Instance and Volume](../../../AWSEC2/latest/UserGuide/ec2-clean-up-your-instance.md "../../../AWSEC2/latest/UserGuide/ec2-clean-up-your-instance.md") in the
    _Amazon EC2 User Guide_.
-5. Delete all archived virtual tapes. For more information, see [Deleting virtual tapes from your
-   Tape Gateway](deleting-tapes-vtl.md "deleting-tapes-vtl.md").
+5. Delete all archived virtual tapes. For more information, see [Deleting virtual tapes from your Tape Gateway](deleting-tapes-vtl.md "deleting-tapes-vtl.md").
 
 ###### Important
 

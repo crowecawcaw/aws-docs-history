@@ -24,10 +24,7 @@ that are provided for you.
 
 ###### Topics
 
-- [Getting Tape Gateway health logs with
-  CloudWatch log groups](cw-log-groups-tape.md "cw-log-groups-tape.md")
-- [Using Amazon CloudWatch
-  Metrics](UsingCloudWatchConsole-vtl-common.md "UsingCloudWatchConsole-vtl-common.md")
+- [Getting Tape Gateway health logs with CloudWatch log groups](cw-log-groups-tape.md "cw-log-groups-tape.md")
+- [Using Amazon CloudWatch Metrics](UsingCloudWatchConsole-vtl-common.md "UsingCloudWatchConsole-vtl-common.md")
 - [Understanding virtual tape metrics](monitoring-tape.md "monitoring-tape.md")
-- [Measuring Performance Between Your
-  Tape Gateway and AWS](PerfGatewayAWS-vtl-common.md "PerfGatewayAWS-vtl-common.md")
+- [Measuring Performance Between Your Tape Gateway and AWS](PerfGatewayAWS-vtl-common.md "PerfGatewayAWS-vtl-common.md")

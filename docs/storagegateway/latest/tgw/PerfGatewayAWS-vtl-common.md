@@ -1,6 +1,4 @@
-# Measuring Performance Between Your
-
-Tape Gateway and AWS
+# Measuring Performance Between Your Tape Gateway and AWS
 
 Data throughput, data latency, and operations per second are measures that you can use
 to understand how your application storage that is using your Tape Gateway is
@@ -54,9 +52,7 @@ to measure the throughput, latency, and IOPS between your Tape Gateway and AWS.
    The resulting time-ordered set of data points contains the latency in
    milliseconds.
 
-###### To set an upper threshold alarm for a
-
-Tape Gateway's throughput to AWS
+###### To set an upper threshold alarm for a Tape Gateway's throughput to AWS
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
@@ -74,9 +70,7 @@ Tape Gateway's throughput to AWS
    an email notification sent to you.
 7. Choose **Create Alarm**.
 
-###### To set an upper threshold alarm for reading
-
-data from AWS
+###### To set an upper threshold alarm for reading data from AWS
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").

@@ -1,14 +1,11 @@
-# Testing gateway network
-
-connectivity
+# Testing gateway network connectivity
 
 You can use your gateway's local console to test your network connectivity. This test
 can be useful when you are troubleshooting network issues with your gateway.
 
 ###### To test your gateway's connectivity
 
-1. Log in to your gateway's local console. For instructions, see [Logging In to Your Amazon EC2 Gateway
-   Local Console](EC2_MaintenanceConsoleWindow-common.md "EC2_MaintenanceConsoleWindow-common.md").
+1. Log in to your gateway's local console. For instructions, see [Logging In to Your Amazon EC2 Gateway Local Console](EC2_MaintenanceConsoleWindow-common.md "EC2_MaintenanceConsoleWindow-common.md").
 2. From the **AWS Appliance Activation - Configuration** main
    menu, enter the corresponding numeral to select **Test Network
    Connectivity**.

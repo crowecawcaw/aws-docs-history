@@ -1,6 +1,4 @@
-# Accessing the hardware appliance
-
-console
+# Accessing the hardware appliance console
 
 ###### Note
 
@@ -50,5 +48,4 @@ user account before you can access the console.
 - Open Support Console
   **Next step**
 
-[Configuring hardware appliance network
-parameters](appliance-configure-network.md "appliance-configure-network.md")
+[Configuring hardware appliance network parameters](appliance-configure-network.md "appliance-configure-network.md")

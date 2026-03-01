@@ -1,30 +1,22 @@
-# Testing your setup by using OpenText Data
-
-Protector
+# Testing your setup by using OpenText Data Protector
 
 You can back up your data to virtual tapes, archive the tapes, and manage your virtual
 tape library (VTL) devices by using OpenText Data Protector. In this topic, you can find
 basic documentation on how to configure the OpenText Data Protector software for a
 Tape Gateway and perform a backup and restore operation. For detailed information about how
 to use the OpenText Data Protector software, see the OpenText Data Protector documentation.
-For more information about compatible backup applications, see [Supported third-party backup
-applications for a Tape Gateway](Requirements.md#requirements-backup-sw-for-vtl "Requirements.md#requirements-backup-sw-for-vtl").
+For more information about compatible backup applications, see [Supported third-party backup applications for a Tape Gateway](Requirements.md#requirements-backup-sw-for-vtl "Requirements.md#requirements-backup-sw-for-vtl").
 
 ###### Topics
 
-- [Configuring OpenText Data Protector
-  to Work with VTL Devices](#hpdataprotector-configure-software "#hpdataprotector-configure-software")
-- [Preparing Virtual Tapes for Use with
-  Data Protector](#hpdataprotector-prepare-tapes "#hpdataprotector-prepare-tapes")
-- [Loading Tapes into a Media
-  Pool](#hpdataprotector-load-tapes-into-media-pool "#hpdataprotector-load-tapes-into-media-pool")
+- [Configuring OpenText Data Protector to Work with VTL Devices](#hpdataprotector-configure-software "#hpdataprotector-configure-software")
+- [Preparing Virtual Tapes for Use with Data Protector](#hpdataprotector-prepare-tapes "#hpdataprotector-prepare-tapes")
+- [Loading Tapes into a Media Pool](#hpdataprotector-load-tapes-into-media-pool "#hpdataprotector-load-tapes-into-media-pool")
 - [Backing Up Data to a Tape](#hpdataprotector-backup-to-tape "#hpdataprotector-backup-to-tape")
 - [Archiving a Tape](#hpdataprotector-archive-tape "#hpdataprotector-archive-tape")
 - [Restoring Data from a Tape](#hpdataprotector-restore-tape "#hpdataprotector-restore-tape")
 
-## Configuring OpenText Data Protector
-
-to Work with VTL Devices
+## Configuring OpenText Data Protector to Work with VTL Devices
 
 After you have connected the virtual tape library (VTL) devices to the client, you
 configure OpenText Data Protector to recognize your devices. For information about how
@@ -74,9 +66,7 @@ Library**, and then choose **Next**. 3. On the next screen, do the following:
 Your tape library is now ready to use. To load tapes into it, see the next
 section.
 
-## Preparing Virtual Tapes for Use with
-
-Data Protector
+## Preparing Virtual Tapes for Use with Data Protector
 
 Before you can back up data to a virtual tape, you need to prepare the tape for use.
 Doing this involves the following actions:
@@ -88,9 +78,7 @@ Doing this involves the following actions:
 
 In the following sections, you can find steps to guide you through this process.
 
-### Loading Virtual Tapes into
-
-a Tape Library
+### Loading Virtual Tapes into a Tape Library
 
 Your tape library should now be listed under **Devices**. If you
 don't see it, press F5 to refresh the screen. When your library is listed, you can
@@ -136,9 +124,7 @@ load virtual tapes into the library.
 6.  Choose **Finish** to finish adding your tape drive to
     your tape library.
 
-### Loading Virtual
-
-Tapes into Slots
+### Loading Virtual Tapes into Slots
 
 Now that you have a tape drive in your tape library, you can load virtual tapes
 into slots.
@@ -177,9 +163,7 @@ To set up tape backup, you create a media pool.
    **Next**.
 5. Choose **Finish** to finish creating a media pool.
 
-## Loading Tapes into a Media
-
-Pool
+## Loading Tapes into a Media Pool
 
 Before you can back up data onto your tapes, you must load the tapes into the media
 pool that you created.

@@ -9,8 +9,7 @@ decide when you need to act.
 ###### Topics
 
 - [Understanding Tape Status Information in a VTL](#tape-status "#tape-status")
-- [Determining Tape Status in an
-  Archive](#determine-tape-status-vts "#determine-tape-status-vts")
+- [Determining Tape Status in an Archive](#determine-tape-status-vts "#determine-tape-status-vts")
 
 ## Understanding Tape Status Information in a VTL
 
@@ -30,9 +29,7 @@ table lists and describes possible status values.
 | RECOVERED         | The virtual tape is recovered and is read-only.<br>When your Tape Gateway is not accessible for any reason, you can<br>recover virtual tapes associated with that Tape Gateway to another<br>Tape Gateway. To recover the virtual tapes, first deactivate the<br>inaccessible Tape Gateway. | Amazon S3                                                                                          |
 | IRRECOVERABLE     | The virtual tape can't be read from or written to. This status<br>indicates an error in your Tape Gateway.                                                                                                                                                                                  | Amazon S3                                                                                          |
 
-## Determining Tape Status in an
-
-Archive
+## Determining Tape Status in an Archive
 
 You can use the following procedure to determine the status of a virtual tape in an
 archive.
@@ -56,5 +53,4 @@ Following, you can find a description of the possible status values.
 | RETRIEVING | The virtual tape is being retrieved from the archive. NoteThe virtual tape can be retrieved only to a Tape Gateway. |
 | RETRIEVED  | The virtual tape has been retrieved from the archive. The retrieved<br>tape is read-only.                           |
 
-For additional information about how to work with tapes and VTL devices, see [Managing tapes in your virtual tape
-library](managing-virtual-tapes-vtl.md "managing-virtual-tapes-vtl.md").
+For additional information about how to work with tapes and VTL devices, see [Managing tapes in your virtual tape library](managing-virtual-tapes-vtl.md "managing-virtual-tapes-vtl.md").

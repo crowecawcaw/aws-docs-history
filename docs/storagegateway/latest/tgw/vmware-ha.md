@@ -34,10 +34,8 @@ To use Storage Gateway with VMware HA, we recommend doing the following things:
   for a gateway VM to start in a new host in the failover cluster. The recommended
   iSCSI timeouts for both Windows and Linux clients are greater than the typical
   time it takes for failover to occur. For more information on customizing Windows
-  clients' timeout settings, see [Customizing Your Windows iSCSI
-  Settings](recommendediSCSISettings.md#CustomizeWindowsiSCSISettings "recommendediSCSISettings.md#CustomizeWindowsiSCSISettings"). For more information on
-  customizing Linux clients' timeout settings, see [Customizing Your Linux iSCSI
-  Settings](recommendediSCSISettings.md#CustomizeLinuxiSCSISettings "recommendediSCSISettings.md#CustomizeLinuxiSCSISettings").
+  clients' timeout settings, see [Customizing Your Windows iSCSI Settings](recommendediSCSISettings.md#CustomizeWindowsiSCSISettings "recommendediSCSISettings.md#CustomizeWindowsiSCSISettings"). For more information on
+  customizing Linux clients' timeout settings, see [Customizing Your Linux iSCSI Settings](recommendediSCSISettings.md#CustomizeLinuxiSCSISettings "recommendediSCSISettings.md#CustomizeLinuxiSCSISettings").
 - With clustering, if you deploy the `.ova` package to the cluster,
   select a host when you are prompted to do so. Alternately, you can deploy
   directly to a host in a cluster.
@@ -45,20 +43,14 @@ To use Storage Gateway with VMware HA, we recommend doing the following things:
 
 ###### Topics
 
-- [Configure Your vSphere VMware HA
-  Cluster](#vmware-ha-configure-cluster "#vmware-ha-configure-cluster")
-- [Download the .ova Image from the Storage Gateway
-  console](#vmware-ha-download-image "#vmware-ha-download-image")
+- [Configure Your vSphere VMware HA Cluster](#vmware-ha-configure-cluster "#vmware-ha-configure-cluster")
+- [Download the .ova Image from the Storage Gateway console](#vmware-ha-download-image "#vmware-ha-download-image")
 - [Deploy the Gateway](#vmware-ha-deploy-gateway "#vmware-ha-deploy-gateway")
-- [(Optional) Add Override Options for Other VMs on
-  Your Cluster](#vmware-ha-overrides "#vmware-ha-overrides")
+- [(Optional) Add Override Options for Other VMs on Your Cluster](#vmware-ha-overrides "#vmware-ha-overrides")
 - [Activate Your Gateway](#vmware-ha-activate-gateway "#vmware-ha-activate-gateway")
-- [Test Your VMware High Availability
-  Configuration](#vmware-ha-test-failover "#vmware-ha-test-failover")
+- [Test Your VMware High Availability Configuration](#vmware-ha-test-failover "#vmware-ha-test-failover")
 
-## Configure Your vSphere VMware HA
-
-Cluster
+## Configure Your vSphere VMware HA Cluster
 
 First, if you haven’t already created a VMware cluster, create one. For information
 about how to create a VMware cluster, see [Create a vSphere HA Cluster](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.avail.doc/GUID-4BC60283-B638-472F-B1D2-1E4E57EAD213.html "https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.avail.doc/GUID-4BC60283-B638-472F-B1D2-1E4E57EAD213.html") in the VMware documentation.
@@ -107,12 +99,9 @@ Next, configure your VMware cluster to work with Storage Gateway.
 
 If you have other VMs running on the cluster, you might want to set these values
 specifically for your VM. You can't do this until you deploy the VM from the .ova. For
-more information on setting these values, see [(Optional) Add Override Options for Other VMs on
-Your Cluster](#vmware-ha-overrides "#vmware-ha-overrides").
+more information on setting these values, see [(Optional) Add Override Options for Other VMs on Your Cluster](#vmware-ha-overrides "#vmware-ha-overrides").
 
-## Download the .ova Image from the Storage Gateway
-
-console
+## Download the .ova Image from the Storage Gateway console
 
 ###### To download the .ova image for your gateway
 
@@ -149,9 +138,7 @@ To configure your VM to use paravirtualized controllers
      select the **VMware Paravirtual SCSI** controller type,
      and then choose **OK**.
 
-## (Optional) Add Override Options for Other VMs on
-
-Your Cluster
+## (Optional) Add Override Options for Other VMs on Your Cluster
 
 If you have other VMs running on your cluster, you might want to set the cluster
 values specifically for each VM. For instructions, see [Customize an Individual Virtual Machine](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.avail.doc/GUID-CFD74742-26EA-4BED-A4FC-4E8F50A46C83.html "https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.avail.doc/GUID-CFD74742-26EA-4BED-A4FC-4E8F50A46C83.html") in the VMware vSphere online
@@ -199,9 +186,7 @@ about how are different for each gateway type.
   2.  [Review settings and activate your Tape Gateway](create-gateway-vtl.md#review-and-activate-tape "create-gateway-vtl.md#review-and-activate-tape")
   3.  [Configure your Tape Gateway](create-gateway-vtl.md#configure-gateway-tape "create-gateway-vtl.md#configure-gateway-tape")
 
-## Test Your VMware High Availability
-
-Configuration
+## Test Your VMware High Availability Configuration
 
 After you activate your gateway, test your configuration.
 

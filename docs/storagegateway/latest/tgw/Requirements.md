@@ -1,23 +1,17 @@
-# Requirements for setting up
-
-Tape Gateway
+# Requirements for setting up Tape Gateway
 
 Unless otherwise noted, the following requirements are common to all gateway
 configurations.
 
 ###### Topics
 
-- [Hardware and storage
-  requirements](#requirements-hardware-storage "#requirements-hardware-storage")
+- [Hardware and storage requirements](#requirements-hardware-storage "#requirements-hardware-storage")
 - [Network and firewall requirements](#networks "#networks")
 - [Supported hypervisors and host requirements](#requirements-host "#requirements-host")
 - [Supported iSCSI initiators](#requirements-iscsi-initiators "#requirements-iscsi-initiators")
-- [Supported third-party backup
-  applications for a Tape Gateway](#requirements-backup-sw-for-vtl "#requirements-backup-sw-for-vtl")
+- [Supported third-party backup applications for a Tape Gateway](#requirements-backup-sw-for-vtl "#requirements-backup-sw-for-vtl")
 
-## Hardware and storage
-
-requirements
+## Hardware and storage requirements
 
 This section describes the minimum hardware and settings for your gateway and the
 minimum amount of disk space to allocate for the required storage.
@@ -42,9 +36,7 @@ which you deploy the gateway VM can dedicate the following minimum resources:
 For more information, see [Optimizing gateway performance](Performance.md#Optimizing-common "Performance.md#Optimizing-common"). For information about how your hardware
 affects the performance of the gateway VM, see [AWS Storage Gateway quotas](resource-gateway-limits.md "resource-gateway-limits.md").
 
-### Requirements for Amazon EC2 instance
-
-types
+### Requirements for Amazon EC2 instance types
 
 When deploying your gateway on Amazon Elastic Compute Cloud (Amazon EC2), the instance size must be at
 least **xlarge** for your gateway to function. However,
@@ -131,12 +123,9 @@ deploy Storage Gateway on Amazon EC2 or use other types of deployment
 ###### Topics
 
 - [Port requirements](#requirements-network "#requirements-network")
-- [Networking and firewall
-  requirements for the Storage Gateway Hardware Appliance](#appliance-network-requirements "#appliance-network-requirements")
-- [Allowing AWS Storage Gateway access through
-  firewalls and routers](#allow-firewall-gateway-access "#allow-firewall-gateway-access")
-- [Configuring security groups for your
-  Amazon EC2 gateway instance](#EC2GatewayCustomSecurityGroup-common "#EC2GatewayCustomSecurityGroup-common")
+- [Networking and firewall requirements for the Storage Gateway Hardware Appliance](#appliance-network-requirements "#appliance-network-requirements")
+- [Allowing AWS Storage Gateway access through firewalls and routers](#allow-firewall-gateway-access "#allow-firewall-gateway-access")
+- [Configuring security groups for your Amazon EC2 gateway instance](#EC2GatewayCustomSecurityGroup-common "#EC2GatewayCustomSecurityGroup-common")
 
 ### Port requirements
 
@@ -169,9 +158,7 @@ The following illustration shows network traffic flow for a basic Tape Gateway d
 
 ![network resources connected to Storage Gateway using various ports.](images/SGWNetworkPorts16-volume-tape2.png)
 
-### Networking and firewall
-
-requirements for the Storage Gateway Hardware Appliance
+### Networking and firewall requirements for the Storage Gateway Hardware Appliance
 
 Each Storage Gateway Hardware Appliance requires the following network services:
 
@@ -217,8 +204,7 @@ settings as follows:
 - Provide all connected network interfaces with outbound access to the
   endpoints listed in the diagram preceding.
 - Configure at least one network interface to support the hardware
-  appliance. For more information, see [Configuring hardware appliance network
-  parameters](appliance-configure-network.md "appliance-configure-network.md").
+  appliance. For more information, see [Configuring hardware appliance network parameters](appliance-configure-network.md "appliance-configure-network.md").
 
 ###### Note
 
@@ -232,9 +218,7 @@ scheme.
 
 For more information on activating and configuring a hardware appliance, see [Using the Storage Gateway Hardware Appliance](hardware-appliance.md "hardware-appliance.md").
 
-### Allowing AWS Storage Gateway access through
-
-firewalls and routers
+### Allowing AWS Storage Gateway access through firewalls and routers
 
 Your gateway requires access to the Storage Gateway service endpoints to communicate with
 AWS. During gateway setup, select the endpoint type for your gateway based on your
@@ -338,9 +322,7 @@ time.aws.com
 For a complete list of supported AWS Regions and service endpoints, see [Storage Gateway](../../../general/latest/gr/sg.md "../../../general/latest/gr/sg.md") in the
 _AWS General Reference_.
 
-### Configuring security groups for your
-
-Amazon EC2 gateway instance
+### Configuring security groups for your Amazon EC2 gateway instance
 
 A security group controls traffic to your Amazon EC2 gateway instance. When you configure a
 security group, we recommend the following:
@@ -356,8 +338,7 @@ security group, we recommend the following:
   80, activate your gateway, and then close access on port 80 after completing
   activation.
 - Allow port 22 access only if you are using Support for troubleshooting purposes. For
-  more information, see [You want Support to help troubleshoot
-  your EC2 gateway](troubleshooting-EC2-gateway-issues.md#EC2-EnableAWSSupportAccess "troubleshooting-EC2-gateway-issues.md#EC2-EnableAWSSupportAccess").
+  more information, see [You want Support to help troubleshoot your EC2 gateway](troubleshooting-EC2-gateway-issues.md#EC2-EnableAWSSupportAccess "troubleshooting-EC2-gateway-issues.md#EC2-EnableAWSSupportAccess").
 
 In some cases, you might use an Amazon EC2 instance as an initiator (that is, to connect to
 iSCSI targets on a gateway that you deployed on Amazon EC2. In such a case, we recommend a
@@ -407,8 +388,7 @@ Storage Gateway supports the following hypervisor versions and hosts:
 - Amazon EC2 instance – Storage Gateway provides an Amazon Machine Image (AMI)
   that contains the gateway VM image. Only file, cached volume, and Tape Gateway
   types can be deployed on Amazon EC2. For information about how to deploy a gateway on
-  Amazon EC2, see [Deploy a customized Amazon EC2 instance for
-  Tape Gateway](ec2-gateway-common.md "ec2-gateway-common.md").
+  Amazon EC2, see [Deploy a customized Amazon EC2 instance for Tape Gateway](ec2-gateway-common.md "ec2-gateway-common.md").
 - Storage Gateway Hardware Appliance – Storage Gateway provides a physical
   hardware appliance as a on-premises deployment option for locations with limited
   virtual machine infrastructure.
@@ -418,8 +398,7 @@ Storage Gateway supports the following hypervisor versions and hosts:
 Storage Gateway doesn’t support recovering a gateway from a VM that was created from
 a snapshot or clone of another gateway VM or from your Amazon EC2 AMI. If your gateway VM
 malfunctions, activate a new gateway and recover your data to that gateway. For more
-information, see [Recovering from an unexpected virtual
-machine shutdown](best-practices.md#recover-from-gateway-shutdown "best-practices.md#recover-from-gateway-shutdown").
+information, see [Recovering from an unexpected virtual machine shutdown](best-practices.md#recover-from-gateway-shutdown "best-practices.md#recover-from-gateway-shutdown").
 
 Storage Gateway doesn’t support dynamic memory and virtual memory ballooning.
 
@@ -448,9 +427,7 @@ coordinate access by using Windows Server Failover Clustering (WSFC). However, y
 can't connect multiple hosts to that same volume (for example, sharing a
 nonclustered NTFS/ext4 file system) without using WSFC.
 
-## Supported third-party backup
-
-applications for a Tape Gateway
+## Supported third-party backup applications for a Tape Gateway
 
 You use a backup application to read, write, and manage tapes with a Tape Gateway.
 The type of medium changer you choose depends on the backup application you plan to

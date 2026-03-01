@@ -9,19 +9,15 @@ to a tape, archive a tape and restore data from a tape.
 For detailed information about how to install and use the Dell EMC NetWorker software, see
 the NetWorker documentation.
 
-For more information about compatible backup applications, see [Supported third-party backup
-applications for a Tape Gateway](Requirements.md#requirements-backup-sw-for-vtl "Requirements.md#requirements-backup-sw-for-vtl").
+For more information about compatible backup applications, see [Supported third-party backup applications for a Tape Gateway](Requirements.md#requirements-backup-sw-for-vtl "Requirements.md#requirements-backup-sw-for-vtl").
 
 ###### Topics
 
 - [Configuring to Work with VTL Devices](#emc-configure-software "#emc-configure-software")
-- [Allowing Import of WORM Tapes into Dell EMC
-  NetWorker](#emc-import-tapes "#emc-import-tapes")
-- [Backing Up Data to a Tape in Dell EMC
-  NetWorker](#emc-write-data-to-tape "#emc-write-data-to-tape")
+- [Allowing Import of WORM Tapes into Dell EMC NetWorker](#emc-import-tapes "#emc-import-tapes")
+- [Backing Up Data to a Tape in Dell EMC NetWorker](#emc-write-data-to-tape "#emc-write-data-to-tape")
 - [Archiving a Tape in Dell EMC NetWorker](#emc-archive-tape "#emc-archive-tape")
-- [Restoring Data from an Archived Tape in Dell EMC
-  NetWorker](#emc-restore-tape "#emc-restore-tape")
+- [Restoring Data from an Archived Tape in Dell EMC NetWorker](#emc-restore-tape "#emc-restore-tape")
 
 ## Configuring to Work with VTL Devices
 
@@ -78,9 +74,7 @@ Console, see the NetWorker Management Console interface section of the _[Dell EM
     **Ignore**. Otherwise, choose **Yes** to
     deposit additional tapes.
 
-## Allowing Import of WORM Tapes into Dell EMC
-
-NetWorker
+## Allowing Import of WORM Tapes into Dell EMC NetWorker
 
 You are now ready to import tapes from your Tape Gateway into the Dell EMC NetWorker
 library.
@@ -100,9 +94,7 @@ activate import of tapes into non-WORM media pools.
    **WORM tapes only in WORM pools** box, and then choose
    **OK**.
 
-## Backing Up Data to a Tape in Dell EMC
-
-NetWorker
+## Backing Up Data to a Tape in Dell EMC NetWorker
 
 Backing up data to a tape is a two-step process.
 
@@ -160,9 +152,7 @@ slot.
 In the navigation pane of the Storage Gateway console, choose **Tapes**.
 Verify that your archived tape's status is **ARCHIVED**.
 
-## Restoring Data from an Archived Tape in Dell EMC
-
-NetWorker
+## Restoring Data from an Archived Tape in Dell EMC NetWorker
 
 Restoring your archived data is a two-step process:
 

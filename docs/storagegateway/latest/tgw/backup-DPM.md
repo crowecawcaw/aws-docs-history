@@ -7,21 +7,17 @@ application for a Tape Gateway and perform a backup and restore operation.
 
 For detailed information about how to use DPM, see the [DPM documentation](http://technet.microsoft.com/en-us/library/hh758173.aspx "http://technet.microsoft.com/en-us/library/hh758173.aspx")
 on the Microsoft System Center website. For more information about compatible backup
-applications, see [Supported third-party backup
-applications for a Tape Gateway](Requirements.md#requirements-backup-sw-for-vtl "Requirements.md#requirements-backup-sw-for-vtl").
+applications, see [Supported third-party backup applications for a Tape Gateway](Requirements.md#requirements-backup-sw-for-vtl "Requirements.md#requirements-backup-sw-for-vtl").
 
 ###### Topics
 
-- [Configuring DPM to Recognize VTL
-  Devices](#dpm-configure-software "#dpm-configure-software")
+- [Configuring DPM to Recognize VTL Devices](#dpm-configure-software "#dpm-configure-software")
 - [Importing a Tape into DPM](#dpm-Import-tapes "#dpm-Import-tapes")
 - [Writing Data to a Tape in DPM](#dpm-write-data-to-tape "#dpm-write-data-to-tape")
 - [Archiving a Tape by Using DPM](#dpm-archive-tape "#dpm-archive-tape")
 - [Restoring Data from a Tape Archived in DPM](#dpm-restore-tape "#dpm-restore-tape")
 
-## Configuring DPM to Recognize VTL
-
-Devices
+## Configuring DPM to Recognize VTL Devices
 
 After you have connected the virtual tape library (VTL) devices to the Windows client,
 you configure DPM to recognize your devices. For information about how to connect VTL
@@ -37,8 +33,7 @@ server to work with the Tape Gateway devices, you perform the following tasks:
 ###### To update the VTL device drivers
 
 - In Device Manager, update the driver for the medium changer. For instructions,
-  see [Updating the Device Driver for Your Medium
-  Changer](resource_vtl-devices.md#update-vtl-device-driver "resource_vtl-devices.md#update-vtl-device-driver").
+  see [Updating the Device Driver for Your Medium Changer](resource_vtl-devices.md#update-vtl-device-driver "resource_vtl-devices.md#update-vtl-device-driver").
 
 You use the DPMDriveMappingTool to map your tape drives to the DPM tape
 library.
@@ -117,8 +112,7 @@ minutes.
 
 If the tapes don’t display barcodes correctly, you need to change the
 media changer driver to Sun/StorageTek Library. For more information, see
-[Displaying Barcodes for Tapes in Microsoft System
-Center DPM](resource_vtl-devices.md#enable-barcode "resource_vtl-devices.md#enable-barcode").
+[Displaying Barcodes for Tapes in Microsoft System Center DPM](resource_vtl-devices.md#enable-barcode "resource_vtl-devices.md#enable-barcode").
 
 When identification is complete, the tape label changes to
 **Free**. That is, the tape is free for data to be written

@@ -8,23 +8,16 @@ Backup application for a Tape Gateway and perform a backup and restore operation
 
 For detailed information about how to use the Quest NetVault Backup application, see the
 Quest NetVault Backup – Administration Guide. For more information about compatible backup
-applications, see [Supported third-party backup
-applications for a Tape Gateway](Requirements.md#requirements-backup-sw-for-vtl "Requirements.md#requirements-backup-sw-for-vtl").
+applications, see [Supported third-party backup applications for a Tape Gateway](Requirements.md#requirements-backup-sw-for-vtl "Requirements.md#requirements-backup-sw-for-vtl").
 
 ###### Topics
 
-- [Configuring Quest NetVault Backup to Work
-  with VTL Devices](#netvault-configure-software "#netvault-configure-software")
-- [Backing Up Data to a Tape in the Quest
-  NetVault Backup](#netvault-write-data-to-tape "#netvault-write-data-to-tape")
-- [Archiving a Tape by Using the Quest NetVault
-  Backup](#netvault-archive-tape "#netvault-archive-tape")
-- [Restoring Data from a Tape Archived in Quest
-  NetVault Backup](#netvault-restore-tape "#netvault-restore-tape")
+- [Configuring Quest NetVault Backup to Work with VTL Devices](#netvault-configure-software "#netvault-configure-software")
+- [Backing Up Data to a Tape in the Quest NetVault Backup](#netvault-write-data-to-tape "#netvault-write-data-to-tape")
+- [Archiving a Tape by Using the Quest NetVault Backup](#netvault-archive-tape "#netvault-archive-tape")
+- [Restoring Data from a Tape Archived in Quest NetVault Backup](#netvault-restore-tape "#netvault-restore-tape")
 
-## Configuring Quest NetVault Backup to Work
-
-with VTL Devices
+## Configuring Quest NetVault Backup to Work with VTL Devices
 
 After you have connected the virtual tape library (VTL) devices to the Windows client,
 you configure Quest NetVault Backup to recognize your devices. For information about how
@@ -69,9 +62,7 @@ drives to the bays. 11. In the **Configuration** tab, choose **Manage
 devices** and on the **Manage Devices** page,
 expand your medium changer to see the devices that you added.
 
-## Backing Up Data to a Tape in the Quest
-
-NetVault Backup
+## Backing Up Data to a Tape in the Quest NetVault Backup
 
 You create a backup job and write data to a virtual tape by using the same procedures
 you do with physical tapes. For detailed information about how to back up data, see the
@@ -83,9 +74,7 @@ If your Tape Gateway restarts for any reason during an ongoing backup job, the
 backup job will fail. To complete the failed backup job, you must resubmit
 it.
 
-## Archiving a Tape by Using the Quest NetVault
-
-Backup
+## Archiving a Tape by Using the Quest NetVault Backup
 
 When you archive a tape, a Tape Gateway ejects the tape from the tape drive to the
 storage slot. It then exports the tape from the slot to the archive by using your backup
@@ -111,9 +100,7 @@ storage slot.
 In the navigation pane of the Storage Gateway console, choose **Tapes**.
 Verify that your archived tape's status is **ARCHIVED**.
 
-## Restoring Data from a Tape Archived in Quest
-
-NetVault Backup
+## Restoring Data from a Tape Archived in Quest NetVault Backup
 
 Restoring your archived data is a two-step process.
 

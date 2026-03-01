@@ -25,8 +25,7 @@ To install your hardware appliance, you need the following components:
 ###### Note
 
 Before you perform the following procedure, make sure that you meet all of the
-requirements for the Storage Gateway Hardware Appliance as described in [Networking and firewall
-requirements for the Storage Gateway Hardware Appliance](Requirements.md#appliance-network-requirements "Requirements.md#appliance-network-requirements").
+requirements for the Storage Gateway Hardware Appliance as described in [Networking and firewall requirements for the Storage Gateway Hardware Appliance](Requirements.md#appliance-network-requirements "Requirements.md#appliance-network-requirements").
 
 ###### To physically install your hardware appliance
 
@@ -52,5 +51,4 @@ front panel, as shown in the following image.
 ![hardware appliance front with power button label.](images/appliance-front.jpeg)
 **Next step**
 
-[Accessing the hardware appliance
-console](access-hardware-appliance-console.md "access-hardware-appliance-console.md")
+[Accessing the hardware appliance console](access-hardware-appliance-console.md "access-hardware-appliance-console.md")

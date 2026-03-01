@@ -8,22 +8,17 @@ information about how to use Commvault, refer to the Commvault documentation.
 
 ###### Topics
 
-- [Configuring Commvault to Work with VTL
-  Devices](#commvault-configure-software "#commvault-configure-software")
-- [Creating a Storage Policy and a
-  Subclient](#commvault-prepare-tapes "#commvault-prepare-tapes")
+- [Configuring Commvault to Work with VTL Devices](#commvault-configure-software "#commvault-configure-software")
+- [Creating a Storage Policy and a Subclient](#commvault-prepare-tapes "#commvault-prepare-tapes")
 - [Backing Up Data to a Tape in Commvault](#commvault-backup-data "#commvault-backup-data")
 - [Archiving a Tape in Commvault](#commvault-archive-tape "#commvault-archive-tape")
 - [Restoring Data from a Tape](#commvault-restore-data "#commvault-restore-data")
 
-## Configuring Commvault to Work with VTL
-
-Devices
+## Configuring Commvault to Work with VTL Devices
 
 After you connect the VTL devices to the Windows client, you configure Commvault to
 recognize them. For information about how to connect VTL devices to the Windows client,
-see [Connecting your VTL devices to a Windows
-client](ConfiguringiSCSIClient-vtl.md "ConfiguringiSCSIClient-vtl.md").
+see [Connecting your VTL devices to a Windows client](ConfiguringiSCSIClient-vtl.md "ConfiguringiSCSIClient-vtl.md").
 
 The Commvault backup application doesn't automatically recognize VTL devices. You
 must manually add devices to expose them to the Commvault backup application and then
@@ -62,9 +57,7 @@ discover the devices.
 11. To mount your tapes, open the context (right-click) menu for your media, and
     then choose **Load**.
 
-## Creating a Storage Policy and a
-
-Subclient
+## Creating a Storage Policy and a Subclient
 
 Every backup and restore job is associated with a storage policy and a subclient
 policy.

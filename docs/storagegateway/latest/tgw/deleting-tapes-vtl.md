@@ -1,6 +1,4 @@
-# Deleting virtual tapes from your
-
-Tape Gateway
+# Deleting virtual tapes from your Tape Gateway
 
 You can delete virtual tapes from your Tape Gateway by using the Storage Gateway
 console.

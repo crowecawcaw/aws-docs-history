@@ -7,8 +7,7 @@ Some tape-specific metrics might have the same name as certain gateway-specific
 metrics. These metrics represent the same kinds of measurements but are scoped to a tape
 instead of a gateway. Before starting work, specify whether you want to work with a
 gateway metric or a tape metric. When working with tape metrics, specify the tape ID for
-the tape that you want to view metrics for. For more information, see [Using Amazon CloudWatch
-Metrics](UsingCloudWatchConsole-vtl-common.md "UsingCloudWatchConsole-vtl-common.md").
+the tape that you want to view metrics for. For more information, see [Using Amazon CloudWatch Metrics](UsingCloudWatchConsole-vtl-common.md "UsingCloudWatchConsole-vtl-common.md").
 
 ###### Note
 

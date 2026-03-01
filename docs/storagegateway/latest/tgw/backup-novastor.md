@@ -16,17 +16,14 @@ information about how to connect VTL devices to your Windows client, see [Connec
 NovaStor DataCenter/Network requires drivers from the driver manufacturers. You can
 use the Windows drivers, but you must first deactivate other backup applications.
 
-## Configuring NovaStor DataCenter/Network to Work with
-
-VTL Devices
+## Configuring NovaStor DataCenter/Network to Work with VTL Devices
 
 When configuring your VTL devices to work with NovaStor DataCenter/Network, you might
 see an error message that reads `External Program did not exit correctly`.
 This issue requires a workaround, which you need to perform before you continue.
 
 You can prevent the issue by creating the workaround before you start configuring your
-VTL devices. For information about how to create the workaround, see [Resolving an "External Program Did Not Exit
-Correctly" Error](#novastor-workaround "#novastor-workaround").
+VTL devices. For information about how to create the workaround, see [Resolving an "External Program Did Not Exit Correctly" Error](#novastor-workaround "#novastor-workaround").
 
 ###### To configure NovaStor DataCenter/Network to work with VTL devices
 
@@ -40,8 +37,7 @@ Correctly" Error](#novastor-workaround "#novastor-workaround").
 
 If you see an error message that says `External Program did not exit
  correctly`, resolve the issue before you continue. This issue requires
-a workaround. For information about how to resolve this issue, see [Resolving an "External Program Did Not Exit
-Correctly" Error](#novastor-workaround "#novastor-workaround").
+a workaround. For information about how to resolve this issue, see [Resolving an "External Program Did Not Exit Correctly" Error](#novastor-workaround "#novastor-workaround").
 
 ###### Important
 
@@ -112,9 +108,7 @@ You now have a filled scratch pool that you can use for tape pools.
 6. For **Schedule**, choose **Not
    Scheduled**.
 
-## Configuring Media Import and Export to Archive
-
-Tapes
+## Configuring Media Import and Export to Archive Tapes
 
 NovaStor DataCenter/Network can use import/export slots if they are part of the media
 changer.
@@ -178,9 +172,7 @@ slot.
 In the navigation pane of the Storage Gateway console, choose **Tapes**.
 Verify that your archived tape's status is **ARCHIVED**.
 
-## Restoring Data from an Archived and
-
-Retrieved Tape
+## Restoring Data from an Archived and Retrieved Tape
 
 Restoring your archived data is a two-step process.
 
@@ -193,17 +185,13 @@ Restoring your archived data is a two-step process.
    empty slot, as you do when restoring data from physical tapes. For information
    about restoring data, see [Documentation NovaStor DataCenter/Network](https://dcmanual.novastor.com/help-html/dc/en/RestoretheExample.html "https://dcmanual.novastor.com/help-html/dc/en/RestoretheExample.html").
 
-## Writing Several Backup Jobs to a Tape Drive at the Same
-
-Time
+## Writing Several Backup Jobs to a Tape Drive at the Same Time
 
 In the NovaStor software, you can write several jobs to a tape drive at the same time
 using the multiplexing feature. This feature is available when a multiplexer is
 available for a media pool. For information about how to use multiplexing, see [Documentation NovaStor DataCenter/Network](https://dcmanual.novastor.com/help-html/dc/en/DefineBackupDestinationandSchedu.html "https://dcmanual.novastor.com/help-html/dc/en/DefineBackupDestinationandSchedu.html").
 
-## Resolving an "External Program Did Not Exit
-
-Correctly" Error
+## Resolving an "External Program Did Not Exit Correctly" Error
 
 When configuring your VTL devices to work with NovaStor DataCenter/Network, you might
 see an error message that reads `External Program did not exit correctly`.
@@ -215,9 +203,7 @@ limit that NovaStor DataCenter/Network allows. To resolve this issue, you add a
 configuration file that activates the NovaStor software to limit the number of storage
 and import/export slots and preconfigures the element assignment range.
 
-###### To apply the workaround for an "external program did not exit correctly"
-
-error
+###### To apply the workaround for an "external program did not exit correctly" error
 
 1. Navigate to the Tape folder on your computer where you installed the NovaStor
    software.

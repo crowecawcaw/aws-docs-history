@@ -21,9 +21,7 @@ To get a high-level view of how AWS SGW and other AWS services work with most IA
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for AWS SGW
+## Identity-based policies for AWS SGW
 
 **Supports identity-based policies:**
 
@@ -40,16 +38,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for AWS SGW
 
-Identity-based policy examples for AWS SGW
+To view examples of AWS SGW identity-based policies, see [Identity-based policy examples for Storage Gateway](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of AWS SGW identity-based policies, see [Identity-based policy examples for
-Storage Gateway](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within AWS SGW
+## Resource-based policies within AWS SGW
 
 **Supports resource-based policies:**
 
@@ -65,9 +58,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions
-
-for AWS SGW
+## Policy actions for AWS SGW
 
 **Supports policy actions:**
 
@@ -97,12 +88,9 @@ To specify multiple actions in a single statement, separate them with commas.
          ]
 ```
 
-To view examples of AWS SGW identity-based policies, see [Identity-based policy examples for
-Storage Gateway](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS SGW identity-based policies, see [Identity-based policy examples for Storage Gateway](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for AWS SGW
+## Policy resources for AWS SGW
 
 **Supports policy resources:**
 
@@ -121,12 +109,9 @@ To see a list of AWS SGW resource types and their ARNs, see [Resources Defined b
 in the _Service Authorization Reference_. To learn with which actions you can
 specify the ARN of each resource, see [Actions Defined by AWS Storage Gateway](../../../IAM/latest/UserGuide/list_storagegateway.md#storagegateway-actions-as-permissions "../../../IAM/latest/UserGuide/list_storagegateway.md#storagegateway-actions-as-permissions") .
 
-To view examples of AWS SGW identity-based policies, see [Identity-based policy examples for
-Storage Gateway](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS SGW identity-based policies, see [Identity-based policy examples for Storage Gateway](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for AWS SGW
+## Policy condition keys for AWS SGW
 
 **Supports service-specific policy condition keys:**
 
@@ -145,8 +130,7 @@ To see a list of AWS SGW condition keys, see [Condition Keys for AWS Storage Gat
 _Service Authorization Reference_. To learn with which actions and resources you
 can use a condition key, see [Actions Defined by AWS Storage Gateway](../../../IAM/latest/UserGuide/list_storagegateway.md#storagegateway-actions-as-permissions "../../../IAM/latest/UserGuide/list_storagegateway.md#storagegateway-actions-as-permissions") .
 
-To view examples of AWS SGW identity-based policies, see [Identity-based policy examples for
-Storage Gateway](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS SGW identity-based policies, see [Identity-based policy examples for Storage Gateway](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## ACLs in AWS SGW
 
@@ -174,9 +158,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary
-
-credentials with AWS SGW
+## Using temporary credentials with AWS SGW
 
 **Supports temporary credentials:**
 
@@ -188,9 +170,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Forward access
-
-sessions for AWS SGW
+## Forward access sessions for AWS SGW
 
 **Supports forward access sessions (FAS):**
 
@@ -199,9 +179,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-AWS SGW
+## Service roles for AWS SGW
 
 **Supports service roles:**
 
@@ -216,9 +194,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break AWS SGW functionality.
 Edit service roles only when AWS SGW provides guidance to do so.
 
-## Service-linked
-
-roles for AWS SGW
+## Service-linked roles for AWS SGW
 
 **Supports service-linked roles:**
 

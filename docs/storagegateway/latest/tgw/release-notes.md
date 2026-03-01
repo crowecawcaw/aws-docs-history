@@ -1,6 +1,4 @@
-# Release notes for Tape Gateway appliance
-
-software
+# Release notes for Tape Gateway appliance software
 
 These release notes describe the new and updated features, improvements, and fixes that are
 included with each version of the Tape Gateway appliance. Each software version is identified by its

@@ -19,16 +19,11 @@ activating your gateway.
 
 ###### Topics
 
-- [Selecting a Medium Changer After Gateway
-  Activation](#change-mediumchanger-vtl "#change-mediumchanger-vtl")
-- [Updating the Device Driver for Your Medium
-  Changer](#update-vtl-device-driver "#update-vtl-device-driver")
-- [Displaying Barcodes for Tapes in Microsoft System
-  Center DPM](#enable-barcode "#enable-barcode")
+- [Selecting a Medium Changer After Gateway Activation](#change-mediumchanger-vtl "#change-mediumchanger-vtl")
+- [Updating the Device Driver for Your Medium Changer](#update-vtl-device-driver "#update-vtl-device-driver")
+- [Displaying Barcodes for Tapes in Microsoft System Center DPM](#enable-barcode "#enable-barcode")
 
-## Selecting a Medium Changer After Gateway
-
-Activation
+## Selecting a Medium Changer After Gateway Activation
 
 After your gateway is activated, you can choose to select a different medium changer
 type.
@@ -51,9 +46,7 @@ type.
    changer you want from the drop-down list box and then choose
    **Save**.
 
-## Updating the Device Driver for Your Medium
-
-Changer
+## Updating the Device Driver for Your Medium Changer
 
 1. Open Device Manager on your Windows server, and expand the **Medium
    Changer devices** tree.
@@ -81,9 +74,7 @@ choose **Next**. 6. In the warning box that appears, choose **Yes**. If the
 driver is successfully installed, close the **Update drive
 software** window.
 
-## Displaying Barcodes for Tapes in Microsoft System
-
-Center DPM
+## Displaying Barcodes for Tapes in Microsoft System Center DPM
 
 If you use the media changer driver for Sony TSL-A500C Autoloader, Microsoft System
 Center Data Protection Manager doesn't automatically display barcodes for virtual

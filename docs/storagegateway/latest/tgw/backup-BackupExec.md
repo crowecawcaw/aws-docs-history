@@ -8,8 +8,7 @@ For more detailed information about how to use Backup Exec, including how to cre
 backups, software and hardware compatibility lists, and administrator guides, refer to the
 [Veritas support website](https://www.veritas.com/support/ "https://www.veritas.com/support/").
 
-For more information about supported backup applications, see [Supported third-party backup
-applications for a Tape Gateway](Requirements.md#requirements-backup-sw-for-vtl "Requirements.md#requirements-backup-sw-for-vtl").
+For more information about supported backup applications, see [Supported third-party backup applications for a Tape Gateway](Requirements.md#requirements-backup-sw-for-vtl "Requirements.md#requirements-backup-sw-for-vtl").
 
 ###### Topics
 
@@ -43,7 +42,7 @@ Tape Gateway provides 10 tape drives. However, your Backup Exec license
 agreement might require your backup application to work with fewer than 10
 tape drives. In that case, you must deactivate tape drives in the Backup
 Exec robotic library to leave only the number of tape drives allowed by your
-license agreement actuvated. For instructions, see [Deactivating a Tape Drive in Backup Exec](#BE-disable-tape-drive "#BE-disable-tape-drive") . 4. After the restart is completed, close the Backup Exec Service Manager.
+license agreement actuvated. For instructions, see [Deactivating a Tape Drive in Backup Exec](#BE-disable-tape-drive "#BE-disable-tape-drive"). 4. After the restart is completed, close the Backup Exec Service Manager.
 
 ## Importing a Tape in Backup Exec
 
@@ -58,8 +57,7 @@ Veritas Backup Exec software requires the Tape Gateway medium changer
 type. If the medium changer type listed under **Robotic
 library** is not Tape Gateway, you must change it before you
 configure storage in the backup application. For information about how to
-select a different medium changer type, see [Selecting a Medium Changer After Gateway
-Activation](resource_vtl-devices.md#change-mediumchanger-vtl "resource_vtl-devices.md#change-mediumchanger-vtl"). 2. Choose the **Slots** icon to display all slots.
+select a different medium changer type, see [Selecting a Medium Changer After Gateway Activation](resource_vtl-devices.md#change-mediumchanger-vtl "resource_vtl-devices.md#change-mediumchanger-vtl"). 2. Choose the **Slots** icon to display all slots.
 
 ###### Note
 
@@ -70,8 +68,7 @@ initiate a backup or restore job, the tapes are moved into the tape
 drives.
 
 You must have tapes available in your gateway tape library to import a
-tape into a storage slot. For instructions on how to create tapes, see [Creating new virtual tapes for
-Tape Gateway](GettingStartedCreateTapes.md "GettingStartedCreateTapes.md"). 3. Open the context (right-click) menu for an empty slot, choose
+tape into a storage slot. For instructions on how to create tapes, see [Creating new virtual tapes for Tape Gateway](GettingStartedCreateTapes.md "GettingStartedCreateTapes.md"). 3. Open the context (right-click) menu for an empty slot, choose
 **Import**, and then choose **Import media
 now**. You can select more than one slot and import multiple tapes
 in a single import operation. 4. In the **Media Request** window that appears, choose

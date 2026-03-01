@@ -16,14 +16,10 @@ practices](<http://technet.microsoft.com/en-us/library/cc780921(WS.10).aspx> "ht
 
 ###### Topics
 
-- [Customizing Your Windows iSCSI
-  Settings](#CustomizeWindowsiSCSISettings "#CustomizeWindowsiSCSISettings")
-- [Customizing Your Linux iSCSI
-  Settings](#CustomizeLinuxiSCSISettings "#CustomizeLinuxiSCSISettings")
+- [Customizing Your Windows iSCSI Settings](#CustomizeWindowsiSCSISettings "#CustomizeWindowsiSCSISettings")
+- [Customizing Your Linux iSCSI Settings](#CustomizeLinuxiSCSISettings "#CustomizeLinuxiSCSISettings")
 
-## Customizing Your Windows iSCSI
-
-Settings
+## Customizing Your Windows iSCSI Settings
 
 For a Tape Gateway setup, connecting to your VTL devices by using a
 Microsoft iSCSI initiator is a two-step process:
@@ -34,8 +30,7 @@ Microsoft iSCSI initiator is a two-step process:
 
 The Getting Started example setup provides instructions for both these
 steps. It uses the Symantec NetBackup backup application. For more information, see
-[Connecting your VTL devices](GettingStartedAccessTapesVTL.md "GettingStartedAccessTapesVTL.md") and [Configuring NetBackup Storage
-Devices](backup_netbackup-vtl.md#configure-netback-storage-devices "backup_netbackup-vtl.md#configure-netback-storage-devices").
+[Connecting your VTL devices](GettingStartedAccessTapesVTL.md "GettingStartedAccessTapesVTL.md") and [Configuring NetBackup Storage Devices](backup_netbackup-vtl.md#configure-netback-storage-devices "backup_netbackup-vtl.md#configure-netback-storage-devices").
 
 ###### To customize your Windows iSCSI settings
 
@@ -131,9 +126,7 @@ Before restarting, you must make sure that the results of all write operations
 to volumes are flushed. To do this, take any mapped storage volume disks offline
 before restarting.
 
-## Customizing Your Linux iSCSI
-
-Settings
+## Customizing Your Linux iSCSI Settings
 
 After setting up the initiator for your gateway, we highly recommend that you
 customize your iSCSI settings to prevent the initiator from disconnecting from targets.

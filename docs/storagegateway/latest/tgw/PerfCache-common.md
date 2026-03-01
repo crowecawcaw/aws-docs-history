@@ -6,8 +6,7 @@ pass specified thresholds. Using this alarm, you know when to add cache storage 
 gateway.
 
 You only monitor cache storage in the cached volumes architecture. For more
-information, see [How Tape Gateway
-works](StorageGatewayConcepts.md "StorageGatewayConcepts.md").
+information, see [How Tape Gateway works](StorageGatewayConcepts.md "StorageGatewayConcepts.md").
 
 | Item of Interest                                                                                     | How to Measure                                                                                                                                                                                                                                                                                             |
 | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -15,9 +14,7 @@ works](StorageGatewayConcepts.md "StorageGatewayConcepts.md").
 | Percent of read requests that are served from the<br>cache                                           | Use the `CacheHitPercent` metric with the<br>`Average` statistic.<br>Typically, you want `CacheHitPercent` to remain<br>high.                                                                                                                                                                              |
 | Percent of the cache that is dirty—that is, it contains<br>content that has not been uploaded to AWS | Use the `CachePercentDirty` metrics with the<br>`Average` statistic.<br>Typically, you want `CachePercentDirty` to remain<br>low.                                                                                                                                                                          |
 
-###### To measure the percent of a cache that
-
-is dirty for a gateway and all its volumes
+###### To measure the percent of a cache that is dirty for a gateway and all its volumes
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
@@ -31,9 +28,7 @@ is dirty for a gateway and all its volumes
    The resulting time-ordered set of data points contains the percentage of the cache
    that is dirty over the 5 minutes.
 
-###### To measure the percent of the cache
-
-that is dirty for a volume
+###### To measure the percent of the cache that is dirty for a volume
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").

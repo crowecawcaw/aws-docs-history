@@ -1,6 +1,4 @@
-# Understanding Storage Gateway Resources and Resource
-
-IDs
+# Understanding Storage Gateway Resources and Resource IDs
 
 In Storage Gateway, the primary resource is a _gateway_ but other resource
 types include: _volume_, _virtual tape_,

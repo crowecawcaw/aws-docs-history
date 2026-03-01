@@ -1,6 +1,4 @@
-# Configuring CHAP Authentication
-
-for Your iSCSI Targets
+# Configuring CHAP Authentication for Your iSCSI Targets
 
 Storage Gateway supports authentication between your gateway and iSCSI initiators by using
 Challenge-Handshake Authentication Protocol (CHAP). CHAP provides protection against
@@ -18,17 +16,12 @@ initiator.
 
 ###### To set up mutual CHAP for your targets
 
-1. Configure CHAP on the Storage Gateway console, as discussed in [To configure CHAP for a
-   VTL device target on the Storage Gateway console](#ConfiguringiSCSIClientInitiatorCHAPConsole-tgw "#ConfiguringiSCSIClientInitiatorCHAPConsole-tgw").
+1. Configure CHAP on the Storage Gateway console, as discussed in [To configure CHAP for a VTL device target on the Storage Gateway console](#ConfiguringiSCSIClientInitiatorCHAPConsole-tgw "#ConfiguringiSCSIClientInitiatorCHAPConsole-tgw").
 2. In your client initiator software, complete the CHAP configuration:
-   - To configure mutual CHAP on a Windows client, see [To configure mutual CHAP on
-     a Windows client](#ConfiguringiSCSIClientInitiatorCHAPWindows "#ConfiguringiSCSIClientInitiatorCHAPWindows").
-   - To configure mutual CHAP on a Red Hat Linux client, see [To configure mutual CHAP on a
-     Red Hat Linux client](#ConfiguringiSCSIClientInitiatorCHAPLinux "#ConfiguringiSCSIClientInitiatorCHAPLinux").
+   - To configure mutual CHAP on a Windows client, see [To configure mutual CHAP on a Windows client](#ConfiguringiSCSIClientInitiatorCHAPWindows "#ConfiguringiSCSIClientInitiatorCHAPWindows").
+   - To configure mutual CHAP on a Red Hat Linux client, see [To configure mutual CHAP on a Red Hat Linux client](#ConfiguringiSCSIClientInitiatorCHAPLinux "#ConfiguringiSCSIClientInitiatorCHAPLinux").
 
-###### To configure CHAP for a
-
-VTL device target on the Storage Gateway console
+###### To configure CHAP for a VTL device target on the Storage Gateway console
 
 In this procedure, you specify two secret keys that are used to read and write to
 a virtual tape. These same keys are used in the procedure to configure the client
@@ -50,8 +43,7 @@ initiator.
    You can find the initiator name by using your iSCSI initiator
    software. For example, for Windows clients, the name is the value on the
    **Configuration** tab of the iSCSI initiator. For
-   more information, see [To configure mutual CHAP on
-   a Windows client](#ConfiguringiSCSIClientInitiatorCHAPWindows "#ConfiguringiSCSIClientInitiatorCHAPWindows").
+   more information, see [To configure mutual CHAP on a Windows client](#ConfiguringiSCSIClientInitiatorCHAPWindows "#ConfiguringiSCSIClientInitiatorCHAPWindows").
 
    ###### Note
 
@@ -78,9 +70,7 @@ initiator.
 5. On the **VTL Devices** tab, confirm that the iSCSI CHAP
    authentication field is set to **true**.
 
-###### To configure mutual CHAP on
-
-a Windows client
+###### To configure mutual CHAP on a Windows client
 
 In this procedure, you configure CHAP in the Microsoft iSCSI initiator using the
 same keys that you used to configure CHAP for the volume on the console.
@@ -110,8 +100,7 @@ same keys that you used to configure CHAP for the volume on the console.
    secret is the same as the secret entered into the **Secret used
    to Authenticate Target (Mutual CHAP)** box in the
    **Configure CHAP Authentication** dialog box. For
-   more information, see Configuring CHAP Authentication
-   for Your iSCSI Targets. 4. If the key that you entered is fewer than 12 characters or more than
+   more information, see Configuring CHAP Authentication for Your iSCSI Targets. 4. If the key that you entered is fewer than 12 characters or more than
    16 characters long, an **Initiator CHAP secret** error
    dialog box appears.
 
@@ -134,8 +123,7 @@ same keys that you used to configure CHAP for the volume on the console.
          initiator. This secret is the same as the secret entered into
          the **Secret used to Authenticate Initiator**
          box in the **Configure CHAP Authentication**
-         dialog box. For more information, see Configuring CHAP Authentication
-         for Your iSCSI Targets.
+         dialog box. For more information, see Configuring CHAP Authentication for Your iSCSI Targets.
       3. Select **Perform mutual
          authentication**.
       4. To apply the changes, choose **OK**.
@@ -146,9 +134,7 @@ same keys that you used to configure CHAP for the volume on the console.
 4. If you provided the correct secret key, the target shows a status of
    **Connected**.
 
-###### To configure mutual CHAP on a
-
-Red Hat Linux client
+###### To configure mutual CHAP on a Red Hat Linux client
 
 In this procedure, you configure CHAP in the Linux iSCSI initiator using the same
 keys that you used to configure CHAP for the volume on the Storage Gateway console.

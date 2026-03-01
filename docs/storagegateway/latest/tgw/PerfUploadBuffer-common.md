@@ -7,8 +7,7 @@ before it fills completely and your storage application stops backing up to
 AWS.
 
 You monitor the upload buffer in the same way in both the cached-volume and
-Tape Gateway architectures. For more information, see [How Tape Gateway
-works](StorageGatewayConcepts.md "StorageGatewayConcepts.md").
+Tape Gateway architectures. For more information, see [How Tape Gateway works](StorageGatewayConcepts.md "StorageGatewayConcepts.md").
 
 ###### Note
 
@@ -23,9 +22,7 @@ apply to both gateway architectures.
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Upload buffer usage | Use the `UploadBufferPercentUsed`,<br>`UploadBufferUsed`, and `UploadBufferFree`<br>metrics with the `Average` statistic. For example, use<br>the `UploadBufferUsed` with the `Average`<br>statistic to analyze the storage usage over a time period. |
 
-###### To measure the percent of the upload
-
-buffer that is used
+###### To measure the percent of the upload buffer that is used
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
@@ -43,9 +40,7 @@ Using the following procedure, you can create an alarm using the CloudWatch cons
 learn more about alarms and thresholds, see [Creating CloudWatch Alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md") in the
 _Amazon CloudWatch User Guide_.
 
-###### To set an upper threshold alarm for a
-
-gateway's upload buffer
+###### To set an upper threshold alarm for a gateway's upload buffer
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").

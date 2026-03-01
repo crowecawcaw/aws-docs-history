@@ -27,20 +27,13 @@ instructions following.
 
 ###### Topics
 
-- [Recovering from an unexpected virtual
-  machine shutdown](#recover-from-gateway-shutdown "#recover-from-gateway-shutdown")
-- [Recovering your data from a malfunctioning
-  gateway or VM](#recover-from-gateway "#recover-from-gateway")
-- [Recovering your data from an irrecoverable
-  tape](#recover-from-tape "#recover-from-tape")
-- [Recovering your data from a malfunctioning
-  cache disk](#recover-from-cahe-disk "#recover-from-cahe-disk")
-- [Recovering your data from an inaccessible data
-  center](#disaster-recovery "#disaster-recovery")
+- [Recovering from an unexpected virtual machine shutdown](#recover-from-gateway-shutdown "#recover-from-gateway-shutdown")
+- [Recovering your data from a malfunctioning gateway or VM](#recover-from-gateway "#recover-from-gateway")
+- [Recovering your data from an irrecoverable tape](#recover-from-tape "#recover-from-tape")
+- [Recovering your data from a malfunctioning cache disk](#recover-from-cahe-disk "#recover-from-cahe-disk")
+- [Recovering your data from an inaccessible data center](#disaster-recovery "#disaster-recovery")
 
-### Recovering from an unexpected virtual
-
-machine shutdown
+### Recovering from an unexpected virtual machine shutdown
 
 If your VM shuts down unexpectedly, for example during a power outage, your gateway
 becomes unreachable. When power and network connectivity are restored, your gateway
@@ -48,8 +41,7 @@ becomes reachable and starts to function normally. Following are some steps you 
 at that point to help recover your data:
 
 - If an outage causes network connectivity issues, you can troubleshoot the
-  issue. For information about how to test network connectivity, see [Testing your gateway
-  connection to the internet](MaintenanceTestGatewayConnectivity-common.md "MaintenanceTestGatewayConnectivity-common.md").
+  issue. For information about how to test network connectivity, see [Testing your gateway connection to the internet](MaintenanceTestGatewayConnectivity-common.md "MaintenanceTestGatewayConnectivity-common.md").
 - For tapes setups, when your gateway becomes reachable, your tapes go
   into BOOTSTRAPPING status. This functionality ensures that your locally stored
   data continues to be synchronized with AWS. For more information on this
@@ -59,9 +51,7 @@ at that point to help recover your data:
   about how to recover your data, see the sections following that apply to your
   scenario.
 
-### Recovering your data from a malfunctioning
-
-gateway or VM
+### Recovering your data from a malfunctioning gateway or VM
 
 If your Tape Gateway or the hypervisor host encounters an
 unrecoverable failure, you can use the following steps to recover the tapes from the
@@ -75,12 +65,9 @@ malfunctioning Tape Gateway to another Tape Gateway:
 4. Delete the malfunctioning Tape Gateway.
 
 For detailed information on how to recover the tapes from a
-malfunctioning Tape Gateway to another Tape Gateway, see [You Need to Recover a Virtual Tape
-from a Malfunctioning Tape Gateway](Main_TapesIssues-vtl.md#creating-recovery-tape-vtl "Main_TapesIssues-vtl.md#creating-recovery-tape-vtl").
+malfunctioning Tape Gateway to another Tape Gateway, see [You Need to Recover a Virtual Tape from a Malfunctioning Tape Gateway](Main_TapesIssues-vtl.md#creating-recovery-tape-vtl "Main_TapesIssues-vtl.md#creating-recovery-tape-vtl").
 
-### Recovering your data from an irrecoverable
-
-tape
+### Recovering your data from an irrecoverable tape
 
 If your tape encounters a failure and the status of the tape is IRRECOVERABLE, we
 recommend you use one of the following options to recover your data or resolve the
@@ -94,9 +81,7 @@ failure depending on your situation:
 For detailed information about how to recover your data or resolve the
 failure if your tape is IRRECOVERABLE, see [Troubleshooting Irrecoverable Tapes](Main_TapesIssues-vtl.md#IrrecoverableTapes "Main_TapesIssues-vtl.md#IrrecoverableTapes").
 
-### Recovering your data from a malfunctioning
-
-cache disk
+### Recovering your data from a malfunctioning cache disk
 
 If your cache disk encounters a failure, we recommend you use the following steps to
 recover your data depending on your situation:
@@ -107,12 +92,9 @@ recover your data depending on your situation:
   the cache disk, reconfigure the disk for cache storage, and restart the
   gateway.
 
-For detailed information, see [You Need to Recover a Virtual Tape
-from a Malfunctioning Cache Disk](Main_TapesIssues-vtl.md#recover-from-failed-disk "Main_TapesIssues-vtl.md#recover-from-failed-disk").
+For detailed information, see [You Need to Recover a Virtual Tape from a Malfunctioning Cache Disk](Main_TapesIssues-vtl.md#recover-from-failed-disk "Main_TapesIssues-vtl.md#recover-from-failed-disk").
 
-### Recovering your data from an inaccessible data
-
-center
+### Recovering your data from an inaccessible data center
 
 If your gateway or data center becomes inaccessible for some reason, you can recover
 your data to another gateway in a different data center or recover to a gateway hosted
@@ -123,11 +105,9 @@ type you are covering the data from.
 ###### To recover data from a Tape Gateway in an inaccessible data center
 
 1. Create and activate a new Tape Gateway on an Amazon EC2 host. For more
-   information, see [Deploy a customized Amazon EC2 instance for
-   Tape Gateway](ec2-gateway-common.md "ec2-gateway-common.md").
+   information, see [Deploy a customized Amazon EC2 instance for Tape Gateway](ec2-gateway-common.md "ec2-gateway-common.md").
 2. Recover the tapes from the source gateway in the data center to the new
-   gateway you created on Amazon EC2 For more information, see [Recovering a Virtual Tape From An Unrecoverable
-   Gateway](Main_TapesIssues-vtl.md#recovery-tapes "Main_TapesIssues-vtl.md#recovery-tapes").
+   gateway you created on Amazon EC2 For more information, see [Recovering a Virtual Tape From An Unrecoverable Gateway](Main_TapesIssues-vtl.md#recovery-tapes "Main_TapesIssues-vtl.md#recovery-tapes").
 
 Your tapes should be covered to the new Amazon EC2 gateway.
 
@@ -141,17 +121,13 @@ If you plan to continue using your Tape Gateway, see additional information in [
 ###### To clean up resources you don't need
 
 1. Delete tapes from both your gateway's virtual tape library (VTL) and archive. For more
-   information, see [Deleting your gateway and removing associated
-   resources](deleting-gateway-common.md "deleting-gateway-common.md").
+   information, see [Deleting your gateway and removing associated resources](deleting-gateway-common.md "deleting-gateway-common.md").
    1. Archive any tapes that have the **RETRIEVED** status in your gateway's
       VTL. For instructions, see [Archiving Tapes](managing-virtual-tapes-vtl.md#main-archiving-tapes-managing-vtl "managing-virtual-tapes-vtl.md#main-archiving-tapes-managing-vtl").
-   2. Delete any remaining tapes from your gateway's VTL. For instructions, see [Deleting virtual tapes from your
-      Tape Gateway](deleting-tapes-vtl.md "deleting-tapes-vtl.md").
-   3. Delete any tapes you have in the archive. For instructions, see [Deleting virtual tapes from your
-      Tape Gateway](deleting-tapes-vtl.md "deleting-tapes-vtl.md").
+   2. Delete any remaining tapes from your gateway's VTL. For instructions, see [Deleting virtual tapes from your Tape Gateway](deleting-tapes-vtl.md "deleting-tapes-vtl.md").
+   3. Delete any tapes you have in the archive. For instructions, see [Deleting virtual tapes from your Tape Gateway](deleting-tapes-vtl.md "deleting-tapes-vtl.md").
 
 2. Unless you plan to continue using the Tape Gateway, delete it: For instructions, see
-   [Deleting your gateway and removing associated
-   resources](deleting-gateway-common.md "deleting-gateway-common.md").
+   [Deleting your gateway and removing associated resources](deleting-gateway-common.md "deleting-gateway-common.md").
 3. Delete the Storage Gateway VM from your on-premises host. If you created your gateway on an Amazon EC2
    instance, terminate the instance.

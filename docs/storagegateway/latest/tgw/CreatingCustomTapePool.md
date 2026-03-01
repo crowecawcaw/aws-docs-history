@@ -32,8 +32,7 @@ pools:
   for archiving objects](../../../AmazonS3/latest/userguide/storage-class-intro.md#sc-glacier "../../../AmazonS3/latest/userguide/storage-class-intro.md#sc-glacier") in the _Amazon Simple Storage Service User Guide_.
 
 If you archive a tape in S3 Glacier Flexible Retrieval, you can move it to
-S3 Glacier Deep Archive later. For more information, see [Moving tapes to S3 Glacier Deep Archive
-storage class](moving-tapes-vtl.md "moving-tapes-vtl.md").
+S3 Glacier Deep Archive later. For more information, see [Moving tapes to S3 Glacier Deep Archive storage class](moving-tapes-vtl.md "moving-tapes-vtl.md").
 
 Storage Gateway also supports creation of custom tape pools, which allow you to activate
 tape retention lock to prevent archived tapes from being deleted or moved to another
