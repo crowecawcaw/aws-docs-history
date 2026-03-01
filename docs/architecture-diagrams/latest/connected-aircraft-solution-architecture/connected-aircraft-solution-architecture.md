@@ -22,7 +22,7 @@ This reference architecture shows how you can onboard flight data collection for
 6. App developers build new digital solutions for the connected ecosystem using **Amazon API Gateway**, **AWS Lambda**, and **Athena**.
 7. Anonymized data is offered to third-party developers on a subscription basis with **AWS Data Exchange**.
 8. Fleet–wide analytics is performed by the Engine Health Management team by querying processed
-   flight data using **Amazon Quick Suite** and **Athena**.
+   flight data using **Amazon Quick** and **Athena**.
 
 ## Download editable diagram
 
