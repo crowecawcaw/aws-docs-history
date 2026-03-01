@@ -1,22 +1,15 @@
-# Values that you specify when you
-
-create or update health checks
+# Values that you specify when you create or update health checks
 
 When you create or update health checks, you specify the applicable values. Note
 that you can't change some values after you create a health check.
 
 ###### Topics
 
-- [Monitoring an
-  endpoint](#health-checks-creating-values-endpoint "#health-checks-creating-values-endpoint")
-- [Monitoring other
-  health checks (calculated health checks)](#health-checks-creating-values-calculated "#health-checks-creating-values-calculated")
-- [Monitoring a CloudWatch
-  alarm](#health-checks-creating-values-cloudwatch "#health-checks-creating-values-cloudwatch")
-- [Advanced configuration
-  ("Monitor an Endpoint" only)](#health-checks-creating-values-advanced "#health-checks-creating-values-advanced")
-- [Get notified when a health
-  check fails](#health-checks-creating-values-alarm "#health-checks-creating-values-alarm")
+- [Monitoring an endpoint](#health-checks-creating-values-endpoint "#health-checks-creating-values-endpoint")
+- [Monitoring other health checks (calculated health checks)](#health-checks-creating-values-calculated "#health-checks-creating-values-calculated")
+- [Monitoring a CloudWatch alarm](#health-checks-creating-values-cloudwatch "#health-checks-creating-values-cloudwatch")
+- [Advanced configuration ("Monitor an Endpoint" only)](#health-checks-creating-values-advanced "#health-checks-creating-values-advanced")
+- [Get notified when a health check fails](#health-checks-creating-values-alarm "#health-checks-creating-values-alarm")
 
 **Name**
 
@@ -57,9 +50,7 @@ Pricing](https://aws.amazon.com/route53/pricing/ "https://aws.amazon.com/route53
   determines whether this health check is healthy by monitoring
   the data stream for a CloudWatch alarm.
 
-## Monitoring an
-
-endpoint
+## Monitoring an endpoint
 
 ###### Note
 
@@ -117,8 +108,7 @@ Pricing](https://aws.amazon.com/route53/pricing/ "https://aws.amazon.com/route53
 - **TCP** – Route 53 tries to establish
   a TCP connection.
 
-For more information, see [How Amazon Route 53 determines
-whether a health check is healthy](dns-failover-determining-health-of-endpoints.md "dns-failover-determining-health-of-endpoints.md").
+For more information, see [How Amazon Route 53 determines whether a health check is healthy](dns-failover-determining-health-of-endpoints.md "dns-failover-determining-health-of-endpoints.md").
 
 After you create a health check, you can't change the value of
 **Protocol**.
@@ -265,8 +255,7 @@ Pricing](https://aws.amazon.com/route53/pricing/ "https://aws.amazon.com/route53
 - **TCP** – Route 53 tries to establish
   a TCP connection.
 
-For more information, see [How Amazon Route 53 determines
-whether a health check is healthy](dns-failover-determining-health-of-endpoints.md "dns-failover-determining-health-of-endpoints.md").
+For more information, see [How Amazon Route 53 determines whether a health check is healthy](dns-failover-determining-health-of-endpoints.md "dns-failover-determining-health-of-endpoints.md").
 
 After you create a health check, you can't change the value of
 **Protocol**.
@@ -413,9 +402,7 @@ include query string parameters, for example,
 include a leading slash (`/`) character, Route 53
 automatically adds one.
 
-## Monitoring other
-
-health checks (calculated health checks)
+## Monitoring other health checks (calculated health checks)
 
 ###### Note
 
@@ -573,9 +560,7 @@ resources. If you want to stop routing traffic to a resource, invert the health 
 Charges for a health check still apply when the health check
 is disabled.
 
-## Monitoring a CloudWatch
-
-alarm
+## Monitoring a CloudWatch alarm
 
 ###### Note
 
@@ -633,9 +618,7 @@ steps:
 
 If you change settings for the CloudWatch alarm after you create a
 health check, you must update the health check. For more
-information, see [Updating health
-checks when you change CloudWatch alarm settings (health checks that monitor a CloudWatch
-alarm only)](health-checks-updating-cloudwatch-alarm-settings.md "health-checks-updating-cloudwatch-alarm-settings.md").
+information, see [Updating health checks when you change CloudWatch alarm settings (health checks that monitor a CloudWatch alarm only)](health-checks-updating-cloudwatch-alarm-settings.md "health-checks-updating-cloudwatch-alarm-settings.md").
 
 **Health check status**
 
@@ -703,9 +686,7 @@ steps:
 
 If you change settings for the CloudWatch alarm after you create a
 health check, you must update the health check. For more
-information, see [Updating health
-checks when you change CloudWatch alarm settings (health checks that monitor a CloudWatch
-alarm only)](health-checks-updating-cloudwatch-alarm-settings.md "health-checks-updating-cloudwatch-alarm-settings.md").
+information, see [Updating health checks when you change CloudWatch alarm settings (health checks that monitor a CloudWatch alarm only)](health-checks-updating-cloudwatch-alarm-settings.md "health-checks-updating-cloudwatch-alarm-settings.md").
 
 **Health check status**
 
@@ -752,9 +733,7 @@ resources. If you want to stop routing traffic to a resource, invert the health 
 Charges for a health check still apply when the health check
 is disabled.
 
-## Advanced configuration
-
-("Monitor an Endpoint" only)
+## Advanced configuration ("Monitor an Endpoint" only)
 
 ###### Note
 
@@ -805,8 +784,7 @@ Pricing](https://aws.amazon.com/route53/pricing/ "https://aws.amazon.com/route53
 
 The number of consecutive health checks that an endpoint must pass
 or fail for Route 53 to change the current status of the endpoint from
-unhealthy to healthy or vice versa. For more information, see [How Amazon Route 53 determines
-whether a health check is healthy](dns-failover-determining-health-of-endpoints.md "dns-failover-determining-health-of-endpoints.md").
+unhealthy to healthy or vice versa. For more information, see [How Amazon Route 53 determines whether a health check is healthy](dns-failover-determining-health-of-endpoints.md "dns-failover-determining-health-of-endpoints.md").
 
 **String matching (HTTP and HTTPS
 Only)**
@@ -998,8 +976,7 @@ Pricing](https://aws.amazon.com/route53/pricing/ "https://aws.amazon.com/route53
 
 The number of consecutive health checks that an endpoint must pass
 or fail for Route 53 to change the current status of the endpoint from
-unhealthy to healthy or vice versa. For more information, see [How Amazon Route 53 determines
-whether a health check is healthy](dns-failover-determining-health-of-endpoints.md "dns-failover-determining-health-of-endpoints.md").
+unhealthy to healthy or vice versa. For more information, see [How Amazon Route 53 determines whether a health check is healthy](dns-failover-determining-health-of-endpoints.md "dns-failover-determining-health-of-endpoints.md").
 
 **String matching (HTTP and HTTPS
 Only)**
@@ -1146,9 +1123,7 @@ resources. If you want to stop routing traffic to a resource, invert the health 
 Charges for a health check still apply when the health check
 is disabled.
 
-## Get notified when a health
-
-check fails
+## Get notified when a health check fails
 
 Use the following options to configure email notification when a health check
 fails:

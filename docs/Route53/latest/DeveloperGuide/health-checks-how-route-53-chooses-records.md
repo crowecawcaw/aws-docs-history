@@ -85,7 +85,5 @@ Note the following:
 
 For more information, see the following topics:
 
-- [Configuring active-passive failover with
-  one primary and one secondary resource](dns-failover-types.md#dns-failover-types-active-passive-one-resource "dns-failover-types.md#dns-failover-types-active-passive-one-resource")
-- [Configuring active-passive failover with
-  multiple primary and secondary resources](dns-failover-types.md#dns-failover-types-active-passive-multiple-resources "dns-failover-types.md#dns-failover-types-active-passive-multiple-resources")
+- [Configuring active-passive failover with one primary and one secondary resource](dns-failover-types.md#dns-failover-types-active-passive-one-resource "dns-failover-types.md#dns-failover-types-active-passive-one-resource")
+- [Configuring active-passive failover with multiple primary and secondary resources](dns-failover-types.md#dns-failover-types-active-passive-multiple-resources "dns-failover-types.md#dns-failover-types-active-passive-multiple-resources")

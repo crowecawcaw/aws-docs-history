@@ -30,7 +30,7 @@ New console
 
 1. Design your configuration. For information about how complex DNS routing configurations work, see
    [Configuring DNS failover](dns-failover-configuring.md "dns-failover-configuring.md") in
-   [Creating Amazon Route 53 health checks](dns-failover.md "dns-failover.md") .
+   [Creating Amazon Route 53 health checks](dns-failover.md "dns-failover.md").
 2. Based on the design for your configuration, create the health checks that you want to use for your endpoints.
 3. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
@@ -83,7 +83,7 @@ Old console
 
 1. Design your configuration. For information about how complex DNS routing configurations work, see
    [Configuring DNS failover](dns-failover-configuring.md "dns-failover-configuring.md") in
-   [Creating Amazon Route 53 health checks](dns-failover.md "dns-failover.md") .
+   [Creating Amazon Route 53 health checks](dns-failover.md "dns-failover.md").
 2. Based on the design for your configuration, create the health checks that you want to use for your endpoints.
 3. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").

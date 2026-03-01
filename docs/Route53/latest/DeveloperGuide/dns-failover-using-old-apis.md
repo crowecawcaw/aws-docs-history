@@ -1,6 +1,4 @@
-# Using health checks with Amazon Route 53 API
-
-versions earlier than 2012-12-12
+# Using health checks with Amazon Route 53 API versions earlier than 2012-12-12
 
 Health checks are supported starting with the 2012-12-12 version of the Amazon Route 53 API.
 If a hosted zone contains records that health checks are configured for, we recommend

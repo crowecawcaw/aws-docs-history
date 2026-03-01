@@ -12,12 +12,10 @@ white-label name servers for example.com and reuse them for example.org and exam
 ###### Topics
 
 - [Step 1: Create a Route 53 reusable delegation set](#white-label-name-servers-create-reusable-delegation-set "#white-label-name-servers-create-reusable-delegation-set")
-- [Step 2: Create or recreate Amazon Route 53 hosted zones,
-  and change the TTL for NS and SOA records](#white-label-name-servers-create-hosted-zones "#white-label-name-servers-create-hosted-zones")
+- [Step 2: Create or recreate Amazon Route 53 hosted zones, and change the TTL for NS and SOA records](#white-label-name-servers-create-hosted-zones "#white-label-name-servers-create-hosted-zones")
 - [Step 3: Recreate records for your hosted zones](#white-label-name-servers-create-resource-record-sets "#white-label-name-servers-create-resource-record-sets")
 - [Step 4: Get IP addresses](#white-label-name-servers-get-ip-addresses "#white-label-name-servers-get-ip-addresses")
-- [Step 5: Create records for
-  white-label name servers](#white-label-name-servers-create-white-label-resource-record-sets "#white-label-name-servers-create-white-label-resource-record-sets")
+- [Step 5: Create records for white-label name servers](#white-label-name-servers-create-white-label-resource-record-sets "#white-label-name-servers-create-white-label-resource-record-sets")
 - [Step 6: Update NS and SOA records](#white-label-name-servers-update-ns-soa-records "#white-label-name-servers-update-ns-soa-records")
 - [Step 7: Create glue records and change the registrar's name servers](#white-label-name-servers-create-glue-records "#white-label-name-servers-create-glue-records")
 - [Step 8: Monitor traffic for the website or application](#white-label-name-servers-monitor-traffic "#white-label-name-servers-monitor-traffic")
@@ -41,9 +39,7 @@ see the following documentation:
 - **AWS SDKs** See the applicable SDK documentation on the
   [AWS Documentation](../../../index.md "../../../index.md") page
 
-## Step 2: Create or recreate Amazon Route 53 hosted zones,
-
-and change the TTL for NS and SOA records
+## Step 2: Create or recreate Amazon Route 53 hosted zones, and change the TTL for NS and SOA records
 
 Create or recreate Amazon Route 53 hosted zones:
 
@@ -136,9 +132,7 @@ Addresses:  2001:db8:85a3::8a2e:370:7334
           192.0.2.117
 ```
 
-## Step 5: Create records for
-
-white-label name servers
+## Step 5: Create records for white-label name servers
 
 In the hosted zone that has the same name (such as example.com) as the domain name of the
 white-label name servers (such as ns1.example.com), create eight records:
@@ -219,8 +213,7 @@ with the name of one of your white-label name servers:
 ###### Note
 
 You changed the last value, the time to live (TTL), in
-[Step 2: Create or recreate Amazon Route 53 hosted zones,
-and change the TTL for NS and SOA records](#white-label-name-servers-create-hosted-zones "#white-label-name-servers-create-hosted-zones").
+[Step 2: Create or recreate Amazon Route 53 hosted zones, and change the TTL for NS and SOA records](#white-label-name-servers-create-hosted-zones "#white-label-name-servers-create-hosted-zones").
 
 For information about updating records by using the Route 53 console, see
 [Editing records](resource-record-sets-editing.md "resource-record-sets-editing.md"). 2. In the NS record, make note of the names of the current name servers for the domain, so you can revert
@@ -248,8 +241,7 @@ Use the method provided by the registrar to create glue records and change the r
 2. Change the name servers for the domain to the names of your white-label name servers.
 
 If you're using Amazon Route 53 as your DNS service, see
-[Adding or changing name servers and
-glue records for a domain](domain-name-servers-glue-records.md "domain-name-servers-glue-records.md").
+[Adding or changing name servers and glue records for a domain](domain-name-servers-glue-records.md "domain-name-servers-glue-records.md").
 
 ## Step 8: Monitor traffic for the website or application
 

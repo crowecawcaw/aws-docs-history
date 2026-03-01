@@ -58,8 +58,7 @@ TLD indicates any restrictions.
 ###### Topics
 
 - [Generic top-level domains](#registrar-tld-list-index-generic "#registrar-tld-list-index-generic")
-- [Geographic top-level
-  domains](#registrar-tld-list-index-geographic "#registrar-tld-list-index-geographic")
+- [Geographic top-level domains](#registrar-tld-list-index-geographic "#registrar-tld-list-index-geographic")
 
 ### Generic top-level domains
 
@@ -175,9 +174,7 @@ TLD indicates any restrictions.
 [.watch](watch.md "watch.md"), [.website](website.md "website.md"), [.wedding](wedding.md "wedding.md"), [.wiki](wiki.md "wiki.md"), [.wine](wine.md "wine.md"), [.work](work.md "work.md"), [.works](works.md "works.md"), [.world](world.md "world.md"), [.wtf](wtf.md "wtf.md"), [.xxx](xxx.md "xxx.md"),
 [.xyz](xyz.md "xyz.md"), [.zone](zone.md "zone.md")
 
-### Geographic top-level
-
-domains
+### Geographic top-level domains
 
 **Africa**
 
@@ -197,5 +194,5 @@ domains
 **Europe**
 
 [.be (Belgium)](be.md "be.md"), [.berlin (city of Berlin in Germany)](berlin.md "berlin.md"), [.ch (Switzerland)](ch.md "ch.md"),
-[.co.uk (United Kingdom)](co.md "co.md"), [.cz (Czech Republic)](cz.md "cz.md"), [.de (Germany)](de.md "de.md"), [.es (Spain)](es.md "es.md") , [.eu (European Union)](eu.md "eu.md"), [.fi (Finland)](fi.md "fi.md"), [.fr (France)](fr.md "fr.md"), [.gg (Guernsey)](gg.md "gg.md"), [.im (Isle of Man)](im.md "im.md"), [.it (Italy)](it.md "it.md"), [.me (Montenegro)](me.md "me.md"), [.me.uk (United Kingdom)](me.md "me.md"),
+[.co.uk (United Kingdom)](co.md "co.md"), [.cz (Czech Republic)](cz.md "cz.md"), [.de (Germany)](de.md "de.md"), [.es (Spain)](es.md "es.md"), [.eu (European Union)](eu.md "eu.md"), [.fi (Finland)](fi.md "fi.md"), [.fr (France)](fr.md "fr.md"), [.gg (Guernsey)](gg.md "gg.md"), [.im (Isle of Man)](im.md "im.md"), [.it (Italy)](it.md "it.md"), [.me (Montenegro)](me.md "me.md"), [.me.uk (United Kingdom)](me.md "me.md"),
 [.nl (the Netherlands)](nl.md "nl.md"), [.org.uk (United Kingdom)](org.md "org.md"), [.ruhr (Ruhr region, western part of Germany)](ruhr.md "ruhr.md"), [.se (Sweden)](se.md "se.md"), [.uk (United Kingdom)](uk.md "uk.md"), [.wien (city of Vienna in Austria)](wien.md "wien.md")

@@ -28,8 +28,7 @@ The Route 53 VPC Resolver console includes a wizard that guides you through the 
    [Values that you specify when you create or edit inbound endpoints](resolver-forwarding-inbound-queries-values.md "resolver-forwarding-inbound-queries-values.md").
 
 If you choose **Outbound only**, skip to step 7. 7. Enter the applicable values for configuring an outbound endpoint. For more information, see
-[Values that you specify when you create or edit
-outbound endpoints](resolver-forwarding-outbound-queries-endpoint-values.md "resolver-forwarding-outbound-queries-endpoint-values.md"). 8. If you chose **Inbound and outbound** or **Outbound only**, enter the applicable values
+[Values that you specify when you create or edit outbound endpoints](resolver-forwarding-outbound-queries-endpoint-values.md "resolver-forwarding-outbound-queries-endpoint-values.md"). 8. If you chose **Inbound and outbound** or **Outbound only**, enter the applicable values
 for creating a rule. For more information, see
 [Values that you specify when you create or edit rules](resolver-forwarding-outbound-queries-rule-values.md "resolver-forwarding-outbound-queries-rule-values.md"). 9. On the **Review and create** page, confirm that the settings that you specified on previous pages are correct.
 If necessary, choose **Edit** for the applicable section, and update settings. When you're satisfied with the settings,

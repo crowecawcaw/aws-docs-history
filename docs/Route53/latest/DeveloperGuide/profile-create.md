@@ -55,15 +55,10 @@ for the Profile, see the following procedures:
 
 ###### Topics
 
-- [Associate DNS Firewall rule groups to a
-  Route 53 Profile](profile-associate-dns-firewall.md "profile-associate-dns-firewall.md")
-- [Associate private hosted zones to a
-  Route 53 Profile](profile-associate-private-hz.md "profile-associate-private-hz.md")
-- [Associate Resolver rules to a
-  Route 53 Profile](profile-associate-resolver-rules.md "profile-associate-resolver-rules.md")
-- [Associate interface VPC endpoints
-  to a Route 53 Profile](profile-associate-vpc-endpoints.md "profile-associate-vpc-endpoints.md")
-- [Associate VPC Resolver query logging
-  configurations to a Route 53 Profile](profile-associate-query-logging.md "profile-associate-query-logging.md")
+- [Associate DNS Firewall rule groups to a Route 53 Profile](profile-associate-dns-firewall.md "profile-associate-dns-firewall.md")
+- [Associate private hosted zones to a Route 53 Profile](profile-associate-private-hz.md "profile-associate-private-hz.md")
+- [Associate Resolver rules to a Route 53 Profile](profile-associate-resolver-rules.md "profile-associate-resolver-rules.md")
+- [Associate interface VPC endpoints to a Route 53 Profile](profile-associate-vpc-endpoints.md "profile-associate-vpc-endpoints.md")
+- [Associate VPC Resolver query logging configurations to a Route 53 Profile](profile-associate-query-logging.md "profile-associate-query-logging.md")
 - [Edit Route 53 Profile configurations](profile-edit-configurations.md "profile-edit-configurations.md")
 - [Associate a Route 53 Profile to VPCs](profile-associate-vpcs.md "profile-associate-vpcs.md")

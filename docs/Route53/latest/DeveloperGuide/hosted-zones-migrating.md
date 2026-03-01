@@ -131,7 +131,7 @@ Step 1, Lower the TTL setting.
 You can associate DNS records in the new account with Route 53 health checks from the account you're migrating from.
 To migrate a Route 53 health check, you need to
 create new health checks in your new account with the same configuration as your existing ones.
-For more information, see [Creating Amazon Route 53 health checks](dns-failover.md "dns-failover.md") .
+For more information, see [Creating Amazon Route 53 health checks](dns-failover.md "dns-failover.md").
 
 ## Step 4: Migrate records from the old hosted zone to the new hosted zone
 
@@ -378,9 +378,7 @@ You can re-enable DNSSEC signing in two steps:
    so DNS responses can be authenticated with trusted cryptographic signatures.
 
 For instructions, see
-[Enabling DNSSEC signing and
-establishing a chain of
-trust](dns-configuring-dnssec-enable-signing.md "dns-configuring-dnssec-enable-signing.md").
+[Enabling DNSSEC signing and establishing a chain of trust](dns-configuring-dnssec-enable-signing.md "dns-configuring-dnssec-enable-signing.md").
 
 ## Step 9: (Optional) delete the old hosted zone
 

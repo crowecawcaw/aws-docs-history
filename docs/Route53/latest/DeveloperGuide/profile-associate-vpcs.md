@@ -8,9 +8,7 @@ associate a Route 53 Profile to a VPC by using the Route 53 console, or AWS CLI
 
 Console
 
-###### To associate
-
-VPCs
+###### To associate VPCs
 
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").

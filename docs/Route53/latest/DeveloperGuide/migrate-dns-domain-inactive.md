@@ -5,16 +5,12 @@ perform the procedures in this section.
 
 ###### Topics
 
-- [Step 1: Get your current DNS configuration from the current DNS service provider
-  (inactive domains)](#migrate-dns-get-zone-file-domain-inactive "#migrate-dns-get-zone-file-domain-inactive")
+- [Step 1: Get your current DNS configuration from the current DNS service provider (inactive domains)](#migrate-dns-get-zone-file-domain-inactive "#migrate-dns-get-zone-file-domain-inactive")
 - [Step 2: Create a hosted zone (inactive domains)](#migrate-dns-create-hosted-zone-domain-inactive "#migrate-dns-create-hosted-zone-domain-inactive")
 - [Step 3: Create records (inactive domains)](#migrate-dns-create-records-domain-inactive "#migrate-dns-create-records-domain-inactive")
-- [Step 4: Update the domain registration to use Amazon Route 53 name servers
-  (inactive domains)](#migrate-dns-update-domain-inactive "#migrate-dns-update-domain-inactive")
+- [Step 4: Update the domain registration to use Amazon Route 53 name servers (inactive domains)](#migrate-dns-update-domain-inactive "#migrate-dns-update-domain-inactive")
 
-## Step 1: Get your current DNS configuration from the current DNS service provider
-
-(inactive domains)
+## Step 1: Get your current DNS configuration from the current DNS service provider (inactive domains)
 
 When you migrate DNS service from another provider to Route 53, you reproduce your current DNS configuration in Route 53.
 In Route 53, you create a hosted zone that has the same name as your domain, and you create records in the hosted zone.
@@ -107,8 +103,7 @@ You can create records in a variety of ways:
 
 **Import a zone file**
 This is the easiest method if you got a zone file from your current DNS service in
-[Step 1: Get your current DNS configuration from the current DNS service provider
-(inactive domains)](#migrate-dns-get-zone-file-domain-inactive "#migrate-dns-get-zone-file-domain-inactive").
+[Step 1: Get your current DNS configuration from the current DNS service provider (inactive domains)](#migrate-dns-get-zone-file-domain-inactive "#migrate-dns-get-zone-file-domain-inactive").
 Amazon Route 53 can't predict when to create alias records or to use special routing types such as weighted or failover.
 As a result, if you import a zone file, Route 53 creates standard DNS records using the simple routing policy.
 
@@ -132,9 +127,7 @@ You can create records by using one of the AWS SDKs, the AWS CLI, or AWS Tools f
 If you're using a programming language that AWS doesn't provide an SDK for, you can also use the Route 53 API.
 For more information, see the [Amazon Route 53 API Reference](../APIReference.md "../APIReference.md").
 
-## Step 4: Update the domain registration to use Amazon Route 53 name servers
-
-(inactive domains)
+## Step 4: Update the domain registration to use Amazon Route 53 name servers (inactive domains)
 
 When you've finished creating records for the domain, you can change the DNS service for your domain to
 Amazon Route 53. Perform the following procedure to update settings with the domain registrar.
@@ -154,5 +147,4 @@ Amazon Route 53. Perform the following procedure to update settings with the do
    procedure.
 
 If the domain is registered with Route 53, see
-[Adding or changing name servers and
-glue records for a domain](domain-name-servers-glue-records.md "domain-name-servers-glue-records.md").
+[Adding or changing name servers and glue records for a domain](domain-name-servers-glue-records.md "domain-name-servers-glue-records.md").

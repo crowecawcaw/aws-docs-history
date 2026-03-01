@@ -1,6 +1,4 @@
-# Configure settings for DNS views in
-
-Route 53 Global Resolver
+# Configure settings for DNS views in Route 53 Global Resolver
 
 Route 53 Global Resolver allows you to configure different DNS policies and access controls for different
 groups of client devices based on their security requirements and access needs. Set up DNS
@@ -62,9 +60,7 @@ Enabled
 DNS queries are allowed when firewall rules can't be evaluated. This prioritizes
 availability over security during service issues.
 
-## Best practices for organizing client device
-
-groups
+## Best practices for organizing client device groups
 
 Follow these best practices when designing DNS views for different client device
 groups:

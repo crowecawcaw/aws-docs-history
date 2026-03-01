@@ -1,6 +1,4 @@
-# Amazon Route 53 API permissions: Actions, resources,
-
-and conditions reference
+# Amazon Route 53 API permissions: Actions, resources, and conditions reference
 
 When you set up [Access control](security-iam.md#access-control "security-iam.md#access-control") and
 write a permissions policy that you can attach to an IAM identity (identity-based

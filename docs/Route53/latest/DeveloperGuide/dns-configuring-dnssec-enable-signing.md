@@ -1,7 +1,4 @@
-# Enabling DNSSEC signing and
-
-establishing a chain of
-trust
+# Enabling DNSSEC signing and establishing a chain of trust
 
 ######
 
@@ -22,16 +19,11 @@ sections.
 
 ###### Topics
 
-- [Step 1: Prepare for enabling
-  DNSSEC signing](#dns-configuring-dnssec-enable-signing-step-1 "#dns-configuring-dnssec-enable-signing-step-1")
-- [Step 2: Enable DNSSEC signing and
-  create a KSK](#dns-configuring-dnssec-enable "#dns-configuring-dnssec-enable")
-- [Step 3: Establish chain of
-  trust](#dns-configuring-dnssec-chain-of-trust "#dns-configuring-dnssec-chain-of-trust")
+- [Step 1: Prepare for enabling DNSSEC signing](#dns-configuring-dnssec-enable-signing-step-1 "#dns-configuring-dnssec-enable-signing-step-1")
+- [Step 2: Enable DNSSEC signing and create a KSK](#dns-configuring-dnssec-enable "#dns-configuring-dnssec-enable")
+- [Step 3: Establish chain of trust](#dns-configuring-dnssec-chain-of-trust "#dns-configuring-dnssec-chain-of-trust")
 
-## Step 1: Prepare for enabling
-
-DNSSEC signing
+## Step 1: Prepare for enabling DNSSEC signing
 
 The preparation steps help you minimize the risk of onboarding to DNSSEC by monitoring zone availability and
 lowering wait times between enabling signing and the insertion of the Delegation Signer (DS) record.
@@ -92,9 +84,7 @@ Use [GetChange](../APIReference/API_GetChange.md "../APIReference/API_GetChange.
 to make sure your changes so far have been propagated to all Route 53 DNS
 servers.
 
-## Step 2: Enable DNSSEC signing and
-
-create a KSK
+## Step 2: Enable DNSSEC signing and create a KSK
 
 You can enable DNSSEC signing and create a key-signing key (KSK) by using AWS CLI or on the
 Route 53 console.
@@ -135,9 +125,7 @@ For more information, see [enable-hosted-zone-dnssec](../../../cli/latest/refere
 
 Console
 
-###### To enable
-
-DNSSEC signing and create a KSK
+###### To enable DNSSEC signing and create a KSK
 
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
@@ -154,8 +142,7 @@ signing**, you have already completed the first
 step in enabling DNSSEC signing. Be sure that you establish,
 or that there already exists, a chain of trust for the
 hosted zone for DNSSEC, and then you're done. For more
-information, see [Step 3: Establish chain of
-trust](#dns-configuring-dnssec-chain-of-trust "#dns-configuring-dnssec-chain-of-trust"). 4. In the **Key-signing key (KSK) creation** section, choose **Create new KSK**, and under
+information, see [Step 3: Establish chain of trust](#dns-configuring-dnssec-chain-of-trust "#dns-configuring-dnssec-chain-of-trust"). 4. In the **Key-signing key (KSK) creation** section, choose **Create new KSK**, and under
 **Provide KSK name**, enter a name for the
 KSK that Route 53 will create for you. The name can include
 numbers, letters, and underscores (\_). It must be unique. 5. Under **Customer managed CMK**, choose the
@@ -210,12 +197,9 @@ see:
      [DNS Reply Size Test Server](https://www.dns-oarc.net/oarc/services/replysizetest/ "https://www.dns-oarc.net/oarc/services/replysizetest/").
 
 **Rollback:** call [DisableHostedZoneDNSSEC](../APIReference/API_DisableHostedZoneDNSSEC.md "../APIReference/API_DisableHostedZoneDNSSEC.md") then rollback the steps in
-[Step 1: Prepare for enabling
-DNSSEC signing](#dns-configuring-dnssec-enable-signing-step-1 "#dns-configuring-dnssec-enable-signing-step-1").
+[Step 1: Prepare for enabling DNSSEC signing](#dns-configuring-dnssec-enable-signing-step-1 "#dns-configuring-dnssec-enable-signing-step-1").
 
-## Step 3: Establish chain of
-
-trust
+## Step 3: Establish chain of trust
 
 After you enable DNSSEC signing for a hosted zone in Route 53, establish a chain of
 trust for the hosted zone to complete your DNSSEC signing setup. You do this by
@@ -224,9 +208,7 @@ zone, for your hosted zone, using the information that Route 53 provides. Depen
 where your domain is registered, you add the record to the parent hosted zone in
 Route 53 or at another domain registrar.
 
-###### To establish a
-
-chain of trust for DNSSEC signing
+###### To establish a chain of trust for DNSSEC signing
 
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
@@ -243,8 +225,7 @@ chain of trust for DNSSEC signing
 If you don't see **View information to create DS record** in this
 section, then you must enable DNSSEC signing before you establish the
 chain of trust. Choose **Enable DNSSEC signing** and
-complete the steps as described in [Step 2: Enable DNSSEC signing and
-create a KSK](#dns-configuring-dnssec-enable "#dns-configuring-dnssec-enable"), and then return to
+complete the steps as described in [Step 2: Enable DNSSEC signing and create a KSK](#dns-configuring-dnssec-enable "#dns-configuring-dnssec-enable"), and then return to
 these steps to establish the chain of trust. 4. Under **Establish a chain of trust**, choose either
 **Route 53 registrar** or **Another domain
 registrar**, depending on where your domain is

@@ -1,6 +1,4 @@
-# Gain visibility into DNS activity with
-
-Route 53 Global Resolver
+# Gain visibility into DNS activity with Route 53 Global Resolver
 
 Route 53 Global Resolver provides comprehensive DNS query logging capabilities to monitor client device
 activity and identify security threats. Enable DNS query logging in Route 53 Global Resolver to see what

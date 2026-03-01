@@ -40,11 +40,8 @@ For more information, see [Configuring DNS failover](dns-failover-configuring.md
 ###### Topics
 
 - [Types of Amazon Route 53 health checks](health-checks-types.md "health-checks-types.md")
-- [How Amazon Route 53 determines
-  whether a health check is healthy](dns-failover-determining-health-of-endpoints.md "dns-failover-determining-health-of-endpoints.md")
-- [Creating, updating, and deleting
-  health checks](health-checks-creating-deleting.md "health-checks-creating-deleting.md")
+- [How Amazon Route 53 determines whether a health check is healthy](dns-failover-determining-health-of-endpoints.md "dns-failover-determining-health-of-endpoints.md")
+- [Creating, updating, and deleting health checks](health-checks-creating-deleting.md "health-checks-creating-deleting.md")
 - [Configuring DNS failover](dns-failover-configuring.md "dns-failover-configuring.md")
 - [Naming and tagging health checks](health-checks-tagging.md "health-checks-tagging.md")
-- [Using health checks with Amazon Route 53 API
-  versions earlier than 2012-12-12](dns-failover-using-old-apis.md "dns-failover-using-old-apis.md")
+- [Using health checks with Amazon Route 53 API versions earlier than 2012-12-12](dns-failover-using-old-apis.md "dns-failover-using-old-apis.md")

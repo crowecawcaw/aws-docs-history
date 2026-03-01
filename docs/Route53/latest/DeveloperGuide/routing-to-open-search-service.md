@@ -20,9 +20,7 @@ For more information, see the following topics:
 - [Creating a custom endpoint](../../../opensearch-service/latest/developerguide/customendpoint.md "../../../opensearch-service/latest/developerguide/customendpoint.md") in the
   _Amazon OpenSearch Service Developer Guide_.
 
-## Configuring Amazon Route 53 to route
-
-traffic to an Amazon OpenSearch Service domain endpoint
+## Configuring Amazon Route 53 to route traffic to an Amazon OpenSearch Service domain endpoint
 
 To use Route 53 to route traffic to OpenSearch Service you first get the domain endpoint provided by OpenSearch Service.
 This dual stack endpoint is provided only if custom endpoint is enabled on an OpenSearch Service
@@ -84,5 +82,4 @@ both for dual-stack.
 **Evaluate target health**
 
 Choose **No**. For information about
-evaluating target health, see [Evaluate target
-health](resource-record-sets-values-alias.md#rrsets-values-alias-evaluate-target-health "resource-record-sets-values-alias.md#rrsets-values-alias-evaluate-target-health"). 11. Choose **Create records**.
+evaluating target health, see [Evaluate target health](resource-record-sets-values-alias.md#rrsets-values-alias-evaluate-target-health "resource-record-sets-values-alias.md#rrsets-values-alias-evaluate-target-health"). 11. Choose **Create records**.

@@ -1,15 +1,11 @@
-# Diagnose DNS connectivity issues with
-
-Route 53 Global Resolver
+# Diagnose DNS connectivity issues with Route 53 Global Resolver
 
 Route 53 Global Resolver provides reliable DNS resolution, but connectivity issues can occasionally occur
 due to configuration, authentication, or network problems. When client devices cannot resolve
 domain names using Route 53 Global Resolver, use these systematic approaches to identify and resolve connectivity
 problems.
 
-## Client devices cannot resolve
-
-domains
+## Client devices cannot resolve domains
 
 Follow these steps to diagnose resolution failures:
 

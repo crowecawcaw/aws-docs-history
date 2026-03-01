@@ -27,11 +27,9 @@ Domain name registration services are provided under our
 - [Restoring an expired or deleted domain](domain-restore-expired.md "domain-restore-expired.md")
 - [Replacing the hosted zone for a domain that is registered with Route 53](domain-replace-hosted-zone.md "domain-replace-hosted-zone.md")
 - [Transferring domains](domain-transfer.md "domain-transfer.md")
-- [Resending authorization and confirmation
-  emails](domain-click-email-link.md "domain-click-email-link.md")
+- [Resending authorization and confirmation emails](domain-click-email-link.md "domain-click-email-link.md")
 - [Configuring DNSSEC for a domain](domain-configure-dnssec.md "domain-configure-dnssec.md")
-- [Finding your registrar and other information about
-  your domain](find-your-registrar.md "find-your-registrar.md")
+- [Finding your registrar and other information about your domain](find-your-registrar.md "find-your-registrar.md")
 - [Deleting a domain name registration](domain-delete.md "domain-delete.md")
 - [Contacting AWS Support about domain registration issues](domain-contact-support.md "domain-contact-support.md")
 - [Downloading a domain billing report](domain-billing-report.md "domain-billing-report.md")

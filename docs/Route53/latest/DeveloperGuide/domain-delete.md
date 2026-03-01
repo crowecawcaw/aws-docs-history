@@ -20,8 +20,7 @@ the domain lock, see [DisableDomainTransferLock](../APIReference/API_domains_Dis
 If the registry for your domain doesn't allow you to delete a domain name registration, you must wait for the domain to expire.
 To ensure that the domain isn't automatically renewed, disable automatic renewal for the domain. When the **Expires on**
 date passes, Route 53 automatically deletes the registration for the domain. For information about how to change the automatic renewal setting, see
-[Enabling or disabling automatic
-renewal for a domain](domain-enable-disable-auto-renewal.md "domain-enable-disable-auto-renewal.md").
+[Enabling or disabling automatic renewal for a domain](domain-enable-disable-auto-renewal.md "domain-enable-disable-auto-renewal.md").
 
 **Delay before a domain is deleted and available to register again**
 Almost all registries prevent anyone from immediately registering a domain that has just expired. The typical delay is
@@ -33,10 +32,8 @@ TLD in [Domains that you can register with Amazon Route 53](registrar-tld-list.
 Don't delete a domain and expect to reregister it if you just want to transfer the domain between AWS accounts or
 transfer the domain to another registrar. See the applicable documentation instead:
 
-- [Transferring a domain to a
-  different AWS account](domain-transfer-between-aws-accounts.md "domain-transfer-between-aws-accounts.md")
-- [Transferring a domain from Amazon Route 53 to
-  another registrar](domain-transfer-from-route-53.md "domain-transfer-from-route-53.md")
+- [Transferring a domain to a different AWS account](domain-transfer-between-aws-accounts.md "domain-transfer-between-aws-accounts.md")
+- [Transferring a domain from Amazon Route 53 to another registrar](domain-transfer-from-route-53.md "domain-transfer-from-route-53.md")
 
 ###### To delete a domain name registration
 

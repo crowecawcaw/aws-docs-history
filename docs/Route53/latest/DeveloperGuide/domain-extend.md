@@ -36,9 +36,7 @@ renew it for up to 2 more years.
 You can't use AWS credits to pay the fee for extending the registration
 period for a domain.
 
-###### To extend the registration period for your
-
-domain
+###### To extend the registration period for your domain
 
 1. Open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").

@@ -13,8 +13,7 @@ for, create hosted zone with or list hosted zones for:
 - Any VPCs within the same Region.
 - Multiple VPCs.
   For more information about VPC permissions, see
-  [Using IAM policy conditions for
-  fine-grained access control](specifying-conditions-route53.md "specifying-conditions-route53.md").
+  [Using IAM policy conditions for fine-grained access control](specifying-conditions-route53.md "specifying-conditions-route53.md").
 
 To learn how to authenticate AWS users, see [Authenticating with identities](security-iam.md#security_iam_authentication "security-iam.md#security_iam_authentication") and to learn how to control access to Route 53
 resources, see [Access control](security-iam.md#access-control "security-iam.md#access-control").

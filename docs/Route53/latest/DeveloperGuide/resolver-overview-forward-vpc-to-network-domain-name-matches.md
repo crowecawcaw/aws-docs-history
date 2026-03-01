@@ -1,6 +1,4 @@
-# How VPC Resolver determines whether the domain name
-
-in a query matches any rules
+# How VPC Resolver determines whether the domain name in a query matches any rules
 
 Route 53 VPC Resolver compares the domain name in the DNS query with the domain name in the rules that are associated with the
 VPC that the query originated from. VPC Resolver considers the domain names to match in the following cases:

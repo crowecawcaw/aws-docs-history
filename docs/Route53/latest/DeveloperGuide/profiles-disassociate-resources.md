@@ -1,12 +1,8 @@
-# Disassociating a resource from an
-
-Amazon Route 53 Profile
+# Disassociating a resource from an Amazon Route 53 Profile
 
 Before you delete a Profile, you must dissociate all resources from it.
 
-###### To disassociate a resource
-
-associated to a Route 53 Profile
+###### To disassociate a resource associated to a Route 53 Profile
 
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").

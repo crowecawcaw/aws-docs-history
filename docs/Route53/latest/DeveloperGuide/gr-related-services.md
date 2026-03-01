@@ -1,6 +1,4 @@
-# AWS services that integrate with Route 53 Global Resolver for enhanced DNS
-
-security
+# AWS services that integrate with Route 53 Global Resolver for enhanced DNS security
 
 Route 53 Global Resolver integrates seamlessly with other AWS services to provide comprehensive DNS
 security and management capabilities. These integrations enhance Route 53 Global Resolver's core functionality

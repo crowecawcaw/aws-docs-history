@@ -1,6 +1,4 @@
-# Enabling or disabling automatic
-
-renewal for a domain
+# Enabling or disabling automatic renewal for a domain
 
 When you want to change whether Amazon Route 53 automatically renews registration for a
 domain shortly before the expiration date, or you want to see the current setting for
@@ -15,9 +13,7 @@ Make sure you turn off automatic renewal if you intend to cancel your AWS
 account. Otherwise, you will continue to receive renewal notices from AWS. Your
 domain will not, however, be renewed, unless you re-activate your account.
 
-###### To enable or disable
-
-automatic renewal for a domain
+###### To enable or disable automatic renewal for a domain
 
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").

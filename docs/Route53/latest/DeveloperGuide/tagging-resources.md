@@ -18,8 +18,7 @@ For more information, see [Working with Tag Editor](../../../awsconsolehelpdocs/
 - **Route 53 VPC Resolver inbound endpoints** – For more information, see
   [Values that you specify when you create or edit inbound endpoints](resolver-forwarding-inbound-queries-values.md "resolver-forwarding-inbound-queries-values.md").
 - **Resolver outbound endpoints** – For more information, see
-  [Values that you specify when you create or edit
-  outbound endpoints](resolver-forwarding-outbound-queries-endpoint-values.md "resolver-forwarding-outbound-queries-endpoint-values.md").
+  [Values that you specify when you create or edit outbound endpoints](resolver-forwarding-outbound-queries-endpoint-values.md "resolver-forwarding-outbound-queries-endpoint-values.md").
 - **Resolver rules** – For more information, see
   [Values that you specify when you create or edit rules](resolver-forwarding-outbound-queries-rule-values.md "resolver-forwarding-outbound-queries-rule-values.md").
 - **Hosted zones** – For more information, see

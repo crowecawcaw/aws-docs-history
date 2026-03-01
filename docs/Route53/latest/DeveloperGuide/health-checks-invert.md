@@ -9,14 +9,11 @@ We're updating the health checks console for Route 53. During the transition pe
 to use the old console.
 
 You can invert a health check on the old console when you create or edit the health check. For more information, see
-[Values that you specify when you
-create or update health checks](health-checks-creating-values.md "health-checks-creating-values.md").
+[Values that you specify when you create or update health checks](health-checks-creating-values.md "health-checks-creating-values.md").
 
 To invert health checks on the new console, perform the following procedure.
 
-###### To invert a health check (new console
-
-only)
+###### To invert a health check (new console only)
 
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").

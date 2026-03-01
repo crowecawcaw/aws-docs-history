@@ -1,6 +1,4 @@
-# Managing
-
-associations between your VPC and Resolver DNS Firewall rule group
+# Managing associations between your VPC and Resolver DNS Firewall rule group
 
 ###### To view a rule group's VPC associations
 

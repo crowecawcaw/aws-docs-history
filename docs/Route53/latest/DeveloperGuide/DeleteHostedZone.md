@@ -32,8 +32,7 @@ the name servers for the child hosted zone cached.
 
 If you want to avoid the monthly charge for the hosted zone, you can transfer DNS service for the domain to a free DNS service.
 When you transfer DNS service, you have to update the name servers for the domain registration. If the domain is registered with Route 53,
-see [Adding or changing name servers and
-glue records for a domain](domain-name-servers-glue-records.md "domain-name-servers-glue-records.md") for information about how to
+see [Adding or changing name servers and glue records for a domain](domain-name-servers-glue-records.md "domain-name-servers-glue-records.md") for information about how to
 replace Route 53 name servers with name servers for the new DNS service. If the domain is registered with another registrar, use the method
 provided by the registrar to update name servers for the domain registration. For more information, perform an internet search on
 "free DNS service."
@@ -95,8 +94,7 @@ If you attempt to delete the hosted zone without completing these requirements, 
 7. If you want to make the domain unavailable on the internet, we recommend that you transfer DNS service to a free DNS service and then
    delete the Route 53 hosted zone. This prevents future DNS queries from possibly being misrouted.
 
-If the domain is registered with Route 53, see [Adding or changing name servers and
-glue records for a domain](domain-name-servers-glue-records.md "domain-name-servers-glue-records.md") for information about how to replace Route 53 name servers with name servers for the
+If the domain is registered with Route 53, see [Adding or changing name servers and glue records for a domain](domain-name-servers-glue-records.md "domain-name-servers-glue-records.md") for information about how to replace Route 53 name servers with name servers for the
 new DNS service. If the domain is registered with another registrar, use the method provided by the registrar to change name servers for
 the domain.
 

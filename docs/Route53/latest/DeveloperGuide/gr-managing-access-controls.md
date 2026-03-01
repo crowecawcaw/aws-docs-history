@@ -1,6 +1,4 @@
-# Managing access controls with access sources and tokens
-
-in Route 53 Global Resolver
+# Managing access controls with access sources and tokens in Route 53 Global Resolver
 
 Route 53 Global Resolver provides two primary methods for controlling client device access: access sources
 for IP-based authentication and access tokens for token-based authentication. This chapter covers

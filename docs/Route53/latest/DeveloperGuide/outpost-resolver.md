@@ -55,9 +55,7 @@ features.
 | Resolver DNS Firewall                     | Not available.                                                                                                                                                                     |
 | Traffic flow                              | Not available.                                                                                                                                                                     |
 
-## VPC Resolver behavior when AWS Outposts is
-
-disconnected from the VPC
+## VPC Resolver behavior when AWS Outposts is disconnected from the VPC
 
 If the AWS Outposts is disconnected from the AWS Region, the Resolver on Outpost behaves as follows:
 

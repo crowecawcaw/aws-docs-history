@@ -1,6 +1,4 @@
-# How VPC Resolver determines where to forward
-
-DNS queries
+# How VPC Resolver determines where to forward DNS queries
 
 When an application that runs on an EC2 instance in a VPC submits a DNS query, Route 53 VPC Resolver performs the following steps:
 
@@ -16,8 +14,7 @@ If the delegation record in response matches the delegation rule, then the Resol
 to on-prem resolvers through the outbound endpoint associated with the delegation rule.
 
 For more information, see
-[How VPC Resolver determines whether the domain name
-in a query matches any rules](resolver-overview-forward-vpc-to-network-domain-name-matches.md "resolver-overview-forward-vpc-to-network-domain-name-matches.md"). 2. Resolver endpoint forwards DNS queries based on the settings in the "." rule.
+[How VPC Resolver determines whether the domain name in a query matches any rules](resolver-overview-forward-vpc-to-network-domain-name-matches.md "resolver-overview-forward-vpc-to-network-domain-name-matches.md"). 2. Resolver endpoint forwards DNS queries based on the settings in the "." rule.
 
 If the domain name in a query doesn't match the domain name in any other rules, VPC Resolver forwards the query based on
 the settings in the autodefined "." (dot) rule. The dot rule applies to all domain names except some AWS internal domain names and

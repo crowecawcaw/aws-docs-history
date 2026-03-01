@@ -6,14 +6,11 @@ Before you create inbound and outbound Resolver endpoints in an AWS Region, cons
 
 - [Number of inbound and outbound endpoints in each Region](#resolver-considerations-number-of-endpoints "#resolver-considerations-number-of-endpoints")
 - [Using the same VPC for inbound and outbound endpoints](#resolver-considerations-same-vpc-inbound-outbound "#resolver-considerations-same-vpc-inbound-outbound")
-- [Inbound endpoints
-  and private hosted zones](#resolver-considerations-inbound-endpoint-private-zone "#resolver-considerations-inbound-endpoint-private-zone")
+- [Inbound endpoints and private hosted zones](#resolver-considerations-inbound-endpoint-private-zone "#resolver-considerations-inbound-endpoint-private-zone")
 - [VPC peering](#resolver-considerations-vpc-peering "#resolver-considerations-vpc-peering")
 - [IP addresses in shared subnets](#resolver-considerations-shared-subnets "#resolver-considerations-shared-subnets")
-- [Connection between your network and the VPCs that you create endpoints
-  in](#resolver-considerations-connection-between-network-and-vpcs "#resolver-considerations-connection-between-network-and-vpcs")
-- [When
-  you share rules, you also share outbound endpoints](#resolver-considerations-share-rules-share-outbound-endpoints "#resolver-considerations-share-rules-share-outbound-endpoints")
+- [Connection between your network and the VPCs that you create endpoints in](#resolver-considerations-connection-between-network-and-vpcs "#resolver-considerations-connection-between-network-and-vpcs")
+- [When you share rules, you also share outbound endpoints](#resolver-considerations-share-rules-share-outbound-endpoints "#resolver-considerations-share-rules-share-outbound-endpoints")
 - [Choosing protocols for the endpoints](#resolver-endpoint-protocol-considerations "#resolver-endpoint-protocol-considerations")
 - [Using VPC Resolver in VPCs that are configured for dedicated instance tenancy](#resolver-considerations-dedicated-instance-tenancy "#resolver-considerations-dedicated-instance-tenancy")
 
@@ -51,9 +48,7 @@ different VPCs in the same Region.
 
 For more information, see [Best practices for Amazon Route 53](best-practices.md "best-practices.md").
 
-## Inbound endpoints
-
-and private hosted zones
+## Inbound endpoints and private hosted zones
 
 If you want VPC Resolver to resolve inbound DNS queries using records in a
 private hosted zone, associate the private hosted zone with the VPC that you
@@ -76,9 +71,7 @@ account, you can't specify an IP address in that subnet. For more
 information about shared subnets, see [Working with shared VPCs](../../../vpc/latest/userguide/vpc-sharing.md "../../../vpc/latest/userguide/vpc-sharing.md") in
 the _Amazon VPC User Guide_.
 
-## Connection between your network and the VPCs that you create endpoints
-
-in
+## Connection between your network and the VPCs that you create endpoints in
 
 You must have one of the following connections between your network and
 the VPCs that you create endpoints in:
@@ -93,9 +86,7 @@ the VPCs that you create endpoints in:
   translation (NAT) gateway](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md") between your network and each
   VPC that you create an outbound endpoint for.
 
-## When
-
-you share rules, you also share outbound endpoints
+## When you share rules, you also share outbound endpoints
 
 When you create a rule, you specify the outbound endpoint that you want
 VPC Resolver to use to forward DNS queries to your network. If you share the rule
@@ -159,8 +150,7 @@ For an outbound endpoint you can apply the protocols as follows:
 
 See also
 [Values that you specify when you create or edit inbound endpoints](resolver-forwarding-inbound-queries-values.md "resolver-forwarding-inbound-queries-values.md") and
-[Values that you specify when you create or edit
-outbound endpoints](resolver-forwarding-outbound-queries-endpoint-values.md "resolver-forwarding-outbound-queries-endpoint-values.md").
+[Values that you specify when you create or edit outbound endpoints](resolver-forwarding-outbound-queries-endpoint-values.md "resolver-forwarding-outbound-queries-endpoint-values.md").
 
 ## Using VPC Resolver in VPCs that are configured for dedicated instance tenancy
 

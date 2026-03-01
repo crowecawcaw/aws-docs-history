@@ -50,8 +50,7 @@ To speed up delivery of your web content, you can use Amazon CloudFront, the AWS
 CloudFront can deliver your entire website—including dynamic, static, streaming, and interactive content—by using
 a global network of edge locations. CloudFront routes requests for your content to the edge location that gives your users
 the lowest latency. You can use Route 53 to route traffic for your domain to your CloudFront distribution. For more information,
-see [Routing traffic to an Amazon CloudFront
-distribution by using your domain name](routing-to-cloudfront-distribution.md "routing-to-cloudfront-distribution.md").
+see [Routing traffic to an Amazon CloudFront distribution by using your domain name](routing-to-cloudfront-distribution.md "routing-to-cloudfront-distribution.md").
 
 **Amazon EC2**
 Amazon EC2 provides scalable computing capacity in the AWS Cloud. You can launch an EC2 virtual computing environment
@@ -75,8 +74,7 @@ to your website changes over time. The load balancer also can monitor the health
 route domain traffic only to healthy instances.
 
 You can use Route 53 to route traffic for your domain to your Classic, Application, or Network Load Balancer.
-For more information, see [Routing traffic to an ELB load
-balancer](routing-to-elb-load-balancer.md "routing-to-elb-load-balancer.md").
+For more information, see [Routing traffic to an ELB load balancer](routing-to-elb-load-balancer.md "routing-to-elb-load-balancer.md").
 
 **Amazon Lightsail**
 Amazon Lightsail provides compute, storage, and networking capacity and capabilities to deploy and manage websites,
@@ -92,8 +90,7 @@ to host a static website that can include web pages and client-side scripts. (S3
 You can use Route 53 to route traffic to an Amazon S3 bucket. For more information, see the following topics:
 
 - For information about routing traffic to a bucket, see
-  [Routing traffic to a website that is hosted in an
-  Amazon S3 bucket](RoutingToS3Bucket.md "RoutingToS3Bucket.md").
+  [Routing traffic to a website that is hosted in an Amazon S3 bucket](RoutingToS3Bucket.md "RoutingToS3Bucket.md").
 - For a more detailed explanation of how to host a static website in an S3 bucket, see
   [Getting started with Amazon Route 53](getting-started.md "getting-started.md").
 

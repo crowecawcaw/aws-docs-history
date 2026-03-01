@@ -1,14 +1,11 @@
-# Use an Amazon CloudFront distribution to serve
-
-a static website
+# Use an Amazon CloudFront distribution to serve a static website
 
 This tutorial shows you how to use Amazon Route 53 to route DNS traffic for your domain to
 Amazon CloudFront distributions that serve a static website. You'll create alias records that point
 your domain and subdomain to CloudFront distributions.
 
 This tutorial is part of a complete static website setup workflow. For general information
-about routing traffic to any CloudFront distribution, see [Routing traffic to an Amazon CloudFront
-distribution by using your domain name](routing-to-cloudfront-distribution.md "routing-to-cloudfront-distribution.md").
+about routing traffic to any CloudFront distribution, see [Routing traffic to an Amazon CloudFront distribution by using your domain name](routing-to-cloudfront-distribution.md "routing-to-cloudfront-distribution.md").
 
 When you're finished, visitors can access your website using your custom domain name with
 HTTPS security provided by CloudFront.
@@ -29,20 +26,15 @@ When you complete the Amazon CloudFront tutorial, you'll have:
 - Amazon S3 buckets configured for website hosting and redirect
 - CloudFront distributions for both your root domain and subdomain
 
-## Step 1: Route DNS traffic for
-
-your domain to your CloudFront distribution
+## Step 1: Route DNS traffic for your domain to your CloudFront distribution
 
 Now that you have Amazon CloudFront distributions for your website, use Amazon Route 53 to route DNS
 traffic for your domain to the distributions. This enables visitors to access your
 website using your custom domain name.
 
-For more information about routing traffic to CloudFront distributions, see [Routing traffic to an Amazon CloudFront
-distribution by using your domain name](routing-to-cloudfront-distribution.md "routing-to-cloudfront-distribution.md").
+For more information about routing traffic to CloudFront distributions, see [Routing traffic to an Amazon CloudFront distribution by using your domain name](routing-to-cloudfront-distribution.md "routing-to-cloudfront-distribution.md").
 
-###### To route traffic to your
-
-website
+###### To route traffic to your website
 
 1. Open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").

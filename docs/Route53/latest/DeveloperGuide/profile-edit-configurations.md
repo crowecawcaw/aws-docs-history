@@ -3,9 +3,7 @@
 After you associate resources to a Profile, you can edit the default VPC
 configurations to decide how they are applied to the VPCs.
 
-###### To edit Profile
-
-configurations
+###### To edit Profile configurations
 
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
@@ -21,5 +19,4 @@ configurations
    values for the VPC DNSSEC configuration, Resolver reverse DNS lookup
    configuration, and DNS Firewall failure mode configuration.
 
-For more information about the values, see [Configuration settings for
-Route 53 Profile](values-for-profile-configuration.md "values-for-profile-configuration.md"). 6. Choose **Update**.
+For more information about the values, see [Configuration settings for Route 53 Profile](values-for-profile-configuration.md "values-for-profile-configuration.md"). 6. Choose **Update**.

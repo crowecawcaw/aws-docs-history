@@ -38,10 +38,8 @@ information about IP addresses that you can't create health checks for, see
 [RFC 6598, IANA-Reserved IPv4 Prefix for Shared Address Space](https://datatracker.ietf.org/doc/html/rfc6598 "https://datatracker.ietf.org/doc/html/rfc6598").
 
 For more information about creating health checks, see
-[Creating, updating, and deleting
-health checks](health-checks-creating-deleting.md "health-checks-creating-deleting.md"). 3. You might need to configure router and firewall rules so that Route 53 can send regular requests to the endpoints that you specified in your health
-checks. For more information, see [Configuring router and firewall
-rules for Amazon Route 53 health checks](dns-failover-router-firewall-rules.md "dns-failover-router-firewall-rules.md"). 4. You create a group of records for your resources, for example, a group of weighted records. You can mix alias and non-alias records,
+[Creating, updating, and deleting health checks](health-checks-creating-deleting.md "health-checks-creating-deleting.md"). 3. You might need to configure router and firewall rules so that Route 53 can send regular requests to the endpoints that you specified in your health
+checks. For more information, see [Configuring router and firewall rules for Amazon Route 53 health checks](dns-failover-router-firewall-rules.md "dns-failover-router-firewall-rules.md"). 4. You create a group of records for your resources, for example, a group of weighted records. You can mix alias and non-alias records,
 but they all must have the same value for **Name**, **Type**, and **Routing Policy**.
 
 How you configure Route 53 to check the health of your resources depends on whether you're creating alias records or non-alias records:
@@ -59,8 +57,7 @@ For more information about creating records by using the Route 53 console, see
 [Creating records by using the Amazon Route 53 console](resource-record-sets-creating.md "resource-record-sets-creating.md"). 5. If you created health checks, Route 53 periodically sends requests to the endpoint for each health check; it doesn't perform the health
 check when it receives a DNS query. Based on the responses, Route 53 decides whether the endpoints are healthy and uses that information to
 determine how to respond to queries. For more information, see
-[How Amazon Route 53 determines
-whether a health check is healthy](dns-failover-determining-health-of-endpoints.md "dns-failover-determining-health-of-endpoints.md").
+[How Amazon Route 53 determines whether a health check is healthy](dns-failover-determining-health-of-endpoints.md "dns-failover-determining-health-of-endpoints.md").
 
 Route 53 doesn't check the health of the resource specified in the record, such as the IP address that is specified in an A record for
 example.com. When you associate a health check with a record, Route 53 begins to check the health of the endpoint that you specified

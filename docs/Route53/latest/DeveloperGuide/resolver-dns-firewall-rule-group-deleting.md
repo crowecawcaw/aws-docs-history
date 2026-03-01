@@ -1,6 +1,4 @@
-# Deleting a rule
-
-group
+# Deleting a rule group
 
 To delete a rule group, perform
 the following procedure.

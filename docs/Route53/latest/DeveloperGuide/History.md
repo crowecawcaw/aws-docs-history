@@ -37,26 +37,22 @@ see [Routing traffic to Amazon VPC Lattice service domain endpoint](routing-to-v
 
 **June 24, 2025**
 You can now use inbound and outbound delegation with VPC Resolver.
-For more information, see [How DNS resolvers on your network
-forward DNS queries to Resolver endpoints](resolver-overview-forward-network-to-vpc.md "resolver-overview-forward-network-to-vpc.md").
+For more information, see [How DNS resolvers on your network forward DNS queries to Resolver endpoints](resolver-overview-forward-network-to-vpc.md "resolver-overview-forward-network-to-vpc.md").
 
 **June 01, 2025**
 Added permissions for `cloudwatch:GetMetricData` ,`tag:GetResources`, `es:ListDomainNames`,
 `es:DescribeDomains`, `cloudfront:GetDistributionTenantByDomain`, `cloudfront:GetConnectionGroup` and `lightsail:GetContainerServices`. These permissions enable you to
 fetch up to 500 CloudWatch health check metrics, up to 100 names of health checks, get the domain configuration for the specified Amazon OpenSearch Service domains, and
 list the names of all Amazon OpenSearch Service domains owned by the current user in the active Region, fetch the CloudFront multi-tenant distributions and get the Lightsail container services.
-For more information, see [AWS managed policy:
-AmazonRoute53FullAccess](security-iam-awsmanpol-route53.md#security-iam-awsmanpol-AmazonRoute53FullAccess "security-iam-awsmanpol-route53.md#security-iam-awsmanpol-AmazonRoute53FullAccess").
+For more information, see [AWS managed policy: AmazonRoute53FullAccess](security-iam-awsmanpol-route53.md#security-iam-awsmanpol-AmazonRoute53FullAccess "security-iam-awsmanpol-route53.md#security-iam-awsmanpol-AmazonRoute53FullAccess").
 
 **April 28, 2025**
 You can now associate interface VPC endpoints to Route 53 Profiles.
-For more information, see [Associate interface VPC endpoints
-to a Route 53 Profile](profile-associate-vpc-endpoints.md "profile-associate-vpc-endpoints.md").
+For more information, see [Associate interface VPC endpoints to a Route 53 Profile](profile-associate-vpc-endpoints.md "profile-associate-vpc-endpoints.md").
 
 **April 28, 2025**
 You can now add an alias record to a CloudFront distribution tenant.
-For more information, see [Routing traffic to an Amazon CloudFront
-distribution by using your domain name](routing-to-cloudfront-distribution.md "routing-to-cloudfront-distribution.md").
+For more information, see [Routing traffic to an Amazon CloudFront distribution by using your domain name](routing-to-cloudfront-distribution.md "routing-to-cloudfront-distribution.md").
 
 **February 27, 2025**
 Updated the Route 53 guide with the new console experience for Traffic Flow.
@@ -86,8 +82,7 @@ For more information, see [Values that you specify when you create or edit rules
 
 **September 3, 2024**
 You can now use `route53:VPCs` policy condition to grant fine-grained access to managing
-hosted zone associations to VPCs. For more information, see [Using IAM policy conditions for
-fine-grained access control](specifying-conditions-route53.md "specifying-conditions-route53.md").
+hosted zone associations to VPCs. For more information, see [Using IAM policy conditions for fine-grained access control](specifying-conditions-route53.md "specifying-conditions-route53.md").
 
 **August 27, 2024**
 `AmazonRoute53ProfilesFullAccess` added permissions for
@@ -107,14 +102,11 @@ Added a statement id (Sid) to uniquely identity the managed policy `AmazonRoute5
 
 **July 18, 2024**
 Updated the entire Route 53 guide with the new console experience for health checks.
-For more information, see [Creating, updating, and deleting
-health checks](health-checks-creating-deleting.md "health-checks-creating-deleting.md").
+For more information, see [Creating, updating, and deleting health checks](health-checks-creating-deleting.md "health-checks-creating-deleting.md").
 
 **April 30, 2024**
 You can now decide if a DNS Firewall rule will either inspect (default), or trust the DNS redirection chain. For more information, see
-[Resolver DNS Firewall components and
-settings](resolver-dns-firewall-overview.md#resolver-dns-firewall-components "resolver-dns-firewall-overview.md#resolver-dns-firewall-components") and [Rule settings in
-DNS Firewall](resolver-dns-firewall-rule-settings.md "resolver-dns-firewall-rule-settings.md").
+[Resolver DNS Firewall components and settings](resolver-dns-firewall-overview.md#resolver-dns-firewall-components "resolver-dns-firewall-overview.md#resolver-dns-firewall-components") and [Rule settings in DNS Firewall](resolver-dns-firewall-rule-settings.md "resolver-dns-firewall-rule-settings.md").
 
 **April 22, 2024**
 You can now use Route 53 Profiles to share DNS-specific configurations with many VPCs and with AWS acounts. For more information, see
@@ -132,15 +124,11 @@ You can now use Amazon EventBridge for real time alerts with DNS Firewall. For m
 **January 9, 2024**
 You can now use the DNS query type as an optional value for DNS Firewall rule to differentiate the
 rule's response for a specific DNS query type. For more information, see
-[Resolver DNS Firewall components and
-settings](resolver-dns-firewall-overview.md#resolver-dns-firewall-components "resolver-dns-firewall-overview.md#resolver-dns-firewall-components") and [Rule settings in
-DNS Firewall](resolver-dns-firewall-rule-settings.md "resolver-dns-firewall-rule-settings.md").
+[Resolver DNS Firewall components and settings](resolver-dns-firewall-overview.md#resolver-dns-firewall-components "resolver-dns-firewall-overview.md#resolver-dns-firewall-components") and [Rule settings in DNS Firewall](resolver-dns-firewall-rule-settings.md "resolver-dns-firewall-rule-settings.md").
 
 **January 9, 2024**
 You can now use the Quick create record or the Create record wizard to create geoproximity routing records. For more information, see
-[Geoproximity routing](routing-policy-geoproximity.md "routing-policy-geoproximity.md"), [Values specific for geoproximity
-records](resource-record-sets-values-geoprox.md "resource-record-sets-values-geoprox.md"), and [Values specific for geoproximity
-alias records](resource-record-sets-values-geoprox-alias.md "resource-record-sets-values-geoprox-alias.md").
+[Geoproximity routing](routing-policy-geoproximity.md "routing-policy-geoproximity.md"), [Values specific for geoproximity records](resource-record-sets-values-geoprox.md "resource-record-sets-values-geoprox.md"), and [Values specific for geoproximity alias records](resource-record-sets-values-geoprox-alias.md "resource-record-sets-values-geoprox-alias.md").
 
 ## 2023 releases
 
@@ -166,15 +154,13 @@ For more information, see [Registering a new domain](domain-register.md "domain-
 
 **March 10, 2023**
 You can now connect to your resources by using IPv4, IPv6, or dual-stack endpoints with
-Route 53 VPC Resolver. For more information, see [Values that you specify when you create or edit inbound endpoints](resolver-forwarding-inbound-queries-values.md "resolver-forwarding-inbound-queries-values.md") and [Values that you specify when you create or edit
-outbound endpoints](resolver-forwarding-outbound-queries-endpoint-values.md "resolver-forwarding-outbound-queries-endpoint-values.md").
+Route 53 VPC Resolver. For more information, see [Values that you specify when you create or edit inbound endpoints](resolver-forwarding-inbound-queries-values.md "resolver-forwarding-inbound-queries-values.md") and [Values that you specify when you create or edit outbound endpoints](resolver-forwarding-outbound-queries-endpoint-values.md "resolver-forwarding-outbound-queries-endpoint-values.md").
 
 ## 2022 releases
 
 **September 21, 2022**
 You can now use policy conditions for giving users fine-grained access to updating resource
-record sets in Amazon Route 53. For more information, see [Using IAM policy conditions for
-fine-grained access control](specifying-conditions-route53.md "specifying-conditions-route53.md").
+record sets in Amazon Route 53. For more information, see [Using IAM policy conditions for fine-grained access control](specifying-conditions-route53.md "specifying-conditions-route53.md").
 
 **August 30, 2022**
 Amazon Route 53 now supports alias records for AWS App Runner services that are created after
@@ -197,13 +183,11 @@ include filling in forms. For more information, see [.com.au (Australia)](com.md
 **October 26, 2021**
 Added support for disabling default reverse DNS rules with Amazon Route 53. You can now disable the
 creation of these rules and instead forward queries for reverse DNS
-namespaces to external servers if desired. For more information, see [Forwarding rules for
-reverse DNS queries in VPC Resolver](resolver-rules-managing.md#resolver-automatic-forwarding-rules-reverse-dns "resolver-rules-managing.md#resolver-automatic-forwarding-rules-reverse-dns").
+namespaces to external servers if desired. For more information, see [Forwarding rules for reverse DNS queries in VPC Resolver](resolver-rules-managing.md#resolver-automatic-forwarding-rules-reverse-dns "resolver-rules-managing.md#resolver-automatic-forwarding-rules-reverse-dns").
 
 **September 1, 2021**
 Added a new getting started topic that walks you through creating Amazon CloudFront distributions for
-a static website. For more information, see [Use an Amazon CloudFront distribution to serve
-a static website](getting-started-cloudfront-overview.md "getting-started-cloudfront-overview.md").
+a static website. For more information, see [Use an Amazon CloudFront distribution to serve a static website](getting-started-cloudfront-overview.md "getting-started-cloudfront-overview.md").
 
 **July 14, 2021**
 Started tracking AWS managed policies for Amazon Route 53.
@@ -218,8 +202,7 @@ For more information, see [Using DNS Firewall to filter outbound DNS traffic](re
 **December 17, 2020**
 Added support for DNSSEC signing for Route 53 VPC Resolver. For more information, see [Configuring DNSSEC signing in Amazon Route 53](dns-configuring-dnssec.md "dns-configuring-dnssec.md").
 
-Added support for DNSSEC validation for Route 53 VPC Resolver. For more information, see [Enabling DNSSEC validation in
-Amazon Route 53](resolver-dnssec-validation.md "resolver-dnssec-validation.md").
+Added support for DNSSEC validation for Route 53 VPC Resolver. For more information, see [Enabling DNSSEC validation in Amazon Route 53](resolver-dnssec-validation.md "resolver-dnssec-validation.md").
 
 **September 23, 2020**
 Updated the entire Route 53 guide with the new console experience. For more information, see [What is Amazon Route 53?](Welcome.md "Welcome.md").
@@ -253,8 +236,7 @@ will be routed to your endpoints around the world. For more information, see
 You can use the Route 53 console and API to temporarily disable a Route 53 health check. This gives you an easy way
 to pause monitoring of an endpoint, such a web server, so that you can perform maintenance on it without triggering alarms or
 generating unnecessary logs or status messages. For more information, see "Disabled" in
-[Values that you specify when you
-create or update health checks](health-checks-creating-values.md "health-checks-creating-values.md").
+[Values that you specify when you create or update health checks](health-checks-creating-values.md "health-checks-creating-values.md").
 The feature is available for all three types of Route 53 health checks: health checks that monitor an endpoint, health checks
 that monitor other health checks, and health checks that monitor a CloudWatch alarm.
 
@@ -322,8 +304,7 @@ see [CAA record type](ResourceRecordTypes.md#CAAFormat "ResourceRecordTypes.md#C
 
 **August 18, 2017**
 You can now transfer large numbers of domains to Route 53 using the Route 53 console. For more information, see
-[Transferring registration for a domain to
-Amazon Route 53](domain-transfer-to-route-53.md "domain-transfer-to-route-53.md").
+[Transferring registration for a domain to Amazon Route 53](domain-transfer-to-route-53.md "domain-transfer-to-route-53.md").
 
 **August 4, 2017**
 When you register a domain, the registries for some top-level domains (TLDs) require you to verify that you
@@ -360,8 +341,7 @@ You can now create health checks that use IPv6 addresses to check the health of 
 
 You can now use a Route 53 API action to associate an Amazon VPC that you created with one account with a private hosted zone
 that you created with another account. For more information, see
-[Associating an Amazon VPC and a private hosted zone
-that you created with different AWS accounts](hosted-zone-private-associate-vpcs-different-accounts.md "hosted-zone-private-associate-vpcs-different-accounts.md").
+[Associating an Amazon VPC and a private hosted zone that you created with different AWS accounts](hosted-zone-private-associate-vpcs-different-accounts.md "hosted-zone-private-associate-vpcs-different-accounts.md").
 
 **August 30, 2016**
 
@@ -433,8 +413,7 @@ With this release, Route 53 adds the following new features:
   that can't be reached by a standard Route 53 health check, such as instances within an Amazon Virtual Private Cloud (VPC) that have only
   private IP addresses. For more information, see the following documentation:
   - **Route 53 console** – See
-    [Monitoring a CloudWatch
-    alarm](health-checks-creating-values.md#health-checks-creating-values-cloudwatch "health-checks-creating-values.md#health-checks-creating-values-cloudwatch")
+    [Monitoring a CloudWatch alarm](health-checks-creating-values.md#health-checks-creating-values-cloudwatch "health-checks-creating-values.md#health-checks-creating-values-cloudwatch")
     in the "Values that You Specify When You Create or Update Health Checks" topic.
   - **Route 53 API** – See
     [CreateHealthCheck](../APIReference/API_CreateHealthCheck.md "../APIReference/API_CreateHealthCheck.md") and
@@ -446,8 +425,7 @@ With this release, Route 53 adds the following new features:
   health checks. This is useful if your customers are concentrated in one or a few geographic regions.
   For more information, see the following documentation:
   - **Route 53 console** – See
-    [Advanced configuration
-    ("Monitor an Endpoint" only)](health-checks-creating-values.md#health-checks-creating-values-advanced "health-checks-creating-values.md#health-checks-creating-values-advanced")
+    [Advanced configuration ("Monitor an Endpoint" only)](health-checks-creating-values.md#health-checks-creating-values-advanced "health-checks-creating-values.md#health-checks-creating-values-advanced")
     in the "Values that You Specify When You Create or Update Health Checks" topic.
   - **Route 53 API** – See the `Regions` element for
     [CreateHealthCheck](../APIReference/API_CreateHealthCheck.md "../APIReference/API_CreateHealthCheck.md") and
@@ -479,8 +457,7 @@ With this release, Route 53 adds the following new features:
 
 When you create or update HTTPS health checks, you can now configure Route 53 to send the host name to the endpoint
 during TLS negotiation. This allows the endpoint to respond to the HTTPS request with the applicable SSL/TLS certificate.
-For more information, see the description for the SNI in [Advanced configuration
-("Monitor an Endpoint" only)](health-checks-creating-values.md#health-checks-creating-values-advanced "health-checks-creating-values.md#health-checks-creating-values-advanced")
+For more information, see the description for the SNI in [Advanced configuration ("Monitor an Endpoint" only)](health-checks-creating-values.md#health-checks-creating-values-advanced "health-checks-creating-values.md#health-checks-creating-values-advanced")
 field in the "Values that You Specify When You Create or Update Health Checks" topic. For information about how to enable SNI
 when you use the API to create or update a health check, see
 [CreateHealthCheck](../APIReference/API_CreateHealthCheck.md "../APIReference/API_CreateHealthCheck.md") and
@@ -524,8 +501,7 @@ With this release, Route 53 adds the following new features:
 - **Privacy protection for .com and .net domains** – When you register a .com or .net
   domain with Route 53, all of your personal information, including first and last name, is now hidden. First and last name are not hidden
   for other domains that you register with Route 53. For more information about privacy protection, see
-  [Enabling or disabling privacy protection for
-  contact information for a domain](domain-privacy-protection.md "domain-privacy-protection.md").
+  [Enabling or disabling privacy protection for contact information for a domain](domain-privacy-protection.md "domain-privacy-protection.md").
 
 **September 15, 2015**
 
@@ -539,10 +515,8 @@ With this release, Route 53 adds the following new features:
 - **Latency measurements for health checks** – You can now configure
   Route 53 to measure the latency between health checkers and your endpoint. Latency data appears in Amazon CloudWatch graphs in the
   Route 53 console. To enable latency measurements for new health checks, see the **Latency measurements**
-  setting under [Advanced configuration
-  ("Monitor an Endpoint" only)](health-checks-creating-values.md#health-checks-creating-values-advanced "health-checks-creating-values.md#health-checks-creating-values-advanced")
-  in the topic [Values that you specify when you
-  create or update health checks](health-checks-creating-values.md "health-checks-creating-values.md").
+  setting under [Advanced configuration ("Monitor an Endpoint" only)](health-checks-creating-values.md#health-checks-creating-values-advanced "health-checks-creating-values.md#health-checks-creating-values-advanced")
+  in the topic [Values that you specify when you create or update health checks](health-checks-creating-values.md "health-checks-creating-values.md").
   (You can't enable latency measurements for existing health checks.) In addition, see **MeasureLatency**
   in the topic [CreateHealthCheck](../APIReference/API_CreateHealthCheck.md "../APIReference/API_CreateHealthCheck.md") in the
   _Amazon Route 53 API Reference_.
@@ -644,8 +618,7 @@ With this release, you can now do the following:
 With this release, you can now do the following:
 
 - Edit most values in health checks. For more information, see
-  [Creating, updating, and deleting
-  health checks](health-checks-creating-deleting.md "health-checks-creating-deleting.md").
+  [Creating, updating, and deleting health checks](health-checks-creating-deleting.md "health-checks-creating-deleting.md").
 - Use the Route 53 API to get a list of the IP ranges that Route 53 health checkers use to check the
   health of your resources. You can use these IP addresses to configure your router and firewall rules to
   allow health checkers to check the health of your resources. For more information, see
@@ -674,8 +647,7 @@ With this release, Route 53 passes a different value in the `Host` header when 
 that contains the value of the **Host Name** field. If you created the health check by using
 the `CreateHealthCheck` API action, this is the value of the `FullyQualifiedDomainName` element.
 
-For more information, see [Creating, updating, and deleting
-health checks](health-checks-creating-deleting.md "health-checks-creating-deleting.md").
+For more information, see [Creating, updating, and deleting health checks](health-checks-creating-deleting.md "health-checks-creating-deleting.md").
 
 **April 9, 2014**
 
@@ -696,13 +668,11 @@ With this release, Route 53 adds the following features:
 - **Health check failover threshold:** You can now specify how many consecutive health checks an endpoint
   must fail before Route 53 considers the endpoint unhealthy, between 1 and 10 consecutive checks. An unhealthy endpoint must pass the same
   number of checks to be considered healthy. For more information, see
-  [How Amazon Route 53 determines
-  whether a health check is healthy](dns-failover-determining-health-of-endpoints.md "dns-failover-determining-health-of-endpoints.md").
+  [How Amazon Route 53 determines whether a health check is healthy](dns-failover-determining-health-of-endpoints.md "dns-failover-determining-health-of-endpoints.md").
 - **Health check request interval:** You can now specify how frequently Route 53 sends requests
   to an endpoint to determine whether the endpoint is healthy. Valid settings are 10 seconds and 30 seconds.
   For more information, see
-  [How Amazon Route 53 determines
-  whether a health check is healthy](dns-failover-determining-health-of-endpoints.md "dns-failover-determining-health-of-endpoints.md").
+  [How Amazon Route 53 determines whether a health check is healthy](dns-failover-determining-health-of-endpoints.md "dns-failover-determining-health-of-endpoints.md").
 
 **January 30, 2014**
 
@@ -711,12 +681,10 @@ With this release, Route 53 adds the following features:
 - **HTTP and HTTPS string-match health checks:** Route 53 now supports health checks
   that determine the health of an endpoint based on the appearance of a specified string in the response body.
   For more information, see
-  [How Amazon Route 53 determines
-  whether a health check is healthy](dns-failover-determining-health-of-endpoints.md "dns-failover-determining-health-of-endpoints.md").
+  [How Amazon Route 53 determines whether a health check is healthy](dns-failover-determining-health-of-endpoints.md "dns-failover-determining-health-of-endpoints.md").
 - **HTTPS health checks:** Route 53 now supports health checks for secure, SSL-only websites.
   For more information, see
-  [How Amazon Route 53 determines
-  whether a health check is healthy](dns-failover-determining-health-of-endpoints.md "dns-failover-determining-health-of-endpoints.md").
+  [How Amazon Route 53 determines whether a health check is healthy](dns-failover-determining-health-of-endpoints.md "dns-failover-determining-health-of-endpoints.md").
 - **`UPSERT` for the `ChangeResourceRecordSets` API Action:**
   When creating or changing records using the `ChangeResourceRecordSets` API action, you can now use the
   `UPSERT` action either to create a new record if none exists with a given name and type, or to
@@ -728,8 +696,7 @@ With this release, Route 53 adds the following features:
 
 With this release, Route 53 adds support for health checks that determine the health of an endpoint based on
 whether a specified string appears in the response body. For more information, see
-[How Amazon Route 53 determines
-whether a health check is healthy](dns-failover-determining-health-of-endpoints.md "dns-failover-determining-health-of-endpoints.md").
+[How Amazon Route 53 determines whether a health check is healthy](dns-failover-determining-health-of-endpoints.md "dns-failover-determining-health-of-endpoints.md").
 
 ## 2013 releases
 
@@ -757,23 +724,22 @@ For more information, see [Monitoring health checks using CloudWatch](monitoring
 With this release, Route 53 adds support for creating alias records that route DNS queries to alternate domain names for
 Amazon CloudFront distributions. You can use this feature both for alternate domain names at the zone apex (example.com) and
 alternate domain names for subdomains (www.example.com). For more information, see
-[Routing traffic to an Amazon CloudFront
-distribution by using your domain name](routing-to-cloudfront-distribution.md "routing-to-cloudfront-distribution.md").
+[Routing traffic to an Amazon CloudFront distribution by using your domain name](routing-to-cloudfront-distribution.md "routing-to-cloudfront-distribution.md").
 
 **May 30, 2013**
 
 With this release, Route 53 adds support for evaluating the health of ELB load balancers and the associated
-Amazon EC2 instances. For more information, see [Creating Amazon Route 53 health checks](dns-failover.md "dns-failover.md") .
+Amazon EC2 instances. For more information, see [Creating Amazon Route 53 health checks](dns-failover.md "dns-failover.md").
 
 **March 28, 2013**
 
 The documentation about health checks and failover was rewritten to enhance usability.
-For more information, see [Creating Amazon Route 53 health checks](dns-failover.md "dns-failover.md") .
+For more information, see [Creating Amazon Route 53 health checks](dns-failover.md "dns-failover.md").
 
 **February 11, 2013**
 
 With this release, Route 53 adds support for failover and health checks. For more information,
-see [Creating Amazon Route 53 health checks](dns-failover.md "dns-failover.md") .
+see [Creating Amazon Route 53 health checks](dns-failover.md "dns-failover.md").
 
 ## 2012 release
 

@@ -1,6 +1,4 @@
-# How DNS resolvers on your network
-
-forward DNS queries to Resolver endpoints
+# How DNS resolvers on your network forward DNS queries to Resolver endpoints
 
 To forward DNS queries from your network to Route 53 VPC Resolver, you create inbound endpoints in an
 AWS Region. There are two categories of inbound endpoints, **default** and **delegation**.

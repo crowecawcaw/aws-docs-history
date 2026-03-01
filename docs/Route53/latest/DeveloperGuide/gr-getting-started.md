@@ -36,9 +36,7 @@ You'll receive anycast IPv4 addresses immediately that your clients can use to r
 resolver. The global resolver creation process takes a few minutes to complete before the
 addresses become functional.
 
-## Step 2: Create a DNS view and configure
-
-authentication
+## Step 2: Create a DNS view and configure authentication
 
 Create a DNS view to organize your clients and configure authentication using IP Access
 Sources. This tutorial uses IP-based authentication. You can also use access tokens for DoH/DoT

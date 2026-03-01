@@ -1,6 +1,4 @@
-# Values specific for latency
-
-records
+# Values specific for latency records
 
 When you create latency records, you specify the following values.
 
@@ -114,8 +112,7 @@ Route 53 doesn't check the health of the endpoint specified in the record, for 
 the endpoint specified by the IP address in the **Value** field. When
 you select a health check for a record, Route 53 checks the health of the endpoint that you
 specified in the health check. For information about how Route 53 determines whether an
-endpoint is healthy, see [How Amazon Route 53 determines
-whether a health check is healthy](dns-failover-determining-health-of-endpoints.md "dns-failover-determining-health-of-endpoints.md").
+endpoint is healthy, see [How Amazon Route 53 determines whether a health check is healthy](dns-failover-determining-health-of-endpoints.md "dns-failover-determining-health-of-endpoints.md").
 
 Associating a health check with a record is useful only when Route 53 is choosing between
 two or more records to respond to a DNS query, and you want Route 53 to base the choice in

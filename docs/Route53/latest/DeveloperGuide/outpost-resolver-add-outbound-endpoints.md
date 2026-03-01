@@ -1,6 +1,4 @@
-# Creating outbound
-
-endpoints
+# Creating outbound endpoints
 
 After you have opted in and configured a VPC Resolver, you can also add both inbound and
 outbound endpoints to resolve DNS queries to your on-premises network.
@@ -24,13 +22,10 @@ resolvers.
 5. On the **Outbound endpoints** table, choose **Create
    outbound endpoint**.
 6. On the **Create outbound endpoint** page, enter the
-   applicable values. For more information, see [Values that you specify when you create or edit outbound endpoints in an
-   AWS Outposts](#resolver-forwarding-outbound-queries-endpoint-values-outpost "#resolver-forwarding-outbound-queries-endpoint-values-outpost").
+   applicable values. For more information, see [Values that you specify when you create or edit outbound endpoints in an AWS Outposts](#resolver-forwarding-outbound-queries-endpoint-values-outpost "#resolver-forwarding-outbound-queries-endpoint-values-outpost").
 7. Choose **Create endpoint**.
 
-## Values that you specify when you create or edit outbound endpoints in an
-
-AWS Outposts
+## Values that you specify when you create or edit outbound endpoints in an AWS Outposts
 
 When you create or edit an outbound endpoint, you specify the following
 values:
@@ -127,10 +122,7 @@ bill; you can use also tags for other purposes. For more information
 about using tags for cost allocation, see [Using cost allocation
 tags](../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md "../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md") in the _AWS Billing User Guide_.
 
-## Creating forwarding rules for
-
-outbound endpoints
+## Creating forwarding rules for outbound endpoints
 
 You can also create forwarding rules for outbound endpoints. For more information,
-see [To create forwarding rules and
-associate the rules with one or more VPCs](resolver-forwarding-outbound-queries-configuring.md#resolver-forwarding-outbound-queries-configuring-create-rule-procedure "resolver-forwarding-outbound-queries-configuring.md#resolver-forwarding-outbound-queries-configuring-create-rule-procedure")
+see [To create forwarding rules and associate the rules with one or more VPCs](resolver-forwarding-outbound-queries-configuring.md#resolver-forwarding-outbound-queries-configuring-create-rule-procedure "resolver-forwarding-outbound-queries-configuring.md#resolver-forwarding-outbound-queries-configuring-create-rule-procedure")

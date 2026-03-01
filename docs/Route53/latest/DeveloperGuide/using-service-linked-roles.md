@@ -1,6 +1,4 @@
-# Using Service-Linked Roles for
-
-Amazon Route 53 Resolver
+# Using Service-Linked Roles for Amazon Route 53 Resolver
 
 Route 53 VPC Resolver uses AWS Identity and Access Management (IAM)[service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
 linked directly to VPC Resolver. Service-linked roles are predefined by VPC Resolver and
@@ -24,20 +22,13 @@ service.
 
 ###### Topics
 
-- [Service-Linked Role Permissions for
-  VPC Resolver](#slr-permissions "#slr-permissions")
-- [Creating a Service-Linked Role for
-  VPC Resolver](#create-slr "#create-slr")
-- [Editing a Service-Linked Role for
-  VPC Resolver](#edit-slr "#edit-slr")
-- [Deleting a Service-Linked Role for
-  VPC Resolver](#delete-slr "#delete-slr")
-- [Supported Regions for
-  VPC Resolver Service-Linked Roles](#slr-regions "#slr-regions")
+- [Service-Linked Role Permissions for VPC Resolver](#slr-permissions "#slr-permissions")
+- [Creating a Service-Linked Role for VPC Resolver](#create-slr "#create-slr")
+- [Editing a Service-Linked Role for VPC Resolver](#edit-slr "#edit-slr")
+- [Deleting a Service-Linked Role for VPC Resolver](#delete-slr "#delete-slr")
+- [Supported Regions for VPC Resolver Service-Linked Roles](#slr-regions "#slr-regions")
 
-## Service-Linked Role Permissions for
-
-VPC Resolver
+## Service-Linked Role Permissions for VPC Resolver
 
 VPC Resolver uses the **`AWSServiceRoleForRoute53Resolver`** service-linked role to
 deliver query logs on your behalf.
@@ -73,9 +64,7 @@ JSON
 You must configure permissions to allow an IAM entity (such as a user, group, or role)
 to create, edit, or delete a service-linked role. For more information, see [Service-Linked Role Permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the _IAM User Guide_.
 
-## Creating a Service-Linked Role for
-
-VPC Resolver
+## Creating a Service-Linked Role for VPC Resolver
 
 You don't need to manually create a service-linked role. When you create a resolver query
 log configuration association in the Amazon Route 53 console, the AWS CLI, or the AWS API, VPC Resolver
@@ -93,9 +82,7 @@ If you delete this service-linked role, and then need to create it again, you ca
 same process to recreate the role in your account. When you create a new Resolver query log
 configuration association, the `AWSServiceRoleForRoute53Resolver` service-linked role is created for you again.
 
-## Editing a Service-Linked Role for
-
-VPC Resolver
+## Editing a Service-Linked Role for VPC Resolver
 
 VPC Resolver does not allow you to edit the `AWSServiceRoleForRoute53Resolver` service-linked role. After you
 create a service-linked role, you cannot change the name of the role because various entities
@@ -103,9 +90,7 @@ might reference the role. However, you can edit the description of the role usin
 more information, see [Editing a
 Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the _IAM User Guide_.
 
-## Deleting a Service-Linked Role for
-
-VPC Resolver
+## Deleting a Service-Linked Role for VPC Resolver
 
 If you no longer need to use a feature or service that requires a service-linked role, we
 recommend that you delete that role. That way you don’t have an unused entity that is not
@@ -142,9 +127,7 @@ Use the IAM console, the AWS CLI, or the AWS API to delete the `AWSServiceRoleFo
 service-linked role. For more information, see [Deleting a
 Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the _IAM User Guide_.
 
-## Supported Regions for
-
-VPC Resolver Service-Linked Roles
+## Supported Regions for VPC Resolver Service-Linked Roles
 
 VPC Resolver does not support using service-linked roles in every Region where the service is
 available. You can use the `AWSServiceRoleForRoute53Resolver` role in the following Regions.

@@ -1,6 +1,4 @@
-# KMS key and ZSK management in
-
-Route 53
+# KMS key and ZSK management in Route 53
 
 This section describes the current practice Route 53 uses for your DNSSEC signing enabled zones.
 

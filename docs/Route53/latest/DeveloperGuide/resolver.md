@@ -67,12 +67,10 @@ The diagram illustrates the following steps:
 
 ###### Topics
 
-- [Resolving DNS queries between
-  VPCs and your network](resolver-overview-DSN-queries-to-vpc.md "resolver-overview-DSN-queries-to-vpc.md")
+- [Resolving DNS queries between VPCs and your network](resolver-overview-DSN-queries-to-vpc.md "resolver-overview-DSN-queries-to-vpc.md")
 - [Route 53 VPC Resolver availability and scaling](resolver-availability-scaling.md "resolver-availability-scaling.md")
 - [Getting started with Route 53 VPC Resolver](resolver-getting-started.md "resolver-getting-started.md")
 - [Forwarding inbound DNS queries to your VPCs](resolver-forwarding-inbound-queries.md "resolver-forwarding-inbound-queries.md")
 - [Forwarding outbound DNS queries to your network](resolver-forwarding-outbound-queries.md "resolver-forwarding-outbound-queries.md")
 - [Resolver delegation rules tutorial](outbound-delegation-tutorial.md "outbound-delegation-tutorial.md")
-- [Enabling DNSSEC validation in
-  Amazon Route 53](resolver-dnssec-validation.md "resolver-dnssec-validation.md")
+- [Enabling DNSSEC validation in Amazon Route 53](resolver-dnssec-validation.md "resolver-dnssec-validation.md")

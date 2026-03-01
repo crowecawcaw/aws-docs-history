@@ -110,8 +110,7 @@ registering. For more information, see [Values that you specify when you registe
 The contact you list as the registrant during domain registration will have certain rights as
 the Registered Name Holder of the domain name, under the [ICANN Transfer Policy](https://www.icann.org/resources/pages/transfer-policy-2016-06-01-en "https://www.icann.org/resources/pages/transfer-policy-2016-06-01-en").
 Most domains will be deleted upon closure of your
-AWS account (for more information, see [My AWS account is closed or permanently
-closed, and my domain is registered with Route 53](troubleshooting-account-closed.md "troubleshooting-account-closed.md")), however if a
+AWS account (for more information, see [My AWS account is closed or permanently closed, and my domain is registered with Route 53](troubleshooting-account-closed.md "troubleshooting-account-closed.md")), however if a
 domain remains in a closed account, the contact you listed as the
 registrant may have the ability to request a transfer of the domain
 name to an external registrar. Therefore, it is important that the
@@ -158,8 +157,7 @@ You must specify the same privacy setting for the administrative, registrant, te
 
 For more information, see the following topics:
 
-    * [Enabling or disabling privacy protection for
-     contact information for a domain](domain-privacy-protection.md "domain-privacy-protection.md")
+    * [Enabling or disabling privacy protection for contact information for a domain](domain-privacy-protection.md "domain-privacy-protection.md")
     * [Domains that you can register with Amazon Route 53](registrar-tld-list.md "registrar-tld-list.md")
 
 ###### Note
@@ -216,5 +214,4 @@ we must suspend the domain as required by ICANN. When a domain is suspended, it'
    zone.
    - **Another DNS service** – Configure your new domain to route DNS queries to
      the other DNS service. Perform the procedure
-     [Updating name servers to use another
-     registrar](domain-register-other-dns-service.md "domain-register-other-dns-service.md").
+     [Updating name servers to use another registrar](domain-register-other-dns-service.md "domain-register-other-dns-service.md").

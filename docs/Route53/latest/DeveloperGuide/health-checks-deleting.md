@@ -25,8 +25,7 @@ New console
 ###### To delete a health check
 
 1. If you're deleting health checks that are associated with records, perform
-   the recommended tasks in [Updating or deleting health
-   checks when DNS failover is configured](health-checks-updating-deleting-tasks.md "health-checks-updating-deleting-tasks.md").
+   the recommended tasks in [Updating or deleting health checks when DNS failover is configured](health-checks-updating-deleting-tasks.md "health-checks-updating-deleting-tasks.md").
 2. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
 3. In the navigation pane, choose **Health checks**.
@@ -36,13 +35,10 @@ New console
 
 Old console
 
-###### To delete a health check
-
-(console)
+###### To delete a health check (console)
 
 1. If you're deleting health checks that are associated with records, perform
-   the recommended tasks in [Updating or deleting health
-   checks when DNS failover is configured](health-checks-updating-deleting-tasks.md "health-checks-updating-deleting-tasks.md").
+   the recommended tasks in [Updating or deleting health checks when DNS failover is configured](health-checks-updating-deleting-tasks.md "health-checks-updating-deleting-tasks.md").
 2. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
 3. In the navigation pane, choose **Health Checks**.

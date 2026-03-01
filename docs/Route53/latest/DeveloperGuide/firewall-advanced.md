@@ -33,9 +33,7 @@ the DNS tunnel without making a network connection to the client.
 - Dictionary DGA
 
 Dictionary DGAs are used by attackers to generate domains using dictionary words to evade detection in malware command-and-control communications.
-To learn how to create rules, see [Creating a rule group
-and rules](resolver-dns-firewall-rule-group-adding.md "resolver-dns-firewall-rule-group-adding.md") and [Rule settings in
-DNS Firewall](resolver-dns-firewall-rule-settings.md "resolver-dns-firewall-rule-settings.md").
+To learn how to create rules, see [Creating a rule group and rules](resolver-dns-firewall-rule-group-adding.md "resolver-dns-firewall-rule-group-adding.md") and [Rule settings in DNS Firewall](resolver-dns-firewall-rule-settings.md "resolver-dns-firewall-rule-settings.md").
 
 ###### Mitigating false positive scenarios
 
@@ -51,8 +49,7 @@ protections to block queries, perform the following steps:
 2. Create a new rule in the rule group that explicitly allows the blocked query
    through. When you create the rule, you can define your own domain list with just
    the domain specification that you want to allow. Follow the guidance for rule
-   group and rule management at [Creating a rule group
-   and rules](resolver-dns-firewall-rule-group-adding.md "resolver-dns-firewall-rule-group-adding.md").
+   group and rule management at [Creating a rule group and rules](resolver-dns-firewall-rule-group-adding.md "resolver-dns-firewall-rule-group-adding.md").
 3. Prioritize the new rule inside the rule group so that it runs before the
    rule that's using the managed list. To do this, give the new rule a lower
    numeric priority setting.

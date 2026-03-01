@@ -11,8 +11,7 @@ to a Profile are:
   about working with private hosted zones, see [Working with private hosted zones](hosted-zones-private.md "hosted-zones-private.md").
 - Resolver rules, both forwarding and system. For more information about Resolver
   rules, see [Managing forwarding rules](resolver-rules-managing.md "resolver-rules-managing.md").
-- DNS Firewall rule groups. For more information about DNS Firewall rule groups, see [DNS Firewall rule groups and
-  rules](resolver-dns-firewall-rule-groups.md "resolver-dns-firewall-rule-groups.md").
+- DNS Firewall rule groups. For more information about DNS Firewall rule groups, see [DNS Firewall rule groups and rules](resolver-dns-firewall-rule-groups.md "resolver-dns-firewall-rule-groups.md").
 - Interface VPC endpoints. For more information about interface VPC endpoints, see
   [interface VPC
   endpoints](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md") in the _Amazon VPC User Guide_.
@@ -36,8 +35,7 @@ Profile to a VPC, the Profile settings take effect immediately.
 You can also use CloudFormation to set up consistent DNS settings for newly provisioned VPCs.
 
 You can associate one Profile per VPC and the number of resources you can associate per
-Profile varies. For more information, see [Quotas on
-Route 53 Profiles](DNSLimitations.md#limits-api-entities-route53-profiles "DNSLimitations.md#limits-api-entities-route53-profiles") .
+Profile varies. For more information, see [Quotas on Route 53 Profiles](DNSLimitations.md#limits-api-entities-route53-profiles "DNSLimitations.md#limits-api-entities-route53-profiles").
 
 ## How Route 53 Profile settings are prioritized
 

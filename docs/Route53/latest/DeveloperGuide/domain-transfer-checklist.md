@@ -10,8 +10,7 @@ Choose the option that matches your needs:
 
 Your registrar becomes Amazon Route 53. You pay Route 53 for domain renewals and manage domain settings through the Route 53 console.
 
-**Next step:** Continue with this checklist, then follow [Transferring registration for a domain to
-Amazon Route 53](domain-transfer-to-route-53.md "domain-transfer-to-route-53.md").
+**Next step:** Continue with this checklist, then follow [Transferring registration for a domain to Amazon Route 53](domain-transfer-to-route-53.md "domain-transfer-to-route-53.md").
 
 **Use Route 53 for DNS hosting only**
 
@@ -19,9 +18,7 @@ Keep your current registrar but use Route 53 name servers for DNS resolution. Y
 
 **Next step:** Skip this checklist and follow [Configuring Amazon Route 53 as your DNS service](dns-configuring.md "dns-configuring.md").
 
-## Prerequisites
-
-checklist
+## Prerequisites checklist
 
 Complete all of the following before starting your domain transfer.
 
@@ -97,6 +94,5 @@ To transfer DNS service first, see [Configuring Amazon Route 53 as your DNS ser
 
 After completing this checklist:
 
-1. Follow the step-by-step transfer process in [Transferring registration for a domain to
-   Amazon Route 53](domain-transfer-to-route-53.md "domain-transfer-to-route-53.md").
+1. Follow the step-by-step transfer process in [Transferring registration for a domain to Amazon Route 53](domain-transfer-to-route-53.md "domain-transfer-to-route-53.md").
 2. Monitor your email for authorization messages during the transfer process.

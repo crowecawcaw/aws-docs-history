@@ -14,9 +14,7 @@ see the Restoration Price column in [Amazon Route 53 Pricing for Domain Registr
 
 You can't use AWS credits to pay the fee for restoring an expired domain.
 
-###### To try to restore domain registration when a domain is deleted or the
-
-late-renewal period has expired
+###### To try to restore domain registration when a domain is deleted or the late-renewal period has expired
 
 1. Determine whether the TLD registry for the domain supports restoring domains and, if so, the period
    during which restoration is allowed.

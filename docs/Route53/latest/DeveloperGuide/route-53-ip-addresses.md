@@ -24,9 +24,7 @@ servers.
 
 Route 53 name server IP addresses are static.
 
-## IP address ranges of Route 53 health
-
-checks
+## IP address ranges of Route 53 health checks
 
 `"service": "ROUTE53_HEALTHCHECKS"` – These IP address ranges are
 used by Route 53 health checkers. Add these ranges to the list of allowed IP address ranges
@@ -38,8 +36,7 @@ network.
 We rarely change the IP address ranges of health checkers. Monitor the [ip-ranges.json](https://ip-ranges.amazonaws.com/ip-ranges.json "https://ip-ranges.amazonaws.com/ip-ranges.json") file
 for any updates to these ranges.
 
-For more information about IP addresses for health checks, see [Configuring router and firewall
-rules for Amazon Route 53 health checks](dns-failover-router-firewall-rules.md "dns-failover-router-firewall-rules.md").
+For more information about IP addresses for health checks, see [Configuring router and firewall rules for Amazon Route 53 health checks](dns-failover-router-firewall-rules.md "dns-failover-router-firewall-rules.md").
 
 ## Referencing prefix lists
 

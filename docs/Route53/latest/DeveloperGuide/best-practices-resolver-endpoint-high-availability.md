@@ -1,6 +1,4 @@
-# High
-
-availability for Resolver endpoints
+# High availability for Resolver endpoints
 
 When you create your VPC Resolver inbound endpoints, Route 53 requires that you create at least
 two IP addresses that the DNS resolvers on your network will forward queries to. You

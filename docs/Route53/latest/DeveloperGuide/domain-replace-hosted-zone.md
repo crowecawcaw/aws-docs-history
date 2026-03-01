@@ -9,8 +9,7 @@ when you're ready to make the domain available on the internet. Perform the foll
 2. Create records in the hosted zone. Records define how you want to route traffic for the domain (example.com) and subdomains
    (acme.example.com, zenith.example.com). For more information, see [Working with records](rrsets-working-with.md "rrsets-working-with.md").
 3. Update the domain configuration to use the name servers for the new hosted zone. For more information, see
-   [Adding or changing name servers and
-   glue records for a domain](domain-name-servers-glue-records.md "domain-name-servers-glue-records.md").
+   [Adding or changing name servers and glue records for a domain](domain-name-servers-glue-records.md "domain-name-servers-glue-records.md").
 
 ###### Important
 

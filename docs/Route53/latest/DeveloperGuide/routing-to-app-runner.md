@@ -52,16 +52,12 @@ domain, see [Making Amazon Route 53 the DNS service for an existing domain](Mig
   AWS Certificate Manager](../../../acm/latest/userguide/dns-validation.md "../../../acm/latest/userguide/dns-validation.md") in the _AWS Certificate Manager User
   Guide._
 
-## Configuring Amazon Route 53 to route
-
-traffic to an App Runner service
+## Configuring Amazon Route 53 to route traffic to an App Runner service
 
 To configure Amazon Route 53 to route traffic to an App Runner service, perform the following
 procedure.
 
-###### To route traffic to an App Runner
-
-service
+###### To route traffic to an App Runner service
 
 1. Open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
@@ -100,8 +96,7 @@ address**.
 **Evaluate target health**
 
 Choose **No**. For information about
-evaluating target health, see [Evaluate target
-health](resource-record-sets-values-alias.md#rrsets-values-alias-evaluate-target-health "resource-record-sets-values-alias.md#rrsets-values-alias-evaluate-target-health"). 6. Choose **Create records**.
+evaluating target health, see [Evaluate target health](resource-record-sets-values-alias.md#rrsets-values-alias-evaluate-target-health "resource-record-sets-values-alias.md#rrsets-values-alias-evaluate-target-health"). 6. Choose **Create records**.
 
 Changes generally propagate to all Route 53 servers within 60 seconds. When
 propagation is done, you'll be able to route traffic to your App Runner service by

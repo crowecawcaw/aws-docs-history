@@ -47,9 +47,7 @@ Only the account that created a rule can add, delete, or see tags on the rule.
 To view the current sharing status of a rule (including the account that shared the rule or the account that a rule is shared with), and to
 share rules with another account, perform the following procedure.
 
-###### To view sharing status and share query logging configurations with another AWS
-
-account
+###### To view sharing status and share query logging configurations with another AWS account
 
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").

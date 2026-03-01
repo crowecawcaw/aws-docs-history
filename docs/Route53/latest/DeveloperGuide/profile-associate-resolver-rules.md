@@ -1,13 +1,9 @@
-# Associate Resolver rules to a
-
-Route 53 Profile
+# Associate Resolver rules to a Route 53 Profile
 
 For instructions for how to create a Resolver rule, see [Creating forwarding rules](resolver-rules-managing.md#resolver-rules-managing-creating-rules "resolver-rules-managing.md#resolver-rules-managing-creating-rules"), and then follow the
 steps in this procedure to associate Resolver rules to a Profile.
 
-###### To associate VPC Resolver
-
-rules
+###### To associate VPC Resolver rules
 
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").

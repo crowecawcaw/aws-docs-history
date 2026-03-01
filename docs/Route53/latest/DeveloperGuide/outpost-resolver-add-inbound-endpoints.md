@@ -1,6 +1,4 @@
-# Creating inbound
-
-endpoints
+# Creating inbound endpoints
 
 After you have created a Resolver on Outpost, you can add both inbound and outbound endpoints to
 resolve DNS queries to and from your on-premises network.
@@ -17,13 +15,10 @@ resolve DNS queries to and from your on-premises network.
 5. On the **Inbound endpoints** table, choose **Create
    inbound endpoint**.
 6. On the **Create inbound endpoint** page, enter the applicable
-   values. For more information, see [Values that you
-   specify when you create or edit inbound endpoints on an Outpost](#resolver-forwarding-inbound-queries-values-outpost "#resolver-forwarding-inbound-queries-values-outpost").
+   values. For more information, see [Values that you specify when you create or edit inbound endpoints on an Outpost](#resolver-forwarding-inbound-queries-values-outpost "#resolver-forwarding-inbound-queries-values-outpost").
 7. Choose **Create endpoint**.
 
-## Values that you
-
-specify when you create or edit inbound endpoints on an Outpost
+## Values that you specify when you create or edit inbound endpoints on an Outpost
 
 When you create or edit an inbound endpoint, you specify the following
 values:

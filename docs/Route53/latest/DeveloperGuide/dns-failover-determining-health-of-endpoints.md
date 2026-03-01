@@ -1,13 +1,9 @@
-# How Amazon Route 53 determines
-
-whether a health check is healthy
+# How Amazon Route 53 determines whether a health check is healthy
 
 The method that Amazon Route 53 uses to determine whether a health check is healthy depends
 on the type of health check.
 
-## How
-
-Route 53 determines the status of health checks that monitor an endpoint
+## How Route 53 determines the status of health checks that monitor an endpoint
 
 Route 53 has health checkers in locations around the world. When you create a health
 check that monitors an endpoint, health checkers start to send requests to the
@@ -83,9 +79,7 @@ determine the actual status, healthy or unhealthy. If you chose the option to in
 the health check status, Route 53 considers a new health check to be
 _unhealthy_ until there's enough data.
 
-## How Route 53
-
-determines the status of health checks that monitor other health checks
+## How Route 53 determines the status of health checks that monitor other health checks
 
 A health check can monitor the status of other health checks; this type of health
 check is known as a _calculated health check_. The health check
@@ -100,18 +94,14 @@ how the monitoring works:
   must be healthy for the status of the parent health check to be considered
   healthy.
 
-For more information, see [Monitoring other
-health checks (calculated health checks)](health-checks-creating-values.md#health-checks-creating-values-calculated "health-checks-creating-values.md#health-checks-creating-values-calculated") in [Values that you specify when you
-create or update health checks](health-checks-creating-values.md "health-checks-creating-values.md").
+For more information, see [Monitoring other health checks (calculated health checks)](health-checks-creating-values.md#health-checks-creating-values-calculated "health-checks-creating-values.md#health-checks-creating-values-calculated") in [Values that you specify when you create or update health checks](health-checks-creating-values.md "health-checks-creating-values.md").
 
 Route 53 considers a new health check to be healthy until there's enough data to determine the
 actual status, healthy or unhealthy. If you chose the option to invert the health
 check status, Route 53 considers a new health check to be
 _unhealthy_ until there's enough data.
 
-## How Route 53
-
-determines the status of health checks that monitor CloudWatch alarms
+## How Route 53 determines the status of health checks that monitor CloudWatch alarms
 
 When you create a health check that is based on a CloudWatch alarm, Route 53 monitors the
 data stream for the corresponding alarm instead of monitoring the alarm state. If

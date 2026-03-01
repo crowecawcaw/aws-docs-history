@@ -41,9 +41,7 @@ The following basic restrictions apply to tags:
 - Don't use the `aws:` prefix for either keys or values; it's
   reserved for AWS use
 
-## Adding, editing, and deleting
-
-tags for health checks
+## Adding, editing, and deleting tags for health checks
 
 The following procedures show you how to use tags for your health checks on the
 Route 53 console.
@@ -60,9 +58,7 @@ Choose the tab for the console you are using.
 
 New console
 
-###### To add tags to health
-
-checks
+###### To add tags to health checks
 
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
@@ -75,9 +71,7 @@ checks
    **Value** field.
 6. Choose **Save**.
 
-###### To edit tags for health
-
-checks
+###### To edit tags for health checks
 
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
@@ -102,9 +96,7 @@ checks
 
 Old console
 
-###### To add tags to health
-
-checks
+###### To add tags to health checks
 
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
@@ -118,9 +110,7 @@ checks
    **Value** field.
 6. Choose **Apply changes**.
 
-###### To edit tags for health
-
-checks
+###### To edit tags for health checks
 
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").

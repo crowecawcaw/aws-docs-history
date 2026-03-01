@@ -1,13 +1,9 @@
-# Associate private hosted zones to a
-
-Route 53 Profile
+# Associate private hosted zones to a Route 53 Profile
 
 For intructions for how to create a private hosted zone, see [Creating a private hosted zone](hosted-zone-private-creating.md "hosted-zone-private-creating.md"), and then follow the steps in
 this procedure to associate a private hosted zone to a Profile.
 
-###### To associate private hosted
-
-zones
+###### To associate private hosted zones
 
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").

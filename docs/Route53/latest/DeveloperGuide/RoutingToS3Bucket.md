@@ -1,6 +1,4 @@
-# Routing traffic to a website that is hosted in an
-
-Amazon S3 bucket
+# Routing traffic to a website that is hosted in an Amazon S3 bucket
 
 This topic provides comprehensive procedures for routing DNS traffic to any Amazon Simple Storage Service
 bucket configured for static website hosting. If you're setting up a static website with
@@ -49,8 +47,7 @@ An S3 bucket that's configured as a website endpoint doesn't support
 SSL/TLS, so you need to route traffic to the CloudFront distribution and use
 the S3 bucket as the origin for the distribution.
 
-For instructions on how to create a CloudFront distribution, see [Routing traffic to an Amazon CloudFront
-distribution by using your domain name](routing-to-cloudfront-distribution.md "routing-to-cloudfront-distribution.md").
+For instructions on how to create a CloudFront distribution, see [Routing traffic to an Amazon CloudFront distribution by using your domain name](routing-to-cloudfront-distribution.md "routing-to-cloudfront-distribution.md").
 
 - A registered domain name. You can use Route 53 as your domain registrar, or
   you can use a different registrar.
@@ -61,16 +58,12 @@ distribution by using your domain name](routing-to-cloudfront-distribution.md "r
 For information about using Route 53 as the DNS service provider for your
 domain, see [Making Amazon Route 53 the DNS service for an existing domain](MigratingDNS.md "MigratingDNS.md").
 
-## Configuring Amazon Route 53 to route
-
-traffic to an S3 Bucket
+## Configuring Amazon Route 53 to route traffic to an S3 Bucket
 
 To configure Amazon Route 53 to route traffic to an S3 bucket that is configured to host
 a static website, perform the following procedure.
 
-###### To route traffic to an S3
-
-bucket
+###### To route traffic to an S3 bucket
 
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
@@ -126,8 +119,7 @@ following requirements:
 **Evaluate target health**
 
 Choose **No**. For information about
-evaluating target health, see [Evaluate target
-health](resource-record-sets-values-alias.md#rrsets-values-alias-evaluate-target-health "resource-record-sets-values-alias.md#rrsets-values-alias-evaluate-target-health").
+evaluating target health, see [Evaluate target health](resource-record-sets-values-alias.md#rrsets-values-alias-evaluate-target-health "resource-record-sets-values-alias.md#rrsets-values-alias-evaluate-target-health").
 
 **Routing policy**
 

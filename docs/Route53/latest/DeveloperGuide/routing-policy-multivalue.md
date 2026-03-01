@@ -21,7 +21,5 @@ Note the following:
   You can use multivalue answer routing policy for records in a private hosted zone.
 
 For information about values that you specify when you use the multivalue answer routing policy to create records, see
-[Values specific for multivalue
-answer records](resource-record-sets-values-multivalue.md "resource-record-sets-values-multivalue.md")
-and [Values that are common for all routing
-policies](resource-record-sets-values-shared.md "resource-record-sets-values-shared.md").
+[Values specific for multivalue answer records](resource-record-sets-values-multivalue.md "resource-record-sets-values-multivalue.md")
+and [Values that are common for all routing policies](resource-record-sets-values-shared.md "resource-record-sets-values-shared.md").

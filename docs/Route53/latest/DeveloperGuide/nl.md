@@ -29,8 +29,7 @@ Not supported. We recommend that you prevent unauthorized
 transfers by restricting access to the [RetrieveDomainAuthCode](../APIReference/API_domains_RetrieveDomainAuthCode.md "../APIReference/API_domains_RetrieveDomainAuthCode.md") API action. (When you restrict
 access to this Route 53 API, you also restrict who can generate an
 authorization code using the Route 53 console, AWS SDKs, and other
-programmatic methods.) For more information, see [Identity and access management in
-Amazon Route 53](security-iam.md "security-iam.md").
+programmatic methods.) For more information, see [Identity and access management in Amazon Route 53](security-iam.md "security-iam.md").
 
 **Internationalized domain names**
 

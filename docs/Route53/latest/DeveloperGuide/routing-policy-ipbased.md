@@ -20,9 +20,7 @@ Some common use cases for IP-based routing are the following:
   geolocation routing, based on your knowledge of your clients' physical
   locations.
 
-###### Managing IP ranges and associating them to a resource record set
-
-(RRSet)
+###### Managing IP ranges and associating them to a resource record set (RRSet)
 
 For IPv4, you can use CIDR blocks between 1 and 24 bits of length, inclusive, while for
 IPv6, you can use CIDR blocks between 1 and 48 bits of length, inclusive. To
@@ -75,18 +73,12 @@ policy to create records, see the following topics:
 
 - [Values specific for IP-based records](resource-record-sets-values-ipbased.md "resource-record-sets-values-ipbased.md")
 - [Values specific for IP-based alias records](resource-record-sets-values-ipbased-alias.md "resource-record-sets-values-ipbased-alias.md")
-- [Values that are common for all routing
-  policies](resource-record-sets-values-shared.md "resource-record-sets-values-shared.md")
-- [Values that are common for
-  alias records for all routing policies](resource-record-sets-values-alias-common.md "resource-record-sets-values-alias-common.md")
+- [Values that are common for all routing policies](resource-record-sets-values-shared.md "resource-record-sets-values-shared.md")
+- [Values that are common for alias records for all routing policies](resource-record-sets-values-alias-common.md "resource-record-sets-values-alias-common.md")
 
 ###### Topics
 
-- [Creating a CIDR
-  collection with CIDR locations and blocks](resource-record-sets-creating-cidr-collection.md "resource-record-sets-creating-cidr-collection.md")
-- [Working with
-  CIDR locations and blocks](resource-record-sets-working-with-cidr-locations.md "resource-record-sets-working-with-cidr-locations.md")
-- [Deleting a CIDR
-  collection](resource-record-sets-delete-cidr-collection.md "resource-record-sets-delete-cidr-collection.md")
-- [Moving a
-  geolocation to IP-based routing](resource-record-sets-move-geolocation-to-cidr.md "resource-record-sets-move-geolocation-to-cidr.md")
+- [Creating a CIDR collection with CIDR locations and blocks](resource-record-sets-creating-cidr-collection.md "resource-record-sets-creating-cidr-collection.md")
+- [Working with CIDR locations and blocks](resource-record-sets-working-with-cidr-locations.md "resource-record-sets-working-with-cidr-locations.md")
+- [Deleting a CIDR collection](resource-record-sets-delete-cidr-collection.md "resource-record-sets-delete-cidr-collection.md")
+- [Moving a geolocation to IP-based routing](resource-record-sets-move-geolocation-to-cidr.md "resource-record-sets-move-geolocation-to-cidr.md")

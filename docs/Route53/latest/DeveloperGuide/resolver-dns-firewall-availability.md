@@ -1,6 +1,4 @@
-# Region availability for
-
-Resolver DNS Firewall
+# Region availability for Resolver DNS Firewall
 
 The DNS Firewall is available in the following AWS Regions:
 

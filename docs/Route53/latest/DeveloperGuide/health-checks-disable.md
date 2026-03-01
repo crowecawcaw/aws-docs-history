@@ -13,8 +13,7 @@ We're updating the health checks console for Route 53. During the transition pe
 to use the old console.
 
 You can disable or enable a health check on the old console when you create or edit the health check. For more information, see
-[Values that you specify when you
-create or update health checks](health-checks-creating-values.md "health-checks-creating-values.md").
+[Values that you specify when you create or update health checks](health-checks-creating-values.md "health-checks-creating-values.md").
 
 To disable health checks on the new console, perform the following procedure.
 

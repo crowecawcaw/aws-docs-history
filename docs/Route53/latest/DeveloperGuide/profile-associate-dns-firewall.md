@@ -1,9 +1,6 @@
-# Associate DNS Firewall rule groups to a
+# Associate DNS Firewall rule groups to a Route 53 Profile
 
-Route 53 Profile
-
-For instructions for creating a rule group, see [Creating a rule group
-and rules](resolver-dns-firewall-rule-group-adding.md "resolver-dns-firewall-rule-group-adding.md"), and then choose a tab
+For instructions for creating a rule group, see [Creating a rule group and rules](resolver-dns-firewall-rule-group-adding.md "resolver-dns-firewall-rule-group-adding.md"), and then choose a tab
 to associate DNS Firewall rule groups to a Route 53 Profile by using the Route 53 console, or
 AWS CLI.
 
@@ -12,9 +9,7 @@ AWS CLI.
 
 Console
 
-###### To associate
-
-DNS Firewall rule groups
+###### To associate DNS Firewall rule groups
 
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
@@ -31,8 +26,7 @@ DNS Firewall rule groups
    you want to associate more than 10 rule groups, use the APIs.
    For more information, see [AssociateResourceToProfile](../APIReference/API_route53profiles_AssociateResourceToProfile.md "../APIReference/API_route53profiles_AssociateResourceToProfile.md").
 
-To create new rule groups, see [Creating a rule group
-and rules](resolver-dns-firewall-rule-group-adding.md "resolver-dns-firewall-rule-group-adding.md"). 6. Choose **Next**. 7. On the **Define priority** page you can set
+To create new rule groups, see [Creating a rule group and rules](resolver-dns-firewall-rule-group-adding.md "resolver-dns-firewall-rule-group-adding.md"). 6. Choose **Next**. 7. On the **Define priority** page you can set
 the order in which the rule groups are processed by clicking the
 pre-assigned priority number and typing in a new one. The
 allowed values for the priority are between 100 and 9900.

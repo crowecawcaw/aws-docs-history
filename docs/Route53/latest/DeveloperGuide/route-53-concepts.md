@@ -317,4 +317,4 @@ A Route 53 component that lets you do the following:
   unhealthy resource to a healthy resource
 
 For more information about how to create and use health checks, see
-[Creating Amazon Route 53 health checks](dns-failover.md "dns-failover.md") .
+[Creating Amazon Route 53 health checks](dns-failover.md "dns-failover.md").

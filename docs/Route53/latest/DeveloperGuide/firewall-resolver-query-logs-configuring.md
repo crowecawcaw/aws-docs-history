@@ -1,11 +1,8 @@
-# Configuring logging for
-
-DNS Firewall
+# Configuring logging for DNS Firewall
 
 You can evaluate your DNS Firewall rules by using Amazon CloudWatch metrics and the Resolver query
 logs. The logs provide the domain list name for all alerts and blocking actions. For
-more information about Amazon CloudWatch, see [Monitoring Resolver DNS Firewall rule
-groups with Amazon CloudWatch](monitoring-resolver-dns-firewall-with-cloudwatch.md "monitoring-resolver-dns-firewall-with-cloudwatch.md").
+more information about Amazon CloudWatch, see [Monitoring Resolver DNS Firewall rule groups with Amazon CloudWatch](monitoring-resolver-dns-firewall-with-cloudwatch.md "monitoring-resolver-dns-firewall-with-cloudwatch.md").
 
 When you enable DNS Firewall, associate it to a VPC, and you have logging enabled, `firewall_rule_group_id`, `firewall_rule_action`, and `firewall_domain_list_id` are the DNS Firewall specific fields provided within your
 logs.
@@ -20,9 +17,7 @@ To start logging the DNS queries that are filtered by DNS Firewall rules that
 originate in your VPCs, you perform the following tasks in the Amazon Route 53
 console:
 
-###### To configure
-
-Resolver query logging for DNS Firewall
+###### To configure Resolver query logging for DNS Firewall
 
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
@@ -52,8 +47,7 @@ configuration later.
 
 Choose the type of AWS resource that you want VPC Resolver to send
 query logs to. For information about how to choose among the options
-(CloudWatch Logs log group, S3 bucket, and Firehose delivery stream), see [AWS resources that you
-can send VPC Resolver query logs to](resolver-query-logs-choosing-target-resource.md "resolver-query-logs-choosing-target-resource.md").
+(CloudWatch Logs log group, S3 bucket, and Firehose delivery stream), see [AWS resources that you can send VPC Resolver query logs to](resolver-query-logs-choosing-target-resource.md "resolver-query-logs-choosing-target-resource.md").
 
 After you choose the type of resource, you can either create
 another resource of that type or choose an existing resource

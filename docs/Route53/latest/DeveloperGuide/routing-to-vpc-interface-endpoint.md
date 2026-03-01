@@ -91,8 +91,7 @@ Choose **A – IPv4 address**.
 **Evaluate target health**
 
 Choose **No**. For information about
-evaluating target health, see [Evaluate target
-health](resource-record-sets-values-alias.md#rrsets-values-alias-evaluate-target-health "resource-record-sets-values-alias.md#rrsets-values-alias-evaluate-target-health"). 7. Choose **Create records**.
+evaluating target health, see [Evaluate target health](resource-record-sets-values-alias.md#rrsets-values-alias-evaluate-target-health "resource-record-sets-values-alias.md#rrsets-values-alias-evaluate-target-health"). 7. Choose **Create records**.
 
 Changes generally propagate to all Route 53 servers within 60 seconds. When propagation is done, you'll be able to
 route traffic to your interface endpoint by using the name of the alias record that you created in this procedure.

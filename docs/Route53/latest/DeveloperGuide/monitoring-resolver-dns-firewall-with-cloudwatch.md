@@ -1,6 +1,4 @@
-# Monitoring Resolver DNS Firewall rule
-
-groups with Amazon CloudWatch
+# Monitoring Resolver DNS Firewall rule groups with Amazon CloudWatch
 
 You can use Amazon CloudWatch to monitor the number of DNS queries that are filtered by Resolver DNS Firewall rule groups. Amazon CloudWatch collects and
 processes raw data into readable, near real-time metrics. These statistics are recorded for a period of two weeks, so that

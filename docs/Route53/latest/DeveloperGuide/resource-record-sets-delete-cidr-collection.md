@@ -1,10 +1,6 @@
-# Deleting a CIDR
+# Deleting a CIDR collection
 
-collection
-
-###### To delete a CIDR collection,
-
-its locations, and blocks by using the Route 53 console
+###### To delete a CIDR collection, its locations, and blocks by using the Route 53 console
 
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").

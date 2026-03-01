@@ -1,12 +1,8 @@
-# Creating a CIDR
-
-collection with CIDR locations and blocks
+# Creating a CIDR collection with CIDR locations and blocks
 
 To get started, create a CIDR collection and add CIDR blocks and locations to it.
 
-###### To create a CIDR collection
-
-using the Route 53 console
+###### To create a CIDR collection using the Route 53 console
 
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").

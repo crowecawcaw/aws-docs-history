@@ -1,11 +1,8 @@
-# Routing traffic to an Amazon CloudFront
-
-distribution by using your domain name
+# Routing traffic to an Amazon CloudFront distribution by using your domain name
 
 This topic provides comprehensive procedures for routing DNS traffic to any Amazon CloudFront
 distribution. If you're setting up a static website with Amazon CloudFront and Amazon Simple Storage Service, see
-[Use an Amazon CloudFront distribution to serve
-a static website](getting-started-cloudfront-overview.md "getting-started-cloudfront-overview.md") for a complete
+[Use an Amazon CloudFront distribution to serve a static website](getting-started-cloudfront-overview.md "getting-started-cloudfront-overview.md") for a complete
 tutorial.
 
 You can use Amazon CloudFront, the AWS content delivery network (CDN), as one way to speed up
@@ -92,9 +89,7 @@ require HTTPS. For more information, see [DNS validation in the
 AWS Certificate Manager](../../../acm/latest/userguide/dns-validation.md "../../../acm/latest/userguide/dns-validation.md") in the _AWS Certificate Manager User
 Guide._
 
-## Configuring Amazon Route 53 to
-
-route traffic to a CloudFront distribution
+## Configuring Amazon Route 53 to route traffic to a CloudFront distribution
 
 To configure Amazon Route 53 to route traffic to a CloudFront distribution, follow these
 steps. For more information about using your own domain name with a CloudFront
@@ -107,9 +102,7 @@ Changes generally propagate to all Route 53 servers within 60 seconds. When the
 changes propagate, you'll be able to route traffic to your CloudFront distribution by
 using the name of the alias record that you create in this procedure.
 
-###### To route traffic to a
-
-CloudFront distribution
+###### To route traffic to a CloudFront distribution
 
 1. Get the domain name that CloudFront assigned to your distribution and determine
    whether IPv6 is enabled:

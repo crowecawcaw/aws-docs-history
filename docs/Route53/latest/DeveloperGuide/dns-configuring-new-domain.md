@@ -11,8 +11,7 @@ When you purchase a domain from another registrar, for example, because the top-
 domain (TLD) isn't offered by Route 53, you have two options:
 
 - **Use Route 53 for DNS hosting only:** Keep your current registrar but delegate DNS management to Route 53. Follow the procedure below to create a hosted zone and update your registrar's name servers.
-- **Transfer the domain registration to Route 53:** Make Route 53 your registrar and DNS service. See [Pre-transfer checklist for domain transfers](domain-transfer-checklist.md "domain-transfer-checklist.md") for prerequisites and [Transferring registration for a domain to
-  Amazon Route 53](domain-transfer-to-route-53.md "domain-transfer-to-route-53.md") for the transfer process.
+- **Transfer the domain registration to Route 53:** Make Route 53 your registrar and DNS service. See [Pre-transfer checklist for domain transfers](domain-transfer-checklist.md "domain-transfer-checklist.md") for prerequisites and [Transferring registration for a domain to Amazon Route 53](domain-transfer-to-route-53.md "domain-transfer-to-route-53.md") for the transfer process.
   For more information about TLDs supported by Route 53, see [Domains that you can register with Amazon Route 53](registrar-tld-list.md "registrar-tld-list.md").
 
 Follow these instructions to create a public hosted zone and then use

@@ -1,6 +1,4 @@
-# Resolver endpoint
-
-scaling
+# Resolver endpoint scaling
 
 Resolver endpoint security groups use connection tracking to gather information about
 traffic to and from the endpoints. Each endpoint interface has a maximum number of

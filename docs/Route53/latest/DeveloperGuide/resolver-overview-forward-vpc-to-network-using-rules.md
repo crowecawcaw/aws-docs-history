@@ -1,6 +1,4 @@
-# Using rules to control which queries are forwarded
-
-to your network
+# Using rules to control which queries are forwarded to your network
 
 Rules control which DNS queries Resolver endpoint forwards to DNS resolvers on your
 network and which queries VPC Resolver answers itself.
@@ -84,8 +82,7 @@ create a rule for ".", see
 [Domain names that VPC Resolver creates autodefined system rules for](resolver-overview-forward-vpc-to-network-autodefined-rules.md "resolver-overview-forward-vpc-to-network-autodefined-rules.md").
 
 However, autodefined system rules for reverse DNS can be disabled, allowing the "." rule to forward all reverse DNS queries to your network.
-For more information on how to turn off the autodefined rules, see [Forwarding rules for
-reverse DNS queries in VPC Resolver](resolver-rules-managing.md#resolver-automatic-forwarding-rules-reverse-dns "resolver-rules-managing.md#resolver-automatic-forwarding-rules-reverse-dns").
+For more information on how to turn off the autodefined rules, see [Forwarding rules for reverse DNS queries in VPC Resolver](resolver-rules-managing.md#resolver-automatic-forwarding-rules-reverse-dns "resolver-rules-managing.md#resolver-automatic-forwarding-rules-reverse-dns").
 
 If you want to try forwarding DNS queries for all domain names to your network, including the domain names
 that are excluded from forwarding by default, you can create a "." rule and do one of the following:

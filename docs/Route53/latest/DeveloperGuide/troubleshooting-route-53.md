@@ -35,14 +35,11 @@ This page covers the following troubleshooting topics for Amazon Route 53:
 
 - [My domain is unavailable on the internet](troubleshooting-domain-unavailable.md "troubleshooting-domain-unavailable.md")
 - [My domain is suspended (status is ClientHold)](troubleshooting-domain-suspended.md "troubleshooting-domain-suspended.md")
-- [My domain
-  operation failed](troubleshooting-domain-operation-failed.md "troubleshooting-domain-operation-failed.md")
-- [Transferring my domain to
-  Amazon Route 53 failed](troubleshooting-domain-transfer-failed.md "troubleshooting-domain-transfer-failed.md")
+- [My domain operation failed](troubleshooting-domain-operation-failed.md "troubleshooting-domain-operation-failed.md")
+- [Transferring my domain to Amazon Route 53 failed](troubleshooting-domain-transfer-failed.md "troubleshooting-domain-transfer-failed.md")
 - [I changed DNS settings, but they haven't taken effect](troubleshooting-new-dns-settings-not-in-effect.md "troubleshooting-new-dns-settings-not-in-effect.md")
 - [My browser displays a "Server not found" error](troubleshooting-server-not-found.md "troubleshooting-server-not-found.md")
 - [I can't route traffic to an Amazon S3 bucket that's configured for website hosting](troubleshooting-s3-bucket-website-hosting.md "troubleshooting-s3-bucket-website-hosting.md")
 - [I was billed twice for the same hosted zone](troubleshooting-billed-twice.md "troubleshooting-billed-twice.md")
 - [I was charged multiple invoices for my domain](troubleshooting-multiple-invoices.md "troubleshooting-multiple-invoices.md")
-- [My AWS account is closed or permanently
-  closed, and my domain is registered with Route 53](troubleshooting-account-closed.md "troubleshooting-account-closed.md")
+- [My AWS account is closed or permanently closed, and my domain is registered with Route 53](troubleshooting-account-closed.md "troubleshooting-account-closed.md")

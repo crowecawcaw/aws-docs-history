@@ -1,6 +1,4 @@
-# Managing rule groups and
-
-rules in DNS Firewall
+# Managing rule groups and rules in DNS Firewall
 
 To manage rule groups and rules in the
 console, follow the guidance in this

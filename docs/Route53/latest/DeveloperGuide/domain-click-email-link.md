@@ -1,6 +1,4 @@
-# Resending authorization and confirmation
-
-emails
+# Resending authorization and confirmation emails
 
 For several operations related to domain registration, ICANN requires that we get
 authorization from the registrant contact for the domain or confirmation that the email
@@ -15,14 +13,12 @@ trying to do:
 **Register a domain**
 
 We suspend the domain, so that it's not accessible on the internet. To resend
-the confirmation email, see [To resend the confirmation
-email for a domain registration](#domain-click-email-link-register-procedure "#domain-click-email-link-register-procedure").
+the confirmation email, see [To resend the confirmation email for a domain registration](#domain-click-email-link-register-procedure "#domain-click-email-link-register-procedure").
 
 **Geographic TLDs only – Transfer a domain to Amazon Route 53**
 
 If you're transferring a domain that has a [geographic TLD](registrar-tld-list.md#registrar-tld-list-geographic "registrar-tld-list.md#registrar-tld-list-geographic"), we cancel the transfer. To resend the authorization
-email, see [To resend the authorization
-email for a domain transfer](#domain-click-email-link-transfer-procedure "#domain-click-email-link-transfer-procedure").
+email, see [To resend the authorization email for a domain transfer](#domain-click-email-link-transfer-procedure "#domain-click-email-link-transfer-procedure").
 
 ###### Note
 
@@ -31,13 +27,11 @@ Authorization isn't required for domains that have a [generic TLD](registrar-tld
 **Change the name or email address of the registrant contact for the domain (the
 owner)**
 
-We cancel the change. To resend the authorization email, see [To resend the authorization
-email to update the registrant contact or delete a domain](#domain-click-email-link-update-procedure "#domain-click-email-link-update-procedure").
+We cancel the change. To resend the authorization email, see [To resend the authorization email to update the registrant contact or delete a domain](#domain-click-email-link-update-procedure "#domain-click-email-link-update-procedure").
 
 **Delete a domain**
 
-We cancel the deletion request. To resend the authorization email, see [To resend the authorization
-email to update the registrant contact or delete a domain](#domain-click-email-link-update-procedure "#domain-click-email-link-update-procedure").
+We cancel the deletion request. To resend the authorization email, see [To resend the authorization email to update the registrant contact or delete a domain](#domain-click-email-link-update-procedure "#domain-click-email-link-update-procedure").
 
 **Geographic TLDs only – Transfer a domain from Route 53 to another
 registrar**
@@ -50,13 +44,10 @@ Authorization isn't required for domains that have a [generic TLD](registrar-tld
 
 ###### Topics
 
-- [Updating your email
-  address](#domain-click-email-link-update-address "#domain-click-email-link-update-address")
+- [Updating your email address](#domain-click-email-link-update-address "#domain-click-email-link-update-address")
 - [Resending emails](#domain-click-email-link-resend-email "#domain-click-email-link-resend-email")
 
-## Updating your email
-
-address
+## Updating your email address
 
 We always send confirmation and authorization emails to the email address for the
 registrant contact for a domain. For some TLDs, we're required to send email to the old
@@ -71,20 +62,14 @@ and new email addresses for the registrant contact in the following cases:
 
 Use the applicable procedure to resend confirmation or authorization emails.
 
-- [To resend the confirmation
-  email for a domain registration](#domain-click-email-link-register-procedure "#domain-click-email-link-register-procedure")
-- [To resend the authorization
-  email for a domain transfer](#domain-click-email-link-transfer-procedure "#domain-click-email-link-transfer-procedure")
-- [To resend the authorization
-  email to update the registrant contact or delete a domain](#domain-click-email-link-update-procedure "#domain-click-email-link-update-procedure")
+- [To resend the confirmation email for a domain registration](#domain-click-email-link-register-procedure "#domain-click-email-link-register-procedure")
+- [To resend the authorization email for a domain transfer](#domain-click-email-link-transfer-procedure "#domain-click-email-link-transfer-procedure")
+- [To resend the authorization email to update the registrant contact or delete a domain](#domain-click-email-link-update-procedure "#domain-click-email-link-update-procedure")
 
-###### To resend the confirmation
-
-email for a domain registration
+###### To resend the confirmation email for a domain registration
 
 1. Check the email address for the registrant contact and, if necessary, update
-   it. For more information, see [Updating contact information and ownership for
-   a domain](domain-update-contacts.md "domain-update-contacts.md").
+   it. For more information, see [Updating contact information and ownership for a domain](domain-update-contacts.md "domain-update-contacts.md").
 2. Check the spam folder in your email application for an email from one of the
    following email addresses.
 
@@ -119,9 +104,7 @@ to use. 3. Use the Amazon Route 53 console to resend the confirmation email:
 4. If you encounter issues while resending the confirmation email, you can
    contact AWS Support for free. For more information, see [Contacting AWS Support about domain registration issues](domain-contact-support.md "domain-contact-support.md").
 
-###### To resend the authorization
-
-email for a domain transfer
+###### To resend the authorization email for a domain transfer
 
 This method doesn't work for .jp domain transfer out requests.
 
@@ -138,8 +121,7 @@ in the WHOIS database.
 
 If the current registrar for the domain won't let you turn off privacy
 protection, we can still transfer the domain if you specified a valid
-authorization code in [Step 5: Request the
-transfer](domain-transfer-to-route-53.md#domain-transfer-to-route-53-request-transfer "domain-transfer-to-route-53.md#domain-transfer-to-route-53-request-transfer"). 2. Check the email address for the registrant contact and, if necessary, update
+authorization code in [Step 5: Request the transfer](domain-transfer-to-route-53.md#domain-transfer-to-route-53-request-transfer "domain-transfer-to-route-53.md#domain-transfer-to-route-53-request-transfer"). 2. Check the email address for the registrant contact and, if necessary, update
 it. Use the method provided by the current registrar for the domain. 3. Check the spam folder in your email application for an email from one of the
 following email addresses.
 
@@ -181,13 +163,10 @@ the authorization email.
    transfer, you can contact AWS Support for free. For more information, see
    [Contacting AWS Support about domain registration issues](domain-contact-support.md "domain-contact-support.md").
 
-###### To resend the authorization
-
-email to update the registrant contact or delete a domain
+###### To resend the authorization email to update the registrant contact or delete a domain
 
 1. Check the email address for the registrant contact and, if necessary, update
-   it. For more information, see [Updating contact information and ownership for
-   a domain](domain-update-contacts.md "domain-update-contacts.md").
+   it. For more information, see [Updating contact information and ownership for a domain](domain-update-contacts.md "domain-update-contacts.md").
 2. Check the spam folder in your email application for an email from one of the
    following email addresses.
 

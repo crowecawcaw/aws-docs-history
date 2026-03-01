@@ -10,8 +10,7 @@ which responds with the appropriate value. For example, Route 53 might respond 
 This chapter covers using Route 53 for _DNS hosting only_. This means your domain registration stays with your current registrar, and you'll continue paying them for domain renewals. Route 53 will only manage your DNS settings and handle DNS queries for your domain.
 
 If you want to transfer your domain registration to Route 53 as well (making Route 53 both your
-registrar and DNS service), see [Pre-transfer checklist for domain transfers](domain-transfer-checklist.md "domain-transfer-checklist.md") and [Transferring registration for a domain to
-Amazon Route 53](domain-transfer-to-route-53.md "domain-transfer-to-route-53.md").
+registrar and DNS service), see [Pre-transfer checklist for domain transfers](domain-transfer-checklist.md "domain-transfer-checklist.md") and [Transferring registration for a domain to Amazon Route 53](domain-transfer-to-route-53.md "domain-transfer-to-route-53.md").
 
 In this chapter, we explain how to configure Route 53 to route your internet traffic to the right places. We also explain how to
 migrate DNS service to Route 53 if you're currently using another DNS service, and how to use Route 53 as the DNS service for a new domain.

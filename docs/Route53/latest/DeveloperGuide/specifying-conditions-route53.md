@@ -1,6 +1,4 @@
-# Using IAM policy conditions for
-
-fine-grained access control
+# Using IAM policy conditions for fine-grained access control
 
 In Route 53, you can specify conditions when granting permissions using an IAM policy
 (see [Access control](security-iam.md#access-control "security-iam.md#access-control")). For example, you
@@ -21,9 +19,7 @@ can:
 - Grant permissions to allow users to create or delete a VPC association authorization.
   You can also create permissions that combine any of the granular permissions.
 
-## Normalizing the Route 53 condition key
-
-values
+## Normalizing the Route 53 condition key values
 
 The values you enter for the policy conditions must be formatted, or normalized,
 as follows:
@@ -72,9 +68,7 @@ in the _IAM User Guide_ to validate that your policy grants or restricts the
 permissions as expected. You can also validate the permissions by applying an IAM
 policy to a test user or role to carry out Route 53 operations.
 
-## Specifying conditions: using condition
-
-keys
+## Specifying conditions: using condition keys
 
 AWS provides a set of predefined condition keys (AWS-wide condition keys) for
 all AWS services that support IAM for access control. For example, you can use
@@ -97,9 +91,7 @@ Route 53.
 | `route53:ChangeResourceRecordSetsActions`               | [ChangeResourceRecordSets](../APIReference/API_ChangeResourceRecordSets.md "../APIReference/API_ChangeResourceRecordSets.md")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Multi-valued | Represents a list of actions in the request of<br>`ChangeResourceRecordSets`.<br>`ChangeResourceRecordSetsActions` can be any of the<br>following values (must be uppercase):<br>• CREATE<br>• UPSERT<br>• DELETE                                                                                                                                                                                                                                                    |
 | `route53:VPCs`                                          | [AssociateVPCWithHostedZone](../APIReference/API_AssociateVPCWithHostedZone.md "../APIReference/API_AssociateVPCWithHostedZone.md")<br>[DisassociateVPCFromHostedZone](../APIReference/API_DisassociateVPCFromHostedZone.md "../APIReference/API_DisassociateVPCFromHostedZone.md")<br>[ListHostedZonesByVPC](../APIReference/API_ListHostedZonesByVPC.md "../APIReference/API_ListHostedZonesByVPC.md")<br>[CreateHostedZone](../APIReference/API_CreateHostedZone.md "../APIReference/API_CreateHostedZone.md")<br>[CreateVPCAssociationAuthorization](../APIReference/API_CreateVPCAssociationAuthorization.md "../APIReference/API_CreateVPCAssociationAuthorization.md")<br>[DeleteVPCAssociationAuthorization](../APIReference/API_DeleteVPCAssociationAuthorization.md "../APIReference/API_DeleteVPCAssociationAuthorization.md") | Multi-valued | Represents a list of VPCs in the request of `AssociateVPCWithHostedZone`, `DisassociateVPCFromHostedZone`,<br>`ListHostedZonesByVPC`, `CreateHostedZone`,<br>`CreateVPCAssociationAuthorization`, and `DeleteVPCAssociationAuthorization`, in the format of<br>"VPCId=<vpc-id>,VPCRegion=<region>                                                                                                                                                                    |
 
-## Example policies: Using
-
-conditions for fine-grained access
+## Example policies: Using conditions for fine-grained access
 
 Each of the examples in this section sets the Effect clause to Allow and specifies
 only the actions, resources, and parameters that are allowed. Access is permitted
@@ -111,9 +103,7 @@ logic in the policy). However, we recommend that you avoid using deny-based poli
 because they are difficult to write correctly, compared to allow-based policies.
 This is especially true for Route 53 due to text normalization that is required.
 
-###### Grant permissions that limit access to DNS records with specific
-
-names
+###### Grant permissions that limit access to DNS records with specific names
 
 The following permissions policy grants permissions that allow
 `ChangeResourceRecordSets` actions on the Hosted Zone Z12345 for
@@ -180,9 +170,7 @@ JSON
 The IAM wildcard isn't the same as the domain name wildcard. See the
 following example for how to use the wildcard with a domain name.
 
-###### Grant permissions that limit access to DNS records that match a domain name
-
-containing a wildcard
+###### Grant permissions that limit access to DNS records that match a domain name containing a wildcard
 
 The following permissions policy grants permissions that allow
 `ChangeResourceRecordSets` actions on the Hosted Zone Z12345 for
@@ -246,9 +234,7 @@ JSON
 
 ```
 
-###### Grant permissions that limit access to creating and editing only the
-
-specified types of DNS records
+###### Grant permissions that limit access to creating and editing only the specified types of DNS records
 
 The following permissions policy grants permissions that allow
 `ChangeResourceRecordSets` actions on the Hosted Zone Z12345 for

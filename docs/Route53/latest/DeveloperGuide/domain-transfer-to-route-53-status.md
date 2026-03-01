@@ -1,6 +1,4 @@
-# Viewing the status of a domain
-
-transfer
+# Viewing the status of a domain transfer
 
 After you initiate the transfer of a domain from another domain registrar to
 Amazon Route 53, you can track the status on the **Requests** page (new
@@ -59,8 +57,7 @@ the transfer.
 We sent email to the registrant contact for the domain (see step 3 of 14),
 and we're waiting for the registrant contact to click a link in the email to
 authorize the transfer. If you're transferring a domain that has a [geographic TLD](registrar-tld-list.md#registrar-tld-list-geographic "registrar-tld-list.md#registrar-tld-list-geographic") and you didn't receive the email for some
-reason, see [Resending authorization and confirmation
-emails](domain-click-email-link.md "domain-click-email-link.md").
+reason, see [Resending authorization and confirmation emails](domain-click-email-link.md "domain-click-email-link.md").
 
 **Contacted current registrar to request transfer (step 6 of 14)**
 
@@ -90,8 +87,7 @@ transfer; if your registrar sends this confirmation email, the transfer
 process might be much faster than seven to ten days.
 
 For information about reasons that a registrar might reject the transfer,
-see [Transfer requirements for
-top-level domains](domain-transfer-to-route-53.md#domain-transfer-to-route-53-requirements "domain-transfer-to-route-53.md#domain-transfer-to-route-53-requirements").
+see [Transfer requirements for top-level domains](domain-transfer-to-route-53.md#domain-transfer-to-route-53-requirements "domain-transfer-to-route-53.md#domain-transfer-to-route-53-requirements").
 
 **Confirming with the registrant contact that the contact initiated the transfer
 (step 8 of 14)**

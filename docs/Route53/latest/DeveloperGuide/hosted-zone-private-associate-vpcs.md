@@ -8,8 +8,7 @@ VPCs by using the same AWS account.
 If you want to associate VPCs that you created by using one account with a private hosted zone that you
 created by using a different account, you first must authorize the association. In addition, you can't use the
 AWS console either to authorize the association or associate the VPCs with the hosted zone. For more information, see
-[Associating an Amazon VPC and a private hosted zone
-that you created with different AWS accounts](hosted-zone-private-associate-vpcs-different-accounts.md "hosted-zone-private-associate-vpcs-different-accounts.md").
+[Associating an Amazon VPC and a private hosted zone that you created with different AWS accounts](hosted-zone-private-associate-vpcs-different-accounts.md "hosted-zone-private-associate-vpcs-different-accounts.md").
 
 For information about how to associate more VPCs with a private hosted zone using the Route 53 API, see
 [AssociateVPCWithHostedZone](../APIReference/API_AssociateVPCWithHostedZone.md "../APIReference/API_AssociateVPCWithHostedZone.md") in the

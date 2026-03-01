@@ -113,9 +113,7 @@ window. For example:
 For more information on writing event patterns, see [Event patterns](../../../eventbridge/latest/userguide/eb-event-patterns.md "../../../eventbridge/latest/userguide/eb-event-patterns.md")
 in the _EventBridge User Guide_.
 
-### Testing event patterns for
-
-DNS Firewall events in EventBridge
+### Testing event patterns for DNS Firewall events in EventBridge
 
 You can use the EventBridge Sandbox to quickly define and test an event pattern,
 without having to complete the larger process of creating or editing a rule. Using

@@ -41,8 +41,7 @@ You can apply a rule to as many VPCs as you want.
 DNS queries for this domain name are forwarded to the IP addresses that you specify in
 **Target IP addresses**. For example, you can
 specify a specific domain (example.com), a top-level domain (com), or a
-dot (.) to forward all DNS queries. For more information, see [How VPC Resolver determines whether the domain name
-in a query matches any rules](resolver-overview-forward-vpc-to-network-domain-name-matches.md "resolver-overview-forward-vpc-to-network-domain-name-matches.md").
+dot (.) to forward all DNS queries. For more information, see [How VPC Resolver determines whether the domain name in a query matches any rules](resolver-overview-forward-vpc-to-network-domain-name-matches.md "resolver-overview-forward-vpc-to-network-domain-name-matches.md").
 
 **Outbound endpoint**
 VPC Resolver forwards DNS queries through the outbound endpoint that you specify here to the

@@ -1,6 +1,4 @@
-# Rule actions in
-
-DNS Firewall
+# Rule actions in DNS Firewall
 
 When DNS Firewall finds a match between a DNS query and a domain specification in a
 rule, it applies the action that's specified in the rule to the query.

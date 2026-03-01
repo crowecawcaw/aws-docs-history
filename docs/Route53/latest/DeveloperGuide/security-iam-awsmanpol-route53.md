@@ -15,9 +15,7 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## AWS managed policy:
-
-AmazonRoute53FullAccess
+## AWS managed policy: AmazonRoute53FullAccess
 
 You can attach the `AmazonRoute53FullAccess` policy to your IAM
 identities.
@@ -104,8 +102,7 @@ uses these only to get a list of buckets to display in the console.
   for which the value of **Alias Target** is an Amazon API Gateway
   API.
 
-For more information about the permissions, see [Amazon Route 53 API permissions: Actions, resources,
-and conditions reference](r53-api-permissions-ref.md "r53-api-permissions-ref.md").
+For more information about the permissions, see [Amazon Route 53 API permissions: Actions, resources, and conditions reference](r53-api-permissions-ref.md "r53-api-permissions-ref.md").
 
 JSON
 
@@ -167,8 +164,7 @@ This policy includes the following permissions.
 - `route53:TestDNSAnswer` – Gets the value that Route 53
   returns in response to a DNS request.
 
-For more information about the permissions, see [Amazon Route 53 API permissions: Actions, resources,
-and conditions reference](r53-api-permissions-ref.md "r53-api-permissions-ref.md").
+For more information about the permissions, see [Amazon Route 53 API permissions: Actions, resources, and conditions reference](r53-api-permissions-ref.md "r53-api-permissions-ref.md").
 
 JSON
 
@@ -206,8 +202,7 @@ This policy includes the following permissions.
 - `route53domains:*` – Lets you register domain names and perform related
   operations.
 
-For more information about the permissions, see [Amazon Route 53 API permissions: Actions, resources,
-and conditions reference](r53-api-permissions-ref.md "r53-api-permissions-ref.md").
+For more information about the permissions, see [Amazon Route 53 API permissions: Actions, resources, and conditions reference](r53-api-permissions-ref.md "r53-api-permissions-ref.md").
 
 JSON
 
@@ -244,8 +239,7 @@ This policy includes the following permissions.
   Route 53.
 - `route53domains:List*` – Lets you display a list of Route 53 domains.
 
-For more information about the permissions, see [Amazon Route 53 API permissions: Actions, resources,
-and conditions reference](r53-api-permissions-ref.md "r53-api-permissions-ref.md").
+For more information about the permissions, see [Amazon Route 53 API permissions: Actions, resources, and conditions reference](r53-api-permissions-ref.md "r53-api-permissions-ref.md").
 
 JSON
 
@@ -292,8 +286,7 @@ This policy includes the following permissions.
 - `ec2:DescribeAvailabilityZones` – Lets you list the zones that are available
   to you.
 
-For more information about the permissions, see [Amazon Route 53 API permissions: Actions, resources,
-and conditions reference](r53-api-permissions-ref.md "r53-api-permissions-ref.md").
+For more information about the permissions, see [Amazon Route 53 API permissions: Actions, resources, and conditions reference](r53-api-permissions-ref.md "r53-api-permissions-ref.md").
 
 JSON
 
@@ -343,8 +336,7 @@ This policy includes the following permissions.
 - `ec2:DescribeSecurityGroups` – Lets you display a list of all of your
   security groups.
 
-For more information about the permissions, see [Amazon Route 53 API permissions: Actions, resources,
-and conditions reference](r53-api-permissions-ref.md "r53-api-permissions-ref.md").
+For more information about the permissions, see [Amazon Route 53 API permissions: Actions, resources, and conditions reference](r53-api-permissions-ref.md "r53-api-permissions-ref.md").
 
 JSON
 
@@ -377,8 +369,7 @@ JSON
 You can't attach `Route53ResolverServiceRolePolicy` to your IAM entities.
 This policy is attached to a service-linked role that allows Route 53 VPC Resolver to access AWS
 services and resources that are used or managed by VPC Resolver. For more information, see
-[Using Service-Linked Roles for
-Amazon Route 53 Resolver](using-service-linked-roles.md "using-service-linked-roles.md").
+[Using Service-Linked Roles for Amazon Route 53 Resolver](using-service-linked-roles.md "using-service-linked-roles.md").
 
 ## AWS managed policy: AmazonRoute53ProfilesFullAccess
 
@@ -393,8 +384,7 @@ This policy includes the following permissions.
 - `route53profiles` – Lets you create and manage Profile resources on the Route 53 console.
 - `ec2` – Allows principals to get information about VPCs.
 
-For more information about the permissions, see [Amazon Route 53 API permissions: Actions, resources,
-and conditions reference](r53-api-permissions-ref.md "r53-api-permissions-ref.md").
+For more information about the permissions, see [Amazon Route 53 API permissions: Actions, resources, and conditions reference](r53-api-permissions-ref.md "r53-api-permissions-ref.md").
 
 JSON
 
@@ -450,8 +440,7 @@ This policy grants read-only access to Amazon Route 53 Profile resources.
 
 **Permissions details**
 
-For more information about the permissions, see [Amazon Route 53 API permissions: Actions, resources,
-and conditions reference](r53-api-permissions-ref.md "r53-api-permissions-ref.md").
+For more information about the permissions, see [Amazon Route 53 API permissions: Actions, resources, and conditions reference](r53-api-permissions-ref.md "r53-api-permissions-ref.md").
 
 JSON
 
@@ -485,9 +474,7 @@ JSON
 
 ```
 
-## Route 53 updates to AWS managed
-
-policies
+## Route 53 updates to AWS managed policies
 
 View details about updates to AWS managed policies for Route 53 since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

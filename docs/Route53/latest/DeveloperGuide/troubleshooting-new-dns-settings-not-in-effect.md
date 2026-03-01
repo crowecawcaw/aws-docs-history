@@ -4,35 +4,26 @@ If you changed DNS settings, here are some common reasons that the changes haven
 
 ###### Topics
 
-- [You transferred DNS service to Amazon Route 53
-  in the last 48 hours, so DNS is still using your previous DNS service](#troubleshooting-new-dns-settings-not-in-effect-recent-dns-transfer "#troubleshooting-new-dns-settings-not-in-effect-recent-dns-transfer")
-- [You recently transferred DNS service
-  to Amazon Route 53, but you didn't update the name servers with the domain registrar](#troubleshooting-new-dns-settings-not-in-effect-recent-transfer-wrong-name-servers "#troubleshooting-new-dns-settings-not-in-effect-recent-transfer-wrong-name-servers")
-- [DNS resolvers still are using the
-  old settings for the record](#troubleshooting-new-dns-settings-not-in-effect-cached-resource-record-set "#troubleshooting-new-dns-settings-not-in-effect-cached-resource-record-set")
-- [You have more than one hosted zone
-  with the same name, and you updated the one that isn't associated with the domain](#troubleshooting-new-dns-settings-not-in-effect-updated-wrong-hosted-zone "#troubleshooting-new-dns-settings-not-in-effect-updated-wrong-hosted-zone")
+- [You transferred DNS service to Amazon Route 53 in the last 48 hours, so DNS is still using your previous DNS service](#troubleshooting-new-dns-settings-not-in-effect-recent-dns-transfer "#troubleshooting-new-dns-settings-not-in-effect-recent-dns-transfer")
+- [You recently transferred DNS service to Amazon Route 53, but you didn't update the name servers with the domain registrar](#troubleshooting-new-dns-settings-not-in-effect-recent-transfer-wrong-name-servers "#troubleshooting-new-dns-settings-not-in-effect-recent-transfer-wrong-name-servers")
+- [DNS resolvers still are using the old settings for the record](#troubleshooting-new-dns-settings-not-in-effect-cached-resource-record-set "#troubleshooting-new-dns-settings-not-in-effect-cached-resource-record-set")
+- [You have more than one hosted zone with the same name, and you updated the one that isn't associated with the domain](#troubleshooting-new-dns-settings-not-in-effect-updated-wrong-hosted-zone "#troubleshooting-new-dns-settings-not-in-effect-updated-wrong-hosted-zone")
 
-## You transferred DNS service to Amazon Route 53
-
-in the last 48 hours, so DNS is still using your previous DNS service
+## You transferred DNS service to Amazon Route 53 in the last 48 hours, so DNS is still using your previous DNS service
 
 When you transferred DNS service to Amazon Route 53, you used the method provided by the registrar for your domain
 to replace the name servers for the previous DNS service with the four name servers for Route 53.
 
 ###### Note
 
-If you aren't sure you did this part, see [You recently transferred DNS service
-to Amazon Route 53, but you didn't update the name servers with the domain registrar](#troubleshooting-new-dns-settings-not-in-effect-recent-transfer-wrong-name-servers "#troubleshooting-new-dns-settings-not-in-effect-recent-transfer-wrong-name-servers").
+If you aren't sure you did this part, see [You recently transferred DNS service to Amazon Route 53, but you didn't update the name servers with the domain registrar](#troubleshooting-new-dns-settings-not-in-effect-recent-transfer-wrong-name-servers "#troubleshooting-new-dns-settings-not-in-effect-recent-transfer-wrong-name-servers").
 
 Domain registrars typically use a TTL (time to live) of 24 to 48 hours for name servers. This means that when a DNS resolver
 gets the name servers for your domain, it uses that information for up to 48 hours before it submits another request for the
 current name servers for the domain. If you transferred DNS service to Route 53 in the last 48 hours and then changed DNS settings,
 some DNS resolvers are still using your old DNS service to route traffic for the domain.
 
-## You recently transferred DNS service
-
-to Amazon Route 53, but you didn't update the name servers with the domain registrar
+## You recently transferred DNS service to Amazon Route 53, but you didn't update the name servers with the domain registrar
 
 The registrar for your domain has a variety of information about the domain, including the name servers for the DNS service
 for the domain. Typically, the domain registrar is also your DNS service, so the name servers that are associated with your domain
@@ -48,9 +39,7 @@ for the previous DNS service, and if DNS is still routing traffic to the old res
 name servers with the domain registrar. To determine whether the registrar is using the name servers for your Route 53 hosted zone and,
 if necessary, to update the name servers for the domain, perform the following procedure:
 
-###### To get the name servers
-
-for your hosted zone and update the name server setting with the domain registrar
+###### To get the name servers for your hosted zone and update the name server setting with the domain registrar
 
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
@@ -73,9 +62,7 @@ When you change the name servers for the domain to the name servers from your Ro
 two days for the change to take effect and for Route 53 to become your DNS service. This is because DNS resolvers
 across the internet typically request the name servers only once every two days and cache the answer.
 
-## DNS resolvers still are using the
-
-old settings for the record
+## DNS resolvers still are using the old settings for the record
 
 If you changed the settings in a record but your traffic is still being routed to the old resource,
 such as a web server for your website, one possible cause is that DNS still has the previous settings cached.
@@ -103,9 +90,7 @@ routes traffic to. For more information, see
 Changing the TTL now won't make your change take effect faster. DNS resolvers already have the value cached,
 and they won't get the new setting until the amount of time that was specified by the old setting passes.
 
-## You have more than one hosted zone
-
-with the same name, and you updated the one that isn't associated with the domain
+## You have more than one hosted zone with the same name, and you updated the one that isn't associated with the domain
 
 You can create more than one hosted zone that has the same name, either using the same account or using multiple accounts.
 To specify the hosted zone that Route 53 uses to route internet traffic for your domain, you get the four Route 53 name servers
@@ -116,8 +101,7 @@ for another hosted zone, Route 53 responses to DNS queries won't reflect your c
 is using the name servers for the hosted zone that you updated records in, perform the following tasks:
 
 1. Determine which name servers are associated with your domain registration. See
-   [Adding or
-   changing name servers or glue records](domain-name-servers-glue-records.md#domain-name-servers-glue-records-adding-changing "domain-name-servers-glue-records.md#domain-name-servers-glue-records-adding-changing").
+   [Adding or changing name servers or glue records](domain-name-servers-glue-records.md#domain-name-servers-glue-records-adding-changing "domain-name-servers-glue-records.md#domain-name-servers-glue-records-adding-changing").
 2. Compare the name servers that you got in step 1 with the name servers that Route 53 assigned to the
    hosted zone that you updated records in. See
    [Getting the name servers for a public hosted zone](GetInfoAboutHostedZone.md "GetInfoAboutHostedZone.md").
@@ -153,5 +137,4 @@ for the domain. You have two options, depending on whether the domain is current
       the same four name servers. If not, update the NS record. See
       [Editing records](resource-record-sets-editing.md "resource-record-sets-editing.md").
   3.  Update the domain registration to use the name servers that you got in step 1.
-      See [Adding or
-      changing name servers or glue records](domain-name-servers-glue-records.md#domain-name-servers-glue-records-adding-changing "domain-name-servers-glue-records.md#domain-name-servers-glue-records-adding-changing").
+      See [Adding or changing name servers or glue records](domain-name-servers-glue-records.md#domain-name-servers-glue-records-adding-changing "domain-name-servers-glue-records.md#domain-name-servers-glue-records-adding-changing").

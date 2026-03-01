@@ -1,6 +1,4 @@
-# AWS resources that you
-
-can send VPC Resolver query logs to
+# AWS resources that you can send VPC Resolver query logs to
 
 ###### Note
 

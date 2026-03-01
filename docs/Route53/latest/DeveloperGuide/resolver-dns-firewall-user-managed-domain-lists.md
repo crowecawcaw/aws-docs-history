@@ -1,6 +1,4 @@
-# Managing your own
-
-domain lists
+# Managing your own domain lists
 
 You can create your own
 domain lists to specify domain categories that you either
@@ -31,8 +29,7 @@ non-production environment, with the rule action set to `Alert`. Evaluate the
 rule using Amazon CloudWatch metrics and the VPC Resolver logs. The logs provide the domain list name
 for all alerts and blocking actions. When you're satisfied that the domain list is
 matching your DNS queries the way you want it to, change the rule action setting as
-needed. For information about CloudWatch metrics and the query logs, see [Monitoring Resolver DNS Firewall rule
-groups with Amazon CloudWatch](monitoring-resolver-dns-firewall-with-cloudwatch.md "monitoring-resolver-dns-firewall-with-cloudwatch.md"), [Values that appear in VPC Resolver query logs](resolver-query-logs-format.md "resolver-query-logs-format.md"), and [Managing Resolver query logging configurations](resolver-query-logging-configurations-managing.md "resolver-query-logging-configurations-managing.md").
+needed. For information about CloudWatch metrics and the query logs, see [Monitoring Resolver DNS Firewall rule groups with Amazon CloudWatch](monitoring-resolver-dns-firewall-with-cloudwatch.md "monitoring-resolver-dns-firewall-with-cloudwatch.md"), [Values that appear in VPC Resolver query logs](resolver-query-logs-format.md "resolver-query-logs-format.md"), and [Managing Resolver query logging configurations](resolver-query-logging-configurations-managing.md "resolver-query-logging-configurations-managing.md").
 
 ###### To add a domain list
 

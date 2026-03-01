@@ -19,14 +19,10 @@ weight for that record to 0.
 
 For information about values that you specify when you use the weighted routing policy to create records, see the following topics:
 
-- [Values specific for weighted
-  records](resource-record-sets-values-weighted.md "resource-record-sets-values-weighted.md")
-- [Values specific for weighted
-  alias records](resource-record-sets-values-weighted-alias.md "resource-record-sets-values-weighted-alias.md")
-- [Values that are common for all routing
-  policies](resource-record-sets-values-shared.md "resource-record-sets-values-shared.md")
-- [Values that are common for
-  alias records for all routing policies](resource-record-sets-values-alias-common.md "resource-record-sets-values-alias-common.md")
+- [Values specific for weighted records](resource-record-sets-values-weighted.md "resource-record-sets-values-weighted.md")
+- [Values specific for weighted alias records](resource-record-sets-values-weighted-alias.md "resource-record-sets-values-weighted-alias.md")
+- [Values that are common for all routing policies](resource-record-sets-values-shared.md "resource-record-sets-values-shared.md")
+- [Values that are common for alias records for all routing policies](resource-record-sets-values-alias-common.md "resource-record-sets-values-alias-common.md")
   You can use weighted routing policy for records in a private hosted zone.
 
 ## Health checks and weighted routing

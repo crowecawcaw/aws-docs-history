@@ -1,6 +1,4 @@
-# Values that Amazon Route 53
-
-displays when you create a health check
+# Values that Amazon Route 53 displays when you create a health check
 
 The **Create Health Check** page displays the following values
 based on the values that you typed:

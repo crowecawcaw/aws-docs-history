@@ -1,6 +1,4 @@
-# How to access and manage Route 53 Global Resolver through AWS
-
-interfaces
+# How to access and manage Route 53 Global Resolver through AWS interfaces
 
 Route 53 Global Resolver provides multiple access methods to accommodate different management preferences
 and automation requirements. You can manage Route 53 Global Resolver through these interfaces:

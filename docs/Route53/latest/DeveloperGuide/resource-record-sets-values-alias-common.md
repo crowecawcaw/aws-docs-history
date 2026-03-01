@@ -1,6 +1,4 @@
-# Values that are common for
-
-alias records for all routing policies
+# Values that are common for alias records for all routing policies
 
 These are the common alias values that you can specify when you create or edit Amazon Route 53 records.
 These values are used by all routing policies.
@@ -69,8 +67,7 @@ appear in the **Endpoint** list, check the following:
   distributions to appear in the **Endpoint** list, the account must have permission to perform the following action:
   `cloudfront:ListDistributions`.
 
-For an example IAM policy, see [Permissions required to use the
-Amazon Route 53 console](access-control-managing-permissions.md#console-required-permissions "access-control-managing-permissions.md#console-required-permissions").
+For an example IAM policy, see [Permissions required to use the Amazon Route 53 console](access-control-managing-permissions.md#console-required-permissions "access-control-managing-permissions.md#console-required-permissions").
 If you used different AWS accounts to create the hosted zone and the resource, the **Endpoint** list doesn't display your
 resource. See the following documentation for your resource type to determine what value to type in **Endpoint**.
 
@@ -133,8 +130,7 @@ the _Amazon CloudFront Developer Guide_.
 If IPv6 is enabled for the distribution, create two records, one with a value of
 **A — IPv4 address** for **Record
 type**, and one with a value of **AAAA — IPv6
-address**. For more information, see [Routing traffic to an Amazon CloudFront
-distribution by using your domain name](routing-to-cloudfront-distribution.md "routing-to-cloudfront-distribution.md").
+address**. For more information, see [Routing traffic to an Amazon CloudFront distribution by using your domain name](routing-to-cloudfront-distribution.md "routing-to-cloudfront-distribution.md").
 
 **App Runner service**
 
@@ -149,8 +145,7 @@ For App Runner service, do one of the following:
 
 If you used one AWS account to create the current hosted zone and a different account to create a App Runner, the App Runner will not appear in the **Endpoints** list.
 
-For more information, see [Configuring Amazon Route 53 to route
-traffic to an App Runner service](routing-to-app-runner.md#routing-to-app-runner-configuring "routing-to-app-runner.md#routing-to-app-runner-configuring").
+For more information, see [Configuring Amazon Route 53 to route traffic to an App Runner service](routing-to-app-runner.md#routing-to-app-runner-configuring "routing-to-app-runner.md#routing-to-app-runner-configuring").
 
 **Elastic Beanstalk environments that have regionalized subdomains**
 
@@ -207,8 +202,7 @@ requests). The **dualstack.** designation allows Route 53 to
 respond with the appropriate IP address for your load balancer based on
 which IP address format the client requested.
 
-For more information, see [Routing traffic to an ELB load
-balancer](routing-to-elb-load-balancer.md "routing-to-elb-load-balancer.md").
+For more information, see [Routing traffic to an ELB load balancer](routing-to-elb-load-balancer.md "routing-to-elb-load-balancer.md").
 
 **AWS Global Accelerator accelerators**
 
@@ -264,8 +258,7 @@ If you used one AWS account to create the current hosted zone and a different ac
 
 If you used one account to create the current hosted zone and one or more different accounts to create all of your OpenSearch Service domains, the **Endpoints** list shows **No targets available** under **OpenSearch Service**.
 
-For more information, see [Configuring Amazon Route 53 to route
-traffic to an Amazon OpenSearch Service domain endpoint](routing-to-open-search-service.md#routing-to-open-search-service-configuring "routing-to-open-search-service.md#routing-to-open-search-service-configuring").
+For more information, see [Configuring Amazon Route 53 to route traffic to an Amazon OpenSearch Service domain endpoint](routing-to-open-search-service.md#routing-to-open-search-service-configuring "routing-to-open-search-service.md#routing-to-open-search-service-configuring").
 
 **Amazon VPC interface endpoints**
 

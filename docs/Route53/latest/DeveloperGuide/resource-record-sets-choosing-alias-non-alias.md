@@ -53,20 +53,13 @@ For information about creating records by using the Route 53 console, see
 For information about the values that you specify for alias records, see the applicable topic in
 [Values that you specify when you create or edit Amazon Route 53 records](resource-record-sets-values.md "resource-record-sets-values.md"):
 
-- [Values specific for simple alias
-  records](resource-record-sets-values-alias.md "resource-record-sets-values-alias.md")
-- [Values specific for weighted
-  alias records](resource-record-sets-values-weighted-alias.md "resource-record-sets-values-weighted-alias.md")
-- [Values specific for latency
-  alias records](resource-record-sets-values-latency-alias.md "resource-record-sets-values-latency-alias.md")
-- [Values specific for failover
-  alias records](resource-record-sets-values-failover-alias.md "resource-record-sets-values-failover-alias.md")
-- [Values specific for geolocation
-  alias records](resource-record-sets-values-geo-alias.md "resource-record-sets-values-geo-alias.md")
-- [Values specific for geoproximity
-  alias records](resource-record-sets-values-geoprox-alias.md "resource-record-sets-values-geoprox-alias.md")
-- [Values that are common for
-  alias records for all routing policies](resource-record-sets-values-alias-common.md "resource-record-sets-values-alias-common.md")
+- [Values specific for simple alias records](resource-record-sets-values-alias.md "resource-record-sets-values-alias.md")
+- [Values specific for weighted alias records](resource-record-sets-values-weighted-alias.md "resource-record-sets-values-weighted-alias.md")
+- [Values specific for latency alias records](resource-record-sets-values-latency-alias.md "resource-record-sets-values-latency-alias.md")
+- [Values specific for failover alias records](resource-record-sets-values-failover-alias.md "resource-record-sets-values-failover-alias.md")
+- [Values specific for geolocation alias records](resource-record-sets-values-geo-alias.md "resource-record-sets-values-geo-alias.md")
+- [Values specific for geoproximity alias records](resource-record-sets-values-geoprox-alias.md "resource-record-sets-values-geoprox-alias.md")
+- [Values that are common for alias records for all routing policies](resource-record-sets-values-alias-common.md "resource-record-sets-values-alias-common.md")
 
 ## Comparison of alias and CNAME records
 

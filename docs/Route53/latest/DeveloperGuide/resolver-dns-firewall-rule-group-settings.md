@@ -1,6 +1,4 @@
-# Rule group settings in
-
-DNS Firewall
+# Rule group settings in DNS Firewall
 
 When you create or edit a DNS Firewall rule group, you specify the following
 values:

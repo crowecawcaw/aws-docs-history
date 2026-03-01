@@ -1,6 +1,4 @@
-# Routing traffic to an ELB load
-
-balancer
+# Routing traffic to an ELB load balancer
 
 If you host a website on multiple Amazon EC2 instances, you can distribute traffic to your
 website across the instances by using an Elastic Load Balancing (ELB) load balancer. The ELB service
@@ -41,16 +39,12 @@ console.
 For information about using Route 53 as the DNS service provider for your
 domain, see [Making Amazon Route 53 the DNS service for an existing domain](MigratingDNS.md "MigratingDNS.md").
 
-## Configuring Amazon Route 53 to
-
-route traffic to an ELB load balancer
+## Configuring Amazon Route 53 to route traffic to an ELB load balancer
 
 To configure Amazon Route 53 to route traffic to an ELB load balancer, perform the
 following procedure.
 
-###### To route traffic to an ELB
-
-load balancer
+###### To route traffic to an ELB load balancer
 
 1. If you created the Route 53 hosted zone and ELB load balancer using the same
    account, skip to step 2.
@@ -120,7 +114,7 @@ Choose **A – IPv4 address**.
 
 If you want Route 53 to route traffic based on the health of your
 resources, choose **Yes**. For more information
-about checking the health of your resources, see [Creating Amazon Route 53 health checks](dns-failover.md "dns-failover.md") . 7. Choose **Create records**.
+about checking the health of your resources, see [Creating Amazon Route 53 health checks](dns-failover.md "dns-failover.md"). 7. Choose **Create records**.
 
 Changes generally propagate to all Route 53 servers within 60 seconds. When
 propagation is done, you'll be able to route traffic to your load balancer

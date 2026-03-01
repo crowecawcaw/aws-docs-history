@@ -1,8 +1,6 @@
 # Manage private hosted zone associations with Route 53 Global Resolver
 
-## Creating private hosted zones for internal
-
-applications
+## Creating private hosted zones for internal applications
 
 Before you can associate a private hosted zone with a DNS view, you must first create the
 zone using the Amazon Route 53 console or API.
@@ -23,9 +21,7 @@ zone using the Amazon Route 53 console or API.
 After creating the private hosted zone, add the DNS records you need for your internal
 services.
 
-## Associating private hosted zones with DNS
-
-views
+## Associating private hosted zones with DNS views
 
 To enable Route 53 Global Resolver to resolve queries for your private hosted zone, you must associate the
 zone with one or more DNS views.

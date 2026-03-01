@@ -4,8 +4,7 @@ If you encounter issues while your domain transfer is in progress, here are the 
 
 ###### Note
 
-If your transfer has already failed, see [Transferring my domain to
-Amazon Route 53 failed](troubleshooting-domain-transfer-failed.md "troubleshooting-domain-transfer-failed.md") for post-failure
+If your transfer has already failed, see [Transferring my domain to Amazon Route 53 failed](troubleshooting-domain-transfer-failed.md "troubleshooting-domain-transfer-failed.md") for post-failure
 troubleshooting.
 
 **You didn't receive the authorization email**
@@ -51,8 +50,7 @@ If your domain transfer is rejected due to eligibility issues, check the followi
 If your transfer seems to be delayed, here's what you should know:
 
 - **Normal timeframe** - Most transfers complete within 5-7 days, but can take up to 10 days.
-- **Monitor transfer status** - Check your transfer progress in the Route 53 console. For more information, see [Viewing the status of a domain
-  transfer](domain-transfer-to-route-53-status.md "domain-transfer-to-route-53-status.md").
+- **Monitor transfer status** - Check your transfer progress in the Route 53 console. For more information, see [Viewing the status of a domain transfer](domain-transfer-to-route-53-status.md "domain-transfer-to-route-53-status.md").
 - **Respond to emails quickly** - Both registrars may send confirmation emails that require your response to proceed.
 - **Contact your current registrar** - If the transfer is delayed, contact your current registrar to make sure they're not blocking the transfer.
 

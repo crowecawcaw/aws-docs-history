@@ -1,6 +1,4 @@
-# Identity and access management in
-
-Amazon Route 53
+# Identity and access management in Amazon Route 53
 
 To perform any operation on Amazon Route 53 resources, such as registering a domain or updating a
 record, AWS Identity and Access Management (IAM) requires you to authenticate that you're an approved AWS user.
@@ -19,17 +17,12 @@ and Route 53 to help secure your resources.
 
 - [Authenticating with identities](#security_iam_authentication "#security_iam_authentication")
 - [Access control](#access-control "#access-control")
-- [Overview of managing access permissions to
-  your Amazon Route 53 resources](access-control-overview.md "access-control-overview.md")
-- [Using identity-based policies
-  (IAM policies) for Amazon Route 53](access-control-managing-permissions.md "access-control-managing-permissions.md")
-- [Using Service-Linked Roles for
-  Amazon Route 53 Resolver](using-service-linked-roles.md "using-service-linked-roles.md")
+- [Overview of managing access permissions to your Amazon Route 53 resources](access-control-overview.md "access-control-overview.md")
+- [Using identity-based policies (IAM policies) for Amazon Route 53](access-control-managing-permissions.md "access-control-managing-permissions.md")
+- [Using Service-Linked Roles for Amazon Route 53 Resolver](using-service-linked-roles.md "using-service-linked-roles.md")
 - [AWS managed policies for Amazon Route 53](security-iam-awsmanpol-route53.md "security-iam-awsmanpol-route53.md")
-- [Using IAM policy conditions for
-  fine-grained access control](specifying-conditions-route53.md "specifying-conditions-route53.md")
-- [Amazon Route 53 API permissions: Actions, resources,
-  and conditions reference](r53-api-permissions-ref.md "r53-api-permissions-ref.md")
+- [Using IAM policy conditions for fine-grained access control](specifying-conditions-route53.md "specifying-conditions-route53.md")
+- [Amazon Route 53 API permissions: Actions, resources, and conditions reference](r53-api-permissions-ref.md "r53-api-permissions-ref.md")
 
 ## Authenticating with identities
 

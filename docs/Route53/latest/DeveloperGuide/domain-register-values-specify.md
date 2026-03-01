@@ -26,7 +26,7 @@ You can also change values for a domain that is currently registered with RouteÂ
   **First Name, Last Name** and
   **Organization** later in this section.
   For more information about changing settings for an existing domain, see
-  [Updating domain settings](domain-update-settings.md "domain-update-settings.md") .
+  [Updating domain settings](domain-update-settings.md "domain-update-settings.md").
 
 **Values that you specify**
 
@@ -203,8 +203,7 @@ To enable or disable privacy protection for some domains, you must open a suppor
 
 For more information about privacy protection, see the following topics:
 
-- [Enabling or disabling privacy protection for
-  contact information for a domain](domain-privacy-protection.md "domain-privacy-protection.md")
+- [Enabling or disabling privacy protection for contact information for a domain](domain-privacy-protection.md "domain-privacy-protection.md")
 - [Domains that you can register with Amazon RouteÂ 53](registrar-tld-list.md "registrar-tld-list.md")
 
 **Auto Renew (Only available when editing domain settings)**

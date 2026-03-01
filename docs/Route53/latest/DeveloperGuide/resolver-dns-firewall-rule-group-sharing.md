@@ -1,6 +1,4 @@
-# Sharing Resolver DNS Firewall rule
-
-groups between AWS accounts
+# Sharing Resolver DNS Firewall rule groups between AWS accounts
 
 You can share DNS Firewall rule groups between AWS accounts. To share rule groups, you
 use AWS Resource Access Manager (AWS RAM). The DNS Firewall console integrates with the AWS RAM console. For more
@@ -13,8 +11,7 @@ Note the following:
 
 If another AWS account has shared a rule group with your account, you
 can associate it with your VPCs the same way that you associate rule groups
-that you've created. For more information, see [Managing
-associations between your VPC and Resolver DNS Firewall rule group](resolver-dns-firewall-vpc-associating-rule-group.md "resolver-dns-firewall-vpc-associating-rule-group.md").
+that you've created. For more information, see [Managing associations between your VPC and Resolver DNS Firewall rule group](resolver-dns-firewall-vpc-associating-rule-group.md "resolver-dns-firewall-vpc-associating-rule-group.md").
 
 **Deleting or unsharing a shared rule group**
 
@@ -27,8 +24,7 @@ other accounts created between the rule group and their VPCs.
 Shared rule groups and their associations with VPCs are included in the
 counts for the accounts with which the rule groups are shared.
 
-For current DNS Firewall quotas, see [Quotas on
-Resolver DNS Firewall](DNSLimitations.md#limits-api-entities-resolver-dns-firewall "DNSLimitations.md#limits-api-entities-resolver-dns-firewall").
+For current DNS Firewall quotas, see [Quotas on Resolver DNS Firewall](DNSLimitations.md#limits-api-entities-resolver-dns-firewall "DNSLimitations.md#limits-api-entities-resolver-dns-firewall").
 
 **Permissions**
 

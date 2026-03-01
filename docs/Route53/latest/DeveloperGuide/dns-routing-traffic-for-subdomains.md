@@ -1,6 +1,4 @@
-# Routing traffic for
-
-subdomains
+# Routing traffic for subdomains
 
 When you want to route traffic to your resources for a subdomain, such as
 acme.example.com or zenith.example.com, you have two options:
@@ -42,8 +40,7 @@ the number of people who must have access to records in the hosted zone for
 the domain.
 
 To implement this delegation process, you need the following IAM
-permissions. For more information about Route 53 IAM policies, see [Identity and access management in
-Amazon Route 53](security-iam.md "security-iam.md"):
+permissions. For more information about Route 53 IAM policies, see [Identity and access management in Amazon Route 53](security-iam.md "security-iam.md"):
 
 **Parent account (owns example.com)**
 
@@ -57,8 +54,7 @@ subdomain hosted zone:
 
 Using a separate hosted zone for a subdomain also allows you to use
 different DNS services for the domain and the subdomain. For more
-information, see [Using Amazon Route 53 as the DNS service for subdomains
-without migrating the parent domain](creating-migrating.md "creating-migrating.md").
+information, see [Using Amazon Route 53 as the DNS service for subdomains without migrating the parent domain](creating-migrating.md "creating-migrating.md").
 
 There's a small performance impact to this configuration for the first DNS
 query from each DNS resolver. The resolver must get information from the
@@ -70,14 +66,10 @@ For more information, see [TTL (seconds)](resource-record-sets-values-basic.md#r
 
 ###### Topics
 
-- [Creating
-  another hosted zone to route traffic for a subdomain](#dns-routing-traffic-for-subdomains-new-hosted-zone "#dns-routing-traffic-for-subdomains-new-hosted-zone")
-- [Routing traffic for
-  additional levels of subdomains](#dns-routing-traffic-for-sub-subdomains "#dns-routing-traffic-for-sub-subdomains")
+- [Creating another hosted zone to route traffic for a subdomain](#dns-routing-traffic-for-subdomains-new-hosted-zone "#dns-routing-traffic-for-subdomains-new-hosted-zone")
+- [Routing traffic for additional levels of subdomains](#dns-routing-traffic-for-sub-subdomains "#dns-routing-traffic-for-sub-subdomains")
 
-## Creating
-
-another hosted zone to route traffic for a subdomain
+## Creating another hosted zone to route traffic for a subdomain
 
 One way to route traffic for a subdomain is to create a hosted zone for the
 subdomain, and then create records for the subdomain in the new hosted zone. (The
@@ -96,8 +88,7 @@ Here's an overview of the process:
 2. Add records to the hosted zone for the subdomain. If the hosted zone for
    the domain contains any records that belong in the hosted zone for the
    subdomain, duplicate those records in the hosted zone for the subdomain. For
-   more information, see [Creating
-   records in the hosted zone for the subdomain](#dns-routing-traffic-for-subdomains-creating-records "#dns-routing-traffic-for-subdomains-creating-records")
+   more information, see [Creating records in the hosted zone for the subdomain](#dns-routing-traffic-for-subdomains-creating-records "#dns-routing-traffic-for-subdomains-creating-records")
 3. Create an NS record for the subdomain in the hosted zone for the domain,
    which delegates responsibility for the subdomain to the name servers in the
    new hosted zone. If the hosted zone for the domain contains any records that
@@ -126,9 +117,7 @@ and - (hyphen) and how to specify internationalized domain names, see
 **Public hosted zone**. 6. At the bottom of the right pane, choose **Create hosted
 zone**.
 
-### Creating
-
-records in the hosted zone for the subdomain
+### Creating records in the hosted zone for the subdomain
 
 To define how you want Route 53 to route traffic for the subdomain
 (acme.example.com) and its subdomains (backend.acme.example.com), you create
@@ -192,9 +181,7 @@ To configure Route 53 to route traffic for the subdomain using the hosted zone
 for the subdomain and to delete any duplicate records from the hosted zone for
 the domain, perform the following procedure:
 
-###### To configure Route 53 to use the hosted zone for the subdomain
-
-(console)
+###### To configure Route 53 to use the hosted zone for the subdomain (console)
 
 1. In the Route 53 console, get the name servers for the hosted zone for the
    subdomain:
@@ -242,9 +229,7 @@ from the hosted zone for the domain. For more information, see [Deleting records
 When you're finished, all records for the subdomain should be in the
 hosted zone for the subdomain.
 
-## Routing traffic for
-
-additional levels of subdomains
+## Routing traffic for additional levels of subdomains
 
 You route traffic to a subdomain of a subdomain, such as backend.acme.example.com,
 the same way that you route traffic to a subdomain, such as acme.example.com. Either
@@ -266,8 +251,7 @@ you do the following:
 
 1. Create a hosted zone named subdomain2.subdomain1.example.com.
 2. Create records in the subdomain2.subdomain1.example.com hosted zone. For
-   more information, see [Creating
-   records in the hosted zone for the subdomain](#dns-routing-traffic-for-subdomains-creating-records "#dns-routing-traffic-for-subdomains-creating-records").
+   more information, see [Creating records in the hosted zone for the subdomain](#dns-routing-traffic-for-subdomains-creating-records "#dns-routing-traffic-for-subdomains-creating-records").
 3. Copy the names of the name servers for the
    subdomain2.subdomain1.example.com hosted zone.
 4. In the subdomain1.example.com hosted zone, create an NS record named

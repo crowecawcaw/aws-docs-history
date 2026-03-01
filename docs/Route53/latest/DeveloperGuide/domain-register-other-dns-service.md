@@ -1,13 +1,9 @@
-# Updating name servers to use another
-
-registrar
+# Updating name servers to use another registrar
 
 If you want to move DNS management to another registrar, you need to update the name
 servers to point to
 
-###### To update the name
-
-servers for your domain when you want to use another DNS service
+###### To update the name servers for your domain when you want to use another DNS service
 
 1. Use the process that is provided by your DNS service to get the name servers
    for the domain.

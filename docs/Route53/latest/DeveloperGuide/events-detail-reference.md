@@ -121,8 +121,7 @@ The action specified by the rule that matched the domain name in the query. Eith
 
 The ID of the DNS Firewall rule group that matched the domain name in the query.
 
-For more information about the firewall rule groups, see DNS Firewall [DNS Firewall rule groups and
-rules](resolver-dns-firewall-rule-groups.md "resolver-dns-firewall-rule-groups.md").
+For more information about the firewall rule groups, see DNS Firewall [DNS Firewall rule groups and rules](resolver-dns-firewall-rule-groups.md "resolver-dns-firewall-rule-groups.md").
 
 `firewall-domain-list-id`
 
@@ -277,8 +276,7 @@ The action specified by the rule that matched the domain name in the query. Eith
 
 The ID of the DNS Firewall rule group that matched the domain name in the query.
 
-For more information about the firewall rule groups, see DNS Firewall [DNS Firewall rule groups and
-rules](resolver-dns-firewall-rule-groups.md "resolver-dns-firewall-rule-groups.md").
+For more information about the firewall rule groups, see DNS Firewall [DNS Firewall rule groups and rules](resolver-dns-firewall-rule-groups.md "resolver-dns-firewall-rule-groups.md").
 
 `firewall-domain-list-id`
 

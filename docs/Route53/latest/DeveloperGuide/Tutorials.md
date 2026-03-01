@@ -26,11 +26,9 @@ These tutorials cover various use cases and scenarios, helping you effectively l
 
 ###### Topics
 
-- [Using Amazon Route 53 as the DNS service for subdomains
-  without migrating the parent domain](creating-migrating.md "creating-migrating.md")
+- [Using Amazon Route 53 as the DNS service for subdomains without migrating the parent domain](creating-migrating.md "creating-migrating.md")
 - [Transitioning to latency-based routing in Amazon Route 53](TutorialTransitionToLBR.md "TutorialTransitionToLBR.md")
 - [Adding another Region to your latency-based routing in Amazon Route 53](TutorialAddingLBRRegion.md "TutorialAddingLBRRegion.md")
-- [Using latency and weighted records in Amazon Route 53
-  to route traffic to multiple Amazon EC2 instances in a Region](TutorialLBRMultipleEC2InRegion.md "TutorialLBRMultipleEC2InRegion.md")
+- [Using latency and weighted records in Amazon Route 53 to route traffic to multiple Amazon EC2 instances in a Region](TutorialLBRMultipleEC2InRegion.md "TutorialLBRMultipleEC2InRegion.md")
 - [Managing over 100 weighted records in Amazon Route 53](TutorialManagingOver100WRR.md "TutorialManagingOver100WRR.md")
 - [Weighting fault-tolerant multi-record answers in Amazon Route 53](TutorialWeightedFTMR.md "TutorialWeightedFTMR.md")

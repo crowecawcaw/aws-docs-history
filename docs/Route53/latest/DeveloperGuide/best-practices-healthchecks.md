@@ -8,8 +8,7 @@ Here are some best practices to consider when setting up and managing Amazon Rou
         * Utilize elastic IP addresses for your health check endpoints to ensure consistent monitoring.
         * If you are no longer using an Amazon EC2 instance, remember to delete any associated health checks to avoid potential security risks or data compromise.
 
-    Fore more information, see [Values that you specify when you
-    create or update health checks](health-checks-creating-values.md "health-checks-creating-values.md").
+    Fore more information, see [Values that you specify when you create or update health checks](health-checks-creating-values.md "health-checks-creating-values.md").
 
 2.  **Configure appropriate health check intervals:**
 
@@ -19,8 +18,7 @@ Here are some best practices to consider when setting up and managing Amazon Rou
          your resources.
         * Longer intervals reduce costs and resource load but may delay failure detection.
 
-    Fore more information, see [Advanced configuration
-    ("Monitor an Endpoint" only)](health-checks-creating-values.md#health-checks-creating-values-advanced "health-checks-creating-values.md#health-checks-creating-values-advanced").
+    Fore more information, see [Advanced configuration ("Monitor an Endpoint" only)](health-checks-creating-values.md#health-checks-creating-values-advanced "health-checks-creating-values.md#health-checks-creating-values-advanced").
 
 3.  **Implement alarm notifications:**
 

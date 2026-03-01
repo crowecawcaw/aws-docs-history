@@ -7,16 +7,14 @@ Route 53 health checks integrate with CloudWatch metrics so that you can do the
 - Configure CloudWatch to send an Amazon SNS alert when the status of a health check is unhealthy. Note that several
   minutes might elapse between the time that a health check fails and the time that you receive the associated SNS notification.
   For more information, see
-  [How Amazon Route 53 determines
-  whether a health check is healthy](dns-failover-determining-health-of-endpoints.md "dns-failover-determining-health-of-endpoints.md").
+  [How Amazon Route 53 determines whether a health check is healthy](dns-failover-determining-health-of-endpoints.md "dns-failover-determining-health-of-endpoints.md").
 
 ###### Topics
 
 - [View the status of your health check](#health-checks-monitoring-status "#health-checks-monitoring-status")
 - [View health check alarms](#health-checks-monitoring-alarms "#health-checks-monitoring-alarms")
 - [View health check metrics on the CloudWatch console](#view-health-checks-metrics-cw "#view-health-checks-metrics-cw")
-- [Create an alarm with an SNS
-  notification](#health-checks-create-alarm-notification "#health-checks-create-alarm-notification")
+- [Create an alarm with an SNS notification](#health-checks-create-alarm-notification "#health-checks-create-alarm-notification")
 
 ## View the status of your health check
 
@@ -32,9 +30,7 @@ Choose the tab for the console you are using.
 
 New console
 
-###### To view the status of a health
-
-check
+###### To view the status of a health check
 
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
@@ -223,9 +219,7 @@ and changes in status), choose **View** in the **More Options** column for the a
 6. You can also set up SNS notification on the CloudWatch console. For more information, see [Create recommended alarms](../../../AmazonCloudWatch/latest/monitoring/Best-Practice-Alarms.md#Best-Practice-Alarms-create "../../../AmazonCloudWatch/latest/monitoring/Best-Practice-Alarms.md#Best-Practice-Alarms-create") in the _CloudWatch User
    Guide_.
 
-## Create an alarm with an SNS
-
-notification
+## Create an alarm with an SNS notification
 
 ###### Note
 

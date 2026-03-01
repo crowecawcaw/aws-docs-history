@@ -1,6 +1,4 @@
-# Moving a
-
-geolocation to IP-based routing
+# Moving a geolocation to IP-based routing
 
 If you are using either geolocation or geoproximity routing policies, and
 you’re consistently seeing specific clients routed to an endpoint that isn’t

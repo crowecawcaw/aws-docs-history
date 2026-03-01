@@ -1,6 +1,4 @@
-# Getting started with VPC Resolver on
-
-AWS Outposts
+# Getting started with VPC Resolver on AWS Outposts
 
 After you have ordered your AWS Outposts racks and they have been delivered, as described
 here: [Create an AWS Outposts](../../../outposts/latest/userguide/order-outpost-capacity.md "../../../outposts/latest/userguide/order-outpost-capacity.md")
@@ -37,8 +35,7 @@ After you have your AWS Outposts racks delivered, you can opt in to Route 53 on 
    - After the **Recommended instance types for VPC Resolver**
      populates with Amazon EC2 instances, choose one.
 
-   For more information about the instance types, see [Quotas on
-   Resolver on Outpost](DNSLimitations.md#limits-api-entities-resolver-on-outposts "DNSLimitations.md#limits-api-entities-resolver-on-outposts").
+   For more information about the instance types, see [Quotas on Resolver on Outpost](DNSLimitations.md#limits-api-entities-resolver-on-outposts "DNSLimitations.md#limits-api-entities-resolver-on-outposts").
    - For **Number of instances**, choose the number of
      elastic interface instances for the VPC VPC Resolver. The default value is
    4.

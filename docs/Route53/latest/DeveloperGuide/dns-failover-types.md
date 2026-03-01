@@ -27,23 +27,17 @@ If all the primary resources are unhealthy, Route 53 begins to include only the
 
 ###### Topics
 
-- [Configuring active-passive failover with
-  one primary and one secondary resource](#dns-failover-types-active-passive-one-resource "#dns-failover-types-active-passive-one-resource")
-- [Configuring active-passive failover with
-  multiple primary and secondary resources](#dns-failover-types-active-passive-multiple-resources "#dns-failover-types-active-passive-multiple-resources")
+- [Configuring active-passive failover with one primary and one secondary resource](#dns-failover-types-active-passive-one-resource "#dns-failover-types-active-passive-one-resource")
+- [Configuring active-passive failover with multiple primary and secondary resources](#dns-failover-types-active-passive-multiple-resources "#dns-failover-types-active-passive-multiple-resources")
 - [Configuring active-passive failover with weighted records](#dns-failover-types-active-passive-weighted "#dns-failover-types-active-passive-weighted")
 
-### Configuring active-passive failover with
-
-one primary and one secondary resource
+### Configuring active-passive failover with one primary and one secondary resource
 
 To create an active-passive failover configuration with one primary record and one secondary record, you just create the records
 and specify **Failover** for the routing policy. When the primary resource is healthy, Route 53 responds to DNS queries
 using the primary record. When the primary resource is unhealthy, Route 53 responds to DNS queries using the secondary record.
 
-### Configuring active-passive failover with
-
-multiple primary and secondary resources
+### Configuring active-passive failover with multiple primary and secondary resources
 
 You can also associate multiple resources with the primary record, the secondary record, or both. In this configuration,
 Route 53 considers the primary failover record to be healthy as long as at least one of the associated resources is healthy.

@@ -15,9 +15,7 @@ the Route 53 record that you want to create.
 For more information, see [Associate a custom domain name with your service](../../../vpc-lattice/latest/ug/service-custom-domain-name.md "../../../vpc-lattice/latest/ug/service-custom-domain-name.md") in the
 _Amazon VPC Lattice User Guide_.
 
-## Configuring Amazon Route 53 to route
-
-traffic to a VPC Lattice service domain endpoint
+## Configuring Amazon Route 53 to route traffic to a VPC Lattice service domain endpoint
 
 To use Route 53 to route traffic to Amazon VPC Lattice service domain, you first get the domain service endpoint provided by VPC Lattice.
 For more information, see [Associate a custom domain name with your service](../../../vpc-lattice/latest/ug/service-custom-domain-name.md "../../../vpc-lattice/latest/ug/service-custom-domain-name.md") in the
@@ -78,5 +76,4 @@ both for dual-stack.
 **Evaluate target health**
 
 Choose **No**. For information about
-evaluating target health, see [Evaluate target
-health](resource-record-sets-values-alias.md#rrsets-values-alias-evaluate-target-health "resource-record-sets-values-alias.md#rrsets-values-alias-evaluate-target-health"). 11. Choose **Create records**.
+evaluating target health, see [Evaluate target health](resource-record-sets-values-alias.md#rrsets-values-alias-evaluate-target-health "resource-record-sets-values-alias.md#rrsets-values-alias-evaluate-target-health"). 11. Choose **Create records**.

@@ -19,7 +19,6 @@ However, before you start monitoring, you should create a monitoring plan that i
 - [Monitoring your resources with Amazon Route 53 health checks and Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md")
 - [Monitoring hosted zones using Amazon CloudWatch](monitoring-hosted-zones-with-cloudwatch.md "monitoring-hosted-zones-with-cloudwatch.md")
 - [Monitoring Route 53 VPC Resolver endpoints with Amazon CloudWatch](monitoring-resolver-with-cloudwatch.md "monitoring-resolver-with-cloudwatch.md")
-- [Monitoring Resolver DNS Firewall rule
-  groups with Amazon CloudWatch](monitoring-resolver-dns-firewall-with-cloudwatch.md "monitoring-resolver-dns-firewall-with-cloudwatch.md")
+- [Monitoring Resolver DNS Firewall rule groups with Amazon CloudWatch](monitoring-resolver-dns-firewall-with-cloudwatch.md "monitoring-resolver-dns-firewall-with-cloudwatch.md")
 - [Managing Resolver DNS Firewall events using Amazon EventBridge](dns-firewall-eventbridge-integration.md "dns-firewall-eventbridge-integration.md")
 - [Logging Amazon Route 53 API calls with AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")

@@ -1,10 +1,6 @@
-# Working with
+# Working with CIDR locations and blocks
 
-CIDR locations and blocks
-
-###### To work with CIDR locations
-
-by using the Route 53 console
+###### To work with CIDR locations by using the Route 53 console
 
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").

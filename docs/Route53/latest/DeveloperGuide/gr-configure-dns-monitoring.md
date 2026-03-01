@@ -1,6 +1,4 @@
-# Configure DNS monitoring and logging with
-
-Route 53 Global Resolver
+# Configure DNS monitoring and logging with Route 53 Global Resolver
 
 Configure DNS monitoring in Route 53 Global Resolver to capture detailed information about DNS queries,
 responses, and security actions. This section covers the steps to set up logging destinations

@@ -1,6 +1,4 @@
-# Viewing information about domains that are
-
-registered with Route 53
+# Viewing information about domains that are registered with Route 53
 
 ###### Note
 
@@ -56,9 +54,7 @@ automatically forward your email to the applicable contact.
 To report any illegal activity or violation of the [Acceptable Use Policy](https://aws.amazon.com/route53/amazon-registrar-policies/#acceptable-use-policy "https://aws.amazon.com/route53/amazon-registrar-policies/#acceptable-use-policy"), including inappropriate content,
 phishing, malware, or spam, send an email to trustandsafety@support.aws.com.
 
-###### To view information about domains that
-
-are registered with Route 53
+###### To view information about domains that are registered with Route 53
 
 1. In a web browser, go to one of the following websites:
    - **Amazon Registrar WHOIS:**

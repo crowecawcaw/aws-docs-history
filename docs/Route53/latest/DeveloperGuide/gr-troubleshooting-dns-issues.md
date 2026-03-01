@@ -11,12 +11,9 @@ and optimizing performance.
 - [Diagnose connectivity issues](gr-diagnose-connectivity-issues.md "gr-diagnose-connectivity-issues.md")
 - [Resolve performance issues](gr-resolve-performance-issues.md "gr-resolve-performance-issues.md")
 - [Troubleshoot configuration](gr-troubleshoot-configuration-issues.md "gr-troubleshoot-configuration-issues.md")
-- [Troubleshooting internal resource
-  access](#gr-troubleshooting-internal-access "#gr-troubleshooting-internal-access")
+- [Troubleshooting internal resource access](#gr-troubleshooting-internal-access "#gr-troubleshooting-internal-access")
 
-## Troubleshooting internal resource
-
-access
+## Troubleshooting internal resource access
 
 Common issues and solutions when managing internal resource access:
 

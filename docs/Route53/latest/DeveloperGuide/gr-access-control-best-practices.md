@@ -1,6 +1,4 @@
-# Access control best practices and security
-
-considerations
+# Access control best practices and security considerations
 
 Follow these best practices to maintain secure and effective access controls for your
 Route 53 Global Resolver infrastructure.

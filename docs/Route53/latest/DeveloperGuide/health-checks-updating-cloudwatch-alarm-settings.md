@@ -1,7 +1,4 @@
-# Updating health
-
-checks when you change CloudWatch alarm settings (health checks that monitor a CloudWatch
-alarm only)
+# Updating health checks when you change CloudWatch alarm settings (health checks that monitor a CloudWatch alarm only)
 
 If you create a Route 53 health check that monitors the data stream for a CloudWatch alarm
 and then you update the settings in the CloudWatch alarm, Route 53 doesn't automatically
@@ -28,9 +25,7 @@ Choose the tab for the console you are using.
 
 New console
 
-###### To
-
-update a health check with new CloudWatch alarm settings
+###### To update a health check with new CloudWatch alarm settings
 
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
@@ -43,9 +38,7 @@ A note explains that the CloudWatch alarm for the health check has changed. The
 
 Old console
 
-###### To
-
-update a health check with new CloudWatch alarm settings (console)
+###### To update a health check with new CloudWatch alarm settings (console)
 
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").

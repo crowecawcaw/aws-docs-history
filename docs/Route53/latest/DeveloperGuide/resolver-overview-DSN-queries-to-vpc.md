@@ -1,6 +1,4 @@
-# Resolving DNS queries between
-
-VPCs and your network
+# Resolving DNS queries between VPCs and your network
 
 The VPC Resolver contains endpoints that you configure to answer DNS queries to and
 from your on-premises environment.
@@ -28,8 +26,7 @@ endpoint** that forwards to IP addresses, and a **delegation inbound endpoint** 
 authority for a subdomain hosted in Route 53 private hosted Zone to the
 Route 53 VPC Resolver. Inbound endpoints allow your DNS resolvers to easily resolve
 domain names for AWS resources such as EC2 instances or records in a Route 53
-private hosted zone. For more information, see [How DNS resolvers on your network
-forward DNS queries to Resolver endpoints](resolver-overview-forward-network-to-vpc.md "resolver-overview-forward-network-to-vpc.md").
+private hosted zone. For more information, see [How DNS resolvers on your network forward DNS queries to Resolver endpoints](resolver-overview-forward-network-to-vpc.md "resolver-overview-forward-network-to-vpc.md").
 
 **Outbound endpoint: VPC Resolver conditionally forwards queries to resolvers on your network via this endpoint**
 To forward selected queries, you create Resolver rules that specify the domain names for the DNS
@@ -39,8 +36,7 @@ to. If a query matches multiple rules (example.com, acme.example.com),
 VPC Resolver chooses the rule with the most specific match (acme.example.com) and
 forwards the query to the IP addresses that you specified in that rule.
 There are three types of rules, **forward**,
-**system**, and **delegation**. For more information, see [How Resolver endpoints forward DNS
-queries from your VPCs to your network](resolver-overview-forward-vpc-to-network.md "resolver-overview-forward-vpc-to-network.md").
+**system**, and **delegation**. For more information, see [How Resolver endpoints forward DNS queries from your VPCs to your network](resolver-overview-forward-vpc-to-network.md "resolver-overview-forward-vpc-to-network.md").
 
 Like Amazon VPC, VPC Resolver is regional. In each region where you have VPCs, you can choose whether to forward queries from your VPCs
 to your network (outbound queries), from your network to your VPCs (inbound queries), or both.
@@ -76,8 +72,6 @@ _Amazon VPC User Guide_.
 
 **Topics**
 
-- [How DNS resolvers on your network
-  forward DNS queries to Resolver endpoints](resolver-overview-forward-network-to-vpc.md "resolver-overview-forward-network-to-vpc.md")
-- [How Resolver endpoints forward DNS
-  queries from your VPCs to your network](resolver-overview-forward-vpc-to-network.md "resolver-overview-forward-vpc-to-network.md")
+- [How DNS resolvers on your network forward DNS queries to Resolver endpoints](resolver-overview-forward-network-to-vpc.md "resolver-overview-forward-network-to-vpc.md")
+- [How Resolver endpoints forward DNS queries from your VPCs to your network](resolver-overview-forward-vpc-to-network.md "resolver-overview-forward-vpc-to-network.md")
 - [Considerations when creating inbound and outbound endpoints](resolver-choose-vpc.md "resolver-choose-vpc.md")

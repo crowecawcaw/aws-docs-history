@@ -28,7 +28,7 @@ and functional. You also can choose to receive notifications when a resource bec
 away from unhealthy resources.
 
 - For an overview, see [How Amazon Route 53 checks the health of your resources](welcome-health-checks.md "welcome-health-checks.md").
-- For procedures, see [Creating Amazon Route 53 health checks](dns-failover.md "dns-failover.md") .
+- For procedures, see [Creating Amazon Route 53 health checks](dns-failover.md "dns-failover.md").
 
 ###### Other Route 53 features
 

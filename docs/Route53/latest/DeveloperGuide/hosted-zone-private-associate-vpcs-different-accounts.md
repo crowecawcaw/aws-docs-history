@@ -1,6 +1,4 @@
-# Associating an Amazon VPC and a private hosted zone
-
-that you created with different AWS accounts
+# Associating an Amazon VPC and a private hosted zone that you created with different AWS accounts
 
 If you want to associate a VPC that you created with one AWS account with a private hosted zone that you created
 with a different account, perform the following procedure:

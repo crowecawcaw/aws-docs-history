@@ -491,14 +491,12 @@ An NS record identifies the name servers for the hosted zone. Note the following
   internet traffic for the subdomain and its subdomains (subdomain.acme.example.com). You set up this configuration,
   known as "delegating responsibility for a subdomain to a hosted zone" by creating another NS record in the hosted zone
   for the root domain (example.com). For more information, see
-  [Routing traffic for
-  subdomains](dns-routing-traffic-for-subdomains.md "dns-routing-traffic-for-subdomains.md").
+  [Routing traffic for subdomains](dns-routing-traffic-for-subdomains.md "dns-routing-traffic-for-subdomains.md").
 - You also use NS records to configure white-label name servers. For more information, see
   [Configuring white-label name servers](white-label-name-servers.md "white-label-name-servers.md").
 - Another use for an NS record is for private hosted zones when you create a delegate rule to delegate the authority for a subdomain
   to your on-premises resolver. You must create this NS record before you create a delegate rule. For more information, see
-  [How Resolver endpoints forward DNS
-  queries from your VPCs to your network](resolver-overview-forward-vpc-to-network.md "resolver-overview-forward-vpc-to-network.md").
+  [How Resolver endpoints forward DNS queries from your VPCs to your network](resolver-overview-forward-vpc-to-network.md "resolver-overview-forward-vpc-to-network.md").
 
 For more information about NS records, see [NS and SOA records that Amazon Route 53 creates for a public hosted zone](SOA-NSrecords.md "SOA-NSrecords.md").
 

@@ -133,8 +133,7 @@ The ID of the DNS Firewall rule group that matched the domain name in
 the query. This is populated only if DNS Firewall found a match for a rule
 with action set to alert or block.
 
-For more information about the firewall rule groups, see [DNS Firewall rule groups and
-rules](resolver-dns-firewall-rule-groups.md "resolver-dns-firewall-rule-groups.md").
+For more information about the firewall rule groups, see [DNS Firewall rule groups and rules](resolver-dns-firewall-rule-groups.md "resolver-dns-firewall-rule-groups.md").
 
 **firewall_rule_action**
 

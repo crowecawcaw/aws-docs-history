@@ -1,6 +1,4 @@
-# Troubleshoot configuration issues in
-
-Route 53 Global Resolver
+# Troubleshoot configuration issues in Route 53 Global Resolver
 
 Route 53 Global Resolver offers extensive configuration options for DNS views, authentication, and firewall
 rules, which can sometimes lead to configuration conflicts or mismatches. Identify and resolve

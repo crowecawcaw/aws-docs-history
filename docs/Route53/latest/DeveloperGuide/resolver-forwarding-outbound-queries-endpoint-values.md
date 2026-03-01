@@ -1,6 +1,4 @@
-# Values that you specify when you create or edit
-
-outbound endpoints
+# Values that you specify when you create or edit outbound endpoints
 
 When you create or edit an outbound endpoint, you specify the following values:
 

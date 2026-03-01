@@ -1,6 +1,4 @@
-# Enabling or disabling privacy protection for
-
-contact information for a domain
+# Enabling or disabling privacy protection for contact information for a domain
 
 When you register a domain with Amazon Route 53 or transfer a domain to Route 53, we enable
 privacy protection by default for all the contacts for the domain. This typically hides
@@ -92,13 +90,10 @@ protection include .de, .us, .com.au, .es, and several others.
 If you don't see a "Privacy protection" section when editing your domain's
 contact information, privacy protection is not supported for your domain's TLD.
 
-For a complete list of TLDs that don't support privacy protection, see [TLDs that don't support privacy
-protection](privacy-protection-tld-support.md "privacy-protection-tld-support.md"). For detailed information
+For a complete list of TLDs that don't support privacy protection, see [TLDs that don't support privacy protection](privacy-protection-tld-support.md "privacy-protection-tld-support.md"). For detailed information
 about privacy protection support for any TLD, see [Domains that you can register with Amazon Route 53](registrar-tld-list.md "registrar-tld-list.md").
 
-###### To enable or disable privacy
-
-protection for contact information for a domain
+###### To enable or disable privacy protection for contact information for a domain
 
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").

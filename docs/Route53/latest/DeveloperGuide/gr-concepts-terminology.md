@@ -6,9 +6,7 @@ for your organization. Understanding these Route 53 Global Resolver concepts hel
 that enable seamless access to both private and public resources, ensure service continuity across
 multiple Regions, and protect against DNS-based threats.
 
-## DNS resolver for clients at
-
-on-premises and remote locations
+## DNS resolver for clients at on-premises and remote locations
 
 To deploy Route 53 Global Resolver for your distributed workloads, customer locations, and users, configure these key
 components:

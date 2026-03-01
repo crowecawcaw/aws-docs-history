@@ -43,13 +43,11 @@ Whether Route 53 will automatically renew the registration for this domain shor
 **Authorization code**
 The code that is required if you want to transfer registration of this domain to another registrar.
 An authorization code is only generated when you request it. For information about transferring a domain to
-another registrar, see [Transferring a domain from Amazon Route 53 to
-another registrar](domain-transfer-from-route-53.md "domain-transfer-from-route-53.md").
+another registrar, see [Transferring a domain from Amazon Route 53 to another registrar](domain-transfer-from-route-53.md "domain-transfer-from-route-53.md").
 
 **Name servers**
 The Route 53 servers that respond to DNS queries for this domain. We recommend that you don't delete
 Route 53 name servers.
 
 For information about adding, changing, or deleting name servers, see
-[Adding or changing name servers and
-glue records for a domain](domain-name-servers-glue-records.md "domain-name-servers-glue-records.md").
+[Adding or changing name servers and glue records for a domain](domain-name-servers-glue-records.md "domain-name-servers-glue-records.md").

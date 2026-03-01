@@ -1,6 +1,4 @@
-# Basic examples for
-
-Route 53 using AWS SDKs
+# Basic examples for Route 53 using AWS SDKs
 
 The following code examples show how to use the basics of Amazon Route 53 with AWS
 SDKs.

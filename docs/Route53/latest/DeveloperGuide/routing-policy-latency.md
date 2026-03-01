@@ -41,11 +41,7 @@ You can use latency routing policy for records in a private hosted zone.
 
 For information about values that you specify when you use the latency routing policy to create records, see the following topics:
 
-- [Values specific for latency
-  records](resource-record-sets-values-latency.md "resource-record-sets-values-latency.md")
-- [Values specific for latency
-  alias records](resource-record-sets-values-latency-alias.md "resource-record-sets-values-latency-alias.md")
-- [Values that are common for all routing
-  policies](resource-record-sets-values-shared.md "resource-record-sets-values-shared.md")
-- [Values that are common for
-  alias records for all routing policies](resource-record-sets-values-alias-common.md "resource-record-sets-values-alias-common.md")
+- [Values specific for latency records](resource-record-sets-values-latency.md "resource-record-sets-values-latency.md")
+- [Values specific for latency alias records](resource-record-sets-values-latency-alias.md "resource-record-sets-values-latency-alias.md")
+- [Values that are common for all routing policies](resource-record-sets-values-shared.md "resource-record-sets-values-shared.md")
+- [Values that are common for alias records for all routing policies](resource-record-sets-values-alias-common.md "resource-record-sets-values-alias-common.md")

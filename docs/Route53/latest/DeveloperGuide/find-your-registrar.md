@@ -1,13 +1,9 @@
-# Finding your registrar and other information about
-
-your domain
+# Finding your registrar and other information about your domain
 
 To view domain information by using the [GetDomainDetail](../APIReference/API_domains_GetDomainDetail.md "../APIReference/API_domains_GetDomainDetail.md") API, you can use any of the SDKs or AWS CLI. For more
 information, see [get-domain-detail](../../../cli/latest/reference/route53domains/get-domain-detail.md "../../../cli/latest/reference/route53domains/get-domain-detail.md").
 
-###### To view information
-
-about domains with `get-domain-detail` CLI
+###### To view information about domains with `get-domain-detail` CLI
 
 - Use the following CLI:
 

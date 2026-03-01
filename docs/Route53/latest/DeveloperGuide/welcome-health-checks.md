@@ -48,4 +48,4 @@ health check with each record for that resource. If a health check determines th
 is unhealthy, Route 53 routes traffic away from the associated record.
 
 For more information about using Route 53 to monitor the health of your resources, see
-[Creating Amazon Route 53 health checks](dns-failover.md "dns-failover.md") .
+[Creating Amazon Route 53 health checks](dns-failover.md "dns-failover.md").

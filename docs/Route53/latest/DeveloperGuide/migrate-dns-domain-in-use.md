@@ -5,24 +5,19 @@ if your users are using the domain name to browse to a website or access a web a
 
 ###### Topics
 
-- [Step 1: Get your current DNS configuration from the current DNS service provider
-  (optional but recommended)](#migrate-dns-get-zone-file "#migrate-dns-get-zone-file")
+- [Step 1: Get your current DNS configuration from the current DNS service provider (optional but recommended)](#migrate-dns-get-zone-file "#migrate-dns-get-zone-file")
 - [Step 2: Create a hosted zone](#migrate-dns-create-hosted-zone "#migrate-dns-create-hosted-zone")
 - [Step 3: Create records](#migrate-dns-create-records "#migrate-dns-create-records")
 - [Step 4: Lower TTL settings](#migrate-dns-lower-ttl "#migrate-dns-lower-ttl")
 - [Step 5: (If you have DNSSEC configured) Remove the DS record from the parent zone](#migrate-remove-ds "#migrate-remove-ds")
 - [Step 6: Wait for the old TTL to expire](#migrate-dns-wait-for-ttl "#migrate-dns-wait-for-ttl")
-- [Step 7: Update the NS records to
-  use Route 53 name servers](#migrate-dns-change-name-servers-with-provider "#migrate-dns-change-name-servers-with-provider")
+- [Step 7: Update the NS records to use Route 53 name servers](#migrate-dns-change-name-servers-with-provider "#migrate-dns-change-name-servers-with-provider")
 - [Step 8: Monitor traffic for the domain](#migrate-dns-monitor-traffic "#migrate-dns-monitor-traffic")
 - [Step 9: Change the TTL for the NS record back to a higher value](#migrate-dns-change-ttl-back "#migrate-dns-change-ttl-back")
 - [Step 10: Transfer domain registration to Amazon Route 53](#migrate-dns-transfer-domain-registration "#migrate-dns-transfer-domain-registration")
-- [Step 11: Re-enable DNSSEC signing (if
-  required)](#migrate-dns-re-enable-dnssec "#migrate-dns-re-enable-dnssec")
+- [Step 11: Re-enable DNSSEC signing (if required)](#migrate-dns-re-enable-dnssec "#migrate-dns-re-enable-dnssec")
 
-## Step 1: Get your current DNS configuration from the current DNS service provider
-
-(optional but recommended)
+## Step 1: Get your current DNS configuration from the current DNS service provider (optional but recommended)
 
 When you migrate DNS service from another provider to Route 53, you reproduce your current DNS configuration in Route 53.
 In Route 53, you create a hosted zone that has the same name as your domain, and you create records in the hosted zone.
@@ -118,8 +113,7 @@ You can create records in a variety of ways:
 
 **Import a zone file**
 This is the easiest method if you got a zone file from your current DNS service in
-[Step 1: Get your current DNS configuration from the current DNS service provider
-(optional but recommended)](#migrate-dns-get-zone-file "#migrate-dns-get-zone-file"). Amazon Route 53 can't predict when to
+[Step 1: Get your current DNS configuration from the current DNS service provider (optional but recommended)](#migrate-dns-get-zone-file "#migrate-dns-get-zone-file"). Amazon Route 53 can't predict when to
 create alias records or to use special routing types such as weighted or failover. As a result, if you import a zone file,
 Route 53 creates standard DNS records using the simple routing policy.
 
@@ -167,9 +161,7 @@ We recommend that you change the TTL on the following NS records:
 - On the NS record in the hosted zone that you created in
   [Step 2: Create a hosted zone](#migrate-dns-create-hosted-zone "#migrate-dns-create-hosted-zone").
 
-###### To lower the TTL setting on the NS record with the
-
-current DNS service provider
+###### To lower the TTL setting on the NS record with the current DNS service provider
 
 - Use the method provided by the current DNS service provider for the domain to change the TTL for the NS record
   in the hosted zone for your domain.
@@ -213,9 +205,7 @@ After the two-day TTL expires and resolvers request the name servers for your do
 current name servers and will also get the new TTL that you specified in
 [Step 4: Lower TTL settings](#migrate-dns-lower-ttl "#migrate-dns-lower-ttl").
 
-## Step 7: Update the NS records to
-
-use Route 53 name servers
+## Step 7: Update the NS records to use Route 53 name servers
 
 To begin using Amazon Route 53 as the DNS service for a domain, use the method provided by the
 registrar, or the parent zone, to replace the current name servers in the NS record
@@ -227,9 +217,7 @@ When you update the NS record with the current DNS service provider to use Route
 DNS configuration for the domain. (This is comparable to updating the NS record in the Route 53 hosted zone for a domain
 except that you're updating the setting with the DNS service that you're migrating away from.)
 
-###### To update the NS
-
-record at the registrar, or the parent zone, to use Route 53 name servers
+###### To update the NS record at the registrar, or the parent zone, to use Route 53 name servers
 
 1. In the Route 53 console, get the name servers for your hosted zone:
    1. Sign in to the AWS Management Console and open the Route 53 console at
@@ -239,8 +227,7 @@ record at the registrar, or the parent zone, to use Route 53 name servers
    4. Make note of the four names listed for **Name servers** in the **Hosted zone details** section.
 
 2. Use the method that is provided by the current DNS service for the domain to update the NS record for the hosted zone. If the domain is registered with
-   Route 53, see [Adding or changing name servers and
-   glue records for a domain](domain-name-servers-glue-records.md "domain-name-servers-glue-records.md").The process depends on
+   Route 53, see [Adding or changing name servers and glue records for a domain](domain-name-servers-glue-records.md "domain-name-servers-glue-records.md").The process depends on
    whether the current DNS service lets you delete name servers:
 
 **If you can delete name servers**
@@ -265,8 +252,7 @@ record at the registrar, or the parent zone, to use Route 53 name servers
 Monitor traffic for the domain, including website or application traffic, and email:
 
 - **If the traffic slows or stops** – Use the method provided by the previous DNS service to change the name servers for
-  the domain back to the previous name servers. These are the name servers that you made note of in step 7 of [To update the NS
-  record at the registrar, or the parent zone, to use Route 53 name servers](#migrate-dns-change-name-servers-with-provider-procedure "#migrate-dns-change-name-servers-with-provider-procedure"). Then determine what went wrong.
+  the domain back to the previous name servers. These are the name servers that you made note of in step 7 of [To update the NS record at the registrar, or the parent zone, to use Route 53 name servers](#migrate-dns-change-name-servers-with-provider-procedure "#migrate-dns-change-name-servers-with-provider-procedure"). Then determine what went wrong.
 - **If the traffic is unaffected** – Continue to
   [Step 9: Change the TTL for the NS record back to a higher value](#migrate-dns-change-ttl-back "#migrate-dns-change-ttl-back").
 
@@ -291,12 +277,9 @@ DNS resolvers to send a query for the name servers for your domain.
 ## Step 10: Transfer domain registration to Amazon Route 53
 
 Now that you've transferred DNS service for a domain to Amazon Route 53, you can optionally transfer registration for the domain
-to Route 53. For more information, see [Transferring registration for a domain to
-Amazon Route 53](domain-transfer-to-route-53.md "domain-transfer-to-route-53.md").
+to Route 53. For more information, see [Transferring registration for a domain to Amazon Route 53](domain-transfer-to-route-53.md "domain-transfer-to-route-53.md").
 
-## Step 11: Re-enable DNSSEC signing (if
-
-required)
+## Step 11: Re-enable DNSSEC signing (if required)
 
 Now that you've transferred DNS service for a domain to Amazon Route 53, you can re-enable DNSSEC signing.
 
@@ -308,6 +291,4 @@ Enabling DNSSEC signing has two steps:
   to the parent zone, so DNS responses can be authenticated with trusted cryptographic
   signatures.
 
-For instructions, see [Enabling DNSSEC signing and
-establishing a chain of
-trust](dns-configuring-dnssec-enable-signing.md "dns-configuring-dnssec-enable-signing.md").
+For instructions, see [Enabling DNSSEC signing and establishing a chain of trust](dns-configuring-dnssec-enable-signing.md "dns-configuring-dnssec-enable-signing.md").

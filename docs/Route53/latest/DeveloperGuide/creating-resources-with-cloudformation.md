@@ -1,6 +1,4 @@
-# Creating Amazon Route 53 and Route 53 VPC Resolver
-
-resources with AWS CloudFormation
+# Creating Amazon Route 53 and Route 53 VPC Resolver resources with AWS CloudFormation
 
 Amazon Route 53 and Route 53 VPC Resolver are integrated with AWS CloudFormation, a service that helps you to model
 and set up your AWS resources so that you can spend less time creating and managing your
@@ -50,16 +48,12 @@ For more information, including examples of JSON and YAML templates for VPC Reso
 resources, see the [Route 53 VPC Resolver
 resource type reference](../../../AWSCloudFormation/latest/UserGuide/AWS_Route53Resolver.md "../../../AWSCloudFormation/latest/UserGuide/AWS_Route53Resolver.md") in the _AWS CloudFormation User Guide_.
 
-## Best practices for Route 53 and
-
-CloudFormation
+## Best practices for Route 53 and CloudFormation
 
 When using CloudFormation to manage Route 53 resources, follow these best practices to avoid
 common issues and ensure reliable deployments.
 
-### Understanding eventual
-
-consistency
+### Understanding eventual consistency
 
 Route 53 uses an eventually consistent model for DNS changes. This can affect CloudFormation
 operations, particularly during rollbacks and rapid successive changes.
@@ -85,9 +79,7 @@ To minimize issues related to eventual consistency:
 - **Have rollback procedures ready** - Prepare
   manual recovery procedures in case automatic rollbacks fail
 
-### DNS record ordering and
-
-logical IDs
+### DNS record ordering and logical IDs
 
 When creating multiple DNS records in CloudFormation, be careful about record ordering and
 logical ID assignment.
@@ -117,9 +109,7 @@ Best practices for DNS record management:
   For more information, see [Updating stacks using change sets](../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.md") in the
   _AWS CloudFormation User Guide_.
 
-### Handling rollback
-
-failures
+### Handling rollback failures
 
 If a CloudFormation rollback fails due to DNS-related issues, you might need to perform
 manual recovery.

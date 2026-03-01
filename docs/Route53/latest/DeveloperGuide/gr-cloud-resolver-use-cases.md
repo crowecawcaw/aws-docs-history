@@ -1,6 +1,4 @@
-# DNS security and split-horizon use cases for
-
-Route 53 Global Resolver
+# DNS security and split-horizon use cases for Route 53 Global Resolver
 
 Route 53 Global Resolver addresses three primary DNS challenges for organizations:
 

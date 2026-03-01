@@ -1,6 +1,4 @@
-# Managing inbound endpoints on
-
-Resolver on Outpost
+# Managing inbound endpoints on Resolver on Outpost
 
 To manage inbound endpoints on Resolver on Outpost, perform the applicable procedure.
 
@@ -30,8 +28,7 @@ procedure.
 6. Choose **View details** or
    **Edit**.
 
-For information about the values for inbound endpoints, see [Values that you specify when you create or edit outbound endpoints in an
-AWS Outposts](outpost-resolver-add-outbound-endpoints.md#resolver-forwarding-outbound-queries-endpoint-values-outpost "outpost-resolver-add-outbound-endpoints.md#resolver-forwarding-outbound-queries-endpoint-values-outpost"). 7. If you chose **Edit**, enter the applicable values, and
+For information about the values for inbound endpoints, see [Values that you specify when you create or edit outbound endpoints in an AWS Outposts](outpost-resolver-add-outbound-endpoints.md#resolver-forwarding-outbound-queries-endpoint-values-outpost "outpost-resolver-add-outbound-endpoints.md#resolver-forwarding-outbound-queries-endpoint-values-outpost"). 7. If you chose **Edit**, enter the applicable values, and
 choose **Save**.
 
 ## Viewing the status for inbound endpoints

@@ -1,6 +1,4 @@
-# Basic examples for
-
-Route 53 domain registration using AWS SDKs
+# Basic examples for Route 53 domain registration using AWS SDKs
 
 The following code examples show how to use the basics of Amazon Route 53 domain registration with AWS
 SDKs.

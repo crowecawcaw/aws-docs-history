@@ -41,14 +41,10 @@ following Route 53 actions:
 - [Quotas on records](#limits-api-entities-records "#limits-api-entities-records")
 - [Quotas on Route 53 VPC Resolver](#limits-api-entities-resolver "#limits-api-entities-resolver")
 - [Quotas on health checks](#limits-api-entities-health-checks "#limits-api-entities-health-checks")
-- [Quotas on query log
-  configurations](#limits-api-entities-query-log-configs "#limits-api-entities-query-log-configs")
-- [Quotas on traffic flow policies
-  and policy records](#limits-api-entities-traffic-flow "#limits-api-entities-traffic-flow")
-- [Quotas on reusable
-  delegation sets](#limits-api-entities-reusable-delegation-sets "#limits-api-entities-reusable-delegation-sets")
-- [Quotas on
-  Route 53 Profiles](#limits-api-entities-route53-profiles "#limits-api-entities-route53-profiles")
+- [Quotas on query log configurations](#limits-api-entities-query-log-configs "#limits-api-entities-query-log-configs")
+- [Quotas on traffic flow policies and policy records](#limits-api-entities-traffic-flow "#limits-api-entities-traffic-flow")
+- [Quotas on reusable delegation sets](#limits-api-entities-reusable-delegation-sets "#limits-api-entities-reusable-delegation-sets")
+- [Quotas on Route 53 Profiles](#limits-api-entities-route53-profiles "#limits-api-entities-route53-profiles")
 
 ### Quotas on domains
 
@@ -103,18 +99,16 @@ Use the following procedure to increase quotas for Route 53 VPC Resolver.
 3. Select the Route 53 VPC Resolver **Quota name** you want to increase.
 4. Select **Request quota increase**, enter the quota value, and then select **Request**.
 
-#### Quotas on Route 53 VPC Resolver
+#### Quotas on Route 53 VPC Resolver endpoints
 
-endpoints
-
-| Entity                                               | Quota                                                                                                       |
-| ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| Endpoints per AWS Region                             | 4 per AWS account<br>[Request a<br>higher quota](#increase-quota-procedure "#increase-quota-procedure").    |
-| IP addresses per endpoint                            | 6<br>[Request a<br>higher quota](#increase-quota-procedure "#increase-quota-procedure").                    |
-| IP addresses per rule                                | 6                                                                                                           |
-| Rules per AWS Region                                 | 1000 per AWS account<br>[Request a<br>higher quota](#increase-quota-procedure "#increase-quota-procedure"). |
-| Associations between rules and VPCs per AWS Region   | 2000 per AWS account<br>[Request a<br>higher quota](#increase-quota-procedure "#increase-quota-procedure"). |
-| UDP Queries per second per IP address in an endpoint | 10,000\*                                                                                                    |
+| Entity                                               | Quota                                                                                                                                                                                                                    |
+| ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Endpoints per AWS Region                             | 4 per AWS account<br>[Request a higher quota](https://console.aws.amazon.com/servicequotas/home/services/route53resolver/quotas "https://console.aws.amazon.com/servicequotas/home/services/route53resolver/quotas").    |
+| IP addresses per endpoint                            | 6<br>[Request a higher quota](https://console.aws.amazon.com/servicequotas/home/services/route53resolver/quotas "https://console.aws.amazon.com/servicequotas/home/services/route53resolver/quotas").                    |
+| IP addresses per rule                                | 6                                                                                                                                                                                                                        |
+| Rules per AWS Region                                 | 1000 per AWS account<br>[Request a higher quota](https://console.aws.amazon.com/servicequotas/home/services/route53resolver/quotas "https://console.aws.amazon.com/servicequotas/home/services/route53resolver/quotas"). |
+| Associations between rules and VPCs per AWS Region   | 2000 per AWS account<br>[Request a higher quota](https://console.aws.amazon.com/servicequotas/home/services/route53resolver/quotas "https://console.aws.amazon.com/servicequotas/home/services/route53resolver/quotas"). |
+| UDP Queries per second per IP address in an endpoint | 10,000\*                                                                                                                                                                                                                 |
 
 **\*** Each IP address in an endpoint can process up to 10,000
 UDP DNS queries per second (QPS). The number of DNS QPS varies by the type of
@@ -138,9 +132,7 @@ if the security group configuration does not otherwise require tracking.
 If the connection tracking is enforced either by using restrictive security group rules or queries are routed through Network Load Balancer,
 the overall maximum queries per second per IP address for an inbound endpoint can be as low as 1500.
 
-#### Quotas on Route 53 VPC Resolver
-
-query logs
+#### Quotas on Route 53 VPC Resolver query logs
 
 | Entity                                                                                                                                                                                | Quota                                                                                                                                                                                                                                |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -153,9 +145,7 @@ across all VPC Resolver query log configurations within a single Region. Creatin
 additional query log configurations in the same Region does not provide
 additional VPC association capacity.
 
-#### Quotas on
-
-Resolver DNS Firewall
+#### Quotas on Resolver DNS Firewall
 
 | Entity                                                                                                                      | Quota                                                                                                                                                                                                                                             |
 | --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -166,9 +156,7 @@ Resolver DNS Firewall
 | Number of domain lists for a single account per AWS Region                                                                  | 1000<br>[Request a higher quota](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53resolver/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53resolver/quotas").    |
 | The maximum number of domains that you can specify across<br>all of the domain lists for a single account per AWS<br>Region | 100,000<br>[Request a higher quota](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53resolver/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53resolver/quotas"). |
 
-#### Quotas on
-
-Resolver on Outpost
+#### Quotas on Resolver on Outpost
 
 | Entity                             | Quota                            |
 | ---------------------------------- | -------------------------------- |
@@ -242,17 +230,13 @@ DNS queries per second each instance type can accommodate:**
 | Child health checks that a calculated health check can<br>monitor            | 255                                                                                                                                                                                                                                                                |
 | Maximum total length of headers in the response to a health<br>check request | 16,384 bytes (16K)                                                                                                                                                                                                                                                 |
 
-### Quotas on query log
-
-configurations
+### Quotas on query log configurations
 
 | Entity                   | Quota             |
 | ------------------------ | ----------------- |
 | Query log configurations | 1 per hosted zone |
 
-### Quotas on traffic flow policies
-
-and policy records
+### Quotas on traffic flow policies and policy records
 
 | Entity                                                                                                                                                        | Quota                                                                                                                                                                                                                                        |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -260,17 +244,13 @@ and policy records
 | Traffic policy versions                                                                                                                                       | 1,000 per traffic policy                                                                                                                                                                                                                     |
 | Traffic policy records (referred to as "policy instances" in<br>the Route 53 API, AWS SDKs, AWS Command Line Interface, and AWS Tools for Windows PowerShell) | 5 per AWS account<br>[Request a higher quota](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53/quotas").  |
 
-### Quotas on reusable
-
-delegation sets
+### Quotas on reusable delegation sets
 
 | Entity                   | Quota                                                                                                                                                                                                                                         |
 | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Reusable delegation sets | 100 per AWS account<br>[Request a higher quota](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53/quotas"). |
 
-### Quotas on
-
-Route 53 Profiles
+### Quotas on Route 53 Profiles
 
 | Entity                                                             | Quota                                                                                                                                                                                                                          |
 | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -287,14 +267,11 @@ Amazon Route 53 API requests are subject to the following maximums.
 
 ###### Topics
 
-- [Number of elements and characters in
-  ChangeResourceRecordSets requests](#limits-api-requests-changeresourcerecordsets "#limits-api-requests-changeresourcerecordsets")
+- [Number of elements and characters in ChangeResourceRecordSets requests](#limits-api-requests-changeresourcerecordsets "#limits-api-requests-changeresourcerecordsets")
 - [Frequency of Amazon Route 53 API requests](#limits-api-requests-route-53 "#limits-api-requests-route-53")
 - [Frequency of Route 53 VPC Resolver API requests](#limits-api-requests-route-53-resolver "#limits-api-requests-route-53-resolver")
 
-### Number of elements and characters in
-
-`ChangeResourceRecordSets` requests
+### Number of elements and characters in `ChangeResourceRecordSets` requests
 
 **`ResourceRecord` elements**
 A request cannot contain more than 1,000 `ResourceRecord` elements (including alias

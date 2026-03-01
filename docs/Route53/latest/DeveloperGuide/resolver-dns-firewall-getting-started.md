@@ -1,6 +1,4 @@
-# Getting started with
-
-Resolver DNS Firewall
+# Getting started with Resolver DNS Firewall
 
 The DNS Firewall console includes a wizard that guides you through the following steps for
 getting started with DNS Firewall:
@@ -10,9 +8,7 @@ getting started with DNS Firewall:
   create your own domain lists and you can use AWS managed domain lists.
 - Associate your rule groups with the VPCs where you want to use them.
 
-## Resolver DNS Firewall walled garden
-
-example
+## Resolver DNS Firewall walled garden example
 
 In this tutorial, you'll create a rule group that blocks all but a select group of
 domains that you trust. This is called a closed platform, or walled garden
@@ -75,8 +71,7 @@ has a lower priority.
 
 You now have a rule group that allows only specific domain queries through. To
 begin using it, you associate it with the VPCs where you want to use the filtering
-behavior. For more information, see [Managing
-associations between your VPC and Resolver DNS Firewall rule group](resolver-dns-firewall-vpc-associating-rule-group.md "resolver-dns-firewall-vpc-associating-rule-group.md").
+behavior. For more information, see [Managing associations between your VPC and Resolver DNS Firewall rule group](resolver-dns-firewall-vpc-associating-rule-group.md "resolver-dns-firewall-vpc-associating-rule-group.md").
 
 ## Resolver DNS Firewall block list example
 
@@ -146,5 +141,4 @@ rule has a lower priority than **BlockList**.
 
 You now have a rule group that blocks specific malicious domain queries, but
 allows a specific DNS query type. To begin using it, you associate it with the VPCs
-where you want to use the filtering behavior. For more information, see [Managing
-associations between your VPC and Resolver DNS Firewall rule group](resolver-dns-firewall-vpc-associating-rule-group.md "resolver-dns-firewall-vpc-associating-rule-group.md").
+where you want to use the filtering behavior. For more information, see [Managing associations between your VPC and Resolver DNS Firewall rule group](resolver-dns-firewall-vpc-associating-rule-group.md "resolver-dns-firewall-vpc-associating-rule-group.md").

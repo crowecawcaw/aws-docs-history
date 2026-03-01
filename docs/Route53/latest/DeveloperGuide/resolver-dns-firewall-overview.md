@@ -14,9 +14,7 @@ address to be blocked. Additionally, DNS Firewall filters DNS traffic, but it
 doesn't filter other application layer protocols, such as HTTPS, SSH, TLS, FTP, and so
 on.
 
-## Resolver DNS Firewall components and
-
-settings
+## Resolver DNS Firewall components and settings
 
 You manage DNS Firewall with the following central components and settings.
 
@@ -34,8 +32,7 @@ their processing order through the priority setting in each association.
 DNS Firewall processes rule groups for a VPC from the lowest numeric
 priority setting on up.
 
-For more information, see [DNS Firewall rule groups and
-rules](resolver-dns-firewall-rule-groups.md "resolver-dns-firewall-rule-groups.md").
+For more information, see [DNS Firewall rule groups and rules](resolver-dns-firewall-rule-groups.md "resolver-dns-firewall-rule-groups.md").
 
 **DNS Firewall rule**
 
@@ -59,8 +56,7 @@ DNS Firewall rules exist only in the context of the rule group in which
 they're defined. You can't reuse a rule or reference it independent of
 its rule group.
 
-For more information, see [DNS Firewall rule groups and
-rules](resolver-dns-firewall-rule-groups.md "resolver-dns-firewall-rule-groups.md").
+For more information, see [DNS Firewall rule groups and rules](resolver-dns-firewall-rule-groups.md "resolver-dns-firewall-rule-groups.md").
 
 **Domain list**
 
@@ -85,8 +81,7 @@ If you choose to inspect the entire DNS redirection chain, you must add
 the subsequent domains to a domain list and set to the action you want
 the rule to take, either ALLOW, BLOCK, or ALERT.
 
-For more information, see [Rule settings in
-DNS Firewall](resolver-dns-firewall-rule-settings.md "resolver-dns-firewall-rule-settings.md").
+For more information, see [Rule settings in DNS Firewall](resolver-dns-firewall-rule-settings.md "resolver-dns-firewall-rule-settings.md").
 
 **Query type (Domain lists only)**
 
@@ -97,8 +92,7 @@ DNS query types. For example, you might want to block all the query
 types for a particular
 domain, but allow MX records.
 
-For more information, see [Rule settings in
-DNS Firewall](resolver-dns-firewall-rule-settings.md "resolver-dns-firewall-rule-settings.md").
+For more information, see [Rule settings in DNS Firewall](resolver-dns-firewall-rule-settings.md "resolver-dns-firewall-rule-settings.md").
 
 **DNS Firewall Advanced protection**
 
@@ -143,8 +137,7 @@ confidence level values mean:
 - Low – Provides the highest detection rate for threats,
   but also increases false positives.
 
-For more information, see [Rule settings in
-DNS Firewall](resolver-dns-firewall-rule-settings.md "resolver-dns-firewall-rule-settings.md").
+For more information, see [Rule settings in DNS Firewall](resolver-dns-firewall-rule-settings.md "resolver-dns-firewall-rule-settings.md").
 
 **Association between a DNS Firewall rule group and a VPC**
 
@@ -156,8 +149,7 @@ their processing order through the priority setting in the associations.
 DNS Firewall processes rule groups for a VPC from the lowest numeric
 priority setting on up.
 
-For more information, see [Enabling Resolver DNS Firewall
-protections for your VPC](resolver-dns-firewall-vpc-protections.md "resolver-dns-firewall-vpc-protections.md").
+For more information, see [Enabling Resolver DNS Firewall protections for your VPC](resolver-dns-firewall-vpc-protections.md "resolver-dns-firewall-vpc-protections.md").
 
 **DNS Firewall configuration for a VPC**
 
@@ -170,8 +162,7 @@ DNS Firewall fails to filter them. By default, if VPC Resolver doesn't receive a
 response from DNS Firewall for a query, it fails closed and blocks the
 query.
 
-For more information, see [DNS Firewall VPC
-configuration](resolver-dns-firewall-vpc-configuration.md "resolver-dns-firewall-vpc-configuration.md").
+For more information, see [DNS Firewall VPC configuration](resolver-dns-firewall-vpc-configuration.md "resolver-dns-firewall-vpc-configuration.md").
 
 **Monitoring DNS Firewall actions**
 
@@ -180,8 +171,7 @@ filtered by DNS Firewall rule groups.
 CloudWatch collects and processes raw data into readable, near real-time
 metrics.
 
-For more information, see [Monitoring Resolver DNS Firewall rule
-groups with Amazon CloudWatch](monitoring-resolver-dns-firewall-with-cloudwatch.md "monitoring-resolver-dns-firewall-with-cloudwatch.md").
+For more information, see [Monitoring Resolver DNS Firewall rule groups with Amazon CloudWatch](monitoring-resolver-dns-firewall-with-cloudwatch.md "monitoring-resolver-dns-firewall-with-cloudwatch.md").
 
 You can use Amazon EventBridge, a serverless service that uses events to connect
 application components together,
@@ -189,9 +179,7 @@ to build scalable event-driven applications.
 
 For more information, see [Managing Resolver DNS Firewall events using Amazon EventBridge](dns-firewall-eventbridge-integration.md "dns-firewall-eventbridge-integration.md").
 
-## How Resolver DNS Firewall filters DNS
-
-queries
+## How Resolver DNS Firewall filters DNS queries
 
 When a DNS Firewall rule group is associated with your VPC's Route 53 VPC Resolver, the following
 traffic is filtered by the firewall:
@@ -208,32 +196,25 @@ VPC Resolver:
   with the VPC until it finds a match or exhausts all of the rule groups.
   DNS Firewall evaluates the rule groups in order of the priority that you set in
   the association, starting with the lowest numeric setting. For more
-  information, see [DNS Firewall rule groups and
-  rules](resolver-dns-firewall-rule-groups.md "resolver-dns-firewall-rule-groups.md") and [Enabling Resolver DNS Firewall
-  protections for your VPC](resolver-dns-firewall-vpc-protections.md "resolver-dns-firewall-vpc-protections.md").
+  information, see [DNS Firewall rule groups and rules](resolver-dns-firewall-rule-groups.md "resolver-dns-firewall-rule-groups.md") and [Enabling Resolver DNS Firewall protections for your VPC](resolver-dns-firewall-vpc-protections.md "resolver-dns-firewall-vpc-protections.md").
 - Within each rule group, DNS Firewall evaluates the DNS query against each
   rule's domain list or DNS Firewall Advanced protections until it finds a match or
   exhausts all rules. DNS Firewall evaluates the rules in order of priority,
-  starting with the lowest numeric setting. For more information, see [DNS Firewall rule groups and
-  rules](resolver-dns-firewall-rule-groups.md "resolver-dns-firewall-rule-groups.md").
+  starting with the lowest numeric setting. For more information, see [DNS Firewall rule groups and rules](resolver-dns-firewall-rule-groups.md "resolver-dns-firewall-rule-groups.md").
 - When DNS Firewall finds a match with a rule's domain list, or anomalies
   identified by DNS Firewall Advanced rule protections, it terminates the query evaluation
   and responds to VPC Resolver with the result. If the action is `alert`,
   DNS Firewall also sends an alert to the configured VPC Resolver logs. For more
-  information, see [Rule actions in
-  DNS Firewall](resolver-dns-firewall-rule-actions.md "resolver-dns-firewall-rule-actions.md"), [Resolver DNS Firewall domain lists](resolver-dns-firewall-domain-lists.md "resolver-dns-firewall-domain-lists.md"), and [Resolver DNS Firewall Advanced](firewall-advanced.md "firewall-advanced.md").
+  information, see [Rule actions in DNS Firewall](resolver-dns-firewall-rule-actions.md "resolver-dns-firewall-rule-actions.md"), [Resolver DNS Firewall domain lists](resolver-dns-firewall-domain-lists.md "resolver-dns-firewall-domain-lists.md"), and [Resolver DNS Firewall Advanced](firewall-advanced.md "firewall-advanced.md").
 - If DNS Firewall evaluates all rule groups without finding a match, it responds
   to the query
   as normal.
 
 VPC Resolver routes the query according to the response from DNS Firewall. In the unlikely
 event that DNS Firewall fails to respond, VPC Resolver applies the VPC's configured DNS Firewall
-fail mode. For more information, see [DNS Firewall VPC
-configuration](resolver-dns-firewall-vpc-configuration.md "resolver-dns-firewall-vpc-configuration.md").
+fail mode. For more information, see [DNS Firewall VPC configuration](resolver-dns-firewall-vpc-configuration.md "resolver-dns-firewall-vpc-configuration.md").
 
-## High-level steps for using
-
-Resolver DNS Firewall
+## High-level steps for using Resolver DNS Firewall
 
 To implement Resolver DNS Firewall filtering in your Amazon Virtual Private Cloud VPC, you perform the
 following high-level steps.
@@ -257,36 +238,29 @@ following high-level steps.
   create a rule group in each Region where you want to use it. You might also
   want to separate your filtering behavior into more than one rule group for
   reusability in multiple filtering scenarios for your different VPCs. For
-  information about rule groups, see [DNS Firewall rule groups and
-  rules](resolver-dns-firewall-rule-groups.md "resolver-dns-firewall-rule-groups.md").
+  information about rule groups, see [DNS Firewall rule groups and rules](resolver-dns-firewall-rule-groups.md "resolver-dns-firewall-rule-groups.md").
 - **Add and configure your rules** – Add
   a rule to your rule group for each domain list and filtering behavior that
   you want the rule group to provide. Set the priority settings for your rules
   so they process in the correct order within the rule group, giving the
   lowest priority to the rule that you want to evaluate first. For information
-  about rules, see [DNS Firewall rule groups and
-  rules](resolver-dns-firewall-rule-groups.md "resolver-dns-firewall-rule-groups.md").
+  about rules, see [DNS Firewall rule groups and rules](resolver-dns-firewall-rule-groups.md "resolver-dns-firewall-rule-groups.md").
 - **Associate the rule group to your VPC**
   – To begin using your DNS Firewall rule group, associate it with your
   VPC. If you are using more than one rule group for your VPC, set the
   priority of each association so the rule groups are processed in the correct
   order, giving the lowest priority to the rule group that you want to
-  evaluate first. For more information, see [Managing
-  associations between your VPC and Resolver DNS Firewall rule group](resolver-dns-firewall-vpc-associating-rule-group.md "resolver-dns-firewall-vpc-associating-rule-group.md").
+  evaluate first. For more information, see [Managing associations between your VPC and Resolver DNS Firewall rule group](resolver-dns-firewall-vpc-associating-rule-group.md "resolver-dns-firewall-vpc-associating-rule-group.md").
 - **(Optional) Change the firewall configuration for the
   VPC** – If you want Route 53 VPC Resolver to block queries when
   DNS Firewall fails to send a response back for them, in VPC Resolver, change the VPC's
-  DNS Firewall configuration. For more information, see [DNS Firewall VPC
-  configuration](resolver-dns-firewall-vpc-configuration.md "resolver-dns-firewall-vpc-configuration.md").
+  DNS Firewall configuration. For more information, see [DNS Firewall VPC configuration](resolver-dns-firewall-vpc-configuration.md "resolver-dns-firewall-vpc-configuration.md").
 
-## Using Resolver DNS Firewall rule
-
-groups in multiple Regions
+## Using Resolver DNS Firewall rule groups in multiple Regions
 
 Resolver DNS Firewall is a Regional service, so objects that you create in one AWS Region
 are available only in that Region. To use the same rule group in more than one
 Region, you must create it in each Region.
 
 The AWS account that created a rule group can share it with other AWS
-accounts. For more information, see [Sharing Resolver DNS Firewall rule
-groups between AWS accounts](resolver-dns-firewall-rule-group-sharing.md "resolver-dns-firewall-rule-group-sharing.md").
+accounts. For more information, see [Sharing Resolver DNS Firewall rule groups between AWS accounts](resolver-dns-firewall-rule-group-sharing.md "resolver-dns-firewall-rule-group-sharing.md").

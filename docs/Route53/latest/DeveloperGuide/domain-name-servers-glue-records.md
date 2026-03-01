@@ -1,6 +1,4 @@
-# Adding or changing name servers and
-
-glue records for a domain
+# Adding or changing name servers and glue records for a domain
 
 When you register a domain with Route 53, we automatically create a hosted zone for the
 domain, assign four name servers to the hosted zone, and then update the domain
@@ -19,14 +17,10 @@ days.
 
 ###### Topics
 
-- [Considerations for
-  changing name servers and glue records](#domain-name-servers-glue-records-considerations "#domain-name-servers-glue-records-considerations")
-- [Adding or
-  changing name servers or glue records](#domain-name-servers-glue-records-adding-changing "#domain-name-servers-glue-records-adding-changing")
+- [Considerations for changing name servers and glue records](#domain-name-servers-glue-records-considerations "#domain-name-servers-glue-records-considerations")
+- [Adding or changing name servers or glue records](#domain-name-servers-glue-records-adding-changing "#domain-name-servers-glue-records-adding-changing")
 
-## Considerations for
-
-changing name servers and glue records
+## Considerations for changing name servers and glue records
 
 Consider the following issues before you change your configuration.
 
@@ -110,9 +104,7 @@ the old name servers.
 For information about getting help from AWS to correct the names of
 your name servers with the registry for .it domains, see [Contacting AWS Support about domain registration issues](domain-contact-support.md "domain-contact-support.md").
 
-## Adding or
-
-changing name servers or glue records
+## Adding or changing name servers or glue records
 
 To add or change name servers or glue records, perform the following
 procedure.
@@ -123,12 +115,9 @@ By default, DNS resolvers typically cache the names of name servers for two
 days. As a result, your changes can take two days to take effect. For more
 information, see [How Amazon Route 53 routes traffic for your domain](welcome-dns-service.md#welcome-dns-service-how-route-53-routes-traffic "welcome-dns-service.md#welcome-dns-service-how-route-53-routes-traffic").
 
-###### To add
+###### To add or change name servers or glue records for a domain
 
-or change name servers or glue records for a domain
-
-1.  Review [Considerations for
-    changing name servers and glue records](#domain-name-servers-glue-records-considerations "#domain-name-servers-glue-records-considerations") and
+1.  Review [Considerations for changing name servers and glue records](#domain-name-servers-glue-records-considerations "#domain-name-servers-glue-records-considerations") and
     address the applicable issues, if any.
 2.  Sign in to the AWS Management Console and open the Route 53 console at
     [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").

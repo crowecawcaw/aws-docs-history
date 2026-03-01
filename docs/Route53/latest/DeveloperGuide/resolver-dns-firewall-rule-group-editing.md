@@ -1,6 +1,4 @@
-# Viewing and updating
-
-a rule group and rules
+# Viewing and updating a rule group and rules
 
 Use the following procedure to view the rule groups and the rules assigned to
 them. You can also update the rule group and rule settings.
@@ -24,8 +22,6 @@ choose **Rule
 groups**. 3. On the navigation bar, choose the Region for the rule group. 4. Select the rule group that you want to view or edit, then choose **View
 details**. 5. In the rule group's page, you can view and edit settings.
 
-For information about the values for rule groups, see [Rule group settings in
-DNS Firewall](resolver-dns-firewall-rule-group-settings.md "resolver-dns-firewall-rule-group-settings.md").
+For information about the values for rule groups, see [Rule group settings in DNS Firewall](resolver-dns-firewall-rule-group-settings.md "resolver-dns-firewall-rule-group-settings.md").
 
-For information about the values for rules, see [Rule settings in
-DNS Firewall](resolver-dns-firewall-rule-settings.md "resolver-dns-firewall-rule-settings.md").
+For information about the values for rules, see [Rule settings in DNS Firewall](resolver-dns-firewall-rule-settings.md "resolver-dns-firewall-rule-settings.md").

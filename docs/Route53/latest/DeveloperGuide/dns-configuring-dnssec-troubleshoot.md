@@ -28,12 +28,10 @@ un-resolvable.
 
 To correct the problem, make sure that the customer managed key that your KSK is based on is enabled and has the
 correct permissions. For more information about the required permissions, see
-[Route 53 customer managed key permissions required
-for DNSSEC signing](access-control-managing-permissions.md#KMS-key-policy-for-DNSSEC "access-control-managing-permissions.md#KMS-key-policy-for-DNSSEC").
+[Route 53 customer managed key permissions required for DNSSEC signing](access-control-managing-permissions.md#KMS-key-policy-for-DNSSEC "access-control-managing-permissions.md#KMS-key-policy-for-DNSSEC").
 
 After you have fixed the KSK, activate it again by using the console or the AWS CLI, as
-described in [Step 2: Enable DNSSEC signing and
-create a KSK](dns-configuring-dnssec-enable-signing.md#dns-configuring-dnssec-enable "dns-configuring-dnssec-enable-signing.md#dns-configuring-dnssec-enable").
+described in [Step 2: Enable DNSSEC signing and create a KSK](dns-configuring-dnssec-enable-signing.md#dns-configuring-dnssec-enable "dns-configuring-dnssec-enable-signing.md#dns-configuring-dnssec-enable").
 
 To prevent this issue in the future,
 consider adding an Amazon CloudWatch metric to track the state of the KSK as suggested in [Configuring DNSSEC signing in Amazon Route 53](dns-configuring-dnssec.md "dns-configuring-dnssec.md").

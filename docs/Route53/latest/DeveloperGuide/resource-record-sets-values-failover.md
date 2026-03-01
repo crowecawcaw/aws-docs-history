@@ -1,6 +1,4 @@
-# Values specific for failover
-
-records
+# Values specific for failover records
 
 When you create failover records, you specify the following values.
 
@@ -16,8 +14,7 @@ For information about creating failover records in a private hosted zone, see [C
 - [TTL (seconds)](#rrsets-values-failover-ttl "#rrsets-values-failover-ttl")
 - [Value/Route traffic to](#rrsets-values-failover-value "#rrsets-values-failover-value")
 - [Failover record type](#rrsets-values-failover-record-type "#rrsets-values-failover-record-type")
-- [Health
-  check](#rrsets-values-failover-associate-with-health-check "#rrsets-values-failover-associate-with-health-check")
+- [Health check](#rrsets-values-failover-associate-with-health-check "#rrsets-values-failover-associate-with-health-check")
 - [Record ID](#rrsets-values-failover-set-id "#rrsets-values-failover-set-id")
 
 ## Routing policy
@@ -93,9 +90,7 @@ must create one primary and one secondary failover record.
 You can't create non-failover records that have the same values for **Record
 name** and **Record type** as failover records.
 
-## Health
-
-check
+## Health check
 
 Select a health check if you want Route 53 to check the health of a specified endpoint
 and to respond to DNS queries using this record only when the endpoint is healthy.
@@ -104,8 +99,7 @@ Route 53 doesn't check the health of the endpoint specified in the record, for 
 the endpoint specified by the IP address in the **Value** field. When
 you select a health check for a record, Route 53 checks the health of the endpoint that you
 specified in the health check. For information about how Route 53 determines whether an
-endpoint is healthy, see [How Amazon Route 53 determines
-whether a health check is healthy](dns-failover-determining-health-of-endpoints.md "dns-failover-determining-health-of-endpoints.md").
+endpoint is healthy, see [How Amazon Route 53 determines whether a health check is healthy](dns-failover-determining-health-of-endpoints.md "dns-failover-determining-health-of-endpoints.md").
 
 Associating a health check with a record is useful only when Route 53 is choosing between
 two or more records to respond to a DNS query, and you want Route 53 to base the choice in

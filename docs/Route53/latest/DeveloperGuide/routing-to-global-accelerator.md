@@ -33,16 +33,12 @@ To get started, you need the following:
 For information about using Route 53 as the DNS service provider for your
 domain, see [Making Amazon Route 53 the DNS service for an existing domain](MigratingDNS.md "MigratingDNS.md").
 
-## Configuring Amazon Route 53 to route
-
-traffic to an accelerator
+## Configuring Amazon Route 53 to route traffic to an accelerator
 
 To configure Amazon Route 53 to route traffic to an accelerator, perform the following
 procedure.
 
-###### To route traffic to an
-
-accelerator
+###### To route traffic to an accelerator
 
 1. Open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").

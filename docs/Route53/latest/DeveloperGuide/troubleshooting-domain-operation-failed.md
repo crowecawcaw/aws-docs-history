@@ -1,12 +1,8 @@
-# My domain
-
-operation failed
+# My domain operation failed
 
 Here are some troubleshooting tips if your domain operation fails. Operations can be registration, transfer, renewal, or contact update.
 
-## Domain
-
-operation failed due to invalid contact information
+## Domain operation failed due to invalid contact information
 
 If a domain operation fails with an error about invalid contact information, the contact details that you provided don't meet the registry's validation requirements.
 

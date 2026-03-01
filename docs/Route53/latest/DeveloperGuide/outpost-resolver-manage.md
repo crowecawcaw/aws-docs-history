@@ -12,9 +12,7 @@ To manage Resolver on Outpost, perform the applicable procedure.
 
 To edit a Resolver on Outpost, perform the following procedure.
 
-###### To edit a
-
-Resolver on Outpost
+###### To edit a Resolver on Outpost
 
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
@@ -36,9 +34,7 @@ Resolver on Outpost
 
 To view the status for Resolver on Outpost, perform the following procedure.
 
-###### To view the status for
-
-an inbound endpoint
+###### To view the status for an inbound endpoint
 
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").

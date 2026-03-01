@@ -14,11 +14,7 @@ With simple routing policy, although you can specify multiple IP addresses, thes
 
 For information about values that you specify when you use the simple routing policy to create records, see the following topics:
 
-- [Values specific for simple
-  records](resource-record-sets-values-basic.md "resource-record-sets-values-basic.md")
-- [Values specific for simple alias
-  records](resource-record-sets-values-alias.md "resource-record-sets-values-alias.md")
-- [Values that are common for all routing
-  policies](resource-record-sets-values-shared.md "resource-record-sets-values-shared.md")
-- [Values that are common for
-  alias records for all routing policies](resource-record-sets-values-alias-common.md "resource-record-sets-values-alias-common.md")
+- [Values specific for simple records](resource-record-sets-values-basic.md "resource-record-sets-values-basic.md")
+- [Values specific for simple alias records](resource-record-sets-values-alias.md "resource-record-sets-values-alias.md")
+- [Values that are common for all routing policies](resource-record-sets-values-shared.md "resource-record-sets-values-shared.md")
+- [Values that are common for alias records for all routing policies](resource-record-sets-values-alias-common.md "resource-record-sets-values-alias-common.md")

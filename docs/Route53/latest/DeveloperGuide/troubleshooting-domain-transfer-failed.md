@@ -1,6 +1,4 @@
-# Transferring my domain to
-
-Amazon Route 53 failed
+# Transferring my domain to Amazon Route 53 failed
 
 If your domain transfer has already failed or been rejected, use this section to
 diagnose and resolve the failure.
@@ -11,19 +9,13 @@ For preventing issues during active transfers, see [Preventing common Route 53 
 
 ###### Topics
 
-- [You didn't click
-  the link in the authorization email](#troubleshooting-domain-transfer-failed-click-link "#troubleshooting-domain-transfer-failed-click-link")
+- [You didn't click the link in the authorization email](#troubleshooting-domain-transfer-failed-click-link "#troubleshooting-domain-transfer-failed-click-link")
 - [The authorization code that you got from the current registrar is not valid](#troubleshooting-domain-transfer-failed-authorization-code-invalid "#troubleshooting-domain-transfer-failed-authorization-code-invalid")
-- ["Parameters in request are not valid" error when trying to transfer a .es
-  domain to Amazon Route 53](#troubleshooting-domain-transfer-failed-parameters-in-request-are-not-valid "#troubleshooting-domain-transfer-failed-parameters-in-request-are-not-valid")
-- [Is the internationalized domain name you're transferring to Amazon Route 53 listed in
-  punycode?](#troubleshooting-domain-transfer-failed-internationalized-domain-names "#troubleshooting-domain-transfer-failed-internationalized-domain-names")
-- [Common transfer
-  error messages](#troubleshooting-domain-transfer-error-messages "#troubleshooting-domain-transfer-error-messages")
+- ["Parameters in request are not valid" error when trying to transfer a .es domain to Amazon Route 53](#troubleshooting-domain-transfer-failed-parameters-in-request-are-not-valid "#troubleshooting-domain-transfer-failed-parameters-in-request-are-not-valid")
+- [Is the internationalized domain name you're transferring to Amazon Route 53 listed in punycode?](#troubleshooting-domain-transfer-failed-internationalized-domain-names "#troubleshooting-domain-transfer-failed-internationalized-domain-names")
+- [Common transfer error messages](#troubleshooting-domain-transfer-error-messages "#troubleshooting-domain-transfer-error-messages")
 
-## You didn't click
-
-the link in the authorization email
+## You didn't click the link in the authorization email
 
 When you transfer domain registration to Amazon Route 53, we're required by ICANN, the
 governing body for domain registration, to get authorization for the transfer from
@@ -33,8 +25,7 @@ the top-level domain. After that time, the link stops working.
 
 If you don't click the link in the email in the allotted amount of time, ICANN
 requires that we cancel the transfer. For information about how to resend the
-authorization email to the registrant contact, see [Resending authorization and confirmation
-emails](domain-click-email-link.md "domain-click-email-link.md").
+authorization email to the registrant contact, see [Resending authorization and confirmation emails](domain-click-email-link.md "domain-click-email-link.md").
 
 ## The authorization code that you got from the current registrar is not valid
 
@@ -53,23 +44,17 @@ following steps:
      authorization code.
 
 2. Submit another request to transfer the domain. For more information, see
-   [Step 5: Request the
-   transfer](domain-transfer-to-route-53.md#domain-transfer-to-route-53-request-transfer "domain-transfer-to-route-53.md#domain-transfer-to-route-53-request-transfer") in the
-   topic [Transferring registration for a domain to
-   Amazon Route 53](domain-transfer-to-route-53.md "domain-transfer-to-route-53.md").
+   [Step 5: Request the transfer](domain-transfer-to-route-53.md#domain-transfer-to-route-53-request-transfer "domain-transfer-to-route-53.md#domain-transfer-to-route-53-request-transfer") in the
+   topic [Transferring registration for a domain to Amazon Route 53](domain-transfer-to-route-53.md "domain-transfer-to-route-53.md").
 
-## "Parameters in request are not valid" error when trying to transfer a .es
-
-domain to Amazon Route 53
+## "Parameters in request are not valid" error when trying to transfer a .es domain to Amazon Route 53
 
 Amazon Route 53 returns a "Parameters in request are not valid" error when you try to
 transfer a .es domain to Route 53 and the contact type of the registrant contact is
 **Company**. To complete the transfer, change the contact type
 of the registrant to **Person**, and re-submit.
 
-## Is the internationalized domain name you're transferring to Amazon Route 53 listed in
-
-punycode?
+## Is the internationalized domain name you're transferring to Amazon Route 53 listed in punycode?
 
 When you register a new domain name or create hosted zones and records, you can
 specify letters other than a-z (for example, the ç in French), characters in
@@ -80,9 +65,7 @@ Punycode, which represents Unicode characters as ASCII strings.
 If you get an error while transferring an IDNs to Route 53, use punycode to represent
 it and try again. For more information, see [Formatting internationalized domain names](DomainNameFormat.md#domain-name-format-idns "DomainNameFormat.md#domain-name-format-idns").
 
-## Common transfer
-
-error messages
+## Common transfer error messages
 
 When a domain transfer fails, you'll typically receive an error message either in the
 Route 53 console or via email. Here are the most common error messages and how to resolve them:
@@ -145,8 +128,7 @@ If you didn't receive the authorization email or missed the deadline, check the 
 
 If necessary, update your contact information with your current registrar before
 requesting another transfer. For information about resending the authorization email, see
-[Resending authorization and confirmation
-emails](domain-click-email-link.md "domain-click-email-link.md").
+[Resending authorization and confirmation emails](domain-click-email-link.md "domain-click-email-link.md").
 
 ### "Domain is locked" or "Transfer prohibited"
 

@@ -60,8 +60,7 @@ Not supported. We recommend that you prevent unauthorized
 transfers by restricting access to the [RetrieveDomainAuthCode](../APIReference/API_domains_RetrieveDomainAuthCode.md "../APIReference/API_domains_RetrieveDomainAuthCode.md") API action. (When you restrict
 access to this Route 53 API, you also restrict who can generate an
 authorization code using the Route 53 console, AWS SDKs, and other
-programmatic methods.) For more information, see [Identity and access management in
-Amazon Route 53](security-iam.md "security-iam.md").
+programmatic methods.) For more information, see [Identity and access management in Amazon Route 53](security-iam.md "security-iam.md").
 
 **Internationalized domain names**
 
@@ -98,8 +97,7 @@ for the domain to expire. For more information, see [Deleting a domain name regi
 
 **Changing ownership**
 
-Change the owner by using the Route 53 console. See [Updating contact information for a
-domain](domain-update-contacts.md#domain-update-contacts-basic "domain-update-contacts.md#domain-update-contacts-basic"). Then complete
+Change the owner by using the Route 53 console. See [Updating contact information for a domain](domain-update-contacts.md#domain-update-contacts-basic "domain-update-contacts.md#domain-update-contacts-basic"). Then complete
 the following process to complete the ownership change:
 
 1. Both the old and new registrants must click the link they receive in an email from

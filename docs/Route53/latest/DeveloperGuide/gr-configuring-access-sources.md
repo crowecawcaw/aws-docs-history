@@ -1,6 +1,4 @@
-# Configuring access sources and access source
-
-rules
+# Configuring access sources and access source rules
 
 Access sources control client access based on IP addresses. You create access source rules
 that specify which IP ranges can query your DNS infrastructure and which protocols they can

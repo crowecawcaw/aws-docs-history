@@ -20,8 +20,7 @@ zone. This means that you must do the following, in order:
    island of trust (there are no DS records in the parent zone and no DS records
    for child zones in this zone).
 3. If you are not able to remove DS records, in order to remove the zone from the chain of trust,
-   remove NS records from the parent zone. For more information, see [Adding or changing name servers and
-   glue records for a domain](domain-name-servers-glue-records.md "domain-name-servers-glue-records.md").
+   remove NS records from the parent zone. For more information, see [Adding or changing name servers and glue records for a domain](domain-name-servers-glue-records.md "domain-name-servers-glue-records.md").
    The following incremental steps allow you to monitor the effectiveness of the
    individual steps to avoid DNS availability issues in your zone.
 

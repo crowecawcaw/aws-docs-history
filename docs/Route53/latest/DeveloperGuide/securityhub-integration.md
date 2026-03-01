@@ -14,8 +14,7 @@ Security Hub CSPM. Security Hub CSPM then includes those findings in its analysi
 - [How findings work in Security Hub CSPM](securityhub-integration.md#securityhub-integration-sending-findings "securityhub-integration.md#securityhub-integration-sending-findings")
   - [Types of findings that DNS Firewall sends](securityhub-integration.md#securityhub-integration-finding-types "securityhub-integration.md#securityhub-integration-finding-types")
   - [Retrying when Security Hub CSPM is unavailable](securityhub-integration.md#securityhub-integration-retry-send "securityhub-integration.md#securityhub-integration-retry-send")
-  - [Updating existing findings in
-    Security Hub CSPM](securityhub-integration.md#securityhub-integration-finding-updates "securityhub-integration.md#securityhub-integration-finding-updates")
+  - [Updating existing findings in Security Hub CSPM](securityhub-integration.md#securityhub-integration-finding-updates "securityhub-integration.md#securityhub-integration-finding-updates")
 
 - [Typical finding from DNS Firewall](securityhub-integration.md#securityhub-integration-finding-example "securityhub-integration.md#securityhub-integration-finding-example")
 - [Enabling and configuring the integration](securityhub-integration.md#securityhub-integration-enable "securityhub-integration.md#securityhub-integration-enable")
@@ -60,9 +59,7 @@ Findings from DNS Firewall can have the following values for `Types`.
 
 If Security Hub CSPM is unavailable, DNS Firewall retries sending the findings until they are received.
 
-### Updating existing findings in
-
-Security Hub CSPM
+### Updating existing findings in Security Hub CSPM
 
 DNS Firewall will update the existing findings if the same finding is observed again.
 

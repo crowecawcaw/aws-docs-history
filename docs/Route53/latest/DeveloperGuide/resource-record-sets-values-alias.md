@@ -1,6 +1,4 @@
-# Values specific for simple alias
-
-records
+# Values specific for simple alias records
 
 When you create alias records, you specify the following values. For more information, see [Choosing between alias and non-alias records](resource-record-sets-choosing-alias-non-alias.md "resource-record-sets-choosing-alias-non-alias.md").
 
@@ -14,8 +12,7 @@ If you are using Route 53 in the AWS GovCloud (US) Region, this feature has som
 - [Record name](#rrsets-values-alias-name "#rrsets-values-alias-name")
 - [Value/route traffic to](#rrsets-values-alias-alias-target "#rrsets-values-alias-alias-target")
 - [Record type](#rrsets-values-alias-type "#rrsets-values-alias-type")
-- [Evaluate target
-  health](#rrsets-values-alias-evaluate-target-health "#rrsets-values-alias-evaluate-target-health")
+- [Evaluate target health](#rrsets-values-alias-evaluate-target-health "#rrsets-values-alias-evaluate-target-health")
 
 ## Routing policy
 
@@ -94,9 +91,7 @@ can't route traffic to a record for which the value of **Type** is **CNAME**. Th
 alias record must have the same type as the record you're routing traffic to, and creating a CNAME record for the zone apex isn't
 supported even for an alias record.
 
-## Evaluate target
-
-health
+## Evaluate target health
 
 When the value of **Routing policy** is **Simple**,
 you can choose either **No** or the default **Yes**

@@ -1,6 +1,4 @@
-# Updating or deleting health
-
-checks when DNS failover is configured
+# Updating or deleting health checks when DNS failover is configured
 
 When you want to update or delete health checks that are associated with records,
 or you want to change records that have associated health checks, you must consider

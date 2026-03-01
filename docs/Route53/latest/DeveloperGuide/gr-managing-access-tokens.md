@@ -1,6 +1,4 @@
-# Managing access tokens for encrypted
-
-authentication
+# Managing access tokens for encrypted authentication
 
 Access tokens provide encrypted authentication for DoH and DoT protocols. Unlike IP-based
 access sources, tokens work regardless of client location and offer enhanced security through

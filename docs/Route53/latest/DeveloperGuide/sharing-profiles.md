@@ -184,5 +184,4 @@ Route 53 Profiles are billed based on the number of VPC associations. The Profil
 ## Instance quotas
 
 The Profile owners and consumers share the same quota, except for the number of Route 53 Profiles per account in a Region.
-For more information, see [Quotas on
-Route 53 Profiles](DNSLimitations.md#limits-api-entities-route53-profiles "DNSLimitations.md#limits-api-entities-route53-profiles")
+For more information, see [Quotas on Route 53 Profiles](DNSLimitations.md#limits-api-entities-route53-profiles "DNSLimitations.md#limits-api-entities-route53-profiles")

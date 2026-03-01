@@ -23,8 +23,7 @@ If you turn off automatic renewal, be aware of the following effects on your dom
 - Some registries charge a large premium to restore expired domains.
 - On or near the expiration date, the domain becomes unavailable on the internet.
   To determine whether automatic renewal is enabled for your domain, see
-  [Enabling or disabling automatic
-  renewal for a domain](domain-enable-disable-auto-renewal.md "domain-enable-disable-auto-renewal.md").
+  [Enabling or disabling automatic renewal for a domain](domain-enable-disable-auto-renewal.md "domain-enable-disable-auto-renewal.md").
 
 If automatic renewal is enabled, here's what happens:
 

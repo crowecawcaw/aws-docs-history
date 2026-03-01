@@ -1,6 +1,4 @@
-# Troubleshooting privacy
-
-protection issues
+# Troubleshooting privacy protection issues
 
 Privacy protection option is not available in the console
 
@@ -10,8 +8,7 @@ queries. This is normal behavior for certain TLDs due to registry
 policies or local regulations.
 
 To verify whether your TLD supports privacy protection, check the
-individual TLD page in [Domains that you can register with Amazon Route 53](registrar-tld-list.md "registrar-tld-list.md") or see [TLDs that don't support privacy
-protection](privacy-protection-tld-support.md "privacy-protection-tld-support.md").
+individual TLD page in [Domains that you can register with Amazon Route 53](registrar-tld-list.md "registrar-tld-list.md") or see [TLDs that don't support privacy protection](privacy-protection-tld-support.md "privacy-protection-tld-support.md").
 
 Contact information is still visible after enabling privacy
 protection

@@ -1,6 +1,4 @@
-# DNS Firewall VPC
-
-configuration
+# DNS Firewall VPC configuration
 
 The DNS Firewall configuration for your VPC determines whether Route 53 VPC Resolver allows
 queries

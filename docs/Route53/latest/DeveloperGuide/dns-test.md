@@ -22,8 +22,7 @@ returned.
 ###### Topics
 
 - [Using the checking tool to see how Amazon Route 53 responds to DNS queries](#dns-test-how-route-53-responds "#dns-test-how-route-53-responds")
-- [Using the checking tool to simulate queries from specific IP addresses
-  (geolocation and latency records only)](#dns-test-simulate-requests "#dns-test-simulate-requests")
+- [Using the checking tool to simulate queries from specific IP addresses (geolocation and latency records only)](#dns-test-simulate-requests "#dns-test-simulate-requests")
 
 ## Using the checking tool to see how Amazon Route 53 responds to DNS queries
 
@@ -71,9 +70,7 @@ The value that Route 53 would return to a web application. The value is one of 
     * For alias records that refer to other records, the response contains the value or values from the referenced
      record.
 
-## Using the checking tool to simulate queries from specific IP addresses
-
-(geolocation and latency records only)
+## Using the checking tool to simulate queries from specific IP addresses (geolocation and latency records only)
 
 If you have created latency or geolocation records, you can use the checking tool to simulate queries from the IP address for a
 DNS resolver and a client.

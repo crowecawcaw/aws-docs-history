@@ -1,6 +1,4 @@
-# Using identity-based policies
-
-(IAM policies) for Amazon Route 53
+# Using identity-based policies (IAM policies) for Amazon Route 53
 
 This topic provides examples of identity-based policies that demonstrate how an account
 administrator can attach permissions policies to IAM identities and thereby grant
@@ -10,8 +8,7 @@ permissions to perform operations on Amazon Route 53 resources.
 
 We recommend that you first review the introductory topics that explain the basic
 concepts and options to manage access to your Route 53 resources. For more information,
-see [Overview of managing access permissions to
-your Amazon Route 53 resources](access-control-overview.md "access-control-overview.md").
+see [Overview of managing access permissions to your Amazon Route 53 resources](access-control-overview.md "access-control-overview.md").
 
 ###### Note
 
@@ -29,14 +26,10 @@ The following are the supported partitions:
 
 ###### Topics
 
-- [Permissions required to use the
-  Amazon Route 53 console](#console-required-permissions "#console-required-permissions")
-- [Example permissions for a domain
-  record owner](#example-permissions-record-owner "#example-permissions-record-owner")
-- [Route 53 customer managed key permissions required
-  for DNSSEC signing](#KMS-key-policy-for-DNSSEC "#KMS-key-policy-for-DNSSEC")
-- [Customer managed policy
-  examples](#access-policy-examples-for-sdk-cli "#access-policy-examples-for-sdk-cli")
+- [Permissions required to use the Amazon Route 53 console](#console-required-permissions "#console-required-permissions")
+- [Example permissions for a domain record owner](#example-permissions-record-owner "#example-permissions-record-owner")
+- [Route 53 customer managed key permissions required for DNSSEC signing](#KMS-key-policy-for-DNSSEC "#KMS-key-policy-for-DNSSEC")
+- [Customer managed policy examples](#access-policy-examples-for-sdk-cli "#access-policy-examples-for-sdk-cli")
   The following example shows a permissions policy. The `Sid`, or statement
   ID, is optional:
 
@@ -92,12 +85,9 @@ The policy includes two statements:
 - The second statement grants permissions to all the actions that are required
   to create and manage health checks.
   For a list of actions and the ARN that you specify to grant or deny permission to use
-  each action, see [Amazon Route 53 API permissions: Actions, resources,
-  and conditions reference](r53-api-permissions-ref.md "r53-api-permissions-ref.md").
+  each action, see [Amazon Route 53 API permissions: Actions, resources, and conditions reference](r53-api-permissions-ref.md "r53-api-permissions-ref.md").
 
-## Permissions required to use the
-
-Amazon Route 53 console
+## Permissions required to use the Amazon Route 53 console
 
 To grant full access to the Amazon Route 53 console, you grant the permissions in the
 following permissions policy:
@@ -272,13 +262,10 @@ console.
 
 Lets you work with AWS KMS to enable DNSSEC signing.
 
-## Example permissions for a domain
-
-record owner
+## Example permissions for a domain record owner
 
 With resource record set permissions you can set granular permissions that limit
-what the AWS user can update or modify. For more information, see [Using IAM policy conditions for
-fine-grained access control](specifying-conditions-route53.md "specifying-conditions-route53.md").
+what the AWS user can update or modify. For more information, see [Using IAM policy conditions for fine-grained access control](specifying-conditions-route53.md "specifying-conditions-route53.md").
 
 In some scenarios, a hosted zone owner might be responsible for the overall
 management of the hosted zone, while another person in the organization is
@@ -320,9 +307,7 @@ delegation set, or changing DNSSEC settings.
 }
 ```
 
-## Route 53 customer managed key permissions required
-
-for DNSSEC signing
+## Route 53 customer managed key permissions required for DNSSEC signing
 
 When you enable DNSSEC signing for Route 53, Route 53 creates a key-signing key (KSK)
 based on a customer managed key in AWS Key Management Service (AWS KMS). You can use an existing customer managed key that
@@ -410,31 +395,22 @@ The following are two examples of permissions you can add:
 For more information, see [The confused deputy
 problem](../../../IAM/latest/UserGuide/confused-deputy.md "../../../IAM/latest/UserGuide/confused-deputy.md") in the _IAM User Guide_.
 
-## Customer managed policy
-
-examples
+## Customer managed policy examples
 
 You can create your own custom IAM policies to allow permissions for Route 53 actions. You
 can attach these custom policies to the IAM groups that require the specified
 permissions. These policies work when you are using the Route 53 API, the AWS SDKs,
 or the AWS CLI. The following examples show permissions for several common use
-cases. For the policy that grants a user full access to Route 53, see [Permissions required to use the
-Amazon Route 53 console](#console-required-permissions "#console-required-permissions").
+cases. For the policy that grants a user full access to Route 53, see [Permissions required to use the Amazon Route 53 console](#console-required-permissions "#console-required-permissions").
 
 ###### Examples
 
-- [Example 1: Allow
-  read access to all hosted zones](#access-policy-example-allow-read-hosted-zones "#access-policy-example-allow-read-hosted-zones")
-- [Example
-  2: Allow creation and deletion of hosted zones](#access-policy-example-allow-create-delete-hosted-zones "#access-policy-example-allow-create-delete-hosted-zones")
-- [Example 3:
-  Allow full access to all domains (public hosted zones only)](#access-policy-example-allow-full-domain-access "#access-policy-example-allow-full-domain-access")
-- [Example 4:
-  Allow creation of inbound and outbound Route 53 VPC Resolver endpoints](#access-policy-example-create-resolver-endpoints "#access-policy-example-create-resolver-endpoints")
+- [Example 1: Allow read access to all hosted zones](#access-policy-example-allow-read-hosted-zones "#access-policy-example-allow-read-hosted-zones")
+- [Example 2: Allow creation and deletion of hosted zones](#access-policy-example-allow-create-delete-hosted-zones "#access-policy-example-allow-create-delete-hosted-zones")
+- [Example 3: Allow full access to all domains (public hosted zones only)](#access-policy-example-allow-full-domain-access "#access-policy-example-allow-full-domain-access")
+- [Example 4: Allow creation of inbound and outbound Route 53 VPC Resolver endpoints](#access-policy-example-create-resolver-endpoints "#access-policy-example-create-resolver-endpoints")
 
-### Example 1: Allow
-
-read access to all hosted zones
+### Example 1: Allow read access to all hosted zones
 
 The following permissions policy grants the user permissions to list all
 hosted zones and view all the records in a hosted zone.
@@ -463,9 +439,7 @@ JSON
 
 ```
 
-### Example
-
-2: Allow creation and deletion of hosted zones
+### Example 2: Allow creation and deletion of hosted zones
 
 The following permissions policy allows users to create and delete hosted
 zones, and to track the progress of the change.
@@ -496,9 +470,7 @@ JSON
 
 ```
 
-### Example 3:
-
-Allow full access to all domains (public hosted zones only)
+### Example 3: Allow full access to all domains (public hosted zones only)
 
 The following permissions policy allows users to perform all actions on domain
 registrations, including permissions to register domains and create hosted
@@ -529,12 +501,9 @@ to create hosted zones. (For domain registration, Route 53 doesn't support gran
 permissions to individual resources.)
 
 For information about permissions that are required to work with private
-hosted zones, see [Permissions required to use the
-Amazon Route 53 console](#console-required-permissions "#console-required-permissions").
+hosted zones, see [Permissions required to use the Amazon Route 53 console](#console-required-permissions "#console-required-permissions").
 
-### Example 4:
-
-Allow creation of inbound and outbound Route 53 VPC Resolver endpoints
+### Example 4: Allow creation of inbound and outbound Route 53 VPC Resolver endpoints
 
 The following permissions policy allows users to use the Route 53 console to
 create Resolver inbound and outbound endpoints.

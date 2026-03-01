@@ -9,11 +9,7 @@ You can use failover routing policy for records in a private hosted zone.
 
 For information about values that you specify when you use the failover routing policy to create records, see the following topics:
 
-- [Values specific for failover
-  records](resource-record-sets-values-failover.md "resource-record-sets-values-failover.md")
-- [Values specific for failover
-  alias records](resource-record-sets-values-failover-alias.md "resource-record-sets-values-failover-alias.md")
-- [Values that are common for all routing
-  policies](resource-record-sets-values-shared.md "resource-record-sets-values-shared.md")
-- [Values that are common for
-  alias records for all routing policies](resource-record-sets-values-alias-common.md "resource-record-sets-values-alias-common.md")
+- [Values specific for failover records](resource-record-sets-values-failover.md "resource-record-sets-values-failover.md")
+- [Values specific for failover alias records](resource-record-sets-values-failover-alias.md "resource-record-sets-values-failover-alias.md")
+- [Values that are common for all routing policies](resource-record-sets-values-shared.md "resource-record-sets-values-shared.md")
+- [Values that are common for alias records for all routing policies](resource-record-sets-values-alias-common.md "resource-record-sets-values-alias-common.md")

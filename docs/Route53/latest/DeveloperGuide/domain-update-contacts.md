@@ -1,10 +1,7 @@
-# Updating contact information and ownership for
-
-a domain
+# Updating contact information and ownership for a domain
 
 For the administrative and technical contacts for a domain, you can change all contact
-information without having to authorize the changes. For more information, see [Updating contact information for a
-domain](#domain-update-contacts-basic "#domain-update-contacts-basic").
+information without having to authorize the changes. For more information, see [Updating contact information for a domain](#domain-update-contacts-basic "#domain-update-contacts-basic").
 
 For the registrant contact, you can change most values without having to authorize the
 changes. However, for some TLDs, changing the owner of a domain requires authorization.
@@ -12,25 +9,18 @@ For more information, see the applicable topic.
 
 ###### Topics
 
-- [What triggers a domain
-  ownership change?](#domain-update-contacts-who-is-domain-owner "#domain-update-contacts-who-is-domain-owner")
-- [TLDs that require special processing
-  to change the owner](#domain-update-contacts-tlds "#domain-update-contacts-tlds")
-- [Updating contact information for a
-  domain](#domain-update-contacts-basic "#domain-update-contacts-basic")
-- [Changing the owner of
-  a domain when the registry requires a Change of Domain Ownership form](#domain-update-contacts-domain-ownership-form "#domain-update-contacts-domain-ownership-form")
+- [What triggers a domain ownership change?](#domain-update-contacts-who-is-domain-owner "#domain-update-contacts-who-is-domain-owner")
+- [TLDs that require special processing to change the owner](#domain-update-contacts-tlds "#domain-update-contacts-tlds")
+- [Updating contact information for a domain](#domain-update-contacts-basic "#domain-update-contacts-basic")
+- [Changing the owner of a domain when the registry requires a Change of Domain Ownership form](#domain-update-contacts-domain-ownership-form "#domain-update-contacts-domain-ownership-form")
 
-## What triggers a domain
-
-ownership change?
+## What triggers a domain ownership change?
 
 ###### Important
 
 The contact you list as the registrant will have certain rights as the
 Registered Name Holder of the domain name, under the [ICANN Transfer Policy](https://www.icann.org/resources/pages/transfer-policy-2016-06-01-en "https://www.icann.org/resources/pages/transfer-policy-2016-06-01-en"). Most domains will be deleted upon closure of
-your AWS account (for more information, see [My AWS account is closed or permanently
-closed, and my domain is registered with Route 53](troubleshooting-account-closed.md "troubleshooting-account-closed.md")), however if a domain
+your AWS account (for more information, see [My AWS account is closed or permanently closed, and my domain is registered with Route 53](troubleshooting-account-closed.md "troubleshooting-account-closed.md")), however if a domain
 remains in a closed account, the contact you listed as the registrant may have
 the ability to request a transfer of the domain name to an external registrar.
 Therefore, it is important that the registrant contact you list is either
@@ -91,19 +81,15 @@ owner of a domain.
   provide proof of identity so that an Amazon Route 53 support engineer can update
   the values for you. If the TLD for your domain requires a Change of Domain
   Ownership form, the console displays a message that links to a form for
-  opening a support case. For more information, see [Changing the owner of
-  a domain when the registry requires a Change of Domain Ownership form](#domain-update-contacts-domain-ownership-form "#domain-update-contacts-domain-ownership-form").
+  opening a support case. For more information, see [Changing the owner of a domain when the registry requires a Change of Domain Ownership form](#domain-update-contacts-domain-ownership-form "#domain-update-contacts-domain-ownership-form").
 
-## TLDs that require special processing
-
-to change the owner
+## TLDs that require special processing to change the owner
 
 When you change the owner of a domain, the registries for some TLDs require
 special processing. If you're changing the owner for any of the following domains,
 perform the applicable procedure. If you're changing the owner for any other domain,
 you can change the owner yourself, either programmatically or using the Route 53
-console. See [Updating contact information for a
-domain](#domain-update-contacts-basic "#domain-update-contacts-basic").
+console. See [Updating contact information for a domain](#domain-update-contacts-basic "#domain-update-contacts-basic").
 
 The following TLDs require special processing to change the owner of the
 domain:
@@ -121,23 +107,19 @@ then open a case with AWS Support.
 
 **.cl**
 
-You must complete and submit a form to AWS Support. See [Changing the owner of
-a domain when the registry requires a Change of Domain Ownership form](#domain-update-contacts-domain-ownership-form "#domain-update-contacts-domain-ownership-form").
+You must complete and submit a form to AWS Support. See [Changing the owner of a domain when the registry requires a Change of Domain Ownership form](#domain-update-contacts-domain-ownership-form "#domain-update-contacts-domain-ownership-form").
 
 **.com.ar**
 
-You must complete and submit a form to AWS Support. See [Changing the owner of
-a domain when the registry requires a Change of Domain Ownership form](#domain-update-contacts-domain-ownership-form "#domain-update-contacts-domain-ownership-form").
+You must complete and submit a form to AWS Support. See [Changing the owner of a domain when the registry requires a Change of Domain Ownership form](#domain-update-contacts-domain-ownership-form "#domain-update-contacts-domain-ownership-form").
 
 **.com.br**
 
-You must complete and submit a form to AWS Support. See [Changing the owner of
-a domain when the registry requires a Change of Domain Ownership form](#domain-update-contacts-domain-ownership-form "#domain-update-contacts-domain-ownership-form").
+You must complete and submit a form to AWS Support. See [Changing the owner of a domain when the registry requires a Change of Domain Ownership form](#domain-update-contacts-domain-ownership-form "#domain-update-contacts-domain-ownership-form").
 
 **.es**
 
-You must complete and submit a form to AWS Support. See [Changing the owner of
-a domain when the registry requires a Change of Domain Ownership form](#domain-update-contacts-domain-ownership-form "#domain-update-contacts-domain-ownership-form").
+You must complete and submit a form to AWS Support. See [Changing the owner of a domain when the registry requires a Change of Domain Ownership form](#domain-update-contacts-domain-ownership-form "#domain-update-contacts-domain-ownership-form").
 
 **.fi**
 
@@ -150,27 +132,21 @@ the key code with us. See [Contacting AWS Support about domain registration issu
 
 **.qa**
 
-You must complete and submit a form to AWS Support. See [Changing the owner of
-a domain when the registry requires a Change of Domain Ownership form](#domain-update-contacts-domain-ownership-form "#domain-update-contacts-domain-ownership-form").
+You must complete and submit a form to AWS Support. See [Changing the owner of a domain when the registry requires a Change of Domain Ownership form](#domain-update-contacts-domain-ownership-form "#domain-update-contacts-domain-ownership-form").
 
 **.ru**
 
-You must complete and submit a form to AWS Support. See [Changing the owner of
-a domain when the registry requires a Change of Domain Ownership form](#domain-update-contacts-domain-ownership-form "#domain-update-contacts-domain-ownership-form").
+You must complete and submit a form to AWS Support. See [Changing the owner of a domain when the registry requires a Change of Domain Ownership form](#domain-update-contacts-domain-ownership-form "#domain-update-contacts-domain-ownership-form").
 
 **.se**
 
-You must complete and submit a form to AWS Support. See [Changing the owner of
-a domain when the registry requires a Change of Domain Ownership form](#domain-update-contacts-domain-ownership-form "#domain-update-contacts-domain-ownership-form").
+You must complete and submit a form to AWS Support. See [Changing the owner of a domain when the registry requires a Change of Domain Ownership form](#domain-update-contacts-domain-ownership-form "#domain-update-contacts-domain-ownership-form").
 
 **.sh**
 
-You must complete and submit a form to AWS Support. See [Changing the owner of
-a domain when the registry requires a Change of Domain Ownership form](#domain-update-contacts-domain-ownership-form "#domain-update-contacts-domain-ownership-form").
+You must complete and submit a form to AWS Support. See [Changing the owner of a domain when the registry requires a Change of Domain Ownership form](#domain-update-contacts-domain-ownership-form "#domain-update-contacts-domain-ownership-form").
 
-## Updating contact information for a
-
-domain
+## Updating contact information for a domain
 
 To update contact information for a domain, perform the following procedure.
 
@@ -185,9 +161,7 @@ will interrupt your website and email services.
 Ensure you can access the registrant contact email address before making any
 contact changes.
 
-### Before updating domain
-
-contacts
+### Before updating domain contacts
 
 Before making any changes to your domain's registrant contact information,
 complete this checklist:
@@ -195,16 +169,13 @@ complete this checklist:
 1. **☐ Verify email access** - Confirm you
    can receive email at the current registrant email address
 2. **☐ Understand owner change triggers** -
-   Review [What triggers a domain
-   ownership change?](#domain-update-contacts-who-is-domain-owner "#domain-update-contacts-who-is-domain-owner") to
+   Review [What triggers a domain ownership change?](#domain-update-contacts-who-is-domain-owner "#domain-update-contacts-who-is-domain-owner") to
    understand what changes might trigger the owner change process
 3. **☐ Plan for potential downtime** - If
    owner change is triggered, you have 3-15 days to respond to the
    authorization email or your domain will be cancelled
 
-###### To update contact information
-
-for a domain
+###### To update contact information for a domain
 
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
@@ -249,10 +220,8 @@ the console might display the following message:
 
 "To change the registrant name or organization, open a case."
 
-If you see that message, skip the rest of this procedure and see [Changing the owner of
-a domain when the registry requires a Change of Domain Ownership form](#domain-update-contacts-domain-ownership-form "#domain-update-contacts-domain-ownership-form") for more
-information. 7. Choose **Save**. 8. If you changed the domain owner, as described in [What triggers a domain
-ownership change?](#domain-update-contacts-who-is-domain-owner "#domain-update-contacts-who-is-domain-owner"), we send
+If you see that message, skip the rest of this procedure and see [Changing the owner of a domain when the registry requires a Change of Domain Ownership form](#domain-update-contacts-domain-ownership-form "#domain-update-contacts-domain-ownership-form") for more
+information. 7. Choose **Save**. 8. If you changed the domain owner, as described in [What triggers a domain ownership change?](#domain-update-contacts-who-is-domain-owner "#domain-update-contacts-who-is-domain-owner"), we send
 email to the registrant contact for the domain. The email asks for
 authorization for the change of owner.
 
@@ -274,9 +243,7 @@ The email comes from one of the following email addresses.
 For information about the API you can use to update the contact information, see
 [UpdateDomainContact](../APIReference/API_domains_UpdateDomainContact.md "../APIReference/API_domains_UpdateDomainContact.md").
 
-## Changing the owner of
-
-a domain when the registry requires a Change of Domain Ownership form
+## Changing the owner of a domain when the registry requires a Change of Domain Ownership form
 
 If the registry for your domain requires you to complete a Change of Domain
 Ownership and submit the form to AWS Support, perform the following procedure. To
@@ -284,16 +251,11 @@ determine whether you need to perform this procedure, see the following
 topics:
 
 - To determine whether the value you're changing is considered a change of
-  owner, see [What triggers a domain
-  ownership change?](#domain-update-contacts-who-is-domain-owner "#domain-update-contacts-who-is-domain-owner").
+  owner, see [What triggers a domain ownership change?](#domain-update-contacts-who-is-domain-owner "#domain-update-contacts-who-is-domain-owner").
 - To determine whether a Change of Domain Ownership form is required for
-  your domain, see [TLDs that require special processing
-  to change the owner](#domain-update-contacts-tlds "#domain-update-contacts-tlds").
+  your domain, see [TLDs that require special processing to change the owner](#domain-update-contacts-tlds "#domain-update-contacts-tlds").
 
-###### To change
-
-the owner of a domain when the registry requires a Change of Domain Ownership
-form
+###### To change the owner of a domain when the registry requires a Change of Domain Ownership form
 
 1. See the introduction to this topic to determine whether the registry for
    your domain requires special processing to change the owner of the domain.

@@ -1,6 +1,4 @@
-# Enabling Resolver DNS Firewall
-
-protections for your VPC
+# Enabling Resolver DNS Firewall protections for your VPC
 
 You enable DNS Firewall protections for your VPC by associating one or more rule groups
 with the VPC. Whenever a VPC is associated with a DNS Firewall rule group, Route 53 VPC Resolver
@@ -12,8 +10,7 @@ provides the following DNS Firewall protections:
   To provide DNS Firewall protections to your VPC, you do the following:
 
 - Create and manage associations between your DNS Firewall rule groups and your VPC.
-  For information about rule groups, see [DNS Firewall rule groups and
-  rules](resolver-dns-firewall-rule-groups.md "resolver-dns-firewall-rule-groups.md").
+  For information about rule groups, see [DNS Firewall rule groups and rules](resolver-dns-firewall-rule-groups.md "resolver-dns-firewall-rule-groups.md").
 - Configure how you want VPC Resolver to handle DNS queries for the VPC during a
   failure, for example if DNS Firewall doesn't provide a response for a DNS
   query.

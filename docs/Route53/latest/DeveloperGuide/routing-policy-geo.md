@@ -27,11 +27,7 @@ For more information, see [How Amazon Route 53 uses EDNS0 to estimate the locat
 
 For information about values that you specify when you use the geolocation routing policy to create records, see the following topics:
 
-- [Values specific for geolocation
-  records](resource-record-sets-values-geo.md "resource-record-sets-values-geo.md")
-- [Values specific for geolocation
-  alias records](resource-record-sets-values-geo-alias.md "resource-record-sets-values-geo-alias.md")
-- [Values that are common for all routing
-  policies](resource-record-sets-values-shared.md "resource-record-sets-values-shared.md")
-- [Values that are common for
-  alias records for all routing policies](resource-record-sets-values-alias-common.md "resource-record-sets-values-alias-common.md")
+- [Values specific for geolocation records](resource-record-sets-values-geo.md "resource-record-sets-values-geo.md")
+- [Values specific for geolocation alias records](resource-record-sets-values-geo-alias.md "resource-record-sets-values-geo-alias.md")
+- [Values that are common for all routing policies](resource-record-sets-values-shared.md "resource-record-sets-values-shared.md")
+- [Values that are common for alias records for all routing policies](resource-record-sets-values-alias-common.md "resource-record-sets-values-alias-common.md")

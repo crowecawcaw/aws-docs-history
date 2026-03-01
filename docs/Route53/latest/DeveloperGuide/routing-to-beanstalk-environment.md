@@ -13,15 +13,11 @@ see [Making Amazon Route 53 the DNS service for an existing domain](MigratingDN
 
 ###### Topics
 
-- [Deploying an application
-  into an Elastic Beanstalk environment](#routing-to-beanstalk-environment-deploy "#routing-to-beanstalk-environment-deploy")
+- [Deploying an application into an Elastic Beanstalk environment](#routing-to-beanstalk-environment-deploy "#routing-to-beanstalk-environment-deploy")
 - [Getting the domain name for your Elastic Beanstalk environment](#routing-to-beanstalk-environment-get-domain-name "#routing-to-beanstalk-environment-get-domain-name")
-- [Creating an Amazon Route 53 record that routes traffic
-  to your Elastic Beanstalk environment](#routing-to-beanstalk-environment-create-resource-record-set "#routing-to-beanstalk-environment-create-resource-record-set")
+- [Creating an Amazon Route 53 record that routes traffic to your Elastic Beanstalk environment](#routing-to-beanstalk-environment-create-resource-record-set "#routing-to-beanstalk-environment-create-resource-record-set")
 
-## Deploying an application
-
-into an Elastic Beanstalk environment
+## Deploying an application into an Elastic Beanstalk environment
 
 If you already have an Elastic Beanstalk environment that you want to route traffic to, skip
 to [Getting the domain name for your Elastic Beanstalk environment](#routing-to-beanstalk-environment-get-domain-name "#routing-to-beanstalk-environment-get-domain-name").
@@ -37,8 +33,7 @@ environment**
 ## Getting the domain name for your Elastic Beanstalk environment
 
 If you already know the domain name for your Elastic Beanstalk environment, skip to
-[Creating an Amazon Route 53 record that routes traffic
-to your Elastic Beanstalk environment](#routing-to-beanstalk-environment-create-resource-record-set "#routing-to-beanstalk-environment-create-resource-record-set").
+[Creating an Amazon Route 53 record that routes traffic to your Elastic Beanstalk environment](#routing-to-beanstalk-environment-create-resource-record-set "#routing-to-beanstalk-environment-create-resource-record-set").
 
 ###### To get the domain name for your Elastic Beanstalk environment
 
@@ -51,9 +46,7 @@ to your Elastic Beanstalk environment](#routing-to-beanstalk-environment-create-
 For more information about the URL, see [Elastic Beanstalk environment's
 domain name](../../../elasticbeanstalk/latest/dg/customdomains.md "../../../elasticbeanstalk/latest/dg/customdomains.md") in the _Elastic Beanstalk Developer Guide_.
 
-## Creating an Amazon Route 53 record that routes traffic
-
-to your Elastic Beanstalk environment
+## Creating an Amazon Route 53 record that routes traffic to your Elastic Beanstalk environment
 
 An Amazon Route 53 record contains the settings that control how traffic is routed to your Elastic Beanstalk environment. You create
 either a _CNAME record_ or an _alias record_, depending on whether
@@ -81,8 +74,7 @@ significant advantages over CNAME records:
 - Route 53 doesn't charge for requests that use an alias record to route traffic.
 
 See the procedure
-[To create an Amazon Route 53 alias record to
-route traffic to an Elastic Beanstalk environment](#routing-to-beanstalk-environment-create-alias-procedure "#routing-to-beanstalk-environment-create-alias-procedure").
+[To create an Amazon Route 53 alias record to route traffic to an Elastic Beanstalk environment](#routing-to-beanstalk-environment-create-alias-procedure "#routing-to-beanstalk-environment-create-alias-procedure").
 
 ###### To create a CNAME record to route traffic to an Elastic Beanstalk environment
 
@@ -132,9 +124,7 @@ Accept the default value of **300**. 7. Choose **Create records**.
 
 Changes generally propagate to all Route 53 servers within 60 seconds.
 
-###### To create an Amazon Route 53 alias record to
-
-route traffic to an Elastic Beanstalk environment
+###### To create an Amazon Route 53 alias record to route traffic to an Elastic Beanstalk environment
 
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").

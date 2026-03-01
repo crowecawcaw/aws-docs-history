@@ -26,6 +26,5 @@ www.example.com record in the example.com hosted zone.
 For more information, see the following topics:
 
     * [Working with records](rrsets-working-with.md "rrsets-working-with.md")
-    * [Routing traffic for
-     subdomains](dns-routing-traffic-for-subdomains.md "dns-routing-traffic-for-subdomains.md")
+    * [Routing traffic for subdomains](dns-routing-traffic-for-subdomains.md "dns-routing-traffic-for-subdomains.md")
     * [Routing internet traffic to your AWS resources](routing-to-aws-resources.md "routing-to-aws-resources.md")

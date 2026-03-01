@@ -1,6 +1,4 @@
-# Configuring router and firewall
-
-rules for Amazon Route 53 health checks
+# Configuring router and firewall rules for Amazon Route 53 health checks
 
 When Route 53 checks the health of an endpoint, it sends an HTTP, HTTPS, or TCP
 request to the IP address and port that you specified when you created the health

@@ -1,6 +1,4 @@
-# Transferring a domain to a
-
-different AWS account
+# Transferring a domain to a different AWS account
 
 If you registered a domain using one AWS account and you want to transfer the domain
 to another AWS account, you can easily transfer it by using the new console, or by
@@ -8,14 +6,10 @@ using the AWS CLI or other programmatic methods.
 
 ###### Topics
 
-- [Step 1: Transfer a
-  domain to a different AWS account](#domain-transfer-between-aws-accounts-domain "#domain-transfer-between-aws-accounts-domain")
-- [Step 2
-  (Optional): Migrate a hosted zone to a different AWS account](#domain-transfer-between-aws-accounts-hosted-zone "#domain-transfer-between-aws-accounts-hosted-zone")
+- [Step 1: Transfer a domain to a different AWS account](#domain-transfer-between-aws-accounts-domain "#domain-transfer-between-aws-accounts-domain")
+- [Step 2 (Optional): Migrate a hosted zone to a different AWS account](#domain-transfer-between-aws-accounts-hosted-zone "#domain-transfer-between-aws-accounts-hosted-zone")
 
-## Step 1: Transfer a
-
-domain to a different AWS account
+## Step 1: Transfer a domain to a different AWS account
 
 Domains cannot be transferred within the first 14 days of registration.
 
@@ -45,9 +39,7 @@ transfer: in the [initiate a transfer to another AWS account](#domain-transfer-b
 destination account owner accepts the transfer in the [accept a
 transfer from another AWS account](#domain-transfer-between-aws-accounts-accept-procedure "#domain-transfer-between-aws-accounts-accept-procedure") procedure.
 
-###### To transfer a
-
-domain to a different AWS account
+###### To transfer a domain to a different AWS account
 
 1. Sign in to AWS by using the AWS account that the domain is currently
    registered to.
@@ -72,9 +64,7 @@ for the domain will display **In progress**, and the
 **Type** will display **Internal transfer
 out**.
 
-###### To accept a
-
-domain transfer from a different AWS account
+###### To accept a domain transfer from a different AWS account
 
 1. Sign into AWS by using the AWS account that is receiving the domain.
 2. Open the Route 53 console at
@@ -98,8 +88,7 @@ enter the password you received from the originating account owner.
 Accept the terms and conditions, and choose
 **Next**. 7. Navigate to the **Requests** page to monitor the transfer
 status and other steps to complete. 8. After the transfer completes, you can update the contact information. For
-more information, see [Updating contact information and ownership for
-a domain](domain-update-contacts.md "domain-update-contacts.md").
+more information, see [Updating contact information and ownership for a domain](domain-update-contacts.md "domain-update-contacts.md").
 
 **Transfer the domain programmatically**
 
@@ -125,12 +114,9 @@ following documentation:
 When you transfer a domain to a different AWS account,
 the hosted zone for the domain isn't transferred. If you
 also want to transfer the hosted zone, wait until the domain
-has been transferred, and then see [Step 2
-(Optional): Migrate a hosted zone to a different AWS account](#domain-transfer-between-aws-accounts-hosted-zone "#domain-transfer-between-aws-accounts-hosted-zone").
+has been transferred, and then see [Step 2 (Optional): Migrate a hosted zone to a different AWS account](#domain-transfer-between-aws-accounts-hosted-zone "#domain-transfer-between-aws-accounts-hosted-zone").
 
-## Step 2
-
-(Optional): Migrate a hosted zone to a different AWS account
+## Step 2 (Optional): Migrate a hosted zone to a different AWS account
 
 If you're using Route 53 as the DNS service for the domain, Route 53 doesn't transfer
 the hosted zone when you transfer a domain to a different AWS account. If domain

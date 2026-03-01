@@ -91,9 +91,7 @@ Choose a tab to dissociate a Route 53 Profile from a VPC by using the Route 53 
 
 Console
 
-###### To disassociate a VPC associated to a
-
-Route 53 Profile
+###### To disassociate a VPC associated to a Route 53 Profile
 
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").

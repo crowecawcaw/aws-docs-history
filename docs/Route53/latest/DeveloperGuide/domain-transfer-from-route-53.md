@@ -1,6 +1,4 @@
-# Transferring a domain from Amazon Route 53 to
-
-another registrar
+# Transferring a domain from Amazon Route 53 to another registrar
 
 When you transfer a domain from Amazon Route 53 to another registrar, you get some
 information from Route 53 and provide it to the new registrar. The new registrar will do
@@ -52,9 +50,7 @@ can contact AWS Support for help. Domains cannot be transferred within the first
 If the new registrar requires a REG-ID code, you can contact AWS Support for
 help. For more information, see [Contacting AWS Support about domain registration issues](domain-contact-support.md "domain-contact-support.md").
 
-###### To transfer a domain from
-
-Route 53 to another registrar
+###### To transfer a domain from Route 53 to another registrar
 
 1.  Sign in to the AWS Management Console and open the Route 53 console at
     [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").

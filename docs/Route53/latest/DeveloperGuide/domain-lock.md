@@ -1,6 +1,4 @@
-# Locking a domain to prevent unauthorized transfer to
-
-another registrar
+# Locking a domain to prevent unauthorized transfer to another registrar
 
 The domain registries for all generic TLDs and many geographic TLDs let you lock a
 domain to prevent someone from transferring the domain to another registrar without your
@@ -10,9 +8,7 @@ is supported and you want to lock your domain, perform the following procedure. 
 also use the procedure to disable the lock if you want to transfer a domain to another
 registrar.
 
-###### To lock a domain to prevent unauthorized
-
-transfer to another registrar
+###### To lock a domain to prevent unauthorized transfer to another registrar
 
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").

@@ -1,6 +1,4 @@
-# Values specific for simple
-
-records
+# Values specific for simple records
 
 When you create simple records, you specify the following values.
 

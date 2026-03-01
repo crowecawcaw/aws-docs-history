@@ -1,6 +1,4 @@
-# Rule settings in
-
-DNS Firewall
+# Rule settings in DNS Firewall
 
 When you create or edit a rule in a DNS Firewall rule group, you specify the following
 values:
@@ -29,8 +27,7 @@ or all (default) the domains in the DNS redirection chain, such as
 CNAME, DNAME, etc. If you choose to inspect all the domains, you must
 add the subsequent domains in the DNS redirection chain to the domain
 list and set to the action you want the rule to take, either ALLOW,
-BLOCK, or ALERT. For more information, see [Resolver DNS Firewall components and
-settings](resolver-dns-firewall-overview.md#resolver-dns-firewall-components "resolver-dns-firewall-overview.md#resolver-dns-firewall-components").
+BLOCK, or ALERT. For more information, see [Resolver DNS Firewall components and settings](resolver-dns-firewall-overview.md#resolver-dns-firewall-components "resolver-dns-firewall-overview.md#resolver-dns-firewall-components").
 
 **Query type (domain lists only)**
 
@@ -111,14 +108,12 @@ confidence level values mean:
 - Low – Provides the highest detection rate for threats,
   but also increases false positives.
 
-For more information, see Rule settings in
-DNS Firewall.
+For more information, see Rule settings in DNS Firewall.
 
 **Action**
 
 How you want DNS Firewall to handle a DNS query whose domain name matches
-the specifications in the rule's domain list. For more information, see [Rule actions in
-DNS Firewall](resolver-dns-firewall-rule-actions.md "resolver-dns-firewall-rule-actions.md").
+the specifications in the rule's domain list. For more information, see [Rule actions in DNS Firewall](resolver-dns-firewall-rule-actions.md "resolver-dns-firewall-rule-actions.md").
 
 **Priority**
 

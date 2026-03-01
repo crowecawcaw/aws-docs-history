@@ -12,8 +12,7 @@ for each domain name and specify the name of the domain for which you want to fo
 - [Disassociating forwarding rules from a VPC](#resolver-rules-managing-disassociating-rules "#resolver-rules-managing-disassociating-rules")
 - [Sharing Resolver rules with other AWS accounts and using shared rules](#resolver-rules-managing-sharing "#resolver-rules-managing-sharing")
 - [Deleting forwarding rules](#resolver-rules-managing-deleting "#resolver-rules-managing-deleting")
-- [Forwarding rules for
-  reverse DNS queries in VPC Resolver](#resolver-automatic-forwarding-rules-reverse-dns "#resolver-automatic-forwarding-rules-reverse-dns")
+- [Forwarding rules for reverse DNS queries in VPC Resolver](#resolver-automatic-forwarding-rules-reverse-dns "#resolver-automatic-forwarding-rules-reverse-dns")
 
 ## Viewing and editing forwarding rules
 
@@ -35,9 +34,7 @@ For information about the values for forwarding rules, see
 
 To create one or more forwarding rules, perform the following procedure.
 
-###### To create forwarding rules and
-
-associate the rules with one or more VPCs
+###### To create forwarding rules and associate the rules with one or more VPCs
 
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
@@ -232,8 +229,7 @@ Note the following:
 - You can't delete the default **Internet Resolver** rule, which has a value of **Recursive**
   for **Type**. This rule causes Route 53 VPC Resolver to act as a recursive resolver for any domain names that you didn't
   create custom rules for and that VPC Resolver didn't create autodefined rules for. For more information about how rules are categorized, see
-  [Using rules to control which queries are forwarded
-  to your network](resolver-overview-forward-vpc-to-network-using-rules.md "resolver-overview-forward-vpc-to-network-using-rules.md").
+  [Using rules to control which queries are forwarded to your network](resolver-overview-forward-vpc-to-network-using-rules.md "resolver-overview-forward-vpc-to-network-using-rules.md").
 
 ###### To delete a forwarding rule
 
@@ -245,9 +241,7 @@ Note the following:
 5. Choose **Delete**.
 6. To confirm that you want to delete the rule, enter the name of the rule and choose **Submit**.
 
-## Forwarding rules for
-
-reverse DNS queries in VPC Resolver
+## Forwarding rules for reverse DNS queries in VPC Resolver
 
 When the `enableDnsHostnames` and `enableDnsSupport` are set to
 `true` for a virtual private cloud (VPC) from Amazon VPC, VPC Resolver
@@ -267,9 +261,7 @@ After you turn off the automatic rules, create rules to forward the queries as n
 your on-premises resources. For more information about how to manage forwarding
 rules, see [Managing forwarding rules](resolver-rules-managing.md "resolver-rules-managing.md").
 
-###### To turn off auto-defined
-
-rules
+###### To turn off auto-defined rules
 
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").

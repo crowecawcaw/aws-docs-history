@@ -1,6 +1,4 @@
-# Understanding access control methods in
-
-Route 53 Global Resolver
+# Understanding access control methods in Route 53 Global Resolver
 
 Route 53 Global Resolver offers two distinct authentication methods to control client access to your DNS
 infrastructure. Each method serves different use cases and environments.

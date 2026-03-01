@@ -1,6 +1,4 @@
-# Overview of managing access permissions to
-
-your Amazon Route 53 resources
+# Overview of managing access permissions to your Amazon Route 53 resources
 
 Every AWS resource is owned by an AWS account, and permissions to create or access
 a resource are governed by permissions policies.
@@ -30,10 +28,8 @@ To grant users programmatic access, choose one of the following options.
 
 - [ARNs for Amazon Route 53 resources](#access-control-resources "#access-control-resources")
 - [Understanding resource ownership](#access-control-owner "#access-control-owner")
-- [Managing access to
-  resources](#access-control-manage-access-intro "#access-control-manage-access-intro")
-- [Specifying policy elements:
-  Resources, actions, effects, and principals](#access-control-specify-r53-actions "#access-control-specify-r53-actions")
+- [Managing access to resources](#access-control-manage-access-intro "#access-control-manage-access-intro")
+- [Specifying policy elements: Resources, actions, effects, and principals](#access-control-specify-r53-actions "#access-control-specify-r53-actions")
 - [Specifying conditions in a policy](#specifying-conditions "#specifying-conditions")
 
 ## ARNs for Amazon Route 53 resources
@@ -61,8 +57,7 @@ following resources:
 Route 53 provides API actions to work with each of these types of resources. For more
 information, see the [Amazon Route 53 API Reference](../APIReference.md "../APIReference.md"). For a list
 of actions and the ARN that you specify to grant or deny permission to use each
-action, see [Amazon Route 53 API permissions: Actions, resources,
-and conditions reference](r53-api-permissions-ref.md "r53-api-permissions-ref.md").
+action, see [Amazon Route 53 API permissions: Actions, resources, and conditions reference](r53-api-permissions-ref.md "r53-api-permissions-ref.md").
 
 ## Understanding resource ownership
 
@@ -83,9 +78,7 @@ The following examples illustrate how this works:
   zone. Your AWS account, to which the role belongs, owns the hosted zone
   resource.
 
-## Managing access to
-
-resources
+## Managing access to resources
 
 A _permissions policy_ specifies who has access to what. This
 section explains the options for creating permissions policies for Amazon Route 53. For
@@ -99,13 +92,10 @@ policies. Route 53 supports only identity-based policies (IAM policies).
 
 ###### Topics
 
-- [Identity-based
-  policies (IAM policies)](#access-control-manage-access-intro-iam-policies "#access-control-manage-access-intro-iam-policies")
+- [Identity-based policies (IAM policies)](#access-control-manage-access-intro-iam-policies "#access-control-manage-access-intro-iam-policies")
 - [Resource-based policies](#access-control-manage-access-intro-resource-policies "#access-control-manage-access-intro-resource-policies")
 
-### Identity-based
-
-policies (IAM policies)
+### Identity-based policies (IAM policies)
 
 You can attach policies to IAM identities. For example, you can do the
 following:
@@ -193,8 +183,7 @@ JSON
 ```
 
 For more information about attaching policies to identities for Route 53, see
-[Using identity-based policies
-(IAM policies) for Amazon Route 53](access-control-managing-permissions.md "access-control-managing-permissions.md"). For more information
+[Using identity-based policies (IAM policies) for Amazon Route 53](access-control-managing-permissions.md "access-control-managing-permissions.md"). For more information
 about users, groups, roles, and permissions, see [Identities (users, groups, and roles)](../../../IAM/latest/UserGuide/id.md "../../../IAM/latest/UserGuide/id.md") in
 the _IAM User Guide_.
 
@@ -205,9 +194,7 @@ resources. For example, you can attach a policy to an S3 bucket to manage access
 permissions to that bucket. Amazon Route 53 doesn't support attaching policies to
 resources. 
 
-## Specifying policy elements:
-
-Resources, actions, effects, and principals
+## Specifying policy elements: Resources, actions, effects, and principals
 
 Amazon Route 53 includes API actions (see the [Amazon Route 53 API Reference](../APIReference.md "../APIReference.md")) that you can use on each Route 53 resource (see [ARNs for Amazon Route 53 resources](#access-control-resources "#access-control-resources")).
 You can grant a user or a federated user permissions to perform any or all of these
@@ -243,8 +230,7 @@ in the _IAM User Guide_.
 
 For a table
 showing all of the Route 53 API operations
-and the resources that they apply to, see [Amazon Route 53 API permissions: Actions, resources,
-and conditions reference](r53-api-permissions-ref.md "r53-api-permissions-ref.md").
+and the resources that they apply to, see [Amazon Route 53 API permissions: Actions, resources, and conditions reference](r53-api-permissions-ref.md "r53-api-permissions-ref.md").
 
 ## Specifying conditions in a policy
 

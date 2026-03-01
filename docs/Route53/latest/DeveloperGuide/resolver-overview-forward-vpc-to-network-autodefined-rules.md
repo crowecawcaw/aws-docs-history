@@ -18,8 +18,7 @@ and reduces VPC Resolver charges.
 
 If you want to override an autodefined rule, you can create a conditional forwarding rule for the same domain name.
 
-You can also disable some of the autodefined rules. For more information, see [Forwarding rules for
-reverse DNS queries in VPC Resolver](resolver-rules-managing.md#resolver-automatic-forwarding-rules-reverse-dns "resolver-rules-managing.md#resolver-automatic-forwarding-rules-reverse-dns").
+You can also disable some of the autodefined rules. For more information, see [Forwarding rules for reverse DNS queries in VPC Resolver](resolver-rules-managing.md#resolver-automatic-forwarding-rules-reverse-dns "resolver-rules-managing.md#resolver-automatic-forwarding-rules-reverse-dns").
 
 VPC Resolver creates the following autodefined rules.
 

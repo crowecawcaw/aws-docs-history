@@ -5,8 +5,7 @@ Amazon Simple Storage Service bucket that hosts a static website. You'll create 
 domain to the S3 website endpoint.
 
 This tutorial is part of a complete static website setup workflow. For general information
-about routing traffic to any S3 bucket, see [Routing traffic to a website that is hosted in an
-Amazon S3 bucket](RoutingToS3Bucket.md "RoutingToS3Bucket.md").
+about routing traffic to any S3 bucket, see [Routing traffic to a website that is hosted in an Amazon S3 bucket](RoutingToS3Bucket.md "RoutingToS3Bucket.md").
 
 When you're finished, visitors can access your static website using your custom domain
 name.
@@ -14,8 +13,7 @@ name.
 ###### Note
 
 You can also transfer an existing domain to Route 53, but the process is more complex and
-time-consuming than registering a new domain. For more information, see [Transferring registration for a domain to
-Amazon Route 53](domain-transfer-to-route-53.md "domain-transfer-to-route-53.md").
+time-consuming than registering a new domain. For more information, see [Transferring registration for a domain to Amazon Route 53](domain-transfer-to-route-53.md "domain-transfer-to-route-53.md").
 
 ## Prerequisites
 
@@ -34,17 +32,13 @@ When you complete the Amazon Simple Storage Service tutorial, you'll have:
 - Website content uploaded to your bucket
 - Public access configured for your website bucket
 
-## Step 1: Route DNS traffic for your domain
-
-to your website bucket
+## Step 1: Route DNS traffic for your domain to your website bucket
 
 Now that you have an Amazon Simple Storage Service bucket configured for static website hosting, use
 Amazon Route 53 to route DNS traffic for your domain to the bucket. This enables visitors to
 access your website using your custom domain name.
 
-###### To route traffic to your
-
-website
+###### To route traffic to your website
 
 1. Open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
@@ -91,9 +85,7 @@ Website endpoints](../../../general/latest/gr/s3.md#s3_website_region_endpoints 
 
 Accept the default value of **No**. 6. Choose **Create records**.
 
-###### (Optional) To add an alias record for your subdomain
-
-(`www.example.com`)
+###### (Optional) To add an alias record for your subdomain (`www.example.com`)
 
 If you created a bucket for your subdomain, add an alias record for it
 also.
@@ -149,5 +141,4 @@ routing your internet traffic to AWS resources, see [Routing internet traffic to
 
 Amazon S3 does not support HTTPS access to the website. If you want to use HTTPS, you
 can use Amazon CloudFront to serve a static website hosted on Amazon S3. For more information, see
-[Use an Amazon CloudFront distribution to serve
-a static website](getting-started-cloudfront-overview.md "getting-started-cloudfront-overview.md").
+[Use an Amazon CloudFront distribution to serve a static website](getting-started-cloudfront-overview.md "getting-started-cloudfront-overview.md").

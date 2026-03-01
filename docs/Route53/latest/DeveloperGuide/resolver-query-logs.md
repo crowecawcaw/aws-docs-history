@@ -41,11 +41,9 @@ You can send the logs to one of the following AWS resources:
 - Amazon CloudWatch Logs (CloudWatch Logs) log group
 - Amazon S3 (S3) bucket
 - Firehose delivery stream
-  For more information, see [AWS resources that you
-  can send VPC Resolver query logs to](resolver-query-logs-choosing-target-resource.md "resolver-query-logs-choosing-target-resource.md").
+  For more information, see [AWS resources that you can send VPC Resolver query logs to](resolver-query-logs-choosing-target-resource.md "resolver-query-logs-choosing-target-resource.md").
 
 ###### Topics
 
-- [AWS resources that you
-  can send VPC Resolver query logs to](resolver-query-logs-choosing-target-resource.md "resolver-query-logs-choosing-target-resource.md")
+- [AWS resources that you can send VPC Resolver query logs to](resolver-query-logs-choosing-target-resource.md "resolver-query-logs-choosing-target-resource.md")
 - [Managing Resolver query logging configurations](resolver-query-logging-configurations-managing.md "resolver-query-logging-configurations-managing.md")

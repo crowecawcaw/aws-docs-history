@@ -38,19 +38,15 @@ Before you enable DNSSEC signing, note the following:
   to add or remove records in the zone. For example, a zone owner can add a KSK and
   enable signing, and might also be responsible for key rotation. However, someone
   else might be responsible for working with other records for the hosted zone. For an
-  example IAM policy, see [Example permissions for a domain
-  record owner](access-control-managing-permissions.md#example-permissions-record-owner "access-control-managing-permissions.md#example-permissions-record-owner").
+  example IAM policy, see [Example permissions for a domain record owner](access-control-managing-permissions.md#example-permissions-record-owner "access-control-managing-permissions.md#example-permissions-record-owner").
 - To check to see if the TLD has DNSSEC support, see [Domains that you can register with Amazon Route 53](registrar-tld-list.md "registrar-tld-list.md").
 
 ###### Topics
 
-- [Enabling DNSSEC signing and
-  establishing a chain of
-  trust](dns-configuring-dnssec-enable-signing.md "dns-configuring-dnssec-enable-signing.md")
+- [Enabling DNSSEC signing and establishing a chain of trust](dns-configuring-dnssec-enable-signing.md "dns-configuring-dnssec-enable-signing.md")
 - [Disabling DNSSEC signing](dns-configuring-dnssec-disable.md "dns-configuring-dnssec-disable.md")
 - [Working with customer managed keys for DNSSEC](dns-configuring-dnssec-cmk-requirements.md "dns-configuring-dnssec-cmk-requirements.md")
 - [Working with key-signing keys (KSKs)](dns-configuring-dnssec-ksk.md "dns-configuring-dnssec-ksk.md")
-- [KMS key and ZSK management in
-  Route 53](dns-configuring-dnssec-zsk-management.md "dns-configuring-dnssec-zsk-management.md")
+- [KMS key and ZSK management in Route 53](dns-configuring-dnssec-zsk-management.md "dns-configuring-dnssec-zsk-management.md")
 - [DNSSEC proofs of nonexistence in Route 53](dns-configuring-dnssec-proof-of-nonexistence.md "dns-configuring-dnssec-proof-of-nonexistence.md")
 - [Troubleshooting DNSSEC signing](dns-configuring-dnssec-troubleshoot.md "dns-configuring-dnssec-troubleshoot.md")

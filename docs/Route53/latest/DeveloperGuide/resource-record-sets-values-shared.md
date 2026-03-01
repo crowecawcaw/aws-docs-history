@@ -1,6 +1,4 @@
-# Values that are common for all routing
-
-policies
+# Values that are common for all routing policies
 
 These are the common values that you can specify when you create or edit Amazon Route 53
 records. These values are used by all routing policies.

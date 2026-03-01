@@ -1,14 +1,10 @@
-# Associate interface VPC endpoints
-
-to a Route 53 Profile
+# Associate interface VPC endpoints to a Route 53 Profile
 
 For instructions on how to create a interface VPC endpoint, see [Create a VPC endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint-aws "../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint-aws") in the _VPC User Guide._ and
 then follow the steps in this procedure to associate a VPC endpoint to a
 Profile.
 
-###### To associate VPC
-
-endpoints
+###### To associate VPC endpoints
 
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").

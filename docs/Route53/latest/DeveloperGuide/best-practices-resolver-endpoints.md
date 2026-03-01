@@ -1,6 +1,4 @@
-# Avoid loop configurations with
-
-Resolver endpoints
+# Avoid loop configurations with Resolver endpoints
 
 Don't associate the same VPC to a Resolver rule and its inbound endpoint (whether
 it’s a direct target of the endpoint, or via an on-premises DNS server).

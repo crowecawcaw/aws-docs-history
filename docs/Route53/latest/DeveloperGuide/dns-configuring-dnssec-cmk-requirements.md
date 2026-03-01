@@ -17,8 +17,7 @@ Keep the following in mind when you work with customer managed keys for DNSSEC:
   in the AWS Key Management Service Developer Guide.
 - If you create a customer managed key yourself to use with DNSSEC in Route 53, you must include specific key policy
   statements that give Route 53 the required permissions. Route 53 must be able to access your customer managed key so that it can
-  create a KSK for you. For more information, see [Route 53 customer managed key permissions required
-  for DNSSEC signing](access-control-managing-permissions.md#KMS-key-policy-for-DNSSEC "access-control-managing-permissions.md#KMS-key-policy-for-DNSSEC").
+  create a KSK for you. For more information, see [Route 53 customer managed key permissions required for DNSSEC signing](access-control-managing-permissions.md#KMS-key-policy-for-DNSSEC "access-control-managing-permissions.md#KMS-key-policy-for-DNSSEC").
 - Route 53 can create a customer managed key for you in AWS KMS to use with DNSSEC signing without additional AWS KMS permissions. However, you must have specific
   permissions if you want to edit the key after it's created. The specific permissions that you must have are the following:
   `kms:UpdateKeyDescription`, `kms:UpdateAlias`, and `kms:PutKeyPolicy`.

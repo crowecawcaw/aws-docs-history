@@ -52,8 +52,7 @@ For more information, see [Working with public hosted zones](AboutHZWorkingWith.
 - [Creating a private hosted zone](hosted-zone-private-creating.md "hosted-zone-private-creating.md")
 - [Listing private hosted zones](hosted-zone-private-listing.md "hosted-zone-private-listing.md")
 - [Associating more VPCs with a private hosted zone](hosted-zone-private-associate-vpcs.md "hosted-zone-private-associate-vpcs.md")
-- [Associating an Amazon VPC and a private hosted zone
-  that you created with different AWS accounts](hosted-zone-private-associate-vpcs-different-accounts.md "hosted-zone-private-associate-vpcs-different-accounts.md")
+- [Associating an Amazon VPC and a private hosted zone that you created with different AWS accounts](hosted-zone-private-associate-vpcs-different-accounts.md "hosted-zone-private-associate-vpcs-different-accounts.md")
 - [Disassociating VPCs from a private hosted zone](hosted-zone-private-disassociate-vpcs.md "hosted-zone-private-disassociate-vpcs.md")
 - [Deleting a private hosted zone](hosted-zone-private-deleting.md "hosted-zone-private-deleting.md")
 - [VPC permissions](hosted-zone-private-vpc-permissions.md "hosted-zone-private-vpc-permissions.md")

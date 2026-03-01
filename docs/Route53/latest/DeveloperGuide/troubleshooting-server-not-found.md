@@ -5,22 +5,16 @@ here are some common explanations.
 
 ###### Topics
 
-- [You didn't create a record for the
-  domain or subdomain name](#troubleshooting-server-not-found-no-resource-record-set "#troubleshooting-server-not-found-no-resource-record-set")
-- [You created a record but
-  specified the wrong value](#troubleshooting-server-not-found-wrong-value-in-resource-record-set "#troubleshooting-server-not-found-wrong-value-in-resource-record-set")
+- [You didn't create a record for the domain or subdomain name](#troubleshooting-server-not-found-no-resource-record-set "#troubleshooting-server-not-found-no-resource-record-set")
+- [You created a record but specified the wrong value](#troubleshooting-server-not-found-wrong-value-in-resource-record-set "#troubleshooting-server-not-found-wrong-value-in-resource-record-set")
 - [The resource that you're routing traffic to is unavailable](#troubleshooting-server-not-found-resource-unavailable "#troubleshooting-server-not-found-resource-unavailable")
 
-## You didn't create a record for the
-
-domain or subdomain name
+## You didn't create a record for the domain or subdomain name
 
 If you don't create a record for the domain or subdomain, then DNS doesn't know where to route traffic
 when someone enters that name in a browser. For more information, see [Working with records](rrsets-working-with.md "rrsets-working-with.md").
 
-## You created a record but
-
-specified the wrong value
+## You created a record but specified the wrong value
 
 When you create a record, it's easy to specify the wrong value, such as the IP address for a web server
 or the domain name that CloudFront assigned to your web distribution. If the record exists but you're still getting a

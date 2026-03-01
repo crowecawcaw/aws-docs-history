@@ -22,8 +22,7 @@ To view and edit settings for an outbound endpoint, perform the following proced
 5. Choose **View details** or **Edit**.
 
 For information about the values for outbound endpoints, see
-[Values that you specify when you create or edit
-outbound endpoints](resolver-forwarding-outbound-queries-endpoint-values.md "resolver-forwarding-outbound-queries-endpoint-values.md"). 6. If you chose **Edit**, enter the applicable values, and then choose **Save**.
+[Values that you specify when you create or edit outbound endpoints](resolver-forwarding-outbound-queries-endpoint-values.md "resolver-forwarding-outbound-queries-endpoint-values.md"). 6. If you chose **Edit**, enter the applicable values, and then choose **Save**.
 
 ## Viewing the status for outbound endpoints
 
