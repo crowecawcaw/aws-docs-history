@@ -1,6 +1,4 @@
-# Use a form in the Athena console to add an
-
-AWS Glue table
+# Use a form in the Athena console to add an AWS Glue table
 
 The following procedure shows you how to use the Athena console to add a table using the
 **Create Table From S3 bucket data** form.
@@ -66,8 +64,7 @@ only (for example, s3://amzn-s3-demo-bucket/logs/). 6. For **Data Format**, choo
     	 the `java.sql.Timestamp` format. Choose
     	 **OpenCSVSerDe** if your data includes quotes
     	 or uses the UNIX numeric format for `TIMESTAMP` (for
-    	 example, `1564610311`). For more information, see [Lazy Simple SerDe for CSV, TSV, and custom-delimited
-    	 files](lazy-simple-serde.md "lazy-simple-serde.md")
+    	 example, `1564610311`). For more information, see [Lazy Simple SerDe for CSV, TSV, and custom-delimited files](lazy-simple-serde.md "lazy-simple-serde.md")
     	 and [Open CSV SerDe for processing CSV](csv-serde.md "csv-serde.md").
     	+ **JSON** – Choose either the
     	 **OpenX** or **Hive** JSON

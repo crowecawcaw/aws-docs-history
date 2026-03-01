@@ -27,5 +27,4 @@ Access](cross-account-permissions.md "cross-account-permissions.md").
 
 ###### Topics
 
-- [Connect to Amazon Athena using an interface VPC
-  endpoint](interface-vpc-endpoint.md "interface-vpc-endpoint.md")
+- [Connect to Amazon Athena using an interface VPC endpoint](interface-vpc-endpoint.md "interface-vpc-endpoint.md")

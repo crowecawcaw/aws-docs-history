@@ -1,6 +1,4 @@
-# Amazon Athena IBM Db2 AS/400 (Db2 iSeries)
-
-connector
+# Amazon Athena IBM Db2 AS/400 (Db2 iSeries) connector
 
 The Amazon Athena connector for Db2 AS/400 enables Amazon Athena to run SQL queries on your IBM
 Db2 AS/400 (Db2 iSeries) databases using JDBC.
@@ -10,11 +8,9 @@ It supports data access controls defined in Lake Formation at the catalog, datab
 
 ## Prerequisites
 
-- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data
-  source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
+- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
 - Set up a VPC and a security group before you use this connector. For more
-  information, see [Create a VPC for a data source connector or
-  AWS Glue connection](athena-connectors-vpc-creation.md "athena-connectors-vpc-creation.md").
+  information, see [Create a VPC for a data source connector or AWS Glue connection](athena-connectors-vpc-creation.md "athena-connectors-vpc-creation.md").
 
 ## Limitations
 
@@ -95,9 +91,7 @@ aws glue describe-connection-type --connection-type DB2AS400
 - The Db2 AS/400 connector created using Glue connections does not support the use of a multiplexing handler.
 - The Db2 AS/400 connector created using Glue connections only supports `ConnectionSchemaVersion` 2.
 
-#### Connection
-
-string
+#### Connection string
 
 Use a JDBC connection string in the following format to connect to a database
 instance.
@@ -106,9 +100,7 @@ instance.
 db2as400://${`jdbc_connection_string`}
 ```
 
-#### Using a
-
-multiplexing handler
+#### Using a multiplexing handler
 
 You can use a multiplexer to connect to multiple database instances with a single
 Lambda function. Requests are routed by catalog name. Use the following classes in
@@ -138,9 +130,7 @@ default), and `db2as4002`.
 | `db2as400_catalog2_connection_string` | `db2as400://jdbc:as400://db2as4002.``hostname/:${`secret2_name`}```                              |
 | `db2as400_catalog3_connection_string` | `db2as400://jdbc:as400://`<ip_address>`;user=`<username>`;password=`<password>`;`<properties>`;` |
 
-##### Providing
-
-credentials
+##### Providing credentials
 
 To provide a user name and password for your database in your JDBC connection
 string, you can use connection string properties or AWS Secrets Manager.
@@ -191,9 +181,7 @@ The connector uses the secret name to retrieve secrets and provide the user name
 db2as400://jdbc:as400://`<ip_address>`;user=`<username>`;password=`<password>`;`<properties>`;
 ```
 
-#### Using a
-
-single connection handler
+#### Using a single connection handler
 
 You can use the following single connection metadata and record handlers to
 connect to a single Db2 AS/400 instance.
@@ -253,9 +241,7 @@ Arrow.
 | DOUBLE     | FLOAT8    |
 | DECFLOAT   | FLOAT8    |
 
-## Partitions and
-
-splits
+## Partitions and splits
 
 A partition is represented by one or more partition columns of type
 `varchar`. The Db2 AS/400 connector creates partitions using the following
@@ -284,9 +270,7 @@ SELECT * FROM "lambda: `<LAMBDA_NAME>`"."`<SCHEMA_NAME>`"."`<TABLE_NAME>`"
  WHERE timestampcol >= TIMESTAMP '2018-03-25 07:30:58.878'
 ```
 
-## Passthrough
-
-queries
+## Passthrough queries
 
 The Db2 AS/400 connector supports [passthrough queries](federated-query-passthrough.md "federated-query-passthrough.md"). Passthrough
 queries use a table function to push your full query down to the data source for

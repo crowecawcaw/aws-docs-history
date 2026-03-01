@@ -1,6 +1,4 @@
-# List partitions for a
-
-specific table
+# List partitions for a specific table
 
 You can use `SHOW PARTITIONS `table_name`` to list
 the partitions for a specified table, as in the following example.

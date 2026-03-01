@@ -1,8 +1,6 @@
 # Endpoint overrides
 
-## Athena endpoint
-
-override
+## Athena endpoint override
 
 The `endpointOverride ClientConfiguration` class uses this value override
 the default HTTP endpoint for the Amazon Athena client. For more information, see [AWS
@@ -12,9 +10,7 @@ Client configuration](../../../sdk-for-cpp/v1/developer-guide/client-config.md "
 | -------------------------- | ------------------ | ----------------- | -------------------------------------------------- |
 | EndpointOverride           | Optional           | `none`            | `EndpointOverride=athena.us-west-2.amazonaws.com;` |
 
-## Athena streaming
-
-endpoint override
+## Athena streaming endpoint override
 
 The `ClientConfiguration.endpointOverride` method uses this value to
 override the default HTTP endpoint for the Amazon Athena streaming client. For more
@@ -36,9 +32,7 @@ override the default HTTP endpoint for the AWS STS client. For more information,
 | -------------------------- | ------------------ | ----------------- | -------------------------------------------------- |
 | StsEndpointOverride        | Optional           | `none`            | `StsEndpointOverride=sts.us-west-1.amazonaws.com;` |
 
-## Lake Formation endpoint
-
-override
+## Lake Formation endpoint override
 
 The `ClientConfiguration.endpointOverride` method uses this value to
 override the default HTTP endpoint for the Lake Formation client. For more information, see [AWS
@@ -58,9 +52,7 @@ Client configuration](../../../sdk-for-cpp/v1/developer-guide/client-config.md "
 | -------------------------- | ------------------ | ----------------- | --------------------------------------------------------- |
 | SSOEndpointOverride        | Optional           | `none`            | `SSOEndpointOverride=portal.sso.us-east-2.amazonaws.com;` |
 
-## SSO OIDC endpoint
-
-override
+## SSO OIDC endpoint override
 
 The `ClientConfiguration.endpointOverride` method uses this value to
 override the default HTTP endpoint for the SSO OIDC client. For more information, see

@@ -57,9 +57,7 @@ Hudi provides three query types for accessing the data:
 For more information about the tradeoffs between table and query types, see [Table & Query Types](https://hudi.apache.org/docs/table_types/ "https://hudi.apache.org/docs/table_types/") in the
 Apache Hudi documentation.
 
-## Hudi terminology
-
-change: Views are now queries
+## Hudi terminology change: Views are now queries
 
 Starting in Apache Hudi release version 0.5.1, what were formerly called views are now
 called queries. The following table summarizes the changes between the old and new
@@ -73,12 +71,8 @@ terms.
 
 ###### Topics
 
-- [Considerations
-  and limitations](querying-hudi-in-athena-considerations-and-limitations.md "querying-hudi-in-athena-considerations-and-limitations.md")
-- [Copy on write (CoW)
-  create table examples](querying-hudi-copy-on-write-create-table-examples.md "querying-hudi-copy-on-write-create-table-examples.md")
-- [Merge on read (MoR)
-  create table examples](querying-hudi-merge-on-read-create-table-examples.md "querying-hudi-merge-on-read-create-table-examples.md")
-- [Use Hudi metadata for improved
-  performance](querying-hudi-metadata-table.md "querying-hudi-metadata-table.md")
+- [Considerations and limitations](querying-hudi-in-athena-considerations-and-limitations.md "querying-hudi-in-athena-considerations-and-limitations.md")
+- [Copy on write (CoW) create table examples](querying-hudi-copy-on-write-create-table-examples.md "querying-hudi-copy-on-write-create-table-examples.md")
+- [Merge on read (MoR) create table examples](querying-hudi-merge-on-read-create-table-examples.md "querying-hudi-merge-on-read-create-table-examples.md")
+- [Use Hudi metadata for improved performance](querying-hudi-metadata-table.md "querying-hudi-metadata-table.md")
 - [Additional resources](querying-hudi-additional-resources.md "querying-hudi-additional-resources.md")

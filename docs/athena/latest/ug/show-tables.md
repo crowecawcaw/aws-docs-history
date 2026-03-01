@@ -55,9 +55,7 @@ flights_parquet
 view_2016_flights_dfw
 ```
 
-###### Example– Show the names of all tables in `sampledb` that include the
-
-word "flights"
+###### Example– Show the names of all tables in `sampledb` that include the word "flights"
 
 ```
 SHOW TABLES IN sampledb '*flights*'
@@ -71,9 +69,7 @@ flights_parquet
 view_2016_flights_dfw
 ```
 
-###### Example– Show the names of all tables in `sampledb` that end in the
-
-word "logs"
+###### Example– Show the names of all tables in `sampledb` that end in the word "logs"
 
 ```
 SHOW TABLES IN sampledb '*logs'

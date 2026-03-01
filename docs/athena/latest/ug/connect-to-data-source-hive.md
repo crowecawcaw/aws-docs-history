@@ -13,21 +13,15 @@ metastore.
 
 - [Overview of features](#connect-to-a-data-source-hive-features "#connect-to-a-data-source-hive-features")
 - [Workflow](#connect-to-data-source-hive-workflow "#connect-to-data-source-hive-workflow")
-- [Considerations and
-  limitations](#connect-to-a-data-source-hive-considerations "#connect-to-a-data-source-hive-considerations")
+- [Considerations and limitations](#connect-to-a-data-source-hive-considerations "#connect-to-a-data-source-hive-considerations")
 - [Connect Athena to an Apache Hive metastore](connect-to-data-source-hive-connecting-athena-to-an-apache-hive-metastore.md "connect-to-data-source-hive-connecting-athena-to-an-apache-hive-metastore.md")
-- [Use the AWS Serverless Application Repository to deploy a Hive data source
-  connector](connect-data-source-sar-hive.md "connect-data-source-sar-hive.md")
-- [Connect Athena to a Hive
-  metastore using an existing IAM execution role](connect-data-source-hive-existing-iam-role.md "connect-data-source-hive-existing-iam-role.md")
-- [Configure Athena to use a deployed
-  Hive metastore connector](connect-data-source-hive-existing-lambda.md "connect-data-source-hive-existing-lambda.md")
-- [Omit the catalog name in external Hive
-  metastore queries](datastores-hive-default-catalog.md "datastores-hive-default-catalog.md")
+- [Use the AWS Serverless Application Repository to deploy a Hive data source connector](connect-data-source-sar-hive.md "connect-data-source-sar-hive.md")
+- [Connect Athena to a Hive metastore using an existing IAM execution role](connect-data-source-hive-existing-iam-role.md "connect-data-source-hive-existing-iam-role.md")
+- [Configure Athena to use a deployed Hive metastore connector](connect-data-source-hive-existing-lambda.md "connect-data-source-hive-existing-lambda.md")
+- [Omit the catalog name in external Hive metastore queries](datastores-hive-default-catalog.md "datastores-hive-default-catalog.md")
 - [Work with Hive views](hive-views.md "hive-views.md")
 - [Use the AWS CLI with Hive metastores](datastores-hive-cli.md "datastores-hive-cli.md")
-- [Modify the Athena external Hive
-  metastore connector](datastores-hive-reference-implementation.md "datastores-hive-reference-implementation.md")
+- [Modify the Athena external Hive metastore connector](datastores-hive-reference-implementation.md "datastores-hive-reference-implementation.md")
 
 ## Overview of features
 
@@ -110,9 +104,7 @@ steps.
    the metadata from your external Hive metastore just like it uses the metadata
    from the default AWS Glue Data Catalog.
 
-## Considerations and
-
-limitations
+## Considerations and limitations
 
 When you use Athena Data Connector for External Hive Metastore, consider the following points:
 
@@ -161,14 +153,12 @@ Prebuilt and custom data connectors might require access to the following
 resources to function correctly. Check the information for the connector that you
 use to make sure that you have configured your VPC correctly. For information about
 required IAM permissions to run queries and create a data source connector in
-Athena, see [Allow access to the Athena Data Connector for External Hive Metastore](hive-metastore-iam-access.md "hive-metastore-iam-access.md") and [Allow Lambda function access to external
-Hive metastores](hive-metastore-iam-access-lambda.md "hive-metastore-iam-access-lambda.md").
+Athena, see [Allow access to the Athena Data Connector for External Hive Metastore](hive-metastore-iam-access.md "hive-metastore-iam-access.md") and [Allow Lambda function access to external Hive metastores](hive-metastore-iam-access-lambda.md "hive-metastore-iam-access-lambda.md").
 
 - **Amazon S3** – In addition to writing
   query results to the Athena query results location in Amazon S3, data connectors
   also write to a spill bucket in Amazon S3. Connectivity and permissions to this
-  Amazon S3 location are required. For more information, see [Spill location in
-  Amazon S3](#connect-to-data-source-hive-spill-location "#connect-to-data-source-hive-spill-location") later in
+  Amazon S3 location are required. For more information, see [Spill location in Amazon S3](#connect-to-data-source-hive-spill-location "#connect-to-data-source-hive-spill-location") later in
   this topic.
 - **Athena** – Access is required to check query
   status and prevent overscan.
@@ -176,13 +166,10 @@ Hive metastores](hive-metastore-iam-access-lambda.md "hive-metastore-iam-access-
   connector uses AWS Glue for supplemental or primary metadata.
 - **AWS Key Management Service**
 - **Policies** – Hive metastore, Athena Query
-  Federation, and UDFs require policies in addition to the [AWS managed policy:
-  AmazonAthenaFullAccess](managed-policies.md#amazonathenafullaccess-managed-policy "managed-policies.md#amazonathenafullaccess-managed-policy"). For more
+  Federation, and UDFs require policies in addition to the [AWS managed policy: AmazonAthenaFullAccess](managed-policies.md#amazonathenafullaccess-managed-policy "managed-policies.md#amazonathenafullaccess-managed-policy"). For more
   information, see [Identity and access management in Athena](security-iam-athena.md "security-iam-athena.md").
 
-### Spill location in
-
-Amazon S3
+### Spill location in Amazon S3
 
 Because of the [limit](../../../lambda/latest/dg/limits.md "../../../lambda/latest/dg/limits.md") on Lambda
 function response sizes, responses larger than the threshold spill into an Amazon S3

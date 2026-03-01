@@ -1,12 +1,8 @@
-# Troubleshoot Spark-enabled
-
-workgroups
+# Troubleshoot Spark-enabled workgroups
 
 Use the following information to troubleshoot Spark-enabled workgroups in Athena.
 
-## Session stops
-
-responding when using an existing IAM role
+## Session stops responding when using an existing IAM role
 
 If you did not create a new `AWSAthenaSparkExecutionRole` for your Spark
 enabled workgroup and instead updated or chose an existing IAM role, your session

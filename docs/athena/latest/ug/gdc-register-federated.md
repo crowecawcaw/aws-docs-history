@@ -2,12 +2,9 @@
 
 After you create connections to federated data sources, you can register them as
 federated data catalogs for simplified data discovery and manage data access with
-fine-grained permissions using Lake Formation. For more information, see [Register your connection as a Glue Data
-Catalog](register-connection-as-gdc.md "register-connection-as-gdc.md").
+fine-grained permissions using Lake Formation. For more information, see [Register your connection as a Glue Data Catalog](register-connection-as-gdc.md "register-connection-as-gdc.md").
 
-## Considerations and
-
-limitations
+## Considerations and limitations
 
 - DDL operations are not supported on federated catalogs.
 - You can register the following connectors to integrate with AWS Glue for fine-grained access

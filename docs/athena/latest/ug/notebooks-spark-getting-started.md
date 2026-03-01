@@ -1,6 +1,4 @@
-# Get started with Apache Spark on
-
-Amazon Athena
+# Get started with Apache Spark on Amazon Athena
 
 ###### Note
 
@@ -162,21 +160,18 @@ options:
     the S3 bucket location to be created are displayed in the box below the
     **Additional configurations** heading.
 
-If you do not want to use the defaults, continue with the steps in the [(Optional)
-Specify your own workgroup configurations](#notebooks-spark-getting-started-workgroup-configuration "#notebooks-spark-getting-started-workgroup-configuration")
+If you do not want to use the defaults, continue with the steps in the [(Optional) Specify your own workgroup configurations](#notebooks-spark-getting-started-workgroup-configuration "#notebooks-spark-getting-started-workgroup-configuration")
 section to configure your workgroup manually. 12. (Optional) **Tags** – Use this option to add tags to
 your workgroup. For more information, see [Tag Athena resources](tags.md "tags.md"). 13. Choose **Create workgroup**. A message informs you that the
 workgroup was created successfully, and the workgroup shows in the list of
 workgroups.
 
-### (Optional)
-
-Specify your own workgroup configurations
+### (Optional) Specify your own workgroup configurations
 
 If you want to specify your own IAM role and calculation results location for
 your notebook, follow the steps in this section. If you chose **Use
 defaults** for the **Additional configurations**
-option, skip this section and go directly to [Step 2: Open notebook explorer and switch workgroups](#notebooks-spark-getting-started-switching-workgroups-and-opening-notebook-explorer "#notebooks-spark-getting-started-switching-workgroups-and-opening-notebook-explorer") .
+option, skip this section and go directly to [Step 2: Open notebook explorer and switch workgroups](#notebooks-spark-getting-started-switching-workgroups-and-opening-notebook-explorer "#notebooks-spark-getting-started-switching-workgroups-and-opening-notebook-explorer").
 
 The following procedure assumes you have completed steps 1 to 9 of the
 **To create a Spark enabled workgroup in Athena** procedure in
@@ -197,8 +192,7 @@ the previous section.
        role – From the drop down menu, choose
        an existing role. The role that you choose must include the
        permissions in the first option. For more information about
-       permissions for notebook-enabled workgroups, see [Troubleshoot Spark-enabled
-       workgroups](notebooks-spark-troubleshooting-workgroups.md "notebooks-spark-troubleshooting-workgroups.md").
+       permissions for notebook-enabled workgroups, see [Troubleshoot Spark-enabled workgroups](notebooks-spark-troubleshooting-workgroups.md "notebooks-spark-troubleshooting-workgroups.md").
 
    - For **Notebook and calculation code encryption key
      management**, choose one of the following
@@ -243,8 +237,7 @@ the previous section.
 2. (Optional) **Other settings** – Expand this option
    to enable or disable the **Publish CloudWatch metrics** option
    for the workgroup. This field is selected by default. For more information,
-   see [Monitor Apache Spark with CloudWatch
-   metrics](notebooks-spark-metrics.md "notebooks-spark-metrics.md").
+   see [Monitor Apache Spark with CloudWatch metrics](notebooks-spark-metrics.md "notebooks-spark-metrics.md").
 3. (Optional) **Tags** – Use this option to add tags
    to your workgroup. For more information, see [Tag Athena resources](tags.md "tags.md").
 4. Choose **Create workgroup**. A message informs you that
@@ -287,9 +280,7 @@ You can use the notebook explorer in the following ways:
     * To create a notebook, choose **Create
      notebook**.
 
-## Step 3:
-
-Run the example notebook
+## Step 3: Run the example notebook
 
 The sample notebook queries data from a publicly available New York City taxi trip
 dataset. The notebook has examples that show how to work with Spark DataFrames, Spark
@@ -316,9 +307,7 @@ If you change folder, table, or database names in the example notebook, make sur
 those changes are reflected in the IAM roles that you use. Otherwise, the notebook
 can fail to run due to insufficient permissions.
 
-## Step 4: Edit
-
-session details
+## Step 4: Edit session details
 
 After you start a notebook session, you can edit session details like table format,
 encryption, session idle timeout, and the maximum concurrent number of data processing
@@ -342,8 +331,7 @@ consists of 4 vCPUs of compute capacity and 16 GB of memory.
        automatically provided for you in the **Edit in
        table** and **Edit in JSON**
        options. For more information about using these table formats,
-       see [Use non-Hive table formats in Athena for
-       Spark](notebooks-spark-table-formats.md "notebooks-spark-table-formats.md").
+       see [Use non-Hive table formats in Athena for Spark](notebooks-spark-table-formats.md "notebooks-spark-table-formats.md").
      - To add or remove table properties for the
        **Custom** or other table types, use the
        **Edit in table** and **Edit in
@@ -430,9 +418,7 @@ After you run the notebook, you can view your session and calculation details.
    - To view information about the calculation results in Amazon S3, choose
      **View in S3**.
 
-## Step 6:
-
-Terminate the session
+## Step 6: Terminate the session
 
 ###### To end the notebook session
 
@@ -449,9 +435,7 @@ session for an active notebook. If you want to ensure that the session is
 terminated, use the **Session**, **Terminate**
 option.
 
-## Step 7:
-
-Create your own notebook
+## Step 7: Create your own notebook
 
 After you have created a Spark enabled Athena workgroup, you can create your own
 notebook.
@@ -483,8 +467,7 @@ notebook.
        automatically provided for you in the **Edit in
        table** and **Edit in JSON**
        options. For more information about using these table formats,
-       see [Use non-Hive table formats in Athena for
-       Spark](notebooks-spark-table-formats.md "notebooks-spark-table-formats.md").
+       see [Use non-Hive table formats in Athena for Spark](notebooks-spark-table-formats.md "notebooks-spark-table-formats.md").
      - To add or remove table properties for the
        **Custom** or other table types, use the
        **Edit in table** and **Edit in

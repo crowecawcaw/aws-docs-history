@@ -103,9 +103,7 @@ The following example shows an Athena Query State Change event with the
 
 ```
 
-### Output
-
-properties
+### Output properties
 
 The JSON output includes the following properties.
 

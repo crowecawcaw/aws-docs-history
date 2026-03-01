@@ -1,6 +1,4 @@
-# Example queries for ALB connection
-
-logs
+# Example queries for ALB connection logs
 
 The following query count occurrences where the value for
 `tls_verify_status` was not `'Success'`, grouped by client IP

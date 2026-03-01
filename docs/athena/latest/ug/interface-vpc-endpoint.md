@@ -1,6 +1,4 @@
-# Connect to Amazon Athena using an interface VPC
-
-endpoint
+# Connect to Amazon Athena using an interface VPC endpoint
 
 You can improve the security posture of your VPC by using an [interface VPC endpoint
 (AWS PrivateLink)](../../../vpc/latest/userguide/vpce-interface.md "../../../vpc/latest/userguide/vpce-interface.md") and an [AWS Glue VPC endpoint](../../../glue/latest/dg/vpc-endpoint.md "../../../glue/latest/dg/vpc-endpoint.md") in your Virtual
@@ -44,9 +42,7 @@ PrivateLink)](../../../vpc/latest/userguide/vpce-interface.md "../../../vpc/late
 Athena supports making calls to all of its [API actions](../APIReference/API_Operations.md "../APIReference/API_Operations.md") inside your
 VPC.
 
-## Create a VPC endpoint policy for
-
-Athena
+## Create a VPC endpoint policy for Athena
 
 You can create a policy for Amazon VPC endpoints for Athena to specify restrictions like
 the following:
@@ -72,7 +68,7 @@ For more information, see [Controlling access to services with VPC endpoints](..
 _Amazon VPC User Guide_ and [Appendix 2 – VPC endpoint policy examples](../../../whitepapers/latest/building-a-data-perimeter-on-aws/appendix-2-vpc-endpoint-policy-examples.md "../../../whitepapers/latest/building-a-data-perimeter-on-aws/appendix-2-vpc-endpoint-policy-examples.md") in the AWS Whitepaper
 _Building a data perimeter on AWS_.
 
-###### Example – VPC endpoint policy
+###### Example– VPC endpoint policy
 
 The following example allows requests by organization identities to
 organization resources and allows requests by AWS service principals.
@@ -119,9 +115,7 @@ JSON
 
 Whenever you use IAM policies, make sure that you follow IAM best practices. For more information, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## About VPC endpoints in
-
-shared subnets
+## About VPC endpoints in shared subnets
 
 You can't create, describe, modify, or delete VPC endpoints in subnets that are
 shared with you. However, you can use the VPC endpoints in subnets that are shared

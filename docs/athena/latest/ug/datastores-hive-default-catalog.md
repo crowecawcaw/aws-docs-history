@@ -1,6 +1,4 @@
-# Omit the catalog name in external Hive
-
-metastore queries
+# Omit the catalog name in external Hive metastore queries
 
 When you run DML and DDL queries on external Hive metastores, you can simplify your query
 syntax by omitting the catalog name if that name is selected in the query editor. Certain
@@ -74,9 +72,7 @@ omitted from the query itself.
 
 ![A DDL statement using the default catalog.](images/datastores-hive-default-catalog-4.png)
 
-## Specifying a default data source in a
-
-JDBC connection string
+## Specifying a default data source in a JDBC connection string
 
 When you use the Athena JDBC Driver to connect Athena to an external Hive metastore, you can
 use the `Catalog` parameter to specify the default data source name in your

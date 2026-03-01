@@ -25,9 +25,7 @@ Athena reuses the last query result when all of the following conditions are tru
 
 If any of these conditions are not met, Athena runs the query without using the cached results.
 
-## Considerations
-
-and limitations
+## Considerations and limitations
 
 When using the query result reuse feature, keep in mind the following points:
 
@@ -68,8 +66,7 @@ When using the query result reuse feature, keep in mind the following points:
   deterministic and is cached.
 - To use the query result reuse feature with JDBC, the minimum required driver
   version is 2.0.34.1000. For ODBC, the minimum required driver version is
-  1.1.19.1002. For driver download information, see [Connect to Amazon Athena with ODBC and JDBC
-  drivers](athena-bi-tools-jdbc-odbc.md "athena-bi-tools-jdbc-odbc.md").
+  1.1.19.1002. For driver download information, see [Connect to Amazon Athena with ODBC and JDBC drivers](athena-bi-tools-jdbc-odbc.md "athena-bi-tools-jdbc-odbc.md").
 - Query result reuse is not supported for queries that use more than one data
   catalog.
 - Query result reuse is not supported for queries that include more than 20
@@ -82,9 +79,7 @@ When using the query result reuse feature, keep in mind the following points:
   hours, or days. The maximum age specifiable is the equivalent of 7 days regardless of the time unit used.
 - [Managed query results](managed-results.md "managed-results.md") is not supported.
 
-## How to reuse query results in the
-
-Athena console
+## How to reuse query results in the Athena console
 
 To use the feature, enable the **Reuse query results** option in the
 Athena query editor.

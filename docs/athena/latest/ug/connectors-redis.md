@@ -11,8 +11,7 @@ essentially a `string` and the value is a `string`,
 
 You can use the AWS Glue Data Catalog to create schema and configure virtual tables. Special table
 properties tell the Athena Redis OSS connector how to map your Redis OSS keys and values into
-a table. For more information, see [Setting up
-databases and tables in AWS Glue](#connectors-redis-setting-up-databases-and-tables-in-glue "#connectors-redis-setting-up-databases-and-tables-in-glue") later in this
+a table. For more information, see [Setting up databases and tables in AWS Glue](#connectors-redis-setting-up-databases-and-tables-in-glue "#connectors-redis-setting-up-databases-and-tables-in-glue") later in this
 document.
 
 This connector does not use Glue Connections to centralize configuration properties in Glue. Connection configuration is done through Lambda.
@@ -23,11 +22,9 @@ The Amazon Athena Redis OSS connector supports Amazon MemoryDB and Amazon Elasti
 
 ## Prerequisites
 
-- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data
-  source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
+- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
 - Set up a VPC and a security group before you use this connector. For more
-  information, see [Create a VPC for a data source connector or
-  AWS Glue connection](athena-connectors-vpc-creation.md "athena-connectors-vpc-creation.md").
+  information, see [Create a VPC for a data source connector or AWS Glue connection](athena-connectors-vpc-creation.md "athena-connectors-vpc-creation.md").
 
 ## Parameters
 
@@ -65,9 +62,7 @@ Use the parameters in this section to configure the Redis connector.
   catalog](data-sources-glue-cross-account.md "data-sources-glue-cross-account.md"). By default, the connector attempts to get metadata from its
   own AWS Glue account.
 
-## Setting up
-
-databases and tables in AWS Glue
+## Setting up databases and tables in AWS Glue
 
 To enable an AWS Glue table for use with Redis OSS, you can set the following table
 properties on the table: `redis-endpoint`, `redis-value-type`, and
@@ -180,9 +175,7 @@ prefix keys).
 The Athena Redis connector performs predicate pushdown to decrease the data scanned by the query. However, queries containing a predicate against the primary key
 fail with timeout. `LIMIT` clauses reduce the amount of data scanned, but if you don't provide a predicate, you should expect `SELECT` queries with a `LIMIT` clause to scan at least 16 MB of data. The Redis connector is resilient to throttling due to concurrency.
 
-## Passthrough
-
-queries
+## Passthrough queries
 
 The Redis connector supports [passthrough queries](federated-query-passthrough.md "federated-query-passthrough.md"). You can use
 this feature to run queries that use Lua script on Redis databases.

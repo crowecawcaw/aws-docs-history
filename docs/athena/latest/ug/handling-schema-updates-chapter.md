@@ -13,16 +13,12 @@ topic.
 
 ###### Topics
 
-- [Supported schema update operations by data
-  format](#summary-of-updates "#summary-of-updates")
-- [Understand index access for Apache ORC and Apache
-  Parquet](#index-access "#index-access")
+- [Supported schema update operations by data format](#summary-of-updates "#summary-of-updates")
+- [Understand index access for Apache ORC and Apache Parquet](#index-access "#index-access")
 - [Make schema updates](make-schema-updates.md "make-schema-updates.md")
 - [Update tables with partitions](updates-and-partitions.md "updates-and-partitions.md")
 
-## Supported schema update operations by data
-
-format
+## Supported schema update operations by data format
 
 The following table summarizes data storage formats and their supported schema
 manipulations. Use this table to help you choose the format that will enable you to
@@ -38,8 +34,7 @@ For Parquet, the `parquet.column.index.access` property may be set to
 `true`, which sets the column access method to use the column's ordinal
 number. Setting this property to `false` will change the column access method
 to use column name. Similarly, for ORC use the `orc.column.index.access`
-property to control the column access method. For more information, see [Understand index access for Apache ORC and Apache
-Parquet](#index-access "#index-access").
+property to control the column access method. For more information, see [Understand index access for Apache ORC and Apache Parquet](#index-access "#index-access").
 
 CSV and TSV allow you to do all schema manipulations except reordering of columns, or
 adding columns at the beginning of the table. For example, if your schema evolution
@@ -57,9 +52,7 @@ Parquet or ORC.
 | [Reorder<br>columns](updates-reordering-columns.md "updates-reordering-columns.md")                                                                                     | Store your data in AVRO, JSON or ORC and Parquet if they are read by<br>name.                                                                                                               | N       | Y                                      | Y    | Y    | N                               | N                      | Y                            |
 | [Change a column's data<br>type](updates-changing-column-type.md "updates-changing-column-type.md")                                                                     | Store your data in any format, but test your query in Athena to make<br>sure the data types are compatible. For Parquet and ORC, changing a data<br>type works only for partitioned tables. | Y       | Y                                      | Y    | Y    | Y                               | Y                      | Y                            |
 
-## Understand index access for Apache ORC and Apache
-
-Parquet
+## Understand index access for Apache ORC and Apache Parquet
 
 PARQUET and ORC are columnar data storage formats that can be read by index, or by
 name. Storing your data in either of these formats lets you perform all operations on

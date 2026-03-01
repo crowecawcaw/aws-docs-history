@@ -4,8 +4,7 @@
 
 For data types that do not specify a size limit, keep in mind that there is a
 practical limit of 32MB for all of the data in a single row. For more information,
-see [Row or column size limitation](other-notable-limitations.md#sql-limitations-rowsize "other-notable-limitations.md#sql-limitations-rowsize") in [Considerations and limitations for SQL queries
-in Amazon Athena](other-notable-limitations.md "other-notable-limitations.md").
+see [Row or column size limitation](other-notable-limitations.md#sql-limitations-rowsize "other-notable-limitations.md#sql-limitations-rowsize") in [Considerations and limitations for SQL queries in Amazon Athena](other-notable-limitations.md "other-notable-limitations.md").
 
 ## CHAR and VARCHAR
 

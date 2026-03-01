@@ -8,25 +8,18 @@ assessing usage and cost.
 
 ###### Topics
 
-- [Estimate required
-  capacity](#capacity-management-requirements-estimating "#capacity-management-requirements-estimating")
-- [Signs that more
-  capacity is required](#capacity-management-requirements-insufficient-capacity "#capacity-management-requirements-insufficient-capacity")
-- [Check for idle
-  capacity](#capacity-management-requirements-idle-capacity "#capacity-management-requirements-idle-capacity")
+- [Estimate required capacity](#capacity-management-requirements-estimating "#capacity-management-requirements-estimating")
+- [Signs that more capacity is required](#capacity-management-requirements-insufficient-capacity "#capacity-management-requirements-insufficient-capacity")
+- [Check for idle capacity](#capacity-management-requirements-idle-capacity "#capacity-management-requirements-idle-capacity")
 - [Monitoring DPU consumption](#capacity-management-requirements-monitoring-dpu-consumption "#capacity-management-requirements-monitoring-dpu-consumption")
 
-## Estimate required
-
-capacity
+## Estimate required capacity
 
 When estimating capacity requirements, it is useful to consider two perspectives: how
 much capacity a particular query might require, and how much capacity you might need in
 general.
 
-### Estimate
-
-per-query capacity requirements
+### Estimate per-query capacity requirements
 
 To determine the number of DPUs that a query might would require, you can use the
 following guidelines:
@@ -41,9 +34,7 @@ number. If Athena determines that more computational power is required for the q
 to complete successfully, it increases the number of DPUs assigned to the
 query.
 
-### Estimate
-
-workload specific capacity requirements
+### Estimate workload specific capacity requirements
 
 To determine how much capacity you might require to run multiple queries at the
 same time, consider the general guidelines in the following table:
@@ -73,9 +64,7 @@ influence the DPUs that a query requires. To increase query performance, you can
 compress or partition your data or convert it into columnar formats. For more
 information, see [Optimize Athena performance](performance-tuning.md "performance-tuning.md").
 
-## Signs that more
-
-capacity is required
+## Signs that more capacity is required
 
 Insufficient capacity error messages and query queuing are two indications that your
 assigned capacity is inadequate.
@@ -97,9 +86,7 @@ To check for excessive query queuing, use the Athena query queue time [CloudWatc
 metric](query-metrics-viewing.md "query-metrics-viewing.md") for the workgroups in your capacity reservation. If the value is above
 your preferred threshold, you can add DPUs to the capacity reservation.
 
-## Check for idle
-
-capacity
+## Check for idle capacity
 
 To check for idle capacity, you can either decrease the number of DPUs in the
 reservation or increase its workload, and then observe the results.
@@ -133,9 +120,7 @@ After your queries run, you can view the DPU consumed by your queries to help re
 You can use the following services and features in AWS to measure your Athena
 usage and costs.
 
-### CloudWatch
-
-metrics
+### CloudWatch metrics
 
 You can configure Athena to publish query-related metrics to Amazon CloudWatch at the
 workgroup level. After you enable metrics for the workgroup, the metrics for the
@@ -153,8 +138,7 @@ and dashboards. For Athena, usage availability metrics correspond to AWS [servic
 quotas](service-limits.md "service-limits.md") for Athena. You can configure alarms that alert you when your
 usage approaches a service quota.
 
-For more information, see [Monitor Athena usage metrics with
-CloudWatch](monitoring-athena-usage-metrics.md "monitoring-athena-usage-metrics.md").
+For more information, see [Monitor Athena usage metrics with CloudWatch](monitoring-athena-usage-metrics.md "monitoring-athena-usage-metrics.md").
 
 ### Amazon EventBridge events
 

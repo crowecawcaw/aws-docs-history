@@ -1,6 +1,4 @@
-# Add columns at the
-
-beginning or in the middle of the table
+# Add columns at the beginning or in the middle of the table
 
 Adding columns is one of the most frequent schema changes. For example, you may add a
 new column to enrich the table with new data. Or, you may add a new column if the source
@@ -9,8 +7,7 @@ adjust applications that depend on them.
 
 To add columns at the beginning or in the middle of the table, and continue running
 queries against existing tables, use AVRO, JSON, and Parquet and ORC if their SerDe
-property is set to read by name. For information, see [Understand index access for Apache ORC and Apache
-Parquet](handling-schema-updates-chapter.md#index-access "handling-schema-updates-chapter.md#index-access").
+property is set to read by name. For information, see [Understand index access for Apache ORC and Apache Parquet](handling-schema-updates-chapter.md#index-access "handling-schema-updates-chapter.md#index-access").
 
 Do not add columns at the beginning or in the middle of the table in CSV and TSV, as
 these formats depend on ordering. Adding a column in such cases will lead to schema

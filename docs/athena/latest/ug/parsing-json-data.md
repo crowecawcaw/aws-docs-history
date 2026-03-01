@@ -52,7 +52,5 @@ data types.
 
 ###### Topics
 
-- [Convert Athena data types to
-  JSON](converting-native-data-types-to-json.md "converting-native-data-types-to-json.md")
-- [Convert JSON to Athena data
-  types](converting-json-to-native-data-types.md "converting-json-to-native-data-types.md")
+- [Convert Athena data types to JSON](converting-native-data-types-to-json.md "converting-native-data-types-to-json.md")
+- [Convert JSON to Athena data types](converting-json-to-native-data-types.md "converting-json-to-native-data-types.md")

@@ -3,8 +3,7 @@
 IAM principals who run Athena ML queries must be allowed to perform the
 `sagemaker:invokeEndpoint` action for Sagemaker endpoints that they use.
 Include a policy statement similar to the following in identity-based permissions
-policies attached to user identities. In addition, attach the [AWS managed policy:
-AmazonAthenaFullAccess](managed-policies.md#amazonathenafullaccess-managed-policy "managed-policies.md#amazonathenafullaccess-managed-policy"), which grants full access to
+policies attached to user identities. In addition, attach the [AWS managed policy: AmazonAthenaFullAccess](managed-policies.md#amazonathenafullaccess-managed-policy "managed-policies.md#amazonathenafullaccess-managed-policy"), which grants full access to
 Athena actions, or a modified inline policy that allows a subset of actions.
 
 Replace

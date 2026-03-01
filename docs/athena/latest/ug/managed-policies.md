@@ -15,9 +15,7 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## Considerations when using managed
-
-policies with Athena
+## Considerations when using managed policies with Athena
 
 Managed policies are easy to use and are updated automatically with the required
 actions as the service evolves. When using managed policies with Athena, keep the
@@ -40,19 +38,14 @@ following points in mind:
   and inline policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md") in the
   _IAM User Guide_.
 - If you also have principals that connect using JDBC, you must provide the JDBC
-  driver credentials to your application. For more information, see [Control access through JDBC and ODBC
-  connections](policy-actions.md "policy-actions.md").
+  driver credentials to your application. For more information, see [Control access through JDBC and ODBC connections](policy-actions.md "policy-actions.md").
 - If you have encrypted the AWS Glue Data Catalog, you must specify additional
   actions in the identity-based IAM policies for Athena. For more information, see
-  [Configure access from Athena to
-  encrypted metadata in the AWS Glue Data Catalog](access-encrypted-data-glue-data-catalog.md "access-encrypted-data-glue-data-catalog.md").
+  [Configure access from Athena to encrypted metadata in the AWS Glue Data Catalog](access-encrypted-data-glue-data-catalog.md "access-encrypted-data-glue-data-catalog.md").
 - If you create and use workgroups, make sure your policies include relevant
-  access to workgroup actions. For detailed information, see [Use IAM policies to control workgroup
-  access](workgroups-iam-policy.md "workgroups-iam-policy.md") and [Example workgroup policies](example-policies-workgroup.md "example-policies-workgroup.md").
+  access to workgroup actions. For detailed information, see [Use IAM policies to control workgroup access](workgroups-iam-policy.md "workgroups-iam-policy.md") and [Example workgroup policies](example-policies-workgroup.md "example-policies-workgroup.md").
 
-## AWS managed policy:
-
-AmazonAthenaFullAccess
+## AWS managed policy: AmazonAthenaFullAccess
 
 The `AmazonAthenaFullAccess` managed policy grants full access to
 Athena.
@@ -72,9 +65,7 @@ in the _IAM User Guide_.
   - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
   - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
 
-### Permissions
-
-groupings
+### Permissions groupings
 
 The `AmazonAthenaFullAccess` policy is grouped into the following sets
 of permissions.
@@ -94,8 +85,7 @@ of permissions.
   use Amazon SNS topics with Athena for monitoring and alert purposes.
 - `cloudwatch` – Allows
   principals to create, read, and delete CloudWatch alarms. For more information,
-  see [Use CloudWatch and EventBridge to monitor queries and control
-  costs](workgroups-control-limits.md "workgroups-control-limits.md").
+  see [Use CloudWatch and EventBridge to monitor queries and control costs](workgroups-control-limits.md "workgroups-control-limits.md").
 - `lakeformation` – Allows
   principals to request temporary credentials to access data in a data lake
   location that is registered with Lake Formation. For more information, see [Underlying data access control](../../../lake-formation/latest/dg/access-control-underlying-data.md "../../../lake-formation/latest/dg/access-control-underlying-data.md") in the _AWS Lake Formation Developer Guide_.
@@ -112,19 +102,15 @@ To view the permissions for this policy, see [AmazonAthenaFullAccess](../../../a
 You must explicitly allow access to service-owned Amazon S3 buckets to store example queries and
 sample dataset. For more information, see [Data perimeters](data-perimeters.md "data-perimeters.md").
 
-## AWS managed policy:
+## AWS managed policy: AWSQuicksightAthenaAccess
 
-AWSQuicksightAthenaAccess
-
-`AWSQuicksightAthenaAccess` grants access to actions that Quick Suite requires for
+`AWSQuicksightAthenaAccess` grants access to actions that Quick requires for
 integration with Athena. You can attach the `AWSQuicksightAthenaAccess` policy
-to your IAM identities. Attach this policy only to principals who use Quick Suite with Athena.
+to your IAM identities. Attach this policy only to principals who use Quick with Athena.
 This policy includes some actions for Athena that are either deprecated and not included
 in the current public API, or that are used only with the JDBC and ODBC drivers.
 
-### Permissions
-
-groupings
+### Permissions groupings
 
 The `AWSQuicksightAthenaAccess` policy is grouped into the following
 sets of permissions.
@@ -143,9 +129,7 @@ sets of permissions.
 
 To view the permissions for this policy, see [AWSQuicksightAthenaAccess](../../../aws-managed-policy/latest/reference/AWSQuicksightAthenaAccess.md "../../../aws-managed-policy/latest/reference/AWSQuicksightAthenaAccess.md") in the AWS Managed Policy Reference.
 
-## Athena updates to AWS managed
-
-policies
+## Athena updates to AWS managed policies
 
 View details about updates to AWS managed policies for Athena since this service
 began tracking these changes.

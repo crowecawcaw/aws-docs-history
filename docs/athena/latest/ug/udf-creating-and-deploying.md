@@ -11,18 +11,14 @@ command line and a deploy.
 
 Perform the following steps to create a custom UDF for Athena using Maven
 
-1. [Clone the SDK and prepare
-   your development environment](#udf-create-install-sdk-prep-environment "#udf-create-install-sdk-prep-environment")
+1. [Clone the SDK and prepare your development environment](#udf-create-install-sdk-prep-environment "#udf-create-install-sdk-prep-environment")
 2. [Create your Maven project](#create-maven-project "#create-maven-project")
-3. [Add dependencies and plugins to your
-   Maven project](#udf-add-maven-dependencies "#udf-add-maven-dependencies")
+3. [Add dependencies and plugins to your Maven project](#udf-add-maven-dependencies "#udf-add-maven-dependencies")
 4. [Write Java code for the UDFs](#udf-write-java "#udf-write-java")
 5. [Build the JAR file](#udf-create-package-jar "#udf-create-package-jar")
 6. [Deploy the JAR to AWS Lambda](#udf-create-deploy "#udf-create-deploy")
 
-## Clone the SDK and prepare
-
-your development environment
+## Clone the SDK and prepare your development environment
 
 Before you begin, make sure that git is installed on your system using `sudo
  yum install git -y`.
@@ -72,9 +68,7 @@ mvn -B archetype:generate \
 -DartifactId=`my-athena-udfs`
 ```
 
-## Add dependencies and plugins to your
-
-Maven project
+## Add dependencies and plugins to your Maven project
 
 Add the following configurations to your Maven project `pom.xml` file.
 For an example, see the [pom.xml](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-udfs/pom.xml "https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-udfs/pom.xml") file in GitHub.
@@ -325,9 +319,7 @@ was saved as `my-athena-udfs.yaml`:
 You can now use the method names defined in your Lambda function JAR
 file as UDFs in Athena.
 
-### Option 2: Create a Lambda function
-
-directly
+### Option 2: Create a Lambda function directly
 
 You can also create a Lambda function directly using the console or AWS CLI. The
 following example demonstrates using the Lambda `create-function` CLI

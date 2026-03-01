@@ -2,8 +2,7 @@
 
 You can specify CSE-KMS encryption in two ways – during the workgroup query
 results encryption configuration and in the client-side settings. For more
-information, see [Encrypt Athena query results
-stored in Amazon S3](encrypting-query-results-stored-in-s3.md "encrypting-query-results-stored-in-s3.md"). During the migration
+information, see [Encrypt Athena query results stored in Amazon S3](encrypting-query-results-stored-in-s3.md "encrypting-query-results-stored-in-s3.md"). During the migration
 process, it's important to audit your existing workflows that read and write CSE-KMS
 data, identify workgroups where CSE-KMS is configured, and locate instances where
 CSE-KMS is set through client-side parameters.
@@ -45,13 +44,10 @@ aws athena update-work-group \
     }'
 ```
 
-## Update
-
-client-side query results encryption settings
+## Update client-side query results encryption settings
 
 ConsoleTo update your client-side settings for query results encryption from CSE-KMS to SSE-KMS, see
-[Encrypt Athena query results
-stored in Amazon S3](encrypting-query-results-stored-in-s3.md "encrypting-query-results-stored-in-s3.md").
+[Encrypt Athena query results stored in Amazon S3](encrypting-query-results-stored-in-s3.md "encrypting-query-results-stored-in-s3.md").
 
 CLIYou can only specify query results encryption configuration in client-side settings with the
 `start-query-execution` command. If you run this CLI

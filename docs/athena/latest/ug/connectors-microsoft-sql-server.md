@@ -1,6 +1,4 @@
-# Amazon Athena Microsoft SQL Server
-
-connector
+# Amazon Athena Microsoft SQL Server connector
 
 The Amazon Athena connector for [Microsoft SQL
 Server](https://docs.microsoft.com/en-us/sql/?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/?view=sql-server-ver15") enables Amazon Athena to run SQL queries on your data stored in Microsoft SQL
@@ -11,8 +9,7 @@ It supports data access controls defined in Lake Formation at the catalog, datab
 
 ## Prerequisites
 
-- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data
-  source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
+- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
 
 ## Limitations
 
@@ -98,9 +95,7 @@ aws glue describe-connection-type --connection-type SQLSERVER
 - The SQL Server connector created using Glue connections does not support the use of a multiplexing handler.
 - The SQL Server connector created using Glue connections only supports `ConnectionSchemaVersion` 2.
 
-#### Connection
-
-string
+#### Connection string
 
 Use a JDBC connection string in the following format to connect to a database
 instance.
@@ -109,9 +104,7 @@ instance.
 sqlserver://${`jdbc_connection_string`}
 ```
 
-#### Using
-
-a multiplexing handler
+#### Using a multiplexing handler
 
 You can use a multiplexer to connect to multiple database instances with a single
 Lambda function. Requests are routed by catalog name. Use the following classes in
@@ -218,9 +211,7 @@ The following example property is for a single SQL Server instance supported by 
 | --------- | ------------------------------------------------------------------------------------------------ |
 | `default` | `sqlserver://jdbc:sqlserver://`hostname`:`port`;databaseName=`<database_name>`;${`secret_name`}` |
 
-#### Spill
-
-parameters
+#### Spill parameters
 
 The Lambda SDK can spill data to Amazon S3. All database instances accessed by the same
 Lambda function spill to the same location.
@@ -231,9 +222,7 @@ Lambda function spill to the same location.
 | `spill_prefix`              | Required. Spill bucket key<br>prefix.                                                                                                                                                                                                                                                                                                                                                                  |
 | `spill_put_request_headers` | (Optional) A JSON encoded map of request headers and values for<br>the Amazon S3 `putObject` request that is used for spilling<br>(for example, `{"x-amz-server-side-encryption" :<br>"AES256"}`). For other possible headers, see [PutObject](../../../AmazonS3/latest/API/API_PutObject.md "../../../AmazonS3/latest/API/API_PutObject.md")<br>in the _Amazon Simple Storage Service API Reference_. |
 
-## Data type
-
-support
+## Data type support
 
 The following table shows the corresponding data types for SQL Server and Apache
 Arrow.
@@ -265,9 +254,7 @@ Arrow.
 | text            | VARCHAR           |
 | ntext           | VARCHAR           |
 
-## Partitions and
-
-splits
+## Partitions and splits
 
 A partition is represented by a single partition column of type `varchar`.
 In case of the SQL Server connector, a partition function determines how partitions are
@@ -299,9 +286,7 @@ pushdown:
   DIVIDE, MODULUS, NEGATE
 - Other: LIKE_PATTERN, IN
 
-### Combined
-
-pushdown example
+### Combined pushdown example
 
 For enhanced querying capabilities, combine the pushdown types, as in the following example:
 
@@ -313,9 +298,7 @@ WHERE col_a > 10
     AND (col_e IN ('val1', 'val2', 'val3') OR col_f LIKE '%pattern%');
 ```
 
-## Passthrough
-
-queries
+## Passthrough queries
 
 The SQL Server connector supports [passthrough queries](federated-query-passthrough.md "federated-query-passthrough.md"). Passthrough
 queries use a table function to push your full query down to the data source for

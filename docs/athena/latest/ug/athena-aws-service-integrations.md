@@ -1,6 +1,4 @@
-# AWS service integrations with
-
-Athena
+# AWS service integrations with Athena
 
 You can use Athena to query data from the AWS services listed in this section. To see the
 Regions that each service supports, see [Regions and
@@ -19,7 +17,7 @@ endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande
 - [AWS Glue Data Catalog](#integ-ate-gc "#integ-ate-gc")
 - [AWS Identity and Access Management
   (IAM)](#integ-ate-iam "#integ-ate-iam")
-- [Amazon Quick Suite](#integ-ate-qs "#integ-ate-qs")
+- [Amazon Quick](#integ-ate-qs "#integ-ate-qs")
 - [Amazon S3
   Inventory](#integ-ate-s3 "#integ-ate-s3")
 - [AWS Step Functions](#integ-ate-sf "#integ-ate-sf")
@@ -45,8 +43,7 @@ Reference topic: [AWS::Athena::DataCatalog](../../../AWSCloudFormation/latest/Us
 _AWS CloudFormation User Guide_
 
 Specify an Athena data catalog, including a name, description,
-type, parameters, and tags. For more information, see [Understanding tables,
-databases, and data catalogs in Athena](understanding-tables-databases-and-the-data-catalog.md "understanding-tables-databases-and-the-data-catalog.md") in the _Amazon Athena User Guide_ and [CreateDataCatalog](../APIReference/API_CreateDataCatalog.md "../APIReference/API_CreateDataCatalog.md") in the _Amazon
+type, parameters, and tags. For more information, see [Understanding tables, databases, and data catalogs in Athena](understanding-tables-databases-and-the-data-catalog.md "understanding-tables-databases-and-the-data-catalog.md") in the _Amazon Athena User Guide_ and [CreateDataCatalog](../APIReference/API_CreateDataCatalog.md "../APIReference/API_CreateDataCatalog.md") in the _Amazon
 Athena API Reference_.
 
 _Named query_
@@ -79,8 +76,7 @@ Guide_
 
 Specify Athena workgroups using AWS CloudFormation. Use Athena workgroups to
 isolate queries for you or your group from other queries in the same
-account. For more information, see [Use workgroups to control query
-access and costs](workgroups-manage-queries-control-costs.md "workgroups-manage-queries-control-costs.md")
+account. For more information, see [Use workgroups to control query access and costs](workgroups-manage-queries-control-costs.md "workgroups-manage-queries-control-costs.md")
 in the _Amazon Athena User Guide_ and [CreateWorkGroup](../APIReference/API_CreateWorkGroup.md "../APIReference/API_CreateWorkGroup.md") in the _Amazon Athena API
 Reference_.
 
@@ -99,8 +95,7 @@ Using Athena with CloudTrail logs is a powerful way to enhance your analysis of 
 service activity. For example, you can use queries to identify trends and
 further isolate activity by attribute, such as source IP address or user. You
 can create tables for querying logs directly from the CloudTrail console, and use
-those tables to run queries in Athena. For more information, see [Use the CloudTrail console to create an Athena
-table for CloudTrail logs](create-cloudtrail-table-ct.md "create-cloudtrail-table-ct.md") .
+those tables to run queries in Athena. For more information, see [Use the CloudTrail console to create an Athena table for CloudTrail logs](create-cloudtrail-table-ct.md "create-cloudtrail-table-ct.md").
 
 **Amazon DataZone**
 
@@ -182,16 +177,15 @@ You can use Athena API actions in IAM permission policies. For more
 information, see [Actions for
 Amazon Athena](../../../IAM/latest/UserGuide/list_amazonathena.md "../../../IAM/latest/UserGuide/list_amazonathena.md") and [Identity and access management in Athena](security-iam-athena.md "security-iam-athena.md").
 
-**Amazon Quick Suite**
+**Amazon Quick**
 
-Reference topic: [Connect to Amazon Athena with ODBC and JDBC
-drivers](athena-bi-tools-jdbc-odbc.md "athena-bi-tools-jdbc-odbc.md")
+Reference topic: [Connect to Amazon Athena with ODBC and JDBC drivers](athena-bi-tools-jdbc-odbc.md "athena-bi-tools-jdbc-odbc.md")
 
-Athena integrates with Amazon Quick Suite for easy data visualization. You can use Athena
+Athena integrates with Amazon Quick for easy data visualization. You can use Athena
 to generate reports or to explore data with business intelligence tools or SQL
 clients connected with a JDBC or an ODBC driver. For more information about
-Quick Suite, see [What
-is Amazon Quick Suite](../../../quicksight/latest/user/welcome.md "../../../quicksight/latest/user/welcome.md") in the _Amazon Quick Suite User Guide_. For
+Quick, see [What
+is Amazon Quick](../../../quicksight/latest/user/welcome.md "../../../quicksight/latest/user/welcome.md") in the _Amazon Quick User Guide_. For
 information about using JDBC and ODBC drivers with Athena, see [Connecting to Amazon Athena with ODBC and
 JDBC Drivers](athena-bi-tools-jdbc-odbc.md "athena-bi-tools-jdbc-odbc.md").
 
@@ -223,7 +217,7 @@ a regularly scheduled Athena query and generate a corresponding
 report.
 
 For an example that uses Step Functions and Amazon EventBridge to orchestrate AWS Glue DataBrew, Athena,
-and Amazon Quick Suite, see [Orchestrating an AWS Glue DataBrew job and Amazon Athena query with AWS Step Functions](https://aws.amazon.com/blogs/big-data/orchestrating-an-aws-glue-databrew-job-and-amazon-athena-query-with-aws-step-functions/ "https://aws.amazon.com/blogs/big-data/orchestrating-an-aws-glue-databrew-job-and-amazon-athena-query-with-aws-step-functions/")
+and Amazon Quick, see [Orchestrating an AWS Glue DataBrew job and Amazon Athena query with AWS Step Functions](https://aws.amazon.com/blogs/big-data/orchestrating-an-aws-glue-databrew-job-and-amazon-athena-query-with-aws-step-functions/ "https://aws.amazon.com/blogs/big-data/orchestrating-an-aws-glue-databrew-job-and-amazon-athena-query-with-aws-step-functions/")
 in the AWS Big Data Blog.
 
 **AWS Systems Manager Inventory**

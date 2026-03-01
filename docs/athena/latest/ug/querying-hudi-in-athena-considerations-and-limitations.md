@@ -1,6 +1,4 @@
-# Considerations
-
-and limitations
+# Considerations and limitations
 
 When you use Athena to read Apache Hudi tables, consider the following points.
 

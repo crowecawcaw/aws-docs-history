@@ -1,6 +1,4 @@
-# Use Python libraries in Athena for
-
-Spark
+# Use Python libraries in Athena for Spark
 
 ###### Note
 
@@ -11,9 +9,7 @@ Refer to EMR 7.12 for libraries included in this version.
 This page describes the terminology used and lifecycle management followed for the
 runtimes, libraries, and packages used in Amazon Athena for Apache Spark.
 
-##
-
-Definitions
+## Definitions
 
 - **Amazon Athena for Apache Spark** is a customized version of
   open source Apache Spark. To see the current version, run the command
@@ -39,9 +35,7 @@ Definitions
 - An **Athena for Spark application** is a job or query that you
   submit to Athena for Spark.
 
-## Lifecycle
-
-management
+## Lifecycle management
 
 The following sections describe the versioning and deprecation policies regarding the
 runtime and convenience packages used in Athena for Spark.

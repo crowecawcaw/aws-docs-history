@@ -31,8 +31,7 @@ nodes.
 
 ![Choose a stage to see details for the stage.](images/query-plans-3.png) 4. To see the stage details full width, choose the expand icon at the top right of
 the details pane. 5. To see more detail, expand one or more items in the operator tree. For information
-about distributed plan fragments, see [EXPLAIN
-statement output types](athena-explain-statement-understanding.md#athena-explain-statement-understanding-explain-plan-types "athena-explain-statement-understanding.md#athena-explain-statement-understanding-explain-plan-types").
+about distributed plan fragments, see [EXPLAIN statement output types](athena-explain-statement-understanding.md#athena-explain-statement-understanding-explain-plan-types "athena-explain-statement-understanding.md#athena-explain-statement-understanding-explain-plan-types").
 
 ![Expanded operator tree for a stage in a distributed query plan.](images/query-plans-4.png)
 
@@ -42,8 +41,7 @@ Currently, some partition filters may not be visible in the nested operator
 tree graph even though Athena does apply them to your query. To verify the effect
 of such filters, run [EXPLAIN](athena-explain-statement.md#athena-explain-statement-syntax-athena-engine-version-2 "athena-explain-statement.md#athena-explain-statement-syntax-athena-engine-version-2") or [EXPLAIN ANALYZE](athena-explain-statement.md#athena-explain-analyze-statement "athena-explain-statement.md#athena-explain-analyze-statement") on
 your query and view the results. 6. Choose the **Logical plan** tab. The graph shows the logical plan
-for running your query. For information about operational terms, see [Understand Athena EXPLAIN statement
-results](athena-explain-statement-understanding.md "athena-explain-statement-understanding.md").
+for running your query. For information about operational terms, see [Understand Athena EXPLAIN statement results](athena-explain-statement-understanding.md "athena-explain-statement-understanding.md").
 
 ![Graph of a logical query plan in Athena.](images/query-plans-5.png) 7. To export a plan as an SVG or PNG image, or as JSON text, choose
 **Export**.
@@ -52,13 +50,10 @@ results](athena-explain-statement-understanding.md "athena-explain-statement-und
 
 For more information, see the following resources.
 
-[Using EXPLAIN and EXPLAIN ANALYZE in
-Athena](athena-explain-statement.md "athena-explain-statement.md")
+[Using EXPLAIN and EXPLAIN ANALYZE in Athena](athena-explain-statement.md "athena-explain-statement.md")
 
-[Understand Athena EXPLAIN statement
-results](athena-explain-statement-understanding.md "athena-explain-statement-understanding.md")
+[Understand Athena EXPLAIN statement results](athena-explain-statement-understanding.md "athena-explain-statement-understanding.md")
 
-[View statistics and execution details for completed
-queries](query-stats.md "query-stats.md")
+[View statistics and execution details for completed queries](query-stats.md "query-stats.md")
 
 Visual query execution analysis in Amazon Athena (AWS YouTube channel)

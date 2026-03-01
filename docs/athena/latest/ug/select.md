@@ -6,8 +6,7 @@ Retrieves rows of data from zero or more tables.
 
 This topic provides summary information for reference. Comprehensive information about
 using `SELECT` and the SQL language is beyond the scope of this
-documentation. For information about using SQL that is specific to Athena, see [Considerations and limitations for SQL queries
-in Amazon Athena](other-notable-limitations.md "other-notable-limitations.md") and
+documentation. For information about using SQL that is specific to Athena, see [Considerations and limitations for SQL queries in Amazon Athena](other-notable-limitations.md "other-notable-limitations.md") and
 [Run SQL queries in Amazon Athena](querying-athena-tables.md "querying-athena-tables.md"). For
 an example of creating a database, creating a table, and running a `SELECT`
 query on the table in Athena, see [Get started](getting-started.md "getting-started.md").
@@ -30,8 +29,7 @@ SELECT [ ALL | DISTINCT ] `select_expression` [, ...]
 ###### Note
 
 Reserved words in SQL SELECT statements must be enclosed in double quotes. For
-more information, see [Reserved keywords to escape in SQL
-SELECT statements](reserved-words.md#list-of-reserved-words-sql-select "reserved-words.md#list-of-reserved-words-sql-select").
+more information, see [Reserved keywords to escape in SQL SELECT statements](reserved-words.md#list-of-reserved-words-sql-select "reserved-words.md#list-of-reserved-words-sql-select").
 
 ## Parameters
 

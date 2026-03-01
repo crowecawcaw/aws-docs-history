@@ -1,6 +1,4 @@
-# Allow Lambda function access to external
-
-Hive metastores
+# Allow Lambda function access to external Hive metastores
 
 To invoke a Lambda function in your account, you must create a role that has the following
 permissions:
@@ -27,9 +25,7 @@ JSON
 
 Whenever you use IAM policies, make sure that you follow IAM best practices. For more information, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Create
-
-Lambda functions
+## Create Lambda functions
 
 To create a Lambda function in your account, function development permissions or the
 `AWSLambdaFullAccess` role are required. For more information, see [Identity-based IAM policies
@@ -73,9 +69,7 @@ JSON
 
 ```
 
-## Call a Lambda
-
-function across regions
+## Call a Lambda function across regions
 
 By default, Athena invokes Lambda functions defined in the same region. To invoke a
 Lambda function in an AWS Region other than the region in which you are running Athena
@@ -98,9 +92,7 @@ fetch the Hive metastore data from `eu-central-1`.
 The catalog should be registered in the same AWS Region that you use to run
 Athena queries.
 
-## Call a Lambda
-
-function across accounts
+## Call a Lambda function across accounts
 
 Sometimes you might require access to a Hive metastore from a different account. For
 example, to run a Hive metastore, you might use an account that is different from the
@@ -174,8 +166,7 @@ After adding the permission, you can use a full ARN of the Lambda function on
 arn:aws:lambda:us-east-1:111122223333:function:external-hms-service-new
 ```
 
-For information about cross region invocation, see [Call a Lambda
-function across regions](#hive-metastore-iam-access-lambda-cross-region-invocation "#hive-metastore-iam-access-lambda-cross-region-invocation") earlier
+For information about cross region invocation, see [Call a Lambda function across regions](#hive-metastore-iam-access-lambda-cross-region-invocation "#hive-metastore-iam-access-lambda-cross-region-invocation") earlier
 in this topic.
 
 ### Grant cross-account access to data

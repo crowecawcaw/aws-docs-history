@@ -9,9 +9,7 @@ information, see [GetQuery MaxResults](../APIReference/API_GetQueryResults.md#at
 | -------------------------- | ------------------ | ------------------------------------------------- | ----------------------------- |
 | RowsToFetchPerBlock        | Optional           | `1000` for non-streaming<br>`20000` for streaming | `RowsToFetchPerBlock=20000;`  |
 
-## Result
-
-fetcher
+## Result fetcher
 
 The default result fetcher downloads query results directly from Amazon S3 without going
 through the Athena API operations. When it detects situations where direct S3 download is
@@ -38,9 +36,7 @@ The driver still recognizes the Enable streaming API
 | -------------------------- | ------------------ | ----------------- | ----------------------------------------------------------- | ----------------------------- |
 | ResultFetcher              | Optional           | `auto`            | `auto`, `S3`, `GetQueryResults`,<br>`GetQueryResultsStream` | `ResultFetcher=auto`          |
 
-## Enable result
-
-reuse
+## Enable result reuse
 
 Specifies if previous query results can be reused when the query is run. For parameter
 information, see ResultReuseByAgeConfiguration.
@@ -49,9 +45,7 @@ information, see ResultReuseByAgeConfiguration.
 | -------------------------- | ------------------ | ----------------- | ----------------------------- |
 | EnableResultReuse          | Optional           | `0`               | `EnableResultReuse=1;`        |
 
-## Result reuse
-
-maximum age
+## Result reuse maximum age
 
 Specifies, in minutes, the maximum age of a previous query result that Athena should
 consider for reuse. For parameter information, see [ResultReuseByAgeConfiguration](../APIReference/API_ResultReuseByAgeConfiguration.md "../APIReference/API_ResultReuseByAgeConfiguration.md").
@@ -60,9 +54,7 @@ consider for reuse. For parameter information, see [ResultReuseByAgeConfiguratio
 | --------------------------- | ------------------ | ----------------- | --------------------------------- |
 | ReusedResultMaxAgeInMinutes | Optional           | `60`              | `ReusedResultMaxAgeInMinutes=90;` |
 
-## Use multiple
-
-S3 threads
+## Use multiple S3 threads
 
 Fetches data from Amazon S3 using multiple threads. When this option is enabled, the result
 file stored in the Amazon S3 bucket is fetched in parallel using multiple threads.
@@ -75,9 +67,7 @@ multiple-threaded S3 clients reached 4 Gbps of network throughput.
 | -------------------------- | ------------------ | ----------------- | ----------------------------- |
 | UseMultipleS3Threads       | Optional           | `0`               | `UseMultipleS3Threads=1;`     |
 
-## Use
-
-single catalog and schema
+## Use single catalog and schema
 
 By default, the ODBC driver queries Athena to get the list of available catalogs and
 schemas. This option forces the driver to use the catalog and schema specified by the
@@ -87,9 +77,7 @@ ODBC Data Source Administrator configuration dialog box or connection parameters
 | -------------------------- | ------------------ | ----------------- | ------------------------------ |
 | UseSingleCatalogAndSchema  | Optional           | `0`               | `UseSingleCatalogAndSchema=1;` |
 
-## Use query to
-
-list tables
+## Use query to list tables
 
 For `LAMBDA` catalog types, enables the ODBC driver to submit a [SHOW TABLES](show-tables.md "show-tables.md") query to get a list of available
 tables. This setting is the default. If this parameter is set to 0, the ODBC driver uses
@@ -101,9 +89,7 @@ performance regression.
 | -------------------------- | ------------------ | ----------------- | ----------------------------- |
 | UseQueryToListTables       | Optional           | `1`               | `UseQueryToListTables=1;`     |
 
-## Use WCHAR
-
-for string types
+## Use WCHAR for string types
 
 By default, the ODBC driver uses `SQL_CHAR` and `SQL_VARCHAR`
 for Athena the string data types `char`, `varchar`,
@@ -118,9 +104,7 @@ stored and retrieved correctly.
 | -------------------------- | ------------------ | ----------------- | ----------------------------- |
 | UseWCharForStringTypes     | Optional           | `0`               | `UseWCharForStringTypes=1;`   |
 
-## Query external
-
-catalogs
+## Query external catalogs
 
 Specifies if the driver needs to query external catalogs from Athena. For more
 information, see [Migrate to the ODBC 2.x driver](odbc-v2-driver-migrating.md "odbc-v2-driver-migrating.md").
@@ -139,9 +123,7 @@ see [AWS Client configuration](../../../sdk-for-cpp/v1/developer-guide/client-co
 | -------------------------- | ------------------ | ----------------- | ----------------------------- |
 | VerifySSL                  | Optional           | `1`               | `VerifySSL=0;`                |
 
-## S3 result block
-
-size
+## S3 result block size
 
 Specifies, in bytes, the size of the block to download for a single Amazon S3 [GetObject](../../../AmazonS3/latest/API/API_GetObject.md "../../../AmazonS3/latest/API/API_GetObject.md")
 API request. The default value is 67108864 (64 MB). The minimum and maximum values
@@ -151,9 +133,7 @@ allowed are 10485760 (10 MB) and 2146435072 (about 2 GB).
 | -------------------------- | ------------------ | ----------------- | ------------------------------ |
 | S3ResultBlockSize          | Optional           | `67108864`        | `S3ResultBlockSize=268435456;` |
 
-## String column
-
-length
+## String column length
 
 Specifies the column length for columns with the `string` data type.
 Because Athena uses the [Apache Hive string data type](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Types#LanguageManualTypes-StringsstringStrings "https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Types#LanguageManualTypes-StringsstringStrings"), which does not have defined precision, the
@@ -167,9 +147,7 @@ connection parameter so that the default value can be changed.
 | ---------------------- | -------------- | ------------- | --------------------------- |
 | StringColumnLength     | Optional       | 255           | `StringColumnLength=65535;` |
 
-## Complex
-
-type column length
+## Complex type column length
 
 Specifies the column length for columns with complex data types like `map`,
 `struct`, and `array`. Like [StringColumnLength](#odbc-v2-driver-advanced-options-string-column-length "#odbc-v2-driver-advanced-options-string-column-length"), Athena reports 0 precision for columns with complex data
@@ -181,9 +159,7 @@ the default value can be changed.
 | ----------------------- | -------------- | ------------- | --------------------------------- |
 | ComplexTypeColumnLength | Optional       | 65535         | `ComplexTypeColumnLength=123456;` |
 
-## Trusted CA
-
-certificate
+## Trusted CA certificate
 
 Instructs the HTTP client where to find your SSL certificate trust store. This value
 is passed to the `ClientConfiguration.caFile` parameter. For more
@@ -194,9 +170,7 @@ configuration](../../../sdk-for-cpp/v1/developer-guide/client-config.md "../../.
 | -------------------------- | ------------------ | -------------------- | -------------------------------------------------------------------------------- |
 | TrustedCerts               | Optional           | `%INSTALL_PATH%/bin` | `TrustedCerts=C:\\Program Files\\Amazon Athena ODBC<br>Driver\\bin\\cacert.pem;` |
 
-## Min poll
-
-period
+## Min poll period
 
 Specifies the minimum value in milliseconds to wait before polling Athena for query
 execution status.
@@ -205,9 +179,7 @@ execution status.
 | -------------------------------- | ------------------ | ----------------- | --------------------------------------- |
 | MinQueryExecutionPollingInterval | Optional           | `100`             | `MinQueryExecutionPollingInterval=200;` |
 
-## Max poll
-
-period
+## Max poll period
 
 Specifies the maximum value in milliseconds to wait before polling Athena for the query
 execution status.
@@ -216,9 +188,7 @@ execution status.
 | -------------------------------- | ------------------ | ----------------- | ---------------------------------------- |
 | MaxQueryExecutionPollingInterval | Optional           | `60000`           | `MaxQueryExecutionPollingInterval=1000;` |
 
-## Poll
-
-multiplier
+## Poll multiplier
 
 Specifies the factor for increasing the poll period. By default, polling begins with
 the value of min poll period and doubles with each poll until it reaches the value of
@@ -228,9 +198,7 @@ max poll period.
 | --------------------------------------- | ------------------ | ----------------- | -------------------------------------------- |
 | QueryExecutionPollingIntervalMultiplier | Optional           | `2`               | `QueryExecutionPollingIntervalMultiplier=2;` |
 
-## Max poll
-
-duration
+## Max poll duration
 
 Specifies the maximum value in milliseconds that a driver can poll Athena for query
 execution status.
@@ -239,9 +207,7 @@ execution status.
 | -------------------------- | ------------------ | ----------------- | ----------------------------- |
 | MaxPollDuration            | Optional           | `1800000`         | `MaxPollDuration=1800000;`    |
 
-## Connection
-
-timeout
+## Connection timeout
 
 The amount of time (in milliseconds) that the HTTP connection waits to establish a
 connection. This value is set for `ClientConfiguration.connectTimeoutMs`
@@ -253,9 +219,7 @@ Configuration](../../../sdk-for-java/v1/developer-guide/section-client-configura
 | -------------------------- | ------------------ | ----------------- | ----------------------------- |
 | ConnectionTimeout          | Optional           | `0`               | `ConnectionTimeout=2000;`     |
 
-## Request
-
-timeout
+## Request timeout
 
 Specifies the socket read timeout for HTTP clients. This value is set for the
 `ClientConfiguration.requestTimeoutMs` parameter of the Athena client. For

@@ -1,6 +1,4 @@
-# Example capacity reservation
-
-policies
+# Example capacity reservation policies
 
 This section includes example policies you can use to enable various actions on capacity
 reservations. Whenever you use IAM policies, make sure that you follow IAM best practices. For more information, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.

@@ -16,8 +16,7 @@ If you have Lake Formation enabled in your account, the IAM role for your Athena
 
 ## Prerequisites
 
-- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data
-  source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
+- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
 
 ## Terms
 
@@ -325,9 +324,7 @@ WHERE year >= 1955 AND year <= 1962 OR year = 1996
 (_exists_:year) AND year:([1955 TO 1962] OR 1996)
 ```
 
-## Passthrough
-
-queries
+## Passthrough queries
 
 The OpenSearch connector supports [passthrough queries](federated-query-passthrough.md "federated-query-passthrough.md") and uses the
 Query DSL language. For more information about querying with Query DSL, see [Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html "https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html") in the Elasticsearch documentation or [Query DSL](https://opensearch.org/docs/latest/query-dsl/ "https://opensearch.org/docs/latest/query-dsl/") in the

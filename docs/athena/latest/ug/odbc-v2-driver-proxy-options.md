@@ -22,9 +22,7 @@ configuration](../../../sdk-for-cpp/v1/developer-guide/client-config.md "../../.
 | -------------------------- | ------------------ | ----------------- | ----------------------------- |
 | ProxyPort                  | Optional           | `none`            | `ProxyPort=8888;`             |
 
-## Proxy user
-
-name
+## Proxy user name
 
 Use this parameter to set the proxy user name. This parameter corresponds to the
 `ClientConfiguration.proxyUserName` parameter in the AWS SDK. For more

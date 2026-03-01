@@ -1,14 +1,10 @@
-# Use tag-based IAM access control
-
-policies
+# Use tag-based IAM access control policies
 
 Having tags allows you to write an IAM policy that includes the
 `Condition` block to control access to a resource based on its tags. This
 section includes tag policy examples for workgroup and data catalog resources.
 
-## Tag policy examples for
-
-workgroups
+## Tag policy examples for workgroups
 
 The following IAM policy allows you to run queries and interact with
 tags for the workgroup named `workgroupA`:
@@ -156,9 +152,7 @@ JSON
 
 ```
 
-## Tag policy examples for data
-
-catalogs
+## Tag policy examples for data catalogs
 
 The following IAM policy allows you to interact with tags for the data
 catalog named `datacatalogA`:

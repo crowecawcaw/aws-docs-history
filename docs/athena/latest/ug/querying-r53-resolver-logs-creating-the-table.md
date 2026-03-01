@@ -1,6 +1,4 @@
-# Create the table for
-
-resolver query logs
+# Create the table for resolver query logs
 
 You can use the Query Editor in the Athena console to create and query a table for your
 Route 53 Resolver query logs.

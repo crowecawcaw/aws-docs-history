@@ -33,16 +33,14 @@ Amazon Athena offers the following features:
 ###### Topics
 
 - [Release versions](notebooks-spark-release-versions.md "notebooks-spark-release-versions.md")
-- [Considerations and
-  limitations](notebooks-spark-considerations-and-limitations.md "notebooks-spark-considerations-and-limitations.md")
+- [Considerations and limitations](notebooks-spark-considerations-and-limitations.md "notebooks-spark-considerations-and-limitations.md")
 - [Get started](notebooks-spark-getting-started.md "notebooks-spark-getting-started.md")
 - [Manage notebook files](notebooks-spark-managing.md "notebooks-spark-managing.md")
 - [Notebook editor](notebooks-spark-editor.md "notebooks-spark-editor.md")
 - [Non-Hive table formats](notebooks-spark-table-formats.md "notebooks-spark-table-formats.md")
 - [Python library support](notebooks-spark-python-library-support.md "notebooks-spark-python-library-support.md")
 - [Specify custom configuration](notebooks-spark-custom-jar-cfg.md "notebooks-spark-custom-jar-cfg.md")
-- [Supported data and storage
-  formats](notebooks-spark-data-and-storage-formats.md "notebooks-spark-data-and-storage-formats.md")
+- [Supported data and storage formats](notebooks-spark-data-and-storage-formats.md "notebooks-spark-data-and-storage-formats.md")
 - [Monitor Apache Spark](notebooks-spark-metrics.md "notebooks-spark-metrics.md")
 - [Cost attribution](notebooks-spark-cost-attribution.md "notebooks-spark-cost-attribution.md")
 - [Logging and monitoring](notebooks-spark-logging-monitoring.md "notebooks-spark-logging-monitoring.md")

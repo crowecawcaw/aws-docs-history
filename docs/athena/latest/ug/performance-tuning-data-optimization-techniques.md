@@ -21,9 +21,7 @@ too many partition keys can result in fragmented datasets with too many files an
 files that are too small. Conversely, having too few partition keys, or no
 partitioning at all, leads to queries that scan more data than necessary.
 
-### Avoid
-
-optimizing for rare queries
+### Avoid optimizing for rare queries
 
 A good strategy is to optimize for the most common queries and avoid
 optimizing for rare queries. For example, if your queries look at time spans of
@@ -39,18 +37,14 @@ partitioning by hour, keep the records sorted by timestamp. For queries on
 shorter time windows, sorting by timestamp is almost as efficient as
 partitioning by hour. Furthermore, sorting by timestamp does not typically hurt
 the performance of queries on time windows counted in days. For more
-information, see [Use columnar file
-formats](#performance-tuning-use-columnar-file-formats "#performance-tuning-use-columnar-file-formats").
+information, see [Use columnar file formats](#performance-tuning-use-columnar-file-formats "#performance-tuning-use-columnar-file-formats").
 
 Note that queries on tables with tens of thousands of partitions perform
 better if there are predicates on all partition keys. This is another reason to
 design your partitioning scheme for the most common queries. For more
-information, see [Query partitions
-by equality](#performance-tuning-query-partitions-by-equality "#performance-tuning-query-partitions-by-equality").
+information, see [Query partitions by equality](#performance-tuning-query-partitions-by-equality "#performance-tuning-query-partitions-by-equality").
 
-## Use partition
-
-projection
+## Use partition projection
 
 Partition projection is an Athena feature that stores partition information not in
 the AWS Glue Data Catalog, but as rules in the properties of the table in AWS Glue. When Athena
@@ -78,8 +72,7 @@ listings. Imagine a partition key that has a range of one million values and a q
 that does not have any filters on that partition key. To run the query, Athena must
 perform at least one million Amazon S3 list operations. Queries are fastest when you
 query on specific values, regardless of whether you use partition projection or
-store partition information in the catalog. For more information, see [Query partitions
-by equality](#performance-tuning-query-partitions-by-equality "#performance-tuning-query-partitions-by-equality").
+store partition information in the catalog. For more information, see [Query partitions by equality](#performance-tuning-query-partitions-by-equality "#performance-tuning-query-partitions-by-equality").
 
 When you configure a table for partition projection, make sure that the ranges
 that you specify are reasonable. If a query doesn't include a predicate on a
@@ -91,9 +84,7 @@ instead.
 
 For more information about partition projection, see [Use partition projection with Amazon Athena](partition-projection.md "partition-projection.md").
 
-## Use partition
-
-indexes
+## Use partition indexes
 
 Partition indexes are a feature in the AWS Glue Data Catalog that improves partition lookup
 performance for tables that have large numbers of partitions.
@@ -119,9 +110,7 @@ If the number of partitions is not small, using other types can lead to worse
 performance. If your partition key values are date-like or number-like, cast them to
 the appropriate type in your query.
 
-## Remove old and
-
-empty partitions
+## Remove old and empty partitions
 
 If you remove data from a partition on Amazon S3 (for example, by using Amazon S3 [lifecycle](../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md "../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md")), you should also remove the partition entry from the
 AWS Glue Data Catalog. During query planning, any partition matched by the query is listed on
@@ -134,12 +123,9 @@ at data older than a year, you can periodically remove partition metadata for th
 older partitions. If the number of partitions grows into the tens of thousands,
 removing unused partitions can speed up queries that don't include predicates on all
 partition keys. For information about including predicates on all partition keys in
-your queries, see [Query partitions
-by equality](#performance-tuning-query-partitions-by-equality "#performance-tuning-query-partitions-by-equality").
+your queries, see [Query partitions by equality](#performance-tuning-query-partitions-by-equality "#performance-tuning-query-partitions-by-equality").
 
-## Query partitions
-
-by equality
+## Query partitions by equality
 
 Queries that include equality predicates on all partition keys run faster because
 the partition metadata can be loaded directly. Avoid queries in which one or more of
@@ -149,15 +135,13 @@ matching values. For most tables, the overhead is minimal, but for tables with t
 of thousands or more partitions, the overhead can become significant.
 
 If it is not possible to rewrite your queries to filter partitions by equality,
-you can try partition projection. For more information, see [Use partition
-projection](#performance-tuning-use-partition-projection "#performance-tuning-use-partition-projection").
+you can try partition projection. For more information, see [Use partition projection](#performance-tuning-use-partition-projection "#performance-tuning-use-partition-projection").
 
 ## Avoid using MSCK REPAIR TABLE for partition maintenance
 
 Because `MSCK REPAIR TABLE` can take a long time to run, only adds new
 partitions, and does not remove old partitions, it is not an efficient way to manage
-partitions (see [Considerations and
-limitations](msck-repair-table.md#msck-repair-table-considerations "msck-repair-table.md#msck-repair-table-considerations")).
+partitions (see [Considerations and limitations](msck-repair-table.md#msck-repair-table-considerations "msck-repair-table.md#msck-repair-table-considerations")).
 
 Partitions are better managed manually using the [AWS Glue Data Catalog APIs](../../../glue/latest/dg/aws-glue-api-catalog.md "../../../glue/latest/dg/aws-glue-api-catalog.md"), [ALTER TABLE ADD PARTITION](alter-table-add-partition.md "alter-table-add-partition.md"),
 or [AWS Glue
@@ -185,14 +169,10 @@ dt := dt:string:PARTITION_KEY
 
 The `EXPLAIN` output shows that the planner found three values for this
 partition key that matched the query. It also shows you what those values are. For
-more information about using `EXPLAIN`, see [Using EXPLAIN and EXPLAIN ANALYZE in
-Athena](athena-explain-statement.md "athena-explain-statement.md")
-and [Understand Athena EXPLAIN statement
-results](athena-explain-statement-understanding.md "athena-explain-statement-understanding.md").
+more information about using `EXPLAIN`, see [Using EXPLAIN and EXPLAIN ANALYZE in Athena](athena-explain-statement.md "athena-explain-statement.md")
+and [Understand Athena EXPLAIN statement results](athena-explain-statement-understanding.md "athena-explain-statement-understanding.md").
 
-## Use columnar file
-
-formats
+## Use columnar file formats
 
 Columnar file formats like Parquet and ORC are designed for distributed analytics
 workloads. They organize data by column instead of by row. Organizing data in
@@ -215,8 +195,7 @@ sorted by the `created_at` column, Athena can use the minimum and maximum
 values in the file metadata to skip the unneeded parts of the data files.
 
 When using columnar file formats, make sure that your files aren't too small. As
-noted in [Avoid having too
-many files](#performance-tuning-avoid-having-too-many-files "#performance-tuning-avoid-having-too-many-files"), datasets with
+noted in [Avoid having too many files](#performance-tuning-avoid-having-too-many-files "#performance-tuning-avoid-having-too-many-files"), datasets with
 many small files cause performance issues. This is particularly true with columnar
 file formats. For small files, the overhead of the columnar file format outweighs
 the benefits.
@@ -249,8 +228,7 @@ files cannot, in general, be processed in parallel. Big uncompressed files are o
 split between workers to achieve higher parallelism during query processing, but
 this is not possible with most compression formats.
 
-As discussed in [Avoid having too
-many files](#performance-tuning-avoid-having-too-many-files "#performance-tuning-avoid-having-too-many-files"), it's better to
+As discussed in [Avoid having too many files](#performance-tuning-avoid-having-too-many-files "#performance-tuning-avoid-having-too-many-files"), it's better to
 have neither too many files nor too few. Because the number of files is the limit
 for how many workers can process the query, this rule is especially true for
 compressed files.
@@ -271,9 +249,7 @@ can contain the ID, greatly reducing the amount of data read. It also reduces th
 compute time that otherwise would be required to search through the data for the
 specific ID.
 
-### Avoid bucketing
-
-when queries frequently search for multiple values in a column
+### Avoid bucketing when queries frequently search for multiple values in a column
 
 Bucketing is less valuable when queries frequently search for multiple values
 in the column that the data is bucketed by. The more values queried, the higher
@@ -284,9 +260,7 @@ values.
 
 For more information, see [Use partitioning and bucketing](ctas-partitioning-and-bucketing.md "ctas-partitioning-and-bucketing.md").
 
-## Avoid having too
-
-many files
+## Avoid having too many files
 
 Datasets that consist of many small files result in poor overall query
 performance. When Athena plans a query, it lists all partition locations, which takes
@@ -349,8 +323,7 @@ When all files are directly in the partition location, most of the time only one
 list operation has to be performed. However, multiple sequential list operations are
 required if you have more than 1000 files in a partition because Amazon S3 returns only
 1000 objects per list operation. Having more than 1000 files in a partition can also
-create other, more serious performance issues. For more information, see [Avoid having too
-many files](#performance-tuning-avoid-having-too-many-files "#performance-tuning-avoid-having-too-many-files").
+create other, more serious performance issues. For more information, see [Avoid having too many files](#performance-tuning-avoid-having-too-many-files "#performance-tuning-avoid-having-too-many-files").
 
 ## Use SymlinkTextInputFormat only when necessary
 

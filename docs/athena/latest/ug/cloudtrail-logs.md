@@ -36,14 +36,9 @@ You can use Athena to query these log files directly from Amazon S3, specifying 
 
 ###### Topics
 
-- [Understand CloudTrail logs and Athena
-  tables](create-cloudtrail-table-understanding.md "create-cloudtrail-table-understanding.md")
-- [Use the CloudTrail console to create an Athena
-  table for CloudTrail logs](create-cloudtrail-table-ct.md "create-cloudtrail-table-ct.md")
-- [Create a table for CloudTrail logs in Athena using
-  manual partitioning](create-cloudtrail-table.md "create-cloudtrail-table.md")
-- [Create a table for an
-  organization wide trail using manual partitioning](create-cloudtrail-table-org-wide-trail.md "create-cloudtrail-table-org-wide-trail.md")
-- [Create the table for CloudTrail
-  logs in Athena using partition projection](create-cloudtrail-table-partition-projection.md "create-cloudtrail-table-partition-projection.md")
+- [Understand CloudTrail logs and Athena tables](create-cloudtrail-table-understanding.md "create-cloudtrail-table-understanding.md")
+- [Use the CloudTrail console to create an Athena table for CloudTrail logs](create-cloudtrail-table-ct.md "create-cloudtrail-table-ct.md")
+- [Create a table for CloudTrail logs in Athena using manual partitioning](create-cloudtrail-table.md "create-cloudtrail-table.md")
+- [Create a table for an organization wide trail using manual partitioning](create-cloudtrail-table-org-wide-trail.md "create-cloudtrail-table-org-wide-trail.md")
+- [Create the table for CloudTrail logs in Athena using partition projection](create-cloudtrail-table-partition-projection.md "create-cloudtrail-table-partition-projection.md")
 - [Example CloudTrail log queries](query-examples-cloudtrail-logs.md "query-examples-cloudtrail-logs.md")

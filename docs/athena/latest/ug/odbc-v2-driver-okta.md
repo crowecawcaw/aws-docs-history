@@ -1,8 +1,7 @@
 # Okta
 
 Okta is a SAML-based authentication plugin that works with the Okta identity provider. For
-information about configuring federation for Okta and Amazon Athena, see [Configure SSO for ODBC using the Okta plugin and Okta
-Identity Provider](odbc-okta-plugin.md "odbc-okta-plugin.md").
+information about configuring federation for Okta and Amazon Athena, see [Configure SSO for ODBC using the Okta plugin and Okta Identity Provider](odbc-okta-plugin.md "odbc-okta-plugin.md").
 
 ## Authentication Type
 

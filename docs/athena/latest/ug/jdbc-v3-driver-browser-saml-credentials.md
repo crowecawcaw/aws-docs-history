@@ -1,13 +1,9 @@
-# Browser SAML
-
-credentials
+# Browser SAML credentials
 
 Browser SAML is a generic authentication plugin that can work with SAML-based identity
 providers and supports multi-factor authentication.
 
-## Credentials
-
-provider
+## Credentials provider
 
 The credentials provider that will be used to authenticate requests to AWS. Set
 the value of this parameter to `BrowserSaml`.
@@ -16,9 +12,7 @@ the value of this parameter to `BrowserSaml`.
 | ------------------- | ---------------------------------------- | -------------- | ------------- | ------------- |
 | CredentialsProvider | AWSCredentialsProviderClass (deprecated) | Required       | none          | `BrowserSaml` |
 
-## Single sign-on login
-
-URL
+## Single sign-on login URL
 
 The single sign-on URL for your application on the SAML-based identity
 provider.
@@ -46,9 +40,7 @@ from Azure AD.
 | ------------------ | --------------------------------- | -------------- | ------------- |
 | IdpResponseTimeout | idp_response_timeout (deprecated) | Optional       | 120           |
 
-## Preferred
-
-role
+## Preferred role
 
 The Amazon Resource Name (ARN) of the role to assume. For information about ARN
 roles, see [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") in the
@@ -58,9 +50,7 @@ _AWS Security Token Service API Reference_.
 | -------------- | --------------------------- | -------------- | ------------- |
 | PreferredRole  | preferred_role (deprecated) | Optional       | none          |
 
-## Role
-
-session duration
+## Role session duration
 
 The duration, in seconds, of the role session. For more information, see [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") in the _AWS Security Token Service API Reference_.
 

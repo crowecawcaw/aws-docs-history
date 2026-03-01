@@ -3,9 +3,7 @@
 If you want to use a macOS client computer to access Amazon Athena, the Amazon Athena ODBC driver
 is required.
 
-## macOS
-
-system requirements
+## macOS system requirements
 
 Each macOS computer where you install the driver must meet the following
 requirements.
@@ -73,9 +71,7 @@ To specify the path to the `.odbc.ini` and
 `.odbcinst.ini` files using the iODBC driver manager, perform the
 following steps.
 
-###### To specify ODBC `.ini` file locations using iODBC driver
-
-manager
+###### To specify ODBC `.ini` file locations using iODBC driver manager
 
 1. Set `ODBCINI` to the full path and file name of the
    `odbc.ini` file.

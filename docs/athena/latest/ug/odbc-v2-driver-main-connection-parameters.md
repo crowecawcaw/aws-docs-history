@@ -1,12 +1,8 @@
-# Main ODBC 2.x connection
-
-parameters
+# Main ODBC 2.x connection parameters
 
 The following sections describe each of the main connection parameters.
 
-## Data
-
-source name
+## Data source name
 
 Specifies the name of your data source.
 
@@ -90,8 +86,7 @@ in the _Amazon Athena API Reference_.
 ## Connection test
 
 ODBC Data Source Administrator provides a **Test** option that you
-can use to test your ODBC 2.x connection to Amazon Athena. For steps, see [Configuring a data source
-name on Windows](odbc-v2-driver-getting-started-windows.md#odbc-v2-driver-configuring-dsn-on-windows "odbc-v2-driver-getting-started-windows.md#odbc-v2-driver-configuring-dsn-on-windows"). When you test a
+can use to test your ODBC 2.x connection to Amazon Athena. For steps, see [Configuring a data source name on Windows](odbc-v2-driver-getting-started-windows.md#odbc-v2-driver-configuring-dsn-on-windows "odbc-v2-driver-getting-started-windows.md#odbc-v2-driver-configuring-dsn-on-windows"). When you test a
 connection, the ODBC driver calls the [GetWorkGroup](../APIReference/API_GetWorkGroup.md "../APIReference/API_GetWorkGroup.md") Athena API action. The call uses the authentication type and
 corresponding credentials provider that you specified to retrieve the credentials. There
 is no charge for the connection test when you use the ODBC 2.x driver. The test does not

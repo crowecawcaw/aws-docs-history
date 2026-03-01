@@ -19,9 +19,7 @@ the AWS Glue console, Athena [CREATE TABLE](create-table.md "create-table.md")
 queries, or [AWS Glue API](../../../glue/latest/dg/aws-glue-api.md "../../../glue/latest/dg/aws-glue-api.md") operations. The following procedure shows how to set the
 properties in the AWS Glue console.
 
-###### To configure and enable
-
-partition projection using the AWS Glue console
+###### To configure and enable partition projection using the AWS Glue console
 
 1. Sign in to the AWS Management Console and open the AWS Glue console at
    [https://console.aws.amazon.com/glue/](https://console.aws.amazon.com/glue/ "https://console.aws.amazon.com/glue/").
@@ -41,11 +39,9 @@ following key-value pair:
      `projection.`columnName`.type`.
     2. For **Value**, add one of the supported types:
      `enum`, `integer`, `date`, or
-     `injected`. For more information, see [Supported types for partition
-     projection](partition-projection-supported-types.md "partition-projection-supported-types.md").
+     `injected`. For more information, see [Supported types for partition projection](partition-projection-supported-types.md "partition-projection-supported-types.md").
 
-6. Following the guidance in [Supported types for partition
-   projection](partition-projection-supported-types.md "partition-projection-supported-types.md"), add additional
+6. Following the guidance in [Supported types for partition projection](partition-projection-supported-types.md "partition-projection-supported-types.md"), add additional
    key-value pairs according to your configuration requirements.
 
 The following example table configuration configures the `year`
@@ -82,9 +78,7 @@ like the following:
  [`column_name`] (table
  `database_name`.`table_name`)`.
 
-## How to
-
-specify custom S3 storage locations
+## How to specify custom S3 storage locations
 
 When you edit table properties in AWS Glue, you can also specify a custom Amazon S3 path
 template for the projected partitions. A custom template enables Athena to properly

@@ -1,6 +1,4 @@
-# Using EXPLAIN and EXPLAIN ANALYZE in
-
-Athena
+# Using EXPLAIN and EXPLAIN ANALYZE in Athena
 
 The `EXPLAIN` statement shows the logical or distributed execution plan of a
 specified SQL statement, or validates the SQL statement. You can output the results in text
@@ -16,9 +14,7 @@ The `EXPLAIN ANALYZE` statement shows both the distributed execution plan of a
 specified SQL statement and the computational cost of each operation in a SQL query. You can
 output the results in text or JSON format.
 
-## Considerations
-
-and limitations
+## Considerations and limitations
 
 The `EXPLAIN` and `EXPLAIN ANALYZE` statements in Athena have the
 following limitations.
@@ -33,9 +29,7 @@ following limitations.
   are not shown in the output of `EXPLAIN` and `EXPLAIN
 ANALYZE`.
 
-## EXPLAIN
-
-syntax
+## EXPLAIN syntax
 
 ```
 EXPLAIN [ ( `option` [, ...]) ] `statement`
@@ -356,8 +350,7 @@ Because the results show that the predicate `AND c.c_custkey BETWEEN
 without changing the query results.
 
 For information about the terms used in the results of
-`EXPLAIN` queries, see [Understand Athena EXPLAIN statement
-results](athena-explain-statement-understanding.md "athena-explain-statement-understanding.md").
+`EXPLAIN` queries, see [Understand Athena EXPLAIN statement results](athena-explain-statement-understanding.md "athena-explain-statement-understanding.md").
 
 ## EXPLAIN ANALYZE examples
 
@@ -559,17 +552,13 @@ EXPLAIN ANALYZE (FORMAT JSON) SELECT * FROM cloudfront_logs LIMIT 10
 }
 ```
 
-## Additional
-
-resources
+## Additional resources
 
 For additional information, see the following resources.
 
-- [Understand Athena EXPLAIN statement
-  results](athena-explain-statement-understanding.md "athena-explain-statement-understanding.md")
+- [Understand Athena EXPLAIN statement results](athena-explain-statement-understanding.md "athena-explain-statement-understanding.md")
 - [View execution plans for SQL queries](query-plans.md "query-plans.md")
-- [View statistics and execution details for completed
-  queries](query-stats.md "query-stats.md")
+- [View statistics and execution details for completed queries](query-stats.md "query-stats.md")
 - Trino [`EXPLAIN`](https://trino.io/docs/current/sql/explain.html "https://trino.io/docs/current/sql/explain.html") documentation
 - Trino [`EXPLAIN ANALYZE`](https://trino.io/docs/current/sql/explain-analyze.html "https://trino.io/docs/current/sql/explain-analyze.html") documentation
 - [Optimize Federated Query Performance using EXPLAIN and EXPLAIN ANALYZE in

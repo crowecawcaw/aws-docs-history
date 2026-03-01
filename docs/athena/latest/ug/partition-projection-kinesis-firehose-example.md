@@ -50,7 +50,6 @@ Athena the following:
 
 ###### Topics
 
-- [How
-  to use the date type](partition-projection-kinesis-firehose-example-using-the-date-type.md "partition-projection-kinesis-firehose-example-using-the-date-type.md")
+- [How to use the date type](partition-projection-kinesis-firehose-example-using-the-date-type.md "partition-projection-kinesis-firehose-example-using-the-date-type.md")
 - [How to choose partition keys](partition-projection-kinesis-firehose-example-choosing-partition-keys.md "partition-projection-kinesis-firehose-example-choosing-partition-keys.md")
 - [How to use custom prefixes and dynamic partitioning](partition-projection-kinesis-firehose-example-using-custom-prefixes-and-dynamic-partitioning.md "partition-projection-kinesis-firehose-example-using-custom-prefixes-and-dynamic-partitioning.md")

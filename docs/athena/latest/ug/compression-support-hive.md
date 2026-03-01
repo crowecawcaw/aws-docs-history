@@ -3,9 +3,7 @@
 The compression options for Hive tables in Athena vary by engine version and file
 format.
 
-## Hive compression support in
-
-Athena engine version 3
+## Hive compression support in Athena engine version 3
 
 The following table summarizes the compression format support in Athena engine version 3 for storage
 file formats in Apache Hive. Text file format includes TSV, CSV, JSON, and custom SerDes

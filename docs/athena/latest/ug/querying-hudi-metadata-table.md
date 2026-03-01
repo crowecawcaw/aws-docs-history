@@ -1,6 +1,4 @@
-# Use Hudi metadata for improved
-
-performance
+# Use Hudi metadata for improved performance
 
 The Apache Hudi has a [metadata table](https://hudi.apache.org/docs/next/metadata/ "https://hudi.apache.org/docs/next/metadata/") that contains indexing features for improved performance
 like file listing, data skipping using column statistics, and a bloom filter based
@@ -35,9 +33,7 @@ metadata table on the example `partition_cow` table.
 ALTER TABLE partition_cow SET TBLPROPERTIES('hudi.metadata-listing-enabled'='TRUE')
 ```
 
-## Use bootstrap
-
-generated metadata
+## Use bootstrap generated metadata
 
 Starting in Apache Hudi version 0.6.0, the bootstrap operation feature provides
 better performance with existing Parquet datasets. Instead of rewriting the dataset,

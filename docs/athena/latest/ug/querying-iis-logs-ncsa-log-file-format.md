@@ -21,9 +21,7 @@ IIS.
 198.51.100.11 - ExampleCorp\Xiulan [22/Apr/2019:10:51:34 -0700] "GET /group/index.html HTTP/1.1" 200 1344
 ```
 
-## Create a table
-
-in Athena for IIS NCSA logs
+## Create a table in Athena for IIS NCSA logs
 
 For your `CREATE TABLE` statement, you can use the [Grok SerDe](grok-serde.md "grok-serde.md") and a grok pattern similar to
 the one for [Apache web server logs](querying-apache-logs.md "querying-apache-logs.md"). Unlike
@@ -69,9 +67,7 @@ LOCATION
    `iis_ncsa_logs` table. When the query completes, the logs are
    ready for you to query from Athena.
 
-## Example select
-
-queries for IIS NCSA logs
+## Example select queries for IIS NCSA logs
 
 ###### Example– Filtering for 404 errors
 

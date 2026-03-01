@@ -1,6 +1,4 @@
-# Download multiple
-
-recent queries to a CSV file
+# Download multiple recent queries to a CSV file
 
 You can use the **Recent queries** tab of the Athena console to export
 one or more recent queries to a CSV file in order to view them in tabular format. The

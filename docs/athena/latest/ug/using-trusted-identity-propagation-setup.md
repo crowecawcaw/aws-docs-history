@@ -1,12 +1,8 @@
-# Connect Athena to
-
-IAM Identity Center
+# Connect Athena to IAM Identity Center
 
 The following section lists the process of connecting Athena to IAM Identity Center.
 
-## Setup trusted token
-
-issuer
+## Setup trusted token issuer
 
 Follow [Setting up a trusted token issuer](../../../IAM/latest/UserGuide/id_roles_providers_create_oidc.md "../../../IAM/latest/UserGuide/id_roles_providers_create_oidc.md") guide to setup trusted token
 issuer. This will create an AWS IAM Identity Center.
@@ -63,9 +59,7 @@ JSON
 `CreateTokenWithIam` permissions are given in
 customer managed IAM Identity Center application. 5. Copy the ARN for application role.
 
-### Setup
-
-IAM access role
+### Setup IAM access role
 
 1. Open the IAM console at
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -150,9 +144,7 @@ JSON
 
 5. Copy the ARN for access role.
 
-## Configure AWS IAM Identity Center
-
-customer managed application
+## Configure AWS IAM Identity Center customer managed application
 
 To configure a customer managed application, follow the steps in [Set up customer managed OAuth 2.0 applications for trusted identity
 propagation](../../../singlesignon/latest/userguide/customermanagedapps-trusted-identity-propagation-set-up-your-own-app-OAuth2.md "../../../singlesignon/latest/userguide/customermanagedapps-trusted-identity-propagation-set-up-your-own-app-OAuth2.md") with the following considerations for Athena.
@@ -168,9 +160,7 @@ propagation](../../../singlesignon/latest/userguide/customermanagedapps-trusted-
   _AWS-Lake-Formation-AWS-Glue-Data-Catalog-<account-id>_.
 - For **Access scopes to apply**, select _lakeformation:query_ for IAM-enabled workgroups, or _lakeformation:query_, _athena:workgroup:read_write_, and _s3:access_grants:read_write_ for Identity Center-enabled workgroups.
 
-## Configure workgroup
-
-association
+## Configure workgroup association
 
 1. In the Athena console navigation pane, choose
    **Workgroups**.
@@ -210,15 +200,11 @@ Administrators can still make users provide `AccessRoleArn` or
 `CustomerIdcApplicationArn` in the connection string by adjusting
 the application role permissions as needed.
 
-## Run queries using trusted identity propagation
-
-enabled Athena drivers
+## Run queries using trusted identity propagation enabled Athena drivers
 
 Download the latest version of driver that you want to use. For more information
-on JDBC installation, see [Get started with the JDBC 3.x
-driver](jdbc-v3-driver-getting-started.md "jdbc-v3-driver-getting-started.md"). You can choose to install ODBC
-drivers based on the supported platform. For more information, see [Get started with the ODBC 2.x
-driver](odbc-v2-driver-getting-started.md "odbc-v2-driver-getting-started.md"). Based on the driver that you
+on JDBC installation, see [Get started with the JDBC 3.x driver](jdbc-v3-driver-getting-started.md "jdbc-v3-driver-getting-started.md"). You can choose to install ODBC
+drivers based on the supported platform. For more information, see [Get started with the ODBC 2.x driver](odbc-v2-driver-getting-started.md "odbc-v2-driver-getting-started.md"). Based on the driver that you
 want to use, provide the parameters listed in:
 
 - [JDBC auth plugin
@@ -231,9 +217,7 @@ want to use, provide the parameters listed in:
 Trusted identity propagation with drivers is only available after version 3.6.0 in JDBC and version
 2.0.5.0 in ODBC.
 
-## Use Athena drivers and trusted identity propagation
-
-with DBeaver
+## Use Athena drivers and trusted identity propagation with DBeaver
 
 1. Download the latest JDBC jar with dependencies from Athena. For more
    information, see [Athena JDBC 3.x driver](jdbc-v3-driver.md "jdbc-v3-driver.md").

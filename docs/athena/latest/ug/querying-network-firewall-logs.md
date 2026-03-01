@@ -15,7 +15,5 @@ traffic from AWS Network Firewall](../../../network-firewall/latest/developergui
 
 ###### Topics
 
-- [Create and
-  query a table for alert logs](querying-network-firewall-logs-sample-alert-logs-table.md "querying-network-firewall-logs-sample-alert-logs-table.md")
-- [Create and
-  query a table for netflow logs](querying-network-firewall-logs-sample-netflow-logs-table.md "querying-network-firewall-logs-sample-netflow-logs-table.md")
+- [Create and query a table for alert logs](querying-network-firewall-logs-sample-alert-logs-table.md "querying-network-firewall-logs-sample-alert-logs-table.md")
+- [Create and query a table for netflow logs](querying-network-firewall-logs-sample-netflow-logs-table.md "querying-network-firewall-logs-sample-netflow-logs-table.md")

@@ -6,39 +6,30 @@ classes](../../../AmazonS3/latest/userguide/storage-class-intro.md#sc-glacier ".
 enable the feature on a table before you run a query, Athena skips all of the table's Amazon Glacier
 Flexible Retrieval and Amazon Glacier Deep Archive objects during query execution.
 
-## Considerations and
-
-Limitations
+## Considerations and Limitations
 
 - Querying restored Amazon Glacier objects is supported only on Athena engine version 3.
 - The feature is supported only for Apache Hive tables.
 - You must restore your objects before you query your data; Athena does not
   restore objects for you.
 
-## Configure
-
-a table to use restored objects
+## Configure a table to use restored objects
 
 To configure your Athena table to include restored objects in your queries, you must
 set its `read_restored_glacier_objects` table property to `true`.
 To do this, you can use the Athena query editor or the AWS Glue console. You can also use
 the [AWS Glue CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glue/update-table.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glue/update-table.html"), the [AWS Glue API](../../../glue/latest/dg/aws-glue-api-catalog-tables.md#aws-glue-api-catalog-tables-UpdateTable "../../../glue/latest/dg/aws-glue-api-catalog-tables.md#aws-glue-api-catalog-tables-UpdateTable"), or the [AWS Glue SDK](../../../glue/latest/dg/sdk-general-information-section.md "../../../glue/latest/dg/sdk-general-information-section.md").
 
-### Use the Athena query
+### Use the Athena query editor
 
-editor
-
-In Athena, you can use the [ALTER TABLE SET
-TBLPROPERTIES](alter-table-set-tblproperties.md "alter-table-set-tblproperties.md") command to set the table
+In Athena, you can use the [ALTER TABLE SET TBLPROPERTIES](alter-table-set-tblproperties.md "alter-table-set-tblproperties.md") command to set the table
 property, as in the following example.
 
 ```
 ALTER TABLE table_name SET TBLPROPERTIES ('read_restored_glacier_objects' = 'true')
 ```
 
-### Use the AWS Glue
-
-console
+### Use the AWS Glue console
 
 In the AWS Glue console, perform the following steps to add the
 `read_restored_glacier_objects` table property.

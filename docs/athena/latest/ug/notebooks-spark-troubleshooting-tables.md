@@ -12,8 +12,7 @@ Spark in Athena to create a table in an AWS Glue database, and the database has 
 `LOCATION` property.
 
 Suggested Solution: For more information and
-solutions, see [Illegal
-argument exception when creating a table](notebooks-spark-known-issues.md#notebooks-spark-known-issues-illegal-argument-exception "notebooks-spark-known-issues.md#notebooks-spark-known-issues-illegal-argument-exception").
+solutions, see [Illegal argument exception when creating a table](notebooks-spark-known-issues.md#notebooks-spark-known-issues-illegal-argument-exception "notebooks-spark-known-issues.md#notebooks-spark-known-issues-illegal-argument-exception").
 
 ## AccessDeniedException when querying AWS Glue tables
 

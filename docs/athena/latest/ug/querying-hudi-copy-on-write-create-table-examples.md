@@ -1,14 +1,10 @@
-# Copy on write (CoW)
-
-create table examples
+# Copy on write (CoW) create table examples
 
 If you have Hudi tables already created in AWS Glue, you can query them directly in
 Athena. When you create partitioned Hudi tables in Athena, you must run `ALTER TABLE
  ADD PARTITION` to load the Hudi data before you can query it.
 
-## Nonpartitioned CoW
-
-table
+## Nonpartitioned CoW table
 
 The following example creates a nonpartitioned CoW table in Athena.
 

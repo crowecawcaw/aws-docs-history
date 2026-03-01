@@ -72,11 +72,9 @@ ADD PARTITION (dt=`'YYYY-MM-dd`')
 LOCATION 's3://amzn-s3-demo-bucket/`prefix`/AWSLogs/`account_id`/globalaccelerator/`region_code`/`YYYY`/`MM`/`dd`';
 ```
 
-## Example queries for
+## Example queries for AWS Global Accelerator flow logs
 
-AWS Global Accelerator flow logs
-
-###### Example – List the requests that pass through a specific edge location
+###### Example– List the requests that pass through a specific edge location
 
 The following example query lists requests that passed through the LHR edge
 location. Use the `LIMIT` operator to limit the number of logs to query
@@ -96,9 +94,7 @@ LIMIT
   100;
 ```
 
-###### Example – List the endpoint IP addresses that receive the most HTTPS
-
-requests
+###### Example– List the endpoint IP addresses that receive the most HTTPS requests
 
 To see which endpoint IP addresses are receiving the highest number of HTTPS
 requests, use the following query. This query counts the number of packets received

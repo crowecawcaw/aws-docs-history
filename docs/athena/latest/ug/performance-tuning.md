@@ -10,10 +10,8 @@ you structure your data and tables can all influence performance.
 
 ###### Topics
 
-- [Optimize service
-  use](performance-tuning-service-level-considerations.md "performance-tuning-service-level-considerations.md")
-- [Optimize
-  queries](performance-tuning-query-optimization-techniques.md "performance-tuning-query-optimization-techniques.md")
+- [Optimize service use](performance-tuning-service-level-considerations.md "performance-tuning-service-level-considerations.md")
+- [Optimize queries](performance-tuning-query-optimization-techniques.md "performance-tuning-query-optimization-techniques.md")
 - [Optimize data](performance-tuning-data-optimization-techniques.md "performance-tuning-data-optimization-techniques.md")
 - [Use columnar storage formats](columnar-storage.md "columnar-storage.md")
 - [Use partitioning and bucketing](ctas-partitioning-and-bucketing.md "ctas-partitioning-and-bucketing.md")

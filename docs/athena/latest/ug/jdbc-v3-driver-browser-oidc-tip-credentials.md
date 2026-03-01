@@ -1,7 +1,6 @@
 # Browser based with identity center integration
 
-This authentication type allows you to fetch a new JSON web token (JWT) from an external identity provider and authenticate with Athena. You can use this plugin, to enable support for corporate identities via trusted identity propagation. For more information on how to use trusted identity propagation with drivers, see [Use Trusted identity propagation with
-Amazon Athena drivers](using-trusted-identity-propagation.md "using-trusted-identity-propagation.md"). You can also [configure and deploy resources using CloudFormation](using-trusted-identity-propagation-cloudformation.md "using-trusted-identity-propagation-cloudformation.md").
+This authentication type allows you to fetch a new JSON web token (JWT) from an external identity provider and authenticate with Athena. You can use this plugin, to enable support for corporate identities via trusted identity propagation. For more information on how to use trusted identity propagation with drivers, see [Use Trusted identity propagation with Amazon Athena drivers](using-trusted-identity-propagation.md "using-trusted-identity-propagation.md"). You can also [configure and deploy resources using CloudFormation](using-trusted-identity-propagation-cloudformation.md "using-trusted-identity-propagation-cloudformation.md").
 
 With trusted identity propagation, identity context is added to an IAM role to identify the user requesting access to AWS resources. For information on enabling and using trusted identity propagation, see [What is trusted identity propagation?](../../../singlesignon/latest/userguide/trustedidentitypropagation.md "../../../singlesignon/latest/userguide/trustedidentitypropagation.md").
 

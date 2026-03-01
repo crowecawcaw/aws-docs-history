@@ -1,6 +1,4 @@
-# Additional
-
-resources
+# Additional resources
 
 - For a `CREATE TABLE AS` example that creates both bucketed and
   partitioned tables, see [Example: Creating bucketed and partitioned tables](ctas-examples.md#ctas-example-bucketed "ctas-examples.md#ctas-example-bucketed").

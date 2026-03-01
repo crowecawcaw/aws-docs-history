@@ -19,8 +19,7 @@ Using the Neptune connector requires the following three steps.
 
 - Setting up a Neptune cluster
 - Setting up an AWS Glue Data Catalog
-- Deploying the connector to your AWS account. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data
-  source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md"). For additional
+- Deploying the connector to your AWS account. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md"). For additional
   details specific to deploying the Neptune connector, see [Deploy the Amazon Athena Neptune Connector](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-neptune/docs/neptune-connector-setup "https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-neptune/docs/neptune-connector-setup") on GitHub.com.
 
 ## Limitations
@@ -29,9 +28,7 @@ Currently, the Neptune Connector has the following limitation.
 
 - Projecting columns, including the primary key (ID), is not supported.
 
-## Setting up a Neptune
-
-cluster
+## Setting up a Neptune cluster
 
 If you don't have an existing Amazon Neptune cluster and property graph dataset in it
 that you would like to use, you must set one up.
@@ -44,9 +41,7 @@ Lambda function uses the NAT Gateway to communicate with AWS Glue.
 For instructions on setting up a new Neptune cluster and loading it with a sample
 dataset, see [Sample Neptune Cluster Setup](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-neptune/docs/neptune-cluster-setup "https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-neptune/docs/neptune-cluster-setup") on GitHub.com.
 
-## Setting up an
-
-AWS Glue Data Catalog
+## Setting up an AWS Glue Data Catalog
 
 Unlike traditional relational data stores, Neptune graph DB nodes and edges do not
 use a set schema. Each entry can have different fields and data types. However, because
@@ -55,9 +50,7 @@ AWS Glue database that has tables with the required schema. After you create the
 database and tables, the connector can populate the list of tables available to query
 from Athena.
 
-### Enabling
-
-case insensitive column matching
+### Enabling case insensitive column matching
 
 To resolve column names from your Neptune table with the correct casing even when
 the column names are all lower cased in AWS Glue, you can configure the Neptune
@@ -91,9 +84,7 @@ For more information on setting up a AWS Glue Data Catalog to work with Neptune,
 The Athena Neptune connector performs predicate pushdown to decrease the data scanned by the query. However, predicates using the primary key result in query failure.
 `LIMIT` clauses reduce the amount of data scanned, but if you don't provide a predicate, you should expect `SELECT` queries with a `LIMIT` clause to scan at least 16 MB of data. The Neptune connector is resilient to throttling due to concurrency.
 
-## Passthrough
-
-queries
+## Passthrough queries
 
 The Neptune connector supports [passthrough queries](federated-query-passthrough.md "federated-query-passthrough.md"). You can use
 this feature to run Gremlin queries on property graphs and to run SPARQL queries on RDF

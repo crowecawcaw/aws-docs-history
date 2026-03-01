@@ -9,8 +9,7 @@ This connector does not use Glue Connections to centralize configuration propert
 
 ## Prerequisites
 
-Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data
-source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
+Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
 
 ## Limitations
 
@@ -49,9 +48,7 @@ The MSK connector can be used with the following cluster types.
 - Standalone Kafka – A direct connection
   to Kafka (authenticated or unauthenticated).
 
-## Supported
-
-authentication methods
+## Supported authentication methods
 
 The connector supports the following authentication methods.
 
@@ -62,12 +59,9 @@ The connector supports the following authentication methods.
 - SASL/PLAINTEXT
 - NO_AUTH
 
-For more information, see [Configuring
-authentication for the Athena MSK connector](#connectors-msk-setup-configuring-authentication "#connectors-msk-setup-configuring-authentication").
+For more information, see [Configuring authentication for the Athena MSK connector](#connectors-msk-setup-configuring-authentication "#connectors-msk-setup-configuring-authentication").
 
-## Supported input data
-
-formats
+## Supported input data formats
 
 The connector supports the following input data formats.
 
@@ -118,8 +112,7 @@ MSK connector.
     connector is deployed. For more information, see [Mutual TLS
     authentication](../../../msk/latest/developerguide/msk-authentication.md "../../../msk/latest/developerguide/msk-authentication.md") in the Amazon Managed Streaming for Apache Kafka Developer Guide.
 
-  For more information, see [Configuring
-  authentication for the Athena MSK connector](#connectors-msk-setup-configuring-authentication "#connectors-msk-setup-configuring-authentication").
+  For more information, see [Configuring authentication for the Athena MSK connector](#connectors-msk-setup-configuring-authentication "#connectors-msk-setup-configuring-authentication").
 
 - certificates_s3_reference – The Amazon S3
   location that contains the certificates (the key store and trust store
@@ -225,9 +218,7 @@ Use the format of the examples in this section when you upload your schema to
 the [AWS Glue
 Schema Registry](../../../glue/latest/dg/schema-registry.md "../../../glue/latest/dg/schema-registry.md").
 
-#### JSON type schema
-
-example
+#### JSON type schema example
 
 In the following example, the schema to be created in the AWS Glue Schema
 Registry specifies `json` as the value for
@@ -297,9 +288,7 @@ topic name in Kafka.
 }
 ```
 
-#### CSV type schema
-
-example
+#### CSV type schema example
 
 In the following example, the schema to be created in the AWS Glue Schema
 Registry specifies `csv` as the value for `dataFormat`
@@ -358,9 +347,7 @@ Kafka.
 }
 ```
 
-### Configuring
-
-authentication for the Athena MSK connector
+### Configuring authentication for the Athena MSK connector
 
 You can use a variety of methods to authenticate to your Amazon MSK cluster, including
 IAM, SSL, SCRAM, and standalone Kafka.

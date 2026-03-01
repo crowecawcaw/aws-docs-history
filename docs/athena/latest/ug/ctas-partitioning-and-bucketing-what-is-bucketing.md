@@ -1,6 +1,4 @@
-# What is
-
-bucketing?
+# What is bucketing?
 
 Bucketing is a way to organize the records of a dataset into categories called
 _buckets_.
@@ -15,9 +13,7 @@ In practice, the buckets are files, and a hash function determines the bucket th
 record goes into. A bucketed dataset will have one or more files per bucket per
 partition. The bucket that a file belongs to is encoded in the file name.
 
-## Bucketing
-
-benefits
+## Bucketing benefits
 
 Bucketing is useful when a dataset is bucketed by a certain property and you want
 to retrieve records in which that property has a certain value. Because the data is
@@ -51,9 +47,7 @@ filtering on bucketed columns with the following data types:
 - STRING
 - VARCHAR
 
-## Hive and
-
-Spark support
+## Hive and Spark support
 
 Athena engine version 2 supports datasets bucketed using the Hive bucket algorithm, and Athena engine version 3
 also supports the Apache Spark bucketing algorithm. Hive bucketing is the default.
@@ -72,8 +66,7 @@ If you exceed this limitation, you may receive the error message
 **`HIVE_TOO_MANY_OPEN_PARTITIONS: Exceeded limit of 100 open writers
  for partitions/buckets`**. To work around this limitation, you can
 use a CTAS statement and a series of `INSERT INTO` statements that
-create or insert up to 100 partitions each. For more information, see [Use CTAS and INSERT INTO to work around the 100 partition
-limit](ctas-insert-into.md "ctas-insert-into.md").
+create or insert up to 100 partitions each. For more information, see [Use CTAS and INSERT INTO to work around the 100 partition limit](ctas-insert-into.md "ctas-insert-into.md").
 
 To create a table for an existing bucketed dataset, use the `CLUSTERED BY
  (`column`)` clause followed

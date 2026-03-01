@@ -1,6 +1,4 @@
-# Considerations and limitations for SQL queries
-
-in Amazon Athena
+# Considerations and limitations for SQL queries in Amazon Athena
 
 When running queries in Athena, keep in mind the following considerations and
 limitations:
@@ -10,8 +8,7 @@ limitations:
 - Maximum number of partitions – The maximum
   number of partitions you can create with `CREATE TABLE AS SELECT` (CTAS)
   statements is 100. For information, see [CREATE TABLE
-  AS](create-table-as.md "create-table-as.md"). For a workaround, see [Use CTAS and INSERT INTO to work around the 100 partition
-  limit](ctas-insert-into.md "ctas-insert-into.md").
+  AS](create-table-as.md "create-table-as.md"). For a workaround, see [Use CTAS and INSERT INTO to work around the 100 partition limit](ctas-insert-into.md "ctas-insert-into.md").
 - Unsupported statements – Unsupported
   statements include the following. For a complete list of unsupported DDL statements
   in Athena, see [Unsupported DDL](unsupported-ddl.md "unsupported-ddl.md").
@@ -71,6 +68,6 @@ supported`**.
   Iceberg hidden metadata columns `$bucket`,
   `$file_modified_time`, `$file_size`, and
   `$partition` are not supported for views. For information about using
-  the `$path` metadata column in Athena, see [Getting the file locations for source data in Amazon S3](select.md#select-path "select.md#select-path") .
+  the `$path` metadata column in Athena, see [Getting the file locations for source data in Amazon S3](select.md#select-path "select.md#select-path").
   For information about maximum query string length, quotas for query timeouts, and quotas
   for the active number of DML queries, see [Service Quotas](service-limits.md "service-limits.md").

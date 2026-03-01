@@ -1,23 +1,17 @@
-# Use Spark properties to specify custom
-
-configuration
+# Use Spark properties to specify custom configuration
 
 When you create or edit a session in Amazon Athena for Apache Spark, you can use [Spark
 properties](https://spark.apache.org/docs/latest/configuration.html#spark-properties "https://spark.apache.org/docs/latest/configuration.html#spark-properties") to specify `.jar` files, packages, or another
 custom configuration for the session. To specify your Spark properties, you can use the
 Athena console, the AWS CLI, or the Athena API.
 
-## Use the Athena console to
-
-specify Spark properties
+## Use the Athena console to specify Spark properties
 
 In the Athena console, you can specify your Spark properties when you [create a
 notebook](notebooks-spark-getting-started.md#notebooks-spark-getting-started-creating-your-own-notebook "notebooks-spark-getting-started.md#notebooks-spark-getting-started-creating-your-own-notebook") or [edit a
 current session](notebooks-spark-getting-started.md#notebooks-spark-getting-started-editing-session-details "notebooks-spark-getting-started.md#notebooks-spark-getting-started-editing-session-details").
 
-###### To add properties in the **Create notebook** or \*\*Edit
-
-session details\*\* dialog box
+###### To add properties in the **Create notebook** or **Edit session details** dialog box
 
 1. Expand **Spark properties**.
 2. To add your properties, use the **Edit in table** or
@@ -54,9 +48,7 @@ session details\*\* dialog box
   - You cannot use the `spark.athena.` prefix because it is
     reserved.
 
-## Use the AWS CLI or Athena API
-
-to provide custom configuration
+## Use the AWS CLI or Athena API to provide custom configuration
 
 To use the AWS CLI or Athena API to provide your session configuration, use the [StartSession](../APIReference/API_StartSession.md "../APIReference/API_StartSession.md") API action or the
 [start-session](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/athena/start-session.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/athena/start-session.html") CLI command. In your `StartSession` request, use

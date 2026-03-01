@@ -18,9 +18,7 @@ The following table describes these parameters.
 | `statement_name` | The name of the statement to be prepared. The name must<br>be unique within the workgroup. |
 | `statement`      | A `SELECT`, `CTAS`, or `INSERT<br>INTO` query.                                             |
 
-## PREPARE
-
-examples
+## PREPARE examples
 
 The following examples show the use of the `PREPARE` statement.
 Question marks denote the values to be supplied by the `EXECUTE`

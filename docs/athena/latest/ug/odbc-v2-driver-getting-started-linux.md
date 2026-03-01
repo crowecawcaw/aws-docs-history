@@ -3,9 +3,7 @@
 If you want use a Linux client computer to access Amazon Athena, the Amazon Athena ODBC driver is
 required.
 
-## Linux
-
-system requirements
+## Linux system requirements
 
 Each Linux client computer where you install the driver must meet the following
 requirements.

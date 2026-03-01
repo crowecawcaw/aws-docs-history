@@ -32,9 +32,7 @@ credentials and set up individual users with AWS IAM Identity Center or AWS Iden
 As an additional security step, you can use the [aws:CalledVia](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-calledvia "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-calledvia") global condition context key to limit requests
 to only those made from Athena. For more information, see [Use CalledVia context keys for Athena](security-iam-athena-calledvia.md "security-iam-athena-calledvia.md").
 
-## Protect multiple types of
-
-data
+## Protect multiple types of data
 
 Multiple types of data are involved when you use Athena to create databases and tables.
 These data types include source data stored in Amazon S3, metadata for databases and tables
@@ -70,8 +68,7 @@ access.
   Amazon S3 buckets where you store query results and saved queries. Additionally, you
   can choose to encrypt query results that you store in Amazon S3. Your users must have
   the appropriate permissions to access the Amazon S3 locations and decrypt files. For
-  more information, see [Encrypt Athena query results
-  stored in Amazon S3](encrypting-query-results-stored-in-s3.md "encrypting-query-results-stored-in-s3.md") in this document.
+  more information, see [Encrypt Athena query results stored in Amazon S3](encrypting-query-results-stored-in-s3.md "encrypting-query-results-stored-in-s3.md") in this document.
 
 Athena retains query history for 45 days. You can [view query history](queries-viewing-history.md "queries-viewing-history.md") using Athena
 APIs, in the console, and with AWS CLI. To store the queries for longer than 45

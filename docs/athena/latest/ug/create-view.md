@@ -1,6 +1,4 @@
-# CREATE VIEW and CREATE PROTECTED MULTI
-
-DIALECT VIEW
+# CREATE VIEW and CREATE PROTECTED MULTI DIALECT VIEW
 
 A view is a logical table that can be referenced by future queries. Views do not contain
 any data and do not write data. Instead, the query specified by the view runs each time you
@@ -60,9 +58,7 @@ FROM orders;
 
 For more information about using Athena views, see [Work with views](views.md "views.md").
 
-## CREATE PROTECTED MULTI
-
-DIALECT VIEW
+## CREATE PROTECTED MULTI DIALECT VIEW
 
 Creates a AWS Glue Data Catalog view in the AWS Glue Data Catalog. A Data Catalog view is a single view schema
 that works across Athena and other SQL engines such as Amazon Redshift and Amazon EMR.

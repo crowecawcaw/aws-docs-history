@@ -1,6 +1,4 @@
-# Update Iceberg table
-
-data
+# Update Iceberg table data
 
 You can manage Iceberg table data directly on Athena by using `INSERT`,
 `UPDATE`, and `DELETE` queries. Each data management

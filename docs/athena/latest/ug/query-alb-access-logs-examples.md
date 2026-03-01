@@ -1,6 +1,4 @@
-# Example queries for ALB access
-
-logs
+# Example queries for ALB access logs
 
 The following query counts the number of HTTP GET requests received by the load
 balancer grouped by the client IP address:

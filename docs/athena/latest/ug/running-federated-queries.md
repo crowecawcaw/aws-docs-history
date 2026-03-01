@@ -3,9 +3,7 @@
 After you have configured one or more data connectors and deployed them to your account,
 you can use them in your Athena queries.
 
-## Query a single data
-
-source
+## Query a single data source
 
 The examples in this section assume that you have configured and deployed the [Amazon Athena CloudWatch connector](connectors-cloudwatch.md "connectors-cloudwatch.md") to your
 account. Use the same approach to query when you use other connectors.
@@ -49,9 +47,7 @@ FROM MyCloudwatchCatalog."/var/ecommerce-engine/order-processor".all_log_streams
 WHERE Regexp_extract(message, '(.*):.*', 1) != 'INFO'
 ```
 
-## Query multiple data
-
-sources
+## Query multiple data sources
 
 As a more complex example, imagine an e-commerce company that uses the following data
 sources to store data related to customer purchases:
@@ -88,9 +84,7 @@ GROUP BY 1, 2, 3
 ORDER BY 4 DESC
 ```
 
-## Query federated
-
-views
+## Query federated views
 
 When querying federated sources, you can use views to obfuscate the underlying data
 sources or hide complex joins from other analysts who query the data.
@@ -112,7 +106,7 @@ sources or hide complex joins from other analysts who query the data.
 - Users who run queries on federated sources must have permission to query
   the federated sources.
 - The `athena:GetDataCatalog` permission is required for
-  federated views. For more information, see [Allow access to Athena Federated Query: Example policies](federated-query-iam-access.md "federated-query-iam-access.md") .
+  federated views. For more information, see [Allow access to Athena Federated Query: Example policies](federated-query-iam-access.md "federated-query-iam-access.md").
 
 ### Examples
 

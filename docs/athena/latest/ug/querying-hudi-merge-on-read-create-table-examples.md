@@ -1,6 +1,4 @@
-# Merge on read (MoR)
-
-create table examples
+# Merge on read (MoR) create table examples
 
 Hudi creates two tables in the metastore for MoR: a table for snapshot queries, and a
 table for read optimized queries. Both tables are queryable. In Hudi versions prior to
@@ -9,9 +7,7 @@ created the table. Starting in Hudi version 0.5.1, the table name is suffixed wi
 `_ro` by default. The name of the table for snapshot queries is the name
 that you specified appended with `_rt`.
 
-## Nonpartitioned
-
-merge on read (MoR) table
+## Nonpartitioned merge on read (MoR) table
 
 The following example creates a nonpartitioned MoR table in Athena for read
 optimized queries. Note that read optimized queries use the input format
@@ -65,9 +61,7 @@ LOCATION
   's3://amzn-s3-demo-bucket/`folder`/nonpartition_mor/'
 ```
 
-## Partitioned merge on
-
-read (MoR) table
+## Partitioned merge on read (MoR) table
 
 The following example creates a partitioned MoR table in Athena for read optimized
 queries.

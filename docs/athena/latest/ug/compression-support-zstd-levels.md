@@ -43,9 +43,7 @@ AS` (CTAS), and `UNLOAD` statements.
 For information about Apache Hive ZSTD compression support in Athena, see [Use Hive table compression](compression-support-hive.md "compression-support-hive.md"). For
 information about Apache Iceberg ZSTD compression support in Athena, see [Use Iceberg table compression](compression-support-iceberg.md "compression-support-iceberg.md").
 
-## Specify ZSTD compression
-
-levels
+## Specify ZSTD compression levels
 
 To specify the ZSTD compression level for the `ALTER TABLE`, `CREATE
  TABLE`, `CREATE TABLE AS`, and `UNLOAD` statements, use
@@ -53,8 +51,7 @@ the `compression_level` property. To specify ZSTD compression itself, you
 must use the individual compression property that the syntax for the statement
 uses.
 
-In the [ALTER TABLE SET
-TBLPROPERTIES](alter-table-set-tblproperties.md "alter-table-set-tblproperties.md") statement `SET
+In the [ALTER TABLE SET TBLPROPERTIES](alter-table-set-tblproperties.md "alter-table-set-tblproperties.md") statement `SET
  TBLPROPERTIES` clause, specify ZSTD compression using
 `'write.compression' = ' ZSTD'` or `'parquet.compression' =
  'ZSTD'`. Then use the `compression_level` property to specify a

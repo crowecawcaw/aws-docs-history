@@ -1,6 +1,4 @@
-# Use Trusted identity propagation with
-
-Amazon Athena drivers
+# Use Trusted identity propagation with Amazon Athena drivers
 
 Trusted identity propagation provides a new authentication option for organizations that
 want to centralize data permissions management and authorize requests based on their IdP
@@ -24,17 +22,13 @@ and set up the appropriate data access permissions for your users.
 
 ###### Topics
 
-- [Key
-  definitions](#using-trusted-identity-propagation-key-definitions "#using-trusted-identity-propagation-key-definitions")
+- [Key definitions](#using-trusted-identity-propagation-key-definitions "#using-trusted-identity-propagation-key-definitions")
 - [Considerations](#using-trusted-identity-propagation-considerations "#using-trusted-identity-propagation-considerations")
 - [Prerequisites](#using-trusted-identity-propagation-prerequisites "#using-trusted-identity-propagation-prerequisites")
-- [Connect Athena to
-  IAM Identity Center](using-trusted-identity-propagation-setup.md "using-trusted-identity-propagation-setup.md")
+- [Connect Athena to IAM Identity Center](using-trusted-identity-propagation-setup.md "using-trusted-identity-propagation-setup.md")
 - [Configure and deploy resources using AWS CloudFormation](using-trusted-identity-propagation-cloudformation.md "using-trusted-identity-propagation-cloudformation.md")
 
-## Key
-
-definitions
+## Key definitions
 
 1. **Application Role** – Role to exchange
    tokens, retrieve workgroup and customer managed AWS IAM Identity Center application

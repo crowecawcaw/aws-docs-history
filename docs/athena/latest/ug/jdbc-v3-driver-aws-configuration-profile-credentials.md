@@ -1,6 +1,4 @@
-# AWS
-
-configuration profile credentials
+# AWS configuration profile credentials
 
 You can use credentials stored in an AWS configuration profile by setting the
 following connection parameters. AWS configuration profiles are typically stored in

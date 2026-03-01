@@ -1,6 +1,4 @@
-# Create tables for flow logs in Apache Parquet
-
-format
+# Create tables for flow logs in Apache Parquet format
 
 The following procedure creates an Amazon VPC table for Amazon VPC flow logs in Apache Parquet
 format.
@@ -8,8 +6,7 @@ format.
 ###### To create an Athena table for Amazon VPC flow logs in Parquet format
 
 1. Enter a DDL statement like the following into the Athena console query editor,
-   following the guidelines in the [Considerations and
-   limitations](vpc-flow-logs.md#vpc-flow-logs-common-considerations "vpc-flow-logs.md#vpc-flow-logs-common-considerations") section. The sample
+   following the guidelines in the [Considerations and limitations](vpc-flow-logs.md#vpc-flow-logs-common-considerations "vpc-flow-logs.md#vpc-flow-logs-common-considerations") section. The sample
    statement creates a table that has the columns for Amazon VPC flow logs versions 2
    through 5 as documented in [Flow log records](../../../vpc/latest/userguide/flow-logs.md#flow-log-records "../../../vpc/latest/userguide/flow-logs.md#flow-log-records")
    in Parquet format, Hive partitioned hourly. If you do not have hourly

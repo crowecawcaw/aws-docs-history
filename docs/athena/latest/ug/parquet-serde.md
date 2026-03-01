@@ -4,8 +4,7 @@ Use the Parquet SerDe to create Athena tables from Parquet data.
 
 The Parquet SerDe is used for data stored in the [Parquet format](https://cwiki.apache.org/confluence/display/Hive/Parquet "https://cwiki.apache.org/confluence/display/Hive/Parquet").
 To convert data into Parquet format, you can use [CREATE TABLE AS SELECT (CTAS)](create-table-as.md "create-table-as.md") queries. For more
-information, see [Create a table from query results (CTAS)](ctas.md "ctas.md"), [Examples of CTAS queries](ctas-examples.md "ctas-examples.md") and [Use CTAS and INSERT INTO for ETL and data
-analysis](ctas-insert-into-etl.md "ctas-insert-into-etl.md").
+information, see [Create a table from query results (CTAS)](ctas.md "ctas.md"), [Examples of CTAS queries](ctas-examples.md "ctas-examples.md") and [Use CTAS and INSERT INTO for ETL and data analysis](ctas-insert-into-etl.md "ctas-insert-into-etl.md").
 
 ## Serialization library name
 
@@ -160,9 +159,7 @@ LIMIT 10;
 
 The flight table data comes from [Flights](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time "http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time") provided by US Department of Transportation, [Bureau of Transportation Statistics](http://www.transtats.bts.gov/ "http://www.transtats.bts.gov/"). Desaturated from original.
 
-## Ignore Parquet
-
-statistics
+## Ignore Parquet statistics
 
 When you read Parquet data, you might receive error messages like the
 following:
@@ -175,8 +172,7 @@ HIVE_CURSOR_ERROR: FailureException at java.io.IOException:
 can not read class org.apache.parquet.format.PageHeader: Socket is closed by peer.
 ```
 
-To workaround this issue, use the [CREATE TABLE](create-table.md "create-table.md") or [ALTER TABLE SET
-TBLPROPERTIES](alter-table-set-tblproperties.md "alter-table-set-tblproperties.md") statement to set the Parquet SerDe
+To workaround this issue, use the [CREATE TABLE](create-table.md "create-table.md") or [ALTER TABLE SET TBLPROPERTIES](alter-table-set-tblproperties.md "alter-table-set-tblproperties.md") statement to set the Parquet SerDe
 `parquet.ignore.statistics` property to `true`, as in the
 following examples.
 

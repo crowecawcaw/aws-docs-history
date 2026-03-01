@@ -1,6 +1,4 @@
-# Optimize queries with AWS Glue partition indexing and
-
-filtering
+# Optimize queries with AWS Glue partition indexing and filtering
 
 When Athena queries partitioned tables, it retrieves and filters the available table
 partitions to the subset relevant to your query. As new data and partitions are added,
@@ -13,18 +11,14 @@ up partition filtering in a table's properties is a two-step process:
 1. Creating a partition index in AWS Glue.
 2. Enabling partition filtering for the table.
 
-## Creating a partition
-
-index
+## Creating a partition index
 
 For steps on creating a partition index in AWS Glue, see [Working with partition
 indexes](../../../glue/latest/dg/partition-indexes.md "../../../glue/latest/dg/partition-indexes.md") in the AWS Glue Developer Guide. For the limitations on partition indexes
 in AWS Glue, see the [About partition
 indexes](../../../glue/latest/dg/partition-indexes.md#partition-index-1 "../../../glue/latest/dg/partition-indexes.md#partition-index-1") section on that page.
 
-## Enabling
-
-partition filtering
+## Enabling partition filtering
 
 To enable partition filtering for the table, you must set a new table property in
 AWS Glue. For steps on how to set table properties in AWS Glue, refer to the [Setting up partition projection](partition-projection-setting-up.md "partition-projection-setting-up.md") page. When you edit the table details

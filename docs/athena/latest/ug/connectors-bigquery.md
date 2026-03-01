@@ -8,8 +8,7 @@ It supports data access controls defined in Lake Formation at the catalog, datab
 
 ## Prerequisites
 
-- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data
-  source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
+- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
 
 ## Limitations
 
@@ -122,17 +121,13 @@ increases, and generally is a slow connector.
 
 The Athena Google BigQuery connector performs predicate pushdown to decrease the data scanned by the query. `LIMIT` clauses, `ORDER BY` clauses, simple predicates, and complex expressions are pushed down to the connector to reduce the amount of data scanned and decrease query execution run time.
 
-### LIMIT
-
-clauses
+### LIMIT clauses
 
 A `LIMIT N` statement reduces the data scanned by the query. With
 `LIMIT N` pushdown, the connector returns only `N` rows to
 Athena.
 
-### Top N
-
-queries
+### Top N queries
 
 A top `N` query specifies an ordering of the result set and a limit on
 the number of rows returned. You can use this type of query to determine the top
@@ -158,9 +153,7 @@ pushdown:
   DIVIDE, MODULUS, NEGATE
 - Other: LIKE_PATTERN, IN
 
-### Combined
-
-pushdown example
+### Combined pushdown example
 
 For enhanced querying capabilities, combine the pushdown types, as in the following example:
 
@@ -174,9 +167,7 @@ ORDER BY col_a DESC
 LIMIT 10;
 ```
 
-## Passthrough
-
-queries
+## Passthrough queries
 
 The Google BigQuery connector supports [passthrough queries](federated-query-passthrough.md "federated-query-passthrough.md"). Passthrough
 queries use a table function to push your full query down to the data source for

@@ -1,6 +1,4 @@
-# Create a table for AWS WAF
-
-S3 logs in Athena using manual partition
+# Create a table for AWS WAF S3 logs in Athena using manual partition
 
 This section describes how to create a table for AWS WAF logs using manual
 partition.

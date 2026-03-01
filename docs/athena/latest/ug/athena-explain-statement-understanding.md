@@ -1,13 +1,9 @@
-# Understand Athena EXPLAIN statement
-
-results
+# Understand Athena EXPLAIN statement results
 
 This topic provides a brief guide to the operational terms used in Athena
 `EXPLAIN` statement results.
 
-## EXPLAIN
-
-statement output types
+## EXPLAIN statement output types
 
 `EXPLAIN` statement outputs can be one of two types:
 
@@ -108,9 +104,7 @@ improve performance of later stages.
 Joins data between two tables. Joins can be categorized by join type and by
 distribution type.
 
-### Join
-
-types
+### Join types
 
 Join types define the way in which the join operation occurs.
 

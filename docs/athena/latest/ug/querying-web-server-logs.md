@@ -6,5 +6,4 @@ you how to create tables in Athena to query Web server logs in a variety of form
 ###### Topics
 
 - [Query Apache logs stored in Amazon S3](querying-apache-logs.md "querying-apache-logs.md")
-- [Query internet information server (IIS) logs stored in
-  Amazon S3](querying-iis-logs.md "querying-iis-logs.md")
+- [Query internet information server (IIS) logs stored in Amazon S3](querying-iis-logs.md "querying-iis-logs.md")

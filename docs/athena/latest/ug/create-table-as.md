@@ -10,8 +10,7 @@ as DML for Service Quotas purposes. For information about Service Quotas in Athe
 
 For CTAS statements, the expected bucket owner setting does not apply to the
 destination table location in Amazon S3. The expected bucket owner setting applies only to the Amazon S3
-output location that you specify for Athena query results. For more information, see [Specify a query result
-location using the Athena console](query-results-specify-location-console.md "query-results-specify-location-console.md").
+output location that you specify for Athena query results. For more information, see [Specify a query result location using the Athena console](query-results-specify-location-console.md "query-results-specify-location-console.md").
 
 For additional information about `CREATE TABLE AS` that is beyond the scope of
 this reference topic, see [Create a table from query results (CTAS)](ctas.md "ctas.md").
@@ -429,9 +428,7 @@ value is 3. For more information, see [Use ZSTD compression levels](compression-
 For examples of CTAS queries, consult the following resources.
 
 - [Examples of CTAS queries](ctas-examples.md "ctas-examples.md")
-- [Use CTAS and INSERT INTO for ETL and data
-  analysis](ctas-insert-into-etl.md "ctas-insert-into-etl.md")
+- [Use CTAS and INSERT INTO for ETL and data analysis](ctas-insert-into-etl.md "ctas-insert-into-etl.md")
 - [Use CTAS statements with Amazon Athena to reduce cost and improve
   performance](https://aws.amazon.com/blogs/big-data/using-ctas-statements-with-amazon-athena-to-reduce-cost-and-improve-performance/ "https://aws.amazon.com/blogs/big-data/using-ctas-statements-with-amazon-athena-to-reduce-cost-and-improve-performance/")
-- [Use CTAS and INSERT INTO to work around the 100 partition
-  limit](ctas-insert-into.md "ctas-insert-into.md")
+- [Use CTAS and INSERT INTO to work around the 100 partition limit](ctas-insert-into.md "ctas-insert-into.md")

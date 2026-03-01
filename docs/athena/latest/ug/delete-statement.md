@@ -11,5 +11,4 @@ To delete the rows from an Iceberg table, use the following syntax.
 DELETE FROM [`db_name`.]`table_name` [WHERE `predicate`]
 ```
 
-For more information and examples, see the `DELETE` section of [Update Iceberg table
-data](querying-iceberg-updating-iceberg-table-data.md "querying-iceberg-updating-iceberg-table-data.md").
+For more information and examples, see the `DELETE` section of [Update Iceberg table data](querying-iceberg-updating-iceberg-table-data.md "querying-iceberg-updating-iceberg-table-data.md").

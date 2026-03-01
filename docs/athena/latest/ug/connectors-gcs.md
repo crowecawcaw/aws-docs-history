@@ -17,11 +17,9 @@ Amazon Athena to query data stored in Google Cloud Platform](https://aws.amazon.
 ## Prerequisites
 
 - Set up an AWS Glue database and table that correspond to your bucket and folders
-  in Google Cloud Storage. For the steps, see [Setting up
-  databases and tables in AWS Glue](#connectors-gcs-setting-up-databases-and-tables-in-glue "#connectors-gcs-setting-up-databases-and-tables-in-glue")
+  in Google Cloud Storage. For the steps, see [Setting up databases and tables in AWS Glue](#connectors-gcs-setting-up-databases-and-tables-in-glue "#connectors-gcs-setting-up-databases-and-tables-in-glue")
   later in this document.
-- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data
-  source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
+- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
 
 ## Limitations
 
@@ -121,17 +119,13 @@ aws glue describe-connection-type --connection-type GOOGLECLOUDSTORAGE
   of the secret in AWS Secrets Manager that contains your GCS credentials in JSON format
   (for example, `GoogleCloudPlatformCredentials`).
 
-## Setting up
-
-databases and tables in AWS Glue
+## Setting up databases and tables in AWS Glue
 
 Because the built-in schema inference capability of the GCS connector is limited, we
 recommend that you use AWS Glue for your metadata. The following procedures show how to
 create a database and table in AWS Glue that you can access from Athena.
 
-### Creating a database in
-
-AWS Glue
+### Creating a database in AWS Glue
 
 You can use the AWS Glue console to create a database for use with the GCS
 connector.
@@ -151,9 +145,7 @@ connector.
    and ignores databases that do not.
 6. Choose **Create database**.
 
-### Creating a table in
-
-AWS Glue
+### Creating a table in AWS Glue
 
 Now you can create a table for the database. When you create an AWS Glue table to use
 with the GCS connector, you must specify additional metadata.
@@ -200,9 +192,7 @@ Do one of the following:
     * To define a schema yourself, follow the steps in the next
      section.
 
-### Defining a table
-
-schema in AWS Glue
+### Defining a table schema in AWS Glue
 
 Defining a table schema in AWS Glue requires more steps but gives you greater control
 over the table creation process.

@@ -36,9 +36,7 @@ TBLPROPERTIES ("skip.header.line.count"="1")
 
 For examples, see the `CREATE TABLE` statements in [Query Amazon VPC flow logs](vpc-flow-logs.md "vpc-flow-logs.md") and [Query Amazon CloudFront logs](cloudfront-logs.md "cloudfront-logs.md").
 
-### Using NULL for invalid
-
-data
+### Using NULL for invalid data
 
 To use NULL values for data that fails to deserialize into the column’s defined
 type, you can use the `use.null.for.invalid.data` table property, as
@@ -57,9 +55,7 @@ schema rather than enabling this property. When you enable this property,
 queries will not fail on invalid data, which may prevent you from discovering
 data quality issues.
 
-### Considerations for
-
-string data
+### Considerations for string data
 
 The Open CSV SerDe has the following characteristics for string data:
 
@@ -75,9 +71,7 @@ WITH SERDEPROPERTIES ("separatorChar" = ",", "quoteChar" = "`", "escapeChar" = "
 - The Open CSV SerDe does not support embedded line breaks in CSV
   files.
 
-### Considerations
-
-for non-string data
+### Considerations for non-string data
 
 For data types other than `STRING`, the Open CSV SerDe behaves as
 follows:

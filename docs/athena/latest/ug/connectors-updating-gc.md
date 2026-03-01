@@ -1,8 +1,6 @@
 # Glue connections (recommended)
 
-## Find the latest
-
-Athena Query Federation version
+## Find the latest Athena Query Federation version
 
 The latest version number of Athena data source connectors corresponds to the latest
 Athena Query Federation version. In certain cases, the GitHub releases can be slightly

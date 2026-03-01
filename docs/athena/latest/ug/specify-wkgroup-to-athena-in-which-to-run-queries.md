@@ -1,14 +1,11 @@
-# Specify a workgroup
-
-for queries
+# Specify a workgroup for queries
 
 To specify a workgroup to use, you must have permissions to the workgroup.
 
 ###### To specify the workgroup to use
 
 1. Make sure your permissions allow you to run queries in a workgroup that you
-   intend to use. For more information, see [Use IAM policies to control workgroup
-   access](workgroups-iam-policy.md "workgroups-iam-policy.md").
+   intend to use. For more information, see [Use IAM policies to control workgroup access](workgroups-iam-policy.md "workgroups-iam-policy.md").
 2. To specify the workgroup, use one of these options:
    - If you are using the Athena console, set the workgroup by [switching workgroups](switching-workgroups.md "switching-workgroups.md").
    - If you are using the Athena API operations, specify the workgroup name

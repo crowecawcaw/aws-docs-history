@@ -8,11 +8,9 @@ This connector does not use Glue Connections to centralize configuration propert
 
 ## Prerequisites
 
-- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data
-  source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
+- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
 - Set up a VPC and a security group before you use this connector. For more
-  information, see [Create a VPC for a data source connector or
-  AWS Glue connection](athena-connectors-vpc-creation.md "athena-connectors-vpc-creation.md").
+  information, see [Create a VPC for a data source connector or AWS Glue connection](athena-connectors-vpc-creation.md "athena-connectors-vpc-creation.md").
 
 ## Limitations
 
@@ -85,9 +83,7 @@ aws glue describe-connection-type --connection-type CLOUDERAIMPALA
 - The Cloudera Impala connector created using Glue connections does not support the use of a multiplexing handler.
 - The Cloudera Impala connector created using Glue connections only supports `ConnectionSchemaVersion` 2.
 
-#### Connection
-
-string
+#### Connection string
 
 Use a JDBC connection string in the following format to connect to an Impala cluster.
 
@@ -95,9 +91,7 @@ Use a JDBC connection string in the following format to connect to an Impala clu
 impala://${`jdbc_connection_string`}
 ```
 
-#### Using a
-
-multiplexing handler
+#### Using a multiplexing handler
 
 You can use a multiplexer to connect to multiple database instances with a single
 Lambda function. Requests are routed by catalog name. Use the following classes in
@@ -126,9 +120,7 @@ default), and `impala2`.
 | `impala_catalog1_connection_string` | `impala://jdbc:impala://someother.impala.host.name:21050/?${Test/impala1}`     |
 | `impala_catalog2_connection_string` | `impala://jdbc:impala://another.impala.host.name:21050/?UID=sample&PWD=sample` |
 
-##### Providing
-
-credentials
+##### Providing credentials
 
 To provide a user name and password for your database in your JDBC connection
 string, you can use connection string properties or AWS Secrets Manager.
@@ -182,9 +174,7 @@ impala://jdbc:impala://Impala1host:21050/?...&UID=sample2&PWD=sample2&...
 Currently, Cloudera Impala recognizes the `UID` and `PWD` JDBC
 properties.
 
-#### Using
-
-a single connection handler
+#### Using a single connection handler
 
 You can use the following single connection metadata and record handlers to
 connect to a single Cloudera Impala instance.
@@ -211,9 +201,7 @@ The following example property is for a single Cloudera Impala instance supporte
 | --------- | ---------------------------------------------------------------------- |
 | `default` | `impala://jdbc:impala://Impala1host:21050/?secret=${Test/impala1host}` |
 
-#### Spill
-
-parameters
+#### Spill parameters
 
 The Lambda SDK can spill data to Amazon S3. All database instances accessed by the same
 Lambda function spill to the same location.
@@ -252,9 +240,7 @@ Currently, Cloudera Impala does not support the aggregate types
 `UNIONTYPE`. Columns of aggregate types are treated as
 `VARCHAR` columns in SQL.
 
-## Partitions and
-
-splits
+## Partitions and splits
 
 Partitions are used to determine how to generate splits for the connector. Athena constructs a synthetic column of type `varchar` that represents the partitioning scheme for the table to help the connector generate splits. The connector does not modify the actual table definition.
 
@@ -267,9 +253,7 @@ recommended. The Cloudera Impala connector is resilient to throttling due to con
 
 The Athena Cloudera Impala connector performs predicate pushdown to decrease the data scanned by the query. `LIMIT` clauses, simple predicates, and complex expressions are pushed down to the connector to reduce the amount of data scanned and decrease query execution run time.
 
-### LIMIT
-
-clauses
+### LIMIT clauses
 
 A `LIMIT N` statement reduces the data scanned by the query. With
 `LIMIT N` pushdown, the connector returns only `N` rows to
@@ -293,9 +277,7 @@ pushdown:
   DIVIDE, MODULUS, NEGATE
 - Other: LIKE_PATTERN, IN
 
-### Combined
-
-pushdown example
+### Combined pushdown example
 
 For enhanced querying capabilities, combine the pushdown types, as in the following example:
 
@@ -308,9 +290,7 @@ WHERE col_a > 10
 LIMIT 10;
 ```
 
-## Passthrough
-
-queries
+## Passthrough queries
 
 The Cloudera Impala connector supports [passthrough queries](federated-query-passthrough.md "federated-query-passthrough.md"). Passthrough
 queries use a table function to push your full query down to the data source for

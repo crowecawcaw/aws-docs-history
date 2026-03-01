@@ -37,9 +37,7 @@ The Windows system you use must meet the following requirements:
 6. Choose **Install**.
 7. When the installation completes, choose **Finish**.
 
-## Ways to set driver configuration
-
-options
+## Ways to set driver configuration options
 
 To control the behavior of the Amazon Athena ODBC driver in Windows, you can set driver
 configuration options in the following ways:
@@ -55,9 +53,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI\YOUR_DSN_NAME
 - By setting driver options in the connection string when you connect
   programmatically.
 
-## Configuring a data source
-
-name on Windows
+## Configuring a data source name on Windows
 
 After you download and install the ODBC driver, you must add a data source name (DSN)
 entry to the client computer or Amazon EC2 instance. SQL client tools use this data source to
@@ -91,8 +87,7 @@ connect to and query Amazon Athena.
 6. Choose **Amazon Athena ODBC (x64)**, and then choose
    **Finish**.
 7. In the **Amazon Athena ODBC Configuration** dialog box, enter the
-   following information. For detailed information about these options, see [Main ODBC 2.x connection
-   parameters](odbc-v2-driver-main-connection-parameters.md "odbc-v2-driver-main-connection-parameters.md").
+   following information. For detailed information about these options, see [Main ODBC 2.x connection parameters](odbc-v2-driver-main-connection-parameters.md "odbc-v2-driver-main-connection-parameters.md").
    - For **Data Source Name**, enter a name that you want
      to use to identify the data source.
    - For **Description**, enter a description to help you
@@ -137,9 +132,7 @@ connect to and query Amazon Athena.
 12. Choose **OK** to close the connection test. The data source
     that you created now appears in the list of data source names.
 
-## Using a DSN-less connection on
-
-Windows
+## Using a DSN-less connection on Windows
 
 You can use a DSN-less connection to connect to a database without a Data Source Name
 (DSN). The following example shows a connection string for the Amazon Athena ODBC (x64) ODBC

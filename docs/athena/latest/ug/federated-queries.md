@@ -40,17 +40,14 @@ For a list of data source connectors written and tested by Athena, see [Availabl
 
 For information about writing your own data source connector, see [Example Athena connector](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-example "https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-example") on GitHub.
 
-## Considerations and
-
-limitations
+## Considerations and limitations
 
 - Engine versions – Athena Federated Query is supported
   only on Athena engine version 2 and later. For information about Athena engine versions, see
   [Athena engine versioning](engine-versions.md "engine-versions.md").
 - Views – You can create and query views
   on federated data sources. Federated views are stored in AWS Glue, not the
-  underlying data source. For more information, see [Query federated
-  views](running-federated-queries.md#running-federated-queries-federated-views "running-federated-queries.md#running-federated-queries-federated-views").
+  underlying data source. For more information, see [Query federated views](running-federated-queries.md#running-federated-queries-federated-views "running-federated-queries.md#running-federated-queries-federated-views").
 - Delimited identifiers – Delimited
   identifiers (also known as quoted identifiers) begin and end with double
   quotation marks ("). Currently, delimited identifiers are not supported for
@@ -76,7 +73,7 @@ Data source connectors might require access to the following resources to functi
 correctly. If you use a prebuilt connector, check the information for the connector to
 ensure that you have configured your VPC correctly. Also, ensure that IAM principals
 running queries and creating connectors have privileges to required actions. For more
-information, see [Allow access to Athena Federated Query: Example policies](federated-query-iam-access.md "federated-query-iam-access.md") .
+information, see [Allow access to Athena Federated Query: Example policies](federated-query-iam-access.md "federated-query-iam-access.md").
 
 - Amazon S3 – In addition to writing query
   results to the Athena query results location in Amazon S3, data connectors also write
@@ -101,10 +98,10 @@ information, see [Allow access to Athena Federated Query: Example policies](fede
 
 Watch the following videos to learn more about using Athena Federated Query.
 
-###### Video: Analyze Results of Federated Query in Amazon Athena in Quick Suite
+###### Video: Analyze Results of Federated Query in Amazon Athena in Quick
 
 The following video demonstrates how to analyze results of an Athena federated
-query in Quick Suite.
+query in Quick.
 
 ###### Video: Game Analytics Pipeline
 

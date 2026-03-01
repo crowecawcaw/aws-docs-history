@@ -14,12 +14,9 @@ SELECT timestamp '2012-10-31 01:00 UTC' AT TIME ZONE 'America/Los_Angeles' AS la
 **la\_time**2012-10-30 18:00:00.000 America/Los_Angeles
 ```
 
-For a list of supported time zones in Athena, expand the [List of supported time
-zones](#athena-supported-time-zones-list "#athena-supported-time-zones-list") at the end of this topic.
+For a list of supported time zones in Athena, expand the [List of supported time zones](#athena-supported-time-zones-list "#athena-supported-time-zones-list") at the end of this topic.
 
-## Timezone functions and
-
-examples
+## Timezone functions and examples
 
 Following are some additional timezone related functions and examples.
 
@@ -91,8 +88,7 @@ SELECT with_timezone(timestamp '2021-08-22 04:00', 'Canada/Newfoundland')
 
 The following list contains the time zones that can be used with the `AT TIME
  ZONE` operator in Athena. For additional timezone related functions and
-examples, see [Timezone functions and
-examples](#athena-supported-time-zones-functions-examples "#athena-supported-time-zones-functions-examples").
+examples, see [Timezone functions and examples](#athena-supported-time-zones-functions-examples "#athena-supported-time-zones-functions-examples").
 
 ```
 Africa/Abidjan

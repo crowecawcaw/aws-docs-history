@@ -76,8 +76,7 @@ Athena announces the following features and improvements.
 - **Browser trusted identity propagation integration** – Athena added a new authentication plugin to support JWT trusted identity propagation
   integration with JDBC and ODBC drivers. This authentication type allows you to fetch a
   JSON web token (JWT) from an external identity provider and authenticates with Athena.
-  For more information, see [Use Trusted identity propagation with
-  Amazon Athena drivers](using-trusted-identity-propagation.md "using-trusted-identity-propagation.md").
+  For more information, see [Use Trusted identity propagation with Amazon Athena drivers](using-trusted-identity-propagation.md "using-trusted-identity-propagation.md").
 - **JDBC 3.7.0 driver** – Athena releases JDBC driver version 3.7.0. For more information about this version of
   the driver, see [Amazon Athena JDBC 3.x release notes](jdbc-v3-driver-release-notes.md "jdbc-v3-driver-release-notes.md"). To download the latest JDBC driver, see
   [JDBC 3.x driver download](jdbc-v3-driver.md#jdbc-v3-driver-download "jdbc-v3-driver.md#jdbc-v3-driver-download").
@@ -113,8 +112,7 @@ Athena announces the following features and improvements.
 Athena added a new authentication plugin to support JWT trusted identity
 propagation integration with JDBC and ODBC drivers. This authentication type allows
 you to use a JSON web token (JWT) obtained from an external identity provider as a
-connection parameter to authenticate with Athena. For more information , see [Use Trusted identity propagation with
-Amazon Athena drivers](using-trusted-identity-propagation.md "using-trusted-identity-propagation.md").
+connection parameter to authenticate with Athena. For more information , see [Use Trusted identity propagation with Amazon Athena drivers](using-trusted-identity-propagation.md "using-trusted-identity-propagation.md").
 
 #### ODBC 2.0.5.0 driver
 
@@ -321,8 +319,7 @@ Published on March 14, 2025
 Amazon Athena releases capabilities to create and query table operations directly from the
 S3 console.
 
-For more information, see [Register S3 table bucket catalogs and
-query Tables from Athena](gdc-register-s3-table-bucket-cat.md "gdc-register-s3-table-bucket-cat.md").
+For more information, see [Register S3 table bucket catalogs and query Tables from Athena](gdc-register-s3-table-bucket-cat.md "gdc-register-s3-table-bucket-cat.md").
 
 ### March 07, 2025
 
@@ -384,8 +381,7 @@ Storing connection properties in AWS Glue lets you reuse the connections across
 other AWS services. For example, after you configure an [Athena
 connector to Amazon DynamoDB](connectors-dynamodb.md "connectors-dynamodb.md"), you can reuse the properties and permissions
 that you specified for the connection for an AWS Glue ETL job that accesses your
-data in DynamoDB. For more information, see [Use the Athena console to
-connect to a data source](connect-to-a-data-source-console-steps.md "connect-to-a-data-source-console-steps.md") in the
+data in DynamoDB. For more information, see [Use the Athena console to connect to a data source](connect-to-a-data-source-console-steps.md "connect-to-a-data-source-console-steps.md") in the
 _Amazon Athena User Guide_ and [CreateDataCatalog](../APIReference/API_CreateDataCatalog.md "../APIReference/API_CreateDataCatalog.md") in the
 _Amazon Athena API Reference_.
 
@@ -396,8 +392,7 @@ _Amazon Athena API Reference_.
 - **Querying S3 tables from Athena** S3 Table
   Buckets are a bucket type in Amazon S3 that is purpose-built to store tabular data in
   Apache Iceberg tables. Athena now supports DQL and DML queries on S3 tables. For
-  more information, see [Register S3 table bucket catalogs and
-  query Tables from Athena](gdc-register-s3-table-bucket-cat.md "gdc-register-s3-table-bucket-cat.md").
+  more information, see [Register S3 table bucket catalogs and query Tables from Athena](gdc-register-s3-table-bucket-cat.md "gdc-register-s3-table-bucket-cat.md").
 
 ### October 30, 2024
 
@@ -415,8 +410,7 @@ Athena announces the following:
 
 - **Querying federated views with passthrough
   queries** – Federated passthrough queries are now supported
-  for views. For more information, see [Query federated
-  views](running-federated-queries.md#running-federated-queries-federated-views "running-federated-queries.md#running-federated-queries-federated-views").
+  for views. For more information, see [Query federated views](running-federated-queries.md#running-federated-queries-federated-views "running-federated-queries.md#running-federated-queries-federated-views").
 - **Multiple passthrough queries** – You can
   now run more than one federated passthrough query in the same query execution.
   For more information, see [Use federated passthrough queries](federated-query-passthrough.md "federated-query-passthrough.md").
@@ -543,8 +537,7 @@ Resolved issues:
   to establish a connection.
 
 For more information, and to download the ODBC 1.x driver, release notes, and
-documentation, see [Athena ODBC 1.x
-driver](connect-with-odbc-driver-and-documentation-download-links.md "connect-with-odbc-driver-and-documentation-download-links.md").
+documentation, see [Athena ODBC 1.x driver](connect-with-odbc-driver-and-documentation-download-links.md "connect-with-odbc-driver-and-documentation-download-links.md").
 
 #### JDBC 2.1.5 driver
 
@@ -645,8 +638,7 @@ Resolved issues:
   returned an error.
 
 For more information, and to download the new drivers, release notes, and
-documentation, see [Athena ODBC 1.x
-driver](connect-with-odbc-driver-and-documentation-download-links.md "connect-with-odbc-driver-and-documentation-download-links.md").
+documentation, see [Athena ODBC 1.x driver](connect-with-odbc-driver-and-documentation-download-links.md "connect-with-odbc-driver-and-documentation-download-links.md").
 
 ### December 7, 2023
 
@@ -740,8 +732,7 @@ For more information, see [Use the cost-based optimizer](cost-based-optimizer.md
       + Perform parameterized queries
       + View databases, tables, and views for a data catalog
 
-  For more information, see Amazon EMR Studio in the [AWS service integrations with
-  Athena](athena-aws-service-integrations.md "athena-aws-service-integrations.md") topic.
+  For more information, see Amazon EMR Studio in the [AWS service integrations with Athena](athena-aws-service-integrations.md "athena-aws-service-integrations.md") topic.
 
 - Nested access control – Athena
   announces support for Lake Formation access control for nested data. In Lake Formation, you can
@@ -927,12 +918,10 @@ ANALYZE`.
   now shows statistics when the query contains aggregations.
 - Parquet Hive SerDe – Added the
   `parquet.ignore.statistics` property to enable processing
-  statistics to be ignored when reading Parquet data. For information, see [Ignore Parquet
-  statistics](parquet-serde.md#parquet-serde-ignoring-parquet-statistics "parquet-serde.md#parquet-serde-ignoring-parquet-statistics").
+  statistics to be ignored when reading Parquet data. For information, see [Ignore Parquet statistics](parquet-serde.md#parquet-serde-ignoring-parquet-statistics "parquet-serde.md#parquet-serde-ignoring-parquet-statistics").
 
 For more information about `EXPLAIN` and `EXPLAIN ANALYZE`, see
-[Using EXPLAIN and EXPLAIN ANALYZE in
-Athena](athena-explain-statement.md "athena-explain-statement.md").
+[Using EXPLAIN and EXPLAIN ANALYZE in Athena](athena-explain-statement.md "athena-explain-statement.md").
 For more information about the Parquet Hive SerDe, see [Parquet SerDe](parquet-serde.md "parquet-serde.md").
 
 ### July 3, 2023
@@ -1006,8 +995,7 @@ Athena announces the following fixes and improvements.
   provides parity with the support in previous engine versions.
 - EXPLAIN ANALYZE – Added physical input
   read time to the query statistics and output of `EXPLAIN ANALYZE`.
-  For information about `EXPLAIN ANALYZE`, see [Using EXPLAIN and EXPLAIN ANALYZE in
-  Athena](athena-explain-statement.md "athena-explain-statement.md").
+  For information about `EXPLAIN ANALYZE`, see [Using EXPLAIN and EXPLAIN ANALYZE in Athena](athena-explain-statement.md "athena-explain-statement.md").
 - INSERT – Improved query performance on
   tables written to with `INSERT`. For information about
   `INSERT`, see [INSERT INTO](insert-into.md "insert-into.md").
@@ -1026,17 +1014,12 @@ Amazon Athena for Apache Spark announces the following new features.
   custom configuration for your Apache Spark sessions in Athena. Use Spark
   properties to specify `.jar` files, packages, or other custom
   configuration with the Athena console, the AWS CLI, or the Athena API. For more
-  information, see [Use Spark properties to specify custom
-  configuration](notebooks-spark-custom-jar-cfg.md "notebooks-spark-custom-jar-cfg.md").
+  information, see [Use Spark properties to specify custom configuration](notebooks-spark-custom-jar-cfg.md "notebooks-spark-custom-jar-cfg.md").
 - Support for Apache Hudi, Apache Iceberg, and Delta Lake
   tables – Athena for Spark now supports the Apache Iceberg,
   Apache Hudi, and Linux Foundation Delta Lake open-source data lake storage table
-  formats. For more information, see [Use non-Hive table formats in Athena for
-  Spark](notebooks-spark-table-formats.md "notebooks-spark-table-formats.md") and the individual topics
-  for using [Use Apache Iceberg tables
-  in Athena for Spark](notebooks-spark-table-formats-apache-iceberg.md "notebooks-spark-table-formats-apache-iceberg.md"), [Use Apache Hudi tables in
-  Athena for Spark](notebooks-spark-table-formats-apache-hudi.md "notebooks-spark-table-formats-apache-hudi.md"), and [Use Linux
-  Foundation Delta Lake tables in Athena for Spark](notebooks-spark-table-formats-linux-foundation-delta-lake.md "notebooks-spark-table-formats-linux-foundation-delta-lake.md")
+  formats. For more information, see [Use non-Hive table formats in Athena for Spark](notebooks-spark-table-formats.md "notebooks-spark-table-formats.md") and the individual topics
+  for using [Use Apache Iceberg tables in Athena for Spark](notebooks-spark-table-formats-apache-iceberg.md "notebooks-spark-table-formats-apache-iceberg.md"), [Use Apache Hudi tables in Athena for Spark](notebooks-spark-table-formats-apache-hudi.md "notebooks-spark-table-formats-apache-hudi.md"), and [Use Linux Foundation Delta Lake tables in Athena for Spark](notebooks-spark-table-formats-linux-foundation-delta-lake.md "notebooks-spark-table-formats-linux-foundation-delta-lake.md")
   tables in Athena for Spark.
 - Encryption support for Apache Spark – In
   Athena for Spark, you can now enable encryption on data in transit between Spark
@@ -1058,8 +1041,7 @@ Athena capacity reservations.
   cancelled before it can be deleted. Deleting a capacity reservation removes the
   reservation from your account immediately. The deleted reservation can no longer
   be referenced, including by its ARN. To delete a reservation, you can use the
-  Athena console or the Athena API. For more information, see [Delete a
-  capacity reservation](capacity-management-deleting-a-capacity-reservation.md "capacity-management-deleting-a-capacity-reservation.md") in the
+  Athena console or the Athena API. For more information, see [Delete a capacity reservation](capacity-management-deleting-a-capacity-reservation.md "capacity-management-deleting-a-capacity-reservation.md") in the
   _Amazon Athena User Guide_ and [DeleteCapacityReservation](../APIReference/API_DeleteCapacityReservation.md "../APIReference/API_DeleteCapacityReservation.md") in the
   _Amazon Athena API Reference_.
 - Use CloudFormation templates for capacity reservations
@@ -1172,8 +1154,7 @@ Athena announces the following fixes and improvements.
   updated its integration with Apache Hudi. You can now use Athena to query Hudi
   0.12.2 tables, and Hudi metadata listing for Hudi tables is now supported. For
   information, see [Query Apache Hudi datasets](querying-hudi.md "querying-hudi.md")
-  and [Use Hudi metadata for improved
-  performance](querying-hudi-metadata-table.md "querying-hudi-metadata-table.md").
+  and [Use Hudi metadata for improved performance](querying-hudi-metadata-table.md "querying-hudi-metadata-table.md").
 - Timestamp conversion fix – Corrected the
   handling of timestamp conversions to a lower precision data type. Previously,
   Athena engine version 3 incorrectly rounded the value to the target type instead of truncating
@@ -1182,9 +1163,7 @@ Athena announces the following fixes and improvements.
 The following examples illustrate the incorrect handling prior to the
 fix.
 
-###### Example 1: Casting from a timestamp in microseconds to
-
-milliseconds
+###### Example 1: Casting from a timestamp in microseconds to milliseconds
 
 Sample data
 
@@ -1276,9 +1255,7 @@ Published on 2023-06-20
 Athena announces the following fixes and improvements.
 
 - When you cast a string to timestamp, a space is required between the day and
-  time or timezone. For more information, see [Space
-  required between date and time values when casting from string to
-  timestamp](engine-versions-reference-0003.md#engine-versions-reference-0003-timestamp-cast-space "engine-versions-reference-0003.md#engine-versions-reference-0003-timestamp-cast-space").
+  time or timezone. For more information, see [Space required between date and time values when casting from string to timestamp](engine-versions-reference-0003.md#engine-versions-reference-0003-timestamp-cast-space "engine-versions-reference-0003.md#engine-versions-reference-0003-timestamp-cast-space").
 - Removed a breaking change in the way timestamp precision was handled. To
   maintain consistency between previous engine versions and Athena engine version 3, timestamp precision now
   defaults to milliseconds rather than microseconds.
@@ -1558,12 +1535,10 @@ INTO` command to merge data at scale efficiently. `MERGE
 INTO` combines the `INSERT`, `UPDATE`, and
   `DELETE` operations into one transaction. This reduces the
   processing overhead in your data pipeline and takes less SQL to write. For more
-  information, see [Update Iceberg table
-  data](querying-iceberg-updating-iceberg-table-data.md "querying-iceberg-updating-iceberg-table-data.md") and [MERGE INTO](merge-into-statement.md "merge-into-statement.md").
+  information, see [Update Iceberg table data](querying-iceberg-updating-iceberg-table-data.md "querying-iceberg-updating-iceberg-table-data.md") and [MERGE INTO](merge-into-statement.md "merge-into-statement.md").
 - CTAS and VIEW support – Use the
   `CREATE TABLE AS SELECT` (CTAS) and `CREATE VIEW`
-  statements with Iceberg tables. For more information, see [CREATE TABLE AS](create-table-as.md "create-table-as.md") and [CREATE VIEW and CREATE PROTECTED MULTI
-  DIALECT VIEW](create-view.md "create-view.md").
+  statements with Iceberg tables. For more information, see [CREATE TABLE AS](create-table-as.md "create-table-as.md") and [CREATE VIEW and CREATE PROTECTED MULTI DIALECT VIEW](create-view.md "create-view.md").
 - VACUUM support – You can use the
   `VACUUM` statement to optimize your data lake by deleting
   snapshots and data that are no longer required. You can use this feature to
@@ -1625,26 +1600,22 @@ considerations:
      information defined in Lake Formation and query statistics information are not
      shown in the output of `EXPLAIN` and `EXPLAIN
      ANALYZE`. For information about `EXPLAIN` in Athena,
-     see [Using EXPLAIN and EXPLAIN ANALYZE in
-     Athena](athena-explain-statement.md "athena-explain-statement.md").
+     see [Using EXPLAIN and EXPLAIN ANALYZE in Athena](athena-explain-statement.md "athena-explain-statement.md").
     + External Hive metastores –
      Apache Hive hidden columns cannot be used for fine-grained access
      control filtering, and Apache Hive hidden system tables are not
      supported by fine-grained access control. For more information, see
-     [Considerations and
-     limitations](connect-to-data-source-hive.md#connect-to-a-data-source-hive-considerations "connect-to-data-source-hive.md#connect-to-a-data-source-hive-considerations") in
+     [Considerations and limitations](connect-to-data-source-hive.md#connect-to-a-data-source-hive-considerations "connect-to-data-source-hive.md#connect-to-a-data-source-hive-considerations") in
      the topic [Use an external Hive metastore](connect-to-data-source-hive.md "connect-to-data-source-hive.md").
     + Query statistics – Stage-level
      input and output row count and data size information are not shown in
      Athena query statistics when a query has row-level filters defined in
      Lake Formation. For information about seeing statistics for Athena queries, see
-     [View statistics and execution details for completed
-     queries](query-stats.md "query-stats.md") and [GetQueryRuntimeStatistics](../APIReference/API_GetQueryRuntimeStatistics.md "../APIReference/API_GetQueryRuntimeStatistics.md").
+     [View statistics and execution details for completed queries](query-stats.md "query-stats.md") and [GetQueryRuntimeStatistics](../APIReference/API_GetQueryRuntimeStatistics.md "../APIReference/API_GetQueryRuntimeStatistics.md").
     + Workgroups – Users in the same
      Athena workgroup can see the data that Lake Formation fine-grained access control
      has configured to be accessible to the workgroup. For information about
-     using Athena to query data registered with Lake Formation, see [Use Athena to query data registered with
-     AWS Lake Formation](security-athena-lake-formation.md "security-athena-lake-formation.md").
+     using Athena to query data registered with Lake Formation, see [Use Athena to query data registered with AWS Lake Formation](security-athena-lake-formation.md "security-athena-lake-formation.md").
 
 For information about using fine-grained access control in Lake Formation, see [Manage fine-grained access control using AWS Lake Formation](https://aws.amazon.com/blogs/big-data/manage-fine-grained-access-control-using-aws-lake-formation/ "https://aws.amazon.com/blogs/big-data/manage-fine-grained-access-control-using-aws-lake-formation/") in the _AWS Big Data Blog_.
 
@@ -1827,8 +1798,7 @@ tutorial [Optimize Amazon Athena
 Queries with New Query Analysis Tools](https://www.youtube.com/watch?v=7JUyTqglmNU "https://www.youtube.com/watch?v=7JUyTqglmNU") on the AWS YouTube channel.
 
 For documentation, see [View execution plans for SQL queries](query-plans.md "query-plans.md") and
-[View statistics and execution details for completed
-queries](query-stats.md "query-stats.md").
+[View statistics and execution details for completed queries](query-stats.md "query-stats.md").
 
 ### July 11, 2022
 
@@ -2081,8 +2051,7 @@ quotas](../../../general/latest/gr/athena.md#amazon-athena-limits "../../../gene
 
 To monitor your quota usage, you can use CloudWatch usage metrics. Athena publishes the
 `ActiveQueryCount` metric in the `AWS/Usage` namespace. For
-more information, see [Monitor Athena usage metrics with
-CloudWatch](monitoring-athena-usage-metrics.md "monitoring-athena-usage-metrics.md").
+more information, see [Monitor Athena usage metrics with CloudWatch](monitoring-athena-usage-metrics.md "monitoring-athena-usage-metrics.md").
 
 After reviewing your usage, you can use the [Service Quotas](https://console.aws.amazon.com/servicequotas/ "https://console.aws.amazon.com/servicequotas/") console to request a quota
 increase. If you previously requested a quota increase for your account, your requested
@@ -2278,8 +2247,7 @@ more time is required to process the partitions and query runtime can increase. 
 optimize partition processing and improve query performance on highly partitioned
 tables, Athena now supports [AWS Glue partition indexes](../../../glue/latest/dg/partition-indexes.md "../../../glue/latest/dg/partition-indexes.md").
 
-For more information, see [Optimize queries with AWS Glue partition indexing and
-filtering](glue-best-practices-partition-index.md "glue-best-practices-partition-index.md").
+For more information, see [Optimize queries with AWS Glue partition indexing and filtering](glue-best-practices-partition-index.md "glue-best-practices-partition-index.md").
 
 ### November 16, 2021
 
@@ -2339,8 +2307,7 @@ Published on 2021-11-02
 You can now use the `EXPLAIN ANALYZE` statement in Athena to view the
 distributed execution plan and cost of each operation for your SQL queries.
 
-For more information, see [Using EXPLAIN and EXPLAIN ANALYZE in
-Athena](athena-explain-statement.md "athena-explain-statement.md").
+For more information, see [Using EXPLAIN and EXPLAIN ANALYZE in Athena](athena-explain-statement.md "athena-explain-statement.md").
 
 ### October 29, 2021
 
@@ -2371,17 +2338,14 @@ The ODBC 1.1.13 driver includes the following changes:
 - Support for browser SAML authentication. The driver includes a browser
   SAML plugin which can be configured to work with any SAML 2.0 provider. For
   an example of how to use the browser SAML plugin with the ODBC driver, see
-  [Configure single sign-on using ODBC, SAML 2.0, and the Okta
-  Identity Provider](okta-saml-sso.md "okta-saml-sso.md").
+  [Configure single sign-on using ODBC, SAML 2.0, and the Okta Identity Provider](okta-saml-sso.md "okta-saml-sso.md").
 - You can now configure the role session duration when you use ADFS, Azure
   AD, or Browser Azure AD for authentication.
 
 For more information about these and other changes, and to download the new
 drivers, release notes, and documentation, see [Connect to Amazon Athena with JDBC](connect-with-jdbc.md "connect-with-jdbc.md") and [Connect to Amazon Athena with ODBC](connect-with-odbc.md "connect-with-odbc.md").
 
-#### Features and
-
-Improvements
+#### Features and Improvements
 
 Athena announces the following features and improvements.
 
@@ -2399,8 +2363,7 @@ Athena announces the following features and improvements.
   see [SELECT](select.md "select.md").
 - CloudWatch usage metrics – Athena now publishes
   the `ActiveQueryCount` metric in the `AWS/Usage`
-  namespace. For more information, see [Monitor Athena usage metrics with
-  CloudWatch](monitoring-athena-usage-metrics.md "monitoring-athena-usage-metrics.md").
+  namespace. For more information, see [Monitor Athena usage metrics with CloudWatch](monitoring-athena-usage-metrics.md "monitoring-athena-usage-metrics.md").
 - Query planning – Fixed a bug that could
   in rare cases cause query planning timeouts.
 
@@ -2576,8 +2539,7 @@ Because the connector uses your existing ODBC data source name (DSN) to connect 
 run queries on Athena, it requires the Athena ODBC driver. To download the latest ODBC
 driver, see [Connect to Amazon Athena with ODBC](connect-with-odbc.md "connect-with-odbc.md").
 
-For more information, see [Use the Amazon Athena Power BI
-connector](connect-with-odbc-and-power-bi.md "connect-with-odbc-and-power-bi.md").
+For more information, see [Use the Amazon Athena Power BI connector](connect-with-odbc-and-power-bi.md "connect-with-odbc-and-power-bi.md").
 
 ### July 16, 2021
 
@@ -2650,9 +2612,7 @@ You can now use Amazon Athena to register an AWS Glue catalog from an account ot
 own. After you configure the required IAM permissions for AWS Glue, you can use Athena to
 run cross-account queries.
 
-For more information, see [Register a Data Catalog from another
-account](data-sources-glue-cross-account.md "data-sources-glue-cross-account.md") and [Configure cross-account
-access to AWS Glue data catalogs](security-iam-cross-account-glue-catalog-access.md "security-iam-cross-account-glue-catalog-access.md").
+For more information, see [Register a Data Catalog from another account](data-sources-glue-cross-account.md "data-sources-glue-cross-account.md") and [Configure cross-account access to AWS Glue data catalogs](security-iam-cross-account-glue-catalog-access.md "security-iam-cross-account-glue-catalog-access.md").
 
 ### May 10, 2021
 
@@ -2720,20 +2680,14 @@ Africa (Cape Town) Regions.
 
 Published on 2021-04-05
 
-#### EXPLAIN
-
-Statement
+#### EXPLAIN Statement
 
 You can now use the `EXPLAIN` statement in Athena to view the execution
 plan for your SQL queries.
 
-For more information, see [Using EXPLAIN and EXPLAIN ANALYZE in
-Athena](athena-explain-statement.md "athena-explain-statement.md") and [Understand Athena EXPLAIN statement
-results](athena-explain-statement-understanding.md "athena-explain-statement-understanding.md").
+For more information, see [Using EXPLAIN and EXPLAIN ANALYZE in Athena](athena-explain-statement.md "athena-explain-statement.md") and [Understand Athena EXPLAIN statement results](athena-explain-statement-understanding.md "athena-explain-statement-understanding.md").
 
-#### SageMaker AI Machine Learning
-
-Models in SQL Queries
+#### SageMaker AI Machine Learning Models in SQL Queries
 
 Machine learning model inference with Amazon SageMaker AI is now generally available for
 Amazon Athena. Use machine learning models in SQL queries to simplify complex tasks such
@@ -2787,9 +2741,7 @@ Published on 2020-12-16
 Amazon Athena announces availability of Athena engine version 2, Athena Federated Query, and AWS PrivateLink in additional
 Regions.
 
-#### Athena engine version 2 and
-
-Athena Federated Query
+#### Athena engine version 2 and Athena Federated Query
 
 Amazon Athena announces general availability of Athena engine version 2 and Athena Federated Query in the
 Asia Pacific (Mumbai), Asia Pacific (Tokyo), Europe (Ireland), and
@@ -2799,8 +2751,7 @@ the US East (N. Virginia), US East (Ohio), and US West (Oregon) Regions.
 #### AWS PrivateLink
 
 AWS PrivateLink for Athena is now supported in the Europe (Stockholm) Region. For
-information about AWS PrivateLink for Athena, see [Connect to Amazon Athena using an interface VPC
-endpoint](interface-vpc-endpoint.md "interface-vpc-endpoint.md").
+information about AWS PrivateLink for Athena, see [Connect to Amazon Athena using an interface VPC endpoint](interface-vpc-endpoint.md "interface-vpc-endpoint.md").
 
 ### November 24, 2020
 
@@ -2833,8 +2784,7 @@ support for reading nested schema to reduce cost, and performance enhancements i
 JOIN and AGGREGATE operations.
 
 - For information about how to upgrade, see [Change Athena engine versions](engine-versions-changing.md "engine-versions-changing.md").
-- For information about testing queries, see [Test queries in advance of an engine
-  version upgrade](engine-versions-changing.md#engine-versions-testing "engine-versions-changing.md#engine-versions-testing").
+- For information about testing queries, see [Test queries in advance of an engine version upgrade](engine-versions-changing.md#engine-versions-testing "engine-versions-changing.md#engine-versions-testing").
 
 #### Federated SQL Queries
 
@@ -2864,9 +2814,7 @@ query the data in-place from wherever it resides. Analysts can use familiar SQL
 constructs to `JOIN` data across multiple data sources for quick
 analysis, and store results in Amazon S3 for subsequent use.
 
-##### Data Source
-
-Connectors
+##### Data Source Connectors
 
 To process federated queries, Athena uses Athena Data Source Connectors that run
 on [AWS Lambda](https://aws.amazon.com/lambda/ "https://aws.amazon.com/lambda/"). The following open
@@ -2886,9 +2834,7 @@ SQL queries in Athena on their corresponding data sources.
 - [TPC
   Benchmark DS (TPC-DS)](connectors-tpcds.md "connectors-tpcds.md")
 
-##### Custom
-
-Data Source Connectors
+##### Custom Data Source Connectors
 
 Using [Athena Query Federation SDK](https://github.com/awslabs/aws-athena-query-federation/releases "https://github.com/awslabs/aws-athena-query-federation/releases"), developers can build connectors to
 any data source to enable Athena to run SQL queries against that data source.
@@ -2897,9 +2843,7 @@ beyond AWS provided connectors. Because connectors run on AWS Lambda, you
 do not have to manage infrastructure or plan for scaling to peak
 demands.
 
-##### Next
-
-Steps
+##### Next Steps
 
 - To learn more about the federated query feature, see [Use Amazon Athena Federated Query](federated-queries.md "federated-queries.md").
 - To get started with using an existing connector, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md").
@@ -2936,9 +2880,7 @@ Amazon Athena adds support for querying compacted Hudi datasets and adds the Clo
 `AWS::Athena::DataCatalog` resource for creating, updating, or deleting
 data catalogs that you register in Athena.
 
-#### Querying Apache Hudi
-
-Datasets
+#### Querying Apache Hudi Datasets
 
 Apache Hudi is an open-source data management framework that simplifies
 incremental data processing. Amazon Athena now supports querying the read-optimized view
@@ -2946,9 +2888,7 @@ of an Apache Hudi dataset in your Amazon S3-based data lake.
 
 For more information, see [Query Apache Hudi datasets](querying-hudi.md "querying-hudi.md").
 
-#### CloudFormation Data Catalog
-
-Resource
+#### CloudFormation Data Catalog Resource
 
 To use Amazon Athena's [federated query
 feature](connect-to-a-data-source.md "connect-to-a-data-source.md") to query any data source, you must first register your data
@@ -2963,9 +2903,7 @@ Guide_.
 
 Published on 2020-06-01
 
-#### Using Apache Hive Metastore
-
-as a Metacatalog with Amazon Athena
+#### Using Apache Hive Metastore as a Metacatalog with Amazon Athena
 
 You can now connect Athena to one or more Apache Hive metastores in addition to the
 AWS Glue Data Catalog with Athena.
@@ -3046,9 +2984,7 @@ query the data in-place from wherever it resides. Analysts can use familiar SQL
 constructs to `JOIN` data across multiple data sources for quick
 analysis, and store results in Amazon S3 for subsequent use.
 
-##### Data Source
-
-Connectors
+##### Data Source Connectors
 
 Athena processes federated queries using Athena Data Source Connectors that run
 on [AWS Lambda](https://aws.amazon.com/lambda/ "https://aws.amazon.com/lambda/"). Use these open
@@ -3056,9 +2992,7 @@ sourced data source connectors to run federated SQL queries in Athena across
 [Amazon DynamoDB](https://console.aws.amazon.com/lambda/home#/create/app?applicationId=arn:aws:serverlessrepo:us-east-1:292517598671:applications/AthenaDynamoDBConnector "https://console.aws.amazon.com/lambda/home#/create/app?applicationId=arn:aws:serverlessrepo:us-east-1:292517598671:applications/AthenaDynamoDBConnector"), [Apache HBase](https://console.aws.amazon.com/lambda/home#/create/app?applicationId=arn:aws:serverlessrepo:us-east-1:292517598671:applications/AthenaHBaseConnector "https://console.aws.amazon.com/lambda/home#/create/app?applicationId=arn:aws:serverlessrepo:us-east-1:292517598671:applications/AthenaHBaseConnector"), [Amazon Document DB](https://console.aws.amazon.com/lambda/home#/create/app?applicationId=arn:aws:serverlessrepo:us-east-1:292517598671:applications/AthenaDocumentDBConnector "https://console.aws.amazon.com/lambda/home#/create/app?applicationId=arn:aws:serverlessrepo:us-east-1:292517598671:applications/AthenaDocumentDBConnector"), [Amazon CloudWatch](https://console.aws.amazon.com/lambda/home#/create/app?applicationId=arn:aws:serverlessrepo:us-east-1:292517598671:applications/AthenaCloudwatchConnector "https://console.aws.amazon.com/lambda/home#/create/app?applicationId=arn:aws:serverlessrepo:us-east-1:292517598671:applications/AthenaCloudwatchConnector"), [Amazon CloudWatch Metrics](https://console.aws.amazon.com/lambda/home#/create/app?applicationId=arn:aws:serverlessrepo:us-east-1:292517598671:applications/AthenaCloudwatchMetricsConnector "https://console.aws.amazon.com/lambda/home#/create/app?applicationId=arn:aws:serverlessrepo:us-east-1:292517598671:applications/AthenaCloudwatchMetricsConnector"), and [JDBC](https://console.aws.amazon.com/lambda/home?region=us-east-1#/create/app?applicationId=arn:aws:serverlessrepo:us-east-1:292517598671:applications/AthenaJdbcConnector "https://console.aws.amazon.com/lambda/home?region=us-east-1#/create/app?applicationId=arn:aws:serverlessrepo:us-east-1:292517598671:applications/AthenaJdbcConnector")-compliant relational databases such MySQL, and PostgreSQL
 under the Apache 2.0 license.
 
-##### Custom
-
-Data Source Connectors
+##### Custom Data Source Connectors
 
 Using [Athena Query Federation SDK](https://github.com/awslabs/aws-athena-query-federation/releases "https://github.com/awslabs/aws-athena-query-federation/releases"), developers can build connectors to
 any data source to enable Athena to run SQL queries against that data source.
@@ -3067,15 +3001,11 @@ beyond AWS provided connectors. Because connectors run on AWS Lambda, you
 do not have to manage infrastructure or plan for scaling to peak
 demands.
 
-##### Preview
-
-Availability
+##### Preview Availability
 
 Athena federated query is available in preview in the US East (N. Virginia) Region.
 
-##### Next
-
-Steps
+##### Next Steps
 
 - To begin your preview, follow the instructions in the [Athena Preview
   Features FAQ](https://aws.amazon.com/athena/faqs/#Preview_features "https://aws.amazon.com/athena/faqs/#Preview_features").
@@ -3085,18 +3015,14 @@ Steps
 - To learn how to build your own data source connector using the Athena
   Query Federation SDK, see [Example Athena Connector](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-example "https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-example") on GitHub.
 
-#### Invoking Machine Learning
-
-Models in SQL Queries
+#### Invoking Machine Learning Models in SQL Queries
 
 You can now invoke machine learning models for inference directly from your Athena
 queries. The ability to use machine learning models in SQL queries makes complex
 tasks such anomaly detection, customer cohort analysis, and sales predictions as
 simple as invoking a function in a SQL query.
 
-##### ML
-
-Models
+##### ML Models
 
 You can use more than a dozen built-in machine learning algorithms provided by
 [Amazon SageMaker](https://aws.amazon.com/sagemaker/ "https://aws.amazon.com/sagemaker/"), train your
@@ -3106,25 +3032,19 @@ these ML models in your SQL queries from the Athena console, [Athena APIs](../AP
 [preview JDBC
 driver](connect-with-jdbc.md "connect-with-jdbc.md").
 
-##### Preview
-
-Availability
+##### Preview Availability
 
 Athena's ML functionality is available today in preview in the
 US East (N. Virginia) Region.
 
-##### Next
-
-Steps
+##### Next Steps
 
 - To begin your preview, follow the instructions in the [Athena Preview
   Features FAQ](https://aws.amazon.com/athena/faqs/#Preview_features "https://aws.amazon.com/athena/faqs/#Preview_features").
 - To learn more about the machine learning feature, see [Using Machine Learning (ML)
   with Amazon Athena (Preview)](querying-mlmodel.md "querying-mlmodel.md").
 
-#### User Defined
-
-Functions (UDFs) (Preview)
+#### User Defined Functions (UDFs) (Preview)
 
 You can now write custom scalar functions and invoke them in your Athena queries.
 You can write your UDFs in Java using the [Athena
@@ -3138,9 +3058,7 @@ same query.
 Athena UDF functionality is available in Preview mode in the
 US East (N. Virginia) Region.
 
-##### Next
-
-Steps
+##### Next Steps
 
 - To begin your preview, follow the instructions in the [Athena Preview
   Features FAQ](https://aws.amazon.com/athena/faqs/#Preview_features "https://aws.amazon.com/athena/faqs/#Preview_features").
@@ -3150,41 +3068,31 @@ Steps
 - To learn how to write your own functions using the Athena Query
   Federation SDK, see [Creating and Deploying a UDF Using Lambda](querying-udf.md#udf-creating-and-deploying "querying-udf.md#udf-creating-and-deploying").
 
-#### Using Apache Hive Metastore
-
-as a Metacatalog with Amazon Athena (Preview)
+#### Using Apache Hive Metastore as a Metacatalog with Amazon Athena (Preview)
 
 You can now connect Athena to one or more Apache Hive Metastores in addition to the
 AWS Glue Data Catalog with Athena.
 
-##### Metastore
-
-Connector
+##### Metastore Connector
 
 To connect to a self-hosted Hive Metastore, you need an Athena Hive Metastore
 connector. Athena provides a [reference](https://s3.console.aws.amazon.com/s3/buckets/athena-downloads/preview-only/?region=us-east-1&tab=overview "https://s3.console.aws.amazon.com/s3/buckets/athena-downloads/preview-only/?region=us-east-1&tab=overview") implementation connector that you can use. The connector
 runs as an AWS Lambda function in your account. For more information, see [Using Athena Data
 Connector for External Hive Metastore (Preview)](connect-to-data-source-hive.md "connect-to-data-source-hive.md").
 
-##### Preview
-
-Availability
+##### Preview Availability
 
 The Hive Metastore feature is available in Preview mode in the
 US East (N. Virginia) Region.
 
-##### Next
-
-Steps
+##### Next Steps
 
 - To begin your preview, follow the instructions in the [Athena Preview
   Features FAQ](https://aws.amazon.com/athena/faqs/#Preview_features "https://aws.amazon.com/athena/faqs/#Preview_features").
 - To learn more about this feature, please visit our [Using Athena Data
   Connector for External Hive Metastore (Preview)](connect-to-data-source-hive.md "connect-to-data-source-hive.md").
 
-#### New Query-Related
-
-Metrics
+#### New Query-Related Metrics
 
 Athena now publishes additional query metrics that can help you understand [Amazon Athena](https://aws.amazon.com/athena/ "https://aws.amazon.com/athena/") performance. Athena publishes
 query-related metrics to [Amazon
@@ -3205,9 +3113,7 @@ To consume these new query metrics, you can create custom dashboards, set alarms
 and triggers on metrics in CloudWatch, or use pre-populated dashboards directly from the
 Athena console.
 
-##### Next
-
-Steps
+##### Next Steps
 
 For more information, see [Monitoring Athena Queries with CloudWatch Metrics](query-metrics-viewing.md "query-metrics-viewing.md").
 
@@ -3299,8 +3205,7 @@ You can use this feature in the following AWS Regions: US East (Ohio),
 US East (N. Virginia), US West (Oregon), Asia Pacific (Tokyo), and Europe (Ireland).
 There are no additional charges to use this feature.
 
-For more information about using this feature, see [Use Athena to query data registered with
-AWS Lake Formation](security-athena-lake-formation.md "security-athena-lake-formation.md"). For more information about
+For more information about using this feature, see [Use Athena to query data registered with AWS Lake Formation](security-athena-lake-formation.md "security-athena-lake-formation.md"). For more information about
 AWS Lake Formation, see [AWS Lake Formation](https://aws.amazon.com/lake-formation/ "https://aws.amazon.com/lake-formation/").
 
 ### June 26, 2019
@@ -3351,10 +3256,8 @@ workgroups and tags.
 
 For more information, see:
 
-- [Use workgroups to control query
-  access and costs](workgroups-manage-queries-control-costs.md "workgroups-manage-queries-control-costs.md") and [Example workgroup policies](example-policies-workgroup.md "example-policies-workgroup.md").
-- [Tag Athena resources](tags.md "tags.md") and [Use tag-based IAM access control
-  policies](tags-access-control.md "tags-access-control.md").
+- [Use workgroups to control query access and costs](workgroups-manage-queries-control-costs.md "workgroups-manage-queries-control-costs.md") and [Example workgroup policies](example-policies-workgroup.md "example-policies-workgroup.md").
+- [Tag Athena resources](tags.md "tags.md") and [Use tag-based IAM access control policies](tags-access-control.md "tags-access-control.md").
 
 If you use the JDBC driver or the AWS SDK, upgrade to the latest version of the
 driver and SDK, both of which already include support for workgroups and tags in Athena.
@@ -3386,8 +3289,7 @@ for adding one or more tags to the workgroup. To add, remove, or list tags, use
 
 To allow users to add tags when creating workgroups, ensure that you give each user
 IAM permissions to both the `TagResource` and `CreateWorkGroup`
-API actions. For more information and examples, see [Use tag-based IAM access control
-policies](tags-access-control.md "tags-access-control.md").
+API actions. For more information and examples, see [Use tag-based IAM access control policies](tags-access-control.md "tags-access-control.md").
 
 There are no changes to the JDBC driver when you use tags on workgroups. If you create
 new workgroups and use the JDBC driver or the AWS SDK, upgrade to the latest version
@@ -3398,8 +3300,7 @@ of the driver and SDK. For information, see [Connect to Amazon Athena with JDBC]
 Published on _2019-02-18_
 
 Added ability to control query costs by running queries in workgroups. For
-information, see [Use workgroups to control query
-access and costs](workgroups-manage-queries-control-costs.md "workgroups-manage-queries-control-costs.md"). Improved the JSON OpenX
+information, see [Use workgroups to control query access and costs](workgroups-manage-queries-control-costs.md "workgroups-manage-queries-control-costs.md"). Improved the JSON OpenX
 SerDe used in Athena, fixed an issue where Athena did not ignore objects transitioned to
 the `GLACIER` storage class, and added examples for querying Network Load Balancer
 logs.
@@ -3413,16 +3314,13 @@ Made the following changes:
   You can also view query-related metrics in Amazon CloudWatch, control query costs by
   configuring limits on the amount of data scanned, create thresholds, and trigger
   actions, such as Amazon SNS alarms, when these thresholds are breached. For more
-  information, see [Use workgroups to control query
-  access and costs](workgroups-manage-queries-control-costs.md "workgroups-manage-queries-control-costs.md") and [Use CloudWatch and EventBridge to monitor queries and control
-  costs](workgroups-control-limits.md "workgroups-control-limits.md").
+  information, see [Use workgroups to control query access and costs](workgroups-manage-queries-control-costs.md "workgroups-manage-queries-control-costs.md") and [Use CloudWatch and EventBridge to monitor queries and control costs](workgroups-control-limits.md "workgroups-control-limits.md").
 
 Workgroups are an IAM resource. For a full list of workgroup-related
 actions, resources, and conditions in IAM, see [Actions, Resources, and Condition
 Keys for Amazon Athena](../../../service-authorization/latest/reference/list_amazonathena.md "../../../service-authorization/latest/reference/list_amazonathena.md") in the _Service Authorization Reference_.
 Before you create new workgroups, make sure that you use [workgroup IAM policies](workgroups-iam-policy.md "workgroups-iam-policy.md"), and the
-[AWS managed policy:
-AmazonAthenaFullAccess](managed-policies.md#amazonathenafullaccess-managed-policy "managed-policies.md#amazonathenafullaccess-managed-policy").
+[AWS managed policy: AmazonAthenaFullAccess](managed-policies.md#amazonathenafullaccess-managed-policy "managed-policies.md#amazonathenafullaccess-managed-policy").
 
 You can use workgroups in the console, with [workgroup API operations](workgroups-api-list.md "workgroups-api-list.md"), or with the
 JDBC driver. For information about creating workgroups, see [Create a workgroup](creating-workgroups.md "creating-workgroups.md"). To
@@ -3513,8 +3411,7 @@ support for:
 - Fine-grained permissions to access resources in the AWS Glue Data Catalog. You can now
   define identity-based (IAM) policies that restrict or allow access to specific
   databases and tables from the Data Catalog used in Athena. For more information, see
-  [Configure access to databases and
-  tables in the AWS Glue Data Catalog](fine-grained-access-to-glue-resources.md "fine-grained-access-to-glue-resources.md").
+  [Configure access to databases and tables in the AWS Glue Data Catalog](fine-grained-access-to-glue-resources.md "fine-grained-access-to-glue-resources.md").
 
 ###### Note
 
@@ -3535,8 +3432,7 @@ Before you create CTAS queries, it is important to learn about their behavior in
 Athena documentation. It contains information about the location for saving query results
 in Amazon S3, the list of supported formats for storing CTAS query results, the number of
 partitions you can create, and supported compression formats. For more information, see
-[Considerations and limitations for CTAS
-queries](ctas-considerations-limitations.md "ctas-considerations-limitations.md").
+[Considerations and limitations for CTAS queries](ctas-considerations-limitations.md "ctas-considerations-limitations.md").
 
 Use CTAS queries to:
 
@@ -3546,8 +3442,7 @@ Use CTAS queries to:
   using [Examples](ctas-examples.md "ctas-examples.md"). For information about
   syntax, see [CREATE TABLE AS](create-table-as.md "create-table-as.md").
 - Transform query results into other storage formats, such as PARQUET, ORC,
-  AVRO, JSON, and TEXTFILE. For more information, see [Considerations and limitations for CTAS
-  queries](ctas-considerations-limitations.md "ctas-considerations-limitations.md") and
+  AVRO, JSON, and TEXTFILE. For more information, see [Considerations and limitations for CTAS queries](ctas-considerations-limitations.md "ctas-considerations-limitations.md") and
   [Use columnar storage formats](columnar-storage.md "columnar-storage.md").
 
 ### September 6, 2018
@@ -3579,8 +3474,7 @@ To use the ODBC driver version 1.0.3, follow these requirements:
 - Add the `athena:GetQueryResultsStream` policy action to the
   list of policies for Athena. This policy action is not exposed directly with
   the API and is only used with the ODBC and JDBC drivers, as part of
-  streaming results support. For an example policy, see [AWS managed policy:
-  AWSQuicksightAthenaAccess](managed-policies.md#awsquicksightathenaaccess-managed-policy "managed-policies.md#awsquicksightathenaaccess-managed-policy").
+  streaming results support. For an example policy, see [AWS managed policy: AWSQuicksightAthenaAccess](managed-policies.md#awsquicksightathenaaccess-managed-policy "managed-policies.md#awsquicksightathenaaccess-managed-policy").
 
 ### August 23, 2018
 
@@ -3632,8 +3526,7 @@ The JDBC driver version 2.0.5 is a drop-in replacement for the previous version 
 driver (2.0.2). To ensure that you can use the JDBC driver version 2.0.5, add the
 `athena:GetQueryResultsStream` policy action to the list of policies for
 Athena. This policy action is not exposed directly with the API and is only used with the
-JDBC driver, as part of streaming results support. For an example policy, see [AWS managed policy:
-AWSQuicksightAthenaAccess](managed-policies.md#awsquicksightathenaaccess-managed-policy "managed-policies.md#awsquicksightathenaaccess-managed-policy"). For more information about migrating from version 2.0.2 to
+JDBC driver, as part of streaming results support. For an example policy, see [AWS managed policy: AWSQuicksightAthenaAccess](managed-policies.md#awsquicksightathenaaccess-managed-policy "managed-policies.md#awsquicksightathenaaccess-managed-policy"). For more information about migrating from version 2.0.2 to
 version 2.0.5 of the driver, see the [JDBC Driver Migration Guide](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/SimbaAthenaJDBC_2.0.5/docs/Simba+Athena+JDBC+Driver+Migration+Guide.pdf "https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/SimbaAthenaJDBC_2.0.5/docs/Simba+Athena+JDBC+Driver+Migration+Guide.pdf").
 
 If you are migrating from a 1.x driver to a 2.x driver, you will need to migrate your
@@ -3659,8 +3552,7 @@ Published on _2018-06-05_
 
 #### Support for Views
 
-Added support for views. You can now use [CREATE VIEW and CREATE PROTECTED MULTI
-DIALECT VIEW](create-view.md "create-view.md"), [DESCRIBE VIEW](describe-view.md "describe-view.md"), [DROP VIEW](drop-view.md "drop-view.md"), [SHOW CREATE VIEW](show-create-view.md "show-create-view.md"), and [SHOW VIEWS](show-views.md "show-views.md") in Athena. The query that defines the view runs each
+Added support for views. You can now use [CREATE VIEW and CREATE PROTECTED MULTI DIALECT VIEW](create-view.md "create-view.md"), [DESCRIBE VIEW](describe-view.md "describe-view.md"), [DROP VIEW](drop-view.md "drop-view.md"), [SHOW CREATE VIEW](show-create-view.md "show-create-view.md"), and [SHOW VIEWS](show-views.md "show-views.md") in Athena. The query that defines the view runs each
 time you reference the view in your query. For more information, see [Work with views](views.md "views.md").
 
 #### Improvements and Updates to Error Messages
@@ -3748,8 +3640,7 @@ Use auto-complete to type queries in the Athena console.
 Published on _2018-03-15_
 
 Added an ability to automatically create Athena tables for CloudTrail log files directly
-from the CloudTrail console. For information, see [Use the CloudTrail console to create an Athena
-table for CloudTrail logs](create-cloudtrail-table-ct.md "create-cloudtrail-table-ct.md") .
+from the CloudTrail console. For information, see [Use the CloudTrail console to create an Athena table for CloudTrail logs](create-cloudtrail-table-ct.md "create-cloudtrail-table-ct.md").
 
 ### February 2, 2018
 
@@ -3801,8 +3692,7 @@ FILTER`, where `id > 0`.
   semantics of any invocation using a backslash, as backslashes were previously
   treated as normal characters.
 
-For more information about functions and operators, see [DML queries, functions, and
-operators](dml-queries-functions-operators.md "dml-queries-functions-operators.md") in this guide, and [Functions and
+For more information about functions and operators, see [DML queries, functions, and operators](dml-queries-functions-operators.md "dml-queries-functions-operators.md") in this guide, and [Functions and
 operators](https://prestodb.io/docs/current/functions.html "https://prestodb.io/docs/current/functions.html") in the Presto documentation.
 
 Athena does not support all of Presto's features. For more information, see [Limitations](other-notable-limitations.md "other-notable-limitations.md").

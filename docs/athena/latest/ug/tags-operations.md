@@ -15,9 +15,7 @@ parameter with the `CreateWorkGroup` or `CreateDataCatalog`
 API operations or with the AWS CLI `create-work-group` or
 `create-data-catalog` commands.
 
-## Manage tags using API
-
-actions
+## Manage tags using API actions
 
 The following examples show how to use tag API actions to manage tags on
 workgroups and data catalogs. The examples are in the Java programming
@@ -146,8 +144,7 @@ To show the result, use the `list-tags-for-resource`
 command.
 
 For information about adding tags when using the
-`create-data-catalog` command, see [Registering a catalog:
-Create-data-catalog](datastores-hive-cli.md#datastores-hive-cli-registering-a-catalog "datastores-hive-cli.md#datastores-hive-cli-registering-a-catalog").
+`create-data-catalog` command, see [Registering a catalog: Create-data-catalog](datastores-hive-cli.md#datastores-hive-cli-registering-a-catalog "datastores-hive-cli.md#datastores-hive-cli-registering-a-catalog").
 
 The `list-tags-for-resource` command lists the tags for the
 specified resource.

@@ -12,9 +12,7 @@ Athena uses the following terms to refer to hierarchies of data objects:
 - A data source is sometimes referred to as a _catalog_.
 - A database is sometimes referred to as a _schema_.
 
-## Terms in federated
-
-data sources
+## Terms in federated data sources
 
 When you query federated data sources, note that the underlying data source might not
 use the same terminology as Athena. Keep this distinction in mind when you write your

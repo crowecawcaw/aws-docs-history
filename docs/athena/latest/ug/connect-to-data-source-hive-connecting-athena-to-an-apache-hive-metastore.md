@@ -10,8 +10,7 @@ The following procedure requires that you have permission to create a custom IAM
 role for the Lambda function. If you do not have permission to create a custom role,
 you can use the Athena [reference implementation](connect-to-data-source-hive.md#connect-to-a-data-source-hive-features-reference-implementation "connect-to-data-source-hive.md#connect-to-a-data-source-hive-features-reference-implementation") to create a Lambda function separately, and then
 use the AWS Lambda console to choose an existing IAM role for the function. For
-more information, see [Connect Athena to a Hive
-metastore using an existing IAM execution role](connect-data-source-hive-existing-iam-role.md "connect-data-source-hive-existing-iam-role.md").
+more information, see [Connect Athena to a Hive metastore using an existing IAM execution role](connect-data-source-hive-existing-iam-role.md "connect-data-source-hive-existing-iam-role.md").
 
 ###### To connect Athena to a Hive metastore
 

@@ -1,6 +1,4 @@
-# Create a table for CloudFront logs in Athena using
-
-manual partitioning with Parquet
+# Create a table for CloudFront logs in Athena using manual partitioning with Parquet
 
 ###### To create a table for CloudFront standard log file fields using a Parquet format
 

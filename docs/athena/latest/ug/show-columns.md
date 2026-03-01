@@ -4,16 +4,12 @@ Shows only the column names for a single specified table, Athena view, or Data C
 obtain more detailed information for Athena views, query the AWS Glue Data Catalog instead. For
 information and examples, see the following sections of the [Query the AWS Glue Data Catalog](querying-glue-catalog.md "querying-glue-catalog.md") topic:
 
-- To view column metadata such as data type, see [List or search columns for
-  a specified table or view](querying-glue-catalog-listing-columns.md "querying-glue-catalog-listing-columns.md").
+- To view column metadata such as data type, see [List or search columns for a specified table or view](querying-glue-catalog-listing-columns.md "querying-glue-catalog-listing-columns.md").
 - To view all columns for all tables in a specific database in
-  `AwsDataCatalog`, see [List or search columns for
-  a specified table or view](querying-glue-catalog-listing-columns.md "querying-glue-catalog-listing-columns.md").
+  `AwsDataCatalog`, see [List or search columns for a specified table or view](querying-glue-catalog-listing-columns.md "querying-glue-catalog-listing-columns.md").
 - To view all columns for all tables in all databases in
-  `AwsDataCatalog`, see [List all
-  columns for all tables](querying-glue-catalog-listing-all-columns-for-all-tables.md "querying-glue-catalog-listing-all-columns-for-all-tables.md").
-- To view the columns that specific tables in a database have in common, see [List the columns
-  that specific tables have in common](querying-glue-catalog-listing-columns-in-common.md "querying-glue-catalog-listing-columns-in-common.md").
+  `AwsDataCatalog`, see [List all columns for all tables](querying-glue-catalog-listing-all-columns-for-all-tables.md "querying-glue-catalog-listing-all-columns-for-all-tables.md").
+- To view the columns that specific tables in a database have in common, see [List the columns that specific tables have in common](querying-glue-catalog-listing-columns-in-common.md "querying-glue-catalog-listing-columns-in-common.md").
   For Data Catalog views, the output of the statement is controlled by Lake Formation access control and
   shows only the columns that the caller has access to.
 

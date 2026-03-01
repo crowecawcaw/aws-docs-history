@@ -2,20 +2,15 @@
 
 Browser SAML is a generic authentication plugin that can work with SAML based identity
 providers and support multi-factor authentication. For detailed configuration
-information, see [Configure single sign-on using ODBC, SAML 2.0, and the Okta
-Identity Provider](okta-saml-sso.md "okta-saml-sso.md").
+information, see [Configure single sign-on using ODBC, SAML 2.0, and the Okta Identity Provider](okta-saml-sso.md "okta-saml-sso.md").
 
-## Authentication
-
-type
+## Authentication type
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example**     |
 | -------------------------- | ------------------ | ----------------- | --------------------------------- |
 | AuthenticationType         | Required           | `IAM Credentials` | `AuthenticationType=BrowserSAML;` |
 
-## Preferred
-
-role
+## Preferred role
 
 The Amazon Resource Name (ARN) of the role to assume. If your SAML assertion has
 multiple roles, you can specify this parameter to choose the role to be assumed.
@@ -27,9 +22,7 @@ _AWS Security Token Service API Reference_.
 | -------------------------- | ------------------ | ----------------- | ---------------------------------------------------- |
 | preferred_role             | Optional           | `none`            | `preferred_role=arn:aws:IAM::123456789012:id/user1;` |
 
-## Session
-
-duration
+## Session duration
 
 The duration, in seconds, of the role session. For more information, see [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") in the _AWS Security Token Service API Reference_.
 

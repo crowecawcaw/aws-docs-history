@@ -17,8 +17,7 @@ Consider the following when using `INSERT` queries with Athena.
   query results if you are inserting into tables with encrypted data.
 
 For more information about encrypting query results using the console, see
-[Encrypt Athena query results
-stored in Amazon S3](encrypting-query-results-stored-in-s3.md "encrypting-query-results-stored-in-s3.md"). To enable
+[Encrypt Athena query results stored in Amazon S3](encrypting-query-results-stored-in-s3.md "encrypting-query-results-stored-in-s3.md"). To enable
 encryption using the AWS CLI or Athena API, use the
 `EncryptionConfiguration` properties of the [StartQueryExecution](../APIReference/API_StartQueryExecution.md "../APIReference/API_StartQueryExecution.md") action to specify Amazon S3 encryption options
 according to your requirements.
@@ -26,11 +25,9 @@ according to your requirements.
 - For `INSERT INTO` statements, the expected bucket owner setting
   does not apply to the destination table location in Amazon S3. The expected bucket owner setting applies only to the Amazon S3
   output location that you specify for Athena query results. For
-  more information, see [Specify a query result
-  location using the Athena console](query-results-specify-location-console.md "query-results-specify-location-console.md").
+  more information, see [Specify a query result location using the Athena console](query-results-specify-location-console.md "query-results-specify-location-console.md").
 - For ACID compliant `INSERT INTO` statements, see the `INSERT
-INTO` section of [Update Iceberg table
-  data](querying-iceberg-updating-iceberg-table-data.md "querying-iceberg-updating-iceberg-table-data.md").
+INTO` section of [Update Iceberg table data](querying-iceberg-updating-iceberg-table-data.md "querying-iceberg-updating-iceberg-table-data.md").
 
 ### Supported formats and SerDes
 
@@ -47,16 +44,12 @@ following formats and SerDes.
 | Text file   | org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe<br>NoteTSV and custom-delimited files are supported.                                                                                                                                                                                                                                                         |
 | CSV         | org.apache.hadoop.hive.serde2.OpenCSVSerdeNoteWrites are only supported for string types. From Athena,<br>you cannot write to any tables that contain non-string types<br>in Glue schema. For more information, see [CSV SerDe](csv-serde.md#csv-serde-opencsvserde-considerations-non-string "csv-serde.md#csv-serde-opencsvserde-considerations-non-string"). |
 
-### Bucketed tables not
-
-supported
+### Bucketed tables not supported
 
 `INSERT INTO` is not supported on bucketed tables. For more
 information, see [Use partitioning and bucketing](ctas-partitioning-and-bucketing.md "ctas-partitioning-and-bucketing.md").
 
-### Federated queries not
-
-supported
+### Federated queries not supported
 
 `INSERT INTO` is not supported for federated queries. Attempting to do
 so may result in the error message **`This operation is currently not
@@ -75,8 +68,7 @@ partitions to the destination table. If you run the `SELECT` clause
 on a table with more than 100 partitions, the query fails unless the
 `SELECT` query is limited to 100 partitions or fewer.
 
-For information about working around this limitation, see [Use CTAS and INSERT INTO to work around the 100 partition
-limit](ctas-insert-into.md "ctas-insert-into.md").
+For information about working around this limitation, see [Use CTAS and INSERT INTO to work around the 100 partition limit](ctas-insert-into.md "ctas-insert-into.md").
 
 #### Column ordering
 
@@ -97,10 +89,8 @@ from a non-partitioned table.
 For more information about using `INSERT INTO` with partitioning,
 see the following resources.
 
-- For inserting partitioned data into a partitioned table, see [Use CTAS and INSERT INTO to work around the 100 partition
-  limit](ctas-insert-into.md "ctas-insert-into.md").
-- For inserting unpartitioned data into a partitioned table, see [Use CTAS and INSERT INTO for ETL and data
-  analysis](ctas-insert-into-etl.md "ctas-insert-into-etl.md").
+- For inserting partitioned data into a partitioned table, see [Use CTAS and INSERT INTO to work around the 100 partition limit](ctas-insert-into.md "ctas-insert-into.md").
+- For inserting unpartitioned data into a partitioned table, see [Use CTAS and INSERT INTO for ETL and data analysis](ctas-insert-into-etl.md "ctas-insert-into-etl.md").
 
 ### Files written to Amazon S3
 
@@ -110,12 +100,9 @@ file, rather than appending to an existing file. The file locations depend on th
 structure of the table and the `SELECT` query, if present. Athena
 generates a data manifest file for each `INSERT` query. The manifest
 tracks the files that the query wrote. It is saved to the Athena query result
-location in Amazon S3. For more information, see [Identify query output
-files](querying-finding-output-files.md#querying-identifying-output-files "querying-finding-output-files.md#querying-identifying-output-files").
+location in Amazon S3. For more information, see [Identify query output files](querying-finding-output-files.md#querying-identifying-output-files "querying-finding-output-files.md#querying-identifying-output-files").
 
-### Avoid highly transactional
-
-updates
+### Avoid highly transactional updates
 
 When you use `INSERT INTO` to add rows to a table in Amazon S3, Athena does
 not rewrite or modify existing files. Instead, it writes the rows as one or more new
@@ -137,8 +124,7 @@ If a `CTAS` or `INSERT INTO` statement fails, orphaned data
 can be left in the data location and might be read in subsequent queries. To locate
 orphaned files for inspection or deletion, you can use the data manifest file that
 Athena provides to track the list of files to be written. For more information, see
-[Identify query output
-files](querying-finding-output-files.md#querying-identifying-output-files "querying-finding-output-files.md#querying-identifying-output-files") and [DataManifestLocation](../APIReference/API_QueryExecutionStatistics.md#athena-Type-QueryExecutionStatistics-DataManifestLocation "../APIReference/API_QueryExecutionStatistics.md#athena-Type-QueryExecutionStatistics-DataManifestLocation").
+[Identify query output files](querying-finding-output-files.md#querying-identifying-output-files "querying-finding-output-files.md#querying-identifying-output-files") and [DataManifestLocation](../APIReference/API_QueryExecutionStatistics.md#athena-Type-QueryExecutionStatistics-DataManifestLocation "../APIReference/API_QueryExecutionStatistics.md#athena-Type-QueryExecutionStatistics-DataManifestLocation").
 
 ## INSERT INTO...SELECT
 

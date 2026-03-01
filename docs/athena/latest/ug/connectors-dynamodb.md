@@ -10,8 +10,7 @@ If you have Lake Formation enabled in your account, the IAM role for your Athena
 
 ## Prerequisites
 
-- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data
-  source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
+- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
 
 ## Limitations
 
@@ -250,9 +249,7 @@ However, selecting a subset of columns sometimes results in a longer query execu
 `LIMIT` clauses and simple predicates are pushed down and can reduce the
 amount of data scanned and will lead to decreased query execution run time.
 
-### LIMIT
-
-clauses
+### LIMIT clauses
 
 A `LIMIT N` statement reduces the data scanned by the query. With
 `LIMIT N` pushdown, the connector returns only `N` rows to
@@ -272,9 +269,7 @@ pushdown:
 - Equality: EQUAL, NOT_EQUAL, LESS_THAN,
   LESS_THAN_OR_EQUAL, GREATER_THAN, GREATER_THAN_OR_EQUAL, IS_NULL
 
-### Combined
-
-pushdown example
+### Combined pushdown example
 
 For enhanced querying capabilities, combine the pushdown types, as in the following example:
 
@@ -289,9 +284,7 @@ For an article on using predicate pushdown to improve performance in federated
 queries, including DynamoDB, see [Improve federated queries with predicate pushdown in Amazon Athena](https://aws.amazon.com/blogs/big-data/improve-federated-queries-with-predicate-pushdown-in-amazon-athena/ "https://aws.amazon.com/blogs/big-data/improve-federated-queries-with-predicate-pushdown-in-amazon-athena/") in the
 _AWS Big Data Blog_.
 
-## Passthrough
-
-queries
+## Passthrough queries
 
 The DynamoDB connector supports [passthrough queries](federated-query-passthrough.md "federated-query-passthrough.md") and uses
 PartiQL syntax. The DynamoDB [GetItem](../../../amazondynamodb/latest/APIReference/API_GetItem.md "../../../amazondynamodb/latest/APIReference/API_GetItem.md") API
@@ -322,9 +315,7 @@ SELECT * FROM TABLE(
 
 ## Troubleshooting
 
-### Multiple
-
-filters on a sort key column
+### Multiple filters on a sort key column
 
 Error message: **`KeyConditionExpressions
  must only contain one condition per key`**
@@ -344,17 +335,15 @@ The costs for use of the connector depends on the underlying AWS resources that 
 used. Because queries that use scans can consume a large number of [read capacity units
 (RCUs)](https://aws.amazon.com/dynamodb/pricing/provisioned/ "https://aws.amazon.com/dynamodb/pricing/provisioned/"), consider the information for [Amazon DynamoDB pricing](https://aws.amazon.com/dynamodb/pricing/ "https://aws.amazon.com/dynamodb/pricing/") carefully.
 
-## Additional
-
-resources
+## Additional resources
 
 - For an introduction to using the Amazon Athena DynamoDB connector, see [Access, query, and join Amazon DynamoDB tables using Athena](../../../prescriptive-guidance/latest/patterns/access-query-and-join-amazon-dynamodb-tables-using-athena.md "../../../prescriptive-guidance/latest/patterns/access-query-and-join-amazon-dynamodb-tables-using-athena.md") in the
   _AWS Prescriptive Guidance Patterns_ guide.
 - For an article on how to use the Athena DynamoDB connector to query data in DynamoDB
-  with SQL and visualize insights in Quick Suite, see the _AWS Big Data
-  Blog_ post [Visualize Amazon DynamoDB insights in Quick Suite using the Amazon Athena DynamoDB connector
+  with SQL and visualize insights in Quick, see the _AWS Big Data
+  Blog_ post [Visualize Amazon DynamoDB insights in Quick using the Amazon Athena DynamoDB connector
   and AWS Glue](https://aws.amazon.com/blogs/big-data/visualize-amazon-dynamodb-insights-in-amazon-quicksight-using-the-amazon-athena-dynamodb-connector-and-aws-glue/ "https://aws.amazon.com/blogs/big-data/visualize-amazon-dynamodb-insights-in-amazon-quicksight-using-the-amazon-athena-dynamodb-connector-and-aws-glue/").
 - For an article on using the Amazon Athena DynamoDB connector with Amazon DynamoDB, Athena,
-  and Quick Suite to create a simple governance dashboard, see the _AWS Big
+  and Quick to create a simple governance dashboard, see the _AWS Big
   Data Blog_ post [Query cross-account Amazon DynamoDB tables using Amazon Athena Federated Query](https://aws.amazon.com/blogs/big-data/query-cross-account-amazon-dynamodb-tables-using-amazon-athena-federated-query/ "https://aws.amazon.com/blogs/big-data/query-cross-account-amazon-dynamodb-tables-using-amazon-athena-federated-query/").
 - For additional information about this connector, visit [the corresponding site](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-dynamodb "https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-dynamodb") on GitHub.com.

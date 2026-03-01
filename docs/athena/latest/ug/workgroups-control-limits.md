@@ -1,6 +1,4 @@
-# Use CloudWatch and EventBridge to monitor queries and control
-
-costs
+# Use CloudWatch and EventBridge to monitor queries and control costs
 
 Workgroups allow you to set data usage control limits per query or per workgroup, set up
 alarms when those limits are exceeded, and publish query metrics to CloudWatch.

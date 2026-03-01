@@ -7,9 +7,7 @@ The examples in this section query for counts of log items of interest.
 - [Group all counted managed rules by the number of times matched](#waf-example-group-managed-rules-by-times-matched "#waf-example-group-managed-rules-by-times-matched")
 - [Group all counted custom rules by number of times matched](#waf-example-group-custom-rules-by-times-matched "#waf-example-group-custom-rules-by-times-matched")
 
-###### Example
-
-– Count the number of referrers that contain a specified term
+###### Example – Count the number of referrers that contain a specified term
 
 The following query counts the number of referrers that contain the term "amazon"
 for the specified date range.
@@ -24,9 +22,7 @@ FROM test_dataset
 WHERE LOWER(header.name)='referer' AND header.value LIKE '%amazon%'
 ```
 
-###### Example – Count all matched IP addresses in the last 10 days that have matched
-
-excluded rules
+###### Example – Count all matched IP addresses in the last 10 days that have matched excluded rules
 
 The following query counts the number of times in the last 10 days that the IP
 address matched the excluded rule in the rule group.
@@ -46,9 +42,7 @@ GROUP BY "httprequest"."clientip", "allrulegroups"."ruleGroupId", "allrulegroups
 ORDER BY count DESC
 ```
 
-###### Example
-
-– Group all counted managed rules by the number of times matched
+###### Example – Group all counted managed rules by the number of times matched
 
 If you set rule group rule actions to Count in your web ACL configuration before
 October 27, 2022, AWS WAF saved your overrides in the web ACL JSON as
@@ -75,9 +69,7 @@ ORDER BY "count" DESC
 Limit 50
 ```
 
-###### Example
-
-– Group all counted custom rules by number of times matched
+###### Example – Group all counted custom rules by number of times matched
 
 The following query groups all counted custom rules by the number of times
 matched.

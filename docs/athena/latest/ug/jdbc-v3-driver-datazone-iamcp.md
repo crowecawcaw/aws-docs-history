@@ -1,13 +1,9 @@
-# DataZone IAM Credentials
-
-Provider
+# DataZone IAM Credentials Provider
 
 An authentication mechanism that uses IAM credentials to connect to
 DataZone-governed data in Athena.
 
-## DataZone
-
-domain identifier
+## DataZone domain identifier
 
 Identifier of the DataZone domain to use.
 
@@ -23,9 +19,7 @@ Identifier of the DataZone environment to use.
 | --------------------- | ----- | -------------- | ------------- |
 | DataZoneEnvironmentId | none  | Required       | none          |
 
-## DataZone
-
-domain region
+## DataZone domain region
 
 The AWS Region where your DataZone domain is provisioned.
 
@@ -33,9 +27,7 @@ The AWS Region where your DataZone domain is provisioned.
 | -------------------- | ----- | -------------- | ------------- |
 | DataZoneDomainRegion | none  | Required       | none          |
 
-## DataZone
-
-endpoint override
+## DataZone endpoint override
 
 The DataZone API endpoint to use instead of the endpoint default for the provided
 AWS Region.

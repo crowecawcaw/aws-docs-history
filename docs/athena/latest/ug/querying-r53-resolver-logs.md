@@ -14,7 +14,6 @@ in resolver query logs](../../../Route53/latest/DeveloperGuide/resolver-query-lo
 
 ###### Topics
 
-- [Create the table for
-  resolver query logs](querying-r53-resolver-logs-creating-the-table.md "querying-r53-resolver-logs-creating-the-table.md")
+- [Create the table for resolver query logs](querying-r53-resolver-logs-creating-the-table.md "querying-r53-resolver-logs-creating-the-table.md")
 - [Use partition projection](querying-r53-resolver-logs-partitioning-example.md "querying-r53-resolver-logs-partitioning-example.md")
 - [Example queries](querying-r53-resolver-logs-example-queries.md "querying-r53-resolver-logs-example-queries.md")

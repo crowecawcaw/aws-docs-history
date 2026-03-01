@@ -51,8 +51,7 @@ WHERE country = ?
 
 ## Additional resources
 
-[Use prepared
-statements](querying-with-prepared-statements-querying.md "querying-with-prepared-statements-querying.md")
+[Use prepared statements](querying-with-prepared-statements-querying.md "querying-with-prepared-statements-querying.md")
 
 [EXECUTE](sql-execute.md "sql-execute.md")
 

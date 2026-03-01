@@ -81,8 +81,7 @@ fixes.
 - **Result Fetcher** – The driver now
   automatically selects the method to download query results. This removes the
   need to manually configure the fetcher in most situations. For more
-  information, see [Result
-  fetcher](odbc-v2-driver-advanced-options.md#odbc-v2-driver-advanced-options-result-fetcher "odbc-v2-driver-advanced-options.md#odbc-v2-driver-advanced-options-result-fetcher").
+  information, see [Result fetcher](odbc-v2-driver-advanced-options.md#odbc-v2-driver-advanced-options-result-fetcher "odbc-v2-driver-advanced-options.md#odbc-v2-driver-advanced-options-result-fetcher").
 - Curl Library has been updated to 8.12.1.
 
 ### Fixes
@@ -118,12 +117,10 @@ fixes.
 - Improved the time required to list tables under Lambda catalogs. For
   `LAMBDA` catalog types, the ODBC driver can now submit a
   [SHOW TABLES](show-tables.md "show-tables.md") query to get a
-  list of available tables. For more information, see [Use query to
-  list tables](odbc-v2-driver-advanced-options.md#odbc-v2-driver-advanced-options-use-query-to-list-tables "odbc-v2-driver-advanced-options.md#odbc-v2-driver-advanced-options-use-query-to-list-tables").
+  list of available tables. For more information, see [Use query to list tables](odbc-v2-driver-advanced-options.md#odbc-v2-driver-advanced-options-use-query-to-list-tables "odbc-v2-driver-advanced-options.md#odbc-v2-driver-advanced-options-use-query-to-list-tables").
 - Introduced the `UseWCharForStringTypes` connection parameter to
   report string data types using `SQL_WCHAR` and
-  `SQL_WVARCHAR`. For more information, see [Use WCHAR
-  for string types](odbc-v2-driver-advanced-options.md#odbc-v2-driver-advanced-options-use-wchar-for-string-types "odbc-v2-driver-advanced-options.md#odbc-v2-driver-advanced-options-use-wchar-for-string-types").
+  `SQL_WVARCHAR`. For more information, see [Use WCHAR for string types](odbc-v2-driver-advanced-options.md#odbc-v2-driver-advanced-options-use-wchar-for-string-types "odbc-v2-driver-advanced-options.md#odbc-v2-driver-advanced-options-use-wchar-for-string-types").
 
 ### Fixes
 
@@ -147,10 +144,8 @@ fixes.
 - Added two connection parameters, `StringColumnLength` and
   `ComplexTypeColumnLength`, that you can use to change the
   default column length for string and complex data types. For more
-  information, see [String column
-  length](odbc-v2-driver-advanced-options.md#odbc-v2-driver-advanced-options-string-column-length "odbc-v2-driver-advanced-options.md#odbc-v2-driver-advanced-options-string-column-length")
-  and [Complex
-  type column length](odbc-v2-driver-advanced-options.md#odbc-v2-driver-advanced-options-complex-type-column-length "odbc-v2-driver-advanced-options.md#odbc-v2-driver-advanced-options-complex-type-column-length").
+  information, see [String column length](odbc-v2-driver-advanced-options.md#odbc-v2-driver-advanced-options-string-column-length "odbc-v2-driver-advanced-options.md#odbc-v2-driver-advanced-options-string-column-length")
+  and [Complex type column length](odbc-v2-driver-advanced-options.md#odbc-v2-driver-advanced-options-complex-type-column-length "odbc-v2-driver-advanced-options.md#odbc-v2-driver-advanced-options-complex-type-column-length").
 - Support has been added for the Linux and macOS (Intel and ARM) operating
   systems. For more information, see [Linux](odbc-v2-driver-getting-started-linux.md "odbc-v2-driver-getting-started-linux.md") and [macOS](odbc-v2-driver-getting-started-macos.md "odbc-v2-driver-getting-started-macos.md").
 - AWS-SDK-CPP has been updated to the 1.11.245 tag version.
@@ -208,10 +203,8 @@ BI applications.
 - Applications can now query information about the result set after a
   statement is prepared.
 - Default connection and request timeouts have been increased for use with
-  slower client networks. For more information, see [Connection
-  timeout](odbc-v2-driver-advanced-options.md#odbc-v2-driver-advanced-options-connection-timeout "odbc-v2-driver-advanced-options.md#odbc-v2-driver-advanced-options-connection-timeout") and
-  [Request
-  timeout](odbc-v2-driver-advanced-options.md#odbc-v2-driver-advanced-options-request-timeout "odbc-v2-driver-advanced-options.md#odbc-v2-driver-advanced-options-request-timeout").
+  slower client networks. For more information, see [Connection timeout](odbc-v2-driver-advanced-options.md#odbc-v2-driver-advanced-options-connection-timeout "odbc-v2-driver-advanced-options.md#odbc-v2-driver-advanced-options-connection-timeout") and
+  [Request timeout](odbc-v2-driver-advanced-options.md#odbc-v2-driver-advanced-options-request-timeout "odbc-v2-driver-advanced-options.md#odbc-v2-driver-advanced-options-request-timeout").
 - Endpoint overrides have been added for SSO and SSO OIDC. For more
   information, see [Endpoint overrides](odbc-v2-driver-endpoint-overrides.md "odbc-v2-driver-endpoint-overrides.md").
 - Added a connection parameter to pass a URI argument for an authentication

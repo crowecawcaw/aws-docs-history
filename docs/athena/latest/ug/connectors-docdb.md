@@ -28,8 +28,7 @@ It supports data access controls defined in Lake Formation at the catalog, datab
 
 ## Prerequisites
 
-- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data
-  source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
+- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
 
 ## Parameters
 
@@ -127,9 +126,7 @@ aws glue describe-connection-type --connection-type DOCUMENTDB
   schema and table names in Amazon DocumentDB. The default is `false`. Use if
   your query contains uppercase schema or table names.
 
-#### Specifying
-
-connection strings
+#### Specifying connection strings
 
 You can provide one or more properties that define the DocumentDB connection details
 for the DocumentDB instances that you use with the connector. To do this, set a Lambda
@@ -218,9 +215,7 @@ doGetTable: Retrieved schema for table[TableName{schemaName=test, tableName=prof
 
 If your table already has a `columnMapping` field configured, you only need to add the `docdb-metadata-flag = true` parameter to the table properties.
 
-## Setting
-
-up databases and tables in AWS Glue
+## Setting up databases and tables in AWS Glue
 
 Because the connector's built-in schema inference capability scans a limited number of
 documents and supports only a subset of data types, you might want to use AWS Glue for
@@ -265,9 +260,7 @@ variable. 5. Make sure that you use the data types appropriate for AWS Glue as l
 This section lists the data types that the DocumentDB connector uses for schema
 inference, and the data types when AWS Glue metadata is used.
 
-### Schema inference data
-
-types
+### Schema inference data types
 
 The schema inference feature of the DocumentDB connector attempts to infer values as
 belonging to one of the following data types. The table shows the corresponding data
@@ -333,9 +326,7 @@ on your DocumentDB collection result in significantly less data scanned.
 
 The Lambda function performs projection pushdown to decrease the data scanned by the query. However, selecting a subset of columns sometimes results in a longer query execution runtime. `LIMIT` clauses reduce the amount of data scanned, but if you don't provide a predicate, you should expect `SELECT` queries with a `LIMIT` clause to scan at least 16 MB of data.
 
-## Passthrough
-
-queries
+## Passthrough queries
 
 The Athena Amazon DocumentDB connector supports [passthrough queries](federated-query-passthrough.md "federated-query-passthrough.md") and is NoSQL
 based. For information about querying Amazon DocumentDB, see [Querying](../../../documentdb/latest/developerguide/querying.md "../../../documentdb/latest/developerguide/querying.md") in the
@@ -365,12 +356,10 @@ SELECT * FROM TABLE(
         ))
 ```
 
-## Additional
-
-resources
+## Additional resources
 
 - For an article on using [Amazon Athena Federated Query](federated-queries.md "federated-queries.md") to connect a
-  MongoDB database to [Quick Suite](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") to
-  build dashboards and visualizations, see [Visualize MongoDB data from Quick Suite using Amazon Athena Federated Query](https://aws.amazon.com/blogs/big-data/visualize-mongodb-data-from-amazon-quicksight-using-amazon-athena-federated-query/ "https://aws.amazon.com/blogs/big-data/visualize-mongodb-data-from-amazon-quicksight-using-amazon-athena-federated-query/") in the
+  MongoDB database to [Quick](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") to
+  build dashboards and visualizations, see [Visualize MongoDB data from Quick using Amazon Athena Federated Query](https://aws.amazon.com/blogs/big-data/visualize-mongodb-data-from-amazon-quicksight-using-amazon-athena-federated-query/ "https://aws.amazon.com/blogs/big-data/visualize-mongodb-data-from-amazon-quicksight-using-amazon-athena-federated-query/") in the
   _AWS Big Data Blog_.
 - For additional information about this connector, visit [the corresponding site](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-docdb "https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-docdb") on GitHub.com.

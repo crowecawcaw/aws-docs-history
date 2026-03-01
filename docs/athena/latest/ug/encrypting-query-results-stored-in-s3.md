@@ -1,6 +1,4 @@
-# Encrypt Athena query results
-
-stored in Amazon S3
+# Encrypt Athena query results stored in Amazon S3
 
 You set up query result encryption using the Athena console or when using JDBC or
 ODBC. Workgroups allow you to enforce the encryption of query results.
@@ -25,9 +23,7 @@ two ways:
   all queries that run in this workgroup use the workgroup encryption and
   query results location settings. For more information, see [Override client-side settings](workgroups-settings-override.md "workgroups-settings-override.md").
 
-###### To encrypt
-
-query results stored in Amazon S3 using the console
+###### To encrypt query results stored in Amazon S3 using the console
 
 ###### Important
 
@@ -69,12 +65,9 @@ specify an AWS KMS key.
    or ARN.
 8. Choose **Save**.
 
-## Encrypt Athena
-
-query results when you use JDBC or ODBC
+## Encrypt Athena query results when you use JDBC or ODBC
 
 If you connect using a JDBC or ODBC driver, you configure driver options to
 specify the type of encryption to use and the Amazon S3 staging directory location.
 To configure a JDBC or ODBC driver to encrypt your query results using any of
-the encryption protocols that Athena supports, see [Connect to Amazon Athena with ODBC and JDBC
-drivers](athena-bi-tools-jdbc-odbc.md "athena-bi-tools-jdbc-odbc.md").
+the encryption protocols that Athena supports, see [Connect to Amazon Athena with ODBC and JDBC drivers](athena-bi-tools-jdbc-odbc.md "athena-bi-tools-jdbc-odbc.md").

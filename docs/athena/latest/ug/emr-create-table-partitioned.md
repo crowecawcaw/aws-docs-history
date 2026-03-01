@@ -1,6 +1,4 @@
-# Create and query a partitioned table
-
-based on Amazon EMR logs
+# Create and query a partitioned table based on Amazon EMR logs
 
 These examples use the same log location to create an Athena table, but the table is
 partitioned, and a partition is then created for each log location. For more
@@ -68,9 +66,7 @@ SHOW PARTITIONS mypartitionedemrlogs;
 The following examples demonstrate queries for specific log entries use the table and
 partitions created by the examples above.
 
-###### Example – Querying application application_1561661818238_0002 logs in the
-
-containers partition for ERROR or WARN
+###### Example– Querying application application_1561661818238_0002 logs in the containers partition for ERROR or WARN
 
 ```
 SELECT data,
@@ -81,9 +77,7 @@ WHERE logtype='containers'
         AND regexp_like(data, 'ERROR|WARN') limit 100;
 ```
 
-###### Example – Querying the hadoop-Mapreduce partition for job job_1561661818238_0004
-
-and failed reduces
+###### Example– Querying the hadoop-Mapreduce partition for job job_1561661818238_0004 and failed reduces
 
 ```
 SELECT data,
@@ -93,9 +87,7 @@ WHERE logtype='hadoop-mapreduce'
         AND regexp_like(data,'job_1561661818238_0004|Failed Reduces') limit 100;
 ```
 
-###### Example – Querying Hive logs in the node partition for query ID
-
-056e0609-33e1-4611-956c-7a31b42d2663
+###### Example– Querying Hive logs in the node partition for query ID 056e0609-33e1-4611-956c-7a31b42d2663
 
 ```
 SELECT data,
@@ -106,9 +98,7 @@ WHERE logtype='node'
         AND regexp_like(data,'056e0609-33e1-4611-956c-7a31b42d2663') limit 100;
 ```
 
-###### Example – Querying resourcemanager logs in the node partition for application
-
-1567660019320_0001_01_000001
+###### Example– Querying resourcemanager logs in the node partition for application 1567660019320_0001_01_000001
 
 ```
 SELECT data,

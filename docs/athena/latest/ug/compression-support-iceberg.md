@@ -3,9 +3,7 @@
 The compression options for Iceberg tables in Athena vary by engine version and file
 format.
 
-## Iceberg compression support in
-
-Athena engine version 3
+## Iceberg compression support in Athena engine version 3
 
 The following table summarizes the compression format support in Athena engine version 3 for storage
 file formats in Apache Iceberg. "Yes" or "No" in a cell apply equally to read and write

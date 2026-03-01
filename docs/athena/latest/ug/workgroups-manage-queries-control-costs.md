@@ -1,6 +1,4 @@
-# Use workgroups to control query
-
-access and costs
+# Use workgroups to control query access and costs
 
 You can use Athena workgroups to separate workloads, control team access, enforce
 configuration, and track query metrics and control costs.
@@ -18,8 +16,7 @@ policies to control who can access a workgroup and run queries in it. To isolate
 for two different teams in your organization, you can create a separate workgroup for
 each team. Each workgroup has its own query history and a list of saved queries for the
 queries in that workgroup, and not for all queries in the account. For more information,
-see [Use IAM policies to control workgroup
-access](workgroups-iam-policy.md "workgroups-iam-policy.md").
+see [Use IAM policies to control workgroup access](workgroups-iam-policy.md "workgroups-iam-policy.md").
 
 ###### Enforce configuration
 
@@ -36,20 +33,17 @@ can use the following features:
 - Publish query metrics – Publish the query
   metrics for your workgroup to CloudWatch. In the Athena console, you can view query metrics
   for each workgroup. In CloudWatch, you can create custom dashboards, and set thresholds
-  and alarms on these metrics. For more information, see [Enable CloudWatch query metrics in
-  Athena](athena-cloudwatch-metrics-enable.md "athena-cloudwatch-metrics-enable.md") and [Monitor Athena query metrics with CloudWatch](query-metrics-viewing.md "query-metrics-viewing.md").
+  and alarms on these metrics. For more information, see [Enable CloudWatch query metrics in Athena](athena-cloudwatch-metrics-enable.md "athena-cloudwatch-metrics-enable.md") and [Monitor Athena query metrics with CloudWatch](query-metrics-viewing.md "query-metrics-viewing.md").
 - Monitor Athena usage metrics – See how your
   account uses resources by displaying your current service usage through CloudWatch graphs
-  and dashboards. For more information, see [Monitor Athena usage metrics with
-  CloudWatch](monitoring-athena-usage-metrics.md "monitoring-athena-usage-metrics.md")
+  and dashboards. For more information, see [Monitor Athena usage metrics with CloudWatch](monitoring-athena-usage-metrics.md "monitoring-athena-usage-metrics.md")
 - Monitor query events – Use Amazon EventBridge to
   receive real-time notifications regarding the state of your queries. For more
   information, see [Monitor Athena query events with EventBridge](athena-events.md "athena-events.md").
 - Create data usage controls – In Athena, you
   can configure per-query and per-workgroup data usage controls. Athena cancels queries
   when they exceed the specified threshold or activates an Amazon SNS alarm when a
-  workgroup threshold is breached. For more information, see [Configure per-query and
-  per-workgroup data usage controls](workgroups-setting-control-limits-cloudwatch.md "workgroups-setting-control-limits-cloudwatch.md").
+  workgroup threshold is breached. For more information, see [Configure per-query and per-workgroup data usage controls](workgroups-setting-control-limits-cloudwatch.md "workgroups-setting-control-limits-cloudwatch.md").
 - Use cost allocation tags – Use the Billing
   and Cost Management console to tag workgroups with cost allocation tags. The costs
   associated with running queries in the workgroup appear in your Cost and Usage
@@ -69,9 +63,7 @@ Studio project, configure projects with existing Athena workgroups, and maintain
 necessary permissions through IAM role updates. For more information, see [Migrating Amazon Athena resources to Amazon SageMaker Unified Studio
 (Preview)](https://github.com/aws/Unified-Studio-for-Amazon-Sagemaker/tree/main/migration/athena "https://github.com/aws/Unified-Studio-for-Amazon-Sagemaker/tree/main/migration/athena").
 
-## Considerations and
-
-limitations
+## Considerations and limitations
 
 When you use workgroups in Athena, keep in mind the following points:
 

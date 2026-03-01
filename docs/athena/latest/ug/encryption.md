@@ -8,10 +8,8 @@ You can encrypt the following assets in Athena:
 
 - The results of all queries in Amazon S3, which Athena stores in a location known as
   the Amazon S3 results location. You can encrypt query results stored in Amazon S3 whether
-  the underlying dataset is encrypted in Amazon S3 or not. For information, see [Encrypt Athena query results
-  stored in Amazon S3](encrypting-query-results-stored-in-s3.md "encrypting-query-results-stored-in-s3.md").
-- The data in the AWS Glue Data Catalog. For information, see [Permissions to encrypted metadata in the AWS Glue
-  Data Catalog](#glue-encryption "#glue-encryption").
+  the underlying dataset is encrypted in Amazon S3 or not. For information, see [Encrypt Athena query results stored in Amazon S3](encrypting-query-results-stored-in-s3.md "encrypting-query-results-stored-in-s3.md").
+- The data in the AWS Glue Data Catalog. For information, see [Permissions to encrypted metadata in the AWS Glue Data Catalog](#glue-encryption "#glue-encryption").
 
 ###### Note
 
@@ -30,30 +28,23 @@ query results encryption to encrypt the inserted table data with
 
 ###### Topics
 
-- [Supported Amazon S3 encryption
-  options](#encryption-options-S3-and-Athena "#encryption-options-S3-and-Athena")
-- [Permissions to
-  encrypted data in Amazon S3](#permissions-for-encrypting-and-decrypting-data "#permissions-for-encrypting-and-decrypting-data")
-- [Permissions to encrypted metadata in the AWS Glue
-  Data Catalog](#glue-encryption "#glue-encryption")
+- [Supported Amazon S3 encryption options](#encryption-options-S3-and-Athena "#encryption-options-S3-and-Athena")
+- [Permissions to encrypted data in Amazon S3](#permissions-for-encrypting-and-decrypting-data "#permissions-for-encrypting-and-decrypting-data")
+- [Permissions to encrypted metadata in the AWS Glue Data Catalog](#glue-encryption "#glue-encryption")
 - [Migrate from CSE-KMS to SSE-KMS](migrating-csekms-ssekms.md "migrating-csekms-ssekms.md")
-- [Encrypt Athena query results
-  stored in Amazon S3](encrypting-query-results-stored-in-s3.md "encrypting-query-results-stored-in-s3.md")
-- [Create tables
-  based on encrypted datasets in Amazon S3](creating-tables-based-on-encrypted-datasets-in-s3.md "creating-tables-based-on-encrypted-datasets-in-s3.md")
+- [Encrypt Athena query results stored in Amazon S3](encrypting-query-results-stored-in-s3.md "encrypting-query-results-stored-in-s3.md")
+- [Create tables based on encrypted datasets in Amazon S3](creating-tables-based-on-encrypted-datasets-in-s3.md "creating-tables-based-on-encrypted-datasets-in-s3.md")
 
-## Supported Amazon S3 encryption
-
-options
+## Supported Amazon S3 encryption options
 
 Athena supports the following encryption options for datasets and query results in
 Amazon S3.
 
-| Encryption type                                                                                                                                                                                                                                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Cross-Region support |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
-| [SSE-S3](../../../AmazonS3/latest/userguide/UsingServerSideEncryption.md "../../../AmazonS3/latest/userguide/UsingServerSideEncryption.md")                                                                                                          | Server side encryption (SSE) with an Amazon S3-managed key.                                                                                                                                                                                                                                                                                                                                                                                                                                                | Yes                  |
-| [SSE-KMS](../../../AmazonS3/latest/userguide/UsingKMSEncryption.md "../../../AmazonS3/latest/userguide/UsingKMSEncryption.md")<br>(Recommended)                                                                                                      | Server-side encryption (SSE) with an AWS Key Management Service customer managed key.                                                                                                                                                                                                                                                                                                                                                                                                                      | Yes                  |
-| [CSE-KMS](../../../AmazonS3/latest/userguide/UsingClientSideEncryption.md#client-side-encryption-kms-managed-master-key-intro "../../../AmazonS3/latest/userguide/UsingClientSideEncryption.md#client-side-encryption-kms-managed-master-key-intro") | Client-side encryption (CSE) with a AWS KMS customer managed key. In<br>Athena, this option requires that you use a `CREATE<br>TABLE` statement with a `TBLPROPERTIES`<br>clause that specifies `'has_encrypted_data'='true'`<br>or `'encryption_option'='CSE_KMS'` with `'kms_key'='kms_key_arn'`.<br>For more information, see [Create tables<br>based on encrypted datasets in Amazon S3](creating-tables-based-on-encrypted-datasets-in-s3.md "creating-tables-based-on-encrypted-datasets-in-s3.md"). | No                   |
+| Encryption type                                                                                                                                                                                                                                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Cross-Region support |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
+| [SSE-S3](../../../AmazonS3/latest/userguide/UsingServerSideEncryption.md "../../../AmazonS3/latest/userguide/UsingServerSideEncryption.md")                                                                                                          | Server side encryption (SSE) with an Amazon S3-managed key.                                                                                                                                                                                                                                                                                                                                                                                                                                             | Yes                  |
+| [SSE-KMS](../../../AmazonS3/latest/userguide/UsingKMSEncryption.md "../../../AmazonS3/latest/userguide/UsingKMSEncryption.md")<br>(Recommended)                                                                                                      | Server-side encryption (SSE) with an AWS Key Management Service customer managed key.                                                                                                                                                                                                                                                                                                                                                                                                                   | Yes                  |
+| [CSE-KMS](../../../AmazonS3/latest/userguide/UsingClientSideEncryption.md#client-side-encryption-kms-managed-master-key-intro "../../../AmazonS3/latest/userguide/UsingClientSideEncryption.md#client-side-encryption-kms-managed-master-key-intro") | Client-side encryption (CSE) with a AWS KMS customer managed key. In<br>Athena, this option requires that you use a `CREATE<br>TABLE` statement with a `TBLPROPERTIES`<br>clause that specifies `'has_encrypted_data'='true'`<br>or `'encryption_option'='CSE_KMS'` with `'kms_key'='kms_key_arn'`.<br>For more information, see [Create tables based on encrypted datasets in Amazon S3](creating-tables-based-on-encrypted-datasets-in-s3.md "creating-tables-based-on-encrypted-datasets-in-s3.md"). | No                   |
 
 For more information about AWS KMS encryption with Amazon S3, see [What is AWS Key Management Service](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md") and [How Amazon Simple Storage Service (Amazon S3) uses AWS KMS](../../../kms/latest/developerguide/services-s3.md "../../../kms/latest/developerguide/services-s3.md") in
 the _AWS Key Management Service Developer Guide_. For more information about using SSE-KMS
@@ -97,9 +88,7 @@ The following encryption options aren't supported:
 To compare Amazon S3 encryption options, see [Protecting data using
 encryption](../../../AmazonS3/latest/userguide/UsingEncryption.md "../../../AmazonS3/latest/userguide/UsingEncryption.md") in the _Amazon Simple Storage Service User Guide_.
 
-### Tools for client-side
-
-encryption
+### Tools for client-side encryption
 
 For client-side encryption, note that two tools are available:
 
@@ -118,9 +107,7 @@ If you want to use Athena to query data that has been encrypted with the AWS
 Encryption SDK, you must download and decrypt your data, and then encrypt it
 again using the Amazon S3 Encryption Client.
 
-## Permissions to
-
-encrypted data in Amazon S3
+## Permissions to encrypted data in Amazon S3
 
 Depending on the type of encryption you use in Amazon S3, you might need to add
 permissions, also known as "Allow" actions, to your policies used in Athena:
@@ -163,12 +150,9 @@ For troubleshooting information about permissions when using Amazon S3 with Athe
 the [Permissions](troubleshooting-athena.md#troubleshooting-athena-permissions "troubleshooting-athena.md#troubleshooting-athena-permissions") section of the [Troubleshoot issues in Athena](troubleshooting-athena.md "troubleshooting-athena.md")
 topic.
 
-## Permissions to encrypted metadata in the AWS Glue
-
-Data Catalog
+## Permissions to encrypted metadata in the AWS Glue Data Catalog
 
 If you [encrypt metadata in
 the AWS Glue Data Catalog](../../../glue/latest/dg/encrypt-glue-data-catalog.md "../../../glue/latest/dg/encrypt-glue-data-catalog.md"), you must add `"kms:GenerateDataKey"`,
 `"kms:Decrypt"`, and `"kms:Encrypt"` actions to the
-policies you use for accessing Athena. For information, see [Configure access from Athena to
-encrypted metadata in the AWS Glue Data Catalog](access-encrypted-data-glue-data-catalog.md "access-encrypted-data-glue-data-catalog.md").
+policies you use for accessing Athena. For information, see [Configure access from Athena to encrypted metadata in the AWS Glue Data Catalog](access-encrypted-data-glue-data-catalog.md "access-encrypted-data-glue-data-catalog.md").

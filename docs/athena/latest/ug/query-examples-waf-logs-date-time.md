@@ -1,6 +1,4 @@
-# Query using date and
-
-time
+# Query using date and time
 
 The examples in this section include queries that use date and time values.
 
@@ -10,9 +8,7 @@ The examples in this section include queries that use date and time values.
 - [For a specified date range, count the number of IP addresses in five minute intervals](#waf-example-count-ip-addresses-in-date-range "#waf-example-count-ip-addresses-in-date-range")
 - [Count the number of X-Forwarded-For IP in the last 10 days](#waf-example-count-x-forwarded-for-ip "#waf-example-count-x-forwarded-for-ip")
 
-###### Example
-
-– Return the timestamp field in human-readable ISO 8601 format
+###### Example – Return the timestamp field in human-readable ISO 8601 format
 
 The following query uses the `from_unixtime` and
 `to_iso8601` functions to return the `timestamp` field
@@ -30,9 +26,7 @@ FROM waf_logs
 LIMIT 10;
 ```
 
-###### Example – Return records
-
-from the last 24 hours
+###### Example – Return records from the last 24 hours
 
 The following query uses a filter in the `WHERE` clause to return
 the HTTP source name, HTTP source ID, and HTTP request fields for records from
@@ -48,9 +42,7 @@ WHERE from_unixtime(timestamp/1000) > now() - interval '1' day
 LIMIT 10;
 ```
 
-###### Example
-
-– Return records for a specified date range and IP address
+###### Example – Return records for a specified date range and IP address
 
 The following query lists the records in a specified date range for a
 specified client IP address.
@@ -61,9 +53,7 @@ FROM waf_logs
 WHERE httprequest.clientip='53.21.198.66' AND "date" >= '2021/03/01' AND "date" < '2021/03/31'
 ```
 
-###### Example – For a specified date range,
-
-count the number of IP addresses in five minute intervals
+###### Example – For a specified date range, count the number of IP addresses in five minute intervals
 
 The following query counts, for a particular date range, the number of IP
 addresses in five minute intervals.
@@ -80,9 +70,7 @@ FROM test_dataset
 GROUP BY five_minutes_ts,"clientip"
 ```
 
-###### Example
-
-– Count the number of X-Forwarded-For IP in the last 10 days
+###### Example – Count the number of X-Forwarded-For IP in the last 10 days
 
 The following query filters the request headers and counts the number of
 X-Forwarded-For IP in the last 10 days.

@@ -1,6 +1,4 @@
-# Step 6: Connect to other data
-
-sources
+# Step 6: Connect to other data sources
 
 This tutorial used a data source in Amazon S3 in CSV format. For information about using
 Athena with AWS Glue, see [Use AWS Glue Data Catalog to connect to your data](data-sources-glue.md "data-sources-glue.md"). You can also connect Athena to a variety of data

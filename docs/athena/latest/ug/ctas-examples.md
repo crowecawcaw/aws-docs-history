@@ -259,8 +259,7 @@ The following example creates an Iceberg table with Parquet data files. The file
 partitioned by month using the `dt` column in `table1`. The
 example updates the retention properties on the table so that 10 snapshots are retained
 by default on every branch in the table. Snapshots within the past 7 days are also
-retained. For more information about Iceberg table properties in Athena, see [Specify table
-properties](querying-iceberg-creating-tables.md#querying-iceberg-table-properties "querying-iceberg-creating-tables.md#querying-iceberg-table-properties").
+retained. For more information about Iceberg table properties in Athena, see [Specify table properties](querying-iceberg-creating-tables.md#querying-iceberg-table-properties "querying-iceberg-creating-tables.md#querying-iceberg-table-properties").
 
 ```
 CREATE TABLE ctas_iceberg_parquet

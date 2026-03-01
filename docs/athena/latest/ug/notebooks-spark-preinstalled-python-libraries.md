@@ -1,6 +1,4 @@
-# List of preinstalled Python
-
-libraries
+# List of preinstalled Python libraries
 
 Preinstalled Python libraries include the following.
 
@@ -51,5 +49,4 @@ pyarrow==9.0.0
 - Currently, `pip install` is not supported in Athena for Spark
   sessions.
 
-For information on importing Python libraries to Amazon Athena for Apache Spark, see [Import files and Python libraries to
-Athena for Spark](notebooks-import-files-libraries.md "notebooks-import-files-libraries.md").
+For information on importing Python libraries to Amazon Athena for Apache Spark, see [Import files and Python libraries to Athena for Spark](notebooks-import-files-libraries.md "notebooks-import-files-libraries.md").

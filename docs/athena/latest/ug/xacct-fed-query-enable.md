@@ -19,15 +19,12 @@ ARN from a data administrator to add to your account. When configuration changes
 a connector in the originating account, the updated configuration is automatically applied
 to the shared instances of the connector in other user's accounts.
 
-## Considerations
-
-and limitations
+## Considerations and limitations
 
 - The cross-account federated query feature is available for non-Hive metastore
   data connectors that use a Lambda-based data source.
 - The feature is not available for the AWS Glue Data Catalog data source type. For
-  information about cross-account access to AWS Glue Data Catalogs, see [Configure cross-account
-  access to AWS Glue data catalogs](security-iam-cross-account-glue-catalog-access.md "security-iam-cross-account-glue-catalog-access.md").
+  information about cross-account access to AWS Glue Data Catalogs, see [Configure cross-account access to AWS Glue data catalogs](security-iam-cross-account-glue-catalog-access.md "security-iam-cross-account-glue-catalog-access.md").
 - If the response from your connector's Lambda function exceeds the Lambda
   response size limit of 6MB, Athena automatically encrypts, batches, and spills
   the response to an Amazon S3 bucket that you configure. The entity running the Athena
@@ -37,16 +34,12 @@ and limitations
   completes.
 - Using federated queries across AWS Regions is not supported.
 
-## Required
-
-permissions
+## Required permissions
 
 To set up the required permissions, actions must be taken in both Account A (`444455556666`) and
 Account B (`111122223333`).
 
-### Actions for
-
-Account A
+### Actions for Account A
 
 For data administrator Account A to share a Lambda function with data analyst
 Account B, Account B requires Lambda invoke function and spill bucket access.
@@ -124,9 +117,7 @@ JSON
  }
 ```
 
-### Actions for
-
-Account B
+### Actions for Account B
 
 For Account A to share its connector with Account B, Account B must create a role
 called `AthenaCrossAccountCreate-`account-A-id``

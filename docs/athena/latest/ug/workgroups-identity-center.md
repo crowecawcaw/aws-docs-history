@@ -97,8 +97,7 @@ The IAM user of the admin who creates the IAM Identity Center enabled workgroup 
 console must have the following policies attached.
 
 - The `AmazonAthenaFullAccess` managed policy. For details, see
-  [AWS managed policy:
-  AmazonAthenaFullAccess](managed-policies.md#amazonathenafullaccess-managed-policy "managed-policies.md#amazonathenafullaccess-managed-policy").
+  [AWS managed policy: AmazonAthenaFullAccess](managed-policies.md#amazonathenafullaccess-managed-policy "managed-policies.md#amazonathenafullaccess-managed-policy").
 - The following inline policy that allows IAM and IAM Identity Center actions:
 
 JSON

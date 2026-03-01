@@ -13,8 +13,7 @@ applications on Athena, you submit Spark code for processing and receive the res
 directly. Use the simplified notebook experience in Amazon Athena console to develop Apache
 Spark applications using Python or [Use Athena Spark APIs](notebooks-spark-api-list.md "notebooks-spark-api-list.md").
 
-For more information, see [Get started with Apache Spark on
-Amazon Athena](notebooks-spark-getting-started.md "notebooks-spark-getting-started.md").
+For more information, see [Get started with Apache Spark on Amazon Athena](notebooks-spark-getting-started.md "notebooks-spark-getting-started.md").
 
 Athena SQL and Apache Spark on Amazon Athena are serverless, so there is no infrastructure to
 set up or manage, and you pay only for the queries you run. Athena scales

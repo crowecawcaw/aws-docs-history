@@ -1,6 +1,4 @@
-# Instance profile
-
-credentials
+# Instance profile credentials
 
 This authentication type is used on Amazon EC2 instances. An _instance
 profile_ is a profile attached to an Amazon EC2 instance. Using an instance
@@ -9,9 +7,7 @@ Instance Metadata Service. This removes the need for developers to store credent
 permanently on the Amazon EC2 instance or worry about rotating or managing temporary
 credentials.
 
-## Credentials
-
-provider
+## Credentials provider
 
 The credentials provider that will be used to authenticate requests to AWS. Set
 the value of this parameter to `InstanceProfile`.

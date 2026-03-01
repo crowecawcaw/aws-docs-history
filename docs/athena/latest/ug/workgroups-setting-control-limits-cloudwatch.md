@@ -1,6 +1,4 @@
-# Configure per-query and
-
-per-workgroup data usage controls
+# Configure per-query and per-workgroup data usage controls
 
 Athena allows you to set two types of cost controls: per-query limit and per-workgroup
 limit. For each workgroup, you can set only one per-query limit and multiple
@@ -44,9 +42,7 @@ the same time in the same workgroup, it is possible that each query does not exc
 of the specified limits, but the total sum of data scanned exceeds the data usage limit
 per workgroup. In this case, an Amazon SNS alarm is sent to the user.
 
-###### To create a per-query data
-
-usage control
+###### To create a per-query data usage control
 
 The per-query control limit specifies the total amount of data scanned per
 query. If any query that runs in the workgroup exceeds the limit, it is
@@ -90,9 +86,7 @@ canceled. Canceled queries are charged according to [Amazon Athena pricing](http
 The default action is to cancel the query if it exceeds the limit.
 This setting cannot be changed. 6. Choose **Save** to immediatly apply your changes.
 
-###### To create or edit a
-
-per-workgroup data usage alert
+###### To create or edit a per-workgroup data usage alert
 
 You can set multiple alert thresholds when queries running in a workgroup
 scan a specified amount of data within a specific period. Alerts are

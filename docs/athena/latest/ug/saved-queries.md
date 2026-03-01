@@ -3,9 +3,7 @@
 You can use the Athena console to save, edit, run, rename, and delete the queries that you
 create in the query editor.
 
-## Considerations and
-
-limitations
+## Considerations and limitations
 
 - You can update the name, description, and query text of saved queries.
 - You can only update the queries in your own account.
@@ -27,9 +25,6 @@ necessary permissions through IAM role updates. For more information, see [Migra
 - [Run a saved query](saved-queries-run.md "saved-queries-run.md")
 - [Edit a saved query](saved-queries-edit.md "saved-queries-edit.md")
 - [Rename or delete a saved query](saved-queries-rename-or-delete.md "saved-queries-rename-or-delete.md")
-- [Rename an undisplayed saved
-  query](saved-queries-rename-not-displayed.md "saved-queries-rename-not-displayed.md")
-- [Delete an undisplayed saved
-  query](saved-queries-delete-not-displayed.md "saved-queries-delete-not-displayed.md")
-- [Use the Athena API to update saved
-  queries](saved-queries-update-with-api.md "saved-queries-update-with-api.md")
+- [Rename an undisplayed saved query](saved-queries-rename-not-displayed.md "saved-queries-rename-not-displayed.md")
+- [Delete an undisplayed saved query](saved-queries-delete-not-displayed.md "saved-queries-delete-not-displayed.md")
+- [Use the Athena API to update saved queries](saved-queries-update-with-api.md "saved-queries-update-with-api.md")

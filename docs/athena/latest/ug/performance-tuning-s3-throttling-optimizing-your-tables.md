@@ -1,6 +1,4 @@
-# Optimize your
-
-tables
+# Optimize your tables
 
 Structuring your data is important if you encounter throttling issues. Although Amazon S3
 can handle large amounts of data, throttling sometimes occurs because of the way the
@@ -9,9 +7,7 @@ data is structured.
 The following sections offer some suggestions on how to structure your data in Amazon S3 to
 avoid throttling issues.
 
-## Use
-
-partitioning
+## Use partitioning
 
 You can use partitioning to reduce throttling by limiting the amount of data that
 has to be accessed at any given time. By partitioning data on specific columns, you
@@ -39,12 +35,9 @@ over-partitioning can remove the benefits you gain by partitioning more judiciou
 If your data is heavily skewed to one partition value, and most queries use that
 value, then you may incur the additional overhead.
 
-For more information about partitioning in Athena, see [What is
-partitioning?](ctas-partitioning-and-bucketing-what-is-partitioning.md "ctas-partitioning-and-bucketing-what-is-partitioning.md")
+For more information about partitioning in Athena, see [What is partitioning?](ctas-partitioning-and-bucketing-what-is-partitioning.md "ctas-partitioning-and-bucketing-what-is-partitioning.md")
 
-## Bucket your
-
-data
+## Bucket your data
 
 Another way to partition your data is to bucket the data within a single
 partition. With bucketing, you specify one or more columns that contain rows that
@@ -57,8 +50,7 @@ cardinality (that is, that has many distinct values), is uniformly distributed, 
 is frequently used to filter the data. An example of a good column to use for
 bucketing is a primary key, such as an ID column.
 
-For more information about bucketing in Athena, see [What is
-bucketing?](ctas-partitioning-and-bucketing-what-is-bucketing.md "ctas-partitioning-and-bucketing-what-is-bucketing.md")
+For more information about bucketing in Athena, see [What is bucketing?](ctas-partitioning-and-bucketing-what-is-bucketing.md "ctas-partitioning-and-bucketing-what-is-bucketing.md")
 
 ## Use AWS Glue partition indexes
 
@@ -83,8 +75,7 @@ partition filtering. Then, you can query the table from Athena.
 
 For information about creating partition indexes in AWS Glue, see [Working with
 partition indexes in AWS Glue](../../../glue/latest/dg/partition-indexes.md "../../../glue/latest/dg/partition-indexes.md") in the _AWS Glue Developer Guide_. For information about adding a table property to
-enable partition filtering, see [Optimize queries with AWS Glue partition indexing and
-filtering](glue-best-practices-partition-index.md "glue-best-practices-partition-index.md").
+enable partition filtering, see [Optimize queries with AWS Glue partition indexing and filtering](glue-best-practices-partition-index.md "glue-best-practices-partition-index.md").
 
 ## Use data compression and file splitting
 
@@ -128,9 +119,7 @@ large number of columns, a small block or
 stripe size can cause more data to be scanned than necessary. In these cases, a
 larger block size can be more efficient.
 
-### Use
-
-ORC for complex types
+### Use ORC for complex types
 
 Currently, when you query columns stored in Parquet that have complex data
 types (for example, `array`, `map`, or
@@ -148,9 +137,7 @@ For more information about optimization of columnar storage formats in Athena,
 see the section "Optimize columnar data store generation" in the AWS Big Data
 Blog post [Top 10 Performance Tuning Tips for Amazon Athena](https://aws.amazon.com/blogs/big-data/top-10-performance-tuning-tips-for-amazon-athena/ "https://aws.amazon.com/blogs/big-data/top-10-performance-tuning-tips-for-amazon-athena/").
 
-## Use Iceberg
-
-tables
+## Use Iceberg tables
 
 Apache Iceberg is an open table format for very large analytic datasets that is
 designed for optimized usage on Amazon S3. You can use Iceberg tables to help reduce

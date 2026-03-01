@@ -17,8 +17,7 @@ If you have Lake Formation enabled in your account, the IAM role for your Athena
 
 ## Prerequisites
 
-- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data
-  source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
+- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
 
 ## Parameters
 
@@ -135,9 +134,7 @@ up a view over a time series.
 
 ![Configuring table properties in AWS Glue to set up a view over a time series.](images/connectors-timestream-1.png)
 
-## Required
-
-Permissions
+## Required Permissions
 
 For full details on the IAM policies that this
 connector requires, review the `Policies` section of the [athena-timestream.yaml](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-timestream/athena-timestream.yaml "https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-timestream/athena-timestream.yaml") file. The following list summarizes the required permissions.
@@ -163,9 +160,7 @@ performant.
 The Athena Timestream connector performs predicate pushdown to decrease the data scanned by the query. `LIMIT` clauses reduce the amount of data scanned, but if you don't provide a predicate, you should expect `SELECT` queries with a `LIMIT` clause to scan at least 16 MB of data. Selecting a subset of columns significantly speeds up query runtime and reduces data scanned.
 The Timestream connector is resilient to throttling due to concurrency.
 
-## Passthrough
-
-queries
+## Passthrough queries
 
 The Timestream connector supports [passthrough queries](federated-query-passthrough.md "federated-query-passthrough.md"). Passthrough
 queries use a table function to push your full query down to the data source for

@@ -23,10 +23,8 @@ response of the Athena [GetWorkGroup](../APIReference/API_GetWorkGroup.md "../AP
 action.
 
 - For a list of workgroup policies, see [Example workgroup policies](example-policies-workgroup.md "example-policies-workgroup.md").
-- For a list of tag-based policies for workgroups, see [Use tag-based IAM access control
-  policies](tags-access-control.md "tags-access-control.md").
-- For more information about creating IAM policies for workgroups, see [Use IAM policies to control workgroup
-  access](workgroups-iam-policy.md "workgroups-iam-policy.md").
+- For a list of tag-based policies for workgroups, see [Use tag-based IAM access control policies](tags-access-control.md "tags-access-control.md").
+- For more information about creating IAM policies for workgroups, see [Use IAM policies to control workgroup access](workgroups-iam-policy.md "workgroups-iam-policy.md").
 - For a complete list of Amazon Athena actions, see the API action names in the
   [Amazon Athena API Reference](../APIReference.md "../APIReference.md").
 - For more information about IAM policies, see [Creating policies with the visual editor](../../../IAM/latest/UserGuide/access_policies_create.md#access_policies_create-visual-editor "../../../IAM/latest/UserGuide/access_policies_create.md#access_policies_create-visual-editor") in the

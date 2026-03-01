@@ -20,9 +20,7 @@ identity provider.
 | -------------------------- | ------------------ | ----------------- | ------------------------------------------------------------- |
 | ExecutablePath             | Required           | `none`            | ExecutablePath=C:\Users\`user_name`\`external_credential.exe` |
 
-## Argument
-
-list
+## Argument list
 
 The list of arguments that you want to pass to the executable.
 

@@ -9,8 +9,7 @@ Athena engine versions, see [Athena engine versioning](engine-versions.md "engin
 ###### Topics
 
 - [Data types in Athena](data-types.md "data-types.md")
-- [DML queries, functions, and
-  operators](dml-queries-functions-operators.md "dml-queries-functions-operators.md")
+- [DML queries, functions, and operators](dml-queries-functions-operators.md "dml-queries-functions-operators.md")
 - [DDL statements](ddl-reference.md "ddl-reference.md")
 - [Considerations and
   limitations](other-notable-limitations.md "other-notable-limitations.md")

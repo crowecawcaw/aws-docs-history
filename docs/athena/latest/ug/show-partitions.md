@@ -9,8 +9,7 @@ SHOW PARTITIONS table_name
 ```
 
 - To show the partitions in a table and list them in a specific order, see the
-  [List partitions for a
-  specific table](querying-glue-catalog-listing-partitions.md "querying-glue-catalog-listing-partitions.md") section on the
+  [List partitions for a specific table](querying-glue-catalog-listing-partitions.md "querying-glue-catalog-listing-partitions.md") section on the
   [Query the AWS Glue Data Catalog](querying-glue-catalog.md "querying-glue-catalog.md") page.
 - To view the contents of a partition, see the [Query the data](partitions.md#query-the-data "partitions.md#query-the-data") section on the [Partition your data](partitions.md "partitions.md") page.
 - `SHOW PARTITIONS` does not list partitions that are projected by
@@ -18,16 +17,14 @@ SHOW PARTITIONS table_name
   projection, see [Use partition projection with Amazon Athena](partition-projection.md "partition-projection.md").
 - `SHOW PARTITIONS` lists the partitions in metadata, not the
   partitions in the actual file system. To update the metadata after you delete
-  partitions manually in Amazon S3, run [ALTER TABLE DROP
-  PARTITION](alter-table-drop-partition.md "alter-table-drop-partition.md").
+  partitions manually in Amazon S3, run [ALTER TABLE DROP PARTITION](alter-table-drop-partition.md "alter-table-drop-partition.md").
 
 ## Examples
 
 The following example query shows the partitions for the
 `flight_delays_csv` table, which shows flight table data from the US
 Department of Transportation. For more information about the example
-`flight_delays_csv` table, see [Lazy Simple SerDe for CSV, TSV, and custom-delimited
-files](lazy-simple-serde.md "lazy-simple-serde.md"). The table is partitioned by year.
+`flight_delays_csv` table, see [Lazy Simple SerDe for CSV, TSV, and custom-delimited files](lazy-simple-serde.md "lazy-simple-serde.md"). The table is partitioned by year.
 
 ```
 SHOW PARTITIONS flight_delays_csv
@@ -73,9 +70,7 @@ dt=2009-04-13-22-15
 ...
 ```
 
-### Listing partitions in sorted
-
-order
+### Listing partitions in sorted order
 
 To order the partitions in the results list, use the following `SELECT`
 syntax instead of `SHOW PARTITIONS`.
@@ -111,6 +106,5 @@ SELECT * FROM "flight_delays_csv$partitions" ORDER BY year
 ...
 ```
 
-For more information, see the [List partitions for a
-specific table](querying-glue-catalog-listing-partitions.md "querying-glue-catalog-listing-partitions.md") section on the [Query the AWS Glue Data Catalog](querying-glue-catalog.md "querying-glue-catalog.md")
+For more information, see the [List partitions for a specific table](querying-glue-catalog-listing-partitions.md "querying-glue-catalog-listing-partitions.md") section on the [Query the AWS Glue Data Catalog](querying-glue-catalog.md "querying-glue-catalog.md")
 page.

@@ -5,13 +5,9 @@ catalogs that you use with Athena. After you have defined one or more catalogs t
 Athena, you can reference those catalogs in your `aws athena` DDL and DML
 commands.
 
-## Using the AWS CLI to manage
+## Using the AWS CLI to manage Hive metastore catalogs
 
-Hive metastore catalogs
-
-### Registering a catalog:
-
-Create-data-catalog
+### Registering a catalog: Create-data-catalog
 
 To register a data catalog, you use the `create-data-catalog` command.
 Use the `name` parameter to specify the name that you want to use for the
@@ -35,9 +31,7 @@ $ aws athena create-data-catalog
  --region us-east-1
 ```
 
-### Showing catalog
-
-details: Get-data-catalog
+### Showing catalog details: Get-data-catalog
 
 To show the details of a catalog, pass the name of the catalog to the
 `get-data-catalog` command, as in the following example.
@@ -62,9 +56,7 @@ The following sample result is in JSON format.
 }
 ```
 
-### Listing registered
-
-catalogs: List-data-catalogs
+### Listing registered catalogs: List-data-catalogs
 
 To list the registered catalogs, use the `list-data-catalogs` command
 and optionally specify a Region, as in the following example. The catalogs listed
@@ -95,9 +87,7 @@ The following sample result is in JSON format.
 }
 ```
 
-### Updating a catalog:
-
-Update-data-catalog
+### Updating a catalog: Update-data-catalog
 
 To update a data catalog, use the `update-data-catalog` command, as in
 the following example. The command has been formatted for readability.
@@ -111,9 +101,7 @@ $ aws athena update-data-catalog
  --region us-east-1
 ```
 
-### Deleting a catalog:
-
-Delete-data-catalog
+### Deleting a catalog: Delete-data-catalog
 
 To delete a data catalog, use the `delete-data-catalog` command, as in
 the following example.
@@ -122,9 +110,7 @@ the following example.
 $ aws athena delete-data-catalog --name "hms-catalog-1" --region us-east-1
 ```
 
-### Showing database
-
-details: Get-database
+### Showing database details: Get-database
 
 To show the details of a database, pass the name of the catalog and the database
 to the `get-database` command, as in the following example.
@@ -148,9 +134,7 @@ The following sample result is in JSON format.
 }
 ```
 
-### Listing databases in a
-
-catalog: List-databases
+### Listing databases in a catalog: List-databases
 
 To list the databases in a catalog, use the `list-databases` command
 and optionally specify a Region, as in the following example.
@@ -188,9 +172,7 @@ The following sample result is in JSON format.
 }
 ```
 
-### Showing table
-
-details: Get-table-metadata
+### Showing table details: Get-table-metadata
 
 To show the metadata for a table, including column names and datatypes, pass the
 name of the catalog, database, and table name to the `get-table-metadata`
@@ -239,9 +221,7 @@ The following sample result is in JSON format.
 }
 ```
 
-### Showing metadata
-
-for all tables in a database: List-table-metadata
+### Showing metadata for all tables in a database: List-table-metadata
 
 To show the metadata for all tables in a database, pass the name of the catalog
 and database name to the `list-table-metadata` command. The
@@ -327,9 +307,7 @@ The following sample result is in JSON format.
 
 ```
 
-## Running DDL and DML
-
-statements
+## Running DDL and DML statements
 
 When you use the AWS CLI to run DDL and DML statements, you can pass the name of the
 Hive metastore catalog in one of two ways:

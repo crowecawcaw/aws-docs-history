@@ -1,6 +1,4 @@
-# Create and
-
-query a table for netflow logs
+# Create and query a table for netflow logs
 
 1. Modify the following sample DDL statement to conform to the structure of your
    netflow logs. You may need to update the statement to include the columns for
@@ -52,9 +50,7 @@ LOCATION 's3://amzn-s3-demo-bucket/`path_to_netflow_logs_folder`/';
    query completes, Athena registers the `network_firewall_netflow_logs`
    table, making the data that it points to ready for queries.
 
-## Example
-
-query
+## Example query
 
 The sample netflow log query in this section filters for events in which TLS
 inspection was performed.

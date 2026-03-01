@@ -7,9 +7,7 @@ you use a table function in your Athena query. You include the passthrough query
 the data source in one of the arguments to the table function. Pass through queries return a
 table that you can analyze using Athena SQL.
 
-## Supported
-
-connectors
+## Supported connectors
 
 The following Athena data source connectors support passthrough queries.
 
@@ -142,9 +140,7 @@ CREATE VIEW catalog.database.ViewName AS
 For information about the exact syntax to use with a particular connector, see the
 individual connector documentation.
 
-### Quotation mark
-
-usage
+### Quotation mark usage
 
 Argument values, including the query string that you pass, must be enclosed in
 single quotes, as in the following example.
@@ -197,9 +193,7 @@ CREATE VIEW AwsDataCatalog.default.example_view AS
     )
 ```
 
-## Opt out of
-
-query passthrough
+## Opt out of query passthrough
 
 To disable passthrough queries, add a Lambda environment variable named
 `enable_query_passthrough` and set it to `false`.

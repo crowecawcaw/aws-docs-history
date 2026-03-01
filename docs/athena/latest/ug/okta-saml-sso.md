@@ -1,6 +1,4 @@
-# Configure single sign-on using ODBC, SAML 2.0, and the Okta
-
-Identity Provider
+# Configure single sign-on using ODBC, SAML 2.0, and the Okta Identity Provider
 
 To connect to data sources, you can use Amazon Athena with identity providers (IdPs) like
 PingOne, Okta, OneLogin, and others. Starting with Athena ODBC driver version 1.1.13 and
@@ -18,9 +16,7 @@ Completing the steps in this tutorial requires the following:
 - An IAM Role that you want to use with SAML. For more information, see [Creating a role for SAML 2.0 federation](../../../IAM/latest/UserGuide/id_roles_create_for-idp_saml.md "../../../IAM/latest/UserGuide/id_roles_create_for-idp_saml.md") in the _IAM User Guide_.
 - An Okta account. For information, visit [okta.com](https://www.okta.com/ "https://www.okta.com/").
 
-## Creating an app
-
-integration in Okta
+## Creating an app integration in Okta
 
 First, use the Okta dashboard to create and configure a SAML 2.0 app for single
 sign-on to Athena.
@@ -76,9 +72,7 @@ Settings** section, enter the following values:
 When Okta creates the application, it also creates your login URL, which you
 will retrieve next.
 
-## Getting
-
-the login URL from the Okta dashboard
+## Getting the login URL from the Okta dashboard
 
 Now that your application has been created, you can obtain its login URL and other
 metadata from the Okta dashboard.

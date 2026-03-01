@@ -16,5 +16,4 @@ SHOW CREATE VIEW `view_name`
 SHOW CREATE VIEW orders_by_date
 ```
 
-See also [CREATE VIEW and CREATE PROTECTED MULTI
-DIALECT VIEW](create-view.md "create-view.md") and [DROP VIEW](drop-view.md "drop-view.md").
+See also [CREATE VIEW and CREATE PROTECTED MULTI DIALECT VIEW](create-view.md "create-view.md") and [DROP VIEW](drop-view.md "drop-view.md").

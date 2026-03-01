@@ -1,6 +1,4 @@
-# Perform time
-
-travel and version travel queries
+# Perform time travel and version travel queries
 
 Each Apache Iceberg table maintains a versioned manifest of the Amazon S3 objects that it
 contains. Previous versions of the manifest can be used for time travel and version travel
@@ -62,9 +60,7 @@ The `FOR SYSTEM_TIME AS OF` and `FOR SYSTEM_VERSION AS OF`
 clauses in Athena engine version 2 have been replaced by the `FOR TIMESTAMP AS OF` and
 `FOR VERSION AS OF` clauses in Athena engine version 3.
 
-### Retrieve the snapshot
-
-ID
+### Retrieve the snapshot ID
 
 You can use the Java [SnapshotUtil](https://iceberg.apache.org/javadoc/1.6.0/org/apache/iceberg/util/SnapshotUtil.html "https://iceberg.apache.org/javadoc/1.6.0/org/apache/iceberg/util/SnapshotUtil.html") class provided by Iceberg to retrieve the Iceberg snapshot
 ID, as in the following example.
@@ -92,9 +88,7 @@ Table table = catalog.loadTable(name);
 long oldestSnapshotIdAfter2022 = SnapshotUtil.oldestAncestorAfter(table, millis);
 ```
 
-## Combine time and
-
-version travel
+## Combine time and version travel
 
 You can use time travel and version travel syntax in the same query to specify
 different timing and versioning conditions, as in the following example.

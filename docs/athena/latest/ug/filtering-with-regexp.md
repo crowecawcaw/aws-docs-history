@@ -1,6 +1,4 @@
-# Find keywords in arrays using
-
-`regexp_like`
+# Find keywords in arrays using `regexp_like`
 
 The following examples illustrate how to search a dataset for a keyword within an
 element inside an array, using the [regexp_like](https://prestodb.io/docs/current/functions/regexp.html "https://prestodb.io/docs/current/functions/regexp.html")

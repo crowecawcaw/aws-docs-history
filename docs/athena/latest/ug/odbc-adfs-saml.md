@@ -1,6 +1,4 @@
-# Configure federated access to Amazon Athena for Microsoft AD FS
-
-users using an ODBC client
+# Configure federated access to Amazon Athena for Microsoft AD FS users using an ODBC client
 
 To set up federated access to Amazon Athena for Microsoft Active Directory Federation Services
 (AD FS) users using an ODBC client, you first establish trust between AD FS and your AWS
@@ -15,20 +13,15 @@ authorization (specifically, Athena and Amazon S3).
 
 Configuring AD FS access to Athena involves the following major steps:
 
-[1. Setting up
-an IAM SAML provider and role](#odbc-adfs-saml-setting-up-an-iam-saml-provider-and-role "#odbc-adfs-saml-setting-up-an-iam-saml-provider-and-role")
+[1. Setting up an IAM SAML provider and role](#odbc-adfs-saml-setting-up-an-iam-saml-provider-and-role "#odbc-adfs-saml-setting-up-an-iam-saml-provider-and-role")
 
 [2. Configuring AD FS](#odbc-adfs-saml-configuring-ad-fs "#odbc-adfs-saml-configuring-ad-fs")
 
-[3. Creating
-Active Directory users and groups](#odbc-adfs-saml-creating-active-directory-users-and-groups "#odbc-adfs-saml-creating-active-directory-users-and-groups")
+[3. Creating Active Directory users and groups](#odbc-adfs-saml-creating-active-directory-users-and-groups "#odbc-adfs-saml-creating-active-directory-users-and-groups")
 
-[4.
-Configuring the AD FS ODBC connection to Athena](#odbc-adfs-saml-configuring-the-ad-fs-odbc-connection-to-athena "#odbc-adfs-saml-configuring-the-ad-fs-odbc-connection-to-athena")
+[4. Configuring the AD FS ODBC connection to Athena](#odbc-adfs-saml-configuring-the-ad-fs-odbc-connection-to-athena "#odbc-adfs-saml-configuring-the-ad-fs-odbc-connection-to-athena")
 
-## 1. Setting up
-
-an IAM SAML provider and role
+## 1. Setting up an IAM SAML provider and role
 
 In this section, you add AD FS as a SAML provider to your AWS account and create an
 IAM role that your federated users can assume.
@@ -114,9 +107,7 @@ rules for the relying party. AD FS uses claim rules to form a SAML assertion tha
 sent to a relying party. The SAML assertion states that the information about the AD
 user is true, and that it has authenticated the user.
 
-### Adding a relying party
-
-trust
+### Adding a relying party trust
 
 To add a relying party trust in AD FS, you use the AD FS server manager.
 
@@ -263,9 +254,7 @@ information to create claim rule 3, and then choose
 
 ![Create the fourth claim rule.](images/odbc-adfs-saml-21.png)
 
-## 3. Creating
-
-Active Directory users and groups
+## 3. Creating Active Directory users and groups
 
 Now you are ready to create AD users that will access Athena, and AD groups to place
 them in so that you can control levels of access by group. After you create AD groups
@@ -325,9 +314,7 @@ following information:
 
 ![Creating a global security group in AD.](images/odbc-adfs-saml-29.png) 4. Choose **OK**.
 
-### Add AD users to
-
-appropriate groups
+### Add AD users to appropriate groups
 
 Now that you have created both an AD user and an AD group, you can add the user to
 the group.
@@ -356,9 +343,7 @@ of the AD group appears in the **Member of** list.
 ![AD group added to user properties.](images/odbc-adfs-saml-32.png) 7. Choose **Apply**, then choose
 **OK**.
 
-## 4.
-
-Configuring the AD FS ODBC connection to Athena
+## 4. Configuring the AD FS ODBC connection to Athena
 
 After you have created your AD users and groups, you are ready to use the ODBC Data
 Sources program in Windows to configure your Athena ODBC connection for AD FS.

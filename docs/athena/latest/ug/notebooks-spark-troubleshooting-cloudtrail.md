@@ -1,6 +1,4 @@
-# Use CloudTrail to troubleshoot Athena
-
-notebook API calls
+# Use CloudTrail to troubleshoot Athena notebook API calls
 
 To troubleshoot notebook API calls, you can examine Athena CloudTrail logs to investigate
 anomalies or discover actions initiated by users. For detailed information about using CloudTrail

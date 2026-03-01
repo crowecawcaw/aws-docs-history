@@ -1,6 +1,4 @@
-# Use search paths in
-
-path extractors
+# Use search paths in path extractors
 
 The SerDe property syntax for path extractor contains a
 `<path_extractor_expression>`:

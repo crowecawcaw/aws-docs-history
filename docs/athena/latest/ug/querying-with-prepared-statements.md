@@ -44,15 +44,12 @@ AS DATE)` for the parameter value will return the result.
 - Prepared statements are workgroup specific, and prepared statement names must
   be unique within the workgroup.
 - IAM permissions for prepared statements are required. For more information,
-  see [Configure access to prepared
-  statements](security-iam-athena-prepared-statements.md "security-iam-athena-prepared-statements.md").
+  see [Configure access to prepared statements](security-iam-athena-prepared-statements.md "security-iam-athena-prepared-statements.md").
 - Queries with execution parameters in the Athena console are limited to a
   maximum of 25 question marks.
 
 ###### Topics
 
 - [Use execution parameters](querying-with-prepared-statements-querying-using-execution-parameters.md "querying-with-prepared-statements-querying-using-execution-parameters.md")
-- [Use prepared
-  statements](querying-with-prepared-statements-querying.md "querying-with-prepared-statements-querying.md")
-- [Additional
-  resources](querying-with-prepared-statements-additional-resources.md "querying-with-prepared-statements-additional-resources.md")
+- [Use prepared statements](querying-with-prepared-statements-querying.md "querying-with-prepared-statements-querying.md")
+- [Additional resources](querying-with-prepared-statements-additional-resources.md "querying-with-prepared-statements-additional-resources.md")

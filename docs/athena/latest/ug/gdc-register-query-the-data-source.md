@@ -1,6 +1,4 @@
-# Query AWS Glue data catalogs in
-
-Athena
+# Query AWS Glue data catalogs in Athena
 
 To query data catalogs from Athena, do one of the following.
 

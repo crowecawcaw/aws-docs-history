@@ -15,8 +15,7 @@ workgroups to the reservation.
 Workgroups play an important role when you use capacity reservations. Workgroups allow you
 to organize queries into logical groupings or use cases. With capacity reservations, you selectively
 assign capacity to workgroups so that you control how the queries for each workgroup behave
-and how they are billed. For more information about workgroups, see [Use workgroups to control query
-access and costs](workgroups-manage-queries-control-costs.md "workgroups-manage-queries-control-costs.md").
+and how they are billed. For more information about workgroups, see [Use workgroups to control query access and costs](workgroups-manage-queries-control-costs.md "workgroups-manage-queries-control-costs.md").
 
 Assigning workgroups to capacity reservations lets you give priority to these queries because they run on your reserved capacity and do not count
 towards your DDL and DML query quota. For example, you can allocate capacity to a workgroup used for
@@ -52,9 +51,7 @@ reservation with 128 DPUs.
 For information about estimating your capacity requirements, see [Determine capacity requirements](capacity-management-requirements.md "capacity-management-requirements.md"). For pricing information, see
 [Amazon Athena pricing](https://aws.amazon.com/athena/pricing/ "https://aws.amazon.com/athena/pricing/").
 
-## Considerations and
-
-limitations
+## Considerations and limitations
 
 - You can use capacity reservations and per-query billing, based on data scanned, at the same time in the same account.
 - Queries run on capacity reservations do not count towards your DDL and DML query quota.
@@ -91,11 +88,9 @@ limitations
 ###### Topics
 
 - [Determine capacity requirements](capacity-management-requirements.md "capacity-management-requirements.md")
-- [Create capacity
-  reservations](capacity-management-creating-capacity-reservations.md "capacity-management-creating-capacity-reservations.md")
+- [Create capacity reservations](capacity-management-creating-capacity-reservations.md "capacity-management-creating-capacity-reservations.md")
 - [Control capacity usage](capacity-management-control-capacity-usage.md "capacity-management-control-capacity-usage.md")
 - [Automatically adjust capacity](capacity-management-automatically-adjust-capacity.md "capacity-management-automatically-adjust-capacity.md")
 - [Manage reservations](capacity-management-managing-reservations.md "capacity-management-managing-reservations.md")
-- [IAM policies for capacity
-  reservations](capacity-reservations-iam-policy.md "capacity-reservations-iam-policy.md")
+- [IAM policies for capacity reservations](capacity-reservations-iam-policy.md "capacity-reservations-iam-policy.md")
 - [Athena capacity reservation APIs](capacity-management-api-list.md "capacity-management-api-list.md")

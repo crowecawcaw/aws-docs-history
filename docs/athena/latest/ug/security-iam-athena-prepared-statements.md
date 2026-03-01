@@ -1,6 +1,4 @@
-# Configure access to prepared
-
-statements
+# Configure access to prepared statements
 
 This topic covers IAM permissions for prepared statements in Amazon Athena.
 Whenever you use IAM policies, make sure that you follow IAM best practices. For more information, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.

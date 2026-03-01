@@ -1,6 +1,4 @@
-# Create a table for CloudFront logs in Athena using
-
-manual partitioning with JSON
+# Create a table for CloudFront logs in Athena using manual partitioning with JSON
 
 ###### To create a table for CloudFront standard log file fields using a JSON format
 

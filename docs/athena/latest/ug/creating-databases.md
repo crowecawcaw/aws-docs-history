@@ -5,6 +5,5 @@ database, you create a query output location.
 
 ###### Topics
 
-- [Create a query output
-  location](creating-databases-prerequisites.md "creating-databases-prerequisites.md")
+- [Create a query output location](creating-databases-prerequisites.md "creating-databases-prerequisites.md")
 - [Create a database](creating-databases-query-editor.md "creating-databases-query-editor.md")

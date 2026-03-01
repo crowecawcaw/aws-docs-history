@@ -1,6 +1,4 @@
-# Use the AWS Serverless Application Repository to deploy a data
-
-source connector
+# Use the AWS Serverless Application Repository to deploy a data source connector
 
 To deploy a data source connector, you can use the [AWS Serverless Application Repository](https://aws.amazon.com/serverless/serverlessrepo/ "https://aws.amazon.com/serverless/serverlessrepo/") instead of using a
 AWS Glue connection.
@@ -15,9 +13,7 @@ that the connector requires, and then deploy the connector to your account. Then
 deploy the connector, you use the Athena console to make the data source available to
 Athena.
 
-## Deploying the
-
-connector to Your Account
+## Deploying the connector to Your Account
 
 ###### To use the AWS Serverless Application Repository to deploy a data source connector to your account
 

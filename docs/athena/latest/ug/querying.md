@@ -13,8 +13,7 @@ the managed query results option, the service automatically handles storage and 
 management, eliminating your need to configure a separate results bucket and automatically
 cleaning up results after a predetermined retention period. For more information, see [Managed query results](managed-results.md "managed-results.md").
 
-To set up an Amazon S3 query result location for the first time, see [Specify a query result
-location using the Athena console](query-results-specify-location-console.md "query-results-specify-location-console.md").
+To set up an Amazon S3 query result location for the first time, see [Specify a query result location using the Athena console](query-results-specify-location-console.md "query-results-specify-location-console.md").
 
 Output files are saved automatically for every query that runs. To access and view query
 output files using the Athena console, IAM principals (users and roles) need permission to
@@ -52,14 +51,9 @@ Athena `GetQueryResults` action is denied.
 
 - [Managed query results](managed-results.md "managed-results.md")
 - [Specify a query result location](query-results-specify-location.md "query-results-specify-location.md")
-- [Download query results files using the Athena
-  console](saving-query-results.md "saving-query-results.md")
-- [View recent queries in the Athena
-  console](queries-viewing-history.md "queries-viewing-history.md")
-- [Download multiple
-  recent queries to a CSV file](queries-downloading-multiple-recent-queries-to-csv.md "queries-downloading-multiple-recent-queries-to-csv.md")
-- [Configure recent query
-  display options](queries-recent-queries-configuring-options.md "queries-recent-queries-configuring-options.md")
-- [Keep your query history longer than 45
-  days](querying-keeping-query-history.md "querying-keeping-query-history.md")
+- [Download query results files using the Athena console](saving-query-results.md "saving-query-results.md")
+- [View recent queries in the Athena console](queries-viewing-history.md "queries-viewing-history.md")
+- [Download multiple recent queries to a CSV file](queries-downloading-multiple-recent-queries-to-csv.md "queries-downloading-multiple-recent-queries-to-csv.md")
+- [Configure recent query display options](queries-recent-queries-configuring-options.md "queries-recent-queries-configuring-options.md")
+- [Keep your query history longer than 45 days](querying-keeping-query-history.md "querying-keeping-query-history.md")
 - [Find query output files in Amazon S3](querying-finding-output-files.md "querying-finding-output-files.md")

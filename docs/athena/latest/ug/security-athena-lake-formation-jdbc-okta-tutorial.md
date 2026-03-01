@@ -1,6 +1,4 @@
-# Tutorial: Configure
-
-federated access for Okta users to Athena using Lake Formation and JDBC
+# Tutorial: Configure federated access for Okta users to Athena using Lake Formation and JDBC
 
 This tutorial shows you how to configure Okta, AWS Lake Formation, AWS Identity and Access Management permissions, and the
 Athena JDBC driver to enable SAML-based federated use of Athena. Lake Formation provides fine-grained
@@ -33,10 +31,8 @@ This tutorial assumes that you have done the following:
 - [Step 1: Create an Okta account](#security-athena-lake-formation-jdbc-okta-tutorial-step-1-create-an-okta-account "#security-athena-lake-formation-jdbc-okta-tutorial-step-1-create-an-okta-account")
 - [Step 2: Add users and groups to Okta](#security-athena-lake-formation-jdbc-okta-tutorial-step-2-set-up-an-okta-application-for-saml-authentication "#security-athena-lake-formation-jdbc-okta-tutorial-step-2-set-up-an-okta-application-for-saml-authentication")
 - [Step 3: Set up an Okta application for SAML authentication](#security-athena-lake-formation-jdbc-okta-tutorial-step-3-set-up-an-okta-application-for-saml-authentication "#security-athena-lake-formation-jdbc-okta-tutorial-step-3-set-up-an-okta-application-for-saml-authentication")
-- [Step 4: Create an AWS SAML Identity Provider and Lake Formation access IAM
-  role](#security-athena-lake-formation-jdbc-okta-tutorial-step-4-create-an-aws-saml-identity-provider-and-lake-formation-access-IAM-role "#security-athena-lake-formation-jdbc-okta-tutorial-step-4-create-an-aws-saml-identity-provider-and-lake-formation-access-IAM-role")
-- [Step 5: Add the IAM role and SAML Identity Provider to the Okta
-  application](#security-athena-lake-formation-jdbc-okta-tutorial-step-5-update-the-okta-application-with-the-aws-role-and-saml-identity-provider "#security-athena-lake-formation-jdbc-okta-tutorial-step-5-update-the-okta-application-with-the-aws-role-and-saml-identity-provider")
+- [Step 4: Create an AWS SAML Identity Provider and Lake Formation access IAM role](#security-athena-lake-formation-jdbc-okta-tutorial-step-4-create-an-aws-saml-identity-provider-and-lake-formation-access-IAM-role "#security-athena-lake-formation-jdbc-okta-tutorial-step-4-create-an-aws-saml-identity-provider-and-lake-formation-access-IAM-role")
+- [Step 5: Add the IAM role and SAML Identity Provider to the Okta application](#security-athena-lake-formation-jdbc-okta-tutorial-step-5-update-the-okta-application-with-the-aws-role-and-saml-identity-provider "#security-athena-lake-formation-jdbc-okta-tutorial-step-5-update-the-okta-application-with-the-aws-role-and-saml-identity-provider")
 - [Step 6: Grant user and group permissions through AWS Lake Formation](#security-athena-lake-formation-jdbc-okta-tutorial-step-6-grant-permissions-through-aws-lake-formation "#security-athena-lake-formation-jdbc-okta-tutorial-step-6-grant-permissions-through-aws-lake-formation")
 - [Step 7: Verify access through the Athena JDBC client](#security-athena-lake-formation-jdbc-okta-tutorial-step-7-verify-access-through-athena-jdbc-client "#security-athena-lake-formation-jdbc-okta-tutorial-step-7-verify-access-through-athena-jdbc-client")
 - [Conclusion](#security-athena-lake-formation-jdbc-okta-tutorial-conclusion "#security-athena-lake-formation-jdbc-okta-tutorial-conclusion")
@@ -230,9 +226,7 @@ metadata, which is in XML format, to a file. Give it a name that you recognize
 
 ![Saving the identity provider metadata.](images/security-athena-lake-formation-jdbc-okta-tutorial-14.png)
 
-## Step 4: Create an AWS SAML Identity Provider and Lake Formation access IAM
-
-role
+## Step 4: Create an AWS SAML Identity Provider and Lake Formation access IAM role
 
 In this step, you use the AWS Identity and Access Management (IAM) console to
 perform the following tasks:
@@ -414,9 +408,7 @@ arn:aws:iam::`<account-id>`:saml-provider/AthenaLakeFormationOkta
 
 6. Save the full ARN securely for later reference.
 
-## Step 5: Add the IAM role and SAML Identity Provider to the Okta
-
-application
+## Step 5: Add the IAM role and SAML Identity Provider to the Okta application
 
 In this step, you return to the Okta developer console and perform the following
 tasks:
@@ -459,9 +451,7 @@ attribute:
 where you will add the identity provider and IAM Role ARNs to the Okta
 application.
 
-###### To add the ARNs for the identity provider and IAM role to the Okta
-
-application
+###### To add the ARNs for the identity provider and IAM role to the Okta application
 
 1. For **Idp ARN and Role ARN**, enter the AWS identity
    provider ARN and role ARN as comma separated values in the format
@@ -521,7 +511,7 @@ user and group. You perform the following tasks:
 ![Choose Grant.](images/security-athena-lake-formation-jdbc-okta-tutorial-30.png) 5. In the **Grant permissions** dialog, enter the following
 information:
 
-    1. Under **SAML and Amazon Quick Suite users and groups**, enter
+    1. Under **SAML and Amazon Quick users and groups**, enter
      the Okta SAML user ARN in the following format:
 
 
@@ -554,7 +544,7 @@ Now you perform similar steps for the Okta group.
 2. From **Actions**, choose **Grant**.
 3. In the **Grant permissions** dialog, enter the following
    information:
-   1. Under **SAML and Amazon Quick Suite users and groups**, enter
+   1. Under **SAML and Amazon Quick users and groups**, enter
       the Okta SAML group ARN in the following format:
 
    ```
@@ -820,7 +810,7 @@ Now you return to the Lake Formation console to configure table permissions for 
 4. Choose **Actions**, **Grant**.
 5. In the **Grant Permissions** dialog, enter the following
    information:
-   - For **SAML and Amazon Quick Suite users and groups**, enter the
+   - For **SAML and Amazon Quick users and groups**, enter the
      Okta SAML lf-developer group ARN in the following format:
    - For **Columns**, **Choose filter
      type**, choose **Include columns**.

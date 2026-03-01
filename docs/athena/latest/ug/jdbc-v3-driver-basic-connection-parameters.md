@@ -1,6 +1,4 @@
-# Basic connection
-
-parameters
+# Basic connection parameters
 
 The following sections describe the basic connection parameters for the JDBC 3.x
 driver.

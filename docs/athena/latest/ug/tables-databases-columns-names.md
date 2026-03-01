@@ -2,9 +2,7 @@
 
 Use these guidelines for naming databases, tables, and columns in Athena.
 
-## Database, table, and
-
-column name requirements
+## Database, table, and column name requirements
 
 - Acceptable characters for database names, table names, and column names in
   AWS Glue must be a UTF-8 string and should be in lower case. Note that Athena
@@ -24,12 +22,9 @@ column name requirements
   the old database to create a database with the new name. Then you use
   definitions of the tables from the old database to re-create the tables in the
   new database. To do this, you can use the AWS CLI or AWS Glue SDK. For steps, see
-  [Use the AWS CLI to recreate an AWS Glue
-  database and its tables](glue-recreate-db-and-tables-cli.md "glue-recreate-db-and-tables-cli.md").
+  [Use the AWS CLI to recreate an AWS Glue database and its tables](glue-recreate-db-and-tables-cli.md "glue-recreate-db-and-tables-cli.md").
 
-## Use lower
-
-case for table names and table column names in Athena
+## Use lower case for table names and table column names in Athena
 
 Athena accepts mixed case in DDL and DML queries, but lower cases the names when it
 executes the query. For this reason, avoid using mixed case for table or column names,
@@ -43,9 +38,7 @@ the query.
 Database, table, and column names must be less than or equal to 255 characters
 long.
 
-## Names that begin with an
-
-underscore
+## Names that begin with an underscore
 
 When creating tables, use backticks to enclose table, view, or column names that begin
 with an underscore. For example:
@@ -56,9 +49,7 @@ CREATE EXTERNAL TABLE IF NOT EXISTS `_myunderscoretable`(
 LOCATION 's3://amzn-s3-demo-bucket/'
 ```
 
-## Table, view, or column names that
-
-begin with numbers
+## Table, view, or column names that begin with numbers
 
 When running `SELECT`, `CTAS`, or `VIEW` queries, put
 quotation marks around identifiers like table, view, or column names that start with a
@@ -70,9 +61,7 @@ SELECT "123columnone", "123columntwo"
 FROM "234table"
 ```
 
-## Column names and complex
-
-types
+## Column names and complex types
 
 For complex types, only alphanumeric characters, underscore (`_`), and
 period (`.`) are allowed in column names. To create a table and mappings for
@@ -88,9 +77,7 @@ statements, enclose them in backticks (`). To escape reserved keywords in SQL
 
 For more information, see [Escape reserved keywords in queries](reserved-words.md "reserved-words.md").
 
-## Additional
-
-resources
+## Additional resources
 
 For full database and table creation syntax, see the following pages.
 

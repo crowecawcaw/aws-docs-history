@@ -23,9 +23,7 @@ settings](workgroups-settings-override.md "workgroups-settings-override.md") opt
 workgroup settings take precedence over the applicable client-side settings when an IAM
 principal associated with that workgroup runs the query.
 
-## About previously
-
-created default locations
+## About previously created default locations
 
 Previously in Athena, if you ran a query without specifying a value for
 **Query result location**, and the query result location
@@ -45,7 +43,5 @@ locations remain valid and you can continue to use them.
 
 ###### Topics
 
-- [Specify a query result
-  location using the Athena console](query-results-specify-location-console.md "query-results-specify-location-console.md")
-- [Specify a query result
-  location using a workgroup](query-results-specify-location-workgroup.md "query-results-specify-location-workgroup.md")
+- [Specify a query result location using the Athena console](query-results-specify-location-console.md "query-results-specify-location-console.md")
+- [Specify a query result location using a workgroup](query-results-specify-location-workgroup.md "query-results-specify-location-workgroup.md")

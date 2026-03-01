@@ -1,6 +1,4 @@
-# Use CTAS and INSERT INTO to work around the 100 partition
-
-limit
+# Use CTAS and INSERT INTO to work around the 100 partition limit
 
 Athena has a limit of 100 partitions per `CREATE TABLE AS SELECT` ([CTAS](ctas.md "ctas.md")) query. Similarly, you can add a maximum
 of 100 partitions to a destination table with an [INSERT INTO](insert-into.md "insert-into.md")

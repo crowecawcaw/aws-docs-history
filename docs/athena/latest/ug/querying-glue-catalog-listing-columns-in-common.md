@@ -1,6 +1,4 @@
-# List the columns
-
-that specific tables have in common
+# List the columns that specific tables have in common
 
 You can list the columns that specific tables in a database have in common.
 

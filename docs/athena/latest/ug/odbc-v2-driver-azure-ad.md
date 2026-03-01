@@ -4,9 +4,7 @@ Azure AD is a SAML-based authentication plugin that works with Azure AD identity
 This plugin does not support multifactor authentication (MFA). If you require MFA support,
 consider using the `BrowserAzureAD` plugin instead.
 
-## Authentication
-
-Type
+## Authentication Type
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example** |
 | -------------------------- | ------------------ | ----------------- | ----------------------------- |

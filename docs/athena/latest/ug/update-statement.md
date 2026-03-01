@@ -12,5 +12,4 @@ To update the rows in an Iceberg table, use the following syntax.
 UPDATE [`db_name`.]`table_name` SET xx=yy[,...] [WHERE `predicate`]
 ```
 
-For more information and examples, see the `UPDATE` section of [Update Iceberg table
-data](querying-iceberg-updating-iceberg-table-data.md "querying-iceberg-updating-iceberg-table-data.md").
+For more information and examples, see the `UPDATE` section of [Update Iceberg table data](querying-iceberg-updating-iceberg-table-data.md "querying-iceberg-updating-iceberg-table-data.md").

@@ -1,6 +1,4 @@
-# Troubleshoot session
-
-errors
+# Troubleshoot session errors
 
 Use the information in this section to troubleshoot session issues.
 
@@ -39,9 +37,7 @@ After you manually stop a session, or if the session stops after an idle timeout
 (the default is 20 minutes), the value of **StateChangeReason**
 changes to **`Session was terminated per request`**.
 
-## Use logging to
-
-troubleshoot session start errors
+## Use logging to troubleshoot session start errors
 
 Custom configuration errors that occur during a session start are logged by [Amazon CloudWatch](../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md "../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md"). In your CloudWatch Logs, search for error messages from
 `AthenaSparkSessionErrorLogger` to troubleshoot a failed session
@@ -49,8 +45,7 @@ start.
 
 For more information about Spark logging, see [Log Spark application events in Athena](notebooks-spark-logging.md "notebooks-spark-logging.md").
 
-For more information about troubleshooting sessions in Athena for Spark, see [Troubleshoot session
-errors](notebooks-spark-troubleshooting-sessions.md "notebooks-spark-troubleshooting-sessions.md").
+For more information about troubleshooting sessions in Athena for Spark, see [Troubleshoot session errors](notebooks-spark-troubleshooting-sessions.md "notebooks-spark-troubleshooting-sessions.md").
 
 ## Specific session issues
 

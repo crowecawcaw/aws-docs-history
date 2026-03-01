@@ -12,9 +12,7 @@ compatibility with the JDBC 2.x driver. Because the parameter names have been
 improved to follow a clearer, more consistent naming convention, we recommend that
 you use them instead of the aliases, which have been deprecated.
 
-## Credentials
-
-provider
+## Credentials provider
 
 The credentials provider that will be used to authenticate requests to AWS. Set
 the value of this parameter to `AzureAD`.
@@ -56,9 +54,7 @@ The client ID of your Azure AD application.
 | --------------- | ---------------------- | -------------- | ------------- |
 | AzureAdClientId | client_id (deprecated) | Required       | none          |
 
-## Azure AD client
-
-secret
+## Azure AD client secret
 
 The client secret of your Azure AD application.
 

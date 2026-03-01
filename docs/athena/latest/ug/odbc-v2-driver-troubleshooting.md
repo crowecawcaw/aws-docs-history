@@ -19,8 +19,7 @@ help the support team understand your use case.
   about logging options for the ODBC 2.x driver, see [Logging options](odbc-v2-driver-logging-options.md "odbc-v2-driver-logging-options.md").
 - Connection string – (Required) Your ODBC
   connection string or a screen shot of the dialog box that shows the connection
-  parameters that you used. For information about connection parameters, see [Athena ODBC 2.x
-  connection parameters](odbc-v2-driver-connection-parameters.md "odbc-v2-driver-connection-parameters.md").
+  parameters that you used. For information about connection parameters, see [Athena ODBC 2.x connection parameters](odbc-v2-driver-connection-parameters.md "odbc-v2-driver-connection-parameters.md").
 - Issue steps – (Optional) If possible,
   include steps or a standalone program that can help reproduce the issue.
 - Query error information – (Optional) If you

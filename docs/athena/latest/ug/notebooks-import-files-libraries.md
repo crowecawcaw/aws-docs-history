@@ -1,6 +1,4 @@
-# Import files and Python libraries to
-
-Athena for Spark
+# Import files and Python libraries to Athena for Spark
 
 This document provides examples of how to import files and Python libraries to Amazon Athena
 for Apache Spark.
@@ -42,9 +40,7 @@ The examples use the following conventions.
 file1 file2
 ```
 
-## Import text
-
-files for use in calculations
+## Import text files for use in calculations
 
 The examples in this section show how to import text files for use in calculations in
 your notebooks in Athena for Spark.
@@ -129,9 +125,7 @@ Calculation completed.
 +---+---+-------+
 ```
 
-## Add Python
-
-files
+## Add Python files
 
 The examples in this section show how to add Python files and libraries to your Spark
 notebooks in Athena.
@@ -202,9 +196,7 @@ The `.zip` files that you import to Athena Spark may
 include only Python packages. For example, including packages with C-based
 files is not supported.
 
-###### To import a Python `.zip` file to your
-
-notebook
+###### To import a Python `.zip` file to your notebook
 
 1. On your local computer, in a desktop directory such as
    `\tmp`, create a directory called

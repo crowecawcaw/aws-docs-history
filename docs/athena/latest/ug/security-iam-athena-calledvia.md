@@ -7,9 +7,7 @@ a JSON policy to compare keys in the request context with key values that you sp
 your policy. _Global condition context keys_ are condition
 keys with an `aws:` prefix.
 
-## About the
-
-aws:CalledVia context key
+## About the aws:CalledVia context key
 
 You can use the [aws:CalledVia](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-calledvia "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-calledvia") global condition context key to compare
 the services in the policy with the services that made requests on behalf of the IAM

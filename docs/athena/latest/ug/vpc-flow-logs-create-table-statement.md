@@ -1,6 +1,4 @@
-# Create a table for Amazon VPC flow
-
-logs and query it
+# Create a table for Amazon VPC flow logs and query it
 
 The following procedure creates an Amazon VPC table for Amazon VPC flow logs. When you create a
 flow log with a custom format, you create a table with fields that match the fields that
@@ -10,8 +8,7 @@ them.
 ###### To create an Athena table for Amazon VPC flow logs
 
 1. Enter a DDL statement like the following into the Athena console query editor,
-   following the guidelines in the [Considerations and
-   limitations](vpc-flow-logs.md#vpc-flow-logs-common-considerations "vpc-flow-logs.md#vpc-flow-logs-common-considerations") section. The sample
+   following the guidelines in the [Considerations and limitations](vpc-flow-logs.md#vpc-flow-logs-common-considerations "vpc-flow-logs.md#vpc-flow-logs-common-considerations") section. The sample
    statement creates a table that has the columns for Amazon VPC flow logs versions 2
    through 5 as documented in [Flow log
    records](../../../vpc/latest/userguide/flow-logs.md#flow-log-records "../../../vpc/latest/userguide/flow-logs.md#flow-log-records"). If you use a different set of columns or order of columns,
@@ -60,8 +57,7 @@ TBLPROPERTIES ("skip.header.line.count"="1");
 Note the following points:
 
     * The query specifies `ROW FORMAT DELIMITED` and omits
-     specifying a SerDe. This means that the query uses the [Lazy Simple SerDe for CSV, TSV, and custom-delimited
-     files](lazy-simple-serde.md "lazy-simple-serde.md"). In
+     specifying a SerDe. This means that the query uses the [Lazy Simple SerDe for CSV, TSV, and custom-delimited files](lazy-simple-serde.md "lazy-simple-serde.md"). In
      this query, fields are terminated by a space.
     * The `PARTITIONED BY` clause uses the `date`
      type. This makes it possible to use mathematical operators in queries to
@@ -102,9 +98,7 @@ LOCATION 's3://amzn-s3-demo-bucket/`prefix`/AWSLogs/`{account_id}`/vpcflowlogs/`
 
 ```
 
-## Example queries for the vpc_flow_logs
-
-table
+## Example queries for the vpc_flow_logs table
 
 Use the query editor in the Athena console to run SQL statements on the table that
 you create. You can save the queries, view previous queries, or download query

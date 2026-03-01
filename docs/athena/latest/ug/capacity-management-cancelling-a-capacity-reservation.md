@@ -1,6 +1,4 @@
-# Cancel a
-
-capacity reservation
+# Cancel a capacity reservation
 
 If you no longer want to use a capacity reservation, you can cancel it. Queries
 that are still running in the workgroups that were using the reservation will be

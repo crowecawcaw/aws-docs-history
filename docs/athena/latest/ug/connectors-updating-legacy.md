@@ -1,8 +1,6 @@
 # Legacy connections
 
-## Find the latest
-
-Athena Query Federation version
+## Find the latest Athena Query Federation version
 
 The latest version number of Athena data source connectors corresponds to the latest
 Athena Query Federation version. In certain cases, the GitHub releases can be slightly
@@ -21,9 +19,7 @@ newer than what is available on the AWS Serverless Application Repository (SAR).
 For example, the release number for **Release v2023.8.3 of Athena Query
 Federation** is 2023.8.3.
 
-## Find and
-
-note resource names
+## Find and note resource names
 
 In preparation for the upgrade, you must find and note the following
 information:
@@ -61,9 +57,7 @@ name is **DynamoDbTestApp**. 14. Stay on the Lambda console page for your applic
 the steps in **Finding the version of the connector that you are
 using**.
 
-## Find the
-
-version of the connector that you are using
+## Find the version of the connector that you are using
 
 Follow these steps to find the version of the connector that you are using.
 
@@ -92,9 +86,7 @@ applications-AthenaCloudwatchConnector-versions-2021.42.1/15151159...
    (for example, **2021.42.1**). This is the version for your
    connector.
 
-## Deploy the new
-
-version of your connector
+## Deploy the new version of your connector
 
 Follow these steps to deploy a new version of your connector.
 

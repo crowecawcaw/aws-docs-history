@@ -1,6 +1,4 @@
-# Use dynamic ID
-
-partitioning
+# Use dynamic ID partitioning
 
 When your data is partitioned by a property with high cardinality or when the values
 cannot be known in advance, you can use the `injected` projection type.
@@ -22,9 +20,7 @@ with the `injected` projection type, the following must be true:
  static equality conditions, and at least one such condition must be
  present.`**
 
-## When to use the
-
-`injected` projection type
+## When to use the `injected` projection type
 
 Imagine you have a data set that consists of events from IoT devices, partitioned
 on the devices' IDs. This data set has the following characteristics:

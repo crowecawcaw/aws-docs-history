@@ -23,7 +23,7 @@ Blog post [How to use Amazon Athena queries to analyze AWS WAF logs and provide 
 needed for threat detection](https://aws.amazon.com/blogs/networking-and-content-delivery/how-to-use-amazon-athena-queries-to-analyze-aws-waf-logs-and-provide-the-visibility-needed-for-threat-detection/ "https://aws.amazon.com/blogs/networking-and-content-delivery/how-to-use-amazon-athena-queries-to-analyze-aws-waf-logs-and-provide-the-visibility-needed-for-threat-detection/").
 
 For an example of how to aggregate AWS WAF logs into a central data lake repository and
-query them with Athena, see the AWS Big Data Blog post [Analyzing AWS WAF logs with OpenSearch Service, Amazon Athena, and Quick Suite](https://aws.amazon.com/blogs/big-data/analyzing-aws-waf-logs-with-amazon-es-amazon-athena-and-amazon-quicksight/ "https://aws.amazon.com/blogs/big-data/analyzing-aws-waf-logs-with-amazon-es-amazon-athena-and-amazon-quicksight/").
+query them with Athena, see the AWS Big Data Blog post [Analyzing AWS WAF logs with OpenSearch Service, Amazon Athena, and Quick](https://aws.amazon.com/blogs/big-data/analyzing-aws-waf-logs-with-amazon-es-amazon-athena-and-amazon-quicksight/ "https://aws.amazon.com/blogs/big-data/analyzing-aws-waf-logs-with-amazon-es-amazon-athena-and-amazon-quicksight/").
 
 This topic provides example `CREATE TABLE` statements for partition projection,
 manual partitioning, and one that does not uses any partitioning.
@@ -38,10 +38,7 @@ type.
 
 ###### Topics
 
-- [Create a table for AWS WAF
-  S3 logs in Athena using partition projection](create-waf-table-partition-projection.md "create-waf-table-partition-projection.md")
-- [Create a table for AWS WAF
-  S3 logs in Athena using manual partition](create-waf-table-manual-partition.md "create-waf-table-manual-partition.md")
-- [Create a table for AWS WAF logs without
-  partitioning](create-waf-table.md "create-waf-table.md")
+- [Create a table for AWS WAF S3 logs in Athena using partition projection](create-waf-table-partition-projection.md "create-waf-table-partition-projection.md")
+- [Create a table for AWS WAF S3 logs in Athena using manual partition](create-waf-table-manual-partition.md "create-waf-table-manual-partition.md")
+- [Create a table for AWS WAF logs without partitioning](create-waf-table.md "create-waf-table.md")
 - [Example queries for AWS WAF logs](query-examples-waf-logs.md "query-examples-waf-logs.md")

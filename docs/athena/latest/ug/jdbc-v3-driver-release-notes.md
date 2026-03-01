@@ -95,8 +95,7 @@ Released 2025-02-18
 - Result Fetcher – The driver now
   automatically selects the fastest method to download query results. This
   removes the need to manually configure the fetcher in most situations. For
-  more information, see [Result fetching
-  parameters](jdbc-v3-driver-advanced-connection-parameters.md#jdbc-v3-driver-result-fetching-parameters "jdbc-v3-driver-advanced-connection-parameters.md#jdbc-v3-driver-result-fetching-parameters").
+  more information, see [Result fetching parameters](jdbc-v3-driver-advanced-connection-parameters.md#jdbc-v3-driver-result-fetching-parameters "jdbc-v3-driver-advanced-connection-parameters.md#jdbc-v3-driver-result-fetching-parameters").
 
 ### Fixes
 
@@ -121,8 +120,7 @@ Released 2024-10-30
 
 - DataZone authentication – Added
   support for the DataZone authentication plugins `DataZoneIdC` and
-  `DataZoneIAM`. For more information, see [DataZone IdC Credentials Provider](jdbc-v3-driver-datazone-idc.md "jdbc-v3-driver-datazone-idc.md") and [DataZone IAM Credentials
-  Provider](jdbc-v3-driver-datazone-iamcp.md "jdbc-v3-driver-datazone-iamcp.md").
+  `DataZoneIAM`. For more information, see [DataZone IdC Credentials Provider](jdbc-v3-driver-datazone-idc.md "jdbc-v3-driver-datazone-idc.md") and [DataZone IAM Credentials Provider](jdbc-v3-driver-datazone-iamcp.md "jdbc-v3-driver-datazone-iamcp.md").
 - Network timeout – The network
   timeout can now be set using the `NetworkTimeoutMillis`
   connection parameter. Previously it could be set only on the
@@ -172,8 +170,7 @@ Released 2024-07-03
 
 - JWT credentials provider – Added
   support for user-specified session durations. For more information, see
-  [Role session
-  duration](jdbc-v3-driver-jwt-credentials.md#jdbc-v3-driver-jwt-role-session-duration "jdbc-v3-driver-jwt-credentials.md#jdbc-v3-driver-jwt-role-session-duration").
+  [Role session duration](jdbc-v3-driver-jwt-credentials.md#jdbc-v3-driver-jwt-role-session-duration "jdbc-v3-driver-jwt-credentials.md#jdbc-v3-driver-jwt-role-session-duration").
 
 ### Fixes
 

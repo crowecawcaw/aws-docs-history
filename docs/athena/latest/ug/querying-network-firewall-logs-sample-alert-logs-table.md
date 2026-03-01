@@ -1,6 +1,4 @@
-# Create and
-
-query a table for alert logs
+# Create and query a table for alert logs
 
 1. Modify the following sample DDL statement to conform to the structure of your
    alert log. You may need to update the statement to include the columns for the
@@ -66,9 +64,7 @@ CREATE EXTERNAL TABLE network_firewall_alert_logs (
    query completes, Athena registers the `network_firewall_alert_logs`
    table, making the data that it points to ready for queries.
 
-## Example
-
-query
+## Example query
 
 The sample alert log query in this section filters for events in which TLS
 inspection was performed that have alerts with a severity level of 2 or

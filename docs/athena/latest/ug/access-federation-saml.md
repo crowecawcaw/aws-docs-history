@@ -24,10 +24,8 @@ that support SAML 2.0. For information, see [Connect to Amazon Athena with JDBC]
 ###### Topics
 
 - [Before you begin](#access-federation-before-you-begin "#access-federation-before-you-begin")
-- [Understand the authentication
-  process](#access-federation-diagram "#access-federation-diagram")
-- [Procedure: Enable SAML-based federated
-  access to the Athena API](#access-federation-procedure "#access-federation-procedure")
+- [Understand the authentication process](#access-federation-diagram "#access-federation-diagram")
+- [Procedure: Enable SAML-based federated access to the Athena API](#access-federation-procedure "#access-federation-procedure")
 
 ## Before you begin
 
@@ -39,9 +37,7 @@ Before you begin, complete the following prerequisites:
   clients that are used to access Athena. The driver must include support for
   federated access compatible with SAML 2.0. For information, see [Connect to Amazon Athena with JDBC](connect-with-jdbc.md "connect-with-jdbc.md") and [Connect to Amazon Athena with ODBC](connect-with-odbc.md "connect-with-odbc.md").
 
-## Understand the authentication
-
-process
+## Understand the authentication process
 
 The following diagram illustrates the authentication process of federated access to
 the Athena API.
@@ -70,9 +66,7 @@ the Athena API.
 6.  The client application uses the temporary security credentials to call Athena
     API operations, allowing your users to access Athena API operations.
 
-## Procedure: Enable SAML-based federated
-
-access to the Athena API
+## Procedure: Enable SAML-based federated access to the Athena API
 
 This procedure establishes trust between your organization's IdP and your AWS account to
 enable SAML-based federated access to the Amazon Athena API operation.

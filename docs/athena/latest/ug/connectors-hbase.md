@@ -27,8 +27,7 @@ It supports data access controls defined in Lake Formation at the catalog, datab
 
 ## Prerequisites
 
-- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data
-  source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
+- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
 
 ## Parameters
 
@@ -103,9 +102,7 @@ aws glue describe-connection-type --connection-type HBASE
   table names in HBase. The default is `false`. Use if
   your query contains uppercase table names.
 
-#### Specifying
-
-connection strings
+#### Specifying connection strings
 
 You can provide one or more properties that define the HBase connection details
 for the HBase instances that you use with the connector. To do this, set a Lambda
@@ -154,9 +151,7 @@ Any part of the connection string that is enclosed by the `${
 you specify a secret name that the connector cannot find in Secrets Manager, the connector
 does not replace the text.
 
-## Setting
-
-up databases and tables in AWS Glue
+## Setting up databases and tables in AWS Glue
 
 The connector's built-in schema inference supports only values that are serialized in
 HBase as strings (for example, `String.valueOf(int)`). Because the
@@ -191,9 +186,7 @@ conventions is optional but not required.
 
 2. Make sure that you use the data types appropriate for AWS Glue as listed in this document.
 
-### Modeling column
-
-families
+### Modeling column families
 
 The Athena HBase connector supports two ways to model HBase column families: fully
 qualified (flattened) naming like `family:column`, or using
@@ -264,9 +257,7 @@ the data scanned by the query. However, selecting a subset of columns sometimes 
 HBase is prone to query failures and variable query execution times. You might have to
 retry your queries multiple times for them to succeed. The HBase connector is resilient to throttling due to concurrency.
 
-## Passthrough
-
-queries
+## Passthrough queries
 
 The HBase connector supports [passthrough queries](federated-query-passthrough.md "federated-query-passthrough.md") and is NoSQL
 based. For information about querying Apache HBase using filtering, see [Filter

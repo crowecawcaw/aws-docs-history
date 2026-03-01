@@ -5,9 +5,7 @@ provider and supports multi-factor authentication. Unlike the standard Azure AD 
 plugin does not require a user name, password, or client secret in the connection
 parameters.
 
-## Authentication
-
-Type
+## Authentication Type
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example**        |
 | -------------------------- | ------------------ | ----------------- | ------------------------------------ |
@@ -24,9 +22,7 @@ roles, see [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../.
 | -------------------------- | ------------------ | ----------------- | ---------------------------------------------------- |
 | preferred_role             | Optional           | `none`            | `preferred_role=arn:aws:IAM::123456789012:id/user1;` |
 
-## Session
-
-duration
+## Session duration
 
 The duration, in seconds, of the role session. For more information about session
 duration, see [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") in the

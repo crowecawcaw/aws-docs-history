@@ -12,9 +12,7 @@ queries against highly partitioned tables. Depending on the specific characteris
 query and underlying data, partition projection can significantly reduce query runtime for
 queries that are constrained on partition metadata retrieval.
 
-## Understand partition
-
-pruning vs. partition projection
+## Understand partition pruning vs. partition projection
 
 Partition pruning gathers metadata and "prunes" it to only the partitions that apply
 to your query. This often speeds up queries. Athena uses partition pruning for all tables
@@ -58,9 +56,7 @@ Scenarios in which partition projection is useful include the following:
   your AWS Glue Data Catalog or Hive metastore, and your queries read only small parts of
   it.
 
-### Projectable partition
-
-structures
+### Projectable partition structures
 
 Partition projection is most easily configured when your partitions follow a
 predictable pattern such as, but not limited to, the following:
@@ -78,19 +74,14 @@ predictable pattern such as, but not limited to, the following:
   logs typically have a known structure whose partition scheme you can specify
   in AWS Glue and that Athena can therefore use for partition projection.
 
-### How to customize
-
-the partition path template
+### How to customize the partition path template
 
 By default, Athena builds partition locations using the form
 `s3://amzn-s3-demo-bucket/`<table-root>`/partition-col-1=`<partition-col-1-val>`/partition-col-2=`<partition-col-2-val>`/`,
 but if your data is organized differently, Athena offers a mechanism for customizing
-this path template. For steps, see [How to
-specify custom S3 storage locations](partition-projection-setting-up.md#partition-projection-specifying-custom-s3-storage-locations "partition-projection-setting-up.md#partition-projection-specifying-custom-s3-storage-locations").
+this path template. For steps, see [How to specify custom S3 storage locations](partition-projection-setting-up.md#partition-projection-specifying-custom-s3-storage-locations "partition-projection-setting-up.md#partition-projection-specifying-custom-s3-storage-locations").
 
-## Considerations and
-
-limitations
+## Considerations and limitations
 
 The following considerations apply:
 
@@ -128,8 +119,6 @@ of your queries in Athena.
 ###### Topics
 
 - [Set up partition projection](partition-projection-setting-up.md "partition-projection-setting-up.md")
-- [Supported types for partition
-  projection](partition-projection-supported-types.md "partition-projection-supported-types.md")
-- [Use dynamic ID
-  partitioning](partition-projection-dynamic-id-partitioning.md "partition-projection-dynamic-id-partitioning.md")
+- [Supported types for partition projection](partition-projection-supported-types.md "partition-projection-supported-types.md")
+- [Use dynamic ID partitioning](partition-projection-dynamic-id-partitioning.md "partition-projection-dynamic-id-partitioning.md")
 - [Amazon Data Firehose example](partition-projection-kinesis-firehose-example.md "partition-projection-kinesis-firehose-example.md")

@@ -8,16 +8,11 @@ To escape reserved keywords in DDL statements, enclose them in backticks (`). To
  reserved keywords in SQL `SELECT` statements and in queries on [views](views.md "views.md"), enclose them in double quotes
 ('').
 
-- [Reserved keywords to escape in DDL
-  statements](#list-of-ddl-reserved-words "#list-of-ddl-reserved-words")
-- [Reserved keywords to escape in SQL
-  SELECT statements](#list-of-reserved-words-sql-select "#list-of-reserved-words-sql-select")
-- [Examples of queries with reserved
-  words](#examples-reserved-words "#examples-reserved-words")
+- [Reserved keywords to escape in DDL statements](#list-of-ddl-reserved-words "#list-of-ddl-reserved-words")
+- [Reserved keywords to escape in SQL SELECT statements](#list-of-reserved-words-sql-select "#list-of-reserved-words-sql-select")
+- [Examples of queries with reserved words](#examples-reserved-words "#examples-reserved-words")
 
-## Reserved keywords to escape in DDL
-
-statements
+## Reserved keywords to escape in DDL statements
 
 Athena uses the following list of reserved keywords in its DDL statements. If you use
 them without escaping them, Athena issues an error. To escape them, enclose them in
@@ -49,9 +44,7 @@ USING, UTC_TIMESTAMP, VALUES, VARCHAR, VIEWS, WHEN, WHERE,
 WINDOW, WITH
 ```
 
-## Reserved keywords to escape in SQL
-
-SELECT statements
+## Reserved keywords to escape in SQL SELECT statements
 
 Athena uses the following list of reserved keywords in SQL `SELECT`
 statements and in queries on views.
@@ -74,9 +67,7 @@ ROLLUP, SELECT, SKIP, TABLE, THEN, TRIM, TRUE, UESCAPE, UNION,
 UNNEST, USING, VALUES, WHEN, WHERE, WITH
 ```
 
-## Examples of queries with reserved
-
-words
+## Examples of queries with reserved words
 
 The query in the following example uses backticks (`) to escape the DDL-related
 reserved keywords _partition_ and _date_ that are

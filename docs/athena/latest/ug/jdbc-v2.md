@@ -5,8 +5,7 @@ applications, such as [SQL workbench](http://www.sql-workbench.eu/downloads.html
 do this, use the Amazon S3 links on this page to download, install, and configure the Athena JDBC
 2.x driver. For information about building the JDBC connection URL, see the downloadable
 [JDBC driver installation and configuration guide](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/SimbaAthenaJDBC-2.2.2.1000/docs/Simba+Amazon+Athena+JDBC+Connector+Install+and+Configuration+Guide.pdf "https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/SimbaAthenaJDBC-2.2.2.1000/docs/Simba+Amazon+Athena+JDBC+Connector+Install+and+Configuration+Guide.pdf"). For permissions information,
-see [Control access through JDBC and ODBC
-connections](policy-actions.md "policy-actions.md"). To submit feedback
+see [Control access through JDBC and ODBC connections](policy-actions.md "policy-actions.md"). To submit feedback
 regarding the JDBC driver, email [athena-feedback@amazon.com](mailto:athena-feedback@amazon.com "mailto:athena-feedback@amazon.com"). Starting with version 2.0.24, two versions of the
 driver are available: one that includes the AWS SDK, and one that does not.
 
@@ -25,8 +24,7 @@ during column initialization`**.
   Add the `athena:GetQueryResultsStream` policy action to the IAM
   principals that use the JDBC driver. This policy action is not exposed directly
   with the API. It is used only with the ODBC and JDBC drivers as part of
-  streaming results support. For an example policy, see [AWS managed policy:
-  AWSQuicksightAthenaAccess](managed-policies.md#awsquicksightathenaaccess-managed-policy "managed-policies.md#awsquicksightathenaaccess-managed-policy").
+  streaming results support. For an example policy, see [AWS managed policy: AWSQuicksightAthenaAccess](managed-policies.md#awsquicksightathenaaccess-managed-policy "managed-policies.md#awsquicksightathenaaccess-managed-policy").
 - Using the JDBC driver for multiple data
   catalogs – To use the JDBC driver for multiple data catalogs
   with Athena (for example, when using an [external Hive metastore](connect-to-data-source-hive.md "connect-to-data-source-hive.md")
@@ -55,9 +53,7 @@ accompanying documentation, release notes, licenses, and agreements.
 
 - [SimbaAthenaJDBC-2.2.2.1000.zip](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/SimbaAthenaJDBC-2.2.2.1000/SimbaAthenaJDBC-2.2.2.1000.zip "https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/SimbaAthenaJDBC-2.2.2.1000/SimbaAthenaJDBC-2.2.2.1000.zip")
 
-## JDBC 2.x driver without AWS
-
-SDK
+## JDBC 2.x driver without AWS SDK
 
 The JDBC driver version 2.2.2 complies with the JDBC API 4.2 data standard and
 requires JDK 8.0 or later. For information about checking the version of Java Runtime
@@ -74,9 +70,7 @@ release notes, licenses, and agreements. It does not include the AWS SDK.
 
 - [SimbaAthenaJDBC-2.2.2.1001.zip](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/SimbaAthenaJDBC-2.2.2.1001/SimbaAthenaJDBC-2.2.2.1001.zip "https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/SimbaAthenaJDBC-2.2.2.1001/SimbaAthenaJDBC-2.2.2.1001.zip")
 
-## JDBC 2.x driver release notes,
-
-license agreement, and notices
+## JDBC 2.x driver release notes, license agreement, and notices
 
 After you download the version you need, read the release notes, and review the
 License Agreement and Notices.

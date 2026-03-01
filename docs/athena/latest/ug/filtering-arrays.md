@@ -51,9 +51,7 @@ This query returns:
 +--------------+
 ```
 
-## Use the `filter`
-
-function
+## Use the `filter` function
 
 ```
  filter(ARRAY [`list_of_values`], `boolean_function`)

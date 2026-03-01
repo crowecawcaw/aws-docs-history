@@ -8,9 +8,7 @@ identities.
 - [Example Policy to Allow an IAM Principal to Run and Return Queries that Contain an Athena UDF Statement](#udf-using-iam "#udf-using-iam")
 - [Example Policy to Allow an IAM Principal to Create an Athena UDF](#udf-creating-iam "#udf-creating-iam")
 
-###### Example – Allow an IAM principal to run and return queries that contain an Athena UDF
-
-statement
+###### Example – Allow an IAM principal to run and return queries that contain an Athena UDF statement
 
 The following identity-based permissions policy allows actions that a user or other
 IAM principal requires to run queries that use Athena UDF statements.
@@ -58,9 +56,7 @@ IAM principal requires to run queries that use Athena UDF statements.
 | `<br>"s3:PutObject",<br>"s3:GetObject",<br>"s3:AbortMultipartUpload"<br>`                                                                                     | `s3:PutObject` and `s3:AbortMultipartUpload`<br>allow writing query results to all sub-folders of the query results<br>bucket as specified by the<br>`arn:aws:s3:::`MyQueryResultsBucket`/*`<br>resource identifier, where<br>`MyQueryResultsBucket` is the Athena<br>query results bucket. For more information, see [Work with query results and recent queries](querying.md "querying.md").<br>`s3:GetObject` allows reading of query results and<br>query history for the resource specified as<br>`arn:aws:s3:::`MyQueryResultsBucket``,<br>where `MyQueryResultsBucket` is the Athena<br>query results bucket. For more information, see [Work with query results and recent queries](querying.md "querying.md").<br>`s3:GetObject` also allows reading from the resource<br>specified as<br>`"arn:aws:s3:::`MyLambdaSpillBucket`/`MyLambdaSpillPrefix`\*"`,<br>where `MyLambdaSpillPrefix` is specified in<br>the configuration of the Lambda function or functions being<br>invoked. |
 | `<br>"lambda:InvokeFunction"<br>`                                                                                                                             | Allows queries to invoke the AWS Lambda functions specified in the<br>`Resource` block. For example,<br>`arn:aws:lambda:*:`MyAWSAcctId`:function:`MyAthenaLambdaFunction``,<br>where `MyAthenaLambdaFunction` specifies the<br>name of a Lambda function to be invoked. Multiple functions can be<br>specified as shown in the example.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
-###### Example
-
-– Allow an IAM principal to create an Athena UDF
+###### Example – Allow an IAM principal to create an Athena UDF
 
 ```
 {

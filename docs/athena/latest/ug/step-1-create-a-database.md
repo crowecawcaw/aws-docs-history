@@ -21,7 +21,7 @@ You first need to create a database in Athena.
      created for your current Region, and then choose
      **Choose**.
 
-![Specify a location in Amazon S3 to receive query results from Athena.](/images/athena/latest/ug/images/getting-started-setting-results-location.png) 5. Choose **Save**. 6. Choose **Editor** to switch to the query editor.
+![Specify a location in Amazon S3 to receive query results from Athena.](images/getting-started-setting-results-location.png) 5. Choose **Save**. 6. Choose **Editor** to switch to the query editor.
 
 ![Choose Editor.](images/getting-started-choose-editor.png) 7. On the right of the navigation pane, you can use the Athena query editor to
 enter and run queries and statements. 8. To create a database named `mydatabase`, enter the following CREATE

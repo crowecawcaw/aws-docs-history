@@ -1,6 +1,4 @@
-# Register S3 table bucket catalogs and
-
-query Tables from Athena
+# Register S3 table bucket catalogs and query Tables from Athena
 
 Amazon S3 table buckets are a bucket type in Amazon S3 that is purpose-built to store tabular
 data in Apache Iceberg tables. Table buckets automate table management tasks such as
@@ -9,9 +7,7 @@ performance and minimize cost. Whether you're just starting out, or have thousan
 tables in your Iceberg environment, table buckets simplify data lakes at any scale. For
 more information, see [Table buckets](../../../AmazonS3/latest/userguide/s3-tables-buckets.md "../../../AmazonS3/latest/userguide/s3-tables-buckets.md").
 
-## Considerations and
-
-limitations
+## Considerations and limitations
 
 - All DDL operations supported for Iceberg tables are supported for S3
   Tables with the following exceptions:
@@ -128,8 +124,7 @@ aws athena start-query-execution \
 ```
 
 Option 2 Create Athena data catalog from the child Glue Data Catalog in the Athena console and specify
-it as a catalog in the query. For more information, see [Register S3 table bucket catalogs as
-Athena data sources](#gdc-register-s3-table-console-steps "#gdc-register-s3-table-console-steps"). 2. With the database that you created in previous step, use `CREATE
+it as a catalog in the query. For more information, see [Register S3 table bucket catalogs as Athena data sources](#gdc-register-s3-table-console-steps "#gdc-register-s3-table-console-steps"). 2. With the database that you created in previous step, use `CREATE
  TABLE` to create a table. The following example creates a table in
 the `test_namespace` database that you
 previously created in the
@@ -276,9 +271,7 @@ CREATE TABLE
 You can also create S3 Tables using CREATE TABLE AS SELECT (CTAS) statements. For
 more information, see [CTAS for S3 Tables](#ctas-s3-tables "#ctas-s3-tables").
 
-## Register S3 table bucket catalogs as
-
-Athena data sources
+## Register S3 table bucket catalogs as Athena data sources
 
 To register S3 table bucket catalogs with the Athena console, perform the following
 steps.

@@ -1,6 +1,4 @@
-# Use IAM policies to control workgroup
-
-access
+# Use IAM policies to control workgroup access
 
 To control access to workgroups, use resource-level IAM permissions or identity-based
 IAM policies. Whenever you use IAM policies, make sure that you follow IAM best practices. For more information, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.

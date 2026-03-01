@@ -28,9 +28,7 @@ Before you begin, complete the following prerequisites:
 - AWS Secrets Manager access to create and manage secrets.
 - Web browser to complete the OAuth flow for the OAuth authentication.
 
-## Configure key-pair
-
-authentication
+## Configure key-pair authentication
 
 This process involves generating an RSA key-pair, configuring your Snowflake account
 with the public key, and securely storing the private key in AWS Secrets Manager. The following
@@ -153,9 +151,7 @@ Follow these steps to configure a Snowflake user.
         * Header and footer are optional.
         * The private key must be separated by `\n`.
 
-## Configure OAuth
-
-authentication
+## Configure OAuth authentication
 
 This authentication method enables secure, token-based access to Snowflake with
 automatic credential refresh capabilities. The configuration process involves creating a

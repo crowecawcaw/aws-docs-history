@@ -1,6 +1,4 @@
-# Get started with Delta Lake
-
-tables
+# Get started with Delta Lake tables
 
 To be queryable, your Delta Lake table must exist in AWS Glue. If your table is in Amazon S3
 but not in AWS Glue, run a `CREATE EXTERNAL TABLE` statement using the following
@@ -21,8 +19,7 @@ CREATE EXTERNAL TABLE
 
 - This statement is not compatible with S3 buckets that have requester pays enabled. If you want
   to create a Delta Lake table against an S3 bucket with requester pays
-  enabled, follow the instructions and DDL statement in [Synchronize Delta Lake
-  metadata](delta-lake-tables-syncing-metadata.md "delta-lake-tables-syncing-metadata.md").
+  enabled, follow the instructions and DDL statement in [Synchronize Delta Lake metadata](delta-lake-tables-syncing-metadata.md "delta-lake-tables-syncing-metadata.md").
 - For Delta Lake tables, `CREATE TABLE` statements that
   include more than the `LOCATION` and `table_type`
   property are not allowed.

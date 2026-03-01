@@ -1,6 +1,4 @@
-# Create a table for AWS WAF
-
-S3 logs in Athena using partition projection
+# Create a table for AWS WAF S3 logs in Athena using partition projection
 
 Because AWS WAF logs have a known structure whose partition scheme you can specify in
 advance, you can reduce query runtime and automate partition management by using the

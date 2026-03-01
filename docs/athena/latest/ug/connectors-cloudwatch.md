@@ -12,8 +12,7 @@ searching through each LogStream individually.
 
 ## Prerequisites
 
-- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data
-  source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
+- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
 
 ## Parameters
 
@@ -86,9 +85,7 @@ aws glue describe-connection-type --connection-type CLOUDWATCH
 - throttle_increase_ms – The rate at which
   Athena decreases the call delay. The default is 10 milliseconds.
 
-## Databases and
-
-tables
+## Databases and tables
 
 The Athena CloudWatch connector maps your LogGroups as schemas (that is, databases) and each
 LogStream as a table. The connector also maps a special `all_log_streams`
@@ -126,9 +123,7 @@ FROM "lambda:`cloudwatch_connector_lambda_name`"."`log_group_path`"."all_log_str
 LIMIT 100
 ```
 
-## Required
-
-Permissions
+## Required Permissions
 
 For full details on the IAM policies that this
 connector requires, review the `Policies` section of the [athena-cloudwatch.yaml](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-cloudwatch/athena-cloudwatch.yaml "https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-cloudwatch/athena-cloudwatch.yaml") file. The following list summarizes the required permissions.
@@ -152,9 +147,7 @@ For best performance, use only lowercase for your log group names and log stream
 
 The CloudWatch connector does not support uppercase database names.
 
-## Passthrough
-
-queries
+## Passthrough queries
 
 The CloudWatch connector supports [passthrough queries](federated-query-passthrough.md "federated-query-passthrough.md") that use
 [CloudWatch Logs Insights query syntax](../../../AmazonCloudWatch/latest/logs/CWL_QuerySyntax.md "../../../AmazonCloudWatch/latest/logs/CWL_QuerySyntax.md"). For more information about CloudWatch Logs Insights, see

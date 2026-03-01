@@ -6,9 +6,7 @@ use the credentials available in your hosting Amazon EC2 instance profile, set t
 want to use a custom credentials provider in a named profile, specify a value for the
 `plugin_name` parameter in your profile configuration.
 
-## Authentication
-
-type
+## Authentication type
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example**     |
 | -------------------------- | ------------------ | ----------------- | --------------------------------- |
@@ -23,9 +21,7 @@ profiles, see [Using named profiles](../../../cli/latest/userguide/cli-configure
 | -------------------------- | ------------------ | ----------------- | ----------------------------- |
 | AWSProfile                 | Required           | `none`            | `AWSProfile=default;`         |
 
-## Preferred
-
-role
+## Preferred role
 
 The Amazon Resource Name (ARN) of the role to assume. The preferred role parameter
 is used when the custom credentials provider is specified by the
@@ -37,9 +33,7 @@ _AWS Security Token Service API Reference_.
 | -------------------------- | ------------------ | ----------------- | ---------------------------------------------------- |
 | preferred_role             | Optional           | `none`            | `preferred_role=arn:aws:IAM::123456789012:id/user1;` |
 
-## Session
-
-duration
+## Session duration
 
 The duration, in seconds, of the role session. For more information about session
 duration, see [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") in the

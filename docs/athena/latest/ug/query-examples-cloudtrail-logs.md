@@ -19,9 +19,7 @@ WHERE
 For more information, see the AWS Big Data blog post [Analyze security, compliance, and operational activity using AWS CloudTrail and
 Amazon Athena](https://aws.amazon.com/blogs/big-data/aws-cloudtrail-and-amazon-athena-dive-deep-to-analyze-security-compliance-and-operational-activity/ "https://aws.amazon.com/blogs/big-data/aws-cloudtrail-and-amazon-athena-dive-deep-to-analyze-security-compliance-and-operational-activity/").
 
-## Query nested fields in CloudTrail
-
-logs
+## Query nested fields in CloudTrail logs
 
 Because the `userIdentity` and `resources` fields are nested
 data types, querying them requires special treatment.
@@ -82,20 +80,16 @@ ORDER BY eventtime
 
 For more information about unnesting, see [Filter arrays](filtering-arrays.md "filtering-arrays.md").
 
-## Tips for querying CloudTrail
-
-logs
+## Tips for querying CloudTrail logs
 
 Consider the following when exploring CloudTrail log data:
 
 - Before querying the logs, verify that your logs table looks the same as
-  the one in [Create a table for CloudTrail logs in Athena using
-  manual partitioning](create-cloudtrail-table.md "create-cloudtrail-table.md"). If it is not the first
+  the one in [Create a table for CloudTrail logs in Athena using manual partitioning](create-cloudtrail-table.md "create-cloudtrail-table.md"). If it is not the first
   table, delete the existing table using the following command: `DROP
 TABLE cloudtrail_logs`.
 - After you drop the existing table, re-create it. For more information, see
-  [Create a table for CloudTrail logs in Athena using
-  manual partitioning](create-cloudtrail-table.md "create-cloudtrail-table.md").
+  [Create a table for CloudTrail logs in Athena using manual partitioning](create-cloudtrail-table.md "create-cloudtrail-table.md").
 
 Verify that fields in your Athena query are listed correctly. For
 information about the full list of fields in a CloudTrail record, see [CloudTrail record contents](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md").

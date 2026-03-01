@@ -1,6 +1,4 @@
-# ALTER TABLE DROP
-
-COLUMN
+# ALTER TABLE DROP COLUMN
 
 Drops a column from an existing Iceberg table.
 

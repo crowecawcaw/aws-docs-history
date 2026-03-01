@@ -1,14 +1,10 @@
-# Amazon Ion SerDe property
-
-reference
+# Amazon Ion SerDe property reference
 
 This topic contains information about the SerDe properties for `CREATE TABLE`
 statements in Athena. For more information and examples of Amazon Ion SerDe property usage,
 see [SerDe properties](https://github.com/amzn/ion-hive-serde/blob/master/docs/serde-properties.md "https://github.com/amzn/ion-hive-serde/blob/master/docs/serde-properties.md") in the Amazon Ion Hive SerDe documentation on [GitHub](https://github.com/amzn/ion-hive-serde/tree/master/docs "https://github.com/amzn/ion-hive-serde/tree/master/docs").
 
-## How to specify Amazon Ion
-
-SerDe properties
+## How to specify Amazon Ion SerDe properties
 
 To specify properties for the Amazon Ion Hive SerDe in your `CREATE TABLE`
 statement, use the `WITH SERDEPROPERTIES` clause. Because `WITH

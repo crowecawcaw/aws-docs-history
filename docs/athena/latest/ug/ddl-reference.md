@@ -9,20 +9,15 @@ section and [Unsupported DDL](unsupported-ddl.md "unsupported-ddl.md").
 ###### Topics
 
 - [Unsupported DDL](unsupported-ddl.md "unsupported-ddl.md")
-- [ALTER DATABASE SET
-  DBPROPERTIES](alter-database-set-dbproperties.md "alter-database-set-dbproperties.md")
+- [ALTER DATABASE SET DBPROPERTIES](alter-database-set-dbproperties.md "alter-database-set-dbproperties.md")
 - [ALTER TABLE ADD COLUMNS](alter-table-add-columns.md "alter-table-add-columns.md")
 - [ALTER TABLE ADD PARTITION](alter-table-add-partition.md "alter-table-add-partition.md")
 - [ALTER TABLE CHANGE COLUMN](alter-table-change-column.md "alter-table-change-column.md")
-- [ALTER TABLE DROP
-  PARTITION](alter-table-drop-partition.md "alter-table-drop-partition.md")
-- [ALTER TABLE RENAME
-  PARTITION](alter-table-rename-partition.md "alter-table-rename-partition.md")
-- [ALTER TABLE REPLACE
-  COLUMNS](alter-table-replace-columns.md "alter-table-replace-columns.md")
+- [ALTER TABLE DROP PARTITION](alter-table-drop-partition.md "alter-table-drop-partition.md")
+- [ALTER TABLE RENAME PARTITION](alter-table-rename-partition.md "alter-table-rename-partition.md")
+- [ALTER TABLE REPLACE COLUMNS](alter-table-replace-columns.md "alter-table-replace-columns.md")
 - [ALTER TABLE SET LOCATION](alter-table-set-location.md "alter-table-set-location.md")
-- [ALTER TABLE SET
-  TBLPROPERTIES](alter-table-set-tblproperties.md "alter-table-set-tblproperties.md")
+- [ALTER TABLE SET TBLPROPERTIES](alter-table-set-tblproperties.md "alter-table-set-tblproperties.md")
 - [ALTER VIEW DIALECT](alter-view-dialect.md "alter-view-dialect.md")
 - [CREATE DATABASE](create-database.md "create-database.md")
 - [CREATE TABLE](create-table.md "create-table.md")

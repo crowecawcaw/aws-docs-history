@@ -25,9 +25,7 @@ CROSS JOIN UNNEST(scores) AS m (score)
 
 For information about connecting an external Hive metastore to Athena, see [Use an external Hive metastore](connect-to-data-source-hive.md "connect-to-data-source-hive.md").
 
-## Considerations and
-
-limitations
+## Considerations and limitations
 
 When querying Hive views from Athena, consider the following points:
 
@@ -40,9 +38,7 @@ When querying Hive views from Athena, consider the following points:
   supported for Hive views or require special handling. For more information, see
   the following section.
 
-## Hive function support
-
-limitations
+## Hive function support limitations
 
 This section highlights the Hive functions that Athena does not support for Hive views
 or that require special treatment. Currently, because Athena primarily supports functions
@@ -52,9 +48,7 @@ language manual UDF](https://cwiki.apache.org/confluence/display/hive/languagema
 
 ### Aggregate functions
 
-#### Aggregate
-
-functions that require special handling
+#### Aggregate functions that require special handling
 
 The following aggregate function for Hive views requires special
 handling.
@@ -62,9 +56,7 @@ handling.
 - Avg – Instead of `avg(INT
 i)`, use `avg(CAST(i AS DOUBLE))`.
 
-#### Aggregate
-
-functions not supported
+#### Aggregate functions not supported
 
 The following Hive aggregate functions are not supported in Athena for Hive
 views.
@@ -80,9 +72,7 @@ percentile_approx
 Regression functions like `regr_count`, `regr_r2`, and
 `regr_sxx` are not supported in Athena for Hive views.
 
-### Date functions not
-
-supported
+### Date functions not supported
 
 The following Hive date functions are not supported in Athena for Hive
 views.
@@ -101,9 +91,7 @@ weekofyear(string date)
 year(string date)
 ```
 
-### Masking functions not
-
-supported
+### Masking functions not supported
 
 Hive masking functions like `mask()`, and `mask_first_n()`
 are not supported in Athena for Hive views.
@@ -163,9 +151,7 @@ version
 
 ### Operators
 
-#### Operators that require
-
-special handling
+#### Operators that require special handling
 
 The following operators for Hive views require special handling.
 
@@ -190,9 +176,7 @@ CAST(a_double % 1.0 as DOUBLE) AS column
   `double`. In Athena, the same operation produces a
   truncated `int`.
 
-#### Operators not
-
-supported
+#### Operators not supported
 
 Athena does not support the following operators for Hive views.
 
@@ -212,9 +196,7 @@ of them is `NULL`.
 
 ### String functions
 
-#### String functions
-
-that require special handling
+#### String functions that require special handling
 
 The following Hive string functions for Hive views require special
 handling.
@@ -241,9 +223,7 @@ Without this step, the view will be considered stale.
 CAST(length(string str) as INT)
 ```
 
-#### String functions not
-
-supported
+#### String functions not supported
 
 The following Hive string functions are not supported in Athena for Hive
 views.
@@ -272,9 +252,7 @@ str_to_map(text[, delimiter1, delimiter2])
 substring_index(string A, string delim, int count)
 ```
 
-### XPath functions not
-
-supported
+### XPath functions not supported
 
 Hive XPath functions like `xpath`, `xpath_short`, and
 `xpath_int` are not supported in Athena for Hive views.

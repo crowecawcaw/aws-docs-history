@@ -60,9 +60,7 @@ identity information helps you determine the following:
 For more information, see the [CloudTrail userIdentity
 element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## Understand Athena log file
-
-entries
+## Understand Athena log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3
 bucket that you specify. CloudTrail log files contain one or more log entries. An event
@@ -86,9 +84,7 @@ The following examples demonstrate CloudTrail log entries for:
 - [StartQueryExecution (Failed)](#startqueryexecution-failed "#startqueryexecution-failed")
 - [CreateNamedQuery](#createnamedquery "#createnamedquery")
 
-### StartQueryExecution
-
-(successful)
+### StartQueryExecution (successful)
 
 ```
 {

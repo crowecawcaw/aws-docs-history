@@ -1,13 +1,9 @@
-# Create a table for CloudTrail logs in Athena using
-
-manual partitioning
+# Create a table for CloudTrail logs in Athena using manual partitioning
 
 You can manually create tables for CloudTrail log files in the Athena console, and then run
 queries in Athena.
 
-###### To create an Athena table for a CloudTrail
-
-trail using the Athena console
+###### To create an Athena table for a CloudTrail trail using the Athena console
 
 1. Copy and paste the following DDL statement into the Athena console query
    editor, then modify it according to your requirements. Note that because CloudTrail

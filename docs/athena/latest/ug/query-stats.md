@@ -1,6 +1,4 @@
-# View statistics and execution details for completed
-
-queries
+# View statistics and execution details for completed queries
 
 After you run a query, you can get statistics on the input and output data processed, see
 a graphical representation of the time taken for each phase of the query, and interactively
@@ -65,8 +63,7 @@ the details pane. 5. To get information about the parts of the stage, expand one
 operator tree.
 
 ![Expanded operator tree.](images/query-stats-5.png)
-For more information about execution details, see [Understand Athena EXPLAIN statement
-results](athena-explain-statement-understanding.md "athena-explain-statement-understanding.md").
+For more information about execution details, see [Understand Athena EXPLAIN statement results](athena-explain-statement-understanding.md "athena-explain-statement-understanding.md").
 
 ## Additional resources
 
@@ -74,7 +71,6 @@ For more information, see the following resources.
 
 [View execution plans for SQL queries](query-plans.md "query-plans.md")
 
-[Using EXPLAIN and EXPLAIN ANALYZE in
-Athena](athena-explain-statement.md "athena-explain-statement.md")
+[Using EXPLAIN and EXPLAIN ANALYZE in Athena](athena-explain-statement.md "athena-explain-statement.md")
 
 Visual query execution analysis in Amazon Athena (AWS YouTube channel)

@@ -1,6 +1,4 @@
-# Use the AWS CLI to recreate an AWS Glue
-
-database and its tables
+# Use the AWS CLI to recreate an AWS Glue database and its tables
 
 Renaming a AWS Glue database directly is not possible, but you can copy its definition,
 modify the definition, and use the definition to recreate the database with a different

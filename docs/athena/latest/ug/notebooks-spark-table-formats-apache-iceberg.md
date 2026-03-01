@@ -1,6 +1,4 @@
-# Use Apache Iceberg tables
-
-in Athena for Spark
+# Use Apache Iceberg tables in Athena for Spark
 
 [Apache Iceberg](https://iceberg.apache.org/ "https://iceberg.apache.org/") is an open table
 format for large datasets in Amazon Simple Storage Service (Amazon S3). It provides you with fast query
@@ -9,9 +7,7 @@ table evolution.
 
 To use Apache Iceberg tables in Athena for Spark, configure the following Spark
 properties. These properties are configured for you by default in the Athena for Spark
-console when you choose Apache Iceberg as the table format. For steps, see [Step 4: Edit
-session details](notebooks-spark-getting-started.md#notebooks-spark-getting-started-editing-session-details "notebooks-spark-getting-started.md#notebooks-spark-getting-started-editing-session-details") or [Step 7:
-Create your own notebook](notebooks-spark-getting-started.md#notebooks-spark-getting-started-creating-your-own-notebook "notebooks-spark-getting-started.md#notebooks-spark-getting-started-creating-your-own-notebook").
+console when you choose Apache Iceberg as the table format. For steps, see [Step 4: Edit session details](notebooks-spark-getting-started.md#notebooks-spark-getting-started-editing-session-details "notebooks-spark-getting-started.md#notebooks-spark-getting-started-editing-session-details") or [Step 7: Create your own notebook](notebooks-spark-getting-started.md#notebooks-spark-getting-started-creating-your-own-notebook "notebooks-spark-getting-started.md#notebooks-spark-getting-started-creating-your-own-notebook").
 
 ```
 "spark.sql.catalog.spark_catalog": "org.apache.iceberg.spark.SparkSessionCatalog",

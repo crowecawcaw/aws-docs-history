@@ -12,9 +12,7 @@ information.
 The syntax in this video is prerelease, but the concepts are the same. Use Athena
 without the `AmazonAthenaPreviewFunctionality` workgroup.
 
-###### Video: Translate, analyze, and
-
-redact text fields using SQL queries in Amazon Athena
+###### Video: Translate, analyze, and redact text fields using SQL queries in Amazon Athena
 
 The following video shows how you can use UDFs in Amazon Athena together with other
 AWS services to translate and analyze text.

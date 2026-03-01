@@ -2,8 +2,7 @@
 
 You can reorder columns only for tables with data in formats that read by name, such
 as JSON or Parquet, which reads by name by default. You can also make ORC read by name,
-if needed. For information, see [Understand index access for Apache ORC and Apache
-Parquet](handling-schema-updates-chapter.md#index-access "handling-schema-updates-chapter.md#index-access").
+if needed. For information, see [Understand index access for Apache ORC and Apache Parquet](handling-schema-updates-chapter.md#index-access "handling-schema-updates-chapter.md#index-access").
 
 The following example creates a new table with the columns in a different
 order:

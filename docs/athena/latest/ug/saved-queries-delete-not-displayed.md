@@ -1,6 +1,4 @@
-# Delete an undisplayed saved
-
-query
+# Delete an undisplayed saved query
 
 ###### To delete a saved query not displayed in the query editor
 

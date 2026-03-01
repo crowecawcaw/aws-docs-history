@@ -1,6 +1,4 @@
-# ALTER TABLE REPLACE
-
-COLUMNS
+# ALTER TABLE REPLACE COLUMNS
 
 Removes all existing columns from a table created with the [LazySimpleSerDe](lazy-simple-serde.md "lazy-simple-serde.md") and
 replaces them with the set of columns specified. When the optional `PARTITION`

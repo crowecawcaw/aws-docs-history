@@ -1,6 +1,4 @@
-# Use the Athena console to
-
-connect to a data source
+# Use the Athena console to connect to a data source
 
 You can use the Athena console to create and configure a data source connection.
 
@@ -30,8 +28,7 @@ want Athena to query, considering the following guidelines:
      about this option, see [Connect Athena to an Apache Hive metastore](connect-to-data-source-hive-connecting-athena-to-an-apache-hive-metastore.md "connect-to-data-source-hive-connecting-athena-to-an-apache-hive-metastore.md").
     * Choose **Custom or shared connector** if you want to
      create your own data source connector for use with Athena. For
-     information about writing a data source connector, see [Develop a data source connector
-     using the Athena Query Federation SDK](connect-data-source-federation-sdk.md "connect-data-source-federation-sdk.md").
+     information about writing a data source connector, see [Develop a data source connector using the Athena Query Federation SDK](connect-data-source-federation-sdk.md "connect-data-source-federation-sdk.md").
 
 6.  Choose **Next**.
 7.  On the **Enter data source details** page, for **Data

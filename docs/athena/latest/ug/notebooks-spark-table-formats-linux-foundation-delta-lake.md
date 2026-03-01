@@ -1,6 +1,4 @@
-# Use Linux
-
-Foundation Delta Lake tables in Athena for Spark
+# Use Linux Foundation Delta Lake tables in Athena for Spark
 
 [Linux Foundation Delta Lake](https://delta.io/ "https://delta.io/") is a table format
 that you can use for big data analytics. You can use Athena for Spark to read Delta Lake
@@ -8,9 +6,7 @@ tables stored in Amazon S3 directly.
 
 To use Delta Lake tables in Athena for Spark, configure the following Spark properties.
 These properties are configured for you by default in the Athena for Spark console when
-you choose Delta Lake as the table format. For steps, see [Step 4: Edit
-session details](notebooks-spark-getting-started.md#notebooks-spark-getting-started-editing-session-details "notebooks-spark-getting-started.md#notebooks-spark-getting-started-editing-session-details") or [Step 7:
-Create your own notebook](notebooks-spark-getting-started.md#notebooks-spark-getting-started-creating-your-own-notebook "notebooks-spark-getting-started.md#notebooks-spark-getting-started-creating-your-own-notebook").
+you choose Delta Lake as the table format. For steps, see [Step 4: Edit session details](notebooks-spark-getting-started.md#notebooks-spark-getting-started-editing-session-details "notebooks-spark-getting-started.md#notebooks-spark-getting-started-editing-session-details") or [Step 7: Create your own notebook](notebooks-spark-getting-started.md#notebooks-spark-getting-started-creating-your-own-notebook "notebooks-spark-getting-started.md#notebooks-spark-getting-started-creating-your-own-notebook").
 
 ```
 "spark.sql.catalog.spark_catalog" : "org.apache.spark.sql.delta.catalog.DeltaCatalog",

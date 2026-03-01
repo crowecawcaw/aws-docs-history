@@ -9,9 +9,7 @@ The Delta Lake format stores the minimum and maximum values per column of each d
 The Athena implementation makes use of this information to enable file-skipping on predicates
 to eliminate unwanted files from consideration.
 
-## Considerations and
-
-limitations
+## Considerations and limitations
 
 Delta Lake support in Athena has the following considerations and limitations:
 
@@ -40,8 +38,7 @@ Delta Lake support in Athena has the following considerations and limitations:
   supported: `CREATE EXTERNAL TABLE`, `SHOW COLUMNS`,
   `SHOW TBLPROPERTIES`, `SHOW PARTITIONS`, `SHOW
 CREATE TABLE`, and `DESCRIBE`. For information on using the
-  `CREATE EXTERNAL TABLE` statement, see the [Get started with Delta Lake
-  tables](delta-lake-tables-getting-started.md "delta-lake-tables-getting-started.md") section.
+  `CREATE EXTERNAL TABLE` statement, see the [Get started with Delta Lake tables](delta-lake-tables-getting-started.md "delta-lake-tables-getting-started.md") section.
 - Skipping Amazon Glacier objects not supported –
   If objects in the Linux Foundation Delta Lake table are in an Amazon Glacier storage class, setting the
   `read_restored_glacier_objects` table property to
@@ -64,9 +61,7 @@ not skipped. Running `SELECT` queries after the `ALTER
   support natively reading CSE-KMS encrypted Delta Lake tables. This includes
   SELECT statements and DDL statements.
 
-### Delta Lake versioning and
-
-Athena
+### Delta Lake versioning and Athena
 
 Athena does not use the [versioning](https://docs.delta.io/latest/releases.html "https://docs.delta.io/latest/releases.html") listed in the Delta Lake documentation. To determine whether
 your Delta Lake tables are compatible with Athena, consider the following two
@@ -94,16 +89,12 @@ reader features that Athena supports.
 - For a list of Delta Lake features by protocol version, see [Features by protocol version](https://docs.delta.io/latest/versioning.html#features-by-protocol-version "https://docs.delta.io/latest/versioning.html#features-by-protocol-version") on GitHub.com.
 
 To create a Delta Lake table in Athena with a reader version greater than 1, see
-[Synchronize Delta Lake
-metadata](delta-lake-tables-syncing-metadata.md "delta-lake-tables-syncing-metadata.md").
+[Synchronize Delta Lake metadata](delta-lake-tables-syncing-metadata.md "delta-lake-tables-syncing-metadata.md").
 
 ###### Topics
 
-- [Supported column data
-  types](delta-lake-tables-supported-data-types-columns.md "delta-lake-tables-supported-data-types-columns.md")
-- [Get started with Delta Lake
-  tables](delta-lake-tables-getting-started.md "delta-lake-tables-getting-started.md")
+- [Supported column data types](delta-lake-tables-supported-data-types-columns.md "delta-lake-tables-supported-data-types-columns.md")
+- [Get started with Delta Lake tables](delta-lake-tables-getting-started.md "delta-lake-tables-getting-started.md")
 - [Query Delta Lake tables with SQL](delta-lake-tables-querying.md "delta-lake-tables-querying.md")
-- [Synchronize Delta Lake
-  metadata](delta-lake-tables-syncing-metadata.md "delta-lake-tables-syncing-metadata.md")
+- [Synchronize Delta Lake metadata](delta-lake-tables-syncing-metadata.md "delta-lake-tables-syncing-metadata.md")
 - [Additional resources](delta-lake-tables-additional-resources.md "delta-lake-tables-additional-resources.md")

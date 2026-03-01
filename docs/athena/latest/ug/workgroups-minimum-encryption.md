@@ -18,9 +18,7 @@ The following levels are available:
 - Advanced – Client side encryption with KMS
   managed keys (**CSE_KMS**).
 
-## Considerations and
-
-limitations
+## Considerations and limitations
 
 - The minimum encryption feature is not available for Apache Spark enabled
   workgroups.
@@ -32,9 +30,7 @@ limitations
   encryption setting has no effect.
 - There is no cost to enable this feature.
 
-## Enable minimum encryption for a
-
-workgroup
+## Enable minimum encryption for a workgroup
 
 You can enable a minimum encryption level for the query results from your Athena SQL
 workgroup when you create or update the workgroup. To do this, you can use the Athena

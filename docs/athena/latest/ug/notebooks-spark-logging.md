@@ -98,12 +98,10 @@ Logs.
 
 ###### To log Athena notebook events to Amazon CloudWatch Logs
 
-1. Follow [Get started with Apache Spark on
-   Amazon Athena](notebooks-spark-getting-started.md "notebooks-spark-getting-started.md") to create a Spark
+1. Follow [Get started with Apache Spark on Amazon Athena](notebooks-spark-getting-started.md "notebooks-spark-getting-started.md") to create a Spark
    enabled workgroup in Athena with a unique name. This tutorial uses the
    workgroup name `athena-spark-example`.
-2. Follow the steps in [Step 7:
-   Create your own notebook](notebooks-spark-getting-started.md#notebooks-spark-getting-started-creating-your-own-notebook "notebooks-spark-getting-started.md#notebooks-spark-getting-started-creating-your-own-notebook") to create a notebook and launch a new session.
+2. Follow the steps in [Step 7: Create your own notebook](notebooks-spark-getting-started.md#notebooks-spark-getting-started-creating-your-own-notebook "notebooks-spark-getting-started.md#notebooks-spark-getting-started-creating-your-own-notebook") to create a notebook and launch a new session.
 3. In the Athena notebook editor, in a new notebook cell, enter the
    following command:
 

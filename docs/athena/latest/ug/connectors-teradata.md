@@ -7,8 +7,7 @@ This connector does not use Glue Connections to centralize configuration propert
 
 ## Prerequisites
 
-- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data
-  source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
+- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
 
 ## Limitations
 
@@ -90,9 +89,7 @@ instance.
 teradata://${`jdbc_connection_string`}
 ```
 
-#### Using a
-
-multiplexing handler
+#### Using a multiplexing handler
 
 You can use a multiplexer to connect to multiple database instances with a single
 Lambda function. Requests are routed by catalog name. Use the following classes in
@@ -121,9 +118,7 @@ default), and `teradata2`.
 | `teradata_catalog1_connection_string` | `teradata://jdbc:teradata://teradata1.host/TMODE=ANSI,CHARSET=UTF8,DATABASE=TEST,${Test/RDS/Teradata1}`         |
 | `teradata_catalog2_connection_string` | `teradata://jdbc:teradata://teradata2.host/TMODE=ANSI,CHARSET=UTF8,DATABASE=TEST,user=sample2&password=sample2` |
 
-##### Providing
-
-credentials
+##### Providing credentials
 
 To provide a user name and password for your database in your JDBC connection
 string, you can use connection string properties or AWS Secrets Manager.
@@ -179,9 +174,7 @@ JDBC properties. It also accepts the user name and password in the format
 `username``/``password`
 without the keys `user` or `password`.
 
-#### Using a
-
-single connection handler
+#### Using a single connection handler
 
 You can use the following single connection metadata and record handlers to
 connect to a single Teradata instance.
@@ -240,9 +233,7 @@ Arrow.
 | BigDecimal | Decimal   |
 | ARRAY      | List      |
 
-## Partitions and
-
-splits
+## Partitions and splits
 
 A partition is represented by a single partition column of type `Integer`.
 The column contains partition names of the partitions defined on a Teradata table. For a
@@ -281,9 +272,7 @@ pushdown:
   DIVIDE, MODULUS, NEGATE
 - Other: LIKE_PATTERN, IN
 
-### Combined
-
-pushdown example
+### Combined pushdown example
 
 For enhanced querying capabilities, combine the pushdown types, as in the following example:
 
@@ -295,9 +284,7 @@ WHERE col_a > 10
     AND (col_e IN ('val1', 'val2', 'val3') OR col_f LIKE '%pattern%');
 ```
 
-## Passthrough
-
-queries
+## Passthrough queries
 
 The Teradata connector supports [passthrough queries](federated-query-passthrough.md "federated-query-passthrough.md"). Passthrough
 queries use a table function to push your full query down to the data source for

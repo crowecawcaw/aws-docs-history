@@ -5,9 +5,7 @@ also represented as single-line strings of JSON-encoded text separated by a new 
 the Hive JSON SerDe, the OpenX JSON SerDe does not allow duplicate keys in `map`
 or `struct` key names.
 
-## Considerations and
-
-limitations
+## Considerations and limitations
 
 - When using the OpenX JSON SerDe, the number of results and their values can be
   non-deterministic. The results can contain more rows than expected, fewer rows
@@ -104,9 +102,7 @@ ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe'
 WITH SERDEPROPERTIES ("mapping.ts" = "timestamp")
 ```
 
-###### Mapping nested field names with colons to Hive-compatible
-
-names
+###### Mapping nested field names with colons to Hive-compatible names
 
 If you have a field name with colons inside a `struct`, you
 can use the `mapping` property to map the field to a

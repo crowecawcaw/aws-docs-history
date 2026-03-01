@@ -11,12 +11,9 @@ SELECT * FROM [`db_name`.]`table_name` [WHERE `predicate`]
 To optimize query times, all predicates are pushed down to where the data
 lives.
 
-For information about time travel and version travel queries, see [Perform time
-travel and version travel queries](querying-iceberg-time-travel-and-version-travel-queries.md "querying-iceberg-time-travel-and-version-travel-queries.md").
+For information about time travel and version travel queries, see [Perform time travel and version travel queries](querying-iceberg-time-travel-and-version-travel-queries.md "querying-iceberg-time-travel-and-version-travel-queries.md").
 
-## Create and query views with Iceberg
-
-tables
+## Create and query views with Iceberg tables
 
 To create and query Athena views on Iceberg tables, use `CREATE VIEW`
 views as described in [Work with views](views.md "views.md").
@@ -88,19 +85,15 @@ The following example shows the references for an Iceberg table.
 SELECT * FROM "`dbname`"."`tablename`$refs"
 ```
 
-## Use Lake Formation fine-grained access
-
-control
+## Use Lake Formation fine-grained access control
 
 Athena engine version 3 supports Lake Formation fine-grained access control with Iceberg tables, including
 column level and row level security access control. This access control works with
 time travel queries and with tables that have performed schema evolution. For more
-information, see [Lake Formation
-fine-grained access control and Athena workgroups](lf-athena-limitations.md#lf-athena-limitations-fine-grained-access-control "lf-athena-limitations.md#lf-athena-limitations-fine-grained-access-control").
+information, see [Lake Formation fine-grained access control and Athena workgroups](lf-athena-limitations.md#lf-athena-limitations-fine-grained-access-control "lf-athena-limitations.md#lf-athena-limitations-fine-grained-access-control").
 
 If you created your Iceberg table outside of Athena, use [Apache Iceberg SDK](https://iceberg.apache.org/releases/ "https://iceberg.apache.org/releases/") version
 0.13.0 or higher so that your Iceberg table column information is populated in the
 AWS Glue Data Catalog. If your Iceberg table does not contain column information in AWS Glue, you
-can use the Athena [ALTER TABLE SET
-TBLPROPERTIES](querying-iceberg-alter-table-set-properties.md "querying-iceberg-alter-table-set-properties.md") statement or the
+can use the Athena [ALTER TABLE SET TBLPROPERTIES](querying-iceberg-alter-table-set-properties.md "querying-iceberg-alter-table-set-properties.md") statement or the
 latest Iceberg SDK to fix the table and update the column information in AWS Glue.

@@ -1,34 +1,24 @@
-# Advanced connection
-
-parameters
+# Advanced connection parameters
 
 The following sections describe the advanced connection parameters for the JDBC 3.x
 driver.
 
 ###### Topics
 
-- [Result encryption
-  parameters](#jdbc-v3-driver-result-encryption-parameters "#jdbc-v3-driver-result-encryption-parameters")
-- [Result fetching
-  parameters](#jdbc-v3-driver-result-fetching-parameters "#jdbc-v3-driver-result-fetching-parameters")
+- [Result encryption parameters](#jdbc-v3-driver-result-encryption-parameters "#jdbc-v3-driver-result-encryption-parameters")
+- [Result fetching parameters](#jdbc-v3-driver-result-fetching-parameters "#jdbc-v3-driver-result-fetching-parameters")
 - [Result configuration parameters](#jdbc-v3-driver-result-config "#jdbc-v3-driver-result-config")
-- [Query result reuse
-  parameters](#jdbc-v3-driver-query-result-reuse-parameters "#jdbc-v3-driver-query-result-reuse-parameters")
-- [Query execution
-  polling parameters](#jdbc-v3-driver-query-execution-polling-parameters "#jdbc-v3-driver-query-execution-polling-parameters")
-- [Endpoint override
-  parameters](#jdbc-v3-driver-endpoint-override-parameters "#jdbc-v3-driver-endpoint-override-parameters")
-- [Proxy configuration
-  parameters](#jdbc-v3-driver-proxy-configuration-parameters "#jdbc-v3-driver-proxy-configuration-parameters")
+- [Query result reuse parameters](#jdbc-v3-driver-query-result-reuse-parameters "#jdbc-v3-driver-query-result-reuse-parameters")
+- [Query execution polling parameters](#jdbc-v3-driver-query-execution-polling-parameters "#jdbc-v3-driver-query-execution-polling-parameters")
+- [Endpoint override parameters](#jdbc-v3-driver-endpoint-override-parameters "#jdbc-v3-driver-endpoint-override-parameters")
+- [Proxy configuration parameters](#jdbc-v3-driver-proxy-configuration-parameters "#jdbc-v3-driver-proxy-configuration-parameters")
 - [Logging parameters](#jdbc-v3-driver-logging-parameters "#jdbc-v3-driver-logging-parameters")
 - [Application name](#jdbc-v3-driver-application-name "#jdbc-v3-driver-application-name")
 - [Connection test](#jdbc-v3-driver-connection-test "#jdbc-v3-driver-connection-test")
 - [Number of retries](#jdbc-v3-driver-number-of-retries "#jdbc-v3-driver-number-of-retries")
 - [Network timeout](#jdbc-v3-driver-networktimeoutmillis "#jdbc-v3-driver-networktimeoutmillis")
 
-## Result encryption
-
-parameters
+## Result encryption parameters
 
 Note the following points:
 
@@ -57,9 +47,7 @@ _Amazon Athena API Reference_.
 | -------------- | ------------------------------ | -------------- | ------------- |
 | KmsKey         | S3OutputEncKMSKey (deprecated) | Optional       | none          |
 
-## Result fetching
-
-parameters
+## Result fetching parameters
 
 ### Result fetcher
 
@@ -122,9 +110,7 @@ query results. For more information about `AclOption`, see [AclConfiguration](..
 | -------------- | ----- | -------------- | ------------- | ------------------------- |
 | AclOption      | none  | Optional       | none          | BUCKET_OWNER_FULL_CONTROL |
 
-## Query result reuse
-
-parameters
+## Query result reuse parameters
 
 ### Enable result reuse
 
@@ -144,13 +130,9 @@ for reuse. For information about result reuse max age, see [ResultReuseByAgeConf
 | -------------------------- | ----- | -------------- | ------------- |
 | MaxResultReuseAgeInMinutes | none  | Optional       | 60            |
 
-## Query execution
+## Query execution polling parameters
 
-polling parameters
-
-### Minimum
-
-query execution polling interval
+### Minimum query execution polling interval
 
 The minimum time, in milliseconds, to wait before polling Athena for the query
 execution status.
@@ -159,9 +141,7 @@ execution status.
 | -------------------------------------- | --------------------------------------------- | -------------- | ------------- |
 | MinQueryExecutionPollingIntervalMillis | MinQueryExecutionPollingInterval (deprecated) | Optional       | 100           |
 
-### Maximum
-
-query execution polling interval
+### Maximum query execution polling interval
 
 The maximum time, in milliseconds, to wait before polling Athena for the query
 execution status.
@@ -170,9 +150,7 @@ execution status.
 | -------------------------------------- | --------------------------------------------- | -------------- | ------------- |
 | MaxQueryExecutionPollingIntervalMillis | MaxQueryExecutionPollingInterval (deprecated) | Optional       | 5000          |
 
-### Query
-
-execution polling interval multiplier
+### Query execution polling interval multiplier
 
 The factor for increasing the polling period. By default, polling will begin with
 the value for `MinQueryExecutionPollingIntervalMillis` and double with
@@ -183,13 +161,9 @@ each poll until it reaches the value for
 | --------------------------------------- | ----- | -------------- | ------------- |
 | QueryExecutionPollingIntervalMultiplier | none  | Optional       | 2             |
 
-## Endpoint override
+## Endpoint override parameters
 
-parameters
-
-### Athena endpoint
-
-override
+### Athena endpoint override
 
 The endpoint that the driver will use to make API calls to Athena.
 
@@ -205,9 +179,7 @@ Note the following points:
 | -------------- | ----------------------------- | -------------- | ------------- |
 | AthenaEndpoint | EndpointOverride (deprecated) | Optional       | none          |
 
-### Athena
-
-streaming service endpoint override
+### Athena streaming service endpoint override
 
 The endpoint that the driver will use to download query results when it uses the
 Athena streaming service. The Athena streaming service is available on port 444.
@@ -244,9 +216,7 @@ Note the following points:
 | --------------------- | ------------------------------- | -------------- | ------------- |
 | LakeFormationEndpoint | LfEndpointOverride (deprecated) | Optional       | none          |
 
-### S3 endpoint
-
-override
+### S3 endpoint override
 
 The endpoint that the driver will use to download query results when it uses the
 Amazon S3 fetcher. If this parameter is not specified, the driver uses a default Amazon S3
@@ -262,9 +232,7 @@ Note the following points:
 | -------------- | ----- | -------------- | ------------- |
 | S3Endpoint     | None  | Optional       | none          |
 
-### STS endpoint
-
-override
+### STS endpoint override
 
 The endpoint that the driver will use for the AWS STS service when using the AWS STS
 [AssumeRoleWithSAML](../../../STS/latest/APIReference/API_AssumeRoleWithSAML.md "../../../STS/latest/APIReference/API_AssumeRoleWithSAML.md") API to retrieve temporary credentials. If this
@@ -300,9 +268,7 @@ endpoint for SSO Admin client. For more information, see [ClientConfiguration](.
 | ------------------------ | ----- | -------------- | ------------- |
 | SSOAdminEndpointOverride |       | Optional       | none          |
 
-## Proxy configuration
-
-parameters
+## Proxy configuration parameters
 
 ### Proxy host
 
@@ -357,9 +323,7 @@ separated by the pipe (`|`) character (for example,
 | ---------------- | ------------- | -------------- | ------------- |
 | ProxyExemptHosts | NonProxyHosts | Optional       | none          |
 
-### Proxy enabled
-
-for identity providers
+### Proxy enabled for identity providers
 
 Specifies whether a proxy should be used when the driver connects to an identity
 provider.

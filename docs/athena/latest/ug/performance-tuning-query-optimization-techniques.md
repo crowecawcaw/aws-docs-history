@@ -1,6 +1,4 @@
-# Optimize
-
-queries
+# Optimize queries
 
 Use the query optimization techniques described in this section to make queries run
 faster or as workarounds for queries that exceed resource limits in Athena.
@@ -11,9 +9,7 @@ There are many different strategies for executing joins in a distributed query
 engine. Two of the most common are distributed hash joins and queries with complex
 join conditions.
 
-### In a distributed hash
-
-join, place large tables on the left, small tables on the right
+### In a distributed hash join, place large tables on the left, small tables on the right
 
 The most common type of join uses an equality comparison as the join
 condition. Athena runs this type of join as a distributed hash join.
@@ -49,9 +45,7 @@ the smaller of the tables. If it is not possible to make the build side of the
 join small enough to fit into memory, consider running multiple queries that
 join subsets of the build table.
 
-### Use EXPLAIN to analyze
-
-queries with complex joins
+### Use EXPLAIN to analyze queries with complex joins
 
 Queries with complex join conditions (for example, queries that use
 `LIKE` , `>`, or other operators), are often
@@ -61,13 +55,9 @@ execution time grows with the square of the number of records, such queries run
 the risk of exceeding the maximum execution time.
 
 To find out how Athena will execute your query in advance, you can use the
-`EXPLAIN` statement. For more information, see [Using EXPLAIN and EXPLAIN ANALYZE in
-Athena](athena-explain-statement.md "athena-explain-statement.md") and [Understand Athena EXPLAIN statement
-results](athena-explain-statement-understanding.md "athena-explain-statement-understanding.md").
+`EXPLAIN` statement. For more information, see [Using EXPLAIN and EXPLAIN ANALYZE in Athena](athena-explain-statement.md "athena-explain-statement.md") and [Understand Athena EXPLAIN statement results](athena-explain-statement-understanding.md "athena-explain-statement-understanding.md").
 
-## Reduce the scope of
-
-window functions, or remove them
+## Reduce the scope of window functions, or remove them
 
 Because window functions are resource intensive operations, they can make queries
 run slow or even fail with the message **`Query exhausted resources at this
@@ -80,9 +70,7 @@ of the windows that your window functions operate over. To do so, you can add a
 `PARTITIONED BY` clause or narrow the scope of existing partitioning
 clauses.
 
-### Use
-
-non-window functions
+### Use non-window functions
 
 Sometimes queries with window functions can be rewritten without window
 functions. For example, instead of using `row_number` to find the top
@@ -114,9 +102,7 @@ the battery status for the record with the last update time within the group.
 This query runs faster and uses less memory than an equivalent query with a
 window function.
 
-## Optimize
-
-aggregations
+## Optimize aggregations
 
 When Athena performs an aggregation, it distributes the records across worker nodes
 using the columns in the `GROUP BY` clause. To make the task of matching
@@ -153,9 +139,7 @@ The `ARBITRARY` function returns an arbitrary value from the group. The
 function is useful when you know all records in the group have the same value for a
 column, but the value does not identify the group.
 
-## Optimize top N
-
-queries
+## Optimize top N queries
 
 The `ORDER BY` clause returns the results of a query in sorted order.
 Athena uses distributed sort to run the sort operation in parallel on multiple
@@ -177,12 +161,9 @@ operations accordingly.
 Although Athena can also often detect window functions like
 `row_number` that use top `N`, we recommend the
 simpler version that uses `ORDER BY` and `LIMIT`. For more
-information, see [Reduce the scope of
-window functions, or remove them](#performance-tuning-optimizing-window-functions "#performance-tuning-optimizing-window-functions").
+information, see [Reduce the scope of window functions, or remove them](#performance-tuning-optimizing-window-functions "#performance-tuning-optimizing-window-functions").
 
-## Include only
-
-required columns
+## Include only required columns
 
 If you don't strictly need a column, don't include it in your query. The less data
 a query has to process, the faster it will run. This reduces both the amount of
@@ -227,9 +208,7 @@ for. For example, if you're looking for a prefix, it is much better to use
 '%`substr`%'. Or, if you're using
 `regexp_like`, '^`substr`'.
 
-## Use UNION ALL
-
-instead of UNION
+## Use UNION ALL instead of UNION
 
 `UNION ALL` and `UNION` are two ways to combine the results of
 two queries into one result. `UNION ALL` concatenates the records from
@@ -239,9 +218,7 @@ duplicates, which is memory and compute intensive, but `UNION ALL` is a
 relatively quick operation. Unless you need to deduplicate records, use `UNION
  ALL` for the best performance.
 
-## Use UNLOAD for
-
-large result sets
+## Use UNLOAD for large result sets
 
 When the results of a query are expected to be large (for example, tens of
 thousands of rows or more), use UNLOAD to export the results. In most cases, this is

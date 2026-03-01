@@ -26,9 +26,7 @@ change a column's data type to another if the types are compatible. For informat
 see [Summary: Updates and Data Formats in
 Athena](handling-schema-updates-chapter.md#summary-of-updates "handling-schema-updates-chapter.md#summary-of-updates").
 
-## Avoid schema mismatch
-
-errors for tables with partitions
+## Avoid schema mismatch errors for tables with partitions
 
 At the beginning of query execution, Athena verifies the table's schema by checking
 that each column data type is compatible between the table and the partition.
@@ -53,6 +51,5 @@ the schema verification error similar to this: **`'crawler_test.click_avro' is
  'col68' as type 'double'."`**
 
 A typical workaround for such errors is to drop the partition that is causing the
-error and recreate it. For more information, see [ALTER TABLE DROP
-PARTITION](alter-table-drop-partition.md "alter-table-drop-partition.md")
+error and recreate it. For more information, see [ALTER TABLE DROP PARTITION](alter-table-drop-partition.md "alter-table-drop-partition.md")
 and [ALTER TABLE ADD PARTITION](alter-table-add-partition.md "alter-table-add-partition.md").

@@ -46,9 +46,7 @@ Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Amazon Athena\ODBC\Driver
 | -------------------------- | ------------------ | ----------------- | ------------------------------------------------------- |
 | LogPath                    | Optional           | `none`            | `LogPath=C:\Users\`username`\projects\internal\trunk\;` |
 
-## Use AWS
-
-Logger
+## Use AWS Logger
 
 Specifies if AWS SDK logging is enabled. Specify 1 to enable, 0 to disable.
 

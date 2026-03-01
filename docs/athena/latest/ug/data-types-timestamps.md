@@ -7,12 +7,9 @@ Athena.
 
 The treatment of timestamps has changed somewhat between previous engine versions and Athena engine version 3. For
 information about timestamp-related errors that can occur in Athena engine version 3 and suggested
-solutions, see [Timestamp
-changes](engine-versions-reference-0003.md#engine-versions-reference-0003-timestamp-changes "engine-versions-reference-0003.md#engine-versions-reference-0003-timestamp-changes") in the [Athena engine version 3](engine-versions-reference-0003.md "engine-versions-reference-0003.md") reference.
+solutions, see [Timestamp changes](engine-versions-reference-0003.md#engine-versions-reference-0003-timestamp-changes "engine-versions-reference-0003.md#engine-versions-reference-0003-timestamp-changes") in the [Athena engine version 3](engine-versions-reference-0003.md "engine-versions-reference-0003.md") reference.
 
-## Format for writing
-
-timestamp data to Amazon S3 objects
+## Format for writing timestamp data to Amazon S3 objects
 
 The format in which timestamp data should be written into Amazon S3 objects depends on both
 the column data type and the [SerDe
@@ -45,9 +42,7 @@ the partition. For example, if your data has a `timestamp` property and you
 use Firehose to load the data into Amazon S3, you must use [dynamic partitioning](../../../firehose/latest/dev/dynamic-partitioning.md "../../../firehose/latest/dev/dynamic-partitioning.md")
 because the default partitioning of Firehose is wall-clock-based.
 
-## Use string as the data type
-
-for partition keys
+## Use string as the data type for partition keys
 
 For performance reasons, it is preferable to use `STRING` as the data type
 for partition keys. Even though Athena recognizes partition values in the format

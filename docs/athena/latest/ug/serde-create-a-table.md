@@ -19,8 +19,7 @@ MAP KEYS TERMINATED BY ':'
 For examples of `ROW FORMAT DELIMITED`, see the following
 topics:
 
-[Lazy Simple SerDe for CSV, TSV, and custom-delimited
-files](lazy-simple-serde.md "lazy-simple-serde.md")
+[Lazy Simple SerDe for CSV, TSV, and custom-delimited files](lazy-simple-serde.md "lazy-simple-serde.md")
 
 [Query Amazon CloudFront logs](cloudfront-logs.md "cloudfront-logs.md")
 
@@ -28,8 +27,7 @@ files](lazy-simple-serde.md "lazy-simple-serde.md")
 
 [Query Amazon VPC flow logs](vpc-flow-logs.md "vpc-flow-logs.md")
 
-[Use CTAS and INSERT INTO for ETL and data
-analysis](ctas-insert-into-etl.md "ctas-insert-into-etl.md")
+[Use CTAS and INSERT INTO for ETL and data analysis](ctas-insert-into-etl.md "ctas-insert-into-etl.md")
 
 - Use `ROW FORMAT SERDE` to explicitly specify the type of SerDe that
   Athena should use when it reads and writes data to the table. The following

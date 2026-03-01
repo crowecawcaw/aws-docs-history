@@ -1,6 +1,4 @@
-# What is
-
-partitioning?
+# What is partitioning?
 
 Partitioning means organizing data into directories (or "prefixes") on Amazon S3 based on a
 particular property of the data. Such properties are called _partition
@@ -9,9 +7,7 @@ as the year or month. However, a dataset can be partitioned by more than one key
 example, data about product sales might be partitioned by date, product category, and
 market.
 
-## Deciding
-
-how to partition
+## Deciding how to partition
 
 Good candidates for partition keys are properties that are always or frequently
 used in queries and have low cardinality. There is a trade-off between having too
@@ -35,15 +31,12 @@ In a `CREATE TABLE` statement, you specify the partition keys in the
 clause, or `WITH (partitioning =
  ARRAY['`partition_key`'])` for Iceberg
 tables. For performance reasons, partition keys should always be of type
-`STRING`. For more information, see [Use string as the data type
-for partition keys](data-types-timestamps.md#data-types-timestamps-partition-key-types "data-types-timestamps.md#data-types-timestamps-partition-key-types").
+`STRING`. For more information, see [Use string as the data type for partition keys](data-types-timestamps.md#data-types-timestamps-partition-key-types "data-types-timestamps.md#data-types-timestamps-partition-key-types").
 
 For additional `CREATE TABLE` and `CREATE TABLE AS` syntax
 details, see [CREATE TABLE](create-table.md "create-table.md") and [CTAS table properties](create-table-as.md#ctas-table-properties "create-table-as.md#ctas-table-properties").
 
-## Query
-
-partitioned tables
+## Query partitioned tables
 
 When you query a partitioned table, Athena uses the predicates in the query to
 filter the list of partitions. Then it uses the locations of the matching partitions

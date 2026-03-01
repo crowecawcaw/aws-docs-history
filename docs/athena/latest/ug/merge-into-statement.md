@@ -72,5 +72,4 @@ THEN INSERT (col1)
       VALUES (ice2.col1)
 ```
 
-For more `MERGE INTO` examples, see [Update Iceberg table
-data](querying-iceberg-updating-iceberg-table-data.md "querying-iceberg-updating-iceberg-table-data.md").
+For more `MERGE INTO` examples, see [Update Iceberg table data](querying-iceberg-updating-iceberg-table-data.md "querying-iceberg-updating-iceberg-table-data.md").

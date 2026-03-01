@@ -5,8 +5,7 @@ It supports data access controls defined in Lake Formation at the catalog, datab
 
 ## Prerequisites
 
-- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data
-  source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
+- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
 
 ## Limitations
 
@@ -114,9 +113,7 @@ instance.
 saphana://${`jdbc_connection_string`}
 ```
 
-#### Using a
-
-multiplexing handler
+#### Using a multiplexing handler
 
 You can use a multiplexer to connect to multiple database instances with a single
 Lambda function. Requests are routed by catalog name. Use the following classes in
@@ -145,9 +142,7 @@ default), and `saphana2`.
 | `saphana_catalog1_connection_string` | `saphana://jdbc:sap://saphana1.host:port/?${Test/RDS/<br>Saphana1}`      |
 | `saphana_catalog2_connection_string` | `saphana://jdbc:sap://saphana2.host:port/?user=sample2&password=sample2` |
 
-##### Providing
-
-credentials
+##### Providing credentials
 
 To provide a user name and password for your database in your JDBC connection
 string, you can use connection string properties or AWS Secrets Manager.
@@ -201,9 +196,7 @@ saphana://jdbc:sap://saphana1.host:port/?user=sample2&password=sample2&...
 Currently, the SAP HANA connector recognizes the `user` and
 `password` JDBC properties.
 
-#### Using a
-
-single connection handler
+#### Using a single connection handler
 
 You can use the following single connection metadata and record handlers to
 connect to a single SAP HANA instance.
@@ -262,9 +255,7 @@ Arrow.
 | BigDecimal | Decimal   |
 | ARRAY      | List      |
 
-## Data type
-
-conversions
+## Data type conversions
 
 In addition to the JDBC to Arrow conversions, the connector performs certain other
 conversions to make the SAP HANA source and Athena data types compatible. These
@@ -280,9 +271,7 @@ shows these conversions.
 
 All other unsupported data types are converted to `VARCHAR`.
 
-## Partitions and
-
-splits
+## Partitions and splits
 
 A partition is represented by a single partition column of type `Integer`.
 The column contains partition names of the partitions defined on an SAP HANA table. For
@@ -303,9 +292,7 @@ significant throttling, and sometimes query failures, due to concurrency.
 
 The Athena SAP HANA connector performs predicate pushdown to decrease the data scanned by the query. `LIMIT` clauses, simple predicates, and complex expressions are pushed down to the connector to reduce the amount of data scanned and decrease query execution run time.
 
-### LIMIT
-
-clauses
+### LIMIT clauses
 
 A `LIMIT N` statement reduces the data scanned by the query. With
 `LIMIT N` pushdown, the connector returns only `N` rows to
@@ -329,9 +316,7 @@ pushdown:
   DIVIDE, MODULUS, NEGATE
 - Other: LIKE_PATTERN, IN
 
-### Combined
-
-pushdown example
+### Combined pushdown example
 
 For enhanced querying capabilities, combine the pushdown types, as in the following example:
 
@@ -344,9 +329,7 @@ WHERE col_a > 10
 LIMIT 10;
 ```
 
-## Passthrough
-
-queries
+## Passthrough queries
 
 The SAP HANA connector supports [passthrough queries](federated-query-passthrough.md "federated-query-passthrough.md"). Passthrough
 queries use a table function to push your full query down to the data source for

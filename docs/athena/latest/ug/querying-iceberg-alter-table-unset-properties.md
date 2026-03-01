@@ -1,6 +1,4 @@
-# ALTER TABLE UNSET
-
-TBLPROPERTIES
+# ALTER TABLE UNSET TBLPROPERTIES
 
 Drops existing properties from an Iceberg table.
 

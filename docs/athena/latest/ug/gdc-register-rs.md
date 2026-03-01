@@ -6,9 +6,7 @@ provides centralized security and governance, ensuring that data access is manag
 consistently across different query engines and maintaining fine-grained access controls
 for the shared Redshift data.
 
-## Considerations and
-
-limitations
+## Considerations and limitations
 
 - **Materialized views** – Amazon Redshift materialized
   views are queryable from Athena but creating materialized views using Athena or

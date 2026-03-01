@@ -17,9 +17,7 @@ again.
 The Athena notebook editor is an interactive environment for writing and running code. The
 following sections describe the features of the environment.
 
-## Understand notebook
-
-sessions and calculations
+## Understand notebook sessions and calculations
 
 Each notebook is associated with a single Python kernel and runs Python code. A
 notebook can have one or more cells that contain commands. To run the cells in a
@@ -41,9 +39,7 @@ Sessions have dedicated compute capacity, measured in DPU. When you create a
 session, you can assign the session a number of DPUs. Different sessions can have
 different capacities depending on the requirements of the task.
 
-## Switch between command mode
-
-and edit mode
+## Switch between command mode and edit mode
 
 The notebook editor has a modal user interface: an _edit mode_
 for entering text into a cell, and a _command mode_ for issuing
@@ -63,9 +59,7 @@ To use edit mode and command mode, you can perform the following tasks:
 - To select all cells, press `Ctrl+A` (Windows) or
   `Cmd+A` (Mac).
 
-## Use actions in the notebook
-
-editor menu
+## Use actions in the notebook editor menu
 
 The icons in the menu at the top of the notebook editor offer the following
 options:
@@ -111,9 +105,7 @@ options:
   [view](notebooks-spark-getting-started.md#notebooks-spark-getting-started-viewing-session-and-calculation-details "notebooks-spark-getting-started.md#notebooks-spark-getting-started-viewing-session-and-calculation-details") the details for a session, [edit
   session parameters](notebooks-spark-getting-started.md#notebooks-spark-getting-started-editing-session-details "notebooks-spark-getting-started.md#notebooks-spark-getting-started-editing-session-details"), or [terminate](notebooks-spark-getting-started.md#notebooks-spark-getting-started-terminating-a-session "notebooks-spark-getting-started.md#notebooks-spark-getting-started-terminating-a-session") the session.
 
-## Use command mode
-
-keyboard shortcuts for productivity
+## Use command mode keyboard shortcuts for productivity
 
 The following are some common notebook editor command mode keyboard shortcuts. These
 shortcuts are available after pressing `ESC` to enter command mode.
@@ -143,9 +135,7 @@ To see a full list of commands available in the editor, press `ESC +
 | `Shift+Space`                   | Page up                                                                                             |
 | `Shift + L`                     | Toggle the visibility of line numbers in cells                                                      |
 
-## Customize command mode
-
-shortcuts
+## Customize command mode shortcuts
 
 The notebook editor has an option to customize command mode keyboard shortcuts.
 

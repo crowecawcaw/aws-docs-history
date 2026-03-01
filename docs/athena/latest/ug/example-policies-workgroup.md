@@ -22,8 +22,7 @@ resource as follows:
 For a complete list of Amazon Athena actions, see the API action names in the [Amazon Athena API Reference](../APIReference.md "../APIReference.md"). For more information about IAM
 policies, see [Creating policies with the visual editor](../../../IAM/latest/UserGuide/access_policies_create.md#access_policies_create-visual-editor "../../../IAM/latest/UserGuide/access_policies_create.md#access_policies_create-visual-editor") in the
 _IAM User Guide_. For more information about creating IAM
-policies for workgroups, see [Use IAM policies to control workgroup
-access](workgroups-iam-policy.md "workgroups-iam-policy.md").
+policies for workgroups, see [Use IAM policies to control workgroup access](workgroups-iam-policy.md "workgroups-iam-policy.md").
 
 - [Example policy for full access to all workgroups](#example1-full-access-all-wkgs "#example1-full-access-all-wkgs")
 - [Example policy for full access to a specified workgroup](#example2-full-access-this-wkg "#example2-full-access-this-wkg")

@@ -33,9 +33,7 @@ The serialization library name for the Amazon Ion SerDe is
 [Amazon Ion Hive
 SerDe](https://github.com/amazon-ion/ion-hive-serde "https://github.com/amazon-ion/ion-hive-serde") on GitHub.com.
 
-## Considerations and
-
-limitations
+## Considerations and limitations
 
 - Duplicated fields – Amazon Ion structs
   are ordered and support duplicated fields, while Hive's
@@ -74,8 +72,6 @@ limitations
 ###### Topics
 
 - [Create Amazon Ion tables](ion-serde-using-create-table.md "ion-serde-using-create-table.md")
-- [Use CTAS and
-  INSERT INTO to create Amazon Ion tables](ion-serde-using-ctas-and-insert-into-to-create-ion-tables.md "ion-serde-using-ctas-and-insert-into-to-create-ion-tables.md")
-- [Amazon Ion SerDe property
-  reference](ion-serde-using-ion-serde-properties.md "ion-serde-using-ion-serde-properties.md")
+- [Use CTAS and INSERT INTO to create Amazon Ion tables](ion-serde-using-ctas-and-insert-into-to-create-ion-tables.md "ion-serde-using-ctas-and-insert-into-to-create-ion-tables.md")
+- [Amazon Ion SerDe property reference](ion-serde-using-ion-serde-properties.md "ion-serde-using-ion-serde-properties.md")
 - [Use path extractors](ion-serde-using-path-extractors.md "ion-serde-using-path-extractors.md")

@@ -1,6 +1,4 @@
-# ALTER TABLE RENAME
-
-PARTITION
+# ALTER TABLE RENAME PARTITION
 
 Renames a partition value.
 
@@ -8,8 +6,7 @@ Renames a partition value.
 
 ALTER TABLE RENAME PARTITION does not rename partition columns. To
 change a partition column name, you can use the AWS Glue console. For more information, see
-[Renaming a partition column
-in AWS Glue](#alter-table-rename-partition-column-name "#alter-table-rename-partition-column-name") later in this document.
+[Renaming a partition column in AWS Glue](#alter-table-rename-partition-column-name "#alter-table-rename-partition-column-name") later in this document.
 
 ## Synopsis
 
@@ -36,9 +33,7 @@ ALTER TABLE orders
 PARTITION (dt = '2014-05-14', country = 'IN') RENAME TO PARTITION (dt = '2014-05-15', country = 'IN');
 ```
 
-## Renaming a partition column
-
-in AWS Glue
+## Renaming a partition column in AWS Glue
 
 Use the following procedure to rename partition column names in the AWS Glue
 console.
@@ -72,8 +67,6 @@ console.
    **Actions**, and then choose **Compare
    versions**.
 
-## Additional
-
-resources
+## Additional resources
 
 For more information about partitioning, see [Partition your data](partitions.md "partitions.md").

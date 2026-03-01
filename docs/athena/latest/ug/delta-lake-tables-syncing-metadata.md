@@ -1,6 +1,4 @@
-# Synchronize Delta Lake
-
-metadata
+# Synchronize Delta Lake metadata
 
 Athena synchronizes table metadata, including schema, partition columns, and table
 properties, to AWS Glue if you use Athena to create your Delta Lake table. As time passes,

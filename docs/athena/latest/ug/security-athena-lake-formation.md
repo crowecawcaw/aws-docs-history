@@ -1,6 +1,4 @@
-# Use Athena to query data registered with
-
-AWS Lake Formation
+# Use Athena to query data registered with AWS Lake Formation
 
 [AWS Lake Formation](../../../lake-formation/latest/dg/what-is-lake-formation.md "../../../lake-formation/latest/dg/what-is-lake-formation.md") allows you to define
 and enforce database, table, and column-level access policies when using Athena queries to
@@ -28,9 +26,7 @@ history. You can use Athena workgroups to control access to query history.
 For more information about Lake Formation, see [Lake Formation FAQs](https://aws.amazon.com/lake-formation/faqs/ "https://aws.amazon.com/lake-formation/faqs/") and the [AWS Lake Formation
 Developer Guide](../../../lake-formation/latest/dg/what-is-lake-formation.md "../../../lake-formation/latest/dg/what-is-lake-formation.md").
 
-## Apply
-
-Lake Formation permissions to existing databases and tables
+## Apply Lake Formation permissions to existing databases and tables
 
 If you are new to Athena and you use Lake Formation to configure access to query data, you do not
 need to configure IAM policies so that users can read data and create metadata. You
@@ -48,8 +44,7 @@ modify Amazon S3 permissions. For access to metadata, if you configured resource
 policies for fine-grained access control with AWS Glue, you can use Lake Formation permissions to
 manage access instead.
 
-For more information, see [Configure access to databases and
-tables in the AWS Glue Data Catalog](fine-grained-access-to-glue-resources.md "fine-grained-access-to-glue-resources.md") and [Upgrading AWS Glue data permissions
+For more information, see [Configure access to databases and tables in the AWS Glue Data Catalog](fine-grained-access-to-glue-resources.md "fine-grained-access-to-glue-resources.md") and [Upgrading AWS Glue data permissions
 to the AWS Lake Formation model](../../../lake-formation/latest/dg/upgrade-glue-lake-formation.md "../../../lake-formation/latest/dg/upgrade-glue-lake-formation.md") in the _AWS Lake Formation Developer
 Guide_.
 

@@ -26,5 +26,4 @@ DROP VIEW orders_by_date
 DROP VIEW IF EXISTS orders_by_date
 ```
 
-See also [CREATE VIEW and CREATE PROTECTED MULTI
-DIALECT VIEW](create-view.md "create-view.md"), [SHOW COLUMNS](show-columns.md "show-columns.md"), [SHOW CREATE VIEW](show-create-view.md "show-create-view.md"), [SHOW VIEWS](show-views.md "show-views.md"), and [DESCRIBE VIEW](describe-view.md "describe-view.md").
+See also [CREATE VIEW and CREATE PROTECTED MULTI DIALECT VIEW](create-view.md "create-view.md"), [SHOW COLUMNS](show-columns.md "show-columns.md"), [SHOW CREATE VIEW](show-create-view.md "show-create-view.md"), [SHOW VIEWS](show-views.md "show-views.md"), and [DESCRIBE VIEW](describe-view.md "describe-view.md").

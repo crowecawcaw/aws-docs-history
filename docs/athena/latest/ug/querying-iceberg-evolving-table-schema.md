@@ -1,6 +1,4 @@
-# Evolve Iceberg table
-
-schema
+# Evolve Iceberg table schema
 
 Iceberg schema updates are metadata-only changes. No data files are changed when you
 perform a schema update.
@@ -28,10 +26,7 @@ The Iceberg format supports the following schema evolution changes:
 
 ###### Topics
 
-- [ALTER TABLE ADD
-  COLUMNS](querying-iceberg-alter-table-add-columns.md "querying-iceberg-alter-table-add-columns.md")
-- [ALTER TABLE DROP
-  COLUMN](querying-iceberg-alter-table-drop-column.md "querying-iceberg-alter-table-drop-column.md")
-- [ALTER TABLE CHANGE
-  COLUMN](querying-iceberg-alter-table-change-column.md "querying-iceberg-alter-table-change-column.md")
+- [ALTER TABLE ADD COLUMNS](querying-iceberg-alter-table-add-columns.md "querying-iceberg-alter-table-add-columns.md")
+- [ALTER TABLE DROP COLUMN](querying-iceberg-alter-table-drop-column.md "querying-iceberg-alter-table-drop-column.md")
+- [ALTER TABLE CHANGE COLUMN](querying-iceberg-alter-table-change-column.md "querying-iceberg-alter-table-change-column.md")
 - [SHOW COLUMNS](querying-iceberg-show-columns.md "querying-iceberg-show-columns.md")

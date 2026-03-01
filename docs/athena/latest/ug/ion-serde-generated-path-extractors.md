@@ -1,6 +1,4 @@
-# Use Athena generated path
-
-extractors
+# Use Athena generated path extractors
 
 By default, Athena searches for top level Amazon Ion values that match Hive column
 names and creates path extractors at runtime based on these matching values. If your

@@ -1,6 +1,4 @@
-# Configure cross-account access in Athena to Amazon S3
-
-buckets
+# Configure cross-account access in Athena to Amazon S3 buckets
 
 A common Amazon Athena scenario is granting access to users in an account different from the
 bucket owner so that they can perform queries. In this case, use a bucket policy to grant
@@ -9,8 +7,7 @@ access.
 ###### Note
 
 For information about cross-account access to AWS Glue data catalogs from Athena, see
-[Configure cross-account
-access to AWS Glue data catalogs](security-iam-cross-account-glue-catalog-access.md "security-iam-cross-account-glue-catalog-access.md").
+[Configure cross-account access to AWS Glue data catalogs](security-iam-cross-account-glue-catalog-access.md "security-iam-cross-account-glue-catalog-access.md").
 
 The following example bucket policy, created and applied to bucket
 `s3://amzn-s3-demo-bucket` by the bucket owner, grants access to all users in
@@ -51,9 +48,7 @@ To grant access to a particular user in an account, replace the `Principal` key
 with a key that specifies the user instead of `root`. For example, for user
 profile `Dave`, use `arn:aws:iam::123456789123:user/Dave`.
 
-## Configure cross-account access to a
-
-bucket encrypted with a custom AWS KMS key
+## Configure cross-account access to a bucket encrypted with a custom AWS KMS key
 
 If you have an Amazon S3 bucket that is encrypted with a custom AWS Key Management Service (AWS KMS) key, you
 might need to grant access to it to users from another Amazon Web Services account.
@@ -104,9 +99,7 @@ JSON
 
 ```
 
-###### To grant access to the user in account b from the AWS KMS key policy in account
-
-a
+###### To grant access to the user in account b from the AWS KMS key policy in account a
 
 1.  In the AWS KMS key policy for Account A, grant the role assumed by Account B
     permissions to the following actions:
@@ -159,9 +152,7 @@ JSON
    2. Add Account B's account ID as an external account with access to the
       key.
 
-###### To grant access to the bucket and the key in account a from the IAM role
-
-assumed by account b
+###### To grant access to the bucket and the key in account a from the IAM role assumed by account b
 
 1. From Account B, open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. Open the IAM role associated with the user in Account B.
@@ -225,9 +216,7 @@ JSON
 
 ```
 
-## Configure cross-account access to
-
-bucket objects
+## Configure cross-account access to bucket objects
 
 Objects that are uploaded by an account (Account C) other than the bucket's owning
 account (Account A) might require explicit object-level ACLs that grant read access to

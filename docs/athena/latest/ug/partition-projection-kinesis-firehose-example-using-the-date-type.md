@@ -1,6 +1,4 @@
-# How
-
-to use the `date` type
+# How to use the `date` type
 
 When you use the `date` type for a projected partition key, you must
 specify a range. Because you have no data for dates before the Firehose delivery stream was

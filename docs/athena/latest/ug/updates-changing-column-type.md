@@ -20,20 +20,16 @@ points:
 - For partitioned tables in Parquet and ORC, a partition's column type can
   be different from another partition's column type, and Athena will
   `CAST` to the desired type, if possible. For information, see
-  [Avoid schema mismatch
-  errors for tables with partitions](updates-and-partitions.md#partitions-dealing-with-schema-mismatch-errors "updates-and-partitions.md#partitions-dealing-with-schema-mismatch-errors").
+  [Avoid schema mismatch errors for tables with partitions](updates-and-partitions.md#partitions-dealing-with-schema-mismatch-errors "updates-and-partitions.md#partitions-dealing-with-schema-mismatch-errors").
 - For tables created using the [LazySimpleSerDe](lazy-simple-serde.md "lazy-simple-serde.md") only, it is
   possible to use the `ALTER TABLE REPLACE COLUMNS` statement to
   replace existing columns with a different data type, but all existing
   columns that you want to keep must also be redefined in the statement, or
-  they will be dropped. For more information, see [ALTER TABLE REPLACE
-  COLUMNS](alter-table-replace-columns.md "alter-table-replace-columns.md").
-- For Apache Iceberg tables only, you can use the [ALTER TABLE CHANGE
-  COLUMN](querying-iceberg-alter-table-change-column.md "querying-iceberg-alter-table-change-column.md") statement
+  they will be dropped. For more information, see [ALTER TABLE REPLACE COLUMNS](alter-table-replace-columns.md "alter-table-replace-columns.md").
+- For Apache Iceberg tables only, you can use the [ALTER TABLE CHANGE COLUMN](querying-iceberg-alter-table-change-column.md "querying-iceberg-alter-table-change-column.md") statement
   to change the data type of a column. `ALTER TABLE REPLACE
 COLUMNS` is not supported for Iceberg tables. For more
-  information, see [Evolve Iceberg table
-  schema](querying-iceberg-evolving-table-schema.md "querying-iceberg-evolving-table-schema.md").
+  information, see [Evolve Iceberg table schema](querying-iceberg-evolving-table-schema.md "querying-iceberg-evolving-table-schema.md").
 
 ###### Important
 
@@ -41,9 +37,7 @@ We strongly suggest that you test and verify your queries before performing
 data type translations. If Athena cannot use the target data type, the
 `CREATE TABLE` query may fail.
 
-## Use
-
-compatible data types
+## Use compatible data types
 
 Whenever possible, use compatible data types. The following table lists data types
 that can be treated as other data types:

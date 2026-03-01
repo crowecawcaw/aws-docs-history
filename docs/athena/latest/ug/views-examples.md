@@ -52,5 +52,4 @@ ON table1.a = table2.a;
 
 ```
 
-For information about querying federated views, see [Query federated
-views](running-federated-queries.md#running-federated-queries-federated-views "running-federated-queries.md#running-federated-queries-federated-views").
+For information about querying federated views, see [Query federated views](running-federated-queries.md#running-federated-queries-federated-views "running-federated-queries.md#running-federated-queries-federated-views").

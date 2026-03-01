@@ -1,6 +1,4 @@
-# Keep your query history longer than 45
-
-days
+# Keep your query history longer than 45 days
 
 If you want to keep the query history longer than 45 days, you can retrieve the query
 history and save it to a data store such as Amazon S3. To automate this process, you can use

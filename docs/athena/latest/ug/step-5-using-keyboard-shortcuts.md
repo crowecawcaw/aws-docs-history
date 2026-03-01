@@ -1,6 +1,4 @@
-# Step 5: Use keyboard shortcuts and
-
-typeahead suggestions
+# Step 5: Use keyboard shortcuts and typeahead suggestions
 
 The Athena query editor provides numerous keyboard shortcuts for actions like running a
 query, formatting a query, line operations, and find and replace. For more information

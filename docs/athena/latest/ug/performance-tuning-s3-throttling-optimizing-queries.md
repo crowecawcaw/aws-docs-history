@@ -1,6 +1,4 @@
-# Optimize your
-
-queries
+# Optimize your queries
 
 Use the suggestions in this section for optimizing your SQL queries in Athena.
 
@@ -15,9 +13,7 @@ For greater efficiency in your queries, look at the top or bottom
 clause. This significantly reduces the cost of the sort by pushing both sorting and
 limiting to individual worker nodes rather than to a single worker.
 
-## Optimize
-
-JOIN clauses
+## Optimize JOIN clauses
 
 When you join two tables, Athena distributes the table on the right to worker
 nodes, and then streams the table on the left to perform the join.
@@ -46,9 +42,7 @@ cardinality to the lowest.
 Because numbers require less memory and are faster to process compared to strings,
 use numbers instead of strings when possible.
 
-## Limit
-
-the number of columns
+## Limit the number of columns
 
 To reduce the total amount of memory required to store your data, limit the number
 of columns specified in your `SELECT` statement.
@@ -60,9 +54,7 @@ can be very computationally intensive. When you filter for multiple values on a
 string column, use the [regexp_like()](https://trino.io/docs/current/functions/regexp.html#regexp_like "https://trino.io/docs/current/functions/regexp.html#regexp_like") function and a regular expression instead. This is
 particularly useful when you compare a long list of values.
 
-## Use the
-
-LIMIT clause
+## Use the LIMIT clause
 
 Instead of selecting all columns when you run a query, use the `LIMIT`
 clause to return only the columns that you require. This reduces the size of the

@@ -9,11 +9,9 @@ This connector does not use Glue Connections to centralize configuration propert
 
 ## Prerequisites
 
-- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data
-  source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
+- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
 - Set up a VPC and a security group before you use this connector. For more
-  information, see [Create a VPC for a data source connector or
-  AWS Glue connection](athena-connectors-vpc-creation.md "athena-connectors-vpc-creation.md").
+  information, see [Create a VPC for a data source connector or AWS Glue connection](athena-connectors-vpc-creation.md "athena-connectors-vpc-creation.md").
 
 ## Limitations
 
@@ -167,9 +165,7 @@ vertica://jdbc:vertica://`host_name`:`port`/`database`?user=`vertica-username`&p
 
 ```
 
-#### Using a
-
-single connection handler
+#### Using a single connection handler
 
 You can use the following single connection metadata and record handlers to
 connect to a single Vertica instance.
@@ -180,9 +176,7 @@ connect to a single Vertica instance.
 | Metadata handler  | `VerticaMetadataHandler`  |
 | Record handler    | `VerticaRecordHandler`    |
 
-#### Single
-
-connection handler parameters
+#### Single connection handler parameters
 
 | Parameter | Description                              |
 | --------- | ---------------------------------------- |
@@ -192,9 +186,7 @@ The single connection handlers support one database instance and must provide a
 `default` connection string parameter. All other connection
 strings are ignored.
 
-#### Providing
-
-credentials
+#### Providing credentials
 
 To provide a user name and password for your database in your JDBC connection
 string, you can use connection string properties or AWS Secrets Manager.
@@ -284,9 +276,7 @@ The following table shows the supported data types for the Vertica connector.
 
 The Lambda function performs projection pushdown to decrease the data scanned by the query. `LIMIT` clauses reduce the amount of data scanned, but if you don't provide a predicate, you should expect `SELECT` queries with a `LIMIT` clause to scan at least 16 MB of data. The Vertica connector is resilient to throttling due to concurrency.
 
-## Passthrough
-
-queries
+## Passthrough queries
 
 The Vertica connector supports [passthrough queries](federated-query-passthrough.md "federated-query-passthrough.md"). Passthrough
 queries use a table function to push your full query down to the data source for
@@ -317,9 +307,7 @@ By using this connector, you acknowledge the inclusion of third party components
 of which can be found in the [pom.xml](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-vertica/pom.xml "https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-vertica/pom.xml") file for this connector, and agree to the terms in the respective third
 party licenses provided in the [LICENSE.txt](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-vertica/LICENSE.txt "https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-vertica/LICENSE.txt") file on GitHub.com.
 
-## Additional
-
-resources
+## Additional resources
 
 For the latest JDBC driver version information, see the [pom.xml](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-vertica/pom.xml "https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-vertica/pom.xml") file for the Vertica connector on GitHub.com.
 

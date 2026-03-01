@@ -22,7 +22,5 @@ upload your own data files to Amazon S3, charges do apply.
 - [Step 2: Create a table](step-2-create-a-table.md "step-2-create-a-table.md")
 - [Step 3: Query data](step-3-query-data.md "step-3-query-data.md")
 - [Step 4: Use named queries](step-4-use-named-queries.md "step-4-use-named-queries.md")
-- [Step 5: Use keyboard shortcuts and
-  typeahead suggestions](step-5-using-keyboard-shortcuts.md "step-5-using-keyboard-shortcuts.md")
-- [Step 6: Connect to other data
-  sources](step-6-connect-to-other-data-sources.md "step-6-connect-to-other-data-sources.md")
+- [Step 5: Use keyboard shortcuts and typeahead suggestions](step-5-using-keyboard-shortcuts.md "step-5-using-keyboard-shortcuts.md")
+- [Step 6: Connect to other data sources](step-6-connect-to-other-data-sources.md "step-6-connect-to-other-data-sources.md")

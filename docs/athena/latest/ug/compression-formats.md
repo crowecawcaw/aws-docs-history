@@ -58,21 +58,16 @@ Athena supports the following compression formats:
 Athena does not support writing Parquet files compressed with LZ4 or LZO
 formats. Reads for these compression formats are supported.
 
-## Specify compression
-
-formats
+## Specify compression formats
 
 When you write CREATE TABLE or CTAS statements, you can specify compression properties
 that specify the compression type to use when Athena writes to those tables.
 
 - For CTAS, see [CTAS table properties](create-table-as.md#ctas-table-properties "create-table-as.md#ctas-table-properties"). For examples, see [Examples of CTAS queries](ctas-examples.md "ctas-examples.md").
-- For CREATE TABLE, see [ALTER TABLE SET
-  TBLPROPERTIES](alter-table-set-tblproperties.md "alter-table-set-tblproperties.md") for a list of compression
+- For CREATE TABLE, see [ALTER TABLE SET TBLPROPERTIES](alter-table-set-tblproperties.md "alter-table-set-tblproperties.md") for a list of compression
   table properties.
 
-## Specify no
-
-compression
+## Specify no compression
 
 CREATE TABLE statements support writing uncompressed files. To write uncompressed
 files, use the following syntax:

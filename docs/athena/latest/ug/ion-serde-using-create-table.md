@@ -9,8 +9,7 @@ following techniques in a CREATE TABLE statement:
 - Specify the Amazon Ion class paths in the `ROW FORMAT SERDE`,
   `INPUTFORMAT`, and `OUTPUTFORMAT` fields.
   You can also use `CREATE TABLE AS SELECT` (CTAS) statements to create Amazon
-  Ion tables in Athena. For information, see [Use CTAS and
-  INSERT INTO to create Amazon Ion tables](ion-serde-using-ctas-and-insert-into-to-create-ion-tables.md "ion-serde-using-ctas-and-insert-into-to-create-ion-tables.md").
+  Ion tables in Athena. For information, see [Use CTAS and INSERT INTO to create Amazon Ion tables](ion-serde-using-ctas-and-insert-into-to-create-ion-tables.md "ion-serde-using-ctas-and-insert-into-to-create-ion-tables.md").
 
 ## Specify STORED AS ION
 
@@ -35,9 +34,7 @@ STORED AS ION
 LOCATION 's3://amzn-s3-demo-bucket/'
 ```
 
-## Specify the Amazon Ion class
-
-paths
+## Specify the Amazon Ion class paths
 
 Instead of using the `STORED AS ION` syntax, you can explicitly specify the
 Ion class path values for the `ROW FORMAT SERDE`, `INPUTFORMAT`,
@@ -73,5 +70,4 @@ LOCATION 's3://amzn-s3-demo-bucket/'
 ```
 
 For information about the SerDe properties for `CREATE TABLE` statements in
-Athena, see [Amazon Ion SerDe property
-reference](ion-serde-using-ion-serde-properties.md "ion-serde-using-ion-serde-properties.md").
+Athena, see [Amazon Ion SerDe property reference](ion-serde-using-ion-serde-properties.md "ion-serde-using-ion-serde-properties.md").

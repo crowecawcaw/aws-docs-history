@@ -20,8 +20,7 @@ You can work with tags using the Athena console or the API operations.
 - [Tag restrictions](#tag-restrictions "#tag-restrictions")
 - [Work with tags for workgroups](tags-console.md "tags-console.md")
 - [Use API and AWS CLI tag operations](tags-operations.md "tags-operations.md")
-- [Use tag-based IAM access control
-  policies](tags-access-control.md "tags-access-control.md")
+- [Use tag-based IAM access control policies](tags-access-control.md "tags-access-control.md")
 
 ## Tag basics
 
@@ -45,8 +44,7 @@ you use the **TagResource** action to tag a resource using an existing
 tag key, the new tag value overwrites the old value.
 
 In IAM, you can control which users in your Amazon Web Services account have permission to
-create, edit, remove, or list tags. For more information, see [Use tag-based IAM access control
-policies](tags-access-control.md "tags-access-control.md").
+create, edit, remove, or list tags. For more information, see [Use tag-based IAM access control policies](tags-access-control.md "tags-access-control.md").
 
 For a complete list of Amazon Athena tag actions, see the API action names in the [Amazon Athena API Reference](../APIReference.md "../APIReference.md").
 

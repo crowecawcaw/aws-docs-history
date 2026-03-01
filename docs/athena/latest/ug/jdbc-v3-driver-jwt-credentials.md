@@ -4,9 +4,7 @@ With this authentication type, you can use a JSON web token (JWT) obtained from 
 external identity provider as a connection parameter to authenticate with Athena. The
 external credentials provider must already be federated with AWS.
 
-## Credentials
-
-provider
+## Credentials provider
 
 The credentials provider that will be used to authenticate requests to AWS. Set
 the value of this parameter to `JWT`.
@@ -15,9 +13,7 @@ the value of this parameter to `JWT`.
 | ------------------- | ---------------------------------------- | -------------- | ------------- | ------------ |
 | CredentialsProvider | AWSCredentialsProviderClass (deprecated) | Required       | none          | `JWT`        |
 
-## JWT web identity
-
-token
+## JWT web identity token
 
 The JWT token obtained from an external federated identity provider. This token
 will be used to authenticate with Athena.
@@ -45,9 +41,7 @@ can be any name that you choose.
 | ------------------ | ------------------------------ | -------------- | ------------- |
 | JwtRoleSessionName | role_session_name (deprecated) | Required       | none          |
 
-## Role session
-
-duration
+## Role session duration
 
 The duration, in seconds, of the role session. For more information, see [AssumeRoleWithWebIdentity](../../../STS/latest/APIReference/API_AssumeRoleWithWebIdentity.md "../../../STS/latest/APIReference/API_AssumeRoleWithWebIdentity.md") in the
 _AWS Security Token Service API Reference_.

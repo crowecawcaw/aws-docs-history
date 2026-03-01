@@ -44,9 +44,7 @@ In the **Table details** section, the data type that you entered
 appears in the **Classification** field for the table.
 For more information, see [Working with tables](../../../glue/latest/dg/console-tables.md "../../../glue/latest/dg/console-tables.md") in the _AWS Glue Developer Guide_.
 
-## Use ETL jobs to optimize query
-
-performance
+## Use ETL jobs to optimize query performance
 
 AWS Glue jobs can help you transform data to a format that optimizes query
 performance in Athena. Data formats have a large impact on query performance and query

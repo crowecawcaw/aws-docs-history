@@ -3,9 +3,7 @@
 To create an Iceberg table for use in Athena, you can use a `CREATE TABLE`
 statement as documented on this page, or you can use an AWS Glue crawler.
 
-## Use a CREATE TABLE
-
-statement
+## Use a CREATE TABLE statement
 
 Athena creates Iceberg v2 tables. For the difference between v1 and v2 tables, see
 [Format version changes](https://iceberg.apache.org/spec/#appendix-e-format-version-changes "https://iceberg.apache.org/spec/#appendix-e-format-version-changes") in the Apache Iceberg documentation.
@@ -35,8 +33,7 @@ CREATE TABLE
 ```
 
 For information about the data types that you can query in Iceberg tables, see
-[Supported data types for Iceberg
-tables in Athena](querying-iceberg-supported-data-types.md "querying-iceberg-supported-data-types.md").
+[Supported data types for Iceberg tables in Athena](querying-iceberg-supported-data-types.md "querying-iceberg-supported-data-types.md").
 
 ### Use partitions
 
@@ -134,9 +131,7 @@ _vacuum_max_metadata_files_to_keep_
 | **Allowed property<br>values** | A positive number.                                                                     |
 | **Default value**              | 100                                                                                    |
 
-### Example CREATE
-
-TABLE statement
+### Example CREATE TABLE statement
 
 The following example creates an Iceberg table that has three columns.
 
@@ -155,17 +150,13 @@ TBLPROPERTIES (
 )
 ```
 
-## Use CREATE TABLE AS SELECT
-
-(CTAS)
+## Use CREATE TABLE AS SELECT (CTAS)
 
 For information about creating an Iceberg table using the `CREATE TABLE
  AS` statement, see [CREATE TABLE AS](create-table-as.md "create-table-as.md"), with particular attention to the [CTAS table properties](create-table-as.md#ctas-table-properties "create-table-as.md#ctas-table-properties")
 section.
 
-## Use an AWS Glue
-
-crawler
+## Use an AWS Glue crawler
 
 You can use an AWS Glue crawler to automatically register your Iceberg tables into
 the AWS Glue Data Catalog. If you want to migrate from another Iceberg catalog, you can create

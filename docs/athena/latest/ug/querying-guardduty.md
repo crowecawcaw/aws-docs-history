@@ -118,5 +118,4 @@ When you create your query, keep the following points in mind.
   `json_extract` or `json_extract_scalar` functions. For
   more information, see [Extract JSON data from strings](extracting-data-from-JSON.md "extracting-data-from-JSON.md").
 - Make sure that all characters in the JSON fields are in lower case.
-- For information about downloading query results, see [Download query results files using the Athena
-  console](saving-query-results.md "saving-query-results.md").
+- For information about downloading query results, see [Download query results files using the Athena console](saving-query-results.md "saving-query-results.md").

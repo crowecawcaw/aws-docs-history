@@ -1,6 +1,4 @@
-# Supported column data
-
-types
+# Supported column data types
 
 This section describes the supported data types for non-partition and partition
 columns.
@@ -30,9 +28,7 @@ map
 struct
 ```
 
-## Supported
-
-partition column data types
+## Supported partition column data types
 
 For partition columns, Athena supports tables with the following data types:
 

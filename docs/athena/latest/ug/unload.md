@@ -16,9 +16,7 @@ to be in JSON format, and Parquet or ORC might provide a performance advantage o
 you intend to use the results of the `SELECT` query for additional
 analysis.
 
-## Considerations and
-
-limitations
+## Considerations and limitations
 
 When you use the `UNLOAD` statement in Athena, keep in mind the following
 points:
@@ -36,8 +34,7 @@ points:
 - Metadata and manifest files – Athena
   generates a metadata file and data manifest file for each `UNLOAD`
   query. The manifest tracks the files that the query wrote. Both files are saved
-  to your Athena query result location in Amazon S3. For more information, see [Identify query output
-  files](querying-finding-output-files.md#querying-identifying-output-files "querying-finding-output-files.md#querying-identifying-output-files").
+  to your Athena query result location in Amazon S3. For more information, see [Identify query output files](querying-finding-output-files.md#querying-identifying-output-files "querying-finding-output-files.md#querying-identifying-output-files").
 - Encryption – `UNLOAD` output
   files are encrypted according to the encryption configuration used for Amazon S3. To
   set up encryption configuration to encrypt your `UNLOAD` result, you
@@ -51,8 +48,7 @@ points:
   bucket owner setting does not apply to the destination Amazon S3 location specfied in
   the `UNLOAD` query. The expected bucket owner setting applies only to the Amazon S3
   output location that you specify for Athena query results. For more information, see
-  [Specify a query result
-  location using the Athena console](query-results-specify-location-console.md "query-results-specify-location-console.md").
+  [Specify a query result location using the Athena console](query-results-specify-location-console.md "query-results-specify-location-console.md").
 
 ## Syntax
 

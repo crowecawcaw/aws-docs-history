@@ -6,9 +6,7 @@ If you run an existing prepared statement with the syntax `EXECUTE`
 values that would normally go in the `USING` clause of the `EXECUTE
  ... USING` statement.
 
-###### To run a prepared statement using the **Enter parameters**
-
-dialog box
+###### To run a prepared statement using the **Enter parameters** dialog box
 
 1. In the query editor, instead of using the syntax `EXECUTE
  prepared_statement USING`

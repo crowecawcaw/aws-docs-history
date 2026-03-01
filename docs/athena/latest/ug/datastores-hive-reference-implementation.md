@@ -1,6 +1,4 @@
-# Modify the Athena external Hive
-
-metastore connector
+# Modify the Athena external Hive metastore connector
 
 If you have special requirements, you can modify the Athena connector for external Hive
 metastore for your own use. Athena provides a reference implementation of the connector on

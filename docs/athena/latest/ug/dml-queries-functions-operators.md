@@ -1,6 +1,4 @@
-# DML queries, functions, and
-
-operators
+# DML queries, functions, and operators
 
 The Athena DML query engine generally supports Trino and Presto syntax and adds its own
 improvements. Athena does not support all Trino or Presto features. For more information, see

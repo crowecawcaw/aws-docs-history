@@ -3,9 +3,7 @@
 An authentication mechanism that enables connecting to DataZone-governed data in Athena
 using IAM Identity Center.
 
-## Credentials
-
-provider
+## Credentials provider
 
 The credentials provider that will be used to authenticate requests to AWS. Set
 the value of this parameter to `DataZoneIdc`. Note that the
@@ -16,9 +14,7 @@ the value of this parameter to `DataZoneIdc`. Note that the
 | ------------------- | ---------------------------------------- | -------------- | ------------- | ------------ |
 | CredentialsProvider | AWSCredentialsProviderClass (deprecated) | Required       | none          | DataZoneIdc  |
 
-## DataZone
-
-domain identifier
+## DataZone domain identifier
 
 Identifier of the DataZone domain to use.
 
@@ -34,9 +30,7 @@ Identifier of the DataZone environment to use.
 | --------------------- | ----- | -------------- | ------------- |
 | DataZoneEnvironmentId | none  | Required       | none          |
 
-## DataZone domain
-
-region
+## DataZone domain region
 
 The AWS Region where your DataZone domain is provisioned.
 
@@ -53,9 +47,7 @@ provisioned.
 | -------------- | ----- | -------------- | ------------- |
 | Region         | none  | Required       | none          |
 
-## IAM Identity Center
-
-issuer URL
+## IAM Identity Center issuer URL
 
 The issuer URL of the IAM Identity Center instance that the DataZone domain uses.
 
@@ -63,9 +55,7 @@ The issuer URL of the IAM Identity Center instance that the DataZone domain uses
 | ----------------------- | ----- | -------------- | ------------- |
 | IdentityCenterIssuerUrl | none  | Required       | none          |
 
-## DataZone
-
-endpoint override
+## DataZone endpoint override
 
 The DataZone API endpoint to be used instead of the default for the provided
 AWS Region.
@@ -74,9 +64,7 @@ AWS Region.
 | ------------------------ | ----- | -------------- | ------------- |
 | DataZoneEndpointOverride | none  | Optional       | none          |
 
-## Enable token
-
-caching
+## Enable token caching
 
 When enabled, allows the same IAM Identity Center access token to be used across driver
 connections. This prevents SQL tools that create multiple driver connections from

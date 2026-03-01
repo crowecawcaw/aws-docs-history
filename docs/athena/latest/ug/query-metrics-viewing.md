@@ -34,8 +34,7 @@ Athena publishes the following metrics to the CloudWatch console:
   query.
 - `TotalExecutionTime` – The number of milliseconds that Athena took
   to run a DDL or DML query.
-  For more complete descriptions, see the [List of CloudWatch metrics and dimensions
-  for Athena](#athena-cloudwatch-metrics-table "#athena-cloudwatch-metrics-table") later in this document.
+  For more complete descriptions, see the [List of CloudWatch metrics and dimensions for Athena](#athena-cloudwatch-metrics-table "#athena-cloudwatch-metrics-table") later in this document.
 
 These metrics have the following dimensions:
 
@@ -56,10 +55,8 @@ These metrics have the following dimensions:
 - `SessionId` – The ID of the session in which the calculations
   are submitted.
 - `WorkGroup` – Name of the workgroup.
-  For more information, see the [List of CloudWatch metrics and dimensions
-  for Athena](#athena-cloudwatch-metrics-table "#athena-cloudwatch-metrics-table") later in this topic. For information
-  about Athena usage metrics, see [Monitor Athena usage metrics with
-  CloudWatch](monitoring-athena-usage-metrics.md "monitoring-athena-usage-metrics.md").
+  For more information, see the [List of CloudWatch metrics and dimensions for Athena](#athena-cloudwatch-metrics-table "#athena-cloudwatch-metrics-table") later in this topic. For information
+  about Athena usage metrics, see [Monitor Athena usage metrics with CloudWatch](monitoring-athena-usage-metrics.md "monitoring-athena-usage-metrics.md").
 
 You can view query metrics in the Athena console or in the CloudWatch console.
 

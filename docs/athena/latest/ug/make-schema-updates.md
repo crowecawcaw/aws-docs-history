@@ -49,10 +49,8 @@ The following topics show how updates to these tables affect Athena queries.
 
 ###### Topics
 
-- [Add columns at the
-  beginning or in the middle of the table](updates-add-columns-beginning-middle-of-table.md "updates-add-columns-beginning-middle-of-table.md")
-- [Add columns at the end of the
-  table](updates-add-columns-end-of-table.md "updates-add-columns-end-of-table.md")
+- [Add columns at the beginning or in the middle of the table](updates-add-columns-beginning-middle-of-table.md "updates-add-columns-beginning-middle-of-table.md")
+- [Add columns at the end of the table](updates-add-columns-end-of-table.md "updates-add-columns-end-of-table.md")
 - [Remove columns](updates-removing-columns.md "updates-removing-columns.md")
 - [Rename columns](updates-renaming-columns.md "updates-renaming-columns.md")
 - [Reorder columns](updates-reordering-columns.md "updates-reordering-columns.md")

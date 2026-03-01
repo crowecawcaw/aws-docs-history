@@ -4,9 +4,7 @@ A SAML-based authentication mechanism that enables authentication to Athena usin
 Ping Federate identity provider. This method assumes that a federation has already been
 set up between Athena and Ping Federate.
 
-## Credentials
-
-provider
+## Credentials provider
 
 The credentials provider that will be used to authenticate requests to AWS. Set
 the value of this parameter to `Ping`.
@@ -77,9 +75,7 @@ _AWS Security Token Service API Reference_.
 | -------------- | --------------------------- | -------------- | ------------- |
 | PreferredRole  | preferred_role (deprecated) | Optional       | none          |
 
-## Role session
-
-duration
+## Role session duration
 
 The duration, in seconds, of the role session. For more information, see [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") in the _AWS Security Token Service API Reference_.
 

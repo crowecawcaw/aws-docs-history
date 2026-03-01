@@ -1,6 +1,4 @@
-# Configure recent query
-
-display options
+# Configure recent query display options
 
 You can configure options for the **Recent queries** tab like columns
 to display and text wrapping.

@@ -30,13 +30,10 @@ contain matching rows. If any row in the file matches the predicate, the file is
 selected for optimization. Thus, to control the number of files affected by the
 compaction operation, you can specify a `WHERE` clause.
 
-## Configuring
-
-compaction properties
+## Configuring compaction properties
 
 To control the size of the files to be selected for compaction and the resulting file
-size after compaction, you can use table property parameters. You can use the [ALTER TABLE SET
-TBLPROPERTIES](querying-iceberg-alter-table-set-properties.md "querying-iceberg-alter-table-set-properties.md") command to configure
+size after compaction, you can use table property parameters. You can use the [ALTER TABLE SET TBLPROPERTIES](querying-iceberg-alter-table-set-properties.md "querying-iceberg-alter-table-set-properties.md") command to configure
 the related [table properties](querying-iceberg-creating-tables.md#querying-iceberg-table-properties "querying-iceberg-creating-tables.md#querying-iceberg-table-properties").
 
 ## Additional resources

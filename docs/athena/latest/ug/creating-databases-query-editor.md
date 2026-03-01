@@ -16,5 +16,4 @@ console query editor is straightforward.
    `Ctrl+ENTER`.
 4. To make your database the current database, select it from the
    **Database** menu on the left of the query editor.
-   For information about controlling permissions to Athena databases, see [Configure access to databases and
-   tables in the AWS Glue Data Catalog](fine-grained-access-to-glue-resources.md "fine-grained-access-to-glue-resources.md").
+   For information about controlling permissions to Athena databases, see [Configure access to databases and tables in the AWS Glue Data Catalog](fine-grained-access-to-glue-resources.md "fine-grained-access-to-glue-resources.md").

@@ -26,16 +26,12 @@ effort, but offers the most control. For more information, see [CREATE TABLE](cr
 ###### Topics
 
 - [Register and use data catalogs in Athena](gdc-register.md "gdc-register.md")
-- [Register a Data Catalog from another
-  account](data-sources-glue-cross-account.md "data-sources-glue-cross-account.md")
+- [Register a Data Catalog from another account](data-sources-glue-cross-account.md "data-sources-glue-cross-account.md")
 - [Control access to data catalogs with IAM policies](datacatalogs-iam-policy.md "datacatalogs-iam-policy.md")
-- [Use a form in the Athena console to add an
-  AWS Glue table](data-sources-glue-manual-table.md "data-sources-glue-manual-table.md")
+- [Use a form in the Athena console to add an AWS Glue table](data-sources-glue-manual-table.md "data-sources-glue-manual-table.md")
 - [Use a crawler to add a table](schema-crawlers.md "schema-crawlers.md")
-- [Optimize queries with AWS Glue partition indexing and
-  filtering](glue-best-practices-partition-index.md "glue-best-practices-partition-index.md")
-- [Use the AWS CLI to recreate an AWS Glue
-  database and its tables](glue-recreate-db-and-tables-cli.md "glue-recreate-db-and-tables-cli.md")
+- [Optimize queries with AWS Glue partition indexing and filtering](glue-best-practices-partition-index.md "glue-best-practices-partition-index.md")
+- [Use the AWS CLI to recreate an AWS Glue database and its tables](glue-recreate-db-and-tables-cli.md "glue-recreate-db-and-tables-cli.md")
 - [Create tables for ETL jobs](schema-classifier.md "schema-classifier.md")
 - [Work with CSV data in AWS Glue](schema-csv.md "schema-csv.md")
 - [Work with geospatial data in AWS Glue](schema-geospatial.md "schema-geospatial.md")

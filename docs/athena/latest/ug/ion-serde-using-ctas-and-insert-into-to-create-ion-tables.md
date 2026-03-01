@@ -1,6 +1,4 @@
-# Use CTAS and
-
-INSERT INTO to create Amazon Ion tables
+# Use CTAS and INSERT INTO to create Amazon Ion tables
 
 You can use the `CREATE TABLE AS SELECT` (CTAS) and `INSERT INTO`
 statements to copy or insert data from a table into a new table in Amazon Ion format in
@@ -26,12 +24,9 @@ AS SELECT * from existing_table
 ```
 
 For more information about Amazon Ion specific properties in the CTAS `WITH`
-clause, see [Amazon Ion properties for the
-CTAS WITH clause](#ion-serde-ctas-with-clause-properties "#ion-serde-ctas-with-clause-properties").
+clause, see [Amazon Ion properties for the CTAS WITH clause](#ion-serde-ctas-with-clause-properties "#ion-serde-ctas-with-clause-properties").
 
-## Amazon Ion properties for the
-
-CTAS WITH clause
+## Amazon Ion properties for the CTAS WITH clause
 
 In a CTAS query, you can use the `WITH` clause to specify the Amazon Ion
 format and optionally specify the Amazon Ion encoding and/or write compression algorithm

@@ -4,8 +4,7 @@ You may want to rename columns in your tables to correct spelling, make column n
 more descriptive, or to reuse an existing column to avoid column reordering.
 
 You can rename columns if you store your data in CSV and TSV, or in Parquet and ORC
-that are configured to read by index. For information, see [Understand index access for Apache ORC and Apache
-Parquet](handling-schema-updates-chapter.md#index-access "handling-schema-updates-chapter.md#index-access").
+that are configured to read by index. For information, see [Understand index access for Apache ORC and Apache Parquet](handling-schema-updates-chapter.md#index-access "handling-schema-updates-chapter.md#index-access").
 
 Athena reads data in CSV and TSV in the order of the columns in the schema and returns
 them in the same order. It does not use column names for mapping data to a column, which

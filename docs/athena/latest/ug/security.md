@@ -30,11 +30,8 @@ _in_ the cloud:
 - [Data protection in Athena](security-data-protection.md "security-data-protection.md")
 - [Identity and access management in Athena](security-iam-athena.md "security-iam-athena.md")
 - [Log and monitor Athena](security-logging-monitoring.md "security-logging-monitoring.md")
-- [Compliance validation for
-  Athena](security-compliance-validation.md "security-compliance-validation.md")
+- [Compliance validation for Athena](security-compliance-validation.md "security-compliance-validation.md")
 - [Resilience in Athena](security-resilience.md "security-resilience.md")
 - [Infrastructure security in Athena](security-infrastructure.md "security-infrastructure.md")
-- [Configuration and vulnerability analysis
-  in Athena](security-vulnerability-management.md "security-vulnerability-management.md")
-- [Use Athena to query data registered with
-  AWS Lake Formation](security-athena-lake-formation.md "security-athena-lake-formation.md")
+- [Configuration and vulnerability analysis in Athena](security-vulnerability-management.md "security-vulnerability-management.md")
+- [Use Athena to query data registered with AWS Lake Formation](security-athena-lake-formation.md "security-athena-lake-formation.md")

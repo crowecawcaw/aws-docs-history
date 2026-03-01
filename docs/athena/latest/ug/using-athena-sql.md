@@ -22,12 +22,10 @@ You can also:
 
 ###### Topics
 
-- [Understanding tables,
-  databases, and data catalogs in Athena](understanding-tables-databases-and-the-data-catalog.md "understanding-tables-databases-and-the-data-catalog.md")
+- [Understanding tables, databases, and data catalogs in Athena](understanding-tables-databases-and-the-data-catalog.md "understanding-tables-databases-and-the-data-catalog.md")
 - [Get started](getting-started.md "getting-started.md")
 - [Connect to data sources](work-with-data-stores.md "work-with-data-stores.md")
-- [Connect to Amazon Athena with ODBC and JDBC
-  drivers](athena-bi-tools-jdbc-odbc.md "athena-bi-tools-jdbc-odbc.md")
+- [Connect to Amazon Athena with ODBC and JDBC drivers](athena-bi-tools-jdbc-odbc.md "athena-bi-tools-jdbc-odbc.md")
 - [Create databases and tables](work-with-data.md "work-with-data.md")
 - [Create a table from query results (CTAS)](ctas.md "ctas.md")
 - [Use SerDes](serde-reference.md "serde-reference.md")

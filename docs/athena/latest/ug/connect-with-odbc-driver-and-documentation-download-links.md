@@ -1,12 +1,9 @@
-# Athena ODBC 1.x
-
-driver
+# Athena ODBC 1.x driver
 
 You can use an ODBC connection to connect to Athena from third-party SQL client tools and applications. Use the links on this page to download the Amazon Athena 1.x ODBC driver License Agreement,
 ODBC drivers, and ODBC documentation. For information about the ODBC connection string, see
 the ODBC Driver Installation and Configuration Guide PDF file, downloadable from this page.
-For permissions information, see [Control access through JDBC and ODBC
-connections](policy-actions.md "policy-actions.md").
+For permissions information, see [Control access through JDBC and ODBC connections](policy-actions.md "policy-actions.md").
 
 ###### Important
 
@@ -20,8 +17,7 @@ When you use the ODBC 1.x driver, be sure to note the following requirements:
   Add the `athena:GetQueryResultsStream` policy action to the IAM
   principals that use the ODBC driver. This policy action is not exposed directly
   with the API. It is used only with the ODBC and JDBC drivers as part of
-  streaming results support. For an example policy, see [AWS managed policy:
-  AWSQuicksightAthenaAccess](managed-policies.md#awsquicksightathenaaccess-managed-policy "managed-policies.md#awsquicksightathenaaccess-managed-policy").
+  streaming results support. For an example policy, see [AWS managed policy: AWSQuicksightAthenaAccess](managed-policies.md#awsquicksightathenaaccess-managed-policy "managed-policies.md#awsquicksightathenaaccess-managed-policy").
 
 ## Windows
 

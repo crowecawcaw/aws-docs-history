@@ -13,7 +13,5 @@ how you write your queries.
 ###### Topics
 
 - [Reduce throttling at the service level](performance-tuning-s3-throttling-reduce-throttling-at-the-service-level.md "performance-tuning-s3-throttling-reduce-throttling-at-the-service-level.md")
-- [Optimize your
-  tables](performance-tuning-s3-throttling-optimizing-your-tables.md "performance-tuning-s3-throttling-optimizing-your-tables.md")
-- [Optimize your
-  queries](performance-tuning-s3-throttling-optimizing-queries.md "performance-tuning-s3-throttling-optimizing-queries.md")
+- [Optimize your tables](performance-tuning-s3-throttling-optimizing-your-tables.md "performance-tuning-s3-throttling-optimizing-your-tables.md")
+- [Optimize your queries](performance-tuning-s3-throttling-optimizing-queries.md "performance-tuning-s3-throttling-optimizing-queries.md")

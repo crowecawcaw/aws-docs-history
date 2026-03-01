@@ -3,9 +3,7 @@
 If you have permissions to do so, you can enable or disable workgroups in the console,
 by using the API operations, or with the JDBC and ODBC drivers.
 
-###### To enable or disable a
-
-workgroup
+###### To enable or disable a workgroup
 
 1. In the Athena console navigation pane, choose
    **Workgroups**.

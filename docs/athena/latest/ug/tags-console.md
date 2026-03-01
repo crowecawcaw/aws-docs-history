@@ -9,8 +9,7 @@ You can search workgroups using the tags you created.
 ###### Topics
 
 - [Display tags for individual workgroups](#tags-display "#tags-display")
-- [Add and delete tags on an individual
-  workgroup](#tags-add-delete "#tags-add-delete")
+- [Add and delete tags on an individual workgroup](#tags-add-delete "#tags-add-delete")
 
 ## Display tags for individual workgroups
 
@@ -29,9 +28,7 @@ choose the workgroup that you want. 4. Do one of the following:
     * Choose **Edit**, and then scroll down to the
      **Tags** section.
 
-## Add and delete tags on an individual
-
-workgroup
+## Add and delete tags on an individual workgroup
 
 You can manage tags for an individual workgroup directly from the
 **Workgroups** tab.
@@ -44,9 +41,7 @@ sure that you give the users IAM permissions to the
 **TagResource** and **CreateWorkGroup**
 actions.
 
-###### To add a tag when you create a
-
-new workgroup
+###### To add a tag when you create a new workgroup
 
 1. Open the Athena console at
    [https://console.aws.amazon.com/athena/](https://console.aws.amazon.com/athena/home "https://console.aws.amazon.com/athena/home").
@@ -59,9 +54,7 @@ new workgroup
    information, see [Tag restrictions](tags.md#tag-restrictions "tags.md#tag-restrictions").
 5. When you are done, choose **Create workgroup**.
 
-###### To add or edit a tag to an existing
-
-workgroup
+###### To add or edit a tag to an existing workgroup
 
 1. Open the Athena console at [https://console.aws.amazon.com/athena/](https://console.aws.amazon.com/athena/home "https://console.aws.amazon.com/athena/home").
 2. In the navigation pane, choose **Workgroups**.
@@ -75,9 +68,7 @@ workgroup
 5. Specify a key and value for each tag. For more information, see [Tag restrictions](tags.md#tag-restrictions "tags.md#tag-restrictions").
 6. Choose **Save**.
 
-###### To delete a tag from an individual
-
-workgroup
+###### To delete a tag from an individual workgroup
 
 1. Open the Athena console at [https://console.aws.amazon.com/athena/](https://console.aws.amazon.com/athena/home "https://console.aws.amazon.com/athena/home").
 2. In the navigation pane, choose **Workgroups**.

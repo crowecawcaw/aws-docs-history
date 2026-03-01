@@ -1,6 +1,4 @@
-# List all
-
-columns for all tables
+# List all columns for all tables
 
 You can list all columns for all tables in `AwsDataCatalog` or for all
 tables in a specific database in `AwsDataCatalog`.

@@ -12,5 +12,4 @@ resources:
   input JSON file has multiple records](https://aws.amazon.com/premiumsupport/knowledge-center/select-count-query-athena-json-records/ "https://aws.amazon.com/premiumsupport/knowledge-center/select-count-query-athena-json-records/")
 - [How
   can I see the Amazon S3 source file for a row in an Athena table?](https://aws.amazon.com/premiumsupport/knowledge-center/find-s3-source-file-athena-table-row/ "https://aws.amazon.com/premiumsupport/knowledge-center/find-s3-source-file-athena-table-row/")
-  See also [Considerations and limitations for SQL queries
-  in Amazon Athena](other-notable-limitations.md "other-notable-limitations.md").
+  See also [Considerations and limitations for SQL queries in Amazon Athena](other-notable-limitations.md "other-notable-limitations.md").

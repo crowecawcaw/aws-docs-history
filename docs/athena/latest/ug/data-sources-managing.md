@@ -40,8 +40,7 @@ the output of the [ListDataCatalogs](../APIReference/API_ListDataCatalogs.md "..
 For information about sharing data sources, visit the following links.
 
 - For non-Hive Lambda-based data sources, see [Enable cross-account federated queries](xacct-fed-query-enable.md "xacct-fed-query-enable.md").
-- For AWS Glue Data Catalogs, see [Configure cross-account
-  access to AWS Glue data catalogs](security-iam-cross-account-glue-catalog-access.md "security-iam-cross-account-glue-catalog-access.md").
+- For AWS Glue Data Catalogs, see [Configure cross-account access to AWS Glue data catalogs](security-iam-cross-account-glue-catalog-access.md "security-iam-cross-account-glue-catalog-access.md").
 
 ###### To delete a data source
 

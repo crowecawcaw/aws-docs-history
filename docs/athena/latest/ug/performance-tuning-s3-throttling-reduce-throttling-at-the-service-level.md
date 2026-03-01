@@ -13,8 +13,7 @@ some of the conditions that can lead to throttling:
 - Insufficient partitioning of data – If
   you do not properly partition your data and transfer a large amount of data,
   Amazon S3 can throttle your requests. For more information about partitioning, see
-  the [Use
-  partitioning](performance-tuning-s3-throttling-optimizing-your-tables.md#performance-tuning-s3-throttling-use-partitioning "performance-tuning-s3-throttling-optimizing-your-tables.md#performance-tuning-s3-throttling-use-partitioning") section
+  the [Use partitioning](performance-tuning-s3-throttling-optimizing-your-tables.md#performance-tuning-s3-throttling-use-partitioning "performance-tuning-s3-throttling-optimizing-your-tables.md#performance-tuning-s3-throttling-use-partitioning") section
   in this document.
 - Large number of small objects – If
   possible, avoid having a large number of small files. Amazon S3 has a limit of [5500 GET

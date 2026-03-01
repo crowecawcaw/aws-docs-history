@@ -1,12 +1,8 @@
-# Learn about known issues in Athena for
-
-Spark
+# Learn about known issues in Athena for Spark
 
 This page documents some of the known issues in Athena for Apache Spark.
 
-## Illegal
-
-argument exception when creating a table
+## Illegal argument exception when creating a table
 
 Although Spark does not allow databases to be created with an empty location property,
 databases in AWS Glue can have an empty `LOCATION` property if they are created
@@ -71,9 +67,7 @@ If you use a command like `spark.sql('create database db')` to create a
 database and do not specify a location for the database, Athena creates a subdirectory in
 your workgroup location and uses that location for the newly created database.
 
-## Issues with Hive managed
-
-tables in the AWS Glue default database
+## Issues with Hive managed tables in the AWS Glue default database
 
 If the `Location` property of your default database in AWS Glue is nonempty
 and specifies a valid location in Amazon S3, and you use Athena for Spark to create a Hive

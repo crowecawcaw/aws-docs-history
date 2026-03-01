@@ -23,9 +23,7 @@ This query returns:
 +-----------+
 ```
 
-## Use CROSS JOIN and
-
-UNNEST
+## Use CROSS JOIN and UNNEST
 
 To flatten an array into multiple rows, use `CROSS JOIN` in conjunction
 with the `UNNEST` operator, as in this example:

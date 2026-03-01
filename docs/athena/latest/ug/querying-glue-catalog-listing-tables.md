@@ -1,6 +1,4 @@
-# List tables in a specified
-
-database and searching for a table by name
+# List tables in a specified database and searching for a table by name
 
 To list metadata for tables, you can query by table schema or by table name.
 

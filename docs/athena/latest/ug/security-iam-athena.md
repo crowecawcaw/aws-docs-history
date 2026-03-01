@@ -30,16 +30,13 @@ The permissions required to run Athena queries include the following:
 - [Cross-account access to AWS Glue data catalogs](security-iam-cross-account-glue-catalog-access.md "security-iam-cross-account-glue-catalog-access.md")
 - [Access to encrypted metadata in the Data Catalog](access-encrypted-data-glue-data-catalog.md "access-encrypted-data-glue-data-catalog.md")
 - [Access to workgroups and tags](workgroups-access.md "workgroups-access.md")
-- [Use IAM policies to control workgroup
-  access](workgroups-iam-policy.md "workgroups-iam-policy.md")
+- [Use IAM policies to control workgroup access](workgroups-iam-policy.md "workgroups-iam-policy.md")
 - [IAM Identity Center enabled workgroups](workgroups-identity-center.md "workgroups-identity-center.md")
 - [Configure minimum encryption](workgroups-minimum-encryption.md "workgroups-minimum-encryption.md")
-- [Configure access to prepared
-  statements](security-iam-athena-prepared-statements.md "security-iam-athena-prepared-statements.md")
+- [Configure access to prepared statements](security-iam-athena-prepared-statements.md "security-iam-athena-prepared-statements.md")
 - [Use CalledVia context keys](security-iam-athena-calledvia.md "security-iam-athena-calledvia.md")
 - [Allow access to the Athena Data Connector for External Hive Metastore](hive-metastore-iam-access.md "hive-metastore-iam-access.md")
-- [Allow Lambda function access to external
-  Hive metastores](hive-metastore-iam-access-lambda.md "hive-metastore-iam-access-lambda.md")
+- [Allow Lambda function access to external Hive metastores](hive-metastore-iam-access-lambda.md "hive-metastore-iam-access-lambda.md")
 - [Permissions required to create connector and Athena catalog](athena-catalog-access.md "athena-catalog-access.md")
 - [Allow access to Athena Federated Query](federated-query-iam-access.md "federated-query-iam-access.md")
 - [Allow access to UDFs](udf-iam-access.md "udf-iam-access.md")

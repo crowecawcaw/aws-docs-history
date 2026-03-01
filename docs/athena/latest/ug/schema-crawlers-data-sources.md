@@ -1,6 +1,4 @@
-# Use multiple data sources with a
-
-crawler
+# Use multiple data sources with a crawler
 
 When an AWS Glue crawler scans Amazon S3 and detects multiple directories, it uses a heuristic
 to determine where the root for a table is in the directory structure, and which

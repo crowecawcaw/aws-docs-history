@@ -1,6 +1,4 @@
-# Use the AWS Serverless Application Repository to deploy a Hive data source
-
-connector
+# Use the AWS Serverless Application Repository to deploy a Hive data source connector
 
 To deploy an Athena data source connector for Hive, you can use the [AWS Serverless Application Repository](https://aws.amazon.com/serverless/serverlessrepo/ "https://aws.amazon.com/serverless/serverlessrepo/") instead of
 starting with the Athena console. Use the AWS Serverless Application Repository to find the connector that you want to use,
@@ -54,5 +52,4 @@ Lambda function.
    **I acknowledge that this app creates custom IAM roles**, and
    then choose **Deploy**.
    At this point, you can configure Athena to use your Lambda function to connect to your Hive
-   metastore. For steps, see [Configure Athena to use a deployed
-   Hive metastore connector](connect-data-source-hive-existing-lambda.md "connect-data-source-hive-existing-lambda.md").
+   metastore. For steps, see [Configure Athena to use a deployed Hive metastore connector](connect-data-source-hive-existing-lambda.md "connect-data-source-hive-existing-lambda.md").

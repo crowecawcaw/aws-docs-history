@@ -42,9 +42,7 @@ managed**.
   to you during this period. After this period, query results are automatically
   deleted.
 
-## Create or edit a workgroup with managed
-
-query results
+## Create or edit a workgroup with managed query results
 
 To create a workgroup or update an existing workgroup with managed query results from
 the console:
@@ -57,13 +55,10 @@ the console:
    managed**.
 
 ![The Query result configuration menu.](images/athena-managed.png) 5. For **Encrypt query results**, choose the encryption option
-that you want. For more information, see [Choose query result
-encryption](#managed-query-results-encryption-at-rest "#managed-query-results-encryption-at-rest"). 6. Fill in all the other required details and choose **Save
+that you want. For more information, see [Choose query result encryption](#managed-query-results-encryption-at-rest "#managed-query-results-encryption-at-rest"). 6. Fill in all the other required details and choose **Save
 changes**.
 
-## Choose query result
-
-encryption
+## Choose query result encryption
 
 There are two options for encryption configuration:
 
@@ -146,7 +141,6 @@ The following example AWS KMS key policy allows all workgroups within the same a
 
 In addition to the Athena and Amazon S3 permissions, you must also get permissions to
 perform `kms:GenerateDataKey` and `kms:Decrypt` actions. For more
-information, see [Permissions to
-encrypted data in Amazon S3](encryption.md#permissions-for-encrypting-and-decrypting-data "encryption.md#permissions-for-encrypting-and-decrypting-data").
+information, see [Permissions to encrypted data in Amazon S3](encryption.md#permissions-for-encrypting-and-decrypting-data "encryption.md#permissions-for-encrypting-and-decrypting-data").
 
 For more information on managed query results encryption, see [Encrypt managed query results](encrypting-managed-results.md "encrypting-managed-results.md").

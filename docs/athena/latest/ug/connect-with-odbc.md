@@ -6,13 +6,10 @@ Athena 2.x driver supports all authentication plugins that the 1.x ODBC driver s
 almost all connection parameters are backward-compatible.
 
 - To download the ODBC 2.x driver, see [Amazon Athena ODBC 2.x](odbc-v2-driver.md "odbc-v2-driver.md").
-- To download the ODBC 1.x driver, see [Athena ODBC 1.x
-  driver](connect-with-odbc-driver-and-documentation-download-links.md "connect-with-odbc-driver-and-documentation-download-links.md").
+- To download the ODBC 1.x driver, see [Athena ODBC 1.x driver](connect-with-odbc-driver-and-documentation-download-links.md "connect-with-odbc-driver-and-documentation-download-links.md").
 
 ###### Topics
 
 - [Amazon Athena ODBC 2.x](odbc-v2-driver.md "odbc-v2-driver.md")
-- [Athena ODBC 1.x
-  driver](connect-with-odbc-driver-and-documentation-download-links.md "connect-with-odbc-driver-and-documentation-download-links.md")
-- [Use the Amazon Athena Power BI
-  connector](connect-with-odbc-and-power-bi.md "connect-with-odbc-and-power-bi.md")
+- [Athena ODBC 1.x driver](connect-with-odbc-driver-and-documentation-download-links.md "connect-with-odbc-driver-and-documentation-download-links.md")
+- [Use the Amazon Athena Power BI connector](connect-with-odbc-and-power-bi.md "connect-with-odbc-and-power-bi.md")

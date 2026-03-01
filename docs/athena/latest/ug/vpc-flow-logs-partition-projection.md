@@ -1,6 +1,4 @@
-# Create and query a table for Amazon VPC
-
-flow logs using partition projection
+# Create and query a table for Amazon VPC flow logs using partition projection
 
 Use a `CREATE TABLE` statement like the following to create a table,
 partition the table, and populate the partitions automatically by using [partition
@@ -63,9 +61,7 @@ TBLPROPERTIES
 )
 ```
 
-## Example queries for
-
-test_table_vpclogs
+## Example queries for test_table_vpclogs
 
 The following example queries query the `test_table_vpclogs` created by
 the preceding `CREATE TABLE` statement. Replace

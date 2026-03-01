@@ -1,20 +1,15 @@
-# Configure cross-account
-
-access to AWS Glue data catalogs
+# Configure cross-account access to AWS Glue data catalogs
 
 You can use Athena's cross-account AWS Glue catalog feature to register an AWS Glue catalog from
 an account other than your own. After you configure the required IAM permissions for AWS Glue
 and register the catalog as an Athena [DataCatalog](../APIReference/API_DataCatalog.md "../APIReference/API_DataCatalog.md") resource, you can use Athena to run cross-account queries. For
 information about using the Athena console to register a catalog from another account, see
-[Register a Data Catalog from another
-account](data-sources-glue-cross-account.md "data-sources-glue-cross-account.md").
+[Register a Data Catalog from another account](data-sources-glue-cross-account.md "data-sources-glue-cross-account.md").
 
 For more information about cross-account access in AWS Glue, see [Granting cross-account access](../../../glue/latest/dg/cross-account-access.md "../../../glue/latest/dg/cross-account-access.md") in
 the _AWS Glue Developer Guide_.
 
-## Before
-
-you start
+## Before you start
 
 Because this feature uses existing Athena `DataCatalog` resource APIs and
 functionality to enable cross-account access, we recommend that you read the following
@@ -50,9 +45,7 @@ limitations:
   between customer managed keys and AWS managed keys, see [Customer keys and AWS keys](../../../kms/latest/developerguide/concepts.md#key-mgmt "../../../kms/latest/developerguide/concepts.md#key-mgmt") in the
   _AWS Key Management Service Developer Guide_.
 
-## Get
-
-started
+## Get started
 
 In the following scenario, the "borrower" account (666666666666) wants to run a
 `SELECT` query that refers to the AWS Glue catalog that belongs to the
@@ -67,18 +60,13 @@ access to the owner account's AWS Glue resources, from both the borrower and own
 The example grants access to the database `tpch1000` and the table
 `customer`. Change these example names to fit your requirements.
 
-### Step 1a:
-
-Create a borrower role with a policy to access the owner's AWS Glue
-resources
+### Step 1a: Create a borrower role with a policy to access the owner's AWS Glue resources
 
 To create borrower account role with a policy to access to the owner account's
 AWS Glue resources, you can use the AWS Identity and Access Management (IAM) console or the [IAM
 API](../../../IAM/latest/APIReference/API_Operations.md "../../../IAM/latest/APIReference/API_Operations.md"). The following procedures use the IAM console.
 
-###### To create a borrower role and policy to access the owner account's AWS Glue
-
-resources
+###### To create a borrower role and policy to access the owner account's AWS Glue resources
 
 1. Sign in to the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/") from the borrower
    account.
@@ -130,9 +118,7 @@ JSON
     `CrossGlueBorrowerRole`).
 15. Choose **Create role**.
 
-### Step 1b:
-
-Create an owner policy to grant AWS Glue access to the borrower
+### Step 1b: Create an owner policy to grant AWS Glue access to the borrower
 
 To grant AWS Glue access from the owner account (999999999999) to the borrower's
 role, you can use the AWS Glue console or the AWS Glue [PutResourcePolicy](../../../glue/latest/webapi/API_PutResourcePolicy.md "../../../glue/latest/webapi/API_PutResourcePolicy.md")
@@ -180,15 +166,11 @@ JSON
 After you finish, we recommend that you use the [AWS Glue API](../../../glue/latest/dg/aws-glue-api.md "../../../glue/latest/dg/aws-glue-api.md") to make some test
 cross-account calls to confirm that permissions are configured as you expect.
 
-### Step 2: The
-
-borrower registers the AWS Glue Data Catalog that belongs to the owner account
+### Step 2: The borrower registers the AWS Glue Data Catalog that belongs to the owner account
 
 The following procedure shows you how to use the Athena console to configure the
 AWS Glue Data Catalog in the owner Amazon Web Services account as a data source. For information about
-using API operations instead of the console to register the catalog, see [(Optional)
-Use the API to register an Athena Data Catalog that belongs to the owner
-account](#security-iam-cross-account-glue-catalog-access-step-2-api "#security-iam-cross-account-glue-catalog-access-step-2-api").
+using API operations instead of the console to register the catalog, see [(Optional) Use the API to register an Athena Data Catalog that belongs to the owner account](#security-iam-cross-account-glue-catalog-access-step-2-api "#security-iam-cross-account-glue-catalog-access-step-2-api").
 
 ###### To register an AWS Glue Data Catalog belonging to another account
 
@@ -232,9 +214,7 @@ information:
 13. To delete the new data catalog, choose the catalog, and then choose
     **Actions**, **Delete**.
 
-### Step 3: The
-
-borrower submits a query
+### Step 3: The borrower submits a query
 
 The borrower submits a query that references the catalog using the
 `catalog`.`database`.`table`
@@ -299,10 +279,7 @@ When you use dynamic catalogs, remember the following points.
   catalog in a DDL query, surround it with backtick characters
   (```).
 
-## (Optional)
-
-Use the API to register an Athena Data Catalog that belongs to the owner
-account
+## (Optional) Use the API to register an Athena Data Catalog that belongs to the owner account
 
 Instead of using the Athena console as described in Step 2, it is possible to use API
 operations to register the Data Catalog that belongs to the owner account.
@@ -344,8 +321,7 @@ API operation.
 
 ## Additional resources
 
-- [Register a Data Catalog from another
-  account](data-sources-glue-cross-account.md "data-sources-glue-cross-account.md")
+- [Register a Data Catalog from another account](data-sources-glue-cross-account.md "data-sources-glue-cross-account.md")
 - [Configure cross-account access to a shared AWS Glue Data Catalog using
   Amazon Athena](../../../prescriptive-guidance/latest/patterns/configure-cross-account-access-to-a-shared-aws-glue-data-catalog-using-amazon-athena.md "../../../prescriptive-guidance/latest/patterns/configure-cross-account-access-to-a-shared-aws-glue-data-catalog-using-amazon-athena.md") in the _AWS Prescriptive Guidance
   Patterns_ guide.

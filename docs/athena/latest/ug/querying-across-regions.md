@@ -14,9 +14,7 @@ Regions that require opt-in, see [Available regions](../../../AWSEC2/latest/User
 For specific instructions about opting-in to a Region, see [Managing AWS regions](../../../general/latest/gr/rande-manage.md "../../../general/latest/gr/rande-manage.md") in the
 _Amazon Web Services General Reference_.
 
-## Considerations
-
-and limitations
+## Considerations and limitations
 
 - Data access permissions – To
   successfully query Amazon S3 data from Athena across Regions, your account must have
@@ -33,8 +31,7 @@ and limitations
   _AWS Big Data Blog_.
 - Amazon S3 encryption options – The SSE-S3 and
   SSE-KMS encryption options are supported for queries across Regions; CSE-KMS is
-  not. For more information, see [Supported Amazon S3 encryption
-  options](encryption.md#encryption-options-S3-and-Athena "encryption.md#encryption-options-S3-and-Athena").
+  not. For more information, see [Supported Amazon S3 encryption options](encryption.md#encryption-options-S3-and-Athena "encryption.md#encryption-options-S3-and-Athena").
 - Federated queries – Using federated
   queries across AWS Regions is not supported.
 

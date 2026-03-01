@@ -2,15 +2,11 @@
 
 Editing a workgroup requires permissions to `UpdateWorkgroup` API
 operations. See [Configure access to workgroups and tags](workgroups-access.md "workgroups-access.md")
-and [Use IAM policies to control workgroup
-access](workgroups-iam-policy.md "workgroups-iam-policy.md"). If
+and [Use IAM policies to control workgroup access](workgroups-iam-policy.md "workgroups-iam-policy.md"). If
 you are adding or editing tags, you also need to have permissions to
-`TagResource`. See [Tag policy examples for
-workgroups](tags-access-control.md#tag-policy-examples-workgroups "tags-access-control.md#tag-policy-examples-workgroups").
+`TagResource`. See [Tag policy examples for workgroups](tags-access-control.md#tag-policy-examples-workgroups "tags-access-control.md#tag-policy-examples-workgroups").
 
-###### To edit a workgroup in the
-
-console
+###### To edit a workgroup in the console
 
 1. In the Athena console navigation pane, choose
    **Workgroups**.

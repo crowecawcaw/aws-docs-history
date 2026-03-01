@@ -1,6 +1,4 @@
-# Show table information after
-
-creation
+# Show table information after creation
 
 After you have created a table in Athena, its name displays in the
 **Tables** list on the left in the Athena console. To show

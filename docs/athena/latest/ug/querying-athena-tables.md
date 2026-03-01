@@ -41,5 +41,4 @@ references.
 - [Query the AWS Glue Data Catalog](querying-glue-catalog.md "querying-glue-catalog.md")
 - [Query AWS service logs](querying-aws-service-logs.md "querying-aws-service-logs.md")
 - [Query web server logs](querying-web-server-logs.md "querying-web-server-logs.md")
-  For considerations and limitations, see [Considerations and limitations for SQL queries
-  in Amazon Athena](other-notable-limitations.md "other-notable-limitations.md").
+  For considerations and limitations, see [Considerations and limitations for SQL queries in Amazon Athena](other-notable-limitations.md "other-notable-limitations.md").

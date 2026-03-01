@@ -305,8 +305,7 @@ compression_level – The
 to use. This property applies only to ZSTD compression. Possible values are
 from 1 to 22. The default value is 3. For more information, see [Use ZSTD compression levels](compression-support-zstd-levels.md "compression-support-zstd-levels.md").
 
-For more information about other table properties, see [ALTER TABLE SET
-TBLPROPERTIES](alter-table-set-tblproperties.md "alter-table-set-tblproperties.md").
+For more information about other table properties, see [ALTER TABLE SET TBLPROPERTIES](alter-table-set-tblproperties.md "alter-table-set-tblproperties.md").
 
 ## Examples
 

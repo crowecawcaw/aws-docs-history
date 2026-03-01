@@ -1,6 +1,4 @@
-# Query W3C extended log
-
-file format
+# Query W3C extended log file format
 
 The [W3C
 extended](https://docs.microsoft.com/en-us/windows/win32/http/w3c-logging "https://docs.microsoft.com/en-us/windows/win32/http/w3c-logging") log file data format has space-separated fields. The fields that
@@ -67,9 +65,7 @@ LOCATION   's3://amzn-s3-demo-bucket/`w3c-log-folder`/'
    `iis_w3c_logs` table. When the query completes, the logs are
    ready for you to query from Athena.
 
-## Example
-
-W3C extended log select query
+## Example W3C extended log select query
 
 The following example query selects the date, time, request target, and time taken
 for the request from the table `iis_w3c_logs`. The `WHERE`

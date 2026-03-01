@@ -28,8 +28,7 @@ Replace these constants with your own strings or defined constants.
 ###### Topics
 
 - [Constants](constants.md "constants.md")
-- [Create a client to access
-  Athena](create-a-client-to-access-athena.md "create-a-client-to-access-athena.md")
+- [Create a client to access Athena](create-a-client-to-access-athena.md "create-a-client-to-access-athena.md")
 - [Start query execution](start-query-execution.md "start-query-execution.md")
 - [Stop query execution](stop-query-execution.md "stop-query-execution.md")
 - [List query executions](list-query-executions.md "list-query-executions.md")

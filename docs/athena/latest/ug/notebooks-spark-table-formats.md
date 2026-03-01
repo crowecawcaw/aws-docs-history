@@ -1,6 +1,4 @@
-# Use non-Hive table formats in Athena for
-
-Spark
+# Use non-Hive table formats in Athena for Spark
 
 ###### Note
 
@@ -19,8 +17,7 @@ following points:
 - In addition to Apache Hive, only one table format is supported per notebook.
   To use multiple table formats in Athena for Spark, create a separate notebook for
   each table format. For information about creating notebooks in Athena for Spark,
-  see [Step 7:
-  Create your own notebook](notebooks-spark-getting-started.md#notebooks-spark-getting-started-creating-your-own-notebook "notebooks-spark-getting-started.md#notebooks-spark-getting-started-creating-your-own-notebook").
+  see [Step 7: Create your own notebook](notebooks-spark-getting-started.md#notebooks-spark-getting-started-creating-your-own-notebook "notebooks-spark-getting-started.md#notebooks-spark-getting-started-creating-your-own-notebook").
 - The Delta Lake, Hudi, and Iceberg table formats have been tested on Athena for
   Spark by using AWS Glue as the metastore. You might be able to use other
   metastores, but such usage is not currently supported.

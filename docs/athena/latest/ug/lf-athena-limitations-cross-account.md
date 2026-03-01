@@ -1,30 +1,22 @@
-# Configure cross-account Data
-
-Catalog access
+# Configure cross-account Data Catalog access
 
 To access a data catalog in another account, you can use Athena's cross-account
 AWS Glue feature or set up cross-account access in Lake Formation.
 
-## Option A: Configure
-
-cross-account Data Catalog access in Athena
+## Option A: Configure cross-account Data Catalog access in Athena
 
 You can use Athena's cross-account AWS Glue catalog feature to register the
 catalog in your account. This capability is available only in Athena engine version 2 and later
 versions and is limited to same-Region use between accounts. For more
-information, see [Register a Data Catalog from another
-account](data-sources-glue-cross-account.md "data-sources-glue-cross-account.md").
+information, see [Register a Data Catalog from another account](data-sources-glue-cross-account.md "data-sources-glue-cross-account.md").
 
 If the Data Catalog to be shared has a resource policy configured in AWS Glue, it
 must be updated to allow access to the AWS Resource Access Manager and grant permissions to
 Account B to use Account A's Data Catalog.
 
-For more information, see [Configure cross-account
-access to AWS Glue data catalogs](security-iam-cross-account-glue-catalog-access.md "security-iam-cross-account-glue-catalog-access.md").
+For more information, see [Configure cross-account access to AWS Glue data catalogs](security-iam-cross-account-glue-catalog-access.md "security-iam-cross-account-glue-catalog-access.md").
 
-## Option B:
-
-Configure cross-account access in Lake Formation
+## Option B: Configure cross-account access in Lake Formation
 
 AWS Lake Formation lets you use a single account to manage a central Data Catalog. You can
 use this feature to implement [cross-account access](../../../lake-formation/latest/dg/access-control-cross-account.md "../../../lake-formation/latest/dg/access-control-cross-account.md") to Data Catalog metadata and underlying data. For

@@ -13,12 +13,12 @@ options with Amazon Athena:
 You can also use Athena to query the CloudTrail log files not only for Athena, but for
 other AWS services. For more information, see [Query AWS CloudTrail logs](cloudtrail-logs.md "cloudtrail-logs.md").
 
-- Monitor Athena usage with CloudTrail and Amazon Quick Suite –
-  [Amazon Quick Suite](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") is a fully managed,
+- Monitor Athena usage with CloudTrail and Amazon Quick –
+  [Amazon Quick](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") is a fully managed,
   cloud-powered business intelligence service that lets you create interactive
   dashboards your organization can access from any device. For an example of a
-  solution that uses CloudTrail and Amazon Quick Suite to monitor Athena usage, see the AWS Big Data
-  blog post [How Realtor.com monitors Amazon Athena usage with AWS CloudTrail and Quick Suite](https://aws.amazon.com/blogs/big-data/analyzing-amazon-athena-usage-by-teams-within-a-real-estate-company/ "https://aws.amazon.com/blogs/big-data/analyzing-amazon-athena-usage-by-teams-within-a-real-estate-company/").
+  solution that uses CloudTrail and Amazon Quick to monitor Athena usage, see the AWS Big Data
+  blog post [How Realtor.com monitors Amazon Athena usage with AWS CloudTrail and Quick](https://aws.amazon.com/blogs/big-data/analyzing-amazon-athena-usage-by-teams-within-a-real-estate-company/ "https://aws.amazon.com/blogs/big-data/analyzing-amazon-athena-usage-by-teams-within-a-real-estate-company/").
 - Use EventBridge with Athena – Amazon EventBridge delivers a
   near real-time stream of system events that describe changes in AWS resources.
   EventBridge becomes aware of operational changes as they occur, responds to them, and takes
@@ -30,12 +30,9 @@ other AWS services. For more information, see [Query AWS CloudTrail logs](cloudt
   workloads, and to set query limits and control query costs – You
   can view query-related metrics in Amazon CloudWatch, control query costs by configuring
   limits on the amount of data scanned, create thresholds, and trigger actions, such
-  as Amazon SNS alarms, when these thresholds are breached. For more information, see [Use workgroups to control query
-  access and costs](workgroups-manage-queries-control-costs.md "workgroups-manage-queries-control-costs.md"). Use
+  as Amazon SNS alarms, when these thresholds are breached. For more information, see [Use workgroups to control query access and costs](workgroups-manage-queries-control-costs.md "workgroups-manage-queries-control-costs.md"). Use
   resource-level IAM permissions to control access to a specific workgroup. For more
-  information, see [Use IAM policies to control workgroup
-  access](workgroups-iam-policy.md "workgroups-iam-policy.md") and [Use CloudWatch and EventBridge to monitor queries and control
-  costs](workgroups-control-limits.md "workgroups-control-limits.md").
+  information, see [Use IAM policies to control workgroup access](workgroups-iam-policy.md "workgroups-iam-policy.md") and [Use CloudWatch and EventBridge to monitor queries and control costs](workgroups-control-limits.md "workgroups-control-limits.md").
 
 ###### Topics
 

@@ -1,6 +1,4 @@
-# Understand service quotas for Athena for
-
-Spark
+# Understand service quotas for Athena for Spark
 
 _Service quotas_, also known as _limits_, are the
 maximum number of service resources or operations that your AWS account can use. For more

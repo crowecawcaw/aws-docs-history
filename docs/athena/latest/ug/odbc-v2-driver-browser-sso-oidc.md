@@ -4,9 +4,7 @@ Browser SSO OIDC is an authentication plugin that works with AWS IAM Identity Ce
 enabling and using IAM Identity Center, see [Step 1:
 Enable IAM Identity Center](../../../singlesignon/latest/userguide/get-started-enable-identity-center.md "../../../singlesignon/latest/userguide/get-started-enable-identity-center.md") in the _AWS IAM Identity Center User Guide_.
 
-## Authentication
-
-type
+## Authentication type
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example**        |
 | -------------------------- | ------------------ | ----------------- | ------------------------------------ |

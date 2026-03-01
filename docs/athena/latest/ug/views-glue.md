@@ -39,8 +39,7 @@ WHERE order_city = 'SEATTLE'
 GROUP BY orderdate
 ```
 
-For syntax information, see [CREATE PROTECTED MULTI
-DIALECT VIEW](create-view.md#create-protected-multi-dialect-view "create-view.md#create-protected-multi-dialect-view").
+For syntax information, see [CREATE PROTECTED MULTI DIALECT VIEW](create-view.md#create-protected-multi-dialect-view "create-view.md#create-protected-multi-dialect-view").
 
 ## Query a Data Catalog view
 

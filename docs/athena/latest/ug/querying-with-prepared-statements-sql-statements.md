@@ -1,6 +1,4 @@
-# SQL syntax for
-
-prepared statements
+# SQL syntax for prepared statements
 
 You can use the `PREPARE`, `EXECUTE` and `DEALLOCATE
  PREPARE` SQL statements to run parameterized queries in the Athena console

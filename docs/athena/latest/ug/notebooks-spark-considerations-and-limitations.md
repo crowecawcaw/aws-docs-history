@@ -1,6 +1,4 @@
-# Considerations and
-
-limitations
+# Considerations and limitations
 
 ## Apache Spark version 3.5
 
@@ -53,8 +51,7 @@ The following are the considerations and limitations for the release version Pys
   implemented differently, they are not compatible for cross-engine use.
 - MLlib (Apache Spark machine learning library) and the
   `pyspark.ml` package are not supported. For a list of
-  supported Python libraries, see the [List of preinstalled Python
-  libraries](notebooks-spark-preinstalled-python-libraries.md "notebooks-spark-preinstalled-python-libraries.md").
+  supported Python libraries, see the [List of preinstalled Python libraries](notebooks-spark-preinstalled-python-libraries.md "notebooks-spark-preinstalled-python-libraries.md").
 - Currently, `pip install` is not supported in Athena for Spark
   sessions.
 - Only one active session per notebook is allowed.

@@ -67,8 +67,7 @@ or running jobs in AWS Glue.
   Parquet or ORC in one step. For an example, see [Example:
   Writing query results to a different format](ctas-examples.md#ctas-example-format "ctas-examples.md#ctas-example-format") on the [Examples of CTAS queries](ctas-examples.md "ctas-examples.md") page.
 - For information about using Athena for ETL to transform data from CSV to
-  Parquet, see [Use CTAS and INSERT INTO for ETL and data
-  analysis](ctas-insert-into-etl.md "ctas-insert-into-etl.md").
+  Parquet, see [Use CTAS and INSERT INTO for ETL and data analysis](ctas-insert-into-etl.md "ctas-insert-into-etl.md").
 - For information about running an AWS Glue job to transform CSV data to Parquet,
   see the section "Transform the data from CSV to Parquet format" in the AWS Big
   Data blog post [Build a data lake foundation with AWS Glue and Amazon S3](https://aws.amazon.com/blogs/big-data/build-a-data-lake-foundation-with-aws-glue-and-amazon-s3/ "https://aws.amazon.com/blogs/big-data/build-a-data-lake-foundation-with-aws-glue-and-amazon-s3/"). AWS Glue supports

@@ -8,11 +8,9 @@ It supports data access controls defined in Lake Formation at the catalog, datab
 
 ## Prerequisites
 
-- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data
-  source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
+- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
 - Set up a VPC and a security group before you use this connector. For more
-  information, see [Create a VPC for a data source connector or
-  AWS Glue connection](athena-connectors-vpc-creation.md "athena-connectors-vpc-creation.md").
+  information, see [Create a VPC for a data source connector or AWS Glue connection](athena-connectors-vpc-creation.md "athena-connectors-vpc-creation.md").
 
 ## Limitations
 
@@ -102,9 +100,7 @@ instance.
 dbtwo://${`jdbc_connection_string`}
 ```
 
-#### Using a
-
-multiplexing handler
+#### Using a multiplexing handler
 
 You can use a multiplexer to connect to multiple database instances with a single
 Lambda function. Requests are routed by catalog name. Use the following classes in
@@ -133,9 +129,7 @@ default), and `dbtwo2`.
 | `dbtwo_catalog1_connection_string` | `dbtwo://jdbc:db2://dbtwo1.`hostname:port/`database_name`:${`secret1_name`}``   |
 | `dbtwo_catalog2_connection_string` | `dbtwo://jdbc:db2://dbtwo2.``hostname:port/`database_name`:${`secret2_name`}``` |
 
-##### Providing
-
-credentials
+##### Providing credentials
 
 To provide a user name and password for your database in your JDBC connection
 string, you can use connection string properties or AWS Secrets Manager.
@@ -186,9 +180,7 @@ The connector uses the secret name to retrieve secrets and provide the user name
 dbtwo://jdbc:db2://hostname:port/`database_name`:user=`user_name`;password=`password`;
 ```
 
-#### Using a
-
-single connection handler
+#### Using a single connection handler
 
 You can use the following single connection metadata and record handlers to
 connect to a single Db2 instance.
@@ -199,9 +191,7 @@ connect to a single Db2 instance.
 | Metadata handler  | `Db2MetadataHandler`  |
 | Record handler    | `Db2RecordHandler`    |
 
-##### Single
-
-connection handler parameters
+##### Single connection handler parameters
 
 | Parameter | Description                              |
 | --------- | ---------------------------------------- |
@@ -267,9 +257,7 @@ of partitions identified.
 
 The Athena Db2 connector performs predicate pushdown to decrease the data scanned by the query. `LIMIT` clauses, simple predicates, and complex expressions are pushed down to the connector to reduce the amount of data scanned and decrease query execution run time.
 
-### LIMIT
-
-clauses
+### LIMIT clauses
 
 A `LIMIT N` statement reduces the data scanned by the query. With
 `LIMIT N` pushdown, the connector returns only `N` rows to
@@ -293,9 +281,7 @@ pushdown:
   DIVIDE, MODULUS, NEGATE
 - Other: LIKE_PATTERN, IN
 
-### Combined
-
-pushdown example
+### Combined pushdown example
 
 For enhanced querying capabilities, combine the pushdown types, as in the following example:
 
@@ -308,9 +294,7 @@ WHERE col_a > 10
 LIMIT 10;
 ```
 
-## Passthrough
-
-queries
+## Passthrough queries
 
 The Db2 connector supports [passthrough queries](federated-query-passthrough.md "federated-query-passthrough.md"). Passthrough
 queries use a table function to push your full query down to the data source for

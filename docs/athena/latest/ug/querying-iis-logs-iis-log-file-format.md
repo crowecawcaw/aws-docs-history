@@ -1,6 +1,4 @@
-# Query IIS log file
-
-format
+# Query IIS log file format
 
 Unlike the W3C extended format, the [IIS log file format](<https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc728311(v%3dws.10)> "https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc728311(v%3dws.10)") has a fixed set of fields and includes a comma as a
 delimiter. The LazySimpleSerDe treats the comma as the delimiter and the space after the
@@ -64,9 +62,7 @@ LOCATION
    `iis_format_logs` table. When the query completes, the logs
    are ready for you to query from Athena.
 
-## Example IIS
-
-log format select query
+## Example IIS log format select query
 
 The following example query selects the request date, request time, request
 target, and time taken in milliseconds from the table `iis_format_logs`.

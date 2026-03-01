@@ -26,9 +26,7 @@ example.
 ST_Point(-121.7602, 46.8527)
 ```
 
-## Input data formats
-
-and geometry data types
+## Input data formats and geometry data types
 
 To use geospatial functions in Athena, input your data in the WKT format, or use the Hive
 JSON SerDe. You can also use the geometry data types supported in Athena.

@@ -1,6 +1,4 @@
-# Edit or delete a data source
-
-connection
+# Edit or delete a data source connection
 
 You can use the Athena console to update the description, host, port, database, and other
 properties for an existing connection. You can also delete the data sources from Athena
@@ -79,8 +77,7 @@ AWS Lambda Developer Guide.
     * **Networking settings** – Some connections require
      a virtual private cloud (VPC). Choose or create a VPC that has the data
      store that you want to access, a subnet, and one or more security groups.
-     For more information, see [Create a VPC for a data source connector or
-     AWS Glue connection](athena-connectors-vpc-creation.md "athena-connectors-vpc-creation.md").
+     For more information, see [Create a VPC for a data source connector or AWS Glue connection](athena-connectors-vpc-creation.md "athena-connectors-vpc-creation.md").
 
 
     ###### Note

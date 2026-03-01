@@ -21,9 +21,7 @@ delivery streams use separate path components for date parts such as
 use [ALTER TABLE ADD PARTITION](alter-table-add-partition.md "alter-table-add-partition.md") to
 add the partitions manually.
 
-## Considerations and
-
-limitations
+## Considerations and limitations
 
 When using partitioning, keep in mind the following points:
 
@@ -68,9 +66,7 @@ When using partitioning, keep in mind the following points:
 - To request a partitions quota increase if you are using the AWS Glue Data Catalog, visit
   the [Service Quotas console for AWS Glue](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/glue/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/glue/quotas").
 
-## Create and load a table with partitioned
-
-data
+## Create and load a table with partitioned data
 
 To create a table that uses partitions, use the `PARTITIONED BY` clause in
 your [CREATE TABLE](create-table.md "create-table.md") statement. The
@@ -93,9 +89,7 @@ After you create the table, you load the data in the partitions for querying. Fo
 style partitions, you run [MSCK REPAIR TABLE](msck-repair-table.md "msck-repair-table.md"). For non-Hive style partitions, you use [ALTER TABLE ADD PARTITION](alter-table-add-partition.md "alter-table-add-partition.md") to
 add the partitions manually.
 
-## Prepare Hive style and non-Hive style data
-
-for querying
+## Prepare Hive style and non-Hive style data for querying
 
 The following sections show how to prepare Hive style and non-Hive style data for
 querying in Athena.
@@ -252,9 +246,7 @@ aws s3 ls s3://athena-examples-`myregion`/elb/plaintext/ --recursive`2016-11-23 
 2016-11-23 17:54:53 0 elb/plaintext/2015_$folder$`
 ```
 
-#### Run ALTER TABLE ADD
-
-PARTITION
+#### Run ALTER TABLE ADD PARTITION
 
 Because the data is not in Hive format, you cannot use the `MSCK
  REPAIR TABLE` command to add the partitions to the table after you
@@ -272,8 +264,7 @@ ALTER TABLE elb_logs_raw_native_part ADD PARTITION (dt='2015-01-01') location 's
 If a partition already exists, you receive the error **`Partition
  already exists`**. To avoid this error, you can use the
 `IF NOT EXISTS` clause. For more information, see [ALTER TABLE ADD PARTITION](alter-table-add-partition.md "alter-table-add-partition.md"). To remove a partition, you
-can use [ALTER TABLE DROP
-PARTITION](alter-table-drop-partition.md "alter-table-drop-partition.md").
+can use [ALTER TABLE DROP PARTITION](alter-table-drop-partition.md "alter-table-drop-partition.md").
 
 ## Consider partition projection
 
@@ -291,5 +282,4 @@ For more information, see [Use partition projection with Amazon Athena](partitio
 - For information about partitioning options for Firehose data, see [Amazon Data Firehose example](partition-projection-kinesis-firehose-example.md "partition-projection-kinesis-firehose-example.md").
 - You can automate adding partitions by using the [JDBC driver](connect-with-jdbc.md "connect-with-jdbc.md").
 - You can use CTAS and INSERT INTO to partition a dataset. For more information,
-  see [Use CTAS and INSERT INTO for ETL and data
-  analysis](ctas-insert-into-etl.md "ctas-insert-into-etl.md").
+  see [Use CTAS and INSERT INTO for ETL and data analysis](ctas-insert-into-etl.md "ctas-insert-into-etl.md").

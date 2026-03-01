@@ -19,17 +19,10 @@ _User Guide for Application Load Balancers_.
 
 ###### Topics
 
-- [Create the table for ALB access
-  logs](create-alb-access-logs-table.md "create-alb-access-logs-table.md")
-- [Create the table
-  for ALB access logs in Athena using partition projection](create-alb-access-logs-table-partition-projection.md "create-alb-access-logs-table-partition-projection.md")
-- [Example queries for ALB access
-  logs](query-alb-access-logs-examples.md "query-alb-access-logs-examples.md")
-- [Create the table for ALB connection
-  logs](create-alb-connection-logs-table.md "create-alb-connection-logs-table.md")
-- [Create the
-  table for ALB connection logs in Athena using partition projection](create-alb-connection-logs-table-partition-projection.md "create-alb-connection-logs-table-partition-projection.md")
-- [Example queries for ALB connection
-  logs](query-alb-connection-logs-examples.md "query-alb-connection-logs-examples.md")
-- [Additional
-  resources](application-load-balancer-logs-additional-resources.md "application-load-balancer-logs-additional-resources.md")
+- [Create the table for ALB access logs](create-alb-access-logs-table.md "create-alb-access-logs-table.md")
+- [Create the table for ALB access logs in Athena using partition projection](create-alb-access-logs-table-partition-projection.md "create-alb-access-logs-table-partition-projection.md")
+- [Example queries for ALB access logs](query-alb-access-logs-examples.md "query-alb-access-logs-examples.md")
+- [Create the table for ALB connection logs](create-alb-connection-logs-table.md "create-alb-connection-logs-table.md")
+- [Create the table for ALB connection logs in Athena using partition projection](create-alb-connection-logs-table-partition-projection.md "create-alb-connection-logs-table-partition-projection.md")
+- [Example queries for ALB connection logs](query-alb-connection-logs-examples.md "query-alb-connection-logs-examples.md")
+- [Additional resources](application-load-balancer-logs-additional-resources.md "application-load-balancer-logs-additional-resources.md")

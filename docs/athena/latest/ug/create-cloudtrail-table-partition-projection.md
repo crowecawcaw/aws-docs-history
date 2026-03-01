@@ -1,6 +1,4 @@
-# Create the table for CloudTrail
-
-logs in Athena using partition projection
+# Create the table for CloudTrail logs in Athena using partition projection
 
 Because CloudTrail logs have a known structure whose partition scheme you can specify in
 advance, you can reduce query runtime and automate partition management by using the

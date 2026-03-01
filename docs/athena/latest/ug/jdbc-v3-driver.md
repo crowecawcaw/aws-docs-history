@@ -8,9 +8,7 @@ tools and from custom applications.
 - Java 8 (or higher) runtime environment
 - At least 20 MB of available disk space
 
-## Considerations and
-
-limitations
+## Considerations and limitations
 
 Following are some considerations and limitations for the Athena JDBC 3.x
 driver.
@@ -42,8 +40,7 @@ requirements:
   the IAM principals that use the JDBC driver. This policy action is not
   exposed directly with the API. It is used only with the ODBC and JDBC
   drivers as part of streaming results support. For an example policy, see
-  [AWS managed policy:
-  AWSQuicksightAthenaAccess](managed-policies.md#awsquicksightathenaaccess-managed-policy "managed-policies.md#awsquicksightathenaaccess-managed-policy").
+  [AWS managed policy: AWSQuicksightAthenaAccess](managed-policies.md#awsquicksightathenaaccess-managed-policy "managed-policies.md#awsquicksightathenaaccess-managed-policy").
 
 To download the Amazon Athena 3.x JDBC driver, visit the following links.
 
@@ -78,17 +75,12 @@ The following link contains the license agreement for the JDBC 3.x driver.
 You can now connect to Amazon Athena using JDBC drivers with single sign-on capabilities through AWS Identity and Access Management Identity Center.
 When you access Athena from tools like PowerBI, Tableau, or DBeaver, your identity and
 permissions automatically propagate to Athena through IAM Identity Center. For more
-information, see [Use Trusted identity propagation with
-Amazon Athena drivers](using-trusted-identity-propagation.md "using-trusted-identity-propagation.md").
+information, see [Use Trusted identity propagation with Amazon Athena drivers](using-trusted-identity-propagation.md "using-trusted-identity-propagation.md").
 
 ###### Topics
 
-- [Get started with the JDBC 3.x
-  driver](jdbc-v3-driver-getting-started.md "jdbc-v3-driver-getting-started.md")
-- [Amazon Athena JDBC
-  3.x connection parameters](jdbc-v3-driver-connection-parameters.md "jdbc-v3-driver-connection-parameters.md")
-- [Other JDBC 3.x
-  configuration](jdbc-v3-driver-other-configuration.md "jdbc-v3-driver-other-configuration.md")
+- [Get started with the JDBC 3.x driver](jdbc-v3-driver-getting-started.md "jdbc-v3-driver-getting-started.md")
+- [Amazon Athena JDBC 3.x connection parameters](jdbc-v3-driver-connection-parameters.md "jdbc-v3-driver-connection-parameters.md")
+- [Other JDBC 3.x configuration](jdbc-v3-driver-other-configuration.md "jdbc-v3-driver-other-configuration.md")
 - [Amazon Athena JDBC 3.x release notes](jdbc-v3-driver-release-notes.md "jdbc-v3-driver-release-notes.md")
-- [Previous versions of the Athena JDBC 3.x
-  driver](jdbc-v3-driver-previous-versions.md "jdbc-v3-driver-previous-versions.md")
+- [Previous versions of the Athena JDBC 3.x driver](jdbc-v3-driver-previous-versions.md "jdbc-v3-driver-previous-versions.md")

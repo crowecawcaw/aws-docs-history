@@ -1,6 +1,4 @@
-# Amazon Athena Azure Data Lake Storage (ADLS) Gen2
-
-connector
+# Amazon Athena Azure Data Lake Storage (ADLS) Gen2 connector
 
 The Amazon Athena connector for [Azure Data Lake Storage (ADLS) Gen2](https://docs.microsoft.com/en-us/azure/databricks/data/data-sources/azure/adls-gen2/ "https://docs.microsoft.com/en-us/azure/databricks/data/data-sources/azure/adls-gen2/") enables Amazon Athena to run SQL queries on
 data stored on ADLS. Athena cannot access stored files in the data lake directly.
@@ -25,8 +23,7 @@ It supports data access controls defined in Lake Formation at the catalog, datab
 
 ## Prerequisites
 
-- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data
-  source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
+- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
 
 ## Limitations
 
@@ -116,9 +113,7 @@ instance.
 datalakegentwo://${`jdbc_connection_string`}
 ```
 
-#### Using a
-
-multiplexing handler
+#### Using a multiplexing handler
 
 You can use a multiplexer to connect to multiple database instances with a single
 Lambda function. Requests are routed by catalog name. Use the following classes in
@@ -147,9 +142,7 @@ default), and `datalakegentwo2`.
 | `datalakegentwo_catalog1_connection_string` | `datalakegentwo://jdbc:sqlserver://adlsgentwo1.`hostname`:`port`;databaseName=`database_name`;${`secret1_name`}` |
 | `datalakegentwo_catalog2_connection_string` | `datalakegentwo://jdbc:sqlserver://adlsgentwo2.`hostname`:`port`;databaseName=`database_name`;${`secret2_name`}` |
 
-##### Providing
-
-credentials
+##### Providing credentials
 
 To provide a user name and password for your database in your JDBC connection
 string, you can use connection string properties or AWS Secrets Manager.
@@ -200,9 +193,7 @@ The connector uses the secret name to retrieve secrets and provide the user name
 datalakegentwo://jdbc:sqlserver://`hostname`:`port`;databaseName=`database_name`;user=`user_name`;password=`password`
 ```
 
-#### Using a
-
-single connection handler
+#### Using a single connection handler
 
 You can use the following single connection metadata and record handlers to
 connect to a single Azure Data Lake Storage Gen2 instance.
@@ -267,9 +258,7 @@ The following table shows the corresponding data types for ADLS Gen2 and Arrow.
 | char[n]        | VARCHAR           |
 | varchar[n/max] | VARCHAR           |
 
-## Partitions and
-
-splits
+## Partitions and splits
 
 Azure Data Lake Storage Gen2 uses Hadoop compatible Gen2 blob storage for storing data
 files. The data from these files is queried from the Azure Synapse engine. The Azure
@@ -303,9 +292,7 @@ pushdown:
   DIVIDE, MODULUS, NEGATE
 - Other: LIKE_PATTERN, IN
 
-### Combined
-
-pushdown example
+### Combined pushdown example
 
 For enhanced querying capabilities, combine the pushdown types, as in the following example:
 
@@ -317,9 +304,7 @@ WHERE col_a > 10
     AND (col_e IN ('val1', 'val2', 'val3') OR col_f LIKE '%pattern%');
 ```
 
-## Passthrough
-
-queries
+## Passthrough queries
 
 The Azure Data Lake Storage Gen2 connector supports [passthrough queries](federated-query-passthrough.md "federated-query-passthrough.md"). Passthrough
 queries use a table function to push your full query down to the data source for

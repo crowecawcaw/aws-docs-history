@@ -47,9 +47,7 @@ ROW FORMAT SERDE 'org.apache.hive.hcatalog.data.JsonSerDe'
 LOCATION 's3://amzn-s3-demo-bucket.elasticmapreduce/samples/hive-ads/tables/impressions';
 ```
 
-## Specify timestamp formats with the
-
-Hive JSON SerDe
+## Specify timestamp formats with the Hive JSON SerDe
 
 To parse timestamp values from string, you can add the `WITH
  SERDEPROPERTIES` subfield to the `ROW FORMAT SERDE` clause and use

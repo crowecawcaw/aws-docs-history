@@ -14,9 +14,7 @@ statement. `value1` and
 `value2` are the values to be specified for the
 parameters in the statement.
 
-## EXECUTE
-
-examples
+## EXECUTE examples
 
 The following example runs the `my_select1` prepared statement,
 which contains no parameters.

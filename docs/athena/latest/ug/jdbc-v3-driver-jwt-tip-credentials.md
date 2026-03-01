@@ -3,16 +3,13 @@
 This authentication type allows you to use a JSON web token (JWT) obtained from an
 external identity provider as a connection parameter to authenticate with Athena. You can
 use this plugin, to enable support for corporate identities via trusted identity propagation. For more
-information on how to use trusted identity propagation with drivers, see [Use Trusted identity propagation with
-Amazon Athena drivers](using-trusted-identity-propagation.md "using-trusted-identity-propagation.md"). You can also [configure and deploy
+information on how to use trusted identity propagation with drivers, see [Use Trusted identity propagation with Amazon Athena drivers](using-trusted-identity-propagation.md "using-trusted-identity-propagation.md"). You can also [configure and deploy
 resources using CloudFormation](using-trusted-identity-propagation-cloudformation.md "using-trusted-identity-propagation-cloudformation.md").
 
 With trusted identity propagation, identity context is added to an IAM role to identify the user requesting
 access to AWS resources. For information on enabling and using trusted identity propagation, see [What is trusted identity propagation?](../../../singlesignon/latest/userguide/trustedidentitypropagation.md "../../../singlesignon/latest/userguide/trustedidentitypropagation.md").
 
-## Credentials
-
-provider
+## Credentials provider
 
 The credentials provider that will be used to authenticate requests to AWS. Set
 the value of this parameter to `JWT_TIP`.
@@ -79,9 +76,7 @@ make calls on the behalf of you. For more information about assuming roles, see
 | -------------- | ----- | -------------- | ------------- |
 | AccessRoleArn  | none  | Optional       | none          |
 
-## IAM Identity Center customer
-
-managed application ARN
+## IAM Identity Center customer managed application ARN
 
 The ARN of IAM Identity Center customer managed application. For more information, see [customer managed
 applications](../../../singlesignon/latest/userguide/customermanagedapps.md "../../../singlesignon/latest/userguide/customermanagedapps.md").

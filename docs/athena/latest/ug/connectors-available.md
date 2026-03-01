@@ -4,13 +4,10 @@ This section lists prebuilt Athena data source connectors that you can use to qu
 variety of data sources external to Amazon S3. To use a connector in your Athena queries,
 configure it and deploy it to your account.
 
-## Considerations and
-
-limitations
+## Considerations and limitations
 
 - Some prebuilt connectors require that you create a VPC and a security group
-  before you can use the connector. For information about creating VPCs, see [Create a VPC for a data source connector or
-  AWS Glue connection](athena-connectors-vpc-creation.md "athena-connectors-vpc-creation.md").
+  before you can use the connector. For information about creating VPCs, see [Create a VPC for a data source connector or AWS Glue connection](athena-connectors-vpc-creation.md "athena-connectors-vpc-creation.md").
 - To use the Athena Federated Query feature with AWS Secrets Manager, you must configure an Amazon VPC
   private endpoint for Secrets Manager. For more information, see [Create a Secrets Manager VPC private endpoint](../../../secretsmanager/latest/userguide/vpc-endpoint-overview.md#vpc-endpoint-create "../../../secretsmanager/latest/userguide/vpc-endpoint-overview.md#vpc-endpoint-create") in the _AWS Secrets Manager User Guide_.
 - For connectors that do not support predicate pushdown, queries that include a
@@ -94,9 +91,7 @@ Be aware of the following limitations when using case resolver modes:
   - Glue only supports lowercase names
   - Only `NONE` or `LOWER` modes will work when registering your Lambda function with GlueDataCatalog/LakeFormation
 
-## Additional
-
-information
+## Additional information
 
 - For information about deploying an Athena data source connector, see [Use Amazon Athena Federated Query](federated-queries.md "federated-queries.md").
 - For information about queries that use Athena data source connectors, see [Run federated queries](running-federated-queries.md "running-federated-queries.md").

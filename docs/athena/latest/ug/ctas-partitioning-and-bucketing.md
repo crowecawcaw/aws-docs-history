@@ -8,9 +8,6 @@ tuning tips for Amazon Athena](https://aws.amazon.com/blogs/big-data/top-10-perf
 
 ###### Topics
 
-- [What is
-  partitioning?](ctas-partitioning-and-bucketing-what-is-partitioning.md "ctas-partitioning-and-bucketing-what-is-partitioning.md")
-- [What is
-  bucketing?](ctas-partitioning-and-bucketing-what-is-bucketing.md "ctas-partitioning-and-bucketing-what-is-bucketing.md")
-- [Additional
-  resources](ctas-partitioning-and-bucketing-additional-resources.md "ctas-partitioning-and-bucketing-additional-resources.md")
+- [What is partitioning?](ctas-partitioning-and-bucketing-what-is-partitioning.md "ctas-partitioning-and-bucketing-what-is-partitioning.md")
+- [What is bucketing?](ctas-partitioning-and-bucketing-what-is-bucketing.md "ctas-partitioning-and-bucketing-what-is-bucketing.md")
+- [Additional resources](ctas-partitioning-and-bucketing-additional-resources.md "ctas-partitioning-and-bucketing-additional-resources.md")

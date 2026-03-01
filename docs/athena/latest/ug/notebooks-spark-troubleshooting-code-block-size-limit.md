@@ -1,6 +1,4 @@
-# Overcome the 68k
-
-code block size limit
+# Overcome the 68k code block size limit
 
 Athena for Spark has a known calculation code block size limit of 68000 characters. When
 you run a calculation with a code block over this limit, you can receive the following error

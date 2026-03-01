@@ -17,9 +17,7 @@ table using SQL. This _schema-on-read_ approach, which projects a schema
 onto your data when you run a query, eliminates the need for data loading or
 transformation.
 
-## Considerations and
-
-limitations
+## Considerations and limitations
 
 Following are some important limitations and considerations for tables in
 Athena.
@@ -99,8 +97,6 @@ you automatically.
 
 ###### Topics
 
-- [Create tables using AWS Glue or the Athena
-  console](creating-tables-how-to.md "creating-tables-how-to.md")
+- [Create tables using AWS Glue or the Athena console](creating-tables-how-to.md "creating-tables-how-to.md")
 - [Specify a table location in Amazon S3](tables-location-format.md "tables-location-format.md")
-- [Show table information after
-  creation](creating-tables-showing-table-information.md "creating-tables-showing-table-information.md")
+- [Show table information after creation](creating-tables-showing-table-information.md "creating-tables-showing-table-information.md")

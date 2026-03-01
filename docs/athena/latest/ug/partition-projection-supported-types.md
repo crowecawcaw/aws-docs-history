@@ -1,6 +1,4 @@
-# Supported types for partition
-
-projection
+# Supported types for partition projection
 
 A table can have any combination of `enum`, `integer`,
 `date,` or `injected` partition column types.
@@ -62,7 +60,7 @@ query execution time.
 | `projection.`columnName`.interval`      | `1`<br>`5`                                                                                | A positive integer that specifies the interval between<br>successive partition values for column<br>`columnName`. For example, a<br>`range` value of `2017-01,2018-12`<br>with an `interval` value of `1` and an<br>`interval.unit` value of `MONTHS`<br>produces the values 2017-01, 2017-02, 2017-03, and so on. The<br>same `range` value with an `interval`<br>value of `2` and an `interval.unit` value<br>of `MONTHS` produces the values 2017-01, 2017-03,<br>2017-05, and so on. Leading and trailing white space is<br>allowed.<br>When the provided dates are at single-day or single-month<br>precision, the `interval` is optional and defaults to<br>1 day or 1 month, respectively. Otherwise, `interval`<br>is required. |
 | `projection.`columnName`.interval.unit` | `YEARS`<br>`MONTHS`<br>`WEEKS`<br>`DAYS`<br>`HOURS`<br>`MINUTES`<br>`SECONDS`<br>`MILLIS` | A time unit word that represents the serialized form of a<br>[ChronoUnit](https://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoUnit.html "https://docs.oracle.com/javase/8/docs/api/java/time/temporal/ChronoUnit.html"). Possible values are `YEARS`,<br>`MONTHS`, `WEEKS`, `DAYS`,<br>`HOURS`, `MINUTES`,<br>`SECONDS`, or `MILLIS`. These values<br>are case insensitive.<br>When the provided dates are at single-day or single-month<br>precision, the `interval.unit` is optional and<br>defaults to 1 day or 1 month, respectively. Otherwise, the<br>`interval.unit` is required.                                                                                                                                 |
 
-###### Example – Partitioning by month
+###### Example– Partitioning by month
 
 The following example table configuration partitions data by month from 2015
 to the present.
@@ -100,5 +98,4 @@ It is important to keep in mind the following points:
 | ------------------------------ | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `projection.`columnName`.type` | `injected` | Required. The projection type to use for the column<br>`columnName`. Only the<br>`string` type is supported. The value specified must<br>be `injected` (case insensitive). Leading and trailing<br>white space is allowed. |
 
-For more information, see [When to use the
-injected projection type](partition-projection-dynamic-id-partitioning.md#partition-projection-injection "partition-projection-dynamic-id-partitioning.md#partition-projection-injection").
+For more information, see [When to use the injected projection type](partition-projection-dynamic-id-partitioning.md#partition-projection-injection "partition-projection-dynamic-id-partitioning.md#partition-projection-injection").

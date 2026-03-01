@@ -1,6 +1,4 @@
-# Use CTAS and INSERT INTO for ETL and data
-
-analysis
+# Use CTAS and INSERT INTO for ETL and data analysis
 
 You can use Create Table as Select ([CTAS](ctas.md "ctas.md"))
 and [INSERT INTO](insert-into.md "insert-into.md") statements in
@@ -30,8 +28,7 @@ created by the CTAS statement.
 
 - [Step 1: Create a table based on the original dataset](#ctas-insert-into-etl-step-1-create-a-table-based-on-the-original-dataset "#ctas-insert-into-etl-step-1-create-a-table-based-on-the-original-dataset")
 - [Step 2: Use CTAS to partition, convert, and compress the data](#ctas-insert-into-etl-step-2-use-ctas-to-partition-convert-and-compress-the-data "#ctas-insert-into-etl-step-2-use-ctas-to-partition-convert-and-compress-the-data")
-- [Step 3: Use
-  INSERT INTO to add data](#ctas-insert-into-etl-step-3-use-insert-into-to-add-data "#ctas-insert-into-etl-step-3-use-insert-into-to-add-data")
+- [Step 3: Use INSERT INTO to add data](#ctas-insert-into-etl-step-3-use-insert-into-to-add-data "#ctas-insert-into-etl-step-3-use-insert-into-to-add-data")
 - [Step 4: Measure performance and cost differences](#ctas-insert-into-etl-step-4-measure-performance-and-cost-differences "#ctas-insert-into-etl-step-4-measure-performance-and-cost-differences")
 
 ## Step 1: Create a table based on the original dataset
@@ -108,9 +105,7 @@ will be partitioned on `year`, the sample statement in the following
 procedure uses the Presto function `substr("date",1,4)` to extract the
 `year` value from the `date` field.
 
-###### To convert the data to parquet format with snappy compression, partitioning by
-
-year
+###### To convert the data to parquet format with snappy compression, partitioning by year
 
 - Run the following CTAS statement, replacing
   `your-bucket` with your Amazon S3 bucket
@@ -184,9 +179,7 @@ The output resembles the following.
 2019-10-31 14:51:05    6.9 MiB optimized-data/year=2015/20191031_215021_00001_3f42d_42da4cfd-6e21-40a1-8152-0b902da385a1
 ```
 
-## Step 3: Use
-
-INSERT INTO to add data
+## Step 3: Use INSERT INTO to add data
 
 In Step 2, you used CTAS to create a table with partitions for the years 2015 to 2019.
 However, the original dataset also contains data for the years 2010 to 2014. Now you add
@@ -278,8 +271,7 @@ WHERE cast(substr("date",1,4) AS bigint) = 2020
 
 The INSERT INTO statement supports writing a maximum of 100 partitions to
 the destination table. However, to add more than 100 partitions, you can run
-multiple INSERT INTO statements. For more information, see [Use CTAS and INSERT INTO to work around the 100 partition
-limit](ctas-insert-into.md "ctas-insert-into.md").
+multiple INSERT INTO statements. For more information, see [Use CTAS and INSERT INTO to work around the 100 partition limit](ctas-insert-into.md "ctas-insert-into.md").
 
 ## Step 4: Measure performance and cost differences
 

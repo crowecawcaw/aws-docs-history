@@ -1,15 +1,10 @@
-# Create a table for an
-
-organization wide trail using manual partitioning
+# Create a table for an organization wide trail using manual partitioning
 
 To create a table for organization wide CloudTrail log files in Athena, follow the steps in
-[Create a table for CloudTrail logs in Athena using
-manual partitioning](create-cloudtrail-table.md "create-cloudtrail-table.md"),
+[Create a table for CloudTrail logs in Athena using manual partitioning](create-cloudtrail-table.md "create-cloudtrail-table.md"),
 but make the modifications noted in the following procedure.
 
-###### To create an Athena table for
-
-organization wide CloudTrail logs
+###### To create an Athena table for organization wide CloudTrail logs
 
 1. In the `CREATE TABLE` statement, modify the `LOCATION`
    clause to include the organization ID, as in the following example:

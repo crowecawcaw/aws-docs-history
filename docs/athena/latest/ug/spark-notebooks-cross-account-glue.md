@@ -1,6 +1,4 @@
-# Configure cross-account AWS Glue access in
-
-Athena for Spark
+# Configure cross-account AWS Glue access in Athena for Spark
 
 This topic shows how consumer account `666666666666` and owner
 account `999999999999` can be configured for cross-account AWS Glue
@@ -12,9 +10,7 @@ for Spark on the owner's AWS Glue databases and tables.
 In AWS Glue, the owner creates a policy that provides the consumer's roles access to the
 owner's AWS Glue data catalog.
 
-###### To add a AWS Glue policy that allows a consumer role access to the owner's data
-
-catalog
+###### To add a AWS Glue policy that allows a consumer role access to the owner's data catalog
 
 1. Using the catalog owner's account, sign in to the AWS Management Console.
 2. Open the AWS Glue console at
@@ -166,12 +162,9 @@ df = spark.sql('SELECT * FROM mydatabase.cloudfront_logs LIMIT 10')
 df.show()
 ```
 
-## Additional
+## Additional resources
 
-resources
-
-[Configure cross-account
-access to AWS Glue data catalogs](security-iam-cross-account-glue-catalog-access.md "security-iam-cross-account-glue-catalog-access.md")
+[Configure cross-account access to AWS Glue data catalogs](security-iam-cross-account-glue-catalog-access.md "security-iam-cross-account-glue-catalog-access.md")
 
 [Managing cross-account permissions using both AWS Glue and Lake Formation](../../../lake-formation/latest/dg/hybrid-cross-account.md "../../../lake-formation/latest/dg/hybrid-cross-account.md") in the
 _AWS Lake Formation Developer Guide_.

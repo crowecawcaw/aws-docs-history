@@ -1,6 +1,4 @@
-# Use the Amazon Athena Power BI
-
-connector
+# Use the Amazon Athena Power BI connector
 
 On Windows operating systems, you can use the Microsoft Power BI connector for Amazon Athena
 to analyze data from Amazon Athena in Microsoft Power BI Desktop. For information about Power
@@ -22,9 +20,7 @@ The Amazon Athena ODBC driver is required.
 - [Power BI
   desktop](https://powerbi.microsoft.com/en-us/desktop/ "https://powerbi.microsoft.com/en-us/desktop/")
 
-## Capabilities
-
-supported
+## Capabilities supported
 
 - Import – Selected tables and columns are
   imported into Power BI Desktop for querying.
@@ -36,9 +32,7 @@ supported
   Power BI Service and Athena. The gateway is required to see your data on the
   Microsoft Power BI Service.
 
-## Connect to
-
-Amazon Athena
+## Connect to Amazon Athena
 
 To connect Power BI desktop to your Amazon Athena data, perform the following
 steps.
@@ -101,9 +95,7 @@ to Athena for the visualization that you requested.
 
 ![A sample data visualization](images/connect-with-odbc-and-power-bi-5.png)
 
-## Setting up an on-premises
-
-gateway
+## Setting up an on-premises gateway
 
 You can publish dashboards and datasets to the Power BI service so that other users
 can interact with them through web, mobile, and embedded apps. To see your data in the

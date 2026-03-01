@@ -9,9 +9,7 @@ To obtain AWS Glue Catalog metadata, you query the `information_schema` database
 on the Athena backend. The example queries in this topic show how to use Athena to query AWS Glue
 Catalog metadata for common use cases.
 
-## Considerations and
-
-limitations
+## Considerations and limitations
 
 - Instead of querying the `information_schema` database, it is
   possible to use individual Apache Hive [DDL commands](ddl-reference.md "ddl-reference.md") to extract metadata
@@ -26,13 +24,8 @@ limitations
 ###### Topics
 
 - [List databases and searching a specified database](querying-glue-catalog-querying-available-databases-including-rdbms.md "querying-glue-catalog-querying-available-databases-including-rdbms.md")
-- [List tables in a specified
-  database and searching for a table by name](querying-glue-catalog-listing-tables.md "querying-glue-catalog-listing-tables.md")
-- [List partitions for a
-  specific table](querying-glue-catalog-listing-partitions.md "querying-glue-catalog-listing-partitions.md")
-- [List or search columns for
-  a specified table or view](querying-glue-catalog-listing-columns.md "querying-glue-catalog-listing-columns.md")
-- [List the columns
-  that specific tables have in common](querying-glue-catalog-listing-columns-in-common.md "querying-glue-catalog-listing-columns-in-common.md")
-- [List all
-  columns for all tables](querying-glue-catalog-listing-all-columns-for-all-tables.md "querying-glue-catalog-listing-all-columns-for-all-tables.md")
+- [List tables in a specified database and searching for a table by name](querying-glue-catalog-listing-tables.md "querying-glue-catalog-listing-tables.md")
+- [List partitions for a specific table](querying-glue-catalog-listing-partitions.md "querying-glue-catalog-listing-partitions.md")
+- [List or search columns for a specified table or view](querying-glue-catalog-listing-columns.md "querying-glue-catalog-listing-columns.md")
+- [List the columns that specific tables have in common](querying-glue-catalog-listing-columns-in-common.md "querying-glue-catalog-listing-columns-in-common.md")
+- [List all columns for all tables](querying-glue-catalog-listing-all-columns-for-all-tables.md "querying-glue-catalog-listing-all-columns-for-all-tables.md")

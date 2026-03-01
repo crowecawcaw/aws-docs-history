@@ -20,7 +20,6 @@ DEALLOCATE PREPARE my_select1
 
 ## Additional resources
 
-[Use prepared
-statements](querying-with-prepared-statements-querying.md "querying-with-prepared-statements-querying.md")
+[Use prepared statements](querying-with-prepared-statements-querying.md "querying-with-prepared-statements-querying.md")
 
 [PREPARE](sql-prepare.md "sql-prepare.md")

@@ -73,9 +73,7 @@ your behalf. For more information about assuming roles, see [AssumeRole](../../.
 | -------------------------- | ------------------ | ----------------- | ---------------------------------------------------------- |
 | AccessRoleArn              | Optional           | `none`            | `AccessRoleArn=arn:aws:iam::111122223333:role/accessRole;` |
 
-## IAM Identity Center customer
-
-managed application ARN
+## IAM Identity Center customer managed application ARN
 
 The ARN of IAM Identity Center customer managed IDC application. For more information about Customer
 Managed Applications, see [customer managed

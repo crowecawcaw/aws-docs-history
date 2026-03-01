@@ -21,9 +21,7 @@ The following example data shows the Apache common log format.
 198.51.100.11 - Xiulan [22/Apr/2019:10:51:34 -0700] "GET /group/index.html HTTP/1.1" 200 1344
 ```
 
-## Create a table in
-
-Athena for Apache logs
+## Create a table in Athena for Apache logs
 
 Before you can query Apache logs stored in Amazon S3, you must create a table schema for
 Athena so that it can read the log data. To create an Athena table for Apache logs, you
@@ -67,9 +65,7 @@ LOCATION
    table. When the query completes, the logs are ready for you to query from
    Athena.
 
-### Example
-
-queries
+### Example queries
 
 ###### Example– Filter for 404 errors
 

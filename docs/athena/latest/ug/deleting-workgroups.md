@@ -22,9 +22,7 @@ where they can continue to run queries. If the users' IAM policies allowed them 
 run queries _only_ in this workgroup, and you delete it, they no
 longer have permissions to run queries. For more information, see [Example policy for running queries in the primary workgroup](example-policies-workgroup.md#example4-run-in-primary-access "example-policies-workgroup.md#example4-run-in-primary-access").
 
-###### To delete a workgroup in the
-
-console
+###### To delete a workgroup in the console
 
 1. In the Athena console navigation pane, choose
    **Workgroups**.

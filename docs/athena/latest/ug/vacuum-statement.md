@@ -67,8 +67,7 @@ VACUUM my_database.`_mytable`
   table property. The default is 1.
 
 You can specify these table properties in your `CREATE TABLE`
-statement. After the table has been created, you can use the [ALTER TABLE SET
-TBLPROPERTIES](querying-iceberg-alter-table-set-properties.md "querying-iceberg-alter-table-set-properties.md") statement to
+statement. After the table has been created, you can use the [ALTER TABLE SET TBLPROPERTIES](querying-iceberg-alter-table-set-properties.md "querying-iceberg-alter-table-set-properties.md") statement to
 update them.
 
 - Removes any metadata and data files that are unreachable as a result of the

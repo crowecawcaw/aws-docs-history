@@ -3,9 +3,7 @@
 You can use an ODBC connection to connect to Amazon Athena from many third-party SQL client
 tools and applications. You set up the ODBC connection on your client computer.
 
-## Considerations and
-
-limitations
+## Considerations and limitations
 
 For information on migrating from the Athena ODBC 1.x driver to the Athena 2.x
 ODBC driver, see [Migrate to the ODBC 2.x driver](odbc-v2-driver-migrating.md "odbc-v2-driver-migrating.md").
@@ -28,8 +26,7 @@ requirements:
   the IAM principals that use the ODBC driver. This policy action is not
   exposed directly with the API. It is used only with the ODBC and JDBC
   drivers as part of streaming results support. For an example policy, see
-  [AWS managed policy:
-  AWSQuicksightAthenaAccess](managed-policies.md#awsquicksightathenaaccess-managed-policy "managed-policies.md#awsquicksightathenaaccess-managed-policy").
+  [AWS managed policy: AWSQuicksightAthenaAccess](managed-policies.md#awsquicksightathenaaccess-managed-policy "managed-policies.md#awsquicksightathenaaccess-managed-policy").
 
 ### Linux
 
@@ -65,15 +62,12 @@ requirements:
 You can now connect to Amazon Athena using ODBC drivers with single sign-on capabilities through AWS Identity and Access Management Identity Center.
 When you access Athena from tools like PowerBI, Tableau, or DBeaver, your identity and
 permissions automatically propagate to Athena through IAM Identity Center. For more
-information, see [Use Trusted identity propagation with
-Amazon Athena drivers](using-trusted-identity-propagation.md "using-trusted-identity-propagation.md").
+information, see [Use Trusted identity propagation with Amazon Athena drivers](using-trusted-identity-propagation.md "using-trusted-identity-propagation.md").
 
 ###### Topics
 
-- [Get started with the ODBC 2.x
-  driver](odbc-v2-driver-getting-started.md "odbc-v2-driver-getting-started.md")
-- [Athena ODBC 2.x
-  connection parameters](odbc-v2-driver-connection-parameters.md "odbc-v2-driver-connection-parameters.md")
+- [Get started with the ODBC 2.x driver](odbc-v2-driver-getting-started.md "odbc-v2-driver-getting-started.md")
+- [Athena ODBC 2.x connection parameters](odbc-v2-driver-connection-parameters.md "odbc-v2-driver-connection-parameters.md")
 - [Migrate to the ODBC 2.x driver](odbc-v2-driver-migrating.md "odbc-v2-driver-migrating.md")
 - [Troubleshoot the ODBC 2.x driver](odbc-v2-driver-troubleshooting.md "odbc-v2-driver-troubleshooting.md")
 - [Amazon Athena ODBC 2.x release notes](odbc-v2-driver-release-notes.md "odbc-v2-driver-release-notes.md")

@@ -23,8 +23,7 @@ Use CTAS queries to:
 
 ###### Topics
 
-- [Considerations and limitations for CTAS
-  queries](ctas-considerations-limitations.md "ctas-considerations-limitations.md")
+- [Considerations and limitations for CTAS queries](ctas-considerations-limitations.md "ctas-considerations-limitations.md")
 - [Create CTAS queries](ctas-console.md "ctas-console.md")
 - [CTAS examples](ctas-examples.md "ctas-examples.md")
 - [Use CTAS and INSERT INTO for ETL](ctas-insert-into-etl.md "ctas-insert-into-etl.md")

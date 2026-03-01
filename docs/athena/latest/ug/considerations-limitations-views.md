@@ -1,6 +1,4 @@
-# Considerations and limitations for
-
-Athena views
+# Considerations and limitations for Athena views
 
 Athena views have the following considerations and limitations.
 
@@ -44,10 +42,9 @@ The following considerations apply to creating and using views in Athena:
   information, see [Control access to Amazon S3 from Athena](s3-permissions.md "s3-permissions.md").
 - While querying views across accounts is supported in Athena engine version 3, you cannot
   create a view that includes a cross-account AWS Glue Data Catalog. For information
-  about cross-account data catalog access, see [Configure cross-account
-  access to AWS Glue data catalogs](security-iam-cross-account-glue-catalog-access.md "security-iam-cross-account-glue-catalog-access.md").
+  about cross-account data catalog access, see [Configure cross-account access to AWS Glue data catalogs](security-iam-cross-account-glue-catalog-access.md "security-iam-cross-account-glue-catalog-access.md").
 - The Hive or Iceberg hidden metadata columns `$bucket`,
   `$file_modified_time`, `$file_size`, and
   `$partition` are not supported for views in Athena. For
   information about using the `$path` metadata column in Athena, see
-  [Getting the file locations for source data in Amazon S3](select.md#select-path "select.md#select-path") .
+  [Getting the file locations for source data in Amazon S3](select.md#select-path "select.md#select-path").

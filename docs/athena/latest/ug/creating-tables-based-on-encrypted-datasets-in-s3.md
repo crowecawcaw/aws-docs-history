@@ -1,15 +1,11 @@
-# Create tables
-
-based on encrypted datasets in Amazon S3
+# Create tables based on encrypted datasets in Amazon S3
 
 Athena can read and write to tables whose underlying datasets are SSE-S3, SSE-KMS,
 or CSE-KMS encrypted. Depending on the encryption option used for the table data and
 the type of queries ran, you will possibly have to specify some additional
 table properties in order to read and write encrypted data.
 
-##
-
-Reading SSE-S3/SSE-KMS encrypted tables
+## Reading SSE-S3/SSE-KMS encrypted tables
 
 No additional table properties need to be specified on table creation in order to read
 SSE-S3/SSE-KMS encrypted datasets. Amazon S3 handles decrypting the SSE objects automatically.
@@ -34,9 +30,7 @@ more information, see [Configure
 multipart upload for Amazon S3](../../../emr/latest/ManagementGuide/emr-plan-upload-s3.md#Config_Multipart "../../../emr/latest/ManagementGuide/emr-plan-upload-s3.md#Config_Multipart") in the
 _Amazon EMR Management Guide_.
 
-###
-
-Using encryption_option and kms_key table properties
+### Using encryption_option and kms_key table properties
 
 In a [CREATE TABLE](create-table.md "create-table.md") statement, use a
 `TBLPROPERTIES` clause that specifies `encryption_option='CSE_KMS'` and
@@ -69,9 +63,7 @@ When these properties are configured,
 - Athena can still read SSE-S3 and SSE-KMS encrypted objects, though mixing server-side
   and client-side encrypted objects is not recommended.
 
-###
-
-Using has_encrypted_data table property
+### Using has_encrypted_data table property
 
 In a [CREATE TABLE](create-table.md "create-table.md") statement, use a
 `TBLPROPERTIES` clause that specifies
@@ -121,9 +113,7 @@ In the Athena console list of tables, CSE-KMS encrypted tables with
 
 ![Encrypted table icon](images/tables-list-encrypted-table-icon.png)
 
-##
-
-Writing SSE-S3/SSE-KMS/CSE-KMS encrypted data
+## Writing SSE-S3/SSE-KMS/CSE-KMS encrypted data
 
 By default, newly inserted data files will be encrypted using the encryption
 configuration of the query results specified in the Athena workgroup. In order to
@@ -155,9 +145,7 @@ All newly inserted data will be encrypted using the encryption configuration
 specified by the table properties rather than using the encryption configuration
 of the query results in the workgroup.
 
-##
-
-Considerations and Limitations
+## Considerations and Limitations
 
 When writing and reading encrypted datasets, consider the following points.
 

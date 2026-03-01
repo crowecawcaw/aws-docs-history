@@ -1,6 +1,4 @@
-# Configure SSO for ODBC using the Okta plugin and Okta
-
-Identity Provider
+# Configure SSO for ODBC using the Okta plugin and Okta Identity Provider
 
 This page describes how to configure the Amazon Athena ODBC driver and Okta plugin to add
 single sign-on (SSO) capability using the Okta identity provider.
@@ -15,9 +13,7 @@ Completing the steps in this tutorial requires the following:
   Guide_.
 - An Okta account. For information, visit [Okta.com](https://www.okta.com/ "https://www.okta.com/").
 
-## Creating an app
-
-integration in Okta
+## Creating an app integration in Okta
 
 First, use the Okta dashboard to create and configure a SAML 2.0 app for single
 sign-on to Athena. You can use an existing Redshift application in Okta to configure
@@ -98,9 +94,7 @@ https://trial-1234567.okta.com/home/amazon_aws_redshift/Abc1de2fghi3J45kL678/abc
      **Abc1de2fghi3J45kL678/abc1defghij2klmNo3p4**).
      This is your application ID.
 
-## Add a user to the
-
-Okta application
+## Add a user to the Okta application
 
 Now you're ready to add a user to your Okta application.
 
@@ -147,9 +141,7 @@ metadata**, and then choose the browser option to save the file. 10. Save the fi
 
 ![Saving IdP metadata to a local XML file.](images/odbc-okta-plugin-11.png)
 
-## Create
-
-an AWS SAML Identity Provider and Role
+## Create an AWS SAML Identity Provider and Role
 
 Now you are ready to upload the metadata XML file to the IAM console in AWS. You
 will use this file to create an AWS SAML identity provider and role. Use an AWS

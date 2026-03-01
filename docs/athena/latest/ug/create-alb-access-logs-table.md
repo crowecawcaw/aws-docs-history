@@ -1,6 +1,4 @@
-# Create the table for ALB access
-
-logs
+# Create the table for ALB access logs
 
 1. Copy and paste the following `CREATE TABLE` statement into the
    query editor in the Athena console, and then modify it as necessary for your own

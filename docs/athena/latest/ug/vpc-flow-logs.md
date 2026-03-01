@@ -31,9 +31,7 @@ fields to return in the flow log and the order in which the fields appear. For m
 information about flow log records, see [Flow log records](../../../vpc/latest/userguide/flow-logs.md#flow-log-records "../../../vpc/latest/userguide/flow-logs.md#flow-log-records") in the
 _Amazon VPC User Guide_.
 
-## Considerations and
-
-limitations
+## Considerations and limitations
 
 When you create tables in Athena for Amazon VPC flow logs, remember the following
 points:
@@ -56,13 +54,8 @@ points:
 
 ###### Topics
 
-- [Create a table for Amazon VPC flow
-  logs and query it](vpc-flow-logs-create-table-statement.md "vpc-flow-logs-create-table-statement.md")
-- [Create tables for flow logs in Apache Parquet
-  format](vpc-flow-logs-parquet.md "vpc-flow-logs-parquet.md")
-- [Create and query a table for Amazon VPC
-  flow logs using partition projection](vpc-flow-logs-partition-projection.md "vpc-flow-logs-partition-projection.md")
-- [Create tables for
-  flow logs in Apache Parquet format using partition projection](vpc-flow-logs-partition-projection-parquet-example.md "vpc-flow-logs-partition-projection-parquet-example.md")
-- [Additional
-  resources](query-examples-vpc-logs-additional-resources.md "query-examples-vpc-logs-additional-resources.md")
+- [Create a table for Amazon VPC flow logs and query it](vpc-flow-logs-create-table-statement.md "vpc-flow-logs-create-table-statement.md")
+- [Create tables for flow logs in Apache Parquet format](vpc-flow-logs-parquet.md "vpc-flow-logs-parquet.md")
+- [Create and query a table for Amazon VPC flow logs using partition projection](vpc-flow-logs-partition-projection.md "vpc-flow-logs-partition-projection.md")
+- [Create tables for flow logs in Apache Parquet format using partition projection](vpc-flow-logs-partition-projection-parquet-example.md "vpc-flow-logs-partition-projection-parquet-example.md")
+- [Additional resources](query-examples-vpc-logs-additional-resources.md "query-examples-vpc-logs-additional-resources.md")

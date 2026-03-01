@@ -44,8 +44,7 @@ EXECUTE my_select3 USING 346078, 12
 
 ## Additional resources
 
-[Use prepared
-statements](querying-with-prepared-statements-querying.md "querying-with-prepared-statements-querying.md")
+[Use prepared statements](querying-with-prepared-statements-querying.md "querying-with-prepared-statements-querying.md")
 
 [PREPARE](sql-prepare.md "sql-prepare.md")
 

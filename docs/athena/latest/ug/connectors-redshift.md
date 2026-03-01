@@ -9,8 +9,7 @@ It supports data access controls defined in Lake Formation at the catalog, datab
 
 ## Prerequisites
 
-- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data
-  source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
+- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
 
 ## Limitations
 
@@ -131,9 +130,7 @@ instance.
 redshift://${`jdbc_connection_string`}
 ```
 
-#### Using a
-
-multiplexing handler
+#### Using a multiplexing handler
 
 You can use a multiplexer to connect to multiple database instances with a single
 Lambda function. Requests are routed by catalog name. Use the following classes in
@@ -162,9 +159,7 @@ default), and `redshift2`.
 | `redshift_catalog1_connection_string` | `redshift://jdbc:redshift://redshift1.host:3306/default?${Test/RDS/Redshift1}`         |
 | `redshift_catalog2_connection_string` | `redshift://jdbc:redshift://redshift2.host:3333/default?user=sample2&password=sample2` |
 
-##### Providing
-
-credentials
+##### Providing credentials
 
 To provide a user name and password for your database in your JDBC connection
 string, you can use connection string properties or AWS Secrets Manager.
@@ -239,9 +234,7 @@ Arrow.
 | BigDecimal | Decimal   |
 | ARRAY      | List      |
 
-## Partitions and
-
-splits
+## Partitions and splits
 
 Redshift does not support external partitions. For information about performance
 related issues, see [Performance](#connectors-redshift-performance "#connectors-redshift-performance").
@@ -252,17 +245,13 @@ The Athena Redshift connector performs predicate pushdown to decrease the data s
 Amazon Redshift is particularly susceptible to query execution slowdown when you run multiple
 queries concurrently.
 
-### LIMIT
-
-clauses
+### LIMIT clauses
 
 A `LIMIT N` statement reduces the data scanned by the query. With
 `LIMIT N` pushdown, the connector returns only `N` rows to
 Athena.
 
-### Top N
-
-queries
+### Top N queries
 
 A top `N` query specifies an ordering of the result set and a limit on
 the number of rows returned. You can use this type of query to determine the top
@@ -288,9 +277,7 @@ pushdown:
   DIVIDE, MODULUS, NEGATE
 - Other: LIKE_PATTERN, IN
 
-### Combined
-
-pushdown example
+### Combined pushdown example
 
 For enhanced querying capabilities, combine the pushdown types, as in the following example:
 
@@ -308,9 +295,7 @@ For an article on using predicate pushdown to improve performance in federated
 queries, including Amazon Redshift, see [Improve federated queries with predicate pushdown in Amazon Athena](https://aws.amazon.com/blogs/big-data/improve-federated-queries-with-predicate-pushdown-in-amazon-athena/ "https://aws.amazon.com/blogs/big-data/improve-federated-queries-with-predicate-pushdown-in-amazon-athena/") in the
 _AWS Big Data Blog_.
 
-## Passthrough
-
-queries
+## Passthrough queries
 
 The Redshift connector supports [passthrough queries](federated-query-passthrough.md "federated-query-passthrough.md"). Passthrough
 queries use a table function to push your full query down to the data source for

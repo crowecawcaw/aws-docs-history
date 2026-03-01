@@ -1,9 +1,7 @@
 # Unsupported DDL
 
 The following DDL statements are not supported by Athena SQL. For DDL statements supported
-for Iceberg tables in Athena, see [Evolve Iceberg table
-schema](querying-iceberg-evolving-table-schema.md "querying-iceberg-evolving-table-schema.md") and [Perform other DDL operations on
-Iceberg tables](querying-iceberg-additional-operations.md "querying-iceberg-additional-operations.md").
+for Iceberg tables in Athena, see [Evolve Iceberg table schema](querying-iceberg-evolving-table-schema.md "querying-iceberg-evolving-table-schema.md") and [Perform other DDL operations on Iceberg tables](querying-iceberg-additional-operations.md "querying-iceberg-additional-operations.md").
 
 - ALTER INDEX
 - ALTER TABLE `table_name` ARCHIVE PARTITION

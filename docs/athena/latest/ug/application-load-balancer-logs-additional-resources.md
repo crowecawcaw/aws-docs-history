@@ -1,6 +1,4 @@
-# Additional
-
-resources
+# Additional resources
 
 For more information about using ALB logs, see the following resources.
 

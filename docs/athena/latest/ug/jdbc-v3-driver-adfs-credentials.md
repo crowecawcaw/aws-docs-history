@@ -4,9 +4,7 @@ A SAML-based authentication mechanism that enables authentication to Athena usin
 Microsoft Active Directory Federation Services (AD FS). This method assumes that the
 user has already set up a federation between Athena and AD FS.
 
-## Credentials
-
-provider
+## Credentials provider
 
 The credentials provider that will be used to authenticate requests to AWS. Set
 the value of this parameter to `ADFS`.
@@ -31,9 +29,7 @@ The password for the AD FS user.
 | -------------- | ---------------- | ------------------------------------------------------------------------------------------ | ------------- |
 | Password       | PWD (deprecated) | Required for form-based authentication. Optional for Windows<br>Integrated Authentication. | none          |
 
-## ADFS host
-
-name
+## ADFS host name
 
 The address for your AD FS server.
 
@@ -41,9 +37,7 @@ The address for your AD FS server.
 | -------------- | --------------------- | -------------- | ------------- |
 | AdfsHostName   | IdP_Host (deprecated) | Required       | none          |
 
-## ADFS port
-
-number
+## ADFS port number
 
 The port number to use to connect to your AD FS server.
 
@@ -51,9 +45,7 @@ The port number to use to connect to your AD FS server.
 | -------------- | --------------------- | -------------- | ------------- |
 | AdfsPortNumber | IdP_Port (deprecated) | Required       | none          |
 
-## ADFS relying
-
-party
+## ADFS relying party
 
 The trusted relying party. Use this parameter to override the AD FS relying party
 endpoint URL.
@@ -62,9 +54,7 @@ endpoint URL.
 | ---------------- | ---------------------- | -------------- | ------------------------ |
 | AdfsRelyingParty | LoginToRP (deprecated) | Optional       | `urn:amazon:webservices` |
 
-## ADFS WIA
-
-enabled
+## ADFS WIA enabled
 
 Boolean. Use this parameter to enable Windows Integrated Authentication (WIA) with
 AD FS.
@@ -73,9 +63,7 @@ AD FS.
 | -------------- | ------ | -------------- | ------------- |
 | AdfsWiaEnabled | `none` | Optional       | `FALSE`       |
 
-## Preferred
-
-role
+## Preferred role
 
 The Amazon Resource Name (ARN) of the role to assume. For information about ARN
 roles, see [`AssumeRole`](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") in the _AWS Security Token Service API
@@ -85,9 +73,7 @@ Reference_.
 | -------------- | --------------------------- | -------------- | ------------- |
 | PreferredRole  | preferred_role (deprecated) | Optional       | none          |
 
-## Role session
-
-duration
+## Role session duration
 
 The duration, in seconds, of the role session. For more information, see [`AssumeRole`](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") in the _AWS Security Token Service API
 Reference_.
@@ -96,9 +82,7 @@ Reference_.
 | ------------------- | --------------------- | -------------- | ------------- |
 | RoleSessionDuration | Duration (deprecated) | Optional       | `3600`        |
 
-## Lake Formation
-
-enabled
+## Lake Formation enabled
 
 Specifies whether to use the [`AssumeDecoratedRoleWithSAML`](../../../lake-formation/latest/APIReference/API_AssumeDecoratedRoleWithSAML.md "../../../lake-formation/latest/APIReference/API_AssumeDecoratedRoleWithSAML.md") Lake Formation API action to
 retrieve temporary IAM credentials instead of the [`AssumeRoleWithSAML`](../../../STS/latest/APIReference/API_AssumeRoleWithSAML.md "../../../STS/latest/APIReference/API_AssumeRoleWithSAML.md") AWS STS API action.

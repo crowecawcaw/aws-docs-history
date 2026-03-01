@@ -1,6 +1,4 @@
-# Connect Athena to a Hive
-
-metastore using an existing IAM execution role
+# Connect Athena to a Hive metastore using an existing IAM execution role
 
 To connect your external Hive metastore to Athena with a Lambda function that uses an
 existing IAM role, you can use Athena's reference implementation of the Athena connector for
@@ -27,15 +25,13 @@ The three major steps are as follows:
 - You must have [Apache Maven](https://maven.apache.org/ "https://maven.apache.org/")
   installed.
 - You have an IAM execution role that you can assign to the Lambda function.
-  For more information, see [Allow Lambda function access to external
-  Hive metastores](hive-metastore-iam-access-lambda.md "hive-metastore-iam-access-lambda.md").
+  For more information, see [Allow Lambda function access to external Hive metastores](hive-metastore-iam-access-lambda.md "hive-metastore-iam-access-lambda.md").
 
 ## Clone and build the Lambda function
 
 The function code for the Athena reference implementation is a Maven project located on
 GitHub at [awslabs/aws-athena-hive-metastore](https://github.com/awslabs/aws-athena-hive-metastore "https://github.com/awslabs/aws-athena-hive-metastore"). For detailed information about the
-project, see the corresponding README file on GitHub or the [Modify the Athena external Hive
-metastore connector](datastores-hive-reference-implementation.md "datastores-hive-reference-implementation.md") topic in this
+project, see the corresponding README file on GitHub or the [Modify the Athena external Hive metastore connector](datastores-hive-reference-implementation.md "datastores-hive-reference-implementation.md") topic in this
 documentation.
 
 ###### To clone and build the Lambda function code
@@ -62,9 +58,7 @@ file is created in the target folder of your project:
 In the next section, you use the AWS Lambda console to upload this file to your
 Amazon Web Services account.
 
-## Create
-
-and configure the Lambda function in the AWS Lambda console
+## Create and configure the Lambda function in the AWS Lambda console
 
 In this section, you use the AWS Lambda console to create a function that uses an
 existing IAM execution role. After you configure a VPC for the function, you upload
@@ -111,9 +105,7 @@ When the console informs you that your function has been successfully created, y
 are ready to upload the function code and configure its environment
 variables.
 
-###### To upload your Lambda function code and configure its environment
-
-variables
+###### To upload your Lambda function code and configure its environment variables
 
 1. In the Lambda console, make sure that you are on the
    **Code** tab of the page of the function that you
@@ -154,5 +146,4 @@ following environment variable keys and values:
 8. Choose **Save**.
 
 At this point, you are ready to configure Athena to use your Lambda function to
-connect to your Hive metastore. For steps, see [Configure Athena to use a deployed
-Hive metastore connector](connect-data-source-hive-existing-lambda.md "connect-data-source-hive-existing-lambda.md").
+connect to your Hive metastore. For steps, see [Configure Athena to use a deployed Hive metastore connector](connect-data-source-hive-existing-lambda.md "connect-data-source-hive-existing-lambda.md").

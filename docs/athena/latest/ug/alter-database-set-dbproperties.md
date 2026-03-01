@@ -1,6 +1,4 @@
-# ALTER DATABASE SET
-
-DBPROPERTIES
+# ALTER DATABASE SET DBPROPERTIES
 
 Creates one or more properties for a database. The use of `DATABASE` and
 `SCHEMA` are interchangeable; they mean the same thing.

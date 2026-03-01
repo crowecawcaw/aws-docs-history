@@ -12,8 +12,7 @@ differ. For more information, see [Update tables with partitions](updates-and-pa
 
 For information about the resource-level permissions required in IAM policies (including
 `glue:CreatePartition`), see [AWS Glue API permissions: Actions and
-resources reference](../../../glue/latest/dg/api-permissions-reference.md "../../../glue/latest/dg/api-permissions-reference.md") and [Configure access to databases and
-tables in the AWS Glue Data Catalog](fine-grained-access-to-glue-resources.md "fine-grained-access-to-glue-resources.md"). For troubleshooting information
+resources reference](../../../glue/latest/dg/api-permissions-reference.md "../../../glue/latest/dg/api-permissions-reference.md") and [Configure access to databases and tables in the AWS Glue Data Catalog](fine-grained-access-to-glue-resources.md "fine-grained-access-to-glue-resources.md"). For troubleshooting information
 about permissions when using Athena, see the [Permissions](troubleshooting-athena.md#troubleshooting-athena-permissions "troubleshooting-athena.md#troubleshooting-athena-permissions") section of the [Troubleshoot issues in Athena](troubleshooting-athena.md "troubleshooting-athena.md") topic.
 
 ## Synopsis
@@ -119,9 +118,7 @@ ALTER TABLE orders ADD IF NOT EXISTS
   PARTITION (dt = '2016-05-14', country = 'IN');
 ```
 
-## Zero byte
-
-`_$folder$` files
+## Zero byte `_$folder$` files
 
 If you run an `ALTER TABLE ADD PARTITION` statement and mistakenly specify
 a partition that already exists and an incorrect Amazon S3 location, zero byte placeholder

@@ -1,6 +1,4 @@
-# Understand CloudTrail logs and Athena
-
-tables
+# Understand CloudTrail logs and Athena tables
 
 Before you begin creating tables, you should understand a little more about CloudTrail and
 how it stores data. This can help you create the tables that you need, whether you

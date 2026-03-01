@@ -1,6 +1,4 @@
-# IAM policies for capacity
-
-reservations
+# IAM policies for capacity reservations
 
 To control access to capacity reservations, use resource-level IAM permissions or
 identity-based IAM policies. Whenever you use IAM policies, make sure that you follow IAM best practices. For more information, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
@@ -8,12 +6,9 @@ identity-based IAM policies. Whenever you use IAM policies, make sure that you f
 The following procedure is specific to Athena.
 
 For IAM-specific information, see the links listed at the end of this section. For
-information about example JSON capacity reservations policies, see [Example capacity reservation
-policies](example-policies-capacity-reservations.md "example-policies-capacity-reservations.md").
+information about example JSON capacity reservations policies, see [Example capacity reservation policies](example-policies-capacity-reservations.md "example-policies-capacity-reservations.md").
 
-###### To use the visual editor in the IAM console to create a capacity reservation
-
-policy
+###### To use the visual editor in the IAM console to create a capacity reservation policy
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the navigation pane on the left, choose **Policies**, and then
@@ -32,8 +27,7 @@ By default, the policy that you are creating allows the actions that you choose.
 If you chose one or more actions that support resource-level permissions to the
 `capacity-reservation` resource in Athena, then the editor lists the
 `capacity-reservation` resource. 6. Choose **Resources** to specify the specific capacity reservations for your
-policy. For example JSON capacity reservation policies, see [Example capacity reservation
-policies](example-policies-capacity-reservations.md "example-policies-capacity-reservations.md"). 7. Specify the `capacity-reservation` resource as follows:
+policy. For example JSON capacity reservation policies, see [Example capacity reservation policies](example-policies-capacity-reservations.md "example-policies-capacity-reservations.md"). 7. Specify the `capacity-reservation` resource as follows:
 
 ```
 arn:aws:athena:`<region>`:`<user-account>`:capacity-reservation/`<capacity-reservation-name>`
@@ -54,7 +48,6 @@ arn:aws:athena:`<region>`:`<user-account>`:capacity-reservation/`<capacity-reser
 - [Adding and
   removing IAM policies](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md")
 - [Controlling access to resources](../../../IAM/latest/UserGuide/access_controlling.md#access_controlling-resources "../../../IAM/latest/UserGuide/access_controlling.md#access_controlling-resources")
-  For example JSON capacity reservation policies, see [Example capacity reservation
-  policies](example-policies-capacity-reservations.md "example-policies-capacity-reservations.md").
+  For example JSON capacity reservation policies, see [Example capacity reservation policies](example-policies-capacity-reservations.md "example-policies-capacity-reservations.md").
 
 For a complete list of Amazon Athena actions, see the API action names in the [Amazon Athena API Reference](../APIReference.md "../APIReference.md").

@@ -1,13 +1,9 @@
-# Create tables using AWS Glue or the Athena
-
-console
+# Create tables using AWS Glue or the Athena console
 
 You can create tables in Athena by using AWS Glue, the add table form, or by running a DDL
 statement in the Athena query editor.
 
-## To create a
-
-table using the AWS Glue crawler
+## To create a table using the AWS Glue crawler
 
 1. Open the Athena console at
    [https://console.aws.amazon.com/athena/](https://console.aws.amazon.com/athena/home "https://console.aws.amazon.com/athena/home").
@@ -19,9 +15,7 @@ table using the AWS Glue crawler
 
 For more information, see [Use a crawler to add a table](schema-crawlers.md "schema-crawlers.md").
 
-## To create a table using the
-
-Athena create table form
+## To create a table using the Athena create table form
 
 1. Open the Athena console at
    [https://console.aws.amazon.com/athena/](https://console.aws.amazon.com/athena/home "https://console.aws.amazon.com/athena/home").
@@ -31,12 +25,9 @@ Athena create table form
 3. In the **Create Table From S3 bucket data** form, enter
    the information to create your table, and then choose **Create
    table**. For more information about the fields in the form, see
-   [Use a form in the Athena console to add an
-   AWS Glue table](data-sources-glue-manual-table.md "data-sources-glue-manual-table.md").
+   [Use a form in the Athena console to add an AWS Glue table](data-sources-glue-manual-table.md "data-sources-glue-manual-table.md").
 
-## To create a table using a CREATE
-
-TABLE statement in the Athena query editor
+## To create a table using a CREATE TABLE statement in the Athena query editor
 
 1. From the **Database** menu, choose the database for which
    you want to create a table. If you don't specify a database in your

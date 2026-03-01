@@ -1,6 +1,4 @@
-# Convert JSON to Athena data
-
-types
+# Convert JSON to Athena data types
 
 To convert JSON data to Athena data types, use `CAST`.
 

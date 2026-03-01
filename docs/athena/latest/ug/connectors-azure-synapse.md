@@ -9,8 +9,7 @@ It supports data access controls defined in Lake Formation at the catalog, datab
 
 ## Prerequisites
 
-- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data
-  source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
+- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
 
 ## Limitations
 
@@ -96,9 +95,7 @@ aws glue describe-connection-type --connection-type SYNAPSE
 - The Synapse connector created using Glue connections does not support the use of a multiplexing handler.
 - The Synapse connector created using Glue connections only supports `ConnectionSchemaVersion` 2.
 
-#### Connection
-
-string
+#### Connection string
 
 Use a JDBC connection string in the following format to connect to a database
 instance.
@@ -107,9 +104,7 @@ instance.
 synapse://${`jdbc_connection_string`}
 ```
 
-#### Using a
-
-multiplexing handler
+#### Using a multiplexing handler
 
 You can use a multiplexer to connect to multiple database instances with a single
 Lambda function. Requests are routed by catalog name. Use the following classes in
@@ -138,9 +133,7 @@ default), and `synapse2`.
 | `synapse_catalog1_connection_string` | `synapse://jdbc:synapse://synapse1.hostname:port;databaseName=`<database_name>`;${`secret1_name`}` |
 | `synapse_catalog2_connection_string` | `synapse://jdbc:synapse://synapse2.hostname:port;databaseName=`<database_name>`;${`secret2_name`}` |
 
-##### Providing
-
-credentials
+##### Providing credentials
 
 To provide a user name and password for your database in your JDBC connection
 string, you can use connection string properties or AWS Secrets Manager.
@@ -190,9 +183,7 @@ The connector uses the secret name to retrieve secrets and provide the user name
 synapse://jdbc:synapse://hostname:port;databaseName=`<database_name>`;user=`<user>`;password=`<password>`
 ```
 
-#### Using a
-
-single connection handler
+#### Using a single connection handler
 
 You can use the following single connection metadata and record handlers to
 connect to a single Synapse instance.
@@ -317,9 +308,7 @@ Arrow.
 | nchar[n]        | VARCHAR           |
 | nvarchar[n/max] | VARCHAR           |
 
-## Partitions and
-
-splits
+## Partitions and splits
 
 A partition is represented by a single partition column of type `varchar`.
 Synapse supports range partitioning, so partitioning is implemented by extracting the
@@ -351,9 +340,7 @@ pushdown:
   DIVIDE, MODULUS, NEGATE
 - Other: LIKE_PATTERN, IN
 
-### Combined
-
-pushdown example
+### Combined pushdown example
 
 For enhanced querying capabilities, combine the pushdown types, as in the following example:
 
@@ -365,9 +352,7 @@ WHERE col_a > 10
     AND (col_e IN ('val1', 'val2', 'val3') OR col_f LIKE '%pattern%');
 ```
 
-## Passthrough
-
-queries
+## Passthrough queries
 
 The Synapse connector supports [passthrough queries](federated-query-passthrough.md "federated-query-passthrough.md"). Passthrough
 queries use a table function to push your full query down to the data source for
@@ -400,9 +385,9 @@ party licenses provided in the [LICENSE.txt](https://github.com/awslabs/aws-athe
 
 ## Additional resources
 
-- For an article that shows how to use Quick Suite and Amazon Athena Federated Query to build dashboards
+- For an article that shows how to use Quick and Amazon Athena Federated Query to build dashboards
   and visualizations on data stored in Microsoft Azure Synapse databases, see
-  [Perform multi-cloud analytics using Quick Suite, Amazon Athena Federated Query, and Microsoft Azure
+  [Perform multi-cloud analytics using Quick, Amazon Athena Federated Query, and Microsoft Azure
   Synapse](https://aws.amazon.com/blogs/business-intelligence/perform-multi-cloud-analytics-using-amazon-quicksight-amazon-athena-federated-query-and-microsoft-azure-synapse/ "https://aws.amazon.com/blogs/business-intelligence/perform-multi-cloud-analytics-using-amazon-quicksight-amazon-athena-federated-query-and-microsoft-azure-synapse/") in the _AWS Big Data Blog_.
 - For the latest JDBC driver version information, see the [pom.xml](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-synapse/pom.xml "https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-synapse/pom.xml") file for the Synapse connector on GitHub.com.
 - For additional information about this connector, visit [the corresponding site](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-synapse "https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-synapse") on GitHub.com.

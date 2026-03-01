@@ -12,9 +12,7 @@ also helps guarantee data correctness under concurrent write scenarios.
 
 For more information about Apache Iceberg, see [https://iceberg.apache.org/](https://iceberg.apache.org/ "https://iceberg.apache.org/").
 
-## Considerations and
-
-limitations
+## Considerations and limitations
 
 Athena support for Iceberg tables has the following considerations and
 limitations:
@@ -109,17 +107,12 @@ If you would like Athena to support a particular feature, send feedback to [athe
 
 - [Create Iceberg tables](querying-iceberg-creating-tables.md "querying-iceberg-creating-tables.md")
 - [Query Iceberg table data](querying-iceberg-table-data.md "querying-iceberg-table-data.md")
-- [Perform time
-  travel and version travel queries](querying-iceberg-time-travel-and-version-travel-queries.md "querying-iceberg-time-travel-and-version-travel-queries.md")
-- [Update Iceberg table
-  data](querying-iceberg-updating-iceberg-table-data.md "querying-iceberg-updating-iceberg-table-data.md")
+- [Perform time travel and version travel queries](querying-iceberg-time-travel-and-version-travel-queries.md "querying-iceberg-time-travel-and-version-travel-queries.md")
+- [Update Iceberg table data](querying-iceberg-updating-iceberg-table-data.md "querying-iceberg-updating-iceberg-table-data.md")
 - [Manage Iceberg tables](querying-iceberg-managing-tables.md "querying-iceberg-managing-tables.md")
-- [Evolve Iceberg table
-  schema](querying-iceberg-evolving-table-schema.md "querying-iceberg-evolving-table-schema.md")
-- [Perform other DDL operations on
-  Iceberg tables](querying-iceberg-additional-operations.md "querying-iceberg-additional-operations.md")
+- [Evolve Iceberg table schema](querying-iceberg-evolving-table-schema.md "querying-iceberg-evolving-table-schema.md")
+- [Perform other DDL operations on Iceberg tables](querying-iceberg-additional-operations.md "querying-iceberg-additional-operations.md")
 - [Optimize Iceberg tables](querying-iceberg-data-optimization.md "querying-iceberg-data-optimization.md")
 - [Query AWS Glue Data Catalog materialized views](querying-iceberg-gdc-mv.md "querying-iceberg-gdc-mv.md")
-- [Supported data types for Iceberg
-  tables in Athena](querying-iceberg-supported-data-types.md "querying-iceberg-supported-data-types.md")
+- [Supported data types for Iceberg tables in Athena](querying-iceberg-supported-data-types.md "querying-iceberg-supported-data-types.md")
 - [Additional resources](querying-iceberg-additional-resources.md "querying-iceberg-additional-resources.md")

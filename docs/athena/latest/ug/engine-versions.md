@@ -26,8 +26,7 @@ When you start using a new engine version, a small subset of queries may break d
 incompatibilities. Breaking changes are announced when a new Athena version is released. You
 should use workgroups to test your queries in advance of the upgrade by creating a test
 workgroup that uses the new engine or by test upgrading an existing workgroup. For more
-information, see [Test queries in advance of an engine
-version upgrade](engine-versions-changing.md#engine-versions-testing "engine-versions-changing.md#engine-versions-testing").
+information, see [Test queries in advance of an engine version upgrade](engine-versions-changing.md#engine-versions-testing "engine-versions-changing.md#engine-versions-testing").
 
 ###### Topics
 

@@ -3,9 +3,7 @@
 The following path extractor examples show how to flatten and rename fields or extract
 data as Amazon Ion text.
 
-## Flatten and rename
-
-fields
+## Flatten and rename fields
 
 The following example shows a set of search paths that flatten and rename fields.
 The example uses search paths to do the following:
@@ -61,9 +59,7 @@ For more information about search paths and additional search path examples, see
 the [Ion Java Path
 Extraction](https://github.com/amzn/ion-java-path-extraction "https://github.com/amzn/ion-java-path-extraction") page on GitHub.
 
-## Extract flight
-
-data to text format
+## Extract flight data to text format
 
 The following example `CREATE TABLE` query uses `WITH
  SERDEPROPERTIES` to add path extractors to extract flight data and specify

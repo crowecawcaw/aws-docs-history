@@ -1,6 +1,4 @@
-# Develop a data source connector
-
-using the Athena Query Federation SDK
+# Develop a data source connector using the Athena Query Federation SDK
 
 To write your own data source connectors, you can use the [Athena Query Federation SDK](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-federation-sdk "https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-federation-sdk"). The Athena Query Federation SDK defines a set of interfaces and wire protocols
 that you can use to enable Athena to delegate portions of its query execution plan to

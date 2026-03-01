@@ -12,11 +12,10 @@ in Amazon S3. Examples include CSV, JSON, or columnar data formats such as Apach
 and Apache ORC. You can use Athena to run ad-hoc queries using ANSI SQL, without the
 need to aggregate or load the data into Athena.
 
-Athena integrates with Amazon Quick Suite for easy data visualization. You can use Athena to
+Athena integrates with Amazon Quick for easy data visualization. You can use Athena to
 generate reports or to explore data with business intelligence tools or SQL clients
 connected with a JDBC or an ODBC driver. For more information, see [What is
-Amazon Quick Suite](../../../quicksight/latest/user/welcome.md "../../../quicksight/latest/user/welcome.md") in the _Amazon Quick Suite User Guide_ and [Connect to Amazon Athena with ODBC and JDBC
-drivers](athena-bi-tools-jdbc-odbc.md "athena-bi-tools-jdbc-odbc.md").
+Amazon Quick](../../../quicksight/latest/user/welcome.md "../../../quicksight/latest/user/welcome.md") in the _Amazon Quick User Guide_ and [Connect to Amazon Athena with ODBC and JDBC drivers](athena-bi-tools-jdbc-odbc.md "athena-bi-tools-jdbc-odbc.md").
 
 Athena integrates with the AWS Glue Data Catalog, which offers a persistent metadata store
 for your data in Amazon S3. This allows you to create tables and query data in Athena
@@ -37,8 +36,7 @@ data on Amazon S3, without having to manage any infrastructure or clusters. Amaz
 provides the easiest way to run ad hoc queries for data in Amazon S3 without the need to
 setup or manage any servers.
 
-For a list of AWS services that Athena leverages or integrates with, see [AWS service integrations with
-Athena](athena-aws-service-integrations.md "athena-aws-service-integrations.md").
+For a list of AWS services that Athena leverages or integrates with, see [AWS service integrations with Athena](athena-aws-service-integrations.md "athena-aws-service-integrations.md").
 
 ## SageMaker Unified Studio
 

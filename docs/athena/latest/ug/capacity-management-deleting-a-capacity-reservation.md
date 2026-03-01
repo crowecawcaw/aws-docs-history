@@ -1,6 +1,4 @@
-# Delete a
-
-capacity reservation
+# Delete a capacity reservation
 
 If you want to remove all references to a cancelled capacity reservation, you can
 delete the reservation. A reservation must be cancelled before it can be deleted. A

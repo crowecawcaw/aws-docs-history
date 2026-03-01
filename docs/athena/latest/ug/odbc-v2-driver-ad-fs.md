@@ -3,12 +3,9 @@
 AD FS is a SAML based authentication plugin that works with the Active Directory
 Federation Service (AD FS) identity provider. The plugin supports [Integrated Windows authentication](https://learn.microsoft.com/en-us/aspnet/web-api/overview/security/integrated-windows-authentication "https://learn.microsoft.com/en-us/aspnet/web-api/overview/security/integrated-windows-authentication") and form-based authentication. If you use
 Integrated Windows Authentication, you can omit the user name and password. For
-information about configuring AD FS and Athena, see [Configure federated access to Amazon Athena for Microsoft AD FS
-users using an ODBC client](odbc-adfs-saml.md "odbc-adfs-saml.md").
+information about configuring AD FS and Athena, see [Configure federated access to Amazon Athena for Microsoft AD FS users using an ODBC client](odbc-adfs-saml.md "odbc-adfs-saml.md").
 
-## Authentication
-
-type
+## Authentication type
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example** |
 | -------------------------- | ------------------ | ----------------- | ----------------------------- |

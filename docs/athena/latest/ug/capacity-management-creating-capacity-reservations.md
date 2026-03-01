@@ -1,6 +1,4 @@
-# Create capacity
-
-reservations
+# Create capacity reservations
 
 To get started, you create a capacity reservation that has the number of DPUs that you
 require, and then assign one or more workgroups that will use that capacity for their
@@ -43,5 +41,4 @@ shows as **Pending**. When your reservation capacity is
 available to run queries, its status shows as
 **Active**.
 At this point, you are ready to add one or more workgroups to your reservation. For
-steps, see [Add
-workgroups to a reservation](capacity-management-adding-workgroups-to-a-reservation.md "capacity-management-adding-workgroups-to-a-reservation.md").
+steps, see [Add workgroups to a reservation](capacity-management-adding-workgroups-to-a-reservation.md "capacity-management-adding-workgroups-to-a-reservation.md").

@@ -5,13 +5,11 @@ SQL.
 
 This connector does not use Glue Connections to centralize configuration properties in Glue. Connection configuration is done through Lambda.
 
-For information on publishing query metrics to CloudWatch from Athena itself, see [Use CloudWatch and EventBridge to monitor queries and control
-costs](workgroups-control-limits.md "workgroups-control-limits.md").
+For information on publishing query metrics to CloudWatch from Athena itself, see [Use CloudWatch and EventBridge to monitor queries and control costs](workgroups-control-limits.md "workgroups-control-limits.md").
 
 ## Prerequisites
 
-- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data
-  source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
+- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
 
 ## Parameters
 
@@ -106,9 +104,7 @@ contains the following columns.
   `VARCH` statistics (for example, `p90`,
   `AVERAGE`, ...) available for the metric.
 
-### The metric_samples
-
-table
+### The metric_samples table
 
 The `metric_samples` table contains the available metric samples for
 each metric in the `metrics` table. The `metric_samples` table

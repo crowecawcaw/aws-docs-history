@@ -1,6 +1,4 @@
-# Create tables for
-
-flow logs in Apache Parquet format using partition projection
+# Create tables for flow logs in Apache Parquet format using partition projection
 
 The following partition projection `CREATE TABLE` statement for VPC flow
 logs is in Apache Parquet format, not Hive compatible, and partitioned by hour and by

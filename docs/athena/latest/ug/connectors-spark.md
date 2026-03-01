@@ -19,9 +19,7 @@ Federation DSV2](https://github.com/awslabs/aws-athena-query-federation-dsv2 "ht
 **Release `<version>`**,
 **Assets** section.
 
-## Specify the jar to
-
-Spark
+## Specify the jar to Spark
 
 To use the Athena DSV2 connectors with Spark, you submit the `.jar`
 file for the connector to the Spark environment that you are using. The following
@@ -30,8 +28,7 @@ sections describe specific cases.
 ### Athena for Spark
 
 For information on adding custom `.jar` files and custom
-configuration to Amazon Athena for Apache Spark, see [Use Spark properties to specify custom
-configuration](notebooks-spark-custom-jar-cfg.md "notebooks-spark-custom-jar-cfg.md").
+configuration to Amazon Athena for Apache Spark, see [Use Spark properties to specify custom configuration](notebooks-spark-custom-jar-cfg.md "notebooks-spark-custom-jar-cfg.md").
 
 ### General Spark
 
@@ -60,9 +57,7 @@ command. The AWS Glue documentation describes the `--extra-jars` parameter
 as taking an Amazon S3 path, but the parameter can also take an HTTPS URL. For more
 information, see [Job parameter reference](../../../glue/latest/dg/aws-glue-programming-etl-glue-arguments.md#w5aac32c13c11 "../../../glue/latest/dg/aws-glue-programming-etl-glue-arguments.md#w5aac32c13c11") in the _AWS Glue Developer Guide_.
 
-## Query the connector on
-
-Spark
+## Query the connector on Spark
 
 To submit the equivalent of your existing Athena federated query on Apache Spark, use
 the `spark.sql()` function. For example, suppose you have the following Athena

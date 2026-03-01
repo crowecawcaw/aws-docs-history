@@ -7,11 +7,9 @@ It supports data access controls defined in Lake Formation at the catalog, datab
 
 ## Prerequisites
 
-- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data
-  source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
+- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
 - Set up a VPC and a security group before you use this connector. For more
-  information, see [Create a VPC for a data source connector or
-  AWS Glue connection](athena-connectors-vpc-creation.md "athena-connectors-vpc-creation.md").
+  information, see [Create a VPC for a data source connector or AWS Glue connection](athena-connectors-vpc-creation.md "athena-connectors-vpc-creation.md").
 
 ## Limitations
 
@@ -106,9 +104,7 @@ zeroDateTimeBehavior=convertToNull
 For more information, see [Error 'Zero date value prohibited' while trying to select from MySQL
 table](https://github.com/awslabs/aws-athena-query-federation/issues/760 "https://github.com/awslabs/aws-athena-query-federation/issues/760") on GitHub.com.
 
-#### Using a multiplexing
-
-handler
+#### Using a multiplexing handler
 
 You can use a multiplexer to connect to multiple database instances with a single
 Lambda function. Requests are routed by catalog name. Use the following classes in
@@ -120,9 +116,7 @@ Lambda.
 | Metadata handler  | `MySqlMuxMetadataHandler`  |
 | Record handler    | `MySqlMuxRecordHandler`    |
 
-##### Multiplexing
-
-handler parameters
+##### Multiplexing handler parameters
 
 | Parameter                      | Description                                                                                                                                                                                                                                                                                    |
 | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -139,9 +133,7 @@ default), and `mysql2`.
 | `mysql_catalog1_connection_string` | `mysql://jdbc:mysql://mysql1.host:3306/default?${Test/RDS/MySql1}`            |
 | `mysql_catalog2_connection_string` | `mysql://jdbc:mysql://mysql2.host:3333/default?`user=sample2&password=sample2 |
 
-##### Providing
-
-credentials
+##### Providing credentials
 
 To provide a user name and password for your database in your JDBC connection
 string, you can use connection string properties or AWS Secrets Manager.
@@ -195,9 +187,7 @@ mysql://jdbc:mysql://mysql1host:3306/default?...&user=sample2&password=sample2&.
 Currently, the MySQL connector recognizes the `user` and
 `password` JDBC properties.
 
-#### Using a single
-
-connection handler
+#### Using a single connection handler
 
 You can use the following single connection metadata and record handlers to
 connect to a single MySQL instance.
@@ -208,9 +198,7 @@ connect to a single MySQL instance.
 | Metadata handler  | `MySqlMetadataHandler`  |
 | Record handler    | `MySqlRecordHandler`    |
 
-##### Single
-
-connection handler parameters
+##### Single connection handler parameters
 
 | Parameter | Description                              |
 | --------- | ---------------------------------------- |
@@ -270,9 +258,7 @@ recommended.
 
 The Athena MySQL connector performs predicate pushdown to decrease the data scanned by the query. `LIMIT` clauses, simple predicates, and complex expressions are pushed down to the connector to reduce the amount of data scanned and decrease query execution run time.
 
-### LIMIT
-
-clauses
+### LIMIT clauses
 
 A `LIMIT N` statement reduces the data scanned by the query. With
 `LIMIT N` pushdown, the connector returns only `N` rows to
@@ -296,9 +282,7 @@ pushdown:
   DIVIDE, MODULUS, NEGATE
 - Other: LIKE_PATTERN, IN
 
-### Combined
-
-pushdown example
+### Combined pushdown example
 
 For enhanced querying capabilities, combine the pushdown types, as in the following example:
 
@@ -315,9 +299,7 @@ For an article on using predicate pushdown to improve performance in federated
 queries, including MySQL, see [Improve federated queries with predicate pushdown in Amazon Athena](https://aws.amazon.com/blogs/big-data/improve-federated-queries-with-predicate-pushdown-in-amazon-athena/ "https://aws.amazon.com/blogs/big-data/improve-federated-queries-with-predicate-pushdown-in-amazon-athena/") in the
 _AWS Big Data Blog_.
 
-## Passthrough
-
-queries
+## Passthrough queries
 
 The MySQL connector supports [passthrough queries](federated-query-passthrough.md "federated-query-passthrough.md"). Passthrough
 queries use a table function to push your full query down to the data source for

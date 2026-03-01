@@ -31,9 +31,7 @@ Console, or AWS Glue APIs. Because Athena is integrated with AWS Glue Catalog, y
 get the corresponding query performance improvements when you run queries from
 Amazon Athena.
 
-## Considerations and
-
-limitations
+## Considerations and limitations
 
 - Table types – Currently, the CBO feature
   in Athena supports only Hive and Iceberg tables that are in the
@@ -86,9 +84,7 @@ the following image.
 Now when you run your queries, Athena will perform cost-based optimization on the
 tables and columns for which statistics were generated.
 
-## Enable and
-
-disable the table statistics
+## Enable and disable the table statistics
 
 When you generate table statistics for an Iceberg table following the steps in
 previous section, a Glue table property called `use_iceberg_statistics` is

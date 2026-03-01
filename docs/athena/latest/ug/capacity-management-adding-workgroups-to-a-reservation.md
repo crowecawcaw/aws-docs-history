@@ -1,6 +1,4 @@
-# Add
-
-workgroups to a reservation
+# Add workgroups to a reservation
 
 After you create a capacity reservation, you can add up to 20 workgroups to the
 reservation. Adding a workgroup to a reservation tells Athena which queries should

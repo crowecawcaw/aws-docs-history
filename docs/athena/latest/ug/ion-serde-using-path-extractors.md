@@ -10,10 +10,7 @@ necessary.
 
 ###### Topics
 
-- [Use Athena generated path
-  extractors](ion-serde-generated-path-extractors.md "ion-serde-generated-path-extractors.md")
-- [Specify your own path
-  extractors](ion-serde-specifying-your-own-path-extractors.md "ion-serde-specifying-your-own-path-extractors.md")
-- [Use search paths in
-  path extractors](ion-serde-using-search-paths-in-path-extractors.md "ion-serde-using-search-paths-in-path-extractors.md")
+- [Use Athena generated path extractors](ion-serde-generated-path-extractors.md "ion-serde-generated-path-extractors.md")
+- [Specify your own path extractors](ion-serde-specifying-your-own-path-extractors.md "ion-serde-specifying-your-own-path-extractors.md")
+- [Use search paths in path extractors](ion-serde-using-search-paths-in-path-extractors.md "ion-serde-using-search-paths-in-path-extractors.md")
 - [Path extractor examples](ion-serde-examples.md "ion-serde-examples.md")

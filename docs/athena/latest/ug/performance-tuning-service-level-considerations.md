@@ -1,6 +1,4 @@
-# Optimize service
-
-use
+# Optimize service use
 
 Service level considerations include the number of workloads you run per account,
 service quotas not only for Athena, but across services, and thinking about how to reduce
@@ -8,14 +6,10 @@ service quotas not only for Athena, but across services, and thinking about how 
 
 ###### Topics
 
-- [Operate multiple workloads
-  within the same account](#performance-tuning-service-quotas "#performance-tuning-service-quotas")
-- [Reduce 'out of resource'
-  errors](#performance-tuning-resource-limits "#performance-tuning-resource-limits")
+- [Operate multiple workloads within the same account](#performance-tuning-service-quotas "#performance-tuning-service-quotas")
+- [Reduce 'out of resource' errors](#performance-tuning-resource-limits "#performance-tuning-resource-limits")
 
-## Operate multiple workloads
-
-within the same account
+## Operate multiple workloads within the same account
 
 Athena uses quotas to limit query concurrency and API request rates at the account
 level. Exceeding these quotas can cause queries to fail during execution or at
@@ -30,8 +24,7 @@ throttling.
 We recommend that you use CloudWatch to monitor your service usage through graphs and
 dashboards. You can also configure CloudWatch alarms that alert you when your usage
 approaches the service quota for concurrent queries, allowing you to take action
-before reaching quota limits. For more information, see [Monitor Athena usage metrics with
-CloudWatch](monitoring-athena-usage-metrics.md "monitoring-athena-usage-metrics.md").
+before reaching quota limits. For more information, see [Monitor Athena usage metrics with CloudWatch](monitoring-athena-usage-metrics.md "monitoring-athena-usage-metrics.md").
 
 To control query concurrency and isolate workloads within your account, use
 capacity reservations. Capacity reservations provide dedicated query processing
@@ -46,9 +39,7 @@ isolating development from production environments), this approach does not prov
 a scalable way to increase query concurrency. Instead, use capacity reservations to
 manage and scale your query processing needs within a single account.
 
-### Consider quotas in
-
-other services
+### Consider quotas in other services
 
 When Athena runs a query, it can call other services that enforce quotas.
 During query execution, Athena can make API calls to the AWS Glue Data Catalog, Amazon S3, and
@@ -61,16 +52,13 @@ thoroughly to determine if they come from Athena or from another service. Some o
 the relevant errors are covered in this performance tuning section.
 
 For more information about working around errors caused by Amazon S3 service
-quotas, see [Avoid having too
-many files](performance-tuning-data-optimization-techniques.md#performance-tuning-avoid-having-too-many-files "performance-tuning-data-optimization-techniques.md#performance-tuning-avoid-having-too-many-files") later in
+quotas, see [Avoid having too many files](performance-tuning-data-optimization-techniques.md#performance-tuning-avoid-having-too-many-files "performance-tuning-data-optimization-techniques.md#performance-tuning-avoid-having-too-many-files") later in
 this document. For more information about Amazon S3 performance optimization, see
 [Best practices
 design patterns: optimizing Amazon S3 performance](../../../AmazonS3/latest/userguide/optimizing-performance.md "../../../AmazonS3/latest/userguide/optimizing-performance.md") in the
 _Amazon S3 User Guide_.
 
-## Reduce 'out of resource'
-
-errors
+## Reduce 'out of resource' errors
 
 Athena runs queries in a distributed query engine. When you submit a query, the
 Athena engine query planner estimates the compute capacity required to run the query
@@ -97,5 +85,4 @@ most common values end up being processed by the same node.
 
 To prevent your queries from exceeding available resources, use the performance
 tuning tips mentioned in this document. In particular, for tips on how to optimize
-queries that exhaust the resources available, see [Optimize joins](performance-tuning-query-optimization-techniques.md#performance-tuning-optimizing-joins "performance-tuning-query-optimization-techniques.md#performance-tuning-optimizing-joins"), [Reduce the scope of
-window functions, or remove them](performance-tuning-query-optimization-techniques.md#performance-tuning-optimizing-window-functions "performance-tuning-query-optimization-techniques.md#performance-tuning-optimizing-window-functions"), and [Optimize queries by using approximations](performance-tuning-query-optimization-techniques.md#performance-tuning-optimizing-queries-by-using-approximations "performance-tuning-query-optimization-techniques.md#performance-tuning-optimizing-queries-by-using-approximations").
+queries that exhaust the resources available, see [Optimize joins](performance-tuning-query-optimization-techniques.md#performance-tuning-optimizing-joins "performance-tuning-query-optimization-techniques.md#performance-tuning-optimizing-joins"), [Reduce the scope of window functions, or remove them](performance-tuning-query-optimization-techniques.md#performance-tuning-optimizing-window-functions "performance-tuning-query-optimization-techniques.md#performance-tuning-optimizing-window-functions"), and [Optimize queries by using approximations](performance-tuning-query-optimization-techniques.md#performance-tuning-optimizing-queries-by-using-approximations "performance-tuning-query-optimization-techniques.md#performance-tuning-optimizing-queries-by-using-approximations").

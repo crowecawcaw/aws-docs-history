@@ -34,9 +34,7 @@ _Amazon Simple Storage Service User Guide_.
   keys](#s3-permissions-calledvia "#s3-permissions-calledvia")
 - [Additional resources](#s3-permissions-additional-resources "#s3-permissions-additional-resources")
 
-## Use identity-based policies
-
-to control access to Amazon S3 buckets
+## Use identity-based policies to control access to Amazon S3 buckets
 
 Identity-based policies are attached to an IAM user, group, or role. These
 policies let you specify what that identity can do (its permissions). You can use
@@ -76,9 +74,7 @@ JSON
 
 ```
 
-## Use bucket resource
-
-policies to control access to Amazon S3 buckets
+## Use bucket resource policies to control access to Amazon S3 buckets
 
 You can use Amazon S3 bucket policies to secure access to objects in your buckets so
 that only users with the appropriate permissions can access them. For guidance on
@@ -120,9 +116,7 @@ JSON
 For more bucket policy examples, see [Examples of Amazon S3
 bucket policies](../../../AmazonS3/latest/userguide/example-bucket-policies.md "../../../AmazonS3/latest/userguide/example-bucket-policies.md") in the _Amazon S3 User Guide_.
 
-## Use Amazon S3 access points for more precise
-
-control over bucket access
+## Use Amazon S3 access points for more precise control over bucket access
 
 If you have a shared dataset in an Amazon S3 bucket, maintaining a single bucket policy
 that manages access for hundreds of use cases can be challenging.
@@ -140,9 +134,7 @@ point that the alias represents.
 For more information, see [Specify a table location in Amazon S3](tables-location-format.md "tables-location-format.md") and [Using access points](../../../AmazonS3/latest/userguide/access-points.md "../../../AmazonS3/latest/userguide/access-points.md")
 in the _Amazon S3 User Guide_.
 
-## Use CalledVia context keys to allow only
-
-calls from Athena to another service
+## Use CalledVia context keys to allow only calls from Athena to another service
 
 For added security, you can use the [aws:CalledVia](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-calledvia "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-calledvia") global condition context key. The
 `aws:CalledVia` condition key contains a list of services that you
@@ -162,5 +154,4 @@ following resources:
 - [How can I
   provide cross-account access to objects that are in Amazon S3
   buckets?](https://aws.amazon.com/premiumsupport/knowledge-center/cross-account-access-s3/ "https://aws.amazon.com/premiumsupport/knowledge-center/cross-account-access-s3/") in the AWS Knowledge Center.
-- [Configure cross-account access in Athena to Amazon S3
-  buckets](cross-account-permissions.md "cross-account-permissions.md").
+- [Configure cross-account access in Athena to Amazon S3 buckets](cross-account-permissions.md "cross-account-permissions.md").

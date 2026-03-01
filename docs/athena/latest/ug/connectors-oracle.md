@@ -10,8 +10,7 @@ It supports data access controls defined in Lake Formation at the catalog, datab
 
 ## Prerequisites
 
-- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data
-  source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
+- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
 
 ## Limitations
 
@@ -175,9 +174,7 @@ pass it to the connection string (for example, `"some.password"`).
 Failure to do so can result in an **`Invalid Oracle URL
  specified`** error.
 
-#### Using a single
-
-connection handler
+#### Using a single connection handler
 
 You can use the following single connection metadata and record handlers to
 connect to a single Oracle instance.
@@ -188,9 +185,7 @@ connect to a single Oracle instance.
 | Metadata handler  | `OracleMetadataHandler`  |
 | Record handler    | `OracleRecordHandler`    |
 
-##### Single
-
-connection handler parameters
+##### Single connection handler parameters
 
 | Parameter       | Description                                                                   |
 | --------------- | ----------------------------------------------------------------------------- |
@@ -213,9 +208,7 @@ The following example property is for a single Oracle instance supported by a La
 | `default` | `oracle://jdbc:oracle:thin:${Test/RDS/Oracle}@//hostname:port/servicename`                                                                                               |
 |           | `oracle://jdbc:oracle:thin:${Test/RDS/Oracle}@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCPS)<br>(HOST=<HOST_NAME>)(PORT=))(CONNECT_DATA=(SID=))(SECURITY=(SSL_SERVER_CERT_DN=)))` |
 
-#### Providing
-
-credentials
+#### Providing credentials
 
 To provide a user name and password for your database in your JDBC connection
 string, you can use connection string properties or AWS Secrets Manager.
@@ -277,9 +270,7 @@ oracle://jdbc:oracle:thin:username/password@//hostname:port/servicename
 Currently, the Oracle connector recognizes the `UID` and
 `PWD` JDBC properties.
 
-#### Using a
-
-multiplexing handler
+#### Using a multiplexing handler
 
 You can use a multiplexer to connect to multiple database instances with a single
 Lambda function. Requests are routed by catalog name. Use the following classes in
@@ -291,9 +282,7 @@ Lambda.
 | Metadata handler  | `OracleMuxMetadataHandler`  |
 | Record handler    | `OracleMuxRecordHandler`    |
 
-##### Multiplexing
-
-handler parameters
+##### Multiplexing handler parameters
 
 | Parameter                      | Description                                                                                                                                                                                                                                                                                      |
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -362,9 +351,7 @@ pushdown:
   DIVIDE, NEGATE
 - Other: LIKE_PATTERN, IN
 
-### Combined
-
-pushdown example
+### Combined pushdown example
 
 For enhanced querying capabilities, combine the pushdown types, as in the following example:
 
@@ -376,9 +363,7 @@ WHERE col_a > 10
     AND (col_e IN ('val1', 'val2', 'val3') OR col_f LIKE '%pattern%');
 ```
 
-## Passthrough
-
-queries
+## Passthrough queries
 
 The Oracle connector supports [passthrough queries](federated-query-passthrough.md "federated-query-passthrough.md"). Passthrough
 queries use a table function to push your full query down to the data source for

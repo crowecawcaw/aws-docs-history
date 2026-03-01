@@ -10,7 +10,5 @@ files](../../../emr/latest/ManagementGuide/emr-manage-view-web-log-files.md "../
 
 ###### Topics
 
-- [Create and query a basic table based on Amazon EMR log
-  files](emr-create-table.md "emr-create-table.md")
-- [Create and query a partitioned table
-  based on Amazon EMR logs](emr-create-table-partitioned.md "emr-create-table-partitioned.md")
+- [Create and query a basic table based on Amazon EMR log files](emr-create-table.md "emr-create-table.md")
+- [Create and query a partitioned table based on Amazon EMR logs](emr-create-table-partitioned.md "emr-create-table-partitioned.md")

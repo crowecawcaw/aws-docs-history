@@ -7,8 +7,7 @@ This connector does not use Glue Connections to centralize configuration propert
 
 ## Prerequisites
 
-Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data
-source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
+Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
 
 ## Limitations
 
@@ -44,11 +43,9 @@ The Kafka connector can be used with the following cluster types.
   to Kafka (authenticated or unauthenticated).
 - Confluent – A direct connection to
   Confluent Kafka. For information about using Athena with Confluent Kafka data,
-  see [Visualize Confluent data in Quick Suite using Amazon Athena](https://aws.amazon.com/blogs/business-intelligence/visualize-confluent-data-in-amazon-quicksight-using-amazon-athena/ "https://aws.amazon.com/blogs/business-intelligence/visualize-confluent-data-in-amazon-quicksight-using-amazon-athena/") in the _AWS Business Intelligence Blog_.
+  see [Visualize Confluent data in Quick using Amazon Athena](https://aws.amazon.com/blogs/business-intelligence/visualize-confluent-data-in-amazon-quicksight-using-amazon-athena/ "https://aws.amazon.com/blogs/business-intelligence/visualize-confluent-data-in-amazon-quicksight-using-amazon-athena/") in the _AWS Business Intelligence Blog_.
 
-### Connecting to
-
-Confluent
+### Connecting to Confluent
 
 Connecting to Confluent requires the following steps:
 
@@ -60,9 +57,7 @@ Connecting to Confluent requires the following steps:
 4. Follow the steps in the [Setting up the Kafka connector](#connectors-kafka-setup "#connectors-kafka-setup") section of this
    document.
 
-## Supported
-
-authentication methods
+## Supported authentication methods
 
 The connector supports the following authentication methods.
 
@@ -76,12 +71,9 @@ The connector supports the following authentication methods.
 - Self-managed Kafka and Confluent Cloud –
   SASL/PLAIN
 
-For more information, see [Configuring
-authentication for the Athena Kafka connector](#connectors-kafka-setup-configuring-authentication "#connectors-kafka-setup-configuring-authentication").
+For more information, see [Configuring authentication for the Athena Kafka connector](#connectors-kafka-setup-configuring-authentication "#connectors-kafka-setup-configuring-authentication").
 
-## Supported input data
-
-formats
+## Supported input data formats
 
 The connector supports the following input data formats.
 
@@ -129,8 +121,7 @@ Use the parameters in this section to configure the Athena Kafka connector.
     connector is deployed. For more information, see [Encryption and Authentication using SSL](https://kafka.apache.org/documentation/#security_ssl "https://kafka.apache.org/documentation/#security_ssl") in the Apache Kafka
     documentation.
 
-  For more information, see [Configuring
-  authentication for the Athena Kafka connector](#connectors-kafka-setup-configuring-authentication "#connectors-kafka-setup-configuring-authentication").
+  For more information, see [Configuring authentication for the Athena Kafka connector](#connectors-kafka-setup-configuring-authentication "#connectors-kafka-setup-configuring-authentication").
 
 - certificates_s3_reference – The Amazon S3
   location that contains the certificates (the key store and trust store
@@ -264,9 +255,7 @@ Use the format of the examples in this section when you upload your schema to
 the [AWS Glue
 Schema Registry](../../../glue/latest/dg/schema-registry.md "../../../glue/latest/dg/schema-registry.md").
 
-#### JSON type
-
-schema example
+#### JSON type schema example
 
 In the following example, the schema to be created in the AWS Glue Schema
 Registry specifies `json` as the value for
@@ -336,9 +325,7 @@ topic name in Kafka.
 }
 ```
 
-#### CSV type schema
-
-example
+#### CSV type schema example
 
 In the following example, the schema to be created in the AWS Glue Schema
 Registry specifies `csv` as the value for `dataFormat`
@@ -397,9 +384,7 @@ Kafka.
 }
 ```
 
-#### AVRO type
-
-schema example
+#### AVRO type schema example
 
 The following example is used to create an AVRO-based schema in the AWS Glue
 Schema Registry. When you define the schema in the AWS Glue Schema Registry,
@@ -426,9 +411,7 @@ information directly in the registry, the `dataformat`and
 }
 ```
 
-#### PROTOBUF
-
-type schema example
+#### PROTOBUF type schema example
 
 The following example is used to create an PROTOBUF-based schema in the
 AWS Glue Schema Registry. When you define the schema in the AWS Glue Schema
@@ -452,9 +435,7 @@ For more information about adding a registry and schemas in the AWS Glue
 Schema Registry, see [Getting started with Schema
 Registry](../../../glue/latest/dg/schema-registry-gs.md "../../../glue/latest/dg/schema-registry-gs.md") in the AWS Glue documentation.
 
-### Configuring
-
-authentication for the Athena Kafka connector
+### Configuring authentication for the Athena Kafka connector
 
 You can use a variety of methods to authenticate to your Apache Kafka cluster,
 including SSL, SASL/SCRAM, SASL/PLAIN, and SASL/PLAINTEXT.

@@ -5,12 +5,10 @@ Use the following tips to troubleshoot workgroups.
 - Check permissions for individual users in your account. They must have access to
   the location for query results, and to the workgroup in which they want to run
   queries. If they want to switch workgroups, they too need permissions to both
-  workgroups. For information, see [Use IAM policies to control workgroup
-  access](workgroups-iam-policy.md "workgroups-iam-policy.md").
+  workgroups. For information, see [Use IAM policies to control workgroup access](workgroups-iam-policy.md "workgroups-iam-policy.md").
 - Pay attention to the context in the Athena console, to see in which workgroup you
   are going to run queries. If you use the driver, make sure to set the workgroup to
-  the one you need. For information, see [Specify a workgroup
-  for queries](specify-wkgroup-to-athena-in-which-to-run-queries.md "specify-wkgroup-to-athena-in-which-to-run-queries.md").
+  the one you need. For information, see [Specify a workgroup for queries](specify-wkgroup-to-athena-in-which-to-run-queries.md "specify-wkgroup-to-athena-in-which-to-run-queries.md").
 - If you use the API or the drivers to run queries, you must specify the query
   results location using one of the following ways: for individual queries, use [OutputLocation](../APIReference/API_ResultConfiguration.md#athena-Type-ResultConfiguration-OutputLocation "../APIReference/API_ResultConfiguration.md#athena-Type-ResultConfiguration-OutputLocation") (client-side). In the workgroup, use [WorkGroupConfiguration](../APIReference/API_WorkGroupConfiguration.md "../APIReference/API_WorkGroupConfiguration.md"). If the location is not specified in either way,
   Athena issues an error at query runtime.

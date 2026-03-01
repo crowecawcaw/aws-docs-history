@@ -1,6 +1,4 @@
-# Create a table for AWS WAF logs without
-
-partitioning
+# Create a table for AWS WAF logs without partitioning
 
 This section describes how to create a table for AWS WAF logs without partitioning
 or partition projection.
