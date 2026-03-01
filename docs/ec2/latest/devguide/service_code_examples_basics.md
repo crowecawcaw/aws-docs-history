@@ -1,6 +1,4 @@
-# Basic examples for
-
-Amazon EC2 using AWS SDKs
+# Basic examples for Amazon EC2 using AWS SDKs
 
 The following code examples show how to use the basics of Amazon Elastic Compute Cloud with AWS
 SDKs.

@@ -1,6 +1,4 @@
-# Use Console-to-Code to generate code for your EC2 console
-
-actions
+# Use Console-to-Code to generate code for your EC2 console actions
 
 The console provides a guided path for creating resources and testing prototypes. If you
 want to create the same resources at scale, you’ll need automation code. Console-to-Code is a feature
