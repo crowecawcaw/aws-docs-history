@@ -56,7 +56,7 @@ of healthcare data and achieve advanced insights into healthcare data at scale.
    models, standard reports, and dashboards to visualize and study performance.
    [**Amazon Athena**](https://aws.amazon.com/athena/ "https://aws.amazon.com/athena/") can help
    you with direct queries analysis, data preparation for machine learning, and data
-   reconciliation. Create visualization dashboards using [**Amazon Quick Suite**](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/"),
+   reconciliation. Create visualization dashboards using [**Amazon Quick**](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/"),
    then use [**Amazon SageMaker AI**](https://aws.amazon.com/sagemaker/ "https://aws.amazon.com/sagemaker/") to
    build, train, and deploy machine learning models on the available data and integrate with
    custom application. End users include businesses, researchers, data scientists, and technical users.
@@ -104,7 +104,7 @@ business insights through **Amazon Athena** and **Amazon Redshift**.
 **Amazon SageMaker AI** can provide machine learning insights. **Amazon Bedrock**
 helps leverage LLMs to translate English queries into SQL FHIR queries.
 [**Amazon DataZone**](https://aws.amazon.com/datazone/ "https://aws.amazon.com/datazone/") can be
-leveraged to create data products and make them available in a catalog. 5. Create dashboards using **Amazon Quick Suite** (with [**Amazon Q**](https://aws.amazon.com/q/ "https://aws.amazon.com/q/") integration)
+leveraged to create data products and make them available in a catalog. 5. Create dashboards using **Amazon Quick** (with [**Amazon Q**](https://aws.amazon.com/q/ "https://aws.amazon.com/q/") integration)
 and enhanced applications like longitudinal patient view through [**AWS Amplify**](https://aws.amazon.com/amplify/ "https://aws.amazon.com/amplify/").
 
 ## Improve the Customer Experience Diagram
